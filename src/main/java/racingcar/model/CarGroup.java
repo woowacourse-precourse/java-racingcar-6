@@ -25,4 +25,18 @@ public class CarGroup {
         cars.stream()
                 .forEach(car -> car.go(numberGenerator.generate()));
     }
+
+    public List<String> findWinnerNames() {
+        Car winCar = findMaxPositionCar();
+        return cars.stream()
+                .filter(car -> car.equals(winCar))
+                .map(Car::getName)
+                .collect(toList());
+    }
+
+    private Car findMaxPositionCar() {
+        return cars.stream()
+                .max((car, compareCar) -> car.comparePosition(compareCar))
+                .get();
+    }
 }

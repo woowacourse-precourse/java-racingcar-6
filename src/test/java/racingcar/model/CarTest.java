@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -28,6 +29,13 @@ public class CarTest {
         myCar.go(myMove);
         compareCar.go(compareMove);
         assertThat(myCar.comparePosition(compareCar)).isEqualTo(result);
+    }
+
+    @Test
+    void equals_메서드는_다른_Car_객체와_position_이_같은지_판별한다(){
+        Car car = new Car("내자동차");
+        Car compareCar = new Car("상대자동차");
+        assertThat(car.equals(compareCar)).isTrue();
     }
 
     static List<Arguments> provideCarTestArgument() {
