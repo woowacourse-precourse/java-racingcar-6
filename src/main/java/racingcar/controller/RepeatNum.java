@@ -6,7 +6,7 @@ public class RepeatNum {
     public static int setRepeatNum() {
         String inputRepeat = InputView.inputRepeat();
         int repeatNum = checkInputRepeatToInt(inputRepeat);
-        checkRepeatNumPlus(repeatNum);
+        checkRepeatNumRange(repeatNum);
 
         return repeatNum;
     }
@@ -21,7 +21,7 @@ public class RepeatNum {
         return repeatNum;
     }
 
-    private static void checkRepeatNumPlus(int repeatNum) {
+    private static void checkRepeatNumRange(int repeatNum) {
         if (repeatNum < 1) {
             throw new IllegalArgumentException();
         }
