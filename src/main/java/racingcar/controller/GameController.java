@@ -20,7 +20,7 @@ public class GameController {
         return new Game(
                 new RandomNumberGenerator(),
                 Cars.from(InputView.readCarNames()),
-                InputView.readANumberOfAttempts()
+                InputView.readNumberOfAttempts()
         );
     }
 }

@@ -18,7 +18,7 @@ public class InputView {
         return InputUtil.readStringList();
     }
 
-    public static int readANumberOfAttempts() {
+    public static int readNumberOfAttempts() {
         System.out.println(INPUT_NUMBER_OF_ATTEMPTS_REQUEST_MESSAGE);
         return InputUtil.readInt();
     }
