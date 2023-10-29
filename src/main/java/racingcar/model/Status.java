@@ -23,8 +23,8 @@ public enum Status {
         }
         return STOP.getForward();
     }
-    
-    public Integer getForward() {
+
+    private Integer getForward() {
         return forward;
     }
 }
