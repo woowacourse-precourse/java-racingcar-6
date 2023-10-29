@@ -16,6 +16,10 @@ public class Position {
 
     public int getPosition() {
         return this.position;
+    
+    public String getDisplayFormat() {
+        return DISPLAY_STRING.repeat(position);
+    }
     }
 
     @Override

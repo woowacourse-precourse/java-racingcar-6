@@ -23,8 +23,7 @@ public class Name {
         }
     }
 
-    @Override
-    public String toString() {
+    public String getDisplayFormat() {
         return this.name;
     }
 

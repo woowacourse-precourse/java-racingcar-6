@@ -20,16 +20,15 @@ public class Car {
         }
     }
 
-    public String getCarName() {
-        return name.toString();
+    public String getDisplayFormat() {
+        return name.getDisplayFormat() + " : " + position.getDisplayFormat();
     }
 
-    public int getCarPosition() {
-        return position.getPosition();
+    public Position position() {
+        return this.position;
     }
 
-    @Override
-    public String toString() {
-        return name.toString() + " : " + position.toString() + "\n";
+    public Name name() {
+        return this.name;
     }
 }
