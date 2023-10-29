@@ -28,6 +28,7 @@ public class PrintService {
             System.out.printf("%s", printLocation(racingCar.getLocation()));
             System.out.println();
         }
+        System.out.println();
     }
         private static String printLocation(Long distance) {
             return LongStream.range(0, distance)

@@ -47,7 +47,7 @@ public class GameService {
                 int num = Randoms.pickNumberInRange(0, 9);
 
                 if (num >= 4)
-                    racingCar.putForward(num);
+                    racingCar.putForward();
 
                 maxLocation = max(maxLocation, racingCar.getLocation());
             }

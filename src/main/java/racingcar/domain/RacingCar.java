@@ -14,8 +14,8 @@ public class RacingCar {
         return racingCar;
     }
 
-    public void putForward(long distance) {
-        this.location += distance;
+    public void putForward() {
+        ++this.location;
     }
 
     public String getName() {
