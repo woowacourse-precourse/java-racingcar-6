@@ -17,7 +17,8 @@ public class UserInput {
 
 	public ArrayList<InformationOfCar> inputInformationOfCar() {
 		StringTokenizer nameDivider = new StringTokenizer(Console.readLine(), ",");
-		return addToCarList(nameDivider);
+		carList = addToCarList(nameDivider);
+		return carList;
 	}
 
 	private ArrayList<InformationOfCar> addToCarList(StringTokenizer nameDivider) {
