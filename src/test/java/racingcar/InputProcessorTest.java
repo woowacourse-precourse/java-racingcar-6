@@ -16,9 +16,9 @@ public class InputProcessorTest {
         assertEquals("String index out of range: 5 \nerrorVar : junnnnnnn", exception.getMessage());
 
         String emptyInput = "";
-        NullPointerException exception2 = assertThrows(NullPointerException.class,
+        NullPointerException nullPointerException = assertThrows(NullPointerException.class,
                 () -> InputProcessor.carNameInputProcess(emptyInput));
-        assertEquals("String is null or empty. \nerrorVar : ", exception2.getMessage());
+        assertEquals("String is null or empty. \nerrorVar : ", nullPointerException.getMessage());
     }
 
     @Test
@@ -35,5 +35,10 @@ public class InputProcessorTest {
         exception = assertThrows(NumberFormatException.class,
                 () -> InputProcessor.tryCountInputProcess(nonNumericInput));
         assertEquals("Invalid number format. \nerrorVar : abc", exception.getMessage());
+
+        String emptyInput = "";
+        NullPointerException nullPointerException = assertThrows(NullPointerException.class,
+                () -> InputProcessor.carNameInputProcess(emptyInput));
+        assertEquals("String is null or empty. \nerrorVar : ", nullPointerException.getMessage());
     }
 }
