@@ -15,5 +15,9 @@ public class Application {
 
         playersController.addPlayer(carNames);
         racingCupController.addPlayers(playersController.getPlayerList());
+
+        while(racingCupController.nextRound()) {
+            System.out.println("라운드 : " + racingCupController.getRacingCup().getRound());
+        }
     }
 }

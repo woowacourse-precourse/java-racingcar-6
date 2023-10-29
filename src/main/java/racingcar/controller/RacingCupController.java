@@ -14,6 +14,15 @@ public class RacingCupController {
         this.racingCup.setPlayerList(playerList);
     }
 
+    public boolean nextRound() {
+        int round = this.racingCup.getRound();
+        if(round < this.racingCup.getFINAL_ROUND()) {
+            this.racingCup.setRound(round + 1);
+            return true;
+        }
+        return false;
+    }
+
     public RacingCup getRacingCup() {
         return racingCup;
     }
