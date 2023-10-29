@@ -28,7 +28,7 @@ public class InputView {
         return validInputType(Console.readLine());
     }
 
-    // 숫자 외의 값은 허용하지 않습니다.
+    // 1이상의 정수값만 허용합니다.
     private Integer validInputType(String input) {
         try {
             Integer.parseInt(input);
