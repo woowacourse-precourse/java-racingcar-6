@@ -14,16 +14,15 @@ public class OutputView {
             System.out.print(winner);
         }
     }
-    public void printEachResult(List<Car> cars, List<Integer> randomNumber) {
-        for(int i=0; i<cars.size(); i++) {
-            System.out.println(cars.get(i).getName()+" : ");
-            printEachRandomResult(randomNumber.get(i));
-        }
+    public void printEachResult(Car car, int randomNumber) {
+        System.out.print(car.getName()+" : ");
+        printEachRandomResult(randomNumber);
+        System.out.println();
+
     }
     public void printEachRandomResult(int randomNumber) {
         for(int i=0; i<randomNumber; i++) {
             System.out.print("-");
         }
-        System.out.println();
     }
 }

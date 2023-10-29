@@ -22,7 +22,7 @@ public class RacingCarService {
 
     public void move(Car car, int randomNumber) {
         int position = car.getPosition();
-        if (randomNumber > 4) {
+        if (randomNumber >= 4) {
             car.setPosition(position + 1);
         }
     }
