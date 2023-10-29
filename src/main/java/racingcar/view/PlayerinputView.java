@@ -1,6 +1,10 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Car;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerinputView {
     public static String[] getNames() {
@@ -19,6 +23,16 @@ public class PlayerinputView {
             }
         }
         return names;
+    }
+
+
+    public static List<Car> saveNames(String[] names){
+        List<Car> cars = new ArrayList<>();
+        for(int i=0; i< names.length; i++){
+            String name = names[i];
+            cars.add(new Car(name,0));
+        }
+        return cars;
     }
 
 
