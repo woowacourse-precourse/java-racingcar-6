@@ -6,6 +6,7 @@ import java.util.List;
 import racingcar.Model.Car;
 import racingcar.Util.InputValidator;
 import racingcar.View.InputView;
+import racingcar.View.OutView;
 
 public class RacingCarGameController {
 
@@ -18,7 +19,7 @@ public class RacingCarGameController {
         List<Car> carList = createRacingCar(carNameList);
 
         roundProgress(carList, Integer.parseInt(racingRoundTimes)); // 게임 진행
-        createRacingCar(carNameList);
+        OutView.printWinnerCar(carList);
     }
 
     public List<Car> createRacingCar(List<String> carNameList) {
@@ -35,16 +36,14 @@ public class RacingCarGameController {
     }
 
     public void roundProgress(List<Car> carList, int racingRoundTimes){
+        System.out.println("실행결과");
         for(int i=0; i<racingRoundTimes; i++){
             for (Car car : carList) {
-                if(checkRandomNumber(makeRandomNumber())){
+                if(checkRandomNumber(makeRandomNumber())){ // depth 신경쓸 것
                     car.plusStepCount();
                 }
             }
-
-        }
-        for (Car car : carList) {
-            System.out.println(car.getName() + ": " + car.getStepCount());
+            OutView.printCurrentRoundResult(carList);
         }
     }
 

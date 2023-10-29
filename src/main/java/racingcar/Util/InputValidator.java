@@ -22,4 +22,5 @@ public class InputValidator {
             }
         }
     }
+    // 콤마랑 콤마사이에 아무 값도 없다면? 예외처리 + 공백만 있다면?? 예외처리
 }
