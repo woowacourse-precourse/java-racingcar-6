@@ -79,4 +79,16 @@ public class StringTest {
         }
     }
 
+    @Test
+    void 사용자에게_입력_받은_값이_숫자가_아닐경_예외_발생() {
+        String input = "abc";
+
+        assertThatThrownBy(() -> validateIsNumber(input))
+                .isInstanceOf(NumberFormatException.class)
+                .hasMessageContaining("For input string: \"" + input + "\"");
+    }
+
+    void validateIsNumber(String numberStr) {
+        int number = Integer.parseInt(numberStr);
+    }
 }
