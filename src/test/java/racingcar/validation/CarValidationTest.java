@@ -1,6 +1,7 @@
 package racingcar.validation;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
 import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
 
 import java.util.List;
@@ -24,4 +25,18 @@ class CarValidationTest {
                 .hasMessageContaining(LENGTH_MESSAGE);
     }
 
+    @Test
+    @DisplayName("자동차 이름 중복 여부 테스트")
+    void validateCarNameDuplicationTest() {
+        // given
+        CarValidation carValidation = new CarValidation();
+
+        // when
+        List<String> carNames = List.of("woni", "woni", "jun");
+
+        // then
+        assertThatThrownBy(() -> carValidation.validateCarNameDuplication(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(DUPLICATE_MESSAGE);
+    }
 }
