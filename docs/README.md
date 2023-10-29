@@ -80,11 +80,11 @@
 #### Navigation
 - 우승자를 판단하고 찾아온다.
 - 리스트들의 이동 상태를 요청한다.
-- RandomNumberGenerator에게 숫자를 요청하고 Car들에 이동 요청을 한다.
+- Car들에 이동 요청을 한다.
 
 #### Car
 - 이름을 검증한다.(5자 이상시 IllegalArgumentException)
--[x] 자동차를 이동 할 수 있는지 판단한다.
+-[x] RandomNumberGenerator에게 숫자를 요청하고 자동차를 이동 할 수 있는지 판단한다.
   -[x] 이동할 수 있다면 이동한다.
 -[x] getLocation를 이용하여 이동한 거리를 반환한다.
 - getName을 이용하여 자동차의 이름을 반환한다.
