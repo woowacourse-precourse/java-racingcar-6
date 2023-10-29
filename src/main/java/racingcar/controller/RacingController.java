@@ -12,6 +12,7 @@ import java.util.stream.IntStream;
 public class RacingController {
 
     private final RacingView racingView;
+    private CarList carList;
 
     public RacingController(RacingView racingView) {
         this.racingView = racingView;
@@ -20,15 +21,20 @@ public class RacingController {
     public void startRacing() {
         List<String> carNames = inputCarName();
         int forwardCount = inputForwardCount();
-        CarList carList = new CarList(carNames);
+        carList = new CarList(carNames);
 
+        runRaceByForwardCount(forwardCount);
+
+        racingView.printResult(carList);
+    }
+
+    private void runRaceByForwardCount(int forwardCount) {
         racingView.printExecutionResults();
+
         IntStream.range(0, forwardCount).forEach(i -> {
             carList.race();
             racingView.printExecutionResultsForEachOrder(carList);
         });
-
-        racingView.printResult(carList);
     }
 
     private List<String> inputCarName() {
