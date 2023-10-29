@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.AttemptCount;
 import racingcar.domain.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -14,5 +15,6 @@ public class GameController {
         outputView.printInputCarNameMessage();
         List<Car> cars = inputView.readCarNames();
         outputView.printInputAttemptCountMessage();
+        AttemptCount attemptCount = inputView.readAttemptCount();
     }
 }

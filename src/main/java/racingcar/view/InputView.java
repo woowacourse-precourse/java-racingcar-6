@@ -11,4 +11,9 @@ public class InputView {
         String input = Console.readLine();
         return Arrays.stream(input.split(",")).map(Car::new).toList();
     }
+
+    public AttemptCount readAttemptCount() {
+        String input = Console.readLine();
+        return new AttemptCount(Integer.parseInt(input));
+    }
 }
