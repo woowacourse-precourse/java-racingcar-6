@@ -10,7 +10,7 @@ public class Validator {
 
     private static final int MAX_NAME_LENGTH = 5;
     private static final String NUMBER_REGEX = "^[0-9]*$";
-    private static final String SPECIAL_REGEX = "^[!|~₩@#$%^&*().<>/?{}/-_=+]*$";
+    private static final String NOT_SPECIAL_REGEX = "[^a-zA-Z0-9가-힣]";
 
     private Validator() {}
 
@@ -60,7 +60,7 @@ public class Validator {
     }
 
     public static void checkSplitUnit(String input) {
-        if (input.matches(SPECIAL_REGEX)) {
+        if (!input.matches(NOT_SPECIAL_REGEX)) {
             throw new IllegalArgumentException(SPLIT_REGEX_ERROR.getMessage());
         }
     }
