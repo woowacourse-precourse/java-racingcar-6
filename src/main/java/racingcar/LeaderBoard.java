@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class LeaderBoard {
-    private final List<Integer> paceMapValueList = new ArrayList<>();
+    private final List<LinkedHashMap<String, Integer>> paceMapList = new ArrayList<>();
 
     public void showRace(Machines machines, RaceLap raceLap, PaceComputer paceComputer) {
 
@@ -18,7 +18,7 @@ public class LeaderBoard {
 
         for (int i = 0; i < Integer.parseInt(raceLap.getRaceLapNumber()); i++) {
             paceComputer.updatePaceMap(currentPaceMap);
-            paceMapValueList.addAll(currentPaceMap.values());
+            paceMapList.add(new LinkedHashMap<>(currentPaceMap));
 
             currentPaceMap.forEach((machineName, driveSuccessNumber) ->
                     System.out.println(machineName + " : " + convertPaceToGraphic(driveSuccessNumber)));
@@ -46,7 +46,7 @@ public class LeaderBoard {
         return "-".repeat(driveSuccessNumber);
     }
 
-    public List<Integer> getPaceMapValueList() {
-        return paceMapValueList;
+    public List<LinkedHashMap<String, Integer>> getPaceMapList() {
+        return paceMapList;
     }
 }

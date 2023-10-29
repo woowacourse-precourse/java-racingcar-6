@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -50,7 +51,12 @@ public class RaceDatasetTest {
 
         leaderBoard.showRace(machines, raceLap, paceComputer);
 
-        List<Integer> valuesInMap = leaderBoard.getPaceMapValueList();
+        List<LinkedHashMap<String, Integer>> paceMapList = leaderBoard.getPaceMapList();
+        List<Integer> valuesInMap =
+                paceMapList
+                        .stream()
+                        .flatMap(paceMap -> paceMap.values().stream())
+                        .collect(Collectors.toList());
         List<Integer> generatedNumbers = paceComputer.getRandomNumberList();
 
         assertThat(valuesInMap).isEqualTo(generatedNumbers);
