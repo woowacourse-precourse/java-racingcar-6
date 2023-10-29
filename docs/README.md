@@ -9,7 +9,7 @@
 - [ ] 자동차 이동 횟수 입력 : Application#inputMoveCount()
   - [ ] 잘못된 입력 : IllegalArgumentException
 - [ ] 게임 진행 : GameHost#playOneTurn()
-  - [ ] 자동차 전진 : 0~9의 무작위 값이 4이상일 경우 - Car#moveForward()
+  - [X] 자동차 전진 : 0~9의 무작위 값이 4이상일 경우 - Car#moveForward()
 - [ ] 게임 완료 후, 우승자 출력 : GameHost#says()
   - [ ] 우승자가 여러명일 경우 쉼표 구분 - GameHost#multipleWinner()
 
