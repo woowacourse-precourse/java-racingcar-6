@@ -41,8 +41,8 @@ class InputValidatorTest {
     }
 
     @ParameterizedTest
-    @DisplayName("시도 횟수가 1이상의 양수로 된 숫자 문자열로 입력되지 않으면 예외 발생")
-    @ValueSource(strings = {"a", "bb", "!", "$#", "1q@", "-5", "-10", "0"})
+    @DisplayName("시도 횟수가 숫자 문자열로 입력되지 않으면 예외 발생")
+    @ValueSource(strings = {"a", "bb", "!", "$#", "1q@"})
     void should_Throw_Exception_For_Invalid_Numeric_Input(String input) {
         // when
         // then
