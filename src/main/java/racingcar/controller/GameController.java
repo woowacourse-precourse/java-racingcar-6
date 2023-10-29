@@ -8,6 +8,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
+
     GameService gameService = new GameService();
     Validator validator = new Validator();
 
@@ -27,6 +28,10 @@ public class GameController {
             OutputView.printGameStatus(new RoundResponseDto(carList));
         }
 
+        List<Car> winnerCars = gameService.extractWinner(carList);
+
+        String gameWinner = gameService.getGameWinner(winnerCars);
+        OutputView.printGameWinner(gameWinner);
 
     }
 
