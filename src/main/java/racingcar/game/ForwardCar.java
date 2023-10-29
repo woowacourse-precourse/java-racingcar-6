@@ -37,4 +37,12 @@ public class ForwardCar {
         }
         return "-".repeat(moveCount);
     }
+
+    public static void playGame(List<CarInfo> carList, int gameRound) {
+        System.out.println();
+        System.out.println("실행 결과");
+        for (int round = 0; round < gameRound; round++) {
+            forwardCar(carList);
+        }
+    }
 }
