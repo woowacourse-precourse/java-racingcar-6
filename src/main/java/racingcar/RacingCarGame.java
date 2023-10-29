@@ -31,6 +31,6 @@ public class RacingCarGame {
     }
 
     private void exist() {
-        OutputView.printGameWinner();
+        OutputView.printGameWinner(carController.getWinner());
     }
 }

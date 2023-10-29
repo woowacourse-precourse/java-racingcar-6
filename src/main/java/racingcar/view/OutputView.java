@@ -7,7 +7,7 @@ public class OutputView {
         System.out.println(Constants.OUTPUT_GAME_RESULT);
     }
 
-    public static void printGameWinner() {
-        System.out.print(Constants.OUTPUT_GAME_WINNER);
+    public static void printGameWinner(String winner) {
+        System.out.print(Constants.OUTPUT_GAME_WINNER + winner);
     }
 }

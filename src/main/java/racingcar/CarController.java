@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CarController {
@@ -39,5 +40,12 @@ public class CarController {
 
             System.out.print("\n");
         }
+    }
+
+    public String getWinner() {
+        // TODO: 임시 우승자 선정
+        List<String> members = Arrays.asList("pobi", "jason");
+
+        return String.join(",", members);
     }
 }
