@@ -30,11 +30,11 @@ public class Carracing {
 
     public static void goStop(Map<String, String> raceScore) {
 
-        for (int i = 0; i < carNameList.length; i++) {
+        for (String carName : carNameList) {
             int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE_NUMBER, FINAL_INCLUSIVE_NUMBER);
 
             if (randomNumber >= STANDARD_MOVING_NUMBER) {
-                raceScore.put(carNameList[i], raceScore.get(carNameList[i]) + "-");
+                raceScore.put(carName, raceScore.get(carName) + "-");
             }
         }
         printGameResultMsg(raceScore);
@@ -44,8 +44,8 @@ public class Carracing {
 
         raceScore = new LinkedHashMap<>();
 
-        for (int i = 0; i < carNameList.length; i++) {
-            raceScore.put(carNameList[i], "");
+        for (String carName : carNameList) {
+            raceScore.put(carName, "");
         }
 
         return raceScore;

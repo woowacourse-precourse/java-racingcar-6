@@ -27,9 +27,9 @@ class CarracingTest {
         Map<String, String> nameList = new LinkedHashMap<>();
         nameList = carracing.setInitStartPoint(names);
 
-        String expectedResult = sumScore(nameList);
+        boolean checkSetInitStartPoint = checkNull(nameList);
 
-        assertThat(expectedResult).isEqualTo("");
+        assertThat(checkSetInitStartPoint).isEqualTo(false);
     }
 
     private static boolean checkNull(Map<String, String> nameList) {

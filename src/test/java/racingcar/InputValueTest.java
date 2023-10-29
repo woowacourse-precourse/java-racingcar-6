@@ -19,12 +19,12 @@ class InputValueTest {
     private InputValue inputValue;
 
     @BeforeEach
-    void Setup() {
+    void setUp() {
         inputValue = new InputValue();
     }
 
     @AfterEach
-    void close(){
+    void close() {
         Console.close();
     }
 
