@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Racing {
 
@@ -11,6 +12,17 @@ public class Racing {
             record.put(car,0);
         }
         return record;
+    }
+
+    static void recordResult(Map<String, Integer> record){
+        for(Entry<String, Integer> entrySet: record.entrySet()){
+            int randomNum = Util.makeRandomNumber();
+
+            if(Util.decideMovement(randomNum)){
+                int num = entrySet.getValue() + 1;
+                record.put(entrySet.getKey(), num);
+            }
+        }
     }
 
 }
