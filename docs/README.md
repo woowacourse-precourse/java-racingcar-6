@@ -30,51 +30,48 @@
 
 `List<Car>` 일급 컬렉션
 
-- [ ] `Car`들의 이름과 위치들을 담는 `CarsInformationDto` 반환
-- [ ] 선두의 `Car`들을 `CarNamesDto`으로 반환
-- [ ] `Car`들의 이동을 명령
+- [x] `Car`들의 이름과 위치들을 담는 `CarsInformationDto` 반환
+- [x] 선두의 `Car`들을 `CarNamesDto`으로 반환
+- [x] `Car`들의 이동을 명령
 
 ## 📘 Car
 
 차라는 클래스
 
-- [ ] 이름과 위치를 담는 `CarInformationDto` 반환
-- [ ] 차를 이동 (`CarMovementStrategy` 전략 사용)
-- [ ] `equals()` 오버라이딩
+- [x] 이름과 위치를 담는 `CarInformationDto` 반환
+- [x] 차를 이동 (`CarMovementStrategy` 전략 사용)
+- [x] `equals()` 오버라이딩
 
 ### 📄 CarName
 
 `Car`의 이름
 
-- [ ] 이름의 길이 검증
+- [x] 이름의 길이 검증
 
 ### 📄 CarPosition
 
 `Car`의 위치
 
-- [ ] 위치값을 증감
-- [ ] `compareTo()` 오버라이딩
+- [x] 위치값을 증감
 
 ## 📒 CarsGenerator
 
 `Cars`를 만드는 클래스
 
-- [ ] `List<String>`을 `Cars`로 변환
-    - `List<String>`을 `List<CarName>`로 변환
-    - `List<CarName>`을 `List<Car>`로 변환
-- [ ] `String`을 `CarMovementStrategy`전략을 적용하여 `Car`로 변환
+- [x] `List<String>`을 `Cars`로 변환
+    - [x] `String`을 `CarMovementStrategy`전략을 적용하여 `Car`로 변환
 
 ## 📖 CarMovementStrategy
 
 `Car`의 움직임에 대한 전략 **인터페이스**
 
-- [ ] 증감값을 반환
+- 증감값을 반환
 
-## 📘 MoveForwardOnceOrStopStrategy
+## 📘 MoveForwardOnceRandomlyStrategy
 
 `CarMovementStrategy`를 구현
 
-- [ ] 랜덤값에 대해 증감값을 반환
+- [x] 랜덤값에 대해 증감값을 반환
     - 4 이상 일 경우 `1` 반환
     - 아니라면 `0` 반환
 
