@@ -1,14 +1,17 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.repository.RacingGameRepository;
 import racingcar.service.utils.InputValidatorUtils;
 
 import java.util.List;
 
 public class InputService {
+    private RacingGameRepository racingGameRepository;
     private InputValidatorUtils inputValidatorUtils;
 
     public InputService() {
+        this.racingGameRepository = new RacingGameRepository();
         this.inputValidatorUtils = new InputValidatorUtils();
     }
 
@@ -17,7 +20,7 @@ public class InputService {
         String input = Console.readLine();
         List<String> cars = List.of(input.split(","));
         if (inputValidatorUtils.isValidateCarInput(cars)) {
-            System.out.println(cars);
+            racingGameRepository.saveCar(cars);
         } else {
             throw new IllegalArgumentException();
         }
