@@ -14,7 +14,8 @@ public class RandomNumberGeneratorTest {
     @RepeatedTest(TEST_NUMBER)
     void 무작위_숫자_범위_유효성_테스트() {
         //given, when
-        int randomNumber = RandomNumberGenerator.generate();
+        RandomNumberGenerator generator = RandomNumberGenerator.getInstance();
+        int randomNumber = generator.generate();
 
         //then
         assertThat(randomNumber)
