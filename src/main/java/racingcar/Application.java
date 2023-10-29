@@ -5,8 +5,10 @@ public class Application {
 
 //    자동차 이름 입력
       CarName car = new CarName();
-      System.out.println(car.Car());
+      System.out.println(car.getCarNames());
       
+      AttemptNumber attempt = new AttemptNumber();
+      System.out.println(attempt.Attempt());
       
     }
 }
