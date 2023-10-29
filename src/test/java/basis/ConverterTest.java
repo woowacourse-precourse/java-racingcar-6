@@ -26,7 +26,7 @@ class ConverterTest {
             actual.add(s);
         }
         Assertions.assertEquals(expected, actual);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> converter.splitAndAddToMap("pobi, crong"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> converter.splitAndAddToMap("pobi, ,crong"));
     }
 
     @Test
