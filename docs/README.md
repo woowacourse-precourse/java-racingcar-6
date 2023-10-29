@@ -9,6 +9,7 @@
             - null 체크
         - 입력 받은 이름은 쉼표로 구분 하여 관리
             - 입력 받은 이름 중 5자 이하 인지 확인
+                - 빈 값인 경우 예외 발생
                 - 5자 이하인 경우 정상 진행
                 - 5자 초과인 경우 IllegalArgumentException 예외 발생
             - 입력 받은 이름은 공백을 제거 한다.
@@ -34,14 +35,18 @@
 
 ### 요구사항 준수 체크리스트
 
-1. Java version 을 Java 17 로 진행 되었는가?
-2. 프로그램의 시작점은 Application 의 Main() 인가?
-3. build.gradle 을 수정하지 않고, 외부 라이브러리를 사용하지 않았는가?
+-[x] Java version 을 Java 17 로 진행 되었는가?
+-[x] 프로그램의 시작점은 Application 의 Main() 인가?
+-[x] build.gradle 을 수정하지 않고, 외부 라이브러리를 사용하지 않았는가?
+
 4. Java 코드 컨벤션을 지켰는가?
-5. 프로그램 종료 시 Sysytem.exit() 를 사용하지 않았는가?
-6. Application 의 모든 테스트가 통과 되는가?
-7. indent(인덴트, 들여쓰기) depth를 3이 넘지 않았는가?
-8. 3항 연산자를 쓰지 않았는가?
+
+-[x] 프로그램 종료 시 Sysytem.exit() 를 사용하지 않았는가?
+-[x] Application 의 모든 테스트가 통과 되는가?
+-[x] indent(인덴트, 들여쓰기) depth를 3이 넘지 않았는가?
+-[x] 3항 연산자를 쓰지 않았는가?
+
 9. 함수가(또는 메소드가) 하나의 일만 하는가?
-10. JUnit 5와 AssertJ를 이용 하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인 했는가?
-11. 주어진 라이브러리(pickNumberInRange(), readLine())를 사용 했는가?
+
+-[x] JUnit 5와 AssertJ를 이용 하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인 했는가?
+-[x] 주어진 라이브러리(pickNumberInRange(), readLine())를 사용 했는가?
