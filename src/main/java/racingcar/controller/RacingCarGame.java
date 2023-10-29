@@ -30,6 +30,14 @@ public class RacingCarGame {
         Map<String, Car> carsMap = cars.getCars();
         for (Car car : carsMap.values()) {
             int randomNumber = pickRandomNumber();
+            judgeAdvanceOrLeft(car, randomNumber);
+        }
+    }
+
+    public void judgeAdvanceOrLeft(Car car, int randomNumber) {
+        if(randomNumber >= 4){
+            int currentAdvanceCount = car.getAdvanceCount();
+            car.setAdvanceCount(currentAdvanceCount + 1);
         }
     }
 
