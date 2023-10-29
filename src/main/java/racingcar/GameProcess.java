@@ -15,6 +15,7 @@ public class GameProcess {
 	}
 
 	public void playGame(ArrayList<InformationOfCar> carList, int moveCount) {
+		System.out.println();
 		System.out.println("실행 결과");
 		for (int j = 0; j < moveCount; j++) {
 			for (InformationOfCar car : carList) {
@@ -51,6 +52,7 @@ public class GameProcess {
 				result += ", " + car.getCarName();
 			}
 		}
+		printGenerator.printResult(result);
 	}
 
 }
