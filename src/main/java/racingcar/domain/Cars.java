@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.constants.ExceptionMessage;
-
 public class Cars {
 
     private final List<Car> cars;
@@ -35,7 +34,7 @@ public class Cars {
     private boolean hasDuplicateName(final List<Car> cars) {
         Set<String> carNames = new HashSet<>();
         return cars.stream()
-                .map(car -> car.getName().toString())
+                .map(Car::getName)
                 .anyMatch(name -> !carNames.add(name));
     }
 
