@@ -7,11 +7,11 @@ import racingcar.dto.RacingResult;
 public class OutputView {
     private static final String DELIMITER = ", ";
 
-    public void printMessage() {
+    public void printResultMessage() {
         System.out.println("실행 결과");
     }
 
-    public void printResult(List<RacingResult> racingResults) {
+    public void printRacingResult(List<RacingResult> racingResults) {
         racingResults.forEach(result ->
                 System.out.printf("%s : %s%n", result.name(), result.position())
         );
