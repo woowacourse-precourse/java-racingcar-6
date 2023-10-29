@@ -25,7 +25,17 @@ public class Racing {
     }
 
     public List<Car> getWinners() {
-        return null;
+        Map<Integer, List<Car>> map = new HashMap<>();
+        for (Car car : cars) {
+            if (map.get(car.getMovedDist()) == null) {
+                List<Car> carList = new ArrayList<>();
+                carList.add(car);
+                map.put(car.getMovedDist(), carList);
+                continue;
+            }
+            map.get(car.getMovedDist()).add(car);
+        }
+        return map.get(Collections.max(map.keySet()));
     }
 
     private void printTurnResult() {
