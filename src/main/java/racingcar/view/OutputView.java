@@ -6,7 +6,7 @@ import java.util.List;
 
 public class OutputView {
     private static final String WINNERS_DELIMITER = ", ";
-    private static final String MESSAGE_WINNER_ANNOUNCE = "%s가 최종 우승했습니다.";
+    private static final String MESSAGE_WINNER_ANNOUNCE = "최종 우승자 : %s";
     private static final String RACE_PROGRESS_CHARACTER = "-";
     private static final int ZERO = 0;
 
