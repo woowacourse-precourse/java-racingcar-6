@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.domain.CarRace;
+import racingcar.domain.Judge;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,18 +22,12 @@ public class Application {
             System.out.print("\n");
         }
 
+        Judge judge = new Judge();
 
-        // TODO: 프로그램 구현
-    }
-
-    public static List<String> setupTrack(int size) {
-        List<String> tracks = new ArrayList<>();
-
-        for (int i = 0; i < size; i++) {
-            tracks.add("");
-        }
-
-        return tracks;
+        int maxTrack = judge.findMaxTrack(tracks);
+        List<String> winnersList = judge.findWinner(carNames, tracks, maxTrack);
+        String winners = String.join(", ", winnersList);
+        System.out.println("최종 우승자 : " + winners);
     }
 
     public static List<String> askCarName() {
@@ -73,6 +68,15 @@ public class Application {
         if (input.isEmpty() || !input.matches("\\d+") || Integer.parseInt(input) < 1) {
             throw new IllegalArgumentException("자연수를 입력하십시오.");
         }
+    }
+
+    public static List<String> setupTrack(int size) {
+        List<String> tracks = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            tracks.add("");
+        }
+        return tracks;
     }
 }
 
