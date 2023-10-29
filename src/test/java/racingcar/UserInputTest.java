@@ -22,7 +22,7 @@ public class UserInputTest {
 
     @Test
     void 이름이_공백인_경우_예외_처리() {
-        String blank = " ";
+        String blank = "";
         String includeBlank = "tom, ,yell";
 
         List<String> blankList = Arrays.asList(blank.split(","));
