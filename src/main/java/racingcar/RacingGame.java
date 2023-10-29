@@ -4,12 +4,14 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
 
+    User user;
     CarList carList;
     String[] carNameList;
     int count;
     StringBuilder sb;
 
     public RacingGame() {
+        user = new User();
         retrieveCarList();
         retrieveCount();
         sb = new StringBuilder();
@@ -21,6 +23,7 @@ public class RacingGame {
         for (int i=0; i<count; i++) {
             for (String carName : carNameList) {
                 checkMoving(carName);
+                printPosition(carName);
             }
             sb.append('\n');
         }
@@ -31,12 +34,11 @@ public class RacingGame {
     }
 
     private void retrieveCarList() {
-        carList = new CarList();
+        carList = new CarList(user.initCarList());
         carNameList = carList.getCarNameList();
     }
 
     private void retrieveCount() {
-        User user = new User();
         count = user.initCount();
     }
 
@@ -45,11 +47,9 @@ public class RacingGame {
         if (randomNumber >= 4) {
             carList.moveForward(carName);
         }
-
-        printMoving(carName);
     }
 
-    private void printMoving(String carName) {
+    private void printPosition(String carName) {
         int position = carList.getPosition(carName);
         sb.append(carName);
         sb.append(" : ");

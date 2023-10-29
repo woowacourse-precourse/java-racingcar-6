@@ -9,12 +9,10 @@ public class CarList {
     private final Map<String, Integer> carList;
     private int max = 0;
 
-    public CarList() {
-        User user = new User();
-        String[] carNameList = user.initCarList();
+    public CarList(String[] carArray) {
         carList = new HashMap<>();
 
-        for (String carName : carNameList) {
+        for (String carName : carArray) {
             carList.put(carName, 0);
         }
     }
