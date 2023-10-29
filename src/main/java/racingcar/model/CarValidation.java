@@ -20,14 +20,14 @@ public class CarValidation {
 
     private void isLengthValid() {
         boolean invalidNameFound = carNames.stream()
-                .anyMatch(name -> name.length() > Constants.valid_Length);
+                .anyMatch(name -> name.length() > Constants.VALID_LENGTH);
         if (invalidNameFound) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
 
     private void isCorrectFormat() {
-        if (!Constants.namesStringPattern.matcher(NAMES_STRING).matches()) {
+        if (!Constants.NAMES_STRING_PATTERN.matcher(NAMES_STRING).matches()) {
             throw new IllegalArgumentException("이름 형식이 잘못 되었습니다");
         }
     }

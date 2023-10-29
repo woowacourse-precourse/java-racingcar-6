@@ -20,7 +20,7 @@ public class Car {
     }
 
     public void validRacingCars() {
-        if( Util.getRandomNum() >= Constants.minimumLength){
+        if( Util.getRandomNum() >= Constants.MINIMUM_LENGTH){
             position++;
         }
     }
