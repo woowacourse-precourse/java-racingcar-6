@@ -7,7 +7,7 @@ import racingcar.util.generator.NumberGenerator;
 public class MoveCarsService {
 	
 	private static final NumberGenerator GENERATOR = new NumberGenerator();
-
+	
 	public void moveCars(Cars cars) {
 		for(Car car : cars.getCars()) {
 			int randomNumber = GENERATOR.generate();

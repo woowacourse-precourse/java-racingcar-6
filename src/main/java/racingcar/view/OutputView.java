@@ -1,8 +1,5 @@
 package racingcar.view;
 
-import java.util.StringJoiner;
-import java.util.stream.IntStream;
-
 import racingcar.util.message.ProgressMessage;
 
 public class OutputView {
@@ -15,12 +12,12 @@ public class OutputView {
 		System.out.println(ProgressMessage.INPUT_TRY_NUMBER.getMessage());
 	}
 	
-	public void printExecutionResult(String result, int tryNumber) {
-		StringJoiner strJoiner = new StringJoiner(System.lineSeparator());
-		
-		IntStream.range(0, tryNumber).forEach(x -> strJoiner.add(result));
-		
-		System.out.println(ProgressMessage.EXECUTION_RESULT.getMessage() + "\n" + strJoiner.toString());
+	public void printExecutionResult() {
+		System.out.println(ProgressMessage.EXECUTION_RESULT.getMessage());
+	}
+	
+	public void printCarLocationCurrentSituation(String result) {
+		System.out.println(result);
 	}
 	
 	public void printWinner(String winner) {

@@ -9,7 +9,17 @@ import racingcar.domain.Cars;
 
 public class PickWinnerService {
 	
-	public List<Car> pickWinner(Cars cars) {
+	public String printWinner(Cars cars) {
+		StringJoiner strJoiner = new StringJoiner(", ");
+		
+		for(Car car : pickWinner(cars)) {
+			strJoiner.add(car.getCarName());
+		}
+		
+		return strJoiner.toString();
+	}
+	
+	private List<Car> pickWinner(Cars cars) {
 		int maxCarLocation = getMaxCarLocation(cars);
 		List<Car> winnerList = new ArrayList();
 		
@@ -22,15 +32,6 @@ public class PickWinnerService {
 		return winnerList;
 	}
 	
-	public String printWinner(List<Car> carList) {
-		StringJoiner strJoiner = new StringJoiner(", ");
-		
-		for(Car car : carList) {
-			strJoiner.add(car.getCarName());
-		}
-		
-		return strJoiner.toString();
-	}
 	
 	private int getMaxCarLocation(Cars cars) {
 		return cars.getCars().stream()
