@@ -13,11 +13,7 @@ public class Application {
         int tryNumber = Integer.parseInt(Console.readLine());
         int[]raceAccumulation = new int[carArray.length];
 
-
-
     }
-
-
 
     private static int makeRandomNum(){
         int randomNum = Randoms.pickNumberInRange(0,9);
@@ -35,15 +31,19 @@ public class Application {
 
     private static int[] playGame(int tryNumber, String[]carArray,int[] raceAccumulation){
         for (int i=0; i<tryNumber; i++){
-            for (int j=0; j<carArray.length; j++){
-                int randomNum = makeRandomNum();
-                if (randomNum>=4){
-                    raceAccumulation[j]+=1;
-                }
+            for (int changeScore=0; changeScore<carArray.length; changeScore++){
+                raceAccumulation = giveScore(changeScore,raceAccumulation);
             }
         }
         return raceAccumulation;
     }
 
+    private static int[] giveScore(int chanceScore,int[]raceAccumulation){
+        int randomNum = makeRandomNum();
+        if (randomNum>=4){
+            raceAccumulation[chanceScore]+=1;
+        }
+        return raceAccumulation;
+    }
 
 }
