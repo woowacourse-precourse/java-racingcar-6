@@ -47,10 +47,7 @@ public class RacingCarTest {
 
     @Test
     void 무작위_값이_4_미만인_경우_자동차가_전진하지_않는다() {
-        // given
-        String car = "wiz";
-
-        // when
+        // given & when
         int result = Application.moveCar(0, 0);
 
         // then
@@ -59,10 +56,7 @@ public class RacingCarTest {
 
     @Test
     void 무작위_값이_4_이상인_경우_자동차가_전진한다() {
-        // given
-        String car = "wiz";
-
-        // when
+        // given & when
         int result = Application.moveCar(0, 5);
 
         // then
