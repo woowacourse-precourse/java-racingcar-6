@@ -1,36 +1,22 @@
 package racingcar.utils.validator;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CarManagerValidator implements Validator<String> {
+public class CarManagerValidator implements Validator<List<String>> {
 
-    private static final String COMMAS = "," ;
-    private static final int SPLIT_LIMIT = -1;
+    private final CarCommonValidator commonValidator = new CarCommonValidator();
 
     @Override
-    public void validate(final String value) {
-        this.validateNotEmpty(value);
-
-        final List<String> carNames =
-                Arrays.stream(value.split(COMMAS, SPLIT_LIMIT))
-                        .map(String::strip)
-                        .toList();
-
-        validateExistCar(carNames);
-        validateExistDuplicateCar(carNames);
+    public void validate(final List<String> value) {
+        validateExistCar(value);
+        validateExistDuplicateCar(value);
     }
 
-    private void validateNotEmpty(final String value) {
-        if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException();
-        }
-    }
 
     private void validateExistCar(final List<String> carNames) {
         for(String name : carNames){
-            this.validateNotEmpty(name);
+            this.commonValidator.validate(name);
         }
     }
 
@@ -38,5 +24,9 @@ public class CarManagerValidator implements Validator<String> {
         if (carNames.size() != carNames.stream().collect(Collectors.toUnmodifiableSet()).size()) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public CarCommonValidator getCommonValidator() {
+        return commonValidator;
     }
 }
