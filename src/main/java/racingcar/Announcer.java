@@ -26,6 +26,11 @@ public class Announcer {
         print("");
     }
 
+    public void announceWinner(List<String> winnerList) {
+        String winner = String.join(", ", winnerList);
+        print("최종 우승자 : " + winner);
+    }
+
     public void print(String message) {
         System.out.println(message);
     }
