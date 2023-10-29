@@ -8,6 +8,14 @@ import org.junit.jupiter.api.Test;
 public class StringTest {
 
     @Test
+    void join_배열값을_합침() {
+        String[] input = {"pobi", "ehgns"};
+        String result = String.join(", ", input);
+
+        assertThat(result).isEqualTo("pobi, ehgns");
+    }
+
+    @Test
     void split_공백_삭제() {
         String input = "1, 2";
         String[] result = input.replace(" ", "").split(",");
