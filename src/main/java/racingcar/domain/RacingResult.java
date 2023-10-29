@@ -15,7 +15,7 @@ public class RacingResult {
 
     public List<RacingRoundResult> getRacingRoundResults() {
         return this.racingRoundResults.stream()
-                .map(racingRoundResult -> new RacingRoundResult(racingRoundResult.getCars()))
+                .map(racingRoundResult -> new RacingRoundResult(racingRoundResult.getCarInfoList()))
                 .collect(Collectors.toUnmodifiableList());
     }
 
