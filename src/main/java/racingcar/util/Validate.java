@@ -1,5 +1,8 @@
 package racingcar.util;
 
+import racingcar.model.Car;
+import racingcar.model.Cars;
+
 import java.util.List;
 
 public class Validate {
@@ -43,6 +46,12 @@ public class Validate {
             return Integer.parseInt(move);
         } catch(NumberFormatException exception) {
             throw new IllegalArgumentException("시도할 횟수는 숫자여야 합니다.");
+        }
+    }
+
+    public static void carNamesDuplicate(List<Car> cars) {
+        if(cars.size() != cars.stream().map(Car::getMember).distinct().count()) {
+            throw new IllegalArgumentException("중복된 자동차 이름을 넣었습니다.");
         }
     }
 }
