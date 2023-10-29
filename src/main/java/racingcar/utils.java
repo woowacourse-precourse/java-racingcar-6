@@ -19,4 +19,12 @@ public class utils {
             }
         }
     }
+
+    public static Integer convertToInteger(String value){
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException("입력값이 올바르지 않습니다.");
+        }
+    }
 }
