@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.IntStream;
 import racingcar.model.Car;
 
 public class OutputView {
@@ -15,8 +14,7 @@ public class OutputView {
     }
 
     public static void displayResult() {
-        System.out.println();
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
     }
 
     public static void displayCarMovements(List<Car> cars) {
@@ -34,8 +32,8 @@ public class OutputView {
     }
 
     private static void printHyphens(int count) {
-        IntStream.range(0, count).mapToObj(i -> "-").forEach(System.out::print);
-        System.out.println();
+        String hyphens = "-".repeat(count);
+        System.out.println(hyphens);
     }
 }
 
