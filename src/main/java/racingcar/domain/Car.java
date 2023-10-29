@@ -7,12 +7,12 @@ import racingcar.message.ErrorMessage;
 public class Car {
     private static final int MAX_NAME_LENGTH = 4;
     private final String name;
-    private int position;
+    private PositiveInteger position;
 
     public Car(String name) {
         validateName(name);
         this.name = name;
-        this.position = 0;
+        this.position = new PositiveInteger(0);
     }
 
     private void validateName(String name) {
@@ -33,11 +33,11 @@ public class Car {
     }
 
     public boolean isSamePosition(int position) {
-        return this.position == position;
+        return this.position.getAmount() == position;
     }
 
     public void moveForward() {
-        position++;
+        position.increment();
     }
 
     public String getName() {
@@ -45,11 +45,11 @@ public class Car {
     }
 
     public int getPosition() {
-        return position;
+        return position.getAmount();
     }
 
     @Override
     public String toString() {
-        return name + " : " + CAR_POSITION_SIGN.repeat(position);
+        return name + " : " + CAR_POSITION_SIGN.repeat(position.getAmount());
     }
 }
