@@ -22,6 +22,16 @@ public class Car {
         return new Car(name, 0);
     }
 
+    public int getPosition() {
+        return this.position;
+    }
+
+    public void play() {
+        if (checkProceed()) {
+            this.position++;
+        }
+    }
+
     private boolean checkProceed() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER) >= GAME_PROCEED_STANDARD;
     }
