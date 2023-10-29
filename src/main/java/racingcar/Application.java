@@ -39,4 +39,14 @@ public class Application {
         }
         return true;
     }
+
+    public Car[] createCar(String[] split){
+        Car[] carList = new Car[split.length];
+        
+        for(int i=0; i< split.length; i++){
+            carList[i] = new Car(split[i], 0);
+        }
+
+        return carList;
+    }
 }
