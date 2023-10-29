@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public enum ExceptionMessage {
     NOT_HAVE_DELIMITER("입력된 값에 \",\"가 없습니다."),

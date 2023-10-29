@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
+import racingcar.constant.ExceptionMessage;
 
 public class CarNameSeperator {
 

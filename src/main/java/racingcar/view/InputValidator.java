@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.view;
 
-import java.util.regex.Matcher;
+import racingcar.constant.ExceptionMessage;
 
 public class InputValidator {
 

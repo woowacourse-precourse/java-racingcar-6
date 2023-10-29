@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import racingcar.domain.Car;
+import racingcar.domain.CarNameSeperator;
 
 public class RacingCarService {
 
