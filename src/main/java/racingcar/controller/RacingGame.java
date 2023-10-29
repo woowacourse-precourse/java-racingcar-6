@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
-    private List<Car> carList = new ArrayList<>();
-    private List<String> winner = new ArrayList<>();
+    private final List<Car> carList = new ArrayList<>();
+    private final List<String> winner = new ArrayList<>();
     Order order = new Order();
     RotatingCount rotatingCount = new RotatingCount();
     CarName carName = new CarName();
