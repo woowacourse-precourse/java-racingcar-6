@@ -1,19 +1,15 @@
 package racingcar.validation;
 
-import java.util.Arrays;
 import java.util.List;
+import racingcar.utils.NameHandler;
 
 public class CarNames {
     static final String BLANK_INPUT_EXCEPTION = "공백 입력입니다.";
     static final String NAME_LENGTH_EXCEPTION = "이름 길이가 5를 초과합니다.";
     static final String SAME_NAMES_EXCEPTION = "중복된 이름이 존재합니다.";
 
-    List<String> splitNames(String in) {
-        return Arrays.asList(in.split(",", -1));
-    }
-
     public void validateCarNames(String in) {
-        List<String> names = splitNames(in);
+        List<String> names = NameHandler.splitNames(in);
         checkBlankInput(names);
         checkNameLength(names);
         checkSameNames(names);
