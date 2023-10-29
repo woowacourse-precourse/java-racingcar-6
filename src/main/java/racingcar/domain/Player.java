@@ -14,7 +14,7 @@ public class Player {
 
     public static Player getInstance() {
         if (player == null) {
-            return new Player();
+            return player = new Player();
         }
         return player;
     }
