@@ -4,10 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class InputValidator {
-    private static final String PLAYER_NAMES_INPUT_FORM = "[a-zA-Z]{1,5}(,\\\\s?[a-zA-Z]{1,5})*";
+    private static final String CAR_NAMES_REGEX = "^(\\w+,)+\\w+$";
 
     public void validatePlayerNamesFormat(String input) {
-        Matcher matcher = Pattern.compile(PLAYER_NAMES_INPUT_FORM).matcher(input);
+        Matcher matcher = Pattern.compile(CAR_NAMES_REGEX).matcher(input);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("올바른 입력 형식이 아닙니다.");
         }
@@ -18,7 +18,7 @@ public final class InputValidator {
             throw new IllegalArgumentException("빈 문자열을 입력했습니다.");
         }
     }
-    
+
     public void validateNumericString(String input) {
         try {
             Integer.parseInt(input);
