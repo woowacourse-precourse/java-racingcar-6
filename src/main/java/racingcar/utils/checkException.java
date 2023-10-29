@@ -11,4 +11,25 @@ public class checkException {
             }
         }
     }
+
+    public void checkCommaCarName(String carName) throws IllegalArgumentException {
+        if (!(carName.contains(","))) {
+            throw new IllegalArgumentException("쉼표를 통해 구분해 주세요.");
+        }
+    }
+
+    public void checkAskCount(String askCount) throws IllegalArgumentException {
+        if (checkAskCountInteger(askCount) == false) {
+            throw new IllegalArgumentException("시도 횟수를 다시 입력해 주세요.");
+        }
+    }
+
+    public boolean checkAskCountInteger(String askCount) {
+        try {
+            Integer.parseInt(askCount);
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+    }
 }
