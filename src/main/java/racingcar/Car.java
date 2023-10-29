@@ -3,13 +3,15 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private final String name;
     private int odometer;
 
     public Car(String name) {
+        classInvariant(name);
         this.name = name;
         this.odometer = 0;
     }
+
 
     public void moveForward() {
         final int MINIMUM_CONDITION = 4;
@@ -24,11 +26,17 @@ public class Car {
         return this.name + " : " + graphicOdometer;
     }
 
+    private void classInvariant(String name) {
+        checkCharacterLimit(name);
+    }
+
     private String parseGraphic() {
-        StringBuilder sb= new StringBuilder();
-        for (int i = 1; i <= odometer; i++) {
-            sb.append("-");
+        return "-".repeat(Math.max(0, odometer));
+    }
+
+    private void checkCharacterLimit(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다");
         }
-        return sb.toString();
     }
 }
