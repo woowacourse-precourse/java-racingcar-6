@@ -1,12 +1,10 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
 import racingcar.model.CarList;
-import racingcar.view.InputView;
 
 public class RacingGameController {
     private CarList carList;
-    private int tryCount;
+    private int roundNum;
 
     public void run() {
         init();
@@ -14,6 +12,6 @@ public class RacingGameController {
 
     public void init() {
         carList = InputController.initCarList();
-
+        roundNum = InputController.initRoundNum();
     }
 }
