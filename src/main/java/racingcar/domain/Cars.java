@@ -9,14 +9,12 @@ import java.util.Map.Entry;
 
 public class Cars {
 
-    private final Map<Car, Integer> carList = new HashMap<>();
+    private final List<Car> carList;
 
     public Cars(final List<String> carNames) {
-        int initialPosition = 0;
-
-        for (String carName : carNames) {
-            carList.put(Car.of(carName), initialPosition);
-        }
+        carList = carNames.stream()
+                .map(Car::of)
+                .toList();
     }
 
     public Map<Car, Integer> moveAllCars() {
