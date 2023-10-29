@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private String name;
     private int movedCount;
 
@@ -15,5 +15,18 @@ public class Car {
         if (accelerator.press()) {
             movedCount++;
         }
+    }
+
+    @Override
+    public int compareTo(Car otherCar) {
+        return this.movedCount - otherCar.movedCount;
+    }
+
+    public boolean isSamePosition(Car otherCar) {
+        return this.movedCount == otherCar.movedCount;
+    }
+
+    public String getName() {
+        return name;
     }
 }
