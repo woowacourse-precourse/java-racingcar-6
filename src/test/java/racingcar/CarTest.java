@@ -37,4 +37,30 @@ public class CarTest {
         assertThrows(IllegalArgumentException.class, () -> new Car(shortName));
         assertThrows(IllegalArgumentException.class, () -> new Car(LongName));
     }
+
+    @Test
+    void 무작위_값이_기준값_이상일_때_1칸_이동() {
+        //Given
+        Car car = new Car();
+        int randomValue = 4;
+
+        //When
+        car.run(randomValue);
+
+        //Then
+        assertEquals(1, car.getDistance());
+    }
+    @Test
+    void 무작위_값이_기준값_이하일_때_1칸_이동() {
+        //Given
+        int randomValue = 3;
+        Car car = new Car();
+
+        //When
+        car.run(randomValue);
+
+        //Then
+        assertEquals(0, car.getDistance());
+    }
+
 }

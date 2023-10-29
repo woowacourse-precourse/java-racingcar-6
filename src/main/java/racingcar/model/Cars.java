@@ -1,9 +1,13 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+    private final int MIN_VALUE = 0;
+    private final int MAX_VALUE = 9;
+
     private List<Car> carList = new ArrayList<>();
 
 
@@ -18,5 +22,15 @@ public class Cars {
 
     public List<Car> getCarList() {
         return carList;
+    }
+
+    public int generateRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
+    }
+
+    public void moveCars() {
+        for (Car car : carList) {
+            car.run(generateRandomNumber());
+        }
     }
 }
