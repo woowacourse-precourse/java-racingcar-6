@@ -142,7 +142,17 @@
   - [x] 운전하는 자동차 하나만 입력되면 안된다.
   - [x] 자동차의 각각의 이름이 5자이하인지 확인.
 
+## 메서드 분리
 
+- [ ] GameProcess
+- [ ] CreateRandomNum
+- [ ] GameHost
+- [ ] JudgeStandard
+- [ ] RaceCar
+- [ ] ValidConstants
+- [ ] Utill
+- [ ] ValidException
+- [ ] GameStart
 
 
 
