@@ -6,22 +6,38 @@ import java.util.List;
 
 public class CarMove {
 
-    List<Integer> LengthCount = new ArrayList<>();
-    RandomNumber randomNumber = new RandomNumber();
-    CarName carName = new CarName();
+    public List<Integer> lengthCount = new ArrayList<>();
+    private RandomNumber randomNumber;
+    private CarName carName;
 
-    public Integer increaseLength() {
-        int length = 0;
-
-        if (randomNumber.generate() >= 4) {
-            length += 1;
-        }
-        return length;
+    public CarMove(CarName carName, RandomNumber randomNumber) {
+        this.carName = carName;
+        this.randomNumber = randomNumber;
     }
 
-    public void lengthList() {
-        for (int i = 0; i <carName.rangeCarList.size(); i++) {
-            LengthCount.add(increaseLength());
+    public void initializeLengthList() {
+        for (int i = 0; i < carName.rangeCarList.size(); i++) {
+            lengthCount.add(0);
+        }
+
+    }
+    public void increaseLength() {
+        for (int i = 0; i < carName.rangeCarList.size(); i++) {
+            int currentLength = lengthCount.get(i);
+            if (randomNumber.generate() >= 4) {
+                lengthCount.set(i, currentLength + 1);
+            }
         }
     }
+    public void drawHistogram() {
+        for (int i = 0; i < carName.rangeCarList.size(); i++) {
+            System.out.print(carName.rangeCarList.get(i) + " : ");
+            for (int j = 0; j < lengthCount.get(i); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+    }
+
+
 }
