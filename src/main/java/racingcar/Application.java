@@ -28,7 +28,7 @@ public class Application {
     }
 
     public static void findCarListError(String[] carList) {
-        if (carList.length < 2) {
+        if (carList.length < 2 || carList.length > 100) {
             throw new IllegalArgumentException();
         }
 
@@ -46,6 +46,9 @@ public class Application {
             throw new IllegalArgumentException();
         }
         if (!inputCar.contains(",") || inputCar.matches(",*")) {
+            throw new IllegalArgumentException();
+        }
+        if (inputCar.charAt(0) == ',' || inputCar.charAt(inputCar.length() - 1) == ',') {
             throw new IllegalArgumentException();
         }
 
