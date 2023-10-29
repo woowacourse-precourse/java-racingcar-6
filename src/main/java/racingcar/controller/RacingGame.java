@@ -1,17 +1,27 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.model.Cars;
+import racingcar.model.RepeatNum;
+import racingcar.view.InputView;
 
 public class RacingGame {
     private Cars cars;
-    private int repeatNum;
+    private RepeatNum repeatNum;
+    CarListController carListController;
+    CarNamesController carNamesController;
 
+    public RacingGame() {
+        this.carListController = new CarListController();
+        this.carNamesController = new CarNamesController();
+    }
     public void playRacingGame() {
         initRacingGameInput();
     }
 
     private void initRacingGameInput() {
-        this.cars = CarCreator.createCars();
-        this.repeatNum = RepeatNum.setRepeatNum();
+        List<String> names = carNamesController.getCarNames();
+        this.cars = carListController.createCars(names);
+        this.repeatNum = new RepeatNum(InputView.inputRepeat());
     }
 }

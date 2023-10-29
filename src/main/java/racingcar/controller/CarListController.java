@@ -5,14 +5,14 @@ import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
-public class CarCreator {
-    public static Cars createCars() {
-        return new Cars(createCarList());
+public class CarListController {
+
+    public Cars createCars(List<String> carNames) {
+        return new Cars(createCarList(carNames));
     }
 
-    private static List<Car> createCarList() {
-        List<String> names = CarNames.splitName();
-        return names.stream()
+    private List<Car> createCarList(List<String> carNames) {
+        return carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
