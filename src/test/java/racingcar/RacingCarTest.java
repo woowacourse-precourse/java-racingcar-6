@@ -34,4 +34,15 @@ public class RacingCarTest {
                 .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
     }
 
+    @Test
+    void 시도할_회수_입력시_숫자가_아닐_때_예외_발생() {
+        // given
+        String input = "하나";
+
+        // when & then
+        assertThatThrownBy(() -> Application.parseInt(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자가 아닙니다.");
+    }
+
 }
