@@ -23,6 +23,14 @@ class ApplicationTest extends NsTest {
             },
             MOVING_FORWARD, STOP
         );
+
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("woni,pobi", "1");
+                assertThat(output()).contains("woni : -", "pobi : ", "최종 우승자 : woni");
+            },
+            MOVING_FORWARD, STOP
+        );
     }
 
     @Test
