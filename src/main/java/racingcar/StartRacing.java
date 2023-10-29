@@ -24,7 +24,9 @@ public class StartRacing {
 
         System.out.println();
         System.out.println(GAME_RESULT);
-        String winner = carRacing.carRacing(carNameList, racingNumberInt);
+        carRacing = carRacing.carRacing(carNameList, racingNumberInt);
+        String winner = carRacing.getWinner();
+
 
         System.out.println(WINNER_NAME + winner);
 

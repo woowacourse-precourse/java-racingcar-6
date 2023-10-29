@@ -3,10 +3,18 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class CarRacing {
+    private ArrayList<Integer> countGo = new ArrayList<>();
+    private String winner;
+    private CarRacing(ArrayList<String> nameList, ArrayList<Integer> countGo){
+        this.countGo = countGo;
+        this.winner = winner(nameList, countGo);
 
-    public String carRacing(ArrayList<String> nameList, int racingNumber){
+    }
+
+    public static CarRacing carRacing(ArrayList<String> nameList, int racingNumber){
         ArrayList<Integer> countGo = new ArrayList<>();
 
         for(int j=0;j<nameList.size();j++){
@@ -22,7 +30,7 @@ public class CarRacing {
             racingNow(nameList,countGo);
         }
 
-        return winner(nameList, countGo);
+        return new CarRacing(nameList, countGo);
     }
 
 
@@ -36,6 +44,7 @@ public class CarRacing {
                 if(cnt == 0){
                     winner = nameList.get(i);
                     cnt += 1;
+                    continue;
                 }
                 if(cnt > 0) {
                     winner = winner.concat(", " + nameList.get(i));
@@ -47,7 +56,7 @@ public class CarRacing {
         return winner;
     }
 
-    public void racingNow(ArrayList<String> nameList, ArrayList<Integer> countGo){
+    public static void racingNow(ArrayList<String> nameList, ArrayList<Integer> countGo){
 
         for(int i=0;i<nameList.size();i++){
             System.out.print(nameList.get(i) + " : ");
@@ -56,13 +65,18 @@ public class CarRacing {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
-    public boolean stopGo(){
+    public static boolean stopGo(){
         if(Randoms.pickNumberInRange(0,9) >= 4){
             return true;
         }
         return false;
+    }
+
+    public String getWinner(){
+        return winner;
     }
 
 }
