@@ -24,9 +24,9 @@ public class Cars {
         }
     }
 
-        for (Car car : cars) {
-            if (car.isNameLongerThenCriteria(5)) {
-                throw new IllegalArgumentException("5자리 이하의 이름을 입력하시오!");
+    private Car firstElement() {
+        return cars.get(0);
+    }
             }
         }
     }
