@@ -1,11 +1,14 @@
 package racingcar.util;
 
+import racingcar.app.RacingGameConst;
 import racingcar.domain.collection.CarNames;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import static racingcar.app.RacingGameConst.*;
 
 public class RacingGameValidator {
 
@@ -38,7 +41,7 @@ public class RacingGameValidator {
     }
 
     private static void validateCarNameLength(final String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAXIMUM_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다.");
         }
     }

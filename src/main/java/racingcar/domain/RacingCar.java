@@ -1,10 +1,13 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.app.RacingGameConst;
 import racingcar.domain.interfaces.Car;
 import racingcar.util.OutputUtil;
 
 import java.util.List;
+
+import static racingcar.app.RacingGameConst.*;
 
 public class RacingCar {
 
@@ -27,7 +30,7 @@ public class RacingCar {
 
     public void doTrial() {
         int number = pickRandomNumber();
-        if (number >= 4) {
+        if (number >= STANDARD_NUMBER) {
             progress++;
         }
         printInfo();
@@ -46,6 +49,6 @@ public class RacingCar {
     }
 
     private int pickRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MINIMUM_PICKUP_NUMBER, MAXIMUM_PICKUP_NUMBER);
     }
 }
