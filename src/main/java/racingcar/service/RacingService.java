@@ -52,4 +52,8 @@ public class RacingService {
 
         return new WinnersDto(winners);
     }
+
+    public List<Car> findAllCars() {
+        return carRepository.findAll();
+    }
 }
