@@ -2,7 +2,6 @@ package racingcar.validator;
 
 import racingcar.domain.Car;
 
-import java.util.HashSet;
 import java.util.List;
 
 public class CarValidator {
@@ -26,10 +25,18 @@ public class CarValidator {
     }
 
     public static void checkDuplicateCarName(List<Car> carList) {
+        boolean isDuplicate = carList.stream()
+                .distinct()
+                .count() != carList.size();
+        if(isDuplicate){
+            throw new IllegalArgumentException(DUPLICATE_CAR_NAME_ERROR);
+        }
+/*
         HashSet<Car> carHashSet = new HashSet<>(carList);
         if(carHashSet.size() != carList.size()){
             throw new IllegalArgumentException(DUPLICATE_CAR_NAME_ERROR);
         }
+*/
     }
 
     public static void checkCarNameLength(String carName) {
