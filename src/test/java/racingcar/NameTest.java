@@ -25,6 +25,7 @@ public class NameTest {
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Name name = Name.from("nickname");
         });
+
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAME_LENGTH_EXCEPTION.toString());
     }
@@ -36,6 +37,7 @@ public class NameTest {
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Name name = Name.from(value);
         });
+
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAME_BLANK_EXCEPTION.toString());
     }
@@ -54,6 +56,7 @@ public class NameTest {
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Name name = Name.from(value);
         });
+
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAMV_VALUE_EXCEPTION.toString());
     }

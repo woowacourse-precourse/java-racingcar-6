@@ -16,8 +16,10 @@ public class RandomNumberTest {
         Car car = Car.from(name);
         RandomNumber randomNumber = new MovableRandomNumber();
         int number = randomNumber.pickNumber();
+
         // when
         car.accelerate(number);
+
         // then
         assertThat(car.isPositionEqualTo(1)).isTrue();
     }
@@ -29,8 +31,10 @@ public class RandomNumberTest {
         Car car = Car.from(name);
         RandomNumber randomNumber = new HigherRandomNumber();
         int number = randomNumber.pickNumber();
+
         // when
         car.accelerate(number);
+
         // then
         assertThat(car.isPositionEqualTo(1)).isFalse();
     }
@@ -42,8 +46,10 @@ public class RandomNumberTest {
         Car car = Car.from(name);
         RandomNumber randomNumber = new LowerRandomNumber();
         int number = randomNumber.pickNumber();
+
         // when
         car.accelerate(number);
+
         // then
         assertThat(car.isPositionEqualTo(1)).isFalse();
     }
@@ -55,8 +61,10 @@ public class RandomNumberTest {
         Car car = Car.from(name);
         RandomNumber randomNumber = new MinusRandomNumber();
         int number = randomNumber.pickNumber();
+
         // when
         car.accelerate(number);
+
         // then
         assertThat(car.isPositionEqualTo(1)).isFalse();
     }

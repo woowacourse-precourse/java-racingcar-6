@@ -24,6 +24,7 @@ public class PlayCountTest {
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
            PlayCount count = PlayCount.from(value);
         });
+
         // then
         assertThat(exception.getMessage()).isEqualTo(PLAY_COUNT_VALUE_EXCEPTION.toString());
     }

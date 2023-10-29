@@ -13,6 +13,7 @@ public class CarsTest {
     void 정상_자동차_리스트_생성_테스트() {
         // given & when
         Cars cars = Cars.from("pobi,12a,현준");
+
         // then
         assertThat(cars.isCarsCountEqualTo(3)).isTrue();
     }
@@ -23,6 +24,7 @@ public class CarsTest {
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             Cars cars = Cars.from("pobi,pobi");
         });
+
         // then
         assertThat(exception.getMessage()).isEqualTo(CAR_NAME_DUPLICATE_EXCEPTION.toString());
     }
