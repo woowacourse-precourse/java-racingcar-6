@@ -1,41 +1,52 @@
 package racingcar.model;
 
+import racingcar.utils.RandomUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private static final int MIN_FORWARD_NUMBER = 4;
+    private static final int RANDOM_START_NUMBER = 0;
+    private static final int RANDOM_LAST_NUMBER = 9;
+    private static final RandomUtils randomUtils = new RandomUtils();
+    private static final StringBuilder stringBuilder = new StringBuilder();
     private static final List<Car> carList = new ArrayList<>();
-    private static final List<Car> winner = new ArrayList<>();
-    private static int maxForward = 0;
+    private static int maxPosition = 0;
 
     public void addCars(List<Car> inputCarList) {
         carList.addAll(inputCarList);
     }
 
-    public void oneResult(Car car, int randomNumber) {
-        if(randomNumber >= MIN_FORWARD_NUMBER) {
-            car.upForwardCount();
+    public StringBuilder singleRoundResult() {
+        stringBuilder.setLength(0);
+        for (Car car : carList) {
+            stringBuilder.append("\n").append(singleCarResult(car));
         }
-
-        if(car.getForwardCount() > maxForward) {
-            maxForward = car.getForwardCount();
-        }
+        return stringBuilder;
     }
 
-    public List<Car> getWinner() {
-        return winner;
-    }
+    public List<String> getWinner() {
+        List<String> winnerCarNames = new ArrayList<>();
 
-    public List<Car> getCarList() {
-        return carList;
-    }
-
-    public void setWinner() {
-        for(Car car : carList) {
-            if(car.getForwardCount() == maxForward) {
-                winner.add(car);
+        for (Car car : carList) {
+            String carName = car.getCarNameAtMaxPosition(maxPosition);
+            if (carName.length() > 0) {
+                winnerCarNames.add(carName);
             }
+        }
+
+        return winnerCarNames;
+    }
+
+    private String singleCarResult(Car car) {
+        int position = car.updateCar(randomUtils.getRandomNumber(RANDOM_START_NUMBER, RANDOM_LAST_NUMBER));
+        updateMaxPosition(position);
+        return car.getCurrentPosition();
+    }
+
+    private void updateMaxPosition(int position) {
+        if (position > maxPosition) {
+            maxPosition = position;
         }
     }
 }
