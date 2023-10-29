@@ -34,7 +34,7 @@ public class CarRace {
         }
     }
 
-    public void printWinner(String[] contestants, int[] move) {
+    public List<String> whoseWinner(String[] contestants, int[] move) {
         int max = move[0];
         List<String> winners = new ArrayList<>();
         for (int i = 1; i < move.length; i++) {
@@ -46,7 +46,11 @@ public class CarRace {
         if (winners.isEmpty()||max==move[0]) {
             winners.add(contestants[0]);
         }
-        System.out.print("최종 우승자: ");
+        return winners;
+    }
+
+    public void printWinners(List<String> winners) {
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
             if (i < winners.size() - 1) {
