@@ -161,7 +161,7 @@ class RacingCarGameServiceTest {
                 () -> assertThat(racingCarGameResult.getGameCount()).isEqualTo(4L),
                 () -> assertThat(racingCarGameResult.getCars()).hasSize(2)
                         .extracting("carName", "distance")
-                        .contains(
+                        .containsExactly(
                                 Tuple.tuple("pobi", 1),
                                 Tuple.tuple("won", 0)
                         )

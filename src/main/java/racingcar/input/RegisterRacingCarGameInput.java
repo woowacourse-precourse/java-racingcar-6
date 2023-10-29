@@ -4,15 +4,15 @@ import java.util.List;
 import racingcar.domain.entity.Car;
 import racingcar.domain.entity.GameType;
 
-public class RacingCarGameInput {
+public class RegisterRacingCarGameInput {
     private Long racingGameId;
-    private GameType gameName;
+    private GameType gameType;
     private String gameCount;
     private List<Car> cars;
 
-    public RacingCarGameInput(Long racingGameId, GameType gameName, String gameCount, List<Car> cars) {
+    public RegisterRacingCarGameInput(Long racingGameId, GameType gameName, String gameCount, List<Car> cars) {
         this.racingGameId = racingGameId;
-        this.gameName = gameName;
+        this.gameType = gameName;
         this.gameCount = gameCount;
         this.cars = cars;
     }
@@ -21,8 +21,8 @@ public class RacingCarGameInput {
         return racingGameId;
     }
 
-    public GameType getGameName() {
-        return gameName;
+    public GameType getGameType() {
+        return gameType;
     }
 
     public String getGameCount() {

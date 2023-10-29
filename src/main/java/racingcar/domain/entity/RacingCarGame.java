@@ -16,7 +16,7 @@ public class RacingCarGame extends Game {
 
     public static RacingCarGame createWithoutWinnerNames(RegisterRacingCarGameInput input) {
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.init(input.getRacingGameId(), input.getGameName());
+        racingCarGame.init(input.getRacingGameId(), input.getGameType());
         racingCarGame.gameCount = Long.parseLong(input.getGameCount());
         racingCarGame.cars = input.getCars();
 
