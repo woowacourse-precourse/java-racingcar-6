@@ -10,13 +10,13 @@ public class InputView {
         return Console.readLine();
     }
 
-    public List<String> carNamesInput() {
+    public List<String> getCarNamesInput() {
         String carNamesInput = getInput();
         return Arrays.stream(carNamesInput.split(","))
                 .map(String::trim).toList();
     }
 
-    public String countInput() {
+    public String getCountInput() {
         return getInput();
     }
 }
