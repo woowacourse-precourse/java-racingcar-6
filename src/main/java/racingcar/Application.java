@@ -56,5 +56,30 @@ public class Application {
         if (ans < 0) {
             throw new IllegalArgumentException("시도 횟수는 0번 이상이어야 합니다.");
         }
+
+        StringBuilder[] result = new StringBuilder[carList.size()];
+        for (int i=0; i<carList.size(); i++) {
+            Car car = carList.get(i);
+
+            result[i] = new StringBuilder();
+            StringBuilder info = new StringBuilder(car.getName() + " : ");
+            result[i].append(info);
+        }
+
+        System.out.println("\n실행 결과");
+        for (int j=0; j<ans; j++) {
+            for (int i = 0; i < carList.size(); i++) {
+                Car car = carList.get(i);
+
+                int random = Randoms.pickNumberInRange(0, 9);
+
+                if (random >= 4) {
+                    result[i].append("-");
+                    car.increaseMoveCount();
+                }
+                System.out.println(result[i].toString());
+            }
+            System.out.println();
+        }
     }
 }
