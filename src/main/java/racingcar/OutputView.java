@@ -18,4 +18,9 @@ public class OutputView {
             System.out.println(String.format("%s : %s", entrySet.getKey(), result));
         }
     }
+
+    void showWinner(String[] result) {
+        String winner = String.join(",", result);
+        System.out.println(winner);
+    }
 }
