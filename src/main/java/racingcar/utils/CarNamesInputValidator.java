@@ -5,6 +5,9 @@ public class CarNamesInputValidator {
         validateIsNotBlank(target);
         validateFirstCharacterIsNotComma(target);
         validateLastCharacterIsNotComma(target);
+
+        String[] elements = target.split(",");
+        validateEachElementIsNotBlank(elements);
     }
 
     private static void validateIsNotBlank(String target) {
@@ -22,6 +25,14 @@ public class CarNamesInputValidator {
     private static void validateLastCharacterIsNotComma(String target) {
         if (target.charAt(target.length() - 1) == ',') {
             throw new IllegalArgumentException("마지막 문자로 콤마(,)를 입력하면 안됩니다.");
+        }
+    }
+
+    private static void validateEachElementIsNotBlank(String[] targets) {
+        for (String target : targets) {
+            if (target.isBlank()) {
+                throw new IllegalArgumentException("공백 문자로만 입력하면 안됩니다.");
+            }
         }
     }
 }
