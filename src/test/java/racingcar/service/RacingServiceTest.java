@@ -33,4 +33,20 @@ class RacingServiceTest {
             .extracting(Car::getName)
             .containsAll(carNamesDto.getNames());
     }
+
+    @Test
+    void 경주하기() {
+        // given
+        carRepository.save("meoru");
+        carRepository.save("gari");
+
+        // when
+        racingService.action();
+
+        // then
+        List<Car> carList = carRepository.findAll();
+        assertThat(carList).hasSize(2)
+            .extracting(Car::getForwardCount)
+            .allMatch(count -> count >= 0);
+    }
 }
