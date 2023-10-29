@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class GameShell {
     public void startGame() {
@@ -9,7 +10,13 @@ public class GameShell {
     }
 
     public List<Car> askCarList() {
-        return null;
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String input = Console.readLine();
+        String[] carNames = input.split(",");
+
+        return Stream.of(carNames)
+                .map(Car::from)
+                .toList();
     }
 
     public int askRoundCount() {

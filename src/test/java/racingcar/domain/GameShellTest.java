@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -41,8 +42,8 @@ public class GameShellTest {
         assertThat(question).contains("시도할 회수는 몇회인가요?");
     }
 
-    @DisplayName("라운드횟수는 숫자만 입력받는다")
-    @ParameterizedTest
+    @DisplayName("라운드횟수는 숫자만 입력받는다.")
+    @ParameterizedTest(name = "{0}은 입력받을 수 없다")
     @ValueSource(strings = {"a", "1a", "a1", "1a1", "a1a", "1.1"})
     void askRoundCountTest2(String input) {
         // given
@@ -64,5 +65,34 @@ public class GameShellTest {
         assertThatThrownBy(() -> gameShell.askRoundCount())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("범위");
+    }
+
+    @DisplayName("자동차 이름을 제대로 묻고 생성한다")
+    @Test
+    void askCarListTest1() {
+        // given
+        System.setIn(ConsoleInterceptor.getInputStream("pobi,woni,jun"));
+
+        // when
+        List<Car> carList = gameShell.askCarList();
+        String question = ConsoleInterceptor.getPrintedString();
+
+        // then
+        assertThat(carList)
+                .map(Car::getName)
+                .containsExactly("pobi", "woni", "jun");
+        assertThat(question).contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
+
+    @DisplayName("생성할 수 없는 이름 입력시 예외발생")
+    @Test
+    void askCarListTest2() {
+        // given
+        System.setIn(ConsoleInterceptor.getInputStream("pobi,woni,jun,abcdef"));
+
+        // then
+        assertThatThrownBy(() -> gameShell.askCarList())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("5");
     }
 }
