@@ -13,4 +13,3 @@ public class StringToList {
         return Integer.parseInt(tryCountNumInput);
     }
 }
-

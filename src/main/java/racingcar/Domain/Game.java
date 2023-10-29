@@ -18,7 +18,7 @@ public class Game {
     }
 
     public void incrementCurrentTryCount() {
-        this.currentTryCount ++;
+        this.currentTryCount++;
     }
 
     public Boolean finishTotalTryCountCheck() {
