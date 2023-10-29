@@ -18,4 +18,14 @@ class ValidationNameTest {
         });
         assertThat(lengthException.getMessage()).isEqualTo(ExceptionMessages.LENGTH.getExceptionMessage());
     }
+
+    @ParameterizedTest
+    @DisplayName("자동차 이름이 중복되는지 테스트한다.")
+    @ValueSource(strings = {"jang, jang, boni", "pobi, jang, pobi", "jang, pobi, pobi"})
+    void validateDuplication(String names) {
+        IllegalArgumentException lengthException = assertThrows(IllegalArgumentException.class, () -> {
+            ValidationName.validateDuplication(names);
+        });
+        assertThat(lengthException.getMessage()).isEqualTo(ExceptionMessages.DUPLICATION.getExceptionMessage());
+    }
 }
