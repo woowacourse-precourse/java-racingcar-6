@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Player {
 
-    private HashMap<String,Integer> cars;
+    private HashMap<String,Integer> cars = new HashMap<>();
     private String[] inputCarNames;
     private int attemptNumber;
 
