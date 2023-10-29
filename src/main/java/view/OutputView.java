@@ -12,4 +12,7 @@ package view;
  * 2023-10-26        qkrtn_ulqpbq2       최초 생성
  */
 public class OutputView {
+    public static void printException(Exception exception) {
+        System.out.println(exception.getMessage());
+    }
 }

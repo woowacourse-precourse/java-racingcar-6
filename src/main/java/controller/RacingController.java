@@ -1,7 +1,9 @@
 package controller;
 
 import model.Cars;
+import model.TryCount;
 import view.InputView;
+import view.OutputView;
 
 /**
  * packageName    : controller
@@ -17,12 +19,23 @@ import view.InputView;
 public class RacingController {
 
     private Cars cars;
+    private TryCount tryCount;
 
     public void start(){
         try {
             cars = new Cars(InputView.inputCarNames());
+            inputTryCount();
         } catch(IllegalArgumentException e){
+            OutputView.printException(e);
+        }
+    }
 
+    private void inputTryCount(){
+        try {
+            tryCount = new TryCount(InputView.inputTryCount());
+        } catch (IllegalArgumentException e) {
+            OutputView.printException(e);
+            inputTryCount();
         }
     }
 }

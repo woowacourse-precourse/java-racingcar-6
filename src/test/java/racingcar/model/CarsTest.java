@@ -24,11 +24,11 @@ public class CarsTest {
     @DisplayName("자동차 이름이 중복된 경우 예외 발생")
     void duplicateCheck(){
         String carNames = "자동차1, 자동차1, 자동차2";
-        String errorMessages = "[ERROR] 중복된 이름이 존재합니다.";
+        String errorMessage = "[ERROR] 중복된 이름이 존재합니다.";
 
         assertThatThrownBy(() -> new Cars(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(errorMessages);;
+                .hasMessage(errorMessage);
 
     }
 }
