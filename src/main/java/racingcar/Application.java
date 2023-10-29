@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Race;
 
+import java.util.List;
+
 public class Application {
 
     public static void main(String[] args) {
@@ -17,5 +19,8 @@ public class Application {
 
         System.out.println("실행 결과");
         race.racing();
+
+        List<String> winners = race.getWinners();
+        System.out.println("최종 우승자 : " + String.join(", " , winners));
     }
 }

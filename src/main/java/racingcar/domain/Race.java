@@ -24,6 +24,11 @@ public class Race {
         }
     }
 
+    public List<String> getWinners() {
+        int maxCount = findMaxCount();
+        return getWinnerNames(maxCount);
+    }
+
     private static void validate(String carNames) {
         if (carNames == null || carNames.isEmpty() || carNames.isBlank()) {
             throw new IllegalArgumentException();
@@ -65,4 +70,21 @@ public class Race {
         }
     }
 
+    private int findMaxCount() {
+        int maxCount = 0;
+        for (Car car : carList) {
+            maxCount = Math.max(maxCount, car.getCount());
+        }
+        return maxCount;
+    }
+
+    private List<String> getWinnerNames(int maxCount) {
+        List<String> winners = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getCount() == maxCount) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
 }
