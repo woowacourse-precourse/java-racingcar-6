@@ -2,7 +2,9 @@ package racingcar.service;
 
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import racingcar.domain.Cars;
 
 public class RaceService {
@@ -14,8 +16,10 @@ public class RaceService {
     public List<String> validateCarNamesInput(String carNamesInput) {
         validateEmptyInput(carNamesInput);
         validateNullInput(carNamesInput);
-        List<String> carNames = Arrays.asList(carNamesInput.split(","));
+        List<String> carNames = Arrays.stream(carNamesInput.split(","))
+                .map(String::trim).toList();
         validateLengthInput(carNames);
+        validateDuplicateInput(carNames);
         return carNames;
     }
 
@@ -34,9 +38,17 @@ public class RaceService {
     private void validateLengthInput(List<String> carNames) {
         boolean isInvalidCarName = carNames
                 .stream()
-                .anyMatch(carName -> carName.trim().length() > 5);
+                .anyMatch(carName -> carName.length() > 5);
 
         if (isInvalidCarName) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+
+    private void validateDuplicateInput(List<String> carNames) {
+        Set<String> uniqueCarNames = new HashSet<>(carNames);
+        if (uniqueCarNames.size() != carNames.size()) {
             throw new IllegalArgumentException();
         }
     }
