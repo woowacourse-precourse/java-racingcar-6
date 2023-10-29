@@ -17,7 +17,7 @@ public class Car {
     }
 
     private boolean isMoveForward(int randomNum) {
-        return false;
+        return randomNum >= 4;
     }
 
     private void moveForward() {

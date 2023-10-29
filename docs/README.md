@@ -10,10 +10,10 @@
   - [ ] 🚫 입력값이 숫자인지 검증한다. ``InputView - validateDigit``
   - [ ] 🚫 입력값이 1 이상인지 검증한다. ``GameController - validateCarMoveCount``
 - [ ] 경주를 진행한다. ``GameController - startGame``
-- [ ] 자동차가 이동한다. ``Car - move``
-- [ ] 자동차가 전진하는지 판단한다. ``Car - isMoveForward``
+- [x] 자동차가 이동한다. ``Car - move``
+- [x] 자동차가 전진하는지 판단한다. ``Car - isMoveForward``
 - [ ] 0에서 9 사이의 무작위 값을 구한다. ``NumberGenerator - createRandomNumber`` 
-- [ ] 자동차가 전진한다. ``Car - moveForward``
+- [x] 자동차가 전진한다. ``Car - moveForward``
 - [ ] 자동차의 이름을 출력한다. ``OutputView - printCarName``
 - [ ] 자동차의 전진 상황을 출력한다. ``OutputView - printCarProgress``
 - [ ] 우승자를 안내한다. ``GameController - announceWinner``
