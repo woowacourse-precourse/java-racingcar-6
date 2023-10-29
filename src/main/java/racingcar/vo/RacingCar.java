@@ -16,7 +16,7 @@ public class RacingCar {
         return forwardDistance;
     }
 
-    public void setForwardDistance(){
-        forwardDistance+=1;
+    public void setForwardDistance(int distance){
+        forwardDistance=distance;
     }
 }
