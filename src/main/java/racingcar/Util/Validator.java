@@ -8,7 +8,7 @@ public class Validator {
 
     public String[] validationCarName(String name){
         name = name.replaceAll(" ", "");
-        String[] names = validationNameLength(name.split(","));
+        String[] names = validationNameLength(name.split(",", -1));
         validationNameDuplicate(names);
         return names;
     }
