@@ -16,4 +16,12 @@ public class Controller {
         trialNumber = inputView.printTrial();
         outputView.printResultStart();
     }
+    
+
+    private void racingResult(){
+        for (int i = 0; i < cars.carsLength(); i++){
+            outputView.printRacingResult(cars.getCarName(i), cars.getCarPositionIcon(i));
+        }
+        System.out.println();
+    }
 }
