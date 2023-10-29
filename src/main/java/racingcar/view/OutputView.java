@@ -26,4 +26,9 @@ public class OutputView {
         }
         System.out.println(carString);
     }
+
+
+    public static void printWinner(String s) {
+        System.out.println("최종 우승자 :" +" "+s);
+    }
 }
