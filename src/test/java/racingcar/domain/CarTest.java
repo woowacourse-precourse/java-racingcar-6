@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.LinkedHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Map;
 
 class CarTest {
 
@@ -40,6 +41,46 @@ class CarTest {
         System.setOut(originalOut);
         Assertions.assertThat(lines[2]).isEqualTo("povi3 : ");
         System.setOut(originalOut);
+    }
+
+    @Test
+    void getFinalWinner_동점시_최종우승자_테스트() {
+        //given
+        final String cars = "povi1,povi2,povi3";
+        final LinkedHashMap<String, String> carList = T2.createCarList(cars);
+        T.setCarList(carList);
+        String tmpMoveValue = "-";
+        for (Map.Entry<String, String> entry : T.getCarList().entrySet()) {
+            String key = entry.getKey();
+            carList.put(key, tmpMoveValue);
+        }
+
+        //when
+        String result = T.getFinalWinner();
+
+        //then
+        Assertions.assertThat(result).isEqualTo("povi1, povi2, povi3");
+    }
+
+    @Test
+    void getFinalWinner_동점X_최종우승자_테스트() {
+        //given
+        final String cars = "povi1,povi2,povi3";
+        final LinkedHashMap<String, String> carList = T2.createCarList(cars);
+        T.setCarList(carList);
+        String tmpMoveValue = "-";
+        for (Map.Entry<String, String> entry : T.getCarList().entrySet()) {
+            String key = entry.getKey();
+            String moveValue =  T.getCarList().get(key);
+            carList.put(key, tmpMoveValue + moveValue);
+            tmpMoveValue = tmpMoveValue + "-";
+        }
+
+        //when
+        String result = T.getFinalWinner();
+
+        //then
+        Assertions.assertThat(result).isEqualTo("povi3");
     }
 
 }
