@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.List;
+import racingcar.utils.WinnerFinder;
 import racingcar.utils.CarListCreator;
 import racingcar.validator.CarNameValidator;
 

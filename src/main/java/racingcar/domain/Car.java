@@ -1,7 +1,4 @@
-package racingcar;
-
-import racingcar.utils.NumberGenerator;
-import racingcar.utils.RealNumberGenerator;
+package racingcar.domain;
 
 public class Car {
 

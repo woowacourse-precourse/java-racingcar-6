@@ -2,7 +2,7 @@ package racingcar.utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.Car;
+import racingcar.domain.Car;
 
 public class CarListCreator {
 

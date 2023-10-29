@@ -1,6 +1,4 @@
-package racingcar;
-
-import racingcar.utils.NumberGenerator;
+package racingcar.domain;
 
 public class TestNumberGenerator implements NumberGenerator {
     private final int fixedNumber;

@@ -1,5 +1,6 @@
-package racingcar;
+package racingcar.controller;
 
+import racingcar.domain.Game;
 import racingcar.validator.AttemptCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
