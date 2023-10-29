@@ -13,5 +13,10 @@ public class RacingCarController {
         List<Car> cars = CarRace.formatCarNames(carstr);
         OutputView.printAttempNumMessage();
         int attempNum = InputView.inputAttempNum();
+
+        for (int i = 1; i > attempNum; i++) {
+            CarRace.raceCar(cars);
+        }
+
     }
 }
