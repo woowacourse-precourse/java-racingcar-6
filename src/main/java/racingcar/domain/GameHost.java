@@ -22,10 +22,18 @@ public class GameHost {
 
         for (RaceCar raceCar : progressCarList) {
             // 전진 카운터가 입력한만큼있으면
-            if (judgeStandard.isVictoryCondition(raceCar, numOfWinCondition)) {
+            if (judgeStandard.isVictoryCondition(raceCar, getCntMaxMove(progressCarList))) {
                 winRaceCarList.add(raceCar);
             }
         }
         return winRaceCarList;
+    }
+
+    private Integer getCntMaxMove(List<RaceCar> progressCarList) {
+        int max = progressCarList.stream()
+                .mapToInt(RaceCar::getCntMovementOfCar)
+                .max()
+                .orElse(0);
+        return max;
     }
 }
