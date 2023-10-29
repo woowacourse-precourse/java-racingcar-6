@@ -10,8 +10,6 @@ import java.util.List;
 
 public class Application {
 
-    private static List<String> carNames;
-
     private static void printMessage(String message) {
         System.out.println(message);
     }
@@ -21,61 +19,22 @@ public class Application {
         return Console.readLine();
     }
 
-    private static void createCarNames(String userInput) {
-        carNames = Arrays.asList(userInput.split(","));
+    private static List<String> createCarNames(String userInput) {
+        return Arrays.asList(userInput.split(","));
     }
 
-    private static void validateCarNames() {
-        checkCarCount();
-        checkBlankAndLength();
-        checkDuplication();
-    }
-    private static void checkCarCount() {
-        if (carNames.size() < 2) {
-            throw new IllegalArgumentException("2대 이상의 자동차 이름을 입력해 주세요.");
-        }
-    }
-    private static void checkBlankAndLength(){
-        for (String carName : carNames) {
-            if (carName.isBlank()) {
-                throw new IllegalArgumentException("공백을 입력하지 마세요.");
-            }
 
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름을 5자 이하로 입력해 주세요.");
-            }
-        }
-    }
-    private static void checkDuplication(){
-        if (carNames.size() > new HashSet<>(carNames).size()) {
-            throw new IllegalArgumentException("중복되지 않은 이름을 입력해 주세요.");
-        }
-    }
 
-    private static void trimCarNames() {
-        for (int i = 0; i < carNames.size(); i++) {
-            carNames.set(i, carNames.get(i).trim());  // 수정 필요
-        }
-    }
 
     public static void main(String[] args) {
         // TODO: 프로그램 구 현
 
         // 1. 자동차 이름 입력
-        Application.createCarNames(Application.getInput());
-
-        Application.validateCarNames();
-
-        Application.trimCarNames();
-
-
-
-
+        Car car = Car.getInstance(createCarNames(getInput()));
 
 
         // 2. 시도 횟수 입력
         Application.printMessage("시도할 회수는 몇회인가요?");
-
         userInput = Console.readLine();
         int roundCount;
 
