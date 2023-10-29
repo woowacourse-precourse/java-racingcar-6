@@ -13,7 +13,6 @@ import java.util.Map;
 import org.junit.platform.commons.util.StringUtils;
 
 public final class RacingCars {
-
     private final List<String> names;
 
     private RacingCars(String input) {

@@ -35,11 +35,6 @@ public final class CarsPosition {
                 .toString();
     }
 
-    public String getWinner() {
-        int maxValue = Collections.max(carsPosition.values());
-        return StringFormatter.winnerFormat(getWinnerToMaxValue(maxValue));
-    }
-
     private void checkStepForward(String key) {
         int randomNumber = Randoms.pickNumberInRange(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
         if (randomNumber >= LEAST_VALUE_TO_STEP_FORWARD) {
@@ -52,7 +47,12 @@ public final class CarsPosition {
         return CONVERTING_SIGNS.repeat(position);
     }
 
-    private String getWinnerToMaxValue(int maxValue) {
+    public String getWinner() {
+        int maxValue = Collections.max(carsPosition.values());
+        return StringFormatter.winnerFormat(getWinnerWithMaxValue(maxValue));
+    }
+
+    private String getWinnerWithMaxValue(int maxValue) {
         return carsPosition.keySet()
                 .stream()
                 .filter(name -> carsPosition.get(name).equals(maxValue))
