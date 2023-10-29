@@ -20,15 +20,16 @@ public class Input {
 
     public static List<String> getCarNames() {
         printEnterCarNames();
-        String names = Console.readLine();
-        String[] nameArr = names.split(",");
+        String nameStr = Console.readLine();
+        String[] nameArr = nameStr.split(",");
         InputValidator.isValidCarName(nameArr);
         return Arrays.asList((nameArr));
     }
 
-    public static int getNumber() throws IllegalArgumentException {
+    public static int getRound() throws IllegalArgumentException {
         printEnterRound();
-        String numStr = Console.readLine();
-        return Integer.parseInt(numStr);
+        String round = Console.readLine();
+        InputValidator.isValidRound(round);
+        return Integer.parseInt(round);
     }
 }

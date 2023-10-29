@@ -18,7 +18,7 @@ public class RacingCar {
 
     private void startGame() {
         List<String> carNames = Input.getCarNames();
-        round = Input.getNumber();
+        round = Input.getRound();
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
