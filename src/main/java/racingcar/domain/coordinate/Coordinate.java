@@ -54,4 +54,8 @@ public final class Coordinate {
     public int hashCode() {
         return Objects.hash(coordinate);
     }
+
+    public boolean isBefore(final Coordinate other) {
+        return coordinate < other.coordinate;
+    }
 }
