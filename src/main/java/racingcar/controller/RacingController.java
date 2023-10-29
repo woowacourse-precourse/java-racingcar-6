@@ -2,10 +2,12 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.message.ExceptionMessage;
+import racingcar.model.CarList;
 import racingcar.view.RacingView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class RacingController {
 
@@ -13,6 +15,20 @@ public class RacingController {
 
     public RacingController(RacingView racingView) {
         this.racingView = racingView;
+    }
+
+    public void startRacing() {
+        List<String> carNames = inputCarName();
+        int forwardCount = inputForwardCount();
+        CarList carList = new CarList(carNames);
+
+        racingView.printExecutionResults();
+        IntStream.range(0, forwardCount).forEach(i -> {
+            carList.race();
+            racingView.printExecutionResultsForEachOrder(carList);
+        });
+
+        racingView.printResult(carList);
     }
 
     private List<String> inputCarName() {
@@ -23,7 +39,7 @@ public class RacingController {
         return carNames;
     }
 
-    private int inputTryingTime() {
+    private int inputForwardCount() {
         racingView.printReceiveNumber();
         String answer = Console.readLine();
         validateCarTrying(answer);
