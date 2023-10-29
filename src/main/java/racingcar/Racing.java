@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
@@ -15,7 +16,8 @@ public class Racing {
 
     private void createCars(String[] inputs) {
 
-        for(int i = 0; i < inputs.length; i++) {
+        cars = new ArrayList<>();
+        for (int i = 0; i < inputs.length; i++) {
 
             cars.add(new Car(inputs[i]));
         }
@@ -23,18 +25,24 @@ public class Racing {
 
     private void racingRepeatRun(int repeatCount) {
 
-        for(int i = 0; i < repeatCount; i++) {
+        System.out.println("실행 결과");
 
-            for(int j = 0; j < cars.size(); j++) {
+        for (int i = 0; i < repeatCount; i++) {
+
+            for (int j = 0; j < cars.size(); j++) {
 
                 cars.get(j).go();
             }
+
+            System.out.println();
         }
+
+        checkResult(this.cars);
     }
 
-    private List<Car> checkResult() {
+    private void checkResult(List<Car> cars) {
 
-        judge = new Judge();
-        return judge.judgeResult();
+        this.judge = new Judge();
+        judge.judgeFinalResult(cars);
     }
 }

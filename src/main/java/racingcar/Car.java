@@ -8,12 +8,24 @@ public class Car {
     private int carDistance;
     private final int MINRANDOM = 0;
     private final int MAXRANDOM = 9;
+    private final int NODISTANCE = 0;
 
     public Car(String carName) {
 
         this.carName = carName;
         this.carDistance = 0;
     }
+
+    public String getCarName() {
+
+        return carName;
+    }
+
+    public int getCarDistance() {
+
+        return carDistance;
+    }
+
     public void go() {
 
         randomGo();
@@ -23,9 +35,9 @@ public class Car {
 
         int num = Randoms.pickNumberInRange(MINRANDOM, MAXRANDOM);
 
-        if(num >= 4) {
+        if (num >= 4) {
 
-            this.carDistance++;
+            carDistance++;
         }
 
         printResult();
@@ -33,14 +45,16 @@ public class Car {
 
     private void printResult() {
 
-        System.out.print(this.carName + " : ");
+        System.out.print(carName + " : ");
 
-        if(carDistance != 0) {
+        if (carDistance != NODISTANCE) {
 
-            for(int i = 0; i < carDistance; i++) {
+            for (int i = 0; i < carDistance; i++) {
 
                 System.out.print("-");
             }
         }
+
+        System.out.println();
     }
 }

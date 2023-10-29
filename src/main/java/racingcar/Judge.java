@@ -5,42 +5,44 @@ import java.util.List;
 
 public class Judge {
 
-    private List<String> winCars = new ArrayList<>();
+    private List<Car> winCars = new ArrayList<>();
 
-    public void judgeResult(List<Car> cars) {
+    public void judgeFinalResult(List<Car> cars) {
 
-        String carName = null;
-
-        for (int i = 0; i < cars.size() - 1; i++) {
-
-            for (int j = i + 1; j < cars.size(); j++) {
-
-                carName = longestDistance(cars.get(i), cars.get(j));
-            }
-
-            winCars.add(carName);
-        }
-
+        longestDistance(cars);
         printWinner();
     }
 
-    private String longestDistance(Car car1, Car car2) {
+    private void longestDistance(List<Car> cars) {
 
-        if (car1.getCarDistance() >= car2.getCarDistance()) {
+        winCars.add(cars.get(0));
 
-            return car1.getCarName();
+        for (Car car : cars) {
+
+            if (car.getCarDistance() > winCars.get(0).getCarDistance()) {
+
+                winCars.clear();
+                winCars.add(car);
+            } else if (car.getCarDistance() == winCars.get(0).getCarDistance()) {
+
+                winCars.add(car);
+            }
         }
-
-        return car2.getCarName();
     }
 
     private void printWinner() {
 
         System.out.print("최종 우승자 : ");
 
-        for (String name : winCars) {
+        for (int i = 0; i < winCars.size(); i++) {
 
-            System.out.print(name + ", ");
+            if (i == winCars.size() - 1) {
+
+                System.out.print(winCars.get(i).getCarName());
+                return;
+            }
+
+            System.out.print(winCars.get(i).getCarName() + ", ");
         }
     }
 }
