@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.Arrays;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.validation.InputValidation;
@@ -16,11 +17,13 @@ public class Inputview {
 
     public static List<String> inputCarName() {
         String input = Console.readLine();
-        return InputValidation.validateAndSplit(input);
+        return InputValidation.validationNameSeparate(InputValidation.validateAndSplit(input));
     }
 
-    public static void tryGameNumber() {
+    public static int tryGameNumber() {
         System.out.println(GAME_NUMBER_OF_ATTEMPTS);
+        String input = String.valueOf(Console.readLine());
+        return InputValidation.carNumericValidation(input);
     }
 
     public int carNumericValue() {
