@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
     GameManager gameManager = new GameManager();
     GameElements gameElements = GameElements.INSTANCE;
@@ -7,6 +10,7 @@ public class Game {
     public void startGame() {
         gameManager.gameSetting();
         gamingWithTryCount();
+        checkWinner();
     }
 
     private void gamingWithTryCount() {
@@ -28,5 +32,18 @@ public class Game {
             int forwardCount = gameElements.getCarMap().get(car) + 1;
             gameElements.getCarMap().replace(car, forwardCount);
         }
+    }
+
+    private List<String> checkWinner(){
+        int max = -1;
+        List<String> winnerList = new ArrayList<>();
+
+        for(String car : gameElements.getCarNameList()){
+            if(max <= gameElements.getCarMap().get(car)){
+                max = gameElements.getCarMap().get(car);
+                winnerList.add(car);
+            }
+        }
+        return winnerList;
     }
 }
