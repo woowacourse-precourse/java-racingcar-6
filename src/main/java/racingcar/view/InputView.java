@@ -13,9 +13,11 @@ public class InputView {
 
     private MovementValidation movementValidation;
 
-    private final String START_SENTENCE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String START_SENTENCE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
 
-    private final String MOVEMENT_SENTENCE = "시도할 회수는 몇회인가요?";
+    private static final String MOVEMENT_SENTENCE = "시도할 회수는 몇회인가요?";
+
+    private static final String NULL_OR_STRING_MESSAGE = "공백이나 문자열을 입력할 수 없습니다.";
 
     public InputView() {
         carNameValidation = new CarNameValidation();
@@ -38,7 +40,7 @@ public class InputView {
 
             return movement;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("공백이나 문자열을 입력할 수 없습니다.");
+            throw new IllegalArgumentException(NULL_OR_STRING_MESSAGE);
         }
     }
 }

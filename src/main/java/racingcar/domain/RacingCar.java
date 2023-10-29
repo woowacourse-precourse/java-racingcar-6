@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,6 +7,7 @@ import java.util.List;
 public class RacingCar {
     private static final String STATUS_FORMAT = " : ";
     private static final String PROGRESS = "-";
+    private static final String SPLIT_STANDARD = ",";
     private static final Integer CAR_MOVEMENT = 0;
 
     private String carName;
@@ -24,7 +23,7 @@ public class RacingCar {
     }
 
     public static List<RacingCar> fromInputCarName(String inputCarName) {
-        List<String> carNames = Arrays.asList(inputCarName.split(","));
+        List<String> carNames = Arrays.asList(inputCarName.split(SPLIT_STANDARD));
 
         List<RacingCar> racingCars = new ArrayList<>();
         for (String carName : carNames) {
