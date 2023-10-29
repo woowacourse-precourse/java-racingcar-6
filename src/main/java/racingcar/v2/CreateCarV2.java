@@ -9,4 +9,9 @@ public class CreateCarV2 {
     public String input() {
         return Console.readLine();
     }
+
+    public String[] carName(String input) {
+        String[] carName = input.split(",");
+        return carName;
+    }
 }
