@@ -9,10 +9,11 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
-
+        int num = requestNum();
+        System.out.println(num);
     }
 
-    public static HashMap<String, StringBuilder> requestRacers(){
+    public HashMap<String, StringBuilder> requestRacers(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] input = readLine().split(",");
 
@@ -21,12 +22,22 @@ public class Application {
         Map<String, StringBuilder> racers = Stream.of(input)
                 .peek(name -> {
                     if (name.length() > 5) {
-                        throw new IllegalArgumentException("Name should be 5 characters or less: " + name);
+                        throw new IllegalArgumentException();
                     }
                 })
                 .collect(Collectors.toMap(name -> name, name -> new StringBuilder()));
 
         return new HashMap<>(racers);
     }
+
+    public static int requestNum() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = readLine();
+
+        if (!input.matches("^[1-9]\\d*$")) throw new IllegalArgumentException();
+        return Integer.parseInt(input);
+    }
+
+
 
 }
