@@ -1,7 +1,9 @@
 package racingcar.controller;
 
+import racingcar.model.Car;
 import racingcar.view.InputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
@@ -11,7 +13,10 @@ public class RacingCarGame {
 
         int countNumber = InputView.inputCount();
 
-        System.out.println(carNameList);
-        System.out.println(countNumber);
+        List<Car> carList = new ArrayList<>();
+        for (String name : carNameList){
+            carList.add(new Car(name));
+        }
+
     }
 }
