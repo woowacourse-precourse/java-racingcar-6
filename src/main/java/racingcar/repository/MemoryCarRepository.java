@@ -9,6 +9,10 @@ import racingcar.domain.Car;
 public class MemoryCarRepository implements CarRepository {
 
     private static final MemoryCarRepository memoryCarRepository = new MemoryCarRepository();
+    private void resetSequence() {
+        sequence = 0L;
+    }
+
     public static MemoryCarRepository getInstance() {
         return memoryCarRepository;
     }
@@ -41,5 +45,9 @@ public class MemoryCarRepository implements CarRepository {
         return new ArrayList<>(store.values());
     }
 
+    @Override
+    public void deleteAll() {
+        store.clear();
+        resetSequence();
     }
 }

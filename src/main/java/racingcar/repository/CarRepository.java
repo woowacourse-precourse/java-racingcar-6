@@ -10,4 +10,5 @@ public interface CarRepository {
     Optional<Car> findById(Long id);
     Optional<Car> findByName(String name);
     List<Car> findAll();
+    void deleteAll();
 }
