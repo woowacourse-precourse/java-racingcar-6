@@ -13,6 +13,10 @@ public class Computer {
         cars = new ArrayList<>();
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public void generateCars(List<String> carsName) {
         carsName.forEach(this::validateCarName);
         carsName.stream()
