@@ -11,12 +11,12 @@ public class Car {
         this.distance = 0;
     }
 
-    public void move() {
-        if (canMove())
+    public void move(boolean canMove) {
+        if (canMove)
             distance++;
     }
 
-    private boolean canMove() {
+    public boolean canMove() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
     }
