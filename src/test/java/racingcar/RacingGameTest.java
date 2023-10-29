@@ -8,6 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.regex.Pattern;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -85,5 +86,15 @@ class RacingGameTest {
         System.setIn(new ByteArrayInputStream("".getBytes()));
 
         assertThrows(NoSuchElementException.class, Console::readLine);
+    }
+
+    @Test
+    @DisplayName("시도 횟수 입력 시 숫자가 아닌 다른 문자를 입력한다.")
+    void test8() {
+        System.setIn(new ByteArrayInputStream("abc".getBytes()));
+        String playCount = Console.readLine();
+        final Boolean isNumber = Pattern.matches("^[\\d]$", playCount);
+
+        assertThat(isNumber).isEqualTo(false);
     }
 }
