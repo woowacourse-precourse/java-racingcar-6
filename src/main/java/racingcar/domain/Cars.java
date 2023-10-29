@@ -10,6 +10,12 @@ public class Cars {
         cars.add(car);
     }
 
+    public void move() {
+        for (Car car : cars) {
+            car.go();
+        }
+    }
+
     public List<Car> getCars() {
         return cars;
     }
