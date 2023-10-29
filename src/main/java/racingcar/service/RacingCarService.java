@@ -6,7 +6,7 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class RacingCarService {
-    public static List<Car> formatCarNames(List<String> carNames) {
+    public static List<Car> convertCarNames(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carname : carNames) {
             Car car = new Car(carname);

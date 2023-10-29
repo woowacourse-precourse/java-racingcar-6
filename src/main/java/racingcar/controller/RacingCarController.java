@@ -10,7 +10,7 @@ public class RacingCarController {
     public void startGame() {
         OutputView.printStartGameMessage();
         List<String> carstr = InputView.inputCarNames();
-        List<Car> cars = RacingCarService.formatCarNames(carstr);
+        List<Car> cars = RacingCarService.convertCarNames(carstr);
         OutputView.printAttempNumMessage();
         int attempNum = InputView.inputAttempNum();
 
