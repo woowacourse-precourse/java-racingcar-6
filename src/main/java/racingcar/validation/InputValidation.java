@@ -18,12 +18,16 @@ public class InputValidation {
 
     public static String gameCountValidate(String input) {
         try {
-            if (Integer.parseInt(input) > 0) {
+            if (isNaturalNumber(input)) {
                 return input;
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INVALID_INPUT);
         }
         return input;
+    }
+
+    private static boolean isNaturalNumber(String input) {
+        return Integer.parseInt(input) > 0;
     }
 }
