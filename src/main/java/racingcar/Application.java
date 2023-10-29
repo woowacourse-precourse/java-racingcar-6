@@ -24,7 +24,7 @@ public class Application {
         int attempt = Integer.parseInt(attemptInput);
 
         // TODO: RacingModel 클래스를 만들어 List<Car>을 포함하는 형태로 변경하자
-        System.out.println("실행 결과");
+        view.printRacingStartMessage();
         for (int i = 0; i < attempt; i++) {
             carList.moveRandomEachCars();
             view.printProgress(carList.getCarList());
