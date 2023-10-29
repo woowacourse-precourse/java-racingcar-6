@@ -42,14 +42,12 @@ public class Application {
 
 
         // 2. 시도 횟수 입력
-
-
         int roundCount = Application.checkPositiveNumber(getInput("시도할 회수는 몇회인가요?"));
 
         // 3. 이동 로직 구현
         System.out.println("실행 결과");
 
-        List<String> movedCount = Arrays.asList(new String[carNames.size()]);
+        List<String> movedCount = Arrays.asList(new String[car.names.size()]);
         movedCount.replaceAll(Null -> "");
 
         for (int i = 0; i < roundCount; i++) {
@@ -61,8 +59,8 @@ public class Application {
                 }
             }
 
-            for (int k = 0; k < carNames.size(); k++) {
-                System.out.println(carNames.get(k) + " : " + movedCount.get(k));
+            for (int k = 0; k < car.names.size(); k++) {
+                System.out.println(car.names.get(k) + " : " + movedCount.get(k));
             }
 
             System.out.println();
@@ -71,7 +69,7 @@ public class Application {
         // 4. 우승자 출력
         int max = 0;
 
-        for (int i = 0; i < carNames.size(); i++) {
+        for (int i = 0; i < car.names.size(); i++) {
 
             if (max <= movedCount.get(i).length()) {
                 max = movedCount.get(i).length();
@@ -82,7 +80,7 @@ public class Application {
         System.out.print("최종 우승자 : ");
         int count = 0;
 
-        for (int i = 0; i < carNames.size(); i++) {
+        for (int i = 0; i < car.names.size(); i++) {
 
             if (max == movedCount.get(i).length()) {
 
@@ -90,7 +88,7 @@ public class Application {
                     System.out.print(", ");
                 }
 
-                System.out.print(carNames.get(i));
+                System.out.print(car.names.get(i));
             }
         }
     }
