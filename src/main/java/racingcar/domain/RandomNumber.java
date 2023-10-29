@@ -9,7 +9,7 @@ public class RandomNumber {
     private static final int MOVABLE_POINT = 4;
     private final Integer number;
 
-    private RandomNumber(Integer number) {
+    public RandomNumber(Integer number) {
         this.number = number;
     }
 
