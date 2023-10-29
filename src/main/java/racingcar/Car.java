@@ -18,6 +18,7 @@ public class Car {
             System.out.println(i + 1 + "회차");
             printRacingNow(carNames, carMove);
         }
+        
         System.out.println();
 
         return countCarMove(carMove);
@@ -39,6 +40,7 @@ public class Car {
             result.append(bar);
             result.append("\n");
         }
+
         System.out.println(result);
     }
 
@@ -62,7 +64,7 @@ public class Car {
         return carMoveDistance;
     }
 
-    public String printWinner(List<String> carNames, List<Integer> carMoveDistance) {
+    public void printWinner(List<String> carNames, List<Integer> carMoveDistance) {
         int maxDistance = Collections.max(carMoveDistance);
         int indexOfMaxDistance = carMoveDistance.indexOf(maxDistance);
         StringBuilder result = new StringBuilder("최종 우승자 : ");
@@ -77,6 +79,7 @@ public class Car {
             result.append(carNames.get(indexOfMaxDistance));
             carMoveDistance.set(indexOfMaxDistance, 0);
         }
-        return result.toString();
+
+        System.out.println(result);
     }
 }
