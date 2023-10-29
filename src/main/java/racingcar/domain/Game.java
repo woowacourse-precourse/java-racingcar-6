@@ -7,12 +7,6 @@ import java.util.List;
 
 public class Game {
     public void start() {
-        /**
-         * 1. 차 객체 만들기
-         * 2. 시도 횟수 입력 받기
-         * 3. 실행
-         * 4. 실행 결과 표시
-         */
         List<Car> carList = makeCar();
         int numberOfAttempts = getNumberOfAttempts();
         System.out.println("실행 결과");
@@ -20,7 +14,7 @@ public class Game {
             play(carList);
             showResult(carList);
         }
-
+        showWinner(carList);
     }
 
     private List<Car> makeCar() {
@@ -37,7 +31,7 @@ public class Game {
 
     private int getNumberOfAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
-        Attemp attemp = new Attemp(Console.readLine());
+        Attempt attemp = new Attempt(Console.readLine());
         System.out.println();
         return attemp.getNumber();
     }
@@ -51,17 +45,21 @@ public class Game {
 
     private void showResult(List<Car> carList) {
         for (Car car : carList) {
-            System.out.print(car.getCarName()+" : ");
-            System.out.println(carPosition(car.getCarPosition()));
+            System.out.print(car.getName()+" : ");
+            System.out.println(car.getPosition());
         }
         System.out.println();
     }
+//
+//    private String carPosition(int position) {
+//        String positionStr = "";
+//        for (int count = 0; count < position; count++) {
+//            positionStr += "-";
+//        }
+//        return positionStr;
+//    }
 
-    private String carPosition(int position) {
-        String positionStr = "";
-        for (int count = 0; count < position; count++) {
-            positionStr += "-";
-        }
-        return positionStr;
+    private void showWinner(List<Car> carList) {
+        //sort 후 출
     }
 }
