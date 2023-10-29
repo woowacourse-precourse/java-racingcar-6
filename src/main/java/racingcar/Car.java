@@ -20,4 +20,8 @@ public class Car {
     public int getLocation() {
         return this.location;
     }
+
+    public boolean isWinner(int maxLocation) {
+        return maxLocation == this.location;
+    }
 }

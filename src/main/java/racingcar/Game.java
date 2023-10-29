@@ -31,6 +31,8 @@ public class Game {
         printNewLine();
         printMessage(RESULT_TITLE_MESSAGE);
         progress();
+
+        printMessage(gameManager.makeWinnerResult(cars));
     }
 
     private void progress() {
