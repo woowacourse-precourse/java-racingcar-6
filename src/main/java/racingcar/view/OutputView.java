@@ -25,4 +25,14 @@ public class OutputView {
     public void printLastWinnerResult(String carName) {
         System.out.print(carName);
     }
+
+
+    public ArrayList<StringBuilder> makeStringBuilders(int numberOfCars) {
+        ArrayList<StringBuilder> carStringBuilders = new ArrayList<>();
+        for (int i = 0; i < numberOfCars; i++) {
+            StringBuilder carStringBuilder = new StringBuilder();
+            carStringBuilders.add(carStringBuilder);
+        }
+        return carStringBuilders;
+    }
 }
