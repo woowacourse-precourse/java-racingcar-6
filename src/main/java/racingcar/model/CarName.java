@@ -1,12 +1,12 @@
-package racingcar.model.car;
+package racingcar.model;
 
 import racingcar.constant.RacingGameConstants;
 import racingcar.exception.NullException;
 import racingcar.exception.car.name.LengthException;
 
-public class Name {
-    private String name;
-    public Name(String name) {
+public class CarName {
+    private final String name;
+    public CarName(String name) {
         validate(name);
         this.name = name;
     }

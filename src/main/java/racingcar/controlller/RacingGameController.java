@@ -2,8 +2,8 @@ package racingcar.controlller;
 
 import java.util.Collections;
 import java.util.List;
-import racingcar.model.car.Car;
-import racingcar.model.car.Cars;
+import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.Round;
 
 public class RacingGameController {

@@ -11,8 +11,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.model.car.Car;
-import racingcar.model.car.Cars;
 import racingcar.utils.Parser;
 
 public class ExceptionTest {

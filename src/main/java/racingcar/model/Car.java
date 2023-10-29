@@ -1,19 +1,19 @@
-package racingcar.model.car;
+package racingcar.model;
 
 import racingcar.constant.RacingGameConstants;
 import racingcar.utils.RandomGenerator;
 
 public class Car {
-    private final Name name;
+    private final CarName carName;
     private int position;
 
-    public Car(String name) {
-        this.name = new Name(name);
+    public Car(String carName) {
+        this.carName = new CarName(carName);
         position = 0;
     }
 
     public String getName() {
-        return name.getName();
+        return carName.getName();
     }
 
     public int getPosition() {
