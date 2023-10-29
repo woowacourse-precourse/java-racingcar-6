@@ -106,6 +106,27 @@ class GameTest {
 
     @Test
     void findWinners() {
+        String carNames = "pobi,woni,jun";
+        String gameTurns = "5";
+
+        final int GO = 4;
+        final int STOP = 3;
+        Integer[] randoms = {STOP, GO, GO, STOP, GO, GO, GO, GO, GO, GO, GO, GO, GO, GO};
+
+        try (MockedStatic<Console> consoleMockedStatic = mockStatic(Console.class);
+             MockedStatic<RandomMaker> randomMakerMockedStatic = mockStatic(RandomMaker.class)) {
+            when(Console.readLine()).thenReturn(carNames, gameTurns);
+            when(RandomMaker.makeRandomNumber()).thenReturn(GO, randoms);
+
+            assertThatCode(() -> {
+                game.init();
+                game.run();
+                game.findWinners();
+            }).doesNotThrowAnyException();
+
+            consoleMockedStatic.verify(Console::readLine, times(2));
+            randomMakerMockedStatic.verify(RandomMaker::makeRandomNumber, times(15));
+        }
     }
 
     @Test
