@@ -11,4 +11,12 @@ public class Car {
     public void goForward() {
         this.position++;
     }
+
+    public String positionDrawDash() {
+        StringBuilder positionDash = new StringBuilder();
+        for (int positionCnt = 0; positionCnt < this.position; positionCnt++) {
+            positionDash.append("-");
+        }
+        return positionDash.toString();
+    }
 }
