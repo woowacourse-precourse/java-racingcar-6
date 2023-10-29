@@ -33,8 +33,15 @@ class ValidatorTest {
 
     @Test
     @DisplayName("차의 이름이 5보다 큰 경우")
-    void validateCarNameLengthFail(){
+    void validateCarNameLengthFail() {
         assertThrows(IllegalArgumentException.class, () ->
                 validator.validateCarName("carName"));
+    }
+
+    @Test
+    @DisplayName("차의 이름에 공백이 존재하는 경우")
+    void carNameHasBlank() {
+        assertThrows(IllegalArgumentException.class, () ->
+                validator.validateCarName(" he l"));
     }
 }
