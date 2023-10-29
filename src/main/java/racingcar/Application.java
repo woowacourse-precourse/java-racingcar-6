@@ -11,11 +11,7 @@ public class Application {
         List<String> cars=inputCars();
         int tryOut=tryGameCount();
 
-        List<Integer> result=new ArrayList<>();
-        for(int i=0;i<cars.size();i++)
-            result.add(0);
-
-        System.out.println("\n실행 결과");
+        List<Integer> result=resultArray(cars.size());
 
         for(int i=0;i<tryOut;i++){
             List<Integer> randomCondition=forwardCondition(cars.size());
@@ -28,6 +24,16 @@ public class Application {
         List<Integer> winner=winnerSelect(result);
         winnerOutput(winner,cars);
 
+    }
+    public static List<Integer> resultArray(int carSize){
+        List<Integer> result=new ArrayList<>();
+
+        for (int i=0;i<carSize;i++)
+            result.add(0);
+
+        System.out.println("\n실행 결과");
+
+        return result;
     }
     public static void winnerOutput(List<Integer> winner,List<String> cars){
         String outputs="최종 우승자 : ";
