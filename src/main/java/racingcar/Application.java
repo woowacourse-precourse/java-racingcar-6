@@ -59,5 +59,19 @@ public class Application {
             }
             outputView.printOutput();
         }
+
+        // '최종 우승자 : ' 메세지 출력
+        outputView.winnerMessage();
+
+        // 최종 우승자 출력
+        int i = 0;
+        for (String carNames : inputCarNames) {
+            if (carMap.get(carNames) == maxForward) {
+                if (i == 0) outputView.Winner(carNames);
+                else outputView.Winners(carNames);
+                i++;
+            }
+        }
+        outputView.printOutput();
     }
 }
