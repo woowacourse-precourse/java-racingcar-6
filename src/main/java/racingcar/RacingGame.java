@@ -12,6 +12,15 @@ public class RacingGame {
     private static int winCount;
     private static ArrayList<String> winningCarList = new ArrayList<>();
 
+    public static void printWinningCar() {
+        System.out.print("최종 우승자 : ");
+        if (winningCarList.size() == 1) {
+            System.out.print(winningCarList.get(0));
+        } else {
+            System.out.print(String.join(", ", winningCarList));
+        }
+    }
+
     public static void countWinningCar() {
         for (int i = 0; i < carListLength; i++) {
             if (winCount == gameResultCount[i]) {
@@ -50,5 +59,6 @@ public class RacingGame {
         }
 
         countWinningCar();
+        printWinningCar();
     }
 }
