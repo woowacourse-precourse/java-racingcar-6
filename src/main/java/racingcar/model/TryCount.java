@@ -9,6 +9,10 @@ public class TryCount {
         this.count = count;
     }
 
+    public void decrease() {
+        count --;
+    }
+
     public boolean isAbleTry() {
         return count != FINISH_COUNT;
     }

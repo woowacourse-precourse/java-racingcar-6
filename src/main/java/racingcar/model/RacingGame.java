@@ -13,6 +13,11 @@ public class RacingGame {
         this.count = new TryCount(count);
     }
 
+    public void start() {
+        cars.race();
+        count.decrease();
+    }
+
     public boolean isPlayable() {
         return count.isAbleTry();
     }
