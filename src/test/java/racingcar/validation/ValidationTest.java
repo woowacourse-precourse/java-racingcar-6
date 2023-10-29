@@ -60,4 +60,27 @@ public class ValidationTest {
         //then
         assertThrows(IllegalArgumentException.class, () -> Validation.valiEmptySplitInputCarNames(split));
     }
+    
+    @ParameterizedTest
+    @ValueSource(strings = {"roundCount","-1", "0","100L"})
+    @DisplayName("실패 - vali 2 - 숫자가 맞는지 확인 (문자는 아닌지, 음수는 아닌지 확인)")
+    public void invalidIsNumber(String countInput) {
+        //given
+        String count = countInput;
+        //when
+        
+        //then
+        assertThrows(IllegalArgumentException.class, () -> Validation.valiRacingCount(count));
+    }
+
+    @Test
+    @DisplayName("vali 2 - 숫자가 맞는지 확인 (문자는 아닌지, 음수는 아닌지 확인)")
+    public void validIsNumber() {
+        //given
+        String count = "10";
+        //when
+
+        //then
+        assertDoesNotThrow(() -> Validation.valiRacingCount(count));
+    }
 }
