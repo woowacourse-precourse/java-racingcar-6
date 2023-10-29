@@ -8,7 +8,7 @@ public final class RacingGame {
     private final RaceResult raceResult = new RaceResult();
     private Cars cars;
 
-    private RacingGame(){
+    private RacingGame() {
     }
 
     public static RacingGame getInstance() {
@@ -16,8 +16,10 @@ public final class RacingGame {
     }
 
     public void startGame() {
-        String names = receiveCarNames();
-        int raceCount = receiveRaceCount();
+        InputProvider inputProvider = InputProvider.getInstance();
+        String names = inputProvider.receiveCarNames();
+        int raceCount = inputProvider.receiveRaceCount();
+
         cars = Cars.getCarsFromNames(names);
 
         playGame(raceCount);
@@ -30,15 +32,5 @@ public final class RacingGame {
         }
         List<Car> winnerList = cars.findWinners();
         System.out.println(raceResult.getWinners(winnerList));
-    }
-
-    private int receiveRaceCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
-    }
-
-    private String receiveCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Console.readLine();
     }
 }
