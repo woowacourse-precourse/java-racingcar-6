@@ -17,7 +17,7 @@
 * 자동차 개수가 유효한지 검사하는 기능 구현 (CarNum Class) ❌
 * 이동을 시도할 횟수가 유효한지 검사하는 기능 구현 (MoveNum Class) ❌
 * 입력값이 이동을 시도할 횟수를 넘었는지 검사하는 기능 구현 (MoveNum Class, CarNum Class) ❌
-* 입력받은 자동차 이름 쉼표 기준 파싱 (RacingSetting Class) ❌
+* 입력받은 자동차 이름 쉼표 기준 파싱 (RacingSetting Class) ✅
 
 ## 💻구현할 클래스 목록
 
