@@ -7,30 +7,31 @@ import static racingcar.msg.Sentence.RACINGCAR_NAME_INPUT;
 
 import java.util.List;
 
-import racingcar.game.CarInput;
+import racingcar.game.CarNameInput;
 import racingcar.game.GameResult;
 import racingcar.game.MoveCnt;
 import racingcar.game.RandomNum;
 
 public class Car {
-	private final CarInput carInput = new CarInput();
+	private final CarNameInput carNameInput = new CarNameInput();
 	private final MoveCnt moveCnt = new MoveCnt();
 	private final RandomNum randomNum = new RandomNum();
-	private List<String> carNames;
+	private String carNames;
 	private Integer moveNumber;
 	private List<Integer> randomNumber;
 	private final GameResult gameResult = new GameResult();
 	private List<String> finalWinner;
 
 	public void gameStart() {
-		System.out.println(RACINGCAR_NAME_INPUT);
-		carNames = carInput.getCarNameInput();
-		System.out.println(ATTEMPT_NUMBER_INPUT);
-		moveNumber = moveCnt.getMoveInput();
-		System.out.println(EXECUTION_RESULT);
-		randomNumber = randomNum.getRandomNum();
-		gameResult.result(carNames, moveNumber);
-		System.out.println(FINAL_WINNER);
+		System.out.print(RACINGCAR_NAME_INPUT);
+		carNames = carNameInput.getCarNameInput();
+		System.out.println(carNames);
+		//System.out.println(ATTEMPT_NUMBER_INPUT);
+		//moveNumber = moveCnt.getMoveInput();
+		//System.out.println(EXECUTION_RESULT);
+		//randomNumber = randomNum.getRandomNum();
+		// gameResult.result(carNames, moveNumber);
+		//System.out.println(FINAL_WINNER);
 
 	}
 }
