@@ -8,7 +8,7 @@ public final class GameMessage {
     public static final String GAME_MOVE_CNT_MESSAGE = "시도할 회수는 몇회인가요?";
 
     public static final String GAME_END_MESSAGE = "실행 결과";
-    public static final String GAME_RESULT_MESSAGE = "%s : ";
+    public static final String GAME_RESULT_MESSAGE = "%s : %s\n";
     public static final String GAME_WINNER_MESSAGE = "최종 우승자 : %s";
     public static final String DASH = "-";
 
