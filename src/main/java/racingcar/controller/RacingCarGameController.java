@@ -21,25 +21,26 @@ public class RacingCarGameController {
     }
 
     private void racingCarGameInit() {
-        OutputView.racingCarOpeningComment();
-
         racingCarCreate();
 
         gameTryCountCreate();
     }
 
     private void racingCarCreate() {
+        OutputView.racingCarOpeningComment();
+
         racingCars = InputView.getRacingCars();
     }
 
     private void gameTryCountCreate() {
         OutputView.tryCountInputComment();
+
         movingCount = InputView.getMovingCount();
     }
 
     private void racingCarGameRun() {
         OutputView.racingCarResultComment();
-
+        
         for (int i = 0; i < movingCount; i++) {
             racingCars.MovingCars();
             racingCars.racingCarResultPrint();
