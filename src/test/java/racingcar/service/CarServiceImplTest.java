@@ -61,6 +61,32 @@ public class CarServiceImplTest {
         assertThat(result).isNotNull();
     }
 
+    @Test
+    public void Car_이름은_영어와숫자만_특수문자는_에러() {
+        //given
+        final Car car1 = Car.create("1bcd@");
+
+        //when
+        final RuntimeException result = assertThrows(IllegalArgumentException.class,
+                () -> carService.join(car1));
+
+        //then
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void Car_이름은_영어와숫자만_공백은_에러() {
+        //given
+        final Car car1 = Car.create("1bc ");
+
+        //when
+        final RuntimeException result = assertThrows(IllegalArgumentException.class,
+                () -> carService.join(car1));
+
+        //then
+        assertThat(result).isNotNull();
+    }
+
     //TODO: Car에서 get~~(getPosition)같은것을 쓸경우 이거를 위한 테스트 따로하기(위치 이동시킨다음  위치값 저장 잘되는지)
     // 이건 Car Model이 아닌 Service에서 하는게 맞을듯.
 
