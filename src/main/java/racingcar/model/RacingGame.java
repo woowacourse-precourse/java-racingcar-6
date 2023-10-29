@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class RacingCars {
-    private final List<RacingCar> racingCars = new ArrayList<>();
+public class CarRacing {
+    private final List<Car> racingCars = new ArrayList<>();
 
-    public RacingCars(List<String> racingCarNames) {
+    public CarRacing(List<String> racingCarNames) {
         setRacingCars(racingCarNames);
     }
 
     private void setRacingCars(List<String> racingCarsName) {
         for (String racingCarName : racingCarsName) {
-            racingCars.add(new RacingCar(racingCarName));
+            racingCars.add(new Car(racingCarName));
         }
     }
 
@@ -25,7 +25,7 @@ public class RacingCars {
 
     private int getMaxMoveDistance() {
         return racingCars.stream()
-                .mapToInt(RacingCar::getMoveDistance)
+                .mapToInt(Car::getMoveDistance)
                 .max()
                 .getAsInt();
     }
@@ -33,12 +33,12 @@ public class RacingCars {
     private List<String> findWinners(int maxMoveDistance) {
         return racingCars.stream()
                 .filter(racingCar -> racingCar.getMoveDistance() == maxMoveDistance)
-                .map(RacingCar::getName)
+                .map(Car::getName)
                 .toList();
     }
 
     public void play() {
-        for (RacingCar racingCar : racingCars) {
+        for (Car racingCar : racingCars) {
             racingCar.move();
         }
     }

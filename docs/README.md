@@ -23,8 +23,8 @@
 
 ## class별 기능 구현 목록
 
-### CarRacing
-자동차 경주 게임을 진행하는 클래스
+### RacingGameController
+자동차 경주 게임의 절차를 관리하는 클래스
 
 - member instance
   - RacingCars racingCars : 자동차 경주에 참가한 자동차 리스트를 저장해 놓은 클래스
@@ -43,8 +43,8 @@
   - [x] : void validateRacingCarsName(String) : 입력받은 경주 자동차 이름의 유효성을 검사
   - [x] : void validateCount(String) : 입력받은 시도 횟수의 유효성을 검사
 
-### RacingCars
-자동차 경주에 참가한 자동차 리스트를 저장해 놓은 클래스
+### RacingGame
+자동차 게임과 관련된 기능을 관리하는 클래스
 
 - member instance
    - List<String> racingCars : 자동차 리스트
