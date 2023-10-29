@@ -1,6 +1,6 @@
 package racingcar.dto.output;
 
-public record CarInfo(String name, int distance) {
+public record RoundDTO(String name, int distance) {
 
     @Override
     public String toString() {
