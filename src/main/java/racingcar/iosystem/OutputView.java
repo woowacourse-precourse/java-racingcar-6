@@ -1,6 +1,7 @@
 package racingcar.iosystem;
 
 import java.util.Arrays;
+import java.util.StringJoiner;
 
 public class OutputView {
     public static void printExecutionResult(String[] cars, int[] carMove) {
@@ -18,10 +19,10 @@ public class OutputView {
             if (carMove[i] == maxValue) {
                 System.out.print(cars[i]);
                 commaMade(--occurrences);
-
             }
         }
     }
+
     public static int countOccurrences(int[] arr, int target) {
         int count = 0;
         for (int value : arr) {
