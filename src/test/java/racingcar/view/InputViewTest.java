@@ -62,7 +62,7 @@ public class InputViewTest {
     @DisplayName("반복 횟수가 숫자로 입력되어야 한다.")
     void 횟수_입력_예외() {
         // given
-        InputViewTest.systemIn("a,b,c\nG");
+        InputViewTest.systemIn("a,b,c\n1G23");
 
         // when
         // then
