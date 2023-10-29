@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Application.pick1DigitRandomNumber;
+
 public class Car {
     private final String name;
 
@@ -11,5 +13,10 @@ public class Car {
 
     public int getPosition() {
         return this.position;
+    }
+
+    public void tryMoveForward() {
+        if (pick1DigitRandomNumber() >= 4)
+            this.position++;
     }
 }

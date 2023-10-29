@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,8 +37,15 @@ public class Application {
         return moveCount;
     }
 
+    public static int pick1DigitRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
     public static void main(String[] args) {
         List<Car> cars = getCarsFromInput();
         int moveCount = inputMoveCount();
+        for (int i = 0; i < moveCount; i++) {
+            cars.forEach(Car::tryMoveForward);
+        }
     }
 }
