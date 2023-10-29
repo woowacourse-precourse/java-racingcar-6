@@ -1,10 +1,14 @@
 package racingcar.model.dto;
 
-import java.util.Objects;
+import static racingcar.constant.ErrorMessage.EMPTY_STRING_ERROR;
+
+import org.junit.platform.commons.util.StringUtils;
 
 public record CarProgressResponse(String name, int result) {
 
     public CarProgressResponse {
-        Objects.requireNonNull(name, "차량 이름은 비어있을 수 없습니다");
+        if(StringUtils.isBlank(name)) {
+            throw new IllegalArgumentException(EMPTY_STRING_ERROR.getMessage());
+        }
     }
 }

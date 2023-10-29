@@ -2,7 +2,6 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
-import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -32,12 +31,12 @@ class GameResultTest {
     }
     @Test
     void constructor_레이싱_결과는_필수() {
-        assertThatNullPointerException()
+        assertThatIllegalArgumentException()
             .isThrownBy(() -> new GameResult(null, winners));
     }
     @Test
     void constructor_우승자는_필수() {
-        assertThatNullPointerException()
+        assertThatIllegalArgumentException()
             .isThrownBy(() -> new GameResult(progressResponses, null));
     }
     @Test

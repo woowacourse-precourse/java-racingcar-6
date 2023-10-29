@@ -23,7 +23,7 @@ class CarProgressResponseTest {
     }
     @Test
     void constructor_차량_이름은_필수() {
-        assertThatNullPointerException()
+        assertThatIllegalArgumentException()
             .isThrownBy(() -> new CarProgressResponse(null, result));
     }
 }
