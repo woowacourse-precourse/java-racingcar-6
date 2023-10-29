@@ -15,9 +15,17 @@ public class Car {
     }
 
     public void race() {
-        if (engine.tryToTurnOn()) {
+        if (engine.turnOn()) {
             location++;
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getLocation() {
+        return location;
     }
 
     private void validateName(String name) {
@@ -28,13 +36,5 @@ public class Car {
         }
 
         throw new IllegalArgumentException("자동차의 이름은 5글자 이하여야 합니다");
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getLocation() {
-        return location;
     }
 }

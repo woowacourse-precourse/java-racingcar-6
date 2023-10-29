@@ -30,6 +30,10 @@ public class RacingStadium {
         return winners;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     private int getWinnersLocation(List<Car> cars) {
         List<Integer> carLocations = new ArrayList<>();
         for (Car car : cars) {
@@ -37,9 +41,5 @@ public class RacingStadium {
         }
 
         return Collections.max(carLocations);
-    }
-
-    public List<Car> getCars() {
-        return cars;
     }
 }

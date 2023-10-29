@@ -3,10 +3,10 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Engine {
-    private static final int FORWARD_THRESHOLD = 4;
+    private static final int TURN_ON_THRESHOLD = 4;
 
-    public boolean tryToTurnOn() {
-        return generateRandomNumber() >= FORWARD_THRESHOLD;
+    public boolean turnOn() {
+        return generateRandomNumber() >= TURN_ON_THRESHOLD;
     }
 
     private int generateRandomNumber() {
