@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcar.util.convertor.StringToStringListConvertor;
+import util.convertor.StringToStringListConvertor;
 
 public class StringToStringListTest {
 

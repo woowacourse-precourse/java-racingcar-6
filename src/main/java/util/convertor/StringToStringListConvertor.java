@@ -1,4 +1,4 @@
-package racingcar.util.convertor;
+package util.convertor;
 import java.util.List;
 
 public class StringToStringListConvertor {
