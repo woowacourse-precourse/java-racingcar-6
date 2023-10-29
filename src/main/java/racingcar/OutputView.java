@@ -15,9 +15,9 @@ public class OutputView {
         mostMovedAmount = car.mostMovedAmount();
     }
 
-    public void printResult() {
+    public String result() {
         setWinnerCarNames();
-        System.out.print("\n최종 우승자 : " + String.join(", ", winnerCarNames));
+        return "\n최종 우승자 : " + String.join(", ", winnerCarNames);
     }
 
     private void setWinnerCarNames() {

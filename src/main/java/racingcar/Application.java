@@ -6,6 +6,6 @@ public class Application {
         RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(car, InputView.timesToTry());
         racingCarGameConsole.race();
         OutputView winner = new OutputView(car);
-        winner.printResult();
+        System.out.print(winner.result());
     }
 }
