@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.constant.Message;
+import racingcar.constant.ConsoleMessage;
 import racingcar.constant.Separator;
 
 import java.util.List;
@@ -10,7 +10,7 @@ public class OutputView {
     }
 
     public static void printRaceResultHeader() {
-        System.out.println(Message.RACE_RESULT_HEADER);
+        System.out.println(ConsoleMessage.RACE_RESULT_HEADER);
     }
 
     public static void printSingleCarResult(String carName, int forward) {
@@ -25,6 +25,6 @@ public class OutputView {
         assert !winners.isEmpty();
 
         String listedWinners = String.join(Separator.OUTPUT_CAR_SEPARATOR, winners);
-        System.out.println(Message.RACE_WINNER_ANNOUNCEMENT + Separator.KEY_VALUE_SEPARATOR + listedWinners);
+        System.out.println(ConsoleMessage.RACE_WINNER_ANNOUNCEMENT + Separator.KEY_VALUE_SEPARATOR + listedWinners);
     }
 }
