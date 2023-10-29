@@ -36,4 +36,15 @@ class InputValidatorTest {
         assertThatThrownBy(() -> inputValidator.validateCarNameLength(names))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("")
+    @Test
+    void validateTryNumberEmptyOrNull() {
+        // given
+        String tryTimes = "";
+
+        // when, then
+        assertThatThrownBy(() -> inputValidator.validateTryNumberEmptyOrNull(tryTimes))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
