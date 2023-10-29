@@ -28,4 +28,13 @@ public class GameEngine {
             scoreUpdater.updateScore(scores);
         }
     }
+
+    public List<Score> getWinners() {
+        Long winnerScore = scores.stream()
+                .max((x, y) -> y.getScore().compareTo(x.getScore()))
+                .get().getScore();
+        return scores.stream()
+                .filter(score -> score.getScore().equals(winnerScore))
+                .toList();
+    }
 }
