@@ -10,6 +10,7 @@ public class RacingGame {
         printMessage(REQUIRE_CAR_NAME_MESSAGE);
         player.setCarName();
         printMessage(REQUIRE_ATTEMPT_NUMBER_MESSAGE);
+        player.setAttemptNumber();
     }
 
     public void printMessage(String message){
