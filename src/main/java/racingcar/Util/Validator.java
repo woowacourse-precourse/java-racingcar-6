@@ -51,4 +51,12 @@ public class Validator {
         }
         return Integer.parseInt(trialNumber);
     }
+
+    private void validationTrialNumberOverflow(String trialNumber){
+        try {
+            int num = Integer.parseInt(trialNumber);
+        }catch (NumberFormatException numberFormatException){
+            ExceptionMessage.NUMBER_OVERFLOW.throwexception();
+        }
+    }
 }
