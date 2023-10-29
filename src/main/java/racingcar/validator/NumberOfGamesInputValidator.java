@@ -11,7 +11,7 @@ public class NumberOfGamesInputValidator {
         try {
             Long.parseLong(userInput);
         } catch (NumberFormatException exception) {
-            throw new IllegalArgumentException(NumberOfGamesInputErrorMessage.INPUT_NOT_NUMERIC_TYPE);
+            throw new IllegalArgumentException(NumberOfGamesInputErrorMessage.INPUT_IS_NOT_NUMERIC_TYPE);
         }
     }
 }
