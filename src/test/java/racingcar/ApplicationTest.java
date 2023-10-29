@@ -53,7 +53,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void move_자동차_이동() {
+    void 자동차_이동() {
         Map<String, String> forwardMap = new HashMap<>();
         for (int i = 0; i < carNames.length; i++) {
             forwardMap.put(carNames[i], "");
@@ -79,7 +79,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void getCars_자동차이름_저장() {
+    void 자동차이름_저장() {
         String carNames = "andy,cindy,suzy";
         Map<String, String> forwardMap = new HashMap<>();
         for (String car : carNames.split(",")) {
