@@ -6,10 +6,12 @@ import java.util.stream.IntStream;
 public class Participants {
     private final List<Car> cars;
 
-    public Participants(List<String> names) {
-        cars = names.stream()
-                .map(Car::new)
-                .toList();
+    public Participants(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public static Participants from(List<String> names) {
+        return new Participants(names.stream().map(Car::new).toList());
     }
 
     public void raceNTimes(int times) {
