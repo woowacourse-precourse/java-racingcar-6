@@ -9,6 +9,8 @@ import racingcar.util.ExceptionUtil;
 
 public class CarServiceImpl implements CarService {
     private final String DUPLICATE_NAME_MESSAGE = "중복된 이름은 입력할 수 없습니다.";
+    private final String NAME_LENGTH_OVER_MESSAGE = "이름의 길이가 초과되었습니다.";
+    private final String ALPHA_NUMERIC_NAME_MESSAGE = "이름은 알파벳, 숫자만 가능합니다.";
     private static CarServiceImpl carService;
     private final CarRepository carRepository;
 
@@ -39,12 +41,19 @@ public class CarServiceImpl implements CarService {
 
     private void validateNameLength(Car car) {
         if (car.isNameLengthOver(MAX_CAR_LENGTH.getValue())) {
-            ExceptionUtil.throwInvalidValueException(DUPLICATE_NAME_MESSAGE);
+            ExceptionUtil.throwInvalidValueException(NAME_LENGTH_OVER_MESSAGE);
+        }
+    }
+
+    private void validateAlphaNumeric(Car car) {
+        if (!car.matchNamePattern("^[a-zA-Z0-9]*$")) {
+            ExceptionUtil.throwInvalidValueException(ALPHA_NUMERIC_NAME_MESSAGE);
         }
     }
 
     private void validateCar(Car car) {
         validateDuplicatedName(car);
         validateNameLength(car);
+        validateAlphaNumeric(car);
     }
 }

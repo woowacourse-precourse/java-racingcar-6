@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Car {
 
@@ -34,4 +35,7 @@ public class Car {
         return name.length() > length;
     }
 
+    public boolean matchNamePattern(String regEx) {
+        return Pattern.matches(regEx, name);
+    }
 }
