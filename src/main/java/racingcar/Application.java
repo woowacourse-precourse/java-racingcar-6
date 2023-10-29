@@ -1,9 +1,9 @@
 package racingcar;
 
-import racingcar.game.RacingController;
-import racingcar.racing.Judgement;
-import racingcar.game.InputView;
-import racingcar.game.OutputView;
+import racingcar.controller.RacingController;
+import racingcar.domain.Judgement;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Application {
 

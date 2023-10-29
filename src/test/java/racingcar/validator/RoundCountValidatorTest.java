@@ -1,7 +1,6 @@
-package racingcar.exception;
+package racingcar.validator;
 
 import org.junit.jupiter.api.Test;
-import racingcar.racing.RoundCountValidator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -61,18 +60,4 @@ public class RoundCountValidatorTest {
         assertThatThrownBy(() -> RoundCountValidator.validate(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
-    /*
-    @Test
-    void 문자열_메모리_초과_예외() {
-        String input = "";
-        for (int i = 0; i < 1000; i++)  {
-            input += "111111111111111111111111";
-        }
-
-        String finalString = input.toString();
-        assertThatThrownBy(() -> Integer.parseInt(finalString))
-                .isInstanceOf(OutOfMemoryError.class);
-    }
-     */
 }

@@ -1,8 +1,7 @@
-package racingcar.exception;
+package racingcar.validator;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.validator.CarNameValidator;
 
 import java.util.List;
 
@@ -44,6 +43,8 @@ public class CarCarNameValidatorTest {
     @Test
     void 입력받은_차_이름_쉼표로_끝나는_경우() {
         /**
+         * ',' 로 끝나는 경우, 예외를 발생 시키지 않음 ','은 단순히 구분자 이므로 ,이후에 문자가 없으면 아무도 없는걸로 간주
+         * 하지만 ','로 시작하는 경우는 다름.
          * Assertions.assertDoesNotThrow() - junit.jupiter 함수, 예외가 발생하지 않는 테스트용
          */
         String input = "pobi,woni,jun,"; // 결과 = ["pobi","woni","jun"]

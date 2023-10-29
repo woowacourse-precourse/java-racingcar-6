@@ -1,10 +1,7 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
-import racingcar.domain.CarParser;
-import racingcar.domain.Cars;
-import racingcar.domain.Judgement;
-import racingcar.domain.Race;
+import racingcar.domain.*;
+import racingcar.util.CarListGenerator;
 import racingcar.vo.RoundCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -25,15 +22,17 @@ public class RacingController {
 
     public void run() {
         String carNamesFromUser = requestCarNamesFromUser();
-        List<Car> carLIst = CarParser.generateCarList(carNamesFromUser);
+        List<Car> carLIst = CarListGenerator.generateCarList(carNamesFromUser);
         Cars cars = new Cars(carLIst);
         Race race = new Race(cars);
 
         String racingRoundCountFromUser = requestRacingRoundCountFromUser();
         RoundCount roundCount = new RoundCount(racingRoundCountFromUser);
 
+        Camera camera = new Camera();
         outputView.displayExecutionResult();
-        runRace(roundCount, race);
+        runRace(roundCount, race, camera);
+        String winners = judgement.determineWinners(race);
         outputView.displayFinalWinners(judgement.determineWinners(race));
     }
 
@@ -47,10 +46,10 @@ public class RacingController {
         return inputView.requestRacingRoundCountFromUser();
     }
 
-    private void runRace(RoundCount roundCount, Race race) {
+    private void runRace(RoundCount roundCount, Race race, Camera camera) {
         for (int round = 0; round < roundCount.getCount(); round++) {
             race.runOneRound();
-            String racingState = race.displayRaceState();
+            String racingState = camera.displayRacingState(race);
             outputView.displayRacingState(racingState);
         }
     }
