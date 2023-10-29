@@ -44,4 +44,16 @@ class RacingTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차의 이름은 5자 이하이어야 합니다.");
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-1, 0})
+    void 이동_횟수_검증(int inputMovesNumber) throws Exception {
+        // given
+        Racing racing = new Racing();
+
+        // when & then
+        assertThatThrownBy(() -> racing.updateMovesNumber(inputMovesNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이동 횟수는 1회 이상이어야 합니다.");
+    }
 }

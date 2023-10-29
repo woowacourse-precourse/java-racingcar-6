@@ -20,6 +20,10 @@ public class Racing {
         return cars;
     }
 
+    public int getMovesNumber() {
+        return movesNumber;
+    }
+
     public void updateMovesNumber(int movesNumber) {
         validateMovesNumber(movesNumber);
         this.movesNumber = movesNumber;
