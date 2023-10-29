@@ -30,6 +30,20 @@ public class Application {
             }
             System.out.println();
         }
+
+        int max = 0;
+        for (Car car : carList){
+            max = Math.max(car.getCnt(), max);
+        }
+
+        int finalMax = max;
+        String result = Arrays.stream(carList)
+                .filter(car -> car.isMax(finalMax))
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.println("최종 우승자 : " + result);
+
     }
 
     public static int getRandomNumber(){

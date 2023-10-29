@@ -27,4 +27,12 @@ public class Car {
     public String getName(){
         return name;
     }
+
+    public boolean isMax(int max){
+        if(max == cnt){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
