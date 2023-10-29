@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 public class InputAndOutput {
@@ -27,7 +29,25 @@ public class InputAndOutput {
     }
 
     static List<String> inputCarNames() throws IllegalArgumentException {
-        return null;
+        List<String> carNameList = new ArrayList<>();
+
+        String carNames = Console.readLine();
+        String[] carNameArray = carNames.split(",");
+
+        for (String carName : carNameArray) {
+            carName = carName.replaceAll(" ", "");
+            if (carName.isEmpty()) {
+                throw new IllegalArgumentException();
+            }
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+            if (!carName.matches("[a-zA-Z]")) {
+                throw new IllegalArgumentException();
+            }
+            carNameList.add(carName);
+        }
+        return carNameList;
     }
 
     static int inputTryTimes() throws IllegalArgumentException {
