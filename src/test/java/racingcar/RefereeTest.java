@@ -9,19 +9,16 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RefereeTest {
-    private CarGenerator generator;
     private Referee referee;
-
-    private String names;
-    List<String> nameList;
     private List<Car> carList;
 
     @BeforeEach
     void setUp() {
-        generator = new CarGenerator();
+        CarGenerator generator = new CarGenerator();
         referee = new Referee();
-        names = "apple,pear,melon";
-        nameList = generator.splitNames(names);
+
+        String names = "apple,pear,melon";
+        List<String> nameList = generator.splitNames(names);
         carList = generator.createCars(nameList);
 
         carList.get(0).move();
@@ -42,7 +39,7 @@ class RefereeTest {
     }
 
     @Test
-    void findWinner() {
+    void findWinner_메소드로_주어진_객체_중_최대_거리만큼_이동한_객체_반환() {
         int max = 3;
         List<Car> winnerList = referee.findWinner(carList, max);
 
