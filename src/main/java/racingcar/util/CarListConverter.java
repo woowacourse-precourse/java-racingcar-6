@@ -12,7 +12,7 @@ public class CarListConverter {
     private CarListConverter() {
     }
 
-    public static List<Car> convertStringArrayToCarList(String[] names){
+    public static List<Car> convertCarNamesToCarList(String[] names){
         List<Car> cars = Arrays.stream(names)
                 .distinct()
                 .map(Car::new)

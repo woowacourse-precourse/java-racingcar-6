@@ -66,7 +66,7 @@ public class RaceCarsTest{
     }
 
     private RaceCars createRaceCars(String[] names) {
-        List<Car> cars = CarListConverter.convertStringArrayToCarList(names);
+        List<Car> cars = CarListConverter.convertCarNamesToCarList(names);
         return new RaceCars(cars);
     }
 

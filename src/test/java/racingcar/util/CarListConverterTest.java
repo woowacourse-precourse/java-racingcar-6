@@ -17,7 +17,7 @@ class CarListConverterTest {
         // given
         String[] names = new String[]{"pobi","woni","jun"};
         // when
-        List<Car> cars = CarListConverter.convertStringArrayToCarList(names);
+        List<Car> cars = CarListConverter.convertCarNamesToCarList(names);
         // then
         assertThat(cars).hasSize(3)
                 .extracting("name")
@@ -30,7 +30,7 @@ class CarListConverterTest {
         // given
         String[] names = new String[]{"pobi","pobi","pobi"};
         // when // then
-        assertThatThrownBy(() -> CarListConverter.convertStringArrayToCarList(names))
+        assertThatThrownBy(() -> CarListConverter.convertCarNamesToCarList(names))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(DUPLICATE_NAME_ERROR_MESSAGE);
     }
@@ -41,7 +41,7 @@ class CarListConverterTest {
         // given
         String[] names = new String[]{"pobbbii","pobi","pobiii"};
         // when // then
-        assertThatThrownBy(() -> CarListConverter.convertStringArrayToCarList(names))
+        assertThatThrownBy(() -> CarListConverter.convertCarNamesToCarList(names))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(CAR_NAME_ERROR_MESSAGE);
     }

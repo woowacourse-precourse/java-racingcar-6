@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.car.Car;
 import racingcar.domain.car.RaceCars;
+import racingcar.controller.dto.RaceGameInfo;
 import racingcar.util.Console;
 import racingcar.service.RaceGameService;
 import racingcar.view.GameStartEndView;
@@ -13,14 +14,16 @@ import static racingcar.util.CarListConverter.*;
 public class RaceGameController {
 
     private GameStartEndView gameStartEndView;
-    private final RaceCars raceCars;
-    private final int attemptCount;
+    private RaceGameService raceGameService;
 
     public RaceGameController() {
         this.gameStartEndView = new GameStartEndView();
-        List<Car> cars = convertStringArrayToCarList(requestCarNames());
-        this.attemptCount = requestAttemptCount();
-        this.raceCars = new RaceCars(cars);
+        this.raceGameService = new RaceGameService();
+    }
+
+    public RaceGameInfo startRaceGame() {
+        List<Car> cars = convertCarNamesToCarList(requestCarNames());
+        return new RaceGameInfo(new RaceCars(cars), requestAttemptCount());
     }
 
     private String[] requestCarNames() {
@@ -33,13 +36,12 @@ public class RaceGameController {
         return Console.getNumberOfMovementAttempts();
     }
 
-    public void start(){
-        RaceGameService raceGameService = new RaceGameService(raceCars, attemptCount);
-        raceGameService.run();
+    public RaceCars run(RaceGameInfo raceGameInfo){
+        return raceGameService.run(raceGameInfo);
     }
 
-    public void printWinningCarNames(){
-        gameStartEndView.printWinningCarNames(raceCars.getWinningCarNames());
+    public void printWinningCarNames(RaceCars raceCars){
+        gameStartEndView.printWinningCarNames(raceCars);
     }
 
 }
