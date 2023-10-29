@@ -1,6 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class Application {
         }
 
         // 우승 자동차 판정 처리
-        List<String> winners = findWinner(cars);
+        List<String> winners = makeWinnerList(cars);
 
         // 우승자 출력 처리
         System.out.print(WINNER_MESSAGE);
@@ -57,14 +56,19 @@ public class Application {
         return 0;
     }
 
-    public static List<String> findWinner(Car[] cars) {
-        List<String> winners = new ArrayList<>();
-
+    public static int findWinnerForward(Car[] cars) {
         Arrays.sort(cars, (c1, c2) -> {
             return Integer.compare(c1.getForwardCount(), c2.getForwardCount());
         });
 
-        int max = cars[cars.length-1].getForwardCount();
+        int winnerForward = cars[cars.length-1].getForwardCount();
+        return winnerForward;
+    }
+
+    public static List<String> makeWinnerList(Car[] cars) {
+
+        int max = findWinnerForward(cars);
+        List<String> winners = new ArrayList<>();
 
         for (int i = 0; i < cars.length; i++) {
             if (cars[i].getForwardCount() == max) {
