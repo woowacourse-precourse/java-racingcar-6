@@ -20,4 +20,10 @@ public class Cars {
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
+
+    public void move(){
+        for (Car car : cars) {
+            car.movePosition();
+        }
+    }
 }

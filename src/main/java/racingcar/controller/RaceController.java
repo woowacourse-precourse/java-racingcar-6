@@ -23,10 +23,7 @@ public class RaceController {
     private void startRace(Cars cars, TryCount tryCount) {
         outputView.printRaceResultMessage();
         for (int i = 0; i < tryCount.getTryCount(); i++) {
-            // round();
+            cars.move();
         }
-    }
-
-    private void round(Cars cars){
     }
 }
