@@ -14,4 +14,14 @@ public class Car {
             goCount++;
         }
     }
+    
+    public void printNameAndCount() {
+        System.out.print(name + " : ");
+        for(int i = 0; i < goCount; i++) {
+            System.out.print("-");
+            if (i != goCount - 1) {
+                System.out.print(" ");
+            }
+        }
+    }
 }
