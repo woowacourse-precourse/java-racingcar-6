@@ -2,7 +2,6 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-import racingcar.domain.Car;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
 import racingcar.repository.CarRepository;
@@ -20,42 +19,37 @@ public class Service {
     }
 
     public void runOnce() {
-        ArrayList<Car> garage = carRepository.findAll();
-        garage.stream()
-                .forEach(car -> car.runTrack());
+        carRepository.runAllCars();
     }
 
     public CarsDto getResultOfOneTrack() {
-        ArrayList<Car> garage = carRepository.findAll();
-        ArrayList<CarDto> carDtoArrayList = new ArrayList<>();
-        garage.stream()
-                .forEach(car -> {
-                    carDtoArrayList.add(new CarDto(car.getName(), car.getCurrentPosition()));
-                });
-        CarsDto carsDto = new CarsDto(carDtoArrayList);
-
-        return carsDto;
+        return carRepository.findAll();
     }
 
     public CarsDto getWinner() {
-        ArrayList<Car> garage = carRepository.findAll();
-        int winnerDistance = garage.stream()
-                .mapToInt(Car::getCurrentPosition)
+        CarsDto carsDto = carRepository.findAll();
+        ArrayList<CarDto> carDtoArrayList = carsDto.getCarArrayList();
+
+        int winnerDistance = getWinnerDistance(carDtoArrayList);
+        ArrayList<CarDto> winners = findWinner(carDtoArrayList, winnerDistance);
+        return new CarsDto(winners);
+
+    }
+
+    private static int getWinnerDistance(ArrayList<CarDto> carDtoArrayList) {
+        int winnerDistance = carDtoArrayList.stream()
+                .mapToInt(CarDto::getCurrentPosition)
                 .max()
                 .orElse(0);
+        return winnerDistance;
+    }
 
-        ArrayList<Car> winners = (ArrayList<Car>) garage.stream()
+    private static ArrayList<CarDto> findWinner(ArrayList<CarDto> carDtoArrayList, int winnerDistance) {
+        ArrayList<CarDto> winners = (ArrayList<CarDto>) carDtoArrayList.stream()
                 .filter(car -> car.getCurrentPosition() == winnerDistance)
                 .collect(Collectors.toList());
-
-        ArrayList<CarDto> cars = new ArrayList<>();
-
-        winners.stream()
-                .forEach(car -> {
-                    cars.add(new CarDto(car.getName()));
-                });
-
-        CarsDto carsDto = new CarsDto(cars);
-        return carsDto;
+        return winners;
     }
+
+
 }

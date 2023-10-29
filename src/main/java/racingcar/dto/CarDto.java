@@ -17,15 +17,8 @@ public class CarDto {
         return carName;
     }
 
-    public void setCarName(String carName) {
-        this.carName = carName;
-    }
-
     public int getCurrentPosition() {
         return currentPosition;
     }
 
-    public void setCurrentPosition(int currentPosition) {
-        this.currentPosition = currentPosition;
-    }
 }
