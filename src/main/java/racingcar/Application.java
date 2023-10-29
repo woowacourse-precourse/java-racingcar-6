@@ -33,6 +33,13 @@ public class Application {
         return carDistanceMap;
     }
 
+    public static void printResult(Map<String, Integer> carDistanceMap) {
+        for (Map.Entry<String, Integer> carDistanceEntry : carDistanceMap.entrySet()) {
+            // '-'를 carDistanceMap의 value 만큼 반복하여 새로운 문자열을 만드는 함수
+            System.out.printf("%s : %s", carDistanceEntry.getKey(), "--");
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("경주할 자동차의 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
