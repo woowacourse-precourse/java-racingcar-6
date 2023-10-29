@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.Utils;
@@ -14,15 +15,19 @@ import static org.mockito.Mockito.when;
 
 class CarsTest {
 
+    private Cars cars;
+
+    @BeforeEach
+    public void setUp() {
+        List<String> nameList = List.of("pobi", "lee", "kim");
+        cars = new Cars();
+        cars.makeCars(nameList);
+    }
+
     @DisplayName("입력값을 기반으로 자동차를 생성한다.")
     @Test
     void makeCars() {
-        // given
-        List<String> nameList = List.of("pobi", "lee", "kim");
-
-        // when
-        Cars cars = new Cars();
-        cars.makeCars(nameList);
+        // given, when
         List<Car> carList = cars.getCars();
 
         // then
@@ -32,12 +37,7 @@ class CarsTest {
     @DisplayName("getter 호출 시 깊은 복사로 반환한다.")
     @Test
     void getCars() {
-        // given
-        List<String> nameList = List.of("pobi", "lee", "kim");
-
-        // when
-        Cars cars = new Cars();
-        cars.makeCars(nameList);
+        // given, when
         List<Car> carList = cars.getCars();
 
         // then
@@ -48,10 +48,7 @@ class CarsTest {
     @Test
     void moveCars() {
         // given
-        List<String> nameList = List.of("pobi", "lee", "kim");
         List<Integer> resultDistance = List.of(1,1,0);
-        Cars cars = new Cars();
-        cars.makeCars(nameList);
         mockStatic(Utils.class);
         when(Utils.makeRandomNumber()).thenReturn(7,5, 2);
 
@@ -66,4 +63,5 @@ class CarsTest {
                     assertThat(car.getDistance()).isEqualTo(resultDistance.get(i));
                 });
     }
+
 }
