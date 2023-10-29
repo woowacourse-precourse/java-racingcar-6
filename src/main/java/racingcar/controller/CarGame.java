@@ -89,7 +89,7 @@ public class CarGame {
         for (int i = 0; i < Integer.parseInt(inputTryNumber); i++) {
             OutputView.printResultMessage();
             for (Car car: carList) {
-                pickNumberNMove(car);
+                pickNumberAndMove(car);
                 OutputView.printCarName(car.getName());
                 getCarMove(car.getMoveCount());
                 OutputView.printNewLine();
@@ -98,7 +98,7 @@ public class CarGame {
         }
     }
 
-    private void pickNumberNMove(Car car) {
+    private void pickNumberAndMove(Car car) {
         if (Randoms.pickNumberInRange(0,9) >= 4) {
             int moveCount = car.getMoveCount();
             moveCount += 1;
