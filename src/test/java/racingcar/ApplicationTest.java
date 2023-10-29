@@ -8,8 +8,8 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import racingcar.model.CarNameValidator;
-import racingcar.model.MovingCountValidator;
+import racingcar.model.validator.CarNameValidator;
+import racingcar.model.validator.MovingCountValidator;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;

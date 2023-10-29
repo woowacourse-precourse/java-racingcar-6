@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.model.validator;
 
 public class MovingCountValidator {
     // 이동 횟수 입력값 검증
