@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import static java.util.stream.LongStream.iterate;
 
 import java.util.Map;
@@ -8,17 +7,17 @@ import java.util.Set;
 import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
 
-public class CarsPosition {
+public class Position {
 
     private Map<String, Integer> position;
     private NumberGenerator numberGenerator;
 
-    public CarsPosition(Map<String, Integer> carsMaps, int carsGameCount) {
+    public Position(Map<String, Integer> carsMaps, int carsGameCount) {
         this.numberGenerator = new RandomNumberGenerator();
         this.position = generatePosition(carsMaps, carsGameCount);
     }
 
-    public CarsPosition(Map<String, Integer> carsMaps, int carsGameCount,NumberGenerator numberGenerator) {
+    public Position(Map<String, Integer> carsMaps, int carsGameCount, NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
         this.position = generatePosition(carsMaps, carsGameCount);
     }

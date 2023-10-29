@@ -4,11 +4,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class CarsGameLogs {
+public class Logs {
 
     private Map<String,String> logs;
 
-    public CarsGameLogs(Map<String, Integer> carsMap) {
+    public Logs(Map<String, Integer> carsMap) {
 
         this.logs = generateLogs(carsMap);
     }

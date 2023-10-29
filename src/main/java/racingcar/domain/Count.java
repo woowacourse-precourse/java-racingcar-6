@@ -1,10 +1,10 @@
 package racingcar.domain;
 
-public class CarsGameCount {
+public class Count {
 
     private final int count;
 
-    public CarsGameCount(String countInput) {
+    public Count(String countInput) {
         this.count = convertToInt(countInput);
     }
 
