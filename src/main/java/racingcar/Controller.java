@@ -2,12 +2,13 @@ package racingcar;
 
 import static racingcar.InputView.inputCarNames;
 import static racingcar.InputView.inputTryNumber;
+import static racingcar.OutputView.printFinalWinner;
 import static racingcar.OutputView.printPlayResult;
 
 public class Controller {
     ValidatorCarName validatorCarName = new ValidatorCarName();
     ValidatorTryNumber validatorTryNumber = new ValidatorTryNumber();
-    MakeCar makecar = new MakeCar();
+    CarFuntion makecar = new CarFuntion();
 
     public void racingStart(){
         String carNames = inputCarNames();
@@ -16,9 +17,11 @@ public class Controller {
 
         String tryNumber = inputTryNumber();
         validatorTryNumber.checkNum(tryNumber);
-        validatorTryNumber.getTryNumber();
 
         printPlayResult();
+        PlayRacing.forwardRecord(validatorTryNumber.getTryNumber(), makecar.getCar());
+        printFinalWinner();
+        PlayRacing.selectWinner(makecar.getCar());
 
     }
 }
