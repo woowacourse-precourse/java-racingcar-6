@@ -3,5 +3,5 @@ package racingcar.service;
 import java.util.List;
 
 public interface MoveStrategy {
-    public List<Boolean> createMovementFlags();
+    public List<Boolean> createMovementFlags(int triesCount);
 }

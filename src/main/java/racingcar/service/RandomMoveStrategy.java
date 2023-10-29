@@ -5,17 +5,15 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class RandomMoveStrategy implements MoveStrategy{
-    private final int totalMoves;
     private final RandomGenerator randomGenerator;
 
-    public RandomMoveStrategy(int totalMoves, RandomGenerator randomGenerator) {
-        this.totalMoves = totalMoves;
+    public RandomMoveStrategy(RandomGenerator randomGenerator) {
         this.randomGenerator = randomGenerator;
     }
 
     @Override
-    public List<Boolean> createMovementFlags() {
-        return IntStream.range(0, totalMoves)
+    public List<Boolean> createMovementFlags(int triesCount) {
+        return IntStream.range(0, triesCount)
                 .mapToObj(i->decideMovement())
                 .collect(Collectors.toList());
     }
