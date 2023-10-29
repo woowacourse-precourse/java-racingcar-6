@@ -28,6 +28,7 @@ public class CarRaceGame {
         String carNames = CarRaceGameView.startGameView();
         List<String> carNameList = CarNamesToList(carNames);
         List<Car> carImplList = setUpCar(carNameList);
+        validateCarName(carNameList);
 
         String attemptNumberString = CarRaceGameView.attemptNumberView();
 
@@ -41,17 +42,19 @@ public class CarRaceGame {
         List<Car> carImplList = new ArrayList<Car>();
 
         for (String carName : carNameList) {
-            Validator.carNameStringLength(carName);
-            Validator.isSpace(carName);
             carImplList.add(new Car(carName));
         }
         return carImplList;
     }
 
     private List<String> CarNamesToList(String carNames) {
-
         return Arrays.stream(carNames.split(",")).toList();
     }
 
-
+    private void validateCarName(List<String> carNameList) {
+        for (String carName : carNameList) {
+            Validator.carNameStringLength(carName);
+            Validator.isStringEmpty(carName);
+        }
+    }
 }
