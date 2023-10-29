@@ -15,3 +15,4 @@
    - 사용자 입력이 잘못도ㅒㅆ을 경우 IllegalArgumentException 발생 후 종료
 6. 난수 생성
    - 난수 생성 및 차량에 부여
+7. 
