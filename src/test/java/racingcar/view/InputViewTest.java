@@ -23,4 +23,11 @@ class InputViewTest {
         String input = InputView.inputCarNames();
         assertThat(input).isEqualTo("car1,car2,car3");
     }
+
+    @Test
+    void 자동차이름을_구분자_쉼표로_나누기() {
+        String carNamesInput = "pobi,woni,jun";
+        String[] splitNames = InputView.splitCarNames(carNamesInput);
+        assertThat(splitNames).containsExactly("pobi", "woni", "jun");
+    }
 }
