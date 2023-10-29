@@ -14,6 +14,13 @@ class InputViewTest extends NsTest {
     private final List<String> answer = Arrays.asList("pobi","woni","jun");
     private final InputView inputView = new InputView();
 
+    @Test
+    @DisplayName("유저에게 입력받은 자동차 이륻들이 잘 들어오는지 테스트한다")
+    void readCarNames() {
+        super.run("pobi,woni,jun");
+        Assertions.assertThat(inputView.getCarNames())
+                .isEqualTo(answer);
+    }
     @Override
     protected void runMain() {
 
