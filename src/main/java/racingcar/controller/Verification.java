@@ -11,7 +11,7 @@ public class Verification {
         }
     }
 
-    public void verifyTryCnt(String input) {
+    public void verifyRound(String input) {
         if (input.matches("^[\\D]*$")) {
             throw new IllegalArgumentException();
         }

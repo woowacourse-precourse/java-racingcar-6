@@ -5,9 +5,9 @@ import java.util.List;
 public class Game {
 
     private Car[] cars;
-    private int tryCnt;
+    private int round;
 
-    public Game(List<String> carNames, int tryCnt) {
+    public Game(List<String> carNames, int round) {
         int numOfCar = carNames.size();
         this.cars = new Car[numOfCar];
 
@@ -15,14 +15,14 @@ public class Game {
             cars[i] = new Car(carNames.get(i));
         }
 
-        this.tryCnt = tryCnt;
+        this.round = round;
     }
 
     public Car[] getCars() {
         return cars;
     }
 
-    public int getTryCnt() {
-        return tryCnt;
+    public int getRound() {
+        return round;
     }
 }

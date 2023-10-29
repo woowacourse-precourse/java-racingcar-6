@@ -21,13 +21,13 @@ public class RacingGameController {
         inputView.carName();
         List<String> carNames = inputCarName();
 
-        inputView.tryCnt();
-        int tryCnt = inputTryCnt();
+        inputView.round();
+        int round = inputRound();
 
-        game = new Game(carNames, tryCnt);
+        game = new Game(carNames, round);
         outputView.resultPhrase();
 
-        for(int i = 0; i < game.getTryCnt(); i++) {
+        for(int i = 0; i < game.getRound(); i++) {
             goForward(game);
             outputView.resultByRound(game);
         }
@@ -53,10 +53,10 @@ public class RacingGameController {
         return splitedInput;
     }
 
-    public int inputTryCnt() {
+    public int inputRound() {
         String input = Console.readLine();
 
-        verification.verifyTryCnt(input);
+        verification.verifyRound(input);
 
         return Integer.parseInt(input);
     }

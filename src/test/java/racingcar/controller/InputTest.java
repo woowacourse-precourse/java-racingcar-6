@@ -57,7 +57,7 @@ class InputTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        int tryCnt = rc.inputTryCnt();
+        int tryCnt = rc.inputRound();
 
         assertThat(tryCnt).isEqualTo(1);
     }
