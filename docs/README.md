@@ -24,6 +24,9 @@
     -  4 미만인 경우
       - `stop()` 호출
 
+#### `getDistance()`
+- 거리를 반환한다.
+
 #### `toString()` (`Object`의 `toString()` 메서드 오버라이딩)
 - 이름을 반환한다.
 
