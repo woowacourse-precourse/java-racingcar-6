@@ -9,18 +9,31 @@ public class User {
         String carList = Console.readLine();
 
         String[] carArray = carList.split(",");
-        // validate carArray
+        validateCarArray(carArray);
 
         return carArray;
     }
 
     public int initCount() {
         String countStr = Console.readLine();
+        int count = 0;
 
-        int count = Integer.parseInt(countStr);
-        // validate count
+        try {
+            count = Integer.parseInt(countStr);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
 
         return count;
+    }
+
+    private void validateCarArray(String[] carArray) {
+        for (String carName : carArray) {
+            int nameLength = carName.length();
+            if (nameLength > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 
 }
