@@ -27,6 +27,6 @@ public class Car {
             return 0;
         }
 
-        return distance - CRITICAL_OF_MOVING;
+        return distance - CRITICAL_OF_MOVING + 1;
     }
 }
