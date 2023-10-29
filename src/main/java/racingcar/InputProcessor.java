@@ -28,5 +28,16 @@ public class InputProcessor {
         }
         return input;
     }
-    
+
+    public static int tryCountInputProcess(String input) {
+        try {
+            int tryCount = Integer.parseInt(input);
+            if (tryCount < 1) {
+                throw new IllegalArgumentException("Try count must be greater than 0. \nerrorVar : " + input);
+            }
+            return tryCount;
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("Invalid number format. \nerrorVar : " + input);
+        }
+    }
 }
