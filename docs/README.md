@@ -1,22 +1,21 @@
 # 미션2 - 자동차 경주
 JAVA _ 자동차 경주 게임 프로젝트
 
-## 기능 목록
 ### 입력
-- [ ]: 경주할 자동차들의 이름을 입력받는다.
-- [ ]: 경주할 자동차들의 리스트를 만든다. - CarRaceManager.createCarList()
-- [ ]: 시도할 회수를 입력받고 저장한다. - Application.getAttemptNumber()
+- [x]: 경주할 자동차들의 이름을 입력받는다.
+- [x]: 경주할 자동차들의 리스트를 만든다. - CarRaceManager.createCarList()
+- [x]: 시도할 회수를 입력받고 저장한다. - Application.getAttemptNumber()
 
 ### 각 시도별 경주 실행 - CarRaceManger.nthAttemptRace()
 - [ ]: 0~9까지 중에 무작위 값을 구한다. - Utils.generateRandomNumber()
 - [ ]: 무작위로 구한 값이 전진값인지 아닌 지 판단한다. - Utils.isMove()
-    - [ ]: 전진값이면 해당 차의 전진값을 +1 한다. - Car.moveForward()
+- [x]: 전진값이면 해당 차의 전진값을 +1 한다. - Car.moveForward()
 
-- [ ]: 각 시도별 경주 결과 출력. - CarRaceManager.printAttemptResult()
+- [x]: 각 시도별 경주 결과 출력. - CarRaceManager.printAttemptResult()
 
 ### 우승자 판단 및 출력
 - [ ]: 우승자를 판단한다. - carRaceManager.winnerJudgment()
-- [ ]: 우승자를 출력한다. - carRaceManager.printWinner()
+- [x]: 우승자를 출력한다. - carRaceManager.printWinner()
 
 ## 기능 요구 사항
 초간단 자동차 경주 게임을 구현한다.
