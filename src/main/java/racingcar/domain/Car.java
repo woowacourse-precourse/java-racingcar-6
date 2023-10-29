@@ -4,7 +4,7 @@ public class Car implements Comparable<Car> {
     private String name;
     private int movedCount;
 
-    Accelerator accelerator = new Accelerator();
+    Driver driver = new Driver();
 
     public Car(String name) {
         this.name = name;
@@ -12,9 +12,17 @@ public class Car implements Comparable<Car> {
     }
 
     public void move() {
-        if (accelerator.press()) {
+        if (canGo()) {
             this.movedCount++;
         }
+    }
+
+    public boolean canGo() {
+        int strength = driver.pressAccelerator();
+        if (strength >= 4) {
+            return true;
+        }
+        return false;
     }
 
     @Override
