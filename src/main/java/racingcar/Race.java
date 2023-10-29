@@ -55,5 +55,6 @@ public class Race {
 
     private void play() {
         System.out.println("\n실행 결과");
+        int randomNumber = NumberGenerator.createRandomNumber();
     }
 }
