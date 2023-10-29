@@ -25,7 +25,7 @@ public class Application {
         for (int i = 0; i < tryCount ; i++) {
 
             checkRandomNumberAndUpdateCarScore();
-
+            printCurrentState();
         }
     }
 
@@ -38,6 +38,15 @@ public class Application {
                 Car car = carInfo.get(carName);
                 car.plusScore();
             }
+        }
+    }
+
+    public static void printCurrentState() {
+
+        for (String carName : carNameList) {
+
+            Car car = carInfo.get(carName);
+            System.out.println(carName + " : " + "-".repeat(car.getScore()));
         }
     }
 
