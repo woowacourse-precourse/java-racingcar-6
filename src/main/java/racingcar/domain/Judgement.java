@@ -48,8 +48,8 @@ public class Judgement {
         });
         StringBuilder winnersNames = new StringBuilder();
         winnersNames.append(particiatingCars.get(0).getName());
-        for(int i = 1;  i < particiatingCars.size(); i++){
-            if(particiatingCars.get(i).getPosition() == particiatingCars.get(0).getPosition()){
+        for (int i = 1; i < particiatingCars.size(); i++) {
+            if (particiatingCars.get(i).getPosition() == particiatingCars.get(0).getPosition()) {
                 winnersNames.append(", ").append(particiatingCars.get(i).getName());
             }
         }
