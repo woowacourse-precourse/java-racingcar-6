@@ -34,6 +34,9 @@ public class RacingGame {
             tryToMoveCars();
             printProgress();
         }
+
+        List<Car> winners = findWinners();
+        printWinners(winners);
     }
 
     private void tryToMoveCars() {
@@ -96,6 +99,35 @@ public class RacingGame {
         System.out.print(car.getName() + " : ");
         for (int count = 0; count < car.getMoveCount(); count++) {
             System.out.print('-');
+        }
+        System.out.println();
+    }
+
+    private List<Car> findWinners() {
+        List<Car> winners = new ArrayList<>();
+        int maxDistance = 0;
+        for (Car car : cars) {
+            if (car.getMoveCount() > maxDistance) {
+                maxDistance = car.getMoveCount();
+                winners.clear();
+            }
+
+            if (car.getMoveCount() == maxDistance) {
+                winners.add(car);
+            }
+        }
+        return winners;
+    }
+
+    private void printWinners(List<Car> winners) {
+        System.out.print("최종 우승자 : ");
+        if (!Objects.isNull(winners) && !winners.isEmpty()) {
+            String name = winners.get(0).getName();
+            System.out.print(name);
+            for (int i = 1; i < winners.size(); i++) {
+                name = winners.get(i).getName();
+                System.out.print(", " + name);
+            }
         }
         System.out.println();
     }
