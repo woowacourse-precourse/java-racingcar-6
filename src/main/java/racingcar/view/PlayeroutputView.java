@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 
 import java.util.List;
+import java.util.StringJoiner;
 
 public class PlayeroutputView {
     public static void round(List<Car> cars){
@@ -23,4 +24,15 @@ public class PlayeroutputView {
             }
         }
     }
+
+    public static int result(List<Car> cars){
+        int max = 0;
+        for(int i=0; i< cars.size(); i++){
+            if (max<cars.get(i).getPosition()){
+                max = cars.get(i).getPosition();
+            }
+        }
+        return max;
+    }
+
 }
