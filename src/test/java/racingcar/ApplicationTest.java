@@ -16,10 +16,22 @@ class ApplicationTest extends NsTest {
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
-                run("pobi,woni", "2");
+                run("pobi,woni", "1");
                 assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
             },
             MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 공동_우승자_출력_확인(){
+        assertRandomNumberInRangeTest(
+                ()  -> {
+                    run("pobi,woni,jun", "2");
+                    assertThat(output()).contains("pobi : -", "woni : --", "jun : -",
+                            "pobi : --", "woni : -", "jun : ", "최종 우승자 : pobi, woni");
+                },
+                4,5,4,5,4,3
         );
     }
 
