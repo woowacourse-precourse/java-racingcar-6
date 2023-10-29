@@ -19,7 +19,7 @@ public class InputView {
     public List<String> getInputCarNames() {
         System.out.println(Message.INPUT_CARS.message);
         String input = Console.readLine();
-        return TypeConvertor.stringToIntegerList(input);
+        return TypeConvertor.stringToStringList(input);
     }
 
     public Integer getTryCount() {

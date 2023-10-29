@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 public class Circuit {
 
     public static final int MIN_PLAYER = 2;
+
     private final List<Car> cars;
 
     private Circuit(List<Car> cars) {
@@ -29,17 +30,12 @@ public class Circuit {
         }
     }
 
-    public List<Car> moveCars(List<Integer> randomNumbers) {
+    public List<Car> moveCars(List<CarStatus> randomNumbers) {
         IntStream.range(0, getCircuitSize())
-                .forEach(index -> getMove(randomNumbers, index));
+                .forEach(index -> cars.get(index).move(randomNumbers.get(index)));
         return cars;
     }
 
-    private void getMove(List<Integer> randomNumbers, int index) {
-        Integer randomNumber = randomNumbers.get(index);
-        Car car = this.cars.get(index);
-        car.move(randomNumber);
-    }
 
     public int getCircuitSize() {
         return this.cars.size();

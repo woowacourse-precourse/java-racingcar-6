@@ -10,9 +10,9 @@ public class Car {
         this.position = 0;
     }
 
-    public void move(Integer randomNumber) {
-        if (randomNumber >= 4) {
-            this.position++;
+    public void move(CarStatus status) {
+        if (status.isMove()) {
+            position += status.distance;
         }
     }
 
