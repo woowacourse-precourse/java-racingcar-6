@@ -63,13 +63,19 @@ public class CarRaceGame {
 
     private void startCarRaceGameOneRound() {
         for (Car car : carImplList) {
-
+            tryForward(car);
         }
     }
 
     private int randomNumberGenerator() {
         int randomNumber = Randoms.pickNumberInRange(GameConstants.MIN_NUM, GameConstants.MAX_NUM);
         return randomNumber;
+    }
+
+    private void tryForward(Car car) {
+        if (4 >= randomNumberGenerator()) {
+            car.setAdvanceNumber(car.getAdvanceNumber() + 1);
+        }
     }
 
 }
