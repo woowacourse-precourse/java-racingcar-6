@@ -51,6 +51,9 @@ public class InputViewTest {
         Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             InputView.readCarName();
         });
+
+        Assertions.assertEquals("[Error] 공백이 입력되었습니다.", exception.getMessage());
+
     }
 
 
