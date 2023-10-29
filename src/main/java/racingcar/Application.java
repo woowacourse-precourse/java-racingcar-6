@@ -10,10 +10,10 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         Script.LINEUP.print();
-        HashMap<String, Integer> entry = registering();
+        HashMap<String, Integer> lineUp = registering();
         // hi,my,name,is,hello,world
 
-        System.out.println(entry);
+        System.out.println(lineUp);
     }
 
 }
