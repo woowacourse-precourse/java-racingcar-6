@@ -18,4 +18,8 @@ public class CarList {
         }
     }
 
+    public Map<String, Integer> getCarList() {
+        return carList;
+    }
+
 }
