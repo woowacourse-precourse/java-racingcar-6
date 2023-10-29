@@ -25,3 +25,7 @@
 
 - [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들기.
   - [x] decideWinner() 함수에서 winner의 index를 구하는 기능을 별도 함수 extractWinnerIndex()로 분리.
+
+## 함수(또는 메서드)별 기능 테스트 작성
+
+- [x] testSplitCarNames : splitCarNames()가 입력한 문자열을 콤마(,) 단위로 나누어 List 형태로 반환하는지 테스트.
