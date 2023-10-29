@@ -11,6 +11,11 @@ public class ValidateRacingValue {
         List<String> listCarName = new ArrayList<>(Arrays.asList(carNameArray));
         return listCarName;
     }
-
+    public static List<Integer> raceResultListReset(int carNameSize, List<Integer> raceResult) {
+        for(int i = 0; i < carNameSize; i++) {
+            raceResult.add(i, 0);
+        }
+        return raceResult;
+    }
 
 }
