@@ -7,18 +7,19 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Round;
 import racingcar.utils.Parser;
+import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
 
 public class InputController {
-    public static Cars scanCarList() {
+    public static Cars scanCars() {
         System.out.println(InputView.enterCarNamesMessage());
         String userInput = Console.readLine();
         InputValidator.validateCarList(userInput);
 
-        return createCarList(userInput);
+        return createCars(userInput);
     }
 
-    private static Cars createCarList(String userInput) {
+    private static Cars createCars(String userInput) {
         List<Car> carList = new ArrayList<>();
         Parser.parseWithComma(userInput)
                 .forEach(name -> carList.add(new Car(name)));

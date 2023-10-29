@@ -1,8 +1,5 @@
 package racingcar.model;
 
-import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MAX;
-import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MIN;
-
 import racingcar.constant.RacingGameConstants;
 import racingcar.exception.NullException;
 import racingcar.exception.car.name.LengthException;
@@ -37,7 +34,8 @@ public class Car {
     }
 
     private void validateNameLength(String name) {
-        if (name.length() < CAR_NAME_LENGTH_MIN || name.length() > CAR_NAME_LENGTH_MAX) {
+        if (name.length() < RacingGameConstants.CAR_NAME_LENGTH_MIN
+                || name.length() > RacingGameConstants.CAR_NAME_LENGTH_MAX) {
             throw new LengthException();
         }
     }

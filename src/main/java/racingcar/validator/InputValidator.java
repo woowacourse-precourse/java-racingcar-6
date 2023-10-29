@@ -1,12 +1,10 @@
-package racingcar.controlller;
-
-import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MAX;
-import static racingcar.constant.RacingGameConstants.CAR_NAME_LENGTH_MIN;
+package racingcar.validator;
 
 import java.util.List;
+import racingcar.constant.RacingGameConstants;
 import racingcar.exception.cars.DuplicateException;
 import racingcar.exception.car.name.LengthException;
-import racingcar.exception.numberOfRounds.NonPositiveNumberException;
+import racingcar.exception.round.NonPositiveIntegerException;
 import racingcar.utils.Parser;
 
 public class InputValidator {
@@ -26,7 +24,8 @@ public class InputValidator {
     }
 
     private static void validateEachCarNameLength(String carName) {
-        if (carName.length() < CAR_NAME_LENGTH_MIN || carName.length() > CAR_NAME_LENGTH_MAX) {
+        if (carName.length() < RacingGameConstants.CAR_NAME_LENGTH_MIN
+                || carName.length() > RacingGameConstants.CAR_NAME_LENGTH_MAX) {
             throw new LengthException();
         }
     }
@@ -47,7 +46,7 @@ public class InputValidator {
 
     private static void validatePositiveInteger(String userInput) {
         if (!userInput.matches("[1-9][0-9]*")) {
-            throw new NonPositiveNumberException();
+            throw new NonPositiveIntegerException();
         }
     }
 }

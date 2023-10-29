@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.exception.numberOfRounds.NonPositiveNumberException;
+import racingcar.exception.round.NonPositiveIntegerException;
 
 public class Round {
     private final int totalNumberOfRounds;
@@ -22,7 +22,7 @@ public class Round {
 
     void validateCount(int totalNumberOfRounds) {
         if(totalNumberOfRounds < 0) {
-            throw new NonPositiveNumberException();
+            throw new NonPositiveIntegerException();
         }
     }
 

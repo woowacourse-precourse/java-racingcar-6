@@ -25,7 +25,7 @@ public class RacingGameController {
     }
 
     public void startGame() {
-        cars = InputController.scanCarList();
+        cars = InputController.scanCars();
         round = InputController.scanRound();
 
         playAllRounds();
