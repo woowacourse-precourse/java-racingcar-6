@@ -14,7 +14,7 @@ public class GameController {
     private final GameModel gameModel;
     private final ArrayList<CarModel> carModelList;
 
-    private static Comparator<CarModel> compareCarDistance = new Comparator<CarModel>() {
+    private static final Comparator<CarModel> compareCarDistance = new Comparator<CarModel>() {
         @Override
         public int compare(CarModel o1, CarModel o2) {
             return o1.getForwardDistance() -  o2.getForwardDistance();
