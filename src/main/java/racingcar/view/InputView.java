@@ -21,8 +21,7 @@ public class InputView {
     public int inputAttemptCount() {
         System.out.println(ATTEMPT_COUNT_PROMPT);
         String input = Console.readLine();
-        InputValidator.validateAttemptCount(input);
-        return Integer.parseInt(input);
+        return InputValidator.validateAttemptCount(input);
     }
 
 }

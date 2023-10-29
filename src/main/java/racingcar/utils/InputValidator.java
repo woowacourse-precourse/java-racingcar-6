@@ -23,10 +23,11 @@ public class InputValidator {
     }
 
 
-    public static void validateAttemptCount(String attemptCount) {
+    public static int validateAttemptCount(String attemptCount) {
         try {
             int parsedCount = Integer.parseInt(attemptCount);
             validatePositiveCount(parsedCount);
+            return parsedCount;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NON_INTEGER_MESSAGE, e);
         }
