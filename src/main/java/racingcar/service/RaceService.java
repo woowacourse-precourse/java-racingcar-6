@@ -7,9 +7,9 @@ import java.util.Set;
 import racingcar.domain.Cars;
 
 public class RaceService {
-    public void createCars(List<String> carNamesInput) {
+    public Cars initializeCars(List<String> carNamesInput) {
         List<String> carNames = validateCarNamesInput(carNamesInput);
-        Cars cars = new Cars(carNames);
+        return new Cars(carNames);
     }
 
     public List<String> validateCarNamesInput(List<String> carNamesInput) {
