@@ -71,4 +71,5 @@ public class FunctionTest {
 
         assertThat(output).isEqualTo(expected);
     }
+
 }

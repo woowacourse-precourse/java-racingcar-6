@@ -26,12 +26,7 @@ public class RacingCarGameConsole {
         }
     }
 
-    public void run() {
-        race();
-        printResult();
-    }
-
-    private void race() {
+    public void race() {
         for (int i = 0; i < timesToTry; i++) {
             tryMoving();
         }
@@ -63,25 +58,5 @@ public class RacingCarGameConsole {
 
     public String carMovement(int movedLately) {
         return car.name(carIndex) + " : " + "-".repeat(movedLately);
-    }
-
-    private void printResult() {
-        setWinnerCarNames();
-        System.out.print("\n최종 우승자 : " + String.join(", ", winnerCarNames));
-    }
-
-    private void setWinnerCarNames() {
-        mostMovedAmount = car.mostMovedAmount();
-        carIndex = 0;
-        while (carIndex < numberOfCars) {
-            addToListIfWinner(carIndex);
-            carIndex++;
-        }
-    }
-
-    private void addToListIfWinner(int carIndex) {
-        if (car.movedLately(carIndex) == mostMovedAmount) {
-            winnerCarNames.add(car.name(carIndex));
-        }
     }
 }
