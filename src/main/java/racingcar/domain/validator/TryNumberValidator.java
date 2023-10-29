@@ -14,7 +14,7 @@ public class TryNumberValidator implements InputValidator {
             throw new IllegalArgumentException(TryNumberException.INVALID_TOO_BIG_TRY_NUMBER.getMessage());
         }
 
-        if (intValueInput <=1) {
+        if (intValueInput <1) {
             throw new IllegalArgumentException(TryNumberException.INVALID_TOO_SMALL_TRY_NUMBER.getMessage());
         }
     }
