@@ -36,13 +36,13 @@ public class PrintService {
                     .collect(Collectors.joining());
         }
 
-    public static void printFinalWinner(List<RacingCar> winners) {
+    public static void printWinners(List<RacingCar> winners) {
         String[] winnerNames = new String[winners.size()];
 
         for (int i = 0; i < winnerNames.length; i++)
             winnerNames[i] = winners.get(i).getName();
 
-        System.out.printf("%s", FINAL_WINNER_MESSAGE);
+        System.out.printf("%s", WINNER_MESSAGE);
         System.out.printf("%s", String.join(CAR_JOIN_DELIMITER, winnerNames));
         System.out.println();
     }
