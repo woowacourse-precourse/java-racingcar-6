@@ -15,8 +15,9 @@ public class CarListService {
 
 		for (String eachCarName : splitEnteredList) {
 
-			validateCarName(eachCarName);
-			CAR_LIST.add(new Car(eachCarName.trim()));
+			Car car = new Car(eachCarName);
+			car.validateName();
+			CAR_LIST.add(car);
 
 		}
 
@@ -26,16 +27,6 @@ public class CarListService {
 
 	private String[] splitEnteredList(String enteredList) {
 		return enteredList.split(ENTERED_LIST_SEPARATOR);
-	}
-
-	private void validateCarName(String eachCarName) {
-
-		final int LENGTH_LIMIT = 5;
-
-		if (eachCarName.length() > LENGTH_LIMIT) {
-			throw new IllegalArgumentException("5글자 이하의 이름만 입력해주세요.");
-		}
-
 	}
 
 	public void moveCarList() {

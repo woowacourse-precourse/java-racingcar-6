@@ -7,15 +7,14 @@ public class Car {
 	private int distance;
 
 	public Car(String name) {
-		this.name = name;
+		this.name = name.trim();
 		this.distance = 0;
 	}
 
-	private int makeRandomNumber() {
-		final int MIN_NUMBER = 0;
-		final int MAX_NUMBER = 9;
-
-		return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+	public void validateName() {
+		if(name.length() > 5) {
+			throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+		}
 	}
 
 	public void move() {
@@ -27,6 +26,13 @@ public class Car {
 			this.distance++;
 		}
 
+	}
+
+	private int makeRandomNumber() {
+		final int MIN_NUMBER = 0;
+		final int MAX_NUMBER = 9;
+
+		return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
 	}
 
 	public int compareDistance(Car other) {
