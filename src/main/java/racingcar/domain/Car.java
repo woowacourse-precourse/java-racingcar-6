@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.function.BooleanSupplier;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private final BooleanSupplier engine;
     private int position;
@@ -39,5 +39,10 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return o.getPosition() - this.position;
     }
 }

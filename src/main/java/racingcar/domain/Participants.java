@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -34,5 +36,14 @@ public class Participants {
     private void race() {
         cars.forEach(Car::moveForward);
         raceHistory.record(cars);
+    }
+
+    public List<Car> getWinners() {
+        List<Car> candidates = new ArrayList<>(cars);
+        Collections.sort(candidates);
+        int first = candidates.get(0).getPosition();
+        return candidates.stream()
+                .filter(car -> car.getPosition() == first)
+                .toList();
     }
 }
