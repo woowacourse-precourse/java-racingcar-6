@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.*;
+import racingcar.domain.Race;
 import racingcar.view.InputView;
 
 public class Application {
