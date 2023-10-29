@@ -1,11 +1,7 @@
 package racingcar.Controller;
 
 import racingcar.CarManager;
-import racingcar.Controller.RaceController;
 import racingcar.domain.Car;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
@@ -24,7 +20,6 @@ public class InputController {
     }
 
     private void splitName(String readLine) {
-        try {
                 if (readLine == null || readLine.trim().isEmpty()) {
                     throw new IllegalArgumentException("입력은 비어 있거나 쉼표만 포함될 수 없습니다.");
                 }
@@ -36,20 +31,21 @@ public class InputController {
 
                 for (String carName : carNamesArray) {
                     String trimmedCarName = carName.trim();
+                    if(isInvalidName(trimmedCarName)) throw new IllegalArgumentException("5자 이상의 닉네임은 입력할 수 없습니다.");
                     if (!trimmedCarName.isEmpty()) {
                         Car car = new Car(trimmedCarName);
                         carManager.addCar(car);
                     }
                 }
-
                 if (carManager.getCarCount() < 1) {
                     throw new IllegalArgumentException("적어도 한 대 이상의 유효한 차량 이름을 입력해야 합니다.");
                 }
-        }catch(Exception e){
-            throw new IllegalStateException("입력은 비어 있거나 쉼표만 포함될 수 없습니다.");
-        }
         //설정한 값을 raceController에서 쓰기 위해 carManager값을 전달해준다.
         raceController.setCarList(carManager);
+    }
+    public boolean isInvalidName(String nickName){
+        if(nickName.length()>5) return true;
+        return false;
     }
 
 

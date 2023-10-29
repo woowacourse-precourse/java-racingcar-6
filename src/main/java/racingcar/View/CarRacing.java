@@ -14,7 +14,7 @@ public class CarRacing {
             inputController.getNameOfCar();
             raceTries = inputController.getRaceTries();
         }catch(Exception e){
-            throw new IllegalStateException();
+            throw new IllegalArgumentException();
         }
 
 

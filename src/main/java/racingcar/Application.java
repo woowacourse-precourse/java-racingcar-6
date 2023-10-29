@@ -8,7 +8,7 @@ public class Application {
             CarRacing carRacing = new CarRacing();
             carRacing.run();
         }catch(Exception e){
-            throw new IllegalStateException();
+            throw new IllegalArgumentException();
         }
     }
 }
