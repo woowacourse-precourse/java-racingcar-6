@@ -1,5 +1,6 @@
 package racingcar.validation;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.MessageConst.COMMA_MESSAGE;
 import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
@@ -110,5 +111,19 @@ class CarValidationTest {
         assertThatThrownBy(() -> carValidation.validateCommaSeparatedCarNames(carName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(COMMA_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("자동차 입력값에 대해 모든 검증을 하는 테스트")
+    void validateCarNamesTest() {
+        // given
+        CarValidation carValidation = new CarValidation();
+
+        // when
+        String carNames = "pobi,woni,jun";
+
+        // then
+        assertThatCode(() -> carValidation.validateCarNames(carNames))
+                .doesNotThrowAnyException();
     }
 }
