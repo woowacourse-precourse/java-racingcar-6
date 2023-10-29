@@ -5,8 +5,13 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class InputCarRace {
-    private static List<String> carNames = new ArrayList<>();
     private static int moveCount = 0;
+    private static List<String> carNames = new ArrayList<>();
+
+    public static void init(){
+        moveCount = 0;
+        carNames = new ArrayList<>();
+    }
 
     public static InputCarRace inputMove(String stringMoveCount){
         validateOnlyNumber(stringMoveCount);
