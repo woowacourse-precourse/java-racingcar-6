@@ -12,4 +12,9 @@ public class InputView {
         System.out.println(START_MESSAGE);
         return validator.validationCarName(Console.readLine());
     }
+
+    public int printTrial(){
+        System.out.println(INPUT_TRIAL);
+        return validator.validationTrialNumber(Console.readLine());
+    }
 }
