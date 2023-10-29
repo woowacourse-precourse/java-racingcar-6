@@ -14,13 +14,7 @@ public class Car {
         this.location = CAR_DEFAULT_LOCATION;
     }
 
-    public void race(int moveTrials) {
-        for (int i = 0; i < moveTrials; i++) {
-            tryToMove();
-        }
-    }
-
-    private void tryToMove() {
+    public void race() {
         if (engine.tryToTurnOn()) {
             location++;
         }

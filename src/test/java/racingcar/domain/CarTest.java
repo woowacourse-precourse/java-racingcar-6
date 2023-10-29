@@ -25,5 +25,5 @@ class CarTest {
         Car car = new Car("aa");
         assertThat(car.getLocation()).isEqualTo(CAR_DEFAULT_LOCATION);
     }
-
+    
 }
