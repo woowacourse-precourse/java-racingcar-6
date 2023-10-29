@@ -2,6 +2,9 @@ package racingcar.model;
 
 import static racingcar.config.Settings.CAR_AMOUNT;
 
+import racingcar.domain.Car;
+import racingcar.dto.CarDTO;
+
 public class RacingGame {
     private final CarManager manager;
 
@@ -11,13 +14,14 @@ public class RacingGame {
 
     public String getWinners() {
         StringBuilder winners = new StringBuilder();
-        int biggest = manager.getBiggestMove();
+        int farthest = manager.getFarthestMove();
 
         for (int index = 0; index < CAR_AMOUNT; index++) {
             Car car = manager.getCarFromIndex(index);
+            CarDTO dto = car.toDTO();
 
-            if (car.getMoves() == biggest) {
-                winners.append(car.getName());
+            if (dto.getPosition() == farthest) {
+                winners.append(dto.getName());
                 winners.append(", ");
             }
         }

@@ -3,6 +3,8 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.config.Settings;
+import racingcar.domain.Car;
+import racingcar.dto.CarDTO;
 
 public class CarManager {
     private List<Car> cars = new ArrayList<>();
@@ -11,15 +13,16 @@ public class CarManager {
         return cars.get(index);
     }
 
-    public int getBiggestMove() {
-        int biggest = 0;
+    public int getFarthestMove() {
+        int farthest = 0;
         for (Car car : cars) {
-            if (biggest < car.getMoves()) {
-                biggest = car.getMoves();
+            CarDTO dto = car.toDTO();
+            if (farthest < dto.getPosition()) {
+                farthest = dto.getPosition();
             }
         }
 
-        return biggest;
+        return farthest;
     }
 
     public void createAndAddCars(String[] names) {
