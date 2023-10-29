@@ -33,10 +33,10 @@ class OutputViewTest {
     @DisplayName("자동차 위치 출력")
     void 차들_결과_출력() {
         // given
-        CarDto carDtoA = new CarDto("a", 1);
-        CarDto carDtoB = new CarDto("b", 2);
-        CarDto carDtoC = new CarDto("c", 3);
-        CarDto carDtoD = new CarDto("d", 4);
+        CarDto carDtoA = new CarDto("a", 0);
+        CarDto carDtoB = new CarDto("b", 1);
+        CarDto carDtoC = new CarDto("c", 2);
+        CarDto carDtoD = new CarDto("d", 5);
 
         CarsDto carsDto = new CarsDto(List.of(carDtoA, carDtoB, carDtoC, carDtoD));
 
@@ -44,10 +44,10 @@ class OutputViewTest {
         outputView.printCarsResults(carsDto);
 
         // then
-        assertThat(out.toString()).contains("a : -\n"
-                + "b : --\n"
-                + "c : ---\n"
-                + "d : ----\n");
+        assertThat(out.toString()).contains("a : \n"
+                + "b : -\n"
+                + "c : --\n"
+                + "d : -----\n");
     }
 
     @Test
