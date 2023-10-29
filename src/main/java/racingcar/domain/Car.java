@@ -10,6 +10,9 @@ public class Car {
     public String getName() {
         return name;
     }
+    public void moveForward(int distance) {
+        position += distance;
+    }
     public int getPosition() {
         return position;
     }
