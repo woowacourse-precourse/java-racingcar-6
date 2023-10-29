@@ -3,12 +3,10 @@ package racingcar.model;
 import java.util.List;
 
 public class WinningResult {
-    public int winnerScore(List<Car> cars){
-
-        int maxScore = 0;
+    public int winningScore = 0;
+    public void winnerScore(List<Car> cars){
         for(int i = 0; i < cars.size(); i++){
-            if(maxScore < cars.get(i).getPosition()) maxScore = cars.get(i).getPosition();
+            if(winningScore < cars.get(i).getPosition()) winningScore = cars.get(i).getPosition();
         }
-        return maxScore;
     }
 }

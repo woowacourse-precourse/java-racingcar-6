@@ -7,7 +7,7 @@ import java.util.List;
 public class RacingGame {
     public List<Car> saveCarsInfo(String[] carNames){
         List<Car> cars = new ArrayList<>();
-        for(int i = 0; i < cars.size(); i++){
+        for(int i = 0; i < carNames.length; i++){
             String name = carNames[i];
             cars.add(new Car(name, 0));
         }
