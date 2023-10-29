@@ -46,4 +46,8 @@ public class Players {
         return winners;
     }
 
+    public int size() {
+        return this.players.size();
+    }
+
 }

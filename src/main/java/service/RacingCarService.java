@@ -13,8 +13,9 @@ public class RacingCarService {
     private static final String COMMA_WITH_WHITESPACE = ", ";
     private static final String FINAL_WINNERS = "최종 우승자 : ";
 
-    public void generateRacingCar(Set<String> carNameSet) {
+    public int generateRacingCar(Set<String> carNameSet) {
         players = new Players(generate(carNameSet));
+        return players.size();
     }
 
     private static List<RacingCar> generate(Set<String> carNameSet) {
