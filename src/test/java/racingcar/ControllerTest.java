@@ -1,7 +1,7 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
-import racingcar.Controller.Controller;
+import racingcar.controller.Controller;
 
 class ControllerTest {
 

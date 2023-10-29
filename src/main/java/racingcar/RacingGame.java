@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.Controller.Controller;
+import racingcar.controller.Controller;
 
 public class RacingGame {
     Controller controller;

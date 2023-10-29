@@ -2,7 +2,7 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-import racingcar.Domain.Car;
+import racingcar.domain.Car;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
 import racingcar.repository.CarRepository;

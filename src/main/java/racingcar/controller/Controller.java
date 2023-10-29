@@ -1,4 +1,4 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import static racingcar.utils.Converter.*;
 import static racingcar.utils.validator.GetTrialNumberValidator.*;

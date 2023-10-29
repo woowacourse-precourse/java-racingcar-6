@@ -1,7 +1,7 @@
 package racingcar.repository;
 
 import java.util.ArrayList;
-import racingcar.Domain.Car;
+import racingcar.domain.Car;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
 
