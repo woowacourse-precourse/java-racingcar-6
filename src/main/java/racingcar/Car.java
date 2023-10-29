@@ -8,6 +8,12 @@ public class Car {
         information = new Information(name);
     }
 
+    void move() {
+        if (moveSuccessfully()) {
+            information.update();
+        }
+    }
+
     boolean moveSuccessfully() {
         int speed;
 
