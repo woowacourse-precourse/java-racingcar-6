@@ -31,6 +31,13 @@ public class RacingCarController {
         Integer numberOfRetries = askingNumberOfRetires();
 
         RacingCar racingCar = new RacingCar(cars);
+
+        racingCarView.printResultPerRacing();
+        while (numberOfRetries > 0) {
+            racingCar.moveRandomAllCar();
+            numberOfRetries--;
+            racingCarView.printCarListMovement(racingCar);
+        }
     }
 
     public String askCarNames() {
