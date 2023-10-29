@@ -24,17 +24,30 @@ public class RacingCarGame {
 
     public void run(){
         Dice dice = Dice.getInstance();
-        List<String> names = mapToStringList(inputView.inputNames());
-        List<Car> carList = getCarList(names);
+        List<Car> carList = createCarListFromNames();
         int tryNumber = inputView.inputTryNumber();
 
-        for(int i=0; i<tryNumber; i++){
-            moveOrStay(carList, dice);
-            outputView.printResult(carList);
-        }
+        processRaceRound(dice, carList, tryNumber);
+        determineWinners(carList);
+    }
+
+    private void determineWinners(List<Car> carList) {
         int maxMoveNumber = racingCarGameService.getMaxMoveNumber(carList);
         List<String> winnerNames = racingCarGameService.getWinnerNames(carList, maxMoveNumber);
         outputView.printWinner(winnerNames);
+    }
+
+    private void processRaceRound(Dice dice, List<Car> carList, int tryNumber) {
+        for(int i = 0; i< tryNumber; i++){
+            moveOrStay(carList, dice);
+            outputView.printResult(carList);
+        }
+    }
+
+    private List<Car> createCarListFromNames() {
+        List<String> names = mapToStringList(inputView.inputNames());
+        List<Car> carList = getCarList(names);
+        return carList;
     }
 
     private List<String> mapToStringList(String names) {
