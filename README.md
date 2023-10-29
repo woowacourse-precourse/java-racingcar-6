@@ -172,7 +172,7 @@ Randoms.pickNumberInRange(0,9);
   - 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
     - 쉼표로 파싱했을때 5글자가 넘어갈 경우
     - 쉼표로 파싱했을때 0개인 경우
-자동차 생성
+
 2. 진행 횟수 입력
   - 숫자를 입력받는다.
   - 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.

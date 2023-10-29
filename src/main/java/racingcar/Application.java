@@ -1,8 +1,5 @@
 package racingcar;
-import camp.nextstep.edu.missionutils.Randoms;
-import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-//import racingcar.Input_data;
 
 public class Application {
     public static void main(String[] args) {
@@ -15,7 +12,7 @@ public class Application {
 
         count = Input_data.input_number();
 
-        racing_game(racer_name, distance, count);
+        Play_game.racing_game(racer_name, distance, count);
         calculate_winner(racer_name, distance, winner);
         
 
@@ -23,35 +20,7 @@ public class Application {
 
 
 
-    public static void racing_game(ArrayList<String> name, ArrayList<String> distance,int number) {
-        System.out.println("실행 결과");
-        initialize_distance(distance, name.size());
-        for(int i=0; i<number; i++) {
-            play_one_round(name, distance);
-            System.out.println();
-        }
-    }
 
-    public static void play_one_round(ArrayList<String> name, ArrayList<String> distance) {
-        for(int j=0; j < name.size(); j++) {
-                calculate_distance(distance, j);
-                System.out.println(name.get(j) + " : " + distance.get(j));
-
-            }
-    }
-
-    public static void initialize_distance(ArrayList<String> distance, int index) {
-        for(int i=0; i < index; i++) {
-            distance.add("");
-        }
-    }
-    public static void calculate_distance(ArrayList<String> distance, int index){
-        int rand_num = Randoms.pickNumberInRange(0,9);
-        if(rand_num > 3) {
-            
-            distance.set(index, distance.get(index)+"-");
-        }
-    }
 
     public static void calculate_winner(ArrayList<String> name, ArrayList<String> distance, ArrayList<String> winner){
         int best_record = 0;
