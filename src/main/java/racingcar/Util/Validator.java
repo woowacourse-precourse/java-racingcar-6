@@ -42,8 +42,8 @@ public class Validator {
     public int validationTrialNumber(String trialNumber){
         trialNumber = trialNumber.replaceAll(" ", "");
         validationTrialEmpty(trialNumber);
-        validationTrialNumberOverflow(trialNumber);
-        return validationTrialType(trialNumber);
+        validationTrialType(trialNumber);
+        return validationTrialNumberOverflow(trialNumber);
     }
 
     private void validationTrialEmpty(String trialNumber){
@@ -52,18 +52,18 @@ public class Validator {
         }
     }
 
-    private int validationTrialType(String trialNumber){
+    private void validationTrialType(String trialNumber){
         if(trialNumber.matches(".*\\D.*")){
             ExceptionMessage.NUMBER_ONLY.throwexception();
         }
-        return Integer.parseInt(trialNumber);
     }
 
-    private void validationTrialNumberOverflow(String trialNumber){
+    private int validationTrialNumberOverflow(String trialNumber){
         try {
-            int num = Integer.parseInt(trialNumber);
+            Integer.parseInt(trialNumber);
         }catch (NumberFormatException numberFormatException){
             ExceptionMessage.NUMBER_OVERFLOW.throwexception();
         }
+        return Integer.parseInt(trialNumber);
     }
 }
