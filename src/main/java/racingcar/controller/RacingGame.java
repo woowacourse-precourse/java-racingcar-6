@@ -1,8 +1,10 @@
-package racingcar.domain;
+package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.Car;
+import racingcar.domain.Validator;
 
 public class RacingGame {
     private static RacingGame instance;
