@@ -32,8 +32,12 @@ public class Car {
     }
 
     public void forward() {
-        if (Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER) > FORWARD_STANDARD) {
+        if (getRandomNumber() > FORWARD_STANDARD) {
             point += 1;
         }
+    }
+
+    private int getRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 }
