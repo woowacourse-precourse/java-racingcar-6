@@ -42,7 +42,7 @@
 자동차 이름 간의 중복 여부를 검증한다. 매개변수로 자동차 이름의 리스트를 넘겨 받는다.
 ### 기능3) 자동차 이름 공백 검증 `public void validateEmptySpace()`
 자동차 이름이 공백으로 입력되었는지 확인한다.
-### 기능4) 자료형 검증 `public void validateDataType()`
+### 기능4) 자료형 검증 `int validateDataType(String toCheck)`
 사용자가 입력한 이동 횟수의 자료형을 검증한다.
 ### 기능5) 범위 검증 `public void validateDomain()`
 사용자가 입력한 이동 횟수의 범위 값을 검증한다.

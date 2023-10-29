@@ -1,10 +1,6 @@
 package racingcar;
 
-import java.net.CookieHandler;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Racing {
@@ -31,11 +27,14 @@ public class Racing {
         CarSorting carSort = new CarSorting();
         List<String> winnerList = new ArrayList<>();
         List<Car> tempCarList = new ArrayList<>(dataSet.carList);
+
+        // 1.Sort Car List to Get Winner
+        // 2.Get Biggest Moving Counts for Printing Results
         tempCarList.sort(carSort);
-        int maxMovingCount = tempCarList.get(0).getMovingCount();
+        int biggestMovingCount = tempCarList.get(0).getMovingCount();
 
         for(Car car: dataSet.carList){
-            if(car.getMovingCount() == maxMovingCount){
+            if(car.getMovingCount() == biggestMovingCount){
                 winnerList.add(car.getCarName());
             }
         }

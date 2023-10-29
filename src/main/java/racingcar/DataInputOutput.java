@@ -11,24 +11,26 @@ public class DataInputOutput {
     static final String OUTPUT_RESULT_START = "실행 결과";
     static final String OUTPUT_RESULT_END = "최종 우승자";
 
+    Validate validate = new Validate();
+
     protected List<Car> carList = new ArrayList<Car>();
     private int numTotalMoving;
 
     public void userInputCarsInfo() {
-        // Validate Here
         StringTokenizer tokenizer = new StringTokenizer(Console.readLine(), ",");
-        // Validate Here
+        String curStr;
         while (tokenizer.hasMoreTokens()) {
+            curStr = tokenizer.nextToken();
+            validate.validateEmptySpace(curStr);
             Car newCar = new Car();
-            newCar.makeCar(tokenizer.nextToken());
+            newCar.makeCar(curStr);
             this.carList.add(newCar);
         }
     }
 
     public void userInputMovingInfo() {
         String userInput = Console.readLine();
-        //Validate Here
-        this.numTotalMoving = Integer.parseInt(userInput);
+        this.numTotalMoving = validate.validateDataType(userInput);
     }
 
     public void printSystemMessage(String whichMsg) {
