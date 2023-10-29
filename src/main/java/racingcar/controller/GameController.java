@@ -14,7 +14,7 @@ public class GameController {
         displayWinners();
     }
 
-    private void initialize(){
+    private void initialize() {
         racingCars = InputController.getCarNames();
         rounds = InputController.getRoundCount();
     }

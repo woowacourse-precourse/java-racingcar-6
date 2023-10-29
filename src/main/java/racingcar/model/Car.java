@@ -11,15 +11,15 @@ public class Car {
         this.name = name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void validRacingCars(){
+    public void validRacingCars() {
         if( Util.getRandomNum() >= Constants.minimumLength){
             position++;
         }

@@ -12,12 +12,12 @@ public class RacingCars {
         carNames.forEach(car -> CARS.add(new Car(car)));
     }
 
-    public void play(){
+    public void play() {
         advanceCar();
         OutputView.printRoundResult(CARS);
     }
 
-    public void showWinners(){
+    public void showWinners() {
         int maxPosition = Util.getMaxPosition(CARS);
         ArrayList<String> winners = CARS.stream()
                 .filter(car -> car.getPosition() == maxPosition)
@@ -26,7 +26,7 @@ public class RacingCars {
         OutputView.printWinner(winners);
     }
 
-    private void advanceCar(){
+    private void advanceCar() {
         CARS.forEach(Car::validRacingCars);
     }
 }

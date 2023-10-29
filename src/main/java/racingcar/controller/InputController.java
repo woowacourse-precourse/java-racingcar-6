@@ -11,7 +11,7 @@ public class InputController {
         return new RacingCars(validation.carNames);
     }
 
-    public static int getRoundCount(){
+    public static int getRoundCount() {
         return Integer.parseInt(InputView.roundInput());
     }
 }

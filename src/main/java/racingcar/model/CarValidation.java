@@ -7,12 +7,12 @@ import racingcar.Util;
 public class CarValidation {
     private final String NAMES_STRING;
     public List<String> carNames;
-    public CarValidation(String namesString){
+    public CarValidation(String namesString) {
         this.NAMES_STRING = namesString;
         this.carNames = Util.toArray(namesString);
         validate();
     }
-    private void validate(){
+    private void validate() {
         isCorrectFormat();
         isNotDuplicate();
         isLengthValid();
@@ -26,13 +26,13 @@ public class CarValidation {
         }
     }
 
-    private void isCorrectFormat(){
+    private void isCorrectFormat() {
         if (!Constants.namesStringPattern.matcher(NAMES_STRING).matches()) {
             throw new IllegalArgumentException("이름 형식이 잘못 되었습니다");
         }
     }
 
-    private void isNotDuplicate(){
+    private void isNotDuplicate() {
         if(carNames.size() != carNames.stream().distinct().count()){
             throw new IllegalArgumentException("중복 입력은 안됩니다");
         }
