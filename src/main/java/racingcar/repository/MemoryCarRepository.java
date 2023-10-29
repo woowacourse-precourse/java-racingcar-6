@@ -1,5 +1,6 @@
 package racingcar.repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,13 @@ import racingcar.domain.Car;
 public class MemoryCarRepository implements CarRepository {
 
     private static final MemoryCarRepository memoryCarRepository = new MemoryCarRepository();
+    private static Map<Long, Car> store = new HashMap<>();
+    private static Long sequence;
+
+    private MemoryCarRepository() {
+        resetSequence();
+    }
+
     private void resetSequence() {
         sequence = 0L;
     }
@@ -16,9 +24,6 @@ public class MemoryCarRepository implements CarRepository {
     public static MemoryCarRepository getInstance() {
         return memoryCarRepository;
     }
-
-    private static Map<Long, Car> store=new HashMap<>();
-    private static Long sequence=0L;
 
     @Override
     public Car save(Car car) {
@@ -41,7 +46,6 @@ public class MemoryCarRepository implements CarRepository {
 
     @Override
     public List<Car> findAll() {
-        return null;
         return new ArrayList<>(store.values());
     }
 
