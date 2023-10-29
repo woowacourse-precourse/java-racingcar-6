@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,5 +22,8 @@ public class Application {
         System.out.println(CarNamesAlert);
         String name =readLine();
         String[] carNames = name.split(",");
+
+        System.out.println(NumberTryAlert);
+        int number = Integer.parseInt(readLine());
     }
 }
