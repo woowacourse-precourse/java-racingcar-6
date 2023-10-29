@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import static racingcar.constant.InputError.BLANK_CAR_NAME;
 import static racingcar.constant.InputError.EXCEEDED_LIMIT_CAR_LENGTH;

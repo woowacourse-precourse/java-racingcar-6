@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
@@ -16,7 +16,7 @@ public final class CarsPosition {
         return new CarsPosition(racingCars.createInitPosition());
     }
 
-    public String getResult() {
+    public String getEachRaceResult() {
         StringBuilder sb = new StringBuilder();
         for (String key : position.keySet()) {
             checkStepForward(key);

@@ -1,14 +1,17 @@
-package racingcar;
+package racingcar.controller;
 
 import static racingcar.constant.ViewMessage.INSERT_CARS_NAMES;
 import static racingcar.constant.ViewMessage.INSERT_MOVING_COUNT;
 
+import racingcar.model.CarsPosition;
+import racingcar.model.MovingCount;
+import racingcar.model.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class Race {
+public class RaceController {
 
-    private Race() {
+    private RaceController() {
     }
 
     public static void start() {
@@ -20,7 +23,7 @@ public class Race {
         CarsPosition carsPosition = CarsPosition.createPositionWithRacingCars(racingCars);
 
         for (int i = 0; movingCount.isNotEqual(i); i++) {
-            OutputView.printlnResult(carsPosition.getResult());
+            OutputView.printlnResult(carsPosition.getEachRaceResult());
         }
         OutputView.printlnResult(carsPosition.getWinner());
     }
