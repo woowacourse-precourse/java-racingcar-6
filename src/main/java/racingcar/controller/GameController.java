@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.List;
+
 import racingcar.domain.Cars;
 import racingcar.dto.CarsDto;
 import racingcar.service.GameService;
@@ -23,6 +25,7 @@ public class GameController {
         int trialCount = getTrialCount();
 
         playRounds(trialCount, cars);
+        printWinnersName(cars);
     }
 
     private Cars makeCars() {
@@ -43,6 +46,11 @@ public class GameController {
             CarsDto carsDto = gameService.playRound(cars);
             outputView.printRoundResult(carsDto);
         }
+    }
+
+    private void printWinnersName(final Cars cars) {
+        List<String> winnersName = gameService.findWinnersName(cars);
+        outputView.printWinnersName(winnersName);
     }
 
 }
