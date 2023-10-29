@@ -15,25 +15,23 @@ public class Winners {
 
         winnersCar.stream().map(Car::getNameValue)
                 .forEach((name) -> addResult(winners, name));
-
         trim(winners);
 
         return toString(winners);
     }
 
     private void addResult(StringBuilder result, String name) {
-        result.append(Constants.WHITESPACE);
         result.append(name);
         result.append(Constants.COMMA);
+        result.append(Constants.WHITESPACE);
     }
 
     private void trim(StringBuilder result) {
-        result.deleteCharAt(Constants.RESULT_FIRST_INDEX);
-        result.deleteCharAt(getLastIndexOfResult(result));
+        result.setLength(getRemainRangeOfResult(result));
     }
 
-    private int getLastIndexOfResult(StringBuilder result) {
-        return result.length() - 1;
+    private int getRemainRangeOfResult(StringBuilder result) {
+        return result.length() - 2;
     }
 
     private String toString(StringBuilder winners) {

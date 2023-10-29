@@ -9,6 +9,5 @@ public class Constants {
     public static final String WHITESPACE = " ";
     public static final String EMPTY = "";
     public static final Pattern INTEGER = Pattern.compile("[0-9]+");
-    public static final int RESULT_FIRST_INDEX = 0;
     public static final String SLASH = "-";
 }
