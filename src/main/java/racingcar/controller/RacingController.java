@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
+import racingcar.service.GameService;
 import racingcar.utils.RandomUtils;
 import racingcar.validator.CarNameValidator;
 import racingcar.validator.RoundCountValidator;
@@ -14,11 +15,14 @@ import java.util.stream.Collectors;
 
 public class RacingController {
 
-    private Game game;
     private Car[] car;
+    private Game game;
     private List<String> carsName = new ArrayList<>();
-    private int carCount;
     private StringBuilder[] builder;
+    private final GameService gameService = new GameService();
+
+
+    private int carCount;
 
 
     public void setGame() {
@@ -51,13 +55,10 @@ public class RacingController {
     }
 
     public void initGameRound() {
-        RoundCountValidator roundCountValidator = new RoundCountValidator();
         String inputRound = inputGameRound();
-        if(roundCountValidator.validateInputGameRound(inputRound)) {
-            int round = Integer.parseInt(inputRound);
-            game = new Game(carCount, round);
-        }
+        game = gameService.initGameRound(inputRound, carCount);
     }
+
 
     public String inputGameRound() {
         System.out.println("게임 횟수 입력: ");
@@ -111,17 +112,7 @@ public class RacingController {
     }
 
     public void getWinner() {
-        List<String> winner = new ArrayList<>();
-        int max =0;
-        for (int i = 0; i < carCount; i++) {
-            if(car[i].getPosition() > max) {
-                winner.clear();
-                winner.add(car[i].getCarName());
-                max = car[i].getPosition();
-            }else if(car[i].getPosition() == max) {
-                winner.add(car[i].getCarName());
-            }
-        }
+        List<String> winner = this.gameService.getWinner(carCount, car);
         System.out.print("최종 우승자 : ");
         showWinner(winner);
     }
