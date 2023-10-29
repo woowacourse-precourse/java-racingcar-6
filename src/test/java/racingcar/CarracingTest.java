@@ -21,8 +21,15 @@ class CarracingTest {
         carracing = new Carracing();
     }
 
-    @Test
-    void 자동차_출발점_위치() {
+    @ParameterizedTest
+    @MethodSource("provideCarName")
+    void 자동차_출발점_위치(String[] names) {
+        Map<String, String> nameList = new LinkedHashMap<>();
+        nameList = carracing.setInitStartPoint(names);
+
+        String expectedResult = sumScore(nameList);
+
+        assertThat(expectedResult).isEqualTo("");
     }
 
     private static String sumScore(Map<String, String> result) {
