@@ -11,18 +11,28 @@ import racingcar.view.View;
 
 public class MainController {
     private static RaceController raceController = AppConfig.raceControllerImplements();
-    public static void process() {
+    private CarRepository carRepository = new CarRepository(new ArrayList<Car>());
+    public void process() {
+        startGame();
+        startRace();
+        closeGame();
+    }
+    private void startGame() {
         View.gameStartMessage();
         String[] carNames = InputHandler.inputStringToArray();
-        CarRepository carRepository = new CarRepository(new ArrayList<Car>());
         CarSaveService.SaveCars(carNames, carRepository);
+    }
 
+    private void startRace() {
         View.raceStartMessage();
         String roundInput = InputHandler.readInput();
-
         raceController.validateRoundInput(roundInput);
         raceController.processRace(roundInput, carRepository);
+    }
 
+    private static void closeGame() {
         Console.close();
     }
+
+
 }
