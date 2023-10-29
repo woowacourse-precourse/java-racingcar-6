@@ -21,7 +21,7 @@ public class CarName {
         return new CarName(carName);
     }
 
-    public void validateCarName(String carName) {
+    private void validateCarName(String carName) {
         String regex = "^[a-z|A-Z|ㄱ-ㅎ|가-힣]+$";
 
         if (!Pattern.matches(regex, carName)) {
@@ -29,7 +29,7 @@ public class CarName {
         }
     }
 
-    public void validateLength(String carName) {
+    private void validateLength(String carName) {
         if (carName.length() > VALID_CAR_NAMES_LENGTH) {
             throw INVALID_LENGTH.getException();
         }

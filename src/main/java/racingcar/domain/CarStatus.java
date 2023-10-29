@@ -6,6 +6,8 @@ import racingcar.domain.wrapper.CarPosition;
 import java.util.HashMap;
 import java.util.Map;
 
+import static racingcar.handler.ConstantsHandler.POINT_MARK;
+
 public class CarStatus implements Comparable<CarStatus> {
 
     private final Map<String, String> carStatus = new HashMap<>();
@@ -26,7 +28,7 @@ public class CarStatus implements Comparable<CarStatus> {
     }
 
     public Map<String, String> getCarStatus() {
-        String dash = "-".repeat(position.getPosition());
+        String dash = POINT_MARK.repeat(position.getPosition());
         carStatus.put("carName", carName.getCarName());
         carStatus.put("position", dash);
 
@@ -44,9 +46,5 @@ public class CarStatus implements Comparable<CarStatus> {
 
     public String getCarName() {
         return carName.getCarName();
-    }
-
-    public int getPosition() {
-        return position.getPosition();
     }
 }

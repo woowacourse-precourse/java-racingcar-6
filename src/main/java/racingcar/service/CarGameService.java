@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static racingcar.handler.ConstantsHandler.JOIN_MARK;
+
 public class CarGameService {
 
     private CarStatusGroup carStatusGroup;
@@ -42,7 +44,7 @@ public class CarGameService {
         CarStatus maxPositionCar = carStatusGroup.getMaxPosition();
         List<String> winnerNames = carStatusGroup.getWinnerNames(maxPositionCar);
 
-        String winners = String.join(", ", winnerNames);
+        String winners = String.join(JOIN_MARK, winnerNames);
 
         return winners;
     }

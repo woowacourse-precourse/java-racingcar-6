@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static racingcar.handler.ConstantsHandler.SPLIT_DELIMITER;
 
 public class CarNamesTest {
 
@@ -26,7 +27,7 @@ public class CarNamesTest {
     @ParameterizedTest(name = "[{index}] input : {0} ")
     @ValueSource(strings = {"pobi,pobi,woni", "pobi,현대,woni,현대"})
     void createCarNamesWithDuplicate(String inputString) {
-        assertThatThrownBy(() -> CarNames.create(List.of(inputString.split(","))))
+        assertThatThrownBy(() -> CarNames.create(List.of(inputString.split(SPLIT_DELIMITER))))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorHandler.DUPLICATE_NUMBER.getException().getMessage());
     }
