@@ -5,12 +5,13 @@ import static racingcar.view.constants.Notice.ASK_ATTEMPT_NUMBER;
 import static racingcar.view.constants.Notice.ASK_CAR_NAME;
 
 public class InputView {
-    public static String askCarName(){
+    public static String askCarName() {
         System.out.println(ASK_CAR_NAME);
         return readLine();
     }
-    public static String askAttemptNumber(){
+
+    public static int askAttemptNumber() {
         System.out.println(ASK_ATTEMPT_NUMBER);
-        return readLine();
+        return Integer.parseInt(readLine());
     }
 }
