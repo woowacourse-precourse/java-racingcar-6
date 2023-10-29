@@ -18,7 +18,7 @@ class InputTryCountValidatorTest {
     void validate_WhenInputIsBlank_ThrowsException() {
         String input = "";
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validateTryCountIsBlank(input));
-        assertThat(e.getMessage()).isEqualTo(ErrorMessage.TRY_COUNT_DOES_NOT_BLANK.getMessage());
+        assertThat(e.getMessage()).isEqualTo(ErrorMessage.INPUT_DOES_NOT_BLANK.getMessage());
     }
 
     @DisplayName("TryCount 값이 숫자가 아닐 경우 IllegalArgumentException 발생")

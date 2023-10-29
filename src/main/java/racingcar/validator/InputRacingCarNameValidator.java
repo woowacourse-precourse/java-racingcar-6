@@ -10,7 +10,7 @@ public class InputRacingCarNameValidator {
 
     public void validateRacingCarNameIsBlank(String input) {
         if (input.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.RACING_CAR_NAME_DOES_NOT_BLANK.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.INPUT_DOES_NOT_BLANK.getMessage());
         }
     }
 

@@ -14,7 +14,7 @@ public class InputTryCountValidator {
 
     public void validateTryCountIsBlank(String input) {
         if (input == null || input.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_DOES_NOT_BLANK.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.INPUT_DOES_NOT_BLANK.getMessage());
         }
     }
 

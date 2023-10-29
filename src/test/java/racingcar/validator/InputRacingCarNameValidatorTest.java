@@ -19,7 +19,7 @@ class InputRacingCarNameValidatorTest {
     @ValueSource(strings = {""})
     void validateRacingCarNameLength_WhenNameIsBlank_ThrowsException(String name) {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> validator.validateRacingCarNameIsBlank(name));
-        assertThat(e.getMessage()).isEqualTo(ErrorMessage.RACING_CAR_NAME_DOES_NOT_BLANK.getMessage());
+        assertThat(e.getMessage()).isEqualTo(ErrorMessage.INPUT_DOES_NOT_BLANK.getMessage());
     }
 
     @DisplayName("RacingCar Name의 길이 예외 체크")
