@@ -53,6 +53,10 @@ public class RacingcargameController {
     }
 
     private void manageRacingCarGame(int tryCount) {
+        printGameResults(game);
+    }
+    private void printGameResults(Game game) { // 게임 결과 출력
+        OutputView.showFinalWinners(gameFlowManagementService.getRoundWinnerCarNames(game));
     }
     //입력받을 자동차 이름과 시도 횟수에 대한 메서드
     private void saveCarNamesToRepo(List<String> carNames) {
