@@ -24,4 +24,12 @@ public class RacingException {
                 }
             }
         }
+
+        public void validateCommaAfterComma(String carNames) {
+            for (int i = 0; i < carNames.length() - 1; i++) {
+                if(carNames.charAt(i)==',' && carNames.charAt(i+1)==','){
+                    throw new IllegalArgumentException();
+                }
+            }
+        }
 }
