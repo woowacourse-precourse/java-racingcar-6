@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Game {
 
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
     private int round;
 
     private boolean isValidCarName(String name) {
@@ -75,9 +75,7 @@ public class Game {
             StringBuilder sb = new StringBuilder();
             sb.append(car.getName());
             sb.append(" : ");
-            for (int i = 0; i < car.getPosition(); i++) {
-                sb.append("-");
-            }
+            sb.append("-".repeat(Math.max(0, car.getPosition())));
             System.out.println(sb);
         }
     }
