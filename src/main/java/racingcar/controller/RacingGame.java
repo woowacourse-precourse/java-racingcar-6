@@ -37,6 +37,14 @@ public class RacingGame implements Game {
         String namesString = inputView.input();
         List<String> names = Convertor.split(namesString, Messenger.CAR_NAMES_DELIMITER);
         cars = carsGenerator.generateCarsFromNames(names);
+
+
+        String requestRoundCountMessage = messenger.getRequestRoundCount();
+        outputView.print(requestRoundCountMessage);
+
+        String roundCountString = inputView.input();
+        int roundCount = Convertor.parseInt(roundCountString);
+        round = new Round(roundCount);
     }
 
 }

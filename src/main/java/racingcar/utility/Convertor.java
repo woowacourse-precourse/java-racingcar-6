@@ -11,4 +11,12 @@ public final class Convertor {
                 .toList();
     }
 
+    public static int parseInt(String string) {
+        try {
+            return Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("유효하지 않은 값입니다.");
+        }
+    }
+
 }
