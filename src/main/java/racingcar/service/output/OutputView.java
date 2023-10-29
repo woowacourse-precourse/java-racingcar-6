@@ -13,26 +13,79 @@ public class OutputView implements Output{
 
     @Override
     public void showResult(CarsOutputDto carsOutputDto) {
-        Cars cars = carsOutputDto.cars();
-        int max = cars.getCarList().get(0).getCarPosition();
-        ResultList resultList = new ResultList();
-        for(Car car : cars.getCarList()){
-            if(car.getCarPosition()>max){
-                max = car.getCarPosition();
-                resultList.getResults().clear();
-                resultList.getResults().add(car.getCarName());
-            }else if(car.getCarPosition()==max){
-                resultList.getResults().add(car.getCarName());
-            }
-        }
+        printingWinners(comparingResult(carsOutputDto.cars(),
+                                        carsOutputDto.cars()
+                                                .getCarList()
+                                                .get(0)
+                                                .getCarPosition()));
+    }
+
+    private static void printingWinners(ResultList resultList) {
         System.out.print("최종 우승자 : ");
-        for(int i = 0; i < resultList.getResults().size();i++){
-            System.out.print(resultList.getResults().get(i));
-            if (i < resultList.getResults().size()-1){
-                System.out.print(", ");
-            }
-        }
+        printingNames(resultList);
         System.out.println();
+    }
+
+    private static void printingNames(ResultList resultList) {
+        for(int i = 0; i < resultList.getResults().size(); i++){
+            printingOneWinner(resultList, i);
+        }
+    }
+
+    private static void printingOneWinner(ResultList resultList, int i) {
+        System.out.print(resultList.getResults().get(i));
+        checkNumberOfPrintingNames(resultList, i);
+    }
+
+    private static void checkNumberOfPrintingNames(ResultList resultList, int i) {
+        if (isNotFinished(resultList, i)){
+            System.out.print(", ");
+        }
+    }
+
+    private static boolean isNotFinished(ResultList resultList, int i) {
+        return i < resultList.getResults().size() - 1;
+    }
+
+    private static ResultList comparingResult(Cars cars, int max) {
+        ResultList resultList = new ResultList();
+        resultListIterate(cars, max, resultList);
+        return resultList;
+    }
+
+    private static void resultListIterate(Cars cars, int max, ResultList resultList) {
+        for(Car car : cars.getCarList()){
+            max = comparingWithMax(max, resultList, car);
+        }
+    }
+
+    private static int comparingWithMax(int max, ResultList resultList, Car car) {
+        if(isBiggerThenCurrantMax(max, car)){
+            max = foundMax(resultList, car);
+        }else if(isSameWithCurrentMax(max, car)){
+            foundSame(resultList, car);
+        }
+        return max;
+    }
+
+    private static boolean isSameWithCurrentMax(int max, Car car) {
+        return car.getCarPosition() == max;
+    }
+
+    private static boolean isBiggerThenCurrantMax(int max, Car car) {
+        return car.getCarPosition() > max;
+    }
+
+    private static void foundSame(ResultList resultList, Car car) {
+        resultList.getResults().add(car.getCarName());
+    }
+
+    private static int foundMax(ResultList resultList, Car car) {
+        int max;
+        max = car.getCarPosition();
+        resultList.getResults().clear();
+        resultList.getResults().add(car.getCarName());
+        return max;
     }
 
     private static void showCarNameAndPosition(CarsOutputDto carsOutputDto) {
