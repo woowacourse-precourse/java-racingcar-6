@@ -32,6 +32,13 @@ class CarTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {" pobi", "p obi", "pobi "})
+    public void 자동차_이름에_공백이_포함된_경우_예외_발생(String carName) {
+        Assertions.assertThatThrownBy(() -> new Car(carName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
     public void 앞으로_움직이지_않는_경우_테스트(int randomNumber) {
         // given
