@@ -7,38 +7,27 @@ import java.util.List;
 
 public class Car {
 
-    private static Car car;
     public List<String> movedCount;
-    public List<String> names;  // Car는 Application에서만 단 한번만 생성 되기 때문에, 다른 곳에서 호출될 수 없음
+    public List<String> names;
 
-
-    private Car(List<String> names) {
+    public Car(List<String> names) {
         this.names = names;
+        validateCarNames(this.names);
+        trimCarNames(this.names);
+        initializeMovedCount();
     }
 
-
-    // Car를 한 곳에서 한 번만 사용 가능 하도록 구현
-    public static Car getInstance(List<String> names) {
-        if (car == null) {
-            car = new Car(names);
-            validateCarNames(car.names);
-            trimCarNames(car.names);
-            return car;
-        }
-        throw new RuntimeException("Car는 한 곳에서 한 번만 사용가능합니다.");
+    private void initializeMovedCount() {
+        movedCount = new ArrayList<>(Collections.nCopies(this.names.size(), ""));
     }
 
-    public void initializeMovedCount() {
-        movedCount = new ArrayList<>(Collections.nCopies(car.names.size(), ""));
-    }
-
-    private static void validateCarNames(List<String> carNames) {
+    private void validateCarNames(List<String> carNames) {
         Validator.checkCarCount(carNames);
         Validator.checkBlankAndLength(carNames);
         Validator.checkDuplication(carNames);
     }
 
-    private static void trimCarNames(List<String> carNames) {
+    private void trimCarNames(List<String> carNames) {
         for (int i = 0; i < carNames.size(); i++) {
             carNames.set(i, carNames.get(i).trim());  // 수정 필요
         }
@@ -56,8 +45,8 @@ public class Car {
                 }
             }
 
-            for (int k = 0; k < car.names.size(); k++) {
-                System.out.println(car.names.get(k) + " : " + movedCount.get(k));
+            for (int k = 0; k < this.names.size(); k++) {
+                System.out.println(this.names.get(k) + " : " + movedCount.get(k));
             }
 
             System.out.println();

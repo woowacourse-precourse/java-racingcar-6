@@ -56,9 +56,8 @@ public class Application {
         // TODO: 프로그램 구 현
 
         // 1. 자동차 이름 입력
-        Car car = Car.getInstance(createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
+        Car car = new Car(createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
 
-        car.initializeMovedCount();
         car.move(Application.createRoundCount(getInput("시도할 회수는 몇회인가요?")));
 
         Application.findWinner(car, Application.calculateMaxDistance(car));
