@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.CarName;
 import racingcar.domain.car.Cars;
@@ -32,23 +34,22 @@ class RacingGameTest {
     }
 
     @DisplayName("이동 횟수를 모두 소진하면 게임 상태는 END이다.")
-    @Test
-    void movingCount() {
+    @ParameterizedTest
+    @ValueSource(longs = {1L, 10L, 100L})
+    void movingCount(long movingCount) {
         // given
         Cars cars = new Cars(List.of(
                 Car.nameOf(new CarName("haero")),
-                Car.nameOf(new CarName("pobi")),
-                Car.nameOf(new CarName("woni")),
-                Car.nameOf(new CarName("jun"))
+                Car.nameOf(new CarName("pobi"))
         ));
-        long movingCount = 1L;
-
         RacingGame racingGame = RacingGame.newGame(cars, movingCount);
 
         RandomNumberPicker randomNumberPicker = new FakeRandomNumberPicker(4);
 
         // when
-        racingGame.moveOnce(randomNumberPicker);
+        for (int count = 0; count < movingCount; count++) {
+            racingGame.moveOnce(randomNumberPicker);
+        }
 
         // then
         assertAll(
