@@ -37,7 +37,7 @@ public class Race {
     
     public void findWinner() {
         int maxDistance = getMaxDistance();
-    
+        
         for (String scorePerCarKey : scorePerCar.keySet()) {
             if (scorePerCar.get(scorePerCarKey).length() == maxDistance) {
                 winCars.add(scorePerCarKey);

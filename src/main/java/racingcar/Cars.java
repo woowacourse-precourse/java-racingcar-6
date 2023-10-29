@@ -15,8 +15,10 @@ public class Cars {
     }
     
     private void validateCarNameEntered(String[] carArray) {
-        if (carArray.length < 1){
-            throw new IllegalArgumentException("자동차 이름을 하나 이상 입력해주세요!");
+        for (String car : carArray) {
+            if (car.isBlank()){
+                throw new IllegalArgumentException("자동차 이름은 빈 값일 수 없습니다!");
+            }
         }
     }
     
