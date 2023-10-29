@@ -12,4 +12,10 @@ public class InputView {
         racingException.validateCommaAfterComma(carNames);
         return carNames;
     }
+
+    public int readRoundNum() {
+        String RoundNumStr = Console.readLine();
+        racingException.validateRoundNum(RoundNumStr);
+        return Integer.parseInt(RoundNumStr);
+    }
 }
