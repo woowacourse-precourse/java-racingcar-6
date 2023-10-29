@@ -27,6 +27,7 @@
 - attemptsNum => 게임 횟수 입력
 
 ### OutputView
+- initial => 결론 시작 문장 출력
 - result => 자동차 이름 + 이동 거리 출력
 - winner => 우승자 출력
 
