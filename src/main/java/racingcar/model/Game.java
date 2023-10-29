@@ -17,7 +17,7 @@ public class Game {
 
     public void playRound() {
         for (Car car : cars) {
-            car.move(MOVING_DISTANCE,moveResolver);
+            car.move(MOVING_DISTANCE, moveResolver);
         }
     }
 

@@ -5,7 +5,6 @@ import racingcar.util.CarNameValidator;
 import racingcar.util.MoveResolver;
 
 public class Car {
-
     private final String name;
     private int position = 0;
 
@@ -25,10 +24,10 @@ public class Car {
     public void move(int distance, MoveResolver moveResolver) {
         if (moveResolver.isMoveAble()) {
             position += distance;
-        };
+        }
     }
 
     public GameResult generateGameResult() {
-        return new GameResult(this.getName(),this.getPosition());
+        return new GameResult(this.getName(), this.getPosition());
     }
 }

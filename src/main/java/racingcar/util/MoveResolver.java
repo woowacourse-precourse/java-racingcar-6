@@ -12,6 +12,6 @@ public class MoveResolver {
     }
 
     private int getRandomNumber() {
-        return Randoms.pickNumberInRange(RANDOM_LEFT_BOUND,RANDOM_RIGHT_BOUND);
+        return Randoms.pickNumberInRange(RANDOM_LEFT_BOUND, RANDOM_RIGHT_BOUND);
     }
 }

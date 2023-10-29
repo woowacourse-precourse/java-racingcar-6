@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 import racingcar.model.GameResult;
 
@@ -30,7 +29,7 @@ public class View {
 
     public static void ouputGameWinner(List<String> winners) {
         System.out.print("최종 우승자 :");
-        String collect = winners.stream().collect(Collectors.joining(","," ",""));
+        String collect = winners.stream().collect(Collectors.joining(",", " ", ""));
         System.out.print(collect);
     }
 

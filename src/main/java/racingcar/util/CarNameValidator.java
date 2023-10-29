@@ -20,7 +20,7 @@ public class CarNameValidator {
 
     private static void validateLengthCheck(String carName) {
         if (carName.length() > LENGTH_LIMIT) {
-            throw new IllegalArgumentException(String.format("이름의 길이는 %d를 초과할 수 없습니다.",LENGTH_LIMIT));
+            throw new IllegalArgumentException(String.format("이름의 길이는 %d를 초과할 수 없습니다.", LENGTH_LIMIT));
         }
     }
 
