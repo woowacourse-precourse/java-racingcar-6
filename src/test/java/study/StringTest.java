@@ -1,10 +1,12 @@
 package study;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 import org.junit.jupiter.api.Test;
 import racingcar.Constant;
+import racingcar.StringOperator;
+import racingcar.UserInputHandler;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 public class StringTest {
 
@@ -12,6 +14,16 @@ public class StringTest {
     void constant_적절한_메시지_출력(){
         String message = Constant.UserRequesMessage.CAR_NAME_REQUEST_MESSAGE.toString();
         assertThat(message).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
+
+    @Test
+    void split_쉼표로_주어진_값을_구분(){
+        StringOperator sp = new StringOperator();
+
+        // 모의 사용자 입력 설정
+        String [] result = sp.seperate("pobi,woni,jun", ",");
+        String [] expected = new String[] {"pobi", "woni", "jun"};
+        assertThat(result).isEqualTo(expected);
     }
     @Test
     void split_메서드로_주어진_값을_구분() {

@@ -19,7 +19,7 @@
     pobi,woni,jun
     ```
     
-    - [ ]  입력 데이터를 쉼표를 기준으로 분리할 수 있다. - **StringOperator**#seperate
+    - [x]  입력 데이터를 쉼표를 기준으로 분리할 수 있다. - **StringOperator**#seperate
     
     - [ ] 잘못된 입력 (5자 초과, null)이면 `IllegalArgumentException`을 발생 후 종료한다. - **InputValidator**#
   
@@ -29,7 +29,7 @@
 
 - [ ] 이동횟수만큼 게임을 진행한다. - **RacingCarGame**#game
   
-  - [ ] 게임 안내 메시지를 출력한다. **GameConfig**
+  - [x] 게임 안내 메시지를 출력한다. **GameConfig**
     
     ```
     경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
