@@ -120,6 +120,18 @@ public class FeatureTest {
     }
 
     @Test
+    void 자동차_위치값_1_증가() {
+        int startPosition = 3;
+        CarPosition carPosition = new CarPosition(startPosition);
+        carPosition.incrementPosition();
+
+        int actualPosition = carPosition.getCarPosition();
+        int expectedPosition = startPosition + 1;
+
+        assertThat(actualPosition).isEqualTo(expectedPosition);
+    }
+
+    @Test
     void 자동차_전진() {
         Car testObj = new Car("car1");
         int moveCount = 5;
