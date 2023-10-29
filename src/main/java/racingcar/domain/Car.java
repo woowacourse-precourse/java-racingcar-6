@@ -9,31 +9,23 @@ import racingcar.dto.CarDTO;
 
 public class Car {
     private final String name;
-    private int moves;
+    private int position;
 
     public Car(String name) {
         this.name = name;
-        this.moves = 0;
+        this.position = 0;
     }
 
     public CarDTO toDTO() {
         String name = this.name;
-        int position = this.moves;
+        int position = this.position;
 
         return new CarDTO(name, position);
     }
 
-    public String getPosition() {
-        String name = this.name;
-        String position = "-".repeat(this.moves);
-        String carStatus = String.format("%s : %s\n", name, position);
-
-        return carStatus;
-    }
-
     public void tryMove() {
         if (canMove()) {
-            moves++;
+            position++;
         }
     }
 

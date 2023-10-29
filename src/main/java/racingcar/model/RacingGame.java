@@ -36,12 +36,23 @@ public class RacingGame {
             Car car = manager.getCarFromIndex(index);
 
             car.tryMove();
-            roundResult.append(car.getPosition());
+            String status = getStatus(car);
+            roundResult.append(status);
         }
 
         return roundResult.toString();
     }
 
+    // dto로부터 이름과 위치를 받아 라운드 진행 상황 제작
+    private String getStatus(Car car) {
+        CarDTO dto = car.toDTO();
+
+        String name = dto.getName();
+        String position = "-".repeat(dto.getPosition());
+        String status = String.format("%s : %s\n", name, position);
+
+        return status;
+    }
 
     // 문자열 생성 과정에서 생긴 불필요한 부분 제거
     private void removeWinnersStringTail(StringBuilder winners) {
