@@ -8,7 +8,11 @@ public class InputAndOutput {
     }
 
     static void outputRaceResult(List<Car> carList) {
-
+        StringBuilder raceResult = new StringBuilder();
+        for (Car car : carList) {
+            raceResult.append(car.getName()).append(" : ").append(car.getGoOrStopRecord().toString()).append("\n");
+        }
+        System.out.println(raceResult.toString());
     }
 
     static void outputRaceWinner(List<Car> carList) {
