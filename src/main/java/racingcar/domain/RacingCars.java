@@ -11,7 +11,6 @@ import java.util.stream.IntStream;
 public final class RacingCars {
 
     private static final int START_INDEX = 0;
-    private static final int MOVE_STANDARD = 4;
     private static final int MIN_RACING_CAR_NUM = 2;
     private static final String NEW_LINE = "\n";
     private final List<RacingCar> elements;
@@ -35,27 +34,16 @@ public final class RacingCars {
         return elements.size();
     }
 
-    public void moveByNumbers(final List<Integer> numbers) {
-        IntStream.range(START_INDEX, elements.size()).forEach(index -> move(numbers, index));
+    public void moveByNumbers(final Numbers numbers) {
+        IntStream.range(START_INDEX, numOfElement()).forEach(index -> move(numbers, index));
     }
 
-    private void move(final List<Integer> numbers, final int index) {
+    private void move(final Numbers numbers, final int index) {
         final RacingCar racingCar = elements.get(index);
-        final MoveStatus moveStatus = checkMoveStatus(numbers.get(index));
+        final MoveStatus moveStatus = numbers.checkMoveStatus(index);
         if (moveStatus.isMove()) {
             racingCar.move();
         }
-    }
-
-    private MoveStatus checkMoveStatus(final int number) {
-        if (isMovable(number)) {
-            return MoveStatus.MOVE;
-        }
-        return MoveStatus.STOP;
-    }
-
-    private boolean isMovable(final int number) {
-        return MOVE_STANDARD <= number;
     }
 
     public String toResultMessage() {

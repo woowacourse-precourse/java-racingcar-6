@@ -72,7 +72,7 @@ class RacingCarsTest {
                                     new RacingCar(new Name("def"))));
 
             // when
-            racingCars.moveByNumbers(List.of(4, 5));
+            racingCars.moveByNumbers(new Numbers(List.of(4, 5)));
 
             // then
             assertThat(racingCars.toResultMessage()).contains("-");
@@ -89,7 +89,7 @@ class RacingCarsTest {
                                     new RacingCar(new Name("def"))));
 
             // when
-            racingCars.moveByNumbers(List.of(1, 2));
+            racingCars.moveByNumbers(new Numbers(List.of(1, 2)));
 
             // then
             assertThat(racingCars.toResultMessage()).doesNotContain("-");
@@ -126,7 +126,7 @@ class RacingCarsTest {
                         List.of(
                                 new RacingCar(new Name(firstWinner)),
                                 new RacingCar(new Name(secondWinner))));
-        racingCars.moveByNumbers(List.of(4, 4));
+        racingCars.moveByNumbers(new Numbers(List.of(4, 4)));
 
         // when
         final Winners winners = racingCars.findWinners();
