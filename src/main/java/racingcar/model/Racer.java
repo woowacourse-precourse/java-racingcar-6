@@ -2,6 +2,8 @@ package racingcar.model;
 
 import racingcar.constant.message.Message;
 import racingcar.model.car.Car;
+import racingcar.model.car.OrderByPosition;
+import racingcar.model.car.OrderStrategy;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
 
@@ -29,22 +31,21 @@ public class Racer {
         validator.validate(value);
     }
 
-    private List<Car> getWinner() {
-        Car first = racer.stream()
-                .max(Car::compareTo)
-                .orElseThrow(IllegalStateException::new);
-        return racer.stream()
-                .filter(car -> car.equals(first))
-                .toList();
-    }
-
-    //TODO: 이 메서드 별로 안이쁨
     public String winnerToString() {
-        List<String> winner = getWinner()
+        List<String> winner = getWinner(new OrderByPosition())
                 .stream()
                 .map(Car::getName)
                 .toList();
         return String.join(Message.NAME_SEPARATOR + " ", winner);
+    }
+
+    private List<Car> getWinner(OrderStrategy orderStrategy) {
+        Car first = racer.stream()
+                .max(orderStrategy)
+                .orElseThrow();
+        return racer.stream()
+                .filter(car -> car.equals(first))
+                .toList();
     }
 
     @Override

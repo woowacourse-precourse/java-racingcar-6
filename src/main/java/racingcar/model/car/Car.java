@@ -5,13 +5,8 @@ import racingcar.service.Accelerator;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
 
-import java.util.Comparator;
-
 //TODO: 허무맹랑할 수 있는 이야기이지만, 자동차 경주에 말이 들어온다면?? 해당 경우도 한번 고민해보기
 public class Car {
-
-    //TODO: 어떻게 선언할까
-    private final Comparator<Car> comparator = new OrderByPosition();
 
     protected final String name;
     protected Long currentPosition;
@@ -32,10 +27,6 @@ public class Car {
         ValidatorFactory validatorFactory = ValidatorFactory.buildDefaultValidatorFactory();
         Validator validator = validatorFactory.getValidator(this.getClass());
         validator.validate(value);
-    }
-
-    public int compareTo(Car car) {
-        return comparator.compare(this, car);
     }
 
     //TODO: 게터 지양
