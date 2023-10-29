@@ -24,7 +24,7 @@ public class ConsoleReader {
     public long readMovingCount() {
         String input = readLine();
 
-        StringLiteralValidator.validateIsNumeric(input);
+        StringLiteralValidator.validateIsPositiveInteger(input);
 
         return Long.parseLong(input);
     }

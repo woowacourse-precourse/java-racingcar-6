@@ -21,7 +21,15 @@ public class StringLiteralValidator {
     }
 
     public static void validateIsPositiveInteger(String literal) {
-        validateIsDigit(literal);
+        validateIsInteger(literal);
+
+        if (!isPositive(Integer.parseInt(literal))) {
+            throw new IllegalArgumentException("%s is not positive integer.".formatted(literal));
+        }
+    }
+
+    private static boolean isPositive(int target) {
+        return target > 0;
     }
 
 }
