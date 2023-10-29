@@ -32,17 +32,17 @@ class RacingSystemTest {
         RacingSystem racingSystem = new RacingSystem();
         assertDoesNotThrow(() -> racingSystem.checkValidName("car1, car2, car3"));
     }
-//
-//    @Test
-//    void 입력_예외발생() {
-//        RacingSystem racingSystem = new RacingSystem();
-//        assertThrows(IllegalArgumentException.class,
-//                () -> racingSystem.checkNumber("3A"));
-//    }
-//
-//    @Test
-//    void 올바른_입력_입력() {
-//        RacingSystem racingSystem = new RacingSystem();
-//        assertDoesNotThrow(() -> racingSystem.checkNumber("3"));
-//    }
+
+    @Test
+    void 입력_예외발생() {
+        RacingSystem racingSystem = new RacingSystem();
+        assertThrows(IllegalArgumentException.class,
+                () -> racingSystem.checkNumber("3A"));
+    }
+
+    @Test
+    void 올바른_입력_입력() {
+        RacingSystem racingSystem = new RacingSystem();
+        assertDoesNotThrow(() -> racingSystem.checkNumber("123"));
+    }
 }
