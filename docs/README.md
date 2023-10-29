@@ -32,10 +32,10 @@ InputReader
 GameEngine
 
 -[x] 점수를 생성한다
-    -[x] GameEngineValidator를 통해 입력값을 검증한다.
+    -[x] GameEngineValidator# 플레이어 이름을 검증한다.
     - [x] 점수를 생성한다.
 - [ ] 플레이어가 전진하는지를 판단한다
-    - [ ] 입력받는값이 마이너스이면, IllegalArgumentException 반환
+    - [ ] GameEngineValidator# 음수이거나 숫자가아닌지 검증한다.
     -[ ] NumberGenerator# 숫자 만드는 것을 부른다.
     -[ ] 숫자를 판단한다
         - [ ] 0부터3까지 멈춤
