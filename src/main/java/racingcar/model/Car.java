@@ -13,7 +13,7 @@ public class Car {
     }
 
 
-    private void move(){
+    public void move(){
         int randomNumber = createRandomNumber();
         if(isMoveFront(randomNumber)){
             location++;
