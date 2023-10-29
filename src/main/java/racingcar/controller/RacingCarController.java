@@ -26,5 +26,8 @@ public class RacingCarController {
             List<RacingCar> racingCars = racingGame.getRacingCars();
             outputView.printCars(racingCars);
         }
+
+        List<RacingCar> winners = racingGame.getWinners();
+        outputView.printWinners(winners);
     }
 }

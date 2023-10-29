@@ -10,6 +10,7 @@ public class OutputView {
     public void printResultHeader() {
         print(RESULT_HEADER);
     }
+
     public void printCars(List<RacingCar> racingCars) {
         for (RacingCar racingCar : racingCars) {
             String str = new StringBuilder()
@@ -31,5 +32,17 @@ public class OutputView {
         }
         return progressIndicator;
     }
+
+    public void printWinners(List<RacingCar> winners) {
+        StringBuilder builder = new StringBuilder()
+                .append(WINNER_PREFIX);
+        for (int i = 0; i < winners.size(); i++) {
+            builder.append(winners.get(i).getName());
+            if (i != winners.size() - 1) builder.append(", ");
+        }
+        builder.append("\n");
+        print(builder.toString());
+    }
+
 
 }

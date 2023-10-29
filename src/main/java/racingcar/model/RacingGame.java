@@ -31,4 +31,15 @@ public class RacingGame {
         return racingCars;
     }
 
+    public List<RacingCar> getWinners() {
+        int maxPosition = racingCars.stream()
+                .mapToInt(RacingCar::getPosition)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("List is empty"));
+
+        return racingCars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
+    }
+
 }
