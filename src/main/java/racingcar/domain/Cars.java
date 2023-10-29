@@ -46,10 +46,16 @@ public class Cars {
         return result;
     }
 
-    public List<String> getCarsName() {
+    public List<String> getNames() {
         List<String> names = new ArrayList<>();
         cars.forEach(car -> names.add(car.getName()));
         return names;
+    }
+
+    public List<Integer> getLocations() {
+        List<Integer> locations = new ArrayList<>();
+        cars.forEach(car -> locations.add(car.getLocation()));
+        return locations;
     }
 
 }
