@@ -28,4 +28,19 @@ public class Validator {
             throw new IllegalArgumentException("중복되지 않은 이름을 입력해 주세요.");
         }
     }
+
+    public static int checkPositiveNumber(String userInput) {
+        int roundCount;
+
+        try {
+            roundCount = Integer.parseInt(userInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력하세요.");
+        }
+
+        if (roundCount <= 0) {
+            throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
+        }
+        return roundCount;
+    }
 }

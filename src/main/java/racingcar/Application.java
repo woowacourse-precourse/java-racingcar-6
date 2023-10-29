@@ -15,20 +15,7 @@ public class Application {
         return Arrays.asList(userInput.split(","));
     }
 
-    private static int checkPositiveNumber(String userInput) {
-        int roundCount;
 
-        try {
-            roundCount = Integer.parseInt(userInput);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자만 입력하세요.");
-        }
-
-        if (roundCount <= 0) {
-            throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
-        }
-        return roundCount;
-    }
 
     private static int calculateMaxDistance(Car car) {
         int maxDistance = 0;
@@ -67,7 +54,7 @@ public class Application {
         Car car = Car.getInstance(createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
 
         car.initializeMovedCount();
-        car.move(Application.checkPositiveNumber(getInput("시도할 회수는 몇회인가요?")));
+        car.move(Validator.checkPositiveNumber(getInput("시도할 회수는 몇회인가요?")));
 
         Application.findWinner(car, Application.calculateMaxDistance(car));
 
