@@ -93,6 +93,12 @@ public class GameStart {
 
     /**
      * 게임 시작하는 메서드
+     * <p>
+     * 게임 레이스 자동차의 이름을 입력하고, 이름에 맞는 자동차를 생성
+     * 게임 실행을 하는 count 입력
+     * "실행결과" 출력
+     * count에 맞게 자동차의 게임 진행 상황 출력
+     * 누가 우승자인지 출력한다.
      */
     public void run() {
         printInputNameOfRaceCar();
