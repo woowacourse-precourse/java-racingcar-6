@@ -13,7 +13,7 @@ public class InputViewValidator {
         return inputViewValidator;
     }
 
-    public boolean validateCarNames(String carNames){
+    public void validateCarNames(String carNames){
 
         if(isCarNameEmpty(carNames)){
             throw new IllegalArgumentException("[ERROR] : 차 이름이 빈 값일 수 없습니다");
