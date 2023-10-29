@@ -23,6 +23,6 @@ public class Winner {
     public String getWinners() {
         String[] names = winnerNames.toArray(String[]::new);
 
-        return String.join(",", names);
+        return String.join(", ", names);
     }
 }
