@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
@@ -15,8 +16,22 @@ class CarTest {
         final String name = "bonsik";
 
         //when & then
-        assertThatThrownBy(() -> new Car(name))
+        assertThatThrownBy(() -> new Car(name, 0))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("자동차 이름과 총 전진 횟수를 출력 포멧에 맞춰 출력 문자열을 생성한다.")
+    @Test
+    void resultMessage() {
+        //given
+        final String resultMessage = "bonsi : -----";
+        Car car = new Car("bonsi", 5);
+
+        //when
+        String message = car.resultMessage();
+
+        //then
+        assertThat(message).isEqualTo(resultMessage);
     }
 
 }

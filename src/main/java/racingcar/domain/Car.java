@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import racingcar.util.NumberGenerator;
 
 public class Car {
@@ -12,10 +14,10 @@ public class Car {
     private final String name;
     private int movementCount;
 
-    public Car(String name) {
+    public Car(String name, int movementCount) {
         checkNameLength(name);
         this.name = name;
-        this.movementCount = 0;
+        this.movementCount = movementCount;
     }
 
     public void forward() {
@@ -24,6 +26,14 @@ public class Car {
         if (randomNumber >= FORWARD_CONDITION_NUMBER) {
             this.movementCount++;
         }
+    }
+
+    public String resultMessage() {
+        String hyphenStr = IntStream.rangeClosed(1, this.movementCount)
+                .mapToObj(i -> "-")
+                .collect(Collectors.joining());
+
+        return name + " : " + hyphenStr;
     }
 
     private void checkNameLength(String name) {
