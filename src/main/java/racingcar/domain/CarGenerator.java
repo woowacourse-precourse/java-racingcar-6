@@ -26,14 +26,7 @@ public class CarGenerator {
         car.setStringCarList(Console.readLine());
     }
 
-    public void checkContainsConsecutiveCommas() {
-        Pattern pattern = Pattern.compile(",,+");
-        Matcher matcher = pattern.matcher(car.getStringCarList());
 
-        if (matcher.find()) {
-            throw new IllegalArgumentException("연속적인 쉼표가 발견되었습니다.");
-        }
-    }
 
 
 }

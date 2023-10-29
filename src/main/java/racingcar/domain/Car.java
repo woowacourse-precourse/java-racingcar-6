@@ -4,6 +4,8 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Car {
 
@@ -85,6 +87,15 @@ public class Car {
             if (key.charAt(getCarList().size() - 1) == ' ') {
                 throw new IllegalArgumentException("자동차의 이름의 마지막 글자에 띄어쓰기가 있습니다");
             }
+        }
+    }
+
+    public void checkContainsConsecutiveCommas() {
+        Pattern pattern = Pattern.compile(",,+");
+        Matcher matcher = pattern.matcher(stringCarList);
+
+        if (matcher.find()) {
+            throw new IllegalArgumentException("연속적인 쉼표가 발견되었습니다.");
         }
     }
 }
