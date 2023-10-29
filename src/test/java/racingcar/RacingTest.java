@@ -1,5 +1,9 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Arrays;
+import java.util.HashMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,12 +11,13 @@ import racingcar.domain.Cars;
 import racingcar.domain.Racing;
 import racingcar.util.FixedNumberGenerator;
 
-import java.util.Arrays;
-import java.util.HashMap;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 public class RacingTest {
+
+    private static final int MOVE_BOUNDARY = 4;
+    private static final int NO_MOVE_BOUNDARY = 3;
+    private static final long ATTEMPT_COUNT = 5;
+    private static final int INITIAL_POSITION = 0;
+    private static final int MOVED_POSITION = 1;
 
     private Cars cars;
     private Racing racing;
@@ -27,36 +32,34 @@ public class RacingTest {
     @DisplayName("랜덤숫자 입력 가정 - 4입력시 전진해야됨")
     void race_whenRandomNumberIs4_shouldMoveCars() {
         // Given
-        long attemptCount = 5;
-        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(4);
-        racing = new Racing(cars, attemptCount, fixedNumberGenerator);
+        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(MOVE_BOUNDARY);
+        racing = new Racing(cars, ATTEMPT_COUNT, fixedNumberGenerator);
 
         // When
         racing.race();
 
         // Then
         HashMap<String, Integer> finalPositions = cars.getCars();
-        assertThat(finalPositions.get("car1")).isEqualTo(1);
-        assertThat(finalPositions.get("car2")).isEqualTo(1);
-        assertThat(finalPositions.get("car3")).isEqualTo(1);
+        assertThat(finalPositions.get("car1")).isEqualTo(MOVED_POSITION);
+        assertThat(finalPositions.get("car2")).isEqualTo(MOVED_POSITION);
+        assertThat(finalPositions.get("car3")).isEqualTo(MOVED_POSITION);
     }
 
     @Test
     @DisplayName("랜덤숫자 입력 가정 - 3입력시 전진하면 안됨")
     void race_whenRandomNumberIs3_shouldNotMoveCars() {
         // Given
-        long attemptCount = 5;
-        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(3);  // A number equal to 3, cars should not move
-        racing = new Racing(cars, attemptCount, fixedNumberGenerator);
+        FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(NO_MOVE_BOUNDARY);
+        racing = new Racing(cars, ATTEMPT_COUNT, fixedNumberGenerator);
 
         // When
         racing.race();
 
         // Then
         HashMap<String, Integer> finalPositions = cars.getCars();
-        assertThat(finalPositions.get("car1")).isEqualTo(0);
-        assertThat(finalPositions.get("car2")).isEqualTo(0);
-        assertThat(finalPositions.get("car3")).isEqualTo(0);
+        assertThat(finalPositions.get("car1")).isEqualTo(INITIAL_POSITION);
+        assertThat(finalPositions.get("car2")).isEqualTo(INITIAL_POSITION);
+        assertThat(finalPositions.get("car3")).isEqualTo(INITIAL_POSITION);
     }
-
 }
+
