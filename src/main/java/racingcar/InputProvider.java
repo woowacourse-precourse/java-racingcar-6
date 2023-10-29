@@ -68,12 +68,12 @@ public final class InputProvider {
         }
     }
 
-    boolean hasInvalidLength(String names) {
+    private boolean hasInvalidLength(String names) {
         return Arrays.stream(names.split(COMMA))
                 .anyMatch(name -> name.isEmpty() || name.length() > MAX_NAME_LENGTH);
     }
 
-    boolean isInvalidNamesFormat(String names) {
+    private boolean isInvalidNamesFormat(String names) {
         // 입력의 형태가 조근의 형식대로 이루어졌는지 확인
         return !names.matches("([\\w가-힣]{1,5},?)+");
     }
