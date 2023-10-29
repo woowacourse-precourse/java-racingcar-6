@@ -26,10 +26,12 @@ class ConverterTest {
             actual.add(s);
         }
         Assertions.assertEquals(expected, actual);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> converter.splitAndAddToMap("pobi, crong"));
     }
 
     @Test
     void 문자열을_정수로_반환() {
         Assertions.assertEquals(7, converter.wordToInt("7"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> converter.wordToInt("안녕"));
     }
 }
