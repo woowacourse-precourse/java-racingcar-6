@@ -1,10 +1,10 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import racingcar.utils.Random;
 
 public class Car {
     private final List<String> names;
@@ -21,8 +21,8 @@ public class Car {
 
     public void forward () {
         for(int i = 0 ; i < names.size(); i++) {
-            int number = Randoms.pickNumberInRange(0,9);
-            if(number >= 4) {
+            boolean isSatisfied = Random.isConditionsAdvancementMet();
+            if(isSatisfied) {
                 mileage.set(i, mileage.get(i) + 1);
             }
         }
