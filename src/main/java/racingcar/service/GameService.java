@@ -3,17 +3,17 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Cars;
+import racingcar.domain.Car;
 import racingcar.domain.GameNum;
 
 public class GameService {
     private final MessageService message = new MessageService();
-    private Cars cars = new Cars();
+    private Car car = new Car();
     private GameNum gameNum = new GameNum();
 
     public void run() {
         message.printResult();
-        List<String> carList = cars.find();
+        List<String> carList = car.find();
         int[] arr = new int[carList.size()];
         int max = 0;
         List<String> result = new ArrayList<>();

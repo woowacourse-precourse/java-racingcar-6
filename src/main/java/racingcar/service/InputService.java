@@ -1,11 +1,11 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Cars;
+import racingcar.domain.Car;
 import racingcar.domain.GameNum;
 
 public class InputService {
-    private final Cars cars = new Cars();
+    private final Car car = new Car();
     private final GameNum gameNum = new GameNum();
     private final CheckService checkService = new CheckService();
     private final static String SEPARATOR = ",";
@@ -17,7 +17,7 @@ public class InputService {
     public void carNames(String input) {
         String[] carArr = splitBySeparator(input);
         if (checkService.cars(carArr)) {
-            cars.create(carArr);
+            car.create(carArr);
         }
     }
 
