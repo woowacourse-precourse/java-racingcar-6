@@ -10,8 +10,8 @@ public class Controller {
         View view = new View();
         Model model = new Model();
 
-        String[] namesOfCars = view.getNamesOfCars();
-        List<Car> carList = model.makeCarList(namesOfCars);
+        String[] carNameArray = view.getCarNameArray();
+        List<Car> carList = model.makeCarList(carNameArray);
 
         int times = view.getTimes();
 

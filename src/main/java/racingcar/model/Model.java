@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import racingcar.view.View;
 
 public class Model {
-    public List<Car> makeCarList(String[] namesOfCars){
+    public List<Car> makeCarList(String[] carNameArray){
         List<Car> carList = new ArrayList<>();
 
-        for (String nameOfCar : namesOfCars) {
-            Car newCar = new Car(nameOfCar);
+        for (String carName : carNameArray) {
+            Car newCar = new Car(carName);
             carList.add(newCar);
         }
 

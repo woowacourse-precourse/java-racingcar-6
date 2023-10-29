@@ -5,28 +5,28 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class View {
-    public String[] getNamesOfCars() {
+    public String[] getCarNameArray() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-        String namesOfCars  = Console.readLine();
+        String carNames  = Console.readLine();
 
-        String[] splitNamesOfCars = namesOfCars.split(",");
+        String[] carNameArray = carNames.split(",");
 
-        for (String name : splitNamesOfCars) {
+        for (String name : carNameArray) {
             if (name.length()>5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
         }
 
-        return splitNamesOfCars;
+        return carNameArray;
     }
 
     public int getTimes() {
         System.out.println("시도할 횟수는 몇회인가요?");
-        String stringOfAttempts = Console.readLine();
+        String stringOfTimes = Console.readLine();
 
         try {
-            int intOfAttempts = Integer.parseInt(stringOfAttempts);
-            return intOfAttempts;
+            int intOfTimes = Integer.parseInt(stringOfTimes);
+            return intOfTimes;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("입력값이 정수가 아닙니다.");
         }
@@ -34,17 +34,18 @@ public class View {
 
     public void printResult(List<Car> carList) {
         for (Car currentCar : carList) {
-            String name = currentCar.getName();
-            int distance = currentCar.getDistance();
-            String stringOfDistance  = getStringOfDistance(distance);
+            String carName = currentCar.getName();
+            int intOfDistance = currentCar.getDistance();
+            String stringOfDistance  = getStringOfDistance(intOfDistance);
 
-            System.out.println(name + " : " + stringOfDistance);
+            System.out.println(carName + " : " + stringOfDistance);
         }
         System.out.println();
     }
 
     public String getStringOfDistance(int distance){
         String stringOfDistance = "";
+
         for (int i = 0 ; i < distance ; i++) {
             stringOfDistance += '-';
         }
@@ -53,9 +54,8 @@ public class View {
     }
 
     public void printWinner(List<String> winnerList) {
-        System.out.print("최종 우승자 : ");
-
         StringBuilder result = new StringBuilder();
+
         for (String winner : winnerList) {
             if (result.length() > 0) {
                 result.append(", ");
@@ -63,6 +63,6 @@ public class View {
             result.append(winner);
         }
 
-        System.out.println(result);
+        System.out.println("최종 우승자 : " + result);
     }
 }
