@@ -21,8 +21,12 @@ public class RacingCarPlayerModel {
     }
 
     public void move(){
-        if(util.RacingCarRandoms.getRandomNumber() >= MOVE_CONDITION) {
+        if(isMoveAllowed()) {
             this.currentPosition++;
         }
+    }
+
+    private boolean isMoveAllowed(){
+        return util.RacingCarRandoms.getRandomNumber() >= MOVE_CONDITION;
     }
 }
