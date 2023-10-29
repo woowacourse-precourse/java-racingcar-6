@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.*;
 
+
 public class Application {
     public static void main(String[] args) throws IllegalArgumentException {
         String names_cars_input;
@@ -16,13 +17,15 @@ public class Application {
         int attempts_cnt = 0;
 
         //1
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        names_cars_input = Console.readLine();
-        names_cars = names_cars_input.split(",");
-        
-        System.out.println("시도할 회수는 몇회인가요?");
-        attempts_input = Console.readLine();
         try {
+            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+            System.out.println("시도할 회수는 몇회인가요?");
+            attempts_input = Console.readLine();
+            names_cars = inputCarsNames();
+            for (String name_car : names_cars) {
+                stringLengthCheck(name_car);
+            }
+            
             attempts = Integer.parseInt(attempts_input);
         } catch (Exception e) {
             throw new IllegalArgumentException();
@@ -61,6 +64,26 @@ public class Application {
     }
 
 
+    public static String[] inputCarsNames() throws Exception{
+        String[] names_cars;
+        names_cars = Console.readLine().split(",");
+
+        for (String car_name : names_cars) {
+            if (car_name.length() > 5){
+                throw new Exception();
+            }
+        }
+
+        return names_cars;
+    }
+
+    public static void stringLengthCheck(String str) throws Exception{
+        if (str.length() > 5 ){
+            throw new Exception();
+        }
+    }
+
+
     static class Car{
         String car_name;
         int current_location;
@@ -83,7 +106,7 @@ public class Application {
 
         private void printCurrentLocation(){
             System.out.print(car_name + " : ");
-            for (int cnt; cnt < current_location; cnt++){
+            for (int cnt =0; cnt < current_location; cnt++){
                 System.out.print("-");
             }
             System.out.println();
@@ -93,6 +116,5 @@ public class Application {
             return car_name;
         }
     }
-
 
 }
