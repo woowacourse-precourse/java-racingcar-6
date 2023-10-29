@@ -51,7 +51,7 @@ public class RaceTrack {
         return "";
     }
 
-    public static boolean moveCar() {
+    public boolean moveCar() {
         int drive = Randoms.pickNumberInRange(0,9);
         if (drive >= 4) {
             return true;
