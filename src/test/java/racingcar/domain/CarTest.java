@@ -59,7 +59,7 @@ public class CarTest {
         cars.add(new Car("bar"));
 
         cars.get(1).move();
-        WinnersMessage message = Car.getWinnersMessage(cars);
+        WinnersMessage message = Car.createWinnersMessage(cars);
         WinnersMessage expect = new WinnersMessage(List.of("bar"));
 
         assertEquals(message.toString(), expect.toString());
@@ -76,7 +76,7 @@ public class CarTest {
 
         cars.get(0).move();
         cars.get(1).move();
-        WinnersMessage message = Car.getWinnersMessage(cars);
+        WinnersMessage message = Car.createWinnersMessage(cars);
         WinnersMessage expect = new WinnersMessage(List.of("foo", "bar"));
 
         assertEquals(message.toString(), expect.toString());

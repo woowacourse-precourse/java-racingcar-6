@@ -29,7 +29,7 @@ public class Game {
     }
 
     public WinnersMessage getWinnersMessage() {
-        return Car.getWinnersMessage(Collections.unmodifiableList(cars));
+        return Car.createWinnersMessage(Collections.unmodifiableList(cars));
     }
 
 }

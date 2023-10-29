@@ -42,7 +42,7 @@ public class Car {
         return distance;
     }
 
-    public static WinnersMessage getWinnersMessage(List<Car> cars) {
+    public static WinnersMessage createWinnersMessage(List<Car> cars) {
         Integer farthest = getFarthestDistance(cars);
         List<Car> winners = getWinners(cars, farthest);
         return new WinnersMessage(getNames(winners));
