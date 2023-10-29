@@ -10,11 +10,14 @@ public class Car {
     private static final String EMPTY_SPACE = "";
     private static final String FORWARD_MOVEMENT_INDICATOR = "-";
     private static final String SEPARATOR = " : ";
+    private static final String BLNAK = " ";
+    private static final String CAR_NAME_BLANK_EXCEPTION_MESSAGE = "자동차 이름에 공백이 있으면 안 됩니다.";
 
     private final String name;
     private String location = EMPTY_SPACE;
 
     public Car(String name) {
+        validateCarNameHasBlank(name);
         validateCarNameLength(name);
         this.name = name;
     }
@@ -58,6 +61,12 @@ public class Car {
     private void validateCarNameLength(String name) {
         if (name.isEmpty() || name.length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION_MESSAGE);
+        }
+    }
+
+    private void validateCarNameHasBlank(String name) {
+        if (name.contains(BLNAK)) {
+            throw new IllegalArgumentException(CAR_NAME_BLANK_EXCEPTION_MESSAGE);
         }
     }
 }
