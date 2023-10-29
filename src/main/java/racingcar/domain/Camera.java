@@ -11,8 +11,8 @@ public class Camera {
     private static final String COLON_DELIMITER = " : ";
     private static final String LINE = "\n";
 
-    public String captureRaceState(final Race race) {
-        return race.getCarList()
+    public String captureRaceState(final Cars cars) {
+        return cars.cars()
                 .stream()
                 .map(car -> car.getName() + COLON_DELIMITER + generatePositionDashString(car.getForwardCount()))
                 .collect(Collectors.joining(LINE));

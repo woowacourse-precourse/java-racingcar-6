@@ -24,15 +24,13 @@ public class RacingController {
         String carNamesFromUser = requestCarNamesFromUser();
         List<Car> carLIst = CarListGenerator.generateCarList(carNamesFromUser);
         Cars cars = new Cars(carLIst);
-        Race race = new Race(cars);
 
         String racingRoundCountFromUser = requestRacingRoundCountFromUser();
         RoundCount roundCount = new RoundCount(racingRoundCountFromUser);
 
-        Camera camera = new Camera();
         outputView.displayExecutionResult();
-        runRace(roundCount, race, camera);
-        outputView.displayFinalWinners(judgement.determineWinners(race));
+        runRace(roundCount, cars);
+        outputView.displayFinalWinners(judgement.determineWinners(cars));
     }
 
     private String requestCarNamesFromUser() {
@@ -45,10 +43,12 @@ public class RacingController {
         return inputView.requestRacingRoundCountFromUser();
     }
 
-    private void runRace(RoundCount roundCount, Race race, Camera camera) {
+    private void runRace(RoundCount roundCount, Cars cars) {
+        Race race = new Race();
+        Camera camera = new Camera();
         for (int round = 0; round < roundCount.getValue(); round++) {
-            race.runOneRound();
-            String racingState = camera.captureRaceState(race);
+            race.runOneRound(cars);
+            String racingState = camera.captureRaceState(cars);
             outputView.displayRacingState(racingState);
         }
     }

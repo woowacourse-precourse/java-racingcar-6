@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import racingcar.vo.CarId;
 
 import java.lang.reflect.Field;
 
@@ -30,12 +31,12 @@ public class CarTest {
         try {
             java.lang.reflect.Field field = Car.class.getDeclaredField("id");
             field.setAccessible(true);
-            long id1 = (long) field.get(spyCar1);
-            long id2 = (long) field.get(spyCar2);
+            CarId id1 = (CarId) field.get(spyCar1);
+            CarId id2 = (CarId) field.get(spyCar2);
 
             // id 값을 검증합니다.
-            assertThat(0).isEqualTo(id1);
-            assertThat(1).isEqualTo(id2);
+            assertThat(0).isEqualTo(id1.getValue());
+            assertThat(1).isEqualTo(id2.getValue());
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -50,18 +51,18 @@ public class CarTest {
     @Test
     void 차_전진시_전진갯수_증가() throws NoSuchFieldException, IllegalAccessException {
         Car car = new Car("car");
-        Field field = Car.class.getDeclaredField("forwardCount");
+        Field field = Car.class.getDeclaredField("position");
         field.setAccessible(true);
 
         int forwardCount = (int) field.get(car);
         assertThat(forwardCount).isEqualTo(0);
 
-        car.forward();
+        car.forward(1);
         forwardCount = (int) field.get(car);
         assertThat(forwardCount).isEqualTo(1);
 
-        car.forward();
-        car.forward();
+        car.forward(1);
+        car.forward(1);
         forwardCount = (int) field.get(car);
         assertThat(forwardCount).isEqualTo(3);
     }

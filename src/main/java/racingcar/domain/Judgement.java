@@ -7,8 +7,7 @@ import static racingcar.constant.Constant.SPACE;
 
 public class Judgement {
 
-    public String determineWinners(final Race race) {
-        Cars cars = race.cars();
+    public String determineWinners(final Cars cars) {
         int maxForwardCount = calculateMaxPosition(cars);
 
         return cars.cars()
