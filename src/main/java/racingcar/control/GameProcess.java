@@ -56,7 +56,7 @@ public class GameProcess {
      * 입력받은 이름 문자열리스트로 자동차를 만들어준다.
      */
     public void createRaceCars() {
-        makeNameOfCarListFromStringLine();
+        makeNameOfCurrentCarListFromStringLine();
 
         for (String nameOfRaceCar : nameSplitList) {
             raceCarOfCurrentList.add(new RaceCar(nameOfRaceCar));
@@ -66,11 +66,11 @@ public class GameProcess {
     /**
      * nameLineOfRaceCar을 배열로 split을 하여 nameSplitList을 만든다.
      */
-    private void makeNameOfCarListFromStringLine() {
+    private void makeNameOfCurrentCarListFromStringLine() {
         String[] nameSplitArr = null;
 
-        nameSplitArr = Utill.makeArrFromString(nameLineOfRaceCar, ",");
-        nameSplitList = List.of(nameSplitArr);
+        nameSplitArr = Utill.makeSplitArrFromString(nameLineOfRaceCar, ",");
+        nameSplitList = Utill.makeListFromArr(nameSplitArr);
     }
 
     /**
