@@ -18,8 +18,10 @@ public class Printer {
         System.out.println(RACE_RESULT_MESSAGE);
     }
 
-    public void printRoundResult(Map.Entry<String, StringBuilder> scoreBoard) {
-        System.out.println(scoreBoard.getKey() + " : " + scoreBoard.getValue());
+    public void printRoundResult(Map<String, StringBuilder> scoreBoard) {
+        for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
+            System.out.println(pair.getKey() + " : " + pair.getValue());
+        }
     }
 
     public void printWinnersNames(List<String> winnerNames) {
