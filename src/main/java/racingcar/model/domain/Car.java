@@ -2,27 +2,19 @@ package racingcar.model.domain;
 
 public class Car {
 
-    private String name;
-    private int position;
+    private final String name;
+    private int location;
 
-    public Car(String name, int position) {
+    public Car(String name) {
         this.name = name;
-        this.position = position;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getLocation() {
+        return location;
     }
 
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
 }
