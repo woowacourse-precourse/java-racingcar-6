@@ -8,8 +8,8 @@ import racingcar.model.Car;
 
 public final class Util {
 
-    public static List<String> toArray(String cars){
-        return Arrays.asList(cars.split(","));
+    public static List<String> splitByComma(String cars){
+        return Arrays.asList(cars.split(Constants.DELIMITER));
     }
 
     public static int getRandomNum() {
@@ -22,5 +22,7 @@ public final class Util {
                 .max()
                 .orElseThrow(() -> new IllegalStateException("무승부입니다!"));
     }
+
+    private Util () {}
 }
 
