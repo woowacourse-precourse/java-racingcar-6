@@ -22,5 +22,7 @@ public class Application {
 
         List<String> winners = race.getWinners();
         System.out.println("최종 우승자 : " + String.join(", " , winners));
+
+        Console.close();
     }
 }
