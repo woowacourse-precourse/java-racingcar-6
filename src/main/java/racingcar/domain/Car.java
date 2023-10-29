@@ -2,11 +2,11 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
-    private static final int MIN_NUMBER = 0;
-    private static final int MAX_NUMBER = 9;
-    private static final int CAN_FORWARD_NUMBER = 4;
+import static racingcar.constant.NumberConstant.CAN_FORWARD_NUMBER;
+import static racingcar.constant.NumberConstant.MAX_RANDOM_NUMBER;
+import static racingcar.constant.NumberConstant.MIN_RANDOM_NUMBER;
 
+public class Car {
     private final String name;
     private int position;
 
@@ -16,7 +16,7 @@ public class Car {
     }
 
     public void go() {
-        int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+        int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         if (randomNumber >= CAN_FORWARD_NUMBER) {
             position++;
         }
