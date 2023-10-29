@@ -5,15 +5,19 @@ public class StringLiteralValidator {
     private StringLiteralValidator() {
     }
 
-    public static void validateIsNumeric(String literal) {
-        if (!isNumeric(literal)) {
+    public static void validateIsDigit(String literal) {
+        if (!isDigit(literal)) {
             throw new IllegalArgumentException("String literal %s is not numeric.".formatted(literal));
         }
     }
 
-    private static boolean isNumeric(String literal) {
+    private static boolean isDigit(String literal) {
         return literal.chars()
                 .allMatch(Character::isDigit);
+    }
+
+    public static void validateIsPositiveInteger(String literal) {
+        validateIsDigit(literal);
     }
 
 }
