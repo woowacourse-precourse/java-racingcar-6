@@ -12,6 +12,11 @@ public class ConsoleInput implements Input {
         this.inputValidator = new InputValidator();
     }
 
+    //mock 객체 주입을 위한 test전용 생성자입니다
+    public ConsoleInput(InputValidator inputValidator) {
+        this.inputValidator = inputValidator;
+    }
+
     @Override
     public List<String> getCarNames() {
         String carNames = Console.readLine();
