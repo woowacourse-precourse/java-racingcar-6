@@ -3,9 +3,6 @@ package racingcar.global.utils.generator;
 import racingcar.global.constant.OutputType;
 import racingcar.global.utils.ConsoleUtil;
 
-import java.util.Collections;
-import java.util.List;
-
 public class InputNumberOfGames implements NumberOfGamesGenerator {
 
     @Override
