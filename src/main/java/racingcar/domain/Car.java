@@ -2,7 +2,7 @@ package racingcar.domain;
 
 public class Car {
     private static final int CAR_NAME_UPPER_LIMIT = 5;
-    private static final int CAR_DEFAULT_LOCATION = 0;
+    public static final int CAR_DEFAULT_LOCATION = 0;
     private final Engine engine = new Engine();
     private final String name;
     private int location;
