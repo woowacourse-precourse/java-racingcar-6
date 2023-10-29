@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import static racingcar.util.messageContent.OutputMessageContent.CAR_NICKNAME_REGISTER;
-import static racingcar.util.messageContent.OutputMessageContent.GAME_TIME;
+import static racingcar.util.messageContent.DisplayMessageContent.CAR_NICKNAME_REGISTER;
+import static racingcar.util.messageContent.DisplayMessageContent.GAME_TIME;
 
 public class InputView {
 

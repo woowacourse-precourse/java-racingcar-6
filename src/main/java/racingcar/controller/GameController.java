@@ -7,6 +7,7 @@ import racingcar.model.RacingGame;
 import racingcar.util.Censor;
 import racingcar.util.TypeTransducer;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameController {
 
@@ -18,6 +19,13 @@ public class GameController {
     public void runGame() {
         setUpPlayer(typeTransducer.strToList(getNickname()));
         setUpGameTime(getGameTime());
+        play();
+    }
+
+    private void play() {
+        OutputView.displayPlayResultTitle();
+        // TODO: 경주 게임 진행 메서드 작성
+        OutputView.displayGameWinner();
     }
 
     private void setUpPlayer(List<String> playerList) {
