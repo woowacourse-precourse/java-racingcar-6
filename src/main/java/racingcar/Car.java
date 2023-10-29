@@ -20,6 +20,15 @@ public class Car {
 
     @Override
     public String toString() {
-        return null;
+        String graphicOdometer = parseGraphic();
+        return this.name + " : " + graphicOdometer;
+    }
+
+    private String parseGraphic() {
+        StringBuilder sb= new StringBuilder();
+        for (int i = 1; i <= odometer; i++) {
+            sb.append("-");
+        }
+        return sb.toString();
     }
 }
