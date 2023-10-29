@@ -2,11 +2,12 @@ package racingcar.domain;
 
 import static racingcar.util.Validator.*;
 import static racingcar.view.InputView.askHowManyRounds;
+import static racingcar.util.Utils.convertStringToInt;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Number {
-    private Integer number;
+    private int number;
 
     private Number(int randomNumber) {
         this.number = randomNumber;
@@ -30,10 +31,6 @@ public class Number {
 
     public boolean isEqualOrGreaterThanFour() {
         return this.number >= 4;
-    }
-
-    private Integer convertStringToInt(String userInput) {
-        return Integer.valueOf(userInput);
     }
 
 }
