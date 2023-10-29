@@ -3,16 +3,17 @@ package racingcar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 
 public class GameManagerTest {
-    private static final int MOVING_NUMBER = 4;
-    private static final int STOP_NUMBER = 2;
-    private static final String CAR_NAME = "test";
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+    private static final String carName = "pobi";
+    private static final List<String> carNames = Arrays.asList("pobi","woni","jun");
 
     private GameManager gameManager;
     private Car car;
@@ -20,91 +21,58 @@ public class GameManagerTest {
     @BeforeEach
     void setUp() {
         gameManager = new GameManager();
-        car = new Car(CAR_NAME);
     }
-
-    @Test
-    void 전진() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    gameManager.moveCar(car);
-                    assertThat(car.getLocation()).isEqualTo(1);
-                },
-                MOVING_NUMBER
-        );
-    }
-
-    @Test
-    void 정지() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    gameManager.moveCar(car);
-                    assertThat(car.getLocation()).isEqualTo(0);
-                },
-                STOP_NUMBER
-        );
-    }
-
 
     @Test
     void 자동차_전진_결과_생성() {
-        List<Car> cars = new ArrayList<>();
-        cars.add(car);
+        gameManager.addCar(carName);
 
         assertRandomNumberInRangeTest(
                 () -> {
-                    gameManager.moveCar(car);
-                    gameManager.moveCar(car);
-                    assertThat(gameManager.makeResult(cars)).isEqualTo(CAR_NAME + " : --\n");
+                    gameManager.moveCars();
+                    gameManager.moveCars();
+                    assertThat(gameManager.makeResult()).isEqualTo("pobi : --\n");
                 },
-                MOVING_NUMBER, MOVING_NUMBER
+                MOVING_FORWARD,MOVING_FORWARD
         );
     }
 
     @Test
     void 자동차_정지_결과_생성() {
-        List<Car> cars = new ArrayList<>();
-        cars.add(car);
+        gameManager.addCar(carName);
 
         assertRandomNumberInRangeTest(
                 () -> {
-                    gameManager.moveCar(car);
-                    assertThat(gameManager.makeResult(cars)).isEqualTo(CAR_NAME + " : \n");
+                    gameManager.moveCars();
+                    assertThat(gameManager.makeResult()).isEqualTo("pobi : \n");
                 },
-                STOP_NUMBER
+                STOP
         );
     }
 
     @Test
     void 단독_우승자_출력() {
-        List<Car> cars = new ArrayList<>();
-        cars.add(car);
-        cars.add(new Car("test2"));
-        cars.add(new Car("test3"));
+        carNames.forEach(carName -> gameManager.addCar(carName));
 
         assertRandomNumberInRangeTest(
                 () -> {
-                    cars.forEach(car -> gameManager.moveCar(car));
-                    assertThat(gameManager.makeWinnerResult(cars)).isEqualTo("최종 우승자 : test");
+                    gameManager.moveCars();
+                    assertThat(gameManager.makeWinnerResult()).isEqualTo("최종 우승자 : pobi");
                 },
-                MOVING_NUMBER, STOP_NUMBER, STOP_NUMBER
+                MOVING_FORWARD, STOP, STOP
         );
     }
 
     @Test
     void 공동_우승자_출력() {
-        List<Car> cars = new ArrayList<>();
-        cars.add(car);
-        cars.add(new Car("test2"));
-        cars.add(new Car("test3"));
-
+        carNames.forEach(carName -> gameManager.addCar(carName));
 
         assertRandomNumberInRangeTest(
                 () -> {
-                    cars.forEach(car -> gameManager.moveCar(car));
-                    assertThat(gameManager.makeWinnerResult(cars)).isEqualTo("최종 우승자 : test,test3");
+                    gameManager.moveCars();
+                    assertThat(gameManager.makeWinnerResult()).isEqualTo("최종 우승자 : pobi,jun");
                 },
-                MOVING_NUMBER, STOP_NUMBER, MOVING_NUMBER
+                MOVING_FORWARD, STOP, MOVING_FORWARD
         );
     }
 }
