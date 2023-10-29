@@ -36,11 +36,11 @@ public class Car {
 
     public void forward(Map.Entry<String, Integer> entry) {
         int step = entry.getValue() + 1;
-        this.cars.put(entry.getKey(), step);
+        cars.put(entry.getKey(), step);
     }
 
-    private boolean isForward() {
-        return NumberGenerator.generateRandomNumber() >= 4;
+    public boolean isForward(int randomNumber) {
+        return randomNumber >= 4;
     }
 
     public Map<String, Integer> getCars() {
