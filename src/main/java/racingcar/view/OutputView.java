@@ -16,6 +16,10 @@ public class OutputView {
     }
 
     public void printMessage(Message message) {
-        System.out.println(message.getMessage());
+        println(message.getMessage());
+    }
+
+    private void println(String output) {
+        System.out.println(output);
     }
 }
