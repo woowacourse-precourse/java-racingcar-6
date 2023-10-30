@@ -12,7 +12,6 @@ public class Car {
     public void moveAdvance(int randomNumber) {
         if (isOkayToGoForward(randomNumber)) {
             this.raceDistance++;
-            return;
         }
     }
 

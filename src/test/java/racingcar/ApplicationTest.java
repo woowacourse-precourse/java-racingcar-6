@@ -1,16 +1,12 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.*;
-import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 import racingcar.util.Validator;
-
-import javax.sound.midi.Track;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -86,26 +82,35 @@ class ApplicationTest extends NsTest {
         }
 
         @Test
-        @DisplayName("입력값이 올바른 형식인지 테스트")
-        void validateNamesTest(){
+        @DisplayName("올바른 입력값 테스트(예외 던지기)")
+        void validateNames_Exception_Test(){
             String carNames = "pobi,woni,jun,dragon,김테스트";
             assertThatThrownBy(()->
                     Validator.validateCarNames(carNames))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining("잘못된 값을");
-
         }
 
+        @Test
+        @DisplayName("올바른 입력값 테스트(올바른 입력일 경우)")
+        void validateNames_Normal_Test(){
+            String carNames = "rambo,pubao,fire,sony";
+            Assertions.assertDoesNotThrow(()->
+                    Validator.validateCarNames(carNames));
+
+        }
 
 
     }
     @Nested
     class RacingTest{
 
+//        static 메소드 mocking을 위한 MockedStatic객체 생성
         private static MockedStatic<Console> consoleMock;
 
         @BeforeAll
         public static void beforeALl() {
+
             consoleMock = mockStatic(Console.class);
         }
 
@@ -116,15 +121,15 @@ class ApplicationTest extends NsTest {
 
 
         @Test
-        @DisplayName("레이싱에서 자동차이름 리스트 만들기")
+        @DisplayName("레이싱에서 자동차 이름 리스트 만들기")
         void Test(){
 
 //            static 메소드 mocking
             given(Console.readLine()).willReturn("pobi,woni,jun");
 
-            Racing racing = Racing.registerCarList();
-
             String result = "pobi : \nwoni : \njun : \n";
+
+            Racing racing = Racing.registerCarList();
 
             assertThat(racing.toString()).isEqualTo(result);
         }
