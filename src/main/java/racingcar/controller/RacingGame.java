@@ -12,19 +12,24 @@ import java.util.List;
 public class RacingGame {
     private final List<Car> carList = new ArrayList<>();
     private final List<String> winner = new ArrayList<>();
-    Order order = new Order();
     RotatingCount rotatingCount = new RotatingCount();
     CarName carName = new CarName();
+    Order order = new Order();
     public void play() {
-        String[] carNames = splitCars(inputCarName());
-        init(carNames);
-        check(rotatingCount.input());
-        calculate();
+        splitCars(inputCarName());
+        move(rotatingCount.input());
+        result();
         win();
     }
 
-    private String[] splitCars(String carNames) {
-        return carNames.split(",");
+    private void splitCars(String carNames) {
+        String[] cars = carNames.split(",");
+
+        for (String name : cars) {
+            Car car = new Car(name, "");
+            carList.add(car);
+        }
+        order.rotateCount();
     }
 
     private String inputCarName() {
@@ -32,7 +37,7 @@ public class RacingGame {
         return carName.input();
     }
 
-    private void calculate() {
+    private void result() {
         order.printWinner();
         int maxPoint = Integer.MIN_VALUE;
 
@@ -88,8 +93,9 @@ public class RacingGame {
         System.out.print(winner.get(0));
     }
 
-    private void check(int racingCount) {
+    private void move(int racingCount) {
         order.gameProcess();
+
         for(int count = 0; count < racingCount; count++){
             moveOrStop();
             moveState();
@@ -97,9 +103,10 @@ public class RacingGame {
     }
 
     private void moveState() {
-        for(int car = 0; car<carList.size(); car++){
-            printCarState(carList.get(car));
+        for (Car car : carList) {
+            printCarState(car);
         }
+
         order.blank();
     }
 
@@ -108,10 +115,10 @@ public class RacingGame {
     }
 
     private void moveOrStop() {
-        for(int car = 0; car < carList.size(); car++){
-            int state = Randoms.pickNumberInRange(0,9);
-            if(state > 3){
-                move(carList.get(car));
+        for (Car car : carList) {
+            int state = Randoms.pickNumberInRange(0, 9);
+            if (state > 3) {
+                move(car);
             }
         }
     }
@@ -123,13 +130,5 @@ public class RacingGame {
     private void save(Car car) {
         String location = car.getMove();
         car.setMove(location+"-");
-    }
-
-    private void init(String[] carNames){
-        for (String name : carNames) {
-            Car car = new Car(name, "");
-            carList.add(car);
-        }
-        order.rotateCount();
     }
 }
