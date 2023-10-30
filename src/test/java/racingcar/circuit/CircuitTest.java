@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
 import racingcar.domain.result.RacingCarResult;
+import racingcar.domain.result.RacingGameStatistics;
 import racingcar.generator.NumberGenerator;
 
 class CircuitTest {
@@ -34,8 +35,9 @@ class CircuitTest {
         cars.forEach(circuit::addRacingCar);
 
         circuit.tryRacingGame();
-        List<RacingCarResult> results = circuit.summarizeRacingResult();
-        List<Integer> racingCarLocations = results.stream().map(RacingCarResult::location).toList();
+        RacingGameStatistics results = circuit.summarizeRacingResult();
+        List<RacingCarResult> racingCarResults = results.racingCarResults();
+        List<Integer> racingCarLocations = racingCarResults.stream().map(RacingCarResult::location).toList();
 
         Assertions.assertThat(racingCarLocations).containsExactly(1, 0, 1);
     }

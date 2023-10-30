@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.domain.result.RacingCarResult;
+import racingcar.domain.result.RacingGameStatistics;
 import racingcar.generator.NumberGenerator;
 
 public class Circuit {
@@ -27,7 +28,8 @@ public class Circuit {
         }
     }
 
-    public List<RacingCarResult> summarizeRacingResult() {
-        return cars.stream().map(Car::toResult).collect(Collectors.toList());
+    public RacingGameStatistics summarizeRacingResult() {
+        List<RacingCarResult> results = cars.stream().map(Car::toResult).collect(Collectors.toList());
+        return new RacingGameStatistics(results);
     }
 }

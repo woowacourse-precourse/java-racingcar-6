@@ -3,12 +3,11 @@ package racingcar.game;
 import java.util.List;
 import racingcar.circuit.Circuit;
 import racingcar.domain.car.Car;
-import racingcar.domain.result.RacingCarResult;
+import racingcar.domain.result.RacingGameStatistics;
 import racingcar.domain.trial.Trial;
 import racingcar.game.validate.BlankTrialValidator;
 import racingcar.game.validate.EmptyCarNamesValidator;
 import racingcar.game.validate.IntegerTrialValidator;
-import racingcar.utils.RacingGameWinnerCalculator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -27,21 +26,21 @@ public class RacingGame {
     private void playRacingGame(Trial trial) {
         while (!trial.isExhausted()) {
             circuit.tryRacingGame();
-            List<RacingCarResult> results = tryRacingGame();
+            RacingGameStatistics statistics = tryRacingGame();
             trial.useTrialCount();
-            selectWinner(trial, results);
+            selectWinner(trial, statistics);
         }
     }
 
-    private List<RacingCarResult> tryRacingGame() {
-        List<RacingCarResult> results = circuit.summarizeRacingResult();
-        OutputView.showRacingResult(results);
-        return results;
+    private RacingGameStatistics tryRacingGame() {
+        RacingGameStatistics statistics = circuit.summarizeRacingResult();
+        OutputView.showRacingResult(statistics);
+        return statistics;
     }
 
-    private void selectWinner(Trial trial, List<RacingCarResult> results) {
+    private void selectWinner(Trial trial, RacingGameStatistics results) {
         if (trial.isExhausted()) {
-            List<String> winners = RacingGameWinnerCalculator.getWinners(results);
+            List<String> winners = results.getWinners();
             OutputView.showWinners(winners);
         }
     }

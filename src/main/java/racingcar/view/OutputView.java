@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.domain.result.RacingCarResult;
+import racingcar.domain.result.RacingGameStatistics;
 
 public class OutputView {
 
@@ -13,15 +13,17 @@ public class OutputView {
         System.out.println(Messages.INPUT_TRIAL_MESSAGE);
     }
 
-    public static void showRacingResult(List<RacingCarResult> results) {
+    public static void showRacingResult(RacingGameStatistics results) {
         System.out.println();
         System.out.println(Messages.RESULT_MESSAGE);
-        for (RacingCarResult result : results) {
-            System.out.println(result.getResultMessage());
+        List<String> resultMessages = results.getStatisticsMessages();
+        for (String resultMessage : resultMessages) {
+            System.out.println(resultMessage);
         }
     }
 
     public static void showWinners(List<String> winners) {
+        System.out.println();
         System.out.println(Messages.WINNER_MESSAGE + String.join(Messages.COMMA, winners));
     }
 }
