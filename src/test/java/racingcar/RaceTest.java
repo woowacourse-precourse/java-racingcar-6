@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -96,6 +97,25 @@ public class RaceTest {
         List<Car> winners = race.decideWinner();
 
         assertThat(winners).containsExactly(car1, car3);
+    }
+
+    @Test
+    void displayWinner() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        List<Car> winners = new ArrayList<>();
+        winners.add(new Car("Car1"));
+        winners.add(new Car("Car2"));
+        winners.add(new Car("Car3"));
+
+        Race race = new Race();
+        race.displayWinner(winners);
+
+        System.setOut(System.out);
+
+        String expectedOutput = "최종 우승자 : Car1, Car2, Car3";
+        assertThat(outputStream.toString().trim()).isEqualTo(expectedOutput);
     }
 
 
