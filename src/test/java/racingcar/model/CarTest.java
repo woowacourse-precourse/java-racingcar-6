@@ -20,7 +20,7 @@ public class CarTest {
 
     @ParameterizedTest
     @CsvSource(value = {"true, false, 1", "false, true, -1", "true, true, 0"})
-    void comparePosition_메서드는_자신과_다른_자동차_객체를_비교해_position_의_대소관계를_비교한다(boolean myCarMove, boolean compareCarMove, int result) {
+    void compareTo_메서드는_자신과_다른_자동차_객체를_비교해_position_의_대소관계를_비교한다(boolean myCarMove, boolean compareCarMove, int result) {
         Car myCar = new Car("내자동차");
         Car compareCar = new Car("상대자동차");
         myCar.go(myCarMove);
