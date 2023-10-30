@@ -5,8 +5,14 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 
 public class OutputView {
+    private static final String RESULT_NOTICE_MESSAGE = "실행 결과";
+    private static final String WINNER_NOTICE_MESSAGE = "최종 우승자 : ";
+    private static final String HYPHEN = "-";
+    private static final String COLON = " : ";
+    private static final String COMMA = ", ";
+
     public static void printResultMessage() {
-        System.out.println("실행 결과");
+        System.out.println(RESULT_NOTICE_MESSAGE);
     }
 
     public static void printResult(Cars cars) {
@@ -17,22 +23,16 @@ public class OutputView {
             StringBuilder hyphen = new StringBuilder();
 
             for (long j = 0; j < distance; j++) {
-                hyphen.append("-");
+                hyphen.append(HYPHEN);
             }
 
-            System.out.println(name + " : " + hyphen);
+            System.out.println(name + COLON + hyphen);
         }
         System.out.println();
     }
 
     public static void printWinners(List<String> winners) {
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            String winner = winners.get(i);
-            System.out.print(winner);
-            if (i < winners.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+        System.out.print(WINNER_NOTICE_MESSAGE);
+        System.out.println(String.join(COMMA, winners));
     }
 }

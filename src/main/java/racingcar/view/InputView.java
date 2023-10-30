@@ -6,16 +6,20 @@ import java.util.List;
 import racingcar.validator.Validator;
 
 public class InputView {
+    private static final String READ_RACING_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String READ_TRY_COUNT = "시도할 회수는 몇회인가요?";
+    private static final String SEPARATOR = ",";
+
     public static List<String> readRacingCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(READ_RACING_CAR_NAME);
         String racingCarName = Console.readLine();
-        return Arrays.stream(racingCarName.split(","))
+        return Arrays.stream(racingCarName.split(SEPARATOR))
                 .map(String::trim)
                 .toList();
     }
 
     public static long readTryCount() {
-        System.out.println("시도활 회수는 몇회인가요?");
+        System.out.println(READ_TRY_COUNT);
         String tryCount = Console.readLine().trim();
         Validator.validateIsBlank(tryCount);
         Validator.validateIsNumeric(tryCount);
