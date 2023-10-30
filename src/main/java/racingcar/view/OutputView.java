@@ -11,6 +11,7 @@ public class OutputView {
     }
 
     public static void printWinnerNameList(List<String>winnerNameList) {
+        System.out.print("최종 우승자 : ");
         for (int i=0;i<winnerNameList.size();i++) {
             System.out.print(winnerNameList.get(i));
             if (i != winnerNameList.size()-1) { System.out.print(", "); }
