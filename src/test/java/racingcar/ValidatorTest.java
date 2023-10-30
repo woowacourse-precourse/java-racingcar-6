@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.controller.Validator;
-import racingcar.view.InputView;
 
 public class ValidatorTest extends ApplicationTest {
     @ParameterizedTest
@@ -51,5 +51,11 @@ public class ValidatorTest extends ApplicationTest {
     void 시도할_횟수_유효성_실패_테스트(String attemptCount) {
         assertThrows(IllegalArgumentException.class,
                 () -> Validator.validateNumeric(attemptCount));
+    }
+
+    @Test
+    void 시도할_횟수_공백_확인() {
+        assertThrows(IllegalArgumentException.class,
+                () -> Validator.validateNumeric(""));
     }
 }
