@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class TryCount {
-    private int tryCount = 0;
+    private final int tryCount;
 
     public TryCount(String tryCount) {
         this.tryCount = Integer.parseInt(tryCount);
