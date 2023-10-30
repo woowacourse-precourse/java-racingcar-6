@@ -10,7 +10,7 @@ public class RacingGame {
     ArrayList<String> winnerList = new ArrayList<>();
     Integer count = 0;
 
-    public void start() {
+    public void play() {
         getInputCarName();
         getInputCount();
         race();
