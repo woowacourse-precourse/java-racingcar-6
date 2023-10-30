@@ -27,8 +27,8 @@ public class RacingCarTest {
 
         int round = 5;
         for (int i = 0; i < round; i++) {
-            racingCar1.move();
-            racingCar2.move();
+            racingCar1.testMove();
+            racingCar2.testMove();
 
         }
         assertThat(racingCar1.getMove()).isEqualTo(1);

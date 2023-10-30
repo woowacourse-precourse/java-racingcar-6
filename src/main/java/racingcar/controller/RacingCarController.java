@@ -19,23 +19,16 @@ public class RacingCarController {
     public void startRacingCarGame(RacingCars racingCars, RacingCarRound racingCarRound) {
         OutputView.printResultMessage();
         executeRacingCarRound(racingCars, racingCarRound);
-        winnerRacingCar(racingCars);
+        OutputView.printWinner(racingCars.getWinner());
     }
 
     private void executeRacingCarRound(RacingCars racingCars, RacingCarRound racingCarRound) {
         do {
             racingCarRound.roundStart();
             racingCars.moveRacingCar();
-            printRacingCar(racingCars);
+            OutputView.printMoveRacingCar(racingCars);
         }
-        while (racingCarRound.isGameState());
+        while (racingCarRound.gameCheck());
     }
 
-    private void winnerRacingCar(RacingCars racingCars) {
-        OutputView.printWinner(racingCars.getWinner());
-    }
-
-    private void printRacingCar(RacingCars racingCars) {
-        OutputView.printMoveRacingCar(racingCars);
-    }
 }

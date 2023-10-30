@@ -8,7 +8,7 @@ public class Winner {
 
     public Winner(List<RacingCar> racingCars) {
         int winnerValue = getWinnerValue(racingCars);
-        this.racingCars= racingCars.stream()
+        this.racingCars = racingCars.stream()
                 .filter(car -> car.getMove() == winnerValue)
                 .collect(Collectors.toList());
     }
@@ -21,7 +21,7 @@ public class Winner {
                 .orElse(0);
     }
 
-    public List<String> getWinners(){
+    public List<String> getWinners() {
         return racingCars.stream()
                 .map(RacingCar::getName)
                 .collect(Collectors.toList());

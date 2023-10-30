@@ -22,7 +22,9 @@ class RacingCarRoundTest {
     @Test
     void 라운드_종료_테스트() {
         String round = "5";
+
         RacingCarRound racingCarRound = new RacingCarRound(round);
+
         racingCarRound.roundStart();
 
         assertThat(racingCarRound.getRound()).isEqualTo(4);
@@ -31,9 +33,11 @@ class RacingCarRoundTest {
     @Test
     void 게임_종료_테스트() {
         String round = "1";
+
         RacingCarRound racingCarRound = new RacingCarRound(round);
+
         racingCarRound.roundStart();
 
-        assertThat(racingCarRound.isGameState()).isFalse();
+        assertThat(racingCarRound.gameCheck()).isFalse();
     }
 }

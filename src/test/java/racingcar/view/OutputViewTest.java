@@ -53,8 +53,8 @@ class OutputViewTest {
         /** 이동 후 print 체크 **/
         int round = 5;
         for (int i = 0; i < round; i++) {
-            racingCar1.move();
-            racingCar2.move();
+            racingCar1.testMove();
+            racingCar2.testMove();
         }
         moveRacingCarList.add(racingCar1);
         moveRacingCarList.add(racingCar2);
