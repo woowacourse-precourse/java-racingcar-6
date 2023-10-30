@@ -24,7 +24,7 @@
 - [x] roundProgress함수에서 차의 전진을 결정하는 기능을 분리
 - [x] game setting과 game start 기능을 분리
 - [x] 게임결과를 계산하는 기능을 outputview에서 controller로 이동
-- [] 게임 결과 계산 기능과 게임 결과 출력 기능을 분리
+- [x] 게임 결과 계산 기능과 게임 결과 출력 기능을 분리
 
 ## MVC 생각해보기
 
