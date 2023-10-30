@@ -22,7 +22,7 @@ public class PlayGame {
     }
 
     public void simulation() {
-        int go = 4;
+        final int go = 4;
         for (int i = 0; i < moveCount.size(); i++) {
             if (getRandomNumber() >= go) moveCount.set(i, moveCount.get(i) + 1);
         }
