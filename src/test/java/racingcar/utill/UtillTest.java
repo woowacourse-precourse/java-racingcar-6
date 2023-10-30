@@ -22,7 +22,14 @@ class UtillTest {
     @DisplayName("숫자 변환 테스트")
     @Test
     void parseInteger() {
+        // given
+        String input = "123";
 
+        // when
+        Integer result = Utill.parseInteger(input);
+
+        // than
+        assertThat(result).isEqualTo(123);
     }
 
     @DisplayName("string을 regex의 기준으로 구분을 하여 배열로 반환 테스트")
