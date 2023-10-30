@@ -14,5 +14,20 @@ public class RacingGame {
         cars = Setting.initCar();
         numberOfAttempts = Setting.initNumberOfAttempt();
         OutputView.executionMessage();
+        racing();
+    }
+
+    private static void oneLap() {
+        for (Car car : cars) {
+            car.moveAdvance();
+        }
+    }
+
+    private static void racing() {
+        for (int i = 0; i < numberOfAttempts; i++) {
+            oneLap();
+            OutputView.executionResult(cars);
+            System.out.println();
+        }
     }
 }
