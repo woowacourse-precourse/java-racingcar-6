@@ -1,19 +1,29 @@
 package racingcar.game;
 
-import java.util.List;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameResult {
 
-	public List<String> result(List<String> carNames, Integer moveNumber) {
+	public static void execution_result(String[] carNamesArray, int moveNumber) {
 
-		return null;
-		// TODO Auto-generated method stub
+		for (int i = 0; i < carNamesArray.length; i++) {
+			carNamesArray[i] += " : ";
+		}
 
-	}
+		for (int i = 0; i < moveNumber; i++) {
 
-	public List<String> getFinalWinner() {
+			for (int j = 0; j < carNamesArray.length; j++) {
+				int randomNum = Randoms.pickNumberInRange(0, 9);
+				if (randomNum >= 4) {
+					carNamesArray[j] += "-";
+				} else {
+					carNamesArray[j] += "";
+				}
+				System.out.println(carNamesArray[j]);
+			}
+			System.out.println("");
+		}
 
-		return null;
 	}
 
 }
