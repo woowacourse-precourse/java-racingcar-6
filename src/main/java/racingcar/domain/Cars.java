@@ -17,7 +17,7 @@ public record Cars(List<Car> cars) {
 
     private void validateCars(final List<Car> cars) {
         validateDuplicateName(cars);
-        validateMinimunCarCount(cars);
+        validateMinimumCarCount(cars);
     }
 
     private void validateDuplicateName(final List<Car> cars) {
@@ -26,7 +26,7 @@ public record Cars(List<Car> cars) {
         }
     }
 
-    private void validateMinimunCarCount(final List<Car> cars) {
+    private void validateMinimumCarCount(final List<Car> cars) {
         if (hasMinimumCarCount(cars)) {
             ExceptionMessage.CARS_LESS_THAN_TWO.throwException();
         }
@@ -65,9 +65,9 @@ public record Cars(List<Car> cars) {
     }
 
     public List<String> getTopRacers() {
-        Map<String, Integer> racingStatus = getRacingStatus(); // 레이싱 상태를 가져옴
-        int topPosition = getTopPosition(racingStatus); // 최상위 위치를 계산
-        return getTopRacerNames(racingStatus, topPosition); // 최상위 레이서 이름들을 가져와 반환
+        Map<String, Integer> racingStatus = getRacingStatus();
+        int topPosition = getTopPosition(racingStatus);
+        return getTopRacerNames(racingStatus, topPosition);
     }
 
     private int getTopPosition(Map<String, Integer> racingStatus) {
