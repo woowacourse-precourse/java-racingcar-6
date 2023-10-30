@@ -11,6 +11,6 @@ public class Utils {
     }
 
     public static ArrayList<String> toArrayList(String carNameInputs) {
-        return new ArrayList<>(Arrays.asList(carNameInputs.split(",")));
+        return new ArrayList<>(Arrays.asList(carNameInputs.split(Constants.DELIMITER)));
     }
 }
