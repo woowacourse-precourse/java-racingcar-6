@@ -71,7 +71,7 @@ public class Simulation {
 
         if(!name.matches(REGEX)){
 
-            throw new IllegalArgumentException("자동차의 이름에 허용되지 않은 문자가 포함되어있습니다.");
+            throw new IllegalArgumentException("자동차의 이름에는 영문만 사용 가능합니다.");
         }
     }
 
