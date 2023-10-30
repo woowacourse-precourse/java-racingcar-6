@@ -78,9 +78,7 @@ public class Application {
     private static void validateCarsName(List<Car> carList) {
         for (Car car : carList) {
             String carName = car.getName();
-            if (carName.isBlank()) {
-                throw new IllegalArgumentException("이름을 입력해주세요.");
-            }
+            validateCarNameIsBlank(carName);
 
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("이름은 공백 포함 5자 이하여야 합니다.");
@@ -90,6 +88,12 @@ public class Application {
         long sizeAfterDistinct = carList.stream().distinct().count();
         if (sizeAfterDistinct != carList.size()) {
             throw new IllegalArgumentException("중복된 이름입니다.");
+        }
+    }
+
+    private static void validateCarNameIsBlank(String carName) {
+        if (carName.isBlank()) {
+            throw new IllegalArgumentException("이름을 입력해주세요.");
         }
     }
 
