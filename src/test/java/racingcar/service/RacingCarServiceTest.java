@@ -9,13 +9,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RacingGame;
 import racingcar.domain.RacingCar;
+import racingcar.util.TestNumberGenerator;
 
 class RacingCarServiceTest {
     private static RacingCarService racingCarService;
 
     @BeforeAll
     static void setUp(){
-        racingCarService = new RacingCarService();
+        racingCarService = new RacingCarService(new TestNumberGenerator(4));
     }
 
     @Test

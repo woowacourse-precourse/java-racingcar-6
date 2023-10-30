@@ -5,8 +5,15 @@ import java.util.List;
 import racingcar.config.RacingGameConfig;
 import racingcar.domain.RacingCar;
 import racingcar.util.NumberGenerator;
+import racingcar.util.RandomNumberGenerator;
 
 public class RacingCarService {
+    private final NumberGenerator numberGenerator;
+
+    public RacingCarService(NumberGenerator numberGenerator){
+        this.numberGenerator = numberGenerator;
+    }
+
     public List<RacingCar> save(String[] carNames){
         List<RacingCar> racingCars = new ArrayList<>();
 
@@ -19,7 +26,7 @@ public class RacingCarService {
 
     public void moveRandomly(List<RacingCar> racingCars){
         for(RacingCar racingCar : racingCars){
-            int randomNumber = NumberGenerator.generateNumber();
+            int randomNumber = numberGenerator.generate();
 
             if(canMove(randomNumber)){
                 racingCar.increaseMoveNumber();
