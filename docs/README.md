@@ -17,4 +17,4 @@
 - [x] 자동차의 현 상황을 반환할 수 있어야 한다. - `status()`
 
 **예외처리 - ExceptionHandler**
-- [ ] 잘못된 입력에 대해 `IllegalArgumentException`을 발생시킨다. - `InputException()`
+- [x] 잘못된 입력에 대해 `IllegalArgumentException`을 발생시킨다. - `InputException()`
