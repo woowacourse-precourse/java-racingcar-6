@@ -7,8 +7,8 @@ public class Game {
     private int done_trial;
     private List<Car> cars;
 
-    public Game(List <Car> cars, int trial){
-        this.cars = cars;
+    public Game(List <String> carsName, int trial){
+        setCars(carsName);
         this.trial = trial;
         this.done_trial = 0;
     }
@@ -19,5 +19,11 @@ public class Game {
 
     public void playGame(){
         this.done_trial++;
+    }
+
+    public void setCars(List<String> carsName){
+        for(String name : carsName){
+            cars.add(new Car(name));
+        }
     }
 }
