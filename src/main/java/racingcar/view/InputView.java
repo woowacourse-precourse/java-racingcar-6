@@ -9,4 +9,8 @@ public class InputView {
     public static List<String> inputCarNames() {
         return Arrays.stream(Console.readLine().split(",")).toList();
     }
+
+    public static int inputTryCount() {
+        return Integer.parseInt(Console.readLine());
+    }
 }
