@@ -8,5 +8,4 @@ public interface GameView {
     void showProgressOf(Game game);
 
     void showResultOf(Game game);
-
 }
