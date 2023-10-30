@@ -28,17 +28,17 @@ public class Racing {
 
     public void setTryRound() {
         PrintMessage.printTryCount();
-        tryCount= InputTryCount.setInputTryCount();
+        tryCount = InputTryCount.setInputTryCount();
     }
 
-    public void setRacingResult(){
+    public void setRacingResult() {
         PrintMessage.printResultStart();
-        for (int i=0;i<tryCount;i++){
+        for (int i = 0; i < tryCount; i++) {
             RacingLogic.goRacing(racingCars);
         }
     }
 
-    public void setRacingWinner(){
+    public void setRacingWinner() {
         RacingLogic.determineRacingWinner(racingCars);
     }
 

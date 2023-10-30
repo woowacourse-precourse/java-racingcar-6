@@ -13,14 +13,14 @@ public class InputTryCount {
         return tryCount;
     }
 
-    public static void checkNumber(int tryCount){
-        if(tryCount<1){
+    public static void checkNumber(int tryCount) {
+        if (tryCount < 1) {
             throw new IllegalArgumentException(ErrorMessage.NOT_NATURAL_NUM_ERROR);
         }
     }
 
     public static void isNumeric(String input) {
-        if(!input.matches("\\d+")){
+        if (!input.matches("\\d+")) {
             throw new IllegalArgumentException(ErrorMessage.NOT_NUM_ERROR);
         }
     }

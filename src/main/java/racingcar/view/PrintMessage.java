@@ -19,13 +19,15 @@ public class PrintMessage {
         System.out.println(RESULT_MAESSAGE_START);
     }
 
-    public static void printResult(String result){
+    public static void printResult(String result) {
         System.out.println(result);
     }
-    public static void printEnter(){
+
+    public static void printEnter() {
         System.out.println();
     }
-    public static void printWinnerCarNames(List<String> winnerCarNames){
+
+    public static void printWinnerCarNames(List<String> winnerCarNames) {
         System.out.println("최종 우승자 : " + String.join(", ", winnerCarNames));
     }
 }
