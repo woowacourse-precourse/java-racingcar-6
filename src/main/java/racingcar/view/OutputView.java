@@ -27,17 +27,11 @@ public class OutputView {
         return Constants.PROGRESS_DELIMITER.repeat(Math.max(0, position));
     }
 
-    public static void printRacingWinner(List<Car> winners) {
-        String winnerNames = getWinnerNamesToString(winners);
-
-        System.out.printf(Constants.RACING_WINNER_MESSAGE, winnerNames);
+    public static void printWinners(List<String> winners) {
+        System.out.printf(Constants.RACING_WINNER_MESSAGE, formatWinners(winners));
     }
 
-    private static String getWinnerNamesToString(List<Car> winners) {
-        List<String> winnerNames = winners.stream()
-                .map(Car::getName)
-                .toList();
-
-        return String.join(Constants.CAR_NAME_DELIMITER, winnerNames);
+    private static String formatWinners(List<String> winners) {
+        return String.join(Constants.CAR_NAME_DELIMITER, winners);
     }
 }

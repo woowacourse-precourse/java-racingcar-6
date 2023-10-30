@@ -12,10 +12,10 @@ import racingcar.view.OutputView;
 import java.util.Arrays;
 import java.util.List;
 
-public class RacingGameConsole {
+public class RacingGame {
     private final MoveStrategy moveStrategy;
 
-    public RacingGameConsole(MoveStrategy moveStrategy) {
+    public RacingGame(MoveStrategy moveStrategy) {
         this.moveStrategy = moveStrategy;
     }
 
