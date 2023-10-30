@@ -14,11 +14,20 @@ public class Car implements Comparable<Car> {
     private int position;
 
     public Car(String name) {
+        validate(name);
+        this.name = name;
+        this.position = START_POSITION;
+    }
+
+
+    private void validate(String name) {
+        validateCarNameLength(name);
+    }
+
+    private void validateCarNameLength(String name) {
         if (name.length() > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
         }
-        this.name = name;
-        this.position = START_POSITION;
     }
 
 
