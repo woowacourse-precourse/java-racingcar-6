@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import static racingcar.common.Config.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +11,7 @@ import racingcar.common.Config;
 public class RandomNumbers {
     private final List<Boolean> randomNumberList;
 
-    public RandomNumbers(Integer carCount) {
+    private RandomNumbers(Integer carCount) {
         randomNumberList = new ArrayList<>();
 
         for (int i = 0; i < carCount; i++) {
@@ -18,8 +19,12 @@ public class RandomNumbers {
         }
     }
 
+    public static RandomNumbers createRandomNumbers(Integer carCount) {
+        return new RandomNumbers(carCount);
+    }
+
     private boolean ifOverThree() {
-        return pickNumberInRange(0,9) >= Config.FORWARD_NUMBER;
+        return pickNumberInRange(SMALL_RANDOM_RANGE_NUMBER, BIG_RANDOM_RANGE_NUMBER) >= CAN_FORWARD_NUMBER;
     }
 
     public List<Boolean> getRandomNumberList() {

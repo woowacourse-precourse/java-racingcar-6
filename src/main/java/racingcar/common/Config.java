@@ -8,5 +8,7 @@ public class Config {
     public static final String SPLIT_REGEXP = ",";
     public static final String RACING_COUNT_CHARACTER = "-";
     public static final Integer MAX_NAME_SIZE = 5;
-    public static final Integer FORWARD_NUMBER = 4;
+    public static final Integer CAN_FORWARD_NUMBER = 4;
+    public static final Integer SMALL_RANDOM_RANGE_NUMBER = 0;
+    public static final Integer BIG_RANDOM_RANGE_NUMBER = 0;
 }

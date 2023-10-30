@@ -39,7 +39,7 @@ public class CarController {
     public void inRacing() {
 
         for (int i = 0; i < countNumber; i++) {
-            RandomNumbers randomNumbers = new RandomNumbers(stringList.size());
+            RandomNumbers randomNumbers = RandomNumbers.createRandomNumbers(stringList.size());
 
             cars.ifForwardCars(randomNumbers.getRandomNumberList());
 

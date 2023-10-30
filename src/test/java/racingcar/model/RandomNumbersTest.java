@@ -14,7 +14,7 @@ class RandomNumbersTest {
     void testRandomNumbers() {
 
         assertRandomNumberInRangeTest(
-            () -> assertThat(new RandomNumbers(2).getRandomNumberList()).contains(false, true, false),
+            () -> assertThat(RandomNumbers.createRandomNumbers(2).getRandomNumberList()).contains(false, true, false),
                 STOP,MOVING_FORWARD, STOP
         );
     }
