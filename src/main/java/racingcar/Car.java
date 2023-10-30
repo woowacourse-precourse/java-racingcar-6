@@ -25,6 +25,10 @@ public class Car {
     }
 
     void printCurrentState() {
-
+        System.out.printf("%s : ", carName);
+        for (int move = 0; move < movement; move++) {
+            System.out.print("-");
+        }
+        System.out.print("\n");
     }
 }
