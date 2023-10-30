@@ -29,6 +29,7 @@ public class GameService {
         printWinners(winners);
     }
 
+
     public static List<RacingCar> createRacingCars() {
         List<RacingCar> racingCars = new ArrayList<>();
         String[] carNames = convertToStringArray(readInput());
@@ -39,9 +40,11 @@ public class GameService {
         return racingCars;
     }
 
+
     public static Long readTimes() {
         return convertToLong(readInput());
     }
+
 
     public static void playGameForTimes(Long times, List<RacingCar> racingCars) {
         for (int i = 0; i < times; i++) {
@@ -50,14 +53,16 @@ public class GameService {
             printOneGameOutcome(racingCars);
         }
     }
-        private static void addLocationForRandomNumber(List<RacingCar> racingCars) {
-            for (RacingCar racingCar : racingCars) {
-                int num = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 
-                if (num >= MIN_INCREMENT_NUMBER)
-                    racingCar.putForward();
-            }
+    private static void addLocationForRandomNumber(List<RacingCar> racingCars) {
+        for (RacingCar racingCar : racingCars) {
+            int num = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+
+            if (num >= MIN_INCREMENT_NUMBER)
+                racingCar.putForward();
         }
+    }
+
 
     public static List<RacingCar> findWinners(List<RacingCar> racingCars) {
         long maxLocation = findMaxLocation(racingCars);
@@ -66,10 +71,11 @@ public class GameService {
                 .collect(Collectors.groupingBy(RacingCar::getLocation))
                 .get(maxLocation);
     }
-        private static Long findMaxLocation(List<RacingCar> racingCars) {
-            return racingCars.stream()
-                    .mapToLong(RacingCar::getLocation)
-                    .max()
-                    .orElse(Long.MIN_VALUE);
-        }
+
+    private static Long findMaxLocation(List<RacingCar> racingCars) {
+        return racingCars.stream()
+                .mapToLong(RacingCar::getLocation)
+                .max()
+                .orElse(Long.MIN_VALUE);
+    }
 }

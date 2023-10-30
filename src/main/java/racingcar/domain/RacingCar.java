@@ -15,9 +15,11 @@ public class RacingCar {
         return racingCar;
     }
 
+
     public void putForward() {
         ++this.location;
     }
+
 
     public String getName() {
         return name;
@@ -26,6 +28,7 @@ public class RacingCar {
     private void setName(String name) {
         this.name = name;
     }
+
 
     public Long getLocation() {
         return location;

@@ -22,6 +22,7 @@ class InputServiceTest {
             assertThat(stringArray[i]).isEqualTo(line.substring(i * 2, i * 2 + 1));
     }
 
+
     @Test
     void convertToStringArray_쉼표_사이에_5자_이상의_입력값에_대해_예외_발생() {
         // GIVEN
@@ -33,6 +34,7 @@ class InputServiceTest {
                 .hasMessageContaining("자동차 이름은 5자 이하만 가능합니다.");
     }
 
+
     @Test
     void convertToLong_문자열을_Long형으로_변환() {
         // GIVEN
@@ -41,6 +43,7 @@ class InputServiceTest {
         // WHEN, THEN
         assertThat(convertToLong(line)).isInstanceOf(Long.class);
     }
+
 
     @Test
     void convertToLong_숫자가_아닌_문자열에_대해_예외_발생() {

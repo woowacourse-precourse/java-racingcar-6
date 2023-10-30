@@ -17,6 +17,7 @@ class RacingCarTest {
         assertThat(racingCar.getName()).isEqualTo(name);
     }
 
+
     @Test
     void putForward_레이싱카_위치를_한_칸_앞으로_이동() {
         // GIVEN

@@ -10,6 +10,7 @@ public class InputValidator {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR);
     }
 
+
     public static void validateTimesIsNumber(String line) {
         try {
             parseLong(line);

@@ -13,17 +13,20 @@ public class OutputService {
         System.out.println(RACING_CAR_NAME_INPUT_FORM_MESSAGE);
     }
 
+
     public static void printTimesInputForm() {
         System.out.println(TIMES_INPUT_FORM_MESSAGE);
     }
+
 
     public static void printGameOutcomeMessage() {
         System.out.println();
         System.out.println(GAME_OUTCOME_MESSAGE);
     }
 
+
     public static void printOneGameOutcome(List<RacingCar> racingCars) {
-        racingCars.forEach( racingCar -> {
+        racingCars.forEach(racingCar -> {
             System.out.printf("%s : ", racingCar.getName());
             System.out.printf("%s", printLocation(racingCar.getLocation()));
             System.out.println();
@@ -31,11 +34,13 @@ public class OutputService {
 
         System.out.println();
     }
-        private static String printLocation(Long distance) {
-            return LongStream.range(0, distance)
-                    .mapToObj(i -> LOCATION_INDICATOR)
-                    .collect(Collectors.joining());
-        }
+
+    private static String printLocation(Long distance) {
+        return LongStream.range(0, distance)
+                .mapToObj(i -> LOCATION_INDICATOR)
+                .collect(Collectors.joining());
+    }
+
 
     public static void printWinners(List<RacingCar> winners) {
         String[] winnerNames = winners.stream()
