@@ -71,26 +71,26 @@ class InputViewTest {
     void 시도횟수_예외_테스트() {
         assertThatThrownBy(() -> inputView.setNumberOfAttempts("qwerasdf"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1이상의 숫자만 입력해주세요.");
+                .hasMessageContaining("1이상의 정수만 입력해주세요.");
 
         assertThatThrownBy(() -> inputView.setNumberOfAttempts("-1"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1이상의 숫자만 입력해주세요.");
+                .hasMessageContaining("1이상의 정수만 입력해주세요.");
 
         assertThatThrownBy(() -> inputView.setNumberOfAttempts(""))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1이상의 숫자만 입력해주세요.");
+                .hasMessageContaining("1이상의 정수만 입력해주세요.");
 
         assertThatThrownBy(() -> inputView.setNumberOfAttempts("1 "))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1이상의 숫자만 입력해주세요.");
+                .hasMessageContaining("1이상의 정수만 입력해주세요.");
 
         assertThatThrownBy(() -> inputView.setNumberOfAttempts("-2"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1이상의 숫자만 입력해주세요.");
+                .hasMessageContaining("1이상의 정수만 입력해주세요.");
 
         assertThatThrownBy(() -> inputView.setNumberOfAttempts("0"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1이상의 숫자만 입력해주세요.");
+                .hasMessageContaining("1이상의 정수만 입력해주세요.");
     }
 }
