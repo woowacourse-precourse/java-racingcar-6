@@ -1,5 +1,8 @@
 package racingcar.service;
 
+import racingcar.model.RacingCarNames;
+import racingcar.util.RandomNumberGenerator;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -8,6 +11,36 @@ import java.util.Map;
 public class RacingCarGameService {
 
     private static final int MOVING_FORWARD_STANDARD = 4;
+
+    public LinkedHashMap<String, Integer> racingProgressStatusInitialize(List<String> carNames) {
+        LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>();
+        new RacingCarNames(carNames);
+        for (String carName : carNames) {
+            racingProgressStatus.put(carName, 0);
+        }
+        return racingProgressStatus;
+    }
+
+    public void proceedOneRound(
+            RandomNumberGenerator racingNumberGenerator,
+            List<String> carNames,
+            LinkedHashMap<String, Integer> racingProgressStatus
+    ) {
+        for (String carName : carNames) {
+            int randomNumber = racingNumberGenerator.getRandomNumber();
+            decideMovingForward(randomNumber, racingProgressStatus, carName);
+        }
+    }
+
+    private void decideMovingForward(
+            int randomNumber,
+            LinkedHashMap<String, Integer> racingProgressStatus,
+            String carName
+    ) {
+        if (isMovingForward(randomNumber)) {
+            moveForward(racingProgressStatus, carName);
+        }
+    }
 
     public boolean isMovingForward(int randomNumber) {
         if (randomNumber >= MOVING_FORWARD_STANDARD) {

@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.model.RacingCarNames;
 import racingcar.service.RacingCarGameService;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
@@ -28,45 +27,15 @@ public class RacingCarGameController {
     public void playRacingCarGame(RandomNumberGenerator racingNumberGenerator) {
         outputView.printInputRacingCarNamesMessage();
         List<String> carNames = inputView.readCarNames();
-        LinkedHashMap<String, Integer> racingProgressStatus = racingProgressStatusInitialize(carNames);
+        LinkedHashMap<String, Integer> racingProgressStatus = racingCarGameService.racingProgressStatusInitialize(carNames);
         outputView.printInputAttemptCountMessage();
         int attemptCount = inputView.readAttemptCount();
         outputView.printExecutionResultMessage();
         for (int i = 0; i < attemptCount; i++) {
-            proceedOneRound(racingNumberGenerator, carNames, racingProgressStatus);
+            racingCarGameService.proceedOneRound(racingNumberGenerator, carNames, racingProgressStatus);
             outputView.printExecutionResult(racingProgressStatus);
         }
         List<String> winners = racingCarGameService.getWinners(racingProgressStatus);
         outputView.printWinners(winners);
-    }
-
-    private LinkedHashMap<String, Integer> racingProgressStatusInitialize(List<String> carNames) {
-        LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>();
-        new RacingCarNames(carNames);
-        for (String carName : carNames) {
-            racingProgressStatus.put(carName, 0);
-        }
-        return racingProgressStatus;
-    }
-
-    private void proceedOneRound(
-            RandomNumberGenerator racingNumberGenerator,
-            List<String> carNames,
-            LinkedHashMap<String, Integer> racingProgressStatus
-    ) {
-        for (String carName : carNames) {
-            int randomNumber = racingNumberGenerator.getRandomNumber();
-            decideMovingForward(randomNumber, racingProgressStatus, carName);
-        }
-    }
-
-    private void decideMovingForward(
-            int randomNumber,
-            LinkedHashMap<String, Integer> racingProgressStatus,
-            String carName
-    ) {
-        if (racingCarGameService.isMovingForward(randomNumber)) {
-            racingCarGameService.moveForward(racingProgressStatus, carName);
-        }
     }
 }
