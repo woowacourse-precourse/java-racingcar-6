@@ -12,13 +12,17 @@ public class Race {
     }
 
     public void start() {
+        System.out.println("\n실행 결과");
+
         for (int i = 0; i < round; i++) {
             for (Car car : cars) {
                 Integer randomNumber = RandomNumberGenerator.generate();
                 if (randomNumber >= 4) {
                     car.forward();
                 }
+                System.out.println(car.toString());
             }
+            System.out.println();
         }
     }
 }
