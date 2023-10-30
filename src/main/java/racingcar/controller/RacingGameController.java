@@ -13,5 +13,6 @@ public class RacingGameController {
 
     public void playGame() {
         cars = new Cars(InputView.inputNames());
+        round = new Round(InputView.inputRound());
     }
 }
