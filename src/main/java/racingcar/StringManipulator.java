@@ -24,6 +24,7 @@ public class StringManipulator {
         }
         return true; 
     }
+
     public static boolean hasDuplicates(String[] strings) {
         Set<String> set = new HashSet<>();
 
@@ -34,5 +35,14 @@ public class StringManipulator {
         }
 
         return false;
+    }
+
+    public static boolean isValidNames(String[] strings) {
+        for (String element : strings) {
+            if (!element.matches("^[0-9a-zA-Z가-힣_]+$")) {
+                return false;
+            }
+        }
+        return true;
     }
 }
