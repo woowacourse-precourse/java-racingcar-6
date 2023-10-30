@@ -1,7 +1,10 @@
 package racingcar.domain;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import racingcar.common.util.OutputMessage;
 
 public class Cars {
 
@@ -13,11 +16,25 @@ public class Cars {
 
     private List<Car> stringToList(String carsName) {
         String[] result = carsName.split(",");
+        Set<String> uniqueCarsName = new HashSet<>();
 
         return Arrays.stream(result)
-                .filter(carName -> !carName.isEmpty())
+                .filter(carName -> {
+                    if (!carName.isEmpty()) {
+                        uniqueCarName(carName, uniqueCarsName);
+                        return true;
+                    }
+                    return false;
+                })
                 .map(Car::new)
                 .toList();
+    }
+
+    private static void uniqueCarName(String carName, Set<String> uniqueCarsName) {
+        if (!uniqueCarsName.add(carName)) {
+            throw new IllegalArgumentException(OutputMessage.VALIDATE_UNIQUE_CAR_NAME
+                    .getMessage() + carName);
+        }
     }
 
     public List<Car> getCarList() {
