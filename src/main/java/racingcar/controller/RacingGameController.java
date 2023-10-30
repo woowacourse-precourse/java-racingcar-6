@@ -1,8 +1,9 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.GameCar;
+import racingcar.domain.GameCars;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -12,11 +13,11 @@ public class RacingGameController {
     OutputView outputView = new OutputView();
 
     private Cars createCarsByCarNames(List<String> carNames) {
-        List<Car> cars = carNames.stream()
-                .map(Car::new)
+        List<GameCar> gameCars = carNames.stream()
+                .map(GameCar::new)
                 .toList();
 
-        return new Cars(cars);
+        return new GameCars(gameCars);
     }
 
     private RacingGame initGame() {

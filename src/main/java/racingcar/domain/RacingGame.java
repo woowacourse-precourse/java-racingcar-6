@@ -32,6 +32,6 @@ public class RacingGame {
     }
 
     public RacingGameState getCurrentState() {
-        return new RacingGameState(isEnd(), cars.cars());
+        return new RacingGameState(isEnd(), cars.getCars());
     }
 }
