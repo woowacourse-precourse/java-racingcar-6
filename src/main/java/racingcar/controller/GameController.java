@@ -32,7 +32,7 @@ public class GameController {
 
     private void play(int totalCarCount) {
         int idx = 0;
-        while (idx !=totalCarCount) {
+        while (idx != totalCarCount) {
             outputForward(gameService.playGame(idx));
             idx++;
         }

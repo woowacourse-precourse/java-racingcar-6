@@ -23,7 +23,7 @@ public class OutputView {
     public static void outputWinner(List<String> winners) {
         System.out.print(WINNER_MESSAGE);
         for (int i = 0; i < winners.size(); i++) {
-            printComma(winners.get(i), winners.size()-i);
+            printComma(winners.get(i), winners.size() - i);
         }
     }
 
