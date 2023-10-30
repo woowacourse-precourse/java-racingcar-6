@@ -25,4 +25,10 @@ public class CarStorage {
     public static void addWinner(Car winner) {
         winners.add(winner);
     }
+    private static List<Integer> getStepsList() {
+        for (Car car : cars) {
+            stepsList.add(car.steps());
+        }
+        return stepsList;
+    }
 }
