@@ -47,8 +47,8 @@ class CarsTest {
         assertThat(winners).containsExactly("car1");
 
         List<List<Integer>> scoreList = cars.provideAllCumulativeScoreList();
-        assertThat(scoreList.get(0).get(0)).isEqualTo(1);
-        assertThat(scoreList.get(0).get(1)).isEqualTo(0);
+        assertThat(scoreList.get(0)).isEqualTo(Arrays.asList(1));
+        assertThat(scoreList.get(1)).isEqualTo(Arrays.asList(0));
     }
 
     @DisplayName("determineWinner() 테스트 - 우승자가 2명인 경우")
@@ -83,5 +83,4 @@ class CarsTest {
         assertThat(scoreList.get(2)).isEqualTo(Arrays.asList(0, 0));
         assertThat(scoreList.get(3)).isEqualTo(Arrays.asList(0, 0));
     }
-
 }
