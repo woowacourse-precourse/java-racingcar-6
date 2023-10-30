@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.UserOutput;
 
+import static java.lang.Math.max;
+
 public class Service {
     public static void raceStart(RaceGame raceGame) {
         int execution_cnt = raceGame.getExecution_cnt();
@@ -36,6 +38,24 @@ public class Service {
     }
 
     public static ArrayList<Car> findWinner(ArrayList<Car> cars){
-        return new ArrayList<Car>();
+        ArrayList<Car> winners = new ArrayList<>();
+        int max_distance = findMaxDistance(cars);
+
+        for(Car car : cars){
+            if(car.getLocation() == max_distance){
+                winners.add(car);
+            }
+        }
+
+        return winners;
+    }
+
+    public static Integer findMaxDistance(ArrayList<Car> cars){
+        int max_distance = 0;
+        for(Car car : cars){
+            max_distance = max(car.getLocation(),max_distance);
+        }
+
+        return max_distance;
     }
 }
