@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -20,5 +21,23 @@ public class GameManager {
 
         Print.progress(attemptNum, members, membersHM);
 
+    }
+
+    public static List<String> whoIsWinner(HashMap<String, String> membersHM, List<String> members) {
+        int max = Integer.MIN_VALUE;
+        List<String> winner = new ArrayList<>();
+
+        for (int i = 0; i < members.size(); i++) {
+            int len = membersHM.get(members.get(i)).length();
+            if (len > max) {
+                max = len;
+                winner.clear();
+                winner.add(members.get(i));
+            } else if (len == max) {
+                winner.add(members.get(i));
+            }
+        }
+
+        return winner;
     }
 }
