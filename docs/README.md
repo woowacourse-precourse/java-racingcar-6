@@ -89,7 +89,7 @@ jun : -----
 최종 우승자 : pobi, jun
 ```
 
-## MVC 패턴에 따른 기능 목록
+## 🧙🏻 MVC 패턴에 따른 기능 목록
 
 ### controlller
 
