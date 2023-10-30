@@ -3,12 +3,14 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public final class Car {
-    private String name;
-    public Integer postion;
+    private final String name;
+    private Integer position;
+
     private Car(final String givenName) {
         this.name = givenName;
-        this.postion = 0 ;
+        this.position = 0;
     }
+
     public static Car applyName(final String givenName) {
         return new Car(givenName);
     }
@@ -17,12 +19,23 @@ public final class Car {
     public String toString() {
         return name;
     }
+
     public Integer changePosition(final CarMovementStatus movementStatus) {
-        if(movementStatus.equals(CarMovementStatus.MOVE_FORWARD)) return ++postion;
-        if(movementStatus.equals(CarMovementStatus.STOP)) return postion;
+        if (movementStatus.equals(CarMovementStatus.MOVE_FORWARD)) {
+            return ++position;
+        }
+        if (movementStatus.equals(CarMovementStatus.STOP)) {
+            return position;
+        }
         throw new IllegalArgumentException();
     }
-    public Integer getRandomNUmber(Integer minNUmber,Integer maxNumber) {
-        return Randoms.pickNumberInRange(minNUmber,maxNumber);
+
+    public Integer getRandomNUmber(Integer minNUmber, Integer maxNumber) {
+        return Randoms.pickNumberInRange(minNUmber, maxNumber);
+    }
+
+    public Integer move() {
+        Integer randomNUmber = getRandomNUmber(0, 9);
+        return changePosition(CarMovementStatus.getMovementStatusByCheckNumber(randomNUmber));
     }
 }
