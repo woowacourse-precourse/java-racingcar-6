@@ -15,7 +15,9 @@ public class Output {
         System.out.println("실행 결과");
     }
     public static void printRaceResult(Car car) {
-        System.out.println(car.getCarName()+" : "+"-".repeat(car.getPosition()));
+        StringBuilder result= new StringBuilder();
+        result.append(car.getCarName()).append(" : ").append("-".repeat(car.getPosition()));
+        System.out.println(result);
     }
 
     public static String Winner(List<Car> cars){
