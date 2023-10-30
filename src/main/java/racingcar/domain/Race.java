@@ -3,8 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Race {
     public static Integer numberOfGameRound(){
@@ -15,9 +14,9 @@ public class Race {
     public static void playingMainGame(){
         List<String> carList = Car.makeRacingCarList();
         int[] goCount = new int[carList.size()];
-        System.out.println(Arrays.toString(goCount));
         int round = numberOfGameRound();
        repeatRacing(round,carList,goCount);
+       Winner.findWinners(carList,goCount);
     }
 
     public static void repeatRacing(int round,List<String> carList,int[] goCount){

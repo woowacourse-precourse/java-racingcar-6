@@ -19,7 +19,6 @@ public class Car {
         for(int i = 0 ; i< carArray.length;i++){
             carList.add(carArray[i]);
         }
-        System.out.println(carList);
         CustomizedException.numberUpException(carList);
         return carList;
     }
