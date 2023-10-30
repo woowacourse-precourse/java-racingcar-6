@@ -19,6 +19,7 @@
     - [CarList.java](CarList.java)
     - [CarRegister.java](CarRegister.java)
   - [Manager](Manager)
+    - [CarMoveManager.java](CarMoveManager.java)
 - [View](view)
   - [InputView.java](InputView.java)
   - [OutputView.java](OutputView.java)
