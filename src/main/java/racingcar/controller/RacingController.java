@@ -9,6 +9,7 @@ public class RacingController {
     private final CarRepository carRepository = CarRepository.INSTANCE;
 
     public void run() {
+        carRepository.clearCarList();
         List<String> carName = InputView.inputCarName();
         carRepository.addCar(carName);
         int numberOfExecute = InputView.inputNumberOfExcution();
@@ -19,6 +20,5 @@ public class RacingController {
             OutputView.printCarsResult(carRepository);
         }
         OutputView.printWinner(carRepository);
-
     }
 }
