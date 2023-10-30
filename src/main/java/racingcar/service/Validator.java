@@ -12,6 +12,14 @@ public class Validator {
         return validateAndChangeToArray(carNamesInput);
     }
 
+    public int stringToInt(String numberOfAttempts) {
+        try {
+            return Integer.parseInt(numberOfAttempts);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     private String[] validateAndChangeToArray(String carNamesInput) {
         String[] carNames = dividedByCommas(carNamesInput);
         validateBlankCarNames(carNames);
