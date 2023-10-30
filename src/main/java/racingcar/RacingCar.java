@@ -7,4 +7,10 @@ public class RacingCar {
     public RacingCar(String name) {
         this.name = name;
     }
+
+    public void drive(int number) {
+        if (number >= 4) {
+            distance++;
+        }
+    }
 }

@@ -23,6 +23,10 @@ public class RacingGame {
         input = Console.readLine();
         count = Integer.parseInt(input);
 
+        while (count > 0) {
+            racingCars.turnOn();
+            count--;
+        }
     }
 
     private void validateCarName(String carName) {
