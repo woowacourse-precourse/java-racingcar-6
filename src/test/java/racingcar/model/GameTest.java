@@ -2,8 +2,8 @@ package racingcar.model;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.BDDMockito.*;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.mock;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,25 +28,23 @@ class GameTest {
     }
 
     @Test
-    void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들을_구할_수_있다_우승자가_하나일때() {
+    void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들의_이름을_구할_수_있다_우승자가_하나일때() {
         stop(cars.get(0));
         stop(cars.get(1));
         goForward(cars.get(2));
 
-        List<Car> winners = game.getWinnerCars();
-        assertThat(winners).containsOnly(cars.get(2));
-        assertThatThrownBy(() -> winners.add(new Car("dd"))).isInstanceOf(UnsupportedOperationException.class);
+        List<String> winners = game.getWinnerCars();
+        assertThat(winners).containsOnly("테스트2");
     }
 
     @Test
-    void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들을_구할_수_있다_우승자가_둘이상일때() {
+    void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들의_이름을_구할_수_있다_우승자가_둘이상일때() {
         stop(cars.get(0));
         goForward(cars.get(1));
         goForward(cars.get(2));
 
-        List<Car> winners = game.getWinnerCars();
-        assertThat(winners).containsOnly(cars.get(1),cars.get(2));
-        assertThatThrownBy(() -> winners.add(new Car("dd"))).isInstanceOf(UnsupportedOperationException.class);
+        List<String> winners = game.getWinnerCars();
+        assertThat(winners).containsOnly("테스트1","테스트2");
     }
 
     private void setGivenBehaviorMoveResolver(MoveResolver moveResolver,MoveResolver nonMoveResolver) {

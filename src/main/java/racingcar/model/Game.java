@@ -8,7 +8,7 @@ import racingcar.util.MoveResolver;
 public class Game {
     private final int MOVING_DISTANCE = 1;
     private final MoveResolver moveResolver = new MoveResolver();
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
 
     public void addCar(Car car) {
         cars.add(car);
@@ -20,10 +20,11 @@ public class Game {
         }
     }
 
-    public List<Car> getWinnerCars() {
+    public List<String> getWinnerCars() {
         int maxPosition = getMaxPosition();
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
                 .toList();
     }
 
@@ -36,5 +37,13 @@ public class Game {
     private int getMaxPosition() {
         OptionalInt max = cars.stream().mapToInt(Car::getPosition).max();
         return max.orElse(0);
+    }
+
+    public void enrollCars(List<String> carNames) {
+        carNames.forEach(this::enrollCar);
+    }
+
+    private void enrollCar(String carName) {
+        cars.add(new Car(carName));
     }
 }
