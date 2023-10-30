@@ -3,7 +3,7 @@ package racingcar.model;
 import racingcar.utils.Validator;
 
 public class Car {
-    private String carName;
+    private final String carName;
     private int forwardSteps;
 
     private final static Validator validator = new Validator();
@@ -24,10 +24,5 @@ public class Car {
 
     public void setForwardSteps(int forwardSteps) {
         this.forwardSteps = forwardSteps;
-    }
-
-    @Override
-    public String toString() {
-        return "Car(" + carName + ',' + forwardSteps + ')';
     }
 }

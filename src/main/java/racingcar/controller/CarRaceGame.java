@@ -16,15 +16,16 @@ public class CarRaceGame {
     private final static Validator validator = new Validator();
 
     private Cars cars;
-    private int steps;
+    private int repeat;
 
-    public CarRaceGame() {}
+    public CarRaceGame() {
+    }
 
     public void start() {
         inputCarsName();
         inputRepeatNumber();
 
-        showRaceSteps(cars, steps);
+        showRaceSteps(cars, repeat);
 
         List<String> result = carRace.getRaceWinner(cars);
         viewer.showRaceWinner(result);
@@ -32,7 +33,7 @@ public class CarRaceGame {
 
 
     private void inputCarsName() {
-        viewer.showCarsNameInput();;
+        viewer.showCarsNameInput();
 
         String carsNameInput = Console.readLine();
         List<String> carsName = Arrays.stream(carsNameInput.split(","))
@@ -47,12 +48,12 @@ public class CarRaceGame {
         String repeatNumber = Console.readLine();
         validator.checkRepeatNumber(repeatNumber);
 
-        this.steps = Integer.parseI nt(repeatNumber);
+        this.repeat = Integer.parseInt(repeatNumber);
     }
 
     private void showRaceSteps(Cars cars, int repeat) {
         viewer.showResultString();
-        for (int i=0;i<repeat;i++) {
+        for (int i = 0; i < repeat; i++) {
             carRace.forwardOneTurn(cars);
             viewer.showCarsStep(cars);
         }

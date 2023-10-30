@@ -8,16 +8,18 @@ public class CarRace {
     private final static int MIN_NUMBER = 1;
     private final static int MAX_NUMBER = 9;
 
+    public CarRace() {}
+
     public void forwardOneTurn(Cars cars) {
         List<Car> raceCars = cars.getCars();
         raceCars.forEach(this::forwardRandomStep);
     }
 
     public void forwardRandomStep(Car car) {
-        int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER,MAX_NUMBER);
+        int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
         if (randomNumber >= 4) {
             int currentStep = car.getForwardSteps();
-            car.setForwardSteps(currentStep+1);
+            car.setForwardSteps(currentStep + 1);
         }
     }
 
@@ -30,7 +32,7 @@ public class CarRace {
                 .orElse(0);
 
         List<String> winnersName = raceCars.stream()
-                .filter(car -> car.getForwardSteps()==winnerSteps)
+                .filter(car -> car.getForwardSteps() == winnerSteps)
                 .map(Car::getCarName)
                 .toList();
         return winnersName;
