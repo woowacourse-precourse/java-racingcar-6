@@ -18,7 +18,7 @@ public class ProcessGame {
     private static void forwardCar(List<CarInfo> carList) {
         for (CarInfo car : carList) {
             if (isForward(randomNumber())) {
-                car.setMoveCount(car.getMoveCount() + 1);
+                car.setMoveCount(car.getMoveCount() + Constant.FORWARD_VALUE);
             }
         }
         result(carList);
@@ -40,7 +40,7 @@ public class ProcessGame {
 
     public static void playGame(List<CarInfo> carList, int gameRound) {
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(Constant.RESULT_MESSAGE);
         for (int round = 0; round < gameRound; round++) {
             forwardCar(carList);
         }

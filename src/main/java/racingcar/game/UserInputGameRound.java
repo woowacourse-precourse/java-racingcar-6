@@ -10,7 +10,7 @@ public class UserInputGameRound {
     }
 
     private static String inputGameRound() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Constant.COUNT_INPUT_MESSAGE);
         return Console.readLine();
     }
 

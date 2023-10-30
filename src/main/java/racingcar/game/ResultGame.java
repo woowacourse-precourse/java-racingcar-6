@@ -1,5 +1,6 @@
 package racingcar.game;
 
+import racingcar.Constant;
 import racingcar.car.CarInfo;
 
 import java.util.List;
@@ -30,6 +31,6 @@ public class ResultGame {
     }
 
     public static void printWinner(String winner){
-        System.out.println("최종 우승자 : " + winner);
+        System.out.println(Constant.WINNER_MESSAGE + winner);
     }
 }
