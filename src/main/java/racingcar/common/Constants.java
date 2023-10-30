@@ -5,4 +5,5 @@ public class Constants {
     public static final String CAR_LIST_DIVIDER = ",";
     public static final Integer MAXIMUM_CAR_NAME_LENGTH = 5;
     public static final Integer MINIMUM_PARTICIPANTS_NUMBER = 2;
+    public static final String PLAY_COUNT_REQUEST_MESSAGE = "시도할 회수는 몇회인가요?\n";
 }
