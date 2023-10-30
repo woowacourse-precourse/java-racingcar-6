@@ -15,7 +15,17 @@ public class Application {
 
         int n = Integer.parseInt(Console.readLine());
 
+        while(n != 0){
+            int[] forwardNum = carForward(carList.size());
 
+            for(int i=0; i<carList.size(); i++){
+                if(forwardNum[i] > 0){
+                    carList.get(i).setForward(carList.get(i).getForward()+1);
+                }
+            }
+            
+            n--;
+        }
     }
 
     public static List<Car> parseInputName(String inputName) {
@@ -31,5 +41,18 @@ public class Application {
         }
 
         return carList;
+    }
+
+    public static int[] carForward(int carLength) {
+        int[] forwardNum = new int[carLength];
+
+        for(int i=0; i<carLength; i++){
+            int randomNum = Randoms.pickNumberInRange(0, 9);
+            if(randomNum >= 4){
+                forwardNum[i]++;
+            }
+        }
+
+        return forwardNum;
     }
 }
