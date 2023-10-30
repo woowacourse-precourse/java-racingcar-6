@@ -16,7 +16,7 @@ public class Input {
 
     public static int getInteger(){
         String input = Console.readLine();
-        if(InputValidator.isInteger(input)){
+        if(InputValidator.isInteger(input)==false){
             throw new IllegalArgumentException("입력값이 정수가 아닙니다.");
         }
         return Integer.parseInt(input);
