@@ -1,9 +1,16 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.InputHandler;
 import racingcar.Validator;
 
 public class Judge {
+    private List<Car> cars;
+
+    public Judge() {
+        this.cars = new ArrayList<>();
+    }
 
     private String[] makeCarNamesArray() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -17,5 +24,15 @@ public class Judge {
         int numberOfAttempts = InputHandler.inputNumberOfAttempts();
         Validator.isValidNumberOfAttempts(numberOfAttempts);
         return numberOfAttempts;
+    }
+
+    public void setCars(String[] carNamesWithStringArray) {
+        for (String carName : carNamesWithStringArray) {
+            cars.add(new Car(carName));
+        }
+    }
+
+    protected List<Car> getCars() {
+        return cars;
     }
 }
