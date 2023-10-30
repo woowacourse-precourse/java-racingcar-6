@@ -48,7 +48,8 @@ class inputValidatorTest {
 
             // when
             // then
-            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName(invalidDelimiterNames));
+            assertThrows(IllegalArgumentException.class,
+                    () -> inputValidator.validateInputCarName(invalidDelimiterNames));
         }
 
         @Test
@@ -100,7 +101,8 @@ class inputValidatorTest {
 
             // when
             // then
-            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount(startWithSpaceTryValue));
+            assertThrows(IllegalArgumentException.class,
+                    () -> inputValidator.validateInputTryCount(startWithSpaceTryValue));
         }
 
         @Test
@@ -113,7 +115,8 @@ class inputValidatorTest {
             // when
             // then
             assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount(zeroTryValue));
-            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount(startWithZeroTryValue));
+            assertThrows(IllegalArgumentException.class,
+                    () -> inputValidator.validateInputTryCount(startWithZeroTryValue));
         }
     }
 }

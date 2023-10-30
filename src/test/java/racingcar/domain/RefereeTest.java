@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 class RefereeTest {
 
     private Referee referee = new Referee();
+
     @Test
     @DisplayName("우승자가 여러명인 경우 테스트")
     void testMultipleWinners() {

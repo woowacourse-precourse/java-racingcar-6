@@ -4,7 +4,7 @@ import static racingcar.gameutil.GameConstants.*;
 
 import racingcar.gameutil.RandomUtil;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
 
     private RandomUtil randomUtil;
     private String name;

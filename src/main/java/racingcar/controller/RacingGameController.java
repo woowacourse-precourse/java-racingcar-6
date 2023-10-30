@@ -34,11 +34,13 @@ public class RacingGameController {
 
     private void checkWinner(Cars cars) {
         List<String> winners = referee.checkResult(cars);
+
         outputView.printWinner(winners);
     }
 
     private void progressGame(Cars cars, Integer tryCount) {
         outputView.printExecutionResultMessage();
+
         while (tryCount-- > 0) {
             for (Car car : cars.getCars()) {
                 car.move();
