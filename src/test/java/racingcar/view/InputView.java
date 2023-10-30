@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
-    public static void read() {
-        Console.readLine();
+    public static String read() {
+        return Console.readLine();
     }
 
     public static void readClose() {
