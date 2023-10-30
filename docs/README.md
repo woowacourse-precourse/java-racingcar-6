@@ -4,10 +4,12 @@
 # 기능 목록
 - [ ] 게임을 시작한다. - RacingCarGame.start()
 - [ ] 자동차 이름 입력 받는다. - User.getCarNames()
+- [ ] 자동차 이름을 확인한다. - Validation.validateCarNames()
     - [ ] 자동차 이름들이 쉼표로 구분 되어있는지 확인한다. - Validation.validateDivision()
     - [ ] 각 자동차의 이름이 5자 이내인지 확인한다. - Validation.validateLength()
-    - [ ] 각 자동차의 이름을 지정한다. - Car.getName()
+- [ ] 각 자동차의 이름을 지정한다. - Car.getName()
 - [ ] 이동 횟수를 입력 받는다. - User.getMoveNumber()
+- [ ] 이동 횟수를 확인한다. - Validation.validateMoveNumber()
     - [ ] 횟수가 숫자인지 확인한다. Validation.validateInteger()
 - [ ] 자동차를 이동 (전진 & 정지)한다. - RacingCarGame.move()
     - [ ] 각 자동차마다 0에서 9 사이의 무작위 값을 구한다. - Car.getRandomNumber()
