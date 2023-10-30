@@ -26,29 +26,18 @@ public class RacingCarGameController {
     }
 
     public void playRacingCarGame(RandomNumberGenerator racingNumberGenerator) {
-        List<String> carNames = inputCarNames();
+        outputView.printInputRacingCarNamesMessage();
+        List<String> carNames = inputView.readCarNames();
         LinkedHashMap<String, Integer> racingProgressStatus = racingProgressStatusInitialize(carNames);
-        int attemptCount = inputAttemptCount();
-        printExecutionResultMessage();
+        outputView.printInputAttemptCountMessage();
+        int attemptCount = inputView.readAttemptCount();
+        outputView.printExecutionResultMessage();
         for (int i = 0; i < attemptCount; i++) {
             proceedOneRound(racingNumberGenerator, carNames, racingProgressStatus);
-            printExecutionResult(racingProgressStatus);
+            outputView.printExecutionResult(racingProgressStatus);
         }
-        List<String> winners = getWinners(racingProgressStatus);
-        printWinners(winners);
-    }
-
-    private List<String> inputCarNames() {
-        printInputRacingCarNamesMessage();
-        return getCarNames();
-    }
-
-    private void printInputRacingCarNamesMessage() {
-        outputView.printInputRacingCarNamesMessage();
-    }
-
-    private List<String> getCarNames() {
-        return inputView.readCarNames();
+        List<String> winners = racingCarGameService.getWinners(racingProgressStatus);
+        outputView.printWinners(winners);
     }
 
     private LinkedHashMap<String, Integer> racingProgressStatusInitialize(List<String> carNames) {
@@ -58,25 +47,6 @@ public class RacingCarGameController {
             racingProgressStatus.put(carName, 0);
         }
         return racingProgressStatus;
-    }
-
-    private int inputAttemptCount() {
-        printInputAttemptCountMessage();
-        int attemptCount = getAttemptCount();
-        System.out.println();
-        return attemptCount;
-    }
-
-    private void printInputAttemptCountMessage() {
-        outputView.printInputAttemptCountMessage();
-    }
-
-    private int getAttemptCount() {
-        return inputView.readAttemptCount();
-    }
-
-    private void printExecutionResultMessage() {
-        outputView.printExecutionResultMessage();
     }
 
     private void proceedOneRound(
@@ -98,17 +68,5 @@ public class RacingCarGameController {
         if (racingCarGameService.isMovingForward(randomNumber)) {
             racingCarGameService.moveForward(racingProgressStatus, carName);
         }
-    }
-
-    private void printExecutionResult(LinkedHashMap<String, Integer> racingProgressStatus) {
-        outputView.printExecutionResult(racingProgressStatus);
-    }
-
-    private List<String> getWinners(LinkedHashMap<String, Integer> racingProgressStatus) {
-        return racingCarGameService.getWinners(racingProgressStatus);
-    }
-
-    private void printWinners(List<String> winners) {
-        outputView.printWinners(winners);
     }
 }
