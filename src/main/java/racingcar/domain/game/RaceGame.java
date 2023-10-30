@@ -8,7 +8,7 @@ import racingcar.domain.formula.Formula;
 
 public class RaceGame {
 
-  private final int MINIMUM_ROUND = 0;
+  private final int MINIMUM_ROUND = 1;
 
   private final List<Car> cars;
   private final Formula formula;
@@ -38,12 +38,12 @@ public class RaceGame {
 
   private void isRoundPositive(int round) {
     if (round < MINIMUM_ROUND) {
-      throw new IllegalArgumentException("시도 회수는 0 이상이어야 합니다.");
+      throw new IllegalArgumentException("시도 회수는 1 이상이어야 합니다.");
     }
   }
 
   public synchronized void race(Consumer<List<RaceGameResult>> raceResultProcess) {
-    while (round > MINIMUM_ROUND) {
+    while (round >= MINIMUM_ROUND) {
       List<RaceGameResult> raceResults = cars.stream()
           .map(car -> new RaceGameResult(car.getName(), car.move(formula)))
           .collect(Collectors.toList());

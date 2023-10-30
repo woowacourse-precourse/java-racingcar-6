@@ -34,17 +34,17 @@ public class RaceGameTest {
     }
 
     @Test
-    @DisplayName("시도 회수가 0보다 작으면 예외를 반환한다.")
+    @DisplayName("시도 회수가 1보다 작으면 예외를 반환한다.")
     void 시도_회수가_0보다_작으면_예외를_반환한다() {
       // given
       var mockFormula = new MockFormula(MoveState.MOVING_FORWARD);
       var cars = CarFactory.createCars(List.of("pobi", "crong", "honux"));
-      var round = -1;
+      var round = 0;
 
       // when & then
       assertThatThrownBy(() -> new RaceGame(mockFormula, cars, round))
           .isInstanceOf(IllegalArgumentException.class)
-          .hasMessage("시도 회수는 0 이상이어야 합니다.");
+          .hasMessage("시도 회수는 1 이상이어야 합니다.");
     }
   }
 
