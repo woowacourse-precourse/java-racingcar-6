@@ -47,18 +47,6 @@ public class RaceGameInputTest {
   }
 
   @Test
-  @DisplayName("자동차 이름에 중복이 존재하면 예외를 반환한다.")
-  void 자동차_이름에_중복이_존재하면_예외를_반환한다() {
-    // given
-    var carNamesInput = "pobi,pobi,woni,jun";
-
-    // when & then
-    assertThatThrownBy(() -> RaceGameInput.from(carNamesInput, "1"))
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("자동차 이름은 중복될 수 없습니다.");
-  }
-
-  @Test
   @DisplayName("시도할 횟수가 숫자가 아니면 예외를 반환한다.")
   void 시도할_횟수가_숫자가_아니면_예외를_반환한다() {
     // given

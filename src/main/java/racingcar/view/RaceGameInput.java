@@ -16,7 +16,6 @@ public record RaceGameInput(List<String> carNames, int round) {
   private static void validateCarNamesInput(String carNamesInput) {
     isInputEmpty(carNamesInput);
     startOrEndsWithDelimiter(carNamesInput);
-    isDistinct(carNamesInput);
   }
 
   private static void isInputEmpty(String input) {
@@ -28,16 +27,6 @@ public record RaceGameInput(List<String> carNames, int round) {
   private static void startOrEndsWithDelimiter(String input) {
     if (input.startsWith(DELIMITER) || input.endsWith(DELIMITER)) {
       throw new IllegalArgumentException("자동차 이름은 쉼표로 시작하거나 끝날 수 없습니다.");
-    }
-  }
-
-  private static void isDistinct(String input) {
-    String[] carNames = input.split(DELIMITER);
-    int distinctCount = (int) Stream.of(carNames)
-        .distinct()
-        .count();
-    if (distinctCount != carNames.length) {
-      throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
     }
   }
 

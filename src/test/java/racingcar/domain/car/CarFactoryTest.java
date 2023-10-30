@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -21,5 +22,17 @@ public class CarFactoryTest {
     assertThat(cars).isInstanceOf(List.class)
         .hasOnlyElementsOfType(Car.class)
         .hasSize(3);
+  }
+
+  @Test
+  @DisplayName("자동차 이름이 중복되면 예외를 발생시킨다.")
+  void 자동차_이름이_중복되면_예외를_발생시킨다() {
+    // given
+    var carNames = List.of("pobi", "crong", "pobi");
+
+    // when & then
+    assertThatThrownBy(() -> CarFactory.createCars(carNames))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("자동차 이름은 중복될 수 없습니다.");
   }
 }
