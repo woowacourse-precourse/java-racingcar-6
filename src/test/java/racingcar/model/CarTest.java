@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.dto.CarDto;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,7 +14,9 @@ public class CarTest {
     void go_메서드는_position_을_증가시킨다() {
         Car car = new Car("자동차");
         car.go(true);
-        assertThat(car.getPosition()).isEqualTo(1);
+        CarDto carDto = car.toDto();
+
+        assertThat(carDto.getPosition()).isEqualTo(1);
     }
 
     @ParameterizedTest

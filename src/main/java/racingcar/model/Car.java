@@ -30,10 +30,6 @@ public class Car {
         return new CarDto(name, position);
     }
 
-    public Integer getPosition() {
-        return position;
-    }
-
     public String getName() {
         return name;
     }
