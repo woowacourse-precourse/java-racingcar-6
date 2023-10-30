@@ -18,8 +18,8 @@
 ## 예외처리
 
 ### 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생
-- [x] 입력받은 값이 숫자,알파벳,구분자 이외의 문자일 경우 - InputChecker#checkCharacter()
-- [x] 자동차 이름이 중복될 경우 - InputChecker#checkOverlap()
-- [x] 자동차 이름의 길이가 1 미만이거나 5를 초과할 경우 - InputChecker#checkNameLength()
-- [ ] 입력받은 값이 숫자가 아닐 경우
+- [x] 입력받은 값이 숫자,알파벳,구분자 이외의 문자일 경우 - InputValidation#checkCharacter()
+- [x] 자동차 이름이 중복될 경우 - InputValidation#checkOverlap()
+- [x] 자동차 이름의 길이가 1미만이거나 5를 초과할 경우 - InputValidation#checkNameLength()
+- [x] 입력받은 값이 숫자가 아닐 경우 - InputValidation#checkNumber()
 - [ ] 이동 횟수가 1 미만일 경우
