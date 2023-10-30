@@ -20,8 +20,8 @@ public class RacingGameController {
         Cars cars = CarFactory.createRacingCars(carNames);
         RacingGame racingGame = new RacingGame(cars);
 
-        int racingCount = view.getRacingCount();
-        RacingGameStatus racingGameStatus = racingGame.race(racingCount);
+        int raceCount = view.getRaceCount();
+        RacingGameStatus racingGameStatus = racingGame.race(raceCount);
 
         view.showRacingGameStatus(racingGameStatus);
         WinnerNames winnerNames = racingGame.getWinnerNames();

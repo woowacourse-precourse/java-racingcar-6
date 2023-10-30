@@ -9,5 +9,5 @@ public interface InputView {
 
     String getDelimiter();
 
-    int enterTryCount();
+    int enterRaceCount();
 }

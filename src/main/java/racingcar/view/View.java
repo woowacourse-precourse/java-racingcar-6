@@ -7,7 +7,7 @@ import racingcar.dto.WinnerNames;
 public interface View {
     List<String> getCarNames();
 
-    int getRacingCount();
+    int getRaceCount();
 
     void showRacingGameStatus(RacingGameStatus racingGameStatus);
 

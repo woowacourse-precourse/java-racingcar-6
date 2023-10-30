@@ -26,7 +26,7 @@ public class ConsoleInputView implements InputView {
     }
 
     @Override
-    public int enterTryCount() {
+    public int enterRaceCount() {
         return Integer.parseInt(readLine());
     }
 }
