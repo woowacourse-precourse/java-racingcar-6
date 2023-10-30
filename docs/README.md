@@ -85,7 +85,12 @@
     ```java
     int findMaxValue(List<Car> carList)
     ```
+  
 ## Validator
+- 자동차 입력 구분은 ,로 하고 있는가
+    ```java
+    boolean isIdentifierComma(String carNameInput)
+    ```
 - 시도 횟수에 숫자로 입력하는가
     ```java
     boolean isTryNumInteger(String tryNum)
@@ -102,4 +107,3 @@
     ```java
     boolean checkDuplicateCarName(List<String> carNameList)
     ```
-

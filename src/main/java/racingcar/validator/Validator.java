@@ -3,8 +3,14 @@ package racingcar.validator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class Validator {
+
+    public boolean isIdentifierComma(String carNameInput){
+        String regex = "([0-9a-zA-Zㄱ-ㅎ가-힣]+,)*[0-9a-zA-Zㄱ-ㅎ가-힣]+";
+        return carNameInput.matches(regex);
+    }
 
     public boolean isTryNumInteger(String tryNum) {
         try {
