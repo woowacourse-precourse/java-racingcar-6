@@ -15,6 +15,7 @@ public class GameController {
         validateRacingCarNames(racingCarNames);
 
         int movingNumber = convertMovingNumberToInteger(inputView.inputMovingNumber());
+        validateMovingNumber(movingNumber);
     }
 
     static public List<String> splitRacingCarNames(String racingCarNames) {
@@ -40,6 +41,12 @@ public class GameController {
             return Integer.parseInt(movingNumber);
         } catch (Exception e) {
             throw new IllegalArgumentException("정수가 아닌 값을 입력했습니다.");
+        }
+    }
+
+    static public void validateMovingNumber(final int movingNumber) {
+        if (movingNumber <= 0) {
+            throw new IllegalArgumentException("양수가 아닌 값을 입력했습니다.");
         }
     }
 }
