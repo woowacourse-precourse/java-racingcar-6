@@ -8,11 +8,15 @@ import racingcar.view.Output;
 
 public class GameController {
 
-    private CarFactory carFactory;
+    private final CarFactory carFactory;
 
     private CarController carController;
 
     private CarManager carManager;
+
+    public GameController(){
+        carFactory = new CarFactory();
+    }
 
     public void play() {
         setConfiguration();
@@ -21,15 +25,13 @@ public class GameController {
     }
 
     public void setConfiguration() {
-        carFactory = new CarFactory(Input.inputCarName());
-        carFactory.produceCars();
-
-        carController = new CarController(carFactory.getCarList(), Input.inputMoveChance());
-        carManager = new CarManager(carFactory.getCarList());
+        carFactory.produceCars(Input.inputCarName());
+        carController = new CarController(carFactory, Input.inputMoveChance());
+        carManager = new CarManager(carFactory);
     }
 
     public void startRacing() {
-        while (carController.checkChance()) {
+        while (carController.checkMoveChance()) {
             carController.moveCars();
 
             carFactory.getCarList()
