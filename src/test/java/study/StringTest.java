@@ -17,6 +17,15 @@ public class StringTest {
     }
 
     @Test
+    void split은_콤마를_어떻게구분() {
+        String input = "1,2";
+        String[] result = input.split(",");
+
+        assertThat(result).contains("2", "1");
+        assertThat(result).containsExactly("1", "2");
+    }
+
+    @Test
     void split_메서드_사용시_구분자가_포함되지_않은_경우_값을_그대로_반환() {
         String input = "1";
         String[] result = input.split(",");

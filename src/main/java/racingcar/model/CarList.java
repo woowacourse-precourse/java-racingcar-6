@@ -6,7 +6,6 @@ import java.util.List;
 
 public class CarList {
     private List<Car> carList = new ArrayList<>();
-    private int maxDistance;
     private int size;
     public CarList(List<String> names) {
         for (String name: names){
@@ -43,7 +42,7 @@ public class CarList {
       woni :
       jun : -
       \n
-    * 이렇게 공백까지 합쳐서 하나의 세트로 리턴하세요
+    * 공백까지 합쳐서 하나의 세트로 리턴하기
     * */
     public String toString() {
         String addcars = "";

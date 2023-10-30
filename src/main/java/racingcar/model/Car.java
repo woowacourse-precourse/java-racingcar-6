@@ -5,16 +5,6 @@ public class Car {
     private int distance;
     private String bar ="";
 
-    // test
-    public Car(String name, int distance){
-        this.name = name;
-        this.distance = distance;
-        String b = "";
-        for (int i= 0; i<distance; i++){
-            b += "-";
-        }
-        this.bar = b;
-    }
     public Car(String name) {
         this.name = name;
     }
@@ -25,7 +15,6 @@ public class Car {
             this.bar += "-";
         }
         this.distance += distance;
-
     }
 
     @Override
@@ -40,6 +29,7 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        String n = this.name;
+        return n;
     }
 }

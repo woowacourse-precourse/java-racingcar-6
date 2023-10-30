@@ -46,8 +46,7 @@ public class Controller {
 
     /* 입력한 수 만큼 반복 진행
     * 자동차 수 만큼 랜덤한 숫자 만들어서
-    * 이걸 carList에 넘겨줌
-    * FIXME 한가지 일만*/
+    * 이걸 carList에 넘겨줌*/
     public void play(int howMany){
         OutputView outputView = new OutputView();
         while (howMany > 0){

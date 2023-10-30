@@ -1,7 +1,6 @@
 package racingcar;
 
 import racingcar.controller.Controller;
-import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
@@ -21,7 +20,8 @@ public class Application {
         controller.putCarList(nameList);
         outputView.printResult();
         controller.play(howMany);
-        controller.whoWinner();
+        List<String> winners = controller.whoWinner();
+        outputView.printWinner(winners);
 
     }
 }
