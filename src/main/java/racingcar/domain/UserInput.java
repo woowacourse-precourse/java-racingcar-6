@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import camp.nextstep.edu.missionutils.Console;
 import static racingcar.domain.Constants.*;
