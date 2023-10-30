@@ -30,4 +30,12 @@ public class Car {
     private void moveForward() {
         progressCount++;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getProgressCount() {
+        return progressCount;
+    }
 }

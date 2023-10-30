@@ -17,5 +17,5 @@
 - [ ] 자동차의 이름을 출력한다. ``OutputView - printCarName``
 - [ ] 자동차의 전진 상황을 출력한다. ``OutputView - printCarProgress``
 - [ ] 우승자를 안내한다. ``GameController - announceWinner``
-- [ ] 자동차중 가장 많이 전진한 자동차들이 누구인지 확인한다. ``Referee - findMostProgressCar``
+- [x] 자동차중 가장 많이 전진한 자동차들이 누구인지 확인한다. ``Referee - findMostProgressCar``
 - [ ] 우승자를 출력한다. ``OutputView - printWinner``
