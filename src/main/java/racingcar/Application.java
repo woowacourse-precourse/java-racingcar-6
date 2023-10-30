@@ -1,17 +1,17 @@
 package racingcar;
 
 import racingcar.input.InputManager;
-import racingcar.game.Roster;
+import racingcar.game.Racing;
 
 public class Application {
     public static void main(String[] args) {
         String carNames = InputManager.readCarNames();
-        Roster roster = new Roster(carNames);
+        Racing racing = new Racing(carNames);
         int numberOfAttempts = InputManager.readNumberOfAttempts();
         for (int i = 0; i < numberOfAttempts; i++) {
-            roster.moveAllCarsForward();
+            racing.moveAllCarsForward();
         }
-        roster.updateLongestCarRoute();
-        roster.determineWinningCars();
+        racing.updateLongestCarRoute();
+        racing.determineWinningCars();
     }
 }

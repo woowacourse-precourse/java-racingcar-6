@@ -3,20 +3,19 @@ package racingcar.game;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Roster {
-    private List<Car> roster = new ArrayList<>();
+public class Racing {
+    private List<Car> racingCars = new ArrayList<>();
     private List<Car> winningCars = new ArrayList<>();
     private int longestCarRouteLength = 0;
 
-    public Roster(String input) {
-        String[] carNames = input.split(",");
-        for (String carName : carNames) {
-            roster.add(new Car(carName));
+    public Racing(String carNames) {
+        for (String carName : carNames.split(",")) {
+            racingCars.add(new Car(carName));
         }
     }
 
     public void moveAllCarsForward() {
-        for (Car car : roster) {
+        for (Car car : racingCars) {
             if (car.isMovable()) {
                 car.moveForward();
             }
@@ -24,7 +23,7 @@ public class Roster {
     }
 
     public void updateLongestCarRoute() {
-        for (Car car : roster) {
+        for (Car car : racingCars) {
             String carRoute = car.getRoute();
             if (carRoute.length() > longestCarRouteLength) {
                 longestCarRouteLength = carRoute.length();
@@ -33,7 +32,7 @@ public class Roster {
     }
 
     public void determineWinningCars() {
-        for (Car car : roster) {
+        for (Car car : racingCars) {
             String carRoute = car.getRoute();
             if (carRoute.length() == longestCarRouteLength) {
                 winningCars.add(car);
