@@ -46,7 +46,6 @@ public class RacingCarGameController {
 
         List<Car> winners = findWinners();
         outputView.printWinners(winners);
-
     }
 
     private void moveCarForward() {
