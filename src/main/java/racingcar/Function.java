@@ -25,6 +25,7 @@ public class Function {
 		System.out.println("경주할 자동차의 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
 		String[] inputValue= Console.readLine().split(",");
 		checkString(inputValue);
+		
 		ArrayList<String> carName= new ArrayList<String>(Arrays.asList(inputValue));
 		
 		return carName;
@@ -93,7 +94,7 @@ public class Function {
 	
 	private void checkString(String[] inputValue) {
 		for(int i= 0; i<inputValue.length; i++) {
-			if(inputValue[i].length()>5 || inputValue[i].getClass().getName()!="string") {
+			if(inputValue[i].length()>5 || inputValue[i].getClass() != String.class) {
 				throw new IllegalArgumentException();
 			}
 		}
