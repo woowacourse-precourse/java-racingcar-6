@@ -18,5 +18,14 @@ public class GameController {
         cars = inputView.readCarNames();
         outputView.printInputAttemptCountMessage();
         attemptCount = inputView.readAttemptCount();
+        process();
+    }
+
+    public void process() {
+        while(attemptCount.isNotFinish()) {
+            cars.forEach(Car::moveForward);
+            attemptCount.decreaseCount();
+            outputView.printMoveRecords(cars);
+        }
     }
 }
