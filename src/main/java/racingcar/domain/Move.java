@@ -15,6 +15,10 @@ public class Move {
         System.out.print(move.toString());
     }
 
+    public int getMoveCount() {
+        return move.length();
+    }
+
     @Override
     public String toString() {
         return move.toString();
