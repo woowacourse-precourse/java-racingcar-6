@@ -8,7 +8,6 @@ import racingcar.model.RacingCarList;
 
 import static racingcar.view.OutputView.*;
 import static racingcar.view.InputView.*;
-import static racingcar.constant.GameConfig.*;
 
 public class GameController {
     private final GameProcess process;
@@ -30,7 +29,8 @@ public class GameController {
         }
         printFinalWinner(getFinalWinner(car, car.size()));
     }
-    private int decreaseAttempt(int attempt){
+
+    private int decreaseAttempt(int attempt) {
         return attempt - 1;
     }
 
