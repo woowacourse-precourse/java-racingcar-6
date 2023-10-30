@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.CarInputProcess;
+import racingcar.domain.RepeatInputProcess;
 
 import java.util.List;
 
@@ -41,6 +42,24 @@ class ApplicationTest extends NsTest {
         List<String> testCars = carInputProcess.process(input);
         assertThat(testCars).contains("java", "unity");
         assertThat(testCars).containsExactly("java", "unity");
+    }
+
+    @Test
+    void 자동차의_반복_입력값을_숫자_형식으로_표현() {
+        RepeatInputProcess repeatInputProcess = new RepeatInputProcess();
+        String input = "123";
+        int testRepeat = repeatInputProcess.process(input);
+        assertThat(testRepeat).isEqualTo(123);
+    }
+
+    @Test
+    void 자동차의_반복_입력값이_숫자_형식으로_표현되지_않을_때의_예외_처리() {
+        RepeatInputProcess repeatInputProcess = new RepeatInputProcess();
+        String input = "Java";
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> repeatInputProcess.process(input))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Override
