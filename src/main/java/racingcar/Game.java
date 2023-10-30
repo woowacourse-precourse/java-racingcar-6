@@ -11,8 +11,6 @@ public class Game {
     private int times = 0;
 
     public void play() {
-        String readLine;
-
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         addCar(parser(readLine()));
         System.out.println("시도할 회수는 몇회인가요?");
@@ -22,14 +20,13 @@ public class Game {
     }
 
     public String[] parser(String readLine) {
+        Validator validator = new Validator();
+
         String[] cars = readLine.trim().split("\\s*,\\s*");
         // System.out.println(Arrays.toString(cars));
         // parsing 하면서 error 검사하면 될 듯
+        validator.isNameValidated(cars);
         return cars;
-    }
-
-    public boolean checkValidate(String str) {
-        return true;
     }
 
     private void addCar(String[] cars) {
