@@ -1,18 +1,19 @@
 package racingcar.view;
 
 import java.util.Map;
+import racingcar.constants.OutputMessages;
 
 public class OutputView {
     public void requestCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(OutputMessages.REQUEST_CAR_NAMES.getMessage());
     }
 
     public void requestTryCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(OutputMessages.REQUEST_TRY_COUNT.getMessage());
     }
 
     public void printStartResult() {
-        System.out.println("실행 결과");
+        System.out.println(OutputMessages.START_RESULT.getMessage());
     }
 
     public void printRacingStatus(Map<String, Integer> racingStatus) {
@@ -30,6 +31,6 @@ public class OutputView {
     }
 
     public void printResult(String topRacers) {
-        System.out.println("최종 우승자 : " + topRacers);
+        System.out.println(OutputMessages.FINAL_WINNER.getMessage()+ topRacers);
     }
 }
