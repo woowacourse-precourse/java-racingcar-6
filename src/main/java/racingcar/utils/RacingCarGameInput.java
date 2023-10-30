@@ -10,6 +10,7 @@ public class RacingCarGameInput {
     public static final String ERROR_MESSAGE_NOT_NUMBER = "[ERROR] 시도 횟수는 숫자여야 합니다.";
     public static final String ERROR_MESSAGE_NOT_POSITIVE = "[ERROR] 시도 횟수는 1 이상이어야 합니다.";
     public static final String ERROR_MESSAGE_EMPTY = "[ERROR] 자동차 이름에 공백이 있을 수 없습니다.";
+    public static final String ERROR_MESSAGE_DUPLICATION = "[ERROR] 자동차 이름이 중복되면 안됩니다.";
 
     public static List<RacingCar> readCarNames() {
         String input = Console.readLine();
@@ -18,7 +19,7 @@ public class RacingCarGameInput {
         List<RacingCar> carList = Arrays.stream(arr)
                 .map(RacingCar::new)
                 .toList();
-        validateCarNames(carList);
+        validateCarList(carList);
         return carList;
     }
     private static boolean validateCarNamesInput(String input){
@@ -29,7 +30,7 @@ public class RacingCarGameInput {
         return true;
     }
 
-    private static boolean validateCarNames(List<RacingCar> carList) {
+    private static boolean validateCarList(List<RacingCar> carList) {
         for (RacingCar car : carList) {
             if (car.getName().length() > 5) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_BIGGER_THAN_5CHAR);
