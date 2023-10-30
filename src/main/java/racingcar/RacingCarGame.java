@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
-    private List<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
     private Integer iterNumber = 0;
 
     public void gameStart() {
@@ -21,6 +21,9 @@ public class RacingCarGame {
             return;
         }
         iterNumber = Integer.parseInt(number);
+
+        RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
+        racingCarOutputView.moveResultPrint(iterNumber, cars);
     }
 
     public void createCars(String names) {
@@ -29,5 +32,4 @@ public class RacingCarGame {
             cars.add(new Car(name.trim()));
         }
     }
-
 }
