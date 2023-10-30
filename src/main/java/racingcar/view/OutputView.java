@@ -21,6 +21,7 @@ public class OutputView {
     }
 
     public static void printExecutionResultMessage() {
+        System.out.println();
         printlnMessage(EXECUTION_RESULT);
     }
 
