@@ -3,6 +3,7 @@ package racingcar.exception;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +23,7 @@ class UserInputExceptionTest {
     private static final String BLANK_STRING_MESSAGE = "빈 문자를 입력하셨습니다.";
     private static final String DUPLICATE_MESSAGE = "자동차 이름은 중복되지 않게 입력해주세요";
     private static final String ONLY_COMMA = "구분자는 쉼표로만 작성해주세요";
-    private static final String INPUT_MORE_THAN_TWO_CAR = "차를 두대 이상 입력해주세요";
+    private static final String INPUT_MORE_THAN_TWO = "차는 두 대 이상으로 입력하세요";
 
     @Test
     void 이름_길이가_유효할_때() {
@@ -74,5 +75,12 @@ class UserInputExceptionTest {
         assertDoesNotThrow(() -> UserInputException.isComma(input));
     }
 
+    @Test
+    void 차_두_대_이상_입력_하지_않았을_때(){
+        String input = "pobi, woni";
+        List<String> carName = Arrays.asList(input.split(","));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserInputException.isMoreThan(carName));
+        assertEquals(INPUT_MORE_THAN_TWO, exception.getMessage());
+    }
 
 }
