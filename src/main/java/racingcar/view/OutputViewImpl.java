@@ -12,7 +12,8 @@ public class OutputViewImpl implements OutputView{
 
     @Override
     public void displayMoveCountInputNotice() {
-
+        String output = "시도할 횟수는 몇회인가요?";
+        System.out.println(output);
     }
 
     @Override

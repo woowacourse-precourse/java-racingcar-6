@@ -16,4 +16,9 @@ public class RaceView {
     public String[] getCarNamesFromUsers() {
         return inputView.getCarNamesFromUsers();
     }
+
+    public void displayMoveCountInputNotice() {outputView.displayMoveCountInputNotice();}
+
+    public String getMoveCountFromUsers() {
+        return inputView.getMoveCountFromUsers();}
 }

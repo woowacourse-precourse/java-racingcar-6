@@ -11,7 +11,7 @@ public class InputViewImpl implements InputView{
     }
 
     @Override
-    public int getMoveCountFromUsers() {
-        return 0;
+    public String getMoveCountFromUsers() {
+        return Console.readLine();
     }
 }

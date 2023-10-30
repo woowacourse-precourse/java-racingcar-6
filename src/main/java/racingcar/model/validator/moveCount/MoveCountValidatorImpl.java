@@ -7,7 +7,7 @@ public class MoveCountValidatorImpl implements MoveCountValidator{
     @Override
     public void validateType(Long input) {
         if (input > MAXIMUM_MOVE_COUNT) {
-            throw new IllegalArgumentException("자료형에 맞는 값을 입력해주세요.");
+            throw new IllegalArgumentException(MAXIMUM_MOVE_COUNT + " 이하의 값을 입력해주세요.");
         }
     }
 
