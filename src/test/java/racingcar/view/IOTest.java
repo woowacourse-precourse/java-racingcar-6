@@ -11,7 +11,7 @@ public abstract class IOTest {
     private ByteArrayOutputStream outputStreamCaptor;
 
     @BeforeEach
-    void allocateSystemOut() {
+    private void allocateSystemOut() {
         outputStreamCaptor = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStreamCaptor);
         System.setOut(printStream);
