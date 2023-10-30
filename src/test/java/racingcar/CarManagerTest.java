@@ -45,6 +45,26 @@ class CarManagerTest {
         // then
         Assertions.assertThat(carManagerWithFixedNumberGeneratorValueThree.getCars().getCarList().get(0).getDistance()).isEqualTo(0);
     }
+
+    @Test
+    void 우승자를_반환한다() {
+        // given
+        String[] names = {"성겸", "성민", "성우"};
+
+        // when
+        carManager.createCars(names);
+
+        // 성겸 이동 거리 : 2
+        carManager.getCars().getCarList().get(0).incrementDistance();
+        carManager.getCars().getCarList().get(0).incrementDistance();
+
+        // 성민 이동 거리 : 2
+        carManager.getCars().getCarList().get(1).incrementDistance();
+        carManager.getCars().getCarList().get(1).incrementDistance();
+
+        // then
+        Assertions.assertThat(carManager.getWinners().getCarList().size()).isEqualTo(2);
+    }
 }
 
 class RandomNumberGeneratorMock extends RandomNumberGenerator {
