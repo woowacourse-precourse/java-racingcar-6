@@ -12,7 +12,26 @@ class Car{
         this.name = name;
         this.distance = distance;
     }
+
+    String getName(){
+        return this.name;
+    }
+
+    String getDistance(){
+        return this.distance;
+    }
+
 }
+
+class insertionNameAndResetDistance{
+    public static void resetNameAndDistance(ArrayList<Car> carList, String [] carNameList){
+        int i;
+        for(i = 0; i < carNameList.length; i++){
+            carList.add(new Car(carNameList[i], ""));
+        }
+    }
+}
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -20,5 +39,6 @@ public class Application {
 
         String [] carNameList = Console.readLine().split(",");
 
+        insertionNameAndResetDistance.resetNameAndDistance(carList, carNameList);
     }
 }
