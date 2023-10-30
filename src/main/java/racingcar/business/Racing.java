@@ -37,6 +37,8 @@ public class Racing {
         for (Car car : carList) {
             tryMoving(car);
         }
+
+        outputView.print(Output.BLANK_LINE);
     }
 
     private void tryMoving(Car car) {
