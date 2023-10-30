@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.exception.ExceptionCheck;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -28,7 +27,6 @@ public class RacingController {
     private void inputRepeatNumber() {
         OutputView.printRepeatNumber();
         repeatNumber = Integer.parseInt(InputView.read());
-        ExceptionCheck.iterateNumberValidation(repeatNumber);
     }
 
     private void repeatRacing() {
