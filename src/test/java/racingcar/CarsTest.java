@@ -74,5 +74,19 @@ final class CarsTest {
                 .contains("aaa : --");
     }
 
+    @Test
+    void 자동차를_움직일_수_있다_3() {
+        Cars cars = new Cars(roulette, "a,aaa");
+
+        roulette.fixNumber(1);
+        cars.tryMove();
+        roulette.fixNumber(1);
+        cars.tryMove();
+
+        assertThat(cars.collectCurrentStatus())
+                .contains("a : ")
+                .contains("aaa : ");
+    }
+
 
 }
