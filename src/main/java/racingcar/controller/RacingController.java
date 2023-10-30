@@ -15,11 +15,11 @@ public class RacingController {
     }
 
     public void run() {
-        Cars cars = new Cars(inputView.inputCarName());
+        Cars cars = Cars.of(inputView.inputCarName());
         int trialCount = inputView.inputTrialCount();
         outputView.printResultMessage();
         while (trialCount-- > LOOP_UNTIL_ZERO) {
-            cars.accumulateNumberOfAdvance();
+            cars.drawNumber();
             outputView.printExecutionResult(cars);
         }
         outputView.printFinalWinner(cars.getWinnerList());
