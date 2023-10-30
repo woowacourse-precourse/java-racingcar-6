@@ -35,25 +35,9 @@ public class CarController {
             cars = inputCarsStringToCarsClass(inputCars);
 
             forwardAttempt = inputForForward();
+            attemptForwardAndOutputResult(forwardAttempt, cars);
 
             output.resultHeader();
-
-            // 전진 시도 횟수만큼 전진
-            for (int forward = 0; forward < forwardAttempt; forward++) {
-
-                // 각 자동차들 마다 forward()를 통하여 랜덤으로 생성한 값이 4 이상인 경우 전진
-                cars.getCars()
-                        .stream()
-                        .forEach(car -> forward(car));
-
-                // 전진이 완료된 이후 현재 위치 정보 출력
-                cars.getCars()
-                        .stream()
-                        .forEach(car -> output.position(car.getForward()));
-
-                // 각 자동차들의 위치 정보가 모두 출력 되면 줄만 하나 출력
-                System.out.println();
-            }
 
             output.winners(cars.getWinner(cars.getCars()));
         }
@@ -107,5 +91,28 @@ public class CarController {
         if (randomValue >= 4) {
             car.forward();
         }
+    }
+
+    private void attemptForwardAndOutputResult(int forwardAttempt, Cars cars) {
+        // 전진 시도 횟수만큼 전진
+        for (int forward = 0; forward < forwardAttempt; forward++) {
+
+            // 각 자동차들 마다 forward()를 통하여 랜덤으로 생성한 값이 4 이상인 경우 전진
+            cars.getCars()
+                    .stream()
+                    .forEach(car -> forward(car));
+
+            // 전진이 완료된 이후 현재 위치 정보 출력
+            forwardResultOutput(cars);
+
+            // 각 자동차들의 위치 정보가 모두 출력 되면 줄만 하나 출력
+            System.out.println();
+        }
+    }
+
+    private void forwardResultOutput(Cars cars) {
+        cars.getCars()
+                .stream()
+                .forEach(car -> output.position(car.getForward()));
     }
 }
