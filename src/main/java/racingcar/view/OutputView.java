@@ -29,8 +29,8 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinner(List<String> winner) {
-
+    public void printWinners(List<String> winners) {
+        System.out.printf(Message.OUTPUT_WINNER.message, String.join(", ", winners));
     }
 
     public enum Message {
