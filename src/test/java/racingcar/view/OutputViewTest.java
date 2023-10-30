@@ -1,11 +1,12 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class OutputViewTest extends NsTest {
 
@@ -19,7 +20,7 @@ class OutputViewTest extends NsTest {
         String result = output();
 
         //then
-        Assertions.assertThat(result).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        assertThat(result).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
     
     @Test
@@ -32,7 +33,20 @@ class OutputViewTest extends NsTest {
         String result = output();
 
         //then
-        Assertions.assertThat(result).isEqualTo("시도할 회수는 몇회인가요?");
+        assertThat(result).isEqualTo("시도할 회수는 몇회인가요?");
+    }
+
+    @Test
+    @DisplayName("출력 - 실행 결과")
+    public void testPrintRacingResultMessage() {
+        // given
+
+        // when
+        OutputView.printRacingResultMessage();
+        String result = output();
+
+        // then
+        assertThat(result).isEqualTo("실행 결과");
     }
 
     @Test
@@ -46,7 +60,7 @@ class OutputViewTest extends NsTest {
         String roundResultMessage = output();
 
         //then
-        Assertions.assertThat(roundResultMessage).isEqualTo("CarA : ---");
+        assertThat(roundResultMessage).isEqualTo("CarA : ---");
     }
 
     @Test
@@ -60,7 +74,7 @@ class OutputViewTest extends NsTest {
         String racingWinnerMessage = output();
 
         //then
-        Assertions.assertThat(racingWinnerMessage).isEqualTo("최종 우승자 : CarA, CarB");
+        assertThat(racingWinnerMessage).isEqualTo("최종 우승자 : CarA, CarB");
     }
 
     @Test
@@ -74,7 +88,7 @@ class OutputViewTest extends NsTest {
         String racingWinnerMessage = output();
 
         //then
-        Assertions.assertThat(racingWinnerMessage).isEqualTo("최종 우승자 : CarA");
+        assertThat(racingWinnerMessage).isEqualTo("최종 우승자 : CarA");
     }
 
     @Override
