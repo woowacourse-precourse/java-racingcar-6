@@ -13,6 +13,7 @@ public class RacingGameController {
 
     public RacingGameController(){
         playGame();
+        showWinners();
     }
 
     public void playGame() {
@@ -28,5 +29,9 @@ public class RacingGameController {
     private void runRound() {
         cars.getCarList().forEach(Car::moveForward);
         cars.getCarList().forEach(OutputView::printCarNameAndPosition);
+    }
+
+    private void showWinners() {
+        OutputView.printWinners(cars.getWinners());
     }
 }
