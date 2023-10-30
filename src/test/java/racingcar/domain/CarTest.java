@@ -13,8 +13,11 @@ class CarTest {
         Car car = new Car(carName);
 
         // when
-        car.move();
-        car.move();
+        car.move(3);
+        car.move(4);
+        car.move(9);
+        car.move(1);
+
         int findPosition = car.getPosition();
         String findName = car.getName();
 
