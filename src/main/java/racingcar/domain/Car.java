@@ -26,6 +26,10 @@ public class Car {
         this.position = position;
     }
 
+    public void move(){
+        this.position++;
+    }
+
     public String getCarName() {
         return carName;
     }
