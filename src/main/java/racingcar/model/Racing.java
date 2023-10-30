@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class RacingModel {
+public class Racing {
     private final Cars cars;
     private int attempt;
 
-    public RacingModel(List<String> names, int attempt) {
+    public Racing(List<String> names, int attempt) {
         this.cars = new Cars(createCarsFromNames(names));
         this.attempt = attempt;
     }

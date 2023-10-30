@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.model.RacingModel;
+import racingcar.model.Racing;
 import racingcar.view.RacingView;
 
 import java.util.Arrays;
@@ -20,7 +20,7 @@ public class Application {
         validateAttemptInput(attemptInput);
         int attempt = Integer.parseInt(attemptInput);
 
-        RacingModel model = new RacingModel(carNames, attempt);
+        Racing model = new Racing(carNames, attempt);
 
         view.printRacingStartMessage();
         while (!model.isEnd()) {
