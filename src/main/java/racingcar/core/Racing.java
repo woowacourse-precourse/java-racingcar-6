@@ -11,7 +11,15 @@ public class Racing {
     public void registerCarsByName(List<String> carNames) {
         validateNotNull(carNames);
         this.cars = createCars(carNames);
-        validateCarsNotEmpty();
+        validateMinimumCars();
+    }
+
+    private void validateMinimumCars() {
+        if (cars == null || cars.isEmpty()) {
+            throw new IllegalArgumentException("경주할 자동차를 등록해야 합니다.");
+        } else if (cars.size() < 2) {
+            throw new IllegalArgumentException("자동차를 최소 2대 등록해야 합니다.");
+        }
     }
 
     private void validateNotNull(Object input) {
@@ -36,7 +44,7 @@ public class Racing {
     }
 
     public void doRace() {
-        validateCarsNotEmpty();
+        validateMinimumCars();
         validateRaceCount();
         System.out.println("\n실행 결과");
         for (int i = 0; i < raceCount; i++) {
@@ -52,21 +60,15 @@ public class Racing {
         System.out.println();
     }
 
-    private void validateCarsNotEmpty() {
-        if (cars == null || cars.isEmpty()) {
-            throw new IllegalArgumentException("경주할 자동차를 등록해야 합니다.");
-        }
-    }
-
     public void printWinner() {
-        validateCarsNotEmpty();
+        validateMinimumCars();
         final List<String> winnerNames = getWinners().stream().map(Car::getName).toList();
         final String winnerNamesString = StringUtils.joinByComma(winnerNames);
         System.out.println(String.format("최종 우승자 : %s", winnerNamesString));
     }
 
     private List<Car> getWinners() {
-        validateCarsNotEmpty();
+        validateMinimumCars();
         validateRacingStarted();
         final int maxForwardCount = getMaxForwardCount();
         return cars.stream()
