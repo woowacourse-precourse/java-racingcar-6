@@ -20,13 +20,12 @@ public class RacingGameController {
 
     private void initRacingGame() {
         List<String> carNames = InputView.inputCarNames();
-        InputValidator.validate(carNames);
         racingGame = new RacingGame(carNames);
     }
 
     private void initTryCount() {
         int tryCount = InputView.inputTryCount();
-        InputValidator.validate(tryCount);
+        InputValidator.validateCount(tryCount);
         this.tryCount = tryCount;
     }
 
