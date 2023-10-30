@@ -7,7 +7,10 @@ import static racingcar.ExceptionMessage.CAR_NAME_HAS_BLANK;
 import static racingcar.ExceptionMessage.CAR_NAME_HAS_NOTHING;
 import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_OVERED;
 import static racingcar.ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH;
+import static racingcar.ExceptionMessage.INPUT_TYPE_MISMATCH;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
@@ -44,6 +47,17 @@ public class InputTest {
                 Arguments.of("asd,asdfgh", CAR_NAME_LENGTH_OVERED, "길이 초과"),
                 Arguments.of("asd,asdf,asd", CAR_NAME_DUPLICATION, "중복")
         );
+    }
+
+    @Test
+    void 이동_횟수_형식_오류() {
+        String input = "asd";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
+                InputView::timesToTry);
+        assertThat(e.getMessage()).isEqualTo(INPUT_TYPE_MISMATCH);
     }
 
     @ParameterizedTest(name = "{index}:{2}")
