@@ -8,6 +8,8 @@ public class OutputView {
 
     private static final String ONE_STEP = "-";
     private static final String PRINT_RACE_RESULT_MESSAGE = "실행 결과";
+    private static final String PRINT_WINNERS_MESSAGE = "최종 우승자 : ";
+    private static final String WINNER_LIST_DELIMITER = ", ";
 
     public static void printRaceResult(List<RaceResult> raceResults) {
         System.out.println();
@@ -25,5 +27,10 @@ public class OutputView {
 
     private static String createCarMovementVisualString(int carPosition) {
         return ONE_STEP.repeat(carPosition);
+    }
+
+    public static void printWinners(List<String> winners) {
+        String winnerList = String.join(WINNER_LIST_DELIMITER, winners);
+        System.out.println(PRINT_WINNERS_MESSAGE + winnerList);
     }
 }
