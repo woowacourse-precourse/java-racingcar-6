@@ -17,11 +17,15 @@ public class Race {
         return cars;
     }
 
-    public void increaseGameOrder() {
-        this.order++;
+    public int getNumRaces() {
+        return this.numRaces;
     }
 
     public boolean checkGamesExhausted() {
         return this.order >= this.numRaces;
+    }
+
+    public void increaseGameOrder() {
+        this.order++;
     }
 }
