@@ -15,4 +15,11 @@ public class SetRace {
         }
         return carsList;
     }
+
+    public int inputMovement() {
+        System.out.println("이동할 횟수를 입력하세요");
+        String time = Console.readLine();
+        int number = Integer.parseInt(time);
+        return number;
+    }
 }

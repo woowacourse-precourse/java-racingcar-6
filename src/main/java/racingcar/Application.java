@@ -7,5 +7,6 @@ public class Application {
         // TODO: 프로그램 구현
         SetRace setRace = new SetRace();
         System.out.println(setRace.createCar());
+        System.out.println(setRace.inputMovement());
     }
 }
