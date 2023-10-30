@@ -55,4 +55,11 @@ class RacingCarGameControllerTest {
         assertThat(winnerList).contains("제네시스", "소나타");
         assertThat(winnerList).doesNotContain("벤츠");
     }
+
+    @Test
+    void 랜덤_숫자가_최소_전진_숫자_보다_큰_지_판단_하는_기능() {
+        int randomNumber = 5;
+        boolean biggerFlag = racingCarGameController.isBiggerThanMinAdvanceCount(randomNumber);
+        assertThat(biggerFlag).isEqualTo(true);
+    }
 }
