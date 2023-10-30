@@ -30,12 +30,15 @@ public class Cars {
         validateDuplicatedCarNames(carNames);
     }
 
-    public List<String> findWinners() {
-        int maxPosition = cars.stream()
+    public int getMaxPosition() {
+        return cars.stream()
             .mapToInt(Car::getPosition)
             .max()
             .orElseThrow(() -> new IllegalStateException("Car 리스트가 존재하지 않습니다"));
+    }
 
+    public List<String> findWinners() {
+        int maxPosition = getMaxPosition();
         return cars.stream()
             .filter(car -> car.getPosition() == maxPosition)
             .map(Car::getName)
