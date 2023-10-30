@@ -3,8 +3,8 @@ package racingcar.model;
 public class Round {
     private int round;
 
-    public Round(String inputString) {
-        round = Integer.parseInt(inputString);
+    public void setRound(String inputRound) {
+        round = Integer.parseInt(inputRound);
     }
 
     public boolean isRemaining() {
