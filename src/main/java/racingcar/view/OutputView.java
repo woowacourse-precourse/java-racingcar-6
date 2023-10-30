@@ -9,35 +9,24 @@ public final class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String FINAL_WINNER = "최종 우승자";
     private static final String COLON = " : ";
-    private static final String HYPHEN = "-";
-    private static final String COMMA = ", ";
+    private static final String POSITION_MARK = "-";
+    private static final String DELIMITER = ", ";
 
     public void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
     }
 
     public void printResult(List<CarDto> carDtos) {
-        carDtos.stream()
-                .forEach(this::printDtoInfo);
+        carDtos.stream().forEach(car -> System.out.println(getCarStatus(car)));
         System.out.println();
     }
 
-    private void printDtoInfo(CarDto carDto) {
-        System.out.print(carDto.getName() + COLON);
-        for (int i = 0; i < carDto.getPosition(); i++) {
-            System.out.print(HYPHEN);
-        }
-        System.out.println();
+    private String getCarStatus(CarDto carDto) {
+        return carDto.getName() + COLON + POSITION_MARK.repeat(carDto.getPosition());
     }
 
-    public void printFinalWinner(List<String> winnerNames) {
+    public void printFinalWinners(List<String> winnerNames) {
         System.out.print(FINAL_WINNER + COLON);
-        for (int i = 0; i < winnerNames.size(); ) {
-            System.out.print(winnerNames.get(i));
-            if (++i < winnerNames.size()) {
-                System.out.print(COMMA);
-            }
-        }
-        System.out.println('\n');
+        System.out.println(String.join(DELIMITER, winnerNames));
     }
 }
