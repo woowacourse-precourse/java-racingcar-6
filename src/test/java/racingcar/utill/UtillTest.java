@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.in;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -65,10 +66,13 @@ class UtillTest {
     @Test
     void print() {
         // given
+        String input = "input";
 
         // when
+        Utill.print(input);
 
         // than
+        assertThat(outContent.toString()).isEqualTo("input\n");
     }
 
     @DisplayName("배열을 리스트로 만들어준다. 테스트")
