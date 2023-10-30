@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.AppConfig;
 
 public class InputHandler {
     public static String readInput() {

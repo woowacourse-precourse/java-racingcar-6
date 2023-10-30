@@ -6,8 +6,7 @@ import racingcar.AppConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
 
-public class FixDistanceRaceService implements RaceService {
-    private static final int FIX_DISTANCE = 1;
+public class VariableDistanceRaceService implements RaceService{
 
     @Override
     public Map<Car,Integer> runRace(Participants participants) {
@@ -16,19 +15,18 @@ public class FixDistanceRaceService implements RaceService {
         for (int i = 0; i < size; i++) {
             Car car = participants.get(i);
 
-            //VariableDistanceRaceService 와 이부분만 다름
-            int randomValue = getRandomValue();
-            boolean canMove = MoveOrNot(randomValue);
+            int distance = getRandomValue();
+            boolean canMove = moveOrNot(distance);
 
-            map.put(car, randomValue);
-            if (canMove) {
-                car.move(FIX_DISTANCE);
+            map.put(car, distance);
+            if(canMove) {
+                car.move(distance);
             }
         }
         return map;
     }
 
-    private static boolean MoveOrNot(int randomValue) {
-        return randomValue >= AppConfig.MOVE_CRITERIA;
+    private static boolean moveOrNot(int distance) {
+        return distance > AppConfig.MOVE_CRITERIA;
     }
 }

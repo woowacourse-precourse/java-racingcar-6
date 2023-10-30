@@ -1,5 +1,6 @@
-package racingcar;
+package racingcar.controller;
 
+import racingcar.controller.InputHandler;
 import racingcar.model.Participants;
 import racingcar.service.CarSaveService;
 
