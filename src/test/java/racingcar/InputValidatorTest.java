@@ -44,6 +44,14 @@ public class InputValidatorTest {
     }
 
     @Test
+    void 음수_입력_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputValidator.validTrialNumber("-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 숫자_외_입력_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> inputValidator.validTrialNumber("5a1"))
