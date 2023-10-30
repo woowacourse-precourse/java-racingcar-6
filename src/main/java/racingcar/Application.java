@@ -1,7 +1,10 @@
 package racingcar;
 
+import racingcar.service.CarService;
+
 public class Application {
+    private static final CarService carService = new CarService();
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        carService.start();
     }
 }
