@@ -1,5 +1,7 @@
 package racingcar;
 
+import exception.ExceededStringException;
+
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +16,9 @@ public class Setting {
     public Setting(){
         try{
            beforeSetting();
-        }catch (IllegalStateException ex){
-            System.out.println("잘못받았습니다");
-            //추후 예외처리!!
+        }
+        catch (IllegalStateException ex){
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -41,7 +43,7 @@ public class Setting {
 
     private void validateName(String name) {
         if(name.length()>5) {
-            throw new IllegalStateException();
+            throw new ExceededStringException();
         }
     }
 
