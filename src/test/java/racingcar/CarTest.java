@@ -26,7 +26,7 @@ class CarTest {
     void initCar(String carName) {
         // give
         // when
-        Car car = new Car(carName);
+        Car car = Car.from(carName);
 
         // then
         assertThat(car.getName()).isEqualTo(carName);
@@ -39,7 +39,7 @@ class CarTest {
         // given
         // when
         // then
-        assertThatThrownBy(() -> new Car(carName)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Car.from(carName)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
@@ -51,7 +51,7 @@ class CarTest {
 
         // when
         // then
-        assertThatThrownBy(() -> new Car(carName)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Car.from(carName)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
@@ -59,7 +59,7 @@ class CarTest {
     @DisplayName("무작위 값이 정해진 값보다 크거나 같은 경우 자신이 움직인 횟수의 카운트를 증가시킨다.")
     void move_RandomValueMoreThanCriteria_IncreaseMoveCount(int value) {
         // given
-        Car car = new Car("beom");
+        Car car = Car.from("beom");
         MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class);
 
         //when
@@ -79,7 +79,7 @@ class CarTest {
     @DisplayName("무작위값이 정해진 값보다 작은 경우 움직이지 않는다.")
     void move_RandomValueLessThanCriteria(int value) {
         // given
-        Car car = new Car("beom");
+        Car car = Car.from("beom");
         MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class);
 
         //when
