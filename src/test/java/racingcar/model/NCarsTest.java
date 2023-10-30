@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,6 +9,9 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
+import racingcar.model.CarMovementStatus;
+import racingcar.model.NCars;
 
 public class NCarsTest extends NsTest {
     String givenNames = "pobi,woni";
