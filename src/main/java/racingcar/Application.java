@@ -9,34 +9,54 @@ import java.util.concurrent.ScheduledExecutorService;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println(checkInputLineCarNames(getCarNames()));
+        saveCarNames(getCarNames());
     }
 
-    public static void printInputCarNames() {
+    private static void printInputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
-    public static String getCarNames() {
+    private static String getCarNames() {
         printInputCarNames();
-        String carNames = Console.readLine();
+        String inputLineOfCarNames = Console.readLine();
+        return inputLineOfCarNames;
+    }
+    private static List<String> saveCarNames(String inputLineOfCarNames) {
+        checkInputLineCarNames(inputLineOfCarNames);
+        List<String> carNames = Arrays.asList(inputLineOfCarNames.split(","));
+        checkCarName((carNames));
         return carNames;
     }
-    public static List<String> saveCarNames(String carNames) {
-        List<String> cars = Arrays.asList(carNames.split(","));
-        return cars;
+
+    private static String checkInputLineCarNames(String inputLineOfCarNames) {
+        checkStartWithInputLine(inputLineOfCarNames);
+        checkLastIndexInputLine(inputLineOfCarNames);
+        return inputLineOfCarNames;
     }
-    public static String checkInputLineCarNames(String inputCarNames) {
-        checkStartWithInputLine(inputCarNames);
-        checkLastIndexInputLine(inputCarNames);
-        return inputCarNames;
-    }
-    public static void checkStartWithInputLine(String inputCarNames) {
-        if(inputCarNames.startsWith(",")){
-            throw new IllegalArgumentException();
+    private static void checkStartWithInputLine(String inputLineOfCarNames) {
+        if(inputLineOfCarNames.startsWith(",")){
+            throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
         }
     }
-    public static void checkLastIndexInputLine(String inputCarNames) {
-        if(inputCarNames.lastIndexOf(",") == inputCarNames.length()-1){
-            throw new IllegalArgumentException();
+    private static void checkLastIndexInputLine(String inputLineOfCarNames) {
+        if(inputLineOfCarNames.lastIndexOf(",") == inputLineOfCarNames.length()-1){
+            throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
+        }
+    }
+    private static void checkCarName(List<String> carNames) {
+        for(String carName : carNames){
+            checkCarNameRegex(carName);
+            checkMaxLengthOfCarName(carName);
+        }
+    }
+    private static void checkCarNameRegex(String carName){
+        String regex = "^[a-zA-Z]+[a-zA-Z0-9]*$";
+        if(!carName.matches(regex)){
+            throw new IllegalArgumentException("이름 형식이 맞지 않습니다.");
+        }
+    }
+    private static void checkMaxLengthOfCarName(String carName){
+        if(carName.length() > 5){
+            throw new IllegalArgumentException("이름 길이가 초과했습니다.");
         }
     }
 
