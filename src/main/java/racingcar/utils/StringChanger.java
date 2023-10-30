@@ -1,5 +1,10 @@
 package racingcar.utils;
 
+import static racingcar.utils.Constants.INCLUDING_BLANK;
+import static racingcar.utils.Constants.SPLITTER_OF_NAMES;
+import static racingcar.utils.Constants.SPLITTER_OF_WINNERS;
+import static racingcar.utils.Constants.START_OF_STRING;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +19,9 @@ public class StringChanger {
     }
 
     public static List<String> stringToStringList(String string) {
-        return Arrays.stream(string.split(",", -1))
+        return Arrays.stream(string.split(
+                        SPLITTER_OF_NAMES, INCLUDING_BLANK
+                ))
                 .map(String::trim).collect(Collectors.toList());
     }
 
@@ -23,8 +30,8 @@ public class StringChanger {
     }
 
     public static String cutLastRegex(StringBuilder stringBuilder) {
-        int cutLength = stringBuilder.length() - ", ".length();
-        return stringBuilder.substring(0, cutLength);
+        int cutLength = stringBuilder.length() - SPLITTER_OF_WINNERS.length();
+        return stringBuilder.substring(START_OF_STRING, cutLength);
     }
 
 }

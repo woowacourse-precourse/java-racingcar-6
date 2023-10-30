@@ -1,5 +1,7 @@
 package racingcar.gameLogic;
 
+import static racingcar.utils.Constants.NO_ROUND;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,7 @@ public class RacingCar {
         raceOfficial = new RaceOfficial();
         user = new User();
         drivers = new ArrayList<>();
-        roundCount = 0;
+        roundCount = NO_ROUND;
     }
 
     public void run() {
@@ -29,7 +31,7 @@ public class RacingCar {
 
     private void runRace() {
         setRounds();
-        while (roundCount > 0) {
+        while (roundCount > NO_ROUND) {
             runRound();
             roundCount--;
         }

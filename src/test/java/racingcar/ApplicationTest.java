@@ -6,6 +6,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mockStatic;
+import static racingcar.utils.Constants.MOVING_FORWARD;
+import static racingcar.utils.Constants.STOP;
+import static racingcar.utils.Constants.UPPER_LIMIT_OF_DIGIT;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -29,9 +32,6 @@ import racingcar.utils.RandomNumbers;
 import racingcar.views.OutputViewer;
 
 class ApplicationTest extends NsTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-    private static final int UPPER_LIMIT_OF_DIGIT = 9;
 
     @Test
     void 전진_정지() {

@@ -1,5 +1,7 @@
 package racingcar.gameLogic;
 
+import static racingcar.utils.Constants.MOVING_FORWARD;
+
 import racingcar.models.Car;
 import racingcar.utils.RandomNumbers;
 
@@ -27,7 +29,7 @@ public class Driver {
     private boolean canMove() {
         int randomNumber = requestRandomNumber();
 
-        return randomNumber >= 4;
+        return randomNumber >= MOVING_FORWARD;
     }
 
     private int requestRandomNumber() {

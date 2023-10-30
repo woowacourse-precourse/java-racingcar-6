@@ -1,5 +1,10 @@
 package racingcar.views;
 
+
+import static racingcar.utils.Constants.NOTATION_OF_DISTANCE;
+import static racingcar.utils.Constants.SPLITTER_BETWEEN_NAME_AND_DISTANCE;
+import static racingcar.utils.Constants.SPLITTER_OF_WINNERS;
+
 import java.util.List;
 import racingcar.utils.StringChanger;
 
@@ -21,8 +26,8 @@ public class OutputViewer {
     }
 
     public static void printMovedDistanceOfCar(String carName, int movedDistance) {
-        String roadPassed = "-".repeat(movedDistance);
-        System.out.println(carName + " : " + roadPassed);
+        String roadPassed = NOTATION_OF_DISTANCE.repeat(movedDistance);
+        System.out.println(carName + SPLITTER_BETWEEN_NAME_AND_DISTANCE + roadPassed);
     }
 
     public static void printBlank() {
@@ -32,7 +37,7 @@ public class OutputViewer {
     public static void printWinners(List<String> winners) {
         StringBuilder stringBuilder = new StringBuilder("최종 우승자 : ");
         for (String winner : winners) {
-            stringBuilder.append(winner).append(", ");
+            stringBuilder.append(winner).append(SPLITTER_OF_WINNERS);
         }
         System.out.println(StringChanger.cutLastRegex(stringBuilder));
     }

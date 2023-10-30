@@ -1,11 +1,13 @@
 package racingcar.gameLogic;
 
+import static racingcar.utils.Constants.MIN_MOVED_DISTANCE;
+
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.views.OutputViewer;
 
 public class RaceOfficial {
-    public int highestScore = 0;
+    public int highestScore = MIN_MOVED_DISTANCE;
     public List<String> winners = new ArrayList<>();
 
     public void setDrivers(List<Driver> drivers, List<String> carNames) {

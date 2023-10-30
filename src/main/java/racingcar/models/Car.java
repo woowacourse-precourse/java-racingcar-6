@@ -1,8 +1,10 @@
 package racingcar.models;
 
+import static racingcar.utils.Constants.MIN_MOVED_DISTANCE;
+
 public class Car {
     private String carName;
-    private int carMileage = 0;
+    private int carMileage = MIN_MOVED_DISTANCE;
 
     public void setCarName(String carName) {
         this.carName = carName;
