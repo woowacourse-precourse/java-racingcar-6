@@ -9,7 +9,7 @@ public class RacingController {
     }
 
     public void inputCarNames(){
-        MessagePrinter.startMessage();
+        MessagePrinter.start();
     }
 
 }
