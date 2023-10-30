@@ -12,10 +12,10 @@ public class View {
         RaceController raceController = new RaceController();
 
         Map<String, Integer> racer = raceController.checkName();
+        System.out.println(racer.toString());
+        System.out.println("시도할 회수는 몇회인가요?");
 
-
-//
-//        System.out.println("시도할 회수는 몇회인가요?");
+        raceController.attemptCount();
 //
 //        System.out.println("최종 우승자 : "  );
 

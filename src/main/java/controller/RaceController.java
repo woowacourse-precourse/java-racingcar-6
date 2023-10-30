@@ -16,4 +16,10 @@ public class RaceController {
         String[] names = inputValue.split(",");
         return raceService.validateNames(names);
     }
+
+    public int attemptCount() {
+        String inputValue = Console.readLine();
+        return raceService.validateAttemptCount(inputValue);
+
+    }
 }
