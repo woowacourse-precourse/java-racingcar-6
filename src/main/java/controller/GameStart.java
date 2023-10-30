@@ -12,5 +12,7 @@ public class GameStart {
 
         List<String> nameList = InputCheck.name(names);
 
+        String round = Input.round();
+
     }
 }
