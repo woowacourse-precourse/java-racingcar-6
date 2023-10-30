@@ -35,4 +35,9 @@ public class RacingCarService {
         }
     }
 
+    public int readCount() {
+        int count = Integer.parseInt(readLine());
+        return racingCarValidation.illegalValidation(count);
+    }
+
 }
