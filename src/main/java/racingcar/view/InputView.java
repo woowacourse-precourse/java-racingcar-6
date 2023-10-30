@@ -14,6 +14,14 @@ import racingcar.common.Config;
 public class InputView {
     String input = "";
 
+    private InputView() {
+
+    }
+
+    public static InputView createInputView() {
+        return new InputView();
+    }
+
     public List<String> inputCars() {
         List<String> carList;
 
