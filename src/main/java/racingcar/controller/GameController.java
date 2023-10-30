@@ -27,13 +27,11 @@ public class GameController {
 
         //시도 횟수 for문
         for(int i = 0; i< times; i++){
-            OutputView.printResult(gameService.racing(cars));
+            OutputView.printRoundResult(gameService.racing(cars));
         }
 
         //최종 승자 보여주기
-
         OutputView.printFinalWinner(gameService.getFinalWinner(cars));
-
     }
 
 }

@@ -8,7 +8,7 @@ import static racingcar.domain.Message.FINAL_WINNER;
 
 public class OutputView {
 
-    public static void printResult(List<Car> cars){
+    public static void printRoundResult(List<Car> cars){
         for(Car car : cars){
             System.out.print(car.getName() + " : ");
             printDashMark(car.getMove());
