@@ -9,7 +9,7 @@ public class ResultController implements Controller {
     private final ResultOutputView resultOutputView;
     private final CarService carService;
 
-    public ResultController(ResultOutputView resultOutputView, CarService carService) {
+    ResultController(ResultOutputView resultOutputView, CarService carService) {
         this.resultOutputView = resultOutputView;
         this.carService = carService;
     }

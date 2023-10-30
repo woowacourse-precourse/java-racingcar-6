@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class SettingInputView implements InputView {
-    static final char DELIMITER = ',';
+    public static final char DELIMITER = ',';
     private final Map<String, Supplier<String>> methodMap = Map.ofEntries(
             Map.entry("carNames", this::readCarNames),
             Map.entry("gameCount", this::readGameCount)

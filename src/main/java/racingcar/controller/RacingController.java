@@ -9,7 +9,7 @@ public class RacingController implements Controller {
     private final RacingOutputView racingOutputView;
     private final CarService carService;
 
-    public RacingController(RacingOutputView racingOutputView, CarService carService) {
+    RacingController(RacingOutputView racingOutputView, CarService carService) {
         this.racingOutputView = racingOutputView;
         this.carService = carService;
     }
