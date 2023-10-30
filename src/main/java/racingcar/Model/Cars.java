@@ -29,6 +29,10 @@ public class Cars {
         }
     }
 
+    public void testMove(int index){
+        cars.get(index).forwardCarPosition();
+    }
+
     private void moveCar(Car car){
         if(CarMovement.movingStatus()){
             car.forwardCarPosition();
