@@ -21,9 +21,9 @@ public class CarRepository {
     }
 
     public List<Car> findAll() {
-        ArrayList<Car> cars = new ArrayList<>();
-        carDatabase.forEach((carId, car) -> cars.add(car));
-        return cars;
+        return carDatabase.values()
+                .stream()
+                .toList();
     }
 
     public List<Car> findCarWithMaxPosition() {
