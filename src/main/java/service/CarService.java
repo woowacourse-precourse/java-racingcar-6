@@ -1,15 +1,21 @@
 package service;
 
 import domain.Car;
+import exception.RacingCarException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class CarService {
-
+    public static RacingCarException racingCarException = new RacingCarException();
     public List<String> stringToList(String carName) {
         List<String> carNames = Arrays.asList(carName.split(","));
+        racingCarException.validateDuplicateName(carNames);
+        for(String car : carNames) {
+            racingCarException.validateCarNameLength(car);
+            racingCarException.validateEmptyName(car);
+        }
         return carNames;
     }
 
