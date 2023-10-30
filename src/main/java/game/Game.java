@@ -1,5 +1,6 @@
 package game;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import car.Car;
 
 import java.util.ArrayList;
@@ -28,6 +29,12 @@ public class Game {
             carList.add(car);
         }
         return carList;
+    }
+
+    // 랜덤 숫자 뽑기
+    public int randomNumber(){
+        int number = Randoms.pickNumberInRange(0,9);
+        return number;
     }
 
 }
