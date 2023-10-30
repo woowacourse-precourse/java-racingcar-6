@@ -20,6 +20,10 @@ final class Car {
         return moveCount == front;
     }
 
+    String currentStatus() {
+        return name.name() + Constant.COLON.value + Constant.DASH.value.repeat(moveCount);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
