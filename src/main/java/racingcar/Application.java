@@ -23,18 +23,12 @@ public class Application {
         validateLength(participants);
 
         int[] runDistance = new int[participants.length];
+        int winnerDistance = 0;
         String[] runDistanceByHyphen = new String[participants.length];
         Arrays.fill(runDistanceByHyphen, "");
 
-        int winnerDistance = 0;
-
         for (int i = 0; i < tryCount; i++) {
-            for (int j = 0; j < participants.length; j++) {
-                if (goOrStop()) {
-                    runDistance[j] = runDistance[j] + 1;
-                    runDistanceByHyphen[j] += "-";
-                }
-            }
+            proceedRun(participants, runDistance, runDistanceByHyphen);
             for (int k = 0; k < participants.length; k++) {
                 winnerDistance = Math.max(winnerDistance, runDistance[k]);
                 System.out.println(participants[k] + " : " + runDistanceByHyphen[k]);
@@ -83,4 +77,12 @@ public class Application {
         }
     }
 
+    public static void proceedRun(String[] participants, int[] runDistance, String[] runDistanceByHyphen) {
+        for (int j = 0; j < participants.length; j++) {
+            if (goOrStop()) {
+                runDistance[j] = runDistance[j] + 1;
+                runDistanceByHyphen[j] += "-";
+            }
+        }
+    }
 }
