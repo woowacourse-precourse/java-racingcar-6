@@ -12,6 +12,11 @@ public class RacingController {
         Cars cars = inputCarNames();
         int attemptCount = inputAttemptCount();
         race(cars, attemptCount);
+        getFinalWinner(cars);
+    }
+
+    private void getFinalWinner(Cars cars) {
+        outputView.printFinalWinner(cars);
     }
 
     private void race(Cars cars, int attemptCount) {
