@@ -9,8 +9,8 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static int inputMovesCount() {
+    public static String inputMovesCount() {
         System.out.println(Message.TRY_COUNT_INPUT_MESSAGE.getMessage());
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 }

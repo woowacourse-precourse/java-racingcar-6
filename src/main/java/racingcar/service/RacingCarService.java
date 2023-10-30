@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.utils.InputValidator;
 import racingcar.utils.Message;
 import racingcar.view.OutputView;
 
@@ -16,6 +17,9 @@ public class RacingCarService {
 
     public List<Car> participateCar(List<String> carsName) {
         for (String name : carsName) {
+            InputValidator.validateEmptyInput(name);
+            InputValidator.validateInputLength(name);
+            InputValidator.validateDuplicateInput(carList, name);
             carList.add(new Car(name));
         }
         return carList;
