@@ -1,12 +1,12 @@
 package racingcar;
 
 import racingcar.domain.RaceBefore;
+import racingcar.domain.RaceEnd;
 import racingcar.domain.RaceStart;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.Map;
-
 
 public class Application {
     public static void main(String[] args) {
@@ -23,8 +23,12 @@ public class Application {
         while(cnt <= tryNumber){
             RaceStart.allowNumber(car);
             RaceStart.showResult(car);
+            cnt++;
         }
 
-        System.out.print("최종 우승자 : ");
+        RaceEnd raceEnd = new RaceEnd();
+        StringBuilder winnerList = raceEnd.winnerResult(car);
+
+        System.out.print("최종 우승자 : " + winnerList);
     }
 }

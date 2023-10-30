@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class RaceBefore {
     public Map<String, Integer> carName(){
+        //자동차 이름 입력
         Map<String, Integer> car = new HashMap<>();
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
