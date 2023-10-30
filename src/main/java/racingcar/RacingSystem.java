@@ -28,6 +28,7 @@ public class RacingSystem {
     }
 
     public void racingStart() {
+        System.out.println("\n" + "실행 결과");
         while (winners.getWinnersCount() == 0) {
             for(Car car : cars) {
                 int random = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
@@ -39,7 +40,7 @@ public class RacingSystem {
         }
     }
 
-    private void printWinners() {
+    public void printWinners() {
         System.out.println("최종 우승자 : " + winners.toString());
     }
 
