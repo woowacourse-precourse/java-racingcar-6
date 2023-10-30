@@ -25,20 +25,22 @@ public class Application {
 
             if (eligibility > 4) {
                 carRace[i] += "-";
+            } else {
+                carRace[i] += "";
             }
             System.out.println(cars[i] + ": " +carRace[i]);
         }
     }
 
     public void showRaceResult(int number, String[] cars) {
-        number =  inputNumber();
-        cars = inputCarNames();
         System.out.println("실행 결과");
 
-        for (int i = number; i>0; i--) {
+        for (int i = number; i > 0; i--) {
             System.out.println();
             checkCarEligibility(cars);
         }
+
+
     }
 
     public void checkCarNameValidation(String[] cars) {
@@ -54,8 +56,17 @@ public class Application {
         }
     }
 
+    public void run() {
+        String[] cars = inputCarNames();
+        int number = inputNumber();
+
+        showRaceResult(number, cars);
+
+
+    }
+
     public static void main(String[] args) {
         Application application = new Application();
-        application.checkCarEligibility(args);
+        application.run();
     }
 }
