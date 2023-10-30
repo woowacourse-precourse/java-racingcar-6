@@ -16,7 +16,8 @@ class InputManagerTest {
     @Test
     void 마지막_글자가_콤마이면_예외_테스트(){
         assertThatThrownBy(() -> InputManager.getCarNames("name,"))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("마지막 글자가 콤마가 될 수 없습니다!");
     }
 
     @Test
