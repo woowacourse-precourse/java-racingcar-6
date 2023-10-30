@@ -112,6 +112,24 @@ class ApplicationTest extends NsTest {
             """);
     }
 
+    @Test
+    @DisplayName("최종 우승자 출력이 올바른지에 대한 테스트")
+    void 최종_우승_출력() {
+        Car car1 = new Car("wj");
+        Car car2 = new Car("pobi");
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        car1.go();
+        car2.go();
+        car2.go();
+
+        List<Car> carList = new ArrayList<>(List.of(car1, car2));
+        printer.printWinner(carList);
+
+        assertThat(out.toString()).isEqualTo("최종 우승자 : pobi\n");
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
