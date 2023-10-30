@@ -12,7 +12,16 @@ public class Race {
         Integer countOfGame = Integer.valueOf(Console.readLine());
         return countOfGame;
     }
-
+    public static void againRacingByRandomNumber(){
+        List<String> carList = Car.makeRacingCarList();
+        int[] go = new int[carList.size()];
+        System.out.println(Arrays.toString(go));
+        int round = numberOfGameRound();
+        for(int i = 0 ; i<round;i++){
+            racingByRandomNumber(carList,go);
+            System.out.println();
+        }
+    }
 
     public static void racingByRandomNumber(List<String> carList,int[] goCount){
         for(int i = 0 ; i<carList.size(); i++){
