@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.util.io.InputViewReader;
+import racingcar.io.InputViewReader;
 import racingcar.util.validator.Validator;
 
 public class InputView {

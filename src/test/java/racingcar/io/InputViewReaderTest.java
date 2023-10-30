@@ -1,4 +1,4 @@
-package racingcar.util.io;
+package racingcar.io;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,6 +7,8 @@ import java.io.InputStream;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import racingcar.io.InputViewReader;
 
 public class InputViewReaderTest {
 	
