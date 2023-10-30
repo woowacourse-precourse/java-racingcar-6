@@ -1,12 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+
 import racingcar.controller.RacingGameController;
 import racingcar.view.RacingGameView;
 
@@ -16,17 +12,17 @@ public class Application {
     }
 
     private static void racingGame() {
-        String userInput = RacingGameView.inputCarName();
+        String carName = RacingGameView.inputCarName();
         int tryCount = RacingGameView.inputTryCount();
 
-        HashMap<String, String> userCarNameAndMoveStatus = RacingGameController.userCarNameSave(userInput);
+        HashMap<String, String> carStatus = RacingGameController.carNameAndForwardStatus(carName);
 
         for (int i = 0; i < tryCount; i++) {
-            RacingGameController.referee(userCarNameAndMoveStatus);
-            RacingGameView.moveStatus(userCarNameAndMoveStatus);
+            RacingGameController.referee(carStatus);
+            RacingGameView.moveStatus(carStatus);
         }
 
-        List<String> mostForwardCar = RacingGameController.mostMovingForwardCar(userCarNameAndMoveStatus);
+        List<String> mostForwardCar = RacingGameController.mostMovingForwardCar(carStatus);
         RacingGameView.winner(mostForwardCar);
     }
 }
