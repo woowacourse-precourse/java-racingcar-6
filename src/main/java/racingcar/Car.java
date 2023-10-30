@@ -9,6 +9,7 @@ public class Car {
         name ="";
         distance = 0;
     }
+
     public Car(String name){
         this.name = name;
         distance = 0;
@@ -18,5 +19,9 @@ public class Car {
         if(Randoms.pickNumberInRange(0, 9) >= 4){
             distance += 1;
         }
+    }
+
+    public int getDistance(){
+        return distance;
     }
 }
