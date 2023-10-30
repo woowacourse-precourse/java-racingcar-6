@@ -2,10 +2,12 @@ package racingcar.validator;
 
 import static racingcar.model.ControlValue.MAX_LEN_OF_CAR_NAME;
 import static racingcar.model.ControlValue.MIN_NUM_OF_CAR;
+import static racingcar.model.ControlValue.MIN_NUM_OF_MATCHES;
 import static racingcar.validator.ErrorMessage.BLANK;
 import static racingcar.validator.ErrorMessage.EXCEED_MAX_LEN_OF_CAR_NAME;
 import static racingcar.validator.ErrorMessage.LESS_THAN_MIN_NUM_OF_CAR;
-import static racingcar.validator.ErrorMessage.NOT_NUMBER;
+import static racingcar.validator.ErrorMessage.LESS_THAN_MIN_NUM_OF_MATCHES;
+import static racingcar.validator.ErrorMessage.NOT_INTEGER;
 
 public class InputValidator {
     // carList 관련 유효성 검사
@@ -33,16 +35,18 @@ public class InputValidator {
     }
 
     // 경기 횟수 관련 유효성 검사
-    public static void validateStringIsNumber(String number) {
+    public static void validateStringToInteger(String number) {
         try {
             Integer.parseInt(number);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(NOT_NUMBER.getMessage());
+            throw new IllegalArgumentException(NOT_INTEGER.getMessage());
         }
     }
 
-//    public static void validateNumOfMatches(String number) {
-//
-//        if()
-//    }
+    public static void validateNumOfMatches(String number) {
+        int numOfMatches = Integer.parseInt(number);
+        if (numOfMatches < MIN_NUM_OF_MATCHES.getValue()) {
+            throw new IllegalArgumentException(LESS_THAN_MIN_NUM_OF_MATCHES.getMessage());
+        }
+    }
 }
