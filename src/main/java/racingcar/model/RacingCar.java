@@ -16,7 +16,7 @@ public class RacingCar {
         this.cars = carNames.stream().map(Car::new).toList();
     }
 
-    public RacingCar(List<Car> cars) {
+    RacingCar(List<Car> cars) {
         this.cars = cars;
     }
 
