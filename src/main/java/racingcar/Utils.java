@@ -2,7 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.car.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +11,7 @@ import java.util.stream.IntStream;
 
 import static racingcar.Constants.*;
 
-public class Util {
+public class Utils {
 
     public static ArrayList<String> carNamesToArrayList(String carNames) {
         return new ArrayList<>(Arrays.asList(carNames.split(DELIMITER)));

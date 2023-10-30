@@ -1,7 +1,7 @@
 package racingcar.car;
 
 import racingcar.Constants;
-import racingcar.Util;
+import racingcar.Utils;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ public class CarNameValidator {
 
     public CarNameValidator(String carNames) {
         this.NAMES = carNames;
-        this.NAMELIST = Util.carNamesToArrayList(carNames);
+        this.NAMELIST = Utils.carNamesToArrayList(carNames);
         validate();
     }
 

@@ -1,6 +1,6 @@
 package racingcar.car;
 
-import racingcar.Util;
+import racingcar.Utils;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -18,7 +18,7 @@ public class RacingCar {
 
     public void playRound(){
         go();
-        Util.printRoundResult(new ArrayList<>(CarList.stream()
+        Utils.printRoundResult(new ArrayList<>(CarList.stream()
                 .map(Car -> Car.getRoundResult())
                 .collect(Collectors.toList())));
     }
@@ -30,8 +30,8 @@ public class RacingCar {
     }
 
     public void showWinners(){
-        Util.printWinner(new ArrayList<>(CarList.stream()
-                .filter(Car -> Car.getWinner(Util.getMax(getPositions())))
+        Utils.printWinner(new ArrayList<>(CarList.stream()
+                .filter(Car -> Car.getWinner(Utils.getMax(getPositions())))
                 .map(Car::getName)
                 .collect(Collectors.toList())));
     }

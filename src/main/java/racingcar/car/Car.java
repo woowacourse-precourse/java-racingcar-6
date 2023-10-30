@@ -1,7 +1,7 @@
 package racingcar.car;
 
 import racingcar.Constants;
-import racingcar.Util;
+import racingcar.Utils;
 
 public class Car {
     private final String name;
@@ -22,13 +22,13 @@ public class Car {
 
     // 라운드 실행
     public void go(){
-        if (Util.getRandomNum() >= Constants.GO_NUM) {
+        if (Utils.getRandomNum() >= Constants.GO_NUM) {
             position++;
         }
     }
 
     public String getRoundResult(){
-        return name + Constants.ROUND_RESULT_DELIMETER + Util.printScore(position);
+        return name + Constants.ROUND_RESULT_DELIMETER + Utils.printScore(position);
     }
 
     public boolean getWinner(int maxDist){
