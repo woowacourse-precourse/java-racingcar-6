@@ -15,13 +15,15 @@
   - [x] Forward#randomNums()가 4 이상일 때 전진한다. Forward#canForward()
   - [x] canForward()에 따른 변경사항을 반영한다. Forward#updatePosition
   
-- [ ] 진행할 경주 라운드를 입력 받고 라운드 마다의 상태를 나타낸다 그리고 경주의 최종 결과를 나타낸다. Racing
-  - [ ] 경주를 진행할 라운드를 입력 받는다. Racing#Round()
-    - [ ] 입력 예외 처리 : 시도 횟수 예외 처리. 숫자가 아닌 값, 음수 값, 0 값, 제한 횟수 초과.
-      - [ ] 숫자 예외 처리 Racing#parseRound() 
-  - [ ] 전진하는 자동차를 출력할 때 이름을 같이 출력한다. Racing#state()
-  - [ ] 경주의 최종 결과를 나타낸다. Racing#Winner()
-    - [ ] 경주가 끝났을 때 가장 앞서 있는 자동차를 찾는다. Racing#findWinner()
+- [x] 진행할 경주 라운드를 입력 받고 라운드 마다의 상태를 나타낸다 그리고 경주의 최종 결과를 나타낸다. Racing
+  - [x] 경주를 진행할 라운드를 입력 받는다. Racing#Round()
+    - [x] 입력 예외 처리 : 시도 횟수 예외 처리. 숫자가 아닌 값, 음수 값, 0 값, 제한 횟수 초과.
+      - [x] 숫자 예외 처리 Racing#parseRound() 
+  - [x] 전진하는 자동차를 출력할 때 이름을 같이 출력한다. Racing#state()
+  - [x] 경주의 최종 결과를 나타낸다. Racing#Winner()
+    - [x] 경주가 끝났을 때 가장 앞서 있는 자동차를 찾는다. Racing#findWinner()
+[ ] 게임을 주관한다. RacingGame
+    - [ ] 게임을 시작한다. RacingGame#start()
  
 
 ## 기능 목록 V1
