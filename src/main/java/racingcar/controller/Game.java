@@ -14,16 +14,19 @@ public class Game {
     private final Round round;
 
     public Game() {
-        String namesInput = InputView.readCarNames();
-        validateNamesInput(namesInput);
-        race = new Race(namesInput);
-
-        String roundInput = InputView.readRoundNumber();
-        validateRoundInput(roundInput);
-        round = new Round(roundInput);
+        race = new Race();
+        round = new Round();
     }
 
     public void run() {
+        String namesInput = InputView.readCarNames();
+        validateNamesInput(namesInput);
+        race.setCarList(namesInput);
+
+        String roundInput = InputView.readRoundNumber();
+        validateRoundInput(roundInput);
+        round.setRound(roundInput);
+
         OutputView.printResultStartMessage();
         List<String> carNames = race.getCarNames();
 
