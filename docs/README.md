@@ -3,7 +3,7 @@
 # 구현할 기능 목록
 - [x] README.md 추가
 ## 사용자에게 입력받는 기능 구현
-- [ ] controller 패키지와 게임 전체 기능을 가진 RacingCarGame 추가
+- [x] controller 패키지와 게임 전체 기능을 가진 RacingCarGame 추가
 - [ ] InputView 입력 요구 메시지 출력 기능 구현
 - [ ] InputUtils 자동차 이름들과 시도 회수를 입력받는 기능 구현
   - 입력 값을 변환하는 기능 구현
