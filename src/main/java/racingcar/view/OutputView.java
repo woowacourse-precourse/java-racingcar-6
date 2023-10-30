@@ -1,6 +1,6 @@
 package racingcar.view;
 
-public class OutputView {
-    public void displayRaceStatus() {}
-    public void displayWinners() {}
+public interface OutputView {
+    void displayRaceStatus();
+    void displayWinners();
 }

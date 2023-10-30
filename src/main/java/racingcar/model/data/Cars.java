@@ -7,5 +7,7 @@ public class Cars {
     private List<Car> cars;
 
     public void moveCars() {}
-    public Map<String, Integer> getRankingTable() {}
+    public Map<String, Integer> getRankingTable() {
+        return null;
+    }
 }

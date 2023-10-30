@@ -1,6 +1,6 @@
 package racingcar.model.generator;
 
-public class RandomGenerator implements MovementGenerator{
+public class MovementGeneratorImpl implements MovementGenerator{
     @Override
     public int generateMovement() {
         return 0;
