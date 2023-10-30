@@ -14,4 +14,14 @@ public class Function {
 		return result;
 	}
 	
+	public static String[] inputCarName() {
+		String[] carName= Console.readLine().split(",");
+		
+		return carName;
+	}
+	public static int inputNumber() {
+		int number= Integer.parseInt(Console.readLine());
+		
+		return number;
+	}
 }
