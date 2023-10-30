@@ -30,8 +30,8 @@ public class Cars {
     }
 
     private void validateName(List<String> carsList) {
-        if (carsList.stream().anyMatch(car -> car.length() > 5)) {
-            throw new IllegalArgumentException("[ERROR] 자동차의 이름은 5글자 이하여야합니다.");
+        if (carsList.stream().anyMatch(car -> car.length() > 5 || car.isEmpty())) {
+            throw new IllegalArgumentException("[ERROR] 자동차의 이름은 1글자 이상 5글자 이하여야합니다.");
         }
     }
 
