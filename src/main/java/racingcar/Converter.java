@@ -9,6 +9,7 @@ public class Converter {
 
     public static List<String> separateCarNames(String carNames) {
         String[] separatedCarNames = carNames.split(SEPARATOR);
+        Validator.validateCarNames(separatedCarNames);
         return new ArrayList<>(Arrays.asList(separatedCarNames));
     }
 
