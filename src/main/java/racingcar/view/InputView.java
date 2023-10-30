@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import static racingcar.view.Constants.INPUT_CARS_NAME_MESSAGE;
-import static racingcar.view.Constants.TRY_COUNT_MESSAGE;
+import static racingcar.view.ConstantMessage.INPUT_CARS_NAME;
+import static racingcar.view.ConstantMessage.TRY_COUNT;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
@@ -16,7 +16,7 @@ public class InputView implements View {
     }
 
     public List<String> getUserInputName() {
-        System.out.println(INPUT_CARS_NAME_MESSAGE.getMessage());
+        System.out.println(INPUT_CARS_NAME.message());
         String input = Console.readLine();
 
         List<String> nameList =  Arrays.stream(input.split(","))
@@ -27,7 +27,7 @@ public class InputView implements View {
     }
 
     public Integer getUserInputCount() {
-        System.out.println(TRY_COUNT_MESSAGE.getMessage());
+        System.out.println(TRY_COUNT.message());
         return inputValidator.isInteger(Console.readLine());
     }
 }

@@ -1,5 +1,7 @@
 package racingcar.util;
 
+import static racingcar.util.ConstantNumbers.MAXIMUM_NAME_LENGTH;
+
 import java.util.List;
 
 public class InputValidator implements Validator {
@@ -22,6 +24,6 @@ public class InputValidator implements Validator {
         return number;
     }
     private boolean isValidName(String name) {
-        return !name.isBlank() && name.length() <= 5;
+        return !name.isBlank() && name.length() <= MAXIMUM_NAME_LENGTH.number();
     }
 }

@@ -1,5 +1,9 @@
 package racingcar.model;
 
+import static racingcar.util.ConstantNumbers.LOWER_BOUND;
+import static racingcar.util.ConstantNumbers.THRESHOLD;
+import static racingcar.util.ConstantNumbers.UPPER_BOUND;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car implements Comparable<Car>, Model {
@@ -12,7 +16,7 @@ public class Car implements Comparable<Car>, Model {
     }
 
     public void moveOrStop() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(LOWER_BOUND.number(), UPPER_BOUND.number()) >= THRESHOLD.number()) {
             moved++;
         }
     }

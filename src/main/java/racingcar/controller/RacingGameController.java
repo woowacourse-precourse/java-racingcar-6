@@ -1,5 +1,8 @@
 package racingcar.controller;
 
+import static racingcar.util.ConstantNumbers.MINIMUM_TRY_COUNT;
+import static racingcar.util.ConstantNumbers.STARTING_INDEX;
+
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
@@ -35,7 +38,7 @@ public class RacingGameController {
         List<String> participants = getParticipantsFromUser();
 
         List<Car> cars = new ArrayList<>();
-        int index = 0;
+        int index = STARTING_INDEX.number();
         for (String name:participants) {
             cars.add(Model.generateCar(name, index++));
         }
@@ -44,7 +47,7 @@ public class RacingGameController {
 
     private void updateRaceStatus(List<Car> cars) {
         int tryCount = inputView.getUserInputCount();
-        while (tryCount-- > 0) {
+        while (tryCount-- > MINIMUM_TRY_COUNT.number()) {
             cars.forEach(Car::moveOrStop);
             outputView.recordStatus(cars);
         }
