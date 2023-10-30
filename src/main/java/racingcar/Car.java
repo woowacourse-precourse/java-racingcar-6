@@ -35,4 +35,28 @@ public class Car {
             car.get(i).race+="";
         }
     }
+
+    void outputDraw() {
+        for (int i = 0; i < car.size(); i++) {
+            System.out.println(car.get(i).name + " : " + car.get(i).race);
+        }
+        System.out.println();
+    }
+
+    void winner() {
+        int maxLength = 0;
+        for (int i = 0; i < car.size(); i++) {
+            maxLength = Math.max(maxLength, car.get(i).race.length());
+        }
+        String winners = "";
+        for (int i = 0; i < car.size(); i++) {
+            if (maxLength == car.get(i).race.length()) {
+                winners += car.get(i).name + ", ";
+            }
+        }
+        System.out.println("최종 우승자 : ");
+        for (int i = 0; i < winners.length() - 1; i++) {
+            System.out.printf("%c", winners.charAt(i));
+        }
+    }
 }
