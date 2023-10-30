@@ -39,13 +39,13 @@ class OutputViewTest extends NsTest {
     @Test
     @DisplayName("출력 - 실행 결과")
     public void testPrintRacingResultMessage() {
-        // given
+        //given
 
-        // when
+        //when
         OutputView.printRacingResultMessage();
         String result = output();
 
-        // then
+        //then
         assertThat(result).isEqualTo("실행 결과");
     }
 

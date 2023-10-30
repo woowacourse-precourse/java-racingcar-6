@@ -15,15 +15,15 @@ class RacingControllerTest {
     @Test
     @DisplayName("랜덤한 수별로 이동 처리하기")
     public void testmoveCar() {
-        // Given
+        //given
         Car car1 = new Car("Car1");
         Car car2 = new Car("Car2");
 
-        // When
+        //when
         RacingController.manageCarMovement(car1, 4); // move
         RacingController.manageCarMovement(car2, 3); // stop
 
-        // Then
+        //then
         assertThat(car1.getPosition()).isEqualTo(1);
         assertThat(car2.getPosition()).isEqualTo(0);
     }
