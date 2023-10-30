@@ -136,9 +136,11 @@ class ValidExceptionTest {
     @Test
     void isValidOneNameOfRaceCarCheck() {
         // given
-
-        // when
+        String input = "woo";
 
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidOneNameOfRaceCarCheck(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
