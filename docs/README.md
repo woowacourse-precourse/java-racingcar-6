@@ -69,6 +69,12 @@
   - 전달받은 차수를 설정하고
   - 이름들로 새로운 `Racer`를 생성해 `List<Racer>`에 추가한다.
 
+##### 무작위 값을 추출하는 메소드
+- signature : `public int getRandomNumber()`
+- return : 0 ~ 9 사이의 정수
+- description
+  - `Random`클래스의 `pickNumberInRange`메소드를 활용해 0 ~ 9 사이의 정수를 추출한다.
+
 ##### 추출된 무작위 값으로 움직임 여부 결정하는 메소드
 - signature : `public boolean canMove(int randomNumber)`
 - parameters
@@ -77,6 +83,12 @@
 - description
   - 무작위 값을 받아 4이상이면 `true`를 미만이면 `false`를 반환한다.
 
+
+##### 우승자를 선별하는 메소드
+- signature : `public List<Racer> getWinner()`
+- return : 우승한 Racer를 담은 리스트
+- description
+  - 각 `Racer`의 score를 비교해 우승자 판별하고 공동 우승의 경우 우승자들을 반환한다.
 
 ### GameUtil 클래스
 
