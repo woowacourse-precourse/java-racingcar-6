@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.fail;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -79,5 +80,30 @@ public class GameTest {
         } catch (Exception e) {
             fail("proceedEachRound 함수의 실행이 정상적으로 처리되지 않았음");
         }
+    }
+
+    @Test
+    void 우승자선별_전진횟수최대값() {
+        Car obj1 = new Car("npc1");
+        Car obj2 = new Car("npc2");
+        Car obj3 = new Car("npc3");
+        Game gameObj = new Game();
+
+        gameObj.carList.add(obj1);
+        gameObj.carList.add(obj2);
+        gameObj.carList.add(obj3);
+        gameObj.roundNumber = 5;
+
+        obj1.increaseForwardCount(5);
+        obj2.increaseForwardCount(3);
+        obj3.increaseForwardCount(2);
+
+        List<String> winnerList = gameObj.selectWinner();
+        assertThat(winnerList).containsExactly("npc1");
+
+        obj3.increaseForwardCount(3);
+
+        winnerList = gameObj.selectWinner();
+        assertThat(winnerList).containsExactly("npc1", "npc3");
     }
 }
