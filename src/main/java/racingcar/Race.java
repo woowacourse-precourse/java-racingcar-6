@@ -14,9 +14,14 @@ public class Race {
     }
 
     public void start() {
+        System.out.println("실행 결과");
         for (int i = 0; i < tryCount; i++) {
             for (Car car: cars) {
                 car.move();
+            }
+
+            for (Car car: cars) {
+                System.out.println(car.getName() + " : " + car.getPositionBar());
             }
         }
     }
