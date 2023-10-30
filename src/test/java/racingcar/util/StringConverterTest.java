@@ -54,7 +54,6 @@ class StringConverterTest {
         assertEquals(expectedResult, result.number());
     }
 
-
     @DisplayName("유효하지 않은 문자열을 정수로 변환하면 예외가 발생한다.")
     @Test
     void invalid_StringToTryNumber_exception_test() {

@@ -2,6 +2,7 @@ package racingcar.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,5 +27,13 @@ class CarTest {
         assertNotNull(car);
         assertEquals(carName.name(), car.getCarName().name());
         assertEquals(INIT_DISTANCE, car.getCarDistance().distance());
+    }
+
+    @DisplayName("자동차 이름이 6자 이상인 경우 예외가 발생한다.")
+    @Test
+    void inValid_carName_test() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            CarName carName = new CarName("123456");
+        });
     }
 }

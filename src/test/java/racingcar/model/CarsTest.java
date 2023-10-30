@@ -32,7 +32,6 @@ class CarsTest {
         assertEquals(3, carNames.size());
     }
 
-
     @DisplayName("자동차 이름이 유효한 경우 객체 생성를 생성한다.")
     @Test
     void valid_carnames_test() {
