@@ -8,11 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.InputValidator;
+import racingcar.util.Validator;
 
 public class InputView implements View {
     private final InputValidator inputValidator;
-    InputView(final InputValidator inputValidator) {
-        this.inputValidator = inputValidator;
+    InputView(final Validator inputValidator) {
+        this.inputValidator = (InputValidator) inputValidator;
     }
 
     public List<String> getUserInputName() {

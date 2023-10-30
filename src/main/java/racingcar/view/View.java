@@ -1,12 +1,12 @@
 package racingcar.view;
 
-import racingcar.util.InputValidator;
+import racingcar.util.Validator;
 
 public interface View {
-    static InputView generateInputView(final InputValidator inputValidator) {
+    static View generateInputView(final Validator inputValidator) {
         return new InputView(inputValidator);
     }
-    static OutputView generateOutputView() {
+    static View generateOutputView() {
         return new OutputView();
     }
 }

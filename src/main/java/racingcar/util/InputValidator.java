@@ -6,7 +6,7 @@ import java.util.List;
 
 public class InputValidator implements Validator {
     InputValidator() {}
-    public void isValidList(List<String> names) {
+    public void isValidList(final List<String> names) {
         for (String name:names) {
             if (!isValidName(name)) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
@@ -14,7 +14,7 @@ public class InputValidator implements Validator {
         }
     }
 
-    public Integer isInteger(String count) {
+    public Integer isInteger(final String count) {
         int number;
         try {
             number = Integer.parseInt(count);
@@ -23,7 +23,7 @@ public class InputValidator implements Validator {
         }
         return number;
     }
-    private boolean isValidName(String name) {
+    private boolean isValidName(final String name) {
         return !name.isBlank() && name.length() <= MAXIMUM_NAME_LENGTH.number();
     }
 }
