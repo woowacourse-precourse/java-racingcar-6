@@ -1,6 +1,6 @@
 package model;
 
-import controller.dto.MoveResult;
+import model.dto.MoveResult;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -31,7 +31,7 @@ public class Cars {
 
     public List<MoveResult> getMoveResult() {
         return cars.stream()
-            .map(Car::toDto)
+            .map(MoveResult::from)
             .collect(Collectors.toList());
     }
 

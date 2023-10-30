@@ -1,6 +1,6 @@
 package view;
 
-import controller.dto.MoveResult;
+import model.dto.MoveResult;
 import java.util.List;
 
 public class OutputView {

@@ -1,7 +1,7 @@
 package controller;
 
-import controller.dto.CarNames;
-import controller.dto.MoveResult;
+import model.dto.CarNames;
+import model.dto.MoveResult;
 import java.util.List;
 import model.TryCount;
 import model.GameManager;

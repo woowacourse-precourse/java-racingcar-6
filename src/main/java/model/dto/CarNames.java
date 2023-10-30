@@ -1,4 +1,4 @@
-package controller.dto;
+package model.dto;
 
 import java.util.List;
 
