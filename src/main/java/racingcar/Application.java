@@ -1,7 +1,11 @@
 package racingcar;
 
+import Carset.CarNamedSet;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        CarNamedSet carname = new CarNamedSet();
+        carname.NameSetting(); // 먼저 이름을 설정
+        carname.PrintCar(); 
     }
 }
