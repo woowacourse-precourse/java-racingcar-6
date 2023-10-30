@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import model.MovingCount;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,5 @@ public class MovingCountTest {
 
         //then
         Assertions.assertThat(currentMovingCount).isEqualTo(expectResult);
-
     }
 }
