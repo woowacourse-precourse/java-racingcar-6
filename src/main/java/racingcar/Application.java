@@ -83,6 +83,10 @@ public class Application {
             validateLengthOfCarName(carName);
         }
 
+        validateCarNameIsDuplicated(carList);
+    }
+
+    private static void validateCarNameIsDuplicated(List<Car> carList) {
         long sizeAfterDistinct = carList.stream().distinct().count();
         if (sizeAfterDistinct != carList.size()) {
             throw new IllegalArgumentException("중복된 이름입니다.");
