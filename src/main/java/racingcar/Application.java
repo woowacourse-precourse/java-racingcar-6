@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.domain.Car;
-import racingcar.domain.RandomNumberGenerator;
+import racingcar.domain.Race;
 import racingcar.util.Validate;
 
 import java.util.Arrays;
@@ -16,14 +16,8 @@ public class Application {
         Integer attemptNumber = askAttemptNumber();
         List<Car> cars = makeCar(carNames);
 
-        for (int i = 0; i < attemptNumber; i++) {
-            for (Car car : cars) {
-                Integer randomNumber = RandomNumberGenerator.generate();
-                if (randomNumber >= 4) {
-                    car.forward();
-                }
-            }
-        }
+        Race race = new Race(cars, attemptNumber);
+        race.start();
     }
 
     public static List<String> askCarNames() {
