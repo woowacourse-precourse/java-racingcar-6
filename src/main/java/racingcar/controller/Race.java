@@ -1,16 +1,9 @@
 package racingcar.controller;
 
-import static racingcar.validator.InputValidator.validateCarList;
-import static racingcar.view.InputView.askCarList;
-
-import java.util.ArrayList;
-import java.util.List;
-import racingcar.model.Car;
+import racingcar.model.Match;
 
 public class Race {
-    public static void updateCarList() {
-        String carListString = askCarList();
-        validateCarList(carListString);
-        List<Car> carList = new ArrayList<>();
+    public static void updateCarList(String carListString, int num) {
+        Match carList = new Match(carListString);
     }
 }

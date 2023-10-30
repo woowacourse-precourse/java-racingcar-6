@@ -6,7 +6,7 @@ public enum SystemMessage {
 
     private final String message;
 
-    SystemMessage(String message){
+    SystemMessage(String message) {
         this.message = message;
     }
 
