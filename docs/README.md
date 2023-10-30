@@ -36,4 +36,9 @@
 
     mothod2: verifyNumberOfTry
 
+# class5: Grandprix
+
+    method1: PlayGrandprix
+        게임의 실질적인 플레이 흐름을 관리
+
 # class(main): Application

@@ -22,7 +22,7 @@ class UserInputTest {
     private static UserInput userInput;
 
     @BeforeEach
-    void initAll() {
+    void initEach() {
         verification = new Verification();
         userInput = new UserInput();
 
@@ -65,6 +65,7 @@ class UserInputTest {
         System.setIn(carName);
         userInput.labelNameOfCar();
         assertThat(userInput.getCarNames().size()).isEqualTo(4);
+        Console.close();
     }
 
     @Test
@@ -77,6 +78,7 @@ class UserInputTest {
         System.setIn(tryNumber);
         userInput.setupNumberOfTry();
         assertThat(userInput.getNumberOfTry()).isEqualTo(numberOfTry);
+        Console.close();
     }
 
 
