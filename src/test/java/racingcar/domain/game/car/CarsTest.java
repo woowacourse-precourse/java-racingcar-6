@@ -36,13 +36,11 @@ class CarsTest {
         FixedMoveStrategy fixedMoveStrategy = new FixedMoveStrategy(true);
 
         // when
-        CarsMovementDto carsMovementDto = cars.moveOnce(fixedMoveStrategy);
+        cars.moveOnceIfMovable(fixedMoveStrategy);
 
         // then
-        List<CarMovementDto> carMovementDtos = carsMovementDto.carsMovementDto();
-        assertThat(carMovementDtos.size()).isEqualTo(3);
-        for (CarMovementDto carMovementDto : carMovementDtos) {
-            assertThat(carMovementDto.position()).isEqualTo(1);
+        for (Car car : cars.getCars()) {
+            assertThat(car.getPosition()).isEqualTo(1);
         }
     }
 
@@ -53,14 +51,28 @@ class CarsTest {
         FixedMoveStrategy fixedMoveStrategy = new FixedMoveStrategy(false);
 
         // when
-        CarsMovementDto carsMovementDto = cars.moveOnce(fixedMoveStrategy);
+        cars.moveOnceIfMovable(fixedMoveStrategy);
 
         // then
-        List<CarMovementDto> carMovementDtos = carsMovementDto.carsMovementDto();
-        assertThat(carMovementDtos.size()).isEqualTo(3);
-        for (CarMovementDto carMovementDto : carMovementDtos) {
-            assertThat(carMovementDto.position()).isEqualTo(0);
+        for (Car car : cars.getCars()) {
+            assertThat(car.getPosition()).isEqualTo(0);
         }
+    }
+
+    @DisplayName("CarsMovementDto로 변환 시 유효한 데이터를 제공하는지 확인")
+    @Test
+    void should_Provide_Valid_CarsMovementDto() {
+        // given
+        List<CarMovementDto> carsMovementDto = cars.getCars().stream()
+                .map(Car::toCarMovementDto)
+                .toList();
+        CarsMovementDto expected = new CarsMovementDto(carsMovementDto);
+
+        // when
+        CarsMovementDto result = cars.toCarsMovementDto();
+
+        // then
+        assertThat(expected).isEqualTo(result);
     }
 
     @DisplayName("최종 우승자를 가려내는지 검증")
