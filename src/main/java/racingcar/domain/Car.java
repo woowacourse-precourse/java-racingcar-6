@@ -17,5 +17,16 @@ public class Car {
         return moveState;
     }
 
+    public void printCar() {
+        System.out.print(this.name + " : ");
+        System.out.println(makeCarMovementGUI(this.moveState));
+    }
 
+    private String makeCarMovementGUI(int moveState) {
+        StringBuilder carGUI = new StringBuilder();
+        for (int i = 0; i < moveState; i++) {
+            carGUI.append("-");
+        }
+        return carGUI.toString();
+    }
 }
