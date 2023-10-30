@@ -22,6 +22,13 @@ public class RaceStarter {
     }
 
     void start() {
+        for (int num = 0; num < moveNum; num++) {
+            doSet();
+        }
+        printWinner();
+    }
+
+    void doSet() {
 
     }
 

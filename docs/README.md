@@ -39,8 +39,11 @@
 + 각각의 자동차 이름으로 Car 클래스를 만들고 cars 리스트에 추가함
 
 ##### void start()
-+ cars 리스트 내부의 자동차들에 대해 move()를 moveNum번 반복
++ doSet() 함수 moveNum번 반복
 + printWinner 함수를 호출
+
+##### void doSet()
++ cars 리스트 내부의 자동차들에 대해 move() 호출
 
 ##### void printWinner()
 + 각 자동차의 movement를 비교하고 우승자를 출력함
