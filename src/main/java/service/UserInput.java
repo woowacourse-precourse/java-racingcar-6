@@ -10,7 +10,7 @@ public class UserInput {
     private int playTime;
 
     public void setCarsName(String inputString) {
-        String[] carsNameInput = inputString.split(",");
+        String[] carsNameInput = inputString.replaceAll("\\s+", "").split(",");
 
         this.carsName.addAll(Arrays.asList(carsNameInput));
         setCarCount();
