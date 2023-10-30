@@ -41,6 +41,8 @@ class CarTest {
         @CsvSource(textBlock = """
                 '',
                 ' ',
+                '1 ',
+                ' 1',
                 123456
                 """)
         void 이름이_유효하지_않으면_예외가_발생한다(String invalidName) {
