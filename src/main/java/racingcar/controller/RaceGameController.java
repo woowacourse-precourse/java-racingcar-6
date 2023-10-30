@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Race;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -9,6 +10,8 @@ import java.util.List;
 
 public class RaceGameController {
 
+    private static final String CAR_NAMES_ASK_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String GAME_COUNT_ASK_MESSAGE = "시도할 회수는 몇회인가요?";
     private final InputView inputView;
     private final OutputView outputView;
 
@@ -18,24 +21,31 @@ public class RaceGameController {
     }
 
     public void run() {
-        outputView.writeNewlineMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> carNames = inputView.readCarNamesInput();
+        Race race = new Race(getCars(), getGameCount());
 
-        outputView.writeNewlineMessage("시도할 회수는 몇회인가요?");
-        int gameCount = inputView.readUserGameCountInput();
+        while(race.hasNextRound()) {
+            race.playOneRound();
+            outputView.printRoundResult(race.getCars());
+        }
 
+        outputView.printWinners(race.getWinners());
+    }
+
+    private Cars getCars() {
+        outputView.writeNewlineMessage(CAR_NAMES_ASK_MESSAGE);
+        return convertCars(inputView.readCarNamesInput());
+    }
+
+    private int getGameCount() {
+        outputView.writeNewlineMessage(GAME_COUNT_ASK_MESSAGE);
+        return inputView.readUserGameCountInput();
+    }
+
+    private Cars convertCars(List<String> carNames) {
         List<Car> carList = carNames.stream()
                 .map(Car::new)
                 .toList();
 
-        Cars cars = new Cars(carList);
-        for(int i = 0; i < gameCount; i++) {
-            cars.driveOneRound(gameCount, 4);
-            List<Car> drivingCars = cars.getCars();
-            outputView.printRoundResult(drivingCars);
-        }
-
-        List<Car> winners = cars.getWinners();
-        outputView.printWinners(winners);
+        return new Cars(carList);
     }
 }
