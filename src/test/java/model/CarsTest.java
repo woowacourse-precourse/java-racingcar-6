@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -31,8 +32,13 @@ public class CarsTest {
         Car lisaCar = new Car("lisa");
         Car jinyCar = new Car("jiny");
         lisaCar.increaseMovingCountIfGreater(4, 5);
-        Cars cars = new Cars(List.of(pobiCar, lisaCar, jinyCar));
 
+        List<Car> carList = new ArrayList<>();
+        carList.add(pobiCar);
+        carList.add(lisaCar);
+        carList.add(jinyCar);
+
+        Cars cars = new Cars(carList);
         //when
         List<String> maxMovingCountName = cars.findMaxMovingCount();
 
