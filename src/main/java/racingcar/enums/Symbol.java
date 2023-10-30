@@ -1,7 +1,10 @@
 package racingcar.enums;
 
 public enum Symbol {
-    CAR_NAME_DELIMITER(",");
+    CAR_NAME_DELIMITER(","),
+    KEY_VALUE_SEPARATOR(" : "),
+    WINNER_DELIMITER(", "),
+    POSITION_MARKER("-");
 
     private final String value;
 
