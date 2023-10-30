@@ -1,9 +1,9 @@
 ## 입력받기
 - [x] 입력 요청 메세지 출력
-- [ ] 자동차 이름 입력받기
-  - [ ] 쉼표를 기준으로 split 가능한 문자열인지 확인 => 아닐경우 `IllegalArgumentException` 발생 및 애플리케이션 종료
-  - [ ] 각 이름이 5글자 이내인지 확인 => 아닐경우 `IllegalArgumentException` 발생 및 애플리케이션 종료
-  - [ ] 참여자가 2명 이상인지 확인 => 아닐경우 `IllegalArgumentException` 발생 및 애플리케이션 종료
+- [x] 자동차 이름 입력받기
+  - [x] 쉼표를 기준으로 split 가능한 문자열인지 확인 => 아닐경우 `IllegalArgumentException` 발생 및 애플리케이션 종료
+  - [x] 각 이름이 5글자 이내인지 확인 => 아닐경우 `IllegalArgumentException` 발생 및 애플리케이션 종료
+  - [x] 참여자가 2명 이상인지 확인 => 아닐경우 `IllegalArgumentException` 발생 및 애플리케이션 종료
 - [ ] 시도 횟수 요청 메세지 출력
 - [ ] 시도 횟수 입력받기
   - [ ] 입력이 숫자인지 확인 => 아닐경우 `IllegalArgumentException` 발생 및 애플리케이션 종료
