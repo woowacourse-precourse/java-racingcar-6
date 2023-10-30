@@ -24,6 +24,7 @@ public class RacingcarGameController {
         do {
             outputView.readOngoingResult(ongoing());
         }while(racingcarGame.isContinue());
+        outputView.readWinner(racingcarGame.getWinner());
     }
 
     private void setTryCount() {

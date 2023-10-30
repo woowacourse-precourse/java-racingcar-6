@@ -3,8 +3,7 @@ package racingcar;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class RacingcarGame {
 
@@ -49,5 +48,39 @@ public class RacingcarGame {
         if (tryCount == 0) {
             return false;
         }return true;
+    }
+
+    public String getWinner() {
+        int maxDistance = getMaxDistance();
+        List<Car> racingCars = cars.getRacingCars();
+        List<Car> winners = racingCars.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .toList();
+        if (!isJointWinner(winners) && maxDistance != 0) {
+            return winners.get(0).getName();
+        } else if (isJointWinner(winners) && maxDistance != 0) {
+            return winnerStringJoin(winners);
+        }else {
+            return null;
+        }
+    }
+
+    private int getMaxDistance() {
+        List<Car> racingCars = cars.getRacingCars();
+        Comparator<Car> comparatorByDistance = Comparator.comparingInt(Car::getDistance);
+        Optional<Car> maxDistance = racingCars.stream().max(comparatorByDistance);
+        return maxDistance.map(Car::getDistance).orElse(0);
+    }
+
+    private Boolean isJointWinner(List<Car> winnerList) {
+        if (winnerList.size() > 1) {
+            return true;
+        }return false;
+    }
+
+    private String winnerStringJoin(List<Car> winners) {
+        StringJoiner stringJoiner = new StringJoiner(",");
+        winners.forEach(car->stringJoiner.add(car.getName()));
+        return stringJoiner.toString();
     }
 }
