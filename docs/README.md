@@ -38,7 +38,7 @@
   
   - [ ] 자동차가 전진할 기회를 준다 **CarController**#grantChaceForForward
     
-    - [ ] 무작위 수(0~9)를 구한다. -**NumberGenerator**#createRandomNumber
+    - [x] 무작위 수(0~9)를 구한다. -**NumberGenerator**#createRandomNumber
     
     - [ ] 4이상이면 전진 한다. - **Car**#forward 
   

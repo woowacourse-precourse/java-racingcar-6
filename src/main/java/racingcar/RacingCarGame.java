@@ -14,6 +14,10 @@ public class RacingCarGame {
 
     public void play(){
         initConfig();
+
+        for(int rount = 0; rount < moveCount; rount++){
+
+        }
     }
 
     private void initConfig(){

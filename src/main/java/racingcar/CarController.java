@@ -10,7 +10,6 @@ public class CarController {
         this.operatedCars = new ArrayList<Car>();
     }
 
-
     public void initializeOperatedCars(String[] carNames){
         this.operatedCars = createCars(carNames);
     }
@@ -22,5 +21,9 @@ public class CarController {
             newCars.add(car);
         }
         return newCars;
+    }
+
+    public void grantForwardChanceForCars(){
+
     }
 }

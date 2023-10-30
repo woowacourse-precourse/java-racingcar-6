@@ -1,10 +1,8 @@
 package study;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-import racingcar.Car;
-import racingcar.CarController;
-import racingcar.Constant;
-import racingcar.StringOperator;
+import racingcar.*;
 
 import java.util.ArrayList;
 
@@ -41,6 +39,15 @@ public class StringTest {
 
         // 객체 비교
         assertThat(result).usingRecursiveComparison().isEqualTo(expected);
+    }
+
+    @Test
+    @RepeatedTest(100)
+    void 무작위_수_생성(){
+        NumberGenerator numberGenerator = new NumberGenerator();
+        int actual = numberGenerator.createRandomNumber();
+
+        assertThat(actual).isBetween(0,9);
     }
     @Test
     void split_메서드로_주어진_값을_구분() {
