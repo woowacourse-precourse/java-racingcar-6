@@ -27,6 +27,14 @@ public class Car {
         position.increase();
     }
 
+    public String getName() {
+        return name.getName();
+    }
+
+    public int getPosition() {
+        return position.getPosition();
+    }
+
     @Override
     public boolean equals(final Object other) {
         if (this == other) {
@@ -44,13 +52,5 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(name.getName());
-    }
-
-    public String getName() {
-        return name.getName();
-    }
-
-    public int getPosition() {
-        return position.getPosition();
     }
 }
