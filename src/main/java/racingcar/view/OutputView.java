@@ -12,7 +12,7 @@ public class OutputView {
     }
 
     public static void printCarsResult(CarResult carList) {
-        for (Car car : carList.getCars()) {
+        for (Car car : carList.getCarList()) {
             printCarResult(car);
         }
     }
