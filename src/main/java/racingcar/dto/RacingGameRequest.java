@@ -32,7 +32,7 @@ public class RacingGameRequest {
 
     private static List<Car> toList(String names) {
         return Arrays.stream(names.split(","))
-                .map(name -> name.replace(" ", ""))
+                .map(String::trim)
                 .map(name -> new Car(name, new RandomNumberGenerator()))
                 .collect(Collectors.toList());
     }
