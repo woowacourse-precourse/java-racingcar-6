@@ -11,11 +11,6 @@ public class Application {
         racingGame.play();
     }
 
-    public static String createHyphenResult(final Car car) {
-        final int position = car.getPosition();
-        return "-".repeat(position);
-    }
-
     public static List<Car> judgeWinners(final List<Car> cars) {
         final int maxPosition = getMaxPosition(cars);
         return cars.stream()

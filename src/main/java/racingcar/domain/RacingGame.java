@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import static racingcar.Application.judgeWinners;
 import static racingcar.Application.printWinners;
-import static racingcar.utils.MessagePrinter.printRoundResult;
+import static racingcar.utils.MessagePrinter.roundResult;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -36,7 +36,7 @@ public class RacingGame {
         for (int i=0; i<playTimes; i++) {
             cars.forEach(car -> car
                     .move(generateRandomNumber()));
-            printRoundResult(cars);
+            roundResult(cars);
             System.out.println();
         }
         final List<Car> winners = judgeWinners(cars);
