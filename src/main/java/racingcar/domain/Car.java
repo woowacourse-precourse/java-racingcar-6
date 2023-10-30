@@ -29,11 +29,11 @@ public class Car {
         }
     }
 
-    public int getMoveCount() {
-        return moveCount;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
     }
 }
