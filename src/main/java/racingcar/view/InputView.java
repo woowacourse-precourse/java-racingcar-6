@@ -12,8 +12,8 @@ public class InputView {
         return Console.readLine();
     }
 
-    public int printTryCount() {
+    public String printTryCount() {
         System.out.println(TRY_COUNT);
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 }
