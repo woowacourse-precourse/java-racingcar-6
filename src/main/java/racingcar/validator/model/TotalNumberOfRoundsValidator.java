@@ -1,26 +1,26 @@
 package racingcar.validator.model;
 
 import racingcar.exception.round.NonPositiveIntegerException;
-import racingcar.model.Round;
+import racingcar.model.TotalNumberOfRounds;
 
-public class RoundValidator extends ModelValidator {
-    private static RoundValidator roundValidator = new RoundValidator();
+public class TotalNumberOfRoundsValidator extends ModelValidator {
+    private static TotalNumberOfRoundsValidator totalNumberOfRoundsValidator = new TotalNumberOfRoundsValidator();
 
-    private RoundValidator() {
+    private TotalNumberOfRoundsValidator() {
     }
 
-    public static RoundValidator getInstance() {
-        return roundValidator;
+    public static TotalNumberOfRoundsValidator getInstance() {
+        return totalNumberOfRoundsValidator;
     }
 
     @Override
     public void validate(Object target) {
-        Round round = (Round) target;
-        validateTotalNumberOfRounds(round.getTotalNumberOfRounds());
+        TotalNumberOfRounds totalNumberOfRounds = (TotalNumberOfRounds) target;
+        validateTotalNumberOfRounds(totalNumberOfRounds.getTotal());
     }
 
-    private void validateTotalNumberOfRounds(int totalNumberOfRounds) {
-        if (totalNumberOfRounds < 0) {
+    private void validateTotalNumberOfRounds(int total) {
+        if (total < 0) {
             throw new NonPositiveIntegerException();
         }
     }
