@@ -3,7 +3,7 @@ package racingcar.view;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.CarModel;
+import racingcar.model.Car;
 
 public class OutputView {
 
@@ -33,12 +33,12 @@ public class OutputView {
     }
 
 
-    public static void printWinner(List<CarModel> winnerCars) {
+    public static void printWinner(List<Car> winnerCars) {
         StringBuilder stringBuilder = new StringBuilder();
         List<String> winners = new ArrayList<>();
 
-        for (CarModel carModel : winnerCars) {
-            winners.add(carModel.getName());
+        for (Car car : winnerCars) {
+            winners.add(car.getName());
         }
         stringBuilder.append(WINNER_MESSAGE).append(String.join(", ", winners));
         System.out.println(stringBuilder);

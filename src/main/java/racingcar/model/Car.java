@@ -1,14 +1,14 @@
 package racingcar.model;
 
 
-public class CarModel {
+public class Car {
 
     private static final int FORWARD_NUMBER = 4;
     private static final int MAX_NAME_LENGTH = 5;
     private final String name;
     private int location;
 
-    public CarModel(String carName) {
+    public Car(String carName) {
         nameLengthValidation(carName);
         this.name = carName;
         this.location = 0;

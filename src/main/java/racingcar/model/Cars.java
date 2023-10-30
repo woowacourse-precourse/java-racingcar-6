@@ -3,41 +3,39 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.exception.ExceptionCheck;
 import racingcar.view.OutputView;
 
 public class Cars {
 
     public static final int MAX_NUMBER = 9;
     public static final int MIN_NUMBER = 0;
-    private final List<CarModel> carModelList = new ArrayList<>();
+    private final List<Car> carList = new ArrayList<>();
 
     public Cars(List<String> carList) {
         for (String s : carList) {
-            this.carModelList.add(new CarModel(s));
+            this.carList.add(new Car(s));
         }
     }
 
     public void forwardCars() {
-        for (CarModel carModel : carModelList) {
-            carModel.forward(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER));
-            OutputView.printRacing(carModel.getName(), carModel.getLocation());
+        for (Car car : carList) {
+            car.forward(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER));
+            OutputView.printRacing(car.getName(), car.getLocation());
         }
         System.out.println("");
     }
 
-    public List<CarModel> winner() {
+    public List<Car> winner() {
         int maxLocation = maxLocation();
 
-        return carModelList.stream()
-            .filter(carModel -> carModel.getLocation() == maxLocation)
+        return carList.stream()
+            .filter(car -> car.getLocation() == maxLocation)
             .toList();
     }
 
     private int maxLocation() {
-        return carModelList.stream()
-            .mapToInt(CarModel::getLocation)
+        return carList.stream()
+            .mapToInt(Car::getLocation)
             .max()
             .getAsInt();
     }
