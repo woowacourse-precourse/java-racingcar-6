@@ -18,7 +18,7 @@
 
 ### 3. 우승자 구하기
 - [ ] `Referee`는 게임 완료 후 우승자를 알려준다.
-  - [ ] 전진 횟수가 가장 많은 자동차가 우승할 수 있다. - Cars#getMaxForwardCountCarNames()
+  - [X] 전진 횟수가 가장 많은 자동차가 우승할 수 있다. - Cars#getMaxForwardCountCarNames()
   - [ ] 출력 : "최종 우승자 : " - Referee#announceWinners()
   - 우승자는 한 명 이상일 수 있다.
   - 우승자가 여러 명일 경우 쉼표로 구분

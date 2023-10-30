@@ -13,26 +13,26 @@ public class Car implements Comparable<Car>{
     }
 
     private void throwIfInvalidNameLength(String name){
-        if(name.length()>5){
+        if (name.length() > 5){
             throw new IllegalArgumentException("Racing car name length cannot be more than 5.");
         }
     }
 
     public void drive(){
         this.randomNumber = NumberGenerator.createRandomNumber();
-        if(isGoingForward(this.randomNumber)){
+        if (isGoingForward(this.randomNumber)){
             this.forwardCount++;
         }
     }
 
     private boolean isGoingForward(int number){
-        return number>=4;
+        return number >= 4;
     }
 
     public void printCarState(){
-        String carState = this.name+" : ";
-        for(int i=0;i<this.randomNumber;i++){
-            carState = carState+"-";
+        String carState = this.name + " : ";
+        for (int i = 0; i < this.randomNumber; i++){
+            carState = carState + "-";
         }
         System.out.println(carState);
     }
@@ -47,7 +47,7 @@ public class Car implements Comparable<Car>{
 
     @Override
     public int compareTo(Car c){
-        return Integer.compare(c.forwardCount,this.forwardCount);
+        return Integer.compare(c.forwardCount, this.forwardCount);
     }
 
 }

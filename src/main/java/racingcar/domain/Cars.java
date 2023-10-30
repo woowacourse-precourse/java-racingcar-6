@@ -13,7 +13,7 @@ public class Cars{
     }
 
     private List<Car> nameListIntoCarList(List<String> names){
-        List<Car> cars= new ArrayList<>();
+        List<Car> cars = new ArrayList<>();
         for (String name : names){
             cars.add(new Car(name));
         }
@@ -21,13 +21,13 @@ public class Cars{
     }
 
     public List<String> getMaxForwardCountCarNames(){
-        List<String>carNames = new ArrayList<>();
+        List<String> carNames = new ArrayList<>();
         Collections.sort(this.getCarList());
         for (Car car : carList){
             System.out.println(car.getForwardCount());
         }
         for (Car car : this.getCarList()){
-            if(this.getCarList().get(0).getForwardCount()==car.getForwardCount()){
+            if (this.getCarList().get(0).getForwardCount() == car.getForwardCount()){
                 carNames.add(car.getName());
             }
         }
