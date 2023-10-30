@@ -10,6 +10,7 @@ public class Application {
         // TODO: 프로그램 구현
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         inputCarName();
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 
     public static void inputCarName() {
@@ -63,6 +64,28 @@ public class Application {
             }
         } catch (IllegalArgumentException e) {
             System.out.println("문자만 입력하세요.");
+        }
+
+        return flag;
+    }
+
+    public static void inputCount(){
+        String input = Console.readLine();
+
+        try {
+            if(!checkisDigit(input)) throw new IllegalArgumentException("숫자만 입력하세요");
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static boolean checkisDigit(String s){
+        boolean flag = true;
+
+        for(int i=0; i<s.length(); i++){
+            if(!Character.isDigit(s.charAt(i))){
+                flag = false;
+            }
         }
 
         return flag;
