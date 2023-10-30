@@ -54,7 +54,7 @@ public class Cars {
 
     private List<Car> getWinners() {
         Car maxMoveCar = cars.stream()
-            .max(Comparator.comparing(Car::getMoveCountValue))
+            .max(Comparator.comparing(Car::getMoveCount))
             .orElseThrow(NoSuchElementException::new);
 
         return findSameMoveCountCars(maxMoveCar.getMoveCount());

@@ -1,6 +1,6 @@
 package model;
 
-public class MoveCount {
+public class MoveCount implements Comparable<MoveCount> {
 
     private static final int INITIAL_MOVE_COUNT = 0;
     private static final int EQUAL_VALUE_COMPARE_RESULT = 0;
@@ -25,6 +25,11 @@ public class MoveCount {
 
     public int getMoveCount() {
         return moveCount;
+    }
+
+    @Override
+    public int compareTo(final MoveCount count) {
+        return moveCount - count.moveCount;
     }
 
     @Override
