@@ -11,7 +11,7 @@ public class Validator {
     public static List<String> validateCarNameInput(String input) {
         validateCarNameInputLength(input);
 
-        List<String> carNames = List.of(input.split(","));
+        List<String> carNames = List.of(input.split(COMMA));
 
         validateDuplicateCarName(carNames);
 
