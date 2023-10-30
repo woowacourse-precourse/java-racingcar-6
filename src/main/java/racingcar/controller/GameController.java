@@ -1,13 +1,12 @@
 package racingcar.controller;
 
 import java.util.List;
-
-import racingcar.MoveResult;
-import racingcar.utils.NumberGenerator;
+import racingcar.domain.MoveResult;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.NumberOfAttempts;
 import racingcar.domain.Referee;
+import racingcar.utils.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

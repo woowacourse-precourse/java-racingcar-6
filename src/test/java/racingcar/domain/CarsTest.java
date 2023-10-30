@@ -2,13 +2,11 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import racingcar.utils.FixedNumberGenerator;
-import racingcar.MoveResult;
 
 class CarsTest {
 
