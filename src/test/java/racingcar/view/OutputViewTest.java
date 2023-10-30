@@ -58,9 +58,9 @@ class OutputViewTest {
     public void 결과_헤더_출력() throws Exception {
         //given
         //when
-        displayGameStartMessage();
+        displayResultHeader();
         //then
-        assertEquals("실행 결과\n", outContent.toString());
+        assertEquals("\n실행 결과\n", outContent.toString());
     }
 
     @Test
