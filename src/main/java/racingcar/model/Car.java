@@ -25,4 +25,7 @@ public class Car {
     private boolean checkNameLength(String car){
         return car.length() <= CAR_NAME_MAX_LENGTH;
     }
+    public Map<String,Integer> getCarMap() {
+        return this.carMap;
+    }
 }
