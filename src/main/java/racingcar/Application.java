@@ -10,9 +10,14 @@ import java.util.Map;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        List<String> inputCars = inputCars();
-        Map<String, Integer> cars = storeCars(inputCars);
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        List<String> input_cars = inputCars();
+        Map<String, Integer> cars = storeCars(input_cars);
+
+        System.out.println("시도할 횟수는 몇회인가요?");
         int N = inputN();
+
+        System.out.println("\n실행 결과");
         goOrStop(cars, N);
 
     }
@@ -53,6 +58,19 @@ public class Application {
             for (String car : cars.keySet()) {
                 cars.put(car, cars.get(car) + addStep(randomNumber()));
             }
+            printProcess(cars);
         }
+    }
+    public static void printProcess(Map<String, Integer> cars) {
+        String result = "";
+        for (String car : cars.keySet()) {
+             result += car + " : ";
+            for (int i = 0; i < cars.get(car); i++) {
+                result += "-";
+            }
+            System.out.println(result);
+            result = "";
+        }
+        System.out.println();
     }
 }
