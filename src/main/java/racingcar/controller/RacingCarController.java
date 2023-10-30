@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.dto.ResultCars;
 import racingcar.service.RacingCarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -23,11 +24,12 @@ public class RacingCarController {
         Cars cars = racingCarService.saveCarName(carName);
         outputView.printRepeatNumberMessage();
         String repeatCount = inputView.readRepeatCount();
+        outputView.printGameStatusMessage();
         for (int i = 0; i < Integer.parseInt(repeatCount); i++) {
             racingCarService.moveCar(cars);
             outputView.printGameStatus(cars);
         }
-
-
+        ResultCars resultCars = cars.filterCarsWithMaxDistance();
+        outputView.printRacingCarResult(resultCars);
     }
 }
