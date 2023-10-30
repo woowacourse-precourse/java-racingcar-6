@@ -13,10 +13,6 @@ public class Car
 		score = 0;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public int getScore() {
 		return score;
 	}
@@ -46,9 +42,7 @@ public class Car
 	 */
 	public String display() {
 		String result = name + " : ";
-		if (score > 0) {
-			result += "-".repeat(score);
-		}
+		result += "-".repeat(score);
 		return result;
 	}
 }
