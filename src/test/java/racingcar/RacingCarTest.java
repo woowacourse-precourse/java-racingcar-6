@@ -21,4 +21,14 @@ class RacingCarTest {
 
         assertThat(pobi.toString()).isEqualTo("pobi : ");
     }
+
+    @Test
+    void input_자동차의_4이상의_수를_받아_주행거리_반환(){
+        Car pobi = new RacingCar("pobi");
+        pobi.moveCar(4);
+        pobi.moveCar(9);
+        pobi.moveCar(6);
+
+        assertThat(pobi.toString()).isEqualTo("pobi : ---");
+    }
 }
