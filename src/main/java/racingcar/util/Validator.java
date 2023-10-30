@@ -5,6 +5,11 @@ import java.util.List;
 
 public class Validator {
 
+    public void names(List<String> nameList){
+        size(nameList);
+        blank(nameList);
+        duplicate(nameList);
+    }
     public void size(List<String> nameList){
         for(String name:nameList){
             if(name.length()>5){

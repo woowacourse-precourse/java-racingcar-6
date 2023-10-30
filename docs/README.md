@@ -1,7 +1,7 @@
 ## 기능 목록
-- [ ] 입력 받은 자동차 이름들을 검증 한다. - Validator#names
+- [x] 입력 받은 자동차 이름들을 검증 한다. - Validator#names
   - [x] 개별 이름 5자 이하(앞뒤 공백 제외) - Validator#size
-  - [ ] 중복된 이름 금지 - Validator#duplicate
+  - [x] 중복된 이름 금지 - Validator#duplicate
   - [x] 공백 이름 금지 - Validator#blank
     - "," 금지
 - [ ] 입력 받은 시도 횟수를 검증 한다. - Validator#trial
