@@ -14,10 +14,10 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars createByNames(List<String> carNames) {
+    public static Cars createByNames(List<CarName> carNames) {
 
         List<Car> cars = carNames.stream()
-                .map(name -> new Car(new CarName(name)))
+                .map(Car::new)
                 .toList();
 
         validateDuplication(cars);

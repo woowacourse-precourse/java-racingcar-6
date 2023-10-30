@@ -2,6 +2,7 @@ package racingcar.presentation;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.CarGameRound;
+import racingcar.domain.CarName;
 
 import java.util.List;
 import java.util.Map;
@@ -36,10 +37,13 @@ public class CarViewer {
         return carViewer;
     }
 
-    public List<String> inputCarNames() {
+    public List<CarName> inputCarNames() {
         System.out.println(INPUT_CAR_NAMES + GUIDE_NAME_DIVIED);
         String inputCarNames = Console.readLine();
-        return List.of(inputCarNames.split(INPUT_NAME_DELIMITER));
+        return List.of(inputCarNames.split(INPUT_NAME_DELIMITER))
+                .stream()
+                .map(CarName::new)
+                .toList();
     }
 
     public CarGameRound inputGameRound() {
