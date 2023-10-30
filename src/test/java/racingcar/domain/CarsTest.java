@@ -38,7 +38,7 @@ class CarsTest {
         Cars cars = new Cars("pobi,woni");
 
         // when
-        cars.move();
+        cars.moveEachCar();
 
         // then
         CarsDto carsDto = cars.toCarsDto();
@@ -51,10 +51,10 @@ class CarsTest {
     @DisplayName("최종 우승자 이름 구하기")
     void givenCars_whenFindWinners_thenReturnWinnersName() {
         Cars cars = new Cars("pobi,woni");
-        cars.move();
+        cars.moveEachCar();
 
         // when
-        List<String> result = cars.findWinners();
+        List<String> result = cars.findWinnersName();
 
         // then
         assertThat(result).containsAnyOf("pobi", "woni");
@@ -65,7 +65,7 @@ class CarsTest {
     void givenWinners_whenModify_thenThrowException() {
         // given
         Cars cars = new Cars("pobi");
-        List<String> winners = cars.findWinners();
+        List<String> winners = cars.findWinnersName();
 
         // when & then
         assertThatThrownBy(() -> winners.add("woni"))

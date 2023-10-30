@@ -36,14 +36,14 @@ public class Cars {
                 .toList();
     }
 
-    public void move() {
+    public void moveEachCar() {
         for (Car car : cars) {
             car.move(randomNumberGenerator.generate());
         }
     }
 
-    public List<String> findWinners() {
-        Car winner = getWinner();
+    public List<String> findWinnersName() {
+        Car winner = findWinner();
         return cars.stream()
                 .filter(car -> car.isSamePosition(winner))
                 .map(Car::toCarDto)
@@ -51,7 +51,7 @@ public class Cars {
                 .toList();
     }
 
-    private Car getWinner() {
+    private Car findWinner() {
         return cars.stream()
                 .max(Comparator.comparingInt(Car::getPosition))
                 .orElseThrow(() -> {

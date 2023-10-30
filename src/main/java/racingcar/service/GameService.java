@@ -43,12 +43,12 @@ public class GameService {
     }
 
     public CarsDto playRound(final Cars cars) {
-        cars.move();
+        cars.moveEachCar();
         return cars.toCarsDto();
     }
 
     public List<String> findWinnersName(final Cars cars) {
-        return cars.findWinners();
+        return cars.findWinnersName();
     }
 
 }
