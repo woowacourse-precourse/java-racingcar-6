@@ -19,5 +19,15 @@ public class RacingGame {
         }
 
         Long tryCount = InputView.readTryCount();
+
+        for (int i = 0; i < tryCount; i++) {
+            tryToMoveCars(cars);
+        }
+    }
+
+    private void tryToMoveCars(List<Car> cars) {
+        for (Car car : cars) {
+            car.moveOrStay();
+        }
     }
 }
