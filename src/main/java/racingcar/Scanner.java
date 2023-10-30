@@ -33,7 +33,7 @@ public class Scanner {
         if (names.stream()
                 .map(String::length)
                 .max(Integer::compareTo)
-                .get() >= 5) {
+                .get() > 5) {
             throw new IllegalArgumentException(Printer.RANGE_ERROR);
         }
     }
