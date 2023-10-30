@@ -5,29 +5,28 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Printer.REQUEST_NAME);
         List<String> cars = Arrays.stream(Console.readLine().split(","))
                         .toList();
         if (cars.stream()
                 .map(String::length)
                 .max(Integer::compareTo).get() >= 5) {
-            throw new IllegalArgumentException("String index out of range: 5");
+            throw new IllegalArgumentException(Printer.RANGE_ERROR);
         }
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Printer.REQUEST_ROUND);
         int round;
         try {
             round = Integer.parseInt(Console.readLine());
         } catch (Exception e) {
-            throw new IllegalArgumentException("Input is not an integer");
+            throw new IllegalArgumentException(Printer.NOT_AN_INTEGER_ERROR);
         }
 
-        System.out.println("\n실행 결과");
+        System.out.println(Printer.PRINT_PROGRESS);
         List<Integer> progress = new ArrayList<>(Collections.nCopies(cars.size(), 0));
         for (int i = 0; i < round; i++) {  // 라운드 시작
             for (int j = 0; j < cars.size(); j++) {  // 각 차의 주사위
@@ -51,7 +50,7 @@ public class Application {
                 .filter(i -> progress.get(i) == maxMove)
                 .mapToObj(cars::get)
                 .toList();
-        System.out.print("최종 우승자 : ");
+        System.out.print(Printer.PRINT_WINNER);
         if (winner.size() == 1) {
             System.out.println(winner.get(0));
         } else {
