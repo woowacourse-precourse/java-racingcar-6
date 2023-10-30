@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +46,10 @@ public class CarController {
             // 각 자동차들의 위치 정보가 모두 출력 되면 줄만 하나 출력
             System.out.println();
         }
+
+        output.winners( cars.getWinner( cars.getCars() ) );
+
+        Console.close();
     }
 
     private Cars inputCarsStringToCarsClass(String inputTemp) {

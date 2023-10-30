@@ -11,4 +11,8 @@ public class Output {
         System.out.println(currentPosition);
         System.out.println();
     }
+
+    public void winners(String winner) {
+        System.out.printf("최종 우승자 : %s", winner);
+    }
 }
