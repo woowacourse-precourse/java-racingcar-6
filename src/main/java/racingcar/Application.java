@@ -9,18 +9,10 @@ import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        InputManger inputManger = new InputManger();
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputNames = scanner.nextLine();
-        String[] carNames = inputNames.split(",");
-        for(String name : carNames){
-            if(name.length()>5){
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-            }
-        }
-        System.out.println("시도할 횟수는 몇회인가요?");
-        int attempts = scanner.nextInt();
+        String[] carNames = inputManger.getCarNames();
+        int attempts = inputManger.getAttempts();
 
         Race race = new Race(Arrays.asList(carNames), attempts);
         race.startRace();
