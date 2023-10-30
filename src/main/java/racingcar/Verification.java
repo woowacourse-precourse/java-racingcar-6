@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Verification {
@@ -9,6 +10,9 @@ public class Verification {
                 throw new IllegalArgumentException();
             }
         }
+    }
+
+    public void verifyDuplication(List<String> names) {
     }
 
     public void verifyNumberOfTry(String number){

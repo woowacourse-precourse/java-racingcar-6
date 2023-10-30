@@ -20,6 +20,7 @@ public class Application {
             racingPlayer.put(name, new CarImpl());
         }
 
+        grandprix.playGrandprix(numberOfTry, racingPlayer);
 
 
     }

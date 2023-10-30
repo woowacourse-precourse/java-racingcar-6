@@ -16,6 +16,7 @@ public class UserInput {
     public void labelNameOfCar() {
         String readLine = Console.readLine();
         carNames = List.of(readLine.split(","));
+        verification.verifyDuplication(carNames);
         verification.verifyArg(carNames);
     }
 
