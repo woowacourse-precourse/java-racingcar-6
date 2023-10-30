@@ -44,6 +44,13 @@ public class Race {
 
 	private void executeTurn() {
 		carList.forEach(car -> car.run(pickNumberInRange(0, 9)));
+		printStatus();
+	}
+
+	private void printStatus() {
+		System.out.println("실행 결과");
+		carList.forEach(car -> System.out.println(car.getName().concat(" : ").concat("-".repeat(car.getMoveCount()))));
+		System.out.println();
 	}
 
 	private void printResult() {
