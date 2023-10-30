@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.PrintMessage;
 import racingcar.vo.RacingCar;
@@ -42,6 +43,8 @@ public class RacingLogic {
 
     public static void determineRacingWinner(RacingCars racingCars){
         int maxDistance=getMaxDistance(racingCars);
+        List<String> winnerCarNames=new ArrayList<>();
+        winnerCarNames=getWinnerCarName(racingCars,maxDistance);
     }
     public static int getMaxDistance(RacingCars racingCars){
         List<RacingCar> racingCarList=racingCars.getRacingCars();
@@ -51,4 +54,16 @@ public class RacingLogic {
                 .orElse(0);
         return maxDistance;
     }
+
+    public static List<String> getWinnerCarName(RacingCars racingCars, int maxDistance){
+        List<String>winnerCarNames=new ArrayList<>();
+        List<RacingCar> racingCarList=racingCars.getRacingCars();
+        for (RacingCar car : racingCarList) {
+            if (car.getDistance() == maxDistance) {
+                winnerCarNames.add(car.getRacingCarName());
+            }
+        }
+        return winnerCarNames;
+    }
+
 }
