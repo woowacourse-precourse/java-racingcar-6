@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class RoundService {
     private static final int START_RANDOM_NUMBER = 0;
     private static final int END_RANDOM_NUMBER = 9;
@@ -9,6 +11,14 @@ public class RoundService {
 
     public RoundService(RandomNumber randomNumber) {
         this.randomNumber = randomNumber;
+    }
+
+    public void moveCarsByRandom(List<Car> cars) {
+        for (Car car : cars) {
+            if (randomMoveSelect()) {
+                car.moveForward();
+            }
+        }
     }
 
     private Boolean randomMoveSelect() {

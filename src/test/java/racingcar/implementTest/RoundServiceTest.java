@@ -5,7 +5,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
+import racingcar.Car;
 import racingcar.RandomNumberImpl;
 import racingcar.RoundService;
 
@@ -65,6 +69,23 @@ public class RoundServiceTest {
                     assertThat(check).isEqualTo(false);
                 },
                 STOP
+        );
+    }
+
+    @Test
+    void 자동차_전진_멈춤() {
+        RoundService roundService = new RoundService(new RandomNumberImpl());
+
+        List<Car> actual = Arrays.asList(new Car("pobi"), new Car("jiho"), new Car("java"));
+        List<Integer> expected = Arrays.asList(1, 0, 1);
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    roundService.moveCarsByRandom(actual);
+                    List<Integer> moveAfter = actual.stream().map(Car::getPosition).collect(Collectors.toList());
+                    assertThat(moveAfter).isEqualTo(expected);
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD
         );
     }
 }
