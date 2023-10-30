@@ -16,26 +16,38 @@ class CarsTest {
     @DisplayName("Cars 생성 성공 테스트")
     @Test
     void createCarsSuccessTest() {
+
+        // given
         List<CarName> carNames = Stream.of("a", "b", "c").map(CarName::new).toList();
 
+        // when
         Cars cars = Cars.createByNames(carNames);
 
+        // then
         assertThat(cars).isNotNull();
     }
 
     @DisplayName("Cars 생성 실패 테스트 - 중복")
     @Test
     void createCarsFailTest_1() {
+
+        // given
         List<CarName> carNames = Stream.of("a", "a", "c").map(CarName::new).toList();
 
+        // when
+        // then
         assertThrows(IllegalArgumentException.class, () -> Cars.createByNames(carNames));
     }
 
     @DisplayName("Cars 생성 실패 테스트 - 공백")
     @Test
     void createCarsFailTest_2() {
+
+        // given
         List<CarName> carNames = new ArrayList<>();
 
+        // when
+        // then
         assertThrows(IllegalArgumentException.class, () -> Cars.createByNames(carNames));
     }
 
@@ -43,13 +55,16 @@ class CarsTest {
     @Test
     void carsGoForwardTest() {
 
+        // given
         List<String> names = List.of("a", "b", "c");
         List<CarName> carNames = names.stream().map(CarName::new).toList();
 
         Cars cars = Cars.createByNames(carNames);
 
+        // when
         Map<String, Integer> status = cars.goForward();
 
+        // then
         assertThat(status.keySet().containsAll(names)).isTrue();
         for (String key : status.keySet()) {
             Integer position = status.get(key);
@@ -61,6 +76,8 @@ class CarsTest {
     @DisplayName("Cars getWinningCarNames 테스트")
     @Test
     void carsGetWinningCarNamesTest() {
+
+        // given
         List<String> names = List.of("a", "b", "c");
         List<CarName> carNames = names.stream().map(CarName::new).toList();
 
@@ -68,8 +85,10 @@ class CarsTest {
 
         cars.goForward();
 
+        // when
         List<String> winningCarNames = cars.getWinningCarNames();
 
+        // then
         assertThat(names.containsAll(winningCarNames)).isTrue();
     }
 }

@@ -20,8 +20,11 @@ class CarGameRoundTest {
     @Test
     void createCarRoundSuccessTest() {
 
+        // given
+        // when
         CarGameRound carGameRound = CarGameRound.createByString("1");
 
+        // then
         assertThat(carGameRound).isNotNull();
     }
 
@@ -30,6 +33,9 @@ class CarGameRoundTest {
     @ParameterizedTest
     void createCarRoundFailTest(String inputRound) {
 
+        // given
+        // when
+        // then
         assertThrows(IllegalArgumentException.class, () -> CarGameRound.createByString(inputRound));
     }
 
@@ -37,8 +43,12 @@ class CarGameRoundTest {
     @MethodSource("generateCarGameRound_Running")
     @ParameterizedTest
     void carRoundIsRunningTest_1(int finalRound, List<Integer> runningRound) {
+
+        // given
+        // when
         CarGameRound carGameRound = CarGameRound.createByString(String.valueOf(finalRound));
 
+        // then
         for (Integer currentRound : runningRound) {
             assertThat(carGameRound.isRunning(currentRound)).isTrue();
         }
@@ -48,8 +58,12 @@ class CarGameRoundTest {
     @MethodSource("generateCarGameRound_End")
     @ParameterizedTest
     void carRoundIsRunningTest_2(int finalRound, int runningRound) {
+
+        // given
+        // when
         CarGameRound carGameRound = CarGameRound.createByString(String.valueOf(finalRound));
 
+        // then
         assertThat(carGameRound.isRunning(runningRound)).isFalse();
     }
 

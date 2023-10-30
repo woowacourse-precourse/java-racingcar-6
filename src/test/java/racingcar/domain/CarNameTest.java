@@ -14,14 +14,22 @@ class CarNameTest {
     @ParameterizedTest
     @ValueSource(strings = {"김김김", "최최최", "박박박", "abcde"})
     void createCarNameSuccessTest(String name) {
+
+        // given
+        // when
         CarName carName = new CarName(name);
 
+        // then
         assertThat(carName.name()).isEqualTo(name);
     }
 
     @DisplayName("CarName 생성 실패 테스트 - 공백")
     @Test
     void createCarNameFailTest_1() {
+
+        // given
+        // when
+        // then
         assertThrows(IllegalArgumentException.class, () -> new CarName(""));
     }
 
@@ -29,24 +37,36 @@ class CarNameTest {
     @ParameterizedTest
     @ValueSource(strings = {"abcdef", "가나다라마바사아자차카타파하"})
     void createCarNameFailTest_2(String name) {
+
+        // given
+        // when
+        // then
         assertThrows(IllegalArgumentException.class, () -> new CarName(name));
     }
 
     @DisplayName("CarName equals 성공 테스트")
     @Test
     void equalsCarNameSuccessTest_1() {
+
+        // given
+        // when
         CarName carName1 = new CarName("김씨차이름");
         CarName carName2 = new CarName("김씨차이름");
 
+        // then
         assertThat(carName1).isEqualTo(carName2);
     }
 
     @DisplayName("CarName equals 성공 테스트")
     @Test
     void equalsCarNameSuccessTest_2() {
+
+        // given
+        // when
         CarName carName1 = new CarName("김씨차이름");
         CarName carName2 = new CarName("최씨차이름");
 
+        // then
         assertThat(carName1).isNotEqualTo(carName2);
     }
 }
