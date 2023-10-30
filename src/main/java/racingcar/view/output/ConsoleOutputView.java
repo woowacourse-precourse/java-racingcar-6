@@ -4,7 +4,7 @@ import racingcar.model.dto.CarResponse;
 import racingcar.model.dto.WinnerResponse;
 import java.util.List;
 
-public class ConsoleOutputView implements Outputview {
+public class ConsoleOutputView implements OutputView {
 
     private static final String POSITION_MARK = "-";
     private static final String WINNER_JOINER = ", ";

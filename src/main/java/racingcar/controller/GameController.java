@@ -2,22 +2,21 @@ package racingcar.controller;
 
 import racingcar.model.Cars;
 import racingcar.model.PlayCount;
-import racingcar.model.converter.CarsConverter;
 import racingcar.model.converter.WinnersConverter;
 import racingcar.model.dto.CarResponse;
 import racingcar.model.dto.WinnerResponse;
 import racingcar.model.randomnumber.RandomNumber;
 import racingcar.view.input.InputView;
-import racingcar.view.output.Outputview;
+import racingcar.view.output.OutputView;
 import java.util.List;
 
 public class GameController {
 
     private final InputView inputView;
-    private final Outputview outputView;
+    private final OutputView outputView;
     private final RandomNumber randomNumber;
 
-    public GameController(final InputView inputView, final Outputview outputView, final RandomNumber randomNumber) {
+    public GameController(final InputView inputView, final OutputView outputView, final RandomNumber randomNumber) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.randomNumber = randomNumber;
