@@ -7,8 +7,7 @@ import java.util.Map;
 public class Forward {
 
     public int randomNums() {
-        int randomsNum = Randoms.pickNumberInRange(0, 9);
-        return randomsNum;
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     public boolean canForward(int randomsNum) {
