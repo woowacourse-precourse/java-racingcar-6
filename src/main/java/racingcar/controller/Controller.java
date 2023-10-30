@@ -3,7 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.Views;
 import racingcar.service.GameService;
-import racingcar.domain.CarList;
+import racingcar.domain.Cars;
 import racingcar.domain.Car;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 public class Controller {
     Views view = new Views();
     GameService service = new GameService();
-    CarList carList = new CarList();
+    Cars cars = new Cars();
 
     public void startGame(){
         makeCars();
@@ -20,7 +20,7 @@ public class Controller {
 
     public void makeCars(){
         view.printInputCarMessage();
-        getCarNames();
+        makeCarList(service.splitCarNames(getCarNames()));
 
     }
     public void makeTrialNumber(){
@@ -35,7 +35,11 @@ public class Controller {
         String input = Console.readLine();
         return Integer.parseInt(input);
     }
-
+    public void makeCarList(List<String> input){
+        for(String name : input){
+            cars.saveCars(new Car(name));
+        }
+    }
 
 
 }
