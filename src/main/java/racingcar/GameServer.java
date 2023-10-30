@@ -26,4 +26,8 @@ final class GameServer {
         count.countDown();
         Output.printGameResult(cars.collectCurrentStatus());
     }
+
+    private void showWinners() {
+        Output.printWinner(cars.whosWinners());
+    }
 }
