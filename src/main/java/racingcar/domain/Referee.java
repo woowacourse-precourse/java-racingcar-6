@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class Referee {
-    final String SYSTEM_MESSAGE = "최종 우승자 : ";
+    SystemMessage systemMessage = new SystemMessage();
     final String SEPARATE_WINNER = ",";
     public void printWinner(List<String> winner){
         String winners  = new String();
@@ -15,7 +15,7 @@ public class Referee {
                 totalWinnerNumber--;
             }
         }
-        System.out.print(SYSTEM_MESSAGE);
+        systemMessage.printWinnerMessage();
         System.out.println(winners);
     }
 }

@@ -13,7 +13,7 @@ public class Application {
     static Car car = new Car();
     static Referee referee = new Referee();
     static Judgement judgement = new Judgement();
-
+    static SystemMessage systemMessage = new SystemMessage();
     static List<String> carList;
     static List<String> winners;
     static int gameCount;
@@ -21,12 +21,12 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        systemMessage.printStartMessage();
         carList =  user.initCarList();
         userInfomation = user.initUser(carList);
-        System.out.println("시도할 회수는 몇회인가요?");
+        systemMessage.printUserInputMessage();
         gameCount = user.inputGameCount();
-        System.out.println("\n실행 결과");
+        systemMessage.printResultMessage();
         gameStart(gameCount);
         winners = judgement.compareDistance(userInfomation,carList);
         referee.printWinner(winners);
