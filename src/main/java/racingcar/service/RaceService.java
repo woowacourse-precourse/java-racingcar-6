@@ -6,48 +6,29 @@ import static racingcar.constants.RaceRule.MOVE_THRESHOLD;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
+import racingcar.domain.RaceProgress;
 import racingcar.dto.Progress;
 
 public class RaceService {
-    private HashMap<String, Integer> progressMap; // TODO: 따로 객체로 분리하는 것이 나을 듯
+    private RaceProgress raceProgress;
 
-    public RaceService() {
-        progressMap = new HashMap<>();
-    }
 
     public void init(List<String> carNames) {
-        for (String carName : carNames) {
-            progressMap.put(carName, 0);
-        }
+        raceProgress = new RaceProgress(carNames);
     }
 
-    public List<Progress> moveCar() {
-        for (String carName : progressMap.keySet()) {
+    public List<Progress> moveCars() {
+        for (String carName : raceProgress.getCarList()) {
             if (canMoveForward()) {
-                Integer curDistance = progressMap.get(carName);
-                progressMap.replace(carName, curDistance + 1);
+                raceProgress.moveSingleCar(carName);
             }
         }
-        return getProgressList();
+        return getCarProgressList();
     }
 
     public List<String> getWinner() {
-        int maxValue = getMaxValue();
-
-        return progressMap.entrySet().stream()
-                .filter(entry -> entry.getValue() == maxValue)
-                .map(Entry::getKey)
-                .toList();
-    }
-
-    private int getMaxValue() {
-        return progressMap.entrySet().stream()
-                .map(Entry::getValue)
-                .max(Integer::compareTo)
-                .orElse(0);
+        return raceProgress.getWinners();
     }
 
     private boolean canMoveForward() {
@@ -55,11 +36,11 @@ public class RaceService {
         return random >= MOVE_THRESHOLD.getValue();
     }
 
-    private List<Progress> getProgressList() {
+    private List<Progress> getCarProgressList() {
         List<Progress> progressList = new ArrayList<>();
 
-        for (String carName : progressMap.keySet()) {
-            progressList.add(new Progress(carName, progressMap.get(carName)));
+        for (String carName : raceProgress.getCarList()) {
+            progressList.add(new Progress(carName, raceProgress.getMovedDistance(carName)));
         }
         return progressList;
     }

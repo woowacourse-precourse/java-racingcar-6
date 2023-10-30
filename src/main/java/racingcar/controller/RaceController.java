@@ -38,7 +38,7 @@ public class RaceController {
     private void raceWholeRound(int tryCount) {
         outputView.printResultHeader();
         while (tryCount-- > 0) {
-            List<Progress> progressList = raceService.moveCar();
+            List<Progress> progressList = raceService.moveCars();
             outputView.printProgress(progressList);
         }
     }
