@@ -17,6 +17,19 @@ public class CarTest {
             },
             canMove
         );
+    }
 
+    @Test
+    void stay_in_position_when_random_number_is_less_than_4() {
+        int cantMove = 3;
+        assertRandomNumberInRangeTest(
+            () -> {
+                Car car = new Car("testCar");
+                int prevPosition = car.getPosition();
+                car.move();
+                assertThat(car.getPosition() - prevPosition).isEqualTo(0);
+            },
+            cantMove
+        );
     }
 }
