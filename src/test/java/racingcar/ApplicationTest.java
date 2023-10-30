@@ -88,8 +88,18 @@ class ApplicationTest extends NsTest {
 	}
 
 	@Test
-	@DisplayName("시도 횟수 입력 테스트 - 입력하지 않았을 경우 예외 처리")
+	@DisplayName("시도 횟수 입력 테스트1 - 5를 입력하였을 경우 정상 동작")
 	void turnCountTest1() {
+		int testValue = 5;
+		Race race = new Race();
+		race.setTurnCount(testValue);
+
+		assertThat(race.getTurnCount()).isEqualTo(testValue);
+	}
+
+	@Test
+	@DisplayName("시도 횟수 입력 테스트2 - 입력하지 않았을 경우 예외 처리")
+	void turnCountTest2() {
 		assertSimpleTest(() ->
 				assertThatThrownBy(() -> runException("pobi", null))
 						.isInstanceOf(IllegalArgumentException.class)
@@ -97,8 +107,8 @@ class ApplicationTest extends NsTest {
 	}
 
 	@Test
-	@DisplayName("시도 횟수 입력 테스트 - 정수가 아닌 입력값일 경우 예외 처리")
-	void turnCountTest2() {
+	@DisplayName("시도 횟수 입력 테스트3 - 정수가 아닌 입력값일 경우 예외 처리")
+	void turnCountTest3() {
 		assertSimpleTest(() ->
 				assertThatThrownBy(() -> runException("pobi", "one"))
 						.isInstanceOf(IllegalArgumentException.class)

@@ -13,7 +13,7 @@ public class Race {
 
 	public void start() {
 		inputCarName();
-		setTurnCount();
+		inputTurnCount();
 		System.out.println();
 		for (int i = 0; i < turnCount; i++) {
 			executeTurn();
@@ -39,11 +39,15 @@ public class Race {
 		setCarList(newCarList);
 	}
 
-	private void setTurnCount() {
+	public void setTurnCount(int turnCount) {
+		this.turnCount = turnCount;
+	}
+
+	private void inputTurnCount() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String input = readLine().trim();
 		try {
-			turnCount = Integer.parseInt(input.trim());
+			setTurnCount(Integer.parseInt(input.trim()));
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException("숫자만 입력 가능합니다.");
 		}
@@ -77,5 +81,9 @@ public class Race {
 
 	public List<Car> getCarList() {
 		return carList;
+	}
+
+	public int getTurnCount() {
+		return turnCount;
 	}
 }
