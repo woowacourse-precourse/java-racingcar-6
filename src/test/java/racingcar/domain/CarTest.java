@@ -15,7 +15,7 @@ class CarTest {
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         assertThrows(IllegalArgumentException.class,
                 () -> {
-            new Car(movingStrategy, "yeonuel", 0);
+            new Car(movingStrategy, "yeonuel");
         });
     }
 
@@ -25,7 +25,7 @@ class CarTest {
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    new Car(movingStrategy, "", 0);
+                    new Car(movingStrategy, "");
                 });
     }
 
@@ -35,7 +35,7 @@ class CarTest {
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    new Car(movingStrategy, "pobi", 1);
+                    new Car(movingStrategy, "pobi");
                 });
     }
 
@@ -44,7 +44,7 @@ class CarTest {
     void getPosition_위치_조회_테스트(){
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        Car car = new Car(movingStrategy, "pobi", 0);
+        Car car = new Car(movingStrategy, "pobi");
         // when
         int result = car.getPosition();
         // then
@@ -57,7 +57,7 @@ class CarTest {
     void getName_이름_테스트() {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        Car car = new Car(movingStrategy, "pobi", 0);
+        Car car = new Car(movingStrategy, "pobi");
         // when
         String result = car.getName();
         // then
@@ -71,8 +71,8 @@ class CarTest {
         // given
         MovingStrategy stopStrategy = new MovingStrategy((start, end) -> 3);
         MovingStrategy moveStrategy = new MovingStrategy((start, end) -> 4);
-        Car car1 = new Car(stopStrategy, "pobi", 0);
-        Car car2 = new Car(moveStrategy, "crong", 0);
+        Car car1 = new Car(stopStrategy, "pobi");
+        Car car2 = new Car(moveStrategy, "crong");
 
         // when
         car1.goForward(); // car1 위치 0
@@ -88,7 +88,7 @@ class CarTest {
     void goForward_멈춤_테스트() {
         // given
         MovingStrategy stopStrategy = new MovingStrategy((start, end) -> 3); // isCarMove() 항상 false 반환
-        Car car = new Car(stopStrategy, "pobi", 0);
+        Car car = new Car(stopStrategy, "pobi");
         // when
         Boolean result = car.goForward();
         // then
@@ -101,7 +101,7 @@ class CarTest {
     void goForward_전진_테스트() {
         // given
         MovingStrategy moveStrategy = new MovingStrategy((start, end) -> 4); // isCarMove() 항상 true 반환
-        Car car = new Car(moveStrategy, "pobi", 0);
+        Car car = new Car(moveStrategy, "pobi");
         // when
         Boolean result = car.goForward();
         // then
@@ -114,7 +114,7 @@ class CarTest {
     void isWinner_우승자인_경우_테스트() {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        Car car = new Car(movingStrategy, "pobi", 0);
+        Car car = new Car(movingStrategy, "pobi");
         // when
         Integer winnerPosition = 0;
         Boolean result = car.isWinner(winnerPosition);
@@ -127,7 +127,7 @@ class CarTest {
     void isWinner_우승자가_아닌_경우_테스트() {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        Car car = new Car(movingStrategy, "pobi", 0);
+        Car car = new Car(movingStrategy, "pobi");
         // when
         Integer winnerPosition = 1;
         Boolean result = car.isWinner(winnerPosition);

@@ -32,9 +32,9 @@ class OutputViewTest extends IOTest {
         // given
         OutputView outputView = new OutputView();
         MovingStrategy moveStrategy = new MovingStrategy((a, b) -> 4);
-        Car pobi = new Car(moveStrategy, "pobi", 0);
-        Car crong = new Car(moveStrategy, "crong", 0);
-        Car nimo = new Car(moveStrategy, "nimo", 0);
+        Car pobi = new Car(moveStrategy, "pobi");
+        Car crong = new Car(moveStrategy, "crong");
+        Car nimo = new Car(moveStrategy, "nimo");
 
         pobi.goForward(); pobi.goForward(); // pobi : --
         crong.goForward(); // crong : -
@@ -58,8 +58,8 @@ class OutputViewTest extends IOTest {
         OutputView outputView = new OutputView();
         MovingStrategy moveStrategy = new MovingStrategy((a, b) -> 4);
 
-        Car pobi = new Car(moveStrategy, "pobi", 0);
-        Car crong = new Car(moveStrategy, "crong", 0);
+        Car pobi = new Car(moveStrategy, "pobi");
+        Car crong = new Car(moveStrategy, "crong");
 
         List<Car> winners = List.of(pobi, crong);
         String expected = "최종 우승자 : pobi, crong\n";

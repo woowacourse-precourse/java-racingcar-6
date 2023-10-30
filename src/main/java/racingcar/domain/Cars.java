@@ -42,7 +42,7 @@ public class Cars {
 
     private List<Car> createCars(List<String> names, MovingStrategy movingStrategy) {
         return names.stream()
-                .map(name -> new Car(movingStrategy, name, INIT_POSITION.getSetting()))
+                .map(name -> new Car(movingStrategy, name))
                 .collect(Collectors.toList());
     }
 

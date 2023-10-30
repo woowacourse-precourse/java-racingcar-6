@@ -14,13 +14,12 @@ public class Car implements Comparable<Car> {
     private final String name;
     private int position;
 
-    public Car(MovingStrategy movingStrategy, String name, int position) {
+    public Car(MovingStrategy movingStrategy, String name) {
         validateNameLength(name);
         validateNameBlank(name);
-        validateInitPosition(position);
         this.movingStrategy = movingStrategy;
         this.name = name;
-        this.position = position;
+        this.position = INIT_POSITION.getSetting();
     }
 
     public Boolean goForward() {
@@ -52,12 +51,6 @@ public class Car implements Comparable<Car> {
     private void validateNameBlank(String name) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(ERROR_NAME_BLANK.getMessage());
-        }
-    }
-
-    private void validateInitPosition(int position) {
-        if (position != INIT_POSITION.getSetting()) {
-            throw new IllegalArgumentException(ERROR_INIT_POSITION.getMessage());
         }
     }
 

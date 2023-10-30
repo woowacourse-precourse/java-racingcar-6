@@ -31,9 +31,9 @@ class CarsTest {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         List<String> names = Arrays.asList("pobi", "crong", "horan");
-        List<Car> expected = Arrays.asList(new Car(movingStrategy, "pobi", 0),
-                new Car(movingStrategy, "crong", 0),
-                new Car(movingStrategy, "horan", 0));
+        List<Car> expected = Arrays.asList(new Car(movingStrategy, "pobi"),
+                new Car(movingStrategy, "crong"),
+                new Car(movingStrategy, "horan"));
 
         // when
         Cars cars = new Cars(names, movingStrategy);
