@@ -1,12 +1,9 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static racingcar.constant.NumberConstant.MAX_RANDOM_NUMBER;
-import static racingcar.constant.NumberConstant.MIN_RANDOM_NUMBER;
 
 public class Cars {
     private final List<Car> cars = new ArrayList<>();
@@ -17,12 +14,8 @@ public class Cars {
 
     public void move() {
         cars.stream()
-                .filter(car -> car.canGo(makeRandomNumber()))
+                .filter(car -> car.canGo(RandomNumberGenerator.makeRandomNumber()))
                 .forEach(Car::go);
-    }
-
-    private int makeRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
     public List<String> getWinner() {
