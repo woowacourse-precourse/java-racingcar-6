@@ -58,4 +58,24 @@ class ValidatorTest {
                 () -> Validator.checkValidCarNames(carNames),
                 "자동차 이름에 공백이 있을 수 없습니다.");
     }
+
+    @Test
+    @DisplayName("시도 횟수가 1 이상인 경우 확인")
+    void isValidNumberOfAttemptsTest1() {
+        int trial = 1;
+
+        Assertions.assertDoesNotThrow(
+                () -> Validator.isValidNumberOfAttempts(trial));
+    }
+
+    @Test
+    @DisplayName("시도 횟수가 0 이하인 경우 확인")
+    void isValidNumberOfAttemptsTest2() {
+        int trial = 0;
+
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> Validator.isValidNumberOfAttempts(trial),
+                "시도 횟수는 1 이상만 가능합니다.");
+    }
 }
