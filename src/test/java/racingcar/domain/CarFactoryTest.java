@@ -13,7 +13,7 @@ class CarFactoryTest {
         List<String> carNames = Arrays.asList("차1", "차2", "차3");
 
         // When: createCars 메서드 호출
-        Cars cars = CarFactory.createCars(carNames);
+        Cars cars = CarFactory.createCarsFromNames(carNames);
 
         // Then: 각 Car의 이름 확인
         int i = 0;

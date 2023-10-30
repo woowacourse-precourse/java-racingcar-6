@@ -36,7 +36,7 @@ class OutputTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        Cars cars = CarFactory.createCars(List.of("Car1", "Car2"));
+        Cars cars = CarFactory.createCarsFromNames(List.of("Car1", "Car2"));
         cars.iterator().next().moveForward();
 
         // When

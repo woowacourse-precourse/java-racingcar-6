@@ -16,7 +16,7 @@ public class RacingGame {
         List<String> carNames = Input.getCarNames();
         int totalRace = Input.getTotalRace();
 
-        Cars initalCars = CarFactory.createCars(carNames);
+        Cars initalCars = CarFactory.createCarsFromNames(carNames);
         Race race = Race.of(initalCars, totalRace, moveStrategy);
 
         Output.printResultMessage();

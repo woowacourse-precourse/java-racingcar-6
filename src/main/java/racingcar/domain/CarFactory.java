@@ -6,7 +6,7 @@ public class CarFactory {
     private CarFactory() {
     }
 
-    public static Cars createCars(List<String> carNames) {
+    public static Cars createCarsFromNames(List<String> carNames) {
         List<Car> cars = carNames.stream()
                 .map(Name::from)
                 .map(Car::from)
