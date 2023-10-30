@@ -15,7 +15,15 @@ public class RaceStart {
         }
     }
 
-    public static void forwardOrStop(){
-        //4 이상일 경우 전진
+    public static void showResult(Map<String, Integer> car){
+        //실행 결과 보여주기
+        for(String s : car.keySet()){
+            System.out.print(s + " : ");
+            for(int i = 0; i < car.get(s); i++){
+                System.out.print("-");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
     }
 }
