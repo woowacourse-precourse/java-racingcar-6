@@ -30,6 +30,14 @@ public class Cars {
         });
     }
 
+    public int calculateWinnersPosition() {
+        int position = 0;
+        for (Car car : cars) {
+            position = Math.max(position, car.getPosition());
+        }
+        return position;
+    }
+
     public List<Car> getCars() {
         return cars;
     }

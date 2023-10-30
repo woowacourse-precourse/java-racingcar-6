@@ -25,6 +25,10 @@ public class Car {
         position.increase();
     }
 
+    public boolean isPositionEqualTo(final int number) {
+        return position.getPosition() == number;
+    }
+
     public String getName() {
         return name.getName();
     }

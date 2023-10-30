@@ -35,6 +35,8 @@ public class GameController {
             printEachStatus(playCars);
             playCount.endOneRound();
         }
+
+        printWinners(playCars);
     }
 
     private void printEachStatus(final Cars cars) {
@@ -48,5 +50,17 @@ public class GameController {
         });
 
         outputView.printBlankLine();
+    }
+
+    private void printWinners(final Cars cars) {
+        int winnerPosition = cars.calculateWinnersPosition();
+        List<String> winners = cars.getCars()
+                .stream()
+                .filter(car -> car.isPositionEqualTo(winnerPosition))
+                .map(CarConverter::from)
+                .map(CarResponse::getName)
+                .toList();
+
+        outputView.printWinners(winners);
     }
 }

@@ -1,5 +1,7 @@
 package racingcar.view.output;
 
+import java.util.List;
+
 public interface Outputview {
 
     void askCarNames();
@@ -7,5 +9,5 @@ public interface Outputview {
     void printResult();
     void printEachCarStatus(final String name, final int position);
     void printBlankLine();
-    void printWinners();
+    void printWinners(final List<String> winners);
 }

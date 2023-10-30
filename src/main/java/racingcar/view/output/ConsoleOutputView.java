@@ -1,8 +1,11 @@
 package racingcar.view.output;
 
+import java.util.List;
+
 public class ConsoleOutputView implements Outputview {
 
     private static final String POSITION_MARK = "-";
+    private static final String WINNER_JOINER = ", ";
 
     @Override
     public void askCarNames() {
@@ -31,7 +34,7 @@ public class ConsoleOutputView implements Outputview {
     }
 
     @Override
-    public void printWinners() {
-        System.out.println("최종 우승자 : ");
+    public void printWinners(final List<String> winners) {
+        System.out.println("최종 우승자 : " + String.join(WINNER_JOINER, winners));
     }
 }
