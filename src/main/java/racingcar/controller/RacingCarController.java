@@ -17,6 +17,9 @@ public class RacingCarController {
         //시도 할 횟수
         int gameAttemptCount = carService.getGameAttemptCount();
 
+        //총 이동 결과
+        int[] move = carService.playGame(gameAttemptCount, carList);
+
     }
 
 }
