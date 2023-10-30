@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class ResultPrinter {
     private static String getUserName = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -27,5 +28,20 @@ public class ResultPrinter {
         }
 
         System.out.println();
+    }
+
+    public static void printWinners(List<String> winners) {
+        System.out.print(winner);
+
+        for (int i = 0; i < winners.size(); i++) {
+            if (i > 1 && i < winners.size() - 1) {
+                System.out.print(", ");
+            }
+            System.out.print(winners.get(i));
+        }
+    }
+
+    public static void printWinner(String key) {
+        System.out.println(winner + key);
     }
 }
