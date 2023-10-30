@@ -34,11 +34,15 @@ public class CarService {
         List<String> nameList = Arrays.asList(carName.split(","));
         for (var name : nameList) {
             if (carNameSizeJudgment(name) == null) {
-                continue;
+                throw new IllegalArgumentException(Message.getInstance().CAR_NAME_EXCEPTION);
             }
             CarObject.name.add(carNameSizeJudgment(name));
         }
         CarObject.size = CarObject.name.size();
+
+        if(CarObject.size <= 1) {
+            throw new IllegalArgumentException(Message.getInstance().CAR_SIZE_EXCEPTION);
+        }
     }
 
     public void carInit() {
