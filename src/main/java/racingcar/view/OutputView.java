@@ -7,17 +7,18 @@ public class OutputView {
 
     public void printRoundResult(List<String> carNames, List<Integer> carDistances) {
         for (int i = 0; i < carNames.size(); i++) {
-            carDistance(carNames.get(i), carDistances.get(i));
+            String carDistance = carDistance(carNames.get(i), carDistances.get(i));
+            System.out.println(carDistance);
         }
         System.out.println();
     }
 
-    private void carDistance(String carName, int distance) {
+    private String carDistance(String carName, int distance) {
         StringBuilder distanceIndicator = new StringBuilder();
         for (int i = 0; i < distance; i++) {
             distanceIndicator.append(STAGE_RESULT);
         }
-        System.out.println(carName + " : " + distanceIndicator);
+        return carName + " : " + distanceIndicator;
     }
 
     public void printWinners(List<String> winners) {
