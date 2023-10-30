@@ -10,8 +10,8 @@ import racingcar.domain.car.Name;
 import racingcar.domain.car.RandomNumberGenerator;
 import racingcar.domain.car.Rule;
 import racingcar.service.Attempt;
-import racingcar.service.GameService;
 import racingcar.service.Service;
+import racingcar.service.ServiceFactory;
 import view.inputView.InputView;
 import view.outputView.OutputView;
 
@@ -34,7 +34,7 @@ public class Controller {
     private void setUp() {
         Cars cars = getCars();
         Attempt attempt = readAttempt();
-        gameService = GameService.of(cars, attempt);
+        gameService = ServiceFactory.offer(cars, attempt);
     }
 
     private void play() {
