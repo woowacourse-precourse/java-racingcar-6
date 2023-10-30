@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class RacingGame {
 
-    private Player player = new Player();
+    private GameSetting gameSetting = new GameSetting();
     private ScriptHandler scriptHandler = new ScriptHandler();
     private HashMap<String, Integer> cars;
     private ArrayList<String> winnerList = new ArrayList<>();
@@ -14,12 +14,12 @@ public class RacingGame {
 
     public void GameStart() {
         scriptHandler.printGetCarNameScript();
-        player.setCarName();
+        gameSetting.setCarName();
         scriptHandler.printGetAttemptScript();
-        player.setAttemptNumber();
-        attemptNumber = player.getAttemptNumber();
+        gameSetting.setAttemptNumber();
+        attemptNumber = gameSetting.getAttemptNumber();
 
-        cars = player.getCarName();
+        cars = gameSetting.getCarName();
         carNumber = cars.size();
 
         gameProgress(attemptNumber);
@@ -27,10 +27,10 @@ public class RacingGame {
 
     public void gameProgress(int attemptNumber) {
         System.out.println();
-        printMessage(PROGRESS_RESULT);
+        scriptHandler.printSimpleResultScript();
         for (int i = 0; i < attemptNumber; i++) {
             for (int j = 0; j < carNumber; j++) {
-                carName = player.getCarName(j);
+                carName = gameSetting.getCarName(j);
                 eachCarPickRandomNumber(carName);
                 printProgress(carName);
             }
@@ -42,7 +42,7 @@ public class RacingGame {
 
     public void printProgress(String carName) {
         System.out.printf("%s : ", carName);
-        carMoveMent = player.getCarMoveForward(carName);
+        carMoveMent = gameSetting.getCarMoveForward(carName);
         for (int i = 0; i < carMoveMent; i++) {
             System.out.print("-");
         }
@@ -50,7 +50,7 @@ public class RacingGame {
     }
 
     public void eachCarPickRandomNumber(String carName) {
-        randomNumber = player.getRandomNumber();
+        randomNumber = gameSetting.getRandomNumber();
         if (randomNumber >= 4) {
             updateCarValue = cars.get(carName) + 1;
             cars.put(carName, updateCarValue);
@@ -60,8 +60,8 @@ public class RacingGame {
     public void checkWinner() {
         int furthestMovement = findFurthestMovement();
         for (int i = 0; i < cars.size(); i++) {
-            carName = player.getCarName(i);
-            carMoveMent = player.getCarMoveForward(carName);
+            carName = gameSetting.getCarName(i);
+            carMoveMent = gameSetting.getCarMoveForward(carName);
             if (carMoveMent == furthestMovement) {
                 winnerList.add(carName);
             }
@@ -71,8 +71,8 @@ public class RacingGame {
     public int findFurthestMovement() {
         int max = -1;
         for (int i = 0; i < cars.size(); i++) {
-            carName = player.getCarName(i);
-            carMoveMent = player.getCarMoveForward(carName);
+            carName = gameSetting.getCarName(i);
+            carMoveMent = gameSetting.getCarMoveForward(carName);
             if (carMoveMent > max) {
                 max = carMoveMent;
             }

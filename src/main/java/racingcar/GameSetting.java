@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 
-public class Player {
+public class GameSetting {
 
     private HashMap<String, Integer> cars = new HashMap<>();
     private String[] inputCarNames;
