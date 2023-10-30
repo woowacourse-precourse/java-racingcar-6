@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import view.RoundCountErrorMessage;
+import racingcar.view.RoundCountErrorMessage;
 
 public class RoundCountValidator {
 

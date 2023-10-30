@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import view.CarNameErrorMessage;
+import racingcar.view.CarNameErrorMessage;
 
 import java.util.HashSet;
 import java.util.Set;

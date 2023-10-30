@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Game;
 import racingcar.service.CarService;
 import racingcar.service.GameService;
-import view.InputMessage;
-import view.OutputMessage;
+import racingcar.view.InputMessage;
+import racingcar.view.OutputMessage;
 import java.util.List;
 
 
