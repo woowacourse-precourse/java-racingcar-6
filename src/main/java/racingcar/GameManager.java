@@ -22,4 +22,17 @@ public class GameManager {
         }
         return false;
     }
+
+    public void GamePlay() {
+        carConstructor();
+        while (true) {
+            if (isMaximomMove(cars)) {
+                raching.ChampionPrint(cars);
+                break;
+            }
+            raching.generateRandomNumber(cars);
+            raching.shouldMoveForward(cars);
+            raching.RoundResultPrint(cars);
+        }
+    }
 }
