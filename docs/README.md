@@ -1,0 +1,48 @@
+## 구현 기능 목록 작성
+
+- [ ] 입력 메시지 출력 (printInputCarNameMessage) [Output]
+
+
+- [ ] n대의 자동차를 입력 (readCarName) [Input]
+
+  - [ ] 쉼표(,) 기준으로 이름 분리 후 racerNameList에 저장(seperateCarName) [RacerManager]
+
+  - [ ] 5자 이하의 이름들을 가졌는지 확인 (validateCarName) [InputValidater]
+
+
+- [ ] 자동차 객체 [Racer]
+
+  - [ ] name, moveCount, state 지정 (setName, setMoveCount, setSate)
+
+  - [ ] name, moveCount, state 확인 (getName, getMoveCount, getState)
+
+
+- [ ] racerNameList를 통해 racer 생성 + 이름 지정 (createRacers) [RacerManager]
+
+
+- [ ] 입력 메시지 출력 (printInputMoveNumberMessage) [Output]
+
+  - [ ] 시도할 횟수 m입력 (readMoveNumber) [Input]
+
+  - [ ] m이 숫자가 맞는지 확인 (validateMoveNumber) [InputValidater]
+
+
+- [ ] 자동차들의 전진 또는 정지 판단 (getGoOrStop) [RaceMaker]
+
+  - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우 (decideGoOrStop) [RaceMaker]
+
+  - [ ] 전진일 경우 racerMoveCount에 1 더해주기 (increaseMoveCount) [RaceReferee]
+
+
+- [ ] 실행 횟수 m번 반복 (repeatMove) [RaceProgression]
+
+  - [ ] 실행 결과 출력 (printMoveResult) [Output]
+
+  - [ ] 전진하는 경우 state에 - 표시 추가 (printGoMark) [RaceReferee]
+
+
+- [ ] 최종 우승자 쉼표로 구분하여 출력(printWinner) [Output]
+
+  - [ ] 우승자 판단 (getWinner) [WinnerDecider]
+
+  - [ ] 전진 횟수가 가장 많은 racer (decideWinner) [WinnerDecider]
