@@ -8,6 +8,7 @@ import racingcar.exception.ExceptionCheck;
 import racingcar.view.OutputView;
 
 public class Cars {
+
     private final List<CarModel> carModelList = new ArrayList<>();
 
     public Cars(List<String> carList) {
@@ -16,15 +17,16 @@ public class Cars {
             this.carModelList.add(new CarModel(s));
         }
     }
+
     public void forwardCars() {
-        for ( CarModel carModel : carModelList) {
-            carModel.increaseLocation(Randoms.pickNumberInRange(0, 9));
+        for (CarModel carModel : carModelList) {
+            carModel.forward(Randoms.pickNumberInRange(0, 9));
             OutputView.printRacing(carModel.getName(), carModel.getLocation());
         }
         System.out.println("");
     }
 
-    public List<CarModel> winnerCars() {
+    public List<CarModel> winner() {
         int maxLocation = maxLocation();
 
         return carModelList.stream()

@@ -1,6 +1,7 @@
 package racingcar.exception;
 
 public class ExceptionCheck {
+
     public static void nameLengthValidation(String carName) {
         if (!(carName.length() <= 5)) {
             throw new IllegalArgumentException();

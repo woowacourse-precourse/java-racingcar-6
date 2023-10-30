@@ -12,6 +12,7 @@ public class CarModel {
         this.name = carName;
         this.location = 0;
     }
+
     public String getName() {
         return name;
     }
@@ -20,7 +21,7 @@ public class CarModel {
         return location;
     }
 
-    public void increaseLocation(int randomNumber) {
+    public void forward(int randomNumber) {
         if (randomNumber >= FORWARD_NUMBER) {
             this.location++;
         }
