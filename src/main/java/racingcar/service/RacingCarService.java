@@ -44,4 +44,18 @@ public class RacingCarService {
 
         return carName;
     }
+
+    public int getGameAttemptCount() {
+        inputView.roundInput();
+
+        String count = Console.readLine();
+        int cnt = Integer.parseInt(count);
+
+        if(cnt<1){
+            throw new IllegalArgumentException("1보다 작은 수는 입력하실 수 없습니다.");
+        }
+
+        return cnt;
+    }
+
 }
