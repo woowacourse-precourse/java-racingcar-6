@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
@@ -34,8 +35,15 @@ class ApplicationTest extends NsTest {
 
     @Test
     void testSplitCarNames() {
-        List<String> carNamesList = Application.splitCarNames("pobi,woni,BE");
-        assertThat(carNamesList).containsExactly("pobi", "woni", "BE");
+        List<String> testCarNamesList = Application.splitCarNames("pobi,woni,BE");
+        assertThat(testCarNamesList).containsExactly("pobi", "woni", "BE");
+    }
+
+    @Test
+    void testCheckNamingError() {
+        List<String> testCarNameList = Arrays.asList("pobi", "woni", "javaji");
+        assertThatThrownBy(() -> Application.checkNamingError(testCarNameList))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Override
