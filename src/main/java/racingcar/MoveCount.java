@@ -14,10 +14,10 @@ public class MoveCount {
         try {
             int inputNumber = Integer.parseInt(moveCount);
             if (inputNumber < 0) {
-                throw new IllegalArgumentException("시도 횟수는 0 이상만 가능합니다.");
+                throw new IllegalArgumentException(ErrorMessage.MINIMUM_TRY_NEEDED);
             }
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 숫자만 입력 가능합니다.");
+            throw new IllegalArgumentException(ErrorMessage.MOVE_COUNT_IS_NOT_NUMBER);
         }
     }
 
