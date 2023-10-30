@@ -8,7 +8,12 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
-        numberOfMove = 0;
+        this.numberOfMove = 0;
+    }
+
+    public Car(String name, int move) {
+        this.name = name;
+        this.numberOfMove = move;
     }
 
     public void moveFoward() {
