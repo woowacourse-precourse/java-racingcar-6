@@ -27,7 +27,6 @@ public class Application {
         for(int i=0; i<carNameList.length; i++){
             carRacingCountList.set(i, carRacingCountList.get(i) + Randoms.pickNumberInRange(0,9));
         }
-        RacingCountPrint();
     }
 
     public static void RacingGameStart(){
@@ -39,6 +38,7 @@ public class Application {
 
         for(int j=0; j<gameRepeatNum; j++){
             RacingStart();
+            RacingCountPrint();
         }
    
     }
