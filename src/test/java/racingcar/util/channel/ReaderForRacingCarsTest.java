@@ -39,10 +39,10 @@ class ReaderForRacingCarsTest extends NsTest {
         );
     }
 
-    @DisplayName("잘못된 이름 형식을 가진 경우")
+    @DisplayName("유효하지 않은 이름을 가진 경우")
     @ParameterizedTest(name = "{index} 번째 검사값 = {0}")
     @ValueSource(strings = {
-            "  ,  ,  ", "  , woni, jun", ""
+            "  ,  ,  ", "  , woni, jun", "  , woni,     "
     })
     void Is_Expected_Validation_About_Invalid_Name(String invalidTrialInput) {
         assertSimpleTest(() ->
