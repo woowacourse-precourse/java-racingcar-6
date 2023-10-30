@@ -30,8 +30,7 @@ public class GameController {
     }
 
     private void displayGameResult() {
-        int winnerPosition = cars.getMaxPosition();
-        List<String> winnerNames = cars.getCarNameListByPosition(winnerPosition);
+        List<String> winnerNames = cars.getWinnerNameList();
         OutputView.printWinner(winnerNames);
     }
 

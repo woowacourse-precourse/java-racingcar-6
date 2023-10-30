@@ -29,18 +29,10 @@ public class Cars {
                 .reduce(INIT_VALUE, getParsedResultBiFunction(), String::join);
     }
 
-    public int getMaxPosition() {
-        return carList.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .getAsInt();
-    }
+    public List<String> getWinnerNameList() {
+        int winnerPosition = getMaxPosition();
 
-    public List<String> getCarNameListByPosition(int position) {
-        return carList.stream()
-                .filter(car -> car.getPosition() == position)
-                .map(Car::getName)
-                .toList();
+        return getCarNameListByPosition(winnerPosition);
     }
 
     private void validateDuplicate(String newName) {
@@ -62,5 +54,19 @@ public class Cars {
                         .append(POSITION_SYMBOL.repeat(car.getPosition()))
                         .append(LINE_FEED)
                         .toString();
+    }
+
+    private int getMaxPosition() {
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
+    }
+
+    private List<String> getCarNameListByPosition(int position) {
+        return carList.stream()
+                .filter(car -> car.getPosition() == position)
+                .map(Car::getName)
+                .toList();
     }
 }
