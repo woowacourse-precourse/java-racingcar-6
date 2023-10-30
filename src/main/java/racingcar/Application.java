@@ -54,13 +54,17 @@ public class Application {
         return maxDistance;
     }
 
-    public static void printWinner(List<RacingCar> carArray, int maxDistance){
+    public static void printWinner(List<RacingCar> carArray, int maxDistance) {
+        int index;
         System.out.printf("최종 우승자 : ");
-        if(carArray.get(0).step == maxDistance){
-            System.out.printf(carArray.get(0).name);
+        for (index = 0; index < carArray.size(); index++) {
+            if (carArray.get(index).step == maxDistance) {
+                System.out.printf(carArray.get(index).name);
+                break;
+            }
         }
-        for(int i = 1; i < carArray.size(); i++){
-            if(carArray.get(i).step == maxDistance){
+        for (int i = index + 1; i < carArray.size(); i++) {
+            if (carArray.get(i).step == maxDistance) {
                 System.out.printf(", " + carArray.get(i).name);
             }
         }
@@ -68,7 +72,6 @@ public class Application {
 
     public static void checkWrongName(String[] carName) {
         for (String name : carName) {
-            System.out.println(name);
             if (name.length() > 5) {
                 throw new IllegalArgumentException();
             }
