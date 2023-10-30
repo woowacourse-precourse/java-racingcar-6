@@ -32,7 +32,7 @@ class OutputViewTest {
         outputView.getWinnerMessage(winnerList);
 
         //then
-        assertThat(output.toString()).contains("최종 우승자: sin");
+        assertThat(output.toString()).contains("최종 우승자 : sin");
     }
 
     @DisplayName("우승자가 여러명인 경우 메시지 출력")
@@ -48,7 +48,7 @@ class OutputViewTest {
         outputView.getWinnerMessage(winnerList);
 
         //then
-        assertThat(output.toString()).contains("최종 우승자: abc, efg");
+        assertThat(output.toString()).contains("최종 우승자 : abc, efg");
     }
 
 }
