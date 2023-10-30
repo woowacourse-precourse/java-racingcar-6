@@ -47,8 +47,8 @@ public class Racing {
         }
     }
 
-    public boolean isEnd() {
-        return round.isEndRacing();
+    public boolean isNotFinished() {
+        return round.isNotZero();
     }
 
     private int parseIntFromString(String count) {

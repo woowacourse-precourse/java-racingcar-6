@@ -23,7 +23,7 @@ public class RacingController {
     }
 
     private void playGame() {
-        while (!racing.isEnd()) {
+        while (racing.isNotFinished()) {
             racing.playRound();
             OutputView.printRoundResult(racing.getStatus());
         }

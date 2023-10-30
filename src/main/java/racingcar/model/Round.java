@@ -4,7 +4,7 @@ import racingcar.exception.count.CountRangeException;
 
 public class Round {
     private static final int MINIMUM_COUNT = 0;
-    private static final int END = 0;
+    private static final int ZERO = 0;
     private int count;
 
     public Round(int count) {
@@ -22,7 +22,7 @@ public class Round {
         count--;
     }
 
-    public boolean isEndRacing() {
-        return count == END;
+    public boolean isNotZero() {
+        return count != ZERO;
     }
 }
