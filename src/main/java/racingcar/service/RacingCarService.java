@@ -54,4 +54,9 @@ public class RacingCarService {
             car.move();
     }
 
+    public List<String> getWinner() {
+        int winnerLocation = carList.getRacingCarWinnerLocation();
+
+        return carList.getRacingCarWinnerName(winnerLocation);
+    }
 }
