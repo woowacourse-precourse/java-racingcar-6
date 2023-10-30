@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.dto.response.RoundResultDto;
+
 public class Car {
     private String name;
     private int location;
@@ -9,5 +11,9 @@ public class Car {
     }
     public void moveCar() {
         location += 1;
+    }
+
+    public RoundResultDto getCarInfo() {
+        return new RoundResultDto(name,location);
     }
 }

@@ -30,7 +30,7 @@ public class RacingController {
         int tries = inputView.getTries();
         InputValidator.isGreaterThanZero(tries);
 
-
+        ConsoleOutput.displayMessage(ConsoleOutput.ROUND_RESULT_MESSAGE);
         for (int num = 0; num < tries; num++) {
             cars.playGame();
         }
