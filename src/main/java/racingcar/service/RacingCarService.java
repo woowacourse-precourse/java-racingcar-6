@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.model.Car;
 import racingcar.model.RacingCars;
 import racingcar.util.RandomNuberGenerator;
 
@@ -17,4 +18,9 @@ public class RacingCarService {
         List<Integer> randomNumbers = RandomNuberGenerator.createRandomNumbers(racingCars.getSize());
         racingCars.moveRacingCars(randomNumbers);
     }
+
+    public List<Car> getRacingCars() {
+        return racingCars.getRacingCars();
+    }
+
 }

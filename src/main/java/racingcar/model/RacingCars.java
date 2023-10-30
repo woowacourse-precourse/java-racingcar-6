@@ -45,4 +45,8 @@ public class RacingCars {
                 .forEach(index -> racingCars.get(index).moveForward(numbers.get(index)));
     }
 
+    public List<Car> getRacingCars() {
+        return racingCars;
+    }
+    
 }
