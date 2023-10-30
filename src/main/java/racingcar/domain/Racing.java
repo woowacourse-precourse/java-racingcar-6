@@ -64,20 +64,20 @@ public class Racing {
     public void printerWinner(){
         StringBuilder sb = new StringBuilder();
         sb.append(FINAL_WINNER_MESSAGE);
-        sb.append(getWinner());
+        sb.append(getWinner(this.carList));
 
         System.out.println(sb.toString());
     }
 
-    public String getWinner(){
-        int max = getMaxAdvanceCount();
+    private String getWinner(List<Car> carList){
+        int max = getMaxAdvanceCount(carList);
         return carList.stream()
                 .filter(car-> max <= car.getRaceDistance())
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
     }
 
-    private int getMaxAdvanceCount(){
+    private int getMaxAdvanceCount(List<Car> carList){
         return carList.stream()
                 .map(Car::getRaceDistance)
                 .mapToInt(i->i)
