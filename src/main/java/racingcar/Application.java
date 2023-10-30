@@ -60,6 +60,13 @@ public class Application {
         }
     }
 
+    public static void validateCountNumber(String number) {
+        boolean numCheck = Pattern.matches("^[1-9][0-9]*$",number);
+        if(!numCheck) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static int makeRandomNumber() {
         int random;
         random = Randoms.pickNumberInRange(0,9);
