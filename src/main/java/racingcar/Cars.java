@@ -5,15 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private final List<Car> carList;
 
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
+    private static final int MAX_FORWARD = -1;
+    private static final int FORWARD_NUMBER = 4;
+
+    private final List<Car> carList;
     public Cars(List<Car> carList) {
         this.carList = carList;
     }
 
     public void updateForwardCar() {
         for (Car car : carList) {
-            if(isForward(Randoms.pickNumberInRange(0, 9)))
+            if(isForward(Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER)))
                 car.moveForward();
         }
     }
@@ -28,7 +33,7 @@ public class Cars {
     }
 
     private int findMaxForward() {
-        int maxForward = -1;
+        int maxForward = MAX_FORWARD;
         for (Car car : carList) {
             maxForward = Math.max(maxForward, car.getForward());
         }
@@ -46,7 +51,7 @@ public class Cars {
     }
 
     private boolean isForward(int randomNumber) {
-        return randomNumber >= 4;
+        return randomNumber >= FORWARD_NUMBER;
     }
 
 }
