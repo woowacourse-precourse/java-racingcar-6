@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public class CarInform {
+    private static final String DASH_STRING = "-";
     private String carName;
     private String dash;
 
@@ -14,7 +15,7 @@ public class CarInform {
     }
 
     public void plusDash() {
-        dash += "-";
+        dash += DASH_STRING;
     }
 
     public String makeRacingResult() {

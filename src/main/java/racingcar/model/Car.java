@@ -3,6 +3,10 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private static final int MIN_NUM_RANGE = 0;
+    private static final int MAX_NUM_RANGE = 9;
+    private static final int MIN_DASH_CONDITION = 4;
+
     private CarInform carInform;
     private Car(String carName) {
         carInform = CarInform.newInstance(carName);
@@ -13,11 +17,11 @@ public class Car {
     }
 
     public void dashByRandNum() {
-        if(getRandNum() > 3) carInform.plusDash();
+        if(getRandNum() >= MIN_DASH_CONDITION) carInform.plusDash();
     }
 
     public int getRandNum() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_NUM_RANGE, MAX_NUM_RANGE);
     }
 
     public String getRacingResult() {

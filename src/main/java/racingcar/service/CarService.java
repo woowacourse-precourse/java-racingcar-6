@@ -3,10 +3,11 @@ package racingcar.service;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CarService {
+    private static final String NAME_SEPARATOR = ",";
     private Cars cars;
     private static CarService instance;
 
@@ -35,7 +36,7 @@ public class CarService {
     }
 
     private String[] splitCarNames(String carNames) {
-        return carNames.split(",");
+        return carNames.split(NAME_SEPARATOR);
     }
 
     public void tryRacing() {

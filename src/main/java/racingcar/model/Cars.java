@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
+    private static final String WINNER_SEPARATOR = ", ";
     private List<Car> carList;
     private static Cars instance;
 
@@ -50,7 +51,7 @@ public class Cars {
         return carList.stream()
                 .filter(car -> car.getDashNum() == maxDashNum)
                 .map(Car::getWinnerName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(WINNER_SEPARATOR));
     }
 
     private int winnerCount() {

@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 public class CarNameValidator extends Validator {
     private static final String VALID_SEPARATOR_REGEXP = "[a-zA-Z가-힣0-9]+";
+    private static final String NAME_SEPARATOR = ",";
+    private static final int MAX_NAME_LENGTH = 5;
 
     @Override
     public void validate(String inputCarNames) {
@@ -20,11 +22,11 @@ public class CarNameValidator extends Validator {
      * 구분자가 쉼표인지 체크하는 메서드
      */
     private String[] validateSeparator(String inputCarNames) {
-        if (!Arrays.stream(inputCarNames.split(","))
+        if (!Arrays.stream(inputCarNames.split(NAME_SEPARATOR))
                 .allMatch(carName -> carName.matches(VALID_SEPARATOR_REGEXP))) {
             throw new IllegalArgumentException(ErrorMessage.NOT_COMMA_ERROR.getErrorMessage());
         }
-        return inputCarNames.split(",");
+        return inputCarNames.split(NAME_SEPARATOR);
     }
 
     /***
@@ -43,7 +45,7 @@ public class CarNameValidator extends Validator {
     }
 
     private boolean isNameOverLength(String[] carNames) {
-        return Arrays.stream(carNames).allMatch(name -> name.length() <= 5);
+        return Arrays.stream(carNames).allMatch(name -> name.length() <= MAX_NAME_LENGTH);
     }
 
     // 중복된 이름이 있는지
