@@ -40,6 +40,7 @@ public class RacingCarController {
         }
 
         List<Car> winners = racingCar.findWinners();
+        racingCarView.printFinalMessage(winners);
     }
 
     public String askCarNames() {
