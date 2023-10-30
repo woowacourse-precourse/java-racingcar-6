@@ -104,6 +104,8 @@ public class Race {
                 .collect(Collectors.joining(", "));
     }
 
-
+    private void printWinner(String winnersName) {
+        System.out.println("최종 우승자 : " + winnersName);
+    }
 
 }
