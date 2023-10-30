@@ -27,6 +27,10 @@ public class Utils {
         return Integer.parseInt(tryNumber);
     }
 
+    public static String formatListToString(List<String> winners) {
+        return String.join(", ", winners);
+    }
+
     public static int makeRandomNumber() {
         return Randoms.pickNumberInRange(0,9);
     }
