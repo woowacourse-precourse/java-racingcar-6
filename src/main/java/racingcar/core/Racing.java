@@ -1,6 +1,7 @@
 package racingcar.core;
 
 import java.util.List;
+
 import racingcar.util.StringUtils;
 
 public class Racing {
@@ -71,9 +72,7 @@ public class Racing {
         validateMinimumCars();
         validateRacingStarted();
         final int maxForwardCount = getMaxForwardCount();
-        return cars.stream()
-            .filter(car -> car.getForwardCount() == maxForwardCount)
-            .toList();
+        return cars.stream().filter(car -> car.getForwardCount() == maxForwardCount).toList();
     }
 
     private int getMaxForwardCount() {

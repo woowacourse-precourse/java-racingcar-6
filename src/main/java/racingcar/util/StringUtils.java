@@ -6,6 +6,7 @@ public class StringUtils {
     private static final String NULL_ERROR_FORMAT = "입력값이 null 일 수 없습니다.";
     private static final String BLANK_ERROR_FORMAT = "입력값은 빈 값일 수 없습니다.";
     private static final String NUMBER_ERROR_FORMAT = "입력값이 숫자가 아닙니다.";
+
     private StringUtils() {
     }
 

@@ -1,7 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+
 import java.util.List;
+
 import racingcar.core.Racing;
 import racingcar.util.StringUtils;
 
