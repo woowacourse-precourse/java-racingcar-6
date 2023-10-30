@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PrintOutput {
+    public static void printStart() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+
     public static void printMove(int move) {
         for (int i = 0; i < move; i++) {
             System.out.print("-");

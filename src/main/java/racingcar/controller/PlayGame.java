@@ -21,6 +21,7 @@ public class PlayGame {
         PrintInput.inputNumberOfMove();
         int game = setGame.numberOfGame();
 
+        PrintOutput.printStart();
         for (int i = 0; i < game; i++) {
             CarMove.move(car_list);
             PrintOutput.printAllMove(car_list);
