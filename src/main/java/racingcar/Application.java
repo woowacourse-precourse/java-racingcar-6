@@ -7,13 +7,12 @@ import racingcar.domain.judgement.RacingJudgement;
 import racingcar.domain.player.RacingGameParticipant;
 import racingcar.domain.player.RacingPlayer;
 import racingcar.util.GameConsoleUtil;
-import racingcar.util.RandomNumberUtil;
 
 public class Application {
         public static void main(String[] args) {
                 Judgement judgement = new RacingJudgement();
                 RacingPlayer player = new RacingGameParticipant(GameConsoleUtil.getInstance());
-                Game racingGame = new RacingGame(judgement, player, RandomNumberUtil.getInstance());
+                Game racingGame = new RacingGame(judgement, player);
                 racingGame.start();
         }
 }

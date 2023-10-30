@@ -23,7 +23,7 @@ class RacingGameTest {
         void init() {
                 Judgement judgement = new RacingJudgement();
                 RacingPlayer player = new RacingGameParticipant(new FakeGameConsoleUtil("1"));
-                game = new RacingGame(judgement, player, new FakeRandomNumberUtil(5));
+                game = new RacingGame(judgement, player);
                 out = new ByteArrayOutputStream();
                 System.setOut(new PrintStream(out));
         }
@@ -34,7 +34,7 @@ class RacingGameTest {
                 //given
                 Judgement judgement = new RacingJudgement();
                 RacingPlayer player = new RacingGameParticipant(new FakeGameConsoleUtil("1"));
-                Game game = new RacingGame(judgement, player, new FakeRandomNumberUtil(5));
+                Game game = new RacingGame(judgement, player);
                 OutputStream out = new ByteArrayOutputStream();
                 System.setOut(new PrintStream(out));
 
