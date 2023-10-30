@@ -16,11 +16,10 @@ public class RacingCars {
         cars.forEach(car -> car.move(getMoveCondition()));
     }
 
-    public RacingResult createRacingResult() {
-        List<CarStatusDto> carStatuses = cars.stream()
+    public List<CarStatusDto> createRacingResult() {
+        return cars.stream()
                 .map(car -> new CarStatusDto(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());
-        return new RacingResult(carStatuses);
     }
 
     private int getMoveCondition() {

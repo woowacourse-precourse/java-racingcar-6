@@ -40,7 +40,7 @@ class RacingCarsTest {
         RacingCars racingCars = new RacingCars(Arrays.asList(car1, car2));
 
         // when
-        RacingResult racingResult = racingCars.createRacingResult();
+        RacingResult racingResult =  new RacingResult(racingCars.createRacingResult());
 
         // then
         assertThat(racingResult.getCarStatuses())

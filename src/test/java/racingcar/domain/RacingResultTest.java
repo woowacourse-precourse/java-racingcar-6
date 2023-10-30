@@ -24,7 +24,7 @@ class RacingResultTest {
         zon.move(5);
         int ponyPosition = pony.getPosition();
         int zonPosition = zon.getPosition();
-        RacingResult racingResult = racingCars.createRacingResult();
+        RacingResult racingResult = new RacingResult(racingCars.createRacingResult());
         String winner = racingResult.findWinner();
 
         // then
@@ -43,7 +43,7 @@ class RacingResultTest {
         // when
         pony.move(1);
         zon.move(5);
-        RacingResult racingResult = racingCars.createRacingResult();
+        RacingResult racingResult = new RacingResult(racingCars.createRacingResult());
         List<CarStatusDto> carStatuses = racingResult.getCarStatuses();
 
         // then

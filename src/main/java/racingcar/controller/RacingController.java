@@ -28,10 +28,10 @@ public class RacingController {
 
     private void racing(RacingCars racingCars, int tryCount) {
         OutputView.printExecutionResultMessage();
-        RacingResult racingResult = racingCars.createRacingResult();
+        RacingResult racingResult = new RacingResult(racingCars.createRacingResult());
         while (isNotRacingFinished(tryCount)) {
             racingCars.move();
-            racingResult = racingCars.createRacingResult();
+            racingResult.update(racingCars.createRacingResult());
             OutputView.printResult(racingResult.getCarStatuses());
             tryCount--;
         }

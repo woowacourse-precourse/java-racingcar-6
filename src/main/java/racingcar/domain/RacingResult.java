@@ -7,9 +7,14 @@ import racingcar.dto.CarStatusDto;
 
 public class RacingResult {
     private static final String JOIN_SEPARATOR = ", ";
-    private final List<CarStatusDto> carStatuses;
+    private List<CarStatusDto> carStatuses;
+
 
     public RacingResult(List<CarStatusDto> carStatuses) {
+        this.carStatuses = carStatuses;
+    }
+
+    public void update(List<CarStatusDto> carStatuses) {
         this.carStatuses = carStatuses;
     }
 
