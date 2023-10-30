@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 
 import java.util.ArrayList;
@@ -34,6 +35,13 @@ public class GameManager {
                 carList.get(i).moveCount++;
             }
         }
+    }
+    public Movement checkMoveOrStop() {
+        int num = Randoms.pickNumberInRange(0, 9);
+        if (num >= 4) {
+            return Movement.MOVE;
+        }
+        return Movement.STOP;
     }
 }
 
