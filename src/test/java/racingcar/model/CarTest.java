@@ -16,21 +16,21 @@ public class CarTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car("pobi");
+        car = Car.from("pobi");
     }
 
     @DisplayName("이름 1-5자 유효성 검사 기능 테스트")
     @ParameterizedTest
     @CsvSource({"pobi ", "woni", "jun", "hi", "m"})
     void testValidateCarName(String carName) {
-        assertDoesNotThrow(() -> new Car(carName));
+        assertDoesNotThrow(() -> Car.from(carName));
     }
 
     @DisplayName("이름 1-5자 유효성 검사 기능 exception 테스트")
     @ParameterizedTest
     @ValueSource(strings = {"hani-j", "", "exception"})
     void testValidateCarNameThrow(String carName) {
-        assertThrows(IllegalArgumentException.class, () -> new Car(carName));
+        assertThrows(IllegalArgumentException.class, () -> Car.from(carName));
     }
 
     @DisplayName("위치 반환 기능 테스트")

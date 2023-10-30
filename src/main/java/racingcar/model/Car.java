@@ -9,10 +9,14 @@ public class Car {
     private final static int VALID_MAXIMUM_NUMBER = 5;
 
 
-    public Car(String carName) {
+    private Car(String carName) {
         validateCarName(carName);
         this.carName = carName;
         this.position = 0;
+    }
+
+    public static Car from(String carName) {
+        return new Car(carName);
     }
 
     private void validateCarName(String carName) {

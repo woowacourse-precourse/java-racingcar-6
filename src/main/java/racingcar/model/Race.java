@@ -8,9 +8,13 @@ public class Race {
     private final static String TOO_MUCH_NUMBER_OF_RACE = "너무 많은 회수를 입력하였습니다.";
     private final static int REFERENCE_NUMBER = 4;
 
-    public Race(int numberOfRace) {
+    private Race(int numberOfRace) {
         validateNumberOfRace(numberOfRace);
         this.numberOfRace = numberOfRace;
+    }
+
+    public static Race from(int numberOfRace) {
+        return new Race(numberOfRace);
     }
 
     private void validateNumberOfRace(int numberOfRace) {

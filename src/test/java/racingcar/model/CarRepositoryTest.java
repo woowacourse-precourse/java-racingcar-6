@@ -15,9 +15,9 @@ public class CarRepositoryTest {
     @BeforeEach
     void setUp() {
         carRepository = new CarRepository();
-        Car car1 = new Car("pobi");
-        Car car2 = new Car("woni");
-        Car car3 = new Car("jun");
+        Car car1 = Car.from("pobi");
+        Car car2 = Car.from("woni");
+        Car car3 = Car.from("jun");
 
         carRepository.save(car1);
         carRepository.save(car2);
@@ -28,7 +28,7 @@ public class CarRepositoryTest {
     @Test
     void testSave() {
         int expected = 4;
-        Car car4 = new Car("hani");
+        Car car4 = Car.from("hani");
 
         carRepository.save(car4);
 
@@ -38,7 +38,7 @@ public class CarRepositoryTest {
     @DisplayName("Car 저장 중 이름 중복 검사 기능 테스트")
     @Test
     void testSaveValidateDuplicateName() {
-        Car car4 = new Car("pobi");
+        Car car4 = Car.from("pobi");
 
         assertThrows(IllegalArgumentException.class, () -> carRepository.save(car4));
     }

@@ -14,20 +14,20 @@ public class RaceTest {
     @DisplayName("race 회수 유효성 검사 테스트")
     @Test
     void testValidateNumberOfRace() {
-        assertDoesNotThrow(() -> new Race(5));
+        assertDoesNotThrow(() -> Race.from(5));
     }
 
     @DisplayName("race 회수 유효성 검사 exception 테스트")
     @Test
     void testValidateNumberOfRaceThrow() {
-        assertThrows(IllegalArgumentException.class, () -> new Race(101));
+        assertThrows(IllegalArgumentException.class, () -> Race.from(101));
     }
 
     @DisplayName("한 경기 진행 기능")
     @Test
     void testRunSingleRace() {
-        Car car = new Car("pobi");
-        Race race = new Race(1);
+        Car car = Car.from("pobi");
+        Race race = Race.from(1);
 
         race.runSingleRace(List.of(car));
 

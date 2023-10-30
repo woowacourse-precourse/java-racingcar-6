@@ -18,11 +18,11 @@ public class Controller {
         prepareRace();
         outputView.requestNumberOfTryMessage();
         int num = Integer.parseInt(inputView.inputNumberOfTry());
-        Race race = new Race(num);
+        Race race = Race.from(num);
 
         while (race.isRunning()) {
             race.runSingleRace(carRepository.getCars());
-            outputView.raceResultByOrderMessage(carRepository.getCars().stream().map(car -> new CarDto(car)).toList());
+            outputView.raceResultByOrderMessage(carRepository.getCars().stream().map(car -> CarDto.from(car)).toList());
         }
 
         outputView.raceResultMessage();
@@ -34,7 +34,7 @@ public class Controller {
         String inputNames = inputView.inputCarNamesToRace();
         List<String> names = parser.carNameParser(inputNames);
         for (String name : names) {
-            carRepository.save(new Car(name));
+            carRepository.save(Car.from(name));
         }
     }
 }
