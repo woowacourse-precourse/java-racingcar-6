@@ -6,6 +6,7 @@ import car.Car;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
@@ -18,6 +19,9 @@ public class GameTest {
     void setUp() {
         outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
+    }
+    protected void systemIn(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
 
     protected String getOutput() {
@@ -105,5 +109,32 @@ public class GameTest {
         boolean isNumber = game.isNumber(strNumber);
 
         assertThat(isNumber).isTrue();
+    }
+
+    @Test
+    public void testIsNumberFail(){
+        Game game = new Game();
+        String strNumber = "notNumber";
+        boolean isNumber = game.isNumber(strNumber);
+
+        assertThat(isNumber).isFalse();
+    }
+
+    @Test
+    public void testCountSuccess(){
+        Game game = new Game();
+        systemIn("3");
+        int count = game.count();
+
+        assertThat(count).isEqualTo(3);
+    }
+
+    @Test
+    public void testCountFail(){
+        Game game = new Game();
+        systemIn("notNumber");
+
+        assertThatThrownBy(() -> game.count())
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
