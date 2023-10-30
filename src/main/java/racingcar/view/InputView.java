@@ -18,6 +18,8 @@ public class InputView {
 
     public List<String> splitNames(String names) {
         String[] namesArray = names.split(",");
+        InvalidInput.DuplicateNameException(namesArray);
+
         List<String> nameList = new ArrayList<>();
 
         for (int i = 0; i < namesArray.length; i++) {
