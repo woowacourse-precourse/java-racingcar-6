@@ -4,11 +4,11 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
-    public void read() {
+    public static void read() {
         Console.readLine();
     }
 
-    public void readClose() {
+    public static void readClose() {
         Console.close();
     }
 }
