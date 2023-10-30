@@ -1,6 +1,7 @@
 package racingcar;
 
-import racingcar.core.generate.GenerateRacer;
+import racingcar.core.GenerateRacer;
+import racingcar.entity.Racing;
 import racingcar.entity.Racer;
 import racingcar.entity.RaceCount;
 import racingcar.property.ValidateType;
@@ -21,10 +22,16 @@ public class Application {
     private static void raceBefore(){
         List<String> racerNameList = racerNameForm();
         RaceCount raceCount = raceCountForm();
+        raceCount.inputScore();
+        race(racerNameList,raceCount);
     }
 
     private static void race(List<String> racerNameList, RaceCount raceCount){
-
+        generateRacer(racerNameList);
+        for (String racerName:racerNameList){
+            Racing racing = new Racing(Racer.getInstance(racerName));
+            racing.racingByRacer();
+        }
     }
 
     private static List<String> racerNameForm(){
@@ -56,5 +63,15 @@ public class Application {
     private static int validateRaceCount(String raceCount){
         validateForValidateType(ValidateType.COUNT,raceCount);
         return Integer.parseInt(raceCount);
+    }
+
+
+    private static void generateRacer(List<String> racerNameList){
+        for (String racerName:racerNameList){
+            generateRacerByInputValue(racerName);
+        }
+    }
+    private static GenerateRacer generateRacerByInputValue(String inputValue){
+        return (racerName)-> Racer.getInstance(inputValue);
     }
 }
