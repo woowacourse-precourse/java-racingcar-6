@@ -44,8 +44,6 @@ public class Application {
 
         if (carNames.length == 0) {
             throw new IllegalArgumentException();
-        } else if (carNames.length >= 5) {
-            throw new IllegalArgumentException();
         }
 
         for (String name : carNames){
@@ -53,9 +51,6 @@ public class Application {
                 throw new IllegalArgumentException();
             }
             if (name.length() > 5){
-                throw new IllegalArgumentException();
-            }
-            if (name.matches("\\d+")){
                 throw new IllegalArgumentException();
             }
         }
@@ -69,15 +64,10 @@ public class Application {
     public static int validateAndParseTry(){
         String tryInput = readLine();
         int tries;
-        if (tryInput == null || tryInput.isEmpty()) {
+        if (tryInput == null || tryInput.isEmpty() || !tryInput.matches("\\d+")) {
             throw new IllegalArgumentException();
         }
-
-        try {
-            tries = parseInt(tryInput);
-        } catch (Exception e){
-            throw new IllegalArgumentException("숫자를 입력하세요");
-        }
+        tries = parseInt(tryInput) ;
         return tries;
     }
 
@@ -89,7 +79,7 @@ public class Application {
      */
     public static void runRace(List<Car> cars, int tries){
         for (int i = 0; i < tries; i++) {
-            System.out.println("실행 결과 : " + i);
+            System.out.println("실행 결과 : " + (i+1));
             for (Car car : cars){
                 boolean canMove = car.canMove();
                 car.move(canMove);
@@ -123,7 +113,7 @@ public class Application {
         List<String> winners = new ArrayList<>();
         for (Car car : cars) {
             if (car.getScore() == highestScore) {
-                winners.add(car.getName());
+                winners.add(car.name);
             }
         }
         System.out.println("최종 우승자 : " + String.join(", ", winners));
