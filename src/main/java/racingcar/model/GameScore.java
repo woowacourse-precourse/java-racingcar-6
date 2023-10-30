@@ -7,10 +7,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-public class GameRanking {
+public class GameScore {
     private final Map<RacingCar, String> participants;
 
-    public GameRanking(Map<RacingCar, String> participants) {
+    public GameScore(Map<RacingCar, String> participants) {
         this.participants = participants;
     }
 

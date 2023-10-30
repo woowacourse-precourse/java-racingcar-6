@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-class GameRankingTest {
+class GameScoreTest {
     private Map<RacingCar, String> participants;
 
     @BeforeEach
@@ -35,8 +35,8 @@ class GameRankingTest {
     @ParameterizedTest
     @ValueSource(strings = {"pobi", "woni", "jun"})
     void progressRound(String name) {
-        GameRanking gameRanking = new GameRanking(participants);
-        Map<RacingCar, String> result = gameRanking.progressRound();
+        GameScore gameScore = new GameScore(participants);
+        Map<RacingCar, String> result = gameScore.progressRound();
         RacingCar racingCar = new RacingCar(name);
         Assertions.assertAll(
                 () -> assertThat(result.containsKey(racingCar)).isTrue(),
@@ -48,36 +48,36 @@ class GameRankingTest {
     @ParameterizedTest
     @CsvSource(value = {"---:pobi", "--:woni", "-:jun"}, delimiter = ':')
     void getWinner(String score, String winner) {
-        GameRanking gameRanking = createSingleWinner(new RacingCar(winner), score);
-        List<RacingCar> result = gameRanking.getWinner();
+        GameScore gameScore = createSingleWinner(new RacingCar(winner), score);
+        List<RacingCar> result = gameScore.getWinner();
         Assertions.assertAll(
                 () -> assertThat(result.size()).isEqualTo(1),
                 () -> assertThat(result.get(0)).isEqualTo(new RacingCar(winner))
         );
     }
 
-    private GameRanking createSingleWinner(RacingCar winner, String score) {
+    private GameScore createSingleWinner(RacingCar winner, String score) {
         participants.put(winner, score);
-        return new GameRanking(participants);
+        return new GameScore(participants);
     }
 
     @DisplayName("우승자가 여러명인 경우 누가 우승했는지 알 수 있다.")
     @ParameterizedTest
     @MethodSource("winnerData")
     void getMultipleWinner(String score, List<RacingCar> winners) {
-        GameRanking gameRanking = createMultipleWinner(winners, score);
-        List<RacingCar> result = gameRanking.getWinner();
+        GameScore gameScore = createMultipleWinner(winners, score);
+        List<RacingCar> result = gameScore.getWinner();
         Assertions.assertAll(
                 () -> assertThat(result.size()).isEqualTo(winners.size()),
                 () -> assertThat(result).containsAll(winners)
         );
     }
 
-    private GameRanking createMultipleWinner(List<RacingCar> winners, String score) {
+    private GameScore createMultipleWinner(List<RacingCar> winners, String score) {
         for (RacingCar winner : winners) {
             participants.put(winner, score);
         }
-        return new GameRanking(participants);
+        return new GameScore(participants);
     }
 
     static Stream<Arguments> winnerData() {
