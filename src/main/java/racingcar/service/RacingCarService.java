@@ -33,12 +33,12 @@ public class RacingCarService {
         }
     }
 
-    public void setCount(String inputNumber) {
-        racingCarGame.setCount(parseStringToInt(inputNumber));
-    }
-
     public int getCount() {
         return racingCarGame.getCount();
+    }
+
+    public void setCount(String inputNumber) {
+        racingCarGame.setCount(parseStringToInt(inputNumber));
     }
 
     private int parseStringToInt(String inputNumber) {

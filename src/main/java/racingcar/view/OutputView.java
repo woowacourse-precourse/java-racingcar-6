@@ -32,7 +32,7 @@ public class OutputView {
         System.out.print("최종 우승자 : ");
         System.out.print(winnersName.get(0));
 
-        for (int index = 1; index < winnersName.size(); index++){
+        for (int index = 1; index < winnersName.size(); index++) {
             System.out.print(", ");
             System.out.print(winnersName.get(index));
         }

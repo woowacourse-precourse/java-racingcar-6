@@ -29,20 +29,22 @@ public class RacingCarController {
         selectWinner();
     }
 
-    private void selectWinner() {
-        List<String> winners = racingCarService.getWinners();
-        outputView.printWinners(winners);
+    private String carNameInputOutputProcess() {
+        outputView.printInputCarNameMessage();
+        return inputView.inputCarName();
     }
 
-    private void printExecutionResultMessage() {
-        outputView.printExecutionResultMessage();
+    private void initGame(String carNames) {
+        racingCarService.createCar(carNames);
     }
 
-    private void printRoundResult(String carName, int distance) {
-        outputView.printRoundResult(carName, distance);
+    private String numberInputOutputProcess() {
+        outputView.printInputNumberMessage();
+        return inputView.inputNumber();
     }
-    private void printBlankLine() {
-        outputView.printBlankLine();
+    private void setCount(String inputNumber) {
+        validateService.validateInputNumber(inputNumber);
+        racingCarService.setCount(inputNumber);
     }
 
     private void gameProcess() {
@@ -57,23 +59,21 @@ public class RacingCarController {
         }
     }
 
-    private void setCount(String inputNumber) {
-        validateService.validateInputNumber(inputNumber);
-        racingCarService.setCount(inputNumber);
+    private void printExecutionResultMessage() {
+        outputView.printExecutionResultMessage();
     }
 
-    private String carNameInputOutputProcess() {
-        outputView.printInputCarNameMessage();
-        return inputView.inputCarName();
+    private void selectWinner() {
+        List<String> winners = racingCarService.getWinners();
+        outputView.printWinners(winners);
     }
 
-    private void initGame(String carNames) {
-        racingCarService.createCar(carNames);
+    private void printRoundResult(String carName, int distance) {
+        outputView.printRoundResult(carName, distance);
     }
 
-    private String numberInputOutputProcess() {
-        outputView.printInputNumberMessage();
-        return inputView.inputNumber();
+    private void printBlankLine() {
+        outputView.printBlankLine();
     }
 
 }
