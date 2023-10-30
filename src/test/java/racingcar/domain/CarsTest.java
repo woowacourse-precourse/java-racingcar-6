@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import racingcar.dto.CarDto;
+
 class CarsTest {
 
     @ParameterizedTest(name = "입력값 : {0}")
@@ -26,6 +28,21 @@ class CarsTest {
     void givenNames_whenCreateCars_thenThrowException(String names) {
         assertThatThrownBy(() -> new Cars(names))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("각 자동차 이동 확인")
+    void givenCars_whenMove_thenMoveOrStop() {
+        // given
+        Cars cars = new Cars("pobi,woni");
+
+        // when
+        cars.move();
+        List<CarDto> results = cars.toCarsDto();
+
+        // then
+        assertThat(results.get(0).position()).isBetween(0, 1);
+        assertThat(results.get(1).position()).isBetween(0, 1);
     }
 
     @Test
