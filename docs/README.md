@@ -22,9 +22,7 @@
 
 ## GameManager  : 프로그램의 전반적인 실행, 종료 등을 수행
 - Application에서 실행될 대상
-- [] makeRaceTrack으로 Game에 필요한 레이스 트랙을 HashMap 생성
-    - key는 InputValue의 List 값
-    - value는 0으로 초기화
+- [] Car 객체 생성을 위한 Car List 생성
 - [] 해당 유저가 누구인지 체크하는 함수
 - [] pickNumberInRange를 통해 Random값 생성하는 함수
 - [] Random값을 이용해 car의 전진함수를 호출할지 멈춤 함수를 호출할지 확인하는 함수
