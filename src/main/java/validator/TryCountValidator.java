@@ -1,6 +1,6 @@
 package validator;
 
-public class TryCountValidator {
+public class TryCountValidator extends CommonValidator {
 
     public static void validateString(String tryCount) {
         try {
@@ -14,5 +14,9 @@ public class TryCountValidator {
         if(tryCount.isEmpty()) {
             throw new IllegalArgumentException("시도 횟수가 빈 값입니다. 애플리케이션을 종료합니다.");
         }
+    }
+
+    public static void validateTryCountIncludeEmpty(String tryCount) {
+        validateIncludeEmpty(tryCount);
     }
 }
