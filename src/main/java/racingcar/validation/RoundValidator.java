@@ -1,14 +1,9 @@
 package racingcar.validation;
 
-import racingcar.constant.Rule;
 import racingcar.constant.message.ErrorMessage;
 import racingcar.model.Round;
 
-import java.util.regex.Pattern;
-
 public class RoundValidator implements Validator {
-
-    private static final Pattern NUMBER = Pattern.compile(Rule.VALID_RANGE);
 
     @Override
     public boolean support(Class<?> clazz) {
@@ -22,7 +17,9 @@ public class RoundValidator implements Validator {
     }
 
     private void validateType(String value) {
-        if (value != null && !NUMBER.matcher(value).matches()) {
+        try {
+            Long.valueOf(value);
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_TYPE);
         }
     }

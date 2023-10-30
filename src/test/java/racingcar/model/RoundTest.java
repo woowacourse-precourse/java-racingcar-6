@@ -12,7 +12,7 @@ class RoundTest {
 
     @DisplayName("잘못된 횟수 입력 테스트")
     @ParameterizedTest(name = "{displayName}: {0}")
-    @ValueSource(strings = {"-123", "akd", "", "-", "12a", " 1"})
+    @ValueSource(strings = {"-123", "akd", "", "-", "12a", " 1", "3,444", "9223372036854775809"})
     @NullSource
     void checkInvalidRound(String value) {
         assertThatThrownBy(() ->
