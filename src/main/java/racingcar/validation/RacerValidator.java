@@ -5,7 +5,9 @@ import racingcar.constant.message.ErrorMessage;
 import racingcar.constant.message.Message;
 import racingcar.model.Racer;
 
+import java.util.Arrays;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class RacerValidator implements Validator {
 
@@ -28,7 +30,10 @@ public class RacerValidator implements Validator {
     }
 
     private void validateUnique(String value) {
-        if (Set.of(value.split(Message.NAME_SEPARATOR)).size() != value.split(Message.NAME_SEPARATOR).length) {
+        Set<String> unique = Arrays.stream(value.split(Message.NAME_SEPARATOR))
+                .map(String::trim)
+                .collect(Collectors.toSet());
+        if ((unique).size() != value.split(Message.NAME_SEPARATOR).length) {
             throw new IllegalArgumentException();
         }
     }

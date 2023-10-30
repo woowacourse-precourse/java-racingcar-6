@@ -25,7 +25,7 @@ class RacerTest {
 
     @DisplayName("중복된 이름 체크")
     @ParameterizedTest(name = "{displayName}: {0}")
-    @ValueSource(strings = {"ad,k,la,a,la", "l,l", "qwe,kz,pi,pi"})
+    @ValueSource(strings = {"ad,k,la,a,la", "l,l", "qwe,kz,pi,pi", "a, a,a ", "ba,l, ba"})
     void checkUnique(String value) {
         assertThatThrownBy(() -> new Racer(value))
                 .isInstanceOf(IllegalArgumentException.class);
