@@ -18,18 +18,12 @@ import static racingcar.view.OutputView.displayCarNamePrompt;
 public class RacingService {
     private List<Car> cars;
     private List<String> carNameList;
-    private int totalRound;
-
-    public void initializeGame() {
-        readyCarName();
-        readyAttemptCount();
-        readyCars();
-    }
+    private int totalRounds;
 
     /**
      * 자동차 이름 세팅
      */
-    protected void readyCarName() {
+    public void readyCarName() {
         displayCarNamePrompt();
 
         List<String> cadidateNameList = getCarNameList();
@@ -60,9 +54,9 @@ public class RacingService {
     /**
      * 시도할 횟수 세팅
      */
-    protected void readyAttemptCount() {
+    public void readyAttemptCount() {
         displayAttemptPrompt();
-        totalRound = getAttemptCount();
+        totalRounds = getAttemptCount();
     }
 
     protected int getAttemptCount() {
@@ -76,7 +70,7 @@ public class RacingService {
     /**
      * 레이싱할 자동차 등록
      */
-    protected void readyCars() {
+    public void readyCars() {
         cars = new ArrayList<>();
         for(String carName : carNameList) {
             cars.add(new Car(carName, new RandomNumberGenerator()));
@@ -87,4 +81,10 @@ public class RacingService {
     protected List<Car> getCars() {
         return cars;
     }
+
+    public int getTotalRounds() {
+        return totalRounds;
+    }
+
+
 }
