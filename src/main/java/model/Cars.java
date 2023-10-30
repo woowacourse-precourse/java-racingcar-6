@@ -57,10 +57,10 @@ public class Cars {
             .max(Comparator.comparing(Car::getMoveCountValue))
             .orElseThrow(NoSuchElementException::new);
 
-        return findSameMoveCountCars(maxMoveCar.getMoveCountValue());
+        return findSameMoveCountCars(maxMoveCar.getMoveCount());
     }
 
-    private List<Car> findSameMoveCountCars(final int moveCount) {
+    private List<Car> findSameMoveCountCars(final MoveCount moveCount) {
         return cars.stream()
             .filter(car -> car.hasSameMoveCount(moveCount))
             .collect(Collectors.toList());

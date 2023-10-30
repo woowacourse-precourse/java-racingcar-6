@@ -20,7 +20,7 @@ public class Car {
         moveCount.moveForward();
     }
 
-    public boolean hasSameMoveCount(final int count) {
+    public boolean hasSameMoveCount(final MoveCount count) {
         return moveCount.hasSameValue(count);
     }
 
@@ -30,5 +30,9 @@ public class Car {
 
     public int getMoveCountValue() {
         return moveCount.getMoveCount();
+    }
+
+    public MoveCount getMoveCount() {
+        return moveCount;
     }
 }
