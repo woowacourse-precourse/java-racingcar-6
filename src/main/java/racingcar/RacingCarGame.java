@@ -21,6 +21,7 @@ public class RacingCarGame {
         String carsName = getCarsName();
         String[] carName = extractCarName(carsName);
         List<Car> carList = generateCars(carName);
+        int numberOfRace = getNumberOfRace();
     }
 
     private String getCarsName() {
@@ -44,5 +45,11 @@ public class RacingCarGame {
             nameOrder++;
         }
         return carList;
+    }
+
+    private int getNumberOfRace() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        int numberOfRace = Integer.parseInt(Console.readLine());
+        return numberOfRace;
     }
 }
