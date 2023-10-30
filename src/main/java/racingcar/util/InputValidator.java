@@ -16,22 +16,6 @@ public class InputValidator {
         return carList;
     }
 
-    // 시도 횟수의 유효성 검사
-    public static int isValidAttemptNumber(String input) {
-        isEmptyOrBlank(input);
-        int attemptNumber = isIntegerNumber(input);
-        return attemptNumber;
-    }
-
-    // 시도 횟수가 정수형 숫자인지 검사
-    private static int isIntegerNumber(String input) {
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
-    }
-
     // 자동차 이름들이 문자인지 검사
     private static void isValidType(List<String> inputList) {
         for (int i = 0; i < inputList.size(); i++) {
@@ -39,20 +23,6 @@ public class InputValidator {
             isNull(word);
             isEmptyOrBlank(word);
             isLetter(word);
-        }
-    }
-
-    // String이 null인지 검사
-    private static void isNull(String word) {
-        if (word == null) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    // String이 공백이나 빈 문자열인지 검사
-    private static void isEmptyOrBlank(String word) {
-        if (word.isEmpty() || word.isBlank()) {
-            throw new IllegalArgumentException();
         }
     }
 
@@ -72,6 +42,36 @@ public class InputValidator {
             if (inputList.get(i).length() > 5) {
                 throw new IllegalArgumentException();
             }
+        }
+    }
+
+    // 시도 횟수의 유효성 검사
+    public static int isValidAttemptNumber(String input) {
+        isEmptyOrBlank(input);
+        int attemptNumber = isIntegerNumber(input);
+        return attemptNumber;
+    }
+
+    // 시도 횟수가 정수형 숫자인지 검사
+    private static int isIntegerNumber(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    // String이 null인지 검사
+    private static void isNull(String word) {
+        if (word == null) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    // String이 공백이나 빈 문자열인지 검사
+    private static void isEmptyOrBlank(String word) {
+        if (word.isEmpty() || word.isBlank()) {
+            throw new IllegalArgumentException();
         }
     }
 }
