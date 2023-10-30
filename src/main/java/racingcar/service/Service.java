@@ -18,13 +18,16 @@ public class Service {
         carRepository.save(carsDto);
     }
 
-    public void runOnce() {
-        carRepository.runAllCars();
+    public ArrayList<CarsDto> runTrack(int inputTrialNumber) {
+        int trialNumber = inputTrialNumber;
+        ArrayList<CarsDto> resultEachTrackList = new ArrayList<>();
+        while (trialNumber-- > 0) {
+            carRepository.runAllCars();
+            resultEachTrackList.add(carRepository.findAll());
+        }
+        return resultEachTrackList;
     }
 
-    public CarsDto getResultOfOneTrack() {
-        return carRepository.findAll();
-    }
 
     public CarsDto getWinner() {
         CarsDto carsDto = carRepository.findAll();

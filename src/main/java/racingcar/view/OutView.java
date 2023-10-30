@@ -15,16 +15,25 @@ public class OutView {
         System.out.println("\n실행 결과");
     }
 
-    public static void printResultEachTrack(CarsDto cars) {
-        int carsNumber = cars.getCarArrayList().size();
-        ArrayList<CarDto> carArrayList = cars.getCarArrayList();
-        for (int i = 0; i < carsNumber; i++) {
-            CarDto car = carArrayList.get(i);
-            System.out.print(car.getCarName() + " : ");
-            for (int j = 0; j < car.getCurrentPosition(); j++) {
-                System.out.print("-");
-            }
-            System.out.println();
+    public static void printResult(ArrayList<CarsDto> resultList) {
+        printResultMessage();
+        for(int i=0;i<resultList.size();i++){
+            ArrayList<CarDto> carArrayList = resultList.get(i).getCarArrayList();
+            printEachTrack(carArrayList);
+            System.out.println("");
+        }
+    }
+
+    private static void printEachTrack(ArrayList<CarDto> carArrayList) {
+        carArrayList.stream()
+                .forEach(carDto -> printEachCar(carDto));
+    }
+
+    private static void printEachCar(CarDto carDto) {
+        int currentPosition = carDto.getCurrentPosition();
+        System.out.print(carDto.getCarName()+" : ");
+        while (currentPosition-->0){
+            System.out.print("-");
         }
         System.out.println();
     }
