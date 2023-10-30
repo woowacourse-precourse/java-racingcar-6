@@ -2,7 +2,7 @@ package racingcar.game;
 
 import java.util.stream.Collectors;
 import racingcar.collaborator.Race;
-import racingcar.collaborator.generic.RecordingRace;
+import racingcar.collaborator.generic.RaceTotalProgress;
 import racingcar.collaborator.generic.Winners;
 import racingcar.io.Output;
 
@@ -14,7 +14,7 @@ public class RacingGame {
         race.decideRound();
 
         race.run();
-        RecordingRace result = race.getRecorded();
+        RaceTotalProgress result = race.getRecorded();
         Output.consoleLine("실행 결과");
         StringBuilder sb = new StringBuilder();
 

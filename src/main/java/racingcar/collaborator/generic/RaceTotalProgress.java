@@ -2,9 +2,9 @@ package racingcar.collaborator.generic;
 
 import java.util.List;
 
-public record RecordingRace(List<RaceProgress> recorded) {
+public record RaceTotalProgress(List<LapProgress> recorded) {
 
-    public RecordingRace(List<RaceProgress> recorded) {
+    public RaceTotalProgress(List<LapProgress> recorded) {
         this.recorded = List.copyOf(recorded);
     }
 

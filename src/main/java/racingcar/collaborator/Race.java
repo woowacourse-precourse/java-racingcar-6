@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import racingcar.collaborator.generic.RaceProgress;
+import racingcar.collaborator.generic.LapProgress;
+import racingcar.collaborator.generic.RaceTotalProgress;
 import racingcar.collaborator.generic.RacerProgress;
-import racingcar.collaborator.generic.RecordingRace;
 import racingcar.collaborator.generic.Winners;
 import racingcar.io.Input;
 import racingcar.io.Output;
@@ -15,10 +15,10 @@ public class Race {
 
     private List<Racer> racers;
     private Integer numberOfRound;
-    private List<RaceProgress> raceProgress;
+    private List<LapProgress> lapProgresses;
 
     public Race() {
-        this.raceProgress = new ArrayList<>();
+        this.lapProgresses = new ArrayList<>();
     }
 
     public void registerRacer() {
@@ -45,12 +45,12 @@ public class Race {
                 RacerProgress progress = racer.getProgress();
                 list.add(progress);
             }
-            raceProgress.add(new RaceProgress(list));
+            lapProgresses.add(new LapProgress(list));
         }
     }
 
-    public RecordingRace getRecorded() {
-        return new RecordingRace(raceProgress);
+    public RaceTotalProgress getRecorded() {
+        return new RaceTotalProgress(lapProgresses);
     }
 
     public Winners decideWinner() {
@@ -71,6 +71,7 @@ public class Race {
     }
 
     private List<RacerProgress> getLastMeter() {
-        return raceProgress.get(numberOfRound - 1).racerProgress();
+        return lapProgresses.get(numberOfRound - 1).racerProgress();
     }
+
 }
