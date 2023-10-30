@@ -49,4 +49,17 @@ class ValidationServiceTest {
                 format(LENGTH_INPUT_ERROR.getMessage(), MAX_CAR_NAME_LENGTH.getValue())
         );
     }
+
+    @ParameterizedTest
+    @DisplayName("자동차 이름이 중복되는 경우, 예외 처리한다.")
+    @CsvSource({"'A', 'A', 'AB'", "'ABC', 'A', 'ABC'", "'AB', 'A', 'A'"})
+    void validateCarNamesInputTest4(String carName1, String carName2, String carName3) {
+        ValidationService validationService = new ValidationService();
+        List<String> carNamesInput = List.of(carName1, carName2, carName3);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> validationService.validateCarNamesInput(carNamesInput));
+
+        assertThat(exception.getMessage()).isEqualTo(DUPLICATE_INPUT_ERROR.getMessage());
+    }
 }
