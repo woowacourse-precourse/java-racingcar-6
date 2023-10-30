@@ -12,7 +12,7 @@ public class ValidationTest {
 
         assertThatThrownBy(() -> Validation.throwIfCarInputIsInvalid(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("COUNT_ERROR_MESSAGE");
+                .hasMessageContaining("2개 이상의 자동차를 입력해주세요.");
     }
     @Test
     void 음수_입력_시_예외_발생() {
