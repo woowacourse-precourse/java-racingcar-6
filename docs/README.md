@@ -13,7 +13,7 @@
 - [x] 무작위 값이 전진 조건(4이상)을 만족하면 자동차는 위치를 +1 전진한다. - Car#moveForward()
 - [x] 자동차는 이동한 거리를 표현할 수 있다. - Car#expressMoveDistance()
 - [x] 자동차의 이동한 거리를 출력한다. - OutputView#showMoveDistance()
-- [ ] 자동차는 서로 누가 더 앞서 있는지 알 수 있다. - Car#compareTo()
+- [x] 자동차는 서로 누가 더 앞서 있는지 알 수 있다. - Car#compareTo()
 - [ ] 각 자동차들을 입력받은 시도 횟수만큼 전진 시도를 반복한다. - RaceService#repeatMoveCars()
 - [ ] 각 자동차를 1회 전진 시도하고 결과를 볼 수 있다. - RaceService#tryMoveCars()
 - [ ] 자동차 경주에서 어떤 차가 우승했는지 찾는다.(중복 우승 가능) - Referee#findWinners()
