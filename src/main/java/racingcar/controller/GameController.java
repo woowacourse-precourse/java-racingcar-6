@@ -22,7 +22,7 @@ public class GameController {
         this.winnerService = new WinnerService();
     }
 
-    public void start() {
+    public void gameHandler() {
         try {
             List<Car> cars = new ArrayList<>();
             List<String> carNames = initSetting();
