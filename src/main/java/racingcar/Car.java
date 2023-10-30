@@ -15,7 +15,7 @@ public class Car {
     }
 
     public void showMove(int distance){
-        System.out.print(name + " : "+showDistance(distance));
+        System.out.println(name + " : "+showDistance(distance));
     }
 
     public String showDistance(int distance){

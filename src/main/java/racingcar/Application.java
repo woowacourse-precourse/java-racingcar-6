@@ -7,6 +7,7 @@ public class Application {
 
         Game game = new Game(GM.inputCarsName(), GM.inputTrial());
 
+        game.playGame();
 
     }
 }

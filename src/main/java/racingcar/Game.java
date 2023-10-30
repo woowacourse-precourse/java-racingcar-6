@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -22,12 +23,12 @@ public class Game {
 
         for(int round = 0; round < trial; round++){
             playRound();
+            System.out.println("");
         }
-
-
     }
 
     public void setCars(List<String> carsName){
+        this.cars = new ArrayList<Car>();
         for(String name : carsName){
             cars.add(new Car(name));
         }
