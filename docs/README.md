@@ -13,6 +13,8 @@
 - [x] 레이싱 참여: join()
 - [x] 보드 기록: write()
 - [x] 기록 열람: view()
+- [x] 승자 기록: recordWinner()
+- [x] 승자 열람: viewWinner()
 ***
 ### 게임 진행 관련: GameProgress
 - [ ] 게임 시작: startGame()
