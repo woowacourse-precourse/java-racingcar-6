@@ -14,7 +14,6 @@ public class CarRacing {
     }
 
     public CarRacingResult start() {
-        System.out.println();
         for (int stepNumber = 0; stepNumber < iterationNumBer; stepNumber++) {
             progressOneStep();
             RacingCarConsole.printProgressState(carList);

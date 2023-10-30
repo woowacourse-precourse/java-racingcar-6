@@ -8,12 +8,12 @@ import racingcar.validator.InputValidator;
 public class CarRacingAdmin {
     public void startRace() {
         String carNames = RacingCarConsole.readCarNames();
-        List<Car> cars = getReadyCars(carNames);
+        List<Car> carList = getReadyCars(carNames);
 
         int iterationNumBer = RacingCarConsole.readIterationNumBer();
         InputValidator.validateIterationNumBer(iterationNumBer);
 
-        CarRacing carRacing = new CarRacing(cars, iterationNumBer);
+        CarRacing carRacing = new CarRacing(carList, iterationNumBer);
         CarRacingResult carRacingResult = carRacing.start();
         RacingCarConsole.printCarRacingResult(carRacingResult);
     }

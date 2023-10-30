@@ -35,11 +35,11 @@ public class RacingCarConsole {
     }
 
     public static void printProgressState(List<Car> carList) {
-        carList.forEach(System.out::println);
         System.out.println();
+        carList.forEach(System.out::println);
     }
 
     public static void printCarRacingResult(CarRacingResult carRacingResult) {
-        System.out.println(carRacingResult);
+        System.out.println("\n" + carRacingResult);
     }
 }
