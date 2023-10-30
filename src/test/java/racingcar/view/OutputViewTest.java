@@ -30,7 +30,6 @@ class OutputViewTest {
         OutputView.printRaceResult(cars);
 
         // then
-
         assertThat(outputStream.toString().trim()).contains("Car A", "Car B", "--");
     }
 }
