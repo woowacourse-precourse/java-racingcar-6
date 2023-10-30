@@ -15,12 +15,12 @@ public class GameHandler {
             List<String> carNames = Communicator.instructInputCars();
             game.saveCars(carNames);
 
-            int gameTimes = Communicator.instructInputGameTimes();
+            int trials = Communicator.instructInputTrials();
 
             Communicator.printResult();
-            for (int i = 0; i < gameTimes; i++) {
-                List<Car> cars = game.playOnce();
-                Communicator.printProgress(cars);
+            for (int i = 0; i < trials; i++) {
+                GameProgress gameProgress = game.playOnce();
+                Communicator.printProgress(gameProgress);
             }
 
             List<Car> winners = game.getWinners();

@@ -17,8 +17,8 @@ public class Communicator {
         return cars;
     }
 
-    public static int instructInputGameTimes() {
-        printInputGameTimes();
+    public static int instructInputTrials() {
+        printInputTrials();
         return Integer.parseInt(Console.readLine());
     }
 
@@ -26,8 +26,8 @@ public class Communicator {
         System.out.println("실행 결과");
     }
 
-    public static void printProgress(List<Car> cars) {
-        cars.forEach(car -> System.out.println(car.showCurrentDisplacement()));
+    public static void printProgress(GameProgress gameProgress) {
+        System.out.println(gameProgress.convertResultToString());
         System.out.println();
     }
 
@@ -47,7 +47,7 @@ public class Communicator {
         System.out.println("시스템을 종료합니다.");
     }
 
-    private static void printInputGameTimes() {
+    private static void printInputTrials() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 

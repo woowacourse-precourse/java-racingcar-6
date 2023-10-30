@@ -18,15 +18,6 @@ public class Game {
         return cars;
     }
 
-    public List<Car> playOnce() {
-        List<Car> cars = carStorage.getStoredCars();
-        List<Car> updatedCars = cars.stream()
-                .map(Car::conductAction)
-                .toList();
-        updateStorage(updatedCars);
-        return updatedCars;
-    }
-
     public List<Car> getWinners() {
         Car leadingCar = carStorage.getLeadingCar()
                 .orElseThrow(() -> new NoSuchElementException("저장된 자동차가 없습니다"));
@@ -35,5 +26,14 @@ public class Game {
 
     private void updateStorage(List<Car> cars) {
         cars.forEach(carStorage::saveCar);
+    }
+
+    public GameProgress playOnce() {
+        List<Car> cars = carStorage.getStoredCars();
+        List<Car> updatedCars = cars.stream()
+                .map(Car::conductAction)
+                .toList();
+        updateStorage(updatedCars);
+        return GameProgress.of(updatedCars);
     }
 }
