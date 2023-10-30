@@ -1,6 +1,9 @@
 package racingcar.view;
 
+import static racingcar.gameutil.GameMessage.*;
+
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.gameutil.GameMessage;
 import racingcar.validator.InputValidator;
 
 public class InputView {
@@ -12,14 +15,14 @@ public class InputView {
     }
 
     public String inputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(CAR_NAME_INPUT_MSG.getMsg());
         String carName = Console.readLine();
         inputValidator.validateInputCarName(carName);
         return carName;
     }
 
     public Integer inputTryCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(TRY_COUNT_INPUT_MSG.getMsg());
         String tryCount = Console.readLine();
         inputValidator.validateInputTryCount(tryCount);
         return Integer.parseInt(tryCount);
