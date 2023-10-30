@@ -43,7 +43,6 @@ public class CarRepository {
         CarsDto carsDto = new CarsDto(carDtoArrayList);
 
         return carsDto;
-
     }
 
     private ArrayList<CarDto> convertGarageToDtoArrayList() {
@@ -59,6 +58,5 @@ public class CarRepository {
     public void initRepository(){
         garage = new ArrayList<>();
     }
-
 
 }

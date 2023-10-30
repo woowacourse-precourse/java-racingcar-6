@@ -46,4 +46,5 @@ public class OutView {
         String winner = String.join(", ", winners);
         System.out.print("최종 우승자 : " + winner);
     }
+
 }
