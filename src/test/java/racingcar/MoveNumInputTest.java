@@ -1,14 +1,35 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class MoveNumInputTest {
+    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut((new PrintStream(output)));
+    }
+
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(System.out);
+        output.reset();
+    }
+
     @ParameterizedTest
     @ValueSource(strings = {"1", "10", "100"})
     @DisplayName ("자동차 이동횟수 입력 정상동작 테스트")
@@ -43,5 +64,18 @@ public class MoveNumInputTest {
         assertThatThrownBy(() -> new MoveNum(testInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 시도할 회수가 너무 많습니다 최대회수 " + MAX_MOVE_NUM);
+    }
+
+    @Test
+    @DisplayName("자동차 이동횟수 입력 안내 메시지 출력 확인")
+    void canPrintMoveNumInputInformationTest() throws Exception{
+        String lineSeparator = System.lineSeparator();
+        InputStream test = new ByteArrayInputStream("10".getBytes());
+
+        System.setIn(test);
+        RacingSetting racingSetting = new RacingSetting();
+        racingSetting.getMoveNum();
+        assertThat(output.toString())
+                .isEqualTo("시도할 회수는 몇회인가요?" + lineSeparator);
     }
 }
