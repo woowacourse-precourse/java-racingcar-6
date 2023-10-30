@@ -32,5 +32,4 @@ public class UserOutput {
 
         System.out.println(Message.WINNER_NAMES + String.join(", ", winnerNames));
     }
-
 }
