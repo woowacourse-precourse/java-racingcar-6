@@ -13,6 +13,10 @@ public class OutputView {
         System.out.println(car.getName() + Output.SEPARATOR.getComment() + toHyphen);
     }
 
+    public void printWinnerNames(String winnerNames) {
+        System.out.println(Output.WINNER_COMMENT.getComment() + winnerNames);
+    }
+
     private String convertDistanceToHyphen(Integer distance) {
         String result = "";
 
