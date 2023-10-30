@@ -17,6 +17,7 @@ public class CarNameValidator {
     public void validate(){
         isBlank();
         isRightNameLength();
+        isString();
     }
 
     public void isBlank() {
@@ -28,6 +29,12 @@ public class CarNameValidator {
     public void isRightNameLength() {
         if (NAMELIST.stream().anyMatch(name -> name.length() > Constants.NAME_SIZE)) {
             throw new IllegalArgumentException(Constants.CAR_NAME_SIZE_ERROR_MESSAGE);
+        }
+    }
+
+    public void isString(){
+        if (!Constants.CAR_NAMES_PATTERN.matcher(NAMES).matches()) {
+            throw new IllegalArgumentException(Constants.CAR_NAME_WRONG_ERROR_MESSAGE);
         }
     }
 }

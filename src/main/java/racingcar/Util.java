@@ -15,7 +15,7 @@ import static racingcar.Constants.*;
 public class Util {
 
     public static ArrayList<String> carNamesToArrayList(String carNames) {
-        return new ArrayList<>(Arrays.asList(carNames.split(DELIMETER)));
+        return new ArrayList<>(Arrays.asList(carNames.split(DELIMITER)));
     }
 
     public static int getRandomNum(){

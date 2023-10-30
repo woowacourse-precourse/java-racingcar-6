@@ -15,7 +15,7 @@ public class TryCntValidator {
     }
 
     public void isInteger() {
-        if (!Constants.TRY_NUM_PATTERN.matcher(TRY_COUNT).matches()) {
+        if (!Constants.TRY_COUNT_PATTERN.matcher(TRY_COUNT).matches()) {
             throw new IllegalArgumentException(Constants.ERROR + Constants.INPUT_ONLY_INTEGER_ERROR_MESSAGE);
         }
     }
