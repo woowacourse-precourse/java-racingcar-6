@@ -15,18 +15,6 @@ public class Game {
         System.out.println();
     }
 
-    public void printWinner(List<User> users) {
-        System.out.print("최종 우승자 : ");
-        int max = findWinner(users);
-
-        StringJoiner sj = new StringJoiner(", ");
-        for (User u : users) {
-            if (u.length == max) {
-                sj.add(u.name);
-            }
-        }
-        System.out.print(sj);
-    }
 
     public int findWinner(List<User> users) {
         int max = 0;
@@ -55,5 +43,18 @@ public class Game {
         }
         System.out.println();
 
+    }
+
+    public void printWinner(List<User> users) {
+        System.out.print("최종 우승자 : ");
+        int max = findWinner(users);
+
+        StringJoiner sj = new StringJoiner(", ");
+        for (User u : users) {
+            if (u.length == max) {
+                sj.add(u.name);
+            }
+        }
+        System.out.print(sj);
     }
 }
