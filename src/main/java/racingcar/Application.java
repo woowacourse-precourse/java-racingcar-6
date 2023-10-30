@@ -12,7 +12,7 @@ public class Application {
         referee.setCars(Console.readLine());
 
         referee.notifyNumOfGame();
-        referee.setNumOfGame(Integer.parseInt(Console.readLine()));
+        referee.setNumOfGame(Console.readLine());
 
         referee.notifyResult();
         for (int i = 0; i < referee.getNumOfGame(); i++) {

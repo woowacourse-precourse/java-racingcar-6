@@ -8,8 +8,19 @@ public class Referee {
     private  List<Car> cars;
 
 
-    public void setNumOfGame(int numOfGame) {
-        this.numOfGame = numOfGame;
+    public void setNumOfGame(String numOfGame) {
+        int numOfGameNumeric;
+        try{
+            numOfGameNumeric = Integer.parseInt(numOfGame);
+            if (numOfGameNumeric <= 0){
+                throw new IllegalArgumentException();
+            }
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+
+
+        this.numOfGame = numOfGameNumeric;
     }
 
     public int getNumOfGame() {
