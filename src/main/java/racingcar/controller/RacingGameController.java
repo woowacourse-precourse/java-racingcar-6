@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.RacingCars;
+import racingcar.view.output.RacingOutputView;
 
 public class RacingGameController {
 
@@ -10,11 +11,19 @@ public class RacingGameController {
 
     public void start() {
         set();
+        play();
     }
 
     private void set() {
         racingCars = racingInputController.createRacingCars();
         tryCount = racingInputController.createTryCount();
+    }
+
+    private void play() {
+        RacingOutputView.outputResultMessage();
+        for (int i = 0; i < tryCount; i++) {
+            racingCars.playRound();
+        }
     }
 
 }
