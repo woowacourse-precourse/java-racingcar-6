@@ -1,7 +1,6 @@
 package service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import controller.Controller;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -35,7 +34,6 @@ public class GameManager {
         Map.Entry<String, String> car = this.carIdxNamePosList.get(carIdx);
 
         if (goOrStop) {
-            // 자동차가 움직여야 할 때, "-" 를 추가해서 이동했음을 표시
             String nowCarBeforePos = car.getValue();
             String newCarPos = nowCarBeforePos + "-";
 
