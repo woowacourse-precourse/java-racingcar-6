@@ -1,12 +1,18 @@
 package racingcar.domain;
 
+import racingcar.util.CarNamesValidator;
+
 import java.util.List;
 
 public class CarsDto {
     private final List<String> carNames;
 
-    public CarsDto(List<String> inputtedCarNames) {
-        this.carNames = inputtedCarNames;
+    public CarsDto(String inputtedCarNames) {
+        this.carNames = validateInputtedCarNames(inputtedCarNames);
+    }
+
+    private List<String> validateInputtedCarNames(String inputtedCarNames) {
+        return CarNamesValidator.getValidatedCarNamesList(inputtedCarNames);
     }
 
     public String getSingleCarName(int index) {
