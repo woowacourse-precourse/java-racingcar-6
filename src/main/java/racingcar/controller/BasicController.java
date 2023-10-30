@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 
@@ -10,7 +11,8 @@ public class BasicController {
     private final Integer START = 0;
 
     public BasicController(String carInput) {
-        String[] splits = carInput.split(", ");
+        carList = new ArrayList<>();
+        String[] splits = carInput.split(",");
         for(int i=0; i<splits.length; i++){
             carList.add(new Car(splits[i], START));
         }
