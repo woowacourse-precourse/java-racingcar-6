@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.OutputConsole;
+import racingcar.IOConsole;
 import racingcar.model.Car;
 
 import java.util.List;
@@ -28,14 +28,15 @@ public class GameService {
                 car.increaseScore();
             }
         }
-        OutputConsole.printScores(cars);
+        IOConsole.printScores(cars);
     }
 
     public List<String> getWinners() throws IllegalArgumentException{
         int maxScore = cars.stream().map(Car::getScore).max(Integer::compare).orElseThrow();
-        return IntStream.range(0, trial)
+
+        return IntStream.range(0, cars.size())
                 .filter(i -> cars.get(i).getScore() == maxScore)
-                .mapToObj(i->cars.get(i).getName())
+                .mapToObj(i->(cars.get(i).getName()))
                 .collect(Collectors.toList());
     }
 }
