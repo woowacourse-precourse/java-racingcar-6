@@ -25,6 +25,7 @@ public class Output {
             }
             System.out.printf("%s : %s\n", car.getName(), driveTrace);
         }
+        System.out.println();
     }
 
     public static void printWinners(List<Car> winners) {
