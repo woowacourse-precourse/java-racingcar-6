@@ -69,4 +69,16 @@ public class Function {
 		}
 		return winners;
 	}
+
+	public static void outputMove(Map<String, Integer> result) {
+		Set<String> name= result.keySet();
+		for(String key: name) {
+			String printStr= key+" : " ;
+			for(int i=0; i<result.get(key); i++) {
+				printStr+="-";
+			}
+			System.out.println(printStr);
+		}
+		
+	}
 }
