@@ -17,6 +17,10 @@ public class Car {
         return name;
     }
 
+    public int getProgress() {
+        return progress;
+    }
+
     public String getDash() {
         return "-".repeat(progress);
     }
