@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Converter {
 
     private Converter() {
@@ -14,7 +17,7 @@ public class Converter {
 
     }
 
-    public static String[] stringToArr(String s) {
-        return s.split(",");
+    public static List<String> stringToList(String s) {
+        return Arrays.stream(s.split(",")).toList();
     }
 }
