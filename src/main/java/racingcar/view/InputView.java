@@ -16,8 +16,10 @@ public class InputView {
     public void inputName(List<Car> cars){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
+        if(!inputValidator.isNotNullValid(input)){
+            throw new IllegalArgumentException("Input Error: Car Name is Null");
+        }
         List<String> parseResults = parseNamesFromInput(input);
-        System.out.println(parseResults);
         if(!inputValidator.validateNumberOfCar(parseResults)){
             throw new IllegalArgumentException("Input Error: Invalid the minimum number of cars");
         }
@@ -35,6 +37,9 @@ public class InputView {
     public Integer inputMoveCount(){
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
+        if(!inputValidator.isNotNullValid(input)){
+            throw new IllegalArgumentException("Input Error: moveCount is Null");
+        }
         if(!inputValidator.isNumericValid(input)) {
             throw new IllegalArgumentException("Input Error: moveCount is not numeric");
         }
@@ -46,7 +51,6 @@ public class InputView {
     }
     private List<String> parseNamesFromInput(String input){
         String[] parseResultArray = input.split(",", -1);
-        System.out.println("parse: " + parseResultArray.length);
         // convert array type into list type
         return new ArrayList<>(Arrays.asList(parseResultArray));
     }
