@@ -7,16 +7,21 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class UtillTest {
+    private ByteArrayOutputStream outContent;
 
     @BeforeEach
     void setUp() {
+        outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
     }
 
     @DisplayName("숫자 변환 테스트")
@@ -49,11 +54,11 @@ class UtillTest {
     @DisplayName("print new Line 테스트")
     @Test
     void printNewLine() {
-        // given
-
         // when
+        Utill.printNewLine();
 
         // than
+        assertThat(outContent.toString()).isEqualTo("\n");
     }
 
     @DisplayName("print 메서드 테스트")
