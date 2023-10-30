@@ -1,11 +1,12 @@
 package racingcar.controller;
 
-import racingcar.domain.racingCar;
 
-import java.util.List;
+import racingcar.domain.racingCars;
+import racingcar.view.inputView;
 
 public class racingCarGameController {
-    private static List<racingCar> racingCarList;
     public static void play() {
+        racingCars racingCars = new racingCars(inputView.requireRacingCarName());
+
     }
 }
