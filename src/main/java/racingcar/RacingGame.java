@@ -65,7 +65,13 @@ public class RacingGame {
         distance = new int[carName.length];
         System.out.println("실행 결과");
         while (tryNumber > 0) {
+            checkCar();
             tryNumber--;
+        }
+    }
+    private static void checkCar(){
+        for (int i=0;i<carName.length;i++){
+            runCar(i);
         }
     }
     private static boolean isRandomValueOverFour(){
