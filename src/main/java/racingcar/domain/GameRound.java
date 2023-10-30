@@ -9,6 +9,7 @@ public class GameRound {
 
     public GameRound(int totalRound, int currentRound) {
         validateTotalRound(totalRound);
+        validateInitCurrentRound(currentRound);
         this.totalRound = totalRound;
         this.currentRound = currentRound;
     }
