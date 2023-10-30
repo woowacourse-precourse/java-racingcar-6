@@ -1,11 +1,14 @@
 package racingcar.controller.subcontroller;
 
+import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.repository.CarRepository;
 
 public class InitializeCarController {
-    public Car initializeCar(String name, int tryCount) {
-        Car car = new Car(name, tryCount);
-        System.out.println(car.getName() + "이 생성됨. (이동을 시도할 횟수: " + car.getTryCount() + "회)");
-        return car;
+    public void initializeCar(List<String> names, int tryCount) {
+        for (String name : names) {
+            Car car = new Car(name, tryCount);
+            CarRepository.add(car);
+        }
     }
 }

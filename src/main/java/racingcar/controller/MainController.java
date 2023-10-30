@@ -13,10 +13,13 @@ public class MainController {
     private final InitializeCarController initializeCarController;
     private final MoveCarController moveCarController;
 
-    public MainController(InputView inputView, OutputView outputView, InitializeCarController initializeCarController) {
+    public MainController(InputView inputView, OutputView outputView,
+                          InitializeCarController initializeCarController,
+                          MoveCarController moveCarController) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.initializeCarController = initializeCarController;
+        this.moveCarController = moveCarController;
     }
 
     public void start() {
@@ -26,11 +29,9 @@ public class MainController {
     }
 
     private void initializeCar() {
-        List<String> splits = inputToNameCar();
+        List<String> names = inputToNameCar();
         int tryCount = inputTryToMoveCar();
-        for (String name : splits) {
-            initializeCarController.initializeCar(name, tryCount);
-        }
+        initializeCarController.initializeCar(names, tryCount);
     }
 
     private List<String> inputToNameCar() {
@@ -41,7 +42,7 @@ public class MainController {
 
     private int inputTryToMoveCar() {
         String inputTryToMoveCar = inputView.inputTryToMoveCar();
-        int count = Util.convertStringToInt(inputTryToMoveCar);
-        return count;
+        int tryCount = Util.convertStringToInt(inputTryToMoveCar);
+        return tryCount;
     }
 }
