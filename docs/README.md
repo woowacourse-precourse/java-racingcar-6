@@ -4,15 +4,23 @@
 
 - [ ] Model - 비즈니스 로직 및 데이터를 다룬다.
 
-    - [ ] 입력 받는 플레이어의 이름을 처리하는 클래스. - SplitPlayerName()
-    - [ ] 랜덤 수를 생성하는 클래스. - GenerateRandomNumber()
-    - [ ] 랜덤 수를 검증하는 클래스. - VerifyRandomNumber()
+    - [ ] 입력 받는 플레이어의 이름을 처리하는 클래스.
+            - SplitPlayerName()
+    - [x] 랜덤 수를 생성하는 클래스.
+            - GenerateRandomNumber()
+    - [ ] 랜덤 수를 검증하는 클래스.
+            - VerifyRandomNumber()
 
 - [ ] View - UI 모듈로 화면 처리에 대한 부분을 담당한다.
 
-    - [ ] 게임 시작에 필요한 멘트를 출력하는 클래스. - PrintStart()
-    - [ ] 게임 플레이에 필요한 멘트를 출력하는 클래스. - PrintPlay()
-    - [ ] 게임 결과를 출력하는 클래스. - PrintEnd()
+    - [ ] 게임 시작에 필요한 멘트를 출력하는 클래스.
+            - PrintStart()
+    - [ ] 게임 플레이에 필요한 멘트를 출력하는 클래스.
+            - PrintPlay()
+    - [ ] 게임 결과를 출력하는 클래스.
+            - PrintEnd()
+    - [x] 게임 진행에 필요한 메세지들을 상수로 관리하는 클래스.
+            - Messages()
 
 - [ ] Control - 요청을 분석해 로직을 처리하고 결과에 따른 View를 연결한다.
 
