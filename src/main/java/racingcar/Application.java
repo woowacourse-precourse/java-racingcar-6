@@ -89,7 +89,9 @@ public class Application {
                 winners.add(car.getName());
             }
         }
-        System.out.println(maxPosition);
+        // 임시 확인용 code
+        System.out.println("최대 이동 거리 : "+maxPosition);
+
         System.out.print("최종 우승자: ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
