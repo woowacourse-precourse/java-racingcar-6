@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class InputManagerTest {
 
     @Test
-    void 정상_동작_테스각() {
+    void 정상_동작_테스트() {
         List<String> carNames = InputManager.getCarNames("aaa,bbb");
         assertThat(carNames).contains("aaa", "bbb");
     }
