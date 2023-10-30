@@ -20,6 +20,6 @@ class GameTest {
 
     @Test
     void moveForwardAttempt_전진실패(){
-        assertThat(game.moveForwardAttempt(0)).isTrue();
+        assertThat(game.moveForwardAttempt(0)).isFalse();
     }
 }
