@@ -9,14 +9,14 @@ import java.util.List;
 
 public class NameValidation extends InputValidation{
 
-    public static void verifyForRacerNameIsEngOrKor(String inputValue){
-        if (!inputValue.equals("^[a-zA-Z가-힣]*$")){
+    public static void verifyForRacerNameIsEngOrKor(String racerName){
+        if (!racerName.equals("^[a-zA-Z가-힣]*$")){
             throw new IllegalArgumentException(ErrorProperty.NAME_VALUE_IS_NOT_CORRECT_FORM);
         }
     }
 
-    public static void verifyForRacerNameIsLengthNotOver(String inputValue){
-        if (inputValue.length()> ValidateProperty.NAME_LENGTH_STANDARD){
+    public static void verifyForRacerNameIsLengthNotOver(String racerName){
+        if (racerName.length()> ValidateProperty.NAME_LENGTH_STANDARD){
             throw new IllegalArgumentException(ErrorProperty.NAME_VALUE_LENGTH_IS_OVER);
         }
     }
