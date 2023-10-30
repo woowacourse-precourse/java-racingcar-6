@@ -12,7 +12,7 @@ class CarsTest {
     @DisplayName("Cars 객체 생성 성공")
     void CarsTest() {
         // given
-        String inputNames = "pobi,jason";
+        String inputNames = "pobi,yoni";
 
         // when
         Cars cars = new Cars(inputNames);
