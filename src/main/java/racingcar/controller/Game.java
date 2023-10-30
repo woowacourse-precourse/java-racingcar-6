@@ -18,5 +18,8 @@ public class Game {
             System.out.println(car.getName());
 
         OutputView.askAttemptCount();;
+        int attemptCount = inputController.getAttemptCountFromUserInput();
+        //입력 횟수 확인
+        System.out.println(attemptCount);
     }
 }
