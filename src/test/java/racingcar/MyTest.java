@@ -2,10 +2,11 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 import racingcar.util.CarNameValidator;
+import racingcar.util.RoundCountValidator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MyTest {
+class MyTest {
     @Test
     void 정규식테스트() {
         String regex = "^[0-9a-zA-Zㄱ-ㅎ가-힣,]*$";
@@ -150,5 +151,49 @@ public class MyTest {
         assertThat(error).isEqualTo(false);
 
     }
+
+    @Test
+    void 라운드횟수정규식테스트() {
+        String regex = "^[1-9]\\d*$";
+        assertThat("123".matches(regex)).isEqualTo(true);
+        assertThat("1".matches(regex)).isEqualTo(true);
+        assertThat("0".matches(regex)).isEqualTo(false);
+        assertThat("012".matches(regex)).isEqualTo(false);
+        assertThat("a12".matches(regex)).isEqualTo(false);
+        assertThat("12a".matches(regex)).isEqualTo(false);
+        assertThat("".matches(regex)).isEqualTo(false);
+        assertThat("-12".matches(regex)).isEqualTo(false);
+        assertThat("0.12".matches(regex)).isEqualTo(false);
+    }
+
+    @Test
+    void 라운드횟수최소값테스트() {
+
+        boolean error = false;
+        try {
+            new RoundCountValidator("1");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(false);
+
+        error = false;
+        try {
+            new RoundCountValidator("0");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(true);
+
+        error = false;
+        try {
+            new RoundCountValidator("-1");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(true);
+
+    }
+
 
 }
