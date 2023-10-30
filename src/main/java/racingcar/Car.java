@@ -5,6 +5,7 @@ public class Car {
 
   public Car(String name) {
     this.name = name;
+    this.forwardDistance = 0;
   }
 
   private String name;
@@ -24,5 +25,9 @@ public class Car {
 
   public void setForwardDistance(int forwardDistance) {
     this.forwardDistance = forwardDistance;
+  }
+
+  public void addForwardDistance() {
+    this.forwardDistance++;
   }
 }

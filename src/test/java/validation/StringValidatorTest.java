@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 
 public class StringValidatorTest {
+
   @Test
   void validateStringLengthOver_메서드_사용시_제한_길이_이하면_값을_그대로_반환() {
     String inputString = "pobi";
