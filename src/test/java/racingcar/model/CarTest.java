@@ -72,7 +72,7 @@ public class CarTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"", " ", "1231456"})
-    @DisplayName("Name 생성 실패")
+    @DisplayName("자동차 리스트 생성 실패")
     public void failed(String string) {
         assertThatThrownBy(() -> new Car(string)).isInstanceOf(IllegalArgumentException.class);
     }
