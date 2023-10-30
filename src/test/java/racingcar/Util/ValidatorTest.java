@@ -31,4 +31,12 @@ class ValidatorTest {
             validator.validationTrialNumber("A");
         });
     }
+
+    @Test
+    @DisplayName("입력 없음 테스트")
+    void validationTrialNumberTest2() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            validator.validationTrialNumber("");
+        });
+    }
 }
