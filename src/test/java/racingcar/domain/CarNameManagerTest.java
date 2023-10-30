@@ -17,14 +17,16 @@ public class CarNameManagerTest {
     @Test
     void checkNormalCarNmaeInput() {
         String carName = "hong,kim,jun";
-        assertDoesNotThrow(() -> carNameManager.processCarNames(carName));
+        List<String> name = carNameManager.processCarNames(carName);
+        assertDoesNotThrow(() -> carNameManager.validateCarNames(name));
     }
 
     @DisplayName("자동차이동름입력 - 공백포함 5자입력시 정상입력처리")
     @Test
     void checklCarNmaeWithSpaces5() {
         String carName = "kim,12 45,jun";
-        assertDoesNotThrow(() -> carNameManager.processCarNames(carName));
+        List<String> name = carNameManager.processCarNames(carName);
+        assertDoesNotThrow(() -> carNameManager.validateCarNames(name));
     }
 
     @DisplayName("자동차이동름입력 - 양옆 공백 입력시 정상입력처리")

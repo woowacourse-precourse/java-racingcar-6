@@ -17,7 +17,8 @@ public class AttemptCountValidator {
         blankValidator.isEmpty(attemptCountInput);
         String trimmedCount = attemptCountInput.trim();
         ensureNoInternalSpaces(trimmedCount);
-        return convertToInt(trimmedCount);
+        int convertedValue = convertToInt(trimmedCount);
+        return isNaturalNumber(convertedValue);
     }
 
     private void ensureNoInternalSpaces(String input) {
@@ -40,15 +41,14 @@ public class AttemptCountValidator {
                 bigIntegerValue.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0) {
             throw new IllegalArgumentException(NUMBER_OUT_OF_RANGE);
         }
-        int convertedValue = bigIntegerValue.intValue();
-        isNaturalNumber(convertedValue);
-        return convertedValue;
+        return bigIntegerValue.intValue();
     }
 
-    private void isNaturalNumber(int number) {
+    private int isNaturalNumber(int number) {
         if (number <= 0) {
             throw new IllegalArgumentException(PLEASE_INPUT_NATURAL_NUMBER);
         }
+        return number;
     }
 }
 
