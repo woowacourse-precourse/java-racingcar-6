@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.utils.GenerateRandomNumber;
-
 public class Car {
 
     private static final int MOVABLE_MIN_NUMBER = 4;
