@@ -42,7 +42,7 @@ public class ExceptionHandler {
         }
 
         for (int i = 0; i < members.size(); i++) {
-            if (Validation.isDuplicates(members, members.get(i))) {
+            if (Validation.isDuplicates(members, members.get(i), i)) {
                 throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
             }
         }
