@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -28,7 +29,19 @@ public class User {
 
     public int inputTryNumber(){
         String input = Console.readLine();
+        checkTryNumber(input);
         int tryNumber = Integer.parseInt(input);
         return tryNumber;
+    }
+
+    public void checkTryNumber(String input){
+        if(input.equals("0")){
+            throw new IllegalArgumentException();
+        }
+        for(int i = 0; i < input.length(); i++){
+            if(input.charAt(i) < '0' || input.charAt(i) > '9'){
+                throw new IllegalArgumentException();
+            }
+        }
     }
 }
