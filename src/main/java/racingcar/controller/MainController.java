@@ -36,5 +36,4 @@ public class MainController {
                 Map.entry(GameState.FINISH, config::createResultController)
         );
     }
-
 }
