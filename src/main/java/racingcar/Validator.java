@@ -24,8 +24,12 @@ public class Validator {
 
     }
 
-    public void isAttemptsNotNumber() {
-
+    public static void validateAttemptsNumber(String attempts) {
+        try {
+            Integer.parseInt(attempts);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void isAttemptsOutOfRange() {
