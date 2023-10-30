@@ -22,4 +22,9 @@ public class OutputView {
     public void printNewLine() {
         System.out.println();
     }
+
+    public void printProcessResultTitle() {
+        printNewLine();
+        System.out.println(ProcessMessage.PROCESS_RESULT);
+    }
 }

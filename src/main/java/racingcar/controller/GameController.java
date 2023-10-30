@@ -22,6 +22,7 @@ public class GameController {
     }
 
     public void process() {
+        outputView.printProcessResultTitle();
         while(attemptCount.isNotFinish()) {
             cars.forEach(Car::moveForward);
             attemptCount.decreaseCount();
