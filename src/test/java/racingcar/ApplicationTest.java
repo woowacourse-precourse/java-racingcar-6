@@ -48,7 +48,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름_길이_위반_예외_처리_길이0(){
+    void 경주_참여_자동차_0대(){
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -56,7 +56,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름_길이_위반_예외_처리_길이0_2(){
+    void 이름_길이_위반_예외_처리_길이0(){
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("jun,,pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -71,6 +71,13 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 중복된_이름_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Override
     public void runMain() {

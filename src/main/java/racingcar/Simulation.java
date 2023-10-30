@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Simulation {
 
@@ -45,14 +47,46 @@ public class Simulation {
 
             racingCarList.add(racingCar);
         }
+
+        duplicateNameCheck(racingCarList);
     }
 
     private void isException(String name){
 
+        nameLengthCheck(name);
+        nameViolationCheck(name);
+    }
+
+    private void nameLengthCheck(String name){
 
         if(name.length() < 1 || name.length() > 5) {
 
             throw new IllegalArgumentException("입력 가능한 자동차 이름 길이 위반");
+        }
+    }
+
+    private void nameViolationCheck(String name){
+
+        String REGEX = "[a-z|A-z]*$";
+
+        if(!name.matches(REGEX)){
+
+            throw new IllegalArgumentException("자동차의 이름에 허용되지 않은 문자가 포함되어있습니다.");
+        }
+    }
+
+    private void duplicateNameCheck(ArrayList<RacingCar> racingCarList){
+
+        Set<String> set = new HashSet<>();
+
+        for(RacingCar car : racingCarList){
+
+            set.add(car.getName());
+        }
+
+        if(set.size() != racingCarList.size()){
+
+            throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
         }
     }
 
