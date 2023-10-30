@@ -24,11 +24,13 @@ public class UserInput {
         return carNamesSplitValidation(userInput);
     }
 
-    private static String[] carNamesSplitValidation(String target) throws IllegalArgumentException{
-        try {
-            return target.split(",");
-        } catch (Exception e) {
-            throw new IllegalArgumentException("잘못 입력하였습니다.");
+    private static String[] carNamesSplitValidation(String target) throws IllegalArgumentException {
+        validateNotNullOrEmpty(target);
+
+        String[] names = target.split(",");
+        for (String name : names) {
+            validateNameLength(name);
         }
+        return names;
     }
 }
