@@ -1,11 +1,12 @@
 package racingcar.model;
 
+import racingcar.NumberGenerator;
 import racingcar.RandomNumberGenerator;
 
 public class Car {
     private String name;
     private int forwardCount;
-    private final RandomNumberGenerator generator = new RandomNumberGenerator();
+    private final NumberGenerator generator = new RandomNumberGenerator();
     private static final int FORWARD_LOWER_INCLUSIVE = 4;
     private static final int MAX_NAME_LENGTH = 5;
     private static final String NAME_LENGTH_ERROR = "이름은 5자 이하여야 합니다.";
@@ -25,7 +26,7 @@ public class Car {
     }
 
     public void forward(){
-        if(generator.generate() > FORWARD_LOWER_INCLUSIVE){
+        if(generator.generate() >= FORWARD_LOWER_INCLUSIVE){
             forwardCount++;
         }
     }
