@@ -60,4 +60,17 @@ public class Race {
         System.out.println();
     }
 
+    private void result() {
+        StringBuilder result = new StringBuilder();
+        result.append("최종 우승자 : ");
+        for (int i = 0; i < car_name.size(); i++) {
+            if (car_score.get(i) >= Collections.max(car_score)) {
+                Collections.max(car_score);
+                result.append(car_name.get(i));
+            }
+            result.append(" ");
+        }
+        System.out.println(result);
+    }
+
 }
