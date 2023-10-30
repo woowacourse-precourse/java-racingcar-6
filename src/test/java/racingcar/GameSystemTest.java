@@ -3,6 +3,8 @@ package racingcar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -40,5 +42,15 @@ class GameSystemTest {
         assertThatThrownBy(() -> gameSystem.setUpCars(userInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Duplicated car names are exist.");
+    }
+    
+    @DisplayName("입력된 시도할 횟수는 숫자 형태여야 한다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"010", "!@#", "abc"})
+    void shouldTryCountBeNumber(String userInput) {
+        // when // then
+        assertThatThrownBy(() -> gameSystem.verfiyTryCount(userInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Try count is not number.");
     }
 }
