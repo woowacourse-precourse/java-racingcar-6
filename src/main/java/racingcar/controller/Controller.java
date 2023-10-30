@@ -42,16 +42,15 @@ public class Controller {
     }
 
     public void carGenerator(String[] cars) {
-        for (int i = 0; i < cars.length; i++) {
+        for (String s : cars) {
             Car car = new Car();
-            car.putName(cars[i]);
+            car.putName(s);
             carsList.add(car);
         }
     }
 
     public void moveCar() {
-        for (int i = 0; i < carsList.size(); i++) {
-            Car car = carsList.get(i);
+        for (Car car : carsList) {
             int randNum = car.randomNumber();
             car.moveForward(randNum);
         }
