@@ -11,11 +11,6 @@ public class Car {
 
     @Override
     public String toString() {
-        String result = name + " : ";
-        for (int i = 0; i < distance; i++) {
-            result += "-";
-        }
-        return result;
-
+        return name + " : " + "-".repeat(distance);
     }
 }

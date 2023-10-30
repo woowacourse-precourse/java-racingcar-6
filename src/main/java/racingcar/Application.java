@@ -1,8 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.*;
-
-import java.util.Arrays;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Application {
     public static void main(String[] args) {
@@ -19,8 +18,8 @@ public class Application {
     }
 
     private static void printCars(Car[] cars) {
-        for (int carIndex = 0; carIndex < cars.length; carIndex++) {
-            System.out.println(cars[carIndex].toString());
+        for (Car car : cars) {
+            System.out.println(car.toString());
         }
     }
 
