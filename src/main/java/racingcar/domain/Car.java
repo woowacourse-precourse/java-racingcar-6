@@ -24,6 +24,10 @@ public class Car {
         return location;
     }
 
+    public String getName() {
+        return name;
+    }
+
     private boolean isMove() {
         return MOVE_BOUNDARY <= generator.generate();
     }
