@@ -16,6 +16,28 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
+    private Car findFrontPosition() {
+        Car maxPosition = cars.get(0); // 초기값으로 첫 번째 자동차를 선택
+        for (Car car : cars) {
+            if (car.compareTo(maxPosition) > 0) {
+                maxPosition = car;
+            }
+        }
+        return maxPosition;
+    }
+
+
+    private List<String> findTiedWinners(Car winner) {
+        List<String> tiedWinners = new ArrayList<>();
+        for (Car car : cars) {
+            if (winner.isSamePosition(car)) {
+                tiedWinners.add(car.getName());
+            }
+        }
+        return tiedWinners;
+    }
+
+
     public void moveCars() {
         RandomNumbersGenerator.randomNumberGenerator(cars);
     }
