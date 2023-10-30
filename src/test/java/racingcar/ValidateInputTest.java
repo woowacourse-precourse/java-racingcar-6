@@ -1,6 +1,8 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.Car;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -13,6 +15,15 @@ class ValidateInputTest {
         String input = "";
         assertThatThrownBy(() ->
                 ValidateInput.isRightInput(input)).isInstanceOf(IllegalStateException.class);
+    }
+
+
+    @ParameterizedTest
+    @ValueSource(strings = {"aaa", "12a", "-1", "1.2"})
+    void input이_정수형태가_아닌경우_IllegalStateException() {
+        String input = "35k";
+        assertThatThrownBy(() ->
+                ValidateInput.isNumeric(input)).isInstanceOf(IllegalStateException.class);
     }
 
     @Test
