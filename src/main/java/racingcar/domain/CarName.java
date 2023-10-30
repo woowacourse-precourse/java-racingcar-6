@@ -11,7 +11,6 @@ public record CarName(String name) {
 
         validateBlack(name);
         validateLength(name);
-
     }
 
     private void validateLength(String name) {
