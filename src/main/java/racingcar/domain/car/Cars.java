@@ -51,10 +51,10 @@ public class Cars {
         return Randoms.pickNumberInRange(1, 9);
     }
 
-    public String getStatus() {
-        StringBuilder status = new StringBuilder();
-        cars.forEach(car -> status.append(car.toString()));
-        return status.toString();
+    public List<CarDto> getStatus() {
+        List<CarDto> status = new ArrayList<>();
+        cars.forEach(car -> status.add(car.getStatus()));
+        return status;
     }
 
     public List<String> findTopCars() {
