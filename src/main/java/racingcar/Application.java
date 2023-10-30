@@ -10,5 +10,11 @@ public class Application {
         RacingcarController racingcarController = new RacingcarController(
                 new InputView(), new OutputView()
         );
+
+        racingcarController.startGame();
+        do {
+            racingcarController.playRound();
+        } while (!racingcarController.isEnd());
+        racingcarController.endGame();
     }
 }

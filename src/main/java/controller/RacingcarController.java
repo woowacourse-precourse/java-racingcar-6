@@ -12,5 +12,19 @@ public class RacingcarController {
         this.outputView = outputView;
     }
 
-    
+    public void startGame() {
+
+    }
+
+    public void playRound() {
+
+    }
+
+    public boolean isEnd() {
+        return true;
+    }
+
+    public void endGame() {
+
+    }
 }
