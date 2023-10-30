@@ -17,10 +17,10 @@ public class RacingController {
 
     public void start() {
 
-        String[] carNames = getCarNames();
+        String[] carNames = getUserInputNames();
         racingCars.addCars(carNames);
 
-        int trialNumber = getTrialNumber();
+        int trialNumber = getUserInputTrialNumber();
 
         processRacing(trialNumber);
 
@@ -28,7 +28,7 @@ public class RacingController {
 
     }
 
-    private String[] getCarNames() {
+    private String[] getUserInputNames() {
         String input = InputView.inputCarNames();
         ValidateInput.isNotNullOrEmpty(input);
 
@@ -38,7 +38,7 @@ public class RacingController {
         return carNames;
     }
 
-    private int getTrialNumber() {
+    private int getUserInputTrialNumber() {
         String input = InputView.inputTrialNumber();
         ValidateInput.isNotNullOrEmpty(input);
         ValidateInput.isNumeric(input);

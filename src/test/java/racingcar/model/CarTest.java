@@ -8,7 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
-    private final static int MOVING_STANDARD = 4;
     private Car car;
 
     @BeforeEach
@@ -17,10 +16,10 @@ class CarTest {
     }
 
     @Test
-    void Car_이름길이5이상_인스턴스생성실패() {
+    void Car_이름길이5이상이면_인스턴스생성실패() {
         String wrongName = "longerthan5";
         assertThatThrownBy(() ->
-                new Car(wrongName)).isInstanceOf(IllegalStateException.class);
+                new Car(wrongName)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
