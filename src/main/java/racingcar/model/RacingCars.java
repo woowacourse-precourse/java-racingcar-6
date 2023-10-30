@@ -3,13 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RacingCars {
-
-    private final List<RacingCar> racingCarList;
-
-    public RacingCars(List<RacingCar> racingCarList) {
-        this.racingCarList = racingCarList;
-    }
+public record RacingCars(List<RacingCar> racingCarList) {
 
     public static RacingCars init(List<String> carNameList) {
         List<RacingCar> initRacingCarList = new ArrayList<>();
@@ -56,9 +50,5 @@ public class RacingCars {
             maxLocation = location;
         }
         return maxLocation;
-    }
-
-    public List<RacingCar> getRacingCarList() {
-        return racingCarList;
     }
 }

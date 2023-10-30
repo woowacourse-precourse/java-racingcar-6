@@ -18,7 +18,7 @@ public class OutputView {
     }
 
     public void printCarsLocation(RacingCars racingCars) {
-        for (RacingCar racingCar : racingCars.getRacingCarList()) {
+        for (RacingCar racingCar : racingCars.racingCarList()) {
             printCarCurrentLocation(racingCar);
         }
         System.out.println();
@@ -31,7 +31,7 @@ public class OutputView {
     public void printWinners(RacingCars winners) {
         int winnerCount = 0;
         System.out.print("최종 우승자 : ");
-        for (RacingCar racingCar : winners.getRacingCarList()) {
+        for (RacingCar racingCar : winners.racingCarList()) {
             System.out.print(racingCar.getName());
             winnerCount += 1;
             printComma(winners, winnerCount);
@@ -39,7 +39,7 @@ public class OutputView {
     }
 
     private void printComma(RacingCars winners, int winnerCount) {
-        if (winnerCount < winners.getRacingCarList().size()) {
+        if (winnerCount < winners.racingCarList().size()) {
             System.out.print(", ");
         }
     }
