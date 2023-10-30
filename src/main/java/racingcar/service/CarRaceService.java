@@ -8,10 +8,10 @@ public class CarRaceService {
 
     private static final String INPUT_DELIMETER = ",";
 
-    Validator validator = new Validator();
-
-
     private final RaceService raceService = new RaceService();
+    private Validator validator = new Validator();
+
+
 
     public void initCarInfo(List<String> carNames, List<Car> cars) {
         for (String carName : carNames) {
@@ -20,7 +20,8 @@ public class CarRaceService {
     }
 
     public List<String> extractSeperator(String carInput) {
-        List<String> carNames = List.of(carInput.split(INPUT_DELIMETER));
+        List<String> carNames = List.of(carInput.split(","));
+        validator.isRightNameFormat(carInput,carNames);
         validator.isRightCarNameInput(carNames);
         return carNames;
     }
