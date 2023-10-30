@@ -10,22 +10,14 @@ public class MoveInput {
         move = Console.readLine();
     }
 
-    public boolean isValidLength() {
-        return move.length() == 1;
-    }
-
-    public boolean isDigit() {
-        return (move.charAt(0) >= '0' && move.charAt(0) <= '9');
-    }
-
-
-    public void moveException() throws IllegalArgumentException {
-        if (!isValidLength()) throw new IllegalArgumentException();
-        if (!isDigit()) throw new IllegalArgumentException();
-    }
-
     public int getMove() {
         return Integer.parseInt(move);
     }
+
+    public void exceptionHandling() {
+        new MoveException().moveException(move);
+    }
+
+
 
 }

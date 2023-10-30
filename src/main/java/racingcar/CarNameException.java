@@ -2,8 +2,7 @@ package racingcar;
 import java.util.List;
 
 public class CarNameException {
-    CarNameException(){
-    }
+    CarNameException(){}
 
     public boolean isValidNameLength(List<String> nameList) {
         final int maxNameLength=5;
