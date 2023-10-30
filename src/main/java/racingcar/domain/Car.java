@@ -12,7 +12,7 @@ public class Car implements Comparable<Car> {
     private int position;
 
     public Car(String name) {
-        this(name, new DefaultEngine());
+        this(name, new Engine());
     }
 
     public Car(String name, BooleanSupplier engine) {
