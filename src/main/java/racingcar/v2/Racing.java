@@ -44,6 +44,13 @@ public class Racing {
         return String.join(", ", winners);
     }
 
+    public void printState(Map<String, Integer> stateMap) {
+        for (Map.Entry<String, Integer> entry : stateMap.entrySet()) {
+            String carName = entry.getKey();
+            int position = entry.getValue();
+            System.out.println(carName + " : " + "-".repeat(position));
+        }
+    }
 
 
     public void printWinner(String winner) {
