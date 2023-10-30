@@ -46,6 +46,10 @@ public class Car {
         return randomNumber >= CAR_CAN_GO_NUMBER;
     }
 
+    public Boolean isHere(final Integer position) {
+        return this.position.equals(position);
+    }
+
     public String getName() {
         return name;
     }
@@ -54,8 +58,5 @@ public class Car {
         return position;
     }
 
-    public Boolean isHere(final Integer position) {
-        return this.position.equals(position);
-    }
 
 }

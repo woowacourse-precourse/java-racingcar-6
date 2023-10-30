@@ -25,10 +25,6 @@ public class Cars {
         cars.forEach(car -> car.go(RandomNumberGenerator.generate()));
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     public List<String> findWinnerNameList() {
         Integer maxPosition = findMaxPosition();
 
@@ -43,6 +39,10 @@ public class Cars {
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(() -> RacingGameException.of(CANT_FIND_MAX_VALUE));
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 
 }

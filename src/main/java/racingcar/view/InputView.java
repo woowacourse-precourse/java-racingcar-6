@@ -23,7 +23,7 @@ public class InputView {
         return toStringList(readLine());
     }
 
-    private static List<String> toStringList(final String input) {
+    private List<String> toStringList(final String input) {
         return Arrays.stream(input.split(CARS_SPLIT_STRING))
                 .toList();
     }
