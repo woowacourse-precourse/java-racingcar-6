@@ -12,19 +12,12 @@ import racingcar.domain.GameManager;
 import racingcar.view.CarRaceGameView;
 
 public class CarRaceGameUtility {
-    private static CarRaceGameUtility carRaceGameUtility = null;
     private GameManager gameManager;
 
-    private CarRaceGameUtility(GameManager gameManager) {
+    public CarRaceGameUtility(GameManager gameManager) {
         this.gameManager = gameManager;
     }
 
-    public static CarRaceGameUtility create(GameManager gameManager) {
-        if(carRaceGameUtility == null){
-            carRaceGameUtility = new CarRaceGameUtility(gameManager);
-        }
-        return carRaceGameUtility;
-    }
 
     public void startCarRaceGame() {
         System.out.println(EXECUTION_RESULT);

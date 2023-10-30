@@ -34,7 +34,7 @@ public class CarRaceGame {
 
         gameManager = GameManager.create(Integer.parseInt(attemptNumberString), carImplList);
 
-        carRaceGameUtility = CarRaceGameUtility.create(gameManager);
+        carRaceGameUtility = new CarRaceGameUtility(gameManager);
         carRaceGameUtility.startCarRaceGame();
     }
 
