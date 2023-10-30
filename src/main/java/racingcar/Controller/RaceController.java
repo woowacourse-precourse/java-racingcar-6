@@ -1,6 +1,7 @@
 package racingcar.Controller;
 
 import racingcar.Model.Car;
+import racingcar.Service.InputValidation;
 import racingcar.Service.RaceService;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
@@ -18,6 +19,8 @@ public class RaceController {
         startGameSet();
         int count = playCount();
         System.out.println("");
+        System.out.println("실행 결과");
+
         for (int i = 0; i < count; i++) {
             playRace();
             outputView.result(racingCars);
@@ -39,8 +42,11 @@ public class RaceController {
     }
 
     private void startGameSet() {
-        List<String> carNames = inputView.carName();
+        String input = inputView.carName();
+
+        List<String> carNames = raceService.carNameStringToList(input);
         racingCars = new ArrayList<>();
+
         for (String carName : carNames) {
             racingCars.add(new Car(carName, 0));
         }
