@@ -61,9 +61,7 @@ public class CarRacingGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
 
-        if(!(input.contains(","))) {
-            throw new IllegalArgumentException();
-        }
+        hasComma(input);
 
         List<String> carName = List.of(input.split(","));
         isDistinct(carName);
@@ -75,6 +73,11 @@ public class CarRacingGame {
 
     }
 
+    private static void hasComma(String string) {
+        if(!(string.contains(","))) {
+            throw new IllegalArgumentException();
+        }
+    }
 
     private static void isDistinct(List<String> stringList) throws IllegalArgumentException {
         List<String> emptyStringList = new ArrayList<>();
