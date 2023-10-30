@@ -11,6 +11,11 @@ public class InputValidator {
             throw new IllegalArgumentException(Constants.INVALID_CAR_NAMES_EMPTY);
         }
 
+        if (Arrays.stream(carNames.split(Constants.CAR_NAME_DELIMITER))
+                .anyMatch(String::isEmpty)) {
+            throw new IllegalArgumentException(Constants.INVALID_CAR_NAMES_EMPTY);
+        }
+
         List<String> carNameList = Arrays.asList(carNames.split(Constants.CAR_NAME_DELIMITER));
         Set<String> uniqueCarNames = new HashSet<>(carNameList);
 
