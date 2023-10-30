@@ -1,22 +1,17 @@
 package racingcar.model;
 
-import static racingcar.model.ExceptionMessage.TRY_COUNT_RANGE_EXCEPTION_MESSAGE;
-
 import java.util.Objects;
 
 public final class TryCount {
+    private static final String TRY_COUNT_RANGE_EXCEPTION_MESSAGE = "시도 횟수는 %d 이상 %d 이하의 정수만 가능합니다.";
     private static final int MINIMUM_COUNT = 1;
     private static final int MAXIMUM_COUNT = 20;
 
     private final int count;
 
     private TryCount(int count) {
-        validate(count);
-        this.count = count;
-    }
-
-    private void validate(int count) {
         validateCountRange(count);
+        this.count = count;
     }
 
     private void validateCountRange(int count) {

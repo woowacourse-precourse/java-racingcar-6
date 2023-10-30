@@ -21,8 +21,8 @@ public class RaceHistory {
         }
     }
 
-    public static RaceHistory from(List<CarGroup> raceRounds) {
-        return new RaceHistory(raceRounds);
+    public static RaceHistory from(List<CarGroup> raceStages) {
+        return new RaceHistory(raceStages);
     }
 
     public CarWinners findFinalStageWinners() {

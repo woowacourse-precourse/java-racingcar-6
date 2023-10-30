@@ -49,11 +49,11 @@ public class CarGroup {
     }
 
     public static CarGroup from(List<String> carNames) {
-        List<Car> mappedCars = createCarsFromNames(carNames);
-        return new CarGroup(mappedCars);
+        List<Car> cars = createCars(carNames);
+        return new CarGroup(cars);
     }
 
-    private static List<Car> createCarsFromNames(List<String> carNames) {
+    private static List<Car> createCars(List<String> carNames) {
         return carNames.stream()
                 .map(Car::from)
                 .collect(toList());
@@ -79,11 +79,11 @@ public class CarGroup {
     }
 
     public CarGroup moveAll(MovementCondition movementCondition) {
-        List<Car> movedCars = moveCarsBasedOnCondition(movementCondition);
+        List<Car> movedCars = moveCars(movementCondition);
         return new CarGroup(movedCars);
     }
 
-    private List<Car> moveCarsBasedOnCondition(MovementCondition movementCondition) {
+    private List<Car> moveCars(MovementCondition movementCondition) {
         return cars.stream()
                 .map(car -> car.move(movementCondition))
                 .collect(toList());

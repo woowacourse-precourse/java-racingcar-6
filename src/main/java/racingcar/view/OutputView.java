@@ -20,7 +20,7 @@ public class OutputView {
         return LazyHolder.INSTANCE;
     }
 
-    public void printGameResult(RaceHistoryDto raceHistoryDto) {
+    public void printRaceHistory(RaceHistoryDto raceHistoryDto) {
         System.out.println(GAME_RESULT_MESSAGE);
         List<RaceStageDto> raceStages = raceHistoryDto.getRaceStages();
         printRaceStages(raceStages);

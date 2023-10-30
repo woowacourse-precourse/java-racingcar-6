@@ -13,8 +13,8 @@ public final class Car {
 
     public static Car from(String carName) {
         CarName name = CarName.from(carName);
-        CarPosition defaultPosition = CarPosition.initialPosition();
-        return new Car(name, defaultPosition);
+        CarPosition startPosition = CarPosition.initialPosition();
+        return new Car(name, startPosition);
     }
 
     public Car move(MovementCondition movementCondition) {

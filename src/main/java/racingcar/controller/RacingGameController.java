@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.dto.request.RacingCarNamesDto;
 import racingcar.dto.request.TryCountDto;
 import racingcar.dto.response.CarWinnersDto;
@@ -39,21 +40,23 @@ public class RacingGameController {
 
     private CarGroup createCarGroup() {
         RacingCarNamesDto racingCarNamesDto = inputView.readRacingCarNames();
-        return CarGroup.from(racingCarNamesDto.getRacingCarNames());
+        List<String> racingCarNames = racingCarNamesDto.getRacingCarNames();
+        return CarGroup.from(racingCarNames);
     }
 
     private TryCount createTryCount() {
         TryCountDto tryCountDto = inputView.readTryCount();
-        return TryCount.from(tryCountDto.getTryCount());
+        int tryCount = tryCountDto.getTryCount();
+        return TryCount.from(tryCount);
     }
 
     private RaceHistory play(RacingGame racingGame) {
-        return racingGame.playWith(movementCondition);
+        return racingGame.startRaceWith(movementCondition);
     }
 
     private void printGameResultFrom(RaceHistory raceHistory) {
         RaceHistoryDto raceHistoryDto = RaceHistoryDto.from(raceHistory);
-        outputView.printGameResult(raceHistoryDto);
+        outputView.printRaceHistory(raceHistoryDto);
     }
 
     private void printWinnersFrom(RaceHistory raceHistory) {

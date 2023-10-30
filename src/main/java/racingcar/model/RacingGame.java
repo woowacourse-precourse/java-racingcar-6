@@ -20,12 +20,12 @@ public final class RacingGame {
         return new RacingGame(carGroup, tryCount);
     }
 
-    public RaceHistory playWith(MovementCondition movementCondition) {
-        List<CarGroup> raceStages = simulateRacingStages(movementCondition);
+    public RaceHistory startRaceWith(MovementCondition movementCondition) {
+        List<CarGroup> raceStages = runRaceStages(movementCondition);
         return RaceHistory.from(raceStages);
     }
 
-    private List<CarGroup> simulateRacingStages(MovementCondition movementCondition) {
+    private List<CarGroup> runRaceStages(MovementCondition movementCondition) {
         return Stream.iterate(carGroup, carGroup -> carGroup.moveAll(movementCondition))
                 .skip(INITIAL_SKIP_COUNT)
                 .limit(tryCount.getCount())

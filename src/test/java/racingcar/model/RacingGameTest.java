@@ -25,7 +25,7 @@ class RacingGameTest {
         RacingGame racingGame = RacingGame.of(carGroup, tryCount);
         MovementCondition alwaysMoveCondition = () -> true;
 
-        RaceHistory actualRaceHistory = racingGame.playWith(alwaysMoveCondition);
+        RaceHistory actualRaceHistory = racingGame.startRaceWith(alwaysMoveCondition);
 
         Car jackCar = new Car(CarName.from("jack"), new CarPosition(1));
         Car johnCar = new Car(CarName.from("john"), new CarPosition(1));

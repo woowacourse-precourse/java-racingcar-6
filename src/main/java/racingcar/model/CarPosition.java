@@ -5,7 +5,7 @@ import static racingcar.model.ExceptionMessage.POSITION_UNDER_LIMIT_FORMAT_MESSA
 import java.util.Objects;
 
 public final class CarPosition implements Comparable<CarPosition> {
-    private static final int MIN_POSITION = 0;
+    private static final int INITIAL_POSITION = 0;
     private static final int MOVE_STEP = 1;
 
     private final int position;
@@ -16,18 +16,18 @@ public final class CarPosition implements Comparable<CarPosition> {
     }
 
     private void validateMin(int position) {
-        if (isLessThanMin(position)) {
-            String exceptionMessage = String.format(POSITION_UNDER_LIMIT_FORMAT_MESSAGE, MIN_POSITION);
+        if (isLessThanInitial(position)) {
+            String exceptionMessage = String.format(POSITION_UNDER_LIMIT_FORMAT_MESSAGE, INITIAL_POSITION);
             throw new IllegalArgumentException(exceptionMessage);
         }
     }
 
-    private boolean isLessThanMin(int position) {
-        return position < MIN_POSITION;
+    private boolean isLessThanInitial(int position) {
+        return position < INITIAL_POSITION;
     }
 
     public static CarPosition initialPosition() {
-        return new CarPosition(MIN_POSITION);
+        return new CarPosition(INITIAL_POSITION);
     }
 
     public CarPosition move() {

@@ -10,10 +10,10 @@ import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        NumberGenerator numberGenerator = new RandomNumberGenerator();
-        MovementCondition movementCondition = new RandomMovementCondition(numberGenerator);
         InputView inputView = InputView.getInstance();
         OutputView outputView = OutputView.getInstance();
+        NumberGenerator numberGenerator = new RandomNumberGenerator();
+        MovementCondition movementCondition = new RandomMovementCondition(numberGenerator);
         RacingGameController racingGameController = new RacingGameController(inputView, outputView, movementCondition);
         racingGameController.run();
     }
