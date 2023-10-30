@@ -1,6 +1,9 @@
 package racingcar.util;
 
-public class RandomNumberGenerator {
+public final class RandomNumberGenerator {
+    private RandomNumberGenerator() {
+    }
+
     private static int number;
 
     public static int getNumber() {
