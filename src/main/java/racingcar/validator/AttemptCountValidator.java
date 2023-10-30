@@ -2,15 +2,12 @@ package racingcar.validator;
 
 import racingcar.constants.Constants;
 import racingcar.constants.ExceptionMessage;
-import racingcar.dto.AttemptCount;
 
 public enum AttemptCountValidator {
     INSTANCE;
 
-    public AttemptCount validate(String input) {
+    public void validate(String input) {
         checkAttemptCountIsInteger(input);
-
-        return createAttemptCount(input);
     }
 
     private void checkAttemptCountIsInteger(String input) {
@@ -21,13 +18,5 @@ public enum AttemptCountValidator {
 
     private boolean isNotInteger(String input) {
         return !Constants.INTEGER.matcher(input).matches();
-    }
-
-    private AttemptCount createAttemptCount(String input) {
-        return new AttemptCount(toInt(input));
-    }
-
-    private int toInt(String input) {
-        return Integer.parseInt(input);
     }
 }
