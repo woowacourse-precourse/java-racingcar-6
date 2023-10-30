@@ -10,12 +10,10 @@ import static java.util.stream.Collectors.toList;
 
 public class CarGroup {
     private final List<Car> cars;
-    private Movement movement;
 
-    public CarGroup(List<String> names, Movement movement) {
+    public CarGroup(List<String> names) {
         CarGroupValidator.validate(names);
         this.cars = generateCars(names);
-        this.movement = movement;
     }
 
     private List<Car> generateCars(List<String> names) {
@@ -24,7 +22,7 @@ public class CarGroup {
                 .collect(toList());
     }
 
-    public void race() {
+    public void race(Movement movement) {
         for (Car car : cars) {
             car.go(movement.canMove());
         }

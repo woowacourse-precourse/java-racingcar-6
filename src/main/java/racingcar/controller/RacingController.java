@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.CarGroup;
 import racingcar.model.TryCount;
-import racingcar.utils.CarMovement;
+import racingcar.utils.Movement;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -10,13 +10,15 @@ import racingcar.view.OutputView;
 public class RacingController {
     private final InputView inputView;
     private final OutputView outputView;
+    private final Movement movement;
 
     private CarGroup cars;
     private TryCount tryCount;
 
-    public RacingController(InputView inputView, OutputView outputView) {
+    public RacingController(InputView inputView, OutputView outputView, Movement movement) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.movement = movement;
     }
 
     public void run() {
@@ -26,14 +28,14 @@ public class RacingController {
     }
 
     private void setRacingGame() {
-        cars = new CarGroup(inputView.inputCarNames() ,new CarMovement());
+        cars = new CarGroup(inputView.inputCarNames());
         tryCount = new TryCount(inputView.inputTryCount());
     }
 
     private void playGame() {
         outputView.printRaceResultHeader();
         while (tryCount.isAbleTry()) {
-            cars.race();
+            cars.race(movement);
             tryCount.decrease();
             outputView.printRacingResult(cars.toDto());
         }
