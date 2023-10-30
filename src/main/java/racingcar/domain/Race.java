@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.response.RaceResultResponse;
 
 public class Race {
 
@@ -12,9 +13,10 @@ public class Race {
         this.tryCount = tryCount;
     }
 
-    public void doRace() {
+    public RaceResultResponse doRace() {
         tryCount.tryRace();
         cars.moveAllCars();
+        return cars.toResponse();
     }
 
     public boolean isRaceOver() {
