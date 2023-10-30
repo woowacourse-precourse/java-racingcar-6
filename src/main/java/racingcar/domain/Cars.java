@@ -17,7 +17,7 @@ public class Cars {
     public void moveAllCar() {
         for (Car car : cars) {
             int randomNumber = RandomNumberGenerator.generateNumber();
-            moveCarIfBiggerThanThree(randomNumber, car);
+            car.move(randomNumber);
         }
     }
 
@@ -25,12 +25,6 @@ public class Cars {
         return cars.stream()
                 .map(Car::toString)
                 .collect(Collectors.joining());
-    }
-
-    private void moveCarIfBiggerThanThree(int randomNumber, Car car) {
-        if (randomNumber > 3) {
-            car.move();
-        }
     }
 
     public Winners findWinner() {
