@@ -14,7 +14,10 @@ public class Printer {
         }
     }
     public static void printRaceResultInTotalWithWinnerList(List<String>winnerList){
-        System.out.println("hi");
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+        sb.append(String.join(", ", winnerList));
+        System.out.println(sb.toString());
     }
 
 }

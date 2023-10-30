@@ -38,7 +38,7 @@ public class PrinterTest {
     @Test
     void 단독_우승자를_출력한다(){
         List<String> winnerList = new ArrayList<>();
-        winnerList.add("poby");
+        winnerList.add("pobi");
 
         Printer.printRaceResultInTotalWithWinnerList(winnerList);
         String expectedResult = "최종 우승자 : pobi";
@@ -49,7 +49,7 @@ public class PrinterTest {
     @Test
     void 공동_우숭자들을_출력한다(){
         List<String> winnerList = new ArrayList<>();
-        winnerList.add("poby");
+        winnerList.add("pobi");
         winnerList.add("jun");
 
         Printer.printRaceResultInTotalWithWinnerList(winnerList);
