@@ -6,7 +6,7 @@
 - [x] 자동차 이름 입력 받는다. - User.getCarNames()
 - [x] 자동차 이름을 확인한다. - Validation.validateCarNames()
     - [x] 자동차 이름들이 쉼표로 구분 되어있는지 확인한다. - Validation.validateDivision()
-    - [ ] 각 자동차의 이름이 5자 이내인지 확인한다. - Validation.validateLength()
+    - [x] 각 자동차의 이름이 5자 이내인지 확인한다. - Validation.validateLength()
 - [x] 각 자동차의 이름을 지정한다. - Car.getName() -> 생성자 활용
 - [ ] 이동 횟수를 입력 받는다. - User.getMoveNumber()
 - [ ] 이동 횟수를 확인한다. - Validation.validateMoveNumber()
