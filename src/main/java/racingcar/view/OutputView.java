@@ -2,6 +2,8 @@ package racingcar.view;
 
 import racingcar.property.OutputProperty;
 
+import java.util.List;
+
 import static racingcar.property.OutputProperty.*;
 
 public class OutputView {
@@ -20,5 +22,10 @@ public class OutputView {
 
     public static void outputForLineBreak(){
         System.out.println();
+    }
+
+    public static void outputForHighScoreRacers(String highScoreRacers){
+        System.out.print(RACERS_HIGH_SCORE + " : ");
+        System.out.print(highScoreRacers);
     }
 }

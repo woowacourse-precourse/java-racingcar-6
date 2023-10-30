@@ -8,6 +8,7 @@ import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static racingcar.validation.ValidateForm.*;
 
@@ -24,6 +25,7 @@ public class Application {
             race(racerNameList);
         }
         generateRacingResult();
+        generateHighScoreRacer();
     }
 
     private static void race(List<String> racerNameList){
@@ -88,7 +90,15 @@ public class Application {
         OutputView.outputForRacingResult(RoundResult.getResultOfRound().toString());
     }
 
-    private static void generateRacingWinner(){
+    private static void generateHighScoreRacer(){
+        List<Racer> racersWithHighScore = RaceStatus.racersWithHighScore();
+        String highScoreRacers = racersWithHighScore
+                                            .stream()
+                                            .map(racer -> racer.getName())
+                                            .collect(Collectors.toList())
+                                            .toString()
+                                            .replaceAll("\\[|\\]", "");
 
+        OutputView.outputForHighScoreRacers(highScoreRacers);
     }
 }
