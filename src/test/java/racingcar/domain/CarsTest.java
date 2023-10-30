@@ -22,4 +22,10 @@ class CarsTest {
         assertThrows(IllegalArgumentException.class, () -> new Cars(Arrays.asList("pobi")));
     }
 
+    @Test
+    void 중복되는_이름이_있다면_예외_발생() {
+        assertThrows(IllegalArgumentException.class,
+            () -> new Cars(Arrays.asList("pobi", "woni", "pobi")));
+    }
+
 }
