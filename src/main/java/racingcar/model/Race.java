@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.List;
+
 public class Race {
     private int numberOfRace;
     private final Generator generator = new Generator();
@@ -17,14 +19,15 @@ public class Race {
         }
     }
 
-    public void runSingleRace(Car car) {
-        if (generator.generateRandomNumber() >= REFERENCE_NUMBER) {
-            car.moveForward();
-        }
+    public void runSingleRace(List<Car> cars) {
+        cars.stream()
+                .filter(car -> generator.generateRandomNumber() >= REFERENCE_NUMBER)
+                .forEach(Car::moveForward);
         this.numberOfRace--;
     }
 
-    public int getNumberOfRace() {
-        return this.numberOfRace;
+    public boolean isRunning() {
+        System.out.println(this.numberOfRace);
+        return this.numberOfRace > 0;
     }
 }
