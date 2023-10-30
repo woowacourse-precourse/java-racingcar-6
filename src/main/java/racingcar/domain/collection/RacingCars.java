@@ -20,11 +20,12 @@ public class RacingCars implements Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    public void showResult() {
+    public String showResult() {
         int maxProcess = findMaxProgress();
         List<String> maxProgressCarName = findMaxProgressCarName(maxProcess);
         String result = String.join(", ", maxProgressCarName);
         OutputUtil.printWithLine("최종 우승자 : " + result);
+        return result;
     }
 
     private int findMaxProgress() {
