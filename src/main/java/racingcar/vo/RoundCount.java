@@ -11,7 +11,7 @@ public final class RoundCount {
         this.value = Integer.parseInt(count);
     }
 
-    public int getValue() {
+    public int value() {
         return value;
     }
 

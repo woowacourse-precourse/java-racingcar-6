@@ -40,8 +40,8 @@ public class CarTest {
         CarId id2 = (CarId) field.get(spyCar2);
 
         // id 값을 검증합니다.
-        assertThat(0).isEqualTo(id1.getValue());
-        assertThat(1).isEqualTo(id2.getValue());
+        assertThat(0).isEqualTo(id1.value());
+        assertThat(1).isEqualTo(id2.value());
     }
 
     @Test
