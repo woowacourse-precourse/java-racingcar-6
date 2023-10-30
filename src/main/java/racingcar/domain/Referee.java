@@ -43,4 +43,10 @@ public class Referee {
     public void notifyNumOfGame(){
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public void moveCars(){
+        for (Car car : this.cars) {
+            car.move();
+        }
+    }
 }
