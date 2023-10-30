@@ -64,7 +64,7 @@ public class Car {
                 winners += car.get(i).name + ", ";
             }
         }
-        System.out.println("최종 우승자 : ");
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.length() - 2; i++) {
             System.out.printf("%c", winners.charAt(i));
         }
@@ -82,7 +82,19 @@ public class Car {
             if (car.get(i).name.length() > 5) {
                 throw new IllegalArgumentException();
             }
+            if (containsNumber(car.get(i).name)) {
+                throw new IllegalArgumentException("이름에 숫자가 포함되어 있습니다.");
+            }
         }
+    }
+
+    boolean containsNumber(String str) {
+        for (char c : str.toCharArray()) {
+            if (Character.isDigit(c)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     void run() {
