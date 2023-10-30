@@ -13,6 +13,7 @@ public class OutputView {
 
             System.out.println(score);
         }
+        System.out.println();
     }
 
     public void outputWinners(String winner){
