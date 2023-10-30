@@ -3,15 +3,15 @@ package racingcar.domain;
 public class AttemptCount {
     private int count;
 
-    public AttemptCount(int count) {
-        this.count = count;
+    public AttemptCount() {
+        this.count = 0;
     }
 
-    public boolean isNotFinish() {
-        return count != 0;
+    public boolean isOver(int count) {
+        return this.count != count;
     }
 
-    public void decreaseCount() {
-        count --;
+    public void increaseCount() {
+        count ++;
     }
 }
