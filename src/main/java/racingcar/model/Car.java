@@ -1,6 +1,10 @@
 package racingcar.model;
 
 public class Car {
+    private static final int MIN_MOVE_THRESHOLD = 4;
+    private static final String HYPHEN = "-";
+    private static final String COLON = " : ";
+
     private final String name;
     private int distance;
 
@@ -24,11 +28,15 @@ public class Car {
     }
 
     private boolean isMovePossible(int randomNumber) {
-        return randomNumber >= 4;
+        return randomNumber >= MIN_MOVE_THRESHOLD;
     }
 
     @Override
     public String toString() {
-        return name + " : " + "-".repeat(distance);
+        StringBuilder sb = new StringBuilder();
+        sb.append(name)
+                .append(COLON)
+                .append(HYPHEN.repeat(distance));
+        return sb.toString();
     }
 }
