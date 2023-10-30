@@ -7,7 +7,7 @@ public interface CarService {
 
     void join(Car car);
 
-    Car findCar(Long id);
+    Car findCarById(Long id);
 
     List<Car> findAllCars();
 }
