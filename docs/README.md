@@ -86,8 +86,8 @@
 + [ ] DriveController 클래스 테스트
     + [ ] 자동차가 전진하도록 하는 기능을 테스트
     + [ ] 자동차가 멈추도록 하는 기능을 테스트
-+ [ ] RandomGenerator 클래스 테스트
-    + [ ] 0-9사이의 랜덤한 정수를 ```camp.nextstep.edu.missionutils.Randos```의 ```pickNumberInRange()``` 를 활용해 구현
++ [x] RandomGenerator 클래스 테스트
+    + [x] 0-9사이의 랜덤한 정수를 ```camp.nextstep.edu.missionutils.Randos```의 ```pickNumberInRange()``` 를 활용해 구현
 + [ ] GameManager 클래스를 테스트
     + [ ] 입력의 내용을 바탕으로 Car 속성을 초기화하는지 테스트
     + [ ] 게임을 입력받은 시행횟수만큼 각 자동차를 전진 및 멈추기를 시행하는지 테스트
