@@ -8,7 +8,7 @@ public class Validator {
 
     public void getCarsNameValidationChk(String inputString) {
         String nullInputChk = inputString.replaceAll("\\s+", "");
-        System.out.println(nullInputChk);
+
         if (nullInputChk.isEmpty()) {
             System.out.println("입력은 아무것도 없으면 안됩니다.");
             throw new IllegalArgumentException("입력은 아무것도 없으면 안됩니다.");
@@ -36,6 +36,7 @@ public class Validator {
 
     public void getPlayTimeValidationChk(String inputString) {
         String nullInputChk = inputString.replaceAll("\\s+", "");
+
         if (nullInputChk.isEmpty()) {
             System.out.println("입력은 아무것도 없으면 안됩니다.");
             throw new IllegalArgumentException("입력은 아무것도 없으면 안됩니다.");
