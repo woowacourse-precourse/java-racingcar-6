@@ -20,4 +20,8 @@ public class Distance {
     public long getDistance() {
         return distance;
     }
+
+    public boolean equals(Distance otherDistance) {
+        return distance == otherDistance.distance;
+    }
 }
