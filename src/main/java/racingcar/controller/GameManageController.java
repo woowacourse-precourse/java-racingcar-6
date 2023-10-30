@@ -20,5 +20,13 @@ public class GameManageController {
 
         OutputView.enterAttempts();
         int attempts = InputView.inputAttempts();
+
+        for (int i = 0; i < attempts; i++) {
+            for (Car car : carList) {
+                car.move();
+            }
+        }
     }
+
+
 }
