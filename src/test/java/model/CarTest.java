@@ -1,8 +1,7 @@
-package racingcar.model;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.Car;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

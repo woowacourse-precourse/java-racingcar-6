@@ -1,6 +1,5 @@
-package racingcar.model;
+package model;
 
-import model.Name;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
