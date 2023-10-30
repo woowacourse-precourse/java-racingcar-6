@@ -2,8 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.Validator;
-import racingcar.service.OneGameResultDto;
+import racingcar.dto.OneGameResultsDto;
 import racingcar.service.RacingGameService;
 import racingcar.service.domain.Car;
 import racingcar.service.domain.RacingCars;
@@ -36,7 +35,6 @@ public class GameController {
     private RacingCars readyToCarRace() {
         view.printGameStartMessage();
         String carNamesInput = input.inputCarNames();
-        Validator.validate(carNamesInput);
         List<String> carNames = GameUtil.splitByCommas(carNamesInput);
         return new RacingCars(carNames, new WootecoEngine());   // TODO: 컨트롤러에서 엔진을 설정하는게 마음에 안듦
     }
@@ -48,12 +46,12 @@ public class GameController {
 
     private void playCarRace(long attemptCounts, RacingCars cars) {
         for (int attempCount = 0; attempCount < attemptCounts; attempCount++) {
-            OneGameResultDto resultDto = racingGameService.playOneTimeCarRace(cars);
+            OneGameResultsDto resultDto = racingGameService.playOneTimeCarRace(cars);
             deliverToViewAboutOneGameResult(resultDto);
         }
     }
 
-    private void deliverToViewAboutOneGameResult(OneGameResultDto resultDto) {
+    private void deliverToViewAboutOneGameResult(OneGameResultsDto resultDto) {
         view.printResult(resultDto);
     }
 

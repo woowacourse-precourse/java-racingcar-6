@@ -5,6 +5,7 @@ import org.assertj.core.api.Assertions;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.OneGameResultsDto;
 import racingcar.service.domain.Engine;
 import racingcar.service.domain.RacingCars;
 
@@ -20,7 +21,7 @@ class RacingGameServiceTest {
         // given
         RacingCars racingCars = new RacingCars(List.of("june", "jayZ", "White"), new CustomEngine());
         // when
-        OneGameResultDto resultDto = racingGameService.playOneTimeCarRace(racingCars);
+        OneGameResultsDto resultDto = racingGameService.playOneTimeCarRace(racingCars);
         // then
         Assertions.assertThat(resultDto.getTotalMoveCounts()).containsExactly(MOVE, STOP, MOVE);
     }
