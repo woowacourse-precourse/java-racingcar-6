@@ -28,19 +28,24 @@ public class User {
 
     public int inputTryNumber(){
         String input = Console.readLine();
-        checkTryNumber(input);
-        int tryNumber = Integer.parseInt(input);
+        int tryNumber = checkTryNumber(input);
+        checkNegativeNumber(tryNumber);
         return tryNumber;
     }
 
-    public void checkTryNumber(String input){
-        if(input.equals("0")){
-            throw new IllegalArgumentException();
+    public int checkTryNumber(String input){
+        int inputNumber;
+        try{
+            inputNumber = Integer.parseInt(input);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("잘못된 숫자를 입력하였습니다.");
         }
-        for(int i = 0; i < input.length(); i++){
-            if(input.charAt(i) < '0' || input.charAt(i) > '9'){
-                throw new IllegalArgumentException();
-            }
+        return inputNumber;
+    }
+
+    public void checkNegativeNumber(int tryNumber){
+        if(tryNumber < 1){
+            throw new IllegalArgumentException("잘못된 숫자를 입력하셨습니다.");
         }
     }
 }
