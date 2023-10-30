@@ -48,6 +48,7 @@
   - 자동차 이름 입력
     - [x] 이름이 공백일 경우 - Car의 validateInputNotEmpty()
     - [x] 이름이 5자 이상인 경우 - Car의 validateInputSize()
+    - [ ] 자동차가 1대인 경우
     - [ ] 이름을 구분하는 기준이 쉼표가 아닌 경우
     - [ ] 같은 이름이 있는 경우
   - 시도 횟수 입력
