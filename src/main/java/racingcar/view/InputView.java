@@ -8,7 +8,7 @@ public class InputView {
     public static List<String> getRacingCars() {
         String input = Console.readLine();
         InputValidator.validateCarsFormat(input);
-        InputValidator.validateCarLength(input);
+        InputValidator.validateCarLength(buildRacingCars(input));
         return buildRacingCars(input);
     }
 

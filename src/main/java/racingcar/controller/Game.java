@@ -12,6 +12,7 @@ public class Game {
     public void start() {
         OutputView.printStartMessage();
         List<String> stringCarList = InputView.getRacingCars(); // [abc,def,ge]
+        System.out.println(stringCarList);
         List<Car> racingCarList = new ArrayList<>();
         for (String stringCar : stringCarList) {
             Car car = new Car(stringCar, 0);

@@ -1,5 +1,6 @@
 package racingcar.validator;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,9 +14,11 @@ public class InputValidator {
         }
     }
 
-    public static void validateCarLength(String input) {
-        if (input.length() > 5) {
-            throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하로 작성해주세요.");
+    public static void validateCarLength(List<String> inputs) {
+        for (String input : inputs) {
+            if (input.length() > 5) {
+                throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하로 작성해주세요.");
+            }
         }
     }
 
@@ -25,4 +28,3 @@ public class InputValidator {
         }
     }
 }
-
