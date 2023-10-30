@@ -2,6 +2,7 @@ package racingcar.model;
 
 import static racingcar.util.RandomNumberGenerator.generateRandomNumber;
 
+import racingcar.view.ViewConstants;
 
 public class Car {
     private static final int MOVE_THRESHOLD = 4;
@@ -30,4 +31,9 @@ public class Car {
     private boolean validateNameLength(String name) {
         return name.length() >= MIN_NAME_LENGTH && name.length() <= MAX_NAME_LENGTH;
     }
+    @Override
+    public String toString() {
+        return String.format(ViewConstants.OUTPUT_CAR_RESULT_FORMAT.toString(), name, "-".repeat(distance));
+    }
+
 }
