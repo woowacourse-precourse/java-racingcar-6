@@ -3,11 +3,15 @@ package racingcar.domain;
 import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.dto.CarDto;
+import racingcar.exception.ErrorMessage;
 
 public class Racing {
     private final List<Car> cars;
 
     public Racing(List<Car> cars) {
+        if (cars.isEmpty()) {
+            throw new NullPointerException(ErrorMessage.EMPTY_CAR_LIST);
+        }
         this.cars = cars;
     }
 
