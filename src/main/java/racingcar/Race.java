@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -62,19 +63,18 @@ public class Race {
         System.out.print("\n");
     }
 
-    public List<Car> decideWinner() {
-        List<Car> winners = new ArrayList<>();
-        int maxPosition = -1;
+    public List<String> decideWinner() {
+        List<String> winners = new ArrayList<>();
+        List<Integer> positions = new ArrayList<>();
 
-        for (Car car : cars) {
-            int position = car.getPosition();
-            if (position > maxPosition) {
-                winners.clear();
-                winners.add(car);
-                maxPosition = position;
-            }
-            else if (position == maxPosition) {
-                winners.add(car);
+        for(Car car : cars){
+            positions.add(car.getPosition());
+        }
+        int max = Collections.max(positions);
+
+        for(Car car : cars) {
+            if(car.getPosition() == max){
+                winners.add(car.getName());
             }
         }
 

@@ -94,9 +94,9 @@ public class RaceTest {
         car2.setPosition(1);
         car3.setPosition(3);
 
-        List<Car> winners = race.decideWinner();
+        List<String> winners = race.decideWinner();
 
-        assertThat(winners).containsExactly(car1, car3);
+        assertThat(winners).containsExactly(car1.getName(), car3.getName());
     }
 
     @Test
