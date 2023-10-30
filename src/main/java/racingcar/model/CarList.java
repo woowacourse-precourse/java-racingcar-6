@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.util.CarNameValidator;
 
 public class CarList {
     private final List<Car> carList;

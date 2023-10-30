@@ -28,19 +28,20 @@
 - String name
 - int position
 - Car()
-- move()
+- move() : position++
+- getName()
 
 
 ### CarList.java
 - List<Car> carList
 - CarList()
-- validate()
+- validate() : 이름을 추출해 리스트로 만든 후 validate
 
 
 # Util
 ### CarNameValidator.java
 - MIN_CARLIST_NUMBER = 2
 - MAX_CARNAME_LENGTH = 5
-- 자동차가 2대 이상인지 확인
-- 자동차의 이름이 5자 이하인지 확인
+- validateCarNumber() : 자동차가 2대 이상인지 확인
+- validateCarNameLength() : 자동차의 이름이 5자 이하인지 확인
 - 메세지 enum으로 정리
