@@ -32,6 +32,9 @@ public class Cars {
     public Cars(String carNames) {
         String[] carNameArray = stripStringArray(splitByDelimiter(carNames, DELIMITER));
         validateDuplicatedName(carNameArray);
+        for (String carName : carNameArray) {
+            cars.add(new Car(carName));
+        }
     }
 
     private void validateDuplicatedName(String[] carNames) {

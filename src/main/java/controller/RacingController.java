@@ -45,8 +45,8 @@ public class RacingController {
         int nowTryCnt = 0;
         OutputView.printResultMessage();
 
-//        while(tryCount.isNotSame(nowTryCnt++)){
-//            cars.moveAll();
-//        }
+        while(tryCount.isNotSame(nowTryCnt++)){
+            cars.moveAll();
+        }
     }
 }
