@@ -35,7 +35,16 @@ public class Application {
         }
     }
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        enterName();
+        int count = enterTryNum();
+        System.out.println("\n실행 결과");
+        while (count>0) {
+            printDashes(car);
+            System.out.print("\n");
+            count--;
+        }
+        findWinner(car);
+        Console.close();
     }
 
     public static int enterTryNum() {
