@@ -147,7 +147,7 @@
 - [x] GameProcess
 - [x] CreateRandomNum
 - [x] GameHost
-- [ ] JudgeStandard
+- [x] JudgeStandard
 - [ ] RaceCar
 - [ ] ValidConstants
 - [ ] Utill
