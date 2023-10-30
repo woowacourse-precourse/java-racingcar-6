@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomGenerator {
+public class RandomNumberGenerator {
     private static final int START_NUMBER_RANGE = 0;
     private static final int END_NUMBER_RANGE = 9;
 
