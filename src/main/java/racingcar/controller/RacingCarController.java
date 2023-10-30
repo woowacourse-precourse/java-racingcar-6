@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.*;
-import racingcar.util.CarListGenerator;
+import racingcar.utils.CarListGenerator;
 import racingcar.vo.RoundCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;

@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.util.RandomNumberGenerator;
+import racingcar.utils.RandomNumberGenerator;
 
 /**
  * 컨트롤러가 같이 Race 하는 Cars 들을 보내면
