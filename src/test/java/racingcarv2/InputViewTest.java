@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcarv2.view.InputView;
 
-public class InputViewTest extends IOTest{
+public class InputViewTest extends IOTest {
     private static Stream<Arguments> generateEmptyString() {
         return Stream.of(
                 Arguments.of("  ,   , "),
@@ -39,10 +39,10 @@ public class InputViewTest extends IOTest{
     @MethodSource("generateWrongString")
     void 영문자_이름이_아닌_경우_예외_발생(String wrongInput) {
         Assertions.assertThatThrownBy(
-                () -> {
-                    setInGeneratedInputStream(generateInputStream(wrongInput));
-                    InputView.inputCarNames();
-                }).isInstanceOf(IllegalArgumentException.class)
+                        () -> {
+                            setInGeneratedInputStream(generateInputStream(wrongInput));
+                            InputView.inputCarNames();
+                        }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageStartingWith("형식에");
     }
 
@@ -62,6 +62,42 @@ public class InputViewTest extends IOTest{
                 () -> {
                     setInGeneratedInputStream(generateInputStream(englishName));
                     InputView.inputCarNames();
+                }
+        );
+    }
+
+    private static Stream<Arguments> generateUnvalidNumber() {
+        return Stream.of(
+                Arguments.of("abc"),
+                Arguments.of("012")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("generateUnvalidNumber")
+    void 수가_아닌_경우_예외_발생(String wrongNumber) {
+        Assertions.assertThatThrownBy(
+                () -> {
+                    setInGeneratedInputStream(generateInputStream(wrongNumber));
+                    InputView.inputRoundTotal();
+                }
+        ).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    private static Stream<Arguments> generateValidNumber() {
+        return Stream.of(
+                Arguments.of("1"),
+                Arguments.of("12")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("generateValidNumber")
+    void Zero로_시작하지_않는_수를_입력하면_성공(String validNumber) {
+        org.junit.jupiter.api.Assertions.assertDoesNotThrow(
+                () -> {
+                    setInGeneratedInputStream(generateInputStream(validNumber));
+                    InputView.inputRoundTotal();
                 }
         );
     }
