@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Navigation {
 
@@ -16,6 +17,11 @@ public class Navigation {
         for (Car car : getList()) {
             car.move();
         }
+    }
+
+    public List<Car> determineWinner() {
+        int winnerLocation = cars.stream().mapToInt(Car::getLocation).max().getAsInt();
+        return cars.stream().filter(car -> car.getLocation()==winnerLocation).collect(Collectors.toList());
     }
 
     public List<Car> getList() {
