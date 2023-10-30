@@ -1,7 +1,18 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        try {
+            System.out.println(GameMessage.INPUT_MESSAGE);
+            String input = Console.readLine();
+            CarInput carInput = CarInput.of(input);
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
+
     }
 }
