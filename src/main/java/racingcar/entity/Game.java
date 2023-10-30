@@ -7,9 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Game {
-    public Game(List<Car> carList, Integer playCount) {
+    public Game(Integer playCount) {
         this.carList = carList;
-        this.playCount = playCount;
     }
 
     private Long id;
