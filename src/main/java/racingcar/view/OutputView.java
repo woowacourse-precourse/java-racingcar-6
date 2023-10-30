@@ -38,7 +38,7 @@ public class OutputView {
     }
 
     public void printWinners(Winners winners) {
-        System.out.println(OUTPUT_FINAL_WINNERS + join(winners.getNames()));
+        System.out.println(OUTPUT_FINAL_WINNERS + join(winners.getWinningCarNames()));
     }
 
     public String join(List<String> input) {
