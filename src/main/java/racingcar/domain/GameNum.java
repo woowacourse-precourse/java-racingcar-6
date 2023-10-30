@@ -7,7 +7,7 @@ public class GameNum {
         this.number = number;
     }
 
-    public int find() {
+    public int getNumber() {
         return number;
     }
 }

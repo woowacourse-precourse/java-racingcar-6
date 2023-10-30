@@ -17,7 +17,7 @@ public class GameRepository {
         cars.init(carArr);
     }
 
-    public Cars findCars() {
+    public Cars getCars() {
         return cars;
     }
 
@@ -25,7 +25,7 @@ public class GameRepository {
         gameNum.init(num);
     }
 
-    public int findGameNum() {
-        return gameNum.find();
+    public int getGameNum() {
+        return gameNum.getNumber();
     }
 }

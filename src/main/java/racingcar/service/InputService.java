@@ -36,10 +36,10 @@ public class InputService {
     }
 
     public int findGameNum() {
-        return gameRepository.findGameNum();
+        return gameRepository.getGameNum();
     }
 
     public Cars findCars() {
-        return gameRepository.findCars();
+        return gameRepository.getCars();
     }
 }
