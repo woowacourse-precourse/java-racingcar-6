@@ -42,7 +42,7 @@ public class CarRaceGame {
         }
     }
 
-    private static List<String> CarNamesToList(String carNames) {
+    public static List<String> CarNamesToList(String carNames) {
         List<String> carNameList = Arrays.stream(carNames.split(",")).toList();
         validateCarName(carNameList);
 
