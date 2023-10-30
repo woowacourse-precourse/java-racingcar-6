@@ -68,10 +68,11 @@ public class RacingCar {
     }
 
     private void printResult(){
+        System.out.println();
         System.out.print(win);
 //        for (String player : winner){
 //            System.out.print(player);
 //        }
-        System.out.println(String.join(", ", winner));
+        System.out.print(String.join(", ", winner));
     }
 }
