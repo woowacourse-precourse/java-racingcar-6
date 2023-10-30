@@ -3,9 +3,20 @@ package racingcar.model;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Game implements Rule{
+public class Game implements Rule {
+
+    List<Car> cars;
+
+    public Game() {
+        List<String> carNames = getCarNames();
+        cars = new ArrayList<Car>();
+        for (String carName : carNames) {
+            cars.add(new RacingCar(carName));
+        }
+    }
 
     @Override
     public List<String> getCarNames() {
@@ -15,7 +26,9 @@ public class Game implements Rule{
     @Override
     public Integer getNumberOfRounds() throws IllegalArgumentException {
         int res = Integer.parseInt(readLine());
-        if (res < 0) throw new IllegalArgumentException();
+        if (res < 0) {
+            throw new IllegalArgumentException();
+        }
         return res;
     }
 
