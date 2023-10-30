@@ -29,7 +29,8 @@ class InputValidatorTest {
     @Test
     void 구분자가_연속으로_들어갈_때_예외_발생() {
         assertThatThrownBy(() -> InputValidator.validateCarNames("pobi,,woni"))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(Constants.INVALID_CAR_NAMES_EMPTY);
     }
 
     @Test
