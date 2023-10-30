@@ -1,6 +1,6 @@
 package racingcar.function;
 
-public class CheckName {
+public class NameChecker {
     private static final String ERROR_NULL_OR_EMPTY = "자동차 이름을 입력해 주세요.";
     private static final String ERROR_LENGTH = "이름을 4글자 이내로 입력해 주세요: ";
     private static final String ERROR_INVALID_CHARACTERS = "영어로 입력해 주세요: ";
