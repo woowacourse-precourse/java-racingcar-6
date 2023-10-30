@@ -37,24 +37,6 @@ class Car {
     }
 }
 
-/*
-class Game {
-    private List<racingcar.Car> cars = new ArrayList<>();
-    private int numberOfAttempt;
-
-    public Game(String carNames) {
-        initializeCars(carNames);
-    }
-
-    private void initializeCars(String carNames) {
-        String[] names = carNames.split(",");
-        for (int i = 0; i < names.length; i++) {
-            cars.add(new Car(names[i]));
-        }
-    }
-}
-*/
-
 class Game {
     private List<Car> cars = new ArrayList<>();
     private int numberOfAttempts;
