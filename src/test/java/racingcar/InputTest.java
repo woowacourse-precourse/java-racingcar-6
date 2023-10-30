@@ -3,6 +3,11 @@ package racingcar;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.SimpleTimeZone;
+import java.util.StringTokenizer;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,6 +33,33 @@ public class InputTest {
         //then
         assertThrows(IllegalArgumentException.class,()->{Integer.parseInt(input);});
     }
+    @DisplayName("차이름 요청 시 잘못된 구분자 사용")
+    @Test
+    void incorrectDelimiter(){
+        StringTokenizer st=new StringTokenizer("aaa,bbb.ccc");
+        assertThrows(IllegalArgumentException.class,()->{
+            while(st.hasMoreTokens()){
+                String carName = st.nextToken();
+                String[] token=carName.split("[^a-zA-Z0-9]+");
+                if(token.length>1){
+                    throw new IllegalArgumentException();
+                }
+            }
+        });
+    }
+    @DisplayName("차이름 요청 시 차 이름이 중복됐을 떄")
+    @Test
+    void duplicationCarName(){
+        StringTokenizer st=new StringTokenizer("aaa,bbb,aaa",",");
+        Set<String> carSet=new HashSet<>();
 
+        assertThrows(IllegalArgumentException.class,()->{
+            while(st.hasMoreTokens()){
+                if(!carSet.add(st.nextToken())){
+                    throw new IllegalArgumentException();
+                }
+            }
+        });
+    }
 
 }
