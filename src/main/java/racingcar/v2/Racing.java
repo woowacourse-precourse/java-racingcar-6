@@ -14,15 +14,17 @@ public class Racing {
     }
 
     // TODO: Racing#findWinner()
-    public void findWinner(Map<String, Integer> stateMap) {
+    public String findWinner(Map<String, Integer> stateMap) {
         int farthestDistance = Collections.max(stateMap.values());
-        String winner = "";
         for (Map.Entry<String, Integer> entry : stateMap.entrySet()) {
             if (entry.getValue() == farthestDistance) {
-                winner = entry.getKey();
-                break;
+                return entry.getKey();
             }
         }
+        return null;  // 모든 자동차가 0 거리인 경우
+    }
+
+    public void printWinner(String winner) {
         System.out.println("최종 우승자: " + winner);
     }
 
