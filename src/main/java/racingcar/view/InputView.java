@@ -14,6 +14,8 @@ public class InputView {
 
     private static final String INPUT_NAMES_REQUEST_MESSAGE =
             String.format("경주할 자동차 이름을 입력하세요.(이름은 쉼표(%s) 기준으로 구분)%n", NAME_DELIMITER);
+    private static final String INPUT_COUNT_OF_TRY_REQUEST_MESSAGE =
+            String.format("시도할 회수는 몇회인가요?%n");
 
     private final Reader reader;
     private final Printer printer;
@@ -44,13 +46,29 @@ public class InputView {
         }
     }
 
-    private void print(String message) {
-        printer.print(message);
+    public int inputCountOfTry() {
+        print(INPUT_COUNT_OF_TRY_REQUEST_MESSAGE);
+        return readInt();
+    }
+
+    private int readInt() {
+        try {
+            return tryReadingInt();
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException("int 형식의 숫자를 입력해야 합니다");
+        }
+    }
+
+    private int tryReadingInt() {
+        String number = read().trim();
+        return Integer.parseInt(number);
     }
 
     private String read() {
         return reader.read();
     }
 
-
+    private void print(String message) {
+        printer.print(message);
+    }
 }
