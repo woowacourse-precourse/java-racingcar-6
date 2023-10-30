@@ -14,8 +14,8 @@ public class OutView {
         System.out.println(EXECUTION_RESULT);
     }
 
-    public static void printAttemptResults(List<Car> cars) {
-        cars.forEach(OutView::printAttemptResult);
+    public static void printCarsMovingResult(List<Car> cars) {
+        cars.forEach(OutView::printOneCarMovingResult);
         System.out.println();
     }
 
@@ -24,7 +24,7 @@ public class OutView {
         System.out.println(winnersToString(winners));
     }
 
-    private static void printAttemptResult(Car car) {
+    private static void printOneCarMovingResult(Car car) {
         System.out.println(car.getName() + " " + FORWARDING_LETTER.repeat(car.getMoveCount()));
     }
 

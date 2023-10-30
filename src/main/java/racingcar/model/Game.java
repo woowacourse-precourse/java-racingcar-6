@@ -15,12 +15,9 @@ public class Game {
         this.cars = cars;
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
-    public void run() {
+    public List<Car> processTurn() {
         cars.forEach(this::attemptMoving);
+        return cars;
     }
 
     public List<String> judge() {
@@ -31,12 +28,12 @@ public class Game {
     }
 
     private void attemptMoving(Car car) {
-        if (checkMoving()) {
+        if (canMoving()) {
             car.move();
         }
     }
 
-    private boolean checkMoving() {
+    private boolean canMoving() {
         final int random = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         return random >= MOVE_CONDITION;
     }

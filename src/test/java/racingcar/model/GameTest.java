@@ -28,15 +28,15 @@ class GameTest {
         // when & then
         assertRandomNumberInRangeTest(
             () -> {
-                game.run();
-                assertThat(carsMoveList()).isEqualTo(expected);
+                final List<Car> result = game.processTurn();
+                assertThat(carsMoveList(result)).isEqualTo(expected);
             },
             1, 5, 4
         );
     }
 
-    private List<Integer> carsMoveList() {
-        return game.getCars().stream()
+    private List<Integer> carsMoveList(List<Car> cars) {
+        return cars.stream()
             .map(Car::getMoveCount)
             .toList();
     }
