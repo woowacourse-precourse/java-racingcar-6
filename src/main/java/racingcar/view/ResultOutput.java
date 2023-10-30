@@ -7,7 +7,7 @@ public class ResultOutput {
     }
 
     public void printRacing(String[] names, String[] positions) {
-        for (int i=0; i < names.length; i++) {
+        for (int i = 0; i < names.length; i++) {
             System.out.printf("%s : %s%n", names[i], positions[i]);
         }
         System.out.println();

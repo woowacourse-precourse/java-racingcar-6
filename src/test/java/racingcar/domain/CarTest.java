@@ -10,7 +10,7 @@ class CarTest {
         Car car = new Car("test");
         Integer position = car.getPosition();
 
-        for (int i=0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             car.moveForward();
         }
 
@@ -41,7 +41,7 @@ class CarTest {
     void 자동차_위치_정상_출력() {
         Car car = new Car("test");
 
-        for (int i=0; i<3; i++) {
+        for (int i = 0; i < 3; i++) {
             car.moveForward();
         }
 
