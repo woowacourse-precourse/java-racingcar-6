@@ -28,4 +28,10 @@ class TryTest {
         tryCount.tryRace();
         assertThat(tryCount.getCount()).isEqualTo(4);
     }
+
+    @Test
+    void 시도_횟수가_0이면_레이스_종료() {
+        Try tryCount = new Try(0);
+        assertThat(tryCount.isRaceOver()).isEqualTo(true);
+    }
 }
