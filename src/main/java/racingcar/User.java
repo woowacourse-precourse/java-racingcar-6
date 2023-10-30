@@ -10,8 +10,8 @@ public class User {
     private String[] splitInput(String input){
         return input.split(",");
     }
-    private int stringToInteger(String input){
-        return Integer.parseInt(input);
+    public int stringToInteger(){
+        return Integer.parseInt(input());
     }
     public LinkedHashMap<String, Integer> carReset(){
         LinkedHashMap<String, Integer> racingCar = new LinkedHashMap<>();
