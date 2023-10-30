@@ -13,7 +13,7 @@ class WinnerPickerTest {
 
     private WinnerPicker winnerPicker;
     private RacingCars racingCars;
-    private List<RacingCar> carList;
+    private List<String> carNames;
     private static final String CAR1_NAME = "pobi";
     private static final String CAR2_NAME = "woni";
     private static final String CAR3_NAME = "jun";
@@ -22,9 +22,17 @@ class WinnerPickerTest {
     @BeforeEach
     void setUp() {
         winnerPicker = new WinnerPicker();
-        RacingCar car1 = new RacingCar(CAR1_NAME);
-        RacingCar car2 = new RacingCar(CAR2_NAME);
-        RacingCar car3 = new RacingCar(CAR3_NAME);
+        carNames = new ArrayList<>(Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME));
+        racingCars = new RacingCars(carNames);
+
+    }
+
+    @Test
+    void 우승자가_한명인_경우_pickWinner_메서드로_우승자의_이름리스트를_반환() {
+
+        RacingCar car1 = racingCars.getRacingCars().get(0);
+        RacingCar car2 = racingCars.getRacingCars().get(1);
+        RacingCar car3 = racingCars.getRacingCars().get(2);
 
         for (int forward = 0; forward < 5; forward++) {
             car1.forward();
@@ -37,12 +45,7 @@ class WinnerPickerTest {
         for (int forward = 0; forward < 3; forward++) {
             car3.forward();
         }
-        carList = new ArrayList<>(Arrays.asList(car1, car2, car3));
-        racingCars = new RacingCars(carList);
-    }
 
-    @Test
-    void 우승자가_한명인_경우_pickWinner_메서드로_우승자의_이름리스트를_반환() {
         Winners winners = winnerPicker.pickWinner(racingCars);
         assertThat(winners.getWinnersName().size()).isEqualTo(1);
         assertThat(winners.getWinnersName()).contains(CAR2_NAME);
@@ -50,14 +53,29 @@ class WinnerPickerTest {
 
     @Test
     void 우승자가_두명인_경우_pickWinner_메서드로_우승자의_이름리스트를_반환() {
-        RacingCar car4 = new RacingCar(CAR4_NAME);
+        carNames.add(CAR4_NAME);
+        racingCars = new RacingCars(carNames);
+
+        RacingCar car1 = racingCars.getRacingCars().get(0);
+        RacingCar car2 = racingCars.getRacingCars().get(1);
+        RacingCar car3 = racingCars.getRacingCars().get(2);
+        RacingCar car4 = racingCars.getRacingCars().get(3);
+
+        for (int forward = 0; forward < 5; forward++) {
+            car1.forward();
+        }
+
+        for (int forward = 0; forward < 7; forward++) {
+            car2.forward();
+        }
+
+        for (int forward = 0; forward < 3; forward++) {
+            car3.forward();
+        }
 
         for (int forward = 0; forward < 7; forward++) {
             car4.forward();
         }
-
-        carList.add(car4);
-        racingCars = new RacingCars(carList);
 
         Winners winners = winnerPicker.pickWinner(racingCars);
 

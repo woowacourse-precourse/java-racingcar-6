@@ -26,11 +26,8 @@ class RoundTest {
     void setUp() {
         numberGenerator = mock(NumberGenerator.class);
         round = new Round(racingCars, numberGenerator, new ForwardChecker());
-        car1 = new RacingCar(CAR1_NAME);
-        car2 = new RacingCar(CAR2_NAME);
-        car3 = new RacingCar(CAR3_NAME);
-        List<RacingCar> carList = Arrays.asList(car1, car2, car3);
-        racingCars = new RacingCars(carList);
+        List<String> racingCarNames = Arrays.asList(CAR1_NAME, CAR2_NAME, CAR3_NAME);
+        racingCars = new RacingCars(racingCarNames);
     }
 
     @Test
@@ -40,9 +37,9 @@ class RoundTest {
                 .thenReturn(3)
                 .thenReturn(5);
 
-        round.run(racingCars);
-        assertThat(car1.getForwardDistance()).isEqualTo(1);
-        assertThat(car2.getForwardDistance()).isEqualTo(0);
-        assertThat(car3.getForwardDistance()).isEqualTo(1);
+        round.run();
+        assertThat(racingCars.getRacingCars().get(0).getForwardDistance()).isEqualTo(1);
+        assertThat(racingCars.getRacingCars().get(1)).isEqualTo(0);
+        assertThat(racingCars.getRacingCars().get(2)).isEqualTo(1);
     }
 }
