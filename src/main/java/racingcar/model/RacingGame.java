@@ -23,17 +23,22 @@ public class RacingGame {
             if (getRandomNumber() >= 4) {
                 car.move();
             }
-            String name = car.getName();
-            int currentLocation = car.getCurrentLocation();
-            System.out.println(name + " :" + currentLocation);
+            printCurrent(car);
         }
-
-        System.out.println();
-        System.out.println();
     }
 
-    public static int getRandomNumber() {
+    private static int getRandomNumber() {
         RandomNumberGenerator numberGenerator = RandomNumberGenerator.createNumberGenerator();
         return numberGenerator.getRandomNumber();
+    }
+
+    private static void printCurrentLocation(String name, int currentNum) {
+        OutputView.currentLocation(name, currentNum);
+    }
+
+    private static void printCurrent(Car car) {
+        String name = car.getName();
+        int currentNum = car.getCurrentLocation();
+        printCurrentLocation(name, currentNum);
     }
 }
