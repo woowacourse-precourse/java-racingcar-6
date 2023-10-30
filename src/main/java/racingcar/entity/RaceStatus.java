@@ -9,7 +9,7 @@ public class RaceStatus {
         return raceScore.getOrDefault(racer,0);
     }
 
-    public static Integer scoreWriteByRacer(Racer racer, RoundResult roundResult){
-        return raceScore.put(racer,scoreCheckByRacer(racer)+roundResult.getScore());
+    public static Integer scoreWriteByRacer(Racer racer, RoundScore roundScore){
+        return raceScore.put(racer,scoreCheckByRacer(racer)+roundScore.getScore());
     }
 }

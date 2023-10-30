@@ -1,11 +1,11 @@
 package racingcar.entity;
 
-public enum RoundResult {
+public enum RoundScore {
     FORWARD(1),STOP(0);
 
     private int score;
 
-    RoundResult(int score) {
+    RoundScore(int score) {
         this.score = score;
     }
 

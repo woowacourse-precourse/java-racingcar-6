@@ -14,10 +14,10 @@ public class Racing {
 
     public Integer racingByRacer(){
         if (racerForward(racerPickNumber())){
-            return RaceStatus.scoreWriteByRacer(racer,RoundResult.FORWARD);
+            return RaceStatus.scoreWriteByRacer(racer, RoundScore.FORWARD);
         }
 
-        return RaceStatus.scoreWriteByRacer(racer,RoundResult.STOP);
+        return RaceStatus.scoreWriteByRacer(racer, RoundScore.STOP);
     }
 
     private static boolean racerForward(PickNumber pickNumber){
