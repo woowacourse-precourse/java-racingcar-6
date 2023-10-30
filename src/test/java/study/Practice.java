@@ -1,5 +1,11 @@
 package study;
 
+<<<<<<< HEAD
+=======
+import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+
+>>>>>>> origin/MyStraw
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
