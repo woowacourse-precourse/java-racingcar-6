@@ -4,7 +4,7 @@ import java.util.List;
 import racingcar.model.Car;
 import util.Announcement;
 
-public class OutputView {
+public final class OutputView {
     private static final String CAR_MOVEMENT_EQUALIZER = " : ";
     private static final String FINAL_WINNER_SEPARATOR = ", ";
     private static final String CAR_MOVEMENT_HYPHEN = "-";

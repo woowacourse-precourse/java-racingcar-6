@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import racingcar.model.Car;
 
-public class Validator {
+public final class Validator {
     private static final Pattern CAR_NAME_PATTERN = Pattern.compile("^[a-zA-Z0-9,\\s가-힣ㄱ-ㅎㅏ-ㅣ]*$");
     private static final String CAR_NAME_SEPARATOR = ",";
     private static final int INITIAL_POSITION = 0;
