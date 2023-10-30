@@ -25,18 +25,25 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("Cars의 동차 저장 리스트 필드가 같은지 테스트")
     void getCars() {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
         List<String> names = Arrays.asList("pobi", "crong", "horan");
 
         // when
-        Cars result = new Cars(names, movingStrategy);
-
+        Cars cars = new Cars(names, movingStrategy);
+        List<Car> result = cars.getCars();
+        List<Car> expected = Arrays.asList(new Car(movingStrategy, "pobi", 0),
+                                        new Car(movingStrategy, "crong", 0),
+                                        new Car(movingStrategy, "horan", 0));
+        
 
         // then
-
+        assertArrayEquals(expected, result);
     }
+
+
 //
 //    @Test
 //    void raceAllCars() {
@@ -49,5 +56,8 @@ class CarsTest {
 //    @Test
 //    void findWinner() {
 //    }
+
+    private void assertArrayEquals(List<Car> expected, List<Car> result) {
+    }
 
 }
