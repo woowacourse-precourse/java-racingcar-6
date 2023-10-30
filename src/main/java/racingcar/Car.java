@@ -9,6 +9,12 @@ public class Car {
         location = 0;
     }
 
+    public static Car deepCopy(Car car) {
+        Car newCar = new Car(car.name);
+        newCar.location = car.location;
+        return newCar;
+    }
+
     public void moveForward() {
         location++;
     }

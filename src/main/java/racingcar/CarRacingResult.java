@@ -6,7 +6,11 @@ public class CarRacingResult {
     private final List<Car> championCarList;
 
     public CarRacingResult(List<Car> championCarList) {
-        this.championCarList = championCarList;
+        List<Car> copiedChampionCarList = championCarList.stream()
+                .map(Car::deepCopy)
+                .toList();
+
+        this.championCarList = copiedChampionCarList;
     }
 
     @Override
