@@ -12,8 +12,8 @@ public class InputException extends IllegalArgumentException {
     // 2대 이상의 carName이 입력되어야 한다.
     private static final int MIN_CARCOUNT = 2;
 
-
     // 자동차 이름이 5자가 넘어갈 경우
+
     public static void checkLimit(List<String> carNamesList){
         for(String name : carNamesList){
             if(name.length() > LIMIT_LENGTH){
@@ -57,6 +57,14 @@ public class InputException extends IllegalArgumentException {
                 throw new IllegalArgumentException(name + " -> 이름이 중복됩니다. ");
             }
         }
+    }
+
+    public static void validateInput(List<String> carNamesList) {
+        checkEmpty(carNamesList);
+        checkFormat(carNamesList);
+        checkCarCount(carNamesList);
+        checkLimit(carNamesList);
+        checkSameName(carNamesList);
     }
 
 

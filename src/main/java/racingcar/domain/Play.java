@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Play {
+
+    private static final int MIN_RANDOM = RandomNumber.MIN.getValue();
+    private static final int MAX_RANDOM = RandomNumber.MAX.getValue();
+    private static final int RANDOM_THRESHOLD = RandomNumber.THRESHOLD.getValue();
     public static void start(){
 
         List<String> carNames = UserInput.inputCarName();
@@ -38,8 +42,8 @@ public class Play {
     }
     public static void moveCars(Map<String, Integer> carPositions) {
         for (String carName : carPositions.keySet()) {
-            int randomNum = Randoms.pickNumberInRange(0, 9);
-            if (randomNum >= 4) {
+            int randomNum = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
+            if (randomNum >= RANDOM_THRESHOLD) {
                 carPositions.put(carName, carPositions.get(carName) + 1);
             }
         }

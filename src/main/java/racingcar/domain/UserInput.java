@@ -19,19 +19,12 @@ public class UserInput {
 
         List<String> carNamesList = Arrays.asList(inputStr.split(","));
 
-        validateInput(carNamesList);
+        InputException.validateInput(carNamesList);
 
         return carNamesList;
     }
 
-    private static void validateInput(List<String> carNamesList) {
-        checkEmpty(carNamesList);
-        checkFormat(carNamesList);
-        checkCarCount(carNamesList);
-        checkLimit(carNamesList);
-        checkSameName(carNamesList);
 
-    }
 
     // 자동차 경주 게임 플레이 횟수
     public static int inputGameCount(){
