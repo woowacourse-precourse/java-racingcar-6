@@ -9,5 +9,6 @@ public class Application {
 
         game.playGame();
 
+        GM.findWinner(game.getCars());
     }
 }

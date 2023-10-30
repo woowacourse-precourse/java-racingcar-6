@@ -27,4 +27,33 @@ public class GameManager {
 
         return Integer.parseInt(Console.readLine());
     }
+
+    public void findWinner(List <Car> cars){
+        int bestPosition = 0;
+        String judgment = "";
+        for(Car car : cars){
+            //크거나 같을 때
+            if(comparePosition(bestPosition,car.getPosition())){
+                judgment = judge(judgment,bestPosition,car.getPosition(),car.getName());
+                bestPosition = car.getPosition();
+            }
+        }
+
+        System.out.println("최종 우승자 : " + judgment);
+    }
+
+    public boolean comparePosition(int bestPosition, int carPosition){
+        if(bestPosition > carPosition){
+            return false;
+        }
+        return true;
+    }
+
+    public String judge(String judgment, int bestPosition, int carPosition, String carName){
+        if(bestPosition < carPosition){
+            return carName;
+        }
+        return judgment + ", " + carName;
+    }
+
 }
