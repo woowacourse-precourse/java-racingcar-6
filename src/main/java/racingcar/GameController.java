@@ -14,7 +14,6 @@ public class GameController {
     private final OutputView outputView;
     private final Race race;
     private final Referee referee;
-    private List<String> carNames;
     private List<Car> cars;
 
     public GameController() {
@@ -22,13 +21,12 @@ public class GameController {
         this.outputView = new OutputView();
         this.race = new Race();
         this.referee = new Referee();
-        this.carNames = new ArrayList<>();
         this.cars = new ArrayList<>();
     }
 
     public void play() {
         outputView.displayStartMessage();
-        carNames = inputView.getCarNames();
+        List<String> carNames = inputView.getCarNames();
 
         for (String name : carNames) {
             Car car = CarGenerator.createCar(name);
