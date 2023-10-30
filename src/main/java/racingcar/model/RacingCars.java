@@ -28,17 +28,16 @@ public class RacingCars {
         return new RacingCars(movedRacingCarList);
     }
 
-    public RacingCars checkWinners() {
+    public RacingCars findWinners() {
         List<RacingCar> winners = new ArrayList<>();
         for (RacingCar racingCar : racingCarList) {
-            checkWinner(racingCar, winners);
+            updateWinnerListIfMaxLocation(racingCar, winners);
         }
         return new RacingCars(winners);
     }
 
-    private void checkWinner(RacingCar racingCar, List<RacingCar> winners) {
+    private void updateWinnerListIfMaxLocation(RacingCar racingCar, List<RacingCar> winners) {
         if (racingCar.getLocation() == getMaxLocation()) {
-            racingCar = racingCar.markAsWinner();
             winners.add(racingCar);
         }
     }
@@ -47,9 +46,14 @@ public class RacingCars {
         int maxLocation = 0;
         for (RacingCar racingCar : racingCarList) {
             int location = racingCar.getLocation();
-            if (location > maxLocation) {
-                maxLocation = location;
-            }
+            maxLocation = updateMaxIfGreater(location, maxLocation);
+        }
+        return maxLocation;
+    }
+
+    private int updateMaxIfGreater(int location, int maxLocation) {
+        if (location > maxLocation) {
+            maxLocation = location;
         }
         return maxLocation;
     }

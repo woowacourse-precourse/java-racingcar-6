@@ -26,7 +26,7 @@ public class RacingCarController {
             racingCars = racingCars.move();
             outputView.printCarsLocation(racingCars);
         }
-        RacingCars winners = racingCars.checkWinners();
+        RacingCars winners = racingCars.findWinners();
         outputView.printWinners(winners);
     }
 }
