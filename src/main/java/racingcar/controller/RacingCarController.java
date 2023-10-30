@@ -13,34 +13,38 @@ import racingcar.view.OutputView;
 
 public class RacingCarController {
     private final RacingCarService racingCarService;
-    private Game game;
+    private static Game game;
 
     private RacingCarController(RacingCarService racingCarService) {
         this.racingCarService = racingCarService;
-        startGame();
+        run();
     }
 
-    public static RacingCarController create() {
-        return new RacingCarController(new RacingCarServiceImp());
+    public static void create() {
+        new RacingCarController(new RacingCarServiceImp());
     }
 
-    public void startGame() {
+    private void run() {
         initializeGame();
-        OutputView.printGameResult();
-        while (!game.isFinished()) {
-            racingCarService.moveCars(game);
-            showGameScore();
-        }
+        startGame();
         showGameWinner();
     }
 
-    private void initializeGame() {
+    private static void initializeGame() {
         CarRequestDto carRequestDto = InputView.setCarNames();
         GameRequestDto gameRequestDto = InputView.setGameTrial();
         game = gameRequestDto.toGame(carRequestDto.toCar());
     }
 
-    private void showGameScore() {
+    private void startGame() {
+        OutputView.printGameResult();
+        while (!game.isFinished()) {
+            racingCarService.moveCars(game);
+            showGameScore();
+        }
+    }
+
+    private static void showGameScore() {
         for (Car car : game.getCars()) {
             OutputView.printGameScore(new GameResponseDto(car));
         }
