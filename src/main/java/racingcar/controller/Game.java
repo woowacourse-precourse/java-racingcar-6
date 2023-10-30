@@ -1,26 +1,54 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.model.Car;
+import racingcar.model.RacingCar;
 import racingcar.utils.InputValidator;
 import racingcar.utils.StringConvertor;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Game {
 
+    public void start() {
+        List<String> carNames = getCarNames();
+        int tryNumber = getTryNumber();
+        RacingCar car = getRacingCar(carNames);
+        OutputView.printGameResultStatement();
+        for (int i = 0; i < tryNumber; i++) {
+            gamePlay(car.getRacingCar());
+        }
+        gameWinner(car.getWinnerList());
+    }
+
     public List<String> getCarNames() {
-        InputView.inputCarNames();
-        String carInput = Console.readLine();
+        String carInput = InputView.inputCarNames();
         List<String> carNames = StringConvertor.convertStringToList(carInput);
         InputValidator.checkCarNames(carNames, carInput);
         return carNames;
     }
 
     public int getTryNumber() {
-        InputView.inputTryNumber();
-        String tryNumber = Console.readLine();
+        String tryNumber = InputView.inputTryNumber();
         InputValidator.checkTryNumberIsInteger(tryNumber);
+        System.out.println();
         return StringConvertor.convertStringToInt(tryNumber);
+    }
+
+    public RacingCar getRacingCar(List<String> carNames) {
+        return new RacingCar(carNames);
+    }
+
+    public void gamePlay(List<Car> racingCar) {
+        for (Car car : racingCar) {
+            car.go();
+            OutputView.printResult(car);
+        }
+        System.out.println();
+    }
+
+    public void gameWinner(List<String> racingWinners) {
+        OutputView.printWinners(racingWinners);
     }
 
 }
