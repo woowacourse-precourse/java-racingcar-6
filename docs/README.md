@@ -57,12 +57,11 @@
 
 ## 입력 명세
 
-- [ ] InputView 인터페이스
-    - [ ] read(Map<String,Object>) 을 가진다.
-- [ ] SettingInputView
-    - [ ] 경주 할 자동차들의 이름을 받는다.
-        - [ ] 이름은 `,`를 통해서 구분한다.
-        - [ ] 이름 뒤에 공백이 있으면 trim하여 공백을 없앤다.
+- [x] InputView 인터페이스
+    - [x] read(Map<String,Object>) 을 가진다.
+- [x] SettingInputView
+    - [x] 경주 할 자동차들의 이름을 받는다.
+        - [x] 이름 뒤에 공백이 있으면 trim하여 공백을 없앤다.
             - ex ) "pobi " -> "pobi"
         - [ ] 아무것도 없는 공백을 입력하면 에외를 발생시킨다.
         - [ ] 시도 횟수를 입력한다.
@@ -71,8 +70,8 @@
 
 ## 출력 명세
 
-- [ ] OutputView 인터페이스
-    - [ ] display(Map<String,Object>) 을 가진다.
+- [x] OutputView 인터페이스
+    - [x] display(Map<String,Object>) 을 가진다.
 - [ ] SettingOutputView (구현체)
     - [ ] `경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)` 문구를 출력한다.
     - [ ] `시도할 회수는 몇회인가요?`를 출력한다.
