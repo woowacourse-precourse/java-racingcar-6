@@ -73,4 +73,12 @@ public class RacingCarGame implements Game {
                 .collect(Collectors.toList());
 
     }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
+
+    public List<Car> getWinners() {
+        return winners;
+    }
 }
