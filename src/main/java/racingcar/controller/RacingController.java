@@ -1,15 +1,18 @@
 package racingcar.controller;
 
 import racingcar.model.CarGroup;
-import racingcar.model.RacingGame;
+import racingcar.model.TryCount;
+import racingcar.utils.CarMovement;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.List;
 
 public class RacingController {
     private final InputView inputView;
     private final OutputView outputView;
+
+    private CarGroup cars;
+    private TryCount tryCount;
 
     public RacingController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -17,28 +20,27 @@ public class RacingController {
     }
 
     public void run() {
-        RacingGame racingGame = setRacingGame();
-        playGame(racingGame);
-        endGame(racingGame);
+        setRacingGame();
+        playGame();
+        endGame();
     }
 
-    private RacingGame setRacingGame() {
-        List<String> names = inputView.inputCarNames();
-        Integer tryCount = inputView.inputTryCount();
-        return new RacingGame(names, tryCount);
+    private void setRacingGame() {
+        cars = new CarGroup(inputView.inputCarNames() ,new CarMovement());
+        tryCount = new TryCount(inputView.inputTryCount());
     }
 
-    private void playGame(RacingGame racingGame) {
+    private void playGame() {
         outputView.printRaceResultHeader();
-        while (racingGame.isPlayable()) {
-            racingGame.start();
-            CarGroup cars = racingGame.getCars();
+        while (tryCount.isAbleTry()) {
+            cars.race();
+            tryCount.decrease();
             outputView.printRacingResult(cars.toDto());
         }
     }
 
-    private void endGame(RacingGame racingGame) {
-        outputView.printWinCarNames(racingGame.findWinCars());
+    private void endGame() {
+        outputView.printWinCarNames(cars.findWinnerNames());
     }
 
 }
