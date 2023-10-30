@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 
 public class Car {
+
     private String name;
     private int position;
 
@@ -19,14 +20,24 @@ public class Car {
         return new Car(name);
     }
 
+    public static Car of(String name, int position) {
+        Car car = Car.of(name);
+        car.position = position;
+        return car;
+    }
+
     public void move() {
         if (canMove()) {
-           this.position++;
+            this.position++;
         }
     }
 
     public int getPosition() {
         return position;
+    }
+
+    public String getName() {
+        return name;
     }
 
     private boolean canMove() {
