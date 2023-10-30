@@ -18,4 +18,11 @@ public class RacingCarGameController {
         int roundCount = inputView.readInt();
         racingCarGameMachine.init(nameInput, roundCount);
     }
+
+    private void executeGame() {
+        while (racingCarGameMachine.isGameInProgress()) {
+            String roundResult = racingCarGameMachine.playRound();
+            outputView.outputMessage(roundResult);
+        }
+    }
 }
