@@ -9,6 +9,14 @@ public class Car {
         this.aheadCount = 0;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
+    public int getAheadCount(){
+        return this.aheadCount;
+    }
+
     public void updateAheadCount() {
         this.aheadCount += 1;
     }
