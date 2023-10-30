@@ -4,7 +4,7 @@
 - 자동차 경주 게임을 완료한 후 누가 우승했는지 알려준다.
 
 # GameService
-- carModel을 이용한 게임 로직 작성
+- 전진조건을 Service에서 계산하고 이를 carManager에게 수행시킨다.
 
 ## Game 시나리오
 - InputManager를 통해 자동차 경주를 할 이름을 입력 받는다.
