@@ -4,9 +4,9 @@ import java.util.List;
 
 public class InputManager {
     private final int gameProcessCount;
-    private final List<String> inputCarList;
+    private final String inputCarList;
 
-    public InputManager(int gameProcessCount, List<String> inputCarList) {
+    public InputManager(int gameProcessCount, String inputCarList) {
         this.gameProcessCount = gameProcessCount;
         this.inputCarList = inputCarList;
     }
@@ -15,7 +15,7 @@ public class InputManager {
         return gameProcessCount;
     }
 
-    public List<String> getInputCarList() {
+    public String getInputCarList() {
         return inputCarList;
     }
 }
