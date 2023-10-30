@@ -2,11 +2,6 @@ package racingcar.domain;
 
 import racingcar.utils.RandomNumberGenerator;
 
-/**
- * 컨트롤러가 같이 Race 하는 Cars 들을 보내면
- * Race 는 Cars 들을 데리고, 1 라운드 Racing 을 시킨다.
- */
-
 public class Race {
 
     private static final int MIN_FORWARD_THRESHOLD = 4;
