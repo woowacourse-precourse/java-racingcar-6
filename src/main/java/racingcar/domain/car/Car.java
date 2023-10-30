@@ -14,6 +14,17 @@ public class Car implements Comparable<Car> {
     }
 
     private void validateCarName(String name) {
+        this.validateNameInMaxLength(name);
+        this.validateNameIsEmpty(name);
+    }
+
+    private void validateNameIsEmpty(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("차 이름은 비어있을 수 없음");
+        }
+    }
+
+    private void validateNameInMaxLength(String name) {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("차 이름은 5자 까지만 허용됨");
         }
