@@ -21,12 +21,13 @@
 - 속성: 이름, 현재 위치 (점수)
 - 메서드: 전진하는 기능 (moveForward)
 
-### Race
+### GameService
 - 속성: 전체 자동차 리스트, 진행할 횟수
-- 메서드: 경주 시작 (playStart), 결과 확인 (showResult)
+- 메서드: 경주 시작 (playRace), 결과 확인 (getWinners)
 
-### InputConsole
-- 메서드: 자동차 이름 리스트 받기, 이동 횟수 받기
+### GameController
+- 속성: 전체 자동차 리스트, 진행할 횟수
+- 메서드: 경주 시작 (play), 게임 완료 (end)
 
-### OutputConsole
-- 메서드: 경기 결과 출력, 최종 우승자 출력 
+### IOConsole
+- 메서드: 자동차 이름 리스트 받기, 이동 횟수 받기, 경기 결과 출력, 최종 우승자 출력 
