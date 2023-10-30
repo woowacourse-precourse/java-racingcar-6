@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import org.junit.platform.commons.util.StringUtils;
+import racingcar.validator.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,8 @@ import java.util.List;
 import static racingcar.constant.Constants.*;
 
 public class InputView {
+    private final Validator validator = new Validator();
+
     public List<String> getCarsName() {
         System.out.println(INPUT_CARS);
         return extractAndValidateCarNames(Console.readLine());
@@ -20,14 +22,14 @@ public class InputView {
     }
 
     public List<String> extractAndValidateCarNames(String input) {
-        validateInput(input);
+        validator.validateInput(input);
 
         String[] carNames = input.split(INPUT_SPLIT_STRING);
         List<String> validCarNames = new ArrayList<>();
 
         for (String carName : carNames) {
             String trimCarName = carName.trim();
-            validateCarName(trimCarName);
+            validator.validateCarName(trimCarName);
             validCarNames.add(trimCarName);
         }
 
@@ -45,20 +47,5 @@ public class InputView {
         }
     }
 
-    public void validateCarName(String carName) {
-        if (isCarNameInvalid(carName)) {
-            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
-        }
-    }
-
-    public boolean isCarNameInvalid(String carName) {
-        return carName.length() > NAMES_MAX_LENGTH;
-    }
-
-    public void validateInput(String input) {
-        if (StringUtils.isBlank(input)) {
-            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
-        }
-    }
 
 }
