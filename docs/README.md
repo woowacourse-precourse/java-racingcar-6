@@ -51,6 +51,6 @@
     - [x] 같은 이름이 있는 경우 - Cars의 validateDuplicateName()
     - [x] 아무것도 입력하지 않은 경우 - Cars의 getMaxPosition()
   - 시도 횟수 입력
-    - [ ] 아무것도 입력하지 않은 경우
+    - [x] 아무것도 입력하지 않은 경우 - Round의 validateInputNotEmpty()
     - [ ] 시도 횟수에 숫자가 아닌 다른 값이 들어오는 경우
     - [ ] 시도 횟수가 음수인 경우
