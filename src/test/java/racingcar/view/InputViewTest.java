@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +12,12 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 class InputViewTest {
+
+    // 테스트 함수가 끝날 때마다 Scanner를 닫아준다.
+    @AfterEach
+    public void tearDown() {
+        Console.close();
+    }
 
     @DisplayName("InputView 생성자 테스트")
     @Test
@@ -24,12 +32,14 @@ class InputViewTest {
     @Test
     void inputCarNames() {
         //given
-        //when
         String input = "pobi,woni,jun";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         InputView inputView = new InputView();
+
+        //when
         List<String> cars = inputView.inputCarNames();
+
         //then
         assertThat(cars).isNotNull()
                 .hasSize(3)
@@ -40,13 +50,12 @@ class InputViewTest {
     @Test
     void inputCarNameOver5() {
         //given
-        //when
         String input = "pobi,woni,junyoung";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         InputView inputView = new InputView();
 
-        //then
+        //when then
         assertThatThrownBy(inputView::inputCarNames)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
@@ -56,12 +65,14 @@ class InputViewTest {
     @Test
     void inputTryCount() {
         //given
-        //when
         String input = "5";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         InputView inputView = new InputView();
+
+        //when
         int tryCount = inputView.inputTryCount();
+
         //then
         assertThat(tryCount).isEqualTo(5);
     }
@@ -70,12 +81,12 @@ class InputViewTest {
     @Test
     void inputTryCountUnder1() {
         //given
-        //when
         String input = "0";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         InputView inputView = new InputView();
-        //then
+
+        //when then
         assertThatThrownBy(inputView::inputTryCount)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 1 이상이어야 합니다.");
@@ -85,12 +96,12 @@ class InputViewTest {
     @Test
     void inputTryCountNotNum() {
         //given
-        //when
         String input = "안녕";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         InputView inputView = new InputView();
-        //then
+
+        //when then
         assertThatThrownBy(inputView::inputTryCount)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("For input string: \"" + input + "\"");
