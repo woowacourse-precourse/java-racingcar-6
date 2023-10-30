@@ -1,13 +1,13 @@
 
-# GameController
+# GameController - done
 - 게임 시작시 자동차의 이름과 시도 횟수를 입력받는다.
 
-# GameService
+# GameService - done
 - 전진조건을 Service에서 계산하고 이를 carManager에게 수행시킨다.
 - OutputManager를 통해 매 시도 횟수가 끝난 후 현재 위치를 출력한다. 
 - 게임이 끝난 후 자동차 경주 게임을 완료한 후 누가 우승했는지 알려준다.
 
-## Game 시나리오
+## Game 시나리오 - done
 - InputManager를 통해 자동차 경주를 할 이름을 입력 받는다.
 - 문자열을 split(",") 함수를 이용해 나누고 List로 변환해준 뒤 이 이름에 해당하는
 HashMap을 만들고 거기에 car객체를 생성한다.
@@ -17,13 +17,15 @@ HashMap을 만들고 거기에 car객체를 생성한다.
 - 게임이 끝난 후 list와 Map을 통해 car객체를 돌며 1등의 위치와 같은 위치를 가진 이름을 winner리스트에 넣고
 전체 순회 후 이를 출력한다.
 
-# carManager
+# carManager - done
 - carMember를 저장하는 리스트를 가지고 있다.
 - carMember의 이름에 대응되는 HashMap을 가지고 있다.
 - 1등의 위치를 가지고 있다.
 - winnerList를 가지고 있다.
+- 실행결과를 나타낼때 car 객체의 이름을 말한 후 현재 거리를 표시한다.
+- carModel이 각자 가지고 있는 현재 거리에 따라 '-' 을 출력을 할 수 있어야 한다.
 
-# car
+# car - done
 - 전진 기능이 필요하다.
   - 자동차는 전진할때 자동차 이름을 같이 출력한다.
   - 전진 조건
@@ -33,25 +35,26 @@ HashMap을 만들고 거기에 car객체를 생성한다.
 
 
 
-# InputManager
+# InputManager - done
 - 사용자는 몇번의 입력을 해야되는지 입력한다.
 - 차의 이름들을 입력받는다.
 
-# Validator
+# Validator - done
 - 이름이 5자 초과인경우
 
-# RandomCalculator
+# RandomCalculator - done
 - 0~9 사이의 무작위 값을 구한 후 무작위 값이 4 이상의 경우에 대한 계산을 담당한다.
 
-# serviceOutputManager - 출력상수를 추가적으로 활용한다.
+# serviceOutputManager - 출력상수를 추가적으로 활용한다. - done
 - 서비스 단에서 출력을 담당한다.
-  - 실행결과를 나타낼때 car 객체의 이름을 말한 후 현재 거리를 표시한다. 
-  - carModel이 각자 가지고 있는 현재 거리에 따라 '-' 을 출력을 할 수 있어야 한다.
- 
+//  - 실행결과를 나타낼때 car 객체의 이름을 말한 후 현재 거리를 표시한다. 
+//  - carModel이 각자 가지고 있는 현재 거리에 따라 '-' 을 출력을 할 수 있어야 한다.
+=> carManager로 이전
+
   - 우승자 안내 문구
     - 최종 우승자 :
 
-# controllerOutputManger -
+# controllerOutputManger - done
 - controller단에서 출력을 담당한다.
 - 시작 안내문구
   -  경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
