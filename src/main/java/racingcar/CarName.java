@@ -5,7 +5,7 @@ import org.junit.platform.commons.util.StringUtils;
 
 public class CarName {
     private static final int MAX_NAME_LENGTH = 5;
-    private String name;
+    private final String name;
 
     private void validateName(String name) throws IllegalArgumentException {
         // 사용해도 되나?? static import
@@ -24,5 +24,12 @@ public class CarName {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "CarName{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
