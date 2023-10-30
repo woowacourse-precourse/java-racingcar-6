@@ -6,6 +6,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.view.Announcer;
 
 class AnnouncerTest extends NsTest {
     private final Announcer announcer = new Announcer();
@@ -24,13 +25,13 @@ class AnnouncerTest extends NsTest {
 
         // then
         assertSimpleTest(() -> {
-            announcer.announceRoundResult(List.of(pobi, woni));
+            announcer.announceRaceRound(List.of(pobi, woni));
             assertThat(output()).contains("pobi : -", "woni : --");
         });
     }
 
     @Override
     protected void runMain() {
-        announcer.announceRoundResult(List.of(pobi, woni));
+        announcer.announceRaceRound(List.of(pobi, woni));
     }
 }
