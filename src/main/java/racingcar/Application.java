@@ -23,6 +23,7 @@ public class Application {
             cars.add(new Car(carName));
         }
 
+        System.out.println("\n실행 결과");
         for (int i = 0; i < playCount; i++) {
             for (Car car : cars) {
                 car.move();
@@ -42,6 +43,7 @@ public class Application {
     static Set<String> getCarNames() {
         Set<String> carNames = new HashSet<>();
 
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputNames = readLine();
 
         if (!inputNames.contains(",")) {
@@ -71,6 +73,8 @@ public class Application {
 
     static int getPlayCount() {
         int playCount = 0;
+
+        System.out.println("시도할 회수는 몇회인가요?");
 
         try {
             String inputCount = readLine();
