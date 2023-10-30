@@ -1,10 +1,9 @@
-package racingcar;
+package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.util.RacingNumberGenerator;
 
 class RacingNumberGeneratorTest {
     private static final int MIN_VALUE = 0;
