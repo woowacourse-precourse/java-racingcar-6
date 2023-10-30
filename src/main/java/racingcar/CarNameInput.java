@@ -21,4 +21,5 @@ public class CarNameInput {
     public void exceptionHandling() {
         new CarNameException().isException(nameList);
     }
+
 }

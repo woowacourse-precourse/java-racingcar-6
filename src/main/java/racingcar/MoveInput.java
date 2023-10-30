@@ -21,4 +21,5 @@ public class MoveInput {
             throw new IllegalArgumentException();
         }
     }
+
 }

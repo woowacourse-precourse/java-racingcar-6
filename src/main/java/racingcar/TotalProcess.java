@@ -1,7 +1,8 @@
 package racingcar;
 
 public class TotalProcess {
-    TotalProcess() {}
+    TotalProcess() {
+    }
 
     public void runTotalProcess() {
         CarNameInput carNameInput = new CarNameInput();
@@ -17,4 +18,5 @@ public class TotalProcess {
         }
         playGame.printWinnerList();
     }
+
 }

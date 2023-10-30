@@ -1,4 +1,5 @@
 package racingcar;
+
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class PlayGame {
     List<Integer> moveCount;
     List<String> nameList;
-
 
     PlayGame(List<String> argumentNameList) {
         nameList = argumentNameList;
@@ -33,7 +33,6 @@ public class PlayGame {
             System.out.print("-");
         System.out.println();
     }
-
 
     public void printResult() {
         System.out.println("실행 결과");
@@ -59,10 +58,11 @@ public class PlayGame {
     public void printWinnerList() {
         System.out.print("최종 우승자 : ");
 
-       for (int i = 0; i < getWinnerList().size(); i++) {
+        for (int i = 0; i < getWinnerList().size(); i++) {
             System.out.print(getWinnerList().get(i));
             if (i < getWinnerList().size() - 1) System.out.print(",");
         }
         System.out.println();
     }
+
 }
