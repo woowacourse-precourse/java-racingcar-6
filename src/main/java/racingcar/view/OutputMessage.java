@@ -13,7 +13,7 @@ public class OutputMessage {
             String forwardText = "-".repeat(car.getMoveNumber());
             System.out.println(car.getName() + " : " + forwardText);
         }
-
+        System.out.println();
     }
 
     public List<Car> printWinnerAfterRaceCompletion(List<Car> cars) {
