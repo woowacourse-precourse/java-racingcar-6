@@ -34,14 +34,14 @@
 
 > ### service
 > + RacingCarService-RacingCars에 대한 비즈니스 로직 수행하는 역할.
->   + [ ] 랜덤한 리스트 값을 RacingCars에 넘겨주는 기능.
+>   + [X] 랜덤한 리스트 값을 RacingCars에 넘겨주는 기능.
 > + ScoreBoardService-ScoreBoard에 대한 비즈니스 로직 수행하는 역할.
 >   + [ ] 시도횟수만큼 round와 Car리스트를 기록하는 기능.
 
 > ### controller
 > + RaceGameController-게임의 전반적인 흐름을 담당하는 역할.
 >   + [X] 자동차의 이름을 입력받아 RacingCarService에 전달하는 기능.
->   + [ ] 시도 횟수를 입력받아 시도 횟수만큼 움직이는 기능.
+>   + [X] 시도 횟수를 입력받아 시도 횟수만큼 움직이는 기능.
 >   + [ ] 시도 횟수만큼 기록하는 기능.
 >   + [ ] OutputView에게 ScoreBoard를 넘겨주어 모든 라운드를 보여주는 기능.
 >   + [ ] OutputView에게 마지막 Score우승자를 넘겨주어 우승자를 보여주는 기능.

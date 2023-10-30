@@ -12,6 +12,13 @@ public class RaceGameController {
 
     public void startRace(){
         int attemptCount = InputView.inputAttemptCount();
+        run(attemptCount);
+    }
+
+    private void run(int attemptCount) {
+        for (int i = 0; i < attemptCount; i++) {
+            racingCarService.moveRacingCars();
+        }
     }
 
 }

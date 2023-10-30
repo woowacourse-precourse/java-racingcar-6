@@ -1,7 +1,9 @@
 package racingcar.service;
 
 import java.util.Arrays;
+import java.util.List;
 import racingcar.model.RacingCars;
+import racingcar.util.RandomNuberGenerator;
 
 public class RacingCarService {
     public static final String COMMA_SEPARATOR = ",";
@@ -10,5 +12,9 @@ public class RacingCarService {
     public RacingCarService(String carNames) {
         this.racingCars = new RacingCars(Arrays.asList(carNames.split(COMMA_SEPARATOR)));
     }
-    
+
+    public void moveRacingCars() {
+        List<Integer> randomNumbers = RandomNuberGenerator.createRandomNumbers(racingCars.getSize());
+        racingCars.moveRacingCars(randomNumbers);
+    }
 }
