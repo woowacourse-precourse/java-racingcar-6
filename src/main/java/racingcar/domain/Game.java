@@ -25,4 +25,15 @@ public class Game {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 
+    private Car findMaxPositionCar() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException("자동차가 존재하지 않습니다"));
+    }
+
+    public List<Car> pickWinner() {
+        return cars.stream()
+                .filter(car -> car.isSamePosition(findMaxPositionCar()))
+                .toList();
+    }
 }
