@@ -3,7 +3,9 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.Winner;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Controller {
     private final InputView inputView = new InputView();
@@ -33,8 +35,10 @@ public class Controller {
     }
 
     public void endGame() {
-        findWinner();
-        showWinner();
+        Winner winner = new Winner();
+        winner.findWinner(carsList);
+        List<String> winnerList = winner.getWinner();
+        outputView.showWinner(winnerList);
     }
 
     public void carGenerator(String[] cars) {
