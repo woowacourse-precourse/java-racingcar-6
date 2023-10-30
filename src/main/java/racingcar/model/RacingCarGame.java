@@ -1,12 +1,20 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame implements Game {
     private static final int criterion = 4;
     private static final int carNameLength = 5;
     private int attempts;
-    private final List<Car> carList;
+    private final List<Car> carList = new ArrayList<>();
+
+    public void makeCars(String carNames) {
+        for (String name : carNames.split(",")) {
+            validateCarName(name);
+            carList.add(new Car(name));
+        }
+    }
 
     public void goAhead(Car car, int randomNumber) {
         if (randomNumber >= criterion) {
