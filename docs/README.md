@@ -36,7 +36,7 @@
         - [ ] 테스트: 주어진 자동차의 상태에 따라 올바르게 출력 문자열이 생성되는지 확인
     - [ ] 단독 우승자 안내 문구 출력 기능 👉 `view#ResultView#printWinner(List<Car> winners)`
         - [ ] 테스트: 단독 우승자 안내 문구가 올바르게 출력되는지 확인
-    - [ ] 공동 우승자 안내 문구 출력 기능 👉 `view#ResultView#printMultipleWinners(List<Car> winners)`
+    - [ ] 공동 우승자 안내 문구 출력 기능 👉 `view#ResultView#printWinner(List<Car> winners)`
         - [ ] 테스트: 공동 우승자 안내 문구가 올바르게 출력되는지 확인
 
 6. **우승자 확인**
