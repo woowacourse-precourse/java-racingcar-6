@@ -39,4 +39,10 @@ public class CarRaceService {
         return cars.getNames();
     }
 
+    public List<Integer> getCarsLocation() {
+        return cars.getLocations();
+    }
+
+
+
 }
