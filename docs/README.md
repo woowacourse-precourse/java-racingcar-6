@@ -24,15 +24,14 @@
 - carMove(): 랜덤 생성 값에 따라, 4 이상이면 position 이동
 
 ### 📝 Referee.class
-- raceStart(): 라운드 수만큼 게임 진행
-- round(): 한 판 진행
-- roundResults(): 회차별 결과 출력
-- determineWinner(): 최종 우승자 결정 로직
-- racingWinner(): 최종 우승자 반환 및 출력
+- playRound() : 한 판 진행
+- determineWineer() : 최종 우승자 결정 로직
 
 ### 📝 RacingGame.class
-- raceSetting(): 레이싱 게임 Car, Referee 객체 셋팅
-- raceStart(): 레이싱 게임 진행 & 결과 반환
+- prepareGame() : f레이싱 게임 설정, Car 및 Referee 객체 초기화
+- startGame() : 레이싱 게임 진행
+- printRoundResults() : 회차별 결과 출력
+- printGameWinner() : racingWinner() : 최종 우승자 반환 및 출력
 
 ### 📝 InputValidator.class
 - validateInput(): 사용자 입력 값이 유효한지 검사
