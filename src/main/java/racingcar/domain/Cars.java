@@ -7,11 +7,9 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<String> carNames) {
-        List<Car> cars = carNames.stream()
+        this.cars = carNames.stream()
                 .map(Car::new)
                 .toList();
-
-        this.cars = cars;
     }
 
 
