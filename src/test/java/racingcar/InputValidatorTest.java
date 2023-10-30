@@ -39,7 +39,7 @@ public class InputValidatorTest {
 
     @Test
     void 시도횟수_정상_입력() {
-        assertThatCode(() -> inputValidator.validCarNameLength("6"))
+        assertThatCode(() -> inputValidator.validTrialNumber("6"))
                 .doesNotThrowAnyException();
     }
 
