@@ -5,6 +5,7 @@ public class Constant {
     public static final int RANDOM_MAX_RANGE = 9;
 
     public static final int RULE_CAR_MOVE = 4;
+    public static final int RULE_CAR_NAME_MIN_SIZE = 0;
     public static final int RULE_CAR_NAME_MAX_SIZE = 5;
 
     public static final String SEPARATOR_CHAR = ",";
@@ -14,6 +15,12 @@ public class Constant {
     public static final String READ_MOVE_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     public static final String START_GAME_MESSAGE = "실행결과";
     public static final String END_WINNER_MESSAGE = "최종 우승자 : ";
+
+    public static final String ERROR_EMPTY_INPUT_MESSAGE = "값을 입력해야 합니다.";
+    public static final String ERROR_CAR_NAME_RANGE_MESSAGE =
+            "자동차 이름 중 길이가 " + RULE_CAR_NAME_MIN_SIZE + " 이거나 " + RULE_CAR_NAME_MAX_SIZE + " 초과인 이름이 있습니다.";
+    public static final String ERROR_CAR_NAME_DUPLICATE_MESSAGE = "자동차 이름 중 중복된 이름이 포함되어 있습니다.";
+    public static final String ERROR_COUNT_NOT_POSITIVE_MESSAGE = "입력은 양의 정수여야 합니다.";
 
 
 }

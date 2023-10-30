@@ -1,15 +1,23 @@
 package racingcar.validation;
 
+import static racingcar.constant.Constant.ERROR_COUNT_NOT_POSITIVE_MESSAGE;
+
 public final class CountValidation extends InputValidation {
 
     public static void validate(String input) {
-        if (isEmptyInput(input) || isNumeric(input)) {
-            throw new IllegalArgumentException();
-        }
+        isEmptyInput(input);
+        isNumeric(input);
     }
 
-    private static Boolean isNumeric(String input) {
-        return input.chars().noneMatch(Character::isDigit);
+    private static void isNumeric(String input) {
+        try {
+            int number = Integer.parseInt(input);
+            if (number <= 0) {
+                throw new IllegalArgumentException(ERROR_COUNT_NOT_POSITIVE_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ERROR_COUNT_NOT_POSITIVE_MESSAGE);
+        }
     }
 
 }
