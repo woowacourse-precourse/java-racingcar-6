@@ -1,11 +1,11 @@
 package racingcar;
 
-import racingcar.domain.car.CarListFactory;
+import racingcar.domain.car.CarsFactory;
 import racingcar.domain.round.RoundFactory;
 
 public class AppConfiguration {
-    private CarListFactory carListFactory() {
-        return new CarListFactory();
+    private CarsFactory carsFactory() {
+        return new CarsFactory();
     }
 
     private RoundFactory roundFactory() {
@@ -13,6 +13,6 @@ public class AppConfiguration {
     }
 
     public GameManager gameManager() {
-        return new GameManager(carListFactory(), roundFactory());
+        return new GameManager(carsFactory(), roundFactory());
     }
 }

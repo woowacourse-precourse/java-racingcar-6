@@ -1,8 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.car.CarList;
-import racingcar.domain.car.CarListFactory;
+import racingcar.domain.car.Cars;
+import racingcar.domain.car.CarsFactory;
 import racingcar.domain.round.Round;
 import racingcar.domain.round.RoundFactory;
 
@@ -10,29 +10,29 @@ import static racingcar.Constant.*;
 
 public class GameManager {
 
-    private final CarListFactory carListFactory;
+    private final CarsFactory carsFactory;
     private final RoundFactory roundFactory;
 
-    public GameManager(CarListFactory carListFactory, RoundFactory roundFactory) {
-        this.carListFactory = carListFactory;
+    public GameManager(CarsFactory carsFactory, RoundFactory roundFactory) {
+        this.carsFactory = carsFactory;
         this.roundFactory = roundFactory;
     }
 
     public void play() {
-        CarList carList = getCarList();
+        Cars cars = getCarList();
 
         Round round = getRound();
 
-        move(carList, round);
+        move(cars, round);
 
-        System.out.print(carList.winners());
+        System.out.print(cars.getWinnersString());
     }
 
-    private CarList getCarList() {
+    private Cars getCarList() {
         System.out.println(MESSAGE_INPUT_CAR_NAMES);
         String input = Console.readLine();
 
-        return carListFactory.create(input);
+        return carsFactory.create(input);
     }
 
     private Round getRound() {
@@ -42,12 +42,12 @@ public class GameManager {
         return roundFactory.create(input);
     }
 
-    private void move(CarList carList, Round round) {
+    private void move(Cars cars, Round round) {
         System.out.println(MESSAGE_SHOW_OUTPUT);
 
         while (round.isLeft()) {
-            carList.move();
-            System.out.println(carList);
+            cars.move();
+            System.out.println(cars);
         }
     }
 }

@@ -5,50 +5,50 @@ import java.util.stream.Collectors;
 
 import static racingcar.Constant.*;
 
-public class CarList {
-    private final List<Car> carList;
+public class Cars {
+    private final List<Car> cars;
 
-    public CarList(List<Car> carList) {
-        checkEmpty(carList);
-        this.carList = carList;
+    public Cars(List<Car> cars) {
+        checkEmpty(cars);
+        this.cars = cars;
     }
 
     //==비즈니스 로직==//
     public void move() {
-        carList.forEach(Car::move);
+        cars.forEach(Car::move);
     }
 
-    public String winners() {
-        int winnerPoint = winnerPoint();
+    public String getWinnersString() {
+        int winnerPoint = getWinnerPoint();
 
         return MESSAGE_WINNER + IS +
-                carList.stream()
-                        .filter(car -> isWinner(car, winnerPoint))
+                cars.stream()
+                        .filter(car -> isWinner(car.getPoint(), winnerPoint))
                         .map(Car::getName)
                         .collect(Collectors.joining(OUTPUT_DELIM));
     }
 
-    private int winnerPoint() {
-        return carList.stream()
+    private int getWinnerPoint() {
+        return cars.stream()
                 .mapToInt(Car::getPoint)
                 .max()
                 .orElseThrow(() -> new IllegalArgumentException(ERROR_WINNER_POINT));
     }
 
-    private boolean isWinner(Car car, int winnerPoint) {
-        return car.getPoint() == winnerPoint;
+    private boolean isWinner(int carPoint, int winnerPoint) {
+        return carPoint == winnerPoint;
     }
 
     //==검증 로직==//
-    private void checkEmpty(List<Car> carList) {
-        if (carList.isEmpty())
+    private void checkEmpty(List<Car> cars) {
+        if (cars.isEmpty())
             throw new IllegalArgumentException(ERROR_EMPTY_CAR_LIST);
     }
 
     //==출력==//
     @Override
     public String toString() {
-        return carList.stream()
+        return cars.stream()
                 .map(car -> car + "\n")
                 .collect(Collectors.joining());
     }

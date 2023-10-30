@@ -15,11 +15,11 @@ public class Car {
 
     //==비즈니스 로직==//
     public void move() {
-        if (isForward())
+        if (canForward())
             point++;
     }
 
-    private boolean isForward() {
+    private boolean canForward() {
         int number = Randoms.pickNumberInRange(START, END);
         return number >= MOVING_FORWARD;
     }
@@ -30,11 +30,13 @@ public class Car {
             throw new IllegalArgumentException(ERROR_INPUT_NAME);
     }
 
-    public String getName() {
+    //==get 메서드==//
+    /*같은 패키지로 범위 제한*/
+    String getName() {
         return name;
     }
 
-    public int getPoint() {
+    int getPoint() {
         return point;
     }
 

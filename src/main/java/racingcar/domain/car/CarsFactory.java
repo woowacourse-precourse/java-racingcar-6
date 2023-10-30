@@ -5,17 +5,17 @@ import java.util.List;
 
 import static racingcar.Constant.*;
 
-public class CarListFactory {
+public class CarsFactory {
 
-    public CarList create(String input) {
+    public Cars create(String input) {
         String[] carNames = input.split(INPUT_DELIM);
 
-        List<Car> list = new ArrayList<>();
+        List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             Car car = new Car(carName);
-            list.add(car);
+            cars.add(car);
         }
 
-        return new CarList(list);
+        return new Cars(cars);
     }
 }

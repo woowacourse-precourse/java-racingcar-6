@@ -5,23 +5,23 @@ import static racingcar.Constant.*;
 public class RoundFactory {
 
     public Round create(String input) {
-        int number = checkIsNumber(input);
-        checkNegative(number);
-        return new Round(number);
+        int round = toInt(input);
+        checkNegative(round);
+        return new Round(round);
     }
 
-    private void checkNegative(int number) {
-        if (number < 0)
+    private void checkNegative(int round) {
+        if (round < 0)
             throw new IllegalArgumentException(ERROR_INPUT_ROUND);
     }
 
-    private int checkIsNumber(String input) {
-        int number;
+    private int toInt(String input) {
+        int round;
         try {
-            number = Integer.parseInt(input);
+            round = Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_INPUT_ROUND);
         }
-        return number;
+        return round;
     }
 }
