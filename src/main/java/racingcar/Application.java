@@ -21,6 +21,27 @@ public class Application {
         return cars;
     }
 
+    private static boolean isNumberic(String n) {
+        try {
+            Integer.parseInt(n);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private static Integer getN() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String N = Console.readLine();
+
+        // 예외 처리
+        // N은 숫자 형태인가?
+        if (!isNumberic(N))
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+
+        return Integer.parseInt(N);
+    }
+
     public static void main(String[] args) {
         List<String> carNames = getCars();
         List<Integer> numberOfCarSteps = new ArrayList<>();
@@ -28,6 +49,8 @@ public class Application {
         for (int i = 0; i < carNames.size(); i++) {
             numberOfCarSteps.add(0);
         }
+
+        Integer n = getN();
 
     }
 }
