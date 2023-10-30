@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,9 +13,16 @@ import java.util.stream.Collectors;
 public class RacingCarController {
     private static final int FORWARD_RULE = 4;
     private final InputView inputView;
+    private final OutputView outputView;
 
     public RacingCarController() {
         this.inputView = new InputView();
+        this.outputView = new OutputView();
+    }
+
+    private void repeatRaceNumberOfTimes(List<Car> cars) {
+        checkEachCarForward(cars);
+        outputView.printEachRaceResult(cars);
     }
 
     private void checkEachCarForward(List<Car> cars) {
