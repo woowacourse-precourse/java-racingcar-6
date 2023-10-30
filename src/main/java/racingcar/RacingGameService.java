@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class RacingGameService {
     private final InputView inputView = new InputView();
 
@@ -7,6 +9,8 @@ public class RacingGameService {
         return inputView.playCount();
     }
 
-
+    private List<String> getCarNameList(){
+        return inputView.carNameList();
+    }
 
 }
