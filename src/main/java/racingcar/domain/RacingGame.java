@@ -18,10 +18,6 @@ public class RacingGame {
         reduceCount();
     }
 
-    private void reduceCount() {
-        count--;
-    }
-
     public List<Car> getStatus() {
         return navigation.getList();
     }
@@ -31,5 +27,9 @@ public class RacingGame {
             return true;
         }
         return false;
+    }
+
+    private void reduceCount() {
+        count--;
     }
 }
