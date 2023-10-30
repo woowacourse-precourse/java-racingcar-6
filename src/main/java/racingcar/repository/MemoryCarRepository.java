@@ -9,20 +9,15 @@ import racingcar.domain.Car;
 
 public class MemoryCarRepository implements CarRepository {
 
-    private static final MemoryCarRepository memoryCarRepository = new MemoryCarRepository();
     private static Map<Long, Car> store = new HashMap<>();
     private static Long sequence;
 
-    private MemoryCarRepository() {
+    public MemoryCarRepository() {
         resetSequence();
     }
 
     private void resetSequence() {
         sequence = 0L;
-    }
-
-    public static MemoryCarRepository getInstance() {
-        return memoryCarRepository;
     }
 
     @Override
