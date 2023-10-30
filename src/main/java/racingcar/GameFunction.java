@@ -37,12 +37,12 @@ public class GameFunction {
 
 
     void repeatGame(int turn, List<Car> carList) {
-        PrintFunction printFunction = new PrintFunction();
+        Print print = new Print();
         List<Boolean> carCanGo = randomGo(carList);
 
         for (int i = 0; i < turn; i++) {
             applyScore(carList, carCanGo);
-            printFunction.printScore(carList);
+            print.Score(carList);
         }
 
     }
