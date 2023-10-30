@@ -1,4 +1,4 @@
-package racingcar.model.domain;
+package racingcar.model.car;
 
 public class Car {
     private CarId carId;
