@@ -11,13 +11,18 @@
 - [x] 자동차 이름 입력 받기 - setCarNames()
 - [x] 시도할 횟수 입력 받기 - setTrialNumber()
 
-#### GameManager
-- [x] 0에서 9 사이의 무작위 값 생성하기 - makeRandomNumber()
-- [x] 무작위 값에 따라 전진/정지 판단 - isMove()
+#### NumberGenerator
+- [x] 0에서 9 사이의 무작위 값 생성하기 - generate()
+
+#### MovingRule
+- [x] 무작위 값에 따라 전진/정지 판단 - isMovable()
   - [x] 무작위 값이 4 이상인 경우, 전진
   - [x] 무작위 값이 4 미만인 경우, 정지
+
+#### GameManager
+- [x] 자동차 이동 - moveCars()
 - [x] 실행 결과 문구 생성 - makeResult()
-- [x] 자동차 경주 게임 우승자 문구 생성
+- [x] 자동차 경주 게임 우승자 문구 생성 - makeWinnerResult()
   - [x] 우승자가 한 명 이상인 경우, 쉼표(,)를 이용하여 구분
 
 #### Car
