@@ -12,7 +12,7 @@
 - [ ] 경주를 진행한다. ``GameController - startGame``
 - [x] 자동차가 이동한다. ``Car - move``
 - [x] 자동차가 전진하는지 판단한다. ``Car - isMoveForward``
-- [ ] 0에서 9 사이의 무작위 값을 구한다. ``NumberGenerator - createRandomNumber`` 
+- [x] 0에서 9 사이의 무작위 값을 구한다. ``NumberGenerator - createRandomNumber`` 
 - [x] 자동차가 전진한다. ``Car - moveForward``
 - [ ] 자동차의 이름을 출력한다. ``OutputView - printCarName``
 - [ ] 자동차의 전진 상황을 출력한다. ``OutputView - printCarProgress``
