@@ -5,11 +5,8 @@ import racingcar.domain.RandomNumberUtil;
 
 public class RandomNumberGenerator implements RandomNumberUtil {
 
-    private static final Integer START_NUMBER = 0;
-    private static final Integer END_NUMBER = 9;
-
     @Override
-    public int generate() {
-        return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
+    public int generate(int startRangeNumber, int endRangeNumber) {
+        return Randoms.pickNumberInRange(startRangeNumber, endRangeNumber);
     }
 }
