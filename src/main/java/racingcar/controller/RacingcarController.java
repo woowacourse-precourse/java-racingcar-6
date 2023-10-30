@@ -33,16 +33,12 @@ public class RacingcarController {
             carList.add(new Car(carName, 0));
         }
 
-
-        game();
+        int roundCount = getRoundCount();
+        game(roundCount);
         outputView.printFinalResult(getFinalResult());
     }
 
-    private void getRoundCount(){
-
-    }
-
-    private void game(){
+    private int getRoundCount(){
         int roundCount;
 
         try{
@@ -51,6 +47,10 @@ public class RacingcarController {
             throw new IllegalArgumentException(ERROR_INTEGER_ONLY);
         }
 
+        return roundCount;
+    }
+
+    private void game(int roundCount){
         outputView.printResultMessage();
 
         for (int i = 0; i < roundCount; i++) {
