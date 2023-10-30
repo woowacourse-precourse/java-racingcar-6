@@ -18,8 +18,14 @@ public class InputView {
         return playerList;
     }
 
-    public String inputGameCount() {
-        return null;
+    public int inputGameCount() {
+        String inputString = Console.readLine();
+        validateNumber(inputString);
+
+        int gameCount = Integer.parseInt(inputString);
+        validateGameCount(gameCount);
+
+        return  gameCount;
     }
 
     private void validateBlank(String inputString) {
@@ -33,6 +39,18 @@ public class InputView {
             if (player.length() > 5) {
                 throw new IllegalArgumentException("플레이어의 이름은 5글자 이하이어야 합니다.");
             }
+        }
+    }
+
+    private void validateNumber(String inputString){
+        if(!inputString.matches("[0-9]+")){
+            throw new IllegalArgumentException("게임 횟수는 1이상의 정수이어야합니다.");
+        }
+    }
+
+    private void validateGameCount(int gameCount){
+        if(gameCount<1) {
+            throw new IllegalArgumentException("게임 횟수는 1이상의 정수이어야합니다.");
         }
     }
 }

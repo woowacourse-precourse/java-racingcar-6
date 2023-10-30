@@ -17,5 +17,8 @@ public class Game {
     public void start() {
         outputView.printGameStart();
         List<String> inputString = inputView.inputPlayerList();
+
+        outputView.printGameCount();
+        int gameCount = inputView.inputGameCount();
     }
 }
