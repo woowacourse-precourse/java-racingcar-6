@@ -27,7 +27,7 @@ public class Game {
             System.out.println("pobi : ");
             System.out.println("woni : ");
             System.out.println("jun : ");
-            System.out.println;
+            System.out.println();
             attemptsNumber--;
         }
 

@@ -8,10 +8,10 @@ public class Car {
 
     }
 
-    public void movingForward(Integer times) {
+    public void movingForward() {
     }
 
-    public boolean judgeForward(Integer number) {
+    private boolean judgeForward(Integer number) {
         return true;
     }
 

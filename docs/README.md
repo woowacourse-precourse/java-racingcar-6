@@ -29,6 +29,8 @@
 ### 입력
 
 - 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)
+    - Game.userInputCarName() : 자동차는 객체로 갯수에 맞게 생성해야함. 스플릿을 하여 갯수만큼 인스턴스 생성하기
+    - Game.stringToListByComma(String userInputString) : 유저가 입력한 String 값을 리스트로 만들기
 
 ```
 pobi,woni,jun
