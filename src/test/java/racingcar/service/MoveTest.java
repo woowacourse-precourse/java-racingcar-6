@@ -7,12 +7,9 @@ import racingcar.domain.Car;
 import racingcar.domain.CarGenerator;
 import racingcar.domain.RandomNumber;
 import racingcar.domain.RandomNumberGenerator;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MoveTest {
 
