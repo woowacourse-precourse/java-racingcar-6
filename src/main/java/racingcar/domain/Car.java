@@ -7,7 +7,7 @@ import static racingcar.config.GameConfig.MAX_RANDOM_VALUE;
 import static racingcar.config.GameConfig.MIN_RANDOM_VALUE;
 import static racingcar.config.GameConfig.MIN_TO_MOVE;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private int distance;
 
@@ -25,5 +25,18 @@ public class Car {
 
     private int createRandomNumber() {
         return Randoms.pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    @Override
+    public int compareTo(final Car other) {
+        return Integer.compare(this.distance, other.distance);
     }
 }
