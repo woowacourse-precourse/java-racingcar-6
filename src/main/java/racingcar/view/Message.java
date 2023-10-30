@@ -1,4 +1,4 @@
-package racingcar.View;
+package racingcar.view;
 
 public class Message {
     public static void inputNameMessage() {
