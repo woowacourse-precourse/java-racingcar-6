@@ -86,7 +86,7 @@ class CarsTest {
         }
 
         // then
-        assertThatThrownBy(() -> cars.findWinnerNameList())
+        assertThatThrownBy(cars::findWinnerNameList)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 최대 위치를 찾을 수 없습니다.");
     }
