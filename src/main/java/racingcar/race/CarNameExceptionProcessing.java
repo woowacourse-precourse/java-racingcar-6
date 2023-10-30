@@ -1,6 +1,6 @@
-package racingcar.view;
+package racingcar.race;
 
-public class Exception {
+public class CarNameExceptionProcessing {
 
     private static final String NAME_WARNING = "자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 1자 이상, 5자 이하만 가능합니다.";
 

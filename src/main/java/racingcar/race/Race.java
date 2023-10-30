@@ -1,36 +1,20 @@
 package racingcar.race;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
+import racingcar.util.CarRacingStarts;
+import racingcar.view.OutPut;
 
 public class Race {
 
-    private final DiceNumber diceNumber;
+    private final CarRacingStarts carRacingStarts;
+    private final OutPut outPut;
 
-    public Race(DiceNumber diceNumber) {
-        this.diceNumber = diceNumber;
+    public Race(CarRacingStarts diceNumber, OutPut outPut) {
+        this.carRacingStarts = diceNumber;
+        this.outPut = outPut;
     }
 
-    public void result(List<String> carNames, int numberOfAttempts) {
 
-        while (numberOfAttempts > 0) {
-            diceNumber.creation(carNames);
-            carMoveCheck();
-            System.out.println();
-            numberOfAttempts--;
-        }
 
-    }
-
-    private void carMoveCheck() {
-        for (Entry<String, String> map : getCarMoveCheck().entrySet()) {
-            System.out.printf("%s : %s\n", map.getKey(), map.getValue());
-        }
-    }
-
-    private Map<String, String> getCarMoveCheck() {
-        return diceNumber.getCarMoveCheck();
-    }
 
 }

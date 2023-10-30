@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.race.CarNameExceptionProcessing;
 
 public class Input {
 
@@ -11,12 +12,12 @@ public class Input {
         String[] carNames = Console
                 .readLine()
                 .split(",");
-        Exception.checkName(carNames);
+        CarNameExceptionProcessing.checkName(carNames);
         return Arrays.asList(carNames);
 
     }
 
-    public int numberTry() {
+    public int numberTimesTry() {
 
         return Integer.parseInt(Console.readLine());
 

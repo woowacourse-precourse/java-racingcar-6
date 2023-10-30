@@ -1,29 +1,29 @@
-package racingcar.race;
+package racingcar.util;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DiceNumber {
+public class CarRacingStarts {
 
     private final Map<String, String> carMoveCheck = new LinkedHashMap<>();
-    private final RandomNumber randomNumber;
+    private final PickRandomNumber pickRandomNumber;
+
+    public CarRacingStarts(PickRandomNumber pickRandomNumber) {
+        this.pickRandomNumber = pickRandomNumber;
+    }
 
     public Map<String, String> getCarMoveCheck() {
         return carMoveCheck;
     }
 
-    public DiceNumber(RandomNumber randomNumber) {
-        this.randomNumber = randomNumber;
-    }
-
     public void creation(List<String> carNames) {
 
         for (String carName : carNames) {
-            int dice = randomNumber.Generation();
+            int pickRandomNumber = this.pickRandomNumber.Generation();
             String distanceCheck = carMoveCheck.getOrDefault(carName, "");
 
-            if (dice >= 4) {
+            if (pickRandomNumber >= 4) {
                 distanceCheck += "-";
             }
 

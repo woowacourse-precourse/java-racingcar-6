@@ -1,4 +1,4 @@
-package racingcar.race;
+package racingcar.util;
 
 public class SoleChampion {
 }
