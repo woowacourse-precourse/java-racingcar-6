@@ -18,15 +18,13 @@ public class Race {
         System.out.println("시도할 회수는 몇회인가요?");
         int cycle = user.inputTryNumber();
         goCycle(cycle);
-        Result result = new Result();
-        result.printWinner(carList);
+        Result.printWinner(carList);
     }
 
     public void goCycle(int cycle) {
         for (int i = 0; i < cycle; i++) {
             goForward();
-            Result result = new Result();
-            result.printResult(carList);
+            Result.printResult(carList);
         }
         System.out.println();
     }
