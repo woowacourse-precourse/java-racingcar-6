@@ -37,8 +37,8 @@ class RaceServiceTest {
             @DisplayName("오류없이 리턴")
             void it_successfully_return() {
                 assertThat(cars).isNotNull();
-                assertThat(cars.getCars()).hasSize(3);
-                assertThat(cars.getCars()).usingRecursiveComparison().isEqualTo(List.of(new Car("apple", 0), new Car("peer", 0), new Car("fruit", 0)));
+                assertThat(cars.getCarList()).hasSize(3);
+                assertThat(cars.getCarList()).usingRecursiveComparison().isEqualTo(List.of(new Car("apple", 0), new Car("peer", 0), new Car("fruit", 0)));
             }
         }
 
@@ -117,9 +117,9 @@ class RaceServiceTest {
             @DisplayName("자동차가 멈추거나 랜덤하게 앞으로 감")
             void it_move_car_randomly() {
                 raceService.raceStart(cars, 2);
-                assertThat(cars.getCars()).hasSize(1);
-                assertThat(cars.getCars().get(0).getName()).isEqualTo("pobi");
-                assertThat(cars.getCars().get(0).getDistance()).isEqualTo(12);
+                assertThat(cars.getCarList()).hasSize(1);
+                assertThat(cars.getCarList().get(0).getName()).isEqualTo("pobi");
+                assertThat(cars.getCarList().get(0).getDistance()).isEqualTo(12);
             }
         }
 
@@ -144,13 +144,13 @@ class RaceServiceTest {
             void it_move_cars_randomly() {
                 raceService.raceStart(cars, 2);
                 assertThat(cars).isNotNull();
-                assertThat(cars.getCars()).isNotNull();
-                assertThat(cars.getCars().get(0).getName()).isEqualTo("pobi");
-                assertThat(cars.getCars().get(0).getDistance()).isEqualTo(8);
-                assertThat(cars.getCars().get(1).getName()).isEqualTo("crong");
-                assertThat(cars.getCars().get(1).getDistance()).isEqualTo(8);
-                assertThat(cars.getCars().get(2).getName()).isEqualTo("maxi");
-                assertThat(cars.getCars().get(2).getDistance()).isEqualTo(8);
+                assertThat(cars.getCarList()).isNotNull();
+                assertThat(cars.getCarList().get(0).getName()).isEqualTo("pobi");
+                assertThat(cars.getCarList().get(0).getDistance()).isEqualTo(8);
+                assertThat(cars.getCarList().get(1).getName()).isEqualTo("crong");
+                assertThat(cars.getCarList().get(1).getDistance()).isEqualTo(8);
+                assertThat(cars.getCarList().get(2).getName()).isEqualTo("maxi");
+                assertThat(cars.getCarList().get(2).getDistance()).isEqualTo(8);
             }
         }
 

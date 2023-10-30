@@ -46,7 +46,7 @@ public class RaceService {
     }
 
     private void moveCars(Cars cars) {
-        for (Car car : cars.getCars()) {
+        for (Car car : cars.getCarList()) {
             car.moveCar(getRandomMoveDistance());
         }
 
@@ -61,7 +61,7 @@ public class RaceService {
     }
 
     private void showAllCars(Cars cars) {
-        for (Car car : cars.getCars()) {
+        for (Car car : cars.getCarList()) {
             System.out.println(String.format("%s : ", car.getName()) + StringUtil.repeatString(car.getDistance()));
         }
         System.out.println();
@@ -70,7 +70,7 @@ public class RaceService {
     public String showWinners(Cars cars) {
         StringJoiner joiner = new StringJoiner(", ");
         int winnerDistance = 0;
-        for (Car car : cars.getCars()) {
+        for (Car car : cars.getCarList()) {
             if (car.getDistance() > winnerDistance) {
                 joiner = new StringJoiner(", ");
                 joiner.add(car.getName());
