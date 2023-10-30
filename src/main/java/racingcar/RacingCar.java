@@ -2,20 +2,23 @@ package racingcar;
 
 public class RacingCar {
     private final int MINIMUM_NUMBER_TO_MOVING_FORWARD = 4;
+
     private final RandomNumberGenerator randomNumberGenerator;
+
     private final String name;
     private int distance = 0;
     private String movingBar = "";
 
-    public RacingCar(RandomNumberGenerator randomNumberGenerator, String name) {
+    public RacingCar(RacingCarValidator racingCarValidator, RandomNumberGenerator randomNumberGenerator, String name) {
         this.randomNumberGenerator = randomNumberGenerator;
         this.name = name;
+        racingCarValidator.validateName(name);
     }
 
     public void move() {
-        if(canMovingForward()) {
+        if (canMovingForward()) {
             distance++;
-            movingBar+= "-";
+            movingBar += "-";
         }
     }
 
