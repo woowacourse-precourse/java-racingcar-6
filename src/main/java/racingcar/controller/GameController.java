@@ -23,7 +23,6 @@ public class GameController {
 
     public void play() {
         outputView.askCarNames();
-
         Cars playCars = Cars.from(inputView.readLine());
 
         outputView.askPlayCount();
