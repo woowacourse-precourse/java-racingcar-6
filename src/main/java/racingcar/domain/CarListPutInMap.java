@@ -8,14 +8,12 @@ public class CarListPutInMap {
     private static final Map<String, Integer> carMap = new HashMap<>();
     Exception exception = new Exception();
 
-    public void setCarList(List<String> carList) {
+    public void carListPutInMap(List<String> carList) {
         carList.forEach((car) -> {
             exception.IllegalArgumentException(car);
             carMap.put(car, 0);
         });
-    }
-
-    public Map<String, Integer> getCarList() {
-        return carMap;
+        RacingValue allValue = new RacingValue();
+        allValue.racingStatus = carMap;
     }
 }

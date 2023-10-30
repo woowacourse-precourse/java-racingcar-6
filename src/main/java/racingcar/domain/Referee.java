@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class Referee {
     public String callWinnerCar() {
-        RacingStatus racing = new RacingStatus();
-        Map<String, Integer> racingResult = racing.racingMoveCount();
+        RacingStatus racingStatus = new RacingStatus();
+        Map<String, Integer> racingResult = racingStatus.racingMoveCount();
         return "최종 우승자 : " + String.join(", ", winnerCarSelect(racingResult));
     }
 

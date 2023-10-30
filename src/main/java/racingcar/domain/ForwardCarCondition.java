@@ -6,13 +6,12 @@ import java.util.Map;
 public class ForwardCarCondition {
 
     public Map<String, Integer> racingCarCount() {
-        CarListPutInMap carName = new CarListPutInMap();
-        Map<String, Integer> carMap = carName.getCarList();
-        carMap.forEach((key, value) -> {
+        RacingValue racingValue = new RacingValue();
+        racingValue.racingStatus.forEach((key, value) -> {
             int count = forwardControl(getRandomNumber());
-            carMap.put(key, value + count);
+            racingValue.racingStatus.put(key, value + count);
         });
-        return carMap;
+        return racingValue.racingStatus;
     }
 
     public final int getRandomNumber() {

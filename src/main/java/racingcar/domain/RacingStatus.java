@@ -4,17 +4,18 @@ import java.util.Map;
 
 public class RacingStatus {
     public Map<String, Integer> racingMoveCount() {
-        InputRacingCount racingCount = new InputRacingCount();
-        ForwardCarCondition car = new ForwardCarCondition();
-        PrintRacingRankStatus printRankStatus = new PrintRacingRankStatus();
+        RacingValue racingValue = new RacingValue();
+        ForwardCarCondition forwardCarCondition = new ForwardCarCondition();
+        PrintRacingRankStatus printRacingRankStatus = new PrintRacingRankStatus();
 
-        int raceCount = racingCount.inputRacingCount();
+
+        int raceCount = racingValue.racingCount;
         System.out.println();
         System.out.println("실행 결과");
-        Map<String, Integer> result = null;
+        Map<String, Integer> result = racingValue.racingStatus;
         for (int i = 0; raceCount > i; i++) {
-            result = car.racingCarCount();
-            printRankStatus.printRacingCar(result);
+            result = forwardCarCondition.racingCarCount();
+            printRacingRankStatus.printRacingCar(result);
             System.out.println();
         }
         return result;
