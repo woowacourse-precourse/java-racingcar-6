@@ -1,6 +1,7 @@
 package racingcar.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.views.SystemMessage;
@@ -37,11 +38,33 @@ public class GameUtils {
             this.countSuccess(cars);
             System.out.println();
         }
-//        for (int index = 0; index < cars.size(); index++) {
-//            if (cars.get(index).getCount() == max) {
-//
-//            }
-//        }
+        StringBuilder winner = new StringBuilder();
+        int max = countMax(cars);
+        for (int index = 0; index < cars.size(); index++) {
+            if (cars.get(index).getCount() == max) {
+                this.appendString(winner, cars, index);
+            }
+        }
+        System.out.println("최종 우승자 : " +  winner);
+    }
+
+    private void appendString(StringBuilder winner, List<Car> cars,  int index) {
+        if (!winner.isEmpty()) {
+            winner.append(", ");
+            winner.append(cars.get(index).getName());
+        } else {
+            winner.append(cars.get(index).getName());
+        }
+    }
+
+    private int countMax(List<Car> cars) {
+        int max = 0;
+        for (int index = 0; index < cars.size(); index++) {
+            if (cars.get(index).getCount() > max) {
+                max = cars.get(index).getCount();
+            }
+        }
+        return max;
     }
 
     private void countSuccess(List<Car> cars) {
