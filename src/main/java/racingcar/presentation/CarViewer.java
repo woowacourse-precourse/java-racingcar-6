@@ -6,6 +6,7 @@ import racingcar.domain.CarName;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class CarViewer {
 
@@ -40,8 +41,7 @@ public class CarViewer {
     public List<CarName> inputCarNames() {
         System.out.println(INPUT_CAR_NAMES + GUIDE_NAME_DIVIED);
         String inputCarNames = Console.readLine();
-        return List.of(inputCarNames.split(INPUT_NAME_DELIMITER))
-                .stream()
+        return Stream.of(inputCarNames.split(INPUT_NAME_DELIMITER))
                 .map(CarName::new)
                 .toList();
     }
