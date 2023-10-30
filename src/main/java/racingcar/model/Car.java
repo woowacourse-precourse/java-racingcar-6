@@ -27,7 +27,7 @@ public class Car {
         }
     }
 
-    private boolean canMove(int number) {
+    private boolean canMove(final int number) {
         return number >= MIN_MOVE_STANDARD;
     }
 
