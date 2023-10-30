@@ -24,3 +24,7 @@ EX.) 코드 구현시 주의사항
 	5. Random값, 입력값은 UTK제공 package 활
 
 추가..
+
+git add -A
+
+git commit -m "feat(Application) : system print feature added, Car_Names method Basic structure written"
