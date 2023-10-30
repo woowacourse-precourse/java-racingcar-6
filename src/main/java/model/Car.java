@@ -9,4 +9,14 @@ public class Car {
         this.name = new Name(name);
         this.movingCount = new MovingCount();
     }
+
+    public void increaseMovingCountIfGreater(int standardNumber, int randomNumber) {
+        if (randomNumber > standardNumber) {
+            this.movingCount.increase();
+        }
+    }
+
+    public int getMovingCount() {
+        return this.movingCount.getMovingCount();
+    }
 }
