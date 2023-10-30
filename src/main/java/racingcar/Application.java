@@ -2,8 +2,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 public class Application {
@@ -18,7 +17,7 @@ public class Application {
         inputRaceTime();
 
         playGame();
-        System.out.println("최종 우승자 : pobi");
+        printWinner();
     }
 
     public static void inputCarName() {
@@ -96,6 +95,36 @@ public class Application {
     public static boolean isStraight(){
         int randomNum = Randoms.pickNumberInRange(0,9);
         return randomNum >= 4;
+    }
+
+    public static void printWinner(){
+        System.out.println("최종 우승자 : " + getWinner());
+    }
+
+    static String getWinner(){
+        List<String> winners = new ArrayList<>();
+        Long maxPosition = Collections.max(carRace.values());
+
+        for( String carName : carRace.keySet()){
+            Long carPosition = carRace.get(carName);
+            if(carPosition.equals(maxPosition)){
+                winners.add(carName);
+            }
+        }
+
+        return getStringFormat(winners);
+    }
+
+    static String getStringFormat(List<String> input){
+        StringBuilder result = new StringBuilder();
+
+        if(input.size() == 1) return input.get(0);
+
+        for(String item : input){
+            result.append(item).append(",");
+        }
+
+        return result.toString();
     }
 
 }
