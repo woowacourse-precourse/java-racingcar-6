@@ -29,8 +29,6 @@ class Car {
     }
 }
 
-
-
 public class Application {
     private Scanner scanner;
     List<Car> racerList = new ArrayList<>();
@@ -95,9 +93,11 @@ public class Application {
         // 멀리 간 position에 해당하는 car를 우승자로 선정하여 List 형태에 저장
         List<String> winners = findWinners(maxPosition);
 
+        // 최종 우승자 출력
         System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
+            // 2명 이상이 되는 경우 ", "를 포함하여 출력하도록 설정
             if (i < winners.size() - 1) {
                 System.out.print(", ");
             }
