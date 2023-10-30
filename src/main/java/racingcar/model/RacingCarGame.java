@@ -9,6 +9,15 @@ public class RacingCarGame implements Game {
     private int attempts;
     private final List<Car> carList = new ArrayList<>();
 
+    @Override
+    public boolean continues() {
+        if (attempts > 0) {
+            attempts--;
+            return false;
+        }
+        return true;
+    }
+
     public void makeCars(String carNames) {
         for (String name : carNames.split(",")) {
             validateCarName(name);
