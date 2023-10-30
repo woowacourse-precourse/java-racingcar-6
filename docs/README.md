@@ -1,12 +1,12 @@
 # 자동차 경주
 
 ## 기능 목록
-- [] 자동차 이름 입력받기 InputCarName#makeTrack()
-  - [] 자동차별 List 만들기
-- [] 무작위 값 도출 RandNum#createRandomNumber()
-- [] 자동차 시뮬레이션 CarSimulate#goSimulate()#viewCurrentProgress()
-  - [] 자동차 별 전진여부 기록하기 
-  - [] 회차별 진행상황 출력하기 
+- [x] 자동차 이름 입력받기 InputCarName#makeTrack()
+  - [x] 자동차별 진행상활을 표시할 트랙생성
+- [x] 무작위 값 도출 RandNum#createRandomNumber()
+- [x] 자동차 시뮬레이션 CarSimulate#goSimulate()#viewCurrentProgress()
+  - [x] 자동차 별 전진여부 기록하기 
+  - [x] 회차별 진행상황 출력하기 
 - [] 우승자 Winner#decisionWinner()#printResult()
     - [] 우승자 결정하기
     - [] 결과 출력하기
