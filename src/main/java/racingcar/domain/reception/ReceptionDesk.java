@@ -8,8 +8,6 @@ import java.util.HashMap;
 public class ReceptionDesk {
 
     public static HashMap<String, Integer> registering(String[] lineUpArr) {
-        Checker.lenCheck(lineUpArr);
-
         HashMap<String, Integer> lineUp = new HashMap<>();
 
         for (String carName : lineUpArr) {
