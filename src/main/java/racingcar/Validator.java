@@ -20,9 +20,6 @@ public class Validator {
         return sizeChecker.contains(true);
     }
 
-    public void validateAttempts() {
-
-    }
 
     public static void validateAttemptsNumber(String attempts) {
         try {
@@ -32,7 +29,13 @@ public class Validator {
         }
     }
 
-    public void isAttemptsOutOfRange() {
+    public static void validateAttemptsRange(String attempts) {
+        if (isAttemptsOutOfRange(attempts)) {
+            throw new IllegalArgumentException();
+        }
+    }
 
+    public static boolean isAttemptsOutOfRange(String attempts) {
+        return Integer.parseInt(attempts) < 1;
     }
 }

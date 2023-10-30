@@ -15,6 +15,7 @@ public class Converter {
 
     public static int convertAttempts(String attempts) {
         Validator.validateAttemptsNumber(attempts);
+        Validator.validateAttemptsRange(attempts);
         return Integer.parseInt(attempts);
     }
 
