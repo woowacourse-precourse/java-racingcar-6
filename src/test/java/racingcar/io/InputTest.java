@@ -6,8 +6,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class InputTest extends IOTest {
-
-
     @Test
     void set_testing_input() {
         testInput("배달이,동준이,민족이");
@@ -21,7 +19,7 @@ class InputTest extends IOTest {
         expectList.add("동준이");
         expectList.add("민족이");
         //when
-        List<String> test = Input.setRegistry();
+        List<String> test = InputView.setRegistry();
         //then
         Assertions.assertThat(test).isEqualTo(expectList);
     }

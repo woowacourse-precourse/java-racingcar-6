@@ -30,7 +30,6 @@
     - 생성된 `Player`객체를 리스트에 담아 보관한다.
 
   #### 1-1. ⚠️ 예외 처리 ⚠️
-
     - [x] 플레이어 명이 5자 초과한 경우, ``IllegalArgumentException``을 호출한다
     - [x] 플레이어 명이 1자 미만인 경우, ``IllegalArgumentException``을 호출한다
     - [x] 플레이어 명이 중복된 경우, ``IllegalArgumentException``을 호출한다

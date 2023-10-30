@@ -4,8 +4,7 @@ import java.util.List;
 import racingcar.exception.ErrorMessage;
 import racingcar.exception.RacingCarException;
 
-public class EmptyInputValidator implements RegistryValidator {
-
+public class EmptyRegistryValidator implements RegistryValidator {
     @Override
     public void validate(List<String> inputValue) {
         if (isEmptyList(inputValue)) {

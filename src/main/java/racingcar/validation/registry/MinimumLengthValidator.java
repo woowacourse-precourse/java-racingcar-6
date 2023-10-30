@@ -5,7 +5,6 @@ import racingcar.exception.ErrorMessage;
 import racingcar.exception.RacingCarException;
 
 public class MinimumLengthValidator implements RegistryValidator {
-
     @Override
     public void validate(List<String> inputValue) {
         if (CountValueUnderOne(inputValue) != 0) {

@@ -12,7 +12,6 @@ class RegistryTest {
     void duplicateNameTest() {
         //given
         List<String> duplicateName = Arrays.asList("배달이", "배달이", "동준이");
-
         //when & then
         Assertions.assertThatIllegalArgumentException().isThrownBy(() -> Registry.isValid(duplicateName));
     }
@@ -22,7 +21,6 @@ class RegistryTest {
     void emptyInputValueTest() {
         //given
         List<String> EmptyInput = List.of("");
-
         //when & then
         Assertions.assertThatIllegalArgumentException().isThrownBy(() -> Registry.isValid(EmptyInput));
     }

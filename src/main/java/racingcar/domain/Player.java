@@ -3,7 +3,6 @@ package racingcar.domain;
 import racingcar.operator.GameOperator;
 
 public class Player {
-
     private final String name;
     private Integer progressScore;
     private final static Integer START_SCORE = 0;
