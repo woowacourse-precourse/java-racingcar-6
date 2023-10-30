@@ -20,7 +20,7 @@ public class MoveOrStopCar {
         Integer randomValue = Randoms.pickNumberInRange(ramdomStartNumber, ramdomEndNumber);
 
         if (randomValue >= 4) {
-            car.setMoveNumber(car.getMoveNumber()+1);
+            car.setMoveNumber(car.getMoveNumber() + 1);
         }
     }
 
