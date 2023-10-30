@@ -30,3 +30,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### MacOS ###
+.DS_Store
+
+### Java ###
+*.class
+*.log
