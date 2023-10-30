@@ -20,4 +20,15 @@ public class CarRepository {
     public int findIdByCar(Car car) {
         return cars.indexOf(car);
     }
+
+    public void save(CarRecord carRecord) {
+        int id = carRecord.id();
+        Car updateCar = new Car(
+                IDENTITY_NUMBER++,
+                carRecord.name(),
+                carRecord.position()
+        );
+        cars.set(id, updateCar);
+    }
+
 }
