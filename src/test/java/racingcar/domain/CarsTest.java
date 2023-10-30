@@ -1,21 +1,30 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CarsTest {
+    String input;
     Cars cars;
     List<Car> carList;
 
     @BeforeEach
     void setUp() {
-        String input = "pobi,woni,jun";
+        input = "pobi,woni,jun";
         cars = new Cars();
         carList = cars.createCarList(input);
     }
+
+    void setUp(String input) {
+        this.input = input;
+        cars = new Cars();
+        carList = cars.createCarList(input);
+    }
+
 
     @Test
     void createCarList_메서드로_입력_값을_콤마로_나누어_리스트에_저장() {
@@ -49,7 +58,10 @@ class CarsTest {
     }
 
     @Test
-    void forceStop_메서드로_예외_발생시키기() {
-
+    void 차량_생성시_이름이_올바르지_않으면_예외_발생() {
+        assertThatThrownBy(() -> setUp("pobiiiii,woni,jun"))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> setUp("pobi,woni, "))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
