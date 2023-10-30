@@ -1,8 +1,10 @@
 package racingcar.controller;
 
+import static racingcar.view.InputView.*;
+import static racingcar.view.OutputView.*;
+
+import java.util.List;
 import racingcar.model.service.GameService;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class GameController {
     private final GameService gameService;
@@ -12,10 +14,22 @@ public class GameController {
     }
 
     public void run() {
-        gameService.createCars(InputView.inputName());
-        gameService.nameCheck();
-        OutputView.outputResult();
-        gameService.playGame(InputView.inputAttempt());
-        OutputView.outputWinner(gameService.resultGame());
+        int attemptNum, idx = 0;
+        List<String> carNames = inputName();
+
+        gameService.nameCheck(carNames);
+        gameService.createCars(carNames);
+
+        attemptNum = inputAttempt();
+        outputResult();
+
+        while (attemptNum != 0) {
+            while (idx != carNames.size()) {
+                outputForward(gameService.playGame(idx));
+                idx++;
+            }
+            attemptNum--;
+        }
+        outputWinner(gameService.resultGame());
     }
 }
