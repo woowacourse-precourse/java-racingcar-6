@@ -8,6 +8,10 @@ public class Application {
         InputView inputView = new InputView();
         GameController gameController = new GameController(inputView);
 
-        gameController.run();
+        try {
+            gameController.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,13 +1,15 @@
 package racingcar.controller.dto.request;
 
-public class CarNameDto {
-    private final String carName;
+import java.util.List;
 
-    public CarNameDto (String carName) {
-        this.carName = carName;
+public class CarNameDto {
+    private final List<String> carNameList;
+
+    public CarNameDto(List<String> carNameList) {
+        this.carNameList = carNameList;
     }
 
-    public String getCarName() {
-        return carName;
+    public List<String> getCarNameList() {
+        return carNameList;
     }
 }
