@@ -15,7 +15,8 @@ public class PlayGame {
         SettingGame setGame = new SettingGame();
 
         PrintInput.inputCar();
-        HashMap<String, Integer> car_list = setGame.settingcar();
+        String[] car_Names = setGame.inputCar();
+        HashMap<String, Integer> car_list = setGame.settingcar(car_Names);
 
         PrintInput.inputNumberOfMove();
         int game = setGame.numberOfGame();

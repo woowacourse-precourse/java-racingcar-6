@@ -8,9 +8,14 @@ import java.util.LinkedHashMap;
 public class SettingGame {
     private final HashMap<String, Integer> cars = new LinkedHashMap<>();
 
-    public HashMap<String, Integer> settingcar() {
+    public String[] inputCar() {
         String input_carName = Console.readLine();
         String[] carNameList = input_carName.split(",");
+
+        return carNameList;
+    }
+
+    public HashMap<String, Integer> settingcar(String[] carNameList) {
 
         for (String carName : carNameList) {
             ValidCheck.duplicate_check(cars.keySet(), carName);
