@@ -19,7 +19,7 @@ public class RacingController {
 
         OutputView.printGameResult();
 
-        moveCarListLoop(readMovingCount(), carList);
+        printAllRacingResult(readMovingCount(), carList);
     }
 
     public List<String> readCarName() {
@@ -31,7 +31,7 @@ public class RacingController {
         return nameParser.setCar(carNameList);
     }
 
-    public void moveCarListLoop(int movingCount, List<Car> carList) {
+    public void printAllRacingResult(int movingCount, List<Car> carList) {
         for (int i = 0; i < movingCount; i++) {
             printCarListResult(carList);
         }
