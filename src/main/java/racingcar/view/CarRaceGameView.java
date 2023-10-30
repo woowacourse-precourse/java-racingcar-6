@@ -11,7 +11,7 @@ import static racingcar.constant.GameConstants.COLONS;
 import static racingcar.constant.GameConstants.SPACE;
 
 public class CarRaceGameView {
-    private CarRaceGameView() {};
+    private CarRaceGameView() {}
     public static String startGameView() {
         System.out.println(START_GAME);
         String carNames = readLine();
@@ -31,9 +31,9 @@ public class CarRaceGameView {
     }
 
     public static void tryForwardResultView(String carName, int advanceNumber) {
-        String advanceString = "";
+        String advanceString = NULL;
         for (int i = 0; i < advanceNumber; i++) {
-            advanceString += "-";
+            advanceString += DASH;
         }
         System.out.println(carName + SPACE + COLONS + SPACE + advanceString);
 
@@ -45,7 +45,7 @@ public class CarRaceGameView {
 
     public static void gameResultView(List<String> winnerList) {
         String resultText = FINAL_WINNER + SPACE + COLONS + SPACE;
-        String winnerListString = winnerList.stream().collect(Collectors.joining(","));
+        String winnerListString = String.join(COMMA+SPACE, winnerList);
         System.out.println(resultText + winnerListString);
     }
 

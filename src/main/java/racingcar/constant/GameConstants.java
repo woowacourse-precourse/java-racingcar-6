@@ -12,6 +12,8 @@ public class GameConstants {
     public static final String EXECUTION_RESULT = "실행 결과";
     public static final String SPACE = " ";
     public static final String COLONS = ":";
+    public static final String COMMA = ",";
+    public static final String DASH = "-";
     public static final String NULL = "";
     public static final String FINAL_WINNER = "최종 우승자";
 
