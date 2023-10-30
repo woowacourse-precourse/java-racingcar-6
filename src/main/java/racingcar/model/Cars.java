@@ -1,18 +1,23 @@
 package racingcar.model;
 
-import racingcar.constants.Constants;
+import racingcar.enums.Common;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> carList = new ArrayList<>();
 
     public Cars(String carNames) {
-        String[] carNameArray = carNames.split(Constants.SEPARATOR.getStringValue());
+        String[] carNameArray = carNames.split(Common.SEPARATOR.getStringValue());
         for (String carName : carNameArray) {
             carList.add(new Car(carName));
+        }
+    }
+
+    public void everyCarMoveForward() {
+        for (Car car : carList) {
+            car.moveForward();
         }
     }
 
