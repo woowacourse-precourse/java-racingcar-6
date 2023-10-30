@@ -1,6 +1,7 @@
 package racingcar.validator;
 
-import java.util.Objects;
+import java.util.Collections;
+import java.util.List;
 import racingcar.ErrorMessage;
 
 public class UserInputValidator {
@@ -14,12 +15,12 @@ public class UserInputValidator {
         }
     }
 
-    public static void validCarNameIsDuplicated(String[] userInput) {
-
-        for (int i = 1; i < userInput.length; i++) {
-            if (Objects.equals(userInput[i], userInput[i - 1])) {
+    public static void validCarNameIsDuplicated(List<String> carNames) {
+        for (String carName : carNames) {
+            if (Collections.frequency(carNames, carName) > 1) {
                 throw new IllegalArgumentException(ErrorMessage.DUPLICATE_CAR_NAME.getMessage());
             }
         }
+
     }
 }
