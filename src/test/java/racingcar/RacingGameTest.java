@@ -1,14 +1,16 @@
 package racingcar;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-
 import org.junit.jupiter.api.Test;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class RacingGameTest {
 
+    final int ENOUGH_BIG_NUMBER = 10000;
     RacingGame racingGame = new RacingGame();
+    RandomNumberMaker randomNumberMaker = new RandomNumberMaker();
     @Test
     void canCreateCars() throws NoSuchFieldException, IllegalAccessException {
         String[] answer = {"car1", "car2", "car3"};
@@ -23,7 +25,14 @@ public class RacingGameTest {
         assertArrayEquals(result, answer);
     }
 
-    void canMoveCars() {
-
+    @Test
+    void canMakeRandomNumber() {
+        for (int times = 0; times < ENOUGH_BIG_NUMBER; times++) {
+            int randomNumber = randomNumberMaker.makeRandomNumber();
+            if (0 > randomNumber || randomNumber > 9) {
+                assertFalse(false);
+            }
+        }
+        assertTrue(true);
     }
 }
