@@ -1,12 +1,15 @@
 package racingcar.controller;
 
+import java.util.List;
 import racingcar.domain.car.Car;
+import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
     private final InputView inputView;
     private final OutputView outputView;
+    private GameService gameService;
 
     public GameController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -16,9 +19,22 @@ public class GameController {
     public void startGame() {
         String[] carNames = inputView.readCarNames();
         int attemptCount = inputView.readAttemptCount();
+        this.gameService = GameService.startGame(carNames, attemptCount);
+
+        attempt();
     }
 
-    private void printRoundResult(Car car) {
+    private void attempt() {
+        outputView.printGameResultMessage();
+
+        while (gameService.isGameEnd()) {
+            List<Car> racingCars = gameService.attemptDrive();
+            racingCars.forEach(this::printAttemptResult);
+            outputView.printNewLine();
+        }
+    }
+
+    private void printAttemptResult(Car car) {
         outputView.printCarNameAndPosition(car.getName(), car.getPosition());
     }
 }

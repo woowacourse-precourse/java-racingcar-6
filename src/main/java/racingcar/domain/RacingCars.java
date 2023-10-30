@@ -23,4 +23,14 @@ public final class RacingCars {
             throw new IllegalArgumentException(CAR_COUNT_EXCEPTION_MESSAGE);
         }
     }
+
+    public void driveCars() {
+        racingCars.forEach(Car::drive);
+    }
+
+    public List<Car> getCars() {
+        return racingCars.stream()
+                .map(Car::create)
+                .toList();
+    }
 }

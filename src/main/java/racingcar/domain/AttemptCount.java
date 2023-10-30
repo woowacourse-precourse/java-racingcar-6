@@ -17,4 +17,12 @@ public class AttemptCount {
             throw new IllegalArgumentException(MINIMUM_COUNT_EXCEPTION_MESSAGE);
         }
     }
+
+    public boolean isEnd() {
+        return attemptCount >= MINIMUM_ATTEMPT_COUNT;
+    }
+
+    public void attempt() {
+        --attemptCount;
+    }
 }
