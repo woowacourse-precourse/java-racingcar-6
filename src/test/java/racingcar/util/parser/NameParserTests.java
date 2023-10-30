@@ -1,4 +1,4 @@
-package util.parser;
+package racingcar.util.parser;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static racingcar.container.ApplicationContainer.getNameParser;
 
 import racingcar.util.parser.NameParser;
-
 
 import java.util.List;
 

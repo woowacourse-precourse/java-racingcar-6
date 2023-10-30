@@ -1,4 +1,4 @@
-package util.validator;
+package racingcar.util.validator;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
