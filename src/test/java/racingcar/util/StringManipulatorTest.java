@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StringManipulatorTest {
 
     @Test
-    public void testSplit() {
+    public void 문자열_분리() {
         String input = "김명준, 김혜인, 김고운";
         List<String> parts = StringManipulator.split(input);
 
@@ -17,7 +17,7 @@ public class StringManipulatorTest {
     }
 
     @Test
-    public void testJoin() {
+    public void 문자열_병합() {
         List<String> parts = Arrays.asList("김명준", "김혜인", "김고운");
         String result = StringManipulator.join(parts);
 
