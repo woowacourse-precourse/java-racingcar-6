@@ -26,6 +26,9 @@ public class RacingController {
     return rs.setCarListName(carStringList);
   }
 
+  public void racingGameStart(int tryCycleChoice,List<CarVO> racingCarList){
+    rs.gamePlay(tryCycleChoice,racingCarList);
+  }
 
 
 

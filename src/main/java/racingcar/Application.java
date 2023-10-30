@@ -23,27 +23,13 @@ public class Application {
 
     List<CarVO> racingCarList = rc.racingCarList(carStringList);
 
-    // 변화 포인트
     int tryCycleChoice = rc.tryCycle();
 
+    // 변화 포인트
+    rc.racingGameStart(tryCycleChoice,racingCarList);
 
-    for (int i = 0; i < tryCycleChoice; i++) {
-      for(CarVO car : racingCarList){
-        int randomNumber = Randoms.pickNumberInRange(1,9);
-        if(randomNumber > 3){
-          car.setMove(1 + car.getMove());
-        }
-      StringBuilder movePoint = new StringBuilder();
-        for (int j = 0; j < car.getMove(); j++) {
-          movePoint.append("-");
-        }
-        System.out.print(car.getCar() + " : ");
-        System.out.println(movePoint);
 
-        car.setCar(car.getCar());
-      }
-      System.out.println();
-    }
+
     int maxMove = -1;
     List<String> champions = new ArrayList<>();
     for (CarVO car : racingCarList){
