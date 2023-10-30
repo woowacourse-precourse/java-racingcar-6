@@ -21,14 +21,15 @@ public final class RacingGame {
     }
 
     public RaceHistory startRaceWith(MovementCondition movementCondition) {
-        List<CarGroup> raceStages = runRaceStages(movementCondition);
+        List<RaceStage> raceStages = generateRaceStages(movementCondition);
         return RaceHistory.from(raceStages);
     }
 
-    private List<CarGroup> runRaceStages(MovementCondition movementCondition) {
+    private List<RaceStage> generateRaceStages(MovementCondition movementCondition) {
         return Stream.iterate(carGroup, carGroup -> carGroup.moveAll(movementCondition))
                 .skip(INITIAL_SKIP_COUNT)
                 .limit(tryCount.getCount())
+                .map(RaceStage::from)
                 .collect(toList());
     }
 }

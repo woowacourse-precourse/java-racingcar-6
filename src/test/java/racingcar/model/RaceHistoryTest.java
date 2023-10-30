@@ -18,10 +18,11 @@ class RaceHistoryTest {
     @Test
     void 경기_기록은_최소한_한라운드의_경기_기록이_있어야_한다() {
         Car jackCar = createCarWith("jack", 5);
-        CarGroup finalStage = new CarGroup(List.of(jackCar));
+        CarGroup carGroup = new CarGroup(List.of(jackCar));
+        RaceStage raceStage = RaceStage.from(carGroup);
 
         assertDoesNotThrow(
-                () -> RaceHistory.from(List.of(finalStage))
+                () -> RaceHistory.from(List.of(raceStage))
         );
     }
 
@@ -29,7 +30,8 @@ class RaceHistoryTest {
     void 전체_경기_기록에서_마지막_경기_기록으로_우승자를_찾는다() {
         Car jackCar = createCarWith("jack", 5);
         Car johnCar = createCarWith("john", 4);
-        CarGroup finalStage = new CarGroup(List.of(jackCar, johnCar));
+        CarGroup carGroup = new CarGroup(List.of(jackCar, johnCar));
+        RaceStage finalStage = RaceStage.from(carGroup);
         RaceHistory raceHistory = RaceHistory.from(List.of(finalStage));
         CarWinners expectedCarWinners = CarWinners.from(List.of(jackCar));
 

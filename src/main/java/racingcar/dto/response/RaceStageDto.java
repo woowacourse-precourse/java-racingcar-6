@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.CarGroup;
+import racingcar.model.RaceStage;
 
 public class RaceStageDto {
     private final List<CarProgressDto> carProgresses;
@@ -12,7 +13,8 @@ public class RaceStageDto {
         this.carProgresses = carProgresses;
     }
 
-    public static RaceStageDto from(CarGroup carGroup) {
+    public static RaceStageDto from(RaceStage raceStage) {
+        CarGroup carGroup = raceStage.getCarGroup();
         List<Car> cars = carGroup.getCars();
         List<CarProgressDto> carProgressDtoList = getCarProgressDtoList(cars);
         return new RaceStageDto(carProgressDtoList);

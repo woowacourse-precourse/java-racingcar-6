@@ -30,7 +30,8 @@ class RacingGameTest {
         Car jackCar = new Car(CarName.from("jack"), new CarPosition(1));
         Car johnCar = new Car(CarName.from("john"), new CarPosition(1));
         CarGroup movedCarGroup = new CarGroup(List.of(jackCar, johnCar));
-        RaceHistory expectedRaceHistory = RaceHistory.from(List.of(movedCarGroup));
+        RaceStage raceStage = RaceStage.from(movedCarGroup);
+        RaceHistory expectedRaceHistory = RaceHistory.from(List.of(raceStage));
 
         assertThat(actualRaceHistory).usingRecursiveComparison()
                 .isEqualTo(expectedRaceHistory);
