@@ -18,7 +18,11 @@ public class InputView {
 
     public static int inputAttempt() {
         System.out.println(ATTEMPT_COUNT_INPUT_MESSAGE);
-        return Integer.parseInt(Console.readLine());
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요");
+        }
     }
 
 }

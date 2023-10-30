@@ -54,6 +54,16 @@ class ApplicationTest extends NsTest {
         outputWinner(gameService.resultGame());
         assertThat(output()).contains("faker, chovy");
     }
+
+    @Test
+    @DisplayName("반복 횟수 예외 처리")
+    void attemptVaildTest() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
