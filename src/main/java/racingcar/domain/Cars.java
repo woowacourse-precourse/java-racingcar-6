@@ -57,4 +57,10 @@ public class Cars {
             }
         }
     }
+
+    public RaceResultResponse toResponse() {
+        RaceResultResponse response = new RaceResultResponse();
+        cars.forEach(response::updateCarPosition);
+        return response;
+    }
 }
