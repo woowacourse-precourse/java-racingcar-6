@@ -109,4 +109,13 @@ public class Application {
             }
             printWinners();
         }
-}
+
+        private void appendCarStatus(StringBuilder raceResult, Car car) {
+            raceResult.append(car.getName()).append(" : ");
+            for (int i = 0; i < car.getPosition(); i++) {
+                raceResult.append("-");
+            }
+            raceResult.append("\n");
+        }
+
+    }
