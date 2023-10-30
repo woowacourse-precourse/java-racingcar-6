@@ -4,6 +4,8 @@ public class Car {
 
     private final Name name;
     private final MovingCount movingCount;
+    private static final String DASH = "-";
+    private static final String STATUS_SEPARATOR = " : ";
 
     public Car(String name) {
         this.name = new Name(name);
@@ -22,6 +24,11 @@ public class Car {
 
     public boolean isSameMovingCount(Car otherCar) {
         return this.movingCount.equals(otherCar.movingCount);
+    }
+
+    public String currentRacingStatus() {
+        String dash = DASH.repeat(movingCount.getMovingCount());
+        return this + STATUS_SEPARATOR + dash;
     }
 
     @Override
