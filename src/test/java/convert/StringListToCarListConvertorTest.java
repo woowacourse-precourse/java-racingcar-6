@@ -21,7 +21,7 @@ public class StringListToCarListConvertorTest {
     @MethodSource("provideStringListAndCarList")
     void stringListToCarListConvertTest(List<String> strings, List<Car> expect) {
         //when
-        List<Car> result = StringListToCarListConvertor.convert(strings,new RandomForwardStrategy());
+        List<Car> result = StringListToCarListConvertor.convert(strings);
 
         //then
         Assertions.assertThat(result).isEqualTo(expect);
@@ -43,7 +43,7 @@ public class StringListToCarListConvertorTest {
 
     private static List<Car> createCarList(String... names) {
         return Arrays.stream(names)
-                .map(name -> CarFactory.createCar(name, 0,new RandomForwardStrategy()))
+                .map(name -> CarFactory.createCar(name, 0))
                 .collect(Collectors.toList());
     }
 

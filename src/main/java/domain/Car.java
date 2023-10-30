@@ -2,33 +2,29 @@ package domain;
 
 import java.util.Objects;
 
-public class Car<T> {
+public class Car {
 
-    private final ForwardStrategy<T> forwardStrategy;
     private final CarName carName;
     private final CarLocation carLocation;
 
-    private Car(CarName carname, CarLocation carLocation, ForwardStrategy<T> forwardStrategy) {
-        this.forwardStrategy = forwardStrategy;
+    private Car(CarName carname, CarLocation carLocation) {
         this.carName = carname;
         this.carLocation = carLocation;
     }
 
-    public void move(T value) {
-        if (forwardStrategy.canMove(value)) {
-            carLocation.move();
-        }
+    public void move() {
+        carLocation.move();
     }
 
-    public static Car<?> of(CarName carName, CarLocation carLocation,
-            ForwardStrategy<?> forwardStrategy) {
-        return new Car(carName, carLocation, forwardStrategy);
+    public static Car of(CarName carName, CarLocation carLocation) {
+        return new Car(carName, carLocation);
     }
 
     public CarLocation getCarLocation() {
         return this.carLocation;
     }
-    public CarName getCarName(){
+
+    public CarName getCarName() {
         return this.carName;
     }
 
@@ -41,7 +37,7 @@ public class Car<T> {
             return false;
         }
 
-        Car<?> car = (Car<?>) o;
+        Car car = (Car) o;
 
         return carName.equals(car.carName) && carLocation.equals(car.carLocation);
     }

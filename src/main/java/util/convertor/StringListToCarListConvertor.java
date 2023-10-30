@@ -10,9 +10,9 @@ public class StringListToCarListConvertor {
 
     private static final int START_LOCATION = 0;
 
-    public static List<Car> convert(List<String> names, ForwardStrategy<?> forwardStrategy) {
+    public static List<Car> convert(List<String> names) {
         return names.stream()
-                .map(name -> CarFactory.createCar(name, START_LOCATION, forwardStrategy))
+                .map(name -> CarFactory.createCar(name, START_LOCATION))
                 .collect(Collectors.toList());
     }
 }
