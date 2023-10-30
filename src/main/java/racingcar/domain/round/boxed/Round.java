@@ -1,4 +1,4 @@
-package round.boxed;
+package racingcar.domain.round.boxed;
 
 import racingcar.exception.InvalidRoundException;
 

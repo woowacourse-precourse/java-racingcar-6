@@ -1,4 +1,4 @@
-package round.boxed;
+package racingcar.domain.round.boxed;
 
 public final class CurrentRound extends Round {
     public CurrentRound(final int round) {
