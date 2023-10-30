@@ -10,14 +10,18 @@ public class Application {
     static int gameRepeatNum;
     static String[] carNameList;
     static ArrayList<Integer> carRacingCountList = new ArrayList<Integer>();
+
+    public static void HyhpenPrint(int j){
+        for(int k=0; k<carRacingCountList.get(j); k++){
+                System.out.print('-');
+            }
+    }
     
     public static void RacingCountPrint(){
         for(int j=0; j<carNameList.length; j++){
             System.out.print(carNameList[j]);
             System.out.print(" : ");
-            for(int k=0; k<carRacingCountList.get(j); k++){
-                System.out.print('-');
-            }
+            HyhpenPrint(j);
             System.out.println();
         }
         System.out.println();
@@ -45,6 +49,8 @@ public class Application {
 
     public static void NameCheck(String carName){
         if (carName.length() > carNameRange)
+            throw new IllegalArgumentException();
+        if (carName.equals(""))
             throw new IllegalArgumentException();
     }
 
