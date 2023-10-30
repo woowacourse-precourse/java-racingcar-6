@@ -2,7 +2,7 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class GameUtils {
+public class RacingUtils {
     private final static int MOVE_CONDITION_NUMBER = 4;
     private final static String MOVE = "-";
     private final static String NO_MOVE = "";
