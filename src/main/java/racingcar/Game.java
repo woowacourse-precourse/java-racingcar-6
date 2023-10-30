@@ -47,8 +47,10 @@ public class Game {
         String[] carNames = input.split(WINNER_SEPARATOR);
 
         for (String carName : carNames) {
-            inputValidator.validCarNameLength(carName);
-            gameManager.addCar(carName);
+            String trimmedCarName = carName.trim();
+
+            inputValidator.validCarNameLength(trimmedCarName);
+            gameManager.addCar(trimmedCarName);
         }
     }
 
