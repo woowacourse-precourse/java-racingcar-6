@@ -23,7 +23,7 @@ public class RacingCarController {
   }
 
   public void run() {
-    RaceGameInput raceGameInput = inputView.readStartInput();
+    RaceGameInput raceGameInput = inputView.readRaceGameInput();
     List<Car> cars = CarFactory.createCars(raceGameInput.carNames());
     Formula moveFormula = new MoveFormula(new RandomNumberGenerator());
 
