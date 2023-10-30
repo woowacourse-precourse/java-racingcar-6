@@ -10,7 +10,7 @@ import racingcar.model.Car;
 class GeneratorTest {
 
     @Test
-    void carList() {
+    void stringToCarList() {
         // given
         String case1 = "1,2,3,4";
         String case2 = "12345,asdfg";
@@ -18,13 +18,13 @@ class GeneratorTest {
         String case4 = "asdfg,zxcvzxcvzxv";
 
         // when
-        List<Car> result1 = Generator.carList(case1);
-        List<Car> result2 = Generator.carList(case2);
+        List<Car> result1 = Generator.stringToCarList(case1);
+        List<Car> result2 = Generator.stringToCarList(case2);
         Throwable result3 = catchThrowable(() -> {
-            Generator.carList(case3);
+            Generator.stringToCarList(case3);
         });
         Throwable result4 = catchThrowable(() -> {
-            Generator.carList(case4);
+            Generator.stringToCarList(case4);
         });
 
         // then

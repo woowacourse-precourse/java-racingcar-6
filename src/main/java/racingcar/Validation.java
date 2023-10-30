@@ -28,7 +28,6 @@ public class Validation {
 
         try {
             number = Integer.parseInt(input);
-
         } catch (Exception e) {
             throw new IllegalArgumentException("숫자 값만 입력해야 합니다.");
         }
