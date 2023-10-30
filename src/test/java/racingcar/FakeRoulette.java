@@ -8,7 +8,7 @@ final class FakeRoulette implements Roulette {
         this.fixedNumber = fixedNumber;
     }
 
-    void changeNumber(int number) {
+    void fixNumber(int number) {
         fixedNumber = number;
     }
 
