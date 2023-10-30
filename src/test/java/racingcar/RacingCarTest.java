@@ -13,10 +13,12 @@ public class RacingCarTest {
     private static final int DISTANCE_WHEN_MOVING_FORWARD = 1;
     private static final String MOVING_BAR_WHEN_MOVING_FORWARD = "-";
 
+    private final RacingCarValidator racingCarValidator = new RacingCarValidator();
+
     @Test
     void 전진() {
         MockRandomNumberGenerator randomNumberGenerator = new MockRandomNumberGenerator(MOVING_FORWARD);
-        RacingCar racingCar = new RacingCar(randomNumberGenerator, RACING_CAR_NAME);
+        RacingCar racingCar = new RacingCar(racingCarValidator, randomNumberGenerator, RACING_CAR_NAME);
         racingCar.move();
 
         assertThat(racingCar.getDistance()).isEqualTo(DISTANCE_WHEN_MOVING_FORWARD);
@@ -26,7 +28,7 @@ public class RacingCarTest {
     @Test
     void 멈춤() {
         MockRandomNumberGenerator randomNumberGenerator = new MockRandomNumberGenerator(STOP);
-        RacingCar racingCar = new RacingCar(randomNumberGenerator, RACING_CAR_NAME);
+        RacingCar racingCar = new RacingCar(racingCarValidator, randomNumberGenerator, RACING_CAR_NAME);
         racingCar.move();
 
         assertThat(racingCar.getDistance()).isEqualTo(DISTANCE_WHEN_STOP);
