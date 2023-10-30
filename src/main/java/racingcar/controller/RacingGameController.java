@@ -2,7 +2,8 @@ package racingcar.controller;
 
 import racingcar.View.InputView;
 import racingcar.View.OutPutView;
-import racingcar.dto.GameResultDto;
+import racingcar.dto.MidGameResultDto;
+import racingcar.model.CarRacingGame;
 import racingcar.model.RacingCar;
 import racingcar.service.RacingGameService;
 
@@ -14,26 +15,24 @@ public class RacingGameController {
     OutPutView outPutView = new OutPutView();
 
     public void start() {
-        int raceCount = settingRacingGameAndGetRaceCount();
-        startRacingGame(raceCount);
+        CarRacingGame carRacingGame = settingRacingGame();
+        startRacingGame(carRacingGame);
         finishRacingGame();
     }
 
-    private int settingRacingGameAndGetRaceCount() {
+    private CarRacingGame settingRacingGame() {
         String userEnteredApplicantCarList = inputView.enterCarName();
         racingGameService.validateUserInputApplicant(userEnteredApplicantCarList);
         int userEnteredRaceCount = Integer.parseInt(inputView.enterRaceCount());
         racingGameService.validateUserInputRaceCount(userEnteredRaceCount);
-
-        racingGameService.settingForRacingGame(userEnteredApplicantCarList, userEnteredRaceCount);
-        return userEnteredRaceCount;
+        return racingGameService.createRacingGame(userEnteredApplicantCarList, userEnteredRaceCount);
     }
 
-    private void startRacingGame(int raceCount) {
+    private void startRacingGame(CarRacingGame carRacingGame) {
         outPutView.resultAnnouncementMessage();
-        for (int i = 0; i < raceCount; i++) {
-            ArrayList<GameResultDto> gameResultDtoList = racingGameService.gameInProcess();
-            outPutView.midGameResultMessage(gameResultDtoList);
+        for (int i = 0; i < carRacingGame.getRaceCount(); i++) {
+            ArrayList<MidGameResultDto> midGameResultDtoList = racingGameService.gameInProcess();
+            outPutView.midGameResultMessage(midGameResultDtoList);
             System.out.println();
         }
     }

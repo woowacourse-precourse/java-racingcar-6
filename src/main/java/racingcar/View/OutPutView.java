@@ -1,6 +1,6 @@
 package racingcar.View;
 
-import racingcar.dto.GameResultDto;
+import racingcar.dto.MidGameResultDto;
 import racingcar.model.RacingCar;
 
 import java.util.ArrayList;
@@ -11,14 +11,14 @@ public class OutPutView {
         System.out.println("실행 결과");
     }
 
-    public void midGameResultMessage(ArrayList<GameResultDto> midGameResultDtoList) {
+    public void midGameResultMessage(ArrayList<MidGameResultDto> midGameResultDtoList) {
         StringBuilder midGameResultVisualizationBuilder = new StringBuilder();
-        for (GameResultDto gameResultDto : midGameResultDtoList) {
+        for (MidGameResultDto gameResultDto : midGameResultDtoList) {
             printMidGameResult(gameResultDto, midGameResultVisualizationBuilder);
         }
     }
 
-    private void printMidGameResult(GameResultDto gameResultDto, StringBuilder midGameResultVisualizationBuilder) {
+    private void printMidGameResult(MidGameResultDto gameResultDto, StringBuilder midGameResultVisualizationBuilder) {
         midGameResultVisualizationBuilder.append(gameResultDto.getRacingCarName()).append(" : ").append(distanceVisualization(gameResultDto.getDistance()));
         System.out.println(midGameResultVisualizationBuilder);
         midGameResultVisualizationBuilder.setLength(0);

@@ -1,10 +1,10 @@
 package racingcar.dto;
 
-public class GameResultDto {
+public class MidGameResultDto {
     private String racingCarName;
     private int distance;
 
-    public GameResultDto(String racingCarName, int distance) {
+    public MidGameResultDto(String racingCarName, int distance) {
         this.racingCarName = racingCarName;
         this.distance = distance;
     }

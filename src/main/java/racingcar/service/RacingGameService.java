@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.dto.GameResultDto;
+import racingcar.dto.MidGameResultDto;
 import racingcar.model.CarRacingGame;
 import racingcar.model.RacingCar;
 import racingcar.validation.ValidateInput;
@@ -31,11 +31,12 @@ public class RacingGameService {
         validateInput.validateInputRaceCount(userEnteredRaceCount);
     }
 
-    public void settingForRacingGame(String userEnteredApplicantCarList, int raceCount) {
+    public CarRacingGame createRacingGame(String userEnteredApplicantCarList, int raceCount) {
         ArrayList<RacingCar> ParticipationConfirmedCarList = makeParticipationConfirmedCarList(userEnteredApplicantCarList);
         carRacingGame = new CarRacingGame(ParticipationConfirmedCarList);
         carRacingGame.setRaceCount(raceCount);
         System.out.println();
+        return carRacingGame;
     }
 
     private ArrayList<RacingCar> makeParticipationConfirmedCarList(String userEnteredApplicantCarList) {
@@ -44,7 +45,7 @@ public class RacingGameService {
                 .collect(Collectors.toList());
     }
 
-    public ArrayList<GameResultDto> gameInProcess() {
+    public ArrayList<MidGameResultDto> gameInProcess() {
         ArrayList<RacingCar> participationConfirmedCarList = carRacingGame.getParticipationConfirmedCarList();
         racingCarMove(participationConfirmedCarList);
         return midResultAnnouncement();
@@ -59,15 +60,15 @@ public class RacingGameService {
         }
     }
 
-    private ArrayList<GameResultDto> midResultAnnouncement() {
+    private ArrayList<MidGameResultDto> midResultAnnouncement() {
         ArrayList<RacingCar> participationConfirmedCarList = carRacingGame.getParticipationConfirmedCarList();
-        ArrayList<GameResultDto> gameResultDtoList = new ArrayList<>();
+        ArrayList<MidGameResultDto> midGameResultDtoList = new ArrayList<>();
 
         for (RacingCar racingCar : participationConfirmedCarList) {
-            GameResultDto gameResultDto = new GameResultDto(racingCar.getName(), racingCar.getDistance());
-            gameResultDtoList.add(gameResultDto);
+            MidGameResultDto midGameResultDto = new MidGameResultDto(racingCar.getName(), racingCar.getDistance());
+            midGameResultDtoList.add(midGameResultDto);
         }
-        return gameResultDtoList;
+        return midGameResultDtoList;
     }
 
     public ArrayList<RacingCar> findWinnerByMaxDistance() {
