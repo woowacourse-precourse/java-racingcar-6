@@ -17,12 +17,13 @@ public class RacingGameController {
         gameViewer.startMessage();
         String inputLine = getInputLine();
 
+        validatePlayerInput.convertStringToArray(inputLine);
         validatePlayerInput.validateContainSpace(inputLine);
-        validatePlayerInput.validateNotContainCarNameAndContinuousComma(inputLine);
-        validatePlayerInput.validateCarNameLength(inputLine);
-        validatePlayerInput.validateDuplicateCarNames(inputLine);
-        validatePlayerInput.validateAlphaCarName(inputLine);
-        List<String> carNames = validatePlayerInput.convertStringToListCarNames(inputLine);
+        validatePlayerInput.validateNotContainCarNameAndContinuousComma();
+        validatePlayerInput.validateCarNameLength();
+        validatePlayerInput.validateDuplicateCarNames();
+        validatePlayerInput.validateAlphaCarName();
+        List<String> carNames = validatePlayerInput.convertStringToListCarNames();
 
         gameViewer.tryCountMessage();
         String tryCount = getInputLine();

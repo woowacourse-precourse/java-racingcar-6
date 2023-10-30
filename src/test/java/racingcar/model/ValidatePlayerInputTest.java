@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForClassTypes.*;
 
 class ValidatePlayerInputTest {
 
@@ -31,8 +30,9 @@ class ValidatePlayerInputTest {
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
         //given
         String playerInput = "pobi,suhwp,,";
+        validatePlayerInput.convertStringToArray(playerInput);
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validateNotContainCarNameAndContinuousComma(playerInput))
+        assertThatThrownBy(validatePlayerInput::validateNotContainCarNameAndContinuousComma)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("레이싱 자동차 이름이 없이, 콤마가 연속으로 입력되었습니다");
     }
@@ -44,8 +44,9 @@ class ValidatePlayerInputTest {
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
         //given
         String playerInput = "pobi,suark,watermelon";
+        validatePlayerInput.convertStringToArray(playerInput);
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validateCarNameLength(playerInput))
+        assertThatThrownBy(validatePlayerInput::validateCarNameLength)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름 길이는 5이하 입니다");
     }
@@ -57,8 +58,9 @@ class ValidatePlayerInputTest {
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
         //given
         String playerInput = "pobi,suark,pobi";
+        validatePlayerInput.convertStringToArray(playerInput);
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validateDuplicateCarNames(playerInput))
+        assertThatThrownBy(validatePlayerInput::validateDuplicateCarNames)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("중복된 자동차 이름이 있습니다");
     }
@@ -70,8 +72,9 @@ class ValidatePlayerInputTest {
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
         //given
         String playerInput = "수환,abc,qwer";
+        validatePlayerInput.convertStringToArray(playerInput);
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validateAlphaCarName(playerInput))
+        assertThatThrownBy(validatePlayerInput::validateAlphaCarName)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
     }
@@ -83,8 +86,9 @@ class ValidatePlayerInputTest {
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
         //given
         String playerInput = "pobi,pobi2,qwer";
+        validatePlayerInput.convertStringToArray(playerInput);
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validateAlphaCarName(playerInput))
+        assertThatThrownBy(validatePlayerInput::validateAlphaCarName)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
     }
@@ -96,8 +100,9 @@ class ValidatePlayerInputTest {
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
         //given
         String playerInput = "pobi,pobi@,qwer";
+        validatePlayerInput.convertStringToArray(playerInput);
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validateAlphaCarName(playerInput))
+        assertThatThrownBy(validatePlayerInput::validateAlphaCarName)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("레이싱 자동차 이름은 영어만 허용됩니다");
     }
@@ -169,9 +174,10 @@ class ValidatePlayerInputTest {
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
         //given
         String carNames = "pobi,suhwp,jnam,namzi";
+        validatePlayerInput.convertStringToArray(carNames);
         List<String> carNamesList = Arrays.asList("pobi", "suhwp", "jnam", "namzi");
         //then
-        List<String> convertedValues = validatePlayerInput.convertStringToListCarNames(carNames);
+        List<String> convertedValues = validatePlayerInput.convertStringToListCarNames();
         assertThat(convertedValues).isEqualTo(carNamesList);
     }
 }
