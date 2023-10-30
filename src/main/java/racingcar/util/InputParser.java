@@ -16,6 +16,4 @@ public class InputParser {
                 .map(Car::new)
                 .toList();
     }
-
-
 }
