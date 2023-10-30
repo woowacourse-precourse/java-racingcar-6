@@ -4,7 +4,7 @@ import java.util.*;
 
 import racingcar.domain.Racingcar;
 
-public class MemoryRacingcarRepository implements CarRepository{
+public class MemoryRacingcarRepository implements CarRepository {
 
     private static Map<String, Racingcar> carStore = new HashMap<>();
 
@@ -22,15 +22,7 @@ public class MemoryRacingcarRepository implements CarRepository{
     }
 
     @Override
-    public int update(String name, int distance) {
-        Racingcar racingcar = findByName(name);
-        racingcar.setMovingforward(distance);
-
-        return racingcar.getMovingforward();
-    }
-
-    @Override
-    public List<Racingcar> findAll() {
+    public ArrayList<Racingcar> findAll() {
         return new ArrayList<>(carStore.values());
     }
 }

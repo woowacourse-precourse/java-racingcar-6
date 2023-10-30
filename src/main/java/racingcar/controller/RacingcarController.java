@@ -1,34 +1,65 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.repository.CarRepository;
-import racingcar.repository.MemoryRacingcarRepository;
 import racingcar.service.RacingcarService;
+import racingcar.service.RacingcarServiceImpl;
 import racingcar.view.ReaultView;
+
+import java.util.ArrayList;
 
 public class RacingcarController {
 
-    private final CarRepository carRepository = new MemoryRacingcarRepository();
-    private final RacingcarService racingcarService = new RacingcarService();
-    private final ReaultView reaultView = new ReaultView();
+    private final static RacingcarService racingcarService = new RacingcarServiceImpl();
 
-    public void register() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String nameList = Console.readLine();
+    private final static ReaultView resultView = new ReaultView();
 
-        for(String name : nameList.split(",")) {
-            carRepository.save(name);
+    private int testTimes;
+
+    public RacingcarController() {
+        this.testTimes = 0;
+    }
+
+    public boolean run() {
+        try {
+            inputRacingcar();
+            inputTestTimes();
+            testProcess();
+            outputWinners();
+        } catch (Exception e) {
+            return false;
         }
 
+        return true;
+    }
 
-        System.out.println("시도할 회수는 몇회인가요?");
+    public void inputRacingcar() throws Exception {
+        resultView.scanRacingcarName();
+        String input = Console.readLine();
+
+        racingcarService.joinRacingcar(input);
+    }
+
+    public void inputTestTimes() throws Exception {
+        resultView.scanTestTimes();
+
         try {
-            int times = Integer.parseInt(Console.readLine());
+            testTimes = Integer.parseInt(Console.readLine());
+
         } catch (Exception e) {
-            System.out.println("입력값이 잘못되었습니다.");
+            System.out.println("[ERROR] 입력값이 잘못되었습니다.");
         }
     }
 
-    public void change
+    public void testProcess() throws Exception {
+        System.out.println("실행 결과");
+        for (int i = 0; i < testTimes; i++) {
+            resultView.printProcess(racingcarService.changeMoving());
+        }
+    }
+
+    public void outputWinners() throws Exception {
+        ArrayList<String> winners = racingcarService.selectWinner();
+        resultView.printWinners(winners);
+    }
 
 }

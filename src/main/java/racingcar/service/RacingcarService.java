@@ -1,22 +1,14 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Optional;
 import racingcar.domain.Racingcar;
-import racingcar.repository.CarRepository;
-import racingcar.repository.MemoryRacingcarRepository;
 
-public class RacingcarService {
+import java.util.ArrayList;
 
-    private final int movingDistance = 1;
+public interface RacingcarService {
 
-    public int changeMoving(Racingcar racingcar) {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if(randomNumber >= 4) {
-            racingcar.setMovingforward(movingDistance);
-        }
+    public void joinRacingcar(String nameList);
 
-        return racingcar.getMovingforward();
-    }
+    public ArrayList<Racingcar> changeMoving();
 
+    public ArrayList<String> selectWinner();
 }
