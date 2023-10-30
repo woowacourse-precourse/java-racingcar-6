@@ -34,34 +34,55 @@ public class CarCarNameValidatorTest {
     void 입력받은_차_이름_쉼표로_시작한_경우_예외() {
         String input = ",pobi,woni,jun"; // 결과 = ["","pobi","jun"]
         List<String> splitCarNames = splitCarNames(input);
-        Assertions.assertThatThrownBy(() -> splitCarNames.stream()
+        Assertions.assertThatThrownBy(() -> splitCarNames
                 .forEach(CarNameValidator::validate))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 자동차 이름은 공백을 허용하지 않습니다.");
     }
 
+    /**
+     * ',' 로 끝나는 경우, 예외를 발생 시키지 않음
+     * 하지만 ',' 이후에 공백 또는 " "만 있는 경우 예외를 처리 해줌. (자동차 이름은 공백을 허용하지 않습니다.)
+     * 하지만 ','로 시작하는 경우는 다름.
+     * Assertions.assertDoesNotThrow() - junit.jupiter 함수, 예외가 발생하지 않는 테스트용
+     */
     @Test
     void 입력받은_차_이름_쉼표로_끝나는_경우() {
-        /**
-         * ',' 로 끝나는 경우, 예외를 발생 시키지 않음 ','은 단순히 구분자 이므로 ,이후에 문자가 없으면 아무도 없는걸로 간주
-         * 하지만 ','로 시작하는 경우는 다름.
-         * Assertions.assertDoesNotThrow() - junit.jupiter 함수, 예외가 발생하지 않는 테스트용
-         */
         String input = "pobi,woni,jun,"; // 결과 = ["pobi","woni","jun"]
         List<String> splitCarNames = splitCarNames(input);
-        org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> splitCarNames.stream()
-                .forEach(name -> CarNameValidator.validate(name)));
+        org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> splitCarNames
+                .forEach(CarNameValidator::validate));
     }
 
-    List<String> splitCarNames(String carNames) {
-        return List.of(carNames.split(COMMA_REGEX_DELIMITER));
+    @Test
+    void 입력받은_차_이름_쉼표로_끝나고_공백_문자_둘_다_있는_경우() {
+        String input = "pobi,woni,jun,co py"; // 결과 = ["pobi","woni","jun", "co py"]
+        List<String> splitCarNames = splitCarNames(input);
+        org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> splitCarNames
+                .forEach(CarNameValidator::validate));
+    }
+
+    @Test
+    void 입력받은_차_이름_쉼표로_끝나고_공백인_경우_예외() {
+        String input = "pobi,woni,jun,  "; // 결과 = ["pobi","woni","jun", "  "]
+        List<String> splitCarNames = splitCarNames(input);
+        Assertions.assertThatThrownBy(() -> splitCarNames
+                        .forEach(CarNameValidator::validate))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 자동차 이름은 공백을 허용하지 않습니다.");
     }
 
     @Test
     void 입력받은_차_이름_쉼표가_연속된_경우_예외() {
-        String input = "pobi,,woni,jun";
-        Assertions.assertThatThrownBy(() -> CarNameValidator.validate(input))
+        String input = "pobi,woni,,jun";
+        List<String> splitCarNames = splitCarNames(input);
+        Assertions.assertThatThrownBy(() -> splitCarNames
+                        .forEach(CarNameValidator::validate))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 자동차 이름은 연속된 콤마(',')을 허용하지 않습니다.");
+                .hasMessage("[ERROR] 자동차 이름은 공백을 허용하지 않습니다.");
+    }
+
+    List<String> splitCarNames(String carNames) {
+        return List.of(carNames.split(COMMA_REGEX_DELIMITER));
     }
 }
