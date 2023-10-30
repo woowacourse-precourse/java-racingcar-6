@@ -4,6 +4,9 @@ import racingcar.model.Car;
 import racingcar.model.User;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class RacingCarController {
@@ -19,5 +22,12 @@ public class RacingCarController {
         outputView.moveSize();
         this.user = new User(inputView.moveSize());
         this.carMap = car.getCarMap();
+    }
+    private void move() {
+        for (String car : carMap.keySet()) {
+            if(user.moveForward()){
+                carMap.put(car,carMap.getOrDefault(car,0)+1);
+            }
+        }
     }
 }
