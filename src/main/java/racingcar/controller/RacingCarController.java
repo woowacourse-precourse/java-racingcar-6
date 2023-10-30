@@ -38,6 +38,8 @@ public class RacingCarController {
             numberOfRetries--;
             racingCarView.printCarListMovement(racingCar);
         }
+
+        List<Car> winners = racingCar.findWinners();
     }
 
     public String askCarNames() {
