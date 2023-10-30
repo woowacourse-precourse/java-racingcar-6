@@ -32,6 +32,7 @@ public class RaceStarter {
         for (Car car : cars) {
             car.move();
         }
+        System.out.print("\n");
     }
 
     void printWinner() {
@@ -54,7 +55,9 @@ public class RaceStarter {
     }
 
     void checkInputValidity(String name) {
-
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 
 }
