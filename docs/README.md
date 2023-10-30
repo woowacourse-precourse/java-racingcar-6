@@ -119,3 +119,13 @@
 #### findWinners, moveAllCarsForward, displayAllCarsPosition, displayWinnerNames
 
 - 템플릿에 제공된 예외 테스트로 대체
+
+### Car
+
+#### validateName
+
+- validateInputName 메서드를 사용하기 때문에 테스트 생략
+
+#### getPosition
+
+- [x] 자동차가 전진할 때마다 position이 1씩 증가하는지 확인
