@@ -13,14 +13,7 @@ public class OutputView {
 
     public static void endGameResult(int[] carMove, String[] cars) {
         System.out.print("최종 우승자 : ");
-        int maxValue = Arrays.stream(carMove).max().getAsInt();
-        int occurrences = countOccurrences(carMove, maxValue);
-        for (int i = 0; i < cars.length; i++) {
-            if (carMove[i] == maxValue) {
-                System.out.print(cars[i]);
-                commaMade(--occurrences);
-            }
-        }
+        System.out.println(winnerCarsList(carMove, cars));
     }
 
     public static int countOccurrences(int[] arr, int target) {
@@ -33,9 +26,26 @@ public class OutputView {
         return count;
     }
 
-    private static void commaMade(int occurrences) {
-        if (occurrences != 0) {
-            System.out.print(", ");
+    public static void printCarList(String[] carList) {
+        String printCommaCar = String.join(",",carList);
+        System.out.println(printCommaCar);
+    }
+
+    public static void printCntInt(int cntInt) {
+        System.out.println(cntInt);
+        System.out.println();
+    }
+    public static String winnerCarsList(int[] carMove, String[] cars) {
+        int maxValue = Arrays.stream(carMove).max().getAsInt();
+        int occurrences = countOccurrences(carMove, maxValue);
+        String[] winnerCars = new String[occurrences];
+        int cnt = 0;
+        for (int i = 0; i < cars.length; i++) {
+            if (carMove[i] == maxValue) {
+                winnerCars[cnt] = cars[i];
+                cnt++;
+            }
         }
+        return String.join(", ", winnerCars);
     }
 }
