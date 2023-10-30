@@ -20,7 +20,17 @@ public class Race {
         CarGroup carGroup = setupCarGroup();
         MoveCount moveCount = setupMoveCount();
 
-        outputView.renderRace(carGroup, moveCount);
+        runRace(carGroup, moveCount);
+    }
+
+    private void runRace(CarGroup carGroup, MoveCount moveCount) {
+        outputView.seperateLine();
+        outputView.showMessage(RacingGuideMessage.RACE_RESULT);
+        for (int i = 0; i < moveCount.intValue(); i++) {
+            carGroup.run();
+            outputView.renderRaceStatus(carGroup);
+            outputView.seperateLine();
+        }
         outputView.showWinners(carGroup.getWinners());
     }
 
