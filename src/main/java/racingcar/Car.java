@@ -1,16 +1,12 @@
 package racingcar;
 
 public class Car {
-    static String name;
-    static int forwardNumber;
+    String name;
+    int forwardNumber;
 
-    public Car(final String name, int forwardNumber) {
+    public Car(final String name, final int forwardNumber) {
         this.name = name;
         this.forwardNumber = forwardNumber;
-    }
-
-    public Car(final String name) {
-        this.name = name;
     }
 
 }
