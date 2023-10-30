@@ -2,6 +2,8 @@
 
 ### 어떤 객체가 필요하고, 각 객체가 어떤 역할을 해야 하는지 정의합니다.
 
+<img src="mvc-diagram.png" width="70%" alt="mvc-diagram">
+
 ### 경주 할 자동차 이름을 입력하는 기능을 구현합니다.
 
 - 아래의 조건을 만족하지 않는 잘못된 값을 입력한 경우, `IllegalArgumentException` 예외가 발생해야 합니다.
