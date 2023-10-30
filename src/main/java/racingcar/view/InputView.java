@@ -5,11 +5,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputView {
 
-    public static String readCarName() {
-        return readLine();
-    }
-
-    public static String readRepeatNumber() {
+    public static String readLine() {
         return readLine();
     }
 }

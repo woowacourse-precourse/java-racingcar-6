@@ -1,11 +1,8 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.exception.ExceptionCheck;
-import racingcar.model.CarModel;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -23,14 +20,14 @@ public class RacingController {
     }
     private void inputNames() {
         OutputView.printCarName();
-        List<String> carList = Arrays.asList(InputView.readCarName().split(","));
+        List<String> carList = Arrays.asList(InputView.readLine().split(","));
 
         this.cars = new Cars(carList);
     }
 
     private void inputRepeatNumber() {
         OutputView.printRepeatNumber();
-        repeatNumber = Integer.parseInt(InputView.readRepeatNumber());
+        repeatNumber = Integer.parseInt(InputView.readLine());
         ExceptionCheck.iterateNumberValidation(repeatNumber);
     }
 
