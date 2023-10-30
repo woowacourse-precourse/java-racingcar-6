@@ -5,7 +5,9 @@ import java.util.stream.Stream;
 import java.util.stream.Collectors;
 import racingcar.constant.CarName;
 import racingcar.constant.Delimiter;
-import racingcar.constant.InvalidMessage;
+import racingcar.constant.InvalidNameMessage;
+import racingcar.constant.NameRegex;
+import racingcar.constant.ParticipantRule;
 
 public class NameValidator {
     private final List<String> names;
@@ -15,14 +17,22 @@ public class NameValidator {
                 .collect(Collectors.toList());
     }
 
+
     public void validateNames() {
+        checkForMinimumParticipants();
         checkForDuplicateNames();
         names.forEach(this::validateSingleName);
     }
 
+    private void checkForMinimumParticipants() {
+        if (names.size() < ParticipantRule.MINIMUM_PARTICIPANTS.getValue()) {
+            throw new IllegalArgumentException(InvalidNameMessage.MINIMUM_PARTICIPANTS.getMessage());
+        }
+    }
+
     private void checkForDuplicateNames() {
         if (names.size() != names.stream().distinct().count()) {
-            throw new IllegalArgumentException(InvalidMessage.DUPLICATE_NAME.getMessage());
+            throw new IllegalArgumentException(InvalidNameMessage.DUPLICATE.getMessage());
         }
     }
 
@@ -33,13 +43,13 @@ public class NameValidator {
 
     private void validateNameLength(String name) {
         if (name.length() < CarName.MIN_LENGTH.getValue() || name.length() > CarName.MAX_LENGTH.getValue()) {
-            throw new IllegalArgumentException(InvalidMessage.NAME_LENGTH.getMessage());
+            throw new IllegalArgumentException(InvalidNameMessage.LENGTH.getMessage());
         }
     }
 
     private void validateAlphabeticName(String name) {
-        if (!name.matches("^[a-zA-Z]+$")) {
-            throw new IllegalArgumentException(InvalidMessage.ALPHABETIC_NAME.getMessage());
+        if (!name.matches(NameRegex.ALPHABETIC.getRegex())) {
+            throw new IllegalArgumentException(InvalidNameMessage.ALPHABETIC.getMessage());
         }
     }
 }
