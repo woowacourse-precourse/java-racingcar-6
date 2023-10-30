@@ -48,8 +48,7 @@ public class RacingController {
     private void savePlayers() {
         outputView.inputNames();
         for (String name : inputView.inputPlayers()) {
-            Player p = new Player(name);
-            players.add(p);
+            players.add(new Player(name));
         }
     }
 }
