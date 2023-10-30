@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import view.InputView;
 import view.OutputView;
 
@@ -31,13 +33,10 @@ public class Application {
     }
 
     static List<String> getWinners(String[] racingCarNames, int[] distances) {
-        List<String> winners = new ArrayList<>();
         int maxDistance = Arrays.stream(distances).max().getAsInt();
-        for (int i = 0; i < distances.length; ++i) {
-            if (distances[i] == maxDistance) {
-                winners.add(racingCarNames[i]);
-            }
-        }
-        return winners;
+        return IntStream.range(0, racingCarNames.length)
+                .filter(i -> distances[i] == maxDistance)
+                .mapToObj(i -> racingCarNames[i])
+                .collect(Collectors.toList());
     }
 }
