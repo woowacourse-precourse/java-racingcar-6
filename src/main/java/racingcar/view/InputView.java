@@ -3,16 +3,25 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    public String[] readRacingCarName(){
-        String input = Console.readLine();
+    private final InputValidator inputValidator = new InputValidator();
 
-        return toStringArray(input);
+    public String[] readRacingCarName(){
+        String[] racingCarNames = toStringArray(Console.readLine());
+
+        inputValidator.validateRacingCarName(racingCarNames);
+
+        return racingCarNames;
     }
 
     public int readNumberOfTry(){
         String input = Console.readLine();
 
-        return toInt(input);
+        inputValidator.validateNumberTypeOfTry(input);
+
+        int numberOfTry = toInt(input);
+        inputValidator.validateNumberRangeOfTry(numberOfTry);
+
+        return numberOfTry;
     }
 
     private int toInt(String str){

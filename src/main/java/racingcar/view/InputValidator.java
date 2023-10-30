@@ -27,7 +27,7 @@ public class InputValidator {
         return input < RacingGameConfig.NUMBER_OF_TRY_MIN_VALUE.getValue();
     }
     private boolean isNumber(String input){
-        return input.matches("[0-9]");
+        return input.matches("0|[-]?[1-9]\\d*$");
     }
     private boolean isBiggerMaxLength(String racingCarName){
         return racingCarName.length() > RacingGameConfig.CAR_NAME_MAX_LENGTH.getValue();
