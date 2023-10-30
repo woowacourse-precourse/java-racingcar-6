@@ -1,11 +1,12 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.validator.InputValidator;
 
 public class InputView {
     public static void getRacingCars() {
         String input = Console.readLine();
-        // validateCarLength();
-        // validateCarsFormat();
+        InputValidator.validateCarsFormat(input);
+        InputValidator.validateCarLength(input);
     }
 }
