@@ -3,7 +3,12 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
+import java.lang.reflect.Array;
+import java.util.*;
+
+import static racingcar.CarMotionController.findWinners;
+import static racingcar.InputProcessor.carNameInputProcess;
+import static racingcar.InputProcessor.tryCountInputProcess;
 
 public class Application {
     public static void main(String[] args) {
