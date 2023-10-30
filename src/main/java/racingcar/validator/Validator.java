@@ -10,12 +10,30 @@ public class Validator {
         if (!isFiveCharactersOrLess(carNames)) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_MORE_THAN_FIVE);
         }
+
+        if (!isEmptyOrBlank(carNames)) {
+            throw new IllegalArgumentException(ExceptionMessage.NOT_EMPTY_AND_BLANK);
+        }
+
+        if (!hasDuplicatesCarName(carNames)) {
+            throw new IllegalArgumentException(ExceptionMessage.NOT_DUPLICATE_NAME);
+        }
     }
 
     public static void validateCarTrying(String answer) {
         if (!isAnswerDigit(answer) || !isAnswerPositiveNumber(answer)) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_NATURAL_NUMBER);
         }
+    }
+
+    public static boolean hasDuplicatesCarName(List<String> carNames) {
+        return carNames.stream()
+                .distinct()
+                .count() != carNames.size();
+    }
+
+    private static boolean isEmptyOrBlank(List<String> carNames) {
+        return carNames.stream().anyMatch(carName -> carName.equals(" ") || carName.isEmpty());
     }
 
     private static boolean isFiveCharactersOrLess(List<String> carNames) {

@@ -54,6 +54,6 @@ public class RacingController {
     }
 
     private List<String> divideCarNamesByComma(String carNames) {
-        return new ArrayList<>(List.of(carNames.split(",")));
+        return new ArrayList<>(List.of(carNames.replaceAll(" ", "").split(",")));
     }
 }
