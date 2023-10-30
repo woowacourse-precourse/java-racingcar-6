@@ -51,8 +51,8 @@
 
     - [x] 🚀 ForwardStrategy: 자동차의 전진 전략을 정의하는 추상 클래스
     - [x] **RandomForwardStrategy**: ForwardStrategy를 구현하는 구체적인 전략 클래스. 특정 조건에 따라 자동차가 전진
-    - [ ] **ResultFormatter**: RoundResultDto의 값을 출력하기 좋게 변환하는 클래스
-
+    - [x] **RoundResultFormatter**: RoundResultDto의 값을 출력하기 좋게 변환하는 클래스
+    - [x] **WinnerFormatter** : WinnerDto의 값을 출력형식에 맞게 변환하는 클래스
 - 🏆 CarRaceResultEvaluator: 자동차 경주의 우승자를 찾아주는 클래스
 - [x] **CarFactory**: 자동차 객체를 생성하는 클래스
 
@@ -74,8 +74,8 @@
 
 ### 📝 dto
 
-- [ ] **RoundResultDto**: 각각의 경기 결과를 기록하는 DTO
-- [ ] **WinnerInfoDto**: 우승자를 기록하는 DTO
+- [x] **RoundResultDto**: 각각의 경기 결과를 기록하는 DTO
+- [x] **WinnerInfoDto**: 우승자를 기록하는 DTO
 
 ### enum
 - [ ] **RaceMessages**: 출력 메세지 상수를 가지고 있는 이넘  
