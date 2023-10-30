@@ -45,3 +45,11 @@
 - 자동차 전진 기능을 구현하는 CarMoveService
 - 우승자를 알려주는 기능을 구현하는 CarWinnerService
 - 함수의 순서를 정의하는 CarGame
+- 객체를 관리하는 BeanFactory(Singleton 패턴을 위해 10.30 추가)
+
+
+## 리팩토링
+
+- 중복처리 로직 Stream -> Enhanced For Loop 방식으로 변경(오버라이딩 한 contains 메소드로 구현)
+- 객체를 Singleton 패턴으로 관리하기
+- RacingCarGameController에 4개 이상의 인스턴스가 존재한다 -> 줄이기
