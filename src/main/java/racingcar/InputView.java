@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.Constant.SEPARATOR;
+import static racingcar.Constant.CAR_NAME_SEPARATOR;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
@@ -13,7 +13,7 @@ public class InputView {
     }
 
     public List<String> getCarName() {
-        String[] carNames = Console.readLine().split(SEPARATOR);
+        String[] carNames = Console.readLine().split(CAR_NAME_SEPARATOR);
         validateCarName(carNames);
         return List.of(carNames);
     }
