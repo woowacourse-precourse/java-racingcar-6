@@ -23,12 +23,19 @@ public class RacingController {
     private List<String> carNameList;
 
     private void initializeGame() {
-        carNameList = getCarNames();
-        totalRounds = getAttemptCount();
-
+        readyCarName();
+        readyAttemptCount();
         registerCars();
 
         displayGameStartMessage();
+    }
+
+    private void readyAttemptCount() {
+        totalRounds = getAttemptCount();
+    }
+
+    private void readyCarName() {
+        carNameList = getCarNames();
     }
 
     private void registerCars() {
@@ -45,21 +52,23 @@ public class RacingController {
                 .map(String::trim)
                 .collect(toList());
 
-        for(String carName : carNameList){
-            if(!isOkToUseCarName(carName)) {
-                throw new IllegalArgumentException("자동차 이름은 5글자 이하만 가능합니다!");
-            }
-        }
+        validateCarName(carNameList);
+
         return carNameList;
+    }
+
+    private void validateCarName(List<String> carNameList) {
+        for(String carName : carNameList){
+            isOkToUseCarName(carName);
+        }
     }
 
     private int getAttemptCount() {
         displayAttemptPrompt();
         int attemptCountFromUser = getAttemptCountFromUser();
 
-        if(!isOkToUseAttemptCount(attemptCountFromUser)){
-            throw new IllegalArgumentException("올바른 시도 횟수를 입력하지 않았습니다!");
-        }
+        isOkToUseAttemptCount(attemptCountFromUser);
+
         return attemptCountFromUser;
     }
 
