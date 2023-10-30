@@ -11,11 +11,26 @@ public class Cars {
         this.cars = list;
     }
 
+    public List<Car> findWinners() {
+        Car maxPositionedCar = findMaxPositionedCar();
+        Position maxPosition = maxPositionedCar.getPosition();
+
+        return cars.stream()
+            .filter(car -> car.getPosition().equals(maxPosition))
+            .collect(Collectors.toList());
+    }
+
     public static Cars createdByName(List<String> carNames) {
         List<Car> list = carNames.stream()
             .map(Car::new)
             .collect(Collectors.toList());
 
         return new Cars(list);
+    }
+
+    private Car findMaxPositionedCar() {
+        return cars.stream()
+            .max((a, b) -> a.compareTo(b))
+            .get();
     }
 }
