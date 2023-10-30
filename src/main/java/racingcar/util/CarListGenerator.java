@@ -1,19 +1,26 @@
 package racingcar.util;
 
 import java.util.ArrayList;
-
+import racingcar.model.Car;
 import racingcar.view.InputView;
 
 public class CarListGenerator {
     InputView inputview = new InputView();
-    ArrayList<String> carList = new ArrayList();
-    public ArrayList<String> generateCarList() {
+    ArrayList<String> carNameList = new ArrayList<>();
+    public ArrayList<String> generateCarNameList() {
         String carNames = inputview.readCarName();
-
         for (String s : carNames.split(",")) {
-            carList.add(s);
+            carNameList.add(s);
         }
+        return carNameList;
+    }
 
-        return carList;
+    public ArrayList<Car> generateCarsList(ArrayList<String> carNameList) {
+        ArrayList<Car> carsList = new ArrayList<>();
+        for (String carName : carNameList) {
+            Car car = new Car(carName , 0);
+            carsList.add(car);
+        }
+        return carsList;
     }
 }
