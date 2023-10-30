@@ -2,12 +2,12 @@ package racingcar.model;
 
 import racingcar.domain.Car;
 import racingcar.dto.CarDTO;
+import racingcar.dto.GameDTO;
 
 public class RacingGame {
     private StringBuilder roundResult = new StringBuilder();
     private final CarManager manager;
-    private int CAR_AMOUNT;
-    private int ROUND_MAX;
+    private int CAR_AMOUNT, ROUND_MAX;
 
 
     public RacingGame(CarManager manager, int amount, int round) {
@@ -16,13 +16,12 @@ public class RacingGame {
         this.ROUND_MAX = round;
     }
 
+    public GameDTO toDTO() {
+        return new GameDTO(CAR_AMOUNT, ROUND_MAX);
+    }
 
     public String getRoundResult() {
         return roundResult.toString();
-    }
-
-    public boolean inContinueRound(int round) {
-        return round < ROUND_MAX;
     }
 
     public void playRound() {
@@ -44,10 +43,10 @@ public class RacingGame {
 
     // car 객체를 받아서 해당 자동차의 상황판 작성
     private String getStatus(Car car) {
-        CarDTO dto = car.toDTO();
+        CarDTO carData = car.toDTO();
 
-        String name = dto.getName();
-        String position = "-".repeat(dto.getPosition());
+        String name = carData.getName();
+        String position = "-".repeat(carData.getPosition());
         String status = String.format("%s : %s\n", name, position);
 
         return status;

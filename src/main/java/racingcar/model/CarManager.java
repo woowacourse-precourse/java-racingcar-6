@@ -21,11 +21,6 @@ public class CarManager {
         return number;
     }
 
-
-    public int getCarLength() {
-        return cars.size();
-    }
-
     public void createAndAddCars(String[] names) {
         for (String name : names) {
             cars.add(new Car(name));
@@ -37,9 +32,9 @@ public class CarManager {
     private int findBiggestNumber() {
         int farthest = 0;
         for (Car car : cars) {
-            CarDTO dto = car.toDTO();
-            if (farthest < dto.getPosition()) {
-                farthest = dto.getPosition();
+            CarDTO carData = car.toDTO();
+            if (farthest < carData.getPosition()) {
+                farthest = carData.getPosition();
             }
         }
         return farthest;

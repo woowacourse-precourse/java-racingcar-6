@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.dto.GameDTO;
 import racingcar.model.CarManager;
 import racingcar.model.RacingGame;
 import racingcar.model.Winners;
@@ -8,7 +9,7 @@ import racingcar.view.OutputView;
 
 public class Controller {
     CarManager manager = new CarManager();
-    Winners winners = new Winners(manager);
+    Winners winners;
     RacingGame game;
     InputView input = new InputView();
     OutputView output = new OutputView();
@@ -44,21 +45,19 @@ public class Controller {
         int attempts = askAndGetAttempts();
 
         game = new RacingGame(manager, carAmount, attempts);
+        winners = new Winners(manager, game);
         output.startDisplayResult();
     }
 
     // 정해진 시도 횟수만큼 라운드별 진행을 요청, 라운드마다 결과 출력
     private void proceedGame() {
-        boolean isContinue;
-        int round = 1;
+        GameDTO gameData = game.toDTO();
+        int maxRound = gameData.getMaxRound();
 
-        do {
+        for (int round = 1; round <= maxRound; round++) {
             game.playRound();
             displayRound();
-            round++;
-
-            isContinue = game.inContinueRound(round);
-        } while (isContinue);
+        }
     }
 
     // 라운드가 끝난 후 결과 출력
