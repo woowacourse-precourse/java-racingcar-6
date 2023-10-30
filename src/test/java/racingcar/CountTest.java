@@ -23,4 +23,12 @@ final class CountTest {
 
         assertTrue(count.isEnd());
     }
+
+    @Test
+    void count가_양수일_경우_턴_지속() {
+        Count count = new Count("1");
+
+        assertFalse(count.isEnd());
+    }
+
 }
