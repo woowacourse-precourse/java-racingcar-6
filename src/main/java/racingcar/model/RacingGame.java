@@ -12,9 +12,10 @@ public class RacingGame {
         carList.add(car);
     }
 
-    public void moveCar(final int carIndex) {
-        final Car car = carList.get(carIndex);
-        car.moveForward();
+    public void moveCar() {
+        for (final Car car : carList) {
+            car.moveForward();
+        }
     }
 
     public List<CarDto> getResult() {

@@ -31,7 +31,7 @@ class RacingGameTest {
         racingGame.addCar(car);
 
         // when
-        racingGame.moveCar(0);
+        racingGame.moveCar();
 
         // then
         final CarDto result = racingGame.getResult().get(0);
@@ -46,7 +46,7 @@ class RacingGameTest {
         racingGame.addCar(car);
 
         // when
-        racingGame.moveCar(0);
+        racingGame.moveCar();
 
         // then
         final CarDto result = racingGame.getResult().get(0);
@@ -63,10 +63,8 @@ class RacingGameTest {
         }
 
         // when
-        for (int index = 0; index < cars.size(); index++) {
-            for (int count = 0; count < 5; count++) {
-                racingGame.moveCar(index);
-            }
+        for (int count = 0; count < 5; count++) {
+            racingGame.moveCar();
         }
 
         // then
@@ -90,10 +88,8 @@ class RacingGameTest {
         }
 
         // when
-        for (int index = 0; index < cars.size(); index++) {
-            for (int count = 0; count < 3; count++) {
-                racingGame.moveCar(index);
-            }
+        for (int count = 0; count < 3; count++) {
+            racingGame.moveCar();
         }
 
         // then
@@ -115,10 +111,8 @@ class RacingGameTest {
         }
 
         // when
-        for (int index = 0; index < cars.size(); index++) {
-            for (int count = 0; count < 3; count++) {
-                racingGame.moveCar(index);
-            }
+        for (int count = 0; count < 3; count++) {
+            racingGame.moveCar();
         }
 
         // then
