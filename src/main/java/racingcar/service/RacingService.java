@@ -16,6 +16,12 @@ public class RacingService {
 
     private static final int MOVE_CONDITION = 4;
 
+    private static final int LOCATION_START_NUMBER = 0;
+
+    private static final int RANDOM_START_NUMBER = 0;
+
+    private static final int RANDOM_FINISH_NUMBER = 9;
+
     public RacingService(String carsName) {
         this.cars = new Cars(carsName);
     }
@@ -61,13 +67,13 @@ public class RacingService {
         return cars.getCarList()
                 .stream()
                 .mapToInt(Car::getLocation)
-                .filter(location -> location >= 0)
+                .filter(location -> location >= LOCATION_START_NUMBER)
                 .max()
-                .orElse(0);
+                .orElse(LOCATION_START_NUMBER);
     }
 
     private int getRandomNum() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_FINISH_NUMBER);
     }
 
     public void setOutputView(OutputView outputView) {
