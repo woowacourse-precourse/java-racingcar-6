@@ -1,41 +1,17 @@
 package racingcar.model;
 
-import java.util.Objects;
 import racingcar.validator.BasicValidator;
 import racingcar.validator.NameValidator;
 
-public class Name {
+public record Name(String name) {
 
-    private final String name;
     private static final BasicValidator<String> carNameValidator = new NameValidator();
 
-    public Name(String name) {
+    public Name {
         carNameValidator.validate(name);
-        this.name = name;
     }
 
     public static Name init(String carName) {
         return new Name(carName);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Name name1 = (Name) o;
-        return Objects.equals(name, name1.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
     }
 }
