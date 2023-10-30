@@ -88,7 +88,7 @@
 -[x] Car들에 이동 요청을 한다.
 
 #### Car
-- 이름을 검증한다.(5자 이상시 IllegalArgumentException)
+-[x] 이름을 검증한다.(5자 이상시 IllegalArgumentException)
 -[x] RandomNumberGenerator에게 숫자를 요청하고 자동차를 이동 할 수 있는지 판단한다.
   -[x] 이동할 수 있다면 이동한다.
 -[x] getLocation를 이용하여 이동한 거리를 반환한다.
