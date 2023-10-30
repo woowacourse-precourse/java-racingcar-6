@@ -30,7 +30,6 @@ public class WinnerService {
         }
         return map;
     }
-
     private static List<Car> getWinnerList(Map<Integer, List<Car>> rankMap) {
         return rankMap.keySet()
                 .stream()
