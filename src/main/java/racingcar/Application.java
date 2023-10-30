@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.domain.Car;
 import racingcar.util.Validate;
 
 import java.util.Arrays;
@@ -12,6 +13,8 @@ public class Application {
     public static void main(String[] args) {
         List<String> carNames = askCarNames();
         Integer attemptNumber = askAttemptNumber();
+
+        List<Car> cars = makeCar(carNames);
     }
 
     public static List<String> askCarNames() {
@@ -24,6 +27,10 @@ public class Application {
     public static Integer askAttemptNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(isValidAttemptNumber(readLine()));
+    }
+
+    public static List<Car> makeCar(List<String> carNames) {
+        return carNames.stream().map(Car::new).toList();
     }
 
 }
