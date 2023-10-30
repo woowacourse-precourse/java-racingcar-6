@@ -7,6 +7,9 @@ public class Car {
     private final CarState carState;
 
     public Car(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("Car name length must be 5 or less (" + name + ")");
+        }
         this.name = name;
         this.carState = new CarState();
     }
