@@ -37,7 +37,7 @@
 ### InputView
 
 - [x]  자동차 이름 입력 함수 (**`inputCarNames`**)
-- [ ]  시도할 횟수 입력 함수 (**`inputAttemptCount`**)
+- [x]  시도할 횟수 입력 함수 (**`inputAttemptCount`**)
 
 ### OutputView
 
