@@ -40,7 +40,7 @@ public class GameController {
 
         runRace(moveCount);
 
-        List<String> winner = referee.compareRacingStatus(cars);
+        List<String> winner = referee.determineWinner(cars);
         outputView.displayWinner(winner);
     }
 

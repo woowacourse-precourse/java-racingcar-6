@@ -15,21 +15,8 @@ public class Referee {
         this.winner = new ArrayList<>();
     }
 
-    public List<String> compareRacingStatus(List<Car> cars) {
-        List<Integer> length = new ArrayList<>();
-        for (Car car : cars) {
-            length.add(car.getStatus().length());
-        }
-
-        TreeSet<Integer> sortLength = new TreeSet<>(length);
-        maxLength = sortLength.last();
-
-        determineWinner(cars);
-
-        return winner;
-    }
-
-    private List<String> determineWinner(List<Car> cars) {
+    public List<String> determineWinner(List<Car> cars) {
+        maxLength = calculateMaxLength(cars);
         for (int i = 0; i < cars.size(); i++) {
             int status = cars.get(i).getStatus().length();
             if (status >= maxLength) {
@@ -37,5 +24,15 @@ public class Referee {
             }
         }
         return winner;
+    }
+
+    private int calculateMaxLength(List<Car> cars) {
+        List<Integer> length = new ArrayList<>();
+        for (Car car : cars) {
+            length.add(car.getStatus().length());
+        }
+        TreeSet<Integer> sortLength = new TreeSet<>(length);
+        maxLength = sortLength.last();
+        return maxLength;
     }
 }
