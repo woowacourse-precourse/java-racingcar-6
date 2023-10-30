@@ -1,12 +1,12 @@
 package racingcar.model;
 
 public class Car implements Comparable<Car> {
-    private String name;
+    private Name name;
     private Long distance;
     private NumberGenerator numberGenerator;
 
     public Car(String name, NumberGenerator numberGenerator) {
-        this.name = name;
+        this.name = new Name(name);
         distance = 0L;
         this.numberGenerator = numberGenerator;
     }
@@ -25,7 +25,7 @@ public class Car implements Comparable<Car> {
     }
 
     public String getName() {
-        return name;
+        return name.name();
     }
 
     public Long getDistance() {

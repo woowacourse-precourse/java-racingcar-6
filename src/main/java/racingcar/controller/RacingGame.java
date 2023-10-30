@@ -15,8 +15,6 @@ public class RacingGame {
 
         Validator.validateIsDuplicate(racingCarNames);
         for (String name : racingCarNames) {
-            Validator.validateAvailableLength(name);
-            Validator.validateIsBlank(name);
             cars.add(new Car(name, new RandomNumberGenerator()));
         }
 
