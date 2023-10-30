@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,13 @@ public class Cars {
 
     public void moveAll() {
         for (Car car : cars) {
-            car.move();
+            int randomNumber = generateRandomNumber();
+            car.move(randomNumber);
         }
+    }
+
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     public List<String> getWinners() {
