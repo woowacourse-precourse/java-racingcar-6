@@ -17,7 +17,7 @@ public class Logics {
     }
 
     public static String winners (DataObj[] Datas) {
-        int maxNum = 0;
+        int maxNum = Integer.MIN_VALUE;
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < Datas.length; i++) {

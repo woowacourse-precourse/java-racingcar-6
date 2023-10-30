@@ -16,9 +16,10 @@ public class RacingCar {
         int progressNum = inputNumber();
 
         Output.printResultMsg();
-        DataObj[] Datas = initDataObj(splitNames.length);
+        DataObj[] Datas = initDataObj(splitNames.length, splitNames);
 
         printSteps(splitNames, Datas, progressNum);
+        printResult(Datas);
     }
 
     public static String[] inputNames () {
@@ -33,22 +34,26 @@ public class RacingCar {
         return Integer.parseInt(inputNumber);
     }
 
-    public static DataObj[] initDataObj (int length) {
+    public static DataObj[] initDataObj (int length, String[] splitNames) {
         DataObj[] Datas = new DataObj[length];
         for(int i = 0; i < Datas.length; i++) {
             Datas[i] = new DataObj();
+            Datas[i].setName(splitNames[i]);
         }
         return Datas;
     }
 
-    public static void printSteps (String[] splitNames, DataObj[] Datas, int progressNum) {
+    public static void printSteps (String[] splitNames, DataObj[] datas, int progressNum) {
         for(int i = 0; i < progressNum; i++) {
             for(int j = 0; j < splitNames.length; j++) {
-                Datas[j].setData(splitNames[j], Logics.forwardOrNot());
-                Output.printProgressing(Datas[j].getName(), Datas[j].getProgress());
+                datas[j].setProgress(Logics.forwardOrNot());
+                Output.printProgressing(datas[j].getName(), datas[j].getProgress());
             }
             System.out.println();
         }
-        Output.printWinner(Logics.winners(Datas));
+    }
+
+    public static void printResult (DataObj[] datas) {
+        Output.printWinner(Logics.winners(datas));
     }
 }
