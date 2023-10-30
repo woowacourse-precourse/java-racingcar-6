@@ -5,8 +5,6 @@ import java.util.Objects;
 
 public class Name {
     private static final String SEPARATOR_COMMA = ",";
-    // 중복 여부 확인 그리고 5글자 이하인지 확인
-    // regex, null empty는 뷰에서 처리
     private final String nameValue;
 
     public Name(String name) {
