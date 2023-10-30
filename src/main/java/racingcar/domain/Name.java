@@ -2,11 +2,12 @@ package racingcar.domain;
 
 public class Name {
     private static final int NAME_MAX_LENGTH = 5;
+    private static final char BLANK = ' ';
     private final String name;
 
     public Name(String name) {
         validateNameLength(name);
-        validateGapName(name);
+        validateBlankName(name);
         this.name = name;
     }
 
@@ -20,9 +21,9 @@ public class Name {
         }
     }
 
-    private void validateGapName(String name){
+    private void validateBlankName(String name){
         boolean anyCharMatchGap = name.chars()
-                .anyMatch(ch -> ch == ' ');
+                .anyMatch(ch -> ch == BLANK);
 
         if(anyCharMatchGap){
             throw new IllegalArgumentException("이름에 공백이 포함될 수 없습니다.");
