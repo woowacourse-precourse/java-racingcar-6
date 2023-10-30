@@ -98,14 +98,13 @@
 
 ---
 
-##### 각 차수 결과를 실행해주는 메소드
+##### 각 차수 결과를 출력해주는 메소드
 - signature : `public void printEachResult(final List<Racer> racerList)`
 - parameters
   - racerList : 게임에 참여한 `Racer`를 담은 리스트
 - return : void
 - description
-  - `String.format`메소드를 활용해 각 `Racer`마다 이름과 차수결과를 오른쪽 정렬한다.
-  - `StringBuilder` result에 정렬된 문자열을 `append`한다.
+  - `StringBuilder` result에 각 `Racer`마다 이름과 차수결과를 `append`한다.
   - 모든 `Racer`의 결과를 담았다면 출력한다.
 
 ##### 입력받은 문자열을 이름으로 바꿔주는 메소드
