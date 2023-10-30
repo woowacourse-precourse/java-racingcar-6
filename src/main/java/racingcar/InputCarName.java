@@ -2,13 +2,16 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InputCarName {
-    String inputCar = Console.readLine();
-    String numberOfTimes = Console.readLine();
-
-    public List<Integer> makeTrack() {
-        return null;
+    public List<Integer> makeTrack(int carCount) {
+        List<Integer> track = new ArrayList<>();
+        for(int i=0;i<carCount;i++){
+            track.add(0);
+        }
+        return track;
     }
 }
+
