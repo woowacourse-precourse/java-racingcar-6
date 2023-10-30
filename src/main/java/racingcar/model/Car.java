@@ -13,12 +13,16 @@ public class Car implements Comparable<Car> {
     private int distance;
 
 
-    public Car(String name) {
+    private Car(String name) {
         if (!validateNameLength(name)) {
             throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE);
         }
         this.name = name;
         this.distance = 0;
+    }
+
+    public static Car createNewCar(String name) {
+        return new Car(name);
     }
 
     public void updateDistance() {
