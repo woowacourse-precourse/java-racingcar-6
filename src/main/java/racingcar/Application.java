@@ -16,7 +16,8 @@ public class Application {
         checkNamingError(carNamesList);
 
         System.out.println("시도할 회수는 몇회인가요?");
-        int numberOfRaces = inputNumberOfRaces();
+        String numberOfRacesStr = Console.readLine();
+        int numberOfRaces = convertStringToInt(numberOfRacesStr);
 
         System.out.println("실행 결과");
         List<Integer> raceResult = printCarRace(numberOfRaces, carNamesList);
@@ -39,10 +40,9 @@ public class Application {
         }
     }
 
-    public static int inputNumberOfRaces() {
-        String numberOfRaces = Console.readLine();
+    public static int convertStringToInt(String numberOfRacesStr) {
         try {
-            return Integer.parseInt(numberOfRaces);
+            return Integer.parseInt(numberOfRacesStr);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력하세요.");
         }
