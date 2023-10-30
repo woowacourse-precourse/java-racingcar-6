@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.domain.RacingGameStatus;
+import racingcar.domain.WinnerNames;
 
 public class IOView implements View {
     private final InputView inputView;
@@ -27,5 +28,10 @@ public class IOView implements View {
     @Override
     public void showRacingGameStatus(RacingGameStatus racingGameStatus) {
         outputView.printRacingGameStatus(racingGameStatus);
+    }
+
+    @Override
+    public void showWinnerNames(WinnerNames winnerNames) {
+        outputView.printWinnerNames(winnerNames);
     }
 }
