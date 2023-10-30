@@ -24,3 +24,24 @@
     ```text
     최종 우승자 : pobi, jun
     ```
+
+## 전체적인 구조
+**View**
+- Output : 출력 인터페이스
+- PrintStreamOutput : output 구현체. 명확히 출력 역할
+
+- Input : 입력 인터페이스
+- MissionUtilsInput : input 구현체, 해당 라이브러리 사용해 구현
+
+**Controller**
+- RacingCarGame : view와 domain을 연결해준다
+
+**Domain**
+- Car : 자동차 객체
+  - 현재 위치값을 가지고 있어야 한다.
+- Player : 플레이어 객체 
+
+**Policy**
+- NumberGeneratePolicy (숫자 생성 정책)
+
+
