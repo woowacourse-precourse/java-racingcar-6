@@ -1,28 +1,20 @@
 package racingcar.domain;
+
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class InputCarNameTest {
-    private InputStream originalSystemIn;
-
-    @BeforeEach
-    void setUp() {
-        // 테스트 전에 System.in을 백업하고 모의 입력을 설정
-        originalSystemIn = System.in;
-    }
 
     @AfterEach
-    void tearDown() {
-        // 테스트 후에 원래의 System.in을 복원
-        System.setIn(originalSystemIn);
+    void closeConsole() {
+        Console.close();
     }
 
     @Test
