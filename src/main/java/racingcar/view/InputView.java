@@ -1,10 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Validator;
 
-import static racingcar.Validator.hasNoConsecutiveCommas;
-import static racingcar.Validator.validateNames;
+import static racingcar.Validator.*;
 
 public class InputView {
     public static String[] displayCarNamesInputView() {
@@ -16,5 +14,16 @@ public class InputView {
         }
 
         return inputString.split(",");
+    }
+
+    public static Integer displayAttemptNumberInputView() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String inputString = Console.readLine();
+
+        if (!(isInteger(inputString) && isPositiveInteger(inputString))) {
+            throw new IllegalArgumentException();
+        }
+
+        return Integer.valueOf(inputString);
     }
 }
