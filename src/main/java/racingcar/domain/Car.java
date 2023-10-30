@@ -24,6 +24,10 @@ public class Car {
         return this.position.equals(car.position);
     }
 
+    public String getName() {
+        return name.getName();
+    }
+
     public int getPosition() {
         return position.getPosition();
     }
