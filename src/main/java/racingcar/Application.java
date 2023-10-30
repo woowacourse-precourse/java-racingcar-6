@@ -13,6 +13,11 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int turnCount = inputTurnCount();
 
+        showProcessingBoard(cars, turnCount);
+        showResultBoard(cars);
+    }
+
+    private static void showProcessingBoard(Car[] cars, int turnCount) {
         System.out.println();
         System.out.println("실행 결과");
 
@@ -20,7 +25,6 @@ public class Application {
             moveCars(cars);
             printCars(cars);
         }
-        showResultBoard(cars);
     }
 
     private static void showResultBoard(Car[] cars) {
