@@ -3,9 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -20,6 +18,7 @@ public class Application {
         System.out.println("\n실행 결과");
         goOrStop(cars, N);
 
+        printWinners(cars);
     }
     public static List<String> inputCars() {
         String input = Console.readLine();
@@ -58,10 +57,10 @@ public class Application {
             for (String car : cars.keySet()) {
                 cars.put(car, cars.get(car) + addStep(randomNumber()));
             }
-            printProcess(cars);
+            printRacing(cars);
         }
     }
-    public static void printProcess(Map<String, Integer> cars) {
+    public static void printRacing(Map<String, Integer> cars) {
         String result = "";
         for (String car : cars.keySet()) {
              result += car + " : ";
@@ -72,5 +71,16 @@ public class Application {
             result = "";
         }
         System.out.println();
+    }
+    public static void printWinners(Map<String, Integer> cars) {
+        int maxCar = Collections.max(cars.values());
+
+        List<String> maxCars = new ArrayList<>();
+        for (String car : cars.keySet()) {
+            if (cars.get(car) == maxCar) {
+                maxCars.add(car);
+            }
+        }
+        System.out.println("최종 우승자 : " + String.join(",", maxCars));
     }
 }
