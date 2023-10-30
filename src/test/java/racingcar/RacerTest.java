@@ -19,7 +19,7 @@ public class RacerTest {
     void 자동차_전진여부에_따라_현재_위치에서_일정_칸_전진할_수_있다(){
         int pastPos = racer.getCurrentPos();
         while(true){
-            racer.continueRace();
+            racer.runRaceEachStep();
             if (racer.getCurrentPos()!=pastPos){
                 break;
             }

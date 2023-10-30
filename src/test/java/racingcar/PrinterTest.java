@@ -23,7 +23,7 @@ public class PrinterTest {
         for (int i =1;i<=3;i++){
             Racer racer = new Racer("test"+i);
             while (racer.getCurrentPos()!=i){
-                racer.continueRace();
+                racer.runRaceEachStep();
             }
             racerList.add(racer);
         }

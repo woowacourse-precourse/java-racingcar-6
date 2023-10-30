@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Server {
-    private List<Racer> racerList ;
+    private List<Racer> racerList;
     private Validator validator;
     private Integer racerCount;
     Server(){
@@ -16,7 +16,7 @@ public class Server {
 
     public void confirmRacerList(String racerListString){
         validator.validateUserInputIsCorrectFormat(racerListString);
-        List<String> racerNameList = Arrays.asList(racerListString.split(","));
+        List<String> racerNameList = Util.parseStringToListSplitComma(racerListString);
         for ( String racerName : racerNameList){
             racerList.add(new Racer(racerName));
         }
@@ -33,7 +33,7 @@ public class Server {
     }
     private void continueRace(){
         for (Racer racer : racerList){
-            racer.continueRace();
+            racer.runRaceEachStep();
         }
     }
 
