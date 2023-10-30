@@ -21,10 +21,10 @@ public class InputView {
         return carNames;
     }
 
-    public String readUserGameCountInput() {
+    public int readUserGameCountInput() {
         String input = Console.readLine().trim();
         if(InputValidator.isNumeric(input)) {
-            return input;
+            return Integer.parseInt(input);
         }
 
         throw new IllegalArgumentException(INVALID_GAME_COUNT_INPUT_MESSAGE);
