@@ -1,12 +1,9 @@
 package game;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import car.Car;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.List;
 
@@ -47,23 +44,25 @@ public class GameTest {
     @Test
     public void testRandomNumber(){
         Game game = new Game();
-
-        Randoms mockRandoms = Mockito.mock(Randoms.class);
-        Mockito.when(mockRandoms.pickNumberInRange(0, 9)).thenReturn(5);
-
-        // Inject the mockRandoms into yourClass
-        game.setRandoms(mockRandoms);
-
-        // When
         int result = game.randomNumber();
 
-        // Then
-        assertThat(result).isBetween(0, 9); // 0 이상 9 이하인지 확인
-        assertThat(result).isEqualTo(5); // 예시로 고정된 값이 5인지 확인
+        assertThat(result).isBetween(0, 9);
+    }
 
 
-//        int result = game.randomNumber();
-//
-//        assertThat(result).isBetween(0, 9);
+    @Test
+    public void testMove(){
+        Game game = new Game();
+        int randNumber = game.randomNumber(5);
+
+        List<String> people = game.addPerson("user1,user2");
+
+        List<Car> carList = game.addCar(people);
+
+        game.move(carList, randNumber);
+
+        assertThat(carList.get(0).getCount()).isEqualTo(1);
+        assertThat(carList.get(1).getCount()).isEqualTo(1);
+
     }
 }

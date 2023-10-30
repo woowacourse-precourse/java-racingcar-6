@@ -8,12 +8,6 @@ import java.util.List;
 
 public class Game {
 
-    private Randoms randoms;
-
-    public void setRandoms(Randoms randoms){
-        this.randoms = randoms;
-    }
-
     //사람 추가
     public List<String> addPerson(String persons){
         String[] personArray = persons.split(",");
@@ -43,10 +37,21 @@ public class Game {
         return number;
     }
 
+    public int randomNumber(int number){
+        return number;
+    }
+
     // 랜덤 숫자를 이용해서 자동차 움직임 추가
     public void move(List<Car> carList){
         for(int i = 0; i < carList.size(); i++){
             int randNum = randomNumber();
+            carList.get(i).move(randNum);
+        }
+    }
+
+    public void move(List<Car> carList, int randNumber){
+        for(int i = 0; i < carList.size(); i++){
+            int randNum = randomNumber(randNumber);
             carList.get(i).move(randNum);
         }
     }
