@@ -22,6 +22,7 @@ class MoveTest {
     private RandomNumberGenerator TRNG;
     private Move TM;
     private final Integer[] MOVING_FORWARD = {5, 5, 5};
+    private final Integer[] STOP = {3, 3, 3};
 
     @BeforeEach
     void setUp() {
@@ -33,7 +34,7 @@ class MoveTest {
     }
 
     @Test
-    void moveTheCar_랜덤값_5이상_앞으로_전진() {
+    void moveTheCar_랜덤값_4이상_앞으로_전진() {
         //given
         final String cars = "povi1,povi2,povi3";
         final LinkedHashMap<String, String> carList = TCG.createCarList(cars);
@@ -42,6 +43,7 @@ class MoveTest {
         for (int i = 0; i < MOVING_FORWARD.length; i++) {
             randomNumberList.add(MOVING_FORWARD[i]);
         }
+
         //when
         TM.moveTheCar(TC.getCarList(),randomNumberList);
 
@@ -54,6 +56,22 @@ class MoveTest {
     }
 
     @Test
-    void stopTheCar() {
+    void stopTheCar_랜덤값_4미만_정지() {
+        //given
+        final String cars = "povi1,povi2,povi3";
+        final LinkedHashMap<String, String> carList = TCG.createCarList(cars);
+        TC.setCarList(carList);
+        List<Integer> randomNumberList = new ArrayList<>();
+        for (int i = 0; i < STOP.length; i++) {
+            randomNumberList.add(STOP[i]);
+        }
+
+        //when
+        TM.moveTheCar(TC.getCarList(),randomNumberList);
+
+        //then
+        Assertions.assertThat(TC.getCarList().get("povi1")).isEqualTo("");
+        Assertions.assertThat(TC.getCarList().get("povi2")).isEqualTo("");
+        Assertions.assertThat(TC.getCarList().get("povi3")).isEqualTo("");
     }
 }
