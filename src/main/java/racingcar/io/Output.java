@@ -6,6 +6,10 @@ public class Output {
         System.out.print(message.toString());
     }
 
+    public static void consoleLine() {
+        System.out.println();
+    }
+
     public static void consoleLine(Object message) {
         System.out.println(message.toString());
     }
