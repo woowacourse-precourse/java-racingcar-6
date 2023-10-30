@@ -1,13 +1,13 @@
 package racingcar.Domain;
 
 public class Race {
-    private final int raceTime;
+    private final int raceCount;
 
-    private Race(final int raceTime){
-        this.raceTime = raceTime;
+    private Race(final int raceCount){
+        this.raceCount = raceCount;
     }
 
-    public boolean runningTime(int race) {
-        return race != this.raceTime;
+    public boolean isRaceOver(int race) {
+        return race != this.raceCount;
     }
 }
