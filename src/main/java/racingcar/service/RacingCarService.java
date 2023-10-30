@@ -5,7 +5,6 @@ import java.util.List;
 import racingcar.config.RacingGameConfig;
 import racingcar.domain.RacingCar;
 import racingcar.util.NumberGenerator;
-import racingcar.util.RandomNumberGenerator;
 
 public class RacingCarService {
     private final NumberGenerator numberGenerator;

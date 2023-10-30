@@ -7,7 +7,6 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.controller.RacingGame;
 import racingcar.domain.RacingCar;
 import racingcar.util.TestNumberGenerator;
 
@@ -26,9 +25,35 @@ class RacingCarServiceTest {
 
         List<RacingCar> racingCars = racingCarService.save(carNames);
 
+        assertEquals(3, racingCars.size());
         assertEquals(carNames[0], racingCars.get(0).toString());
         assertEquals(carNames[1], racingCars.get(1).toString());
         assertEquals(carNames[2], racingCars.get(2).toString());
+    }
+
+    @Test
+    @DisplayName("랜덤 값이 4 이상일 때 moveNumber가 증가하는지 테스트")
+    void increaseMoveNumberTest(){
+        RacingCar racingCar = new RacingCar("a");
+
+        List<RacingCar> racingCars = Arrays.asList(racingCar);
+
+        racingCarService.moveRandomly(racingCars);
+
+        assertEquals(1, racingCar.getMoveNumber());
+    }
+
+    @Test
+    @DisplayName("랜덤 값이 4 미만일 때 moveNumber가 증가하는지 테스트")
+    void notIncreaseMoveNumberTest(){
+        RacingCar racingCar = new RacingCar("a");
+
+        List<RacingCar> racingCars = Arrays.asList(racingCar);
+
+        RacingCarService racingCarService = new RacingCarService(new TestNumberGenerator(3));
+        racingCarService.moveRandomly(racingCars);
+
+        assertEquals(0, racingCar.getMoveNumber());
     }
 
     @Test
@@ -36,6 +61,7 @@ class RacingCarServiceTest {
     void decideWinnerTest(){
         RacingCar racingCar01 = new RacingCar("a");
         RacingCar racingCar02 = new RacingCar("b");
+
         List<RacingCar> racingCars = Arrays.asList(racingCar01, racingCar02);
 
         racingCar01.increaseMoveNumber();
