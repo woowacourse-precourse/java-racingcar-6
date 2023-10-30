@@ -22,7 +22,8 @@ public class Validator {
 	}
 
 	public boolean validateSpace(String carName) {
-		if (carName.equals(" ")) {
+		carName = carName.replace(" ", "");
+		if (carName.equals("")) {
 			throw new IllegalArgumentException();
 		}
 		return true;
