@@ -23,16 +23,22 @@ public class Cars {
     }
 
     public List<String> getWinnerCarNameList() {
-        List<String> winnerCarList = new ArrayList<>();
+        int maxForward = findMaxForward();
+        return findWinnerCarNames(maxForward);
+    }
+
+    private int findMaxForward() {
         int maxForward = -1;
+        for (Car car : carList) {
+            maxForward = Math.max(maxForward, car.getForward());
+        }
+        return maxForward;
+    }
 
-        for(Car car : carList) {
-            if(car.getForward() > maxForward) {
-                maxForward = car.getForward();
-                winnerCarList.clear();
-            }
-
-            if (car.getForward() == maxForward) {
+    private List<String> findWinnerCarNames(int maxForward) {
+        List<String> winnerCarList = new ArrayList<>();
+        for (Car car : carList) {
+            if (maxForward == car.getForward()) {
                 winnerCarList.add(car.getName());
             }
         }
