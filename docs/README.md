@@ -25,8 +25,8 @@
 ### 2️⃣ 객체 정의
 - **Referee**
     - attribute
-        - [ ] `cars`: List<Car>
-        - [ ] `tryCount`: int
+        - [x] `cars`: List<Car>
+        - [x] `numOfGame`: int
     - method
         - [ ] 초기 문구 출력
         - [ ] 게임 횟수 입력
@@ -39,8 +39,8 @@
 
 - **Car**
     - attribute
-        - [ ] `name`: String
-        - [ ] `position`: int
+        - [x] `name`: String
+        - [x] `position`: int
     - method
         - [ ] 이름 입력
         - [ ] 이동거리 계산
