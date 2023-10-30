@@ -6,7 +6,6 @@ public class RacingCar {
     String name;
     long location;
 
-    // 시작 location 설정해야 함
     public static RacingCar createRacingCar(String name) {
         RacingCar racingCar = new RacingCar();
 
