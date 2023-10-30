@@ -2,8 +2,6 @@ package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-class ValidatorCarNamesInputTest extends NsTest {
+class ValidatorCarNamesInputTest {
 
     private Validator validator;
 
@@ -34,7 +32,7 @@ class ValidatorCarNamesInputTest extends NsTest {
     @MethodSource("provideExceptionInput")
     @DisplayName("자동차 이름 입력 검증 예외")
     void 자동차_이름_입력_검증_예외(String input) {
-        assertThatThrownBy(() -> runException(input))
+        assertThatThrownBy(() -> run(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -61,8 +59,7 @@ class ValidatorCarNamesInputTest extends NsTest {
         );
     }
 
-    @Override
-    protected void runMain() {
-        validator.validateInputCarName(Console.readLine());
+    private void run(String input) {
+        validator.validateInputCarName(input);
     }
 }

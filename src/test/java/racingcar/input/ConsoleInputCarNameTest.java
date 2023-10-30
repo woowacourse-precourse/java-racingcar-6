@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -18,12 +17,7 @@ import racingcar.validator.Validator;
 
 class ConsoleInputCarNameTest {
 
-    private Input consoleInput;
-
-    @BeforeEach
-    void beforeEach() {
-        consoleInput = new ConsoleInput(new Validator());
-    }
+    private Input consoleInput = new ConsoleInput(new Validator());
 
     @ParameterizedTest
     @MethodSource("provideCarNames")

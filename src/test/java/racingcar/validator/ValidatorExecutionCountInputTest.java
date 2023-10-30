@@ -2,8 +2,6 @@ package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-class ValidatorExecutionCountInputTest extends NsTest {
+class ValidatorExecutionCountInputTest {
 
     private Validator validator;
 
@@ -33,7 +31,7 @@ class ValidatorExecutionCountInputTest extends NsTest {
     @MethodSource("provideExceptionInput")
     @DisplayName("실행 횟수 입력 검증 예외")
     void 실행_횟수_입력_검증_예외(String input) {
-        assertThatThrownBy(() -> runException(input))
+        assertThatThrownBy(() -> run(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -51,8 +49,7 @@ class ValidatorExecutionCountInputTest extends NsTest {
         );
     }
 
-    @Override
-    protected void runMain() {
-        validator.validateInputCount(Console.readLine());
+    private void run(String input) {
+        validator.validateInputCount(input);
     }
 }
