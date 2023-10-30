@@ -1,7 +1,9 @@
 package racingcar.view;
 
 import static racingcar.view.constants.Notice.RESULT;
+import static racingcar.view.constants.Notice.WINNER;
 
+import java.util.List;
 import racingcar.domain.Car;
 
 public class OutputView {
@@ -17,7 +19,13 @@ public class OutputView {
         System.out.println(car.getName() + " : " + result);
     }
 
-    public static void printWinner() {
-
+    public static void printWinner(List<String> winners) {
+        System.out.print(WINNER);
+        for (int i = 0; i < winners.size(); i++) {
+            System.out.print(winners.get(i));
+            if (i < winners.size() - 2) {
+                System.out.print(", ");
+            }
+        }
     }
 }
