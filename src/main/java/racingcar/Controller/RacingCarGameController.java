@@ -42,8 +42,7 @@ public class RacingCarGameController {
                 max = car.getStepCount();
                 winnerList.clear();
                 winnerList.add(car.getName());
-            }
-            if (car.getStepCount() <= max && car.getStepCount() == max) {
+            }else if (car.getStepCount() == max) {
                 winnerList.add(car.getName());
             }
         }
