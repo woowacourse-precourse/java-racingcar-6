@@ -29,4 +29,14 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public void printWinner(List<Car> maxCarList) {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < maxCarList.size(); i++) {
+            System.out.print(maxCarList.get(i).name);
+            if (i + 1 < maxCarList.size()) {
+                System.out.print(", ");
+            }
+        }
+    }
 }
