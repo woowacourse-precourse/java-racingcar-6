@@ -11,8 +11,9 @@ class CarStorageTest {
 	void can_duplicated_car_name() {
 		// given
 		MoveState moveState = new MoveState(()-> 4);
-		Car carNameA1 = new Car(new CarName("A"), moveState);
-		Car carNameA2 = new Car(new CarName("A"), moveState);
+		Position position = new Position();
+		Car carNameA1 = new Car(position, new CarName("A"), moveState);
+		Car carNameA2 = new Car(position, new CarName("A"), moveState);
 
 		// when & then
 		Assertions.assertDoesNotThrow(()->new CarStorage(List.of(carNameA1, carNameA2)));

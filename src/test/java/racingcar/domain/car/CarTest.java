@@ -15,13 +15,14 @@ class CarTest {
 		NumberGenerator movableNumber = () -> 4;
 		MoveState moveState = new MoveState(movableNumber);
 		CarName carName = new CarName("12345");
-		Car car = new Car(carName, moveState);
+		Position position = new Position();
+		Car car = new Car(position, carName, moveState);
 
 		// when
 		car.move();
 
         // then
-        assertEquals(1, car.getPosition());
+        assertEquals(new Position(1), car.getPosition());
 	}
 
 	@Test
@@ -31,12 +32,13 @@ class CarTest {
 		NumberGenerator nonMovableNumber = () -> 3;
 		MoveState moveState = new MoveState(nonMovableNumber);
 		CarName carName = new CarName("12345");
-		Car car = new Car(carName, moveState);
+		Position position = new Position();
+		Car car = new Car(position, carName, moveState);
 
 		// when
 		car.move();
 
 		// then
-		assertEquals(0, car.getPosition());
+		assertEquals(new Position(0), car.getPosition());
 	}
 }
