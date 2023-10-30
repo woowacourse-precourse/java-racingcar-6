@@ -2,8 +2,12 @@ package racingcar.domain;
 
 public class Car {
 
+    private static final int MIN_NAME_LENGTH = 1;
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_VALUE_FOR_MOVE = 4; // 자동차가 전진하기 위한 최솟값
+
     private final String name;
-    private int forwardCount;
+    private int forwardCount; // 전진 횟수
 
     public Car(String name) {
         validateNameLength(name);
@@ -12,13 +16,18 @@ public class Car {
     }
 
     private void validateNameLength(String name) {
-        if (!(1 <= name.length() && name.length() <= 5)) {
-            throw new IllegalArgumentException("[ERROR] 자동차 이름은 1자 이상 5자 이하만 가능합니다.");
+        if (invalidNameLength(name)) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름은 %d자 이상 %d자 이하만 가능합니다."
+                    .formatted(MIN_NAME_LENGTH, MAX_NAME_LENGTH));
         }
     }
 
+    private boolean invalidNameLength(String name) {
+        return !(MIN_NAME_LENGTH <= name.length() && name.length() <= MAX_NAME_LENGTH);
+    }
+
     public int move(int value) {
-        if (value >= 4) {
+        if (value >= MIN_VALUE_FOR_MOVE) {
             forwardCount++;
         }
         return forwardCount;
