@@ -16,6 +16,14 @@ public class CarManager {
         this.cars = cars;
     }
 
+    private void add(String name) {
+        cars.add(new Car(name));
+    }
+
+    public void add(List<String> names) {
+        names.forEach(this::add);
+    }
+
     boolean decideGo(int condition) {
         return condition >= STANDARD_FOR_GO;
     }
