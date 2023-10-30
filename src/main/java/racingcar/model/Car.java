@@ -31,6 +31,11 @@ public class Car implements Comparable<Car> {
     private boolean validateNameLength(String name) {
         return name.length() >= MIN_NAME_LENGTH && name.length() <= MAX_NAME_LENGTH;
     }
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return String.format(ViewConstants.OUTPUT_CAR_RESULT_FORMAT.toString(), name, "-".repeat(distance));
