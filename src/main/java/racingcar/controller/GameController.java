@@ -10,11 +10,13 @@ import java.util.List;
 public class GameController {
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
+    private List<Car> cars;
+    private AttemptCount attemptCount;
 
     public void start() {
         outputView.printInputCarNameMessage();
-        List<Car> cars = inputView.readCarNames();
+        cars = inputView.readCarNames();
         outputView.printInputAttemptCountMessage();
-        AttemptCount attemptCount = inputView.readAttemptCount();
+        attemptCount = inputView.readAttemptCount();
     }
 }
