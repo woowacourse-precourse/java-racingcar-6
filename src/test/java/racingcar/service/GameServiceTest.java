@@ -1,4 +1,4 @@
-package racingcar.sevice;
+package racingcar.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.manager.Validator;
+import racingcar.sevice.GameService;
 
 class GameServiceTest {
     List<Car> carList;
