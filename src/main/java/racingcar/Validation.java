@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Validation {
@@ -10,7 +12,10 @@ public class Validation {
         return carsStingList;
     }
     private static List<String> validateDivision(String cars){
-        return null;
+        List<String> carsStingList = new ArrayList<>();
+        String[] carInputList = cars.split(",");
+        carsStingList.addAll(Arrays.asList(carInputList));
+        return carsStingList;
     }
 
     private static void validateLength(List<String> carsStingList){
