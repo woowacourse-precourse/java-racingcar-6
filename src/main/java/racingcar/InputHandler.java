@@ -4,11 +4,9 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class InputHandler {
-    private static final String SEPARATOR = ",";
-    private static final int MIN_CAR_NAME_LEN = 1;
-    private static final int MAX_CAR_NAME_LEN = 5;
+import static racingcar.Constants.*;
 
+public class InputHandler {
     public List<String> carNames() {
         String carNamesWithSeparator = Console.readLine();
         String[] tokens = StringManipulator.splitSeparator(carNamesWithSeparator, SEPARATOR);
