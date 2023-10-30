@@ -8,12 +8,12 @@ import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Console;
 public class Function {
 	
-	public static boolean check() {
+	public static String check() {
 		int number= Randoms.pickNumberInRange(0,9);
-		boolean result= false;
+		String result= "";
 		
 		if(number>=4) {
-			result= true;
+			result= "-";
 		}
 		return result;
 	}
@@ -28,5 +28,14 @@ public class Function {
 		int number= Integer.parseInt(Console.readLine());
 		
 		return number;
+	}
+	public static void run(int count, ArrayList<String> carName) {
+		for(String name:carName) {
+			String result= name+" : ";
+			for(int i=0; i< count; i++) {
+				result+= check();
+			}
+			System.out.println(result);
+		}
 	}
 }
