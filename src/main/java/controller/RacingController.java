@@ -1,5 +1,6 @@
 package controller;
 
+import service.UserInput;
 import view.MessagePrinter;
 
 public class RacingController {
@@ -10,6 +11,7 @@ public class RacingController {
 
     public void inputCarNames(){
         MessagePrinter.start();
+        UserInput.CarNames();
     }
 
 }
