@@ -1,8 +1,5 @@
 package racingcar.domain;
 
-import java.util.List;
-import racingcar.validation.InputValidation;
-
 public class Car {
 
     private final String name;
