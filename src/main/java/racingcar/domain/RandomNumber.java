@@ -4,10 +4,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumber {
 
-    private final int START_INCLUSIVE = 1;
-    private final int END_INCLUSIVE = 9;
+    private static final int START_INCLUSIVE = 1;
+    private static final int END_INCLUSIVE = 9;
 
-    public int generateRandomNumber() {
+    public static int generateRandomNumber() {
         return Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
     }
 }
