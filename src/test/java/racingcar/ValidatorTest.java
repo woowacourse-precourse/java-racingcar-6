@@ -46,26 +46,18 @@ public class ValidatorTest extends ApplicationTest {
     @ParameterizedTest
     @CsvSource({
             "d",
-            "q"
+            "q",
+            "0",
+            "-1"
     })
     void 시도할_횟수_유효성_실패_테스트(String tryCount) {
         assertThrows(IllegalArgumentException.class,
-                () -> Validator.validateTryCountNumeric(tryCount));
+                () -> Validator.validateTryCount(tryCount));
     }
 
     @Test
     void 시도할_횟수_공백_확인() {
         assertThrows(IllegalArgumentException.class,
-                () -> Validator.validateTryCountNumeric(""));
-    }
-
-    @ParameterizedTest
-    @CsvSource({
-            "0",
-            "-1"
-    })
-    void 시도할_횟수_범위_확인(String tryCount) {
-        assertThrows(IllegalArgumentException.class,
-                () -> Validator.validateTryCountRange(tryCount));
+                () -> Validator.validateTryCount(""));
     }
 }
