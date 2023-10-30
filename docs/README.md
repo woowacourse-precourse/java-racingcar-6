@@ -31,7 +31,6 @@ CommandLineController 객체의 start 메서드를 실행한다.
   
 - 메서드
   - startGame() 자동차 경주 게임을 시작한다.
-  - stopGame() 자동차 경주 게임을 종료한다.
   - saveRaceCount(String input) 사용자의 입력을 받아 레이스 횟수를 추가한다.
   - printRaceResult() 1회의 레이스 결과를 출력한다.
   - printFinalResult() 레이스의 최종 결과를 출력한다.
@@ -97,3 +96,9 @@ CommandLineController 객체의 start 메서드를 실행한다.
 
 ### CarRaceConstant
 - 자동차 경주 게임의 상수
+
+## validate Package
+
+### validate
+- 숫자인지 확인하는 메서드
+- 자동차 이름이 5자 이하인지 체크하는 메서드

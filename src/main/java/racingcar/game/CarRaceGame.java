@@ -9,13 +9,18 @@ public class CarRaceGame implements Game {
     private int gameRound;
 
     public CarRaceGame() {
-
+        this.service = new CarRaceService();
+        this.gameRound = 0;
     }
 
     @Override
     public void startGame() {
 
     }
+
+//    private void saveRaceRound(String input) {
+//
+//    }
 
 
 
