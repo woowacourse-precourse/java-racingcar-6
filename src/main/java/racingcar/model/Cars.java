@@ -15,8 +15,9 @@ public class Cars {
             this.carModelList.add(new CarModel(s));
         }
     }
-    public void carForward() {
+    public void carsForward() {
         for ( CarModel carModel : carModelList) {
+
             if (forwardCheck()) {
                 carModel.increaseLocation();
             }

@@ -15,27 +15,33 @@ public class RacingController {
     private Cars cars;
     private int repeatNumber;
 
-    public void carNamesProcess() {
+    public void runGame() {
+        carNamesProcess();
+        repeatNumberProcess();
+        racingStart();
+        resultWinner();
+    }
+    private void carNamesProcess() {
         OutputView.printCarNameDemand();
         List<String> carList = Arrays.asList(InputView.inputCarName().split(","));
 
         this.cars = new Cars(carList);
     }
 
-    public void repeatNumberProcess() {
+    private void repeatNumberProcess() {
         OutputView.printRepeatNumberDemand();
         repeatNumber = Integer.parseInt(InputView.inputRepeatNumber());
         ExceptionCheck.iterateNumberValidation(repeatNumber);
     }
 
-    public void racingStart() {
+    private void racingStart() {
         OutputView.printResult();
         for (int i = 0; i < repeatNumber; i++) {
-            cars.carForward();
+            cars.carsForward();
         }
     }
 
-    public void resultWinner() {
+    private void resultWinner() {
         OutputView.printWinner(cars.winnerCheck(repeatNumber));
     }
 }
