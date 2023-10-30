@@ -7,12 +7,15 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
     }
+
     public void moveForward(int distance) {
         position += distance;
     }
+
     public int getPosition() {
         return position;
     }

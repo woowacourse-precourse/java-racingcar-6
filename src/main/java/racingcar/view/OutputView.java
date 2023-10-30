@@ -8,6 +8,7 @@ public class OutputView {
     public static void printExecutionResult() {
         System.out.println("실행 결과");
     }
+
     public static void printCarScore(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getName() + " : ");
@@ -28,7 +29,7 @@ public class OutputView {
     }
 
     public static void printPosition(Car car) {
-        for(int i = 0; i < car.getPosition(); i++) {
+        for (int i = 0; i < car.getPosition(); i++) {
             System.out.print("-");
         }
     }

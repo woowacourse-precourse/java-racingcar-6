@@ -33,6 +33,7 @@ public class Controller {
             carRepository.add(new Car(carName));
         }
     }
+
     private String getCarNamesByInput() {
         InputView.requestCarName();
         String input = Console.readLine();
@@ -46,6 +47,7 @@ public class Controller {
         validator.checkAttemptNumInput(input);
         return parser.parseAttemptNumber(input);
     }
+
     private void decideMovement() {
         for (int i = 0; i < carRepository.size(); i++) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
