@@ -1,12 +1,14 @@
 package racingcar;
 
+import java.util.Objects;
+
 public class Car implements Comparable<Car> {
 
-    private final String name;
+    private final CarName carName;
     private int position;
 
-    public Car(String name) {
-        this.name = name;
+    public Car(CarName carName) {
+        this.carName = carName;
         this.position = 0;
     }
 
@@ -26,11 +28,24 @@ public class Car implements Comparable<Car> {
         return position == car.position;
     }
 
-    public String getStatusMessage() {
-        return name + " : " + "-".repeat(position);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return position == car.position && carName.equals(car.carName);
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public int hashCode() {
+        return Objects.hash(carName, position);
+    }
+
+    public String getStatusMessage() {
+        return carName.getName() + " : " + "-".repeat(position);
+    }
+
+    public String getCarName() {
+        return carName.getName();
     }
 }
