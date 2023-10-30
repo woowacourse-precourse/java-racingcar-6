@@ -24,4 +24,20 @@ class InputTryCountTest {
         }).doesNotThrowAnyException();
     }
 
+    @Test
+    void 자연수가_아닐때() {
+        int input = 0;
+        assertThatThrownBy(() -> {
+            InputTryCount.checkNumber(input);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.NOT_NATURAL_NUM_ERROR);
+    }
+
+    @Test
+    void 자연수_일때() {
+        int input = 20;
+        assertThatCode(() -> {
+            InputTryCount.checkNumber(input);
+        }).doesNotThrowAnyException();
+    }
 }
