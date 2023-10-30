@@ -8,12 +8,12 @@ public class Car {
     private static final Power POWER_THRESHOLD_FOR_MOVE = new Power(4);
     private static final int MOVE_DISTANCE = 1;
 
-    private String name;
+    private CarName carName;
     private int position;
     private PowerGenerator powerGenerator;
 
     public Car(String name, int position, PowerGenerator powerGenerator) {
-        this.name = name;
+        this.carName = new CarName(name);
         this.position = position;
         this.powerGenerator = powerGenerator;
     }
@@ -30,7 +30,7 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return carName.getCarName();
     }
 
     public int getPosition() {
