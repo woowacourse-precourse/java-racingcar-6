@@ -11,7 +11,7 @@ public class OutputView {
         System.out.println(Message.RESULT);
     }
 
-    public static void printCarsResult(CarResult carList) {
+    public static void printCarsResult(CarRepository carList) {
         for (Car car : carList.getCarList()) {
             printCarResult(car);
         }
