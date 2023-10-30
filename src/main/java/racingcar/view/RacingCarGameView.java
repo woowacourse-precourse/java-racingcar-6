@@ -19,4 +19,9 @@ public class RacingCarGameView implements RepeatingGameView {
     public void showInputRequiredMessage() {
         System.out.println(messageProperties.get("car-name-input"));
     }
+
+    @Override
+    public void showRepeatingNumberRequiredMessage() {
+        System.out.println(messageProperties.get("repeating-number-input"));
+    }
 }
