@@ -2,19 +2,12 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
-import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 public class GameUtil {
-    OutputView outputView;
-
-    public GameUtil() {
-        outputView = new OutputView();
-    }
-
     public int randomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
@@ -35,29 +28,6 @@ public class GameUtil {
         }
         return carArrayList;
     }
-
-    public int winnerLocation(ArrayList<Car> carArrayList) {
-        int max = 0;
-        for (int i = 0; i < carArrayList.size(); i++) {
-            if (carArrayList.get(i).getLocation() > max) {
-                max = carArrayList.get(i).getLocation();
-            }
-        }
-        return max;
-    }
-
-    public void goAndStop(ArrayList<Car> carArrayList) {
-        for (int i = 0; i < carArrayList.size(); i++) {
-            isGo(carArrayList.get(i));
-        }
-    }
-
-    public void isGo(Car car) {
-        if (randomNumber() >= 4) {
-            car.go();
-        }
-    }
-
     public int maxLocation(ArrayList<Car> carArrayList) {
         int max = 0;
         for (int i = 0; i < carArrayList.size(); i++) {
@@ -67,7 +37,16 @@ public class GameUtil {
         }
         return max;
     }
-
+    public void goAndStop(ArrayList<Car> carArrayList) {
+        for (int i = 0; i < carArrayList.size(); i++) {
+            isGo(carArrayList.get(i));
+        }
+    }
+    public void isGo(Car car) {
+        if (randomNumber() >= 4) {
+            car.go();
+        }
+    }
     public String winner(ArrayList<Car> carArrayList) {
         int max = maxLocation(carArrayList);
         ArrayList<String> winnerArrayList = new ArrayList<>();
@@ -77,18 +56,5 @@ public class GameUtil {
             }
         }
         return String.join(", ", winnerArrayList);
-    }
-
-    public void gamePlay(String carName, int count) {
-        ArrayList<Car> carArrayList = splitNameArrayList(carName);
-
-        for (int i = 0; i < count; i++) {
-            outputView.gameSituation(carArrayList);
-            goAndStop(carArrayList);
-            System.out.println();
-        }
-
-        String winner = winner(carArrayList);
-        outputView.winner(winner);
     }
 }

@@ -1,19 +1,10 @@
 package racingcar;
 
-import racingcar.util.GameUtil;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.util.GamePlay;
 
 public class Application {
     public static void main(String[] args) {
-        InputView inputView = new InputView();
-        OutputView outputView = new OutputView();
-        GameUtil gameUtil = new GameUtil();
-
-        String cars = inputView.inputCars();
-        int count = inputView.inputCount();
-
-        outputView.gameStart();
-        gameUtil.gamePlay(cars, count);
+        GamePlay gamePlay = new GamePlay();
+        gamePlay.gamePlay();
     }
 }
