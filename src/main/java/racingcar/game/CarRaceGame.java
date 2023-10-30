@@ -3,6 +3,7 @@ package racingcar.game;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.service.CarRaceService;
+import racingcar.validate.Validate;
 
 public class CarRaceGame implements Game {
     private CarRaceService service;
@@ -18,9 +19,10 @@ public class CarRaceGame implements Game {
 
     }
 
-//    private void saveRaceRound(String input) {
-//
-//    }
+    private void saveRaceRound(String input) {
+        Validate.isNumber(input);
+        this.gameRound = Integer.parseInt(input);
+    }
 
 
 
