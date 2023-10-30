@@ -47,8 +47,20 @@ public class Application {
         return cars; // (자동차, 0)으로 맵핑된 map
     }
 
+    public static Boolean checkN(String N) {
+        //N이 숫자로만 이루어져 있다면 true
+        if (N.chars().allMatch(Character::isDigit)) {
+            return true;
+        }
+        return false; //아니라면 false
+    }
+
     public static Integer inputN() {
-        return Integer.parseInt(Console.readLine()); //정수 N
+        String N = Console.readLine();
+        if (checkN(N)) {
+            return Integer.parseInt(N); //정수 N
+        }
+        throw new IllegalArgumentException(); //정수가 아닐 경우 IllegalArgumentException
     }
 
     public static Integer randomNumber() {
@@ -85,7 +97,7 @@ public class Application {
             for (int i = 0; i < cars.get(car); i++) {
                 result += "-"; //자동차가 이동한 거리를 '-'로 출력
             }
-            System.out.println(result);
+            System.out.println(result); //자동차 이름과 거리 출력
             result = "";
         }
         System.out.println();
