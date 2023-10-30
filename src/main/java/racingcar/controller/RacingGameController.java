@@ -9,7 +9,7 @@ import java.util.List;
 
 public class RacingGameController {
     private RacingGame racingGame;
-    int tryCount;
+    private int tryCount;
 
     public void proceed() {
         initRacingGame();
