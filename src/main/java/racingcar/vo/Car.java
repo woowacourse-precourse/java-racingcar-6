@@ -11,7 +11,7 @@ public class Car {
 
     public int moveForward(boolean success) {
         if (success) {
-            return position++;
+            return ++position;
         }
         return position;
     }

@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.RacingGameEvent;
 import racingcar.view.InputView;
+import racingcar.view.ResultView;
 import racingcar.vo.RacingPreference;
 
 public class RacingCarController {
@@ -12,5 +13,9 @@ public class RacingCarController {
 
         RacingGameEvent racingGameEvent = new RacingGameEvent(racingPreference.getCars());
         racingGameEvent.startEvent(racingPreference.getAttempt());
+
+        ResultView resultView = new ResultView();
+        resultView.showRacingResult(racingGameEvent.getPositionHistory(), racingPreference.getAttempt());
+
     }
 }
