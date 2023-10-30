@@ -11,14 +11,13 @@ public class Validator {
     private static final int MIN_CAR_NAME_LENGTH = 1;
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MAX_CAR_COUNTING = 2;
+    public static final String NOT_CONSIST_OF_ENGLISH_KOREAN_COMMA_MESSAGE =
+            "자동차 이름을 영문자,한글로만 구성하고 쉼표로만 구분해주세요.";
+    public static final String END_OF_INPUT_IS_NOT_COMMA_MESSAGE = "입력값의 마지막으로는 쉼표가 올 수 없습니다.";
 
     public void validateInput(String input) {
-        if (!input.matches("^[가-힣a-zA-Z,]+$")) {
-            throw new IllegalArgumentException("자동차 이름을 영문자,한글로만 구성하고 쉼표로만 구분해주세요.");
-        }
-        if (input.lastIndexOf(input.length() - 1) == ',') {
-            throw new IllegalArgumentException("입력값의 마지막으로는 쉼표가 올 수 없습니다.");
-        }
+        checkInputConsistOfEnglishKoreanComma(input);
+        checkEndOfInputNotComma(input);
     }
 
     public void validateCarNames(List<String> carNames) {
@@ -38,6 +37,18 @@ public class Validator {
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("1이상의 정수를 입력하세요.");
+        }
+    }
+
+    private void checkInputConsistOfEnglishKoreanComma(String input) {
+        if (!input.matches("^[가-힣a-zA-Z,]+$")) {
+            throw new IllegalArgumentException(NOT_CONSIST_OF_ENGLISH_KOREAN_COMMA_MESSAGE);
+        }
+    }
+
+    private void checkEndOfInputNotComma(String input) {
+        if (input.endsWith(",")) {
+            throw new IllegalArgumentException(END_OF_INPUT_IS_NOT_COMMA_MESSAGE);
         }
     }
 
