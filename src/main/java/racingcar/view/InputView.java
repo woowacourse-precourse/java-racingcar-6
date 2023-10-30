@@ -5,8 +5,6 @@ import static racingcar.view.constants.Notice.ASK_ATTEMPT_NUMBER;
 import static racingcar.view.constants.Notice.ASK_CAR_NAME;
 
 public class InputView {
-    private static int attemptNumber;
-
     public static String askCarName() {
         System.out.println(ASK_CAR_NAME);
         return readLine();
@@ -14,12 +12,12 @@ public class InputView {
 
     public static int askAttemptNumber() {
         System.out.println(ASK_ATTEMPT_NUMBER);
-        attemptNumber = Integer.parseInt(readLine());
-        validateNumber();
+        int attemptNumber = Integer.parseInt(readLine());
+        validateNumber(attemptNumber);
         return attemptNumber;
     }
 
-    private static void validateNumber() {
+    private static void validateNumber(int attemptNumber) {
         if (attemptNumber < 1) {
             throw new IllegalArgumentException("입력하신 횟수가 올바르지 않습니다.");
         }
