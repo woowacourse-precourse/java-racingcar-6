@@ -13,6 +13,14 @@ public class Car {
         this.moveNum = moveNum;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Integer getMoveNum() {
+        return moveNum;
+    }
+
     public void tryMove(int randomNum) {
         if (randomNum >= THRESHOLD) {
             moveOneSpace();
