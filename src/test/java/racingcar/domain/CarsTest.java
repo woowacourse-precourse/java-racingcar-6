@@ -48,4 +48,41 @@ public class CarsTest {
         assertThat(afterMoveCar2.getPosition()).isEqualTo(0);
         assertThat(afterMoveCars.get(1).getName()).isEqualTo(inputCars.get(1).getName());
     }
+
+    @DisplayName("사용자가 입력한 자동차 이름으로 자동차객체를 생성한다.")
+    @ParameterizedTest
+    @MethodSource("provideAssembleTestArguments")
+    void assembleTest(List<String> inputNames, Cars expectedCars) {
+        Cars assembledCars = Cars.assemble(inputNames, new FixedCarEngine(true));
+        List<Car> assembledCarList = assembledCars.getReadOnlyCarList();
+        List<Car> expectedCarList = expectedCars.getReadOnlyCarList();
+        for (int i = 0; i < assembledCarList.size(); i++) {
+            Car assembledCar = assembledCarList.get(i);
+            Car expectedCar = expectedCarList.get(i);
+            assertThat(assembledCar.getName()).isEqualTo(expectedCar.getName());
+            assertThat(assembledCar.getPosition()).isEqualTo(expectedCar.getPosition());
+        }
+    }
+
+    static Stream<Arguments> provideAssembleTestArguments() {
+        return Stream.of(
+                arguments(
+                        List.of("pobi", "woni", "jun"),
+                        new Cars(List.of(
+                                new Car("pobi", new FixedCarEngine(true)),
+                                new Car("woni", new FixedCarEngine(true)),
+                                new Car("jun", new FixedCarEngine(true))
+                        )),
+                        List.of("pobi", "woni"),
+                        new Cars(List.of(
+                                new Car("pobi", new FixedCarEngine(true)),
+                                new Car("woni", new FixedCarEngine(true))
+                        )),
+                        List.of("pobi"),
+                        new Cars(List.of(
+                                new Car("pobi", new FixedCarEngine(true))
+                        ))
+                )
+        );
+    }
 }
