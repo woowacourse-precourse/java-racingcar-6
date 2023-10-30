@@ -24,4 +24,9 @@ public record Car(Name name, Position position) implements Comparable<Car> {
     private int getPosition() {
         return this.position.get();
     }
+
+    @Override
+    public String toString() {
+        return this.name + " : " + "-".repeat(getPosition());
+    }
 }
