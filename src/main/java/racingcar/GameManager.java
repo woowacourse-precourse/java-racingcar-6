@@ -10,8 +10,8 @@ public class GameManager {
     private static final String LOCATION_SIGN = "-";
     private static final String WINNER_FORMAT = "최종 우승자 : %s";
     private static final MovingRule movingRule = new MovingRule();
-    private static final NumberGenerator numberGenerator = new NumberGenerator();
 
+    private final NumberGenerator numberGenerator = new NumberGenerator();
     private final List<Car> cars = new ArrayList<>();
 
     public void addCar(String carName) {
