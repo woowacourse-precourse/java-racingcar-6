@@ -7,9 +7,11 @@ import java.util.List;
 public class Server {
     private List<Racer> racerList ;
     private Validator validator;
+    private Integer racerCount;
     Server(){
         racerList = new ArrayList<>();
         validator = new Validator();
+        racerCount = 0;
     }
 
     public void confirmRacerList(String racerListString){
@@ -19,7 +21,11 @@ public class Server {
             racerList.add(new Racer(racerName));
         }
     }
+    public void confirmRacerCount(String racerCountString){
+
+    }
 
     public List<Racer> getRacerList(){ return racerList; }
+    public int getRacerCount() { return racerCount;}
 
 }

@@ -17,4 +17,9 @@ public class ServerTest {
         server.confirmRacerList("pobi,woni");
         Assertions.assertEquals(2,server.getRacerList().size());
     }
+    @Test
+    void 경주를_시도하는_횟수를_접수한다(){
+        server.confirmRacerCount("5");
+        Assertions.assertEquals(5,server.getRacerCount());
+    }
 }
