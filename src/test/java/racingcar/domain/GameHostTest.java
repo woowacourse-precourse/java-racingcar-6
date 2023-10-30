@@ -20,12 +20,15 @@ class GameHostTest {
     private RaceCar raceCar_2;
     private RaceCar raceCar_3;
 
+    private List<RaceCar> progressRaceCarList;
+
     @BeforeEach
     void setUp() {
         gameHost = new GameHost();
         raceCar_1 = new RaceCar("fir");
         raceCar_2 = new RaceCar("sec");
         raceCar_3 = new RaceCar("third");
+        progressRaceCarList = List.of(raceCar_1, raceCar_2, raceCar_3);
     }
 
     private void moveRaceCar(RaceCar raceCar) {
@@ -41,18 +44,25 @@ class GameHostTest {
     void knowWinRaceCarsTest_1() {
         // given
         moveRaceCar(raceCar_1);
-        List<RaceCar> progressRaceCarList =
-                List.of(
-                        raceCar_1
-                        , raceCar_2
-                        , raceCar_3
-                );
 
         // when
         List<RaceCar> result = gameHost.knowWinRaceCars(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_1));
+    }
+
+    @DisplayName("자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다._2 ")
+    @Test
+    void knowWinRaceCarsTest_2() {
+        // given
+        moveRaceCar(raceCar_2);
+
+        // when
+        List<RaceCar> result = gameHost.knowWinRaceCars(progressRaceCarList);
+
+        // than
+        assertThat(result).isEqualTo(List.of(raceCar_2));
     }
 
     @Test
