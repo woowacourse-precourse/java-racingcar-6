@@ -5,6 +5,7 @@ import racingcar.domain.RacingCar;
 import java.util.ArrayList;
 
 import static racingcar.util.validate.InputValidate.validateNumberLength;
+import static racingcar.util.validate.InputValidate.validateUsernameStartsWithBlank;
 
 public class Parsing {
 
@@ -18,6 +19,7 @@ public class Parsing {
 
         for (String username : input) {
             validateNumberLength(username);
+            validateUsernameStartsWithBlank(username);
             RacingCar racingCar = new RacingCar(username);
             racingCars.add(racingCar);
         }
