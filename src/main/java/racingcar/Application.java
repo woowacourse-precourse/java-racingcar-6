@@ -10,6 +10,6 @@ public class Application {
         String attempts = Console.readLine();
 
         Game game = new Game(carNames, attempts);
-
+        game.race();
     }
 }
