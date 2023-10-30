@@ -27,6 +27,36 @@
 - [x] 최종 우승자 출력하기
     - [x] 여러 명일 경우 쉼표(,)로 구분하여 출력하기
 
+## 클래스(역할) 목록
+
+### Race
+
+#### 속성
+
+- `carList`: 자동차들을 저장하는 List 자료구조
+- `turnCount`: 레이스의 현재 차수를 저장하는 정수형 변수
+
+#### 메서드
+
+- `start()`: 레이스를 시작하는 메서드
+- `setCarList()`: 사용자에게 자동차명을 입력을 받아 Car 객체들을 생성하고 이를 carList에 저장하는 메서드
+- `setTurnCount()`: 사용자에게 레이싱에서 진행할 차수를 입력받아 이를 turnCount에 저장하기 위한 메서드
+- `getCarList()`: carList를 반환하는 메서드
+- `getTurnCount`; turnCount를 반환하는 메서드
+
+### Car
+
+#### 속성
+
+- `name`: 이름을 저장하는 문자열
+- `moveCount`: 레이스 이동 상황을 저장하는 정수형 변수
+
+#### 메서드
+
+- `getName()`: name을 반환하는 메서드
+- `getMoveCount()`: moveCount를 반환하는 메서드
+- `run(int value)`: 값을 매개변수로 받고, 4 이상일 경우 moveCount를 1 증가시키는 메서드
+
 ## 테스트 목록
 
 ### 입력값 테스트
