@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+import racingcar.domain.Player;
 import racingcar.domain.RacingCar;
 
 public class Application {
@@ -9,5 +11,10 @@ public class Application {
         racingCar.makeRandomNumber();
         racingCar.goOrStop();
         System.out.println(racingCar.randomNumber + " " + racingCar.distance);
+        Player player = new Player();
+        List<String> carNames = player.inputNames();
+        for (int i = 0; i < carNames.size(); i++) {
+            System.out.println(carNames.get(i));
+        }
     }
 }
