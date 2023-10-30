@@ -25,6 +25,7 @@ public class racingcarModules {
             if (top_score < car_name_value) {
                 top_score = car_name_value;
                 champion_member.clear();
+                champion_member.add(car_name);
             } else if (top_score == car_name_value) {
                 champion_member.add(car_name);
             }
