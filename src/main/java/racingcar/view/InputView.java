@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.domain.TryCount;
 import racingcar.validator.GameValidator;
 
 import java.util.Arrays;
@@ -21,15 +22,14 @@ public class InputView {
                 .toList();
     }
 
-    public int inputTryCount() {
+    public TryCount inputTryCount() {
 
         String tryCountString = Console.readLine();
         GameValidator.validateIsNumber(tryCountString);
 
         int tryCount = Integer.parseInt(tryCountString);
-        GameValidator.validateTryCount(tryCount);
 
-        return tryCount;
+        return new TryCount(tryCount);
     }
 
     private String getCars() {
@@ -37,9 +37,6 @@ public class InputView {
         String cars = Console.readLine();
         GameValidator.validateCarNumberIsOverTwo(cars);
         GameValidator.validateZeroCarName(cars);
-
-        Arrays.stream(cars.split(DELIMITER))
-                .forEach(GameValidator::validateCarNamesLength);
 
         return cars;
     }

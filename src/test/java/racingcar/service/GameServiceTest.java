@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Name;
 
 import java.util.List;
 
@@ -26,18 +27,18 @@ class GameServiceTest {
     void findWinnerTest() {
         // given
         Car pobi = Car.makeCar("pobi");
-        Car birdie = Car.makeCar("birdie");
+        Car birdie = Car.makeCar("woni");
         pobi.tryMove(5);
 
         List<Car> cars = List.of(pobi, birdie);
 
         // when
-        List<String> winners = gameService.findWinner(cars);
+        List<Name> winners = gameService.findWinner(cars);
 
         // then
         assertAll(
                 () -> assertThat(winners).hasSize(1),
-                () -> assertThat(winners).containsExactly("pobi")
+                () -> assertThat(winners).containsExactly(new Name("pobi"))
         );
     }
 
@@ -46,19 +47,19 @@ class GameServiceTest {
     void findTwoWinnerTest() {
         // given
         Car pobi = Car.makeCar("pobi");
-        Car birdie = Car.makeCar("birdie");
+        Car birdie = Car.makeCar("woni");
         pobi.tryMove(5);
         birdie.tryMove(5);
 
         List<Car> cars = List.of(pobi, birdie);
 
         // when
-        List<String> winners = gameService.findWinner(cars);
+        List<Name> winners = gameService.findWinner(cars);
 
         // then
         assertAll(
                 () -> assertThat(winners).hasSize(2),
-                () -> assertThat(winners).containsExactly("pobi", "birdie")
+                () -> assertThat(winners).containsExactly(new Name("pobi"), new Name("woni"))
         );
     }
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Name;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -89,7 +90,7 @@ class OutputViewTest {
     @DisplayName("printWinner() 메서드는 우승자를 출력한다.")
     void testPrintWinner() {
         // given
-        List<String> winners = List.of("car1", "car3");
+        List<Name> winners = List.of(new Name("car1"), new Name("car3"));
 
         // when
         outputView.printWinner(winners);

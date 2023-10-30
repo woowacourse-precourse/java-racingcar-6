@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.TryCount;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -44,8 +45,8 @@ class InputViewTest {
         // then
         assertAll(
                 () -> assertThat(cars).hasSize(2),
-                () -> assertThat(cars.get(0).getName()).isEqualTo("pobi"),
-                () -> assertThat(cars.get(1).getName()).isEqualTo("woni")
+                () -> assertThat(cars.get(0).getNameValue()).isEqualTo("pobi"),
+                () -> assertThat(cars.get(1).getNameValue()).isEqualTo("woni")
         );
     }
 
@@ -57,9 +58,9 @@ class InputViewTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        int tryCount = inputView.inputTryCount();
+        TryCount tryCount = inputView.inputTryCount();
 
         // then
-        assertThat(tryCount).isEqualTo(3);
+        assertThat(tryCount).isEqualTo(new TryCount(3));
     }
 }
