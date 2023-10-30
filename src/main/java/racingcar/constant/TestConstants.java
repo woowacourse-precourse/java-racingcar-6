@@ -32,4 +32,17 @@ public class TestConstants {
     public static final String PLAY_NO_TIME = "0";
     public static final String PLAY_NEGATIVE_TIME = "-1";
     public static final String NOT_NUMBER_STRING = "a";
+
+    // Valid Constants for Car Test
+    public static final String TEST_CAR_NAME = "Alice";
+    public static final String MOVING_FOUR = "4";
+    public static final String MOVING_NINE = "9";
+    public static final String STOP_ZERO = "0";
+    public static final String STOP_THREE = "3";
+    public static final String POSITION_ZERO = "0";
+    public static final String POSITION_ONE = "1";
+
+    // Invalid Constants for Car Test
+    public static final String MOVING_NEGATIVE = "-1";
+    public static final String MOVING_TEN = "10";
 }
