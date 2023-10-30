@@ -15,8 +15,8 @@ public final class RoundResultComponent implements Component {
 
     private final CarsRacingDto dto;
 
-    public RoundResultComponent(final CarsRacingDto dto) {
-        this.dto = dto;
+    public RoundResultComponent(final CarsRacingDto carsDto) {
+        this.dto = carsDto;
     }
 
     @Override

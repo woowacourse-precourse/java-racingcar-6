@@ -5,9 +5,9 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.round.boxed.MaxRound;
 import racingcar.exception.InvalidMaxRoundInputException;
 import racingcar.validator.InputValidator;
-import round.boxed.MaxRound;
 
 final class InputParserTest {
     @DisplayName("양수를 입력하면 maxRound 변환 성공")

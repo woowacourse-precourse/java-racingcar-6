@@ -2,12 +2,12 @@ package racingcar.controller;
 
 import racingcar.domain.car.CarsRacing;
 import racingcar.domain.car.dto.output.CarsRacingDto;
-import racingcar.domain.car.dto.output.WinnerNamesDto;
+import racingcar.domain.car.dto.output.WinnersDto;
 import racingcar.domain.move.MoveCommander;
+import racingcar.domain.round.boxed.CurrentRound;
+import racingcar.domain.round.boxed.MaxRound;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import round.boxed.CurrentRound;
-import round.boxed.MaxRound;
 
 public final class GameController {
 
@@ -45,13 +45,13 @@ public final class GameController {
             return;
         }
         cars.moveAllBy(moveCommander);
-        final CarsRacingDto dto = cars.toDto();
-        outputView.printRoundResult(dto);
+        final CarsRacingDto carsDto = cars.toDto();
+        outputView.printRoundResult(carsDto);
         _playUntilMaxRound(cars, currentRound.nextRound(), maxRound);
     }
 
     private void showWinners(CarsRacing cars) {
-        final WinnerNamesDto dto = cars.toFinished().toWinnerNamesDto();
-        outputView.printGameResult(dto);
+        final WinnersDto winnersDto = cars.toFinished().toWinnersDto();
+        outputView.printGameResult(winnersDto);
     }
 }
