@@ -11,7 +11,7 @@ class ValidateNumberFormatTest {
 
     ValidateNumberFormat validateNumberFormat;
     @Test
-    void validate_이름이_공백일때_예외처리() {
+    void validate_시도할_횟수가_숫자형식이_아닐경우_예외발생() {
         String input = "숫자";
 
         assertThatThrownBy(() -> validateNumberFormat.validate(input))
