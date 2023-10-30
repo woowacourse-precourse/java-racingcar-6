@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.constants.Constants;
+import racingcar.enums.Common;
 import racingcar.utils.RandomGenerator;
 
 public class Car {
@@ -21,9 +21,9 @@ public class Car {
         return distance.toString();
     }
 
-
     public void moveForward() {
-        if (new RandomGenerator().generateRandomNumber() >= Constants.STANDARD_NUMBER.getIntValue())
+        RandomGenerator randomGenerator = new RandomGenerator();
+        if (randomGenerator.generateRandomNumber(Common.MIN_NUMBER.getIntValue(), Common.MAX_NUMBER.getIntValue()) >= Common.STANDARD_NUMBER.getIntValue())
             distance.append(DISTANCE_MARK);
     }
 }
