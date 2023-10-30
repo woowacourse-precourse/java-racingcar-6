@@ -7,9 +7,12 @@ public class CarMovement implements Movement {
     private static final Integer MAX_NUMBER_RANGE = 9;
     private static final Integer MOVE_STANDARD = 4;
 
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE);
+    }
+
     @Override
     public boolean canMove() {
-        int number = Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE);
-        return number >= MOVE_STANDARD;
+        return generateRandomNumber() >= MOVE_STANDARD;
     }
 }
