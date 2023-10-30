@@ -9,15 +9,6 @@ import racingcar.Constant;
 
 public class RacingGameController {
 
-    public static void referee(HashMap<String, String> userCarName) {
-        for (String key : userCarName.keySet()) {
-            String value = userCarName.get(key);
-            if (randomNumber() >= 4) {
-                userCarName.put(key, value + "-");
-            }
-        }
-    }
-
     public static String[] commaBasedSplitCarName(String carName) {
         String[] carNameArr = carName.split(Constant.COMMA);
 
@@ -43,6 +34,15 @@ public class RacingGameController {
         ExceptionController.carNameDuplicateException(personalCar, carNameArr);
 
         return personalCar;
+    }
+
+    public static void moveForward(HashMap<String, String> userCarName) {
+        for (String key : userCarName.keySet()) {
+            String value = userCarName.get(key);
+            if (randomNumber() >= Constant.FORWARD_STANDARD) {
+                userCarName.put(key, value + Constant.MOVE_FORWARD);
+            }
+        }
     }
 
     public static List<String> mostMovingForwardCar(HashMap<String,String> carMoveStatus) {
