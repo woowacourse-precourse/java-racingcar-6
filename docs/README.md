@@ -40,12 +40,13 @@
 - UserInputCarName을 가공하는 객체 UserInputCarNameFactory
 - 자동차 객체 Car
 - n 대의 Car을 List Collection 형태로 저장하는 객체 Cars
-- 사용자가 입력한 이동 횟수 UserInputCarMoveCount
+- 사용자가 입력한 이동 횟수 UserInputCarMoveCountDto
 - 사용자가 입력한 이동 횟수를 가공하는 객체 UserInputCarMoveCountService 추가(10.29)
 - 자동차 전진 기능을 구현하는 CarMoveService
-- 우승자를 알려주는 기능을 구현하는 CarWinnerService
-- 함수의 순서를 정의하는 CarGame
+- 우승자를 알려주는 기능을 구현하는 ~~CarWinnerService~~ CarRacingWinnerService(10.28 변경)
+- 함수의 순서를 정의하는 ~~CarGame~~ RacingCarGameController(Class 이름이 구체적이지 않다 -> 10.28 변경)
 - 객체를 관리하는 BeanFactory(Singleton 패턴을 위해 10.30 추가)
+- Car List Collection을 저장하는 CarList 객체 추가(ArrayList 상속, contains method @Overrid, 10.29 추가)
 
 
 ## 리팩토링
