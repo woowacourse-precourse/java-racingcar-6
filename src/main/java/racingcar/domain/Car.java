@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.CarNamesInputErrorMessage;
 import racingcar.constant.Constant;
 
 public class Car {
@@ -8,8 +9,19 @@ public class Car {
     private Long distance;
 
     public Car(String name) {
+        validateNameRange(name);
         this.name = name;
         this.distance = Constant.CAR_INIT_DISTANCE_VALUE;
+    }
+
+    private void validateNameRange(String name) {
+        if (name.length() > Constant.CAR_NAME_MAX_LENGTH) {
+            throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_LENGTH_EXCEEDS_LIMIT);
+        }
+
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_IS_EMPTY);
+        }
     }
 
     public void moveOrStop() {
