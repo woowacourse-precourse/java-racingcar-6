@@ -23,13 +23,28 @@ public class GameController {
 
     private void getInfoFromUser() {
         gameView.printInputCars();
-        String[] carNames = gameView.getUserInput().split(",");
-        for (String carName : carNames) {
-            cars.insertNewCar(new Car(carName));
-        }
+        saveUserInputOnCars();
         gameView.printInputMoveCount();
-        moveCount = Integer.valueOf(gameView.getUserInput());
+        saveUserInputOnMoveCount();
     }
+
+    private void saveUserInputOnCars() {
+        Arrays.stream(gameView.getUserInput().split(CAR_NAME_DELIMITER))
+                .forEach(carName -> cars.insert(createNewCar(carName.trim())));
+    }
+
+    private void saveUserInputOnMoveCount() {
+        int userInput = Integer.valueOf(gameView.getUserInput());
+        if (!validateMoveCount(userInput)) {
+            throw new IllegalArgumentException(MOVE_COUNT_RANGE_ERROR_MESSAGE);
+        }
+        moveCount = userInput;
+    }
+
+    private boolean validateMoveCount(int count) {
+        return count >= MIN_MOVE_COUNT && count <= MAX_MOVE_COUNT;
+    }
+
 
     private void playRound(int count) {
         gameView.printExecutionStart();
