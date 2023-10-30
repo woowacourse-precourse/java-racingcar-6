@@ -105,7 +105,17 @@ public class InputViewUnitTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 하나의 숫자만 입력해주세요.");
     }
-    
+
+    @Test
+    void 횟수_숫자와_문자열_섞인_입력_실패__케이스(){
+        //given
+        System.setIn(createUserInput("1, 박"));
+        //then
+        assertThatThrownBy(()-> input.getTimeInput())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 하나의 숫자만 입력해주세요.");
+    }
+
 
     private InputStream createUserInput(String input) {
         return new ByteArrayInputStream(input.getBytes());
