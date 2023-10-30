@@ -18,11 +18,11 @@ public class MoveCount {
         moveCount++;
     }
 
-    public int getMoveCount() {
-        return moveCount;
-    }
-
     public boolean hasSameValue(final int countValue) {
         return moveCount == countValue;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
     }
 }

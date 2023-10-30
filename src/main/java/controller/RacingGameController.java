@@ -31,6 +31,17 @@ public class RacingGameController {
         initTryCount();
     }
 
+    private void initService() {
+        outputView.askCarNames();
+        CarNames carNames = CarNames.of(inputView.readLine());
+        gameManager = GameManager.createDefault(carNames.getCarNames());
+    }
+
+    private void initTryCount() {
+        outputView.askTryCount();
+        tryCount = TryCount.from(inputView.readLine());
+    }
+
     private void startRace() {
         outputView.informBeforeShowMove();
 
@@ -43,16 +54,5 @@ public class RacingGameController {
     private void decideWinner() {
         List<String> decidedWinners = gameManager.getWinners();
         outputView.showWinners(decidedWinners);
-    }
-
-    private void initService() {
-        outputView.askCarNames();
-        CarNames carNames = CarNames.of(inputView.readLine());
-        racingService = RacingService.createDefault(carNames.getCarNames());
-    }
-
-    private void initTryCount() {
-        outputView.askTryCount();
-        tryCount = TryCount.from(inputView.readLine());
     }
 }
