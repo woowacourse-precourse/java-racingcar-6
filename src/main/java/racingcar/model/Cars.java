@@ -19,7 +19,6 @@ public class Cars {
         for (int i = 0; i<round; i++) {
             go();
             roundResult();
-            System.out.println();
         }
     }
 
@@ -31,6 +30,7 @@ public class Cars {
         OutputView.printCarResult(carList.stream()
                 .map(Car::positionToString)
                 .collect(Collectors.toList()));
+        System.out.println();
     }
 
 }
