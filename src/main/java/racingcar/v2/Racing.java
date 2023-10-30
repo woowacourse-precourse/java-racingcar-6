@@ -23,6 +23,12 @@ public class Racing {
         }
     }
 
+    public void checkRound(int round) {
+        if (round <= 0) {
+            throw new IllegalArgumentException("라운드 수는 1 이상이어야 합니다.");
+        }
+    }
+
     // TODO: Racing#findWinner()
     // TODO : 예외 처리 고민해보기
     public String findWinner(Map<String, Integer> stateMap) {
