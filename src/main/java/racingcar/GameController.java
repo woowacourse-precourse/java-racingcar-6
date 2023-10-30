@@ -37,7 +37,7 @@ public class GameController {
     private void playRacing(Cars cars, NumberOfAttempts numberOfAttempts) {
         OutputView.printRacingResultMessage();
         while (numberOfAttempts.hasRemainingAttempts()) {
-            MoveResult moveResult = cars.move(numberGenerator);
+            MoveResult moveResult = cars.handleCarMovement(numberGenerator);
             OutputView.printMoveResult(moveResult);
             numberOfAttempts.decreaseNumberOfAttempts();
         }

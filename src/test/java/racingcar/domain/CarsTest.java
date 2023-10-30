@@ -52,7 +52,7 @@ class CarsTest {
 
     @DisplayName("자동차 경주를 실행한 결과에서 자동차 이름과 전진 횟수 리스트는 기대한 값과 같다.")
     @Test
-    void move_Success() {
+    void handleCarMovement_Success() {
         // given
         List<Car> carList = new ArrayList<>();
         for (int i = 1; i <= 3; i++) {
@@ -61,7 +61,7 @@ class CarsTest {
         Cars cars = new Cars(carList);
 
         // when
-        MoveResult moveResult = cars.move(new FixedNumberGenerator());
+        MoveResult moveResult = cars.handleCarMovement(new FixedNumberGenerator());
 
         // then
         Assertions.assertThat(moveResult.carNames()).isEqualTo(List.of("car1", "car2", "car3"));

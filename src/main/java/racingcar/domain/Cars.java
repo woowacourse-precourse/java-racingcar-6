@@ -46,7 +46,7 @@ public class Cars {
         }
     }
 
-    public MoveResult move(NumberGenerator numberGenerator) {
+    public MoveResult handleCarMovement(NumberGenerator numberGenerator) {
         List<Integer> forwardCounts = new ArrayList<>();
         for (Car car : cars) {
             int forwardCount = car.move(numberGenerator.generate());
