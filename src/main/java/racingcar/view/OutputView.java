@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import racingcar.constants.GameConstant;
 import racingcar.constants.OutputMessage;
 import racingcar.model.Car;
 import java.util.List;
@@ -30,7 +29,7 @@ public class OutputView {
         StringBuilder gameResult = new StringBuilder();
         for (String name : winners) {
             gameResult.append(OutputMessage.SPACE.getMessage())
-                    .append(name).append(GameConstant.SEPARATOR.getStringValue());
+                    .append(name).append(OutputMessage.SEPARATOR.getMessage());
         }
         gameResult.deleteCharAt(gameResult.length() - 1);
         System.out.println(gameResult);
