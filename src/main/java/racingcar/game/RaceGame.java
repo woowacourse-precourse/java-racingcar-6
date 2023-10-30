@@ -4,13 +4,19 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.entity.Car;
 import racingcar.util.InputValidator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class RaceGame {
-    private List<Car> cars;
+    private final List<Car> cars;
+    private final InputValidator inputValidator;
     private Integer moveCount;
-    private InputValidator inputValidator;
+    public RaceGame(){
+        this.cars = new ArrayList<>();
+        this.inputValidator = new InputValidator();
+    }
     public void run(){
         play();
     }
@@ -23,12 +29,14 @@ public class RaceGame {
             }
             printCarsPosition();
         }
+        printWinner();
     }
 
     private void inputName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         List<String> parseResults = parseNamesFromInput(input);
+        System.out.println(parseResults);
         if(!inputValidator.validateNumberOfCar(parseResults)){
             throw new IllegalArgumentException("Input Error: Invalid the minimum number of cars");
         }
@@ -66,5 +74,27 @@ public class RaceGame {
             String position = distanceMark.repeat(car.getPosition());
             System.out.println(name + " : " + position);
         }
+        System.out.println(); // 게임 진행상황 출력 후 줄바꿈
+    }
+
+    private void printWinner(){
+        List<Integer> positions = new ArrayList<>();
+        List<String> winnersList = new ArrayList<>();
+        String winnersString; // 우승자 명을 저장할 변수
+        Integer maxPosition; // 가장 먼 위치 값을 저장할 변수
+        for(Car car : cars){
+            positions.add(car.getPosition());
+        }
+        maxPosition = Collections.max(positions);
+        System.out.print("최종 우승자 : ");
+        for(Car car : cars){
+            Integer eachCarPosition = car.getPosition();
+            String eachCarName = car.getName();
+            if(eachCarPosition.equals(maxPosition)){
+                winnersList.add(eachCarName);
+            }
+        }
+        winnersString = String.join(",", winnersList);
+        System.out.println(winnersString);
     }
 }
