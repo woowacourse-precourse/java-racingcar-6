@@ -10,4 +10,7 @@ public class User {
     private String[] splitInput(String input){
         return input.split(",");
     }
+    private int stringToInteger(String input){
+        return Integer.parseInt(input);
+    }
 }
