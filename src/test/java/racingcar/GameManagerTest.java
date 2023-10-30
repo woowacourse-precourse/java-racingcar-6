@@ -13,7 +13,7 @@ public class GameManagerTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
     private static final String carName = "pobi";
-    private static final List<String> carNames = Arrays.asList("pobi","woni","jun");
+    private static final List<String> carNames = Arrays.asList("pobi", "woni", "jun");
 
     private GameManager gameManager;
     private Car car;
@@ -33,7 +33,7 @@ public class GameManagerTest {
                     gameManager.moveCars();
                     assertThat(gameManager.makeResult()).isEqualTo("pobi : --\n");
                 },
-                MOVING_FORWARD,MOVING_FORWARD
+                MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
