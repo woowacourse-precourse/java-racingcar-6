@@ -6,8 +6,8 @@ public class RacingGameStart {
     public static void run(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = Console.readLine();
-        String[] carsList = carNames.split(",");
 
+        String[] carsList = carNames.split(",");
         RacingCar[] racingCars = createRacingCars(carsList);
 
         System.out.println("시도할 횟수는 몇회인가요?");
@@ -17,9 +17,7 @@ public class RacingGameStart {
         System.out.println("실행 결과");
         runRace(racingCars, num);
 
-        PrintWinner pW = new PrintWinner(racingCars);
-        System.out.print(pW.winnerListPrint());
-
+        printWinners(racingCars);
     }
 
     private static RacingCar[] createRacingCars(String[] carNames) {
@@ -39,6 +37,11 @@ public class RacingGameStart {
             }
             System.out.println();
         }
+    }
+
+    private static void printWinners(RacingCar[] racingCars) {
+        PrintWinner pW = new PrintWinner(racingCars);
+        System.out.print(pW.winnerListPrint());
     }
 
     public static void checkNameLength(String name){
