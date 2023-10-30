@@ -10,5 +10,7 @@ public class GameController {
 
     public void play() {
         car.setCarName(inputView.carName());
+
+        int count = inputView.playCount();
     }
 }

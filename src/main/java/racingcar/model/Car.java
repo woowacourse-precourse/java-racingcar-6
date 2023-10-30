@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 
 public class Car {
     private List<String> carName = new ArrayList<>();
+    private int playCount;
 
     public void setCarName(String name) {
         divideName(name);
