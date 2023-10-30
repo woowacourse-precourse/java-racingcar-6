@@ -2,7 +2,7 @@ package racingcar.domain.core.car;
 
 import java.util.Objects;
 
-public class Car implements CarDomain {
+public class Car implements BasicCar {
 
     private final CarName carName;
 

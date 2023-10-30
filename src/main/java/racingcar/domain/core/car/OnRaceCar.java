@@ -1,12 +1,12 @@
 package racingcar.domain.core.car;
 
-public class OnRaceCar implements CarDomain, MovingCar {
+public class OnRaceCar implements BasicCar, MovingCar {
 
-    private final Car savedCar;
+    private final BasicCar savedCar;
     private final Long position;
 
 
-    public OnRaceCar(Car car, Long position) {
+    public OnRaceCar(BasicCar car, Long position) {
         this.savedCar = car;
         this.position = position;
     }

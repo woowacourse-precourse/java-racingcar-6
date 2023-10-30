@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.core.car.BasicCar;
 import racingcar.domain.core.car.Car;
 import racingcar.domain.core.car.CarName;
 import racingcar.domain.system.manager.car.CarManager;
@@ -46,8 +47,9 @@ class CarManagerTest {
         manager.saveAll(List.of(car1, car2, car3));
 
         // then
-        List<Car> savedCars = manager.findAll().stream().map(SavedCar::getCar)
+        List<BasicCar> savedCars = manager.findAll().stream().map(SavedCar::getCar)
             .collect(Collectors.toList());
+
         assertThat(savedCars).contains(car1, car2, car3);
     }
 

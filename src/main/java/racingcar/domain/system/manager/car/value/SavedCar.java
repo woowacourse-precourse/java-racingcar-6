@@ -1,16 +1,16 @@
 package racingcar.domain.system.manager.car.value;
 
 import java.util.Objects;
-import racingcar.domain.core.car.Car;
+import racingcar.domain.core.car.BasicCar;
 import racingcar.domain.core.car.CarName;
 import racingcar.domain.system.manager.car.key.CarKey;
 
 public class SavedCar {
 
-    private final Car car;
+    private final BasicCar car;
     private final CarKey key;
 
-    public SavedCar(Car car, CarKey key) {
+    public SavedCar(BasicCar car, CarKey key) {
         this.car = car;
         this.key = key;
     }
@@ -19,7 +19,7 @@ public class SavedCar {
         return key;
     }
 
-    public Car getCar() {
+    public BasicCar getCar() {
         return car;
     }
 

@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import racingcar.domain.core.car.Car;
+import racingcar.domain.core.car.BasicCar;
 import racingcar.domain.core.car.CarName;
 import racingcar.domain.system.manager.car.key.CarKey;
 import racingcar.domain.system.manager.car.value.SavedCar;
@@ -24,7 +24,7 @@ public class InMemoryCarManager implements CarManager {
 
 
     @Override
-    public SavedCar save(Car car) {
+    public SavedCar save(BasicCar car) {
         validate(car);
         CarKey key = CarKey.of(car.getCarName());
         SavedCar savedCar = new SavedCar(car, key);
@@ -32,12 +32,12 @@ public class InMemoryCarManager implements CarManager {
         return savedCar;
     }
 
-    private void validate(Car car) {
+    private void validate(BasicCar car) {
         Collection<SavedCar> innerSources = cars.values();
         validateDuplicateCar(innerSources, car);
     }
 
-    private void validateDuplicateCar(Collection<SavedCar> innerSources, Car car) {
+    private void validateDuplicateCar(Collection<SavedCar> innerSources, BasicCar car) {
         innerSources.stream().filter(source -> source.getCarName().equals(car.getCarName()))
             .findAny()
             .ifPresent(c -> {
@@ -46,7 +46,7 @@ public class InMemoryCarManager implements CarManager {
     }
 
     @Override
-    public List<SavedCar> saveAll(List<Car> cars) {
+    public List<SavedCar> saveAll(List<? extends BasicCar> cars) {
         return cars.stream().map(this::save).sorted(Comparator.comparing(SavedCar::getKey))
             .collect(Collectors.toList());
     }
