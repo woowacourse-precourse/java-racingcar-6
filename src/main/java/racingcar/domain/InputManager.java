@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.car.Car;
-import racingcar.validation.CarLengthValidate;
+import racingcar.validation.CarInputValidate;
 
 public class InputManager {
     private final int gameProcessCount;
@@ -28,9 +28,10 @@ public class InputManager {
         List<Car> cars = new ArrayList<>();
         String[] carNames = carList.split(",");
         for (String carName : carNames) {
-            CarLengthValidate.carNameLengthValidate(carName);
+            CarInputValidate.carNameLengthValidate(carName);
             cars.add(new Car(carName));
         }
+        CarInputValidate.carDuplicateCheck(carNames);
         return cars;
     }
 }

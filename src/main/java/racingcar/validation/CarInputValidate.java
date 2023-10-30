@@ -1,6 +1,19 @@
 package racingcar.validation;
 
-public class CarLengthValidate {
+import java.util.HashSet;
+import java.util.Set;
+
+public class CarInputValidate {
+    public static void carDuplicateCheck(String[] carNames){
+        Set<String> uniqueCarName = new HashSet<>();
+        for(String carName : carNames){
+            if(uniqueCarName.contains(carName))
+                throw new IllegalArgumentException("중복된 자동차가 존재합니다.");
+
+            uniqueCarName.add(carName);
+        }
+    }
+
     public static void carNameLengthValidate(String carName) {
         carNameOverFiveLength(carName);
         carNameUnderOneLength(carName);
