@@ -19,7 +19,7 @@ class InputViewTest {
     }
 
     @Test
-    void inputCarNames_NameTooLong() {
+    void inputCarNames_CarNameLength() {
         String input = "car1,car2,car3456789";
         provideInput(input);
 
