@@ -55,7 +55,7 @@ public class Cars {
         }
     }
 
-//    public Winners getWinners() {
-//        return new Winners(cars);
-//    }
+    public Winners getWinners() {
+        return new Winners(cars);
+    }
 }
