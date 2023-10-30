@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class Referee {
 
-    public List<String> findMostProgressCar(List<Car> carList) {
+    public static List<String> findMostProgressCar(List<Car> carList) {
         int maxProgressCount = carList.stream()
                 .mapToInt(Car::getProgressCount)
                 .max()

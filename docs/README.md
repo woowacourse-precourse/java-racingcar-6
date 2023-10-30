@@ -9,7 +9,7 @@
 - [x] 자동차가 몇 번 이동할 지 입력받는다.  ``InputView - readCarMoveCount``
   - [x] 🚫 입력값이 숫자인지 검증한다. ``InputView - validateDigit``
   - [ ] 🚫 입력값이 1 이상인지 검증한다. ``GameController - validateCarMoveCount``
-- [ ] 경주를 진행한다. ``GameController - startGame``
+- [x] 경주를 진행한다. ``GameController - startGame``
 - [x] 자동차가 이동한다. ``Car - move``
 - [x] 자동차가 전진하는지 판단한다. ``Car - isMoveForward``
 - [x] 0에서 9 사이의 무작위 값을 구한다. ``NumberGenerator - createRandomNumber`` 
