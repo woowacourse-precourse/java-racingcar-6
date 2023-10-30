@@ -10,6 +10,13 @@ public class Cars {
         this.cars = cars;
     }
 
+    public static Cars assemble(List<String> inputCarNames, CarEngine carEngine) {
+        List<Car> carList = inputCarNames.stream()
+                .map(carName -> new Car(carName, carEngine))
+                .collect(Collectors.toList());
+        return new Cars(carList);
+    }
+
     public void move() {
         for (Car car : cars) {
             car.startEngine();
