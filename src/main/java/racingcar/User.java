@@ -13,8 +13,9 @@ public class User {
         String input = Console.readLine();
         return validateTryCnt(input);
     }
+
     private int validateTryCnt(String input) {
-        try{
+        try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닙니다.");
@@ -31,16 +32,22 @@ public class User {
         String[] nameArray = input.split(",");
 
         for (String name : nameArray) {
-            validateCarNameAndAdd(name);
+            if(validateCarName(name)){
+                addCarName(name);
+            }
         }
         return carNames;
     }
 
-    private void validateCarNameAndAdd(String name) {
-        if (name.length() <= 5) {
-            carNames.add(name);
-        } else {
-            throw new IllegalArgumentException("자동차 이름은 1자 이상 5자 이하이어야 합니다.");
+    private boolean validateCarName(String name) {
+        if(name.length() <= 5) {
+            return true;
+        }else {
+            throw new IllegalArgumentException("5 이하 길이");
         }
+    }
+
+    private void addCarName(String name) {
+        carNames.add(name);
     }
 }
