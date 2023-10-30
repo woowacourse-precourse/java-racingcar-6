@@ -46,7 +46,7 @@ public class OutputView {
         GAMEWINNER("최종 우승자 : "),
         MOVEFOWARD("-"),
         EACHGAMERESULT(" : "),
-        REST(",");
+        REST(", ");
 
         private String message;
 
