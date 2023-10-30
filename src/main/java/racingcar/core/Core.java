@@ -45,4 +45,11 @@ public class Core {
     public String countForward(Car car) {
         return "-".repeat(Math.max(0, car.getForward()));
     }
+
+    public void printResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : " + countForward(car) + "\n");
+        }
+        System.out.println();
+    }
 }
