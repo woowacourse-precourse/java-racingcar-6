@@ -1,16 +1,17 @@
 package racingcar;
 
+import static racingcar.Constants.DISTANCE;
+
 public class Car {
-    private static final int DISTANCE = 1;
-    private final String name;
+    private String name;
     private int location;
 
-    Car(String name){
+    Car(String name) {
         this.name = name;
         this.location = 0;
     }
 
-    public void move(){
+    public void move() {
         location += DISTANCE;
     }
 
