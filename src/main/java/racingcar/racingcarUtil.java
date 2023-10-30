@@ -3,12 +3,14 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 class TryTimes {
-	public static String askTimes() {
+	public static int askTimes() {
 		System.out.println("시도할 횟수는 몇 회인가요?");
-		String tryTimes = Console.readLine();
+		String inputTimes = Console.readLine();
+		int tryTimes = Integer.parseInt(inputTimes);
 		
 		return tryTimes;
 	}
@@ -17,13 +19,14 @@ class TryTimes {
 
 class CarName {
 	
-	public static void inputCarName() {
+	public static List<String> inputCarName() {
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String carName = Console.readLine();
 		String[] result = carName.split("[,]",0);
 		carNameCheck(result);
 		List<String> carNames = Arrays.asList(result);
-		System.out.println(carNames);		
+		System.out.println(carNames);
+		return carNames;
 	}
 	
 	public static void carNameCheck(String[] str) {
@@ -37,19 +40,33 @@ class CarName {
 }
 
 class CarRacing {
-	public void carMove(String carName, int tryTimes) {
-		String result = carName + ":";
-		int resultCount = 0;
-		for (int i = 1; i <= tryTimes ; i++) {
+	public int resultCount = 0;
+	public String result = "";
+	
+	public void carMove(String carNames) {
+			String carName = carNames + " : ";
 			int randomNumber = Randoms.pickNumberInRange(0,9);
-			System.out.println(randomNumber);
+//			System.out.println(randomNumber);
 			if(randomNumber >= 4) {
 				resultCount++;
 				result += "-";	
 			}
-			System.out.println(result);
-			System.out.println(resultCount);
-		}
+			System.out.println(carName + result);
+//			System.out.println(resultCount);
+		
+	}
+}
+
+class Winner {
+	public void compareCount(List<String> list) { //객체들의 resultCount를 비교하여 가장 큰 값을 반환
+		List<String> resultCount = list;
+		String winner = Collections.max(list);
+		winnerPrint(winner);
 	}
 	
+	public void winnerPrint(String str) {
+		List<String> winners = Arrays.asList(str);
+		String result = String.join(",", winners);
+		System.out.println("최종 우승자 : " + result);
+	}
 }
