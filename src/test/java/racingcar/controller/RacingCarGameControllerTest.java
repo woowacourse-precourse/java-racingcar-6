@@ -34,4 +34,25 @@ class RacingCarGameControllerTest {
 
         assertThat(maxAdvanceCount).isEqualTo(5);
     }
+
+    @Test
+    void 자동차들_중_우승자_리스트_반환하는_기능() {
+        Cars cars = new Cars();
+        Map<String, Car> carMap = cars.getCars();
+        Car car1 = new Car("벤츠");
+        car1.setAdvanceCount(3);
+        Car car2 = new Car("제네시스");
+        car2.setAdvanceCount(5);
+        Car car3 = new Car("소나타");
+        car3.setAdvanceCount(5);
+
+        carMap.put("벤츠", car1);
+        carMap.put("제네시스", car2);
+        carMap.put("소나타", car3);
+
+        List<String> winnerList = racingCarGameController.getWinnerList(carMap, 5);
+
+        assertThat(winnerList).contains("제네시스", "소나타");
+        assertThat(winnerList).doesNotContain("벤츠");
+    }
 }
