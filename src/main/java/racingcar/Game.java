@@ -23,7 +23,7 @@ public class Game {
 
         for(int round = 0; round < trial; round++){
             playRound();
-            System.out.println("");
+            System.out.print("\n");
         }
     }
 

@@ -10,21 +10,18 @@ public class Car {
     }
 
     public void move(int distance){
-        showMove(distance);
-        position += distance;
-    }
-
-    public void showMove(int distance){
-        System.out.println(name + " : "+showDistance(distance));
-    }
-
-    public String showDistance(int distance){
-        String distanceStr = "";
-
-        for(int i =0;i<distance;i++){
-            distanceStr = distanceStr + "-";
+        if(distance>=4){
+            position++;
         }
-        return distanceStr;
+        showPosition();
+    }
+
+    public void showPosition(){
+        System.out.print(name + " : ");
+        for(int i=0;i<position;i++){
+            System.out.print("-");
+        }
+        System.out.print("\n");
     }
 
     public String getName(){
