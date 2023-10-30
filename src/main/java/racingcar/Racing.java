@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Racing {
-    private static final Integer CARFORWARD_NUMBER = 4;
+    private static final int CARFORWARD_NUMBER = 4;
     public List<String> raceSituation = new ArrayList<>();
     public List<Integer> forwardCountNumbers = new ArrayList<>();
 
