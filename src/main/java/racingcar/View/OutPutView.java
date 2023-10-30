@@ -19,7 +19,7 @@ public class OutPutView {
         System.out.println();
         for (int order = 1; order <= carGroup.findSize(); order++) {
             Car findCar = carGroup.findCarByOrder(order);
-            System.out.println(findCar.findName() + RoundResultConcat + makeIndividualResult(findCar.findPosition()));
+            System.out.println(findCar.findName() + RoundResultConcat + makeIndividualPosition(findCar.findPosition()));
         }
     }
 
@@ -36,7 +36,7 @@ public class OutPutView {
     }
 
 
-    private String makeIndividualResult(Integer position) {
-        return PositionCharacter.repeat(Math.max(0, position));
+    private String makeIndividualPosition(Integer position) {
+        return PositionCharacter.repeat(position);
     }
 }
