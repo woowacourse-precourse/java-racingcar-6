@@ -8,6 +8,7 @@ public class CarValidation {
 
     private final String namesString;
     public List<String> carNames;
+
     public CarValidation(String namesString) {
         this.namesString = namesString;
         this.carNames = Util.splitByComma(namesString);
