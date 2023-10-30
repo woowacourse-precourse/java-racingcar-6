@@ -7,29 +7,37 @@ import java.util.List;
 import java.util.StringJoiner;
 
 public class PlayeroutputView {
-    public static void round(List<Car> cars){
-        for(Car car : cars){
+    public static void round(List<Car> cars) {
+        for (Car car : cars) {
             String carName = car.getName();
-            String onestepMessage = "-";
-            System.out.println(carName + ":" + onestepMessage.repeat(car.getPosition()));
+            String onestepMessage = generateOnestepMessage(car.getPosition());
+            System.out.println(carName + " : " + onestepMessage);
         }
-        System.out.println(" ");
+        System.out.println();
+    }
+
+    private static String generateOnestepMessage(int position) {
+        StringBuilder message = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            message.append("-");
+        }
+        return message.toString();
     }
 
     public static void updateRound(List<Car> cars) {
-        for (int i = 0; i < cars.size(); i++) {
+        for (Car car : cars) {
             int randomNum = Randoms.pickNumberInRange(0, 9);
             if (randomNum >= 4) {
-                cars.get(i).setPosition(cars.get(i).getPosition() + 1);
+                car.setPosition(car.getPosition() + 1);
             }
         }
     }
 
-    public static int result(List<Car> cars){
+    public static int result(List<Car> cars) {
         int max = 0;
-        for(int i=0; i< cars.size(); i++){
-            if (max<cars.get(i).getPosition()){
-                max = cars.get(i).getPosition();
+        for (Car car : cars) {
+            if (max < car.getPosition()) {
+                max = car.getPosition();
             }
         }
         return max;
@@ -42,7 +50,6 @@ public class PlayeroutputView {
                 winners.add(car.getName());
             }
         }
-        System.out.println(winners);
+        System.out.println("최종 우승자 : " + winners);
     }
-
 }
