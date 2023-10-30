@@ -14,7 +14,14 @@ public class Player {
 
     public int setLapsOfRace(String inputLaps) {
         Validators validators = new Validators();
-        boolean result = validators.isNumeric(inputLaps);
+        boolean result = validators.isInteger(inputLaps);
 
+        if(result) {
+           int lapsOfRace = Integer.parseInt(inputLaps);
+           return lapsOfRace;
+        }
+        else {
+            return 0;
+        }
     }
 }
