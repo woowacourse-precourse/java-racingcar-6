@@ -15,6 +15,12 @@ public class Game {
         this.cars = cars;
     }
 
+    public void playOnce() {
+        cars.forEach(car -> {
+            car.moveOrStop(generateRandomNumber());
+        });
+    }
+
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
