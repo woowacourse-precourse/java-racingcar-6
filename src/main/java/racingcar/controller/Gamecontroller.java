@@ -24,6 +24,5 @@ public class Gamecontroller {
             PlayeroutputView.updateRound(cars);
             PlayeroutputView.round(cars);
         }
-        System.out.print("최종 우승자 : ");
     }
 }
