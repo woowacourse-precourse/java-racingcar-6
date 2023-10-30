@@ -42,10 +42,9 @@ public class Cars {
         }
     }
 
-
     public Map<String, Integer> goForward() {
         Map<String, Integer> status = new LinkedHashMap<>();
-        
+
         cars.forEach(car -> {
             car.goForward(Randoms.pickNumberInRange(0, 9));
             status.put(car.getCarName(), car.getPosition());
