@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.Utils.repeatDash;
 import static racingcar.constant.MessageConstants.DASH;
 import static racingcar.constant.MessageConstants.WINNER_SUFFIX;
 import static racingcar.constant.NumberConstants.MOVE_CONDITION;
@@ -25,11 +26,7 @@ public class RacingCar {
     }
 
     public String createRoundResult() {
-        return carName + WINNER_SUFFIX + repeatDash();
-    }
-
-    private String repeatDash() {
-        return DASH.repeat(Math.max(ZERO, position));
+        return carName + WINNER_SUFFIX + repeatDash(position);
     }
 
     public int createMaxPosition() {
