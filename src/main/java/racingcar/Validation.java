@@ -25,6 +25,13 @@ public class Validation {
         return false;
     }
 
+    public static boolean isBlankContain(String input) {
+        if (input.contains(" ")) {
+            return true;
+        }
+        return false;
+    }
+
     public static boolean isBlank(List<String> members) {
         for (int i = 0; i < members.size(); i++) {
             if (members.get(i).contains(" ")) {
