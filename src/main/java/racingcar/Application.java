@@ -27,12 +27,14 @@ public class Application {
 
     public static Integer askAttemptNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String trialNumber = readLine();
-        isValidAttemptNumber();
-        return Integer.parseInt(trialNumber);
+        return Integer.parseInt(isValidAttemptNumber(readLine()));
     }
 
-    public static void isValidAttemptNumber() {
+    public static String isValidAttemptNumber(String attemptNumber) {
+        if (attemptNumber.matches("^\\d{1,3}$")) {
+            throw new IllegalArgumentException();
+        }
+        return attemptNumber;
     }
 
 }
