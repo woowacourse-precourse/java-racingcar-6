@@ -1,7 +1,7 @@
 package racingcar.model;
 
 public class Car {
-    private String carName;
+    private final String carName;
     private int moveCount;
     public Car(String carName) {
         this.carName = carName;

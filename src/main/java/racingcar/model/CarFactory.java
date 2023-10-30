@@ -1,22 +1,19 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CarFactory {
 
-    private final List<Car> cars;
+    private final CarList carList;
 
-    public CarFactory() {
-        this.cars = new ArrayList<>();
+    public CarFactory(CarList carList) {
+        this.carList = carList;
     }
 
-    public List<Car> generateCars(List<String> carNameList) {
-
+    public void generateCar(List<String> carNameList) {
         for (String carName : carNameList) {
             Car car = new Car(carName);
-            cars.add(car);
+            carList.addCar(car);
         }
-        return cars;
     }
 }
