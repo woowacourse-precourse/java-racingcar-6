@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 import modules.racingcarName;
+import modules.racingcarException;
 
 public class Application {
     public static void main(String[] args) {
@@ -13,5 +14,6 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String move_num = Console.readLine();
+        racingcarException.exception_not_int(move_num);
     }
 }

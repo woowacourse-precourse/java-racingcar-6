@@ -6,4 +6,11 @@ public class racingcarException {
             throw new IllegalArgumentException();
         }
     }
+    public static void exception_not_int(String num) {
+        try{
+            Integer.parseInt(num);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
