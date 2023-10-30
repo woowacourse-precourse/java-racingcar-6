@@ -8,21 +8,26 @@ import racingcar.view.RacingGameView;
 
 public class Application {
     public static void main(String[] args) {
-        racingGame();
+        Game game = new Game();
+        game.init();
     }
+}
 
-    private static void racingGame() {
+class Game {
+    public void init() {
         String carName = RacingGameView.inputCarName();
         int tryCount = RacingGameView.inputTryCount();
 
-        HashMap<String, String> carStatus = RacingGameController.carNameAndForwardStatus(carName);
+        HashMap<String, String> car = RacingGameController.carNameAndForwardStatus(carName);
+
+        RacingGameView.gameResultMessage();
 
         for (int i = 0; i < tryCount; i++) {
-            RacingGameController.referee(carStatus);
-            RacingGameView.moveStatus(carStatus);
+            RacingGameController.moveForward(car);
+            RacingGameView.forwardResult(car);
         }
 
-        List<String> mostForwardCar = RacingGameController.mostMovingForwardCar(carStatus);
-        RacingGameView.winner(mostForwardCar);
+        List<String> mostForwardCarList = RacingGameController.mostMoveForwardCar(car);
+        RacingGameView.winner(mostForwardCarList);
     }
 }

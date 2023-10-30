@@ -19,16 +19,20 @@ public class RacingGameController {
 
     public static HashMap<String, String> makePersonalCarAndForwardStatus(final String[] carNameArr) {
         HashMap<String, String> createUserCar = new HashMap<>();
+
         for (String car : carNameArr) {
             createUserCar.put(car, "");
         }
+
         return createUserCar;
     }
 
     public static HashMap<String, String> carNameAndForwardStatus(final String carName) {
         String[] carNameArr = commaBasedSplitCarName(carName);
         HashMap<String, String> personalCar = makePersonalCarAndForwardStatus(carNameArr);
+
         ExceptionController.carNameDuplicateException(personalCar, carNameArr);
+
         return personalCar;
     }
 
@@ -41,6 +45,7 @@ public class RacingGameController {
                 winnerList.add(winner);
             }
         }
+
         return winnerList;
     }
 

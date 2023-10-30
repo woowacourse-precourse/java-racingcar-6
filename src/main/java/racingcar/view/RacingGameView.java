@@ -2,8 +2,6 @@ package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.HashMap;
 import java.util.List;
 import racingcar.Constant;
