@@ -3,8 +3,8 @@ package racingcar.domain;
 public class Car implements Comparable<Car> {
 
     private static final int MIN_MOVABLE_VALUE = 4;
-    private Name name;
-    private Position position;
+    private final Name name;
+    private final Position position;
 
     public Car(String name) {
         this.name = new Name(name);
