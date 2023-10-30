@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class RacingGame {
 
@@ -33,11 +34,21 @@ public class RacingGame {
             System.out.println();
             count--;
         }
+
+        System.out.println("최종 우승자 :" + convertWinnersToStr(racingCars.getWinners()));
     }
 
     private void validateCarName(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
+    }
+
+    private String convertWinnersToStr(List<String> winners) {
+        String finalWinners = "";
+        for (String winner : winners) {
+            finalWinners += " " + winner +",";
+        }
+        return finalWinners.substring(0,finalWinners.length() - 1);
     }
 }
