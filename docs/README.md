@@ -32,7 +32,7 @@
 - [x]  점수 증가 확인 함수(**`updateScoreIfNecessary`**)
 - [x]  최종 점수 확인 함수 (**`checkFinalScores`**)
 - [x]  레이서이름을 String에서 List로 변환하는 함수(**`racerNameStringToList`**)
-- [ ]  입력받은 숫자를 String에서 int로 변환하는 함수(**`countStringToInt`**)
+- [x]  입력받은 숫자를 String에서 int로 변환하는 함수(**`countStringToInt`**)
 
 ## **뷰 (View)**
 

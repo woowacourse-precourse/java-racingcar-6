@@ -75,4 +75,9 @@ public class RacingService {
 
         return racerList;
     }
+
+    public int countStringToInt(String count){
+
+        return Integer.parseInt(count);
+    }
 }
