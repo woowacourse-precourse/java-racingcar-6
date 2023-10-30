@@ -25,4 +25,8 @@ public class ControlTowerService {
 
         return entryList;
     }
+
+    public int saveRoundNumber(String inputRoundNumber) {
+        return referee.inputRoundNumber(inputRoundNumber);
+    }
 }

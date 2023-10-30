@@ -25,5 +25,6 @@ public class RacingApp {
     private void requestInputGameInfo() {
         InputView.printCarNameInputRequest();
         List<Car> cars = gameController.addCarNames(Console.readLine());
+        int roundNumber = gameController.addRoundNumber(Console.readLine());
     }
 }

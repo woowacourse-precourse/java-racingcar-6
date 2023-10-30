@@ -1,10 +1,8 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.service.ControlTowerService;
-import racingcar.view.InputView;
 
 public class GameController {
 
@@ -16,5 +14,9 @@ public class GameController {
 
     public List<Car> addCarNames(String inputCarNames) {
         return controlTowerService.inputCarNames(inputCarNames);
+    }
+
+    public int addRoundNumber(String inputRoundNumber) {
+        return controlTowerService.saveRoundNumber(inputRoundNumber);
     }
 }

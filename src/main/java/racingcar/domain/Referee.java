@@ -6,6 +6,27 @@ import java.util.List;
 
 public class Referee {
 
+    public int inputRoundNumber(String inputRoundNumber) {
+        return validateRoundNumber(inputRoundNumber);
+    }
+
+    private int validateRoundNumber(String inputRoundNumber) {
+        try {
+            int roundNumber = Integer.parseInt(inputRoundNumber);
+
+            if (roundNumber < 1) {
+                throw new IndexOutOfBoundsException();
+            }
+
+            return roundNumber;
+
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력하세요.");
+        } catch (IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("1이상의 숫자를 입력하세요.");
+        }
+    }
+
     public List<String> inputCarNames(String inputCarNames) {
         return validateCarNames(inputCarNames);
     }
