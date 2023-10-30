@@ -15,18 +15,19 @@ public class GameController {
 
     public void start() {
         outputView.printInputCarNameMessage();
-        cars = inputView.readCarNames();
+        List<Car> cars = inputView.readCarNames();
         outputView.printInputAttemptCountMessage();
-        attemptCount = inputView.readAttemptCount();
-        process();
+        AttemptCount attemptCount = inputView.readAttemptCount();
+        process(cars, attemptCount);
     }
 
-    public void process() {
+    private void process(List<Car> cars, AttemptCount attemptCount) {
         outputView.printProcessResultTitle();
         while(attemptCount.isNotFinish()) {
             cars.forEach(Car::moveForward);
             attemptCount.decreaseCount();
             outputView.printMoveRecords(cars);
         }
+    }
     }
 }
