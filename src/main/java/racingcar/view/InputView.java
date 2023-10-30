@@ -13,6 +13,7 @@ public class InputView {
     private static final InputValidator inputValidator = new InputValidator();
     public Cars readCarNames() {
         String input = Console.readLine();
+        inputValidator.validateIsSplitByComma(input);
         return new Cars(Arrays.stream(input.split(REGEX)).map(Car::new).toList());
     }
 
