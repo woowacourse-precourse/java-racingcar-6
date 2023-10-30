@@ -4,16 +4,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.service.MovementStrategy;
+import racingcar.service.MovementStrategyFactory;
 
 class RaceResultTest {
+    private MovementStrategy movementStrategy;
 
+    @BeforeEach
+    void setUp(){
+        movementStrategy = MovementStrategyFactory.createDefault();
+    }
     @Test
     void 모든_자동차_거리가_다른_경우_winner() {
         List<Car> carList = Arrays.asList(
-            new Car("a", 1),
-            new Car("b", 2),
-            new Car("c", 3)
+            new Car("a", 1,movementStrategy),
+            new Car("b", 2, movementStrategy),
+            new Car("c", 3, movementStrategy)
         );
         Cars cars = new Cars(carList);
         RaceResult raceResult = new RaceResult(cars);
@@ -25,9 +33,9 @@ class RaceResultTest {
     @Test
     void 모든_자동차_거리가_같은_경우_winner() {
         List<Car> carList = Arrays.asList(
-            new Car("a", 1),
-            new Car("b", 1),
-            new Car("c", 1)
+            new Car("a", 1, movementStrategy),
+            new Car("b", 1, movementStrategy),
+            new Car("c", 1, movementStrategy)
         );
         Cars cars = new Cars(carList);
         RaceResult raceResult = new RaceResult(cars);
@@ -39,9 +47,9 @@ class RaceResultTest {
     @Test
     void 일부_자동차_거리가_같은_경우_winner() {
         List<Car> carList = Arrays.asList(
-            new Car("a", 3),
-            new Car("b", 1),
-            new Car("c", 3)
+            new Car("a", 3, movementStrategy),
+            new Car("b", 1, movementStrategy),
+            new Car("c", 3, movementStrategy)
         );
         Cars cars = new Cars(carList);
         RaceResult raceResult = new RaceResult(cars);
@@ -53,9 +61,9 @@ class RaceResultTest {
     @Test
     void 일부_자동차_거리가_같은_경우_winner2() {
         List<Car> carList = Arrays.asList(
-            new Car("a", 3),
-            new Car("b", 1),
-            new Car("c", 1)
+            new Car("a", 3, movementStrategy),
+            new Car("b", 1, movementStrategy),
+            new Car("c", 1, movementStrategy)
         );
         Cars cars = new Cars(carList);
         RaceResult raceResult = new RaceResult(cars);
