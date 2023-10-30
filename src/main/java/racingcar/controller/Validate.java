@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.view.OutputView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +8,6 @@ import static java.lang.Integer.parseInt;
 
 public class Validate {
 
-    OutputView outputView = new OutputView();
     public boolean validateName(List<String> nameList){
         for (String name: nameList){
             if (name.length() > 5){
