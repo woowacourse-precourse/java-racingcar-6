@@ -18,7 +18,27 @@ public class ValidateTest extends NsTest {
     @Nested
     @DisplayName("IllegalArgumentException이 발생하는가?")
     class ExceptionHandler {
+        @DisplayName("자동차 이름 오기입 시 예외 발생")
+        @ParameterizedTest
+        @MethodSource("provideInputForInvalidInputUsername")
+        void invalidInputUsername(String input, String expectedMessage) {
+            assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException(input, "1"))
+                            .isInstanceOf(IllegalArgumentException.class)
+                            .hasMessageContaining(expectedMessage)
+            );
+        }
 
+        private static Stream<Arguments> provideInputForInvalidInputUsername() {
+            return Stream.of(
+                    Arguments.of("javajigi,aaa", "이름은 5자 이하로 입력해주세요."),
+                    Arguments.of("aaa,javajigi", "이름은 5자 이하로 입력해주세요."),
+                    Arguments.of("", "공란입니다. 이름을 입력해주세요.")
+
+            );
+        }
+
+        @DisplayName("시도 횟수 오기입 시 예외 발생")
         @ParameterizedTest
         @MethodSource("provideInputForInvalidInputNumberOfAttempts")
         void invalidInputNumberOfAttempts(String input, String expectedMessage) {
