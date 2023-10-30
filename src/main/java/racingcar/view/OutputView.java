@@ -7,7 +7,7 @@ import racingcar.domain.Cars;
 
 public class OutputView {
 
-    public void printResultMessage() {
+    public void printExecutionResultMessage() {
         System.out.println("실행 결과");
     }
 

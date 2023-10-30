@@ -6,7 +6,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Referee;
-import racingcar.util.RandomNumber;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -29,7 +29,6 @@ public class RacingGameController {
         Cars cars = initRacingCars(carNames);
 
         progressGame(cars, tryCount);
-
         checkWinner(cars);
     }
 
@@ -39,7 +38,7 @@ public class RacingGameController {
     }
 
     private void progressGame(Cars cars, Integer tryCount) {
-        outputView.printResultMessage();
+        outputView.printExecutionResultMessage();
         while (tryCount-- > 0) {
             for (Car car : cars.getCars()) {
                 car.move();
@@ -51,10 +50,10 @@ public class RacingGameController {
     private Cars initRacingCars(String carNames) {
         String[] names = carNames.split(",");
         List<Car> carList = new ArrayList<>();
-        RandomNumber randomNumber = new RandomNumber();
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
         for (String name : names) {
-            carList.add(new Car(name, 0, randomNumber));
+            carList.add(new Car(name, 0, randomNumberGenerator));
         }
 
         return new Cars(carList);

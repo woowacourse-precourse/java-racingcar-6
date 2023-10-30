@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.util.RandomUtil;
 
 public class Car implements Comparable<Car>{

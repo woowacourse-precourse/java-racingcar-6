@@ -8,8 +8,8 @@ public class Referee {
 
     public List<String> checkResult(Cars cars) {
         Collection<Car> carList = cars.getCars();
-
         Car maxDistanceCar = findMaxDistanceCar(carList);
+
         return findWinnersCarName(carList, maxDistanceCar);
     }
 
