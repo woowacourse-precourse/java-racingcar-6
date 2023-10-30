@@ -8,4 +8,8 @@ public class Car {
         this.name = name;
         this.aheadCount = 0;
     }
+
+    public void updateAheadCount() {
+        this.aheadCount += 1;
+    }
 }
