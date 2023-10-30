@@ -7,6 +7,30 @@ import org.junit.jupiter.api.Test;
 class CarTest {
 
     @Test
+    @DisplayName("자동차 이름이 5글자 이하이면 성공")
+    void carTest() {
+        // given
+        String name = "pobi";
+
+        // when
+        Car car = new Car(name);
+
+        // then
+        Assertions.assertThat(car).isNotNull();
+    }
+
+    @Test
+    @DisplayName("자동차 이름이 5글자 초과이면 실패")
+    void carTestFail() {
+        // when
+         String name = "pobiii";
+
+        // then
+        Assertions.assertThatThrownBy(() -> new Car(name))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     @DisplayName("4 이상이면 전진")
     void goOrStopTestGo() {
         // given
