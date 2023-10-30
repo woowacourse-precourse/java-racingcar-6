@@ -2,7 +2,7 @@ package racingcar.enums;
 
 public enum Symbols {
     GAME_SCORE("-"),
-    쉼표(",");
+    COMMA(",");
 
     private final String symbol;
 

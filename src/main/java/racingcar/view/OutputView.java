@@ -27,7 +27,7 @@ public class OutputView {
         if (winners.size() == 1) {
             return FINAL_WINNER + winners.get(0);
         }
-        return FINAL_WINNER + String.join(Symbols.쉼표.getSymbol(), winners);
+        return FINAL_WINNER + String.join(Symbols.COMMA.getSymbol(), winners);
     }
 
 }
