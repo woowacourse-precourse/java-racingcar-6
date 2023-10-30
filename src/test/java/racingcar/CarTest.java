@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CarTest {
@@ -26,28 +25,6 @@ public class CarTest {
         car.move();
 
         assertEquals(1, car.getPosition());
-    }
-
-    @Test
-    void move_전진_성공_테스트() {
-        String name = "red";
-        int power = 5;
-        Car car = new Car(name);
-
-        car.move(power);
-
-        assertEquals(1, car.getPosition());
-    }
-
-    @Test
-    void move_전진_실패_테스트() {
-        String name = "red";
-        int power = 3;
-        Car car = new Car(name);
-
-        car.move(power);
-
-        assertEquals(0, car.getPosition());
     }
 
     @Test

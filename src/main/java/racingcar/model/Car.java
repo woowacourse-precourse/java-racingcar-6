@@ -17,12 +17,6 @@ public class Car {
         position++;
     }
 
-    public void move(int power) {
-        if (isMovablePower(power)) {
-            move();
-        }
-    }
-
     public void moveAttempt() {
         int power = RacingUtil.generateRandomPower();
         if (isMovablePower(power)) {

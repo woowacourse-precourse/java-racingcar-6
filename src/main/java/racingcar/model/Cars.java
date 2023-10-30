@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.RacingUtil;
-
 import java.util.*;
 
 public class Cars {
@@ -14,8 +12,7 @@ public class Cars {
 
     public void moveRandomEachCars() {
         for (Car car : cars) {
-            int power = RacingUtil.generateRandomPower();
-            car.move(power);
+            car.moveAttempt();
         }
     }
 
