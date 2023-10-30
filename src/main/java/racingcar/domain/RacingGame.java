@@ -3,12 +3,12 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameService {
+public class RacingGame {
 
     private final Navigation navigation;
 
-    public GameService(ArrayList<Car> carList) {
-        navigation=new Navigation(carList);
+    public RacingGame(ArrayList<Car> carList) {
+        navigation = new Navigation(carList);
     }
 
     public void doRacing() {

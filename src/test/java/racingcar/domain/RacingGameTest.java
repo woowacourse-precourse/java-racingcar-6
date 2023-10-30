@@ -3,10 +3,9 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
-import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class GameServiceTest {
+class RacingGameTest {
 
     @Test
     public void 레이싱을_한다() {
@@ -14,12 +13,11 @@ class GameServiceTest {
         carList.add(new Car(new TestNumberGenerator(5)));
         carList.add(new Car(new TestNumberGenerator(3)));
         carList.add(new Car(new TestNumberGenerator(6)));
-        GameService gameService = new GameService(carList);
+        RacingGame gameService = new RacingGame(carList);
 
         gameService.doRacing();
 
-        List<Car> status = gameService.getStatus();
-        assertThat(status).filteredOn(car->car.getLocation()!=0).hasSize(2);
+        assertThat(gameService.getStatus()).filteredOn(car -> car.getLocation() != 0).hasSize(2);
     }
 
 }
