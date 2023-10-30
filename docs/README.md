@@ -51,7 +51,7 @@ UserInterface 객체의 start 메서드를 실행한다.
   - moveCars() 자동차들을 이동한다.
   - getCarName() 자동차의 이름을 반환
   - getCarLocation() 자동차의 위치를 반환
-  - getWinners() 우승한 자동차들을 반환
+  - getWinners() 우승한 자동차들의 이름을 반환
   - shouldMoveForward() 자동차가 전진할지 말지 boolean으로 리턴
 
 

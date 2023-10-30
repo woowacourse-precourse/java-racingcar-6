@@ -1,7 +1,9 @@
 package racingcar.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.constant.CarRaceConstant;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RandomGenerator;
 
@@ -34,7 +36,6 @@ public class CarRaceService {
         return randomNumber >= CarRaceConstant.MOVE_MIN_VALUE.getConstant();
     }
 
-
     public List<String> getCarsName() {
         return cars.getNames();
     }
@@ -43,6 +44,11 @@ public class CarRaceService {
         return cars.getLocations();
     }
 
-
+    public List<String> getWinnersName() {
+        List<Car> winnersCar = cars.getCarsByLocation(cars.getMaxLocation());
+        return winnersCar.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 
 }
