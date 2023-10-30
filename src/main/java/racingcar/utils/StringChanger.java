@@ -13,4 +13,8 @@ public class StringChanger {
         return Arrays.stream(string.split(",", -1))
                 .map(String::trim).collect(Collectors.toList());
     }
+
+    public static int stringToInteger(String string) {
+        return Integer.parseInt(string);
+    }
 }

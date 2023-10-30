@@ -4,6 +4,7 @@ package racingcar;
 //import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -70,25 +71,34 @@ class ApplicationTest extends NsTest {
     @Test
     @DisplayName("기능 3번")
     void 자동차_이름_입력_검증_확인() {
+        User user = new User();
+
         List<String> emptyList = new ArrayList<>();
+        List<String> duplicatedNameList = new ArrayList<>(List.of("pobi", "pobi", "jun"));
+        String nameOverFiveLength = "poobii";
+        String nameUnderOneLength = "";
+        String correctInput = "pobi,jun,kim,po bi, abc,aaa ";
+
         assertThatThrownBy(() -> InputValidator.validateNumberOfCars(emptyList.size()))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("1대 이상의 차량을 입력하세요.");
 
-        List<String> duplicatedNameList = new ArrayList<>(List.of("pobi", "pobi", "jun"));
         assertThatThrownBy(() -> InputValidator.validateIsNamesDistinct(duplicatedNameList))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복되지 않는 이름들을 입력하세요.");
 
-        String nameOverFiveLength = "poobii";
         assertThatThrownBy(() -> InputValidator.validateNameLength(nameOverFiveLength.length()))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("1자 이상, 5자이하의 이름을 입력하세요.");
 
-        String nameUnderOneLength = "";
         assertThatThrownBy(() -> InputValidator.validateNameLength(nameUnderOneLength.length()))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("1자 이상, 5자이하의 이름을 입력하세요.");
+
+        command(correctInput);
+        assertThatCode(user::inputCarName)
+                .doesNotThrowAnyException();
+        Console.close();
 
     }
 
@@ -136,6 +146,29 @@ class ApplicationTest extends NsTest {
         assertThat(output()).contains("시도할 회수는 몇회인가요?");
         assertThat(numberOfTry).isEqualTo(5);
 
+        Console.close();
+    }
+
+    @Test
+    @DisplayName("기능 7번")
+    void 시도횟수_입력_검증_확인() {
+        User user = new User();
+
+        String notNumberInput = "12a";
+        int notNaturalNumber = 0;
+        String correctInput = " 123 ";
+
+        assertThatThrownBy(() -> InputValidator.validateIsInputNumber(notNumberInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("음수가 아닌 숫자를 입력하세요.(숫자 사이 공백 불가)");
+
+        assertThatThrownBy(() -> InputValidator.validateIsNaturalNumber(notNaturalNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 1이상인 자연수를 입력해야합니다.");
+
+        command(correctInput);
+        assertThatCode(user::inputNumberOfTry)
+                .doesNotThrowAnyException();
         Console.close();
     }
 
