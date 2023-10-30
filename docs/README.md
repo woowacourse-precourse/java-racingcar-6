@@ -43,6 +43,6 @@
 
     - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용합니다.
 
-### `enum` OutputMessage
+### `class` OutputMessage
 
-  - 출력할 문구를 관리하는 Enum 입니다.
+  - 출력할 문구를 관리하는 class 입니다.
