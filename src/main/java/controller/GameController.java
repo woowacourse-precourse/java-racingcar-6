@@ -23,7 +23,7 @@ public class GameController {
     public void runName() {
         outputView.printName();
 
-        List<String> names = Arrays.asList(inputView.input().split(","));
+        List<String> names = Arrays.asList(inputView.input().split(",", -1));
         validator.checkLengthName(names);
 
         gameService.createCarObject(names);

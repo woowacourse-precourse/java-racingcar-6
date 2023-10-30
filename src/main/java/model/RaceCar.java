@@ -1,15 +1,16 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.Map;
+import message.ErrorMessage;
 
 public class RaceCar {
     private final String name;
     private int moveForwardCount;
 
     public RaceCar(String name) {
+        if(name == null) {
+            throw new NullPointerException(ErrorMessage.EXCEPTION_OBJECT_NULL);
+        }
+
         this.name = name;
     }
 
