@@ -20,6 +20,9 @@ public class RacingCarController {
         //총 이동 결과
         int[] move = carService.playGame(gameAttemptCount, carList);
 
+        //자동차 경주 승자
+        carService.winner(carList,move);
+
     }
 
 }
