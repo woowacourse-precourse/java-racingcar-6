@@ -2,6 +2,7 @@ package racingcar.domain.system.manager.car;
 
 import java.util.Objects;
 import racingcar.domain.core.car.Car;
+import racingcar.domain.core.car.CarName;
 
 public class SavedCar {
 
@@ -21,8 +22,8 @@ public class SavedCar {
         return car;
     }
 
-    public String getName() {
-        return car.getName();
+    public CarName getCarName() {
+        return car.getCarName();
     }
 
     @Override

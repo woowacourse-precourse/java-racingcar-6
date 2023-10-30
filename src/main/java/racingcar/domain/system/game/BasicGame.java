@@ -59,7 +59,7 @@ public abstract class BasicGame implements Game {
             printRound(results);
         }
 
-        List<String> winners = calculateWinners(enrolledCars);
+        List<CarName> winners = calculateWinners(enrolledCars);
         printWinners(winners);
     }
 
@@ -69,7 +69,7 @@ public abstract class BasicGame implements Game {
 
     protected abstract void saveRound(RoundResult result);
 
-    protected abstract List<String> calculateWinners(List<SavedCar> cars);
+    protected abstract List<CarName> calculateWinners(List<SavedCar> cars);
 
     private List<CarName> getCarNames() {
         List<String> sources = carNamesReader.read();
@@ -96,7 +96,7 @@ public abstract class BasicGame implements Game {
         return round.play();
     }
 
-    private void printWinners(List<String> winners) {
+    private void printWinners(List<CarName> winners) {
         viewer.print(winners);
     }
 
@@ -104,7 +104,7 @@ public abstract class BasicGame implements Game {
         for (OnRaceCar onRaceCar : result.getAllCars()) {
             Long positionResult = result.getPosition(onRaceCar);
             String position = getPositionPrint(DASH, positionResult);
-            viewer.print(onRaceCar.getName(), position);
+            viewer.print(onRaceCar.getCarName(), position);
         }
     }
 

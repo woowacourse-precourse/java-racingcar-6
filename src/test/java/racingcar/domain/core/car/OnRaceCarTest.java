@@ -45,9 +45,9 @@ class OnRaceCarTest {
         OnRaceCar onRaceCar = new OnRaceCar(car, 0L);
 
         // when
-        String name = onRaceCar.getName();
+        CarName name = onRaceCar.getCarName();
 
         // then
-        assertEquals(name, "a");
+        assertEquals(name, new CarName("a"));
     }
 }

@@ -31,12 +31,13 @@ public class InMemoryCarManager implements CarManager {
     }
 
     private void validate(Car car) {
-        Collection<SavedCar> sources = cars.values();
-        validateDuplicateCar(sources, car);
+        Collection<SavedCar> innerSources = cars.values();
+        validateDuplicateCar(innerSources, car);
     }
 
-    private void validateDuplicateCar(Collection<SavedCar> sources, Car car) {
-        sources.stream().filter(source -> source.getName().equals(car.getName())).findAny()
+    private void validateDuplicateCar(Collection<SavedCar> innerSources, Car car) {
+        innerSources.stream().filter(source -> source.getCarName().equals(car.getCarName()))
+            .findAny()
             .ifPresent(c -> {
                 throw new DuplicatedCarNameException();
             });
@@ -55,7 +56,7 @@ public class InMemoryCarManager implements CarManager {
     }
 
     private Predicate<SavedCar> carNameFilter(CarName carName) {
-        return car -> car.getName().equals(carName.getName());
+        return car -> car.getCarName().equals(carName);
     }
 
     @Override

@@ -2,6 +2,7 @@ package racingcar.domain.system.viewer;
 
 
 import java.util.List;
+import racingcar.domain.core.car.CarName;
 
 public class ConsoleViewer implements Viewer {
 
@@ -18,12 +19,15 @@ public class ConsoleViewer implements Viewer {
     }
 
     @Override
-    public void print(String carName, String position) {
-        print(carName + " : " + position);
+    public void print(CarName carName, String position) {
+        print(carName.getName() + " : " + position);
     }
 
     @Override
-    public void print(List<String> winners) {
-        print(WINNER_MESSAGE_PREFIX + String.join(", ", winners));
+    public void print(List<CarName> winners) {
+        List<String> winnerNames = winners.stream()
+            .map(CarName::getName)
+            .toList();
+        print(WINNER_MESSAGE_PREFIX + String.join(", ", winnerNames));
     }
 }

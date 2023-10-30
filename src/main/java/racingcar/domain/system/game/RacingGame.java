@@ -70,7 +70,7 @@ public class RacingGame extends BasicGame {
     }
 
     @Override
-    protected List<String> calculateWinners(List<SavedCar> cars) {
+    protected List<CarName> calculateWinners(List<SavedCar> cars) {
         List<SavedCarPosition> carPositions = carPositionManager.findAll(cars);
         Map<Long, List<SavedCarPosition>> results = getResults(carPositions);
         Long winner = getWinner(results);
@@ -98,11 +98,11 @@ public class RacingGame extends BasicGame {
             .get(WINNER_IDX);
     }
 
-    private List<String> getWinners(Map<Long, List<SavedCarPosition>> results, Long winner) {
+    private List<CarName> getWinners(Map<Long, List<SavedCarPosition>> results, Long winner) {
         List<SavedCarPosition> winnerCars = new ArrayList<>(results.get(winner));
         List<CarKey> keys = winnerCars.stream().map(SavedCarPosition::getSavedCar)
             .map(SavedCar::getKey).collect(Collectors.toList());
         List<SavedCar> winners = carManager.findAll(keys);
-        return winners.stream().map(SavedCar::getName).toList();
+        return winners.stream().map(SavedCar::getCarName).toList();
     }
 }
