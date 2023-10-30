@@ -13,7 +13,7 @@ public class RacingCarApplication {
     public void run() {
 
         List<String> carNames = carViewer.inputCarNames();
-        Cars cars = Cars.of(carNames);
+        Cars cars = Cars.createByNames(carNames);
 
         int attemptCount = carViewer.inputAttemptCount();
 

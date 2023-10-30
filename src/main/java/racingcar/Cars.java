@@ -14,7 +14,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars of(List<String> carNames) {
+    public static Cars createByNames(List<String> carNames) {
 
         List<Car> cars = carNames.stream()
                 .map(name -> new Car(new CarName(name)))
