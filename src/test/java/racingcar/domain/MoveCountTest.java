@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class MoveCountTest {
 
@@ -19,35 +21,10 @@ class MoveCountTest {
         assertThat(moveCount.intValue()).isEqualTo(5);
     }
 
-    @Test
-    void 이동횟수가_문자로_생성되면_예외_발생() {
-        String moveCount = "a";
-
-        assertThatThrownBy(() -> MoveCount.valueOf(moveCount))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 이동횟수가_공백으로_생성되면_예외_발생() {
-        String moveCount = " ";
-
-        assertThatThrownBy(() -> MoveCount.valueOf(moveCount))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 이동횟수가_빈값으로_생성되면_예외_발생() {
-        String moveCount = "";
-
-        assertThatThrownBy(() -> MoveCount.valueOf(moveCount))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 이동횟수가_1보다_작으면_예외_발생() {
-        String moveCount = "0";
-
-        assertThatThrownBy(() -> MoveCount.valueOf(moveCount))
+    @ParameterizedTest
+    @ValueSource(strings = {"five", "오", " ", "", " 1", "1 "})
+    void 이동횟수의_값이_숫자가_아닌_문자로_생성되면_예외_발생(String inputMoveCount) {
+        assertThatThrownBy(() -> MoveCount.valueOf(inputMoveCount))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
