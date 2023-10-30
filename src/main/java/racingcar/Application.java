@@ -23,4 +23,18 @@ public class Application {
         }
         return cars;
     }
+    //시도할 횟수 입력
+    public static int insertNumberOfMoves(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        int num = Integer.parseInt(Console.readLine());
+        try{
+            if(num < 0){
+                throw new IllegalArgumentException();
+            }
+            return num;
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+    }
+    
 }
