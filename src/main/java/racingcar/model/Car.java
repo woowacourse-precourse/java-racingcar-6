@@ -15,9 +15,9 @@ public class Car {
         this.distance = DISTANCE_INIT_VALUE;
     }
 
-    public Car(String carName, int mockedDistance) {
+    public Car(String carName, int stubbedDistance) {
         this.carName = carName;
-        this.distance = mockedDistance;
+        this.distance = stubbedDistance;
     }
 
     public int compareTo(Car otherCar) {

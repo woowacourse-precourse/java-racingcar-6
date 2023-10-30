@@ -9,12 +9,6 @@ import org.junit.jupiter.api.Test;
 class RacingCarsTest {
     private RacingCars racingCars;
 
-    private static class mockedGenerator {
-        private int generateMockedNumber(int mockedNumber) {
-            return mockedNumber;
-        }
-    }
-
     @BeforeEach
     void setUp() {
         racingCars = new RacingCars(
