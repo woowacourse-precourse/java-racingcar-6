@@ -41,14 +41,12 @@ public class RacingCarUseCase {
     }
 
     private List<Car> createCars() {
-        racingCarView.printCarNameInputMessage();
         List<String> carNames = racingCarInputPort.getCarNames();
 
         return carService.createCars(carNames);
     }
 
     private int getTryCount() {
-        racingCarView.printTryCountInputMessage();
         return racingCarInputPort.getTryCount();
     }
 
