@@ -11,11 +11,14 @@ import racingcar.view.outputview.ResultOutputView;
 import racingcar.view.outputview.SettingOutputView;
 
 public class ControlConfig {
-    public Controller createSettingController() {
+    private ControlConfig() {
+    }
+
+    public static Controller createSettingController() {
         return new SettingController(new SettingInputView(new InputValidator()), new SettingOutputView());
     }
 
-    public Controller createPlayController(Object param) {
+    public static Controller createPlayController(Object param) {
         if (param instanceof Cars cars) {
             return new PlayController(new PlayOutputView(),
                     new CarService(cars, new LimitScoreMoveRule(new RandomNumberGenerator())));
@@ -23,7 +26,7 @@ public class ControlConfig {
         return null;
     }
 
-    public Controller createResultController(Object param) {
+    public static Controller createResultController(Object param) {
         if (param instanceof Cars cars) {
             return new ResultController(new ResultOutputView(),
                     new CarService(cars, new LimitScoreMoveRule(new RandomNumberGenerator())));
