@@ -7,11 +7,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.view.InputView;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class GameService {
     private List<Car> cars = new ArrayList<>();
     private Integer tryCount = 0;
     private static final Integer MAX_CAR_NAME_LENGTH = 5;
+    private static final Integer MAX_RANDOM_NUMBER = 9;
+    private static final Integer MIN_RANDOM_NUMBER = 0;
 
     public void initGame() {
         // carNames를 입력받아 cars를 초기화
@@ -27,7 +30,12 @@ public class GameService {
     }
 
     public void playGame() {
-        // TODO: 게임을 진행하는 메소드
+        for(int i = 0; i < tryCount; i++) {
+            for(Car car : cars) {
+                Integer randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+                car.move(randomNumber);
+            }
+        }
     }
 
     public void endGame() {
