@@ -8,6 +8,7 @@
   - 차종별 시도(`void` &rarr; `void`)
   - 차종별 움직임 출력(`void` &rarr; `void`)
   - 차종별 이름 get(`void` &rarr; `String`)
+  - 차종별 위치 get(`void` &rarr; `int`)
 
 ### 차종별 출력
 `this.name` : `"-".repeat(this.position)` 꼴로 출력
