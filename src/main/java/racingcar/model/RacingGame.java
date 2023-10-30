@@ -1,11 +1,14 @@
 package racingcar.model;
 
 import static java.util.Objects.isNull;
+import static racingcar.common.exception.ErrorMessage.EMPTY_INPUT_STRING;
+import static racingcar.common.exception.ErrorMessage.NULL_INPUT_STRING;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import racingcar.common.exception.RacingGameException;
 
 public class RacingGame {
 
@@ -55,8 +58,8 @@ public class RacingGame {
     }
 
     private void validateInputNameString(String inputNameString) {
-        if(isNull(inputNameString)) throw new IllegalArgumentException();
-        if(inputNameString.isBlank()) throw new IllegalArgumentException();
+        if(isNull(inputNameString)) throw new RacingGameException(NULL_INPUT_STRING);
+        if(inputNameString.isBlank()) throw new RacingGameException(EMPTY_INPUT_STRING);
     }
 
     private String[] splitInputNameString(String inputNameString) {
