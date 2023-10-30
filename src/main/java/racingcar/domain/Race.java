@@ -18,6 +18,7 @@ public class Race {
     public void advanceOneRound() {
         for (Car car : cars) {
             car.moveForward();
+            car.print();
         }
     }
 }
