@@ -22,4 +22,12 @@ public class Cars {
         List<Car> result = Collections.unmodifiableList(cars);//읽을 수만 있게 반환
         return result;
     }
+
+    public int maxMovement() {
+        int maxValue = 0;
+        for (Car car : cars) {
+            maxValue = Math.max(maxValue, car.movement);
+        }
+        return maxValue;
+    }
 }
