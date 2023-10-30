@@ -13,8 +13,8 @@ public class GameUtil {
         return Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
     }
 
-    public static int setTryCount(){
-        RoundValidator roundValidator = new RoundValidator(InputView.getRound());
+    public static int setTryCount(String round){
+        RoundValidator roundValidator = new RoundValidator(round);
         return Integer.parseInt(roundValidator.tryCount);
     }
 }
