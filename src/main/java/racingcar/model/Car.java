@@ -10,10 +10,6 @@ public class Car {
   private int moveCount;
 
   public Car(String carName) {
-    if(!ValidationCarName.isValidCarName(carName)) {
-      throw new IllegalArgumentException();
-    }
-
     this.name = carName;
     this.moveCount = 0;
   }
