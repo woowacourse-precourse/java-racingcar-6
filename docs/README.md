@@ -22,7 +22,7 @@
 
 ## 모든 자동차에 대해
   - [X] 0부터 9까지의 정수 중 무작위 값을 1개 뽑는다. - NumberGenerator#pickNumberFrom0To9()
-  - [ ] 무작위 값이 4 이상이면 전진한다. - Car#moveForward()
+  - [X] 무작위 값이 4 이상이면 전진한다. - Car#moveForward()
   - [ ] 실행 결과를 출력한다. - MessageContainer#printResult()
   - [ ] 사용자가 입력한 시도 횟수만큼 반복한다.
 
