@@ -1,12 +1,14 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.io.InputViewReader;
 import racingcar.util.validator.Validator;
 
 public class InputView {
-
+	
+	private static final InputViewReader READER = new InputViewReader();
+	
 	public String inputCarNames() {
-		String inputValue = Console.readLine();
+		String inputValue = READER.readLine();
 
 		inputCarNamesValidate(inputValue);
 
@@ -14,7 +16,7 @@ public class InputView {
 	}
 
 	public int inputTryNumber() {
-		String inputValue = Console.readLine();
+		String inputValue = READER.readLine();
 		
 		inputTryNumberValidate(inputValue);
 		
