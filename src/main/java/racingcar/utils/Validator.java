@@ -9,7 +9,7 @@ public class Validator {
     private final static String OVER_LENGTH_ERROR = String.format("[ERROR] 이름은 %d글자 이하 여야 합니다.",
             Common.MAX_LENGTH.getIntValue());
     private final static String NUMERIC_ERROR = "[ERROR] 숫자형식이에 맞지 않는 문자를 입력하였습니다.";
-    private final static String UNDER_NUMBER_ERROR = "[ERROR] 1이상의 정수를 적어주세요.";
+    private final static String UNDER_NUMBER_ERROR = "[ERROR] 양수를 적어주세요.";
 
     public void validateCarNameInput(String carNames) {
         if (isNull(carNames))
@@ -64,6 +64,6 @@ public class Validator {
     }
 
     private boolean isPositive(int number) {
-        return number < 1;
+        return number > 0;
     }
 }
