@@ -2,6 +2,7 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.in;
 
 import org.junit.jupiter.api.Test;
 
@@ -48,4 +49,10 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @Test
+    void 공백_포함() {
+        String input = "a \tn c \t\t\n";
+        System.out.print(input.trim());
+        System.out.println(input.isBlank());
+    }
 }

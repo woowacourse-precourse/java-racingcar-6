@@ -41,5 +41,26 @@ public class RegexTest {
         Matcher matcher = pattern.matcher(target);
 
         assertThat(matcher.matches()).isTrue();
+
+        target = "1e11";
+
+        regex = "^(?=.*[a-z0-9])[a-z0-9]*$";
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(target);
+
+        assertThat(matcher.matches()).isTrue();
     }
+
+    @Test
+    void 공백체크() {
+        String target = "noTabNoSpace131";
+
+        String regex = "^[\\S]*$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(target);
+
+        assertThat(matcher.matches()).isTrue();
+    }
+
+
 }
