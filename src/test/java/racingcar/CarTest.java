@@ -2,9 +2,11 @@ package racingcar;
 
 import model.Car;
 import model.CarName;
+import model.MoveRule;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class CarTest {
     @Test
@@ -13,4 +15,13 @@ public class CarTest {
         Car car = new Car("mycar");
         Assertions.assertThat(car).isNotNull();
     }
+
+    @Test
+    @DisplayName("자동차 이름 출력 테스트")
+    void 자동차이름_출력() {
+        Car car = new Car("mycar");
+        Assertions.assertThat(car.getName()).isEqualTo("mycar");
+    }
+
+
 }
