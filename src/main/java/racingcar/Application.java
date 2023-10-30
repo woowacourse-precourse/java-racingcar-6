@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
 
@@ -101,16 +102,33 @@ public class Application {
         checkIsZero(numberOfAttempts);
         return numberOfAttempts;
     }
-    private static void checkIsZero(String numberOfAttempts){
-        if(numberOfAttempts.matches("0")){
+
+    private static void checkIsZero(String numberOfAttempts) {
+        if (numberOfAttempts.matches("0")) {
             throw new IllegalArgumentException("0은 입력할 수 없습니다.");
         }
     }
-    private static void checkIsNumber(String numberOfAttempts){
+
+    private static void checkIsNumber(String numberOfAttempts) {
         String numberRegex = "^[0-9]*$";
-        if(!numberOfAttempts.matches(numberRegex)){
+        if (!numberOfAttempts.matches(numberRegex)) {
             throw new IllegalArgumentException("숫자 형식이 아닙니다.");
         }
     }
 
+    private static boolean isForward() {
+        int random = Randoms.pickNumberInRange(0, 9);
+        if (random >= 4) {
+            return true;
+        }
+        return false;
+    }
+
+    private static void goOrStop(List<Car> cars) {
+        for (Car car : cars) {
+            if (isForward()) {
+                car.moveForward();
+            }
+        }
+    }
 }

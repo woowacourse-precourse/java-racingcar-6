@@ -2,15 +2,15 @@ package racingcar;
 
 public class Car {
     private String name;
-    private int forward = 0;
+    private int position = 0;
     public Car(String name){
         this.name = name;
     }
     public void moveForward(){
-        forward++;
+        position++;
     }
     public int getForward(){
-        return forward;
+        return position;
     }
     public String getName(){
         return name;
