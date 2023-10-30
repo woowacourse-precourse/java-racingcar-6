@@ -28,7 +28,7 @@ public class ExceptionHandling {
     }
 
     public static void isNumberValid(String number) throws IllegalArgumentException {
-        if (number.matches("//d+")) {
+        if (!number.matches("\\d+")) {
             throw new IllegalArgumentException("숫자를 입력해주세요");
         }
     }
