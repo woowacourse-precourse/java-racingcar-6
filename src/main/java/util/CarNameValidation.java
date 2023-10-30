@@ -1,8 +1,8 @@
 package util;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.regex.Pattern;
-import model.Car;
 
 public class CarNameValidation {
 
@@ -19,9 +19,7 @@ public class CarNameValidation {
 
     private static HashSet<String> insertCarName(String[] carNameList) {
         HashSet<String> setCarNameList = new HashSet<>();
-        for (String carName : carNameList) {
-            setCarNameList.add(carName);
-        }
+        Collections.addAll(setCarNameList, carNameList);
         return setCarNameList;
     }
 
