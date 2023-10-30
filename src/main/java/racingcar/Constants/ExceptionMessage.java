@@ -5,7 +5,8 @@ public enum ExceptionMessage {
     DUPLICATE_NAME("중복되지 않는 이름을 입력하세요"),
     NONE_INPUT("값을 입력 하세요"),
     NUMBER_ONLY("시도 횟수는 정수만 입력 가능합니다"),
-    NUMBER_OVERFLOW("int의 범위를 벗어났습니다.");
+    NUMBER_OVERFLOW("int의 범위를 벗어났습니다."),
+    NUMBER_ZERO("1 이상의 숫자를 입력해 주세요");
 
     private final String exceptionMassage;
     ExceptionMessage(String exceptionMessage){

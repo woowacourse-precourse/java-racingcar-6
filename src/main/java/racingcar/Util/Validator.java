@@ -43,6 +43,7 @@ public class Validator {
         trialNumber = trialNumber.replaceAll(" ", "");
         validationTrialEmpty(trialNumber);
         validationTrialType(trialNumber);
+        validationTrialNumberZero(trialNumber);
         return validationTrialNumberOverflow(trialNumber);
     }
 
@@ -65,5 +66,11 @@ public class Validator {
             ExceptionMessage.NUMBER_OVERFLOW.throwexception();
         }
         return Integer.parseInt(trialNumber);
+    }
+
+    private void validationTrialNumberZero(String traialNumber){
+        if(Integer.parseInt(traialNumber) < 1){
+            ExceptionMessage.NUMBER_ZERO.throwexception();
+        }
     }
 }
