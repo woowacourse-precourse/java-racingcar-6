@@ -18,6 +18,7 @@ public class GameController {
             cars = getCars(inputCarName());
             attempts = inputAttempts();
 
+            finalResult();
             while(attempts!=0){
                 // 게임 시도
                 play();
@@ -36,6 +37,10 @@ public class GameController {
         return InputView.carsName();
     }
 
+    private static void finalResult(){
+        OutputView.executionResult();
+    }
+
     private static void play(){
         for(Car car : cars){
             car.addAdvances(GeneratedRandomNumber.getNumber());
@@ -46,7 +51,6 @@ public class GameController {
     }
 
     private static void finishGame(){
-        OutputView.executionResult();
         FindWinnerController findWinnerController = new FindWinnerController(cars);
         OutputView.winner(findWinnerController.getWinners());
     }
