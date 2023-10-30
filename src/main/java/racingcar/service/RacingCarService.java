@@ -6,6 +6,9 @@ import racingcar.util.RandomNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class RacingCarService {
 
     private final InputView inputView = new InputView();
@@ -42,5 +45,20 @@ public class RacingCarService {
             Car car = cars.getCar(i);
             outputView.outputResult(car.getName(), car.getDistance());
         }
+    }
+
+    public void outputWinner() {
+        String winnersNames = separateWinners(findWinner());
+        outputView.outputWinner(winnersNames);
+    }
+
+    private List<String> findWinner() {
+        return cars.findLongDistanceCarsName();
+    }
+
+    private String separateWinners(List<String> winnerName) {
+        return winnerName.stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining(", "));
     }
 }

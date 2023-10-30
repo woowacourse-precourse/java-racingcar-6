@@ -25,4 +25,8 @@ public class RacingCarController {
     public void outputMoveResult() {
         racingCarService.outputMoveResult();
     }
+
+    public void outputWinner() {
+        racingCarService.outputWinner();
+    }
 }

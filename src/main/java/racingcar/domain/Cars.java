@@ -28,12 +28,12 @@ public class Cars {
         return cars.get(index);
     }
 
-    public List<Car> findLongDistanceCars() {
+    public List<String> findLongDistanceCarsName() {
         int max = -1;
-        List<Car> longDistanceCars = new ArrayList<>();
+        List<String> longDistanceCars = new ArrayList<>();
         for (Car car : cars) {
             if (car.getDistance() >= max) {
-                longDistanceCars.add(car);
+                longDistanceCars.add(car.getName());
             }
         }
         return longDistanceCars;

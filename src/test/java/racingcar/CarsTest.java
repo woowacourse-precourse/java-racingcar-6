@@ -33,7 +33,7 @@ public class CarsTest {
         Car pobi = cars.getCar(2);
 
         dahee.move();
-        List<Car> winnerCar = cars.findLongDistanceCars();
+        List<Car> winnerCar = cars.findLongDistanceCarsName();
 
         assertThat(winnerCar.get(0)).isEqualTo(dahee);
     }
@@ -48,7 +48,7 @@ public class CarsTest {
 
         dahee.move();
         hui.move();
-        List<Car> winnerCar = cars.findLongDistanceCars();
+        List<Car> winnerCar = cars.findLongDistanceCarsName();
 
         assertThat(winnerCar.get(0)).isEqualTo(dahee);
         assertThat(winnerCar.get(1)).isEqualTo(hui);
