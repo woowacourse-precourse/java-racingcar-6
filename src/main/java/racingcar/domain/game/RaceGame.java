@@ -15,21 +15,10 @@ public class RaceGame {
   private int round;
 
   public RaceGame(final Formula formula, final List<Car> cars, final int round) {
-    validateCars(cars);
     validateRound(round);
     this.formula = formula;
     this.cars = cars;
     this.round = round;
-  }
-
-  private void validateCars(final List<Car> cars) {
-    isCarsEmpty(cars);
-  }
-
-  private void isCarsEmpty(final List<Car> cars) {
-    if (cars.isEmpty()) {
-      throw new IllegalArgumentException("자동차는 1대 이상이어야 합니다.");
-    }
   }
 
   private void validateRound(final int round) {

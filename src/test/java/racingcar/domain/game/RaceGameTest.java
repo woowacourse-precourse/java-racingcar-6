@@ -20,20 +20,6 @@ public class RaceGameTest {
   public class StartGameTest {
 
     @Test
-    @DisplayName("자동차 수가 지정된 수보다 작으면 예외를 반환한다.")
-    void 자동차_수가_지정된_수보다_작으면_예외를_반환한다() {
-      // given
-      var mockFormula = new MockFormula(MoveState.MOVING_FORWARD);
-      var cars = CarFactory.createCars(new ArrayList<>());
-      var round = 5;
-
-      // when & then
-      assertThatThrownBy(() -> new RaceGame(mockFormula, cars, round))
-          .isInstanceOf(IllegalArgumentException.class)
-          .hasMessage("자동차는 1대 이상이어야 합니다.");
-    }
-
-    @Test
     @DisplayName("시도 회수가 1보다 작으면 예외를 반환한다.")
     void 시도_회수가_1보다_작으면_예외를_반환한다() {
       // given
