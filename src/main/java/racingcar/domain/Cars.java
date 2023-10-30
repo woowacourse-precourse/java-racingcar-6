@@ -4,7 +4,9 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.dto.response.GameResultDto;
 import racingcar.dto.response.RoundResultDto;
+import racingcar.util.ExceptionHandler;
 import racingcar.view.ConsoleOutput;
 import racingcar.view.OutputView;
 
@@ -39,5 +41,25 @@ public class Cars {
 
     private void printCarInfo(Car car) {
         outputView.printRoundResult(car.getCarInfo());
+    }
+
+    public GameResultDto getWinner() {
+        int maxLocation = getMaxLocation();
+        List<String> winners = getWinners(maxLocation);
+        return new GameResultDto(winners);
+    }
+
+    private int getMaxLocation() {
+        return carList.stream()
+                .mapToInt(Car::getLocation)
+                .max()
+                .orElseThrow(ExceptionHandler::throwIfCarNotFound);
+    }
+
+    private List<String> getWinners(int maxLocation) {
+        return carList.stream()
+                .filter(car -> car.isSameLocation(maxLocation))
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }

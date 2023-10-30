@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import javax.lang.model.element.Name;
 import racingcar.dto.response.RoundResultDto;
 
 public class Car {
@@ -15,5 +16,17 @@ public class Car {
 
     public RoundResultDto getCarInfo() {
         return new RoundResultDto(name,location);
+    }
+
+    public boolean isSameLocation(int otherLocation) {
+        return this.location == otherLocation;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getLocation() {
+        return this.location;
     }
 }

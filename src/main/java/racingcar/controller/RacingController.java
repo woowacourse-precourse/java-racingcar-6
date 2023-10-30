@@ -8,12 +8,15 @@ import racingcar.service.RacingService;
 import racingcar.validation.InputValidator;
 import racingcar.view.ConsoleOutput;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingController {
     private final InputView inputView;
+    private final OutputView outputView;
     private final RacingService racingService;
 
-    public RacingController(InputView inputView, RacingService racingService) {
+    public RacingController(InputView inputView, RacingService racingService, OutputView outputView) {
+        this.outputView = outputView;
         this.inputView = inputView;
         this.racingService = racingService;
     }
@@ -36,5 +39,6 @@ public class RacingController {
         for (int num = 0; num < tries; num++) {
             cars.playGame();
         }
+        outputView.printGameResult(cars.getWinner());
     }
 }
