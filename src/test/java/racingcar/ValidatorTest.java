@@ -56,7 +56,7 @@ public class ValidatorTest {
             validator.validationTrial(input);
         })
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage());
+                .hasMessageContaining(ExceptionMessage.INVALID_NOT_NATURAL_NUMBER.getMessage());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class ValidatorTest {
             validator.validationTrial(input);
         })
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage());
+                .hasMessageContaining(ExceptionMessage.INVALID_NOT_NATURAL_NUMBER.getMessage());
     }
 
 }

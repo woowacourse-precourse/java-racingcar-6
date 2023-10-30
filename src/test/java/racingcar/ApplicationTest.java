@@ -74,7 +74,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("car1,car2,car3", "a"))
                         .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage())
+                        .hasMessageContaining(ExceptionMessage.INVALID_NOT_NATURAL_NUMBER.getMessage())
         );
     }
 
