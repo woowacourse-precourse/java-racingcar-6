@@ -7,6 +7,7 @@ public class RacingCarGame {
 	RacingCarController racingCarController = new RacingCarController();
 	public void run() {
 		racingCarController.saveCarName();
+		racingCarController.saveTryNumber();
 	}
 
 }

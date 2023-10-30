@@ -1,17 +1,17 @@
 package racingcar.dto.request;
 
 public class TryNumberReq {
-	int tryNumber;
+	String tryNumber;
 
-	public int getTryNumber() {
+	public String getTryNumber() {
 		return tryNumber;
 	}
 
-	public void setTryNumber(int tryNumber) {
+	public void setTryNumber(String tryNumber) {
 		this.tryNumber = tryNumber;
 	}
 
 	public void clear() {
-		this.tryNumber = 0;
+		this.tryNumber = "";
 	}
 }

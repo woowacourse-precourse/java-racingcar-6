@@ -12,10 +12,40 @@ public class RacingCarController {
 	TryNumberReq tryNumberReq = new TryNumberReq();
 
 	public void saveCarName() {
-		System.out.println("입력 테스트");
-		String carName = readLine();
-		validateCarName(carName);
-		System.out.println(carName+"성공");
+		System.out.println("차 이름 입력 테스트");
+		carNameReq.setCarName(readLine());
+		validateCarName(carNameReq.getCarName());
+		System.out.println(carNameReq.getCarName()+"성공");
+	}
+
+	public void saveTryNumber() {
+		System.out.println("시도 입력 테스트");
+		tryNumberReq.setTryNumber(readLine());
+		validateTryNumber(tryNumberReq.getTryNumber());
+		System.out.println(tryNumberReq.getTryNumber()+"성공");
+	}
+
+	private static void validateTryNumber(String tryNumber) {
+		if (tryNumber.isEmpty()) {
+			throw new IllegalArgumentException("값을 입력하세요.");
+		}
+		checkTryNumberIsNumber(tryNumber);
+	}
+
+	private static void checkTryNumberIsNumber(String tryNumber) {
+		if (tryNumber.matches("^\\d+$")) {
+			int tryNumberInt = Integer.parseInt(tryNumber);
+
+			checkTryNumberIsPositive(tryNumberInt);
+		} else {
+			throw new IllegalArgumentException("입력값은 숫자여야 합니다.");
+		}
+	}
+
+	private static void checkTryNumberIsPositive(int tryNumberInt) {
+		if (tryNumberInt <= 0) {
+			throw new IllegalArgumentException("입력값은 0보다 커야 합니다.");
+		}
 	}
 
 	public static void validateCarName(String carName) {
@@ -41,11 +71,4 @@ public class RacingCarController {
 		return matcher.find();
 	}
 
-	private void getCarName(String carName) {
-		carNameReq.setCarName(carName);
-	}
-
-	private void getTryNumber(int tryNumber) {
-		tryNumberReq.setTryNumber(tryNumber);
-	}
 }
