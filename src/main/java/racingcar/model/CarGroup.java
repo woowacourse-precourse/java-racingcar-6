@@ -4,6 +4,8 @@ import racingcar.dto.CarDto;
 import racingcar.dto.CarGroupDto;
 import racingcar.utils.Movement;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -37,9 +39,7 @@ public class CarGroup {
     }
 
     private Car findMaxPositionCar() {
-        return cars.stream()
-                .max((car, compareCar) -> car.comparePosition(compareCar))
-                .get();
+        return Collections.max(cars, Comparator.comparingInt(Car::getPosition));
     }
 
     public CarGroupDto toDto() {

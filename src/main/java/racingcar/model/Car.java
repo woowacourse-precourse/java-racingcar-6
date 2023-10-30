@@ -4,7 +4,7 @@ import racingcar.dto.CarDto;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private static final Integer INIT_POSITION = 0;
 
     private final String name;
@@ -22,16 +22,21 @@ public class Car {
         }
     }
 
-    public int comparePosition(Car compareCar) {
-        return this.position - compareCar.position;
-    }
-
     public CarDto toDto() {
         return new CarDto(name, position);
     }
 
     public String getName() {
         return name;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return this.position - o.position;
     }
 
     @Override
@@ -50,4 +55,5 @@ public class Car {
     public int hashCode() {
         return Objects.hash(position);
     }
+
 }

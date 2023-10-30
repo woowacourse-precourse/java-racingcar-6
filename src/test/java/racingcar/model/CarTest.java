@@ -26,7 +26,7 @@ public class CarTest {
         Car compareCar = new Car("상대자동차");
         myCar.go(myCarMove);
         compareCar.go(compareCarMove);
-        assertThat(myCar.comparePosition(compareCar)).isEqualTo(result);
+        assertThat(myCar.compareTo(compareCar)).isEqualTo(result);
     }
 
     @Test
