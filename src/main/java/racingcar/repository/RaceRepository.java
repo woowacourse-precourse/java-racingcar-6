@@ -6,18 +6,18 @@ import racingcar.model.Race;
 
 public class RaceRepository {
     private Long id = 0L;
-    private Map<Long, Race> games = new HashMap<>();
+    private Map<Long, Race> races = new HashMap<>();
 
     public Long save(Race race) {
-        games.put(id, race);
+        races.put(id, race);
         return id++;
     }
 
     public Race findById(Long id) {
-        return games.get(id);
+        return races.get(id);
     }
 
     public Map<Long, Race> findAll() {
-        return games;
+        return races;
     }
 }
