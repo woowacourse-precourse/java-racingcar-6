@@ -1,9 +1,7 @@
 package racingcar.utils.validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
-import javax.xml.validation.Validator;
 import org.junit.jupiter.api.Test;
 import racingcar.utils.Converter;
 
