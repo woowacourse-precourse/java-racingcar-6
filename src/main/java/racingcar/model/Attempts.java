@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.utils.Validator;
+
 public class Attempts {
     private final int number;
 
@@ -8,6 +10,7 @@ public class Attempts {
     }
 
     public Attempts(String value) {
+        Validator.validateNumberOfAttemptsInput(value);
         this.number = Integer.valueOf(value);
     }
 
