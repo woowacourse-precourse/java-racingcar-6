@@ -47,10 +47,7 @@ public class Car implements Comparable<Car>{
 
     @Override
     public int compareTo(Car c){
-        if(this.forwardCount<=c.forwardCount){
-            return 1;
-        }
-        return 0;
+        return Integer.compare(c.forwardCount,this.forwardCount);
     }
 
 }
