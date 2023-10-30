@@ -51,11 +51,10 @@ public class Cars {
         return maxPosition;
     }
 
-    public List<String> getWinners() {
+    public List<Car> getWinners() {
         Position maxPosition = getMaxPosition();
         return cars.stream()
-                .filter(car -> maxPosition.equals(car.position()))
-                .map(car -> car.name().getDisplayFormat())
+                .filter(car -> car.isWinner(maxPosition))
                 .collect(Collectors.toList());
     }
 

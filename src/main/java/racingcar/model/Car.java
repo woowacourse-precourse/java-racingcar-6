@@ -16,6 +16,13 @@ public class Car {
         }
     }
 
+    public boolean isWinner(Position maxPosition) {
+        if (maxPosition.equals(position)) {
+            return true;
+        }
+        return false;
+    }
+
     public String getDisplayFormat() {
         return name.getDisplayFormat() + " : " + position.getDisplayFormat();
     }
