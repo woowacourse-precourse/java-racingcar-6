@@ -40,4 +40,10 @@ public class Cars {
         }
     }
 
+    public void race() {
+        for (Car car : cars) {
+            car.go(new RandomNumber());
+        }
+    }
+
 }
