@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Car;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -20,8 +21,11 @@ public class CarRacingGame {
         this.cars = gameService.createCars(inputCarNames);
 
         this.attemptTime = Integer.parseInt(InputView.inputAttemptionNumber());
+
+        OutputView.printResultPhrase();
         while (attemptTime-- > 0) {
-            //TODO: 자동차 경주 진행
+            gameService.playOneAttempt(cars);
+            OutputView.printRacingGameStatus(cars);
         }
     }
 }
