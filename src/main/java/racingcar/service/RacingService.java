@@ -25,4 +25,19 @@ public class RacingService {
         }
         return cars;
     }
+
+    public List<Car> attempt(List<Car> cars) {
+        for(Car car : cars) {
+            int rNum = generateRandomNum();
+            if(isMorethanDigit(rNum, 4)) { // 4 digit처리
+                
+            }
+        }
+
+        return
+    }
+
+    public boolean isMorethanDigit(int digit, int num) {
+        return digit <= num;
+    }
 }

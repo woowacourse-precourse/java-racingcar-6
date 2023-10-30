@@ -11,7 +11,8 @@ public class RacingController {
 
     private RacingService racingService = new RacingService();
     private List<Car> cars;
-    private int numOfRound;
+    private int round;
+
     public List<String> getInputNames() {
         String input = Console.readLine();
         return racingService.stringToList(input);
@@ -24,6 +25,13 @@ public class RacingController {
     public void racingStart() {
         List<String> names = getInputNames();
         cars = racingService.generateCars(names);
-        numOfRound = getInputNum();
+        round = getInputNum();
+        racing(round);
+    }
+
+    public void racing(int round) {
+        for (int i = 0; i < round; i++) {
+            cars = racingService.attempt(cars);
+        }
     }
 }
