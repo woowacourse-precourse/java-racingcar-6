@@ -2,7 +2,7 @@ package racingcontroller;
 
 import camp.nextstep.edu.missionutils.Console;
 
-class InputMan {
+class InputReader {
     static String inputCarName() {
         return Console.readLine();
     }
