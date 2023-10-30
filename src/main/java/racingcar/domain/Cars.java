@@ -16,6 +16,10 @@ public class Cars {
         this.carList = carList;
     }
 
+    public void move() {
+        carList.forEach(Car::move);
+    }
+
     private void validateDuplicate(final List<Car> carList) {
         final Set<Car> carSet = new HashSet<>(carList);
         if (carSet.size() != carList.size()) {
