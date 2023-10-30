@@ -1,8 +1,8 @@
 package racingcar.model;
 
-import racingcar.util.NumberGenerator;
-import racingcar.validation.CarNameValidator;
-import racingcar.validation.Validator;
+import racingcar.util.generator.NumberGenerator;
+import racingcar.util.validator.CarNameValidator;
+import racingcar.util.validator.Validator;
 
 public class Car {
     private static final int MOVEMENT_THRESHOLD = 4;

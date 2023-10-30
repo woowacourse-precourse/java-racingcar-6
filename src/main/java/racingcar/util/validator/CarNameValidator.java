@@ -1,4 +1,4 @@
-package racingcar.validation;
+package racingcar.util.validator;
 
 import racingcar.exception.ExceptionMessage;
 

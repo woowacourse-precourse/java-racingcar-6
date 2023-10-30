@@ -5,9 +5,9 @@ import java.util.List;
 import racingcar.dto.CarDto;
 import racingcar.model.Car;
 import racingcar.model.RacingGame;
-import racingcar.util.RandomNumberGenerator;
-import racingcar.validation.NumberValidator;
-import racingcar.validation.Validator;
+import racingcar.util.generator.RandomNumberGenerator;
+import racingcar.util.validator.NumberValidator;
+import racingcar.util.validator.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
