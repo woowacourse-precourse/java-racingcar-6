@@ -9,7 +9,7 @@ public class Attempts {
     public Attempts(String attempts) {
         validateEmpty(attempts);
         validateIsNumericInput(attempts);
-        this.attempts = 1;
+        this.attempts = Integer.parseInt(attempts);
     }
 
     private void validateEmpty(String attempts) {
