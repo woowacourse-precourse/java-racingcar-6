@@ -18,6 +18,10 @@ public class Car {
         this.distance = START_MOVING_DISTANCE;
     }
 
+    public void forward() {
+        distance++;
+    }
+
     private void validateNameLengthRange(String name) {
         if (isRange(name)) {
             throw new IllegalArgumentException(INVALID_NAME_LENGTH_RANGE);
