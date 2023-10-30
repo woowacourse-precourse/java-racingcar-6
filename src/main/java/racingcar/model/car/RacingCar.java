@@ -11,7 +11,7 @@ public class RacingCar implements Car {
 
     private final String name;
 
-    private final Long progress;
+    private Long progress;
 
     public RacingCar(final String name) {
         this(name, INIT_PROGRESS);
@@ -25,6 +25,13 @@ public class RacingCar implements Car {
         validator.validate(name);
         this.name = name;
         this.progress = progress;
+    }
+
+    @Override
+    public void move(final boolean isMove){
+        if (isMove){
+            this.progress += 1L;
+        }
     }
 
     public String getName() {
