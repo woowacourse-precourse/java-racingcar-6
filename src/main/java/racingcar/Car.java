@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private String name = "";
-    private int position = -1;
+    private Integer position = -1;
     private Numbers numbers;
     public Car(String name, Integer position) {
         this.name = name;
@@ -14,14 +14,6 @@ public class Car {
 
     public void printMoves() {
         System.out.println(this.name + " : " + "-".repeat(this.position));
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public int getPosition() {
-        return this.position;
     }
 
     public void trial() {
