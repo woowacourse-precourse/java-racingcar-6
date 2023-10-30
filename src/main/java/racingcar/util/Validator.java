@@ -35,7 +35,6 @@ public class Validator {
         if(!isValid) {
             throw new IllegalArgumentException();
         }
-
         return formatter.changeToInt(input);
     }
 
