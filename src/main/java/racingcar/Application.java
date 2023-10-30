@@ -1,6 +1,7 @@
 package racingcar;
 
 import static basis.WinnerResult.getLargestMove;
+import static basis.WinnerResult.getWinnerList;
 import static constant.Constant.ATTEMPTS_NUMBER_REQUEST_MESSAGE;
 import static constant.Constant.CAR_NAME_REQUEST_MESSAGE;
 import static constant.Constant.RUN_RESULT_START_MESSAGE;
@@ -9,10 +10,8 @@ import static constant.Constant.WINNER_RESULT_MESSAGE;
 import basis.Converter;
 import basis.MovingStatus;
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map.Entry;
 
 public class Application {
     static Converter converter = new Converter();
@@ -31,13 +30,7 @@ public class Application {
 
         int largestMove = getLargestMove(carNameHashMap);
 
-        List<String> winnerList = new ArrayList<>();
-        for (Entry<String, String> element : carNameHashMap.entrySet()) {
-            int moveLength = element.getValue().length();
-            if (moveLength == largestMove) {
-                winnerList.add(element.getKey());
-            }
-        }
+        List<String> winnerList = getWinnerList(carNameHashMap, largestMove);
 
         System.out.print(WINNER_RESULT_MESSAGE);
         for (int i = 0; i < winnerList.size(); i++) {
