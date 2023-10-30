@@ -6,6 +6,7 @@ import java.util.stream.IntStream;
 import racingcar.constant.RaceConstant;
 import racingcar.domain.Game;
 import racingcar.domain.RacingCar;
+import racingcar.domain.RandomNumberGenerator;
 import racingcar.dto.RaceResultResponse;
 import racingcar.dto.WinnerResponse;
 import racingcar.view.InputView;
@@ -15,13 +16,14 @@ public class RaceController {
 
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
+    RandomNumberGenerator generator = new RandomNumberGenerator();
 
     public void race(){
         RacingCar racingCar = setUp();
         outputView.printRaceResultMessage();
         for (int i = RaceConstant.START_INDEX; i < racingCar.getRaceCount(); i++) {
             Game game = new Game();
-            List<Integer> raceResult = game.updateRaceResult(racingCar);
+            List<Integer> raceResult = game.updateRaceResult(generator.generateRandomNumbers(racingCar.getCars().size()), racingCar);
             RaceResultResponse response = new RaceResultResponse(racingCar.getCars(), raceResult);
             outputView.printRaceResult(response);
             checkWinner(racingCar, i, response);

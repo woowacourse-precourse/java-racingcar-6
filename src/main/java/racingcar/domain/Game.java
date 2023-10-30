@@ -6,20 +6,13 @@ import java.util.List;
 import racingcar.constant.RaceConstant;
 
 public class Game {
-    RandomNumberGenerator generator = new RandomNumberGenerator();
 
-    public List<Integer> updateRaceResult(RacingCar racingCar){
-        List<Integer> raceResult = generateRaceResult(racingCar);
-        racingCar.updateRaceResult(raceResult);
-        return raceResult;
-    }
-
-    private List<Integer> generateRaceResult(RacingCar racingCar) {
-        List<Integer> randomNumbers = getRandomNumbers(racingCar.getCars().size());
+    public List<Integer> updateRaceResult(List<Integer> randomNumbers, RacingCar racingCar){
         List<Integer> raceResult = getRaceResult(racingCar);
         for (int i = RaceConstant.START_INDEX; i < randomNumbers.size(); i++) {
             move(randomNumbers, raceResult, i);
         }
+        racingCar.updateRaceResult(raceResult);
         return raceResult;
     }
 
@@ -36,9 +29,5 @@ public class Game {
             raceResult = new ArrayList<>(Collections.nCopies(racingCar.getCars().size(), 0));
         }
         return raceResult;
-    }
-
-    private List<Integer> getRandomNumbers(int carsCount) {
-        return generator.generateRandomNumbers(carsCount);
     }
 }
