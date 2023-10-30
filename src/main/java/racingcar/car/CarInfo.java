@@ -4,7 +4,6 @@ public class CarInfo {
     String name;
     int moveCount;
 
-
     public CarInfo(String name){
         this.name = name;
         this.moveCount = 0;
@@ -20,10 +19,5 @@ public class CarInfo {
 
     public void setMoveCount(int moveCount) {
         this.moveCount = moveCount;
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 }
