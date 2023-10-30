@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.validator;
 
 
 import static racingcar.constant.ErrorMessage.CAR_NAME_IS_LONGER;
@@ -9,10 +9,10 @@ import static racingcar.constant.ErrorMessage.CAR_NAME_IS_LONGER;
  */
 public class CarNameValidator {
 
-    public static void validate(String input) {
-        String[] carNames = input.split(",");
+    public static void validate(String names) {
+        String[] carNames = names.split(",");
         for (String name : carNames) {
-            if(name.length() > 5) {
+            if (name.length() > 5) {
                 throw new IllegalArgumentException(CAR_NAME_IS_LONGER);
             }
         }

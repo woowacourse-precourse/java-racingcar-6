@@ -1,6 +1,7 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import racingcar.validator.CarNameValidator;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static racingcar.constant.ErrorMessage.CAR_NAME_IS_LONGER;
