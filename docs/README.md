@@ -20,3 +20,6 @@
   - [x] ProbabilityWatcher
     - [x] Test 작성
 - [x] 기초 설계
+- [x] 리팩토링
+  - [x] registerCars 로 메서드명 변경
+  - [x] 우승자 출력함수 분리

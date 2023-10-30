@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import java.lang.reflect.Proxy;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +13,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class RaceTest {
-    @DisplayName("registerCar(List<Car> carList)가 제대로 등록됨")
+    @DisplayName("registerCars(List<Car> carList)가 제대로 등록됨")
     @Test
     void registerCarsTest1() {
         // given
@@ -25,14 +23,14 @@ public class RaceTest {
                 .toList();
 
         // when
-        race.registerCar(carList);
+        race.registerCars(carList);
 
         // then
         List<Car> registeredCarList = race.getCarList();
         assertArrayEquals(carList.toArray(), registeredCarList.toArray());
     }
 
-    @DisplayName("registerCar(Car ...cars)가 제대로 등록됨")
+    @DisplayName("registerCars(Car ...cars)가 제대로 등록됨")
     @Test
     void registerCarsTest2() {
         // given
@@ -42,8 +40,8 @@ public class RaceTest {
                 .toList();
 
         // when
-        race.registerCar(carList.get(0));
-        race.registerCar(carList.get(1), carList.get(2));
+        race.registerCars(carList.get(0));
+        race.registerCars(carList.get(1), carList.get(2));
 
         // then
         List<Car> registeredCarList = race.getCarList();
@@ -60,7 +58,7 @@ public class RaceTest {
                 .map(Mockito::spy)
                 .toList();
 
-        race.registerCar(carList);
+        race.registerCars(carList);
 
         // when
         for (int i = 0; i < 3; i++) {
@@ -84,7 +82,7 @@ public class RaceTest {
         );
 
         // when
-        race.registerCar(carList);
+        race.registerCars(carList);
 
         // then
         assertThat(race.toString()).isEqualTo("""
@@ -104,7 +102,7 @@ public class RaceTest {
                 Car.from("woni", 2),
                 Car.from("jun", 3)
         );
-        race.registerCar(carList);
+        race.registerCars(carList);
 
         // when
         List<Car> headCars = race.getHeadCars();

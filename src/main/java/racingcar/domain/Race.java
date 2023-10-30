@@ -6,11 +6,11 @@ import java.util.List;
 public class Race {
     private final List<Car> carList = new ArrayList<>();
 
-    public void registerCar(Car... cars) {
+    public void registerCars(Car... cars) {
         this.carList.addAll(List.of(cars));
     }
 
-    public void registerCar(List<Car> carList) {
+    public void registerCars(List<Car> carList) {
         this.carList.addAll(carList);
     }
 

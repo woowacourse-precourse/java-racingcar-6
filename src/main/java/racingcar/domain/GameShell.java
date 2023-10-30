@@ -9,20 +9,15 @@ public class GameShell {
         List<Car> carList = askCarList();
 
         Race race = new Race();
-        race.registerCar(carList);
+        race.registerCars(carList);
 
         int roundCount = askRoundCount();
         for (int i = 0; i < roundCount; i++) {
             race.proceedCars();
             System.out.println(race);
         }
-
-        List<Car> winners = race.getHeadCars();
-        StringBuilder sb = new StringBuilder("최종 우승자 : ");
-        for (Car car : winners) {
-            sb.append(car.getName()).append(", ");
-        }
-        System.out.println(sb.substring(0, sb.length() - 2));
+        
+        printWinner(race);
     }
 
     public List<Car> askCarList() {
@@ -47,6 +42,15 @@ public class GameShell {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("입력가능한 범위를 벗어났습니다.");
         }
+    }
+
+    public void printWinner(Race race) {
+        List<Car> winners = race.getHeadCars();
+        StringBuilder sb = new StringBuilder("최종 우승자 : ");
+        for (Car car : winners) {
+            sb.append(car.getName()).append(", ");
+        }
+        System.out.println(sb.substring(0, sb.length() - 2));
     }
 
     public void exitGame() {
