@@ -15,7 +15,6 @@ public class Cars {
 
     public Cars(List<String> carList) {
         for (String s : carList) {
-            ExceptionCheck.nameLengthValidation(s);
             this.carModelList.add(new CarModel(s));
         }
     }
