@@ -1,13 +1,13 @@
 # 📚 기능목록
-- [x] 자동차의 이름들을 입력받는다. ``InputView - readCarName``
-  - [x] 🚫 자동차 이름이 공백인지 검증한다. ``InputView - validateBlankName``
+- [x] 자동차의 이름들을 입력받는다. ``InputView - readCarsName``
+  - [x] 🚫 자동차 이름이 공백인지 검증한다. ``InputView - validateBlankCarsName``
   - [ ] 🚫 중복된 자동차 이름이 있는지 검증한다. ``Car - validateDuplicateName``
   - [x] 🚫 자동차 이름이 5자 이하인지 검증한다. ``Car - validateNameLength``
 - [ ] 이름 문자열을 이름 리스트로 변환한다. ``GameController - convertStringToList``
 - [ ] 자동차 리스트를 생성한다. ``GameController - createCarList``
 - [ ] 자동차에 이름을 부여한다. ``GameController - generateCarName``
-- [ ] 자동차가 몇 번 이동할 지 입력받는다.  ``InputView - readCarMoveCount``
-  - [ ] 🚫 입력값이 숫자인지 검증한다. ``InputView - validateDigit``
+- [x] 자동차가 몇 번 이동할 지 입력받는다.  ``InputView - readCarMoveCount``
+  - [x] 🚫 입력값이 숫자인지 검증한다. ``InputView - validateDigit``
   - [ ] 🚫 입력값이 1 이상인지 검증한다. ``GameController - validateCarMoveCount``
 - [ ] 경주를 진행한다. ``GameController - startGame``
 - [x] 자동차가 이동한다. ``Car - move``
