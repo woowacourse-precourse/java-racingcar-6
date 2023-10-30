@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.utils.Validator;
 
 import java.util.List;
 
@@ -12,6 +13,9 @@ public class InputView {
     }
 
     public static List<String> parseCarNames(String names){
-        return List.of(names.split(","));
+        List<String> parseCarNames = List.of(names.split(","));
+        Validator.checkCarNameSize(parseCarNames);
+        return parseCarNames;
+
     }
 }
