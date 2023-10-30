@@ -12,9 +12,7 @@ public class RacingCarGameController {
 
     public void initRacingCarGame() {
         List<String> carNameList = InputView.inputRacingCarName();
-        InputValidator.checkCarNameLength(carNameList);
         String racingRoundTimes = InputView.inputRacingRoundTimes();
-        InputValidator.checkIsNumber(racingRoundTimes);
 
         List<Car> carList = createRacingCar(carNameList);
 
@@ -22,7 +20,7 @@ public class RacingCarGameController {
         OutView.printWinnerCar(carList);
     }
 
-    public List<Car> createRacingCar(List<String> carNameList) {
+    public List<Car> createRacingCar(List<String> carNameList) { // 나쁘지 않아 보임
         List<Car> carList = new ArrayList<>();
 
         for (String carName : carNameList) {
@@ -31,11 +29,11 @@ public class RacingCarGameController {
         return carList;
     }
 
-    public int makeRandomNumber() { // 랜덤번호 생성
+    public int makeRandomNumber() { // 랜덤번호 생성 // 나쁘지 않아 보임
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public void roundProgress(List<Car> carList, int racingRoundTimes){
+    public void roundProgress(List<Car> carList, int racingRoundTimes){ //
         System.out.println("실행결과");
         for(int i=0; i<racingRoundTimes; i++){
             for (Car car : carList) {
@@ -47,7 +45,7 @@ public class RacingCarGameController {
         }
     }
 
-    public boolean checkRandomNumber(int num){
+    public boolean checkRandomNumber(int num){ //
         if (num >= 4){
             return true;
         }
