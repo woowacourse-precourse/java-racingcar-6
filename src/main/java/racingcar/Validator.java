@@ -2,7 +2,7 @@ package racingcar;
 
 public class Validator {
 
-    public static void validateNames(String names) {
+    public static boolean validateNames(String names) {
         String CarNames[] = names.split(",");
 
         if (names.isBlank()) {
@@ -16,6 +16,7 @@ public class Validator {
         for (String name : CarNames) {
             validateName(name);
         }
+        return true;
     }
 
     public static void validateName(String name) {
@@ -25,5 +26,16 @@ public class Validator {
         if (name.isBlank()) {
             throw new IllegalArgumentException(Messages.ERROR_EMPTY_NAME);
         }
+    }
+
+    public static boolean validateNumber(String number) {
+        final String REGEX = "[0-9]+";
+        if (!number.matches(REGEX)) {
+            throw new IllegalArgumentException(Messages.ERROR_INCLUSION_NUMBER);
+        }
+        if (Integer.parseInt(number) < 1) {
+            throw new IllegalArgumentException(Messages.ERROR_NUMBER_SMALL);
+        }
+        return true;
     }
 }
