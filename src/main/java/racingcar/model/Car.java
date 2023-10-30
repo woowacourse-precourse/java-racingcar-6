@@ -10,7 +10,7 @@ public class Car {
     private final CarName carName;
     private CarDistance carDistance;
 
-    public Car(final CarName carName) {
+    protected Car(final CarName carName) {
         this.carName = carName;
         this.carDistance = new CarDistance(START_POINT);
     }
