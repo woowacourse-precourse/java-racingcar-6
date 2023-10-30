@@ -10,19 +10,19 @@ public class Validator {
     private static final String EXCEPTION_MESSAGE_FOR_NEGATIVE_NUMBER =
             "양의 정수를 입력하셔야 합니다.";
 
-    public void checkCarName(String carName) {
+    public static void checkCarName(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_FOR_WRONG_LENGTH_OF_CAR_NAME);
         }
     }
 
-    public void checkIsDigit(String digit) {
+    public static void checkIsDigit(String digit) {
         if (!NumberUtil.isInteger(digit)) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_FOR_NON_NUM);
         }
     }
 
-    public void checkIfNonNegative(int num) {
+    public static void checkIfNonNegative(int num) {
         if (num < 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_FOR_NEGATIVE_NUMBER);
         }
