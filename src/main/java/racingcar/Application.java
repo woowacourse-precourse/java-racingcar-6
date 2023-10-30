@@ -5,8 +5,9 @@ package racingcar;
 import controller.Controller;
 
 public class Application {
+
+    private final static Controller controller = Controller.getInstance();
     public static void main(String[] args) {
-        Controller controller = new Controller();
         controller.playGame();
     }
 }

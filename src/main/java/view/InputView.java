@@ -1,7 +1,6 @@
 package view;
 
 import camp.nextstep.edu.missionutils.Console;
-import service.UserInput;
 import validator.Validator;
 
 public class InputView {
