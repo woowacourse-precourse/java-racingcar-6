@@ -69,9 +69,9 @@ public class RacingCar {
 
     private void printResult(){
         System.out.print(win);
-        for (String player : winner){
-            System.out.print(player);
-        }
+//        for (String player : winner){
+//            System.out.print(player);
+//        }
+        System.out.println(String.join(", ", winner));
     }
-
 }
