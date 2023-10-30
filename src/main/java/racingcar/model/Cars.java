@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.validator.Validator;
@@ -8,13 +7,16 @@ import racingcar.validator.Validator;
 public class Cars {
     private List<Car> cars;
 
-    public Cars(List<String> racingCarNames) {
-        Validator.validateIsDuplicate(racingCarNames);
+    public Cars(List<Car> cars) {
+        Validator.validateIsDuplicate(getCarNames(cars));
 
-        cars = new ArrayList<>();
-        for (String name : racingCarNames) {
-            cars.add(new Car(name, new RandomNumberGenerator()));
-        }
+        this.cars = cars;
+    }
+
+    private List<String> getCarNames(List<Car> cars) {
+        return cars.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     public List<String> findWinner() {
@@ -41,5 +43,11 @@ public class Cars {
 
     public Car get(int index) {
         return cars.get(index);
+    }
+
+    public List<String> getCarsNames() {
+        return cars.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 }
