@@ -13,5 +13,4 @@ public enum NumberConstant {
     public static final int MAX_RANDOM_NUMBER = 9;
     public static final int MIN_ATTEMPT_COUNT = 1;
     public static final int MIN_MOVEMENT_CONDITION_NUMBER = 3;
-    public static final int ONE = 1;
 }

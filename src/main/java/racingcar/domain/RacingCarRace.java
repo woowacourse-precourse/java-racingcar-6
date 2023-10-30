@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.*;
@@ -18,11 +17,9 @@ public final class RacingCarRace {
     }
 
     public static RacingCarRace createRacingCarRace(final List<String> carNames, final int attemptCount) {
-        List<RacingCar> racingCars = new ArrayList<>();
-        for (String carName : carNames) {
-            RacingCar racingCar = RacingCar.of(carName);
-            racingCars.add(racingCar);
-        }
+        List<RacingCar> racingCars = carNames.stream()
+                .map(RacingCar::of)
+                .collect(toList());
 
         return new RacingCarRace(racingCars, attemptCount);
     }
@@ -43,14 +40,14 @@ public final class RacingCarRace {
     }
 
     public List<RacingCar> findWinners() {
-        int maxPoint = getMaxPoint();
+        int maxPoint = calculateMaxPoint();
 
         return racingCars.stream()
                 .filter(racingCar -> maxPoint == racingCar.getWinningPoint())
                 .collect(toList());
     }
 
-    private int getMaxPoint() {
+    private int calculateMaxPoint() {
         int maxPoint = ZERO_POINT;
 
         for (RacingCar racingCar : racingCars) {

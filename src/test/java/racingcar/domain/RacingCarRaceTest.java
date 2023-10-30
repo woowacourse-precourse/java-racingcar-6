@@ -1,9 +1,8 @@
-package racingcar;
+package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
-import racingcar.domain.RacingCar;
-import racingcar.domain.RacingCarRace;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,50 +27,41 @@ class RacingCarRaceTest {
     }
 
     @Test
-    void 숫자_0에서_9까지_랜덤으로_하나의_수를_반환() {
+    void 경주_자동차들의_이름을_가져옵니다() {
         // given
-        RacingCar racingCar = RacingCar.of("name");
+        List<RacingCar> racingCars = new ArrayList<>();
+        racingCars.add(RacingCar.of("pobi"));
+        racingCars.add(RacingCar.of("woni"));
+        racingCars.add(RacingCar.of("jun"));
 
         // when
-        int randomNumber = racingCar.pickRandomNumber();
+        String carNames = RacingCarRace.getCarNames(racingCars);
 
         // then
-        assertThat(randomNumber).isGreaterThanOrEqualTo(0);
-        assertThat(randomNumber).isLessThanOrEqualTo(9);
-    }
-
-    @Test
-    void 숫자_0에서_9까지_숫자중에서_4이상이면_전진() {
-        // given
-        RacingCar racingCar1 = RacingCar.of("name1");
-        RacingCar racingCar2 = RacingCar.of("name2");
-
-        // when
-        racingCar1.move(3);
-        racingCar2.move(4);
-
-        // then
-        assertThat(racingCar1.getWinningPoint()).isEqualTo(0);
-        assertThat(racingCar2.getWinningPoint()).isEqualTo(1);
+        assertThat(carNames).contains("pobi");
+        assertThat(carNames).contains("woni");
+        assertThat(carNames).contains("jun");
     }
 
     @Test
     void 경주에서의_최종_우승자를_결정합니다() {
-        // given
+        // given 1
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
         int attemptCount = 5;
         RacingCarRace racingCarRace = RacingCarRace.createRacingCarRace(carNames, attemptCount);
         List<RacingCar> racingCars = racingCarRace.getRacingCars();
 
-        // when
+        // given 2
         RacingCar racingCar1 = racingCars.get(0);
         RacingCar racingCar2 = racingCars.get(1);
 
         racingCar1.move(9);
         racingCar2.move(9);
 
-        // then
+        // when
         List<RacingCar> winners = racingCarRace.findWinners();
+
+        // then
         assertThat(winners.get(0)).isSameAs(racingCar1);
         assertThat(winners.get(1)).isSameAs(racingCar2);
     }
