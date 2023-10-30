@@ -3,6 +3,7 @@ package racingcar.domain;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Dice {
+    private Dice() {}
     public static boolean isSuccess() {
         return (getRandomNumber() >= 4);
     }
