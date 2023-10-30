@@ -31,4 +31,14 @@ final class CountTest {
         assertFalse(count.isEnd());
     }
 
+    @Test
+    void 카운트다운_테스트() {
+        Count count = new Count("3");
+
+        count.countDown();
+        count.countDown();
+        count.countDown();
+
+        assertTrue(count.isEnd());
+    }
 }
