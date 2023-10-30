@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CarGameRoundTest {
 
-    @DisplayName("CarRound 생성 성공 테스트")
+    @DisplayName("CarGameRound 생성 성공 테스트")
     @Test
     void createCarRoundSuccessTest() {
 
@@ -19,7 +19,7 @@ class CarGameRoundTest {
         assertThat(carGameRound).isNotNull();
     }
 
-    @DisplayName("CarRound 생성 실패 테스트")
+    @DisplayName("CarGameRound 생성 실패 테스트")
     @ValueSource(strings = {"1a2b3c", "12a", "abc"})
     @ParameterizedTest
     void createCarRoundFailTest(String inputRound) {
