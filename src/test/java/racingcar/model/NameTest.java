@@ -40,10 +40,10 @@ public class NameTest {
     @DisplayName("이름 길이가 최대 길이 초과일 경우 IllegalArgumentException 발생한다.")
     public void 이름_길이가_최대_길이_초과일_경우_IllegalArgumentException_발생한다() {
         //given
-        String name = generateRandomString(MAX_NAME_LENGTH + 1);
+        String randomName = generateRandomString(MAX_NAME_LENGTH + 1);
 
         //when & then
-        assertThatThrownBy(() -> Name.from(name))
+        assertThatThrownBy(() -> Name.from(randomName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

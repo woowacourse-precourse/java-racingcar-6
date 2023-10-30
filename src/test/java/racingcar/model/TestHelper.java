@@ -14,9 +14,8 @@ public class TestHelper {
         return uuid.toString().substring(0, length);
     }
 
-
     /**
-     * @return 랜덤 Name을 가진 Car 반환합니다.
+     * @return 랜덤 Name을 가진 Car 반환
      */
     static Car genearteCar() {
         return new Car(Name.from(generateRandomCarName()), new Position(0));
