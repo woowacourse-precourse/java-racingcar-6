@@ -58,7 +58,7 @@ class ValidationTest {
         };
 
         for (String testCase : testCases) {
-            Assertions.assertThatThrownBy(() -> Validation.checkIsDigit(testCase))
+            Assertions.assertThatThrownBy(() -> Validation.checkIfInteger(testCase))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage(EXCEPTION_MESSAGE_FOR_NON_NUM);
         }
@@ -76,7 +76,7 @@ class ValidationTest {
         };
 
         for (String testCase : testCases) {
-            Assertions.assertThatNoException().isThrownBy(() -> Validation.checkIsDigit(testCase));
+            Assertions.assertThatNoException().isThrownBy(() -> Validation.checkIfInteger(testCase));
         }
     }
 

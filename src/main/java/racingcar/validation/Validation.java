@@ -16,7 +16,7 @@ public class Validation {
         }
     }
 
-    public static void checkIsDigit(String digit) {
+    public static void checkIfInteger(String digit) {
         if (!NumberUtil.isInteger(digit)) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_FOR_NON_NUM);
         }
