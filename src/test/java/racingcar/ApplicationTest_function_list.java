@@ -165,7 +165,8 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_시도_횟수_질문_문자열_출력() {
-
+        Print.repetitionsString();
+        assertThat(output()).isEqualTo("시도할 회수는 몇회인가요?");
     }
 
     @Test
