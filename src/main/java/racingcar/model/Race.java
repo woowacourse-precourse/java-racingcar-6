@@ -1,8 +1,10 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Race {
 
@@ -36,6 +38,17 @@ public class Race {
     public List<Integer> makeCarDriveCountList() {
         return carList.stream()
                 .map(Car::getDriveCount)
+                .collect(Collectors.toList());
+    }
+
+    public List<String> findWinner() {
+        List<String> carNameList = makeCarNameList();
+        List<Integer> carDriveCountList = makeCarDriveCountList();
+        int maxDriveCount = Collections.max(carDriveCountList);
+
+        return IntStream.range(0, carList.size())
+                .filter(i -> carDriveCountList.get(i) == maxDriveCount)
+                .mapToObj(carNameList::get)
                 .collect(Collectors.toList());
     }
 
