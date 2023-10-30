@@ -1,8 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Application {
 
@@ -34,13 +36,19 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public int InputTryNumber() {
+    public int inputTryNumber() {
         String numberString = Console.readLine();
         return Integer.parseInt(numberString);
     }
 
+    public void outputCarStepDistance(String carName, int stepDistance) {
+        System.out.print(carName + " : ");
+        for (int i = 0; i < stepDistance; i++) {
+            System.out.print("-");
+        }
+    }
 
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
     }
 }
