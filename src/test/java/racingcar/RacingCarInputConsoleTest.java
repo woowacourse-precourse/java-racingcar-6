@@ -8,6 +8,8 @@ import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.console.RacingCarConsole;
 
 public class RacingCarInputConsoleTest {
@@ -24,7 +26,7 @@ public class RacingCarInputConsoleTest {
     }
 
     @Test
-    void 자동차_이름_입력받기_빈문자열_예외처리() {
+    void 자동차_이름_입력받기_예외처리() {
         assertThatThrownBy(() -> {
                     String input = "";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
@@ -34,63 +36,34 @@ public class RacingCarInputConsoleTest {
                 .hasMessageContaining("자동차의 이름을 정해주세요.");
     }
 
-    @Test
-    void 자동차_이름_입력받기_개행_예외_발생하지_않음() {
+    @ParameterizedTest
+    @ValueSource(strings = {"\n", "홍길동,test,a맨\n"})
+    void 자동차_이름_입력받기_개행_예외_발생하지_않음(String input) {
         assertThatCode(() -> {
-                    String input = "\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
                     racingCarConsole.readCarNames();
                 })
                 .doesNotThrowAnyException();
     }
 
-    @Test
-    void 자동차_이름_입력받기_정상_처리() {
+    @ParameterizedTest
+    @ValueSource(strings = {"3\n", "0\n", "-12\n"})
+    void 시도_회수_입력받기_양수_입력_정상처리(String input) {
         assertThatCode(() -> {
-                    String input = "홍길동,test,a맨\n";
-                    System.setIn(new ByteArrayInputStream(input.getBytes()));
-                    racingCarConsole.readCarNames();
-                })
-                .doesNotThrowAnyException();
-    }
-
-    @Test
-    void 시도_회수_입력받기_양수_입력_정상처리() {
-        assertThatCode(() -> {
-                    String input = "3\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
                     racingCarConsole.readIterationNumBer();
                 })
                 .doesNotThrowAnyException();
     }
 
-    @Test
-    void 시도_회수_입력받기_0_입력_정상처리() {
+    @ParameterizedTest
+    @ValueSource(strings = {"abc\n", "11a\n", "11!\n", "11abc!\n"})
+    void 시도_회수_입력받기_문자열_입력_예외처리(String input) {
         assertThatCode(() -> {
-                    String input = "0\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
                     racingCarConsole.readIterationNumBer();
                 })
-                .doesNotThrowAnyException();
-    }
-
-    @Test
-    void 시도_회수_입력받기_음수_입력_정상처리() {
-        assertThatCode(() -> {
-                    String input = "-12\n";
-                    System.setIn(new ByteArrayInputStream(input.getBytes()));
-                    racingCarConsole.readIterationNumBer();
-                })
-                .doesNotThrowAnyException();
-    }
-
-    @Test
-    void 시도_회수_입력받기_문자열_입력_예외처리() {
-        assertThatCode(() -> {
-                    String input = "11abc!\n";
-                    System.setIn(new ByteArrayInputStream(input.getBytes()));
-                    racingCarConsole.readIterationNumBer();
-                })
-                .doesNotThrowAnyException();
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 회수는 숫자로 입력해주세요.");
     }
 }
