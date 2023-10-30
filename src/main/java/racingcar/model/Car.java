@@ -1,7 +1,9 @@
 package racingcar.model;
 
 import org.junit.platform.commons.util.StringUtils;
+import racingcar.type.ExceptionConstants;
 
+import static racingcar.type.ExceptionConstants.*;
 import static racingcar.type.MessageType.*;
 
 /**
@@ -17,7 +19,7 @@ public class Car {
 
     public Car(String name) {
         if (StringUtils.isBlank(name)) {
-            throw new IllegalArgumentException("Car name cannot be null, empty, or only whitespace");
+            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
         }
         this.name = name;
         this.position = 0;

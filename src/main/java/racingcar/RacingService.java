@@ -9,6 +9,7 @@ import racingcar.type.MessageType;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.type.ExceptionConstants.*;
 import static racingcar.type.MessageType.*;
 import static racingcar.util.TextUtil.*;
 
@@ -82,27 +83,27 @@ public class RacingService {
 
     public void validationCarNames(List<String> carNameList) {
         if (hasOverLengthCarNames(carNameList)) {
-            throw new IllegalArgumentException("Car names exceed the maximum length.");
+            throw new IllegalArgumentException(ERROR_TOO_LONG_CAR_NAME);
         }
         if (hasDuplicates(carNameList)) {
-            throw new IllegalArgumentException("Car names contains duplicates.");
+            throw new IllegalArgumentException(ERROR_DUPLICATE_CAR_NAME);
         }
     }
 
     public int convertToAttemptsCount(String inputCount) {
         if (StringUtils.isBlank(inputCount)) {
-            throw new IllegalArgumentException("Number of attempts cannot be empty or only whitespace.");
+            throw new IllegalArgumentException(ERROR_INVALID_CAR_NAME);
         }
 
         int attemptsCount;
         try {
             attemptsCount = Integer.parseInt(inputCount);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Input must be a valid numerical format.", e);
+            throw new IllegalArgumentException(ERROR_INPUT_NOT_NUMBER);
         }
 
         if (attemptsCount < 1) {
-            throw new IllegalArgumentException("Number of attempts must be a non-zero positive number.");
+            throw new IllegalArgumentException(ERROR_INVALID_ATTEMPTS);
         }
 
         return attemptsCount;
