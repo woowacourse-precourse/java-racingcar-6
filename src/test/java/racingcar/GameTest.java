@@ -37,4 +37,30 @@ public class GameTest {
 
     assertEquals("pobi : --\r\nwoni : ---\r\njun : -\r\n\r\n", out.toString());
   }
+
+  @Test
+  void getMaxForwardDistance_값_확인() {
+    List<Car> resultList = Game.makeCarList("pobi,woni,jun");
+    resultList.get(0).addForwardDistance();
+    resultList.get(0).addForwardDistance();
+    resultList.get(1).addForwardDistance();
+    resultList.get(1).addForwardDistance();
+    resultList.get(1).addForwardDistance();
+    resultList.get(2).addForwardDistance();
+
+    assertThat(Game.getMaxForwardDistance(resultList)).isEqualTo(3);
+  }
+
+  @Test
+  void getWinnerCount_값_확인() {
+    List<Car> resultList = Game.makeCarList("pobi,woni,jun");
+    resultList.get(0).addForwardDistance();
+    resultList.get(0).addForwardDistance();
+    resultList.get(1).addForwardDistance();
+    resultList.get(1).addForwardDistance();
+    resultList.get(1).addForwardDistance();
+    resultList.get(2).addForwardDistance();
+
+    assertThat(Game.getWinnerCount(resultList, 3)).isEqualTo(1);
+  }
 }
