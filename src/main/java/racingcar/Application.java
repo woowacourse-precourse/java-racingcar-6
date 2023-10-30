@@ -6,11 +6,11 @@ import racingcar.domain.Referee;
 
 public class Application {
     public static void main(String[] args) {
-        CarList carName = new CarList();
-        RacingCarName inputCarName = new RacingCarName();
+        CarList carList = new CarList();
+        RacingCarName racingCarName = new RacingCarName();
         Referee referee = new Referee();
 
-        carName.setCarList(inputCarName.inputRacingCarName());
+        carList.setCarList(racingCarName.inputRacingCarName());
         System.out.println(referee.callWinnerCar());
     }
 }
