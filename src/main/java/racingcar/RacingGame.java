@@ -56,7 +56,27 @@ public class RacingGame {
 	}
 	
 	public void printWinner() {
+		String[] winner = findWinner();
+		view.printWinner(winner);
+	}
+	
+	public String[] findWinner() {
+		int max = findMax();
+		List<String> winnerList = new ArrayList<String>();
 		
+		for(Car c : carRepository.findCarList()) {
+			if(c.getMove() == max)
+				winnerList.add(c.getName());
+		}
+		return winnerList.toArray(new String[winnerList.size()]);
+	}
+	
+	public int findMax() {
+		int max = 0;
+		for(Car c : carRepository.findCarList())
+			if(max <= c.getMove())
+				max = c.getMove();
+		return max;
 	}
 	
 	void splitNames(String t) {
