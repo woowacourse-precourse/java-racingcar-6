@@ -11,15 +11,17 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 public class RaceController {
     private static CarManager carManager;
     private List<Car> carList;
+    private String PositionPrint="";
     public static final String MOVE_FORWARD = "-";
-    public void raceStart() {
+    public String raceStart() {
+        PositionPrint="";
         carList =carManager.getCarList();
         for (Car car : carList) {
             if (isMove(pickRandomNum()))
                 movePosition(car);
-            printPosition(car);
+            getPrintString(car);
         }
-        System.out.println("");
+        return PositionPrint;
     }
 
 
@@ -35,8 +37,8 @@ public class RaceController {
         position+=MOVE_FORWARD;
         car.setCurrentPosition(position);
     }
-    private void printPosition(Car car) {
-        System.out.println(car.getName()+" : "+car.getCurrentPosition());
+    private void getPrintString(Car car) {
+        PositionPrint+= car.getName()+" : "+car.getCurrentPosition()+"\n";
     }
     public void setCarList(CarManager carManager) {
         this.carManager = carManager;
