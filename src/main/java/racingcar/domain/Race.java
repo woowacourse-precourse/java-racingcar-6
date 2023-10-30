@@ -29,9 +29,14 @@ public class Race {
     }
 
     public void start() {
+        System.out.println('\n' + START_STRING);
         while(moveCount != 0) {
-            carList.forEach(car -> car.move());
+            carList.forEach(car -> {
+                car.move();
+                System.out.println(car.status());
+            });
             moveCount--;
+            System.out.println();
         }
 
         checkWinner();
