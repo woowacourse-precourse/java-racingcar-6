@@ -11,4 +11,9 @@ public class InputView {
     public static String inputCarsName() {
         return Console.readLine();
     }
+
+    public static String inputRoundCount() {
+        System.out.println(Constants.GET_ROUND_COUNT.constant);
+        return Console.readLine();
+    }
 }

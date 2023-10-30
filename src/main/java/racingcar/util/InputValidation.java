@@ -3,6 +3,8 @@ package racingcar.util;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InputValidation {
 
@@ -11,6 +13,17 @@ public class InputValidation {
         checkCarsSize(nameList);
         checkDuplicateName(nameList);
         return nameList;
+    }
+
+    public int checkRoundInputValid(String round) {
+        String regex = Constants.ROUND_REGEX.constant;
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(round);
+
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException(Constants.IS_NOT_NUMBER.getConstant());
+        }
+        return Integer.parseInt(round);
     }
 
     private List<String> checkCarsName(String names) {
