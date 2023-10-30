@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 
 public class WinnerNames {
@@ -7,5 +8,9 @@ public class WinnerNames {
 
     public WinnerNames(List<String> winnerNames) {
         this.winnerNames = winnerNames;
+    }
+
+    public List<String> getWinnerNames() {
+        return Collections.unmodifiableList(winnerNames);
     }
 }
