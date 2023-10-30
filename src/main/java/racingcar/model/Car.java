@@ -24,4 +24,8 @@ public class Car {
     public int getPosition(){
         return this.position;
     }
+
+    public void forward() {
+        this.position++;
+    }
 }

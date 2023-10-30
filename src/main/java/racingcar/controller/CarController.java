@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,8 +34,12 @@ public class CarController {
 
         output.resultHeader();
 
+        // 전진 시도 횟수만큼 전진
         for(int forward = 0; forward < forwardAttempt; forward++) {
-            // 전진하는 조건은 랜덤으로 생성한 값이 4 이상인 경우 전진
+            // 각 자동차들 마다 forward()를 통하여 랜덤으로 생성한 값이 4 이상인 경우 전진
+            cars.getCars()
+                    .stream()
+                    .forEach(car -> forward(car));
         }
     }
 
@@ -78,5 +83,12 @@ public class CarController {
         Validate.forwardIsPositiveNumber(result);
 
         return result;
+    }
+
+    private void forward(Car car) {
+        int randomValue = Randoms.pickNumberInRange(1, 9);
+        if (randomValue >= 4) {
+            car.forward();
+        }
     }
 }
