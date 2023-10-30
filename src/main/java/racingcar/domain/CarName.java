@@ -16,9 +16,13 @@ public class CarName {
     }
 
     private void validateInRange(String name) {
-        if(name.length()> NAME_MAX_LENGTH){
+        if(inRange(name)){
             throw new IllegalArgumentException("이름의 길이를 5이하로 해주세요");
         }
+    }
+
+    private static boolean inRange(String name) {
+        return name.length() > NAME_MAX_LENGTH;
     }
 
     private void validateEmptyName(String name){
