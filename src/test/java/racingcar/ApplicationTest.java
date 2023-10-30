@@ -242,6 +242,27 @@ class ApplicationTest extends NsTest {
         assertThat(output()).contains("실행 결과");
     }
 
+    @Test
+    @DisplayName("기능 12번: 차량 별 이동거리 출력 확인")
+    void 차량_이동거리_출력_확인() {
+        String name1 = "pobi";
+        String name2 = "jun";
+        String name3 = "kim";
+
+        int distance1 = 2;
+        int distance2 = 1;
+        int distance3 = 0;
+
+        OutputViewer.printMovedDistanceOfCar(name1, distance1);
+        assertThat(output()).contains("pobi : --");
+
+        OutputViewer.printMovedDistanceOfCar(name2, distance2);
+        assertThat(output()).contains("jun : -");
+
+        OutputViewer.printMovedDistanceOfCar(name3, distance3);
+        assertThat(output()).contains("kim :");
+    }
+
     private void command(final String... args) {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));

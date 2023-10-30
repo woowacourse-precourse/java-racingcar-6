@@ -16,4 +16,9 @@ public class OutputViewer {
     public static void printNoticeResultWillBePrinted() {
         System.out.println("실행 결과");
     }
+
+    public static void printMovedDistanceOfCar(String carName, int movedDistance) {
+        String roadPassed = "-".repeat(movedDistance);
+        System.out.println(carName + " : " + roadPassed);
+    }
 }
