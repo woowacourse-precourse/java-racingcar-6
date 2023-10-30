@@ -1,7 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.function.IntSupplier;
-import racingcar.utils.RandomNumberGenerator;
 
 public class DefaultSupplier implements IntSupplier {
     public static final int MIN_NUMBER = 0;
@@ -9,6 +9,6 @@ public class DefaultSupplier implements IntSupplier {
 
     @Override
     public int getAsInt() {
-        return RandomNumberGenerator.generateInRange(MIN_NUMBER, MAX_NUMBER);
+        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 }
