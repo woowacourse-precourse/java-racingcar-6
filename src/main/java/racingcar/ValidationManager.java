@@ -11,13 +11,13 @@ public class ValidationManager {
     }
 
     public static void validateTrials(String trialInput) {
-        try{
+        try {
             int trials = Integer.parseInt(trialInput);
-            if (trials <= 0){
+            if (trials <= 0) {
                 throw new IllegalArgumentException();
             }
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
-
+    }
 }
