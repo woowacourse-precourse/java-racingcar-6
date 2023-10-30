@@ -35,7 +35,7 @@ public class InputView {
         for(String car : carName){
 
             if(car.length() >5){
-                throw new IllegalArgumentException("carName must be less than 5 characters.");
+                throw new IllegalArgumentException("자동차의 이름은 5이하만 가능합니다.");
             }
             else{
                 carCountMap.put(car,0);
