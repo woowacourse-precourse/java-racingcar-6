@@ -16,4 +16,8 @@ public class TryCount {
     public boolean isAbleTry() {
         return count != FINISH_COUNT;
     }
+
+    public int getCount() {
+        return count;
+    }
 }
