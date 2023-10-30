@@ -12,4 +12,11 @@ public class RacingCar {
     static boolean is_valid_input_name(String inputName) {
         return 0<inputName.length() && inputName.length()<6;
     }
+
+    @Override
+    public String toString() {
+        return "RacingCar{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }
