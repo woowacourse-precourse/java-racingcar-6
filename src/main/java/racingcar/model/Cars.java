@@ -1,11 +1,14 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import racingcar.controller.RaceController;
 import racingcar.view.OutputView;
 
 public class Cars {
+    private static final int MOVING_NUM = 4;
     private static List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -14,23 +17,23 @@ public class Cars {
 
     public void raceCars() {
         cars.stream()
-                .filter(RaceController::isMoving)
+                .filter(this::isMoving)
                 .forEach(car -> car.moveCount++);
-        printRace();
+    }
+    private boolean isMoving(Car car) {
+        return Randoms.pickNumberInRange(0, 9) >= MOVING_NUM;
     }
 
-    private void printRace() {
-        cars.forEach(OutputView::printRace);
-        OutputView.printNewLine();
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 
-    public void findWinner() {
+    public List<String> findWinner() {
         int maxMoveCount = getMaxMoveCount();
-        List<String> winners = cars.stream()
+        return cars.stream()
                 .filter(car -> car.moveCount == maxMoveCount)
                 .map(car -> car.name)
                 .toList();
-        OutputView.printWinners(winners);
     }
     private int getMaxMoveCount() {
         Optional<Integer> maxMoveCount = cars.stream()

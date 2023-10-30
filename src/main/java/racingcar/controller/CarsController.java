@@ -1,13 +1,17 @@
 package racingcar.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
-public class CarListController {
+public class CarsController implements CarsCreator {
+    private static final String SEPARATOR = ",";
 
-    public Cars createCars(List<String> carNames) {
+    @Override
+    public Cars createCars(String inputName) {
+        List<String> carNames = splitInputNames(inputName);
         return new Cars(createCarList(carNames));
     }
 
@@ -15,5 +19,9 @@ public class CarListController {
         return carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
+    }
+
+    private List<String> splitInputNames(String inputName) {
+        return Arrays.asList(inputName.split(SEPARATOR));
     }
 }

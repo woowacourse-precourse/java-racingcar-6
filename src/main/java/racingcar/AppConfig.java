@@ -1,18 +1,20 @@
 package racingcar;
 
-import racingcar.controller.CarListController;
-import racingcar.controller.CarNamesController;
+import racingcar.controller.CarsController;
+import racingcar.controller.CarsCreator;
 import racingcar.controller.RacingGame;
+import racingcar.controller.Repeat;
 
 public class AppConfig {
     public static RacingGame racingGame() {
-        return new RacingGame(carListController(), carNamesController());
+        return new RacingGame(carListCreator(), repeat());
     }
 
-    private static CarListController carListController() {
-        return new CarListController();
+    private static CarsCreator carListCreator() {
+        return new CarsController();
     }
-    private static CarNamesController carNamesController() {
-        return new CarNamesController();
+    private static Repeat repeat() {
+        return new Repeat();
     }
+
 }
