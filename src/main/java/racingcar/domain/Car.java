@@ -5,7 +5,7 @@ public class Car {
     private int position;
     private Car(String carName) {
         this.carName = Name.of(carName);
-        this.position = 4;
+        this.position = 0;
     }
 
     public static Car createCar(String carName) {

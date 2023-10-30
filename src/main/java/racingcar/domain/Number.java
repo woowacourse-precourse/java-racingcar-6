@@ -29,6 +29,10 @@ public class Number {
         return new Number(userInput);
     }
 
+    public int getNumber() {
+        return number;
+    }
+
     public boolean isEqualOrGreaterThanFour() {
         return this.number >= 4;
     }

@@ -10,6 +10,7 @@ import racingcar.domain.Number;
 public class GameController {
     private List<Car> cars = new ArrayList<>();
     private Number round;
+    private Referee referee;
     private void setUp() {
         List<String> userInput = askCarNames();
         for (String s : userInput) {
@@ -17,15 +18,18 @@ public class GameController {
         }
         round = Number.inputUserRounds();
         System.out.println(cars);
-//        Referee referee = new Referee(cars, round);
+        referee = new Referee(cars);
     }
 
     public void play() {
         setUp();
-//        while(referee.isGameOver) {
-//
-//        }
-//        referee.determineWinner
+        for (int i = 0; i < round.getNumber();i++) {
+            referee.proceedRound();
+            for (Car c: cars) {
+                System.out.println(c.convertPositionToString());
+            }
+        }
+
     }
         /*
          *  - one round
