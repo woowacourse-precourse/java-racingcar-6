@@ -7,14 +7,17 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.service.GameService;
 import racingcar.util.Parser;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 
 public class GameController {
     private final GameService gameService;
+    private final RandomNumberGenerator generator;
     private Cars cars;
 
     public GameController() {
         gameService = new GameService();
+        generator = new RandomNumberGenerator();
     }
 
     public void run() {
@@ -40,7 +43,10 @@ public class GameController {
     }
 
     private void play(int attempts) {
+        InputView.printResult();
         while (attempts != 0) {
+            this.cars = cars.simulateNextRound(generator);
+            InputView.printCurrentCarLocation(cars);
             attempts--;
         }
     }
