@@ -13,6 +13,10 @@ public enum ExceptionMessage {
         this.exceptionMessage = exceptionMessage;
     }
 
+    public String getExceptionMessage() {
+        return exceptionMessage;
+    }
+
     public void throwException() {
         throw new IllegalArgumentException(exceptionMessage);
     }
