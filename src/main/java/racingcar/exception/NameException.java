@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 abstract public class NameException {
-
     public static final String NAME_MIN_LENGTH_AND_NOT_EMPTY = "이름은 최소 1글자 이상(공백 제외) 입력해 주세요.";
 
     public static void validation(String[] names) {

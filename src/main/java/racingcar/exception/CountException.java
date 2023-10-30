@@ -1,7 +1,6 @@
 package racingcar.exception;
 
 abstract public class CountException {
-
     public static final String ERROR_MESSAGE = "숫자 1 이상 100 이하를 입력해 주세요.";
 
     public static void validation(String number) {

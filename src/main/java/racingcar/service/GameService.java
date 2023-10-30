@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.OptionalInt;
 
 public class GameService {
-
     public boolean checkMovePossible() {
         int number = createRandomNumber();
 

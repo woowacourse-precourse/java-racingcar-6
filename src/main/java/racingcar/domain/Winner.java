@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Winner {
     private final Integer location;
-
     private final List<String> winnerNames = new ArrayList<>();
 
     public Winner(Integer location) {

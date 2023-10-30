@@ -1,7 +1,6 @@
 package racingcar.view;
 
 public class ResultOutput {
-
     public void printAnnounce() {
         System.out.println();
         System.out.println("실행 결과");
