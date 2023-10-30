@@ -14,7 +14,7 @@ class ValidatorTest {
     @ValueSource(strings = {"Goooood", "baaaaaad", "555555"})
     @ParameterizedTest
     void validatorTest(String value) {
-        assertThatThrownBy(() -> validator.valid(value))
+        assertThatThrownBy(() -> validator.validCarName(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

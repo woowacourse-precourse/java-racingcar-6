@@ -103,7 +103,7 @@ public class GameController {
     public void carsToList(String carNames) {
         String[] cars = carNames.split(",");
         for (String car : cars) {
-            validator.valid(car);
+            validator.validCarName(car);
         }
         Arrays.stream(cars).forEach(car -> Car.setCar(car));
     }

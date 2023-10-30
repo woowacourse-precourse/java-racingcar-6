@@ -2,7 +2,7 @@ package racingcar.validation;
 
 public class Validator {
 
-    public void valid(String carName) {
+    public void validCarName(String carName) {
         checkCarNameLength(carName);
     }
 
