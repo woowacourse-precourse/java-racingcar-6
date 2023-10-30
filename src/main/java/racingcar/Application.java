@@ -1,27 +1,24 @@
 package racingcar;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import static racingcar.GameManager.*;
+import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        String[] names = getNames();
-        int moveCount = getMoveCount();
+        String[] names = GameManager.getNames();
+        int moveCount = GameManager.getMoveCount();
 
-        List<Car> cars = new ArrayList<>();
-
-        for (String name : names) {
-            cars.add(new Car(name, 0));
-        }
+        List<Car> cars = Arrays.stream(names)
+                .map(name -> new Car(name, 0))
+                .collect(Collectors.toList());
 
         System.out.println("실행 결과");
         for (int i = 0; i < moveCount; i++) {
-            move(cars);
+            GameManager.move(cars);
         }
 
-        getWinner(cars);
+        GameManager.getWinner(cars);
     }
 }
