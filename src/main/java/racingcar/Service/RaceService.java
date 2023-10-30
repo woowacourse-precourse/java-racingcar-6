@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 import racingcar.domain.Car;
+import racingcar.domain.Race;
 
 public class RaceService {
 
     Car car=new Car();
+    Race race=new Race();
 
     public int requestAttempts(){
         String attemptsInput = Console.readLine();
@@ -53,5 +55,18 @@ public class RaceService {
             throw new IllegalArgumentException("쉼표(,)를 기준으로 구분하여 입력하십시오.");
         }
         return carName;
+    }
+
+    public void setRace(List<String> carList,int attemptsNumber){
+        initializationRace(carList,attemptsNumber);
+        setRacingCar();
+    }
+
+    private void setRacingCar(){
+        race.setRacingCars();
+    }
+
+    private void initializationRace(List<String> carList,int attemptsNumber){
+        race.initializationRace(carList,attemptsNumber);
     }
 }
