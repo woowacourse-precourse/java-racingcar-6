@@ -3,20 +3,20 @@ package racingcar;
 public class Information {
     private final static int MAX_CAR_NAME = 5;
     private String name;
-    private int destination;
+    private int Distance;
 
     Information(String name) {
         isValidCarName(name);
         this.name = name;
-        destination = 0;
+        Distance = 0;
     }
 
     void update() {
-        destination++;
+        Distance++;
     }
 
     void print() {
-        System.out.println(name + " : " + "-".repeat(destination));
+        System.out.println(name + " : " + "-".repeat(Distance));
     }
 
     private void isValidCarName(String name) throws IllegalArgumentException {
@@ -33,6 +33,6 @@ public class Information {
     }
 
     int getDestination() {
-        return (destination);
+        return (Distance);
     }
 }
