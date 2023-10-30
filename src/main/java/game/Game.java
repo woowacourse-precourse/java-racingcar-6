@@ -37,4 +37,12 @@ public class Game {
         return number;
     }
 
+    // 랜덤 숫자를 이용해서 자동차 움직임 추가
+    public void move(List<Car> carList){
+        for(int i = 0; i < carList.size(); i++){
+            int randNum = randomNumber();
+            carList.get(i).move(randNum);
+        }
+    }
+
 }
