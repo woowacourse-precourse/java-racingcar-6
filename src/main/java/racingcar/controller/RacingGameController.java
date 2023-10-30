@@ -20,14 +20,15 @@ public class RacingGameController {
     public static HashMap<String, String> userCarNameSave(final String inputCarName) {
         HashMap<String, String> createUserCar = new HashMap<>();
         String[] userCarNameArr = inputCarName.split(",");
-        for (String userCars : userCarNameArr) {
-            if (userCars.length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름은 5글자를 초과할 수 없습니다.");
-            }
-        }
+
+        ExceptionController.carNameMaxLengthException(userCarNameArr);
+
         for (String car : userCarNameArr) {
             createUserCar.put(car, "");
         }
+
+        ExceptionController.carNameDuplicateException(createUserCar, userCarNameArr);
+
         return createUserCar;
     }
 
