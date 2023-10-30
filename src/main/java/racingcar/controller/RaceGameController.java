@@ -25,10 +25,10 @@ public class RaceGameController {
 
         while(race.hasNextRound()) {
             race.playOneRound();
-            outputView.printRoundResult(race.getCars());
+            outputView.writeOneRoundResult(race.getCars());
         }
 
-        outputView.printWinners(race.getWinners());
+        outputView.writeWinners(race.getWinners());
     }
 
     private Cars getCars() {
