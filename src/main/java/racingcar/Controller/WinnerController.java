@@ -5,7 +5,6 @@ package racingcar.Controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
 
@@ -15,10 +14,26 @@ public class WinnerController {
 
 
     public static Map<String,Integer> judgeWin(){
-        //carPosition = InputView.storeCarName();
+        InputView.printAskCarName();
         List<Map<String,Integer>> carDataMapList =  moveRandomNumber.generateRandomGameNumber();
         Map<String,Integer> carPosition = new HashMap<>();
 
+        moveCarPoint( carDataMapList, carPosition);
+
+
+        System.out.println(carPosition);
+        RacingResult.printRacingResult(carPosition);
+
+
+        return carPosition;
+    }
+
+
+
+
+
+
+    public static void moveCarPoint(List<Map<String,Integer>> carDataMapList, Map<String,Integer> carPosition) {
         for (Map<String,Integer> racerCarName :carDataMapList){
             for( String Key : racerCarName.keySet()){
                 int Move;
@@ -33,44 +48,8 @@ public class WinnerController {
             }
 
         }
-        System.out.println(carPosition);
-        RacingResult.printRacingResult(carPosition);
 
-
-        return carPosition;
     }
 
-
-
-
-
-
-//    public static void printRunMsg() {
-//
-//        boolean allValuesAreZero = judgeWin().values().stream().allMatch(value -> value == 0);
-//        if (allValuesAreZero) {
-//            throw new IllegalArgumentException("All values in the Map are 0.");
-//        }else {
-//            int maxValue = Integer.MIN_VALUE;
-//
-//            // 최대 값을 가지고 있는 key 초기화
-//            String maxKeys = "";
-//
-//            // Map을 순회하며 최대 값을 찾음
-//            for (Entry<String, Integer> entry : judgeWin().entrySet()) {
-//                int value = entry.getValue();
-//
-//                if (value > maxValue) {
-//                    maxValue = value;
-//                    maxKeys = entry.getKey();
-//                } else if (value == maxValue) {
-//                    maxKeys += ", " + entry.getKey();
-//                }
-//            }
-//            outputView.printWinnerName();
-//            System.out.println(maxKeys);
-//        }
-//
-//    }
 
 }
