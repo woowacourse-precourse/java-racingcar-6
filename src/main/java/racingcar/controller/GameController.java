@@ -6,18 +6,18 @@ import racingcar.service.RacingGameService;
 import racingcar.service.domain.RacingCars;
 import racingcar.service.domain.WootecoEngine;
 import racingcar.utils.GameUtil;
-import racingcar.view.Input;
+import racingcar.view.InputView;
 import racingcar.view.View;
 
 public class GameController {
     private final View view;
-    private final Input input;
+    private final InputView inputView;
 
     private final RacingGameService racingGameService;
 
-    public GameController(View view, Input input, RacingGameService racingGameService) {
+    public GameController(View view, InputView inputView, RacingGameService racingGameService) {
         this.view = view;
-        this.input = input;
+        this.inputView = inputView;
         this.racingGameService = racingGameService;
     }
 
@@ -32,14 +32,14 @@ public class GameController {
 
     private RacingCars readyToCarRace() {
         view.printGameStartMessage();
-        String carNamesInput = input.inputCarNames();
+        String carNamesInput = inputView.inputCarNames();
         List<String> carNames = GameUtil.splitByCommas(carNamesInput);
         return new RacingCars(carNames, new WootecoEngine());   // TODO: 컨트롤러에서 엔진을 설정하는게 마음에 안듦
     }
 
     private int chooseAttemptCounts() {
         view.printAttemptCountsQuestionMessage();
-        return input.inputAttemptCounts();
+        return inputView.inputAttemptCounts();
     }
 
     private void playCarRace(int attemptCounts, RacingCars cars) {
