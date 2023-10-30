@@ -11,7 +11,7 @@ public class RacingGame {
         navigation = new Navigation(carList);
     }
 
-    public void doRacing() {
+    public void doRace() {
         navigation.moveAll();
     }
 

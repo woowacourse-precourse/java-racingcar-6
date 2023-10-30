@@ -15,7 +15,7 @@ class RacingGameTest {
         carList.add(new Car(new TestNumberGenerator(6)));
         RacingGame gameService = new RacingGame(carList);
 
-        gameService.doRacing();
+        gameService.doRace();
 
         assertThat(gameService.getStatus()).filteredOn(car -> car.getLocation() != 0).hasSize(2);
     }
