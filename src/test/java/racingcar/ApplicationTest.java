@@ -42,6 +42,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차_이동_확인(){
+        Car car = new Car("abc");
+        car.current_location = 3;
+        car.printCurrentLocation();
+        assertThat(output()).isEqualTo("abc : ---");
+    }
+
 
     @Override
     public void runMain() {
