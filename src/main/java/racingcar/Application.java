@@ -1,78 +1,62 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Application {
+
+    private static final View view = new View();
+    private static final Game game = new Game();
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNames = Console.readLine();
-        String[] split = carNames.split(",");
+        view.printStart();
+        List<String> inputCarName = Arrays.stream(Console.readLine().split(",")).collect(Collectors.toList());
+        List<Car> carList = createCar(inputCarName);
+        Cars cars = new Cars(carList);
 
-        for (String s : split) {
-            if (s.length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름의 길이는 5를 초과할 수 없습니다.");
-            }
-        }
-        System.out.println("시도할 횟수는 몇 번인가요?");
+        view.printTryCount();
         String tryCount = Console.readLine();
-        if (!isNumberic(tryCount)) {
-            throw new IllegalArgumentException("숫자가 아닌 값을 입력할 수 없습니다.");
-        }
+        validTryCount(tryCount);
 
-        String forward = "-";
+        game.createForwardList(cars.getSize());
+        view.printResult();
+        List<String> forwardList = game.play(Integer.parseInt(tryCount), cars.getSize(), cars, view);
 
-        int moving = 0;
-
-        List<String> strings = new ArrayList<>();
-        for (int i = 0; i < split.length; i++) {
-            strings.add("");
-        }
-
-        System.out.println("실행결과");
-
-        for (int i = 0; i < Integer.parseInt(tryCount); i++) {
-            for (int j = 0; j < split.length; j++) {
-                int random = Randoms.pickNumberInRange(0, 9);
-                if (random >= 4) {
-                    moving++;
-                }
-                System.out.print(split[j] + " : ");
-                if (moving != 0) {
-                    strings.set(j, strings.get(j) + forward);
-                }
-                System.out.println(strings.get(j));
-                moving = 0;
-            }
-            System.out.println();
-        }
-
-        int max = 0;
-
-        // 우승자 출력
-        List<String> winner = new ArrayList<>();
-
-        for (String string : strings) {
-            if (max < string.length()) {
-                max = string.length();
-            }
-        }
-
-        for (int i = 0; i < strings.size(); i++) {
-            if (strings.get(i).length() == max) {
-                winner.add(split[i]);
-            }
-        }
-
-        System.out.println("최종 우승자 : " + String.join(",", winner));
+        Winners winners = new Winners(new ArrayList<>());
+        String winner = winners.getWinner(maxScore(forwardList), forwardList, cars);
+        view.printWinner(winner);
     }
 
-    private static boolean isNumberic(String str) {
+    private static int maxScore(List<String> scores) {
+        int max = 0;
+        for (String score : scores) {
+            if (max < score.length()) {
+                max = score.length();
+            }
+        }
+        return max;
+    }
+
+    private static List<Car> createCar(List<String> inputCarName) {
+        List<Car> carList = new ArrayList<>();
+        for (String carName : inputCarName) {
+            carList.add(new Car(new CarName(carName)));
+        }
+        return carList;
+    }
+
+    private static boolean isNumber(String str) {
         return str.chars().allMatch(Character::isDigit);
+    }
+
+    private static void validTryCount(String tryCount) {
+        if (!isNumber(tryCount)) {
+            throw new IllegalArgumentException("숫자가 아닌 값을 입력할 수 없습니다.");
+        }
     }
 
 }
