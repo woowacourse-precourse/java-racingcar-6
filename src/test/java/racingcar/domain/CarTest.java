@@ -1,13 +1,15 @@
 package racingcar.domain;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
 class CarTest {
 
     @Test
-    void 자동차_거리비교_테스트() {
+    @DisplayName("자동차의 현재 이동거리 비교")
+    void testCompareCarDistance() {
         Car car1 = new Car("car1", 4);
         Car car2 = new Car("car2", 5);
 
@@ -17,7 +19,8 @@ class CarTest {
     }
 
     @Test
-    void 자동차_현재_이동거리_보여주기_테스트() {
+    @DisplayName("자동차의 현재 이동거리를 표시")
+    void testShowCarDistance() {
         Car car1 = new Car("car1", 4);
         Car car2 = new Car("car2", 5);
 
@@ -26,7 +29,8 @@ class CarTest {
     }
 
     @Test
-    void 자동차_이동성공_테스트() {
+    @DisplayName("자동차 이동 성공 테스트")
+    void testMoveSuccess() {
         Car car1 = new Car("car1", 0, (min, max) -> 4);
 
         car1.move();
@@ -35,7 +39,8 @@ class CarTest {
     }
 
     @Test
-    void 자동차_이동실패_테스트() {
+    @DisplayName("자동차 이동 실패 테스트")
+    void testMoveFailed() {
         Car car1 = new Car("car1", 0, (min, max) -> 3);
 
         car1.move();

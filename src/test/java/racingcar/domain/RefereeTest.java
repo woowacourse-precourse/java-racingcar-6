@@ -5,13 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class RefereeTest {
 
     private Referee referee = new Referee();
     @Test
-    void 우승자가_여러명일_경우_테스트() {
+    @DisplayName("우승자가 여러명인 경우 테스트")
+    void testMultipleWinners() {
         List<Car> cars = new ArrayList<>();
 
         Car car1 = new Car("dobi", 4);
@@ -33,7 +35,8 @@ class RefereeTest {
     }
 
     @Test
-    void 우승자가_한명일_경우_테스트() {
+    @DisplayName("우승자가 한 명인 경우 테스트")
+    void testSingleWinner() {
         List<Car> cars = new ArrayList<>();
 
         Car car1 = new Car("dobi", 4);
