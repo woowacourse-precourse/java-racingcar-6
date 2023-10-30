@@ -37,8 +37,8 @@ public class UserInput {
     }
 
     public void cleanup() {
-        carsName.clear(); // ArrayList의 데이터를 지움
-        carCount = 0; // 변수를 초기화
-        playTime = 0; // 변수를 초기화
+        carsName.clear();
+        carCount = 0;
+        playTime = 0;
     }
 }

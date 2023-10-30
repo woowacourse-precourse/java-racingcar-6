@@ -15,13 +15,13 @@ public class GameResult {
         return winnersList;
     }
 
-    public void setWinnersList() {
-        List<Map.Entry<String, String>> carIdxNamePosList = sortCarIdxNamePosListByPosLen();
+    public void setWinnersList(List<Map.Entry<String, String>> carIdxNamePosList) {
+        List<Map.Entry<String, String>> sortedCarIdxNamePosListByPosLen = sortByPositionLength(carIdxNamePosList);
 
         int longestPos = setLongestPos(carIdxNamePosList);
 
         // 길이가 가장 긴 pos와 같은 car들이 winners에 해당한다. (winner가 여려명일 수 있기 때문이다.)
-        for (Map.Entry<String, String> car : carIdxNamePosList) {
+        for (Map.Entry<String, String> car : sortedCarIdxNamePosListByPosLen) {
             String name = car.getKey();
             String position = car.getValue();
 
@@ -33,11 +33,8 @@ public class GameResult {
         }
     }
 
-    private List<Map.Entry<String, String>> sortCarIdxNamePosListByPosLen() {
-        List<Map.Entry<String, String>> carIdxNamePosList = Controller.gameManager.getCarIdxNamePosList();
-        carIdxNamePosList.sort(Comparator.comparing(e -> e.getValue().length(),
-                Comparator.reverseOrder()));
-
+    private List<Map.Entry<String, String>> sortByPositionLength(List<Map.Entry<String, String>> carIdxNamePosList) {
+        carIdxNamePosList.sort(Comparator.comparing(e -> e.getValue().length(), Comparator.reverseOrder()));
         return carIdxNamePosList;
     }
 

@@ -57,7 +57,7 @@ public class Controller {
     }
 
     private void endGame() {
-        gameResult.setWinnersList();
+        gameResult.setWinnersList(gameManager.getCarIdxNamePosList());
         ArrayList<String> winnersList = gameResult.getWinnersList();
         outputView.printWinners(winnersList);
         cleanup();
