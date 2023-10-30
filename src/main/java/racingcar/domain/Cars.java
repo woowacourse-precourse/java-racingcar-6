@@ -8,6 +8,7 @@ import racingcar.response.RaceResultResponse;
 
 public class Cars {
 
+    private final int CARS_INPUT_CRITERION = 2;
     private final List<Car> cars;
 
     public Cars(List<String> carNames) {
@@ -45,8 +46,8 @@ public class Cars {
             .collect(Collectors.toList());
     }
 
-    public void validateCarNamesSize(List<String> carNames) {
-        if (carNames.size() < 2) {
+    public void validateCarsSize(List<String> carNames) {
+        if (carNames.size() < CARS_INPUT_CRITERION) {
             throw new IllegalArgumentException("자동차는 두 대 이상 입력해야 합니다.");
         }
     }
