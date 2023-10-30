@@ -26,4 +26,8 @@ public class Cars {
             throw new IllegalArgumentException("같은 자동차 이름을 입력하였습니다. 애플리케이션을 종료합니다.");
         }
     }
+
+    public List<Car> getCars() {
+        return this.cars;
+    }
 }
