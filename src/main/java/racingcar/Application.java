@@ -96,6 +96,13 @@ class InputValidator{
         }
     }
 
+    public static void validateAttempts(int attempts){
+        if(attempts<=0){
+            throw new IllegalArgumentException("시도 횟수는 1이상이어야 합니다.");
+        }
+    }
+}
+
 class InputManger{
 
     public String[] getCarNames(){
