@@ -19,7 +19,7 @@ public class UserOutput {
 
     static public void consoleOutExecutionResult(ArrayList<Car> cars){
         for(Car car : cars){
-            System.out.print(car.getName() + " : " + "-".repeat(car.getLocation()));
+            System.out.println(car.getName() + " : " + "-".repeat(car.getLocation()));
         }
         System.out.println();
     }
