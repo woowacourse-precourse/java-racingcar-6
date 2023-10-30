@@ -14,6 +14,10 @@ public class Race {
     public void start(){
         inputCars();
         inputTurnNum();
+        for (int i = 0; i < turnNum; i++) {
+            driveCar();
+            printResult();
+        }
     }
 
     public void inputCars(){
@@ -61,5 +65,23 @@ public class Race {
         if(number<1){
             throw new IllegalArgumentException();
         }
+    }
+
+    public void driveCar(){
+        for (Car car : allCars) {
+            car.drive();
+        }
+    }
+
+    public void printResult(){
+        for (Car car : allCars) {
+            System.out.print(car.getCarName() + " : ");
+
+            for (int j = 0; j < car.getDistance(); j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
