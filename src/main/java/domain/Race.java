@@ -5,6 +5,7 @@ import util.UserInput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Race {
@@ -83,12 +84,18 @@ public class Race {
 
     private String checkWinner(List<Car> cars) {
         int maxPosition = maxPosition(cars);
-
+        List<Car> winners = getWinners(cars, maxPosition);
         return "";
     }
 
     private int maxPosition(List<Car> cars) {
         return cars.stream().mapToInt(Car::getPosition).max().orElse(0);
+    }
+
+    private List<Car> getWinners(List<Car> cars, int maxPosition) {
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 
 }
