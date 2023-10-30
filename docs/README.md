@@ -46,9 +46,12 @@
 
     3. printWinners() - 게임 종료 후 우승자 출력
 
-    ---- 추가 -----
 
-    4. getCarInput() - 자동차 이름 입력
+---- 추가 -----
+
+~~4. getCarInput() - 자동차 이름 입력~~ < 수정, assignCars()로 변경
+
+    4. assignCars() - 자동차 이름 입력받아 리스트 생성후 RacingCars로 넘겨줌
 
     5. getTurnsInput() - 게임 진행 횟수 입력
 
@@ -56,7 +59,9 @@
 
 #### 필드: int 현재위치, String 이름 
 
-    1. move() - 한 칸 이동
+~~1. move() - 한 칸 이동~~ < 변경
+    
+    1. move(Dice dice) - 주사위를 굴려 나온 숫자에 따라 이동 여부 결정
   
 ~~2. stay() - 위치 유지~~ < 삭제, move() 메소드와 통합
 
@@ -71,3 +76,15 @@
 #### 필드: int 최솟값, int 최댓값
 
     1. roll() - 주사위를 굴려 최솟값 ~ 최댓값 사이 랜덤한 값 생성 후 반환 
+
+--------추가---------
+
+### 4. RacingCars 클래스 : Car 클래스의 일급컬렉션
+
+#### 필드: LinkedList&lt;Car&gt; cars
+
+    1. validateCarNames(LinkedList<Car> cars) - 각 차의 이름이 5자 이하인지 확인
+
+    2. moveCars(Dice dice) - 컬렉션 안의 Car 객체들 턴마다 이동 혹은 정지
+
+    3. getWinners() - Car 객체들중 가장 이동거리가 긴 객체들의 이름을 리스트로 반환
