@@ -17,6 +17,7 @@ public class Application {
         int repeat_count = input_repeat_count();
         go_or_stop(car_name_list, repeat_count);
     }
+
     public static String[] input_car_name(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input_name = Console.readLine();
@@ -96,17 +97,17 @@ public class Application {
     }
 
     public static List<String> racing_winner(String[] car_name_list, String[] results) {
-        int amount_of_line = 0;
+        int longest_line = 0;
         List<String> winners = new ArrayList<>();
 
         for (int l = 0; l < car_name_list.length; l++) {
-            int line = results[l].length();
+            int amount_of_line = results[l].length();
 
-            if (line > amount_of_line) {
-                amount_of_line = line;
+            if (amount_of_line > longest_line) {
+                longest_line = amount_of_line;
                 winners.clear();
                 winners.add(car_name_list[l]);
-            } else if (line == amount_of_line) {
+            } else if (amount_of_line == longest_line) {
                 winners.add(car_name_list[l]);
             }
         }
@@ -133,3 +134,4 @@ public class Application {
     }
 
 }
+

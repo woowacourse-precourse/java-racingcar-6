@@ -3,7 +3,7 @@
    - 5자 이하의 이름
      - ex) kiki(o) / kihyun(x)
    - 입력 받을 때 쉼표를 기준으로 이름 구분
-     - ex) kiki, min, ...(o) / kiki min shown ...(x)
+     - ex) kiki, min, ...(o) / kiki min honey ...(x)
    - 잘못된 값을 입력했을 때 예외처리 ```check_name_validation()```
      - IllegalArgumentException 발생시키고 앱 종료
        - 이름을 공백으로 입력한 경우
