@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
-import racingcar.domain.Number;
+import racingcar.domain.RandomNumber;
 
 public class Referee {
-    private List<Car> cars;
+    private final List<Car> cars;
 
     private Referee(List<Car> cars) {
         this.cars = cars;
@@ -24,7 +24,7 @@ public class Referee {
     }
 
     private void decideMoveForward(Car car) {
-        Number randomNumber = Number.generateRandomNumber();
+        RandomNumber randomNumber = RandomNumber.generate();
         if (randomNumber.isEqualOrGreaterThanFour()) {
             car.moveForward();
         }
