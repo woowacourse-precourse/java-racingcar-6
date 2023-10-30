@@ -17,4 +17,12 @@ public class RacingGame {
     public void nextRound() {
         currentRound++;
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public int getCurrentRound() {
+        return currentRound;
+    }
 }
