@@ -3,6 +3,7 @@ package racingcar;
 public class Car {
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int GO_STOP_STANDARD_NUMBER = 4;
     
     public String name;
     public String movingDistance;
@@ -14,6 +15,12 @@ public class Car {
         
         this.name = name;
         movingDistance = "";
+    }
+    
+    public void go(int randomNumber) {
+        if (randomNumber >= GO_STOP_STANDARD_NUMBER) {
+            this.movingDistance += "-";
+        }
     }
     
     private boolean isValidName(String name) {

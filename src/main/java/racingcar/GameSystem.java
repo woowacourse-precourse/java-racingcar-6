@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -11,10 +12,13 @@ public class GameSystem {
     private static final String INSERT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INSERT_TRY_COUNT = "시도할 회수는 몇회인가요?";
     private static final String POSSIBLE_TRY_COUNT_REGEX = "^[1-9][0-9]*$";
+    private static final String EXECUTION_RESULT = "실행 결과";
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUBER = 9;
     
     public List<Car> cars = new LinkedList<>();
     private String userInput;
-    private int tryCount;
+    private StringBuilder resultMessage;
     
     public void startGame() {
         System.out.println(INSERT_CAR_NAMES);
@@ -23,7 +27,11 @@ public class GameSystem {
         
         System.out.println(INSERT_TRY_COUNT);
         userInput = getUserInput();
-        tryCount = verfiyTryCount(userInput);
+        int tryCount = verfiyTryCount(userInput);
+        
+        runRace(tryCount);
+        System.out.println(EXECUTION_RESULT);
+        System.out.print(resultMessage);
     }
     
     public void setUpCars(String userInput) {
@@ -66,5 +74,27 @@ public class GameSystem {
     
     private boolean isNotNumber(String userInput) {
         return !userInput.matches(POSSIBLE_TRY_COUNT_REGEX);
+    }
+    
+    private void runRace(int tryCount) {
+        resultMessage = new StringBuilder();
+        for (int i = 0; i < tryCount; i++) {
+            raceCars();
+            makeResultMessageForCars(resultMessage);
+        }
+    }
+    
+    private void raceCars() {
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUBER);
+            car.go(randomNumber);
+        }
+    }
+    
+    private void makeResultMessageForCars(StringBuilder result) {
+        for (Car car : cars) {
+            result.append(car.name).append(" : ").append(car.movingDistance).append("\n");
+        }
+        result.append("\n");
     }
 }
