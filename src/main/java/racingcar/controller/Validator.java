@@ -33,4 +33,10 @@ public class Validator {
             throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
         }
     }
+
+    public static void validateTryCountRange(String tryCount) {
+        if (Integer.parseInt(tryCount) < 1) {
+            throw new IllegalArgumentException("1 이하의 값은 입력할 수 없습니다.");
+        }
+    }
 }

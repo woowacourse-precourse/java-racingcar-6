@@ -40,6 +40,7 @@ public class RacingGame {
         OutputView.displayTryCount();
         String tryCount = InputView.input();
         Validator.validateTryCountNumeric(tryCount);
+        Validator.validateTryCountRange(tryCount);
         return Integer.parseInt(tryCount);
     }
 
