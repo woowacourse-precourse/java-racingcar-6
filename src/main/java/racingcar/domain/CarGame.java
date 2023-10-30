@@ -1,7 +1,8 @@
 package racingcar.domain;
 
+import racingcar.dto.CarDTO;
+
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class CarGame {
@@ -18,19 +19,18 @@ public class CarGame {
         return new CarGame(cars, gameRound);
     }
 
-    public List<Map<String, Integer>> race() {
-        List<Map<String, Integer>> gameResultByRound = new ArrayList<>();
+    public CarDTO.ProgressResult race() {
+        CarDTO.ProgressResult progressResult = new CarDTO.ProgressResult(new ArrayList<>());
 
         for (int i = 0; gameRound.isRunning(i); i++) {
             Map<String, Integer> status = cars.goForward();
-
-            gameResultByRound.add(status);
+            progressResult.addResult(status);
         }
 
-        return gameResultByRound;
+        return progressResult;
     }
 
-    public List<String> getWinnerNames() {
-        return cars.getWinningCarNames();
+    public CarDTO.WinnerNames getWinner() {
+        return new CarDTO.WinnerNames(cars.getWinningCarNames());
     }
 }

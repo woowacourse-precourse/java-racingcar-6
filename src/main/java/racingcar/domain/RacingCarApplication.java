@@ -1,9 +1,9 @@
 package racingcar.domain;
 
+import racingcar.dto.CarDTO;
 import racingcar.presentation.CarViewer;
 
 import java.util.List;
-import java.util.Map;
 
 public class RacingCarApplication {
     private final CarViewer carViewer;
@@ -20,11 +20,13 @@ public class RacingCarApplication {
         CarGameRound gameRound = carViewer.inputGameRound();
 
         CarGame carGame = CarGame.create(cars, gameRound);
-        List<Map<String, Integer>> gameResultByRound = carGame.race();
+        CarDTO.ProgressResult progressResult = carGame.race();
 
         carViewer.outputExecute();
-        carViewer.outputResult(gameResultByRound);
+        carViewer.outputResult(progressResult);
 
-        carViewer.outputWinner(carGame.getWinnerNames());
+        CarDTO.WinnerNames winnerNames = carGame.getWinner();
+
+        carViewer.outputWinner(winnerNames);
     }
 }

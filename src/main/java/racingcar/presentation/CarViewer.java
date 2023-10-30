@@ -3,6 +3,7 @@ package racingcar.presentation;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.CarGameRound;
 import racingcar.domain.CarName;
+import racingcar.dto.CarDTO;
 
 import java.util.List;
 import java.util.Map;
@@ -57,13 +58,15 @@ public class CarViewer {
         System.out.println(EXECUTE);
     }
 
-    public void outputWinner(List<String> winningCarNames) {
-        String result = String.join(RESULT_DELIMITER, winningCarNames);
+    public void outputWinner(CarDTO.WinnerNames winningCarNames) {
+        String result = String.join(RESULT_DELIMITER, winningCarNames.getNames());
         System.out.println(WINNER + KEY_DELIMITER + result);
     }
 
-    public void outputResult(List<Map<String, Integer>> gameResult) {
-        for (Map<String, Integer> round : gameResult) {
+    public void outputResult(CarDTO.ProgressResult gameResult) {
+
+        List<Map<String, Integer>> result = gameResult.getResult();
+        for (Map<String, Integer> round : result) {
             for (String carName : round.keySet()) {
                 System.out.println(carName + KEY_DELIMITER + POSITION_SYMBOL.repeat(round.get(carName)));
             }
