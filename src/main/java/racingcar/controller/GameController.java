@@ -7,6 +7,7 @@ public record GameController(InputView inputView) {
 
     public void run() {
         Cars cars = generateCars();
+        int tryNumber = inputView.inputTryNumber();
     }
 
     private Cars generateCars() {

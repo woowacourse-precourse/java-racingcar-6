@@ -6,9 +6,9 @@
 
 - [x] 사용자로부터 자동차의 이름을 입력받는다. #inputCarNames()
     - [x] ❗️빈 문자열, 공백일 경우 예외처리 한다. #validateString()
-- [ ] 시도 횟수를 입력받는다.
-    - [ ] ❗️ 숫자가 아닐 경우 예외처리 한다.
-    - [ ] ❗️ 자연수가 아닐 경우 예외처리 한다.
+- [x] 시도 횟수를 입력받는다. #inputTryNumber()
+    - [x] ❗️ 숫자가 아닐 경우 예외처리 한다. #validateNumber()
+    - [x] ❗️ 자연수가 아닐 경우 예외처리 한다. #validatePositiveNumber()
 
 ### 사용자 출력 기능 - [OutputView](../src/main/java/racingcar/view/OutputView.java)
 
