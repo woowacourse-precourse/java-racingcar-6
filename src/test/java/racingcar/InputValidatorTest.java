@@ -39,6 +39,14 @@ public class InputValidatorTest {
     }
 
     @Test
+    void 중복_이름_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> inputValidator.validCarNames(List.of("ppaa", "papa", "ppaa")))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 시도횟수_정상_입력() {
         assertThatCode(() -> inputValidator.validTrialNumber("6"))
                 .doesNotThrowAnyException();
