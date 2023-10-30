@@ -18,7 +18,10 @@ public class Application {
             }
         }
 
-        
+        //시도 횟수 입력 받기
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = br.readLine();
+        int cnt = Integer.parseInt(input);
     }
 
 
