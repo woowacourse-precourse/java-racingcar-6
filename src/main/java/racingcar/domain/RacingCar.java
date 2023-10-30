@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.constant.ErrorMessage;
 import racingcar.constant.ProgressMessage;
 
 import java.util.Objects;
@@ -15,7 +16,14 @@ public final class RacingCar {
     }
 
     public void move() {
+        validateMoveDistance();
         this.moveDistance = moveDistance.next();
+    }
+
+    private void validateMoveDistance() {
+        if (moveDistance == null) {
+            throw new IllegalStateException(ErrorMessage.NOT_INITIALIZED.toValue());
+        }
     }
 
     public String toResultMessage() {
@@ -25,6 +33,7 @@ public final class RacingCar {
     }
 
     public int moveDistance() {
+        validateMoveDistance();
         return moveDistance.toValue();
     }
 

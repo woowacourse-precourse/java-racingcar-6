@@ -1,5 +1,9 @@
 package racingcar.repository;
 
+import racingcar.constant.ErrorMessage;
+
+import java.util.Optional;
+
 public class DomainRepository<T> {
 
     private T domain;
@@ -8,7 +12,9 @@ public class DomainRepository<T> {
         this.domain = domain;
     }
 
-    public T find() {
-        return this.domain;
+    public T get() {
+        return Optional.ofNullable(this.domain)
+                .orElseThrow(
+                        () -> new IllegalStateException(ErrorMessage.NOT_INITIALIZED.toValue()));
     }
 }

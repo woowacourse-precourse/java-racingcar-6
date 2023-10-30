@@ -14,11 +14,11 @@ class DomainRepositoryTest {
 
     @Test
     @DisplayName("저장 후 조회 요청시 null이 아닌 값을 반환하는가")
-    void saveAndFind() {
+    void saveAndGet() {
         // given
         // when
         tryCountRepository.save(new TryCount(1));
-        final TryCount tryCount = tryCountRepository.find();
+        final TryCount tryCount = tryCountRepository.get();
 
         assertThat(tryCount).isNotNull();
     }

@@ -31,18 +31,18 @@ public class RacingCarService {
     }
 
     public RacingCars move() {
-        final RacingCars racingCars = racingCarsRepository.find();
+        final RacingCars racingCars = racingCarsRepository.get();
         racingCars.moveByNumbers(
                 new Numbers(randomNumberGenerator.generateWithSize(racingCars.numOfElement())));
         return racingCars;
     }
 
     public TryCount findTryCount() {
-        return tryCountRepository.find();
+        return tryCountRepository.get();
     }
 
     public Winners checkWinners() {
-        final RacingCars racingCars = racingCarsRepository.find();
+        final RacingCars racingCars = racingCarsRepository.get();
         return racingCars.findWinners();
     }
 }

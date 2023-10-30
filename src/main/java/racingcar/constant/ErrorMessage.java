@@ -10,7 +10,8 @@ public enum ErrorMessage {
     INVALID_WINNER_NUM("우승자가 존재하지 않습니다."),
     NO_LEFT_TRY_COUNT("잔여 시도 횟수가 없습니다."),
     INVALID_NUMBER("숫자의 범위가 벗어났습니다."),
-    INVALID_NUMBER_NUM("숫자의 개수가 잘못되었습니다.");
+    INVALID_NUMBER_NUM("숫자의 개수가 잘못되었습니다."),
+    NOT_INITIALIZED("초기화 되지 않은 값에 접근을 시도했습니다.");
 
     private final String message;
 

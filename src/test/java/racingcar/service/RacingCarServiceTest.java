@@ -35,7 +35,7 @@ class RacingCarServiceTest {
         racingCarService.saveRacingCars(racingCars);
 
         // then
-        final RacingCars savedRacingCars = racingCarsRepository.find();
+        final RacingCars savedRacingCars = racingCarsRepository.get();
         assertThat(savedRacingCars).isNotNull();
     }
 
@@ -49,7 +49,7 @@ class RacingCarServiceTest {
         racingCarService.saveTryCount(tryCount);
 
         // then
-        final TryCount savedTryCount = tryCountRepository.find();
+        final TryCount savedTryCount = tryCountRepository.get();
         assertThat(savedTryCount).isNotNull();
     }
 
