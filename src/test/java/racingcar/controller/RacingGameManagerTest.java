@@ -45,9 +45,9 @@ public class RacingGameManagerTest {
         RacingGameManager racingGameManager = new RacingGameManager(spyCars, new InputView(), new OutputView());
 
         // When
-        racingGameManager.repeatMove(tryCount);
+        racingGameManager.repeatRun(tryCount);
 
         // Then
-        Mockito.verify(spyCars, times(tryCount)).moveCars();
+        Mockito.verify(spyCars, times(tryCount)).runCars();
     }
 }

@@ -28,17 +28,17 @@ public class RacingGameManager {
         String inputTryCount = inputView.enterTryCount();
         setTryCount(inputTryCount);
 
-        repeatMove(tryCount);
+        repeatRun(tryCount);
 
         List<Car> winner = cars.getWinner();
         outputView.printWinner(winner);
     }
 
-    void repeatMove(int tryCount){
+    void repeatRun(int tryCount){
         System.out.println("실행 결과");
         
         while (tryCount > 0){
-            cars.moveCars();
+            cars.runCars();
             outputView.printProgressStatus(cars.getCarList());
             tryCount--;
         }

@@ -29,7 +29,7 @@ public class Cars {
         }
     }
 
-    public void moveCars() {
+    public void runCars() {
         for (Car car : carList) {
             car.run(generateRandomNumber());
         }
