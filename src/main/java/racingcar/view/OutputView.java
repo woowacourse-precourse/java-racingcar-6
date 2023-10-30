@@ -6,14 +6,14 @@ import java.util.List;
 
 public final class OutputView {
 
-    private static final String RESULT_MESSAGE = "실행 결과";
+    private static final String PLAY_RESULT = "실행 결과";
     private static final String FINAL_WINNER = "최종 우승자";
     private static final String COLON = " : ";
     private static final String POSITION_MARK = "-";
     private static final String DELIMITER = ", ";
 
-    public void printResultMessage() {
-        System.out.println(RESULT_MESSAGE);
+    public void printPlayMessage() {
+        System.out.println(PLAY_RESULT);
     }
 
     public void printResult(List<CarDto> carDtos) {
