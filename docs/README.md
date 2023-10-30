@@ -16,8 +16,10 @@
 - [Model](Model)
   - [Car.java](Car.java)
   - [CarList.java](CarList.java)
+  - [CarRegister.java](CarRegister.java)
 - [View](view)
 - [Controller](Controller)
+  - [MainController.java](MainController.java)
 - [Uitl](Util)
   - [CarNameValidator.java](CarNameValidator.java)
   - [RandomNumberGenerator.java](RandomNumberGenerator.java)
@@ -38,6 +40,19 @@
 - List<Car> carList
 - CarList()
 - validate()
+
+
+### CarRegister.java
+- carNames
+- CarRegister()
+- registerCar
+
+# View
+
+
+# Controller
+### MainController.java
+
 
 
 # Util
