@@ -3,6 +3,10 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private static final String MOVE_FORWARD_VALUE = "-";
+    private static final String STATUS_DELIMITER = " : ";
+    private static final Integer MINIMUM_FORWARD_NUMBER = 4;
+
     private String name;
     private StringBuilder currentStatus;
 
@@ -13,13 +17,13 @@ public class Car {
 
     public void decideMoveOrNot() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
-            currentStatus.append("-");
+        if (randomNumber >= MINIMUM_FORWARD_NUMBER) {
+            currentStatus.append(MOVE_FORWARD_VALUE);
         }
     }
 
     public String getCurrentStatus() {
-        return name + " : " + currentStatus.toString();
+        return name + STATUS_DELIMITER + currentStatus.toString();
     }
 
     public int getScore() {

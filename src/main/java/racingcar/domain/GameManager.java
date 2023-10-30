@@ -9,6 +9,10 @@ import java.util.List;
 public class GameManager {
     private static final String CAR_NAME_DELIMIT = ",";
     private static final String SPACE = " ";
+    private static final Integer MINIMUM_CAR_COUNT = 1;
+    private static final Integer MINIMUM_ATTEMPT_COUNT = 1;
+    private static final Integer MAXIMUM_CAR_NAME_LENGTH = 5;
+
 
     private List<Car> cars;
     private StringBuilder gameLog;
@@ -38,7 +42,7 @@ public class GameManager {
     }
 
     private void checkCarCount() {
-        if (cars.size() <= 1) {
+        if (cars.size() <= MINIMUM_CAR_COUNT) {
             throw new IllegalArgumentException("최소 1대의 자동차가 입력되어야 합니다.");
         }
     }
@@ -50,7 +54,7 @@ public class GameManager {
     }
 
     private void checkNameLength(String carName) {
-        if (carName.length() > 5) {
+        if (carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
@@ -61,7 +65,7 @@ public class GameManager {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("시도할 횟수는 숫자만 입력이 가능합니다.");
         }
-        if (attemptCount < 1) {
+        if (attemptCount < MINIMUM_ATTEMPT_COUNT) {
             throw new IllegalArgumentException("시도할 횟수는 1 이상이어야 게임 진행이 가능합니다.");
         }
     }
