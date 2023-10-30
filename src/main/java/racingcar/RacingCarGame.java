@@ -11,16 +11,16 @@ public class RacingCarGame {
         RacingCarInputView racingCarInputView = new RacingCarInputView();
 
         String names = racingCarInputView.carNameInput();
-        if (Validator.validateNames(names)) {
-            createCars(names);
+        if (!Validator.validateNames(names).equals(names)) {
+            return;
         }
+        createCars(names);
 
         String number = racingCarInputView.carNumberInput();
-        if (Validator.validateNumber(number)) {
-            iterNumber = Integer.parseInt(number);
+        if (!Validator.validateNumber(number).equals(number)) {
+            return;
         }
-
-        return;
+        iterNumber = Integer.parseInt(number);
     }
 
     public void createCars(String names) {
