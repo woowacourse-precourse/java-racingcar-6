@@ -22,21 +22,17 @@ public class PrintService {
         for (int i = 0; i < size; i++) {
             name(cars.findName(i));
             position(cars.findGameNum(i));
-            jump();
+            spaceSkip();
         }
-        jump();
+        spaceSkip();
     }
 
     public void name(String name) {
         System.out.print(name + " : ");
     }
 
-    public void winner(Cars cars) {
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < cars.size(); i++) {
-            name(cars.findName(i));
-            and(cars.size(), i);
-        }
+    public void winner(String winners) {
+        System.out.print("최종 우승자 : " + winners);
     }
 
     private void and(int size, int i) {
@@ -51,7 +47,7 @@ public class PrintService {
         }
     }
 
-    public void jump() {
+    public void spaceSkip() {
         System.out.println();
     }
 }

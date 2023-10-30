@@ -4,7 +4,7 @@ import racingcar.domain.Winner;
 
 public class WinnerRepository {
 
-    private Winner winner;
+    private final Winner winner;
 
     public WinnerRepository() {
         this.winner = new Winner();
@@ -12,5 +12,9 @@ public class WinnerRepository {
 
     public void add(String name) {
         winner.init(name);
+    }
+
+    public String winnerToString() {
+        return winner.toString();
     }
 }

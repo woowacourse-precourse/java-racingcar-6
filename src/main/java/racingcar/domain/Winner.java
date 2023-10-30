@@ -9,4 +9,9 @@ public class Winner {
     public void init(String name) {
         winnerList.add(name);
     }
+
+    public String toString() {
+        String[] array = winnerList.toArray(String[]::new);
+        return String.join(", ", array);
+    }
 }

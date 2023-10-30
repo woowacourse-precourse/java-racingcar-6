@@ -17,22 +17,11 @@ public class GameService {
             gameNum--;
         }
 
-        findWinner2(cars, cars.findMaxPosition());
-        print.winner(cars);
+        findWinner(cars, cars.findMaxPosition());
+        print.winner(winnerRepository.winnerToString());
     }
 
     private void findWinner(Cars cars, int max) {
-        int i = 0;
-        while (i < cars.size()) {
-            if (max == cars.findGameNum(i)) {
-                i++;
-                continue;
-            }
-            cars.remove(i);
-        }
-    }
-
-    private void findWinner2(Cars cars, int max) {
         for (int i = 0; i < cars.size(); i++) {
             if (max == cars.findGameNum(i)) {
                 winnerRepository.add(cars.findName(i));

@@ -35,8 +35,4 @@ public class Cars {
         }
         return max;
     }
-
-    public void remove(int i) {
-        carList.remove(i);
-    }
 }
