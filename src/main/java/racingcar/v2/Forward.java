@@ -15,8 +15,8 @@ public class Forward {
     }
 
     public void updatePosition(Map<String, Integer> stateMap, String carName) {
-        int randomsNum = randomNums();
-        if (canForward(randomsNum)) {
+        int randomNum = randomNums();
+        if (canForward(randomNum)) {
             int currentPosition = stateMap.get(carName);
             stateMap.put(carName, currentPosition + 1);
         }
