@@ -30,4 +30,8 @@ final class GameServer {
     private void showWinners() {
         Output.printWinner(cars.whosWinners());
     }
+
+    private void endGame() {
+        Input.stopReceivingInput();
+    }
 }
