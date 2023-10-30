@@ -2,11 +2,22 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static racingcar.Number.*;
 
 public class CarService {
 
-    public Car create(String name){
+    public List<Car> createCars(List<String> nameList){
+        List<Car> carList = new ArrayList<>();
+        for(String name: nameList){
+            carList.add(create(name));
+        }
+        return carList;
+    }
+
+    private Car create(String name){
         checkName(name);
         return new Car(name);
     }

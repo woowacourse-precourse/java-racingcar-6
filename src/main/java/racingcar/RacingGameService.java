@@ -14,17 +14,21 @@ public class RacingGameService {
 
     private int highDistance = 0;
 
-    private int getPlayCount(){
+    public int getPlayCount(){
         outputView.countMessage();
         return inputView.playCount();
     }
 
-    private List<String> getCarNameList(){
+    public List<String> getCarNameList(){
         outputView.carNameMessage();
         return inputView.carNameList();
     }
 
-    public void play(int raceCount, RacingGame racingGame){
+    public RacingGame raceSetting(List<Car> carList, int playCount){
+        return new RacingGame(carList, playCount);
+    }
+    public void play(RacingGame racingGame){
+        int raceCount = racingGame.getRaceCount();
         for(int playCount = 0; playCount<raceCount; playCount++){
             race(racingGame);
             printRaceResult(racingGame);
@@ -45,6 +49,7 @@ public class RacingGameService {
         for(Car car: carList){
             outputView.carPositionMessage(car.getName(), car.getPosition());
         }
+        outputView.blank();
     }
 
     private List<String> checkWinner(RacingGame racingGame){
