@@ -3,7 +3,7 @@ package racingcar.util;
 public class Validator {
 
     public static void validateCarLength(String carName){
-        if(carName.length()>5)
+        if(carName.length()>Constant.MAX_CAR_NAME_LENGTH)
             throw new IllegalArgumentException(Constant.EXCEPTION_CAR_NAME_LENGTH);
     }
 

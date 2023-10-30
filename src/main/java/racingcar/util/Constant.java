@@ -14,6 +14,7 @@ public class Constant {
 
     static final String EXCEPTION_CAR_NAME_LENGTH="자동차 이름은 5글자 이하여야 합니다.";
     static final String EXCEPTION_IS_NOT_NUMBER="숫자만 입력할 수 있습니다.";
+    static final Integer MAX_CAR_NAME_LENGTH=5;
 
     public static final String INPUT_CAR_NAMES="경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String INPUT_REPETITIONS="시도할 회수는 몇회인가요?";
