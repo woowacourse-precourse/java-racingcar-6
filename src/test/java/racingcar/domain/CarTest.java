@@ -21,4 +21,16 @@ public class CarTest {
         assertThat(car).isNotNull();
     }
 
+    @Test
+    void move() {
+        car.move(4);
+        assertThat(car).extracting("position").isEqualTo(1);
+    }
+
+    @Test
+    void stop() {
+        car.move(3);
+        assertThat(car).extracting("position").isEqualTo(0);
+    }
+
 }
