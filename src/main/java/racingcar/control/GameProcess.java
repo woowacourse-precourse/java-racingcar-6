@@ -148,12 +148,22 @@ public class GameProcess {
         String name = "";
 
         for (int indexOfWinCarList = 0; indexOfWinCarList < sizeOfRaceCarList; indexOfWinCarList++) {
-            raceCarOfWinner = raceCarOfWinnerList.get(indexOfWinCarList);
+            raceCarOfWinner = getRaceCarOfWinnerList(indexOfWinCarList);
             name = raceCarOfWinner.toString();
             nameOfWinnerArr[indexOfWinCarList] = name;
         }
 
         return nameOfWinnerArr;
+    }
+
+    /**
+     * 승자 모임 리스트에서 해당하는 index의 값을 반환한다.
+     *
+     * @param indexOfWinCarList
+     * @return
+     */
+    private RaceCar getRaceCarOfWinnerList(int indexOfWinCarList) {
+        return raceCarOfWinnerList.get(indexOfWinCarList);
     }
 
     public void moveOfRaceCar() {
