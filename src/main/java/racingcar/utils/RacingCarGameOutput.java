@@ -23,7 +23,8 @@ public class RacingCarGameOutput {
     public static void printGameProgress(List<RacingCar> carList) {
         StringBuilder sb = new StringBuilder();
         for (RacingCar car : carList) {
-            sb.append(car.getName()).append(" : ").append("-".repeat(car.getDistance()));
+            sb.append(car.getName()).append(" : ");
+            sb.append("-".repeat(car.getDistance())).append("\n");
         }
         System.out.println(sb.toString());
     }
