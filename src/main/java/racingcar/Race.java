@@ -25,7 +25,7 @@ public class Race {
             }
             OutputManager.displayBlankLine();
         }
-
+        determineWinners();
     }
 
     private void determineWinners() {
@@ -38,7 +38,7 @@ public class Race {
         }
     }
 
-    private int getMaxPosition() {
+    public int getMaxPosition() {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
