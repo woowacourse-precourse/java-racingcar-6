@@ -17,9 +17,9 @@ public class ValidationTest {
             ",name1,name2", "name1,name2,", "name1,,name2",
             ",,name1,name2", "name1,name2,,", "name1,,,name2",
     })
-    void checkNullOrSpaceInNameInput_commaTest(String input) {
+    void checkNameInputCommaOrSpace_commaTest(String input) {
         Validation sample = new Validation();
-        assertThatIllegalArgumentException().isThrownBy(() -> sample.checkNullOrSpaceInNameInput(input));
+        assertThatIllegalArgumentException().isThrownBy(() -> sample.checkNameInputCommaOrSpace(input));
     }
 
     @ParameterizedTest
@@ -29,17 +29,17 @@ public class ValidationTest {
             "name1, name2,name3", "name1, name2 ,name3", "a   b,name2,name3",
             "abc  ,name2,name3", "   "
     })
-    void checkNullOrSpaceInNameInput_space_exceptionTest(String input) {
+    void checkNameInputCommaOrSpace_space_exceptionTest(String input) {
         Validation sample = new Validation();
-        assertThatIllegalArgumentException().isThrownBy(() -> sample.checkNullOrSpaceInNameInput(input));
+        assertThatIllegalArgumentException().isThrownBy(() -> sample.checkNameInputCommaOrSpace(input));
     }
 
     @ParameterizedTest
     @DisplayName("입력값에 포함된 자동차 이름의 중간에 공백문자 사용 시 공백문자가 연속되지 않으면 정상 종료")
     @ValueSource(strings = {"name1,A B,name2", "A B C,name2,name3"})
-    void checkNullOrSpaceInNameInput_space_normalTest(String input) {
+    void checkNameInputCommaOrSpace_space_normalTest(String input) {
         Validation sample = new Validation();
-        assertThatCode(() -> sample.checkNullOrSpaceInNameInput(input)).doesNotThrowAnyException();
+        assertThatCode(() -> sample.checkNameInputCommaOrSpace(input)).doesNotThrowAnyException();
     }
 
     @Test
