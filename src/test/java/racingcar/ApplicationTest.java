@@ -38,6 +38,32 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 레이싱_게임_테스트1() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,kyle", "3");
+                    assertThat(output()).contains("pobi : ---", "woni : -", "kyle : --", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, STOP
+        );
+    }
+
+    @Test
+    void 레이싱_게임_테스트2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,kyle", "3");
+                    assertThat(output()).contains("pobi : ", "woni : ", "kyle : ", "최종 우승자 : pobi, woni, kyle");
+                },
+                STOP, STOP, STOP,
+                STOP, STOP, STOP,
+                STOP, STOP, STOP
+        );
+    }
+
+    @Test
     void 자동차_객체_전진_증가_테스트(){
         Car car = new Car("robin");
         Car car2 = new Car("nope");
