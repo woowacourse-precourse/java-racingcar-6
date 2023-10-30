@@ -10,12 +10,12 @@ public class CarNameException {
     private static final String BLANK = " ";
 
     public void validateCarNameInput(String carNameInput) throws IllegalArgumentException {
+        checkInputIsEmpty(carNameInput);
+        checkLastInputIsComma(carNameInput);
+
         List<String> carNameList = stringToList.analysisCarNames(carNameInput);
         checkCarNameIsOutOfRangeAndBlank(carNameList);
         checkCarNameIsDuplication(carNameList);
-
-        checkInputIsEmpty(carNameInput);
-        checkLastInputIsComma(carNameInput);
     }
 
     private void checkCarNameIsOutOfRangeAndBlank(List<String> carNameList) {
