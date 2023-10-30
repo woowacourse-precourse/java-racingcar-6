@@ -1,18 +1,18 @@
 package racingcar.domain;
 
 public class Car {
-    private final String name;
+    private final CarName carName;
     private final CarEngine carEngine;
     private Position position;
 
-    public Car(String name, CarEngine carEngine) {
-        this.name = name;
+    public Car(CarName name, CarEngine carEngine) {
+        this.carName = name;
         this.carEngine = carEngine;
         this.position = new Position();
     }
 
-    public Car(String name, CarEngine carEngine, Position position) {
-        this.name = name;
+    public Car(CarName name, CarEngine carEngine, Position position) {
+        this.carName = name;
         this.carEngine = carEngine;
         this.position = position;
     }
@@ -23,8 +23,8 @@ public class Car {
         }
     }
 
-    public String getName() {
-        return this.name;
+    public String getCarName() {
+        return this.carName.getName();
     }
 
     public CarEngine getCarEngine() {
