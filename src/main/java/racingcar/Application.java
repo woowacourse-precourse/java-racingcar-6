@@ -42,6 +42,10 @@ class Car {
 
 class Game {
     public static int MOVES;
+    public static final String NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
+    public static final String MOVES_MESSAGE = "시도할 회수는 몇회인가요?\n";
+    public static final String OUTPUT_MESSAGE = "실행 결과\n";
+    public static final String WINNER_MESSAGE = "최종 우승자 : ";
     List<String> nameList;
     List<Car> carList;
 
@@ -54,16 +58,28 @@ class Game {
         MOVES = Integer.parseInt(Console.readLine());
     }
 
+    public void printOutput() {
+        for (Car car : carList) {
+            System.out.print(car.name+" : ");
+            for(int i = 0; i<car.count; i++){
+                System.out.print("-");
+            }
+        }
+        System.out.print("\n");
+    }
+
     public void gameRun() {
         for (String name : nameList) {
             carList.add(new Car(name));
         }
+        System.out.print(OUTPUT_MESSAGE);
         for (int i = 0; i < MOVES; i++) {
 
-            for (Car car : carList){
+            for (Car car : carList) {
                 car.move();
             }
             // TODO : 결과 출력
+
         }
     }
 }
