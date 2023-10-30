@@ -1,7 +1,7 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Constants;
+import racingcar.Util;
 
 public class Car {
     private final String NAME;
@@ -25,8 +25,7 @@ public class Car {
     }
     public void move() {
 
-        int randomNumber = Randoms.pickNumberInRange(Constants.MIN_RANDOM_NUM, Constants.MAX_RANDOM_NUM);
-        if (randomNumber >= Constants.START_NUM) {
+        if (Util.pickNumberInRange() >= Constants.START_NUM) {
             position++;
         }
     }

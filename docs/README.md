@@ -23,7 +23,7 @@
 - [ ] 테스트 코드 구현
 - [ ] 리팩토링
   - [x] 상수 분리
-  - [ ] Util 분리
+  - [x] Util 분리
   - [x] 생성자 대신 정적 팩토리 메서드 사용
   - [x] InputController를 CarController와 RoundController로 분리
   

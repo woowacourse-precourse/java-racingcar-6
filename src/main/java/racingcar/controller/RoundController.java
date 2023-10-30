@@ -1,13 +1,13 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.Util;
 import racingcar.model.Validator;
 
 public class RoundController {
     public static int setRound() {
 
         try {
-            int number = Integer.parseInt(Console.readLine());
+            int number = Integer.parseInt(Util.readLine());
             Validator.validateAttempts(number);
 
             return number;

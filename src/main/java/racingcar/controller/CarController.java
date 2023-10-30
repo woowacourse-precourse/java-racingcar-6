@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.Util;
 import racingcar.model.Validator;
 
 import java.util.Arrays;
@@ -10,7 +10,7 @@ public class CarController {
     public static List<String> setCars() {
 
         try {
-            String cars = Console.readLine();
+            String cars = Util.readLine();
             List<String> carList = Arrays.asList(cars.split(","));
             Validator.validateCarNames(carList);
 
