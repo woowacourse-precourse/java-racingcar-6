@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import java.util.List;
-
 import racingcar.domain.Car;
 import racingcar.domain.RacingCar;
 
@@ -17,12 +15,12 @@ public class OutputView {
 	public static void printResult(RacingCar racingCar) {
 		racingCar.getRacingCar().forEach(
 			car -> {
-				printTryEachResult(car);
+				printEach(car);
 			});
 		System.out.println();
 	}
 
-	private static void printTryEachResult(Car car) {
+	private static void printEach(Car car) {
 		System.out.println(String.format(EACH_RESULT, car.getName(), convertToBar(car.getCurrentPosition())));
 	}
 
