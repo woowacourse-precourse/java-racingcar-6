@@ -10,7 +10,6 @@ public class RacingGame {
     private final Accelerator accelerator = new Accelerator(); // TODO: 의존관계 주입 필요
 
     public RacingGame(Racer racer, Round round) {
-        //TODO: racer도 정적 팩토리 메서드 고려
         this.racer = racer;
         this.round = round;
     }
