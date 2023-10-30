@@ -11,6 +11,7 @@ public class Car {
     }
 
     public void go() {
+        location++;
     }
 
     public void stop() {
