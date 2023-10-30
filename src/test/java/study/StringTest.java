@@ -2,11 +2,14 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class StringTest {
@@ -82,6 +85,14 @@ public class StringTest {
     @DisplayName("ValueSource을 이용한 테스트 활용_3")
     void ValueSource_을_활용하여_여러개_테스트_확인하기_불(boolean isTrue) {
         assertThat(isTrue).isEqualTo(isTrue);
+    }
+
+    @ParameterizedTest
+    @NullSource
+    @EmptySource
+    @DisplayName("NullSource, EmptySource의 에너테이션을 이용한 NULL, EMPTY 테스트")
+    void NULL_EMPTY_을_활용한_테스트(String text) {
+        assertTrue(text == null || text.trim().isEmpty());
     }
 
 }
