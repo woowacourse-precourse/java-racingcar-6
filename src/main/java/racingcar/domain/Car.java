@@ -1,7 +1,8 @@
 package racingcar.domain;
 
 public class Car {
-    private String name;
+    private static final int MAX_NAME_LENGTH = 5;
+    private final String name;
     private int location;
 
     public Car(String name) {
@@ -10,7 +11,7 @@ public class Car {
     }
 
     public void move() {
-        this.location += 1;
+        this.location++;
     }
 
     public String getName() {
