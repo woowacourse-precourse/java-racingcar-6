@@ -1,2 +1,6 @@
-package racingcar.model;public class AttemptNumValidator {
+package racingcar.model;
+
+public class AttemptNumValidator {
+    private static final String INPUT_IS_NOT_NATURAL_NUMBER = "입력값이 자연수가 아닙니다.";
+    private static final String ATTEMPT_NUMBER_REGEX = "^[1-9]+$";
 }
