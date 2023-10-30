@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class RacingCarService {
 
@@ -38,6 +39,19 @@ public class RacingCarService {
     public int readCount() {
         int count = Integer.parseInt(readLine());
         return racingCarValidation.illegalValidation(count);
+    }
+
+    public CarList checkCarListMove() {
+        for (Car car : carList.getCarList()) {
+            checkMoving(car);
+        }
+        return carList;
+    }
+
+    public void checkMoving(Car car) {
+        int excel = pickNumberInRange(0, 9);
+        if (excel >= 4)
+            car.move();
     }
 
 }
