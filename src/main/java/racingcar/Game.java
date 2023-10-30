@@ -11,10 +11,6 @@ import java.util.Set;
 public class Game {
     final int COUNT_MINIMUM_CAR = 2;
     final String SEPARATOR_CAR_NAME = ",";
-    final String MESSAGE_START = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
-    final String MESSAGE_ASK_TRY = "시도할 회수는 몇회인가요?\n";
-    final String MESSAGE_RACE_RESULT = "실행 결과\n";
-    final String MESSAGE_ANNOUNCE_WINNER = "최종 우승자 : ";
     public List<Car> carList;
     public List<String> winnerList;
     public int roundNumber;
@@ -55,12 +51,13 @@ public class Game {
     }
 
     public void inputCarsName() {
-        System.out.print(MESSAGE_START);
+
+        System.out.print(GameMessages.MESSAGE_START.getMessage());
         String inputNames = Console.readLine();
-        System.out.println(inputNames);
+
         if (inputNames == null) {
             errorType = ErrorMessages.NOT_ENOUGH_CAR_NUMBER;
-            throw new IllegalArgumentException(COUNT_MINIMUM_CAR + String.valueOf(errorType.getDescription()));
+            throw new IllegalArgumentException(COUNT_MINIMUM_CAR + errorType.getDescription());
         }
 
         String[] arrayNames = inputNames.split(SEPARATOR_CAR_NAME);
@@ -68,7 +65,7 @@ public class Game {
 
         if (!validateCarNamesLength(carNameList)) {
             errorType = ErrorMessages.NOT_ENOUGH_CAR_NUMBER;
-            throw new IllegalArgumentException(COUNT_MINIMUM_CAR + String.valueOf(errorType.getDescription()));
+            throw new IllegalArgumentException(COUNT_MINIMUM_CAR + errorType.getDescription());
         }
 
         if (!validateCarNameDuplication(carNameList)) {
@@ -82,7 +79,7 @@ public class Game {
     }
 
     public void inputRoundNumber() {
-        System.out.print(MESSAGE_ASK_TRY);
+        System.out.print(GameMessages.MESSAGE_ASK_TRY.getMessage());
         String inputRoundNumber = Console.readLine();
 
         validateIsOnlyNumber(inputRoundNumber);
@@ -98,7 +95,7 @@ public class Game {
     }
 
     public void proceedEachRound() {
-        System.out.print(MESSAGE_RACE_RESULT);
+        System.out.print(GameMessages.MESSAGE_RACE_RESULT.getMessage());
 
         for (int i = 0; i < roundNumber; i++) {
             for (Car car : carList) {
@@ -125,7 +122,7 @@ public class Game {
 
     public void announceWinner() {
         String winnerListWithComma = String.join(", ", winnerList);
-        System.out.print(MESSAGE_ANNOUNCE_WINNER + winnerListWithComma);
+        System.out.print(GameMessages.MESSAGE_ANNOUNCE_WINNER.getMessage() + winnerListWithComma);
         gameStatus = GameStatus.END_OF_RACING_GAME;
     }
 
