@@ -2,6 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.domain.result.RacingGameStatistics;
+import racingcar.domain.winner.Winners;
 
 public class OutputView {
 
@@ -22,8 +23,8 @@ public class OutputView {
         }
     }
 
-    public static void showWinners(List<String> winners) {
+    public static void showWinners(Winners winners) {
         System.out.println();
-        System.out.println(Messages.WINNER_MESSAGE + String.join(Messages.COMMA, winners));
+        System.out.println(winners.getWinnersMessage());
     }
 }

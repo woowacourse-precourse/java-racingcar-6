@@ -5,6 +5,7 @@ import racingcar.circuit.Circuit;
 import racingcar.domain.car.Car;
 import racingcar.domain.result.RacingGameStatistics;
 import racingcar.domain.trial.Trial;
+import racingcar.domain.winner.Winners;
 import racingcar.game.validate.BlankTrialValidator;
 import racingcar.game.validate.EmptyCarNamesValidator;
 import racingcar.game.validate.IntegerTrialValidator;
@@ -40,7 +41,7 @@ public class RacingGame {
 
     private void selectWinner(Trial trial, RacingGameStatistics results) {
         if (trial.isExhausted()) {
-            List<String> winners = results.getWinners();
+            Winners winners = results.getWinners();
             OutputView.showWinners(winners);
         }
     }

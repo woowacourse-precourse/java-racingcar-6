@@ -3,6 +3,7 @@ package racingcar.domain.result;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.winner.Winners;
 
 public record RacingGameStatistics(List<RacingCarResult> racingCarResults) {
 
@@ -12,9 +13,10 @@ public record RacingGameStatistics(List<RacingCarResult> racingCarResults) {
         return racingCarResults.stream().map(RacingCarResult::getResultMessage).collect(Collectors.toList());
     }
 
-    public List<String> getWinners() {
+    public Winners getWinners() {
         Integer bestLocation = getBestLocation();
-        return selectWinnerWithBestPosition(bestLocation);
+        List<String> winnerNames = selectWinnerWithBestPosition(bestLocation);
+        return new Winners(winnerNames);
     }
 
     private Integer getBestLocation() {

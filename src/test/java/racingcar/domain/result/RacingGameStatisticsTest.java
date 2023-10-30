@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import racingcar.domain.winner.Winners;
 
 class RacingGameStatisticsTest {
 
@@ -15,9 +16,9 @@ class RacingGameStatisticsTest {
     @MethodSource("getRacingCarResultsAndWinners")
     @ParameterizedTest(name = "결과 : {0}, 우승자 : {1}")
     void getWinners(RacingGameStatistics racingGameStatistics, List<String> answerWinners) {
-        List<String> winners = racingGameStatistics.getWinners();
+        Winners winners = racingGameStatistics.getWinners();
 
-        Assertions.assertThat(winners).isEqualTo(answerWinners);
+        Assertions.assertThat(winners.getWinnersMessage()).contains(answerWinners);
     }
 
     static Stream<Arguments> getRacingCarResultsAndWinners() {
