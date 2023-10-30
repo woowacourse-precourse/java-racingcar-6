@@ -8,16 +8,13 @@ public class Car {
         information = new Information(name);
     }
 
-    void move() {
-        if (moveSuccessfully()) {
+    void move(int speed) {
+        if (moveSuccessfully(speed)) {
             information.update();
         }
     }
 
-    private boolean moveSuccessfully() {
-        int speed;
-
-        speed = Randoms.pickNumberInRange(0,9);
+    private boolean moveSuccessfully(int speed) {
         return (speed >= 4);
     }
 
