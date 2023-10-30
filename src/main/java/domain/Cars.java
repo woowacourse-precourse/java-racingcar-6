@@ -40,6 +40,10 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
+    public Winners generateWinners() {
+        return new Winners(judgeWinner());
+    }
+
 
     private int getMaxProgress() {
         List<Integer> progresses = this.cars.stream()
