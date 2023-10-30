@@ -137,4 +137,33 @@ public class GameTest {
         assertThatThrownBy(() -> game.count())
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void testGameResult(){
+        Game game = new Game();
+
+        int randNumber = game.randomNumber(5);
+
+        List<String> people = game.addPerson("user1,user2");
+
+        List<Car> carList = game.addCar(people);
+
+        systemIn("3");
+        int count = game.count();
+
+        game.gameResult(carList, randNumber, count);
+
+        assertThat(getOutput())
+                .isEqualTo("시도할 횟수는 몇회인가요?\n" +
+                        "실행 결과\n" +
+                        "user1 : -\n" +
+                        "user2 : -\n" +
+                        "\n" +
+                        "user1 : --\n" +
+                        "user2 : --\n" +
+                        "\n" +
+                        "user1 : ---\n" +
+                        "user2 : ---\n" +
+                        "\n");
+    }
 }

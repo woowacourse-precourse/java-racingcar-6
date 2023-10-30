@@ -95,4 +95,13 @@ public class Game {
         }
     }
 
+    public void gameResult(List<Car> carList, int randNumber, int count){
+        System.out.println("실행 결과");
+        for(int i = 0; i < count; i++){
+            move(carList, randNumber);
+            result(carList);
+            System.out.println();
+        }
+    }
+
 }
