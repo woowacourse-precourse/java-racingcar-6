@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class WinnerFinder {
-
     public void printWinner(List<String[]> cars) {
         int max = findMaxLength(cars);
         findWinners(cars, max);
