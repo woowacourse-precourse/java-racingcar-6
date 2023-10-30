@@ -18,7 +18,7 @@ public class CarNameValidator {
         Integer minLengthValue = (Integer) MIN_LENGTH.getValue();
         Integer maxLengthValue = (Integer) MAX_LENGTH.getValue();
 
-        if (carName.length() <= minLengthValue || carName.length() >= maxLengthValue) {
+        if (carName.length() < minLengthValue || carName.length() > maxLengthValue) {
             throw new CarNameException(LENGTHMESSAGE.getMessage(carName));
         }
     }
