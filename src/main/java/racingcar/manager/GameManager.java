@@ -18,6 +18,7 @@ public class GameManager {
 
     private int getNumberOfMoves(){
         String numberOfMoves = gameView.readNumberOfMoves();
+        Validator.validateNumberOfMoves(numberOfMoves);
         return Integer.parseInt(numberOfMoves);
     }
 
