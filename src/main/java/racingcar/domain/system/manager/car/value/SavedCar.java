@@ -1,8 +1,9 @@
-package racingcar.domain.system.manager.car;
+package racingcar.domain.system.manager.car.value;
 
 import java.util.Objects;
 import racingcar.domain.core.car.Car;
 import racingcar.domain.core.car.CarName;
+import racingcar.domain.system.manager.car.key.CarKey;
 
 public class SavedCar {
 

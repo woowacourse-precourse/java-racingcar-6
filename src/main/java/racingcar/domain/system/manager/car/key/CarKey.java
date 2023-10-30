@@ -1,4 +1,4 @@
-package racingcar.domain.system.manager.car;
+package racingcar.domain.system.manager.car.key;
 
 import racingcar.domain.core.car.CarName;
 

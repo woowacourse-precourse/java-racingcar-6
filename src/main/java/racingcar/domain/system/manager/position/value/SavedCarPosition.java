@@ -1,7 +1,8 @@
-package racingcar.domain.system.manager.position;
+package racingcar.domain.system.manager.position.value;
 
 import java.util.Objects;
-import racingcar.domain.system.manager.car.SavedCar;
+import racingcar.domain.system.manager.car.value.SavedCar;
+import racingcar.domain.system.manager.position.key.CarPositionKey;
 
 public class SavedCarPosition {
 
