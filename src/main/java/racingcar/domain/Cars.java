@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import org.junit.platform.commons.util.StringUtils;
-import racingcar.dto.CarDto;
 
 import java.util.*;
 
@@ -10,7 +9,6 @@ public class Cars {
     private List<Car> cars;
 
     public Cars(String inputNames) {
-
         String[] splitNames = inputNames.split(",", -1);
         validateBlank(splitNames);
 
@@ -22,15 +20,7 @@ public class Cars {
                 .toList();
     }
 
-    private String[] trimNames(String[] names) {
-
-        return Arrays.stream(names)
-                .map(String::trim)
-                .toArray(String[]::new);
-    }
-
     private void validateBlank(String[] names) {
-
         boolean hasBlank = Arrays.stream(names)
                 .filter(name -> StringUtils.isBlank(name))
                 .findFirst()
@@ -40,8 +30,13 @@ public class Cars {
         }
     }
 
-    private void validateDuplicateName(String[] names) {
+    private String[] trimNames(String[] names) {
+        return Arrays.stream(names)
+                .map(String::trim)
+                .toArray(String[]::new);
+    }
 
+    private void validateDuplicateName(String[] names) {
         Set<String> notDuplicateNames = new HashSet<>();
         Arrays.stream(names)
                 .forEach(name -> notDuplicateNames.add(name));
