@@ -5,8 +5,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car implements Comparable<Car>, Model {
     private final String name;
     private int moved;
-    Car(String name) {
+    private final int index;
+    Car(String name, int index) {
         this.name = name;
+        this.index = index;
     }
 
     public void moveOrStop() {
@@ -34,6 +36,9 @@ public class Car implements Comparable<Car>, Model {
 
     @Override
     public int compareTo(Car other) {
+        if (other.moved == this.moved) {
+            return this.index - other.index;
+        }
         return other.moved - this.moved;
     }
 }

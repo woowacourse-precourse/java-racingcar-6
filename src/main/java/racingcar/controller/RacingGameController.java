@@ -18,12 +18,11 @@ public class RacingGameController {
     }
 
     public void gameStart() {
-        List<String> participants = getParticipantsFromUser();
-        List<Car> cars = generateCarList(participants);
+        List<Car> cars = generateCarList();
 
-        updateAndRecordCarStatus(cars);
+        updateRaceStatus(cars);
 
-        judgeAndRecordWinner(cars);
+        judgeWinner(cars);
 
         outputView.printResult();
     }
@@ -32,15 +31,18 @@ public class RacingGameController {
         return inputView.getUserInputName();
     }
 
-    private List<Car> generateCarList(List<String> participants) {
+    private List<Car> generateCarList() {
+        List<String> participants = getParticipantsFromUser();
+
         List<Car> cars = new ArrayList<>();
+        int index = 0;
         for (String name:participants) {
-            cars.add(Model.generateCar(name));
+            cars.add(Model.generateCar(name, index++));
         }
         return cars;
     }
 
-    private void updateAndRecordCarStatus(List<Car> cars) {
+    private void updateRaceStatus(List<Car> cars) {
         int tryCount = inputView.getUserInputCount();
         while (tryCount-- > 0) {
             cars.forEach(Car::moveOrStop);
@@ -48,7 +50,7 @@ public class RacingGameController {
         }
     }
 
-    private void judgeAndRecordWinner(List<Car> cars) {
+    private void judgeWinner(List<Car> cars) {
         Rank rank = Model.generateRank(cars);
         outputView.recordWinner(rank.getWinnerList());
     }
