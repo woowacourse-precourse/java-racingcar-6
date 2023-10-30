@@ -1,6 +1,7 @@
 package racingcar.util;
 
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -23,6 +24,10 @@ public abstract class IOTest {
     protected final void printOutput() {
         System.setOut(standardOut);
         System.out.println(output());
+    }
+
+    protected void input(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
 
     protected final String output() {
