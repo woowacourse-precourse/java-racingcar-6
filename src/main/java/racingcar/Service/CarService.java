@@ -9,10 +9,9 @@ import racingcar.Domain.Car;
 import racingcar.Domain.RacingCars;
 
 public class CarService {
-    private final RacingCars racingCars;
 
-    public CarService(RacingCars racingCars) {
-        this.racingCars = racingCars;
+    public void inputCarNames(String carNames) {
+        RacingCars racingCars = RacingCars.create(carNames);
     }
 
     public static List<Car> stringToList(final String carNames) {

@@ -26,14 +26,14 @@ public class RacingCarController {
     public void carRacing() {
         // 자동차 이름 입력
         String carNames = inputView.inputCar();
-        RacingCars racingCars = RacingCars.create(carNames);
+        carService.inputCarNames(carNames);
 
         // 경주 횟수 입력
         int raceCount = inputView.inputRaceTime();
-        Race race = new Race(raceCount);
+        raceService.inputRaceCount(raceCount);
 
         // 경주 시작
-        int currentRace = 0;
+//        int currentRace = 0;
 //        while (!raceService.isRaceOver(currentRace)) {
 //            racingCars.race();
 //            currentRace++;
