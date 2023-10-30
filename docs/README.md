@@ -34,12 +34,20 @@
 
 ##
 
-#### 경주 1회 결과를 담고 있는 역할 (OneGameResultDto)
+#### 경주 1회 결과들을 담고 있는 역할 (OneGameResultsDto)
 
 - [x] 이름 리스트 getter
 - [x] 움직임 횟수 리스트 getter
 - [x] 자동차들을 이름 리스트로 매핑하는 기능
 - [x] 자동차들을 움직임 횟수 리스트로 매핑하는 기능
+
+##
+
+#### 경주 1회 결과를 담고 있는 역할 (ResultDto)
+
+- [ ] 필드: String name, Long totalMoveCount
+- [ ] 이름 getter
+- [ ] 움직임 횟수 getter
 
 ##
 
