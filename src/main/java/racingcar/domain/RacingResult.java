@@ -29,16 +29,6 @@ public class RacingResult {
         return Collections.unmodifiableList(carStatuses);
     }
 
-    public void createResult() {
-        String result = "";
-        for (CarStatusDto carStatus : carStatuses) {
-            String movement = "-".repeat(carStatus.position());
-            result += String.format("%s : %s\n", carStatus.name(), movement);
-        }
-        result += "\n";
-        System.out.println(result);
-    }
-
     private int getMaxPosition() {
         return carStatuses.stream()
                 .mapToInt(CarStatusDto::position)
