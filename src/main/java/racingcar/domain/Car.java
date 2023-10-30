@@ -28,10 +28,6 @@ public class Car {
         return this.position == furtherDistance;
     }
 
-    public void registerOnWinnerList(List<String> winnerList) {
-        carName.writeOnWinnerList(winnerList);
-    }
-
     public Winner recognizeAsWinner() {
         return carName.registerAsWinner();
     }
