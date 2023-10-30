@@ -19,13 +19,18 @@ public class DataInputOutput {
     public void userInputCarsInfo() {
         StringTokenizer tokenizer = new StringTokenizer(Console.readLine(), ",");
         String curStr;
+        List<String> duplicateCheck = new ArrayList<String>();
+
         while (tokenizer.hasMoreTokens()) {
             curStr = tokenizer.nextToken();
             validate.validateEmptySpace(curStr);
+            validate.validateLength(curStr, 5);
+            duplicateCheck.add(curStr);
             Car newCar = new Car();
             newCar.makeCar(curStr);
             this.carList.add(newCar);
         }
+        validate.validateDuplicate(duplicateCheck);
     }
 
     public void userInputMovingInfo() {
