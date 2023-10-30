@@ -9,7 +9,7 @@ public class Car {
 
     public void setCarName(String name) {
         divideName(name);
-        Validation.nameLimitLength(carName);
+        Validation.name(carName);
     }
 
     public List<String> getCarName() {

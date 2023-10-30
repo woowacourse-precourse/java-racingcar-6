@@ -14,7 +14,7 @@ class ValidationTest {
     public void 이름_길이_5자리_이하만_가능(){
         List<String> input1 = Arrays.asList("JiHun","Sonata");
 
-        assertThatThrownBy(() -> Validation.nameLimitLength(input1))
+        assertThatThrownBy(() -> Validation.name(input1))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름은 5자리 이하만 가능");
     }
