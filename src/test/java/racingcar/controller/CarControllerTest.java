@@ -1,13 +1,11 @@
 package racingcar.controller;
 
 
-import java.util.List;
 import java.util.function.Supplier;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.carmove.CarMoveReader;
 
@@ -17,8 +15,8 @@ class CarControllerTest {
 
     @BeforeEach
     void init() {
-        Cars cars = new Cars(List.of(new Car("ONE"), new Car("TWO")));
-        carController = new CarController(cars, new CarMoveReader(1));
+        Cars cars = Cars.makeCars("ONE,TWO");
+        carController = new CarController(cars, CarMoveReader.makeCarMoveReader("1"));
     }
 
     @Test
