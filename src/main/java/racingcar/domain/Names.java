@@ -15,7 +15,6 @@ public class Names {
         }
         new Validator().names(nameList);
 
-        this.nameList = nameList; //검증 받은 이름 리스트
     }
 
 }
