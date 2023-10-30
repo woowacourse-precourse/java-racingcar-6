@@ -5,7 +5,7 @@ import racingcar.domain.RacingPlayer;
 
 public class OutputView {
     public void outputWinners(List<RacingPlayer> players){
-        for(RacingPlayer player : players){
+        for(RacingPlayer player : players) {
             StringBuilder score = new StringBuilder();
 
             score.append(player.getName()).append(" : ");
@@ -13,5 +13,9 @@ public class OutputView {
 
             System.out.println(score);
         }
+    }
+
+    public void outputWinners(String winner){
+        System.out.println(winner);
     }
 }
