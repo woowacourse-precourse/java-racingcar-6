@@ -3,7 +3,7 @@ package study;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.Test;
-import racingcar.Cars;
+import racingcar.Model.Cars;
 
 public class CarTest {
 

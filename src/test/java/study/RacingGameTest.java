@@ -3,7 +3,7 @@ package study;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import racingcar.Cars;
+import racingcar.Model.Cars;
 
 public class RacingGameTest {
 

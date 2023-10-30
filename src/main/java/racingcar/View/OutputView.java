@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.View;
 
 import java.util.ArrayList;
+import racingcar.Constants;
+import racingcar.Model.Cars;
 
 public class OutputView {
     private final static String DASH = "-";

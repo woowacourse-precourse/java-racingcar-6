@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.Model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import racingcar.Constants;
 
 public class GameModel {
     private int generateRandomNumber() {

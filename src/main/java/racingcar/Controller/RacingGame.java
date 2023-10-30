@@ -1,6 +1,10 @@
-package racingcar;
+package racingcar.Controller;
 
 import java.util.ArrayList;
+import racingcar.Model.Cars;
+import racingcar.Model.GameModel;
+import racingcar.View.InputView;
+import racingcar.View.OutputView;
 
 public class RacingGame {
     private final GameModel gameModel;
@@ -35,7 +39,7 @@ public class RacingGame {
         }
     }
 
-    public void racingGame() {
+    public void startGame() {
         initializeGame();
 
         ArrayList<Cars> racingPlayers = insertPlayer();

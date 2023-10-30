@@ -3,8 +3,8 @@ package study;
 import java.util.ArrayList;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.Cars;
-import racingcar.GameModel;
+import racingcar.Model.Cars;
+import racingcar.Model.GameModel;
 
 public class GameModelTest {
     GameModel gameModel = new GameModel();

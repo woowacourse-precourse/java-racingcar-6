@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Model;
 
 import static racingcar.Validation.validateLengthOfName;
 

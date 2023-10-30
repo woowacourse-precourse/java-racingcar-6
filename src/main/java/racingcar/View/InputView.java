@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.View;
 
 import static racingcar.Utils.splitCarName;
 import static racingcar.Validation.isEmpty;
