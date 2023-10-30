@@ -32,7 +32,7 @@ public class CarStorage {
     public List<Car> getWinners(Car leadingCar) {
         return cars.values()
                 .stream()
-                .filter(car -> car.isTieWith(car))
+                .filter(car -> car.isTieWith(leadingCar))
                 .toList();
     }
 }
