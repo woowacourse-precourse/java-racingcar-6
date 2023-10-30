@@ -1,7 +1,9 @@
 package racingcar.controller;
 
 import racingcar.model.RacingCar;
+import racingcar.model.RacingCarGameModel;
 import racingcar.view.input.InputView;
+import racingcar.view.output.OutputView;
 import utils.Console;
 
 import java.util.ArrayList;
@@ -10,55 +12,63 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 import static racingcar.contant.GameNotice.EXECUTE_RESULT;
-import static racingcar.contant.GameNotice.NOTICE_WINNER_RESULT;
 import static racingcar.view.output.OutputView.printGameNotice;
+import static utils.StringUtils.splitStringToArray;
 
 public class RacingCarGame {
-    private List<RacingCar> racingCarList;
-    private int roundNumber;
+    private InputView inputView;
+    private OutputView outputView;
+    private RacingCarGameModel racingCarGameModel;
 
-    private void setRoundNumber(int roundNumber) {
-        this.roundNumber = roundNumber;
+    public RacingCarGame(InputView inputView, OutputView outputView, RacingCarGameModel racingCarGameModel) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+        this.racingCarGameModel = racingCarGameModel;
+    }
+
+    private List<RacingCar> generateRacingCar(String carNames) {
+        List<String> carNameList = splitStringToArray(carNames, ",");
+        List<RacingCar> racingCarList = new ArrayList<RacingCar>();
+
+        for(String carName: carNameList) {
+            racingCarList.add(new RacingCar(carName));
+        }
+
+        return racingCarList;
     }
 
     public void start() {
-        String carNames = InputView.inputCarName();
+        String carNames = inputView.inputCarName();
         Console.println(carNames);
 
-        String roundNumber = InputView.inputRoundNumber();
+        racingCarGameModel.setCarList(generateRacingCar(carNames));
+
+        String roundNumber = inputView.inputRoundNumber();
         Console.println(roundNumber);
 
-        this.roundNumber = parseInt(roundNumber);
+        racingCarGameModel.setRoundNumber(parseInt(roundNumber));
 
         printGameNotice(EXECUTE_RESULT);
 
-        // racingCarList
-        String[] splitCarNames = carNames.split(",");
-        this.racingCarList = new ArrayList<RacingCar>();
-
-        for(String carName: splitCarNames) {
-            RacingCar racingCar = new RacingCar(carName);
-            this.racingCarList.add(racingCar);
+        while(racingCarGameModel.getRoundNumber() > 0) {
+            round();
         }
 
-        while(this.roundNumber > 0) {
-            for(RacingCar car: racingCarList) {
-                car.moveCar();
-            }
+        findWinner();
+    }
 
-            for(RacingCar car: racingCarList) {
-                String moved = "";
-                for(int i = 0; i < car.getCarMoveCount(); i++) {
-                    moved = moved.concat("-");
-                }
-
-                Console.println(car.name + " : " + moved);
-            }
-
-            this.roundNumber--;
+    private void round() {
+        List<RacingCar> racingCarList = racingCarGameModel.getCarList();
+        for(RacingCar car: racingCarList) {
+            car.moveCar();
+            outputView.printMovedCar(car);
         }
-        printGameNotice(NOTICE_WINNER_RESULT);
-        String winner;
+
+        racingCarGameModel.decrementRoundNumber();
+    }
+
+    private void findWinner() {
+        List<RacingCar> racingCarList = racingCarGameModel.getCarList();
 
         List<Integer> movedList = new ArrayList<Integer>();
         for(RacingCar car: racingCarList) {
@@ -73,10 +83,7 @@ public class RacingCarGame {
 
         List<String> winnerList = new ArrayList<String>();
 
-
         racingCarList.forEach(car -> winnerList.add(car.name));
-
-
-        Console.print(String.join(", ", winnerList));
+        outputView.printWinner(winnerList);
     }
 }
