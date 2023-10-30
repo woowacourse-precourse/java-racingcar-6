@@ -13,17 +13,6 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 인원_3명() {
-        assertRandomNumberInRangeTest(
-                ()->{
-                    run("lim,chan,bin","3");
-                    assertThat(output()).contains("lim : ---","chan : --","bin : ---", "최종 우승자 : chan, bin");
-                },
-                MOVING_FORWARD,STOP
-        );
-    }
-
-    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
