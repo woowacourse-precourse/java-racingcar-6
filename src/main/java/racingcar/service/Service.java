@@ -8,6 +8,7 @@ import racingcar.domain.RandomNumberFactory;
 import racingcar.domain.TryNumber;
 
 public class Service {
+	private static final int MOVE_STANDARD = 4;
 	public void tryOnce(RacingCar racingCar, TryNumber tryNumber) {
 		tryEachCar(racingCar.getRacingCar());
 		tryNumber.decrease();
@@ -26,6 +27,6 @@ public class Service {
 	}
 
 	private boolean isMovable (int number) {
-		return number >= 4;
+		return number >= MOVE_STANDARD;
 	}
 }

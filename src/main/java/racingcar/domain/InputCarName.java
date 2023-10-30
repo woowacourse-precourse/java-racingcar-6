@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputCarName {
+	private static final String SPLITOR = ",";
 	private final List<String> carNameList;
 
 	public InputCarName(String input) {
@@ -17,7 +18,6 @@ public class InputCarName {
 	}
 
 	private List<String> toList(String input) {
-		return Arrays.stream(input.split(",")).toList();
+		return Arrays.stream(input.split(SPLITOR)).toList();
 	}
-
 }
