@@ -12,12 +12,14 @@ public class Racing {
         this.racer=racer;
     }
 
-    public Integer racingByRacer(){
+    public RoundScore racingByRacer(){
         if (racerForward(racerPickNumber())){
-            return RaceStatus.scoreWriteByRacer(racer, RoundScore.FORWARD);
+            RaceStatus.scoreWriteByRacer(racer, RoundScore.FORWARD);
+            return RoundScore.FORWARD;
         }
 
-        return RaceStatus.scoreWriteByRacer(racer, RoundScore.STOP);
+        RaceStatus.scoreWriteByRacer(racer, RoundScore.STOP);
+        return RoundScore.STOP;
     }
 
     private static boolean racerForward(PickNumber pickNumber){
