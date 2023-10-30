@@ -83,7 +83,7 @@ public class RacingCarTest {
                 outputManager.printCarPosition(car.getName(), car.getPosition());
             }
 
-            List<String> expectedOutputs = List.of("jamy : ", "risa : ", "jun : ");
+            List<String> expectedOutputs = List.of("jamy :", "risa :", "jun :");
             String actualOutput = outputStream.toString().trim();
 
             assertThat(actualOutput).contains(expectedOutputs);
