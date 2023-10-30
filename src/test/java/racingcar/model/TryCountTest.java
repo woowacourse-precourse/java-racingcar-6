@@ -1,14 +1,17 @@
 package racingcar.model;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.exception.NonPositiveIntException;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+@SuppressWarnings("NonAsciiCharacters")
 class TryCountTest {
 
     @CsvSource({"-1", "0", "as"})
@@ -17,6 +20,20 @@ class TryCountTest {
         // when & then
         assertThatThrownBy(() -> TryCount.from(count))
                 .isInstanceOf(NonPositiveIntException.class);
+    }
+
+    @CsvSource({"1, true", "2, false", "9, false"})
+    @ParameterizedTest
+    void 시도횟수가_0이하로_남으면_true를_반환한다(String count, boolean expected) {
+        // given
+        TryCount tryCount = TryCount.from(count);
+        tryCount.decrease();
+
+        // when
+        boolean result = tryCount.isEnd();
+
+        // then
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -39,6 +56,6 @@ class TryCountTest {
 
         // When & Then
         assertThat(result).isEqualTo(expected)
-               .hasSameHashCodeAs(expected);
+                .hasSameHashCodeAs(expected);
     }
 }
