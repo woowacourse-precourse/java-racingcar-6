@@ -35,4 +35,17 @@ public class MovingCountTest {
         Assertions.assertThat(currentMovingCount).isEqualTo(expectResult);
 
     }
+
+    @Test
+    public void 서로_다른_MovingCount_비교_테스트() {
+        //given
+        MovingCount movingCount1 = new MovingCount();
+        MovingCount movingCount2 = new MovingCount();
+
+        //when
+        boolean isEqual = movingCount1.equals(movingCount2);
+
+        //then
+        Assertions.assertThat(isEqual).isTrue();
+    }
 }
