@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.view.OutputView;
 
 public class Cars {
     private final List<Car> carList = new ArrayList<>();
