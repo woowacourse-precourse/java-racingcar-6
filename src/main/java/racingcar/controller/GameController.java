@@ -53,6 +53,13 @@ public class GameController {
     }
 
     private void validateDuplicateName(List<String> carNameList) {
+        int uniqueCarNameCount = (int) carNameList.stream()
+                .distinct()
+                .count();
+
+        if (uniqueCarNameCount != carNameList.size()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void announceWinner(List<Car> carList) {
