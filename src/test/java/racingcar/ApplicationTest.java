@@ -43,6 +43,15 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("이름에 대한 예외 처리-공백")
+    void 이름에_대한_예외_처리_공백(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(" "))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     @DisplayName("이름 입력 도움 문구 출력")
     void 이름입력_문구출력() {
         assertSimpleTest(() -> {
