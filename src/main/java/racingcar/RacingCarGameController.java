@@ -1,6 +1,7 @@
 package racingcar;
 
 import com.sun.jdi.InvalidTypeException;
+import domain.Car;
 import domain.Cars;
 import dto.UserInputCarMoveCountDto;
 import service.CarMoveService;
@@ -8,6 +9,9 @@ import service.CarRacingWinnerService;
 import service.UserInputCarMoveCountFactory;
 import service.UserInputCarNameFactory;
 import ui.Input;
+import ui.Output;
+
+import java.util.List;
 
 public class RacingCarGameController {
 
@@ -42,10 +46,14 @@ public class RacingCarGameController {
         //5. 자동차 전진
         carMoveService.move(cars,userInputCarMoveCountDto);
 
-        //6. 우승자 판별
-        carRacingWinnerService.selectWinner(cars);
+        //6. 전진 결과 출력
+        Output.printResult(cars.getCars());
 
-        //7. 우승자 출력
+        //7. 우승자 판별
+        List<Car> carRacingWinner = carRacingWinnerService.selectWinner(cars);
+
+        //8. 우승자 출력
+        Output.printWinner(carRacingWinner);
 
     }
 }
