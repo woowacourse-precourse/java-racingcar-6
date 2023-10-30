@@ -20,5 +20,13 @@ public class Validator {
             }
         }
     }
+
+    public void validateInputRoundNum(String inputRoundNum) throws IllegalArgumentException {
+        try {
+            Integer.parseInt(inputRoundNum);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
 
