@@ -13,6 +13,7 @@ public class Validator {
     private final int MIN_CAR_NUMBER = 2;
     private final String SEPARATOR = ",";
     private final String SPACE = " ";
+    private final int MIN_ATTEMPT_NUMBER = 1;
 
     public Validator() {
     }
@@ -28,6 +29,13 @@ public class Validator {
         }
         if (validator.ensureNumberOfCars(carNames)) {
             throw new IllegalArgumentException("[ERROR] 자동차 개수는 2개 이상여야 합니다.");
+        }
+    }
+
+    public void validateAttemptInput(String userInput) throws IllegalArgumentException {
+        int attemptNumber = Integer.valueOf(userInput);
+        if (ensureRange(attemptNumber)) {
+            throw new IllegalArgumentException("[ERROR] 1 이상의 숫자를 입력해주세요.");
         }
     }
 
@@ -69,6 +77,13 @@ public class Validator {
 
     public String removeSpace(String carName) {
         return carName.replaceAll(SPACE, "");
+    }
+
+    public boolean ensureRange(int attemptNumber) {
+        if (attemptNumber < MIN_ATTEMPT_NUMBER) {
+            return false;
+        }
+        return true;
     }
 
 }

@@ -13,6 +13,7 @@ public class RacingCarGame {
         String carNames = InputView.getCarNames();
         validator.validateCarNamesInput(carNames);
         String attempt = InputView.getNumberAttempted();
+        validator.validateAttemptInput(attempt);
     }
 
 }
