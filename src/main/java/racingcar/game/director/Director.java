@@ -1,7 +1,8 @@
-package racingcar.game;
+package racingcar.game.director;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.game.car.CarFactory;
 import racingcar.game.car.Car;
 import racingcar.game.inputgenerateManager.InputGenerateManager;
 import racingcar.game.outputgeneratemanager.OutputGenerateManager;

@@ -6,6 +6,9 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import racingcar.game.car.Car;
+import racingcar.game.car.CarFactory;
+import racingcar.game.director.Rule;
+import racingcar.game.director.Simulator;
 import racingcar.game.inputgenerateManager.InputGenerateManagerImpl;
 
 class RuleTest {

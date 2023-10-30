@@ -1,8 +1,8 @@
 package racingcar.game.outputgeneratemanager;
 
 import java.util.List;
-import racingcar.game.Round;
-import racingcar.game.Rule;
+import racingcar.game.director.Round;
+import racingcar.game.director.Rule;
 import racingcar.game.car.Car;
 
 public class OutputGenerateManager {

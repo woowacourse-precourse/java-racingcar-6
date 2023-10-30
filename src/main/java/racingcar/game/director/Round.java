@@ -1,4 +1,4 @@
-package racingcar.game;
+package racingcar.game.director;
 
 import java.util.ArrayList;
 import java.util.List;

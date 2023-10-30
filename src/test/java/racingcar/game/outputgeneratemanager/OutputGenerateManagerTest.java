@@ -9,10 +9,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import racingcar.game.Rule;
-import racingcar.game.Simulator;
+import racingcar.game.director.Rule;
+import racingcar.game.director.Simulator;
 import racingcar.game.car.Car;
-import racingcar.game.CarFactory;
+import racingcar.game.car.CarFactory;
 import racingcar.game.inputgenerateManager.InputGenerateManagerImpl;
 
 class OutputGenerateManagerTest {
