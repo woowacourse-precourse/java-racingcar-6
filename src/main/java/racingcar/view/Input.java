@@ -11,5 +11,8 @@ public class Input {
 		System.out.println(INPUT_CAR_NAMES_MESSAGE);
 		return Console.readLine();
 	}
-
+	public int rounds() {
+		System.out.println(INPUT_ROUND_MESSAGE);
+		return Integer.parseInt(Console.readLine());
+	}
 }
