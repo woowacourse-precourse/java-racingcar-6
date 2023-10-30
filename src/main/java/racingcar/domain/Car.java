@@ -8,7 +8,7 @@ public class Car {
     private Name name;
     private Move move;
 
-    Set<String> carNames = new HashSet<>();
+    private static Set<String> carNames = new HashSet<>();
 
     public Car(String carName) {
         validateDuplicatedName(carName);
