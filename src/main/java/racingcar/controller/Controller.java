@@ -1,8 +1,11 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 import racingcar.domain.RacingGame;
 import racingcar.service.CarService;
 import racingcar.service.RacingGameService;
+import racingcar.view.InputView;
 
 public class Controller {
     private final RacingGameService racingGameService;
@@ -14,6 +17,17 @@ public class Controller {
     }
 
     public void startRacingGame() {
-        RacingGame racingGame = racingGameService.createNewGame();
+        List<Long> carsIdList = getCarsIdList();
+        int maxGameCount = getMaxGameCount();
+        RacingGame racingGame = racingGameService.createNewGame(carsIdList, maxGameCount);
+    }
+
+    private List<Long> getCarsIdList() {
+        String nameString = getNameStringByUserInput();
+    }
+
+    private String getNameStringByUserInput() {
+        InputView.requestCarName();
+        return Console.readLine();
     }
 }

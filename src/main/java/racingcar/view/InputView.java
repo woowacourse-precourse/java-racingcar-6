@@ -9,7 +9,7 @@ public class InputView {
         System.out.println(ViewMessage.INPUT_NAME);
     }
 
-    public static void requestNumberOfTrial() {
+    public static void requestNumberOfGameCount() {
         System.out.println(ViewMessage.INPUT_NUMBER_OF_TIMES);
     }
 
