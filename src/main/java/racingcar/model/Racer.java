@@ -19,6 +19,7 @@ public class Racer {
     public Racer(String value) {
         validate(value);
         this.racer = Arrays.stream(value.split(Message.NAME_SEPARATOR))
+                .map(String::trim)
                 .map(Car::ofStartingPoint)
                 .toList();
     }
