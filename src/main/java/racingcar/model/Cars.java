@@ -2,12 +2,15 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import racingcar.util.Validate;
 
 public class Cars{
     private List<Car> cars;
     public Cars(List<Car> cars) {
         Validate.carNamesDuplicate(cars);
+        Validate.carNameIsOne(cars);
+
         this.cars = cars;
     }
 

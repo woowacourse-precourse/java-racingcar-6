@@ -2,9 +2,11 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import racingcar.model.Cars;
 import racingcar.model.Car;
 import racingcar.util.Validate;
@@ -66,8 +68,6 @@ public class CarController {
         Validate.inputStringNotContainsComma(inputTemp);
         Validate.lastCharIsComma(inputTemp); // 구분자 뒤 자동치 이름이 없는 경우 유효성 검사
         carList = splitCarNamesReturnList(inputTemp); // , 를 기준으로 구분하여 List<String> 생성
-
-        Validate.carNameIsOne(carList);
 
         return listToCarModel(carList);
     }
