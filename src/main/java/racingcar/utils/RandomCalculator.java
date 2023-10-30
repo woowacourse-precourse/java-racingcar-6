@@ -11,9 +11,8 @@ public class RandomCalculator {
         int num = Randoms.pickNumberInRange(MIN_VALUE, MAX_VALUE);
         if (num >= 4) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
 }
