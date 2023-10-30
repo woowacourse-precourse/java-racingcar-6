@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RandomNumberGenerator {
-    public List<Integer> generateNumbersInRange(int startInclusive, int endInclusive, int count) {
+    public List<Integer> createRandomNumberListInRange(int startInclusive, int endInclusive, int count) {
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            result.add(Randoms.pickNumberInRange(startInclusive, endInclusive));
+            result.add(createOneRandomNumberInRange(startInclusive, endInclusive));
         }
         return result;
+    }
+
+    protected int createOneRandomNumberInRange(int startInclusive, int endInclusive) {
+        return Randoms.pickNumberInRange(startInclusive, endInclusive);
     }
 }

@@ -41,6 +41,6 @@ public final class RacingGame {
     }
 
     private List<Integer> getRandomNumbers() {
-        return randomNumberGenerator.generateNumbersInRange(MIN_RANGE, MAX_RANGE, cars.totalCars());
+        return randomNumberGenerator.createRandomNumberListInRange(MIN_RANGE, MAX_RANGE, cars.totalCars());
     }
 }

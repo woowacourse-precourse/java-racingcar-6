@@ -11,7 +11,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.RandomNumberGenerator;
@@ -32,7 +31,7 @@ class RacingGameTest {
 
         RandomNumberGenerator randomNumberGenerator = mock(RandomNumberGenerator.class);
 
-        when(randomNumberGenerator.generateNumbersInRange(0, 9, 3))
+        when(randomNumberGenerator.createRandomNumberListInRange(0, 9, 3))
                 .thenReturn(List.of(5, 4, 3))
                 .thenReturn(List.of(1, 4, 9))
                 .thenReturn(List.of(4, 5, 9))
