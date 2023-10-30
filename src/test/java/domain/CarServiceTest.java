@@ -2,7 +2,9 @@ package domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,8 +29,10 @@ public class CarServiceTest {
                 new Car("jun", 3)
         );
         CarService carService = new CarService(cars);
-        List<Integer> winners = carService.decideWinner();
-        assertThat(winners).isEqualTo(List.of(2));
+        List<String> winnersNames = carService.decideWinner().stream()
+                .map(Car::getName)
+                .toList();
+        assertThat(winnersNames).isEqualTo(List.of("jun"));
 
         cars = List.of(
                 new Car("pobi", 2),
@@ -36,7 +40,9 @@ public class CarServiceTest {
                 new Car("jun", 1)
         );
         carService = new CarService(cars);
-        winners = carService.decideWinner();
-        assertThat(winners).isEqualTo(List.of(0, 1));
+        winnersNames = carService.decideWinner().stream()
+                .map(Car::getName)
+                .toList();
+        assertThat(winnersNames).isEqualTo(List.of("pobi", "woni"));
     }
 }
