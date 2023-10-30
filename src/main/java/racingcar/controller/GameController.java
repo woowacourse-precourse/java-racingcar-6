@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import static racingcar.view.InputView.*;
 import static racingcar.view.OutputView.printRoundResult;
+import static racingcar.view.OutputView.printWinners;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,6 @@ public class GameController {
             referee.proceedRound();
             printRoundResult(cars);
         }
-
+        printWinners(referee.determineWinner());
     }
 }
