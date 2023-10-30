@@ -5,12 +5,19 @@ public class Car implements Comparable<Car>{
     private int position;
 
     public Car(String name) {
-        this.name = name;
+        this(name, 0);
     }
 
     Car(String name, int position) {
+        validateName(name);
         this.name = name;
         this.position = position;
+    }
+
+    private void validateName(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 
     String getName() {
