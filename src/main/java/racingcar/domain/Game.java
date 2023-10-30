@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.List;
 import racingcar.util.StringUtils;
 import racingcar.util.io.InputUtils;
 import racingcar.util.io.InputValidator;
@@ -11,15 +12,15 @@ public class Game {
 
     public void start() {
         OutputUtils.printCarInputMessage();
-        String carNameString = getCarsInfo();
+        List<String> carNameList = getCarsInfo();
         OutputUtils.printMoveInputMessage();
         String moveNumberString = getMoveInfo();
-        race(carNameString, moveNumberString);
+        race(carNameList, moveNumberString);
     }
 
-    public void race(String car, String move) {
+    public void race(List<String> names, String move) {
         OutputUtils.printExecutionResultMessage();
-        Cars cars = new Cars(car);
+        Cars cars = new Cars(names);
         moveNumber = StringUtils.toInteger(move);
 
         while (moveNumber > 0) {
@@ -35,11 +36,10 @@ public class Game {
         OutputUtils.printFinalWinners(winners);
     }
 
-    public String getCarsInfo() {
+    public List<String> getCarsInfo() {
         String carNames = InputUtils.getCarsName();
         InputValidator.validateCarNameInput(carNames);
-        InputValidator.validateCarNameLength(carNames);
-        return carNames;
+        return StringUtils.toCarNameList(carNames);
     }
 
     public String getMoveInfo() {

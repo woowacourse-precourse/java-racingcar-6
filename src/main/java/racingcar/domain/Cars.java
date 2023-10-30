@@ -11,17 +11,12 @@ public class Cars {
 
     private List<Car> cars;
 
-    public Cars(String carName) {
+    public Cars(List<String> carName) {
         this.cars = toCarList(carName);
     }
 
-    private List<Car> toCarList(String carName) {
-        List<String> carNameList = StringUtils.toCarNameList(carName);
-        List<Car> cars = new ArrayList<>();
-        for (String name : carNameList) {
-            Car car = new Car(name);
-            cars.add(car);
-        }
+    private List<Car> toCarList(List<String> names) {
+        List<Car> cars = names.stream().map(Car::new).collect(toList());
         return cars;
     }
 
