@@ -9,6 +9,10 @@ import java.util.List;
 
 public class CarService {
 
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_RANDOM_NUMBER = 1;
+    private static final int MAX_RANDOM_NUMBER = 9;
+    private static final int MOVE_THRESHOLD = 4;
     private final CarView carView;
 
     public CarService(CarView carView) {
@@ -28,7 +32,7 @@ public class CarService {
     }
 
     private void validateName(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("이름은 5자 이하여야 합니다.");
         }
     }
@@ -50,7 +54,7 @@ public class CarService {
     }
 
     private static boolean canMove() {
-        int randNumber = Randoms.pickNumberInRange(1, 9);
-        return randNumber >= 4;
+        int randNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        return randNumber >= MOVE_THRESHOLD;
     }
 }
