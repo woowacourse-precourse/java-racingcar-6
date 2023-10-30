@@ -49,15 +49,17 @@ class UserInputExceptionTest {
 
     @Test
     void 중복된_값이_존재_할_때(){
-        String input = "pobi,woni,woni";
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserInputException.isDuplicate(input));
+        String input = "jun,pobi,woni";
+        List<String> carName = Arrays.asList(input.split(","));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserInputException.isDuplicate(carName));
         assertEquals(DUPLICATE_MESSAGE, exception.getMessage());
     }
 
     @Test
     void 중복된_값이_존재하지_않을_때() {
-        String input = "pobi,jun,woni";
-        assertDoesNotThrow(() -> UserInputException.isDuplicate(input));
+        String input = "jun,jun,woni";
+        List<String> carName = Arrays.asList(input.split(","));
+        assertDoesNotThrow(() -> UserInputException.isDuplicate(carName));
     }
 
     @Test
