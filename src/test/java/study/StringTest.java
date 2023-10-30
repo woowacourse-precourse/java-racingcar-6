@@ -1,11 +1,12 @@
 package study;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
@@ -99,6 +100,15 @@ public class StringTest {
     @ValueSource(strings = {" ", "   ", "\t", "\n"})
     void NullAndEmptySource_을_활용한_테스트(String text) {
         assertTrue(text == null || text.trim().isEmpty());
+    }
+
+
+    @Test
+    void assertThrows_을_이용한_예외를_테스트() {
+        String input = "abc";
+
+        // when then
+        assertThrows(StringIndexOutOfBoundsException.class, () -> input.charAt(5));
     }
 
 }
