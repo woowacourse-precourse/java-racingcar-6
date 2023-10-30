@@ -1,6 +1,8 @@
 package racingcar;
 
 public class RacingCar {
+    public static final int MIN_MOVE_WEIGHT = 0;
+    public static final int MAX_MOVE_WEIGHT = 9;
     private final int MOVE_THRESHOLD = 4;
     private final String name;
     private int forwardCount;

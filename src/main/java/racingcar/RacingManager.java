@@ -35,9 +35,13 @@ public class RacingManager {
 
     public void moveRacingCars() {
         for (RacingCar racingCar : racingCars) {
-            int moveWeight = ng.generate(1, 9);
+            int moveWeight = createMoveWeight();
             racingCar.move(moveWeight);
         }
+    }
+
+    private int createMoveWeight() {
+        return ng.generate(RacingCar.MIN_MOVE_WEIGHT, RacingCar.MAX_MOVE_WEIGHT);
     }
 
     private void addRacingHistory() {
