@@ -42,12 +42,12 @@ public class RaceGame {
     }
   }
 
-  public void race(Consumer<List<RaceGameResult>> raceResultProcess) {
+  public void race(Consumer<List<RaceGameResult>> consumer) {
     while (round >= MINIMUM_ROUND) {
       List<RaceGameResult> raceResults = cars.stream()
           .map(car -> new RaceGameResult(car.getName(), car.move(formula)))
           .collect(Collectors.toList());
-      raceResultProcess.accept(raceResults);
+      consumer.accept(raceResults);
       round--;
     }
   }
