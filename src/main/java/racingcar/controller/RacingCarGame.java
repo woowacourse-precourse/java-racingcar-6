@@ -13,7 +13,7 @@ public class RacingCarGame {
   private final RacingCarGameConfig gameConfig;
 
   private RacingCarGame() {
-    this.gameConfig = RacingCarGameConfig.createRacingCarGameConfig(null, 5, 0, 9);
+    this.gameConfig = RacingCarGameConfig.createRacingCarGameConfig(5, 0, 9);
   }
 
   public static RacingCarGame createRacingCarGame() {
