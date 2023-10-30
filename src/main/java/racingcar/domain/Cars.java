@@ -49,7 +49,7 @@ public class Cars {
 
     private void hasComma(String name) {
         if(!name.contains(",")) {
-            throw new IllegalArgumentException("이름을 쉼표(,)로 구분해야 합니다. 또한, 2개 이상의 이름을 등록해야 합니다.");
+            throw new IllegalArgumentException("이름을 쉼표(,)로 구분해야 합니다. 또한, 최소 2대 이상의 자동차가 필요합니다.");
         }
     }
 }
