@@ -10,11 +10,7 @@ public class Application {
         OutputView outputView = new OutputView();
 
         GameController gameController = new GameController(inputView, outputView);
-        
-        try {
-            gameController.run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        gameController.run();
     }
 }

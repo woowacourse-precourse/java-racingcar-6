@@ -2,8 +2,10 @@ package racingcar.controller;
 
 import racingcar.controller.dto.request.CarNameDto;
 import racingcar.controller.dto.request.RaceCountDto;
+import racingcar.controller.dto.response.GameResultDto;
 import racingcar.controller.dto.response.RaceResultDto;
 import racingcar.model.Cars;
+import racingcar.model.GameResult;
 import racingcar.model.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -19,7 +21,14 @@ public class GameController {
 
     public void run() {
         RacingGame racingGame = initializeGame();
+        GameResult gameResult = playGame(racingGame);
+        afterGame(gameResult);
+    }
+
+    private GameResult playGame(RacingGame racingGame) {
         repeatPlayRace(racingGame);
+
+        return racingGame.getGameResult();
     }
 
     private RacingGame initializeGame() {
@@ -40,5 +49,9 @@ public class GameController {
 
             outputView.printRaceResult(new RaceResultDto(racingGame.getCarList()));
         }
+    }
+
+    private void afterGame(GameResult gameResult) {
+        outputView.printGameResult(new GameResultDto(gameResult.getWinnerCarsNameList()));
     }
 }

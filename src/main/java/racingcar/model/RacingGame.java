@@ -26,6 +26,10 @@ public class RacingGame {
         }
     }
 
+    public GameResult getGameResult() {
+        return GameResult.of(cars.getMaxPositionCars());
+    }
+
     public List<Car> getCarList() {
         return cars.getCarList();
     }
