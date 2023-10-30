@@ -21,9 +21,14 @@ public class RaceController {
     }
 
     public void run() {
+        Race race = initializeRace();
+        runRace(race);
+    }
+
+    private Race initializeRace() {
         Cars cars = initializeCars();
         int count = initializeCount();
-        runRace(cars, count);
+        return new Race(cars, count);
     }
 
     private int initializeCount() {
@@ -38,8 +43,7 @@ public class RaceController {
         return raceService.initializeCars(carNamesInput);
     }
 
-    private void runRace(Cars cars, int count) {
-        Race race = new Race(cars, count);
+    private void runRace(Race race) {
         while (race.play()) {
             List<Car> raceCars = raceService.runRace(race);
             outputView.carsDistanceOutput(raceCars);
