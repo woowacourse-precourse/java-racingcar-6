@@ -20,6 +20,8 @@ public class Car {
         this.position.increase();
     }
 
+    public Name getName() { return this.name; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

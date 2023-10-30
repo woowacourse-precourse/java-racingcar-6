@@ -20,6 +20,8 @@ public class Position implements Comparable<Position> {
         this.value = value;
     }
 
+    public int getValue() { return value; }
+
     public void increase() {
         this.value += 1;
     }
