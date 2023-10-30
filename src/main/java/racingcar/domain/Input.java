@@ -13,6 +13,10 @@ public class Input {
     }
 
     public static List<String> getSplitList(String str) {
-        return InputValidator.filterCarName(Arrays.asList(str.split(",")));
+        return InputValidator.filterCarName(Arrays.asList(carSplit(str)));
+    }
+
+    public static String[] carSplit(String str) {
+        return str.split(",");
     }
 }
