@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.domain.CarGroup;
-import racingcar.domain.CarManager;
 import racingcar.domain.MoveCount;
 import racingcar.util.RacingGuideMessage;
 import racingcar.view.InputView;
@@ -11,27 +10,32 @@ public class Race {
 
     InputView inputView;
     OutputView outputView;
-    CarManager carManager;
 
     public Race() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
-        this.carManager = new CarManager();
     }
 
     public void start() {
-        CarGroup carGroup = carManager.createCarList(inputCarNames());
-        outputView.renderRace(carGroup, MoveCount.valueOf(inputMoveCount()));
+        CarGroup carGroup = setupCarGroup();
+        MoveCount moveCount = setupMoveCount();
+
+        outputView.renderRace(carGroup, moveCount);
         outputView.showWinners(carGroup.getWinners());
     }
 
-    private String inputMoveCount() {
-        outputView.showMessage(RacingGuideMessage.INPUT_MOVE_COUNT);
-        return inputView.getUserInput();
+    private CarGroup setupCarGroup() {
+        String carNames = inputWithMessage(RacingGuideMessage.INPUT_CAR_NAMES);
+        return CarGroup.createNewCarGroupByNames(carNames);
     }
 
-    private String inputCarNames() {
-        outputView.showMessage(RacingGuideMessage.INPUT_CAR_NAMES);
+    private MoveCount setupMoveCount() {
+        String moveCount = inputWithMessage(RacingGuideMessage.INPUT_MOVE_COUNT);
+        return MoveCount.valueOf(moveCount);
+    }
+
+    private String inputWithMessage(RacingGuideMessage message) {
+        outputView.showMessage(message);
         return inputView.getUserInput();
     }
 }
