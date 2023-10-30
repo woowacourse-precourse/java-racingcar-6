@@ -9,7 +9,6 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.TestUtils;
-import racingcar.controller.dto.WinnerDto;
 
 class RacingGameServiceImplTest {
 
@@ -83,7 +82,7 @@ class RacingGameServiceImplTest {
         carList.get(1).moveForward();
 
         //when
-        WinnerDto winner = racingGameService.findWinner(cars);
+        Winner winner = racingGameService.findWinner(cars);
 
         //then
         assertThat(winner.getWinners().get(0)).isEqualTo(name2);

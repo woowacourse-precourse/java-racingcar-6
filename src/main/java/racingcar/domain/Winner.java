@@ -1,14 +1,14 @@
-package racingcar.controller.dto;
+package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class WinnerDto {
+public class Winner {
 
     private static final String WINNER_NAME_DELIMITER = ", ";
     private final List<String> winners;
 
-    public WinnerDto(List<String> winners) {
+    public Winner(List<String> winners) {
         this.winners = winners;
     }
 

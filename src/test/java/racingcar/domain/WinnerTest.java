@@ -1,4 +1,4 @@
-package racingcar.controller.dto;
+package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class WinnerDtoTest {
+class WinnerTest {
 
     private List<String> winnerNameList;
 
@@ -18,10 +18,10 @@ class WinnerDtoTest {
     @Test
     void 우승자_이름_출력_포맷_테스트() {
         //given
-        WinnerDto winnerDto = new WinnerDto(winnerNameList);
+        Winner winner = new Winner(winnerNameList);
 
         //when
-        String winnerNames = winnerDto.getWinnerNames();
+        String winnerNames = winner.getWinnerNames();
 
         //then
         assertThat(winnerNames).isEqualTo("test1, test2");

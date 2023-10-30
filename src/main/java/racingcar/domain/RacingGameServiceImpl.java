@@ -7,7 +7,6 @@ import static racingcar.enums.Constant.FORWARD_THRESHOLD;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.controller.dto.WinnerDto;
 
 public class RacingGameServiceImpl implements RacingGameService {
 
@@ -32,7 +31,7 @@ public class RacingGameServiceImpl implements RacingGameService {
     }
 
     @Override
-    public WinnerDto findWinner(Cars cars) {
+    public Winner findWinner(Cars cars) {
         cars.sortingCarsOrderByPosition();
         Car winnerCar = cars.get(0);
 
@@ -40,7 +39,7 @@ public class RacingGameServiceImpl implements RacingGameService {
                 .filter(car -> car.isSamePosition(winnerCar))
                 .map(Car::getName)
                 .collect(Collectors.toList());
-        return new WinnerDto(winnerCarNames);
+        return new Winner(winnerCarNames);
     }
 
     private int generateRandomNumber() {
