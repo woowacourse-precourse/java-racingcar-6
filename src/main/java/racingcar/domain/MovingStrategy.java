@@ -3,9 +3,10 @@ package racingcar.domain;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.util.RandomUtil;
 
+import static racingcar.domain.MovingStrategySetting.*;
+
 public class MovingStrategy {
 
-    private static final Integer POSSIBLE_NUMBER = 4;
     private final RandomUtil randomNumberGenerator;
 
     public MovingStrategy(RandomUtil randomNumberGenerator) {
@@ -14,7 +15,7 @@ public class MovingStrategy {
 
     public Boolean isCarMove() {
         Integer number = generateNumber();
-        return number >= POSSIBLE_NUMBER ? true : false;
+        return number >= MOVABLE_NUMBER.getSetting() ? true : false;
     }
 
     private Integer generateNumber() {
