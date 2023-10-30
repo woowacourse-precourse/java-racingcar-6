@@ -25,4 +25,8 @@ public class Car {
             position++;
         }
     }
+
+    public String getPositionBar() {
+        return "-".repeat(position);
+    }
 }
