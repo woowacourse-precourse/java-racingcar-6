@@ -38,6 +38,16 @@ class InputViewTest {
                 .hasMessage("자동차 이름에 공백은 불가능합니다.");
     }
 
+    @Test
+    void inputCarNames_NamesDuplicate() {
+        String input = "car1,car2,car1";
+        provideInput(input);
+
+        assertThatThrownBy(InputView::inputCarNames)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름 중복은 불가능합니다.");
+    }
+
     private void provideInput(String input) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
