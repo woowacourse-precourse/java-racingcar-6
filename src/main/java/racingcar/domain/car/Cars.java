@@ -46,8 +46,12 @@ public class Cars {
     public List<String> findWinnerNames() {
         Car maxCar = Collections.max(cars);
         return cars.stream()
-                .filter(car -> maxCar.compareTo(car) == 0)
+                .filter(car -> isSameDistance(car, maxCar))
                 .map(Car::getNameValue)
                 .toList();
+    }
+
+    private static boolean isSameDistance(Car car, Car maxCar) {
+        return maxCar.compareTo(car) == 0;
     }
 }
