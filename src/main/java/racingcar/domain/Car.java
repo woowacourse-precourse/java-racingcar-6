@@ -13,6 +13,7 @@ public class Car {
     public Car(String carName) {
         validateDuplicatedName(carName);
         validateNameLength(carName);
+        validateCarNameEmpty(carName);
         this.name = new Name(carName);
         this.move = new Move();
         carNames.add(carName);
@@ -35,17 +36,27 @@ public class Car {
         }
     }
 
-    private boolean isNameDuplicated(String carName) {
-        return carNames.contains(carName);
-    }
-
     private void validateNameLength(String carName) {
         if (isNameTooLong(carName)) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하만 가능합니다");
         }
     }
 
+    private void validateCarNameEmpty(String carName) {
+        if (isNullOrBlank(carName)) {
+            throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다");
+        }
+    }
+
+    private boolean isNameDuplicated(String carName) {
+        return carNames.contains(carName);
+    }
+
     private boolean isNameTooLong(String carName) {
         return carName.length() > 5;
+    }
+
+    private boolean isNullOrBlank(String carName) {
+        return carName == null || carName.trim().isEmpty();
     }
 }
