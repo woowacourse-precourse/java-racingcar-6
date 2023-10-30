@@ -7,7 +7,7 @@ public class Validator {
 
 	}
 	public boolean validateNameLength(String carName) {
-		if (carName.length() > MAXINUM_LENGTH || carName.isEmpty()) {
+		if (carName.length() > MAXINUM_LENGTH) {
 			throw new IllegalArgumentException();
 		}
 		return true;
