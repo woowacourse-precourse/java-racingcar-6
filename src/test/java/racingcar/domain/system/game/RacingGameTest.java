@@ -3,10 +3,8 @@ package racingcar.domain.system.game;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
-import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.core.car.CarName;
 import racingcar.domain.core.car.MoveSignal;
 import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.system.game.round.host.Host;
@@ -56,11 +54,10 @@ class RacingGameTest {
 
         // then
         List<SavedCar> cars = carManager.findAll();
-        Map<CarName, SavedCarPosition> positions = carPositionManager.findAll(cars);
+        List<SavedCarPosition> positions = carPositionManager.findAll(cars);
         int idx = 0;
-        for (SavedCar car : cars) {
-            assertEquals(EXPECTED_POSITIONS[idx++],
-                positions.get(car.getKey()).getPosition());
+        for (SavedCarPosition position : positions) {
+            assertEquals(EXPECTED_POSITIONS[idx++], position.getPosition());
         }
     }
 

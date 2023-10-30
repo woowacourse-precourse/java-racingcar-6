@@ -5,13 +5,14 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 import racingcar.domain.core.car.Car;
 import racingcar.domain.core.car.CarName;
 import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.system.game.round.RoundResult;
 import racingcar.domain.system.game.round.host.Host;
+import racingcar.domain.system.manager.car.CarKey;
 import racingcar.domain.system.manager.car.CarManager;
 import racingcar.domain.system.manager.car.SavedCar;
 import racingcar.domain.system.manager.position.CarPositionManager;
@@ -58,8 +59,7 @@ public class RacingGame extends BasicGame {
 
     @Override
     protected List<SavedCarPosition> getOnRaceCars(List<SavedCar> cars) {
-        Map<CarName, SavedCarPosition> onRaceCars = carPositionManager.findAll(cars);
-        return new ArrayList<>(onRaceCars.values());
+        return carPositionManager.findAll(cars);
     }
 
     @Override
@@ -71,34 +71,38 @@ public class RacingGame extends BasicGame {
 
     @Override
     protected List<String> calculateWinners(List<SavedCar> cars) {
-        Map<CarName, SavedCarPosition> carPositions = carPositionManager.findAll(cars);
-        Map<Long, List<CarName>> results = getResults(carPositions);
+        List<SavedCarPosition> carPositions = carPositionManager.findAll(cars);
+        Map<Long, List<SavedCarPosition>> results = getResults(carPositions);
         Long winner = getWinner(results);
         return getWinners(results, winner);
     }
 
-    private Map<Long, List<CarName>> getResults(Map<CarName, SavedCarPosition> carPositions) {
-        Map<Long, List<CarName>> results = new HashMap<>();
-        for (Entry<CarName, SavedCarPosition> carPosition : carPositions.entrySet()) {
-            results.merge(carPosition.getValue().getPosition(),
-                new ArrayList<>(List.of(carPosition.getKey())), ifExistKey());
+    private Map<Long, List<SavedCarPosition>> getResults(List<SavedCarPosition> carPositions) {
+        Map<Long, List<SavedCarPosition>> results = new HashMap<>();
+        for (SavedCarPosition carPosition : carPositions) {
+            results.merge(carPosition.getPosition(), new ArrayList<>(List.of(carPosition)),
+                ifExistKey());
         }
         return results;
     }
 
-    private BiFunction<List<CarName>, List<CarName>, List<CarName>> ifExistKey() {
+    private BiFunction<List<SavedCarPosition>, List<SavedCarPosition>, List<SavedCarPosition>> ifExistKey() {
         return (oldCars, newCar) -> {
             oldCars.addAll(newCar);
             return oldCars;
         };
     }
 
-    private Long getWinner(Map<Long, List<CarName>> results) {
+    private Long getWinner(Map<Long, List<SavedCarPosition>> results) {
         return results.keySet().stream().sorted(Comparator.reverseOrder()).limit(1).toList()
             .get(WINNER_IDX);
     }
 
-    private List<String> getWinners(Map<Long, List<CarName>> results, Long winner) {
-        return results.get(winner).stream().map(CarName::getName).toList();
+    private List<String> getWinners(Map<Long, List<SavedCarPosition>> results, Long winner) {
+        List<SavedCarPosition> winnerCars = new ArrayList<>(results.get(winner));
+        List<CarKey> keys = winnerCars.stream().map(SavedCarPosition::getSavedCar)
+            .map(SavedCar::getKey).collect(Collectors.toList());
+        List<SavedCar> winners = carManager.findAll(keys);
+        return winners.stream().map(SavedCar::getName).toList();
     }
 }
