@@ -39,15 +39,14 @@ public class RacingApp {
 
     private void printRacingCarsCurrentStatus() {
         racingCarList.forEach(racingCar ->
-                System.out.print(racingCar.getName() + " : " +
+                System.out.println(racingCar.getName() + " : " +
                         "-".repeat(racingCar.getCount())));
-        System.out.println("\n");
     }
 
     private void printRacingResult() {
         int maxForward = getMaxForward();
         List<String> winnerList = getWinnerList(maxForward);
-        System.out.print("최종 우승자: " + String.join(", ", winnerList));
+        System.out.print("최종 우승자 : " + String.join(", ", winnerList));
     }
 
     private List<String> getWinnerList(int maxCount) {
@@ -67,12 +66,23 @@ public class RacingApp {
     private void getExecuteCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
+        validateExecuteCount(input);
+        System.out.println("\n");
+    }
+
+    private void validateExecuteCount(String input) {
         try {
             this.executeCount = Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
-        System.out.println("\n");
+        throwExceptionIfCountLessThanZero();
+    }
+
+    private void throwExceptionIfCountLessThanZero() {
+        if (this.executeCount < 0){
+            throw new IllegalArgumentException();
+        }
     }
 
     private String getPlayerList() {
