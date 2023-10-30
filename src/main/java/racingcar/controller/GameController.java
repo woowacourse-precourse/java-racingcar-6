@@ -43,4 +43,18 @@ public class GameController {
         OutputView.printCurrentPositions(cars);
     }
 
+    private List<String> determineWinners(List<Car> cars) {
+        int maxPosition = getMaxPosition(cars);
+        List<String> winners = Cars.getWinners(cars, maxPosition);
+        return winners;
+    }
+
+    private int getMaxPosition(List<Car> cars) {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
+        return maxPosition;
+    }
 }
+
