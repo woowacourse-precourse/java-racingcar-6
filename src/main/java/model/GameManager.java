@@ -23,15 +23,15 @@ public class GameManager {
         return cars.getMoveResult();
     }
 
+    public List<String> getWinners() {
+        return cars.getWinnerNames();
+    }
+
     private void moveCarByReferee(final Car car) {
         if (!referee.isSatisfiedCondition()) {
             return;
         }
 
         car.moveForward();
-    }
-
-    public List<String> getWinners() {
-        return cars.getWinnerNames();
     }
 }
