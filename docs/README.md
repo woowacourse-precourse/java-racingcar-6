@@ -19,8 +19,9 @@ Constants - 스트링 상수들 저장된 클래스
 자동차 이름 입력 받기                                  RacingGame#promptForPlayerNames()
     입력받은 문자열에 대해 유효한 지 판단                 ValidInput#isValidInput()
         쉼표가 있는 지                                ValidInput#hasComma()
+        쉼표가 두번 연속 나오는 지                      ValidInput#hasDoubleComma()
         입력 문자열이 쉼표로 시작하거나 끝나는 지         ValidInput#startsOrEndsWithComma()   
-        자동차 이름들을 쉼표(,)를 기준으로 나누기         ValidInput#SplitName()
+    자동차 이름들을 쉼표(,)를 기준으로 나누기         
         각 이름들이 5자 이하인지                       ValidInput#isNameLengthLessThanOrEqual5()  
         
 이름 개수 만큼 자동차 생성                              SimpleCar#createCar()
