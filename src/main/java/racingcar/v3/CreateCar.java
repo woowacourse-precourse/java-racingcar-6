@@ -2,6 +2,9 @@ package racingcar.v3;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CreateCar {
     public String input() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -23,6 +26,15 @@ public class CreateCar {
         validateCarNameLength(carNames);
         return carNames;
     }
+
+    public Map<String, Integer> stateMap(String[] carNames) {
+        Map<String, Integer> stateMap = new HashMap<>();
+        for (String carName : carNames) {
+            stateMap.put(carName, 0);
+        }
+        return stateMap;
+    }
+
 
     public void validateCarCount(String[] carNames) throws IllegalArgumentException {
         if (carNames.length < 2 || carNames.length > 10) {
