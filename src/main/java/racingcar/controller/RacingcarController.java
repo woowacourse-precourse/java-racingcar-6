@@ -44,15 +44,12 @@ public class RacingcarController {
     }
 
     private int getRoundCount(){
-        int roundCount;
-
         try{
-            roundCount = Integer.parseInt(inputView.getRoundCount());
+            String roundCount = inputView.getRoundCount();
+            return Integer.parseInt(roundCount);
         } catch (NumberFormatException e){
             throw new IllegalArgumentException(ERROR_INTEGER_ONLY);
         }
-
-        return roundCount;
     }
 
     private void game(int roundCount){
