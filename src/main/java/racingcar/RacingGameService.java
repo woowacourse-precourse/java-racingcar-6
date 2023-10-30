@@ -1,10 +1,16 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.Number.NUMBER_RANGE_END;
+import static racingcar.Number.NUMBER_RANGE_START;
+
 public class RacingGameService {
     private final InputView inputView = new InputView();
+
 
     private int getPlayCount(){
         return inputView.playCount();
@@ -14,16 +20,14 @@ public class RacingGameService {
         return inputView.carNameList();
     }
 
-    public RacingGame init(){
-        int playCount = getPlayCount();
-        List<String> carNameList = getCarNameList();
-        List<Car> carList = new ArrayList<>();
-
-        for(String carName: carNameList){
-            Car car = new Car(carName);
-            carList.add(car);
+    public void play(RacingGame racingGame){
+        List<Car> carList = racingGame.getCarList();
+        for(Car car: carList){
+            car.move(makeRandomPower());
         }
+    }
 
-        return new RacingGame(carList, playCount);
+    private Integer makeRandomPower(){
+        return Randoms.pickNumberInRange(NUMBER_RANGE_START, NUMBER_RANGE_END);
     }
 }

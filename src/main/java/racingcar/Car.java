@@ -11,4 +11,6 @@ public class Car {
     public void move(Integer power){
         if (power >= 4) position++;
     }
+
+
 }

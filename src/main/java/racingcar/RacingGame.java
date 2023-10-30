@@ -10,4 +10,8 @@ public class RacingGame {
         this.carList = carList;
         this.raceCount = raceCount;
     }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 }
