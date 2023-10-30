@@ -25,6 +25,7 @@ public class StringTest {
         assertThat(result).containsExactly("1", "2");
     }
 
+    // TODO: 10/31/23 활용해보기.
     @Test
     void split_메서드_사용시_구분자가_포함되지_않은_경우_값을_그대로_반환() {
         String input = "1";
