@@ -24,4 +24,10 @@ public class RacingCarMapper {
                 .collect(Collectors.joining("\n"));
     }
 
+    public String toNames(List<Car> winners) {
+        return winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+    }
+
 }

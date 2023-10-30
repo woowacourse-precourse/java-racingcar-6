@@ -179,7 +179,7 @@ Randoms.pickNumberInRange(0,9);
 - [x] 라이브러리 사용
   - random 값 추출(camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용)
   - 사용자 입력 (camp.nextstep.edu.missionutils.Console의 readLine()을 활용)
-- [ ] 기본 테스트 성공 
+- [x] 기본 테스트 성공 
 3. 추가 요구 사항 만족하기(구현)
   - [ ] indent(인덴트, 들여쓰기) depth를 3이 넘지 않도록 구현한다. 2까지만 허용한다.
      - 예를 들어 while문 안에 if문이 있으면 들여쓰기는 2이다.
@@ -222,9 +222,10 @@ Randoms.pickNumberInRange(0,9);
     - 숫자가 아닌 수로 이루어진 경우
     - [1 ~ 1억] 범위가 아닌 경우
 - [x] 자동차 전진하기
-- [ ] 우승자 판별하기
+- [x] 우승자 판별하기
 
-[테스트코드 결과 이미지] ready..
+[테스트코드 결과 이미지] - 기본 예제 테스트
+<img src="image/테스트코드결과이미지.png">
 
 ## 시스템 메커니즘 및 객체들의 역할(구현 후)
 ready..

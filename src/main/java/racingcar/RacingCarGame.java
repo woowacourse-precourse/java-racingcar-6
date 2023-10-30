@@ -17,11 +17,13 @@ import java.util.List;
 public class RacingCarGame {
     private final Prompt prompt;
     private final Validator validator;
+    private final Referee referee;
     private final RacingCarMapper racingCarMapper;
 
-    public RacingCarGame(Prompt prompt, Validator validator, RacingCarMapper racingCarMapper) {
+    public RacingCarGame(Prompt prompt, Validator validator, Referee referee, RacingCarMapper racingCarMapper) {
         this.prompt = prompt;
         this.validator = validator;
+        this.referee = referee;
         this.racingCarMapper = racingCarMapper;
     }
 
@@ -47,8 +49,9 @@ public class RacingCarGame {
         }
 
         prompt.print(OUTPUT_THE_WINNER_PREFIX);
-        String winners = "pobi, jun";
-        prompt.print(() -> winners);
+        List<Car> winners = referee.getWinner(cars);
+        String winnerNames = racingCarMapper.toNames(winners);
+        prompt.print(() -> winnerNames);
     }
 
 

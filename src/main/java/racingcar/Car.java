@@ -7,7 +7,7 @@ public class Car {
     private static final int MINIMUM_VALUE = 1;
     private static final int MAXIMUM_VALUE = 9;
 
-    private final String name;
+    private String name;
     private int progress = 0;
 
     public Car(String name) {
@@ -27,5 +27,13 @@ public class Car {
         return new StringJoiner(" ", name + " : ", "")
                 .add(PROGRESS_BAR.repeat(progress))
                 .toString();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getProgress() {
+        return progress;
     }
 }

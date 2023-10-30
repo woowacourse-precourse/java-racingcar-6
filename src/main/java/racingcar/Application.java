@@ -5,7 +5,8 @@ public class Application {
         Prompt prompt = new Prompt();
         Validator validator = new Validator();
         RacingCarMapper racingCarMapper = new RacingCarMapper();
-        RacingCarGame game = new RacingCarGame(prompt, validator, racingCarMapper);
+        Referee referee = new Referee();
+        RacingCarGame game = new RacingCarGame(prompt, validator, referee, racingCarMapper);
 
         game.start();
     }
