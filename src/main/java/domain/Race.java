@@ -85,7 +85,7 @@ public class Race {
     private String checkWinner(List<Car> cars) {
         int maxPosition = maxPosition(cars);
         List<Car> winners = getWinners(cars, maxPosition);
-        return "";
+        return convertListToString(winners);
     }
 
     private int maxPosition(List<Car> cars) {
@@ -97,5 +97,13 @@ public class Race {
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
     }
+
+    private String convertListToString(List<Car> cars) {
+        return cars.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+    }
+
+
 
 }
