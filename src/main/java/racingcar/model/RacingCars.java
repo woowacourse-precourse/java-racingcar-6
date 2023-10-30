@@ -10,4 +10,12 @@ public class RacingCars {
         cars = new ArrayList<>();
         carNames.forEach(carName -> cars.add(new Car(carName)));
     }
+
+    public void moveOrStop() {
+        cars.forEach(Car::move);
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
