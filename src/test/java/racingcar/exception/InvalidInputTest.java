@@ -22,4 +22,14 @@ class InvalidInputTest {
                 .hasMessage("이름은 최대 5글자 입니다.");
     }
 
+    @DisplayName("")
+    @Test
+    void NotIntegerValueException(){
+        //given
+
+        //when
+
+        //then
+    }
+
 }
