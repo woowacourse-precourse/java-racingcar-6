@@ -13,6 +13,16 @@ public class Game {
         settingRound();
     }
 
+    public boolean isProcess(int currentRound) {
+        return currentRound <= maxRoundCount;
+    }
+
+    public void play() {
+        for (Car c : cars) {
+            c.move(RandomUtil.getRandomNumber());
+        }
+    }
+
     private void settingRound() {
         PromptHandler.promptOutput(GameMessage.ASK_ROUND_COUNT.getMessage());
         maxRoundCount = PromptHandler.promptInputRoundCount();

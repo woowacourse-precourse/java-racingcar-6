@@ -8,4 +8,10 @@ public class Car {
         this.name = name;
         position = 0;
     }
+
+    public void move(int randomNumber) {
+        if (randomNumber >= GameConfig.MIN_MOVE_VALUE.getValue()) {
+            position++;
+        }
+    }
 }
