@@ -33,5 +33,8 @@ public class Game {
             manager.calculateRun(playerList);
             outputView.printPartialResults(playerList);
         }
+
+        List<Player> winners = manager.getWinners(playerList);
+        outputView.printFinalResults(winners);
     }
 }

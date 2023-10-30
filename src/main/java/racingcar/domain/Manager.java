@@ -29,6 +29,24 @@ public class Manager {
         return playerList;
     }
 
+    public List<Player> getWinners(List<Player> playerList) {
+        int maxScore = 0;
+        List<Player> winners = new ArrayList<>();
+        for (Player player : playerList) {
+            if (player.score > maxScore) {
+                maxScore = player.score;
+            }
+        }
+
+        for (Player player : playerList) {
+            if (player.score == maxScore) {
+                winners.add(player);
+            }
+        }
+
+        return winners;
+    }
+
 //    private Map<Player, Integer> playerListToMap(List<String> playerList){
 //        Map<Player, Integer> playerMap = new HashMap<>();
 //        for(String name : playerList) {

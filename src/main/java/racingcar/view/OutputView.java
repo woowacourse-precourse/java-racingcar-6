@@ -23,9 +23,26 @@ public class OutputView {
     }
 
     public void printPartialResults(List<Player> playerList) {
-        for(Player player : playerList) {
+        for (Player player : playerList) {
             System.out.println(player.name + " : " + "-".repeat(player.score));
         }
         System.out.println();
+    }
+
+    public void printFinalResults(List<Player> playerList) {
+        System.out.print("최종 우승자 : ");
+        StringBuilder result = new StringBuilder();
+        if (playerList.size() == 1) {
+            result = new StringBuilder(playerList.get(0).name);
+        }
+
+        if (playerList.size() > 1) {
+            for (Player player : playerList) {
+                result.append(player.name).append(", ");
+            }
+            result = new StringBuilder(result.substring(0, result.length() - 2));
+        }
+
+        System.out.print(result);
     }
 }
