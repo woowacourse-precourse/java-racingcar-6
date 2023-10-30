@@ -3,7 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class Application {
@@ -18,12 +20,13 @@ public class Application {
     private static String getCarNames() {
         printInputCarNames();
         String inputLineOfCarNames = Console.readLine();
+        checkInputLineCarNames(inputLineOfCarNames);
         return inputLineOfCarNames;
     }
     private static List<String> saveCarNames(String inputLineOfCarNames) {
-        checkInputLineCarNames(inputLineOfCarNames);
         List<String> carNames = Arrays.asList(inputLineOfCarNames.split(","));
-        checkCarName((carNames));
+        checkCarNameForm((carNames));
+        checkDuplicateOfCarName((carNames));
         return carNames;
     }
 
@@ -42,7 +45,7 @@ public class Application {
             throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
         }
     }
-    private static void checkCarName(List<String> carNames) {
+    private static void checkCarNameForm(List<String> carNames) {
         for(String carName : carNames){
             checkCarNameRegex(carName);
             checkMaxLengthOfCarName(carName);
@@ -57,6 +60,14 @@ public class Application {
     private static void checkMaxLengthOfCarName(String carName){
         if(carName.length() > 5){
             throw new IllegalArgumentException("이름 길이가 초과했습니다.");
+        }
+    }
+    private static void checkDuplicateOfCarName(List<String> carNames) {
+        Set<String> uniqueNames = new HashSet<String>();
+        for(String carName : carNames){
+            if(!uniqueNames.add(carName)){
+                throw new IllegalStateException("이름이 중복됩니다.");
+            }
         }
     }
 
