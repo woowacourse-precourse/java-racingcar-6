@@ -13,15 +13,15 @@ public class Application {
 
         int turn;
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(print.startingComment);
         List<String> carNameList = userInput.getCarNames();
         carList = gameFunction.makingCar(carNameList);
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(print.askHowManyTurn);
         turn = userInput.getTurn();
         System.out.println();
 
-        System.out.println("실행 결과");
+        System.out.println(print.resultComment);
         gameFunction.repeatGame(turn, carList);
         print.Winner(carList);
     }
