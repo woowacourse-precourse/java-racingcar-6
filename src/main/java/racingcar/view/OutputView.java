@@ -15,7 +15,7 @@ public class OutputView {
     }
 
     public void roundResultMessage(){
-        System.out.println(OutputMessage.RESULT);
+        System.out.println("\n" + OutputMessage.RESULT);
     }
 
     public void carPositionMessage(String name, int position){

@@ -34,6 +34,7 @@ public class RacingGameService {
 
     public void play(RacingGame racingGame){
         int raceCount = racingGame.getRaceCount();
+        outputView.roundResultMessage();
         for(int playCount = 0; playCount<raceCount; playCount++){
             race(racingGame);
             printRaceResult(racingGame);
