@@ -56,4 +56,16 @@ public class RacingCars {
 
         return results;
     }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+
+        for (RacingCar racingCar : this.racingCars) {
+            if (racingCar.getPosition() > maxPosition) {
+                maxPosition = racingCar.getPosition();
+            }
+        }
+
+        return maxPosition;
+    }
 }
