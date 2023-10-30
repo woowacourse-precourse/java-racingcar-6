@@ -8,6 +8,9 @@ public class NameFactory {
 
     private static final String NAME_SPLITTER = ",";
 
+    private NameFactory() {
+    }
+
     public static List<Name> createNames(final String names) {
         String[] splitNames = names.split(NAME_SPLITTER);
 
