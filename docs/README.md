@@ -5,8 +5,8 @@
   - [x] 쉼표 앞뒤로 공백은 자동으로 없애서 입력받는다. - CarNamesValidator$trimInputtedString(String inputtedCarNames)
   - [x] 이름은 5자 이하만 가능하다. -> 아니면 `IllegalArgumentException` - CarNamesValidator$validateLessThanLength(String carName)
     - [x] 공백을 제거한 후의 길이가 5자 이하로 계산한다. - CarNamesValidator$validateLessThanLength(String carName)
-- [ ] 입력받은 자동차 이름을 보관한다.
-  - [ ] 각 자동차는 처음은 이동 거리가 0으로 세팅돼야한다.
+- [x] 입력받은 자동차 이름을 보관한다.
+  - [x] 각 자동차는 처음은 이동 거리가 0으로 세팅돼야한다.
 - [ ] 사용자로부터 몇 번의 이동을 할 것인지 입력받는다.
   - [ ] 숫자로 입력받아야 한다. -> 아니면 `IllegalArgumentException`
 - [ ] 입력받은 시도 횟수만큼 0~9 사이의 무작위 값을 구한 후 4 이상인 경우 전진한다.
@@ -65,11 +65,11 @@
 ## 5. RacingCars
 ### State
 - List<Car> cars
-- int racingRound
+- int currentRacingRound
 - ResultDto result
 
 ### Behavior
-- void restoreCars(CarsDto)
+- `construct`(CarsDto)
 - void race() 
 - ResultDto endFinalRound()
 - boolean isFinalRound()
@@ -80,9 +80,8 @@
 - int distance
 
 ### Behavior
-- void createCar(String name)
-  - void validateCarName(String name)
-- int playOneRound()
+- Car createCar(String name)
+- int playOneRoundAndGetDistance()
 
 ## 7. Client
 ### State
@@ -95,10 +94,10 @@
 
 ## 8. CarsDto
 ### State
-- List<String> names
+- List<String> carNames
 
 ### Behavior
-- void setCarNames(List<String> inputtedNames)
+- `construct`(List<String> inputtedCarNames)
 - String getSingleCarName(int index)
 - int getNumberOfCars() 
 
