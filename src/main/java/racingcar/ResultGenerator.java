@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class ResultGenerator {
-    private static final int MOVE_THRESHOLD = 4;
+    private static final int MOVING_FORWARD = 4;
 
     public void generateResult(List<String[]> cars) {
         for (int i = 0; i < cars.size(); i ++) {
@@ -18,7 +18,7 @@ public class ResultGenerator {
     }
 
     private boolean determineMoveOrStop(int randomNumber) {
-        if (randomNumber >= MOVE_THRESHOLD) {
+        if (randomNumber >= MOVING_FORWARD) {
             return true;
         }
         return false;
