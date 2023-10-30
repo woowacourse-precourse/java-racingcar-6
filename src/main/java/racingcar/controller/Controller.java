@@ -1,10 +1,8 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.TrialNumber;
-import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,16 +11,16 @@ import java.util.List;
 public class Controller {
     Cars cars;
     TrialNumber trialNumber;
-    GameService gameService = new GameService();
 
     /**
      * 게임 실행
      */
     public void run() {
-        getCarListByUserInput();
-        getTrialNumberByUserInput();
-        playGame();
-        endGame(cars.getCars());
+        getCarListByUserInput(); //자동차 입력
+        getTrialNumberByUserInput(); //회수 입력
+        OutputView.printResultHeader(); //"실행 결과" String 출력
+        playGame(); //게임 시작
+        endGame(); //우승자 출력
     }
 
     /**
@@ -48,26 +46,19 @@ public class Controller {
      * 입력 회수만큼 게임 진행
      */
     private void playGame() {
-        OutputView.printResultHeader();
         int rounds = trialNumber.getTrialNumber();
         for (int count = 0; count < rounds; count++) {
-            playSingleGame(cars.getCars());
+            cars.moveCars();
+            OutputView.printResult(cars.getCars());
         }
     }
 
-    /**
-     * 게임 1회 진행
-     */
-    private void playSingleGame(List<Car> cars) {
-        cars.forEach(Car::move);
-        OutputView.printResult(cars);
-    }
 
     /**
      * 모든 게임 종료 시 우승 자동차 선정
      */
-    private void endGame(List<Car> cars) {
-        List<String> winnerName = gameService.getWinnerCars(cars);
+    private void endGame() {
+        List<String> winnerName = cars.getWinnerCars();
         OutputView.printWinner(winnerName);
     }
 }
