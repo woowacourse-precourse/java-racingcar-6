@@ -8,7 +8,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Utill {
 
     /**
-     * 모든 클래스에서 사용할 수 있는 메서드의 모음인 Utill 클래스 작성.
+     * 문자열 입력을 한다.
      */
     public static String inputString() {
         String inputStr = readLine();
@@ -40,6 +40,12 @@ public class Utill {
         return inputNum;
     }
 
+    /**
+     * 숫자 변환
+     *
+     * @param str
+     * @return
+     */
     public static Integer parseInteger(String str) {
         return Integer.valueOf(str);
     }

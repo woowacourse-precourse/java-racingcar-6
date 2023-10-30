@@ -35,7 +35,15 @@ class UtillTest {
     @DisplayName("string을 regex의 기준으로 구분을 하여 배열로 반환 테스트")
     @Test
     void makeSplitArrFromString() {
+        // given
+        String str = "one,two,three";
+        String regex = ",";
 
+        // when
+        String[] resultArr = Utill.makeSplitArrFromString(str, regex);
+
+        // than
+        assertThat(resultArr).isEqualTo(new String[]{"one", "two", "three"});
     }
 
     @DisplayName("print new Line 테스트")
