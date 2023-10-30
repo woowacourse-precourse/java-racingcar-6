@@ -12,14 +12,14 @@ class NameValidatorTest {
 
     @ParameterizedTest
     @DisplayName("[통과해야하는 케이스] 이름 검증 테스트")
-    @ValueSource(strings = {"pobi", "woni", "jun"})
+    @ValueSource(strings = {"pobi", "woni", "jun", "j j"})
     void successTest(String input) {
         validator.validate(input);
     }
 
     @ParameterizedTest
     @DisplayName("[실패야하는 케이스] 이름 검증 테스트")
-    @ValueSource(strings = {"", "ChunJiwoo"})
+    @ValueSource(strings = {"", "ChunJiwoo", "\t", "\n", "\s", " "})
     void failTest(String input) {
         assertThrows(
                 IllegalArgumentException.class,

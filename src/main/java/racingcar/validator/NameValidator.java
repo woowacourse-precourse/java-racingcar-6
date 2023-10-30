@@ -14,7 +14,7 @@ public class NameValidator implements Validator {
     }
 
     private void throwIfIsEmpty(String name) {
-        if (name.isEmpty()) {
+        if (name.trim().isEmpty()) {
             throw new IllegalArgumentException(ERROR_EMPTY_NAME);
         }
     }
