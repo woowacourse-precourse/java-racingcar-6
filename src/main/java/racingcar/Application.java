@@ -49,7 +49,7 @@ public class Application {
 
     // 차량 위치(거리) 출력
     public static void showCar(int score, String carName){
-        System.out.println(String.format("%s : ", carName) + "-".repeat(score));
+        System.out.println(String.format("%s : %s", carName, "-".repeat(score)));
     }
 
 
@@ -71,7 +71,7 @@ public class Application {
             if (user.get(i).score == M) winner.add(user.get(i).car); 
         }
 
-        System.out.println("최종 우승자 : " + String.join(", ", winner));
+        System.out.println(String.format("최종 우승자 : %s",String.join(", ", winner)));
     }
 
     // 경주
