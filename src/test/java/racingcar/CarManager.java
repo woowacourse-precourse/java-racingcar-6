@@ -13,4 +13,7 @@ public class CarManager {
         carArray = carStr.split(",");
     }
 
+    public void printCarMovePrompt() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+    }
 }
