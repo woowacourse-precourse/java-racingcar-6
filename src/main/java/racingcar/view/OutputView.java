@@ -16,5 +16,4 @@ public class OutputView {
     public static void printShowResultString() {
         System.out.println(SHOW_RESULT_STRING);
     }
-
 }

@@ -8,11 +8,11 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Game {
-    List<Car> racingCarList;
+    List<Car> racingCars;
     public void start() {
         OutputView.printStartMessage();
         makeCarList(InputView.getRacingCars());
-        Race race = new Race(racingCarList);
+        Race race = new Race(racingCars);
         OutputView.printTryMessage();
         int tryNumber = InputView.getTryNumber();
         OutputView.printShowResultString();
@@ -22,11 +22,11 @@ public class Game {
         }
     }
 
-    private void makeCarList(List<String> stringCarList) {
-        racingCarList = new ArrayList<>();
-        for (String stringCar : stringCarList) {
+    private void makeCarList(List<String> stringCars) {
+        racingCars = new ArrayList<>();
+        for (String stringCar : stringCars) {
             Car car = new Car(stringCar, 0);
-            racingCarList.add(car);
+            racingCars.add(car);
         }
     }
 }

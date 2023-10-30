@@ -8,8 +8,8 @@ import racingcar.model.RandomNumber;
 public class Race {
     private List<Car> racingCars;
 
-    public Race(List<Car> racingCarList) {
-        this.racingCars = racingCarList;
+    public Race(List<Car> racingCars) {
+        this.racingCars = racingCars;
     }
 
     public void run() {
