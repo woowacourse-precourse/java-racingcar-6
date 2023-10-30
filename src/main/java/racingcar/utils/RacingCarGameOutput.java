@@ -23,4 +23,13 @@ public class RacingCarGameOutput {
         }
         System.out.println(sb.toString());
     }
+
+    public static void printWinnersMessage(List<RacingCar> winners) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자는 : ");
+        List<String> winnerNames = winners.stream().map(RacingCar::getName).toList();
+        String winnersString = String.join(", ",winnerNames);
+        sb.append(winnersString);
+        System.out.println(sb.toString());
+    }
 }
