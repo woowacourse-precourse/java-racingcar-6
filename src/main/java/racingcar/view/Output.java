@@ -9,7 +9,6 @@ public class Output {
 
     public void position(String currentPosition) {
         System.out.println(currentPosition);
-        System.out.println();
     }
 
     public void winners(String winner) {
