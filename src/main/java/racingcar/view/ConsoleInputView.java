@@ -24,6 +24,6 @@ public class ConsoleInputView implements InputView {
     }
 
     private List<String> namesToList(String names) {
-        return Arrays.asList(names.split(","));
+        return Arrays.asList(names.split("\\s*,\\s*"));
     }
 }
