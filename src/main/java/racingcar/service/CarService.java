@@ -7,9 +7,11 @@ import racingcar.data.Car;
 
 public class CarService {
     private List<Car> carList = new ArrayList<>();
+    private int round;
 
     public void start() {
         carList = getCarList();
+        round = getRound();
     }
 
     private List<Car> getCarList() {
@@ -26,5 +28,14 @@ public class CarService {
         }
 
         return carList;
+    }
+
+    private int getRound() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 }
