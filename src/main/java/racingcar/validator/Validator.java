@@ -1,16 +1,17 @@
 package racingcar.validator;
 
+import static racingcar.util.ErrorMessage.*;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.regex.Pattern;
 
 public class Validator {
     private final static int MIN_CAR_NUM = 2;
 
     public void checkCarNameInputForm(String carNameInput) {
         if (!isIdentifierComma(carNameInput)) {
-            throw new IllegalArgumentException("입력 구분을 ,로 하지 않았습니다.");
+            throw new IllegalArgumentException(COMMA_IDENTIFIER_ERROR_MESSAGE.getMessage());
         }
     }
 
@@ -21,7 +22,7 @@ public class Validator {
 
     public void checkCarNameForm(String carName){
         if(!isCarNameLength(carName)) {
-            throw new IllegalArgumentException("자동차 이름은 길이는 5이하 입니다.");
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE.getMessage());
         }
     }
 
@@ -31,7 +32,7 @@ public class Validator {
 
     public void checkDuplicateCarName(List<String> carNameList){
         if(isDuplicateCarName(carNameList)) {
-            throw new IllegalArgumentException("차 이름이 중복됐습니다.");
+            throw new IllegalArgumentException(DUPLICATE_CAR_NAME_ERROR_MESSAGE.getMessage());
         }
     }
 
@@ -42,7 +43,7 @@ public class Validator {
 
     public void checkCarNum(List<String> carNameList){
         if(!isCarMoreThanOne(carNameList)) {
-            throw new IllegalArgumentException("차는 2대 이상 이여야 경주가 가능합니다.");
+            throw new IllegalArgumentException(CAR_NUM_ERROR_MESSAGE.getMessage());
         }
     }
 
@@ -53,7 +54,7 @@ public class Validator {
 
     public void checkTryNumType(String tryNum) {
         if (!isTryNumInteger(tryNum)) {
-            throw new IllegalArgumentException("시도 횟수에 대한 입력이 정수가 아닙니다.");
+            throw new IllegalArgumentException(TRY_NUM_TYPE_ERROR_MESSAGE.getMessage());
         }
     }
 
@@ -68,7 +69,7 @@ public class Validator {
 
     public void checkTryNum(int tryNum) {
         if (!isTryNumPositiveNum(tryNum)) {
-            throw new IllegalArgumentException("시도 횟수가 옳바르지 않습니다. 양수로 입력해주세요.");
+            throw new IllegalArgumentException(TRY_NUM_RANGE_ERROR_MESSAGE.getMessage());
         }
     }
 
