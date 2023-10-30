@@ -43,23 +43,23 @@ public class RacingService {
 
     private void carMoveOrStop(Car car) {
         StatusEnum statusEnum = getMoveOrStop(getRandomNum());
-        car.moveOrStop(statusEnum);
+        car.move(statusEnum);
 
         outputView.outputRacingResult(car.getCarName(), car.getLocation());
     }
 
     public String getListToStringWinners() {
-        List<Car> carList = getTopCars();
+        List<Car> carList = getWinners();
 
         return carList.stream()
                 .map(Car::getCarName)
                 .collect(Collectors.joining(", "));
     }
 
-    private List<Car> getTopCars() {
+    private List<Car> getWinners() {
         return cars.getCarList()
                 .stream()
-                .filter(car -> car.getLocation() == getTopLocation())
+                .filter(this::isWinner)
                 .toList();
     }
 
@@ -67,7 +67,6 @@ public class RacingService {
         return cars.getCarList()
                 .stream()
                 .mapToInt(Car::getLocation)
-                .filter(location -> location >= LOCATION_START_NUMBER)
                 .max()
                 .orElse(LOCATION_START_NUMBER);
     }
@@ -78,5 +77,9 @@ public class RacingService {
 
     public void setOutputView(OutputView outputView) {
         this.outputView = outputView;
+    }
+
+    private boolean isWinner(Car car) {
+        return car.isWinner(getTopLocation());
     }
 }
