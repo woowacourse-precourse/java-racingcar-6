@@ -79,6 +79,25 @@ public class RaceTest {
         assertThat(outputStream.toString()).contains("Car3 : --");
     }
 
+    @Test
+    void decideWinner() {
+        Race race = new Race();
+        Car car1 = new Car("Car1");
+        Car car2 = new Car("Car2");
+        Car car3 = new Car("Car3");
+        race.cars.add(car1);
+        race.cars.add(car2);
+        race.cars.add(car3);
+
+        car1.setPosition(3);
+        car2.setPosition(1);
+        car3.setPosition(3);
+
+        List<Car> winners = race.decideWinner();
+
+        assertThat(winners).containsExactly(car1, car3);
+    }
+
 
 
 }
