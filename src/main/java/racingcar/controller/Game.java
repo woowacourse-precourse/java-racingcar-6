@@ -41,7 +41,7 @@ public class Game {
         View.printListWithNewLine(roundResponses.toResponseList());
     }
 
-    private static void publishFinalResult(Cars cars) {
+    private static void publishFinalResult(final Cars cars) {
         FinalResponse finalResponse = cars.buildFinalResponse();
         System.out.println(finalResponse.toResponse());
     }
