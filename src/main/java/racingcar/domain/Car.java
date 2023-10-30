@@ -6,12 +6,16 @@ public class Car {
 
     private String moveDistance;
 
-    public Car(String moveDistance){
-        this.moveDistance=moveDistance;
+    public Car() {
+        this.moveDistance = "";
     }
 
-    public void moving(){
+    public void moving() {
         this.moveDistance += CAR_MOVE_MARK;
+    }
+
+    public String getMoveDistance() {
+        return this.moveDistance;
     }
 
 }
