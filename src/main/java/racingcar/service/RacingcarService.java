@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 public interface RacingcarService {
 
-    public void joinRacingcar(String nameList);
+    void joinRacingcar(String nameList);
 
-    public ArrayList<Racingcar> changeMoving();
+    ArrayList<Racingcar> changeMoving();
 
-    public ArrayList<String> selectWinner();
+    ArrayList<String> selectWinner();
+
+    void initStore();
 }

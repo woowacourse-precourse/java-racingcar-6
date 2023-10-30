@@ -4,7 +4,7 @@ import java.util.*;
 
 import racingcar.domain.Racingcar;
 
-public class MemoryRacingcarRepository implements CarRepository {
+public class MemoryRacingcarRepositoryRacing implements RacingCarRepository {
 
     private static Map<String, Racingcar> carStore = new HashMap<>();
 
@@ -24,5 +24,15 @@ public class MemoryRacingcarRepository implements CarRepository {
     @Override
     public ArrayList<Racingcar> findAll() {
         return new ArrayList<>(carStore.values());
+    }
+
+    public void possibleNameCheck(String name) {
+        if (findByName(name) != null) {
+            throw new IllegalArgumentException("[ERROR] 중복된 이름입니다.");
+        }
+    }
+
+    public void clear() {
+        carStore.clear();
     }
 }

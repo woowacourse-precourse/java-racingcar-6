@@ -5,16 +5,24 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 import racingcar.domain.Racingcar;
-import racingcar.repository.CarRepository;
-import racingcar.repository.MemoryRacingcarRepository;
+import racingcar.repository.RacingCarRepository;
+import racingcar.repository.MemoryRacingcarRepositoryRacing;
 
 public class RacingcarServiceImpl implements RacingcarService {
 
-    private final static CarRepository carRepository = new MemoryRacingcarRepository();
-    private final int movingDistance = 1;
+    private final static RacingCarRepository carRepository = new MemoryRacingcarRepositoryRacing();
+    private final int MOVING_DISTANCE = 1;
 
     public void joinRacingcar(String nameList) {
         for (String name : nameList.split(",")) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("[ERROR] 이름은 5자 이하만 가능합니다.");
+            }
+
+            carRepository.possibleNameCheck(name);
+            if (name.startsWith(" ")) throw new IllegalArgumentException("[ERROR] 자동차 이름은 공백으로 시작해서는 안 됩니다.");
+            if (name.contains("\n")) throw new IllegalArgumentException("[ERROR] 자동차 이름 입력 시 줄바꿈 사용을 금지합니다.");
+
             carRepository.save(name);
         }
     }
@@ -26,7 +34,7 @@ public class RacingcarServiceImpl implements RacingcarService {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
 
             if (randomNumber >= 4) {
-                racingcar.setMovingforward(movingDistance);
+                racingcar.setMovingforward(MOVING_DISTANCE);
             }
         }
 
@@ -52,6 +60,10 @@ public class RacingcarServiceImpl implements RacingcarService {
         }
 
         return winners;
+    }
+
+    public void initStore() {
+        carRepository.clear();
     }
 
 }
