@@ -29,7 +29,7 @@ final class GameServer {
 
     private void initializeCount() {
         Output.printInputCount();
-        count = Count.create(Input.receiveInput());
+        count = new Count(Input.receiveInput());
     }
 
     private void doTurn() {
