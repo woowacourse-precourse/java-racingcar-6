@@ -27,9 +27,9 @@ public class Controller {
      * 자동차 이름을 입력 받기
      */
     private void getCarListByUserInput() {
-        InputView.requestCarsName();
-        String carsName = Console.readLine();
-        cars = new Cars(carsName);
+        InputView.requestCarNames();
+        String carNames = Console.readLine();
+        cars = new Cars(carNames);
     }
 
     /**

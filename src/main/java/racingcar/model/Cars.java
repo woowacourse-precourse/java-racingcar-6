@@ -10,7 +10,7 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(String carNames) {
-        CarNamesValidator.validateCarsName(carNames);
+        CarNamesValidator.validateCarNames(carNames);
         this.cars = makeCarList(Parser.parseCarNames(carNames));
     }
 
@@ -49,6 +49,9 @@ public class Cars {
                 .getAsInt();
     }
 
+    /**
+     * 전체 자동차 움직이기
+     */
     public void moveCars() {
         cars.forEach(Car::move);
     }

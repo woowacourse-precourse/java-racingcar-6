@@ -16,7 +16,7 @@ class CarNamesValidatorTest {
     @MethodSource("Parameters")
     @DisplayName("자동차 이름 검증")
     void checkCarNames(String testName, String carNames) {
-        Assertions.assertThatThrownBy(() -> CarNamesValidator.validateCarsName(carNames))
+        Assertions.assertThatThrownBy(() -> CarNamesValidator.validateCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -33,7 +33,7 @@ class CarNamesValidatorTest {
     @Test
     @DisplayName("예외 발생X")
     void noExceptionThrown() {
-        assertThatCode(() -> CarNamesValidator.validateCarsName("Hot, Fried, Chick"))
+        assertThatCode(() -> CarNamesValidator.validateCarNames("Hot, Fried, Chick"))
                 .doesNotThrowAnyException();
     }
 }

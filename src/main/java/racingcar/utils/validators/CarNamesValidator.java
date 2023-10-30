@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 public class CarNamesValidator {
-    public static void validateCarsName(String input) {
+    public static void validateCarNames(String input) {
         List<String> carNames = Parser.parseCarNames(input);
         checkNameLength(carNames);
         checkDuplicate(carNames);
