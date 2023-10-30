@@ -12,6 +12,7 @@ public class RacingGameController {
     public void start() {
         set();
         play();
+        notice();
     }
 
     private void set() {
@@ -24,6 +25,10 @@ public class RacingGameController {
         for (int i = 0; i < tryCount; i++) {
             racingCars.playRound();
         }
+    }
+
+    private void notice() {
+        racingCars.noticeWinners();
     }
 
 }
