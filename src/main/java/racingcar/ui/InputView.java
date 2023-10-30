@@ -22,6 +22,16 @@ public class InputView {
         return names;
     }
 
+    public Integer getGameCount() {
+        String input = getInput();
+
+        Validator.validateInput(input);
+
+        Validator.validateGameCount(input);
+
+        return Integer.parseInt(input);
+    }
+
     private List<String> splitNames(String input) {
         //TODO String[], List<String>중 어느것이 더 적절할까?
         return Arrays.asList(input.split(SPLITTER));
