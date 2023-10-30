@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.List;
 import racingcar.constant.CarRaceConstant;
 import racingcar.domain.Cars;
 import racingcar.domain.RandomGenerator;
@@ -34,6 +35,8 @@ public class CarRaceService {
     }
 
 
-    public
+    public List<String> getCarsName() {
+        return cars.getNames();
+    }
 
 }
