@@ -2,20 +2,23 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.dto.UserInput;
+import racingcar.service.GameService;
 import racingcar.service.InputService;
 
 // 사용자로부터 값을 입력받고 결과를 출력하기 위한 클래스
 public class GameController {
     private final InputService inputService;
+    private final GameService gameService;
 
-    public GameController(InputService inputService) {
+    public GameController(InputService inputService, GameService gameService) {
         this.inputService = inputService;
+        this.gameService = gameService;
     }
 
     public void startGame() {
         UserInput userInput = readValue();
 
-        // implement Logic
+        gameService.processGame(userInput);
     }
 
     private UserInput readValue() {
