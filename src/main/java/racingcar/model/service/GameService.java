@@ -1,9 +1,11 @@
 package racingcar.model.service;
 
 import java.util.List;
+import racingcar.model.domain.Car;
 import racingcar.model.repository.CarRepository;
 
 public class GameService {
+    private final int NAME_LENGTH = 5;
     CarRepository carRepository;
 
     public GameService() {
@@ -14,15 +16,16 @@ public class GameService {
         names.forEach(name -> carRepository.save(name));
     }
 
-    public void nameCheck() {
-        carRepository.validNameCheck();
+    public void nameCheck(List<String> carNames) {
+        carNames.forEach(car -> {
+            if (car.length() > NAME_LENGTH) {
+                throw new IllegalArgumentException("이름은 5자 이하여야 합니다");
+            }
+        });
     }
 
-    public void playGame(int attemptNum) {
-        while (attemptNum != 0) {
-            carRepository.carForward();
-            attemptNum--;
-        }
+    public Car playGame(int idx) {
+        return carRepository.carForward(idx);
     }
 
     public List<String> resultGame() {
