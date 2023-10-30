@@ -6,13 +6,18 @@ import java.util.List;
 import java.util.Set;
 
 public class Cars {
-    private final List<Car> carList = new ArrayList<>();
+    private static final List<Car> carList = new ArrayList<>();
 
     public void init(String[] carArr) {
         for (String carName : carArr) {
             carList.add(Car.from(carName, 0));
         }
         validateDuplicateName();
+    }
+
+    public static Cars create() {
+        carList.clear();
+        return new Cars();
     }
 
     private void validateDuplicateName() {
@@ -31,15 +36,19 @@ public class Cars {
     }
 
     public void plusNum(int i) {
-        carList.get(i).plusPosition();
+        getCar(i).plusPosition();
     }
 
     public String getName(int i) {
-        return carList.get(i).getName();
+        return getCar(i).getName();
     }
 
     public int getGameNum(int i) {
-        return carList.get(i).getPosition();
+        return getCar(i).getPosition();
+    }
+
+    private Car getCar(int i) {
+        return carList.get(i);
     }
 
     public int findMaxPosition() {

@@ -14,7 +14,7 @@ public class Car {
     }
 
     public void plusPosition() {
-        this.position.plusNum();
+        position.plusNum();
     }
 
     public String getName() {
