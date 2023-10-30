@@ -1,6 +1,7 @@
 package racingcar.util;
 
 public class Validation {
+
     private static final int CAR_NAME_LENGTH = 5;
 
     public static void valiRacingCount(String racingCount) {
