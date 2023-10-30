@@ -6,7 +6,7 @@ import java.util.Map;
 public class Car {
     private Map<String, Integer> cars;
     private final int NAME_SIZE = 5;
-    private final int FOWARD_NUMBER = 4;
+    private final int MOVING_FORWARD = 4;
 
     public Car() {
     }
@@ -45,7 +45,7 @@ public class Car {
     }
 
     public boolean isForward(int randomNumber) {
-        return randomNumber >= FOWARD_NUMBER;
+        return randomNumber >= MOVING_FORWARD;
     }
 
     public Map<String, Integer> getCars() {

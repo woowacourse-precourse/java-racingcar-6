@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class StringTest {
 
     @Test
@@ -48,4 +50,16 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @Test
+    void join_문자열_배열_구분자로_합치기() {
+        List<String> strings1 = List.of(new String[]{"poni", "woni", "jun"});
+        List<String> strings2 = List.of(new String[]{"poni"});
+        String str = "poni, woni, jun";
+
+        String result1 = String.join(", ", strings1);
+        String result2 = String.join(", ", strings2);
+
+        assertThat(result1).isEqualTo(str);
+        assertThat(result2).isEqualTo("poni");
+    }
 }

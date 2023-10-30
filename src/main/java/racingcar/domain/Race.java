@@ -38,7 +38,8 @@ public class Race {
             }
             System.out.println();
         }
-        String[] names = Winner.winnerList(car.getCars(), Winner.maxForward(car.getCars()));
+        Map<String, Integer> cars = car.getCars();
+        outputView.winner(Winner.winnerList(cars, Winner.maxForward(cars)));
     }
 
     private int toInt(String inputPlayCount) {

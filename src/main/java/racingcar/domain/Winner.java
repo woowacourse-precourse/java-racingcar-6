@@ -1,17 +1,19 @@
 package racingcar.domain;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Winner {
     public static int maxForward(Map<String, Integer> cars) {
         return Collections.max(cars.values());
     }
 
-    public static String[] winnerList(Map<String, Integer> cars, int maxForwardCount) {
+    public static List<String> winnerList(Map<String, Integer> cars, int maxForward) {
         return cars.entrySet().stream()
-                .filter(car -> car.getValue() == maxForwardCount)
+                .filter(entry -> entry.getValue() == maxForward)
                 .map(Map.Entry::getKey)
-                .toArray(String[]::new);
+                .collect(Collectors.toList());
     }
 }
