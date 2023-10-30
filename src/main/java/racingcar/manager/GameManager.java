@@ -6,7 +6,7 @@ import racingcar.utils.Validator;
 import racingcar.view.GameView;
 
 public class GameManager {
-    GameView gameView;
+    private GameView gameView;
     public GameManager(){
         this.gameView = new GameView();
     }
@@ -15,7 +15,14 @@ public class GameManager {
         Validator.validateCarNames(carNames);
         return null;
     }
+
+    private int getNumberOfMoves(){
+        String numberOfMoves = gameView.readNumberOfMoves();
+        return Integer.parseInt(numberOfMoves);
+    }
+
     public void start(){
         List<Car> cars = getCars();
+        int numberOfMoves = getNumberOfMoves();
     }
 }
