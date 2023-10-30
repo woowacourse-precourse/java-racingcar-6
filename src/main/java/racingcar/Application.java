@@ -37,7 +37,7 @@ public class Application {
 
     private static void validateNameLength(String[] names) {
         for (String name : names) {
-            if (name.length() > 6) {
+            if (name.length() > 5) {
                 throw new IllegalArgumentException("5글자 이하로 작성해주세요");
             }
         }
