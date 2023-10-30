@@ -14,7 +14,7 @@ class RacingControllerTest {
 
     @Test
     @DisplayName("랜덤한 수별로 이동 처리하기")
-    public void testManageCarMovement() {
+    public void testmoveCar() {
         // Given
         Car car1 = new Car("Car1");
         Car car2 = new Car("Car2");
@@ -30,7 +30,7 @@ class RacingControllerTest {
 
     @Test
     @DisplayName("가장 많이 전진한 자동차 계산하기")
-    public void testComputeRacingWinner() {
+    public void testfindRacingWinners() {
         //given
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("CarA"));
@@ -45,7 +45,7 @@ class RacingControllerTest {
         cars.get(1).moveCar();
 
         //when
-        List<String> result = RacingController.computeRacingWinner(cars);
+        List<String> result = RacingController.findRacingWinners(cars);
 
         //then
         List<String> expected = List.of("CarA", "CarC");

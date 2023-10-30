@@ -13,7 +13,7 @@ public class GameController {
         OutputView.printRacingCountInputMessage();
         int racingCount = RacingCountController.makeRacingCount(InputView.inputRacingCount());
         OutputView.printRacingResultMessage();
-        RacingController.racingStart(cars, racingCount);
+        RacingController.startRacing(cars, racingCount);
         RacingController.showRacingWinner(cars);
     }
 }

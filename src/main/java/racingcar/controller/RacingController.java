@@ -12,7 +12,7 @@ public class RacingController {
 
     private static final int DECIDE_TO_NUMBER_MOVE_STOP = 4;
 
-    public static void racingStart(List<Car> cars, int racingCount) {
+    public static void startRacing(List<Car> cars, int racingCount) {
         for (int i = 0; i < racingCount; i++) {
             executeRacingRound(cars);
         }
@@ -20,11 +20,11 @@ public class RacingController {
 
     private static void executeRacingRound(List<Car> cars) {
         List<Integer> randomNumbers = generateRandomNumbers(cars.size());
-        moveCars(cars, randomNumbers);
+        manageCarsMovement(cars, randomNumbers);
         showRacingRoundResult(cars);
     }
 
-    private static void moveCars(List<Car> cars, List<Integer> randomNumbers) {
+    private static void manageCarsMovement(List<Car> cars, List<Integer> randomNumbers) {
         for (int i = 0; i < cars.size(); i++) {
             manageCarMovement(cars.get(i), randomNumbers.get(i));
         }
@@ -33,7 +33,7 @@ public class RacingController {
     private static List<Integer> generateRandomNumbers(int count) {
         List<Integer> randomNumbers = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            randomNumbers.add(makeCarRandomNumber());
+            randomNumbers.add(generateCarRandomNumber());
         }
         return randomNumbers;
     }
@@ -45,7 +45,7 @@ public class RacingController {
         System.out.println();
     }
 
-    private static int makeCarRandomNumber() {
+    private static int generateCarRandomNumber() {
         return Randoms.pickNumberInRange(0,9);
     }
 
@@ -56,18 +56,18 @@ public class RacingController {
     }
 
     public static void showRacingWinner(List<Car> cars) {
-        List<String> winnerCars = computeRacingWinner(cars);
+        List<String> winnerCars = findRacingWinners(cars);
         OutputView.printRacingWinner(winnerCars);
     }
 
-    public static List<String> computeRacingWinner(List<Car> cars) {
-        int winnerPosition = computeRacingWinnerPosition(cars);
+    public static List<String> findRacingWinners(List<Car> cars) {
+        int winnerPosition = findRacingWinnerPosition(cars);
         return cars.stream().filter(car -> car.getPosition() == winnerPosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
-    private static int computeRacingWinnerPosition(List<Car> cars) {
+    private static int findRacingWinnerPosition(List<Car> cars) {
         return cars.stream().mapToInt(Car::getPosition).max().orElse(0);
     }
 }
