@@ -5,7 +5,7 @@ import java.util.List;
 public class Game {
     private final List<Car> cars;
     private final int trial;
-    private int count = 0;
+    private int currentTrial = 0;
 
     private Game(List<Car> cars, int trial) {
         this.cars = cars;
@@ -16,19 +16,23 @@ public class Game {
         return new Game(cars, trial);
     }
 
-    public void increaseCount() {
-        count += 1;
-    }
-
-    public boolean isFinished() {
-        return trial == count;
-    }
-
     public List<Car> getCars() {
         return cars;
     }
 
     public int getTrial() {
         return trial;
+    }
+
+    public int getCurrentTrial() {
+        return currentTrial;
+    }
+
+    public void increaseCount() {
+        currentTrial += 1;
+    }
+
+    public boolean isFinished() {
+        return trial == currentTrial;
     }
 }

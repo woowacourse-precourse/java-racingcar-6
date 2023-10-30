@@ -12,15 +12,15 @@ public class Car {
         return new Car(name);
     }
 
-    public void move() {
-        location += 1;
-    }
-
     public String getName() {
         return name;
     }
 
     public int getLocation() {
         return location;
+    }
+
+    public void move() {
+        location += 1;
     }
 }

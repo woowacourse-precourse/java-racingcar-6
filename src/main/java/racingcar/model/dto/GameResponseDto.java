@@ -15,15 +15,15 @@ public class GameResponseDto {
         location = car.getLocation();
     }
 
+    public String getCarName() {
+        return carName;
+    }
+    
     public String getGameResult() {
         return String.join(SEPARATOR.getMessage(), carName, convertTo(location));
     }
 
     private static String convertTo(int location) {
         return String.valueOf(MOVEMENT.getMessage()).repeat(Math.max(STOP.getValue(), location));
-    }
-
-    public String getCarName() {
-        return carName;
     }
 }

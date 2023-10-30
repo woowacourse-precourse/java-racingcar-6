@@ -13,14 +13,14 @@ import static racingcar.model.constants.Rule.TRIAL_MIN_LENGTH;
 import java.util.List;
 
 public class Validator {
-    public static void validateAndParseCarNames(String inputCarNames) {
+    public static void validateCarNames(String inputCarNames) {
         validateCarNamesComma(inputCarNames);
         List<String> carNames = Parser.parseCarNames(inputCarNames);
         validateCarNamesLength(carNames);
         validateCarNamesDuplicates(carNames);
     }
 
-    public static void validateAndParseTrial(String inputTrial) {
+    public static void validateTrial(String inputTrial) {
         validateTrialIfInteger(inputTrial);
         int trial = Parser.parseTrial(inputTrial);
         validateTrialRange(trial);
@@ -50,8 +50,8 @@ public class Validator {
         }
     }
 
-    private static void validateTrialRange(int input) {
-        if (input < TRIAL_MIN_LENGTH.getValue()) {
+    private static void validateTrialRange(int trial) {
+        if (trial < TRIAL_MIN_LENGTH.getValue()) {
             throw new IllegalArgumentException(NUMBER_RANGE_INVALID.getMessage());
         }
     }

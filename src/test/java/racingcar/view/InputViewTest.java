@@ -20,7 +20,7 @@ class InputViewTest {
             inputStream = new ByteArrayInputStream(carName.getBytes());
             System.setIn(inputStream);
 
-            CarRequestDto carRequestDto = InputView.setCarNames();
+            CarRequestDto carRequestDto = InputView.getCarNames();
 
             assertThat(carRequestDto.getCarNames()).isEqualTo(new CarRequestDto(carName).getCarNames());
         } catch (Exception e) {
@@ -36,7 +36,7 @@ class InputViewTest {
             inputStream = new ByteArrayInputStream(trial.getBytes());
             System.setIn(inputStream);
 
-            GameRequestDto gameRequestDto = InputView.setGameTrial();
+            GameRequestDto gameRequestDto = InputView.getGameTrial();
 
             assertThat(gameRequestDto.getTrial()).isEqualTo(5);
         } catch (Exception e) {

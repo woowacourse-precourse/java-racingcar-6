@@ -21,8 +21,9 @@ public class RacingCarServiceImp implements RacingCarService {
 
     @Override
     public List<String> getWinner(Game game) {
+        int maxLocation = getMaxLocation(game);
         return game.getCars().stream()
-                .filter(car -> car.getLocation() == getMaxLocation(game))
+                .filter(car -> car.getLocation() == maxLocation)
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
@@ -37,7 +38,7 @@ public class RacingCarServiceImp implements RacingCarService {
     private static boolean isCarMove() {
         return Generator.generateRandomNumber() >= MOVE_VALUE.getValue();
     }
-    
+
     private static void increaseTrial(Game game) {
         game.increaseCount();
     }

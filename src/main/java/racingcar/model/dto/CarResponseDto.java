@@ -11,11 +11,11 @@ public class CarResponseDto {
         carNames = inputCharNames;
     }
 
-    public String getWinnerCarNames() {
-        return String.join(DELIMITER.getMessage(), carNames);
-    }
-
     public List<String> getCarNames() {
         return carNames;
+    }
+    
+    public String getWinnerCarNames() {
+        return String.join(DELIMITER.getMessage(), carNames);
     }
 }

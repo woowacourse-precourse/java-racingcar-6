@@ -9,12 +9,16 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.model.service.RacingCarService;
+import racingcar.model.service.RacingCarServiceImp;
 
 class RacingCarControllerTest {
     private final OutputStream outputStream = new ByteArrayOutputStream();
+    private RacingCarService racingCarService;
 
     @BeforeEach
     void setUp() {
+        racingCarService = new RacingCarServiceImp();
         System.setOut(new PrintStream(outputStream));
     }
 
@@ -25,7 +29,7 @@ class RacingCarControllerTest {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
 
-        RacingCarController.create();
+        new RacingCarController(racingCarService).run();
 
         String actual = outputStream.toString().trim();
         assertThat(actual).contains("pobi", "woni", "최종 우승자");

@@ -10,8 +10,7 @@ public class GameRequestDto {
     private final int trial;
 
     public GameRequestDto(String inputTrial) {
-        Validator.validateAndParseTrial(inputTrial);
-        trial = Parser.parseTrial(inputTrial);
+        trial = parseAndValidate(inputTrial);
     }
 
     public Game toGame(List<Car> cars) {
@@ -20,5 +19,10 @@ public class GameRequestDto {
 
     public int getTrial() {
         return trial;
+    }
+
+    private int parseAndValidate(String inputTrial) {
+        Validator.validateTrial(inputTrial);
+        return Parser.parseTrial(inputTrial);
     }
 }

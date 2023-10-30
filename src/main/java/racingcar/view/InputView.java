@@ -1,20 +1,21 @@
 package racingcar.view;
 
-import static racingcar.model.constants.Phrase.GAME_START;
-import static racingcar.model.constants.Phrase.GAME_TRIAL;
-
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.constants.Phrase;
 import racingcar.model.dto.CarRequestDto;
 import racingcar.model.dto.GameRequestDto;
 
 public class InputView {
-    public static CarRequestDto setCarNames() {
-        System.out.println(GAME_START.getPhrase());
-        return new CarRequestDto(Console.readLine());
+    public static CarRequestDto getCarNames() {
+        return new CarRequestDto(printPhrase(Phrase.GAME_START));
     }
 
-    public static GameRequestDto setGameTrial() {
-        System.out.println(GAME_TRIAL.getPhrase());
-        return new GameRequestDto(Console.readLine());
+    public static GameRequestDto getGameTrial() {
+        return new GameRequestDto(printPhrase(Phrase.GAME_TRIAL));
+    }
+
+    private static String printPhrase(Phrase phrase) {
+        System.out.println(phrase.getPhrase());
+        return Console.readLine();
     }
 }

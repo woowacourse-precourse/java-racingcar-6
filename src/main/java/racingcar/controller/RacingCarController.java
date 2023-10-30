@@ -1,57 +1,47 @@
 package racingcar.controller;
 
-import racingcar.model.domain.Car;
 import racingcar.model.domain.Game;
 import racingcar.model.dto.CarRequestDto;
 import racingcar.model.dto.CarResponseDto;
 import racingcar.model.dto.GameRequestDto;
 import racingcar.model.dto.GameResponseDto;
 import racingcar.model.service.RacingCarService;
-import racingcar.model.service.RacingCarServiceImp;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarController {
     private final RacingCarService racingCarService;
-    private static Game game;
 
-    private RacingCarController(RacingCarService racingCarService) {
+    public RacingCarController(RacingCarService racingCarService) {
         this.racingCarService = racingCarService;
-        run();
     }
 
-    public static void create() {
-        new RacingCarController(new RacingCarServiceImp());
+    public void run() {
+        Game game = initializeGame();
+        startGame(game);
+        showGameWinner(game);
     }
 
-    private void run() {
-        initializeGame();
-        startGame();
-        showGameWinner();
+    private Game initializeGame() {
+        CarRequestDto carRequestDto = InputView.getCarNames();
+        GameRequestDto gameRequestDto = InputView.getGameTrial();
+        return gameRequestDto.toGame(carRequestDto.toCar());
     }
 
-    private static void initializeGame() {
-        CarRequestDto carRequestDto = InputView.setCarNames();
-        GameRequestDto gameRequestDto = InputView.setGameTrial();
-        game = gameRequestDto.toGame(carRequestDto.toCar());
-    }
-
-    private void startGame() {
+    private void startGame(Game game) {
         OutputView.printGameResult();
         while (!game.isFinished()) {
             racingCarService.moveCars(game);
-            showGameScore();
+            showGameScore(game);
         }
     }
 
-    private static void showGameScore() {
-        for (Car car : game.getCars()) {
-            OutputView.printGameScore(new GameResponseDto(car));
-        }
+    private void showGameScore(Game game) {
+        game.getCars().forEach(car -> OutputView.printGameScore(new GameResponseDto(car)));
         OutputView.printJumpLine();
     }
 
-    private void showGameWinner() {
+    private void showGameWinner(Game game) {
         OutputView.printWinner(new CarResponseDto(racingCarService.getWinner(game)));
     }
 }

@@ -10,8 +10,7 @@ public class CarRequestDto {
     private final List<String> carNames;
 
     public CarRequestDto(String inputCarNames) {
-        Validator.validateAndParseCarNames(inputCarNames);
-        carNames = Parser.parseCarNames(inputCarNames);
+        carNames = parseAndValidate(inputCarNames);
     }
 
     public List<Car> toCar() {
@@ -20,5 +19,10 @@ public class CarRequestDto {
 
     public List<String> getCarNames() {
         return carNames;
+    }
+
+    private List<String> parseAndValidate(String inputCarNames) {
+        Validator.validateCarNames(inputCarNames);
+        return Parser.parseCarNames(inputCarNames);
     }
 }
