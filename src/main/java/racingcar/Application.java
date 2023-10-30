@@ -1,12 +1,8 @@
 package racingcar;
 
-
-import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.NumberGenerator;
 import racingcar.domain.Racing;
 import racingcar.domain.RacingCar;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Application {
@@ -14,34 +10,31 @@ public class Application {
         RacingCar racingCar = new RacingCar();
         Racing racing = new Racing();
 
-        // TODO: 프로그램 구현
+        // 경주할 차 입력
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = racingCar.nameInput();
         List<String> cars = racingCar.naming(input);
+        Map<String, String> gameScore = racingCar.createRaceStatusMap(cars);
 
+        // 시도 횟수 입력
         System.out.println("시도할 횟수는 몇회인가요?");
         int attemptInput = racingCar.attemptInput();
 
+        // 실행 결과
         System.out.println("실행 결과");
-        String[] raceResult = new String[cars.size()];
-        Map<String,String> rank = new HashMap<>();
-
         for(int i=0; i<attemptInput; i++) {
-            racing.moveResult(cars, raceResult);
-            for(int j=0; j<cars.size(); j++) {
-                System.out.println(cars.get(j) + " : " + raceResult[j]);
-            }
+            racing.moveResult(gameScore);
             System.out.println();
         }
+        String findWinner = Collections.max(gameScore.values());
 
-        String getWinnerData = Collections.max(List.of(raceResult));
         List<String> winner =new ArrayList<>();
-
-        for(int i=0; i<raceResult.length; i++) {
-            if(getWinnerData==raceResult[i]) {
-                winner.add(cars.get(i));
+        for(String key: gameScore.keySet()) {
+            if(gameScore.get(key).equals(findWinner)) {
+                winner.add(key);
             }
         }
+
         String result = String.join(",", winner);
         System.out.println("최종 우승자 : "+result);
     }

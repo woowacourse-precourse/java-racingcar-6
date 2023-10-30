@@ -15,12 +15,18 @@ public class RacingCar {
 
     public List<String> naming(String input) {
         exception.nullInput(input);
-
-        String[] carList = input.split(",");
-        List<String> cars = Arrays.asList(carList);
+        String[] racers = input.split(",");
+        List<String> cars = Arrays.asList(racers);
         exception.carNameLength(cars);
-
         return cars;
+    }
+
+    public Map<String,String> createRaceStatusMap(List<String> cars) {
+        Map<String, String> gameScore = new HashMap<>();
+        for(String car: cars) {
+            gameScore.put(car,"");
+        }
+        return gameScore;
     }
 
     public int attemptInput() {

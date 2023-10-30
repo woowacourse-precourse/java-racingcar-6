@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Console;
 
 import java.util.*;
 
@@ -13,20 +12,15 @@ public class Racing {
         return randomNumber >= 4;
     }
 
-    public String[] moveResult(List<String> cars,String[] raceResult) {
-        for(int i=0; i<cars.size(); i++) {
-            if(raceResult[i] == null){
-                raceResult[i] = "";
+    public Map<String,String> moveResult(Map<String,String> raceScore) {
+        for(String key : raceScore.keySet()) {
+            if(isMoveCondition()) {
+                String value = raceScore.get(key) + "-";
+                raceScore.put(key, value);
             }
-          moveForward(raceResult,i);
+            System.out.println(key + " : " + raceScore.get(key));
         }
-        return raceResult;
-    }
-
-    public void moveForward(String[] raceResult,int index) {
-        if(isMoveCondition()){
-            raceResult[index] += "-";
-        }
+        return raceScore;
     }
 
 }
