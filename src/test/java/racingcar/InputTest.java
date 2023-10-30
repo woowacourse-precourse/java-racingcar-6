@@ -11,7 +11,6 @@ public class InputTest {
         int input = 5;
         InputCarName inputCarName = new InputCarName();
         List<Integer> result = inputCarName.makeTrack(input);
-        assertThat(result).hasSize(input);
-        assertThat(result).allMatch(value -> value.equals(0));
+        assertThat(result).containsExactly(0, 0, 0, 0, 0);
     }
 }

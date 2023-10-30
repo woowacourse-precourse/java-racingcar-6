@@ -26,12 +26,17 @@ public class Application {
         InputCarName inputCarName = new InputCarName();
         List<Integer> track = inputCarName.makeTrack(carCount);
 
-        CarSimulate carSimulate = new CarSimulate();
         System.out.println();
         System.out.println("실행 결과");
+
+        CarSimulate carSimulate = new CarSimulate();
+        RandNum randNum = new RandNum();
         for (int i = 0; i < time; i++) {
-            carSimulate.goSimulate(carCount, track);
-            carSimulate.viewCurrentProgress(carCount, car, track);
+            for(int j=0;j<track.size();j++){
+                int randomNumber = randNum.createRandomNumber();
+                carSimulate.goSimulate(randomNumber,j,track);
+            }
+            carSimulate.viewCurrentProgress(car, track);
             System.out.println();
         }
 
