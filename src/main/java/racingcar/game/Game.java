@@ -36,8 +36,8 @@ public class Game {
     public void setCar(){
         requestInput.carName();
         carNames = carName.validatedUserInput();
-        for(String playerName: carNames) {
-            carNameScores.put(playerName, 0);
+        for(String carName: carNames) {
+            carNameScores.put(carName, 0);
         }
     }
 

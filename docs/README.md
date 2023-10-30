@@ -26,4 +26,7 @@
 - 배열 대신 Java Collection 사용
 
 # 📝 설계 방향
+[개발 전 설계]
 <img src='../docs/racingcar_design.png'>
+[최종 설계]
+<img src='../docs/racingcar_design2.png'>
