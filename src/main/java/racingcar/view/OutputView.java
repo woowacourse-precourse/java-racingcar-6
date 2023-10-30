@@ -5,10 +5,12 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarDto;
 import racingcar.domain.CarsDto;
-import racingcar.util.Constants;
 import racingcar.util.StringUtils;
 
 public class OutputView {
+
+    public static final String GAME_RESULT_MESSAGE = "실행 결과";
+    public static final String GAME_WINNER_MESSAGE = "최종 우승자 : ";
 
     private boolean isFirstTime = true;
 
@@ -27,7 +29,7 @@ public class OutputView {
             return;
         }
 
-        System.out.println("\n" + Constants.GAME_RESULT_MESSAGE);
+        System.out.println("\n" + GAME_RESULT_MESSAGE);
         this.isFirstTime = false;
     }
 
@@ -35,7 +37,7 @@ public class OutputView {
         printMultipleWinners(winnerList);
 
         String winner = winnerList.get(0).getName();
-        System.out.println(Constants.GAME_WINNER_MESSAGE + winner);
+        System.out.println(GAME_WINNER_MESSAGE + winner);
     }
 
     private void printMultipleWinners(final List<Car> winnerList) {
@@ -47,6 +49,6 @@ public class OutputView {
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
 
-        System.out.println(Constants.GAME_WINNER_MESSAGE + winners);
+        System.out.println(GAME_WINNER_MESSAGE + winners);
     }
 }

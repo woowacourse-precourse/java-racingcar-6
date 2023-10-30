@@ -1,10 +1,10 @@
 package racingcar.domain;
 
-import racingcar.util.Constants;
 import racingcar.util.RandomNumberGenerator;
 
 public class RandomMovable implements Movable {
 
+    public static final int MIN_NUMBER_FORWARD_CONDITION = 4;
     private final RandomNumberGenerator randomNumberGenerator;
 
     public RandomMovable(RandomNumberGenerator randomNumberGenerator) {
@@ -15,6 +15,6 @@ public class RandomMovable implements Movable {
     public boolean canMove() {
         int number = randomNumberGenerator.generate();
 
-        return number >= Constants.MIN_NUMBER_FORWARD_CONDITION;
+        return number >= MIN_NUMBER_FORWARD_CONDITION;
     }
 }
