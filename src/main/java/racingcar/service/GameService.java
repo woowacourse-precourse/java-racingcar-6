@@ -2,23 +2,19 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Cars;
-import racingcar.repository.GameRepository;
 
 public class GameService {
     private final PrintService print = new PrintService();
-    private final GameRepository gameRepository = new GameRepository();
 
-    public void run(int gameNum) {
+    public void run(int gameNum, Cars cars) {
         print.result();
-        Cars cars = gameRepository.findCars();
-
         while (gameNum > 0) {
             addRandomNum(cars);
             print.racing(cars.size(), cars);
             gameNum--;
         }
 
-        findWinner(cars, cars.findMaxAdvanceNum());
+        findWinner(cars, cars.findMaxPosition());
         print.winner(cars);
     }
 

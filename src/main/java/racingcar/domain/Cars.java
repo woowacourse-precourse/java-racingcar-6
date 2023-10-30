@@ -28,7 +28,7 @@ public class Cars {
         return carList.get(i).getPosition().getNum();
     }
 
-    public int findMaxAdvanceNum() {
+    public int findMaxPosition() {
         int max = 0;
         for (Car car : carList) {
             max = Math.max(max, car.getPosition().getNum());

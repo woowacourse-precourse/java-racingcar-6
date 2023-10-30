@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Cars;
 import racingcar.repository.GameRepository;
 
 public class InputService {
@@ -35,5 +36,9 @@ public class InputService {
 
     public int findGameNum() {
         return gameRepository.findGameNum();
+    }
+
+    public Cars findCars() {
+        return gameRepository.findCars();
     }
 }
