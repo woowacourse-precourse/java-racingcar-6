@@ -13,7 +13,7 @@ public class Cars {
 
     public Cars(String inputCars) {
         CarsGenerator carsGenerator = new CarsGenerator();
-        cars = carsGenerator.getnerate(inputCars);
+        cars = carsGenerator.generate(inputCars);
     }
 
     public void attemptForward() {

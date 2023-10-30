@@ -6,7 +6,7 @@ import racingcar.constants.Constants;
 import racingcar.validator.CarsValidator;
 
 public class CarsGenerator {
-    public List<Car> getnerate(String inputNames) {
+    public List<Car> generate(String inputNames) {
         List<String> carNames = Arrays.stream(splitNames(inputNames))
                 .map(this::removeWhiteSpace)
                 .toList();
