@@ -1,4 +1,4 @@
-package racingcar.collaborator.generic;
+package racingcar.collaborator.race.generic;
 
 public record RacerProgress(String name, int mileage) {
 

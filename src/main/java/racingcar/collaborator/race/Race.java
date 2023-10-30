@@ -1,10 +1,10 @@
-package racingcar.collaborator;
+package racingcar.collaborator.race;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.collaborator.generic.LapProgress;
-import racingcar.collaborator.generic.RaceTotalProgress;
-import racingcar.collaborator.generic.RacerProgress;
+import racingcar.collaborator.race.generic.LapProgress;
+import racingcar.collaborator.race.generic.RaceTotalProgress;
+import racingcar.collaborator.race.generic.RacerProgress;
 import racingcar.io.Input;
 import racingcar.io.Output;
 
