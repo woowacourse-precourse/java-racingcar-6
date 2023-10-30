@@ -31,7 +31,7 @@ public class Car {
         return location;
     }
 
-    public void moveOrStop(StatusEnum statusEnum) {
+    public void move(StatusEnum statusEnum) {
         if (statusEnum == StatusEnum.MOVE) {
             location++;
         }
