@@ -37,4 +37,19 @@ class RacingServiceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void 시도할_횟수_세팅_테스트() throws Exception {
+        //given
+        int expected = 5;
+
+        doReturn(5).when(racingService).getAttemptCount();
+
+        int actual = racingService.getAttemptCount();
+        //when
+        racingService.readyAttemptCount();
+
+        //then
+        assertEquals(expected, actual);
+    }
+
 }
