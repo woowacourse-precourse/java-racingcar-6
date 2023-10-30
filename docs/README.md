@@ -16,6 +16,7 @@
     - 중복이 있으면 IllegalArgumentException으로 예외 처리
 
 ## Car
+- [] 자동차 이름, 위치
 - [] 앞으로 가는 함수
 - [] 멈추는 함수
 
