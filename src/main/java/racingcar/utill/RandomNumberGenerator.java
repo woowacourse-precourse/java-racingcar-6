@@ -5,7 +5,7 @@ import static racingcar.utill.constant.RandomNumberConstant.RANDOM_NUMBER_START_
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomNumberGenerator {
+public final class RandomNumberGenerator {
 
     public static int createRandomNumber() {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_START_RANGE, RANDOM_NUMBER_LAST_RANGE);

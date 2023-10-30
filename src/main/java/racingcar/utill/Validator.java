@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import racingcar.domain.Car;
 
-public class Validator {
+public final class Validator {
 
     public static void nullInputValidation(String nullString) {
         if (nullString == null) {
