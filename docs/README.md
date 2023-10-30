@@ -22,8 +22,7 @@
 
 ### RandomMovingStrategy
 > MovingStrategy의 구현체, 랜덤 생성 값에 따라 이동 여부를 결정한다
-- [ ] 0에서 9사이의 값을 랜덤하게 생성한다
-- [ ] 랜덤하게 생성한 값이 4이상이면 true(이동 가능)를 반환한다
+- [x] 0에서 9사이의 값을 랜덤하게 생성하고, 그 값이 4이상이면 true(이동 가능)를 반환한다
 
 ### Car
 > 자동차 객체, CarName와 CarPosition을 갖는다
