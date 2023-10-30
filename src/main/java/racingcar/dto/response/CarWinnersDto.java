@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.CarName;
-import racingcar.model.CarWinners;
+import racingcar.model.Winners;
 
 public class CarWinnersDto {
     private final List<String> winnerNames;
@@ -13,13 +13,13 @@ public class CarWinnersDto {
         this.winnerNames = winnerNames;
     }
 
-    public static CarWinnersDto from(CarWinners winners) {
+    public static CarWinnersDto from(Winners winners) {
         List<String> winnerNames = getWinnerNames(winners);
         return new CarWinnersDto(winnerNames);
     }
 
-    private static List<String> getWinnerNames(CarWinners winners) {
-        List<Car> carWinners = winners.getWinners();
+    private static List<String> getWinnerNames(Winners winners) {
+        List<Car> carWinners = winners.getCars();
         return carWinners.stream()
                 .map(Car::getName)
                 .map(CarName::getName)

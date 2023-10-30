@@ -11,7 +11,7 @@ public class RaceStage {
         return new RaceStage(movedCars);
     }
 
-    public CarWinners findWinners() {
+    public Winners findWinners() {
         return carGroup.findWinners();
     }
 

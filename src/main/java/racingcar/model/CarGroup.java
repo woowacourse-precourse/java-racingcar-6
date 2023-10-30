@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarGroup {
-    private static final String EMPTY_CAR_GROUP_EXCEPTION_MESSAGE = "자동차 그룹은 비어있을 수 없습니다.";
-    private static final String DUPLICATE_CAR_GROUP_EXCEPTION_MESSAGE = "자동차 그룹에 중복된 이름이 존재합니다.";
-    private static final String EMPTY_WINNER_GROUP_EXCEPTION_MESSAGE = "우승자를 찾기 위한 자동차 그룹이 비어있습니다.";
+    private static final String EMPTY_CAR_GROUP_EXCEPTION = "비어있는 자동차 목록으로 자동차 그룹을 만들 수 없습니다.";
+    private static final String DUPLICATE_CAR_GROUP_EXCEPTION = "자동차 그룹에 중복된 이름이 존재합니다.";
+    private static final String EMPTY_COMPARABLE_CAR_GROUP_EXCEPTION = "비교 가능한 자동차 목록이 비어있습니다.";
 
     private final List<Car> cars;
 
@@ -24,7 +24,7 @@ public class CarGroup {
 
     private void validateEmpty(List<Car> cars) {
         if (isEmpty(cars)) {
-            throw new IllegalArgumentException(EMPTY_CAR_GROUP_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(EMPTY_CAR_GROUP_EXCEPTION);
         }
     }
 
@@ -34,7 +34,7 @@ public class CarGroup {
 
     private void validateDuplicates(List<Car> cars) {
         if (hasDuplicates(cars)) {
-            throw new IllegalArgumentException(DUPLICATE_CAR_GROUP_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(DUPLICATE_CAR_GROUP_EXCEPTION);
         }
     }
 
@@ -60,17 +60,17 @@ public class CarGroup {
                 .collect(toList());
     }
 
-    public CarWinners findWinners() {
+    public Winners findWinners() {
         CarPosition maxPosition = findMaxPosition();
         List<Car> winners = findCarsWithMaxPosition(maxPosition);
-        return CarWinners.from(winners);
+        return Winners.from(winners);
     }
 
     private CarPosition findMaxPosition() {
         return cars.stream()
                 .map(Car::getPosition)
                 .max(CarPosition::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException(EMPTY_WINNER_GROUP_EXCEPTION_MESSAGE));
+                .orElseThrow(() -> new IllegalArgumentException(EMPTY_COMPARABLE_CAR_GROUP_EXCEPTION));
     }
 
     private List<Car> findCarsWithMaxPosition(CarPosition maxPosition) {

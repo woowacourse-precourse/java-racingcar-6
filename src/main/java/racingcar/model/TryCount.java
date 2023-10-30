@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.Objects;
 
 public final class TryCount {
-    private static final String TRY_COUNT_RANGE_EXCEPTION_MESSAGE = "시도 횟수는 %d 이상 %d 이하의 정수만 가능합니다.";
+    private static final String TRY_COUNT_RANGE_EXCEPTION_FORMAT = "시도 횟수는 %d 이상 %d 이하의 정수만 가능합니다.";
     private static final int MINIMUM_COUNT = 1;
     private static final int MAXIMUM_COUNT = 20;
 
@@ -16,7 +16,7 @@ public final class TryCount {
 
     private void validateCountRange(int count) {
         if (isOutOfRange(count)) {
-            String exceptionMessage = String.format(TRY_COUNT_RANGE_EXCEPTION_MESSAGE, MINIMUM_COUNT, MAXIMUM_COUNT);
+            String exceptionMessage = String.format(TRY_COUNT_RANGE_EXCEPTION_FORMAT, MINIMUM_COUNT, MAXIMUM_COUNT);
             throw new IllegalArgumentException(exceptionMessage);
         }
     }

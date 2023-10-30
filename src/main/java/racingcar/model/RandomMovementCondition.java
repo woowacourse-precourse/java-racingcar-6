@@ -4,7 +4,7 @@ public class RandomMovementCondition implements MovementCondition {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int MOVE_CONDITION = 4;
-    
+
     private final NumberGenerator numberGenerator;
 
     public RandomMovementCondition(NumberGenerator numberGenerator) {

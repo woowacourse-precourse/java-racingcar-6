@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.Objects;
 
 public final class CarPosition implements Comparable<CarPosition> {
-    private static final String POSITION_UNDER_LIMIT_FORMAT_MESSAGE = "자동차의 위치는 %d보다 작을 수 없습니다.";
+    private static final String POSITION_UNDER_LIMIT_EXCEPTION_FORMAT = "자동차의 위치는 %d보다 작을 수 없습니다.";
     private static final int INITIAL_POSITION = 0;
     private static final int MOVE_STEP = 1;
 
@@ -16,7 +16,7 @@ public final class CarPosition implements Comparable<CarPosition> {
 
     private void validateMin(int position) {
         if (isLessThanInitial(position)) {
-            String exceptionMessage = String.format(POSITION_UNDER_LIMIT_FORMAT_MESSAGE, INITIAL_POSITION);
+            String exceptionMessage = String.format(POSITION_UNDER_LIMIT_EXCEPTION_FORMAT, INITIAL_POSITION);
             throw new IllegalArgumentException(exceptionMessage);
         }
     }

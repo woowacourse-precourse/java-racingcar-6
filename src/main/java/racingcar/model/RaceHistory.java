@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RaceHistory {
-    private static final String EMPTY_RACE_HISTORY_EXCEPTION_MESSAGE = "경주 기록이 없습니다.";
+    private static final String EMPTY_RACE_STAGES_EXCEPTION = "경주 스테이지 기록이 비어있으면 경주 기록을 생성할 수 없습니다.";
     private static final int LAST_ROUND_OFFSET = 1;
 
     private final List<RaceStage> raceStages;
@@ -16,7 +16,7 @@ public class RaceHistory {
 
     private void validateEmpty(List<RaceStage> raceStages) {
         if (raceStages.isEmpty()) {
-            throw new IllegalArgumentException(EMPTY_RACE_HISTORY_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(EMPTY_RACE_STAGES_EXCEPTION);
         }
     }
 
@@ -24,7 +24,7 @@ public class RaceHistory {
         return new RaceHistory(raceStages);
     }
 
-    public CarWinners findFinalStageWinners() {
+    public Winners findFinalStageWinners() {
         RaceStage finalRaceStage = getFinalStage();
         return finalRaceStage.findWinners();
     }

@@ -6,11 +6,11 @@ import racingcar.dto.request.TryCountDto;
 import racingcar.dto.response.CarWinnersDto;
 import racingcar.dto.response.RaceHistoryDto;
 import racingcar.model.CarGroup;
-import racingcar.model.CarWinners;
 import racingcar.model.MovementCondition;
 import racingcar.model.RaceHistory;
 import racingcar.model.RacingGame;
 import racingcar.model.TryCount;
+import racingcar.model.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -60,11 +60,11 @@ public class RacingGameController {
     }
 
     private void printWinnersFrom(RaceHistory raceHistory) {
-        CarWinners winners = raceHistory.findFinalStageWinners();
+        Winners winners = raceHistory.findFinalStageWinners();
         printWinners(winners);
     }
 
-    private void printWinners(CarWinners winners) {
+    private void printWinners(Winners winners) {
         CarWinnersDto carWinnersDto = CarWinnersDto.from(winners);
         outputView.printWinners(carWinnersDto);
     }
