@@ -1,12 +1,28 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-
+import java.util.List;
+import racingcar.controller.GameController;
+import racingcar.model.Car;
+import racingcar.model.RacingGame;
 import racingcar.view.ConsoleView;
 
 public class Application {
     public static void main(String[] args) {
+        try {
+            ConsoleView consoleView = new ConsoleView();
+            String[] carNames = getCarNames(consoleView);
+            List<Car> cars = Car.createCars(carNames);
+            int numberOfAttempts = getNumberOfAttempts(consoleView);
+            consoleView.printMessage("");
 
+            RacingGame racingGame = new RacingGame(cars);
+            GameController gameController = new GameController(racingGame, consoleView);
+            gameController.playGame(numberOfAttempts);
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static String[] getCarNames(ConsoleView consoleView) {
