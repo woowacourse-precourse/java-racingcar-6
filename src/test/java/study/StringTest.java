@@ -1,8 +1,7 @@
 package study;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -167,5 +166,19 @@ public class StringTest {
         assertThat(resultList).allMatch((value) -> {
             return value.equals(1);
         });
+    }
+
+    @DisplayName("두개의_List가_같은지_확인하는_테스트")
+    @Test
+    void 두개의_List가_다른지_확인하는_테스트() throws Exception {
+        //given
+        List<Integer> resultList_1 = List.of(1, 2, 3);
+        List<Integer> resultList_2 = List.of(3, 4, 5);
+
+        // then
+        // 방법 1 assertNotEquals
+        assertNotEquals(resultList_1, resultList_2);
+        // 방법 2 assertThat().isFalse
+        assertThat(resultList_1.equals(resultList_2)).isFalse();
     }
 }
