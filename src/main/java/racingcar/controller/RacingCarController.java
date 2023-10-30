@@ -13,6 +13,9 @@ import java.util.stream.IntStream;
 
 public class RacingCarController {
     private static final int FORWARD_RULE = 4;
+    private static final char COMMA = ',';
+    private static final String EMPTY_NAME = "";
+    private static final String JOINING_RULE = ", ";
     private final InputView inputView;
     private final OutputView outputView;
 
@@ -35,7 +38,7 @@ public class RacingCarController {
         return cars.stream()
                 .filter(car -> car.getDistance() == maxDistance(cars))
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(JOINING_RULE));
     }
 
     private int maxDistance(List<Car> cars) {
@@ -72,20 +75,21 @@ public class RacingCarController {
     }
 
     private List<String> splitCarNamesByComma(String input) {
-        List<String> carNames = Arrays.stream(input.split(","))
+        List<String> carNames = Arrays.stream(input.split(String.valueOf(COMMA)))
                 .toList();
         validateEmptyName(carNames);
         return carNames;
     }
 
     private void validateEmptyName(List<String> carNames){
-        if(carNames.contains("")){
+        if(carNames.contains(EMPTY_NAME)){
             throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
         }
     }
 
     private void validateLastCharComma(String input){
-        if(input.charAt(input.length() - 1) == ','){
+        int lastIndex = input.length() - 1;
+        if(input.charAt(lastIndex) == COMMA){
             throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
         }
     }
