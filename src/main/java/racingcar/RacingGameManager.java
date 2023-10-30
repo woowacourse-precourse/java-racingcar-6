@@ -12,6 +12,8 @@ public class RacingGameManager {
     private final RacingGameService service;
     private final RacingGameController controller;
 
+    private Cars userCars;
+
     public RacingGameManager(){
         this.view = new RacingGameView();
         this.service = new RacingGameService();
@@ -19,10 +21,11 @@ public class RacingGameManager {
     }
     public void play(){
         view.printGameStartMessage();
-        Cars userCars = createRacingCars(controller.getInputCarNames());
+        userCars = createRacingCars(controller.getInputCarNames());
         view.printRepeatCountMessage();
+        Integer repeatCount = controller.getInputRepeatCount();
         view.printExecutionMessage();
-        IntStream.range(0, controller.getInputRepeatCount()).forEach(j -> {
+        IntStream.range(0, repeatCount).forEach(j -> {
             IntStream.range(0, userCars.getCarsLength()).mapToObj(i ->
                     userCars.getCars().get(i)).forEach(service::randomNumber);
             view.printGameProcessingMessage(userCars);
