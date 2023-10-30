@@ -1,10 +1,12 @@
-package racingcar;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import racingcar.model.Car;
+
+import racingcar.Application;
 
 public class CarTest extends NsTest {
     @Test
@@ -17,6 +19,7 @@ public class CarTest extends NsTest {
     void 이름_공백_예외_처리() {
         assertThrows(IllegalArgumentException.class, () -> new Car("  "));
     }
+
     @Test
     void 이름_길이_초과_예외_처리() {
         assertThrows(IllegalArgumentException.class, () -> new Car(" 123141123"));

@@ -1,12 +1,11 @@
-package racingcar;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import racingcar.model.Car;
-import racingcar.model.RacingCars;
+import racingcar.Application;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

@@ -15,6 +15,7 @@ public class InputCarNamesTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 이름_공백포함_예외_처리() {
         assertSimpleTest(() ->
@@ -22,6 +23,7 @@ public class InputCarNamesTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 이름_마지막쉼표_예외_처리() {
         assertSimpleTest(() ->
@@ -29,6 +31,7 @@ public class InputCarNamesTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 이름_중복이름_예외_처리() {
         assertSimpleTest(() ->
