@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
     private List<Car> cars;
@@ -17,8 +19,8 @@ public class Game {
     }
 
     private void settingCar() {
-        PromptHandler.promptOutput(GameMessage.ASK_CARS_NAME.getMessage());
-        String[] carsName = PromptHandler.promptInputCarsName();
+        String[] carsName = askCarsName();
+        cars = Arrays.stream(carsName).map(Car::new).collect(Collectors.toList());
     }
 
     private String[] askCarsName() {
