@@ -3,6 +3,8 @@ package racingcar;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.List;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.CarNameValidator;
@@ -30,7 +32,8 @@ public class CarNameValidatorTest {
     @Test
     void checklCarNmaeWithSpacesOnBothSides() {
         String carName = "kim,   1245     ,jun";
-        assertDoesNotThrow(() -> carNameValidator.processCarNames(carName));
+        List<String> name = carNameValidator.processCarNames(carName);
+        Assertions.assertThat(name).contains("1245");
     }
 
     @DisplayName("자동차이동름입력 - 공백포함 5자 초과입력시 예외발생")
