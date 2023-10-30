@@ -5,12 +5,14 @@ import racingcar.dto.AttemptCount;
 import racingcar.dto.CarsState;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.CarsGenerator;
 import racingcar.model.Winners;
 import racingcar.validator.AttemptCountValidator;
 
 public class GamePlayingService {
     public Cars generateCars(String inputNames) {
-        return new Cars(inputNames);
+        CarsGenerator carsGenerator = new CarsGenerator();
+        return carsGenerator.generate(inputNames);
     }
 
     public AttemptCount createAttemptCount(String input) {

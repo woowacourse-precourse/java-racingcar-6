@@ -11,11 +11,6 @@ public class Cars {
         this.cars = cars;
     }
 
-    public Cars(String inputCars) {
-        CarsGenerator carsGenerator = new CarsGenerator();
-        cars = carsGenerator.generate(inputCars);
-    }
-
     public void attemptForward() {
         cars.forEach(Car::attemptForward);
     }

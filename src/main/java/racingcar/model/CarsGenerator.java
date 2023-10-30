@@ -6,14 +6,14 @@ import racingcar.constants.Constants;
 import racingcar.validator.CarsValidator;
 
 public class CarsGenerator {
-    public List<Car> generate(String inputNames) {
+    public Cars generate(String inputNames) {
         List<String> carNames = Arrays.stream(splitNames(inputNames))
                 .map(this::removeWhiteSpace)
                 .toList();
 
         CarsValidator.INSTANCE.validate(carNames);
 
-        return toCars(carNames);
+        return new Cars(toCars(carNames));
     }
 
     private String[] splitNames(String names) {
