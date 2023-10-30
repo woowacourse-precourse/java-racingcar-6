@@ -14,5 +14,9 @@ public class RacingGame {
         }
     }
 
-
+    void printStep() {
+        for(Car car : racingCars) {
+            System.out.println(car);
+        }
+    }
 }
