@@ -30,4 +30,15 @@ public class Cars {
         }
         return maxValue;
     }
+
+    public String findWinner() {
+        List<String> winnerList = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getMovement() == maxMovement()) {
+                winnerList.add(car.getName());
+            }
+        }
+        String winner = String.join(",", winnerList);
+        return winner;
+    }
 }

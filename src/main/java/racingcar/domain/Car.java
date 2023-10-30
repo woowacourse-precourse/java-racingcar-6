@@ -26,4 +26,12 @@ public class Car {
         }
         return score.toString();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMovement() {
+        return movement;
+    }
 }
