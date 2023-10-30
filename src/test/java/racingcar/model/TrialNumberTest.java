@@ -1,9 +1,10 @@
 package racingcar.model;
 
+import org.junit.jupiter.api.Test;
+import racingcar.utils.ErrorMessage;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-
-import org.junit.jupiter.api.Test;
 
 class TrialNumberTest {
     @Test
@@ -12,7 +13,7 @@ class TrialNumberTest {
 
         assertThatThrownBy(() -> new TrialNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자를 입력해야 합니다.");
+                .hasMessageContaining(ErrorMessage.NOT_INTEGER_MESSAGE.getMessage());
     }
 
     @Test
@@ -21,7 +22,7 @@ class TrialNumberTest {
 
         assertThatThrownBy(() -> new TrialNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자를 입력해야 합니다.");
+                .hasMessageContaining(ErrorMessage.NOT_INTEGER_MESSAGE.getMessage());
     }
 
     @Test
@@ -30,15 +31,59 @@ class TrialNumberTest {
 
         assertThatThrownBy(() -> new TrialNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자를 입력해야 합니다.");
+                .hasMessageContaining(ErrorMessage.NOT_INTEGER_MESSAGE.getMessage());
     }
 
     @Test
-    void 숫자_입력() {
+    void 정수_입력() {
         String input = "123";
         TrialNumber trialNumber = new TrialNumber(input);
         int result = trialNumber.getTrialNumber();
 
         assertThat(result).isEqualTo(123);
+    }
+
+    @Test
+    void 소수_입력() {
+        String input = "1.2";
+
+        assertThatThrownBy(() -> new TrialNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.NOT_INTEGER_MESSAGE.getMessage());
+    }
+
+    @Test
+    void 음수_입력() {
+        String input = "-12";
+
+        assertThatThrownBy(() -> new TrialNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.NOT_POSITIVE_NUMBER_MESSAGE.getMessage());
+    }
+
+    @Test
+    void 입력_0() {
+        String input = "000";
+
+        assertThatThrownBy(() -> new TrialNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.NOT_POSITIVE_NUMBER_MESSAGE.getMessage());
+    }
+
+    @Test
+    void 공백_입력() {
+        String input = "";
+
+        assertThatThrownBy(() -> new TrialNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.EMPTY_NAME_ERROR.getMessage());
+    }
+
+    @Test
+    void 블랭크_입력() {
+        String input = " ";
+        assertThatThrownBy(() -> new TrialNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.EMPTY_NAME_ERROR.getMessage());
     }
 }
