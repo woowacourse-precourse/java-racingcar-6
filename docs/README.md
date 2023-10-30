@@ -3,7 +3,7 @@
 - [x] 입력 메시지 출력 (printInputCarNameMessage) [OutputView]
 
 
-- [ ] n대의 자동차를 입력 (readCarName) [Input]
+- [ ] n대의 자동차를 입력 (readCarName) [InputView]
 
   - [ ] 쉼표(,) 기준으로 이름 분리 후 racerNameList에 저장(seperateCarName) [RacerManager]
 
@@ -20,9 +20,9 @@
 - [ ] racerNameList를 통해 racer 생성 + 이름 지정 (createRacers) [RacerManager]
 
 
-- [ ] 입력 메시지 출력 (printInputMoveNumberMessage) [Output]
+- [ ] 입력 메시지 출력 (printInputMoveNumberMessage) [OutputView]
 
-  - [ ] 시도할 횟수 m입력 (readMoveNumber) [Input]
+  - [ ] 시도할 횟수 m입력 (readMoveNumber) [InputView]
 
   - [ ] m이 숫자가 맞는지 확인 (validateMoveNumber) [InputValidater]
 
@@ -36,12 +36,12 @@
 
 - [ ] 실행 횟수 m번 반복 (repeatMove) [RaceProgression]
 
-  - [ ] 실행 결과 출력 (printMoveResult) [Output]
+  - [ ] 실행 결과 출력 (printMoveResult) [OutputView]
 
   - [ ] 전진하는 경우 state에 - 표시 추가 (printGoMark) [RaceReferee]
 
 
-- [ ] 최종 우승자 쉼표로 구분하여 출력(printWinner) [Output]
+- [ ] 최종 우승자 쉼표로 구분하여 출력(printWinner) [OutputView]
 
   - [ ] 우승자 판단 (getWinner) [WinnerDecider]
 
