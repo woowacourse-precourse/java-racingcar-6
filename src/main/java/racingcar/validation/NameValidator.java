@@ -17,14 +17,18 @@ public class NameValidator {
 
     public void validateNames() {
         checkForDuplicateNames();
-        names.forEach(this::validateNameLength);
-        names.forEach(this::validateAlphabeticName);
+        names.forEach(this::validateSingleName);
     }
 
     private void checkForDuplicateNames() {
         if (names.size() != names.stream().distinct().count()) {
             throw new IllegalArgumentException(InvalidMessage.DUPLICATE_NAME.getMessage());
         }
+    }
+
+    private void validateSingleName(String name) {
+        validateNameLength(name);
+        validateAlphabeticName(name);
     }
 
     private void validateNameLength(String name) {
