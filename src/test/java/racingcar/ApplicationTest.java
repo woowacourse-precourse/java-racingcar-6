@@ -53,6 +53,26 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void printWinnerMessage_메소드를_사용시_1대의_우승한_자동차_출력(){
+        List<RacingCar> carList = List.of(
+            new RacingCar("woni")
+        );
+        RacingCarGameOutput.printWinnersMessage(carList);
+        assertThat(output()).contains("최종 우승자는 : woni");
+    }
+
+    @Test
+    void printWinnerMessage_메소드를_사용시_2대이상의_우승한_자동차들_출력(){
+        List<RacingCar> carList = List.of(
+                new RacingCar("pobi"),
+                new RacingCar("woni"),
+                new RacingCar("javaji")
+        );
+        RacingCarGameOutput.printWinnersMessage(carList);
+        assertThat(output()).contains("최종 우승자는 : pobi, woni, javaji");
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
