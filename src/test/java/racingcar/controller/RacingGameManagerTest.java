@@ -16,24 +16,22 @@ public class RacingGameManagerTest {
     @Test
     void tryCountIsNegativeOrZero() {
         //Given
-        String inputNegativeNumber = "-1";
-        String inputZero = "0";
-        RacingGameManager racingGameManager = new RacingGameManager();
+        String negativeNumber = "-1";
+        String zero = "0";
 
         //When & Then
-        assertThrows(IllegalArgumentException.class, () -> racingGameManager.tryCountValidation(inputNegativeNumber));
-        assertThrows(IllegalArgumentException.class, () -> racingGameManager.tryCountValidation(inputZero));
+        assertTryCount(negativeNumber);
+        assertTryCount(zero);
     }
 
     @DisplayName("시도 횟수가 숫자가 아닌 경우 예외 발생")
     @Test
     void tryCountIsNotInteger() {
         //Given
-        String inputValue = "sd";
-        RacingGameManager racingGameManager = new RacingGameManager();
+        String nonInteger = "sd";
 
         //When & Then
-        assertThrows(IllegalArgumentException.class, () -> racingGameManager.tryCountValidation(inputValue));
+        assertTryCount(nonInteger);
     }
 
     @DisplayName("시도 횟수만큼 전진 메서드 호출")
@@ -49,5 +47,13 @@ public class RacingGameManagerTest {
 
         // Then
         Mockito.verify(spyCars, times(tryCount)).runCars();
+    }
+
+    private void assertTryCount(String inputTryCount){
+        //Given
+        RacingGameManager racingGameManager = new RacingGameManager();
+
+        //When & Then
+        assertThrows(IllegalArgumentException.class, () -> racingGameManager.tryCountValidation(inputTryCount));
     }
 }
