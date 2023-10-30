@@ -57,6 +57,7 @@ class Game {
             for (int i = 0; i < car.count; i++) {
                 System.out.print("-");
             }
+            System.out.print("\n");
         }
         System.out.print("\n");
     }
