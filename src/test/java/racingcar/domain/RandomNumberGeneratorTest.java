@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.RepeatedTest;
 
-class RandomNumb명erGeneratorTest {
+class RandomNumberGeneratorTest {
 
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 9;
