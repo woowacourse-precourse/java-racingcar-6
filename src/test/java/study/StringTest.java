@@ -3,7 +3,10 @@ package study;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class StringTest {
 
@@ -13,6 +16,8 @@ public class StringTest {
         String[] result = input.split(",");
 
         assertThat(result).contains("2", "1");
+
+        // 특정 결과가 주어진 순서대로 "1"과 "2"를 포함하는지 확인
         assertThat(result).containsExactly("1", "2");
     }
 
@@ -48,4 +53,12 @@ public class StringTest {
                 .hasMessageContaining("String index out of range: 5");
     }
 
+    @DisplayName("CsvSource을 이용한 테스트 활용")
+    @ParameterizedTest
+    @CsvSource({"abc,1,true", "def,2,false"})
+    public void CsvSource_활용하여_여러개_테스트_확인하기(String str, int num, boolean isTrue) throws Exception {
+        assertThat(str).contains(str);
+        assertThat(num).isEqualTo(num);
+        assertThat(isTrue).isEqualTo(isTrue);
+    }
 }
