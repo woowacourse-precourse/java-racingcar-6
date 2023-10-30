@@ -68,8 +68,8 @@
 
 #### 시도 횟수 입력 테스트
 
-- [ ] 시도 횟수를 입력하지 않았을 경우 `IllegalArgumentException` 예외 여부 확인
-- [ ] 시도 횟수를 정수가 아닌 문자열로 입력했을 경우 `IllegalArgumentException` 예외 여부 확인
+- [x] 시도 횟수를 입력하지 않았을 경우 `IllegalArgumentException` 예외 여부 확인
+- [x] 시도 횟수를 정수가 아닌 문자열로 입력했을 경우 `IllegalArgumentException` 예외 여부 확인
 
 ### 출력값 테스트
 

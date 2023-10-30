@@ -53,4 +53,22 @@ class ApplicationTest extends NsTest {
 						.isInstanceOf(IllegalArgumentException.class)
 		);
 	}
+
+	@Test
+	@DisplayName("시도 횟수 입력 테스트 - 입력하지 않았을 경우 예외 처리")
+	void turnCountTest1() {
+		assertSimpleTest(() ->
+				assertThatThrownBy(() -> runException("pobi", null))
+						.isInstanceOf(IllegalArgumentException.class)
+		);
+	}
+
+	@Test
+	@DisplayName("시도 횟수 입력 테스트 - 정수가 아닌 입력값일 경우 예외 처리")
+	void turnCountTest2() {
+		assertSimpleTest(() ->
+				assertThatThrownBy(() -> runException("pobi", "one"))
+						.isInstanceOf(IllegalArgumentException.class)
+		);
+	}
 }
