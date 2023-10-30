@@ -81,19 +81,25 @@ public class GameManager {
     }
 
     public void calculateWinner() {
-        cars.sort((car1, car2) -> car2.getScore() - car1.getScore());
-        Car winner = cars.get(0);
-        gameWinner.append(winner);
-        findCoWinner(winner);
+        int winnerScore = getWinnerScore();
+        findWinner(winnerScore);
     }
 
-    private void findCoWinner(Car winner) {
-        for (int index = 1; index < cars.size(); index++) {
-            Car car = cars.get(index);
-            if (winner.getScore() != car.getScore()) {
+    private int getWinnerScore() {
+        cars.sort((car1, car2) -> car2.getScore() - car1.getScore());
+
+        return cars.get(0).getScore();
+    }
+
+    private void findWinner(int winnerScore) {
+        for (Car car : cars) {
+            if (car.getScore() != winnerScore) {
                 break;
             }
-            gameWinner.append(CAR_NAME_DELIMIT).append(SPACE).append(car);
+            if (!gameWinner.isEmpty()) {
+                gameWinner.append(CAR_NAME_DELIMIT).append(SPACE);
+            }
+            gameWinner.append(car);
         }
     }
 
