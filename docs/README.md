@@ -124,12 +124,6 @@ jun : -----
 - JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
     - 테스트 도구 사용법이 익숙하지 않다면 `test/java/study`를 참고하여 학습한 후 테스트를 구현한다.
 
-### 라이브러리
-
-- JDK에서 제공하는 Random 및 Scanner API 대신 `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms` 및 `Console` API를 사용하여 구현해야 한다.
-    - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
-    - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-
 #### 사용 예시
 
 - 0에서 9까지의 정수 중 한 개의 정수 반환
@@ -158,7 +152,7 @@ Randoms.pickNumberInRange(0,9);
 - 실행 결과 [X]
   - 입력한 횟수만큼, 자동차 별로 전진했는지 결과 출력
 
-- 최종 우승자 출력 [ ]
+- 최종 우승자 출력 [X]
   - 마지막 실행 결과에서 가장 많이 이동한 자동차를 출력
   - 우승자가 여럿일 경우 ', '로 구분 출력
 
