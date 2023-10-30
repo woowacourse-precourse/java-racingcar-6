@@ -24,9 +24,9 @@ public class Winner {
     }
 
     public void printResult(List<Integer> winner, String[] car) {
-        System.out.print("최종 우승자 : "+ car[winner.get(0)]);
+        System.out.print("최종 우승자 : " + car[winner.get(0)]);
         for (int i = 1; i < winner.size(); i++) {
-            System.out.print(", "+car[winner.get(i)]);
+            System.out.print(", " + car[winner.get(i)]);
         }
     }
 }

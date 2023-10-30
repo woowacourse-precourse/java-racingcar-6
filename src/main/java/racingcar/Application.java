@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputCar = Console.readLine();
         String[] car = inputCar.split(",");
@@ -32,9 +31,9 @@ public class Application {
         CarSimulate carSimulate = new CarSimulate();
         RandNum randNum = new RandNum();
         for (int i = 0; i < time; i++) {
-            for(int j=0;j<track.size();j++){
+            for (int j = 0; j < track.size(); j++) {
                 int randomNumber = randNum.createRandomNumber();
-                carSimulate.goSimulate(randomNumber,j,track);
+                carSimulate.goSimulate(randomNumber, j, track);
             }
             carSimulate.viewCurrentProgress(car, track);
             System.out.println();
