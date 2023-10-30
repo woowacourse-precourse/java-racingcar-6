@@ -14,6 +14,7 @@ public class Application {
         final String START = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
         final String TRY_COUNT = "시도할 회수는 몇회인가요?";
         final String RESULT = "\n실행 결과";
+        final String WINNER = "\n최종 우승자: ";
 
         System.out.println( START );
         String carNameList = Console.readLine();
@@ -21,13 +22,42 @@ public class Application {
         String activeCount = Console.readLine();
 
 
-        Car model = new Car();
-        boolean isValidName = model.validCarName( carNameList );
+        Car car = new Car();
+        boolean isValidName = car.validCarName( carNameList );
+
+        Map<String, Integer> carMap = new HashMap<>();
 
         if ( isValidName ) {
 
-            //todo
+            car.makeCarListToMap( carNameList, carMap );
         }
 
+        System.out.println( RESULT );
+
+        int count = 0;
+        Racing racing = new Racing();
+
+        while ( count < Integer.parseInt( activeCount ) ) {
+
+            for ( String key : carMap.keySet() ){
+                int value = carMap.get( key );
+
+                racing.increaseStepByRandomNum( carMap, key );
+
+                StringBuilder step = racing.addStepForPrint( value );
+                System.out.println( key + " : " + step );
+
+                racing.makeRacingResultList( key, value, activeCount );
+            }
+
+            System.out.println(" ");
+            count++;
+
+            String result = racing.printResult();
+            if ( null != result ) {
+
+                System.out.println( WINNER + result );
+            }
+        }
     }
 }

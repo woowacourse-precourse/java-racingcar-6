@@ -1,31 +1,29 @@
 package racingcar;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Car {
 
-    private String name;
-    private int step;
+    public void makeCarListToMap(String nameList, Map<String, Integer> carMap ) {
 
-    public Car () {
-        this.name = "";
-        this.step = 0;
+        List<String> carNameList = List.of( nameList.split(",") );
+
+        for ( String carName : carNameList ) {
+            carMap.put( carName, 0 );
+        }
     }
-
 
     public boolean validCarName( String nameList ) {
         List<String> carNameList = List.of( nameList.split(",") );
-
-        this.checkMinNumber( carNameList );
-        this.checkIsDuplicate( carNameList );
 
         for ( String carName : carNameList ) {
 
             this.checkNameLength( carName );
             this.checkIsEmpty( carName );
         }
+        this.checkMinNumber( carNameList );
+        this.checkIsDuplicate( carNameList );
 
         return true;
     }
@@ -60,5 +58,4 @@ public class Car {
             throw new IllegalArgumentException("자동차 경주를 위해서는 2대 이상의 자동차가 존재해야 합니다.");
         }
     }
-
 }
