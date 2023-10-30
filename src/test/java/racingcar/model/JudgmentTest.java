@@ -13,17 +13,16 @@ import org.junit.jupiter.api.Test;
 
 class JudgmentTest {
 
-    private final Judgment judgment = new Judgment();
-
-    private List<Car> cars;
+    private Game game;
 
     @BeforeEach
     void setUp() {
-        cars = Arrays.asList(
+        final List<Car> cars = Arrays.asList(
             POBY.움직인_횟수와_생성(3),
             WONY.움직인_횟수와_생성(2),
             JUN.움직인_횟수와_생성(1),
             HYUK.움직인_횟수와_생성(3));
+        game = new Game(cars);
     }
 
     @Test
@@ -32,7 +31,7 @@ class JudgmentTest {
         List<String> expected = List.of("poby", "hyuk");
 
         // when
-        List<String> result = judgment.judge(cars);
+        List<String> result = game.judge();
 
         // then
         assertThat(result.size()).isEqualTo(expected.size());
