@@ -16,7 +16,7 @@ public class RoundController {
         try {
             return Integer.parseInt(Util.readLine());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(Constants.INVALID_INPUT_ERROR);
+            throw new IllegalArgumentException(Constants.INVALID_ROUND_INPUT_ERROR);
         }
     }
 }

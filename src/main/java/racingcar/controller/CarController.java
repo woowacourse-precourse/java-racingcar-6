@@ -1,22 +1,24 @@
 package racingcar.controller;
 
+import racingcar.Constants;
 import racingcar.Util;
 import racingcar.model.Validator;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class CarController {
     public static List<String> setCars() {
+        String input = readCarNamesFromUser();
+        List<String> carList = Util.parseCarNames(input);
+        Validator.validateCarNames(carList);
+        return carList;
+    }
 
+    private static String readCarNamesFromUser() {
         try {
-            String cars = Util.readLine();
-            List<String> carList = Arrays.asList(cars.split(","));
-            Validator.validateCarNames(carList);
-
-            return carList;
+            return Util.readLine();
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(Constants.INVALID_NAME_INPUT_ERROR);
         }
     }
 }
