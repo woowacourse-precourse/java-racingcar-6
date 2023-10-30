@@ -1,9 +1,6 @@
 package racingcarGame;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static constant.Constants.*;
 
@@ -12,6 +9,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
     List<String> carNames = new ArrayList<>();
+    Set<String> carNameSet = new HashSet<>();
+//    private Map<String, int[]> carData = new HashMap<>();
     int carNumber;
     public Game(){
 
@@ -33,7 +32,6 @@ public class Game {
         String inputString = Console.readLine();
         String[] inputStringArr = inputString.split(",");
         carNumber = inputStringArr.length;
-        Set<String> carNameSet = new HashSet<>();
         for(int i = 0; i < carNumber; i++) {
             if(inputStringArr[i].length() > 5){
                 throw new IllegalArgumentException(WRONG_INPUT_SIZE);
@@ -46,7 +44,10 @@ public class Game {
             }
             carNameSet.add(carName);
         }
+
     }
+
+//    public void addCar(String )
 
     private void inputNumber(){
         System.out.println(INPUT_NUMBER);
@@ -65,9 +66,29 @@ public class Game {
 
         for(int i = 0; i < inputNum; i++){ // 총 5번 반복
             racingOnce(tryNumber);
-//            printRanking(trynumber);
+            printRanking(tryNumber);
 
-//            System.out.println();
+            System.out.println();
+        }
+        printWinner(tryNumber);
+
+    }
+
+    private void printWinner(int[] tryNumber){
+
+    }
+
+    private void printRanking(int[] tryNumber){
+//        for(int i = 0; i < carNumber; i++){
+//            System.out.print(carNameSet[i]);
+//        }
+        int curCarNum = 0;
+        for(String carName : carNameSet) {
+            System.out.print(carName + " : ");
+            System.out.print("-".repeat(tryNumber[curCarNum++]));
+            System.out.println();
+
+//            System.out.println(tryNumber[curCarNum++]);
         }
     }
 
@@ -75,11 +96,11 @@ public class Game {
 //        System.out.println("racingOnce함수");
         for(int i = 0; i < carNumber; i++){
             int randomNum = getRandomNum();
-            System.out.println(randomNum);
+//            System.out.println(randomNum);
             if(randomNum >= 4){
                 tryNumber[i]++;
             }
-            System.out.println("이번 넘버 : "+tryNumber[i]);
+//            System.out.print("".repeat(tryNumber[i]));
         }
 
     }
