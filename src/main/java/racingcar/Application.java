@@ -1,17 +1,14 @@
 package racingcar;
 
-
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.ConvertService;
 import racingcar.domain.vo.CarVO;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Application {
-
   private final static ConvertService cs = new ConvertService();
   public static void main(String[] args) {
 
@@ -21,11 +18,9 @@ public class Application {
 
     for(String car : carStringList){
       if(car.length() > 5){
-        System.out.println("이름에 대한 예외");
-        return;
+        throw new IllegalArgumentException();
       }
     }
-
     List<CarVO> racingCarList = new ArrayList<>();
     for(String name : carStringList){
       CarVO car = new CarVO();
@@ -35,7 +30,6 @@ public class Application {
     System.out.println("시도할 회수는 몇회인가요?");
     String inputCycleString = Console.readLine();
     int tryCycle = cs.StringConvertInt(inputCycleString);
-
 
     for (int i = 0; i < tryCycle; i++) {
       for(CarVO car : racingCarList){
@@ -51,7 +45,6 @@ public class Application {
         System.out.println(movePoint);
 
         car.setCar(car.getCar());
-
       }
       System.out.println();
     }
