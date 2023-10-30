@@ -38,10 +38,4 @@ public class Car {
 	public int getForword() {
 		return forword;
 	}
-
-	@Override
-	public String toString() {
-		return "Car [name=" + name + ", numberList=" + numberList + ", forword=" + forword + "]";
-	}
-	
 }

@@ -11,16 +11,15 @@ import view.OutView;
 public class RacingCarComtroller {
 
 	public static void raceStart() throws IllegalArgumentException {
-		InputView input = new InputView();
-		String nameText = input.nameText();
-		int totalMove = Integer.valueOf(input.totalMove());
+		String nameText = InputView.nameText().trim();
+		String totalMoveText = InputView.totalMove().trim();
 		
-		InputImpo carInfo = new InputImpo(nameText);
+		InputImpo carInfo = new InputImpo(nameText, totalMoveText);
 		List<String> carNameList = carInfo.changeList();
+		int totalMove = carInfo.changeInt();
+		
 		List<Car> carList = new ArrayList<>();
 		for(String carName : carNameList) {
-			InputImpo.checkCarName(carName);
-			
 			Car car = new Car(carName);
 			car.getRandomNumberList(totalMove);
 			carList.add(car);

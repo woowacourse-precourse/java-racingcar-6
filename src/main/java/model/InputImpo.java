@@ -3,14 +3,16 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import validators.InputValidator;
+
 public class InputImpo {
 	
 	private String nameText;
-	//private int totalMove;
+	private String totalMoveText;
 	
-	public InputImpo(String nameText) {
+	public InputImpo(String nameText, String totalMoveText) {
 		this.nameText = nameText;
-		//this.totalMove = totalMove;
+		this.totalMoveText = totalMoveText;
 	}
 	
 	public List<String> changeList() {
@@ -18,14 +20,16 @@ public class InputImpo {
 		
 		String[] carNameArray = nameText.split(",");
 		for(String name : carNameArray) {
+			InputValidator.checkCarName(name);
 			carList.add(name.trim());
 		}
 		return carList;
 	}
-
-	public static void checkCarName(String car) {
-		if(car.length() > 5) {
-			throw new IllegalArgumentException("자동차 이름은 5글자를 넘어가면 안됩니다.");
-		}
+	
+	public int changeInt() {
+		int totalMove = Integer.valueOf(totalMoveText);
+		InputValidator.checkCarMove(totalMove);
+		
+		return totalMove;
 	}
 }
