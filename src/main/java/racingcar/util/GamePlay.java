@@ -24,8 +24,8 @@ public class GamePlay {
         ArrayList<Car> carArrayList = gameUtil.splitNameArrayList(carName);
 
         for (int i = 0; i < count; i++) {
-            outputView.gameSituation(carArrayList);
             gameUtil.goAndStop(carArrayList);
+            outputView.gameSituation(carArrayList);
             System.out.println();
         }
 
