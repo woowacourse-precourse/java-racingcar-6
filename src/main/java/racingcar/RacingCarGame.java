@@ -25,7 +25,8 @@ public class RacingCarGame {
         RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
         racingCarOutputView.moveResultPrint(iterNumber, cars);
 
-        List<Car> winners = findWinner(cars);
+        List<String> winners = findWinner(cars);
+        racingCarOutputView.winnerPrint(winners);
 
     }
 
@@ -36,17 +37,17 @@ public class RacingCarGame {
         }
     }
 
-    public List<Car> findWinner(List<Car> cars) {
+    public List<String> findWinner(List<Car> cars) {
         int maxPosition = 0;
-        List<Car> winners = new ArrayList<>();
+        List<String> winners = new ArrayList<>();
 
         for (Car car : cars) {
             if (car.getPosition() > maxPosition) {
                 maxPosition = car.getPosition();
                 winners.clear();
-                winners.add(car);
+                winners.add(car.getName());
             } else if (car.getPosition() == maxPosition) {
-                winners.add(car);
+                winners.add(car.getName());
             }
         }
 

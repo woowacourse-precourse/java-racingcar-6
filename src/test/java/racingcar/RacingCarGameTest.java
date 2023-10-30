@@ -27,8 +27,8 @@ public class RacingCarGameTest {
         }, 1, 2, 4, 4);
 
         // when
-        List<Car> winners = racingCarGame.findWinner(cars);
+        List<String> winners = racingCarGame.findWinner(cars);
         // then
-        assertThat(winners).contains(cars.get(2), cars.get(3));
+        assertThat(winners).contains("pobi", "nabi");
     }
 }

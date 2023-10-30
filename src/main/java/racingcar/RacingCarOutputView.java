@@ -13,4 +13,13 @@ public class RacingCarOutputView {
             System.out.println();
         }
     }
+
+    public void winnerPrint(List<String> winners) {
+        System.out.print(Messages.GUIDE_OUTPUT_WINNER);
+        if (winners.size() == 1) {
+            System.out.println(winners.get(0));
+            return;
+        }
+        System.out.print(String.join(", ", winners));
+    }
 }

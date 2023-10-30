@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 public class RacingCarOutputViewTest {
 
     private static ByteArrayOutputStream outputMessage;
+    RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
 
     @BeforeEach
     void setUpStreams() {
@@ -31,7 +32,6 @@ public class RacingCarOutputViewTest {
     @DisplayName("이동 결과에 따라 게임 진행 현황 출력")
     void 이동한_결과에_따라_형식에_맞게_결과를_출력한다() {
         // given
-        RacingCarOutputView racingCarOutputView = new RacingCarOutputView();
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("dayo"));
         cars.add(new Car("dami"));
@@ -42,5 +42,25 @@ public class RacingCarOutputViewTest {
             // then
             assertThat(outputMessage.toString()).contains("dayo : --", "dami : -");
         }, 4, 3, 4, 4);
+    }
+
+    @Test
+    @DisplayName("우승자가 한 명일 때 출력 테스트")
+    void 우승자가_한_명일때_단일_출력() {
+        List<String> winner = new ArrayList<>();
+        winner.add("dami");
+        racingCarOutputView.winnerPrint(winner);
+        assertThat(outputMessage.toString()).contains("최종 우승자 : dami");
+    }
+
+    @Test
+    @DisplayName("우승자가 여러 명일 때 출력 테스트")
+    void 우승자가_여러_명_일때_콤마로_구분해서_출력() {
+        List<String> winners = new ArrayList<>();
+        winners.add("dami");
+        winners.add("pobi");
+        winners.add("dayo");
+        racingCarOutputView.winnerPrint(winners);
+        assertThat(outputMessage.toString()).contains("최종 우승자 : dami, pobi, dayo");
     }
 }
