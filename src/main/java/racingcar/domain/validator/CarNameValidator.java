@@ -6,8 +6,12 @@ public class CarNameValidator {
 
     private final List<String> carNames;
 
-    public CarNameValidator(String carName) {
-        this.carNames = List.of(carName.split(","));
+    public CarNameValidator(List<String> carNames) {
+        this.carNames = carNames;
+        validateAll();
+    }
+
+    public void validateAll() {
         validateCarNameExists();
         validateAlphanumericAndCommaCarName();
         validateCarNameLength();
