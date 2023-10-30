@@ -1,11 +1,11 @@
 package racingcar;
 
 
-import racingcar.v2.RacingGameV2;
+import racingcar.v3.RacingGameV3;
 
 public class Application {
     public static void main(String[] args) {
-        RacingGameV2 racingGame = new RacingGameV2();
+        RacingGameV3 racingGame = new RacingGameV3();
         racingGame.start();
     }
 }
