@@ -2,6 +2,7 @@ package racingcar.model;
 
 import racingcar.util.NumberGenerator;
 import racingcar.validation.CarNameValidator;
+import racingcar.validation.Validator;
 
 public class Car {
     private static final int MOVEMENT_THRESHOLD = 4;
@@ -10,14 +11,14 @@ public class Car {
     private int position = 0;
 
     public Car(final String name, final NumberGenerator numberGenerator) {
-        final CarNameValidator carNameValidator = CarNameValidator.getInstance();
-        carNameValidator.validate(name);
+        final Validator validator = CarNameValidator.getInstance();
+        validator.validate(name);
         this.name = name;
         this.numberGenerator = numberGenerator;
     }
 
     public void moveForward() {
-        final int randomNumber = numberGenerator.createRandomNumber();
+        final int randomNumber = numberGenerator.generate();
         if (isMoveForward(randomNumber)) {
             position++;
         }

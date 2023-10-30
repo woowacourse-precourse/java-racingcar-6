@@ -12,7 +12,12 @@ public class RandomNumberGenerator implements NumberGenerator {
         return INSTANCE;
     }
 
-    public int createRandomNumber() {
+    @Override
+    public int generate() {
+        return createRandomNumber();
+    }
+
+    private int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 }
