@@ -6,11 +6,6 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.model.Car;
 
-/**
- * View는 입력과 출력과 관련된 로직만 있어야 한다.
- * 입력 값을 검증하는 것은 있어선 안된다. - 입력받은 자동차 이름을 저장하는 일급 컬렉션으로 생성 후 해당 클래스에서 검증로직 수행하도록 변경
- * Console.readLine() -> private 메서드로 추출하기
- */
 public class RacingCarView {
 
     public static String[] inputCarNames() {
