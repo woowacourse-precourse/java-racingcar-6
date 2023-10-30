@@ -20,10 +20,15 @@ public class RacingCarGameController {
 
     public void startGame(List<Car> carList, String racingRoundTimes) {
         roundProgress(carList, Integer.parseInt(racingRoundTimes));
-        caculateGameResult(carList);
+        List<String> winnerList = caculateGameResult(carList);
+        printGameResult(winnerList);
     }
 
-    public void caculateGameResult(List<Car> carList) {
+    public void printGameResult(List<String> winnerList) {
+        OutView.printWinnerCar(String.join(", ", winnerList));
+    }
+
+    public List<String> caculateGameResult(List<Car> carList) {
         List<String> winnerList = new ArrayList<>();
         int max=0;
 
@@ -34,10 +39,10 @@ public class RacingCarGameController {
                 winnerList.add(car.getName());
             }
             if (car.getStepCount() <= max && car.getStepCount() == max) {
-                winnerList.add(car.getName()); // 같은 숫자가 나타나면 리스트에 추가
+                winnerList.add(car.getName());
             }
         }
-        OutView.printWinnerCar(winnerList);
+        return winnerList;
     }
 
     public List<Car> createRacingCar(List<String> carNameList) {

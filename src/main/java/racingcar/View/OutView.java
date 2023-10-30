@@ -15,7 +15,7 @@ public class OutView {
         }
         System.out.print("\n");
     }
-    public static void printWinnerCar(List<String> winnerList) {
-        System.out.print("최종 우승자 : " + String.join(", ", winnerList));
+    public static void printWinnerCar(String winner) {
+        System.out.print("최종 우승자 : " + winner);
     }
 }
