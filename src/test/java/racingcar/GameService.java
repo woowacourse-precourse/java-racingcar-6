@@ -30,5 +30,12 @@ public class GameService {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    private static boolean movingForwardCheck(int randomNumber) {
+        if (randomNumber >= 4) {
+            return true;
+        }
+        return false;
+    }
+
 
 }
