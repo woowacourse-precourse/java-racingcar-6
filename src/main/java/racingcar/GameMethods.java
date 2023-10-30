@@ -57,4 +57,20 @@ public class GameMethods {
         return winningCandidate;
     }
 
+    /**
+     * 최종 우승자 출력 포맷 만들기
+     *
+     * @param winningCandidate
+     * @return
+     */
+    public static StringBuilder winnerPrintForm(ArrayList<String> winningCandidate) {
+        StringBuilder winners = new StringBuilder();
+        winners.append("최종 우승자 :");
+        for (int i = 0; i < winningCandidate.size(); i++) {
+            winners.append(" ").append(winningCandidate.get(i)).append(",");
+        }
+        winners.deleteCharAt(winners.length() - 1);
+
+        return winners;
+    }
 }
