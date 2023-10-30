@@ -18,6 +18,15 @@ public class PromptHandler {
         return carsName;
     }
 
+    public static int promptInputRoundCount() {
+        String input = Console.readLine();
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
+    }
+
     private static boolean isOverCarsCount(int number) {
         return number > GameConfig.MAX_CAR_COUNT.getValue();
     }
