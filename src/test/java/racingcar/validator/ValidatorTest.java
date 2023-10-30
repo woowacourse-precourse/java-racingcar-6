@@ -10,8 +10,16 @@ import static org.assertj.core.api.Assertions.*;
 public class ValidatorTest extends NsTest {
 
     @Test
-    void 자동차_컴마로_구분_테스트() {
+    void 자동차_컴마로_구분_테스트1() {
         String carNames = "pobi,gabi,가나다,123,car1,1자동차";
+        Validator validator = new Validator();
+        assertThatCode(() -> validator.checkCarNameInputForm(carNames))
+                .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 자동차_컴마로_구분_테스트2() {
+        String carNames = "pobi";
         Validator validator = new Validator();
         assertThatCode(() -> validator.checkCarNameInputForm(carNames))
                 .doesNotThrowAnyException();
