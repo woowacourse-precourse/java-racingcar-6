@@ -19,6 +19,7 @@
       - getPosition() : 현재 위치 반환
       - shouldMove() : 차가 움직일 수 있는지 판단
       - move() : 차가 움직임
+      - calculationDistance() : 이동한 거리를 리턴
       - printPosition() : 현재 포지션 출력
 
 ### - UserInput 클래스 
@@ -49,10 +50,9 @@
         - declareWinner() : 결과와 관련된 함수 기능 분리
 
       - checkWinner() : 우승자 확인
-        - for문을 통해 Car의 거리를 계산하여 우승자 확인
-        - calcDistance() : 거리를 계산하는 함수 "------" -> 6
-      - printWinner() : 우승자 출력
-
+        - makeWinnersName() : 우승자들의 이름을 리스트로 생성
+      - printWinner() : 최종 우승자 출력
+        
 
  - 규칙
    - [x] 기능 목록 생성
