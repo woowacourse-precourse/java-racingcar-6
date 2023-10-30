@@ -11,6 +11,9 @@ public class RacingCar implements Comparable<RacingCar> {
     }
 
     public RacingCar(String name) {
+        if (name.length() == 0 || name.length() > 5) {
+            throw new IllegalArgumentException("RacingCar name error");
+        }
         this.name = name;
         this.movedDistance = 0;
     }

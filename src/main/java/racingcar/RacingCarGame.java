@@ -31,10 +31,15 @@ public class RacingCarGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNameInput = Console.readLine();
         String[] carNames = carNameInput.split(",");
+        for (int i = 0; i < carNames.length; i++) {
+            carNames[i] = carNames[i].trim();
+        }
+
         Arrays.stream(carNames).forEach(carName -> {
             racingCarList.add(new RacingCar(carName));
         });
     }
+
 
     private void requestTryNumber() {
         System.out.println("시도할 회수는 몇회인가요?");

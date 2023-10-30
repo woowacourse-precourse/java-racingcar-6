@@ -21,9 +21,9 @@
 
 ## 에러처리 - `IllegalArgumentException`
 
-- [ ] 이름이 5글자 이상일 때
-    - `abcde`
-    - `abc,abcde`
+- [x] 이름이 5글자 초과이거나 비어있을 때
+    - `abcdef`
+    - `abc,abcdef`
 - [ ] 이름 중복
 - [ ] 시도할 횟수가 숫자가 아닐 때
 - [ ] 시도할 횟수가 0이하일 때
