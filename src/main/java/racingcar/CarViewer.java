@@ -14,6 +14,10 @@ public class CarViewer {
     private static final String GUIDE_NAME_DIVIED;
     private static final String INPUT_ATTEMPT_COUNT = "시도할 회수는 몇회인가요?";
     private static final String EXECUTE = "실행 결과";
+    private static final String RESULT_DELIMITER = ", ";
+    private static final String POSITION_SYMBOL = "-";
+    private static final String WINNER = "최종 우승자";
+    private static final String KEY_DELIMITER = " : ";
 
     static {
         GUIDE_NAME_DIVIED = "(이름은 쉼표(" + INPUT_NAME_DELIMITER + ") 기준으로 구분)";
@@ -34,10 +38,10 @@ public class CarViewer {
     public List<String> inputCarNames() {
         System.out.println(INPUT_CAR_NAMES + GUIDE_NAME_DIVIED);
         String inputCarNames = Console.readLine();
-        return List.of(inputCarNames.split(","));
+        return List.of(inputCarNames.split(INPUT_NAME_DELIMITER));
     }
 
-    public int inputAttemptCount() {
+    public int inputGameRound() {
         System.out.println(INPUT_ATTEMPT_COUNT);
         String inputAttemptCount = Console.readLine();
         try {
@@ -53,13 +57,15 @@ public class CarViewer {
     }
 
     public void outputWinner(List<String> winningCarNames) {
-        String result = String.join(", ", winningCarNames);
-        System.out.println("최종 우승자 : " + result);
+        String result = String.join(RESULT_DELIMITER, winningCarNames);
+        System.out.println(WINNER + KEY_DELIMITER + result);
     }
 
-    public void outputStatus(Map<String, Integer> status) {
-        for (String carName : status.keySet()) {
-            System.out.println(carName + " : " + "-".repeat(status.get(carName)));
+    public void outputResult(List<Map<String, Integer>> gameResult) {
+        for (Map<String, Integer> round : gameResult) {
+            for (String carName : round.keySet()) {
+                System.out.println(carName + KEY_DELIMITER + POSITION_SYMBOL.repeat(round.get(carName)));
+            }
         }
     }
 }
