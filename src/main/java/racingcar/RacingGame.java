@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
     public static String[] carName;
@@ -60,8 +61,12 @@ public class RacingGame {
         return (number <= 0);
     }
     private static void playGame(){
+        System.out.println("실행 결과");
         while (tryNumber > 0) {
             tryNumber--;
         }
+    }
+    private static boolean isRandomValueOverFour(){
+        return Randoms.pickNumberInRange(0,9) >= 4;
     }
 }
