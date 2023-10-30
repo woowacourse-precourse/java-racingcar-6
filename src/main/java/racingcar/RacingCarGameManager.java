@@ -14,6 +14,8 @@ public class RacingCarGameManager {
     public static void start() {
         System.out.println("\n실행 결과");
         repeatRoundTimes();
+        printFinalResult();
+        endGame();
     }
 
     private static void repeatRoundTimes() {
@@ -36,5 +38,31 @@ public class RacingCarGameManager {
                 car -> car.printCurrentPosition()
         );
         System.out.println();
+    }
+
+    private static void printFinalResult() {
+        System.out.println("최종 우승자: " + getWinner());
+    }
+
+    private static String getWinner() {
+        int maxPosition = CarInfoManager.carInfos.stream()
+                .mapToInt(car -> car.getPosition())
+                .max()
+                .orElse(0);
+
+        StringBuilder winner = new StringBuilder();
+        CarInfoManager.carInfos.forEach(
+                (car) -> {
+                    if (car.getPosition() == maxPosition) {
+                        winner.append(car.getName()).append(", ");
+                    }
+                }
+        );
+
+        return winner.substring(0, winner.length() - 2);
+    }
+
+    public static void endGame() {
+        CarInfoManager.close();
     }
 }
