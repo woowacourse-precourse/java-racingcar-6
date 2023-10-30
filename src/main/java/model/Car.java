@@ -1,6 +1,6 @@
 package model;
 
-public class Car {
+public class Car implements Comparable<Car> {
 
     private final Name name;
     private final MovingCount movingCount;
@@ -29,6 +29,12 @@ public class Car {
     public String currentRacingStatus() {
         String dash = DASH.repeat(movingCount.getMovingCount());
         return this + STATUS_SEPARATOR + dash;
+    }
+
+    @Override
+    public int compareTo(Car otherCar) {
+        MovingCount otherMovingCount = otherCar.movingCount;
+        return otherMovingCount.getMovingCount() - this.getMovingCount();
     }
 
     @Override
