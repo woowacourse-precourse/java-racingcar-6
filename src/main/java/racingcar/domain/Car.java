@@ -1,7 +1,9 @@
 package racingcar.domain;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class Car {
     private Map<String, Integer> cars;
@@ -12,7 +14,7 @@ public class Car {
     }
 
     public Car(String inputName) {
-        cars = initToMap(validateNameLength(splitNames(inputName)));
+        cars = initToMap(splitNames(inputName));
     }
 
     private Map<String, Integer> initToMap(String[] names) {
@@ -24,16 +26,18 @@ public class Car {
     }
 
     private String[] splitNames(String inputName) {
-        return inputName.split(",");
-    }
+        String[] names = inputName.split(",");
 
-    private String[] validateNameLength(String[] names) {
         for (String name : names) {
-            if (name.length() > NAME_SIZE) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하로만 가능합니다.");
+            if (isNameGraterThan(name)) {
+                throw new IllegalArgumentException("자동차 이름은 " + NAME_SIZE + "자 이하로만 가능합니다.");
             }
         }
         return names;
+    }
+
+    private boolean isNameGraterThan(String name) {
+        return name.length() > NAME_SIZE;
     }
 
     public void forward(Map.Entry<String, Integer> entry, int randomNumber) {
