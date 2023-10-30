@@ -34,15 +34,15 @@ public class Car {
         }
     }
 
-    private boolean isMove (int number){
-        return number >= STANDARD_VALUE;
-    }
-
-    private void lengthValidation(String name) {
+    void lengthValidation(String name) {
         if (name == null) {
             throw new IllegalArgumentException();
         } else if (name.length() < MIN_LENGTH || name.length() > MAX_LENGTH) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private boolean isMove (int number){
+        return number >= STANDARD_VALUE;
     }
 }

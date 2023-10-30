@@ -3,23 +3,27 @@ package racingcar.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
+    @DisplayName("이름이 널이거나 범위를 벗어나면 예외 발생")
     @Test
-    void 이름이_NULL이거나_길이가_범위를_벗어나면_예외발생() {
+    void nameIsNullOrOutOfRange() {
         //Given
         String shortName = "";
-        String LongName = "마다가스카르";
+        String LongName = "가나다라마";
+        Car car = new Car();
 
         //When & Then
-        assertThrows(IllegalArgumentException.class, () -> new Car(null));
-        assertThrows(IllegalArgumentException.class, () -> new Car(shortName));
-        assertThrows(IllegalArgumentException.class, () -> new Car(LongName));
+        assertThrows(IllegalArgumentException.class, () -> car.lengthValidation(null));
+        assertThrows(IllegalArgumentException.class, () -> car.lengthValidation(shortName));
+        assertThrows(IllegalArgumentException.class, () -> car.lengthValidation(LongName));
     }
 
+    @DisplayName("무작위 값이 기준 값 이상일 때 전진")
     @Test
-    void 무작위_값이_기준값_이상일_때_1칸_이동() {
+    void forwardIfRandomIsOverStandard() {
         //Given
         int randomValue = 4;
         Car car = new Car();
@@ -31,8 +35,9 @@ public class CarTest {
         assertEquals(1, car.getDistance());
     }
 
+    @DisplayName("무작위 값이 기준 값 이하일 때 정지")
     @Test
-    void 무작위_값이_기준값_이하일_때_정지() {
+    void stopIfRandomIsUnderStandard() {
         //Given
         int randomValue = 3;
         Car car = new Car();
