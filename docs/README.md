@@ -1,10 +1,11 @@
 # 시퀀스 기능
-- [ ] 자동차 이름을 입력받는다.
-  - [ ] 자동차 이름을 쉼표(,)를 기준으로 구분한다.
-    - [ ] 쉼표 앞뒤로 공백은 자동으로 없애서 입력받는다.
-  - [ ] 이름은 5자 이하만 가능하다. -> 아니면 `IllegalArgumentException`
-    - [ ] 공백을 제거한 후의 길이가 5자 이하로 계산한다.
-  - [ ] 입력받은 자동차 이름을 보관한다.
+- [x] 자동차 이름을 입력받는다. - InputView$inputCarNames()
+- [x] 자동차 이름을 검증한다. - CarNamesValidator$getValidatedCarNamesList(String inputtedString)
+  - [x] 자동차 이름을 쉼표(,)를 기준으로 구분한다. - CarNamesValidator$validateSplit(String inputtedCarNames)
+  - [x] 쉼표 앞뒤로 공백은 자동으로 없애서 입력받는다. - CarNamesValidator$trimInputtedString(String inputtedCarNames)
+  - [x] 이름은 5자 이하만 가능하다. -> 아니면 `IllegalArgumentException` - CarNamesValidator$validateLessThanLength(String carName)
+    - [x] 공백을 제거한 후의 길이가 5자 이하로 계산한다. - CarNamesValidator$validateLessThanLength(String carName)
+- [ ] 입력받은 자동차 이름을 보관한다.
   - [ ] 각 자동차는 처음은 이동 거리가 0으로 세팅돼야한다.
 - [ ] 사용자로부터 몇 번의 이동을 할 것인지 입력받는다.
   - [ ] 숫자로 입력받아야 한다. -> 아니면 `IllegalArgumentException`
@@ -124,34 +125,33 @@
 - int getDistanceByCarName(String carName)
 - List<String> calculateWinners()
 
-## 11. `abstract` Validator
+## 11. Validator
 ### Behavior
-- abstract validate(String inputtedString)
 - void throwIllegalArgumentException(String message)
 - void throwIllegalArgumentException(String message, Throwable t)
 
 ## 12. CarNamesValidator extends Validator
 ### Behavior
-- void validate(String inputtedString)
-- `private` void validateSplit(String inputtedCarNames)
-- `private` void validateLessThanLength(String carName, int length)
+- `private` List<String> validateSplit(String inputtedCarNames)
+- `private` String trimInputtedString(String inputtedCarNames)
+- `private` void validateLessThanLength(String carName)
+- String getValidatedCarNamesList(String inputtedString)
 
 ## 13. ClientValidator extends Validator
 ### Behavior
-- void validate(String inputtedString)
 - `private` int validateCastToInt(String inputtedString)
 - `private` void validateOneDigit(int value)
 - int getValidatedIntValue(int validatedValue)
 
 ## 14. `Enum` Sentence
-- String INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"
-- String INPUT_TRY_NUMBERS = "시도할 회수는 몇회인가요?"
-- String RACING_RESULT_START = "실행 결과"
-- String SINGLE_CAR_WITHOUT_DISTANCE = "%s : "
-- String FINAL_WINNERS = "최종 우승자 :"
+- INPUT_CAR_NAMES("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")
+- INPUT_TRY_NUMBERS("시도할 횟수는 몇회인가요?")
+- RACING_RESULT_START("실행 결과")
+- SINGLE_CAR_WITHOUT_DISTANCE("%s : ")
+- FINAL_WINNERS("최종 우승자 :")
 
 ## 15. `Enum` Error
-- String LONG_CAR_NAME_ERROR = "자동차 이름이 5자 이상입니다."
-- String NOT_NUMBER = "숫자로 입력을 받지 않았습니다."
+- LONG_CAR_NAME_ERROR("자동차 이름이 5자를 초과했습니다.")
+- BLANK_CAR_NAME_ERROR("자동차 이름을 공백으로 입력하였습니다.")
 - String CANNOT_CAST_TO_INT = "int형으로 변환할 수 없습니다. (범위 초과)"
 - String NOT_ONE_DIGIT = "입력한 숫자가 한 자리 자연수가 아닙니다."
