@@ -20,7 +20,7 @@ public class CarTest {
 
         Car car = new Car(nameInput);
         car.move(randomInput);
-        Assertions.assertThat(car.getPosition())
+        Assertions.assertThat(car.getPositionString())
                 .isEqualTo("-");
 
     }
@@ -32,7 +32,7 @@ public class CarTest {
 
         Car car = new Car(nameInput);
         car.move(randomInput);
-        Assertions.assertThat(car.getPosition())
+        Assertions.assertThat(car.getPositionString())
                 .isEqualTo("");
     }
 }
