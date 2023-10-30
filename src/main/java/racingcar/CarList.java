@@ -23,17 +23,17 @@ public class CarList {
         return this.hasAtLeastTwoItems() && this.isShortEnglishName() && this.isDuplicate();
     }
 
-    public boolean hasAtLeastTwoItems(){
+    private boolean hasAtLeastTwoItems(){
         return this.carList.size() >= 2;
     }
 
-    public boolean isDuplicate(){
+    private boolean isDuplicate(){
         Set<String> carSet = new HashSet<>(carList);
 
-        return carSet.size() != carList.size();
+        return carSet.size() == carList.size();
     }
 
-    public boolean isShortEnglishName(){
+    private boolean isShortEnglishName(){
         Pattern pattern = Pattern.compile("^[a-zA-Z]");
 
         for(String car: this.carList){

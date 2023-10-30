@@ -21,12 +21,12 @@ public class CarRacing {
         }
     }
 
-    public int setCarForwardingNum(){
+    private int setCarForwardNum(){
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public boolean isMoreFour(){
-        return this.setCarForwardingNum() >= 4;
+    private boolean isMoreFour(){
+        return this.setCarForwardNum() >= 4;
     }
 
     public void setRacingMap(){
@@ -47,13 +47,13 @@ public class CarRacing {
        System.out.println();
     }
 
-    public void printEachCarProgress(int num){
+    private void printEachCarProgress(int num){
         for(int i = 0; i < num; i ++){
             System.out.print("-");
         }
     }
 
-    public List<String> setRacingResult(){
+    private List<String> setRacingResult(){
         List<String> winnerList = new ArrayList<>();
         int maxNum = racingMap.get(carList.get(0));
 
