@@ -26,7 +26,9 @@ public class InputView {
 
     public int readAttemptsNumber() {
         print(ATTEMPTS_PROMPT);
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        validateAttempts(input);
+        return Integer.parseInt(input);
     }
 
     public void validateCarNames(List<String> racingCars) {
@@ -43,7 +45,9 @@ public class InputView {
 
     private void checkDuplicatedNames(List<String> racingCars) {
         Set<String> uniqueName = new HashSet<>(racingCars);
-        if (uniqueName.size() != racingCars.size()) throw new IllegalArgumentException(DUPLICATE_NAME.getMessage());
+        if (uniqueName.size() != racingCars.size()) {
+            throw new IllegalArgumentException(DUPLICATE_NAME.getMessage());
+        }
     }
 
     private void checkInvalidFormat(List<String> racingCars) {
@@ -55,5 +59,19 @@ public class InputView {
         }
     }
 
+    private void validateAttempts(String input) {
+        try {
+            int attempts = Integer.parseInt(input);
+            checkAttempts(attempts);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(INVALID_TRY_COUNT_FORMAT.getMessage());
+        }
+    }
+
+    private void checkAttempts(int attempts) {
+        if (attempts <= 0) {
+            throw new IllegalArgumentException(NON_POSITIVE_TRY_COUNT.getMessage());
+        }
+    }
 
 }
