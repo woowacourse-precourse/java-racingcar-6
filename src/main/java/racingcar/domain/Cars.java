@@ -23,9 +23,6 @@ public class Cars{
     public List<String> getMaxForwardCountCarNames(){
         List<String> carNames = new ArrayList<>();
         Collections.sort(this.getCarList());
-        for (Car car : carList){
-            System.out.println(car.getForwardCount());
-        }
         for (Car car : this.getCarList()){
             if (this.getCarList().get(0).getForwardCount() == car.getForwardCount()){
                 carNames.add(car.getName());

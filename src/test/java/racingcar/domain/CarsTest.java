@@ -102,7 +102,6 @@ public class CarsTest{
 
         //when
         List<String> carNames = cars.getMaxForwardCountCarNames();
-        System.out.println("@@" + carNames.get(0));
 
         //then
         assertThat(carNames).hasSize(1).contains("woni");
