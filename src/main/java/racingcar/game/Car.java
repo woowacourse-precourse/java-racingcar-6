@@ -15,6 +15,14 @@ public class Car {
         this.route = "";
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getRoute() {
+        return this.route;
+    }
+
     public void moveForward() {
         route += "-";
     }
@@ -25,13 +33,5 @@ public class Car {
             return true;
         }
         return false;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getRoute() {
-        return this.route;
     }
 }

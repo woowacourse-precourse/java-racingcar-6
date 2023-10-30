@@ -30,21 +30,21 @@ public class Racing {
         }
     }
 
-    private void updateLongestCarRoute() {
-        for (Car car : racingCars) {
-            String carRoute = car.getRoute();
-            if (carRoute.length() > longestCarRouteLength) {
-                longestCarRouteLength = carRoute.length();
-            }
-        }
-    }
-
     public void determineWinningCars() {
         updateLongestCarRoute();
         for (Car car : racingCars) {
             String carRoute = car.getRoute();
             if (carRoute.length() == longestCarRouteLength) {
                 winningCars.add(car);
+            }
+        }
+    }
+
+    private void updateLongestCarRoute() {
+        for (Car car : racingCars) {
+            String carRoute = car.getRoute();
+            if (carRoute.length() > longestCarRouteLength) {
+                longestCarRouteLength = carRoute.length();
             }
         }
     }
