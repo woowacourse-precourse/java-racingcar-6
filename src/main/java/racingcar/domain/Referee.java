@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Referee{
 
-    public void determineWinners(List<Car> cars){
-
+    public List<String> determineWinners(Cars cars){
+        return cars.getMaxForwardCountCarNames();
     }
 
-    public void announceWinners(List<Car> cars){
+    public void announceWinners(Cars cars){
 
     }
 
