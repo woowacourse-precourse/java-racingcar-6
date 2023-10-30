@@ -15,10 +15,10 @@ public class MainModel {
     }
 
     public LinkedHashMap<String, StringBuilder> getCarName() {
-        return carName;
+        return new LinkedHashMap<>(carName);
     }
 
-    public boolean saveName(String userCarName) {
+    public boolean processUserInputNames(String userCarName) {
         String[] splitedName = cutName(userCarName);
         makeLinkedHashMap(splitedName);
         return ValidationMan.getInstance().checkException(carName, splitedName.length);

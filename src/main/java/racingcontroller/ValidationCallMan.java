@@ -8,7 +8,7 @@ public class ValidationCallMan {
 
     public static void callexExceptionCheckForCar(MainModel model) throws IllegalArgumentException
     {
-        if (!model.saveName(InputMan.inputCarName())) {
+        if (!model. processUserInputNames(InputMan.inputCarName())) {
             throw new IllegalArgumentException();
         }
     }
