@@ -18,6 +18,20 @@ public class Validator {
         checkCarNameDuplicated(carNames);
     }
 
+    public void validateMovingNumber(String inputMovingNumber) {
+        try {
+            int movingNumber = Integer.parseInt(inputMovingNumber);
+            if (movingNumber < 1) {
+                throw new IllegalArgumentException("1이상의 정수를 입력해야 경주가 시작됩니다.");
+            }
+            if (movingNumber > 2000000000) {
+                throw new IllegalArgumentException("이동 횟수는 최대 20억입니다.");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("1이상의 정수를 입력하세요.");
+        }
+    }
+
     private void checkCarNameLength(List<String> carNames) {
         for (String carName : carNames) {
             if (carName.length() < 1 || carName.length() > 5) {
