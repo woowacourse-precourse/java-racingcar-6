@@ -16,4 +16,22 @@ public class StringUtils {
 
         return startLength <= valueLength && valueLength <= endLength;
     }
+
+    public static boolean isNumeric(final String value) {
+        if (value == null) {
+            throw new IllegalArgumentException();
+        }
+        if (StringUtils.isLengthEqual(value, 0)) {
+            return false;
+        }
+
+        return value.chars().allMatch(Character::isDigit);
+    }
+
+    public static boolean isLengthEqual(final String value, final int length) {
+        if (value == null || length < 0) {
+            throw new IllegalArgumentException();
+        }
+        return value.length() == length;
+    }
 }
