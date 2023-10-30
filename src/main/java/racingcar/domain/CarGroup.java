@@ -7,7 +7,7 @@ import racingcar.global.RaceException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 import static racingcar.global.Constant.*;
 
@@ -63,7 +63,22 @@ public class CarGroup {
                 .entrySet()
                 .stream()
                 .map(entry -> String.format("%s : %s", entry.getKey(), "-".repeat(entry.getValue())))
-                .collect(Collectors.toList());
+                .toList();
         return String.join("\n", results);
+    }
+
+    public String getWinnerAsString() {
+        Optional<Integer> winnerPositionOptional = cars.values().stream().max(Integer::compareTo);
+        if (winnerPositionOptional.isEmpty()) {
+            return "";
+        }
+        int winnerPosition = winnerPositionOptional.get();
+        List<String> winners = cars
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().equals(winnerPosition))
+                .map(Map.Entry::getKey)
+                .toList();
+        return String.join(", ", winners);
     }
 }
