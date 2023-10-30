@@ -65,7 +65,7 @@ public final class Validator {
         }
     }
 
-    public static void validateCarNameUniqueness(List<Car> cars) {
+    private static void validateCarNameUniqueness(List<Car> cars) {
         Set<String> carNames = new HashSet<>();
         for (Car car : cars) {
             if (!carNames.add(car.getName())) {
