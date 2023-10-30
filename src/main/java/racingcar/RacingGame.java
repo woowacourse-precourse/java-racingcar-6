@@ -6,13 +6,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class RacingGame {
-    ArrayList<Car> carArrayList = new ArrayList<>();
+    ArrayList<Car> carList = new ArrayList<>();
+    ArrayList<String> winnerList = new ArrayList<>();
     Integer count = 0;
 
     public void start() {
         getInputCarName();
         getInputCount();
         race();
+        judgeWinners();
         printWinners();
     }
 
@@ -24,40 +26,36 @@ public class RacingGame {
     }
 
     private void executeOneTurn() {
-        for (Car car : carArrayList) {
+        for (Car car : carList) {
             car.goOrStop();
         }
     }
 
     private void printOneTurn() {
-        for (Car car : carArrayList) {
+        for (Car car : carList) {
             car.printState();
         }
         System.out.println();
     }
 
-    private void printWinners() {
-        // 우승자 출력
-        System.out.print("최종 우승자 : ");
-        Collections.sort(carArrayList);
-        int max = carArrayList.get(0).distance;
-        int cnt = 0;
-        for (Car c: carArrayList) {
-            if (c.distance == max) cnt++;
-        }
-        for (int i = 0; i < cnt; i++) {
-            System.out.print(carArrayList.get(i).name);
-            if (i != cnt-1) {
-                System.out.print(", ");
+    private void judgeWinners() {
+        Collections.sort(carList);
+        int max = carList.get(0).distance;
+        for (Car c : carList) {
+            if (c.distance == max) {
+                winnerList.add(c.name);
             }
         }
+    }
+
+    private void printWinners() {
+        System.out.println("최종 우승자 : " + String.join(", ", winnerList));
     }
 
     private void getInputCount() {
         // 시도할 횟수 입력
         System.out.println("시도할 회수는 몇회인가요?");
-        String input;
-        input = Console.readLine();
+        String input = Console.readLine();
         // 몇대까지 가능하게 할 것인가?
         this.count = Integer.parseInt(input);
         System.out.println();
@@ -75,7 +73,7 @@ public class RacingGame {
             if (s.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하입니다.");
             }
-            carArrayList.add(new Car(s, 0));
+            carList.add(new Car(s, 0));
         }
     }
 }
