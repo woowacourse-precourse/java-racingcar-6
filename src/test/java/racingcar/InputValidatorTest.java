@@ -1,59 +1,44 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 public class InputValidatorTest {
 
     @Test
     void 문자열_형식오류_예외발생_테스트() {
-        String invalidInput = "@@$";
-        assertThatThrownBy(() -> {
-            InputValidator.validateString(invalidInput);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThrowsIllegalArgumentException(() -> InputValidator.validateString("@@$"));
     }
 
     @Test
     void 차이름_5자이하_테스트() {
-        String validInput = "pbi";
-        boolean isValid = InputValidator.validateCarName(validInput);
-        assertTrue(isValid);
+        assertTrue(InputValidator.validateCarName("pbi"));
     }
 
     @Test
     void 차이름_오류_예외발생_테스트() {
-        String invalidInput = "pobisportscar";
-        boolean isValid = InputValidator.validateCarName(invalidInput);
-        assertThatThrownBy(() -> {
-            InputValidator.validateString(invalidInput);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThrowsIllegalArgumentException(() -> InputValidator.validateCarName("pobisportscar"));
     }
 
     @Test
-    public void 시도입력_유효_테스트() {
-        String validInput = "5";
-        InputValidator validator = new InputValidator();
-        boolean isValid = validator. validateRounds(validInput);
-        assertTrue(isValid);
+    void 시도입력_유효_테스트() {
+        assertTrue(InputValidator.validateRounds("5"));
     }
 
     @Test
-    public void 시도입력_형식오류_예외발생_테스트() {
-        String invalidInput = "ㅇ";
-        InputValidator validator = new InputValidator();
-        assertThatThrownBy(() -> {
-            InputValidator.validateString(invalidInput);
-        }).isInstanceOf(IllegalArgumentException.class);
+    void 시도입력_형식오류_예외발생_테스트() {
+        assertThrowsIllegalArgumentException(() -> InputValidator.validateString("ㅇ"));
     }
 
     @Test
-    public void 시도입력_음수_예외발생_테스트() {
-        String invalidInput = "ㅇ";
-        assertThatThrownBy(() -> {
-            InputValidator.validateString(invalidInput);
-        }).isInstanceOf(IllegalArgumentException.class);
+    void 시도입력_음수_예외발생_테스트() {
+        assertThrowsIllegalArgumentException(() -> InputValidator.validateString("ㅇ"));
+    }
+
+
+    private void assertThrowsIllegalArgumentException(Executable executable) {
+        assertThrows(IllegalArgumentException.class, executable);
     }
 }
