@@ -10,7 +10,6 @@ public class RacingCar {
     private String name;
     private Integer move;
 
-
     public RacingCar(String name, Integer move) {
         this.name = name;
         this.move = move;
@@ -47,9 +46,7 @@ public class RacingCar {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    /**
-     * 테스팅을 위한 메소드들
-     **/
+    /** 랜덤 값 테스트를 위한 메소드 **/
     public void move() {
         if (!isMovable()) {
             return;

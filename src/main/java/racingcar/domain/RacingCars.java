@@ -10,6 +10,9 @@ public class RacingCars {
     private static final String COMMA = ",";
     private List<RacingCar> racingCars;
 
+    public RacingCars() {
+    }
+
     public List<RacingCar> getRacingCars() {
         return racingCars;
     }
@@ -28,5 +31,10 @@ public class RacingCars {
 
     public Winner getWinner() {
         return new Winner(racingCars);
+    }
+
+    /** 테스트를 위한 setter **/
+    public void setRacingCars(List<RacingCar> racingCars) {
+        this.racingCars = racingCars;
     }
 }

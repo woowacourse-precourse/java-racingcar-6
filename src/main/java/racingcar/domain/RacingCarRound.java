@@ -34,6 +34,4 @@ public class RacingCarRound {
         setNumber();
         gameSetCheck();
     }
-
-
 }

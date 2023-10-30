@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RacingCarRoundTest {
 
-
     @Order(3)
     @ParameterizedTest
     @ValueSource(strings = {"1", "5", "100"})

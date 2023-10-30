@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class WinnerTest {
 
@@ -23,7 +22,6 @@ class WinnerTest {
 
         Winner winner = new Winner(racingCars);
 
-
         assertThat(winner.getWinnerRacingCar()).contains(name1, name2);
 
     }
@@ -32,15 +30,16 @@ class WinnerTest {
     void 단독_우승자_확인_테스트() {
         String name1 = "juni";
         String name2 = "huni";
+
         RacingCar racingCar1 = new RacingCar(name1, 4);
         RacingCar racingCar2 = new RacingCar(name2, 3);
 
         List<RacingCar> racingCars = new ArrayList<>();
+
         racingCars.add(racingCar1);
         racingCars.add(racingCar2);
 
         Winner winner = new Winner(racingCars);
-
 
         assertThat(winner.getWinnerRacingCar()).isEqualTo(name1);
 
@@ -51,16 +50,18 @@ class WinnerTest {
         String name1 = "juni";
         String name2 = "huni";
         String name3 = "jun";
+
         RacingCar racingCar1 = new RacingCar(name1, 4);
         RacingCar racingCar2 = new RacingCar(name2, 2);
         RacingCar racingCar3 = new RacingCar(name3, 6);
 
         List<RacingCar> racingCars = new ArrayList<>();
+
         racingCars.add(racingCar1);
         racingCars.add(racingCar2);
         racingCars.add(racingCar3);
-        Winner winner = new Winner();
 
+        Winner winner = new Winner();
 
         assertThat(winner.getWinnerValue(racingCars)).isEqualTo(racingCar3.getMove());
 

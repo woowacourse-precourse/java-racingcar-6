@@ -6,8 +6,9 @@ public class Winner {
     private static final String COMMA = ", ";
     private String winnerRacingCar;
 
-    public Winner(){
+    public Winner() {
     }
+
     public String getWinnerRacingCar() {
         return winnerRacingCar;
     }
