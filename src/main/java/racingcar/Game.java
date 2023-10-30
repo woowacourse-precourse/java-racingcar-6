@@ -11,6 +11,7 @@ public class Game {
     public void run() {
         alertEnterCarName();
         saveCarName();
+        alertEnterMoveNumber();
     }
 
     private void alertEnterCarName() {
@@ -31,5 +32,8 @@ public class Game {
         }
     }
 
+    private void alertEnterMoveNumber() {
+        System.out.println("시도할 회수는 몇회인가요?");
+    }
 
 }
