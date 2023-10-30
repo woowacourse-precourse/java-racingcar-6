@@ -1,27 +1,30 @@
 package racingcar.domain;
 
+import static racingcar.constant.RacingCarConstant.CAR_NAME_SEPARATOR;
+import static racingcar.constant.RacingCarMessage.INPUT_CAR_NAMES_MESSAGE;
+import static racingcar.constant.RacingCarMessage.INPUT_TRY_COUNT_MESSAGE;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
-public class RacingCarInputManager {
 
+public class RacingCarInputManager {
     private final RacingCarOutputManager outputManager;
 
     public RacingCarInputManager(RacingCarOutputManager outputManager) {
         this.outputManager = outputManager;
     }
 
-    private static final String CAR_NAME_SEPARATOR = ",";
 
     public List<String> readCarNames() {
-        outputManager.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        outputManager.println(INPUT_CAR_NAMES_MESSAGE);
         return Arrays.stream(readLine().split(CAR_NAME_SEPARATOR))
                 .toList();
     }
 
     public String readTryToMoveTurnCount() {
-        outputManager.println("시도할 회수는 몇회인가요?");
+        outputManager.println(INPUT_TRY_COUNT_MESSAGE);
         return readLine();
     }
 
@@ -30,6 +33,4 @@ public class RacingCarInputManager {
     private String readLine() {
         return Console.readLine();
     }
-
-
 }

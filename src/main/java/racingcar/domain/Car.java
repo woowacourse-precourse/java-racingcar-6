@@ -1,22 +1,30 @@
 package racingcar.domain;
 
+import static racingcar.constant.RacingCarConstant.CAR_MAX_MOVE_POWER;
+import static racingcar.constant.RacingCarConstant.CAR_MIN_MOVE_POWER;
+import static racingcar.constant.RacingCarConstant.CAR_MOVABLE_POWER;
+import static racingcar.constant.RacingCarConstant.CAR_NAME_MAX_LENGTH;
+import static racingcar.constant.RacingCarConstant.START_POSITION;
+import static racingcar.constant.RacingCarErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car implements Comparable<Car> {
-    private String name;
+    private final String name;
     private int position;
 
     public Car(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
+        if (name.length() > CAR_NAME_MAX_LENGTH) {
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
         }
         this.name = name;
-        this.position = 0;
+        this.position = START_POSITION;
     }
 
+
     public void triesToMove() {
-        int power = Randoms.pickNumberInRange(0, 9);
-        if (power >= 4) {
+        int power = Randoms.pickNumberInRange(CAR_MIN_MOVE_POWER, CAR_MAX_MOVE_POWER);
+        if (power >= CAR_MOVABLE_POWER) {
             move();
         }
     }

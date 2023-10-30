@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.constant.RacingCarErrorMessage.TRY_COUNT_NUMBER_FORMAT_ERROR_MESSAGE;
+
 public class Turn {
     private final int count;
 
@@ -8,13 +10,14 @@ public class Turn {
         this.count = Integer.parseInt(count);
     }
 
+
     public int getCount() {
         return count;
     }
 
     private void validateTryToMoveCount(String tryToMoveCount) {
         if (isNotNumberFormat(tryToMoveCount)) {
-            throw new IllegalArgumentException("이동 횟수는 숫자값만 입력 가능합니다.");
+            throw new IllegalArgumentException(TRY_COUNT_NUMBER_FORMAT_ERROR_MESSAGE);
         }
     }
 
