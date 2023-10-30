@@ -1,6 +1,6 @@
 ## 구현 기능 목록 작성
 
-- [ ] 입력 메시지 출력 (printInputCarNameMessage) [Output]
+- [x] 입력 메시지 출력 (printInputCarNameMessage) [OutputView]
 
 
 - [ ] n대의 자동차를 입력 (readCarName) [Input]
