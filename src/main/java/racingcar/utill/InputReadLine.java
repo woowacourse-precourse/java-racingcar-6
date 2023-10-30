@@ -5,7 +5,7 @@ import static racingcar.utill.Validator.nullInputValidation;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class InputReadLine {
+public final class InputReadLine {
 
     public static String carsNameInput() {
         String carsName = Console.readLine();
