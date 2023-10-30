@@ -20,7 +20,7 @@ public class Car {
         return forward;
     }
 
-    public void setForward(int forward) {
-        this.forward = forward;
+    public void setForward() {
+        this.forward++;
     }
 }
