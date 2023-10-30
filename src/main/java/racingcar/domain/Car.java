@@ -17,4 +17,8 @@ public class Car { //자동차 객체를 관리한다.
     public int getDistance() {
         return distance;
     }
+
+    public String getCarName() {
+        return carName;
+    }
 }

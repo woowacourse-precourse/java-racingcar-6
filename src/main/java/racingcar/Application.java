@@ -1,10 +1,11 @@
 package racingcar;
 
+import racingcar.domain.MainCarGame;
 import racingcar.domain2.MainController;
 
 public class Application {
     public static void main(String[] args) {
-        MainController mainController = new MainController();
-        mainController.gameStart();
+        MainCarGame mainCarGame = new MainCarGame();
+        mainCarGame.gameStart();
     }
 }
