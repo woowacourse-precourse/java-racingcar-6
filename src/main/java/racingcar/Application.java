@@ -22,6 +22,7 @@ public class Application {
         List<String> racerNameList = Arrays.asList(racerNameListInput.split(" "));
         validateRacerNameList(racerNameListInput);
         validateRacerName(racerNameList);
+        OutputView.outputForRaceTargetScore();
     }
 
     private static void validateRacerNameList(String racerNameList){
@@ -35,5 +36,4 @@ public class Application {
                             )
                 );
     }
-
 }
