@@ -9,7 +9,7 @@ import racingcar.exception.ErrorMessage;
 public class InputValueValidator {
 
     public List<String> validateName(String inputCarNames) {
-        List<String> carNames = converStringToList(inputCarNames);
+        List<String> carNames = convertStringToList(inputCarNames);
 
         if (!isDuplicateName(carNames)) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_DUPLICATE.getMessage());
@@ -47,7 +47,7 @@ public class InputValueValidator {
         return carNames.stream().allMatch(name -> name.length() <= 5);
     }
 
-    private List<String> converStringToList(String inputCarNames) {
+    private List<String> convertStringToList(String inputCarNames) {
         return Arrays.asList(inputCarNames.split(","));
     }
 }
