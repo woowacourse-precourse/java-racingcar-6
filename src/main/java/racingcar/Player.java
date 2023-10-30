@@ -37,17 +37,10 @@ public class Player {
     }
 
     private void validateCarNames(List<String> inputs) {
-        validateCarNamesCount(inputs);
         for (String input : inputs) {
             validateCarNameLength(input);
 
             carNames.add(input);
-        }
-    }
-
-    private void validateCarNamesCount(List<String> inputs) {
-        if (inputs.size() != CAR_COUNT) {
-            throw new IllegalArgumentException();
         }
     }
 
