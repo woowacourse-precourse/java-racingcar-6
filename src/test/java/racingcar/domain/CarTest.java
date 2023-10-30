@@ -24,10 +24,10 @@ class CarTest {
         final Car car = new Car(carName);
 
         // when
-        final String location = car.move(randomNumber);
+        final Car unmovedCar = car.move(randomNumber);
 
         // then
-        assertEquals(location, CAR_NAME + " : " + "");
+        assertEquals(unmovedCar.toString(), CAR_NAME + " : " + "");
     }
 
     @ParameterizedTest
@@ -37,9 +37,9 @@ class CarTest {
         final Car car = new Car(carName);
 
         // when
-        final String location = car.move(randomNumber);
+        final Car movedCar = car.move(randomNumber);
 
         // then
-        assertEquals(location, CAR_NAME + " : " + "-");
+        assertEquals(movedCar.toString(), CAR_NAME + " : " + "-");
     }
 }
