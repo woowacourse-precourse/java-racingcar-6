@@ -13,6 +13,15 @@ public class GameController {
     public void start() {
         PlayerNamesDto playerNamesDto = InputView.InputPlayerNames();
         PlayersDto playersDto = generatePlayers(playerNamesDto);
+        PlayerMoveList playerMoveList = generatePlayerMoveList(playersDto);
+    }
+
+    private PlayerMoveList generatePlayerMoveList(PlayersDto playersDto) {
+        List<PlayerMove> playerMoveList = playersDto.getPlayers().stream()
+                .map(PlayerMove::init)
+                .collect(Collectors.toList());
+
+        return PlayerMoveList.of(playerMoveList, moveFactory);
     }
 
     private PlayersDto generatePlayers(PlayerNamesDto playerNamesDto) {
