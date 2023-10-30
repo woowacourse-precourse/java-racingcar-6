@@ -25,9 +25,7 @@ public class RacingCarList {
     }
 
     public void printRacingCarsCurrentStatus() {
-        racingCarList.forEach(racingCar ->
-                System.out.println(racingCar.getName() + " : " +
-                        "-".repeat(racingCar.getCount())));
+        racingCarList.forEach(racingCar -> racingCar.printCurrentResult());
     }
 
     public int getMaxForward() {

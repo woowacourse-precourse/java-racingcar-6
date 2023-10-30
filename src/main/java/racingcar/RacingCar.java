@@ -15,6 +15,11 @@ public class RacingCar {
         this.name = name;
     }
 
+    public void printCurrentResult() {
+        System.out.println(this.getName() + " : " +
+                "-".repeat(this.getCount()));
+    }
+
     private void validateName(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException();
