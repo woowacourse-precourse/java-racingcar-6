@@ -20,22 +20,21 @@ public class RacingCarController {
         String userInput = askCarNames();
         racingCar = new RacingCar(userInput);
 
-        racingCarView.printAskingNumberOfRetries();
-        Integer numberOfRetries = askingNumberOfRetires();
+        Integer numberOfRetries = askNumberOfRetires();
         startRacingCar(numberOfRetries);
 
-        List<Car> winners = this.racingCar.findWinners();
-        racingCarView.printFinalMessage(winners);
+        findWinners();
     }
 
-    public String askCarNames() {
+    private String askCarNames() {
         racingCarView.printStartRacingCar();
         String userInput = Console.readLine();
         UserInputValidator.validateUserInput(userInput);
         return userInput;
     }
 
-    public Integer askingNumberOfRetires() {
+    private Integer askNumberOfRetires() {
+        racingCarView.printAskingNumberOfRetries();
         String numberOfRetries = Console.readLine();
         UserInputValidator.validateNumberOfRetriesInput(numberOfRetries);
         return Integer.valueOf(numberOfRetries);
@@ -54,4 +53,8 @@ public class RacingCarController {
         }
     }
 
+    private void findWinners() {
+        List<Car> winners = racingCar.findWinners();
+        racingCarView.printFinalMessage(winners);
+    }
 }
