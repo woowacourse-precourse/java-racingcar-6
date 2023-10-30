@@ -48,7 +48,6 @@ public class Application {
             //우승자 출력
             printWinners(winners);
 
-
     }
     // 입력값 예외처리 해주는 메소드-이름, 횟수
     private static boolean isValidCarNames(String[] carNames){
@@ -72,10 +71,14 @@ public class Application {
     }
     // 전진 출력
     private static void printProgress(String[] carNameArray,int[] progress){
+        StringBuilder result=new StringBuilder();
         for (int i=0;i<carNameArray.length;i++){
-            System.out.println(carNameArray[i]+":"+"-".repeat(progress[i]));
+            result.append(carNameArray[i]).append(" : ").append("-".repeat(progress[i]));
+            if (i < carNameArray.length-1){
+                result.append(", ");
+            }
         }
-        System.out.println("");
+        System.out.println(result.toString());
     }
 
     // 우승자 구하기
