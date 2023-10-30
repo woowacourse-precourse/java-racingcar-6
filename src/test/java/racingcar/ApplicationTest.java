@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.model.repository.CarRepository;
 import racingcar.model.service.GameService;
@@ -18,15 +19,25 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
-    @Test
-    void 전진_정지() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("pobi,woni", "1");
-                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-                },
-                MOVING_FORWARD, STOP
-        );
+    @Nested
+    class forwardAndStopTest {
+        @Test
+        void 전진_정지() {
+            assertRandomNumberInRangeTest(
+                    () -> {
+                        run("pobi,woni", "1");
+                        assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                    },
+                    MOVING_FORWARD, STOP
+            );
+        }
+
+        @Test
+        @DisplayName("많은 반복에 의한 결과 출력")
+        void manyAttemptsResultTest() {
+            run("pobi,woni,faker,bdd,chovy", "5");
+            assertThat(output()).contains("pobi : ", "woni : ", "faker : ", "bdd : ", "chovy : ");
+        }
     }
 
     @Test
@@ -63,6 +74,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
 
     @Override
     public void runMain() {

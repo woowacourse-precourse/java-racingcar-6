@@ -36,5 +36,6 @@ public class GameController {
             outputForward(gameService.playGame(idx));
             idx++;
         }
+        System.out.println("");
     }
 }
