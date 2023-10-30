@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.controller.dto.CarDto;
+import racingcar.dto.CarDto;
 import racingcar.vo.CarName;
 
 public class OutputView {

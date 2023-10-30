@@ -4,7 +4,7 @@ import static racingcar.util.StringConverter.stringToCarNameListByDelimiter;
 import static racingcar.util.StringConverter.stringToTryNumber;
 
 import java.util.List;
-import racingcar.controller.dto.CarDto;
+import racingcar.dto.CarDto;
 import racingcar.model.Cars;
 import racingcar.model.RacingGame;
 import racingcar.model.Referee;

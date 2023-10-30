@@ -1,4 +1,4 @@
-package racingcar.controller.dto;
+package racingcar.dto;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
