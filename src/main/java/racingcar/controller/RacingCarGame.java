@@ -6,15 +6,8 @@ import static racingcar.view.InputView.getCarNamesFromPlayer;
 import static racingcar.view.InputView.getNumberOfRoundsFromPlayer;
 
 import racingcar.model.Cars;
-import racingcar.model.RacingCarGameConfig;
 
 public class RacingCarGame {
-
-  private final RacingCarGameConfig gameConfig;
-
-  private RacingCarGame() {
-    this.gameConfig = RacingCarGameConfig.createRacingCarGameConfig(5, 0, 9);
-  }
 
   public static RacingCarGame createRacingCarGame() {
     return new RacingCarGame();
