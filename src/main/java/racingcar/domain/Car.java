@@ -7,11 +7,8 @@ public class Car implements Comparable<Car> {
     private static final int MAX_NAME_LENGTH = 5;
     private static final String RESULT_DELIMITER = ", ";
 
-    private String name;
+    private final String name;
     private Integer moveDistance;
-
-    private Car() {
-    }
 
     public Car(String name) {
         validateNameLength(name);

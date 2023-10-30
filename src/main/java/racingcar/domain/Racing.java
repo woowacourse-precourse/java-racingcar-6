@@ -3,10 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class Racing {
-    private List<Car> racingCar;
-
-    private Racing() {
-    }
+    private final List<Car> racingCar;
 
     public Racing(final List<Car> racingList) {
         this.racingCar = racingList;
