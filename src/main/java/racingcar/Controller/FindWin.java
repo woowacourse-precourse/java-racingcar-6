@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Controller;
 
 import racingcar.Model.Car;
 

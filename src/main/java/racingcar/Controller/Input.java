@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Controller;
 
 import camp.nextstep.edu.missionutils.Console;
 
