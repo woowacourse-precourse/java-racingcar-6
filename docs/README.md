@@ -36,7 +36,7 @@
 #### 출력(OutputView)
 - [x] 게임 시작 시, "경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)" 출력 - printNameInputMessage()
 - [x] 이름을 입력받은 후 "시도할 횟수는 몇회인가요?" 출력 - printRoundInputMessage()
-- [ ] 맨 첫 라운드 시작 시, "실행 결과" 출력
+- [x] 맨 첫 라운드 시작 시, "실행 결과" 출력 - printExecutionResultMessage()
 - [x] 라운드마다 자동차의 이름과 이동거리 출력 - printCarNameAndPosition()
 - [ ] 라운드가 모두 끝나면 "최종 우승자" 문구 출력
 - [ ] 최종 우승자 이름 출력
