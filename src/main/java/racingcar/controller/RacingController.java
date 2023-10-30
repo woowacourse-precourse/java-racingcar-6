@@ -22,10 +22,6 @@ public class RacingController {
     private int totalRounds;
     private List<String> carNameList;
 
-    public RacingController() {
-        initializeGame();
-    }
-
     private void initializeGame() {
         carNameList = getCarNames();
         totalRounds = getAttemptCount();
@@ -68,21 +64,24 @@ public class RacingController {
     }
 
     public void run() {
+        initializeGame();
+
         while(gameContinue()) {
             playOneRound();
             displayFinishOnce();
         }
+
         displayWinner(findWinner(cars));
     }
 
-    private void playOneRound() {
+    protected void playOneRound() {
         for (Car car : cars) {
             car.move();
             displayCurrentGameResult(car.getName(), convertPositionToDashes(car));
         }
     }
 
-    private String findWinner(List<Car> cars) {
+    public String findWinner(List<Car> cars) {
         int maxPosition = getMaxPosition(cars);
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
