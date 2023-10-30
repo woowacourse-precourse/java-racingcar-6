@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Cars;
+import racingcar.domain.Winner;
 import racingcar.exception.InputException;
 import racingcar.service.GameService;
 import racingcar.view.ResultOutput;
@@ -20,6 +21,7 @@ public class GameController {
     private ResultOutput resultOutput = new ResultOutput();
     private ArrayList<String> finalWinnerList = new ArrayList<>();
     private InputException inputException = new InputException();
+    private Winner winner = new Winner();
 
     public void start() {
         System.out.println(START_MESSAGE);
@@ -31,8 +33,9 @@ public class GameController {
         initializeCarProgress();
         startRacing(attemptsCount, cars.getCarNameList(), cars.getCarProgress());
 
-        finalWinnerList = gameService.getFinalWinner(cars.getCarNameList(), cars.getCarProgress());
-        resultOutput.printFinalWinner(finalWinnerList);
+        finalWinnerList = winner.getFinalWinner(cars.getCarNameList(), cars.getCarProgress());
+        winner.setWinnerList(finalWinnerList);
+        resultOutput.printFinalWinner(winner.getWinnerList());
 
     }
 
