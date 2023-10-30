@@ -97,4 +97,6 @@ class RacingTest {
             }
         };
     }
+
+    //TODO 최종 우승자 선정 테스트 작성
 }
