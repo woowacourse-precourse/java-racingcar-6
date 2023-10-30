@@ -13,7 +13,7 @@ public class GameRepository {
         this.gameNum = new GameNum();
     }
 
-    public void addCars(String[] carArr) {
+    public void initCars(String[] carArr) {
         cars.init(carArr);
     }
 

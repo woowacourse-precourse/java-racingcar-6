@@ -15,7 +15,7 @@ public class InputService {
     public void carNames(String input) {
         String[] carArr = splitBySeparator(input);
         if (checkService.cars(carArr)) {
-            gameRepository.addCars(carArr);
+            gameRepository.initCars(carArr);
         }
     }
 

@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import static java.util.Collections.unmodifiableList;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +11,6 @@ public class Cars {
         for (String carName : carArr) {
             carList.add(new Car(carName, 0));
         }
-    }
-
-    public List<Car> getCarList() {
-        return unmodifiableList(carList);
     }
 
     public int size() {
@@ -33,5 +27,13 @@ public class Cars {
 
     public int findGameNum(int i) {
         return carList.get(i).getPosition().getNum();
+    }
+
+    public int findMaxAdvanceNum() {
+        int max = 0;
+        for (Car car : carList) {
+            max = Math.max(max, car.getPosition().getNum());
+        }
+        return max;
     }
 }

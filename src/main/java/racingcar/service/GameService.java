@@ -8,7 +8,7 @@ import racingcar.repository.GameRepository;
 
 public class GameService {
     private final MessageService message = new MessageService();
-    private GameRepository gameRepository = new GameRepository();
+    private final GameRepository gameRepository = new GameRepository();
     private List<String> result = new ArrayList<>();
 
     public void run(int gameNum) {
@@ -36,40 +36,15 @@ public class GameService {
 
             gameNum--;
         }
-    }
 
-//    public void run(int gameNum) {
-//        message.printResult();
-//        List<Car> carsList = cars.find();
-//        while (gameNum > 0) {
-//            for (int i = 0; i < cars.size(); i++) {
-//                int random = Randoms.pickNumberInRange(0, 9);
-//                if (random < 4) {
-//                    continue;
-//                }
-//                carsList.get(i).plus();
-//            }
-//
-//            for (int i = 0; i < cars.size(); i++) {
-//                message.printProcess(carsList.get(i).findName());
-//
-//                for (int j = 0; j < carsList.get(i).findAdvanceNum(); j++) {
-//                    System.out.print("-");
-//                }
-//                System.out.println();
-//            }
-//            System.out.println();
-//            gameNum--;
-//        }
-//        int max = cars.findMaxAdvanceNum();
-//
-//        for (int i = 0; i < cars.size(); i++) {
-//            if (max == carsList.get(i).findAdvanceNum()) {
-//                result.add(carsList.get(i).findName());
-//            }
-//        }
-//        String[] array = result.toArray(String[]::new);
-//        String join = String.join(", ", array);
-//        message.printWinner(join);
-//    }
+        int max = cars.findMaxAdvanceNum();
+        for (int i = 0; i < cars.size(); i++) {
+            if (max == cars.findGameNum(i)) {
+                result.add(cars.findName(i));
+            }
+        }
+        String[] array = result.toArray(String[]::new);
+        String join = String.join(", ", array);
+        message.printWinner(join);
+    }
 }
