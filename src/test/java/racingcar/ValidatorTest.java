@@ -40,6 +40,16 @@ public class ValidatorTest {
     }
 
     @Test
+    void 자동차_이름이_중복일_경우_에러발생() {
+        String input = "에러,에러,에러";
+        assertThatThrownBy(() -> {
+            validator.validationCarName(input);
+        })
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME_DUPLICATE.getMessage());
+    }
+
+    @Test
     void 휫수입력이_0일_경우_에러발생() {
         String input = "0";
         assertThatThrownBy(() -> {
