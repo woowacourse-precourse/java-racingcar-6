@@ -10,12 +10,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.view.OutputView;
 
 class RaceControllerTest {
     private RaceController raceController;
     @BeforeEach
     void setUp() {
-        raceController = new RaceController();
+        raceController = new RaceController(new OutputView());
     }
 
     @DisplayName("입력된 자동차 이름 갯수에 맞게 구분하였는지 테스트")
