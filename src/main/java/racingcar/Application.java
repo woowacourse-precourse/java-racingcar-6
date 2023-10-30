@@ -9,11 +9,18 @@ public class Application {
     public static String getUserInputForCarNames() {
         return Console.readLine();
     }
+    public static void validateAndThrow(String[] splitCarNames) {
+        for (String carName : splitCarNames) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("자동차의 이름은 5자 이하로 작성해야 합니다.");
+            }
+        }
+    }
     public static void main(String[] args) {
         printCarNamePrompt();
         String inputCarNames = getUserInputForCarNames();
         String[] splitCarNames = inputCarNames.split(",");
-        System.out.println(splitCarNames[0]);
 
+        validateAndThrow(splitCarNames);
     }
 }
