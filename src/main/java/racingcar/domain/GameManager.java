@@ -16,14 +16,14 @@ public class GameManager {
     }
 
     private void playGame() {
-        makeCars(InputValue.carName);
+        Race.makeCars(InputValue.carName);
 
         for (int i = 0; i < InputValue.count; i++) {
-            checkForwardStop(carRace);
-            ResultPrinter.printCourse(carRace);
+            checkForwardStop(Race.carRace);
+            ResultPrinter.printCourse(Race.carRace);
         }
 
-        checkWinner(carRace);
+        checkWinner(Race.carRace);
 
         if (winner.size() > 1) {
             ResultPrinter.printWinners(winner);
