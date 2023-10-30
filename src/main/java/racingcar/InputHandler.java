@@ -7,8 +7,7 @@ public class InputHandler {
         return Console.readLine();
     }
 
-    public static String[] getInputTypeToStringArray(){
-        String input = readInput();
-        return input.split(AppConfig.INPUT_DELIMITER, Integer.MAX_VALUE);
+    public static String[] StringToArray(String string){
+        return string.split(AppConfig.INPUT_DELIMITER, Integer.MAX_VALUE);
     }
 }

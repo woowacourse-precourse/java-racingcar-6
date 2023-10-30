@@ -23,4 +23,12 @@ public class Car {
         }
         position += distance;
     }
+
+    public CarId getCarId() {
+        return carId;
+    }
+
+    public CarName getCarName() {
+        return carName;
+    }
 }

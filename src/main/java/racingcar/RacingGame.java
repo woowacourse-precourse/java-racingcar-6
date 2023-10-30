@@ -6,7 +6,8 @@ import racingcar.service.CarSaveService;
 public class RacingGame {
 
     public void process() {
-        String[] names = InputHandler.getInputTypeToStringArray();
+        String input = InputHandler.readInput();
+        String[] names = InputHandler.StringToArray(input);
         Participants cars = CarSaveService.save(names);
     }
 }
