@@ -26,5 +26,22 @@ public class Winner {
         findWinnerCarByIndexOfMaxNumber(indexOfMaxNumber,carList);
     }
 
+    public static void findWinnerCarByIndexOfMaxNumber(List<Integer> indexOfMaxNumber,List<String> carList){
+        List<String> winner = new ArrayList<>();
+        for(int i = 0 ; i<indexOfMaxNumber.size();i++){
+            winner.add(carList.get(indexOfMaxNumber.get(i)));
+        }
+        printWinner(winner);
+    }
 
+    public static void printWinner(List<String> winner){
+        System.out.print("최종 우승자 : ");
+        for(int i = 0 ; i<winner.size();i++){
+            System.out.print(winner.get(i));
+            if(i==winner.size()-1){
+                break;
+            }
+            System.out.print(",");
+        }
+    }
 }
