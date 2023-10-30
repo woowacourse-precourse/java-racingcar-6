@@ -34,9 +34,13 @@ public class Race {
         }
     }
 
+    protected int generateRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
+    }
+
     private void performSingleRound() {
         for (Car car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM, MAX_RANDOM);
+            int randomNumber = generateRandomNumber();
             if (randomNumber >= ADVANCE_THRESHOLD) {
                 car.advance();
             }
