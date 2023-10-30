@@ -35,15 +35,18 @@ public class GameController {
         gameView.printExecutionStart();
         for (int i = 0; i < count; i++) {
             cars.updateAllDistance();
-            gameView.printMoveResult(cars.convertCarsToStrings());
+            List<Car> roundResult = getRoundResult();
+            gameView.printMoveResult(roundResult);
         }
+    }
+
+    private List<Car> getRoundResult() {
+        return cars.getCars();
     }
 
     private void endGame() {
         List<String> winners = cars.findWinners();
-        String result = String.join(", ", winners);
-        gameView.printFinalWinner(result);
-
+        gameView.printFinalWinner(winners);
     }
 
 }

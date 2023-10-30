@@ -2,8 +2,6 @@ package racingcar.model;
 
 import static racingcar.util.RandomNumberGenerator.generateRandomNumber;
 
-import racingcar.view.ViewConstants;
-
 public class Car implements Comparable<Car> {
     private static final int MOVE_THRESHOLD = 4;
     private static final int MOVE_SIZE = 1;
@@ -37,9 +35,8 @@ public class Car implements Comparable<Car> {
         return name;
     }
 
-    @Override
-    public String toString() {
-        return String.format(ViewConstants.OUTPUT_CAR_RESULT_FORMAT.toString(), name, "-".repeat(distance));
+    public int getDistance() {
+        return distance;
     }
 
     @Override
