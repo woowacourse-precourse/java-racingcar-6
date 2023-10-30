@@ -76,7 +76,7 @@
 -[x] Navigation에 이동 요청을 한다.
 - Navigation에게 승자 요청을 한다.
 -[x] Navigation에게 Car의 상태를 받아온다.
-- 게임이 끝났는지 판단한다.
+-[x] 게임이 끝났는지 판단한다.
 
 #### Navigation
 - 우승자를 판단하고 찾아온다.
