@@ -16,9 +16,7 @@ public class InputView {
         System.out.println(CAR_NAME_INPUT_PROMPT);
         String input = Console.readLine();
         List<String> names = splitAndTrimInput(input);
-
         validateNotEmpty(names);
-        validateDuplicate(names);
         return names;
     }
 
@@ -27,15 +25,6 @@ public class InputView {
                 .map(String::trim)
                 .toList();
     }
-
-    private void validateDuplicate(List<String> names) {
-        Set<String> uniqueNames = new HashSet<>(names);
-
-        if (names.size() != uniqueNames.size()) {
-            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATE_ERROR.getMessage());
-        }
-    }
-
 
     private void validateNotEmpty(List<String> names) {
         if (names.isEmpty()) {
