@@ -1,10 +1,12 @@
-package racingcar.domain;
+package racingcar.domain.game;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.TestNumberGenerator;
+import racingcar.domain.car.Car;
 
 class RacingGameTest {
 

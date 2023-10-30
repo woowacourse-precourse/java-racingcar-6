@@ -1,9 +1,10 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.TestNumberGenerator;
 
 class NavigationTest {
 

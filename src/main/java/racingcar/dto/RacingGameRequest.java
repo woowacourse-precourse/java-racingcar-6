@@ -3,8 +3,8 @@ package racingcar.dto;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.Car;
-import racingcar.domain.RandomNumberGenerator;
+import racingcar.domain.car.Car;
+import racingcar.domain.gennerator.RandomNumberGenerator;
 
 public class RacingGameRequest {
 
