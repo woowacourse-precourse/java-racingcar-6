@@ -25,11 +25,11 @@ public class RacingCar {
     }
 
     public String getName() {
-        return name.getName();
+        return name.name();
     }
 
     public int getLocation() {
-        return location.getLocation();
+        return location.location();
     }
 
     public boolean getIsWinner() {
