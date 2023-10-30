@@ -3,12 +3,13 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class ResultService {
-    public static void printNumberOfMovingForward(Cars cars) {
-        for (Object car : cars.keySet()) {
-            System.out.printf("%s : ", car);
-            int numberOfMovingForward = (int) cars.get(car);
+    public static void printNumberOfMovingForward(Map<Car, Integer> cars) {
+        for (Car car : cars.keySet()) {
+            System.out.printf("%s : ", car.getCar());
+            int numberOfMovingForward = cars.get(car);
             printDashes(numberOfMovingForward);
         }
     }
@@ -28,7 +29,7 @@ public class ResultService {
         System.out.println("실행 결과");
     }
 
-    public static void printResultsPerGame(Cars cars, int numberOfMatches) {
+    public static void printResultsPerGame(Map<Car, Integer> cars, int numberOfMatches) {
         for (int i = 1; i <= numberOfMatches; i++) {
             cars = recordGameResult(cars);
             printNumberOfMovingForward(cars);
@@ -36,20 +37,20 @@ public class ResultService {
         }
     }
 
-    private static Cars recordGameResult(Cars cars) {
-        for (Object car : cars.keySet()) {
+    private static Map<Car, Integer> recordGameResult(Map<Car, Integer> cars) {
+        for (Car car : cars.keySet()) {
             boolean isMovingForward = GameService.movingForwardCheck(GameService.pickRandomNumber());
-            cars = GameService.recordNumberOfMovingForward(cars, (Car) car, isMovingForward);
+            cars = GameService.recordNumberOfMovingForward(cars, car, isMovingForward);
         }
         return cars;
     }
 
-    public static List<String> decideWinners(Cars cars) {
-        Integer maxNumberOfMovingForward = (Integer) Collections.max(cars.values());
+    public static List<String> decideWinners(Map<Car, Integer> cars) {
+        int maxNumberOfMovingForward = Collections.max(cars.values());
         List<String> carList = new ArrayList<>();
-        for (Object car : cars.keySet()) {
+        for (Car car : cars.keySet()) {
             if (cars.get(car).equals(maxNumberOfMovingForward)) {
-                carList.add((String) car);
+                carList.add(car.getCar());
             }
         }
         return carList;

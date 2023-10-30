@@ -11,15 +11,23 @@ public class Car {
         this.car = car;
     }
 
+    public String getCar() {
+        return car;
+    }
+
     public static Car makeCar(String splitInput) {
         validateCar(splitInput);
         return new Car(splitInput);
     }
 
     private static void validateCar(String splitInput) {
-        if (splitInput.length() > MAX_NAME_LENGTH) {
+        if (!isValid(splitInput)) {
             throw new IllegalArgumentException(ErrorMessage);
         }
+    }
+
+    private static boolean isValid(String splitInput) {
+        return splitInput.length() <= MAX_NAME_LENGTH && splitInput.length() >= 1;
     }
 
     @Override
@@ -31,7 +39,7 @@ public class Car {
             return false;
         }
         Car carObject = (Car) o;
-        return Objects.equals(car, carObject.car);
+        return car == carObject.car;
     }
 
     @Override
