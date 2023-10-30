@@ -1,14 +1,12 @@
 package racingcar.domain;
 
-public class InputCheck {
-    public InputCheck(){}
+public class InputValidation {
+    public InputValidation(){}
 
     public boolean isValidName(String carName){
-        return false;
-    }
-
-
-    public int countName(String carName){
-        return 0;
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+        return true;
     }
 }
