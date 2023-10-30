@@ -3,7 +3,9 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RacingCar {
     ExceptionCase exception = new ExceptionCase();
@@ -15,10 +17,10 @@ public class RacingCar {
         exception.nullInput(input);
 
         String[] carList = input.split(",");
-        List<String> racers = Arrays.asList(carList);
-        exception.carNameLength(racers);
+        List<String> cars = Arrays.asList(carList);
+        exception.carNameLength(cars);
 
-        return racers;
+        return cars;
     }
 
     public int attemptInput() {
