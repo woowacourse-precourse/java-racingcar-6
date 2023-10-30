@@ -24,4 +24,11 @@ class CarNameTest {
     void createCarNameFailTest_1() {
         assertThrows(IllegalArgumentException.class, () -> new CarName(""));
     }
+
+    @DisplayName("CarName 생성 실패 테스트 - 글자 제한")
+    @ParameterizedTest
+    @ValueSource(strings = {"abcdef", "가나다라마바사아자차카타파하"})
+    void createCarNameFailTest_2(String name) {
+        assertThrows(IllegalArgumentException.class, () -> new CarName(name));
+    }
 }
