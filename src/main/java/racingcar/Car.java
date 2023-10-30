@@ -32,8 +32,29 @@ public class Car {
         return this.name + " : " + "-".repeat(distance);
     }
 
-    public static List<Car> parseCars(String input) {
-        // TODO : 미구현
-        return new ArrayList<Car>();
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Car car))
+            return super.equals(obj);
+
+        if (!name.equals(car.name))
+            return false;
+        return distance == car.distance;
+    }
+
+    public static List<Car> parseCars(String string) {
+        String[] carNames = string.split(",");
+        ArrayList<Car> list = new ArrayList<>();
+
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException(OutputMessage.ERROR_CAR_NAME_LENGTH_LIMIT);
+            }
+
+            Car car = new Car(carName);
+            list.add(car);
+        }
+
+        return list;
     }
 }

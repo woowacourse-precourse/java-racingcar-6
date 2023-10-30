@@ -2,7 +2,10 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
     @Test
@@ -41,5 +44,41 @@ class CarTest {
         Car car = new Car(name, distance);
         String result = car.getStatus();
         assertThat(result).isEqualTo(answer);
+    }
+
+    @Test
+    void parseCars_이름이_1개_이상() {
+        String string = "cpp,java,js";
+        List<Car> result = Car.parseCars(string);
+
+        assertThat(result).containsExactly(new Car("cpp"), new Car("java"), new Car("js"));
+    }
+
+    @Test
+    void parseCars_이름이_없음() {
+        String string = "";
+        List<Car> result = Car.parseCars(string);
+
+        assertThat(result).containsExactly(new Car(""));
+    }
+
+    @Test
+    void parseCars_5글자_초과_이름() {
+        String string = "cpp,java,js,python";
+        assertThatThrownBy(() -> Car.parseCars(string))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(OutputMessage.ERROR_CAR_NAME_LENGTH_LIMIT);
+    }
+
+    @Test
+    void testEquals() {
+        Car car = new Car("car_name", 1);
+        Car car2 = new Car("car_name", 1);
+        Car car3 = new Car("this_is_not_car", 1);
+        Car car4 = new Car("car_name", 2);
+
+        assertThat(car).isEqualTo(car2);
+        assertThat(car).isNotEqualTo(car3);
+        assertThat(car).isNotEqualTo(car4);
     }
 }

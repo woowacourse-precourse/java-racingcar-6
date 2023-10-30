@@ -8,15 +8,15 @@
     - 자동차들을 각각 한 번씩 움직입니다.
 
 ### `class` Car
-  - [ ] move
+  - [x] move
 
     - 자동차를 움직입니다.
 
-  - [ ] getStatus
+  - [x] getStatus
 
     - 자동차의 정보를 String 형태로 반환합니다.
 
-  - [ ] (static) parseCars
+  - [x] (static) parseCars
 
     - 문자열을 기반으로 Car 리스트를 반환합니다.
 
