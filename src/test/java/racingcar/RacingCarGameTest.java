@@ -10,23 +10,25 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RacingCarGameTest {
+
     @Test
-    public void 사용자_입력_테스트(){
+    public void 우승자_가려내기_테스트(){
         //given
-        String input_str="pobi,woni,jun";
-        //when
-        List<RacingCar> expects = new ArrayList<>(Arrays.asList(
-                new RacingCar("pobi"),
-                new RacingCar("woni"),
-                new RacingCar("jun")
+        RacingCar car1 = new RacingCar("pobi");
+        car1.setCount(3);
+        RacingCar car2 = new RacingCar("woni");
+        car2.setCount(2);
+        RacingCar car3 = new RacingCar("jun");
+        car3.setCount(3);
+
+        List<RacingCar> cars = new ArrayList<>(Arrays.asList(
+                car1,car2,car3
         ));
-        List<RacingCar> actuals = RacingCarGame.makeRacingCars(input_str);
+        //when
+        List<RacingCar> winner = RacingCarGame.getWinner(cars);
         //then
-        Assertions.assertEquals(3,actuals.size());
-        Assertions.assertEquals(expects.get(0).toString(),actuals.get(0).toString());
-        Assertions.assertEquals(expects.get(1).toString(),actuals.get(1).toString());
-        Assertions.assertEquals(expects.get(2).toString(),actuals.get(2).toString());
+        Assertions.assertEquals(2,winner.size());
+        Assertions.assertEquals(car1.toString(),winner.get(0).toString());
+        Assertions.assertEquals(car3.toString(),winner.get(1).toString());
     }
-
-
 }
