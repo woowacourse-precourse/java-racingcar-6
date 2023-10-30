@@ -9,6 +9,8 @@ public class Constants {
     public static final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
     public static final String ERROR_CAR_NAME_LENGTH = "자동차 이름은 5자 이하여야 합니다.";
 
+    public static final String ERROR_EMPTY_INPUT = "입력값이 없습니다.";
+
     public static final String CAR_NAME_SEPARATOR = ",";
     public static final int MAX_CAR_NAME_LENGTH = 5;
     public static final int MIN_RANDOM_NUM = 0;

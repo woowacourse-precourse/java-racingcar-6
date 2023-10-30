@@ -15,6 +15,7 @@ public class UserInput {
         List<String> carTypeList = new ArrayList<String>();
         for (String carType : input.split(CAR_NAME_SEPARATOR)) {
             checkLength(carType);
+            checkEmptyInput(carType);
             carTypeList.add(String.valueOf(carType));
         }
         return carTypeList;
@@ -25,6 +26,13 @@ public class UserInput {
         if (carType.length() > MAX_CAR_NAME_LENGTH) {
             System.out.println(ERROR_CAR_NAME_LENGTH);
             throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH);
+        }
+    }
+
+    public void checkEmptyInput(String carType){
+        if (carType.isEmpty()){
+            System.out.println(ERROR_EMPTY_INPUT);
+            throw new IllegalArgumentException(ERROR_EMPTY_INPUT);
         }
     }
 
