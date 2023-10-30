@@ -20,4 +20,8 @@ public class RacingCarGame {
     static void printAskingForTrialNumberMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    static int convertStringToInt(String userInput) {
+        return Integer.parseInt(userInput);
+    }
 }
