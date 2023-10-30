@@ -23,11 +23,20 @@ class CarsTest {
                     new Cars(names, movingStrategy);
                 });
     }
-//
-//    @Test
-//    void getCars() {
-//
-//    }
+
+    @Test
+    void getCars() {
+        // given
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        List<String> names = Arrays.asList("pobi", "crong", "horan");
+
+        // when
+        Cars result = new Cars(names, movingStrategy);
+
+
+        // then
+
+    }
 //
 //    @Test
 //    void raceAllCars() {
