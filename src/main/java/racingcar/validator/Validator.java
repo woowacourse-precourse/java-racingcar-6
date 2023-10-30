@@ -19,6 +19,12 @@ public class Validator {
         return carNameInput.matches(regex);
     }
 
+    public void checkCarNameForm(String carName){
+        if(!isCarNameLength(carName)) {
+            throw new IllegalArgumentException("자동차 이름으 길이는 5이하 입니다.");
+        }
+    }
+
     private boolean isCarNameLength(String carName) {
         return 0 < carName.length() && carName.length() <= 5;
     }
