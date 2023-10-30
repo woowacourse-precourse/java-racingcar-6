@@ -19,9 +19,9 @@ public class CreateCar {
 
     public String[] carName(String input) {
         String[] carNames = input.split(",");
-        checkCarCount(carNames);
+        validateCarCount(carNames);
         for (String carName : carNames) {
-            checkNameLength(carName.trim());
+            validateNameLength(carName.trim());
         }
         return carNames;
     }
@@ -40,16 +40,17 @@ public class CreateCar {
         return stateMap;
     }
 
-    private void checkCarCount(String[] carNames) {
+    private void validateCarCount(String[] carNames) {
         if (carNames.length > 10 || carNames.length < 2) {
             throw new IllegalArgumentException("자동차는 2대 이상, 10대 이하만 가능합니다.");
         }
     }
 
-    public void checkNameLength(String carName) {
+    public void validateNameLength(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
+
 
 }
