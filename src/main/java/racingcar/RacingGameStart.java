@@ -8,28 +8,16 @@ public class RacingGameStart {
         String carNames = Console.readLine();
         String[] carsList = carNames.split(",");
 
-        RacingCar[] RacingCars = createRacingCars(carsList);
-
-        for(int i = 0; i< carsList.length; i++){
-            RacingCar car = new RacingCar(carsList[i].trim(),0);
-            car.checkNameLength(car.getName());
-            RacingCars[i] = car;
-        }
+        RacingCar[] racingCars = createRacingCars(carsList);
 
         System.out.println("시도할 횟수는 몇회인가요?");
         int num = Integer.parseInt(Console.readLine());
 
         System.out.println();
         System.out.println("실행 결과");
-        for(int i=0; i<num; i++){
-            for(int j=0; j< carsList.length; j++){
-                RapsResult rR = new RapsResult(RacingCars[j]);
-                System.out.println(rR.forwardOrNot());
-            }
-            System.out.println();
-        }
+        runRace(racingCars, num);
 
-        PrintWinner pW = new PrintWinner(RacingCars);
+        PrintWinner pW = new PrintWinner(racingCars);
         System.out.print(pW.winnerListPrint());
 
     }
@@ -37,8 +25,26 @@ public class RacingGameStart {
     private static RacingCar[] createRacingCars(String[] carNames) {
         RacingCar[] racingCars = new RacingCar[carNames.length];
         for (int i = 0; i < carNames.length; i++) {
+            checkNameLength(carNames[i]);
             racingCars[i] = new RacingCar(carNames[i].trim(), 0);
         }
         return racingCars;
+    }
+
+    private static void runRace(RacingCar[] racingCars, int num){
+        for(int i=0; i<num; i++){
+            for(RacingCar car : racingCars){
+                RapsResult rR = new RapsResult(car);
+                System.out.println(rR.forwardOrNot());
+            }
+            System.out.println();
+        }
+    }
+
+    public static void checkNameLength(String name){
+        if(name.length() > 5){
+
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        }
     }
 }
