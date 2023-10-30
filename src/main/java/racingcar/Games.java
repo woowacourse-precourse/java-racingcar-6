@@ -17,7 +17,7 @@ public class Games {
 
     public void racingcar_game() {
         for (String car_name : car_situations.keySet()){
-            
+            int random_num = Randoms.pickNumberInRange(0, 9);
         }
     }
 }
