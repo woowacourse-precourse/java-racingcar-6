@@ -17,18 +17,16 @@ public class RacingCars {
 
 
     public void addCars(String[] carNames) {
-        for(String name: carNames){
+        for (String name : carNames) {
             racingCars.add(new Car(name));
         }
     }
 
 
     public void move() {
-
         for (Car car : racingCars) {
             car.move(createRandomNumber());
         }
-
     }
 
     private int createRandomNumber() {
@@ -36,37 +34,37 @@ public class RacingCars {
     }
 
 
-    public List<String> getCarNames(){
+    public List<String> getCarNames() {
 
         List<String> carNames = new ArrayList<>();
 
-        for(Car car: racingCars){
+        for (Car car : racingCars) {
             carNames.add(car.getName());
         }
         return carNames;
     }
 
-    public List<Integer> getCarLocations(){
+    public List<Integer> getCarLocations() {
         List<Integer> carLocations = new ArrayList<>();
 
-        for(Car car: racingCars){
+        for (Car car : racingCars) {
             carLocations.add(car.getLocation());
         }
         return carLocations;
     }
 
 
-    public List<String> getWinners(){
+    public List<String> getWinners() {
         Integer maxLocationValue = getLocationMaxValue();
 
         List<String> winners = racingCars.stream()
-                .filter(car->car.getLocation()==maxLocationValue)
+                .filter(car -> car.getLocation() == maxLocationValue)
                 .map(car -> car.getName()).collect(Collectors.toList());
 
         return winners;
     }
 
-    private Integer getLocationMaxValue(){
+    private Integer getLocationMaxValue() {
         return Collections.max(getCarLocations());
     }
 

@@ -20,11 +20,11 @@ public class OutputView {
         System.out.print(name + COLON);
     }
 
-    public static void printCarLocation(int location){
+    public static void printCarLocation(int location) {
         System.out.println(PROCESS_BAR.repeat(location));
     }
 
-    public static void printEmptyLine(){
+    public static void printEmptyLine() {
         System.out.println();
     }
 
