@@ -1,6 +1,6 @@
 package racingcar.model.converter.inputConverter;
 
-public class InputConverterImpl implements InputConverter<Long>{
+public class LongConverter implements InputConverter<Long>{
     @Override
     public Long convertToType(String input) {
         try {
