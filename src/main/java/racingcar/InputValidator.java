@@ -49,5 +49,9 @@ public class InputValidator {
         }
     }
 
+    public static void validateNumberRange(String number) {
+        if (Integer.parseInt(number) < 1) {
+            throw new IllegalArgumentException("시도 횟수가 1보다 작습니다. 프로그램 종료");
+        }
     }
 }
