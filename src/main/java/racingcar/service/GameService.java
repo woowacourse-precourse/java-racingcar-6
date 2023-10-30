@@ -44,7 +44,7 @@ public class GameService {
 
     public CarsDto playRound(final Cars cars) {
         cars.move();
-        return new CarsDto(cars.toCarsDto());
+        return cars.toCarsDto();
     }
 
     public List<String> findWinnersName(final Cars cars) {

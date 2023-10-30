@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import racingcar.dto.CarDto;
+import racingcar.dto.CarsDto;
 
 public class Cars {
 
@@ -58,7 +59,11 @@ public class Cars {
                 });
     }
 
-    public List<CarDto> toCarsDto() {
+    public CarsDto toCarsDto() {
+        return new CarsDto(getCarDtos());
+    }
+
+    private List<CarDto> getCarDtos() {
         return cars.stream()
                 .map(Car::toCarDto)
                 .toList();

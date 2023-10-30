@@ -12,6 +12,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import racingcar.dto.CarDto;
+import racingcar.dto.CarsDto;
 
 class CarsTest {
 
@@ -38,9 +39,10 @@ class CarsTest {
 
         // when
         cars.move();
-        List<CarDto> results = cars.toCarsDto();
 
         // then
+        CarsDto carsDto = cars.toCarsDto();
+        List<CarDto> results = carsDto.carDtos();
         assertThat(results.get(0).position()).isBetween(0, 1);
         assertThat(results.get(1).position()).isBetween(0, 1);
     }
@@ -68,6 +70,23 @@ class CarsTest {
         // when & then
         assertThatThrownBy(() -> winners.add("woni"))
                 .isInstanceOf(UnsupportedOperationException.class);
+    }
+
+    @Test
+    @DisplayName("CarsDto 생성 확인")
+    void givenCars_whenToCarsDto_thenSuccess() {
+        // given
+        Cars cars = new Cars("pobi,woni");
+
+        // when
+        CarsDto carsDto = cars.toCarsDto();
+
+        // then
+        List<CarDto> result = carsDto.carDtos();
+        assertThat(result.get(0)).extracting("name").isEqualTo("pobi");
+        assertThat(result.get(0)).extracting("position").isEqualTo(0);
+        assertThat(result.get(1)).extracting("name").isEqualTo("woni");
+        assertThat(result.get(1)).extracting("position").isEqualTo(0);
     }
 
 }
