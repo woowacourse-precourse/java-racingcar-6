@@ -4,6 +4,7 @@ import racingcar.validator.RacingCarNameValidator;
 
 public class Car {
 
+  static RacingCarNameValidator validator = new RacingCarNameValidator();
 
   private final String carName;
   private int location = 0;
@@ -13,6 +14,7 @@ public class Car {
   }
 
   public static Car from(String carName) {
+    validator.validate(carName);
     return new Car(carName);
   }
 }
