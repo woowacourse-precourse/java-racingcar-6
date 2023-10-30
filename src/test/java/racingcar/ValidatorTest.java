@@ -30,6 +30,16 @@ public class ValidatorTest {
     }
 
     @Test
+    void 자동차_이름에_공백이_포함되어_있는_경우_에러발생() {
+        String input = "자동차1,자동차2,에 러~~";
+        assertThatThrownBy(() -> {
+            validator.validationCarName(input);
+        })
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME_HAS_SPACE.getMessage());
+    }
+
+    @Test
     void 휫수입력이_0일_경우_에러발생() {
         String input = "0";
         assertThatThrownBy(() -> {
