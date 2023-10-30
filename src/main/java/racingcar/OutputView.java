@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class OutputView {
     public void carNameMessage(){
         System.out.println(InputMessage.CAR_NAME);
@@ -9,7 +11,15 @@ public class OutputView {
         System.out.println(InputMessage.COUNT);
     }
 
+    public void roundResultMessage(){
+        System.out.println(OutputMessage.RESULT);
+    }
+
     public void carPositionMessage(String name, int position){
         System.out.println(name + " : " + OutputMessage.DISTANCE.repeat(position));
+    }
+
+    public void winnerMessage(List<String> name){
+        System.out.println(OutputMessage.WINNER +  " : " + String.join(",", name));
     }
 }

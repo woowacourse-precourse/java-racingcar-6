@@ -24,7 +24,13 @@ public class RacingGameService {
         return inputView.carNameList();
     }
 
-    public void playRound(RacingGame racingGame){
+    public void play(int raceCount, RacingGame racingGame){
+        for(int playCount = 0; playCount<raceCount; playCount++){
+            race(racingGame);
+            printRaceResult(racingGame);
+        }
+    }
+    private void race(RacingGame racingGame){
         List<Car> carList = racingGame.getCarList();
         for(Car car: carList){
             car.move(makeRandomPower());
@@ -34,31 +40,28 @@ public class RacingGameService {
         }
     }
 
-    public void printRoundResult(RacingGame racingGame){
+    private void printRaceResult(RacingGame racingGame){
         List<Car> carList = racingGame.getCarList();
         for(Car car: carList){
             outputView.carPositionMessage(car.getName(), car.getPosition());
         }
     }
 
-    private List<Car> checkWinner(RacingGame racingGame){
-        List<Car> winnerList = new ArrayList<>();
+    private List<String> checkWinner(RacingGame racingGame){
+        List<String> winnerList = new ArrayList<>();
 
         List<Car> carList = racingGame.getCarList();
         for(Car car: carList){
             if (car.getPosition() == highDistance) {
-                winnerList.add(car);
+                winnerList.add(car.getName());
             }
         }
         return winnerList;
     }
 
     public void printWinner(RacingGame racingGame){
-        List<Car> winnerList = checkWinner(racingGame);
-
-        for(Car car: winnerList){
-            outputView.carPositionMessage(car.getName(), car.getPosition());
-        }
+        List<String> winnerList = checkWinner(racingGame);
+        outputView.winnerMessage(winnerList);
     }
     private Integer makeRandomPower(){
         return Randoms.pickNumberInRange(NUMBER_RANGE_START, NUMBER_RANGE_END);
