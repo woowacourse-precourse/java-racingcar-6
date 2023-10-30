@@ -10,17 +10,9 @@ public class OutputView {
     }
 
     public static void outputWinnerRacingCarNames(Cars cars) {
-        StringBuilder stringBuilder = new StringBuilder();
         List<String> winnerCarNameList = cars.getWinnerCarNameList();
-
-        stringBuilder.append("최종 우승자 : ");
-        for (String winnerCarName : winnerCarNameList) {
-            stringBuilder.append(winnerCarName).append(", ");
-        }
-
-        stringBuilder.setLength(stringBuilder.length() - 2);
-
-        System.out.println(stringBuilder);
+        String winnerRacingCar = joinWinnerRacingCar(winnerCarNameList);
+        printWinnerRacingCar(winnerRacingCar);
     }
 
     private static void outputCarRacingStatus(Cars cars) {
@@ -36,5 +28,13 @@ public class OutputView {
 
     private static String forwardToHyphen(Integer forward) {
         return "-".repeat(forward);
+    }
+
+    private static String joinWinnerRacingCar(List<String> winnerCarNameList) {
+        return String.join(", ", winnerCarNameList);
+    }
+
+    private static void printWinnerRacingCar(String winnerCarNames) {
+        System.out.println("최종 우승자 : " + winnerCarNames);
     }
 }
