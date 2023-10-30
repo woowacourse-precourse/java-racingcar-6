@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
-    public List<Car> toCarList(List<String> carNameList){
+    public List<Car> toCarList(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
 
         for (String carName : carNameList) {
@@ -14,24 +14,24 @@ public class Racing {
         return carList;
     }
 
-    private boolean isMove(Car car){
+    private boolean isMove(Car car) {
         return car.getRandomNum() >= 4;
     }
 
-    public void modifyForwardNum(List<Car> carList){
+    public void modifyForwardNum(List<Car> carList) {
         for (Car car : carList) {
-            if(isMove(car)){
+            if (isMove(car)) {
                 car.increaseForwardNum();
             }
         }
     }
 
-    public List<String> findWinners(List<Car> carList){
+    public List<String> findWinners(List<Car> carList) {
         List<String> winners = new ArrayList<>();
         int maxValue = findMaxValue(carList);
 
-        for(Car car : carList) {
-            if(car.getForwardNum() == maxValue){
+        for (Car car : carList) {
+            if (car.getForwardNum() == maxValue) {
                 winners.add(car.getName());
             }
         }
@@ -39,7 +39,7 @@ public class Racing {
         return winners;
     }
 
-    private int findMaxValue(List<Car> carList){
+    private int findMaxValue(List<Car> carList) {
         int maxValue = carList.get(0).getForwardNum();
 
         for (int i = 1; i < carList.size(); i++) {
@@ -51,7 +51,7 @@ public class Racing {
         return maxValue;
     }
 
-    public void initCarsRandomNum(List<Car> carList){
+    public void initCarsRandomNum(List<Car> carList) {
         for (Car car : carList) {
             car.initRandomNum();
         }

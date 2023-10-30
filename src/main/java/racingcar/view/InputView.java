@@ -9,13 +9,14 @@ import java.util.StringTokenizer;
 
 public class InputView {
     private final static Validator validator = new Validator();
-    public List<String> InputCarName(){
+
+    public List<String> InputCarName() {
         String cars = Console.readLine();
         validator.checkCarNameInputForm(cars);
         StringTokenizer carsDivision = new StringTokenizer(cars, ",");
 
         List<String> carNameList = new ArrayList<>();
-        while(carsDivision.hasMoreTokens()){
+        while (carsDivision.hasMoreTokens()) {
             String carName = carsDivision.nextToken();
             carNameList.add(carName);
             validator.checkCarNameForm(carName);
@@ -26,7 +27,7 @@ public class InputView {
         return carNameList;
     }
 
-    public int InputTryNum(){
+    public int InputTryNum() {
         String tryNumInput = Console.readLine();
         validator.checkTryNumType(tryNumInput);
 

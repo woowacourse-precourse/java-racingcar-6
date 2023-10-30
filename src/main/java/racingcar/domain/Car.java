@@ -7,28 +7,28 @@ public class Car {
     private int forwardNum;
     private int randomNum;
 
-    public Car(String name){
+    public Car(String name) {
         this.name = name;
         this.forwardNum = 0;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public int getForwardNum(){
+    public int getForwardNum() {
         return this.forwardNum;
     }
 
-    public int getRandomNum(){
+    public int getRandomNum() {
         return this.randomNum;
     }
 
-    public void increaseForwardNum(){
+    public void increaseForwardNum() {
         this.forwardNum++;
     }
 
-    public void initRandomNum(){
-        this.randomNum = Randoms.pickNumberInRange(0,9);
+    public void initRandomNum() {
+        this.randomNum = Randoms.pickNumberInRange(0, 9);
     }
 }

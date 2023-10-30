@@ -10,7 +10,7 @@ public class Game {
     private final OutputView outputView = new OutputView();
     private final Racing racing = new Racing();
 
-    public void run(){
+    public void run() {
         outputView.printCarNameInputGuide();
         List<String> carNameList = inputView.InputCarName();
 

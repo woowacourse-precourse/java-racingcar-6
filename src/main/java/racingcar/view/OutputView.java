@@ -22,13 +22,13 @@ public class OutputView {
         System.out.println("\n");
     }
 
-    public void printResultMessage(){
+    public void printResultMessage() {
         System.out.println("\n실행 결과");
     }
 
     public void printWinner(List<String> winnerList) {
         String winnerMsg = "최종 우승자 : ";
-        for(int i = 0; i < winnerList.size(); i++) {
+        for (int i = 0; i < winnerList.size(); i++) {
             winnerMsg += winnerList.get(i) + ", ";
         }
         if (winnerMsg.endsWith(", ")) {
