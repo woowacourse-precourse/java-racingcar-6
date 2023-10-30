@@ -2,7 +2,9 @@ package racingcar;
 
 public class Lap {
 
-    private int size;
+    private static final String REGEXP_SIZE_FORMAT = "[1-9]+";
+    private static final int MINIMUM_SIZE = 1;
+    private final int size;
 
     public Lap(String size) {
         validateFormatCheck(size);
@@ -15,13 +17,13 @@ public class Lap {
     }
 
     private void validateFormatCheck(String size) {
-        if (!size.matches("[1-9]+")) {
+        if (!size.matches(REGEXP_SIZE_FORMAT)) {
             throw new IllegalArgumentException("숫자를 입력 해 주세요.");
         }
     }
 
     private void validateSizeCheck(int size) {
-        if (size < 1) {
+        if (size < MINIMUM_SIZE) {
             throw new IllegalArgumentException("1이상을 입력 해 주세요.");
         }
     }
