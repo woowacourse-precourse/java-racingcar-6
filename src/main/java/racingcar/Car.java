@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class Car {
@@ -25,5 +26,13 @@ public class Car {
         tryNum = Integer.parseInt(Console.readLine());
     }
 
-
+    void draw() {
+        for (int i = 0; i < car.size(); i++) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                car.get(i).race+="-";
+                continue;
+            }
+            car.get(i).race+="";
+        }
+    }
 }
