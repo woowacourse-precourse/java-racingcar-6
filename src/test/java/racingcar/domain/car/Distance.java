@@ -10,4 +10,8 @@ public class Distance {
     public void add(int number) {
         this.distance += number;
     }
+
+    protected int getDistance() {
+        return distance;
+    }
 }
