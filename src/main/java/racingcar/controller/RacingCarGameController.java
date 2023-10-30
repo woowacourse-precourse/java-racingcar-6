@@ -23,7 +23,7 @@ public class RacingCarGameController {
     private Cars cars = new Cars();
 
     public void run() {
-        carInitialize();
+        gameInitialize();
         playRacingGame(inputView.InputTryNumber());
         chooseWinner(cars.getCars());
     }
@@ -81,7 +81,7 @@ public class RacingCarGameController {
         }
     }
 
-    public void carInitialize() {
+    public void gameInitialize() {
         String carNames = inputView.InputCarNames();
         List<String> carNameList = carList(carNames);
         cars.makeCarsFromCarList(carNameList);
