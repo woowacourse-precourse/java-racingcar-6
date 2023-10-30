@@ -25,7 +25,7 @@ class InputManager {
     }
 
     private static void validateEachNameLength(List<String> names){
-        boolean findIllegalLength = names.stream().anyMatch(s -> s.length() >= 1 && s.length() <= 5);
+        boolean findIllegalLength = names.stream().anyMatch(s -> s.length() < 1 || s.length() > 5);
         if(findIllegalLength){
             throw new IllegalArgumentException("자동차의 이름은 1글자 이상 5글자 이하여야 합니다.");
         }

@@ -25,6 +25,10 @@ class InputManagerTest {
         assertThatThrownBy(() -> InputManager.getCarNames("name,123456"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차의 이름은 1글자 이상 5글자 이하여야 합니다.");
+
+        assertThatThrownBy(() -> InputManager.getCarNames("1234567,123456"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차의 이름은 1글자 이상 5글자 이하여야 합니다.");
     }
     @Test
     void 자동차_이름의_공백_예외_테스트(){
