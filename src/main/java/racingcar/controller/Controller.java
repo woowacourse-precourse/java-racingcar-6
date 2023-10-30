@@ -22,12 +22,8 @@ public class Controller {
 		OutputView.printResultMessage();
 		do {
 			service.tryOnce(racingCar, tryNumber);
-			printResult();
+			OutputView.printTryResult(racingCar);
 		} while(isTryable());
-	}
-
-	private void printResult() {
-		OutputView.printTryResult(racingCar.getRacingCar());
 	}
 
 	private boolean isTryable() {

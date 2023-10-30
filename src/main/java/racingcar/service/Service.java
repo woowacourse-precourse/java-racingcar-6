@@ -1,21 +1,19 @@
 package racingcar.service;
 
-import java.util.List;
-
-import racingcar.domain.Car;
 import racingcar.domain.RacingCar;
 import racingcar.domain.RandomNumberFactory;
 import racingcar.domain.TryNumber;
 
 public class Service {
 	private static final int MOVE_STANDARD = 4;
+
 	public void tryOnce(RacingCar racingCar, TryNumber tryNumber) {
-		tryEachCar(racingCar.getRacingCar());
+		tryEach(racingCar);
 		tryNumber.decrease();
 	}
 
-	private void tryEachCar(List<Car> carList) {
-		carList.forEach(car -> {
+	private void tryEach(RacingCar racingCar) {
+		racingCar.getRacingCar().forEach(car -> {
 			if (isMovable(getRandomNumber())) {
 				car.move();
 			}

@@ -9,7 +9,7 @@ public class Position {
 	}
 
 	protected void move() {
-		position+=MOVE_SIZE;
+		position += MOVE_SIZE;
 	}
 
 	protected int getPosition() {
