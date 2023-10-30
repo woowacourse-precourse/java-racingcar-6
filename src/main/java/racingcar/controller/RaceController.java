@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.PlayCount;
-import racingcar.domain.Winner;
+import racingcar.domain.Winners;
 import racingcar.dto.CarDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -56,8 +56,9 @@ public class RaceController {
     }
 
     private void printFinalWinner() {
-        Winner winner = new Winner(cars.getCars());
-        List<String> winners = winner.findWinners();
-        outputView.printFinalWinners(winners);
+        Winners winners = new Winners(cars.getCars());
+        List<String> winnersName = winners.getWinners().stream().map(car -> car.getName()).toList();
+
+        outputView.printFinalWinners(winnersName);
     }
 }
