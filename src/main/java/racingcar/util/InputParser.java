@@ -9,4 +9,8 @@ public class InputParser {
     public List<String> parseCarName(String playerInput) {
         return Arrays.stream(playerInput.split(DELIMITER)).toList();
     }
+
+    public int parseNumberOfAttempt(String playerInput) {
+        return Integer.parseInt(playerInput);
+    }
 }
