@@ -13,6 +13,7 @@ public class Validate {
             throw new IllegalArgumentException();
         }
     }
+
     public boolean validateDuplicate(List<String> nameSet){
         // Try to Remove Duplicate Things
         Set<String> set = new HashSet<>(nameSet);
@@ -24,12 +25,14 @@ public class Validate {
             throw new IllegalArgumentException();
         }
     }
+
     public void validateEmptySpace(String toCheckStr){
         toCheckStr = toCheckStr.replaceAll(" ","");
         if(toCheckStr.isEmpty()){
             throw new IllegalArgumentException();
         }
     }
+
     public int validateDataType(String toCheckStf){
         int returnVal;
 
@@ -41,5 +44,4 @@ public class Validate {
 
         return returnVal;
     }
-    public void validateDomain(){}
 }

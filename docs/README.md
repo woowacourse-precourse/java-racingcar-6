@@ -44,8 +44,6 @@
 자동차 이름이 공백으로 입력되었는지 확인한다.
 ### 기능4) 자료형 검증 `int validateDataType(String toCheck)`
 사용자가 입력한 이동 횟수의 자료형을 검증한다.
-### 기능5) 범위 검증 `public void validateDomain()`
-사용자가 입력한 이동 횟수의 범위 값을 검증한다.
 
 ## 4. 레이싱 클래스
 ### 기능1) 레이싱 데이터 초기화 `public void initializeRacing()`

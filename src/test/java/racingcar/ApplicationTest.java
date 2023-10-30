@@ -50,6 +50,7 @@ class ApplicationTest extends NsTest {
         List<String> firstMovingResult = Arrays.asList("a : -", "b : ", "c : -");
         List<String> secondMovingResult = Arrays.asList("a : --", "b : ", "c : --");
         List<String> thirdMovingResult = Arrays.asList("a : ---", "b : ", "c : ---");
+
         assertRandomNumberInRangeTest(
                 () -> {
                     run("a,b,c", "3");

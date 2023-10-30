@@ -30,6 +30,7 @@ public class DataInputOutput {
             newCar.makeCar(curStr);
             this.carList.add(newCar);
         }
+
         validate.validateDuplicate(duplicateCheck);
     }
 

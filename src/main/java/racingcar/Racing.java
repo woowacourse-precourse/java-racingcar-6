@@ -5,12 +5,14 @@ import java.util.List;
 
 public class Racing {
     static DataInputOutput dataSet = new DataInputOutput();
+
     public void initializeRacing(){
         dataSet.printSystemMessage("START");
         dataSet.userInputCarsInfo();
         dataSet.printSystemMessage("INPUT_MOVING");
         dataSet.userInputMovingInfo();
     }
+
     public void doRacing(){
         while (dataSet.getNumTotalMoving() > 0){
                 for (Car car : dataSet.carList) {
@@ -21,8 +23,10 @@ public class Racing {
             dataSet.setNumtotalMoving(dataSet.getNumTotalMoving() - 1);
             dataSet.printMovingResult();
         }
+
         getWinner();
     }
+
     public void getWinner(){
         CarSorting carSort = new CarSorting();
         List<String> winnerList = new ArrayList<>();
