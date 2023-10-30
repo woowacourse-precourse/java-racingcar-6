@@ -27,7 +27,7 @@
       - [ ] gameService method
       - [ ] ConsolePrintService method
 - service
-  - [ ] ConsolePrintService - 화면 출력
+  - [x] ConsolePrintService - 화면 출력
   - [ ] gameService
     - [ ] userInput (car, cnt)
     - [ ] randomNumber pick
