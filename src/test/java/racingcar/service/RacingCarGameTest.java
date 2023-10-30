@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class RacingCarGameTest {
 
     @Test
-    public void 반복횟수_입력_테스트() throws Exception {
+    public void 잘못된_반복횟수_입력_에러() throws Exception {
 
         //given
         RacingCarGame game = new RacingCarGame();
@@ -24,7 +24,7 @@ class RacingCarGameTest {
     }
 
     @Test
-    public void 문자사이_스페이스_에러_테스트() throws Exception {
+    public void 문자사이_스페이스_에러() throws Exception {
 
         //given
         RacingCarGame game = new RacingCarGame();
@@ -39,7 +39,7 @@ class RacingCarGameTest {
     }
 
     @Test
-    public void 빈문자_에러_테스트() throws Exception {
+    public void 빈문자_에러() throws Exception {
 
         //given
         RacingCarGame game = new RacingCarGame();
@@ -54,7 +54,7 @@ class RacingCarGameTest {
     }
 
     @Test
-    public void 동일한_이름_에러_테스트() throws Exception {
+    public void 동일한_이름_에러() throws Exception {
 
         //given
         RacingCarGame game = new RacingCarGame();
