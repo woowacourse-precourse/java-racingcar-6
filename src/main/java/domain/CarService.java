@@ -3,6 +3,8 @@ package domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+
 public class CarService {
     private static final int STANDARD_FOR_GO = 4;
     private final List<Car> cars;
@@ -23,6 +25,11 @@ public class CarService {
         names.forEach(this::add);
     }
 
+    // 제거 필요
+    public List<Car> getState() {
+        return cars;
+    }
+
     public void playRound() {
         for (Car car : cars) {
             if (decideGo(pickNumberInRange(0, 9))) {
@@ -32,6 +39,7 @@ public class CarService {
             car.stop();
         }
     }
+
     boolean decideGo(int condition) {
         return condition >= STANDARD_FOR_GO;
     }

@@ -1,8 +1,13 @@
 package controller;
 
+import controller.dto.CarDto;
+import domain.Car;
 import domain.CarService;
 import view.InputView;
 import view.OutputView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingcarController {
     private final InputView inputView;
@@ -21,17 +26,29 @@ public class RacingcarController {
         carService.add(inputView.carName());
         outputView.inputRoundNumber();
         remainingRounds = inputView.roundNumber();
+        outputView.outputRunResult();
     }
 
     public void playRound() {
-
+        carService.playRound();
+        outputView.outputCarPosition(carsToDto(carService.getState()));
+        remainingRounds--;
     }
 
     public boolean isEnd() {
-        return true;
+        return remainingRounds <= 0;
     }
 
     public void endGame() {
 
+    }
+
+    // 제거 필요
+    private List<CarDto> carsToDto(List<Car> cars) {
+        List<CarDto> carDtoList = new ArrayList<>();
+        for (Car car : cars) {
+            carDtoList.add(new CarDto(car.getName(), car.getPosition()));
+        }
+        return carDtoList;
     }
 }
