@@ -1,12 +1,20 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.validation.CarValidator;
 
 public class RacingCar {
 
     private final List<Car> cars;
+
+    public RacingCar(String userInput) {
+        List<String> carNames = splitInputByComma(userInput);
+        CarValidator.validateCarNameList(carNames);
+        this.cars = carNames.stream().map(Car::new).toList();
+    }
 
     public RacingCar(List<Car> cars) {
         this.cars = cars;
@@ -41,4 +49,7 @@ public class RacingCar {
         return max;
     }
 
+    private List<String> splitInputByComma(String userInput) {
+        return Arrays.asList(userInput.split(","));
+    }
 }
