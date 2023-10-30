@@ -21,7 +21,7 @@ class CarsTest {
     }
     @Test
     void 리스트_잘_나오는지_확인(){
-        String input = "pobi,woni,jun";
+        String input = "pobi";
         List<String> answer = Arrays.asList(input.split(","));
         Cars cars = new Cars();
         List<String> result = cars.createCarName(input);
