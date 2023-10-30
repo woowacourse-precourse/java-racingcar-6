@@ -17,6 +17,18 @@ public class OutputView {
         return String.format(CAR_STATE_EXPRESSION, carName, carDistanceExpression);
     }
 
+    private String buildGameStateExpression(RacingGameState racingGameState) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < racingGameState.getCarAmount(); i++) {
+            String carName = racingGameState.getCarNameByIndex(i);
+            int carDistance = racingGameState.getCarDistanceByIndex(i);
+            sb.append(buildCarStateExpression(carName, carDistance));
+        }
+
+        return sb.toString();
+    }
+
     private String joinWinnerCarNames(List<String> carNames) {
         return String.join(WINNERS_JOIN_DELIMITER, carNames);
     }
@@ -30,17 +42,8 @@ public class OutputView {
     }
 
     public void printGameState(RacingGameState racingGameState) {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < racingGameState.getCarAmount(); i++) {
-            String carName = racingGameState.getCarNameByIndex(i);
-            int carDistance = racingGameState.getCarDistanceByIndex(i);
-
-            String carStateExpression = buildCarStateExpression(carName, carDistance);
-            sb.append(carStateExpression);
-        }
-
-        System.out.println(sb);
+        String gameState = buildGameStateExpression(racingGameState);
+        System.out.println(gameState);
     }
 
     public void printWinners(RacingGameState racingGameState) {
