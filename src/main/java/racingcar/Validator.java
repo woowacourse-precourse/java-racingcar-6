@@ -6,6 +6,7 @@ public class Validator {
 	public Validator() {
 
 	}
+
 	public boolean validateNameLength(String carName) {
 		if (carName.length() > MAXINUM_LENGTH) {
 			throw new IllegalArgumentException();
@@ -13,11 +14,10 @@ public class Validator {
 		return true;
 	}
 
-	public boolean validateEmptyString(String carName) {
-		if (carName.isEmpty()) {
+	public void validateEmptyString(boolean isExist) {
+		if (!isExist) {
 			throw new IllegalArgumentException();
 		}
-		return true;
 	}
 
 	public boolean validateSpace(String carName) {

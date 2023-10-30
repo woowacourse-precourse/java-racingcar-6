@@ -22,10 +22,10 @@ public class UserInput {
 	}
 
 	private List<InformationOfCar> addToCarList(StringTokenizer nameDivider) {
+		validator.validateEmptyString(nameDivider.hasMoreTokens());
 		while (nameDivider.hasMoreTokens()) {
 			String carName = nameDivider.nextToken();
-			if (validator.validateNameLength(carName)
-					&& validator.validateEmptyString(carName) && validator.validateSpace(carName)) {
+			if (validator.validateNameLength(carName) && validator.validateSpace(carName)) {
 				carList.add(new InformationOfCar(carName, ""));
 			}
 
