@@ -41,7 +41,7 @@ public class Game {
     private void race(){
         for(Car car : carRacer.getParticipants()){
             if(isForward()){
-                car.moveForwad();
+                car.moveForward();
             }
         }
         displayRaceStatus();
@@ -49,7 +49,7 @@ public class Game {
 
     private boolean isForward(){
         int randomNumber = pickNumberInRange(1, 9);
-        return randomNumber > 4;
+        return randomNumber >= 4;
     }
 
     private void displayInputCarNames(){
