@@ -77,5 +77,55 @@ public class InputViewTest {
                 .hasMessageContaining("차는 2대 이상 이여야 경주가 가능합니다.");
     }
 
+    @Test
+    void 시도_횟수_사용자_입력_테스트1(){
+        InputView inputView = new InputView();
 
+        String input = "+12";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        int tryNum = inputView.InputTryNum();
+
+        assertEquals(12, tryNum);
+    }
+
+    @Test
+    void 시도_횟수_사용자_입력_테스트(){
+        InputView inputView = new InputView();
+
+        String input = "12";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        int tryNum = inputView.InputTryNum();
+
+        assertEquals(12, tryNum);
+    }
+
+    @Test
+    void 시도_횟수_사용자_입력_예외_테스트1(){
+        InputView inputView = new InputView();
+
+        String input = "-12";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        assertThatThrownBy(() -> inputView.InputTryNum())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수가 옳바르지 않습니다. 양수로 입력해주세요.");
+    }
+
+    @Test
+    void 시도_횟수_사용자_입력_예외_테스트2(){
+        InputView inputView = new InputView();
+
+        String input = "12$";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        assertThatThrownBy(() -> inputView.InputTryNum())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수에 대한 입력이 정수가 아닙니다.");
+    }
 }
