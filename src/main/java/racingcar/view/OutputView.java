@@ -1,10 +1,10 @@
 package racingcar.view;
 
+import static racingcar.domain.Controller.getgameWinner;
 import static racingcar.model.Car.moveCount;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.Car;
 
 public class OutputView {
     public static void startInputMessage() {
@@ -40,4 +40,8 @@ public class OutputView {
         return result;
     }
 
+    public static void winnerMessage() {
+        System.out.print("최종 우승자 : ");
+        System.out.print(String.join(", ", getgameWinner()));
+    }
 }

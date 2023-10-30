@@ -14,7 +14,7 @@ public class Application {
 
         String carName = InputView.inputCarName();
         new Car(carName);
-        Controller.validateCarNames();
+        Controller.validateCarNames(); // 버그 고쳐야됨
 
         OutputView.askForAttemptsCount();
         String inputAttemptsCount = inputAttemptsCount();
@@ -22,5 +22,7 @@ public class Application {
 
         OutputView.resultMessage();
         Controller.playRace(inputAttemptsCount);
+
+        OutputView.winnerMessage();
     }
 }

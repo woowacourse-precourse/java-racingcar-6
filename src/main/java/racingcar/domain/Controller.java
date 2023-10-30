@@ -1,10 +1,10 @@
 package racingcar.domain;
 
-import static racingcar.view.InputView.inputAttemptsCount;
 import static racingcar.view.OutputView.createStringBuilders;
 import static racingcar.view.OutputView.displayResult;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
@@ -13,6 +13,7 @@ import racingcar.view.Validator;
 public class Controller {
     private static final List<String> carNameList = Car.getCarName();
     static List<StringBuilder> result = createStringBuilders(carNameList);
+    static List<StringBuilder> resultsb = displayResult(result);
 
     public static void validateCarNames() {
         if (!Validator.isCarNameOverFiveCharacters(carNameList)) {
@@ -56,17 +57,17 @@ public class Controller {
     }
 
     public static int winnerDashCount() {
-        List<StringBuilder> resultsb = displayResult(result);
         int winnerDashCount = 0;
         for (int i = 0; i < resultsb.size(); i++) {
             String carInfo = String.valueOf(resultsb.get(i));
             int dashCount = countChar(carInfo, '-');
-            if (dashCount >= winnerDashCount){
+            if (dashCount >= winnerDashCount) {
                 winnerDashCount = dashCount;
+            }
         }
-    }
         return winnerDashCount;
     }
+
     private static int countChar(String carInfo, char c) {
         int count = 0;
 
@@ -77,6 +78,18 @@ public class Controller {
         }
 
         return count;
+    }
+
+    public static List<String> getgameWinner() {
+        List<String> winnerList = new ArrayList<>();
+        for (int i = 0; i < resultsb.size(); i++) {
+            String carInfo = String.valueOf(resultsb.get(i));
+            int dashCount = countChar(carInfo, '-');
+            if (dashCount == winnerDashCount()) {
+                winnerList.add(carInfo.substring(0, carInfo.indexOf(" ")));
+            }
+        }
+        return winnerList;
     }
 }
 
