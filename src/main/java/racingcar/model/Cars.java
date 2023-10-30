@@ -16,5 +16,16 @@ public class Cars {
         cars.forEach(Car::updateDistance);
     }
 
+    public void insertNewCar(Car car) {
+        if (!validateIfDuplicatedNameExists(car.getName())) {
+            throw new IllegalArgumentException(DUPLICATED_NAME_ERROR_MESSAGE);
+        }
+        cars.add(car);
+    }
+
+    private boolean validateIfDuplicatedNameExists(String newName) {
+        return cars.stream().noneMatch(car -> car.getName().equals(newName));
+    }
+
  
 }
