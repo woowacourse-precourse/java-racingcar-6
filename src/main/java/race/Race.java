@@ -2,9 +2,10 @@ package race;
 
 import action.Car;
 import action.CarGenerator;
+
 import java.util.LinkedList;
 import java.util.List;
-import java.util.StringJoiner;
+
 import view.InputView;
 import view.OutputView;
 
