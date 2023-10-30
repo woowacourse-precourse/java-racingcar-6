@@ -1,46 +1,66 @@
 package racingcar.domain;
 
+import org.junit.platform.commons.util.StringUtils;
+
 import java.util.*;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Game {
 
-    private CarRace carRace;
+    private CarRacer carRace;
 
     public Game(){
-        this.carRace = new CarRace();
+        this.carRace = new CarRacer();
     }
 
-    public void inputCarNames(){
+    public void play(){
+        List<Car> participants = inputCarNames();
+        int attemptCount = inputAttemptCount();
+    }
+
+    private List<Car> inputCarNames(){
         System.out.println(GameMessage.INPUT_CAR_NAMES.message);
-        List<String> cars = parseCarNames(readLine());
+        String inputCarNames = validateCarNames(readLine());
+        List<String> cars = parseCarNames(inputCarNames);
         carRace.createCar(cars);
+        return carRace.getParticipants();
     }
 
-    public void inputAttemptCount() {
+    private int inputAttemptCount() {
         System.out.println(GameMessage.INPUT_ATTEMPT_COUNT.message);
-        int attemptCount = validateAttemptCount(readLine());
-        race(attemptCount);
+        return validateAttemptCount(readLine());
     }
 
-    public int validateAttemptCount(String stringAttemptCount){
-        int attemptCount = 0;
-        try{
-            attemptCount = Integer.parseInt(stringAttemptCount);
-            if(attemptCount < 0){
-                throw new IllegalArgumentException("0 이상의 정수만 입력 가능합니다.");
-            }
-        }catch (NumberFormatException e){
-            throw new IllegalArgumentException("정수만 입력 가능합니다.");
+    private String validateCarNames(String inputCarNames){
+        boolean isContainsWhiteSpace = containsWhiteSpace(inputCarNames);
+        if(isContainsWhiteSpace){
+            throw new IllegalArgumentException();
         }
-        return attemptCount;
+        return inputCarNames;
     }
 
-    public List<String> parseCarNames(String carNames){
+    private boolean containsWhiteSpace(String inputCarNames){
+        return StringUtils.containsWhitespace(inputCarNames);
+    }
+
+    private int validateAttemptCount(String stringAttemptCount){
+        try{
+            int attemptCount = Integer.parseInt(stringAttemptCount);
+            if(attemptCount < 0){
+                throw new IllegalArgumentException();
+            }
+            return attemptCount;
+        }catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private List<String> parseCarNames(String carNames){
         String regex = ",";
         return Arrays.asList(carNames.split(regex));
     }
 
-    public void race(int attemptCount){
+    private void race(int attemptCount){
+    
     }
 }
