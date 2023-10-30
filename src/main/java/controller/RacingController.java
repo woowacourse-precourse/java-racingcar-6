@@ -2,6 +2,7 @@ package controller;
 
 import service.UserInput;
 import view.MessagePrinter;
+import vo.Cars;
 
 public class RacingController {
 
@@ -11,7 +12,7 @@ public class RacingController {
 
     public void inputCarNames(){
         MessagePrinter.start();
-        UserInput.CarNames();
+        Cars cars = UserInput.CarNames();
     }
 
 }

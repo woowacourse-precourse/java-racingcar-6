@@ -1,20 +1,31 @@
 package service;
 
-import static service.Validation.CarNames;
-
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
-import java.util.stream.Stream;
+import vo.Car;
+import vo.Cars;
 
 
 public class UserInput {
 
-    public static void CarNames(){
-        String input = Console.readLine();
+    public static String input(){
+        return Console.readLine();
+    }
 
-        Stream<String> carNames = Arrays.stream(input.split(","));
+    public static Cars CarNames(){
+        List<String> carNames = Arrays.stream(input().split(","))
+                                    .toList();
+
         carNames.forEach(Validation::CarNames);
+
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(new Car(carName, 0));
+        }
+
+        return new Cars(cars);
 
     }
 
