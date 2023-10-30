@@ -12,6 +12,7 @@ public class Cars {
     public List<String> createCarName(String userInput) {
         List<String> carNameList = stringToList(userInput);
         UserInputException.isDuplicate(carNameList);
+        UserInputException.isMoreThan(carNameList);
         return carNameList;
     }
 
