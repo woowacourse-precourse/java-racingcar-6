@@ -10,8 +10,8 @@
    - [x] 몇 번의 이동을 시도할 것인지 입력한다. - Racing#askRacingCount()
 - [x] 실행 결과를 출력한다. Racing#reportRacing()
    - [x] 각 자동차의 위치를 출력한다. Racing#printPosition()
-- [ ] 우승 자동차를 출력한다.
-   - [ ] 우승자가 여러 명일 경우 쉼표(,)로 구분하여 출력한다. Racing#announceWinner()
+- [x] 우승 자동차를 출력한다.
+   - [x] 우승자가 여러 명일 경우 쉼표(,)로 구분하여 출력한다. Racing#announceWinner()
 
 ## 기능 요구 사항
 초간단 자동차 경주 게임을 구현한다.
