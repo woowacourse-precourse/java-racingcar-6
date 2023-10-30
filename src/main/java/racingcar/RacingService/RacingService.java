@@ -20,10 +20,16 @@ public class RacingService {
     private List<String> carNameList;
     private int totalRound;
 
+    public void initializeGame() {
+        readyCarName();
+        readyAttemptCount();
+        readyCars();
+    }
+
     /**
      * 자동차 이름 세팅
      */
-    public void readyCarName() {
+    protected void readyCarName() {
         displayCarNamePrompt();
 
         List<String> cadidateNameList = getCarNameList();
@@ -54,7 +60,7 @@ public class RacingService {
     /**
      * 시도할 횟수 세팅
      */
-    public void readyAttemptCount() {
+    protected void readyAttemptCount() {
         displayAttemptPrompt();
         totalRound = getAttemptCount();
     }
@@ -70,7 +76,7 @@ public class RacingService {
     /**
      * 레이싱할 자동차 등록
      */
-    public void readyCars() {
+    protected void readyCars() {
         cars = new ArrayList<>();
         for(String carName : carNameList) {
             cars.add(new Car(carName, new RandomNumberGenerator()));
