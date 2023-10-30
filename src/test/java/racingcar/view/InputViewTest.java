@@ -108,11 +108,33 @@ class InputViewTest extends InTest {
                 });
     }
 
-//
-//    @Test
-//    void inputCountOfGameRound() {
-//    }
-//
+    @Test
+    @DisplayName("1 보다 작은 수를 입력한 경우 예외 발생")
+    void 예외_처리_테스트_8() {
+        InputView inputView = new InputView();
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    systemIn("0");
+                    inputView.inputCountOfGameRound();
+                });
+    }
+
+
+    @Test
+    @DisplayName("게임 회수 입력 받는 기능 테스트")
+    void inputCountOfGameRound() {
+        // given
+        InputView inputView = new InputView();
+        systemIn("7");
+
+        // when
+        Integer result = inputView.inputCountOfGameRound();
+
+        // then
+        assertEquals(7, result);
+
+    }
+
 
 
 }

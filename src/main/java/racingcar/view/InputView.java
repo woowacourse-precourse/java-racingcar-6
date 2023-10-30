@@ -40,6 +40,7 @@ public class InputView {
     private Integer convertStrToInt(String inputCountOfGameRound) {
         validateBlank(inputCountOfGameRound);
         validateNumber(inputCountOfGameRound);
+        validateNumberRange(inputCountOfGameRound);
         return Integer.parseInt(inputCountOfGameRound);
     }
 
@@ -48,6 +49,13 @@ public class InputView {
             if (!Character.isDigit(token)) {
                 throw new IllegalArgumentException("[ERROR] 숫자 이외의 값을 입력할 수 없습니다.");
             }
+        }
+    }
+
+    private void validateNumberRange(String numberStr) {
+        int number = Integer.parseInt(numberStr);
+        if (number < 1) {
+            throw new IllegalArgumentException("[ERROR] 입력할 수 있는 실행 회수는 1 이상의 숫자입니다.")
         }
     }
 
