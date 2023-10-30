@@ -23,6 +23,7 @@ public class PlayController implements Controller {
 
     private void playRacing(Map<String, Object> model) {
         int gameCount = (Integer) model.get("gameCount");
+        
         for (int i = 0; i < gameCount; i++) {
             carService.moveAllCarByRandom();
             playOutputView.display(model);

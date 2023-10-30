@@ -26,6 +26,14 @@ public class MainController {
         finishGame(gameState, parameter, model);
     }
 
+    private Map<GameState, Function<Object, Controller>> initControllerMapping() {
+        return Map.ofEntries(
+                Map.entry(GameState.SETTING, param -> config.createSettingController()),
+                Map.entry(GameState.PLAYING, config::createPlayController),
+                Map.entry(GameState.FINISH, config::createResultController)
+        );
+    }
+
     private GameState setGame(GameState gameState, Map<String, String> parameter, Map<String, Object> model) {
         Controller controller = adapter.get(gameState).apply(null);
         controller.run(parameter, model);
