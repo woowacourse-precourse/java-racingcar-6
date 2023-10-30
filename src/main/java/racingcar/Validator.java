@@ -34,16 +34,21 @@ public class Validator {
         return !matcher.find();
     }
 
-    public static boolean containsOnlyAllowedCharacters(String name) {
+    private static boolean containsOnlyAllowedCharacters(String name) {
         Pattern pattern = Pattern.compile(ALLOWED_CHARACTERS_PATTERN);
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();
+    }
+
+    private static boolean isNameValidLength(String name) {
+        return name.length() <= 5;
     }
 
     public static boolean validateNames(String input) {
         String[] names = input.split(",");
         Set<String> uniqueNames = new HashSet<>();
 
-        return Arrays.stream(names).allMatch(name -> containsOnlyAllowedCharacters(name) && uniqueNames.add(name));
+        return Arrays.stream(names)
+                .allMatch(name -> containsOnlyAllowedCharacters(name) && isNameValidLength(name) && uniqueNames.add(name));
     }
 }
