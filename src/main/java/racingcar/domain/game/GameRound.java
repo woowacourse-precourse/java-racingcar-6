@@ -14,7 +14,7 @@ public class GameRound {
     }
 
     public void passRound() {
-        gameRound = new Round(gameRound.round() + 1);
+        this.gameRound = new Round(gameRound.round() + 1);
     }
 
     public void startRound() {

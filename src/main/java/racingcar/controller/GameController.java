@@ -37,10 +37,15 @@ public class GameController {
 
     private void startGame() {
         GameRound gameRound = new GameRound(new Round(ZERO));
-        do {
+
+        while (gameRound.getCurrentRound() < MAX_ROUND) {
             gameRound.passRound();
             gameRound.startRound();
-        } while (gameRound.getCurrentRound() < MAX_ROUND);
+        }
+//        do {
+//            gameRound.passRound();
+//            gameRound.startRound();
+//        } while (gameRound.getCurrentRound() < MAX_ROUND);
 
         OutputView.printGameWinner(carInfo.getAllCarInfo());
     }

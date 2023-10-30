@@ -14,8 +14,8 @@ public class CarMovement {
 
     private void decideMovement() {
         if (GameCondition.hasDriveCondition()) {
-            Car driveCar = drive(raceCar);
-            carStore.saveCarInfo(driveCar);
+            raceCar = drive(raceCar);
+            carStore.saveCarInfo(raceCar);
         }
     }
 
