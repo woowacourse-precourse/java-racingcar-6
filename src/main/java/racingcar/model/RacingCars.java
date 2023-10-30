@@ -40,4 +40,10 @@ public class RacingCars {
             }
         }
     }
+
+    public void tryMoveCars() {
+        for (RacingCar racingCar : this.racingCars) {
+            racingCar.tryMove();
+        }
+    }
 }

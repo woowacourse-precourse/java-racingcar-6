@@ -12,5 +12,9 @@ public class GameController {
 
         RacingCars racingCars = RacingCars.createRacingCars(inputView.inputRacingCarNames());
         MovingNumber movingNumber = MovingNumber.createMovingNumber(inputView.inputMovingNumber());
+
+        for (int i = 0; i < movingNumber.getNumber(); i++) {
+            racingCars.tryMoveCars();
+        }
     }
 }
