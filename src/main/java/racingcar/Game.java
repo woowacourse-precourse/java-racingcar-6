@@ -1,51 +1,48 @@
 package racingcar;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.stream.Collectors;
+import racingcar.firstclasscollection.CarList;
+import racingcar.firstclasscollection.PositionMap;
 import racingcar.model.Car;
+import racingcar.model.RoundNumber;
 
 public class Game {
-    private Car[] cars;
-    private int roundNumber;
-    private Map<Car, Integer> positions;
-    private int winnerPosition;
+    private CarList carList;
+    private RoundNumber roundNumber;
+    private PositionMap positions;
 
-    public Game(String[] carNames, int roundNumber) {
+    public Game(String[] carNames, String roundString) {
         makeCars(carNames);
         initPosition();
-        winnerPosition = 0;
-        this.roundNumber = roundNumber;
+        this.roundNumber = new RoundNumber(roundString);
     }
 
     private void makeCars(String[] carNames) {
-        cars = Arrays.stream(carNames)
+        carList = new CarList();
+        Arrays.stream(carNames)
                 .map(Car::new)
-                .toArray(Car[]::new);
+                .forEach(carList::addCar);
     }
 
     private void initPosition() {
-        positions = new HashMap<>();
-        for (Car car : cars) {
-            positions.put(car, 0);
-        }
+        positions = new PositionMap();
+        carList.forEachCar((car) -> positions.addCar(car));
     }
 
     public void play() {
         System.out.println("실행 결과");
-        for (int round = 0; round < roundNumber; round++) {
+        for (int round = 0; round < roundNumber.getNumber(); round++) {
             playRound();
         }
         printWinner();
     }
 
     private void playRound() {
-        for (Car car : cars) {
+        carList.forEachCar((car) -> {
             moveCar(car);
             System.out.println(car.getRoundResult());
-        }
+        });
         System.out.println();
     }
 
@@ -53,19 +50,12 @@ public class Game {
         if (!car.isMove()) {
             return;
         }
-
-        int nextPosition = positions.get(car) + 1;
-        positions.put(car, nextPosition);
-        if (winnerPosition < nextPosition) {
-            winnerPosition = nextPosition;
-        }
+        positions.moveCar(car);
     }
 
     private void printWinner() {
-        String winner = positions.entrySet()
+        String winner = positions.getWinner()
                 .stream()
-                .filter(entry -> entry.getValue() == winnerPosition)
-                .map(Entry::getKey)
                 .map(Car::getName)
                 .collect(Collectors.joining(","));
         System.out.println("최종 우승자 : " + winner);
