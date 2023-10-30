@@ -16,7 +16,7 @@ public class Racing {
     OutputView outputView = new OutputView();
     NumberMaker numberMaker = new NumberMaker();
 
-    List<Car> carList;
+    List<Car> carList = new ArrayList<>();
 
     public void doRacing() {
         outputView.print(Output.GET_NAMES);
@@ -25,10 +25,7 @@ public class Racing {
         outputView.print(Output.GET_GAME_COUNT);
         Integer gameCount = inputView.getGameCount();
 
-        System.out.println("gameCount = " + gameCount);
-        System.out.println("names = " + names);
-
-        carList = getCars(names);
+        setCars(names);
 
         for (int i = 0; i < gameCount; i++) {
             runRound();
@@ -38,23 +35,10 @@ public class Racing {
         outputView.printWinnerNames(winnerNames);
     }
 
-    private String getWinnerNames() {
-        Optional<Car> maxDistanceCar = carList.stream().max(Comparator.comparingInt(Car::getDistance));
-        Integer maxDistance = maxDistanceCar.get().getDistance();
-
-        return carList.stream().filter(car -> car.getDistance() == maxDistance)
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
-    }
-
-    private List<Car> getCars(List<String> names) {
-        List<Car> carList = new ArrayList<>();
-
+    private void setCars(List<String> names) {
         for (String name : names) {
             carList.add(new Car(name));
         }
-
-        return carList;
     }
 
     private void runRound() {
@@ -69,6 +53,15 @@ public class Racing {
         int randomNumber = numberMaker.getRandomNumber();
         car.moveCar(randomNumber);
         outputView.printMoveResult(car);
+    }
+
+    private String getWinnerNames() {
+        Optional<Car> maxDistanceCar = carList.stream().max(Comparator.comparingInt(Car::getDistance));
+        Integer maxDistance = maxDistanceCar.get().getDistance();
+
+        return carList.stream().filter(car -> car.getDistance() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
     }
 
 }
