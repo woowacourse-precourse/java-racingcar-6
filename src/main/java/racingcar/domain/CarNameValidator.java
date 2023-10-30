@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -25,9 +26,9 @@ public class CarNameValidator {
     }
 
     private List<String> processInput(String carNames) {
-        carNames = removeSpaces(carNames);
         validateCommas(carNames);
-        return splitByComma(carNames);
+        List<String> names = splitByComma(carNames);
+        return trimList(names);
     }
 
     private void validateCommas(String carNames) {
@@ -36,12 +37,16 @@ public class CarNameValidator {
         }
     }
 
-    private String removeSpaces(String carNames) {
-        return carNames.replaceAll(" ", "");
-    }
-
     private List<String> splitByComma(String carNames) {
         return Arrays.asList(carNames.split(","));
+    }
+
+    private List<String> trimList(List<String> carNameList) {
+        List<String> trimmedList = new ArrayList<>();
+        for (String name : carNameList) {
+            trimmedList.add(name.trim());
+        }
+        return trimmedList;
     }
 
     private void validateCarNames(List<String> carNameList) {
