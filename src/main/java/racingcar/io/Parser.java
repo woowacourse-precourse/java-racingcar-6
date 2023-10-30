@@ -1,4 +1,4 @@
-package racingcar.input;
+package racingcar.io;
 
 public class Parser {
     private static final String CAR_NAME_SEPARATOR = ",";

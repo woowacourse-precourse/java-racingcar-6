@@ -1,4 +1,4 @@
-package racingcar.input;
+package racingcar.io;
 
 import racingcar.validation.Validation;
 
