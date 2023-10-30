@@ -6,14 +6,11 @@ import java.util.Set;
 
 public class RacingCarNames {
 
-    private final List<String> racingCarNames;
-
     public RacingCarNames(List<String> racingCarNames) {
         validateDuplicate(racingCarNames);
         for (String racingCarName : racingCarNames) {
             new RacingCarName(racingCarName);
         }
-        this.racingCarNames = racingCarNames;
     }
 
     private void validateDuplicate(List<String> racingCarNames) {
