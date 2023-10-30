@@ -19,6 +19,6 @@ public class GameProgress {
     public String convertResultToString() {
         return carsAfterTrial.stream()
                 .map(Car::showCurrentDisplacement)
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining(System.lineSeparator()));
     }
 }
