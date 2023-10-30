@@ -10,7 +10,7 @@ public class User {
 
     static final String INVALID_INPUT_MESSAGE = "잘못된 입력으로 게임이 종료됩니다.";
 
-    public List<String> getInput() {
+    public List<String> getCarNames() {
         String input = Console.readLine();
         input = input.replace(" ", "");
         validateInput(input);
