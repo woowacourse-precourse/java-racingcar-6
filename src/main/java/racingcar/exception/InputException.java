@@ -13,30 +13,27 @@ public class InputException {
         gameUtil = new GameUtil();
     }
 
-    public void inputEmpty(String carName){
+    public void inputEmpty(String carName) {
         try {
-            if(carName.equals("")){
+            if (carName.equals("")) {
                 throw new IllegalArgumentException("입력값 없음");
             }
-        }catch (IllegalArgumentException illegalArgumentException){
+        } catch (IllegalArgumentException illegalArgumentException) {
             throw illegalArgumentException;
         }
     }
-    public void nameLengthOver(String carName) {
-        ArrayList<Car> carArrayList = gameUtil.splitNameArrayList(carName);
-        for (int i = 0; i < carArrayList.size(); i++) {
-            String name = carArrayList.get(i).getName();
-            try {
-                if (name.length() > 5) {
-                    throw new IllegalArgumentException("이름이 5글자 이하 아님");
-                }
-            } catch (IllegalArgumentException illegalArgumentException) {
-                throw illegalArgumentException;
+
+    public void nameLengthOver(String name) {
+        try {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("이름이 5글자 이하 아님");
             }
+        } catch (IllegalArgumentException illegalArgumentException) {
+            throw illegalArgumentException;
         }
     }
-    public void sameName(String carName) {
-        ArrayList<Car> carArrayList = gameUtil.splitNameArrayList(carName);
+
+    public void sameName(ArrayList<Car> carArrayList) {
         try {
             Set<String> nameSet = gameUtil.splitNameSet(carArrayList);
             if (nameSet.size() != carArrayList.size()) {
@@ -46,10 +43,11 @@ public class InputException {
             throw illegalArgumentException;
         }
     }
-    public int toNumber(String numberString){
+
+    public int toNumber(String numberString) {
         try {
             return Integer.parseInt(numberString);
-        }catch (IllegalArgumentException illegalArgumentException){
+        } catch (IllegalArgumentException illegalArgumentException) {
             throw illegalArgumentException = new IllegalArgumentException("숫자를 입력하지 않음");
         }
     }
