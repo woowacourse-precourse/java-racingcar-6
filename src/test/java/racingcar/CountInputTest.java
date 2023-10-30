@@ -66,7 +66,7 @@ public class CountInputTest {
         // then
         assertThat(out.toString())
                 .contains("시도할 회수는 몇회인가요?");
-        Console.close();
 
+        Console.close();
     }
 }
