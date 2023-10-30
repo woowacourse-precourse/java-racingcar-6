@@ -15,3 +15,83 @@
     - [ ] 차수별 실행 결과를 출력한다. (showResult)
 
 - [ ] 우승자 안내 문구를 출력한다. (showWinner)
+
+# UML class diagram
+
+```mermaid
+classDiagram
+    direction TB
+    MoveTypes <-- Round
+    PrintMesssages <-- OutputHandler
+    namespace constants{
+        class MoveTypes{
+            <<enum>>
+            +move
+            +stop
+        }
+
+        class PrintMesssages{
+            <<enum>>
+            messages
+        }
+    }
+
+    InputHandler <-- Game
+    OutputHandler <-- Game
+    OutputHandler <-- Round
+    NumberGenerator <-- Round
+    namespace util{
+        class InputHandler{
+            +getUserInput() String$
+        }
+
+        class OutputHandler{
+            +showMessage()$
+        }
+
+        class NumberGenerator{
+            +createRandomSingleNumber() Integer$
+        }
+    }
+
+    Car "1" <-- "*" Cars
+    Round "1" <-- "*" Rounds
+    Game --> Cars
+    Game --> Rounds
+    namespace domain{
+        class Car{
+            -String name
+            -Integer moveCount
+            +setName()
+            +move()
+        }
+
+        class Cars{
+            -List~Car~ cars
+            +registerCar(String carNames) Cars
+            +getMaxMoveCounts() Cars
+        }
+
+        class Round{
+            +start(Cars cars)
+            -moveCars()
+            -showResult()
+        }
+
+        
+        class Rounds{
+            -List~Round~ rounds
+            +makeRounds(Integer totalRounds) Rounds
+        }
+
+        class Game{
+            -Cars cars
+            -Rounds rounds
+            +start(Cars cars, Rounds rounds)
+            -startRounds()
+            -showWinner()
+        }
+    }
+    
+    
+```
