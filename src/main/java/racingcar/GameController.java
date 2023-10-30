@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.List;
-
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.NumberOfAttempts;
@@ -18,35 +17,38 @@ public class GameController {
     }
 
     public void run() {
-        // 경주할 자동차 생성
+        Cars cars = createCars();
+        NumberOfAttempts numberOfAttempts = createNumberOfAttempts();
+        playRacing(cars, numberOfAttempts);
+        decideWinners(cars);
+    }
+
+    private Cars createCars() {
         List<String> carNames = InputView.readCarNames();
-        Cars cars = createCars(carNames);
+        return new Cars(carNames.stream()
+                .map(Car::new)
+                .toList());
+    }
 
-        // 시도 횟수 입력
-        NumberOfAttempts numberOfAttempts = new NumberOfAttempts(InputView.readNumberOfAttempts());
+    private NumberOfAttempts createNumberOfAttempts() {
+        return new NumberOfAttempts(InputView.readNumberOfAttempts());
+    }
 
-        // 게임 진행
+    private void playRacing(Cars cars, NumberOfAttempts numberOfAttempts) {
         OutputView.printRacingResultMessage();
         while (numberOfAttempts.hasRemainingAttempts()) {
             MoveResult moveResult = cars.move(numberGenerator);
             OutputView.printMoveResult(moveResult);
             numberOfAttempts.decreaseNumberOfAttempts();
         }
-        List<String> winners = decideWinners(cars);
-        OutputView.printWinners(winners);
     }
 
-    private Cars createCars(List<String> carNames) {
-        return new Cars(carNames.stream()
-                .map(Car::new)
-                .toList());
-    }
-
-    private List<String> decideWinners(Cars cars) {
+    private void decideWinners(Cars cars) {
         Referee referee = new Referee();
-        return referee.decideWinners(cars)
+        List<String> winners = referee.decideWinners(cars)
                 .stream()
                 .map(Car::getName)
                 .toList();
+        OutputView.printWinners(winners);
     }
 }
