@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarsTest {
@@ -44,10 +45,42 @@ class CarsTest {
     }
 
 
-//
-//    @Test
-//    void raceAllCars() {
-//    }
+
+    @Test
+    @DisplayName("자동차가 모두 전진하는 경우")
+    void raceAllCars_전진() {
+        // given
+        MovingStrategy moveStrategy = new MovingStrategy(()->4);
+        List<String> names = Arrays.asList("pobi", "crong", "horan");
+        Cars cars = new Cars(names, moveStrategy);
+
+        // when
+        cars.raceAllCars();
+        List<Car> result = cars.getCars();
+
+        // then
+        assertThat(result.stream()
+                .allMatch(car -> car.getPosition() == 1)).isTrue();
+
+    }
+
+    @Test
+    @DisplayName("자동차가 모두 멈추는 경우")
+    void raceAllCars_멈춤() {
+        // given
+        MovingStrategy stopStrategy = new MovingStrategy(()->3);
+        List<String> names = Arrays.asList("pobi", "crong", "horan");
+        Cars cars = new Cars(names, stopStrategy);
+
+        // when
+        cars.raceAllCars();
+        List<Car> result = cars.getCars();
+
+        // then
+        assertThat(result.stream()
+                .allMatch(car -> car.getPosition() == 0)).isTrue();
+
+    }
 //
 //    @Test
 //    void findWinnerPosition() {
