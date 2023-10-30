@@ -15,6 +15,11 @@ public class Application {
         printer.requestTrial();
         setting.setTrial(Console.readLine());
 
+        printer.resultMessage();
         Game game = new Game(setting.toCars());
+        for (int i = 0; i < setting.getTrial(); i++) {
+            game.racing();
+            printer.gameResult(game.giveResult());
+        }
     }
 }

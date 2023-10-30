@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class Game {
     Cars cars;
 
@@ -7,9 +9,13 @@ public class Game {
         this.cars = cars;
     }
 
-    public Cars racing() {
+    public void racing() {
         cars.racing();
-        return cars;
+
+    }
+
+    public List<Car> giveResult() {
+        return cars.giveResult();
     }
 
 }

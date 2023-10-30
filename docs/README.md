@@ -19,7 +19,7 @@
 - [x] 입력 데이터를 받아 놓는 클래스 - Setting
     - [x] 자동차모음 으로 변환 - Setting#toCars
 
-- [ ] 자동차 클래스 - Car
+- [x] 자동차 클래스 - Car
     - [x] 이동 횟수 증가 - Car#race
     - [x] 경주 결과 만들기 - Car#toString
 - [ ] 자동차모음 클래스 - Cars
@@ -30,6 +30,7 @@
     - [x] 경주 이후 결과 반환(읽기 전용) - Cars#giveResult
 - [x] 무작위 수를 뽑아 자동차 경주를 진행 - Game#racing
 - [ ] 우승자 찾기 - Game#findWinner
+- [x] 결과 반환(읽기 전용) - Game#giveResult
 
 - - -
 

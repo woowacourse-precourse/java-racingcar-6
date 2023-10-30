@@ -12,7 +12,7 @@ public class Setting {
         this.trial = new Trial(trial);
     }
 
-    public int getTrial(Trial trial) {
+    public int getTrial() {
         return trial.toNum();
     }
 

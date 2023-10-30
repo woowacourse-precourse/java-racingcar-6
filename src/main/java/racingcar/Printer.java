@@ -16,7 +16,8 @@ public class Printer {
         System.out.println(REQUEST_TRIAL);
     }
 
-    public void result() {
+    public void resultMessage() {
+        System.out.println();
         System.out.println(RESULT);
     }
 
@@ -24,6 +25,7 @@ public class Printer {
         for (Car car : carsList) {
             System.out.println(car);
         }
+        System.out.println();
     }
 }
 

@@ -16,7 +16,6 @@ public class Car {
 
     @Override
     public String toString() {
-
         return name + " : " + showMovement();
     }
 
