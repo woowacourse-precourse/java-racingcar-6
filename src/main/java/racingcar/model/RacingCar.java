@@ -16,20 +16,20 @@ public class RacingCar {
         cars.forEach(car -> car.moveForward(createRandomNumber()));
     }
 
-    private int createRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
-    public List<Car> getCars() {
-        return cars;
-    }
-
     public List<Car> findWinners() {
         Integer maxDistance = findMaxDistance();
 
         return this.cars.stream()
                 .filter(car -> car.getMovingDistance().equals(maxDistance))
                 .collect(Collectors.toList());
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    private int createRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     private Integer findMaxDistance() {
