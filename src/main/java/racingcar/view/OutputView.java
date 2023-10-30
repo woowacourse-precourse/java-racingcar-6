@@ -13,11 +13,12 @@ public class OutputView {
     }
 
     public static void printResult(List<CarStatusDto> carStatuses) {
+        StringBuilder result = new StringBuilder();
         for (CarStatusDto carStatus : carStatuses) {
             String movement = MOVE_EXPRESS.repeat(carStatus.position());
-            System.out.printf("%s : %s\n", carStatus.name(), movement);
+            result.append(String.format("%s : %s\n", carStatus.name(), movement));
         }
-        System.out.println();
+        System.out.println(result);
     }
 
     public static void printWinner(String winner) {
