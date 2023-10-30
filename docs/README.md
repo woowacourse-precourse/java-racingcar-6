@@ -8,7 +8,7 @@
 - [x] 입력받은 자동차 이름을 보관한다. - CarsDto -> RacingCars -> Car
   - [x] 각 자동차는 처음은 이동 거리가 0으로 세팅돼야한다. Car$createCar(String name)
 - [x] 사용자로부터 몇 번의 이동을 할 것인지 입력받는다. - InputView$inputTryNumber()
-  - [ ] 숫자로 입력받아야 한다. -> 아니면 `IllegalArgumentException`
+  - [x] 숫자로 입력받아야 한다. -> 아니면 `IllegalArgumentException` - ClientValidator$getValidatedBigIntegerValue(String inputtedStringTryNumber)
 - [ ] 입력받은 시도 횟수만큼 0~9 사이의 무작위 값을 구한 후 4 이상인 경우 전진한다.
   - [ ] 4 이상의 결과가 나온 수만큼 이동 거리가 1씩 증가된다.
   - [ ] 각 차수별로 전진한 양을 출력한다.
@@ -39,7 +39,6 @@
 
 ### Behavior
 - `construct` (CarsDto carsDto, Client client)
-- `private` void initializeRacingCars(CarsDto carsDto)
 - ResultDto playCarRacing()
 
 ## 3. InputView
@@ -89,7 +88,6 @@
 
 ### Behavior
 - construct(String inputtedTryNumber)
-- `private` void validateInputtedNumber(String inputtedTryNumber)
 - BigInteger getTotalRounds()
 
 ## 8. CarsDto
@@ -139,9 +137,9 @@
 
 ## 13. ClientValidator extends Validator
 ### Behavior
-- int getValidatedIntValue(String inputtedStringTryNumber)
-- `private` int validateCastToInt(String inputtedString)
-- `private` void validateOneDigit(int value)
+- BigInteger getValidatedBigIntegerValue(String inputtedStringTryNumber)
+- `private` BigInteger validateCastToBigInteger(String inputtedString)
+- `private` void validateNaturalNumber(BigInteger value)
 
 ## 14. `Enum` Sentence
 - INPUT_CAR_NAMES("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")
@@ -154,5 +152,5 @@
 - LONG_CAR_NAME_ERROR("자동차 이름이 5자를 초과했습니다.")
 - BLANK_CAR_NAME_ERROR("자동차 이름을 공백으로 입력하였습니다.")
 - NOT_NUMBER_INPUTTED("숫자로 입력하셔야합니다.")
-- CANNOT_CAST_TO_INT("int형으로 변환할 수 없습니다. (범위 초과)")
-- NOT_ONE_DIGIT("입력한 숫자가 한 자리 자연수가 아닙니다.")
+- CANNOT_CAST_TO_INT("int형으로 변환할 수 없습니다.")
+- NOT_NATURAL_NUMBER("입력한 숫자가 자연수가 아닙니다.")
