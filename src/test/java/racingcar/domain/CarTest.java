@@ -8,7 +8,7 @@ class CarTest {
 
     @Test
     public void 난수가_4이상이면_이동() {
-        Car car = new Car(new TestNumberGenerator(4));
+        Car car = new Car("jason", new TestNumberGenerator(4));
 
         car.move();
 
@@ -17,11 +17,17 @@ class CarTest {
 
     @Test
     public void 난수가_4미만이면_이동하지_않는다(){
-        Car car = new Car(new TestNumberGenerator(3));
+        Car car = new Car("pobi", new TestNumberGenerator(3));
 
         car.move();
 
         assertThat(car.getLocation()).isEqualTo(0);
+    }
+
+    @Test
+    public void 이름이_5글자를_초과할시_예외(){
+        assertThatThrownBy(()->new Car("포비님은최고",new TestNumberGenerator(3)))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
 }
