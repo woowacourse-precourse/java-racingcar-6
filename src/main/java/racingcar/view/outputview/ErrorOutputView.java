@@ -9,7 +9,6 @@ public class ErrorOutputView implements OutputView {
 
     @Override
     public void print(Map<String, Object> model) {
-        // Error Enum으로 반영하기
         String errorMessage = (String) model.get(AbstractController.ERROR_MESSAGE_KEY);
         System.out.printf(ERROR_FORMAT, ERROR_PREFIX, errorMessage);
     }

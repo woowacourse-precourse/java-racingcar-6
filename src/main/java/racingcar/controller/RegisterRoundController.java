@@ -21,5 +21,4 @@ public class RegisterRoundController extends AbstractController {
 
         model.put(ROUND_KEY, StringToRound.convertStringToRound((String) inputView.input(model)));
     }
-
 }

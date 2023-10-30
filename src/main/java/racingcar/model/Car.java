@@ -72,6 +72,4 @@ public class Car {
     public int getDistance() {
         return distance;
     }
-
-
 }

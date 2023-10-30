@@ -27,7 +27,6 @@ public class DisplayRoundOutputView implements OutputView {
     }
 
     private void displayRoundResult(RacingCars racingCars) {
-        // car name, position 구해야 한다
         racingCars.checkEachCar();
         List<Car> cars = racingCars.getRacingCars();
         cars.stream()
@@ -35,7 +34,6 @@ public class DisplayRoundOutputView implements OutputView {
         System.out.println();
     }
 
-    //
     private void displayCarNameAndPosition(Car car) {
         String carName = car.getCarName();
         int distance = car.getDistance();
