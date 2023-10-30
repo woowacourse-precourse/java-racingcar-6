@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.Model;
 
 public class Car implements Comparable<Car>{
     public String name;

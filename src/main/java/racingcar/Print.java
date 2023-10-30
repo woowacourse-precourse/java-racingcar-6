@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.Model.Car;
+
 import java.util.List;
 
 public class Print {
