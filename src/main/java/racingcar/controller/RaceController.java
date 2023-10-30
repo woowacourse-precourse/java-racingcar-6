@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Count;
+import racingcar.domain.NumberGenerator;
 import racingcar.domain.Race;
 import racingcar.service.RaceService;
 import racingcar.view.InputView;
@@ -29,7 +30,8 @@ public class RaceController {
     private Race initializeRace() {
         Cars cars = initializeCars();
         Count count = initializeCount();
-        return new Race(cars, count);
+        NumberGenerator numberGenerator = new NumberGenerator();
+        return new Race(cars, count, numberGenerator);
     }
 
     private Count initializeCount() {
