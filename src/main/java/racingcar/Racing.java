@@ -59,5 +59,17 @@ public class Racing {
         car[] cars = initCars();
         int count = initCount();
 
+        System.out.println("실행 결과");
+        int i = 0;
+        while (i < count) {
+            int j = 0;
+            while (j < cars.length) {
+                cars[j].moveCar();
+                cars[j].printCar();
+                j++;
+            }
+            System.out.println();
+            i++;
+        }
     }
 }
