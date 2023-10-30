@@ -6,7 +6,7 @@ public class Car {
     private String car_name;
     private int move_count;
 
-    public Car(String car_name){
+    public Car(String car_name) {
         this.car_name = car_name;
         this.move_count = 0;
     }
@@ -19,8 +19,8 @@ public class Car {
         return car_name;
     }
 
-    public void determine_Move(){
-        if(Randoms.pickNumberInRange(0,9) > 4){
+    public void determine_Move() {
+        if (Randoms.pickNumberInRange(0, 9) > 4) {
             this.move_count++;
         }
     }
