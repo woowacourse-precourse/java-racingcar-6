@@ -15,8 +15,12 @@ public class MainController {
         this.outputView = outputView;
     }
 
-    public void start() {
+    private void init() {
         circuit = new Circuit(inputView.readEntryNames());
+    }
+
+    public void start() {
+        init();
 
         int round = inputView.readRound();
         StringBuilder roundResult = new StringBuilder();
@@ -24,5 +28,11 @@ public class MainController {
             roundResult.append(circuit.race());
         }
         outputView.printRoundResult(roundResult.toString());
+
+        end();
+    }
+
+    private void end() {
+        outputView.printResult(circuit.report());
     }
 }
