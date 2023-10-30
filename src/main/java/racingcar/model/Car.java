@@ -12,13 +12,12 @@ public class Car {
         this.driveCount = 0;
     }
 
-    public int decideDrive() {
+    public void decideDrive() {
         int driveCheck = Randoms.pickNumberInRange(0, 9);
         if (driveCheck >= 4) {
             this.driveCount += 1;
         }
 
-        return this.driveCount;
     }
 
     public String getCarName() {
