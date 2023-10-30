@@ -6,6 +6,27 @@ import java.util.*;
 class Car {
     private String carName;
     private int position;
+
+    public Car(String name) {
+        this.carName = carName;
+    }
+
+    public String getName() {
+        return carName;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    // move 조건 설정
+    public void move() {
+        Random random = new Random();
+        int randomNumber = random.nextInt(10);
+        if (randomNumber >= 4) {
+            position++;
+        }
+    }
 }
 
 public class Application {
