@@ -74,4 +74,24 @@ class PlayerTest {
         assertThat(name).isEqualTo(carNames);
     }
 
+    @Test
+    @DisplayName("예외) 숫자가 아닌 값을 입력했을 때")
+    void 숫자가_아닌_문자_예외() {
+        String input = "abc";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        assertThatThrownBy(() -> player.inputCounts())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자가 아닌 값이 입력되었습니다.");
+    }
+
+    @Test
+    @DisplayName("입력된 횟수 확인")
+    void 횟수_확인() {
+        String input = "3";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        assertThat(player.inputCounts()).isEqualTo(3);
+    }
+
 }

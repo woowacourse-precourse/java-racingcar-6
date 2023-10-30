@@ -34,4 +34,18 @@ public class Player {
         return carNames;
     }
 
+    public int inputCounts() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        if (input.length() < 1) {
+            exception.checkNothing();
+        }
+        for (char ch : input.toCharArray()) {
+            if (!Character.isDigit(ch)) {
+                exception.checkIsDigit();
+            }
+        }
+        return Integer.parseInt(input);
+    }
+
 }
