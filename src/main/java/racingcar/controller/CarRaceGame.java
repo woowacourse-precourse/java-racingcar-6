@@ -31,10 +31,8 @@ public class CarRaceGame {
     }
 
     public static void dealWitCarNames(String carNames) {
-        List<String> carNameList = CarNamesToList(carNames);
-        validateCarName(carNameList);
 
-        setUpCar(carNameList);
+        setUpCar(CarNamesToList(carNames));
     }
 
 
@@ -45,7 +43,10 @@ public class CarRaceGame {
     }
 
     private static List<String> CarNamesToList(String carNames) {
-        return Arrays.stream(carNames.split(",")).toList();
+        List<String> carNameList = Arrays.stream(carNames.split(",")).toList();
+        validateCarName(carNameList);
+
+        return carNameList;
     }
 
     public static void validateCarName(List<String> carNameList) {
