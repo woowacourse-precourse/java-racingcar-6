@@ -3,12 +3,14 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCarGame implements Game {
     private static final int criterion = 4;
     private static final int carNameLength = 5;
     private int attempts;
     private final List<Car> carList = new ArrayList<>();
+    private List<Car> winners;
 
     @Override
     public void play(String[] args) {
@@ -28,6 +30,8 @@ public class RacingCarGame implements Game {
             attempts--;
             return false;
         }
+
+        checkWinners();
         return true;
     }
 
@@ -56,5 +60,17 @@ public class RacingCarGame implements Game {
         if (carName.length() > carNameLength) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
+    }
+
+    public void checkWinners() {
+        int maxPosition = carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
+
+        winners = carList.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
+
     }
 }
