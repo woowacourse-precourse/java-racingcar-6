@@ -19,6 +19,7 @@ public class GameService {
     public void play() {
         String[] carNames = validator.stringToArray(input.getCarNames());
         List<Car> cars = createCars(carNames);
+        int attemptCount = validator.stringToInt(input.getNumberOfAttempts());
     }
 
 
@@ -26,4 +27,13 @@ public class GameService {
         return Arrays.stream(carNames).map(Car::new).collect(Collectors.toList());
     }
 
+    private void carMove(List<Car> cars) {
+        cars.forEach(car -> {
+            if (isCarMove()) car.addLocation();
+        });
+    }
+
+    private boolean isCarMove() {
+        return Randoms.pickNumberInRange(0, 9) >= 4;
+    }
 }
