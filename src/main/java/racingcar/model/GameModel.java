@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class GameModel {
 
-    private static final int MIN_GAME_NUMBERS = 0;
+    private static final int MIN_GAME_NUMBERS = 1;
     private Cars carList;
     private int numberGames;
 

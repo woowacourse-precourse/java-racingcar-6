@@ -11,4 +11,10 @@ public class GameView {
         return userInput.split(",");
     }
 
+    public int inputNumberGames() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String userInput = Console.readLine();
+        return Integer.parseInt(userInput);
+    }
+
 }
