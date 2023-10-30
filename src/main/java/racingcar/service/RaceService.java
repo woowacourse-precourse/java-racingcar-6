@@ -3,6 +3,7 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.repository.RaceRepository;
@@ -20,7 +21,7 @@ public class RaceService {
 
     public void playARace(Race race) {
         moveCarsByRandom(race.getCars());
-        // TODO: 횟수 기록할지, 레포지토리에 마지막으로 저장된 long 값으로 대체할지 결정해야 함
+        race.increaseGameOrder();
     }
 
     public Long saveRace(Race race) {
