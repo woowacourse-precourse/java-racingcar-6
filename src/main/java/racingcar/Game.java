@@ -3,13 +3,14 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.ValidCheckAndParse.carNameParseAndValidCheck;
+
 public class Game {
     private List<Car> cars = new ArrayList<>();
-
     public Game(){}
 
     public void addCar(String carNames){
-        String[] strings = carNames.split(",");
+        String[] strings = carNameParseAndValidCheck(carNames);
         for (String carName:strings) {
             cars.add(new Car(carName));
         }

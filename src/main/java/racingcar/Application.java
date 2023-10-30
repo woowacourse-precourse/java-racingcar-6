@@ -1,6 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static racingcar.ValidCheckAndParse.trialParseAndValidCheck;
 
 public class Application {
     public static void main(String[] args) {
@@ -12,7 +13,7 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String trialString = readLine();
-        int trials = Integer.parseInt(trialString);
+        int trials = trialParseAndValidCheck(trialString);
 
         System.out.println("실행 결과");
         while(0<trials--){
@@ -22,4 +23,6 @@ public class Application {
         System.out.print("최종 우승자 : ");
         System.out.println(game.end());
     }
+
+
 }
