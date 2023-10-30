@@ -73,7 +73,8 @@ public class InputViewTest {
         // when
         // then
         assertThatThrownBy(() -> inputView.enterRotateNumber())
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 숫자만 입력가능합니다.");
     }
 
     public static void systemIn(String input) {

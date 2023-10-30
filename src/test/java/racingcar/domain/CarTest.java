@@ -40,7 +40,8 @@ class CarTest {
     @DisplayName("이름 길이는 5초과 불가능")
     void 이름길이_5초과_예외(String name) {
         assertThatThrownBy(() -> Car.from(name))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 잘못된 이름 길이입니다.");
     }
 
     @ParameterizedTest
@@ -49,7 +50,8 @@ class CarTest {
     void 빈문자_예외(String name) {
 
         assertThatThrownBy(() -> Car.from(name))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 이름은 빈칸일 수 없습니다.");
     }
 
     @ParameterizedTest

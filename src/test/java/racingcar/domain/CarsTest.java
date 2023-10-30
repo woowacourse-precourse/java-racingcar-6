@@ -31,7 +31,8 @@ class CarsTest {
 
         // when then
         assertThatThrownBy(() -> Cars.of(nameList, new RandomNumberGenerator()))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 잘못된 이름 길이입니다.");
     }
 
     @Test
@@ -42,7 +43,8 @@ class CarsTest {
 
         // when then
         assertThatThrownBy(() -> Cars.of(nameZero, new RandomNumberGenerator()))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 이름은 빈칸일 수 없습니다.");
 
     }
 
@@ -68,6 +70,25 @@ class CarsTest {
 
         assertThat(carList.get(0).getPosition()).isEqualTo(10);
 
+    }
+
+    @Test
+    @DisplayName("빈 List는 최대 위치 추출 불가")
+    void 최대_위치_추출_예외() {
+        // given
+        List<String> nameList = List.of();
+        Cars cars = Cars.of(nameList, new MonotoneIncreasingNumberGenerator());
+        int n = 10;
+
+        // when
+        while (n-- > 0) {
+            cars.goByNumber();
+        }
+
+        // then
+        assertThatThrownBy(() -> cars.findWinnerNameList())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 최대 위치를 찾을 수 없습니다.");
     }
 
     @Test
