@@ -52,5 +52,26 @@ class ConsolePrintTest {
         assertThat(output).contains("one : --", "two : ---", "three : ");
     }
 
+    @Test
+    void 우승자_출력_1명() {
+        List<Car> testCars = new ArrayList<>();
+        testCars.add(new Car("one", new StringBuilder("--"), 2));
+
+        consolePrint.finalWinner(testCars);
+        String output = outputStream.toString();
+        assertThat(output).contains("최종 우승자 : one");
+    }
+
+    @Test
+    void 우승자_출력_3명() {
+        List<Car> testCars = new ArrayList<>();
+        testCars.add(new Car("one", new StringBuilder("--"), 2));
+        testCars.add(new Car("two", new StringBuilder("--"), 2));
+        testCars.add(new Car("three", new StringBuilder("--"), 2));
+
+        consolePrint.finalWinner(testCars);
+        String output = outputStream.toString();
+        assertThat(output).contains("최종 우승자 : one, two, three");
+    }
 
 }
