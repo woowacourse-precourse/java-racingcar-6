@@ -78,7 +78,7 @@ public class RacingGame {
             racingScore.add(value.length());
         }
         Collections.sort(racingScore);
-        return racingScore.get(0);
+        return racingScore.get(racingScore.size()-1);
     }
 
     public String getResultString(CarMap carMap, int firstScore){
