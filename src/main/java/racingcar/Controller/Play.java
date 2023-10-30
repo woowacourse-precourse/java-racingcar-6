@@ -9,10 +9,10 @@ import java.util.List;
 import static racingcar.Controller.FindWin.findWinCars;
 import static racingcar.Controller.Input.inputCarName;
 import static racingcar.Controller.Input.inputNum;
-import static racingcar.Message.inputNameMessage;
-import static racingcar.Message.inputNumMessage;
-import static racingcar.Print.printEachRotate;
-import static racingcar.Print.printResult;
+import static racingcar.View.Message.inputNameMessage;
+import static racingcar.View.Message.inputNumMessage;
+import static racingcar.View.Print.printEachRotate;
+import static racingcar.View.Print.printResult;
 
 
 public class Play {
