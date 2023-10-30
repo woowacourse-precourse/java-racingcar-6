@@ -17,6 +17,13 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    void validateCarNamesInput_메소드를_사용시_자동차_이름_입력에_공백이_들어가는_경우_예외_발생(){
+        String input = "pobi, javaji";
+        assertThatThrownBy(() -> RacingCarGameInput.validateCarNamesInput(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_EMPTY);
+    }
+    @Test
     void validateCarNames_메소드를_사용시_자동차_이름이_5자가_넘어가는_경우_예외_발생() {
         List<RacingCar> carList = List.of(
                 new RacingCar("exception")
