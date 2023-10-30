@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.Utils;
+import racingcar.util.Winner;
 
 import java.util.*;
 
@@ -52,32 +54,13 @@ public class Game {
     }
 
     private void showWinner(List<Car> carList) {
-        int farthestCarPosition = findFarthestCarPosition(carList);
+        int farthestCarPosition = Winner.findFarthestCarPosition(carList);
         boolean jointChampion = false;
 
+        List<String> winnerList = Winner.winnerList(carList, farthestCarPosition);
         System.out.print("최종 우승자 : ");
-        for (Car car : carList) {
-            if (car.getPosition().length() == farthestCarPosition) {
-                printWinner(car.getName(),jointChampion);
-                jointChampion = true;
-            }
-        }
+        String winnerStr = String.join(", ", winnerList);
+        System.out.println(winnerStr);
     }
 
-    private void printWinner(String name, boolean jointChampion) {
-        if (jointChampion) {
-            System.out.println(", " + name);
-        } else {
-            System.out.println(name);
-        }
-    }
-
-
-    private int findFarthestCarPosition(List<Car> carList) {
-        int farthestCarPosition = 0;
-        for (Car car : carList) {
-            farthestCarPosition = Math.max(farthestCarPosition, car.getPosition().length()); // car.get().len() 수정
-        }
-        return farthestCarPosition;
-    }
 }
