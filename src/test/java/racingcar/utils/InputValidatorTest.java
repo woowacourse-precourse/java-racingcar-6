@@ -77,4 +77,29 @@ public class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 중복되는 이름은 입력할 수 없습니다.");
     }
+
+    @DisplayName("경주 시도 횟수 유효성 테스트 - 정상 데이터 - 성공")
+    @ValueSource(strings = {"5"})
+    @ParameterizedTest
+    void validateCorrectTrialTimesInputTest(String trialTimes) {
+        assertThat(inputValidator.validateTrialTimesInput(trialTimes)).isEqualTo(5);
+    }
+
+    @DisplayName("경주 시도 횟수 유효성 테스트 - NonNumeric 데이터 - 오류")
+    @ValueSource(strings = {"a"})
+    @ParameterizedTest
+    void validateInputNonNumericTest(String trialTimes) {
+        assertThatThrownBy(() -> inputValidator.validateTrialTimesInput(trialTimes))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 숫자를 입력해주세요.");
+    }
+
+    @DisplayName("경주 시도 횟수 유효성 테스트 - 1 미만의 데이터 - 오류")
+    @ValueSource(strings = {"0"})
+    @ParameterizedTest
+    void validateInputWrongRangeTimesTest(String trialTimes) {
+        assertThatThrownBy(() -> inputValidator.validateTrialTimesInput(trialTimes))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 1 이상의 숫자를 입력해주세요.");
+    }
 }
