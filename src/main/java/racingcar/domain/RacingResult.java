@@ -13,7 +13,7 @@ public class RacingResult {
         this.carStatuses = carStatuses;
     }
 
-    public String getWinner() {
+    public String findWinner() {
         return carStatuses.stream()
                 .filter(car -> car.position() == getMaxPosition())
                 .map(CarStatusDto::name)

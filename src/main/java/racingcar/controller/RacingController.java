@@ -37,7 +37,7 @@ public class RacingController {
             OutputView.printResult(getCarStatuses(racingResult));
             tryCount--;
         }
-        OutputView.printWinner(racingResult.getWinner());
+        OutputView.printWinner(racingResult.findWinner());
     }
 
     private boolean isNotRacingFinished(int tryCount) {
