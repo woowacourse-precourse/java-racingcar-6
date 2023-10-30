@@ -10,16 +10,20 @@ public class InputView {
 
     public InputView() {
         String[] carList = setCarsName(inputCar());
-        int cnt = Integer.valueOf(inputTry());
-
         ErrorCheck.isCarNameFive(carList);
+        ErrorCheck.isCarsNameInSpace(carList);
         ErrorCheck.isDuplicationNameCar(carList);
+        OutputView.printCarList(carList);
 
-        ErrorCheck.isZeroValues(cnt);
+        String cnt = inputTry();
+        ErrorCheck.isTryDigit(cnt);
+        int cntInt = Integer.valueOf(cnt);
+        ErrorCheck.isZeroValues(cntInt);
+        OutputView.printCntInt(cntInt);
 
         this.cars = carList;
         this.carsMove = new int[cars.length];
-        this.tryCnt = cnt;
+        this.tryCnt = cntInt;
     }
 
     public String[] getCars() {
@@ -45,7 +49,7 @@ public class InputView {
     }
 
     public String inputTry() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 횟수는 몇회인가요?");
         return Console.readLine();
     }
 
