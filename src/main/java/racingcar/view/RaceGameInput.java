@@ -26,7 +26,7 @@ public record RaceGameInput(List<String> carNames, int round) {
 
   private static void startOrEndsWithDelimiter(String input) {
     if (input.startsWith(DELIMITER) || input.endsWith(DELIMITER)) {
-      throw new IllegalArgumentException("자동차 이름은 쉼표로 시작하거나 끝날 수 없습니다.");
+      throw new IllegalArgumentException("입력값은 쉼표로 시작하거나 끝날 수 없습니다.");
     }
   }
 

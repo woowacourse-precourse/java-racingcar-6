@@ -23,8 +23,8 @@ public class RaceGameInputTest {
   }
 
   @Test
-  @DisplayName("자동차 이름이 빈 문자열이면 예외를 반환한다.")
-  void 자동차_이름이_빈_문자열이면_예외를_반환한다() {
+  @DisplayName("입력값이 빈 문자열이면 예외를 반환한다.")
+  void 입력값이_빈_문자열이면_예외를_반환한다() {
     // given
     var carNamesInput = "";
 
@@ -35,15 +35,15 @@ public class RaceGameInputTest {
   }
 
   @Test
-  @DisplayName("자동차 이름이 쉼표로 시작하면 예외를 반환한다.")
-  void 자동차_이름이_쉼표로_시작하면_예외를_반환한다() {
+  @DisplayName("입력값이 쉼표로 시작하면 예외를 반환한다.")
+  void 입력값이_쉼표로_시작하면_예외를_반환한다() {
     // given
     String carNamesInput = ",pobi,woni,jun";
 
     // when & then
     assertThatThrownBy(() -> RaceGameInput.from(carNamesInput, "1"))
         .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("자동차 이름은 쉼표로 시작하거나 끝날 수 없습니다.");
+        .hasMessage("입력값은 쉼표로 시작하거나 끝날 수 없습니다.");
   }
 
   @Test
