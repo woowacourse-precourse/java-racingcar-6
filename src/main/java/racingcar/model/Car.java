@@ -3,9 +3,11 @@ package racingcar.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import static racingcar.util.Constants.CAR_NAME_MAX_LENGTH;
 import static racingcar.util.Constants.SPLIT;
 import static racingcar.util.Constants.INIT;
 import static racingcar.util.VerificationMessage.OVER_SIZE;
+
 public class Car {
     private final Map<String,Integer> carMap;
     public Car(String cars) {
@@ -19,5 +21,8 @@ public class Car {
             carMap.put(car,INIT);
         }
         return carMap;
+    }
+    private boolean checkNameLength(String car){
+        return car.length() <= CAR_NAME_MAX_LENGTH;
     }
 }
