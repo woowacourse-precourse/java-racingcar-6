@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Game {
-    public Game(Integer playCount) {
+    public Game(List<Car> carList, Integer playCount) {
+        this.carList = carList;
         this.playCount = playCount;
     }
+
+    private Long id;
 
     private List<Car> carList = new ArrayList<>();
 
@@ -38,5 +41,13 @@ public class Game {
         int number= Randoms.pickNumberInRange(0, 9);
         if(number>=pivot) return true;
         return false;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
