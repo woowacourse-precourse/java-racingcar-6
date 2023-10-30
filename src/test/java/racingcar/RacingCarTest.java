@@ -27,4 +27,24 @@ public class RacingCarTest {
         assertThatThrownBy(() -> new RacingCar(overLengthName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 자동차_move_시_파라미터의_값이_기준보다_높다면_이동한다() {
+        RacingCar car = new RacingCar("name");
+        int prevForwardCount = car.getForwardCount();
+        int overMovementWeight = 7;
+
+        car.move(overMovementWeight);
+        assertThat(car.getForwardCount()).isEqualTo(prevForwardCount + 1);
+    }
+
+    @Test
+    void 자동차_move_시_파라미터의_값이_기준보다_낮다면_이동하지_않는다() {
+        RacingCar car = new RacingCar("name");
+        int prevForwardCount = car.getForwardCount();
+        int underMovementWeight = 3;
+
+        car.move(underMovementWeight);
+        assertThat(car.getForwardCount()).isEqualTo(prevForwardCount);
+    }
 }
