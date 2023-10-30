@@ -25,7 +25,7 @@ public class OutView {
     }
 
     private static void printOneCarMovingResult(Car car) {
-        System.out.println(car.getName() + " " + FORWARDING_LETTER.repeat(car.getMoveCount()));
+        System.out.println(car.getName() + " : " + FORWARDING_LETTER.repeat(car.getMoveCount()));
     }
 
     private static String winnersToString(List<String> winners) {
