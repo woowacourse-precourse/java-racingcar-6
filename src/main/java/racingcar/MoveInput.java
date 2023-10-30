@@ -6,6 +6,7 @@ public class MoveInput {
     private final String move;
 
     MoveInput() {
+        System.out.println("시도할 횟수는 몇회인가요?");
         move = Console.readLine();
     }
 
