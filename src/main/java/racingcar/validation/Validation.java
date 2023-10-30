@@ -2,7 +2,7 @@ package racingcar.validation;
 
 import racingcar.util.NumberUtil;
 
-public class Validator {
+public class Validation {
     private static final String EXCEPTION_MESSAGE_FOR_WRONG_LENGTH_OF_CAR_NAME =
             "올바르지 않은 자동차 이름입니다. 각 자동차 이름은 5글자 이하여야 합니다.";
     private static final String EXCEPTION_MESSAGE_FOR_NON_NUM =
