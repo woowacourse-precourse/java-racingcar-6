@@ -27,6 +27,8 @@ public class SystemOutput {
             }
         }
 
-        System.out.println("최종 주승자 : " + winnerList);
+        String winnerListOut = String.join(", ", winnerList);
+
+        System.out.printf("최종 우승자 : " + winnerListOut);
     }
 }
