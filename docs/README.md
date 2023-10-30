@@ -15,7 +15,18 @@
 
 ## 프로그래밍 요구사항
 1. java 코드 컨벤션 가이드 준수
-2. 들어쓰기, 인덴트 2까지만 허용 - 메서드 분리 
+2. 들어쓰기, 인덴트 2까지만 허용 - 메서드 분리
+```java
+public class depth {
+    public static void main(String[] args) {
+        while(true) { // depth 0
+            if(Console.readLine().equals("hello")) {     // depth 1
+                System.out.println("good");  // depth 2
+            }
+        }
+    }
+}
+```
 3. 3항 연산자 사용 금지
 4. 1가지 함수는 1가지 일만 하도록 메서드 작성
 5. 나의 TDD 수행
