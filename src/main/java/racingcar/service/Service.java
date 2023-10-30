@@ -12,7 +12,7 @@ public class Service {
     CarRepository carRepository;
 
     private Service() {
-        this.carRepository = CarRepository.getInstance();
+        this.carRepository = new CarRepository();
     }
 
     public static Service getInstance(){
@@ -58,5 +58,7 @@ public class Service {
         return winners;
     }
 
-
+    public void initRepository() {
+        carRepository.initRepository();
+    }
 }

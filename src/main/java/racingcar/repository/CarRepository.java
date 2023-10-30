@@ -9,17 +9,8 @@ import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
 
 public class CarRepository {
-    private final static CarRepository instance = new CarRepository();
 
     private ArrayList<Car> garage = new ArrayList<>();
-
-    private CarRepository() {
-
-    }
-
-    public static CarRepository getInstance() {
-        return instance;
-    }
 
     public void save(CarsDto carsDto) {
         ArrayList<CarDto> carArrayList = carsDto.getCarArrayList();
@@ -54,8 +45,7 @@ public class CarRepository {
         return carDtoArrayList;
     }
 
-    // 테스트를 위한 메서드
-    public void initRepository(){
+    public void initRepository() {
         garage = new ArrayList<>();
     }
 
