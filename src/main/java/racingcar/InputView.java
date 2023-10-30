@@ -9,11 +9,7 @@ public class InputView {
     public static String carNames() {
         System.out.println(CAR_NAME_REQUEST);
         String carNamesString;
-        try {
-            carNamesString = readLine();
-        } catch (OutOfMemoryError e) {
-            throw new IllegalArgumentException(ExceptionMessage.INPUT_LENGTH_OVERED);
-        }
+        carNamesString = readLine();
         return carNamesString;
     }
 
