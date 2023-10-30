@@ -15,6 +15,7 @@ public class Game {
     public void start() {
         askCarNames();
         nameCars();
+        askRaceCount();
     }
 
     public void askCarNames() {
@@ -28,5 +29,9 @@ public class Game {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
+    }
+
+    public void askRaceCount() {
+        player.inputRaceCount();
     }
 }
