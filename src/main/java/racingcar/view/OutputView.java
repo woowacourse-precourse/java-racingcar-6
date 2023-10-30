@@ -7,6 +7,7 @@ public class OutputView {
     private static final String RESULT_ANNOUNCEMENT = "실행 결과";
     private static final String NAME_POSITION_DELIMITER = " : ";
     private static final String POSITION_INDICATOR = "-";
+    private static final String WINNER_ANNOUNCEMENT = "최종 우승자 : ";
 
     public void printResultAnnouncement() {
         System.out.println();
@@ -18,6 +19,10 @@ public class OutputView {
                 .map(this::formatCarPosition)
                 .forEach(System.out::println);
         System.out.println();
+    }
+
+    public void printWinnerCar(List<String> names) {
+        System.out.println(WINNER_ANNOUNCEMENT + String.join(", ", names));
     }
 
     private String formatCarPosition(CarDto carDto) {
