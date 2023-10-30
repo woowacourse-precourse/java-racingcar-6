@@ -88,11 +88,16 @@
 -[x] Car들에 이동 요청을 한다.
 
 #### Car
--[x] 이름을 검증한다.(5자 이상시 IllegalArgumentException)
+
 -[x] RandomNumberGenerator에게 숫자를 요청하고 자동차를 이동 할 수 있는지 판단한다.
   -[x] 이동할 수 있다면 이동한다.
 -[x] getLocation를 이용하여 이동한 거리를 반환한다.
 -[x] getName을 이용하여 자동차의 이름을 반환한다.
+
+#### CarName
+-[x] 이름을 검증한다.(5자 초과시 IllegalArgumentException)
+- 이름을 검증한다.(빈문자열 일시 IllegalArgumentException)
+- 이름을 검증한다.(null 일시 IllegalArgumentException)
 
 #### RandomNumberGenerator
 -[x] 0~9사이의 랜덤한 숫자를 입력한다.
