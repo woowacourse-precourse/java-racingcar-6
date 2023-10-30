@@ -8,6 +8,7 @@ public class Navigation {
     private final List<Car> cars;
 
     public Navigation(List<Car> cars) {
+        validateSameName(cars);
         this.cars = cars;
     }
 
@@ -19,5 +20,16 @@ public class Navigation {
 
     public List<Car> getList() {
         return Collections.unmodifiableList(cars);
+    }
+
+    private void validateSameName(List<Car> cars) {
+        if(hasSameName(cars)){
+            throw new IllegalArgumentException("같은 이름이 존재 합니다.");
+        }
+    }
+
+    private static boolean hasSameName(List<Car> cars) {
+        long count = cars.stream().map(Car::getName).distinct().count();
+        return count != cars.size();
     }
 }
