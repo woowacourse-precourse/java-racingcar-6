@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.stream.IntStream;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Round;
 import racingcar.view.InputView;
@@ -10,11 +12,20 @@ public class RacingGameController {
     private Round round;
 
     public RacingGameController(){
+        playGame();
     }
 
     public void playGame() {
         cars = new Cars(InputView.inputNames());
         round = new Round(InputView.inputRound());
+
         OutputView.printExecutionResultMessage();
+
+        IntStream.range(0, round.round)
+                .forEach(i -> runRound());
+    }
+
+    private void runRound() {
+        cars.getCarList().forEach(Car::moveForward);
     }
 }
