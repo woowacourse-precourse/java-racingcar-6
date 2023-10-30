@@ -49,7 +49,10 @@ class ApplicationTest extends NsTest {
 
     @Test
     void split_메소드_사용시_이름이_비어있을_경우_예외_처리() {
-
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("nsj, ","3", "nsj,   ,asd","4", "nsj,","2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Test
