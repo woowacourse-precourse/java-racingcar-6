@@ -5,23 +5,24 @@ import camp.nextstep.edu.missionutils.Console;
 public class UserInput {
     private String carNames;
     private String turns;
-    // TODO : validator 추가
+    private final Validator validator;
 
     public UserInput(){
         this.carNames = "";
         this.turns = "";
+        this.validator = new Validator();
     }
 
     public void inputCarNames(){
         String newCarNames = Console.readLine();
-        // TODO : newCarsName 검증하기
+        validator.validateCarNames(newCarNames);
         this.carNames = newCarNames;
     }
 
     public void inputTurns(){
         String newTurns = Console.readLine();
-        // TODO : newTurns 검증하기
-        this.carNames = newTurns;
+        validator.validateTurns(newTurns);
+        this.turns = newTurns;
     }
 
     public String getCarNames(){

@@ -6,6 +6,11 @@ import java.util.List;
 public class Validator {
     private static final String CAR_NAMES_ERROR_MESSAGE = "[ERROR] 입력한 '자동차 이름'이 잘못된 형식입니다";
     private static final String TURNS_ERROR_MESSAGE = "[ERROR] 입력한 '시도할 횟수'가 잘못된 형식입니다";
+
+    public Validator(){
+
+    }
+
     public void validateCarNames(String userInputCarNames){
         if(isNullOrEmpty(userInputCarNames)){
             throw new IllegalArgumentException(CAR_NAMES_ERROR_MESSAGE);
