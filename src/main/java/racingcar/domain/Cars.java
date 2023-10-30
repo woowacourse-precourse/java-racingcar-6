@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -11,8 +10,7 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<String> carNames) {
-        validateCarNamesSize(carNames);
-        validateDuplicatedCarNames(carNames);
+        validate(carNames);
         cars = carNames.stream()
             .map(name -> new Car(name))
             .collect(Collectors.toList());
@@ -20,6 +18,11 @@ public class Cars {
 
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
+    }
+
+    public void validate(List<String> carNames) {
+        validateCarNamesSize(carNames);
+        validateDuplicatedCarNames(carNames);
     }
 
     public void validateCarNamesSize(List<String> carNames) {
