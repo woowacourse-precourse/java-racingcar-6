@@ -15,6 +15,15 @@ public class InputValidator {
         validateNameLength(carNames);
     }
 
+    private static void validateNameLength(List<String> carNames) {
+        boolean invalidLength = carNames.stream()
+                .anyMatch(name -> name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH);
+
+        if (invalidLength) {
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION_MESSAGE);
+        }
+    }
+
     public static boolean validateAttemptNumber(String input) {
         if (isNotNumber(input)) {
             throw new IllegalArgumentException(INVALID_NUMBER_EXCEPTION_MESSAGE);
@@ -23,15 +32,6 @@ public class InputValidator {
             throw new IllegalArgumentException(INVALID_ATTEMPT_NUMBER_RANGE_EXCEPTION_MESSAGE);
         }
         return true;
-    }
-
-    private static void validateNameLength(List<String> carNames) {
-        boolean invalidLength = carNames.stream()
-                .anyMatch(name -> name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH);
-
-        if (invalidLength) {
-            throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION_MESSAGE);
-        }
     }
 
     private static boolean isNotNumber(String number) {
