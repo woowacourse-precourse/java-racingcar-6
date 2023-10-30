@@ -22,6 +22,28 @@ public class GameService {
         int attemptCount = validator.stringToInt(input.getNumberOfAttempts());
 
         proceedRacing(attemptCount, cars);
+        output.printGameWinner(getWinner(cars));
+    }
+
+    private List<String> getWinner(List<Car> cars) {
+        List<String> winners = new ArrayList<>();
+        int maxLocationLength = 0;
+        for (Car car : cars) {
+            maxLocationLength = getMaxLocationLength(car, maxLocationLength, winners);
+        }
+        return winners;
+    }
+
+    private static int getMaxLocationLength(Car car, int maxLocationLength, List<String> winners) {
+        int currentLength = car.getLocation().length();
+        if (currentLength > maxLocationLength) {
+            maxLocationLength = currentLength;
+            winners.clear();
+            winners.add(car.getName());
+        } else if (currentLength == maxLocationLength) {
+            winners.add(car.getName());
+        }
+        return maxLocationLength;
     }
 
     private void proceedRacing(int attemptCount, List<Car> cars) {
