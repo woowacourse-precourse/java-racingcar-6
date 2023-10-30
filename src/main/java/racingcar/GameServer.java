@@ -21,4 +21,9 @@ final class GameServer {
         count = Count.create(Input.receiveInput());
     }
 
+    private void doTurn() {
+        cars.tryMove();
+        count.countDown();
+        Output.printGameResult(cars.collectCurrentStatus());
+    }
 }
