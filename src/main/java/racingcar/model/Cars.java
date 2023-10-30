@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
     private static final String DUPLICATED_NAME_ERROR_MESSAGE = "중복된 이름 삽입 불가";
@@ -31,5 +32,18 @@ public class Cars {
         return cars.stream().noneMatch(car -> car.getName().equals(newName));
     }
 
- 
+    private Car getMaxDistanceCar() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(CARS_RANGE_ERROR_MESSAGE));
+    }
+
+    public List<String> findWinners() {
+        return cars.stream()
+                .filter(getMaxDistanceCar()::isSameDistance)
+                .map(Car::getName)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+
 }
