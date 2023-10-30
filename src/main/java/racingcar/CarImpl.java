@@ -9,7 +9,7 @@ public class CarImpl implements Car {
     @Override
     public void goOrStop() {
         randNumber = pickNumberInRange(1, 9);
-        if (randNumber > 4){
+        if (randNumber >= 4){
             writeLocation();
         }
     }
