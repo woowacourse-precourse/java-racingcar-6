@@ -1,14 +1,14 @@
 package racingcar.domain;
 
-public record CarName(String name) {
+public record CarName(String value) {
     public CarName {
-        if (name == null) {
+        if (value == null) {
             throw new IllegalArgumentException();
         }
-        if (name.length() > 5) {
+        if (value.length() > 5) {
             throw new IllegalArgumentException();
         }
-        if (name.isEmpty()) {
+        if (value.isEmpty()) {
             throw new IllegalArgumentException();
         }
     }
