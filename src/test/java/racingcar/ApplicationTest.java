@@ -68,6 +68,15 @@ class ApplicationTest extends NsTest {
                 .contains("nick");
     }
 
+    @Test
+    @DisplayName("시도할 횟수 입력에 대한 예외 테스트")
+    void 시도할_회수_예외_처리() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi,javaji", "two"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
