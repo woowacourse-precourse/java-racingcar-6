@@ -1,4 +1,4 @@
 package racingcar.model.car;
 
-public class Car {
+public record Car(Name name, Position position) {
 }
