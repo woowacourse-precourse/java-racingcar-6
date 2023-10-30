@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -15,6 +16,35 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    @Test
+    void 우승_자동차_테스트_우승자_여러명(){
+        Application application = new Application();
+        Car[] carlist = new Car[3];
+        carlist[0] = new Car("pobi", 5);
+        carlist[1] = new Car("crong", 5);
+        carlist[2] = new Car("wooni", 5);
+
+        List<String> victorylist = application.compare(carlist);
+
+        assertThat(victorylist).contains("pobi", "crong", "wooni");
+
+
+    }
+
+    @Test
+    void 우승_자동차_테스트_우승자_1명(){
+        Application application = new Application();
+        Car[] carlist = new Car[3];
+        carlist[0] = new Car("pobi", 3);
+        carlist[1] = new Car("crong", 2);
+        carlist[2] = new Car("wooni", 5);
+
+        List<String> victorylist = application.compare(carlist);
+
+        assertThat(victorylist.get(0)).isEqualTo("wooni");
+
+    }
 
     @Test
     void 자동차_이동(){
