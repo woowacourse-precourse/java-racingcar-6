@@ -1,6 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
@@ -30,6 +33,37 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    @DisplayName("공동 우승자 출력 확인")
+    void testSeveralWinner(){
+        //given
+        String testCarName = "a,b,c";
+        String testMovingCount = "3";
+
+        //when
+        List<Integer> moving = Arrays.asList(MOVING_FORWARD, STOP, MOVING_FORWARD);
+
+        //then
+        List<String> firstMovingResult = Arrays.asList("a : -", "b : ", "c : -");
+        List<String> secondMovingResult = Arrays.asList("a : --", "b : ", "c : --");
+        List<String> thirdMovingResult = Arrays.asList("a : ---", "b : ", "c : ---");
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("a,b,c", "3");
+                    assertThat(
+                            output()).
+                            contains(firstMovingResult.get(0), firstMovingResult.get(1), firstMovingResult.get(2),
+                                    secondMovingResult.get(0), secondMovingResult.get(1), secondMovingResult.get(2),
+                                    thirdMovingResult.get(0), thirdMovingResult.get(1), thirdMovingResult.get(2),
+                                    "최종 우승자 : a, c"
+                    );
+                },
+                moving.get(0),moving.get(1),moving.get(2),
+                moving.get(0),moving.get(1),moving.get(2),
+                moving.get(0),moving.get(1),moving.get(2)
         );
     }
 
