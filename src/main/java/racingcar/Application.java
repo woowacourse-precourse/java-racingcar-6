@@ -8,6 +8,7 @@ public class Application {
     public String[] inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
         String[] cars = Console.readLine().split(",");
+        checkCarNameValidation(cars);
         return cars;
     }
 
@@ -40,6 +41,18 @@ public class Application {
         }
     }
 
+    public void checkCarNameValidation(String[] cars) {
+
+        try {
+            for(int i = 0; i < cars.length; i++) {
+                if (cars[i].length() > 5) {
+                    throw new IllegalArgumentException();
+                }
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         Application application = new Application();
