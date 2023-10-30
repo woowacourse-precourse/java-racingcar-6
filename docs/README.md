@@ -53,4 +53,4 @@
     하나의 자동차를 구현하는 클래스
 - [x] String name
 - [x] int position
-- [ ] 포지션에 대한 변경 메소드 proceedSingleUnit()를 제공한다.
+- [x] 포지션에 대한 변경 메소드 proceedSingleUnit()를 제공한다.

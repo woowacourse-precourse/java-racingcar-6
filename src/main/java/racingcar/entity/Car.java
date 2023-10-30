@@ -10,7 +10,7 @@ public class Car {
         this.position = 0;
     }
 
-    public void moveSingleUnit() {
+    public void proceedSingleUnit() {
         position++;
     }
 }
