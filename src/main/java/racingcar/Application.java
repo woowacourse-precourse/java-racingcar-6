@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.controller.RacingCarGameController;
 import racingcar.service.RacingCarGameService;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
