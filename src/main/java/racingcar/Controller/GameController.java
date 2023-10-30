@@ -31,7 +31,7 @@ public class GameController {
         String numberOfRoundsInput = inputView.getNumberOfRound();
         Integer numberOfRounds = roundModel.preProcessing(numberOfRoundsInput);
 
-        outPutView.showPrompt();
+        outPutView.showHeaderPrompt();
         while (numberOfRounds > 0) {
             carGroup = gameModel.playGameRound(carGroup);
             outPutView.showRoundResult(carGroup);
