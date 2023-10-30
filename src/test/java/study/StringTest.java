@@ -7,10 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EmptySource;
-import org.junit.jupiter.params.provider.NullSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
 
 public class StringTest {
 
@@ -93,6 +90,14 @@ public class StringTest {
     @EmptySource
     @DisplayName("NullSource, EmptySource의 에너테이션을 이용한 NULL, EMPTY 테스트")
     void NULL_EMPTY_을_활용한_테스트(String text) {
+        assertTrue(text == null || text.trim().isEmpty());
+    }
+
+    @ParameterizedTest
+    @NullAndEmptySource
+    @DisplayName("NullAndEmptySource의 에너테이션을 이용한 NULL, EMPTY 테스트")
+    @ValueSource(strings = {" ", "   ", "\t", "\n"})
+    void NullAndEmptySource_을_활용한_테스트(String text) {
         assertTrue(text == null || text.trim().isEmpty());
     }
 
