@@ -16,7 +16,7 @@ public class InputViewValidator {
     private static final String EMPTY_STRING = "";
     private static final String CAR_NAME_SPLIT_REGEX = ",";
     private static final String INTEGER_REGEX = "-?\\d+";
-    private static final int MIN_ADVANCE_COUNT = 4;
+    private static final int MAX_NAME_LENGTH = 5;
     private static final int ZERO_VALUE = 0;
     private static final InputViewValidator INSTANCE = new InputViewValidator();
 
@@ -91,7 +91,7 @@ public class InputViewValidator {
         String[] carNameList = carNames.split(CAR_NAME_SPLIT_REGEX);
 
         for (String carName : carNameList) {
-            if (carName.length() >= MIN_ADVANCE_COUNT) {
+            if (carName.length() > MAX_NAME_LENGTH) {
                 return true;
             }
         }
