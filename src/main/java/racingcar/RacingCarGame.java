@@ -30,7 +30,7 @@ public class RacingCarGame {
     static List<Integer> raceResult(List<String> carNamesList, List<Integer> carResultList) {
         for (int i = 0; i < carNamesList.size(); i++) {
             carResultList.set(i, carMoveFowardResult(carResultList.get(i)));
-            System.out.print(carNamesList.get(i) + ": ");
+            System.out.print(carNamesList.get(i) + " : ");
             printRaceResult(carResultList.get(i));
         }
 
