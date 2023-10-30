@@ -22,6 +22,14 @@ public class ValidatorTest {
     }
 
     @Test
+    void validateInput_입력값의_마지막이_쉼표인지() {
+        String invalidInput = "한국,pobi,";
+
+        assertThatThrownBy(() -> validator.validateInput(invalidInput))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void validateCarNames_자동차이름이_1자부터_5자인지_확인1() {
         List<String> invalidList = Arrays.asList("pobi", "안종혁", "");
 
