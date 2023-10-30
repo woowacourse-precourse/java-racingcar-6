@@ -26,6 +26,15 @@ class CarRacingGameTest extends NsTest {
 
     }
 
+    @Test
+    void 시도_횟수_설정_중_값이_0_이하인_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("jun,pobi,camel", "-3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
