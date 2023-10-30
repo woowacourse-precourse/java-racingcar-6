@@ -25,7 +25,7 @@ public class Car {
         return distance.getDistance() == carWithMaxDistance.distance.getDistance();
     }
 
-    public String toString() {
+    public String getMovementString() {
         return String.join(" : ", name.toString(), distance.toString());
     }
  }
