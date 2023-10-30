@@ -2,7 +2,6 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.Computer.createRoundCount;
 import static racingcar.Computer.getInput;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -62,7 +61,7 @@ public class CountInputTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        car.move(createRoundCount(getInput("시도할 회수는 몇회인가요?")));
+        car.move(CarRace.createRoundCount(getInput("시도할 회수는 몇회인가요?")));
 
         // then
         assertThat(out.toString())

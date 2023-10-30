@@ -4,6 +4,11 @@ import java.util.StringJoiner;
 
 public class CarRace {
 
+    public static int createRoundCount(String userInput) {
+        Validator.checkPositiveNumber(userInput);
+        return Integer.parseInt(userInput);
+    }
+
     public static int calculateMaxDistance(Car car) {
         int maxDistance = 0;
 

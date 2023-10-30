@@ -8,11 +8,4 @@ public class Computer {
         System.out.println(message);
         return Console.readLine();
     }
-
-
-
-    public static int createRoundCount(String userInput) {
-        Validator.checkPositiveNumber(userInput);
-        return Integer.parseInt(userInput);
-    }
 }
