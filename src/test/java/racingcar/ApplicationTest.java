@@ -16,6 +16,21 @@ class ApplicationTest extends NsTest {
 
 
 
+
+
+    @Test
+    void 레이싱_과정_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("love,peace", "4");
+                    assertThat(output()).contains("love : ----", "peace : ");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD,
+                STOP
+        );
+    }
+
+
     @Test
     void 시도_횟수_숫자_검증() {
         assertSimpleTest(() ->
