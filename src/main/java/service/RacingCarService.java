@@ -2,6 +2,8 @@ package service;
 
 import domain.Players;
 import domain.RacingCar;
+import dto.RacingStatusDTO;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -9,10 +11,6 @@ import java.util.stream.Collectors;
 public class RacingCarService {
 
     private Players players;
-
-    private static final String COMMA_WITH_WHITESPACE = ", ";
-    private static final String FINAL_WINNERS = "최종 우승자";
-    private static final String COLON_WITH_WHITESPACE = " : ";
 
     public int generateRacingCar(Set<String> carNameSet) {
         players = new Players(generate(carNameSet));
@@ -24,20 +22,18 @@ public class RacingCarService {
                                   .collect(Collectors.toList());
     }
 
-    public String racing(int cycle) {
-        StringBuilder builder = new StringBuilder();
+    public List<List<RacingStatusDTO>> racing(int cycle) {
+        List<List<RacingStatusDTO>> allRacingStatus = new ArrayList<>();
 
         for (int i = 0; i < cycle; i++) {
-            builder.append(players.processRacing());
-            builder.append("\n");
+            allRacingStatus.add(players.processRacing());
         }
 
-        return builder.toString();
+        return allRacingStatus;
     }
 
-    public String judgeWinners() {
-        return String.join(COLON_WITH_WHITESPACE, FINAL_WINNERS,
-                String.join(COMMA_WITH_WHITESPACE, players.findWinners()));
+    public List<String> judgeWinners() {
+        return players.findWinners();
     }
 
 }

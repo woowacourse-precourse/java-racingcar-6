@@ -1,5 +1,7 @@
 package domain;
 
+import dto.RacingStatusDTO;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import util.RandomGenerator;
@@ -8,31 +10,24 @@ public class Players {
 
     private final List<RacingCar> players;
 
-    private static final String COLON_WITH_WHITESPACE = " : ";
-
     public Players(List<RacingCar> players) {
         this.players = players;
     }
 
-    public String processRacing() {
-        StringBuilder builder = new StringBuilder();
+    public List<RacingStatusDTO> processRacing() {
+        List<RacingStatusDTO> statusPerRacing = new ArrayList<>();
         for (RacingCar racingCar : players) {
             checkRacingCarIsMoveForward(racingCar);
-            buildRacingStatusMessage(builder, racingCar);
+            statusPerRacing.add(new RacingStatusDTO(racingCar.getName(), racingCar.getLocation()));
         }
 
-        return builder.toString();
+        return statusPerRacing;
     }
 
     private static void checkRacingCarIsMoveForward(RacingCar racingCar) {
         if (racingCar.isMoveForward(RandomGenerator.generateNumber())) {
             racingCar.moveForward();
         }
-    }
-
-    private static void buildRacingStatusMessage(StringBuilder builder, RacingCar racingCar) {
-        builder.append(racingCar.getName()).append(COLON_WITH_WHITESPACE).append(racingCar.getLocation())
-                .append("\n");
     }
 
     public List<String> findWinners() {

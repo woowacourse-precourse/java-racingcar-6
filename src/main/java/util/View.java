@@ -1,22 +1,22 @@
 package util;
 
+import static constant.Message.CYCLE_INPUT_MESSAGE;
+import static constant.Message.RACING_RESULT;
+import static constant.Message.START_MESSAGE;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class View {
 
-    private static final String START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String CYCLE_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
-    private static final String RACING_RESULT = "실행 결과";
-
     public static void printStartMessage() {
-        System.out.println(START_MESSAGE);
+        System.out.println(START_MESSAGE.getMessage());
     }
 
     public static void printCycleInputMessage() {
-        System.out.println(CYCLE_INPUT_MESSAGE);
+        System.out.println(CYCLE_INPUT_MESSAGE.getMessage());
     }
 
-    public static void printRacingResultMessage() { System.out.println("\n" + RACING_RESULT); }
+    public static void printRacingResultMessage() { System.out.println("\n" + RACING_RESULT.getMessage()); }
 
     public static void printMessage(String message) {
         System.out.print(message);
