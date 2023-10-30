@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Car implements Comparable{
+    private final int MOVE_FORWARD_CONDITION = 4;
     private String name;
     private int position = 0;
 
@@ -8,8 +9,10 @@ public class Car implements Comparable{
         this.name = name;
     }
 
-    public void moveForward() {
-
+    public void moveForward(int randomNumber) {
+        if (randomNumber >= MOVE_FORWARD_CONDITION) {
+            position++;
+        }
     }
 
     public String expressMoveDistance() {
