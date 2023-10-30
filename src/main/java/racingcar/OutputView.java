@@ -3,6 +3,10 @@ package racingcar;
 import java.util.List;
 
 public class OutputView {
+    private static final String FINAL_WINNER = "최종 우승자 : ";
+    private static final String COLON = " : ";
+    private static final String COMMA = ", ";
+    private static final String HYPHEN = "-";
 
     public static void outputRacingStatus(Cars cars) {
         outputCarRacingStatus(cars);
@@ -22,19 +26,20 @@ public class OutputView {
     }
 
     private static String makeRacingStatus(Car car) {
-        return car.getName() + " : "
+        return car.getName()
+                + COLON
                 + convertForwardToHyphen(car.getForward());
     }
 
     private static String convertForwardToHyphen(Integer forward) {
-        return "-".repeat(forward);
+        return HYPHEN.repeat(forward);
     }
 
     private static String joinWinnerRacingCar(List<String> winnerCarNameList) {
-        return String.join(", ", winnerCarNameList);
+        return String.join(COMMA, winnerCarNameList);
     }
 
     private static void printWinnerRacingCar(String winnerCarNames) {
-        System.out.println("최종 우승자 : " + winnerCarNames);
+        System.out.println(FINAL_WINNER + winnerCarNames);
     }
 }
