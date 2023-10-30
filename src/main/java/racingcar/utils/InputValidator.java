@@ -32,6 +32,12 @@ public class InputValidator {
     public Boolean validateNumberOfCar(List<String> candidateCars){
         return candidateCars.size() >= 2;
     }
+    public Boolean isNoSpaceValid(String name){
+        return !name.contains(" ");
+    }
+    public Boolean isNotNullValid(String input){
+        return !input.isEmpty();
+    }
 
     private Boolean isMinLengthValid(String name){
         return name.length() >= MIN_LENGTH;
@@ -39,8 +45,5 @@ public class InputValidator {
 
     private Boolean isMaxLengthValid(String name){
         return name.length() <= MAX_LENGTH;
-    }
-    public Boolean isNoSpaceValid(String name){
-        return !name.contains(" ");
     }
 }
