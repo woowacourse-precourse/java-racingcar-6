@@ -36,10 +36,25 @@ class CarTest {
 
         // when
         int beforeLocation = car.getLocation();
-        car.moveOrStop(StatusEnum.MOVE);
+        car.move(StatusEnum.MOVE);
 
         // then
         int afterLocation = car.getLocation();
         assertThat(afterLocation).isEqualTo(beforeLocation + 1);
+    }
+
+    @DisplayName("우승자 확인")
+    @Test
+    void test4() {
+        // given
+        Car car = new Car("pobis");
+        Car car2 = new Car("jun");
+
+        // when
+        car.move(StatusEnum.MOVE);
+
+        // then
+        assertThat(car.isWinner(1)).isTrue();
+        assertThat(car2.isWinner(1)).isFalse();
     }
 }

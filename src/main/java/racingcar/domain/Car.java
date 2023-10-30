@@ -36,4 +36,8 @@ public class Car {
             location++;
         }
     }
+
+    public boolean isWinner(int topLocation) {
+        return this.location == topLocation;
+    }
 }
