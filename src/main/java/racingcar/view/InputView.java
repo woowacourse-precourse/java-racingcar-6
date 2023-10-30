@@ -16,7 +16,13 @@ public class InputView {
         String input = Console.readLine();
         List<String> names = Arrays.asList(input.split(","));
         validateNotEmpty(names);
-        return names;
+        return trimString(names);
+    }
+
+    private List<String> trimString(List<String> names) {
+        return names.stream()
+                .map(String::trim)
+                .toList();
     }
 
     private void validateNotEmpty(List<String> names) {
