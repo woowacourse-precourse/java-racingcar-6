@@ -42,8 +42,7 @@ class OutputViewTest {
         OutputView outputView = new OutputView();
         List<String> winnerList = new ArrayList<>();
 
-        winnerList.add("abc");
-        winnerList.add("efg");
+        winnerList.addAll(List.of("abc", "efg"));
 
         //when
         outputView.getWinnerMessage(winnerList);
