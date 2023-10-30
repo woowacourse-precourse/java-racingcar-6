@@ -32,3 +32,5 @@
 - [x] testSplitCarNames : splitCarNames()가 입력한 문자열을 콤마(,) 단위로 나누어 List 형태로 반환하는지 테스트.
 - [x] testCheckNamingError : checkNamingError()가 5자 초과의 이름이 있을 때 예외 처리하는지 테스트.
 - [x] testConvertStringToInt : convertStringToInt()가 시도 횟수를 int로 변환하고 입력 오류는 예외 처리하는지 테스트.
+- [x] testGenerateAction : generateAction()가 0(멈춤) 또는 1(전진)을 반환하는지 테스트.
+- [ ] testRecordCarAction : recordCarAction()가 반환한 List에 0과 1만 구성돼있고, 자동차 이름 List와 크기가 같은지 테스트.

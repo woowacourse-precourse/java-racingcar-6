@@ -9,6 +9,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -35,14 +36,14 @@ class ApplicationTest extends NsTest {
 
     @Test
     void testSplitCarNames() {
-        List<String> testCarNamesList = Application.splitCarNames("pobi,woni,BE");
-        assertThat(testCarNamesList).containsExactly("pobi", "woni", "BE");
+        List<String> carNamesList = Application.splitCarNames("pobi,woni,BE");
+        assertThat(carNamesList).containsExactly("pobi", "woni", "BE");
     }
 
     @Test
     void testCheckNamingError() {
-        List<String> testCarNameList = Arrays.asList("pobi", "woni", "javaji");
-        assertThatThrownBy(() -> Application.checkNamingError(testCarNameList))
+        List<String> carNamesList = Arrays.asList("pobi", "woni", "javaji");
+        assertThatThrownBy(() -> Application.checkNamingError(carNamesList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -56,6 +57,22 @@ class ApplicationTest extends NsTest {
     void testConvertStringToInt_숫자_아닐_때_예외_처리() {
         assertThatThrownBy(() -> Application.convertStringToInt("삼"))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void testGenerateAction() {
+        int action = Application.generateAction();
+        assertTrue(action == 0 || action == 1);
+    }
+
+    @Test
+    void testRecordCarAction() {
+        List<String> carNamesList = Arrays.asList("pobi", "woni", "javaji");
+        List<Integer> carActionList = Application.recordCarAction(carNamesList);
+        assertThat(carActionList).hasSameSizeAs(carNamesList);
+        for (int element : carActionList) {
+            assertTrue(element == 0 || element == 1);
+        }
     }
 
     @Override
