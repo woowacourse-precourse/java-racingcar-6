@@ -31,12 +31,15 @@ public class RacingService {
 
     public void racingStart() {
         cars.getCarList()
-                .forEach(car -> {
-                    StatusEnum statusEnum = getMoveOrStop(getRandomNum());
-                    car.moveOrStop(statusEnum);
-                    outputView.outputRacingResult(car.getCarName(), car.getLocation());
-                });
+                .forEach(this::carMoveOrStop);
         outputView.outputCustomMessage("");
+    }
+
+    private void carMoveOrStop(Car car) {
+        StatusEnum statusEnum = getMoveOrStop(getRandomNum());
+        car.moveOrStop(statusEnum);
+
+        outputView.outputRacingResult(car.getCarName(), car.getLocation());
     }
 
     public String getListToStringWinners() {
