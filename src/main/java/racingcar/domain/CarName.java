@@ -6,6 +6,7 @@ public class CarName {
     private final String name;
 
     public CarName(String name) {
+        validateNull(name);
         validateInRange(name);
         validateEmptyName(name);
         this.name = name;
@@ -33,5 +34,15 @@ public class CarName {
 
     private static boolean isEmpty(String name) {
         return name.isEmpty();
+    }
+
+    private static void validateNull(String name){
+        if(isNull(name)){
+            throw new IllegalArgumentException("이름을 입력해주세요");
+        }
+    }
+
+    private static boolean isNull(String name) {
+        return name == null;
     }
 }
