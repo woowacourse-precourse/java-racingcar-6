@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarList {
-    List<Car> carList;
+    private List<Car> carList;
 
     public CarList(String carsName)  throws IllegalArgumentException{
         this.carList = new ArrayList<>();
