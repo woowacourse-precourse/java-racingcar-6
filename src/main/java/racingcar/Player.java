@@ -18,9 +18,17 @@ public class Player {
         validateCarNames(inputs);
     }
 
+    public List<String> getCarNames() {
+        return carNames;
+    }
+
     public void inputRaceCount() {
         String input = Console.readLine();
         validateRaceCount(input);
+    }
+
+    public int getRaceCount() {
+        return raceCount;
     }
 
     private List<String> splitInputCarNames(String input) {
