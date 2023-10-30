@@ -11,12 +11,6 @@ public class Game {
 
     private List<Car> cars;
 
-    public Game(String carNames) {
-        String[] splitCarNames = splitCarNames(carNames);
-        CarNameValidator.validateCarNames(splitCarNames);
-        this.cars = CarListCreator.createCarsList(splitCarNames);
-    }
-
     public Game(String carNames, NumberGenerator numberGenerator) {
         String[] splitCarNames = splitCarNames(carNames);
         CarNameValidator.validateCarNames(splitCarNames);
