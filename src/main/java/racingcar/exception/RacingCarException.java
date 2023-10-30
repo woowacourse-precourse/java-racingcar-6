@@ -27,7 +27,7 @@ public class RacingCarException {
 
     public void validatePositiveNumber(String tryTime) {
         int tryTimeNumber = Integer.parseInt(tryTime);
-        if(tryTimeNumber <0) {
+        if(tryTimeNumber <= 0) {
             throw new IllegalArgumentException(exceptionMessages.POSITIVE_NUMBER_ERROR);
         }
     }
