@@ -1,17 +1,19 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.util.ConsolePrintTest;
 import racingcar.util.CustomAssertions;
+import racingcar.util.IOTest;
 import racingcar.view.GameConsoleIO;
 
 
-class GameConsoleIOTest extends ConsolePrintTest {
+class GameConsoleIOTest extends IOTest {
 
     GameConsoleIO gameConsoleIO;
 
@@ -63,6 +65,98 @@ class GameConsoleIOTest extends ConsolePrintTest {
                             .contains("최종 우승자 : car1", "최종 우승자 : car1, car2");
                 }
         );
+    }
+
+    @Test
+    void 자동차_입력() {
+        String inputStr = "car1,car2,car3";
+        List<String> inputList = Arrays.stream(inputStr.split(",")).toList();
+
+        input(inputStr);
+        List<String> carNames = gameConsoleIO.getCarNames();
+
+        assertThat(carNames.containsAll(inputList))
+                .isTrue();
+
+    }
+
+    @Test
+    void 자동차_입력_예외_공백_type1() {
+        assertThatThrownBy(
+                () -> {
+                    input("\n");
+                    gameConsoleIO.getCarNames();
+                }
+        ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Input invalid : input value is blank");
+    }
+
+    @Test
+    void 자동차_입력_예외_공백_type2() {
+        assertThatThrownBy(
+                () -> {
+                    input(" ");
+                    gameConsoleIO.getCarNames();
+                }
+        ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Input invalid : input value is blank");
+    }
+
+    @Test
+    void 자동차_입력_예외_이름수_제한() {
+        assertThatThrownBy(
+                () -> {
+                    input("123456");
+                    gameConsoleIO.getCarNames();
+                }
+        ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Input invalid : size of input value exceeds 5");;
+    }
+
+    @Test
+    void 이동차수_입력() {
+        int inputValue = 5;
+        input(String.valueOf(inputValue));
+        int movingCount = gameConsoleIO.getMovingCount();
+
+        assertThat(movingCount)
+                .isEqualTo(inputValue);
+    }
+
+    @Test
+    void 이동차수_입력_예외_공백_type1() {
+        assertThatThrownBy(
+                () -> {
+                    input("\n");
+                    gameConsoleIO.getMovingCount();
+                }
+        ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Input invalid : input value is blank");
+
+    }
+
+    @Test
+    void 이동차수_입력_예외_공백_type2() {
+        assertThatThrownBy(
+                () -> {
+                    input(" ");
+                    gameConsoleIO.getMovingCount();
+                }
+        ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Input invalid : input value is blank");
+
+    }
+
+    @Test
+    void 이동차수_입력_예외_not_numeric() {
+        assertThatThrownBy(
+                () -> {
+                    input("!");
+                    gameConsoleIO.getMovingCount();
+                }
+        ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Invalid input String:");
+
     }
 
 }
