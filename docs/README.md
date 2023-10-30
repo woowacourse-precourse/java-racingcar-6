@@ -4,12 +4,12 @@
 
 - [x] 0에서 9 사이에서 무작위 값을 생성한다. - `NumberGenerator#createRandomNumber()`
 - [ ] 자동차 경주는 n대의 자동차들이 참여할 수 있다. - `CarRacing#participateCars()`
-    - [ ] 자동차의 이름들을 입력받는다. - `Prompt#readCarNames()`
+    - [x] 자동차의 이름들을 입력받는다. - `Prompt#readCarNames()`
         - [x] 자동차 이름은 5자 이내이어야 한다. - `Validator#isNotCarName()`
 - [ ] 자동차 경주에서 자동자는 매 턴마다 행동한다. - `CarRacing#action()`
     - [ ] 자동차는 생성한 무작위 값이 4보다 크면 이동 가능하다. - `Car#isMovable()`
     - [ ] 전진 가능하면 전진한다. - `Car#move()`
-- [ ] 경주에서 진행할 턴의 최대 횟수를 입력 받는다. - `Prompt#readMaxTurn()`
+- [x] 경주에서 진행할 턴의 최대 횟수를 입력 받는다. - `Prompt#readMaxTurn()`
     - [x] 입력 받는 턴은 숫자이다. - `Validator#isNumber()`
 - [ ] 우승 자동차들을 알 수 있다. - `Referee#whichWinners()`
     - [ ] 자동차들중 우승 위치의 크기를 알 수 있다. - `Judgment#firstCarPosition()`
