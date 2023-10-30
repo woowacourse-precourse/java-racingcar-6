@@ -1,19 +1,28 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 import racingcar.validator.InputValidator;
 
 public class InputView {
-    public static String getRacingCars() {
+    public static List<String> getRacingCars() {
         String input = Console.readLine();
         InputValidator.validateCarsFormat(input);
         InputValidator.validateCarLength(input);
-        return input;
+        return buildRacingCars(input);
     }
 
-    public static String getTryNumber() {
+    public static int getTryNumber() {
         String input = Console.readLine();
         InputValidator.validateTryNumber(input);
-        return input;
+        return buildTryNumber(input);
+    }
+
+    private static List<String> buildRacingCars(String input) {
+        return List.of(input.split(","));
+    }
+
+    private static int buildTryNumber(String input) {
+        return Integer.parseInt(input);
     }
 }

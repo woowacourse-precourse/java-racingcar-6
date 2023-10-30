@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.model.Car;
 import racingcar.model.RandomNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -7,13 +9,11 @@ import racingcar.view.OutputView;
 public class Game {
     public void start() {
         OutputView.printStartMessage();
-        String racingCarsString = InputView.getRacingCars();
+        List<String> racingCarList = InputView.getRacingCars(); // [abc,def,ge]
 
         OutputView.printTryMessage();
-        String tryNumberString = InputView.getTryNumber();
+        int tryNumber = InputView.getTryNumber(); // 5
 
         OutputView.printShowResultString();
-        RandomNumber.makeRandomNumber();
-
     }
 }
