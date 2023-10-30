@@ -29,7 +29,7 @@ public class Race {
         }
     }
 
-    public void runRace() {
+    public void runOneRound() {
         for (Car car : cars) {
             tryMoveCar(car);
         }
