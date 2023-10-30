@@ -29,10 +29,14 @@ public class RacingCars {
         Car maxDistanceCar = findMaxDistanceCar();
 
         racingCars.stream()
-                .filter(car -> maxDistanceCar.getDistance() == car.getDistance())
+                .filter(car -> findSameDistanceCar(maxDistanceCar, car))
                 .forEach(winner -> winnerCars.add(winner));
 
         return winnerCars;
+    }
+
+    private boolean findSameDistanceCar(Car maxDistanceCar, Car otherCar) {
+        return maxDistanceCar.getDistance() == otherCar.getDistance();
     }
 
     private void validateRacingCars(List<Car> racingCars) {
