@@ -10,14 +10,10 @@ import racingcar.model.Participants;
 import racingcar.model.car.Car;
 
 public class GetWinnersService {
-
-    public List<Car> getWinners(Participants participants) {
+    public static List<String> getWinnersNames(Participants participants) {
         Map<Integer, List<Car>> rankMap = getRankMap(participants);
-        return rankMap.keySet()
-                .stream()
-                .collect(Collectors.maxBy(Comparator.naturalOrder()))
-                .map(key -> rankMap.get(key))
-                .get();
+        List<Car> winners = getWinners(rankMap);
+        return convertCarToCarName(winners);
     }
     private static Map<Integer,List<Car>> getRankMap(Participants participants) {
         HashMap<Integer, List<Car>> rankMap = new HashMap<>();
@@ -30,5 +26,17 @@ public class GetWinnersService {
             rankMap.put(position, samePositionList);
         }
         return rankMap;
+    }
+    private static List<Car> getWinners(Map<Integer,List<Car>> rankMap) {
+        return rankMap.keySet()
+                .stream()
+                .collect(Collectors.maxBy(Comparator.naturalOrder()))
+                .map(key -> rankMap.get(key))
+                .get();
+    }
+    private static List<String> convertCarToCarName(List<Car> cars){
+        return cars.stream()
+                .map(car -> car.getCarName().name())
+                .toList();
     }
 }

@@ -1,6 +1,8 @@
 package racingcar.race;
 
+import java.util.List;
 import java.util.Map;
+import org.assertj.core.api.Assertions;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,6 +10,7 @@ import racingcar.AppConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
 import racingcar.service.CarSaveService;
+import racingcar.service.GetWinnersService;
 import racingcar.service.raceservice.FixDistanceRaceService;
 import racingcar.service.raceservice.RaceService;
 import racingcar.service.raceservice.VariableDistanceRaceService;
@@ -58,5 +61,13 @@ public class RaceTest {
             }
         });
         softly.assertAll();
+    }
+
+    @Test
+    void 우승자_테스트() {
+        RaceService raceService = new FixDistanceRaceService();
+        raceService.runRace(participants);
+        List<String> winnersNames = GetWinnersService.getWinnersNames(participants);
+        Assertions.assertThat(winnersNames).containsAnyOf("a","b","c","d","e");
     }
 }
