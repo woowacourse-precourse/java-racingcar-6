@@ -1,0 +1,16 @@
+package racingcar.model;
+
+public enum MovingStatus {
+    STOP(0),
+    FOR_WORD(4);
+
+    private final int moveRange;
+
+    MovingStatus(int moveRange) {
+        this.moveRange = moveRange;
+    }
+
+    public static boolean canMove(int pickNumber) {
+        return FOR_WORD.moveRange >= pickNumber;
+    }
+}
