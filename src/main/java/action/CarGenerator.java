@@ -1,12 +1,12 @@
 package action;
 
-import java.util.Arrays;
+import constant.Constant;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class CarGenerator {
 
-    private static final int LENGTH = 5;
     private final String[] carNameArray;
 
     public CarGenerator(String carString) {
@@ -29,7 +29,7 @@ public class CarGenerator {
     }
 
     public void checkNameLength(String carName) throws IllegalArgumentException {
-        if (carName.length() > LENGTH) {
+        if (carName.length() > Constant.LENGTH) {
             throw new IllegalArgumentException();
         }
     }
