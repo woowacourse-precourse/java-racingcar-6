@@ -1,75 +1,57 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Application {
+
+    public static final int MINIMUM_NUMBER_TO_GO = 4;
+    public static final int RANDOM_NUMBER_RANGE_MIN = 0;
+    public static final int RANDOM_NUMBER_RANGE_MAX = 9;
+
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        ArrayList<String> inputCarName = new ArrayList<>();
-        String input = Console.readLine();
-        String[] names = input.split(",");
-        for (String name : names) {
-            if (name.length() <= 5) {
-                inputCarName.add(name);
-            } else {
-                throw new IllegalArgumentException("5글자 이하만 입력하시오");
-            }
+        List<String> carNames = InputView.inputCarName();
+        int tryNumber = InputView.inputTryNumber();
+
+        OutputView.printResultMessage();
+        int[] scores = new int[carNames.size()];
+        for (int round = 0; round < tryNumber; round++) {
+            race(carNames, scores);
+            OutputView.printRaceResult(carNames, scores);
         }
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        int tryNumber = inputTryNumber();
-        System.out.println("\n실행 결과");
-
-        int[] scores = new int[inputCarName.size()];
-        for (int j = 0; j < tryNumber; j++) {
-            for (int i = 0; i < inputCarName.size(); i++) {
-                int go = Randoms.pickNumberInRange(0, 9);
-                if (go >= 4) {
-                    scores[i]++;
-                }
-            }
-
-            for (int i = 0; i < inputCarName.size(); i++) {
-                System.out.print(inputCarName.get(i) + " : ");
-                for (int k = 0; k < scores[i]; k++) {
-                    System.out.print('-');
-                }
-                System.out.println();
-            }
-            System.out.println();
-        }
-
-        int max = scores[0];
-        for (int i = 0; i < scores.length; i++) {
-            if (scores[i] > max) {
-                max = scores[i];
-            }
-        }
-        System.out.print("최종 우승자 : ");
-        List<String> winner = new ArrayList<>();
-        for (int i = 0; i < scores.length; i++) {
-            if (scores[i] == max) {
-                winner.add(inputCarName.get(i));
-
-            }
-        }
-        String winnerNames = String.join(", ", winner);
-        System.out.println(winnerNames);
+        List<String> winners = getWinners(carNames, scores);
+        OutputView.printWinner(winners);
     }
 
-    private static int inputTryNumber() {
-        try {
-            int tryNumberInt = Integer.parseInt(Console.readLine());
-            if (tryNumberInt <= 0) {
-                throw new IllegalArgumentException("양수를 입력하시오");
+    private static void race(List<String> carNames, int[] scores) {
+        for (int i = 0; i < carNames.size(); i++) {
+            int goNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_RANGE_MIN, RANDOM_NUMBER_RANGE_MAX);
+            if (goNumber >= MINIMUM_NUMBER_TO_GO) {
+                scores[i]++;
             }
-            return tryNumberInt;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력하시오");
         }
+    }
+
+    private static List<String> getWinners(List<String> carNames, int[] scores) {
+        int maxScore = getMaxScore(scores);
+        List<String> winners = new ArrayList<>();
+        for (int i = 0; i < scores.length; i++) {
+            if (scores[i] == maxScore) {
+                winners.add(carNames.get(i));
+            }
+        }
+        return winners;
+    }
+
+    private static int getMaxScore(int[] scores) {
+        int max = scores[0];
+        for(int score : scores) {
+            if(max < score) {
+                max = score;
+            }
+        }
+        return max;
     }
 }
