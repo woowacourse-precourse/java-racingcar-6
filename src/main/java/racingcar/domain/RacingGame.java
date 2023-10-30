@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
@@ -8,7 +7,7 @@ public class RacingGame {
     private final Navigation navigation;
     private final Counter counter;
 
-    public RacingGame(ArrayList<Car> carList, int count) {
+    public RacingGame(List<Car> carList, int count) {
         navigation = new Navigation(carList);
         this.counter = new Counter(count);
     }
