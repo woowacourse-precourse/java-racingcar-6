@@ -3,8 +3,11 @@ package racingcar.console;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.List;
+import java.util.StringJoiner;
 
 public class ConsoleImpl implements Console {
+    private final String WINNERS_DELIMITER = ", ";
+
     private void print(String message) {
         System.out.print(message);
     }
@@ -48,12 +51,12 @@ public class ConsoleImpl implements Console {
     }
 
     @Override
-    public void displayWinner(List<String> winners) {
-        print("최종 우승자 : ");
-        for ( int i = 0; i < winners.size(); i++ ) {
-            print(winners.get(i));
-            if ( i != winners.size() - 1 )
-                print(", ");
-        }
+    public void displayWinners(List<String> winners) {
+        StringJoiner joiner = new StringJoiner(WINNERS_DELIMITER);
+
+        for ( String name : winners )
+            joiner.add(name);
+
+        print("최종 우승자 : " + joiner);
     }
 }

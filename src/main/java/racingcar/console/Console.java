@@ -7,5 +7,5 @@ public interface Console {
     String getRaceCount();
     void displayResultText();
     void displayStatus(String Name, int distance);
-    void displayWinner(List<String> winners);
+    void displayWinners(List<String> winners);
 }

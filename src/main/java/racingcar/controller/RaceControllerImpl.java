@@ -40,6 +40,6 @@ public class RaceControllerImpl implements RaceController {
         }
 
         List<String> winners = raceService.filterWinner(participants);
-        console.displayWinner(winners);
+        console.displayWinners(winners);
     }
 }
