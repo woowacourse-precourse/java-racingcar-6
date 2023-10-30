@@ -97,10 +97,10 @@ public class GameUtil {
         for (Car car : cars) {
             if (car.getProgress().equals(maxCar.getProgress())) {
                 result.append(car.getName());
-                result.append(",");
+                result.append(", ");
             }
         }
 
-        System.out.println(Constants.WINNER_PRINT_COMMENT + result.deleteCharAt(result.length()-1));
+        System.out.println(Constants.WINNER_PRINT_COMMENT + result.deleteCharAt(result.length()-2));
     }
 }
