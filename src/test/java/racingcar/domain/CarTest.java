@@ -13,7 +13,7 @@ class CarTest {
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     void carMoveTest(int randomNumber) {
         // given
-        Car pobi = Car.makeCar("pobi");
+        Car pobi = new Car("pobi");
 
         // when
         pobi.tryMove(randomNumber);
@@ -27,7 +27,7 @@ class CarTest {
     @ValueSource(ints = {0, 1, 2, 3})
     void carDoNotMoveTest(int randomNumber) {
         // given
-        Car pobi = Car.makeCar("pobi");
+        Car pobi = new Car("pobi");
 
         // when
         pobi.tryMove(randomNumber);

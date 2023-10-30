@@ -18,7 +18,7 @@ public class InputView {
 
         return new Cars(Arrays.stream(cars.split(DELIMITER))
                 .map(String::trim)
-                .map(Car::makeCar)
+                .map(Car::new)
                 .toList());
     }
 
