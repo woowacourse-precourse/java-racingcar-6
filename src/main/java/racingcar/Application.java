@@ -59,12 +59,15 @@ public class Application {
             carRacingCountList.set(i, carRacingCountList.get(i) + Randoms.pickNumberInRange(0,9));        
     }
 
-    public static void RacingGameStart(){
-        System.out.println("실행 결과");
-        
-        for(int i=0; i<carNameList.length; i++){
+    public static void AddCarRacingCountList(){
+        for(int i=0; i<carNameList.length; i++)
             carRacingCountList.add(0);
-        }
+    }
+
+    public static void RacingGameStart(){
+        System.out.println("실행 결과");        
+        
+        AddCarRacingCountList();
 
         for(int j=0; j<gameRepeatNum; j++){
             RacingStart();
@@ -95,14 +98,14 @@ public class Application {
     }
 
     public static void InputNameCheck(){
-        for(int i=0; i<carNameList.length; i++){
+        for( int i=0; i<carNameList.length; i++){
             NameCheck(carNameList[i]);
         }
     }
 
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        
+
         String carNameInput = Console.readLine();
         carNameList = carNameInput.split("\\,");        
         InputNameCheck();
