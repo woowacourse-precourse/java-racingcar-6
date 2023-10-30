@@ -2,7 +2,11 @@ package racingcar;
 
 import java.util.*;
 
-
+// 효율적인 구현을 위한 Class 정의
+class Car {
+    private String carName;
+    private int position;
+}
 
 public class Application {
     public static void main(String[] args) {
