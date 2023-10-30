@@ -24,4 +24,12 @@ public class GameManagerController {
         OutputView.printTotalRoundInputQuestion();
         return InputView.requestTotalRoundNumber();
     }
+
+    private void runCarRace(final Cars cars, final TotalRoundNumberRequest totalRoundNumberRequest) {
+        OutputView.printGameStartMessage();
+        for (int i = 0; i < totalRoundNumberRequest.getTotalCount(); i++) {
+            cars.move();
+            OutputView.printCurrentProgress(cars);
+        }
+    }
 }
