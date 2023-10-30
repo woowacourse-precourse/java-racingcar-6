@@ -38,7 +38,7 @@ public class GameHost {
      * @param progressCarList
      * @return
      */
-    private Integer getCntMaxMove(List<RaceCar> progressCarList) {
+    public Integer getCntMaxMove(List<RaceCar> progressCarList) {
         int max = progressCarList.stream()
                 .mapToInt(RaceCar::getCntMovementOfCar)
                 .max()
