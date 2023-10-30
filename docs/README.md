@@ -61,27 +61,27 @@
   
 5. 레이싱 게임 (racing)
 - value
-  - [ ] turn (시행 횟수)
-  - [ ] Cars
-  - [ ] userInput
+  - [x] turn (시행 횟수)
+  - [x] Cars
+  - [x] userInput
 - func
-   - [ ] play (ready, start, end)
-   - [ ] ready (userInput 입력 및 출력, Cars+turn 설정)
-   - [ ] start (turn만큼 반복-Cars.go or stop)
-   - [ ] end (winner : Cars.getWinner, winner 출력)
+   - [x] play (ready, start, end)
+   - [x] ready (userInput 입력 및 출력, Cars+turn 설정)
+   - [x] start (turn만큼 반복-Cars.go or stop)
+   - [x] end (winner : Cars.getWinner, winner 출력)
 
 6. 출력 (printUtil)
 - func
    - [x]  "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"
    - [x]  "시도할 횟수는 몇회인가요?"
    - [x]  "실행 결과"
-   - [ ]  Cars -> car.name + ": " + "-"*car.moving
+   - [x]  Cars -> car.name + ": " + "-"*car.moving
    - [x]  "최종 우승자 :" + winner
 
 7. 변환 (convertUtil)
 - func
-  - [ ] newCarsName(String) -> carsNameArray(String[])
-  - [ ] newTurn(String) -> turn(int)
+  - [x] newCarsName(String) -> carsNameArray(String[])
+  - [x] newTurn(String) -> turn(int)
 
 ----------------------------------------------------------------
 주의 사항
