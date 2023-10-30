@@ -8,6 +8,7 @@ public class Winners {
     private final int maxDistance;
 
     public Winners(List<Car> cars) {
+        validateCars(cars);
         maxDistance = calculateMaxDistance(cars);
         winners = findWinningCars(cars, maxDistance);
     }
@@ -16,10 +17,14 @@ public class Winners {
         return maxDistance;
     }
 
-    public List<String> getNames() {
+    public List<String> getWinningCarNames() {
         return winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    public List<Car> getWinningCars() {
+        return winners;
     }
 
     private int calculateMaxDistance(List<Car> cars) {
@@ -35,7 +40,9 @@ public class Winners {
                 .collect(Collectors.toList());
     }
 
-    public List<Car> getWinningsCars() {
-        return winners;
+    private void validateCars(List<Car> cars) {
+        if (cars.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
     }
 }
