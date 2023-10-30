@@ -44,11 +44,10 @@ public class OutputView {
         String result = "";
         for (int i = 0; i < playerName.size(); i++) {
             if (Validator.isWinner(winnerDistance, playerDistance.get(i))) {
-                result = result + playerName.get(i);
-                System.out.print(playerName.get(i));
+                result = plusWinner(result, playerName.get(i));
             }
         }
-        System.out.println();
+        System.out.println(result);
     }
 
 }
