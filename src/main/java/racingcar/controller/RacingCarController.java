@@ -29,6 +29,8 @@ public class RacingCarController {
     }
 
     public void playGame(int count) {
+        racingCarView.gameProgressResultPrint();
+
         for (int i = 0; i < count; i++) {
             CarList carList = racingCarService.checkCarListMove();
             racingCarView.gameProgressPrint(carList);
