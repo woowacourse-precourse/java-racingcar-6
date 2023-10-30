@@ -19,10 +19,14 @@ public class RacingCarController {
         Round round = Round.of(inputView.readRound());
         outputView.printExecutionResult();
         while (round.hasRound()) {
-            racer.play();
-            outputView.printResult(racer.toString());
+            play(racer);
             round.turn();
         }
         outputView.printFinalWinner(racer.winnerToString());
+    }
+
+    private void play(Racer racer) {
+        racer.play();
+        outputView.printResult(racer.toString());
     }
 }
