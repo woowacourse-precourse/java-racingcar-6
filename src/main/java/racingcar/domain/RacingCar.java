@@ -26,4 +26,12 @@ public class RacingCar implements Comparable<RacingCar> {
     public int compareTo(RacingCar other) {
         return Integer.compare(this.forwardDistance, other.forwardDistance);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder car = new StringBuilder();
+        car.append(String.format("%s : ", name));
+        car.append("-".repeat(forwardDistance));
+        return car.toString();
+    }
 }
