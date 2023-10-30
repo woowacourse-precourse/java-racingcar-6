@@ -10,8 +10,13 @@ public class Car {
     private int tryNum;
     private ArrayList<Car> car = new ArrayList<>();
 
-    public Car(String name) {
+    Car() {
 
+    }
+
+    Car(String name) {
+        this.name = name;
+        this.race = "";
     }
 
     void inputCarsName() {
@@ -55,8 +60,22 @@ public class Car {
             }
         }
         System.out.println("최종 우승자 : ");
-        for (int i = 0; i < winners.length() - 1; i++) {
+        for (int i = 0; i < winners.length() - 2; i++) {
             System.out.printf("%c", winners.charAt(i));
         }
+    }
+
+    void drawRotation() {
+        for (int i = 0; i < tryNum; i++) {
+            draw();
+            outputDraw();
+        }
+    }
+
+    void run() {
+        inputCarsName();
+        inputTryNum();
+        drawRotation();
+        winner();
     }
 }
