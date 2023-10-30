@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import java.util.Map;
+import racingcar.constants.ExceptionMessage;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
@@ -27,8 +28,16 @@ public class GameController {
     private void initializeGame() {
         outputView.requestCarNames();
         cars = generateCars(inputView.inputCars());
+        initializeTryCount();
+    }
+
+    private void initializeTryCount() {
         outputView.requestTryCount();
-        tryCount = generateTryCount(inputView.inputTryCount());
+        try {
+            tryCount = generateTryCount(inputView.inputTryCount());
+        } catch (NumberFormatException e) {
+            ExceptionMessage.INVALID_INPUT_ERROR_MESSAGE.throwException();
+        }
     }
 
     private Cars generateCars(String carNames) {
@@ -36,8 +45,9 @@ public class GameController {
         return new Cars(carNameList);
     }
 
-    private TryCount generateTryCount(String tryCountInput) {
-        return new TryCount(InputParser.tryCountParser(tryCountInput));
+    private TryCount generateTryCount(String tryCountInput) throws NumberFormatException {
+        int parsedTryCount = InputParser.tryCountParser(tryCountInput);
+        return new TryCount(parsedTryCount);
     }
 
     private void startRace() {
