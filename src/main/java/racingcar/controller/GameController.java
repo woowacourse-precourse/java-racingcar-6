@@ -22,6 +22,8 @@ public class GameController {
         outputView.askCarNames();
 
         Cars playCars = Cars.from(inputView.readLine());
+
+        outputView.askPlayCount();
         PlayCount playCount = PlayCount.createDefault(inputView.readLine());
 
         while (!playCount.isGameEnd()) {
