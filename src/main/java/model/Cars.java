@@ -13,19 +13,19 @@ public class Cars {
     }
 
 
-    public List<String> findMaxMovingCount() {
+    public List<Car> findMaxMovingCount() {
         cars.sort(Car::compareTo);
-        List<String> maxMovingCounts = new ArrayList<>();
+        List<Car> maxMovingCounts = new ArrayList<>();
 
         Car currentCar = cars.get(0);
-        maxMovingCounts.add(currentCar.toString());
+        maxMovingCounts.add(currentCar);
 
         for (int i = 1; i < cars.size(); i++) {
             Car nextCar = cars.get(i);
             if (!currentCar.isSameMovingCount(nextCar)) {
                 break;
             }
-            maxMovingCounts.add(nextCar.toString());
+            maxMovingCounts.add(nextCar);
         }
 
         return maxMovingCounts;
@@ -45,7 +45,7 @@ public class Cars {
             stringBuilder.append(car.currentRacingStatus());
             stringBuilder.append("\n");
         }
-        
+
         stringBuilder.append("\n");
         return stringBuilder.toString();
     }

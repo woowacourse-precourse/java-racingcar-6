@@ -40,10 +40,10 @@ public class CarsTest {
 
         Cars cars = new Cars(carList);
         //when
-        List<String> maxMovingCountName = cars.findMaxMovingCount();
+        List<Car> maxMovingCountName = cars.findMaxMovingCount();
 
         //then
-        Assertions.assertThat(maxMovingCountName).isEqualTo(List.of("lisa"));
+        Assertions.assertThat(maxMovingCountName).isEqualTo(List.of(lisaCar));
     }
 
     @Test
