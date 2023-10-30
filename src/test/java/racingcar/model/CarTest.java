@@ -43,4 +43,20 @@ class CarTest {
         //then
         assertThat(carPosition).isEqualTo("pobi : ---\n");
     }
+
+    @Test
+    @DisplayName("현재 위치와 일치하는지 판별할 수 있다.")
+    void check_equal_car_position() {
+        //given
+        Car car = new Car("woni");
+        IntStream
+                .range(0, 3)
+                .forEach(i -> car.movePosition());
+
+        //when
+        boolean isEqualCarPosition = car.isEqualCarPosition(3);
+
+        //given
+        assertThat(isEqualCarPosition).isTrue();
+    }
 }

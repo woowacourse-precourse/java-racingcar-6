@@ -37,7 +37,7 @@ public class Cars {
 
     public String getFinalWinners() {
         List<String> winners = racingCars.stream()
-                .filter(car -> car.equalCarPosition(findCarMaxPosition()))
+                .filter(car -> car.isEqualCarPosition(findCarMaxPosition()))
                 .map(Car::getName)
                 .toList();
         return String.join(GameResultElement.COMMA.getElement(), winners);
