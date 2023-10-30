@@ -6,10 +6,10 @@ import java.util.List;
 import racingcar.dto.RacingCar;
 
 public class RacingCarGameInput {
-    public static String ERROR_MESSAGE_BIGGER_THAN_5CHAR = "[ERROR] 자동차 이름은 5자 이하만 가능합니다.";
-    public static String ERROR_MESSAGE_NOT_NUMBER = "[ERROR] 시도 횟수는 숫자여야 합니다.";
-    public static String ERROR_MESSAGE_NOT_POSITIVE = "[ERROR] 시도 횟수는 1 이상이어야 합니다.";
-    public static String ERROR_MESSAGE_EMPTY = "[ERROR] 자동차 이름에 공백이 있을 수 없습니다.";
+    public static final String ERROR_MESSAGE_BIGGER_THAN_5CHAR = "[ERROR] 자동차 이름은 5자 이하만 가능합니다.";
+    public static final String ERROR_MESSAGE_NOT_NUMBER = "[ERROR] 시도 횟수는 숫자여야 합니다.";
+    public static final String ERROR_MESSAGE_NOT_POSITIVE = "[ERROR] 시도 횟수는 1 이상이어야 합니다.";
+    public static final String ERROR_MESSAGE_EMPTY = "[ERROR] 자동차 이름에 공백이 있을 수 없습니다.";
 
     public static List<RacingCar> readCarNames() {
         String input = Console.readLine();
