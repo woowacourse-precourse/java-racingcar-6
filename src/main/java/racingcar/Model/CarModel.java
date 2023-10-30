@@ -7,7 +7,7 @@ import racingcar.Validator.CarNameValidator;
 public class CarModel {
 
     public final CarNameValidator carNameValidator = new CarNameValidator();
-
+    private static final String DELIMITER = ",";
     public CarGroup preProcessing(String carNames) {
         List<String> carNameList = divideCarNameByDelimiter(carNames);
         for (String carName : carNameList) {
@@ -18,7 +18,6 @@ public class CarModel {
         return CarGroup.of(carNameList);
     }
     public List<String> divideCarNameByDelimiter(String carName) {
-        String DELIMITER = ",";
         return List.of(carName.split(DELIMITER));
     }
 }
