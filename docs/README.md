@@ -1,6 +1,5 @@
 1.공용 변수들 정리
 -
-  - goCount //전진횟수
   - carsName //자동차 이름들
   - carsScore //자동차 이동거리
   - carsScoreString //이동거리 이미지화
