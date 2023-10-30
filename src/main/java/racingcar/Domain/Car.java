@@ -23,17 +23,15 @@ public class Car {
         return position;
     }
 
-    public boolean move() {
+    public void isCarMove() {
         int randomNumber = generateRandomNumber();
         if (randomNumber >= 4) {
             position++;
-            return true;
         }
-        else return false;
     }
 
-    @Override
-    public String toString() {
-        return name + " : " + "-".repeat(position);
-    }
+//    @Override
+//    public String toString() {
+//        return name + " : " + "-".repeat(position);
+//    }
 }

@@ -68,7 +68,7 @@
 
 ### ✔️ **자동차 경주 진행**
 
-- [ ]  raceNumber 생성
+- [x]  raceNumber 생성
   - `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용
   - 객체로 받기
     - 전진과 멈춤 판단하여 `boolean`으로 반환

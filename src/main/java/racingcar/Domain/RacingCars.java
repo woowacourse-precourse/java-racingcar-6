@@ -22,7 +22,7 @@ public class RacingCars {
 
     public void race() {
         for (Car car : cars) {
-            car.move();
+            car.isCarMove();
         }
     }
 
