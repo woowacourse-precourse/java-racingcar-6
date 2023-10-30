@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.car.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,6 @@ public class Util {
     // 최종 우승자 가리기
     public static int getMax(ArrayList<Integer> positions){
         return Collections.max(positions);
-
     }
 
     // 라운드별 결과값 출력
@@ -42,17 +42,16 @@ public class Util {
         System.out.println();
     }
 
-    // 최종 우승자 출력
+    // 최종 우승자 문구 출력
     public static void printWinner(ArrayList<String> winners) {
-        System.out.print(WINNER_MESSAGE);
-        System.out.println(String.join(DELIMETER+" ", winners));
+        System.out.print(WINNER_MESSAGE + ROUND_RESULT_DELIMETER);
     }
 
     // 점수 출력
-    public static void printScore(int score) {
+    public static String printScore(int score) {
         StringBuilder scores = new StringBuilder(" ");
         IntStream.range(0, score).forEach(i -> scores.append(SCORE));
-        System.out.print(scores);
+        return scores.toString();
     }
 
 }
