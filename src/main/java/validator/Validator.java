@@ -11,8 +11,6 @@ public class Validator {
 
     public void checkLengthName(List<String> names) {
         for(String name : names) {//공백은 길이에 포함
-            System.out.println(name.length());
-
             if(name.isEmpty()) {//""는 빈 문자열
                 throw new IllegalArgumentException(ErrorMessage.EXCEPTION_NAME_UNDER);
             }
