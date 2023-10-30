@@ -45,4 +45,14 @@ public class RacingCarController {
     private boolean isCoincide(int maxResult, int currentNumber){
         return maxResult == currentNumber;
     }
+    public void run() {
+        outputView.result();
+        int moveSize = user.getMoveSize();
+        while(moveSize--> 0) {
+            move();
+            outputView.moveResult(carMap);
+        }
+        outputView.winner();
+        outputView.winnerList(winner());
+    }
 }
