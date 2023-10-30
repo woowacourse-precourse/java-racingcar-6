@@ -6,8 +6,8 @@ public class InputView {
 
     private final InputValidator inputValidator;
 
-    private InputView(final InputValidator inputValidator) {
-        this.inputValidator = inputValidator;
+    public InputView() {
+        this.inputValidator = new InputValidator();
     }
 
     public String readRacingCarName() {

@@ -1,21 +1,19 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarNameSeperator;
 import racingcar.domain.Cars;
+import racingcar.utils.RandomNumberGenerator;
 
 public class RacingCarService {
 
-    private static final int MIN_RANGE = 0;
-    private static final int MAX_RANGE = 9;
-    private static final int STANDARD_OF_JUDGMENT = 4;
-
     private final CarNameSeperator carNameSeperator;
+    private final RandomNumberGenerator randomNumberGenerator;
 
     public RacingCarService() {
         this.carNameSeperator = new CarNameSeperator();
+        this.randomNumberGenerator = new RandomNumberGenerator();
     }
 
     public Cars saveCarName(final String input) {
@@ -24,26 +22,16 @@ public class RacingCarService {
         return cars;
     }
 
-    public void moveCar(final String input) {
-        int repeatCount = Integer.parseInt(input);
-        for (int i = 0; i < repeatCount; i++) {
-            judgeMoveCar();
-        }
+    public Cars moveCar(final Cars cars) {
+        judgeMoveCar(cars);
+        return cars;
     }
 
-    private void judgeMoveCar() {
-        int pick = Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
-        for (Car car : cars) {
-            carDistanceIncrease(pick, car);
-        }
-
-    }
-
-    private void carDistanceIncrease(final int pick, final Car car) {
-        if (pick < STANDARD_OF_JUDGMENT) {
-            car.increaseDistance();
+    private void judgeMoveCar(final Cars cars) {
+        for (Car car : cars.getCars()) {
+            if (randomNumberGenerator.isIncreseDistance()) {
+                car.increaseDistance();
+            }
         }
     }
-
-
 }

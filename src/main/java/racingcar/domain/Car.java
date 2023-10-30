@@ -1,7 +1,10 @@
 package racingcar.domain;
 
+import racingcar.utils.RandomNumberGenerator;
+
 public class Car {
 
+    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
     private String name;
     private int distance;
 
@@ -16,4 +19,5 @@ public class Car {
     public void increaseDistance() {
         distance++;
     }
+
 }

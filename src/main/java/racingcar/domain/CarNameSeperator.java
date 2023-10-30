@@ -7,7 +7,7 @@ import racingcar.constant.ExceptionMessage;
 
 public class CarNameSeperator {
 
-    private static final String DILIMITER =",";
+    private static final String DILIMITER = ",";
     private static final String DOUBLE_DELIMITER = ",,";
 
     public List<String> seperateCarNames(final String input) {

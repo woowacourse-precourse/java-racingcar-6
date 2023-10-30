@@ -1,9 +1,9 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.service.RacingCarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import racingcar.service.RacingCarService;
 
 public class RacingCarController {
 
@@ -23,6 +23,11 @@ public class RacingCarController {
         Cars cars = racingCarService.saveCarName(carName);
         outputView.printRepeatNumberMessage();
         String repeatCount = inputView.readRepeatCount();
-        racingCarService.moveCar(repeatCount);
+        for (int i = 0; i < Integer.parseInt(repeatCount); i++) {
+            racingCarService.moveCar(cars);
+            outputView.printGameStatus(cars);
+        }
+
+
     }
 }

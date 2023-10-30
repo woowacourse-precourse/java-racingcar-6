@@ -10,4 +10,7 @@ public class Cars {
         this.cars = cars.stream().map(Car::new).toList();
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
 }
