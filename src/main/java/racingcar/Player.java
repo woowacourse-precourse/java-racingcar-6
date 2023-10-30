@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Player {
     private static final List<String> carNames = new ArrayList<>();
+    private static int raceCount;
 
     private static final int CAR_COUNT = 3;
     private static final int CAR_NAME_LENGTH = 5;
@@ -15,6 +16,11 @@ public class Player {
         String input = Console.readLine();
         List<String> inputs = splitInputCarNames(input);
         validateCarNames(inputs);
+    }
+
+    public void inputRaceCount() {
+        String input = Console.readLine();
+        validateRaceCount(input);
     }
 
     private List<String> splitInputCarNames(String input) {
@@ -39,6 +45,25 @@ public class Player {
 
     private void validateCarNameLength(String input) {
         if (input.length() > CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateRaceCount(String input) {
+        validateRaceCountType(input);
+        validateRaceCountValue();
+    }
+
+    private void validateRaceCountType(String input) {
+        try {
+            raceCount = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateRaceCountValue() {
+        if (raceCount < 1) {
             throw new IllegalArgumentException();
         }
     }
