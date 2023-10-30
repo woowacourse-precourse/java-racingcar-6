@@ -53,6 +53,16 @@ public class Application {
         return maxPosition;
     }
 
+    public List<String> findWinners(int maxPosition){
+        List<String> winners = new ArrayList<>();
+        for (Car car : racerList) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
 
     public void racing() {
         scanner = new Scanner(System.in);
@@ -82,15 +92,10 @@ public class Application {
 
         // 제일 멀리 간 position 확인
         int maxPosition = findMaxPosition();
+        // 멀리 간 position에 해당하는 car를 우승자로 선정하여 List 형태에 저장
+        List<String> winners = findWinners(maxPosition);
 
-        List<String> winners = new ArrayList<>();
-        for (Car car : racerList) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
-            }
-        }
-
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
             if (i < winners.size() - 1) {
