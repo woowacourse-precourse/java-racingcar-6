@@ -35,7 +35,7 @@ public class RaceGameTest {
 
     @Test
     @DisplayName("시도 회수가 1보다 작으면 예외를 반환한다.")
-    void 시도_회수가_0보다_작으면_예외를_반환한다() {
+    void 시도_회수가_1보다_작으면_예외를_반환한다() {
       // given
       var mockFormula = new MockFormula(MoveState.MOVING_FORWARD);
       var cars = CarFactory.createCars(List.of("pobi", "crong", "honux"));
@@ -56,8 +56,8 @@ public class RaceGameTest {
     private final int round = 1;
 
     @Test
-    @DisplayName("MoveState가 MOVING_FORWARD일 때 자동차가 전진한다.")
-    void MoveState가_MOVING_FORWARD일_때_자동차가_전진한다() {
+    @DisplayName("MoveState가 MOVING_FORWARD일 때 전진한다.")
+    void MoveState가_MOVING_FORWARD일_때_전진한다() {
       // given
       var mockFormula = new MockFormula(MoveState.MOVING_FORWARD);
 
@@ -74,8 +74,8 @@ public class RaceGameTest {
     }
 
     @Test
-    @DisplayName("MoveState가 STOP일 때 자동차가 멈춘다.")
-    void MoveState가_STOP일_때_자동차가_멈춘다() {
+    @DisplayName("MoveState가 STOP일 때 멈춘다.")
+    void MoveState가_STOP일_때_멈춘다() {
       // given
       var mockFormula = new MockFormula(MoveState.STOP);
 

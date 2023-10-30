@@ -66,8 +66,8 @@ public class CarTest {
     private final int position = 0;
 
     @Test
-    @DisplayName("MoveState가 MOVING_FORWARD일 때 자동차가 전진한다.")
-    void MoveState가_MOVING_FORWARD일_때_자동차가_전진한다() {
+    @DisplayName("MoveState가 MOVING_FORWARD일 때 전진한다.")
+    void MoveState가_MOVING_FORWARD일_때_전진한다() {
       // given
       var car = new Car(name, position);
       var mockFormula = new MockFormula(MoveState.MOVING_FORWARD);
@@ -80,8 +80,8 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("MoveState가 STOP일 때 자동차가 멈춘다.")
-    void MoveState가_STOP일_때_자동차가_멈춘다() {
+    @DisplayName("MoveState가 STOP일 때 멈춘다.")
+    void MoveState가_STOP일_때_멈춘다() {
       // given
       var car = new Car(name, position);
       var mockFormula = new MockFormula(MoveState.STOP);
@@ -102,8 +102,8 @@ public class CarTest {
     private final int position = 0;
 
     @Test
-    @DisplayName("자동차 이름을 반환한다.")
-    void 자동차_이름을_반환한다() {
+    @DisplayName("이름을 반환한다.")
+    void 이름을_반환한다() {
       // given
       var car = new Car(name, position);
 
@@ -115,8 +115,8 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("자동차 위치를 반환한다.")
-    void 자동차_위치를_반환한다() {
+    @DisplayName("위치를 반환한다.")
+    void 위치를_반환한다() {
       // given
       var car = new Car(name, position);
 
