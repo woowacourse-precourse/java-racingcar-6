@@ -1,12 +1,12 @@
 package racingcar.controller;
 
 import racingcar.service.CarService;
-import racingcar.view.outputview.RacingOutputView;
+import racingcar.view.outputview.PlayOutputView;
 
 import java.util.Map;
 
-public class RacingController implements Controller {
-    private final RacingOutputView racingOutputView;
+public class playController implements Controller {
+    private final PlayOutputView playOutputView;
     private final CarService carService;
 
     RacingController(RacingOutputView racingOutputView, CarService carService) {

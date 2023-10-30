@@ -3,7 +3,7 @@ package racingcar.controller;
 import racingcar.service.CarService;
 import racingcar.view.inputview.InputValidator;
 import racingcar.view.inputview.SettingInputView;
-import racingcar.view.outputview.RacingOutputView;
+import racingcar.view.outputview.PlayOutputView;
 import racingcar.view.outputview.ResultOutputView;
 import racingcar.view.outputview.SettingOutputView;
 

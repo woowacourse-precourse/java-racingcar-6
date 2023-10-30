@@ -6,7 +6,7 @@ import racingcar.domain.Cars;
 import java.util.List;
 import java.util.Map;
 
-public class RacingOutputView implements OutputView {
+public class PlayOutputView implements OutputView {
     static {
         System.out.println("실행 결과");
     }

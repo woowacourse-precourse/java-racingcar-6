@@ -17,9 +17,9 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class RacingOutputViewTest {
+class playOutputViewTest {
     private static ByteArrayOutputStream outputMessage;
-    private OutputView outputView = new RacingOutputView();
+    private OutputView outputView = new PlayOutputView();
     CarService carService;
 
     private MoveRule createMoveRule(int generateNumber) {
