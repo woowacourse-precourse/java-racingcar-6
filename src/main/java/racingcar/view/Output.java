@@ -13,9 +13,10 @@ public class Output {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public static void printIntroductionOfResult(){
+    public static void printIntroductionOfResult() {
         System.out.println("실행 결과");
     }
+
     public static void printResultOfEachExecution(List<Car> carList) {
 
         for (Car car : carList) {

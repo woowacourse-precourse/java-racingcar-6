@@ -2,10 +2,10 @@ package racingcar.domain;
 
 public class Car {
 
-    private String name;
-    private int location;
     private static final int LIMIT_NAME_LENGTH = 5;
     private static final int THRESHOLD = 4;
+    private String name;
+    private int location;
 
     public Car(String name) {
         if (name.length() > LIMIT_NAME_LENGTH) {
