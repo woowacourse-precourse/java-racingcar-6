@@ -7,31 +7,31 @@ public class UserInputValidator {
     public static final String ONLY_NUMBER_ALLOWED = "숫자만 입력할 수 있습니다.";
     public static final String POSITIVE_NUMBER_ALLOWED = "0또는 음수는 입력할 수 없습니다.";
 
-    public static final int MIN_NUMBER = 1;
+    public static final int MIN_LENGTH_ALLOWED = 1;
 
     public static void validateUserInput(String userInput) {
-        validateIsEmpty(userInput);
-        validateIsNull(userInput);
+        validateEmpty(userInput);
+        validateNull(userInput);
     }
 
     public static void validateNumberOfRetriesInput(String userInput) {
-        validateIsNumber(userInput);
-        validateIsPositive(userInput);
+        validateNumber(userInput);
+        validatePositiveNumber(userInput);
     }
 
-    private static void validateIsEmpty(String input) {
+    private static void validateEmpty(String input) {
         if (input.isEmpty()) {
             throw new IllegalArgumentException(EMPTY_NOT_ALLOWED);
         }
     }
 
-    private static void validateIsNull(String input) {
+    private static void validateNull(String input) {
         if (input.isBlank()) {
             throw new IllegalArgumentException(BLANK_NOT_ALLOWED);
         }
     }
 
-    private static void validateIsNumber(String input) {
+    private static void validateNumber(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -39,8 +39,8 @@ public class UserInputValidator {
         }
     }
 
-    private static void validateIsPositive(String input) {
-        if (Integer.parseInt(input) < MIN_NUMBER) {
+    private static void validatePositiveNumber(String input) {
+        if (Integer.parseInt(input) < MIN_LENGTH_ALLOWED) {
             throw new IllegalArgumentException(POSITIVE_NUMBER_ALLOWED);
         }
     }
