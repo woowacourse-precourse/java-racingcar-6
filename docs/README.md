@@ -1,17 +1,17 @@
 ## 자동차 경주 게임
 
 ### 기능 목록
-- [ ] 자동차의 이름들을 입력받는다. Input # carNames()
-- [ ] 각 자동차는 이름을 부여받을 수 있다. Car # name
-- [ ] 쉼표(,)로 구분된 이름만큼의 자동차 인스턴스를 생성한다.
+- [x] 자동차의 이름들을 입력받는다. Input # carNames()
+- [x] 각 자동차는 이름을 부여받을 수 있다. Car # name
+- [x] 쉼표(,)로 구분된 이름만큼의 자동차 인스턴스를 생성한다.
 
-- [ ] 사용자에게 몇 번의 이동을 할 것인지 입력받는다. Input # round()
-- [ ] 입력된 횟수만큼 0부터 9 사이의 난수를 생성한다. Move # getRandomNum()
-    - [ ] 4 ~ 9 일 경우 전진 Move # judgeNum, Car # setDistance()
-- [ ] 각 자동차는 본인이 이동한 거리를 저장한다. Car # distance
-- [ ] 모든 이동이 끝난 후 우승자를 출력한다.
-  - [ ] 우승자는 이동한 거리가 가장 많은 자동차이다. PickWinner # compareDistance()
-  - [ ] 만약, 우승자가 여러 명일 겅우 쉼표(,)를 이용하여 구분한다. Output # winnerMessage()
+- [x] 사용자에게 몇 번의 이동을 할 것인지 입력받는다. Input # round()
+- [x] 입력된 횟수만큼 0부터 9 사이의 난수를 생성한다. Move # getRandomNum()
+    - [x] 난수가 0 ~ 3일 경우 정지, 4 ~ 9일 경우 전진 Move # race(), Car # setDistance()
+- [x] 각 자동차는 본인이 이동한 거리를 저장한다. Car # distance
+- [x] 모든 이동이 끝난 후 우승자를 출력한다.
+  - [x] 우승자는 이동한 거리가 가장 많은 자동차이다. PickWinner # compareDistance()
+  - [x] 만약, 우승자가 여러 명일 겅우 쉼표(,)를 이용하여 구분한다. Output # winnerMessage()
 
 ### 공식 예외 처리
 - [ ] 자동차의 이름은 5자 이하여야 한다.

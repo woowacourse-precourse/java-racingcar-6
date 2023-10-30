@@ -6,14 +6,15 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
+        distance = "";
     }
 
     public String getName() {
-        return name + " : ";
+        return name;
     }
 
-    public void setDistance(String distance) {
-        this.distance = distance + "-";
+    public void setDistance() {
+        distance += "-";
     }
 
     public String getDistance() {
