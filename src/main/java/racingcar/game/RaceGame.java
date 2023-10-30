@@ -21,6 +21,7 @@ public class RaceGame {
             for(Car car : cars){
                 car.move();
             }
+            printCarsPosition();
         }
     }
 
@@ -28,11 +29,11 @@ public class RaceGame {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         List<String> parseResults = parseNamesFromInput(input);
-        if(!validateNumberOfCar(parseResults)){
+        if(!inputValidator.validateNumberOfCar(parseResults)){
             throw new IllegalArgumentException("Input Error: Invalid the minimum number of cars");
         }
         for(String result : parseResults){
-            if(!validateNameOfLength(result)){
+            if(!inputValidator.validateNameOfLength(result)){
                 throw new IllegalArgumentException("Input Error: Invalid name length");
             }
             Car racer = new Car(result);
@@ -43,17 +44,6 @@ public class RaceGame {
         String[] parseResultArray = input.split(",");
         // convert array type into list type
         return Arrays.asList(parseResultArray);
-    }
-
-    // 경주에 참여하는 자동차가 최소 2대 이상인지 확인하는 메서드
-    private Boolean validateNumberOfCar(List<String> candidateCars){
-        return candidateCars.size() >= 2;
-    }
-
-    private Boolean validateNameOfLength(String name){
-        Boolean isMinLengthValid = inputValidator.isMinLengthValid(name);
-        Boolean isMaxLengthValid = inputValidator.isMaxLengthValid(name);
-        return (isMinLengthValid && isMaxLengthValid);
     }
 
     private void inputMoveCount(){
@@ -67,5 +57,14 @@ public class RaceGame {
             throw new IllegalArgumentException("Input Error: Invalid the minimum number of moveCount");
         }
         this.moveCount = numericInput;
+    }
+
+    private void printCarsPosition(){
+        String distanceMark = "-";
+        for(Car car : cars){
+            String name = car.getName();
+            String position = distanceMark.repeat(car.getPosition());
+            System.out.println(name + " : " + position);
+        }
     }
 }

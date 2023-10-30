@@ -12,13 +12,18 @@ public class Car {
         this.position = 0;
     }
 
-    public Boolean move(){
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void move(){
         int randomValue = generateRandomValue();
         if(randomValue >= 4){
             this.position++; // 1칸 전진
-            return true; // 전진을 의미
-        }else{
-            return false; // 멈춤을 의미
         }
     }
     private Integer generateRandomValue(){
