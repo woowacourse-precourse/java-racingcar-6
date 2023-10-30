@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public final class Car {
     private final String name;
     private Integer position;
@@ -28,14 +26,5 @@ public final class Car {
             return position;
         }
         throw new IllegalArgumentException();
-    }
-
-    public Integer getRandomNUmber(Integer minNUmber, Integer maxNumber) {
-        return Randoms.pickNumberInRange(minNUmber, maxNumber);
-    }
-
-    public Integer move() {
-        Integer randomNUmber = getRandomNUmber(0, 9);
-        return changePosition(CarMovementStatus.getMovementStatusByCheckNumber(randomNUmber));
     }
 }

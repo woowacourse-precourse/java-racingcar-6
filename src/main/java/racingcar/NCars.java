@@ -30,15 +30,18 @@ public class NCars {
     public List<Integer> moveCars() {
         List<Integer> carsPositions = new ArrayList<>();
         for (Car car : this.cars) {
-            carsPositions.add(car.move());
+            carsPositions.add(car.changePosition(
+                    CarMovementStatus.getMovementStatusByCheckNumber(
+                            RandomNumberGenerator.getRandomNUmber())));
         }
         return carsPositions;
     }
+
     public List<List<Integer>> moveCarsRepeatedByRound(Integer round) {
         List<List<Integer>> carsPositions = new ArrayList<>();
-        for(int i = 0 ;i< round;i++){
+        for (int i = 0; i < round; i++) {
             carsPositions.add(moveCars());
         }
-        return  carsPositions;
+        return carsPositions;
     }
 }
