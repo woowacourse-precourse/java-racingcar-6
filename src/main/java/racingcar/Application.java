@@ -24,8 +24,8 @@ public class Application {
         validateRacerName(racerNameList);
     }
 
-    private static void validateRacerNameList(String inputValue){
-        ValidateForm.validateForValidateType(ValidateType.NAME_LIST,inputValue);
+    private static void validateRacerNameList(String racerNameList){
+        ValidateForm.validateForValidateType(ValidateType.NAME_LIST,racerNameList);
     }
 
     private static void validateRacerName(List<String> racerNameList){
