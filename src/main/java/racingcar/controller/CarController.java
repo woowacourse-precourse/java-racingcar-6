@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 import racingcar.model.Car;
 
@@ -29,5 +30,8 @@ public class CarController {
         car.addDistance();
     }
 
-
+    public List<String> checkWinner(ArrayList<Car> cars) {
+        int max = cars.stream().mapToInt(Car::getDistance).max().getAsInt();
+        return cars.stream().filter(car -> car.getDistance() == max).map(Car::getName).toList();
+    }
 }
