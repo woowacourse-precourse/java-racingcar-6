@@ -3,6 +3,8 @@ package model;
 public class Name {
 
     private final String name;
+    private static final int MAX_LENGTH = 4;
+    private static final String OVER_LENGTH_MESSAGE = "5글자 미만 이름만 입력 가능합니다.";
 
     public Name(String name) {
         this.name = name;
@@ -14,8 +16,12 @@ public class Name {
     }
 
     private void validateOverLength() {
-        if (name.length() > 4) {
-            throw new IllegalArgumentException("5글자 미만 이름만 입력 가능합니다.");
+        if (isNameTooLong()) {
+            throw new IllegalArgumentException(OVER_LENGTH_MESSAGE);
         }
+    }
+
+    private boolean isNameTooLong() {
+        return name.length() > MAX_LENGTH;
     }
 }
