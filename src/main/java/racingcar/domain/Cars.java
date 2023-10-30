@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.MoveResult;
-import racingcar.NumberGenerator;
+import racingcar.utils.NumberGenerator;
 
 public class Cars {
 
