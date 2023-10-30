@@ -1,17 +1,24 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 public class RacingcarController {
     Input input = new Input();
     Cars cars = new Cars();
 
     public void playRacingcarGame() {
-        inputCarsName();
+        String carsName = inputCarsName();
+        addCars(splitCarsName(carsName));
     }
 
-    private void inputCarsName() {
-        for (String name : input.inputCarName().split(",")) {
+    private String inputCarsName() {
+        return input.inputCarName();
+    }
+
+    private String[] splitCarsName(String carsName) {
+        return carsName.split(",");
+    }
+
+    private void addCars(String[] CarsName) {
+        for (String name: CarsName) {
             Car car = new Car(name.trim(), 0);
             cars.addCarList(car);
         }
