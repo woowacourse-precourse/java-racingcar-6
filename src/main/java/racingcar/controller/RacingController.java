@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
+import racingcar.utils.WinnerFinder;
 import racingcar.view.OutputView;
 
 public class RacingController {
@@ -13,13 +14,13 @@ public class RacingController {
         this.game = new Game(cars);
         OutputView.printResultMessage();
         playAllRounds(attemptCount);
-        OutputView.printWinnerMessage(game.getWinners());
+        OutputView.printWinnerMessage(WinnerFinder.findWinners(game.getCarsDTO().getCars()));
     }
 
     private void playAllRounds(int attemptCount) {
         for (int i = 0; i < attemptCount; i++) {
             game.playOneRound();
-            OutputView.printResult(game.getCars());
+            OutputView.printResult(game.getCarsDTO().getCars());
         }
     }
 }
