@@ -1,12 +1,11 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.util.GoStopCar;
 import racingcar.view.OutputView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameController {
 
