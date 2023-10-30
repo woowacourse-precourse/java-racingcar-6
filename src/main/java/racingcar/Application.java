@@ -48,6 +48,18 @@ public class Application {
         return max;
     }
 
+    public static void findWinner(Car[] car) {
+        int max = getMaxNumber(car);
+        ArrayList<String> nameList = new ArrayList<>();
+        for (Car e: car) {
+            if (e.length == max) {
+                nameList.add(e.getName());
+            }
+        }
+        String finalWinner = String.join(",",nameList);
+        System.out.printf("최종 우승자 : " + finalWinner);
+    }
+
     public static ArrayList<String> getDash(Car car) {
         int dashNumber = car.length;
         ArrayList<String> dash = new ArrayList<>();
