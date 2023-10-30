@@ -15,7 +15,7 @@ public class PositionMap {
 
     public PositionMap() {
         positionMap = new HashMap<>();
-        winnerPosition = 0;
+        winnerPosition = INIT_POSITION;
     }
 
     /**
