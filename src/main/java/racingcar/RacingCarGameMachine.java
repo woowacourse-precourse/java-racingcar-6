@@ -7,6 +7,8 @@ import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class RacingCarGameMachine {
+    private final String GAME_RESULT = "최종 우승자 : %s";
+
     private final RandomNumberGenerator randomNumberGenerator;
 
     private List<RacingCar> racingCarList = new ArrayList<>();
@@ -63,13 +65,26 @@ public class RacingCarGameMachine {
         return stringJoiner.toString();
     }
 
-    private List<String> findWinRacingCarName() {
+    public String getGameResult() {
+        if (isGameInProgress()) {
+            throw new IllegalStateException();
+        }
+        return getGameResultMessage();
+    }
+
+    private String getGameResultMessage() {
+        List<String> winRacingCarNames = findWinRacingCars()
+                .stream()
+                .map(RacingCar::getName)
+                .toList();
+        String joinedWinRacingCarName = String.join(", ", winRacingCarNames);
+        return String.format(GAME_RESULT, joinedWinRacingCarName);
+    }
+
+    private List<RacingCar> findWinRacingCars() {
         int maxDistance = findMaxDistance();
         return racingCarList.stream()
-                .filter(racingCar -> {
-                    return racingCar.getDistance() == maxDistance;
-                })
-                .map(RacingCar::getName)
+                .filter(racingCar -> racingCar.getDistance() == maxDistance)
                 .collect(Collectors.toList());
     }
 
