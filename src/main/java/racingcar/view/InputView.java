@@ -5,6 +5,7 @@ import racingcar.util.ExceptionMessage;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class InputView {
     private final static String spaceString = " ";
@@ -29,6 +30,8 @@ public class InputView {
     }
 
     private static List<String> convertStringToList(String carNames) {
-        return Arrays.asList(carNames.split(commaString));
+        return Arrays.stream(carNames.split(commaString))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 }
