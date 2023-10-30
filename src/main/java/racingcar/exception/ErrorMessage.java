@@ -1,4 +1,4 @@
-package racingcar.validation;
+package racingcar.exception;
 
 public enum ErrorMessage {
     MAXIMUM_NAME_LENGTH("플레이어 이름은 5자 이하이어야 합니다."),

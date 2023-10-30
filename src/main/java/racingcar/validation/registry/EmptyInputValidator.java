@@ -1,14 +1,15 @@
 package racingcar.validation.registry;
 
 import java.util.List;
-import racingcar.validation.ErrorMessage;
+import racingcar.exception.ErrorMessage;
+import racingcar.exception.RacingCarException;
 
 public class EmptyInputValidator implements RegistryValidator {
 
     @Override
     public void validate(List<String> inputValue) {
         if (isEmptyList(inputValue)) {
-            throw new IllegalArgumentException(ErrorMessage.EMPTY_INPUT.getMessage());
+            throw RacingCarException.of(ErrorMessage.EMPTY_INPUT);
         }
     }
 

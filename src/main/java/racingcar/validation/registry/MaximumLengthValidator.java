@@ -1,14 +1,15 @@
 package racingcar.validation.registry;
 
 import java.util.List;
-import racingcar.validation.ErrorMessage;
+import racingcar.exception.ErrorMessage;
+import racingcar.exception.RacingCarException;
 
 public class MaximumLengthValidator implements RegistryValidator {
 
     @Override
     public void validate(List<String> inputValue) {
         if (CountValueOverFive(inputValue) != 0) {
-            throw new IllegalArgumentException(ErrorMessage.MAXIMUM_NAME_LENGTH.getMessage());
+            throw RacingCarException.of(ErrorMessage.MAXIMUM_NAME_LENGTH);
         }
     }
 
