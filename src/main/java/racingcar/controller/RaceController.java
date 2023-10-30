@@ -20,6 +20,18 @@ public class RaceController {
         this.utils = new Utils();
     }
 
+    public void startRacing() {
+        Cars cars = new Cars();
+
+        String names = inputView.insertCarName();
+        cars.makeCars(utils.convertStringToList(names));
+
+        int tryNumber = utils.convertStringToNumber(inputView.insertTryTimes());
+        startMove(cars, tryNumber);
+
+        outputView.printWinner(cars.findWinner());
+    }
+
     private void startMove(Cars cars, int tryNumber) {
         outputView.printExecutionResult();
         IntStream.range(0, tryNumber)
