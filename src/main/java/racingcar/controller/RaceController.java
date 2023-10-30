@@ -56,7 +56,7 @@ public class RaceController {
     }
 
     private void printFinalWinner() {
-        Winner winner = new Winner(cars);
+        Winner winner = new Winner(cars.getCars());
         List<String> winners = winner.findWinners();
         outputView.printFinalWinners(winners);
     }
