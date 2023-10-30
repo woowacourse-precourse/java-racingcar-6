@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Race {
     private List<Car> cars = new ArrayList<>();
@@ -33,13 +34,18 @@ public class Race {
     }
 
     public List<String> getWinners() {
-        int maxPosition = cars.stream().mapToInt(Car::getPosition).max().orElse(0);
-        List<String> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.toString().split(" : ")[0]);
-            }
-        }
-        return winners;
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(car -> car.toString().split(" : ")[0])
+                .collect(Collectors.toList());
     }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
+
 }

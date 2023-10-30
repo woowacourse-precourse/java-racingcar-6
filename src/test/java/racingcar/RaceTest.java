@@ -32,7 +32,8 @@ public class RaceTest {
     void raceCarPositionUpdateTest() {
         int initialPosition = race.getCars().get(0).getPosition();
         race.start(1);
-        assertThat(race.getCars().get(0).getPosition()).isGreaterThanOrEqualTo(initialPosition);
+        assertThat(race.getCars().get(0).getPosition())
+                .isGreaterThanOrEqualTo(initialPosition);
     }
 
     @Test
