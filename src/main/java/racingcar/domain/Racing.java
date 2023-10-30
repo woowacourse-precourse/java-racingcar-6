@@ -3,6 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,23 +17,23 @@ public class Racing {
     }
 
     public void racingProcess(){
-        Map<String,Integer> racingResultMap = new HashMap<>();
+        Map<String,Integer> racingResultMap = new LinkedHashMap<>();
         for(int j = 0 ; j < raceCount ; j ++){
             for(int i = 0 ;  i < cars.size() ; i ++){
                 int location = 0;
 
                 if(racingResultMap.containsKey(cars.get(i))){
                     location = racingResultMap.get(cars.get(i));
+                }else{
+                    racingResultMap.put(cars.get(i), location);
                 }
 
                 int number = Randoms.pickNumberInRange(0,9);
-                System.out.println(number);
 
                 if(moveForward(number)){
                     location++;
                     racingResultMap.put(cars.get(i), location);
                 }
-                System.out.println(location);
             }
             printResult(racingResultMap);
         }
@@ -50,5 +51,6 @@ public class Racing {
             int location = racingResultMap.get(car);
             System.out.println( car + " : " + "-".repeat(location) );
         }
+        System.out.println("");
     }
 }

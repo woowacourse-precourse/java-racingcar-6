@@ -13,8 +13,8 @@ public class Application {
         List<String> cars = register.registerCar();
 
         int raceCount = register.registerRaceCount();
-        System.out.println(raceCount);
 
+        System.out.println("실행 결과");
         Racing racing = new Racing(cars, raceCount);
         racing.racingProcess();
     }
