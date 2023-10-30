@@ -8,10 +8,10 @@ import racingcar.Application;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class ValidationTest extends NsTest {
+public class MoveCountValidationTest extends NsTest {
 
-    @DisplayName("이동 횟수 숫자 외 입력시 예외 발생")
     @Test
+    @DisplayName("이동 횟수 숫자 외 입력시 예외 발생")
     void validate_move_count_not_num() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("가나다"))
@@ -19,8 +19,8 @@ public class ValidationTest extends NsTest {
         );
     }
 
-    @DisplayName("이동 횟수 0 입력시 예외 발생")
     @Test
+    @DisplayName("이동 횟수 0 입력시 예외 발생")
     void validate_move_count_zero() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("0"))
