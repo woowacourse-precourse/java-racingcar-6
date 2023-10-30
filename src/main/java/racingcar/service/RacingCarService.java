@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.HashMap;
 import java.util.List;
+import racingcar.common.RandomGenerator;
 import racingcar.model.RacingCarInfoList;
 
 public class RacingCarService {
@@ -21,5 +22,19 @@ public class RacingCarService {
             racingStatus.put(carName, 0);
         }
         return racingStatus;
+    }
+
+    public void proceedGame(List<String> carNames, HashMap<String, Integer> racingStatus) {
+        for (String carName : carNames) {
+            Integer randomNumber = RandomGenerator.getRandomNumber();
+            if (randomNumber > 3) {
+                moveForward(carName, racingStatus);
+            }
+        }
+    }
+
+    private void moveForward(String carName, HashMap<String, Integer> racingStatus) {
+        Integer carPosition = racingStatus.get(carName);
+        racingStatus.put(carName, ++carPosition);
     }
 }

@@ -15,13 +15,16 @@ public class RacingcarController {
     private RacingcarController() {
     }
 
-    private RacingCarService baseBallService = RacingCarService.getInstance();
+    private RacingCarService racingCarService = RacingCarService.getInstance();
 
     public void run() {
         MainView.printStartMessage();
         List<String> carNames = MainView.getCarNames();
-        HashMap<String, Integer> racingStatus = baseBallService.initRacingStatus(carNames);
+        HashMap<String, Integer> racingStatus = racingCarService.initRacingStatus(carNames);
         MainView.printInputAttemptMessage();
-        Integer attemptNumber = MainView.getAttemptNumber();
+        int attemptNumber = MainView.getAttemptNumber();
+        for (int i = 0; i < attemptNumber; ++i) {
+            racingCarService.proceedGame(carNames, racingStatus);
+        }
     }
 }
