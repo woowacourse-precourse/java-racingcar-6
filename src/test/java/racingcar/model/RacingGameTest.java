@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.ExceptionMessage;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 
@@ -65,9 +67,14 @@ public class RacingGameTest {
 
     @DisplayName("올바른 자동차 이름 목록을 입력받으면 성공한다")
     @Test
-    void inputRightCarNames(){
+    void inputRightCarNames() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         String carNames = "tomas,emily,james";
         RacingGame racingGame = new RacingGame(convertStringToList(carNames));
-        assertThat(racingGame.getCars().size()).isEqualTo(3);
+
+        Method method = racingGame.getClass().getDeclaredMethod("getCars");
+        method.setAccessible(true);
+        List<Car> invoke = (List<Car>) method.invoke(racingGame);
+
+        assertThat(invoke.size()).isEqualTo(3);
     }
 }
