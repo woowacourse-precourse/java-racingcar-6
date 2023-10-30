@@ -39,17 +39,6 @@ public class Cars {
                 .map(Car::getName).toList();
     }
 
-    public List<String> findMaxPositionCarNames() {
-        List<String> names = new ArrayList<>();
-        int max = findMaxPosition();
-        for (Car car : cars) {
-            if (car.getPosition() == max) {
-                names.add(car.getName());
-            }
-        }
-        return names;
-    }
-
     private void validateCarNamesUnique(List<Car> carList) {
         Set<String> seen = new HashSet<>();
         for (Car car : carList) {

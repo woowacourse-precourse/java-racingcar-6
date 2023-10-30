@@ -52,17 +52,6 @@ public class CarsTest {
     }
 
     @Test
-    void findMaxPositionCarNames_테스트() {
-        carList.get(0).move();
-        carList.get(2).move();
-
-        List<String> result = cars.findMaxPositionCarNames();
-
-        assertEquals(2, result.size());
-        assertThat(result).contains("red").contains("blue");
-    }
-
-    @Test
     void findCarNamesAt_테스트() {
         carList.get(0).move();
         carList.get(1).move();

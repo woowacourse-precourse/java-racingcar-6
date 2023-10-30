@@ -19,7 +19,8 @@ public class Racing {
     }
 
     public List<String> findWinners() {
-        return cars.findMaxPositionCarNames();
+        int max = cars.findMaxPosition();
+        return cars.findCarNamesAt(max);
     }
 
     public Map<String, Integer> getStatus() {
