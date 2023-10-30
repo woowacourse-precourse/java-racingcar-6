@@ -117,5 +117,14 @@ public class Application {
             }
             raceResult.append("\n");
         }
+        private void printRaceResult(String result) {
+            System.out.print(result);
+        }
+
+        private void printWinners() {
+            int maxPosition = getMaxPosition();
+            String winners = findWinners(maxPosition);
+            printWinnersMessage(winners);
+        }
 
     }
