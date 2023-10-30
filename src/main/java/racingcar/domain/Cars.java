@@ -20,6 +20,6 @@ public class Cars {
 
     public List<Car> giveResult() {
         List<Car> result = Collections.unmodifiableList(cars);//읽을 수만 있게 반환
-        return cars;
+        return result;
     }
 }

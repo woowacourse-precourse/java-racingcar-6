@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import racingcar.domain.Cars;
 
 public class Printer {
@@ -19,8 +20,8 @@ public class Printer {
         System.out.println(RESULT);
     }
 
-    public void gameResult(Cars cars) {
-        
+    public void gameResult(List<Cars> carsList) {
+      
     }
 }
 
