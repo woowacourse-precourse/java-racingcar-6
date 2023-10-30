@@ -29,4 +29,8 @@ public class MessageService {
             System.out.print("-");
         }
     }
+
+    public void jump() {
+        System.out.println();
+    }
 }

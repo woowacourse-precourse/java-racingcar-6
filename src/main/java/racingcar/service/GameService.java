@@ -24,12 +24,18 @@ public class GameService {
                 cars.plusGameNum(i);
             }
 
+            for (int i = 0; i < cars.size(); i++) {
+                message.printProcess(cars.findName(i));
+
+                for (int j = 0; j < cars.findGameNum(i); j++) {
+                    System.out.print("-");
+                }
+                message.jump();
+            }
+            message.jump();
+
             gameNum--;
         }
-
-//        for (Car car : cars.getCarList()) {
-//            System.out.println("car. = " + car.);
-//        }
     }
 
 //    public void run(int gameNum) {

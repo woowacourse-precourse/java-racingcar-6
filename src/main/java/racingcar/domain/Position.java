@@ -11,4 +11,8 @@ public class Position {
     public void plusNum() {
         this.num++;
     }
+
+    public int getNum() {
+        return num;
+    }
 }

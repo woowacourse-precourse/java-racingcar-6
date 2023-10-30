@@ -26,4 +26,12 @@ public class Cars {
     public void plusGameNum(int i) {
         carList.get(i).plusPosition();
     }
+
+    public String findName(int i) {
+        return carList.get(i).getName().getName();
+    }
+
+    public int findGameNum(int i) {
+        return carList.get(i).getPosition().getNum();
+    }
 }
