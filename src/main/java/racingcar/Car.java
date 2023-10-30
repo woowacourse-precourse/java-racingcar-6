@@ -23,7 +23,7 @@ public class Car {
 
     public void updateCarPosition(String carName, boolean move) {
         if (move) {
-            car.replace(carName, FOWARD);
+            car.replace(carName, car.get(carName) + FOWARD);
         }
     }
 
