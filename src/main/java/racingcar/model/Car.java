@@ -12,10 +12,6 @@ public class Car {
         this.position = INITIAL_FORWARD_COUNT;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int updateCar(int randomNumber) {
         goOrStayForwardCount(randomNumber);
 
