@@ -1,9 +1,8 @@
 package racingcar.domain;
 
-import java.lang.reflect.Executable;
+import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.domain.racing.CarManager;
 
@@ -11,7 +10,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CarManagerTest {
-
     @Test
     @DisplayName("자동차 이름을 파싱하면 Car 객체의 리스트를 반환한다")
     void parseCarNames_ReturnsListOfCars() {
