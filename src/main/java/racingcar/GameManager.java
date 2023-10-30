@@ -8,7 +8,7 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class GameManager {
-    public static void GameStart() {
+    public void GameStart() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = readLine();
         ExceptionHandler eh = new ExceptionHandler();
@@ -30,7 +30,7 @@ public class GameManager {
         Print.winner(whoIsWinner(membersHM, members));
     }
 
-    public static List<String> whoIsWinner(HashMap<String, String> membersHM, List<String> members) {
+    public List<String> whoIsWinner(HashMap<String, String> membersHM, List<String> members) {
         int max = Integer.MIN_VALUE;
         List<String> winner = new ArrayList<>();
 
