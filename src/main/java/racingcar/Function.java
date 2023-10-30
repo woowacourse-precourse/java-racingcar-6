@@ -34,8 +34,8 @@ public class Function {
 		
 		return number;
 	}
+	
 	public static Map<String, Integer> run(int count, ArrayList<String> carName) {
-//		map에 이름:횟수 저장후 출력메서드 따로 만들기
 		Map<String, Integer> result= new LinkedHashMap<String, Integer>();
 		for(String name:carName) {
 			result.put(name,eachRun(count));
@@ -51,6 +51,7 @@ public class Function {
 		}
 		return result;
 	}
+	
 	public static List<String> winners(Map<String, Integer> result) {
 		Set<String> name= result.keySet();
 		Object[] resultValue=  result.values().toArray();			
@@ -80,5 +81,8 @@ public class Function {
 			System.out.println(printStr);
 		}
 		
+	}	
+	public static void outputWinners(List<String> winners) {
+		System.out.println("최종 우승자 : "+ String.join(", ", winners));
 	}
 }
