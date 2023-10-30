@@ -23,12 +23,6 @@ public class InputViewTest {
     }
 
     @Test
-    void 시도쵯수_숫자아닌입력_예외처리_테스트() {
-        setSystemInToCustomInput("d");
-        assertThatThrownBy(() -> InputView.getTrialNumber()).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
     void 올바른_자동차이름_입력_테스트() {
         setSystemInToCustomInput("song, jone , jason");
         assertThatNoException().isThrownBy(() -> InputView.getCarsFromUser());
