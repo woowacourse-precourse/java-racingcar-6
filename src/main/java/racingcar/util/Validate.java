@@ -29,7 +29,7 @@ public class Validate {
     }
 
     public static void inputStringNotContainsComma(String input) {
-        if(input.contains(",")) {
+        if(!input.contains(",")) {
             throw new IllegalArgumentException("자동차 이름을 구분짓는 구분자는 쉼표(\",\")를 입력해야 합니다.");
         }
     }
