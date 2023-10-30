@@ -4,6 +4,8 @@
 - [ ] 경주 최종 우승자를 출력기를 통해 출력한다.
 
 ## 레이싱
+- [ ] 레이싱 자동차들의 이름을 검증한다.
+  - 중복된 이름이 존재할 시, `IllegalArgumentException`예외를 발생 시킨다.
 - [ ] 레이싱에 참여할 자동차들을 생성한다.
 - [ ] 시도할 횟수 만큼, 자동차들을 경주 시킨다.
 - [ ] 자동차들의 경주 결과를 출력 포멧에 맞춰 출력 문자열을 생성한다.
@@ -22,10 +24,9 @@
   - Random 값 추출은`camp.nextstep.edu.missionutils.Randoms`의`pickNumberInRange()`를 활용한다.
 
 ## 검증기
-- [ ] 입력 받은 자동차들의 이름을 검증한다.
-  - 복수개의 이름이 쉼표(,) 기준으로 자동차 이름이 입력되지 않을 시, `IllegalArgumentException`예외를 발생시킨다.
-  - 중복된 이름이 존재할 시, `IllegalArgumentException`예외를 발생시킨다.
-- [ ] 입력 받은 이동 횟수를 검증한다.
+- [ ] 자동차들의 이름을 검증한다.
+  - 자동차 이름이 빈/공백일 경우, `IllegalArgumentException`예외를 발생시킨다.
+- [ ] 이동 횟수를 검증한다.
   - 양수 외 값일 경우 `IllegalArgumentException`예외를 발생시킨다.
 
 ## 입력기
