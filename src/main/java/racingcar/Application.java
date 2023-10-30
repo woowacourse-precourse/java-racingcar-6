@@ -23,5 +23,6 @@ public class Application {
         }
 
         printer.winner(game.findWinner());
+        Console.close();
     }
 }
