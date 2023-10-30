@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Computer.trimCarNames;
+
 import java.util.HashSet;
 import java.util.List;
 
@@ -38,6 +40,8 @@ public class Validator {
     }
 
     public static void checkDuplication(List<String> carNames) {
+
+        trimCarNames(carNames);
 
         if (carNames.size() > new HashSet<>(carNames).size()) {
             throw new IllegalArgumentException("중복되지 않은 이름을 입력해 주세요.");

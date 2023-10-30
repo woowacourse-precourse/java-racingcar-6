@@ -14,8 +14,8 @@ public class Car {
 
     public Car(List<String> names) {
         this.names = names;
+
         validateCarNames(this.names);
-        trimCarNames(this.names);
         initializeMovedDistances();
     }
 
