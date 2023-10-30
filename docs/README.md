@@ -20,6 +20,7 @@
 - [Controller](Controller)
 - [Uitl](Util)
   - [CarNameValidator.java](CarNameValidator.java)
+  - [RandomNumberGenerator.java](RandomNumberGenerator.java)
 
 ---
 
@@ -45,3 +46,7 @@
 - validateCarNumber() : 자동차가 2대 이상인지 확인
 - validateCarNameLength() : 자동차의 이름이 5자 이하인지 확인
 - 메세지 enum으로 정리
+
+
+### RandomNumberGenerator.java
+- Randoms.pickNumberInRange(0, 9) 사용
