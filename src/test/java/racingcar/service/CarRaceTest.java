@@ -44,6 +44,27 @@ class CarRaceTest {
         assertThat(originalPosition).isNotEqualTo(movedPosition);
     }
 
+    @Test
+    @DisplayName("숫자가 3이하일 때 자동차가 전진하지 않는지 테스트")
+    public void stayPositionTest() {
+        CarRace carRace = new CarRace(cars);
 
+        List<String> originalPosition = cars.stream()
+                .map(car -> car.getPosition())
+                .collect(Collectors.toList());
+
+        int randomNumber = Randoms.pickNumberInRange(
+                Numbers.RANDOM_START_NUMBER.getNumber(),
+                Numbers.STAY_POSITION_NUMBER.getNumber()
+        );
+
+        carRace.moveForward(randomNumber);
+
+        List<String> movedPosition = cars.stream()
+                .map(car -> car.getPosition())
+                .collect(Collectors.toList());
+
+        assertThat(originalPosition).isEqualTo(movedPosition);
+    }
 
 }
