@@ -48,6 +48,6 @@
 
 ### Billboard(게임 현황 출력을 담당 - 전광판)
 #### **Method**
-    자동차의 이동 상황 전달(displayDrivenDistancesWithCarName)
-    최종 우승자 출력(displayWinnerStand)
+    자동차의 이동 상황 전달(displayRaceProgress)
+    최종 우승자 출력(displayWinners)
     
