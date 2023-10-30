@@ -3,8 +3,9 @@ package racingcar.model;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import java.util.stream.IntStream;
+
+import static org.assertj.core.api.Assertions.*;
 
 @DisplayName("자동차들 객체에 대해")
 class CarsTest {
@@ -21,5 +22,26 @@ class CarsTest {
     void correct_cars_count() {
         assertThatCode(() -> new Cars("pibi,woni,jun"))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    @DisplayName("이동한 만큼의 현재 위치를 알 수 있다.")
+    void status_car_position() {
+        //given
+        Cars cars = new Cars("pobi,woni,jun");
+        IntStream.range(0, 3)
+                .forEach(i -> cars.getRacingCars()
+                        .forEach(Car::movePosition));
+
+        //when
+        String statusCarsPosition = cars.statusCarsPosition();
+
+        //then
+        assertThat(statusCarsPosition).isEqualTo(
+                """
+                        pobi : ---
+                        woni : ---
+                        jun : ---
+                        """);
     }
 }
