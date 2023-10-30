@@ -1,39 +1,40 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.model.Game;
 import racingcar.model.GameResult;
-import racingcar.service.GameService;
 import racingcar.util.CarNamesSeperator;
 import racingcar.util.GameTimeParser;
 import racingcar.view.InputView;
 import racingcar.view.OuputView;
 
 public class GameController {
-    private final GameService gameService;
-
-    public GameController(GameService gameService) {
-        this.gameService = gameService;
-    }
+    private final Game game = new Game();
 
     public void run() {
-        gameService.enrollCars(getCarNames());
+        game.enrollCars(getCarNames());
         final int gameTime = getGameTime();
 
         OuputView.ouputBeforeGameResult();
 
         for (int i = 0; i < gameTime; i++) {
             runRound();
-            OuputView.outputEmptyLine();
         }
-        List<String> winners = gameService.getWinners();
-        OuputView.ouputGameWinner(winners);
+        endGame();
     }
 
     private void runRound() {
-        List<GameResult> gameResultList = gameService.runGame();
+        game.playRound();
+        List<GameResult> gameResultList = game.generateGameResultList();
         for (GameResult gameResult : gameResultList) {
             OuputView.ouputGameResult(gameResult);
         }
+        OuputView.outputEmptyLine();
+    }
+
+    private void endGame() {
+        List<String> winners = game.getWinnerCars();
+        OuputView.ouputGameWinner(winners);
     }
 
     private int getGameTime() {
@@ -45,5 +46,4 @@ public class GameController {
         String carNames = InputView.inputCarName();
         return CarNamesSeperator.separate(carNames);
     }
-
 }
