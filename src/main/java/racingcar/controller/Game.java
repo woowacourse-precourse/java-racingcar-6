@@ -7,12 +7,13 @@ import racingcar.view.OutputView;
 public class Game {
     public void start() {
         OutputView.printStartMessage();
-        InputView.getRacingCars();
+        String racingCarsString = InputView.getRacingCars();
 
         OutputView.printTryMessage();
-        InputView.getTryNumber();
+        String tryNumberString = InputView.getTryNumber();
 
         OutputView.printShowResultString();
         RandomNumber.makeRandomNumber();
+
     }
 }
