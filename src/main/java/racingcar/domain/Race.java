@@ -66,7 +66,7 @@ public class Race {
 
     private Optional<Integer> getLongestDistance() {
         return playCars.values().stream()
-                .map(car -> car.getMoveDistance().length())
+                .map(car -> car.getMoveDistance())
                 .max(Integer::compareTo);
     }
 
