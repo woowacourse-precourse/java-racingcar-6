@@ -6,9 +6,9 @@ import racingcar.domain.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import static racingcar.domain.Referee.findMostProgressCar;
 
 public class GameController {
 
@@ -36,7 +36,23 @@ public class GameController {
     }
 
     private List<Car> createCarList(String carsName) {
-        return null;
+        List<String> carNameList = convertStringToList(carsName);
+        List<Car> carList = new ArrayList<>();
+
+        for (int i = 0; i < carNameList.size(); i++) {
+            carList.add(new Car(carNameList.get(i)));
+        }
+
+        return carList;
+    }
+
+    private List<String> convertStringToList(String carsName) {
+        List<String> carNameList = Arrays.asList(carsName.split(","));
+        validateDuplicateName(carNameList);
+        return carNameList;
+    }
+
+    private void validateDuplicateName(List<String> carNameList) {
     }
 
     private void announceWinner(List<Car> carList) {
