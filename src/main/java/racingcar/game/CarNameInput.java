@@ -6,9 +6,7 @@ public class CarNameInput {
 
 	public static String getCarNameInput() {
 
-		String carNames = Console.readLine();
-
-		return carNames;
+		return Console.readLine();
 	}
 
 }

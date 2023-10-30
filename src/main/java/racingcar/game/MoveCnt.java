@@ -1,14 +1,12 @@
 package racingcar.game;
 
-import racingcar.verfication.Validator;
+import camp.nextstep.edu.missionutils.Console;
 
 public class MoveCnt {
 
-	private final Validator validator = new Validator();
+	public static String getMoveInput() {
 
-	public Integer getMoveInput() {
-		// TODO Auto-generated method stub
-		return null;
+		return Console.readLine();
 	}
 
 }
