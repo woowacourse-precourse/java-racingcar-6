@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +47,7 @@ public class Cars {
         Map<String, Integer> status = new LinkedHashMap<>();
         
         cars.forEach(car -> {
-            car.goForward();
+            car.goForward(Randoms.pickNumberInRange(0, 9));
             status.put(car.getCarName(), car.getPosition());
         });
 

@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Objects;
 
 public class Car implements Comparable<Car> {
+    private static final int MINIMUM_MOVABLE_SYMBOL = 4;
 
     private final CarName carName;
     private int position;
@@ -14,10 +15,14 @@ public class Car implements Comparable<Car> {
         this.position = 0;
     }
 
-    public void goForward() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+    public void goForward(int movableSymbol) {
+        if (isMovable(movableSymbol)) {
             this.position += 1;
         }
+    }
+
+    private boolean isMovable(int movableSymbol) {
+        return movableSymbol >= MINIMUM_MOVABLE_SYMBOL;
     }
 
     @Override
