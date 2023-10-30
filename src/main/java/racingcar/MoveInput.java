@@ -14,10 +14,11 @@ public class MoveInput {
         return Integer.parseInt(move);
     }
 
-    public void exceptionHandling() {
-        new MoveException().moveException(move);
+    public void exceptionHandling() throws IllegalArgumentException {
+        try {
+            Integer.parseInt(move);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        }
     }
-
-
-
 }
