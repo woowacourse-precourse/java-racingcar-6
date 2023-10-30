@@ -45,6 +45,13 @@ public class Validator {
         }
     }
 
+    private void validateOutOfMovingTryCountBoundary(String input) {
+        int intInput = Integer.parseInt(input);
+        if (intInput < 1 || intInput > 10) {
+            throw new IllegalArgumentException("진행 횟수는 1회에서 10회 사이로만 가능합니다.");
+        }
+    }
+
     public void validateInputCar(List<String> input) {
         validateInputCarOneToFive(input);
         validateCarName(input);
@@ -53,6 +60,7 @@ public class Validator {
 
     public void validateInputMovingTryCount(String input) {
         validateNumeric(input);
+        validateOutOfMovingTryCountBoundary(input);
     }
 
     public void validateInputCarNameStartOrEndComma(String input) {
