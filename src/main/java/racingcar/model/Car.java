@@ -1,6 +1,8 @@
 package racingcar.model;
 
 
+import racingcar.pattern.ValueGenerateStrategy;
+
 public class Car {
     private static final int MOVE_BOUNDARY_VALUE = 4;
     private static final int UNIT_DISTANCE = 1;
