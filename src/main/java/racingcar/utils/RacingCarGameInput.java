@@ -12,6 +12,7 @@ public class RacingCarGameInput {
     public static final String ERROR_MESSAGE_NOT_POSITIVE = "[ERROR] 시도 횟수는 1 이상이어야 합니다.";
     public static final String ERROR_MESSAGE_HAVE_WHITE_CHAR = "[ERROR] 자동차 이름에 공백이 있을 수 없습니다.";
     public static final String ERROR_MESSAGE_DUPLICATION = "[ERROR] 자동차 이름이 중복되면 안됩니다.";
+    public static final String ERROR_MESSAGE_EMPTY = "[ERROR] 자동차 이름이 비어 있을 수 없습니다.";
 
     public static List<RacingCar> readCarNames() {
         String input = Console.readLine();
@@ -48,6 +49,9 @@ public class RacingCarGameInput {
         for (RacingCar car : carList) {
             if (car.getName().length() > 5) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_BIGGER_THAN_5CHAR);
+            }
+            if (car.getName().isEmpty()){
+               throw new IllegalArgumentException(ERROR_MESSAGE_EMPTY);
             }
         }
         return true;
