@@ -1,4 +1,4 @@
-package util;
+package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.util.Constant.END_INCLUSIVE;
@@ -7,8 +7,6 @@ import static racingcar.util.Constant.START_INCLUSIVE;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
-import racingcar.util.NumberGenerator;
-import racingcar.util.RandomNumberGenerator;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
 @SuppressWarnings("NonAsciiCharacters")

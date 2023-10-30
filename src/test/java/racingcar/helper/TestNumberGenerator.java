@@ -1,4 +1,4 @@
-package helper;
+package racingcar.helper;
 
 import racingcar.util.NumberGenerator;
 

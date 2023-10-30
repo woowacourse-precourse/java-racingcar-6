@@ -1,4 +1,4 @@
-package util;
+package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.console_input.CanNotConvertToIntInputException;
-import racingcar.util.Converter;
 
 @DisplayNameGeneration(ReplaceUnderscores.class)
 @SuppressWarnings("NonAsciiCharacters")
@@ -20,7 +19,7 @@ class ConverterTest {
         String text = "apple,banana,orange,grape";
 
         // when
-        List<String> result = Converter.splitWithComma(text);
+        List<String> result = Converter.splitWithCommaAndConvertToList(text);
 
         // then
         assertSoftly(softly -> {
