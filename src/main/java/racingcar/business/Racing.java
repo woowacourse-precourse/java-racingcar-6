@@ -35,7 +35,7 @@ public class Racing {
         }
 
         String winnerNames = getWinnerNames();
-
+        outputView.printWinnerNames(winnerNames);
     }
 
     private String getWinnerNames() {
