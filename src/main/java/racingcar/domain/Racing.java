@@ -51,7 +51,7 @@ public class Racing {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> carList = Arrays.stream(Console.readLine().split(","))
                 .map(String::trim).collect(Collectors.toList());
-        if (!validateCreateRacingCarInput(carList)) {
+        if (!validateCarInputs(carList)) {
             throw new IllegalArgumentException("중복되지 않는 자동차 이름을 입력해주세요.");
         }
 
@@ -69,7 +69,7 @@ public class Racing {
         return new Racing(cars, turn);
     }
 
-    private static boolean validateCreateRacingCarInput(List<String> carList) {
+    private static boolean validateCarInputs(List<String> carList) {
         Set<String> set = new HashSet<>();
         for (String carStr : carList) {
             // 자동차 이름 5자 이하 체크
