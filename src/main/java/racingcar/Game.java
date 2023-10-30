@@ -27,7 +27,7 @@ public class Game {
         System.out.print(sj);
     }
 
-    private static int findWinner(List<User> users) {
+    public static int findWinner(List<User> users) {
         int max = 0;
         for (User u : users) {
             max = Math.max(max, u.length);
@@ -36,12 +36,12 @@ public class Game {
     }
 
 
-    private static int randomNumber() {
+    public static int randomNumber() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
         return randomNum;
     }
 
-    private static void moveForward(List<User> users) {
+    public static void moveForward(List<User> users) {
         for (User u : users) {
             int randomNum = randomNumber();
             if (randomNum < 4) {
@@ -51,7 +51,7 @@ public class Game {
         }
     }
 
-    private static void printRacing(User u) {
+    public static void printRacing(User u) {
         System.out.print(u.name + " : ");
         for (int i = 0; i < u.length; i++) {
             System.out.print("-");
