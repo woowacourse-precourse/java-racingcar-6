@@ -37,4 +37,8 @@ public class Cars {
                 .filter(car -> car.getPosition() == maxPosition)
                 .toList();
     }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 }
