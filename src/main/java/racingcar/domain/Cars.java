@@ -18,7 +18,7 @@ public record Cars(List<Car> value) {
                 .toList();
     }
 
-    public String progressSingleRound() {
+    public String getSingleRoundResult() {
         final String NEW_LINE = "\n";
         final String SEPARATOR = " : ";
 

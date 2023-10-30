@@ -30,7 +30,7 @@ public class OutputView {
 
     public void printResult(Cars cars) {
 
-        String gameProgress = cars.progressSingleRound();
+        String gameProgress = cars.getSingleRoundResult();
 
         System.out.println(gameProgress);
     }
