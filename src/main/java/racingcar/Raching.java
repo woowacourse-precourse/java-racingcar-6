@@ -33,4 +33,14 @@ public class Raching {
         }
     }
 
+    public void ChampionPrint(ArrayList<Car> cars) {
+        ArrayList<String> championList = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.moveCount == maximomMove) {
+                championList.add(car.carName);
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", championList));
+    }
 }
