@@ -76,4 +76,17 @@ class InputManagerTest {
         sb.append(10001);
         return sb.toString();
     }
+
+    @Test
+    void 자동차_이동_시도_횟수_테스트(){
+        assertThatThrownBy(() -> InputManager.getMoveTryCount("a"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("0 이상의 int 정수가 아닙니다!");
+        assertThatThrownBy(() -> InputManager.getMoveTryCount("1234567891234"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("0 이상의 int 정수가 아닙니다!");
+
+        assertThat(InputManager.getMoveTryCount("1234"))
+                .isEqualTo(1234);
+    }
 }

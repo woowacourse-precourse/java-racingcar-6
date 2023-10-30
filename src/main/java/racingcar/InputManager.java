@@ -45,4 +45,24 @@ class InputManager {
             throw new IllegalArgumentException("자동차의 개수가 너무 많습니다!");
         }
     }
+
+    static int getMoveTryCount(){
+        return getMoveTryCount(Console.readLine());
+    }
+
+    static int getMoveTryCount(String input){
+        try {
+            int moveTryCount = Integer.parseInt(input);
+            checkZeroOrPositive(moveTryCount);
+            return moveTryCount;
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("0 이상의 int 정수가 아닙니다!");
+        }
+    }
+
+    private static void checkZeroOrPositive(int moveTryCount) {
+        if(moveTryCount < 0){
+            throw new IllegalArgumentException("0 이상의 int 정수가 아닙니다!");
+        }
+    }
 }
