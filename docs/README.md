@@ -21,6 +21,7 @@
 - [Uitl](Util)
   - [CarNameValidator.java](CarNameValidator.java)
   - [RandomNumberGenerator.java](RandomNumberGenerator.java)
+  - [RandomNumberValidator.java](RandomNumberValidator.java)
 
 ---
 
@@ -36,7 +37,7 @@
 ### CarList.java
 - List<Car> carList
 - CarList()
-- validate() : 이름을 추출해 리스트로 만든 후 validate
+- validate()
 
 
 # Util
@@ -50,3 +51,10 @@
 
 ### RandomNumberGenerator.java
 - Randoms.pickNumberInRange(0, 9) 사용
+
+
+### RandomNumberValidator.java
+- MIN_NUMBER = 0
+- MAX_NUMBER = 9
+- validate()
+- 메시지 enum으로 정리
