@@ -20,6 +20,12 @@ public class Race {
         return totalTrial == currentTrial;
     }
 
+    public void runRace() {
+        for (Car car : carList) {
+            car.decideDrive();
+        }
+    }
+
     public List<Car> initCarList(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
         Car car;
