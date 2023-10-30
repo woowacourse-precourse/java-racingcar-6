@@ -58,8 +58,8 @@ class CarsTest {
     @Test
     void moveCars() {
         // given
-        List<Integer> resultDistance = List.of(1,1,0);
-        when(Utils.makeRandomNumber()).thenReturn(7,5, 2);
+        List<Integer> resultDistance = List.of(1, 1, 0);
+        when(Utils.makeRandomNumber()).thenReturn(7, 5, 2);
 
         // when
         cars.moveCars();
@@ -77,8 +77,10 @@ class CarsTest {
     @Test
     void findWinner() {
         // given
-        when(Utils.makeRandomNumber()).thenReturn(7,5, 6, 8, 6, 2, 9, 1, 0);
-        for(int i=0; i<3; i++) { cars.moveCars(); }
+        when(Utils.makeRandomNumber()).thenReturn(7, 5, 6, 8, 6, 2, 9, 1, 0);
+        for (int i = 0; i < 3; i++) {
+            cars.moveCars();
+        }
 
         // when
         List<String> winnerList = cars.findWinner();

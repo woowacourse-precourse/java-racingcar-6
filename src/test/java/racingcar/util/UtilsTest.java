@@ -23,7 +23,7 @@ class UtilsTest {
     void convertStringToList() {
         // given
         String names = "pobi,lee,kim";
-        List<String> nameList = List.of("pobi","lee","kim");
+        List<String> nameList = List.of("pobi", "lee", "kim");
 
         // when
         List<String> getNames = utils.convertStringToList(names);
@@ -50,7 +50,7 @@ class UtilsTest {
     @Test
     void formatListToString() {
         // given
-        List<String> winnerNames = List.of("pobi","lee","kim");
+        List<String> winnerNames = List.of("pobi", "lee", "kim");
 
         // when
         String winner = Utils.formatListToString(winnerNames);

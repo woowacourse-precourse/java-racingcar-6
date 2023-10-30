@@ -32,8 +32,8 @@ public class InputValidator {
         validateTryNumberIsNumber(tryNumber);
     }
 
-    public void validateTryNumberEmptyOrNull (String tryNumber) {
-        if(tryNumber == null || tryNumber.isEmpty()) {
+    public void validateTryNumberEmptyOrNull(String tryNumber) {
+        if (tryNumber == null || tryNumber.isEmpty()) {
             throw new IllegalArgumentException("시도 횟수는 비어있으면 안됩니다.");
         }
     }
