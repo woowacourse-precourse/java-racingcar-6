@@ -15,14 +15,14 @@ public class PositionMap {
 
     public PositionMap() {
         positionMap = new HashMap<>();
-        winnerPosition = 0;
+        winnerPosition = INIT_POSITION;
     }
 
     /**
      * @param car
      * @throws IllegalArgumentException - 중복된 Car 객체를 저장 시도시
      */
-    public void addCar(Car car) {
+    public void putCar(Car car) {
         if (positionMap.containsKey(car)) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_DUPLICATED);
         }
@@ -45,7 +45,7 @@ public class PositionMap {
     /**
      * @return List of Winner Car instance
      */
-    public List<Car> getWinner() {
+    public List<Car> getWinners() {
         return positionMap.entrySet()
                 .stream()
                 .filter(entry -> entry.getValue() == winnerPosition)

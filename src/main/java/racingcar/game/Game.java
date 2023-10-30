@@ -27,7 +27,7 @@ public class Game {
 
     private void initPosition() {
         positions = new PositionMap();
-        carList.forEachCar((car) -> positions.addCar(car));
+        carList.forEachCar((car) -> positions.putCar(car));
     }
 
     public void play() {
@@ -54,7 +54,7 @@ public class Game {
     }
 
     private void printWinner() {
-        String winner = positions.getWinner()
+        String winner = positions.getWinners()
                 .stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(","));
