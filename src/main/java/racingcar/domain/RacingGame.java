@@ -28,7 +28,7 @@ public class RacingGame {
         setPositionList();
         System.out.println(ATTEMPTS_RESULT_MESSAGE);
         startRaceAttempts();
-        gameResult.findWinner(carsPositionList);
+        gameResult.printWinner(carsPositionList);
     }
 
     public void carsArrayToList(String[] array) {
