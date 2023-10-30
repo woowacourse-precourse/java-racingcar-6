@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.enums.ErrorMessage;
 import racingcar.enums.GameConstant;
 
 public class Generator {
@@ -18,6 +19,16 @@ public class Generator {
     }
 
     public Integer convertStringToInteger(String origin) {
+        validateConvertStringToInteger(origin);
+
         return Integer.parseInt(origin);
+    }
+
+    private void validateConvertStringToInteger(String origin) {
+        String numbersPattern = GameConstant.NUMBERS.getContent();
+
+        if (origin.matches(numbersPattern) == false) {
+            throw new IllegalArgumentException(ErrorMessage.ATTEMPS_STRING_TO_INTEGER.getMessage());
+        }
     }
 }
