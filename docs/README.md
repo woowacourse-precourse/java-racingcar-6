@@ -47,6 +47,7 @@
 
 ##### void printWinner()
 + getMaxMove() 함수를 호출하고 우승자를 출력함
++ 출력할 때 addComma 호출
 
 ##### int getMaxMove()
 + movement의 최대값을 찾아서 반환함

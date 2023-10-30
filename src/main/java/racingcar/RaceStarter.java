@@ -38,12 +38,19 @@ public class RaceStarter {
     void printWinner() {
         int maxMove = getMaxMove();
         System.out.print("최종 우승자 :");
+
+        boolean comma = false;
         for (Car car : cars) {
-            if (cars.get(0) != car) System.out.print(",");
             if (maxMove == car.movement) {
+                addComma(comma);
                 System.out.printf(" %s", car.carName);
             }
         }
+    }
+
+    void addComma(boolean comma) {
+        if (comma) System.out.print(",");
+        comma = true;
     }
 
     int getMaxMove() {
