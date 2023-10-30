@@ -10,13 +10,14 @@ class OutputViewTest {
 
     @Test
     @DisplayName("위치 현황의 타이틀 출력 기능 테스트")
-    void printLocationResultTitleTest() {
+    void printRacingResultTitleTest() {
         MockPrinter printer = new MockPrinter();
         OutputView outputView = new OutputView(printer);
         String expectedMessage = String.format("%n실행 결과");
 
-        outputView.printLocationResultTitle();
+        outputView.printRacingResultTitle();
 
         assertThat(printer.getPrintedMessage()).isEqualTo(expectedMessage);
     }
+
 }

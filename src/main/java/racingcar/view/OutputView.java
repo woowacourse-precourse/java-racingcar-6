@@ -18,7 +18,7 @@ public class OutputView {
         return new OutputView(new ConsolePrinter());
     }
 
-    public void printLocationResultTitle() {
+    public void printRacingResultTitle() {
         print(LOCATION_RESULT_TITLE);
     }
 
