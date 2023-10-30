@@ -32,14 +32,6 @@ public class Racing {
         return carList;
     }
 
-    public void ready() {
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-            final List<Car> cars = transformStringToCarList(Console.readLine());
-            System.out.println("시도할 회수는 몇회인가요?");
-            int turn = isAllowIntString(Console.readLine());
-            start(cars,turn);
-    }
-
     private void start(List<Car> cars, int turn) {
         int maxScore = 0;
 
@@ -50,7 +42,6 @@ public class Racing {
         }
 
         List<String> winner = new ArrayList<>();
-
         for (Car car : cars) {
             final String carName = car.ifMaxScore(maxScore);
             if (!carName.isEmpty()) {
@@ -59,5 +50,13 @@ public class Racing {
         }
         String winnerFormat = String.format("최종 우승자 : %s", String.join(", ", winner));
         System.out.println(winnerFormat);
+    }
+
+    public void ready() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        final List<Car> cars = transformStringToCarList(Console.readLine());
+        System.out.println("시도할 회수는 몇회인가요?");
+        int turn = isAllowIntString(Console.readLine());
+        start(cars, turn);
     }
 }
