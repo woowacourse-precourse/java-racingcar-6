@@ -1,5 +1,8 @@
 package racingcar.domain.car;
 
+import racingcar.domain.policy.DriveRule;
+import racingcar.domain.policy.MovePolicy;
+
 public class Car {
     private final String name;
     private int position;
@@ -17,10 +20,14 @@ public class Car {
         }
     }
 
-    public void move(boolean movable) {
-        if (movable) {
+    public void move(DriveRule driveRule) {
+        if (isMove(driveRule)) {
             position++;
         }
+    }
+
+    private static boolean isMove(DriveRule driveRule) {
+        return MovePolicy.canMove(driveRule);
     }
 
     public String printPosition() {
