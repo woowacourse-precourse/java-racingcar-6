@@ -14,4 +14,9 @@ public class RacingCarGameView implements RepeatingGameView {
             throw new RuntimeException("메시지 로드 오류", e);
         }
     }
+
+    @Override
+    public void showInputRequiredMessage() {
+        System.out.println(messageProperties.get("car-name-input"));
+    }
 }
