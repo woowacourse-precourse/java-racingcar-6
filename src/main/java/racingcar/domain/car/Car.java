@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import java.util.function.Supplier;
+
 public class Car {
     private final String name;
     private int position;
@@ -20,7 +22,9 @@ public class Car {
         return position;
     }
 
-    public void move() {
-        position += 1;
+    public void move(Supplier<Integer> randomNumberSupplier) {
+        if (randomNumberSupplier.get() >= 4) {
+            position += 1;
+        }
     }
 }

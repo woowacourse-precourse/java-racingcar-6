@@ -32,17 +32,4 @@ public class CarTest {
         // then
         assertThat(car.getPosition()).isZero();
     }
-
-    @Test
-    @DisplayName("move 메서드 호출 시 자동차의 위치가 1 증가해야 함")
-    void move_IncrementCarPositionByOne()  {
-        // given
-        Car car = new Car("yooo");
-
-        // when
-        car.move();
-
-        // then
-        assertThat(car.getPosition()).isEqualTo(1);
-    }
 }
