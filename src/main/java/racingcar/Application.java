@@ -1,6 +1,6 @@
 package racingcar;
 
-import java.util.*;
+import java.util.ArrayList;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -21,9 +21,10 @@ class Event {
         String inputName = Console.readLine();
         players = inputName.split(",");
 
-        if ( !(inputName.contains(",")) ) {
+        if (!(inputName.contains(","))) {
             throw new IllegalArgumentException("이름은 쉼표로 구분되어야 합니다.");
         }
+
         for (int i = 0; i < players.length; i++) {
             if (players[i].length() > 5) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
@@ -37,15 +38,18 @@ class Event {
         try {
             System.out.println("시도할 회수는 몇회인가요?");
             moveTimes = Integer.parseInt(Console.readLine());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new IllegalArgumentException("회수가 올바르지 않습니다.");
+        }
+
+        if (moveTimes < 1) {
+            throw new IllegalArgumentException("1 이상의 정수를 입력해야합니다.");
         }
     }
 
     void moveForward() {
         int i = 0;
-        while (i < players.length ) {
+        while (i < players.length) {
             int movePoint = Randoms.pickNumberInRange(0, 9);
             if (movePoint >= 4) {
                 scoreBoard[i] = scoreBoard[i] + movePoint;
