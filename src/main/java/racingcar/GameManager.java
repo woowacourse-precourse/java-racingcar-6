@@ -9,6 +9,7 @@ public class GameManager {
     private static final String RESULT_FORMAT = "%s : %s\n";
     private static final String LOCATION_SIGN = "-";
     private static final String WINNER_FORMAT = "최종 우승자 : %s";
+    private static final String WINNER_NAMES_DELIMITER = ",";
     private static final MovingRule movingRule = new MovingRule();
 
     private final NumberGenerator numberGenerator = new NumberGenerator();
@@ -54,7 +55,7 @@ public class GameManager {
         int maxLocation = findMaxLocation(cars);
         List<String> winnerNames = findWinnerNames(cars, maxLocation);
 
-        return String.format(WINNER_FORMAT, String.join(",", winnerNames));
+        return String.format(WINNER_FORMAT, String.join(WINNER_NAMES_DELIMITER, winnerNames));
     }
 
     private int findMaxLocation(List<Car> cars) {
