@@ -13,11 +13,13 @@ public class Constants {
     public static final Pattern TRY_NUM_PATTERN = Pattern.compile("^[1-9][0-9]*$");
 
     public static final String DELIMETER = ",";
+    public static final String ROUND_RESULT_DELIMETER = " : ";
+    public static final String SCORE = "-";
     public static final String ERROR = "ERROR: ";
     public static final String CAR_NAME_SIZE_ERROR_MESSAGE = "자동차 이름은 5자 이하만 가능합니다.";
     public static final String INPUT_WRONG_ERROR_MESSAGE = "입력값이 존재하지 않습니다.";
     public static final String INPUT_ONLY_INTEGER_ERROR_MESSAGE = "숫자만 입력 가능합니다.";
 
     public static final String ROUND_RESULT = "실행 결과\n";
-    public static final String WINNER_MESSAGE = "최종 우승자 : ";
+    public static final String WINNER_MESSAGE = "최종 우승자";
 }
