@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class GameService {
     private static final String ErrorMessage = "0보다 큰 숫자를 입력해주세요.";
+    public static final int MOVING_FORWARD_STANDARD_NUMBER = 4;
 
     public GameService() {
     }
@@ -48,7 +49,7 @@ public class GameService {
     }
 
     public static boolean movingForwardCheck(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVING_FORWARD_STANDARD_NUMBER) {
             return true;
         }
         return false;
