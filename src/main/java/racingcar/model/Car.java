@@ -1,13 +1,19 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.message.ErrorMessage;
 
 public class Car implements Comparable<Car> {
+
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final String POSITION_BAR = "-";
 
     private final String name;
     private int position;
 
     public Car(String name) {
+        validateName(name);
+
         this.name = name;
         this.position = 0;
     }
@@ -28,7 +34,13 @@ public class Car implements Comparable<Car> {
         } else {
 
         }
-        System.out.println(name + " : " + "-".repeat(position));
+        System.out.println(name + " : " + POSITION_BAR.repeat(position));
+    }
+
+    private void validateName(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME.getMessage());
+        }
     }
 
     @Override
