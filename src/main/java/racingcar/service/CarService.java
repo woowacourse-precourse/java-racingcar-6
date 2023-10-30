@@ -1,0 +1,13 @@
+package racingcar.service;
+
+import java.util.List;
+import racingcar.domain.Car;
+
+public interface CarService {
+
+    void join(Car car);
+
+    Car findCar(Long id);
+
+    List<Car> findAllCars();
+}
