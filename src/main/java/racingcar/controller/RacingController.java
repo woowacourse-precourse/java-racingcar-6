@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.service.RacingService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingController {
@@ -33,5 +32,10 @@ public class RacingController {
         for (int i = 0; i < round; i++) {
             cars = racingService.attempt(cars);
         }
+        fiinishRacing();
+    }
+
+    public void fiinishRacing() {
+        List<String> winners = racingService.pickWinner(cars);
     }
 }

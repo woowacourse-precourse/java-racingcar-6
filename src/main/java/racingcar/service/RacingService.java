@@ -33,19 +33,33 @@ public class RacingService {
                 car.forward(rNum);
             }
         }
-        printRacingResult(cars);
+        printCurrentState(cars);
         return cars;
     }
 
-    public void printRacingResult(List<Car> cars) {
+    public void printCurrentState(List<Car> cars) {
         for (Car car : cars) {
             System.out.print(car.getName() + " : ");
-            for(int i=0;i<car.getCurrent();i++) { //함수(printBar)로 빼야되나
+            for (int i = 0; i < car.getCurrent(); i++) { //함수(printBar)로 빼야되나
                 System.out.print("-");
             }
             System.out.println();
         }
         System.out.println();
+    }
+
+    public List<String> pickWinner(List<Car> cars) {
+        List<String> winners = new ArrayList<>();
+        int max = 0;
+        for (Car car : cars) {
+            max = Math.max(max, car.getCurrent());
+        }
+        for (Car car : cars) {
+            if (max == car.getCurrent()) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
     }
 
     public boolean isMorethanDigit(int digit, int num) {
