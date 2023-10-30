@@ -1,4 +1,5 @@
 package racingcar.executionprocess;
 
-public class Print {
+public class Result {
+
 }
