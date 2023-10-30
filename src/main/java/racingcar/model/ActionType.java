@@ -19,8 +19,12 @@ public enum ActionType {
     public static Integer randomAction() {
         Integer randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
         if (randomNumber >= THRESHOLD) {
-            return GO.action;
+            return GO.getAction();
         }
-        return STOP.action;
+        return STOP.getAction();
+    }
+
+    public Integer getAction() {
+        return action;
     }
 }
