@@ -66,4 +66,29 @@ class CarTest {
         }
     }
 
+
+    @Test
+    void toString_메서드로_1번_전진_했을때를_반영한_String_값을_반환() {
+        try (MockedStatic<Randoms> mocked = mockStatic(Randoms.class)) {
+            mocked.when(() -> Randoms.pickNumberInRange(0, 9)).thenReturn(4);
+
+            Car car = Car.createCarByName("abc");
+            car.moveForwardOrStop();
+
+            assertThat(car.toString()).isEqualTo("abc : -");
+        }
+    }
+
+    @Test
+    void toString_메서드로_0번_전진_했을때를_반영한_String_값을_반환() {
+        try (MockedStatic<Randoms> mocked = mockStatic(Randoms.class)) {
+            mocked.when(() -> Randoms.pickNumberInRange(0, 9)).thenReturn(3);
+
+            Car car = Car.createCarByName("abc");
+            car.moveForwardOrStop();
+
+            assertThat(car.toString()).isEqualTo("abc : ");
+        }
+    }
+
 }
