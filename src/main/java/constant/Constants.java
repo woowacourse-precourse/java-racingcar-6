@@ -5,4 +5,6 @@ public class Constants {
     public static String INPUT_NUMBERS = "시도할 회수는 몇회인가요?";
     public static String RESULT = "실행 결과";
     public static String FINAL_WINNER = "최종 우승자";
+
+    public static String WRONG_INPUT_SIZE = "자동차 개수는 5개 이하로 작성해주세요.";
 }
