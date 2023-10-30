@@ -8,7 +8,7 @@ public class ValidationTest {
 
     @Test
     void 차_개수_1이하_시_예외_발생() {
-        String input = "1";
+        String input = "pobi";
 
         assertThatThrownBy(() -> Validation.throwIfCarInputIsInvalid(input))
                 .isInstanceOf(IllegalArgumentException.class)
