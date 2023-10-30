@@ -9,16 +9,19 @@ import java.util.StringTokenizer;
 public class Application {
     public static void main(String[] args) {
         List<User> users = userCar();
-        User.inputCheck(users);
+        User user = new User();
+
+        user.inputCheck(users);
         System.out.println("시도할 회수는 몇회인가요?");
         int gameCount = Integer.parseInt(readLine());
 
+        Game game = new Game();
         System.out.println();
         System.out.println("실행 결과");
         for (int i = 0; i < gameCount; i++) {
-            Game.playGame(users);
+            game.playGame(users);
         }
-        Game.printWinner(users);
+        game.printWinner(users);
     }
 
     public static List<User> userCar() {
