@@ -13,9 +13,9 @@ public class InputView {
         String inputCarNames = Console.readLine();
         InputValidation.validateInput(inputCarNames);
 
-        StringTokenizer st = new StringTokenizer(inputCarNames, ",");
-        while (st.hasMoreTokens()) {
-            carNames.add(st.nextToken());
+        StringTokenizer tokenizer = new StringTokenizer(inputCarNames, ",");
+        while (tokenizer.hasMoreTokens()) {
+            carNames.add(tokenizer.nextToken());
         }
         InputValidation.validateCarNames(carNames);
 

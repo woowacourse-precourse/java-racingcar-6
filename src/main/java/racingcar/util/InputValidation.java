@@ -11,12 +11,12 @@ public class InputValidation {
         if (!input.matches("^[a-zA-Z,]*$")) {
             throw new IllegalArgumentException();
         }
-        if (isEmpty(input)) {
+        if (isNullOrEmpty(input)) {
             throw new IllegalArgumentException();
         }
     }
 
-    private static boolean isEmpty(String input) {
+    private static boolean isNullOrEmpty(String input) {
         return input == null || input.isEmpty();
     }
 
@@ -45,7 +45,7 @@ public class InputValidation {
         if (!input.matches("^[1-9]\\d*$")) {
             throw new IllegalArgumentException();
         }
-        if (isEmpty(input)) {
+        if (isNullOrEmpty(input)) {
             throw new IllegalArgumentException();
         }
     }
