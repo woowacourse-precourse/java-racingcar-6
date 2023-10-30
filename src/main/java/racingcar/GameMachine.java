@@ -4,6 +4,7 @@ public class GameMachine {
 
     void playRacingGame() {
         RacingGame racingGame = new RacingGame();
+        RandomNumberMaker randomNumberMaker = new RandomNumberMaker();
         Output.printCarNameInputRequest();
         String[] carNames = Input.getCarName();
         racingGame.createCars(carNames);
@@ -11,7 +12,8 @@ public class GameMachine {
         int tryNumber = Input.getTryNumber();
         Output.printResultTitle();
         for (int times = 0; times < tryNumber; times++) {
-            racingGame.moveCars();
+            int randomNumber = randomNumberMaker.makeRandomNumber();
+            racingGame.moveCars(randomNumber);
             Output.printRacingMap(racingGame.getCurrentStatus());
         }
         Output.printWinners(racingGame.getWinner());
