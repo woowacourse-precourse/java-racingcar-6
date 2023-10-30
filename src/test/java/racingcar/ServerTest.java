@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
+import java.util.List;
 
 public class ServerTest {
     Server server;
@@ -21,5 +21,17 @@ public class ServerTest {
     void 경주를_시도하는_횟수를_접수한다(){
         server.confirmRacerCount("5");
         Assertions.assertEquals(5,server.getRacerCount());
+    }
+    @Test
+    void 경주를_시작할_수_있다() {
+        server.confirmRacerList("pobi,woni");
+        server.confirmRacerCount("20");
+
+        server.startRace();
+
+        List<Racer> racerList = server.getRacerList();
+        for (Racer racer : racerList) {
+            Assertions.assertNotEquals(0,racer.getCurrentPos());
+        }
     }
 }

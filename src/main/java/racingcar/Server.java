@@ -26,6 +26,9 @@ public class Server {
         Integer racerCount = Integer.parseInt(racerCountString);
         this.racerCount = racerCount;
     }
+    public void startRace(){
+
+    }
 
     public List<Racer> getRacerList(){ return racerList; }
     public int getRacerCount() { return racerCount;}
