@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class Car {
+public class Car extends IndexModel {
 
-    private Long id;
     private String name;
     private int currentPosition = 0;
     private List<Integer> pickedNumbers = new ArrayList<>();
@@ -19,16 +18,8 @@ public class Car {
         return new Car(name);
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public boolean isNameLengthOver(int length) {

@@ -1,10 +1,9 @@
 package racingcar.domain;
 
-import java.util.List;
+public class Racing extends IndexModel {
 
-public class Racing {
-
-    private List<Car> cars;
+    private Participations participations;
     private int tryCount;
+    private Winners winners;
 
 }
