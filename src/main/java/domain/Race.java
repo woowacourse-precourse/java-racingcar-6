@@ -59,20 +59,25 @@ public class Race {
 
     private void inputMoveCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        this.moveCount = UserInput.inputMoveCount();
+        moveCount = UserInput.inputMoveCount();
     }
 
     private void runRace() {
         System.out.println("실행 결과");
 
-        Stream.iterate(0, n -> n + 1)
-                .limit(moveCount)
-                .forEach(i -> {
-                    cars.stream()
-                            .peek(Car::drive)
-                            .forEach(Car::printPosition);
-                    System.out.println();
-                });
+        for (int i = 0; i < moveCount; i++) {
+            moveCars();
+            printCarsPosition();
+            System.out.println();
+        }
+    }
+
+    private void moveCars() {
+        cars.forEach(Car::drive);
+    }
+
+    private void printCarsPosition() {
+        cars.forEach(Car::printPosition);
     }
 
     private void declareWinner() {
@@ -83,7 +88,7 @@ public class Race {
     private String checkWinner(List<Car> cars) {
 
 
-        return ""
+        return "";
     }
 
 }
