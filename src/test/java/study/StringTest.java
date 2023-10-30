@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class StringTest {
 
@@ -61,4 +62,26 @@ public class StringTest {
         assertThat(num).isEqualTo(num);
         assertThat(isTrue).isEqualTo(isTrue);
     }
+
+    @ParameterizedTest(name = "매개변수") // 무조건 name으로
+    @ValueSource(strings = {"abc", "def", "ghi"})
+    @DisplayName("ValueSource을 이용한 테스트 활용_1")
+    void ValueSource_을_활용하여_여러개_테스트_확인하기_문자(String str) {
+        assertThat(str).contains(str);
+    }
+
+    @ParameterizedTest(name = "매개변수") // 무조건 name으로
+    @ValueSource(ints = {1, 2, 3})
+    @DisplayName("ValueSource을 이용한 테스트 활용_2")
+    void ValueSource_을_활용하여_여러개_테스트_확인하기_숫자(int num) {
+        assertThat(num).isEqualTo(num);
+    }
+
+    @ParameterizedTest(name = "매개변수") // 무조건 name으로
+    @ValueSource(booleans = {true, false})
+    @DisplayName("ValueSource을 이용한 테스트 활용_3")
+    void ValueSource_을_활용하여_여러개_테스트_확인하기_불(boolean isTrue) {
+        assertThat(isTrue).isEqualTo(isTrue);
+    }
+
 }
