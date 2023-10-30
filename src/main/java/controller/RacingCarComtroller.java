@@ -25,8 +25,14 @@ public class RacingCarComtroller {
 			carList.add(car);
 		}
 		
-		OutView out = new OutView();
-		out.showResult(carList);
+		OutView.showResultMessage();
+		for(int i = 0; i < totalMove; i++) {
+			for(Car car : carList) {
+				OutView.showResult(car, i);
+			}
+			System.out.println();
+		}
+		OutView.showWinner(carList);
 	}
 	
 

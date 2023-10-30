@@ -9,22 +9,18 @@ public class OutView {
 
 	private static final String OUT_RESULT_MESSAGE = "실행결과";
 	private static final String OUT_WINNER = "최종 우승자 : ";
-		
-	public void showResult(List<Car> carList) {
+	
+	public static void showResultMessage() {
 		System.out.println(OUT_RESULT_MESSAGE);
-
-		for(Car car : carList) {
-			System.out.print(car.getName() + " : ");
-			for(int i = 1; i <= car.getForword(); i++) {
-				System.out.print("-");
-			}
-			System.out.println();
-		}
-		showWinner(carList);
 	}
 	
-	private void showWinner(List<Car> carList) {
+	public static void showResult(Car car, int i) {
+		System.out.print(car.getName() + " : ");
+		car.showMiving(i);
 		System.out.println();
+	}
+
+	public static void showWinner(List<Car> carList) {
 		System.out.print(OUT_WINNER);
 		
 		List<String> winnerList = new ArrayList<>();

@@ -16,14 +16,20 @@ public class Car {
 	}
 	
 	public void getRandomNumberList(int totalMove){
+		numberList = new ArrayList<>();
 		for(int i = 1; i <= totalMove; i++) {
 			int number = Randoms.pickNumberInRange(0, 9);
-			numberList = new ArrayList<>();
 			numberList.add(number);
-			
-			if(number >= 4) {
-				forword++;
-			}
+		}
+	}
+	
+	public void showMiving(int i) {
+		if(numberList.get(i) >= 4) {
+			forword++;
+		}
+
+		for(int j = 1; j <= forword; j++) {
+			System.out.print("-");
 		}
 	}
 	
