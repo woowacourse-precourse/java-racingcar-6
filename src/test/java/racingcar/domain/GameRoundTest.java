@@ -52,6 +52,7 @@ class GameRoundTest {
     void increaseCurrentRound_현재_라운드_올라가지_않음_테스트() {
         // given
         GameRound gameRound = new GameRound(5, 0);
+        while (gameRound.isLeftRound()) gameRound.increaseCurrentRound();
 
         // when
         Boolean result = gameRound.increaseCurrentRound();
@@ -75,7 +76,7 @@ class GameRoundTest {
     }
 
     @Test
-    @DisplayName("현재 라운드가 총 라운드 보다 같은 경우 isLeftRound()는 false를 반환")
+    @DisplayName("현재 라운드가 총 라운드와 같은 경우 isLeftRound()는 false를 반환")
     void isLeftRound_남은_라운드_없음_테스트() {
         // given
         GameRound gameRound = new GameRound(5, 0);

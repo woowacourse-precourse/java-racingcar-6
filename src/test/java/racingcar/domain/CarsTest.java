@@ -52,7 +52,7 @@ class CarsTest {
     @DisplayName("자동차가 모두 전진하는 경우")
     void raceAllCars_전진() {
         // given
-        MovingStrategy moveStrategy = new MovingStrategy(()->4); // isCarMove() 항상 true 반환, 즉 항상 전진
+        MovingStrategy moveStrategy = new MovingStrategy((start, end)->4); // isCarMove() 항상 true 반환, 즉 항상 전진
         List<String> names = Arrays.asList("pobi", "crong", "horan");
         Cars cars = new Cars(names, moveStrategy);
 
@@ -70,7 +70,7 @@ class CarsTest {
     @DisplayName("자동차가 모두 멈추는 경우")
     void raceAllCars_멈춤() {
         // given
-        MovingStrategy stopStrategy = new MovingStrategy(()->3); // isCarMove() 항상 false 반환, 즉 항상 멈춤
+        MovingStrategy stopStrategy = new MovingStrategy((start, end)->3); // isCarMove() 항상 false 반환, 즉 항상 멈춤
         List<String> names = Arrays.asList("pobi", "crong", "horan");
         Cars cars = new Cars(names, stopStrategy);
 

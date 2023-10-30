@@ -70,8 +70,8 @@ class CarTest {
     @DisplayName("위치 정보 기반으로 대소비교 - 위치 값이 더 큰 자동차가 큰 것으로 판단")
     void compareTo_대소비교_테스트() {
         // given
-        MovingStrategy stopStrategy = new MovingStrategy(() -> 3);
-        MovingStrategy moveStrategy = new MovingStrategy(() -> 4);
+        MovingStrategy stopStrategy = new MovingStrategy((start, end) -> 3);
+        MovingStrategy moveStrategy = new MovingStrategy((start, end) -> 4);
         Car car1 = new Car(stopStrategy, "pobi", 0);
         Car car2 = new Car(moveStrategy, "crong", 0);
 
@@ -88,7 +88,7 @@ class CarTest {
     @DisplayName("MovingStrategy.isCarMove()가 false인 경우 goForward() 호출하면 위치 정보 업데이트 안됨")
     void goForward_멈춤_테스트() {
         // given
-        MovingStrategy stopStrategy = new MovingStrategy(() -> 3); // isCarMove() 항상 false 반환
+        MovingStrategy stopStrategy = new MovingStrategy((start, end) -> 3); // isCarMove() 항상 false 반환
         Car car = new Car(stopStrategy, "pobi", 0);
         // when
         Boolean result = car.goForward();
@@ -101,7 +101,7 @@ class CarTest {
     @DisplayName("MovingStrategy.isCarMove()가 true인 경우 goForward() 호출하면 위치 정보 업데이트됨")
     void goForward_전진_테스트() {
         // given
-        MovingStrategy moveStrategy = new MovingStrategy(() -> 4); // isCarMove() 항상 true 반환
+        MovingStrategy moveStrategy = new MovingStrategy((start, end) -> 4); // isCarMove() 항상 true 반환
         Car car = new Car(moveStrategy, "pobi", 0);
         // when
         Boolean result = car.goForward();
