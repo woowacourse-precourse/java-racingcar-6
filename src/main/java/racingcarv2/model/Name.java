@@ -2,9 +2,10 @@ package racingcarv2.model;
 
 import java.util.Arrays;
 import java.util.Objects;
+import racingcarv2.exception.ErrorException;
 
 public class Name {
-    private static final String SEPARATOR_COMMA = ",";
+    public static final String SEPARATOR_COMMA = ",";
     private final String nameValue;
 
     public Name(String name) {
@@ -24,13 +25,13 @@ public class Name {
 
     private void isOutOfRange(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("문자열의 길이가 범위에서 벗어났습니다");
+            throw new IllegalArgumentException(ErrorException.OUT_OF_RANGE.getDescription());
         }
     }
 
     private void validateDuplication(String[] names) {
         if (!Objects.equals(Arrays.stream(names).count(), Arrays.stream(names).distinct().count())) {
-            throw new IllegalArgumentException("중복된 이름이 존재합니다");
+            throw new IllegalArgumentException(ErrorException.DUPLICATED_NAME.getDescription());
         }
     }
 

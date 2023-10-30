@@ -25,7 +25,7 @@ public class OutputViewTest extends IOTest {
 
     @Test
     void 최종_결과_출력() {
-        OutputView.printWinnerNames(racingCars.findWinner());
+        OutputView.printWinnerNames(racingCars.findWinnerName());
 
         Assertions.assertThat(output()).isEqualTo("최종 우승자 : bana, candy\n");
     }

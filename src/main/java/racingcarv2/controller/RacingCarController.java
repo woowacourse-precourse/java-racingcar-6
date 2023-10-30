@@ -38,6 +38,6 @@ public class RacingCarController {
     }
 
     private void displayWinner(RacingCars racingCars) {
-        OutputView.printWinnerNames(racingCars.findWinner());
+        OutputView.printWinnerNames(racingCars.findWinnerName());
     }
 }

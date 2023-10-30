@@ -9,7 +9,7 @@ import racingcarv2.model.Position;
 
 public class StringToCarList {
     public static List<Car> convert(String src) {
-        return Arrays.stream(src.split(","))
+        return Arrays.stream(src.split(Name.SEPARATOR_COMMA))
                 .map(carName -> new Car(new Name(carName), new Position(0)))
                 .collect(Collectors.toList());
     }

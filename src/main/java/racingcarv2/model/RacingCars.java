@@ -3,7 +3,6 @@ package racingcarv2.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcarv2.model.Car;
 import racingcarv2.util.RandomGenerator;
 
 public class RacingCars {
@@ -26,7 +25,7 @@ public class RacingCars {
         return racingCars;
     }
 
-    public List<Name> findWinner() {
+    public List<Name> findWinnerName() {
         return getNamesWithSamePosition(findMaxPositionCar());
     }
 
