@@ -1,12 +1,12 @@
 package racingcar.controller;
 
-import static racingcar.util.Utils.parseCarName;
+import static racingcar.Utils.parseCarName;
 
 import java.util.List;
 import racingcar.domain.RacingCars;
 import racingcar.domain.validator.CarNameValidator;
 import racingcar.domain.validator.TryCountValidator;
-import racingcar.view.input.RacingInputView;
+import racingcar.view.RacingInputView;
 
 public class RacingInputController {
 

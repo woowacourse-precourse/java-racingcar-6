@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar;
 
 import static racingcar.constant.MessageConstants.NONE_INSTANTIABLE_CLASS;
 import static racingcar.constant.MessageConstants.PARSE_CAR_NAME_DELIMITER;

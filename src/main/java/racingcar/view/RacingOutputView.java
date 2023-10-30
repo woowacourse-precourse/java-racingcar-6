@@ -1,4 +1,4 @@
-package racingcar.view.output;
+package racingcar.view;
 
 import static racingcar.constant.MessageConstants.WINNER_DELIMITER;
 import static racingcar.constant.MessageConstants.INPUT_CAR_NAME;

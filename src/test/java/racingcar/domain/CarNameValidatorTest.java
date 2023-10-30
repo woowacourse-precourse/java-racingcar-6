@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.validator.CarNameValidator;
-import racingcar.util.Utils;
+import racingcar.Utils;
 
 class CarNameValidatorTest {
 
