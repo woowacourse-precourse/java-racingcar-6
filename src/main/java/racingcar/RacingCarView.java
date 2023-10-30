@@ -8,6 +8,10 @@ public class RacingCarView {
 		return Console.readLine();
 	}
 	
+	public String inputCount() {
+		System.out.println("시도할 회수는 몇회인가요?");
+		return Colsole.readLine();
+	}
 	public void printRacing(ArrayList<Car> cars) {
 		for(Car c : cars) {
 			System.out.println(c.getName() + " : " );
