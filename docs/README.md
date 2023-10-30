@@ -12,7 +12,7 @@
 - 사용자에게 시도할 횟수를 입력받는다.
 
 ## 4. 자동차 이름 입력 유효성 확인하기
-- Validator#isValidCarNames()
+- Validator#checkValidCarNames()
 - 자동차 이름 목록을 전달받아 자동차 이름의 유효성을 확인한다.
 
 ## 5. 시도 횟수 입력 유효성 확인하기
