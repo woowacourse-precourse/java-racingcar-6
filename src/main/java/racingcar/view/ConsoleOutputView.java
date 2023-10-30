@@ -3,6 +3,7 @@ package racingcar.view;
 import racingcar.domain.CarStatus;
 import racingcar.domain.RaceStatus;
 import racingcar.domain.RacingGameStatus;
+import racingcar.domain.WinnerNames;
 
 public class ConsoleOutputView implements OutputView {
 
@@ -51,5 +52,12 @@ public class ConsoleOutputView implements OutputView {
         String driveCountText = DRIVE_COUNT_DESCRIPTION_TEXT.repeat(carStatus.getDriveCount());
         String carStatusMessage = String.format(CAR_STATUS_MESSAGE, carStatus.getName(), driveCountText);
         System.out.println(carStatusMessage);
+    }
+
+    @Override
+    public void printWinnerNames(WinnerNames winnerNames) {
+        String winnerNamesText = String.join(", ", winnerNames.getWinnerNames());
+        String winnersMessage = String.format(WINNERS, winnerNamesText);
+        System.out.println(winnersMessage);
     }
 }
