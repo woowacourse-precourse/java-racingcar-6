@@ -9,42 +9,43 @@ public class GameService {
     private static final int POSSIBLE = 4;
     Cars cars = new Cars();
 
-    public void moveCar() {
+    public ArrayList<List<String>> moveCar(ArrayList<String> carNames, ArrayList<List<String>> currentCarProgress) {
 
-        for (int j = 0; j < cars.getCarNameList().size(); j++) {
+        for (int j = 0; j < carNames.size(); j++) {
 
             int currentCarMove = Randoms.pickNumberInRange(0, 9);
-            ArrayList<List<String>> currentCarProgress = cars.getCarProgress();
+            //ArrayList<List<String>> currentCarProgress = cars.getCarProgress();
 
             if (currentCarMove >= POSSIBLE) {
                 String currentMove = currentCarProgress.get(j).get(0);
                 currentCarProgress.get(j).set(0, currentMove + "-");
-                cars.setCarProgress(currentCarProgress);
+
 
             }
 
         }
+        return currentCarProgress;
 
     }
 
-    public ArrayList<String> getFinalWinner() {
+    public ArrayList<String> getFinalWinner(ArrayList<String> carNames, ArrayList<List<String>> carProgress) {
         ArrayList<String> winnerList = new ArrayList<>();
-        int maxDistance = getMaxCarTravelDistance();
+        int maxDistance = getMaxCarTravelDistance(carNames, carProgress);
 
-        for (int i = 0; i < cars.getCarNameList().size(); i++) {
-            if (cars.getCarProgress().get(i).get(0).length() == maxDistance) {
-                winnerList.add(cars.getCarNameList().get(i));
+        for (int i = 0; i < carNames.size(); i++) {
+            if (carProgress.get(i).get(0).length() == maxDistance) {
+                winnerList.add(carNames.get(i));
             }
 
         }
         return winnerList;
     }
 
-    private int getMaxCarTravelDistance() {
+    private int getMaxCarTravelDistance(ArrayList<String> carNames, ArrayList<List<String>> carProgress) {
         int maxDistance = -1;
-        for (int i = 0; i < cars.getCarNameList().size(); i++) {
-            if (maxDistance < cars.getCarProgress().get(i).get(0).length()) {
-                maxDistance = cars.getCarProgress().get(i).get(0).length();
+        for (int i = 0; i < carNames.size(); i++) {
+            if (maxDistance < carProgress.get(i).get(0).length()) {
+                maxDistance = carProgress.get(i).get(0).length();
             }
         }
         return maxDistance;
