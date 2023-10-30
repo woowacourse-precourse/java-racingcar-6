@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Arrays;
+
 public class Car {
     private String name;
     private int position;
@@ -9,7 +11,7 @@ public class Car {
         this.position = 0;
     }
 
-    public String getName() {
-        return name;
+    public boolean isEquals(String ... carNames) {
+        return Arrays.stream(carNames).anyMatch((carName) -> this.name.equals(carName));
     }
 }

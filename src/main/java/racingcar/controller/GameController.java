@@ -2,21 +2,21 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.service.ControlTowerService;
+import racingcar.service.RefereeService;
 
 public class GameController {
 
-    private final ControlTowerService controlTowerService;
+    private final RefereeService refereeService;
 
-    public GameController(ControlTowerService controlTowerService) {
-        this.controlTowerService = controlTowerService;
+    public GameController(RefereeService refereeService) {
+        this.refereeService = refereeService;
     }
 
     public List<Car> addCarNames(String inputCarNames) {
-        return controlTowerService.inputCarNames(inputCarNames);
+        return refereeService.inputCarNames(inputCarNames);
     }
 
     public int addRoundNumber(String inputRoundNumber) {
-        return controlTowerService.saveRoundNumber(inputRoundNumber);
+        return refereeService.saveRoundNumber(inputRoundNumber);
     }
 }

@@ -10,13 +10,13 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Referee;
 
-class ControlTowerServiceTest {
+class RefereeServiceTest {
 
-    ControlTowerService service;
+    RefereeService service;
 
     @BeforeEach
     void init() {
-        service = new ControlTowerService(new Referee());
+        service = new RefereeService(new Referee());
     }
 
     @Test
@@ -29,10 +29,8 @@ class ControlTowerServiceTest {
         List<Car> cars = service.inputCarNames(inputCarNames);
 
         // Then
-        assertThat(cars.stream().allMatch((car) -> {
-            String carName = car.getName();
-            return carName.equals("pobi") || carName.equals("woni") || carName.equals("jun");
-        })).isTrue();
+        assertThat(cars.stream().allMatch((car) ->
+                car.isEquals("pobi", "woni", "jun"))).isTrue();
     }
 
     @Test

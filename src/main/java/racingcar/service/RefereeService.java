@@ -5,11 +5,11 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Referee;
 
-public class ControlTowerService {
+public class RefereeService {
 
     private final Referee referee;
 
-    public ControlTowerService(Referee referee) {
+    public RefereeService(Referee referee) {
         this.referee = referee;
     }
 
@@ -29,4 +29,5 @@ public class ControlTowerService {
     public int saveRoundNumber(String inputRoundNumber) {
         return referee.inputRoundNumber(inputRoundNumber);
     }
+
 }
