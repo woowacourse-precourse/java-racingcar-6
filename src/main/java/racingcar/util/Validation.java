@@ -1,6 +1,6 @@
 package racingcar.util;
 
-public class validation {
+public class Validation {
 
     private static final Integer MAX_LENGTH = 5;
     public static void maxLength(String cars) throws IllegalArgumentException {

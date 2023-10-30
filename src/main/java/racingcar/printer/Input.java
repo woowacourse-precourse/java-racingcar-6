@@ -1,7 +1,7 @@
 package racingcar.printer;
 
 import racingcar.message.Message;
-import racingcar.util.splitString;
+import racingcar.util.SplitString;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class Input {
         List<String> carsList = new ArrayList<>();
 
         try {
-            carsList = splitString.splitString(cars);
+            carsList = SplitString.splitString(cars);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             getCars();
