@@ -8,8 +8,8 @@
 - [x] 사용자 입력을 받는다.
    - [x] 경주 할 자동차 이름(쉼표(,) 기준으로 구분) 입력한다. - CarGenerator#askCarName()
    - [x] 몇 번의 이동을 시도할 것인지 입력한다. - Racing#askRacingCount()
-- [ ] 실행 결과를 출력한다. Racing#reportRacing()
-   - [ ] 각 자동차의 위치를 출력한다. Racing#printPosition()
+- [x] 실행 결과를 출력한다. Racing#reportRacing()
+   - [x] 각 자동차의 위치를 출력한다. Racing#printPosition()
 - [ ] 우승 자동차를 출력한다.
    - [ ] 우승자가 여러 명일 경우 쉼표(,)로 구분하여 출력한다. Racing#announceWinner()
 
