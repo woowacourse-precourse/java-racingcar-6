@@ -22,7 +22,7 @@ class CarInputTest {
         String userInput = "pobi,woni,jun";
 
         // when
-        List<String> carNames = CarManager.createCarNames(userInput);
+        List<String> carNames = CarManager.createNames(userInput);
 
         // then
         assertThat(carNames).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
@@ -36,8 +36,8 @@ class CarInputTest {
         String userInputOne = "";
         String userInputTwo = "pobi";
 
-        List<String> carNamesOne = CarManager.createCarNames(userInputOne);
-        List<String> carNamesTwo = CarManager.createCarNames(userInputTwo);
+        List<String> carNamesOne = CarManager.createNames(userInputOne);
+        List<String> carNamesTwo = CarManager.createNames(userInputTwo);
 
         // when, then
         assertThatThrownBy(() -> Validator.checkCarCount(carNamesOne))
@@ -55,7 +55,7 @@ class CarInputTest {
         // given
         String userInput = "123456";
 
-        List<String> carNames = CarManager.createCarNames(userInput);
+        List<String> carNames = CarManager.createNames(userInput);
 
         // when, then
         assertThatThrownBy(() -> Validator.checkLength(carNames))
@@ -72,9 +72,9 @@ class CarInputTest {
         String userInputTwo = "";
         String userInputThree = "pobi, ";
 
-        List<String> carNamesOne = CarManager.createCarNames(userInputOne);
-        List<String> carNamesTwo = CarManager.createCarNames(userInputTwo);
-        List<String> carNamesThree = CarManager.createCarNames(userInputThree);
+        List<String> carNamesOne = CarManager.createNames(userInputOne);
+        List<String> carNamesTwo = CarManager.createNames(userInputTwo);
+        List<String> carNamesThree = CarManager.createNames(userInputThree);
 
         // when, then
         assertThatThrownBy(() -> Validator.checkBlank(carNamesOne))
@@ -97,10 +97,10 @@ class CarInputTest {
         // given
         String userInput = " jun , pobi";
 
-        List<String> carNames = CarManager.createCarNames(userInput);
+        List<String> carNames = CarManager.createNames(userInput);
 
         // when
-        CarManager.trimCarNames(carNames);
+        CarManager.trimNames(carNames);
 
         // then
         assertThat(carNames).isEqualTo(Arrays.asList("jun", "pobi"));
@@ -114,8 +114,8 @@ class CarInputTest {
         String userInputOne = "pobi,pobi";
         String userInputTwo = "jun, jun ";
 
-        List<String> carNamesOne = CarManager.createCarNames(userInputOne);
-        List<String> carNamesTwo = CarManager.createCarNames(userInputTwo);
+        List<String> carNamesOne = CarManager.createNames(userInputOne);
+        List<String> carNamesTwo = CarManager.createNames(userInputTwo);
 
         // when, then
         assertThatThrownBy(() -> Validator.checkDuplication(carNamesOne))
@@ -139,7 +139,7 @@ class CarInputTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        Car car = new Car(CarManager.createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
+        Car car = new Car(CarManager.createNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
 
         // then
         assertThat(out.toString())

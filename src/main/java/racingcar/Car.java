@@ -13,7 +13,7 @@ public class Car {
     public Car(List<String> names) {
         this.names = names;
 
-        CarManager.validateCarNames(this.names);
+        CarManager.validateNames(this.names);
         initializeMovedDistances();
     }
 

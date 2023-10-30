@@ -39,7 +39,7 @@ public class Validator {
 
     public static void checkDuplication(List<String> carNames) {
 
-        CarManager.trimCarNames(carNames);
+        CarManager.trimNames(carNames);
 
         if (carNames.size() > new HashSet<>(carNames).size()) {
             throw new IllegalArgumentException("중복되지 않은 이름을 입력해 주세요.");
