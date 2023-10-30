@@ -26,7 +26,7 @@
 - [x] 게임결과를 계산하는 기능을 outputview에서 controller로 이동
 - [x] 게임 결과 계산 기능과 게임 결과 출력 기능을 분리
 - [x] 게임 결과 출력 기능을 우승자가 1명일 경우와 2명일 경우로 분리
-- [] OutputView와 Model을 분리
+- [x] OutputView와 Model을 분리
 
 ## MVC 생각해보기
 
