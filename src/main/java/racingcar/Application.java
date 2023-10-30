@@ -9,16 +9,9 @@ public class Application {
     public static void main(String[] args) {
         Map<String, Integer> status = Input.getInitialStatus();
         int count = Input.getCount();
+        Game.play(status, count);
 
-        // Input으로 게임 진행
-        System.out.println("실행 결과");
         for (int i=0; i<count; i++) {
-            for (Map.Entry<String, Integer> entry : status.entrySet()) {
-                int random = pickNumberInRange(0, 9);
-                if (random >= 4) {
-                    entry.setValue(entry.getValue() + 1);
-                }
-            }
             for(Map.Entry<String, Integer> entry: status.entrySet()) {
                 String key = entry.getKey();
                 Integer value = entry.getValue();
