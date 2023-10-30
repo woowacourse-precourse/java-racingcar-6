@@ -16,12 +16,12 @@ public class Car {
     }
 
     public void movePosition(int number) {
-        if (judgeNumber(number)) {
+        if (isMove(number)) {
             position++;
         }
     }
 
-    private boolean judgeNumber(int number) {
+    private boolean isMove(int number) {
         return number >= DIVISION_NUMBER;
     }
 
