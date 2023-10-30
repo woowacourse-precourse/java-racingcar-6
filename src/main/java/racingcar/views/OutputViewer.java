@@ -25,4 +25,5 @@ public class OutputViewer {
     public static void printBlank() {
         System.out.println();
     }
+
 }

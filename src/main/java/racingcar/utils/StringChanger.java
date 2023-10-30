@@ -21,4 +21,6 @@ public class StringChanger {
     public static int stringToInteger(String string) {
         return Integer.parseInt(string);
     }
+
+
 }

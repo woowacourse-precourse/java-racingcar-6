@@ -35,11 +35,11 @@ class ApplicationTest extends NsTest {
 //    @Test
 //    void 전진_정지() {
 //        assertRandomNumberInRangeTest(
-//            () -> {
-//                run("pobi,woni", "1");
-//                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-//            },
-//            MOVING_FORWARD, STOP
+//                () -> {
+//                    run("pobi,woni", "1");
+//                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+//                },
+//                MOVING_FORWARD, STOP
 //        );
 //    }
 //
@@ -298,6 +298,26 @@ class ApplicationTest extends NsTest {
             assertThat(raceOfficial.highestScore).isEqualTo(1);
         }
 
+    }
+
+    @Test
+    @DisplayName("기능 14번: 우승자 판별 확인")
+    void 우승자_판별_확인() {
+        RaceOfficial raceOfficial = new RaceOfficial();
+        List<Driver> drivers = new ArrayList<>(
+                Arrays.asList(new Driver("pobi"), new Driver("woni"))
+        );
+
+        try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
+            mock.when(RandomNumbers::generateZeroToNineDigit)
+                    .thenReturn(MOVING_FORWARD, MOVING_FORWARD);
+            for (Driver driver : drivers) {
+                driver.pushPedal();
+                raceOfficial.setHighestScore(driver);
+            }
+            raceOfficial.determineWinners(drivers);
+            assertThat(raceOfficial.winners).containsExactly("pobi", "woni");
+        }
     }
 
     private void command(final String... args) {

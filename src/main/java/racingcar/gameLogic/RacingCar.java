@@ -20,6 +20,7 @@ public class RacingCar {
     public void run() {
         setCars();
         runRace();
+        announceWinners();
     }
 
     private void setCars() {
@@ -32,6 +33,10 @@ public class RacingCar {
             runRound();
             roundCount--;
         }
+    }
+
+    private void announceWinners() {
+        raceOfficial.announceWinners(drivers);
     }
 
     private void setRounds() {
