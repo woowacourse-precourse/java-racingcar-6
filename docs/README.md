@@ -14,9 +14,11 @@
 
 # 목차
 - [Model](Model)
-  - [Car.java](Car.java)
-  - [CarList.java](CarList.java)
-  - [CarRegister.java](CarRegister.java)
+  - [Car](Car)
+    - [Car.java](Car.java)
+    - [CarList.java](CarList.java)
+    - [CarRegister.java](CarRegister.java)
+  - [Manager](Manager)
 - [View](view)
 - [Controller](Controller)
   - [MainController.java](MainController.java)
@@ -28,6 +30,7 @@
 ---
 
 # Model
+## Car
 ### Car.java
 - String name
 - int position
@@ -46,6 +49,11 @@
 - carNames
 - CarRegister()
 - registerCar
+
+## Manager
+### CarMoveManager.java
+- CHECK_NUMBER = 4
+- isMove()
 
 # View
 
