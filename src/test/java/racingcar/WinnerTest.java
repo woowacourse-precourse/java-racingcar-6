@@ -34,7 +34,7 @@ public class WinnerTest {
         car.movedDistances.set(0, "-");
 
         // when
-        StringJoiner winner = Computer.findWinner(car, 1);
+        StringJoiner winner = Computer.findWinner(car, Computer.calculateMaxDistance(car));
 
         // then
         assertThat(winner.toString()).isEqualTo("pobi");
@@ -48,7 +48,7 @@ public class WinnerTest {
         car.movedDistances.replaceAll(empty -> "-");
 
         // when
-        StringJoiner winner = Computer.findWinner(car, 1);
+        StringJoiner winner = Computer.findWinner(car, Computer.calculateMaxDistance(car));
 
         // then
         assertThat(winner.toString()).isEqualTo("pobi, woni, jun");
