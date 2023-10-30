@@ -6,16 +6,12 @@ import java.util.List;
 
 public class Racing {
 
-    private List<Car> carList;
-    private int maxLocation;
+    private List<Car> carList = new ArrayList<>();
 
     public void moveCars(){
         for(int i = 0; i< carList.size(); i++){
             int randomNumber = Randoms.pickNumberInRange(0,9);
-            int afterLocation = carList.get(i).moves(randomNumber);
-            if(maxLocation < afterLocation){
-                maxLocation = afterLocation;
-            }
+            carList.get(i).moves(randomNumber);
         }
     }
 
@@ -24,12 +20,28 @@ public class Racing {
     }
 
     public List<Car> getWinners(){
-        List<Car> winners = new ArrayList<>();
+        int maxLocation = findMaxLocation();
+        return findSameLocationCars(maxLocation);
+    }
+
+    public List<Car> findSameLocationCars(int location){
+        List<Car> cars = new ArrayList<>();
         for(Car car: carList){
-            if(car.getLocation() == maxLocation){
-                winners.add(car);
+            if(car.getLocation() == location){
+                cars.add(car);
             }
         }
-        return winners;
+        return cars;
+    }
+
+    public int findMaxLocation(){
+        int maxLocation = 0;
+        for(Car car: carList){
+            int carLocation = car.getLocation();
+            if(carLocation > maxLocation){
+                maxLocation = carLocation;
+            }
+        }
+        return maxLocation;
     }
 }
