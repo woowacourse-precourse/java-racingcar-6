@@ -46,7 +46,11 @@ public class RaceStarter {
     }
 
     int getMaxMove() {
-
+        List<Integer> movements = new ArrayList<>();
+        for (Car car : cars) {
+            movements.add(car.movement);
+        }
+        return Collections.max(movements);
     }
 
     void checkInputValidity(String name) {
