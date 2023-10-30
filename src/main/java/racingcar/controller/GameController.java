@@ -6,11 +6,11 @@ import racingcar.view.output.Outputview;
 public class GameController {
 
     private final InputView inputView;
-    private final Outputview outputview;
+    private final Outputview outputView;
 
-    public GameController(final InputView inputView, final Outputview outputview) {
+    public GameController(final InputView inputView, final Outputview outputView) {
         this.inputView = inputView;
-        this.outputview = outputview;
+        this.outputView = outputView;
     }
 
     public void play() {}
