@@ -32,6 +32,8 @@ public class RaceController {
         for (int i = 0; i < countNum; i++) {
             race.printRace();
         }
+
+        race.selectWinner();
     }
 
 

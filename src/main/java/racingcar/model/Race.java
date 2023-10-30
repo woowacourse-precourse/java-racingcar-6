@@ -22,11 +22,12 @@ public class Race {
         System.out.println();
     }
 
+    // 우승자 뽑기
     // 일단 여기다 작성하고 RankResult 클래스로 분할할 방법 없나... 흠...
     public int rankFirst() {
         int max = Integer.MIN_VALUE;
 
-        for (int i = 0; i < cars.length; i++){
+        for (int i = 0; i < cars.length; i++) {
             int rank = cars[i].getCarRank();
             if (rank > max) {
                 max = rank;
@@ -34,5 +35,19 @@ public class Race {
         }
 
         return max;
+    }
+
+    // 우승자 선정 및 출력
+    public void selectWinner() {
+        StringBuilder winner = new StringBuilder();
+
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getCarRank() == rankFirst()) {
+                winner.append(cars[i].getCarName().substring(0, cars[i].getCarName().length() - cars[i].getCarRank() - 3)).append(", ");
+            }
+        }
+
+        String winners = winner.substring(0, winner.length() - 2);
+        System.out.println("최종 우승자 : " + winners);
     }
 }
