@@ -1,6 +1,6 @@
 package racingcar.domain.trial;
 
-import racingcar.domain.trial.validate.NegativeIntegerValidator;
+import racingcar.domain.trial.validate.PositiveIntegerValidator;
 
 public class Trial {
 
@@ -22,6 +22,6 @@ public class Trial {
     }
 
     private void validate(Integer trial) {
-        NegativeIntegerValidator.validate(trial);
+        PositiveIntegerValidator.validate(trial);
     }
 }
