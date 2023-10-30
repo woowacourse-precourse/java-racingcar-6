@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -12,13 +13,18 @@ public class UserInput {
         String input = Console.readLine();
 
         List<String> carTypeList = new ArrayList<String>();
+        HashSet<String> carSet = new HashSet<>();
         for (String carType : input.split(CAR_NAME_SEPARATOR)) {
             checkLength(carType);
             checkEmptyInput(carType);
             checkInvalidCarTypeInput(carType);
             checkCarNameFrontBlank(carType);
             carTypeList.add(String.valueOf(carType));
+
+//            carSet.add(carType);
+//            checkCarNameDuplicate(carType, carSet);
         }
+
         return carTypeList;
 
     }
@@ -55,6 +61,13 @@ public class UserInput {
         if (carType.charAt(0) == ' ') {
             System.out.println(ERROR_CAR_NAME_FRONT_BLANK);
             throw new IllegalArgumentException(ERROR_CAR_NAME_FRONT_BLANK);
+        }
+    }
+
+    public void checkCarNameDuplicate(String carName, HashSet<String> carSet) {
+        if (carSet.contains(carName)) {
+            System.out.println(ERROR_CAR_NAME_DUPLICATE);
+            throw new IllegalArgumentException(ERROR_CAR_NAME_DUPLICATE);
         }
     }
 
