@@ -11,8 +11,8 @@
     - [] 사용자 입력을 받음 - #InputMovingcount()
     - [] 입력한 값이 정수인지 확인 - #CheckMovingcount()
 - [] 자동차 경주 게임 실행 - #Controller()
-  - [] 무작위 숫자 생성 - #NumberGenerator()
-  - [] 값이 4이상인지 판별 - #JudgeValue
+  - [x] 무작위 숫자 생성 - Generator#NumberGenerator()
+  - [X] 값이 4이상인지 판별 - #JudgeNumber
   - [] 4이상인 경우 전진 - #Moving
   - [] 이동 횟수만큼 이동을 반복 - #Replay
   - [] 최종 우승자를 판별 - #JudgeWinner

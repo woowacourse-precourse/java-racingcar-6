@@ -2,16 +2,18 @@ package racingcar;
 
 
 public class Controller {
-    public int numberGenerator() {
-        return 0;
+    Generator generator = new Generator();
+    int A = 0;
+
+    private boolean judgeNumber() {
+        int randomNumber = generator.numberGenerator();
+        return randomNumber >=4;
     }
 
-    private void judegeValue(int generatedNumber) {
-
-    }
-
-    private void moving (int genereatedNumber) {
-
+    private void moving () {
+        if(judgeNumber()) {
+            A += 1;
+        }
     }
 
     public void replay () {
