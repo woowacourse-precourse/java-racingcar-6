@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.RacingUtil;
 import racingcar.model.wrapper.CarName;
 
 public class Car {
@@ -17,6 +18,13 @@ public class Car {
     }
 
     public void move(int power) {
+        if (isMovablePower(power)) {
+            move();
+        }
+    }
+
+    public void moveAttempt() {
+        int power = RacingUtil.generateRandomPower();
         if (isMovablePower(power)) {
             move();
         }
