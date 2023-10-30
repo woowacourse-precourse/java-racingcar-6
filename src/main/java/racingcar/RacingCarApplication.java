@@ -15,22 +15,14 @@ public class RacingCarApplication {
         List<String> carNames = carViewer.inputCarNames();
         Cars cars = Cars.createByNames(carNames);
 
-        int attemptCount = carViewer.inputAttemptCount();
+        int gameRound = carViewer.inputGameRound();
 
+        CarGame carGame = CarGame.create(cars, gameRound);
+        List<Map<String, Integer>> gameResult = carGame.race();
 
         carViewer.outputExecute();
+        carViewer.outputResult(gameResult);
 
-        for (int i = 0; i < attemptCount; i++) {
-            Map<String, Integer> status = cars.goForward();
-
-            carViewer.outputStatus(status);
-        }
-
-
-
-
-        carViewer.outputWinner(cars.getWinningCarNames());
-
-        System.out.println();
+        carViewer.outputWinner(carGame.getWinnerNames());
     }
 }
