@@ -46,9 +46,13 @@ public class Game {
     public void race() {
         for (int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
-            if (isMoveForward())
+            if(isMoveForward()) {
                 car.addForward();
+            }
+            System.out.print(car.getName() + " : ");
+            System.out.println(car.getForward());
         }
+        System.out.println();
     }
 
     private Boolean isMoveForward() {
