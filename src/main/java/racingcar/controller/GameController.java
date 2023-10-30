@@ -21,22 +21,24 @@ public class GameController {
     public void run() {
         List<Car> cars = createCars();
         int tryCount = InputView.askTryCount();
-        racingGame.progress(cars, tryCount);
-        OutputView.printCurrentSituation(cars);
-        OutputView.printWinner(cars);
+        while (racingGame.isRun(tryCount)) {
+            racingGame.progress(cars, tryCount);
+            OutputView.printCurrentSituation(cars);
+        }
+        OutputView.printWinner(racingGame.getWinner(cars));
     }
 
     private List<Car> createCars() {
         String str = InputView.askCarNames();
         validatePattern(str);
-        List<String> carNames = stringToList(str);
+        List<String> carNames = stringToList(str); //currentProgressCount maxProgressCount
         return carNames.stream()
                 .map(name -> new Car(new Name(name)))
                 .collect(Collectors.toList());
     }
 
     private void validatePattern(String str) {
-        String regex = "(\\w{1,})(,\\w)*";
+        String regex = "\\w+(,\\w+)*";
         if (!Pattern.matches(regex, str)) {
             throw new IllegalArgumentException("형식이 맞지 않습니다");
         }
@@ -45,6 +47,5 @@ public class GameController {
     private List<String> stringToList(String str) {
         return Arrays.stream(str.split(","))
                 .collect(Collectors.toList());
-
     }
 }
