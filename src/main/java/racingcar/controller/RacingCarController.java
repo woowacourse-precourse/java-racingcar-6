@@ -28,7 +28,7 @@ public class RacingCarController {
 
     private void playRace(Participants participants) {
         int attemptCount = inputView.getAttemptCount();
-        outputView.printRaceResult();
+        outputView.printRaceResultMessage();
         for (int i = 0; i < attemptCount; i++) {
             List<Car> cars = participants.race();
             outputView.printCarsPosition(cars);

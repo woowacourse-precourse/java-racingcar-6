@@ -10,7 +10,7 @@ public class OutputView {
     private static final String WINNER_DELIMITER = ", ";
     private static final String RACE_RESULT = "실행 결과";
 
-    public void printRaceResult() {
+    public void printRaceResultMessage() {
         System.out.println();
         System.out.println(RACE_RESULT);
     }

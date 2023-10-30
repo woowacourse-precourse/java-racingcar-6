@@ -11,6 +11,15 @@ import racingcar.testutils.MyTest;
 public class OutputViewTest extends MyTest {
 
     @Test
+    void 실행_결과_메세지를_출력할_수_있다() {
+        new OutputView().printRaceResultMessage();
+        assertThat(output()).isEqualTo("""
+                
+                실행 결과
+                """);
+    }
+
+    @Test
     void 게임_결과를_출력할_수_있다() {
         List<Car> cars = List.of(
                 new Car("car1", 3),
