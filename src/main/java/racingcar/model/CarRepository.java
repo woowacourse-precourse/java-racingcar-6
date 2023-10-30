@@ -6,8 +6,7 @@ import java.util.stream.Collectors;
 
 public class CarRepository {
     private final List<Car> cars = new ArrayList<>();
-    private final static int MAX_CAR_COUNT = 100;
-    private final static String DUPLICATE_NAME_MESSAGE = "같은 이름의 자동차 이름이 존재합니다.";
+    private final static int CAR_CAPACITY = 100;
 
     public void save(Car car) {
         validateDuplicateName(car.getName());
@@ -16,7 +15,13 @@ public class CarRepository {
 
     private void validateDuplicateName(String carName) {
         if (cars.stream().anyMatch(car -> car.getName().equals(carName))) {
-            throw new IllegalArgumentException(DUPLICATE_NAME_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_NAME.getMessage());
+        }
+    }
+
+    private void validCapacity() {
+        if (this.cars.size() >= CAR_CAPACITY) {
+            throw new IllegalArgumentException(ErrorMessage.OVER_MAX_CAR_COUNT.getMessage());
         }
     }
 
