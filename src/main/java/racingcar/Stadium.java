@@ -33,6 +33,11 @@ class Stadium {
     }
 
     public void raceOne() {
+        for(Car car:cars){
+            int number = Randoms.pickNumberInRange(0, 9);
+            tryMove(car, number);
+        }
+
 
     }
 
