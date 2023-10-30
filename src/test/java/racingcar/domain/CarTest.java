@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CarTest {
     private String testCarName;
@@ -19,8 +18,8 @@ class CarTest {
         Car testCar = new Car(testCarName);
 
         assertThat(testCar).isNotNull();
-        assertEquals(testCarName, testCar.getName());
-        assertEquals(0, testCar.getPosition());
+        assertThat(testCar.getName()).isEqualTo("pobi");
+        assertThat(testCar.getPosition()).isEqualTo(0);
     }
 
     @Test
@@ -28,6 +27,7 @@ class CarTest {
         Car testCar = new Car(testCarName);
         testCar.move();
 
-        assertEquals(1, testCar.getPosition());
+        assertThat(testCar.getName()).isEqualTo("pobi");
+        assertThat(testCar.getPosition()).isEqualTo(1);
     }
 }
