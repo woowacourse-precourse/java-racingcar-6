@@ -22,10 +22,13 @@ public class OutputView {
             int countOfMove = racingStatus.get(carName);
             racingStatusMessage
                     .append(carName)
-                    .append(":")
+                    .append(" : ")
                     .append("-".repeat(countOfMove))
                     .append(System.lineSeparator());
         }
         System.out.println(racingStatusMessage);
+    }
+    public void printResult(String topRacers) {
+        System.out.println("최종 우승자 : "+topRacers);
     }
 }
