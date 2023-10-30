@@ -50,5 +50,21 @@ public class ValidatorTest {
         assertDoesNotThrow(() -> Validator.inputCarNames(racingCars));
     }
 
-    
+    @Test
+    void 자동차이름_중복_실패_테스트() {
+        String inputCarNames = "pobi,woni,pobi";
+
+        assertThrows(IllegalArgumentException.class, () -> InputConvertor.toMap(inputCarNames));
+    }
+
+    @Test
+    void 자동차이름_중복_성공_테스트() {
+        String inputCarNames = "pobi,woni,jun";
+        Map<String, String> racingCars = InputConvertor.toMap(inputCarNames);
+
+        assertDoesNotThrow(() -> InputConvertor.toMap(inputCarNames));
+
+        assertEquals(3, racingCars.size());
+    }
+
 }
