@@ -19,28 +19,37 @@ public class GameStart {
         carsScoreString = new String[carsName.length];
     }
 
-    void Start(){
+    public void Start(){
         int repeatCount = repeatCount();
         while(repeatCount-- > 0){
             play();
         }
     }
 
-    void play(){
+    private void play(){
         //자동차 점수 계산
         calcCarsScore();
         //자동차 점수 시각화
         carsScoreToString();
     }
 
-    void calcCarsScore(){
+    private int getMax(){
+        int max = 0;
+        for (int carScore: carsScore) {
+            if(max < carScore){
+                max = carScore;
+            }
+        }
+        return max;
+    }
+    private void calcCarsScore(){
         for (int i = 0; i < carsScore.length; i++) {
             if(canGo()){
                 carsScore[i]++;
             }
         }
     }
-    void carsScoreToString(){
+    private void carsScoreToString(){
         for (int i = 0; i < carsScoreString.length; i++) {
             carsScoreString[i] = "-".repeat(carsScore[i]);
         }
