@@ -44,7 +44,8 @@
         
         - inputMoveCount() : 시도할 회수를 사용자 입력 받는 메소드
         - runRace() : 실행 결과를 출력하는 메소드
-
+            - moveCars() : 자동차들을 모두 drive 시키는 함수
+            - printCarsPosition() : 자동차들의 위치를 출력
         - declareWinner() : 결과와 관련된 함수 기능 분리
 
       - checkWinner() : 우승자 확인
