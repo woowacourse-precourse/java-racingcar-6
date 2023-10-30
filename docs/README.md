@@ -4,10 +4,10 @@
 
 #### 사용자 입력 구현
 
-- [ ] InputView 구현
-    - [ ] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-    - [ ] n 대의 자동차 입력 하는 기능 추가 ~~**(n대는 쉼표(,)로 구분) - 자동차 게임에서 구현**~~
-    - [ ] 몇 번을 이동 할 것인지 입력할 수 있어야 함
+- [x] InputView 구현
+    - [x] 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
+    - [x] n 대의 자동차 입력 하는 기능 추가 ~~**(n대는 쉼표(,)로 구분) - 자동차 게임에서 구현**~~
+    - [x] 몇 번을 이동 할 것인지 입력할 수 있어야 함
 
 #### 사용자 입력값 검증 구현
 
