@@ -32,12 +32,17 @@ class Stadium {
 
     }
 
-    public static int tryMove(Car car) {
-        int number = Randoms.pickNumberInRange(0, 9);
-        if (forwardSuccessCheck(number)) {
+    public void raceOne() {
+
+    }
+
+    public void tryMove(Car car, int num) {
+        if (forwardSuccessCheck(num)) {
             car.setPos(car.getPos() + 1);
         }
-        return car.getPos();
+        if (first_pos < car.getPos()) {
+            first_pos = car.getPos();
+        }
     }
 
     public static boolean forwardSuccessCheck(int randomNumber) {
