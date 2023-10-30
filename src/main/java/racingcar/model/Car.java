@@ -10,7 +10,7 @@ public class Car {
     }
 
     public void move(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (isMovePossible(randomNumber)) {
             distance++;
         }
     }
@@ -21,6 +21,10 @@ public class Car {
 
     public int getDistance() {
         return distance;
+    }
+
+    private boolean isMovePossible(int randomNumber) {
+        return randomNumber >= 4;
     }
 
     @Override
