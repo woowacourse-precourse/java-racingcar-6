@@ -9,8 +9,8 @@ public class GameRound {
     private static final CarInfo carInfo = CarInfo.getInstance();
     private Round gameRound;
 
-    public GameRound(Round round) {
-        gameRound = round;
+    public GameRound(Round currentRound) {
+        gameRound = currentRound;
     }
 
     public void passRound() {

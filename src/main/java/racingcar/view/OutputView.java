@@ -12,24 +12,10 @@ public class OutputView {
         System.out.println(car.name() + " : " + "-".repeat(car.position()));
     }
 
-    public static void printGameWinner(List<Car> listCar) {
-        System.out.print(GAME_FINAL_WINNER);
-
-        Optional<Integer> maxPosition = listCar.stream()
-                .map(Car::position)
-                .max(Integer::compareTo);
-
-        if (maxPosition.isPresent()) {
-            List<Car> carsWithMaxPosition = listCar.stream()
-                    .filter(car -> car.position().equals(maxPosition.get()))
-                    .toList();
-
-            String result = carsWithMaxPosition.stream()
-                    .map(Car::name)
-                    .collect(Collectors.joining(","));
-
-            System.out.println(result);
-
-        }
+    public static void printGameWinner(List<Car> winnerCar) {
+        String result = winnerCar.stream()
+                .map(Car::name)
+                .collect(Collectors.joining(","));
+        System.out.println(GAME_FINAL_WINNER + result);
     }
 }

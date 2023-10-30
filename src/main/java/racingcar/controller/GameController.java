@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.domain.car.CarInfo;
 import racingcar.domain.game.GameRound;
+import racingcar.domain.game.GameWinnerFinder;
 import racingcar.dto.Car;
 import racingcar.dto.Round;
 import racingcar.view.InputVeiw;
@@ -42,11 +43,8 @@ public class GameController {
             gameRound.passRound();
             gameRound.startRound();
         }
-//        do {
-//            gameRound.passRound();
-//            gameRound.startRound();
-//        } while (gameRound.getCurrentRound() < MAX_ROUND);
-
-        OutputView.printGameWinner(carInfo.getAllCarInfo());
+        
+        GameWinnerFinder gameWinnerFinder = new GameWinnerFinder(carInfo.getAllCarInfo());
+        OutputView.printGameWinner(gameWinnerFinder.findWinner());
     }
 }
