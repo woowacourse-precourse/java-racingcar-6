@@ -2,6 +2,10 @@ package racingcar.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -19,7 +23,9 @@ public class RacingController {
     }
     private void inputNames() {
         OutputView.printCarName();
-        List<String> carList = Arrays.asList(InputView.read().split(","));
+        List<Car> carList = Arrays.stream(InputView.read().split(","))
+            .map(Car::new)
+            .collect(Collectors.toList());
 
         this.cars = new Cars(carList);
     }

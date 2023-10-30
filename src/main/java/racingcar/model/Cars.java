@@ -9,12 +9,10 @@ public class Cars {
 
     public static final int MAX_NUMBER = 9;
     public static final int MIN_NUMBER = 0;
-    private final List<Car> carList = new ArrayList<>();
+    private final List<Car> carList;
 
-    public Cars(List<String> carList) {
-        for (String s : carList) {
-            this.carList.add(new Car(s));
-        }
+    public Cars(List<Car> carList) {
+        this.carList = carList;
     }
 
     public void moveCars() {
