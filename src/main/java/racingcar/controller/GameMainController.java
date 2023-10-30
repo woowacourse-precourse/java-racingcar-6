@@ -8,15 +8,25 @@ public class GameMainController {
 
     private GameService gameService = new GameService();
 
-    public void startGame() {
+    public void run() {
+        startGame();
+        playGame();
+        stopGame();
+    }
+
+    private void startGame() {
         InputView.requestCarName();
         gameService.getCarList();
         InputView.requestGameCount();
         gameService.getGameCount();
     }
 
-    public void playGame() {
+    private void playGame() {
         OutputView.printResultMessage();
         gameService.playGame();
+    }
+
+    private void stopGame() {
+        OutputView.printWinnerMessage();
     }
 }
