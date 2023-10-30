@@ -23,7 +23,7 @@ public class CarFactory {
   private static void isDistinct(List<String> carNames) {
     Set<String> distinctCarNames = new HashSet<>(carNames);
     if (distinctCarNames.size() != carNames.size()) {
-      throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+      throw new IllegalArgumentException("이름은 중복될 수 없습니다.");
     }
   }
 

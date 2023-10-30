@@ -22,7 +22,7 @@ public class Car {
 
   private void isNameLengthValid(String name) {
     if (name.isEmpty() || name.length() > MAXIMUM_NAME_LENGTH) {
-      throw new IllegalArgumentException("자동차 이름은 1자 이상 5자 이하만 가능합니다.");
+      throw new IllegalArgumentException("이름은 1자 이상 5자 이하만 가능합니다.");
     }
   }
 
