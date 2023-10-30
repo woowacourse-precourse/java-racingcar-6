@@ -2,7 +2,7 @@ package racingcar.util;
 
 import java.util.Arrays;
 import java.util.List;
-import racingcar.Car;
+import racingcar.car.Car;
 
 public final class CarListMaker {
     private static final String COMMA = ",";

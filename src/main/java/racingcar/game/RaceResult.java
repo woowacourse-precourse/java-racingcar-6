@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.car.Car;
 
 public final class RaceResult {
     private static final String MOVE_UI = "-";

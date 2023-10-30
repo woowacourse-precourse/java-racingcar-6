@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
 

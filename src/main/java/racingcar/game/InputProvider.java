@@ -1,10 +1,10 @@
-package racingcar;
+package racingcar.game;
 
-import static racingcar.InputProvider.ErrorMessage.INVALID_FORMAT_EXCEPTION;
-import static racingcar.InputProvider.ErrorMessage.INVALID_LENGTH_EXCEPTION;
-import static racingcar.InputProvider.ErrorMessage.INVALID_RACE_COUNT;
-import static racingcar.InputProvider.ErrorMessage.NOT_EXIST_EXCEPTION;
-import static racingcar.InputProvider.ErrorMessage.START_ZERO_EXCEPTION;
+import static racingcar.game.InputProvider.ErrorMessage.INVALID_FORMAT_EXCEPTION;
+import static racingcar.game.InputProvider.ErrorMessage.INVALID_LENGTH_EXCEPTION;
+import static racingcar.game.InputProvider.ErrorMessage.INVALID_RACE_COUNT;
+import static racingcar.game.InputProvider.ErrorMessage.NOT_EXIST_EXCEPTION;
+import static racingcar.game.InputProvider.ErrorMessage.START_ZERO_EXCEPTION;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
