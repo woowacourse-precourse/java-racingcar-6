@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
@@ -10,11 +10,11 @@ public class Game {
     private final List<Car> cars = new ArrayList<>();
     private int round;
 
-    private boolean isValidCarName(String name) {
+    boolean isValidCarName(String name) {
         return name.length() <= 5;
     }
 
-    private boolean validateCarNames(List<String> carNames) {
+    boolean validateCarNames(List<String> carNames) {
         for (String carName : carNames) {
             if (!isValidCarName(carName)) {
                 return false;
@@ -23,12 +23,12 @@ public class Game {
         return true;
     }
 
-    private List<String> inputCarNames() {
+    List<String> inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
         return Arrays.asList(Console.readLine().split(","));
     }
 
-    private void createCars(List<String> carNames) {
+    void createCars(List<String> carNames) {
         if (!validateCarNames(carNames)) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
@@ -38,12 +38,12 @@ public class Game {
         }
     }
 
-    private String inputRound() {
+    String inputRound() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Console.readLine();
     }
 
-    private boolean validateRound(String round) {
+    boolean validateRound(String round) {
         try {
             Integer.parseInt(round);
         } catch (NumberFormatException e) {
@@ -52,25 +52,25 @@ public class Game {
         return true;
     }
 
-    private void setRound(String round) {
+    void setRound(String round) {
         if (!validateRound(round)) {
             throw new IllegalArgumentException("시도 횟수는 숫자만 가능합니다.");
         }
         this.round = Integer.parseInt(round);
     }
 
-    private void input() {
+    void input() {
         createCars(inputCarNames());
         setRound(inputRound());
     }
 
-    private void moveCars() {
+    void moveCars() {
         for (Car car : cars) {
             car.move();
         }
     }
 
-    private void printResult() {
+    void printResult() {
         for (Car car : cars) {
             StringBuilder sb = new StringBuilder();
             sb.append(car.getName());
@@ -80,7 +80,7 @@ public class Game {
         }
     }
 
-    private void printTotalResult() {
+    void printTotalResult() {
         System.out.println("\n실행 결과");
         for (int i = 0; i < round; i++) {
             moveCars();
@@ -89,7 +89,7 @@ public class Game {
         }
     }
 
-    private String getWinners() {
+    String getWinners() {
         int maxPosition = 0;
         for (Car car : cars) {
             if (maxPosition < car.getPosition()) {
@@ -108,7 +108,7 @@ public class Game {
         return sb.toString();
     }
 
-    private void printWinners() {
+    void printWinners() {
         System.out.println("최종 우승자 : " + getWinners());
     }
 
