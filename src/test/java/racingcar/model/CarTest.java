@@ -1,6 +1,8 @@
 package racingcar.model;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -80,5 +82,11 @@ public class CarTest {
         car.changePosition(CarMovementStatus.MOVE_FORWARD);
         Integer maxPositionGiven = 2;
         assertThat(car.isWinner(maxPositionGiven)).isFalse();
+    }
+    @Test
+    @DisplayName("자동차 이름을 확인한다. 6 자리 에러")
+    public void checkWrongName(){
+        String givenName = "appleO";
+        assertThatThrownBy(() -> Car.validateName(givenName)).isInstanceOf(IllegalArgumentException.class);
     }
 }
