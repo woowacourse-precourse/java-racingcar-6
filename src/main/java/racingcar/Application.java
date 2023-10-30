@@ -9,17 +9,14 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         InputFunction inputFunction = new InputFunction();
-        InputFunction.InputResult InputDataList = inputFunction.InputData();
-        List<Integer> UserRace = IntStream.range(0, InputDataList.inputDataList.size())
+        InputResultModel InputDataList = inputFunction.InputData();
+        List<Integer> UserRace = IntStream.range(0, InputDataList.getInputDataList().size())
                 .map(i -> 0)
                 .boxed()
                 .collect(Collectors.toList());
-
-        if (!Objects.equals(InputDataList.numberOfTime, -1)) {
+        if(!Objects.equals(InputDataList.getNumberOfTime(), -1)){
             PlayGameFunction playGameFunction = new PlayGameFunction();
-            playGameFunction.PlayGame(UserRace,
-                    InputDataList.inputDataList,
-                    InputDataList.numberOfTime);
+            playGameFunction.PlayGame(UserRace, InputDataList);
         }
     }
 }

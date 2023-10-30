@@ -6,12 +6,12 @@ public class PlayGameFunction {
     public PlayGameFunction() {
     }
 
-    public void PlayGame(List<Integer> UserRace, List<String> inputDataList, int NumberOfTime) {
-        for (int i = 0; i < NumberOfTime; i++) {
+    public void PlayGame(List<Integer> UserRace, InputResultModel inputData) {
+        for (int i = 0; i < inputData.getNumberOfTime(); i++) {
             RandomFunction randomFunction = new RandomFunction();
             randomFunction.CreateRandomFunction(UserRace, UserRace.size());
             PlayView playView = new PlayView();
-            playView.PlayResultView(UserRace, inputDataList, NumberOfTime, i);
+            playView.PlayResultView(UserRace, inputData, i);
         }
     }
 }

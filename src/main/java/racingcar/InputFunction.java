@@ -8,7 +8,7 @@ public class InputFunction {
     public InputFunction() {
     }
 
-    public InputResult InputData() {
+    public InputResultModel InputData() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String InputData = readLine();
         CheckFunction checkFunction = new CheckFunction();
@@ -16,21 +16,11 @@ public class InputFunction {
         int NumberOfTime;
         if (checkFunction.isValidInputList(InputDataList)) {
             NumberOfTime = -1;
-            return new InputResult(InputDataList, NumberOfTime);
+            return new InputResultModel(InputDataList, NumberOfTime);
         }
         System.out.println("시도할 회수는 몇회인가요?");
         String NumberOfTimeToString = readLine();
         NumberOfTime = checkFunction.isValidInputNumber(NumberOfTimeToString);
-        return new InputResult(InputDataList, NumberOfTime);
-    }
-
-    static class InputResult {
-        List<String> inputDataList;
-        int numberOfTime;
-
-        InputResult(List<String> inputDataList, int numberOfTime) {
-            this.inputDataList = inputDataList;
-            this.numberOfTime = numberOfTime;
-        }
+        return new InputResultModel(InputDataList, NumberOfTime);
     }
 }
