@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.core.car.MoveSignal;
 import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.core.car.MovingCar;
-import racingcar.domain.system.game.round.host.Host;
+import racingcar.domain.system.host.Host;
 import racingcar.domain.system.manager.car.InMemoryCarManager;
 import racingcar.domain.system.manager.car.SavedCar;
 import racingcar.domain.system.manager.position.CarPositionManager;

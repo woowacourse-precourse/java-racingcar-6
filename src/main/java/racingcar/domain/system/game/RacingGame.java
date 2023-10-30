@@ -11,7 +11,7 @@ import racingcar.domain.core.car.Car;
 import racingcar.domain.core.car.CarName;
 import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.system.game.round.RoundResult;
-import racingcar.domain.system.game.round.host.Host;
+import racingcar.domain.system.host.Host;
 import racingcar.domain.system.manager.car.CarKey;
 import racingcar.domain.system.manager.car.CarManager;
 import racingcar.domain.system.manager.car.SavedCar;
