@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Hashtable;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -21,5 +22,13 @@ public class InputHandler {
         System.out.println(TRIAL_INPUT_TEXT);
         String trialString = Console.readLine();
         return Integer.parseInt(trialString);
+    }
+
+    public Hashtable<String, Integer> generateScoreboard(List<String> names) {
+        Hashtable<String, Integer> scoreboard = new Hashtable<>();
+        for (String name : names) {
+            scoreboard.put(name, 0);
+        }
+        return scoreboard;
     }
 }
