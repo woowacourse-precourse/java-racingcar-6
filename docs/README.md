@@ -22,7 +22,7 @@
         - [ ] 문자열을 정수 타입으로 변환하여 반환한다.
 
 ## 자동차를 구현하는 기능
-- [ ] makeCarListByCarNames 메서드 구현
+- [ ] getCarListByCarNames 메서드 구현
     - [ ] 입력받은 자동차의 이름으로 Car 객체 생성한다.
     - [ ] 생성한 Car 객체들을 List 형태로 반환한다.
 
