@@ -4,6 +4,7 @@ import static java.util.Objects.isNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingGame {
@@ -24,8 +25,29 @@ public class RacingGame {
         return new RacingGame(inputNameString);
     }
 
+    public List<Result> play() {
+        return racingCarList.stream()
+                .map(Car::move)
+                .toList();
+    }
+
+    public List<String> determineRaceWinners() {
+        Collections.sort(racingCarList);
+        int winnerMoveCount = racingCarList.get(0).getMovedCount();
+        return findWinners(winnerMoveCount);
+    }
+
     public List<Car> getRacingCarList() {
         return racingCarList;
+    }
+
+    private List<String> findWinners(int winnerMoveCount) {
+        List<String> winnerNameList = new ArrayList<>();
+        for(Car car : racingCarList) {
+            if(car.getMovedCount() < winnerMoveCount) break;
+            winnerNameList.add(car.getName());
+        }
+        return winnerNameList;
     }
 
     private void validateInputNameString(String inputNameString) {
