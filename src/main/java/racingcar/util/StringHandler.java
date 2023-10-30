@@ -16,4 +16,8 @@ public class StringHandler {
                 .map(Object::toString)
                 .collect(Collectors.joining(","));
     }
+
+    public static int stringToInt(String input) {
+        return Integer.parseInt(input);
+    }
 }
