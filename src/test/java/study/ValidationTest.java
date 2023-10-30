@@ -9,6 +9,8 @@ import racingcar.validation.InputValidation;
 import racingcar.validation.NameValidation;
 import racingcar.validation.ScoreValidation;
 
+import java.math.BigInteger;
+
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class ValidationTest {
 
@@ -85,5 +87,20 @@ public class ValidationTest {
         }
             ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.SCORE_VALUE_IS_NOT_NUMERIC);
+    }
+
+    @Test
+    void 시도_횟수_입력_값_Integer_범위벗어나는지_검증_로직_테스트(){
+        //given
+        String maxValue=String.valueOf(Integer.MAX_VALUE);
+        BigInteger b=new BigInteger(maxValue).add(BigInteger.ONE);
+        String target = b.toString();
+
+        //when
+        assertThatThrownBy(()->{
+                    ScoreValidation.verifyForScoreIsOverStandard(target);
+                }
+        ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorProperty.SCORE_VALUE_IS_OVER_STANDARD);
     }
 }
