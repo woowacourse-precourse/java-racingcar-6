@@ -45,5 +45,9 @@ public class Race {
         return winners;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
 
 }
