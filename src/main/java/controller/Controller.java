@@ -6,10 +6,6 @@ import service.UserInput;
 import view.InputView;
 import view.OutputView;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 public class Controller {
 
     public static UserInput userInput = new UserInput();
