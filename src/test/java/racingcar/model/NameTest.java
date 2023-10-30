@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import model.Name;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -14,7 +15,7 @@ public class NameTest {
 
         //when
         Name carsName = new Name(name);
-        String resultName = name.getName();
+        String resultName = carsName.getName();
 
         // then
         Assertions.assertThat(resultName).isEqualTo(name);
