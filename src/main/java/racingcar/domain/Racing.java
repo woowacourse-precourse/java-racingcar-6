@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +37,7 @@ public class Racing {
             }
             printResult(racingResultMap);
         }
+        printWinner(racingResultMap);
     }
 
     private boolean moveForward(int number){
@@ -52,5 +53,22 @@ public class Racing {
             System.out.println( car + " : " + "-".repeat(location) );
         }
         System.out.println("");
+    }
+
+    private void printWinner(Map<String, Integer> racingResultMap){
+        List<String> winners = new ArrayList<>();
+        int location = 0;
+        for (String car : racingResultMap.keySet()) {
+            if(location < racingResultMap.get(car)){
+                location = racingResultMap.get(car);
+                winners.clear();
+                winners.add(car);
+            }else if (location == racingResultMap.get(car)){
+                winners.add(car);
+            }
+        }
+        String testString = winners.toString().replace("[", "").replace("]","");
+
+        System.out.println("최종 우승자 : " + testString);
     }
 }
