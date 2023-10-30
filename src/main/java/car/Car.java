@@ -23,6 +23,12 @@ public class Car {
         }
     }
 
-
+    public void printResult(){
+        String printCount = "";
+        for(int i = 0; i < count; i++){
+            printCount += "-";
+        }
+        System.out.println(name + " : " + printCount);
+    }
 
 }
