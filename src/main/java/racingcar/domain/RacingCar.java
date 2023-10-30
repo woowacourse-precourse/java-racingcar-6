@@ -13,11 +13,12 @@ public class RacingCar {
         moveNumber++;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getMoveNumber() {
         return moveNumber;
+    }
+
+    @Override
+    public String toString(){
+        return name;
     }
 }
