@@ -37,10 +37,22 @@ public class Validator {
         };
     }
 
+    private void validateNumeric(String input) {
+        for (char c : input.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                throw new IllegalArgumentException("진행 횟수는 정수만 입력 가능합니다.");
+            }
+        }
+    }
+
     public void validateInputCar(List<String> input) {
         validateInputCarOneToFive(input);
         validateCarName(input);
         validateCarNameDuplicates(input);
+    }
+
+    public void validateInputMovingTryCount(String input) {
+        validateNumeric(input);
     }
 
     public void validateInputCarNameStartOrEndComma(String input) {
