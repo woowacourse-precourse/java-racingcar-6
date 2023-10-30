@@ -19,12 +19,9 @@ class RacingNumberGeneratorTest {
 
     @Test
     void generate_ShouldReturnNumberBetweenZeroAndNine() {
-        for (int i = 0; i < 1000; i++) {  // 랜덤 값을 여러 번 생성하여 범위 내에 있는지 확인
+        for (int i = 0; i < 1000; i++) {
             int generatedNumber = racingNumberGenerator.generate();
-
-            assertThat(generatedNumber)
-                    .isGreaterThanOrEqualTo(MIN_VALUE)
-                    .isLessThanOrEqualTo(MAX_VALUE);
+            assertThat(generatedNumber).isGreaterThanOrEqualTo(MIN_VALUE).isLessThanOrEqualTo(MAX_VALUE);
         }
     }
 }

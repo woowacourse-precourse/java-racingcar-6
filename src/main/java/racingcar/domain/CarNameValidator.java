@@ -32,7 +32,7 @@ public class CarNameValidator {
     }
 
     private void validateCommas(String carNames) {
-        if (carNames.startsWith(",") || carNames.endsWith(",") || carNames.contains(",,") ) {
+        if (carNames.startsWith(",") || carNames.endsWith(",") || carNames.contains(",,")) {
             throw new IllegalArgumentException(PLEASE_INPUT_CORRECT_CAR_NAMES);
         }
     }
