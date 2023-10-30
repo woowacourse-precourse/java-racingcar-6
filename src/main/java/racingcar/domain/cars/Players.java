@@ -3,19 +3,17 @@ package racingcar.domain.cars;
 import java.util.List;
 import racingcar.domain.car.Car;
 
-public class Players {
+public class Players extends Cars {
 
-    private final List<Car> cars;
+    public Players(List<Car> cars) {
+        super(cars);
+    }
 
-    public Players(List<String> names) {
+    public static Players of(List<String> names) {
         List<Car> cars = names.stream()
             .map(Car::new)
             .toList();
-        this.cars = cars;
-    }
-
-    public List<Car> cars() {
-        return cars;
+        return new Players(cars);
     }
 
     public void moveAll() {

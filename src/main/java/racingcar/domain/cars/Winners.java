@@ -4,14 +4,12 @@ import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.car.Car;
 
-public class Winners {
+public class Winners extends Cars {
 
     private static final String ERROR_MESSAGE_CANNOT_FIND_WINNER = "우승자를 찾을 수 없습니다.";
 
-    private final List<Car> cars;
-
     public Winners(List<Car> cars) {
-        this.cars = cars;
+        super(cars);
     }
 
     public static Winners judge(Players players) {
@@ -30,9 +28,5 @@ public class Winners {
         return cars.stream()
             .max(Comparator.comparing(Car::movement))
             .orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE_CANNOT_FIND_WINNER));
-    }
-
-    public List<Car> cars() {
-        return cars;
     }
 }
