@@ -25,7 +25,7 @@ public class RaceGameController {
 
         OutputView.printBeforeResult();
 
-        // 시도 횟수만큼 게임 실행 결과 출력
+        // 시도 횟수만큼 게임 실행 및 결과 출력
         for (int i = 0; i < attemptNumber; i++) {
             startOneRoundGame();
         }
@@ -36,6 +36,7 @@ public class RaceGameController {
         OutputView.printWinner(winnerList);
     }
 
+    // 자동차 이름 input을 Car 객체 리스트로 변환하여 반환
     public List<Car> convertCarList(List<String> carInputList) {
         List<Car> newCarList = new ArrayList<>();
         for (int i = 0; i < carInputList.size(); i++) {
