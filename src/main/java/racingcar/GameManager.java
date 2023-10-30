@@ -25,17 +25,17 @@ public class GameManager {
 
         move(carList, round);
 
-        carList.printWinners();
+        System.out.print(carList.winners());
     }
 
-    private CarList getCarList(){
+    private CarList getCarList() {
         System.out.println(MESSAGE_INPUT_CAR_NAMES);
         String input = Console.readLine();
 
         return carListFactory.create(input);
     }
 
-    private Round getRound(){
+    private Round getRound() {
         System.out.println(MESSAGE_INPUT_ROUND);
         String input = Console.readLine();
 

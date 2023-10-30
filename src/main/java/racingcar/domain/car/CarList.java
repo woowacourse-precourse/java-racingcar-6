@@ -1,11 +1,8 @@
 package racingcar.domain.car;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import static java.lang.Math.max;
 import static racingcar.Constant.*;
 
 public class CarList {
@@ -15,60 +12,38 @@ public class CarList {
         this.carList = carList;
     }
 
+    //==비즈니스 로직==//
     public void move() {
-        for (Car car : carList) {
-            if (isMove()) {
-                car.move();
-            }
-        }
+        carList.forEach(Car::move);
     }
 
-    private boolean isMove() {
-        int number = Randoms.pickNumberInRange(START, END);
-        return number >= MOVING_FORWARD;
+    public String winners() {
+        int winnerPoint = winnerPoint();
+
+        return MESSAGE_WINNER + IS +
+                carList.stream()
+                        .filter(car -> isWinner(car, winnerPoint))
+                        .map(Car::getName)
+                        .collect(Collectors.joining(OUTPUT_DELIM));
     }
 
-    public void printWinners() {
-        List<String> winnerList = getWinnerList();
-
-        String winners = String.join(OUTPUT_DELIM, winnerList);
-        System.out.print(MESSAGE_WINNER + IS + winners);
-    }
-
-    private List<String> getWinnerList() {
-        int winnerPoint = getWinnerPoint();
-
-        List<String> winnerList = new ArrayList<>();
-        for (Car car : carList) {
-            if (isWinner(car, winnerPoint)) {
-                winnerList.add(car.getName());
-            }
-        }
-
-        return winnerList;
-    }
-
-    private int getWinnerPoint() {
-        int winnerPoint = 0;
-        for (Car car : carList) {
-            winnerPoint = max(winnerPoint, car.getPoint());
-        }
-        return winnerPoint;
+    private int winnerPoint() {
+        return carList.stream()
+                .mapToInt(Car::getPoint)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_WINNER_POINT));
     }
 
     private boolean isWinner(Car car, int winnerPoint) {
         return car.getPoint() == winnerPoint;
     }
 
+    //==출력==//
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-
-        for (Car car : carList) {
-            builder.append(car);
-            builder.append("\n");
-        }
-        return builder.toString();
+        return carList.stream()
+                .map(car -> car + "\n")
+                .collect(Collectors.joining());
     }
 
 }
