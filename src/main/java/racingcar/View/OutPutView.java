@@ -10,11 +10,18 @@ public class OutPutView {
     public void resultAnnouncementMessage() {
         System.out.println("실행 결과");
     }
+
     public void midGameResultMessage(ArrayList<GameResultDto> midGameResultDtoList) {
+        StringBuilder midGameResultVisualizationBuilder = new StringBuilder();
         for (GameResultDto gameResultDto : midGameResultDtoList) {
-            System.out.print(gameResultDto.getRacingCarName() + " : ");
-            System.out.println(distanceVisualization(gameResultDto.getDistance()));
+            printMidGameResult(gameResultDto, midGameResultVisualizationBuilder);
         }
+    }
+
+    private void printMidGameResult(GameResultDto gameResultDto, StringBuilder midGameResultVisualizationBuilder) {
+        midGameResultVisualizationBuilder.append(gameResultDto.getRacingCarName()).append(" : ").append(distanceVisualization(gameResultDto.getDistance()));
+        System.out.println(midGameResultVisualizationBuilder);
+        midGameResultVisualizationBuilder.setLength(0);
     }
 
     private String distanceVisualization(int distance) {
