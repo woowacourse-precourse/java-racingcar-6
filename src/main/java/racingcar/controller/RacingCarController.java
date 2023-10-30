@@ -23,7 +23,9 @@ public class RacingCarController {
 
     public void racingCar() {
         List<Car> cars = createCarList();
-        int numberOfTimes = Integer.parseInt(inputView.inputNumberOfTimes());
+        String inputNumberOfTimes = inputView.inputNumberOfTimes();
+        validateInputIsNumber(inputNumberOfTimes);
+        int numberOfTimes = Integer.parseInt(inputNumberOfTimes);
         IntStream.range(0, numberOfTimes)
                 .forEach(i -> repeatRaceNumberOfTimes(cars));
         outputView.printWinnerOrWinners(findWinner(cars));
@@ -71,5 +73,14 @@ public class RacingCarController {
     private List<String> splitCarNamesByComma(String input) {
         return Arrays.stream(input.split(","))
                 .collect(Collectors.toList());
+    }
+
+    private void validateInputIsNumber(String input) {
+        boolean isCharAllNumbers = input.chars()
+                .allMatch(Character::isDigit);
+
+        if (!isCharAllNumbers) {
+            throw new IllegalArgumentException("시도 횟수 입력이 숫자가 아닙니다.");
+        }
     }
 }
