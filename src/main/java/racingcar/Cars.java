@@ -35,6 +35,13 @@ final class Cars {
                 .collect(Collectors.toList());
     }
 
+    List<String> whosWinners() {
+        return cars.stream()
+                .filter(car -> car.isFront(maxDistance))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
     private void validateNames(String[] names) {
         var uniqueNameCount = Arrays.stream(names).distinct().count();
         if (names.length < 1 || names.length != uniqueNameCount) throw new IllegalArgumentException();
