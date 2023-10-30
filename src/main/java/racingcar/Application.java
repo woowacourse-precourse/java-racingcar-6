@@ -11,7 +11,7 @@ public class Application {
         CarView carView = new CarView();
         CarService carService = new CarService(carView);
         UserService userService = new UserService();
-        CarController CarController = new CarController(carService, userService, carView);
-        CarController.startRacing();
+        CarController carController = new CarController(carService, userService, carView);
+        carController.startRacing();
     }
 }
