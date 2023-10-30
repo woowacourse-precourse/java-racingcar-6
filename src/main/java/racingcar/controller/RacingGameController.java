@@ -9,11 +9,19 @@ import racingcar.view.GameViewer;
 import java.util.List;
 
 public class RacingGameController {
-    private GameViewer gameViewer = new GameViewer();
-    private ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
-    private RacingCarGameMachine racingCarGameMachine = new RacingCarGameMachine();
+    private GameViewer gameViewer;
+    private ValidatePlayerInput validatePlayerInput;
+    private RacingCarGameMachine racingCarGameMachine;
+    private List<String> carNames;
+    private int parsedTryCount;
 
-    public void play() {
+    public RacingGameController() {
+        this.gameViewer = new GameViewer();
+        this.validatePlayerInput = new ValidatePlayerInput();
+        this.racingCarGameMachine = new RacingCarGameMachine();
+    }
+
+    public void validatePlayerInputLine() {
         gameViewer.startMessage();
         String inputLine = getInputLine();
 
@@ -23,15 +31,20 @@ public class RacingGameController {
         validatePlayerInput.validateCarNameLength();
         validatePlayerInput.validateDuplicateCarNames();
         validatePlayerInput.validateAlphaCarName();
-        List<String> carNames = validatePlayerInput.convertStringToListCarNames();
+
+        this.carNames = validatePlayerInput.convertStringToListCarNames();
 
         gameViewer.tryCountMessage();
-        String tryCount = getInputLine();
-        validatePlayerInput.validatePlayerTryCountInput(tryCount);
+        String tryCountInputLine = getInputLine();
+        validatePlayerInput.validatePlayerTryCountInput(tryCountInputLine);
 
+        this.parsedTryCount = Integer.parseInt(tryCountInputLine);
+    }
+
+    public void play() {
         racingCarGameMachine.readyToPlay(carNames);
         gameViewer.gameResultMessage();
-        for (int i = 0; i < Integer.parseInt(tryCount); i++) {
+        for (int i = 0; i < parsedTryCount; i++) {
             racingCarGameMachine.race();
             List<RacingCar> raceResult = racingCarGameMachine.getRacingCars();
             gameViewer.racingCarsMoveStatus(raceResult);
