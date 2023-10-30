@@ -22,7 +22,7 @@ public class CarTest {
     @Test
     void 자동차_멈춤_테스트() {
         car.move(3);
-        assertThat(car.getPosition()).isEqalto(0);
+        assertThat(car.getPosition()).isEqualTo(0);
     }
 
 }
