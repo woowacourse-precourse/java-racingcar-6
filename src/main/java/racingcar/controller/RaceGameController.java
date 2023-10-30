@@ -10,4 +10,8 @@ public class RaceGameController {
         racingCarService = new RacingCarService(InputView.inputCarNames());
     }
 
+    public void startRace(){
+        int attemptCount = InputView.inputAttemptCount();
+    }
+
 }
