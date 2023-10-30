@@ -11,6 +11,10 @@ import java.util.Map;
 
 public class OutputView {
 
+    private static final int NO_MOVES = 0;
+
+    private static final int START_INDEX = 0;
+
     public void printRaceStart() {
         System.out.println(RACE_START);
     }
@@ -30,12 +34,12 @@ public class OutputView {
         System.out.println();
     }
 
-    private void printOneCarProgress(String carName, int moves) {
-        System.out.println(convertProgressToString(carName, moves));
+    private void printOneCarProgress(String carName, int moveCounts) {
+        System.out.println(convertProgressToString(carName, moveCounts));
     }
 
-    public String convertProgressToString(String carName, int moves) {
-        return carName + COLONS + PROGRESS.repeat(Math.max(0, moves));
+    public String convertProgressToString(String carName, int moveCounts) {
+        return carName + COLONS + PROGRESS.repeat(Math.max(NO_MOVES, moveCounts));
     }
 
     public void printWinnerList(List<String> winnerName) {
@@ -43,8 +47,8 @@ public class OutputView {
     }
 
     public String convertWinnersToString(List<String> winnerName) {
-        StringBuilder winner = new StringBuilder(RACE_WINNER + winnerName.get(0));
-        for (int i = 1; i < winnerName.size(); i++) {
+        StringBuilder winner = new StringBuilder(RACE_WINNER + winnerName.get(START_INDEX));
+        for (int i = START_INDEX + 1; i < winnerName.size(); i++) {
             winner.append(COMMA + SPACE);
             winner.append(winnerName.get(i));
         }

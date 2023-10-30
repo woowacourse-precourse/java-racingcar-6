@@ -8,6 +8,7 @@ import racingcar.controller.Validation;
 
 public class Car {
 
+    private static final int INITIAL_MOVE_COUNT = 0;
     private final Validation validation;
 
     public Car() {
@@ -20,7 +21,7 @@ public class Car {
         for (String carName : input.split(COMMA)) {
             validation.checkNameTokenLengthOver(carName);
             validation.checkNameTokenDuplicated(carName, carNameList);
-            carNameList.put(carName, 0);
+            carNameList.put(carName, INITIAL_MOVE_COUNT);
         }
         return carNameList;
     }
