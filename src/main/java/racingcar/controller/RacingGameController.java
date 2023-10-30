@@ -28,13 +28,17 @@ public class RacingGameController {
     }
 
     private void playRacingGame(RacingGame racingGame, int tryCount) {
-        OutPutView.println();
-        OutPutView.printIOMessage(PRINT_RESULT);
+        printBeforeResultsMessage();
         for (int i = 0; i < tryCount; i++) {
             List<Result> results = racingGame.play();
             printResults(results);
             if(i == tryCount - 1) printWinnerResults(racingGame);
         }
+    }
+
+    private static void printBeforeResultsMessage() {
+        OutPutView.println();
+        OutPutView.printIOMessage(PRINT_RESULT);
     }
 
 }
