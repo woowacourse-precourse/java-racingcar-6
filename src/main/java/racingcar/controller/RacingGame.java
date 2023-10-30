@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.model.Game;
+import racingcar.util.Constant;
 import racingcar.util.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -43,7 +44,7 @@ public class RacingGame {
     }
 
     public void movePosition(Car car){
-        if (Randoms.pickNumberInRange(0, 9) > 4) {
+        if (Randoms.pickNumberInRange(Constant.RANDOM_MINIMUM, Constant.RANDOM_MAXIMUM) > Constant.RANDOM_BOUNDARY) {
             car.addScore();
             updateWinnerPosition(car.getScore());
         }

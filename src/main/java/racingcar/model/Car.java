@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.util.Constant;
+
 public class Car {
     String name;
     String score;
@@ -10,7 +12,7 @@ public class Car {
     }
 
     public void addScore() {
-        this.score = score+"-";
+        this.score = score+ Constant.POSITION_SYMBOL;
     }
 
     public String getName() {
