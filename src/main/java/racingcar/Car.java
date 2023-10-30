@@ -1,20 +1,28 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
-    private static final int MAX_LENGTH = 5;
-    private static final int INIT_PROGRESS_VALUE = 0;
+    private static final int NAME_MAX_LENGTH = 5;
+    private static final int START_POSITION = 0;
 
     private final String name;
-    private int progress;
+    private int position;
 
     public Car(String name) {
         validateNameLength(name);
         this.name = name;
-        this.progress = INIT_PROGRESS_VALUE;
+        this.position = START_POSITION;
     }
 
     private void validateNameLength(String name) {
-        if (name.length() > MAX_LENGTH) throw new IllegalArgumentException("[ERROR] 이름은 5글자를 넘을 수 없습니다.");
+        if (name.length() > NAME_MAX_LENGTH) throw new IllegalArgumentException("[ERROR] 이름은 5글자를 넘을 수 없습니다.");
+    }
+
+    public void progress() {
+        if (Moving.isMovable()) {
+            position += 1;
+        }
     }
 
 }
