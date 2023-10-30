@@ -45,6 +45,14 @@ class GameServerTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름의_길이가_5_초과일_경우_에러를_던진다() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("wooteco", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
