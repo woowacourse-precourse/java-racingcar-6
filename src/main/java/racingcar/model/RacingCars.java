@@ -28,6 +28,32 @@ public class RacingCars {
         return new RacingCars(movedRacingCarList);
     }
 
+    public RacingCars checkWinners() {
+        List<RacingCar> winners = new ArrayList<>();
+        for (RacingCar racingCar : racingCarList) {
+            checkWinner(racingCar, winners);
+        }
+        return new RacingCars(winners);
+    }
+
+    private void checkWinner(RacingCar racingCar, List<RacingCar> winners) {
+        if (racingCar.getLocation() == getMaxLocation()) {
+            racingCar = racingCar.markAsWinner();
+            winners.add(racingCar);
+        }
+    }
+
+    private int getMaxLocation() {
+        int maxLocation = 0;
+        for (RacingCar racingCar : racingCarList) {
+            int location = racingCar.getLocation();
+            if (location > maxLocation) {
+                maxLocation = location;
+            }
+        }
+        return maxLocation;
+    }
+
     public List<RacingCar> getRacingCarList() {
         return racingCarList;
     }
