@@ -24,6 +24,13 @@ public class RacingGame {
             carArrayList.add(new Car(s, 0));
         }
 
+        // 시도할 횟수 입력
+        System.out.println("시도할 회수는 몇회인가요?");
+        input = Console.readLine();
+        // 몇대까지 가능하게 할 것인가?
+        this.count = Integer.parseInt(input);
+        System.out.println(this.count);
+
     }
 }
 
