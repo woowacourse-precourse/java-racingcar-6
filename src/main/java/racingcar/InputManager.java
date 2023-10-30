@@ -11,9 +11,16 @@ public class InputManager {
 
         ArrayList<String> names = new ArrayList<>();
         for (String name : nameArray) {
+            isValidName(name);
             names.add(name);
         }
 
         return names;
+    }
+
+    public void isValidName(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
+        }
     }
 }
