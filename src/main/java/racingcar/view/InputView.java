@@ -26,7 +26,7 @@ public class InputView {
                                   .toList();
         validateNamesCount(namesList);
         validateNamesFormat(namesList);
-
+        validateDuplicatedName(namesList);
         return namesList;
     }
 
@@ -83,6 +83,14 @@ public class InputView {
             if (!Character.isLetter(token)) {
                 throw new IllegalArgumentException(ERROR_NOT_LETTER.getMessage());
             }
+        }
+    }
+
+    private void validateDuplicatedName(List<String> names) {
+        if (names.stream()
+                .collect(Collectors.toSet())
+                .size() != names.size()) {
+            throw new IllegalArgumentException(ERROR_NAME_DUPLICATED.getMessage());
         }
     }
 
