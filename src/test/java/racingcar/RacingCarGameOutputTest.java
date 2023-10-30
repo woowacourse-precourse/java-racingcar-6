@@ -40,7 +40,7 @@ public class RacingCarGameOutputTest {
                 new RacingCar("woni")
         );
         RacingCarGameOutput.printWinnersMessage(carList);
-        assertThat(getOutputString()).contains("최종 우승자 : woni");
+        assertThat(getOutputString()).isEqualTo("최종 우승자 : woni");
     }
 
     @Test
@@ -51,6 +51,6 @@ public class RacingCarGameOutputTest {
                 new RacingCar("javaji")
         );
         RacingCarGameOutput.printWinnersMessage(carList);
-        assertThat(getOutputString()).contains("최종 우승자 : pobi, woni, javaji");
+        assertThat(getOutputString()).isEqualTo("최종 우승자 : pobi, woni, javaji");
     }
 }
