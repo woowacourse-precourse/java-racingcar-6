@@ -1,35 +1,17 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class OutputView {
-    private final Car car;
-    private final List<String> winnerCarNames = new ArrayList<>();
-    private final int mostMovedAmount;
-    private final int numberOfCars;
-    private int carIndex = 0;
-
-    public OutputView(Car car) {
-        this.car = car;
-        numberOfCars = car.numberOf();
-        mostMovedAmount = car.mostMovedAmount();
+    public static void printExecutionResultInKorean() {
+        System.out.println("\n실행 결과");
     }
 
-    public String result() {
-        setWinnerCarNames();
-        return "\n최종 우승자 : " + String.join(", ", winnerCarNames);
+    public static void printCarMovement(String name, int movedLately) {
+        System.out.println(name + " : " + "-".repeat(movedLately));
     }
 
-    private void setWinnerCarNames() {
-        for (carIndex = 0; carIndex < numberOfCars; carIndex++) {
-            addToListIfWinner();
-        }
-    }
-
-    private void addToListIfWinner() {
-        if (car.movedLately(carIndex) == mostMovedAmount) {
-            winnerCarNames.add(car.name(carIndex));
-        }
+    public static void printResult(List<String> winnerCarNames) {
+        System.out.print("\n최종 우승자 : " + String.join(", ", winnerCarNames));
     }
 }

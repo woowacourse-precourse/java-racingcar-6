@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingCarGameConsole {
     private final Car car;
@@ -8,6 +10,8 @@ public class RacingCarGameConsole {
     private final int numberOfCars;
     private final int timesToTry;
     private int carIndex = 0;
+    private int mostMovedAmount = 0;
+    private final List<String> winnerCarNames = new ArrayList<>();
 
     public RacingCarGameConsole(Car car, int timesToTry) {
         this.car = car;
@@ -22,6 +26,11 @@ public class RacingCarGameConsole {
         }
     }
 
+    public void run() {
+        race();
+        printWinner();
+    }
+
     public void race() {
         for (int moveTry = 0; moveTry < timesToTry; moveTry++) {
             tryMoving();
@@ -29,11 +38,11 @@ public class RacingCarGameConsole {
     }
 
     private void tryMoving() {
-        System.out.println("\n실행 결과");
+        OutputView.printExecutionResultInKorean();
         carIndex = 0;
         while (carIndex < numberOfCars) {
-            updateCarMovement(randomNumber());
-            System.out.println(carMovement(car.movedLately(carIndex)));
+            updateCarMovement(oneDigitRandomNumber());
+            OutputView.printCarMovement(car.name(carIndex), car.movedLately(carIndex));
             carIndex++;
         }
     }
@@ -48,11 +57,25 @@ public class RacingCarGameConsole {
         return randomNumber >= MOVE_JUDGE_INTEGER;
     }
 
-    private int randomNumber() {
+    private int oneDigitRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public String carMovement(int movedLately) {
-        return car.name(carIndex) + " : " + "-".repeat(movedLately);
+    private void printWinner() {
+        setWinnerCarNames();
+        OutputView.printResult(winnerCarNames);
+    }
+
+    public void setWinnerCarNames() {
+        mostMovedAmount = car.mostMovedAmount();
+        for (carIndex = 0; carIndex < numberOfCars; carIndex++) {
+            addToListIfWinner();
+        }
+    }
+
+    private void addToListIfWinner() {
+        if (car.movedLately(carIndex) == mostMovedAmount) {
+            winnerCarNames.add(car.name(carIndex));
+        }
     }
 }

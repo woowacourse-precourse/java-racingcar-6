@@ -27,5 +27,4 @@ public class InputView {
         }
         return timesToTry;
     }
-
 }
