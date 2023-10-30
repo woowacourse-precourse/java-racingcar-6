@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.model.exception.ExceptionMessage.DUPLICATE_CAR_EXCEPTION;
+
 import racingcar.model.randomnumber.RandomNumber;
 import racingcar.util.NameFactory;
 import java.util.List;
@@ -25,7 +27,7 @@ public class Cars {
 
     private static void validate(final List<Name> carNames, final List<Car> cars) {
         if (carNames.size() != cars.size()) {
-            throw new IllegalArgumentException("같은 이름을 가진 자동차가 있으면 안 됩니다.");
+            throw new IllegalArgumentException(DUPLICATE_CAR_EXCEPTION.getMessage());
         }
     }
 
