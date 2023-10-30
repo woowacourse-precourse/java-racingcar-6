@@ -33,4 +33,11 @@ public class UserInput {
         }
         return names;
     }
+
+    private static void validateNotNullOrEmpty(String target) {
+        if (target == null || target.trim().isEmpty()) {
+            throw new IllegalArgumentException("입력 값이 비어 있습니다.");
+        }
+    }
+
 }
