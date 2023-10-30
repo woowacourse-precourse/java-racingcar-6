@@ -48,6 +48,20 @@ public class CarManager {
         return String.join(",", winnerList);
     }
 
+    public void getState() {
+        for (Map.Entry entry : carMap.entrySet()) {
+            Car now = (Car) entry.getValue();
+            printState((String) entry.getKey(), now.getPosition());
+        }
+        System.out.println();
+    }
 
+    private void printState(String name, Integer position) {
+        String dash = "";
+        for (int i = 0; i < position; i++) {
+            dash += "-";
+        }
+        System.out.println(name + " : " + dash);
+    }
 
 }
