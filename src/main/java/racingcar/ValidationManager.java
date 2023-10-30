@@ -15,8 +15,8 @@ public class ValidationManager {
         validateTryCountStartWithZero(inputTryCount);
     }
 
-    private static void validateInputEmpty(String inputCarName) {
-        if(isNullOrEmpty(inputCarName)) throw new IllegalArgumentException();
+    private static void validateInputEmpty(String input) {
+        if(isNullOrEmpty(input)) throw new IllegalArgumentException();
     }
 
     private static void validateCarNameLength(String inputCarName) {
@@ -35,8 +35,8 @@ public class ValidationManager {
         if(isStartWithZero(inputTryCount)) throw new IllegalArgumentException();
     }
 
-    private static boolean isNullOrEmpty(String inputCarName) {
-        return inputCarName == null || inputCarName.trim().isEmpty();
+    private static boolean isNullOrEmpty(String input) {
+        return input == null || input.trim().isEmpty();
     }
 
     private static boolean isNumeric(String inputTryCount) {
