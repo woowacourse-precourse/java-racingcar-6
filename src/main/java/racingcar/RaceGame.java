@@ -27,7 +27,7 @@ public class RaceGame {
         }
     }
 
-    private static List<Car> getWinners(List<Car> cars) {
+    public static List<Car> getWinners(List<Car> cars) {
         int maxPosition = -1;
         List<Car> winners = new ArrayList<>();
 
