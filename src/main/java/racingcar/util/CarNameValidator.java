@@ -1,9 +1,24 @@
 package racingcar.util;
 
+import java.util.HashSet;
+
 public class CarNameValidator {
     private String[] allCarNames;
     public boolean check(String carNames) {
-        return isNull(carNames) && isSize(carNames) && isString();
+        return isNull(carNames) && isSize(carNames) && isString() && isDuplicate();
+    }
+
+    private boolean isDuplicate() {
+        HashSet<String> dedupe = new HashSet<>();
+
+        for(String name : allCarNames){
+            if(!dedupe.contains(name)){
+                dedupe.add(name);
+                continue;
+            }
+            return false;
+        }
+        return true;
     }
 
     private boolean isString() {

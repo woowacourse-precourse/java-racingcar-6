@@ -23,6 +23,7 @@ class ApplicationTest extends NsTest {
         );
     }
 
+
     @Test
     void 전진_정지2() {
         assertRandomNumberInRangeTest(
@@ -54,6 +55,14 @@ class ApplicationTest extends NsTest {
     void 이름_길이_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javajis"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 중복_이름_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,pobi"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
