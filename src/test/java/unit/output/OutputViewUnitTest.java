@@ -17,6 +17,7 @@ import racingcar.service.output.OutputView;
 public class OutputViewUnitTest {
 
     private static final int TEST_CAR_NUMBER = 3;
+    private static final int POSITION_EXCEPT_INDEX = 2;
     private Output output;
 
     @BeforeEach
@@ -72,7 +73,7 @@ public class OutputViewUnitTest {
 
         //then - 검증
         String capturedOutput = baos.toString().trim();
-        String outputExpected= "최종 우승자 : car1\n, \ncar2";
+        String outputExpected= "최종 우승자 : car1, car2";
         assertThat(outputExpected).isEqualTo(capturedOutput);
     }
 
@@ -91,7 +92,7 @@ public class OutputViewUnitTest {
     }
 
     private static boolean isTwo(int i) {
-        if(i == 2){
+        if(i == POSITION_EXCEPT_INDEX){
             return true;
         }
         return false;
