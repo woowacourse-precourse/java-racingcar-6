@@ -55,6 +55,7 @@ public class Simulation {
 
         nameLengthCheck(name);
         nameViolationCheck(name);
+        nameBlackCheck(name);
     }
 
     private void nameLengthCheck(String name){
@@ -87,6 +88,16 @@ public class Simulation {
         if(set.size() != racingCarList.size()){
 
             throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
+        }
+    }
+
+    private void nameBlackCheck(String name){
+
+        String REGEX = "[\\S]*$";
+
+        if(name.matches(REGEX)){
+
+            throw new IllegalArgumentException("자동차 이름에 공백이 포함되어있습니다.");
         }
     }
 
