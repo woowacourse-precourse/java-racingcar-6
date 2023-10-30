@@ -19,7 +19,9 @@ public class GameResult {
     }
     public void singleAttemptResult(List<Integer> carsPositionList) {
         for(int i = 0; i < carsPositionList.size(); i++) {
-            System.out.println(carsNameList.get(i) + ATTEMPTS_COLON_MESSAGE + CAR_POSITION_SYMBOL.repeat(carsPositionList.get(i)));
+            System.out.println(carsNameList.get(i)
+                    + ATTEMPTS_COLON_MESSAGE
+                    + CAR_POSITION_SYMBOL.repeat(carsPositionList.get(i)));
         }
         System.out.print("\n");
     }
