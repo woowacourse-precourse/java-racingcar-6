@@ -20,4 +20,17 @@ public class CarUtil {
         return cars;
     }
 
+    public boolean move() {
+        if(Randoms.pickNumberInRange(0, 9) >= 4) {
+            return true;
+        }
+        return false;
+    }
+
+    public void process(Car car) {
+        if(move()) {
+            car.setProgress(car.getProgress() + "-");
+        }
+    }
+
 }
