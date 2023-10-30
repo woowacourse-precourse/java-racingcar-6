@@ -18,10 +18,14 @@ public class RacingGameView {
     }
 
     public void printRoundResults(List<Car> cars) {
+        RoundResults roundResults = new RoundResults();
+
         for (Car car : cars) {
-            System.out.println(car.getName() + " : " + car.getPositionString());
+            String result = car.getName() + " : " + car.getPositionString();
+            roundResults.addResult(result);
         }
-        System.out.println();
+
+        roundResults.printResults();
     }
 
     public void printWinners(List<Car> winners) {
