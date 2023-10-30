@@ -86,47 +86,49 @@ class ApplicationTest extends NsTest {
                             .isInstanceOf(IllegalArgumentException.class)
             );
         }
+
+        @Nested
+        @DisplayName("이름 테스트")
+        class NameTest {
+
+            @Test
+            @DisplayName("이름의 길이가 최소 길이 미만일 경우 IllegalArgumentException 발생한다.")
+            public void 이름의_길이가_최소_길이_미만일_경우_IllegalArgumentException_발생한다() {
+                assertSimpleTest(() ->
+                        assertThatThrownBy(() -> runException("pobi,,woni", "1"))
+                                .isInstanceOf(IllegalArgumentException.class)
+                );
+            }
+
+            @Test
+            @DisplayName("이름의 길이가 최대 길이 초과일 경우 IllegalArgumentException 발생한다.")
+            public void 이름의_길이가_최대_길이_초과일_경우_IllegalArgumentException_발생한다() {
+                assertSimpleTest(() ->
+                        assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                                .isInstanceOf(IllegalArgumentException.class)
+                );
+            }
+
+            @Test
+            @DisplayName("자동차 이름이 중복될 경우 IllegalArgumentException 발생한다.")
+            public void 자동차_이름이_중복될_경우_IllegalArgumentException_발생한다() {
+                assertSimpleTest(() ->
+                        assertThatThrownBy(() -> runException("pobi,pobi", "1"))
+                                .isInstanceOf(IllegalArgumentException.class)
+                );
+            }
+
+            @Test
+            @DisplayName("자동차 이름이 비어있을 경우 IllegalArgumentException 발생한다.")
+            public void 자동차_이름이_비어있을_경우_IllegalArgumentException_발생한다() {
+                assertSimpleTest(() ->
+                        assertThatThrownBy(() -> runException(",", "1"))
+                                .isInstanceOf(IllegalArgumentException.class)
+                );
+            }
+        }
     }
 
-    @Nested
-    @DisplayName("이름 테스트")
-    class NameTest {
-        @Test
-        @DisplayName("이름의 길이가 최소 길이 미만일 경우 IllegalArgumentException 발생한다.")
-        public void 이름의_길이가_최소_길이_미만일_경우_IllegalArgumentException_발생한다() {
-            assertSimpleTest(() ->
-                    assertThatThrownBy(() -> runException("pobi,,woni", "1"))
-                            .isInstanceOf(IllegalArgumentException.class)
-            );
-        }
-
-        @Test
-        @DisplayName("이름의 길이가 최대 길이 초과일 경우 IllegalArgumentException 발생한다.")
-        public void 이름의_길이가_최대_길이_초과일_경우_IllegalArgumentException_발생한다() {
-            assertSimpleTest(() ->
-                    assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                            .isInstanceOf(IllegalArgumentException.class)
-            );
-        }
-
-        @Test
-        @DisplayName("자동차 이름이 중복될 경우 IllegalArgumentException 발생한다.")
-        public void 자동차_이름이_중복될_경우_IllegalArgumentException_발생한다() {
-            assertSimpleTest(() ->
-                    assertThatThrownBy(() -> runException("pobi,pobi", "1"))
-                            .isInstanceOf(IllegalArgumentException.class)
-            );
-        }
-
-        @Test
-        @DisplayName("자동차 이름이 비어있을 경우 IllegalArgumentException 발생한다.")
-        public void 자동차_이름이_비어있을_경우_IllegalArgumentException_발생한다() {
-            assertSimpleTest(() ->
-                    assertThatThrownBy(() -> runException(",", "1"))
-                            .isInstanceOf(IllegalArgumentException.class)
-            );
-        }
-    }
 
     @Nested
     @DisplayName("출력 테스트")
