@@ -94,7 +94,7 @@ public class RacingService {
         displayWinner(findWinner(cars));
     }
 
-    private String findWinner(List<Car> cars) {
+    protected String findWinner(List<Car> cars) {
         int maxPosition = getMaxPosition(cars);
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)

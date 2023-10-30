@@ -98,12 +98,59 @@ class RacingServiceTest {
     }
 
     @Test
-    public void 우승자_찾기_테스트() throws Exception {
+    public void 단독_우승자_찾기_테스트() throws Exception {
         //given
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun");
+        doReturn(carNames).when(racingService).getCarNameList();
+
+        racingService.readyCarName();
+
+        // pobi만 move()할 수 있도록 랜덤함수 생성 재정의
+        NumberGenerator numberGenerator = new NumberGenerator() {
+            private int count = 0;
+
+            @Override
+            public int generateNumberInRange() {
+                count++;
+                if (count % 3 == 1) {   // pobi
+                    return 5;
+                } else {    // woni, jun
+                    return 0;
+                }
+            }
+        };
+
+        racingService.readyCars(numberGenerator);
+
+        List<Car> cars = racingService.getCars();
+
+        racingService.playOneRound();
 
         //when
+        String actual = racingService.findWinner(cars);
 
         //then
+        assertEquals("pobi", actual);
+    }
+
+    @Test
+    public void 공동_우승자_찾기_테스트() throws Exception {
+        //given
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun");
+        doReturn(carNames).when(racingService).getCarNameList();
+
+        racingService.readyCarName();
+        racingService.readyCars(new StubNumberGenerator(5));
+
+        List<Car> cars = racingService.getCars();
+
+        racingService.playOneRound();
+
+        //when
+        String actual = racingService.findWinner(cars);
+
+        //then
+        assertEquals("pobi, woni, jun", actual);
     }
 
 }
