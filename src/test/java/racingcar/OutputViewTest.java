@@ -25,7 +25,7 @@ class OutputViewTest extends NsTest {
     }
 
     @Test
-    void printWinner() {
+    void printWinner_테스트() {
         // given
         List<String> winnerList = Arrays.asList("pobi", "jun");
         // when

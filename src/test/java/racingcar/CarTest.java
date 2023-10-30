@@ -43,7 +43,7 @@ class CarTest {
 
     @ParameterizedTest
     @MethodSource("testMoveCountAndRandomNumber")
-    void getMoveCount_테스트(int expectedMoveCount, int randomNumber) {
+    void 자동차_이동_테스트(int expectedMoveCount, int randomNumber) {
         // when
         assertRandomNumberInRangeTest(
                 () -> {
