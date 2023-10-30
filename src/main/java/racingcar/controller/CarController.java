@@ -9,11 +9,21 @@ import java.util.List;
 
 public class CarController {
 
+    private final CarService carService;
+    private final UserService userService;
+    private final CarView carView;
+
+    public CarController(CarService carService, UserService userService, CarView carView) {
+        this.carService = carService;
+        this.userService = userService;
+        this.carView = carView;
+    }
+
     public void startRacing() {
 
-        List<Car> cars = CarService.createCars(UserService.getCarNames());
-        CarService.startRacing(cars, UserService.getMoveCount());
-        CarView.printWinner(cars);
+        List<Car> cars = carService.createCars(userService.getCarNames());
+        carService.startRacing(cars, userService.getMoveCount());
+        carView.printWinner(cars);
 
     }
 }

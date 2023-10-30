@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarView {
-    public static void printResult(List<Car> cars) {
+    public void printResult(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getLocation()));
         }
         System.out.println();
     }
 
-    public static void printWinner(List<Car> cars) {
+    public void printWinner(List<Car> cars) {
         List<String> winner = new ArrayList<>();
         int maxScore = getMaxScore(cars);
 
@@ -31,7 +31,7 @@ public class CarView {
         }
     }
 
-    private static int getMaxScore(List<Car> cars) {
+    private int getMaxScore(List<Car> cars) {
         int max_score = 0;
 
         for (Car car : cars) {
@@ -43,7 +43,7 @@ public class CarView {
         return max_score;
     }
 
-    private static void printWinners(List<String> winners) {
+    private void printWinners(List<String> winners) {
         System.out.print(winners.get(0));
         winners.remove(0);
 
