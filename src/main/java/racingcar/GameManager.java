@@ -21,6 +21,7 @@ public class GameManager {
 
         Print.progress(attemptNum, members, membersHM);
 
+        Print.winner(whoIsWinner(membersHM, members));
     }
 
     public static List<String> whoIsWinner(HashMap<String, String> membersHM, List<String> members) {
