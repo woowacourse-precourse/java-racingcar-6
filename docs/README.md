@@ -71,8 +71,10 @@ classDiagram
     -String name
     -List<Integer> positions
     +Car(name: String)
-    +addPosition()
-    +getPosition(index: Int)
+    +createCars(carNames: String)$
+    +getLastPosition() Int
+    +move()
+    +pause()
     +getName()
   }
   class GameManager{
@@ -116,6 +118,8 @@ sequenceDiagram
 	Validator->>+Validator: hasValidLength(carNames: String)
 	Validator-->>-Validator: boolean
 	Validator-->>-GameManager: 
+	GameManager->>+Car: createCars(carNames: String)
+	Car-->>-GameManager: List<Car>
 	GameManager-->>-GameManager: List<Car>
 	GameManager->>+GameManager: getNumberOfMoves()
 	GameManager->>+GameView: readNumberOfMoves()
