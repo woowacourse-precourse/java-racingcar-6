@@ -77,4 +77,17 @@ public class InputValidatorTests {
         // then
         assertTrue(result);
     }
+
+    @Test
+    @DisplayName("입력값이 소숫점을 포함한 경우 false 반환")
+    void test6() {
+        // given
+        String input = "1.5";
+
+        // when
+        boolean result = validator.validateRaceCount(input);
+
+        // then
+        assertFalse(result);
+    }
 }
