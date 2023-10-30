@@ -15,20 +15,20 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 class CarsTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
-    private static final int MOVEMENT_OCCURRED = 1;
-    private static final int MOVEMENT_NOT_OCCURRED = 0;
+    private static final int MIN_MOVING_FORWARD = 4;
+    private static final int MIN_STOP = 0;
+    private static final int MOVE_SUCCESS = 1;
+    private static final int MOVE_FAIL = 0;
     private Car pobiCar;
     private Car woniCar;
     private Cars cars;
 
     private static Stream<Arguments> testMoveCountAndRandomNumber() {
         return Stream.of(
-                Arguments.of(MOVEMENT_NOT_OCCURRED, MOVEMENT_NOT_OCCURRED, STOP, STOP),
-                Arguments.of(MOVEMENT_OCCURRED, MOVEMENT_NOT_OCCURRED, MOVING_FORWARD, STOP),
-                Arguments.of(MOVEMENT_NOT_OCCURRED, MOVEMENT_OCCURRED, STOP, MOVING_FORWARD),
-                Arguments.of(MOVEMENT_OCCURRED, MOVEMENT_OCCURRED, MOVING_FORWARD, MOVING_FORWARD)
+                Arguments.of(MOVE_FAIL, MOVE_FAIL, MIN_STOP, MIN_STOP),
+                Arguments.of(MOVE_SUCCESS, MOVE_FAIL, MIN_MOVING_FORWARD, MIN_STOP),
+                Arguments.of(MOVE_FAIL, MOVE_SUCCESS, MIN_STOP, MIN_MOVING_FORWARD),
+                Arguments.of(MOVE_SUCCESS, MOVE_SUCCESS, MIN_MOVING_FORWARD, MIN_MOVING_FORWARD)
         );
     }
 
