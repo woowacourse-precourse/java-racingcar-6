@@ -5,6 +5,7 @@ import domain.Cars;
 import ui.Input;
 import util.CarList;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,11 +15,11 @@ public class UserInputCarNameFactory {
     public Cars createCars(){
         String[] carNameInputArray = processCarNameInput();
 
-        CarList<Car> cars = (CarList<Car>) Arrays.stream(carNameInputArray)
+        ArrayList<Car> carList = (ArrayList<Car>) Arrays.stream(carNameInputArray)
                 .map(Car::new)
                 .collect(Collectors.toList());
 
-        return new Cars(cars);
+        return new Cars(new CarList<>(carList));
     }
 
     //Input 데이터 가공

@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import com.sun.jdi.InvalidTypeException;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -33,6 +34,10 @@ class ApplicationTest extends NsTest {
 
     @Override
     public void runMain() {
-        Application.main(new String[]{});
+        try {
+            Application.main(new String[]{});
+        } catch (InvalidTypeException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

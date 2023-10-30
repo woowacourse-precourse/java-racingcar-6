@@ -13,14 +13,9 @@ public class CarMoveService {
     public static final int DEPARTURE_CRITERIA = 4;
 
     public void move(Cars cars, UserInputCarMoveCountDto userInputCarMoveCountDto){
-        //이동횟수가 높은순으로 PQ 정렬
-        PriorityQueue<Car> carMoveCountPQ = new PriorityQueue<Car>((a,b)->b.getMoveCount()-a.getMoveCount());
-
         cars.getCars().forEach(car -> {
             car.setMoveCount(move(userInputCarMoveCountDto));
-            carMoveCountPQ.add(car); // PriorityQueue에 Car 객체 추가
         });
-        cars.setCarMoveCountPQ(carMoveCountPQ);
     }
 
     private int move(UserInputCarMoveCountDto userInputCarMoveCountDto){
