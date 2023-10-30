@@ -18,4 +18,12 @@ public class Utils {
             }
         }
     }
+
+    public static void validateStringDigit(String input) {
+        for (char c : input.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                throw new IllegalArgumentException("숫자를 입력해주세요.");
+            }
+        }
+    }
 }
