@@ -10,7 +10,7 @@ import view.ResultView;
 import java.util.List;
 
 public class RacingGameController {
-    private CarController carController = new CarController();
+    private final CarController carController = new CarController();
     private Cars cars;
     private int attemptNumber;
     private List<String> winner;
@@ -39,14 +39,14 @@ public class RacingGameController {
         }
     }
 
+    private void printWinner() {
+        findWinner();
+        ResultView.printResult(winner);
+    }
+
     private void findWinner() {
         Referee referee = new Referee();
         referee.competeCars(cars);
         winner = referee.getWinner();
-    }
-
-    private void printWinner() {
-        findWinner();
-        ResultView.printResult(winner);
     }
 }
