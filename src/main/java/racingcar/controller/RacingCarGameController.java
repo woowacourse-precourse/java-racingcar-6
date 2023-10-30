@@ -21,12 +21,12 @@ public class RacingCarGameController{
         this.racingCarFormatController = new RacingCarFormatController();
         this.racingCarGameView = new RacingCarGameView();
         this.racingCarPlayerView = new RacingCarPlayerView();
+        this.initRacingCarGame();
         this.startGame();
         this.endGame();
     }
 
     private void startGame() {
-        this.initRacingCarGame();
         IntStream.range(0, this.racingCarGameModel.getTryCount())
             .forEach(i -> {
                 this.movePlayers();
