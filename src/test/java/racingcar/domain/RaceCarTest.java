@@ -105,10 +105,14 @@ class RaceCarTest {
     @DisplayName("차동차의 이동을 할때 차의 이동량과 이동을 위한 출력문자를 수정, 이동시 전진 카운터 증가.")
     @Test
     void moveForward() {
-        // given
-
         // when
+        raceCar.moveForward();
+
+        int resultNum = raceCar.getCntMovementOfCar();
+        String rasultStr = raceCar.toStringMoveState();
 
         // then
+        assertThat(resultNum).isEqualTo(1);
+        assertThat(rasultStr).isEqualTo("-");
     }
 }
