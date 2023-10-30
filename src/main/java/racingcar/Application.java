@@ -3,18 +3,39 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.*;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         Car[] cars = generateCars();
         System.out.println("시도할 회수는 몇회인가요?");
         int turnCount = inputTurnCount();
+
+        System.out.println();
         System.out.println("실행 결과");
 
         for (int turn = 0; turn < turnCount; turn++){
             moveCars(cars);
             printCars(cars);
         }
+        showResultBoard(cars);
+    }
+
+    private static void showResultBoard(Car[] cars) {
+        int maxDistance = 0;
+        for (Car car : cars) {
+            maxDistance = Math.max(maxDistance, car.distance);
+        }
+
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.distance == maxDistance) {
+                winnerNames.add(car.name);
+            }
+        }
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 
     private static void moveCars(Car[] cars) {
