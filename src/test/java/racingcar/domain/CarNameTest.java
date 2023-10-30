@@ -31,4 +31,22 @@ class CarNameTest {
     void createCarNameFailTest_2(String name) {
         assertThrows(IllegalArgumentException.class, () -> new CarName(name));
     }
+
+    @DisplayName("CarName equals 성공 테스트")
+    @Test
+    void equalsCarNameSuccessTest_1() {
+        CarName carName1 = new CarName("김씨차이름");
+        CarName carName2 = new CarName("김씨차이름");
+
+        assertThat(carName1).isEqualTo(carName2);
+    }
+
+    @DisplayName("CarName equals 성공 테스트")
+    @Test
+    void equalsCarNameSuccessTest_2() {
+        CarName carName1 = new CarName("김씨차이름");
+        CarName carName2 = new CarName("최씨차이름");
+
+        assertThat(carName1).isNotEqualTo(carName2);
+    }
 }
