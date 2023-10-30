@@ -20,6 +20,16 @@ public class Game {
             race.run();
             System.out.println();
         }
+
+        System.out.println(getWinnerString(race.getWinners()));
     }
 
+    private static String getWinnerString(List<Car> winners) {
+        StringBuilder sb= new StringBuilder();
+        sb.append("최종 우승자 : ");
+        for (Car car:winners) {
+            sb.append(car.getName());
+        }
+        return sb.toString();
+    }
 }
