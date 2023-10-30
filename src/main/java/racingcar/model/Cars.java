@@ -44,7 +44,7 @@ public class Cars {
     private Position getMaxPosition() {
         Position maxPosition = new Position();
         for (Car car : cars) {
-            if (car.position().isGreaterThan(maxPosition)) {
+            if (car.isGreaterPositionThan(maxPosition)) {
                 maxPosition = car.position();
             }
         }

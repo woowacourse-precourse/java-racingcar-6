@@ -23,6 +23,10 @@ public class Car {
         return false;
     }
 
+    public boolean isGreaterPositionThan(Position maxPosition) {
+        return position.isGreaterThan(maxPosition);
+    }
+
     public String getDisplayFormat() {
         return name.getDisplayFormat() + " : " + position.getDisplayFormat();
     }
