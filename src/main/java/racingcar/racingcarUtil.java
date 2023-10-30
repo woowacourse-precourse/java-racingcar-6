@@ -27,10 +27,28 @@ class CarName {
 	}
 	
 	public static void carNameCheck(String[] str) {
-		for(int i = 0; i < str.length; i++) {
+		for (int i = 0; i < str.length; i++) {
 			if(str[i].length() > 5) {
 				throw new IllegalArgumentException();
 			}
+		}
+	}
+	
+}
+
+class CarRacing {
+	public void carMove(String carName, int tryTimes) {
+		String result = carName + ":";
+		int resultCount = 0;
+		for (int i = 1; i <= tryTimes ; i++) {
+			int randomNumber = Randoms.pickNumberInRange(0,9);
+			System.out.println(randomNumber);
+			if(randomNumber >= 4) {
+				resultCount++;
+				result += "-";	
+			}
+			System.out.println(result);
+			System.out.println(resultCount);
 		}
 	}
 	
