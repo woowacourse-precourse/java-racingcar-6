@@ -46,6 +46,18 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void testConvertStringToInt_숫자일_때_int로_변환() {
+        int numberOfRaces = Application.convertStringToInt("3");
+        assertThat(numberOfRaces).isEqualTo(3);
+    }
+
+    @Test
+    void testConvertStringToInt_숫자_아닐_때_예외_처리() {
+        assertThatThrownBy(() -> Application.convertStringToInt("삼"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

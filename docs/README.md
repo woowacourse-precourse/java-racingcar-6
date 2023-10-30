@@ -6,7 +6,8 @@
   - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - splitCarNames()
   - [x] 이름은 5자 이하만 가능하다. (입력 오류 : IllegalArgumentException) - checkNamingError()
 
-- [x] 이동을 시도할 횟수를 입력한다. - inputNumberOfRaces()
+- [x] 이동을 시도할 횟수를 입력한다.
+  - [x] 입력받은 숫자의 자료형을 String에서 int로 변환한다. - convertStringToInt()
   - [x] 숫자만 입력이 가능하다. (입력 오류 : IllegalArgumentException)
 
 - [x] 각 자동차는 전진 또는 멈출 수 있다.
@@ -30,3 +31,4 @@
 
 - [x] testSplitCarNames : splitCarNames()가 입력한 문자열을 콤마(,) 단위로 나누어 List 형태로 반환하는지 테스트.
 - [x] testCheckNamingError : checkNamingError()가 5자 초과의 이름이 있을 때 예외 처리하는지 테스트.
+- [x] testConvertStringToInt : convertStringToInt()가 시도 횟수를 int로 변환하고 입력 오류는 예외 처리하는지 테스트.
