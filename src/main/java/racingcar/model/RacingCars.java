@@ -7,33 +7,33 @@ import java.util.List;
 public class RacingCars {
     private List<RacingCar> racingCars;
 
-    private RacingCars(List<String> racingCarNames) {
+    private RacingCars(final List<String> names) {
         this.racingCars = new ArrayList<>();
 
-        for (String racingCarName : racingCarNames) {
-            racingCars.add(new RacingCar(racingCarName));
+        for (String name : names) {
+            racingCars.add(new RacingCar(name));
         }
     }
 
-    public static RacingCars createRacingCars(String racingCarNames) {
-        List<String> racingCarNamesList = splitRacingCarNames(racingCarNames);
-        validateRacingCarNames(racingCarNamesList);
-        return new RacingCars(racingCarNamesList);
+    public static RacingCars createRacingCars(final String names) {
+        List<String> namesSplit = splitNames(names);
+        validateNames(namesSplit);
+        return new RacingCars(namesSplit);
     }
 
-    private static List<String> splitRacingCarNames(String racingCarNames) {
-        return Arrays.asList(racingCarNames.split(","));
+    private static List<String> splitNames(final String names) {
+        return Arrays.asList(names.split(","));
     }
 
-    private static void validateRacingCarNames(List<String> racingCarNames) {
-        if (racingCarNames.isEmpty()) {
+    private static void validateNames(final List<String> names) {
+        if (names.isEmpty()) {
             throw new IllegalArgumentException();
         }
 
-        for (String racingCarName : racingCarNames) {
-            if (racingCarName.isEmpty()) {
+        for (String name : names) {
+            if (name.isEmpty()) {
                 throw new IllegalArgumentException();
-            } else if (racingCarName.length() > 5) {
+            } else if (name.length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
