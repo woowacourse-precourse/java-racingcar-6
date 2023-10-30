@@ -1,16 +1,11 @@
 package racingcar.model;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
-public class RacingCarGame implements SettingGame {
+public class RacingCarGame implements Game {
     private static final int criterion = 4;
-    private final Map<String, Object> settings = new HashMap<>();
-
-    @Override
-    public void saveSettings(String attribute, Object value) {
-        settings.put(attribute, value);
-    }
+    private final int attempts;
+    private final List<Car> carList;
 
     public void goAhead(Car car, int randomNumber) {
         if (randomNumber >= criterion) {

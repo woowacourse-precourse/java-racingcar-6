@@ -1,5 +1,5 @@
 package racingcar.model;
 
 public interface Game {
-    void play(String input);
+    void play(String[] args);
 }
