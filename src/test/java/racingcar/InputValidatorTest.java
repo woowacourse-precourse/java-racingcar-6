@@ -17,4 +17,10 @@ public class InputValidatorTest {
         String[] input = { "name 1", "name2", "name3" };
         assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNameContainSpace(input));
     }
+
+    @Test
+    void validateNameLengthTest() {
+        String[] input = { "name12345", "name2", "name3" };
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNameLength(input));
+    }
 }
