@@ -48,7 +48,7 @@ public class CarRaceGame {
         return Arrays.stream(carNames.split(",")).toList();
     }
 
-    private static void validateCarName(List<String> carNameList) {
+    public static void validateCarName(List<String> carNameList) {
         for (String carName : carNameList) {
             Validator.carNameStringLength(carName);
             Validator.isStringEmpty(carName);

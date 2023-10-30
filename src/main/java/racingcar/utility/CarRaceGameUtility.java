@@ -32,12 +32,12 @@ public class CarRaceGameUtility {
         CarRaceGameView.newRoundRefreshView();
     }
 
-    private static int randomNumberGenerator() {
+    public static int randomNumberGenerator() {
         int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
         return randomNumber;
     }
 
-    private static void decideToMove(Car car) {
+    public static void decideToMove(Car car) {
         if (4 >= randomNumberGenerator()) {
             car.forwardOneBlock();
         }
