@@ -19,7 +19,6 @@ public class Engine implements BooleanSupplier {
         this.intSupplier = intSupplier;
     }
 
-    // TODO: test 작성
     @Override
     public boolean getAsBoolean() {
         int number = intSupplier.getAsInt();
