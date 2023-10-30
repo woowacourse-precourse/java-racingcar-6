@@ -25,7 +25,7 @@ final class Cars {
 
     void tryMove() {
         cars.forEach(car -> {
-            if(roulette.spin() >= 4) car.move();
+            if(roulette.spin() >= 4) maxDistance = Math.max(maxDistance, car.move());
         });
     }
 
