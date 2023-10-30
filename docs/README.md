@@ -16,7 +16,10 @@
 - [Model](Model)
   - [Car.java](Car.java)
   - [CarList.java](CarList.java)
-
+- [View](view)
+- [Controller](Controller)
+- [Uitl](Util)
+  - [CarNameValidator.java](CarNameValidator.java)
 
 ---
 
@@ -34,3 +37,10 @@
 - validate()
 
 
+# Util
+### CarNameValidator.java
+- MIN_CARLIST_NUMBER = 2
+- MAX_CARNAME_LENGTH = 5
+- 자동차가 2대 이상인지 확인
+- 자동차의 이름이 5자 이하인지 확인
+- 메세지 enum으로 정리
