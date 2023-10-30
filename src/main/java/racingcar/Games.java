@@ -30,5 +30,6 @@ public class Games {
             System.out.println();
         }
         List<String> champion_member = racingcarModules.campion_racing(car_situations);
+        System.out.print("최종 우승자 : " + String.join(", ", champion_member));
     }
 }
