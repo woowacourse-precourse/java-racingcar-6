@@ -19,4 +19,8 @@ public class OutputView {
     public void newLine(){
         System.out.println();
     }
+
+    public void result(){
+        System.out.println("실행 결과");
+    }
 }
