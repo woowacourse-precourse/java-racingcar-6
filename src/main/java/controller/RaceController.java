@@ -23,7 +23,7 @@ public class RaceController {
 
     }
 
-    public Map<String, Integer> raceStart(Map<String, Integer> racer, int attempt) {
+    public Map<String, Integer> raceStart(Map<String, Integer> racer) {
         return raceService.raceStart(racer);
     }
 }
