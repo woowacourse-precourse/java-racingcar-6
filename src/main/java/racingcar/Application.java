@@ -9,6 +9,7 @@ import java.util.*;
 import static racingcar.CarMotionController.findWinners;
 import static racingcar.InputProcessor.carNameInputProcess;
 import static racingcar.InputProcessor.tryCountInputProcess;
+import static racingcar.CarMotionController.carMotion;
 
 public class Application {
     public static void main(String[] args) {
@@ -29,16 +30,17 @@ public class Application {
 
             String[] carMovements = new String[carNames.size()];
 
-            System.out.println("실행 결과");
+            System.out.println("\n실행 결과");
 
             for (int i = 0; i < tryCount; i++) {
                 for (int j = 0; j < carNames.size(); j++) {
                     int randomNumber = Randoms.pickNumberInRange(0, 9);
-                    String carMovement = CarMotionController.carMotion(randomNumber);
+                    String carMovement = carMotion(randomNumber);
                     addMovement(carMovements, j, carMovement);
 
-                    System.out.println(carNames.get(j) + " : " + carMovement);
+                    System.out.println(carNames.get(j) + " : " + carMovements[j]);
                 }
+                System.out.println();
             }
 
         } catch (NoSuchElementException e) {
