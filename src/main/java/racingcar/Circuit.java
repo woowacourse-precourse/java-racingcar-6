@@ -6,6 +6,9 @@ public class Circuit {
     private ArrayList<Car> carList;
     private int repeat;
 
+    private final int IS_EMPTY = 0;
+    private final int MAX_SIZE = 5;
+
     public Circuit() {
         this.carList = new ArrayList<Car>();
         this.repeat = 0;
@@ -64,11 +67,11 @@ public class Circuit {
     }
 
     private boolean checkInputError(String[] input) {
-        if (input.length == 0) {
+        if (input.length == IS_EMPTY) {
             return true;
         }
         for (String s : input) {
-            if (s.length() > 5 || s.isEmpty()) {
+            if (s.length() > MAX_SIZE || s.isEmpty()) {
                 return true;
             }
         }
