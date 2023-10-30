@@ -1,16 +1,25 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.InputView.InputView;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+    private InputView inputView;
 
     @Test
     void 전진_정지() {
@@ -29,6 +38,23 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @BeforeEach
+    public void setup() {
+        inputView = new InputView();
+    }
+
+    @Test
+    public void 자동차_이름_예외_처리() {
+        String input = "pobi,woni,jun";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        List<String> carNames = inputView.getCarNames();
+
+        List<String> expectedCarNames = Arrays.asList("pobi", "woni", "jun");
+        assertEquals(expectedCarNames, carNames);
     }
 
     @Override
