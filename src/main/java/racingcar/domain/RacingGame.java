@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 import static racingcar.Application.judgeWinners;
-import static racingcar.Application.printRoundResult;
 import static racingcar.Application.printWinners;
+import static racingcar.utils.MessagePrinter.printRoundResult;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;

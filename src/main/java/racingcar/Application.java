@@ -11,11 +11,7 @@ public class Application {
         racingGame.play();
     }
 
-    public static void printRoundResult(final List<Car> cars) {
-        cars.forEach(car -> System.out.println(car.getName() + " : " + createHyphenResult(car)));
-    }
-
-    private static String createHyphenResult(final Car car) {
+    public static String createHyphenResult(final Car car) {
         final int position = car.getPosition();
         return "-".repeat(position);
     }
