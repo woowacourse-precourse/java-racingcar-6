@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CreateRandomNumTest {
-    CreateRandomNum createRandomNum;
+    private CreateRandomNum createRandomNum;
 
     @BeforeEach
     void setUp() {
