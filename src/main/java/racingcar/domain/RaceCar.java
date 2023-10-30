@@ -3,7 +3,7 @@ package racingcar.domain;
 public class RaceCar {
     private String nameOfCar;
     private Integer cntMovementOfCar;
-    private String moveStateStr;
+    private StringBuilder moveStateStr;
 
     public RaceCar() {
         this("");
@@ -13,7 +13,7 @@ public class RaceCar {
     public RaceCar(String nameOfRaceCar) {
         nameOfCar = nameOfRaceCar;
         cntMovementOfCar = 0;
-        moveStateStr = "";
+        moveStateStr = new StringBuilder();
     }
 
     /**
@@ -44,7 +44,7 @@ public class RaceCar {
     public void moveForward() {
         // 이동시 전진 카운터 증가.
         cntMovementOfCar = cntMovementOfCar + 1;
-        moveStateStr = moveStateStr + "-";
+        moveStateStr.append("-");
     }
 
     /**
@@ -58,7 +58,7 @@ public class RaceCar {
     }
 
     public String toStringMoveState() {
-        return moveStateStr;
+        return moveStateStr.toString();
     }
 
     public Integer getCntMovementOfCar() {
