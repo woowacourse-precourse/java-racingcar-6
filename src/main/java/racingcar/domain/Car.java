@@ -18,4 +18,16 @@ public class Car {
         }
     }
 
+    public String getCurrentStatus() {
+        return name + " : " + currentStatus.toString();
+    }
+
+    public int getScore() {
+        return currentStatus.length();
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
