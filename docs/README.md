@@ -1,17 +1,18 @@
 # 기능 목룍
 ***
 ### 자동차 관련: Car
-- [ ] 이름 설정: setName()
-- [ ] 이름 보기: getName()
-- [ ] 자동차 전진: go()
+- [x] 이름 설정: setName()
+- [x] 이름 보기: getName()
+- [x] 자동차 전진: go()
+- [x] 위치 보기: getLocation()
 ***
 ### 주사위(랜덤) 관련: Dice
-- [ ] 던지기: roll()
+- [x] 던지기: roll()
 ***
-### 지도 관련: RacingMap
-- [ ] 자동차 참여: joinCar()
-- [ ] 위치 기록: recordLocation()
-- [ ] 데이터 보기: getData()
+### 기록표 관련: RacingBoard
+- [ ] 레이싱 참여: join()
+- [ ] 보드 기록: write()
+- [ ] 기록 열람: view()
 ***
 ### 게임 진행 관련: GameProgress
 - [ ] 게임 시작: startGame()
