@@ -3,6 +3,8 @@ package racingcar.domain;
 public class Player {
     private String name;
     private int runCount;
+    // random 값을 생성해주는 객체
+    private final RandomGenerator randomGenerator;
 
     public String getName() {
         return name;
@@ -23,11 +25,12 @@ public class Player {
     public Player(String name){
         this.name = name;
         this.runCount = 0;
+        this.randomGenerator = new RandomGenerator();
     }
 
     public void run(){
         // 0 ~ 9 사이의 랜덤 숫자 생성
-        int randomNum = camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
+        int randomNum = randomGenerator.randomNumberInRange(0, 9);
 
         // 랜덤 값이 4 이상이면 전진
         if(randomNum >= 4){
