@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.util.ResultMessage;
+
 public class Round {
     private int position;
 
@@ -21,7 +23,7 @@ public class Round {
 
     public String getRecord(String name) {
         StringBuilder record = new StringBuilder();
-        record.append(String.format("%s : ", name));
+        record.append(String.format(ResultMessage.ROUND_RECORD, name));
         for (int i = 0; i < position; i++) {
             record.append('-');
         }

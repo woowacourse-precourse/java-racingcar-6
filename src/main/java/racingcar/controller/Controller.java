@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Result;
+import racingcar.util.ResultMessage;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -27,7 +28,7 @@ public class Controller {
 
     private void runGame() {
         int attemptCount = InputView.inputAttemptCount();
-        OutputView.printlnConsoleMessage("\n실행 결과");
+        OutputView.printlnConsoleMessage(ResultMessage.EXECUTION_RESULT);
         while (attemptCount-- > 0) {
             playRound();
             OutputView.printlnNewLine();
