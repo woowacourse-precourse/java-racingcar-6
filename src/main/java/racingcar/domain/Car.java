@@ -18,6 +18,10 @@ public class Car {
         return position.getPosition();
     }
 
+    public boolean isMaxPosition(int maxPosition){
+        return position.getPosition() >= maxPosition;
+    }
+
     public String getName() {
         return name.getName();
     }

@@ -7,20 +7,22 @@ import racingcar.domain.CarList;
 import racingcar.domain.TryCount;
 
 public class RacingGame {
+    private final OutputView outputView = new OutputView();
     private CarList carList;
-    OutputView outputView = new OutputView();
-    TryCount tryCount = new TryCount("5");
 
+    public void printWinners() {
+        outputView.winnerOutput(carList.getWinnerNames());
+    }
 
     public void moveForCount(int tryCount) {
-        for(int i = 0; i < tryCount; i++){
-            carList.moveAll();
+        for (int i = 0; i < tryCount; i++) {
+            carList.moveAllCars();
             printCarsStatus();
         }
     }
 
     public void printCarsStatus() {
-        outputView.raceOutput(carList.carsStatus());
+        outputView.raceOutput(carList.getCarsStatus());
     }
 
     public List<Car> generateCar(String carNames) {
