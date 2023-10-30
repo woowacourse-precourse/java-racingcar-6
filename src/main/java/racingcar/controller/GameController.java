@@ -26,6 +26,7 @@ public class GameController {
         outputView.askPlayCount();
         PlayCount playCount = PlayCount.createDefault(inputView.readLine());
 
+        outputView.printResult();
         while (!playCount.isGameEnd()) {
             playCars.race(randomNumber);
             playCount.endOneRound();
