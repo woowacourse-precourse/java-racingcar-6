@@ -17,7 +17,7 @@ public class ValidatorTest extends NsTest {
     @DisplayName("자동차 이름에 중복이 있으면 실패한다.")
     void validateCarNamesTest() {
         //given
-        List<String> carNames = new ArrayList<>(List.of("Test1", "Test1", "Test1"));
+        List<String> carNames = new ArrayList<>(List.of("Test1", "Test1", "Test2"));
 
         //when
 
@@ -27,6 +27,21 @@ public class ValidatorTest extends NsTest {
         });
         assertEquals(ExceptionMessage.NOT_DUPLICATE_NAME, exception.getMessage());
 
+    }
+
+    @Test
+    @DisplayName("자동차 이름에 빈 칸이 있을 경우 실패한다.")
+    void validateEmptyTest() {
+        //given
+        List<String> carNames = new ArrayList<>(List.of("Test1", "", "Test3"));
+
+        //when
+
+        //then
+        Throwable exception = assertThrows(RuntimeException.class, () -> {
+            Validator.validateCarNames(carNames);
+        });
+        assertEquals(ExceptionMessage.NOT_EMPTY_AND_BLANK, exception.getMessage());
     }
 
     @Override
