@@ -5,8 +5,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import static validate.InputValidation.*;
 
 public class Car {
-    public int distance;
-    public String name;
+    private int distance;
+    private final String name;
 
     public Car(String name){
         nameValidate(name);
@@ -21,7 +21,7 @@ public class Car {
         return distance;
     }
 
-    public int getRandomNumberBetweenZeroAndNine() {
+    private int getRandomNumberBetweenZeroAndNine() {
         return Randoms.pickNumberInRange(0,9);
     }
 
@@ -32,7 +32,7 @@ public class Car {
         }
     }
 
-    public void nameValidate(String name) {
+    private void nameValidate(String name) {
         validateInputLengthExceeded(name);
         validateInputIsEmpty(name);
         validateInputDoesNotContainSpecialCharacters(name);
