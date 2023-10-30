@@ -10,14 +10,14 @@ public class CarTest {
 
     @Test
     void createTest() {
-        assertThatCode(() -> new Car("테스트", new FixedCarEngine(true)))
+        assertThatCode(() -> new Car(new CarName("테스트"), new FixedCarEngine(true)))
                 .doesNotThrowAnyException();
     }
 
     @DisplayName("자동차의 엔진이 움직일 수 있으면 1칸 전진한다.")
     @Test
     void startEngineSuccessTest() {
-        Car car = new Car("테스트", new FixedCarEngine(true));
+        Car car = new Car(new CarName("테스트"), new FixedCarEngine(true));
         assertThat(car.getPosition()).isEqualTo(0);
         car.startEngine();
         assertThat(car.getPosition()).isEqualTo(1);
@@ -28,7 +28,7 @@ public class CarTest {
     @DisplayName("자동차의 엔진이 움직일 수 없으면 전진하지 않는다.")
     @Test
     void startEngineFailTest() {
-        Car car = new Car("테스트", new FixedCarEngine(false));
+        Car car = new Car(new CarName("테스트"), new FixedCarEngine(false));
         assertThat(car.getPosition()).isEqualTo(0);
         car.startEngine();
         assertThat(car.getPosition()).isEqualTo(0);
