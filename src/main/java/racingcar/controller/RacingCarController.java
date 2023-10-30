@@ -16,7 +16,7 @@ public class RacingCarController {
     Random random=new Random();
     Referee referee=new Referee();
 
-    private List<Car> cars=new ArrayList<>();
+    private static List<Car> cars=new ArrayList<>();
     public void start(){
         cars=user.nameForCar(inputView.inputCars());
         int count=inputView.inputCount();
@@ -35,12 +35,12 @@ public class RacingCarController {
     private void startForEach(){
         for(int num=0;num<cars.size();num++){
             if(judgment.isNumberFourOrMore(random.createNumber())){
-                cars.get(num).moveForward();
-                outputView.printForEach(cars.get(num));
+
+                outputView.printForEach(cars.get(num),cars.get(num).moveForward());
                 continue;
             }
-            cars.get(num).moveStop();
-            outputView.printForEach(cars.get(num));
+
+            outputView.printForEach(cars.get(num),cars.get(num).moveStop());
         }
     }
 }
