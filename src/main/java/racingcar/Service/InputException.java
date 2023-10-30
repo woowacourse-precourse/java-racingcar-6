@@ -18,7 +18,7 @@ public class InputException {
 
     public void validCarNameDuplicated(List<String> names){
         Set<String> setNames = new HashSet<>(names);
-        if (!setNames.equals(names)){
+        if (setNames.size() != names.size()){
             throw new IllegalArgumentException();
         }
     }
