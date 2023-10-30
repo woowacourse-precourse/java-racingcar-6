@@ -29,19 +29,22 @@ public class Util {
         return Console.readLine();
     }
 
+    // 최종 우승자 가리기
     public static int getMax(ArrayList<Integer> positions){
         return Collections.max(positions);
 
     }
 
+    // 라운드별 결과값 출력
     public static void printRoundResult(ArrayList<String> roundResults) {
         roundResults.forEach(System.out::println);
         System.out.println();
     }
 
+    // 최종 우승자 출력
     public static void printWinner(ArrayList<String> winners) {
         System.out.print(Constants.WINNER_MESSAGE);
-        System.out.println(String.join(DELIMETER, winners));
+        System.out.println(String.join(DELIMETER+" ", winners));
     }
 
 }
