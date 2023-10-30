@@ -26,6 +26,10 @@ public class Car {
         return positions.get(positions.size()-1);
     }
 
+    public int getPosition(int index){
+        return positions.get(index);
+    }
+
     public String getName() {
         return name;
     }
