@@ -1,10 +1,11 @@
 
 # GameController
 - 게임 시작시 자동차의 이름을 입력받는다.
-- 자동차 경주 게임을 완료한 후 누가 우승했는지 알려준다.
 
 # GameService
 - 전진조건을 Service에서 계산하고 이를 carManager에게 수행시킨다.
+- OutputManager를 통해 매 시도 횟수마다 출력한다. 
+- 게임이 끝난 후 자동차 경주 게임을 완료한 후 누가 우승했는지 알려준다.
 
 ## Game 시나리오
 - InputManager를 통해 자동차 경주를 할 이름을 입력 받는다.
@@ -20,9 +21,9 @@ HashMap을 만들고 거기에 car객체를 생성한다.
 - carMember를 저장하는 리스트를 가지고 있다.
 - carMember의 이름에 대응되는 HashMap을 가지고 있다.
 - 1등의 위치를 가지고 있다.
-- winnerlist를 가지고 있다.
+- winnerList를 가지고 있다.
 
-# carModel
+# car
 - 전진 기능이 필요하다.
   - 자동차는 전진할때 자동차 이름을 같이 출력한다.
   - 전진 조건
