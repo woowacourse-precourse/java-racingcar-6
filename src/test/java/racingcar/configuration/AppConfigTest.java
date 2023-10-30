@@ -23,6 +23,7 @@ public class AppConfigTest {
         Config config2 = AppConfig.getInstance();
 
         // then
+        assertThat(config1).isInstanceOf(Config.class);
         assertThat(config1).isNotNull();
         assertThat(config2).isNotNull();
         assertThat(config1).isSameAs(config2);
@@ -35,6 +36,7 @@ public class AppConfigTest {
         CarRepository carRepository2 = config.carRepository();
 
         // then
+        assertThat(carRepository1).isInstanceOf(CarRepository.class);
         assertThat(carRepository1).isNotNull();
         assertThat(carRepository2).isNotNull();
         assertThat(carRepository1).isSameAs(carRepository2);
@@ -47,6 +49,7 @@ public class AppConfigTest {
         RacingRepository racingRepository2 = config.racingRepository();
 
         // then
+        assertThat(racingRepository1).isInstanceOf(RacingRepository.class);
         assertThat(racingRepository1).isNotNull();
         assertThat(racingRepository2).isNotNull();
         assertThat(racingRepository1).isSameAs(racingRepository2);
@@ -59,6 +62,7 @@ public class AppConfigTest {
         CarService carService2 = config.carService();
 
         // then
+        assertThat(carService1).isInstanceOf(CarService.class);
         assertThat(carService1).isNotNull();
         assertThat(carService2).isNotNull();
         assertThat(carService1).isSameAs(carService2);
@@ -71,6 +75,7 @@ public class AppConfigTest {
         RacingService racingService2 = config.racingService();
 
         // then
+        assertThat(racingService1).isInstanceOf(RacingService.class);
         assertThat(racingService1).isNotNull();
         assertThat(racingService2).isNotNull();
         assertThat(racingService1).isSameAs(racingService2);
@@ -83,6 +88,7 @@ public class AppConfigTest {
         InputView inputView2 = config.inputView();
 
         // then
+        assertThat(inputView1).isInstanceOf(InputView.class);
         assertThat(inputView1).isNotNull();
         assertThat(inputView2).isNotNull();
         assertThat(inputView1).isSameAs(inputView2);
@@ -95,6 +101,7 @@ public class AppConfigTest {
         OutputView outputView2 = config.outputView();
 
         // then
+        assertThat(outputView1).isInstanceOf(OutputView.class);
         assertThat(outputView1).isNotNull();
         assertThat(outputView2).isNotNull();
         assertThat(outputView1).isSameAs(outputView2);
@@ -107,17 +114,9 @@ public class AppConfigTest {
         RacingController racingController2 = config.racingController();
 
         // then
+        assertThat(racingController1).isInstanceOf(RacingController.class);
         assertThat(racingController1).isNotNull();
         assertThat(racingController2).isNotNull();
         assertThat(racingController1).isSameAs(racingController2);
     }
-
-    @Test
-    public void Config의_구현체를_반환하는지() {
-        // given && when
-
-        // then
-        assertThat(config).isInstanceOf(Config.class);
-    }
-
 }
