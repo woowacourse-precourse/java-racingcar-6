@@ -16,6 +16,9 @@ public class ConsoleInputView implements InputView {
     @Override
     public String inputTryCount() {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
-        return InputUtil.inputString();
+        String tryCount = InputUtil.inputString();
+        System.out.println();
+
+        return tryCount;
     }
 }
