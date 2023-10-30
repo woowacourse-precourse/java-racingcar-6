@@ -7,7 +7,7 @@ public class Move {
         this.move = new StringBuilder();
     }
 
-    public void increaseMove() {
+    public void increase() {
         move.append("-");
     }
 
