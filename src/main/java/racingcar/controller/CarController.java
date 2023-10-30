@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import racingcar.model.Car;
@@ -19,5 +20,14 @@ public class CarController {
         }
         return carList;
     }
+
+    public void race(Car car) {
+        int randomNum = Randoms.pickNumberInRange(0, 9);
+        if (randomNum < 4) {
+            return;
+        }
+        car.addDistance();
+    }
+
 
 }
