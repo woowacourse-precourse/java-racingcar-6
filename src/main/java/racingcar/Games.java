@@ -1,14 +1,22 @@
 package racingcar;
 
+import java.util.HashMap;
+
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Games {
-    String[] names; int move_num;
+    int move_num;
+    HashMap<String, Integer> car_situations = new HashMap<String, Integer>();
+
     Games(String[] names, int move_num) {
-        this.names = names;
+        for (String name : names) {
+            car_situations.put(name, 0);
+        }
         this.move_num = move_num;
     }
 
     public void racingcar_game() {
-        for (var i=0; i<names.length; i++){
+        for (String car_name : car_situations.keySet()){
             
         }
     }
