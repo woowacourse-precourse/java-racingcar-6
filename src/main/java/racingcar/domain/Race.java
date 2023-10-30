@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class Race {
     private ArrayList<Car> cars;
+    private int attempt;
 
-    public Race() {
+    public Race(int attempt) {
         this.cars = new ArrayList<>();
     }
 
-    public void advanceFullRound(int attempt) {
+    public void advanceFullRound() {
         for (int round = 0; round < attempt; round++) {
             advanceOneRound();
             System.out.println();
