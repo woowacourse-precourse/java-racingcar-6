@@ -25,7 +25,7 @@ public class Car {
     }
 
     public void movePosition(){
-        if (Randoms.pickNumberInRange(Constant.RANDOM_MINIMUM, Constant.RANDOM_MAXIMUM) > Constant.RANDOM_BOUNDARY) {
+        if (Randoms.pickNumberInRange(Constant.RANDOM_MINIMUM, Constant.RANDOM_MAXIMUM) >= Constant.RANDOM_BOUNDARY) {
             addScore();
         }
     }
