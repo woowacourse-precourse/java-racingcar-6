@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import static racingcar.util.Constants.MIN_RANGE;
 import static racingcar.util.Constants.MAX_RANGE;
 import static racingcar.util.Constants.NUMBER_REGEXP;
+import static racingcar.util.Constants.MOVE_FORWARD;
 import static racingcar.util.VerificationMessage.IS_NOT_NUMBER;
 
 public class User {
@@ -19,6 +20,9 @@ public class User {
     public int moveSize(String size) {
         if(!isNumber(size)) throw new IllegalArgumentException(IS_NOT_NUMBER);
         return Integer.parseInt(size);
+    }
+    public boolean moveForward() {
+        return createRandomNumber() >= MOVE_FORWARD;
     }
     private int createRandomNumber() {
         return Randoms.pickNumberInRange(MIN_RANGE,MAX_RANGE);
