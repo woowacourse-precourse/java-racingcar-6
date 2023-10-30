@@ -1,14 +1,11 @@
 package racingcar.gameLogic;
 
-import static racingcar.utils.Constants.MIN_MOVED_DISTANCE;
-
-import java.util.ArrayList;
 import java.util.List;
+import racingcar.models.ScoreBoard;
 import racingcar.views.OutputViewer;
 
 public class RaceOfficial {
-    public int highestScore = MIN_MOVED_DISTANCE;
-    public List<String> winners = new ArrayList<>();
+    private final ScoreBoard scoreBoard = new ScoreBoard();
 
     public void setDrivers(List<Driver> drivers, List<String> carNames) {
         for (String carName : carNames) {
@@ -27,7 +24,8 @@ public class RaceOfficial {
     }
 
     public void setHighestScore(Driver driver) {
-        highestScore = Math.max(driver.sayMovedDistance(), highestScore);
+        int highestScore = Math.max(driver.sayMovedDistance(), scoreBoard.getHighScore());
+        scoreBoard.setHighScore(highestScore);
     }
 
     public void separateRounds() {
@@ -48,11 +46,19 @@ public class RaceOfficial {
     }
 
     public boolean isWinner(Driver driver) {
-        return driver.sayMovedDistance() == highestScore;
+        return driver.sayMovedDistance() == scoreBoard.getHighScore();
     }
 
     public void addToWinnerList(Driver driver) {
-        winners.add(driver.sayCarName());
+        scoreBoard.addWinner(driver.sayCarName());
+    }
+
+    public int showHighestScore() {
+        return scoreBoard.getHighScore();
+    }
+
+    public List<String> showWinnerList() {
+        return scoreBoard.getWinners();
     }
 
     private void requestPrintNoticeResultWillBePrinted() {
@@ -71,6 +77,6 @@ public class RaceOfficial {
     }
 
     private void requestPrintWinners() {
-        OutputViewer.printWinners(winners);
+        OutputViewer.printWinners(scoreBoard.getWinners());
     }
 }

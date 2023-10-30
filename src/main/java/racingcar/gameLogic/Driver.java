@@ -6,7 +6,7 @@ import racingcar.models.Car;
 import racingcar.utils.RandomNumbers;
 
 public class Driver {
-    Car car = new Car();
+    private final Car car = new Car();
 
     public Driver(String carName) {
         car.setCarName(carName);

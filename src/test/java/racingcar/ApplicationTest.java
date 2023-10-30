@@ -296,7 +296,7 @@ class ApplicationTest extends NsTest {
                 driver.pushPedal();
                 raceOfficial.setHighestScore(driver);
             }
-            assertThat(raceOfficial.highestScore).isEqualTo(1);
+            assertThat(raceOfficial.showHighestScore()).isEqualTo(1);
         }
 
     }
@@ -317,7 +317,7 @@ class ApplicationTest extends NsTest {
                 raceOfficial.setHighestScore(driver);
             }
             raceOfficial.determineWinners(drivers);
-            assertThat(raceOfficial.winners).containsExactly("pobi", "woni");
+            assertThat(raceOfficial.showWinnerList()).containsExactly("pobi", "woni");
         }
     }
 
