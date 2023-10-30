@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
-    private String carName;
+    private final String carName;
     private int driveCount;
 
     public Car(String carName) {
@@ -17,5 +17,13 @@ public class Car {
         if (driveCheck >= 4)
             driveCount += 1;
     }
-    
+
+    public String getCarName() {
+        return carName;
+    }
+
+    public int getDriveCount() {
+        return driveCount;
+    }
+
 }
