@@ -30,7 +30,7 @@
 
     - 사용자로부터 자동차 이름들을 입력받습니다.
 
-  - [ ] (static) inputCount
+  - [x] (static) inputCount
 
     - 사용자로부터 이동 횟수를 입력받습니다.
 

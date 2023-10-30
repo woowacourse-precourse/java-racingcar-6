@@ -7,4 +7,5 @@ public class OutputMessage {
     public static final String ERROR_CAR_NAME_LENGTH_LIMIT = "자동차 이름의 길이가 5 이상입니다.";
     public static final String ERROR_COUNT_NOT_A_NUMBER = "입력된 값이 숫자가 아닙니다.";
     public static final String ERROR_COUNT_IS_NEGATIVE = "입력된 값이 음수입니다.";
+    public static final String MESSAGE_RESULT_TEXT = "\n실행 결과";
 }

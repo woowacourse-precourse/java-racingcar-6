@@ -25,4 +25,15 @@ public class Controller {
             throw new IllegalArgumentException(OutputMessage.ERROR_COUNT_NOT_A_NUMBER);
         }
     }
+
+    public static void printResultText() {
+        System.out.println(OutputMessage.MESSAGE_RESULT_TEXT);
+    }
+
+    public static void printCarStates(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getStatus());
+        }
+        System.out.println();
+    }
 }
