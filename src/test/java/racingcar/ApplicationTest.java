@@ -51,4 +51,17 @@ class ApplicationTest extends NsTest {
       }
       assertThat(illegalArgumentException).isEqualTo(null);
     }
+
+  @Test
+  void inputCarNameSplit() {
+    String inputCarName = "테스트1,테스트2";
+    String[] cars = inputCarName.split(",");
+    if(cars.length<2){
+      throw new IllegalArgumentException("이름은 쉼표(,) 기준으로 구분합니다.");
+    }
+    assertThat(cars.length).isEqualTo(2);
+    assertThat(cars).contains("테스트2", "테스트1");
+    assertThat(cars).containsExactly("테스트1", "테스트2");
+
+  }
 }
