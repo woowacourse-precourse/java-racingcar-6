@@ -35,4 +35,11 @@ public class InputValidatorTest {
         assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNotNumber("1a2b3"));
         assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNotNumber("abc"));
     }
+
+    @Test
+    void validateNumberRangeTest() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNumberRange("0"));
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNumberRange("-5"));
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNumberRange("1a2b3"));
+    }
 }
