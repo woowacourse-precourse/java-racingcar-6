@@ -1,11 +1,17 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Utils {
     public static int generateRandomNumber() {
-        return 0;
+        return Randoms.pickNumberInRange(0, 9);
     }
 
-    public static boolean isMove(int movingNumber) {
-        return false;
+    public static boolean isMove(final int movingNumber) {
+        if (movingNumber >= 4) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
