@@ -24,6 +24,8 @@ public class Output {
             System.out.println();
             System.out.println();
         }
+        int max = getMax(gameResult);
+        getWinner(StaticInputs.carNamesArray, gameResult, max);
     }
 
     //각각의 게임 진행
@@ -51,15 +53,30 @@ public class Output {
                 System.out.print(", " + StaticInputs.carNamesArray[i]);
             }
         }
-
         return gameResult;
     }
 
-    public int getMax(int[] arr) {
+    public static int getMax(int[] arr) {
         int max = 0;
         for (int num : arr) {
             max = Math.max(num, max);
         }
         return max;
+    }
+
+    public static void getWinner(String[] names, int[] arr, int max) {
+        int tmp = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == max) {
+                System.out.print("최종 우승자 : "+names[i]);
+                tmp = i;
+                break;
+            }
+        }
+        for (int i = tmp + 1; i < arr.length; i++) {
+            if (arr[i] == max) {
+                System.out.print(", " + names[i]);
+            }
+        }
     }
 }
