@@ -44,6 +44,6 @@ public class OutputView {
     }
 
     private static void printlnMessage(String message) {
-        System.out.print(message);
+        System.out.println(message);
     }
 }
