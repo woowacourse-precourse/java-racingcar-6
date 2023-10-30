@@ -22,7 +22,6 @@ public class Car {
     }
 
 
-
     public void move(int roundCount) {
         System.out.println("실행 결과");
 

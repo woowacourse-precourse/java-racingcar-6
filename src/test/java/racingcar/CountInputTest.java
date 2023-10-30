@@ -61,7 +61,7 @@ public class CountInputTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        car.move(CarRace.createRoundCount(getInput("시도할 회수는 몇회인가요?")));
+        car.move(CarRace.createRound(getInput("시도할 회수는 몇회인가요?")));
 
         // then
         assertThat(out.toString())

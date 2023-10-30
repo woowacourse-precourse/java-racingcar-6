@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 public class WinnerTest {
 
     @Test
-    void 최대_주행거리_찾기(){
+    void 최대_주행거리_찾기() {
 
         // given
         Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
@@ -26,6 +26,7 @@ public class WinnerTest {
         assertThat(maxDistance).isEqualTo(1);
 
     }
+
     @Test
     void 우승자_한명() {
 

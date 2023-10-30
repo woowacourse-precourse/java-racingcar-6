@@ -11,6 +11,7 @@ public class CarManager {
         Validator.checkLength(carNames);
         Validator.checkDuplication(carNames);
     }
+
     public static List<String> createNames(String userInput) {
         return Arrays.asList(userInput.split(","));
     }
