@@ -1,4 +1,6 @@
 package racingcar.pattern;
 
-public class ValueGenerateStrategy {
+
+public interface ValueGenerateStrategy {
+    int generate();
 }
