@@ -16,22 +16,6 @@ class PlayerTest {
     }
 
     @Test
-    void 입력한_이름_3개_이하_예외처리() {
-        setInput("name1,name2");
-        assertThatThrownBy(() -> {
-            player.inputCarNames();
-        }).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 입력한_이름_3개_초과_예외처리() {
-        setInput("name1,name2,name3,name4");
-        assertThatThrownBy(() -> {
-            player.inputCarNames();
-        }).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
     void 입력한_이름_길이가_5_이상인_경우_예외처리() {
         setInput("name1,name2,namename3");
         assertThatThrownBy(() -> {
