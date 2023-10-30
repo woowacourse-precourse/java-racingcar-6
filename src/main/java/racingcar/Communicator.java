@@ -22,25 +22,25 @@ public class Communicator {
         return Integer.parseInt(Console.readLine());
     }
 
-    public static void printResult() {
+    public static void printResult(List<GameProgress> gameResult) {
         System.out.println("실행 결과");
+        gameResult.forEach(Communicator::printProgress);
     }
 
-    public static void printProgress(GameProgress gameProgress) {
-        System.out.println(gameProgress.convertResultToString());
-        System.out.println();
-    }
-
-    public static void printWinners(List<Car> finalists) {
-        String finalistNames = finalists.stream()
+    public static void printWinners(List<Car> winners) {
+        String winnerNames = winners.stream()
                 .map(Car::displayName)
                 .collect(Collectors.joining(", "));
-        System.out.println("최종 우승자 : " + finalistNames);
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 
     public static void printException(Exception exception) {
         System.out.println(exception.getMessage());
         printExit();
+    }
+
+    private static void printProgress(GameProgress gameProgress) {
+        System.out.println(gameProgress.convertResultToString() + System.lineSeparator());
     }
 
     private static void printExit() {

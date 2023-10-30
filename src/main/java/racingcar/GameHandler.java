@@ -16,12 +16,9 @@ public class GameHandler {
             game.saveCars(carNames);
 
             int trials = Communicator.instructInputTrials();
+            List<GameProgress> gameResult = game.playAll(trials);
 
-            Communicator.printResult();
-            for (int i = 0; i < trials; i++) {
-                GameProgress gameProgress = game.playOnce();
-                Communicator.printProgress(gameProgress);
-            }
+            Communicator.printResult(gameResult);
 
             List<Car> winners = game.getWinners();
             Communicator.printWinners(winners);

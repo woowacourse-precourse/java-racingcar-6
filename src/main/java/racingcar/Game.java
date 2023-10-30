@@ -1,7 +1,9 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.IntStream;
 
 public class Game {
     private final CarStorage carStorage;
@@ -18,6 +20,12 @@ public class Game {
         return cars;
     }
 
+    public List<GameProgress> playAll(int trials) {
+        return IntStream.range(0, trials)
+                .mapToObj(trial -> playOnce())
+                .toList();
+    }
+
     public List<Car> getWinners() {
         Car leadingCar = carStorage.getLeadingCar()
                 .orElseThrow(() -> new NoSuchElementException("저장된 자동차가 없습니다"));
@@ -28,7 +36,7 @@ public class Game {
         cars.forEach(carStorage::saveCar);
     }
 
-    public GameProgress playOnce() {
+    private GameProgress playOnce() {
         List<Car> cars = carStorage.getStoredCars();
         List<Car> updatedCars = cars.stream()
                 .map(Car::conductAction)
