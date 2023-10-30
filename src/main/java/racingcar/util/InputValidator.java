@@ -24,14 +24,13 @@ public class InputValidator {
         }
     }
 
-    public static boolean validateAttemptNumber(String input) {
+    public static void validateAttemptNumber(String input) {
         if (isNotNumber(input)) {
             throw new IllegalArgumentException(INVALID_NUMBER_EXCEPTION_MESSAGE);
         }
         if (isInvalidRange(input)) {
             throw new IllegalArgumentException(INVALID_ATTEMPT_NUMBER_RANGE_EXCEPTION_MESSAGE);
         }
-        return true;
     }
 
     private static boolean isNotNumber(String number) {
