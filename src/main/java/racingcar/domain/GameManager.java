@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +14,15 @@ public class GameManager {
     private static final Integer MAXIMUM_CAR_NAME_LENGTH = 5;
 
     private final NumberGenerator numberGenerator;
+    private final GameConsole gameConsole;
     private List<Car> cars;
     private StringBuilder gameLog;
     private StringBuilder gameWinner;
     private Integer attemptCount;
 
-    public GameManager(NumberGenerator numberGenerator) {
+    public GameManager(NumberGenerator numberGenerator, GameConsole gameConsole) {
         this.numberGenerator = numberGenerator;
+        this.gameConsole = gameConsole;
         this.cars = new ArrayList<>();
         this.gameLog = new StringBuilder();
         this.gameWinner = new StringBuilder();
@@ -30,7 +30,7 @@ public class GameManager {
     }
 
     public void readCarNames() {
-        String enteredCarNames = Console.readLine();
+        String enteredCarNames = gameConsole.readLine();
         validateCarNames(enteredCarNames);
     }
 
@@ -64,7 +64,7 @@ public class GameManager {
 
     public void readAttemptCount() {
         try {
-            attemptCount = Integer.parseInt(Console.readLine());
+            attemptCount = Integer.parseInt(gameConsole.readLine());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ATTEMPT_COUNT_IS_NOT_NUMBER.getMessage());
         }
