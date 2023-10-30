@@ -1,10 +1,11 @@
 package racingcar.domain.car;
 
+import racingcar.domain.power.Power;
 import racingcar.domain.power.PowerGenerator;
 
 public class Car {
 
-    private static final int POWER_THRESHOLD_FOR_MOVE = 4;
+    private static final Power POWER_THRESHOLD_FOR_MOVE = new Power(4);
     private static final int MOVE_DISTANCE = 1;
 
     private String name;
@@ -18,17 +19,14 @@ public class Car {
     }
 
     public void tryDrive() {
-        if (isEnoughPower(powerGenerator.generate())) {
+        Power generatedPower = powerGenerator.generate();
+        if (generatedPower.isSufficientPowerToMove(POWER_THRESHOLD_FOR_MOVE)) {
             drive();
         }
     }
 
     private void drive() {
         position += MOVE_DISTANCE;
-    }
-
-    private boolean isEnoughPower(int power) {
-        return power >= POWER_THRESHOLD_FOR_MOVE;
     }
 
     public String getName() {
