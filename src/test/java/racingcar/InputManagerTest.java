@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 class InputManagerTest {
 
     @Test
-    void 정상_동작_테스트() {
+    void 정상_동작_테스각() {
         List<String> carNames = InputManager.getCarNames("aaa,bbb");
         assertThat(carNames).contains("aaa", "bbb");
     }
@@ -17,5 +17,12 @@ class InputManagerTest {
     void 마지막_글자가_콤마이면_예외_테스트(){
         assertThatThrownBy(() -> InputManager.getCarNames("name,"))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 자동차_이름의_길이_예외_테스트(){
+        assertThatThrownBy(() -> InputManager.getCarNames("name,123456"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차의 이름은 1글자 이상 5글자 이하여야 합니다.");
     }
 }
