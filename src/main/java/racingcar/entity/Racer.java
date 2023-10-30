@@ -1,9 +1,10 @@
 package racingcar.entity;
 
-import racingcar.validation.ValidateForm;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Racer {
-    private static Racer instance;
+    private static final Map<String,Racer> instance=new HashMap<>();
     private String name;
 
     private Racer(String name) {
@@ -11,10 +12,12 @@ public class Racer {
     }
 
     public static Racer getInstance(String name) {
-        if (instance == null) {
-            instance = new Racer(name);
+        if (instance.get(name)==null){
+            Racer racer = new Racer(name);
+            instance.put(name,racer);
+            return racer;
         }
-        return instance;
+        return instance.get(name);
     }
 
     public String getName() {
