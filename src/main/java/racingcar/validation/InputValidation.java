@@ -8,8 +8,10 @@ import java.util.stream.Stream;
 public class InputValidation {
     public static List<String> validateInputName(String input) {
         validateInputFormat(input);
-        validateEachName(input);
-        return changeStringToList(input);
+        validateEachNameLength(input);
+        List<String> inputList = changeStringToList(input);
+        validateNameUniqueness(inputList);
+        return inputList;
     }
 
     private static void validateInputFormat(String input) {
@@ -27,7 +29,13 @@ public class InputValidation {
         return true;
     }
 
-    private static void validateEachName(String input) {
+    private static void validateNameUniqueness(List<String> inputList) {
+        if(inputList.size() != inputList.stream().distinct().count()){
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+        }
+    }
+
+    private static void validateEachNameLength(String input) {
         for (String s : input.split(",")) {
             validateNameLength(s);
         }
