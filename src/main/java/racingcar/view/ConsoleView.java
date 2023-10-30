@@ -20,4 +20,10 @@ public class ConsoleView {
         }
         printMessage(output.toString());
     }
+
+    public void printWinners(List<Car> winners) {
+        List<String> winnerNames = winners.stream().map(Car::getName).toList();
+        String result = String.join(", ", winnerNames);
+        printMessage("최종 우승자 : " + result);
+    }
 }
