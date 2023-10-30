@@ -45,6 +45,9 @@ public class GameData {
         carInfo.replace(carName, distance);
     }
 
+    public HashMap<String, String> getCarInfo(){
+        return carInfo;
+    }
     public String getWinner() {
         String winner = "";
         String winnerDistance = "";
