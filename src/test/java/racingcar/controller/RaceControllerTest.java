@@ -8,6 +8,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class RaceControllerTest {
     private RaceController raceController;
@@ -23,5 +25,13 @@ class RaceControllerTest {
         List<String> carNames = raceController.divideCarNames(inputNames);
 
         assertThat(carNames.size()).isEqualTo(3);
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"test1,test2,test3:0:test1","test1,test2,test3:1:test2","test1,test2,test3:2:test3"}, delimiter = ':')
+    void 구분된_이름이_맞는지_테스트(String inputNames, int index, String expected){
+        List<String> carNames = raceController.divideCarNames(inputNames);
+
+        assertThat(carNames.get(index)).isEqualTo(expected);
     }
 }
