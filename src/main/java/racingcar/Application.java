@@ -38,5 +38,6 @@ public class Application {
 
         scoreBoard.showCarsScore(carList, tryNumber);
         System.out.println(referee.showWinner(carList));
+        Console.close();
     }
 }
