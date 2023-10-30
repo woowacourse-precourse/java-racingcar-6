@@ -1,4 +1,7 @@
-package racingcar.utils;
+package racingcar.utils.validators;
+
+import racingcar.utils.enums.Constraints;
+import racingcar.utils.enums.ErrorMessage;
 
 public class TrialNumberValidator {
 

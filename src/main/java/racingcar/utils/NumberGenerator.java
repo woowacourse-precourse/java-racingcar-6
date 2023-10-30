@@ -1,5 +1,7 @@
 package racingcar.utils;
 
+import racingcar.utils.enums.Constraints;
+
 public interface NumberGenerator {
     int MIN_NUM = Constraints.MIN_NUM.getValue();
     int MAX_NUM = Constraints.MAX_NUM.getValue();

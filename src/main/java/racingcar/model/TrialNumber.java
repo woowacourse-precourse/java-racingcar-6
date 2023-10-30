@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.utils.TrialNumberValidator;
+import racingcar.utils.validators.TrialNumberValidator;
 
 public class TrialNumber {
     private final int trialNumber;

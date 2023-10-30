@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.utils.enums;
 
 public enum Constraints {
     MIN_SIZE(1), //자동차 이름 최소 길이

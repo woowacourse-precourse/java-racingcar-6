@@ -1,7 +1,7 @@
 package racingcar.model;
 
-import racingcar.utils.CarNamesValidator;
 import racingcar.utils.Parser;
+import racingcar.utils.validators.CarNamesValidator;
 
 import java.util.List;
 import java.util.stream.Collectors;

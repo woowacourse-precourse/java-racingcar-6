@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.Test;
-import racingcar.utils.ErrorMessage;
+import racingcar.utils.enums.ErrorMessage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
