@@ -1,5 +1,12 @@
 package racingcar;
 
 public class Car {
-    //TODO: Car Class 기능 구현
+
+    private final String name;
+    private int position = 0;
+
+    public Car(String name) {
+        this.name = name;
+    }
+
 }
