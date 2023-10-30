@@ -3,7 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarProcessor {
+public class CarFactory {
     public static List<Car> createCars(List<String> carNamesWithoutSeparator) {
         List<Car> cars = new ArrayList<>();
 
