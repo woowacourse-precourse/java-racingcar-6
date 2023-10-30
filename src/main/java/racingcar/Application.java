@@ -13,7 +13,7 @@ public class Application {
         Integer count = racingCar.countRacingGame();
 
         System.out.println("\n실행결과");
-        while(count-- != 0){
+        while (count-- != 0) {
             racingCar.playRacingGame(car_list);
         }
     }

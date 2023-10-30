@@ -20,21 +20,33 @@ public class RacingCar {
         return car_list;
     }
 
-    public Integer countRacingGame(){
+    public Integer countRacingGame() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
-        if(input.matches("[1-9]+")){
+        if (input.matches("[1-9]+")) {
             return Integer.parseInt(input);
         } else {
             throw new IllegalArgumentException();
         }
     }
 
-    public void playRacingGame(ArrayList<Car> car_list){
-        for(Car car : car_list){
+    public void playRacingGame(ArrayList<Car> car_list) {
+        for (Car car : car_list) {
             car.determine_Move();
             System.out.println(car.getCar_name() + " : " + "-".repeat(car.getMove_count()));
         }
         System.out.println("");
+    }
+
+    public Integer compareMoveCount(ArrayList<Car> car_list) {
+        Integer max = 0;
+
+        for (Car car : car_list) {
+            if (max < car.getMove_count()) {
+                max = car.getMove_count();
+            }
+        }
+
+        return max;
     }
 }
