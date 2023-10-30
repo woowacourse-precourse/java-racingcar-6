@@ -3,7 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 
 public class CarRepository {
-	ArrayList<Car> racingCars = new ArrayList<Car>();
+	private ArrayList<Car> racingCars = new ArrayList<Car>();
 	
 	private static final CarRepository instance = new CarRepository();
 	public static CarRepository getInstance() {
