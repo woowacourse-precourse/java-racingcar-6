@@ -5,7 +5,7 @@ import java.util.List;
 
 public class WinnerPicker {
 
-    public List<String> pickWinner(RacingCars racingCars) {
+    public Winners pickWinner(RacingCars racingCars) {
         List<String> winnersName = new ArrayList<>();
         int winnerDistance = racingCars.getMaxForwardDistance();
 
@@ -14,6 +14,6 @@ public class WinnerPicker {
                 .map(RacingCar::getName)
                 .forEach(winnersName::add);
 
-        return winnersName;
+        return new Winners(winnersName);
     }
 }
