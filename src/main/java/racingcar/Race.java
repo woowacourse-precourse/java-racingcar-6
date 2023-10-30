@@ -14,11 +14,15 @@ public class Race {
     public void play() {
         System.out.println("실행 결과");
         for (int round = 0; round < roundNumber; round++) {
-            for (Car car : candidates) {
-                car.race();
-                car.showStatus();
-            }
+            playOneRound();
             System.out.println();
+        }
+    }
+
+    private void playOneRound() {
+        for (Car car : candidates) {
+            car.race();
+            car.showStatus();
         }
     }
 }
