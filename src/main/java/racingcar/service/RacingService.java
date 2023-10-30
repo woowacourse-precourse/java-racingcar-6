@@ -52,10 +52,13 @@ public class RacingService {
     }
 
     private void play() {
-        for (Car car : racing.getRacer()) {
-            car.movable();
-            systemOutputMessage.showRacerPosition(car.getName(), car.getPosition());
+        for (Car car : racing.getCars()) {
+            car.move();
+            systemOutputMessage.showCarPosition(car.getName(), car.getPosition());
         }
         System.out.println();
+    }
+
+    public void selectWinner() {
     }
 }

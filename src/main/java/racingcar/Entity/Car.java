@@ -27,7 +27,7 @@ public class Car {
         this.position = position;
     }
 
-    public void movable() {
+    public void move() {
         int num = Randoms.pickNumberInRange(0,9);
         if(num >= 4){
             position ++;

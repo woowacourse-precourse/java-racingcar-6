@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Racing {
 
-    private List<Car> racer = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
     private int count;
 
     public void ready(String[] cars) {
         for (String car : cars) {
             Car racer = new Car(car);
-            this.racer.add(racer);
+            this.cars.add(racer);
         }
     }
 
@@ -23,7 +23,7 @@ public class Racing {
         this.count = count;
     }
 
-    public List<Car> getRacer() {
-        return racer;
+    public List<Car> getCars() {
+        return cars;
     }
 }

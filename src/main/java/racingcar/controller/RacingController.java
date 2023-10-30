@@ -9,6 +9,7 @@ public class RacingController {
     public void run() {
         initRacing();
         startRacing();
+        selectWinner();
     }
 
     private void initRacing() {
@@ -17,5 +18,9 @@ public class RacingController {
 
     private void startRacing() {
         racingService.startRacing();
+    }
+
+    private void selectWinner() {
+        racingService.selectWinner();
     }
 }
