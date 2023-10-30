@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import racingcar.domain.Car;
 import racingcar.domain.Race;
+import racingcar.view.Output;
 
 public class RaceService {
 
@@ -73,7 +74,7 @@ public class RaceService {
     private void raceResult(){
         for(Car car:race.getRacingCars()){
             car.forwardOrStop();
-            System.out.println(car.getCarName()+" : "+"-".repeat(car.getPosition()));
+            Output.printRaceResult(car);
         }
     }
 }
