@@ -1,6 +1,5 @@
 package racingcar.domain.game.car;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,20 +21,19 @@ public class Cars {
         return new Cars(cars);
     }
 
-    public CarsMovementDto moveOnce(MoveStrategy moveStrategy) {
-        List<CarMovementDto> carsMovement = getCarsMovement(moveStrategy);
-        return new CarsMovementDto(carsMovement);
-    }
-
-    private List<CarMovementDto> getCarsMovement(MoveStrategy moveStrategy) {
-        List<CarMovementDto> carsMovementDto = new ArrayList<>();
+    public void moveOnceIfMovable(MoveStrategy moveStrategy) {
         for (Car car : cars) {
             if (moveStrategy.isMovable()) {
                 car.moveOnce();
             }
-            carsMovementDto.add(car.toCarMovementDto());
         }
-        return carsMovementDto;
+    }
+
+    public CarsMovementDto toCarsMovementDto() {
+        List<CarMovementDto> carsMovementDto = cars.stream()
+                .map(Car::toCarMovementDto)
+                .toList();
+        return new CarsMovementDto(carsMovementDto);
     }
 
     public WinnersDto toWinnerDto() {
