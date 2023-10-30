@@ -18,7 +18,7 @@
 
 ### MovingStrategy
 > CarPosition의 이동 여부를 결정하는 값을 생성하는 전략 함수형 인터페이스
-- [ ] 구현체의 전략에 따라 이동 가능 여부를 반환하는 movable() 메서드 선언
+- [x] 구현체의 전략에 따라 이동 가능 여부를 반환하는 movable() 메서드 선언
 
 ### RandomMovingStrategy
 > MovingStrategy의 구현체, 랜덤 생성 값에 따라 이동 여부를 결정한다
