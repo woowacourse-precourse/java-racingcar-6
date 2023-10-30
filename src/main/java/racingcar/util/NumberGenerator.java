@@ -1,14 +1,11 @@
 package racingcar.util;
 
+import static racingcar.constant.NumberConstant.MAX_NUMBER_RANGE;
+import static racingcar.constant.NumberConstant.MIN_NUMBER_RANGE;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class NumberGenerator {
-
-    private static final int MIN_NUMBER_RANGE = 0;
-    private static final int MAX_NUMBER_RANGE = 9;
-
-
     public int generate() {
-        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE, MAX_NUMBER_RANGE);
+        return Randoms.pickNumberInRange(MIN_NUMBER_RANGE.getNumber(), MAX_NUMBER_RANGE.getNumber());
     }
 }
