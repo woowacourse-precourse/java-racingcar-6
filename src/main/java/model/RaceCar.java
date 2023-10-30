@@ -19,13 +19,10 @@ public class RaceCar {
     }
 
     public String getName() {
-        return new String(name);
+        return name;
     }
 
     public int getMoveForwardCount() {
-        int copyMoveForwardCount = moveForwardCount;
-
-        return copyMoveForwardCount;
+        return moveForwardCount;
     }
-
 }

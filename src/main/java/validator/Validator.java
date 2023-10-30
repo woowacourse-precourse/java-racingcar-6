@@ -5,9 +5,9 @@ import message.ErrorMessage;
 import java.util.List;
 
 public class Validator {
-    String regExp = "^[1-9]*$";
     private static final int MAX_LENGTH_OF_NAME = 5;
-    private static final int MIN_LENGTH_OF_NAME = 1;
+    String regExpTryNumber = "^[1-9]*$";
+    String regExpStatus = "^[1-2]*$";
 
     public void checkLengthName(List<String> names) {
         for(String name : names) {//공백은 길이에 포함
@@ -24,9 +24,16 @@ public class Validator {
     }
 
     public int checkTryNumber(String tryNumber) {
-        if(!(tryNumber.matches(regExp))) {
+        if(!(tryNumber.matches(regExpTryNumber))) {
             throw new IllegalArgumentException(ErrorMessage.EXCEPTION_TRY_NUMBER);
         }
         return Integer.parseInt(tryNumber);
+    }
+
+    public String checkStatus(String progress) {
+        if(!(progress.matches(regExpStatus))) {
+            throw new IllegalArgumentException(ErrorMessage.EXCEPTION_STATUS);
+        }
+        return progress;
     }
 }

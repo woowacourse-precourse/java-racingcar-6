@@ -2,10 +2,8 @@ package service;
 
 import model.RaceCar;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
@@ -13,8 +11,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 public class GameService {
     private static final int MAX_NUM = 9;
     private static final int MIN_NUM = 0;
-
-    private List<RaceCar> raceCars = new ArrayList<>();
+    private final List<RaceCar> raceCars = new ArrayList<>();
 
     public void createCarObject(List<String> names) {
         for(String name : names) {
@@ -39,11 +36,9 @@ public class GameService {
                 .sorted((a, b) -> b.getMoveForwardCount() - a.getMoveForwardCount())
                 .toList();
 
-        List<String> winners = sortedRaceCars.stream()
+        return sortedRaceCars.stream()
                 .filter(sortedRaceCar -> sortedRaceCar.getMoveForwardCount() == sortedRaceCars.get(0).getMoveForwardCount())
                 .map(RaceCar::getName)
                 .collect(Collectors.toList());
-
-        return winners;
     }
 }

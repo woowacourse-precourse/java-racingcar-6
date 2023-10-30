@@ -34,4 +34,9 @@ public class OutputView {
     public void printGameResult(String name, int moveForwardCount) {
         System.out.printf("%s : %s%s", name , ViewMessage.PRINT_CHAR.repeat(moveForwardCount), ViewMessage.PRINT_CHANGE_LINE);
     }
+
+    public void printRestartOrExit() {
+        printChangeLine();
+        System.out.println(ViewMessage.PRINT_RESTART_OR_EXIT);
+    }
 }

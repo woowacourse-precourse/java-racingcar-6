@@ -7,4 +7,5 @@ public class ViewMessage {
     public static final String PRINT_WINNER = "최종 우승자 : ";
     public static final String PRINT_CHAR = "-";
     public static final String PRINT_CHANGE_LINE = "\n";
+    public static final String PRINT_RESTART_OR_EXIT = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
 }
