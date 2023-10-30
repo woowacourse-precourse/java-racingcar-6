@@ -26,30 +26,38 @@ public class CarController {
         int forwardAttempt = 0;
         String inputCars = "";
 
-        inputCars = input.promptForCarNames();
-        Validate.inputIsNull(inputCars);
+        try {
+            inputCars = input.promptForCarNames();
+            Validate.inputIsNull(inputCars);
 
-        cars = inputCarsStringToCarsClass(inputCars);
+            cars = inputCarsStringToCarsClass(inputCars);
 
-        forwardAttempt = inputForForward();
+            forwardAttempt = inputForForward();
 
-        output.resultHeader();
+            output.resultHeader();
 
-        // 전진 시도 횟수만큼 전진
-        for(int forward = 0; forward < forwardAttempt; forward++) {
-            // 각 자동차들 마다 forward()를 통하여 랜덤으로 생성한 값이 4 이상인 경우 전진
-            cars.getCars()
-                    .stream()
-                    .forEach(car -> forward(car));
-            // 전진이 완료된 이후 현재 위치 정보 출력
-            cars.getCars().stream().forEach(car -> output.position(car.getForward()));
-            // 각 자동차들의 위치 정보가 모두 출력 되면 줄만 하나 출력
-            System.out.println();
+            // 전진 시도 횟수만큼 전진
+            for (int forward = 0; forward < forwardAttempt; forward++) {
+
+                // 각 자동차들 마다 forward()를 통하여 랜덤으로 생성한 값이 4 이상인 경우 전진
+                cars.getCars()
+                        .stream()
+                        .forEach(car -> forward(car));
+
+                // 전진이 완료된 이후 현재 위치 정보 출력
+                cars.getCars()
+                        .stream()
+                        .forEach(car -> output.position(car.getForward()));
+
+                // 각 자동차들의 위치 정보가 모두 출력 되면 줄만 하나 출력
+                System.out.println();
+            }
+
+            output.winners(cars.getWinner(cars.getCars()));
         }
-
-        output.winners( cars.getWinner( cars.getCars() ) );
-
-        Console.close();
+        finally {
+            Console.close();
+        }
     }
 
     private Cars inputCarsStringToCarsClass(String inputTemp) {
