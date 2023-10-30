@@ -4,17 +4,22 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
-    private int displacement;
+    private final int displacement;
+
+    public Car(String name) {
+        this(name, 0);
+    }
 
     public Car(String name, int displacement) {
         this.name = name;
         this.displacement = displacement;
     }
 
-    public void conductAction() {
+    public Car conductAction() {
         if (isAbleToProceed()) {
-            proceed();
+            return proceed();
         }
+        return this;
     }
 
     public String showCurrentDisplacement() {
@@ -38,7 +43,7 @@ public class Car {
         return randomNumber > 3;
     }
 
-    private void proceed() {
-        displacement++;
+    private Car proceed() {
+        return new Car(name, displacement + 1);
     }
 }
