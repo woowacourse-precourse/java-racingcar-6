@@ -32,7 +32,11 @@ public class Car{
     }
 
     public void printCarState(){
-
+        String carState = this.name+" : ";
+        for(int i=0;i<this.randomNumber;i++){
+            carState = carState+"-";
+        }
+        System.out.println(carState);
     }
 
     public String getName(){
