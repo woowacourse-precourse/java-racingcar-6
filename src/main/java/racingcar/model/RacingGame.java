@@ -14,7 +14,7 @@ public class RacingGame {
 
     public void startGame() {
         OutputView.askCarName();
-        this.playerName = Controller.readCarName();
+        this.playerName = Controller.splitName(OutputView.readCarName());
         Validator.isRightName(playerName);
         setStartPoint();
         OutputView.askCount();
@@ -32,7 +32,7 @@ public class RacingGame {
             playerDistance.add(i, 0);
         }
     }
-    
+
     private void moveForward() {
         for (int i = 0; i < playerName.size(); i++) {
             int randomNumber = Controller.makeRandomNum();
