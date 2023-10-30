@@ -3,9 +3,11 @@ package racingcar.sevice;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.controller.dto.GameResultDto;
+import racingcar.controller.dto.RoundResponseDto;
 import racingcar.domain.Car;
 import racingcar.manager.Validator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class GameService {
 
@@ -51,5 +53,14 @@ public class GameService {
     public int getGameRound() {
         String round = InputView.inputGameRound();
         return validator.validateGameRound(round);
+    }
+
+    public void runRound(int gameRound, List<Car> carList) {
+        for (int i = 0; i < gameRound; i++) {
+            for (Car tempCar : carList) {
+                tempCar.move();
+            }
+            OutputView.printGameStatus(new RoundResponseDto(carList));
+        }
     }
 }

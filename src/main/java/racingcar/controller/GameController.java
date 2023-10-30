@@ -1,9 +1,8 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.manager.Validator;
-import racingcar.controller.dto.RoundResponseDto;
 import racingcar.domain.Car;
+import racingcar.manager.Validator;
 import racingcar.sevice.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -20,22 +19,13 @@ public class GameController {
         OutputView.printAskGameRound();
         int gameRound = gameService.getGameRound();
         OutputView.printRoundStart();
-        runRound(gameRound, carList);
+        gameService.runRound(gameRound, carList);
 
         List<Car> winnerCars = gameService.extractWinner(carList);
 
         String gameWinner = gameService.getGameWinner(winnerCars);
         OutputView.printGameWinner(gameWinner);
 
-    }
-
-    private void runRound(int gameRound, List<Car> carList) {
-        for (int i = 0; i < gameRound; i++) {
-            for (Car tempCar : carList) {
-                tempCar.move();
-            }
-            OutputView.printGameStatus(new RoundResponseDto(carList));
-        }
     }
 
 }
