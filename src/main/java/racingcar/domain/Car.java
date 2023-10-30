@@ -4,7 +4,7 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Car {
 
-    private String name;
+    private final String name;
     private int position;
 
     public Car(String name) {
@@ -12,7 +12,7 @@ public class Car {
         this.position = 0;
     }
 
-    public void goAdvance() {
+    public void randomMove() {
         int check = pickNumberInRange(0, 9);
         if (check >= 4) {
             position += 1;
@@ -28,10 +28,6 @@ public class Car {
     }
 
     public String getPositionString() {
-        StringBuilder positionString = new StringBuilder();
-        for (int i = 0; i < position; i++) {
-            positionString.append("-");
-        }
-        return positionString.toString();
+        return "-".repeat(Math.max(0, position));
     }
 }

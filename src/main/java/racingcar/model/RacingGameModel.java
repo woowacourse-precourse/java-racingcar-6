@@ -17,7 +17,7 @@ public class RacingGameModel {
 
     public void moveCars() {
         for (Car car : cars) {
-            car.goAdvance();
+            car.randomMove();
         }
     }
 
