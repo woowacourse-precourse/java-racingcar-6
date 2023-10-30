@@ -36,4 +36,7 @@ public class Car {
         return distanceNum;
     }
 
+    public void printResult() {
+        System.out.println(name + " : " + distance);
+    }
 }

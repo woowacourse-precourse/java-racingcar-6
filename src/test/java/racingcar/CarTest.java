@@ -17,7 +17,7 @@ class CarTest {
 
     @Test
     @DisplayName("4이상일 때 전진")
-    void 전진_확인(){
+    void 전진_확인() {
         car.decideGo(6);
         assertThat(car.changeDistanceToInt()).isEqualTo(1);
     }
