@@ -2,27 +2,30 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import racingcar.MoveResult;
 import racingcar.utils.NumberGenerator;
 
 public class Cars {
 
+    private static final int MIN_CARS_SIZE = 2;
+    private static final int MAX_CARS_SIZE = 10;
+
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         validateSize(cars);
-        validateDuplicated(cars);
+        validateDuplicatedName(cars);
         this.cars = cars;
     }
 
     private void validateSize(List<Car> cars) {
         if (invalidSize(cars)) {
-            throw new IllegalArgumentException("[ERROR] 자동차는 2대 이상 10대 이하만 가능합니다.");
+            throw new IllegalArgumentException("[ERROR] 자동차는 %d대 이상 %d대 이하만 가능합니다."
+                    .formatted(MIN_CARS_SIZE, MAX_CARS_SIZE));
         }
     }
 
-    private void validateDuplicated(List<Car> cars) {
+    private void validateDuplicatedName(List<Car> cars) {
         List<String> carNames = getCarNames(cars);
         for (int i = 0; i < carNames.size(); i++) {
             throwIfContainsDuplicatedName(carNames, i);
@@ -30,7 +33,7 @@ public class Cars {
     }
 
     private boolean invalidSize(List<Car> cars) {
-        return !(2 <= cars.size() && cars.size() <= 10);
+        return !(MIN_CARS_SIZE <= cars.size() && cars.size() <= MAX_CARS_SIZE);
     }
 
     private List<String> getCarNames(List<Car> cars) {
