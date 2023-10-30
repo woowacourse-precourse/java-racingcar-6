@@ -15,6 +15,12 @@ public class Game {
         List<Car> carList = cars.createCarList(askCarName());
         int attemptNumber = askAttemptNumber();
         printResult();
+        repeat(carList, attemptNumber);
+        List<String> winners = cars.findWinner();
+        printWinner(winners);
+    }
+
+    private void repeat(List<Car> carList, int attemptNumber) {
         for (int i = 0; i < attemptNumber; i++) {
             for (Car car : carList) {
                 car.moveForward(car.generateRandomNumber());
@@ -22,7 +28,5 @@ public class Game {
             }
             System.out.println();
         }
-        List<String> winners = cars.findWinner();
-        printWinner(winners);
     }
 }
