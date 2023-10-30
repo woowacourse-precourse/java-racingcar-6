@@ -24,5 +24,12 @@ public class RaceService {
         return cars;
     }
 
+    public int inputCnt() {
+        String cnt = scanner.next();
+        StringUtil.checkNumber(cnt);
+
+        return Integer.parseInt(cnt);
+    }
+
 
 }

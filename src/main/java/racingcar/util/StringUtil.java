@@ -12,5 +12,18 @@ public class StringUtil {
         }
     }
 
+    public static void checkNumber(String number) {
+        if (!number.matches("\\d") || Integer.parseInt(number) < 0) {
+            throw new IllegalArgumentException("입력된 문자열이 숫자가 아닙니다.");
+        }
+    }
+
+    public static String repeatString(int cnt) {
+        StringBuilder sb = new StringBuilder("");
+        for (int i = 0; i < cnt; i++) {
+            sb.append(DISTANCE_SIGN);
+        }
+        return sb.toString();
+    }
 
 }
