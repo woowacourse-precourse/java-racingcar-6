@@ -6,9 +6,9 @@ import java.util.List;
 public class RacingSystem {
     User user = new User();
 
-    private List<String> carNames;
-    private int movement;
-    private List<Car> cars;
+    protected List<String> carNames;
+    protected int movement;
+    protected List<Car> cars;
 
     public void makeCarsInstance() {
         cars = new ArrayList<>();

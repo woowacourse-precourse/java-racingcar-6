@@ -21,7 +21,7 @@ public class User {
     public int inputNumberOfCarMovement() {
         String tempNumberOfCarMovement = readLine();
         if (checkStringToIntException(tempNumberOfCarMovement))
-            throw new IllegalArgumentException("올바르지 않은 입력입니다. 1이상의 숫자를 입력하세요.");
+            throw new IllegalArgumentException("올바르지 않은 입력입니다. 숫자를 입력하세요.");
         return Integer.parseInt(tempNumberOfCarMovement);
     }
 }
