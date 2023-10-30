@@ -7,7 +7,7 @@ import racingcar.gameutil.GameConstants;
 
 public class InputValidator {
 
-    private final String CAR_NAME_REGEX = "\\w+(\\s+\\w+)*(,\\w+(\\s+\\w+)*)*"; // ,뒤 공백은 비허용/이름 사이 공백은 허용
+    private final String CAR_NAME_REGEX = "\\w+(,\\w+)*"; // ,뒤 공백은 비허용/이름 사이 공백은 허용
     private final String TRY_COUNT_REGEX = "[1-9]\\d*";
 
     public void validateInputCarName(String carName) {
