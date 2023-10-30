@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.io.InputView;
 import racingcar.io.OutputView;
+import racingcar.validator.UserInputValidator;
 
 public class RacingCarGame {
 
@@ -12,7 +13,7 @@ public class RacingCarGame {
 
     public void run() {
         OutputView.printRequestCarNames();
-        makeCars(InputView.carNamesInput());
+        makeCars(Converter.stringToArr(InputView.carNamesInput()));
         int tryCount = inputTryCount();
         OutputView.printGameResultMessage();
 
@@ -24,12 +25,9 @@ public class RacingCarGame {
         OutputView.printResultMessage(findWinner(findMaxLocation()));
     }
 
-    public void makeCars(String carNames) {
-
-        String[] carNamesInputSplit = carNames.split(",");
-
-        racingCars =  Arrays.stream(carNamesInputSplit).map(RacingCar::new).toList();
-
+    public void makeCars(String[] carNames) {
+        UserInputValidator.validCarNameIsDuplicated(carNames);
+        racingCars =  Arrays.stream(carNames).map(RacingCar::new).toList();
     }
 
     public int inputTryCount() {
