@@ -16,7 +16,7 @@ public class RacingCarGame {
         initConfig();
 
         for(int rount = 0; rount < moveCount; rount++){
-
+            carController.grantForwardChanceForCars();
         }
     }
 

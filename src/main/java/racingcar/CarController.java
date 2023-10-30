@@ -24,6 +24,9 @@ public class CarController {
     }
 
     public void grantForwardChanceForCars(){
-
+        for(Car car : this.operatedCars){
+            car.tryForwardChance();
+        }
     }
+
 }

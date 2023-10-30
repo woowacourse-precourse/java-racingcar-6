@@ -40,7 +40,7 @@
     
     - [x] 무작위 수(0~9)를 구한다. -**NumberGenerator**#createRandomNumber
     
-    - [ ] 4이상이면 전진 한다. - **Car**#forward 
+    - [x] 4이상이면 전진 한다. - **Car**#forward 
   
   - [ ] 차수마다 자동차들의 전진 결과를 출력한다. **CarController**#printRoundRestult
     
