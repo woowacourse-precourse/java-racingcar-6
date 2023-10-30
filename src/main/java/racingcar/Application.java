@@ -7,7 +7,7 @@ import org.mockito.internal.util.StringUtil;
 import java.util.*;
 
 public class Application {
-    private static String[] inputCar() {
+    private static String[] inputCarNames() {
         String carName = Console.readLine();
         String[] carNames = spilitNames(carName);
 
@@ -63,6 +63,6 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        inputCar();
+        inputCarNames();
     }
 }
