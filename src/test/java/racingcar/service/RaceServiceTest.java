@@ -23,12 +23,12 @@ public class RaceServiceTest extends NsTest {
 
     @Test
     void 레이스_저장_확인() {
-        Race race = new Race(3, createListOfCars());
+        Race race = new Race(createListOfCars(), 3);
         raceService.playARace(race);
         Long id1 = raceService.saveRace(race);
         assertEquals(id1, 0L);
 
-        Race newRace = new Race(3, createListOfCars());
+        Race newRace = new Race(createListOfCars(), 3);
         raceService.playARace(newRace);
         Long id2 = raceService.saveRace(newRace);
         assertEquals(id2, 1L);

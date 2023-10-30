@@ -22,13 +22,13 @@ public class RaceTest extends NsTest {
 
     @Test
     void 게임_내_자동차_수_확인() {
-        Race race = new Race(3, cars);
+        Race race = new Race(cars, 3);
         assertEquals(race.getCars().size(), 3);
     }
 
     @Test
     void 게임_내_자동차_이름_확인() {
-        Race race = new Race(3, cars);
+        Race race = new Race(cars, 3);
         assertEquals(race.getCars().get(0).getName(), "a");
         assertEquals(race.getCars().get(1).getName(), "b");
         assertEquals(race.getCars().get(2).getName(), "c");
@@ -36,7 +36,7 @@ public class RaceTest extends NsTest {
 
     @Test
     void 게임_횟수_증가() {
-        Race race = new Race(3, cars);
+        Race race = new Race(cars, 3);
         assertEquals(race.checkGamesExhausted(), false);
         for (int i = 0; i < 3; i ++) {
             race.increaseGameOrder();

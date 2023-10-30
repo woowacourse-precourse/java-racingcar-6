@@ -22,7 +22,7 @@ public class RaceRepositoryTest extends NsTest {
     }
 
     private Race createRace() {
-        return new Race(3, createListOfCars());
+        return new Race(createListOfCars(), 3);
     }
 
     @Test

@@ -9,7 +9,7 @@ public class RaceRepository {
     private Map<Long, Race> races = new HashMap<>();
 
     public Long save(Race race) {
-        races.put(id, new Race(race.getNumRaces(), race.getCars()));
+        races.put(id, new Race(race.getCars(), race.getNumRaces()));
         return id++;
     }
 

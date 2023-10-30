@@ -9,7 +9,7 @@ public class Race {
 
     private final int numRaces;
 
-    public Race(int numRaces, List<Car> cars) {
+    public Race(List<Car> cars, int numRaces) {
         this.cars = new ArrayList<>(cars);
         this.numRaces = numRaces;
     }
