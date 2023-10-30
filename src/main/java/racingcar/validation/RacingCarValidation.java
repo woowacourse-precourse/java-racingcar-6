@@ -14,4 +14,12 @@ public class RacingCarValidation {
             throw new IllegalArgumentException("해당 값은 범위 내에서 실행할 수 없는 값입니다. (1 ~ 10000)");
     }
 
+    public void checkDuplicateName(CarList carList, String name){
+        carList.getCarList().stream()
+                .filter(car -> car.getName().equals(name))
+                .findAny()
+                .ifPresent(car -> {
+                    throw new IllegalArgumentException("중복된 이름입니다. : " + car.getName());
+                });
+    }
 }
