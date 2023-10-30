@@ -23,7 +23,7 @@ public class CarsDto {
         String[] splitList = userInput.split(",");
         return Arrays.stream(splitList)
                 .map(String::trim)
-                .map(Car::new)
+                .map(Car::createCar)
                 .collect(Collectors.toList());
     }
 
