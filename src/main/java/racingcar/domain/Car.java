@@ -10,7 +10,7 @@ public class Car {
     }
 
     public void move(int moveCond) {
-        if (moveCond>= MIN_MOVE_COND) {
+        if (moveCond >= MIN_MOVE_COND) {
             position++;
         }
     }
