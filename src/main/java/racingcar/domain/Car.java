@@ -19,7 +19,7 @@ public class Car {
     }
 
     private boolean isMoveCondition() {
-        int randomNumber = Randoms.pickNumberInRange(0,9);
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
     }
 
