@@ -18,10 +18,7 @@ public class Car {
         int speed;
 
         speed = Randoms.pickNumberInRange(0,9);
-        if (speed >= 4) {
-            return (true);
-        }
-        return (false);
+        return (speed >= 4);
     }
 
     void printInformation() {

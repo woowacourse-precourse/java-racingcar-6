@@ -19,8 +19,8 @@ public class RacingGame {
         }
         racingSetting.getMoveNum();
         System.out.println("\n실행 결과");
-        int i = 0;
-        while (racingSetting.isInRange(i++)) {
+        int currentMoveNum = 0;
+        while (racingSetting.isInRange(currentMoveNum++)) {
             for (Car currentCar: carList) {
                 currentCar.move();
             }
@@ -37,25 +37,23 @@ public class RacingGame {
     }
 
     private void printWinner() {
-        Map<Integer, List<String>> destinationToNamesMap = new HashMap<>();
-        for (Car currentCar: carList) {
-            addDestinationName(destinationToNamesMap, currentCar.getDestination(), currentCar.getName());
-        }
-        int maxDestination = Collections.max(destinationToNamesMap.keySet());
-        if (destinationToNamesMap.containsKey(maxDestination)) {
-            List<String> names = destinationToNamesMap.get(maxDestination);
-            System.out.print("최종 우승자 : ");
-            for (String currnetName: names) {
-                System.out.print(currnetName);
-                if (!currnetName.equals(names.get(names.size() - 1))) {
-                    System.out.print(", ");
-                }
+        Map<Integer, List<String>> scoreBoard = new HashMap<>();
+        addscoreBoard(scoreBoard, carList);
+        int maxScore = Collections.max(scoreBoard.keySet());
+        List<String> winnerNames = scoreBoard.get(maxScore);
+        System.out.print("최종 우승자 : ");
+        for (String currnetName: winnerNames) {
+            System.out.print(currnetName);
+            if (!currnetName.equals(winnerNames.get(winnerNames.size() - 1))) {
+                System.out.print(", ");
             }
-            System.out.println();
         }
+        System.out.println();
     }
 
-    private static void addDestinationName(Map<Integer, List<String>> map, int key, String value) {
-        map.computeIfAbsent(key, k -> new ArrayList<>()).add(value);
+    private static void addscoreBoard(Map<Integer, List<String>> scoreBoard, List<Car> carList) {
+        for (Car currentCar: carList) {
+            scoreBoard.computeIfAbsent(currentCar.getDestination(), k -> new ArrayList<>()).add(currentCar.getName());
+        }
     }
 }
