@@ -10,7 +10,7 @@ import racingcar.Car;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println(getNumberOfAttempts());
+        playGame();
     }
 
     private static void printInputCarNames() {
@@ -18,7 +18,6 @@ public class Application {
     }
 
     private static String getCarNames() {
-        printInputCarNames();
         String inputLineOfCarNames = Console.readLine();
         checkInputLineCarNames(inputLineOfCarNames);
         return inputLineOfCarNames;
@@ -92,7 +91,6 @@ public class Application {
     }
 
     private static int getNumberOfAttempts() {
-        printInputNumberofAttempts();
         int numberOfAttempts = Integer.parseInt(checkNumberOfAttemptsForm(Console.readLine()));
         return numberOfAttempts;
     }
@@ -116,7 +114,7 @@ public class Application {
         }
     }
 
-    private static boolean isForward() {
+    private static boolean isMove() {
         int random = Randoms.pickNumberInRange(0, 9);
         if (random >= 4) {
             return true;
@@ -124,15 +122,37 @@ public class Application {
         return false;
     }
 
-    private static void moveCars(List<Car> cars) {
+    private static void attemptOneRound(List<Car> cars) {
         for (Car car : cars) {
-            if (isForward()) {
+            if (isMove()) {
                 car.moveForward();
             }
         }
     }
 
-    private static void printResult(){
-        System.out.println("실행 결과");
+    private static void printHeadResult() {
+        System.out.println("\n실행 결과");
     }
+
+    private static void printOneRoundResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.toString());
+        }
+        System.out.println();
+    }
+
+    private static void playGame() {
+        printInputCarNames();
+        List<Car> cars = makeCars(saveCarNames(getCarNames()));
+        printInputNumberofAttempts();
+        int numberOfAttempts = getNumberOfAttempts();
+        printHeadResult();
+
+        for (int i = 0; i < numberOfAttempts; i++) {
+            attemptOneRound(cars);
+            printOneRoundResult(cars);
+        }
+
+    }
+
 }
