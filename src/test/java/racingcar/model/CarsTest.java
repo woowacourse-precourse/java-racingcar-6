@@ -3,6 +3,7 @@ package racingcar.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarsTest {
@@ -11,8 +12,9 @@ public class CarsTest {
     private Car woni = new Car("woni", 1);
     private Car jun = new Car("jun", 3);
 
+    @DisplayName("자동차 이름을 콤마로 구분하여 저장")
     @Test
-    void 자동차_이름이_콤마로_구분되어_저장된다() {
+    void saveCarNameByComma() {
         //Given
         String inputString = "pobi, woni, jun";
 
@@ -26,8 +28,9 @@ public class CarsTest {
         assertEquals("jun", carList.get(2).getName());
     }
 
+    @DisplayName("가장 긴 이동거리를 가진 차들이 우승자")
     @Test
-    void 가장_많은_거리를_이동한_차량들을_우승자로_뽑는다() {
+    void winnerIsHaveLongestDistance() {
         //Given
         List<Car> carList = List.of(pobi, woni, jun);
         List<Car> winner = List.of(pobi, jun);
