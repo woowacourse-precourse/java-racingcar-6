@@ -27,5 +27,5 @@
 - [x] 최종 우승자 출력 (다수의 유저의 결과값이 동일할 경우 공동 출력) 
 
 예외 처리
-- [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생
-  - [ ] 시도할 회수 입력 시 문자를 입력한 경우 - Game # isRaceAttemptCountValid()
+- [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생
+  - [x] 시도할 회수 입력 시 문자를 입력한 경우 
