@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.controller.MainController;
+import racingcar.controller.subcontroller.DetermineWinnerController;
 import racingcar.controller.subcontroller.InitializeCarController;
 import racingcar.controller.subcontroller.MoveCarController;
 import racingcar.view.InputView;
@@ -12,8 +13,11 @@ public class Application {
         OutputView outputView = new OutputView();
         InitializeCarController initializeCarController = new InitializeCarController();
         MoveCarController moveCarController = new MoveCarController();
+        DetermineWinnerController determineWinnerController = new DetermineWinnerController();
 
-        MainController mainController = new MainController(inputView, outputView, initializeCarController, moveCarController);
+        MainController mainController = new MainController(
+                inputView, outputView, initializeCarController, moveCarController, determineWinnerController
+        );
         mainController.start();
     }
 }
