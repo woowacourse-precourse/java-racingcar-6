@@ -27,15 +27,15 @@ public class Cars {
             .toList();
     }
 
-    private void attemptMoving(Car car) {
-        if (canMoving()) {
-            car.move();
-        }
+    public static Cars from(String carNames) {
+        final List<Car> carList = splitCarNames(carNames).stream()
+            .map(Car::new)
+            .collect(Collectors.toList());
+        return new Cars(carList);
     }
 
-    private boolean canMoving() {
-        final int random = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        return random >= MOVE_CONDITION;
+    private static List<String> splitCarNames(String carNames) {
+        return List.of(carNames.split(","));
     }
 
     private int getMaxMoveCount() {

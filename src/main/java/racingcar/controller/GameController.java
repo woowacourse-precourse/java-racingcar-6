@@ -7,19 +7,11 @@ import static racingcar.view.OutView.printExecutionStart;
 import static racingcar.view.OutView.printWinners;
 
 import java.util.List;
-import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.CarsGenerator;
 
 public class GameController {
 
-    private final CarsGenerator carsGenerator;
-
     private Cars cars;
-
-    public GameController(CarsGenerator carsGenerator) {
-        this.carsGenerator = carsGenerator;
-    }
 
     public void play() {
         final int turns = prepare();
@@ -28,8 +20,7 @@ public class GameController {
     }
 
     private int prepare() {
-        final List<Car> carList = carsGenerator.generate(inputCarNames());
-        cars = new Cars(carList);
+        cars = Cars.from(inputCarNames());
         return inputAttemptCount();
     }
 
