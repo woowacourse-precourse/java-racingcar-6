@@ -11,7 +11,8 @@ public class Application {
 
         simulateRace(initData.tryCount(), initData.carNames(), initData.distanceArray());
 
-        // TODO : 결과값 추출
+        int max = findMaxDistance(initData.distanceArray());
+        // TODO : 우승자 추출 , 우승자 출력
 
     }
 
@@ -82,5 +83,16 @@ public class Application {
             }
             System.out.println();
         }
+    }
+
+
+    public static int findMaxDistance(int[] distanceArray) {
+        int max = distanceArray[0];
+        for (int i = 1; i < distanceArray.length; i++) {
+            if (distanceArray[i] > max) {
+                max = distanceArray[i];
+            }
+        }
+        return max;
     }
 }
