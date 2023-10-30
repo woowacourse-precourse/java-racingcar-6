@@ -15,6 +15,7 @@ public class Game {
                     entry.setValue(entry.getValue() + 1);
                 }
             }
+            Result.showMiddle(status);
         }
     }
 
