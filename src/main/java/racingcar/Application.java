@@ -17,17 +17,16 @@ public class Application {
   public static void main(String[] args) {
     List<String> carStringList = rc.carStringInputListOutput();
 
-    // 변화 Point
     if(ec.isCarLengthOverCheck(carStringList)){
       throw new IllegalArgumentException();
     }
 
-    List<CarVO> racingCarList = new ArrayList<>();
-    for(String name : carStringList){
-      CarVO car = new CarVO();
-      car.setCar(name);
-      racingCarList.add(car);
-    }
+    // 변화 포인트
+    List<CarVO> racingCarList = rc.racingCarList(carStringList);
+
+
+
+
     System.out.println("시도할 회수는 몇회인가요?");
     String inputCycleString = Console.readLine();
     int tryCycle = cs.StringConvertInt(inputCycleString);
