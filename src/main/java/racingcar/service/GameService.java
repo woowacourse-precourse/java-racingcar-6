@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 
 import java.util.Arrays;
@@ -22,5 +23,22 @@ public class GameService {
         }
 
         return true;
+    }
+
+    public void playOneAttempt(List<Car> cars) {
+        for (Car car : cars) {
+            int randomNumber = getRandomNumber();
+            if (moveForwardOrNot(randomNumber)) {
+                car.moveForward();
+            }
+        }
+    }
+
+    private int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private boolean moveForwardOrNot(int number) {
+        return number >= 4;
     }
 }
