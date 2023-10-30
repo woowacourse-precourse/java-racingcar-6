@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.StringJoiner;
 
 public class Application {
 public static void main(String[] args) {
@@ -20,10 +21,14 @@ public static void main(String[] args) {
     System.out.println("시도할 회수는 몇회인가요?");
     String trynumber = Console.readLine();
 
-    Map map = splitCars(input);
+    inputFormatValidation(input);
+    trynumberFormatValidation(trynumber);
 
+    Map map = splitCars(input);
+    System.out.println("실행 결과");
     for (int i = 0; i < Integer.valueOf(trynumber); i++) {
         resultEachOrder(racingCar(map));
+        System.out.println();
     }
     System.out.println(winners(map));
 
@@ -36,13 +41,28 @@ static Integer generateNumber() {
 }
 
 static void inputFormatValidation(String input) {
-    // 쉼표로 구분, 5자이하
+    List<String> cars = Arrays.asList(input.split(","));
+//    System.out.println(cars);
+    for (String car : cars) {
+        if (car.trim().length() > 5) {
+            throw new IllegalArgumentException();
+//            System.out.println(car.length() + ":" + car);
+        }
+    }
 
-    //
 }
 
 static void trynumberFormatValidation(String trynumber) {
     // 숫자가 아닌값은 예외발생
+    try {
+        Integer.parseInt(trynumber);
+    } catch (NumberFormatException e) {
+        throw new IllegalArgumentException();
+    } catch (RuntimeException re){
+        throw new IllegalArgumentException();
+    }
+
+
 }
 
 
@@ -94,37 +114,21 @@ static String printBar(char ch, int value) {
 }
 
 
-static String winners(Map map) {
+static String winners(Map<String, Integer> map) {
+    int maxScore = Collections.max(map.values());
 
-    Entry<String, Integer> maxEntry = Collections.max(map.entrySet(), comparator);
-    String msg = "최종 우승자 : " + maxEntry.getKey();
-//    msg += " : " + maxEntry.getValue();
-    int bestscore = maxEntry.getValue();
-    map.remove(maxEntry.getKey());
-    maxEntry = Collections.max(map.entrySet(), comparator);
-    while (true) {
+    StringJoiner winners = new StringJoiner(", ");
 
-        if (bestscore != maxEntry.getValue()) {
-            break;
-        } else {
-            msg += ", " + maxEntry.getKey();
-//            msg += " : " + maxEntry.getValue();
-            break;
-
+    for (Map.Entry<String, Integer> entry : map.entrySet()) {
+        if (entry.getValue().equals(maxScore)) {
+            winners.add(entry.getKey());
         }
-
     }
+    String msg = "최종 우승자 : " + winners.toString();
 
     return msg;
-}
 
-// 비교 재정의
-static Comparator<Entry<String, Integer>> comparator = new Comparator<Entry<String, Integer>>() {
-    @Override
-    public int compare(Entry<String, Integer> o1, Entry<String, Integer> o2) {
-        return o1.getValue().compareTo(o2.getValue());
-    }
-};
+}
 
 
 }
