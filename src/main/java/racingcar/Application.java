@@ -19,25 +19,27 @@ public class Application {
         String input = racingCar.nameInput();
         List<String> cars = racingCar.naming(input);
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 횟수는 몇회인가요?");
         int attemptInput = racingCar.attemptInput();
 
         System.out.println("실행 결과");
         String[] raceResult = new String[cars.size()];
         Map<String,String> rank = new HashMap<>();
+
         for(int i=0; i<attemptInput; i++) {
             racing.moveResult(cars, raceResult);
             for(int j=0; j<cars.size(); j++) {
                 System.out.println(cars.get(j) + " : " + raceResult[j]);
-                rank.put(cars.get(j),raceResult[j]);
             }
             System.out.println();
         }
-        String findWinner = Collections.max(rank.values());
+
+        String getWinnerData = Collections.max(List.of(raceResult));
         List<String> winner =new ArrayList<>();
-        for(String key: rank.keySet()) {
-            if(rank.get(key).equals(findWinner)) {
-                winner.add(key);
+
+        for(int i=0; i<raceResult.length; i++) {
+            if(getWinnerData==raceResult[i]) {
+                winner.add(cars.get(i));
             }
         }
         String result = String.join(",", winner);
