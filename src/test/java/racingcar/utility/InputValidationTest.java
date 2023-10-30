@@ -59,13 +59,13 @@ class InputValidationTest {
 	@Test
 	void 라운드_입력이_음수일_경우() {
 		String input = "-3";
-		numberException(input, NEGATIVE_ERROR.getMessage());
+		numberException(input, RANGE_ERROR.getMessage());
 	}
 
 	@Test
 	void 라운드_입력이_0일_경우() {
 		String input = "0";
-		assertThat(Long.parseLong(input)).isEqualTo(validateNumber(input));
+		numberException(input, RANGE_ERROR.getMessage());
 	}
 
 	@Test
