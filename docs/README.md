@@ -58,15 +58,16 @@
 ---
 
 ##### 생성자 메소드
-- signature : `public Game(int moveCount, String[] nameArr)`
+- signature : `public Game(int moveCount, String input)`
 - parameters
   - moveCount : 게임의 차수
-  - nameArr : 생성할 `Racer`들의 이름들
+  - input : 사용자가 입력한 문자열
 - return : `Game`의 인스턴스
 - description
   - 새로운 게임을 생성하는 메소드
-  - 전달받은 차수를 설정하고
-  - 이름들로 새로운 `Racer`를 생성해 `List<Racer>`에 추가한다.
+  - 전달받은 차수를 설정한다.
+  - 입력받은 문자열을 `gameUtil.inputToNameList()`로 가공해 이름 리스트로 변환한다.
+  - 리스트의 원소로 새로운 `Racer`를 생성해 `List<Racer>`에 추가한다.
 
 ##### 무작위 값을 추출하는 메소드
 - signature : `public int getRandomNumber()`
@@ -82,6 +83,12 @@
 - description
   - 무작위 값을 받아 4이상이면 `true`를 미만이면 `false`를 반환한다.
 
+##### 가장 많이 움직인 횟수를 구하는 메소드
+- signature : `public int getMax()`
+- return : `Racer`들의 움직인 거리 중 최대값
+- description
+  - `Stream`을 이용해 racerList의 각 `Racer`들의 성적을 추출한다.
+  - 추출한 성적의 길이를 중 최대값을 찾아 반환한다.
 
 ##### 우승자를 선별하는 메소드
 - signature : `public List<Racer> getWinner()`
