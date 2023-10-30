@@ -9,7 +9,7 @@ public enum ViewExceptionMessage {
 
     private final String message;
 
-    ViewExceptionMessage(String message) {
+    ViewExceptionMessage(final String message) {
         this.message = message;
     }
 

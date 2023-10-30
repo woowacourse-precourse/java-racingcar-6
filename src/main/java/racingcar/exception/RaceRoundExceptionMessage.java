@@ -6,7 +6,7 @@ public enum RaceRoundExceptionMessage {
 
     private final String message;
 
-    RaceRoundExceptionMessage(String message) {
+    RaceRoundExceptionMessage(final String message) {
         this.message = message;
     }
 

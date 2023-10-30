@@ -8,7 +8,7 @@ public enum RaceRoundSetting {
 
     private final int setting;
 
-    RaceRoundSetting(int setting) {
+    RaceRoundSetting(final int setting) {
         this.setting = setting;
     }
 

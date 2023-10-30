@@ -7,7 +7,7 @@ public enum OutputViewMessage {
 
     private final String message;
 
-    OutputViewMessage(String message) {
+    OutputViewMessage(final String message) {
         this.message = message;
     }
 

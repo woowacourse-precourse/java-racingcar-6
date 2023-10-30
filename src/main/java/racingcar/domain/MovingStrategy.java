@@ -9,7 +9,7 @@ public class MovingStrategy {
 
     private final RandomNumberUtil randomNumberGenerator;
 
-    public MovingStrategy(RandomNumberUtil randomNumberGenerator) {
+    public MovingStrategy(final RandomNumberUtil randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 

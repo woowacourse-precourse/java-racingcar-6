@@ -10,7 +10,7 @@ public enum CharacterUnits {
 
     private final String unit;
 
-    CharacterUnits(String unit) {
+    CharacterUnits(final String unit) {
         this.unit = unit;
     }
 

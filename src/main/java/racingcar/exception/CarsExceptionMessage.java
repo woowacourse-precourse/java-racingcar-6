@@ -6,7 +6,7 @@ public enum CarsExceptionMessage {
 
     private final String message;
 
-    CarsExceptionMessage(String message) {
+    CarsExceptionMessage(final String message) {
         this.message = message;
     }
 

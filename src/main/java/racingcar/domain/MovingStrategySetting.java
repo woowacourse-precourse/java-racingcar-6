@@ -7,7 +7,7 @@ public enum MovingStrategySetting {
 
     private final int setting;
 
-    MovingStrategySetting(int setting) {
+    MovingStrategySetting(final int setting) {
         this.setting = setting;
     }
 

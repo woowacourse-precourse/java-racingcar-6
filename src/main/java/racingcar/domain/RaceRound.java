@@ -9,7 +9,7 @@ public class RaceRound {
     private final int totalRound;
     private int currentRound;
 
-    public RaceRound(int totalRound, int currentRound) {
+    public RaceRound(final int totalRound, final int currentRound) {
         validateTotalRound(totalRound);
         validateInitCurrentRound(currentRound);
         this.totalRound = totalRound;
@@ -29,13 +29,13 @@ public class RaceRound {
     }
 
 
-    private void validateTotalRound(int totalRound) {
+    private void validateTotalRound(final int totalRound) {
         if (totalRound < MIN_TOTAL_GAME_ROUND_COUNT.getSetting()) {
             throw new IllegalArgumentException(ERROR_TOTAL_GAME_ROUND_COUNT.getMessage());
         }
     }
 
-    private void validateInitCurrentRound(int currentRound) {
+    private void validateInitCurrentRound(final int currentRound) {
         if (currentRound != INIT_CURRENT_GAME_ROUND_COUNT.getSetting()) {
             throw new IllegalArgumentException(ERROR_INIT_CURRENT_GAME_ROUND.getMessage());
         }

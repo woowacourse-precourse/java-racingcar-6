@@ -1,9 +1,7 @@
 package racingcar.domain;
 
-import racingcar.exception.CarExceptionMessage;
 
 import java.util.Objects;
-
 import static racingcar.domain.CarSetting.*;
 import static racingcar.exception.CarExceptionMessage.*;
 
@@ -13,7 +11,7 @@ public class Car implements Comparable<Car> {
     private final String name;
     private int position;
 
-    public Car(MovingStrategy movingStrategy, String name) {
+    public Car(final MovingStrategy movingStrategy, final String name) {
         validateNameLength(name);
         validateNameBlank(name);
         this.movingStrategy = movingStrategy;
@@ -30,7 +28,7 @@ public class Car implements Comparable<Car> {
         return moved;
     }
 
-    public Boolean isWinner(Integer winnerPosition) {
+    public Boolean isWinner(final Integer winnerPosition) {
         return position == winnerPosition;
     }
 
@@ -41,25 +39,25 @@ public class Car implements Comparable<Car> {
     public String getName() {
         return new String(name);
     }
-    private void validateNameLength(String name) {
+    private void validateNameLength(final String name) {
         if (name.length() > MAX_NAME_LENGTH.getSetting()) {
             throw new IllegalArgumentException(ERROR_NAME_LENGTH.getMessage());
         }
     }
 
-    private void validateNameBlank(String name) {
+    private void validateNameBlank(final String name) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(ERROR_NAME_BLANK.getMessage());
         }
     }
 
     @Override
-    public int compareTo(Car that) {
+    public int compareTo(final Car that) {
         return this.position - that.position;
     }
 
     @Override
-    public boolean equals(Object that) {
+    public boolean equals(final Object that) {
         if (this == that) return true;
         if (that == null || getClass() != that.getClass()) return false;
         Car car = (Car) that;
@@ -68,6 +66,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(movingStrategy, name, position);
     }
 }

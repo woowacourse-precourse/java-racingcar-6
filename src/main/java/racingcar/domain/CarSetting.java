@@ -6,7 +6,7 @@ public enum CarSetting {
     INIT_POSITION(0);
     private final int setting;
 
-    CarSetting(int setting) {
+    CarSetting(final int setting) {
         this.setting = setting;
     }
 

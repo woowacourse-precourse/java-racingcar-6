@@ -22,21 +22,21 @@ public class OutputView {
     }
 
 
-    public void outputCarsPosition(List<Car> carsList) {
+    public void outputCarsPosition(final List<Car> carsList) {
         for (Car car : carsList) {
             drawCarPosition(car);
         }
         System.out.print(ENTER.getUnit());
     }
 
-    public void outputWinner(List<Car> winners) {
+    public void outputWinner(final List<Car> winners) {
         System.out.print(createWinnerMessage(winners));
         System.out.print(ENTER.getUnit());
     }
 
 
 
-    private String createWinnerMessage(List<Car> winners) {
+    private String createWinnerMessage(final List<Car> winners) {
         initOutputBuilder();
         outputBuilder.append(OUTPUT_WINNER_MESSAGE.getMessage());
         for (Car winner : winners) {
@@ -46,11 +46,11 @@ public class OutputView {
         return outputBuilder.toString();
     }
 
-    private void drawCarPosition(Car car) {
+    private void drawCarPosition(final Car car) {
         System.out.printf(OUTPUT_CAR_POSITION_MESSAGE_FORMAT.getMessage(), car.getName(), createCarGraph(car));
     }
 
-    private String createCarGraph(Car car) {
+    private String createCarGraph(final Car car) {
         initOutputBuilder();
         for (int i=0; i<car.getPosition(); i++) {
             outputBuilder.append(BAR.getUnit());
