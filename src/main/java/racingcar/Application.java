@@ -14,9 +14,7 @@ public class Application {
         carList = gameFunction.makingCar();
 
         System.out.println(print.askHowManyTurn);
-        System.out.println();
 
-        System.out.println(print.resultComment);
         gameFunction.repeatGame(carList);
         print.Winner(carList);
 
