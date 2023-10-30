@@ -5,34 +5,50 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringJoiner;
 
 public class Application {
     private static Map<String, Integer> countOfStep;
     private static int numberOfTimes = 0;
+    private static int maxStep = 0;
 
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        input();
+        ready();
+
         System.out.println("실행 결과");
         for (int i = 0; i < numberOfTimes; i++) {
             set();
         }
+
+        award();
+    }
+
+
+    private static void award() {
+        StringJoiner sj = new StringJoiner(", ");
+        countOfStep.entrySet().stream()
+                .filter(entry -> (entry.getValue() == maxStep))
+                .forEach(winnerEntry -> sj.add(winnerEntry.getKey()));
+        System.out.println("최종 우승자 : " + sj);
     }
 
     private static void set() {
         for (String car : countOfStep.keySet()) {
-            if(Randoms.pickNumberInRange(0,9) >= 4)
+            if (Randoms.pickNumberInRange(0, 9) >= 4)
                 countOfStep.put(car, countOfStep.get(car) + 1);
         }
 
         for (Map.Entry<String, Integer> entry : countOfStep.entrySet()) {
-            System.out.println(entry.getKey() + " : " + "-".repeat(entry.getValue()));
+            int step = entry.getValue();
+            if (maxStep < step)
+                maxStep = step;
+            System.out.println(entry.getKey() + " : " + "-".repeat(step));
         }
         System.out.println();
     }
 
 
-    private static void input() {
+    private static void ready() {
         countOfStep = new HashMap<>();
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
