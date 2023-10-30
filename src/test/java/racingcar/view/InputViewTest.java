@@ -12,9 +12,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RoundCount;
-import racingcar.domain.validator.CarNamesValidator;
-import racingcar.domain.validator.InputValidator;
-import racingcar.domain.validator.RoundNumberValidator;
 
 @DisplayName("입력 테스트")
 class InputViewTest {
@@ -23,9 +20,7 @@ class InputViewTest {
 
     @BeforeEach
     public void setUp() {
-        InputValidator<String> roundNumberValidator = new RoundNumberValidator();
-        InputValidator<List<String>> carNamesValidator = new CarNamesValidator();
-        inputView = new InputView(roundNumberValidator, carNamesValidator);
+        inputView = new InputView();
         Console.close();
     }
 
