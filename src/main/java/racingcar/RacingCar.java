@@ -1,6 +1,6 @@
 package racingcar;
 
-public class racingCar {
+public class RacingCar {
     private String name;
     private int count;
 
@@ -20,7 +20,7 @@ public class racingCar {
         this.count = count;
     }
 
-    public racingCar(String name, int count) {
+    public RacingCar(String name, int count) {
         this.name = name;
         this.count = count;
     }
