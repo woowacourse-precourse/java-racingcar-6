@@ -19,7 +19,7 @@ public class Machines implements Showable, Gettable {
     }
 
     @Override
-    public String getInput() {
+    public String getInput() throws IllegalArgumentException {
         String machineNames = readLine();
         machineNameList = Arrays.asList(machineNames.split(","));
 

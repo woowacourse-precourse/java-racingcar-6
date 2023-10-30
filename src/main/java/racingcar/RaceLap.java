@@ -15,7 +15,7 @@ public class RaceLap implements Showable, Gettable {
     }
 
     @Override
-    public String getInput() {
+    public String getInput() throws IllegalArgumentException {
         raceLapNumber = readLine();
 
         validateInput(raceLapNumber);
