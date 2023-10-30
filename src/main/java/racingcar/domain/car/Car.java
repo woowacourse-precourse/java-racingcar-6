@@ -1,4 +1,9 @@
-package racingcar.domain;
+package racingcar.domain.car;
+
+import racingcar.domain.movement.MovementHistory;
+import racingcar.domain.movement.MovementStrategy;
+import racingcar.domain.movement.RandomMovementStrategy;
+import racingcar.domain.round.Round;
 
 public class Car {
     private final String name;
@@ -14,21 +19,23 @@ public class Car {
     public String getName() {
         return name;
     }
-
     public MovementHistory getMovementHistory() {
         return movementHistory;
     }
 
-    public void move() {
-        movementHistory.recordMovement(movementStrategy.couldMove());
+    public void processRound() {
+        boolean couldMove = movementStrategy.couldMove();
+        movementHistory.recordMovement(couldMove);
+        proceedToNextRound();
+    }
+    private void proceedToNextRound() {
         round.proceedToNextRound();
     }
 
-    public boolean isWinner(int maxDistance) {
+    public boolean hasReachedMaxDistance(int maxDistance) {
         return movementHistory.isMaxDistance(maxDistance);
     }
-
-    public boolean isReachedFinalRound() {
+    public boolean hasReachedFinalRound() {
         return round.hasReachedFinalRound();
     }
 }

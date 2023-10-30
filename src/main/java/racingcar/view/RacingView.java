@@ -1,15 +1,15 @@
 package racingcar.view;
 
-import static racingcar.domain.RacingConfig.NAME_SEPARATOR;
+import static racingcar.utils.RacingConfig.NAME_SEPARATOR;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.Car;
-import racingcar.domain.FinalRoundResult;
-import racingcar.domain.MovementHistory;
-import racingcar.domain.SingleRoundResult;
-import racingcar.view.enums.RacingMessage;
+import racingcar.domain.car.Car;
+import racingcar.domain.result.FinalResult;
+import racingcar.domain.movement.MovementHistory;
+import racingcar.domain.result.RoundResult;
+import racingcar.view.message.RacingMessage;
 
 public class RacingView {
     public String readInput() {
@@ -19,28 +19,24 @@ public class RacingView {
     public void displayRacingMessage(RacingMessage racingMassage) {
         System.out.println(racingMassage.getMessage());
     }
-
-    public void displayResults(List<SingleRoundResult> results) {
+    public void displayResults(List<RoundResult> roundResults) {
         displayRacingMessage(RacingMessage.RACING_RESULT);
-        results.forEach(this::displaySingleRoundResult);
+        roundResults.forEach(this::displayRoundResult);
     }
+    private void displayRoundResult(RoundResult roundResult) {
+        List<Car> cars = roundResult.getCars();
+        List<MovementHistory> movementHistories = roundResult.getMovementHistories();
 
-    private void displaySingleRoundResult(SingleRoundResult singleRoundResult) {
-        List<Car> cars = singleRoundResult.getCars();
-        List<MovementHistory> movementHistories = singleRoundResult.getMovementHistories();
-
-        for (int i = 0; i < movementHistories.size(); i++){
+        for (int i = 0; i < cars.size(); i++){
             String formattedResult = formattedMoveHistories(
                     cars.get(i).getName(), trimmedMovedHistories(movementHistories.get(i))
             );
             System.out.println(formattedResult);
         }
-
         System.out.println();
     }
-
-    public void displayWinnerMessage(FinalRoundResult finalRoundResult) {
-        List<String> winnerNames = finalRoundResult.getWinnerNames();
+    public void displayWinnerMessage(FinalResult finalFinalResult) {
+        List<String> winnerNames = finalFinalResult.getWinnerNames();
         String formattingNames = String.join(NAME_SEPARATOR , winnerNames);
         String result = String.format(RacingMessage.RACING_WINNER.getMessage(), formattingNames);
         System.out.println(result);
@@ -52,7 +48,6 @@ public class RacingView {
                 .map(movementHistory -> movementHistory.replaceAll("\\s+", ""))
                 .collect(Collectors.joining());
     }
-
     public String formattedMoveHistories(String name, String history){
         return String.format("%s : %s", name, history);
     }

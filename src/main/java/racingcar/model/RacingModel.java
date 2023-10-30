@@ -3,19 +3,19 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.domain.Car;
-import racingcar.domain.FinalRoundResult;
-import racingcar.domain.MovementHistory;
-import racingcar.domain.Round;
-import racingcar.domain.SingleRoundResult;
+import racingcar.domain.car.Car;
+import racingcar.domain.result.FinalResult;
+import racingcar.domain.movement.MovementHistory;
+import racingcar.domain.round.Round;
+import racingcar.domain.result.RoundResult;
 
 public class RacingModel {
 
-    public FinalRoundResult startRacingGame(String[] carNames, int finalRound) {
+    public FinalResult startRacing(String[] carNames, int finalRound) {
         List<Car> cars = generateCars(carNames, finalRound);
-        List<SingleRoundResult> roundResults = race(cars);
+        List<RoundResult> roundResults = race(cars);
 
-        return new FinalRoundResult(roundResults, identifyWinners(cars));
+        return new FinalResult(roundResults, identifyWinners(cars));
     }
 
     private List<Car> generateCars(String[] carNames, int totalRound) {
@@ -24,13 +24,13 @@ public class RacingModel {
                 .toList();
     }
 
-    List<SingleRoundResult> race(List<Car> cars) {
-        List<SingleRoundResult> singleRoundResults = new ArrayList<>();
+    List<RoundResult> race(List<Car> cars) {
+        List<RoundResult> roundResults = new ArrayList<>();
         do {
-            cars.forEach(Car::move);
-            singleRoundResults.add(new SingleRoundResult(cars,extractMovementHistories(cars)));
-        } while (cars.stream().noneMatch(Car::isReachedFinalRound));
-        return singleRoundResults;
+            cars.forEach(Car::processRound);
+            roundResults.add(new RoundResult(cars,extractMovementHistories(cars)));
+        } while (cars.stream().noneMatch(Car::hasReachedFinalRound));
+        return roundResults;
     }
 
     private List<MovementHistory> extractMovementHistories(List<Car> cars) {
@@ -40,7 +40,7 @@ public class RacingModel {
     private List<Car> identifyWinners(List<Car> cars) {
         int maxDistance = findMaxDistance(cars);
         return cars.stream()
-                .filter(car -> car.isWinner(maxDistance))
+                .filter(car -> car.hasReachedMaxDistance(maxDistance))
                 .toList();
     }
 

@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.utils;
 
 public class RacingConfig {
     private RacingConfig() {

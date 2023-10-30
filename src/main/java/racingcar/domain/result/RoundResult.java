@@ -1,12 +1,14 @@
-package racingcar.domain;
+package racingcar.domain.result;
 
 import java.util.List;
+import racingcar.domain.car.Car;
+import racingcar.domain.movement.MovementHistory;
 
-public class SingleRoundResult {
+public class RoundResult {
     private final List<Car> cars;
     private final List<MovementHistory> MovementHistories;
 
-    public SingleRoundResult(List<Car> cars, List<MovementHistory> movementHistories) {
+    public RoundResult(List<Car> cars, List<MovementHistory> movementHistories) {
         this.cars = cars;
         MovementHistories = movementHistories;
     }

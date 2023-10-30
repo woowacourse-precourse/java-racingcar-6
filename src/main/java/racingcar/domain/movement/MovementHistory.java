@@ -1,6 +1,6 @@
-package racingcar.domain;
+package racingcar.domain.movement;
 
-import static racingcar.domain.RacingConfig.MOVED_HISTORY_MARK;
+import static racingcar.utils.RacingConfig.MOVED_HISTORY_MARK;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class MovementHistory {
     private int movedDistance;
-    private List<String> movedHistories = new ArrayList<>();
+    private final List<String> movedHistories = new ArrayList<>();
 
     public int getMovedDistance() {
         return movedDistance;

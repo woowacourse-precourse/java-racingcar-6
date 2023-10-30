@@ -1,7 +1,7 @@
 package racingcar.utils;
 
-import static racingcar.domain.RacingConfig.MAX_NAME_LENGTH;
-import static racingcar.domain.RacingConfig.NAME_PATTERN;
+import static racingcar.utils.RacingConfig.MAX_NAME_LENGTH;
+import static racingcar.utils.RacingConfig.NAME_PATTERN;
 
 import java.util.regex.Pattern;
 

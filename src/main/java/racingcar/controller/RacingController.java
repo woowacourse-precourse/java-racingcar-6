@@ -1,15 +1,15 @@
 package racingcar.controller;
 
-import static racingcar.domain.RacingConfig.NAME_SEPARATOR;
+import static racingcar.utils.RacingConfig.NAME_SEPARATOR;
 import static racingcar.utils.Validator.validIsNumber;
 import static racingcar.utils.Validator.validNameFormat;
 
 import java.util.Arrays;
-import racingcar.domain.FinalRoundResult;
+import racingcar.domain.result.FinalResult;
 import racingcar.model.RacingModel;
 import racingcar.utils.Validator;
 import racingcar.view.RacingView;
-import racingcar.view.enums.RacingMessage;
+import racingcar.view.message.RacingMessage;
 
 public class RacingController {
     private final RacingModel racingModel;
@@ -21,13 +21,12 @@ public class RacingController {
     }
 
     public void start() {
-
         String[] carNames = readCarNames();
         int finalRound = readRoundNumber();
 
-        FinalRoundResult finalRoundResult = racingModel.startRacingGame(carNames, finalRound);
+        FinalResult finalFinalResult = racingModel.startRacing(carNames, finalRound);
 
-        displayResult(finalRoundResult);
+        displayResult(finalFinalResult);
     }
 
     private String[] readCarNames() {
@@ -54,8 +53,8 @@ public class RacingController {
         return Integer.parseInt(inputNumber);
     }
 
-    private void displayResult(FinalRoundResult finalRoundResult) {
-        racingView.displayResults(finalRoundResult.getRoundResults());
-        racingView.displayWinnerMessage(finalRoundResult);
+    private void displayResult(FinalResult finalFinalResult) {
+        racingView.displayResults(finalFinalResult.getRoundResults());
+        racingView.displayWinnerMessage(finalFinalResult);
     }
 }
