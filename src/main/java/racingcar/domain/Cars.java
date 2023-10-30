@@ -1,10 +1,15 @@
 package racingcar.domain;
 
+import racingcar.exception.CarsExceptionMessage;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static racingcar.domain.CarSetting.*;
+import static racingcar.exception.CarsExceptionMessage.*;
 
 public class Cars {
     private final List<Car> cars;
@@ -39,14 +44,14 @@ public class Cars {
 
     private List<Car> createCars(List<String> names, MovingStrategy movingStrategy) {
         return names.stream()
-                .map(name -> new Car(movingStrategy, name, 0))
+                .map(name -> new Car(movingStrategy, name, INIT_POSITION.getSetting()))
                 .collect(Collectors.toList());
     }
 
     private void validateDuplicateName(List<String> names) {
         if (names.stream()
                 .collect(Collectors.toSet()).size() != names.size()) {
-            throw new IllegalArgumentException("[ERROR] 중복된 이름으로 차를 생성할 수 없습니다.");
+            throw new IllegalArgumentException(ERROR_NAME_DUPLICATED.getMessage());
         }
     }
 
