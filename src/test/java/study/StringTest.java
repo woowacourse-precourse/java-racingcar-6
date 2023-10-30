@@ -49,6 +49,24 @@ public class StringTest {
     }
 
     @Test
+    void null_체크() {
+        String result = null;
+        assertThat(result).isEqualTo(null);
+    }
+
+    @Test
+    void isEmpty_체크() {
+        String result = "       ";
+        assertThat(result.isEmpty()).isEqualTo(false);
+    }
+
+    @Test
+    void isEmpty_체크_2() {
+        String result = "       ";
+        assertThat(result.trim().isEmpty()).isEqualTo(true);
+    }
+
+    @Test
     void compareTo_A_B_비교하기() {
         String a = "abc";
         String b = "bcd";
@@ -61,6 +79,7 @@ public class StringTest {
         String b = "bcd";
         assertThat(b.compareTo(a)).isEqualTo(1);
     }
+
     @Test
     void contains_포함되어_있는지_체크() {
         String a = "abc";
@@ -117,4 +136,16 @@ public class StringTest {
         assertThatThrownBy(() -> a.equals(b)).isInstanceOf(NullPointerException.class).hasMessageContaining("\"a\" is null");
     }
 
+    @Test
+    void split_예외_테스트() {
+        String a = null;
+        assertThatThrownBy(() -> a.split(",")).isInstanceOf(NullPointerException.class);
+    }
+
+    @Test
+    void split_구분자밖에_없을때_예외_테스트() {
+        String a = ",";
+        String[] b = a.split(",");
+        assertThatThrownBy(() -> b[0].length()).isInstanceOf(ArrayIndexOutOfBoundsException.class).hasMessageContaining("Index 0 out of bounds for length 0");
+    }
 }
