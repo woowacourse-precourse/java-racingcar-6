@@ -20,6 +20,10 @@ public class Car {
         }
     }
 
+    void inputTryNum() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        tryNum = Integer.parseInt(Console.readLine());
+    }
 
 
 }
