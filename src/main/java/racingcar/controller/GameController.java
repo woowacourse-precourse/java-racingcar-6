@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.domain.GameRound;
+import racingcar.domain.RaceRound;
 import racingcar.domain.MovingStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -26,8 +26,8 @@ public class GameController {
 
     public void play() {
         Cars cars = createCars();
-        GameRound gameRound = createGameRound();
-        playAllGameRound(gameRound, cars);
+        RaceRound raceRound = createGameRound();
+        playAllGameRound(raceRound, cars);
         List<Car> winner = findWinner(cars);
         showWinner(winner);
     }
@@ -40,19 +40,19 @@ public class GameController {
         return cars;
     }
 
-    private GameRound createGameRound() {
+    private RaceRound createGameRound() {
         // 게임 라운드 회수 입력 받기
         Integer numberOfGameRound = inputView.inputCountOfGameRound();
-        GameRound gameRound = new GameRound(numberOfGameRound, 0);
+        RaceRound raceRound = new RaceRound(numberOfGameRound, 0);
 
-        return gameRound;
+        return raceRound;
     }
 
-    private void playAllGameRound(GameRound gameRound, Cars cars) {
+    private void playAllGameRound(RaceRound raceRound, Cars cars) {
         // 각 라운드 별 게임 진행 및 결과 출력
         outputView.outputGameResultMessage();
-        while (gameRound.isLeftRound()) {
-            gameRound.increaseCurrentRound();
+        while (raceRound.isLeftRound()) {
+            raceRound.increaseCurrentRound();
             cars.raceAllCars();
             outputView.outputCarsPosition(cars.getCars());
         }

@@ -5,18 +5,18 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameRoundTest {
+class RaceRoundTest {
 
     @Test
     @DisplayName("게임 회수 실행 값을 1보다 작은 값으로 입력한 경우 예외 발생")
     void 예외_처리_테스트_1() {
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    new GameRound(-1, 0);
+                    new RaceRound(-1, 0);
                 });
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    new GameRound(0, 0);
+                    new RaceRound(0, 0);
                 });
     }
 
@@ -25,11 +25,11 @@ class GameRoundTest {
     void 예외_처리_테스트_2() {
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    new GameRound(3, -1);
+                    new RaceRound(3, -1);
                 });
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    new GameRound(3, 2);
+                    new RaceRound(3, 2);
                 });
     }
 
@@ -37,10 +37,10 @@ class GameRoundTest {
     @DisplayName("현재 라운드가 총 라운드 보다 작은 경우 increaseCurrentRound()는 true를 반환")
     void increaseCurrentRound_현재_라운드_올라감_테스트() {
         // given
-        GameRound gameRound = new GameRound(5, 0);
+        RaceRound raceRound = new RaceRound(5, 0);
 
         // when
-        Boolean result = gameRound.increaseCurrentRound();
+        Boolean result = raceRound.increaseCurrentRound();
 
         // then
         assertEquals(true, result);
@@ -50,11 +50,11 @@ class GameRoundTest {
     @DisplayName("현재 라운드가 총 라운드 보다 같은 경우 increaseCurrentRound()는 false를 반환")
     void increaseCurrentRound_현재_라운드_올라가지_않음_테스트() {
         // given
-        GameRound gameRound = new GameRound(5, 0);
-        while (gameRound.isLeftRound()) gameRound.increaseCurrentRound();
+        RaceRound raceRound = new RaceRound(5, 0);
+        while (raceRound.isLeftRound()) raceRound.increaseCurrentRound();
 
         // when
-        Boolean result = gameRound.increaseCurrentRound();
+        Boolean result = raceRound.increaseCurrentRound();
 
         // then
         assertEquals(false, result);
@@ -65,10 +65,10 @@ class GameRoundTest {
     @DisplayName("현재 라운드가 총 라운드 보다 작은 경우 isLeftRound()는 true를 반환")
     void isLeftRound_남은_라운드_있음_테스트() {
         // given
-        GameRound gameRound = new GameRound(5, 0);
+        RaceRound raceRound = new RaceRound(5, 0);
 
         // when
-        Boolean result = gameRound.isLeftRound();
+        Boolean result = raceRound.isLeftRound();
 
         // then
         assertEquals(true, result);
@@ -78,11 +78,11 @@ class GameRoundTest {
     @DisplayName("현재 라운드가 총 라운드와 같은 경우 isLeftRound()는 false를 반환")
     void isLeftRound_남은_라운드_없음_테스트() {
         // given
-        GameRound gameRound = new GameRound(5, 0);
-        while (gameRound.isLeftRound()) gameRound.increaseCurrentRound(); // 남아 있는 모든 라운드 돌리기
+        RaceRound raceRound = new RaceRound(5, 0);
+        while (raceRound.isLeftRound()) raceRound.increaseCurrentRound(); // 남아 있는 모든 라운드 돌리기
 
         // when
-        Boolean result = gameRound.isLeftRound();
+        Boolean result = raceRound.isLeftRound();
 
         // then
         assertEquals(false, result);

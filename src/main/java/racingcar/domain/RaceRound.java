@@ -1,17 +1,15 @@
 package racingcar.domain;
 
-import racingcar.exception.GameRoundExceptionMessage;
+import static racingcar.domain.RaceRoundSetting.*;
+import static racingcar.exception.RaceRoundExceptionMessage.*;
 
-import static racingcar.domain.GameRoundSetting.*;
-import static racingcar.exception.GameRoundExceptionMessage.*;
-
-public class GameRound {
+public class RaceRound {
 
 
     private final int totalRound;
     private int currentRound;
 
-    public GameRound(int totalRound, int currentRound) {
+    public RaceRound(int totalRound, int currentRound) {
         validateTotalRound(totalRound);
         validateInitCurrentRound(currentRound);
         this.totalRound = totalRound;

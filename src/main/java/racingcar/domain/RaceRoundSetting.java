@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public enum GameRoundSetting {
+public enum RaceRoundSetting {
 
     MIN_TOTAL_GAME_ROUND_COUNT(1),
     INIT_CURRENT_GAME_ROUND_COUNT(0);
@@ -8,7 +8,7 @@ public enum GameRoundSetting {
 
     private final int setting;
 
-    GameRoundSetting(int setting) {
+    RaceRoundSetting(int setting) {
         this.setting = setting;
     }
 
