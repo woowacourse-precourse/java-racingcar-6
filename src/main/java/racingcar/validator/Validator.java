@@ -49,8 +49,8 @@ public class Validator {
         }
     }
 
-    private static String trimCarName(String splitCarName) {
-        return splitCarName.trim();
+    private static String trimCarName(String carName) {
+        return carName.trim();
     }
 
     private static void checkDuplicateCarName(String[] splitCarNames) {
