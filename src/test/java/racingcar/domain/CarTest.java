@@ -23,4 +23,19 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("잘못된 입력 값 입니다.");
     }
+
+    @Test
+    @DisplayName("Car 전진 성공 케이스")
+    void CAR_전진_성공() {
+        Car car = Car.of("현대");
+        car.changePosition();
+        assertThat(car.getPosition()).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("Car 전진 실패 케이스")
+    void CAR_전진_실패() {
+        Car car = Car.of("현대");
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
 }
