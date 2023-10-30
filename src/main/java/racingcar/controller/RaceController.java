@@ -27,6 +27,7 @@ public class RaceController {
     }
 
     private void executeRace() {
+        OutputView.printRaceStartMessage();
         while (!raceService.isRaceFinished()) {
             raceService.runRound();
             List<Car> roundResult = raceService.getRoundResult();
@@ -34,6 +35,4 @@ public class RaceController {
         }
     }
 
-    private void printResults() {
-    }
 }
