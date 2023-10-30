@@ -10,7 +10,9 @@ import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 
 public class StringTest {
 
@@ -105,6 +107,7 @@ public class StringTest {
     }
 
 
+    @DisplayName("assertThrows_을_이용한_예외를_테스트")
     @Test
     void assertThrows_을_이용한_예외를_테스트() {
         String input = "abc";
@@ -112,6 +115,8 @@ public class StringTest {
         // when then
         assertThrows(StringIndexOutOfBoundsException.class, () -> input.charAt(5));
     }
+
+    @DisplayName("assertThatThrownBy_을_이용한_예외를_테스트")
 
     @Test
     public void assertThatThrownBy_을_이용한_예외를_테스트() {
@@ -121,6 +126,7 @@ public class StringTest {
                 .hasMessageContaining("boom");
     }
 
+    @DisplayName("assertThatExceptionOfType_을_이용한_예외를_테스트")
     @Test
     public void assertThatExceptionOfType_을_이용한_예외를_테스트() {
         assertThatExceptionOfType(IOException.class)
@@ -134,5 +140,20 @@ public class StringTest {
 //        코드에서 withMessage("%s!", "boom")는
 //        문자열 "boom"을 %s 자리 표시자에 대체하고,
 //        그 뒤에 느낌표를 추가하여 "boom!"이라는 문자열을 생성합니다.
+    }
+
+    @DisplayName("out_출력_확인_테스트")
+    @Test
+    void out_출력_확인_테스트() {
+        // given
+        // 출력을 위한 테스트
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        // when
+        System.out.println();
+
+        // than
+        assertThat(outContent.toString()).isEqualTo("\n");
     }
 }
