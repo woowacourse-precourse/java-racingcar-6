@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.exception.ExceptionMessage.InputException.CAR_HAS_INVALID_CHARACTER;
 
@@ -17,9 +17,9 @@ public class CarInputValidatorTest {
     @ValueSource(strings = {" abc", ":abc", "?abc", "abc&"})
     @DisplayName("각 자동차에 유효하지 않은 문자(공백, 특수문자, ...)가 존재하면 예외가 발생한다")
     void throwExceptionByInputHasSpace(final String userInput) {
-        assertThatThrownBy(() -> sut.validate(List.of(userInput)))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(CAR_HAS_INVALID_CHARACTER.message);
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> sut.validate(List.of(userInput)))
+                .withMessage(CAR_HAS_INVALID_CHARACTER.message);
     }
 
     @ParameterizedTest

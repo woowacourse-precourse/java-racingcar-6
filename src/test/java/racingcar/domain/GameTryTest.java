@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.exception.ExceptionMessage.GameTryCountException.CANNOT_MOVE_ANYMORE;
 import static racingcar.exception.ExceptionMessage.GameTryCountException.TRY_COUNT_MUST_BE_AT_LEAST_ONE;
@@ -17,9 +18,9 @@ public class GameTryTest {
         @Test
         @DisplayName("게임 시도 횟수가 1번 미만이면 GameTry를 생성할 수 없다")
         void throwExceptionByInvalidTryCount() {
-            assertThatThrownBy(() -> GameTry.from(0))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(TRY_COUNT_MUST_BE_AT_LEAST_ONE.message);
+            assertThatIllegalArgumentException()
+                    .isThrownBy(() -> GameTry.from(0))
+                    .withMessage(TRY_COUNT_MUST_BE_AT_LEAST_ONE.message);
         }
 
         @Test
@@ -40,9 +41,9 @@ public class GameTryTest {
             gameTry.proceed();
 
             // when - then
-            assertThatThrownBy(gameTry::proceed)
-                    .isInstanceOf(IllegalStateException.class)
-                    .hasMessage(CANNOT_MOVE_ANYMORE.message);
+            assertThatIllegalStateException()
+                    .isThrownBy(gameTry::proceed)
+                    .withMessage(CANNOT_MOVE_ANYMORE.message);
         }
 
         @Test

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static racingcar.exception.ExceptionMessage.CarException.DUPLICATE_CAR;
 import static racingcar.exception.ExceptionMessage.CarException.NO_PARTICIPANTS;
 
@@ -22,9 +22,9 @@ public class RacingStadiumTest {
         @Test
         @DisplayName("경주에 참여하는 자동차가 비어있으면 게임을 진행할 수 없다")
         void throwExceptionByNoParticipants() {
-            assertThatThrownBy(() -> RacingStadium.from(List.of()))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(NO_PARTICIPANTS.message);
+            assertThatIllegalArgumentException()
+                    .isThrownBy(() -> RacingStadium.from(List.of()))
+                    .withMessage(NO_PARTICIPANTS.message);
         }
 
         @Test
@@ -38,9 +38,9 @@ public class RacingStadiumTest {
             );
 
             // when - then
-            assertThatThrownBy(() -> RacingStadium.from(candidate))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(DUPLICATE_CAR.message);
+            assertThatIllegalArgumentException()
+                    .isThrownBy(() -> RacingStadium.from(candidate))
+                    .withMessage(DUPLICATE_CAR.message);
         }
 
         @Test
