@@ -141,6 +141,27 @@ public class Application {
         System.out.println();
     }
 
+    private static int findMaxPosition(List<Car> cars) {
+        int maxPosition = -1;
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
+    }
+
+    private static List<String> findWinner(List<Car> cars) {
+        int maxPosition = findMaxPosition(cars);
+        List<String> winner = new ArrayList<String>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winner.add(car.getName());
+            }
+        }
+        return winner;
+    }
+
     private static void playGame() {
         printInputCarNames();
         List<Car> cars = makeCars(saveCarNames(getCarNames()));
