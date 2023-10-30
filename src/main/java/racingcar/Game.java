@@ -6,5 +6,7 @@ public class Game {
     private int randomNumber(){
         return Randoms.pickNumberInRange(0, 9);
     }
-
+    private boolean checkNumber(Integer randomNumber){
+        return randomNumber >= 4;
+    }
 }
