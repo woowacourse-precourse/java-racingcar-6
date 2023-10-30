@@ -146,20 +146,13 @@ A:유틸리티 클래스에 생성자를 package-private 보다는 private으로
    - Model - View 메시지 전달
 
 ---
-## 객체
-### Class RacingGame
-- Member
-  - GameRoundNumber: 라운드 횟수/시도 횟수
-- Method
-  - setter
-  - getter
-  - printWinner: 우승자 출력
-  - printMiddleResult: 중간 결과 출력
-### Class Car
-- Member
-  - CarName: 자동차 이름
-  - CarMoveCount: 자동차 이동 횟수
-- Method
-  - setter
-  - getter
+
+## 사용자 입력 유효성 체크 목록
+### CarName
+- 1자리 이상 5자리 이하인지 체크하기
+- 중복되게 입력했는지 확인하기
+- "," 으로 구분된 갯수가 2개 이상인지 확인하기
+### RoundNumber
+- 1 이상의 값인지
+- 숫자가 맞는지
 
