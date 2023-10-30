@@ -12,42 +12,38 @@ import racingcar.domain.GameManager;
 import racingcar.view.CarRaceGameView;
 
 public class CarRaceGameUtility {
-    private GameManager gameManager;
 
-    public CarRaceGameUtility(GameManager gameManager) {
-        this.gameManager = gameManager;
-    }
+    private CarRaceGameUtility(){}
 
-
-    public void startCarRaceGame() {
+    public static void startCarRaceGame() {
         System.out.println(EXECUTION_RESULT);
 
-        for (int i = 0; i < gameManager.getAttemptNumber(); i++) {
+        for (int i = 0; i < GameManager.getAttemptNumber(); i++) {
             startCarRaceGameOneRound();
         }
-        CarRaceGameView.gameResultView(findWinner(gameManager.getCarImplList()));
+        CarRaceGameView.gameResultView(findWinner(GameManager.getCarImplList()));
     }
 
-    private void startCarRaceGameOneRound() {
-        for (Car car : gameManager.getCarImplList()) {
+    private static void startCarRaceGameOneRound() {
+        for (Car car : GameManager.getCarImplList()) {
             tryForward(car);
             CarRaceGameView.tryForwardResultView(car.getCarName(), car.getAdvanceNumber());
         }
         CarRaceGameView.LineBreakView();
     }
 
-    private int randomNumberGenerator() {
+    private static int randomNumberGenerator() {
         int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
         return randomNumber;
     }
 
-    private void tryForward(Car car) {
+    private static void tryForward(Car car) {
         if (4 >= randomNumberGenerator()) {
             car.setAdvanceNumber(car.getAdvanceNumber() + 1);
         }
     }
 
-    private List<String> findWinner(List<Car> carImplList) {
+    private static List<String> findWinner(List<Car> carImplList) {
         int max = 0;
         List<String> winnerList = new ArrayList<String>();
         for (Car car : carImplList) {

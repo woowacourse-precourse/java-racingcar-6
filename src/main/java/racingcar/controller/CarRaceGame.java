@@ -17,14 +17,14 @@ public class CarRaceGame {
     private GameManager gameManager;
     private CarRaceGameUtility carRaceGameUtility;
 
-    public CarRaceGame() {
+    private CarRaceGame() {
     }
 
-    public void run() {
+    public static void run() {
         startGame();
     }
 
-    public void startGame() {
+    public static void startGame() {
         String carNames = CarRaceGameView.startGameView();
         List<String> carNameList = CarNamesToList(carNames);
         List<Car> carImplList = setUpCar(carNameList);
@@ -32,13 +32,13 @@ public class CarRaceGame {
 
         String attemptNumberString = CarRaceGameView.attemptNumberView();
 
-        gameManager = GameManager.create(Integer.parseInt(attemptNumberString), carImplList);
+        GameManager.setAttemptNumber(Integer.parseInt(attemptNumberString));
+        GameManager.setCarImplList(carImplList);
 
-        carRaceGameUtility = new CarRaceGameUtility(gameManager);
-        carRaceGameUtility.startCarRaceGame();
+        CarRaceGameUtility.startCarRaceGame();
     }
 
-    private List<Car> setUpCar(List<String> carNameList) {
+    private static List<Car> setUpCar(List<String> carNameList) {
         List<Car> carImplList = new ArrayList<Car>();
 
         for (String carName : carNameList) {
@@ -47,11 +47,11 @@ public class CarRaceGame {
         return carImplList;
     }
 
-    private List<String> CarNamesToList(String carNames) {
+    private static List<String> CarNamesToList(String carNames) {
         return Arrays.stream(carNames.split(",")).toList();
     }
 
-    private void validateCarName(List<String> carNameList) {
+    private static void validateCarName(List<String> carNameList) {
         for (String carName : carNameList) {
             Validator.carNameStringLength(carName);
             Validator.isStringEmpty(carName);
