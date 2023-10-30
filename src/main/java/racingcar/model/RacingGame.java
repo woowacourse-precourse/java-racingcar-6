@@ -23,14 +23,10 @@ public class RacingGame {
         for (Car car : cars.getCarList()) {
             int randomNumber = NumberGenerator.getRandomDigit(RAND_NUM_MIN_RANGE, RAND_NUM_MAX_RANGE);
 
-            if (isOverThreshold(randomNumber)) {
+            if (randomNumber >= MOVE_THRESHOLD) {
                 car.move();
             }
         }
-    }
-
-    private boolean isOverThreshold(int randomNumber) {
-        return randomNumber >= MOVE_THRESHOLD;
     }
 
     public int getRaceCount() {
