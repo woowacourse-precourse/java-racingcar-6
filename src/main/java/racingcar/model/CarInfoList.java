@@ -16,12 +16,24 @@ public class CarInfoList {
     List<Integer> carPositionList;
 
     public CarInfoList(String userInputString) {
+        setCarNameListNCarPositionList(userInputString);
+    }
+
+    private void setCarNameListNCarPositionList(String userInputString) {
         this.carNameList = Arrays.asList(userInputString.split(","));
         for (String carName : carNameList) {
             InputValidator.checkNameLengthIsOverflow(carName,MAX_NAME_LENGTH);
         }
         this.carPositionList = new ArrayList<>();
         for (int i=0;i<carNameList.size();i++) { carPositionList.add(0); }
+    }
+
+    public void updateCarInfoList(List<Integer> carRandomOutputList) {
+        for (int i=0;i<carRandomOutputList.size();i++) {
+            if (carRandomOutputList.get(i) >= IS_GO_FORWARD) {
+                this.carPositionList.set(i,carPositionList.get(i)+1);
+            }
+        }
     }
 
     public List<String> getCarNameList() {
@@ -34,14 +46,6 @@ public class CarInfoList {
 
     public List<Integer> getCarPositionList() {
         return carPositionList;
-    }
-
-    public void updateCarInfoList(List<Integer> carRandomOutputList) {
-        for (int i=0;i<carRandomOutputList.size();i++) {
-            if (carRandomOutputList.get(i) >= IS_GO_FORWARD) {
-                this.carPositionList.set(i,carPositionList.get(i)+1);
-            }
-        }
     }
 
     public List<String> getWinnerList() {
