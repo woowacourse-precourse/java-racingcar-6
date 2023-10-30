@@ -64,7 +64,7 @@
   - 가장 앞선 자동차 이름 리스트 반환
   - [x] Cars : `findMaxPosition`
     - 가장 앞에있는 자동차의 위치 반환
-  - [ ] Cars : `findCarNamesAt` 메서드
+  - [x] Cars : `findCarNamesAt` 메서드
     - 위치를 인수로 받아 해당 위치에 있는 자동차 이름 리스트 반환
 - [x] RacingView : `printWinners` 메서드
   - 문자열 리스트를 인수로 받아 우승자 출력

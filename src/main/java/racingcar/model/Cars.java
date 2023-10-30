@@ -34,6 +34,11 @@ public class Cars {
         return max;
     }
 
+    public List<String> findCarNamesAt(int position) {
+        return cars.stream().filter(car -> car.getPosition() == position)
+                .map(Car::getName).toList();
+    }
+
     public List<String> findMaxPositionCarNames() {
         List<String> names = new ArrayList<>();
         int max = findMaxPosition();
