@@ -25,9 +25,4 @@ public class CarModel {
             this.location++;
         }
     }
-
-    public boolean compareMaxLocation(int a) {
-        return this.location >= a;
-    }
-
 }

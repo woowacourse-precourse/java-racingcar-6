@@ -16,12 +16,12 @@ public class RacingController {
     private int repeatNumber;
 
     public void runGame() {
-        carNamesProcess();
+        namesInputProcess();
         repeatNumberProcess();
         racingStart();
-        resultWinner();
+        racingResult();
     }
-    private void carNamesProcess() {
+    private void namesInputProcess() {
         OutputView.printCarNameDemand();
         List<String> carList = Arrays.asList(InputView.inputCarName().split(","));
 
@@ -37,11 +37,11 @@ public class RacingController {
     private void racingStart() {
         OutputView.printResult();
         for (int i = 0; i < repeatNumber; i++) {
-            cars.carsForward();
+            cars.forwardCars();
         }
     }
 
-    private void resultWinner() {
-        OutputView.printWinner(cars.winnerCheck(repeatNumber));
+    private void racingResult() {
+        OutputView.printWinner(cars.winnerCars());
     }
 }

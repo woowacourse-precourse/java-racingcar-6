@@ -3,6 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.exception.ExceptionCheck;
 import racingcar.view.OutputView;
 
@@ -15,7 +16,7 @@ public class Cars {
             this.carModelList.add(new CarModel(s));
         }
     }
-    public void carsForward() {
+    public void forwardCars() {
         for ( CarModel carModel : carModelList) {
             carModel.increaseLocation(Randoms.pickNumberInRange(0, 9));
             OutputView.printRacing(carModel.getName(), carModel.getLocation());
@@ -23,27 +24,18 @@ public class Cars {
         System.out.println("");
     }
 
-    public List<CarModel> winnerCheck(int maxLocation) {
-        List<CarModel> winnerCars = new ArrayList<>();
-        List<CarModel> Cars;
+    public List<CarModel> winnerCars() {
+        int maxLocation = maxLocation();
 
-        for (int i = 0 ;i <= maxLocation; i++) {
-            Cars = maxLocationCheck(i);
-            if (!Cars.isEmpty()) {
-                winnerCars = Cars;
-            }
-        }
-        return winnerCars;
+        return carModelList.stream()
+            .filter(carModel -> carModel.getLocation() == maxLocation)
+            .toList();
     }
 
-    private List<CarModel> maxLocationCheck(int maxLocation) {
-        List<CarModel> winnerCars = new ArrayList<>();
-
-        for ( CarModel carModel : carModelList) {
-            if (carModel.compareMaxLocation(maxLocation)) {
-                winnerCars.add(carModel);
-            }
-        }
-        return winnerCars;
+    private int maxLocation() {
+        return carModelList.stream()
+            .mapToInt(CarModel::getLocation)
+            .max()
+            .getAsInt();
     }
 }
