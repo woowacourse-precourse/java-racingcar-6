@@ -1,9 +1,9 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Referee;
+import racingcar.util.Converter;
 
 public class OutputView {
     private static final String GAME_RESULT = "실행 결과";
@@ -21,16 +21,10 @@ public class OutputView {
     public void printWinner(List<Car> cars) {
         List<Car> winners = Referee.getWinner(cars);
         System.out.print(WINNER);
-        System.out.println(extractWinnerName(winners));
+        System.out.println(Converter.carListToString(winners));
     }
 
     private void printResult(List<Car> cars) {
         cars.forEach(car -> System.out.println(car.getName() + " : " + "-".repeat(car.getPoint())));
-    }
-
-    private String extractWinnerName(List<Car> winners) {
-        return winners.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
     }
 }
