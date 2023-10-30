@@ -6,51 +6,35 @@ import java.util.ArrayList;
 
 public class OutputView {
 
-    public void printStartMessage() {
+    public static void printStartMessage() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
-    public void printRoundNumMessage() {
+    public static void printRoundNumMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printWinnerMessage() {
-        System.out.print("최종 우승자 : ");
+    public static void printResultStartMessage() {
+        System.out.println("실행 결과");
     }
 
-    public void printWinnerResult(String carName) {
-        System.out.print(carName+", ");
-    }
-
-    public void printLastWinnerResult(String carName) {
-        System.out.print(carName);
-    }
-
-    public void printRoundResult(int carIdx, ArrayList<StringBuilder> carStringBuilders) {
-        System.out.println(carStringBuilders.get(carIdx));
-    }
-
-
-    public ArrayList<StringBuilder> makeStringBuilders(int numberOfCars) {
-        ArrayList<StringBuilder> carStringBuilders = new ArrayList<>();
-        for (int i = 0; i < numberOfCars; i++) {
-            StringBuilder carStringBuilder = new StringBuilder();
-            carStringBuilders.add(carStringBuilder);
+    public static void printPlayerRoundResult (String name, int location) {
+        System.out.print(name+" : ");
+        for (int i = 0; i < location; i++) {
+            System.out.print('-');
         }
-        return carStringBuilders;
+        System.out.println(" ");
     }
-
-    public void appendDefaultString(int carIdx, String name, ArrayList<StringBuilder> carStringBuilders) {
-        StringBuilder carStringBuilder = carStringBuilders.get(carIdx);
-        carStringBuilder.append(name + " : ");
-    }
-
-    public void appendStringBuilder(int carIdx, String name, ArrayList<StringBuilder> carStringBuilders) {
-        StringBuilder carStringBuilder = carStringBuilders.get(carIdx);
-        if (carStringBuilder.isEmpty()) {
-            carStringBuilder.append(name + " : ");
+    public static void printWinnerResult(ArrayList<String> winnerNameList) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("최종 우승자 :");
+        for (int i = 0; i < winnerNameList.size(); i++) { // 2개 담겨있으면
+            if (i == winnerNameList.size() - 1) {
+                stringBuilder.append(' '+winnerNameList.get(i));
+                break;
+            }
+            stringBuilder.append(' '+winnerNameList.get(i)+',');
         }
-        carStringBuilders.get(carIdx).append("-");
+        System.out.println(stringBuilder.toString());
     }
-
 }
