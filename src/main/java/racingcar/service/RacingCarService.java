@@ -1,10 +1,11 @@
 package racingcar.service;
 
-import java.util.List;
-import java.util.ArrayList;
-
-import racingcar.domain.Car;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import racingcar.domain.Car;
+import racingcar.view.OutputView;
 
 public class RacingCarService {
     private static final int RANDOM_MIN_NUMBER = 0;
@@ -25,6 +26,7 @@ public class RacingCarService {
             if (randomNumbers.get(i) >= MOVE_CONDITION) {
                 carList.get(i).move();
             }
+            OutputView.printRaceRoundResults(carList.get(i).getName(), carList.get(i).getMoveCount());
         }
     }
 
@@ -34,5 +36,23 @@ public class RacingCarService {
             randomNumbers.add(Randoms.pickNumberInRange(RANDOM_MIN_NUMBER, RANDOM_MAX_NUMBER));
         }
         return randomNumbers;
+    }
+
+    public String determineRaceWinners() {
+        carList.sort(Comparator.comparingInt(Car::getMoveCount).reversed());
+        int maxMoveCount = carList.get(0).getMoveCount();
+
+        List<String> maxMoveCountCarNames = new ArrayList<>();
+
+        for (Car car : carList) {
+            if (carList.get(0).getMoveCount() != maxMoveCount) {
+                break;
+            }
+            if (car.getMoveCount() == maxMoveCount) {
+                maxMoveCountCarNames.add(car.getName());
+            }
+        }
+
+        return String.join(", ", maxMoveCountCarNames);
     }
 }
