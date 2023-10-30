@@ -33,4 +33,10 @@ public class RacingCarGameMachine {
         String[] names = nameInput.split(",");
         return Arrays.stream(names).toList();
     }
+
+    private void moveAllRacingCar() {
+        for (RacingCar racingCar : racingCarList) {
+            racingCar.move();
+        }
+    }
 }
