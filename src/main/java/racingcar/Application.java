@@ -12,7 +12,6 @@ public class Application {
         List<String> carNames = saveCarNames(getCarNames());
         List<Car> cars = makeCars(carNames);
         System.out.println(cars.get(1).getName());
-
     }
 
     private static void printInputCarNames() {
@@ -79,6 +78,10 @@ public class Application {
             cars.add(car);
         }
         return cars;
+    }
+
+    private static void printInputNumberofAttempts(){
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 
 }
