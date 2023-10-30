@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.StringJoiner;
 
 public class RacingGame {
     private ArrayList<Car> cars;
@@ -18,10 +19,10 @@ public class RacingGame {
 
         for (int i = 0; i < rounds; i++) {
             this.cars = referee.playRound(cars);
-
+            printRoundResults();
         }
-
         System.out.println("\n실행 결과");
+        printGameWinner();
 
     }
 
@@ -39,15 +40,20 @@ public class RacingGame {
         if (referee == null) {
             throw new IllegalStateException("Game not started. No winner to display.");
         }
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("최종 우승자 : ");
 
         ArrayList<Car> winners = referee.determineWinner(cars);
 
-        System.out.print("최종 우승자 : ");
+        StringJoiner joiner = new StringJoiner(", ");
+        for (Car winner : winners) {
+            joiner.add(winner.getName());
+        }
+        String winnersString = joiner.toString();
+        stringBuilder.append(winnersString);
 
-        for (Car winner : winners){System.out.print(winners);}
-    }
+        System.out.println(stringBuilder);
 
-    public Referee getReferee() {
-        return referee;
+        return stringBuilder.toString();
     }
 }

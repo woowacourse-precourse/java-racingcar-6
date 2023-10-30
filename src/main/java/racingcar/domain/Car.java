@@ -23,7 +23,7 @@ public class Car {
 
     public void carMove(int randomNumber) {
         if (randomNumber >= 4) {
-            setPosition(this.position+randomNumber);
+            setPosition(this.position+1);
         }
     }
 }

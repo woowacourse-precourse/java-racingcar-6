@@ -9,7 +9,7 @@ public class CarTest {
     void 차_이동_테스트() {
         Car car = new Car("Car");
         car.carMove(5);
-        assertEquals(5, car.getPosition());
+        assertEquals(1, car.getPosition());
     }
 
     @Test

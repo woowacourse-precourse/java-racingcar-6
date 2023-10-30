@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Referee;
 
 public class RefereeTest {
 
@@ -28,9 +29,9 @@ public class RefereeTest {
         ArrayList<Car> winners = referee.determineWinner(cars);
 
         assertEquals(1, winners.size());
-        assertTrue(winners.contains(car2));
-        assertFalse(winners.contains(car2));
-        assertFalse(winners.contains(car3));
+
+        assertTrue(winners.contains(car3));
+
     }
 
     @Test
@@ -44,16 +45,15 @@ public class RefereeTest {
         cars.add(car3);
 
         car1.setPosition(1);
-        car2.setPosition(2);
+        car2.setPosition(3);
         car3.setPosition(3);
 
         Referee referee = new Referee(cars);
         ArrayList<Car> winners = referee.determineWinner(cars);
 
-        assertEquals(1, winners.size());
+        assertEquals(2, winners.size());
         assertTrue(winners.contains(car2));
-        assertFalse(winners.contains(car2));
-        assertFalse(winners.contains(car3));
+        assertTrue(winners.contains(car3));
     }
 
 }
