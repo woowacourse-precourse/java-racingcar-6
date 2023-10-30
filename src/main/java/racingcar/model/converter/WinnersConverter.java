@@ -7,7 +7,6 @@ import java.util.List;
 public class WinnersConverter {
 
     private WinnersConverter() {
-
     }
 
     public static List<WinnerResponse> fromEntity(final Cars cars) {
