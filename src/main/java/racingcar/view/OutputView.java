@@ -1,9 +1,12 @@
 package racingcar.view;
 
+import java.util.List;
 import java.util.Map;
 
 import static racingcar.util.OutputMessage.*;
 import static racingcar.util.Constants.HYPHEN;
+import static racingcar.util.Constants.SQUARE_BRACKET_ELIMINATE;
+import static racingcar.util.Constants.EMPTY;
 public class OutputView {
     public void start() {
         System.out.println(START);
@@ -26,5 +29,9 @@ public class OutputView {
             System.out.println();
         }
         System.out.println();
+    }
+    public void winnerList(List<String> winnerList){
+        String str = winnerList.toString().replaceAll(SQUARE_BRACKET_ELIMINATE, EMPTY);
+        System.out.println(str);
     }
 }
