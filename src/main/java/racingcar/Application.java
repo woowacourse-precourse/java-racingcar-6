@@ -1,12 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.controller.RacingController;
-import racingcar.domain.ConvertService;
 import racingcar.domain.vo.CarVO;
 import racingcar.io.ExceptionCheck;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +20,6 @@ public class Application {
     rc.racingGameStart(tryCycleChoice,racingCarList);
 
     List<String> champions = new ArrayList<>();
-    //변화 포인트
     rc.selectChampions(champions,racingCarList);
 
     System.out.println("최종 우승자 : " + String.join(", ",champions));

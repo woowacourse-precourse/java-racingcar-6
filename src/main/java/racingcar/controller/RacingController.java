@@ -4,7 +4,6 @@ import racingcar.domain.ConvertService;
 import racingcar.domain.RacingService;
 import racingcar.domain.vo.CarVO;
 import racingcar.io.InputOutput;
-
 import java.util.List;
 
 public class RacingController {
@@ -29,8 +28,4 @@ public class RacingController {
   public void selectChampions(List<String> champions,List<CarVO> racingCarList){
     rs.selectMaxMove(champions,racingCarList);
   }
-
-
-
-
 }
