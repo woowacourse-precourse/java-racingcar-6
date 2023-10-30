@@ -1,35 +1,29 @@
 package racingcar.domain.car;
 
 import java.util.List;
-import racingcar.domain.car.dto.output.WinnerNamesDto;
-import racingcar.domain.coordinate.Coordinate;
+import racingcar.domain.car.dto.output.WinnersDto;
 
 public final class CarsFinished extends Cars {
-    private CarsFinished(final List<? extends Car> cars) {
+    public CarsFinished(final List<? extends Car> cars) {
         super(cars);
     }
 
-    public static CarsFinished from(final CarsRacing carsRacing) {
-        return new CarsFinished(carsRacing.cars);
+    public WinnersDto toWinnersDto() {
+        final List<? extends Car> reversed = reversed();
+        final CarFinished leadingCar = (CarFinished) reversed.get(0);
+
+        return new WinnersDto(reversed.stream()
+                .filter(car -> ((CarFinished) car).isAtSameCoordinate(leadingCar))
+                .map(car -> ((CarFinished) car).toWinnerDto())
+                .toList()
+        );
     }
 
-    public WinnerNamesDto toWinnerNamesDto() {
-        final List<String> winnerNames = getWinnerNames();
-        return new WinnerNamesDto(winnerNames);
-    }
-
-    private List<String> getWinnerNames() {
-        final Coordinate max = getMaxCoordinate();
-
+    private List<? extends Car> reversed() {
         return cars.stream()
-                .filter(car -> car.coordinate.isSameAs(max))
-                .map(car -> car.carName.carName())
+                .sorted((o1, o2) -> o2.coordinate.subtractAsInt(o1.coordinate))
                 .toList();
     }
 
-    private Coordinate getMaxCoordinate() {
-        return cars.stream()
-                .max((c1, c2) -> c1.coordinate.subtractAsInt(c2.coordinate))
-                .get().coordinate;
-    }
+
 }
