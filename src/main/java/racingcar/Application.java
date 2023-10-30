@@ -12,16 +12,16 @@ public class Application {
         System.out.println("실행 결과");
 
         for (int turn = 0; turn < turnCount; turn++){
-            for (int carIndex=0; carIndex<cars.length; carIndex++)  {
-                int pickNumber = pickNumberInRange(0,9);
-                if(pickNumber >= 4){
-                    cars[carIndex].distance += pickNumber;
-                }
-            }
-
+            moveCars(cars);
             printCars(cars);
         }
+    }
 
+    private static void moveCars(Car[] cars) {
+        for (Car car : cars) {
+            int pickNumber = pickNumberInRange(0, 9);
+            car.move(pickNumber);
+        }
     }
 
     private static void printCars(Car[] cars) {

@@ -9,6 +9,12 @@ public class Car {
         this.distance = distance;
     }
 
+    public void move(int movingDistance){
+        if(movingDistance >= 4){
+            this.distance += movingDistance;
+        }
+    }
+
     @Override
     public String toString() {
         return name + " : " + "-".repeat(distance);
