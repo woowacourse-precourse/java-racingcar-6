@@ -7,10 +7,13 @@ public class Round {
 
     private Long round;
 
-    //TODO: 타입이 달라달라 어떻게 할래?
-    public Round(String round) {
+    private Round(String round) {
         validate(round);
         this.round = Long.valueOf(round);
+    }
+
+    public static Round of(String round) {
+        return new Round(round);
     }
 
     public Boolean hasRound() {
