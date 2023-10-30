@@ -10,11 +10,10 @@ public class Validation {
             throw new IllegalArgumentException("잘못된 입력입니다.");
         }
     }
-    
+
     public static void isNotNumber(String s) {
         if (!Character.isDigit(s.charAt(0))) {
             throw new IllegalArgumentException("잘못된 입력입니다.");
         }
     }
-
 }
