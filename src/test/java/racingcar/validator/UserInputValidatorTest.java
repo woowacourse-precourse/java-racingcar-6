@@ -2,10 +2,10 @@ package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.exception.car.name.BlankException.BlankExceptionMessage;
-import static racingcar.exception.car.name.LengthException.LengthExceptionMessage;
-import static racingcar.exception.cars.DuplicateException.DuplicateExceptionMessage;
-import static racingcar.exception.round.NonPositiveIntegerException.NonPositiveIntegerExceptionMessage;
+import static racingcar.exception.car.name.HasBlankException.HAS_BLANK_EXCEPTION_MESSAGE;
+import static racingcar.exception.car.name.LengthException.LENGTH_EXCEPTION_MESSAGE;
+import static racingcar.exception.cars.DuplicateException.DUPLICATE_EXCEPTION_MESSAGE;
+import static racingcar.exception.round.NonPositiveIntegerException.NON_POSITIVE_INTEGER_EXCEPTION_MESSAGE;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -25,7 +25,7 @@ public class UserInputValidatorTest {
     void 자동차_이름_1자_이상_5자_이하가_아닌_경우(String carNames) {
         assertThatThrownBy(() -> CarsValidator.getInstance().validate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(LengthExceptionMessage);
+                .hasMessageContaining(LENGTH_EXCEPTION_MESSAGE);
     }
 
     @ParameterizedTest
@@ -33,7 +33,7 @@ public class UserInputValidatorTest {
     void 자동차_이름_중복이_있는_경우(String carNames) {
         assertThatThrownBy(() -> CarsValidator.getInstance().validate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(DuplicateExceptionMessage);
+                .hasMessageContaining(DUPLICATE_EXCEPTION_MESSAGE);
     }
 
     @ParameterizedTest
@@ -41,7 +41,7 @@ public class UserInputValidatorTest {
     void 자동차_이름_공백이_있는_경우(String carNames) {
         assertThatThrownBy(() -> CarsValidator.getInstance().validate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(BlankExceptionMessage);
+                .hasMessageContaining(HAS_BLANK_EXCEPTION_MESSAGE);
     }
 
     @ParameterizedTest
@@ -56,6 +56,6 @@ public class UserInputValidatorTest {
     void 라운드수_양수가_아닌_경우(String numberOfRounds) {
         assertThatThrownBy(() -> RoundValidator.getInstance().validate(numberOfRounds))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NonPositiveIntegerExceptionMessage);
+                .hasMessageContaining(NON_POSITIVE_INTEGER_EXCEPTION_MESSAGE);
     }
 }

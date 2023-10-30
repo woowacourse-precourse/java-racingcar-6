@@ -2,8 +2,8 @@ package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.exception.car.name.LengthException.LengthExceptionMessage;
-import static racingcar.exception.cars.DuplicateException.DuplicateExceptionMessage;
+import static racingcar.exception.car.name.LengthException.LENGTH_EXCEPTION_MESSAGE;
+import static racingcar.exception.cars.DuplicateException.DUPLICATE_EXCEPTION_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class ModelValidatorTest {
     void 자동차_이름_1자_이상_5자_이하가_아닌_경우(String carName) {
         assertThatThrownBy(() -> new Car(carName))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(LengthExceptionMessage);
+                .hasMessageContaining(LENGTH_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -40,6 +40,6 @@ public class ModelValidatorTest {
                     .forEach(name -> carList.add(new Car(name)));
             new Cars(carList);
         }).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(DuplicateExceptionMessage);
+                .hasMessageContaining(DUPLICATE_EXCEPTION_MESSAGE);
     }
 }

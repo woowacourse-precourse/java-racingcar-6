@@ -1,5 +1,11 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.exception.round.NonPositiveIntegerException.NON_POSITIVE_INTEGER_EXCEPTION_MESSAGE;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
@@ -10,12 +16,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.exception.round.NonPositiveIntegerException.NonPositiveIntegerExceptionMessage;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -29,11 +29,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -71,7 +71,7 @@ class ApplicationTest extends NsTest {
             add(new String[]{"a,b", "aa"});
         }};
 
-        for(String[] args: argsList) {
+        for (String[] args : argsList) {
             byte[] buf = String.join("\n", args).getBytes();
             InputStream inputStream = new ByteArrayInputStream(buf);
             System.setIn(inputStream);
@@ -79,7 +79,7 @@ class ApplicationTest extends NsTest {
             assertThatThrownBy(() -> {
                 Application.main(new String[]{});
             }).isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining(NonPositiveIntegerExceptionMessage);
+                    .hasMessageContaining(NON_POSITIVE_INTEGER_EXCEPTION_MESSAGE);
             Console.close();
         }
     }
