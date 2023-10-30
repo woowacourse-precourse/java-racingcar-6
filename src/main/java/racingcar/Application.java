@@ -7,16 +7,43 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-    	Car_Names();
+    	Run(Car_Names(),Try_Numb());
     	//Try_Numb();
     	//Run(Car_Names(),Try_Numb());
     }
     	
     
     //실행 문서//
-    public static void Run(List<String> Car_Names, Integer Try_Numb) {
+    public static void Run(String[] Car_Names, Integer Try_Numb) {
+    	int[] Car_Score = new int[Car_Names.length];
+    	//System.out.println(Car_Score.length);
+    	for(int i = 0; i< Try_Numb; i++) {
+    		Car_Score = Stage_Calc(Car_Names, Car_Score);
+    		
+    	}
     	
     }
+    
+    public static int[] Stage_Calc(String[] Car_Names, int[] Car_Score) {
+    	System.out.println("실행 결과");
+    	for (int i = 0 ; i<Car_Names.length; i++) {
+    		if(Car_Race()>=4) {
+    			Car_Score[i]++;
+    		}
+    					//.repeat(Car_Score[i]));}
+    		System.out.println(Car_Names[i]+" : "+"-".repeat(Car_Score[i]));
+    	}
+    	
+    	return Car_Score;
+    }
+    
+    //랜덤값//
+    public static Integer Car_Race() {
+    	Integer Race_numb = Randoms.pickNumberInRange(1, 9);
+    	//System.out.print(Try_numb);
+    	return Race_numb;
+    }
+
     //[입력값]
     //차량 이름//
     public static String[] Car_Names() {
@@ -30,13 +57,14 @@ public class Application {
     		//System.out.println(Car_Names.length);
     		//System.out.println(Car_Names[i]);
     		//System.out.println(Car_Names[i].lesngth());
-    		if(Car_Names[i].length()>=5) {
+    		if(Car_Names[i].length()>5) {
     			throw new IllegalArgumentException("자동차 이름이 5자 이상입니다.");
     		}
     	}
     
     }
         
+    
     //시도 횟수//
     public static Integer Try_Numb() {
     	System.out.println("시도할 회수는 몇회인가요?");
@@ -51,10 +79,4 @@ public class Application {
     }
     
     
-    //[랜덤값]
-    public static Integer Car_Race() {
-    	Integer Race_numb = Randoms.pickNumberInRange(1, 9);
-    	//System.out.print(Try_numb);
-    	return Race_numb;
-    }
 }

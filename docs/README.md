@@ -1,12 +1,12 @@
 <자동차 경주게임 구현>
 
 1. 입력값
-	1. 자동차이름 - 쉼표로 구분한 배열, 5자 이하, 	
-	2. 전진횟수 - 정수값 입력
+	1. 자동차이름 - 쉼표로 구분한 배열, 5자 이하, V
+	2. 전진횟수 - 정수값 입력 V
 
 2. 출력값
-	1. 기본 실행시 안내 문
-	2. 전진 회차별 실행 결과
+	1. 기본 실행시 안내 문 V
+	2. 전진 회차별 실행 결과 
 	3. 최종 우승자(공동, 단독)
 
 3. 계산값
@@ -27,4 +27,4 @@ EX.) 코드 구현시 주의사항
 
 git add -A
 
-git commit -m "feat(Application) : system print feature added, Car_Names method Basic structure written"
+git commit -m "feat(Application) : Error codes for input data Added(both carnames and trynumber"
