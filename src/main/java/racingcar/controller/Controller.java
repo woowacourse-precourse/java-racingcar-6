@@ -10,7 +10,7 @@ public class Controller {
     private final InputView inputView = new InputView();
     //    private final OutputView outputView = new OutputView();
     private final List<Object> carsList = new ArrayList<>();
-
+    private String trial;
 
     public void run() {
         startGame();
@@ -20,6 +20,7 @@ public class Controller {
 
     public void startGame() {
         String[] carsList = inputView.inputCarsName();
+        trial = inputView.inputTrial();
 
     }
 
