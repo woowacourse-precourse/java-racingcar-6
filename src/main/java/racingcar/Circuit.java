@@ -21,6 +21,14 @@ public class Circuit {
         }
     }
 
+    public void setRepeat(String stringRepeat) {
+        int repeat = Integer.parseInt(stringRepeat);
+        if (repeat <= 0) {
+            throw new IllegalArgumentException();
+        }
+        this.repeat = repeat;
+    }
+
     private boolean checkInputError(String[] input) {
         for (String s : input) {
             if (s.length() > 5 || s.isEmpty()) {
