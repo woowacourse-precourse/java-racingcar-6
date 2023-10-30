@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import racingcar.model.Cars;
+import racingcar.model.PlayCount;
 import racingcar.model.randomnumber.RandomNumber;
 import racingcar.view.input.InputView;
 import racingcar.view.output.Outputview;
@@ -18,5 +20,13 @@ public class GameController {
 
     public void play() {
         outputView.askCarNames();
+
+        Cars playCars = Cars.from(inputView.readLine());
+        PlayCount playCount = PlayCount.createDefault(inputView.readLine());
+
+        while (!playCount.isGameEnd()) {
+            playCars.race(randomNumber);
+            playCount.endOneRound();
+        }
     }
 }
