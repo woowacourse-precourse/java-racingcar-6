@@ -1,0 +1,26 @@
+package racingcar;
+import camp.nextstep.edu.missionutils.Console;
+
+public class User {
+
+    Exception errorHandling = new Exception();
+
+    private void exceptionManager(String carName) {
+        errorHandling.ErrorCheck(carName);
+    }
+    public String inputCarName() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String carName = Console.readLine();
+        exceptionManager(carName);
+        return carName;
+    }
+
+    public int inputRound() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        int round = Integer.parseInt(Console.readLine());
+        return round;
+    }
+
+
+
+}
