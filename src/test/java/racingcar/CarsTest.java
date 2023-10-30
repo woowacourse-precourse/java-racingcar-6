@@ -36,5 +36,9 @@ public class CarsTest {
         assertTrue(position == 1 || position == 0);
     }
 
-
+    @Test
+    void 자동차_위치_문자열_테스트() {
+        Cars cars = Cars.makeCarList(List.of("car1","car2"));
+        assertThat(cars.WinnersToString()).isEqualTo("car1, car2");
+    }
 }
