@@ -3,16 +3,14 @@ package study;
 import org.junit.jupiter.api.Test;
 import racingcar.Constant;
 import racingcar.StringOperator;
-import racingcar.UserInputHandler;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
 public class StringTest {
 
     @Test
     void constant_적절한_메시지_출력(){
-        String message = Constant.UserRequesMessage.CAR_NAME_REQUEST_MESSAGE.toString();
+        String message = Constant.UserRequestMessage.CAR_NAME_REQUEST_MESSAGE.toString();
         assertThat(message).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 

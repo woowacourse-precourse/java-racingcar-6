@@ -21,7 +21,7 @@
     
     - [x]  입력 데이터를 쉼표를 기준으로 분리할 수 있다. - **StringOperator**#seperate
     
-    - [ ] 잘못된 입력 (5자 초과, null)이면 `IllegalArgumentException`을 발생 후 종료한다. - **InputValidator**#
+    - [x] 잘못된 입력 (5자 초과, null)이면 `IllegalArgumentException`을 발생 후 종료한다. - **InputValidator**#
   
   - [ ] 자동차를 이름과 함께 생성한다. **CarController**#createCar
 

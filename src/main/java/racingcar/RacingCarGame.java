@@ -3,24 +3,25 @@ package racingcar;
 import racingcar.Constant.*;
 
 public class RacingCarGame {
-    private  UserInputHandler userInputHandler;
+    private UserInputHandler userInputHandler;
     RacingCarGame(){
         this.userInputHandler = new UserInputHandler();
     }
 
     public void play(){
-
+        initConfig();
     }
 
     private void initConfig(){
-        System.out.println(UserRequesMessage.CAR_NAME_REQUEST_MESSAGE);
+        System.out.println(UserRequestMessage.CAR_NAME_REQUEST_MESSAGE);
         initCar();
 
-        System.out.println(UserRequesMessage.Repeat_REQUEST_MESSAGE);
+        System.out.println(UserRequestMessage.Repeat_REQUEST_MESSAGE);
     }
 
     private void initCar(){
-        //userInputHandler.getCarNames();
+        String [] names = userInputHandler.getInputForNames();
+        System.out.println(names);
     }
 
 }
