@@ -20,13 +20,14 @@ public class RacingCar {
     }
 
     public void run() {
-        setCars();
+        enrollCars();
         runRace();
         announceWinners();
     }
 
-    private void setCars() {
-        raceOfficial.setDrivers(drivers, user.inputCarName());
+    private void enrollCars() {
+        List<String> carNames = user.inputCarName();
+        raceOfficial.enrollDrivers(drivers, carNames);
     }
 
     private void runRace() {
@@ -38,7 +39,8 @@ public class RacingCar {
     }
 
     private void setRounds() {
-        roundCount = raceOfficial.setRounds(user.inputNumberOfTry());
+        roundCount = user.inputNumberOfTry();
+        raceOfficial.announceRaceWillBeStarted();
     }
 
     private void runRound() {

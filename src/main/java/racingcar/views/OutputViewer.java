@@ -39,6 +39,6 @@ public class OutputViewer {
         for (String winner : winners) {
             stringBuilder.append(winner).append(SPLITTER_OF_WINNERS);
         }
-        System.out.println(StringChanger.cutLastRegex(stringBuilder));
+        System.out.println(StringChanger.cutLastRegex(stringBuilder, SPLITTER_OF_WINNERS));
     }
 }

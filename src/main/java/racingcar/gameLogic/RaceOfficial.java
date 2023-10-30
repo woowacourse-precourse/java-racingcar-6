@@ -7,37 +7,42 @@ import racingcar.views.OutputViewer;
 public class RaceOfficial {
     private final ScoreBoard scoreBoard = new ScoreBoard();
 
-    public void setDrivers(List<Driver> drivers, List<String> carNames) {
+    public void enrollDrivers(List<Driver> drivers, List<String> carNames) {
         for (String carName : carNames) {
             drivers.add(new Driver(carName));
         }
     }
 
-    public int setRounds(int numberOfTry) {
-        requestPrintNoticeResultWillBePrinted();
-        return numberOfTry;
-
+    public void announceRaceWillBeStarted() {
+        OutputViewer.printNoticeResultWillBePrinted();
     }
 
     public void showScore(Driver driver) {
-        requestPrintMovedDistance(driver);
+        String carName = driver.sayCarName();
+        int movedDistance = driver.sayMovedDistance();
+
+        OutputViewer.printMovedDistanceOfCar(carName, movedDistance);
     }
 
     public void setHighestScore(Driver driver) {
-        int highestScore = Math.max(driver.sayMovedDistance(), scoreBoard.getHighScore());
+        int highestScore = compareScores(driver.sayMovedDistance(), scoreBoard.getHighScore());
         scoreBoard.setHighScore(highestScore);
     }
 
+    private int compareScores(int driverScore, int highestScore) {
+        return Math.max(driverScore, highestScore);
+    }
+
     public void separateRounds() {
-        requestPrintRoundSeparator();
+        OutputViewer.printBlank();
     }
 
     public void announceWinners(List<Driver> drivers) {
         determineWinners(drivers);
-        requestPrintWinners();
+        OutputViewer.printWinners(scoreBoard.getWinners());
     }
 
-    public void determineWinners(List<Driver> drivers) {
+    private void determineWinners(List<Driver> drivers) {
         for (Driver driver : drivers) {
             if (isWinner(driver)) {
                 addToWinnerList(driver);
@@ -45,11 +50,11 @@ public class RaceOfficial {
         }
     }
 
-    public boolean isWinner(Driver driver) {
+    private boolean isWinner(Driver driver) {
         return driver.sayMovedDistance() == scoreBoard.getHighScore();
     }
 
-    public void addToWinnerList(Driver driver) {
+    private void addToWinnerList(Driver driver) {
         scoreBoard.addWinner(driver.sayCarName());
     }
 
@@ -61,22 +66,4 @@ public class RaceOfficial {
         return scoreBoard.getWinners();
     }
 
-    private void requestPrintNoticeResultWillBePrinted() {
-        OutputViewer.printNoticeResultWillBePrinted();
-    }
-
-    private void requestPrintMovedDistance(Driver driver) {
-        String carName = driver.sayCarName();
-        int movedDistance = driver.sayMovedDistance();
-
-        OutputViewer.printMovedDistanceOfCar(carName, movedDistance);
-    }
-
-    private void requestPrintRoundSeparator() {
-        OutputViewer.printBlank();
-    }
-
-    private void requestPrintWinners() {
-        OutputViewer.printWinners(scoreBoard.getWinners());
-    }
 }

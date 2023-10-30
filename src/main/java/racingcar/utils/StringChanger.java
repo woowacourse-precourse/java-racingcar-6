@@ -2,7 +2,6 @@ package racingcar.utils;
 
 import static racingcar.utils.Constants.INCLUDING_BLANK;
 import static racingcar.utils.Constants.SPLITTER_OF_NAMES;
-import static racingcar.utils.Constants.SPLITTER_OF_WINNERS;
 import static racingcar.utils.Constants.START_OF_STRING;
 
 import java.util.Arrays;
@@ -29,8 +28,8 @@ public class StringChanger {
         return Integer.parseInt(string);
     }
 
-    public static String cutLastRegex(StringBuilder stringBuilder) {
-        int cutLength = stringBuilder.length() - SPLITTER_OF_WINNERS.length();
+    public static String cutLastRegex(StringBuilder stringBuilder, String regex) {
+        int cutLength = stringBuilder.length() - regex.length();
         return stringBuilder.substring(START_OF_STRING, cutLength);
     }
 

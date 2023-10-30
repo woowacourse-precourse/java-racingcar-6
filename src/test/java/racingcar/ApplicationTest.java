@@ -128,7 +128,7 @@ class ApplicationTest extends NsTest {
         List<Driver> correctList = new ArrayList<>(
                 List.of(new Driver("pobi"), new Driver("jun"))
         );
-        raceOfficial.setDrivers(driversTest, carNamesTest);
+        raceOfficial.enrollDrivers(driversTest, carNamesTest);
 
         // RacingCar내부의 drivers 리스트에 driver가 잘 추가되었는지 크기와 요소의 이름 값 비교를 통해 검증
         assertThat(driversTest.size()).isEqualTo(correctList.size());
@@ -303,11 +303,15 @@ class ApplicationTest extends NsTest {
 
     @Test
     @DisplayName("기능 14번: 우승자 판별 확인")
-    void 우승자_판별_확인() {
+    void 우승자_판별_확인()
+            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+
         RaceOfficial raceOfficial = new RaceOfficial();
         List<Driver> drivers = new ArrayList<>(
                 Arrays.asList(new Driver("pobi"), new Driver("woni"))
         );
+        Method determineWinners = RaceOfficial.class.getDeclaredMethod("determineWinners", List.class);
+        determineWinners.setAccessible(true);
 
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
             mock.when(RandomNumbers::generateZeroToNineDigit)
@@ -316,7 +320,7 @@ class ApplicationTest extends NsTest {
                 driver.pushPedal();
                 raceOfficial.setHighestScore(driver);
             }
-            raceOfficial.determineWinners(drivers);
+            determineWinners.invoke(raceOfficial, drivers);
             assertThat(raceOfficial.showWinnerList()).containsExactly("pobi", "woni");
         }
     }
