@@ -21,4 +21,18 @@ public class WinnerTest {
         // then
         assertThat(winner.toString()).isEqualTo("pobi");
     }
+
+    @Test
+    void 우승자_두명_이상_쉼표로_구분() {
+
+        // given
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+
+        // when
+        car.movedDistances.replaceAll(empty -> "-");
+        StringJoiner winner = Computer.findWinner(car, 1);
+
+        // then
+        assertThat(winner.toString()).isEqualTo("pobi, woni, jun");
+    }
 }
