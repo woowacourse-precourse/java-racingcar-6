@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.List;
 
 public class RacingCar {
+
     private static final int FORWARD_THRESHOLD = 4;
     private static final int NAME_LIMIT = 5;
     private static final String WRONG_NAME_LENGTH = "이름은 5자 이하만 입력됩니다.";

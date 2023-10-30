@@ -6,6 +6,7 @@ import java.util.StringJoiner;
 import racingcar.util.RandomGenerator;
 
 public class Circuit {
+
     private static final String DELIMITER = "\n";
     private final List<RacingCar> racingCars;
 
