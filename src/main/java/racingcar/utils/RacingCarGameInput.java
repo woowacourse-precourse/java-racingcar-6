@@ -21,7 +21,7 @@ public class RacingCarGameInput {
         validateCarNames(carList);
         return carList;
     }
-    public static boolean validateCarNamesInput(String input){
+    private static boolean validateCarNamesInput(String input){
         String noWhiteSpaceInput = input.replace(" ","");
         if(noWhiteSpaceInput.length() != input.length()){
             throw new IllegalArgumentException(ERROR_MESSAGE_EMPTY);
@@ -29,7 +29,7 @@ public class RacingCarGameInput {
         return true;
     }
 
-    public static boolean validateCarNames(List<RacingCar> carList) {
+    private static boolean validateCarNames(List<RacingCar> carList) {
         for (RacingCar car : carList) {
             if (car.getName().length() > 5) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_BIGGER_THAN_5CHAR);
@@ -46,7 +46,7 @@ public class RacingCarGameInput {
         return moveCount;
     }
 
-    public static boolean validateNumber(String input) {
+    private static boolean validateNumber(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -55,7 +55,7 @@ public class RacingCarGameInput {
         return true;
     }
 
-    public static boolean validateMoveCount(int moveCount) {
+    private static boolean validateMoveCount(int moveCount) {
         if (moveCount < 1) {
             throw new IllegalArgumentException(ERROR_MESSAGE_NOT_POSITIVE);
         }
