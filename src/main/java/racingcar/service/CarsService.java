@@ -47,12 +47,12 @@ public class CarsService {
 
     public void moveCars() {
         for (int index = 0; index < cars.size(); index++) {
-            moveCarOrNot(index);
+            moveCarOrNot(index, Utils.getRandomNumber());
         }
     }
 
-    private void moveCarOrNot(int index) {
-        if (Utils.getRandomNumber() >= NumberConstant.TARGET_NUMBER) {
+    private void moveCarOrNot(int index, int randomNumber) {
+        if (randomNumber >= NumberConstant.TARGET_NUMBER) {
             Car car = cars.getCar(index);
             car.addPosition();
         }
