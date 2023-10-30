@@ -18,9 +18,11 @@ public class OutputView {
     public void showResult() {
         System.out.println(RESULT_MESSAGE);
     }
+
     public void showPosition(Cars cars) {
         List<Car> carList = cars.getCars();
         stringBuilder = new StringBuilder();
+
         for (Car car : carList) {
             stringBuilder.append(car.getName())
                     .append(COLON)
@@ -28,6 +30,7 @@ public class OutputView {
                     .append(NEW_LINE);
         }
         stringBuilder.append(NEW_LINE);
+
         System.out.print(stringBuilder);
     }
 
@@ -38,6 +41,7 @@ public class OutputView {
     public void showWinner(List<String> winner) {
         stringBuilder = new StringBuilder(WINNER_MESSAGE);
         stringBuilder.append(String.join(JOIN_DELIMITER, winner));
+
         System.out.print(stringBuilder);
     }
 }
