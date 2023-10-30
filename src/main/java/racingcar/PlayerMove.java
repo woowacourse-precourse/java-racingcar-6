@@ -30,8 +30,8 @@ public class PlayerMove {
         return distance.getMaxDistance(presentMax);
     }
 
-    public void checkWinner(int max) {
-        if (distance.isMax(max)) {
+    public void checkWinner(int presentMax) {
+        if (distance.isMax(presentMax)) {
             player.checkWinner();
         }
     }

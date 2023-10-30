@@ -17,7 +17,14 @@ public class GameController {
         RaceCount raceCount = InputView.InputRaceCount();
 
         play(playerMoveList, raceCount);
+        getWinner(playerMoveList, playersDto);
+    }
 
+    private void getWinner(PlayerMoveList playerMoveList, PlayersDto playersDto) {
+        int maxDistacne = playerMoveList.getMaxDistance();
+        playerMoveList.checkWinner(maxDistacne);
+        List<String> winnerList = playersDto.getWinnerList();
+        OutputView.printWinner(winnerList);
     }
 
     private void play(PlayerMoveList playerMoveList, RaceCount raceCount) {

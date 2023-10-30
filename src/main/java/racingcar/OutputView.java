@@ -22,4 +22,9 @@ public class OutputView {
     public static void printMoveResultMessage() {
         System.out.println("실행 결과");
     }
+
+    public static void printWinner(List<String> winnerList) {
+        String winnersName = String.join(", ", winnerList);
+        System.out.printf("최종 우승자 : %s", winnersName);
+    }
 }
