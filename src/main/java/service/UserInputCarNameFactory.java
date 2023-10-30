@@ -15,11 +15,15 @@ public class UserInputCarNameFactory {
     public Cars createCars(){
         String[] carNameInputArray = processCarNameInput();
 
-        ArrayList<Car> carList = (ArrayList<Car>) Arrays.stream(carNameInputArray)
-                .map(Car::new)
-                .collect(Collectors.toList());
+        CarList<Car> carList = new CarList<>();
+        for(String name:carNameInputArray){
+            if(name.isEmpty()) throw new IllegalArgumentException("적절하지 않은 이름입니다");
+            Car car = new Car(name);
+            if(carList.contains(car)) throw new IllegalArgumentException("중복된 이름입니다");
+            carList.add(new Car(name));
+        }
 
-        return new Cars(new CarList<>(carList));
+        return new Cars(carList);
     }
 
     //Input 데이터 가공
