@@ -20,7 +20,7 @@ public class RacingCarGameController {
 
     public void startGame(List<Car> carList, String racingRoundTimes) {
         roundProgress(carList, Integer.parseInt(racingRoundTimes));
-        List<String> winnerList = caculateGameResult(carList);
+        List<String> winnerList = caculateGameWinner(carList);
         printGameResult(winnerList);
     }
 
@@ -28,7 +28,7 @@ public class RacingCarGameController {
         OutView.printWinnerCar(String.join(", ", winnerList));
     }
 
-    public List<String> caculateGameResult(List<Car> carList) {
+    public List<String> caculateGameWinner(List<Car> carList) {
         List<String> winnerList = new ArrayList<>();
         int max=0;
 
