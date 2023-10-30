@@ -14,7 +14,23 @@ public class Racing {
         this.winnerList = new ArrayList<>();
     }
 
+    public List<Car> getRacingCarList() {
+        return racingCarList;
+    }
+
+    public int getRacingCount() {
+        return racingCount;
+    }
+
+    public List<String> getWinnerList() {
+        return winnerList;
+    }
+
     public void updateRacingCount(int racingCount){
         this.racingCount = racingCount;
+    }
+
+    public void updateWinnerList(String winnerName) {
+        this.winnerList.add(winnerName);
     }
 }
