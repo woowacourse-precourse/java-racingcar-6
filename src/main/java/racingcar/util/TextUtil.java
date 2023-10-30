@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 
 /**
  * @Class : 문자열 유틸 클래스
- * @auther : SYB
- * @since : 2023/10/28
  */
 public class TextUtil {
 

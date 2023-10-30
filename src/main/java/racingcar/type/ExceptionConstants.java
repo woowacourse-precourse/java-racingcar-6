@@ -1,7 +1,7 @@
 package racingcar.type;
 
 /**
- *  @Class  : 예외 메세지 상수 클래스
+ * @Class : 예외 메세지 상수 클래스
  */
 public class ExceptionConstants {
     public static final String ERROR_INPUT_NOT_NUMBER = "Input must be a valid numerical format";
