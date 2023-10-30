@@ -23,7 +23,9 @@ public class CarsTest {
     private static Stream<Arguments> provideNamesForValidate() {
         return Stream.of(
                 Arguments.of((Object) new String[] {"jy", "jy", "wb"}),
+                Arguments.of((Object) new String[] {"jy"}),
                 Arguments.of((Object) new String[] {"jy", "juyeon", "wb"}),
+                Arguments.of((Object) new String[] {"jy", "ju eon", "wb"}),
                 Arguments.of((Object) new String[] {"jy", "", "wb"}),
                 Arguments.of((Object) new String[] {"jy", " ", "wb"})
         );
