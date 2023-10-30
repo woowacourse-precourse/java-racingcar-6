@@ -71,6 +71,13 @@ public class Utill {
         System.out.println(str);
     }
 
+    /**
+     * 배열을 리스트로 만들어준다.
+     *
+     * @param arr
+     * @param <T>
+     * @return
+     */
     public static <T> List<T> makeListFromArr(T[] arr) {
         return List.of(arr);
     }
