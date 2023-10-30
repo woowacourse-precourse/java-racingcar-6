@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.controller.subcontroller.InitializeCarController;
+import racingcar.controller.subcontroller.MoveCarController;
 import racingcar.util.Util;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -10,6 +11,7 @@ public class MainController {
     private final InputView inputView;
     private final OutputView outputView;
     private final InitializeCarController initializeCarController;
+    private final MoveCarController moveCarController;
 
     public MainController(InputView inputView, OutputView outputView, InitializeCarController initializeCarController) {
         this.inputView = inputView;
@@ -25,9 +27,9 @@ public class MainController {
 
     private void initializeCar() {
         List<String> splits = inputToNameCar();
-        int count = inputTryToMoveCar();
+        int tryCount = inputTryToMoveCar();
         for (String name : splits) {
-            initializeCarController.initializeCar(name, count);
+            initializeCarController.initializeCar(name, tryCount);
         }
     }
 
