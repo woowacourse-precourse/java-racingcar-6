@@ -10,11 +10,13 @@ public class GamePlay {
     InputView inputView;
     OutputView outputView;
     GameUtil gameUtil;
-    public GamePlay(){
+
+    public GamePlay() {
         inputView = new InputView();
         outputView = new OutputView();
         gameUtil = new GameUtil();
     }
+
     public void gamePlay() {
         String carName = inputView.inputCars();
         int count = inputView.inputCount();
