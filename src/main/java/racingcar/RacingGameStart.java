@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGameStart {
+    private static final int NAME_LENGTH = 5;
     public static void run(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = Console.readLine();
@@ -45,9 +46,8 @@ public class RacingGameStart {
     }
 
     public static void checkNameLength(String name){
-        if(name.length() > 5){
-
-            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        if(name.length() > NAME_LENGTH){
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다 : " + name);
         }
     }
 }
