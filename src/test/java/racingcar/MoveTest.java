@@ -15,7 +15,10 @@ public class MoveTest {
     void Car_객체_생성_시_이동_리스트_초기화() {
 
         // given
-        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+        Car car;
+
+        // when
+        car = new Car(Arrays.asList("pobi", "woni", "jun"));
 
         // then
         assertThat(car.movedDistances).isEqualTo(Arrays.asList("", "", ""));
@@ -27,7 +30,7 @@ public class MoveTest {
         // given
         Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
 
-        // moveRandomly()
+        // when - moveRandomly()
         for (int i = 0; i < car.movedDistances.size(); i++) {
 
             if (Randoms.pickNumberInRange(4, 9) >= 4) {
@@ -46,7 +49,7 @@ public class MoveTest {
         // given
         Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
 
-        // moveRandomly()
+        // when - moveRandomly()
         for (int i = 0; i < car.movedDistances.size(); i++) {
 
             if (Randoms.pickNumberInRange(0, 3) >= 4) {
@@ -63,11 +66,12 @@ public class MoveTest {
     void 이동_결과_출력문() {
 
         // given
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
         // when
-        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
         car.move(5);
 
         // then
