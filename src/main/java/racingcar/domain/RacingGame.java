@@ -14,6 +14,7 @@ public class RacingGame {
     public void play() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         final String carNames = Console.readLine();
+        validCarNames(carNames);
         createCars(carNames);
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -21,6 +22,15 @@ public class RacingGame {
         playRound(cars, playTimes);
 
         Console.close();
+    }
+
+    private void validCarNames(final String carNames) {
+        if (carNames.isBlank()) {
+            throw new IllegalArgumentException("자동차의 이름은 1글자 이상이어야 합니다.");
+        }
+        if (!carNames.contains(",")) {
+            throw new IllegalArgumentException("두 개 이상의 자동차 이름을 쉼표로 구분하여 입력해주세요.");
+        }
     }
 
     private void createCars(final String carNames) {
