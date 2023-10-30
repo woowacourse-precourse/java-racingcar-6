@@ -8,9 +8,6 @@ import org.junit.jupiter.api.Test;
 
 public class CarsTest {
     private Cars cars = new Cars();
-    private Car pobi = new Car("pobi", 3);
-    private Car woni = new Car("woni", 1);
-    private Car jun = new Car("jun", 3);
 
     @DisplayName("자동차 이름을 콤마로 구분하여 저장")
     @Test
@@ -32,6 +29,10 @@ public class CarsTest {
     @Test
     void winnerIsHaveLongestDistance() {
         //Given
+        Car pobi = new Car("pobi", 3);
+        Car woni = new Car("woni", 1);
+        Car jun = new Car("jun", 3);
+
         List<Car> carList = List.of(pobi, woni, jun);
         List<Car> winner = List.of(pobi, jun);
 
