@@ -12,6 +12,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RunRacing {
     static Map<String, Integer> members = new LinkedHashMap<String, Integer>();
     static int turn = 0;
+    static int winnerCnt = 0;
 
     public static void run() {
         RunRacing GetMembersAndTurn = new RunRacing();
@@ -72,7 +73,11 @@ public class RunRacing {
     }
     public void IsMaxValue(String member) {
         if (members.get(member).equals(maxScore)) {
+            if (winnerCnt > 0) {
+                System.out.print(",");
+            }
             System.out.print(" "+member);
+            winnerCnt += 1;
         }
     }
 }
