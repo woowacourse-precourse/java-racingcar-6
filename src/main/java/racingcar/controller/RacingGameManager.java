@@ -32,7 +32,7 @@ public class RacingGameManager {
         repeatMove(tryCount);
 
         List<Car> winner = cars.getWinner();
-        outputView.printWinner(cars.winnerToString(winner));
+        outputView.printWinner(winner);
     }
 
     void repeatMove(int tryCount){

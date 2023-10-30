@@ -39,18 +39,6 @@ public class CarsTest {
     }
 
     @Test
-    void 우승자들을_문자열로_조회() {
-        //Given
-        List<Car> winner = List.of(pobi, jun);
-
-        //When
-        String winnerMessage = cars.winnerToString(winner);
-
-        //Then
-        assertEquals("최종 우승자 : pobi, jun", winnerMessage);
-    }
-
-    @Test
     void 현재_자동차들의_이동상태_문자열로_조회() {
         //Given
         List<Car> carList = List.of(pobi, woni, jun);
