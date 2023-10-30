@@ -21,7 +21,6 @@ public class RacingCarTest extends NsTest {
         assertThat(number).isGreaterThan(0).isLessThanOrEqualTo(9);
     }
 
-
     @ParameterizedTest
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     @DisplayName("무작위 값이 4 이상일 경우에만 전진해야 한다.")
