@@ -5,7 +5,8 @@
 4. 아키텍쳐 패턴 ([MVC](MVC.md)) 준수
 
 # 기능 구현 목표
-![img_1.png](img_1.png)
+![img_4.png](img_4.png)
+![img_3.png](img_3.png)
 1. 자동차 이름을 입력받는 문구를 출력한다.
 2. 자동차 이름을 입력받는다.
 3. 자동차 이름의 유효성을 체크한다. 유효하지 않을 시 IllegalArgumentException을 반환한다.
