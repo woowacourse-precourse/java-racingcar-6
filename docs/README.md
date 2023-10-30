@@ -14,5 +14,5 @@
 - [x] 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다. - printWinnerAfterRaceCompletion()
 
 ### 사용자 입력 검증 기능 - InputValidation
-- [ ] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다 아닐 경우 `IllegalArgumentException` 을 발생시킨다. - raiseErrorIfCarNameExceedsLimit()
-- [ ] 시도할 회수가 문자거나 마이너스이면 `IllegalArgumentException` 을 발생시킨다. - raiseErrorIfAttemptCountIsInvalid()
+- [x] 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다 아닐 경우 `IllegalArgumentException` 을 발생시킨다. - raiseErrorIfCarNameExceedsLimit()
+- [x] 시도할 회수가 문자거나 마이너스이면 `IllegalArgumentException` 을 발생시킨다. - raiseErrorIfAttemptCountIsInvalid()
