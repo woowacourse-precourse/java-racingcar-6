@@ -12,8 +12,11 @@ public class RacingGame {
     TryCount tryCount = new TryCount("5");
 
 
-    public void move() {
-        carList.moveAll();
+    public void moveForCount(int tryCount) {
+        for(int i = 0; i < tryCount; i++){
+            carList.moveAll();
+            printCarsStatus();
+        }
     }
 
     public void printCarsStatus() {

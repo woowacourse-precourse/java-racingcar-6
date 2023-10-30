@@ -18,12 +18,10 @@ class RacingGameTest {
         assertThat(cars.size()).isEqualTo(3);
     }
 
-
     @Test
     void 주어진_횟수_동안_자동차가_전진또는멈추게한다(){
         List<Car> cars = racingGame.generateCar("povi,woni,minu");
-        int count = new TryCount("5").getCount();
-//        racingGame.race(cars, count);
+        racingGame.moveForCount(5);
     }
 
 }
