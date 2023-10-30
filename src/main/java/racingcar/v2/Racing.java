@@ -11,4 +11,6 @@ public class Racing {
         String input = Console.readLine();
         return Integer.parseInt(input);
     }
+
+
 }

@@ -7,7 +7,9 @@ import java.util.Map;
 
 public class CreateCarV2 {
     public String input() {
-        return Console.readLine();
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String input = Console.readLine();
+        return input;
     }
 
     public String[] carName(String input) {
