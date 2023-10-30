@@ -5,8 +5,12 @@ import util.RandomGenerator;
 public class Car {
 
     private String name;
-    private String position = "";
+    private int position;
 
+    public Car(String name) {
+        this.name = name;
+        this.position = 0;
+    }
     public String getName() {
         return name;
     }
@@ -26,15 +30,15 @@ public class Car {
     }
 
     private void move() {
-        position += "-"; // 'this' 생략
+        position += 1; // 'this' 생략
     }
 
-    public String getPosition() {
+    public int getPosition() {
         return position;
     }
 
     public void printPosition() {
-        System.out.println(name + " : " + position); // 'this' 생략
+        System.out.println(name + " : " + "-".repeat(position)); // 'this' 생략
     }
 
 }
