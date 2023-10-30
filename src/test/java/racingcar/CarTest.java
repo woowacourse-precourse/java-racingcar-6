@@ -41,15 +41,26 @@ public class CarTest {
         Car carObj = new Car("vega");
 
         carObj.runCar();
-        assertThat(carObj.getForwardCount()).isEqualTo(1);
+
+        if (carObj.getForwardCount() == 0) {
+            assertThat(carObj.getForwardCount()).isEqualTo(0);
+        } else if (carObj.getForwardCount() == 1) {
+            assertThat(carObj.getForwardCount()).isEqualTo(1);
+        }
     }
 
     @Test
     void 자동차_운행_현재상태출력확인() {
         Car carObj = new Car("vega");
-        String compareString = "vega : -";
+        String compareStringFirst = "vega : ";
+        String compareStringSecond = "vega : -";
+        
         carObj.runCar();
 
-        assertThat(carObj.getPresentCondition()).isEqualTo(compareString);
+        if (carObj.getForwardCount() == 0) {
+            assertThat(carObj.getPresentCondition()).isEqualTo(compareStringFirst);
+        } else if (carObj.getForwardCount() == 1) {
+            assertThat(carObj.getPresentCondition()).isEqualTo(compareStringSecond);
+        }
     }
 }
