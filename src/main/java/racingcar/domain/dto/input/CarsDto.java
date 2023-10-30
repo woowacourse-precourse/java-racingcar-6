@@ -7,13 +7,19 @@ import java.util.List;
 
 public record CarsDto(String carNames) {
     private static final String COMMA = ",";
+    private static final String REMOVE_WHITESPACE = "\\s+";
 
     public Cars toCars() {
-        return Cars.from(splitNamesToList());
+        return Cars.from(createCarList());
     }
 
-    private List<String> splitNamesToList() {
-        return Arrays.stream(carNames.split(COMMA))
+    private List<String> createCarList() {
+        return Arrays.stream(getSplit())
                 .toList();
+    }
+
+    private String[] getSplit() {
+        return carNames.replaceAll(REMOVE_WHITESPACE, "")
+                .split(COMMA);
     }
 }
