@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
-import racingcar.utils.Converter;
 import racingcar.utils.InputValidator;
 import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
@@ -19,31 +18,34 @@ public class RacingCarController {
         this.outputView = outputView;
     }
 
-
     public void startRace() {
-        RacingCars racingCars = createRacingCars(inputCarNames());
-        List<Car> carList = racingCars.getCars();
-        int count = getCount();
-        System.out.println();
+        List<String> carNames = inputCarNames();
+        int count = inputCount();
+        RacingCars racingCars = createRacingCars(carNames);
+
         outputView.printResultMessage();
+
         for (int gameCount = 0; gameCount < count; gameCount++) {
-            carList = onceRace(racingCars);
-            for (int carIndex = 0; carIndex < carList.size(); carIndex++) {
-                outputView.printCarResult(carList.get(carIndex).getName(), carList.get(carIndex).getPosition());
-            }
-            System.out.println();
+            onceRace(racingCars);
+            printCarResults(racingCars.getCars());
         }
-        List<String> winners = getWinners(carList);
+
+        List<String> winners = getWinners(racingCars.getCars());
         outputView.printWinner(winners);
     }
 
-    private List<Car> onceRace(RacingCars racingCars) {
+    private void onceRace(RacingCars racingCars) {
         List<Car> cars = racingCars.getCars();
         for (Car car : cars) {
-            int randomNumber = generateRandomNumber();
+            int randomNumber = RandomNumberGenerator.generateRandomNumber();
             moveForwardOrStop(car, randomNumber);
         }
-        return cars;
+    }
+
+    private void printCarResults(List<Car> cars) {
+        for (Car car : cars) {
+            outputView.printCarResult(car.getName(), car.getPosition());
+        }
     }
 
     private RacingCars createRacingCars(List<String> carNames) {
@@ -53,10 +55,10 @@ public class RacingCarController {
     }
 
     private List<String> inputCarNames() {
-        return Converter.convertInputToArray(inputView.readCarNames());
+        return inputView.readCarNames();
     }
 
-    private int getCount() {
+    private int inputCount() {
         return inputView.readCount();
     }
 
@@ -66,27 +68,28 @@ public class RacingCarController {
         }
     }
 
-    private int generateRandomNumber() {
-        return RandomNumberGenerator.generateRandomNumber();
+    private List<String> getWinners(List<Car> cars) {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = getMaxPosition(cars);
+
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
     }
 
-    private List<String> getWinners(List<Car> carList) {
-        List<Integer> scores = new ArrayList<>();
-        List<String> winners = new ArrayList<>();
-        int maxScore = 0;
-        for (int carIndex = 0; carIndex < carList.size(); carIndex++) {
-            scores.add(carList.get(carIndex).getPosition());
-        }
-        for (int scoreIndex = 0; scoreIndex < scores.size(); scoreIndex++) {
-            if (scores.get(scoreIndex) > maxScore) {
-                maxScore = scores.get(scoreIndex);
+    private int getMaxPosition(List<Car> cars) {
+        int maxPosition = 0;
+
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
             }
         }
-        for (int scoreIndex = 0; scoreIndex < scores.size(); scoreIndex++) {
-            if(scores.get(scoreIndex) == maxScore) {
-                winners.add(carList.get(scoreIndex).getName());
-            }
-        }
-        return winners;
+
+        return maxPosition;
     }
 }
