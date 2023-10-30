@@ -127,4 +127,12 @@ public class Application {
             printWinnersMessage(winners);
         }
 
+        private int getMaxPosition() {
+            int maxPosition = 0;
+            for (Car car : cars) {
+                maxPosition = Math.max(maxPosition, car.getPosition());
+            }
+            return maxPosition;
+        }
+
     }
