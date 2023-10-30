@@ -10,16 +10,12 @@ public class Referee {
 
     private List<CarName> winnerNames;
 
-    public List<CarName> getWinnerNames() {
-        return winnerNames;
-    }
-
     public void decideWinner(final List<Car> carList) {
         CarDistance maxDistance = getMaxDistance(carList);
-        this.winnerNames = getWinnerNames(carList, maxDistance);
+        this.winnerNames = getCarNameForMaxDistance(carList, maxDistance);
     }
 
-    private List<CarName> getWinnerNames(List<Car> carList, CarDistance maxDistance) {
+    private List<CarName> getCarNameForMaxDistance(List<Car> carList, CarDistance maxDistance) {
         return carList.stream()
                 .filter(car -> car.getCarDistance().distance() == maxDistance.distance())
                 .map(car -> car.getCarName())
@@ -33,5 +29,9 @@ public class Referee {
                 .orElse(START_POINT);
 
         return new CarDistance(maxDistance);
+    }
+
+    public List<CarName> getWinnerNames() {
+        return winnerNames;
     }
 }
