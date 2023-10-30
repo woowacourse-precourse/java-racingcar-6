@@ -28,7 +28,6 @@ public class CarGameController {
         List<String> carNameList = game.splitCarName(input);
         validateNameLength(carNameList);
         createCars(carNameList);
-//        cars = new Cars(createCars(carNameList));
         OutputView.printRequestTryNumberMessage();
         int tryNumber = Integer.parseInt(InputView.readTryNumber());
         OutputView.printResultStartMessage();
@@ -51,7 +50,7 @@ public class CarGameController {
     }
 
 
-    public void createCars(List<String> carNameList) {
+    public List<Car> createCars(List<String> carNameList) {
         List<Car> cars = new ArrayList<>();
 
         for (String carName : carNameList) {
@@ -59,7 +58,9 @@ public class CarGameController {
             cars.add(car);
         }
         this.cars = new Cars(cars);
+        return cars;
     }
+
 
 
 }
