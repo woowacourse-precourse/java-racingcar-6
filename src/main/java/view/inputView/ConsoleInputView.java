@@ -11,7 +11,8 @@ public class ConsoleInputView implements InputView {
     @Override
     public List<String> readCarNames() {
         String input = Console.readLine();
-        String[] carNames = input.split(",");
+        String[] carNames = input.replace(" ", "")
+                .split(",");
         return Arrays.stream(carNames)
                 .toList();
     }
