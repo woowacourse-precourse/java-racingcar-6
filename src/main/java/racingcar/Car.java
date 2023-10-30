@@ -5,6 +5,7 @@ import java.util.List;
 public class Car {
 
     private static final int DEFAULT_FORWARD_COUNT = 0;
+    private static final int KEY_NUMBER = 4;
     private static final String COLON = " : ";
     private static final String DASH = "-";
     private static final String CAR_NAME_OUTPUT_DELIMITER = ", ";
@@ -21,8 +22,10 @@ public class Car {
         return inputName.equals(name);
     }
 
-    public void moveForward() {
-        forwardCount++;
+    public void compareNumberAndMove(int randomNumber) {
+        if (randomNumber >= KEY_NUMBER) {
+            forwardCount++;
+        }
     }
 
     public void printCarName() {

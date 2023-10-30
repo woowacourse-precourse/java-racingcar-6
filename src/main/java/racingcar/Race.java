@@ -9,7 +9,6 @@ import java.util.List;
 public class Race {
 
     private static final int NOT_HAVE_SAME_NAMES = 0;
-    private static final int KEY_NUMBER = 4;
     private static final int MAX_FORWARD_COUNT_TARGET = -1;
 
     private static final String START_RACE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -58,7 +57,7 @@ public class Race {
         for (Car car : cars) {
             car.printCarName();
             int randomNumber = RandomNumberGenerator.createRandomNumber();
-            compareNumberAndMove(car, randomNumber);
+            car.compareNumberAndMove(randomNumber);
             car.printForwardState();
         }
         System.out.println();
@@ -92,11 +91,5 @@ public class Race {
         }
 
         return maxForwardCount;
-    }
-
-    private void compareNumberAndMove(Car car, int randomNumber) {
-        if (randomNumber >= KEY_NUMBER) {
-            car.moveForward();
-        }
     }
 }
