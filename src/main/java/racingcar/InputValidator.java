@@ -3,7 +3,6 @@ package racingcar;
 import java.util.List;
 
 public class InputValidator {
-    public static void nameLength(String name) {
     public static void validateNamesIsEmpty(String[] input) {
         for (String name : input) {
             if (name.trim().isEmpty()) {
@@ -20,6 +19,12 @@ public class InputValidator {
         }
     }
 
+    public static void validateNameLength(String[] input) {
+        for (String name : input) {
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("이름의 길이가 5초과 됩니다. 프로그램 종료");
+            }
+        }
     }
 
     public static void duplicateName(List<Car> cars) {
