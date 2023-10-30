@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.domain.Commander;
 import racingcar.domain.MoveCommandMaker;
-import racingcar.infra.CommanderImpl;
 import racingcar.infra.MoveCommandMakerImpl;
 
 public class MoveCarTest {
