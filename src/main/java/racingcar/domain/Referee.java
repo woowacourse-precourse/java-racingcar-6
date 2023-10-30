@@ -8,8 +8,9 @@ public class Referee{
         return cars.getMaxForwardCountCarNames();
     }
 
-    public void announceWinners(Cars cars){
-
+    public void announceWinners(List<String> winners){
+        String announcement = "최종 우승자 : " + String.join(",",winners);
+        System.out.println(announcement);
     }
 
 }
