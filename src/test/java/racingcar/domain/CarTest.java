@@ -30,6 +30,21 @@ class CarTest {
         assertThat(car).isEqualTo(expectedCar);
     }
 
+    @ParameterizedTest(name = "{index}번째 NumberGeneratePolicy")
+    @MethodSource("nonMovableNums")
+    void 정책에_따라서_움직일_수_없다면_위치를_증가시키지_않는다(NumberGeneratePolicy numberGeneratePolicy) {
+        // given
+        MovingPolicy movingPolicy = new RacingCarGameMovingPolicy();
+        Car car = new Car(new CarName("자동차1"), 0);
+
+        // when
+        car.move(movingPolicy, numberGeneratePolicy);
+
+        // then
+        Car expectedCar = new Car(new CarName("자동차1"), 0);
+        assertThat(car).isEqualTo(expectedCar);
+    }
+
     static Stream<NumberGeneratePolicy> movableNums() {
         return Stream.of(
                 () -> 4,
@@ -38,6 +53,15 @@ class CarTest {
                 () -> 7,
                 () -> 8,
                 () -> 9
+        );
+    }
+
+    static Stream<NumberGeneratePolicy> nonMovableNums() {
+        return Stream.of(
+                () -> 0,
+                () -> 1,
+                () -> 2,
+                () -> 3
         );
     }
 
