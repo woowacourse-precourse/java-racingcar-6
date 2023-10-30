@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 class MoveTest {
 
     @Test
-    void increaseMove_정상_동작_테스트() {
+    void increase_정상_동작_테스트() {
         Move move = new Move();
-        move.increaseMove();
-        move.increaseMove();
+        move.increase();
+        move.increase();
 
         String moveValue = move.toString();
         int expectedValue = 2;
