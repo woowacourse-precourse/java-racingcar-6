@@ -32,5 +32,11 @@ public class GameRound {
         }
     }
 
+    private void validateInitCurrentRound(int currentRound) {
+        if (currentRound != 0) {
+            throw new IllegalArgumentException("[ERROR] 현재 실행된 게임 회수의 초기값은 0이어야 합니다.");
+        }
+    }
+
 
 }
