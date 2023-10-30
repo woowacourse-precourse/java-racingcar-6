@@ -8,6 +8,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Application {
     public static void main(String[] args) {
         List<String> carNames = askCarNames();
+        Integer attemptNumber = askAttemptNumber();
     }
 
     public static List<String> askCarNames() {
@@ -25,6 +26,16 @@ public class Application {
 
     public static Boolean isValidCarName(String carName) {
         return null;
+    }
+
+    public static Integer askAttemptNumber() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String trialNumber = readLine();
+        isValidAttemptNumber();
+        return Integer.parseInt(trialNumber);
+    }
+
+    public static void isValidAttemptNumber() {
     }
 
 }
