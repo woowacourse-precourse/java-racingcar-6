@@ -10,7 +10,7 @@ public class InputConvertor {
         String[] tempStr = inputCarNames.split(",");
         for (String str : tempStr) {
             if (racingCars.containsKey(str)) {
-                Validator.isDuplicateNames();
+                Validator.DuplicateNames();
             }
             racingCars.put(str, " ");
         }
