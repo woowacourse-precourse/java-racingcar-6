@@ -1,7 +1,7 @@
 # 기능 구현
 1. **경주할 자동차 이름 입력**
 - ~~쉼표를 기준으로 자동차 나누기~~
-- 자동차 이름 5자 이하로 구현하기 -> `IllegalArgumentException`
+- ~~자동차 이름 5자 이하로 구현하기 -> `IllegalArgumentException`~~
 
 2. **시도할 횟수**
 - 사용자는 몇 번의 이동을 할 것인지 입력 -> `IllegalArgumentException`
