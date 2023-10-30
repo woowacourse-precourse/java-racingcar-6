@@ -1,7 +1,7 @@
 package racingcar.validator;
 
-import static racingcar.constant.MessageConstant.CAR_NAME_INPUT_COUNT_ERROR;
-import static racingcar.constant.MessageConstant.CAR_NAME_INPUT_DUPLICATE_ERROR;
+import static racingcar.constant.MessageConstant.*;
+import static racingcar.constant.SystemConstant.*;
 
 import java.util.HashSet;
 import java.util.List;
@@ -32,7 +32,20 @@ public class Validator {
         }
     }
 
-    public static void validateCheckCarName(String carName) {
+    public static void validateCheckCarName(String carName){
+        validateCheckCarNameLength(carName);
+        validateCheckCarNameContainsSpace(carName);
+    }
 
+    private static void validateCheckCarNameLength(String catName) {
+        if (catName.length() > CAR_NAME_LENGTH_MAX || catName.length() < CAR_NAME_LENGTH_MIN){
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR.getMessage());
+        }
+    }
+
+    private static void validateCheckCarNameContainsSpace(String catName) {
+        if (catName.contains(SPACE)){
+            throw new IllegalArgumentException(CAR_NAME_CONTAINS_SPACE_ERROR.getMessage());
+        }
     }
 }
