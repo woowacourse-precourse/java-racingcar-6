@@ -1,74 +1,48 @@
 package racingcar.controller;
 
-import racingcar.model.Race;
+import racingcar.model.race.Race;
 import racingcar.model.validator.CarNameValidator;
 import racingcar.model.validator.MovingCountValidator;
 import racingcar.view.UserInputValue;
 
 public class RaceController {
-
     CarNameValidator carNameValidator = new CarNameValidator();
     MovingCountValidator movingCountValidator = new MovingCountValidator();
+    private int countNum; // countNum 변수를 runRace 반복문에서 써먹어야됨
 
     public RaceController() {
     }
 
     public void startRace() {
-        // 유효성 검증
+        String[] carNames = validateInput();
+        Race race = printTrack(carNames);
+        runRace(race); // countNum을 사용할 수 있도록 runRaces 메소드로 전달
+        printResult(race);
+    }
+
+    private String[] validateInput() {
         String carName = UserInputValue.inputCarName();
         String[] carNames = carNameValidator.changeArrayType(carName);
         carNameValidator.checkNameValidation(carNames);
         String count = UserInputValue.inputMovementCount();
-        int countNum = Integer.parseInt(count);
+        countNum = Integer.parseInt(count); // countNum 변수에 할당
         movingCountValidator.checkMovementCount(count);
+        return carNames;
+    }
 
-        // 경주 시작
+    private Race printTrack(String[] carNames) {
         System.out.println();
         System.out.println("실행 결과");
+        return new Race(carNames);
+    }
 
-        Race race = new Race(carNames);
-
+    private void runRace(Race race) {
         for (int i = 0; i < countNum; i++) {
             race.printRace();
         }
-
-        race.selectWinner();
     }
 
-
+    private void printResult(Race race) {
+        race.selectWinner();
+    }
 }
-
-//package racingcar.controller;
-
-//
-//import racingcar.model.validator.CarNameValidator;
-//import racingcar.model.validator.MovingCountValidator;
-//import racingcar.model.RaceTrack;
-//import racingcar.view.UserInputValue;
-//
-//public class RaceController {
-//
-//    CarNameValidator carNameValidator = new CarNameValidator();
-//    MovingCountValidator movingCountValidator = new MovingCountValidator();
-//
-//    public RaceController() {
-//    }
-//
-//    public void startRace() {
-//        String carName = UserInputValue.inputCarName();
-//        String[] carNames = carNameValidator.changeArrayType(carName);
-//        carNameValidator.checkNameValidation(carNames);
-//        String count = UserInputValue.inputMovementCount();
-//        int countNum = Integer.parseInt(count);
-//        movingCountValidator.checkMovementCount(count);
-//
-//        System.out.println();
-//        System.out.println("실행 결과");
-//
-//        RaceTrack raceTrack = new RaceTrack(carNames);
-//        raceTrack.printCarNames();
-//        raceTrack.race(countNum);
-//
-//        raceTrack.endRace();
-//    }
-//}

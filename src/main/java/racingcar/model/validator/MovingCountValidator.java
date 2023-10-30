@@ -1,7 +1,6 @@
 package racingcar.model.validator;
 
 public class MovingCountValidator {
-    // 이동 횟수 입력값 검증
     public void checkMovementCount(String value) throws IllegalArgumentException {
         try {
             int intValue = Integer.parseInt(value);
