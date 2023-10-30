@@ -13,19 +13,23 @@ import racingcar.domain.Car;
 
 class CarTest {
     private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_STOP = 0;
+    private static final int MIN_MOVING_FORWARD = 4;
+    private static final int MOVE_SUCCESS = 1;
+    private static final int MOVE_FAIL = 0;
 
     private static Stream<Arguments> testMoveCountAndRandomNumber() {
         return Stream.of(
-                Arguments.of(0, 0),
-                Arguments.of(0, 1),
-                Arguments.of(0, 2),
-                Arguments.of(0, 3),
-                Arguments.of(1, 4),
-                Arguments.of(1, 5),
-                Arguments.of(1, 6),
-                Arguments.of(1, 7),
-                Arguments.of(1, 8),
-                Arguments.of(1, 9)
+                Arguments.of(MOVE_FAIL, MIN_STOP),
+                Arguments.of(MOVE_FAIL, MIN_STOP + 1),
+                Arguments.of(MOVE_FAIL, MIN_STOP + 2),
+                Arguments.of(MOVE_FAIL, MIN_STOP + 3),
+                Arguments.of(MOVE_SUCCESS, MIN_MOVING_FORWARD),
+                Arguments.of(MOVE_SUCCESS, MIN_MOVING_FORWARD + 1),
+                Arguments.of(MOVE_SUCCESS, MIN_MOVING_FORWARD + 2),
+                Arguments.of(MOVE_SUCCESS, MIN_MOVING_FORWARD + 3),
+                Arguments.of(MOVE_SUCCESS, MIN_MOVING_FORWARD + 4),
+                Arguments.of(MOVE_SUCCESS, MIN_MOVING_FORWARD + 5)
         );
     }
 
