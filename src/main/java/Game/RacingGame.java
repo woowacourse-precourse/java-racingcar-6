@@ -13,15 +13,11 @@ public class RacingGame {
             printTotalResult();
             printResult();
         }
-        public void getInput() {
+        public void getInput() throws IllegalArgumentException{
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기분으로 구분)");
-            String answer = readLine();
-            carName = answer.split(",");
+            getInputCarName();
             System.out.println("시도할 회수는 몇회인가요?");
-            String number = readLine();
-            tryNumber = Integer.parseInt(number);
-            System.out.println(carName[0]);
-            count = carName.length;
+            getInputTryNumber();
             gameResult = new int[count];
         }
         public void makeRandomResult() {
@@ -108,5 +104,23 @@ public class RacingGame {
                 printOneMoreWinner();
             }
         }
+        public void getInputCarName() throws IllegalArgumentException{
+            String answer = readLine();
+            carName = answer.split(",");
+            count = carName.length;
+            for(int i=0;i<count;i++){
+                if(carName[i].length()>5){
+                    throw new IllegalArgumentException();
+                }
+            }
+        }
 
+        public void getInputTryNumber() throws IllegalArgumentException{
+            try{
+                String number = readLine();
+                tryNumber = Integer.parseInt(number);
+            }catch(Exception e){
+                throw new IllegalArgumentException();
+            }
+        }
 }
