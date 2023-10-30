@@ -3,49 +3,116 @@
 ---
 #### 멤버 변수
 
---- 
-- static int moveCount
-  - 움직일 횟수를 저장하는 정적 멤버 변수
-  - 움직이는 횟수는 공통적으로 사용되기 때문에 정적 멤버로 선언함.
+---
+- `String name`
+  - 운전자의 이름을 저장하는 문자열
 
-- String name
-  - 운전자의 이름을 저장하는 멤버 변수
-
-- StringBuilder score
-  - 운전자의 성적을 기록하는 멤버 변수  
+- `StringBuilder score`
+  - 운전자의 성적을 기록하는 `StringBuilder`
+  - 추가가 빈번하기 때문에 `String`이 아닌 `StringBuilder` 사용
 
 #### 멤버 메소드
 
 ---
 ##### 생성자 메소드
-- name : Racer
-- parameters : String name
-- return : 
-- error : 문자열이 5자 이상이면 `IllegalArgumentException` 발생
+- signature : `public Racer(String name)`
+- parameters
+  - name : 설정할 이름
+- return : 게임에 사용될 `Racer` 인스턴스
 - description
   - 5자 이하의 문자열을 받아 해당 문자열을 이름으로 가지는 새 레이서를 생성하는 메소드
   - `score`는 새 `StringBuilder`로 초기화한다.
 
 ##### 레이서를 움직이는 메소드
-- name : move
-- parameter : 
+- signature : `public void move()`
 - return : void
-- error : 
 - description 
-  - Game 클래스에서 생성한 무작위 값을 받아서 움직이는 함수
-  - 무작위 값이 4이상이라면 `score`에 `-`를 `append`한다.
+  - score에 `-`를 `append`해주는 메소드
+
+##### 레이서의 이름을 반환하는 메소드
+- signature : `public String getName()`
+- return : 해당 객체의 이름
+- description
+  - 현재 레이서의 이름을 반환한다.
+
+##### 레이서의 성적을 반환하는 메소드
+- signature : `public String getScore()`
+- return : 해당 객체의 성적
+- description
+  - 현재 레이서의 성적을 반환한다.
 
 ### Game 클래스
 
+#### 멤버 변수
+
 ---
-- moveCount를 세팅해주기
+
+- `private List<Racer> racerList`
+  - 게임에 사용될 Racer들
+- `private int moveCount`
+  - 각 레이서들이 움직일 차수
+---
 - 무작위 값 추출하기
-
-
-### Util 클래스
+- 
+#### 멤버 메소드
 
 ---
-문자열 관련해서 도와주는 클래스
-- 입력받은 문자열을 `,`로 구분해서 이름의 배열로 만들어주기
-- 실행 결과 출력해주기
-- 우승자 출력해주기
+
+##### 생성자 메소드
+- signature : `public Game(int moveCount, String[] nameArr)`
+- parameters
+  - moveCount : 게임의 차수
+  - nameArr : 생성할 `Racer`들의 이름들
+- return : `Game`의 인스턴스
+- description
+  - 새로운 게임을 생성하는 메소드
+  - 전달받은 차수를 설정하고
+  - 이름들로 새로운 `Racer`를 생성해 `List<Racer>`에 추가한다.
+
+##### 추출된 무작위 값으로 움직임 여부 결정하는 메소드
+- signature : `public boolean canMove(int randomNumber)`
+- parameters
+  - randomNumber : 추출된 무작위 값
+- return : `boolean`값 `true` 또는 `false`
+- description
+  - 무작위 값을 받아 4이상이면 `true`를 미만이면 `false`를 반환한다.
+
+
+### GameUtil 클래스
+
+---
+입력된 문자열을 변환하고 문구 및 결과를 출력해주는 클래스
+- 우승자 출력
+
+#### 멤버 메소드
+
+---
+
+##### 각 차수 결과를 실행해주는 메소드
+- signature : `public static void printEachResult()`
+- return : void
+- description
+  - `String.format`메소드를 활용해 각 `Racer`마다 이름과 차수결과를 오른쪽 정렬한다.
+  - `StringBuilder` result에 정렬된 문자열을 `append`한다.
+  - 모든 `Racer`의 결과를 담았다면 출력한다.
+
+##### 입력받은 문자열을 이름으로 바꿔주는 메소드
+- signature : `public static String[] inputToNameArr(String input)`
+- parameters
+  - input : 유저가 입력한 이름들
+- error : `IllegalArgumentException`
+- return : 이름으로 사용될 문자열을 담는 `String`배열
+- description
+  - 입력받은 문자열을 `,`로 구분한다.
+  - `isNameOK`메소드로 구분된 문자열들이 적합한지 판단한다.
+  - `isNameOK`의 결과가 `false`라면 `IllegalArgumentException`을 발생시킨다.
+  - 모든 결과가 `true`면 `String[]`을 반환한다.
+
+##### 문자열이 이름으로 적합한지 확인하는 메소드
+- signature : `private boolean isNameOK(String nameCandidate)`
+- parameters
+  - nameCandidate : 적합한 이름인지 판단할 문자열
+- return : `boolean`값 `true` 또는 `false`
+- description
+  - 만약 문자열의 길이가 5를 초과하거나 0이하면 `false`를 반환한다.
+  - 1 ~ 5자면 `true`를 반환한다.
