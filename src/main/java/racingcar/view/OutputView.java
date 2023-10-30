@@ -20,8 +20,8 @@ public class OutputView {
     public void winner() {
         System.out.print(WINNER);
     }
-    public void moveResult(Map<String,Integer> carMap) {
-        for (String car : carMap.keySet()) {
+    public void moveResult(Map<String,Integer> carMap, List<String> carList) {
+        for (String car : carList) {
             System.out.print(car + " : ");
             for(int i=0;i<carMap.get(car);i++){
                 System.out.print(HYPHEN);

@@ -46,11 +46,12 @@ public class RacingCarController {
         return maxResult == currentNumber;
     }
     public void run() {
+        List<String> carList = car.getCarList();
         outputView.result();
         int moveSize = user.getMoveSize();
         while(moveSize--> 0) {
             move();
-            outputView.moveResult(carMap);
+            outputView.moveResult(carMap, carList);
         }
         outputView.winner();
         outputView.winnerList(winner());
