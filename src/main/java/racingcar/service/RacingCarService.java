@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.config.RacingGameConfig;
 import racingcar.domain.RacingCar;
 import racingcar.util.NumberGenerator;
 
@@ -20,7 +21,7 @@ public class RacingCarService {
         for(RacingCar racingCar : racingCars){
             int randomNumber = NumberGenerator.generateNumber();
 
-            if(randomNumber > 4){
+            if(canMove(randomNumber)){
                 racingCar.increaseMoveNumber();
             }
         }
@@ -54,6 +55,10 @@ public class RacingCarService {
         }
 
         return max;
+    }
+
+    private boolean canMove(int number){
+        return number >= RacingGameConfig.MOVE_CONDITION.getValue();
     }
 
     private boolean isEqualsMax(int max, int number){
