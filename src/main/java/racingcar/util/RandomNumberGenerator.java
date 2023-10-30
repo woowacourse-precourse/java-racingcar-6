@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.util;
 
 import static racingcar.controller.GameConstants.MAX_NUMBER;
 import static racingcar.controller.GameConstants.MIN_NUMBER;

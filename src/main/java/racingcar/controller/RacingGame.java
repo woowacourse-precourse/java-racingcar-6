@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.RandomNumberGenerator;
 import racingcar.model.TryCount;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

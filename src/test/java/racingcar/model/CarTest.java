@@ -3,6 +3,7 @@ package racingcar.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import racingcar.util.NumberGenerator;
 
 class CarTest {
 

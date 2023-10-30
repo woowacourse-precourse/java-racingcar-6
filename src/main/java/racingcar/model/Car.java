@@ -2,6 +2,8 @@ package racingcar.model;
 
 import static racingcar.controller.GameConstants.MIN_NUMBER_TO_MOVE;
 
+import racingcar.util.NumberGenerator;
+
 public class Car implements Comparable<Car> {
     private Name name;
     private Distance distance;
