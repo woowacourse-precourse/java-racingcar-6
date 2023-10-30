@@ -17,10 +17,7 @@ public class RacingCarController {
     }
 
     public void start() {
-        racingCarView.printStartRacingCar();
         String userInput = askCarNames();
-        UserInputValidator.validateUserInput(userInput);
-
         racingCar = new RacingCar(userInput);
 
         racingCarView.printAskingNumberOfRetries();
@@ -38,7 +35,10 @@ public class RacingCarController {
     }
 
     public String askCarNames() {
-        return Console.readLine();
+        racingCarView.printStartRacingCar();
+        String userInput = Console.readLine();
+        UserInputValidator.validateUserInput(userInput);
+        return userInput;
     }
 
     public Integer askingNumberOfRetires() {
