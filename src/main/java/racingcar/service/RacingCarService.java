@@ -7,6 +7,8 @@ import racingcar.common.RandomGenerator;
 import racingcar.model.RacingCarInfoList;
 
 public class RacingCarService {
+    private static final int MIN_NUMBER = 3;
+    private static final int INITIAL_POSITION = 0;
     private static final RacingCarService instance = new RacingCarService();
 
     public static RacingCarService getInstance() {
@@ -20,7 +22,7 @@ public class RacingCarService {
         HashMap<String, Integer> racingStatus = new HashMap<>();
         RacingCarInfoList racingCarList = new RacingCarInfoList(carNames);
         for (String carName : carNames) {
-            racingStatus.put(carName, 0);
+            racingStatus.put(carName, INITIAL_POSITION);
         }
         return racingStatus;
     }
@@ -28,7 +30,7 @@ public class RacingCarService {
     public void proceedGame(List<String> carNames, HashMap<String, Integer> racingStatus) {
         for (String carName : carNames) {
             Integer randomNumber = RandomGenerator.getRandomNumber();
-            if (randomNumber > 3) {
+            if (randomNumber > MIN_NUMBER) {
                 moveForward(carName, racingStatus);
             }
         }

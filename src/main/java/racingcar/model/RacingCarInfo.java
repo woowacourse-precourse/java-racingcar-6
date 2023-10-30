@@ -1,14 +1,14 @@
 package racingcar.model;
 
 public class RacingCarInfo {
-    private final String carName;
+    private static final int LENGTH_LIMIT = 5;
+
     public RacingCarInfo(String carName) {
         validataLength(carName);
-        this.carName = carName;
     }
 
     private void validataLength(String carName) {
-        if ((carName.isEmpty()) || (carName.length() > 5)) {
+        if ((carName.isEmpty()) || (carName.length() > LENGTH_LIMIT)) {
             throw new IllegalArgumentException();
         }
     }
