@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
 
-public class RacingGameView {
+public class RacingGameInputView {
     private static void checkCarNames(List<String> inputNames){
         for(String name: inputNames) {
             if(name.length() > 5) {
