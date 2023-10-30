@@ -37,6 +37,14 @@ class GameServerTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름의_길이가_1_미만일_경우_에러를_던진다() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
