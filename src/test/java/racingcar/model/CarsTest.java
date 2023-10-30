@@ -47,6 +47,23 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("pobi가 레이싱카 최종 우승을 한다.")
+    void pobi_final_winners() {
+        //given
+        Cars cars = new Cars("pobi,woni,jun");
+        Car car = cars.getRacingCars().get(0);
+        IntStream
+                .range(0, 3)
+                .forEach(i -> car.movePosition());
+
+        //when
+        String finalWinners = cars.getFinalWinners();
+
+        //then
+        assertThat(finalWinners).isEqualTo("pobi");
+    }
+
+    @Test
     @DisplayName("최종 우승자를 알 수 있다.")
     void get_final_winners() {
         //given
