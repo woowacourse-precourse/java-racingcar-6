@@ -7,10 +7,20 @@ import racingcar.dto.RacingCar;
 public class RacingCarGame {
     private int farthestDistance;
     private List<RacingCar> racingCarList;
+    private int moveCount;
 
-    public RacingCarGame(List<RacingCar> racingCarList) {
+    public RacingCarGame(List<RacingCar> racingCarList, int moveCount) {
         this.racingCarList = racingCarList;
+        this.moveCount = moveCount;
         farthestDistance = 0;
+    }
+
+    public void run() {
+        while (moveCount > 0) {
+            moveCarsForward();
+            moveCount--;
+            RacingCarGameOutput.printGameProgress(racingCarList);
+        }
     }
 
     private boolean isRandomForwardMove() {
