@@ -53,12 +53,18 @@ class Race {
 
     public void startRace(){
         for(int i=0; i<attempts; i++){
-            for(Car car : carList){
-                car.move();
-                System.out.println(car.getName()+" : "+"-".repeat(car.getPosition()));
-            }
+            raceOnce();
             System.out.println();
         }
+    }
+
+    private void raceOnce(){
+        carList.forEach(this::moveCarAndDisplayPosition);
+    }
+
+    private void moveCarAndDisplayPosition(Car car){
+            car.move();
+            System.out.println(car.getName()+" : "+"-".repeat(car.getPosition()));
     }
 
     public void printWinners(){
