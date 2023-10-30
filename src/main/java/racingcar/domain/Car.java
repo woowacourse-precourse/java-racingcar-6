@@ -10,6 +10,10 @@ public class Car { //자동차 객체를 관리한다.
         this.carName = carName;
     }
 
+    public void move(){
+        this.distance += 1;
+    }
+
     public int getDistance() {
         return distance;
     }
