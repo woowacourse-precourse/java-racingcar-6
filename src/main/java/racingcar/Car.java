@@ -17,6 +17,14 @@ public class Car {
         }
     }
 
+    public String showCurrentDisplacement() {
+        StringBuilder stringBuilder = new StringBuilder(name).append(" : ");
+        for (int i = 0; i < displacement; i++) {
+            stringBuilder.append("-");
+        }
+        return stringBuilder.toString();
+    }
+
     private boolean isAbleToProceed() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber > 3;

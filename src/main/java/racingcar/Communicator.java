@@ -21,6 +21,15 @@ public class Communicator {
         return Integer.parseInt(Console.readLine());
     }
 
+    public static void printResult() {
+        System.out.println("실행 결과");
+    }
+
+    public static void printProgress(List<Car> cars) {
+        cars.forEach(car -> System.out.println(car.showCurrentDisplacement()));
+        System.out.println();
+    }
+
     private static void printInputGameTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
     }

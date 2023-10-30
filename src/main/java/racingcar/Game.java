@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -16,7 +17,8 @@ public class Game {
                 .forEach(cars::add);
     }
 
-    public void play() {
+    public List<Car> playOnce() {
         cars.forEach(Car::conductAction);
+        return Collections.unmodifiableList(cars);
     }
 }
