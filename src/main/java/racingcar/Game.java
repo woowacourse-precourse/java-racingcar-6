@@ -12,6 +12,7 @@ public class Game {
         alertEnterCarName();
         saveCarName();
         alertEnterMoveNumber();
+        saveMoveNumber();
     }
 
     private void alertEnterCarName() {
@@ -34,6 +35,20 @@ public class Game {
 
     private void alertEnterMoveNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    private void saveMoveNumber() {
+        String readLine = Console.readLine();
+        // 양수인 Integer 값이 아닌 경우
+        try {
+            int moveNumber = Integer.parseInt(readLine);
+            if (moveNumber <= 0) {
+                throw new IllegalArgumentException();
+            }
+        }
+        catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 
 }
