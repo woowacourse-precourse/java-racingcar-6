@@ -23,8 +23,8 @@ public class RaceGameService {
 
     public WinnerCarDto run(RaceGameInfoDto raceGameInfoDto) {
         printRunMessage();
-        final RaceCars raceCars = raceGameInfoDto.getRaceCars();
-        final int attemptCount = raceGameInfoDto.getAttemptCount();
+        final RaceCars raceCars = raceGameInfoDto.raceCars();
+        final int attemptCount = raceGameInfoDto.attemptCount();
 
         IntStream.range(START_NUMBER, attemptCount)
                 .forEach(i -> executeRaceForCars(raceCars));

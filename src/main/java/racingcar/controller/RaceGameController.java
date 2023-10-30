@@ -10,7 +10,7 @@ import racingcar.view.GameStartEndView;
 
 import java.util.List;
 
-import static racingcar.util.CarListConverter.*;
+import static racingcar.util.CarFactory.*;
 
 public class RaceGameController {
 
@@ -23,7 +23,7 @@ public class RaceGameController {
     }
 
     public RaceGameInfoDto startRaceGame() {
-        List<Car> cars = convertCarNamesToCarList(requestCarNames());
+        List<Car> cars = getCars(requestCarNames());
         return new RaceGameInfoDto(new RaceCars(cars), requestAttemptCount());
     }
 

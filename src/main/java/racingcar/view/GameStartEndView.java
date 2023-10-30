@@ -19,7 +19,7 @@ public class GameStartEndView {
     }
 
     public void printWinningCarNames(WinnerCarDto winnerCarDTO) {
-        System.out.print(String.format(WINNING_CAR_NAMES_MESSAGE_FORMAT, winnerCarDTO.getWinnerCarNames()));
+        System.out.print(String.format(WINNING_CAR_NAMES_MESSAGE_FORMAT, winnerCarDTO.winnerCarNames()));
     }
 
 }

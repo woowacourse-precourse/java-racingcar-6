@@ -9,12 +9,12 @@ import java.util.stream.Collectors;
 import static racingcar.constants.ErrorMessage.DUPLICATE_NAME_ERROR_MESSAGE;
 
 
-public class CarListConverter {
+public class CarFactory {
 
-    private CarListConverter() {
+    private CarFactory() {
     }
 
-    public static List<Car> convertCarNamesToCarList(String[] names) {
+    public static List<Car> getCars(String[] names) {
         List<Car> cars = Arrays.stream(names)
                 .distinct()
                 .map(Car::new)

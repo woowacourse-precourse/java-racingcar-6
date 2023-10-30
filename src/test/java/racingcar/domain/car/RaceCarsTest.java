@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
-import racingcar.util.CarListConverter;
+import racingcar.util.CarFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -66,7 +66,7 @@ public class RaceCarsTest{
     }
 
     private RaceCars createRaceCars(String[] names) {
-        List<Car> cars = CarListConverter.convertCarNamesToCarList(names);
+        List<Car> cars = CarFactory.getCars(names);
         return new RaceCars(cars);
     }
 

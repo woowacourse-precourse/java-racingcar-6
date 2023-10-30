@@ -29,8 +29,8 @@ class RaceGameControllerTest extends OutputTestSupport {
         userRequest();
         RaceGameInfoDto raceGameInfoDto = raceGameController.startRaceGame();
         // then
-        List<Car> cars = raceGameInfoDto.getRaceCars().getCars();
-        int attemptCount = raceGameInfoDto.getAttemptCount();
+        List<Car> cars = raceGameInfoDto.raceCars().getCars();
+        int attemptCount = raceGameInfoDto.attemptCount();
 
         assertThat(cars).hasSize(1)
                 .extracting("name", "moveCount")

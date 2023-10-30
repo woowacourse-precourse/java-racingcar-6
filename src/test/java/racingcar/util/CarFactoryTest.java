@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.*;
 import static racingcar.constants.ErrorMessage.CAR_NAME_ERROR_MESSAGE;
 import static racingcar.constants.ErrorMessage.DUPLICATE_NAME_ERROR_MESSAGE;
 
-class CarListConverterTest {
+class CarFactoryTest {
 
     @Test
     @DisplayName("자동차의 이름을 가진 문자열을 이용해서 자동차가 담긴 리스트로 변환할 수 있다.")
@@ -18,7 +18,7 @@ class CarListConverterTest {
         // given
         String[] names = new String[]{"pobi","woni","jun"};
         // when
-        List<Car> cars = CarListConverter.convertCarNamesToCarList(names);
+        List<Car> cars = CarFactory.getCars(names);
         // then
         assertThat(cars).hasSize(3)
                 .extracting("name")
@@ -31,7 +31,7 @@ class CarListConverterTest {
         // given
         String[] names = new String[]{"pobi","pobi","pobi"};
         // when // then
-        assertThatThrownBy(() -> CarListConverter.convertCarNamesToCarList(names))
+        assertThatThrownBy(() -> CarFactory.getCars(names))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(DUPLICATE_NAME_ERROR_MESSAGE.getMessage());
     }
@@ -42,7 +42,7 @@ class CarListConverterTest {
         // given
         String[] names = new String[]{"pobbbii","pobi","pobiii"};
         // when // then
-        assertThatThrownBy(() -> CarListConverter.convertCarNamesToCarList(names))
+        assertThatThrownBy(() -> CarFactory.getCars(names))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(CAR_NAME_ERROR_MESSAGE.getMessage());
     }
