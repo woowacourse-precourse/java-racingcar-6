@@ -10,6 +10,17 @@ final class GameServer {
         this.roulette = roulette;
     }
 
+    void run() {
+        //TODO
+        initializeCars();
+        initializeCount();
+        Output.printResult();
+        while (!count.isEnd()) {
+            doTurn();
+        }
+        showWinners();
+        endGame();
+    }
 
     private void initializeCars() {
         Output.printInputNames();
