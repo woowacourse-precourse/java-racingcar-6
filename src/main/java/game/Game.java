@@ -63,4 +63,14 @@ public class Game {
         }
     }
 
+    // 숫자인지 확인
+    public boolean isNumber(String number){
+        try{
+            Integer.parseInt(number);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
+
 }

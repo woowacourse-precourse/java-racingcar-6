@@ -97,4 +97,6 @@ public class GameTest {
         assertThat(getOutput()).isEqualTo("user1 : -\nuser2 : -\n");
 
     }
+
+    
 }
