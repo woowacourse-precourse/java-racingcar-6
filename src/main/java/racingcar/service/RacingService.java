@@ -38,6 +38,7 @@ public class RacingService {
         for (Car car : carRepository.getCarList()) {
             selectWinner(maxDistance, car);
         }
+        OutputMessage.printResultOutputMessage(resultRepository.getResultList());
     }
 
     private void selectWinner(int maxDistance, Car car) {
