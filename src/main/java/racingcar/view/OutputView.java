@@ -4,13 +4,9 @@ import racingcar.model.Car;
 
 import java.util.List;
 
-public class OutputView {
+import static racingcar.view.PrintMessage.*;
 
-    private static final String RESULT_MESSAGE = "실행 결과";
-    private static final String ROUND_RESULT = "%s : %s";
-    private static final String DISTANCE_RESULT = "-";
-    private static final String WINNER = "최종 우승자 : ";
-    private static final String DELIMITER = ",";
+public class OutputView {
 
     public static void printResultMessage(){
         System.out.println(RESULT_MESSAGE);
