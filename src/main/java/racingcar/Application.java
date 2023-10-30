@@ -22,20 +22,7 @@ public class Application {
 
         String answer = Console.readLine();
 
-        if (answer.length() > 9) {
-            throw new IllegalArgumentException("시도 횟수는 10자리 미만의 수여야 합니다.");
-        }
-
-        int ans;
-        try {
-            ans = Integer.parseInt(answer);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
-        }
-
-        if (ans < 0) {
-            throw new IllegalArgumentException("시도 횟수는 0번 이상이어야 합니다.");
-        }
+        int ans = validateTryCount(answer);
 
         StringBuilder[] result = new StringBuilder[carList.size()];
         for (int i=0; i<carList.size(); i++) {
@@ -73,6 +60,24 @@ public class Application {
                 .collect(Collectors.joining(", "));
 
         System.out.print("최종 우승자 : " + winners);
+    }
+
+    private static int validateTryCount(String answer) {
+        if (answer.length() > 9) {
+            throw new IllegalArgumentException("시도 횟수는 10자리 미만의 수여야 합니다.");
+        }
+
+        int ans;
+        try {
+            ans = Integer.parseInt(answer);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+
+        if (ans < 0) {
+            throw new IllegalArgumentException("시도 횟수는 0번 이상이어야 합니다.");
+        }
+        return ans;
     }
 
     private static void validateCarsName(List<Car> carList) {
