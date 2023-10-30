@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.model.Car;
+import racingcar.domain.Car;
 import racingcar.util.Constant;
 
 import java.text.MessageFormat;
