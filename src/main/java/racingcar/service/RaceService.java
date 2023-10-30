@@ -21,4 +21,13 @@ public class RaceService {
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
+
+    public void runRound() {
+        race.runRound();
+    }
+
+    public boolean isRaceFinished() {
+        return race.isFinished();
+    }
+
 }

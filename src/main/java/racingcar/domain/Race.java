@@ -4,7 +4,8 @@ import java.util.List;
 
 public class Race {
     private final List<Car> cars;
-    private final int rounds;
+    private final int totalRounds;
+    private int currentRound;
 
     public Race(List<Car> cars, int rounds) {
         if (rounds <= 0) {
@@ -16,14 +17,18 @@ public class Race {
         }
 
         this.cars = cars;
-        this.rounds = rounds;
+        this.totalRounds = rounds;
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public void runRound() {
+        for (Car car : cars) {
+            car.move();
+        }
+        currentRound++;
     }
 
-    public int getRounds() {
-        return rounds;
+    public boolean isFinished() {
+        return currentRound >= totalRounds;
     }
+
 }
