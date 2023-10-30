@@ -9,7 +9,7 @@ public class OutputView {
         System.out.println(ENTER_CAR_NAME_MESSAGE);
     }
 
-    public static void enterAttempts(){
+    public static void enterAttempts() {
         System.out.println(ENTER_ATTEMPTS_MESSAGE);
     }
 

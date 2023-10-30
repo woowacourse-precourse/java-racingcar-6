@@ -7,7 +7,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameManageController {
-    public void play(){
+    public void play() {
         OutputView.enterCarNames();
         String names = InputView.inputCarNames();
         List<String> namesList = List.of(names.split(","));
@@ -18,5 +18,7 @@ public class GameManageController {
             carList.add(car);
         }
 
+        OutputView.enterAttempts();
+        int attempts = InputView.inputAttempts();
     }
 }
