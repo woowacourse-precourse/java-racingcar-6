@@ -2,9 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Racing {
     private static int count;
@@ -47,7 +45,23 @@ public class Racing {
         }
     }
     public static void announceWinner(){
-
+        int first=0;
+        List<String> winners = new ArrayList<>();
+        for(Car racingCar : racingCars){
+            if(carsPosition.get(racingCar)==first){
+                winners.add(racingCar.announceName());
+            }
+            if(carsPosition.get(racingCar)>first){
+                first = carsPosition.get(racingCar);
+                winners.clear();
+                winners.add(racingCar.announceName());
+            }
+        }
+        if(winners.size()>1){
+            System.out.print("최종 우승자 : " + String.join(",", winners));
+            return;
+        }
+        System.out.print("최종 우승자 : " + winners.get(0));
     }
     public void doOneGame(){
         askRacingCount();
@@ -56,5 +70,6 @@ public class Racing {
             reportRacing();
             System.out.println();
         }
+        announceWinner();
     }
 }
