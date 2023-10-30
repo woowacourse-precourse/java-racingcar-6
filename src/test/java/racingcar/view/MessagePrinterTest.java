@@ -54,6 +54,44 @@ class MessagePrinterTest {
     }
 
     @Nested
+    class ExecutionResultMessagePrinterTest extends NsTest {
+
+        @Test
+        void 실행결과_출력_요청_메시지_출력() {
+            // when
+            runMain();
+
+            // then
+            assertThat(output()).isEqualTo(EXECUTION_RESULT_MESSAGE);
+        }
+
+        @Override
+        protected void runMain() {
+            MessagePrinter messagePrinter = new MessagePrinter();
+            messagePrinter.printExecutionResultMessage();
+        }
+    }
+
+    @Nested
+    class WinnerMessagePrinterTest extends NsTest {
+
+        @Test
+        void 최종우승자_출력_요청_메시지_출력() {
+            // when
+            runMain();
+
+            // then
+            assertThat(output()).isEqualTo("최종 우승자 :");
+        }
+
+        @Override
+        protected void runMain() {
+            MessagePrinter messagePrinter = new MessagePrinter();
+            messagePrinter.printWinnerMessage();
+        }
+    }
+
+    @Nested
     class ExecutionResultPrinterTest extends NsTest {
 
         @Test
