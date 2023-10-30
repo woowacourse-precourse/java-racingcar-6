@@ -61,6 +61,7 @@ public class MoveNumInputTest {
     @DisplayName ("자동차 이동횟수 입력 예외동작 테스트 (이동횟수가 너무 많은 경우)")
     void canHandleOverLengthMoveNumExceptionTest(String testInput) {
         final int MAX_MOVE_NUM = 10000;
+
         assertThatThrownBy(() -> new MoveNum(testInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 시도할 회수가 너무 많습니다 최대회수 " + MAX_MOVE_NUM);
@@ -70,9 +71,9 @@ public class MoveNumInputTest {
     @DisplayName("자동차 이동횟수 입력 안내 메시지 출력 확인")
     void canPrintMoveNumInputInformationTest() throws Exception{
         String lineSeparator = System.lineSeparator();
-        InputStream test = new ByteArrayInputStream("10".getBytes());
+        InputStream input = new ByteArrayInputStream("10".getBytes());
 
-        System.setIn(test);
+        System.setIn(input);
         RacingSetting racingSetting = new RacingSetting();
         racingSetting.getMoveNum();
         assertThat(output.toString())

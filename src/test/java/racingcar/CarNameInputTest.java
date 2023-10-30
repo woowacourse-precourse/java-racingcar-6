@@ -36,9 +36,9 @@ public class CarNameInputTest {
     void canGetCarNameGeneralTest(String testInput) {
         String[] answer = {"부릉이", "따릉이", "딸랑이"};
         RacingSetting racingSetting = new RacingSetting();
+        InputStream input = new ByteArrayInputStream(testInput.getBytes());
 
-        InputStream test = new ByteArrayInputStream(testInput.getBytes());
-        System.setIn(test);
+        System.setIn(input);
         assertArrayEquals(answer, racingSetting.getName());
     }
 
@@ -47,9 +47,9 @@ public class CarNameInputTest {
     @DisplayName ("경주할 자동차 이름입력 예외동작 테스트 (입력이 없을때)")
     void canHandleEmptyInputCarNameExceptionTest(String testInput) {
         RacingSetting racingSetting = new RacingSetting();
+        InputStream input = new ByteArrayInputStream(testInput.getBytes());
 
-        InputStream test = new ByteArrayInputStream(testInput.getBytes());
-        System.setIn(test);
+        System.setIn(input);
         assertThatThrownBy(racingSetting::getName)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
@@ -60,9 +60,9 @@ public class CarNameInputTest {
     @DisplayName ("경주할 자동차 이름입력 예외동작 테스트 (쉼표가 나오고 자동차 이름이 나오지않은경우)")
     void canHandleNotInputCarNameExceptionTest(String testInput) {
         RacingSetting racingSetting = new RacingSetting();
+        InputStream input = new ByteArrayInputStream(testInput.getBytes());
 
-        InputStream test = new ByteArrayInputStream(testInput.getBytes());
-        System.setIn(test);
+        System.setIn(input);
         assertThatThrownBy(racingSetting::getName)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
@@ -82,6 +82,7 @@ public class CarNameInputTest {
     @DisplayName ("경주할 자동차 이름입력 예외동작 테스트 (이름이 너무 긴 경우)")
     void canHandleOverLengthCarNameExceptionTest(String testInput) {
         final int MAX_CAR_NAME = 5;
+
         assertThatThrownBy(() -> new Car(testInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 자동차 이름이 너무 깁니다 이름 최대 길이 " + MAX_CAR_NAME);
@@ -92,9 +93,9 @@ public class CarNameInputTest {
     @DisplayName ("경주할 자동차 이름입력 예외동작 테스트 (중복된 이름이 들어온 경우)")
     void canHandleDuplicateCarNameExceptionTest(String testInput) {
         RacingSetting racingSetting = new RacingSetting();
+        InputStream input = new ByteArrayInputStream(testInput.getBytes());
 
-        InputStream test = new ByteArrayInputStream(testInput.getBytes());
-        System.setIn(test);
+        System.setIn(input);
         assertThatThrownBy(() -> racingSetting.getName())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 자동차 이름이 중복되었습니다 중복되지않게 적어주세요");
@@ -106,9 +107,9 @@ public class CarNameInputTest {
     void canPrintCarNameInputInformationTest(String testInput) throws Exception{
         RacingSetting racingSetting = new RacingSetting();
         String lineSeparator = System.lineSeparator();
-        InputStream test = new ByteArrayInputStream(testInput.getBytes());
+        InputStream input = new ByteArrayInputStream(testInput.getBytes());
 
-        System.setIn(test);
+        System.setIn(input);
         racingSetting.getName();
         assertThat(output.toString())
                 .isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + lineSeparator);

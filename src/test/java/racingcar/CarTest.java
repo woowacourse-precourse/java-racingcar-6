@@ -33,6 +33,7 @@ public class CarTest {
     void canMoveCarGeneralTest(int testInput) throws Exception{
         Car car = new Car("TEST");
         Method method = car.getClass().getDeclaredMethod("moveSuccessfully", int.class);
+
         method.setAccessible(true);
         boolean answer = (boolean) method.invoke(car, testInput);
         assertThat(answer).isTrue();
@@ -44,6 +45,7 @@ public class CarTest {
     void canMoveCarFailTest(int testInput) throws Exception{
         Car car = new Car("TEST");
         Method method = car.getClass().getDeclaredMethod("moveSuccessfully", int.class);
+
         method.setAccessible(true);
         boolean answer = (boolean) method.invoke(car, testInput);
         assertThat(answer).isFalse();
@@ -55,6 +57,7 @@ public class CarTest {
     void canMoveCarAfterDistanceGeneralTest(int testInput) throws Exception{
         Car car = new Car("TEST");
         Field field = car.getClass().getDeclaredField("information");
+
         field.setAccessible(true);
         car.move(testInput);
         Information information = (Information) field.get(car);
@@ -67,6 +70,7 @@ public class CarTest {
     void canMoveCarAfterDistanceFailTest(int testInput) throws Exception{
         Car car = new Car("TEST");
         Field field = car.getClass().getDeclaredField("information");
+
         field.setAccessible(true);
         car.move(testInput);
         Information information = (Information) field.get(car);
@@ -78,6 +82,7 @@ public class CarTest {
     void canPrintInformationTest() throws Exception{
         Car car = new Car("TEST");
         String lineSeparator = System.lineSeparator();
+
         car.printInformation();
         assertThat(output.toString()).isEqualTo("TEST : " + lineSeparator);
         car.move(9);
