@@ -4,6 +4,8 @@ import racingcar.constants.ExceptionMessage;
 
 public record CarName(String name) {
 
+    private static final int NAME_LENGTH_MIN = 1;
+    private static final int NAME_LENGTH_MAX = 5;
     public CarName {
         validateName(name);
     }
@@ -20,7 +22,7 @@ public record CarName(String name) {
     }
 
     private void validateLengthCarName(final String name) {
-        if (name.length() < 1 || name.length() > 5) {
+        if (name.length() < NAME_LENGTH_MIN || name.length() > NAME_LENGTH_MAX) {
             ExceptionMessage.CAR_NAME_LIMIT_EXCEEDED.throwException();
         }
     }

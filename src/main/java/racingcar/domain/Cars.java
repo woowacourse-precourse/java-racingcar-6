@@ -10,7 +10,7 @@ import racingcar.constants.ExceptionMessage;
 import racingcar.util.NumberGenerator;
 
 public record Cars(List<Car> cars) {
-
+    private static final int CARS_COUNT_MIN = 2;
     public Cars {
         validateCars(cars);
     }
@@ -40,7 +40,7 @@ public record Cars(List<Car> cars) {
     }
 
     private boolean hasMinimumCarCount(final List<Car> cars) {
-        return cars.size() < 2;
+        return cars.size() < CARS_COUNT_MIN;
     }
 
     public void moveAll(NumberGenerator numberGenerator) {

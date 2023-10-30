@@ -4,7 +4,8 @@ package racingcar.domain;
 public class Car {
 
     private final CarName carName;
-    private Position position = new Position(0);
+    private final int ZERO = 0;
+    private Position position = new Position(ZERO);
 
     public Car(final CarName carName) {
         this.carName = carName;
