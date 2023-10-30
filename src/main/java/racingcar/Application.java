@@ -2,6 +2,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -9,7 +10,7 @@ public class Application {
     static String[] carNames;
     static Long raceTime;
     // 자동차 마다 현 위치를 저장하기 위해 map을 활용하였습니다. racTime 이 Long 이기 때문에 value type 은 Long 입니다.
-    static Map<String, Long> carRace;
+    static Map<String, Long> carRace = new HashMap<>();
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -17,6 +18,7 @@ public class Application {
         inputRaceTime();
 
         playGame();
+        System.out.println("최종 우승자 : pobi");
     }
 
     public static void inputCarName() {
@@ -93,7 +95,7 @@ public class Application {
 
     public static boolean isStraight(){
         int randomNum = Randoms.pickNumberInRange(0,9);
-        return randomNum >= 5;
+        return randomNum >= 4;
     }
 
 }
