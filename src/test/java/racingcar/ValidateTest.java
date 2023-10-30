@@ -11,7 +11,7 @@ import static validate.InputValidation.validateInputLengthExceeded;
 public class ValidateTest {
 
     @Test
-    public void validateNumericInput_입력된_값에_숫자가_아닌_문자가_포함되어있으면_예외_발생() {
+    void validateNumericInput_입력된_값에_숫자가_아닌_문자가_포함되어있으면_예외_발생() {
         String input = "1a";
 
         assertThatThrownBy(() -> validateNumericInput(input))
@@ -20,7 +20,7 @@ public class ValidateTest {
      }
 
      @Test
-    public void validateInputLengthExceeded_입력된_자동차의_이름이_5글자를_초과했을때_예외_발생() {
+    void validateInputLengthExceeded_입력된_자동차의_이름이_5글자를_초과했을때_예외_발생() {
         String name = "abcdef";
 
         assertThatThrownBy(() -> validateInputLengthExceeded(name))
@@ -29,7 +29,7 @@ public class ValidateTest {
      }
 
      @Test
-    public void validateInputIsEmpty_입력된_자동차의_이름이_공백일때_예외_발생() {
+    void validateInputIsEmpty_입력된_자동차의_이름이_공백일때_예외_발생() {
         String name = "";
 
          assertThatThrownBy(() -> validateInputIsEmpty(name))
@@ -38,7 +38,7 @@ public class ValidateTest {
      }
 
      @Test
-    public void validateInputDoesNotContainSpecialCharacters_입력된_자동차의_이름이_공백이나_특수문자가_포함되었을때_예외_발생() {
+    void validateInputDoesNotContainSpecialCharacters_입력된_자동차의_이름이_공백이나_특수문자가_포함되었을때_예외_발생() {
         String name1 = "a*c";
         String name2 = "a b";
         String name3 = " ";

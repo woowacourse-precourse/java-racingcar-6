@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CarTest {
 
     @Test
-    public void getRandomNumberBetweenZeroAndNine_랜덤_번호_0_9_사이의_값을_반환() {
+    void getRandomNumberBetweenZeroAndNine_랜덤_번호_0_9_사이의_값을_반환() {
         List<Integer> arr = new ArrayList<>();
         Car car = new Car("test");
 
@@ -24,7 +24,7 @@ public class CarTest {
 
     }
     @Test
-    public void movingForward_자동차_앞으로_전진() {
+    void movingForward_자동차_앞으로_전진() {
         assertRandomNumberInRangeTest(
                 () -> {
                     Car car = new Car("test");
