@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -127,14 +129,17 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 이름에_대한_예외_처리_빈문자열() {
-
+    @ParameterizedTest
+    @ValueSource(strings = {"wtc,,prcs", "wtc, ,prcs", "wtc,　,prcs"})
+    void 이름에_대한_예외_처리_빈문자열(String carNamesInput) {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(carNamesInput, "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("Not valid input: car names"));
     }
 
     @Test
     void 시도회수_예외_처리_숫자가아닐때() {
-
     }
 
     @Test
