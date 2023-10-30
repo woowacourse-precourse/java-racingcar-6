@@ -7,7 +7,6 @@ import java.util.List;
 public class UserInput {
     private static final String ASK_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String ASK_GAME_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
-
     private static final String CAR_NAMES_DELIMETER = ",";
 
     public List<String> readCarNames() {
@@ -34,9 +33,6 @@ public class UserInput {
         return Arrays.stream(names.split(CAR_NAMES_DELIMETER)).toList();
     }
 
-    /**
-     * 처음 String으로 입력된 Input 상태에서 ,(쉼표) 위치에 따른 예외처리
-     */
     private void validateInputComma(String carName) throws IllegalArgumentException {
         validateFirstComma(carName);
 
@@ -65,9 +61,6 @@ public class UserInput {
         }
     }
 
-    /**
-     * List<String> 으로 쪼갠 각각의 Car 이름형태에 대한 예외처리
-     */
     private void validateCarNamesList(List<String> names) throws IllegalArgumentException {
         validateCarNamesLength(names);
 
@@ -94,9 +87,6 @@ public class UserInput {
         }
     }
 
-    /**
-     * gameCount 입력에 대한 예외처리
-     */
     private void validateGameCount(String gameCount) throws IllegalArgumentException {
         //숫자가 아닌 경우
         validateGameCountNotNumber(gameCount);
