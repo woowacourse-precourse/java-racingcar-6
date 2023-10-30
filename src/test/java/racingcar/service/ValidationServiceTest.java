@@ -62,4 +62,23 @@ class ValidationServiceTest {
 
         assertThat(exception.getMessage()).isEqualTo(DUPLICATE_INPUT_ERROR.getMessage());
     }
+
+    @Test
+    @DisplayName("시도 횟수를 올바르게 입력한다.")
+    void validateNumericInputTest() {
+        ValidationService validationService = new ValidationService();
+        String countInput = "5";
+        validationService.validateNumericInput(countInput);
+    }
+
+    @ParameterizedTest
+    @DisplayName("시도 횟수가 수가 아닌 경우, 예외 처리한다.")
+    @CsvSource({"A", "5.5", "''", "' '"})
+    void validateNumericInputTest2(String countInput) {
+        ValidationService validationService = new ValidationService();
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> validationService.validateNumericInput(countInput));
+
+        assertThat(exception.getMessage()).isEqualTo(NUMERIC_INPUT_ERROR.getMessage());
+    }
 }
