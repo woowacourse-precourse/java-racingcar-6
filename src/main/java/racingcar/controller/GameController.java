@@ -2,9 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Cars;
 import racingcar.model.PlayCount;
-import racingcar.model.converter.WinnersConverter;
 import racingcar.model.dto.CarResponse;
-import racingcar.model.dto.WinnerResponse;
 import racingcar.model.randomnumber.RandomNumber;
 import racingcar.view.input.InputView;
 import racingcar.view.output.OutputView;
@@ -50,7 +48,12 @@ public class GameController {
     }
 
     private void printWinners(final Cars cars) {
-        List<WinnerResponse> winners = WinnersConverter.fromEntity(cars);
+        int maxPosition = cars.calculateWinnersPosition();
+        List<CarResponse> winners = cars.getCars()
+                .stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(car -> CarResponse.of(car.getName(), car.getPosition()))
+                .toList();
 
         outputView.printWinners(winners);
     }

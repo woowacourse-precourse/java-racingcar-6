@@ -38,9 +38,9 @@ public class ConsoleOutputView implements OutputView {
     }
 
     @Override
-    public void printWinners(final List<WinnerResponse> winners) {
+    public void printWinners(final List<CarResponse> winners) {
         List<String> winnerNames = winners.stream()
-                .map(WinnerResponse::getName)
+                .map(CarResponse::getName)
                 .toList();
 
         System.out.println("최종 우승자 : " + String.join(WINNER_JOINER, winnerNames));

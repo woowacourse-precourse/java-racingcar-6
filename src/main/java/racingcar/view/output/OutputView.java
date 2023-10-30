@@ -11,5 +11,5 @@ public interface OutputView {
     void printResult();
     void printEachCarStatus(final List<CarResponse> cars);
     void printBlankLine();
-    void printWinners(final List<WinnerResponse> winners);
+    void printWinners(final List<CarResponse> winners);
 }
