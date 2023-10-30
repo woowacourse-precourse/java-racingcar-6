@@ -7,14 +7,14 @@ import java.util.Map;
 
 public class GameRepository {
     public GameRepository() {
-        this.id = 0;
+        this.id = 0l;
     }
 
-    Map<Integer, Game> gameMap = new HashMap<Integer, Game>();
-    Integer id;
-    public Game save(Integer playCount) {
+    Map<Long, Game> gameMap = new HashMap<Long, Game>();
+    Long id;
+    public Long save(Long playCount) {
         Game saveGame = new Game(playCount);
-        gameMap.put(id++, saveGame);
-        return saveGame;
+        gameMap.put(id, saveGame);
+        return id++;
     }
 }
