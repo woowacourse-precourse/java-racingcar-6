@@ -13,7 +13,7 @@
 ### 사용자 출력 기능 - [OutputView](../src/main/java/racingcar/view/OutputView.java)
 
 - [x] 각 차수별 실행 결과를 출력한다. #printResult()
-- [ ] 우승자 안내 문구를 출력한다.
+- [x] 우승자 안내 문구를 출력한다. #printWinnerNames()
     - 단독 우승자 안내 문구는 `최종 우승자 : {이름}`을 따른다.
     - 공동 우승자 안내 문구는 `최종 우승자 : {이름1}, {이름2}`를 따른다. (공동 우승자는 `,` 로 구분한다.)
 
@@ -21,7 +21,7 @@
 
 - [x] 자동차를 생성하라고 지시한다. #generateCars()
 - [x] 자동차 경주 게임을 진행하라 지시한다. #racing()
-- [ ] 결과를 출력하라고 지시한다.
+- [x] 결과를 출력하라고 지시한다. #printResult()
 
 ### 자동차 리스트 기능 - [Cars](../src/main/java/racingcar/model/Cars.java)
 
