@@ -33,8 +33,10 @@ public class Application {
             carRace.forwardInRace();
             carRace.printAllCarAndAdvance();
         }
-        carRace.findWinner();
-        carRace.printWinner();
+
+        //4.winner 찾기
+        Winner winner=new Winner(carRace.CarsNameAndForwardTimes);
+        winner.printWinner();
 
 
 
