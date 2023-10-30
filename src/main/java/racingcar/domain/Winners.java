@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Winners {
@@ -15,10 +17,19 @@ public class Winners {
     }
 
     public String getWinnerName() {
-        int fastestCar = cars.findFastestCar();
+        int fastestCar = findFastestCar();
         return cars.stream()
                 .filter(car -> car.isWinner(fastestCar))
                 .map(Car::getName)
                 .collect(Collectors.joining(WINNER_DELIMITER));
     }
+
+    private int findFastestCar() {
+        List<Integer> carRanks = cars.stream()
+                .sorted(Comparator.comparing(Car::getPosition).reversed())
+                .map(Car::getPosition)
+                .collect(Collectors.toList());
+        return carRanks.get(0);
+    }
+
 }
