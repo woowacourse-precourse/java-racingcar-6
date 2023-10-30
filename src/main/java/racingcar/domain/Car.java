@@ -14,6 +14,11 @@ public class Car implements Comparable<Car>{
         this.randomUtil = randomUtil;
     }
 
+    public Car(String name, Integer moveDistance) {
+        this.name = name;
+        this.moveDistance = moveDistance;
+    }
+
     public void move() {
         if (canMove()) {
             this.moveDistance += 1;
