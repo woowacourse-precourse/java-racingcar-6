@@ -6,13 +6,14 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.stream.IntStream;
 
 import static racingcar.Constants.*;
 
 public class Util {
 
     public static ArrayList<String> carNamesToArrayList(String carNames) {
-        return new ArrayList<>(Arrays.asList(carNames.split(Constants.DELIMETER)));
+        return new ArrayList<>(Arrays.asList(carNames.split(DELIMETER)));
     }
 
     public static int getRandomNum(){
@@ -43,8 +44,15 @@ public class Util {
 
     // 최종 우승자 출력
     public static void printWinner(ArrayList<String> winners) {
-        System.out.print(Constants.WINNER_MESSAGE);
+        System.out.print(WINNER_MESSAGE);
         System.out.println(String.join(DELIMETER+" ", winners));
+    }
+
+    // 점수 출력
+    public static void printScore(int score) {
+        StringBuilder scores = new StringBuilder(" ");
+        IntStream.range(0, score).forEach(i -> scores.append(SCORE));
+        System.out.print(scores);
     }
 
 }
