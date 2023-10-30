@@ -19,7 +19,6 @@ public class GameController {
     private static void setGame() {
         String[] carNames = InputView.inputCarNames();
         racingCarGame = Cars.from(carNames);
-
         round = InputView.inputRoundNumber();
     }
 

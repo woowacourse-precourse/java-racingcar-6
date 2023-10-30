@@ -7,6 +7,7 @@ public enum UtilConstant {
     SEPARATOR(44);
 
     private int value;
+
     UtilConstant(int constant) {
         this.value = constant;
     }

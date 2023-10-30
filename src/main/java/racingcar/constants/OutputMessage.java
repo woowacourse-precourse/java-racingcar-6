@@ -5,7 +5,6 @@ public enum OutputMessage {
     PLAY_RESULT_MESSAGE("\n실행 결과"),
     WINNER_MESSAGE("최종 우승자 :"),
 
-
     SEPARATOR(","),
     SPACE(" "),
     COLON(" : "),
