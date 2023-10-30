@@ -17,6 +17,10 @@ public class RacingController {
     String carStrings = io.startCarInput();
     return cs.StringConvertList(carStrings);
   }
+  public int tryCycle(){
+    String tryString = io.tryCycleInput();
+    return cs.StringConvertInt(tryString);
+  }
 
   public List<CarVO> racingCarList(List<String> carStringList){
     return rs.setCarListName(carStringList);

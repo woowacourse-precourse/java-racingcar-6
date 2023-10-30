@@ -21,17 +21,13 @@ public class Application {
       throw new IllegalArgumentException();
     }
 
-    // 변화 포인트
     List<CarVO> racingCarList = rc.racingCarList(carStringList);
 
+    // 변화 포인트
+    int tryCycleChoice = rc.tryCycle();
 
 
-
-    System.out.println("시도할 회수는 몇회인가요?");
-    String inputCycleString = Console.readLine();
-    int tryCycle = cs.StringConvertInt(inputCycleString);
-
-    for (int i = 0; i < tryCycle; i++) {
+    for (int i = 0; i < tryCycleChoice; i++) {
       for(CarVO car : racingCarList){
         int randomNumber = Randoms.pickNumberInRange(1,9);
         if(randomNumber > 3){
