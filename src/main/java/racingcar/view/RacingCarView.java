@@ -21,7 +21,7 @@ public class RacingCarView {
         System.out.println(ASKING_NUMBER_OF_RETRIES);
     }
 
-    public void printResultPerRacing() {
+    public void printResultMessage() {
         System.out.println(RESULT_PER_RACING);
     }
 

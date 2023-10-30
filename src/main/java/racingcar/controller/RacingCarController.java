@@ -41,7 +41,7 @@ public class RacingCarController {
     }
 
     private void startRacingCar(Integer numberOfRetries) {
-        racingCarView.printResultPerRacing();
+        racingCarView.printResultMessage();
         startAllRetries(numberOfRetries);
     }
 
