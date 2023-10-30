@@ -10,6 +10,14 @@ public class Car {
 
     private int position;
 
+    private final static int START_INCLUSIVE=0;
+
+    private final static int END_INCLUSIVE=9;
+
+    private final static int ALLOWABLE_NAME_LENGTH=5;
+
+    private final static int MIN_FORWARD_MOVEMENT=4;
+
     public Car(){
         carNameList=new ArrayList<>();
     }
