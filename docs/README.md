@@ -46,7 +46,8 @@
 #### 멤버 변수
 
 ---
-
+- `private GameUtil gameUtil`
+  - 각종 문구를 가공하고 출력해줄 gameUtil
 - `private List<Racer> racerList`
   - 게임에 사용될 Racer들
 - `private int moveCount`
@@ -101,7 +102,7 @@
 ---
 
 ##### 각 차수 결과를 실행해주는 메소드
-- signature : `public static void printEachResult()`
+- signature : `public void printEachResult()`
 - return : void
 - description
   - `String.format`메소드를 활용해 각 `Racer`마다 이름과 차수결과를 오른쪽 정렬한다.
@@ -109,7 +110,7 @@
   - 모든 `Racer`의 결과를 담았다면 출력한다.
 
 ##### 입력받은 문자열을 이름으로 바꿔주는 메소드
-- signature : `public static String[] inputToNameArr(String input)`
+- signature : `public String[] inputToNameArr(String input)`
 - parameters
   - input : 유저가 입력한 이름들
 - error : `IllegalArgumentException`
