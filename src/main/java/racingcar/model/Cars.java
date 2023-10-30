@@ -17,6 +17,13 @@ public class Cars {
         this.cars = createdCars;
     }
 
+    public int maxDistance() {
+        return cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .getAsInt();
+    }
+
 
     public int carsSize() {
         return cars.size();
