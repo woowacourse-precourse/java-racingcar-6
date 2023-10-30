@@ -11,7 +11,6 @@ public class TryCountValidator {
 
     public TryCountValidator(String tryCount) {
         this.tryCount = tryCount;
-        validateAll();
     }
 
     public void validateAll() {

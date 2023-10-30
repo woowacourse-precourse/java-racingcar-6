@@ -1,13 +1,13 @@
 package racingcar.domain.validator;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_INTEGER;
 import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_POSITIVE;
 import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_PROVIDED;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.validator.TryCountValidator;
 
 class TryCountValidatorTest {
 
@@ -30,8 +30,10 @@ class TryCountValidatorTest {
         String invalidTryCount = "";
 
         // when
+        TryCountValidator tryCountValidator = new TryCountValidator(invalidTryCount);
+
         // then
-        assertThatThrownBy(() -> new TryCountValidator(invalidTryCount))
+        assertThatThrownBy(tryCountValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(TRY_COUNT_NOT_PROVIDED);
     }
@@ -43,8 +45,10 @@ class TryCountValidatorTest {
         String invalidTryCount = "akb1";
 
         // when
+        TryCountValidator tryCountValidator = new TryCountValidator(invalidTryCount);
+
         // then
-        assertThatThrownBy(() -> new TryCountValidator(invalidTryCount))
+        assertThatThrownBy(tryCountValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(TRY_COUNT_NOT_INTEGER);
     }
@@ -56,8 +60,10 @@ class TryCountValidatorTest {
         String invalidTryCount = "-3";
 
         // when
+        TryCountValidator tryCountValidator = new TryCountValidator(invalidTryCount);
+
         // then
-        assertThatThrownBy(() -> new TryCountValidator(invalidTryCount))
+        assertThatThrownBy(tryCountValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(TRY_COUNT_NOT_POSITIVE);
     }
