@@ -27,9 +27,31 @@ public class Application {
             // carNames : [pobi, woni, jun]
             // tryCount : 5
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            String[] carMovements = new String[carNames.size()];
+
+            System.out.println("실행 결과");
+
+            for (int i = 0; i < tryCount; i++) {
+                for (int j = 0; j < carNames.size(); j++) {
+                    int randomNumber = Randoms.pickNumberInRange(0, 9);
+                    String carMovement = CarMotionController.carMotion(randomNumber);
+                    addMovement(carMovements, j, carMovement);
+
+                    System.out.println(carNames.get(j) + " : " + carMovement);
+                }
+            }
+
+        } catch (NoSuchElementException e) {
+            throw new IllegalArgumentException(e.getMessage());
         }
 
+    }
+
+    private static void addMovement(String[] carMovements, int index, String carMovement) {
+        if (carMovements[index] == null) {
+            carMovements[index] = carMovement;
+        } else {
+            carMovements[index] += carMovement;
+        }
     }
 }
