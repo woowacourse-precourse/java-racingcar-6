@@ -13,31 +13,23 @@ public class RacingInputController {
     private final RacingInputView racingInputView = new RacingInputView();
 
     public RacingCars createRacingCars() {
-        try {
-            List<String> carNames = parseCarName(racingInputView.inputCarName());
+        List<String> carNames = parseCarName(racingInputView.inputCarName());
 
-            CarNameValidator carNameValidator = new CarNameValidator(carNames);
-            carNameValidator.validateAll();
+        CarNameValidator carNameValidator = new CarNameValidator(carNames);
+        carNameValidator.validateAll();
 
-            return new RacingCars(carNames);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return this.createRacingCars();
-        }
+        return new RacingCars(carNames);
+
     }
 
     public int createTryCount() {
-        try {
-            final String tryCount = racingInputView.inputTryCount();
+        final String tryCount = racingInputView.inputTryCount();
 
-            TryCountValidator tryCountValidator = new TryCountValidator(tryCount);
-            tryCountValidator.validateAll();
+        TryCountValidator tryCountValidator = new TryCountValidator(tryCount);
+        tryCountValidator.validateAll();
 
-            return Integer.parseInt(tryCount);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return this.createTryCount();
-        }
+        return Integer.parseInt(tryCount);
+
     }
 
 }
