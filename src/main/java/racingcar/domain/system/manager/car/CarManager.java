@@ -13,4 +13,6 @@ public interface CarManager {
     SavedCar findByName(CarName carName);
 
     List<SavedCar> findAll();
+
+    List<SavedCar> findAll(List<CarKey> keys);
 }
