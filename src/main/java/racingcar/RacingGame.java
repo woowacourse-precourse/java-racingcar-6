@@ -38,6 +38,24 @@ public class RacingGame {
     private static void inputTryNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
         String stringNumber = Console.readLine();
+        isCorrectNumber(stringNumber);
         tryNumber = Integer.parseInt(stringNumber);
+    }
+    private static void isCorrectNumber(String stringNumber){
+        isWrongInput(isNotNumber(stringNumber));
+        isWrongInput(isNotInRange(stringNumber));
+    }
+    private static boolean isNotNumber(String stringNumber){
+        try{
+            Integer.parseInt(stringNumber);
+            return false;
+        }
+        catch(NumberFormatException e){
+            return true;
+        }
+    }
+    private static boolean isNotInRange(String stringNumber){
+        int number = Integer.parseInt(stringNumber);
+        return (number <= 0);
     }
 }
