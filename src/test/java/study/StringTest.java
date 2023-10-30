@@ -214,4 +214,13 @@ public class StringTest {
                 EnumSet.of(TimeUnit.DAYS, TimeUnit.HOURS).contains(inputTimeUnit)
         );
     }
+
+    @DisplayName("contains_을_활용한_하나라도_포함이_되어있으면_테스트_통과")
+    @Test
+    public void contains_을_활용한_하나라도_포함이_되어있으면_테스트_통과() throws Exception {
+        String input = "1,,23";
+        String[] result = input.split(",");
+
+        assertThat(result).contains("1");
+    }
 }
