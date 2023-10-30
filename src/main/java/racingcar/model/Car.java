@@ -24,4 +24,8 @@ public class Car {
     public void setLocation(Integer location) {
         this.location = location;
     }
+
+    public void moveForward(){
+        this.location++;
+    }
 }
