@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Car {
 
     private static final int MOVABLE_LOWER_BOUND = 4;
-    private static final String INDICATOR_PER_MOVE = "-";
+    private static final String CAR_TRACE_INDICATOR = "-";
     private static final int UPPER_BOUND_NAME_LENGTH = 5;
     private static final int LOWER_BOUND_NAME_LENGTH = 1;
     private static final String ERROR_NAME_IS_TOO_LONG = "5자 이하의 이름만 입력해주세요";
@@ -59,19 +59,22 @@ public class Car {
     }
 
     private void moveForward() {
-        mileage.append(INDICATOR_PER_MOVE);
+        mileage.append(CAR_TRACE_INDICATOR);
     }
 
-    public int getMileageAsInt() {
-        return mileage.toString().length();
+    public int getMileageInt() {
+        return getMileageString().length();
+    }
+
+    private String getMileageString() {
+        return mileage.toString();
     }
 
     public String getName() {
         return name;
     }
 
-    @Override
-    public String toString() {
+    public String getStatus() {
         return String.format(STATUS_MESSAGE_FORMAT, getName(), mileage);
     }
 }

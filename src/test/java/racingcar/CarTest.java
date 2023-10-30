@@ -50,7 +50,7 @@ class CarTest {
             Car car = Car.createCarByName("abc");
             car.moveForwardOrStop();
 
-            assertThat(car.getMileageAsInt()).isEqualTo(1);
+            assertThat(car.getMileageInt()).isEqualTo(1);
         }
     }
 
@@ -62,7 +62,7 @@ class CarTest {
             Car car = Car.createCarByName("abc");
             car.moveForwardOrStop();
 
-            assertThat(car.getMileageAsInt()).isEqualTo(0);
+            assertThat(car.getMileageInt()).isEqualTo(0);
         }
     }
 
@@ -75,7 +75,7 @@ class CarTest {
             Car car = Car.createCarByName("abc");
             car.moveForwardOrStop();
 
-            assertThat(car.toString()).isEqualTo("abc : -");
+            assertThat(car.getStatus()).isEqualTo("abc : -");
         }
     }
 
@@ -87,7 +87,7 @@ class CarTest {
             Car car = Car.createCarByName("abc");
             car.moveForwardOrStop();
 
-            assertThat(car.toString()).isEqualTo("abc : ");
+            assertThat(car.getStatus()).isEqualTo("abc : ");
         }
     }
 
