@@ -44,6 +44,24 @@ public class ValidatorTest extends NsTest {
     }
 
 
+    @Test
+    void 자동차_입력_길이_테스트1() {
+        Car car = new Car("robinh");
+        Validator validator = new Validator();
+
+        assertThatThrownBy(() -> validator.checkCarNameForm(car.getName()))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContainingAll("자동차 이름으 길이는 5이하 입니다.");
+    }
+
+    @Test
+    void 자동차_입력_길이_테스트2() {
+        Car car = new Car("robin");
+        Validator validator = new Validator();
+
+        assertThatCode(() -> validator.checkCarNameForm(car.getName()))
+                .doesNotThrowAnyException();
+    }
 
 
     @Override
