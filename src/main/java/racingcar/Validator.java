@@ -24,4 +24,11 @@ public class Validator {
         });
     }
 
+    public static void validateTrialCount(String trialNumber) {
+        if (trialNumber.matches("\\d+")) {
+            return;
+        }
+        throw new IllegalArgumentException("[ERROR] 숫자만 입력해주세요.");
+    }
+
 }
