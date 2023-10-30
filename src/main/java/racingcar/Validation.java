@@ -33,6 +33,12 @@ public class Validation {
     }
 
     private static int validateInteger(String input){
-        return 0;
+        int moveNumber;
+        try {
+            moveNumber = Integer.parseInt(input);
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException(INPUT_NUMBER_EXCEPTION_MSG);
+        }
+        return moveNumber;
     }
 }
