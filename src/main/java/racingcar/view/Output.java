@@ -3,7 +3,6 @@ package racingcar.view;
 import racingcar.domain.Car;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Output {
 
@@ -35,13 +34,8 @@ public class Output {
         System.out.println();
     }
 
-    public void showWinners(List<Car> winners) {
-        String winnerNames
-                = winners.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(WINNER_DELIMITER));
-
-        String formattedWinner = String.format(WINNER_FORMAT, winnerNames);
+    public void showWinners(List<String> winners) {
+        String formattedWinner = String.format(WINNER_FORMAT, String.join(WINNER_DELIMITER, winners));
         System.out.println(formattedWinner);
     }
 }

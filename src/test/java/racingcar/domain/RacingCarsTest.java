@@ -28,9 +28,9 @@ class RacingCarsTest {
         pobiCar.move(4);
 
         //when
-        List<Car> winners = racingCars.findWinners();
+        List<String> winners = racingCars.findWinners();
 
         //then
-        assertThat(winners).containsExactly(pobiCar);
+        assertThat(winners).containsExactly(pobiCar.getName());
     }
 }

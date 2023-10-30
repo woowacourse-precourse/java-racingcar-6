@@ -38,10 +38,11 @@ public class RacingCars {
         return cars;
     }
 
-    public List<Car> findWinners() {
+    public List<String> findWinners() {
         int maxMove = getMaxMove();
         return cars.stream()
                 .filter(car -> car.isMaxMove(maxMove))
+                .map(Car::getName)
                 .toList();
     }
 
