@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class LeaderBoard {
     private final List<LinkedHashMap<String, Integer>> paceMapList = new ArrayList<>();
@@ -31,16 +33,22 @@ public class LeaderBoard {
     }
 
     private void showResult(LinkedHashMap<String, Integer> paceMap) {
-        int largestDriveNumber = paceMap.values().stream().max(Integer::compareTo).orElse(0);
-
-        String winners = paceMap
-                .entrySet()
-                .stream()
-                .filter(paceMapInSet -> paceMapInSet.getValue().equals(largestDriveNumber))
-                .map(Map.Entry::getKey)
-                .collect(Collectors.joining(", "));
+        String winners = pickWinners(paceMap);
 
         System.out.print("최종 우승자 : " + winners);
+    }
+
+    private String pickWinners(LinkedHashMap<String, Integer> paceMap) {
+        int largestDriveNumber = paceMap.values().stream().max(Integer::compareTo).orElse(0);
+
+        Stream<Entry<String, Integer>> winnersInPaceMapStream =
+                paceMap.entrySet()
+                        .stream()
+                        .filter(paceMapInSet -> paceMapInSet.getValue().equals(largestDriveNumber));
+
+        Stream<String> winnersInStream = winnersInPaceMapStream.map(Map.Entry::getKey);
+
+        return winnersInStream.collect(Collectors.joining(", "));
     }
 
     private String convertPaceToGraphic(int driveSuccessNumber) {
