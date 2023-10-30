@@ -7,15 +7,15 @@ public class Car {
     private static final int MAX_NUM = 9;
     private static final int MOVE_NUM = 4;
 
-    private CarName name;
+    private String name;
     private int score = 0;
 
-    public Car(CarName name) {
+    public Car(String name) {
         this.name = name;
     }
 
     public String getName() {
-        return name.getName();
+        return name;
     }
 
     public int getScore() {

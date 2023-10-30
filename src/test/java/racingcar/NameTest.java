@@ -1,7 +1,6 @@
 package racingcar;
 
 import domain.Car;
-import domain.CarName;
 import domain.Cars;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,7 +30,7 @@ public class NameTest {
         Cars cars = new Cars();
 
         InputView.inputCarNames()
-                .forEach(name -> cars.insertCar(new Car(new CarName(name))));
+                .forEach(name -> cars.insertCar(new Car(name)));
         List<String> carNames = cars.getCars().stream()
                 .map(Car::getName)
                 .toList();

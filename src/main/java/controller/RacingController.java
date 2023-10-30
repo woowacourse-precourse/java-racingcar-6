@@ -1,7 +1,6 @@
 package controller;
 
 import domain.Car;
-import domain.CarName;
 import domain.Cars;
 import view.InputView;
 import view.OutputView;
@@ -22,7 +21,7 @@ public class RacingController {
 
     public void initCars() {
         InputView.inputCarNames().forEach(name
-                -> cars.insertCar(new Car(new CarName(name))));
+                -> cars.insertCar(new Car(name)));
         cars.setTryCount(InputView.inputTryCount());
     }
 
