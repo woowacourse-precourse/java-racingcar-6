@@ -18,8 +18,8 @@ public class Racer {
         return name;
     }
 
-    public StringBuilder getScore() {
-        return score;
+    public String getScore() {
+        return score.toString();
     }
 }
 
