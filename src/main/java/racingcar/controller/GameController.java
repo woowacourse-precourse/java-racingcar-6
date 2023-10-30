@@ -14,7 +14,7 @@ public class GameController {
     }
 
     public void run() {
-        int attemptNum, idx = 0;
+        int attemptNum;
         List<String> carNames = inputName();
 
         gameService.nameCheck(carNames);
@@ -24,12 +24,17 @@ public class GameController {
         outputResult();
 
         while (attemptNum != 0) {
-            while (idx != carNames.size()) {
-                outputForward(gameService.playGame(idx));
-                idx++;
-            }
+            play(carNames.size());
             attemptNum--;
         }
         outputWinner(gameService.resultGame());
+    }
+
+    private void play(int totalCarCount) {
+        int idx = 0;
+        while (idx !=totalCarCount) {
+            outputForward(gameService.playGame(idx));
+            idx++;
+        }
     }
 }
