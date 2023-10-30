@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-public abstract class ConsolePrintTest {
+public abstract class IOTest {
     private PrintStream standardOut;
     private OutputStream captor;
 
