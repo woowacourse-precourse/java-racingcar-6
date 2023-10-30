@@ -26,11 +26,11 @@
 |---|------------------------------------------------------------------------------|
 | ✔ | 게임 시작 문구 출력                                                                  |
 | ✔ | 사용자에게 n대의 자동차 이름을 입력받음                                                       |
-|   | 입력: `camp.nextstep.edu.missionutils.Console`의 `readLine()` 사용                |
-|   | 자동차 이름이 쉼표로 구분되었는지 확인                                                        |
-|   | 쉼표로 구분되어 있지 않으면 `IllegalArgumentException` 발생하고 종료                           |
-|   | 구분된 자동차 이름이 각자 5자 이하인지 확인                                                    |
-|   | 5자 이하가 아닌 경우 `IllegalArgumentException` 발생하고 종료                              |
+| ✔ | 입력: `camp.nextstep.edu.missionutils.Console`의 `readLine()` 사용                |
+| ✔ | 자동차 이름이 쉼표로 구분되었는지 확인                                                        |
+| ✔ | 쉼표로 구분되어 있지 않으면 `IllegalArgumentException` 발생하고 종료                           |
+| ✔ | 구분된 자동차 이름이 각자 5자 이하인지 확인                                                    |
+| ✔ | 5자 이하가 아닌 경우 `IllegalArgumentException` 발생하고 종료                              |
 |   | 시도할 횟수 문구 출력                                                                 |
 |   | 사용자에게 시도 횟수 n번을 입력받음                                                         |
 |   | 숫자가 아닌 입력을 받은 경우 `IllegalArgumentException` 발생하고 종료                          |
