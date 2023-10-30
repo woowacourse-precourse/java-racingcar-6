@@ -4,8 +4,8 @@ import java.util.Objects;
 import racingcar.exception.ErrorException;
 
 public class Car {
-    public static final int DISTANCE_INIT_VALUE = 0;
-    public static final int CAR_NAME_STANDARD_LENGTH = 5;
+    private static final int DISTANCE_INIT_VALUE = 0;
+    private static final int CAR_NAME_STANDARD_LENGTH = 5;
     private final String carName;
     private int distance;
 

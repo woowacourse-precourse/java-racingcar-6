@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
 import racingcar.exception.ErrorException;
 
 public class RegisterCarNamesInputView implements InputView<String> {
-    public static final Pattern CAR_NAME_PATTERN = Pattern.compile("^([a-zA-Z],?)+$");
-    public static final String WHITE_SPACE_REGEX = " ";
-    public static final String TRIM_REGEX = "";
-    public static final int EMPTY_VALUE = 0;
+    private static final Pattern CAR_NAME_PATTERN = Pattern.compile("^([a-zA-Z],?)+$");
+    private static final String WHITE_SPACE_REGEX = " ";
+    private static final String TRIM_REGEX = "";
+    private static final int EMPTY_VALUE = 0;
 
     @Override
     public String input(Map<String, Object> model) {

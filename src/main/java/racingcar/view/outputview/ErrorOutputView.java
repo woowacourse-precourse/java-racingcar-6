@@ -5,7 +5,7 @@ import racingcar.controller.AbstractController;
 
 public class ErrorOutputView implements OutputView {
     private static final String ERROR_PREFIX = "[ERROR]";
-    public static final String ERROR_FORMAT = "%s %s\n";
+    private static final String ERROR_FORMAT = "%s %s\n";
 
     @Override
     public void print(Map<String, Object> model) {

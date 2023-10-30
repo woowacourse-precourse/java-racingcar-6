@@ -8,7 +8,7 @@ import racingcar.exception.ErrorException;
 
 public class RegisterRoundInputView implements InputView<String> {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]+$");
-    public static final char ZERO = '0';
+    private static final char ZERO = '0';
 
     private void validate(String inputRound) {
         hasValidCharacters(inputRound);

@@ -7,9 +7,9 @@ import racingcar.controller.RegisterCarNamesController;
 import racingcar.model.RacingCars;
 
 public class RacingResultOutputView implements OutputView {
-    public static final String JOIN_COMMA = ", ";
-    public static final String FINAL_RESULT_FORMAT = "%s : %s\n";
-    public static final String FINAL_RESULT_PREFIX = "최종 우승자";
+    private static final String JOIN_COMMA = ", ";
+    private static final String FINAL_RESULT_FORMAT = "%s : %s\n";
+    private static final String FINAL_RESULT_PREFIX = "최종 우승자";
 
     @Override
     public void print(Map<String, Object> model) {

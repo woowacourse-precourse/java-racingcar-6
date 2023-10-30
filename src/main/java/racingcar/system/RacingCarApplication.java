@@ -15,10 +15,10 @@ import racingcar.view.outputview.RegisterCarNamesOutputView;
 import racingcar.view.outputview.RegisterRoundOutputView;
 
 public class RacingCarApplication {
-    public static final String REGISTER_CARS_PATH = "registerCars";
-    public static final String REGISTER_ROUND_PATH = "registerRound";
-    public static final String DISPLAY_ROUND_PATH = "displayRound";
-    public static final String RACING_RESULT_PATH = "racingResult";
+    private static final String REGISTER_CARS_PATH = "registerCars";
+    private static final String REGISTER_ROUND_PATH = "registerRound";
+    private static final String DISPLAY_ROUND_PATH = "displayRound";
+    private static final String RACING_RESULT_PATH = "racingResult";
     private final Map<String, Controller> controllerMap = new HashMap<>();
 
     public RacingCarApplication() {

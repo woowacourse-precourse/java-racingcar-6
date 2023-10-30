@@ -11,9 +11,9 @@ import racingcar.model.Round;
 
 public class DisplayRoundOutputView implements OutputView {
     private static final String DASH = "-";
-    public static final String NAME_DASH_FORMAT = "%s : %s\n";
-    public static final String DISPLAY_START_MESSAGE = "실행 결과";
-    public static final int START_WITH_ZERO = 0;
+    private static final String NAME_DASH_FORMAT = "%s : %s\n";
+    private static final String DISPLAY_START_MESSAGE = "실행 결과";
+    private static final int START_WITH_ZERO = 0;
 
     @Override
     public void print(Map<String, Object> model) {

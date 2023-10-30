@@ -6,7 +6,7 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class StringToCarList {
-    public static final String COMMA = ",";
+    private static final String COMMA = ",";
 
     public static List<Car> convert(String input) {
         List<Car> registeredCars = new ArrayList<>();
