@@ -25,6 +25,15 @@ public class CarStorage {
     public static void addWinner(Car winner) {
         winners.add(winner);
     }
+    public static Integer getMaxSteps() {
+        Integer maxSteps = 0;
+        for (Integer steps : getStepsList()) {
+            if (steps > maxSteps) {
+                maxSteps = steps;
+            }
+        }
+        return maxSteps;
+    }
     private static List<Integer> getStepsList() {
         for (Car car : cars) {
             stepsList.add(car.steps());
