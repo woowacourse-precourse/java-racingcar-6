@@ -15,7 +15,7 @@
   - [x] 각 자동차별로 0부터 9까지 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
   - [x] 값이 4 이상인 경우 전진, 그렇지 않으면 멈춘다.- Judgment#isMoveOrStop()
 - [x] 각 회차별 경주 현황을 출력한다. - OutputView#displayRaceStatus()
-- [x] 모든 회차가 끝나면 결과를 비교하여 최종 우승자를 가린다. - Referee#compareRaceStatus()
+- [x] 모든 회차가 끝나면 결과를 비교하여 최종 우승자를 가린다. - Referee#determineWinner()
   - [x] 누가 가장 많이 전진했는지 비교할 수 있다. 
   - [x] 우승자는 가장 많이 전진한 자동차이다.
-- [ ] 최종 우승자를 출력하고 게임은 종료된다. - OutputView#displayWinner()
+- [x] 최종 우승자를 출력하고 게임은 종료된다. - OutputView#displayWinner()
