@@ -6,6 +6,7 @@ import racingcar.model.Car;
 import racingcar.model.CarFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GameService {
@@ -39,5 +40,20 @@ public class GameService {
                     return car.getStatus();
                 })
                 .toList();
+    }
+
+    public List<String> getWinners() {
+        int maximumDistance = getMaximumDistance();
+        return cars.stream()
+                .filter(car -> car.isWinner(maximumDistance))
+                .map(car -> car.getStatus().carName())
+                .toList();
+    }
+
+    private int getMaximumDistance() {
+        List<Integer> carPositions = cars.stream()
+                .map(car -> car.getStatus().position())
+                .toList();
+        return Collections.max(carPositions);
     }
 }
