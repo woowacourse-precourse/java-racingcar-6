@@ -9,7 +9,7 @@ import racingcar.Validator.CarNameValidatorImpl;
 public class CarModelImpl implements CarModel {
 
     public Factory factory = new Factory();
-    public final CarNameValidator carNameValidatorImpl = factory.getCarNameValidator();
+    private final CarNameValidator carNameValidatorImpl = factory.getCarNameValidator();
     private static final String DELIMITER = ",";
     public CarGroup preProcessing(String carNames) {
         List<String> carNameList = divideCarNameByDelimiter(carNames);

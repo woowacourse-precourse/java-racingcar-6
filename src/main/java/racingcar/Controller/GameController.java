@@ -13,11 +13,11 @@ import racingcar.View.OutPutView;
 
 public class GameController {
 
-    InputView inputView;
-    OutPutView outPutView;
-    CarModel carModel;
-    RoundModel roundModel;
-    GameModel gameModel;
+    private InputView inputView;
+    private OutPutView outPutView;
+    private CarModel carModel;
+    private RoundModel roundModel;
+    private GameModel gameModel;
 
     public void initGame() {
         Factory factory = new Factory();

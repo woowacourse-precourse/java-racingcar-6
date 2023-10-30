@@ -6,11 +6,11 @@ import racingcar.Domain.CarGroup;
 
 public class OutPutViewImpl implements OutPutView {
 
-    static final String HeaderPrompt = "\n실행 결과";
-    static final String RoundResultConcat = " : ";
-    static final String FooterPrompt = "\n최종 우승자 : ";
-    static final String FinalWinnerConcat = ", ";
-    static final String PositionCharacter = "-";
+    static private final String HeaderPrompt = "\n실행 결과";
+    static private final String RoundResultConcat = " : ";
+    static private final String FooterPrompt = "\n최종 우승자 : ";
+    static private final String FinalWinnerConcat = ", ";
+    static private final String PositionCharacter = "-";
 
     public void showHeaderPrompt() {
         System.out.print(HeaderPrompt);
