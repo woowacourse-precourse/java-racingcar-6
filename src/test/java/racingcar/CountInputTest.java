@@ -22,11 +22,11 @@ public class CountInputTest {
         String userInputTwo = "0";
 
         // when, then
-        assertThatThrownBy(() -> Validator.checkPositiveNumber(userInputOne))
+        assertThatThrownBy(() -> Validator.checkNumber(userInputOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("1이상의 숫자를 입력하세요.");
 
-        assertThatThrownBy(() -> Validator.checkPositiveNumber(userInputTwo))
+        assertThatThrownBy(() -> Validator.checkNumber(userInputTwo))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("1이상의 숫자를 입력하세요.");
     }
@@ -39,11 +39,11 @@ public class CountInputTest {
         String userInputTwo = " ";
 
         // when, then
-        assertThatThrownBy(() -> Validator.checkPositiveNumber(userInputOne))
+        assertThatThrownBy(() -> Validator.checkNumber(userInputOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력하세요.");
 
-        assertThatThrownBy(() -> Validator.checkPositiveNumber(userInputTwo))
+        assertThatThrownBy(() -> Validator.checkNumber(userInputTwo))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력하세요.");
     }

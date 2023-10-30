@@ -6,7 +6,7 @@ import java.util.StringJoiner;
 public class CarRace {
 
     public static int createRound(String userInput) {
-        Validator.checkPositiveNumber(userInput);
+        Validator.checkNumber(userInput);
         return Integer.parseInt(userInput);
     }
 

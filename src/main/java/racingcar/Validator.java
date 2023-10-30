@@ -47,7 +47,7 @@ public class Validator {
 
     }
 
-    public static void checkPositiveNumber(String userInput) {
+    public static void checkNumber(String userInput) {
 
         try {
 
