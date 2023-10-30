@@ -2,6 +2,7 @@ package racingcontroller;
 
 import java.util.LinkedHashMap;
 import racingmodel.CarRacingGame;
+import racingmodel.Winners;
 import racingview.MainView;
 import racingview.Viewable;
 import validation.ValidationMan;
@@ -26,7 +27,7 @@ public class MainController {
 
         view.speakResultStart();
         processWithResults(times);
-        view.speakWinner(model.getWinner());
+        view.speakWinner(Winners.getWinner(model.getCarName()));
     }
 
     private void initializeCarRacingGame(String[] userInput) throws IllegalArgumentException {

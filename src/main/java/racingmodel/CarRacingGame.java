@@ -22,10 +22,6 @@ public class CarRacingGame {
         GameChanger.changeGame(carName, NumberGenerator.numberGenerate(carName.size()));
     }
 
-    public List<String> getWinner() {
-        return Winners.judgeWinner(carName);
-    }
-
     /**
      * 게임의 상황을 바꾸는 책임을 가지고 있는 클래스입니다.
      */

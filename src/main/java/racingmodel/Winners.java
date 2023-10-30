@@ -5,12 +5,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-class Winners {
+public class Winners {
 
     private Winners() {
     }
 
-    static List<String> judgeWinner(LinkedHashMap<String, StringBuilder> carName) {
+    public static List<String> getWinner(LinkedHashMap<String, StringBuilder> carName) {
+        return judgeWinner(carName);
+    }
+
+    private static List<String> judgeWinner(LinkedHashMap<String, StringBuilder> carName) {
         List<String> winners = new ArrayList<>();
         int maxScore = 0;
         for (Map.Entry<String, StringBuilder> entry : carName.entrySet()) {
