@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
 
     public Car(String name) {
@@ -11,17 +13,17 @@ public class Car {
 
     public void move() {
         if (isMoveCondition()) {
-            // 이동
+            status += '-';
         }
         printStatus();
     }
 
-    private static boolean isMoveCondition() {
-
-        return false;
+    private boolean isMoveCondition() {
+        int randomNumber = Randoms.pickNumberInRange(0,9);
+        return randomNumber >= 4;
     }
 
-    private static void printStatus() {
-        printStatus();
+    private void printStatus() {
+        System.out.println(name + " : " + status);
     }
 }
