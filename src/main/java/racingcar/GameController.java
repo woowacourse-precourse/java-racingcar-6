@@ -7,6 +7,7 @@ public class GameController {
     private String carName;
     private HashMap<String, Integer> cars;
     public InputDataHandler inputDataHandler = new InputDataHandler();
+    public NumberGenerator numberGenerator = new NumberGenerator();
 
     public String getCarName(int index) {
         carName = inputDataHandler.findCarName(index);
@@ -18,7 +19,7 @@ public class GameController {
     }
 
     public int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return numberGenerator.createRandomNumber();
     }
 
 }
