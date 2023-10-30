@@ -8,14 +8,29 @@ import java.util.List;
 public class UserInput {
 
     List<String> getCarNames() {
-        String input = Console.readLine();
+        String input = null;
+        try {
+            input = Console.readLine();
+        }catch (RuntimeException e){
+            throw new IllegalArgumentException();
+        }
+
+        if (!input.contains(",")) {
+            throw new IllegalArgumentException();
+        }
         List<String> carList = List.of(input.split(","));
         return carList;
     }
 
-    Integer getTurn() {
+    int getTurn() {
         String turn = Console.readLine();
-        return parseInt(turn);
+        int intTurn = 0;
+        try {
+            intTurn = parseInt(turn);
+        } catch (RuntimeException e) {
+            System.out.println();
+        }
+        return intTurn;
     }
 
 }
