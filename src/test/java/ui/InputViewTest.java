@@ -56,6 +56,16 @@ class InputViewTest {
         assertThat(InputView.inputNumberOfTries()).isEqualTo(5);
     }
 
+    @Test
+    void inputNumberOfTries_NegativeInput() {
+        String input = "-3";
+        provideInput(input);
+
+        assertThatThrownBy(InputView::inputNumberOfTries)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("음수 라운드 입력은 불가능합니다.");
+    }
+
     private void provideInput(String input) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
