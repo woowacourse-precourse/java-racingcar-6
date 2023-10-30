@@ -13,7 +13,10 @@ public class Game {
     public void initGame(){
         OutputView.askCarNameMessage();
         Cars cars = inputController.getCarNameFromUserInput();
+        //자동차 이름 입력 확인
         for (Car car: cars.getCarList())
             System.out.println(car.getName());
+
+        OutputView.askAttemptCount();;
     }
 }
