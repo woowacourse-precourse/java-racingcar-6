@@ -1,19 +1,19 @@
 package racingcar.game;
 
-import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.collaborator.Race;
-import racingcar.collaborator.Racer;
-import racingcar.collaborator.generic.RaceTotalProgress;
-import racingcar.collaborator.generic.Winners;
-import racingcar.io.Input;
+import racingcar.collaborator.race.Race;
+import racingcar.collaborator.race.generic.RaceTotalProgress;
+import racingcar.collaborator.race.generic.Winners;
 import racingcar.io.Output;
+import racingcar.io.views.RaceView;
 
 public class RacingGame {
 
+    private final RaceView raceView;
     private final Race race;
 
-    public RacingGame(Race race) {
+    public RacingGame(RaceView raceView, Race race) {
+        this.raceView = raceView;
         this.race = race;
     }
 
@@ -22,8 +22,8 @@ public class RacingGame {
 
         race.run();
 
-        RaceTotalProgress totalProgress = race.getTotalProgress();
         Output.consoleLine("실행 결과");
+        RaceTotalProgress totalProgress = race.getTotalProgress();
 
         String totalProgressRecord = totalProgress.stream()
                 .map(lap ->
@@ -40,11 +40,7 @@ public class RacingGame {
     }
 
     private void prepareRace() {
-        Output.consoleLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<Racer> racers = Input.consoleStrings(",").stream()
-                .map(Racer::new)
-                .toList();
-        race.registerRacer(racers);
+        race.registerRacer(raceView.askRacersNames());
         race.decideRoundNumber();
     }
 
