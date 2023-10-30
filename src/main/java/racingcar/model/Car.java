@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.util.stream.IntStream;
-
 public final class Car {
     private final String name;
     private Integer position;
@@ -12,7 +10,7 @@ public final class Car {
     }
 
     private Car(final String givenName) {
-//        validateName(givenName);
+        validateName(givenName);
         this.name = givenName;
         this.position = 0;
     }
@@ -32,9 +30,16 @@ public final class Car {
     }
 
     public RoundResult getRoundResult() {
-        return new RoundResult(name,position);
+        return new RoundResult(name, position);
     }
+
     public boolean isWinner(Integer givenPosition) {
         return position.equals(givenPosition);
     }
+
+    public static void validateName(String givenName) {
+        if(givenName.split("").length < 6) return;
+        throw new IllegalArgumentException("Wrong Size Of Name");
+    }
+
 }
