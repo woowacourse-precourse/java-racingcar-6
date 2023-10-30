@@ -1,8 +1,8 @@
 package racingcar.model;
 
-import racingcar.utils.NumberGenerator;
-import racingcar.utils.RandomNumberGenerator;
 import racingcar.utils.enums.Constraints;
+import racingcar.utils.numbergenerators.NumberGenerator;
+import racingcar.utils.numbergenerators.RandomNumberGenerator;
 
 public class Car {
     private final String name;

@@ -1,6 +1,4 @@
-package racingcar.model;
-
-import racingcar.utils.NumberGenerator;
+package racingcar.utils.numbergenerators;
 
 public class TestNumberGenerator implements NumberGenerator {
     private final int testValue;

@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.Test;
+import racingcar.utils.numbergenerators.TestNumberGenerator;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

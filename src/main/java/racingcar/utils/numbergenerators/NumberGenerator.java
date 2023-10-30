@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.utils.numbergenerators;
 
 import racingcar.utils.enums.Constraints;
 
