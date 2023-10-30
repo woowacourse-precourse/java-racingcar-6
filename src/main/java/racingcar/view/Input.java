@@ -16,4 +16,5 @@ public class Input {
     public String inputFromUser() {
         return readLine();
     }
+
 }
