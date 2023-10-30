@@ -1,8 +1,6 @@
 package racingcar;
 
-//import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-//import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -16,11 +14,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import racingcar.gameLogic.Driver;
+import racingcar.gameLogic.RaceOfficial;
 import racingcar.gameLogic.RacingCar;
 import racingcar.gameLogic.User;
 import racingcar.utils.InputValidator;
@@ -114,28 +114,27 @@ class ApplicationTest extends NsTest {
     @DisplayName("기능 4번: Driver클래스 생성 잘되는지 테스트")
     @SuppressWarnings("unchecked")
     void 차량_생성_확인()
-            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+            throws IllegalAccessException, NoSuchFieldException {
         RacingCar racingCar = new RacingCar();
+        RaceOfficial raceOfficial = new RaceOfficial();
         racingCar.init();
-
-        Method setDrivers = RacingCar.class.getDeclaredMethod("setDrivers", List.class);
-        setDrivers.setAccessible(true);
 
         Field drivers = RacingCar.class.getDeclaredField("drivers");
         drivers.setAccessible(true);
-        List<Driver> driversTest = (List<Driver>) drivers.get(racingCar);
 
+        List<String> carNamesTest = new ArrayList<>(List.of("pobi", "jun"));
+        List<Driver> driversTest = (List<Driver>) drivers.get(racingCar);
         List<Driver> correctList = new ArrayList<>(
                 List.of(new Driver("pobi"), new Driver("jun"))
         );
-        setDrivers.invoke(racingCar, new ArrayList<>(List.of("pobi", "jun")));
+        raceOfficial.setDrivers(driversTest, carNamesTest);
 
-        // RacingCar내부의 drivers 리스트에 driver가 잘 추가되었는지
+        // RacingCar내부의 drivers 리스트에 driver가 잘 추가되었는지 크기와 요소의 이름 값 비교를 통해 검증
         assertThat(driversTest.size()).isEqualTo(correctList.size());
 
         Driver pobiTest = driversTest.get(0);
-        Driver junTest = driversTest.get(1);
         Driver pobiCorrect = correctList.get(0);
+        Driver junTest = driversTest.get(1);
         Driver junCorrect = correctList.get(1);
 
         assertThat(pobiTest.sayCarName()).contains(pobiCorrect.sayCarName());
@@ -212,7 +211,7 @@ class ApplicationTest extends NsTest {
 
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
             mock.when(RandomNumbers::generateZeroToNineDigit)
-                    .thenReturn(4, 3);
+                    .thenReturn(MOVING_FORWARD, STOP);
 
             assertThat(canMove.invoke(driver)).isEqualTo(true);
             assertThat(canMove.invoke(driver)).isEqualTo(false);
@@ -225,7 +224,7 @@ class ApplicationTest extends NsTest {
         Driver driver = new Driver("test");
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
             mock.when(RandomNumbers::generateZeroToNineDigit)
-                    .thenReturn(4, 3);
+                    .thenReturn(MOVING_FORWARD, STOP);
 
             driver.pushPedal();// 난수: 4, 전진
             assertThat(driver.sayMovedDistance()).isEqualTo(1);
@@ -261,6 +260,44 @@ class ApplicationTest extends NsTest {
 
         OutputViewer.printMovedDistanceOfCar(name3, distance3);
         assertThat(output()).contains("kim :");
+    }
+
+    @Test
+    @DisplayName("기능 13.1: 경주 진행 확인")
+    void 경주_진헹_확인() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "3");
+                    assertThat(output()).contains(
+                            "pobi : -", "woni : "
+                            , "pobi : --", "woni : -"
+                            , "pobi : ---", "woni : -"
+                    );
+                },
+                MOVING_FORWARD, STOP
+                , MOVING_FORWARD, MOVING_FORWARD
+                , MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    @DisplayName("기능 13.2: 최대 이동거리 추적 확인")
+    void 최대_이동거리_추적확인() {
+        RaceOfficial raceOfficial = new RaceOfficial();
+        List<Driver> drivers = new ArrayList<>(
+                Arrays.asList(new Driver("pobi"), new Driver("woni"))
+        );
+
+        try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
+            mock.when(RandomNumbers::generateZeroToNineDigit)
+                    .thenReturn(MOVING_FORWARD, STOP);
+            for (Driver driver : drivers) {
+                driver.pushPedal();
+                raceOfficial.setHighestScore(driver);
+            }
+            assertThat(raceOfficial.highestScore).isEqualTo(1);
+        }
+
     }
 
     private void command(final String... args) {

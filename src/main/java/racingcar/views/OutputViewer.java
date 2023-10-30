@@ -21,4 +21,8 @@ public class OutputViewer {
         String roadPassed = "-".repeat(movedDistance);
         System.out.println(carName + " : " + roadPassed);
     }
+
+    public static void printBlank() {
+        System.out.println();
+    }
 }
