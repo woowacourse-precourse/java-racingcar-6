@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
