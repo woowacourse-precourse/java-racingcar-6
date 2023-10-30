@@ -12,7 +12,7 @@ public class Cars {
         carList = Arrays.stream(nameArr)
                 .map(name -> new Car(name.trim()))
                 .collect(Collectors.toList());
-        forceStop(isValidateName());
+        validate();
         return carList;
     }
 
@@ -28,13 +28,13 @@ public class Cars {
                 .toList();
     }
 
-    public boolean isValidateName() {
+    public boolean isValidName() {
         return carList.stream()
                 .noneMatch(car -> car.getName().length() > 5 || car.getName().isEmpty());
     }
 
-    public void forceStop(boolean isValidateName) {
-        if (!isValidateName) {
+    public void validate() {
+        if (!isValidName()) {
             throw new IllegalArgumentException("차량 이름이 올바르지 않습니다.");
         }
     }
