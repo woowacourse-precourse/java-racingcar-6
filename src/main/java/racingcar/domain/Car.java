@@ -3,7 +3,7 @@ package racingcar.domain;
 public class Car {
     private final String name;
     private final CarEngine carEngine;
-    private final Position position;
+    private Position position;
 
     public Car(String name, CarEngine carEngine) {
         this.name = name;
@@ -19,7 +19,7 @@ public class Car {
 
     public void startEngine() {
         if (carEngine.isStart()) {
-            position.goForward();
+            this.position = position.goForward();
         }
     }
 
