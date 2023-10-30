@@ -21,12 +21,18 @@ public class Validator {
 
     public void checkCarNameForm(String carName){
         if(!isCarNameLength(carName)) {
-            throw new IllegalArgumentException("자동차 이름으 길이는 5이하 입니다.");
+            throw new IllegalArgumentException("자동차 이름은 길이는 5이하 입니다.");
         }
     }
 
     private boolean isCarNameLength(String carName) {
         return 0 < carName.length() && carName.length() <= 5;
+    }
+
+    public void checkDuplicateCarName(List<String> carNameList){
+        if(isDuplicateCarName(carNameList)) {
+            throw new IllegalArgumentException("차 이름이 중복됐습니다.");
+        }
     }
 
     private boolean isDuplicateCarName(List<String> carNameList) {
