@@ -10,11 +10,8 @@ public class Application {
     static int gameRepeatNum;
     static String[] carNameList;
     static ArrayList<Integer> carRacingCountList = new ArrayList<Integer>();
-        
-    public static void RacingStart(){
-        for(int i=0; i<carNameList.length; i++){
-            carRacingCountList.set(i, carRacingCountList.get(i) + Randoms.pickNumberInRange(0,9));
-        }
+    
+    public static void RacingCountPrint(){
         for(int j=0; j<carNameList.length; j++){
             System.out.print(carNameList[j]);
             System.out.print(" : ");
@@ -24,6 +21,13 @@ public class Application {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public static void RacingStart(){
+        for(int i=0; i<carNameList.length; i++){
+            carRacingCountList.set(i, carRacingCountList.get(i) + Randoms.pickNumberInRange(0,9));
+        }
+        RacingCountPrint();
     }
 
     public static void RacingGameStart(){
