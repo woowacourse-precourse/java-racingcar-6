@@ -23,8 +23,14 @@ public class RacingGame {
         input = Console.readLine();
         count = Integer.parseInt(input);
 
+        System.out.println("실행 결과");
         while (count > 0) {
             racingCars.turnOn();
+
+            for (RacingCar car : racingCars.getRacingCars()) {
+                System.out.println(car.getName() + " : " + car.getDistance());
+            }
+            System.out.println();
             count--;
         }
     }
