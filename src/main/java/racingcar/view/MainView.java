@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.common.Convert;
 
 public class MainView {
@@ -43,5 +44,11 @@ public class MainView {
             System.out.print("-");
         }
         System.out.println();
+    }
+
+    public static void printWinner(List<String> winnerList) {
+        String winnersMessageBuilder = "최종 우승자 : "
+                + String.join(", ", winnerList);
+        System.out.print(winnersMessageBuilder);
     }
 }

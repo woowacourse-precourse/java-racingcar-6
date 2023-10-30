@@ -27,5 +27,7 @@ public class RacingcarController {
             racingCarService.proceedGame(carNames, racingStatus);
             MainView.printProceedResult(carNames, racingStatus);
         }
+        List<String> winnerList = racingCarService.getWinner(carNames, racingStatus);
+        MainView.printWinner(winnerList);
     }
 }

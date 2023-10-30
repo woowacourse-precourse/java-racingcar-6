@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import racingcar.common.RandomGenerator;
@@ -36,5 +37,24 @@ public class RacingCarService {
     private void moveForward(String carName, HashMap<String, Integer> racingStatus) {
         Integer carPosition = racingStatus.get(carName);
         racingStatus.put(carName, ++carPosition);
+    }
+
+    public List<String> getWinner(List<String> carNames, HashMap<String, Integer> racingStatus) {
+        int maxDistance = Integer.MIN_VALUE;
+        List<String> winnerList = new ArrayList<>();
+
+        for (String carName : carNames) {
+            if (racingStatus.get(carName) > maxDistance) {
+                maxDistance = racingStatus.get(carName);
+            }
+        }
+
+        for (String carName : carNames) {
+            if (racingStatus.get(carName) == maxDistance) {
+                winnerList.add(carName);
+            }
+        }
+
+        return winnerList;
     }
 }
