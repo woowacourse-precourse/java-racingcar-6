@@ -8,15 +8,14 @@ import camp.nextstep.edu.missionutils.Console;
 public class MakeNames {
     public List<String> makeNames(){
         List<String> names = new ArrayList<>();
+        Utils utils = new Utils();
         String originalStr;
 
-        originalStr = inputName();
+        originalStr = utils.inputName();
         names = commaSplit(originalStr);
         return names;
     }
-    public String inputName(){
-        return Console.readLine();
-    }
+
     public List<String> commaSplit(String originalStr){
         List<String> names;
         String[] tmpNames;
