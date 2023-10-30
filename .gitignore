@@ -1,3 +1,5 @@
+.DS_Store
+
 HELP.md
 .gradle
 build/
@@ -30,3 +32,12 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+
