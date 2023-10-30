@@ -1,6 +1,8 @@
 package racingcar.validator;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import validator.InputValidator;
 import static org.assertj.core.api.Assertions.*;
 
@@ -21,17 +23,10 @@ public class FunctionValidatorTest {
             .hasMessageContaining(validator.INPUT_CONTAIN_BLANK);
     }
 
-    @Test
-    void 자동차이름_0자일_경우() {
-        assertThatThrownBy(() -> validator.checkCarNameValidate(",a"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(validator.INPUT_CONTAIN_BLANK);
-
-        assertThatThrownBy(() -> validator.checkCarNameValidate("abc,"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(validator.INPUT_CONTAIN_BLANK);
-
-        assertThatThrownBy(() -> validator.checkCarNameValidate(",,,"))
+    @ParameterizedTest
+    @ValueSource(strings = {",a", "abc,", ",,,"})
+    void 자동차이름_0자일_경우(String input) {
+        assertThatThrownBy(() -> validator.checkCarNameValidate(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(validator.INPUT_CONTAIN_BLANK);
     }
@@ -43,34 +38,19 @@ public class FunctionValidatorTest {
                 .hasMessageContaining(validator.CAR_NAME_EXCEED_FIVE_WORDS);
     }
 
-    @Test
-    void 자동차이름_공백_포함된_경우() {
-        assertThatThrownBy(() -> validator.checkCarNameValidate(" a,bc"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(validator.INPUT_CONTAIN_BLANK);
-
-        assertThatThrownBy(() -> validator.checkCarNameValidate("abc "))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(validator.INPUT_CONTAIN_BLANK);
-
-        assertThatThrownBy(() -> validator.checkCarNameValidate(" , , "))
+    @ParameterizedTest
+    @ValueSource(strings = {"a, bc", "abc "," , , "})
+    void 자동차이름_공백_포함된_경우(String input) {
+        assertThatThrownBy(() -> validator.checkCarNameValidate(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(validator.INPUT_CONTAIN_BLANK);
     }
 
-    void 시도횟수_숫자가_아닌_문자_포함된_경우() {
-        assertThatThrownBy(() -> validator.checkNumOfAttempt("123a"))
+    @ParameterizedTest
+    @ValueSource(strings = {"123a", "a", "five"})
+    void 시도횟수_숫자가_아닌_문자_포함된_경우(String input) {
+        assertThatThrownBy(() -> validator.checkNumOfAttempt(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(validator.ATTEMPT_NUMBER_CONTAIN_CHAR_OTHER_THAN_NUMBER);
-
-        assertThatThrownBy(() -> validator.checkNumOfAttempt("a"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(validator.ATTEMPT_NUMBER_CONTAIN_CHAR_OTHER_THAN_NUMBER);
-
-        assertThatThrownBy(() -> validator.checkNumOfAttempt("five"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(validator.ATTEMPT_NUMBER_CONTAIN_CHAR_OTHER_THAN_NUMBER);
-
-
     }
 }
