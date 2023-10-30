@@ -14,5 +14,6 @@ public class RacingcarController {
 
     public void run() {
         MainView.printStartMessage();
+        String carNames = MainView.getCarNames();
     }
 }
