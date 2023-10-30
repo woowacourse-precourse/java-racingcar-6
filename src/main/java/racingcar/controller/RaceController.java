@@ -22,6 +22,8 @@ public class RaceController {
             RaceResultResponse response = race.doRace();
             OutputView.printRace(response);
         } while (race.isRaceOver());
+        List<String> winners = race.findWinners();
+        OutputView.printWinners(winners);
     }
 
     public void initialize() {
