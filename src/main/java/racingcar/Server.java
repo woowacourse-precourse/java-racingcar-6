@@ -27,7 +27,14 @@ public class Server {
         this.racerCount = racerCount;
     }
     public void startRace(){
-
+        for (int i =0; i<racerCount;i++){
+            continueRace();
+        }
+    }
+    private void continueRace(){
+        for (Racer racer : racerList){
+            racer.continueRace();
+        }
     }
 
     public List<Racer> getRacerList(){ return racerList; }
