@@ -27,7 +27,7 @@ public class OutputView {
 
     private void printCarResult(final CarDto carDto) {
         String name = carDto.name();
-        Integer position = carDto.position();
+        int position = carDto.position();
 
         String format = CAR_POSITION_FORMAT + POSITION_SIGNAL.repeat(position) + NEWLINE;
 

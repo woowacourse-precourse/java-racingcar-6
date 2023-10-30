@@ -9,7 +9,7 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
 
-    private static final Integer ZERO = 0;
+    private static final int ZERO = 0;
     private final InputView inputView;
     private final OutputView outputView;
 
@@ -20,7 +20,7 @@ public class RacingGame {
 
     public void run() {
         final Cars cars = Cars.from(inputView.enterCarNames());
-        Integer rotateCount = inputView.enterRotateNumber();
+        int rotateCount = inputView.enterRotateNumber();
 
         rotate(cars, rotateCount);
 
@@ -28,7 +28,7 @@ public class RacingGame {
         Console.close();
     }
 
-    private void rotate(final Cars cars, Integer rotateCount) {
+    private void rotate(final Cars cars, int rotateCount) {
         outputView.printRunResult();
 
         while (rotateCount-- > ZERO) {

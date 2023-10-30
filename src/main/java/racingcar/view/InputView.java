@@ -28,16 +28,16 @@ public class InputView {
                 .toList();
     }
 
-    public Integer enterRotateNumber() {
+    public int enterRotateNumber() {
         System.out.println(ASK_ROTATE_NUMBER);
 
         return convertToInteger(readLine());
     }
 
-    private Integer convertToInteger(final String inputNumberString) {
+    private int convertToInteger(final String inputNumberString) {
         validateNumber(inputNumberString);
 
-        return Integer.valueOf(inputNumberString);
+        return Integer.parseInt(inputNumberString);
     }
 
     private void validateNumber(final String inputNumberString) {
