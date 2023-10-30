@@ -17,4 +17,8 @@ public class GameRepository {
         gameMap.put(id, saveGame);
         return id++;
     }
+
+    public Game findById(Long gameId) {
+        return gameMap.get(gameId);
+    }
 }
