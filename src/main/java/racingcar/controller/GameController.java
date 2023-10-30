@@ -23,8 +23,10 @@ public class GameController {
         GameService.raceDataSave(InputAboutGame.InputAttempt());
         RaceEntity raceData=RaceDAO.loadAll();
         List<CarEntity> carsData= CarDAO.loadAll();
+        OutputAboutGame.PrintResultIntroducePhrase();
         while(raceData.getAttemptNumber()>0){
             JudgeMoveCar.MoveCar(carsData);
+            OutputAboutGame.PrintCurrentSituation(CarDAO.loadAll());
             GameService.raceDataSave(raceData.getAttemptNumber()-1);
             raceData=RaceDAO.loadAll();
         }
