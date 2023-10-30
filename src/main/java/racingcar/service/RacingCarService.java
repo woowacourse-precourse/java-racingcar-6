@@ -23,22 +23,22 @@ public class RacingCarService {
     List<Car> cars = new ArrayList<>();
 
     public void createCar(String carNames) {
+        validateService.validateInputCarName(carNames);
         List<String> separatedCarNames = separateCarName(carNames);
 
         for (String separatedCarName : separatedCarNames) {
-            validateService.validateInputCarName(separatedCarName);
             Car car = new Car();
             car.initCar(separatedCarName);
             cars.add(car);
         }
     }
 
-    public int getCount() {
-        return racingCarGame.getCount();
-    }
-
     public void setCount(String inputNumber) {
         racingCarGame.setCount(parseStringToInt(inputNumber));
+    }
+
+    public int getCount() {
+        return racingCarGame.getCount();
     }
 
     private int parseStringToInt(String inputNumber) {
