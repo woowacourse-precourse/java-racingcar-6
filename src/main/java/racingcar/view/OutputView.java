@@ -17,4 +17,8 @@ public class OutputView {
         System.out.println(RACING_RESULT);
         System.out.println(roundResults);
     }
+
+    public static void outputForLineBreak(){
+        System.out.println();
+    }
 }

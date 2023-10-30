@@ -52,6 +52,7 @@ public class Application {
     private static RaceCount raceCountForm(){
         OutputView.outputForRaceCount();
         String raceCountInput = InputTool.readLineByConsole();
+        OutputView.outputForLineBreak();
         return new RaceCount(validateRaceCount(raceCountInput));
     }
 
