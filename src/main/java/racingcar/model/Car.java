@@ -1,22 +1,23 @@
 package racingcar.model;
 
 public class Car {
-    String name;
+    CarName name;
     int step;
 
-    public Car() {
-
-    }
-
-    public void setName() {
-
+    public Car(String name) {
+        this.name = new CarName(name);
+        this.step = 0;
     }
 
     public String getName() {
-        return null;
+        return name.get();
+    }
+    
+    public int getStep() {
+        return step;
     }
 
     public void increaseStep() {
-
+        step++;
     }
 }
