@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.model.wrapper.CarName;
 
 public class Car {
+    private static final int MIN_MOVE_POWER = 4;
     private final CarName name;
     private int position;
 
@@ -22,7 +23,7 @@ public class Car {
     }
 
     public boolean isMovablePower(int power) {
-        return power >= 4;
+        return power >= MIN_MOVE_POWER;
     }
 
     public String getName() {
