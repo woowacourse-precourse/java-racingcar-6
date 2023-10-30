@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.AttemptCountValidator;
-import racingcar.domain.CarNameValidator;
+import racingcar.domain.CarNameManager;
 import racingcar.domain.Cars;
 import racingcar.domain.Racing;
 import racingcar.util.BlankValidator;
@@ -15,7 +15,7 @@ public class RacingController {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
     private final BlankValidator blankValidator = new BlankValidator();
-    private final CarNameValidator carNameValidator = new CarNameValidator(blankValidator);
+    private final CarNameManager carNameManager = new CarNameManager(blankValidator);
     private final AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
     private final RandomNumberGenerator randomNumberGenerator = new RacingNumberGenerator();
     private final Cars cars = new Cars();
@@ -35,7 +35,8 @@ public class RacingController {
 
     private void addCarsToRace() {
         String carNamesInput = inputView.printCarNameRequest();
-        List<String> carNames = carNameValidator.processCarNames(carNamesInput);
+        List<String> carNames = carNameManager.processCarNames(carNamesInput);
+        carNameManager.validateCarNames(carNames);
         cars.addCars(carNames);
     }
 

@@ -6,23 +6,25 @@ import java.util.HashSet;
 import java.util.List;
 import racingcar.util.BlankValidator;
 
-public class CarNameValidator {
+public class CarNameManager {
     private static final String PLEASE_INPUT_CAR_NAME_LENGTH_5 = "의 이름 5자를 초과했습니다";
     private static final String PLEASE_INPUT_NOT_DUPLICATE_CAR_NAMES = "중복된 자동차 이름이 있습니다.";
     private static final String PLEASE_INPUT_CORRECT_CAR_NAMES = "잘못된 자동차 이름 입력 형식입니다.";
     private static final int CAR_NAME_LENGTH_LIMIT = 5;
     private final BlankValidator blankValidator;
 
-    public CarNameValidator(BlankValidator blankValidator) {
+    public CarNameManager(BlankValidator blankValidator) {
         this.blankValidator = blankValidator;
     }
 
     public List<String> processCarNames(String carNames) {
         blankValidator.isEmpty(carNames);
+        return processInput(carNames);
+    }
 
-        List<String> carNameList = processInput(carNames);
-        validateCarNames(carNameList);
-        return carNameList;
+    public void validateCarNames(List<String> carNameList) {
+        validateNameLength(carNameList);
+        validateUniqueNames(carNameList);
     }
 
     private List<String> processInput(String carNames) {
@@ -47,11 +49,6 @@ public class CarNameValidator {
             trimmedList.add(name.trim());
         }
         return trimmedList;
-    }
-
-    private void validateCarNames(List<String> carNameList) {
-        validateNameLength(carNameList);
-        validateUniqueNames(carNameList);
     }
 
     private void validateNameLength(List<String> carNameList) {
