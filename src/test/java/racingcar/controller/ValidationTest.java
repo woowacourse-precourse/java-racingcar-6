@@ -17,6 +17,7 @@ class ValidationTest {
         String haveWhitespace = "pobi, woni, jun";
         String overFiveCharacters = "handsomepobi,woni,jun";
         String toUpperCase = "pobi,woni,Jun";
+        String duplicateName = "pobi,woni,jun,pobi";
 
         assertThat(validation.validationNames(carNames)).isEqualTo(true);
         assertThat(validation.validationNames(startComma)).isEqualTo(false);
@@ -24,6 +25,7 @@ class ValidationTest {
         assertThat(validation.validationNames(haveWhitespace)).isEqualTo(false);
         assertThat(validation.validationNames(overFiveCharacters)).isEqualTo(false);
         assertThat(validation.validationNames(toUpperCase)).isEqualTo(false);
+        assertThat(validation.validationNames(duplicateName)).isEqualTo(false);
     }
 
     @Test
