@@ -1,6 +1,9 @@
 package racingcar.service.input;
 
+import static racingcar.util.error.ErrorMessage.NO_INPUT_ELEMENT;
+
 import camp.nextstep.edu.missionutils.Console;
+import java.util.NoSuchElementException;
 import racingcar.dto.input.CarInputDto;
 import racingcar.dto.input.TimeInputDto;
 import racingcar.util.message.Printer;
@@ -20,12 +23,21 @@ public class InputView implements Input{
     }
 
     private static int getTime() {
-        String timeInput = Console.readLine();
-        return Validator.validateTime(timeInput);
+        try{
+            String timeInput = Console.readLine();
+            return Validator.validateTime(timeInput);
+        }catch (NoSuchElementException e){
+            throw new IllegalArgumentException(NO_INPUT_ELEMENT.toString());
+        }
+
     }
 
     private static String[] getCars() {
-        String input = Console.readLine();
-        return Validator.validateCars(input);
+        try{
+            String input = Console.readLine();
+            return Validator.validateCars(input);
+        }catch (NoSuchElementException e){
+            throw new IllegalArgumentException(NO_INPUT_ELEMENT.toString());
+        }
     }
 }
