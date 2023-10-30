@@ -69,13 +69,13 @@ class ValidExceptionTest {
     }
 
     @DisplayName("입력된 문자열에 한글, 영어가 포함되어있는가.")
-    @Test
-    void isValidIncludeString() {
-        // given
-
-        // when
-
+    @ParameterizedTest
+    @ValueSource(strings = {"1asdf", "asdf1", "asdf", "한글", "한1", "1한", "한1글", "as1dsf", "asd한글", "a한글b", "한글asdf"})
+    void isValidIncludeString(String input) {
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidIncludeString(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("특수문자 포함 검사")
