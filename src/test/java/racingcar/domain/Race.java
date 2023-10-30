@@ -31,4 +31,11 @@ public class Race {
                 .map(Car::toString)
                 .collect(Collectors.joining("\n"));
     }
+
+    public String getWinnerString() {
+        return findWinnerCars().stream()
+                .map(Car::getNameString)
+                .collect(Collectors.joining(", "));
+
+    }
 }
