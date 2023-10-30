@@ -11,4 +11,10 @@ public class GameManager {
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
+
+    private void moveCar(List<Car> cars) {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
 }
