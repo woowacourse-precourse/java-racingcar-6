@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -11,20 +10,10 @@ import java.util.stream.IntStream;
 public class Application {
     public static void main(String[] args) {
         System.out.println(Printer.REQUEST_NAME);
-        List<String> cars = Arrays.stream(Console.readLine().split(","))
-                        .toList();
-        if (cars.stream()
-                .map(String::length)
-                .max(Integer::compareTo).get() >= 5) {
-            throw new IllegalArgumentException(Printer.RANGE_ERROR);
-        }
+        List<String> cars = Scanner.getNames();
+
         System.out.println(Printer.REQUEST_ROUND);
-        int round;
-        try {
-            round = Integer.parseInt(Console.readLine());
-        } catch (Exception e) {
-            throw new IllegalArgumentException(Printer.NOT_AN_INTEGER_ERROR);
-        }
+        int round = Scanner.getRound();
 
         System.out.println(Printer.PRINT_PROGRESS);
         List<Integer> progress = new ArrayList<>(Collections.nCopies(cars.size(), 0));
