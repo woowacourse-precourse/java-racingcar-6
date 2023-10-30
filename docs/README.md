@@ -11,7 +11,7 @@
   - [ ] 횟수가 숫자가 아닐 경우 예외 처리 (IllegalArgumentException 발생)
   - [x] 횟수가 0 이하일 경우 예외 처리 (IllegalArgumentException 발생
 
-- [ ] 입력이 null일 경우 예외 처리 (IllegalArgumentException 발생)
+- [x] 입력이 null일 경우 예외 처리 (IllegalArgumentException 발생)
 
 - [ ] 매 차례 마다 0 ~ 9 사이의 무작위 값을 구해 4 이상일 경우 전진, 3 이하일 경우 멈춘다.
   - [ ] 자동차가 전진할 경우 자동차의 위치를 1 증가시킨다.
