@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Winner {
+public class Winners {
     private final List<String> winners;
 
-    public Winner(List<Car> cars) {
+    public Winners(Cars cars) {
         int maxNum = getMaxDistances(cars);
         this.winners = initWinner(cars, maxNum);
     }
@@ -16,20 +16,19 @@ public class Winner {
         return winners;
     }
 
-    private List<String> initWinner(List<Car> cars, int maxNum) {
+    private List<String> initWinner(Cars cars, int maxNum) {
         List<String> winners = new ArrayList<>();
-        for (Car car : cars) {
+        for (Car car : cars.getCars()) {
             if (car.getDistance() == maxNum) {
                 winners.add(car.getName());
             }
         }
-
         return winners;
     }
 
-    private int getMaxDistances(List<Car> cars) {
+    private int getMaxDistances(Cars cars) {
         List<Integer> distances = new ArrayList<>();
-        for (Car car : cars) {
+        for (Car car : cars.getCars()) {
             distances.add(car.getDistance());
         }
         return distances.stream().max(Comparator.naturalOrder()).orElse(0);

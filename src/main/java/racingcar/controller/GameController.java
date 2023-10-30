@@ -4,7 +4,7 @@ import java.util.List;
 import racingcar.constants.GameMessage;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.Winner;
+import racingcar.model.Winners;
 import racingcar.utils.Converter;
 import racingcar.utils.Validator;
 import racingcar.view.InputView;
@@ -27,7 +27,7 @@ public class GameController {
 
         racing(attempt);
 
-        OutputView.displayWinner(new Winner(cars.getCars()));
+        OutputView.displayWinner(new Winners(cars));
     }
 
     private void initCars(List<String> names) {

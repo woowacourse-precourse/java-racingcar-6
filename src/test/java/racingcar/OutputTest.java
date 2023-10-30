@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.constants.GameMessage;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.Winner;
+import racingcar.model.Winners;
 import racingcar.view.OutputView;
 
 public class OutputTest {
@@ -62,7 +62,7 @@ public class OutputTest {
         car1.setDistance(1);
         car2.setDistance(3);
 
-        OutputView.displayWinner(new Winner(cars.getCars()));
+        OutputView.displayWinner(new Winners(cars));
 
         String result = GameMessage.OUTPUT_WINNER_ANNOUNCEMENT.getMessage() + "java";
         assertThat(result).isEqualTo(outputStreamCaptor.toString().trim());
@@ -82,7 +82,7 @@ public class OutputTest {
         car1.setDistance(3);
         car2.setDistance(3);
 
-        OutputView.displayWinner(new Winner(cars.getCars()));
+        OutputView.displayWinner(new Winners(cars));
 
         String result = GameMessage.OUTPUT_WINNER_ANNOUNCEMENT.getMessage() + "pobi, java";
         assertThat(result).isEqualTo(outputStreamCaptor.toString().trim());

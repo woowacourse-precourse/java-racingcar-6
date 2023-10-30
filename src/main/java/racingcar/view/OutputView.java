@@ -3,7 +3,7 @@ package racingcar.view;
 import racingcar.constants.GameMessage;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.Winner;
+import racingcar.model.Winners;
 
 public class OutputView {
     public static void displayTitle() {
@@ -26,7 +26,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void displayWinner(Winner winners) {
+    public static void displayWinner(Winners winners) {
         System.out.print(GameMessage.OUTPUT_WINNER_ANNOUNCEMENT.getMessage());
         int size = winners.getWinners().size();
 
