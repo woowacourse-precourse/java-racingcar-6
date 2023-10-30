@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import racingcar.utils.RandomUtils;
 import racingcar.view.OutputView;
 
@@ -38,6 +40,22 @@ public class RacingGame {
             return true;
         }
         return false;
+    }
+
+    public void findWinners() {
+        int maxDistance = -1;
+        List<String> winners = new ArrayList<>();
+
+        for (int i = 0; i < carNames.length; i++) {
+            if (distance[i] > maxDistance) {
+                maxDistance = distance[i];
+                winners.clear();
+                winners.add(carNames[i]);
+            } else if (distance[i] == maxDistance) {
+                winners.add(carNames[i]);
+            }
+        }
+        OutputView.printWinner(winners);
     }
 }
 

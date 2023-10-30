@@ -1,8 +1,12 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class OutputView {
     private static final String RESULT_COMMAND = "\n실행 결과";
     private static final String COLON_SPACE = " : ";
+    private static final String FINAL_WINNER = "최종 우승자 : ";
+    private static final String COMMA = ", ";
 
     public static void printResultCommand() {
         System.out.println(RESULT_COMMAND);
@@ -17,5 +21,9 @@ public class OutputView {
 
     private static String generateHyphen(int count) {
         return "-".repeat(count);
+    }
+
+    public static void printWinner(List<String> winners) {
+        System.out.print(FINAL_WINNER + String.join(COMMA, winners));
     }
 }
