@@ -41,13 +41,12 @@ public class Race {
     public String toString() {
         return cars.stream()
                 .map(Car::toString)
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining("\n")) + "\n";
     }
 
     public String getWinnerString() {
         return findWinnerCars().stream()
                 .map(Car::getNameString)
                 .collect(Collectors.joining(", "));
-
     }
 }
