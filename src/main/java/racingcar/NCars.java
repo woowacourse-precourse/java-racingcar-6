@@ -5,26 +5,18 @@ import java.util.List;
 
 
 public class NCars {
-    private List<Car> cars;
+    private final List<Car> cars;
 
-    private NCars(final List<Car> cars) {
+    public NCars(final List<Car> cars) {
         this.cars = cars;
     }
 
-    public static NCars applyNames(List<String> names) {
+    public static NCars applyNames(final List<String> names) {
         List<Car> cars = new ArrayList<>();
         for (String name : names) {
             cars.add(Car.applyName(name));
         }
         return new NCars(cars);
-    }
-
-    public List<String> getNamesForTest() {
-        List<String> names = new ArrayList<>();
-        for (Car car : this.cars) {
-            names.add(car.toString());
-        }
-        return names;
     }
 
     public List<Integer> moveCars() {
@@ -43,5 +35,21 @@ public class NCars {
             carsPositions.add(moveCars());
         }
         return carsPositions;
+    }
+
+    public List<String> getSingleRoundResult() {
+        List<String> resultMessage = new ArrayList<>();
+        for (Car car : cars) {
+            resultMessage.add(car.getRoundResult());
+        }
+        return resultMessage;
+    }
+
+    public List<String> getNamesForTest() {
+        List<String> names = new ArrayList<>();
+        for (Car car : this.cars) {
+            names.add(car.toString());
+        }
+        return names;
     }
 }

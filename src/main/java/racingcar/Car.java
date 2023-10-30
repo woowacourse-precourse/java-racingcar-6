@@ -8,10 +8,11 @@ public final class Car {
 
     @Override
     public String toString() {
-        return name +" : ";
+        return name;
     }
 
     private Car(final String givenName) {
+//        validateName(givenName);
         this.name = givenName;
         this.position = 0;
     }
@@ -33,6 +34,7 @@ public final class Car {
     public String getRoundResult() {
         StringBuilder sb = new StringBuilder();
         sb.append(this);
+        sb.append(" : ");
         IntStream.range(0, position).forEach(i -> sb.append("-"));
         return sb.toString();
     }
