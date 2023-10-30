@@ -6,20 +6,15 @@ import java.util.HashMap;
 
 public class GameSetting {
 
+    public InputDataHandler inputDataHandler = new InputDataHandler();
     private HashMap<String, Integer> cars = new HashMap<>();
     private String[] inputCarNames;
     private int attemptNumber;
 
 
-    public void setCarName() {
-        inputCarNames = Console.readLine().split(",");
-        for (String inputCarName : inputCarNames) {
-            cars.put(inputCarName, 0);
-        }
-    }
-
     public HashMap<String, Integer> getCarName() {
-        return cars;
+        inputDataHandler.getStringFromPlayer();
+
     }
 
     public String getCarName(int index) {
