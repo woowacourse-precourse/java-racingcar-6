@@ -10,11 +10,11 @@ import java.util.Map;
 * */
 public class Car {
     private String carName;
-    private int location = 0;
+    private int location;
 
     public Car(String carName) {
         this.carName = carName;
-        validateDuplicate();
+        this.location = 0;
     }
 
     // 전진 기능
