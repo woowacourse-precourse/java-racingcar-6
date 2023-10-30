@@ -16,7 +16,7 @@ public class TryException {
         }
     }
 
-    public void zeroOrMinus (String tryCount){
+    public void zeroOrMinus(String tryCount) {
         if (Integer.parseInt(tryCount) <= 0) {
             throw new IllegalArgumentException("시도할 횟수는 양수이어야 합니다.");
         }

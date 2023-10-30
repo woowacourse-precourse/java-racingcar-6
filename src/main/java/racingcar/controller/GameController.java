@@ -21,8 +21,8 @@ public class GameController {
     public int gameSetting() {
         print.message("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNames = input.carNames().split(",");
-        for (int i=0; i<carNames.length; i++) {
-            carException.nameLength(carNames[i]);
+        for (int i = 0; i < carNames.length; i++) {
+            carException.format(carNames[i]);
             carList.add(new Car(carNames[i]));
         }
 
@@ -36,13 +36,12 @@ public class GameController {
         int tryCount = gameSetting();
         System.out.println();
         print.message("실행 결과");
-        for (int i=0; i<tryCount; i++) {
+        for (int i = 0; i < tryCount; i++) {
             gameService.tryRacing(carList);
             print.result(carList);
         }
         print.message(gameService.getWinner(carList));
     }
-
 
 
 }
