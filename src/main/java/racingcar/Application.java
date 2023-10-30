@@ -8,20 +8,18 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         int tries;
         int highestScore;
-        String[] carNames = validateCarName();
-        List<Car> cars = new ArrayList<>();
 
-        // String[]로 되어 있는 차 이름들을
-        // Car클래스 안에 메소드들을 구현하고 사용하기 위해 List<Car>로 변환
-        for (String name : carNames) {
-            cars.add(new Car(name));
-        }
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String carInput = readLine();
+        String[] carNames = validateCarName(carInput);
+
+        List<Car> cars = createCarsFromNames(carNames);
 
         System.out.println("시도할 횟수는 몇회인가요?");
-        tries = validateAndParseTry();
+        String tryInput = readLine();
+        tries = validateAndParseTry(tryInput);
 
         runRace(cars, tries);
 
@@ -34,8 +32,7 @@ public class Application {
      * 유저의 차 이름 입력을 받아 유효성을 검사하고 쉼표를 기준으로 나눠 String[]로 리턴
      * @return String[] carNames
      */
-    public static String[] validateCarName(){
-        String carInput = readLine();
+    public static String[] validateCarName(String carInput){
         if (carInput == null || carInput.isEmpty()) {
             throw new IllegalArgumentException();
         }
@@ -58,11 +55,23 @@ public class Application {
     }
 
     /**
+     * String[]에 들어가 있는 차 이름들을 Car라는 클라스로 생성하면서 List에 담음
+     * @param carNames
+     * @return List<Car> cars
+     */
+    public static List<Car> createCarsFromNames(String[] carNames){
+        List<Car> cars = new ArrayList<>();
+        for (String name : carNames) {
+            cars.add(new Car(name));
+        }
+        return cars;
+    }
+
+    /**
      * 유저의 게임을 시도할 횟수를 입력 받아 유효성을 검사하고 int로 바꿔 리턴
      * @return int tires
      */
-    public static int validateAndParseTry(){
-        String tryInput = readLine();
+    public static int validateAndParseTry(String tryInput){
         int tries;
         if (tryInput == null || tryInput.isEmpty() || !tryInput.matches("\\d+")) {
             throw new IllegalArgumentException();
