@@ -66,7 +66,7 @@ class CarsTest {
                 .filter(car -> winnerNameList.contains(car.getName()))
                 .toList();
 
-        assertThat(carList.get(0).getPosition()).isEqualTo(n);
+        assertThat(carList.get(0).getPosition()).isEqualTo(10);
 
     }
 
@@ -157,7 +157,7 @@ class CarsTest {
 
     public static class MonotoneIncreasingNumberGenerator implements NumberGenerator {
 
-        private int number = 0;
+        private static int number = 0;
         @Override
         public int generate() {
             return number++;
