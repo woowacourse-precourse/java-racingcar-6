@@ -5,9 +5,10 @@ import java.util.List;
 import java.util.Set;
 
 public class RacingCarGameMachineValidator {
-
     private final int MIN_RACING_CAR_COUNT = 2;
     private final int MAX_RACING_CAR_COUNT = 5;
+    private final int MIN_ROUND_COUNT = 1;
+    private final int MAX_ROUND_COUNT = 30;
 
     public void validateNameList(List<String> racingCarNameList) {
         validateNameCount(racingCarNameList);
@@ -37,5 +38,12 @@ public class RacingCarGameMachineValidator {
     }
 
     public void validateRoundCount(int roundCount) {
+        if (isInvalidRoundCount(roundCount)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private boolean isInvalidRoundCount(int roundCount) {
+        return roundCount < MIN_ROUND_COUNT || roundCount > MAX_ROUND_COUNT;
     }
 }
