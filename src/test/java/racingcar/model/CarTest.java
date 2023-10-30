@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import model.Car;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -83,6 +85,29 @@ public class CarTest {
 
         //then
         Assertions.assertThat(currentStatus).isEqualTo("pobi : ---");
+    }
+
+    @Test
+    @DisplayName("내림차순 정렬 테스트")
+    public void 내림차순_정렬_테스트() {
+        //given
+        Car pobiCar = new Car("pobi");
+        Car lisaCar = new Car("lisa");
+        Car jinyCar = new Car("jiny");
+        List<Car> cars = new ArrayList<>();
+        String expectedCarName = "lisa";
+
+        lisaCar.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
+
+        cars.add(pobiCar);
+        cars.add(lisaCar);
+        cars.add(jinyCar);
+        //when
+        cars.sort(Car::compareTo);
+        String currentWinner = cars.get(0).toString();
+
+        //then
+        Assertions.assertThat(currentWinner).isEqualTo(expectedCarName);
     }
 
 }
