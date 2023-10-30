@@ -22,8 +22,6 @@ public class RacingGame {
 
         gameManager.startGame();
         View.printGameProcess(gameManager.getGameLog());
-
-        gameManager.calculateWinner();
         View.printGameResult(gameManager.getGameWinner());
     }
 }

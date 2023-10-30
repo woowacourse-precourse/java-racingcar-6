@@ -82,9 +82,10 @@ public class GameManager {
             }
             gameLog.append(NEW_LINE);
         }
+        calculateWinner();
     }
 
-    public void calculateWinner() {
+    private void calculateWinner() {
         int winnerScore = getWinnerScore();
         findWinner(winnerScore);
     }
