@@ -3,10 +3,13 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumber {
-    public static boolean randomNumber() {
-        int randomNumber = Randoms.pickNumberInRange(1,9);
+    public static int createRandomNumber() {
+        return Randoms.pickNumberInRange(0,9);
+    }
 
-        if (randomNumber < 4) {
+    public static boolean isMove(int randomNumber) {
+
+        if (randomNumber <= 4) {
             return true;
         }
         return false;
