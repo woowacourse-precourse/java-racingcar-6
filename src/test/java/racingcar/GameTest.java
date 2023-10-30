@@ -4,14 +4,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.fail;
 
-import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
 public class GameTest {
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
 
     @Test
     void 자동차이름들_구분자로_구분() {
@@ -105,5 +115,30 @@ public class GameTest {
 
         winnerList = gameObj.selectWinner();
         assertThat(winnerList).containsExactly("npc1", "npc3");
+    }
+
+    @Test
+    void 최종우승자_출력확인() {
+        Car obj1 = new Car("npc1");
+        Car obj2 = new Car("npc2");
+        Game gameObj = new Game();
+
+        gameObj.carList.add(obj1);
+        gameObj.carList.add(obj2);
+        gameObj.roundNumber = 5;
+
+        obj1.increaseForwardCount(1);
+        obj2.increaseForwardCount(1);
+
+        List<String> winnerList = gameObj.selectWinner();
+        assertThat(winnerList).containsExactly("npc1", "npc2");
+
+        obj1.increaseForwardCount(1);
+        obj2.increaseForwardCount(1);
+
+        winnerList = gameObj.selectWinner();
+        gameObj.announceWinner(winnerList);
+
+        assertThat(outContent.toString()).isEqualTo("최종 우승자 : npc1, npc2");
     }
 }
