@@ -10,8 +10,8 @@ public class RacingCarGame {
     public List<Integer> movementSoFar = new ArrayList<Integer>();
 
     public String inputString() {
-        String inputString = Console.readLine();
-        return inputString;
+        String inputStr = Console.readLine();
+        return inputStr;
     }
 
     public void stringToList(String strCarName) {
@@ -26,12 +26,12 @@ public class RacingCarGame {
         String strCarName = inputString();
         // 자동차 이름 입력 완료
         stringToList(strCarName);
-        setMovementSoFar();
+        setMovement();
 //        System.out.println(carName);
 //        System.out.println(movementSoFar);
     }
 
-    public void setMovementSoFar() {
+    public void setMovement() {
         for (int i = 0; i < carName.size(); i++) {
             movementSoFar.add(0);
         }
