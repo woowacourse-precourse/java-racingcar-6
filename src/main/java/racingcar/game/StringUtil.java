@@ -3,7 +3,7 @@ package racingcar.game;
 import java.util.Arrays;
 import java.util.List;
 
-public class StringSeparator {
+public class StringUtil {
 
     public static List<String> separate(String carNames) {
         String[] carNameArray = carNames.split(",");

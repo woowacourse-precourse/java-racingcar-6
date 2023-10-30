@@ -16,7 +16,7 @@ public class GameManager {
     }
 
     public void setCars(String carNames) {
-        List<String> carNameList = StringSeparator.separate(carNames);
+        List<String> carNameList = StringUtil.separate(carNames);
         setting.initializeCars(carNameList);
     }
 
