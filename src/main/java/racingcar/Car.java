@@ -9,6 +9,10 @@ public class Car {
         this.name = name;
     }
 
+    public void moveForward() {
+        distance++;
+    }
+
     public String getName() {
         return name;
     }
