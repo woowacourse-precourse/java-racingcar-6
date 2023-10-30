@@ -11,7 +11,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
-    private Cars cars;
+    private final Cars cars;
 
     public GameController() {
         this.cars = new Cars();
@@ -32,17 +32,16 @@ public class GameController {
 
     private void initCars(List<String> names) {
         for(String name : names) {
-            cars.addCar(new Car(name, 0));
+            cars.addCar(new Car(name));
         }
     }
 
     private void racing(int attempt) {
         for(int i = 0; i < attempt; i++) {
             cars.forward();
-            OutputView.displayRacingSituation(cars.getCars());
+            OutputView.displayRacingSituation(cars);
         }
     }
-
 
     public List<String> initNames() {
         String inputName = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_CAR_NAME.getMessage());

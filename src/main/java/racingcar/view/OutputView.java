@@ -1,16 +1,16 @@
 package racingcar.view;
 
-import java.util.List;
 import racingcar.constants.GameMessage;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.Winner;
 
 public class OutputView {
     public static void displayTitle(){
         System.out.println(GameMessage.OUTPUT_EXECUTION_RESULTS.getMessage());
     }
-    public static void displayRacingSituation(List<Car> cars) {
-        for(Car car: cars) {
+    public static void displayRacingSituation(Cars cars) {
+        for(Car car: cars.getCars()) {
             System.out.print(car.getName());
             System.out.print(GameMessage.OUTPUT_COLON.getMessage());
             displayForward(car);

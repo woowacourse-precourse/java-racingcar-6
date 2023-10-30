@@ -29,8 +29,10 @@ public class CarTest {
     @DisplayName("n대의 자동차는 전진 또는 멈출 수 있는가?")
     void car_자동차_전진_테스트() {
         Cars cars = new Cars();
-        Car car1 = new Car("pobi", 0);
-        Car car2 = new Car("java", 0);
+
+        Car car1 = new Car("pobi");
+        Car car2 = new Car("java");
+
         cars.addCar(car1);
         cars.addCar(car2);
 
