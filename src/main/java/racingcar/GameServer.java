@@ -10,8 +10,15 @@ final class GameServer {
         this.roulette = roulette;
     }
 
+
     private void initializeCars() {
         Output.printInputNames();
         cars = new Cars(roulette, Input.receiveInput());
     }
+
+    private void initializeCount() {
+        Output.printInputCount();
+        count = Count.create(Input.receiveInput());
+    }
+
 }
