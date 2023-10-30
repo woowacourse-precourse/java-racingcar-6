@@ -17,15 +17,14 @@ public class Players {
     public String processRacing() {
         StringBuilder builder = new StringBuilder();
         for (RacingCar racingCar : players) {
-            checkRacingCarMoveForward(racingCar);
+            checkRacingCarIsMoveForward(racingCar);
             buildRacingStatusMessage(builder, racingCar);
         }
-        builder.append("\n");
 
         return builder.toString();
     }
 
-    private static void checkRacingCarMoveForward(RacingCar racingCar) {
+    private static void checkRacingCarIsMoveForward(RacingCar racingCar) {
         if (racingCar.isMoveForward(RandomGenerator.generateNumber())) {
             racingCar.moveForward();
         }

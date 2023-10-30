@@ -29,6 +29,7 @@ public class RacingCarService {
 
         for (int i = 0; i < cycle; i++) {
             builder.append(players.processRacing());
+            builder.append("\n");
         }
 
         return builder.toString();

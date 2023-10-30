@@ -1,7 +1,6 @@
 package domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,5 +28,6 @@ class PlayersTest {
         assertThat(winners.size()).isEqualTo(1);
         assertThat(winners.get(0)).isEqualTo("Tesla");
     }
+
 
 }
