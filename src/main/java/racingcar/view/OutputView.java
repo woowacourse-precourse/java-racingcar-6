@@ -4,11 +4,11 @@ import java.util.List;
 import racingcar.domain.RaceHistory;
 
 public class OutputView {
-    public static final String NAME_POSITION_SEPARATOR = " : ";
-    public static final String SKID_MARK = "-";
-    public static final String WINNER = "최종 우승자";
-    public static final String WINNER_DELIMITER = ", ";
-    public static final String RACE_RESULT = "실행 결과";
+    private static final String NAME_POSITION_SEPARATOR = " : ";
+    private static final String SKID_MARK = "-";
+    private static final String WINNER = "최종 우승자";
+    private static final String WINNER_DELIMITER = ", ";
+    private static final String RACE_RESULT = "실행 결과";
 
     public void printRaceHistory(RaceHistory raceHistory) {
         System.out.println();

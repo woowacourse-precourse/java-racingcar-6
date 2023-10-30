@@ -3,9 +3,9 @@ package racingcar.domain;
 import java.util.function.IntSupplier;
 
 public class Car implements Comparable<Car> {
-    public static final String NOT_BLANK_NAME = "자동차 이름은 비어있을 수 없습니다";
-    public static final String INVALID_NAME_LENGTH_FORMAT = "자동차 이름은 %d자 이하여야 합니다";
-    public static final int MAX_NAME_LENGTH = 5;
+    private static final String NOT_BLANK_NAME = "자동차 이름은 비어있을 수 없습니다";
+    private static final String INVALID_NAME_LENGTH_FORMAT = "자동차 이름은 %d자 이하여야 합니다";
+    private static final int MAX_NAME_LENGTH = 5;
     public static final int MOVE_THRESHOLD = 4;
 
     private final String name;

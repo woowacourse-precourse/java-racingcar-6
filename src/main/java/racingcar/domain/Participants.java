@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Participants {
-    public static final String INVALID_ATTEMPT_COUNT = "시도 횟수는 1 이상이어야 합니다";
-    public static final int MIN_ATTEMPT_COUNT = 1;
+    private static final String INVALID_ATTEMPT_COUNT = "시도 횟수는 1 이상이어야 합니다";
+    private static final int MIN_ATTEMPT_COUNT = 1;
+
     private final List<Car> cars;
     private RaceHistory raceHistory;
 
