@@ -37,10 +37,15 @@ public class Application {
     int tryCycle = cs.StringConvertInt(inputCycleString);
 
     for (int i = 0; i < tryCycle; i++) {
+
       for(CarVO car : racingCarList){
         int randomNumber = Randoms.pickNumberInRange(1,9);
         if(randomNumber > 3){
           car.setMove(1 + car.getMove());
+        }
+      StringBuilder movePoint = new StringBuilder();
+        for (int j = 0; j < car.getMove(); j++) {
+          movePoint.append("-");
         }
 
 
