@@ -25,13 +25,13 @@ public class CarRacingGame {
     /**
      * 게임의 상황을 바꾸는 책임을 가지고 있는 클래스입니다.
      */
-    class GameChanger {
+    protected class GameChanger {
         private final static int GO_NUMBER = 4;
 
         private GameChanger() {
         }
 
-        static void changeGame(LinkedHashMap<String, StringBuilder> car,
+        public static void changeGame(LinkedHashMap<String, StringBuilder> car,
                                List<Integer> generatedNumbers) {
             Iterator temp = generatedNumbers.iterator();
 
