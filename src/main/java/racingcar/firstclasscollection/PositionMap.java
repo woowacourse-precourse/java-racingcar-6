@@ -8,9 +8,11 @@ import racingcar.model.Car;
 public class PositionMap {
     private static final int INIT_POSITION = 0;
     private Map<Car, Integer> positionMap;
+    private int winnerPosition;
 
     public PositionMap() {
         positionMap = new HashMap<>();
+        winnerPosition = 0;
     }
 
     /**
@@ -24,7 +26,18 @@ public class PositionMap {
         positionMap.put(car, INIT_POSITION);
     }
 
-    // TODO : void moveCar(Car car)
+    /**
+     * update car's position in Map
+     *
+     * @param car
+     */
+    public void moveCar(Car car) {
+        int nextPosition = positionMap.get(car) + 1;
+        positionMap.put(car, nextPosition);
+        if (winnerPosition < nextPosition) {
+            winnerPosition = nextPosition;
+        }
+    }
 
     // TODO : List<Car> getWinner()
 }
