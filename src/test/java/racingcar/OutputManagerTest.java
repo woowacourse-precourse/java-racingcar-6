@@ -36,4 +36,29 @@ class OutputManagerTest extends NsTest {
                         List.of(MIN_VALUE_FOR_MOVE_FORWARD - 1, MIN_VALUE_FOR_MOVE_FORWARD - 1))
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("우승자_출력_테스트를_위한_매개변수")
+    void 우승자_출력_테스트(List<String> carNames, List<Integer> movePowers, String winnerPrint) {
+        Cars cars = new Cars(carNames);
+        cars.tryMoveAll(movePowers);
+        OutputManager.printWinner(cars);
+        assertThat(output())
+                .isEqualTo(winnerPrint);
+    }
+
+    static Stream<Arguments> 우승자_출력_테스트를_위한_매개변수() {
+        final int MIN_VALUE_FOR_MOVE_FORWARD = 4;
+        return Stream.of(
+                Arguments.of(List.of("test1", "test2"),
+                        List.of(MIN_VALUE_FOR_MOVE_FORWARD, MIN_VALUE_FOR_MOVE_FORWARD - 1), "최종 우승자 : test1"),
+                Arguments.of(List.of("test1", "test2"),
+                        List.of(MIN_VALUE_FOR_MOVE_FORWARD - 1, MIN_VALUE_FOR_MOVE_FORWARD), "최종 우승자 : test2"),
+                Arguments.of(List.of("test1", "test2"),
+                        List.of(MIN_VALUE_FOR_MOVE_FORWARD, MIN_VALUE_FOR_MOVE_FORWARD), "최종 우승자 : test1, test2"),
+                Arguments.of(List.of("test1", "test2"),
+                        List.of(MIN_VALUE_FOR_MOVE_FORWARD - 1, MIN_VALUE_FOR_MOVE_FORWARD - 1),
+                        "최종 우승자 : test1, test2")
+        );
+    }
 }
