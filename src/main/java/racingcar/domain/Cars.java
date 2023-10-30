@@ -20,6 +20,18 @@ public class Cars {
         carList.forEach(Car::move);
     }
 
+    public int getSize() {
+        return carList.size();
+    }
+
+    public String getNameFromIndex(final int index) {
+        return carList.get(index).getName();
+    }
+
+    public int getDistanceFromIndex(final int index) {
+        return carList.get(index).getDistance();
+    }
+
     public List<String> getWinnerNames() {
         return carList.stream().filter(c -> c.getDistance() == getMaxDistance()).map(Car::getName).toList();
     }
