@@ -23,15 +23,30 @@ public class InputValueValidator {
         return carNames;
     }
 
-    public int validateTryCount(int tryCount) {
-        if (!isMinimumOneTryCounts(tryCount)) {
+    public int validateTryCount(String tryCount) {
+
+        int tryCountNumber = parseTryCount(tryCount);
+
+        if (!isMinimumOneTryCounts(tryCountNumber)) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_MINIMUM_TRY_COUNT.getMessage());
         }
-        return tryCount;
+        return tryCountNumber;
     }
 
-    private boolean isMinimumOneTryCounts(int tryCount) {
-        return tryCount > 0;
+    private int parseTryCount(String tryCount) {
+        try {
+            return convertStringToInt(tryCount);
+        } catch (NumberFormatException ex) {
+            throw new IllegalArgumentException(ErrorMessage.ERROR_NUMBER_FORMAT_TRY_COUNT.getMessage());
+        }
+    }
+
+    private int convertStringToInt(String tryCount) {
+        return Integer.parseInt(tryCount);
+    }
+
+    private boolean isMinimumOneTryCounts(int tryCountNumber) {
+        return tryCountNumber > 0;
     }
 
     private boolean isMinimumTwoCarNames(List<String> carNames) {
