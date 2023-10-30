@@ -33,7 +33,7 @@ public class Car {
     }
 
     private void nameLengthValidation(String carName) {
-        if (carName.length() >= MAX_NAME_LENGTH) {
+        if (!(carName.length() <= MAX_NAME_LENGTH)) {
             throw new IllegalArgumentException();
         }
     }
