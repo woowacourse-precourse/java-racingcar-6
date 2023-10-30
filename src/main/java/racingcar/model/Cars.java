@@ -61,10 +61,9 @@ public class Cars {
     }
 
     private int maxDash() {
-        int maxDash = Integer.MIN_VALUE;
-        for (Car car : carList) {
-            if (car.getDashNum() > maxDash) maxDash = car.getDashNum();
-        }
-        return maxDash;
+        return carList.stream()
+                .mapToInt(Car::getDashNum)
+                .max()
+                .orElse(Integer.MIN_VALUE);
     }
 }

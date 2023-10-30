@@ -27,12 +27,9 @@ public class CarService {
     }
 
     private List<Car> generateCarInstanceByCarName(String carNames) {
-        // stream으로 바꿔보기
-        List<Car> carList = new ArrayList<>();
-        for (String carName : splitCarNames(carNames)) {
-            carList.add(Car.newInstance(carName));
-        }
-        return carList;
+        return Arrays.stream(splitCarNames(carNames))
+                .map(Car::newInstance)
+                .toList();
     }
 
     private String[] splitCarNames(String carNames) {
