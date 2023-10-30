@@ -34,7 +34,7 @@ class ValidatePlayerInputTest {
         //then
         assertThatThrownBy(() -> validatePlayerInput.validateNotContainCarName(playerInput))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("레이싱 자동차 이름이 없이, 콤마가 연속으로 입력하셨습니다");
+                .hasMessage("레이싱 자동차 이름이 없이, 콤마가 연속으로 입력되었습니다");
     }
 
     @DisplayName("레이싱 자동차 이름이 5 초과할 경우에 대한 테스트")

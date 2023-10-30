@@ -18,7 +18,7 @@ public class ValidatePlayerInput {
 
         for (String carName : splitsPlayerInput) {
             if (carName == "") {
-                throw new IllegalArgumentException("레이싱 자동차 이름이 없이, 콤마가 연속으로 입력하셨습니다");
+                throw new IllegalArgumentException("레이싱 자동차 이름이 없이, 콤마가 연속으로 입력되었습니다");
             }
         }
     }
