@@ -6,7 +6,7 @@ import java.util.List;
 public class Game {
     User user = new User();
 
-    public List<Car> createCars(List<String> carNames) {
+    private List<Car> createCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
@@ -14,22 +14,22 @@ public class Game {
         return cars;
     }
 
-    public void printDash(Long totalMovements) {
+    private void printDash(Long totalMovements) {
         for (int i = 0; i < totalMovements; i++) {
             System.out.print("-");
         }
         System.out.println();
     }
 
-    public void eachRound(List<Car> cars) {
+    private void eachRound(List<Car> cars) {
         for (Car car : cars) {
             car.moveForward();
-            System.out.print(car.getCarName() + ": ");
+            System.out.print(car.getCarName() + " : ");
             printDash(car.getTotalMovements());
         }
     }
 
-    public Long findMax(List<Car> cars) {
+    private Long findMax(List<Car> cars) {
         Long max = 0L;
         for (Car car : cars) {
             if (max < car.getTotalMovements()) {
@@ -39,7 +39,7 @@ public class Game {
         return max;
     }
 
-    public List<String> findWinner(List<Car> cars) {
+    private List<String> findWinner(List<Car> cars) {
         List<String> winner = new ArrayList<>();
         Long max = findMax(cars);
         for (Car car : cars) {
@@ -61,7 +61,7 @@ public class Game {
         }
 
         List<String> winner = findWinner(cars);
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
 
         System.out.print(String.join(", ", winner));
     }
