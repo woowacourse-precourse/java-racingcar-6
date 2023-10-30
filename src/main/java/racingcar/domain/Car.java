@@ -5,6 +5,11 @@ public class Car{
     private String name;
     private int forwardCount;
 
+    public Car(String name, int forwardCount){
+        this.name = name;
+        this.forwardCount = forwardCount;
+    }
+
     public void drive(){
 
     }

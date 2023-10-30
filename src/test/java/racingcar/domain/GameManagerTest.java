@@ -1,14 +1,12 @@
 package racingcar.domain;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.groups.Tuple.tuple;
 
-import java.util.List;
+import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 public class GameManagerTest{
 
@@ -30,12 +28,11 @@ public class GameManagerTest{
         String name3 = "jun";
 
         //when
-        List<Car> cars = gameManager.askInput();
-        Mockito.when(readLine()).thenReturn(input);
+        Cars cars = new Cars(Arrays.asList(input.split(",")));
 
         //then
-        assertThat(cars).hasSize(3)
-                .extracting(Car::getForwardCount, Car::getName)
+        assertThat(cars.getCarList()).hasSize(3)
+                .extracting(Car::getName, Car::getForwardCount)
                 .contains(
                         tuple(
                                 name1, initialForwardCount
