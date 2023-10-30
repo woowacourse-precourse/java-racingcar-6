@@ -22,7 +22,7 @@ class InputManagerTest {
         InputStream in = new ByteArrayInputStream(notInteger.getBytes());
         System.setIn(in);
 
-        Assertions.assertThatThrownBy(() -> inputManager.Number())
+        Assertions.assertThatThrownBy(() -> inputManager.number())
                 .isInstanceOf(IllegalArgumentException.class);
 
     }
