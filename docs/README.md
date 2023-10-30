@@ -143,4 +143,9 @@
 - [x] `, `로 조인할 때 공백 있게 조인되는지 확인
 3. MapUtils Test
 - [x] 주어진 Map의 최대 value추출하는지 확인
-- [x] 최대 value를 가진 key를 추출하는지 확인
+- [x] 최대 value를 가진 key를 추출하는지 확인 
+4. Factory Test
+- [ ] 생성된 RandomDigit의 값이 0~9 확인 
+- [ ] List<String>playersName -> List<Player>player 변경 확인
+- [ ] LinkedHashMap이 입력순서를 보장했는지 확인
+- [ ] player와 distance가 잘 맵핑되었는지 확인
