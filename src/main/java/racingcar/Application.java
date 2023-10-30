@@ -5,10 +5,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static java.util.Collections.list;
+import static java.util.Collections.max;
 
 public class Application {
 
@@ -58,6 +58,20 @@ public class Application {
             System.out.println("");
         }
 
+        // 경기가 끝나면 최종 우승자 저장 및 출력
+        final HashMap<String, Integer> goAheadCountList = new HashMap<>();
+
+        for (Car car:racingGame.getRacingCarList()){
+            goAheadCountList.put(car.getName(), car.getAheadCount());
+        }
+
+        goAheadCountList.forEach((key, value) -> {
+            if (value == max(goAheadCountList.values())) {
+                racingGame.updateWinnerList(key);
+            }
+        });
+
+        System.out.println("최종 우승자 : "+racingGame.getWinnerList().toString());
 
     }
 }
