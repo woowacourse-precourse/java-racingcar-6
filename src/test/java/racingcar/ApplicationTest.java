@@ -31,6 +31,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    // My test
+    @Test
+    void 숫자에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("son,kane", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
