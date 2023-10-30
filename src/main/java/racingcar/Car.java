@@ -32,7 +32,7 @@ public class Car {
     }
 
     public void forward() {
-        if (getRandomNumber() > FORWARD_STANDARD) {
+        if (getRandomNumber() >= FORWARD_STANDARD) {
             point += 1;
         }
         print();
