@@ -9,7 +9,6 @@ public class Player {
     private static final List<String> carNames = new ArrayList<>();
     private static int raceCount;
 
-    private static final int CAR_COUNT = 3;
     private static final int CAR_NAME_LENGTH = 5;
 
     public void inputCarNames() {
