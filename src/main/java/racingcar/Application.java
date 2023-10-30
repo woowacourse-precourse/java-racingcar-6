@@ -42,8 +42,10 @@ public class Application {
         final List<Car> carList = new ArrayList<>();
 
         for (int i=0; i<carArray.size(); i++){
-            final Car car = new Car(carArray.get(i));
-            carList.add(car);
+            if (globalExceptionHandler.isValidCarName(carArray.get(i))) {
+                final Car car = new Car(carArray.get(i));
+                carList.add(car);
+            }
         }
 
         // 자동차 경주 게임 객체 생성해 자동차 리스트 저장하기
