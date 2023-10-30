@@ -16,11 +16,11 @@ public class Car {
         this.gauge = gauge;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    int getGauge() {
+    public int getGauge() {
         return gauge;
     }
 }

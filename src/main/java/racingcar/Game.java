@@ -20,7 +20,6 @@ public class Game {
         if (validate(names)) {
             for (String name : names) {
                 cars.add(new Car(name));
-                // createCars(name);
             }
         }
         return cars;

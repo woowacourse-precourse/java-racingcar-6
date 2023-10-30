@@ -10,11 +10,11 @@ public class Cars {
         this.cars = cars;
     }
 
-    List<Car> getList() {
+    public List<Car> getList() {
         return cars;
     }
 
-    List<String> getNames() {
+    public List<String> getNames() {
         List<String> names = new ArrayList<>();
         for (Car car : cars) {
             names.add(car.getName());
@@ -22,7 +22,7 @@ public class Cars {
         return names;
     }
 
-    List<Integer> getGauges() {
+    public List<Integer> getGauges() {
         List<Integer> gauges = new ArrayList<>();
         for (Car car : cars) {
             gauges.add(car.getGauge());
