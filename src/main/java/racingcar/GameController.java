@@ -1,57 +1,38 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GameController {
 
     private final GameModel gameModel;
     private final GameView gameView;
-    private Map<String, Integer> carData;
 
     public GameController() {
-        carData = new LinkedHashMap<>();
         this.gameView = new GameView();
         this.gameModel = new GameModel();
     }
 
-    public void insertCarToCarArray(Map<String, Integer> carData, String[] carNamesArray) {
-        for (String carName : carNamesArray) {
-            carData.put(carName, 0);
-        }
+    public void insertCarToCarArray(String[] carNamesArray) {
+        gameModel.insertCarToCarArray(carNamesArray);
     }
 
     public void askHowManyTimes() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        gameView.printMessage(GameModel.HOW_MANY_TIMES_MESSAGE);
     }
 
-    public int createRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+
+    public int findMaxPosition() {
+        return gameModel.findMaxPosition();
     }
 
-    public boolean checkResult(int randInt) {
-        return randInt >= 4;
-    }
-    public void putDataToCarData(String carName, int count) {
-        carData.put(carName, carData.get(carName) + count);
-    }
-
-    public void printResultMessage() {
-        System.out.println("실행 결과");
-    }
-
-    public int findMaxPosition(Map<String, Integer> carData) {
-        return carData.values().stream().max(Integer::compare).orElse(0);
-    }
-
-    public void carPrepare(Map<String, Integer> carData) {
+    public void carPrepare() {
         printStartMessage();
         String[] carNamesArray = Console.readLine().split(",");
         checkNameLength(carNamesArray);
-        insertCarToCarArray(carData, carNamesArray);
+        insertCarToCarArray(carNamesArray);
     }
 
     private void checkNameLength(String[] carNamesArray) {
@@ -62,62 +43,36 @@ public class GameController {
         }
     }
 
-    public void saveResult(Map<String, Integer>carData, int count) {
-        for (String carName : carData.keySet()) {
-            for (int j = 0; j < count; j++) {
-                int randInt = createRandomNumber();
-                if (checkResult(randInt)) {
-                    putDataToCarData(carName, 1);
-                }
-            }
-        }
+
+    public void displayGameResult(String RESULT_MESSAGE, Map<String, Integer> carData) {
+        gameView.displayGameResult(RESULT_MESSAGE, carData);
     }
 
-    public void printResult(Map<String, Integer> carData) {
-        for (Map.Entry<String, Integer> entry : carData.entrySet()) {
-            System.out.print(entry.getKey() + " : ");
-            for (int j = 0; j < entry.getValue(); j++) {
-                System.out.print("-");
-            }
-            System.out.println();
-        }
-    }
-
-    public void displayGameResult(Map<String, Integer> carData) {
-        printResultMessage();
-        printResult(carData);
-    }
-
-    public void playingGame(Map<String, Integer> carData) {
+    public void playingGame() {
         askHowManyTimes();
         int count = Integer.parseInt(Console.readLine());
-        saveResult(carData, count);
+        gameModel.saveResult(count);
     }
 
     public void findWinner(Map<String, Integer> carData) {
-        int maxPosition = findMaxPosition(carData);
-        ArrayList<String> winners = new ArrayList<>();
-
-        for (Map.Entry<String, Integer> entry : carData.entrySet()) {
-            if (entry.getValue().equals(maxPosition)) {
-                winners.add(entry.getKey());
+        int maxPosition = findMaxPosition();
+        List<String> winners = new ArrayList<>();
+        carData.forEach((name, position) -> {
+            if (position == maxPosition) {
+                winners.add(name);
             }
-        }
-        printWinner(winners);
+        });
+        gameView.printWinner(GameModel.WINNER_MESSAGE, winners);
     }
     public void run() {
 
-        carPrepare(carData);
-        playingGame(carData);
-        displayGameResult(carData);
-        findWinner(carData);
-    }
-
-    public void printWinner(ArrayList<String> winners) {
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+        carPrepare();
+        playingGame();
+        displayGameResult(GameModel.RESULT_MESSAGE, gameModel.getCarData());
+        findWinner(gameModel.getCarData());
     }
 
     public void printStartMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
+        gameView.printMessage(GameModel.START_MESSAGE);
     }
 }
