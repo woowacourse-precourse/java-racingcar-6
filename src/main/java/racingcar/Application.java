@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Application {
@@ -24,9 +25,16 @@ public class Application {
         String numberOfLaps = Console.readLine();
         int lapOfRace = player.setLapsOfRace(numberOfLaps);
 
-        // TODO: play racing games for numberOfLaps
-        for (int lap=0; lap<lapOfRace; lap++) {
 
+        // TODO: play racing games for numberOfLaps
+        // gameResult initialization 이거 메서드로 분리?
+        ArrayList<Integer> gameResult = new ArrayList<Integer>(carList.size());
+        for (int i=0; i<carList.size(); i++) {
+            gameResult.add(0);
+        }
+
+        for (int lap=0; lap<lapOfRace; lap++) {
+            ArrayList<Integer> currentRaceResult = Game.startRace(carList, gameResult);
         }
 
         // TODO: print Winners

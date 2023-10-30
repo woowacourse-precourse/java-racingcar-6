@@ -1,11 +1,12 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 
 public class Judgement {
     public static boolean moveForward() {
-        NumberGenerator numberGenerator = new NumberGenerator();
-        int number = numberGenerator.createRandomNumber();
+        int number = Randoms.pickNumberInRange(0, 9);
 
         if (number >= 4) {
             return true;
