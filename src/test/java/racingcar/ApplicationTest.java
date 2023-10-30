@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingCar;
 import racingcar.utils.RacingCarGameInput;
+import racingcar.utils.RacingCarGameOutput;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -38,6 +39,17 @@ class ApplicationTest extends NsTest {
         assertThatThrownBy(() -> RacingCarGameInput.validateMoveCount(0))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_NOT_POSITIVE);
+    }
+
+    @Test
+    void printResultMessage_메소드를_사용시_실행_결과들이_출력(){
+        List<RacingCar> carList = List.of(
+            new RacingCar("pobi"),
+            new RacingCar("woni")
+        );
+        carList.get(0).moveForword();
+        RacingCarGameOutput.printResultMessage(carList);
+        assertThat(output()).contains("pobi : -", "woni :");
     }
 
     @Test
