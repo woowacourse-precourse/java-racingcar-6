@@ -13,12 +13,15 @@
 
 `SettingGame` 인터페이스를 구현한 자동차 경주 게임 클래스이다.
 
-| 구현                   | 메서드                | 기능                                       |
-|----------------------|--------------------|------------------------------------------|
-| :white_large_square: | `pickRandomNumber` | 0에서 9 사이에서 무작위 값을 구한다.                   |
-| :white_large_square: | `goAhead`          | 조건에 맞는 경우 해당하는 차를 전진시킨다.                 |
-| :white_large_square: | `play`             | player의 입력과 설정을 검증하고 게임을 실행해 그 결과를 저장한다. |
-| :white_large_square: | `saveSettings`     | player가 입력한 자동차 이름을 저장한다.                |
+| 구현                   | 메서드                | 기능                                                        |
+|----------------------|--------------------|-----------------------------------------------------------|
+| :white_large_square: | `pickRandomNumber` | 0에서 9 사이에서 무작위 값을 구한다.                                    |
+| :white_large_square: | `validateInput`    | player가 입력한 문자열을 검증하고 저장한다.                               |
+| :white_large_square: | `validateSettings` | player가 설정한 자동차 이름을 검사한다.                                 |
+| :white_large_square: | `goAhead`          | 조건에 맞는 경우 해당하는 차를 전진시킨다.                                  |
+| :white_large_square: | `play`             | player의 입력과 설정을 검증하고 게임을 실행해 그 결과를 저장한다.                  |
+| :white_large_square: | `makeCars`         | player가 입력한 자동차 이름을 검증하고 `,`를 기준으로 분리해 `List<Car>`로 저장한다. |
+| :white_large_square: | `saveSettings`     | player가 입력한 자동차 이름을 저장한다.                                 |
 
 ## Car
 
@@ -41,12 +44,9 @@
 
 게임 클래스와 뷰 인스턴스를 받아 인스턴스를 생성한다.
 
-| 구현                   | 메서드                | 기능                                                        |
-|----------------------|--------------------|-----------------------------------------------------------|
-| :white_large_square: | `play`             | 게임 인스턴스를 생성해 게임이 완료될 때까지 게임을 진행한다.                        |
-| :white_large_square: | `validateInput`    | player가 입력한 문자열을 검증하고 저장한다.                               |
-| :white_large_square: | `validateSettings` | player가 설정한 자동차 이름을 검사한다.                                 |
-| :white_large_square: | `splitCarName`     | player가 입력한 자동차 이름을 검증하고 `,`를 기준으로 분리해 `List<Car>`로 저장한다. |
+| 구현                   | 메서드    | 기능                                 |
+|----------------------|--------|------------------------------------|
+| :white_large_square: | `play` | 게임 인스턴스를 생성해 게임이 완료될 때까지 게임을 진행한다. |
 
 ## messages.properties
 
