@@ -1,9 +1,8 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Arrays;
+import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -21,18 +20,24 @@ public class CarList {
     }
 
     public boolean checkCarName(){
-        return this.hasAtLeastTwoItems() && this.isEnglishName();
+        return this.hasAtLeastTwoItems() && this.isShortEnglishName() && this.isDuplicate();
     }
 
     public boolean hasAtLeastTwoItems(){
         return this.carList.size() >= 2;
     }
 
-    public boolean isEnglishName(){
-        Pattern pattern = Pattern.compile("^[a-zA-Z]+${1,5}");
+    public boolean isDuplicate(){
+        Set<String> carSet = new HashSet<>(carList);
+
+        return carSet.size() == carList.size();
+    }
+
+    public boolean isShortEnglishName(){
+        Pattern pattern = Pattern.compile("^[a-zA-Z]");
 
         for(String car: this.carList){
-            if(!pattern.matcher(car).matches()) return false;
+            if(!(car.length() < 6) && !pattern.matcher(car).matches()) return false;
         }
         return true;
     }
