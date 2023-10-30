@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.utils.RandomGenerator;
+import racingcar.view.ResultView;
 
 public class Race {
 
@@ -13,7 +15,13 @@ public class Race {
     }
 
     public void startRace() {
-        // TODO: 구현 필요
+        for (int i = 0; i < attemptCount; i++) {
+            for (Car car: cars) {
+                car.tryMove(RandomGenerator.generateRandomNumber());
+            }
+            ResultView.printRaceResult(cars);
+        }
+        ResultView.printWinners(findWinners());
     }
 
     public List<Car> findWinners() {
