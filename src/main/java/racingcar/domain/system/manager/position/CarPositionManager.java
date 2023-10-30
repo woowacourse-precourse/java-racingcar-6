@@ -2,7 +2,8 @@ package racingcar.domain.system.manager.position;
 
 import java.util.List;
 import java.util.Map;
-import racingcar.domain.system.manager.car.SavedCar;
+import racingcar.domain.system.manager.car.value.SavedCar;
+import racingcar.domain.system.manager.position.value.SavedCarPosition;
 
 public interface CarPositionManager {
 

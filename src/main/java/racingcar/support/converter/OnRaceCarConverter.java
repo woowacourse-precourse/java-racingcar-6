@@ -3,7 +3,7 @@ package racingcar.support.converter;
 import java.util.List;
 import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.core.car.OnRaceCars;
-import racingcar.domain.system.manager.position.SavedCarPosition;
+import racingcar.domain.system.manager.position.value.SavedCarPosition;
 
 public class OnRaceCarConverter {
 

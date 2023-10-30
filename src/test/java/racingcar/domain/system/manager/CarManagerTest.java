@@ -13,7 +13,7 @@ import racingcar.domain.core.car.Car;
 import racingcar.domain.core.car.CarName;
 import racingcar.domain.system.manager.car.CarManager;
 import racingcar.domain.system.manager.car.InMemoryCarManager;
-import racingcar.domain.system.manager.car.SavedCar;
+import racingcar.domain.system.manager.car.value.SavedCar;
 import racingcar.exceptions.runtime.DuplicatedCarNameException;
 import racingcar.exceptions.runtime.NotFoundSourceException;
 

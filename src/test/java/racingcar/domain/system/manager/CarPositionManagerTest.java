@@ -13,11 +13,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.core.car.Car;
 import racingcar.domain.core.car.CarName;
-import racingcar.domain.system.manager.car.CarKey;
-import racingcar.domain.system.manager.car.SavedCar;
+import racingcar.domain.system.manager.car.key.CarKey;
+import racingcar.domain.system.manager.car.value.SavedCar;
 import racingcar.domain.system.manager.position.CarPositionManager;
 import racingcar.domain.system.manager.position.InMemoryCarPositionManager;
-import racingcar.domain.system.manager.position.SavedCarPosition;
+import racingcar.domain.system.manager.position.value.SavedCarPosition;
 import racingcar.exceptions.runtime.NotFoundSourceException;
 
 class CarPositionManagerTest {

@@ -9,7 +9,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import racingcar.domain.system.manager.car.SavedCar;
+import racingcar.domain.system.manager.car.value.SavedCar;
+import racingcar.domain.system.manager.position.key.CarPositionKey;
+import racingcar.domain.system.manager.position.value.SavedCarPosition;
 import racingcar.exceptions.runtime.NotFoundSourceException;
 
 public class InMemoryCarPositionManager implements CarPositionManager {
