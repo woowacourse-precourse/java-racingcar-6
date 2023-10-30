@@ -9,6 +9,9 @@ public class PlayerRepository {
         return players;
     }
 
-    //TODO : player 추가 로직
+    //player 추가 로직
+    public void addPlayer(Player player){
+        players.add(player);
+    }
 
 }
