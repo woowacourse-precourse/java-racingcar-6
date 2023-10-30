@@ -21,5 +21,8 @@ public class GameHandler {
             List<Car> cars = game.playOnce();
             Communicator.printProgress(cars);
         }
+
+        List<Car> finalists = game.getFinalists();
+        Communicator.printFinalists(finalists);
     }
 }

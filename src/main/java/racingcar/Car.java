@@ -25,6 +25,10 @@ public class Car {
         return stringBuilder.toString();
     }
 
+    public String displayName() {
+        return name;
+    }
+
     public int getDisplacement() {
         return displacement;
     }

@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -28,6 +29,13 @@ public class Communicator {
     public static void printProgress(List<Car> cars) {
         cars.forEach(car -> System.out.println(car.showCurrentDisplacement()));
         System.out.println();
+    }
+
+    public static void printFinalists(List<Car> finalists) {
+        String finalistNames = finalists.stream()
+                .map(Car::displayName)
+                .collect(Collectors.joining(", "));
+        System.out.println("최종 우승자 : " + finalistNames);
     }
 
     private static void printInputGameTimes() {
