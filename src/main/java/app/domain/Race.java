@@ -10,10 +10,11 @@ import java.util.stream.Collectors;
 
 public class Race {
 
-    private Map<String, Integer> race;
+    private final Map<String, Integer> race;
 
     public Race(String raceList) {
-        this.race = Arrays.stream(raceList.split(",")).collect(Collectors.toMap(key -> key, value -> 0));
+        this.race = Arrays.stream(raceList.split(","))
+                .collect(Collectors.toMap(key -> key, value -> 0));
     }
 
     public void play() {
