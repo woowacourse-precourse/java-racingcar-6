@@ -34,7 +34,6 @@ public class RacingController {
         ValidateInput.isNotNullOrEmpty(input);
 
         String[] carNames = input.split(DELIMITER);
-
         return carNames;
     }
 
@@ -49,7 +48,6 @@ public class RacingController {
 
 
     private void processRacing(int trialNumber) {
-
         OutputView.processPrintStartMessage();
 
         racingCarNames = racingCars.getCarNames();
@@ -60,7 +58,6 @@ public class RacingController {
 
     private void oneTrial(List<String> names) {
         racingCars.move();
-
         racingCarLocations = racingCars.getCarLocations();
 
         for (int idx = 0; idx < names.size(); idx++) {
