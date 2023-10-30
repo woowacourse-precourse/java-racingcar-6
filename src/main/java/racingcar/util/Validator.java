@@ -34,6 +34,10 @@ public class Validator {
         }
     }
 
+    public void trial(String trial) {
+        blank(trial);
+        positive(trial);
+    }
 
     private void blank(String trial) {
         if (trial.equals("")) {
@@ -49,14 +53,14 @@ public class Validator {
         }
     }
 
-    private boolean notNum(char c, int index) {
+    private boolean notNum(char element, int index) {
         if (index == 0) {
-            if (c >= '1' && c <= '9') {
+            if (element >= '1' && element <= '9') {
                 return false;
             }
             return true;
         }
-        if (c >= '0' && c <= '9') {
+        if (element >= '0' && element <= '9') {
             return false;
         }
         return true;
