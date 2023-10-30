@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static racingcar.domain.Utils.checkNameOverLengthException;
-import static racingcar.domain.Utils.translateArrayToList;
+import static racingcar.domain.Utils.*;
 
 public class User {
     public List<String> inputCarName() {
@@ -17,5 +16,12 @@ public class User {
             throw new IllegalArgumentException("이름은 5자를 초과할 수 없습니다.");
 
         return translateArrayToList(carNames, carNameList);
+    }
+
+    public int inputNumberOfCarMovement() {
+        String tempNumberOfCarMovement = readLine();
+        if (checkStringToIntException(tempNumberOfCarMovement))
+            throw new IllegalArgumentException("올바르지 않은 입력입니다. 1이상의 숫자를 입력하세요.");
+        return Integer.parseInt(tempNumberOfCarMovement);
     }
 }

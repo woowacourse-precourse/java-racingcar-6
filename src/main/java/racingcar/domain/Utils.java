@@ -21,4 +21,14 @@ public class Utils {
         }
         return false;
     }
+
+    // String형에서 int형으로 변환하는 것에 대한 예외 처리
+    public static boolean checkStringToIntException(String stringSentence) {
+        for (int i = 0; i < stringSentence.length(); i++) {
+            if (!Character.isDigit(stringSentence.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
