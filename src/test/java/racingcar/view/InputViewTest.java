@@ -29,4 +29,22 @@ class InputViewTest {
                         .hasMessageContaining("자동차 이름은 5글자 이하여야 합니다.")
         );
     }
+
+    @Test
+    @DisplayName("입력을 아라비아 숫자가 아닌 글자가 포함되면 IllegalArgumentException 확인")
+    public void 아라비아_숫자_검증() {
+        // given
+        final InputView inputView = new InputView();
+
+        // when
+        String input = "1번";
+
+        // then
+        assertAll(
+                () -> assertThatThrownBy(() -> inputView.validateArabicNumber(input))
+                        .isInstanceOf(IllegalArgumentException.class),
+                () -> assertThatThrownBy(() -> inputView.validateArabicNumber(input))
+                        .hasMessageContaining("아라비아 숫자만 입력 가능합니다.")
+        );
+    }
 }
