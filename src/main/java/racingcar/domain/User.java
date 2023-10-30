@@ -34,7 +34,6 @@ public class User {
         return carsNameArray;
     }
 
-
     public void setAttempts() {
         System.out.println(ATTEMPTS_INPUT_MESSAGE);
         String input = Console.readLine();
