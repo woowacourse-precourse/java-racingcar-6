@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -28,6 +29,19 @@ public class CarTest {
       assertThat(car).isNotNull();
       assertThat(car.getName()).isEqualTo(name);
       assertThat(car.getPosition()).isEqualTo(position);
+    }
+
+    @Test
+    @DisplayName("이름이 5자를 초과하면 예외를 반환한다.")
+    void 이름이_5자를_초과하면_예외를_반환한다() {
+      // given
+      var name = "pobicon";
+      var position = 0;
+
+      // when & then
+      assertThatThrownBy(() -> new Car(name, position))
+          .isInstanceOf(IllegalArgumentException.class)
+          .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
     }
   }
 

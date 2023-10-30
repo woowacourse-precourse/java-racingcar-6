@@ -59,18 +59,6 @@ public class RaceGameInputTest {
   }
 
   @Test
-  @DisplayName("자동차 이름이 5자를 초과하면 예외를 반환한다.")
-  void 자동차_이름이_5자를_초과하면_예외를_반환한다() {
-    // given
-    var carNamesInput = "pobi,woni,jun,javaji";
-
-    // when & then
-    assertThatThrownBy(() -> RaceGameInput.from(carNamesInput, "1"))
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
-  }
-
-  @Test
   @DisplayName("시도할 횟수가 숫자가 아니면 예외를 반환한다.")
   void 시도할_횟수가_숫자가_아니면_예외를_반환한다() {
     // given

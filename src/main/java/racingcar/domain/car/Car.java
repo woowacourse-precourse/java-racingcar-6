@@ -5,12 +5,25 @@ import racingcar.domain.formula.MoveState;
 
 public class Car {
 
+  private static final int MAXIMUM_NAME_LENGTH = 5;
+
   private final String name;
   private int position;
 
   public Car(String name, int position) {
+    validateName(name);
     this.name = name;
     this.position = position;
+  }
+
+  private void validateName(String name) {
+    isNameLengthValid(name);
+  }
+
+  private void isNameLengthValid(String name) {
+    if (name.length() > MAXIMUM_NAME_LENGTH) {
+      throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+    }
   }
 
   public int move(Formula formula) {
