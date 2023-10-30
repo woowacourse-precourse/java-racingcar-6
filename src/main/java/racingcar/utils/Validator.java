@@ -9,8 +9,20 @@ public class Validator {
         }
     }
 
-    public void validateInputCar(List<String> input) {
-        validateInputCarOneToFive(input);
+    private void validateInputCarNameIsEnglish(String input) {
+        if (input == null || !input.chars().allMatch(Character::isLetter)) {
+            throw new IllegalArgumentException("이름은 영문만 가능합니다.");
+        }
     }
 
+    private void validateCarName(List<String> input) {
+        for(String carName : input) {
+            validateInputCarNameIsEnglish(carName);
+        }
+    }
+
+    public void validateInputCar(List<String> input) {
+        validateInputCarOneToFive(input);
+        validateCarName(input);
+    }
 }
