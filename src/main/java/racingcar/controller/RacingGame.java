@@ -24,39 +24,48 @@ public class RacingGame {
         this.numberGenerator = new GameNumberGenerator();
     }
 
-    public void initialize(List<String> carNames, int repeatCount) {
+    public RacingGame(NumberGenerator numberGenerator) {
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
+        this.numberGenerator = numberGenerator;
+    }
+
+    public void setupGame(List<String> carNames, int repeatCount) {
         this.carRepository = new CarRepository(carNames);
         this.repeatCount = repeatCount;
     }
 
     public void start() {
-        setupGame();
+        setupGame(inputView.getCarsName(), inputView.getRepeatCount());
         play();
-        outputView.getResult(carRepository.getMaxCars());
+        outputView.printGameResult(carRepository.getMaxCars());
     }
 
     public void play() {
         for (int i = 0; i < repeatCount; i++) {
-            OneRoundMove();
+            oneRoundMove();
             outputView.printOneRoundResult(carRepository);
         }
     }
 
-    public void OneRoundMove() {
+    public void oneRoundMove() {
         List<Car> cars = carRepository.getCars();
         for (Car car : cars) {
-            if (isMove()) {
+            if (isMove(numberGenerator.randomNumber())) {
                 car.moveForward();
             }
         }
     }
 
-    public boolean isMove() {
-        return MOVE_RULE <= numberGenerator.randomNumber();
+    public boolean isMove(int num) {
+        return MOVE_RULE <= num;
     }
 
-    public void setupGame() {
-        initialize(inputView.getCarsName(), inputView.getRepeatCount());
+    public CarRepository getCarRepository() {
+        return carRepository;
     }
 
+    public int getRepeatCount() {
+        return repeatCount;
+    }
 }
