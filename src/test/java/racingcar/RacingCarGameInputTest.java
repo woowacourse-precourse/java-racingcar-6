@@ -43,7 +43,7 @@ public class RacingCarGameInputTest {
         setInputStream("yang, min");
         assertThatThrownBy(() -> RacingCarGameInput.readCarNames())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_EMPTY);
+                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_HAVE_WHITE_CHAR);
     }
 
     @Test
