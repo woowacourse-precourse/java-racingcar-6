@@ -23,7 +23,7 @@ public class Utils {
 
     public static String dashRepeat(int num) {
         StringBuilder dashes = new StringBuilder();
-        IntStream.range(0, num).forEach(i -> dashes.append("-"));
+        IntStream.range(0, num).forEach(i -> dashes.append(Constants.DASH));
         return dashes.toString();
     }
 }

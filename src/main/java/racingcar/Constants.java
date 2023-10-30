@@ -7,6 +7,7 @@ public class Constants {
     public static final int MIN_NUM = 0;
     public static final int BASELINE_NUM = 4; // +1 되는 기준이 되는 숫자
 
-    // 자동차 이름
+    // 문자
     public static final String DELIMITER = ",";
+    public static final String DASH = "-";
 }
