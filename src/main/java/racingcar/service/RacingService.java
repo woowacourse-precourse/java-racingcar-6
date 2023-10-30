@@ -56,4 +56,8 @@ public class RacingService {
     public List<Car> findAllCars() {
         return carRepository.findAll();
     }
+
+    public void deleteAllCars() {
+        carRepository.deleteAll();
+    }
 }

@@ -30,6 +30,7 @@ public class RacingController {
         startRacing(actionCountDto);
 
         printFinalWinner();
+        finishGame();
     }
 
     public void startRacing(final ActionCountDto actionCountDto) {
@@ -44,5 +45,9 @@ public class RacingController {
     public void printFinalWinner() {
         WinnersDto winnersDto = racingService.findWinners();
         outputView.writeFinalWinner(winnersDto);
+    }
+
+    public void finishGame() {
+        racingService.deleteAllCars();
     }
 }
