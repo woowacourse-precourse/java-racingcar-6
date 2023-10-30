@@ -5,10 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CarListService {
+public class CarsService {
 
 	private final String ENTERED_LIST_SEPARATOR = ",";
-	private final List<Car> CAR_LIST = new ArrayList<>();
+	private final List<Car> CARS = new ArrayList<>();
 
 	public List<Car> make(String enteredList) {
 
@@ -17,13 +17,11 @@ public class CarListService {
 		for (String eachCarName : splitEnteredList) {
 
 			Car car = new Car(eachCarName);
-			CAR_LIST.add(car);
+			CARS.add(car);
 
 		}
 
-		validateSize();
-
-		return CAR_LIST;
+		return CARS;
 
 	}
 
@@ -42,20 +40,14 @@ public class CarListService {
 
 	}
 
-	private void validateSize() {
+	public void moveOrStop(List<Integer> randomNumbers) {
 
-		final int MIN_LIST_LENGTH = 2;
+		for (int i = 0; i < CARS.size(); i++) {
 
-		if (CAR_LIST.size() < MIN_LIST_LENGTH) {
-			throw new IllegalArgumentException("2대 이상의 자동차가 존재해야 합니다.");
-		}
+			Car eachCar = CARS.get(i);
+			int eachRandomNumber = randomNumbers.get(i);
 
-	}
-
-	public void moveOrStop() {
-
-		for (Car eachCar : CAR_LIST) {
-			eachCar.moveOrStop();
+			eachCar.moveOrStop(eachRandomNumber);
 		}
 
 	}
@@ -70,7 +62,7 @@ public class CarListService {
 	private List<Car> makeWinnerList() {
 
 		Set<Car> removeList = makeLaggingCarList();
-		List<Car> winnerList = CAR_LIST;
+		List<Car> winnerList = CARS;
 
 		for (Car removedCar : removeList) {
 			winnerList.remove(removedCar);
@@ -83,7 +75,7 @@ public class CarListService {
 
 		Set<Car> removeList = new HashSet<>();
 
-		for (int i = 0; i < CAR_LIST.size(); i++) {
+		for (int i = 0; i < CARS.size(); i++) {
 			addLaggingCarList(removeList, i);
 		}
 
@@ -92,9 +84,9 @@ public class CarListService {
 
 	private void addLaggingCarList(Set<Car> removeList, int referenceIndex) {
 
-		Car referenceCar = CAR_LIST.get(referenceIndex);
+		Car referenceCar = CARS.get(referenceIndex);
 
-		for (Car comparableCar : CAR_LIST) {
+		for (Car comparableCar : CARS) {
 
 			if (referenceCar.isLaggingCar(comparableCar)) {
 				removeList.add(referenceCar);
@@ -118,6 +110,10 @@ public class CarListService {
 		}
 
 		return winner.toString();
+	}
+
+	public void clear() {
+		CARS.clear();
 	}
 
 }
