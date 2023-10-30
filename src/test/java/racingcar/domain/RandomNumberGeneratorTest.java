@@ -1,18 +1,19 @@
 package racingcar.domain;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class RandomNumberGeneratorTest {
 
     @Test
-    void generateNumber_메소드_실행시_만들어진_값이_한자리_숫자() {
+    @DisplayName("0 ~ 9 범위내 숫자를 랜덤으로 생성")
+    void generateNumberTest() {
         //given
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         int num;
 
         //when
-        num = randomNumberGenerator.generateNumber();
+        num = RandomNumberGenerator.generateNumber();
         boolean result = (num >= 0 && num <= 9);
 
         //then
