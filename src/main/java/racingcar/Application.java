@@ -12,36 +12,36 @@ public class Application {
         inputCarName();
     }
 
-    public static void inputCarName(){
-       String input = Console.readLine();
-       String[] name = input.split(",");
+    public static void inputCarName() {
+        String input = Console.readLine();
 
-       try {
-           if(!checkLength(name)) throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
-           else if(!duplicateName(name)) throw new IllegalArgumentException("이미 이름이 존재합니다.");
-           else if(!isNumberic(name)) throw new IllegalArgumentException("문자만 입력하세요");
-       }catch (IllegalArgumentException e){
-           System.out.println(e.getMessage());
-       }
+        try {
+            String[] name = input.split(",");
+            if (!checkLength(name)) throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            else if (!duplicateName(name)) throw new IllegalArgumentException("이미 이름이 존재합니다.");
+            else if (!isNumberic(name)) throw new IllegalArgumentException("문자만 입력하세요");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
-    private static boolean checkLength(String[] arr){
+    private static boolean checkLength(String[] arr) {
         boolean flag = false;
 
-        for(String s : arr){
+        for (String s : arr) {
             flag = s.length() <= 5;
         }
         return flag;
     }
 
-    private static boolean duplicateName(String[] arr){
+    private static boolean duplicateName(String[] arr) {
         boolean flag = true;
-        List<String>  list = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
-        for(String s : arr){
-            if(list.contains(s)) flag = false;
-            else{
+        for (String s : arr) {
+            if (list.contains(s)) flag = false;
+            else {
                 list.add(s);
             }
         }
@@ -49,19 +49,19 @@ public class Application {
         return flag;
     }
 
-    private static boolean isNumberic(String[] arr){
+    private static boolean isNumberic(String[] arr) {
         boolean flag = true;
 
         try {
-            for(String s : arr){
-                for(char c : s.toCharArray()){
-                    if(!Character.isDigit(c)){
+            for (String s : arr) {
+                for (char c : s.toCharArray()) {
+                    if (!Character.isDigit(c)) {
                         flag = false;
                         break;
                     }
                 }
             }
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println("문자만 입력하세요.");
         }
 
