@@ -10,14 +10,14 @@ public class Game {
 
     public void run() {
         alertEnterCarName();
-        SaveCarName();
+        saveCarName();
     }
 
     private void alertEnterCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
-    private void SaveCarName() {
+    private void saveCarName() {
         String names = Console.readLine();
         String[] nameArray = names.split(",");
         if (nameArray.length == 0) {
@@ -30,4 +30,6 @@ public class Game {
             Car car = new Car(name);
         }
     }
+
+
 }
