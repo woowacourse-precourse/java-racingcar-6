@@ -26,9 +26,13 @@ public class CarValidator {
     public ArrayList<String> CarValid () {
         ArrayList<String> carList = CarList();
 
-        //CarList().stream().filter(e -> e.length() < NumbersUtil.carNameMax).forEach(e ->System.out.println(e));
         for (String car:carList) {
             if (car.length() > NumbersUtil.carNameMax) {
+                throw new IllegalArgumentException();
+            }
+
+            if (car.contains(" ")) {
+                System.out.println(MessageUtil.Empty_Error_Message);
                 throw new IllegalArgumentException();
             }
 
