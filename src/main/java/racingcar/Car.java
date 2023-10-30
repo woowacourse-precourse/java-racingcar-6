@@ -14,13 +14,16 @@ public class Car implements Comparable<Car>{
         moveHyphens = new StringBuilder();
     }
 
-    public void tryMoving(){
+    public void attemptMove(){
         int randomNumber =  pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         if (randomNumber >= MOVE_THRESHOLD){
-            this.moveHyphens.append("-");
+            move();
         }
     }
 
+    private void move(){
+        this.moveHyphens.append("-");
+    }
     @Override
     public String toString() {
         return name + " : " + moveHyphens.toString();
@@ -29,10 +32,14 @@ public class Car implements Comparable<Car>{
 
     @Override
     public int compareTo(Car comparedCar) {
-        return this.getMoveCount() - comparedCar.getMoveCount();
+        return comparedCar.getMoveCount() - this.getMoveCount();
     }
 
     public int getMoveCount(){
         return moveHyphens.length();
+    }
+
+    public String getName(){
+        return name;
     }
 }
