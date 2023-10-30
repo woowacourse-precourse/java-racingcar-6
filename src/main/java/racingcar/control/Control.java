@@ -22,12 +22,12 @@ public class Control {
 
     private static void startGame() {
         String input = InputView.requestCarName();
+        Validation.validateNameInput(input);
         Cars.carNames = Cars.makeCarList(input);
-        Validation.validateNameInput(Cars.carNames);
         // 라운드 수 입력 받기
         String roundInput = InputView.requestRoundNumber();
+        Validation.validateNumberInput(roundInput);
         rounds = Integer.parseInt(roundInput);
-        Validation.validateNumber(rounds);
     }
 
 
@@ -40,7 +40,7 @@ public class Control {
 
             for (Car car : Cars.cars) {
                 car.move();
-                OutputView.printRacingStatus(car.getName(), car.getPosition());
+                OutputView.printRacingProcess(car.getName(), car.getPosition());
             }
         }
     }
