@@ -27,6 +27,8 @@ public class Controller {
 
         outputView.displayResultGuideMessage();
         executeRaces(carList, tryNumber);
+
+        announceWinner(carList);
     }
 
     private List<Car> prepareCarList() {
@@ -52,5 +54,11 @@ public class Controller {
         }
         String locationAnnouncement = announcer.generateLocationAnnouncement(carList);
         outputView.displayLocation(locationAnnouncement);
+    }
+
+    private void announceWinner(List<Car> carList) {
+        List<String> winners = referee.judgeWinner(carList);
+        String winnerAnnouncement = announcer.generateWinnerAnnouncement(winners);
+        outputView.displayWinner(winnerAnnouncement);
     }
 }
