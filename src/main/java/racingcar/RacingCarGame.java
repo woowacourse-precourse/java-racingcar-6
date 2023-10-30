@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.stream.IntStream;
 import racingcar.domain.CarList;
-import racingcar.domain.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,11 +13,11 @@ public class RacingCarGame {
 
 
     public void gameStart() {
-        inputView.inputCarNames();
+        inputView.printCarNameInputMessage();
         String carNames = Console.readLine();
         carList.splitCarNames(carNames);
 
-        inputView.attemptNumber();
+        inputView.printAttemptNumberInputMessage();
         int attempt = Integer.parseInt(Console.readLine());
 
         IntStream.range(0, attempt)
