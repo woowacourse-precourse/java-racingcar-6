@@ -6,13 +6,14 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Communicator {
-    public static void instructInputCars() {
+    public static List<String> instructInputCars() {
         printStart();
         String carsInput = Console.readLine();
         List<String> cars = Arrays.stream(carsInput.split(","))
                 .map(String::strip)
                 .toList();
         Validator.validateCars(cars);
+        return cars;
     }
 
     public static void instructInputGameTimes() {
