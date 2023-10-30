@@ -27,4 +27,8 @@ public class OutputView {
         System.out.print("최종 우승자 : " + formatListToString(winners));
     }
 
+    public void printExecutionResult() {
+        System.out.println("\n실행 결과");
+    }
+
 }
