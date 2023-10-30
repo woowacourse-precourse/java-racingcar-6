@@ -6,7 +6,6 @@ public class ForwardTryCount {
 
     public ForwardTryCount(String countString) {
 
-
         count = Integer.parseInt(countString);
     }
     private void validate(String countString) {
