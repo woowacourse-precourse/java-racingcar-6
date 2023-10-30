@@ -3,7 +3,6 @@ package racingcar.view;
 import static racingcar.view.IOMessage.PRINT_FINAL_WINNER;
 
 import java.util.List;
-import java.util.StringJoiner;
 import racingcar.model.Result;
 
 public class OutPutView {
@@ -29,9 +28,8 @@ public class OutPutView {
 
         if(winnerList.isEmpty()) throw new IllegalArgumentException();
 
-        StringJoiner joiner = new StringJoiner(", ");
-        winnerList.forEach(joiner::add);
-        System.out.println(PRINT_FINAL_WINNER.getMessage() + joiner.toString());
+        String winnerResult = String.join(", ", winnerList);
+        System.out.println(PRINT_FINAL_WINNER.getMessage() + winnerResult);
     }
 
 }
