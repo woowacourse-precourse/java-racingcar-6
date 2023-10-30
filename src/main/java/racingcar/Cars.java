@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -8,23 +9,33 @@ public class Cars {
     private final List<Car> cars;
 
     private Cars(List<Car> cars) {
-        validate(cars.size());
         this.cars = cars;
-    }
-
-    private void validate(int size) {
-        if (size == 0) {
-            throw new IllegalArgumentException("자동차가 존재하지 않습니다");
-        }
     }
 
     public static Cars of(List<String> carNames) {
 
-        List<Car> carList = carNames.stream()
+        List<Car> cars = carNames.stream()
                 .map(name -> new Car(new CarName(name)))
                 .toList();
 
-        return new Cars(carList);
+        validateDuplication(cars);
+        validateExist(cars);
+
+        return new Cars(cars);
+    }
+
+    private static void validateExist(List<Car> cars) {
+        if (cars.size() == 0) {
+            throw new IllegalArgumentException("자동차가 존재하지 않습니다");
+        }
+    }
+
+    private static void validateDuplication(List<Car> cars) {
+        Set<Car> removeDuplicatedCars = Set.copyOf(cars);
+
+        if (removeDuplicatedCars.size() != cars.size()) {
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다");
+        }
     }
 
 
