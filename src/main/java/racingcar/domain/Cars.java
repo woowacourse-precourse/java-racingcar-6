@@ -20,11 +20,11 @@ public class Cars{
         return cars;
     }
 
-    public List<String> getMaxForwardCountCarNames(Cars cars){
+    public List<String> getMaxForwardCountCarNames(){
         List<String>carNames = new ArrayList<>();
-        Collections.sort(cars.getCarList());
-        for (Car car : carList){
-            if(carList.get(0).getForwardCount()==car.getForwardCount()){
+        Collections.sort(this.getCarList());
+        for (Car car : this.getCarList()){
+            if(this.getCarList().get(0).getForwardCount()==car.getForwardCount()){
                 carNames.add(car.getName());
             }
         }
