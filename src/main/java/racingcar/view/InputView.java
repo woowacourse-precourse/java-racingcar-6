@@ -6,12 +6,12 @@ import racingcar.validator.BasicValidator;
 
 public class InputView {
 
-    private final BasicValidator carNamesInputValidator;
-    private final BasicValidator numberOfRoundsInputValidator;
+    private final BasicValidator<String> carNamesInputValidator;
+    private final BasicValidator<String> numberOfRoundsInputValidator;
 
     public InputView(
-            BasicValidator carNamesInputValidator,
-            BasicValidator numberOfRoundsInputValidator
+            BasicValidator<String> carNamesInputValidator,
+            BasicValidator<String> numberOfRoundsInputValidator
     ) {
         this.carNamesInputValidator = carNamesInputValidator;
         this.numberOfRoundsInputValidator = numberOfRoundsInputValidator;
