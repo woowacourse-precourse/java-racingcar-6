@@ -14,4 +14,8 @@ public class Distance {
     protected int getDistance() {
         return distance;
     }
+
+    public String toString() {
+        return "-".repeat(distance);
+    }
 }
