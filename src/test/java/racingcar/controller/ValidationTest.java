@@ -26,4 +26,15 @@ class ValidationTest {
         assertThat(validation.validationNames(toUpperCase)).isEqualTo(false);
     }
 
+    @Test
+    void validationNumber() {
+        String inputNum = "50";
+        String zero = "0";
+        String negativeNumber = "-1";
+
+        assertThat(validation.validationNumber(inputNum)).isEqualTo(true);
+        assertThat(validation.validationNumber(zero)).isEqualTo(false);
+        assertThat(validation.validationNumber(negativeNumber)).isEqualTo(false);
+    }
+
 }
