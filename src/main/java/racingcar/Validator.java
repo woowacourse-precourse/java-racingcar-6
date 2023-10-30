@@ -30,7 +30,7 @@ public class Validator {
     }
 
     public static String validateNumber(String number) {
-        final String REGEX = "[0-9]+";
+        final String REGEX = "^(0|[-]?[1-9]\\d*)$";
         if (!number.matches(REGEX)) {
             throw new IllegalArgumentException(Messages.ERROR_INCLUSION_STRING);
         }
