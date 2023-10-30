@@ -1,9 +1,11 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
@@ -57,5 +59,13 @@ public class Cars {
         cars.forEach(car -> locations.add(car.getLocation()));
         return locations;
     }
+
+    public int getMaxLocation() {
+        return cars.stream()
+                .max(Comparator.comparing(Car::getLocation))
+                .get()
+                .getLocation();
+    }
+
 
 }

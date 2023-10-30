@@ -84,6 +84,8 @@ UserInterface 객체의 start 메서드를 실행한다.
   - getCarsInfo() 자동차의 이름과 위치를 맵에 담아 반환한다.
   - getNames() 자동차들의 이름을 리스트로 반환한다.
   - getLocations() 자동차들의 위치를 리스트로 반환한다.
+  - getMaxLocation() 자동차들중에 가장 멀리간 위치를 반환한다.
+  - getCarsByLocation() 매개변수로 위치를 받고 위치가 동일한 자동차들을 리스트로 반환한다.
 
 ### RandomGenerator
 - 메서드
