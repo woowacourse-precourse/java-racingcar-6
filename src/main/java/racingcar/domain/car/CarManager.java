@@ -7,15 +7,20 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
+import racingcar.domain.racing.MoveStrategy;
 
 public class CarManager {
     private List<Car> cars;
+    private final MoveStrategy moveStrategy;
+    private final String input;
 
-    public CarManager() {
-        this.cars = new ArrayList<>();
+    public CarManager(String input,MoveStrategy moveStrategy) {
+        this.moveStrategy = moveStrategy;
+        this.input = input;
+        parseCarNames(input);
     }
 
-    public void parseCarNames(String input) {
+    private void parseCarNames(String input) {
         Set<String> uniqueNames = new HashSet<>();
         List<Car> cars = Arrays.stream(input.split(","))
                 .map(String::trim)
@@ -24,7 +29,7 @@ public class CarManager {
                         throw new IllegalArgumentException("중복된 자동차 이름이 있습니다: " + name);
                     }
                 })
-                .map(Car::new)
+                .map(name -> new Car(name, moveStrategy))
                 .collect(Collectors.toList());
         this.cars = cars;
     }
