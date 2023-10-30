@@ -3,16 +3,19 @@ package racingcar.view;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.dto.GameInput;
 
 class InputViewTest {
+
+    @AfterEach
+    void closeConsole() {
+        Console.close();
+    }
 
     @Test
     @DisplayName("getInput: 정상 입력 처리에 성공한다")
