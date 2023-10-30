@@ -20,4 +20,8 @@ public class Car {
     public boolean isEqualOrGreaterThan(Car otherCar) {
         return distance.getDistance() >= otherCar.distance.getDistance();
     }
+
+    public boolean isCarWithMaxDistance(Car carWithMaxDistance) {
+        return distance.getDistance() == carWithMaxDistance.distance.getDistance();
+    }
 }
