@@ -17,8 +17,9 @@ public class CarTest {
     @DisplayName("자동차에 이름을 부여할 수 있다.")
     public void carNameApplyTest(){
         String givenName = "sung";
+        String targetMessage = givenName+" : ";
         Car car = Car.applyName(givenName);
-        assertThat(car.toString()).isEqualTo(givenName);
+        assertThat(car.toString()).isEqualTo(targetMessage);
     }
     @Test
     @DisplayName("숫자가 3일때 정지하는 상태를 반환한다.")
@@ -47,5 +48,24 @@ public class CarTest {
         Integer position = car.changePosition(CarMovementStatus.STOP);
         Integer firstCarPosition = 0;
         assertThat(position).isEqualTo(firstCarPosition);
+    }
+    @Test
+    @DisplayName("차량의 이동 결과를 출력한다 : 전진 1화")
+    public void showCarMoveResultMoveTest(){
+        car.changePosition(CarMovementStatus.MOVE_FORWARD);
+        String targetMessage = "cho : -";
+        assertThat(car.getRoundResult()).isEqualTo(targetMessage);
+    }
+
+    @Test
+    @DisplayName("차량의 이동 결과를 출력한다 : 전진 2회")
+    public void showCarMoveResultMoveTwiceTest(){
+
+        car.changePosition(CarMovementStatus.MOVE_FORWARD);
+        car.changePosition(CarMovementStatus.MOVE_FORWARD);
+
+        String targetMessage = "cho : --";
+
+        assertThat(car.getRoundResult()).isEqualTo(targetMessage);
     }
 }
