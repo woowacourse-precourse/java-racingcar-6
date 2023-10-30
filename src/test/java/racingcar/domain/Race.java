@@ -9,6 +9,10 @@ public class Race {
 
     private List<Car> cars;
 
+    public Race(List<Car> cars) {
+        this.cars = cars;
+    }
+
     public void moveEachCar() {
         cars.forEach(Car::move);
     }
