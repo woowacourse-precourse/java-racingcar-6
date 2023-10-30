@@ -7,7 +7,7 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
     private final Referee referee;
-    InputView inputView = new InputView(new Validator());
+    private final InputView inputView = new InputView(new Validator());
 
     public RacingGame(Referee referee) {
         this.referee = referee;
