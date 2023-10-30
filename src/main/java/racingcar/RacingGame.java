@@ -8,8 +8,23 @@ public class RacingGame {
     List<Car> racingCars = new ArrayList<Car>();
 
     RacingGame(String cars) {
+        try {
+            splitNames(cars);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.toString());
+            throw e;
+        }
+    }
+
+    void splitNames(String cars) throws IllegalArgumentException {
         String[] names = cars.split(",");
         for(String name : names) {
+            if(name.length() > ConstantNumber.MAX_NAME_LENGTH) {
+                throw new IllegalArgumentException(ExceptionString.MAX_LENGTH_NAME);
+            }
+            if(name.strip().isEmpty()) {
+                throw new IllegalArgumentException(ExceptionString.BLANK_NAME);
+            }
             racingCars.add(new Car(name));
         }
     }
