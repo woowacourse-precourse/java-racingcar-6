@@ -12,6 +12,12 @@ public class RacingCar {
         this.name = name;
     }
 
+    public void move() {
+        if(canMovingForward()) {
+            distance++;
+            movingBar+= "-";
+        }
+    }
 
     private boolean canMovingForward() {
         return randomNumberGenerator.generateRandomNumber() >= MINIMUM_NUMBER_TO_MOVING_FORWARD;
