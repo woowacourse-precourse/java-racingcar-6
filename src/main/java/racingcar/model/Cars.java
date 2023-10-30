@@ -5,10 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+    private static final int INIT_DISTANCE = 0;
+    private static final int MIN_RANGE = 0;
+    private static final int MAX_RANGE = 9;
+
     private final List<Car> cars = new ArrayList<>();
 
     public void add(String name) {
-        Car car = new Car(name, 0);
+        Car car = new Car(name, INIT_DISTANCE);
         cars.add(car);
     }
 
@@ -17,10 +21,6 @@ public class Cars {
             int randomNumber = generateRandomNumber();
             car.move(randomNumber);
         }
-    }
-
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 
     public List<String> getWinners() {
@@ -35,19 +35,22 @@ public class Cars {
     }
 
     public int getMaxDistance() {
-        int maxDistance = 0;
+        int maxDistance = INIT_DISTANCE;
         for (Car car : cars) {
             maxDistance = Math.max(maxDistance, car.getDistance());
         }
         return maxDistance;
     }
 
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_RANGE, MAX_RANGE);
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Car car : cars) {
-            stringBuilder.append(car.toString());
-            stringBuilder.append("\n");
+            stringBuilder.append(car.toString()).append(System.lineSeparator());
         }
         return stringBuilder.toString();
     }
