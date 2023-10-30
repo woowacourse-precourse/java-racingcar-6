@@ -17,6 +17,7 @@ public class Application {
     // 게임 진행 메소드-입력받기, 출력
     private static void playGame(){
 
+            // 입력받는 메소드로 나눌까??
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             String carNames=Console.readLine();
             String[] carNameArray=carNames.split(",");
@@ -25,7 +26,7 @@ public class Application {
             //자동차 수만큼 배열 생성
             int[] progress=new int[carCount];
 
-            //기본적 예외 처리
+            //이름과 관련된 기본적 예외 처리
             if (!isValidCarNames(carNameArray)) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
             }
@@ -78,7 +79,7 @@ public class Application {
                 result.append(", ");
             }
         }
-        System.out.println(result.toString());
+        System.out.println(result);
     }
 
     // 우승자 구하기
