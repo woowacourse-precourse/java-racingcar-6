@@ -1,5 +1,7 @@
 package racingcar.car;
 
+import racingcar.util.RandomManipulator;
+
 public class CarMover implements Runnable{
     private final Car car;
 
@@ -9,6 +11,8 @@ public class CarMover implements Runnable{
 
     @Override
     public void run() {
-        car.move();
+        if (RandomManipulator.isMove()) {
+            car.move();
+        }
     }
 }
