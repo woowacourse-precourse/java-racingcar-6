@@ -16,7 +16,7 @@ public final class Coordinate {
         return new Coordinate(MIN_COORDINATE);
     }
 
-    public static void validateCoordinate(final int coordinate) {
+    private static void validateCoordinate(final int coordinate) {
         if (coordinate < MIN_COORDINATE) {
             throw new InvalidCoordinateException();
         }
@@ -53,9 +53,5 @@ public final class Coordinate {
     @Override
     public int hashCode() {
         return Objects.hash(coordinate);
-    }
-
-    public boolean isBefore(final Coordinate other) {
-        return coordinate < other.coordinate;
     }
 }
