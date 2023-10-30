@@ -1,6 +1,7 @@
 package racingcar.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,5 +22,14 @@ class DomainRepositoryTest {
         final TryCount tryCount = tryCountRepository.get();
 
         assertThat(tryCount).isNotNull();
+    }
+
+    @Test
+    @DisplayName("저장이 안된 상태에서 조회 요청시 예외를 던지는가")
+    void getWhenNull() {
+        // given
+        // when
+        // then
+        assertThatThrownBy(tryCountRepository::get).isInstanceOf(IllegalStateException.class);
     }
 }
