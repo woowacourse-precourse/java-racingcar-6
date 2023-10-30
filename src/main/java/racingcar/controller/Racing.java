@@ -18,6 +18,7 @@ public class Racing {
         setRacingCar();
         setTryRound();
         setRacingResult();
+        setRacingWinner();
     }
 
     public void setRacingCar() {
@@ -37,6 +38,9 @@ public class Racing {
         }
     }
 
+    public void setRacingWinner(){
+        RacingLogic.determineRacingWinner(racingCars);
+    }
 
 
 }

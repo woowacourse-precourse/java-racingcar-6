@@ -27,9 +27,9 @@ public class RacingLogic {
             distance+=1;
             racingCar.setForwardDistance(distance);
         }
-        setRacingResult(racingCar);
+        setRacingDistance(racingCar);
     }
-    public static void setRacingResult(RacingCar racingCar){
+    public static void setRacingDistance(RacingCar racingCar){
         String carName=racingCar.getRacingCarName();
         int distance=racingCar.getDistance();
         String distanceStr="";
@@ -38,5 +38,17 @@ public class RacingLogic {
         }
         String result=carName+" : "+distanceStr;
         PrintMessage.printResult(result);
+    }
+
+    public static void determineRacingWinner(RacingCars racingCars){
+        int maxDistance=getMaxDistance(racingCars);
+    }
+    public static int getMaxDistance(RacingCars racingCars){
+        List<RacingCar> racingCarList=racingCars.getRacingCars();
+        int maxDistance = racingCarList.stream()
+                .mapToInt(RacingCar::getDistance)
+                .max()
+                .orElse(0);
+        return maxDistance;
     }
 }
