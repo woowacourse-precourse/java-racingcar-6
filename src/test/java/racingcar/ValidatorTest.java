@@ -52,4 +52,12 @@ public class ValidatorTest {
         assertThatCode(() -> validator.validateCarNames(validList))
                 .doesNotThrowAnyException();
     }
+
+    @Test
+    void validateCarNames_자동차이름이_중복인지_확인1() {
+        List<String> invalidList = Arrays.asList("pobi", "pobi", "종혁");
+
+        assertThatThrownBy(() -> validator.validateCarNames(invalidList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
