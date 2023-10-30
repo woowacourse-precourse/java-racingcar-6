@@ -5,30 +5,32 @@ import racingcar.model.Car;
 import racingcar.model.Model;
 import racingcar.utility.Utility;
 import racingcar.varification.Varification;
-import racingcar.view.View;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Controller {
     public Controller() {
         Model model = new Model();
         Utility utility = new Utility();
         Varification varification = new Varification();
-        View view = new View();
+        InputView inputView = new InputView();
+        OutputView outputView = new OutputView();
 
-        String carNames = view.getCarNames();
+        String carNames = inputView.getCarNames();
         String[] carNameArray = utility.splitStringToArray(carNames);
         varification.checkNameLength(carNameArray);
         List<Car> carList = model.makeCarList(carNameArray);
 
-        String stringOfTimes = view.getStringOfTimes();
+        String stringOfTimes = inputView.getStringOfTimes();
         varification.checkStringIsNum(stringOfTimes);
         int intOfTimes = utility.makeStringToInt(stringOfTimes);
 
         for(int i = 0 ; i < intOfTimes ; i++) {
             model.racingForOneTurn(carList);
-            view.printResult(carList);
+            outputView.printResult(carList);
         }
 
         List<String> winnerList = model.getWinnerList(carList);
-        view.printWinner(winnerList);
+        outputView.printWinner(winnerList);
     }
 }
