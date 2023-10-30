@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -19,9 +19,8 @@ public class CarController {
         this.cars = cars;
     }
 
-    public HashMap<String, Integer> racingResult = new HashMap<>();
-
-    public HashMap<String, Integer> gameStart() {
+    public LinkedHashMap<String, Integer> racingResult = new LinkedHashMap<>();
+    public LinkedHashMap<String, Integer> gameStart() {
         for (String car : cars) {
             racingResult.put(car, racingResult.getOrDefault(car, 0) + isForward());
         }
