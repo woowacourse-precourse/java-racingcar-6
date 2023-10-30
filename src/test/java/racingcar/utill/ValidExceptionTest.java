@@ -38,13 +38,13 @@ class ValidExceptionTest {
     }
 
     @DisplayName("숫자를 포함하는 여부 검사.")
-    @Test
-    void isValidIncludeNum() {
-        // given
-
-        // when
-
+    @ParameterizedTest
+    @ValueSource(strings = {"한1", "한1글", "1한", "한12글", "123"})
+    void isValidIncludeNum(String input) {
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidIncludeNum(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("공백 입력 검사")
