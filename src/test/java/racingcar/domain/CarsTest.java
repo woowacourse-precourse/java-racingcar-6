@@ -81,10 +81,31 @@ class CarsTest {
                 .allMatch(car -> car.getPosition() == 0)).isTrue();
 
     }
-//
-//    @Test
-//    void findWinnerPosition() {
-//    }
+
+    @Test
+    @DisplayName("우승자의 위치 정보 찾아내는 기능 테스트")
+    void findWinnerPosition() {
+        // given
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        List<String> names = Arrays.asList("pobi", "crong", "horan");
+        Cars cars = new Cars(names, movingStrategy);
+
+
+        // when
+        for (int i=0; i<3; i++) {
+            cars.raceAllCars();
+        }
+        List<Car> carList = cars.getCars();
+        int expected = carList.stream()
+                                .max(Car::compareTo)
+                                .get()
+                                .getPosition();
+
+        int result = cars.findWinnerPosition();
+
+        // then
+        assertEquals(expected, result);
+    }
 //
 //    @Test
 //    void findWinner() {
