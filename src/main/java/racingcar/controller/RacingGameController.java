@@ -23,8 +23,8 @@ public class RacingGameController {
     private void inputCarNamesAndAttempts() {
         String carNames = view.readCarNamesFromConsole();
         int attempts = view.convertAttemptsToIntFromConsoleStringInput();
-        model.initializeCars(carNames);
-        model.setNumberOfAttempts(attempts);
+        model.setCarNames(carNames);
+        model.setAttempts(attempts);
     }
 
     private void playRacingGame() {

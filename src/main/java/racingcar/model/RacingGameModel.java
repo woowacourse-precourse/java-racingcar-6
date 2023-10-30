@@ -25,28 +25,7 @@ public class RacingGameModel {
         return cars;
     }
 
-    public List<Car> getWinners() {
-        int maxPosition = 0;
-        List<Car> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-                winners.clear();
-                winners.add(car);
-            } else if (car.getPosition() == maxPosition) {
-                winners.add(car);
-            }
-        }
-        return winners;
-    }
-
-    private void validateCarName(String name) {
-        if (name.length() > CAR_NAMES_LIMIT || name.isEmpty()) {
-            throw new IllegalArgumentException("유효하지 않은 자동차 이름: " + name);
-        }
-    }
-
-    public void initializeCars(String carNames) {
+    public void setCarNames(String carNames) {
         cars = new ArrayList<>();
         String[] names = carNames.split(",");
         for (String name : names) {
@@ -55,11 +34,32 @@ public class RacingGameModel {
         }
     }
 
+    private void validateCarName(String name) {
+        if (name.length() > CAR_NAMES_LIMIT || name.isEmpty()) {
+            throw new IllegalArgumentException("유효하지 않은 자동차 이름: " + name);
+        }
+    }
+
     public int getAttempts() {
         return this.attempts;
     }
 
-    public void setNumberOfAttempts(int attempts) {
+    public void setAttempts(int attempts) {
         this.attempts = attempts;
+    }
+
+    public List<Car> getWinners() {
+        int maxPosition = 0;
+        List<Car> results = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+                results.clear();
+                results.add(car);
+            } else if (car.getPosition() == maxPosition) {
+                results.add(car);
+            }
+        }
+        return results;
     }
 }
