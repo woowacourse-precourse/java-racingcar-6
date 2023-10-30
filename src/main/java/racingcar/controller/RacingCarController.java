@@ -23,7 +23,7 @@ public class RacingCarController {
     public void startRacingCar(){
 
         String cars = racingCarView.inputStartRacingCar();
-        List<Car> racingCarList = racingCarService.getRacingCarsList(cars);
+        final List<Car> racingCarList = racingCarService.getRacingCarsList(cars);
 
         String racingCarCount = racingCarView.inputRacingCarTryCount();
         final Racing racingGame = racingCarService.startRace(racingCarCount, racingCarList);
@@ -44,8 +44,6 @@ public class RacingCarController {
             }
         });
 
-        String winners = String.join(", ", racingGame.getWinnerList());
-
-        System.out.println("최종 우승자 : "+winners);
+        racingCarView.printWinner(racingGame);
     }
 }
