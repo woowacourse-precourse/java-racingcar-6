@@ -2,6 +2,8 @@ package racingcar.domain;
 
 public class Car {
     private static final int LENGTH_OF_NAME = 5;
+    private static final int MIN_NUMBER_FOR_MOVEMENT = 4;
+    private static final int MOVEMENT_DISTANCE = 1;
 
     String name;
     int meter;
@@ -12,9 +14,9 @@ public class Car {
         this.meter = 0;
     }
 
-    public void moveOrNot(int randomNumber) {
-        if(randomNumber >= 4) {
-            meter++;
+    public void move(int randomNumber) {
+        if(randomNumber >= MIN_NUMBER_FOR_MOVEMENT) {
+            meter += MOVEMENT_DISTANCE;
         }
     }
 
