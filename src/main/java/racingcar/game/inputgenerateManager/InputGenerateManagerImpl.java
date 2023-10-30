@@ -15,16 +15,16 @@ public class InputGenerateManagerImpl implements InputGenerateManager {
 
     @Override
     public Integer generateInputStringToInt(String rawString) {
-        InputValidator.validateIsBlank(rawString);
-        InputValidator.validateIsNumeric(rawString);
+        InputValidator.validateIsBlankFromString(rawString);
+        InputValidator.validateNumber(rawString);
         return Integer.valueOf(rawString);
     }
 
     @Override
     public List<String> generateInputStringSplitWithComma(String rawString) {
-        InputValidator.validateIsBlank(rawString);
+        InputValidator.validateIsBlankFromString(rawString);
         String[] splitData = rawString.split(COMMA_DELIMITER);
-        InputValidator.validateLength(splitData);
+        InputValidator.validateName(splitData);
         return Arrays.asList(splitData);
     }
 
