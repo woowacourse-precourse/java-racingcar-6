@@ -16,6 +16,10 @@ public class Cars {
         cars.forEach(Car::updateDistance);
     }
 
+    public List<String> convertCarsToStrings() {
+        return cars.stream().map(Car::toString).collect(Collectors.toList());
+    }
+
     public void insertNewCar(Car car) {
         if (!validateIfDuplicatedNameExists(car.getName())) {
             throw new IllegalArgumentException(DUPLICATED_NAME_ERROR_MESSAGE);
