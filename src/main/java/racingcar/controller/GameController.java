@@ -1,10 +1,8 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.dto.OneGameResultsDto;
 import racingcar.service.RacingGameService;
-import racingcar.service.domain.Car;
 import racingcar.service.domain.RacingCars;
 import racingcar.service.domain.WootecoEngine;
 import racingcar.utils.GameUtil;
@@ -28,7 +26,7 @@ public class GameController {
         long attemptCounts = chooseAttemptCounts();
         view.printPlayResultText();
         playCarRace(attemptCounts, racingCars);
-        List<String> winnerNames = calculateFinalWinners(racingCars);
+        List<String> winnerNames = racingGameService.calculateFinalWinners(racingCars);
         view.printFinalWinners(winnerNames);
     }
 
@@ -53,15 +51,6 @@ public class GameController {
 
     private void deliverToViewAboutOneGameResult(OneGameResultsDto resultDto) {
         view.printResult(resultDto);
-    }
-
-    private List<String> calculateFinalWinners(RacingCars racingCars) {
-        List<Car> winners = racingCars.findWinners();
-        List<String> winnerNames = new ArrayList<>();
-        for (Car winner : winners) {
-            winnerNames.add(winner.getName());
-        }
-        return winnerNames;
     }
 
 }
