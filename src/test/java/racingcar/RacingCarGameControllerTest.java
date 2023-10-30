@@ -15,4 +15,15 @@ class RacingCarGameControllerTest {
             RacingCarGameController.checkCarNamesLength("pobiwoni,jun".split(","));
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 이동_횟수_숫자_테스트() {
+
+        long numOfMoves = RacingCarGameController.parseNumOfMoves("5");
+        Assertions.assertThat(numOfMoves).isEqualTo((long)5);
+
+        Assertions.assertThatThrownBy(() -> {
+            RacingCarGameController.parseNumOfMoves("a");
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }
