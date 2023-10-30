@@ -12,13 +12,13 @@ class InputTest {
     @Test
     void 예시_입력_테스트() {
 
-        //given
+        // given
         String userInput = "pobi,woni,jun";
 
-        //when
+        // when
         List<String> carNames = Computer.createCarNames(userInput);
 
-        //then
+        // then
         assertThat(carNames).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
 
     }
@@ -26,15 +26,15 @@ class InputTest {
     @Test
     void 자동차_수가_1대_이하일_때_예외_처리(){
 
-        //given
+        // given
         String userInputOne = "";
         String userInputTwo = "pobi";
 
-        //when
+        // when
         List<String> carNamesOne = Computer.createCarNames(userInputOne);
         List<String> carNamesTwo = Computer.createCarNames(userInputTwo);
 
-        //then
+        // then
         assertThatThrownBy(() -> Validator.checkCarCount(carNamesOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("2대 이상의 자동차 이름을 입력해 주세요.");
@@ -42,6 +42,22 @@ class InputTest {
         assertThatThrownBy(() -> Validator.checkCarCount(carNamesTwo))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("2대 이상의 자동차 이름을 입력해 주세요.");
+    }
+
+    @Test
+    void 자동차_이름_6자_이상일_때_예외_처리(){
+
+        // given
+        String userInput = "123456";
+
+        // when
+        List<String> carNames = Computer.createCarNames(userInput);
+
+        // then
+        assertThatThrownBy(() -> Validator.checkBlankAndLength(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름을 5자 이하로 입력해 주세요.");
+
     }
 
 }
