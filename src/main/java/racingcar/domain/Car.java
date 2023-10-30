@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.exception.ErrorMessage.BLANK_NAME;
 import static racingcar.exception.ErrorMessage.INVALID_NAME_LENGTH;
 
 import racingcar.exception.RacingGameException;
@@ -25,14 +26,14 @@ public class Car {
     }
 
     private static void validate(final String name) {
-        if (isWrongLength(name)) {
+        if (name.isBlank()) {
+            throw RacingGameException.of(BLANK_NAME);
+        }
+
+        if (name.length() > CAR_LIMIT_NAME_LENGTH) {
             throw RacingGameException.of(INVALID_NAME_LENGTH);
         }
 
-    }
-
-    private static boolean isWrongLength(final String name) {
-        return name.isBlank() || name.length() > CAR_LIMIT_NAME_LENGTH;
     }
 
     public void go(int randomNumber) {
