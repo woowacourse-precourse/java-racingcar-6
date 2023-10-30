@@ -143,5 +143,13 @@ public class Application {
             }
             return String.join(", ", winnerList);
         }
-
+        private void printWinnersMessage(String winners) {
+            StringBuilder result = new StringBuilder();
+            for (Car car : cars) {
+                result.append(car.getName()).append(" : - ");
+            }
+            result.append("최종 우승자 : ").append(winners);
+            System.out.print(result.toString() + "\n");
+        }
     }
+ }
