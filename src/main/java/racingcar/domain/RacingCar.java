@@ -11,6 +11,10 @@ public class RacingCar {
         this.carName = carName;
     }
 
+    public boolean isWinner(int maxPosition) {
+        return position == maxPosition;
+    }
+
     public void move() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             position += 1;
