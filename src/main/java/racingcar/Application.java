@@ -3,15 +3,15 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class Application {
     public static void main(String[] args) throws IllegalArgumentException {
         requestCarNames();
         String CarNames = Console.readLine();
         isCarNamesValid(CarNames);
-        
+        List<String> CarNamesArray = splitStringToArrayList(CarNames);
         requestCount();
     }
 
@@ -22,7 +22,6 @@ public class Application {
     static void requestCount() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
-
 
     static void isCarNamesValid(String CarNames) {
         for (int i = 0; i < CarNames.length(); i++) {
@@ -36,5 +35,10 @@ public class Application {
                 throw new IllegalArgumentException("숫자나 영어로 이루어진 자동차 이름을 입력하세요.");
             }
         }
+    }
+
+    static List<String> splitStringToArrayList(String CarNames) {
+        String[] CarNamesStringArray = CarNames.split(",");
+        return new ArrayList<>(Arrays.asList(CarNamesStringArray));
     }
 }
