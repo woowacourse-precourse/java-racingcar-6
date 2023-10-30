@@ -10,11 +10,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("입력 변환 객체에 대해")
 class InputMapperTest {
 
+    InputMapper inputMapper = new InputMapper();
+
     @Test
     @DisplayName("자동차 이름들이 Cars객체로 변환한다.")
     void names_to_Cars() {
         //given
-        InputMapper inputMapper = new InputMapper();
         Cars cars = inputMapper.toCars("pobi,woni");
 
         //when
@@ -24,4 +25,14 @@ class InputMapperTest {
         assertThat(carsCount).isEqualTo(2);
     }
 
+    @Test
+    @DisplayName("시도 횟수를 int형으로 변환한다.")
+    void attempt_count_to_int() {
+        //given
+        //when
+        int attemptCount = inputMapper.toInt("3");
+
+        //then
+        assertThat(attemptCount).isInstanceOf(Integer.class);
+    }
 }
