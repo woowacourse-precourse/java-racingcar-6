@@ -31,7 +31,7 @@ public class Car implements Comparable<Car> {
     }
 
     private boolean canMove() {
-        return (Randoms.pickNumberInRange(0, 9) <= 4);
+        return (Randoms.pickNumberInRange(0, 9) >= 4);
     }
 
     public String path() {
