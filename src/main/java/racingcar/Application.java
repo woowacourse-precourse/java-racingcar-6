@@ -37,8 +37,9 @@ public class Application {
     int tryCycle = cs.StringConvertInt(inputCycleString);
 
     for (int i = 0; i < tryCycle; i++) {
-
       for(CarVO car : racingCarList){
+        System.out.print(car.getCar() + " : ");
+
         int randomNumber = Randoms.pickNumberInRange(1,9);
         if(randomNumber > 3){
           car.setMove(1 + car.getMove());
@@ -47,10 +48,9 @@ public class Application {
         for (int j = 0; j < car.getMove(); j++) {
           movePoint.append("-");
         }
-
-
-
+        System.out.println(movePoint);
       }
+      System.out.println();
     }
 
 
