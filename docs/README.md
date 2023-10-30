@@ -17,7 +17,7 @@
       2. 돌려서 나온 값이 4 이상인 경우, 해당하는 key에 대한 value에 +1
    3. 만약, for문이 0번째라면, `실행 결과`문구 출력
    4. hashmap의 결과를 `각 차수별 실행 결과`로 출력
-4. `champion_member`, `max_num = 0` 변수를 만들고, hashmap for문 돌기
+4. `champion_member`, `top_score = 0` 변수를 만들고, hashmap for문 돌기
    1. if, 해당 key의 value가 max_num 보다 크다면, `champion_member` 변수를 해당 key로 대체
    2. else if, 해당 key의 value가 max_num과 동일하다면, `champion_member` 변수에 해당 key를 더하기
 5. `최종 우승자 : `를 출력하고, 그 뒤에 우승자를 저장한 `champion_member` 변수를 출력해준다.
