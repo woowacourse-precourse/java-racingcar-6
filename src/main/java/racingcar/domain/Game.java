@@ -3,8 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Game {
     public void start() {
@@ -32,9 +31,9 @@ public class Game {
 
     private int getNumberOfAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
-        Attempt attemp = new Attempt(Console.readLine());
+        Attempt attempt = new Attempt(Console.readLine());
         System.out.println();
-        return attemp.getNumber();
+        return attempt.getNumber();
     }
 
     private void play(List<Car> carList) {
@@ -51,16 +50,34 @@ public class Game {
         }
         System.out.println();
     }
-//
-//    private String carPosition(int position) {
-//        String positionStr = "";
-//        for (int count = 0; count < position; count++) {
-//            positionStr += "-";
-//        }
-//        return positionStr;
-//    }
 
     private void showWinner(List<Car> carList) {
-        //sort 후 출
+        int farthestCarPosition = findFarthestCarPosition(carList);
+        boolean jointChampion = false;
+
+        System.out.print("최종 우승자 : ");
+        for (Car car : carList) {
+            if (car.getPosition().length() == farthestCarPosition) {
+                printWinner(car.getName(),jointChampion);
+                jointChampion = true;
+            }
+        }
+    }
+
+    private void printWinner(String name, boolean jointChampion) {
+        if (jointChampion) {
+            System.out.println(", " + name);
+        } else {
+            System.out.println(name);
+        }
+    }
+
+
+    private int findFarthestCarPosition(List<Car> carList) {
+        int farthestCarPosition = 0;
+        for (Car car : carList) {
+            farthestCarPosition = Math.max(farthestCarPosition, car.getPosition().length()); // car.get().len() 수정
+        }
+        return farthestCarPosition;
     }
 }
