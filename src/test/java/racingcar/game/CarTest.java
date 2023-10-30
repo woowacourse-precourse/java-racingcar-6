@@ -2,25 +2,30 @@ package racingcar.game;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
+    Car car;
 
-    @Test
-    void carNameShouldBeInitializedCorrectly() {
-        Car car = new Car("TestCar");
-        assertEquals("TestCar", car.getName());
+    @BeforeEach
+    void setUp() {
+        car = new Car("pobi");
     }
 
     @Test
-    void initialRouteShouldBeEmpty() {
-        Car car = new Car("TestCar");
+    void Car_객체_생성_시_이름이_정상적으로_부여되는지() {
+        assertEquals("pobi", car.getName());
+    }
+
+    @Test
+    void Car_객체_생성_시_루트가_빈칸인지() {
         assertEquals("", car.getRoute());
     }
 
     @Test
-    void moveForwardShouldAddDashToRoute() {
-        Car car = new Car("TestCar");
+    void moveForward_루트가_한_칸씩_증가하는지() {
         car.moveForward();
         assertEquals("-", car.getRoute());
         car.moveForward();
@@ -29,23 +34,19 @@ class CarTest {
         assertEquals("---", car.getRoute());
     }
 
-    @Test
-    public void testIsMovableWithin5Sigma() {
-        Car car = new Car("TestCar");
-        int numberOfTest = 1000;
-        for (int i = 0; i < numberOfTest; i++) {
-            int movementCount = 0;
-            int numberOfAttempts = 10000;
-            for (int j = 0; j < numberOfAttempts; j++) {
-                if (car.isMovable()) {
-                    movementCount++;
-                }
+    @RepeatedTest(100)
+    void isMovable_정규분포_5시그마_테스트() {
+        int movementCount = 0;
+        int numberOfAttempts = 10000;
+        for (int i = 0; i < numberOfAttempts; i++) {
+            if (car.isMovable()) {
+                movementCount++;
             }
-
-            double expectedMovablePercentage = 0.6;
-            double actualMovablePercentage = (double) movementCount / numberOfAttempts;
-            double sigma = Math.sqrt(expectedMovablePercentage * (1 - expectedMovablePercentage) / numberOfAttempts);
-            assertEquals(expectedMovablePercentage, actualMovablePercentage, 5 * sigma);
         }
+
+        double expectedMovablePercentage = 0.6;
+        double actualMovablePercentage = (double) movementCount / numberOfAttempts;
+        double sigma = Math.sqrt(expectedMovablePercentage * (1 - expectedMovablePercentage) / numberOfAttempts);
+        assertEquals(expectedMovablePercentage, actualMovablePercentage, 5 * sigma);
     }
 }
