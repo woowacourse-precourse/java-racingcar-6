@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.controller.RacingCarController;
+
 public class Application {
     public static void main(String[] args) {
 //        1. [ ] 사용자는 경주할 자동차 이름을 모두 입력한다. - domain.Input#inputCarNames()
@@ -14,5 +16,7 @@ public class Application {
 //        6. [ ] 시도할 횟수만큼 3~5번 기능을 반복한다. - controller.RacingCarController#playGame()
 //        7. [ ] 가장 많이 전진한 최종 우승자를 출력한다. - view.OuptputView#printWinners()
 //                - 우승자가 여러명이면 쉼표(, )로 구분한다. - controller.RacingCarController#takeWinners()
+        RacingCarController game = new RacingCarController();
+        game.startGame();
     }
 }
