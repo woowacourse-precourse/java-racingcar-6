@@ -12,6 +12,9 @@ public class GameProcess {
         String carName = Console.readLine();
         List<String> carList = parseCarName(carName);
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        String countTrial = Console.readLine();
+
         System.out.println(carList);
     }
 
