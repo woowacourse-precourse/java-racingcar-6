@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.*;
+import org.mockito.MockedStatic;
 import racingcar.util.Utils;
 
 import java.util.List;
@@ -14,12 +15,23 @@ import static org.mockito.Mockito.when;
 class CarsTest {
 
     private Cars cars;
+    private static MockedStatic<Utils> utils;
 
     @BeforeEach
     public void setUp() {
         List<String> nameList = List.of("pobi", "lee", "kim");
         cars = new Cars();
         cars.makeCars(nameList);
+    }
+
+    @BeforeAll
+    public static void beforeAll() {
+        utils = mockStatic(Utils.class);
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        utils.close();
     }
 
     @DisplayName("입력값을 기반으로 자동차를 생성한다.")
@@ -47,7 +59,6 @@ class CarsTest {
     void moveCars() {
         // given
         List<Integer> resultDistance = List.of(1,1,0);
-        mockStatic(Utils.class);
         when(Utils.makeRandomNumber()).thenReturn(7,5, 2);
 
         // when
