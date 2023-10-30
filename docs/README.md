@@ -7,8 +7,8 @@
     - [x] 자동차의 이름들을 입력받는다. - `Prompt#readCarNames()`
         - [x] 자동차 이름은 5자 이내이어야 한다. - `Validator#isNotCarName()`
 - [ ] 자동차 경주에서 자동자는 매 턴마다 행동한다. - `CarRacing#action()`
-    - [ ] 자동차는 생성한 무작위 값이 4보다 크면 이동 가능하다. - `Car#isMovable()`
-    - [ ] 전진 가능하면 전진한다. - `Car#move()`
+    - [x] 자동차는 생성한 무작위 값이 4보다 크면 이동 가능하다. - `CarUtils#isMovable()`
+    - [x] 자동차는 전진할 수 있다. - `CarUtils#move()`
 - [x] 경주에서 진행할 턴의 최대 횟수를 입력 받는다. - `Prompt#readMaxTurn()`
     - [x] 입력 받는 턴은 숫자이다. - `Validator#isNumber()`
 - [ ] 우승 자동차들을 알 수 있다. - `Referee#whichWinners()`
