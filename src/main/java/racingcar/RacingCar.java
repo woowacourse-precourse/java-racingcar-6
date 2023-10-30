@@ -24,16 +24,11 @@ public class RacingCar {
 	}
 
 	public void play() {
-		try {
 		Cars cars = createCars();
 		
 		progress(cars);
 		
 		pickWinner(cars);
-		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-			throw e;
-		}
 	}
 	
 	private Cars createCars() {
