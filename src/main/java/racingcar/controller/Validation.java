@@ -4,8 +4,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validation {
-    private static final Pattern LOWERCASE_AND_COMMA = Pattern.compile("^[a-z,]*$[a-z]");
+    private static final Pattern LOWERCASE_AND_COMMA = Pattern.compile("^[a-z,]*[a-z]$");
 
+    /**
+     * 입력된 자동차 데이터 유효성 검사
+     * @param inputCarName
+     * @return true || false
+     */
     public boolean validationNames(String inputCarName) {
         String[] carNames = inputCarName.split(",");
 
