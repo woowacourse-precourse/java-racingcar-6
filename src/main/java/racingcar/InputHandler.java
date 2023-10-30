@@ -14,4 +14,10 @@ public class InputHandler {
         return carNames;
     }
 
+    public static int inputNumberOfAttempts() {
+        String rawNumberOfAttempts = Console.readLine();
+        int numberOfAttempts = Integer.parseInt(rawNumberOfAttempts);
+        return numberOfAttempts;
+    }
+
 }
