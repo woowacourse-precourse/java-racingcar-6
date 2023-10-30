@@ -36,10 +36,11 @@
 
 #### 경주 1회 결과들을 담고 있는 역할 (OneGameResultsDto)
 
-- [x] 이름 리스트 getter
-- [x] 움직임 횟수 리스트 getter
-- [x] 자동차들을 이름 리스트로 매핑하는 기능
-- [x] 자동차들을 움직임 횟수 리스트로 매핑하는 기능
+- [ ] 필드: List< ResultDto > results
+- [x] 자동차들을 ResultDto 리스트로 매핑하는 기능
+- [x] 리스트의 크기를 반환하는 기능
+- [x] ResultDto 리스트 getter
+- [ ] 움직임 횟수 리스트 getter
 
 ##
 
