@@ -93,10 +93,7 @@ public class Application {
 
     public static boolean isStraight(){
         int randomNum = Randoms.pickNumberInRange(0,9);
-
-        if (randomNum >= 5){
-            return true;
-        }
+        return randomNum >= 5;
     }
 
 }
