@@ -8,15 +8,18 @@ public class InputValidator {
     private final String TRY_COUNT_REGEX = "[1-9]\\d*";
 
     public void validateInputCarName(String carName) {
+        String[] names = carName.split(",");
+
+        checkValidatedCarName(carName);
+        checkDuplicateCarName(names);
+        checkParticipantSizeUnderTwo(names);
+        checkNameLengthOverFive(names);
+    }
+
+    private void checkValidatedCarName(String carName) {
         if (!carName.matches(CAR_NAME_REGEX)) {
             throw new IllegalArgumentException();
         }
-
-        String[] names = carName.split(",");
-
-        checkDuplicateCarName(names);
-        checkParticipantSizeUnderTwo(names);
-        checkNameSizeOverFive(names);
     }
 
     public void validateInputTryCount(String tryCount) {
@@ -26,11 +29,11 @@ public class InputValidator {
     }
 
     private void checkDuplicateCarName(String[] names) {
-        long nonDuplicateNameSize = Arrays.stream(names)
+        long nonDuplicatedNameSize = Arrays.stream(names)
                 .distinct()
                 .count();
 
-        if (nonDuplicateNameSize != names.length) {
+        if (nonDuplicatedNameSize != names.length) {
             throw new IllegalArgumentException();
         }
     }
@@ -41,7 +44,7 @@ public class InputValidator {
         }
     }
 
-    private void checkNameSizeOverFive(String[] names) {
+    private void checkNameLengthOverFive(String[] names) {
         for (String name : names) {
             if (name.length() > 5) {
                 throw new IllegalArgumentException();
