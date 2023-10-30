@@ -6,20 +6,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
+    private Validator validator = new Validator();
 
     public List<String> inputCarsName(){
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
-        String input = Console.readLine();
-        String [] splitStr = input.split(",");
+        String [] splitStr = inputStringCarsName().split(",");
 
         ArrayList<String> carsName = new ArrayList<String>();
-
         for(String name : splitStr){
             carsName.add(name);
         }
 
         return carsName;
+    }
+
+    public String inputStringCarsName(){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String input = Console.readLine();
+        return checkValidationCarNamesInput(input);
+    }
+
+    private String checkValidationCarNamesInput(String input){
+        try{
+            validator.checkCarNamesInput(input);
+            return input;
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return inputStringCarsName();
+        }
     }
 
     public int inputTrial(){
