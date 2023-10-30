@@ -7,7 +7,7 @@ public class UserInput {
 
     public static List<String> carName() {
         String names = Console.readLine();
-        List<String> carNames = List.of(names.split(""));
+        List<String> carNames = List.of(names.split(","));
         return carNames;
     }
 
