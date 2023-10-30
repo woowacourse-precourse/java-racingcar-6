@@ -66,7 +66,7 @@
 
 #### Controller
 -[x] InputView에 입력을 RacingGame요청하고 에 이동을 요청한다
-- RacingGame 승자 데이터 요청을 한다.
+-[x] RacingGame 승자 데이터 요청을 한다.
 -[x] RacingGame에 경주의 상태를 요청한다.
 
 ### Domain
@@ -74,7 +74,7 @@
 #### RacingGame
 -[x] Navigation을 생성한다.
 -[x] Navigation에 이동 요청을 한다.
-- Navigation에게 승자 요청을 한다.
+-[x] Navigation에게 승자 요청을 한다.
 -[x] Navigation에게 Car의 상태를 받아온다.
 -[x] 게임이 끝났는지 판단한다.
 
@@ -84,7 +84,7 @@
 
 #### Navigation
 -[x] 같은 이름이 있는지 검증한다.(있다면 IllegalArgumentException)
-- 우승자를 판단하고 찾아온다.
+-[x] 우승자를 판단하고 찾아온다.
 -[x] 리스트들의 이동 상태를 요청한다.
 -[x] Car들에 이동 요청을 한다.
 
@@ -112,5 +112,5 @@
 
 #### OutputView
 -[x] 출력요청을 받으면 입력에 맞게 -와 이름을 출력한다.
-- 우승자를 출력한다. 다수의 경우 ,를 추가하여 출력한다.
+-[x] 우승자를 출력한다. 다수의 경우 ,를 추가하여 출력한다.
 
