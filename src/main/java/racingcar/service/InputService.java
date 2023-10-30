@@ -36,12 +36,11 @@ public class InputService {
                 .toList();
     }
 
-    public void readMoveCountFromUser() {
+    public int readMoveCountFromUser() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         if (InputValidatorUtils.isNum(input)) {
-            int moveCount = Integer.parseInt(input);
-            System.out.println(moveCount);
+            return Integer.parseInt(input);
         } else {
             throw new IllegalArgumentException();
         }

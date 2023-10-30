@@ -10,4 +10,5 @@ public class RacingGameRepository {
     public void saveCar(List<CarInfo> cars) {
         Car.getInstance().setCars(cars);
     }
+
 }

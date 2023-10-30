@@ -9,6 +9,14 @@ public class CarInfo {
         this.distance = distance;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
     @Override
     public String toString() {
         return "CarInfo{" +
