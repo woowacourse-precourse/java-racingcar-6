@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class MoveNumTest {
+public class MoveNumInputTest {
     @ParameterizedTest
     @ValueSource(strings = {"1", "10", "100"})
     @DisplayName ("자동차 이동횟수 입력 정상동작 테스트")
