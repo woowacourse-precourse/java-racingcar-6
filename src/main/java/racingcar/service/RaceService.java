@@ -1,6 +1,8 @@
 package racingcar.service;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,6 +13,7 @@ import racingcar.view.UserInputMessage;
 public class RaceService {
     Cars cars = new Cars();
 
+    // [readyRace]--------------------------------
     public void ParticipateRace(){
         UserInputMessage.askParticipants();
         String InputCars = Console.readLine();
@@ -56,4 +59,54 @@ public class RaceService {
             return false;
         }
     }
+
+
+    // [startRace]--------------------------------
+    public void raceStart(){
+        int raceCount = cars.getRaceCount();
+        String[] carNameList = cars.getCarNames();
+        ArrayList<String> raceLog = new ArrayList<String>();
+
+        //각 자동차의 무작위 값들
+        while(raceCount > 0){
+            rollRandomNumbers(carNameList);
+            showRaceLog(raceLog);
+            raceCount -= 1;
+        }
+    }
+
+    public ArrayList rollRandomNumbers(String[] carNameList){
+        ArrayList<Integer> carsPickNumbers = new ArrayList<Integer>();
+        for(int i=0;i<carNameList.length;i++) {
+            int randomNumber = Randoms.pickNumberInRange(1, 9);
+            carsPickNumbers.add(randomNumber);
+        }
+        return carsPickNumbers;
+    }
+
+    public ArrayList addRaceLog(ArrayList<Integer> carsPickNumbers, ArrayList<String> raceLog){
+        for(int i=0;i<carsPickNumbers.size();i++){
+            if(isCarAdvance(carsPickNumbers.get(i))){
+                //유형 ArrayList는 수정이 어려움
+                //String[]은 미리 사이즈를 정해야함
+            }
+        }
+
+        return raceLog;
+    }
+
+    public boolean isCarAdvance(int randomNumber){
+        if(randomNumber >= 4) {
+                return true;
+        }
+        return false;
+    }
+
+    public void showRaceLog(ArrayList raceLog){
+        for(int i=0; i<raceLog.size();i++){
+
+        }
+    }
 }
+
+
