@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,10 +10,11 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import racingcar.domain.OutputView;
+import racingcar.Application;
 
 class OutputViewTest extends NsTest {
     private static final String DELIMITER = ",";
+
     @Test
     void printCarsLocation_테스트() {
         // given

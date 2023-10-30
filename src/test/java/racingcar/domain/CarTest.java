@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcar.domain.Car;
 
 class CarTest {
     private static final int MAX_NAME_LENGTH = 5;
@@ -19,12 +18,6 @@ class CarTest {
     private static final int MOVE_SUCCESS = 1;
     private static final int MOVE_FAIL = 0;
     private Car pobiCar;
-
-    @BeforeEach
-    void setUp() {
-        // given
-        pobiCar = new Car("pobi");
-    }
 
     private static Stream<Arguments> testMoveCountAndRandomNumber() {
         return Stream.of(
@@ -39,6 +32,12 @@ class CarTest {
                 Arguments.of(MOVE_SUCCESS, MIN_MOVING_FORWARD + 4),
                 Arguments.of(MOVE_SUCCESS, MIN_MOVING_FORWARD + 5)
         );
+    }
+
+    @BeforeEach
+    void setUp() {
+        // given
+        pobiCar = new Car("pobi");
     }
 
     @ParameterizedTest
