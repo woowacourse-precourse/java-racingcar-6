@@ -61,13 +61,15 @@ public class Application {
         }
     }
 
-    public List<Car> compare(Car[] cars) {
+    public List<String> compare(Car[] cars) {
+
         List<Car> collect = Arrays.stream(cars).sorted(Comparator.comparing(Car::getPos).reversed())
                 .collect(Collectors.toList());
 
         List<String> result = null;
 
-        List<Car> victorylist = collect.stream().filter((Car car) -> car.getPos() == collect.get(0).getPos())
+        List<String> victorylist = collect.stream().filter((Car car) -> car.getPos() == collect.get(0).getPos())
+                .map(v -> v.getName())
                 .collect(Collectors.toList());
 
         return victorylist;
