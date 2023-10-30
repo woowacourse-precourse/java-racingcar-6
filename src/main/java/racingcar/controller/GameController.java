@@ -11,6 +11,8 @@ public class GameController {
     private static final String ASK_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String ASK_GAME_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
 
+    private static final String PRINT_RESULT_MESSAGE = "실행 결과";
+
     private static final int RANDOM_NUMBER_MIN = 0;
     private static final int RANDOM_NUMBER_MAX = 9;
 
@@ -27,10 +29,10 @@ public class GameController {
     }
 
     private void askInputUser() {
-        System.out.println(ASK_CAR_NAMES_MESSAGE);
+        output.printGameMessage(ASK_CAR_NAMES_MESSAGE);
         carList = changeUserInputToCarList(userInput.readCarNames());
 
-        System.out.println(ASK_GAME_COUNT_MESSAGE);
+        output.printGameMessage(ASK_GAME_COUNT_MESSAGE);
         gameCount = userInput.readGameCount();
     }
 
@@ -39,6 +41,8 @@ public class GameController {
     }
 
     private void doGame() {
+        output.printGameMessage(System.lineSeparator() + PRINT_RESULT_MESSAGE);
+
         for (int i = 0; i < gameCount; i++) {
             doStep();
             output.printCurrentCar(carList);
@@ -48,8 +52,7 @@ public class GameController {
     private void doStep() {
         carList.forEach(car -> car.runOrStop(generateRandomNumber()));
     }
-
-    //5) 최종 우승자 이름 리턴 함수
+    
     private List<String> getWinnerName(List<Car> carList) {
         int winScore = getMaxScore(carList);
 

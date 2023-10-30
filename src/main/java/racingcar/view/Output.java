@@ -20,4 +20,10 @@ public class Output {
     public void printFinalWinner(List<String> winnerName) {
         System.out.print("최종 우승자 : " + String.join(", ", winnerName));
     }
+
+    //message 형태 들어오면 그대로 출력하는 함수
+    public void printGameMessage(String message) {
+        System.out.println(message);
+    }
+
 }
