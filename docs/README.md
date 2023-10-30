@@ -115,4 +115,33 @@
 - [x] 콤마(,)로 구분했을 때 각 원소의 길이가 5 이하인지 검증 기능 `private`
 - [x] 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다 `private`
 
+##
+
 ### ✅ TODO: 발생 가능한 예외 상황 정리
+
+##
+
+### ✅ TODO: 테스트할 기능 목록 정리
+
+#### 자동차 역할 (Car)
+
+- [x] 자동차 전진 기능 `public`
+
+##
+
+#### 자동차 이름 입력 검증 역할 (CarNamesInputValidator)
+
+- [x] 자동차 이름 입력 검증 기능 `public`
+
+##
+
+#### 게임 유틸 역할 (GameUtil)
+
+- [x] 자동차 이름 쉽표 구분 유틸 기능 `public`
+
+##
+
+#### 게임 서비스 역할 (RacingGameService)
+
+- [x] 경주 1회를 진행하는 기능 `public`
+- [x] 최종 우승자를 계산하는 기능 `public`
