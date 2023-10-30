@@ -12,6 +12,8 @@ import java.util.List;
 
 public class Controller {
     private String inputNames;
+    private String inputNumber;
+    private int numberOfAttempts;
     private final Value values;
     private final GoStopRule goStopRule;
     private final OutputView outputView;
@@ -26,7 +28,9 @@ public class Controller {
         inputCarName();
         validateCarName();
         saveCarName();
-        raceAttempts();
+        inputRaceAttempts();
+        validateAttemptNumber();
+        saveAttemptNumber();
         initGame();
         gameStart();
         gameEnd();
@@ -45,11 +49,16 @@ public class Controller {
         values.addCarNames(names);
     }
 
+    private void inputRaceAttempts() {
+        this.inputNumber = InputView.inputNumberOfAttempts();
+    }
 
-    private void raceAttempts() {
-        String input = InputView.inputNumberOfAttempts();
-        int numberOfAttempts = CheckNumber.validate(input);
-        values.setNumberOfAttempts(numberOfAttempts);
+    private void validateAttemptNumber() {
+        this.numberOfAttempts = CheckNumber.validate(this.inputNumber);
+    }
+
+    private void saveAttemptNumber() {
+        values.setNumberOfAttempts(this.numberOfAttempts);
     }
 
     private void initGame() {
