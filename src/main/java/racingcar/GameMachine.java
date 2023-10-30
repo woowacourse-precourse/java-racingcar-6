@@ -12,8 +12,7 @@ public class GameMachine {
         int tryNumber = Input.getTryNumber();
         Output.printResultTitle();
         for (int times = 0; times < tryNumber; times++) {
-            int randomNumber = randomNumberMaker.makeRandomNumber();
-            racingGame.moveCars(randomNumber);
+            racingGame.moveCars(randomNumberMaker);
             Output.printRacingMap(racingGame.getCurrentStatus());
         }
         Output.printWinners(racingGame.getWinner());

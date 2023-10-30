@@ -16,11 +16,16 @@ public class RacingGame {
         }
     }
 
-    void moveCars(int movingNumber) {
+    void moveCars(RandomNumberMaker randomNumberMaker) {
         for (Car car : cars) {
-            if (movingNumber >= 4) {
-                car.moveForward();
-            }
+            int randomNumber = randomNumberMaker.makeRandomNumber();
+            moveCar(car, randomNumber);
+        }
+    }
+
+    void moveCar(Car car, int randomNumber) {
+        if (randomNumber >= 4) {
+            car.moveForward();
         }
     }
 
