@@ -67,4 +67,25 @@ public class CarsTest {
         //then
         Assertions.assertThat(afterUpdate).isTrue();
     }
+
+    @Test
+    @DisplayName("갖고 있는 모든 Car객체의 상태 반환")
+    public void 모든_Car_객체_상태_반환_테스트() {
+        //given
+        List<Car> carList = new ArrayList<>();
+        Car pobiCar = new Car("pobi");
+        Car lisaCar = new Car("lisa");
+        Car jinyCar = new Car("jiny");
+        carList.add(pobiCar);
+        carList.add(lisaCar);
+        carList.add(jinyCar);
+        Cars cars = new Cars(carList);
+
+        //when
+        String carsStatus = cars.getAllCarsStatus();
+
+        //then
+        Assertions.assertThat(carsStatus).isEqualTo("pobi : -\nlisa : -\njiny : \n\n");
+
+    }
 }
