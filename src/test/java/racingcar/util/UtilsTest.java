@@ -46,4 +46,17 @@ class UtilsTest {
         assertThat(tryTimes).isEqualTo(12);
     }
 
+    @DisplayName("우승자 리스트를 문자열로 변환한다.")
+    @Test
+    void formatListToString() {
+        // given
+        List<String> winnerNames = List.of("pobi","lee","kim");
+
+        // when
+        String winner = Utils.formatListToString(winnerNames);
+
+        // then
+        assertThat(winner).isEqualTo("pobi, lee, kim");
+    }
+
 }
