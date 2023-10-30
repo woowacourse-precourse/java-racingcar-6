@@ -17,6 +17,7 @@ public class Car {
     private static final String ERROR_NAME_IS_TOO_LONG = "5자 이하의 이름만 입력해주세요";
     private static final String ERROR_NAME_IS_TOO_SHORT = "1자 이상의 이름만 입력해주세요";
     private static final String ERROR_NAME_HAS_NULL = "null은 이름이 될 수 없습니다";
+    private static final String STATUS_MESSAGE_FORMAT = "%s : %s";
 
     private final String name;
     private final StringBuilder mileage;
@@ -74,8 +75,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return name +
-                " : " +
-                mileage.toString();
+        return String.format(STATUS_MESSAGE_FORMAT, getName(), mileage);
     }
 }
