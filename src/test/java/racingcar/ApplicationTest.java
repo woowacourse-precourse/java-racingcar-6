@@ -57,7 +57,7 @@ class ApplicationTest extends NsTest {
             new RacingCar("woni")
         );
         RacingCarGameOutput.printWinnersMessage(carList);
-        assertThat(output()).contains("최종 우승자는 : woni");
+        assertThat(output()).contains("최종 우승자 : woni");
     }
 
     @Test
@@ -68,7 +68,7 @@ class ApplicationTest extends NsTest {
                 new RacingCar("javaji")
         );
         RacingCarGameOutput.printWinnersMessage(carList);
-        assertThat(output()).contains("최종 우승자는 : pobi, woni, javaji");
+        assertThat(output()).contains("최종 우승자 : pobi, woni, javaji");
     }
 
     @Test
