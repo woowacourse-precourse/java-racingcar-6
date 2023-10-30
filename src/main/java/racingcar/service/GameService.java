@@ -13,13 +13,14 @@ public class GameService {
 
     private static final String DIVISION_STANDARD = ",";
 
+    private final CarNameValidator carNameValidator;
+    private final GameCountValidator gameCountValidator;
     private final List<Car> carList;
     private int gameCount;
 
-    CarNameValidator carNameValidator = new CarNameValidator();
-    GameCountValidator gameCountValidator = new GameCountValidator();
-
-    public GameService() {
+    public GameService(CarNameValidator carNameValidator, GameCountValidator gameCountValidator) {
+        this.carNameValidator = carNameValidator;
+        this.gameCountValidator = gameCountValidator;
         carList = new ArrayList<>();
     }
 

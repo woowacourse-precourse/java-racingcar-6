@@ -1,12 +1,14 @@
 package racingcar.controller;
 
 import racingcar.service.GameService;
+import racingcar.validation.CarNameValidator;
+import racingcar.validation.GameCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameMainController {
 
-    private GameService gameService = new GameService();
+    private GameService gameService = new GameService(new CarNameValidator(), new GameCountValidator());
 
     public void run() {
         startGame();
