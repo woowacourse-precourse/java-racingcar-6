@@ -55,4 +55,18 @@ public class CarTest {
 
     }
 
+    @Test
+    @DisplayName("서로 다른 Car객체 movingCount가 같으면 true 테스트")
+    public void 서로_다른_Car_객체_비교_테스트() {
+        //given
+        Car pobiCar = new Car("pobi");
+        Car lisaCar = new Car("lisa");
+
+        //when
+        boolean isSame = pobiCar.isSameMovingCount(lisaCar);
+
+        //then
+        Assertions.assertThat(isSame).isTrue();
+    }
+
 }
