@@ -258,4 +258,14 @@ public class StringTest {
                 // 끝이 Rings이다.
                 .endsWith("3");
     }
+
+    @DisplayName("containsExactly_을_활용한_정확한_순서로_리스트에_포함되어_있는가_테스트")
+    @Test
+    void containsExactly_을_활용한_정확한_순서로_리스트에_포함되어_있는가_테스트() {
+        String input = "1,,23";
+        String[] result = input.split(",");
+
+        // 정확하게 들어있는가
+        assertThat(result).containsExactly("1", "", "23");
+    }
 }
