@@ -1,7 +1,7 @@
 package racingcar.model;
 
 public class Attempts {
-    private int number;
+    private final int number;
 
     public Attempts(int number) {
         this.number = number;
