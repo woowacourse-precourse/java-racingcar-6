@@ -21,28 +21,28 @@ public class RacingCarGameService {
         return racingProgressStatus;
     }
 
-    public void proceedOneRound(
+    public void playSingleGame(
             RandomNumberGenerator racingNumberGenerator,
             List<String> carNames,
             LinkedHashMap<String, Integer> racingProgressStatus
     ) {
         for (String carName : carNames) {
             int randomNumber = racingNumberGenerator.getRandomNumber();
-            decideMovingForward(randomNumber, racingProgressStatus, carName);
+            processMoveDecision(randomNumber, racingProgressStatus, carName);
         }
     }
 
-    private void decideMovingForward(
+    private void processMoveDecision(
             int randomNumber,
             LinkedHashMap<String, Integer> racingProgressStatus,
             String carName
     ) {
-        if (isMovingForward(randomNumber)) {
+        if (isMoveForward(randomNumber)) {
             moveForward(racingProgressStatus, carName);
         }
     }
 
-    public boolean isMovingForward(int randomNumber) {
+    public boolean isMoveForward(int randomNumber) {
         if (randomNumber >= MOVING_FORWARD_STANDARD) {
             return true;
         }

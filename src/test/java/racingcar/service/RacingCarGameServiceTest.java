@@ -1,14 +1,15 @@
 package racingcar.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.LinkedHashMap;
-import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingCarGameServiceTest {
 
@@ -23,7 +24,7 @@ public class RacingCarGameServiceTest {
     @CsvSource({"3,false", "4,true", "5,true"})
     @DisplayName("4이상은 전진하고, 3이하는 정지상태를 유지한다.")
     public void should_MoveForward_When_FourOrMore(int randomNumber, boolean expected) {
-        boolean actual = racingCarGameService.isMovingForward(randomNumber);
+        boolean actual = racingCarGameService.isMoveForward(randomNumber);
 
         assertThat(actual).isEqualTo(expected);
     }

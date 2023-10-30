@@ -32,7 +32,7 @@ public class RacingCarGameController {
         int attemptCount = inputView.readAttemptCount();
         outputView.printExecutionResultMessage();
         for (int i = 0; i < attemptCount; i++) {
-            racingCarGameService.proceedOneRound(racingNumberGenerator, carNames, racingProgressStatus);
+            racingCarGameService.playSingleGame(racingNumberGenerator, carNames, racingProgressStatus);
             outputView.printExecutionResult(racingProgressStatus);
         }
         List<String> winners = racingCarGameService.getWinners(racingProgressStatus);
