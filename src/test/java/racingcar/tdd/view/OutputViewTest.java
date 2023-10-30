@@ -52,4 +52,13 @@ public class OutputViewTest {
         OutputView.printGameResultMessage();
         doTest(message);
     }
+
+    @Test
+    void 올바른_이동_결과_메시지_출력시_통과() {
+        String message = "Car1 : -\n";
+
+        setUpStreams();
+        OutputView.printRoundResult("Car1", 1);
+        doTest(message);
+    }
 }

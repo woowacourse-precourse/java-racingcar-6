@@ -16,4 +16,9 @@ public class OutputView {
     public static void printGameResultMessage() {
         System.out.println(gameResultMessage);
     }
+
+    public static void printRoundResult(String carName, int moveLength) {
+        String moveStatus = "-";
+        System.out.printf("%s : %s\n", carName, moveStatus.repeat(moveLength));
+    }
 }
