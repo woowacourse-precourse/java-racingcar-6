@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.utils.Parser;
+import racingcar.validator.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
     private int attemptNum;
     private final Parser parser = new Parser();
-    private final ArrayList<Car> carRepository = new ArrayList<Car>();
+    private final Validator validator = new Validator();
+    private final ArrayList<Car> carRepository = new ArrayList<>();
 
     public void run() {
         saveCars(parser.parseInputCarNames(getCarNamesByInput()));
@@ -32,19 +34,19 @@ public class Controller {
             carRepository.add(new Car(carName));
         }
     }
-
     private String getCarNamesByInput() {
         InputView.requestCarName();
         String input = Console.readLine();
+        validator.checkCarNameInput(input);
         return input;
     }
 
     private int getAttemptNumberByInput() {
         InputView.requestAttemptNumber();
-        int attemptNum = Integer.parseInt(Console.readLine());
-        return attemptNum;
+        String input = Console.readLine();
+        validator.checkAttemptNumInput(input);
+        return Integer.parseInt(input);
     }
-
     private void decideMovement() {
         for (int i = 0; i < carRepository.size(); i++) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
