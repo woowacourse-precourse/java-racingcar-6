@@ -49,12 +49,8 @@ public class Race {
 
     private void initializeCars(String[] carNames) {
         Arrays.stream(carNames)
-                .map(carName -> {
-                    Car car = new Car();
-                    car.setName(carName);
-                    return car;
-                })
-                .forEach(cars::add);
+            .map(Car::new)
+            .forEach(cars::add);
     }
 
     private void inputMoveCount() {
