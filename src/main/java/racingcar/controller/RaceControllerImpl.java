@@ -16,17 +16,17 @@ public class RaceControllerImpl implements RaceController {
 
     @Override
     public void run() {
-        String Names;
+        String names;
         String raceCount;
         List<Participant> participants;
 
-        Names = console.getPlayerNames();
-        raceService.validateName(Names);
+        names = console.getPlayerNames();
+        raceService.validateName(names);
 
         raceCount = console.getRaceCount();
         raceService.validateRaceCount(raceCount);
 
-        participants = raceService.parseToParticipantList(Names);
+        participants = raceService.parseToParticipantList(names);
 
         System.out.println();
         console.displayResultText();

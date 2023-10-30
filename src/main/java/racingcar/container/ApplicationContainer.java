@@ -12,8 +12,8 @@ import racingcar.util.generator.RandomNumberGenerator;
 import racingcar.util.generator.RandomNumberGeneratorImpl;
 import racingcar.util.parser.NameParser;
 import racingcar.util.parser.NameParserImpl;
-import racingcar.util.validator.Name.NameValidator;
-import racingcar.util.validator.Name.NameValidatorImpl;
+import racingcar.util.validator.name.NameValidator;
+import racingcar.util.validator.name.NameValidatorImpl;
 import racingcar.util.validator.proxy.InputValidator;
 import racingcar.util.validator.proxy.ValidatorProxy;
 import racingcar.util.validator.raceCount.RaceCountValidator;
@@ -34,8 +34,8 @@ public class ApplicationContainer {
 
     /* Util */
     private static RandomNumberGenerator randomNumberGenerator;
-    private static NameParser NameParser;
-    private static NameValidator NameValidator;
+    private static NameParser nameParser;
+    private static NameValidator nameValidator;
     private static RaceCountValidator raceCountValidator;
     private static InputValidator inputValidator;
 
@@ -86,19 +86,19 @@ public class ApplicationContainer {
     }
 
     public static NameParser getNameParser() {
-        if (NameParser == null) {
-            NameParser = new NameParserImpl();
-            printLog(NameParser.getClass().toString(), NameParser.class.toString());
+        if (nameParser == null) {
+            nameParser = new NameParserImpl();
+            printLog(nameParser.getClass().toString(), NameParser.class.toString());
         }
-        return NameParser;
+        return nameParser;
     }
 
     public static NameValidator getNameValidator() {
-        if (NameValidator == null) {
-            NameValidator = new NameValidatorImpl();
-            printLog(NameValidator.getClass().toString(), NameValidator.class.toString());
+        if (nameValidator == null) {
+            nameValidator = new NameValidatorImpl();
+            printLog(nameValidator.getClass().toString(), NameValidator.class.toString());
         }
-        return NameValidator;
+        return nameValidator;
     }
 
     public static RaceCountValidator getRaceCountValidator() {

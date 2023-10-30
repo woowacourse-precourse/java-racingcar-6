@@ -1,16 +1,16 @@
 package racingcar.domain.participant;
 
 public class Participant {
-    protected Participant(String Name) {
-        this.Name = Name;
+    protected Participant(String name) {
+        this.name = name;
         this.distance = 0;
     }
 
-    private final String Name;
+    private final String name;
     private int distance;
 
     public String getName() {
-        return this.Name;
+        return this.name;
     }
 
     public int getDistance() {
