@@ -6,6 +6,7 @@ import java.util.stream.IntStream;
 public class OutputView {
     private final static String RESULT = "실행 결과";
     private final static String COLON = " : ";
+    private final static String WINNER = "최종 우승자";
 
     public void printResult() {
         System.out.println(RESULT);
@@ -25,6 +26,10 @@ public class OutputView {
             System.out.println(carName + COLON + driveCountVisual);
 
         }
+    }
+
+    public void printOneWinner(String winnerName) {
+        System.out.println(WINNER + COLON + winnerName);
     }
 
     private String driveCountToString(int driveCount) {
