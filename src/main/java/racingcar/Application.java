@@ -15,10 +15,10 @@ public class Application {
         try {
             // TODO: 프로그램 구현
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-            ArrayList<String> carNames = InputProcessor.carNameInputProcess(Console.readLine());
+            ArrayList<String> carNames = carNameInputProcess(Console.readLine());
 
             System.out.println("시도할 회수는 몇회인가요?");
-            int tryCount = InputProcessor.tryCountInputProcess(Console.readLine());
+            int tryCount = tryCountInputProcess(Console.readLine());
 
             // verify console input
             System.out.println("carNames : " + carNames);
