@@ -19,7 +19,7 @@ class RacerTest {
     @NullSource
     @ValueSource(strings = {"", ",", ",car"})
     void checkRacer(String value) {
-        assertThatThrownBy(() -> new Racer(value))
+        assertThatThrownBy(() -> Racer.of(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -27,7 +27,7 @@ class RacerTest {
     @ParameterizedTest(name = "{displayName}: {0}")
     @ValueSource(strings = {"ad,k,la,a,la", "l,l", "qwe,kz,pi,pi", "a, a,a ", "ba,l, ba"})
     void checkUnique(String value) {
-        assertThatThrownBy(() -> new Racer(value))
+        assertThatThrownBy(() -> Racer.of(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -35,7 +35,7 @@ class RacerTest {
     @ParameterizedTest(name = "{displayName}: {0}, {1}")
     @ValueSource(strings = {"12,345,675", "212 ,34, 5533", "ad,d dk,i"})
     void checkValidate(String value) {
-        Racer racer = new Racer(value);
+        Racer racer = Racer.of(value);
         List<String> excepted = Arrays.stream(value.split(Message.NAME_SEPARATOR))
                 .map(String::trim)
                 .toList();

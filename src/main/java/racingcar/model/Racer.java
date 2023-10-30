@@ -16,12 +16,16 @@ public class Racer {
 
     private final List<Car> racer;
 
-    public Racer(String value) {
+    private Racer(String value) {
         validate(value);
         this.racer = Arrays.stream(value.split(Message.NAME_SEPARATOR))
                 .map(String::trim)
                 .map(Car::ofStartingPoint)
                 .toList();
+    }
+
+    public static Racer of(String value) {
+        return new Racer(value);
     }
 
     public void play(Accelerator accelerator) {
