@@ -12,6 +12,7 @@ public class GameResult {
         for (Car car : cars) {
             printCarDetails(car);
         }
+        System.out.println();
     }
 
     private static void printCarDetails(Car car) {

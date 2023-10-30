@@ -10,24 +10,25 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.contants.RacingGameConstants;
 
-public class Cars {
-    private List<Car> cars;
+public class ParticipantCars {
+    private List<Car> participantCars;
 
-    public Cars() {
+    public ParticipantCars() {
     }
 
-    public Cars(String cars) {
-        this.cars = Arrays.stream(cars.split(RacingGameConstants.DELIMITER))
-                .map(inputCarName -> new Car(inputCarName))
+    public ParticipantCars(String carNamesString) {
+        this.participantCars = Arrays.stream(carNamesString.split(RacingGameConstants.DELIMITER))
+                .map(carNameString -> new Car(carNameString))
                 .collect(Collectors.toList());
     }
 
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+    public List<Car> getParticipantCars() {
+        return Collections.unmodifiableList(participantCars);
     }
 
     public void moveCars() {
-        cars.forEach(car -> car.moveAccordingToInput(Randoms.pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE)));
+        participantCars.forEach(
+                car -> car.moveAccordingToInput(Randoms.pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE)));
     }
 
     public Integer getMaxMovingCount(List<Car> cars) {
