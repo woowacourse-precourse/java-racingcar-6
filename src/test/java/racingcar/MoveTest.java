@@ -19,7 +19,7 @@ public class MoveTest {
     }
 
     @Test
-    void 랜덤_값_4이상_시_전진() {
+    void 랜덤_값_4이상_9이하_시_전진() {
 
         // given
         Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
