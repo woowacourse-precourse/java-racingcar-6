@@ -18,6 +18,7 @@
 ## 기능 정리
 - [x] 경주 세팅 - #RaceSetting
     - [x] 경주할 자동차 이름 입력 - regCar()
+      - [x] 자동차 이름 유효성 검사 - carValidCheck()
       - [x] 쉼표(,) 기준 으로 구분 해서 - splitCars()
     - [x] 시도할 횟수 입력 - playNumber()
       - [x] String -> Integer 변환 - StringToNumber()
