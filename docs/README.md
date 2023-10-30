@@ -20,14 +20,19 @@
 - [] 앞으로 가는 함수
 - [] 멈추는 함수
 
+## Race
+- [] Car 객체 생성을 위한 Car List 변수
+- [] Car 객체를 생성하고 그 객체를 List에 담는 함수
+
+## Winner
+- [] winner를 체크할 함수
+  - value가 가장 높은 값을 찾고 key는 winner 리스트에 add
+  - 같은 value를 가진 key가 존재하면 그 key도 winner에 add
+  - winner 크기에 따라 ResultPrinter에 존재하는 우승자 출력 함수 호출
+
 ## GameManager  : 프로그램의 전반적인 실행, 종료 등을 수행
 - Application에서 실행될 대상
 - [] Car 객체 생성을 위한 Car List 생성
 - [] Game을 실행시키기 위한 기본적인 셋팅을 하는 함수
-  - Car 객체를 생성하고 그 객체를 List에 담는 함수
 - [] pickNumberInRange를 통해 Random값 생성하는 함수
 - [] Random값을 이용해 car의 전진함수를 호출할지 멈춤 함수를 호출할지 확인하는 함수
-- [] winner를 체크할 함수
-    - value가 가장 높은 값을 찾고 key는 winner 리스트에 add
-    - 같은 value를 가진 key가 존재하면 그 key도 winner에 add
-    - winner 크기에 따라 ResultPrinter에 존재하는 우승자 출력 함수 호출
