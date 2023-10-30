@@ -44,7 +44,21 @@ public class RacingGame {
             System.out.println();
         }
 
-
+        // 우승자 출력
+        System.out.print("최종 우승자 : ");
+        Collections.sort(carArrayList);
+        int max = carArrayList.get(0).distance;
+        int cnt = 0;
+        for (Car c: carArrayList) {
+            System.out.println(c.name);
+            if (c.distance == max) cnt++;
+        }
+        for (int i = 0; i < cnt; i++) {
+            System.out.print(carArrayList.get(i).name);
+            if (i != cnt-1) {
+                System.out.print(", ");
+            }
+        }
     }
 }
 
