@@ -2,16 +2,16 @@ package racingcar.model;
 
 public class Car {
 
-    private String name = null;
+    private CarName name;
     private RacingNumber racingNumber;
 
-    public Car(String name, RacingNumber racingNumber) {
+    public Car(CarName carName, RacingNumber racingNumber) {
         this.racingNumber = racingNumber;
-        this.name = name;
+        this.name = carName;
     }
 
-    public static Car makeCar(String name, RacingNumber racingNumber) {
-        return new Car(name, racingNumber);
+    public static Car makeCar(CarName carName, RacingNumber racingNumber) {
+        return new Car(carName, racingNumber);
     }
 
     public void generateRandomNumber() {
@@ -20,5 +20,10 @@ public class Car {
 
     public void stopOrMove() {
 
+    }
+
+    @Override
+    public String toString() {
+        return name.toString() + " : " + racingNumber.toString();
     }
 }

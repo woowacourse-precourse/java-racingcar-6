@@ -9,4 +9,9 @@ public class RacingNumber {
     public void generateAndSaveRandomNumber() {
         this.number = Randoms.pickNumberInRange(0, 9);
     }
+
+    @Override
+    public String toString() {
+        return number.toString();
+    }
 }
