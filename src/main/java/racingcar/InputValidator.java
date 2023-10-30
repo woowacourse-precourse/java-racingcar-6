@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class InputValidator {
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_MOVING_NUMBER = 1;
+
     public static void validateCarNames(String[] input) {
         validateNamesIsEmpty(input);
         validateNameContainSpace(input);
@@ -34,7 +37,7 @@ public class InputValidator {
 
     public static void validateNameLength(String[] input) {
         for (String name : input) {
-            if (name.length() > 5) {
+            if (name.length() > MAX_NAME_LENGTH) {
                 throw new IllegalArgumentException("이름의 길이가 5초과 됩니다. 프로그램 종료");
             }
         }
@@ -55,7 +58,7 @@ public class InputValidator {
     }
 
     public static void validateNumberRange(String number) {
-        if (Integer.parseInt(number) < 1) {
+        if (Integer.parseInt(number) < MIN_MOVING_NUMBER) {
             throw new IllegalArgumentException("시도 횟수가 1보다 작습니다. 프로그램 종료");
         }
     }

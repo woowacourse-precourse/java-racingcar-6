@@ -6,6 +6,8 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Race {
+    private static final int MOVING_FORWARD = 4;
+    private static final int ONE_STEP = 1;
     public List<Car> cars = new ArrayList<>();
     public NumberGenerator numberGenerator;
 
@@ -48,8 +50,8 @@ public class Race {
         for (Car car : cars) {
             int number = numberGenerator.createRandomNumber();
 
-            if (number >= 4) {
-                car.setPosition(car.getPosition() + 1);
+            if (number >= MOVING_FORWARD) {
+                car.setPosition(car.getPosition() + ONE_STEP);
             }
         }
     }
