@@ -47,13 +47,17 @@ public class Controller {
 
     private void executeSingleRace(List<Car> carList) {
         for (Car car : carList) {
-            int number = random.createNumber();
-            if (referee.isGreaterThanEqual(number)) {
-                car.go();
-            }
+            moveOrStop(car);
         }
         String locationAnnouncement = announcer.generateLocationAnnouncement(carList);
         outputView.displayLocation(locationAnnouncement);
+    }
+
+    private void moveOrStop(Car car) {
+        int number = random.createNumber();
+        if (referee.isGreaterThanEqual(number)) {
+            car.go();
+        }
     }
 
     private void announceWinner(List<Car> carList) {
