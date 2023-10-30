@@ -33,5 +33,8 @@ public class Validator {
         if(!isInteger(numberOfMoves)){
             throw new IllegalArgumentException("Number of moves only can be integer.");
         }
+        if(Integer.parseInt(numberOfMoves) < 1){
+            throw new IllegalArgumentException("Number of moves can't be less than 1.");
+        }
     }
 }
