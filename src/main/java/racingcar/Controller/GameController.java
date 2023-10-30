@@ -14,6 +14,7 @@ public class GameController {
     CarModel carModel;
     RoundModel roundModel;
     GameModel gameModel;
+
     public void initGame() {
         inputView = new InputView();
         outPutView = new OutPutView();
