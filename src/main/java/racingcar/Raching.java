@@ -13,4 +13,12 @@ public class Raching {
             car.pickNumber = pickNum;
         }
     }
+
+    public void shouldMoveForward(ArrayList<Car> cars) {
+        for (Car car : cars) {
+            if (car.pickNumber >= 4) {
+                car.moveCount++;
+            }
+        }
+    }
 }
