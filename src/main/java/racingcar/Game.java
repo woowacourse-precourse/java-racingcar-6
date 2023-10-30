@@ -11,6 +11,35 @@ public class Game {
 
 
 
+    public List<String> whoIsWinner(List<Integer> cars, List<String> carNames){
+        List<String> winners = new ArrayList<>();
+        for (int i=0; i< compareMax(cars).size();i++){
+            winners.add(carNames.get(compareMax(cars).get(i)));
+        }
+        return winners;
+    }
+
+    public List<Integer> compareMax(List<Integer> cars){
+        List<Integer> winners = new ArrayList<>();
+        Integer Max = max(cars);
+        for (int i=0; i<cars.size(); i++){
+            if(Max == cars.get(i)){
+                winners.add(cars.get(i));
+            }
+        }
+        return winners;
+    }
+
+    public Integer max(List<Integer> numbers){
+        int Max = 0;
+        for (Integer number : numbers) {
+            if (Max <= number) {
+                Max = number;
+            }
+        }
+        return Max;
+    }
+
     public List<Integer> race(List<String> carNames, Integer playTimes){
         ArrayList cars = new ArrayList<>(Collections.nCopies(carNames.size(), 0));
         for (int i=0 ; i < playTimes ; i++){
