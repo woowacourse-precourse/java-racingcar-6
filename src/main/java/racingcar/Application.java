@@ -2,9 +2,13 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
     static String inputCarName(){
-        return Console.readLine();
+        String input =  Console.readLine();
+        return input.replaceAll("\\s","");
     }
 
     static String[] splitCarName(String carString){
@@ -19,7 +23,17 @@ public class Application {
         }
         return true;
     }
-    public static void main(String[] args) {
 
+    static void createCars(String[] cars, List<Car> carArr){
+        for (String car: cars){
+            carArr.add(new Car(car));
+        }
+    }
+    public static void main(String[] args) {
+        String[] cars = splitCarName(inputCarName());
+        List<Car> carArr = new ArrayList<Car>();
+        if(isValidate(cars)){
+            createCars(cars, carArr);
+        }
     }
 }
