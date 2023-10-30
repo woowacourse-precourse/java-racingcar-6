@@ -10,7 +10,8 @@ import java.util.List;
 public class Cars {
     public static final int MAX_CAR_NUMBER = 5;
     public static List<Car> cars;
-    public Cars(Car car) {
+    public Cars(List<Car> cars) {
+        this.cars = cars;
         validateCarNumbers();
     }
 
