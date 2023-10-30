@@ -32,18 +32,10 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
 
-        for(int i=0;i<tryCount;i++){
-            for(Car c : userCars){
-                RandomDice dice = new RandomDice();
-                dice.setNum();
-                if(dice.getNum()>=4){
-                    c.addProgress();
-                }
-                System.out.println(c.showProgress());
-            }
-            System.out.println();
-        }
-        System.out.println();
+        RacingGame game = new RacingGame(userCars,tryCount);
+        game.startRace();
+        System.out.println("최종 우승자 : "+game.checkResult());
+
     }
 }
 
