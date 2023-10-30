@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashMap;
 import java.util.List;
@@ -42,22 +43,35 @@ public class Application {
       return cars;
     }
 
-
-
-    public String inputAttempts(){
-      return null;
+    public static String inputAttempts(){
+      System.out.println("시도할 회수는 몇회인가요?");
+      String input = Console.readLine();
+      return input;
     }
 
-    public String inputAttemptsValidation(String inputAttempts){
-      return null;
-    }
+    public static int inputAttemptsValidation(String inputAttempts){
+      try {
+        int attempts = Integer.parseInt(inputAttempts);
+        return attempts;
 
-    public int randomNumber(){
-      return 0;
+      } catch (NumberFormatException e){
+        throw new IllegalArgumentException("숫자만 입력해 주세요.");
+      }
     }
 
     public Map<String,Integer> movementCount(Map<String,Integer> cars){
-      return null;
+
+      cars.forEach((carName, movement) -> {
+        int number = Randoms.pickNumberInRange(1, 9);
+
+        if(number>=4){
+          movement = movement.intValue();
+          movement++;
+          cars.replace(carName,movement);
+        }
+      });
+
+      return cars;
     }
 
     public void progressDisplay(Map<String,Integer> cars){
