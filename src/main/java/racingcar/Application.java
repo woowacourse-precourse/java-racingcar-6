@@ -15,7 +15,8 @@ public class Application {
         isCarNamesValid(CarNames);
         List<String> CarNamesArray = splitStringToArrayList(CarNames);
         isCarNamesDuplicate(CarNamesArray);
-        
+        isCarNameValidLength(CarNamesArray);
+
         requestCount();
     }
 
@@ -55,5 +56,11 @@ public class Application {
         }
     }
 
-
+    static void isCarNameValidLength(List<String> CarNamesArray) throws IllegalArgumentException {
+        for (String CarName : CarNamesArray) {
+            if (!CarName.isEmpty() && CarName.length() <= 5) {
+                throw new IllegalArgumentException("[error] 자동차 이름의 길이는 1이상 5이하 이어야 합니다");
+            }
+        }
+    }
 }
