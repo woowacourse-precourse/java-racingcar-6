@@ -31,4 +31,12 @@ public class Car {
         }
         throw new IllegalStateException();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getLocation() {
+        return location;
+    }
 }
