@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class WinnerService {
-    public List<Car> findWinners(List<Car> cars){
+    public List<Car> findWinners(List<Car> cars) {
         int maxTotalForwards = getMaxTotalForwards(cars);
         return cars.stream()
-                .filter(car -> car.getTotalForward()==maxTotalForwards)
+                .filter(car -> car.getTotalForward() == maxTotalForwards)
                 .collect(Collectors.toList());
     }
 

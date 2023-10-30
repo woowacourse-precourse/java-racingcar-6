@@ -11,8 +11,8 @@ public class TriesCountValidator {
         return triesCount;
     }
 
-    private void validateNotEmpty(String userInput){
-        if(userInput.isEmpty()){
+    private void validateNotEmpty(String userInput) {
+        if (userInput.isEmpty()) {
             throw new IllegalArgumentException(INVALID_NULL.getMessage());
         }
     }
@@ -25,14 +25,14 @@ public class TriesCountValidator {
         }
     }
 
-    private void validatePositive(int number){
-        if(number<=0){
+    private void validatePositive(int number) {
+        if (number <= 0) {
             throw new IllegalArgumentException(INVALID_POSITIVE.getMessage());
         }
     }
 
     private String removeWhiteSpace(String userInput) {
-        userInput = userInput.replace(" ","");
+        userInput = userInput.replace(" ", "");
         return userInput;
     }
 }

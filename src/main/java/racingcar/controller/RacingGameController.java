@@ -18,8 +18,7 @@ public class RacingGameController {
     private final TriesCountValidator triesCountValidator;
     private final WinnerService winnerService;
 
-    public RacingGameController(MoveStrategy moveStrategy, CarNameValidator carNameValidator,
-                                TriesCountValidator triesCountValidator, WinnerService winnerService) {
+    public RacingGameController(MoveStrategy moveStrategy, CarNameValidator carNameValidator, TriesCountValidator triesCountValidator, WinnerService winnerService) {
         this.moveStrategy = moveStrategy;
         this.carNameValidator = carNameValidator;
         this.triesCountValidator = triesCountValidator;
@@ -48,8 +47,7 @@ public class RacingGameController {
     private void displayCarMovements(int triesCount, List<Car> racingCars) {
         OutputView.printNewLine();
         OutputView.printResultMessage();
-        IntStream.range(0, triesCount)
-                .forEach(moveIndex -> executeOneMove(racingCars));
+        IntStream.range(0, triesCount).forEach(moveIndex -> executeOneMove(racingCars));
     }
 
     private static void executeOneMove(List<Car> racingCars) {
