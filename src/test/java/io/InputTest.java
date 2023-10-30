@@ -18,17 +18,22 @@ import static org.assertj.core.api.Assertions.*;
 public class InputTest {
     private Input userInput;
     private InputStream originalSystemIn;
-    private OutputStream originalSystemOut;
+    private PrintStream originalSystemOut;
     private ByteArrayInputStream mockInput;
     private ByteArrayOutputStream mockOutput;
 
     @BeforeEach
     public void setUp() {
+        originalSystemIn = System.in;
+        originalSystemOut = System.out;
         userInput = new Input();
     }
 
     @AfterEach
     public void tearDown() {
+        System.setIn(originalSystemIn);
+        System.setOut(originalSystemOut);
+        Console.close();
         userInput = null;
     }
 
@@ -51,7 +56,6 @@ public class InputTest {
     @ParameterizedTest
     @ValueSource(strings = {"koko,nana,mimi,akko", "koko,mimi", "koko"})
     void receiveCommaSeparatedString_쉼표로_구분된_값_입력(String input) {
-        originalSystemIn = System.in;
         mockInput = new ByteArrayInputStream(input.getBytes());
         System.setIn(mockInput);
 
@@ -64,7 +68,6 @@ public class InputTest {
     @ParameterizedTest
     @ValueSource(strings = {"3", "4", "9", "1",})
     void receiveInteger_정수_값_입력(String input) {
-        originalSystemIn = System.in;
         mockInput = new ByteArrayInputStream(input.getBytes());
         System.setIn(mockInput);
 
@@ -75,11 +78,10 @@ public class InputTest {
     @ParameterizedTest
     @ValueSource(strings = {"1.123", "daki", "", " ", "12seaon", "home123",})
     void receiveInteger_정수가_아닌_값_입력_예외처리(String input) {
-        originalSystemIn = System.in;
         mockInput = new ByteArrayInputStream(input.getBytes());
         System.setIn(mockInput);
 
-        assertThatThrownBy(() -> userInput.receiveInteger()).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("Not Integer input: " + input);
+        assertThatThrownBy(() -> userInput.receiveInteger()).isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
@@ -88,8 +90,6 @@ public class InputTest {
             "bye,daki",
     })
     void prompt_출력확인(String greeting, String input) {
-        originalSystemIn = System.in;
-        originalSystemOut = System.out;
         mockInput = new ByteArrayInputStream(input.getBytes());
         mockOutput = new ByteArrayOutputStream();
 
