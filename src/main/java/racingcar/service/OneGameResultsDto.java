@@ -18,4 +18,8 @@ public class OneGameResultsDto {
         }
         return oneGameResults;
     }
+
+    public int size() {
+        return oneGameResults.size();
+    }
 }
