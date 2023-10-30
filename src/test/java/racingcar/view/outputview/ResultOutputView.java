@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 public class ResultOutputView implements OutputView {
-
     private static final String WINNER_DELIMITER = " ,";
 
     @Override
@@ -19,7 +18,7 @@ public class ResultOutputView implements OutputView {
 
     private void printWinners(List<Car> cars) {
         System.out.print("최종 우승자 : ");
-        
+
         String winners = convertNameToString(cars);
         System.out.println(winners);
     }

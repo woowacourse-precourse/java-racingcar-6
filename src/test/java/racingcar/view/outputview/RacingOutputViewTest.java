@@ -1,6 +1,5 @@
 package racingcar.view.outputview;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,6 +14,8 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingOutputViewTest {
     private static ByteArrayOutputStream outputMessage;
@@ -57,9 +58,8 @@ class RacingOutputViewTest {
         model.put("cars", new Cars(List.of(car1, car2, car3)));
         outputView.display(model);
         //then
-        Assertions.assertThat(outputMessage.toString()).contains("tobi :");
-        Assertions.assertThat(outputMessage.toString()).contains("woni : --");
-        Assertions.assertThat(outputMessage.toString()).contains("jun : ---");
+        assertThat(outputMessage.toString()).contains("tobi :");
+        assertThat(outputMessage.toString()).contains("woni : --");
+        assertThat(outputMessage.toString()).contains("jun : ---");
     }
-
 }
