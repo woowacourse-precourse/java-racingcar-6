@@ -56,5 +56,4 @@ public class RacingGameController {
                 .map(Car::getName)
                 .toList();
     }
-
 }
