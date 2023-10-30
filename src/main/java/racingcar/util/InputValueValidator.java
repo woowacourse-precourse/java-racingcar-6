@@ -10,10 +10,9 @@ public class InputValueValidator {
     public List<String> validateName(String inputCarNames) {
         List<String> carNames = converStringToList(inputCarNames);
 
-        // TODO: Null 값, 공백 미포함 유효성 검사 추가
         if (!isDuplicateName(carNames)) {
             throw new IllegalArgumentException("잘못된 입력입니다. 이름은 중복을 허용하지 않습니다.");
-        } else if (!isNameLength(carNames)) {
+        } else if (!isCarNameLength(carNames)) {
             throw new IllegalArgumentException("잘못된 입력입니다. 이름 길이는 5자 이하만 가능합니다.");
         }
         return carNames;
@@ -24,13 +23,8 @@ public class InputValueValidator {
         return set.size() == carNames.size();
     }
 
-    private boolean isNameLength(List<String> carNames) {
-        for (String carName : carNames) {
-            if (carName.length() > 5) {
-                return false;
-            }
-        }
-        return true;
+    private boolean isCarNameLength(List<String> carNames) {
+        return carNames.stream().allMatch(name -> name.length() <= 5);
     }
 
     public int validateTryNumber(int tryNumber) {
