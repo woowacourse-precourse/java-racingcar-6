@@ -9,4 +9,8 @@ public class Name {
         CarNameValidator.validateForEachName(name);
         this.name = name;
     }
+
+    public String toString() {
+        return name;
+    }
 }
