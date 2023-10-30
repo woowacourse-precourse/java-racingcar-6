@@ -8,6 +8,7 @@ public class RacingCarGameMachine {
     private final RandomNumberGenerator randomNumberGenerator;
 
     private List<RacingCar> racingCarList = new ArrayList<>();
+    private int curRound = 0;
     private int roundCount;
 
     public RacingCarGameMachine(RandomNumberGenerator randomNumberGenerator) {
