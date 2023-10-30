@@ -5,7 +5,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Stream;
 
 import camp.nextstep.edu.missionutils.Console;
 public class Function {
@@ -36,7 +39,7 @@ public class Function {
 		Map<String, Integer> result= new LinkedHashMap<String, Integer>();
 		for(String name:carName) {
 			result.put(name,eachRun(count));
-		}
+		}		
 		return result;
 	}
 	public static int eachRun(int count) {
@@ -47,5 +50,23 @@ public class Function {
 			}
 		}
 		return result;
+	}
+	public static List<String> winners(Map<String, Integer> result) {
+		Set<String> name= result.keySet();
+		Object[] resultValue=  result.values().toArray();			
+		int winValue= 0;
+		for(int i= 0; i< resultValue.length; i++) {
+			int temp= Integer.parseInt(resultValue[i].toString());
+			if (winValue<temp) {
+				winValue=temp;
+			}
+		}
+		List<String> winners= new ArrayList<String>();
+		for(String key: name) {
+			if (result.get(key)==winValue) {
+				winners.add(key);
+			}
+		}
+		return winners;
 	}
 }
