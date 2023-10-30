@@ -85,4 +85,14 @@ public class Game {
         return count;
     }
 
+    // 게임 실행결과
+    public void gameResult(List<Car> carList, int count){
+        System.out.println("실행 결과");
+        for(int i = 0; i < count; i++){
+            move(carList);
+            result(carList);
+            System.out.println();
+        }
+    }
+
 }
