@@ -51,5 +51,21 @@ class RacingGameEventTest {
                 .isEqualTo(List.of(List.of(0, 0, 0)).toArray());
     }
 
+    @DisplayName("우승자 이름을 저장할 getWinnerNames 테스트")
+    @Test
+    public void getWinnerNamesTest() {
+        String[] cars = {"pobi", "jun", "jiu"};
+        RacingGameEvent racingGameEvent = new RacingGameEvent(cars);
+        int attempt = 3;
+        for (int i = 0; i < attempt; i++) {
+            for (Entry<Car, List<Integer>> value : racingGameEvent.getPositionHistory().entrySet()) {
+                Car carName = value.getKey();
+                List<Integer> position = value.getValue();
+                position.add(carName.moveForward(true));
+            }
+        }
 
+        List<String> winnerNames = racingGameEvent.getWinnerNames(racingGameEvent.getPositionHistory());
+        Assertions.assertThat(winnerNames.size()).isEqualTo(3);
+    }
 }
