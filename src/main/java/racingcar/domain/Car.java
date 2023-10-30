@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.gameutil.GameConstants.*;
+
+import racingcar.gameutil.GameConstants;
 import racingcar.util.RandomUtil;
 
 public class Car implements Comparable<Car>{
@@ -21,7 +24,7 @@ public class Car implements Comparable<Car>{
 
     public void move() {
         if (canMove()) {
-            this.moveDistance += 1;
+            this.moveDistance += MOVE_DISTANCE.getValue();
         }
     }
 
@@ -47,10 +50,10 @@ public class Car implements Comparable<Car>{
     }
 
     private boolean canMove() {
-        return getGenerateRandomNum() >= 4;
+        return getGenerateRandomNum() >= CAN_MOVE_MIN_VALUE.getValue();
     }
 
     private int getGenerateRandomNum() {
-        return randomUtil.generate(0, 9);
+        return randomUtil.generate(RANDOM_NUMBER_MIN_RANGE.getValue(), RANDOM_NUMBER_MAX_RANGE.getValue());
     }
 }
