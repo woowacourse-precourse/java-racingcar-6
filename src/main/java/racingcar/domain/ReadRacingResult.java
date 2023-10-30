@@ -7,11 +7,26 @@ public class ReadRacingResult {
 
     public void readHashMap(LinkedHashMap<String, Integer> racingResult) {
 
-        for (Map.Entry<String, Integer> entry : racingResult.entrySet()) {
-            System.out.println(entry.getKey() + " : " + "-".repeat(entry.getValue()));
+        for (Map.Entry<String, Integer> racingRecord : racingResult.entrySet()) {
+            System.out.println(racingRecord.getKey() + " : " + "-".repeat(racingRecord.getValue()));
         }
         System.out.println();
 
+    }
+
+    public void judgmentWinner(LinkedHashMap<String, Integer> racingResult) {
+
+        for (Map.Entry<String, Integer> racingRecord : racingResult.entrySet()) {
+
+        }
+    }
+
+    public String findWinner(int maxRecord, Map.Entry<String, Integer> currentCarRecord) {
+
+        if (currentCarRecord.getValue() >= maxRecord) {
+            return currentCarRecord.getKey();
+        }
+        return null;
     }
 
 
