@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static racingcar.ExceptionMessage.CAR_NAME_DUPLICATION;
+import static racingcar.ExceptionMessage.CAR_NAME_HAS_BLANK;
 import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_OVERED;
 import static racingcar.ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH;
 
@@ -33,6 +34,14 @@ public class FunctionTest {
 
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(input));
         assertThat(e.getMessage()).isEqualTo(CAR_NAME_LENGTH_OVERED);
+    }
+
+    @Test
+    void 차_이름에_공백이_포함되면_예외처리() {
+        String input = "asd, as";
+
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(input));
+        assertThat(e.getMessage()).isEqualTo(CAR_NAME_HAS_BLANK);
     }
 
     @Test
