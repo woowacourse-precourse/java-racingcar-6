@@ -1,10 +1,9 @@
-package racingcar.domain;
-
+package racingcar.view;
 
 
 import java.util.List;
 
-public class PrintFormat {
+public class GameConsoleIO {
 
     private final static String PRINT_FORMAT_CAR_LOCATION_BY_NAME = "%s : ";
     private final static String PRINT_FORMAT_WINNERS = "최종 우승자 : %s";
@@ -16,10 +15,8 @@ public class PrintFormat {
     private final static String SHOW_RESULT_MESSAGE = "실행 결과";
 
 
-
-    public PrintFormat() {
+    public GameConsoleIO() {
     }
-
 
 
     public void printExecuteResultMessage() {
