@@ -35,7 +35,7 @@ public class InputManager {
         try {
             int count = Integer.parseInt(input);
             if (count < 0) {
-                throw new IllegalArgumentException("시도 횟수는 음수가 될 수 없습니다.")
+                throw new IllegalArgumentException("시도 횟수는 음수가 될 수 없습니다.");
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("문자는 입력할 수 없습니다.");
