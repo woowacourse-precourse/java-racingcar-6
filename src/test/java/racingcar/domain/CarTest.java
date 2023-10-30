@@ -52,7 +52,7 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("If Car Name Is Blank, Throw Error")
+    @DisplayName("If Car Name Is Blank, Throw Exception")
     void 이름이_공백일_경우_에러_발생() {
         Assertions.assertThatThrownBy(() -> new Car(""))
                 .isInstanceOf(IllegalArgumentException.class)
