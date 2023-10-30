@@ -19,7 +19,7 @@ public class RacingCarServiceTest {
     @DisplayName("RacingCarService 객체를 생성한다.")
     @Test
     void createTest() {
-        assertThatCode(() -> new RacingCarService(new RacingCarAssemblyService(), new FixedCarEngine(true)))
+        assertThatCode(() -> new RacingCarService(new FixedCarEngine(true)))
                 .doesNotThrowAnyException();
     }
 
@@ -27,8 +27,7 @@ public class RacingCarServiceTest {
     @ParameterizedTest
     @MethodSource("provideRaceTestArguments")
     void raceTest(List<String> carNames, int attemptCounts, List<String> expectedWinners) {
-        RacingCarService racingCarService = new RacingCarService(new RacingCarAssemblyService(),
-                new FixedCarEngine(true));
+        RacingCarService racingCarService = new RacingCarService(new FixedCarEngine(true));
         RacingResult racingResult = racingCarService.race(carNames, attemptCounts);
         List<String> finalWinners = racingCarService.determineWinner(racingResult);
         assertThat(finalWinners).isEqualTo(expectedWinners);
