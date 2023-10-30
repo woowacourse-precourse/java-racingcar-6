@@ -47,6 +47,6 @@ public class CarService {
     }
 
     public String getWinner() {
-        return cars.getWinner();
+        return cars.racingWinner();
     }
 }
