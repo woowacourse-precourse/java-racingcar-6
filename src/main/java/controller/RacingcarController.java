@@ -4,6 +4,7 @@ import controller.dto.CarDto;
 import domain.Car;
 import domain.CarService;
 import domain.RemainingRound;
+import mapper.CarMapper;
 import view.InputView;
 import view.OutputView;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public class RacingcarController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final CarService carService = new CarService();
+    private final CarMapper carMapper = new CarMapper(new CarService());
 
     private RemainingRound remainingRound = new RemainingRound();
 
@@ -24,7 +25,7 @@ public class RacingcarController {
 
     public void startGame() {
         outputView.inputCarName();
-        carService.add(inputView.carName());
+        carMapper.add(inputView.carName());
         outputView.inputRoundNumber();
         remainingRound.set(inputView.roundNumber());
         outputView.outputRunResult();
@@ -32,8 +33,8 @@ public class RacingcarController {
 
     public void playRound() {
         remainingRound.playRound();
-        carService.playRound();
-        outputView.outputCarPosition(carsToDto(carService.getState()));
+        carMapper.playRound();
+        outputView.outputCarPosition(carMapper.getState());
     }
 
     public boolean isEnd() {
@@ -41,15 +42,6 @@ public class RacingcarController {
     }
 
     public void endGame() {
-        outputView.outputFinalWinner(carsToDto(carService.decideWinner()));
-    }
-
-    // 제거 필요
-    private List<CarDto> carsToDto(List<Car> cars) {
-        List<CarDto> carDtoList = new ArrayList<>();
-        for (Car car : cars) {
-            carDtoList.add(new CarDto(car.getName(), car.getPosition()));
-        }
-        return carDtoList;
+        outputView.outputFinalWinner(carMapper.decideWinner());
     }
 }

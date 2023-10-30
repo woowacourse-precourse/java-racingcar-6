@@ -25,7 +25,6 @@ public class CarService {
         names.forEach(this::add);
     }
 
-    // 제거 필요
     public List<Car> getState() {
         return cars;
     }
