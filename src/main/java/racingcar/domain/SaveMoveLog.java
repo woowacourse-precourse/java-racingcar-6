@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SaveMoveLog {
     UserInput userInput = new UserInput();
@@ -26,17 +24,6 @@ public class SaveMoveLog {
             numMoveMap.put(carType, numMoveMap.get(carType) + 1);
         }
         return numMoveMap;
-    }
-    public void printMoveResult(Map<String, Integer> numMoveMap) {
-        for (Map.Entry<String, Integer> entrySet : numMoveMap.entrySet()) {
-            System.out.print(entrySet.getKey() + " : ");
-            for (int i = 0; i < entrySet.getValue(); i++){
-                System.out.print("-");
-            }
-            System.out.println();
-//            System.out.println(entrySet.getKey() + " : " + "-".repeat(entrySet.getValue()));
-        }
-        System.out.println();
     }
 
 }
