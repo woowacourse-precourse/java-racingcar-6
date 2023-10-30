@@ -46,6 +46,4 @@ public class RacingService {
 
         return true;
     }
-
-
 }
