@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Car {
-    private final String carName; //자동차 주인 이름
+    private final String carName; //자동차 이름
     private int position; //자동차 위치 (점수)
 
     public Car(String carName) {
