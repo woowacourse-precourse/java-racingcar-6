@@ -4,6 +4,7 @@ import static racingcar.view.InputView.inputAttemptCount;
 import static racingcar.view.InputView.inputCarNames;
 import static racingcar.view.OutView.printAttemptResults;
 import static racingcar.view.OutView.printExecutionStart;
+import static racingcar.view.OutView.printWinners;
 
 import java.util.List;
 import racingcar.model.Car;
@@ -32,6 +33,8 @@ public class GameController {
             printAttemptResults(game.getCars());
         }
 
+        final List<String> winners = game.judge();
+        printWinners(winners);
     }
 
 }
