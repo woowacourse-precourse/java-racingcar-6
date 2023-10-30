@@ -1,6 +1,9 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.regex.Pattern;
 
 public class Application {
     public static final String DELIMITER = ",";
@@ -31,7 +34,9 @@ public class Application {
         // TODO: 프로그램 구현
     }
 
-
+    public static void validateCarsName(String names) {
+        boolean nameCheck = Pattern.matches("^[가-힣\\w]+[가-힣\\w" + "," + "]*[가-힣\\w]$",names);
+    }
     public static int makeRandomNumber() {
         int random;
         random = Randoms.pickNumberInRange(0,9);
