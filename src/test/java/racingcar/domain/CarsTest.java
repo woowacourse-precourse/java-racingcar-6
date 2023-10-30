@@ -17,4 +17,9 @@ class CarsTest {
         assertThat(cars.getCars().size()).isEqualTo(3);
     }
 
+    @Test
+    void 자동차가_두대_미만이면_예외_발생() {
+        assertThrows(IllegalArgumentException.class, () -> new Cars(Arrays.asList("pobi")));
+    }
+
 }
