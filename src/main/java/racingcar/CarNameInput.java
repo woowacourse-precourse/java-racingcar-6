@@ -9,6 +9,7 @@ public class CarNameInput {
     final List<String> nameList;
     final int maxNameLength = 5;
 
+
     CarNameInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
         String nameString = Console.readLine();
@@ -32,6 +33,10 @@ public class CarNameInput {
 
     public void carNameException() throws IllegalArgumentException {
         if (!isValidNameLength() || isBlankString()) throw new IllegalArgumentException();
+    }
+
+    public List<String> getNameList(){
+        return nameList;
     }
 
 
