@@ -1,0 +1,25 @@
+package racingcar;
+
+import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+
+public class Car {
+    private String name;
+    private String race;
+    private int tryNum;
+    private ArrayList<Car> car = new ArrayList<>();
+
+    public Car(String name) {
+
+    }
+
+    void inputCarsName() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        for (String i : Console.readLine().split(",")) {
+            car.add(new Car(i));
+        }
+    }
+
+
+
+}
