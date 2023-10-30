@@ -5,7 +5,7 @@ import racingcar.utils.types.StringUtils;
 
 public class RaceCountValidator extends CommonValidator{
 
-    public static final long RACING_COUNT_MIN_VALUE = 1L;
+    public static final int RACING_COUNT_MIN_VALUE = 1;
 
     @Override
     public void validate(final String value) {
@@ -22,7 +22,7 @@ public class RaceCountValidator extends CommonValidator{
     }
 
     private void validateRange(final String value) {
-        if (!NumberUtils.isInRange(Long.valueOf(value), RACING_COUNT_MIN_VALUE, Long.MAX_VALUE)) {
+        if (!NumberUtils.isInRange(Integer.valueOf(value), RACING_COUNT_MIN_VALUE, Integer.MAX_VALUE)) {
             throw new IllegalArgumentException();
         }
     }

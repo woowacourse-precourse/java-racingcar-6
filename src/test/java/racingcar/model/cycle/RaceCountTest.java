@@ -29,7 +29,7 @@ class RaceCountTest {
         return Stream.of(
                 arguments("1"),
                 arguments("200"),
-                arguments("9223372036854775807")
+                arguments("2147483647")
         );
     }
 
@@ -48,7 +48,7 @@ class RaceCountTest {
                 arguments("-1"),
                 arguments("200o"),
                 arguments("2.0"),
-                arguments("9223372036854775808")
+                arguments("2147483648")
         );
     }
 }

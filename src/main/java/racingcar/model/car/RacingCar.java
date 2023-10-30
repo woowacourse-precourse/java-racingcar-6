@@ -7,21 +7,21 @@ import racingcar.utils.validator.Validator;
 
 public class RacingCar implements Car {
 
-    public static final long INIT_PROGRESS = 0L;
+    public static final int INIT_PROGRESS = 0;
 
     private final String name;
 
-    private Long progress;
+    private Integer progress;
 
     public RacingCar(final String name) {
         this(name, INIT_PROGRESS);
     }
 
-    public RacingCar(final String name, final Long progress) {
+    public RacingCar(final String name, final Integer progress) {
         this(name, progress, new CarValidator());
     }
 
-    public RacingCar(final String name, final Long progress, final Validator<String> validator) {
+    public RacingCar(final String name, final Integer progress, final Validator<String> validator) {
         validator.validate(name);
         this.name = name;
         this.progress = progress;
@@ -30,7 +30,7 @@ public class RacingCar implements Car {
     @Override
     public void move(final boolean isMove){
         if (isMove){
-            this.progress += 1L;
+            this.progress += 1;
         }
     }
 
@@ -38,7 +38,7 @@ public class RacingCar implements Car {
         return name;
     }
 
-    public Long getProgress() {
+    public Integer getProgress() {
         return progress;
     }
 

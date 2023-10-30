@@ -26,7 +26,7 @@ class RaceCountValidatorTest {
     static Stream<Arguments> validRacingCount() {
         return Stream.of(
                 arguments("1"),
-                arguments("9223372036854775807")
+                arguments("2147483647")
         );
     }
 

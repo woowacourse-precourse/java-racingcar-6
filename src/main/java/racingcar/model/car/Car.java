@@ -5,5 +5,5 @@ public interface Car {
 
     String getName();
 
-    Long getProgress();
+    Integer getProgress();
 }
