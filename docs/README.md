@@ -46,7 +46,10 @@
 + cars 리스트 내부의 자동차들에 대해 move() 호출
 
 ##### void printWinner()
-+ 각 자동차의 movement를 비교하고 우승자를 출력함
++ getMaxMove() 함수를 호출하고 우승자를 출력함
+
+##### int getMaxMove()
++ movement의 최대값을 찾아서 반환함
 
 ##### void checkInputValidity(name)
 + 각 자동차의 이름의 5자 이하인지 확인 후 조건에 맞지 않으면 IllegalArgumentException 발생

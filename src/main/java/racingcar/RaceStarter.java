@@ -29,10 +29,23 @@ public class RaceStarter {
     }
 
     void doSet() {
-
+        for (Car car : cars) {
+            car.move();
+        }
     }
 
     void printWinner() {
+        int maxMove = getMaxMove();
+        System.out.print("최종 우승자 :");
+        for (Car car : cars) {
+            if (cars.get(0) != car) System.out.print(",");
+            if (maxMove == car.movement) {
+                System.out.printf(" %s", car.carName);
+            }
+        }
+    }
+
+    int getMaxMove() {
 
     }
 
