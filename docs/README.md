@@ -31,4 +31,71 @@
    <br/><br/>
    <br/>
 
-    
+## 🕹 기능 목록
+
+### 1. _domain_ 패키지
+
+**(1) CarRacing 클래스**
+
+- <code>**race(int turn)**</code>
+  - **레이스 게임 진행**
+  - _turn_ 만큼 경주 한 턴을 진행하는 메소드 호출
+    - 한 턴 결과 출력 메소드 호출
+  - 최종 결과 메소드 호출
+    <br/><br/>
+
+- <code>**oneTurnRace()**</code>
+  - **한 턴의 경주 시행**
+  - `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms` API 사용하여 랜덤 수 r 생성  
+    - r 의 값에 따라 전진 or 멈춤 시행
+      <br/><br/>
+
+- <code>**getRaceResult()**</code>
+  - _Referee_ 클래스와 협력하여 최종 우승자 선발 후 출력
+    <br/><br/>
+
+**(2) Referee 클래스**
+
+- <code>**findWinner(List\<String> cars, List\<Integer> carPos)**</code>
+  - **최종 우승자**인 _가장 멀리 간 차 List_ 구한 뒤 반환
+    <br/><br/>
+
+### 2. _validation_ 패키지
+
+**(1) InputValidator 클래스**
+
+- <code>**validateCarsInput()**</code>
+    - 쉼표로 구분된 **자동차 이름이 5자 이하**인지 검증
+    - 입력이 잘못되었을 시 `IllegalArgumentException` 발생 후 어플리케이션 종료
+      <br/><br/>
+
+- <code>**validateTurnInput()**</code>
+    - **시도할 횟수**로 **숫자**가 입력되었는지 검증
+    - 입력이 잘못되었을 시 `IllegalArgumentException` 발생 후 어플리케이션 종료
+      <br/><br/>
+
+### 3. _view_ 패키지
+
+**(1) InputView 클래스**
+
+- <code>**inputCars()**</code>
+  - 쉼표 기준으로 구분하여 **경주할 자동차 이름**을 입력 받은 후 List로 반환
+    <br/><br/>
+
+- <code>**inputTurn()**</code>
+  - **몇 회 경기를 시행할 지** 입력 받아 int 반환
+    <br/><br/>
+
+**(1) OutputView 클래스**
+
+- <code>**printProgressStmt()**</code>
+  - 실행 결과 안내문 출력
+    <br/><br/>
+
+- <code>**printOneTurnResult(List\<String> cars, List\<Integer> carPos)**</code>
+    - 한 턴 경주 시행 결과 출력
+      <br/><br/>
+
+- <code>**printWinnerResult(List\<String> winner)**</code>
+    - _winner List_ 를 받아 최종 우승자 출력
+      <br/><br/>
