@@ -14,8 +14,7 @@ public class CarMapper {
     private CarMapper () {}
 
     public static List<Car> convertToCarList(String cars) {
-        String[] tokens = cars.split(DELIMITER);
-        return Arrays.stream(tokens)
+        return Arrays.stream(cars.split(DELIMITER))
                 .map(name -> new Car(name))
                 .collect(Collectors.toList());
     }
