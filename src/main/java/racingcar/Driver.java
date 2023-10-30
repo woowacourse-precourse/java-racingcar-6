@@ -1,16 +1,17 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Arrays;
-
 public class Driver {
 
-    private String name;
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
+
+    private Name name;
     private int score;
     private Car car;
 
     public Driver(String name){
-        this.name = name;
+        this.name = new Name(name);
         this.score = 0;
         this.car = new Car();
     }
@@ -22,18 +23,13 @@ public class Driver {
         return new Driver(name);
     }
 
-    public void drive(){
-        int drivingDistance;
-        if (Randoms.pickNumberInRange(0, 9) >= 4){
-            drivingDistance = this.car.accelerator(this);
-        } else {
-            drivingDistance= this.car.carBreak(this);
-        }
+    public void drive() {
+        int drivingDistance = car.respondToDriverInput(Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER));
         this.score += drivingDistance;
     }
 
     public String getName(){
-        return this.name;
+        return this.name.getName();
     }
 
     public int getScore(){

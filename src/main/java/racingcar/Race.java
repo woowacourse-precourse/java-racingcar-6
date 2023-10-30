@@ -18,29 +18,23 @@ public class Race {
         for (int raceTime = 0; raceTime < this.numbersOfRace; raceTime++){
             for (Driver driver : this.participants){
                 driver.drive();
-                announceDriverScore(driver);
+                printDriverDistance(driver);
             }
             System.out.println();
         }
     }
 
-    private void announceDriverScore(Driver driver) {
+    private void printDriverDistance(Driver driver) {
         String repeatedDash = String.join("", Collections.nCopies(driver.getScore(), "-"));
         System.out.println(driver.getName() + " : " + repeatedDash);
     }
 
 
-    public void setNumbersOfRace(){
-        System.out.println("시도할 회수는 몇회인가요?");
-        int numbersOfRace = Integer.parseInt(Console.readLine());
+    public void setNumbersOfRaces(int numbersOfRace){
         if (numbersOfRace > 5 || numbersOfRace < 1){
             throw new IllegalArgumentException("경주 횟수는 1이상 5 이하로 입력");
         }
         this.numbersOfRace = numbersOfRace;
-    }
-
-    private void entryDriver(String driverName){
-        this.participants.add(Driver.of(driverName));
     }
 
     public List<Driver> getWinner() {
@@ -55,8 +49,8 @@ public class Race {
                 .collect(Collectors.toList());
     }
 
-    public List<Driver> getDrivers(){
-        return this.participants;
+    public void addParticipant(String driverName) {
+        this.participants.add(Driver.of(driverName));
     }
 
 }
