@@ -1,5 +1,7 @@
 package racingcar.validator;
 
+import racingcar.constant.GameConstants;
+
 public class Validator {
     public static void carNameStringLength(String carName) {
         if (carName.length() <= 5) {
@@ -46,6 +48,13 @@ public class Validator {
             return;
         }
         throw new IllegalArgumentException("[ERROR] 입력시도는 한번 이상이어야 합니다.");
+    }
+
+    public static void randomNumberRange(int num) {
+        if (GameConstants.MIN_NUM <= num && num <= GameConstants.MAX_NUM) {
+            return;
+        }
+        throw new IllegalArgumentException("[ERROR] 랜던 값이 범위에 맞지 않습니다");
     }
 
 }
