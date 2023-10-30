@@ -14,9 +14,9 @@ public class Check {
         if(!measureNameLength(car_list)) result = false;
         return result;
     }
-    public boolean measureNameLength(String[] car_list){
+    public static boolean measureNameLength(String[] car_list){
         boolean result = true;
-        for(int i=0;i<car_list.length;i++){
+        for(int i=0; i<car_list.length; i++){
             if(car_list[i].length()>5||car_list[i].length()<0){
                 result = false;
                 break;
@@ -24,9 +24,9 @@ public class Check {
         }
         return result;
     }
-    public int countComma(String carlist){
+    public static int countComma(String carlist){
         int result=0;
-        for(int i=0;i<carlist.length();i++){
+        for(int i=0; i<carlist.length(); i++){
             if(carlist.charAt(i)==',')result++;
         }
         return result;
