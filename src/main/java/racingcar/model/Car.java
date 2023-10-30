@@ -1,15 +1,27 @@
 package racingcar.model;
 
+import static racingcar.model.CarStatus.isGo;
+
 public class Car {
 
+    private static final int INITIAL_DISTANCE = 0;
+
     private final CarName name;
+    private int distance;
 
     private Car(final String name) {
         this.name = CarName.from(name);
+        this.distance = INITIAL_DISTANCE;
     }
 
     public static Car from(final String name) {
         return new Car(name);
+    }
+
+    public void goOrStop() {
+        if (isGo()) {
+            distance++;
+        }
     }
 
     @Override
@@ -25,5 +37,9 @@ public class Car {
 
     public CarName getName() {
         return name;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }
