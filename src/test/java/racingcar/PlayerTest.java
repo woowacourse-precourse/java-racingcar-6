@@ -39,6 +39,22 @@ class PlayerTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 입력한_경주_횟수가_숫자가_아닌_경우_예외처리() {
+        setInput("one");
+        assertThatThrownBy(() -> {
+            player.inputRaceCount();
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 입력한_경주_횟수가_1이상이_아닌_경우_예외처리() {
+        setInput("0");
+        assertThatThrownBy(() -> {
+            player.inputRaceCount();
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
     void setInput(String input) {
         System.setIn(new ByteArrayInputStream(String.join("\n", input).getBytes()));
     }
