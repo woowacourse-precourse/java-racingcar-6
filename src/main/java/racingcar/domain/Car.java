@@ -32,4 +32,8 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    public String mapRecord() {
+        return name + " : " + "-".repeat(position);
+    }
 }
