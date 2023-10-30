@@ -18,13 +18,16 @@ public class OutputView {
     public static void printMoveRacingCar(RacingCars racingCars) {
 
         racingCars.getRacingCars().stream().forEach(v -> {
-                    System.out.print(String.format(RACING_CAR_NAME,v.getName()));
+                    System.out.print(String.format(RACING_CAR_NAME, v.getName()));
                     IntStream.range(0, v.getMove()).forEach(num -> {
                         System.out.print(HYPHEN);
                     });
                     System.out.println();
+
                 }
         );
+        System.out.println();
+
     }
 
     public static void printWinner(Winner winner) {

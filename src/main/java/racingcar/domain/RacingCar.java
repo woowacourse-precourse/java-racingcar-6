@@ -16,7 +16,7 @@ public class RacingCar {
         this.move = move;
     }
 
-    public RacingCar(String name, Integer move,NumberGenerator numberGenerator) {
+    public RacingCar(String name, Integer move, NumberGenerator numberGenerator) {
         this.name = name;
         this.move = move;
         this.numberGenerator = numberGenerator;
@@ -37,24 +37,27 @@ public class RacingCar {
     }
 
     private boolean randomValueIsGreaterThanFour() {
-        if ( randomValue() >= 4) {
+        if (randomValue() >= 4) {
             return true;
         }
         return false;
     }
 
-    private Integer randomValue(){
+    private Integer randomValue() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    /** 테스팅을 위한 메소드들 **/
+    /**
+     * 테스팅을 위한 메소드들
+     **/
     public void move() {
         if (!isMovable()) {
             return;
         }
         move++;
     }
+
     private boolean isMovable() {
-        return MOVABLE_THRESHOLD < numberGenerator.generate(MAX_BOUND);
+        return MOVABLE_THRESHOLD <= numberGenerator.generate(MAX_BOUND);
     }
 }

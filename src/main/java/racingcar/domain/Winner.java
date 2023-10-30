@@ -6,6 +6,8 @@ public class Winner {
     private static final String COMMA = ", ";
     private String winnerRacingCar;
 
+    public Winner(){
+    }
     public String getWinnerRacingCar() {
         return winnerRacingCar;
     }
@@ -23,7 +25,7 @@ public class Winner {
                 .orElse("");
     }
 
-    private Integer getWinnerValue(List<RacingCar> racingCarList) {
+    Integer getWinnerValue(List<RacingCar> racingCarList) {
         return racingCarList
                 .stream()
                 .mapToInt(RacingCar::getMove)
