@@ -10,7 +10,7 @@ public class RacingCarGame implements Game {
     private static final int carNameLength = 5;
     private int attempts;
     private final List<Car> carList = new ArrayList<>();
-    private List<Car> winners;
+    private List<String> winners;
 
     @Override
     public void play(String[] args) {
@@ -70,6 +70,7 @@ public class RacingCarGame implements Game {
 
         winners = carList.stream()
                 .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
                 .collect(Collectors.toList());
 
     }
@@ -78,7 +79,7 @@ public class RacingCarGame implements Game {
         return carList;
     }
 
-    public List<Car> getWinners() {
+    public List<String> getWinners() {
         return winners;
     }
 }
