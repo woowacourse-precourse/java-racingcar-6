@@ -11,9 +11,9 @@ public class GameController {
     private final GameService gameService;
     private final ConsolePrintServiceImpl printService;
 
-    public GameController() {
-        this.gameService = new GameService();
-        this.printService = new ConsolePrintServiceImpl();
+    public GameController(GameService gameService, ConsolePrintServiceImpl printService) {
+        this.gameService = gameService;
+        this.printService = printService;
     }
 
     public void startGame(){

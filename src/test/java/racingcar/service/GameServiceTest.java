@@ -15,7 +15,7 @@ class GameServiceTest {
 
     @BeforeEach
     void setUp() {
-        gameService = new GameService();
+        gameService = new GameService(new ConsolePrintServiceImpl());
     }
 
     @DisplayName("우승자는 한 명 이상 있다")

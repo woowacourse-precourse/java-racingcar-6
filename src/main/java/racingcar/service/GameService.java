@@ -15,8 +15,8 @@ public class GameService {
 
     private final ConsolePrintServiceImpl printService;
 
-    public GameService() {
-        this.printService = new ConsolePrintServiceImpl();
+    public GameService(ConsolePrintServiceImpl printService) {
+        this.printService = printService;
     }
 
     public PlayGameResponseDto playGame(PlayGameRequestDto dto){//PlayGameRequestDto, PlayGameResponseDto
