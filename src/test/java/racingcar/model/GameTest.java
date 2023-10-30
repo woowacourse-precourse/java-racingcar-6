@@ -2,6 +2,9 @@ package racingcar.model;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.CarFixtures.HYUK;
+import static racingcar.CarFixtures.POBY;
+import static racingcar.CarFixtures.WONY;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,15 +12,11 @@ import org.junit.jupiter.api.Test;
 
 class GameTest {
 
-    private final List<Car> cars = List.of(
-        new Car("poby"),
-        new Car("wony"),
-        new Car("hyuk"));
-
     private Game game;
 
     @BeforeEach
     void setUp() {
+        final List<Car> cars = List.of(POBY.생성(), WONY.생성(), HYUK.생성());
         game = new Game(cars);
     }
 
