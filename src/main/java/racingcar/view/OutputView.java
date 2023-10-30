@@ -19,12 +19,7 @@ public class OutputView {
 
     public void printRacingResult(List<RacingCar> racingCars){
         for(RacingCar racingCar : racingCars){
-            System.out.print(racingCar + " : ");
-
-            for(int k = 0; k < racingCar.getMoveNumber(); k++){
-                System.out.print("-");
-            }
-            System.out.println();
+            System.out.println(racingCar + " : " + "-".repeat(racingCar.getMoveNumber()));
         }
 
         System.out.println();
