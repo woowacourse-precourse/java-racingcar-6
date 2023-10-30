@@ -11,7 +11,7 @@ public class Input {
     public static Map<String, Integer> getInitialStatus() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] cars = readLine().split(",");
-        validateInput(cars);
+        Validator.validateCar(cars);
         return Stream.of(cars).collect(Collectors.toMap(car -> car, car -> 0));
     }
 
@@ -20,11 +20,4 @@ public class Input {
         return Integer.parseInt(readLine());
     }
 
-    public static void validateInput(String[] cars) {
-        for (String car : cars) {
-            if (car.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름이 5자를 넘습니다.");
-            }
-        }
-    }
 }
