@@ -14,6 +14,14 @@ public class InputController {
 
     public int getAttemptCountFromUserInput(){
         String input = Console.readLine();
-        return Integer.parseInt(input);
+        int inputToInt = 0;
+
+        try {
+            inputToInt = Integer.parseInt(input);
+        } catch (Exception e) {
+            throwError(INVALID_ATTEMPT_INPUT);
+        }
+
+        return inputToInt;
     }
 }
