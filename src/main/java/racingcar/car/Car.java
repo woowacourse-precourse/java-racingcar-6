@@ -20,6 +20,7 @@ public class Car {
         return name;
     }
 
+    // 라운드 실행
     public void go(){
         if (Util.getRandomNum() >= Constants.GO_NUM) {
             position++;

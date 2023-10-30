@@ -9,7 +9,6 @@ public class RacingCar {
     private final ArrayList<Car> CarList = new ArrayList<>();
 
     public RacingCar(ArrayList<String> cars) {
-
         cars.forEach(car -> CarList.add(new Car(car)));
     }
 
@@ -30,7 +29,7 @@ public class RacingCar {
         return positions;
     }
 
-    public void showWinner(){
+    public void showWinners(){
         Util.printWinner(new ArrayList<>(CarList.stream()
                 .filter(Car -> Car.getWinner(Util.getMax(getPositions())))
                 .map(Car::getName)
