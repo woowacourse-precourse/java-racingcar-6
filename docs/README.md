@@ -3,7 +3,7 @@
 
 # 기능 목록
 - [x] 게임을 시작한다. - RacingCarGame.start()
-- [ ] 자동차 이름 입력 받는다. - User.getCarNames()
+- [x] 자동차 이름 입력 받는다. - User.getCarNames()
 - [ ] 자동차 이름을 확인한다. - Validation.validateCarNames()
     - [ ] 자동차 이름들이 쉼표로 구분 되어있는지 확인한다. - Validation.validateDivision()
     - [ ] 각 자동차의 이름이 5자 이내인지 확인한다. - Validation.validateLength()
