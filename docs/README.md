@@ -26,6 +26,7 @@
     - [x] 자동차 추가 - Cars#add
     - [ ] 가장 좋은 성적 찾기 - Cars#maxMovement
     - [ ] 우승자 찾기 - Cars#findWinner
+    - [x] 자동차 수 반환 - Cars#size
 - [ ] 무작위 수를 뽑아 자동차 경주를 진행 - Game#racing
 - [ ] 우승자 찾기 - Game#findWinner
 

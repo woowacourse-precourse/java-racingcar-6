@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Game;
 import racingcar.domain.Setting;
 
 public class Application {
@@ -13,5 +14,7 @@ public class Application {
         setting.setNames(Console.readLine());
         printer.requestTrial();
         setting.setTrial(Console.readLine());
+
+        Game game = new Game(setting.toCars());
     }
 }
