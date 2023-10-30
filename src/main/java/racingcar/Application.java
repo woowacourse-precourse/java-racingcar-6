@@ -94,14 +94,18 @@ public class Application {
         return returnInt;
     }
 
-    public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNameInput = Console.readLine();
-        carNameList = carNameInput.split("\\,");
-
+    public static void InputNameCheck(){
         for(int i=0; i<carNameList.length; i++){
             NameCheck(carNameList[i]);
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        
+        String carNameInput = Console.readLine();
+        carNameList = carNameInput.split("\\,");        
+        InputNameCheck();
 
         System.out.println("시도할 회수는 몇회인가요?");
         gameRepeatNum = Input2Int();
