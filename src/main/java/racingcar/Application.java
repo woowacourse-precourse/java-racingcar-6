@@ -42,6 +42,7 @@ public class Application {
     static Set<String> getCarNames() {
         Set<String> carNames = new HashSet<>();
 
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputNames = readLine();
 
         if (!inputNames.contains(",")) {
