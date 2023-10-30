@@ -29,16 +29,6 @@ public class RacingCarApplication {
 
 
 
-//        cars.getCars().sort(Car::compareTo);
-//
-//        Car firstPrizeCar = cars.getCars().get(0);
-//
-//        String result = cars.getCars().stream()
-//                .filter(car -> car.equalsPosition(firstPrizeCar))
-//                .map(Car::getCarName)
-//                .collect(Collectors.joining(", "));
-//
-//
-//        System.out.println("최종 우승자 : " + result);
+        System.out.println("최종 우승자 : " + cars.getWinningCarNames());
     }
 }

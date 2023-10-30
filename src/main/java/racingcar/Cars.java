@@ -3,10 +3,11 @@ package racingcar;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     private Cars(List<Car> cars) {
         validate(cars.size());
@@ -28,9 +29,6 @@ public class Cars {
         return new Cars(carList);
     }
 
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
-    }
 
     public void goForward(int attemptCount) {
         for (int i = 0; i < attemptCount; i++) {
@@ -40,5 +38,15 @@ public class Cars {
             });
             System.out.println();
         }
+    }
+
+    public String getWinningCarNames() {
+        Car winnerCar = cars.stream().max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException("우승 차가 존재하지 않습니다"));
+
+        return cars.stream()
+                .filter(car -> car.equalsPosition(winnerCar))
+                .map(Car::getCarName)
+                .collect(Collectors.joining(", "));
     }
 }
