@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.view.RacingView;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -58,5 +60,16 @@ public class RacingViewTest {
         view.printRacingStartMessage();
 
         assertEquals("실행 결과", out.toString().trim());
+    }
+
+    @Test
+    void printWinners_테스트() {
+        List<String> input = Arrays.asList("red", "green");
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        view.printWinners(input);
+
+        assertThat(out.toString().trim()).contains("최종 우승자 : ").contains("red").contains("green");
     }
 }
