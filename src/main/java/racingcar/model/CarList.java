@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.Generator.NumberGenerator;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,5 +26,22 @@ public class CarList {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    public void doRound(NumberGenerator numberGenerator) {
+        for (Car car : cars) {
+            int number = numberGenerator.generateRandomNumber();
+            moveCarWhenNumberFourOrAbove(numberGenerator, car, number);
+        }
+    }
+
+    private void moveCarWhenNumberFourOrAbove(NumberGenerator numberGenerator, Car car, int number) {
+        if (isNumberFourOrAbove(numberGenerator, number)) {
+            car.move();
+        }
+    }
+
+    private boolean isNumberFourOrAbove(NumberGenerator numberGenerator, int number) {
+        return numberGenerator.isFourOrAbove(number);
     }
 }
