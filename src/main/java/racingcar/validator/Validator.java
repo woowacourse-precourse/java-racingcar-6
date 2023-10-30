@@ -1,5 +1,6 @@
 package racingcar.validator;
 
+import static racingcar.controller.GameConstants.MAX_LENGTH;
 import static racingcar.message.ErrorMessages.BLANK_ERROR;
 import static racingcar.message.ErrorMessages.DUPLICATE_ERROR;
 import static racingcar.message.ErrorMessages.NON_NUMERIC;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class Validator {
     public static void validateAvailableLength(String input) {
-        if (input.length() > 5) {
+        if (input.length() > MAX_LENGTH.getNumber()) {
             throw new IllegalArgumentException(OVER_AVAILABLE_LENGTH);
         }
     }

@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.controller.GameConstants.MIN_NUMBER_TO_MOVE;
+
 public class Car implements Comparable<Car> {
     private Name name;
     private Long distance;
@@ -14,7 +16,7 @@ public class Car implements Comparable<Car> {
     public void moveOrStay() {
         int decisionNumber = numberGenerator.generateNumber();
 
-        if (decisionNumber >= 4) {
+        if (decisionNumber >= MIN_NUMBER_TO_MOVE.getNumber()) {
             distance++;
         }
     }
