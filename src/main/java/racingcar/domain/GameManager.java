@@ -17,4 +17,23 @@ public class GameManager {
             car.move();
         }
     }
+
+    public int findWinnerCar(List<Car> cars) {
+        int max=0;
+
+        for (Car car : cars) {
+            max = findMaxPosition(max,car.getPosition());
+        }
+
+        return max;
+    }
+
+    private int findMaxPosition(int max,int position) {
+
+        if (max < position) {
+            max = position;
+        }
+
+        return max;
+    }
 }
