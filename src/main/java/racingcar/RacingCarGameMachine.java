@@ -61,4 +61,12 @@ public class RacingCarGameMachine {
         }
         return stringJoiner.toString();
     }
+
+    private int findMaxDistance() {
+        int maxDistance = 0;
+        for (RacingCar racingCar : racingCarList) {
+            maxDistance = Math.max(maxDistance, racingCar.getDistance());
+        }
+        return maxDistance;
+    }
 }
