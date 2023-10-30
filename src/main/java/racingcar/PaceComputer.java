@@ -22,7 +22,7 @@ public class PaceComputer {
                         .toMap(
                         machineName -> machineName,
                         driveSuccessNumber -> 0,
-                        (oldVal, newVal) -> oldVal,
+                        (oldValues, newValues) -> oldValues,
                         LinkedHashMap::new
                 ));
     }

@@ -36,7 +36,7 @@ public class LeaderBoard {
         String winners = paceMap
                 .entrySet()
                 .stream()
-                .filter(driveSuccessNumber -> driveSuccessNumber.getValue().equals(largestDriveNumber))
+                .filter(paceMapInSet -> paceMapInSet.getValue().equals(largestDriveNumber))
                 .map(Map.Entry::getKey)
                 .collect(Collectors.joining(", "));
 
