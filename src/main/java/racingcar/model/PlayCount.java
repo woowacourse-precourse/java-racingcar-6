@@ -2,19 +2,20 @@ package racingcar.model;
 
 public class PlayCount {
 
-    private static final int DEFAULT_COUNT = 0;
+    private static final int DEFAULT_ROUND = 0;
 
     private final int goal;
 
     private int round;
 
-    private PlayCount(final int goal) {
+    private PlayCount(final int goal, final int round) {
         this.goal = goal;
+        this.round = round;
     }
 
     public static PlayCount createDefault(final String goal) {
         validate(goal);
-        return new PlayCount(Integer.parseInt(goal));
+        return new PlayCount(Integer.parseInt(goal), DEFAULT_ROUND);
     }
 
     private static void validate(final String goal) {
