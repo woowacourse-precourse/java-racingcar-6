@@ -18,6 +18,7 @@ public class RaceService {
         }
     }
 
+    // TODO 중간 과정 출력 위해 리팩토링 필요
     public void runRaceWithIteration(List<Car> cars, int iteration) {
         for (int i = 0; i < iteration; i++) {
             runRace(cars);
