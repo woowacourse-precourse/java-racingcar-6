@@ -2,6 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.CarInputProcess;
+
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -29,6 +32,15 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 자동차_이름을_쉼표로_구분() {
+        CarInputProcess carInputProcess = new CarInputProcess();
+        String input = "java,unity";
+        List<String> testCars = carInputProcess.process(input);
+        assertThat(testCars).contains("java", "unity");
+        assertThat(testCars).containsExactly("java", "unity");
     }
 
     @Override
