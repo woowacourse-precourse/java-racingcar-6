@@ -17,6 +17,7 @@ public class CarTest {
     @ParameterizedTest
     @CsvSource({
             "4, 1",
+            "3, 1",
             "6, 2",
             "9, 3"
     })
