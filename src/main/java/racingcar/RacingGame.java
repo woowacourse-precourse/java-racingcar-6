@@ -11,30 +11,20 @@ public class RacingGame {
     private static HashMap<String,Integer> carName;
     private static final InputUtil inputUtil = new InputUtil();
     private static final CheckMoveStop checker = new CheckMoveStop();
-    private static final InputValidation validator = new InputValidation();
     private static long movement;
     private static long foundMax;
     public void startGame() {
         carName = new HashMap<>();
-
         inputUtil.inputCarName(carName);
-        validator.inputCarNameLength(carName);
-        validator.inputCarNameBlank(carName);
-
         movement = inputUtil.inputMovement();
-        validator.inputMovementLimit(movement);
 
-        System.out.println();
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
 
         for (int i = 0; i < movement; i++) {
             checker.checkMoveStop(carName);
         }
 
         foundMax = findMax();
-
-        System.out.print("최종 우승자 :");
-
         printResult(foundMax);
     }
 
@@ -53,6 +43,7 @@ public class RacingGame {
 
     private void printResult(long foundMax) {
         StringBuilder result = new StringBuilder();
+        result.append("최종 우승자 :");
 
         for (String car : carName.keySet()) {
             if (carName.get(car) == foundMax) {
