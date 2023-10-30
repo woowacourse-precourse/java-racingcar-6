@@ -12,8 +12,8 @@ public class GameRepository {
 
     Map<Long, Game> gameMap = new HashMap<Long, Game>();
     Long id;
-    public Long save(Long playCount) {
-        Game saveGame = new Game(playCount);
+    public Long save(Game saveGame) {
+        saveGame.setId(id);
         gameMap.put(id, saveGame);
         return id++;
     }
