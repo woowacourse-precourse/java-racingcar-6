@@ -19,22 +19,33 @@ public class RacingCarController {
 
     public void run() {
         cars = new ArrayList<>();
-        String[] carNames = inputView.carName();
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
+        addCarNames(inputView.carName());
 
         playCount = inputView.playNumber();
 
         outputView.printResultMessage();
-        for(int attempt = 0; attempt<playCount; attempt++){
-            for (Car car : cars) {
-                car.moveForward(computer.getRandomNumber());
-                outputView.printCarPositionMessage(car.getCarName(), car.getPosition());
-            }
-            System.out.println();
-        }
+        attemptCount();
         winner.findWinnerName(cars);
         outputView.printWinnerCarName(winner.getWinnerName());
+    }
+
+    private void addCarNames(String[] carNames) {
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
+    }
+
+    private void attemptCount() {
+        for(int attempt = 0; attempt<playCount; attempt++){
+            showMovingCars();
+            System.out.println();
+        }
+    }
+
+    private void showMovingCars() {
+        for (Car car : cars) {
+            car.moveForward(computer.getRandomNumber());
+            outputView.printCarPositionMessage(car.getCarName(), car.getPosition());
+        }
     }
 }
