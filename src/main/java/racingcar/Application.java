@@ -35,7 +35,7 @@ public class Application {
     System.out.println("시도할 회수는 몇회인가요?");
     String inputCycleString = Console.readLine();
     int tryCycle = cs.StringConvertInt(inputCycleString);
-    List<CarVO> championList = new ArrayList<>();
+
 
     for (int i = 0; i < tryCycle; i++) {
       for(CarVO car : racingCarList){
@@ -51,24 +51,23 @@ public class Application {
         System.out.println(movePoint);
 
         car.setCar(car.getCar());
-        championList.add(car);
+
       }
       System.out.println();
     }
-    
+    int maxMove = -1;
+    List<String> champions = new ArrayList<>();
+    for (CarVO car : racingCarList){
+      if (car.getMove() > maxMove){
+        maxMove = car.getMove();
+      }
+    }
+    for (CarVO car : racingCarList){
+      if (car.getMove() == maxMove){
+        champions.add(car.getCar());
+      }
+    }
+    System.out.println("최종 우승자 : " + String.join(", ",champions));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  }
-}
+  } // 메인의 끝
+} // 클래스 끝
