@@ -3,7 +3,6 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 class NavigationTest {
@@ -29,7 +28,21 @@ class NavigationTest {
                 new Car("pobi", new TestNumberGenerator(3)),
                 new Car("hun", new TestNumberGenerator(9)));
 
-        assertThatThrownBy(()->new Navigation(cars)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Navigation(cars)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void 우승자를_반환한다() {
+        List<Car> cars = List.of(
+                new Car("pobi", new TestNumberGenerator(5)),
+                new Car("jun", new TestNumberGenerator(3)));
+        Navigation navigation = new Navigation(cars);
+
+        navigation.moveAll();
+
+        List<Car> result = navigation.determineWinner();
+        assertThat(result).hasSize(1);
+        assertThat(result.get(0).getName()).isEqualTo("pobi");
     }
 
 }
