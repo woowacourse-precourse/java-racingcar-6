@@ -102,10 +102,12 @@ class ValidExceptionTest {
     @Test
     void isValidZeroCheck() {
         // given
-
-        // when
+        String input = "0";
 
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidZeroCheck(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("문자열 이름 , 다음에는 문자가 나와야한다.")
