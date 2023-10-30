@@ -58,7 +58,7 @@ public class CarNameValidator {
     }
 
     private static void validateParticipatingCarCount(int carCount) {
-        if (carCount <= 1) {
+        if (carCount <= MIM_RANGE) {
             throw new IllegalArgumentException(ErrorMessage.PARTICIPATION_CAR_COUNT);
         }
     }
