@@ -7,8 +7,8 @@ import racingcar.validation.ValidatorFactory;
 
 public class Car {
 
-    protected final String name;
-    protected Long currentPosition;
+    private final String name;
+    private Long currentPosition;
 
     private Car(String name, Long currentPosition) {
         validate(name);
@@ -32,9 +32,12 @@ public class Car {
         validator.validate(value);
     }
 
-    //TODO: 게터 지양
     public String getName() {
         return this.name;
+    }
+
+    public Long getCurrentPosition() {
+        return this.currentPosition;
     }
 
     @Override
