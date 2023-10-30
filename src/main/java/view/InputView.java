@@ -20,6 +20,7 @@ public class InputView {
 		System.out.println(INPUT_TOTAL_MOVE_MESSAGE);
 		String inputTotalMove = Console.readLine().trim();
 		InputValidator.checkNull(inputTotalMove);
+		InputValidator.checkCarMoveFomat(inputTotalMove);
 		
 		return inputTotalMove;
 	}
