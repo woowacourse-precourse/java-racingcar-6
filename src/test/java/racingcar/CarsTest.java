@@ -30,4 +30,27 @@ class CarsTest {
                         List.of(MIN_VALUE_FOR_MOVE_FORWARD - 1, MIN_VALUE_FOR_MOVE_FORWARD - 1), "test1 : \ntest2 : ")
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("우승자_판별_테스트를_위한_매개변수")
+    void 우승자_판별_테스트(List<String> carNames, List<Integer> movePowers, String winnerNames) {
+        Cars cars = new Cars(carNames);
+        cars.tryMoveAll(movePowers);
+        assertThat(cars.calculateWinner())
+                .isEqualTo(winnerNames);
+    }
+
+    static Stream<Arguments> 우승자_판별_테스트를_위한_매개변수() {
+        final int MIN_VALUE_FOR_MOVE_FORWARD = 4;
+        return Stream.of(
+                Arguments.of(List.of("test1", "test2"),
+                        List.of(MIN_VALUE_FOR_MOVE_FORWARD, MIN_VALUE_FOR_MOVE_FORWARD - 1), "test1"),
+                Arguments.of(List.of("test1", "test2"),
+                        List.of(MIN_VALUE_FOR_MOVE_FORWARD, MIN_VALUE_FOR_MOVE_FORWARD), "test1, test2"),
+                Arguments.of(List.of("test1", "test2"),
+                        List.of(MIN_VALUE_FOR_MOVE_FORWARD - 1, MIN_VALUE_FOR_MOVE_FORWARD - 1), "test1, test2"),
+                Arguments.of(List.of("test1", "test2"),
+                        List.of(MIN_VALUE_FOR_MOVE_FORWARD - 1, MIN_VALUE_FOR_MOVE_FORWARD), "test2")
+        );
+    }
 }

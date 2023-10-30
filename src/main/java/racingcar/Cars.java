@@ -36,4 +36,18 @@ class Cars {
                 .map(Car::toString)
                 .collect(Collectors.joining("\n"));
     }
+
+    String calculateWinner() {
+        int winnerMoveForwardCount = getWinnerMoveForwardCount();
+        return carList.stream()
+                .filter(car -> car.getMoveForwardCount() == winnerMoveForwardCount)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+    }
+
+    private int getWinnerMoveForwardCount() {
+        return carList.stream()
+                .mapToInt(Car::getMoveForwardCount)
+                .max().orElse(0);
+    }
 }

@@ -27,4 +27,12 @@ class Car {
                 .collect(Collectors.joining());
         return String.format("%s : %s", name, moveForwardString);
     }
+
+    int getMoveForwardCount() {
+        return moveForwardCount;
+    }
+
+    String getName() {
+        return name;
+    }
 }
