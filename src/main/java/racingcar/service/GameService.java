@@ -41,7 +41,9 @@ public class GameService {
     }
 
     public void endGame() {
-        // TODO: 게임을 종료하는 메소드
+        List<Car> winners = getWinners();
+        OutView.printWinners(winners);
+
     }
 
     private Set<String> convertInputToCarNameSet(String rawInputString) {
@@ -78,5 +80,22 @@ public class GameService {
         }
 
         return tryCount;
+    }
+
+    private List<Car> getWinners(){
+        List<Car> winners = new ArrayList<>();
+        Integer maxPosition = 0;
+
+        for(Car car : cars){
+            if(car.getPosition() > maxPosition){
+                maxPosition = car.getPosition();
+                winners.clear();
+                winners.add(car);
+            } else if(car.getPosition() == maxPosition){
+                winners.add(car);
+            }
+        }
+
+        return winners;
     }
 }

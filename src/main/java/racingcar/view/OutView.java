@@ -10,4 +10,17 @@ public class OutView {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
     }
+
+    public static void printWinners(List<Car> cars){
+        System.out.print("최종 우승자 : ");
+
+        for(int i = 0; i < cars.size(); i++){
+            if(i == cars.size() - 1){
+                System.out.print(cars.get(i).getName());
+            }
+            if(i != cars.size() - 1) {
+                System.out.print(cars.get(i).getName() + ", ");
+            }
+        }
+    }
 }
