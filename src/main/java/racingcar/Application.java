@@ -40,6 +40,24 @@ public class Application {
 	         c[i].print();
 	      }
 	   }
+	
+	public static String winner(Car[] c, int N) {
+	      int maxStep = 0;
+	      for(int i = 0; i < N; i++) {
+	         if(c[i].step > maxStep) {
+	            maxStep = c[i].step;
+	         }
+	      }
+	      
+	      ArrayList<String> winners = new ArrayList<String>();
+	      for(int i = 0; i < N; i++) {
+	         if(maxStep == c[i].step) {
+	            winners.add(c[i].name);
+	         }
+	      }
+	      
+	      return String.join(", ", winners);
+	   }
 
     public static void main(String[] args) throws IllegalArgumentException{
     	Scanner sc = new Scanner(System.in);
@@ -64,5 +82,7 @@ public class Application {
            result(cars, N);
            System.out.println();
         }
+        
+        System.out.println("최종 우승자 : " + winner(cars, N));
     }
 }
