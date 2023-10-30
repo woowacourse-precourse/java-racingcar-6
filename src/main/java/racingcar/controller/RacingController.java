@@ -3,10 +3,13 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.view.OutputView;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingController {
+
     private static final int DECIDE_TO_NUMBER_MOVE_STOP = 4;
 
     public static void racingStart(List<Car> cars, int racingCount) {
@@ -16,10 +19,23 @@ public class RacingController {
     }
 
     private static void executeRacingRound(List<Car> cars) {
-        for (Car car : cars) {
-            manageCarMovement(car, makeCarRandomNumber());
-        }
+        List<Integer> randomNumbers = generateRandomNumbers(cars.size());
+        moveCars(cars, randomNumbers);
         showRacingRoundResult(cars);
+    }
+
+    private static void moveCars(List<Car> cars, List<Integer> randomNumbers) {
+        for (int i = 0; i < cars.size(); i++) {
+            manageCarMovement(cars.get(i), randomNumbers.get(i));
+        }
+    }
+
+    private static List<Integer> generateRandomNumbers(int count) {
+        List<Integer> randomNumbers = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            randomNumbers.add(makeCarRandomNumber());
+        }
+        return randomNumbers;
     }
 
     private static void showRacingRoundResult(List<Car> cars) {
