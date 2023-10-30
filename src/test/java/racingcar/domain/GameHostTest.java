@@ -41,8 +41,6 @@ class GameHostTest {
     void knowWinRaceCarsTest_1() {
         // given
         moveRaceCar(raceCar_1);
-        stopRaceCar(raceCar_2);
-        stopRaceCar(raceCar_3);
         List<RaceCar> progressRaceCarList =
                 List.of(
                         raceCar_1
