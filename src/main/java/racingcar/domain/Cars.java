@@ -19,25 +19,18 @@ public class Cars {
     }
 
     public List<String> getWinner() {
-        List<String> winner = new ArrayList<>();
         int winnerPosition = getWinnerPosition();
 
-        for (Car car : cars) {
-            if (car.isWinner(winnerPosition)) {
-                winner.add(car.getName());
-            }
-        }
-        return winner;
+        return cars.stream()
+                .filter(car -> car.isWinner(winnerPosition))
+                .map(Car::getName)
+                .toList();
     }
 
     private int getWinnerPosition() {
-        int winnerPosition = 0;
-        for (Car car : cars) {
-            if (winnerPosition < car.getPosition()) {
-                winnerPosition = car.getPosition();
-            }
-        }
-        return winnerPosition;
+        return cars.stream()
+                .map(Car::getPosition)
+                .reduce(0, Integer::max);
     }
 
     public List<Car> getCars() {
