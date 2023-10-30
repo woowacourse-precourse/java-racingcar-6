@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class CarList<Car> extends ArrayList<Car> {
 
-
     @Override
     public boolean contains(Object o){
 
