@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGameService {
@@ -13,4 +14,16 @@ public class RacingGameService {
         return inputView.carNameList();
     }
 
+    public RacingGame init(){
+        int playCount = getPlayCount();
+        List<String> carNameList = getCarNameList();
+        List<Car> carList = new ArrayList<>();
+
+        for(String carName: carNameList){
+            Car car = new Car(carName);
+            carList.add(car);
+        }
+
+        return new RacingGame(carList, playCount);
+    }
 }
