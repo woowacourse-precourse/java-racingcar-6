@@ -34,6 +34,18 @@ public class RacingCar {
         System.out.println();
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "RacingCar{" +

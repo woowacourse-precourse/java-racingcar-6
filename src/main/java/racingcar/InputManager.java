@@ -13,6 +13,7 @@ public class InputManager {
     }
 
     static int get_input_play_num(){
+        System.out.println("시도할 회수는 몇회인가요?");
         String input_num = Console.readLine();
         int result = string_to_int(input_num);
         if(result==-1)

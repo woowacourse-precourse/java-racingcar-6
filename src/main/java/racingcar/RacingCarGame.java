@@ -27,14 +27,14 @@ public class RacingCarGame {
     private void printResult(List<RacingCar> winner) {
         System.out.print("최종 우승자 : ");
         for(int i=0;i<winner.size();i++){
-            System.out.print(winner.get(i));
+            System.out.print(winner.get(i).getName());
             if(i!= winner.size()-1){
                 System.out.print(", ");
             }
         }
     }
 
-    private List<RacingCar> getWinner(List<RacingCar> racingCars) {
+    static List<RacingCar> getWinner(List<RacingCar> racingCars) {
         int max = 0;
         List<RacingCar> winners= new ArrayList<RacingCar>();
 
