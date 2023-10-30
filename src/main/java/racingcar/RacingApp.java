@@ -38,12 +38,9 @@ public class RacingApp {
     }
 
     private void printRacingCarsCurrentStatus() {
-        racingCarList.forEach(racingCar -> {
-            System.out.print(racingCar.getName() + " : ");
-            for (int i = 0; i < racingCar.getCount(); i++) {
-                System.out.print("-");
-            }
-        });
+        racingCarList.forEach(racingCar ->
+                System.out.print(racingCar.getName() + " : " +
+                        "-".repeat(racingCar.getCount())));
         System.out.println("\n");
     }
 
