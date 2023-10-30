@@ -32,7 +32,7 @@ public class Validator {
     public static String validateNumber(String number) {
         final String REGEX = "[0-9]+";
         if (!number.matches(REGEX)) {
-            throw new IllegalArgumentException(Messages.ERROR_INCLUSION_NUMBER);
+            throw new IllegalArgumentException(Messages.ERROR_INCLUSION_STRING);
         }
         if (Integer.parseInt(number) < 1) {
             throw new IllegalArgumentException(Messages.ERROR_NUMBER_SMALL);

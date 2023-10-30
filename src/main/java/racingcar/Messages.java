@@ -7,5 +7,5 @@ public class Messages {
     public static String ERROR_EMPTY_NAME = "공백으로만 이루어진 이름을 사용할 수 없습니다.";
     public static String ERROR_SHORTAGE_PEOPLE = "2개 이상의 차 이름을 입력해주세요.";
     public static String ERROR_NUMBER_SMALL = "1 이상의 숫자를 입력해주세요.";
-    public static String ERROR_INCLUSION_NUMBER = "숫자를 입력해주세요.";
+    public static String ERROR_INCLUSION_STRING = "숫자를 입력해주세요.";
 }

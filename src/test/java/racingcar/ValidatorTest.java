@@ -38,7 +38,7 @@ public class ValidatorTest {
     void validateNumber_메서드는_문자가_존재하면_예외를_반환() {
         assertThatThrownBy(() -> Validator.validateNumber("1ab"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(Messages.ERROR_INCLUSION_NUMBER);
+                .hasMessageContaining(Messages.ERROR_INCLUSION_STRING);
     }
 
     @Test
