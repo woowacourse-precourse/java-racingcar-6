@@ -1,8 +1,12 @@
 package racingcar.game.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.game.validation.CarValidator;
+import racingcar.game.validation.Validator;
 
 public class Car {
+
+    private static final Validator VALIDATOR = new CarValidator();
 
     private final String name;
     private final StringBuilder forwardState;
@@ -13,9 +17,7 @@ public class Car {
     }
 
     public static Car create(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("자동차의 이름이 5자 이하가 아닙니다.");
-        }
+        VALIDATOR.execute(name);
 
         return new Car(name);
     }
