@@ -16,7 +16,7 @@ class ConverterTest {
         String convertNumber = "13";
 
         //when
-        int convertedNumber = Converter.attemptStringToIntCovert(convertNumber);
+        int convertedNumber = Converter.stringToIntCovert(convertNumber);
 
         //then
         assertEquals(convertedNumber, 13);

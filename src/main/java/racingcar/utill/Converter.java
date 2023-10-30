@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 
-public class Converter {
+public final class Converter {
 
-    public static int attemptStringToIntCovert(String stringValue) {
+    public static int stringToIntCovert(String stringValue) {
         nullInputValidation(stringValue);
         attemptNumberValidation(stringValue);
         return Integer.parseInt(stringValue);
