@@ -8,6 +8,12 @@ import java.util.regex.Pattern;
 public class Validator {
     private final static int MIN_CAR_NUM = 2;
 
+    public void checkCarNameInputForm(String carNameInput) {
+        if (!isIdentifierComma(carNameInput)) {
+            throw new IllegalArgumentException("입력 구분을 ,로 하지 않았습니다.");
+        }
+    }
+
     private boolean isIdentifierComma(String carNameInput){
         String regex = "([0-9a-zA-Zㄱ-ㅎ가-힣]+,)*[0-9a-zA-Zㄱ-ㅎ가-힣]+";
         return carNameInput.matches(regex);
