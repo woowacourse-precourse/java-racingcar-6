@@ -50,17 +50,16 @@ public class Circuit {
             }
         }
         System.out.print("최종 우승자 : ");
-        ArrayList<Car> winner = new ArrayList<Car>();
+        boolean flag = false;
         for (Car car : carList) {
-            if (car.getLocation() == max) {
-                winner.add(car);
+            if (car.getLocation() != max) {
+                continue;
             }
-        }
-        for (int i = 0; i < winner.size(); ++i) {
-            if (i == 0) {
-                System.out.print(winner.get(i).getName());
+            if (flag) {
+                System.out.print(", " + car.getName());
             } else {
-                System.out.print(", " + winner.get(i).getName());
+                System.out.print(car.getName());
+                flag = true;
             }
         }
         System.out.println();
