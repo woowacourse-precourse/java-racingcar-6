@@ -49,11 +49,12 @@ public class Validator {
     }
 
     private void validationTrialNumeric(String input) {
-        try {
-            Integer.parseInt(input);
-        } catch (NumberFormatException e) {
+        String regex = "^[0-9]*$";
+        if (!input.matches(regex)){
             throw new IllegalArgumentException(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage());
         }
+
+
     }
 
     private void validationTrialIsZero(String input) {
