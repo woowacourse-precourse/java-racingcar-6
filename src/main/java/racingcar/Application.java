@@ -80,14 +80,18 @@ public class Application {
             String carName = car.getName();
             validateCarNameIsBlank(carName);
 
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("이름은 공백 포함 5자 이하여야 합니다.");
-            }
+            validateLengthOfCarName(carName);
         }
 
         long sizeAfterDistinct = carList.stream().distinct().count();
         if (sizeAfterDistinct != carList.size()) {
             throw new IllegalArgumentException("중복된 이름입니다.");
+        }
+    }
+
+    private static void validateLengthOfCarName(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("이름은 공백 포함 5자 이하여야 합니다.");
         }
     }
 
