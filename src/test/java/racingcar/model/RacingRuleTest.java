@@ -4,25 +4,25 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameRuleTest {
+class RacingRuleTest {
     
     @Test
     public void 자동차_이름_유효성_테스트() throws Exception {
         // given
-        GameRule gameRule = new GameRule();
+        RacingRule racingRule = new RacingRule();
 
         // when & then
-        assertDoesNotThrow(() -> gameRule.isOkToUseCarName("pobi"));
-        assertThrows(IllegalArgumentException.class, () -> gameRule.isOkToUseCarName("123456"));
+        assertDoesNotThrow(() -> racingRule.isOkToUseCarName("pobi"));
+        assertThrows(IllegalArgumentException.class, () -> racingRule.isOkToUseCarName("123456"));
     } 
     
     @Test
     public void 시도_횟수_유효성_테스트() throws Exception {
         // given
-        GameRule gameRule = new GameRule();
+        RacingRule racingRule = new RacingRule();
 
         // when & then
-        assertTrue(gameRule.isOkToUseAttemptCount(3));
+        assertTrue(racingRule.isOkToUseAttemptCount(3));
     } 
 
 }
