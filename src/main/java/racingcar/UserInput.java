@@ -16,6 +16,15 @@ public class UserInput {
         System.out.println(racingCarName);
         return racingCarName;
     }
+    public int inputAttemptNumber(){
+        String input = Console.readLine();
+        try {
+            return Integer.parseInt(input);
+        }
+        catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해야합니다.");
+        }
+    }
     private void racingCarNameValidation(List<String> racingCarName){
         for (int i=0;i<racingCarName.size();i++) {
             String validationName = racingCarName.get(i);
