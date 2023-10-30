@@ -10,4 +10,8 @@ public class Move {
     public void increaseMove() {
         move.append("-");
     }
+
+    public void print() {
+        System.out.print(move.toString());
+    }
 }
