@@ -7,13 +7,18 @@ public class ValidCheckAndParse {
      * 자동차의 이름 길이를 테스트한다.
      */
     public static String[] carNameParseAndValidCheck(String carNames){
-        String[] strings = carNames.split(",");
-        for(String carName:strings){
-            if(carName.length()>5){
-                throw new IllegalArgumentException("차의 이름이 너무 깁니다.");
+        try{
+            String[] strings = carNames.split(",");
+            for(String carName:strings){
+                if(carName.length()>5){
+                    throw new IllegalArgumentException("차의 이름이 너무 깁니다.");
+                }
             }
+            return strings;
+        }catch(Exception e){
+            throw new IllegalArgumentException("잘못된 입력입니다.");
         }
-        return strings;
+
     }
 
     /**
