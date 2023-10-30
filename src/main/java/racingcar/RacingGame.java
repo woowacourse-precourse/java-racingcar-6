@@ -9,13 +9,14 @@ public class RacingGame {
     private static final String REQUIRE_ATTEMPT_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String PROGRESS_RESULT = "실행결과";
     private Player player = new Player();
+    private ScriptHandler scriptHandler = new ScriptHandler();
     private HashMap<String, Integer> cars;
     private ArrayList<String> winnerList = new ArrayList<>();
     private int attemptNumber, carNumber, carMoveMent, randomNumber, updateCarValue;
     private String carName;
 
     public void GameStart() {
-        printMessage(REQUIRE_CAR_NAME_MESSAGE);
+        scriptHandler.printGetCarNameScript();
         player.setCarName();
         printMessage(REQUIRE_ATTEMPT_NUMBER_MESSAGE);
         player.setAttemptNumber();
@@ -103,7 +104,4 @@ public class RacingGame {
         System.out.println(winnerList.get(winnerList.size() - 1));
     }
 
-    public void printMessage(String message) {
-        System.out.println(message);
-    }
 }
