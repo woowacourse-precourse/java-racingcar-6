@@ -3,6 +3,7 @@ package racingcar.domain;
 public class Car {
     private final String name;
     private int position;
+    private static final int CAR_SPEED = 1;
 
     public Car(final String name) {
         this.name = name;
@@ -10,7 +11,7 @@ public class Car {
     }
 
     public void moveForward() {
-        position++;
+        position += CAR_SPEED;
     }
 
     public String getName() {

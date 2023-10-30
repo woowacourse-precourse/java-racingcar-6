@@ -12,7 +12,7 @@ public class OutputView {
     private static final String COMMA = ",";
 
     public void printResultMessage() {
-        println(RESULT_MESSAGE);
+        println("\n" + RESULT_MESSAGE);
     }
 
     public void printCarResult(String name, int position) {

@@ -19,7 +19,6 @@ class InputValidatorTest {
         //when, then
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
                 () -> InputValidator.validateMinCars(input));
-        System.out.println(exception);
     }
 
     @Test
@@ -35,9 +34,6 @@ class InputValidatorTest {
                 () -> InputValidator.validateCarNames(input2));
         IllegalArgumentException exception3 = assertThrows(IllegalArgumentException.class,
                 () -> InputValidator.validateCarNames(input3));
-        System.out.println(exception1);
-        System.out.println(exception2);
-        System.out.println(exception3);
     }
     @Test
     void 자동차의_이름은_5글자_이하여야_한다() throws Exception {
@@ -52,9 +48,6 @@ class InputValidatorTest {
                 () -> InputValidator.validateCarNameSize(car2));
         IllegalArgumentException exception3 = assertThrows(IllegalArgumentException.class,
                 () -> InputValidator.validateCarNameSize(car3));
-        System.out.println(exception1);
-        System.out.println(exception2);
-        System.out.println(exception3);
     }
 
 }
