@@ -12,21 +12,25 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RunRacing {
     static Map<String, Integer> members = new LinkedHashMap<String, Integer>();
     static int turn = 0;
+    static int winnerCnt = 0;
 
     public static void run() {
         RunRacing GetMembersAndTurn = new RunRacing();
         RunRacing StartRacing = new RunRacing();
         RunRacing GetResult = new RunRacing();
 
-//        System.out.println("되냐?");
         GetMembersAndTurn.GetMembersAndTurn();
         StartRacing.StartRacing();
         GetResult.GetResult();
-//        System.out.println(members);
+    }
+    public void IsNameAccurate(String name) {
+        if (name.length() > 5)
+            throw new IllegalArgumentException();
     }
     public void GetMembersAndTurn() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         for ( String name : String.valueOf(Console.readLine()).split(",")) {
+            IsNameAccurate(name);
             members.put(name, 0);
         }
         System.out.println("시도할 회수는 몇회인가요?");
@@ -60,6 +64,7 @@ public class RunRacing {
     public void GetResult() {
         Iterator<String> keys = members.keySet().iterator();
         Collection<Integer> values = members.values();
+
         maxScore = Collections.max(values);
         System.out.print("최종 우승자 :");
         while(keys.hasNext()){
@@ -68,7 +73,11 @@ public class RunRacing {
     }
     public void IsMaxValue(String member) {
         if (members.get(member).equals(maxScore)) {
+            if (winnerCnt > 0) {
+                System.out.print(",");
+            }
             System.out.print(" "+member);
+            winnerCnt += 1;
         }
     }
 }
