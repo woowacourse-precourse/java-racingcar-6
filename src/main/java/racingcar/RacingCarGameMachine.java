@@ -9,8 +9,9 @@ import java.util.stream.Collectors;
 public class RacingCarGameMachine {
     private final String GAME_RESULT = "최종 우승자 : %s";
 
-    private final RandomNumberGenerator randomNumberGenerator;
     private final RacingCarGameMachineValidator racingCarGameMachineValidator;
+    private final RacingCarValidator racingCarValidator;
+    private final RandomNumberGenerator randomNumberGenerator;
 
     private List<RacingCar> racingCarList = new ArrayList<>();
     private int currentRound = 1;
@@ -18,29 +19,39 @@ public class RacingCarGameMachine {
 
     public RacingCarGameMachine(
             RacingCarGameMachineValidator racingCarGameMachineValidator,
+            RacingCarValidator racingCarValidator,
             RandomNumberGenerator randomNumberGenerator
     ) {
         this.racingCarGameMachineValidator = racingCarGameMachineValidator;
+        this.racingCarValidator = racingCarValidator;
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
     public void init(String nameInput, int roundCount) {
         initRacingCar(nameInput);
-        this.maxRoundCount = roundCount;
+        initRoundCount(roundCount);
     }
 
     private void initRacingCar(String nameInput) {
         racingCarList = new ArrayList<>();
-
         List<String> nameList = parseNameInput(nameInput);
-        for (String name : nameList) {
-            racingCarList.add(new RacingCar(randomNumberGenerator, name));
-        }
+
+        racingCarGameMachineValidator.validateNameList(nameList);
+
+        nameList.forEach(name -> racingCarList.add(new RacingCar(racingCarValidator, randomNumberGenerator, name)));
     }
 
     private List<String> parseNameInput(String nameInput) {
         String[] names = nameInput.split(",");
-        return Arrays.stream(names).toList();
+
+        return Arrays.stream(names)
+                .map(String::trim)
+                .collect(Collectors.toList());
+    }
+
+    private void initRoundCount(int roundCount) {
+        racingCarGameMachineValidator.validateRoundCount(roundCount);
+        this.maxRoundCount = roundCount;
     }
 
     public String playRound() {
