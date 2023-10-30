@@ -1,10 +1,8 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.view.CarName;
 import racingcar.view.Order;
-import racingcar.view.RotatingCount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +10,14 @@ import java.util.List;
 public class RacingGame {
     private final List<Car> carList = new ArrayList<>();
     private final List<String> winner = new ArrayList<>();
+    private CalculatingScore winners = new CalculatingScore();
     private MovingCars movingCars = new MovingCars();
     private CarName carName = new CarName();
     private Order order = new Order();
     public void play() {
         splitCars(inputCarName());
         movingCars.start(carList);
-        result();
+        winners.result(carList, winner);
         win();
     }
 
@@ -34,34 +33,6 @@ public class RacingGame {
     private String inputCarName() {
         return carName.input();
     }
-
-    private void result() {
-        order.printWinner();
-        int maxPoint = Integer.MIN_VALUE;
-
-        for (Car car : carList) {
-            int carPoint = point(car);
-
-            if (carPoint > maxPoint) {
-                maxPoint = carPoint;
-                winner.clear();
-                winner.add(car.getName());
-            }
-
-            else if (carPoint == maxPoint) {
-                winner.add(car.getName());
-            }
-        }
-    }
-
-    private int point(Car car) {
-        return score(car.getMove());
-    }
-
-    private int score(String move) {
-        return move.length();
-    }
-
 
     private void win() {
         switch (winner.size()){
