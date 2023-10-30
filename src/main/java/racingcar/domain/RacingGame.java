@@ -1,11 +1,11 @@
 package racingcar.domain;
 
-import static racingcar.Application.generateRandomNumber;
 import static racingcar.Application.judgeWinners;
 import static racingcar.Application.printRoundResult;
 import static racingcar.Application.printWinners;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,5 +41,9 @@ public class RacingGame {
         }
         final List<Car> winners = judgeWinners(cars);
         printWinners(winners);
+    }
+
+    private int generateRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }

@@ -1,6 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
@@ -10,10 +9,6 @@ public class Application {
         // TODO: 프로그램 구현
         RacingGame racingGame = new RacingGame();
         racingGame.play();
-    }
-
-    public static int generateRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 
     public static void printRoundResult(final List<Car> cars) {
