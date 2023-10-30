@@ -28,13 +28,13 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 한명_단독우승() {
-        String carNameInput = "wtc";
-        String gameTurnInput = "3";
+        String carNamesInput = "wtc";
+        String gameTurnsInput = "3";
         Integer[] randoms = {STOP, MOVING_FORWARD};
 
         assertRandomNumberInRangeTest(
                 () -> {
-                    run(carNameInput, gameTurnInput);
+                    run(carNamesInput, gameTurnsInput);
                     assertThat(output()).contains(INPUT_CAR_NAMES, INPUT_GAME_TURNS, RUN_RESULT,
                             "wtc : -", "wtc : --", "최종 우승자 : wtc");
                 },
@@ -44,7 +44,21 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 두명_단독우승_역전없음() {
+        String carNamesInput = "wtc, prcs";
+        String gameTurnsInput = "3";
+        Integer[] randoms = {STOP, MOVING_FORWARD};
 
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(carNamesInput, gameTurnsInput);
+                    assertThat(output()).contains(INPUT_CAR_NAMES, INPUT_GAME_TURNS, RUN_RESULT,
+                            "wtc : -", "prcs : ",
+                            "wtc : --", "prcs : -",
+                            "wtc : ---", "prcs : --",
+                            "최종 우승자 : wtc");
+                },
+                MOVING_FORWARD, randoms
+        );
     }
 
     @Test
