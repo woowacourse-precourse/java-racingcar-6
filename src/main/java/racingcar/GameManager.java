@@ -8,8 +8,7 @@ public class GameManager {
     public String askCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNames = Console.readLine();
-        String regex = "^[A-Za-z가-힣]{1,5}(,[A-Za-z가-힣]{1,5}){1,}$";
-        if (isNotValidInput(carNames, regex)) {
+        if (isNotValidInput(carNames, Constant.CAR_NAMES_REGEX)) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하의 영어 또는 한글만 가능합니다. 쉼표(,)로 구분하여 두 대 이상 입력해주세요.");
         }
         return carNames;
