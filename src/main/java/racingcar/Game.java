@@ -25,7 +25,7 @@ public class Game {
 
     private void printWinners(List<String> winners) {
         String winnersString = String.join(", ", winners);
-        System.out.println("최종 우승자: " + winnersString);
+        System.out.println("최종 우승자 : " + winnersString);
     }
 
 
