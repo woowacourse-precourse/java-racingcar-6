@@ -3,12 +3,12 @@ package racingcar.v2;
 import java.util.Map;
 
 public class RacingGame {
-    private final CreateCarV2 createCar;
+    private final CreateCar createCar;
     private final Forward forward;
     private final Racing racing;
 
     public RacingGame() {
-        this.createCar = new CreateCarV2();
+        this.createCar = new CreateCar();
         this.forward = new Forward();
         this.racing = new Racing();
     }

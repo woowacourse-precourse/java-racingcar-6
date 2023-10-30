@@ -50,11 +50,13 @@ public class Racing {
             int position = entry.getValue();
             System.out.println(carName + " : " + "-".repeat(position));
         }
+        System.out.println();
     }
 
 
     public void printWinner(String winner) {
-        System.out.println("최종 우승자: " + winner);
+        System.out.println("최종 우승자 : " + winner);
+
     }
 
 }

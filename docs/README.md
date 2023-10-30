@@ -22,9 +22,9 @@
   - [x] 전진하는 자동차를 출력할 때 이름을 같이 출력한다. Racing#state()
   - [x] 경주의 최종 결과를 나타낸다. Racing#Winner()
     - [x] 경주가 끝났을 때 가장 앞서 있는 자동차를 찾는다. Racing#findWinner()
-  -[ ] 경주의 상태를 나타낸다. Racing#printState()
-[ ] 게임을 주관한다. RacingGame
-    - [ ] 게임을 시작한다. RacingGame#start()
+  -[x] 경주의 상태를 나타낸다. Racing#printState()
+[x] 게임을 주관한다. RacingGame
+    - [x] 게임을 시작한다. RacingGame#start()
  
 
 ## 기능 목록 V1
