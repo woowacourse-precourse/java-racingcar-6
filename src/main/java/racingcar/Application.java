@@ -34,6 +34,13 @@ class Car{
 }
 
 public class Application {
+	public static void result(Car[] c, int N) {
+	      for(int i = 0; i < N; i++) {
+	         c[i].go();
+	         c[i].print();
+	      }
+	   }
+
     public static void main(String[] args) throws IllegalArgumentException{
     	Scanner sc = new Scanner(System.in);
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -49,6 +56,13 @@ public class Application {
         Car[] cars = new Car[N];
         for(int i = 0; i < N; i++) {
         	cars[i] = new Car(carNames.get(i));
+        }
+        
+        System.out.println("\n실행 결과");
+        
+        for(int i = 0; i < trial; i++) {
+           result(cars, N);
+           System.out.println();
         }
     }
 }
