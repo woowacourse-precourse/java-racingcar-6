@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.dto.GameDto;
 import racingcar.entity.Car;
 import racingcar.entity.Game;
 import racingcar.repository.GameRepository;
@@ -17,13 +18,15 @@ public class GameService {
         this.carService = carService;
     }
 
-    public Game initGame(String nameInput, Integer playCount) {
-        Game game = gameRepository.save(playCount);
+    public GameDto initGame(String nameInput, Integer playCount) {
+        Game game = new Game(playCount);
+        Long gameId=gameRepository.save(game);
+
         List<String> nameList = Arrays.stream(nameInput.split(",")).toList();
         for (String name : nameList) {
             game.addCar(carService.carCreate(name));
         }
-        return game;
+        return new GameDto(gameId,playCount);
     }
 
     public void processGame(Game game) {
