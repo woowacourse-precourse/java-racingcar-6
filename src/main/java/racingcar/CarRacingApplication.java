@@ -15,6 +15,10 @@ public class CarRacingApplication {
     public void runWith(RacingCars racingCars) {
 
         playRacingTurnsWith(racingCars);
+        String racingWinners = getRacingWinnersFrom(racingCars);
+
+        MessageOutputView.outputRacingWinners(racingWinners);
+
 
     }
 
@@ -23,12 +27,14 @@ public class CarRacingApplication {
         ForwardTryCount forwardTryCount = getForwardTryCountFromInput();
 
         System.out.println("\n실행결과");
+
         while (!forwardTryCount.hasZeroCount()) {
+
             forwardTryCount.subCount();
 
             racingController.playRacingWith(racingCars);
-            MessageOutputView.outputRoundResult(racingCars.showRacingStates());
 
+            MessageOutputView.outputRoundResult(racingCars.showRacingStates());
         }
 
     }
