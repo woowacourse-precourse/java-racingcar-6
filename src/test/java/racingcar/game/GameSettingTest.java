@@ -41,7 +41,7 @@ class GameSettingTest {
     void 이름이_6자_이상이면_예외() {
         assertThatThrownBy(() -> initializeSettingCars("hwang", "jung", "seoppp"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름이 5자 이하가 아닙니다.");
+                .hasMessageContaining("자동차의 이름이 1~5자 사이가 아닙니다.");
     }
 
     @Test

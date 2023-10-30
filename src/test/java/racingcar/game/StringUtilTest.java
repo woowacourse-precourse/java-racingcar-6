@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
+
 class StringUtilTest {
 
     @Test
@@ -12,7 +14,15 @@ class StringUtilTest {
         String carNames = "pobi,woni,jun";
         List<String> carNameList = StringUtil.separate(carNames);
 
-        Assertions.assertThat(carNameList).containsExactly("pobi", "woni", "jun");
+        assertThat(carNameList).containsExactly("pobi", "woni", "jun");
+    }
+
+    @Test
+    void 자동차_이름_중_중복이_있으면_예외_발생() {
+        String carNames = "hwang,jung,seop,jung";
+        assertThatThrownBy(() -> StringUtil.separate(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("모든 자동차 이름은 서로 달라야 합니다.");
     }
 
 }
