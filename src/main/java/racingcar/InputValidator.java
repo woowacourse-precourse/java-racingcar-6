@@ -1,6 +1,7 @@
 package racingcar;
 
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
 
 public class InputValidator {
     public static void validateNamesIsEmpty(String[] input) {
@@ -27,8 +28,12 @@ public class InputValidator {
         }
     }
 
-    public static void duplicateName(List<Car> cars) {
+    public static void validateDuplicateName(String[] input) {
+        HashSet<String> uniqueNames = new HashSet<>(Arrays.asList(input));
 
+        if (uniqueNames.size() != input.length) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다. 프로그램 종료");
+        }
     }
 
     public static void notNumber(int number) {
