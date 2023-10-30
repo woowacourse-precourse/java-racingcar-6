@@ -5,13 +5,14 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 
 public class RacingCarView {
+
 	public String inputCarName() {
-		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+		System.out.println(Message.INPUT_CARNAME_MESSAGE);
 		return Console.readLine();
 	}
 	
 	public String inputCount() {
-		System.out.println("시도할 회수는 몇회인가요?");
+		System.out.println(Message.INPUT_RACECOUNT_MESSAGE);
 		return Console.readLine();
 	}
 	
@@ -24,7 +25,7 @@ public class RacingCarView {
 	}
 	
 	public void printResultMessage() {
-		System.out.println("\n실행 결과");
+		System.out.println(Message.OUTPUT_RESULT_MESSAGE);
 	}
 	
 	void printMove(int move) {
