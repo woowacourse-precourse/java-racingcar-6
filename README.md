@@ -57,7 +57,7 @@
   - 어플리케이션이 종료되도록 한다
 
 ## Skeleton Code - Model
-- [ ] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
+- [x] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
   - [x] Car - 자동차 
     - [x] 자동차는 전진할 수 있다
     - ~~자동차는 멈출 수 있다~~
@@ -78,7 +78,7 @@
     - [x] **예외** 이름이 중복된 경우 - "pobi,pobi,..." in Name.class
     - [ ] **예외 처리** throw new IllegalArgumentException
 
-- [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
+- [x] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
   - [x] 전진 조건은 무작위 수를 기준으로 진행된다
   - [x] 4이상인 경우에만 전진한다
   - [x] 4보다 작은 경우 멈춘다 (=전진하지 않는다) 
@@ -99,13 +99,13 @@
     - 복수의 우승자인 경우 쉼표를 이용해서 이름을 구분한다
     
 ## Controller flow
-- RegisterCarNamesController : 자동차 입력을 입력 받아 RacingCars를 형성한다 
+- 자동차 입력을 입력 받아 RacingCars를 형성한다 registerCarNames()
   - [ ] OutputView - "경주할 자동차 이름을 입력하세요.(이름은..." 출력
   - [ ] inputView - 문자열을 입력 받고, 해당 문자열을 Controller에게 반환한다 
     - [ ] **예외** 문자열이 null 혹은 length()가 0 인 경우 
     - [ ] **예외** 영문자로 구성된 이름이 아닌 경우 
     - [ ] **예외 처리** throw new IllegalArgumentException 
-  - [ ] Controller - 받은 문자열을 StringToCarList을 활용하여 RacingCars를 형성한다
+  - 받은 문자열을 StringToCarList을 활용하여 RacingCars를 형성한다
     - [ ] StringToCarList - 문자열을 ',' 단위로 구분하고 List<Car>을 구성한다 
       - [ ] **예외** 5글자가 넘어가는 이름
       - [ ] **예외 처리** throw new IllegalArgumentException
@@ -113,7 +113,7 @@
       - [ ] **예외** 이름이 중복된 경우
       - [ ] **예외 처리** throw new IllegalArgumentException
 
-- RegisterRoundController : 진행할 라운드 횟수를 입력받아 Round를 형성한다
+- 진행할 라운드 횟수를 입력받아 Round를 형성한다 registerRoundTotal()
   - [ ] OutputView - "시도할 회수는 몇회인가요?" 출력
   - [ ] inputView - 문자열을 입력 받고, 해당 문자열을 Controller에게 반환한다
     - [ ] **예외** 문자열이 숫자가 아닌 경우
@@ -123,7 +123,7 @@
     - [ ] **예외** 문자열이 범위를 벗어난 경우 ex) 0보다 이하 or Integer.MAX_VALUE 보다 큰 경우
     - [ ] **예외 처리** throw new IllegalArgumentException
 
-- DisplayRoundController : 라운드 별 RacingCars의 distance 상태를 표현한다
+- 라운드 별 RacingCars의 distance 상태를 표현한다 displayRacingStatus()
   - [ ] OutputView - "실행 결과"를 우선 출력하고 규칙에 따라 각 Car의 이름과 distance를 출력한다
     - [ ] model에서 RacingCars, Round 정보를 조회한다 
     - [ ] Round의 round 회수 만큼 동일한 규칙에 맞게 출력한다 (ex $name : --)
@@ -132,7 +132,7 @@
       - [ ] Car의 distance 만큼 '-'를 반복해서 출력한다 
       - [ ] round 종료될 때까지 위의 순서를 반복한다 
 
-- RacingResultController : 라운드를 마치고 최종 우승자를 출력한다 
+- 라운드를 마치고 최종 우승자를 출력한다 displayWinner()
   - [ ] OutputView : "최종 우승자 :" 를 출력한다
     - [ ] : model로 부터 RacingCars 객체를 조회한다
     - [ ] : RacingCars의 우승자를 확인한다
