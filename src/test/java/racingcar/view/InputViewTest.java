@@ -19,12 +19,7 @@ class InputViewTest {
     private static final String IS_NOT_NATURAL_NUMBER = "전진횟수는 자연수여야 합니다.";
     private static final String IS_SPACE = "공백 혹은 빈 문자열은 등록할 수 없습니다.";
 
-    private InputView inputView;
-
-    @BeforeEach
-    void readyTest() {
-        inputView = new InputView();
-    }
+    private final InputView inputView = new InputView();
 
     @DisplayName("[성공] 자연수가 입력되었는지 확인하는 테스트")
     @Test
