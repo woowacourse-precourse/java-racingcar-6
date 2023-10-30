@@ -7,6 +7,11 @@ public class Game {
     private List<Car> cars;
     private int trialNum = 0;
 
+//    public Game(List<Car> cars, int trialNum) {
+//        this.cars = cars;
+//        this.trialNum = trialNum;
+//    }
+
     public List<Car> getCars() {
         return cars;
     }
