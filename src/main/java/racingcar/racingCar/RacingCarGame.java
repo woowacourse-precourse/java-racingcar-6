@@ -23,16 +23,16 @@ public class RacingCarGame {
 
     public void playGame(){
         output.startGame();
-        String numberOfRepetitions = input.getNumberOfRepetitions();
+        String inputName = input.getPlayerName();
+        String[] playersName = distinguish.distinguishName(inputName);
 
         output.inputRepetitions();
-        String inputName = input.getPlayerName();
-
-        String[] playersName = distinguish.distinguishName(inputName);
+        String numberOfRepetitions = input.getNumberOfRepetitions();
         int repetitions = distinguish.distinguishNum(numberOfRepetitions);
 
         save(playersName);
         play(repetitions);
+
         output.makeResult(carRepository.getWinnerName());
     }
 

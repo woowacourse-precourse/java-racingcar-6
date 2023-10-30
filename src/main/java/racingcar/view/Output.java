@@ -2,7 +2,9 @@ package racingcar.view;
 
 import racingcar.model.Car;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Output {
     public void startGame(){
@@ -12,10 +14,10 @@ public class Output {
         System.out.println("시도할 회수는 몇회인가요?");
     }
     public void makeResult(String[] playerList){
-        System.out.println("최종 우승자 : ");
-        for(String player:playerList){
-            System.out.print(player);
-        }
+        System.out.print("최종 우승자 : ");
+        String result = Arrays.stream(playerList)
+                .collect(Collectors.joining(","));
+        System.out.println(result);
     }
 
     public void showCurrentSituation(List<Car> carList){
