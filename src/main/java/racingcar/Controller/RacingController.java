@@ -11,21 +11,22 @@ import java.util.List;
 public class RacingController {
     private final static String DELIMITER = ",";
 
-    private RacingCars racingCars = new RacingCars();
+    private RacingCars racingCars;
     private List<String> racingCarNames;
     private List<Integer> racingCarLocations;
 
     public void start() {
 
+        setUpRacingCars();
+        processRacing(getUserInputTrialNumber());
+        printWinnersName();
+
+    }
+
+
+    private void setUpRacingCars() {
         String[] carNames = getUserInputNames();
-        racingCars.addCars(carNames);
-
-        int trialNumber = getUserInputTrialNumber();
-
-        processRacing(trialNumber);
-
-        OutputView.printWinner(racingCars.getWinners());
-
+        racingCars = new RacingCars(carNames);
     }
 
     private String[] getUserInputNames() {
@@ -33,19 +34,19 @@ public class RacingController {
         ValidateInput.isNotNullOrEmpty(input);
 
         String[] carNames = input.split(DELIMITER);
-        ValidateInput.isRightCarNames(carNames);
 
         return carNames;
     }
 
+
     private int getUserInputTrialNumber() {
         String input = InputView.inputTrialNumber();
         ValidateInput.isNotNullOrEmpty(input);
-        ValidateInput.isNumeric(input);
 
-        int trialNumber = Integer.parseInt(input);
-        return trialNumber;
+        ValidateInput.isNumeric(input);
+        return Integer.parseInt(input);
     }
+
 
     private void processRacing(int trialNumber) {
 
@@ -69,4 +70,7 @@ public class RacingController {
         OutputView.printEmptyLine();
     }
 
+    private void printWinnersName() {
+        OutputView.printWinner(racingCars.getWinners());
+    }
 }
