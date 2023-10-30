@@ -67,10 +67,15 @@ public class Application {
 
         int ans = validateTryCountIsNumber(answer);
 
+        validateTryCountValue(ans);
+
+        return ans;
+    }
+
+    private static void validateTryCountValue(int ans) {
         if (ans < 0) {
             throw new IllegalArgumentException("시도 횟수는 0번 이상이어야 합니다.");
         }
-        return ans;
     }
 
     private static int validateTryCountIsNumber(String answer) {
