@@ -6,9 +6,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
-import racingcar.constant.GameConstant;
 
 public class Name {
+
+    private static final Integer MIN_NAME_LENGTH = 1;
+    private static final Integer MAX_NAME_LENGTH = 5;
+    private static final String WHITE_SPACE_EXISTS_REGEX = ".*\\s.*";
 
     private final String name;
 
@@ -23,13 +26,13 @@ public class Name {
     }
 
     private void validateLength(String name) {
-        if (name.length() < GameConstant.MIN_NAME_LENGTH || name.length() > GameConstant.MAX_NAME_LENGTH) {
+        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("1글자 이상 5글자 이하의 이름을 입력해주세요.");
         }
     }
 
     private void validateNoWhiteSpace(String name) {
-        if (name.matches(GameConstant.WHITE_SPACE_EXISTS_REGEX)) {
+        if (name.matches(WHITE_SPACE_EXISTS_REGEX)) {
             throw new IllegalArgumentException("이름에 공백이 없도록 입력해주세요.");
         }
     }

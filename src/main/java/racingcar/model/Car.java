@@ -1,8 +1,10 @@
 package racingcar.model;
 
-import racingcar.constant.GameConstant;
-
 public class Car implements Comparable<Car> {
+
+    private static final String BETWEEN_NAME_AND_POSITION = " : ";
+    private static final String POSITION_UNIT = "-";
+    private static final int GOOD_TO_RUN = 4;
 
     private final Name name;
     private Position position;
@@ -13,11 +15,11 @@ public class Car implements Comparable<Car> {
     }
 
     public void run(int isGoodToRun) {
-        if (isGoodToRun >= GameConstant.GOOD_TO_RUN) {
+        if (isGoodToRun >= GOOD_TO_RUN) {
             position.add();
         }
     }
-    
+
     @Override
     public int compareTo(Car compareCar) {
         return position.value() - compareCar.getPosition();
@@ -25,8 +27,8 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        String currentStatus = name.toString() + ": "
-                + "-".repeat(position.value());
+        String currentStatus = getName() + BETWEEN_NAME_AND_POSITION
+                + POSITION_UNIT.repeat(getPosition());
 
         return currentStatus;
     }
