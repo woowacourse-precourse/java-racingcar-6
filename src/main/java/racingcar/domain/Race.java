@@ -14,10 +14,18 @@ public class Race {
 
     public void runOneRound(final Cars cars) {
         for (Car car : cars.cars()) {
-            int randomValue = RandomNumberGenerator.generateRandomNumber();
-            if (randomValue >= MIN_FORWARD_THRESHOLD) {
-                car.forward(ONE_STEP);
-            }
+            int randomValue = generateRandomValue();
+            forwardIfThresholdMet(car, randomValue);
+        }
+    }
+
+    private static int generateRandomValue() {
+        return RandomNumberGenerator.generateRandomNumber();
+    }
+
+    private static void forwardIfThresholdMet(Car car, int randomValue) {
+        if (randomValue >= MIN_FORWARD_THRESHOLD) {
+            car.forward(ONE_STEP);
         }
     }
 }
