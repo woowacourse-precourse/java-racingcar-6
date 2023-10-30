@@ -21,7 +21,7 @@ public class Controller {
     public void startGame() {
         String[] carsList = inputView.inputCarsName();
         trial = inputView.inputTrial();
-
+        carGenerator(carsList);
     }
 
     public void playGame() {
@@ -34,5 +34,12 @@ public class Controller {
         showWinner();
     }
 
+    public void carGenerator(String[] cars) {
+        for (int i = 0; i < cars.length; i++) {
+            Car car = new Car();
+            car.putName(cars[i]);
+            carsList.add(car);
+        }
+    }
 
 }
