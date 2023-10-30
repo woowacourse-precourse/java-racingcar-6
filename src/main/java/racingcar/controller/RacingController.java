@@ -12,18 +12,21 @@ public class RacingController {
     private static final InputView input = new InputView();
     private static final OutputView output = new OutputView();
     private static RacingGame game;
+    private static int tryCount;
 
     public static void run() {
+        startGame();
         playGame();
         endGame();
     }
 
-    private static void playGame() {
+    private static void startGame(){
         List<String> names = input.readCarNames();
-        int tryCount = input.readTryCount();
-
+        tryCount = input.readTryCount();
         game = new RacingGame(names, new JudgeWinnerImpl(), new RandomNumberGenerator());
+    }
 
+    private static void playGame() {
         output.printResultTitle();
 
         for (int i = 0; i < tryCount; i++) {
