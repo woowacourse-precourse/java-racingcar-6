@@ -2,13 +2,12 @@ package racingcar.domain;
 
 import java.util.Objects;
 
+import static racingcar.domain.CarSetting.*;
+
+
 public class Car implements Comparable<Car> {
 
-    private static final Integer MAX_NAME_LENGTH = 5;
-
-    private static final Integer INIT_POSITION = 0;
     private final MovingStrategy movingStrategy;
-
     private final String name;
     private int position;
 
@@ -42,7 +41,7 @@ public class Car implements Comparable<Car> {
         return new String(name);
     }
     private void validateNameLength(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
+        if (name.length() > MAX_NAME_LENGTH.getSetting()) {
             throw new IllegalArgumentException("[ERROR] 입력할 수 있는 이름의 글자수는 최대 5입니다.");
         }
     }
@@ -54,7 +53,7 @@ public class Car implements Comparable<Car> {
     }
 
     private void validateInitPosition(int position) {
-        if (position != INIT_POSITION) {
+        if (position != INIT_POSITION.getSetting()) {
             throw new IllegalArgumentException("[ERROR] 자동차의 시작 위치는 0입니다.");
         }
     }
