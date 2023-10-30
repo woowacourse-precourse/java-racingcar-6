@@ -1,5 +1,6 @@
 package racingcar.model.service;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,7 @@ public class InputService {
     public void checkLengthCarName(List<String> carNameList) {
         for (int i = 0; i < carNameList.size(); i++) {
             if (carNameList.get(i).length() > 5) {
+                Console.close();
                 throw new IllegalArgumentException("5자리 이상의 차 이름입니다.");
             }
         }
@@ -36,5 +38,15 @@ public class InputService {
             carNameMap.put(carNameList.get(i), 0);
         }
         return carNameMap;
+    }
+
+    public int validateNumberOfAttempts(String numberOfAttempts) {
+        try {
+            int number = Integer.parseInt(numberOfAttempts);
+            return number;
+        } catch (IllegalArgumentException e) {
+            Console.close();
+            throw new IllegalArgumentException();
+        }
     }
 }
