@@ -12,6 +12,7 @@ public class Race {
     public void advanceFullRound(int attempt) {
         for (int round = 0; round < attempt; round++) {
             advanceOneRound();
+            System.out.println();
         }
     }
 
