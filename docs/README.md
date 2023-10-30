@@ -33,12 +33,13 @@
            > 이러한 근거를 볼 때 데이터를 처음에 삽입 후 마지막에 데이터 정렬만 한 번 할 정적인 데이터를 관리할 때는 ArrayList가 적합하다고 판단된다.
 
     2. 생성자
-        1. _(String cars)_ : 문자열을 입력받아서 Car 객체를 생성, racingCar에 저장한다.
+        1. _(String cars)_ : splitNames를 실행합니다.
     3. 메서드
         1. playGame(int step) : 시도할 횟수를 입력받아 게임을 실행한다.
         2. executeStep() : 각 Car 객체에 대하여 moveRandom()을 실행한다.
         3. printStep() : 하나의 실행에 대하여 결과를 출력한다.
         4. printResult() : 레이싱 결과를 출력한다.
+        5. splitNames(String names) : 문자열을 입력받아서 Car 객체를 생성, racingCar에 저장한다.
 
 3. **ApplicationTest** : 각종 예외에 대하여 테스트 코드를 추가한다.
     1. 정상_테스트 : 예외가 발생하지 않은 경우에 대하여 테스트한다.
