@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameFunction {
+    UserInput userInput = new UserInput();
 
-    List<Car> makingCar(List<String> carNameList) {
+    List<Car> makingCar() {
+        List<String> carNameList = userInput.getCarNames();
         List<Car> carList = new ArrayList<>();
         for (String name : carNameList) {
             Car car = new Car(name);
@@ -36,7 +38,8 @@ public class GameFunction {
     }
 
 
-    void repeatGame(int turn, List<Car> carList) {
+    void repeatGame(List<Car> carList) {
+        int turn = userInput.getTurn();
         Print print = new Print();
         List<Boolean> carCanGo = randomGo(carList);
 
@@ -44,7 +47,6 @@ public class GameFunction {
             applyScore(carList, carCanGo);
             print.Score(carList);
         }
-
     }
 
     List<String> getWinner(List<Car> carList){
@@ -63,6 +65,4 @@ public class GameFunction {
         }
         return winnerName;
     }
-
-
 }

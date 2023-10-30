@@ -8,21 +8,16 @@ public class Application {
         UserInput userInput = new UserInput();
         GameFunction gameFunction = new GameFunction();
         Print print = new Print();
-
         List<Car> carList;
 
-        int turn;
-
         System.out.println(print.startingComment);
-        List<String> carNameList = userInput.getCarNames();
-        carList = gameFunction.makingCar(carNameList);
+        carList = gameFunction.makingCar();
 
         System.out.println(print.askHowManyTurn);
-        turn = userInput.getTurn();
         System.out.println();
 
         System.out.println(print.resultComment);
-        gameFunction.repeatGame(turn, carList);
+        gameFunction.repeatGame(carList);
         print.Winner(carList);
     }
 }
