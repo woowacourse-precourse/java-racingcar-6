@@ -44,13 +44,13 @@ public class CarService {
         return condition >= STANDARD_FOR_GO;
     }
 
-    public List<Integer> decideWinner() {
+    public List<Car> decideWinner() {
         int max = getMaxPosition();
 
-        List<Integer> winnerIndex = new ArrayList<>();
+        List<Car> winnerIndex = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             if (cars.get(i).getPosition() == max) {
-                winnerIndex.add(i);
+                winnerIndex.add(cars.get(i));
             }
         }
         return winnerIndex;

@@ -40,7 +40,7 @@ public class RacingcarController {
     }
 
     public void endGame() {
-
+        outputView.outputFinalWinner(carsToDto(carService.decideWinner()));
     }
 
     // 제거 필요
