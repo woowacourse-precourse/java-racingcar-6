@@ -1,14 +1,15 @@
 package racingcar.controller;
 
-import racingcar.config.Config;
 import racingcar.service.CarService;
 import racingcar.service.GameService;
 import racingcar.view.PrintView;
 
 public class GameController {
-    PrintView printView = new PrintView();
-    GameService gameService = new GameService();
-    CarService carService = new CarService();
+    private final PrintView printView = new PrintView();
+    private final GameService gameService = new GameService();
+    private final CarService carService = new CarService();
+
+
 
     public void play() {
         inputCarNameProcessing();
@@ -28,6 +29,7 @@ public class GameController {
     }
 
     public void carsProcessing() {
+        printView.carForwardStartView();
         for (int i = 0; i < gameService.tryNum; i++) {
             carService.carForward(gameService.carList);
             printView.carForwardView(gameService.carList);
