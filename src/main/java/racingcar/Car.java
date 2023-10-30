@@ -1,11 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Car {
     private Output output;
@@ -16,7 +14,7 @@ public class Car {
 
     public void move(List<String> carNames, int movingNumber) {
         Map<String, Integer> carNameAndMoving = listToMap(carNames);
-
+        System.out.println("실행 결과");
         while (movingNumber > 0) {
             moveCars(carNames, carNameAndMoving);
             output.printRacingProcess(carNameAndMoving);
@@ -26,10 +24,12 @@ public class Car {
     }
 
     private Map<String, Integer> listToMap(List<String> carNames) {
-        return carNames.stream().collect(Collectors.toMap(
-                carName -> carName,
-                carName -> 0
-        ));
+        Map<String, Integer> carNameAndMoving = new LinkedHashMap<>();
+
+        for (String carName : carNames) {
+            carNameAndMoving.put(carName, 0);
+        }
+        return carNameAndMoving;
     }
 
     private void moveCars(List<String> carNames, Map<String, Integer> carNameAndMoving) {
