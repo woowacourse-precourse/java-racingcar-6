@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class GameManager {
 
     private static GameManager gameManager;
@@ -14,6 +16,7 @@ public class GameManager {
     }
 
     public void startGame() {
-
+        List<String> nameList = IOManager.getInstance().readCarNameList();
+        Cars cars = new Cars(nameList);
     }
 }
