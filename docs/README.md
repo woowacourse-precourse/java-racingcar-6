@@ -26,7 +26,7 @@
 - [x] 자동차 전진 함수 - moveForward()
   - [x] 0 ~ 9 사이의 수를 랜덤으로 생성하기
   - [x] 생성한 숫자가 4 이상이면 이동거리 1 증가시키기
-#### 자동차 목록
+#### 자동차 목록(Cars)
 - [x] 자동차 목록 생성
 - [x] 자동차 목록에 자동차 추가
 - [ ] 라운드 결과 알려주는 함수
@@ -50,7 +50,7 @@
     - [x] 이름이 5자 이상인 경우 - Car의 validateInputSize()
     - [x] 자동차가 1대인 경우 - InputView의 validateInputCount()
     - [x] 이름을 구분하는 기준이 쉼표가 아닌 경우 - InputView의 validateInputWithSeparator()
-    - [ ] 같은 이름이 있는 경우
+    - [x] 같은 이름이 있는 경우 - Cars의 validateDuplicateName()
   - 시도 횟수 입력
     - [ ] 시도 횟수가 공백일 경우
     - [ ] 시도 횟수에 숫자가 아닌 다른 값이 들어오는 경우

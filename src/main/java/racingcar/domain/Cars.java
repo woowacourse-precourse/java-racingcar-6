@@ -8,8 +8,17 @@ public class Cars {
 
     public Cars(List<String> carNames) {
         this.carList = new ArrayList<>();
+        validateDuplicateName(carNames);
         for (String name: carNames) {
             carList.add(new Car(name));
+        }
+    }
+
+    private final static String DUPLICATE_INPUT = "자동차 이름이 중복입니다.";
+
+    private void validateDuplicateName(List<String> names) {
+        if (names.size() != names.stream().distinct().count()) {
+            throw new IllegalArgumentException(DUPLICATE_INPUT);
         }
     }
 }
