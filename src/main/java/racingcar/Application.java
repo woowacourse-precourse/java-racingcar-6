@@ -98,8 +98,8 @@ public class Application {
     }
 
     public static void InputNameCheck(){
-        for( int i=0; i<carNameList.length; i++){
-            NameCheck(carNameList[i]);
+        for(String carName : carNameList){
+            NameCheck(carName);
         }
     }
 
