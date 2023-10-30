@@ -21,5 +21,20 @@ public class GamePlayer {
                 OutputView.printResult(cars.get(j), cars.get(j).getDistance());
             }
         }
+        System.out.println(findFurthestMovedCar().getName());
+    }
+
+    public Car findFurthestMovedCar() {
+        Car furthestMovedCar = null;
+        for (int i = 0; i < cars.size() - 1; i++) {
+            int firstPlace = cars.get(i).compareTo(cars.get(i + 1));
+            if (firstPlace > 0) {
+                furthestMovedCar = cars.get(i);
+            }
+            if (firstPlace <= 0) {
+                furthestMovedCar = cars.get(i + 1);
+            }
+        }
+        return furthestMovedCar;
     }
 }

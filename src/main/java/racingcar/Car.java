@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Car {
+public class Car implements Comparable<Car> {
     public static final String ONE_STEP = "-";
 
     private final String name;
-    private List<String> distance = new ArrayList<>();
+    private final List<String> distance = new ArrayList<>();
 
     public Car(String name) {
         this.name = name;
@@ -20,12 +20,13 @@ public class Car {
         }
     }
 
-    public void findLongestDistance() {
+    public void findWinners() {
 
     }
 
-    public void findWinners() {
-
+    @Override
+    public int compareTo(Car o) {
+        return this.distance.size() - o.distance.size();
     }
 
     public String getName() {
