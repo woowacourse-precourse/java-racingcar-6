@@ -23,6 +23,8 @@
                 - [x] 소수점 x
                 - [x] 소문자, 대문자 구분 없이 a 부터 f를 제외한 나머지 문자
         - [x] 잘못 입력했을 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
+    - [x] 정수를 통해 생성된 자연수 입력 값 검증
+
 
 ---
 
@@ -62,11 +64,11 @@
         - [ ] start와 end내에 임의의 숫자로 PositiveNumber 객체 생성
 
 ### PositiveNumber 구현
-- [ ] PositiveNumber 구현
-    - [ ] 문자열을 통해 생성 가능
-        - [ ] 0과 자연수 들어올 수 있도록 검증
-    - [ ] 일반 Integer를 넣어서도 생성 가능
-        - [ ] 0과 자연수 들어올 수 있도록 검증
+- [x] PositiveNumber 구현
+    - [x] 문자열을 통해 생성 가능
+        - [X] 0과 자연수 들어올 수 있도록 검증
+    - [x] 일반 Integer를 넣어서도 생성 가능
+        - [x] 0과 자연수 들어올 수 있도록 검증
     - [ ] compareTo() 구현
     - [ ] increase() 구현
     - [ ] decrease() 구현

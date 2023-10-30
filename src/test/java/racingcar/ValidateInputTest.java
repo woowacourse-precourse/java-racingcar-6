@@ -88,4 +88,26 @@ class ValidateInputTest {
                                                 .hasMessageContaining("[ERROR]"));
         }
 
+        @CsvSource({"123",
+                    "203949",
+                    "555555",})
+        @ParameterizedTest
+        void 정수_입력값_자연수_검증_성공(Integer input) {
+                assertSimpleTest(
+                                () -> assertThatCode(() -> ValidateInput.validatePositiveNumberFromInteger(input))
+                                                .doesNotThrowAnyException());
+        }
+
+
+        @CsvSource({"-123",
+                    "-1000"})
+        @ParameterizedTest
+        void 정수_입력값_자연수_검증_실패(Integer input) {
+                assertSimpleTest(
+                                () -> assertThatThrownBy(() -> ValidateInput.validatePositiveNumberFromInteger(input))
+                                                .isInstanceOf(IllegalArgumentException.class)
+                                                .hasMessageContaining("[ERROR]"));
+        }
+
+        
 }
