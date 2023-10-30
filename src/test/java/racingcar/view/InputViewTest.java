@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InputViewTest {
     @Test
-    void 사용자_자동차_이름_입력_테스트(){
+    void 사용자_자동차_이름_입력_테스트() {
         InputView inputView = new InputView();
 
         String input = "car1,car2,car3";
@@ -26,7 +26,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 사용자_자동차_이름_입력_예외_테스트1(){
+    void 사용자_자동차_이름_입력_예외_테스트1() {
         InputView inputView = new InputView();
 
         String input = "car1,car2/car3";
@@ -39,7 +39,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 사용자_자동차_이름_입력_예외_테스트2(){
+    void 사용자_자동차_이름_입력_예외_테스트2() {
         InputView inputView = new InputView();
 
         String input = "car1,car2345,차";
@@ -52,7 +52,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 사용자_자동차_이름_입력_예외_테스트3(){
+    void 사용자_자동차_이름_입력_예외_테스트3() {
         InputView inputView = new InputView();
 
         String input = "car1,car45,car1";
@@ -65,7 +65,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 사용자_자동차_이름_입력_예외_테스트4(){
+    void 사용자_자동차_이름_입력_예외_테스트4() {
         InputView inputView = new InputView();
 
         String input = "car1";
@@ -78,7 +78,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 시도_횟수_사용자_입력_테스트1(){
+    void 시도_횟수_사용자_입력_테스트1() {
         InputView inputView = new InputView();
 
         String input = "+12";
@@ -91,7 +91,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 시도_횟수_사용자_입력_테스트(){
+    void 시도_횟수_사용자_입력_테스트() {
         InputView inputView = new InputView();
 
         String input = "12";
@@ -104,7 +104,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 시도_횟수_사용자_입력_예외_테스트1(){
+    void 시도_횟수_사용자_입력_예외_테스트1() {
         InputView inputView = new InputView();
 
         String input = "-12";
@@ -117,7 +117,7 @@ public class InputViewTest {
     }
 
     @Test
-    void 시도_횟수_사용자_입력_예외_테스트2(){
+    void 시도_횟수_사용자_입력_예외_테스트2() {
         InputView inputView = new InputView();
 
         String input = "12$";
