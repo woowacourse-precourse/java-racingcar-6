@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 class CarPositionTest {
 
     @Test
-    void 자동차_위치를_초기화하면_0위치값을_갖는다() {
+    void 자동차_위치를_초기화하면_초기_위치값을_갖는다() {
         CarPosition actualPosition = CarPosition.initialPosition();
         CarPosition expectedPosition = new CarPosition(0);
 
@@ -35,14 +35,33 @@ class CarPositionTest {
     }
 
     @Test
-    void 자동차_위치값은_내부값으로_크기를_비교할_수_있다() {
-        CarPosition carPosition = new CarPosition(1);
-        CarPosition otherCarPosition = new CarPosition(2);
-        int expectedCompareResult = -1;
+    void 두_자동차_위치_값을_비교할때_첫번째_위치가_작다면_음수를_반환한다() {
+        CarPosition smallerPosition = new CarPosition(1);
+        CarPosition largerPosition = new CarPosition(2);
 
-        int actualCompareResult = carPosition.compareTo(otherCarPosition);
+        int result = smallerPosition.compareTo(largerPosition);
 
-        assertThat(actualCompareResult).isEqualTo(expectedCompareResult);
+        assertThat(result).isNegative();
+    }
+
+    @Test
+    void 두_자동차_위치_값을_비교할때_서로_같다면_0을_반환한다() {
+        CarPosition firstPosition = new CarPosition(1);
+        CarPosition secondPosition = new CarPosition(1);
+
+        int result = firstPosition.compareTo(secondPosition);
+
+        assertThat(result).isZero();
+    }
+
+    @Test
+    void 두_자동차_위치_값을_비교할때_첫번째_위치가_큰다면_양수를_반환한다() {
+        CarPosition largerPosition = new CarPosition(2);
+        CarPosition smallerPosition = new CarPosition(1);
+
+        int result = largerPosition.compareTo(smallerPosition);
+
+        assertThat(result).isPositive();
     }
 
     @Test
@@ -51,5 +70,21 @@ class CarPositionTest {
         CarPosition expectedCarPosition = new CarPosition(1);
 
         assertThat(actualCarPosition).isEqualTo(expectedCarPosition);
+    }
+
+    @Test
+    void 자동차_위치_값이_서로_다르면_다른_객체로_판단한다() {
+        CarPosition actualCarPosition = new CarPosition(1);
+        CarPosition expectedCarPosition = new CarPosition(2);
+
+        assertThat(actualCarPosition).isNotEqualTo(expectedCarPosition);
+    }
+
+    @Test
+    void 자동차_위치_값이_서로_같으면_동일한_hashcode를_가진다() {
+        CarPosition actualCarPosition = new CarPosition(1);
+        CarPosition expectedCarPosition = new CarPosition(1);
+
+        assertThat(actualCarPosition.hashCode()).isEqualTo(expectedCarPosition.hashCode());
     }
 }
