@@ -15,26 +15,22 @@ public class RacingCars {
     public RacingCars(String[] carNames) {
         racingCars = new ArrayList<>();
 
-
         for (String carName : carNames) {
             racingCars.add(new RacingCar(carName));
         }
     }
 
     public void moveCars() {
+        List<Result> results = new ArrayList<>();
+
         for (RacingCar racingCar : racingCars) {
             racingCar.move(Randoms.pickNumberInRange(START_NUM, END_NUM));
-        }
-    }
-
-    public List<String> reportResults() {
-
-        List<String> results = new ArrayList<>();
-
-        for (RacingCar racingCar : racingCars) {
-            results.add(racingCar.reportResult());
+            results.add(racingCar.makeResult());
         }
 
-        return results;
+        for (Result result : results) {
+            System.out.println(result);
+        }
+        System.out.println();
     }
 }
