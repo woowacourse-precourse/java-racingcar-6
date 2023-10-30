@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.utils.AttemptCountsInputValidator;
 import racingcar.utils.CarNamesInputValidator;
 
 public class Input {
@@ -10,7 +11,9 @@ public class Input {
         return carNamesInput;
     }
 
-    public long inputAttemptCounts() {
-        return Long.parseLong(Console.readLine());
+    public int inputAttemptCounts() {
+        String attemptCounts = Console.readLine();
+        AttemptCountsInputValidator.validate(attemptCounts);
+        return Integer.parseInt(attemptCounts);
     }
 }
