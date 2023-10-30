@@ -12,4 +12,10 @@ class CarNameTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    public void 이름에_빈_문자입력시_예외(){
+        assertThatThrownBy(()->new CarName(""))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
