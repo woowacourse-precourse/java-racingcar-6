@@ -2,13 +2,18 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.RandomNumber;
 
 public class Race {
     private List<Car> racingCars;
 
-    public Race(List<Car> racingCars) {
-        this.racingCars = racingCars;
+    private Race(Cars racingCars) {
+        this.racingCars = racingCars.getRacingCars();
+    }
+
+    public static Race createRace(Cars racingCars) {
+        return new Race(racingCars);
     }
 
     public void run() {
@@ -17,7 +22,7 @@ public class Race {
             if (number.isMovable()) {
                 car.move();
             }
-            System.out.println(car.getStatus());
+            System.out.println(car.getStatusString());
         }
     }
 }
