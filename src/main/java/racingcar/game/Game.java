@@ -51,6 +51,11 @@ public class Game {
 
         for (String user : users) {
             String removeSpace = user.trim();
+
+            if (user.isEmpty()){
+                continue;
+            }
+
             if (checkNameLength(removeSpace)) {
                 playerList.add(new Player(removeSpace));
             } else {
@@ -62,7 +67,7 @@ public class Game {
     }
 
     private boolean checkNameLength(String name) {
-        if (name.length() <= 5 && name.length() >= 1) {
+        if (name.length() <= 5) {
             return true;
         }
         return false;
