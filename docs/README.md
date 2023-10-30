@@ -27,11 +27,11 @@
 ## 기능을 할당받는 클래스 설계
 
 - RacingStadium : 1번 기능, 11번 기능
-- CarFactory : 2번 기능, 3번 기능
+- CarFactory : 3번 기능
 - Car : 6번 기능, 12번 기능
 - RandomNumberGenerator : 4번 기능
 - NumberComparator : 5번 기능
 - SystemConstant : 7번 기능
 - SystemMessage : 8번 기능
-- InputView : 2번 기능 with CarFactory
+- InputView : 2번 기능
 - OutputView : 9번 기능, 10번 기능
