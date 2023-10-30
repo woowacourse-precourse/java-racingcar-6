@@ -12,4 +12,12 @@ public class CarDto {
     public static CarDto of(String name, int position) {
         return new CarDto(name, position);
     }
+
+    public String name() {
+        return name;
+    }
+
+    public int position() {
+        return position;
+    }
 }
