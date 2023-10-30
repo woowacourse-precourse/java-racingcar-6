@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 public class Application {
     public static void main(String[] args) {
         System.out.println(Printer.REQUEST_NAME);
-        List<String> cars = Scanner.getNames();
+        List<String> cars = Scanner.extractNames(Console.readLine());
 
         System.out.println(Printer.REQUEST_ROUND);
         int round = Scanner.getRound();

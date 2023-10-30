@@ -5,11 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Scanner {
-    public static List<String> getNames() {
-        String input = Console.readLine();
-        validateEmpty(input);
+    public static List<String> extractNames(String line) {
+        validateEmpty(line);
 
-        List<String> cars = Arrays.stream(input.split(","))
+        List<String> cars = Arrays.stream(line.split(","))
                         .toList();
         validateRange(cars);
         return cars;
