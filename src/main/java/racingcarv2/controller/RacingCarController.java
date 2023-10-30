@@ -1,5 +1,6 @@
 package racingcarv2.controller;
 
+import java.util.stream.IntStream;
 import racingcarv2.model.RacingCars;
 import racingcarv2.model.RoundTotal;
 import racingcarv2.util.converter.StringToCarList;
@@ -15,6 +16,7 @@ public class RacingCarController {
     private void registerInformation() {
         RacingCars racingCars = getCarsByNames();
         RoundTotal roundTotal = getRoundTotal();
+        displayRacingStatus(roundTotal, racingCars);
     }
 
     private RacingCars getCarsByNames() {
@@ -28,6 +30,9 @@ public class RacingCarController {
     }
 
     private void displayRacingStatus(RoundTotal roundTotal, RacingCars racingCars) {
+        OutputView.printRoundStatus();
+        IntStream.range(0, roundTotal.getRoundTotalValue())
+                .forEach((num) -> OutputView.printEachRound(racingCars.moveAllCars()));
     }
 
     private void displayWinner(RacingCars racingCars) {

@@ -33,7 +33,7 @@ public class IOTest {
         System.setIn(inputStream);
     }
 
-    private String output() {
-        return captor.toString().replaceAll(" ", "");
+    public String output() {
+        return captor.toString();
     }
 }

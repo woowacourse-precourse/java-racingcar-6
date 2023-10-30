@@ -124,13 +124,12 @@
     - [x] **예외 처리** throw new IllegalArgumentException
 
 - 라운드 별 RacingCars의 distance 상태를 표현한다 displayRacingStatus()
-  - [ ] OutputView - "실행 결과"를 우선 출력하고 규칙에 따라 각 Car의 이름과 distance를 출력한다
-    - [ ] model에서 RacingCars, Round 정보를 조회한다 
-    - [ ] Round의 round 회수 만큼 동일한 규칙에 맞게 출력한다 (ex $name : --)
-      - [ ] round마다 RacingCars를 구성하는 Car는 랜덤으로 생성되는 수를 전달받아 전진 여부를 결정한다
-      - [ ] RacingCars를 구성하는 Car의 이름을 출력한다
-      - [ ] Car의 distance 만큼 '-'를 반복해서 출력한다 
-      - [ ] round 종료될 때까지 위의 순서를 반복한다 
+  - [x] OutputView - "실행 결과"를 우선 출력하고 규칙에 따라 각 Car의 이름과 distance를 출력한다
+    - [x] Round의 round 회수 만큼 동일한 규칙에 맞게 출력한다 (ex $name : --)
+      - [x] round마다 RacingCars를 구성하는 Car는 랜덤으로 생성되는 수를 전달받아 전진 여부를 결정한다
+      - [x] RacingCars를 구성하는 Car의 이름을 출력한다
+      - [x] Car의 distance 만큼 '-'를 반복해서 출력한다 
+      - [x] round 종료될 때까지 위의 순서를 반복한다 
 
 - 라운드를 마치고 최종 우승자를 출력한다 displayWinner()
   - [ ] OutputView : "최종 우승자 :" 를 출력한다
