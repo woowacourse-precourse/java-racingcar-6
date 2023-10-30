@@ -1,34 +1,36 @@
 package racingcar.domain;
 
+import racingcar.utils.Util;
+
 public class Car implements Comparable<Car> {
     private String name;
-    private int movedCount;
+    private int position;
 
     public Car(String name) {
         this.name = name;
-        this.movedCount = 0;
+        this.position = 0;
     }
 
-    public void move(int strength) {
-        if (strength >= 4) {
-            this.movedCount++;
+    public void move() {
+        if (Driver.pressAccelerator() >= 4) {
+            this.position++;
         }
     }
 
     @Override
     public int compareTo(Car otherCar) {
-        return this.movedCount - otherCar.movedCount;
+        return this.position - otherCar.position;
     }
 
     public boolean isSamePosition(Car otherCar) {
-        return this.movedCount == otherCar.movedCount;
+        return this.position == otherCar.position;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getPosition() {
-        return name + "," + movedCount;
+    public String getCurrentPosition() {
+        return name + " : " + Util.dashGenerator(position);
     }
 }
