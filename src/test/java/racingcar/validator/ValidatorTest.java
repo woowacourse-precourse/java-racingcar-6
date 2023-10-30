@@ -8,8 +8,7 @@ import racingcar.message.ExceptionMessage;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ValidatorTest extends NsTest {
 
@@ -20,12 +19,11 @@ public class ValidatorTest extends NsTest {
         List<String> carNames = new ArrayList<>(List.of("Test1", "Test1", "Test2"));
 
         //when
-        Throwable exception = assertThrows(RuntimeException.class, () -> {
-            Validator.validateCarNames(carNames);
-        });
 
         //then
-        assertEquals(ExceptionMessage.NOT_DUPLICATE_NAME, exception.getMessage());
+        assertThatThrownBy(() -> Validator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.NOT_DUPLICATE_NAME);
 
     }
 
@@ -36,12 +34,11 @@ public class ValidatorTest extends NsTest {
         List<String> carNames = new ArrayList<>(List.of("Test1", "", "Test3"));
 
         //when
-        Throwable exception = assertThrows(RuntimeException.class, () -> {
-            Validator.validateCarNames(carNames);
-        });
 
         //then
-        assertEquals(ExceptionMessage.NOT_EMPTY_AND_BLANK, exception.getMessage());
+        assertThatThrownBy(() -> Validator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.NOT_EMPTY_AND_BLANK);
     }
 
     @Test
@@ -51,12 +48,11 @@ public class ValidatorTest extends NsTest {
         List<String> carNames = new ArrayList<>(List.of("TestTest1", "Test2", "Test3"));
 
         //when
-        Throwable exception = assertThrows(RuntimeException.class, () -> {
-            Validator.validateCarNames(carNames);
-        });
 
         //then
-        assertEquals(ExceptionMessage.NOT_MORE_THAN_FIVE, exception.getMessage());
+        assertThatThrownBy(() -> Validator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ExceptionMessage.NOT_MORE_THAN_FIVE);
     }
 
     @Override
