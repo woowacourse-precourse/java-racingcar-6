@@ -4,19 +4,15 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private String name;
-    private int move;
-    private int totalMove;
+    private int totalMove = 0;
 
-    public void randomNumber() {
-        this.move = Randoms.pickNumberInRange(0, 9);
+    public int randomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
-    public boolean moveForward() {
-        if (this.move >= 4) {
+    public void moveForward(int randNum) {
+        if (randNum >= 4) {
             this.totalMove++;
-            return true;
-        } else {
-            return false;
         }
     }
 
@@ -27,5 +23,7 @@ public class Car {
     public String getName() {
         return this.name;
     }
+
+    public int getTotalMove(){ return this.totalMove; }
 
 }
