@@ -30,4 +30,10 @@ public class OutputMessage {
             System.out.println(result);
         }
     }
+
+    public static void racePrint(List<String> raceSituation){
+        for(String result : raceSituation){
+            System.out.println(result);
+        }
+    }
 }
