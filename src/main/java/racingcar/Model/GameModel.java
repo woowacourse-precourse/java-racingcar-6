@@ -1,5 +1,6 @@
 package racingcar.Model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Domain.CarGroup;
 
 public class GameModel {
@@ -8,6 +9,7 @@ public class GameModel {
     }
 
     public Boolean determineMove(){
-        return null;
+        int number = Randoms.pickNumberInRange(0, 9);
+        return number >= 4;
     }
 }
