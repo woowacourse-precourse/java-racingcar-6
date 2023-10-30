@@ -13,25 +13,28 @@ public class RacingCarGame {
     private NumberGenerator generator;
     private InputView inputView;
     private OutputView outputView;
+    private Cars cars;
+    private int roundNumber;
 
     public RacingCarGame(GameConfig gameConfig) {
         this.gameConfig = gameConfig;
-        init();
     }
 
     public void run() {
-        String names = readCarNamesFromUser();
-        Cars cars = generateCars(names);
-        int roundNumber = readGameRoundFromUser();
-        outputView.printResultMessage();
-        raceByRoundNumber(roundNumber, cars);
-        judgeWinner(cars);
+        setGame();
+        readUserInput();
+        playAllRound();
     }
 
-    private void init() {
+    private void setGame() {
         generator = gameConfig.numberGenerator();
         inputView = gameConfig.inputView();
         outputView = gameConfig.outputView();
+    }
+
+    private void readUserInput() {
+        cars = generateCars(readCarNamesFromUser());
+        roundNumber = readGameRoundFromUser();
     }
 
     private String readCarNamesFromUser() {
@@ -39,27 +42,33 @@ public class RacingCarGame {
         return inputView.readCarNames();
     }
 
+    private Cars generateCars(String names) {
+        return new Cars(names);
+    }
+
     private int readGameRoundFromUser() {
         outputView.printRequestGameRound();
         return inputView.readGameRound();
     }
 
-    private Cars generateCars(String names) {
-        return new Cars(names);
+    private void playAllRound() {
+        outputView.printResultMessage();
+        raceByRoundNumber();
+        judgeWinner();
     }
 
-    private void raceByRoundNumber(int roundNumber, Cars cars) {
+    private void raceByRoundNumber() {
         for (int i = 0; i < roundNumber; i++) {
-            List<Integer> numbers = generateNumbers(cars.size());
+            List<Integer> numbers = generateRandomNumbers();
             Round round = generateRound(numbers, cars);
             round.race();
             outputView.printRoundResult(round.getResult());
         }
     }
 
-    private List<Integer> generateNumbers(int size) {
+    private List<Integer> generateRandomNumbers() {
         return IntStream.generate(() -> generator.generate())
-                .limit(size)
+                .limit(cars.size())
                 .boxed()
                 .collect(Collectors.toList());
     }
@@ -68,7 +77,7 @@ public class RacingCarGame {
         return new Round(numbers, cars);
     }
 
-    private void judgeWinner(Cars cars) {
+    private void judgeWinner() {
         Winner winner = new Winner(cars);
         outputView.printGameWinner(winner.toString());
     }
