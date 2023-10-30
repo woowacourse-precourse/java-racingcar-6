@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
@@ -46,6 +47,18 @@ public class GameService {
             }
             System.out.println();
         }
+    }
+
+    private List<String> findWinner() {
+        int maxPosition = carList.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .get()
+                .getPosition();
+
+        return carList.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private List<String> convertStrToList(String userInput) {
