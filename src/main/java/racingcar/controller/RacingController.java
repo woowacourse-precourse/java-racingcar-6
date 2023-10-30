@@ -17,6 +17,7 @@ import java.util.stream.IntStream;
 public class RacingController {
 
     private Cars cars;
+
     public void runGame() {
         startGame();
         playGame();
