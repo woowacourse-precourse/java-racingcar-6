@@ -24,9 +24,13 @@ public class Application {
         TargetScore targetScore = targetScoreForm();
     }
 
+    private static void race(List<String> racerNameList,TargetScore targetScore){
+
+    }
+
     private static List<String> racerNameForm(){
         String racerNameListInput = InputTool.readLineByConsole();
-        List<String> racerNameList = Arrays.asList(racerNameListInput.split(" "));
+        List<String> racerNameList = Arrays.asList(racerNameListInput.split(","));
         validateRacerNameList(racerNameListInput);
         validateRacerName(racerNameList);
         return racerNameList;
