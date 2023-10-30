@@ -17,7 +17,7 @@ public class Race {
     private static String START_STRING = "실행 결과";
     private static String WINNER_TEMPLATE  = "최종 우승자 : ";
 
-    private static String CAR_NAME_REGEX = "[a-zAA-Z]+(,[a-zA-Z]+)*";
+    private static String CAR_NAME_REGEX = "[a-zAA-Z]{1,5}(,[a-zA-Z]{1,5})*";
 
     public Race() {
         init();
@@ -68,9 +68,11 @@ public class Race {
             ExceptionHandler.inputException();
         }
 
-        Arrays.stream(carNamesString.split(",")).toList().forEach( carName ->
-                carList.add(new Car(carName))
-        );
+        Arrays.stream(carNamesString.split(",")).toList().forEach( carName -> {
+            if(!carName.isEmpty()) {
+                carList.add(new Car(carName));
+            }
+        });
     }
 
     private void getMoveCount() {
