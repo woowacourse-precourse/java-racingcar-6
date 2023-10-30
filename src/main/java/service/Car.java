@@ -1,11 +1,19 @@
 package service;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car{
-    private String name;
+    private final String name;
     private int distance = 0;
 
     public Car(String name) {
         this.name = name;
+    }
+
+    public void go(){
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            distance++;
+        }
     }
 
     public String getName() {
@@ -15,5 +23,4 @@ public class Car{
     public int getDistance() {
         return distance;
     }
-
 }
