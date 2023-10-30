@@ -45,16 +45,16 @@
 <img src="racing flow.png">
 
 ## 🗣️ 요구 사항
-- [ ] JDK 17 버전에서 실행 가능해야 한다.
-- [ ] Java 코드 컨벤션 가이드를 준수하며 프로그래밍한다.
-- [ ] 프로그램 종료 시 System.exit()를 호출하지 않는다.
-- [ ] 프로그램 구현이 완료되면 ApplicationTest의 모든 테스트가 성공해야 한다.
-- [ ] 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않는다.
-- [ ] `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms` 및 `Console` API를 사용하여 구현해야 한다.
+- [x] JDK 17 버전에서 실행 가능해야 한다.
+- [x] Java 코드 컨벤션 가이드를 준수하며 프로그래밍한다.
+- [x] 프로그램 종료 시 System.exit()를 호출하지 않는다.
+- [x] 프로그램 구현이 완료되면 ApplicationTest의 모든 테스트가 성공해야 한다.
+- [x] 프로그래밍 요구 사항에서 달리 명시하지 않는 한 파일, 패키지 이름을 수정하거나 이동하지 않는다.
+- [x] `camp.nextstep.edu.missionutils`에서 제공하는 `Randoms` 및 `Console` API를 사용하여 구현해야 한다.
   - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
   - 사용자가 입력하는 값은 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용한다.
-- [ ] 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
-- [ ] indent depth를 2까지만 허용한다.
-- [ ] 3항 연산자를 쓰지 않는다. 
-- [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만든다. 
-- [ ] 구현한 기능이 정상 동작함을 테스트 코드로 확인한다.
+- [x] 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
+- [x] indent depth를 2까지만 허용한다.
+- [x] 3항 연산자를 쓰지 않는다. 
+- [x] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만든다. 
+- [x] 구현한 기능이 정상 동작함을 테스트 코드로 확인한다.
