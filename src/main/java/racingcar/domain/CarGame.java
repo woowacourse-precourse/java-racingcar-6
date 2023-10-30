@@ -3,7 +3,6 @@ package racingcar.domain;
 import racingcar.dto.CarDTO;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class CarGame {
 
@@ -23,8 +22,8 @@ public class CarGame {
         CarDTO.ProgressResult progressResult = new CarDTO.ProgressResult(new ArrayList<>());
 
         for (int i = 0; gameRound.isRunning(i); i++) {
-            Map<String, Integer> status = cars.goForward();
-            progressResult.addResult(status);
+            cars.goForward();
+            progressResult.addResult(cars.getStatus());
         }
 
         return progressResult;

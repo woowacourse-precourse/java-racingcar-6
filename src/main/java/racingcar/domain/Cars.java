@@ -21,9 +21,7 @@ public class Cars {
 
     public static Cars createByNames(List<CarName> carNames) {
 
-        List<Car> cars = carNames.stream()
-                .map(Car::new)
-                .toList();
+        List<Car> cars = carNames.stream().map(Car::new).toList();
 
         validateDuplication(cars);
         validateExist(cars);
@@ -45,24 +43,21 @@ public class Cars {
         }
     }
 
-    public Map<String, Integer> goForward() {
-        Map<String, Integer> status = new LinkedHashMap<>();
-
-        cars.forEach(car -> {
-            car.goForward(Randoms.pickNumberInRange(0, 9));
-            status.put(car.getCarName(), car.getPosition());
-        });
-
-        return status;
+    public void goForward() {
+        cars.forEach(car -> car.goForward(Randoms.pickNumberInRange(0, 9)));
     }
 
     public List<String> getWinningCarNames() {
-        Car winnerCar = cars.stream().max(Car::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException(NO_WINNER));
+        Car winnerCar = cars.stream().max(Car::compareTo).orElseThrow(() -> new IllegalArgumentException(NO_WINNER));
 
-        return cars.stream()
-                .filter(car -> car.isEqualPosition(winnerCar))
-                .map(Car::getCarName)
-                .collect(Collectors.toList());
+        return cars.stream().filter(car -> car.isEqualPosition(winnerCar)).map(Car::getCarName).collect(Collectors.toList());
+    }
+
+    public Map<String, Integer> getStatus() {
+        Map<String, Integer> status = new LinkedHashMap<>();
+
+        cars.forEach(car -> status.put(car.getCarName(), car.getPosition()));
+
+        return status;
     }
 }
