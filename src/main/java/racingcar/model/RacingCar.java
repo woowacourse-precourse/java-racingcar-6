@@ -2,7 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import static racingcar.global.RacingCarGameConfig.*;
+import static racingcar.contant.RacingCarGameConfig.*;
 
 public class RacingCar {
     public String name;
