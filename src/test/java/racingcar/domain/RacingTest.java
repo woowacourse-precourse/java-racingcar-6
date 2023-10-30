@@ -98,5 +98,24 @@ class RacingTest {
         };
     }
 
-    //TODO 최종 우승자 선정 테스트 작성
+    @Test
+    void 최종_우승자_선정() throws Exception {
+        // given
+        Racing racing = new Racing();
+        racing.generateCars(List.of("Car A", "Car B", "Car C"));
+
+        Car carA = racing.getCars().get(0);
+        carA.moveForward();
+        Car carC = racing.getCars().get(2);
+        carC.moveForward();
+
+        // when
+        List<Car> winingCars = racing.getWiningCars();
+
+        // then
+        Assertions.assertAll(
+                () -> assertThat(winingCars).hasSize(2),
+                () -> assertThat(winingCars).containsAll(List.of(carA, carC))
+        );
+    }
 }
