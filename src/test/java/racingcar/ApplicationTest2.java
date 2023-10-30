@@ -62,6 +62,23 @@ public class ApplicationTest2 extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("전체 게임 진행에 대한 테스트")
+    void game_Test() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("kim,min,je", "2");
+                    assertThat(output()).contains(
+                            "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)",
+                            "시도할 회수는 몇회인가요?",
+                            "실행 결과",
+                            "kim : -", "min : -", "je : -",
+                            "kim : -", "min : -", "je : --",
+                            "최종 우승자 : je");
+                },
+                4, 4, 4, 1, 2, 4
+        );
+    }
 
     @Override
     public void runMain() {
