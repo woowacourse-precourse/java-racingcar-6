@@ -1,12 +1,12 @@
 package racingcar;
 
-import racingcar.view.Inputview;
+import racingcar.view.InputView;
 
 
 public class Application {
 
     public static void main(String[] args) {
-        Inputview inputview = new Inputview();
+        InputView inputview = new InputView();
         inputview.startGame();
     }
 }
