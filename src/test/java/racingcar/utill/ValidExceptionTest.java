@@ -59,13 +59,13 @@ class ValidExceptionTest {
     }
 
     @DisplayName("양수 입력 검사.")
-    @Test
-    void isValidPositiveCheck() {
-        // given
-
-        // when
-
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "-12314"})
+    void isValidPositiveCheck(String input) {
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidPositiveCheck(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("입력된 문자열에 한글, 영어가 포함되어있는가.")
