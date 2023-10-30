@@ -27,4 +27,8 @@ public class CarName {
         CarName other = (CarName) object;
         return this.carName.equals(other.carName);
     }
+
+    public String show () {
+        return carName;
+    }
 }

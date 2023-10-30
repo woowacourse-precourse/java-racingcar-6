@@ -5,7 +5,7 @@ import racingcar.service.RacingPlayService;
 
 public class RacingController {
 
-    RacingPlayService racingPlayService;
+    RacingPlayService racingPlayService = new RacingPlayService();
 
 
     public void playRacingWith(RacingCars racingCars) {

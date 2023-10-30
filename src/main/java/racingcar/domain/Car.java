@@ -17,5 +17,12 @@ public class Car {
         forwardCount++;
     }
 
+    public int showForwardCount() {
+        return forwardCount;
+    }
+
+    public String showName() {
+        return new String(name.show());
+    }
 
 }

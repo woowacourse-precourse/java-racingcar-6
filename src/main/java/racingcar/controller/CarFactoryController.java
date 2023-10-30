@@ -8,13 +8,14 @@ import racingcar.vo.CarName;
 
 public class CarFactoryController {
 
-    CarFactory carFactory;
+    CarFactory carFactory = new CarFactory();
 
     public RacingCars createRacingCars(String carNamesString) {
 
         List<CarName> carNames = Arrays.stream(carNamesString.split(","))
                                        .map(CarName::new)
                                        .toList();
+        System.out.println("carNames = " + carNames);
         return carFactory.createCarsWithNames(carNames);
     }
 
