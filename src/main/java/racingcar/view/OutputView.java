@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class OutputView {
 
     public void printCarNameInputMessage(){
@@ -10,9 +12,17 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printStartRacingResultMessage(){
+    public void printRacingResultStartMessage(){
         System.out.println("실행 결과");
     }
 
-    
+    public void printAllCarNowPosition(List<String> carPositionStringList){
+        for(String carPositionString : carPositionStringList){
+            System.out.println(carPositionString);
+        }
+        System.out.println();
+
+    }
+
+
 }
