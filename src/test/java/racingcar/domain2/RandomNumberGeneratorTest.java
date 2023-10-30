@@ -1,15 +1,9 @@
-package racingcar.domain;
+package racingcar.domain2;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import org.junit.jupiter.api.AssertionsKt;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class RandomNumberGeneratorTest {
 
