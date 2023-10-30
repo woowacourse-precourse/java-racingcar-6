@@ -10,6 +10,11 @@ public class Car {
         this.location = 0;
     }
 
+    public Car(int location, String name) {
+        this.location = location;
+        this.name = name;
+    }
+
     public int move(int randomNumber) {
         if(randomNumber > 3 && randomNumber < 10) {
             location++;
