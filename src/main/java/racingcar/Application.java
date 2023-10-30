@@ -18,6 +18,8 @@ public class Application {
     }
 
     public String inputCarNameValidation(String inputCarName){
+      String[] cars = inputCarName.split(",");
+
       return null;
     }
 
