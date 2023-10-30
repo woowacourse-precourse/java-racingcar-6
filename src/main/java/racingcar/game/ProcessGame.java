@@ -7,6 +7,19 @@ import racingcar.car.CarInfo;
 import java.util.List;
 
 public class ProcessGame {
+    public static void playGame(List<CarInfo> carList, int gameRound) {
+        System.out.println();
+        System.out.println(Constant.RESULT_MESSAGE);
+        for (int round = 0; round < gameRound; round++) {
+            playRound(carList);
+        }
+    }
+
+    private static void playRound(List<CarInfo> carList) {
+        forwardCar(carList);
+        printResult(carList);
+    }
+
     private static int randomNumber(){
         return Randoms.pickNumberInRange(Constant.MIN_VALUE,Constant.MAX_VALUE);
     }
@@ -21,28 +34,25 @@ public class ProcessGame {
                 car.setMoveCount(car.getMoveCount() + Constant.FORWARD_VALUE);
             }
         }
-        result(carList);
     }
 
-    private static void result(List<CarInfo> carList){
+    private static void printResult(List<CarInfo> carList){
         for (CarInfo car : carList) {
-            System.out.println(car.getName() + " : " + createMoveCount(car.getMoveCount()));
+            System.out.println(formatResult(car));
         }
         System.out.println();
     }
 
-    private static String createMoveCount(int moveCount) {
+    private static String formatResult(CarInfo car){
+        return String.format("%s : %s",
+                car.getName(),
+                createMoveCountDisplay(car.getMoveCount()));
+    }
+
+    private static String createMoveCountDisplay(int moveCount) {
         if (moveCount <= 0) {
             return "";
         }
         return "-".repeat(moveCount);
-    }
-
-    public static void playGame(List<CarInfo> carList, int gameRound) {
-        System.out.println();
-        System.out.println(Constant.RESULT_MESSAGE);
-        for (int round = 0; round < gameRound; round++) {
-            forwardCar(carList);
-        }
     }
 }
