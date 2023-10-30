@@ -10,9 +10,11 @@ import java.util.List;
 
 public class RacingGameService {
     private RacingGameRepository racingGameRepository;
+    private OutputService outputService;
 
-    public RacingGameService(RacingGameRepository racingGameRepository) {
+    public RacingGameService(RacingGameRepository racingGameRepository, OutputService outputService) {
         this.racingGameRepository = racingGameRepository;
+        this.outputService = outputService;
     }
 
     public boolean isMove() {
@@ -36,5 +38,14 @@ public class RacingGameService {
             }
         }
         racingGameRepository.saveCar(newCarInfos);
+    }
+
+    public void runRace(int moveCount) {
+        System.out.println();
+        System.out.println("실행 결과");
+        for (int i = 0; i < moveCount; i++) {
+            move();
+            outputService.printSingleResult();
+        }
     }
 }

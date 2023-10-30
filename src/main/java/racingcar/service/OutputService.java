@@ -7,10 +7,9 @@ import java.util.List;
 
 public class OutputService {
     private RacingGameRepository racingGameRepository;
-    private RacingGameService racingGameService;
-    public OutputService(RacingGameRepository racingGameRepository, RacingGameService racingGameService) {
+
+    public OutputService(RacingGameRepository racingGameRepository) {
         this.racingGameRepository = racingGameRepository;
-        this.racingGameService = racingGameService;
     }
 
     public void printSingleResult() {
