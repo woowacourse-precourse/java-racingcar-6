@@ -1,21 +1,18 @@
 package racingcar.collaborator;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import racingcar.collaborator.generic.LapProgress;
 import racingcar.collaborator.generic.RaceTotalProgress;
 import racingcar.collaborator.generic.RacerProgress;
-import racingcar.collaborator.generic.Winners;
 import racingcar.io.Input;
 import racingcar.io.Output;
 
 public class Race {
 
+    private final List<LapProgress> lapProgresses;
     private List<Racer> racers;
     private Integer numberOfRound;
-    private List<LapProgress> lapProgresses;
 
     public Race() {
         this.lapProgresses = new ArrayList<>();
@@ -28,7 +25,7 @@ public class Race {
                 .toList();
     }
 
-    public void decideRound() {
+    public void decideRoundNumber() {
         Output.consoleLine("시도할 회수는 몇회인가요?");
         numberOfRound = Input.consoleNumber();
         Output.consoleLine(""); // 입력 후 공백 한 줄이 들어가게 되어있음
@@ -36,42 +33,28 @@ public class Race {
 
     public void run() {
         for (int i = 0; i < numberOfRound; i++) {
-            for (Racer racer : racers) {
-                racer.drive();
-            }
-
-            List<RacerProgress> list = new ArrayList<>();
-            for (Racer racer : racers) {
-                RacerProgress progress = racer.getProgress();
-                list.add(progress);
-            }
-            lapProgresses.add(new LapProgress(list));
+            driveEachRacer();
+            saveProgressEachRacer();
         }
     }
 
-    public RaceTotalProgress getRecorded() {
+    private void driveEachRacer() {
+        for (Racer racer : racers) {
+            racer.drive();
+        }
+    }
+
+    private void saveProgressEachRacer() {
+        List<RacerProgress> list = new ArrayList<>();
+        for (Racer racer : racers) {
+            RacerProgress progress = racer.getProgress();
+            list.add(progress);
+        }
+        lapProgresses.add(new LapProgress(list));
+    }
+
+    public RaceTotalProgress getTotalProgress() {
         return new RaceTotalProgress(lapProgresses);
-    }
-
-    public Winners decideWinner() {
-        List<String> winners = getLastMeter().stream()
-                .filter(racerProgress ->
-                        Objects.equals(racerProgress.mileage(), getBiggestMileage()))
-                .map(RacerProgress::name)
-                .toList();
-        return new Winners(winners);
-    }
-
-    private Integer getBiggestMileage() {
-        return getLastMeter().stream()
-                .sorted(Comparator.comparingInt(RacerProgress::mileage).reversed())
-                .map(RacerProgress::mileage)
-                .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("값이 없는 상태를 허용하지 않음."));
-    }
-
-    private List<RacerProgress> getLastMeter() {
-        return lapProgresses.get(numberOfRound - 1).racerProgress();
     }
 
 }

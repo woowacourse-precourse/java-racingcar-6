@@ -11,32 +11,25 @@ public class RacingGame {
     public void play() {
         Race race = new Race();
         race.registerRacer();
-        race.decideRound();
+        race.decideRoundNumber();
 
         race.run();
-        RaceTotalProgress result = race.getRecorded();
+
+        RaceTotalProgress totalProgress = race.getTotalProgress();
         Output.consoleLine("실행 결과");
-        StringBuilder sb = new StringBuilder();
 
-//        List<RaceProgress> recorded = result.recorded();
-//        for (RaceProgress raceProgress : recorded) {
-//            for (RacerProgress racerProgress : raceProgress.racerProgress()) {
-//                sb.append(racerProgress.name() + " : " + "-".repeat(racerProgress.mileage()))
-//                        .append(System.lineSeparator());
-//            }
-//            sb.append(System.lineSeparator());
-//        }
-//        Output.consoleLine(sb);
+        String totalProgressRecord = totalProgress.stream()
+                .map(lap ->
+                        lap.stream()
+                                .map(racer -> racer.name() + " : " + "-".repeat(racer.mileage()))
+                                .collect(Collectors.joining(System.lineSeparator())))
+                .collect(Collectors.joining(System.lineSeparator().repeat(2)));
+        System.out.println(totalProgressRecord);
 
-        result.recorded().stream()
-                .map(raceProgress -> raceProgress.racerProgress().stream()
-                        .map(racerProgress -> racerProgress.name() + " : " + "-".repeat(racerProgress.mileage()))
-                        .collect(Collectors.joining(System.lineSeparator())))
-                .forEach(string -> System.out.println(string + System.lineSeparator()));
-
-        Winners winners = race.decideWinner();
-        Output.consoleLine("최종 우승자 : " + winners.stream()
-                .collect(Collectors.joining(",")));
+        Winners winners = totalProgress.decideWinner();
+        String totalWinners = winners.stream()
+                .collect(Collectors.joining(", "));
+        System.out.println(System.lineSeparator() + "최종 우승자 : " + totalWinners);
     }
 
 }

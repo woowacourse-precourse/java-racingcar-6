@@ -1,10 +1,10 @@
 package racingcar.collaborator.generic;
 
-public record RacerProgress(String name, Integer mileage) {
+public record RacerProgress(String name, int mileage) {
 
     @Override
     public String toString() {
-        return name + " : " + mileage + System.lineSeparator();
+        return name + " : " + "-".repeat(mileage);
     }
 
 }
