@@ -6,5 +6,6 @@ public class Application {
         racing.getCarNameAndTrials();
         racing.start();
         racing.printMoves();
+        racing.printWinner();
     }
 }

@@ -20,4 +20,8 @@ public class Car {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         this.position += this.numbers.compareFour(randomNumber);
     }
+
+    public String getName() {return this.name;}
+
+    public int getPosition() {return this.position;}
 }
