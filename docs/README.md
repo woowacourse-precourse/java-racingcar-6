@@ -2,12 +2,12 @@
 
 ## 기능 목록
 
-- [ ]  사용자 입력한 자동차 이름들을 저장할 수 있다.
-- [ ]  몇 번의 이동을 할 것인지에 대한 입력을 받을 수 있다.
-- [ ]  0~9 사이 무작위 값을 생성한다.
-- [ ]  무작위 값을 통해 전진인지 아닌지 판단하고 저장한다.
-- [ ]  한 라운드가 끝날 때마다 게임 진행 상황을 출력할 수 있다.
-- [ ]  모든 라운드가 끝난 후, 승자를 출력할 수 있다.
+- [ ]  사용자 입력한 자동차 이름들을 저장할 수 있다. - SavingInfromation#createPlayersList
+- [ ]  몇 번의 이동을 할 것인지에 대한 입력을 받을 수 있다. - Application#main
+- [ ]  0~9 사이 무작위 값을 생성한다. - NumberGenerator#createRandomNumber
+- [ ]  무작위 값을 통해 전진인지 아닌지 판단하고 저장한다.  - Judgement#decideToMove
+- [ ]  한 라운드가 끝날 때마다 게임 진행 상황을 파악한다. -Application#printRoundResult
+- [ ]  모든 라운드가 끝난 후, 승자를 출력할 수 있다. - Judgement#findWinner
 
 ## **🚀 기능 요구 사항**
 
