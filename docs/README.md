@@ -24,10 +24,11 @@
 - [ ] 우승자 판정: judgeWinner()
 ***
 ### 입력 관련: Input
-- [ ] 자동차 이름 입력: enterCarName()
-- [ ] 자동차 이름 나누기: divideCarName()
-- [ ] 시도 횟수 입력: enterAttemptNum()
+- [x] 자동차 이름 입력: enterCarName()
+- [x] 시도 횟수 입력: enterAttemptNum()
 ***
+### 문자열 나누기: Divider
+- [ ] 쉼표로 나누기: doByComma()
 ### 잘못된 입력 검출: WrongChecker
 - [ ] 자동차 생성 대수 확인: hasWrongCarCount()
 - [ ] 잘못된 자동차 이름 확인: hasWrongCarName()
