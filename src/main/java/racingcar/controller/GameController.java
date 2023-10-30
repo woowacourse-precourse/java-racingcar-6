@@ -12,7 +12,6 @@ import racingcar.view.OutputView;
 public class GameController {
     private final OutputView outputView;
     private final InputView inputView;
-
     private final RacingGameService racingGameService;
 
     public GameController(OutputView outputView, InputView inputView, RacingGameService racingGameService) {
@@ -23,34 +22,30 @@ public class GameController {
 
     public void run() {
         final RacingCars racingCars = readyToCarRace();
-        int attemptCounts = chooseAttemptCounts();
-        outputView.printPlayResultText();
-        playCarRace(attemptCounts, racingCars);
-        List<String> winnerNames = racingGameService.calculateFinalWinners(racingCars);
-        outputView.printFinalWinners(winnerNames);
+        processCarRace(racingCars);
+        deliverToOutputViewAboutFinalWinnersResult(racingCars);
     }
 
     private RacingCars readyToCarRace() {
-        outputView.printGameStartMessage();
-        String carNamesInput = inputView.inputCarNames();
-        List<String> carNames = GameUtil.splitByCommas(carNamesInput);
+        List<String> carNames = GameUtil.splitByCommas(inputView.readCarNames());
         return new RacingCars(carNames, new WootecoEngine());   // TODO: 컨트롤러에서 엔진을 설정하는게 마음에 안듦
     }
 
-    private int chooseAttemptCounts() {
-        outputView.printAttemptCountsQuestionMessage();
-        return inputView.inputAttemptCounts();
-    }
-
-    private void playCarRace(int attemptCounts, RacingCars cars) {
+    private void processCarRace(RacingCars cars) {
+        int attemptCounts = inputView.readAttemptCounts();
+        outputView.printPlayResultText();
         for (int attempCount = 0; attempCount < attemptCounts; attempCount++) {
             OneGameResultsDto resultDto = racingGameService.playOneTimeCarRace(cars);
-            deliverToViewAboutOneGameResult(resultDto);
+            deliverToOutputViewAboutOneGameResult(resultDto);
         }
     }
 
-    private void deliverToViewAboutOneGameResult(OneGameResultsDto resultDto) {
+    private void deliverToOutputViewAboutOneGameResult(OneGameResultsDto resultDto) {
         outputView.printResult(resultDto);
     }
 
+    private void deliverToOutputViewAboutFinalWinnersResult(RacingCars racingCars) {
+        final List<String> winnerNames = racingGameService.calculateFinalWinners(racingCars);
+        outputView.printFinalWinners(winnerNames);
+    }
 }
