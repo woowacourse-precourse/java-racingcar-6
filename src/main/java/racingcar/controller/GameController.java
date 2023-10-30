@@ -6,6 +6,6 @@ public class GameController {
     GameService gameService = new GameService();
 
     public void run() {
-        gameService.runGame();
+        gameService.start();
     }
 }
