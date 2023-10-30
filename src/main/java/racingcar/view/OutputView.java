@@ -17,7 +17,8 @@ public class OutputView {
         System.out.println(RESULT_GUIDE_MESSAGE);
     }
 
-    public void displayLocation() {
+    public void displayLocation(String locationAnnouncement) {
+        System.out.print(locationAnnouncement);
     }
 
     public void displayWinner() {
