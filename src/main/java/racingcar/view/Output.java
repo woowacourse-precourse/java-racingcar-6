@@ -31,7 +31,7 @@ public class Output {
             if (i == winners.size() - 1) {
                 System.out.print(winners.get(i));
             } else {
-                System.out.printf("%s, ", winners.get(i));
+                System.out.printf("%s, ", winners.get(i).getName());
             }
         }
     }
