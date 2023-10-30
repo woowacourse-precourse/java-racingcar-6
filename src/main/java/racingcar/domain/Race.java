@@ -1,6 +1,10 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Console;
+import racingcar.handler.ExceptionHandler;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Race {
@@ -8,14 +12,20 @@ public class Race {
     private List<Car> carList;
     private List<Car> winnerList;
 
+    private static String GET_CAR_NAME_STRING = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static String GET_MOVE_COUNT_STRING = "시도할 회수는 몇회인가요?";
+    private static String START_STRING = "실행 결과";
+    private static String WINNER_TEMPLATE  = "최종 우승자 : ";
+
+    private static String CAR_NAME_REGEX = "[a-zAA-Z]+(,[a-zA-Z]+)*";
 
     public Race() {
         init();
     }
 
     private void init() {
-        carList = getCarNames();
-        moveCount = getMoveCount();
+        getCarNames();
+        getMoveCount();
     }
 
     public void start() {
@@ -45,11 +55,20 @@ public class Race {
         showWinner();
     }
 
-    private List<Car> getCarNames() {
+    private void getCarNames() {
+        System.out.println(GET_CAR_NAME_STRING);
+        String carNamesString = Console.readLine();
 
+        if(!carNamesString.matches(CAR_NAME_REGEX)) {
+            ExceptionHandler.inputException();
+        }
+
+        Arrays.stream(carNamesString.split(",")).toList().forEach( carName ->
+                carList.add(new Car(carName))
+        );
     }
 
-    private int getMoveCount() {
+    private void getMoveCount() {
 
     }
 
