@@ -109,6 +109,20 @@ class UtillTest {
         assertThat(result).isTrue();
     }
 
+    @DisplayName("num_1 과 num_2의 숫자가 같으면 true 테스트_2")
+    @Test
+    void isSameNum_2() {
+        // given
+        int num_1 = 1;
+        int num_2 = 2;
+
+        // when
+        boolean result = Utill.isSameNum(num_1, num_2);
+
+        // than
+        assertThat(result).isFalse();
+    }
+
     @DisplayName("값이 1이상인지 확인한다. 테스트")
     @Test
     void valueGreaterThanEqualOne() {
