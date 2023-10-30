@@ -1,6 +1,7 @@
 package racingcar.util;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -50,5 +51,25 @@ class ValidInputTest {
         assertDoesNotThrow(() -> ValidInput.validOnlyNumber(input1));
         assertDoesNotThrow(() -> ValidInput.validOnlyNumber(input2));
 
+    }
+
+    @Test
+    @DisplayName("이름이 중복되면 에러 발생")
+    void error_duplicate_carName() throws Exception {
+        //given
+        String carNames = "name,name";
+        //when
+        //then
+        assertThrows(IllegalArgumentException.class, () -> ValidInput.validDistinctCarName(carNames));
+    }
+
+    @Test
+    @DisplayName("이름이 중복되지 않으면 에러 발생하지 않는다")
+    void no_error_duplicate_carName() throws Exception {
+        //given
+        String carNames = "name1,name2";
+        //when
+        //then
+        assertDoesNotThrow(() -> ValidInput.validDistinctCarName(carNames));
     }
 }
