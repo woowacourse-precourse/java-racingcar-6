@@ -82,9 +82,13 @@ public class Race {
     }
 
     private String checkWinner(List<Car> cars) {
-
+        int maxPosition = maxPosition(cars);
 
         return "";
+    }
+
+    private int maxPosition(List<Car> cars) {
+        return cars.stream().mapToInt(Car::getPosition).max().orElse(0);
     }
 
 }
