@@ -8,9 +8,14 @@ public class RacingController {
 
     public void run() {
         initRacing();
+        startRacing();
     }
 
     private void initRacing() {
         racingService.initRacing();
+    }
+
+    private void startRacing() {
+        racingService.startRacing();
     }
 }

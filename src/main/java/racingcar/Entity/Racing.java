@@ -22,4 +22,8 @@ public class Racing {
     public void setCount(int count) {
         this.count = count;
     }
+
+    public List<Car> getRacer() {
+        return racer;
+    }
 }

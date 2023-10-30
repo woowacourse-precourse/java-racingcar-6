@@ -2,15 +2,18 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.Constants;
+import racingcar.Entity.Car;
 import racingcar.Entity.Racing;
 import racingcar.view.SystemInputMessage;
+import racingcar.view.SystemOutputMessage;
 
 public class RacingService {
 
     Racing racing = new Racing();
+    SystemOutputMessage systemOutputMessage = new SystemOutputMessage();
 
     public void initRacing() {
-        SystemInputMessage.showStartGameMessage();
+        SystemInputMessage.showInputNameMessage();
         racing.ready(InputCarName());
         SystemInputMessage.showTryCountMessage();
         racing.setCount(InputTryCount());
@@ -39,5 +42,20 @@ public class RacingService {
                 throw new IllegalArgumentException(Constants.NAME_LENGTH_ERROR_MESSAGE);
             }
         }
+    }
+
+    public void startRacing() {
+        SystemInputMessage.showStartRacingMessage();
+        for (int i = 0; i < racing.getCount(); i++) {
+            play();
+        }
+    }
+
+    private void play() {
+        for (Car car : racing.getRacer()) {
+            car.movable();
+            systemOutputMessage.showRacerPosition(car.getName(), car.getPosition());
+        }
+        System.out.println();
     }
 }
