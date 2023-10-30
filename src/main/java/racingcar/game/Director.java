@@ -10,7 +10,6 @@ public class Director {
 
     private final InputGenerateManager inputGenerateManager;
     private final OutputGenerateManager outputGenerateManager;
-
     private final Simulator simulator;
 
     public Director(InputGenerateManager inputGenerateManager, OutputGenerateManager outputGenerateManager,
