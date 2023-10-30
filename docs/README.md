@@ -83,9 +83,9 @@
 -[x] count를 줄인다.
 
 #### Navigation
-- 같은 이름이 있는지 검증한다.(있다면 IllegalArgumentException)
+-[x] 같은 이름이 있는지 검증한다.(있다면 IllegalArgumentException)
 - 우승자를 판단하고 찾아온다.
-- 리스트들의 이동 상태를 요청한다.
+-[x] 리스트들의 이동 상태를 요청한다.
 -[x] Car들에 이동 요청을 한다.
 
 #### Car
