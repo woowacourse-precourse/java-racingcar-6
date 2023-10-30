@@ -8,15 +8,22 @@ import racingcar.utils.randomGenerator.RandomNumberGenerator;
 public class RacingCarGame {
 
     private List<Car> cars;
-    private final RandomNumberGenerator randomNumberGenerator;
 
-    public RacingCarGame(RandomNumberGenerator randomNumberGenerator) {
+
+    public RacingCarGame(RandomNumberGenerator randomNumberGenerator, Writer writer) {
         this.randomNumberGenerator = randomNumberGenerator;
+        this.writer = writer;
     }
 
     public void play(List<String> carNames, int attemptCount) {
-        makeCars(carNames);
-        for (int round = 0; round < attemptCount; round++) {
+        initCars(carNames);
+        display(EXECUTION_RESULT);
+        executeRounds(attemptCount);
+        display(resultGenerator.makeWinnersResult(getWinners()));
+    }
+
+    private void executeRounds(int attemptCount) {
+        for (int round = MIN_DISTANCE; round < attemptCount; round++) {
             moveCarsForward();
         }
     }
