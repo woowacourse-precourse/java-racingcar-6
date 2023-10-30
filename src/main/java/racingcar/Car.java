@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Computer.trimCarNames;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,10 +28,6 @@ public class Car {
         Validator.checkBlank(carNames);
         Validator.checkLength(carNames);
         Validator.checkDuplication(carNames);
-    }
-
-    private void trimCarNames(List<String> carNames) {
-        carNames.replaceAll(String::trim);
     }
 
     public void move(int roundCount) {

@@ -15,6 +15,10 @@ public class Computer {
         return Arrays.asList(userInput.split(","));
     }
 
+    public static void trimCarNames(List<String> carNames) {
+        carNames.replaceAll(String::trim);
+    }
+
     public static int calculateMaxDistance(Car car) {
         int maxDistance = 0;
 
