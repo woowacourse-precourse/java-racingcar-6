@@ -49,7 +49,8 @@ class GameServiceTest {
         Cars cars = new Cars("pobi,woni");
 
         // when
-        CarsDto result = gameService.playRound(cars);
+        gameService.moveCars(cars);
+        CarsDto result = gameService.getRoundResult(cars);
 
         // then
         assertThat(result.carDtos().size()).isEqualTo(2);

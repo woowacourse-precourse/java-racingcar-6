@@ -42,8 +42,11 @@ public class GameService {
         }
     }
 
-    public CarsDto playRound(final Cars cars) {
+    public void moveCars(final Cars cars) {
         cars.moveEachCar();
+    }
+
+    public CarsDto getRoundResult(final Cars cars) {
         return cars.toCarsDto();
     }
 
