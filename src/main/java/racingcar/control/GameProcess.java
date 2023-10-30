@@ -175,6 +175,12 @@ public class GameProcess {
         }
     }
 
+    /**
+     * 현제 진행중인 자동차들의 진행상황을 MAP으로 만든다(순서O)
+     * ( nameOfCar, "---" )
+     *
+     * @return
+     */
     public Map<RaceCar, String> makeMapOfCurrentRace() {
         String result = "";
 
