@@ -2,7 +2,9 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Application {
@@ -14,6 +16,24 @@ public class Application {
 
         System.out.println(carNames);
         System.out.println(playCount);
+
+        List<Car> cars = new ArrayList<>();
+
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
+
+        for (int i = 0; i < playCount; i++) {
+            for (Car car : cars) {
+                car.move();
+            }
+
+            for (Car car : cars) {
+                car.printLocation();
+            }
+
+            System.out.print("\n");
+        }
 
     }
 
