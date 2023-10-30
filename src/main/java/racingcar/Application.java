@@ -1,11 +1,22 @@
 package racingcar;
 
 import racingcar.controller.RacingCarGame;
+import racingcar.model.RacingCarGameModel;
+import racingcar.view.input.InputView;
+import racingcar.view.output.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-        RacingCarGame game = new RacingCarGame();
+        InputView userInputView = new InputView();
+        OutputView userOutputView = new OutputView();
+        RacingCarGameModel racingCarGameModel = new RacingCarGameModel();
+
+
+        RacingCarGame game = new RacingCarGame(
+                userInputView,
+                userOutputView,
+                racingCarGameModel
+        );
         game.start();
     }
 }
