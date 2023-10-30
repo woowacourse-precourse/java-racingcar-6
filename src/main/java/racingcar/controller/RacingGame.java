@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
-import racingcar.model.MoveInfo;
 import racingcar.model.RacingRepeat;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -25,7 +24,7 @@ public class RacingGame {
         finishGame();
     }
 
-    public void setParticipants() {
+    private void setParticipants() {
         setParticipants(InputView.inputNames());
     }
     public List<Car> setParticipants(String[] names) {
@@ -37,7 +36,7 @@ public class RacingGame {
         return participants;
     }
 
-    public void setRepeat() {
+    private void setRepeat() {
         String repeatString = InputView.inputRepeat();
         repeat = new RacingRepeat(repeatString);
     }
@@ -45,27 +44,24 @@ public class RacingGame {
     private void move() {
         for (Car participant : participants) {
             participant.move();
-
-            String name = participant.info().getName();
-            int moved = participant.info().getMoved();
-
-            OutputView.printResult(name, moved);
+            OutputView.printResult(participant.getName(), participant.getMoved());
         }
         System.out.println();
     }
 
     public List<String> getWinner(List<Car> target) {
-        int maxMoved = -1;
+        int maxMoved = Integer.MIN_VALUE;
         List<String> winner = new ArrayList<>();
 
         for (Car car: target) {
-            MoveInfo info = car.info();
-            if (info.getMoved() > maxMoved) {
-                maxMoved = info.getMoved();
+            String name = car.getName();
+            int moved = car.getMoved();
+            if (moved > maxMoved) {
+                maxMoved = moved;
                 winner = new ArrayList<>();
-                winner.add(info.getName());
-            } else if (info.getMoved() == maxMoved) {
-                winner.add(info.getName());
+                winner.add(name);
+            } else if (moved == maxMoved) {
+                winner.add(name);
             }
         }
         return winner;

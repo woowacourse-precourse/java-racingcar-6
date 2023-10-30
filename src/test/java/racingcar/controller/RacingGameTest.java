@@ -16,7 +16,7 @@ public class RacingGameTest {
         RacingGame testGame = new RacingGame();
         String[] names = {"poky", "minsu", "pobi"};
 
-        assertThat(testGame.setParticipants(names).stream().map(it -> it.info().getName()))
+        assertThat(testGame.setParticipants(names).stream().map(Car::getName))
                 .contains("poky", "minsu", "pobi");
     }
 

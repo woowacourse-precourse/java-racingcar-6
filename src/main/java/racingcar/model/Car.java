@@ -6,9 +6,11 @@ public class Car {
     private final CarName name;
     private final CarMoved moved;
 
+    private final int DEFAULT_MOVED = 0;
+
     public Car(String name) {
         this.name = new CarName(name);
-        this.moved = new CarMoved(0);
+        this.moved = new CarMoved(DEFAULT_MOVED);
     }
     public Car(String name, int moved) {
         this.name = new CarName(name);
@@ -23,7 +25,11 @@ public class Car {
         return moved.getMoved();
     }
 
-    public MoveInfo info() {
-        return new MoveInfo(name, moved);
+    public String getName() {
+        return name.getName();
+    }
+
+    public int getMoved() {
+        return moved.getMoved();
     }
 }
