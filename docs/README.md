@@ -43,5 +43,3 @@
 
 **Policy**
 - NumberGeneratePolicy (숫자 생성 정책)
-
-
