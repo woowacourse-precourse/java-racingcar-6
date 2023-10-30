@@ -96,8 +96,8 @@
 
 #### CarName
 -[x] 이름을 검증한다.(5자 초과시 IllegalArgumentException)
-- 이름을 검증한다.(빈문자열 일시 IllegalArgumentException)
-- 이름을 검증한다.(null 일시 IllegalArgumentException)
+-[x] 이름을 검증한다.(빈문자열 일시 IllegalArgumentException)
+-[x] 이름을 검증한다.(null 일시 IllegalArgumentException)
 
 #### RandomNumberGenerator
 -[x] 0~9사이의 랜덤한 숫자를 입력한다.
