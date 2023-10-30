@@ -8,15 +8,15 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class RoundValidatorTest {
+class RoundValidatorImplTest {
 
-    private final RoundValidator RoundValidator = new RoundValidator();
+    private final RoundValidatorImpl RoundValidatorImpl = new RoundValidatorImpl();
     @Test
     @DisplayName("시도 횟수가 문자열이 아닌지 검증")
     void isNotString() {
         String testRound = "test";
 
-        Assertions.assertThatThrownBy(() -> RoundValidator.isNotString(testRound))
+        Assertions.assertThatThrownBy(() -> RoundValidatorImpl.isNotString(testRound))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(STRINGPROMPT.getMessage(testRound));
     }
@@ -26,7 +26,7 @@ class RoundValidatorTest {
     void isNotRealNumber() {
         String testRound = "1.1";
 
-        Assertions.assertThatThrownBy(() -> RoundValidator.isNotRealNumber(testRound))
+        Assertions.assertThatThrownBy(() -> RoundValidatorImpl.isNotRealNumber(testRound))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(REALNUMBERPROMPT.getMessage(testRound));
     }
@@ -36,7 +36,7 @@ class RoundValidatorTest {
     void isValidRange() {
         String testRound = "0";
 
-        Assertions.assertThatThrownBy(() -> RoundValidator.isValidRange(testRound))
+        Assertions.assertThatThrownBy(() -> RoundValidatorImpl.isValidRange(testRound))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(RANGEPROMPT.getMessage(testRound));
     }

@@ -8,9 +8,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Domain.CarGroup;
 
-class GameModelTest {
+class GameModelImplTest {
 
-    GameModel gameModel = new GameModel();
+    GameModelImpl gameModelImpl = new GameModelImpl();
     @Test
     @DisplayName("게임 한판 진행하기")
     void playGameRound() {
@@ -18,7 +18,7 @@ class GameModelTest {
         CarGroup testCarGroup = CarGroup.of(List.of("testCar1", "testCar2", "testCar3"));
 
         //when
-        CarGroup afterPlayGame = gameModel.playGameRound(testCarGroup);
+        CarGroup afterPlayGame = gameModelImpl.playGameRound(testCarGroup);
 
         //then
         Assertions.assertThat(afterPlayGame).isNotNull();
@@ -27,7 +27,7 @@ class GameModelTest {
     @Test
     @DisplayName("자동차 이동 여부 판단하기")
     void determineMove() {
-        Boolean result = gameModel.determineMove();
+        Boolean result = gameModelImpl.determineMove();
 
         assertNotNull(result);
     }

@@ -1,9 +1,13 @@
 package racingcar.Controller;
 
 import racingcar.Domain.CarGroup;
+import racingcar.Factory.Factory;
 import racingcar.Model.CarModel;
+import racingcar.Model.CarModelImpl;
 import racingcar.Model.GameModel;
+import racingcar.Model.GameModelImpl;
 import racingcar.Model.RoundModel;
+import racingcar.Model.RoundModelImpl;
 import racingcar.View.InputView;
 import racingcar.View.OutPutView;
 
@@ -16,11 +20,13 @@ public class GameController {
     GameModel gameModel;
 
     public void initGame() {
-        inputView = new InputView();
-        outPutView = new OutPutView();
-        carModel = new CarModel();
-        roundModel = new RoundModel();
-        gameModel = new GameModel();
+        Factory factory = new Factory();
+
+        inputView = factory.getInputView();
+        outPutView = factory.getOutPutView();
+        carModel = factory.getCarModel();
+        roundModel = factory.getRoundModel();
+        gameModel = factory.getGameModel();
 
         startGame();
     }

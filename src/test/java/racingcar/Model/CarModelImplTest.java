@@ -3,15 +3,14 @@ package racingcar.Model;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Domain.Car;
 import racingcar.Domain.CarGroup;
 
-class CarModelTest {
+class CarModelImplTest {
 
-    CarModel carModel = new CarModel();
+    CarModelImpl carModelImpl = new CarModelImpl();
 
     @Test
     @DisplayName("자동차 이름 입력에 대한 전처리 과정")
@@ -22,8 +21,8 @@ class CarModelTest {
         CarGroup expectedCarGroup = CarGroup.of(List.of("car1", "car2", "car3"));
 
         //when
-        carModel.preProcessing(testCarNames);
-        CarGroup resultCarGroup = carModel.preProcessing(testCarNames);
+        carModelImpl.preProcessing(testCarNames);
+        CarGroup resultCarGroup = carModelImpl.preProcessing(testCarNames);
 
         //then
         Integer expectedSize = expectedCarGroup.findSize();
@@ -46,9 +45,9 @@ class CarModelTest {
         List<String> expected = List.of("car1", "car2", "car3");
 
         //when
-        carModel.divideCarNameByDelimiter(testCarNames);
+        carModelImpl.divideCarNameByDelimiter(testCarNames);
 
         //then
-        assertEquals(expected, carModel.divideCarNameByDelimiter(testCarNames));
+        assertEquals(expected, carModelImpl.divideCarNameByDelimiter(testCarNames));
     }
 }

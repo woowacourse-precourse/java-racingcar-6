@@ -5,13 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Domain.CarGroup;
 
-class OutPutViewTest {
+class OutPutViewImplTest {
 
     @Test
     @DisplayName("라운드 결과 출력 테스트")
@@ -24,11 +22,11 @@ class OutPutViewTest {
         PrintStream standardOut = System.out;
         ByteArrayOutputStream captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
-        OutPutView outPutView = new OutPutView();
+        OutPutViewImpl outPutViewImpl = new OutPutViewImpl();
 
         //when
         CarGroup carGroup = CarGroup.of(carList);
-        outPutView.showRoundResult(carGroup);
+        outPutViewImpl.showRoundResult(carGroup);
 
         //then
         System.setOut(standardOut);
@@ -46,11 +44,11 @@ class OutPutViewTest {
         PrintStream standardOut = System.out;
         ByteArrayOutputStream captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
-        OutPutView outPutView = new OutPutView();
+        OutPutViewImpl outPutViewImpl = new OutPutViewImpl();
 
         //when
         CarGroup carGroup = CarGroup.of(carList);
-        outPutView.showFinalWinner(carGroup);
+        outPutViewImpl.showFinalWinner(carGroup);
 
         //then
         System.setOut(standardOut);
@@ -68,11 +66,11 @@ class OutPutViewTest {
         PrintStream standardOut = System.out;
         ByteArrayOutputStream captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
-        OutPutView outPutView = new OutPutView();
+        OutPutViewImpl outPutViewImpl = new OutPutViewImpl();
 
         //when
         CarGroup carGroup = CarGroup.of(carList);
-        outPutView.showFinalWinner(carGroup);
+        outPutViewImpl.showFinalWinner(carGroup);
 
         //then
         System.setOut(standardOut);

@@ -1,28 +1,10 @@
 package racingcar.Validator;
 
-import static racingcar.Message.RoundExceptionPrompt.RANGEPROMPT;
-import static racingcar.Message.RoundExceptionPrompt.REALNUMBERPROMPT;
-import static racingcar.Message.RoundExceptionPrompt.STRINGPROMPT;
+public interface RoundValidator {
 
-import racingcar.Exception.GameException.RoundException;
+    void isNotString(String round);
 
-public class RoundValidator {
+    void isNotRealNumber(String round);
 
-    public void isNotString(String round) {
-        if (round.matches(".*\\D.*")) {
-            throw new RoundException(STRINGPROMPT.getMessage(round));
-        }
-    }
-
-    public void isNotRealNumber(String round) {
-        if (round.matches("\\d+\\.\\d+")) {
-            throw new RoundException(REALNUMBERPROMPT.getMessage(round));
-        }
-    }
-
-    public void isValidRange(String round) {
-        if (Integer.parseInt(round) <= 0) {
-            throw new RoundException(RANGEPROMPT.getMessage(round));
-        }
-    }
+    void isValidRange(String round);
 }

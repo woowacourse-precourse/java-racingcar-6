@@ -9,9 +9,9 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class CarNameValidatorTest {
+class CarNameValidatorImplTest {
 
-    private final CarNameValidator carNameValidator = new CarNameValidator();
+    private final CarNameValidatorImpl carNameValidatorImpl = new CarNameValidatorImpl();
 
     @Test
     @DisplayName("자동차 이름 길이 검증 테스트")
@@ -19,11 +19,11 @@ class CarNameValidatorTest {
         String testCarName1 = "test123";
         String testCarName2 = "test123";
 
-        Assertions.assertThatThrownBy(() -> carNameValidator.isValidLength(testCarName1))
+        Assertions.assertThatThrownBy(() -> carNameValidatorImpl.isValidLength(testCarName1))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(LENGTHMESSAGE.getMessage(testCarName1));
 
-        Assertions.assertThatThrownBy(() -> carNameValidator.isValidLength(testCarName2))
+        Assertions.assertThatThrownBy(() -> carNameValidatorImpl.isValidLength(testCarName2))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(LENGTHMESSAGE.getMessage(testCarName2));
     }
@@ -33,7 +33,7 @@ class CarNameValidatorTest {
     void hasWhiteSpaceTest() {
         String testCarName = "test test";
 
-        Assertions.assertThatThrownBy(() -> carNameValidator.hasWhiteSpace(testCarName))
+        Assertions.assertThatThrownBy(() -> carNameValidatorImpl.hasWhiteSpace(testCarName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(WHITESPACEMESSAGE.getMessage(testCarName));
     }
@@ -50,11 +50,11 @@ class CarNameValidatorTest {
         List<String> testCarGroup2 = List.of(testCarName1, testCarName1, testCarName2, testCarName2);
         List<String> duplicateCarNames2 = List.of(testCarName1, testCarName2);
 
-        Assertions.assertThatThrownBy(() -> carNameValidator.hasDuplicateName(testCarGroup1))
+        Assertions.assertThatThrownBy(() -> carNameValidatorImpl.hasDuplicateName(testCarGroup1))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(DUPLICATEMESSAGE.getMessage(duplicateCarNames1.toString()));
 
-        Assertions.assertThatThrownBy(() -> carNameValidator.hasDuplicateName(testCarGroup2))
+        Assertions.assertThatThrownBy(() -> carNameValidatorImpl.hasDuplicateName(testCarGroup2))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(DUPLICATEMESSAGE.getMessage(duplicateCarNames2.toString()));
     }
