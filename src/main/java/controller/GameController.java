@@ -25,36 +25,36 @@ public class GameController {
         runTryNumber();
         runGame();
         runWinner();
-        return reStartOrExit();
+        return restartOrExit();
     }
 
     private void runName() {
-        outputView.printName();
+        outputView.printNameMessage();
 
         List<String> names = Arrays.asList(inputView.input().split(",", -1));
         validator.checkLengthName(names);
 
-        gameService.createCarObject(names);
+        gameService.createRaceCarObject(names);
     }
 
     private void runTryNumber(){
-        outputView.printTryNumber();
+        outputView.printTryNumberMessage();
 
-        tryNumber = validator.checkTryNumber(inputView.input());
+        tryNumber = validator.checkRegExpTryNumber(inputView.input());
     }
 
     private void runGame() {
-        outputView.printRunGame();
+        outputView.printRunResultMessage();
 
         for(int runCount = 0; runCount < tryNumber; runCount++) {
             raceCars = gameService.MoveForward();
-            gameResult();
+            runResult();
         }
     }
 
-    private void gameResult() {
+    private void runResult() {
         for(RaceCar raceCar : raceCars) {
-            outputView.printGameResult(raceCar.getName(), raceCar.getMoveForwardCount());
+            outputView.printRunResult(raceCar.getName(), raceCar.getMoveForwardCount());
         }
         outputView.printChangeLine();
     }
@@ -63,10 +63,10 @@ public class GameController {
         outputView.printWinner(gameService.gameWinner());
     }
 
-    private boolean reStartOrExit() {
-        outputView.printRestartOrExit();
+    private boolean restartOrExit() {
+        outputView.printRestartOrExitMessage();
 
-        String progress =  validator.checkStatus(inputView.input());
+        String progress =  validator.checkRegExpProcess(inputView.input());
 
         if(Objects.equals(ProgressType.RESTART.getValue(), progress)) {
             return true;

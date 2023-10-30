@@ -14,7 +14,7 @@ public class RaceCar {
         this.name = name;
     }
 
-    public void MoveForward() {
+    public void updateMoveForward() {
         ++moveForwardCount;
     }
 

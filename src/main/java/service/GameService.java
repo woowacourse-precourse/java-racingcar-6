@@ -13,7 +13,7 @@ public class GameService {
     private static final int MIN_NUM = 0;
     private final List<RaceCar> raceCars = new ArrayList<>();
 
-    public void createCarObject(List<String> names) {
+    public void createRaceCarObject(List<String> names) {
         for(String name : names) {
             RaceCar raceCar = new RaceCar(name);
             raceCars.add(raceCar);
@@ -25,7 +25,7 @@ public class GameService {
             int randomNumber = pickNumberInRange(MIN_NUM, MAX_NUM);
 
             if(randomNumber >= 4) {
-                raceCar.MoveForward();
+                raceCar.updateMoveForward();
             }
         }
         return raceCars;

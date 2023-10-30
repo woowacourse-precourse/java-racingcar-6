@@ -21,14 +21,14 @@ public class Validator {
         }
     }
 
-    public int checkTryNumber(String tryNumber) {
+    public int checkRegExpTryNumber(String tryNumber) {
         if(!(tryNumber.matches(regExpTryNumber))) {
             throw new IllegalArgumentException(ErrorMessage.EXCEPTION_TRY_NUMBER);
         }
         return Integer.parseInt(tryNumber);
     }
 
-    public String checkStatus(String progress) {
+    public String checkRegExpProcess(String progress) {
         if(!(progress.matches(regExpStatus))) {
             throw new IllegalArgumentException(ErrorMessage.EXCEPTION_STATUS);
         }
