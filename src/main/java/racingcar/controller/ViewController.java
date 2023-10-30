@@ -1,19 +1,19 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
 import racingcar.domain.TryCount;
 import racingcar.utils.StringUtils;
 import racingcar.view.InputView;
 
+import java.util.List;
+
 public class ViewController {
 
-    public static String[] InputCarName() {
-        String carNames = InputView.inputCarNames();
-        return StringUtils.splitCarNames(carNames);
+    public static List<String> setCars() {
+        String carNamesInput = InputView.inputCarNames();
+        return StringUtils.splitCarNames(carNamesInput);
     }
 
-    public static int InputTryCount() {
+    public static int setTryCount() {
         TryCount tryCount = new TryCount(InputView.inputTryCount());
         return tryCount.getTryCount();
     }
