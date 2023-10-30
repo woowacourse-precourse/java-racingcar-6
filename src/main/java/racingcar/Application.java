@@ -47,5 +47,10 @@ public class Application {
 
         return uniqueCarNames.toArray(new String[0]);
     }
+    private void validateCarNameLength(String name) {
+        if (name.length() < MIN_CAR_NAME_LENGTH || name.length() > MAX_CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException("자동차 이름은 1에서 5자 사이여야 합니다.");
+        }
+    }
 
 }
