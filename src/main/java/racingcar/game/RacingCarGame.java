@@ -24,13 +24,13 @@ public class RacingCarGame {
     private void moveCarsForward() {
         for (Car car : cars) {
             int randomNumber = randomNumberGenerator.generateRandomSingleDigit();
-            if (randomNumber>=4) {
+            if (randomNumber >= FORWARD_CONDITIONAL_VALUE) {
                 car.move();
             }
         }
     }
 
-    private void makeCars(List<String> carNames) {
+    private void initCars(List<String> carNames) {
         cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(Car.of(carName));
