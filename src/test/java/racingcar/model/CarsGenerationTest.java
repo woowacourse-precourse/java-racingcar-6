@@ -10,14 +10,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class CarsGeneratorTest {
-
-    private final CarsGenerator carsGenerator = new CarsGenerator();
+class CarsGenerationTest {
 
     @ParameterizedTest
     @CsvSource(value = {"pobywoni", "poby,woni,hyukji"}, delimiter = ' ')
     void 자동차_이름이_5글자가_넘는다면_예외를_던진다(final String carNames) {
-        assertThatThrownBy(() -> carsGenerator.generate(carNames))
+        assertThatThrownBy(() -> Cars.from(carNames))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(INVALID_CAR_NAME_SIZE.getMessage());
     }
@@ -29,10 +27,10 @@ class CarsGeneratorTest {
         final List<String> expected = List.of("poby", "woni", "hyukj");
 
         // when
-        final List<Car> cars = carsGenerator.generate(carNames);
-        final List<String> result = cars.stream().map(Car::getName).toList();
+        final Cars cars = Cars.from(carNames);
 
         // then
+        final List<String> result = cars.getCarList().stream().map(Car::getName).toList();
         assertThat(result).isEqualTo(expected);
     }
 
