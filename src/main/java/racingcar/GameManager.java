@@ -27,5 +27,13 @@ public class GameManager {
     public int setRoundNum(String inputRoundNum) {
         return Integer.parseInt(inputRoundNum);
     }
+
+    public void moveCar(List<Car> carList) {
+        for (int i = 0; i < carList.size(); i++) {
+            if (checkMoveOrStop() == Movement.MOVE) {
+                carList.get(i).moveCount++;
+            }
+        }
+    }
 }
 
