@@ -30,7 +30,7 @@ class CarsTest {
     void createCarList_메서드로_입력_값을_콤마로_나누어_리스트에_저장() {
         setUp();
         String[] nameArr = carList.stream()
-                .map(car -> car.getName())
+                .map(Car::getName)
                 .toArray(String[]::new);
         assertThat(nameArr).contains("pobi", "woni", "jun");
     }
