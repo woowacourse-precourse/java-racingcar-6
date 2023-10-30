@@ -8,5 +8,6 @@ public class Application {
         String input = Console.readLine();
         circuit.makeCarList(input);
         String repeat = Console.readLine();
+        circuit.setRepeat(repeat);
     }
 }

@@ -29,6 +29,17 @@ public class Circuit {
         this.repeat = repeat;
     }
 
+    public void race() {
+        System.out.println("실행 결과");
+        for (int i = 0; i < this.repeat; ++i) {
+            for (Car car : this.carList) {
+                car.move();
+                car.print();
+            }
+            System.out.println();
+        }
+    }
+
     private boolean checkInputError(String[] input) {
         for (String s : input) {
             if (s.length() > 5 || s.isEmpty()) {
