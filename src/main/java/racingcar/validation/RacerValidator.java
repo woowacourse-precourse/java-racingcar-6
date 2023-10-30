@@ -29,7 +29,7 @@ public class RacerValidator implements Validator {
 
     private void validateUnique(String value) {
         if (Set.of(value.split(Message.NAME_SEPARATOR)).size() != value.split(Message.NAME_SEPARATOR).length) {
-            throw new IllegalArgumentException("중복 입니다.");
+            throw new IllegalArgumentException();
         }
     }
 }
