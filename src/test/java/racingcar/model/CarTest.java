@@ -4,30 +4,25 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarTest {
 
-    @ParameterizedTest
-    @CsvSource(value = {"4, 1", "1, 0"})
-    void go_메서드는_입력값이_4보다_크면_position_을_1_증가시킨다(Integer goValue, Integer result) {
+    @Test
+    void go_메서드는_position_을_증가시킨다() {
         Car car = new Car("자동차");
-        car.go(goValue);
-        assertThat(car.getPosition()).isEqualTo(result);
+        car.go(true);
+        assertThat(car.getPosition()).isEqualTo(1);
     }
 
     @ParameterizedTest
-    @MethodSource("provideCarTestArgument")
-    void comparePosition_메서드는_자신과_다른_자동차_객체를_비교해_position_의_대소관계를_비교한다(Integer myMove, Integer compareMove, Integer result) {
+    @CsvSource(value = {"true, false, 1", "false, true, -1", "true, true, 0"})
+    void comparePosition_메서드는_자신과_다른_자동차_객체를_비교해_position_의_대소관계를_비교한다(boolean myCarMove, boolean compareCarMove, int result) {
         Car myCar = new Car("내자동차");
         Car compareCar = new Car("상대자동차");
-        myCar.go(myMove);
-        compareCar.go(compareMove);
+        myCar.go(myCarMove);
+        compareCar.go(compareCarMove);
         assertThat(myCar.comparePosition(compareCar)).isEqualTo(result);
     }
 
@@ -38,11 +33,5 @@ public class CarTest {
         assertThat(car.equals(compareCar)).isTrue();
     }
 
-    static List<Arguments> provideCarTestArgument() {
-        return Arrays.asList(
-                Arguments.of(4, 0, 1),
-                Arguments.of(0, 4, -1),
-                Arguments.of(4, 4, 0)
-        );
-    }
+
 }
