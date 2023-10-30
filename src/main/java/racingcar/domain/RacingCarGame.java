@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import racingcar.Console.ExceptionMessage;
+import racingcar.util.ExceptionMessage;
 import racingcar.Console.Input;
 import racingcar.Console.Output;
 import racingcar.util.CarFactory;
@@ -46,11 +46,11 @@ public class RacingCarGame {
         try {
             tryCounts = Integer.parseInt(counts);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_GAME_TRY_COUNTS_FORMAT_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.GAME_TRY_COUNTS_FORMAT);
         }
 
         if (tryCounts > MAX_GAME_TRY_COUNTS) {
-            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_GAME_TRY_COUNTS_SIZE_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.GAME_TRY_COUNTS_SIZE);
         }
         return tryCounts;
     }

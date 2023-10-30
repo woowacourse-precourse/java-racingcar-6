@@ -7,7 +7,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import racingcar.Console.ExceptionMessage;
 import racingcar.domain.Car;
 
 public class CarFactory {
@@ -36,7 +35,7 @@ public class CarFactory {
 
             duplicateNameSet.add(carNames[i]);
             if (duplicateNameSet.size() != cars.size() + 1) {
-                throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_NAME_DUPLICATE_MESSAGE);
+                throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_DUPLICATE);
             }
 
             cars.add(new Car(carNames[i]));

@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.Console.ExceptionMessage;
+import racingcar.util.ExceptionMessage;
 
 public class Car {
 
@@ -21,7 +21,7 @@ public class Car {
 
     private void isValidNameSize(String name) {
         if (name.length() > MAX_NAME_SIZE) {
-            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_NAME_SIZE_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_SIZE);
         }
     }
 
