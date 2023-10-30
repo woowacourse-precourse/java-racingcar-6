@@ -4,23 +4,31 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.Model.Car;
-import racingcar.Util.InputValidator;
 import racingcar.View.InputView;
 import racingcar.View.OutView;
 
 public class RacingCarGameController {
 
-    public void initRacingCarGame() {
+    public void settingRacingCarGame() {
         List<String> carNameList = InputView.inputRacingCarName();
         List<Car> carList = createRacingCar(carNameList);
 
         String racingRoundTimes = InputView.inputRacingRoundTimes();
 
-        roundProgress(carList, Integer.parseInt(racingRoundTimes)); // 게임 진행
+        startGame(carList, racingRoundTimes);
+    }
+
+    public void startGame(List<Car> carList, String racingRoundTimes) {
+        roundProgress(carList, Integer.parseInt(racingRoundTimes));
+        caculateScore(carList);
+    }
+
+    public void caculateScore(List<Car> carList) {
+        // 계산하는 부분
         OutView.printWinnerCar(carList);
     }
 
-    public List<Car> createRacingCar(List<String> carNameList) { // 나쁘지 않아 보임
+    public List<Car> createRacingCar(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
 
         for (String carName : carNameList) {
