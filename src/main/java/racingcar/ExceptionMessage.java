@@ -7,4 +7,5 @@ public class ExceptionMessage {
     public static final String INPUT_TYPE_MISMATCH = "입력 형식 오류";
     public static final String INPUT_NUMBER_RANGE_MISMATCH = "입력 숫자 범위 오류";
     public static final String CAR_NAME_HAS_BLANK = "자동차 이름에 공백이 포함됨";
+    public static final String CAR_NAME_HAS_NOTHING = "이름 없는 자동차 존재";
 }
