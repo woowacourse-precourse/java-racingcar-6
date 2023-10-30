@@ -13,4 +13,14 @@ public class Validation {
         }
     }
 
+    private static void validateNameLength(List<String> list) {
+        for (String input : list) {
+            if (input.length() > 5) {
+                throw new IllegalArgumentException("5자 이하의 이름만 입력 가능합니다");
+            }
+        }
+    }
+
+
+
 }
