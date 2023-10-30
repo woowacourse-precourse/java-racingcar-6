@@ -65,15 +65,20 @@ public class Application {
     private static int validateTryCount(String answer) {
         validateLengthOfTryCount(answer);
 
+        int ans = validateTryCountIsNumber(answer);
+
+        if (ans < 0) {
+            throw new IllegalArgumentException("시도 횟수는 0번 이상이어야 합니다.");
+        }
+        return ans;
+    }
+
+    private static int validateTryCountIsNumber(String answer) {
         int ans;
         try {
             ans = Integer.parseInt(answer);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력해주세요.");
-        }
-
-        if (ans < 0) {
-            throw new IllegalArgumentException("시도 횟수는 0번 이상이어야 합니다.");
         }
         return ans;
     }
