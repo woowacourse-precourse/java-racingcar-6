@@ -22,6 +22,12 @@
 | :white_large_square: | `play`             | player의 입력과 설정을 검증하고 게임을 실행해 그 결과를 저장한다.                  |
 | :white_large_square: | `splitCarName`     | player가 입력한 자동차 이름을 검증하고 `,`를 기준으로 분리해 `List<Car>`로 저장한다. |
 
+## Car
+
+| 구현                   | 메서드    | 기능                        |
+|----------------------|--------|---------------------------|
+| :white_large_square: | `move` | `Car`의 position을 1 증가시킨다. |
+
 ## RacingCarGameView
 
 생성 시 인자로 받은 메시지 파일 경로를 통해 메시지를 Properties로 로드한다.
