@@ -6,4 +6,10 @@ public class Games {
         this.names = names;
         this.move_num = move_num;
     }
+
+    public void racingcar_game() {
+        for (var i=0; i<names.length; i++){
+            
+        }
+    }
 }
