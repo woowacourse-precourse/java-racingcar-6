@@ -1,6 +1,8 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import model.Car;
 import model.InputCheck;
 import view.Input;
 
@@ -16,7 +18,11 @@ public class GameStart {
 
         int round = InputCheck.round(roundStr);
 
-        System.out.println(round);
+        List<Car> carList = new ArrayList<>();
+        for (String name : nameList) {
+            carList.add(new Car(name));
+        }
+
 
     }
 }
