@@ -103,4 +103,27 @@ class InputTest {
 
     }
 
+    @Test
+    void 이름_중복_시_예외_처리() {
+
+        // given
+        String userInputOne = "pobi,pobi";
+        String userInputTwo = "jun, jun ";
+
+
+        // when
+        List<String> carNamesOne = Computer.createCarNames(userInputOne);
+        List<String> carNamesTwo = Computer.createCarNames(userInputTwo);
+
+        // then
+        assertThatThrownBy(() -> Validator.checkDuplication(carNamesOne))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복되지 않은 이름을 입력해 주세요.");
+
+        assertThatThrownBy(() -> Validator.checkDuplication(carNamesTwo))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복되지 않은 이름을 입력해 주세요.");
+
+    }
+
 }
