@@ -31,7 +31,11 @@ public class GameViewer {
         if (winner.isEmpty()) {
             // 에러 처리
         } else {
+<<<<<<< HEAD
             System.out.println("최종 우승자 : " + winner);
+=======
+            System.out.println("최종 우승자: " + winner);
+>>>>>>> stopmin
         }
     }
 
