@@ -1,8 +1,5 @@
 package racingcar.validator;
 
-import org.mockito.internal.matchers.Null;
-
-import javax.swing.plaf.synth.SynthUI;
 import java.util.ArrayList;
 import java.util.Arrays;
 
