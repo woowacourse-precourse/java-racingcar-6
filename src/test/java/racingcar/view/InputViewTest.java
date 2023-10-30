@@ -86,14 +86,33 @@ class InputViewTest extends InTest {
         assertEquals(expected, result);
     }
 
+    @Test
+    @DisplayName("공백을 입력한 경우 예외 발생")
+    void 예외_처리_테스트_6() {
+        InputView inputView = new InputView();
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    systemIn("ㅤ");
+                    inputView.inputCountOfGameRound();
+                });
+    }
+
+    @Test
+    @DisplayName("숫자가 아닌 값을 입력한 경우 예외 발생")
+    void 예외_처리_테스트_7() {
+        InputView inputView = new InputView();
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    systemIn("&");
+                    inputView.inputCountOfGameRound();
+                });
+    }
 
 //
 //    @Test
 //    void inputCountOfGameRound() {
 //    }
 //
-//    @Test
-//    void convertStrToInt() {
-//    }
+
 
 }
