@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import racingcar.util.RandomNumberGenerator;
-
 public class Car implements Comparable<Car> {
 
     private static final int MOVABLE_BOUND = 4;
@@ -14,12 +12,7 @@ public class Car implements Comparable<Car> {
         this.position = new Position();
     }
 
-    public void play() {
-        int randomNumber = RandomNumberGenerator.generateRandomNumber();
-        goOrStop(randomNumber);
-    }
-
-    private void goOrStop(int randomNumber) {
+    public void goOrStop(int randomNumber) {
         if(isMovable(randomNumber)) {
             position.move();
         }

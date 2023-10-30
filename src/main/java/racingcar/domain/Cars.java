@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import org.junit.platform.commons.util.StringUtils;
+import racingcar.util.RandomNumberGenerator;
 
 import java.util.*;
 
@@ -48,7 +49,7 @@ public class Cars {
 
     public void play() {
         cars.stream()
-                .forEach(Car::play);
+                .forEach(car -> car.goOrStop(RandomNumberGenerator.generateRandomNumber()));
     }
 
     public List<String> findWinners() {
