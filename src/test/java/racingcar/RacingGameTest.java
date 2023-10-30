@@ -32,7 +32,7 @@ class RacingGameTest {
         String carNameString = "beom,sic,test";
 
         // when
-        RacingGame racingGame = RacingGame.of(carNameString);
+        RacingGame racingGame = RacingGame.from(carNameString);
 
         // then
         List<Car> racingCarList = racingGame.getRacingCarList();
@@ -49,7 +49,7 @@ class RacingGameTest {
         // when
 
         // then
-        assertThatThrownBy(() -> RacingGame.of("")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> RacingGame.from("")).isInstanceOf(IllegalArgumentException.class);
     }
 
     @ParameterizedTest
@@ -57,7 +57,7 @@ class RacingGameTest {
     @DisplayName("Racing Game play시 레이싱 게임에 참여하는 모든 자동차가 움직이거나 정지한 결과인 Result를 return 한다.")
     void play_AllCarsHaveMovedOrStopped(String inputNameString, int count, String[] names) {
         // given
-        RacingGame racingGame = RacingGame.of(inputNameString);
+        RacingGame racingGame = RacingGame.from(inputNameString);
 
         // when
         List<Result> results = racingGame.play();
@@ -80,7 +80,7 @@ class RacingGameTest {
     void determineRaceWinners(String inputNameString, int[] randoms,
                               int expectedWinnerCount, String[] expectedWinners) {
         // given
-        RacingGame racingGame = RacingGame.of(inputNameString);
+        RacingGame racingGame = RacingGame.from(inputNameString);
         MockedStatic<Randoms> mockRandoms = mockStatic(Randoms.class);
 
         // when
