@@ -1,6 +1,8 @@
 package racingcar;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -40,6 +42,8 @@ public class Validator {
 
     public static boolean validateNames(String input) {
         String[] names = input.split(",");
-        return Arrays.stream(names).allMatch(Validator::containsOnlyAllowedCharacters);
+        Set<String> uniqueNames = new HashSet<>();
+
+        return Arrays.stream(names).allMatch(name -> containsOnlyAllowedCharacters(name) && uniqueNames.add(name));
     }
 }
