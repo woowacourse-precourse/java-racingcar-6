@@ -13,62 +13,64 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class InputView {
-    public List<String> readRacingCars() {
-        print(CAR_NAME_PROMPT);
-        String[] carNames = Console.readLine().split(CAR_NAME_DELIMITER);
 
-        List<String> racingCars = Arrays.stream(carNames)
+    private static final Pattern CAR_NAME_PATTERN = Pattern.compile("(\\w)+");
+
+    public List<String> readCarNames() {
+        print(CAR_NAME_PROMPT);
+        String[] splitCarNames = Console.readLine().split(CAR_NAME_DELIMITER);
+
+        List<String> carNames = Arrays.stream(splitCarNames)
                 .map(String::trim)
                 .collect(Collectors.toList());
-        validateCarNames(racingCars);
-        return racingCars;
+        validateCarNames(carNames);
+        return carNames;
     }
 
-    public int readAttemptsNumber() {
+    public int readNumberOfAttempts() {
         print(ATTEMPTS_PROMPT);
         String input = Console.readLine();
-        validateAttempts(input);
+        validateNumberOfAttempts(input);
         return Integer.parseInt(input);
     }
 
-    public void validateCarNames(List<String> racingCars) {
-        checkEmptyNames(racingCars);
-        checkDuplicatedNames(racingCars);
-        checkInvalidFormat(racingCars);
+    private void validateCarNames(List<String> carNames) {
+        validateNamesAreNotEmpty(carNames);
+        validateNoDuplicateNames(carNames);
+        validateCarNameFormat(carNames);
     }
 
-    private void checkEmptyNames(List<String> racingCars) {
-        if (racingCars.isEmpty()) {
+    private void validateNamesAreNotEmpty(List<String> carNames) {
+        if (carNames.isEmpty()) {
             throw new IllegalArgumentException(EMPTY_NAME.getMessage());
         }
     }
 
-    private void checkDuplicatedNames(List<String> racingCars) {
-        Set<String> uniqueName = new HashSet<>(racingCars);
-        if (uniqueName.size() != racingCars.size()) {
+    private void validateNoDuplicateNames(List<String> carNames) {
+        Set<String> uniqueCarNames = new HashSet<>(carNames);
+        if (uniqueCarNames.size() != carNames.size()) {
             throw new IllegalArgumentException(DUPLICATE_NAME.getMessage());
         }
     }
 
-    private void checkInvalidFormat(List<String> racingCars) {
-        for (String racingCar : racingCars) {
-            Pattern pattern = Pattern.compile("(\\w)+");
-            if (!pattern.matcher(racingCar).matches()) {
+    private void validateCarNameFormat(List<String> carNames) {
+        for (String carName : carNames) {
+            if (!CAR_NAME_PATTERN.matcher(carName).matches()) {
                 throw new IllegalArgumentException(INVALID_CAR_NAME_FORMAT.getMessage());
             }
         }
     }
 
-    private void validateAttempts(String input) {
+    private void validateNumberOfAttempts(String attemptsInput) {
         try {
-            int attempts = Integer.parseInt(input);
-            checkAttempts(attempts);
+            int attempts = Integer.parseInt(attemptsInput);
+            validatePositiveNumberOfAttempts(attempts);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INVALID_TRY_COUNT_FORMAT.getMessage());
         }
     }
 
-    private void checkAttempts(int attempts) {
+    private void validatePositiveNumberOfAttempts(int attempts) {
         if (attempts <= 0) {
             throw new IllegalArgumentException(NON_POSITIVE_TRY_COUNT.getMessage());
         }
