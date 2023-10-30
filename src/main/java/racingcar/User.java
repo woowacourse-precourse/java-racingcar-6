@@ -10,6 +10,7 @@ public class User {
     private int tryCnt;
 
     public int getTryCnt() {
+        System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         return validateTryCnt(input);
     }
@@ -23,6 +24,7 @@ public class User {
     }
 
     public List<String> getCarNames() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         return splitCarNames(input);
     }
@@ -32,7 +34,7 @@ public class User {
         String[] nameArray = input.split(",");
 
         for (String name : nameArray) {
-            if(validateCarName(name)){
+            if (validateCarName(name)) {
                 addCarName(name);
             }
         }
@@ -40,9 +42,9 @@ public class User {
     }
 
     private boolean validateCarName(String name) {
-        if(name.length() <= 5) {
+        if (name.length() <= 5) {
             return true;
-        }else {
+        } else {
             throw new IllegalArgumentException("5 이하 길이");
         }
     }

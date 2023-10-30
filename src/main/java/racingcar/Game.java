@@ -1,15 +1,18 @@
 package racingcar;
 
-import java.util.List;
-
 public class Game {
 
-    public void startGame() {
+    private CarRace carRace;
+    private int tryCnt;
+
+    public Game() {
         User user = new User();
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> carNames = user.getCarNames();
-        System.out.println("시도할 회수는 몇회인가요?");
-        int tryCnt = user.getTryCnt();
+        this.carRace = new CarRace(user.getCarNames());
+        this.tryCnt = user.getTryCnt();
+    }
+
+    public void startGame() {
+
     }
 
 
