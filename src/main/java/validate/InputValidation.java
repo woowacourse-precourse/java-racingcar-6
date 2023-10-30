@@ -8,20 +8,20 @@ public class InputValidation {
         }
     }
 
-    public static void validateInputLengthExceeded(String input) {
-        if (input.length() > 5) {
+    public static void validateInputLengthExceeded(String name) {
+        if (name.length() > 5) {
             throw new IllegalArgumentException("자동차의 이름은 5글자를 초과할 수 없습니다.");
         }
     }
 
-    public static void validateInputIsEmpty(String input) {
-        if (input.isEmpty()) {
+    public static void validateInputIsEmpty(String name) {
+        if (name.isEmpty()) {
             throw new IllegalArgumentException("자동차의 이름은 공백일 수 없습니다.");
         }
     }
 
-    public static void validateInputDoseNotContainSpecialCharacters(String input) {
-        if (input.matches(".*[ !@#$%^&*(),.?\":{}|<>].*")) {
+    public static void validateInputDoseNotContainSpecialCharacters(String name) {
+        if (name.matches(".*[ !@#$%^&*(),.?\":{}|<>].*")) {
             throw new IllegalArgumentException("자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.");
         }
     }
