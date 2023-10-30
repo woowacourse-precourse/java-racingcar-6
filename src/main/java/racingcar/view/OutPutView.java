@@ -10,6 +10,8 @@ public class OutPutView {
 
     private static final String FORWARD_STEP = "-";
 
+    private OutPutView() {}
+
     public static void printIOMessage(IOMessage message) {
         System.out.println(message.getMessage());
     }
