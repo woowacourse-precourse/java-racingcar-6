@@ -37,7 +37,7 @@ class SettingInputViewTest {
         input(String.join("\n", inputs));
         //when,then
         for (int i = 0; i < nameTestSize; i++) {
-            model.put("carNames", null);
+            model.put("cars", null);
             assertThrows(IllegalArgumentException.class, () -> {
                 inputView.read(model);
             });

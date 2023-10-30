@@ -30,7 +30,7 @@ class SettingOutputViewTest {
     @DisplayName("자동차 이름을 입력하세요를 출력한다.")
     void 자동차_이름_출력_테스트() {
         Map<String, Object> model = new HashMap<>();
-        model.put("carNames", null);
+        model.put("cars", null);
         outputView.display(model);
         Assertions.assertThat(outputMessage.toString()).contains("경주할 자동차 이름을 입력하세요");
     }
@@ -48,7 +48,7 @@ class SettingOutputViewTest {
     @DisplayName("carNaems가 비어있지 않으면 gameCount를 출력한다.")
     void 시도_횟수_출력_테스트2() {
         Map<String, Object> model = new HashMap<>();
-        model.put("carNames", "notNull");
+        model.put("cars", "notNull");
         model.put("gameCount", null);
         outputView.display(model);
         Assertions.assertThat(outputMessage.toString()).contains("시도할 회수는 몇회인가요?");
