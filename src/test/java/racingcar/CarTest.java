@@ -13,9 +13,7 @@ public class CarTest {
     public void 이름이_5글자가_넘어가는_경우_예외_발생() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (int i = 1; i <= MAX_NAME_LEGNTH + 1; i++) {
-            stringBuilder.append("A");
-        }
+        stringBuilder.append("A".repeat(MAX_NAME_LEGNTH + 1));
 
         String invalidName = stringBuilder.toString();
         assertThrows(IllegalArgumentException.class, () -> Car.getInstance(invalidName));
@@ -25,9 +23,7 @@ public class CarTest {
     public void 이름이_5글자_이하인_경우_정상적으로_자동차가_등록() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (int i = 1; i <= MAX_NAME_LEGNTH; i++) {
-            stringBuilder.append("A");
-        }
+        stringBuilder.append("A".repeat(MAX_NAME_LEGNTH));
 
         String validName = stringBuilder.toString();
         assertDoesNotThrow(() -> Car.getInstance(validName));
