@@ -7,6 +7,12 @@ public class Car {
 
     private Distance distance;
 
+    public void move() {
+        if (getRandomNumber() >= 4) {
+            distance.add(1);
+        }
+    }
+
     public int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
