@@ -3,7 +3,7 @@ package racingcar.view;
 import java.util.List;
 
 import racingcar.dto.CarDto;
-import racingcar.dto.RoundResultDto;
+import racingcar.dto.CarsDto;
 
 public class OutputView {
 
@@ -28,8 +28,8 @@ public class OutputView {
         System.out.println(RESULT_GUIDE);
     }
 
-    public void printRoundResult(final RoundResultDto roundResultDto) {
-        List<CarDto> carDtos = roundResultDto.carDtos();
+    public void printRoundResult(final CarsDto carsDto) {
+        List<CarDto> carDtos = carsDto.carDtos();
         for (CarDto carDto : carDtos) {
             String carName = carDto.name();
             String currentPosition = replaceToHyphens(carDto.position());

@@ -58,7 +58,7 @@ public class Cars {
                 });
     }
 
-    public List<CarDto> getCurrentCarStatus() {
+    public List<CarDto> toCarsDto() {
         return cars.stream()
                 .map(Car::toCarDto)
                 .toList();

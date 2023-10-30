@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.List;
 
 import racingcar.domain.Cars;
-import racingcar.dto.RoundResultDto;
+import racingcar.dto.CarsDto;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -43,8 +43,8 @@ public class GameController {
     private void playRounds(final int trialCount, final Cars cars) {
         outputView.printResultGuide();
         for (int round = 0; round < trialCount; round++) {
-            RoundResultDto roundResultDto = gameService.playRound(cars);
-            outputView.printRoundResult(roundResultDto);
+            CarsDto carsDto = gameService.playRound(cars);
+            outputView.printRoundResult(carsDto);
         }
     }
 
