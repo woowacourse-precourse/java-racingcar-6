@@ -7,8 +7,8 @@ public class Car {
     private final String carName;
     private Integer movingDistance;
 
+    public static final Integer MOVE_CONDITION_MIN_NUMBER = 4;
     private static final Integer STARTING_LINE = 0;
-    private static final Integer MOVE_CONDITION_MIN_NUMBER = 4;
     public static final Integer MOVE_ONE_STEP = 1;
 
     public Car(String carName) {
