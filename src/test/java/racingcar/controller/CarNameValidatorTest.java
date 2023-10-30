@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
@@ -15,7 +16,9 @@ public class CarNameValidatorTest {
     @Test
     public void 유효한_자동차_이름들() {
         List<String> validCarNames = List.of("Car1", "Car_2", "C", "12345");
-        CarNameValidator.validate(validCarNames);
+        assertDoesNotThrow(() -> {
+            CarNameValidator.validate(validCarNames);
+        });
     }
 
     @Test
