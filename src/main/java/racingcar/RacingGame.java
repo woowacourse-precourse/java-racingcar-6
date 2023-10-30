@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -34,5 +33,13 @@ public class RacingGame {
         racingCars.stream()
                 .filter(s -> s.distance == victor.distance && s != victor)
                 .forEach(s -> System.out.print(", " + s.name));
+    }
+
+    void playGame(int step) {
+        for(int i = 0; i < step; i++) {
+            executeStep();
+            printStep();
+        }
+        printResult();
     }
 }
