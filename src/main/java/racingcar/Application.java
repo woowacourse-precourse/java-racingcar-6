@@ -1,10 +1,9 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.util.RandomRaceNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -16,7 +15,9 @@ public class Application {
 
         int times = InputView.inputTimes();
 
-        int winnerPosition = startRacing(carList, times);
+        startRacing(carList, times);
+
+        int winnerPosition = getWinnerPosition(carList);
 
         List<Car> winnerList = new ArrayList<>();
         findWinners(carList, winnerList, winnerPosition);
@@ -24,32 +25,33 @@ public class Application {
         OutputView.printWinnerList(winnerList);
     }
 
-    private static int startRacing(List<Car> carList, int times) {
+    private static void startRacing(List<Car> carList, int times) {
 
         System.out.println("실행 결과");
 
-        int maxLength = 0;
         while (times-- > 0) {
-            maxLength = moveOrStopCar(carList, maxLength);
+            moveOrStopCar(carList);
         }
-
-        return maxLength;
     }
 
-    private static int moveOrStopCar(List<Car> carList, int maxLength) {
+    public static void moveOrStopCar(List<Car> carList) {
 
         for (Car car : carList) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
-            if (randomNumber >= 4) {
-                car.moveForward();
-                maxLength = Math.max(maxLength, car.getPositionLength());
-            }
+            car.moveOrStop(new RandomRaceNumberGenerator());
             OutputView.printCarsPosition(car);
         }
 
         System.out.println();
+    }
 
-        return maxLength;
+    private static int getWinnerPosition(List<Car> carList) {
+
+        int winnerPosition = 0;
+        for (Car car : carList) {
+            winnerPosition = Math.max(winnerPosition, car.getPositionLength());
+        }
+
+        return winnerPosition;
     }
 
     private static void findWinners(List<Car> carList, List<Car> winnerList, int winnerPosition) {
