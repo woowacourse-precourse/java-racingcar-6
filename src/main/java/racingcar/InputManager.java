@@ -14,14 +14,17 @@ public class InputManager {
 
     static int get_input_play_num(){
         String input_num = Console.readLine();
-        return string_to_int(input_num);
+        int result = string_to_int(input_num);
+        if(result==-1)
+            throw new IllegalArgumentException("입력된 문자열이 유효한 정수가 아닙니다: " + input_num);
+        return result;
     }
 
-    private static int string_to_int(String inputNum) {
+    static int string_to_int(String inputNum) {
         try {
             return Integer.parseInt(inputNum);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("입력된 문자열이 유효한 정수가 아닙니다: " + inputNum);
+            return -1;
         }
     }
 
