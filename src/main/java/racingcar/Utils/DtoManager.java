@@ -13,4 +13,10 @@ public class DtoManager {
     public void setRacingCarDto(List<String> inputCarNames) {
         racingCarDto.setCarNames(inputCarNames);
     }
+    public int getRacingCount() {
+        return racingCarDto.getRacingCount();
+    }
+    public void setRacingCount(int racingCount) {
+        racingCarDto.setRacingCount(racingCount);
+    }
 }
