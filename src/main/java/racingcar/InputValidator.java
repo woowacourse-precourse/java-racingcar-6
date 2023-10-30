@@ -13,7 +13,7 @@ public class InputValidator {
     }
 
     public boolean gameCountValidate (String gameCount) {
-        if (!Pattern.matches("^[0-9]", gameCount)) {
+        if (!Pattern.matches("^[0-9]+$", gameCount)) {
             throw new IllegalArgumentException("Only numbers can be entered");
         }
         return true;
