@@ -13,6 +13,7 @@ class InputManager {
         validateComma(input);
         List<String> carNames = Arrays.asList(input.split(","));
         validateEachNameLength(carNames);
+        validateEachNameIsNotOnlyBlank(carNames);
         return carNames;
     }
 
@@ -27,6 +28,13 @@ class InputManager {
         boolean findIllegalLength = names.stream().anyMatch(s -> s.length() >= 1 && s.length() <= 5);
         if(findIllegalLength){
             throw new IllegalArgumentException("자동차의 이름은 1글자 이상 5글자 이하여야 합니다.");
+        }
+    }
+
+    private static void validateEachNameIsNotOnlyBlank(List<String> names){
+        boolean findIllegalBlank = names.stream().anyMatch(String::isBlank);
+        if (findIllegalBlank){
+            throw new IllegalArgumentException("자동차의 이름에는 공백이 아닌 문자가 한개 이상 포함되어야 합니다.");
         }
     }
 }
