@@ -2,17 +2,17 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 final class CountTest {
 
     @Test
     void 시도_횟수가_숫자가_아닐경우_예외를_던진다() {
-        assertThrows(IllegalArgumentException.class, () -> Count.create("a"));
+        assertThrows(IllegalArgumentException.class, () -> new Count("a"));
     }
 
     @Test
     void 시도_횟수가_음수일_경우_예외를_던진다() {
-        assertThrows(IllegalArgumentException.class, () -> Count.create("-1"));
+        assertThrows(IllegalArgumentException.class, () -> new Count("-1"));
     }
 }
