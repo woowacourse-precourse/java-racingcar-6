@@ -11,6 +11,7 @@ public class RacingGame {
     public void start() {
         List<String> racingCarNames = InputView.readRacingCarName();
         List<Car> cars = new ArrayList<>();
+
         Validator.validateIsDuplicate(racingCarNames);
         for (String name : racingCarNames) {
             Validator.validateAvailableLength(name);
@@ -25,11 +26,34 @@ public class RacingGame {
             tryToMoveCars(cars);
             OutputView.printResult(cars);
         }
+
+        List<Car> winners = findWinner(cars);
+
+        OutputView.printWinners(winners);
+
     }
 
     private void tryToMoveCars(List<Car> cars) {
         for (Car car : cars) {
             car.moveOrStay();
         }
+    }
+
+    private List<Car> findWinner(List<Car> cars) {
+        List<Car> winners = new ArrayList<>();
+        Car maxCar = cars.get(0);
+
+        for (Car car : cars) {
+            int comparisonResult = car.compareTo(maxCar);
+            if (comparisonResult > 0) {
+                maxCar = car;
+                winners.clear();
+                winners.add(car);
+            } else if (comparisonResult == 0) {
+                winners.add(car);
+            }
+        }
+
+        return winners;
     }
 }

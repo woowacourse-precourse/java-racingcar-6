@@ -2,7 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private String name;
     private Long distance;
 
@@ -27,5 +27,14 @@ public class Car {
         }
 
         return name + " : " + hyphen.toString();
+    }
+
+    @Override
+    public int compareTo(Car otherCar) {
+        return Long.compare(this.distance, otherCar.distance);
+    }
+
+    public String getName() {
+        return name;
     }
 }
