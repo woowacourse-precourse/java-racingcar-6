@@ -11,6 +11,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ParserTest {
+
     @ParameterizedTest
     @ValueSource(strings = {"1", "2", "3"})
     void parseInteger_메서드는_String_을_Integer_로_변환한다(String input) {

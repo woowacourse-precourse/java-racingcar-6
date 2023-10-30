@@ -4,7 +4,7 @@ import racingcar.dto.CarDto;
 
 import java.util.Objects;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private static final Integer INIT_POSITION = 0;
 
     private final String name;
@@ -17,7 +17,7 @@ public class Car implements Comparable<Car>{
     }
 
     public void go(boolean canMove) {
-        if(canMove){
+        if (canMove) {
             position++;
         }
     }

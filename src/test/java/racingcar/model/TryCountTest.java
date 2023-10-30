@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TryCountTest {
+
     @Test
     void decrease_메서드는_시도회수를_1_감소시킨다() {
         TryCount count = new TryCount(2);
