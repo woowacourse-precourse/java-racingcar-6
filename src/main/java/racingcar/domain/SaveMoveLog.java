@@ -29,7 +29,12 @@ public class SaveMoveLog {
     }
     public void printMoveResult(Map<String, Integer> numMoveMap) {
         for (Map.Entry<String, Integer> entrySet : numMoveMap.entrySet()) {
-            System.out.println(entrySet.getKey() + ":" + "-".repeat(entrySet.getValue()));
+            System.out.print(entrySet.getKey() + " : ");
+            for (int i = 0; i < entrySet.getValue(); i++){
+                System.out.print("-");
+            }
+            System.out.println();
+//            System.out.println(entrySet.getKey() + " : " + "-".repeat(entrySet.getValue()));
         }
         System.out.println();
     }
