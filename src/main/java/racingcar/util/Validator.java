@@ -1,5 +1,6 @@
 package racingcar.util;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class Validator {
@@ -14,8 +15,14 @@ public class Validator {
     public void blank(List<String> nameList){
         for(String name:nameList){
             if(name.equals("")){
-                throw new IllegalArgumentException("공백이나 ,은 불가합니다.");
+                throw new IllegalArgumentException("이름에 공백이나 ,은 불가합니다.");
             }
+        }
+    }
+    public void duplicate(List<String> nameList){
+        HashSet<String> nonDuplicate= new HashSet<>(nameList);
+        if(nonDuplicate.size()!=nameList.size()){
+            throw new IllegalArgumentException("중복된 이름은 불가합니다.");
         }
     }
 }
