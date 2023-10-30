@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.model.move;
 
 public class RandomMove implements Move {
 
