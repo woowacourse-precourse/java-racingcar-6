@@ -11,4 +11,9 @@ public class Try {
     public int getCount() {
         return count;
     }
+
+    public void tryRace() {
+        this.count--;
+    }
+
 }
