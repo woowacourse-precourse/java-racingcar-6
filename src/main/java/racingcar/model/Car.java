@@ -52,7 +52,7 @@ public class Car implements Comparable<Car> {
             if (car.lessMoves(firstCar)) {
                 break;
             }
-            winners = addWinner(car, winners);
+            winners = addWinner(car, firstCar, winners);
         }
         return winners;
     }
@@ -61,8 +61,10 @@ public class Car implements Comparable<Car> {
         return moveCount < firstCar.moveCount;
     }
 
-    private static String addWinner(Car car, String winners) {
-        winners += ", ";
+    private static String addWinner(Car car, Car firstCar, String winners) {
+        if (car != firstCar) {
+            winners += ", ";
+        }
         winners += car.name;
         return winners;
     }
