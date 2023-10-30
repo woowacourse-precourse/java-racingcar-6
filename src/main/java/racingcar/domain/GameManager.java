@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.View;
 
 import java.util.ArrayList;
@@ -75,7 +76,8 @@ public class GameManager {
     public void startGame() {
         for (int count = 0; count < attemptCount; count++) {
             for (Car car : cars) {
-                car.decideMoveOrNot();
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
+                car.decideMoveOrNot(randomNumber);
                 gameLog.append(car.getCurrentStatus()).append(View.NEW_LINE);
             }
             gameLog.append(View.NEW_LINE);

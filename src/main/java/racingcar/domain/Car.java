@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
     private static final String MOVE_FORWARD_VALUE = "-";
     private static final String STATUS_DELIMITER = " : ";
@@ -15,8 +13,7 @@ public class Car {
         this.currentStatus = new StringBuilder();
     }
 
-    public void decideMoveOrNot() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+    public void decideMoveOrNot(int randomNumber) {
         if (randomNumber >= MINIMUM_FORWARD_NUMBER) {
             currentStatus.append(MOVE_FORWARD_VALUE);
         }
