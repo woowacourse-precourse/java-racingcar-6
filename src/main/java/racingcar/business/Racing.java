@@ -28,6 +28,10 @@ public class Racing {
         carList = getCars(names);
     }
 
+    private void tryMoving(Car car) {
+        int randomNumber = numberMaker.getRandomNumber();
+    }
+
     private static List<Car> getCars(List<String> names) {
         List<Car> carList = new ArrayList<>();
 
