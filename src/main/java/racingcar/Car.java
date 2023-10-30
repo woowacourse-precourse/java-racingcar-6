@@ -3,8 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    public final String name;
-    public int position;
+    private final String name;
+    private int position;
 
     public Car(String name) {
         this.name = name;
@@ -24,11 +24,19 @@ public class Car {
         }
     }
 
+    private boolean isWinner(int maxPosition) {
+        return this.position == maxPosition;
+    }
+
     public int getPosition() {
         return this.position;
     }
 
     public String getName() {
         return this.name;
+    }
+
+    public void printResult() {
+        System.out.println(this.name + " : " + "-".repeat(this.position));
     }
 }
