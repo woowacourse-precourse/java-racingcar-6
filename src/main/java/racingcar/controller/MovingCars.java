@@ -30,11 +30,15 @@ public class MovingCars {
         for (Car car : carList) {
             int state = Randoms.pickNumberInRange(0, 9);
 
-            if (state > 3) {
+            if (step(state)) {
                 String cur = car.getMove();
-                move(car, order.forward(cur));
+                move(car, order.step(cur));
             }
         }
+    }
+
+    private boolean step(int state) {
+        return state > 3;
     }
 
     private void printLocation(Car car) {

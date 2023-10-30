@@ -33,7 +33,7 @@ public class Order {
         System.out.print("");
     }
 
-    public String forward(String location){
+    public String step(String location){
         return location + FORWARD;
     }
 

@@ -22,9 +22,9 @@
 - [x] 우승자 순서가 뒤집혔을 때도 맞는지 검증(개인적으로 처리하고 싶어서 +추가)
 
 #### 리팩토링
-- [ ] controller 더 작은 기능으로 클래스 분리 (RacingGame -> RacingGame, CalculatingScore, MovingCars, PrizingWinners)
+- [x] controller 더 작은 기능으로 클래스 분리 (RacingGame -> RacingGame, CalculatingScore, MovingCars, PrizingWinners)
 - [ ] 메서드별로 Test 코드 작성
-- [ ] 접근제어자 및 가독성을 위한 네이밍 및 구조 변경
+- [x] 접근제어자 및 가독성을 위한 네이밍 및 구조 변경
 ---
 
 ## 🎯과제를 수행하며 발생한 문제 및 해결방법 
