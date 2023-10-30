@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
+import racingcar.model.Cars;
+import racingcar.view.OutputView;
 
 public class OutputTest extends NsTest {
 

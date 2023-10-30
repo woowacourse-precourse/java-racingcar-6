@@ -1,7 +1,10 @@
-package racingcar;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.util.Converter;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingCarGame {
 

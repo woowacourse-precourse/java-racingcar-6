@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.util;
 
 public class Converter {
     private static final String COMMA = ",";
