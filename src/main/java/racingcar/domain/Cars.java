@@ -20,21 +20,21 @@ public class Cars {
         }
     }
 
-    public int getMaxLocation() {
-        List<Integer> carLocations = new ArrayList<>();
+    public int getMaxPosition() {
+        List<Integer> carsPosition = new ArrayList<>();
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
-            carLocations.add(car.getLocation());
+            carsPosition.add(car.getPosition());
         }
-        return Collections.max(carLocations);
+        return Collections.max(carsPosition);
     }
 
     public Winner getWinner() {
         List<Car> winner = new ArrayList<>();
-        int maxLocation = getMaxLocation();
+        int maxPosition = getMaxPosition();
         for (Car car : cars) {
-            int location = car.getLocation();
-            if (location == maxLocation)
+            int position = car.getPosition();
+            if (position == maxPosition)
                 winner.add(car);
         }
         return new Winner(winner);
@@ -52,13 +52,13 @@ public class Cars {
         return nameOfCars;
     }
 
-    public List<Integer> getCarsCurrentLocation() {
-        List<Integer> carsCurrentLocation = new ArrayList<>();
+    public List<Integer> getCarsCurrentPosition() {
+        List<Integer> carsCurrentPosition = new ArrayList<>();
         for (Car car : cars) {
-            int currentLocation = car.getLocation();
-            carsCurrentLocation.add(currentLocation);
+            int currentPosition = car.getPosition();
+            carsCurrentPosition.add(currentPosition);
         }
-        return carsCurrentLocation;
+        return carsCurrentPosition;
     }
 
     public void validateNumberOfParticipants(List<Car> cars) {

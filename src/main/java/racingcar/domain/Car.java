@@ -4,7 +4,7 @@ public class Car {
 
     private static final int NAME_MAX_SIZE = 5;
 
-    private int location = 0;
+    private int position = 0;
     private String name;
 
     public Car(String name) {
@@ -13,7 +13,7 @@ public class Car {
     }
 
     public void move() {
-        location++;
+        position++;
     }
 
     public void validateNameSize(String name) {
@@ -25,7 +25,7 @@ public class Car {
         return name;
     }
 
-    public int getLocation() {
-        return location;
+    public int getPosition() {
+        return position;
     }
 }

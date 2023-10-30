@@ -25,14 +25,14 @@ public class OutputView {
 
     public void printResult(Cars cars) {
         List<String> nameOfCars = cars.getCarsName();
-        List<Integer> carsCurrentLocation = cars.getCarsCurrentLocation();
+        List<Integer> carsCurrentPosition = cars.getCarsCurrentPosition();
 
         for (int i = 0; i < nameOfCars.size(); i++) {
             String participant = nameOfCars.get(i);
-            int carCurrentLocation = carsCurrentLocation.get(i);
+            int carCurrentPosition = carsCurrentPosition.get(i);
 
             System.out.print(participant + " : ");
-            for (int j = 0; j < carCurrentLocation; j++)
+            for (int j = 0; j < carCurrentPosition; j++)
                 System.out.print(MOVE);
             System.out.println();
         }
