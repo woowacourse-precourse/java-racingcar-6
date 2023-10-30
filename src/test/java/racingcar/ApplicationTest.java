@@ -50,6 +50,15 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("자동차 이름이 빈 문자열이면 예외를 반환한다.")
+    void 자동차_이름이_빈_문자열이면_예외를_반환한다() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi,,woni", "1"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     @DisplayName("자동차 이름이 5자를 초과하면 예외를 반환한다.")
     void 자동차_이름이_5자를_초과하면_예외를_반환한다() {
         assertSimpleTest(() ->

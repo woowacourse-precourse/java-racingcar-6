@@ -32,6 +32,19 @@ public class CarTest {
     }
 
     @Test
+    @DisplayName("이름이 빈 문자열이면 예외를 반환한다.")
+    void 이름이_빈_문자열이면_예외를_반환한다() {
+      // given
+      var name = "";
+      var position = 0;
+
+      // when & then
+      assertThatThrownBy(() -> new Car(name, position))
+          .isInstanceOf(IllegalArgumentException.class)
+          .hasMessage("자동차 이름은 1자 이상 5자 이하만 가능합니다.");
+    }
+
+    @Test
     @DisplayName("이름이 5자를 초과하면 예외를 반환한다.")
     void 이름이_5자를_초과하면_예외를_반환한다() {
       // given
@@ -41,7 +54,7 @@ public class CarTest {
       // when & then
       assertThatThrownBy(() -> new Car(name, position))
           .isInstanceOf(IllegalArgumentException.class)
-          .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
+          .hasMessage("자동차 이름은 1자 이상 5자 이하만 가능합니다.");
     }
   }
 
