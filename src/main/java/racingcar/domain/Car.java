@@ -10,4 +10,10 @@ public class Car {
     public void moveCar(int moveNum){
         location += moveNum;
     }
+    public String getCarName(){
+        return name;
+    }
+    public int getCarLocation(){
+        return location;
+    }
 }
