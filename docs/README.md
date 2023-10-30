@@ -6,7 +6,7 @@
     - [x] 자동차의 이름과 진행 상태을 담을 Map을 만든다. CreateCar#stateMap()
       - [x] 자동차 이름 예외 처리
         - [x] 자동차 이름은 5자 이하만 가능하다. CreateCar#checkNameLength()
-    - [x] stateMap의 사이즈를 통해 입력 받은 자동차의 수를 결정한다. CreateCar#Count()
+    - [x] stateMap의 사이즈를 통해 입력 받은 자동차의 수를 결정한다. CreateCar#getNumberOfCars()
       - [x] 자동차 수 예외 처리
         - [x] 자동차 생성 가능 최대 수는 10대로 한다. (2023 F1 출전 팀을 기준 10팀) CreateCar#checkCarCount()
         - [x] 자동차 생성 가능 최소 수는 2대로 한다. (경주 게임을 진행하기 위한 최소 인원) CreateCar#checkCarCount()

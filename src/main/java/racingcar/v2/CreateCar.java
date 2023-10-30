@@ -21,15 +21,16 @@ public class CreateCar {
         String[] carNames = input.split(",");
         checkCarCount(carNames);
         for (String carName : carNames) {
-            checkNameLength(carName.trim());  // 이름의 길이 검사
+            checkNameLength(carName.trim());
         }
         return carNames;
     }
 
-    public int carCount(Map stateMap) {
-        int carCount = stateMap.size();
-        return carCount;
+    public int getNumberOfCars(Map stateMap) {
+        int numberOfCars = stateMap.size();
+        return numberOfCars;
     }
+
 
     public Map<String, Integer> stateMap(String[] carNames) {
         Map<String, Integer> stateMap = new HashMap<>();
