@@ -2,7 +2,11 @@ package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.CarMovement;
+import racingcar.domain.ResultOutput;
 import racingcar.domain.UserInput;
 
 public class MyApplicationTest {
@@ -43,5 +47,16 @@ public class MyApplicationTest {
                 .hasMessageContaining("시도 횟수는 숫자로 입력해주세요.");
     }
 
+    @Test
+    void 전진_정지() {
+        String input = "test1,test2";
+        String[] carNames = input.split(",");
+        List<Integer> randomNumbers = new ArrayList<>();
+        randomNumbers.add(7);
+        randomNumbers.add(2);
+        CarMovement.getCarMoveResult(randomNumbers);
+        ResultOutput.printRacingResult(carNames, CarMovement.carMoveResult);
+//        assertThat().contains("1");
+    }
 
 }

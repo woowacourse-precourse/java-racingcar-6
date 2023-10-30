@@ -13,11 +13,11 @@ public class Application {
 
         String[] carNames = userInput.inputCarNames();
         int tryNumber = userInput.inputTryNumber();
-        System.out.println("실행 결과");
 
+        System.out.println("실행 결과");
         for (int i = 0; i < tryNumber; i++) {
             List<Boolean> boolResult = carMovement.getBoolResult(carNames.length);
-            resultOutput.printRacingResult(carNames, boolResult);
+            ResultOutput.printRacingResult(carNames, boolResult);
         }
 
         resultOutput.printWinner();

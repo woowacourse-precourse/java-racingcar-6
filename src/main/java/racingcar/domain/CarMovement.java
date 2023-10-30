@@ -5,6 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarMovement {
+    public static final List<Boolean> carMoveResult = new ArrayList<>();
+
+    public List<Boolean> getBoolResult(int numberOfCars) {
+        List<Integer> randomNumberPerCar = getRandomNumberPerCar(numberOfCars);
+        getCarMoveResult(randomNumberPerCar);
+        return carMoveResult;
+    }
+
     private List<Integer> getRandomNumberPerCar(int numberOfCars) {
         List<Integer> randomNumberPerCar = new ArrayList<>();
         for (int i = 0; i < numberOfCars; i++) {
@@ -13,15 +21,13 @@ public class CarMovement {
         return randomNumberPerCar;
     }
 
-    public List<Boolean> getBoolResult(int numberOfCars) {
-        List<Integer> randomNumberPerCar = getRandomNumberPerCar(numberOfCars);
-        List<Boolean> carMoveResult = new ArrayList<>();
-        for (int i = 0; i < numberOfCars; i++) {
+    public static void getCarMoveResult(List<Integer> randomNumberPerCar) {
+        carMoveResult.clear();
+        for (int i = 0; i < randomNumberPerCar.size(); i++) {
             carMoveResult.add(false);
             if (randomNumberPerCar.get(i) >= 4) {
                 carMoveResult.set(i, true);
             }
         }
-        return carMoveResult;
     }
 }
