@@ -10,7 +10,10 @@ import java.util.Map;
 public class GameManager {
 
     private final static GameManager instance = new GameManager();
-    private GameManager() {}
+
+    private GameManager() {
+    }
+
     public static GameManager getInstance() {
         return instance;
     }

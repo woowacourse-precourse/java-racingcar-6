@@ -7,10 +7,14 @@ import java.util.Map;
 public class OutputView {
 
     private final static OutputView instance = new OutputView();
-    private OutputView() {}
+
+    private OutputView() {
+    }
+
     public static OutputView getInstance() {
         return instance;
     }
+
     public void printRequestCarsName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }

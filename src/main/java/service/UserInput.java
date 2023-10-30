@@ -6,7 +6,10 @@ import java.util.Arrays;
 public class UserInput {
 
     private final static UserInput instance = new UserInput();
-    private UserInput() {}
+
+    private UserInput() {
+    }
+
     public static UserInput getInstance() {
         return instance;
     }

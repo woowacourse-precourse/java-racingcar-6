@@ -7,6 +7,7 @@ import controller.Controller;
 public class Application {
 
     private final static Controller controller = Controller.getInstance();
+
     public static void main(String[] args) {
         controller.playGame();
     }

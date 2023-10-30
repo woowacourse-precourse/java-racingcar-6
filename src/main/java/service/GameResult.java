@@ -8,7 +8,10 @@ import java.util.Map;
 public class GameResult {
 
     private final static GameResult instance = new GameResult();
-    private GameResult() {}
+
+    private GameResult() {
+    }
+
     public static GameResult getInstance() {
         return instance;
     }

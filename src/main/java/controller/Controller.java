@@ -9,7 +9,10 @@ import view.OutputView;
 public class Controller {
 
     private final static Controller instance = new Controller();
-    private Controller() {}
+
+    private Controller() {
+    }
+
     public static Controller getInstance() {
         return instance;
     }

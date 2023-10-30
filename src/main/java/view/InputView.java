@@ -6,7 +6,10 @@ import validator.Validator;
 public class InputView {
 
     private final static InputView instance = new InputView();
-    private InputView() {}
+
+    private InputView() {
+    }
+
     public static InputView getInstance() {
         return instance;
     }
