@@ -19,15 +19,15 @@ public class Car {
         }
     }
 
-    private boolean shouldMove() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
-    }
-
     public String getName() {
         return name;
     }
 
     public int getPosition() {
         return position;
+    }
+
+    private boolean shouldMove() {
+        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 }

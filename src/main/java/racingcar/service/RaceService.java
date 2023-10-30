@@ -15,13 +15,6 @@ public class RaceService {
         this.race = new Race(cars, rounds);
     }
 
-    private List<Car> parseCarNames(String carNames) {
-        return Stream.of(carNames.split(","))
-                .map(String::trim)
-                .map(Car::new)
-                .collect(Collectors.toList());
-    }
-
     public boolean isRaceFinished() {
         return race.isFinished();
     }
@@ -38,4 +31,10 @@ public class RaceService {
         return race.getWinners();
     }
 
+    private List<Car> parseCarNames(String carNames) {
+        return Stream.of(carNames.split(","))
+                .map(String::trim)
+                .map(Car::new)
+                .collect(Collectors.toList());
+    }
 }

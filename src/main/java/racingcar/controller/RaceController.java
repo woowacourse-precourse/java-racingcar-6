@@ -7,7 +7,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RaceController {
-    private RaceService raceService;
+    private final RaceService raceService;
 
     public RaceController() {
         this.raceService = new RaceService();
@@ -37,6 +37,6 @@ public class RaceController {
 
     private void printResults() {
         List<String> winners = raceService.getWinners();
-        //OutputView.printWinners(winners);
+        OutputView.printWinners(winners);
     }
 }
