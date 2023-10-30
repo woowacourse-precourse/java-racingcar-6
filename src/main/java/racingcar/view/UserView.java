@@ -10,4 +10,7 @@ public class UserView {
     public void printInputCountMessage() {
         System.out.println(INPUT_TRY_COUNT);
     }
+    public void printResultMessage() {
+        System.out.println(RESULT);
+    }
 }
