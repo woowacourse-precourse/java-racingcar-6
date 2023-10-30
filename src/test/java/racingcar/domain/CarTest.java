@@ -28,14 +28,18 @@ class CarTest {
     @Test
     void 자동차_이동성공_테스트() {
         Car car1 = new Car("car1", 0, (min, max) -> 4);
+
         car1.move();
+
         Assertions.assertThat(car1).extracting("moveDistance").isEqualTo(1);
     }
 
     @Test
     void 자동차_이동실패_테스트() {
         Car car1 = new Car("car1", 0, (min, max) -> 3);
+
         car1.move();
+
         Assertions.assertThat(car1).extracting("moveDistance").isEqualTo(0);
     }
 }
