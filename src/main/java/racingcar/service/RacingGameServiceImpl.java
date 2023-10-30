@@ -3,6 +3,7 @@ package racingcar.service;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.RacingGame;
+import racingcar.domain.RandomNumberGenerator;
 import racingcar.repository.CarRepository;
 
 public class RacingGameServiceImpl implements RacingGameService {
@@ -23,7 +24,7 @@ public class RacingGameServiceImpl implements RacingGameService {
 
     @Override
     public boolean isMoveableForwardByRandomNumber() {
-        int randomNumber = RadomNumberGenerator.getRandomNumber(START_NUMBER_RANGE, END_NUMBER_RANGE);
+        int randomNumber = RandomNumberGenerator.getRandomNumber(START_NUMBER_RANGE, END_NUMBER_RANGE);
         return isMoveable(randomNumber);
     }
 
