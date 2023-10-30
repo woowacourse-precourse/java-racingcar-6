@@ -83,11 +83,11 @@ public class RacingCarGameController {
 
     public void gameInitialize() {
         String carNames = inputView.InputCarNames();
-        List<String> carNameList = carList(carNames);
+        List<String> carNameList = convertStringToCarList(carNames);
         cars.makeCarsFromCarList(carNameList);
     }
 
-    public List<String> carList(String carNames) {
+    public List<String> convertStringToCarList(String carNames) {
         String[] carNameList = carNames.split(CAR_NAME_SPLIT_REGEX);
         return List.of(carNameList);
     }
