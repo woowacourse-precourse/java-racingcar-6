@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
-import racingcar.model.Cars;
 import racingcar.model.Computer;
 import racingcar.model.Winner;
 import racingcar.view.InputView;
@@ -11,31 +10,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarController {
-    Cars cars;
+    private List<Car> cars;
+    private int playCount;
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     Computer computer = new Computer();
     Winner winner = new Winner();
 
     public void run() {
-        List<Car> collectCars = new ArrayList<>();
+        cars = new ArrayList<>();
         String[] carNames = inputView.carName();
         for (String carName : carNames) {
-            collectCars.add(new Car(carName));
+            cars.add(new Car(carName));
         }
-        cars = new Cars(collectCars);
 
-        cars.playNumberTimes(inputView.playNumber());
+        playCount = inputView.playNumber();
 
         outputView.printResultMessage();
-        for(int attemptMove = 0; attemptMove<cars.getPlayNumbers(); attemptMove++){
-            for (Car car : cars.getCars()) {
+        for(int attempt = 0; attempt<playCount; attempt++){
+            for (Car car : cars) {
                 car.moveForward(computer.getRandomNumber());
                 outputView.printCarPositionMessage(car.getCarName(), car.getPosition());
             }
             System.out.println();
         }
-        winner.findWinnerName(cars.getCars());
+        winner.findWinnerName(cars);
         outputView.printWinnerCarName(winner.getWinnerName());
     }
 }
