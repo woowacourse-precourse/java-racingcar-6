@@ -16,28 +16,45 @@ public class Game {
     final String MESSAGE_RACE_RESULT = "실행 결과\n";
     final String MESSAGE_ANNOUNCE_WINNER = "최종 우승자 : ";
     public List<Car> carList;
+    public List<String> winnerList;
     public int roundNumber;
+    public GameStatus gameStatus;
 
     public Game() {
         this.carList = new ArrayList<Car>();
+        this.winnerList = new ArrayList<String>();
         this.roundNumber = 0;
+        gameStatus = GameStatus.READY_TO_INPUT_CARNAMES;
     }
 
     public void startGame() {
-        System.out.print(MESSAGE_START);
-        inputCarsName();
+        while (gameStatus != GameStatus.END_OF_RACING_GAME) {
+            proceedNextStep(gameStatus);
+        }
+    }
 
-        System.out.print(MESSAGE_ASK_TRY);
-        inputRoundNumber();
-
-        System.out.print(MESSAGE_RACE_RESULT);
-        proceedEachRound();
-
-        List<String> winnerList = selectWinner();
-        announceWinner(winnerList);
+    public void proceedNextStep(GameStatus status) {
+        switch (status) {
+            case READY_TO_INPUT_CARNAMES:
+                inputCarsName();
+                break;
+            case READY_TO_INPUT_ROUNDNUMBER:
+                inputRoundNumber();
+                break;
+            case START_PROCEED_EACH_ROUND:
+                proceedEachRound();
+                break;
+            case COMPLETE_TOTAL_ROUND:
+                selectWinner();
+                break;
+            case COMPLETE_SELECT_WINNER:
+                announceWinner();
+                break;
+        }
     }
 
     public void inputCarsName() {
+        System.out.print(MESSAGE_START);
         String inputNames = Console.readLine();
 
         if (inputNames == null) {
@@ -50,18 +67,24 @@ public class Game {
         if (!validateCarNamesLength(carNameList)) {
             throw new IllegalArgumentException(String.format("%d대 이상의 이름을 입력해야 합니다", COUNT_MINIMUM_CAR));
         }
+
         if (!validateCarNameDuplication(carNameList)) {
             throw new IllegalArgumentException("중복되는 이름이 있습니다.");
         }
 
         createCarList(carNameList);
+
+        gameStatus = GameStatus.READY_TO_INPUT_ROUNDNUMBER;
     }
 
     public void inputRoundNumber() {
+        System.out.print(MESSAGE_ASK_TRY);
         String inputRoundNumber = Console.readLine();
 
         validateIsOnlyNumber(inputRoundNumber);
         validateIsGraterZero(inputRoundNumber);
+
+        gameStatus = GameStatus.START_PROCEED_EACH_ROUND;
     }
 
     private void createCarList(List<String> carNameList) {
@@ -71,6 +94,8 @@ public class Game {
     }
 
     public void proceedEachRound() {
+        System.out.print(MESSAGE_RACE_RESULT);
+
         for (int i = 0; i < roundNumber; i++) {
             for (Car car : carList) {
                 car.runCar();
@@ -78,11 +103,12 @@ public class Game {
 
             System.out.println();
         }
+
+        gameStatus = GameStatus.COMPLETE_TOTAL_ROUND;
     }
 
-    public List<String> selectWinner() {
+    public void selectWinner() {
         Car winnerFirst = carList.stream().max(Comparator.comparing(Car::getForwardCount)).get();
-        List<String> winnerList = new ArrayList<String>();
 
         for (Car car : carList) {
             if (car.getForwardCount() == winnerFirst.getForwardCount()) {
@@ -90,12 +116,13 @@ public class Game {
             }
         }
 
-        return winnerList;
+        gameStatus = GameStatus.COMPLETE_SELECT_WINNER;
     }
 
-    public void announceWinner(List<String> winnerList) {
+    public void announceWinner() {
         String winnerListWithComma = String.join(", ", winnerList);
         System.out.print(MESSAGE_ANNOUNCE_WINNER + winnerListWithComma);
+        gameStatus = GameStatus.END_OF_RACING_GAME;
     }
 
     public boolean validateCarNameDuplication(List<String> nameList) {

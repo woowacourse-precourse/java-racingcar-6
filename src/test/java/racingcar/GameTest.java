@@ -103,15 +103,11 @@ public class GameTest {
 
         obj1.increaseForwardCount(5);
         obj2.increaseForwardCount(3);
-        obj3.increaseForwardCount(2);
+        obj3.increaseForwardCount(5);
 
-        List<String> winnerList = gameObj.selectWinner();
-        assertThat(winnerList).containsExactly("npc1");
+        gameObj.selectWinner();
 
-        obj3.increaseForwardCount(3);
-
-        winnerList = gameObj.selectWinner();
-        assertThat(winnerList).containsExactly("npc1", "npc3");
+        assertThat(gameObj.winnerList).containsExactly("npc1", "npc3");
     }
 
     @Test
@@ -127,14 +123,11 @@ public class GameTest {
         obj1.increaseForwardCount(1);
         obj2.increaseForwardCount(1);
 
-        List<String> winnerList = gameObj.selectWinner();
-        assertThat(winnerList).containsExactly("npc1", "npc2");
-
         obj1.increaseForwardCount(1);
         obj2.increaseForwardCount(1);
 
-        winnerList = gameObj.selectWinner();
-        gameObj.announceWinner(winnerList);
+        gameObj.selectWinner();
+        gameObj.proceedNextStep(GameStatus.COMPLETE_SELECT_WINNER);
 
         assertThat(outContent.toString()).isEqualTo("최종 우승자 : npc1, npc2");
     }

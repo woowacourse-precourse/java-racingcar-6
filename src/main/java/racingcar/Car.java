@@ -15,8 +15,8 @@ public class Car {
 
 
     public Car(String carName) {
-        validateNameLength(carName);
         validateNameSpace(carName);
+        validateNameLength(carName);
 
         this.carName = carName;
         this.forwardCount = 0;
