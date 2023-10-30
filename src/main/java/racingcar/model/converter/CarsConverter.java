@@ -12,7 +12,7 @@ public class CarsConverter {
     public static List<CarResponse> fromEntity(final Cars cars) {
         return cars.getCars()
                 .stream()
-                .map(CarConverter::fromEntity)
+                .map(car -> CarResponse.of(car.getName(), car.getPosition()))
                 .toList();
     }
 }

@@ -41,7 +41,10 @@ public class GameController {
     }
 
     private void printEachStatus(final Cars cars) {
-        List<CarResponse> carResponses = CarsConverter.fromEntity(cars);
+        List<CarResponse> carResponses = cars.getCars()
+                .stream()
+                .map(car -> CarResponse.of(car.getName(), car.getPosition()))
+                .toList();
 
         outputView.printEachCarStatus(carResponses);
         outputView.printBlankLine();
