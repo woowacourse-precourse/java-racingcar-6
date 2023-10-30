@@ -23,29 +23,74 @@ public class GameController {
 
         playGame(attempts, cars);
 
-        List<String> winnerList = cars.getWinnerList();
-        gameView.showWinnerList(winnerList);
+        showGameResult(cars);
     }
 
     private List<String> getNameList() {
-        String carNames = gameView.getCarNamesInput();
-        List<String> nameList = inputHandler.convertNamesToNameList(carNames);
-        return nameList;
+        String carNames = getCarNamesInput();
+        return convertNamesToList(carNames);
+    }
+
+    private String getCarNamesInput() {
+        return gameView.getCarNamesInput();
+    }
+
+    private List<String> convertNamesToList(String carNames) {
+        return inputHandler.convertNamesToNameList(carNames);
     }
 
     private int getAttempts() {
-        String inputAttempts = gameView.getAttemptsInput();
-        int attempts = inputHandler.convertAttemptsToInt(inputAttempts);
-        return attempts;
+        String inputAttempts = getAttemptsInput();
+        return convertAttemptsToInt(inputAttempts);
+    }
+
+    private String getAttemptsInput() {
+        return gameView.getAttemptsInput();
+    }
+
+    private int convertAttemptsToInt(String inputAttempts) {
+        return inputHandler.convertAttemptsToInt(inputAttempts);
     }
 
     private void playGame(int attempts, Cars cars) {
-        gameView.showRaceResult();
+        showRaceResult();
         for (int i = 0; i < attempts; i++) {
-            cars.move();
-
-            List<String> carStatusList = cars.getCarStatusList();
-            gameView.showCarStatus(carStatusList);
+            executeRound(cars);
+            showRoundResult(cars);
         }
+    }
+
+    private void showRaceResult() {
+        gameView.showRaceResult();
+    }
+
+    private void executeRound(Cars cars) {
+        cars.move();
+    }
+
+    private void showRoundResult(Cars cars) {
+        List<String> carStatusList = getCarStatusList(cars);
+        showCarStatusList(carStatusList);
+    }
+
+    private List<String> getCarStatusList(Cars cars) {
+        return cars.getCarStatusList();
+    }
+
+    private void showCarStatusList(List<String> carStatusList) {
+        gameView.showCarStatus(carStatusList);
+    }
+
+    private void showGameResult(Cars cars) {
+        List<String> winnerList = getWinnerList(cars);
+        showWinnerList(winnerList);
+    }
+
+    private List<String> getWinnerList(Cars cars) {
+        return cars.getWinnerList();
+    }
+
+    private void showWinnerList(List<String> winnerList) {
+        gameView.showWinnerList(winnerList);
     }
 }
