@@ -19,4 +19,12 @@ public class GameController {
         OutputView.printGameResult(cars, numberOfAttempts);
         OutputView.printWinners(winners);
     }
+    private List<Car> createCars(String carNamesInput) {
+        String[] carNames = carNamesInput.split(",");
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
+        return cars;
+    }
 }
