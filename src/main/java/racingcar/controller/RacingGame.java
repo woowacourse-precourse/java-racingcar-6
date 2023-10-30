@@ -12,9 +12,9 @@ public class RacingGame {
     CarListController carListController;
     CarNamesController carNamesController;
 
-    public RacingGame() {
-        this.carListController = new CarListController();
-        this.carNamesController = new CarNamesController();
+    public RacingGame(CarListController carListController, CarNamesController carNamesController) {
+        this.carListController = carListController;
+        this.carNamesController = carNamesController;
     }
     public void playRacingGame() {
         initRacingGameInput();

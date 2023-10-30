@@ -8,6 +8,8 @@ public class OutputView {
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
     private static final String MOVE_MESSAGE = "-";
 
+    private OutputView() {}
+
     public static void printResult() {
         System.out.println(RESULT_MESSAGE);
     }
