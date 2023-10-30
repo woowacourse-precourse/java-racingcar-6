@@ -4,7 +4,6 @@ import static racingcar.constant.NumberConstants.ZERO;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.constant.NumberConstants;
 import racingcar.view.RacingOutputView;
 
 public class RacingCars {
@@ -20,8 +19,7 @@ public class RacingCars {
         RacingOutputView.outputRoundResults(
                 racingCarList.stream()
                         .map(RacingCar::createRoundResult)
-                        .toList()
-        );
+                        .toList());
     }
 
     private void moveRacingCar() {

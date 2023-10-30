@@ -1,6 +1,7 @@
 package racingcar.domain.validator;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.constant.MessageConstants.CAR_NAME_ALPHANUMERIC_COMMA_ONLY;
 import static racingcar.constant.MessageConstants.CAR_NAME_DUPLICATE;
 import static racingcar.constant.MessageConstants.CAR_NAME_MAX_LENGTH_EXCEEDED;
@@ -9,7 +10,6 @@ import static racingcar.constant.MessageConstants.CAR_NAME_NOT_PROVIDED;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.validator.CarNameValidator;
 import racingcar.Utils;
 
 class CarNameValidatorTest {

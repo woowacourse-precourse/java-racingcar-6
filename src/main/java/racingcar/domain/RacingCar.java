@@ -3,13 +3,8 @@ package racingcar.domain;
 import static racingcar.Utils.makeRandomNumber;
 import static racingcar.constant.MessageConstants.DASH;
 import static racingcar.constant.MessageConstants.WINNER_SUFFIX;
-import static racingcar.constant.NumberConstants.MAX_MOVE_CONDITION;
-import static racingcar.constant.NumberConstants.MIN_MOVE_CONDITION;
 import static racingcar.constant.NumberConstants.MOVE_CONDITION;
 import static racingcar.constant.NumberConstants.ZERO;
-
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
 
 public class RacingCar {
 
