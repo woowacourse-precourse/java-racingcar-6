@@ -8,10 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.core.car.Car;
 import racingcar.domain.core.car.CarName;
+import racingcar.domain.system.manager.car.CarKey;
 import racingcar.domain.system.manager.car.SavedCar;
 import racingcar.domain.system.manager.position.CarPositionManager;
 import racingcar.domain.system.manager.position.InMemoryCarPositionManager;
@@ -26,7 +28,8 @@ class CarPositionManagerTest {
         // given
         CarPositionManager manager = new InMemoryCarPositionManager();
 
-        SavedCar car = new SavedCar(new Car(new CarName("a")));
+        Car savedCarSource = new Car(new CarName("a"));
+        SavedCar car = new SavedCar(savedCarSource, CarKey.of(savedCarSource.getCarName()));
         Long position = 1L;
 
         // when
@@ -42,9 +45,12 @@ class CarPositionManagerTest {
         // given
         CarPositionManager manager = new InMemoryCarPositionManager();
 
-        SavedCar car1 = new SavedCar(new Car(new CarName("b")));
-        SavedCar car2 = new SavedCar(new Car(new CarName("c")));
-        SavedCar car3 = new SavedCar(new Car(new CarName("d")));
+        Car savedCarSource1 = new Car(new CarName("a"));
+        Car savedCarSource2 = new Car(new CarName("b"));
+        Car savedCarSource3 = new Car(new CarName("c"));
+        SavedCar car1 = new SavedCar(savedCarSource1, CarKey.of(savedCarSource1.getCarName()));
+        SavedCar car2 = new SavedCar(savedCarSource2, CarKey.of(savedCarSource2.getCarName()));
+        SavedCar car3 = new SavedCar(savedCarSource3, CarKey.of(savedCarSource3.getCarName()));
         Long car1Position = 1L;
         Long car2Position = 2L;
         Long car3Position = 3L;
@@ -68,7 +74,8 @@ class CarPositionManagerTest {
         // given
         CarPositionManager manager = new InMemoryCarPositionManager();
 
-        SavedCar car = new SavedCar(new Car(new CarName("a")));
+        Car savedCarSource = new Car(new CarName("a"));
+        SavedCar car = new SavedCar(savedCarSource, CarKey.of(savedCarSource.getCarName()));
         Long position = 1L;
         manager.save(car, position);
 
@@ -84,19 +91,18 @@ class CarPositionManagerTest {
     void findByCarWithNotFoundCar() {
         // given
         CarPositionManager manager = new InMemoryCarPositionManager();
-        SavedCar car = new SavedCar(new Car(new CarName("a")));
+        Car savedCarSource = new Car(new CarName("a"));
+        SavedCar car = new SavedCar(savedCarSource, CarKey.of(savedCarSource.getCarName()));
         Long position = 1L;
         manager.save(car, position);
 
         // when
 
         // then
-        assertAll(
-            () -> assertEquals(position, manager.findByCar(car).getPosition()),
-            () -> assertThrows(
-                NotFoundSourceException.class,
-                () -> manager.findByCar(new SavedCar(new Car(new CarName("b"))))
-            ));
+        Car notFoundCar = new Car(new CarName("b"));
+        assertAll(() -> assertEquals(position, manager.findByCar(car).getPosition()),
+            () -> assertThrows(NotFoundSourceException.class, () -> manager.findByCar(
+                new SavedCar(notFoundCar, CarKey.of(notFoundCar.getCarName())))));
     }
 
     @Test
@@ -105,8 +111,10 @@ class CarPositionManagerTest {
         // given
         CarPositionManager manager = new InMemoryCarPositionManager();
 
-        SavedCar car1 = new SavedCar(new Car(new CarName("a")));
-        SavedCar car2 = new SavedCar(new Car(new CarName("b")));
+        Car savedCarSource1 = new Car(new CarName("a"));
+        Car savedCarSource2 = new Car(new CarName("b"));
+        SavedCar car1 = new SavedCar(savedCarSource1, CarKey.of(savedCarSource1.getCarName()));
+        SavedCar car2 = new SavedCar(savedCarSource2, CarKey.of(savedCarSource2.getCarName()));
         Long car1Position = 1L;
         Long car2Position = 2L;
 
@@ -114,18 +122,15 @@ class CarPositionManagerTest {
         manager.save(car2, car2Position);
 
         // when
-        Map<CarName, SavedCarPosition> carPositions = manager.findAll(List.of(car1, car2));
+        List<SavedCarPosition> carPositions = manager.findAll(List.of(car1, car2));
 
         // then
-        assertAll(
-            () -> assertThat(carPositions).containsKeys(car1.getKey(),
-                car2.getKey()),
-            () -> assertThat(carPositions.values().stream().map(SavedCarPosition::getPosition))
-                .contains(car1Position, car2Position),
-            () -> assertEquals(carPositions.get(car1.getKey()).getPosition(),
-                car1Position),
-            () -> assertEquals(carPositions.get(car2.getKey()).getPosition(),
-                car2Position)
-        );
+        List<CarKey> keys = carPositions.stream().map(SavedCarPosition::getSavedCar)
+            .map(SavedCar::getKey)
+            .collect(Collectors.toList());
+        List<Long> positions = carPositions.stream().map(SavedCarPosition::getPosition)
+            .collect(Collectors.toList());
+        assertAll(() -> assertThat(keys).contains(car1.getKey(), car2.getKey()),
+            () -> assertThat(positions).contains(car1Position, car2Position));
     }
 }
