@@ -14,11 +14,7 @@ public class Application {
 
         List<String> carNameList = stripCarName(splitCarName(input));
 
-        List<Car> carList = new ArrayList<>();
-        for (int i = 0; i < carNameList.size(); i++) {
-            Car car = new Car(carNameList.get(i), 0);
-            carList.add(car);
-        }
+        List<Car> carList = initializeCars(carNameList);
 
         for (Car car : carList) {
             String carName = car.getName();
@@ -100,5 +96,14 @@ public class Application {
     private static List<String> stripCarName(List<String> carNameList) {
         carNameList.replaceAll(String::strip);
         return carNameList;
+    }
+
+    private static List<Car> initializeCars(List<String> carNameList) {
+        List<Car> carList = new ArrayList<>();
+        for (int i = 0; i < carNameList.size(); i++) {
+            Car car = new Car(carNameList.get(i), 0);
+            carList.add(car);
+        }
+        return carList;
     }
 }
