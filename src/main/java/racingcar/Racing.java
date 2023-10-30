@@ -16,7 +16,7 @@ public class Racing {
 
     private static int isAllowIntString(String turn) {
         try {
-            return Integer.parseInt(Console.readLine());
+            return Integer.parseInt(turn);
         } catch (Exception e) {
             throw new IllegalArgumentException("숫자만 입력해 주세요.");
         }
