@@ -9,8 +9,8 @@ import java.util.Map;
 *  후진 기능
 * */
 public class Car {
-    private String carName;
-    private int location;
+    public String carName;
+    public int location;
 
     public Car(String carName) {
         this.carName = carName;
@@ -27,7 +27,7 @@ public class Car {
         this.location--;
     }
 
-    // car 중복 검사
+    // car 중복 검사 --> contins 할 방법을 찾아야함
     public void validateDuplicate() {
         if (Cars.cars.contains(carName)) {
             throw new IllegalArgumentException("중복된 이름의 자동차는 동시에 경기할 수 없습니다.");
