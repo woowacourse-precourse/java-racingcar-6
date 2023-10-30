@@ -1,6 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static racingcar.Cars.updateCount;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -36,6 +37,15 @@ public class GameService {
         }
         return false;
     }
+
+    private static Cars recordNumberOfMovingForward(Cars cars, Car car, boolean isMovingForward) {
+        if (isMovingForward) {
+            cars.replace(car, updateCount(cars, car));
+        }
+        return cars;
+    }
+
+
 
 
 }

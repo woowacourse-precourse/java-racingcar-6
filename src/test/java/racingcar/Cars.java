@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cars { // HashMap 형태로 Car 저장
+public class Cars extends HashMap { // HashMap 형태로 Car 저장
     private final Map<Car, Integer> cars;
 
     public Cars(Map<Car, Integer> cars) {
@@ -26,4 +26,9 @@ public class Cars { // HashMap 형태로 Car 저장
 
         return new Cars(carsMap);
     }
+    public static Integer updateCount(Cars cars, Car car) {
+        Integer updateCount = (int) cars.get(car) + 1;
+        return updateCount;
+    }
+
 }
