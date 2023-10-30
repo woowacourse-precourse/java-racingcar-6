@@ -62,9 +62,11 @@ jun : -----
 ## 📝 기능 구현 목록
 
 **입출력**
-- 사용자의 입력을 CLI로 읽어들인다.
-    - `camp.nextstep.edu.missionutils.Console.readLine()`을 활용한다.
-- 사용자에게 CLI로 메시지를 출력한다.
+
+✅ CLI로 입력을 읽어들인다.
+- camp.nextstep.edu.missionutils.Console.readLine()`을 활용한다.
+
+✅ CLI로 메시지를 출력한다.
 
 **유효성 검증**
 - 입력된 문자의 일반적인 유효성을 검증한다.
