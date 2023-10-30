@@ -41,9 +41,9 @@ public class RaceCar {
 
     /**
      * 차동차의 이동을 할때 "차의 이동량과 이동을 위한 출력문자"를 수정
+     * 이동시 전진 카운터 증가.
      */
     public void moveForward() {
-        // 이동시 전진 카운터 증가.
         cntMovementOfCar = cntMovementOfCar + 1;
         moveStateStr.append(CAR_MOVE_FORWARD_CHAR);
     }
