@@ -8,8 +8,8 @@ import racingcar.view.RotatingCount;
 import java.util.List;
 
 public class MovingCars {
-    RotatingCount rotatingCount = new RotatingCount();
-    Order order = new Order();
+    private RotatingCount rotatingCount = new RotatingCount();
+    private Order order = new Order();
     public void start(List<Car> carList) {
         int total = rotatingCount.input();
 

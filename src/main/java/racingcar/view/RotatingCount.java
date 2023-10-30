@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.RacingCountValidator;
 
 public class RotatingCount {
-    RacingCountValidator racingCountValidator = new RacingCountValidator();
-    Order order = new Order();
+    private RacingCountValidator racingCountValidator = new RacingCountValidator();
+    private Order order = new Order();
     public int input() {
         order.rotateCount();
         String racingCount = Console.readLine();

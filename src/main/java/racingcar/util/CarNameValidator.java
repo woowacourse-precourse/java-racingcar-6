@@ -2,7 +2,7 @@ package racingcar.util;
 
 public class CarNameValidator {
     private final String regex = "^[a-zA-Z]+$";
-    String[] allCarNames;
+    private String[] allCarNames;
     public boolean check(String carNames) {
         if(isNull(carNames) && isSize(carNames) && isString()){
             return true;

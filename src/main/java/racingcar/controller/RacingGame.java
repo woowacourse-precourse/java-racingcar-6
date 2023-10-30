@@ -12,9 +12,9 @@ import java.util.List;
 public class RacingGame {
     private final List<Car> carList = new ArrayList<>();
     private final List<String> winner = new ArrayList<>();
-    MovingCars movingCars = new MovingCars();
-    CarName carName = new CarName();
-    Order order = new Order();
+    private MovingCars movingCars = new MovingCars();
+    private CarName carName = new CarName();
+    private Order order = new Order();
     public void play() {
         splitCars(inputCarName());
         movingCars.start(carList);
