@@ -8,4 +8,8 @@ public class Car {
         this.name = name;
         this.count = 0;
     }
+
+    public static Car of(String name) {
+        return new Car(name);
+    }
 }
