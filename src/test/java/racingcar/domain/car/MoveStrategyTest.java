@@ -4,19 +4,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.MoveState;
 import racingcar.domain.generator.NumberGenerator;
 
-class MoveStateTest {
+class MoveStrategyTest {
 	@Test
 	@DisplayName("4이상인 값이 들어오면 움직일 수 있는 상태이다.")
 	void move_state(){
 		// given
-        NumberGenerator numberGenerator = () -> 4;
-        MoveState moveState = new MoveState(numberGenerator);
+        MoveStrategy moveStrategy = new MoveStrategy();
+		NumberGenerator numberGenerator = () -> 4;
 
         // when
-        boolean result = moveState.canMove();
+        boolean result = moveStrategy.canMove(numberGenerator);
 
         // then
         assertTrue(result);
@@ -26,11 +25,11 @@ class MoveStateTest {
 	@DisplayName("4이하의 값이 들어오면 움직일 수 없는 상태이다.")
 	void not_move_state(){
 		// given
+		MoveStrategy moveStrategy = new MoveStrategy();
 		NumberGenerator numberGenerator = () -> 3;
-		MoveState moveState = new MoveState(numberGenerator);
 
 		// when
-		boolean result = moveState.canMove();
+		boolean result = moveStrategy.canMove(numberGenerator);
 
 		// then
 		assertFalse(result);

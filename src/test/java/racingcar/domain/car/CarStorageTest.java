@@ -11,10 +11,9 @@ class CarStorageTest {
 	@DisplayName("자동차 이름은 중복될 수 있다.")
 	void can_duplicated_car_name() {
 		// given
-		MoveState moveState = new MoveState(() -> 4);
 		Position position = new Position();
-		Car carNameA1 = new Car(position, new CarName("A"), moveState);
-		Car carNameA2 = new Car(position, new CarName("A"), moveState);
+		Car carNameA1 = new Car(position, new CarName("A"));
+		Car carNameA2 = new Car(position, new CarName("A"));
 
 		// when & then
 		Assertions.assertDoesNotThrow(() -> new CarStorage(List.of(carNameA1, carNameA2)));
@@ -24,10 +23,9 @@ class CarStorageTest {
 	@DisplayName("가장 많이 전진한 차들을 알아낼 수 있다.")
 	void get_top_position_cars() {
 		// given
-		MoveState moveState = new MoveState(() -> 4);
-		Car carNameA1 = new Car(new Position(1), new CarName("A"), moveState);
-		Car carNameA2 = new Car(new Position(1), new CarName("A"), moveState);
-		Car carNameA3 = new Car(new Position(0), new CarName("A"), moveState);
+		Car carNameA1 = new Car(new Position(1), new CarName("A"));
+		Car carNameA2 = new Car(new Position(1), new CarName("A"));
+		Car carNameA3 = new Car(new Position(0), new CarName("A"));
 		CarStorage carStorage = new CarStorage(List.of(carNameA1, carNameA2, carNameA3));
 
 		// when

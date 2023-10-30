@@ -1,20 +1,20 @@
 package racingcar.domain.car;
 
 
+import racingcar.domain.generator.NumberGenerator;
+
 public class Car {
 
 	private Position position;
 	private final CarName carName;
-	private final MoveState moveState;
 
-	public Car(Position position, CarName carName, MoveState moveState) {
+	public Car(Position position, CarName carName) {
 		this.position = position;
 		this.carName = carName;
-		this.moveState = moveState;
 	}
 
-	public void move() {
-		if (moveState.canMove()) {
+	public void move(MoveStrategy moveStrategy, NumberGenerator numberGenerator) {
+		if (moveStrategy.canMove(numberGenerator)) {
 			this.position = new Position(position.getPosition() + 1);
 		}
 	}

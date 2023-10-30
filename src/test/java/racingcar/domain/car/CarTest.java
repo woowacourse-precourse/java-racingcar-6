@@ -12,31 +12,23 @@ class CarTest {
 	@DisplayName("자동차가 전진할 수 있는 조건을 만족하면 1씩 전진한다.")
 	void can_move() {
 		// given
-		NumberGenerator movableNumber = () -> 4;
-		MoveState moveState = new MoveState(movableNumber);
-		CarName carName = new CarName("12345");
-		Position position = new Position();
-		Car car = new Car(position, carName, moveState);
+		Car car = new Car(new Position(), new CarName("12345"));
 
 		// when
-		car.move();
+		car.move(new MoveStrategy(), () -> 4);
 
-        // then
-        assertEquals(new Position(1), car.getPosition());
+		// then
+		assertEquals(new Position(1), car.getPosition());
 	}
 
 	@Test
 	@DisplayName("자동차가 전진할 수 있는 조건을 만족하지 않으면 움직이지 않는다.")
 	void not_move() {
 		// given
-		NumberGenerator nonMovableNumber = () -> 3;
-		MoveState moveState = new MoveState(nonMovableNumber);
-		CarName carName = new CarName("12345");
-		Position position = new Position();
-		Car car = new Car(position, carName, moveState);
+		Car car = new Car(new Position(), new CarName("12345"));
 
 		// when
-		car.move();
+		car.move(new MoveStrategy(), () -> 3);
 
 		// then
 		assertEquals(new Position(0), car.getPosition());
