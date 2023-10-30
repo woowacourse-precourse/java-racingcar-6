@@ -52,6 +52,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("게임 횟수 예외 처리 - 숫자가 아닌 값")
+    void 게임횟수에_대한_예외처리2(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "not_digit_value"))
+                        .isInstanceOf(IllegalArgumentException.class)
+
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
