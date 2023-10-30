@@ -1,8 +1,7 @@
 package racingcar.domain;
 
-import java.util.Objects;
-
 public record CarName(String name) {
+
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
     private static final String INVALID_CAR_NAME_LENGTH = "자동차 이름 길이가 올바르지 않습니다";
@@ -25,13 +24,5 @@ public record CarName(String name) {
         if (name.equals("")) {
             throw new IllegalArgumentException(NOT_BLANK_CAR_NAME);
         }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CarName carName = (CarName) o;
-        return Objects.equals(name, carName.name);
     }
 }
