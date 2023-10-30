@@ -29,7 +29,7 @@ public class OutputView {
             delimiter.add(car);
         }
 
-        System.out.println("최종 우승자 : " + delimiter);
+        System.out.print("최종 우승자 : " + delimiter);
     }
 
 }
