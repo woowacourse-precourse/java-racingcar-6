@@ -1,10 +1,12 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CarNameTest {
 
@@ -17,4 +19,9 @@ class CarNameTest {
         assertThat(carName.getName()).isEqualTo(name);
     }
 
+    @DisplayName("CarName 생성 실패 테스트 - 공백")
+    @Test
+    void createCarNameFailTest_1() {
+        assertThrows(IllegalArgumentException.class, () -> new CarName(""));
+    }
 }
