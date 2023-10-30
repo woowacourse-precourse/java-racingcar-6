@@ -24,4 +24,13 @@ public class ExceptionManager {
         }
         return false;
     }
+
+    public static boolean isBlank(List<String> members) {
+        for (int i = 0; i < members.size(); i++) {
+            if (isBlank(members.get(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
