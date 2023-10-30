@@ -48,7 +48,7 @@ public class RaceCar {
     }
 
     /**
-     * 문자열 리턴 "one"
+     * 현재 자동차의 이름을 반환한다.
      *
      * @return
      */
