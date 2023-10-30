@@ -18,9 +18,13 @@
 
 - [x] 0에서 9까지의 정수 중 한 개의 정수 랜덤 반환
 
+## MovePossibilityChecker
+
+- [x] 전진해도 되는지 안되는지 판단
+
 ## Cars
 
 - [x] 이름 쉼표를 기준으로 구분
-    - [x] ㅌ복된 이름 검증, 검증 실패 시 IllegalArgumentException 발생
+    - [x] 중복된 이름 검증, 검증 실패 시 IllegalArgumentException 발생
     - [x] 각 이름 5글자 이하, 검증 실패 시 IllegalArgumentException 발생
-- [] 무작위 값이 4 이상일 경우에만 차 전진
+- [] MovePossibilityChecker값이 FORWARD면 전진, 아니면 전진x
