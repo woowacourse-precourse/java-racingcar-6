@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.position.Position;
 import racingcar.domain.power.Power;
 import racingcar.domain.power.PowerGenerator;
 
@@ -19,7 +20,7 @@ class CarTest {
         Car car = new Car("test", 0, powerGenerator);
 
         car.tryDrive();
-        assertEquals(1, car.getPosition());
+        assertEquals(new Position(1), car.getPosition());
     }
 
     @DisplayName("파워가 부족하면 움직이지 않는다")
@@ -30,6 +31,6 @@ class CarTest {
         Car car = new Car("test", 0, powerGenerator);
 
         car.tryDrive();
-        assertEquals(0, car.getPosition());
+        assertEquals(new Position(0), car.getPosition());
     }
 }

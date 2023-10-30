@@ -1,5 +1,6 @@
 package racingcar.domain.car;
 
+import racingcar.domain.position.Position;
 import racingcar.domain.power.Power;
 import racingcar.domain.power.PowerGenerator;
 
@@ -9,12 +10,12 @@ public class Car {
     private static final int MOVE_DISTANCE = 1;
 
     private CarName carName;
-    private int position;
+    private Position position;
     private PowerGenerator powerGenerator;
 
     public Car(String name, int position, PowerGenerator powerGenerator) {
         this.carName = new CarName(name);
-        this.position = position;
+        this.position = new Position(position);
         this.powerGenerator = powerGenerator;
     }
 
@@ -26,14 +27,14 @@ public class Car {
     }
 
     private void drive() {
-        position += MOVE_DISTANCE;
+        position.move(MOVE_DISTANCE);
     }
 
-    public String getName() {
+    public String getCarName() {
         return carName.getCarName();
     }
 
-    public int getPosition() {
+    public Position getPosition() {
         return position;
     }
 }
