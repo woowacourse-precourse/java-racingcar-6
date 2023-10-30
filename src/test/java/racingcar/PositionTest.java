@@ -6,7 +6,7 @@ import racingcar.domain.Position;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayName("Position 클래스 테스트")
+@DisplayName("Position 테스트")
 public class PositionTest {
 
     @Test
