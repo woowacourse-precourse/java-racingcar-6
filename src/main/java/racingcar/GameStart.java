@@ -28,4 +28,13 @@ public class GameStart {
         return false;
     }
 
+    private ArrayList<String> winner(int win){
+        ArrayList<String> winner = new ArrayList<String>();
+        for (int i = 0; i < carsScore.length; i++) {
+            if(carsScore[i] == win){
+                winner.add(carsName[i]);
+            }
+        }
+        return winner;
+    }
 }
