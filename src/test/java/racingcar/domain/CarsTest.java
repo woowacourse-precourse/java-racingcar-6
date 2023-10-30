@@ -60,9 +60,10 @@ class CarsTest {
         List<CarName> carNames = names.stream().map(CarName::new).toList();
 
         Cars cars = Cars.createByNames(carNames);
+        cars.goForward();
 
         // when
-        Map<String, Integer> status = cars.goForward();
+        Map<String, Integer> status = cars.getStatus();
 
         // then
         assertThat(status.keySet().containsAll(names)).isTrue();
