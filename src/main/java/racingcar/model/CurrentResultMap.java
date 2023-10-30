@@ -5,9 +5,9 @@ import java.util.List;
 public class CurrentResultMap {
     private final static String moveUnit = "-";
     private final static String printMoveFormat = "%s : %s\n";
-    private String currentResultMap = "";
 
-    public String getCurrentResultMap(List<Car> cars) {
+    public static String getCurrentResultMap(List<Car> cars) {
+        String currentResultMap = "";
         for (Car car : cars) {
             String carName = car.getName();
             int moveDistance = car.getMoveDistance();
