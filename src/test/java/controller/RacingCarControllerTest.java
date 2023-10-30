@@ -52,7 +52,7 @@ class RacingCarControllerTest {
     @ValueSource(strings = { "a", "-", "1a", "-1", "테스트" })
     @DisplayName(value = "사용자가 입력한 반복 횟수가 숫자가 아닐 경우 IllegalArgumentException 을 발생시키는지 확인")
     void validateIsNumericTest(String input) {
-        assertThatThrownBy(() -> racingCarController.startRacing(input))
+        assertThatThrownBy(() -> racingCarController.racing(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("반복 횟수는 숫자만 입력 가능합니다.");
     }
