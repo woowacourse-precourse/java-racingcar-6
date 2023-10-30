@@ -35,3 +35,4 @@
 - [x] 사용자가 잘못된 값을 입력할 경우, `IllegalArgumentException`
     - [x] 자동차 이름이 1자 미만, 5자 초과하는 경우 - validCarNameLength()
     - [x] 시도할 횟수 입력 받을 때, 숫자 외 다른 문자 입력한 경우 - validTrialNumber()
+    - [x] 시도할 횟수 입력 받을 떄, 음수 입력한 경우 - validTrialNumber()
