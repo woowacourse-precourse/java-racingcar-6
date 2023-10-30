@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import racingcarv2.model.Car;
+import racingcarv2.model.Name;
+import racingcarv2.model.Position;
 
 public class CarTest {
     private Car car = new Car(new Name("pobi"), new Position(1));

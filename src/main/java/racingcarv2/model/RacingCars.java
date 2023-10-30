@@ -1,7 +1,8 @@
-package racingcarv2;
+package racingcarv2.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcarv2.model.Car;
 
 public class RacingCars {
     private final List<Car> racingCars;
