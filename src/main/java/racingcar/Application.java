@@ -14,6 +14,6 @@ public class Application {
             playGame.simulation();
             playGame.printResult();
         }
-
+       playGame.printWinnerList();
     }
 }
