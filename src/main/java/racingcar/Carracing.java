@@ -58,8 +58,14 @@ public class Carracing {
     public static void chooseWinner() {
         List<String> winner = new ArrayList<>(raceScore.keySet());
 
-        winner.sort((o1, o2) -> raceScore.get(o2).compareTo(raceScore.get(o1)));
+        winner = sortRanking(winner);
 
         printWinnerMsg(raceScore, winner);
+    }
+
+    public static List<String> sortRanking(List<String> winner) {
+        winner.sort((o1, o2) -> raceScore.get(o2).compareTo(raceScore.get(o1)));
+
+        return winner;
     }
 }
