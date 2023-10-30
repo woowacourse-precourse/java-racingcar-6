@@ -1,25 +1,21 @@
-package service;
+package model;
 
-import controller.dto.MoveResult;
+import model.dto.MoveResult;
 import java.util.List;
-import model.Car;
-import model.Cars;
-import model.CompareNumberReferee;
-import model.Referee;
 
-public class RacingService {
+public class GameManager {
 
     private final Referee referee;
     private final Cars cars;
 
-    private RacingService(final Referee referee, final Cars cars) {
+    private GameManager(final Referee referee, final Cars cars) {
         this.referee = referee;
         this.cars = cars;
     }
 
-    public static RacingService createDefault(final List<String> carNames) {
+    public static GameManager createDefault(final List<String> carNames) {
         Referee referee = new CompareNumberReferee();
-        return new RacingService(referee, Cars.from(carNames));
+        return new GameManager(referee, Cars.from(carNames));
     }
 
     public List<MoveResult> moveEachCar() {

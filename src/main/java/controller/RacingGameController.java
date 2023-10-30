@@ -4,7 +4,7 @@ import controller.dto.CarNames;
 import controller.dto.MoveResult;
 import java.util.List;
 import model.TryCount;
-import service.RacingService;
+import model.GameManager;
 import view.InputView;
 import view.OutputView;
 
@@ -12,7 +12,7 @@ public class RacingGameController {
 
     private final OutputView outputView;
     private final InputView inputView;
-    private RacingService racingService;
+    private GameManager gameManager;
     private TryCount tryCount;
 
     public RacingGameController(final OutputView outputView, final InputView inputView) {
@@ -35,13 +35,13 @@ public class RacingGameController {
         outputView.informBeforeShowMove();
 
         for (int i = 0; i < tryCount.getTryCount(); i++) {
-            List<MoveResult> moveResults = racingService.moveEachCar();
+            List<MoveResult> moveResults = gameManager.moveEachCar();
             outputView.informResult(moveResults);
         }
     }
 
     private void decideWinner() {
-        List<String> decidedWinners = racingService.getWinners();
+        List<String> decidedWinners = gameManager.getWinners();
         outputView.showWinners(decidedWinners);
     }
 
