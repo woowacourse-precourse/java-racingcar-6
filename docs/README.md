@@ -8,7 +8,7 @@
 
 #### - 이름이 5자 이하인지
 
-#### - 알파벳이나 ',' 가 아닌 문자가 올경우 IllegalArgumentException 발생
+#### - 알파벳이 아닌 문자가 올경우 IllegalArgumentException 발생
 
 #### - 이름이 중복되는지
 
