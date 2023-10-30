@@ -23,7 +23,8 @@ public class Car {
 
     private void validateCarNames(List<String> carNames) {
         Validator.checkCarCount(carNames);
-        Validator.checkBlankAndLength(carNames);
+        Validator.checkBlank(carNames);
+        Validator.checkLength(carNames);
         Validator.checkDuplication(carNames);
     }
 

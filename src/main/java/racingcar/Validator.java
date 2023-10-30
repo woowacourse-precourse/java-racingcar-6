@@ -13,13 +13,21 @@ public class Validator {
 
     }
 
-    public static void checkBlankAndLength(List<String> carNames) {
+    public static void checkBlank(List<String> carNames) {
 
         for (String carName : carNames) {
 
             if (carName.isBlank()) {
                 throw new IllegalArgumentException("공백을 입력하지 마세요.");
             }
+
+        }
+
+    }
+
+    public static void checkLength(List<String> carNames){
+
+        for (String carName : carNames) {
 
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름을 5자 이하로 입력해 주세요.");
