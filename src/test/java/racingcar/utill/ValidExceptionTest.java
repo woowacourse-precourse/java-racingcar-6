@@ -79,13 +79,13 @@ class ValidExceptionTest {
     }
 
     @DisplayName("특수문자 포함 검사")
-    @Test
-    void isValidIncludeSpecialString() {
-        // given
-
-        // when
-
+    @ParameterizedTest
+    @ValueSource(strings = {"1!@#", "!@#1", "1@!#", "g!@", "!@#a", "!a@!#", "한글!@#", "!@#한글", "!@#sfd한글"})
+    void isValidIncludeSpecialString(String input) {
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidIncludeSpecialString(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("입력문자에 공백이 포함되어있는가.")
