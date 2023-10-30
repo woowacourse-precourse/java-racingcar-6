@@ -23,7 +23,7 @@ public class OutputView {
             System.out.print(userName.get(i));
             System.out.print(" : ");
             for (int j = 0; j < distance.get(i); j++) {
-                System.out.print("_");
+                System.out.print("-");
             }
             System.out.println();
         }
