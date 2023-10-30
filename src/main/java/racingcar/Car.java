@@ -9,8 +9,8 @@ public class Car {
         this.progress = 0;
     }
 
-    public void setProgress(Integer progress) {
-        this.progress = progress;
+    public void progress() {
+        this.progress += 1;
     }
 
     public String getName() {

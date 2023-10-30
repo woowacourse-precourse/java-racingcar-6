@@ -74,7 +74,7 @@ public class GameUtil {
             int randomNumber = Randoms.pickNumberInRange(minRandomValue, maxRandomValue);
 
             if (randomNumber >= Constants.PROGRESS_LIMIT_NUMBER) {
-                car.setProgress(car.getProgress() + 1);
+                car.progress();
             }
         }
 
