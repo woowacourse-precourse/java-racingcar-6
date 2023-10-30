@@ -19,4 +19,14 @@ public class ValidateTest {
         Assertions.assertThatThrownBy(() -> InputValidator.validateRacingCarNames(racingCarNames))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void moveCountInputTest() {
+        String stringMoveCountInput = "k";
+        Assertions.assertThatThrownBy(() -> InputValidator.validateMoveCount(stringMoveCountInput))
+                .isInstanceOf(IllegalArgumentException.class);
+        String moveCountInputLessThan1 = "0";
+        Assertions.assertThatThrownBy(() -> InputValidator.validateMoveCount(moveCountInputLessThan1))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
