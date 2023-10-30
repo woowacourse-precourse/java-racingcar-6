@@ -16,6 +16,7 @@ public class OutputAboutGame {
     }
 
     public static void PrintResultIntroducePhrase() {
+        System.out.println();
         System.out.println(GuidePhrases.reselutPhrase);
     }
 
@@ -32,5 +33,17 @@ public class OutputAboutGame {
             System.out.printf("-");
         }
         System.out.println();
+    }
+
+    public static void PrintWinner(List<CarEntity> winners) {
+        StringBuilder winnerStringList = new StringBuilder();
+        System.out.printf("%s : ", GuidePhrases.introduceWinnerPhrase);
+        for (CarEntity winner : winners) {
+            winnerStringList.append(winner.getCarName());
+            winnerStringList.append(", ");
+        }
+        winnerStringList.deleteCharAt(winnerStringList.length() - 1);
+        winnerStringList.deleteCharAt(winnerStringList.length() - 1);
+        System.out.println(winnerStringList);
     }
 }
