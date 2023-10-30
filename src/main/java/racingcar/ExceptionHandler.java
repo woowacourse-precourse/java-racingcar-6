@@ -26,6 +26,10 @@ public class ExceptionHandler {
         if (Validation.isBlank(str)) {
             throw new IllegalArgumentException("자동차 이름이 공백입니다.");
         }
+
+        if (Validation.isBlankContain(str)) {
+            throw new IllegalArgumentException("자동차 이름이 공백을 포함합니다.");
+        }
     }
 
     public void isMembersException(List<String> members) {
