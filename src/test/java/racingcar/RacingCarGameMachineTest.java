@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 public class RacingCarGameMachineTest {
 
     private RacingCarGameMachine racingCarGameMachine;
+    private final RacingCarGameMachineValidator racingCarGameMachineValidator = new RacingCarGameMachineValidator();
+    private final RacingCarValidator racingCarValidator = new RacingCarValidator();
 
     private static final String RACING_CAR_NAME_INPUT = "semin,woowa,pre";
     private static final int ROUND_COUNT = 5;
@@ -16,7 +18,11 @@ public class RacingCarGameMachineTest {
     @BeforeEach
     void init() {
         MockRandomNumberGenerator randomNumberGenerator = new MockRandomNumberGenerator(MOVING_FORWARD, STOP, STOP);
-        this.racingCarGameMachine = new RacingCarGameMachine(randomNumberGenerator);
+        this.racingCarGameMachine = new RacingCarGameMachine(
+                racingCarGameMachineValidator,
+                racingCarValidator,
+                randomNumberGenerator
+        );
         racingCarGameMachine.init(RACING_CAR_NAME_INPUT, ROUND_COUNT);
     }
 
@@ -79,7 +85,10 @@ public class RacingCarGameMachineTest {
     void 동점_우승() {
         MockRandomNumberGenerator randomNumberGenerator
                 = new MockRandomNumberGenerator(MOVING_FORWARD, MOVING_FORWARD, STOP);
-        this.racingCarGameMachine = new RacingCarGameMachine(randomNumberGenerator);
+        this.racingCarGameMachine = new RacingCarGameMachine(
+                racingCarGameMachineValidator,
+                racingCarValidator,
+                randomNumberGenerator);
         racingCarGameMachine.init(RACING_CAR_NAME_INPUT, ROUND_COUNT);
 
         playRoundUntilGameOver();
