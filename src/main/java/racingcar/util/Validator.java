@@ -11,4 +11,11 @@ public class Validator {
             }
         }
     }
+    public void blank(List<String> nameList){
+        for(String name:nameList){
+            if(name.equals("")){
+                throw new IllegalArgumentException("공백이나 ,은 불가합니다.");
+            }
+        }
+    }
 }
