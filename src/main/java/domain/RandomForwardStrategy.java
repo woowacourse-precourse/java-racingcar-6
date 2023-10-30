@@ -2,13 +2,13 @@ package domain;
 
 import util.generator.RandomNumberGenerator;
 
-public class RandomForwardStrategy implements ForwardStrategy<Integer>{
+public class RandomForwardStrategy implements ForwardStrategy{
 
     private static final int MOVABLE_NUMBER = 4;
 
     @Override
-    public boolean canMove(Integer randomNumber) {
-        return randomNumber >= MOVABLE_NUMBER;
+    public boolean canMove() {
+        return RandomNumberGenerator.generateRandomNumber() >= MOVABLE_NUMBER;
     }
 
 }
