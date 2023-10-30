@@ -5,15 +5,20 @@ import racingcar.util.RacingCountValidator;
 
 public class RotatingCount {
     RacingCountValidator racingCountValidator = new RacingCountValidator();
+    Order order = new Order();
     public int input() {
+        order.rotateCount();
         String racingCount = Console.readLine();
+
         if(racingCountValidator.check(racingCount)){
-            return  stoi(racingCount);
+            order.gameProcess();
+            return  stringToInteger(racingCount);
         }
         throw new IllegalArgumentException("잘못된 입력 입니다.");
+
     }
 
-    private int stoi(String racingCount){
+    private int stringToInteger(String racingCount){
         return Integer.parseInt(racingCount);
     }
 }

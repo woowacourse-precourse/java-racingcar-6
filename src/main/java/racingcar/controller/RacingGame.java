@@ -12,12 +12,12 @@ import java.util.List;
 public class RacingGame {
     private final List<Car> carList = new ArrayList<>();
     private final List<String> winner = new ArrayList<>();
-    RotatingCount rotatingCount = new RotatingCount();
+    MovingCars movingCars = new MovingCars();
     CarName carName = new CarName();
     Order order = new Order();
     public void play() {
         splitCars(inputCarName());
-        move(rotatingCount.input());
+        movingCars.start(carList);
         result();
         win();
     }
@@ -29,11 +29,9 @@ public class RacingGame {
             Car car = new Car(name, "");
             carList.add(car);
         }
-        order.rotateCount();
     }
 
     private String inputCarName() {
-        order.racingStart();
         return carName.input();
     }
 
@@ -91,44 +89,5 @@ public class RacingGame {
 
     private void person() {
         System.out.print(winner.get(0));
-    }
-
-    private void move(int racingCount) {
-        order.gameProcess();
-
-        for(int count = 0; count < racingCount; count++){
-            moveOrStop();
-            moveState();
-        }
-    }
-
-    private void moveState() {
-        for (Car car : carList) {
-            printCarState(car);
-        }
-
-        order.blank();
-    }
-
-    private void printCarState(Car car) {
-        System.out.println(car.toString());
-    }
-
-    private void moveOrStop() {
-        for (Car car : carList) {
-            int state = Randoms.pickNumberInRange(0, 9);
-            if (state > 3) {
-                move(car);
-            }
-        }
-    }
-
-    private void move(Car car) {
-        save(car);
-    }
-
-    private void save(Car car) {
-        String location = car.getMove();
-        car.setMove(location+"-");
     }
 }

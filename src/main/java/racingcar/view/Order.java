@@ -5,6 +5,7 @@ public class Order {
     private static final String ROTATE_COUNT = "시도할 회수는 몇회인가요?";
     private static final String GAME_RESULT = "실행 결과";
     private static final String WINNER = "최종 우승자 : ";
+    private static final String FORWARD = "-";
     public void racingStart(){
         System.out.println(INPUT_CARNAME);
     }
@@ -27,5 +28,9 @@ public class Order {
 
     public void noWinner(){
         System.out.print("");
+    }
+
+    public String forward(String location){
+        return location + FORWARD;
     }
 }
