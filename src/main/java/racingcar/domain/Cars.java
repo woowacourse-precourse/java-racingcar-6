@@ -22,11 +22,13 @@ public class Cars {
         }
     }
 
+    private final static String NULL_VALUE_ERROR_MESSAGE = "자동차 목록이 비어있습니다.";
+
     private int getMaxPosition() {
         return carList.stream()
                 .mapToInt(Car::getPosition)
                 .max()
-                .orElseThrow(() -> new IllegalArgumentException(""));
+                .orElseThrow(() -> new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE));
     }
 
     public List<Car> getWinners() {
