@@ -13,13 +13,17 @@ public record Cars(List<Car> carList) {
     }
 
     public List<Car> getWinnerList() {
-        Integer maxPosition = carList.stream()
-                .map(Car::getPosition)
-                .max(Integer::compareTo)
-                .orElse(0);
+        Integer maxPosition = getMaxPosition();
         return carList.stream()
                 .filter(car -> car.isSamePosition(maxPosition))
                 .collect(Collectors.toList());
+    }
+
+    private Integer getMaxPosition() {
+        return carList.stream()
+                .map(Car::getPosition)
+                .max(Integer::compareTo)
+                .orElse(0);
     }
 
     @Override

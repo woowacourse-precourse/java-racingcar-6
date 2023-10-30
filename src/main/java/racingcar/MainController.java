@@ -1,7 +1,5 @@
 package racingcar;
 
-import static racingcar.domain.GameOption.CAR_NAME_DELIMITER;
-
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarName;
@@ -13,6 +11,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class MainController {
+    public static final String CAR_NAME_DELIMITER = ",";
 
     public void run() {
         Cars cars = initCars();

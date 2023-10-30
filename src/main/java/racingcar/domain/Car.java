@@ -1,8 +1,8 @@
 package racingcar.domain;
 
-import static racingcar.domain.GameOption.CAR_POSITION_SIGN;
 
 public class Car {
+    public static final String CAR_POSITION_SIGN = "-";
     private final CarName name;
     private final Position position;
 
