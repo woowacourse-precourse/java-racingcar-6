@@ -29,5 +29,8 @@ public class Application {
             Printer.printRace(cars);
             count--;
         }
+
+        /* 우승자 출력 */
+        Printer.printWinner(carController.checkWinner(cars));
     }
 }
