@@ -59,4 +59,18 @@ class CarGroupTest {
         //then
         assertThat(finalWinner.findSize()).isEqualTo(testCarNames.size());
     }
+
+    @Test
+    @DisplayName("그룹에 속한 자동차 이름들 조회하기 톄스트")
+    void findCarNamesTest(){
+        //given
+        List<String> testCarNames = List.of("testCar1", "testCar2", "testCar3");
+        CarGroup testInstance = CarGroup.of(testCarNames);
+
+        //when
+        List<String> carNames = testInstance.findCarNames();
+
+        //then
+        assertThat(carNames).isEqualTo(testCarNames);
+    }
 }
