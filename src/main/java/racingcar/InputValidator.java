@@ -2,9 +2,10 @@ package racingcar;
 
 public class InputValidator {
 
-    public void checkStringLength(String[] carNames){
-        for (String CarName : carNames) {
-            
+    public boolean checkStringLength(String name) {
+        if (name.length() > 5) {
+            return false;
         }
+        return true;
     }
 }

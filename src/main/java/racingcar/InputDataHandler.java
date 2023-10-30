@@ -13,7 +13,11 @@ public class InputDataHandler {
     public void getStringFromPlayer(){
         inputCarNames = Console.readLine();
         carNames = seperateString(inputCarNames);
-        inputValidator.checkStringLength(carNames);
+        for(String names : carNames){
+            if (inputValidator.checkStringLength(names)){
+                cars.put(names, 0);
+            }
+        }
     }
 
     public String[] seperateString(String inputCarNames){
