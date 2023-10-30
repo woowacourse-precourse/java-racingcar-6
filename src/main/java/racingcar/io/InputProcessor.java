@@ -29,7 +29,7 @@ public class InputProcessor {
     }
 
     public static int readAttemptCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 횟수는 몇회인가요?");
 
         final String userInput = Console.readLine();
         GAME_TRY_COUNT_INPUT_VALIDATOR.validate(userInput);
