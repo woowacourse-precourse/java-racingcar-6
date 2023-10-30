@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCars;
 
@@ -29,19 +30,18 @@ public class OutputView {
     }
 
     public void printWinners(RacingCars winners) {
-        int winnerCount = 0;
+        List<RacingCar> winnersCarList = winners.racingCarList();
         System.out.print("최종 우승자 : ");
-        for (RacingCar racingCar : winners.racingCarList()) {
+        for (int i = 0; i < winnersCarList.size(); i++) {
+            RacingCar racingCar = winnersCarList.get(i);
             System.out.print(racingCar.getName());
-            winnerCount += 1;
-            printComma(winners, winnerCount);
+            printCommaBetweenWinners(i, winnersCarList);
         }
     }
 
-    private void printComma(RacingCars winners, int winnerCount) {
-        if (winnerCount < winners.racingCarList().size()) {
+    private void printCommaBetweenWinners(int i, List<RacingCar> winnersCarList) {
+        if (i < winnersCarList.size() - 1) {
             System.out.print(", ");
         }
     }
-
 }
