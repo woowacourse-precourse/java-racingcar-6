@@ -10,19 +10,19 @@ public class Car {
         this.carName = carName;
     }
 
-    public int createRandomNumber() {
+    public void driving() {
+        int randomNum = createRandomNumber();
+        isCarGoForward(randomNum);
+    }
+
+    private int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public void moveForward(int randomNum) {
+    private void isCarGoForward(int randomNum) {
         if (randomNum >= 4) {
             this.distanceDriven += "-";
         }
-    }
-
-    public void driving() {
-        int randomNum = createRandomNumber();
-        moveForward(randomNum);
     }
 
     public String getCarName() {
