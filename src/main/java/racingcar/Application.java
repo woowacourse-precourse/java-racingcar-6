@@ -11,7 +11,7 @@ public class Application {
         // TODO: 프로그램 구현
         List<String> inputCars = inputCars();
         Map<String, Integer> cars = storeCars(inputCars);
-
+        int N = inputN();
     }
     public static List<String> inputCars() {
         String input = Console.readLine();
@@ -29,5 +29,8 @@ public class Application {
             cars.put(i, 0);  //put(키, 값)키, 값 저장, get(키) 값 가져옴, remove(키) 값 삭제
         }
         return cars;
+    }
+    public static Integer inputN() {
+        return Integer.parseInt(Console.readLine());
     }
 }
