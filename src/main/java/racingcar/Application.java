@@ -1,7 +1,5 @@
 package racingcar;
 
-import static basis.WinnerResult.getLargestMove;
-import static basis.WinnerResult.getWinnerList;
 import static constant.Constant.ATTEMPTS_NUMBER_REQUEST_MESSAGE;
 import static constant.Constant.CAR_NAME_REQUEST_MESSAGE;
 import static constant.Constant.RUN_RESULT_START_MESSAGE;
@@ -9,13 +7,14 @@ import static constant.Constant.WINNER_RESULT_MESSAGE;
 
 import basis.Converter;
 import basis.MovingStatus;
+import basis.WinnerResult;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 public class Application {
     static Converter converter = new Converter();
     static MovingStatus movingStatus = new MovingStatus();
+    static WinnerResult winnerResult = new WinnerResult();
 
     public static void main(String[] args) {
         System.out.println(CAR_NAME_REQUEST_MESSAGE);
@@ -27,17 +26,7 @@ public class Application {
         System.out.println();
         System.out.println(RUN_RESULT_START_MESSAGE);
         movingStatus.printRaceResult(attemptsNumber, carNameHashMap);
-
-        int largestMove = getLargestMove(carNameHashMap);
-
-        List<String> winnerList = getWinnerList(carNameHashMap, largestMove);
-
         System.out.print(WINNER_RESULT_MESSAGE);
-        for (int i = 0; i < winnerList.size(); i++) {
-            System.out.print(winnerList.get(i));
-            if (winnerList.size() > 1) {
-                System.out.print(", ");
-            }
-        }
+        winnerResult.printWinner(carNameHashMap);
     }
 }
