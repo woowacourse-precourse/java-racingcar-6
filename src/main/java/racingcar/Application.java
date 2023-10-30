@@ -37,6 +37,17 @@ public class Application {
         // TODO: 프로그램 구현
     }
 
+    public static int getMaxNumber(Car[] car) {
+        int max = 0;
+        for (Car e : car) {
+            int length = e.length;
+            if (max < length) {
+                max = length;
+            }
+        }
+        return max;
+    }
+
     public static ArrayList<String> getDash(Car car) {
         int dashNumber = car.length;
         ArrayList<String> dash = new ArrayList<>();
