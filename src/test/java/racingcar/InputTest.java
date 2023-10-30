@@ -60,4 +60,31 @@ class InputTest {
 
     }
 
+    @Test
+    void 이름이_공백일_때_예외_처리(){
+
+        // given
+        String userInputOne = "  ";
+        String userInputTwo = "";
+        String userInputThree ="pobi, ";
+        // when
+        List<String> carNamesOne = Computer.createCarNames(userInputOne);
+        List<String> carNamesTwo = Computer.createCarNames(userInputTwo);
+        List<String> carNamesThree = Computer.createCarNames(userInputThree);
+
+        // then
+        assertThatThrownBy(() -> Validator.checkBlank(carNamesOne))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름을 공백으로 입력하지 마세요.");
+
+        assertThatThrownBy(() -> Validator.checkBlank(carNamesTwo))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름을 공백으로 입력하지 마세요.");
+
+        assertThatThrownBy(() -> Validator.checkBlank(carNamesThree))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름을 공백으로 입력하지 마세요.");
+
+    }
+
 }
