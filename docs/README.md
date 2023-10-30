@@ -66,14 +66,14 @@
 ### PositiveNumber 구현
 - [x] PositiveNumber 구현
     - [x] 문자열을 통해 생성 가능
-        - [X] 0과 자연수 들어올 수 있도록 검증
+        - [x] 0과 자연수 들어올 수 있도록 검증
     - [x] 일반 Integer를 넣어서도 생성 가능
         - [x] 0과 자연수 들어올 수 있도록 검증
-    - [ ] compareTo() 구현
-    - [ ] increase() 구현
-    - [ ] decrease() 구현
-        - [ ] 0일 때, decrease() 호출하면 0
-    - [ ] isZero() 구현
+    - [x] compareTo() 구현
+    - [x] increase() 구현
+    - [x] decrease() 구현
+        - [x] 0일 때, decrease() 호출하면 0
+    - [x] isZero() 구현
 
 
 ### 자동차 구현
