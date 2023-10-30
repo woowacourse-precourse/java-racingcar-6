@@ -1,9 +1,10 @@
 # 🚘 자동차 경주
 
 ### USER
-2. [ ] USER가 입력한 CarName을 split해주는 함수
-3. [ ] 시도 횟수 parseInt해주는 함수
-4. [ ] 초기값으로 car와 0을 LinkedHashMap에 저장하는 함수.
+1. [X] USER가 입력하는 함수 : input
+2. [X] USER가 입력한 CarName을 split해주는 함수 : splitInput
+3. [X] 시도 횟수 parseInt해주는 함수 : stringToInteger
+4. [X] 초기값으로 car와 0을 LinkedHashMap에 저장하는 함수 : carReset
 
 ### GAME
 1. [ ] 0부터 9까지 랜덤으로 뽑아주는 함수.
@@ -12,7 +13,7 @@
 4. [ ] 각 횟수마다 결과를 출력해주는 함수.
 5. [ ] 우승자를 찾는 함수.
 6. [ ] 우승자를 출력해주는 함수.
-7. [ ] 랜덤 값이 4 이상인지 체크 해주는 함수 (boolean타)
+7. [ ] 랜덤 값이 4 이상인지 체크 해주는 함수 (boolean)
 
 ### EXCEPTION
 1. [ ] 자동차 이름이 중복되면 안된다.
