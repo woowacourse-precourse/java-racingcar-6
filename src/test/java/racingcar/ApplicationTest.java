@@ -35,4 +35,14 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+
+    // 추가로 작성해 본 테스트
+    @Test
+    void 시도_횟수에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("jun, honi", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 }
