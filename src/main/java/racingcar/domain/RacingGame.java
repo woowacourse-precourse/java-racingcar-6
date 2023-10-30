@@ -16,11 +16,18 @@ public class RacingGame {
     }
 
     public RacingGameStatus race(int raceCount) {
+        verifyRaceCount(raceCount);
         List<RaceStatus> raceStatuses = IntStream.range(0, raceCount)
                 .mapToObj(cnt -> cars.driveCarsByRule(RacingGame::raceRule))
                 .toList();
 
         return new RacingGameStatus(raceStatuses);
+    }
+
+    private void verifyRaceCount(int raceCount) {
+        if (raceCount < 1) {
+            throw new IllegalArgumentException("최소 한 번의 경주는 진행되어야 합니다.");
+        }
     }
 
     private static boolean raceRule() {
