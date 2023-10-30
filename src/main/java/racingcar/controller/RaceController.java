@@ -8,7 +8,7 @@ import racingcar.view.UserInputValue;
 public class RaceController {
     CarNameValidator carNameValidator = new CarNameValidator();
     MovingCountValidator movingCountValidator = new MovingCountValidator();
-    private int countNum; // countNum 변수를 runRace 반복문에서 써먹어야됨
+    private int countNum;
 
     public RaceController() {
     }
@@ -16,7 +16,7 @@ public class RaceController {
     public void startRace() {
         String[] carNames = validateInput();
         Race race = printTrack(carNames);
-        runRace(race); // countNum을 사용할 수 있도록 runRaces 메소드로 전달
+        runRace(race);
         printResult(race);
     }
 
@@ -25,7 +25,7 @@ public class RaceController {
         String[] carNames = carNameValidator.changeArrayType(carName);
         carNameValidator.checkNameValidation(carNames);
         String count = UserInputValue.inputMovementCount();
-        countNum = Integer.parseInt(count); // countNum 변수에 할당
+        countNum = Integer.parseInt(count);
         movingCountValidator.checkMovementCount(count);
         return carNames;
     }
