@@ -114,14 +114,14 @@
       - [x] **예외 처리** throw new IllegalArgumentException
 
 - 진행할 라운드 횟수를 입력받아 Round를 형성한다 registerRoundTotal()
-  - [ ] OutputView - "시도할 회수는 몇회인가요?" 출력
-  - [ ] inputView - 문자열을 입력 받고, 해당 문자열을 Controller에게 반환한다
-    - [ ] **예외** 문자열이 숫자가 아닌 경우
-    - [ ] **예외** 문자열이 '0'으로 시작하는 경우 ex) 015
-    - [ ] **예외 처리** throw new IllegalArgumentException
-  - [ ] Controller - 받은 문자열을 StringToRound를 활용하여 Round를 형성한다
-    - [ ] **예외** 문자열이 범위를 벗어난 경우 ex) 0보다 이하 or Integer.MAX_VALUE 보다 큰 경우
-    - [ ] **예외 처리** throw new IllegalArgumentException
+  - [x] OutputView - "시도할 회수는 몇회인가요?" 출력
+  - [x] inputView - 문자열을 입력 받고, 해당 문자열을 Controller에게 반환한다
+    - [x] **예외** 문자열이 숫자가 아닌 경우
+    - [x] **예외** 문자열이 '0'으로 시작하는 경우 ex) 015
+    - [x] **예외 처리** throw new IllegalArgumentException
+  - [x] Controller - 받은 문자열을 StringToNumber를 활용하여 수로 변환한다 
+    - [x] **예외** 문자열이 범위를 벗어난 경우 ex) 0보다 이하 or Integer.MAX_VALUE 보다 큰 경우
+    - [x] **예외 처리** throw new IllegalArgumentException
 
 - 라운드 별 RacingCars의 distance 상태를 표현한다 displayRacingStatus()
   - [ ] OutputView - "실행 결과"를 우선 출력하고 규칙에 따라 각 Car의 이름과 distance를 출력한다
