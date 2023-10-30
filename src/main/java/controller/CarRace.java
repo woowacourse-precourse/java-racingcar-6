@@ -22,6 +22,7 @@ import view.Output;
 
 public class CarRace implements Race {
 
+    private static final int MINIMUM_PLAY_COUNT = 0;
     private final Input input;
     private final Output output;
 
@@ -42,21 +43,38 @@ public class CarRace implements Race {
         Cars cars = createCarsFromUserInput();
         output.print(TRY_COUNT_PROMPT.getMessage());
         int playCount = StringToIntConvertor.convert(input.input());
-        executeRaceRounds(cars, playCount);
+        runRaceRounds(cars, playCount);
         displayRaceWinners(cars);
     }
 
-    private void executeRaceRounds(Cars cars, int playCount) {
-        while (playCount-- > 0) {
-            cars.move();
+    private void runRaceRounds(Cars cars, int playCount) {
+        while (isPlayable(playCount)) {
+            playRound(cars);
+            playCount--;
             displayRoundResults(cars);
+        }
+    }
+
+    private boolean isPlayable(int playCount) {
+        return playCount > MINIMUM_PLAY_COUNT;
+    }
+
+    private void playRound(Cars cars) {
+        for (Car car : cars.getAllCars()) {
+            tryMoveCar(car);
+        }
+    }
+
+    private void tryMoveCar(Car car) {
+        if (forwardStrategy.canMove()) {
+            car.move();
         }
     }
 
     private Cars createCarsFromUserInput() {
         String carNames = input.input();
         List<String> carNameList = StringToStringListConvertor.convert(carNames);
-        List<Car> carList = StringListToCarListConvertor.convert(carNameList, forwardStrategy);
+        List<Car> carList = StringListToCarListConvertor.convert(carNameList);
         return new Cars(carList);
     }
 
