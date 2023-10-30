@@ -1,10 +1,8 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Application {
+    static String[] carNames;
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -13,18 +11,17 @@ public class Application {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        
     }
 
     public static void inputCarName() {
         String tm = Console.readLine();
-        String[] carNames = parseCarName(tm);
-        
+        carNames = parseCarName(tm);
     }
 
     public static String[] parseCarName(String input) {
 
         String[] names = input.split(",");
-
         for (String name : names) {
             validateCarName(name);
         }
