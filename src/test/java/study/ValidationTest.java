@@ -7,6 +7,7 @@ import racingcar.property.ErrorProperty;
 import racingcar.property.ValidateProperty;
 import racingcar.validation.InputValidation;
 import racingcar.validation.NameValidation;
+import racingcar.validation.ScoreValidation;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class ValidationTest {
@@ -71,5 +72,18 @@ public class ValidationTest {
         }
             ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.NAME_VALUE_IS_DUPLICATE);
+    }
+
+    @Test
+    void 시도_횟수_입력_값_숫자_검증_로직_테스트(){
+        //given
+        String target="test";
+
+        //when
+        assertThatThrownBy(()->{
+            ScoreValidation.verifyForScoreIsNumericValue(target);
+        }
+            ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorProperty.SCORE_VALUE_IS_NOT_NUMERIC);
     }
 }
