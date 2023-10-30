@@ -29,13 +29,13 @@
     - 검증 후 `PlayerGenerator`클래스를 활용하여 각각의 플레이어의 이름으로 `Player`객체를 생성한다.
     - 생성된 `Player`객체를 리스트에 담아 보관한다.
 
-#### 1-1. ⚠️ 예외 처리 ⚠️
+  #### 1-1. ⚠️ 예외 처리 ⚠️
 
-- 플레이어 명이 5자 초과한 경우, ``IllegalArgumentException``을 호출한다
-- 플레이어 명이 1자 미만인 경우, ``IllegalArgumentException``을 호출한다
-- 플레이어 명이 중복된 경우, ``IllegalArgumentException``을 호출한다
-- 참가 플레이어가 단 1명일 경우, ``IllegalArgumentException``을 호출한다
-- 아무것도 입력하지 않았을 경우, ``IllegalArgumentException``을 호출한다
+    - [x] 플레이어 명이 5자 초과한 경우, ``IllegalArgumentException``을 호출한다
+    - [x] 플레이어 명이 1자 미만인 경우, ``IllegalArgumentException``을 호출한다
+    - [x] 플레이어 명이 중복된 경우, ``IllegalArgumentException``을 호출한다
+    - [x] 참/가 플레이어가 단 1명일 경우, ``IllegalArgumentException``을 호출한다
+    - [x] 아무것도 입력하지 않았을 경우, ``IllegalArgumentException``을 호출한다
 
 ### 2. 시도 횟수 입력
 
