@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -11,6 +12,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CarTest {
 
@@ -46,17 +49,37 @@ class CarTest {
     void 자동차_이동_테스트(int value, boolean expected) {
         Car car = Car.createCar("pobi");
         int initialPosition = car.getPosition();
-
         MovableStrategy movableStrategy = FixMoveStrategy.createStrategy(value);
 
-        // When
         car.move(movableStrategy);
 
-        // Then
         if (expected) {
             Assertions.assertEquals(initialPosition + 1, car.getPosition());
         } else {
             Assertions.assertEquals(initialPosition, car.getPosition());
         }
+    }
+
+    @DisplayName("1등한 자동차인지 확인")
+    @Test
+    void 우승_테스트() {
+        int targetPosition = 5;
+        Car car = Car.createCar("Car");
+        car.move(() -> true);
+        car.move(() -> true);
+        car.move(() -> true);
+        car.move(() -> true);
+        car.move(() -> true);
+        assertTrue(car.isWinner(targetPosition));
+    }
+
+    @DisplayName("1등한 자동차가 아닌지 확인")
+    @Test
+    void 우승_실패_테스트() {
+        int targetPosition = 5;
+        Car car = Car.createCar("Car");
+        car.move(() -> true);
+        car.move(() -> true);
+        assertFalse(car.isWinner(targetPosition));
     }
 }

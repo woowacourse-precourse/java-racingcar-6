@@ -14,7 +14,7 @@ public class Round {
     }
 
     private static void roundValidation(int round) {
-        if (round < MIN_ROUND) {
+        if (round <= MIN_ROUND) {
             throw new IllegalArgumentException();
         }
     }

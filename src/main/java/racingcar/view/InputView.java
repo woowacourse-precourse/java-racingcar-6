@@ -15,17 +15,20 @@ public class InputView {
     }
 
     public static List<String> inputCarName() {
-            System.out.println(CAR_NAME_INPUT_MESSAGE);
-            String carName = Console.readLine();
-            return Arrays.stream(carName.split(CAR_NAME_SEPARATOR))
-                    .collect(Collectors.toList());
+        System.out.println(CAR_NAME_INPUT_MESSAGE);
+        String carName = Console.readLine();
+        return Arrays.stream(carName.split(CAR_NAME_SEPARATOR))
+                .collect(Collectors.toList());
     }
 
     public static int inputRound() {
+        try {
             System.out.println(ROUND_INPUT_MESSAGE);
             String inputRound = Console.readLine();
             return Integer.parseInt(inputRound);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+
     }
-
-
 }
