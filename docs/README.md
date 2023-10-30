@@ -62,6 +62,9 @@
 #### `isDistinct()`
 - String 배열에 중복되는 요소가 없는지 확인한다. 
 
+#### `isElementLengthAbove5()`
+- String 배열 각 요소의 길이가 5가 넘지 않는지 확인한다. 
+
 #### `setTrialInput()`
 - 전진 또는 멈춤 시도(실행) 횟수를 설정한다.
   - Console API의 readLine()을 사용해 입력값을 받고 저장한다.

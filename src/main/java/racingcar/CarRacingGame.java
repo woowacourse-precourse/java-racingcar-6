@@ -67,12 +67,7 @@ public class CarRacingGame {
 
         List<String> carName = List.of(input.split(","));
         isDistinct(carName);
-
-        for (String element: carName) {
-            if (element.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        }
+        isElementLengthAbove5(carName);
 
         for (String element: carName) {
             car.add(new Car(element));
@@ -80,7 +75,8 @@ public class CarRacingGame {
 
     }
 
-    private void isDistinct(List<String> stringList) throws IllegalArgumentException {
+
+    private static void isDistinct(List<String> stringList) throws IllegalArgumentException {
         List<String> emptyStringList = new ArrayList<>();
 
         for (String string: stringList) {
@@ -89,6 +85,14 @@ public class CarRacingGame {
             }
 
             emptyStringList.add(string);
+        }
+    }
+
+    private static void isElementLengthAbove5(List<String> stringList) {
+        for (String string: stringList) {
+            if (string.length() > 5) {
+                throw new IllegalArgumentException();
+            }
         }
     }
 
