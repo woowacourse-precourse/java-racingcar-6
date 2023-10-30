@@ -8,17 +8,18 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
     public static final String ATTEMPTS_RESULT_MESSAGE = "\n실행 결과";
-
-    User user = new User();
-    GameResult gameResult = new GameResult();
-    private int attempts;
-    public Integer totalCars;
-    private List<String> carsNameList;
-    private final List<Integer> carsPositionList = new ArrayList<>();
     private static final int MIN_CAR_FORWARD_NUM = 4;
     private static final int MAX_CAR_FORWARD_NUM = 9;
     private static final int MIN_RANDOM_NUM = 0;
     private static final int MAX_RANDOM_NUM = 9;
+
+    User user = new User();
+    GameResult gameResult = new GameResult();
+    private final List<Integer> carsPositionList = new ArrayList<>();
+    private int attempts;
+    public Integer totalCars;
+    private List<String> carsNameList;
+
 
     public void playGame() {
         user.setCarsName();

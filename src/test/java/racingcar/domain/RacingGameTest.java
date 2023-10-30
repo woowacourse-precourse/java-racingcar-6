@@ -1,21 +1,22 @@
 package racingcar.domain;
 
-import static java.util.Map.entry;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 class RacingGameTest {
-    final RacingGame racingGame = new RacingGame();
+    private RacingGame racingGame;
+    private String[] carsNameList = {"pobi", "woni", "jun"};
+
+    @BeforeEach
+    void setUp() {
+        racingGame = new RacingGame();
+    }
 
     @Test
     void 자동차_배열_리스트로_변환() {
-        final String[] arr = {"pobi", "woni", "jun"};
-
-        racingGame.carsArrayToList(arr);
+        racingGame.carsArrayToList(carsNameList);
 
         assertThat(racingGame.getCarsList())
                 .containsExactly("pobi", "woni", "jun")
@@ -25,9 +26,7 @@ class RacingGameTest {
 
     @Test
     void 자동차_위치_초기화() {
-        final String[] arr = {"pobi", "woni", "jun"};
-
-        racingGame.carsArrayToList(arr);
+        racingGame.carsArrayToList(carsNameList);
         racingGame.setPositionList();
 
         assertThat(racingGame.getCarsPositionList())
@@ -36,11 +35,9 @@ class RacingGameTest {
 
     @Test
     void 자동차_전진_확인() {
-        final String[] arr = {"pobi", "woni", "jun"};
-
-        racingGame.carsArrayToList(arr);
+        racingGame.carsArrayToList(carsNameList);
         racingGame.setPositionList();
-        racingGame.singleRaceAttempt(4, 9);
+        racingGame.singleRaceAttempt(4, 9); // 무조건 한 번씩 전진해야 함.
 
         assertThat(racingGame.getCarsPositionList())
                 .containsExactly(1, 1, 1);
@@ -48,11 +45,9 @@ class RacingGameTest {
 
     @Test
     void 자동차_멈춤_확인() {
-        final String[] arr = {"pobi", "woni", "jun"};
-
-        racingGame.carsArrayToList(arr);
+        racingGame.carsArrayToList(carsNameList);
         racingGame.setPositionList();
-        racingGame.singleRaceAttempt(0, 3);
+        racingGame.singleRaceAttempt(0, 3); // 무조건 정지해 있어야 함.
 
         assertThat(racingGame.getCarsPositionList())
                 .containsExactly(0, 0, 0);
