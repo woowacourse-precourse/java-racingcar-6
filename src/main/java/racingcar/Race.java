@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.core.Core;
+import racingcar.model.Car;
 import racingcar.utils.Utils;
 
 import java.util.List;
@@ -16,5 +17,13 @@ public class Race {
         List<String> carNames = core.stringToStringList(carName);
         Utils.validateStringLength(carNames);
         return carNames;
+    }
+
+    public void showResult(List<Car> cars, int count) {
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < count; i++) {
+            core.forwardOrStop(cars);
+            core.printResult(cars);
+        }
     }
 }
