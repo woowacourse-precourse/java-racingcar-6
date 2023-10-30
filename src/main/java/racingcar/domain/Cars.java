@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.utils.GenerateRandomNumber;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
@@ -13,6 +14,12 @@ public class Cars {
 
     public Cars(List<Car> cars) {
         this.cars =  cars;
+    }
+
+    public void moveOrStop() {
+        for (Car car : cars) {
+            car.goForward(GenerateRandomNumber.generateRandomNumber());
+        }
     }
 
     public void showResult() {
