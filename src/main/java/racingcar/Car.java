@@ -1,15 +1,11 @@
 package racingcar;
 
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String carName;
-    final int LENGTH_CAR_NAME = 5;
-    final int START_RANDOM_RANGE = 0;
-    final int END_RANDOM_RANGE = 9;
-    final int TRIGGER_MINIMUM_FORWARD = 4;
     final String MARK_FOR_FORWARD = "-";
-    final int INCREASE_NUM_FORWARD = 1;
     private int forwardCount;
     private String presentCondition;
     private ErrorMessages errorType;
@@ -28,12 +24,14 @@ public class Car {
     }
 
     public int getRandomNumber() {
-        return Randoms.pickNumberInRange(START_RANDOM_RANGE, END_RANDOM_RANGE);
+
+        return Randoms.pickNumberInRange(CarConstants.START_RANDOM.getConst(),
+                CarConstants.END_RANDOM.getConst());
     }
 
     public void runCar() {
-        if (getRandomNumber() >= TRIGGER_MINIMUM_FORWARD) {
-            increaseForwardCount(INCREASE_NUM_FORWARD);
+        if (getRandomNumber() >= CarConstants.TRIGGER_MINIMUM_FORWARD.getConst()) {
+            increaseForwardCount(CarConstants.INCREASE_NUM_FORWARD.getConst());
             presentCondition += MARK_FOR_FORWARD;
         }
 
@@ -53,9 +51,9 @@ public class Car {
     }
 
     final void validateNameLength(String carName) {
-        if (!(carName.length() <= LENGTH_CAR_NAME)) {
+        if (!(carName.length() <= CarConstants.LENGTH_CAR_NAME.getConst())) {
             errorType = ErrorMessages.OVER_LENGTH_CARNAME;
-            throw new IllegalArgumentException(LENGTH_CAR_NAME + errorType.getDescription());
+            throw new IllegalArgumentException(CarConstants.LENGTH_CAR_NAME.getConst() + errorType.getDescription());
         }
     }
 
