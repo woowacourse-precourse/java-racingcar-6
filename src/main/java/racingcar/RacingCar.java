@@ -34,5 +34,9 @@ public class RacingCar {
     public String getMovingBar() {
         return movingBar;
     }
+
+    public String getCurrentStatus() {
+        return name + " : " + movingBar;
+    }
 }
 
