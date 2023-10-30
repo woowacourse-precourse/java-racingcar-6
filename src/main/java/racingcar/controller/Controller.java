@@ -9,9 +9,7 @@ import java.util.List;
 public class Controller {
     static String input;
 
-    public static List<String> readCarName() {
-        input = Console.readLine();
-
+    public static List<String> splitName(String input) {
         String[] carName = input.split(",");
         return new ArrayList<>(Arrays.asList(carName));
     }
