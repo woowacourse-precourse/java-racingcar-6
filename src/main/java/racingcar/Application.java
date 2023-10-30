@@ -4,16 +4,18 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.broadcast.Broadcast;
 import racingcar.domain.regulation.Regulation;
 import racingcar.domain.script.Script;
+import racingcar.domain.service.receptionDesk.Impl.ReceptionDeskServiceImpl;
+import racingcar.domain.service.receptionDesk.ReceptionDeskService;
 
 import java.util.HashMap;
-
-import static racingcar.domain.reception.ReceptionDesk.registering;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        final ReceptionDeskService receptionDeskService = new ReceptionDeskServiceImpl();
+
         Script.REGISTER.print();
-        HashMap<String, Integer> lineUp = registering(Console.readLine().split(","));
+        HashMap<String, Integer> lineUp = receptionDeskService.registering(Console.readLine());
         // hi,my,name,is,hello,world
 
         Script.LAPS.print();
