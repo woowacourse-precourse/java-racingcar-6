@@ -13,14 +13,6 @@ public class RaceCars {
 
     private final List<RaceCar> raceCarList;
 
-    public RaceCars(List<RaceCar> raceCarList) {
-        this.raceCarList = Collections.unmodifiableList(raceCarList);
-    }
-
-    public RaceCars(String carNameStrings) {
-        this.raceCarList = Collections.unmodifiableList(convertStringToList(carNameStrings));
-    }
-
     public RaceCars(Input input) {
         this.raceCarList = Collections.unmodifiableList(convertStringToList(input.readLine()));
     }
