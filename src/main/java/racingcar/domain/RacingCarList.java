@@ -6,16 +6,10 @@ import racingcar.global.utils.console.ConsoleUtil;
 import racingcar.global.utils.constant.OutputType;
 import racingcar.global.utils.generator.RandomNumberGenerator;
 
-public class RacingCarList {
+public record RacingCarList(List<RacingCar> racingCars) {
 
 	private static final int MIN_COUNT_OF_ADVANCE = 0;
 	private static final int MOVING_FORWARD = 4;
-
-	private final List<RacingCar> racingCars;
-
-	public RacingCarList(List<RacingCar> racingCars) {
-		this.racingCars = racingCars;
-	}
 
 	public int getMaxAdvanceCount() {
 		return racingCars.stream()
@@ -36,7 +30,8 @@ public class RacingCarList {
 		});
 	}
 
-	public List<RacingCar> getRacingCars() {
+	@Override
+	public List<RacingCar> racingCars() {
 		return Collections.unmodifiableList(racingCars);
 	}
 
