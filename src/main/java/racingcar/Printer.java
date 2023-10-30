@@ -27,5 +27,9 @@ public class Printer {
         }
         System.out.println();
     }
+
+    public void winner(String winners) {
+        System.out.print("최종 우승자 : " + winners);
+    }
 }
 

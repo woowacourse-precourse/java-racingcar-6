@@ -21,5 +21,7 @@ public class Application {
             game.racing();
             printer.gameResult(game.giveResult());
         }
+
+        printer.winner(game.findWinner());
     }
 }

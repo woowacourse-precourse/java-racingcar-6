@@ -35,7 +35,7 @@
 - - -
 
 - [x] 경주 결과 출력 - Printer#gameResult
-- [ ] 우승자 출력 - Printer#winner
+- [x] 우승자 출력 - Printer#winner
 - [x] 기타 게임 안내 문구 출력
 
 
