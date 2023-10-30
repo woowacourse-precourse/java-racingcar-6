@@ -26,6 +26,7 @@ public class GameController {
         validate(names);
 
         String inputAttempt = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_ATTEMPT_NUMBER.getMessage());
+        Validator.validateNumber(inputAttempt);
         attempt = Converter.convertStringToInt(inputAttempt);
     }
 

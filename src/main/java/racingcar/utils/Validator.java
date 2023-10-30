@@ -25,4 +25,10 @@ public class Validator {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_MUST_NO_SPACE.getMessage());
         }
     }
+
+    public static void validateNumber(String number) {
+        if(!number.chars().allMatch(Character::isDigit)) {
+            throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
+        }
+    }
 }

@@ -52,7 +52,7 @@ public class InputTest {
         String input = "다섯번";
 
         IllegalArgumentException exception = assertThrows(
-                IllegalArgumentException.class, () -> Converter.convertStringToInt(input));
+                IllegalArgumentException.class, () -> Validator.validateNumber(input));
 
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
     }
