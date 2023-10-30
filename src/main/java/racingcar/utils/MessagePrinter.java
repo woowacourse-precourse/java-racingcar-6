@@ -18,7 +18,7 @@ public class MessagePrinter {
         return "-".repeat(position);
     }
 
-    public static void printWinners(final List<Car> winners) {
+    public static void winners(final List<Car> winners) {
         List<String> winnerNames = winners.stream()
                 .map(Car::getName)
                 .toList();
