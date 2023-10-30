@@ -17,7 +17,7 @@ public class WinnerService {
         return convertCarsToStrings(winnerCarList);
     }
 
-    public static Map<Integer, List<Car>> partitioningByRank(CarRepository carRepository) {
+    private static Map<Integer, List<Car>> partitioningByRank(CarRepository carRepository) {
         HashMap<Integer, List<Car>> map = new HashMap<>();
         int size = carRepository.size();
         for (int i = 0; i < size; i++) {
@@ -31,7 +31,7 @@ public class WinnerService {
         return map;
     }
 
-    public static List<Car> getWinnerList(Map<Integer, List<Car>> rankMap) {
+    private static List<Car> getWinnerList(Map<Integer, List<Car>> rankMap) {
         return rankMap.keySet()
                 .stream()
                 .collect(Collectors.maxBy(Comparator.naturalOrder()))
@@ -39,7 +39,7 @@ public class WinnerService {
                 .get();
     }
 
-    public static List<String> convertCarsToStrings(List<Car> winnerCarList) {
+    private static List<String> convertCarsToStrings(List<Car> winnerCarList) {
         return winnerCarList
                 .stream()
                 .map(car -> car.getCarName().name())

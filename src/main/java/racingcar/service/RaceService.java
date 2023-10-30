@@ -32,5 +32,4 @@ public class RaceService {
                 RaceConfig.MOVE_START_RANGE.getValue(),
                 RaceConfig.MOVE_END_RANGE.getValue());
     }
-
 }

@@ -22,6 +22,7 @@ public class View {
     public static void gameStartMessage() {
         System.out.println(GAME_START_MESSAGE);
     }
+
     public static void tryNumberMessage() {
         System.out.println(NUMBER_OF_TRIES_MESSAGE);
     }
