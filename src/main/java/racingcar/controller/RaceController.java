@@ -9,8 +9,8 @@ import racingcar.view.OutputView;
 public class RaceController {
     private final RaceService raceService;
 
-    public RaceController() {
-        this.raceService = new RaceService();
+    public RaceController(RaceService raceService) {
+        this.raceService = raceService;
     }
 
     public void start() {
