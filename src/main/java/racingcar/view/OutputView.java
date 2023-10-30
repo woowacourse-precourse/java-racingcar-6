@@ -1,9 +1,22 @@
 package racingcar.view;
 
+import java.util.List;
+import racingcar.model.Car;
+import racingcar.model.Race;
+
 public class OutputView {
-    public static void printResult() {
+    public static void printIndividualResultHeader() {
         System.out.println("실행 결과");
-        // TODO: decide what will be the parameter that provides car names & position
+    }
+    public static void printIndividualResult(Race race) {
+        for (Car car : race.getCars()) {
+            printCarNameAndPosition(car.getName(), car.getPosition());
+        }
+        System.out.println();
+    }
+
+    public static void printFinalResultHeader(List<String> winners) {
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
     private static void printCarNameAndPosition(String carName, int position) {
