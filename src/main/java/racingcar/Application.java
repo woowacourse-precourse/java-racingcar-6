@@ -16,21 +16,7 @@ public class Application {
 
         List<Car> carList = initializeCars(carNameList);
 
-        for (Car car : carList) {
-            String carName = car.getName();
-            if (carName.isBlank()) {
-                throw new IllegalArgumentException("이름을 입력해주세요.");
-            }
-
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("이름은 공백 포함 5자 이하여야 합니다.");
-            }
-        }
-
-        long sizeAfterDistinct = carList.stream().distinct().count();
-        if (sizeAfterDistinct != carList.size()) {
-            throw new IllegalArgumentException("중복된 이름입니다.");
-        }
+        validateCarsName(carList);
 
         System.out.println("시도할 회수는 몇회인가요?");
 
@@ -87,6 +73,24 @@ public class Application {
                 .collect(Collectors.joining(", "));
 
         System.out.print("최종 우승자 : " + winners);
+    }
+
+    private static void validateCarsName(List<Car> carList) {
+        for (Car car : carList) {
+            String carName = car.getName();
+            if (carName.isBlank()) {
+                throw new IllegalArgumentException("이름을 입력해주세요.");
+            }
+
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("이름은 공백 포함 5자 이하여야 합니다.");
+            }
+        }
+
+        long sizeAfterDistinct = carList.stream().distinct().count();
+        if (sizeAfterDistinct != carList.size()) {
+            throw new IllegalArgumentException("중복된 이름입니다.");
+        }
     }
 
     private static List<String> splitCarName(String input) {
