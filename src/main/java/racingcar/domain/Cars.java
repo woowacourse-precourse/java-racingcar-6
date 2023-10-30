@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +21,7 @@ public class Cars {
         }
     }
 
-    public HashMap<String, Integer> getCars() {
+    public LinkedHashMap<String, Integer> getCars() {
         return this.cars;
     }
 
