@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarsNameConverterTest {
 
     @Test
-    public void 차들의이름String을List로변환() {
+    public void 전체차이름String을_List로_변환() {
         String carsName = "Car1,Car2,Car3";
 
         List<String> result = CarsNameConverter.convertStringToList(carsName);
