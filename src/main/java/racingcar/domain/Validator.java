@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Validator {
-    public static void validateName(String input) {
+    public static void name(String input) {
         input = input.trim();
         String[] nameArray = input.split(",");
         List<String> nameList = Arrays.asList(nameArray);
@@ -13,7 +13,7 @@ public class Validator {
         isValidLength(nameArray);
         isDuplicate(nameList);
     }
-    public static void validateRound(String input) {
+    public static void round(String input) {
         isNumeric(input);
         isPositive(input);
     }

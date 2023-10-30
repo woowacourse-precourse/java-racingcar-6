@@ -10,7 +10,7 @@ public class RacingGame {
     public void startGame() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputName = Console.readLine();
-        Validator.validateName(inputName);
+        Validator.name(inputName);
 
         String[] inputArray = inputName.split(",");
         List<Car> carList = new ArrayList<>();
@@ -20,7 +20,7 @@ public class RacingGame {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String inputRound = Console.readLine();
-        Validator.validateRound(inputRound);
+        Validator.round(inputRound);
 
         System.out.println("실행 결과");
         int repeatNumber = Integer.parseInt(inputRound);
