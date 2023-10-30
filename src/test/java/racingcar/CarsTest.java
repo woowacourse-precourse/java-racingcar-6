@@ -32,4 +32,11 @@ public class CarsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("쉼표");
     }
+
+    @Test
+    public void 자동차이름_중복(){
+        assertThatThrownBy(() -> new Cars("a,b,a"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복");
+    }
 }
