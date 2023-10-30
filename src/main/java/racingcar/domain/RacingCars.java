@@ -22,4 +22,10 @@ public class RacingCars {
         return Collections.unmodifiableList(racingCars);
     }
 
+    @Override
+    public String toString() {
+        return racingCars.stream()
+                .map(RacingCar::toString)
+                .collect(Collectors.joining("\n"));
+    }
 }
