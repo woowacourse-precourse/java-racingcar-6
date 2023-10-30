@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 
 public class Application {
-    private static int start_num = 1;
+    private static int start_num = 0;
     private static int end_num = 9;
 
     private static void string_length_illegal_check(String input_string) {
@@ -96,9 +96,6 @@ public class Application {
         System.out.println();
     }
 
-    private static void show_winner(List<String> player_list, int[] players_move) {
-
-    }
 
     private static void do_race(List<String> player_list, int play_time) {
 
@@ -109,7 +106,44 @@ public class Application {
             show_race(player_list, players_move);
         }
 
-        show_winner(player_list, players_move);
+        verify_winner(player_list, players_move);
+    }
+
+    private static int get_max_movement(int[] players_move) {
+        int max_movement = 0;
+        for (int idx = 0; idx < players_move.length; idx++) {
+            if (players_move[idx] > max_movement) {
+                max_movement = players_move[idx];
+            }
+        }
+        return max_movement;
+    }
+
+    private static List<Integer> get_winner_idx_list(int[] players_move, int max_movement) {
+        List<Integer> winner_idx_list = new ArrayList<>();
+        for (int idx = 0; idx < players_move.length; idx++) {
+            if (max_movement == players_move[idx]) {
+                winner_idx_list.add(idx);
+            }
+        }
+        return winner_idx_list;
+    }
+
+    private static void verify_winner(List<String> player_list, int[] players_move) {
+        int max_movement = get_max_movement(players_move);
+        List<Integer> winner_idx_list = get_winner_idx_list(players_move, max_movement);
+
+        show_winner(player_list, winner_idx_list);
+    }
+
+    private static void show_winner(List<String> player_list, List<Integer> winner_idx_list) {
+        List<String> winner = new ArrayList<>();
+        for (int idx = 0; idx < winner_idx_list.size(); idx++) {
+            int winnder_idx = winner_idx_list.get(idx);
+            winner.add(player_list.get(winnder_idx));
+        }
+        String result = String.join(", ", winner); // "pobi,jason"
+        System.out.println("최종 우승자 : " + result);
     }
 
     public static void main(String[] args) {
@@ -123,6 +157,5 @@ public class Application {
         int play_time = is_num(readLine());
 
         do_race(player_list, play_time);
-
     }
 }

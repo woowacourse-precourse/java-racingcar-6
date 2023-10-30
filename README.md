@@ -190,3 +190,12 @@ Randoms.pickNumberInRange(0,9);
 3) 각 차수 마다의 진행상황 표시
     1) show_race 함수를 통해 매개변수로 playerlist, players_move 배열을 준다
     2) System.out.println의 입출력 횟수를 줄이기 위해 StringBuilder를 사용한다.
+
+### [4] 우승자 확정
+
+1) show_winner 함수로 우승자를 판별
+2) player_list에서 값이 가장 많은 index를 판별
+    - 우승자가 1명일 때, 다수일 때를 판별해야 한다
+
+    1) 최대 index를 찾는다 - get_max_movement()
+    2) 최대 index를 가진 사람을 모두 출력한다
