@@ -41,10 +41,10 @@ public class OutputView {
     }
 
     public void printWinners(List<String> winners) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("최종 우승자 : ")
+        StringBuilder winnersMessageBuilder = new StringBuilder();
+        winnersMessageBuilder.append("최종 우승자 : ")
                 .append(winners.stream()
                         .collect(Collectors.joining(", ")));
-        System.out.print(stringBuilder);
+        System.out.print(winnersMessageBuilder);
     }
 }
