@@ -8,6 +8,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 public class Race {
     public List<Car> cars = new ArrayList<>();
     private int moveNum;
+    public NumberGenerator numberGenerator;
 
     public void play() {
         createCarObjects(inputCarNames());
@@ -40,9 +41,9 @@ public class Race {
     }
 
     public void updateCarsPosition() {
-
+        numberGenerator = new NumberGenerator();
         for (Car car : cars) {
-            int number = NumberGenerator.createRandomNumber();
+            int number = numberGenerator.createRandomNumber();
 
             if (number >= 4) {
                 car.setPosition(car.getPosition() + 1);
