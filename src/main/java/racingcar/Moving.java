@@ -9,7 +9,7 @@ public class Moving {
 
     public static boolean isMovable() {
         int randomNumber = pickNumberInRange(MIN_RANGE, MAX_RANGE);
-        if (randomNumber <= MOVABLE_MIN_NUMBER) {
+        if (randomNumber >= MOVABLE_MIN_NUMBER) {
             return true;
         }
         return false;
