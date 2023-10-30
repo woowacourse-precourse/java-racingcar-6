@@ -1,11 +1,11 @@
-package racingcar;
+package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.Number.*;
+import static racingcar.constant.Number.*;
 
 public class CarService {
 

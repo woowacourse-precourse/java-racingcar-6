@@ -1,4 +1,7 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.constant.message.InputMessage;
+import racingcar.constant.message.OutputMessage;
 
 import java.util.List;
 

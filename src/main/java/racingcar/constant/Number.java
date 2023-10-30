@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public class Number {
     public static final Integer NUMBER_RANGE_START = 0;
