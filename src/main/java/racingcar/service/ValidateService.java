@@ -6,8 +6,8 @@ public class ValidateService {
 
     private final InputValidator inputValidator = new InputValidator();
 
-    public void validateInputCarName(String carName) {
-        inputValidator.validateInputCarName(carName);
+    public void validateInputCarName(String inputCarNames) {
+        inputValidator.validateInputCarName(inputCarNames);
     }
 
     public void validateInputNumber(String inputNumber) {
