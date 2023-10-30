@@ -28,8 +28,20 @@ public class OutputView {
         System.out.println(racingCar.getName() + " : " + "-".repeat(racingCar.getLocation()));
     }
 
-    public void printWinners() {
-        System.out.println("최종 우승자 : ");
+    public void printWinners(RacingCars winners) {
+        int winnerCount = 0;
+        System.out.print("최종 우승자 : ");
+        for (RacingCar racingCar : winners.getRacingCarList()) {
+            System.out.print(racingCar.getName());
+            winnerCount += 1;
+            printComma(winners, winnerCount);
+        }
+    }
+
+    private void printComma(RacingCars winners, int winnerCount) {
+        if (winnerCount < winners.getRacingCarList().size()) {
+            System.out.print(", ");
+        }
     }
 
 }
