@@ -1,12 +1,13 @@
 package racingcar.repository;
 
+import static racingcar.Constants.IDENTITY_NUMBER;
+
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarRecord;
 
 public class CarRepository {
-    public static int IDENTITY_NUMBER = 0;
     private static List<Car> cars = new ArrayList<>();
 
     public void add(Car car) {
@@ -21,10 +22,14 @@ public class CarRepository {
         return cars.indexOf(car);
     }
 
+    public List<Car> findAll() {
+        return cars;
+    }
+
     public void save(CarRecord carRecord) {
         int id = carRecord.id();
         Car updateCar = new Car(
-                IDENTITY_NUMBER++,
+                id,
                 carRecord.name(),
                 carRecord.position()
         );
