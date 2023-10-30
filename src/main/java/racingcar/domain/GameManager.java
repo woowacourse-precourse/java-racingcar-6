@@ -12,7 +12,7 @@ public class GameManager {
                 .collect(Collectors.toList());
     }
 
-    private void moveCar(List<Car> cars) {
+    public static void moveCar(List<Car> cars) {
         for (Car car : cars) {
             car.move();
         }
@@ -35,5 +35,15 @@ public class GameManager {
         }
 
         return max;
+    }
+
+    public static String resultPosition(Car car) {
+        StringBuilder resultPosition = new StringBuilder();
+
+        for (int i = 0; i < car.getPosition(); i++) {
+            resultPosition.append("-");
+        }
+
+        return resultPosition.toString();
     }
 }
