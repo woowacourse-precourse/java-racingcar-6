@@ -29,7 +29,10 @@ public class Race {
     public void initializeRace(String attemptCountInput, String carNamesInput) {
         validateAttempt(attemptCountInput);
         parsePositiveInteger(attemptCountInput);
+        initializeCar(carNamesInput);
+    }
 
+    private void initializeCar(String carNamesInput) {
         List<String> carNameList = ParserUtils.namesParser(carNamesInput);
 
         for (String carName : carNameList) {
