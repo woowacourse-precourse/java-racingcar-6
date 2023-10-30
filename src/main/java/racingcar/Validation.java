@@ -21,14 +21,15 @@ public class Validation {
     }
 
     public static int throwIfCountInputIsInvalid(String count) {
+        int number;
         try {
-            int number = Integer.parseInt(count);
-            if(number <= 0) {
-                throw new IllegalArgumentException(NUMBER_ERROR);
-            }
-            return number;
+            number = Integer.parseInt(count);
         } catch (Exception e) {
             throw new IllegalArgumentException(NUMBER_ERROR);
         }
+        if(number <= 0) {
+            throw new IllegalArgumentException(NUMBER_ERROR);
+        }
+        return number;
     }
 }
