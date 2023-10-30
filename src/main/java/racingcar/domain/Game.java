@@ -8,12 +8,10 @@ import java.util.StringTokenizer;
 
 public class Game {
     private final List<Car> carList ;
-    private String winnerPosition;
     private final int repetitions;
 
     public Game(String carNames, String repetitions){
         carList = new ArrayList<>();
-        winnerPosition="";
 
         StringTokenizer st = new StringTokenizer(carNames);
         while (st.hasMoreTokens()){
@@ -29,13 +27,6 @@ public class Game {
         return carList;
     }
 
-    public void setWinnerPosition(String winnerPosition) {
-        this.winnerPosition = winnerPosition;
-    }
-
-    public String getWinnerPosition() {
-        return winnerPosition;
-    }
 
     public int getRepetitions() {
         return repetitions;

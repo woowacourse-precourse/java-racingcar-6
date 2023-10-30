@@ -1,12 +1,13 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
-import racingcar.util.Constant;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,32 +30,23 @@ public class RacingGame {
     }
 
     public void playGame(){
-        carList.forEach(this::movePosition);
-    }
-
-    public void movePosition(Car car){
-        if (Randoms.pickNumberInRange(Constant.RANDOM_MINIMUM, Constant.RANDOM_MAXIMUM) > Constant.RANDOM_BOUNDARY) {
-            car.addScore();
-            updateWinnerPosition(car.getScore());
-        }
-    }
-
-    public void updateWinnerPosition(String newPosition){
-        if(game.getWinnerPosition().length()<newPosition.length()){
-            game.setWinnerPosition(newPosition);
-        }
+        carList.forEach(car -> car.movePosition());
     }
 
     public void calcAndPrintWinner(){
+        int maxScore = getWinnerScore();
         List<String> winnerList = carList.stream()
-                .filter(car -> isWinner(car, game))
+                .filter(car -> car.getScore().length()==maxScore)
                 .map(Car::getName)
                 .collect(Collectors.toList());
         OutputView.printWinner(winnerList);
     }
 
-    public boolean isWinner(Car car, Game game) {
-        return car.getScore().length() == game.getWinnerPosition().length();
+    public int getWinnerScore() {
+        int max=0;
+        for(Car c:carList){
+            max=Math.max(c.getScore().length(), max);
+        }
+        return max;
     }
-
 }

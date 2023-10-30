@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.util.Constant;
 
 public class Car {
@@ -21,5 +22,11 @@ public class Car {
 
     public String getScore() {
         return score;
+    }
+
+    public void movePosition(){
+        if (Randoms.pickNumberInRange(Constant.RANDOM_MINIMUM, Constant.RANDOM_MAXIMUM) > Constant.RANDOM_BOUNDARY) {
+            addScore();
+        }
     }
 }
