@@ -28,4 +28,8 @@ public class Car {
     public String getMovementString() {
         return String.join(" : ", name.toString(), distance.toString());
     }
+
+    public String getNameString() {
+        return name.toString();
+    }
  }
