@@ -49,26 +49,21 @@ public class RacingGame {
     }
 
     public void moveCar(CarMap carMap){
-        Map<String,String> racingMap = carMap.getMap();
-        Set<String> racingSet = racingMap.keySet();
+        Set<String> racingSet = carMap.getKeySet();
         for (String key : racingSet) {
-            if(isGone()) {
-                carMap.go(key);
-            }
+            if(isGone()) carMap.go(key);
         }
         printRacingSituation(carMap);
     }
 
     public void printRacingSituation(CarMap carMap){
-        Map<String,String> racingMap = carMap.getMap();
-        Set<String> racingSet = racingMap.keySet();
+        Set<String> racingSet = carMap.getKeySet();
         for (String key : racingSet) {
-            System.out.println(key + " : " + racingMap.get(key));
+            System.out.println(key + " : " + carMap.getMap().get(key));
         }
         System.out.println();
     }
 
     public void printResult(CarMap carMap){
-
     }
 }

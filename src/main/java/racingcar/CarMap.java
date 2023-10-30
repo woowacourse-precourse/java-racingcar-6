@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 public class CarMap {
@@ -36,6 +37,8 @@ public class CarMap {
     public Map<String, String> getMap(){
         return carMap;
     }
+
+    public Set<String> getKeySet(){ return carMap.keySet(); }
 
     public void go(String key){
         String value = carMap.get(key);
