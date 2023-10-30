@@ -19,11 +19,8 @@ public class RoundResultFormatterTest {
     @DisplayName("List<RoundResultDto>를 문자열로 올바르게 포맷하는지 테스트")
     @MethodSource("provideRoundResultDtoAndExpectData")
     public void formatTest(List<RoundResultDto> dtos, String expected) {
-        // Given
-        RoundResultFormatter formatter = new RoundResultFormatter();
-
         // When
-        String result = formatter.format(dtos);
+        String result = RoundResultFormatter.format(dtos);
 
         // Then
         Assertions.assertThat(result).isEqualTo(expected);

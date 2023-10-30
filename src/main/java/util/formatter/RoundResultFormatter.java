@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RoundResultFormatter {
 
-    public String format(List<RoundResultDto> carResults) {
+    public static String format(List<RoundResultDto> carResults) {
         StringBuilder resultBuilder = new StringBuilder();
 
         for (RoundResultDto result : carResults) {

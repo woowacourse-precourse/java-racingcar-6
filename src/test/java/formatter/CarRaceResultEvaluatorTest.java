@@ -16,11 +16,8 @@ public class CarRaceResultEvaluatorTest {
     @DisplayName("우승자 출력 형식 포맷 검증")
     @MethodSource("provideWinnerDtoAndExpectValue")
     void formatWinnerDtoTest(WinnerDto winnerDto, String expect) {
-        //given
-        WinnerFormatter winnerFormatter = new WinnerFormatter();
-
         //when
-        String result = winnerFormatter.format(winnerDto);
+        String result = WinnerFormatter.format(winnerDto);
 
         //then
         Assertions.assertThat(result).isEqualTo(expect);
