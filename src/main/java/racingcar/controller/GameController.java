@@ -11,7 +11,7 @@ import java.util.*;
 
 public class GameController {
     private final InputView inputView = new InputView();
-    private final Name carName = new Name();
+    private final Name name = new Name();
     private final Move move = new Move();
     private final Attempt attemptNum = new Attempt();
     private final OutputView outputView = new OutputView();
@@ -19,7 +19,7 @@ public class GameController {
     private int MAX_ENTRY = 0;
     public void start() {
         List<String> player = Arrays.asList(inputView.name().split(","));
-        carName.isValid(player);
+        name.isValid(player);
         String attemptsNum = inputView.attemptsNum();
         attemptNum.isValid(attemptsNum);
         outputView.initial();
