@@ -1,7 +1,6 @@
 package formatter;
 
 import dto.WinnerDto;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
@@ -29,9 +28,9 @@ public class CarRaceResultEvaluatorTest {
 
     public static Stream<Arguments> provideWinnerDtoAndExpectValue() {
         return Stream.of(
-                Arguments.of(new WinnerDto(List.of("car1")), "car1"),
-                Arguments.of(new WinnerDto(List.of("car1", "car2")), "car1, car2"),
-                Arguments.of(new WinnerDto(List.of("car1", "car2", "car3")), "car1, car2, car3")
+                Arguments.of(new WinnerDto(List.of("car1")), "최종 우승자 : car1"),
+                Arguments.of(new WinnerDto(List.of("car1", "car2")), "최종 우승자 : car1, car2"),
+                Arguments.of(new WinnerDto(List.of("car1", "car2", "car3")), "최종 우승자 : car1, car2, car3")
         );
     }
 }
