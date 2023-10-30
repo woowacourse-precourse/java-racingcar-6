@@ -24,6 +24,10 @@ public class RacingGameService {
         return carList;
     }
 
+    public int getTryCount(String tryCount) {
+        return game.getTryCount(tryCount);
+    }
+
     public List<String> getWinners(List<Car> carList) {
         return game.getWinners(carList);
     }
