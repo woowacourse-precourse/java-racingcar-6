@@ -95,7 +95,7 @@ public class Simulation {
 
         String REGEX = "[\\S]*$";
 
-        if(name.matches(REGEX)){
+        if(!name.matches(REGEX)){
 
             throw new IllegalArgumentException("자동차 이름에 공백이 포함되어있습니다.");
         }
