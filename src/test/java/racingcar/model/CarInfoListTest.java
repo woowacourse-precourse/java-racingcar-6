@@ -46,7 +46,7 @@ public class CarInfoListTest {
     void winner_1번_2번만_더해졌을_때_1번_2번_우승자_반환() {
         String inputOneTwoThree = "1,2,3";
         List<Integer> moveForwardList = Arrays.asList(5,5,0);
-        //
+
         CarInfoList carInfoList = generateCarInfoList(inputOneTwoThree);
         carInfoList.updateCarInfoList(moveForwardList);
         assertThat(carInfoList.getWinnerList()).contains("1", "2");
