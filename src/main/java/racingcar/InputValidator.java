@@ -6,8 +6,8 @@ import racingcar.constant.ExceptionMessage;
 public class InputValidator {
 
     /**
-     * validate car's name satisfy below - car name should be longer than 5 characters - car name should not empty or
-     * blank - car's name should not be duplicated
+     * validate car's name satisfy below <br> - car name should be longer than 5 characters <br> - car name should not
+     * empty or blank  <br> - car's name should not be duplicated <br>
      *
      * @param names car's names
      */
@@ -36,8 +36,8 @@ public class InputValidator {
     }
 
     /**
-     * validate roundNumberString satisfy below - roundNumberString should be number-format - roundNumber should be
-     * positive number
+     * validate roundNumberString satisfy below <br> - roundNumberString should be number-format <br> - roundNumber
+     * should be positive number <br>
      *
      * @param roundNumberString round number in String
      */
