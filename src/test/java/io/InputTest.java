@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.*;
@@ -82,17 +83,23 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"test1", "test2", "test3",})
-    void prompt_출력확인(String greeting) {
+    @CsvSource({
+            "hello,daki",
+            "bye,daki",
+    })
+    void prompt_출력확인(String greeting, String input) {
         originalSystemIn = System.in;
         originalSystemOut = System.out;
-        mockInput = new ByteArrayInputStream(greeting.getBytes());
+        mockInput = new ByteArrayInputStream(input.getBytes());
         mockOutput = new ByteArrayOutputStream();
 
         System.setIn(mockInput);
         System.setOut(new PrintStream(mockOutput));
+
+        String result = userInput.prompt(greeting);
         String printedContent = mockOutput.toString();
 
         assertThat(greeting).isEqualTo(printedContent.trim());
+        assertThat(input).isEqualTo(result);
     }
 }
