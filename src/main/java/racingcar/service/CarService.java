@@ -2,6 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
+import racingcar.view.CarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +28,10 @@ public class CarService {
     }
 
     public static void startRacing(List<Car> cars, int moveCount) {
+        System.out.println("실행 결과");
         for (int i = 0; i < moveCount; i++) {
             moveCar(cars);
+            CarView.printResult(cars);
         }
     }
 
