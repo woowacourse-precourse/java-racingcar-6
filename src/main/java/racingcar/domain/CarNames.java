@@ -1,0 +1,35 @@
+package racingcar.domain;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class CarNames {
+
+    private static final String DELIMITER = ",";
+
+    private final List<CarName> carNames;
+
+    public CarNames(String carNames) {
+        List<CarName> splitNames = splitToCarName(carNames);
+        validateCarLength(splitNames);
+        validateDuplicateCarName(splitNames);
+
+        this.carNames = splitNames;
+    }
+
+    private List<CarName> splitToCarName(String carNames) {
+        return Arrays.stream(carNames.split(DELIMITER))
+                .map(CarName::new)
+                .toList();
+    }
+
+    private void validateCarLength(List<CarName> carNames) {
+        if (carNames.size() < 2) {
+            throw new IllegalArgumentException("자동차는 2대 이상이어야 합니다.");
+        }
+    }
+
+    private void validateDuplicateCarName(List<CarName> carNames) {
+    }
+
+}

@@ -2,7 +2,7 @@
 ## 기능 목록
 - [ ] 경주할 자동 차 이름을 입력 받는다.
   -  자동차 이름은 쉼표(,)를 기준으로 구분한다.
-  - [ ] 자동차 개수가 2대 미만일 경우 예외 처리 (IllegalArgumentException 발생)
+  - [x] 자동차 개수가 2대 미만일 경우 예외 처리 (IllegalArgumentException 발생)
   - [ ] 자동차 이름이 5자 초과일 경우 예외 처리 (IllegalArgumentException 발생)
   - [ ] 자동차 이름이 중복일 경우 예외 처리 (IllegalArgumentException 발생)
 
