@@ -11,9 +11,15 @@ public class Validation {
         }
     }
 
-    public static void isNotNumber(String s) {
-        if (!Character.isDigit(s.charAt(0))) {
+    public static void isNotNumber(String digit) {
+        if (!Character.isDigit(digit.charAt(0))) {
             throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+    }
+
+    public static void endsWithComma(String input) {
+        if (input.endsWith(",")) {
+            throw new IllegalArgumentException("올바르지 않은 입력이에요.");
         }
     }
 

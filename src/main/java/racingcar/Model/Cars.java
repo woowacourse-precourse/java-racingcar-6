@@ -1,5 +1,6 @@
 package racingcar.Model;
 
+import static racingcar.Validation.endsWithComma;
 import static racingcar.Validation.validateLengthOfName;
 
 public class Cars {
@@ -8,6 +9,7 @@ public class Cars {
 
     public Cars(String carName) {
         validateLengthOfName(carName);
+        endsWithComma(carName);
         this.carName = carName;
         this.distance = 0;
     }

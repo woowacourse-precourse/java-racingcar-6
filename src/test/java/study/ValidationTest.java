@@ -1,5 +1,6 @@
 package study;
 
+import java.util.ArrayList;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.Validation;
@@ -24,11 +25,27 @@ public class ValidationTest {
     }
 
     @Test
-    void name_숫자가_아닌_값() {
+    void 숫자가_아닌_값() {
         String s = "k";
         Assertions.assertThatThrownBy(() -> Validation.isNotNumber(s))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자를 입력해주세요.");
+    }
+
+    @Test
+    void comma_end_test() {
+        String name = ",,,";
+        Assertions.assertThatThrownBy(() -> Validation.endsWithComma(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("올바르지 않은 입력이에요.");
+    }
+
+    @Test
+    void null_name_test() {
+        ArrayList<String> name = new ArrayList<>();
+        Assertions.assertThatThrownBy(() -> Validation.isEmpty(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("올바르지 않은 입력이에요.");
     }
 }
 
