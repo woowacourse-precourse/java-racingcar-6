@@ -9,7 +9,6 @@ public class GameHandler {
         this.game = game;
     }
 
-
     public void handle() {
         try {
             setUp();
@@ -22,7 +21,7 @@ public class GameHandler {
 
     private void setUp() {
         List<String> carNames = Communicator.instructInputCars();
-        game.saveCars(carNames);
+        game.setUp(carNames);
     }
 
     private void runGame() {

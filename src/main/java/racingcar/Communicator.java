@@ -10,11 +10,9 @@ public class Communicator {
     public static List<String> instructInputCars() {
         printStart();
         String carsInput = Console.readLine();
-        List<String> cars = Arrays.stream(carsInput.split(","))
+        return Arrays.stream(carsInput.split(","))
                 .map(String::strip)
                 .toList();
-        Validator.validateCars(cars);
-        return cars;
     }
 
     public static int instructInputTrials() {
