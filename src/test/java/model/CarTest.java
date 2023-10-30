@@ -14,7 +14,7 @@ class CarTest {
     }
 
     @Test
-    void 한칸이동() {
+    void 한_칸_이동() {
         int currentPosition = car.getPosition();
         car.moveForward();
         int afterPosition = car.getPosition();
@@ -22,7 +22,7 @@ class CarTest {
     }
 
     @Test
-    void 두칸이동() {
+    void 두_칸_이동() {
         int currentPosition = car.getPosition();
         car.moveForward();
         car.moveForward();
@@ -31,7 +31,7 @@ class CarTest {
     }
 
     @Test
-    void 세칸이동() {
+    void 세_칸_이동() {
         int currentPosition = car.getPosition();
         car.moveForward();
         car.moveForward();
