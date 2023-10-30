@@ -26,6 +26,10 @@
 
 - [ ] 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들기.
   - [x] decideWinner() 함수에서 winner의 index를 구하는 기능을 별도 함수 extractWinnerIndex()로 분리.
+  - [x] inputCarNames()에서 readLine() 분리.
+    - readLine()에서 받은 입력을 콤마 단위로 split하는 splitCarNames()로 수정.
+  - [x] inputNumberOfRace()를 readLine()과 분리.
+    - readLine()에서 입력받은 횟수를 숫자일 경우 int로 반환, 숫자 아닐 경우 예외 처리하는 convertStringToInt()로 수정.
 
 ## 함수(또는 메서드)별 기능 테스트 작성
 
@@ -36,3 +40,7 @@
 - [x] convertStringToIntTest : convertStringToInt()가 시도 횟수를 int로 변환하고 입력 오류는 예외 처리하는지 테스트.
 - [x] generateActionTest : generateAction()가 0(멈춤) 또는 1(전진)을 반환하는지 테스트.
 - [x] recordCarActionTest : recordCarAction()가 반환한 List에 0과 1만 구성돼있고, 자동차 이름 List와 크기가 같은지 테스트.
+- [ ] printCarRaceTest :
+- [x] extractWinnerIndexTest : extractWinnerIndex()가 가장 멀리 간 자동차의 index로 구성된 List를 반환하는지 테스트.
+- [x] decideWinnerTest : decideWinner()가 우승자 이름으로 구성된 List를 반환하는지 테스트.
+- [ ] printWinnerTest :

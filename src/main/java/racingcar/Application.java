@@ -49,7 +49,7 @@ public class Application {
     }
 
     public static int generateAction() {
-        int randomNumber = Randoms.pickNumberInRange(0,9);
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
         int action = 0;
         if (randomNumber >= 4) {
             action++;

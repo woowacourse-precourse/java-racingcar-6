@@ -9,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MethodsTest {
+
     @Test
     void splitCarNamesTest() {
         List<String> carNamesList = Application.splitCarNames("pobi,woni,BE");
@@ -56,10 +57,17 @@ class MethodsTest {
 
     @Test
     void extractWinnerIndexTest() {
+        List<Integer> winnerIndexList =
+                Application.extractWinnerIndex(Arrays.asList(1, 4, 2, 4));
+        assertThat(winnerIndexList).containsExactly(1, 3);
     }
 
     @Test
     void decideWinnerTest() {
+        List<String> winnerNameList = Application.decideWinner(
+                Arrays.asList(1, 4, 2, 4), Arrays.asList("pobi", "woni", "BE", "kiki")
+        );
+        assertThat(winnerNameList).containsExactly("woni", "kiki");
     }
 
     @Test
