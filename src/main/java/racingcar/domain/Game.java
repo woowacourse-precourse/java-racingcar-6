@@ -18,4 +18,7 @@ public class Game {
         return cars.giveResult();
     }
 
+    public String findWinner() {
+        return cars.findWinner();
+    }
 }
