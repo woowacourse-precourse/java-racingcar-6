@@ -11,4 +11,9 @@ public class InputConvertor {
         return PlayerNamesDto.from(playerNames);
         // unmodifiavble 필요?
     }
+
+    public static RaceCount convertRaceCount(String rawRaceCount) {
+        int raceCount = Integer.parseInt(rawRaceCount);
+        return RaceCount.from(raceCount);
+    }
 }

@@ -14,6 +14,7 @@ public class GameController {
         PlayerNamesDto playerNamesDto = InputView.InputPlayerNames();
         PlayersDto playersDto = generatePlayers(playerNamesDto);
         PlayerMoveList playerMoveList = generatePlayerMoveList(playersDto);
+        RaceCount raceCount = InputView.InputRaceCount();
     }
 
     private PlayerMoveList generatePlayerMoveList(PlayersDto playersDto) {
