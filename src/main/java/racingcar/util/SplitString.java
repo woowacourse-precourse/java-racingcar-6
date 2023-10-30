@@ -5,13 +5,15 @@ import java.util.List;
 public class SplitString {
     private static final String COMMA_DEPIMITER = ",";
 
-    private SplitString(){
+    private SplitString() {
 
     }
-    public static List<String> split(String text){
+
+    public static List<String> split(String text) {
         return split(text, COMMA_DEPIMITER);
     }
-    private static List<String> split(String text, String delimiter){
+
+    private static List<String> split(String text, String delimiter) {
         return List.of(text.split(delimiter));
     }
 }

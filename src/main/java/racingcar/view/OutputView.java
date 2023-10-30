@@ -6,35 +6,35 @@ import java.util.stream.Collectors;
 
 public class OutputView {
 
-    private OutputView(){
+    private OutputView() {
 
     }
 
     private static final String RESULT_GUIDE = "실행 결과";
     private static final String COMMA_DELIMITTER = ", ";
-    private static final String COLON_DELIMITTER =  " : ";
-    private static final String END_LINE= "\n";
-    private static final String UNIT_DISTANCE ="-";
+    private static final String COLON_DELIMITTER = " : ";
+    private static final String END_LINE = "\n";
+    private static final String UNIT_DISTANCE = "-";
     private static final String WINNER_GUIDE = "가 최종 우승했습니다.";
 
-    public static void guide(){
+    public static void guide() {
         System.out.println(END_LINE + RESULT_GUIDE);
     }
 
-    public static void printRacingResult(Map<String,Integer> carMap){
-        for(Map.Entry<String, Integer>entry: carMap.entrySet()){
+    public static void printRacingResult(Map<String, Integer> carMap) {
+        for (Map.Entry<String, Integer> entry : carMap.entrySet()) {
             System.out.println(entry.getKey() + COLON_DELIMITTER + UNIT_DISTANCE.repeat(entry.getValue()) + END_LINE);
         }
         System.out.printf(END_LINE);
     }
 
-    public static void printWinners(List<String> winners){
+    public static void printWinners(List<String> winners) {
         System.out.println(getWinners(winners) + WINNER_GUIDE);
     }
-    private static String getWinners(List<String> winners){
+
+    private static String getWinners(List<String> winners) {
         return winners.stream().collect(Collectors.joining(COMMA_DELIMITTER));
     }
-
 
 
 }
