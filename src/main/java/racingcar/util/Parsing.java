@@ -15,7 +15,7 @@ public class Parsing {
 
         while (carTokenizer.hasMoreTokens()){
             String carName = carTokenizer.nextToken();
-            carList.add(new Car(carName,0));
+            carList.add(new Car(carName, new StringBuilder(), 0));
         }
         return carList;
     }
