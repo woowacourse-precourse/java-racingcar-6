@@ -10,6 +10,14 @@ public class Car {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getLocation() {
+        return location;
+    }
+
     public void go() {
         location++;
     }
