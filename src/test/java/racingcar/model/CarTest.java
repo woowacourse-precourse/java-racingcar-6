@@ -16,7 +16,7 @@ class CarTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0,1,2,3})
-    public void 위치변경_없음(int number){
+    public void 전진없음(int number){
         //when (기능 작동)
         car.moveForward(number);
         int position = car.getPosition();
@@ -27,7 +27,7 @@ class CarTest {
 
     @ParameterizedTest
     @ValueSource(ints = {4,5,6,7,8,9})
-    public void 위치변경(int number){
+    public void 앞으로_전진(int number){
         //when (기능 작동)
         car.moveForward(number);
         int position = car.getPosition();
