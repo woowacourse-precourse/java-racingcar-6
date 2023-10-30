@@ -21,7 +21,7 @@ public class InputTest {
         try {
             method = gameInputHandler.getClass().getDeclaredMethod("splitStringToList", String.class);
         } catch (NoSuchMethodException e) {
-            throw new RuntimeException("private 메서드를 찾을 수 없습니다.", e);
+            throw new RuntimeException("메서드를 찾을 수 없습니다.", e);
         }
         //splitStringToList 메서드 테스트 하기 위해 private 메서드 접근 허용
         method.setAccessible(true);
@@ -30,7 +30,7 @@ public class InputTest {
         try {
             cars = (List<String>) method.invoke(gameInputHandler, input);
         } catch (IllegalAccessException | InvocationTargetException e) {
-            throw new RuntimeException("private 메서드 호출 실패", e);
+            throw new RuntimeException("메서드 호출 실패", e);
         }
 
         assertThat(cars).contains("bbb", "aaa", "ccc");
