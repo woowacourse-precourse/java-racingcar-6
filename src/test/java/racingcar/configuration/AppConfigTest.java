@@ -15,6 +15,8 @@ public class AppConfigTest {
         //when
 
         // then
-        assertThat(config1).isEqualTo(config2);
+        assertThat(config1).isSameAs(config2);
     }
+
+
 }
