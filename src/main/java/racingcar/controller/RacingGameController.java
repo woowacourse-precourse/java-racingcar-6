@@ -14,16 +14,22 @@ public class RacingGameController {
         this.service = new RacingGameService();
     }
 
+    public List<Car> initializeGame() {
+        return service.getRacingCars(InputView.inputCarNames());
+    }
+
     public void start() {
-        List<Car> cars = service.getRacingCars(InputView.inputCarNames());
+        List<Car> cars = initializeGame();
         int tryCount = InputView.inputTryCount();
 
+        play(tryCount, cars);
+        OutputView.printFinalWinner(service.getWinners(cars));
+    }
+
+    public void play(int tryCount, List<Car> cars) {
         while (tryCount > 0) {
             OutputView.printResult(service.move(cars));
             tryCount--;
         }
-        OutputView.printFinalWinner(service.getWinners(cars));
-
     }
-
 }
