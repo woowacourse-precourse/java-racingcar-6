@@ -49,4 +49,14 @@ public class RacingViewTest {
 
         assertEquals(input, result);
     }
+
+    @Test
+    void printRacingStartMessage_테스트() {
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        view.printRacingStartMessage();
+
+        assertEquals("실행 결과", out.toString().trim());
+    }
 }
