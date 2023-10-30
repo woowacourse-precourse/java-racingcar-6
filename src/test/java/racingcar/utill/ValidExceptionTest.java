@@ -89,13 +89,13 @@ class ValidExceptionTest {
     }
 
     @DisplayName("입력문자에 공백이 포함되어있는가.")
-    @Test
-    void isValidIncludeBlank() {
-        // given
-
-        // when
-
+    @ParameterizedTest
+    @ValueSource(strings = {" sdf", " ", "sdf ", "sf sf", "sdf sdf sdf"})
+    void isValidIncludeBlank(String input) {
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidIncludeBlank(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("0 입력 확인")
