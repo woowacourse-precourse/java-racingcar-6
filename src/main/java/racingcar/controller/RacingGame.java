@@ -1,23 +1,16 @@
 package racingcar.controller;
 
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
-
-import racingcar.constants.MyEnum;
-import racingcar.service.RacingGameService;
+import racingcar.service.Referee;
+import racingcar.utils.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
-    private final RacingGameService racingGameService;
-    private final OutputView outputView;
-    private final InputView inputView;
+    private final Referee referee;
+    InputView inputView = new InputView(new Validator());
 
-    public RacingGame() {
-        this.racingGameService = new RacingGameService();
-        this.outputView = new OutputView();
-        this.inputView = new InputView();
+    public RacingGame(Referee referee) {
+        this.referee = referee;
     }
 
     public void run() {
@@ -28,29 +21,24 @@ public class RacingGame {
     }
 
     public void collectCarNames() {
-        outputView.printCarNameInputMessage();
+        OutputView.printCarNameInputMessage();
         String carNames = inputView.carNamesInput();
-        racingGameService.addCars(carNames);
+        referee.addCars(carNames);
     }
 
     public void collectNumberOfAttempts() {
-        outputView.printNumberOfAttemptsInputMessage();
-        racingGameService.setAttempts(inputView.numberOfAttemptsInput());
+        OutputView.printNumberOfAttemptsInputMessage();
+        referee.setAttempts(inputView.numberOfAttemptsInput());
     }
 
     public void playRacingGame() {
-        outputView.printPlayResultMessage();
-
-        while (!racingGameService.reaches()) {
-            racingGameService.everyCarMoveForward();
-
-            List<Map<MyEnum, String>> results = racingGameService.getResultList();
-            outputView.printPlayResult(results);
+        OutputView.printPlayResultMessage();
+        while (!referee.anyCarReaches()) {
+            OutputView.printPlayResult(referee.getPlayResults());
         }
     }
 
     public void announceWinners() {
-        racingGameService.addWinners();
-        outputView.printWinners(racingGameService.getWinnersNames());
+        OutputView.printWinners(referee.getWinnersNames());
     }
 }
