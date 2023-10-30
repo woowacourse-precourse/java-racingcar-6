@@ -15,10 +15,10 @@ public class Car {
             score+=1;
         }
     }
-    public String getName(String name){
+    public String getName(){
         return name;
     }
-    public int getScore(int score){
+    public int getScore(){
         return score;
     }
 
