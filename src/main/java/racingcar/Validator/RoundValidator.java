@@ -15,7 +15,7 @@ public class RoundValidator {
     }
 
     public void isNotRealNumber(String round) {
-        if (round.contains(".")) {
+        if (round.matches("\\d+\\.\\d+")) {
             throw new RoundException(REALNUMBERPROMPT.getMessage(round));
         }
     }
