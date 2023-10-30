@@ -2,9 +2,10 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class Car implements Comparable<Car> {
+public class Car implements Comparator<Car> {
     public static final String ONE_STEP = "-";
 
     private final String name;
@@ -20,13 +21,9 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    public void findWinners() {
-
-    }
-
     @Override
-    public int compareTo(Car o) {
-        return this.distance.size() - o.distance.size();
+    public int compare(Car o1, Car o2) {
+        return o1.distance.size() - o2.distance.size();
     }
 
     public String getName() {

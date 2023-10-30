@@ -10,7 +10,8 @@ public class OutputView {
         System.out.println(car.getName() + COLON + convertedDistance);
     }
 
-    public void printWinners() {
-
+    public static void printWinners(List<Car> winners) {
+        String result = String.join(",", Converter.convertWinners(winners));
+        System.out.println(result);
     }
 }

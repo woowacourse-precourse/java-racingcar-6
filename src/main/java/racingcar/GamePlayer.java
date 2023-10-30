@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GamePlayer {
@@ -21,13 +22,13 @@ public class GamePlayer {
                 OutputView.printResult(cars.get(j), cars.get(j).getDistance());
             }
         }
-        System.out.println(findFurthestMovedCar().getName());
+        OutputView.printWinners(findWinners(findFurthestMovedCar()));
     }
 
     public Car findFurthestMovedCar() {
         Car furthestMovedCar = null;
         for (int i = 0; i < cars.size() - 1; i++) {
-            int firstPlace = cars.get(i).compareTo(cars.get(i + 1));
+            int firstPlace = cars.get(i).compare(cars.get(i), cars.get(i + 1));
             if (firstPlace > 0) {
                 furthestMovedCar = cars.get(i);
             }
@@ -36,5 +37,15 @@ public class GamePlayer {
             }
         }
         return furthestMovedCar;
+    }
+
+    public List<Car> findWinners(Car furthestMovedCar) {
+        List<Car> winners = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++) {
+            if (furthestMovedCar.getDistance().size() == cars.get(i).getDistance().size()) {
+                winners.add(cars.get(i));
+            }
+        }
+        return winners;
     }
 }
