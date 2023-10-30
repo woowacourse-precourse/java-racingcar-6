@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.domain.Car;
 import racingcar.domain.Monitor;
+import racingcar.domain.Referee;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +36,9 @@ public class Application {
 
             monitor.printCars();
         }
+
+        Referee referee = new Referee(cars);
+        System.out.println("최종 우승자 : " + referee.whoIsWinner());
 
     }
 }
