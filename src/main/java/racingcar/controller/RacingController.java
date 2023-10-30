@@ -18,5 +18,6 @@ public class RacingController {
         ConsoleOutput.displayMessage(ConsoleOutput.INPUT_MESSAGE);
         String input = inputView.getCarNames();
         List<String> carNames = racingService.stringToList(input);
+        racingService.isLengthGreaterThanFive(carNames);
     }
 }
