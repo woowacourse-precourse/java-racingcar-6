@@ -15,11 +15,11 @@
 #### 레이싱 게임(RacingGameController)
 - [x] 자동차 목록 생성 - playGame()
   - [x] 자동차 생성
-- [ ] 라운드 진행
+- [x] 라운드 진행
   - [x] 라운드 입력 - playGame()
   - [x] 실행 결과 메시지 출력 - playGame()
   - [x] 자동차 전진 함수 호출 - runRound()
-  - [ ] 라운드 결과 함수 호출
+  - [x] 라운드 결과 함수 호출 - runRound()
 - [ ] 우승자 발표
   - [ ] 우승자 목록 출력
 #### 자동차(Car)
@@ -55,4 +55,4 @@
   - 시도 횟수 입력
     - [x] 아무것도 입력하지 않은 경우 - Round의 validateInputNotEmpty()
     - [x] 시도 횟수에 숫자가 아닌 다른 값이 들어오는 경우 Round의 validateInteger()
-    - [x] 시도 횟수가 음수인 경우
+    - [x] 시도 횟수가 음수인 경우 - Round의 validateInputRange()

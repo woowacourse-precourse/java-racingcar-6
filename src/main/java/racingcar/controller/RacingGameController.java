@@ -27,5 +27,6 @@ public class RacingGameController {
 
     private void runRound() {
         cars.getCarList().forEach(Car::moveForward);
+        cars.getCarList().forEach(OutputView::printCarNameAndPosition);
     }
 }
