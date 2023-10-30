@@ -1,14 +1,31 @@
 package view;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import model.Car;
 import model.Cars;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class OutputViewTest {
+
+    final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    final PrintStream standardOut = System.out;
+
+    @BeforeEach
+    void setUp() {
+        System.setOut(new PrintStream(outputStreamCaptor));
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.setOut(standardOut);
+    }
 
     @Test
     @DisplayName("최종 우승자 출력 테스트")
@@ -26,10 +43,10 @@ public class OutputViewTest {
         Cars cars = new Cars(carList);
 
         //when
-        String finalWinnerNames = OutputView.displayFinalWinner(cars);
+        OutputView.displayFinalWinner(cars);
 
         //then
-        Assertions.assertThat(finalWinnerNames).isEqualTo("pobi,lisa");
+        Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo("최종 우승자 : pobi,lisa");
 
     }
 }
