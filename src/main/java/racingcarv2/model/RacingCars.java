@@ -2,6 +2,7 @@ package racingcarv2.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcarv2.model.Car;
 import racingcarv2.util.RandomGenerator;
 
@@ -23,5 +24,22 @@ public class RacingCars {
             racingCar.move(RandomGenerator.generateRandomNumber(START_INCLUSIVE, END_INCLUSIVE));
         }
         return racingCars;
+    }
+
+    public List<Name> findWinner() {
+        return getNamesWithSamePosition(findMaxPositionCar());
+    }
+
+    private List<Name> getNamesWithSamePosition(Car maxPositionCar) {
+        return racingCars.stream()
+                .filter(car -> maxPositionCar.isSamePosition(car))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private Car findMaxPositionCar() {
+        return racingCars.stream()
+                .max(Car::compareTo)
+                .get();
     }
 }

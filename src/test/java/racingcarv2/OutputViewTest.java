@@ -12,7 +12,7 @@ import racingcarv2.view.OutputView;
 public class OutputViewTest extends IOTest {
     private RacingCars racingCars = new RacingCars(Arrays.asList(
             new Car(new Name("apple"), new Position(1)),
-            new Car(new Name("bana"), new Position(2)),
+            new Car(new Name("bana"), new Position(3)),
             new Car(new Name("candy"), new Position(3)))
     );
 
@@ -20,6 +20,15 @@ public class OutputViewTest extends IOTest {
     void 각_라운드_결과_출력() {
         OutputView.printEachRound(racingCars.getRacingCars());
 
-        Assertions.assertThat(output()).contains("apple : -", "bana : --", "candy : ---");
+        Assertions.assertThat(output()).contains("apple : -", "bana : ---", "candy : ---");
     }
+
+    @Test
+    void 최종_결과_출력() {
+        OutputView.printWinnerNames(racingCars.findWinner());
+
+        Assertions.assertThat(output()).isEqualTo("최종 우승자 : bana, candy\n");
+    }
+
+
 }

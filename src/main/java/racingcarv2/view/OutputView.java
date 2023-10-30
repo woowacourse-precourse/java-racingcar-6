@@ -1,8 +1,10 @@
 package racingcarv2.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcarv2.model.Car;
+import racingcarv2.model.Name;
 import racingcarv2.model.Position;
 
 public class OutputView {
@@ -12,6 +14,7 @@ public class OutputView {
 
     public static final String DASH = "-";
     public static final String EACH_ROUND_STATUS_FORMAT = "%s : %s\n";
+    public static final String FINAL_WINNER = "최종 우승자";
 
     public static void printInputCarNames() {
         System.out.println(INPUT_CAR_NAMES_MESSAGE);
@@ -38,5 +41,12 @@ public class OutputView {
         IntStream.range(0, position.getPositionValue())
                 .forEach((num) -> stringBuilder.append(DASH));
         return stringBuilder.toString();
+    }
+
+    public static void printWinnerNames(List<Name> winnerNames) {
+        List<String> nameList = winnerNames.stream()
+                .map(Name::getNameValue)
+                .collect(Collectors.toList());
+        System.out.printf(EACH_ROUND_STATUS_FORMAT, FINAL_WINNER, String.join(", ", nameList));
     }
 }
