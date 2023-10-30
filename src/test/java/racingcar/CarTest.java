@@ -12,14 +12,14 @@ import static racingcar.Car.createCarByName;
 class CarTest {
 
     @Test
-    void createCarByName_메서드에서_유효한_이름으로_Car_오브젝트_생성() {
+    void 유효한_이름으로_Car_오브젝트_생성() {
         String validName = "abcd";
         Car car = createCarByName(validName);
         assertThat(car.getName()).isEqualTo(validName);
     }
 
     @Test
-    void createCarByName_메서드에서_긴_이름에_대한_예외_처리() {
+    void 긴_이름으로_Car_오브젝트_생성_예외_처리() {
         String longName = "abcdef";
         assertThatThrownBy(() -> createCarByName(longName))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -27,7 +27,7 @@ class CarTest {
     }
 
     @Test
-    void createCarByName_메서드에서_공백_이름에_대한_예외_처리() {
+    void 공백으로_Car_오브젝트_생성_예외_처리() {
         String emptyName = "";
         assertThatThrownBy(() -> createCarByName(emptyName))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -35,7 +35,7 @@ class CarTest {
     }
 
     @Test
-    void createCarByName_메서드에서_null_이름에_대한_예외_처리() {
+    void null로_Car_오브젝트_생성_예외_처리() {
         String nameWithNull = null;
         assertThatThrownBy(() -> createCarByName(nameWithNull))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -43,7 +43,7 @@ class CarTest {
     }
 
     @Test
-    void moveForwardOrStop_메서드에서_4가_나왔을때_앞으로_이동() {
+    void 랜덤숫자_4가_나왔을때_앞으로_이동() {
         try (MockedStatic<Randoms> mocked = mockStatic(Randoms.class)) {
             mocked.when(() -> Randoms.pickNumberInRange(0, 9)).thenReturn(4);
 
@@ -55,7 +55,7 @@ class CarTest {
     }
 
     @Test
-    void moveForwardOrStop_메서드_에서_3이_나왔을때_멈춤() {
+    void 랜덤숫자_3이_나왔을때_앞으로_멈춤() {
         try (MockedStatic<Randoms> mocked = mockStatic(Randoms.class)) {
             mocked.when(() -> Randoms.pickNumberInRange(0, 9)).thenReturn(3);
 
@@ -68,7 +68,7 @@ class CarTest {
 
 
     @Test
-    void toString_메서드로_1번_전진_했을때를_반영한_String_값을_반환() {
+    void 한번_전진_했을때를_반영한_String_값을_반환() {
         try (MockedStatic<Randoms> mocked = mockStatic(Randoms.class)) {
             mocked.when(() -> Randoms.pickNumberInRange(0, 9)).thenReturn(4);
 
@@ -80,7 +80,7 @@ class CarTest {
     }
 
     @Test
-    void toString_메서드로_0번_전진_했을때를_반영한_String_값을_반환() {
+    void 전진하지_못했을때를_반영한_String_값을_반환() {
         try (MockedStatic<Randoms> mocked = mockStatic(Randoms.class)) {
             mocked.when(() -> Randoms.pickNumberInRange(0, 9)).thenReturn(3);
 
