@@ -19,7 +19,14 @@ public class Application {
         InputCarName inputCarName = new InputCarName();
         List<Integer> track;
         track = inputCarName.makeTrack(carCount);
-        System.out.println(track);
+
+        for(int i=0;i<time;i++){
+            CarSimulate carSimulate = new CarSimulate();
+            carSimulate.goSimulate(carCount,track);
+            carSimulate.viewCurrentProgress(carCount,car,track);
+            System.out.println();
+
+        }
 
 
     }
