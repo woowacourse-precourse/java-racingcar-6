@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
-import racingcar.utils.InputValidator;
 import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -54,8 +53,6 @@ public class RacingCarController {
     }
 
     private RacingCars createRacingCars(List<String> carNames) {
-        InputValidator.validateMinCars(carNames);
-        InputValidator.validateCarNames(carNames);
         return new RacingCars(carNames);
     }
 
