@@ -33,4 +33,34 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(LENGTH_ERROR_MESSAGE);
     }
+
+    @DisplayName("isCanMove가 true면 position이 1증가해야 한다.")
+    @Test
+    void moveSuccessTest() {
+        // given
+        boolean isCanMove = true;
+        Car pobiCar = Car.getNewCar("pobi");
+        int prevPosition = pobiCar.getPosition();
+
+        // when
+        pobiCar.move(isCanMove);
+
+        // then
+        assertThat(pobiCar.getPosition()).isEqualTo(prevPosition + 1);
+    }
+
+    @DisplayName("isCanMove가 false면 position은 변화가 없어야 한다.")
+    @Test
+    void moveFailTest() {
+        // given
+        boolean isCanMove = false;
+        Car pobiCar = Car.getNewCar("pobi");
+        int prevPosition = pobiCar.getPosition();
+
+        // when
+        pobiCar.move(isCanMove);
+
+        // then
+        assertThat(pobiCar.getPosition()).isEqualTo(prevPosition);
+    }
 }
