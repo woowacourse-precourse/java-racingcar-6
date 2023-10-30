@@ -17,15 +17,15 @@ public class GameConsole {
     }
 
     private void init() {
-        loadAllGameToGameConsole();
-        setDefault(GameList.RACING_CAR);
+        loadAllGame();
+        setDefaultGame(GameList.RACING_CAR);
     }
 
-    private void loadAllGameToGameConsole() {
+    private void loadAllGame() {
         gameMap.put(GameList.RACING_CAR, new RacingCarGame());
     }
 
-    private void setDefault(GameList defaultTarget) {
+    private void setDefaultGame(GameList defaultTarget) {
         target = defaultTarget;
     }
 
