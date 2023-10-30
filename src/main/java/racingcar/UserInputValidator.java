@@ -1,17 +1,19 @@
 package racingcar;
 
 public class UserInputValidator {
-    static final String REGEXP_ONLY_NUM = "^[1-9][0-9]*$";
+
+    private static final String REGEXP_ONLY_NUM = "^[1-9][0-9]*$";
+
+    private static final String SPACE = "\\s";
+
+    public static final Integer ALLOW_CAR_LENGTH = 5;
 
     public static boolean carNameIsValid(String carName) {
-
-        String[] carNames = carName.replaceAll("\\s", "")
-                .split(",");
-
+        String[] carNames = carName.replaceAll(SPACE, "").split(",");
         for (String name : carNames) {
 
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름" + name + "은 허용 길이 " + "5" + "글자를 넘었습니다");
+            if (name.length() > ALLOW_CAR_LENGTH) {
+                throw new IllegalArgumentException("자동차 이름 " + name + "은 허용 길이 " + ALLOW_CAR_LENGTH + "글자를 넘었습니다");
             }
         }
         return true;

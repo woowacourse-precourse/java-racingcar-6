@@ -8,4 +8,5 @@ public class Application {
         CarGameController carGameController = new CarGameController(new UserInputOutput());
         carGameController.run();
     }
+
 }

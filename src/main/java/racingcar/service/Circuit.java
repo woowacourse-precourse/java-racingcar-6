@@ -7,6 +7,11 @@ import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class Circuit {
+
+    private static final int START_INCLUSIVE = 0;
+
+    private static final int END_INCLUSIVE = 9;
+
     private List<Car> cars;
 
     public Circuit(List<Car> cars) {
@@ -14,17 +19,22 @@ public class Circuit {
     }
 
     public void run() {
-        cars = cars.stream().map((car) -> car.runAndReturnNewCar(createRandomNumber())).toList();
+        cars = cars.stream()
+                .map((car) -> car.runAndReturnNewCar(createRandomNumber()))
+                .toList();
     }
 
-
     private Long createRandomNumber() {
-        int randomNum = Randoms.pickNumberInRange(0, 9);
+        int randomNum = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
         return (long) randomNum;
     }
 
     public String getWinner() {
-        Long maxPosition = cars.stream().mapToLong(Car::getPosition).max().orElseThrow(NoSuchElementException::new);
+        Long maxPosition =
+                cars.stream()
+                        .mapToLong(Car::getPosition)
+                        .max()
+                        .orElseThrow(NoSuchElementException::new);
 
         return cars.stream()
                 .filter(car -> car.getPosition().equals(maxPosition))
@@ -36,4 +46,5 @@ public class Circuit {
         cars.forEach(car -> System.out.println(car.getCarStatus()));
         System.out.println();
     }
+
 }

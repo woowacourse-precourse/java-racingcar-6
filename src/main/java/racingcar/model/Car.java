@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public interface Car {
+
     Car runAndReturnNewCar(Long randomNum);
 
     Long getPosition();
@@ -8,4 +9,5 @@ public interface Car {
     String getCarName();
 
     String getCarStatus();
+
 }

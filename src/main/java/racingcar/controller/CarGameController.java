@@ -11,6 +11,7 @@ import racingcar.view.UserInputOutput;
 public class CarGameController {
 
     private final UserInputOutput userInputOutput;
+
     private Circuit circuit;
 
     public CarGameController(UserInputOutput userInputOutput) {
@@ -25,7 +26,7 @@ public class CarGameController {
 
     private void registerCars() {
         String carsName = userInputOutput.inputCarsName();
-        circuit = new Circuit(generatedCars(carsName));
+        circuit = new Circuit(generatedRacingCars(carsName));
     }
 
     private void startMatch() {
@@ -42,10 +43,10 @@ public class CarGameController {
         userInputOutput.printWinner(winner);
     }
 
-    private List<Car> generatedCars(String carsName) {
-
+    private List<Car> generatedRacingCars(String carsName) {
         return Arrays.stream(carsName.replaceAll("\\s", "").split(","))
                 .map(RacingCar::of)
                 .collect(Collectors.toList());
     }
+
 }

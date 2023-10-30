@@ -2,8 +2,14 @@ package racingcar.model;
 
 public class RacingCar implements Car {
 
-    private final static String ROAD_PRINT = "-";
+    private static final String ROAD_PRINT = "-";
+
+    private static final Long RANDOM_BOUNDER = 4L;
+
+    private static final Long MOVE_NUM = 1L;
+
     private final Long position;
+
     private final String carName;
 
     private RacingCar(String carName, Long position) {
@@ -17,8 +23,8 @@ public class RacingCar implements Car {
 
     @Override
     public Car runAndReturnNewCar(Long randomNum) {
-        if (randomNum >= 4L) {
-            return new RacingCar(carName, position + 1L);
+        if (randomNum >= RANDOM_BOUNDER) {
+            return new RacingCar(carName, position + MOVE_NUM);
         }
         return this;
     }
@@ -45,4 +51,5 @@ public class RacingCar implements Car {
         }
         return path.toString();
     }
+
 }
