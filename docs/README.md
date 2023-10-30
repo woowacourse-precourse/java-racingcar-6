@@ -9,9 +9,13 @@
 - [x] equals & hashcode 재정의
 - [x] toString 재정의
 ## 자동차 위치 (Position)
-- [ ] 위치 초기화
-- [ ] 위치 증가
-- [ ] 위치 출력
+- [x] 위치 0으로 초기화
+- [x] 특정 위치로 초기화
+- [x] 위치 증가 (move)
+- [x] 매개변수로 받은 위치가 4보다 큰지 확인 (isMoreThanMaxNumber)
+- [x] 매개변수로 받은 Position과 어떤 Position이 더 큰지 비교 (compareTo)
+- [x] equals & hashcode 재정의 
+- [x] toString 재정의
 ## 자동차 게임(RacingCarGame)
 - [ ] 시도할 횟수 만큼 자동차를 전진시키는 게임을 진행한다.
 - [ ] 0~9 사이의 값을 랜덤으로 생성한다.
