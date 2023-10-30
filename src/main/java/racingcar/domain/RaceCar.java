@@ -31,7 +31,7 @@ public class RaceCar {
     /**
      * 자동차의 움직여도 되는 조건 (4이상, 9이하)
      *
-     * @param ranNumOfSingleDigit 값이 4 이상, 9 이하 경우이다.
+     * @param ranNumOfSingleDigit "4이상, 9이하"의 값
      * @return
      */
     private boolean isMovementCondition(Integer ranNumOfSingleDigit) {
