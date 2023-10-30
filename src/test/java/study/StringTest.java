@@ -11,7 +11,9 @@ import org.junit.jupiter.params.provider.*;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class StringTest {
 
@@ -201,5 +203,15 @@ public class StringTest {
     void 문자열_검증() {
         String expression = "This is a string";
         assertThat(expression).startsWith("This").endsWith("string").contains("a");
+    }
+
+    @DisplayName("EnumSource_을_이용한_ENUM_포함에_관한_테스트")
+    @ParameterizedTest
+//          value = Enum의 클래스 정의  names =  Enum의 값을 정의
+    @EnumSource(value = TimeUnit.class, names = {"DAYS", "HOURS"})
+    void EnumSource_을_이용한_ENUM_포함에_관한_테스트(TimeUnit inputTimeUnit) {
+        assertTrue(
+                EnumSet.of(TimeUnit.DAYS, TimeUnit.HOURS).contains(inputTimeUnit)
+        );
     }
 }
