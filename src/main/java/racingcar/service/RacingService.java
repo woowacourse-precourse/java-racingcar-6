@@ -8,7 +8,7 @@ import racingcar.exception.InvalidNameException;
 import racingcar.util.NumberPicker;
 
 public class RacingService {
-    public void validateNames(List<String> racerList){
+    public void validateNames(List<String> racerList) {
         for (String name : racerList) {
             if (name.isEmpty() || name.length() > 5) {
                 throw new InvalidNameException("이름은 공백일 수 없으며, 5자를 초과할 수 없습니다.");
@@ -16,7 +16,7 @@ public class RacingService {
         }
     }
 
-    public void validateCount(String count){
+    public void validateCount(String count) {
         try {
             Integer.parseInt(count);
         } catch (NumberFormatException e) {
@@ -24,7 +24,7 @@ public class RacingService {
         }
     }
 
-    public List<RacingPlayer> storeCarNames(List<String> racerList){
+    public List<RacingPlayer> storeCarNames(List<String> racerList) {
         List<RacingPlayer> players = new ArrayList<>();
         int id = 1;
 
@@ -36,35 +36,38 @@ public class RacingService {
         return players;
     }
 
-    public void updateScoreIfNecessary(List<RacingPlayer> players){
+    public void updateScoreIfNecessary(List<RacingPlayer> players) {
         NumberPicker numberPicker = new NumberPicker();
 
-        for (RacingPlayer player : players){
-            if(numberPicker.pickRandomNumber()>3)
+        for (RacingPlayer player : players) {
+            if (numberPicker.pickRandomNumber() > 3) {
                 player.setScore();
+            }
         }
     }
 
-    public String checkFinalScores(List<RacingPlayer> players){
+    public String checkFinalScores(List<RacingPlayer> players) {
         int score = 0;
         StringBuilder winner = new StringBuilder();
 
-        for (RacingPlayer player : players){
-            if(score < player.getScore())
-                score=player.getScore();
+        for (RacingPlayer player : players) {
+            if (score < player.getScore()) {
+                score = player.getScore();
+            }
         }
 
-        for (RacingPlayer player : players){
-            if(score == player.getScore() && winner.isEmpty())
+        for (RacingPlayer player : players) {
+            if (score == player.getScore() && winner.isEmpty()) {
                 winner.append(player.getName());
-            else if(score == player.getScore())
+            } else if (score == player.getScore()) {
                 winner.append(", ").append(player.getName());
+            }
         }
 
         return winner.toString();
     }
 
-    public List<String> racerNameStringToList(String racerName){
+    public List<String> racerNameStringToList(String racerName) {
         String[] items = racerName.split(",");
 
         List<String> racerList = new ArrayList<>();
@@ -76,7 +79,7 @@ public class RacingService {
         return racerList;
     }
 
-    public int countStringToInt(String count){
+    public int countStringToInt(String count) {
 
         return Integer.parseInt(count);
     }

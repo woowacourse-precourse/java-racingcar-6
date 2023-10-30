@@ -12,16 +12,14 @@ public class GameController {
     private final OutputView outputView = new OutputView();
     private final RacingService racingService = new RacingService();
 
-    public void runGame(){
+    public void runGame() {
         String cars = inputView.inputCarNames();
         List<String> racerList = racingService.racerNameStringToList(cars);
-
         racingService.validateNames(racerList);
 
         List<RacingPlayer> playersList = racingService.storeCarNames(racerList);
 
         String countInput = inputView.inputAttemptCount();
-
         racingService.validateCount(countInput);
 
         int count = racingService.countStringToInt(countInput);
@@ -30,9 +28,10 @@ public class GameController {
         conductRace(playersList, count);
     }
 
-    public void conductRace(List<RacingPlayer> playersList, int count){
+    public void conductRace(List<RacingPlayer> playersList, int count) {
         System.out.println("실행 결과");
-        for(int i = 0; i < count; i++){
+
+        for (int i = 0; i < count; i++) {
             racingService.updateScoreIfNecessary(playersList);
             outputView.outputRaceProgress(playersList);
         }
