@@ -13,7 +13,8 @@ public class Application {
         List<String> inputCars = inputCars();
         Map<String, Integer> cars = storeCars(inputCars);
         int N = inputN();
-        cars = goOrStop(cars, N);
+        goOrStop(cars, N);
+
     }
     public static List<String> inputCars() {
         String input = Console.readLine();
@@ -47,13 +48,11 @@ public class Application {
         }
         return 0;
     }
-    public static Map<String, Integer> goOrStop(Map<String, Integer> cars,int N) {
+    public static void goOrStop(Map<String, Integer> cars,int N) {
         for (int i = 0; i < N; i++) {
             for (String car : cars.keySet()) {
                 cars.put(car, cars.get(car) + addStep(randomNumber()));
-                System.out.println(car + " " + cars.get(car));
             }
         }
-        return cars;
     }
 }
