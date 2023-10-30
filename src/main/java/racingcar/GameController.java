@@ -17,6 +17,6 @@ public class GameController {
         message.questionTryNum();
         input = inputService.init();
         inputService.numOfAttempts(input);
-        gameService.run(inputService.findGameNum());
+        //gameService.run(inputService.findGameNum());
     }
 }
