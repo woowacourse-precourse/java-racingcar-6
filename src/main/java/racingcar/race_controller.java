@@ -11,10 +11,12 @@ public class race_controller {
     private Cars cars;
     private int[] storage;
     private Cars_preparation carGoCountMap;
+    private int total_round;
     public race_controller() {
         InputRacingInformation inputRacingInformation = new InputRacingInformation();
 
         List<String> carNames = inputRacingInformation.InputCarNames();
+        total_round = inputRacingInformation.round_number();
         storage = new int[cars.size()];
         carGoCountMap = Car_Go_Count_Map(cars, storage);
         cars = createCars(carNames);

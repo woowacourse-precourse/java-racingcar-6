@@ -16,4 +16,10 @@ public class InputRacingInformation {
         }
         return carNames;
     }
+
+    public int round_number() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        int round = Integer.parseInt(Console.readLine());
+        return round;
+    }
 }
