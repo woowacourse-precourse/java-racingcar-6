@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import car.Car;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
@@ -102,6 +103,17 @@ public class Game {
             result(carList);
             System.out.println();
         }
+    }
+
+    // 이동한 숫자중 가장 큰 숫자 뽑기
+    public int maxCount(List<Car> carList){
+        List<Integer> countList = new ArrayList<>();
+        for(int i = 0; i < carList.size(); i++){
+            countList.add(carList.get(i).getCount());
+        }
+        Integer maxInteger = Collections.max(countList);
+        int max = maxInteger.intValue();
+        return max;
     }
 
 }
