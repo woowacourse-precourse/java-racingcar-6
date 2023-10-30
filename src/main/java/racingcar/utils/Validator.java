@@ -2,6 +2,7 @@ package racingcar.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Validator {
 
@@ -20,5 +21,14 @@ public class Validator {
             }
             carList.add(carName);
         }
+    }
+
+    public static void checkCarNameIsEnglish(List<String> carNames) {
+        for(String carName : carNames){
+            if (!Pattern.matches("^[a-zA-Z\\s]+$", carName)) {
+                throw new IllegalArgumentException("자동차 이름은 영어로만 구성되어야 합니다.");
+            }
+        }
+
     }
 }

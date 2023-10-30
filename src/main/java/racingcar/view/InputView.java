@@ -16,6 +16,7 @@ public class InputView {
         List<String> parseCarNames = List.of(names.split(","));
         Validator.checkCarNameSize(parseCarNames);
         Validator.checkCarNameDuplication(parseCarNames);
+        Validator.checkCarNameIsEnglish(parseCarNames);
         return parseCarNames;
 
     }
