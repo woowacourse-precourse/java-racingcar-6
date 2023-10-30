@@ -2,13 +2,10 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.Computer.calculateMaxDistance;
 import static racingcar.Computer.createCarNames;
-import static racingcar.Computer.createRoundCount;
-import static racingcar.Computer.findWinner;
 import static racingcar.Computer.getInput;
-import static racingcar.Computer.printWinner;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -136,7 +133,7 @@ class CarInputTest {
     }
 
     @Test
-    void 명시된_출력문_출력() {
+    void 이름_입력_출력문() {
 
         // given
         OutputStream out = new ByteArrayOutputStream();
@@ -151,6 +148,8 @@ class CarInputTest {
         // then
         assertThat(out.toString())
                 .contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
+        Console.close();
 
     }
 }
