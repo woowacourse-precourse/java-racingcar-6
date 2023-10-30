@@ -35,9 +35,18 @@ public class RacingGame {
 
     private void createCars(final String carNames) {
         final List<String> members = Arrays.asList(carNames.split(","));
+        validSingleComma(members);
         this.cars = members.stream()
                 .map(Car::new)
                 .toList();
+    }
+
+    private void validSingleComma(final List<String> members) {
+        boolean isMemberEmpty = members.stream()
+                .anyMatch(String::isBlank);
+        if (isMemberEmpty) {
+            throw new IllegalArgumentException("쉼표를 연속으로 입력할 수 없습니다.");
+        }
     }
 
     private void playRound(final List<Car> cars, final int playTimes) {
