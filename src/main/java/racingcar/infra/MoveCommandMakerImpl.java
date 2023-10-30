@@ -6,10 +6,8 @@ import racingcar.domain.MoveCommandMaker;
 
 public class MoveCommandMakerImpl implements MoveCommandMaker {
     @Override
-    public MoveCarType makeMoveCommand() {
-        int randomNumber = Randoms.pickNumberInRange(0,9);
-
-        if (randomNumber >= 4) {
+    public MoveCarType makeMoveCommand(int numberForMoveType) {
+        if (numberForMoveType >= 4) {
             return MoveCarType.FORWARD;
         }
         else {

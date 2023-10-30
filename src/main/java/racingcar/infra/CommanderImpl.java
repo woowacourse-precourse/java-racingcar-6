@@ -13,6 +13,8 @@ public class CommanderImpl implements Commander {
 
     @Override
     public void moveCar(Car car, MoveCommandMaker moveCommandMaker) {
-        car.move(moveCommandMaker.makeMoveCommand());
+        int randomNumber = Randoms.pickNumberInRange(0,9);
+
+        car.move(moveCommandMaker.makeMoveCommand(randomNumber));
     }
 }

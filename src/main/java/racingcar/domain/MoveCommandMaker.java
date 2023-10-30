@@ -1,5 +1,5 @@
 package racingcar.domain;
 
 public interface MoveCommandMaker {
-    MoveCarType makeMoveCommand();
+    MoveCarType makeMoveCommand(int numberForMoveType);
 }
