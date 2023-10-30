@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.validator.CarMovingValidator;
+
 public class Car {
     private final String name;
     private int progress;
@@ -26,6 +28,8 @@ public class Car {
     }
 
     public void go(int progress) {
+        CarMovingValidator.validateMovingNumber(progress);
+
         if (progress >= 4) {
             this.progress++;
         }
