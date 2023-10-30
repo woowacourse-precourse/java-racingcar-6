@@ -14,10 +14,9 @@ public class Game {
 
         List<String> carNames = car.splitByComma(inputCarNames);
         validator.isLengthOverFive(carNames);
+        validator.hasSameCarName(carNames);
 
         String inputNumber = input.tryNumber();
-        validator.toNumber(inputNumber);
-
         int tryNumber = validator.toNumber(inputNumber);
         validator.isZeroOrNegativeNumber(tryNumber);
 

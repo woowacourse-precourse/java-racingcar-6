@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Validator {
@@ -20,6 +21,14 @@ public class Validator {
             if (str.length() > 5) {
                 throw new IllegalArgumentException("각 자동차 이름은 5자 이하로 입력해주세요.");
             }
+        }
+    }
+
+    public void hasSameCarName(List<String> carNames) {
+        List<String> distinctList = carNames.stream().distinct().toList();
+
+        if (distinctList.size() != carNames.size()) {
+            throw new IllegalArgumentException("자동차 이름이 중복되었습니다.");
         }
     }
 

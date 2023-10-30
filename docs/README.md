@@ -13,8 +13,8 @@
   - [x] 시도할 회수가 숫자가 아닐 경우 (toNumber)  
   - [x] 띄어쓰기가 포함될 경우 (hasSpace)
   - [x] 자동차 입력 값이 비어있을 경우 (isEmpty)
-  - [ ] 시도할 회수가 0이거나 음수인 경우 (isZeroOrNegativeNumber)  
-  - [ ] 자동차 이름이 중복되는 경우 (hasSameCarName)
+  - [x] 시도할 회수가 0이거나 음수인 경우 (isZeroOrNegativeNumber)  
+  - [x] 자동차 이름이 중복되는 경우 (hasSameCarName)
   - [ ] 시도할 회수에 int 최대값보다 큰 값을 입력할 경우
 
 ### 테스트할 내용
