@@ -1,0 +1,19 @@
+자동차 경주 기능 구현
+- Controller
+  - RacingController
+    - 게임을 실행하고 종료한다.
+- Service
+  - RacingService : 실질적인 수행을 담당
+    - initRacing : 자동차 경주에 필요한 값을 입력 받는다. (자동차 이름, 시도 횟수)
+    - processRacing : 경주를 진행한다.
+    - finishRacing : 경주를 종료하며 위너 리스트 출력한다.
+- Domain
+  - Race : 경주에 필요한 객체 (자동차 리스트, 포지션 update 등)
+  - Car : 이름, 위치 정보를 가진 자동차 객체
+  - Winner : winner list 정보를 가진 객체
+- View
+  - RacingOutput : 경주 진행 시 노출되는 값
+  - RacingInput : 경주 진행을 위해 입력 받는 값
+- Util
+  - InputValidator : 입력 받는 값에 대한 Validation
+  - RacingUtils : 경주 진행을 도와주는 Utility(랜덤 값, postion 값 세팅)
