@@ -20,4 +20,8 @@ public class Race {
     public boolean isRaceOver() {
         return tryCount.isRaceOver();
     }
+
+    public List<String> findWinners(){
+        return cars.findWinners();
+    }
 }
