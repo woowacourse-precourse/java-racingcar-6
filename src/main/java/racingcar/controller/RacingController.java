@@ -15,9 +15,9 @@ public class RacingController {
 
     private Integer tryNumber;
 
-    public RacingController() {
-        this.outputView = new OutputView();
-        this.inputView = new InputView();
+    public RacingController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void play() {
