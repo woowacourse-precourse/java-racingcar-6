@@ -2,6 +2,7 @@ package racingcar.validation;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -18,16 +19,14 @@ public class InputValidationTest {
         String carName = "pobi";
 
         // when : 언제? 테스트 대상 메서드 실행
-        List<String> result = InputValidation.validationName(carName);
-
         // then : 실질적으로 검증하는 과정
-        assertThat(result).containsExactly(carName);
+        assertDoesNotThrow(() -> InputValidation.validateName(carName));
     }
 
     @ParameterizedTest
     @MethodSource("validationName_자동차_이름을_검증_실패한다")
     void validationName_자동차_이름을_검증_실패한다(String carName) {
-        assertThatThrownBy(() -> InputValidation.validationName(carName))
+        assertThatThrownBy(() -> InputValidation.validateName(carName))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(InputValidation.CAR_NAME_LENGTH_VALIDATION_EXCEPTION);
     }
@@ -50,7 +49,7 @@ public class InputValidationTest {
     @ParameterizedTest
     @MethodSource("validateAndSplit_자동차_콤마구분_검증_실패한다")
     void validateAndSplit_자동차_콤마구분_검증_실패한다(String carName) {
-        assertThatThrownBy(() -> InputValidation.validateAndSplit(carName))
+        assertThatThrownBy(() -> InputValidation.validateNameAndSplit(carName))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(InputValidation.CAR_NAME_SEPARATE_COMMA_EXCEPTION);
     }
@@ -60,6 +59,11 @@ public class InputValidationTest {
             Arguments.of("pobi",".","crong"),
             Arguments.of("pobi", "/", "crong")
         );
+    }
+
+    @Test
+    void carSameNameValidation_자동차_이름이_다를경우_성공한다() {
+        List<String> carName = List.of("pobi", "crong");
     }
 }
 
