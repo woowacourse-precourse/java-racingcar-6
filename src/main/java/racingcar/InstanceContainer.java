@@ -11,8 +11,12 @@ public class InstanceContainer {
         return gameHandler;
     }
 
+    private CarStorage generateCarStorage() {
+        return new CarStorage();
+    }
+
     private Game generateGame() {
-        return new Game();
+        return new Game(generateCarStorage());
     }
 
     private GameHandler generateGameHandler() {

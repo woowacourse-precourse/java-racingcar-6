@@ -1,30 +1,34 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Game {
-    private final List<Car> cars;
+    private final CarStorage carStorage;
 
-    public Game() {
-        this.cars = new ArrayList<>();
+    public Game(CarStorage carStorage) {
+        this.carStorage = carStorage;
     }
 
-    public void saveCars(List<String> carNames) {
-        carNames.stream()
-                .map(carName -> new Car(carName, 0))
-                .forEach(cars::add);
+    public List<Car> saveCars(List<String> carNames) {
+        List<Car> cars = carNames.stream()
+                .map(Car::new)
+                .toList();
+        updateStorage(cars);
+        return cars;
     }
 
     public List<Car> playOnce() {
-        cars.forEach(Car::conductAction);
-        return Collections.unmodifiableList(cars);
+        List<Car> cars = carStorage.getStoredCars();
+        List<Car> updatedCars = cars.stream()
+                .map(Car::conductAction)
+                .toList();
+        updateStorage(updatedCars);
+        return updatedCars;
     }
 
     public List<Car> getFinalists() {
+        List<Car> cars = carStorage.getStoredCars();
         int winningDisplacement = cars.stream()
                 .map(Car::getDisplacement)
                 .max(Integer::compareTo)
@@ -33,5 +37,9 @@ public class Game {
         return cars.stream()
                 .filter(car -> car.getDisplacement() == winningDisplacement)
                 .toList();
+    }
+
+    private void updateStorage(List<Car> cars) {
+        cars.forEach(carStorage::saveCar);
     }
 }
