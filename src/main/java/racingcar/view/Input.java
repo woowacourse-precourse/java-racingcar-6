@@ -14,7 +14,7 @@ public class Input {
         try {
             cars = Console.readLine();
         } catch(NoSuchElementException exception) {
-            throw new IllegalArgumentException("Invalid input. You must enter at least 2 car names.");
+            throw new IllegalArgumentException("자동차 이름을 입력하세요.");
         }
 
         return cars;
@@ -28,7 +28,7 @@ public class Input {
         try {
             move = Console.readLine();
         } catch(NoSuchElementException exception) {
-            throw new IllegalArgumentException("Invalid input. Please enter a positive number.");
+            throw new IllegalArgumentException("시도할 횟수를 입력하세요");
         }
 
         return move;
