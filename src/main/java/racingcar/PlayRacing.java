@@ -6,12 +6,15 @@ import java.util.List;
 import static racingcar.OutputView.CAR_FORWARD_FLAG;
 
 public class PlayRacing {
-
-    static void forwardRecord(int tryNumber, List<Car> cars) {
+    CarFuntion carfuntion = new CarFuntion();
+    void forwardRecord(int tryNumber, List<Car> cars) {
         for (int i = 0; i < tryNumber; i++) {
-            CarFuntion.forwardCar();
-            System.out.print(Car.name + " : ");
-            forwardFlag(Car.forwardNumber);
+            carfuntion.forwardCar(cars);
+            for(Car car : cars) {
+                System.out.print(car.name + " : ");
+                forwardFlag(car.forwardNumber);
+                System.out.println();
+            }
             System.out.println();
         }
     }
