@@ -12,15 +12,23 @@ public class Car implements Comparable<Car> {
     private final IntSupplier intSupplier;
     private int position;
 
-    public Car(String name) {
-        this(name, new DefaultSupplier());
-    }
-
-    public Car(String name, IntSupplier intSupplier) {
+    public Car(String name, IntSupplier intSupplier, int position) {
         validateName(name);
         this.name = name;
         this.intSupplier = intSupplier;
-        this.position = 0;
+        this.position = position;
+    }
+
+    public Car(String name, IntSupplier intSupplier) {
+        this(name, intSupplier, 0);
+    }
+
+    public Car(String name, int position) {
+        this(name, new DefaultSupplier(), position);
+    }
+
+    public Car(String name) {
+        this(name, new DefaultSupplier(), 0);
     }
 
     private void validateName(String name) {

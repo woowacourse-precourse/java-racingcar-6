@@ -2,41 +2,30 @@ package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.lang.reflect.Field;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.domain.RaceHistory;
 import racingcar.testutils.MyTest;
 
 @SuppressWarnings("NonAsciiCharacters")
 public class OutputViewTest extends MyTest {
 
     @Test
-    void 게임_결과를_출력할_수_있다() throws Exception {
+    void 게임_결과를_출력할_수_있다() {
         // given
-        List<Car> cars = List.of(new Car("car1"), new Car("car2"), new Car("car3"));
-        RaceHistory raceHistory = new RaceHistory(cars);
+        List<Car> cars = List.of(
+                new Car("car1", 3),
+                new Car("car2", 0),
+                new Car("car3", 2));
 
-        Field positionHistoryField = RaceHistory.class.getDeclaredField("positionHistory");
-        positionHistoryField.setAccessible(true);
-        positionHistoryField.set(raceHistory, List.of(List.of(1, 0, 0), List.of(2, 0, 1)));
-
-        // when
-        new OutputView().printRaceHistory(raceHistory);
+        new OutputView().printCarsPosition(cars);
 
         // then
         assertThat(output()).isEqualTo("""
-                                
-                실행 결과
-                car1 : -
+                car1 : ---
                 car2 :\s
-                car3 :\s
-                                
-                car1 : --
-                car2 :\s
-                car3 : -
-                                
+                car3 : --
+                        
                 """);
     }
 

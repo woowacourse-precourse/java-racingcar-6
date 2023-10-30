@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 @SuppressWarnings("NonAsciiCharacters")
 class ParticipantsTest {
@@ -35,29 +34,7 @@ class ParticipantsTest {
         );
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {1, 2, 30})
-    void 레이스를_하면_시도_횟수만큼_결과가_기록된다(int attemptCount) {
-        Car car1 = createCar();
-        Car car2 = createCar();
-        Participants participants = new Participants(List.of(car1, car2));
-
-        RaceHistory raceHistory = participants.raceNTimes(attemptCount);
-
-        int actual = raceHistory.getPositionHistory().size();
-        assertThat(actual).isEqualTo(attemptCount);
-    }
-
-    @ParameterizedTest
-    @ValueSource(ints = {-1, 0})
-    void 시도_횟수가_유효하지_않으면_예외가_발생한다(int attemptCount) {
-        Car car1 = createCar();
-        Car car2 = createCar();
-        Participants participants = new Participants(List.of(car1, car2));
-
-        assertThatIllegalArgumentException()
-                .isThrownBy(() -> participants.raceNTimes(attemptCount));
-    }
+    // TODO: 레이스, 시도 횟수 테스트 작성하기
 
     @Test
     void 우승자_목록을_가져올_수_있다() {
@@ -65,7 +42,8 @@ class ParticipantsTest {
         Car car2 = createCar(false);
         Car car3 = createCar(true);
         Participants participants = new Participants(List.of(car1, car2, car3));
-        participants.raceNTimes(10);
+        participants.race();
+        participants.race();
 
         List<String> winners = participants.getWinners();
         assertThat(winners).contains(car1.getName(), car3.getName()).doesNotContain(car2.getName());

@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.domain.RaceHistory;
+import racingcar.domain.Car;
 
 public class OutputView {
     private static final String NAME_POSITION_SEPARATOR = " : ";
@@ -10,21 +10,14 @@ public class OutputView {
     private static final String WINNER_DELIMITER = ", ";
     private static final String RACE_RESULT = "실행 결과";
 
-    public void printRaceHistory(RaceHistory raceHistory) {
+    public void printRaceResult() {
         System.out.println();
         System.out.println(RACE_RESULT);
-
-        List<String> carNames = raceHistory.getCarNames();
-        List<List<Integer>> positionHistory = raceHistory.getPositionHistory();
-
-        for (List<Integer> positions : positionHistory) {
-            printRaceSnapshot(carNames, positions);
-        }
     }
 
-    private void printRaceSnapshot(List<String> carNames, List<Integer> positions) {
-        for (int j = 0; j < positions.size(); j++) {
-            System.out.println(carNames.get(j) + NAME_POSITION_SEPARATOR + SKID_MARK.repeat(positions.get(j)));
+    public void printCarsPosition(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getName() + NAME_POSITION_SEPARATOR + SKID_MARK.repeat(car.getPosition()));
         }
         System.out.println();
     }

@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Participants;
-import racingcar.domain.RaceHistory;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -28,8 +28,12 @@ public class RacingCarController {
 
     private void playRace(Participants participants) {
         int attemptCount = inputView.getAttemptCount();
-        RaceHistory raceHistory = participants.raceNTimes(attemptCount);
-        outputView.printRaceHistory(raceHistory);
+        outputView.printRaceResult();
+        for (int i = 0; i < attemptCount; i++) {
+            // TODO: 시도 횟수 검증
+            List<Car> cars = participants.race();
+            outputView.printCarsPosition(cars);
+        }
     }
 
     private void printWinner(Participants participants) {
