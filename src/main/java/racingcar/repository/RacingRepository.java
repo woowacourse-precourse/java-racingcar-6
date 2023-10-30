@@ -1,8 +1,9 @@
 package racingcar.repository;
 
+import racingcar.domain.Racing;
 import racingcar.domain.Winners;
 
-public interface RacingRepository  extends Repository {
+public interface RacingRepository extends Repository {
 
-    void updateWinners(Winners winners);
+    Racing updateWinners(Long racingId, Winners winners);
 }

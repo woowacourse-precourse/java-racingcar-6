@@ -18,6 +18,10 @@ public class Racing extends IndexModel {
         return winners;
     }
 
+    public void setWinners(Winners winners) {
+        this.winners = winners;
+    }
+
     private Racing(Participations participations, int tryCount) {
         this.participations = participations;
         this.tryCount = tryCount;
