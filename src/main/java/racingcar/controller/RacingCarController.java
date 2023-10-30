@@ -1,32 +1,53 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.service.RacingCarService;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingCarController {
 
     private final RacingCarService racingCarService = new RacingCarService();
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
 
-    public void createCars() {
-        racingCarService.createCars();
+    private int attemptNumber = 0;
+
+    public void playGame() {
+        initialize();
+        play();
+        findWinner();
     }
 
-    public int inputAttemptNumber() {
-        return racingCarService.inputAttemptNumber();
+    private void initialize() {
+        racingCarService.createCars(inputView.inputCars());
+        attemptNumber = Integer.parseInt(inputView.inputAttemptNumber());
     }
 
-    public void moveCars() {
-        racingCarService.moveCars();
+    private void play() {
+        outputResultMessage();
+
+        for (int i = 0; i < attemptNumber; i++) {
+            racingCarService.moveCars();
+            outputMoveResult();
+        }
     }
 
-    public void outputResultMessage() {
-        racingCarService.outputResultMessage();
+    private void outputResultMessage() {
+        outputView.outputLineBreak();
+        outputView.outputResultMessage();
     }
 
-    public void outputMoveResult() {
-        racingCarService.outputMoveResult();
+    private void findWinner() {
+        outputView.outputWinner(racingCarService.outputWinner());
     }
 
-    public void outputWinner() {
-        racingCarService.outputWinner();
+    private void outputMoveResult() {
+        int carsCount = racingCarService.countCars();
+
+        for (int i = 0; i < carsCount; i++) {
+            Car car = racingCarService.getCar(i);
+            outputView.outputResult(car.getName(), car.getDistance());
+        }
     }
 }

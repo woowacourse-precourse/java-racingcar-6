@@ -13,19 +13,12 @@ public class RacingCarService {
 
     private static final String DELIMITER = ", ";
 
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
     private final RandomNumber randomNumber = new RandomNumber();
 
     private Cars cars;
 
-    public void createCars() {
-        String carsName = inputView.inputCars();
+    public void createCars(String carsName) {
         cars = new Cars(carsName);
-    }
-
-    public int inputAttemptNumber() {
-        return Integer.parseInt(inputView.inputAttemptNumber());
     }
 
     public void moveCars() {
@@ -37,21 +30,9 @@ public class RacingCarService {
         return randomNumber.create();
     }
 
-    public void outputResultMessage() {
-        outputView.outputLineBreak();
-        outputView.outputResultMessage();
-    }
 
-    public void outputMoveResult() {
-        for (int i = 0; i < cars.size(); i++) {
-            Car car = cars.getCar(i);
-            outputView.outputResult(car.getName(), car.getDistance());
-        }
-    }
-
-    public void outputWinner() {
-        String winnersNames = separateWinners(findWinner());
-        outputView.outputWinner(winnersNames);
+    public String outputWinner() {
+        return separateWinners(findWinner());
     }
 
     private List<String> findWinner() {
@@ -62,5 +43,13 @@ public class RacingCarService {
         return winnerName.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining(DELIMITER));
+    }
+
+    public int countCars() {
+        return cars.size();
+    }
+
+    public Car getCar(int index) {
+        return cars.getCar(index);
     }
 }
