@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.message.ErrorMessage.CAR_NAME_LENGTH_EXCEPTION_MESSAGE;
 import static racingcar.message.MessageConstants.FIVE;
 
 public record Names(String value) {
@@ -11,7 +12,7 @@ public record Names(String value) {
 
     private void validationNameLength(String name) {
         if (name.length() > FIVE || name.isEmpty()) {
-            throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION_MESSAGE);
         }
     }
 

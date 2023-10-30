@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.message.ErrorMessage.CAR_DUPLICATE_NAME_EXCEPTION_MESSAGE;
 import static racingcar.message.MessageConstants.DELIMITER;
 import static racingcar.message.MessageConstants.LINE_BREAK;
 import static racingcar.message.MessageConstants.ZERO;
@@ -22,7 +23,7 @@ public class Cars {
 
     private void duplicateValidationName(List<String> name) {
         if (new HashSet<>(name).size() != name.size()) {
-            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+            throw new IllegalArgumentException(CAR_DUPLICATE_NAME_EXCEPTION_MESSAGE);
         }
     }
 
