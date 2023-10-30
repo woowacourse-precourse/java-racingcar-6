@@ -2,7 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
@@ -85,6 +88,28 @@ class ApplicationTest extends NsTest {
         assertThat(car.getProgress()).isEqualTo("");
         car.go();
         assertThat(car.getProgress()).isEqualTo("-");
+    }
+
+    @Test
+    @DisplayName("실행 결과 출력이 올바른지에 대한 테스트")
+    void 실행_결과_출력() {
+        Car car1 = new Car("wj");
+        Car car2 = new Car("pobi");
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        car1.go();
+        car2.go();
+        car2.go();
+
+        List<Car> carList = new ArrayList<>(List.of(car1, car2));
+        printer.printCurrent(carList);
+
+        assertThat(out.toString()).isEqualTo("""
+            wj : -
+            pobi : --
+            
+            """);
     }
 
     @Override
