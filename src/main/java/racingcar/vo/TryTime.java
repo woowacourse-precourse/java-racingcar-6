@@ -6,4 +6,8 @@ public class TryTime {
     public TryTime(int time) {
         this.time = time;
     }
+
+    public int getTime() {
+        return time;
+    }
 }

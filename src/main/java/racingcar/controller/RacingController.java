@@ -7,6 +7,11 @@ public class RacingController {
 
     public void run() {
         setGame();
+        playGame();
+    }
+
+    private void playGame() {
+        racingService.play();
     }
 
     private void setGame() {
