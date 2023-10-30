@@ -11,12 +11,16 @@ public class RacingCarGame {
         carList = user.getCarNames();
         moveNumber = user.getMoveNumber();
         for (int i = 0; i < moveNumber; i++) {
-            move();
+            moveCars();
         }
         printFinishCarNames();
     }
 
-    public void move() {}
+    public void moveCars() {
+        for (Car car : carList){
+            car.move();
+        }
+    }
 
     public void printFinishCarNames() {}
 }
