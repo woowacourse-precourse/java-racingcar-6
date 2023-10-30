@@ -4,9 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import static racingcar.TestUtil.setInput;
-import static racingcar.model.CarName.NAME_DUPLICATED;
-import static racingcar.model.CarName.NAME_EMPTY;
-import static racingcar.model.CarName.NAME_LENGTH_LIMIT_EXCEEDED;
+import static racingcar.model.car.CarName.NAME_DUPLICATED;
+import static racingcar.model.car.CarName.NAME_EMPTY;
+import static racingcar.model.car.CarName.NAME_LENGTH_LIMIT_EXCEEDED;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,8 +15,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.Car;
-import racingcar.model.Cars;
+import racingcar.model.car.Car;
+import racingcar.model.car.Cars;
 import racingcar.view.InputView;
 
 

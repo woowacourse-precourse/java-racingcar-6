@@ -1,6 +1,6 @@
-package racingcar.model;
+package racingcar.model.race;
 
-public class GameCount {
+public class RaceGameCount {
 
     public static final String GAME_COUNT_OUT_OF_RANGE = "1 ~ 100 사이의 숫자를 입력해주세요.";
     public static final String GAME_COUNT_EXCEEDED = "정해진 횟수를 초과했습니다.";
@@ -11,13 +11,13 @@ public class GameCount {
 
     private int count;
 
-    private GameCount(final int count) {
+    private RaceGameCount(final int count) {
         validateIfInRange(count);
         this.count = count;
     }
 
-    public static GameCount from(final int count) {
-        return new GameCount(count);
+    public static RaceGameCount from(final int count) {
+        return new RaceGameCount(count);
     }
 
     public boolean isGameOver() {

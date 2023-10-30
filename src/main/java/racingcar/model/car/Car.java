@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.model.car;
 
 public class Car {
 
@@ -33,7 +33,7 @@ public class Car {
         return name.hashCode();
     }
 
-    public CarName getName() {
+    public CarName getCarName() {
         return name;
     }
 

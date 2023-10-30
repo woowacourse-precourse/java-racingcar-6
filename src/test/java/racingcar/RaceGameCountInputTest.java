@@ -4,17 +4,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import static racingcar.TestUtil.setInput;
-import static racingcar.model.GameCount.GAME_COUNT_OUT_OF_RANGE;
+import static racingcar.model.race.RaceGameCount.GAME_COUNT_OUT_OF_RANGE;
 import static racingcar.util.Validator.NO_DIGIT;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.GameCount;
+import racingcar.model.race.RaceGameCount;
 import racingcar.view.InputView;
 
-class GameCountInputTest {
+class RaceGameCountInputTest {
 
 
     InputView inputView = new InputView();
@@ -31,10 +31,10 @@ class GameCountInputTest {
         boolean expected = false;
 
         // when
-        GameCount gameCount = GameCount.from(inputView.askGameCount());
+        RaceGameCount raceGameCount = RaceGameCount.from(inputView.askGameCount());
 
         // then
-        assertThat(gameCount.isGameOver()).isEqualTo(expected);
+        assertThat(raceGameCount.isGameOver()).isEqualTo(expected);
     }
 
     @Test
@@ -54,7 +54,7 @@ class GameCountInputTest {
         int count = 0;
 
         // when & then
-        assertThatThrownBy(() -> GameCount.from(count))
+        assertThatThrownBy(() -> RaceGameCount.from(count))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(GAME_COUNT_OUT_OF_RANGE);
     }

@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.model.car;
 
 public class CarName {
 
@@ -16,7 +16,12 @@ public class CarName {
     }
 
     public static CarName from(final String name) {
-        return new CarName(name);
+        if (CarNamePool.exists(name)) {
+            return CarNamePool.get(name);
+        }
+        CarName carName = new CarName(name);
+        CarNamePool.add(carName);
+        return carName;
     }
 
     private void validateIfLengthInLimit(final String name) {

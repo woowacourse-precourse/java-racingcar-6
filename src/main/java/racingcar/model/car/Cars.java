@@ -1,6 +1,6 @@
-package racingcar.model;
+package racingcar.model.car;
 
-import static racingcar.model.CarName.NAME_DUPLICATED;
+import static racingcar.model.car.CarName.NAME_DUPLICATED;
 
 import java.util.Collections;
 import java.util.List;
