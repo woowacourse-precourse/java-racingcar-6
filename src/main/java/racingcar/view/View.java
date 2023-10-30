@@ -1,6 +1,6 @@
-package racingcar.domain;
+package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
+import racingcar.model.Car;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class View {
 
     public void raceResult(List<Car> cars) {
 
-        for(Car car  : cars){
+        for (Car car  : cars) {
             System.out.println(car);
         }
         System.out.println();

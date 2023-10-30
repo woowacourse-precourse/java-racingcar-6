@@ -1,7 +1,7 @@
-package racingcar.domain;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.Car;
+import racingcar.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +13,14 @@ public class Race {
 
         this.cars = new ArrayList<>();
 
-        for(String carName : carNames){
+        for (String carName : carNames) {
             cars.add(new Car(carName));
         }
     }
 
     public void moveCars(String carNames){ // 자동차 랜덤 이동 함수
 
-        for( Car car : cars) {
+        for (Car car : cars) {
 
             if (car.getName().equals(carNames)) {
                 car.move(Randoms.pickNumberInRange(0, 9));
