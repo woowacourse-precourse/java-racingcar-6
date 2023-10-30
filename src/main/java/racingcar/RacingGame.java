@@ -8,7 +8,32 @@ import racingcar.domain.TryCount;
 
 public class RacingGame {
     private final OutputView outputView = new OutputView();
+    public final InputView inputView = new InputView();
     private CarList carList;
+    private TryCount tryCount;
+
+    public void run() {
+        init();
+        moveForCount(tryCount.getCount());
+        gameResult();
+    }
+
+    public void init() {
+        outputView.inputCarNames();
+        String carNames = inputView.inputCarNames();
+        generateCar(carNames);
+
+        outputView.inputTryCount();
+        String count = inputView.inputTryCount();
+        tryCount = new TryCount(count);
+
+        outputView.printRunResult();
+    }
+
+    public void gameResult() {
+        printWinners();
+    }
+
 
     public void printWinners() {
         outputView.winnerOutput(carList.getWinnerNames());
