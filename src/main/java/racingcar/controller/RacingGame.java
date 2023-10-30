@@ -1,44 +1,49 @@
 package racingcar.controller;
 
+import racingcar.enums.GameSettingType;
 import racingcar.service.Referee;
-import racingcar.utils.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingGame {
-    private final Referee referee;
-    private final InputView inputView = new InputView(new Validator());
+import java.util.*;
 
-    public RacingGame(Referee referee) {
-        this.referee = referee;
+public class RacingGame implements Game {
+    private final Referee referee;
+    public RacingGame() {
+        referee = new Referee(collectGameSettingInfos());
     }
 
+    @Override
     public void run() {
-        collectCarNames();
-        collectNumberOfAttempts();
         playRacingGame();
         announceWinners();
     }
 
-    public void collectCarNames() {
+    private Map<GameSettingType,String> collectGameSettingInfos() {
+        Map<GameSettingType, String> gameSettingInfo = new EnumMap<>(GameSettingType.class);
+        gameSettingInfo.put(GameSettingType.CAR_NAMES, collectCarNames());
+        gameSettingInfo.put(GameSettingType.ATTEMPTS, collectNumberOfAttempts());
+        return gameSettingInfo;
+    }
+
+    private String collectCarNames() {
         OutputView.printCarNameInputMessage();
-        String carNames = inputView.carNamesInput();
-        referee.addCars(carNames);
+        return InputView.carNamesInput();
     }
 
-    public void collectNumberOfAttempts() {
+    private String collectNumberOfAttempts() {
         OutputView.printNumberOfAttemptsInputMessage();
-        referee.setAttempts(inputView.numberOfAttemptsInput());
+        return InputView.numberOfAttemptsInput();
     }
 
-    public void playRacingGame() {
+    private void playRacingGame() {
         OutputView.printPlayResultMessage();
         while (!referee.anyCarReaches()) {
             OutputView.printPlayResult(referee.getPlayResults());
         }
     }
 
-    public void announceWinners() {
+    private void announceWinners() {
         OutputView.printWinners(referee.getWinnersNames());
     }
 }

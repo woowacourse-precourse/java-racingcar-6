@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import racingcar.enums.CarType;
+import racingcar.enums.GameSettingType;
 import racingcar.model.Attempts;
 import racingcar.model.Car;
 import racingcar.model.Cars;
@@ -11,15 +12,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Referee {
-    private Attempts attempts;
-    private Cars cars;
+    private final Attempts attempts;
+    private final Cars cars;
 
-    public void addCars(String carNames) {
-        cars = new Cars(carNames);
-    }
-
-    public void setAttempts(String attempts) {
-        this.attempts = new Attempts(attempts);
+    public Referee(Map<GameSettingType, String> info) {
+        this.cars = new Cars(info.get(GameSettingType.CAR_NAMES));
+        this.attempts = new Attempts(info.get(GameSettingType.ATTEMPTS));
     }
 
     public boolean anyCarReaches() {
@@ -32,7 +30,7 @@ public class Referee {
     }
 
     public List<Map<CarType, String>> getPlayResults() {
-        cars.everyCarMoveForward(); // 모든 차가 전진한다.
+        cars.everyCarMoveForward();
 
         List<Map<CarType, String>> results = new ArrayList<>();
         for (Car car : cars.getCarList()) {
@@ -54,7 +52,7 @@ public class Referee {
         return winnerNames;
     }
 
-    public boolean isReached(Car car) {
+    private boolean isReached(Car car) {
         return car.getDistance().length() == attempts.getNumber();
     }
 }
