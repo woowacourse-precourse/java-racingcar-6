@@ -2,13 +2,12 @@ package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.CarName;
 
-public class CarTest extends NsTest {
+public class CarTest{
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
@@ -35,10 +34,5 @@ public class CarTest extends NsTest {
         // 이동하는 경우
         car.moveToCar(MOVING_FORWARD);
         assertThat(car.getPosition()).isEqualTo(1);
-    }
-
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
     }
 }

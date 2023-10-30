@@ -1,6 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.CarName;
@@ -10,7 +9,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.catchThrowable;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @DisplayName("CarName 테스트")
-class CarNameTest extends NsTest {
+class CarNameTest {
     private static final int NAME_LENGTH_MIN = 1;
     private static final int NAME_LENGTH_MAX = 5;
 
@@ -46,10 +45,5 @@ class CarNameTest extends NsTest {
     void createCarNameWithExcessiveLength() {
         Throwable result = catchThrowable(() -> new CarName("A".repeat(NAME_LENGTH_MAX + 1)));
         assertThat(result).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
     }
 }
