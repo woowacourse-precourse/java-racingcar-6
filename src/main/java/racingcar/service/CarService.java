@@ -10,6 +10,7 @@ import java.util.List;
 public class CarService {
     public static RacingCarException racingCarException = new RacingCarException();
     public List<String> stringToList(String carName) {
+        racingCarException.validateNull(carName);
         List<String> carNames = Arrays.stream(carName.split(","))
                         .map(String::trim)
                         .toList();
