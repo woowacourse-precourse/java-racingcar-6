@@ -25,16 +25,18 @@
 12. 자동차의 이름을 저장하는 기능
 13. 반복 횟수를 입력받는 기능
 14. 사용자의 입력이 올바른지 검증하는 기능
+15. 자동차의 이름 데이터를 전달하는 기능
 
 ## 기능을 할당받는 클래스 설계
 
 - [ ] RacingStadium : 1번 기능, 11번 기능
 - [x] CarFactory : 3번 기능
 - [x] Car : 6번 기능, 12번 기능
+- [x] CarNameDto : 15번 기능
 - [x] RandomNumberGenerator : 4번 기능
 - [x] NumberComparator : 5번 기능
 - [x] SystemConstant : 7번 기능
 - [x] SystemMessage : 8번 기능
 - [x] InputValidator : 14번 기능
-- [ ] InputView : 2번 기능, 13번 기능
+- [x] InputView : 2번 기능, 13번 기능
 - [ ] OutputView : 9번 기능, 10번 기능
