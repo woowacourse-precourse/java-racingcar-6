@@ -9,25 +9,20 @@ public class NumberOfAttempts {
     }
 
     public static int input() {
-        try {
-            String numberOfAttempts = Console.readLine();
-            int numberOfAttemptsToInt = Integer.parseInt(numberOfAttempts);
-            if (isNumberOfAttemptsValid(numberOfAttemptsToInt)) {
-                return numberOfAttemptsToInt;
-            } else {
-                throw new IllegalArgumentException();
-            }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        } finally {
-            Console.close();
-        }
+        String numberOfAttempts = Console.readLine();
+        int numberOfAttemptsToInt = validateNumber(numberOfAttempts);
+            return numberOfAttemptsToInt;
     }
 
-    private static boolean isNumberOfAttemptsValid(int numberOfAttemptsToInt) {
-        if (numberOfAttemptsToInt > 0) {
-            return true;
+    private static int validateNumber(String numberOfAttempts) {
+        try {
+            int numberOfAttemptsToInt = Integer.parseInt(numberOfAttempts);
+            if (numberOfAttemptsToInt > 0) {
+                return Integer.parseInt(numberOfAttempts);
+            }
+            throw new IllegalArgumentException();
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
         }
-        return false;
     }
 }

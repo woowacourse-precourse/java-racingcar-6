@@ -13,18 +13,15 @@ public class CarName {
     public static List<String> input() {
         String carName = Console.readLine();
         List<String> carNameList = Arrays.asList(carName.split(","));
-        if (hasCarNameOverFiveOrUnderOne(carNameList)) {
-            throw new IllegalArgumentException();
-        }
+        validateLength(carNameList);
 
         return carNameList;
     }
-    private static boolean hasCarNameOverFiveOrUnderOne(List<String> carNameList) {
+    private static void validateLength(List<String> carNameList) {
         for (String s : carNameList) {
             if (s.length() > 5 || s.length() < 1) {
-                return true;
+                throw new IllegalArgumentException();
             }
         }
-        return false;
     }
 }

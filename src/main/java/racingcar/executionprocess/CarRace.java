@@ -8,7 +8,7 @@ import racingcar.input.NumberOfAttempts;
 
 public class CarRace {
 
-    public void start() {
+    public static void start() {
 
     }
 }
