@@ -12,6 +12,11 @@ public class Position {
         position = ZERO_POSITION;
     }
 
+    //테스트 코드용 생성자
+    public Position(int testNumber) {
+        this.position = testNumber;
+    }
+
     public void movePosition() {
         this.position += MOVE_SIZE;
     }
