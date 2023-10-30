@@ -31,7 +31,7 @@ public class RacingGame {
     private List<String> findWinners(List<Car> mostMovedCars) {
         return mostMovedCars.stream()
                 .map(Car::getName)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private void validateGameState() {

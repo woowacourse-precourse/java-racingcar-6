@@ -41,7 +41,7 @@ public class Cars {
     private List<Car> findMostMovedCars(Car maxPositionCar) {
         return cars.stream()
                 .filter(car -> car.isSamePosition(maxPositionCar))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private Car findMaxPositionCar() {

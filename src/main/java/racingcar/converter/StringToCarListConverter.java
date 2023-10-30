@@ -4,7 +4,6 @@ import racingcar.domain.Car;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class StringToCarListConverter implements Converter<String, List<Car>> {
     private static final String DELIMITER = ",";
@@ -15,6 +14,6 @@ public class StringToCarListConverter implements Converter<String, List<Car>> {
         return Arrays.stream(source.split(DELIMITER, LIMIT))
                 .map(String::trim)
                 .map(Car::new)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
