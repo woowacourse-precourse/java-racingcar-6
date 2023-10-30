@@ -107,7 +107,7 @@ class RaceServiceTest {
 
             @BeforeEach
             void setup() {
-                raceService = spy(new RaceService(System.in));
+                raceService = spy(new RaceService());
                 cars = createCars();
                 cars.addCar(new Car("pobi", 0));
                 when(raceService.getRandomMoveDistance()).thenReturn(6);
@@ -130,7 +130,7 @@ class RaceServiceTest {
 
             @BeforeEach
             void setup() {
-                raceService = spy(new RaceService(System.in));
+                raceService = spy(new RaceService());
                 cars = createCars();
                 cars.addCar(new Car("pobi", 0));
                 cars.addCar(new Car("crong", 0));

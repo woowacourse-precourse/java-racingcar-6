@@ -12,6 +12,9 @@ import static racingcar.domain.Cars.Car;
 public class RaceService {
     private Scanner scanner;
 
+    public RaceService() {
+    }
+
     public RaceService(InputStream inputStream) {
         this.scanner = new Scanner(inputStream);
     }
