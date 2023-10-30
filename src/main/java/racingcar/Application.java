@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 import java.util.List;
 import racingcar.controller.GameController;
 import racingcar.model.Car;
@@ -11,7 +12,7 @@ public class Application {
     public static void main(String[] args) {
         try {
             ConsoleView consoleView = new ConsoleView();
-            String[] carNames = getCarNames(consoleView);
+            List<String> carNames = getCarNames(consoleView);
             List<Car> cars = Car.createCars(carNames);
             int numberOfAttempts = getNumberOfAttempts(consoleView);
             consoleView.printMessage("");
@@ -25,9 +26,10 @@ public class Application {
         }
     }
 
-    private static String[] getCarNames(ConsoleView consoleView) {
+    private static List<String> getCarNames(ConsoleView consoleView) {
         consoleView.printMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Console.readLine().split(",");
+        String[] carNamesArray = Console.readLine().split(",");
+        return Arrays.asList(carNamesArray);
     }
 
     private static int getNumberOfAttempts(ConsoleView consoleView) {
