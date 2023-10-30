@@ -1,9 +1,7 @@
 package racingcar;
 
 import racingcar.core.GenerateRacer;
-import racingcar.entity.Racing;
-import racingcar.entity.Racer;
-import racingcar.entity.RaceCount;
+import racingcar.entity.*;
 import racingcar.property.ValidateType;
 import racingcar.tool.InputTool;
 import racingcar.view.OutputView;
@@ -30,9 +28,15 @@ public class Application {
     private static void race(List<String> racerNameList){
         generateRacer(racerNameList);
         for (String racerName:racerNameList){
-            Racing racing = new Racing(Racer.getInstance(racerName));
-            racing.racingByRacer();
+            Racer currentRacer = Racer.getInstance(racerName);
+            Racing racing = new Racing(currentRacer);
+            generateOutputRoundResult(racing.racingByRacer(),currentRacer);
         }
+        RoundResult.writeLineBreak();
+    }
+
+    private static void generateOutputRoundResult(RoundScore roundScore, Racer racer){
+        RoundResult.writeRoundResult(roundScore,racer);
     }
 
     private static List<String> racerNameForm(){
@@ -69,7 +73,8 @@ public class Application {
 
     private static void generateRacer(List<String> racerNameList){
         for (String racerName:racerNameList){
-            generateRacerByInputValue(racerName);
+            GenerateRacer generateRacer = generateRacerByInputValue(racerName);
+            Racer racer = generateRacer.generateRacerByInputValue(racerName);
         }
     }
     private static GenerateRacer generateRacerByInputValue(String inputValue){
