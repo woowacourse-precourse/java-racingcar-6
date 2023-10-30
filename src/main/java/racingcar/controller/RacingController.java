@@ -10,10 +10,12 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingController {
     private final InputView inputView;
+    private final OutputView outputView;
     private final Cars cars;
 
     public RacingController() {
         inputView = new InputView();
+        outputView = new OutputView();
         cars = new Cars();
     }
 
@@ -22,5 +24,6 @@ public class RacingController {
         cars.addCar(Console.readLine());
         inputView.printRequestAttemptsNumber();
         AttemptCount attemptCount = new AttemptCount(Console.readLine());
+        outputView.printRacingStartMessage();
     }
 }
