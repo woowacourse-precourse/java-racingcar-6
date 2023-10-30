@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.util.RandomNumberUtil;
+
 import static racingcar.domain.MovingStrategySetting.*;
 
 public class MovingStrategy {

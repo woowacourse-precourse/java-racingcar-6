@@ -1,9 +1,8 @@
 package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.RandomNumberUtil;
 
-public class RandomNumberGenerator implements RandomNumberUtil {
+public class RandomNumberUtilImp implements RandomNumberUtil {
 
     @Override
     public int generate(int startRangeNumber, int endRangeNumber) {

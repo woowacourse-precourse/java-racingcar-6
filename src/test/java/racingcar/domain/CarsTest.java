@@ -2,11 +2,9 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.util.RandomNumberGenerator;
+import racingcar.util.RandomNumberUtilImp;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,7 +16,7 @@ class CarsTest {
     @Test
     @DisplayName("중복된 이름이 입력된 경우 예외 발생")
     void 예외_처리_테스트_1() {
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         List<String> names = Arrays.asList("pobi", "pobi", "crong", "horan");
 
         assertThrows(IllegalArgumentException.class,
@@ -31,7 +29,7 @@ class CarsTest {
     @DisplayName("Cars의 동차 저장 리스트 필드가 같은지 테스트")
     void getCars() {
         // given
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         List<String> names = Arrays.asList("pobi", "crong", "horan");
         List<Car> expected = Arrays.asList(new Car(movingStrategy, "pobi", 0),
                 new Car(movingStrategy, "crong", 0),
@@ -88,7 +86,7 @@ class CarsTest {
     @DisplayName("우승자의 위치 정보 찾아내는 기능 테스트")
     void findWinnerPosition() {
         // given
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         List<String> names = Arrays.asList("pobi", "crong", "horan");
         Cars cars = new Cars(names, movingStrategy);
 
@@ -115,7 +113,7 @@ class CarsTest {
     @DisplayName("우승자를 찾아내는 기능 테스트")
     void findWinner() {
         // given
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         List<String> names = Arrays.asList("pobi", "crong", "horan");
         Cars cars = new Cars(names, movingStrategy);
 

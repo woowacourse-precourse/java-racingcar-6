@@ -2,9 +2,8 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.util.RandomNumberGenerator;
+import racingcar.util.RandomNumberUtilImp;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +12,7 @@ class CarTest {
     @Test
     @DisplayName("입력된 이름이 5글자보다 많은 경우 예외 발생")
     void 예외_처리_테스트_1() {
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         assertThrows(IllegalArgumentException.class,
                 () -> {
             new Car(movingStrategy, "yeonuel", 0);
@@ -23,7 +22,7 @@ class CarTest {
     @Test
     @DisplayName("공백이 입력된 경우 예외 발생")
     void 예외_처리_테스트_2() {
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         assertThrows(IllegalArgumentException.class,
                 () -> {
                     new Car(movingStrategy, "", 0);
@@ -33,7 +32,7 @@ class CarTest {
     @Test
     @DisplayName("자동차 시작 위치가 0이 아닌 경우 예외 발생")
     void 예외_처리_테스트_3() {
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         assertThrows(IllegalArgumentException.class,
                 () -> {
                     new Car(movingStrategy, "pobi", 1);
@@ -44,7 +43,7 @@ class CarTest {
     @DisplayName("위치 정보 조회")
     void getPosition_위치_조회_테스트(){
         // given
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         Car car = new Car(movingStrategy, "pobi", 0);
         // when
         int result = car.getPosition();
@@ -57,7 +56,7 @@ class CarTest {
     @DisplayName("이름 조회")
     void getName_이름_테스트() {
         // given
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         Car car = new Car(movingStrategy, "pobi", 0);
         // when
         String result = car.getName();
@@ -114,7 +113,7 @@ class CarTest {
     @DisplayName("우승자의 위치 정보와 같은 경우 true 반환")
     void isWinner_우승자인_경우_테스트() {
         // given
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         Car car = new Car(movingStrategy, "pobi", 0);
         // when
         Integer winnerPosition = 0;
@@ -127,7 +126,7 @@ class CarTest {
     @DisplayName("우승자의 위치 정보와 다른 경우 false 반환")
     void isWinner_우승자가_아닌_경우_테스트() {
         // given
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
         Car car = new Car(movingStrategy, "pobi", 0);
         // when
         Integer winnerPosition = 1;
