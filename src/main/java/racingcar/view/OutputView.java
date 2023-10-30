@@ -34,7 +34,7 @@ public class OutputView {
                 winnersList.add(eachCarName);
             }
         }
-        winnersString = String.join(",", winnersList);
+        winnersString = String.join(", ", winnersList);
         System.out.println(winnersString);
     }
 }
