@@ -46,7 +46,7 @@ public class UtilsTest extends NsTest {
     @Test
     void DASH_반복_생성() {
         String repeatedDash = Utils.dashRepeat(5);
-        assertThat(repeatedDash).isEqualTo("------");
+        assertThat(repeatedDash).isEqualTo("-----");
     }
 
 
