@@ -63,5 +63,20 @@ class ValidatorTest {
 
     }
 
+    @DisplayName("유효한 숫자가 아닐 경우 예외를 발생")
+    @Test
+    void isValidTrialNumberTest(){
+
+        String input = "woonbe";
+        String input2 = "";
+
+        assertThatThrownBy(() -> validator.isValidTrialNumber(input))
+                .isInstanceOf(IllegalArgumentException.class);
+
+        assertThatThrownBy(() -> validator.isValidTrialNumber(input2))
+                .isInstanceOf(IllegalArgumentException.class);
+
+    }
+
 
 }
