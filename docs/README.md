@@ -21,6 +21,7 @@
 | :white_large_square: | `goAhead`          | 조건에 맞는 경우 해당하는 차를 전진시킨다.                                  |
 | :white_large_square: | `play`             | player의 입력과 설정을 검증하고 게임을 실행해 그 결과를 저장한다.                  |
 | :white_large_square: | `splitCarName`     | player가 입력한 자동차 이름을 검증하고 `,`를 기준으로 분리해 `List<Car>`로 저장한다. |
+| :white_large_square: | `saveSettings`     | player가 입력한 자동차 이름을 저장한다.                                 |
 
 ## Car
 
