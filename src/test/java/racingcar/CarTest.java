@@ -25,4 +25,20 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("5자 이하의 이름만 입력해주세요");
     }
+
+    @Test
+    void createCarByName_메서드에서_공백_이름에_대한_예외_처리() {
+        String emptyName = "";
+        assertThatThrownBy(() -> createCarByName(emptyName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("1자 이상의 이름만 입력해주세요");
+    }
+
+    @Test
+    void createCarByName_메서드에서_null_이름에_대한_예외_처리() {
+        String nameWithNull = null;
+        assertThatThrownBy(() -> createCarByName(nameWithNull))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("null은 이름이 될 수 없습니다");
+    }
 }
