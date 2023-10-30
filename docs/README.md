@@ -28,7 +28,7 @@
 ### Position
 
 - 자동차가 현재 몇 번째 위치에 있는지 `int` 타입으로 가지고있다.
-- moveForward(): Position의 value를 1 증가시킨다.
+- moveForward(): 원래 Position의 value보다 1 증가한 Position 객체를 반환한다.
 - getValue(): Position이 가진 value를 반환한다.
 
 ### CarEngine
