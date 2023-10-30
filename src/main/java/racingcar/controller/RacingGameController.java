@@ -49,13 +49,16 @@ public class RacingGameController {
     private void start() {
         outputView.showResult();
 
-        int currentAttempt = 0;
-        while (currentAttempt < attemptNumber) {
+        int currentAttempt = 1;
+        while (isContinue(currentAttempt)) {
             cars.move();
             outputView.showPosition(cars);
             currentAttempt++;
         }
+    }
 
+    private boolean isContinue(int currentAttempt) {
+        return currentAttempt <= attemptNumber;
     }
 
     private void findWinner() {
