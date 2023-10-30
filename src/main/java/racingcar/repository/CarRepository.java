@@ -1,5 +1,6 @@
 package racingcar.repository;
 
+import java.util.List;
 import racingcar.domain.Car;
 
 public interface CarRepository {
@@ -7,4 +8,5 @@ public interface CarRepository {
 
     Car findById(Long carId);
 
+    List<Car> findAll();
 }
