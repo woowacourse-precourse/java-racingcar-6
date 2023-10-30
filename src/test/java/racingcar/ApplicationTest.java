@@ -63,11 +63,30 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 두명_단독우승_역전() {
+        String carNamesInput = "wtc, prcs";
+        String gameTurnsInput = "5";
+        Integer[] randoms = {STOP, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP};
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run(carNamesInput, gameTurnsInput);
+                    assertThat(output()).contains(INPUT_CAR_NAMES, INPUT_GAME_TURNS, RUN_RESULT,
+                            "wtc : -", "prcs : ",
+                            "wtc : --", "prcs : -",
+                            "wtc : ---", "prcs : --",
+                            "최종 우승자 : wtc");
+                },
+                MOVING_FORWARD, randoms
+        );
+    }
+
+    @Test
+    void 두명_공동우승_역전없음() {
 
     }
 
     @Test
-    void 두명_공동우승() {
+    void 두명_공동우승_역전() {
 
     }
 
