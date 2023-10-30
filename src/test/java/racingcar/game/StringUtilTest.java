@@ -2,6 +2,7 @@ package racingcar.game;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.game.constant.CarExceptionMessage;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ class StringUtilTest {
         String carNames = "hwang,jung,seop,jung";
         assertThatThrownBy(() -> StringUtil.separate(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("모든 자동차 이름은 서로 달라야 합니다.");
+                .hasMessageContaining(CarExceptionMessage.EXIST_SAME_NAMES);
     }
 
 }

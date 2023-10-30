@@ -1,5 +1,7 @@
 package racingcar.game;
 
+import racingcar.game.constant.CarExceptionMessage;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -19,7 +21,7 @@ public class StringUtil {
 
         for (String carName : carNameList) {
             if (uniqueNames.contains(carName)) {
-                throw new IllegalArgumentException("모든 자동차 이름은 서로 달라야 합니다.");
+                throw new IllegalArgumentException(CarExceptionMessage.EXIST_SAME_NAMES);
             }
             uniqueNames.add(carName);
         }

@@ -1,5 +1,9 @@
 package racingcar.game.validation;
 
+import racingcar.game.constant.CarExceptionMessage;
+
+import static racingcar.game.constant.CarExceptionMessage.*;
+
 public class CarValidator implements Validator{
 
     @Override
@@ -11,19 +15,19 @@ public class CarValidator implements Validator{
 
     private void validateHavingValue(String name) {
         if (name == null) {
-            throw new IllegalArgumentException("자동차의 이름은 필수값입니다.");
+            throw new IllegalArgumentException(SHOULD_HAVE_VALUE);
         }
     }
 
     private void validateNameLength(String name) {
         if (name.length() < 1 || name.length() > 5) {
-            throw new IllegalArgumentException("자동차의 이름이 1~5자 사이가 아닙니다.");
+            throw new IllegalArgumentException(OUT_OF_RANGE);
         }
     }
 
     private void validateSideBlank(String name) {
         if (name.startsWith(" ") || name.endsWith(" ")){
-            throw new IllegalArgumentException("자동차 이름의 양 끝에는 공백이 올 수 없습니다.");
+            throw new IllegalArgumentException(NOT_ALLOW_SIDE_BLANK);
         }
     }
 }
