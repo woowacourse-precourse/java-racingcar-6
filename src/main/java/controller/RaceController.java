@@ -22,4 +22,8 @@ public class RaceController {
         return raceService.validateAttemptCount(inputValue);
 
     }
+
+    public Map<String, Integer> raceStart(Map<String, Integer> racer, int attempt) {
+        return raceService.raceStart(racer);
+    }
 }
