@@ -3,13 +3,10 @@ package racingcar.domain.cars;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.when;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -17,18 +14,7 @@ import org.mockito.MockedStatic;
 class WinnersTest {
 
     static final int MOVE_VALUE = 5;
-
-    MockedStatic<Randoms> randoms;
-
-    @BeforeEach
-    void setUP() {
-        randoms = mockStatic(Randoms.class);
-    }
-
-    @AfterEach
-    void close() {
-        randoms.close();
-    }
+    static final int DONT_MOVE_VALUE = 1;
 
     @Test
     @DisplayName("정적 메소드 judge()에 Players를 입력하면 우승자를 판단해 Winners를 반환한다.")
@@ -37,7 +23,9 @@ class WinnersTest {
         List<String> names = Arrays.asList("tae", "wan");
         Players players = new Players(names);
 
-        when(Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(MOVE_VALUE);
+        MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
+        mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
+            .thenReturn(MOVE_VALUE, DONT_MOVE_VALUE);
 
         players.moveAll();
 
@@ -45,7 +33,9 @@ class WinnersTest {
         Winners winners = Winners.judge(players);
 
         // then
-        assertThat(winners.toString()).isEqualTo("최종 우승자 : tae, wan");
+        assertThat(winners.toString()).isEqualTo("최종 우승자 : tae");
+
+        mockedRandoms.close();
     }
 
     @Test
@@ -55,7 +45,9 @@ class WinnersTest {
         List<String> names = Arrays.asList("tae", "wan");
         Players players = new Players(names);
 
-        when(Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(MOVE_VALUE);
+        MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
+        mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
+            .thenReturn(DONT_MOVE_VALUE, MOVE_VALUE);
 
         players.moveAll();
         players.moveAll();
@@ -66,6 +58,8 @@ class WinnersTest {
         String message = winners.toString();
 
         // then
-        assertThat(message).isEqualTo("최종 우승자 : tae, wan");
+        assertThat(message).isEqualTo("최종 우승자 : wan");
+
+        mockedRandoms.close();
     }
 }

@@ -14,6 +14,8 @@ import org.mockito.MockedStatic;
 
 class CarTest {
 
+    static final int MOVE_VALUE = 5;
+
     @Test
     @DisplayName("문자열(자동차 이름)으로 생성할 수 있다.")
     void canConstructByString() {
@@ -36,8 +38,8 @@ class CarTest {
     void moveIncrease1_whenValueIsOver4(final int value, final String expectedDashes) {
         // given
         Car car = new Car("wan");
-        MockedStatic<Randoms> randoms = mockStatic(Randoms.class);
-        when(Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(value);
+        MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
+        mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(value);
 
         // when,
         car.move();
@@ -45,7 +47,7 @@ class CarTest {
         // then
         assertThat(car.toString()).isEqualTo("wan : " + expectedDashes);
 
-        randoms.close();
+        mockedRandoms.close();
     }
 
     @Test
@@ -56,7 +58,7 @@ class CarTest {
         Car car = new Car(name);
 
         MockedStatic<Randoms> randoms = mockStatic(Randoms.class);
-        when(Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(5);
+        when(Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(MOVE_VALUE);
 
         int movement = 3;
         String expectedDashes = "";

@@ -3,13 +3,10 @@ package racingcar.domain.cars;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mockStatic;
-import static org.mockito.Mockito.when;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -19,18 +16,6 @@ import racingcar.domain.car.CarMovement;
 class PlayersTest {
 
     static final int MOVE_VALUE = 5;
-
-    MockedStatic<Randoms> randoms;
-
-    @BeforeEach
-    void setUp() {
-        randoms = mockStatic(Randoms.class);
-    }
-
-    @AfterEach
-    void close() {
-        randoms.close();
-    }
 
     @Test
     @DisplayName("이름 리스트를 받아 생성할 수 있다.")
@@ -69,7 +54,9 @@ class PlayersTest {
         List<String> names = Arrays.asList("tae", "wan");
         Players players = new Players(names);
 
-        when(Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(MOVE_VALUE);
+        MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
+        mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
+            .thenReturn(MOVE_VALUE);
 
         CarMovement expectedMovement = new CarMovement();
         expectedMovement.goForward();
@@ -80,6 +67,8 @@ class PlayersTest {
         // then
         assertThat(players.cars().get(0).movement()).isEqualTo(expectedMovement);
         assertThat(players.cars().get(1).movement()).isEqualTo(expectedMovement);
+
+        mockedRandoms.close();
     }
 
     @Test
@@ -89,7 +78,9 @@ class PlayersTest {
         List<String> names = Arrays.asList("tae", "wan");
         Players players = new Players(names);
 
-        when(Randoms.pickNumberInRange(anyInt(), anyInt())).thenReturn(MOVE_VALUE);
+        MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
+        mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
+            .thenReturn(MOVE_VALUE);
 
         players.moveAll();
         players.moveAll();
@@ -101,5 +92,7 @@ class PlayersTest {
 
         // then
         assertThat(message).isEqualTo(expectedMessage);
+
+        mockedRandoms.close();
     }
 }
