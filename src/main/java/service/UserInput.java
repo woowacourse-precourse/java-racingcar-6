@@ -7,7 +7,6 @@ import java.util.Arrays;
 import vo.Car;
 import vo.Cars;
 
-
 public class UserInput {
 
     public static String Input(){
@@ -27,6 +26,13 @@ public class UserInput {
 
         return new Cars(cars);
 
+    }
+
+    public static int Times(){
+        String times = Input();
+        Validation.Times(times);
+
+        return Integer.parseInt(times);
     }
 
 }
