@@ -1,9 +1,9 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.CarListService;
 import racingcar.view.Output;
 import racingcar.view.UserInput;
 
@@ -13,13 +13,15 @@ public class GameController {
 
     private final UserInput userInput;
     private final Output output;
+    private final CarListService carListService;
 
     private List<Car> carList;
     private int gameCount;
 
-    public GameController(UserInput userInput, Output output) {
+    public GameController(UserInput userInput, Output output, CarListService carListService) {
         this.userInput = userInput;
         this.output = output;
+        this.carListService = carListService;
     }
 
     public void gameStart() {
@@ -39,33 +41,19 @@ public class GameController {
     private void doGameAndResultPrint() {
         output.printResultMessage();
         for (int i = 0; i < gameCount; i++) {
-            doStep();
+            doGameOneTime();
             output.printCurrentCar(carList);
         }
-        output.printFinalWinner(getWinnerName(carList));
+        output.printFinalWinner(carListService.getWinnerName(carList));
     }
 
-    private void doStep() {
+    private void doGameOneTime() {
         carList.forEach(car -> car.runOrStop(generateRandomNumber()));
-    }
-
-    private List<String> getWinnerName(List<Car> carList) {
-        int winScore = getMaxScore(carList);
-
-        return carList.stream()
-                .filter(car -> winScore == car.getCount())
-                .map(Car::getCarName)
-                .toList();
-    }
-
-    private int getMaxScore(List<Car> carList) {
-        return carList.stream()
-                .max(Comparator.comparing(Car::getCount))
-                .get()
-                .getCount();
     }
 
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
     }
+
+
 }
