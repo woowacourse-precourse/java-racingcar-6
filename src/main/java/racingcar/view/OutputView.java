@@ -20,6 +20,8 @@ public class OutputView {
         for (int i = 0; i < names.size(); i++) {
             System.out.println(names.get(i) + " : " + "-".repeat(positions.get(i)));
         }
+
+        System.out.println();
     }
 
     public void printWinners(final List<String> winners) {
