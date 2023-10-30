@@ -17,7 +17,7 @@ class RacingGameEventTest {
         Assertions.assertThat(racingGameEvent.getPositionHistory().size()).isEqualTo(3);
     }
 
-    @DisplayName("이동 할 경우 테스트")
+    @DisplayName("자동차가 이동 할 경우 테스트")
     @Test
     public void startEventMoveTest() {
         String[] cars = {"pobi"};
@@ -34,7 +34,7 @@ class RacingGameEventTest {
                 .isEqualTo(List.of(List.of(0, 1, 2)).toArray());
     }
 
-    @DisplayName("이동하지 않을 경우 테스트")
+    @DisplayName("자동차가 이동하지 않을 경우 테스트")
     @Test
     public void startEventStopTest() {
         String[] cars = {"pobi"};
@@ -50,4 +50,6 @@ class RacingGameEventTest {
         Assertions.assertThat(racingGameEvent.getPositionHistory().values().toArray())
                 .isEqualTo(List.of(List.of(0, 0, 0)).toArray());
     }
+
+
 }
