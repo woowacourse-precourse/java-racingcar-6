@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.domain.CarListFactory;
+import racingcar.domain.car.CarListFactory;
 
 public class AppConfiguration {
     public CarListFactory carListFactory() {

@@ -1,8 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.CarList;
-import racingcar.domain.CarListFactory;
+import racingcar.domain.car.CarList;
+import racingcar.domain.car.CarListFactory;
 
 import static racingcar.Constant.*;
 
