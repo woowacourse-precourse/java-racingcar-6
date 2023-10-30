@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,26 @@ public class Car {
     public void addCarName(String carName){
         carNameList.add(carName);
     }
+
+    public void forwardOrStop(){
+        int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
+        moveForward(randomNumber);
+    }
+
+    private void moveForward(int randomNumber) {
+        if(canMoveForward(randomNumber)){
+            position++;
+        }
+    }
+
+    private boolean canMoveForward(int randomNumber) {
+        if(randomNumber>=MIN_FORWARD_MOVEMENT){
+            return true;
+        }
+        return false;
+    }
+
+
 
     public String getCarName() {
         return carName;
