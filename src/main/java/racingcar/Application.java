@@ -16,28 +16,41 @@ public class Application {
   public static void main(String[] args) {
 
     System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    String tryRacingInput = Console.readLine();
-    List<String> inputCarStringS = cs.StringConvertList(tryRacingInput);
+    String inputCarStringS = Console.readLine();
+    List<String> carStringList = cs.StringConvertList(inputCarStringS);
 
-    for(String car : inputCarStringS){
+    for(String car : carStringList){
       if(car.length() > 5){
         System.out.println("이름에 대한 예외");
         return;
       }
     }
 
-    List<CarVO> carList = new ArrayList<>();
-    for(String name : inputCarStringS){
+    List<CarVO> racingCarList = new ArrayList<>();
+    for(String name : carStringList){
       CarVO car = new CarVO();
       car.setCar(name);
-      carList.add(car);
+      racingCarList.add(car);
+    }
+    System.out.println("시도할 회수는 몇회인가요?");
+    String inputCycleString = Console.readLine();
+    int tryCycle = cs.StringConvertInt(inputCycleString);
+
+    for (int i = 0; i < tryCycle; i++) {
+      for(CarVO car : racingCarList){
+        int randomNumber = Randoms.pickNumberInRange(1,9);
+        if(randomNumber > 3){
+          car.setMove(1 + car.getMove());
+        }
+
+
+
+      }
     }
 
 
 
-    System.out.println("시도할 회수는 몇회인가요?");
-    String tryCycle = Console.readLine();
-    int num = cs.StringConvertInt(tryCycle);
+
 
 
 
