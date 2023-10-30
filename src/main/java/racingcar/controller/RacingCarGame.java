@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.CarMovement;
+import racingcar.model.WinnerDecision;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -25,6 +26,8 @@ public class RacingCarGame {
             race(carList);
             OutputView.printRoundResult(carList);
         }
+
+        OutputView.printWinner(WinnerDecision.makeWinnerList(carList));
 
     }
 
