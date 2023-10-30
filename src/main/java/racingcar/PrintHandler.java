@@ -33,6 +33,7 @@ public class PrintHandler {
             printDash(car.getLocation());
             System.out.println();
         }
+        System.out.println();
     }
 
     public static void finalWinner() {
