@@ -51,6 +51,7 @@
         - [ ] 중복 이름 처리
     - [x] 자동차 전진 횟수
         - 숫자만 입력
+        - [ ] 1 이상만 입력
     - 잘못된 입력
         - `IllegalArgumentException` 발생 후 애플리케이션 종료
 - 출력
@@ -62,13 +63,13 @@
 
 ---
 
-- [ ] JAVA 17버전
-- [ ] ./gradlew.bat clean test 통과
-- [ ] 입/출력 형식은 예와 동일한가
-- [ ] pickNumberInRange() 사용
-- [ ] readLine() 사용
+- [x] JAVA 17버전
+- [x] ./gradlew.bat clean test 통과
+- [x] 입/출력 형식은 예와 동일한가
+- [x] pickNumberInRange() 사용
+- [x] readLine() 사용
   <br><br>
-- [ ] indent depth는 2까지만 허용했는가
-- [ ] 3항 연산자를 쓰지 않았는가
-- [ ] 메서드는 한 가지 일만 했는가
+- [x] indent depth는 2까지만 허용했는가
+- [x] 3항 연산자를 쓰지 않았는가
+- [x] 메서드는 한 가지 일만 했는가
 - [ ] 기능 목록을 테스트 코드로 확인했는가
