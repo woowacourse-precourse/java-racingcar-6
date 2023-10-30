@@ -16,5 +16,7 @@ public class RacingController {
 
     public void start() {
         inputView.printRequestCarName();
+        inputView.printRequestAttemptsNumber();
+
     }
 }
