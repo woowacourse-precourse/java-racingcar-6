@@ -10,6 +10,7 @@
 * (예외) 잘못된 형식을 입력했을 땐 `IllegealArgumentException`을 throw한다.
   * Cases)
     * "racing car" - 각 자동차의 이름이 5자 초과
+    * "car1,car1" - 중복된 이름
     * " " - 공백
     * "" - 빈 문자열
     * ^D - EOF
@@ -50,16 +51,28 @@
 # 구현 목록
 
 ---
-- [ ] 시작 문구 출력
-- [ ] 사용자의 자동차 이름 입력
-- [ ] 시도 회수 입력
-- [ ] 자동차 이동 로직
-- [ ] 입력 받은 회수 만큼의 게임 진행
-- [ ] 결과 출력
-- [ ] 최종 우승자 선정
-- [ ] 최종 우승자 출력
-- [ ] 시스템 종료
-- [ ] 예외 처리
+- [ ] 시작 문구 출력 - Communicator
+- [ ] 사용자의 자동차 이름 입력 - Communicator, Validator
+- [ ] 시도 회수 입력 - Communicator, Validator
+- [ ] 자동차 이동 로직 - Car
+- [ ] 입력 받은 회수 만큼의 게임 진행 - Game
+- [ ] 결과 출력 - Communicator
+- [ ] 최종 우승자 선정 - Game
+- [ ] 최종 우승자 출력 - Communicator
+- [ ] 시스템 종료 - ExceptionHandler
+- [ ] 예외 처리 - ExceptionHandler
 ```
 요구 사항: 예외 발생 시 문구 출력 -> 종료
 ```
+
+# 객체 디자인 - 1st Draft
+
+---
+* `Application` - main함수를 가지고 시작하는 객체
+* `InstanceContainer` - 객체들의 인스턴스를 생성하고 주입해주는 객체
+* `Communicator` - 사용자와의 소통을 담당하는 객체
+* `Validator` - 입력의 검증을 담당하는 객체
+* `GameHandler` - 주요한 객체들의 소통에 있어 데이터를 전달하고 명령을 내리며 교통 정리를 해주는 객체
+* `Game` - 게임에 관한 부분을 담당하는 객체
+* `Car` - 자동차 객체
+* `ExceptionHandler` - 예외 처리를 담당하는 객체
