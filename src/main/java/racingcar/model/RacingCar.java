@@ -33,11 +33,9 @@ public class RacingCar {
     }
 
     private Integer findMaxDistance() {
-        Integer max = Integer.MIN_VALUE;
+        int max = Integer.MIN_VALUE;
         for (Car car : cars) {
-            if (car.getMovingDistance() > max) {
-                max = car.getMovingDistance();
-            }
+            max = Math.max(car.getMovingDistance(), max);
         }
 
         return max;
