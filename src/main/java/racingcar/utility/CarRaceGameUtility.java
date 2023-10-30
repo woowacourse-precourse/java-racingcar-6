@@ -15,16 +15,9 @@ public class CarRaceGameUtility {
 
     private CarRaceGameUtility(){}
 
-    public static void startCarRaceGame(int roundNumber) {
-        System.out.println(EXECUTION_RESULT);
 
-        for (int i = 0; i < roundNumber; i++) {
-            startCarRaceGameOneRound();
-        }
-        CarRaceGameView.gameResultView(findWinner(GameManager.getCarImplList()));
-    }
 
-    private static void startCarRaceGameOneRound() {
+    public static void startCarRaceGameOneRound() {
         for (Car car : GameManager.getCarImplList()) {
             decideToMove(car);
             CarRaceGameView.tryForwardResultView(car.getCarName(), car.getAdvanceNumber());
