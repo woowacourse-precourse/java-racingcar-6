@@ -69,7 +69,14 @@ public class Race {
     }
 
     private void getMoveCount() {
+        System.out.println(GET_MOVE_COUNT_STRING);
+        String moveCountString = Console.readLine();
 
+        try {
+            moveCount = Integer.parseInt(moveCountString);
+        } catch (NumberFormatException ex) {
+            ExceptionHandler.inputException();
+        }
     }
 
     private void showWinner() {
