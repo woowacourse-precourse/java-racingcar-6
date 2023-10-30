@@ -1,38 +1,33 @@
 package racingcar.controller;
 
-import racingcar.domain.AttemptCount;
-import racingcar.domain.Car;
-import racingcar.domain.Result;
+import racingcar.domain.Cars;
+import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
-import java.util.List;
 
 public class GameController {
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
+    private GameService gameService;
 
     public void start() {
         gameService = new GameService(readCarNames());
         process(readAttemptCount());
-        outputView.printInputAttemptCountMessage();
-        AttemptCount attemptCount = inputView.readAttemptCount();
-        process(cars, attemptCount);
     }
 
-    private void process(List<Car> cars, AttemptCount attemptCount) {
+    private void process(int attemptCount) {
         outputView.printProcessResultTitle();
-        while(attemptCount.isNotFinish()) {
-            cars.forEach(Car::moveForward);
-            attemptCount.decreaseCount();
-            outputView.printMoveRecords(cars);
+        while (gameService.isNotFinish(attemptCount)) {
+            gameService.move();
+            outputView.printMoveRecords(gameService.getRecord());
         }
-        finish(cars);
+        finish();
     }
 
-    private void finish(List<Car> cars) {
-        List<Car> winner = new Result(cars).getWinner();
-        outputView.printWinnerName(winner);
+    private void finish() {
+        outputView.printWinnerName(gameService.getWinners());
+    }
+
     private int readAttemptCount() {
         outputView.printInputAttemptCountMessage();
         return inputView.readAttemptCount();
