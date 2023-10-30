@@ -23,4 +23,12 @@ public class CreateCar {
         }
     }
 
+    public void validateCarNameLength(String[] carNames) throws IllegalArgumentException {
+        for (String carName : carNames) {
+            if (carName.length() == 0 || carName.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
+        }
+    }
+
 }
