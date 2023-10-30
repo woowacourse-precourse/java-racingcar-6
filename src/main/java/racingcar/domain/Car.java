@@ -5,7 +5,6 @@ public class Car {
     private int position;
 
     public Car(String name) {
-        validateName(name);
         this.name = name;
         this.position = 0;
     }
@@ -18,12 +17,8 @@ public class Car {
         return position;
     }
 
-    private void validateName(String name) {
-        // TODO: 구현 필요
-    }
-
     public void move() {
-        // TODO: 구현 필요
+        position++;
     }
 
     public void tryMove(int randomNumber) {
