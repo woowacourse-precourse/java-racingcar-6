@@ -15,7 +15,12 @@ public class Communicator {
         Validator.validateCars(cars);
     }
 
-    public static void printInputGameTimes() {
+    public static void instructInputGameTimes() {
+        printInputGameTimes();
+        int gameTimes = Integer.parseInt(Console.readLine());
+    }
+
+    private static void printInputGameTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 

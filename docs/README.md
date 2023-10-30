@@ -54,8 +54,8 @@
 - [x] 시작 문구 출력 - Communicator
 - [x] 자동차 이름 입력 - Communicator
 - [x] 이름 입력 검증 - Validator
-- [ ] 시도 횟수 입력 - Communicator
-- [ ] 횟수 입력 검증 - Validator
+- [x] 시도 횟수 입력 - Communicator
+- [x] 횟수 입력 검증 - Validator
 - [ ] 자동차 이동 로직 - Car
 - [ ] 입력 받은 회수 만큼의 게임 진행 - Game
 - [ ] 결과 출력 - Communicator
