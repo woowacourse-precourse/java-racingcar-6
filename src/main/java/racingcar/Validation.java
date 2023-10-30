@@ -41,13 +41,9 @@ public class Validation {
         return false;
     }
 
-    public static boolean isDuplicates(List<String> members, String input) {
-        int cnt = 0;
-        for (int i = 0; i < members.size(); i++) {
+    public static boolean isDuplicates(List<String> members, String input, int idx) {
+        for (int i = idx + 1; i < members.size(); i++) {
             if (members.get(i).equals(input)) {
-                cnt++;
-            }
-            if (cnt == 2) {
                 return true;
             }
         }
