@@ -1,27 +1,31 @@
 package racingcar.domain;
 
 public class CarName {
-    private String name;
+    private final String name;
 
     public CarName(String carName) {
         this.name = carName;
         validateCarName();
     }
 
-    public void validateCarName() {
+    public String getName() {
+        return name;
+    }
+
+    private void validateCarName() {
         isCarNameNull();
         isCommaPresent();
     }
 
     private void isCarNameNull() {
-        if (name.length() > 0) {
-            throw new IllegalArgumentException("입력 값이 없습니다.");
+        if (name.length() < 5) {
+            throw new IllegalArgumentException("자동차 이름은 5글자 이하로만 입력해주세요.");
         }
     }
 
     private void isCommaPresent() {
-        if (name.contains(",")) {
-            throw new IllegalArgumentException(",(쉼표)로 자동차 이름을 구분해주세요.");
+        if (name.contains(" ")) {
+            throw new IllegalArgumentException("자동차 이름에 공백을 제외해주세요.");
         }
     }
 }
