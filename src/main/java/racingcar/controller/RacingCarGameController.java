@@ -24,14 +24,14 @@ public class RacingCarGameController {
 
     public void playRacingCarGame(RandomNumberGenerator racingNumberGenerator) {
         List<String> carNames = inputCarNames();
-        LinkedHashMap<String, Integer> progressStatus = progressStatusInitialize(carNames);
+        LinkedHashMap<String, Integer> racingProgressStatus = racingProgressStatusInitialize(carNames);
         int attemptCount = inputAttemptCount();
         printExecutionResultMessage();
         for (int i = 0; i < attemptCount; i++) {
-            proceedOneRound(racingNumberGenerator, carNames, progressStatus);
-            printExecutionResult(progressStatus);
+            proceedOneRound(racingNumberGenerator, carNames, racingProgressStatus);
+            printExecutionResult(racingProgressStatus);
         }
-        List<String> winners = getWinners(progressStatus);
+        List<String> winners = getWinners(racingProgressStatus);
         printWinners(winners);
     }
 
@@ -48,13 +48,13 @@ public class RacingCarGameController {
         return inputView.readCarNames();
     }
 
-    private LinkedHashMap<String, Integer> progressStatusInitialize(List<String> carNames) {
-        LinkedHashMap<String, Integer> progressStatus = new LinkedHashMap<>();
+    private LinkedHashMap<String, Integer> racingProgressStatusInitialize(List<String> carNames) {
+        LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>();
         for (String carName : carNames) {
             new RacingCarName(carName);
-            progressStatus.put(carName, 0);
+            racingProgressStatus.put(carName, 0);
         }
-        return progressStatus;
+        return racingProgressStatus;
     }
 
     private int inputAttemptCount() {
@@ -78,25 +78,26 @@ public class RacingCarGameController {
 
     private void proceedOneRound(RandomNumberGenerator racingNumberGenerator,
                                  List<String> carNames,
-                                 LinkedHashMap<String, Integer> progressStatus) {
+                                 LinkedHashMap<String, Integer> racingProgressStatus) {
         for (String carName : carNames) {
             int randomNumber = racingNumberGenerator.getRandomNumber();
-            decideMovingForward(randomNumber, progressStatus, carName);
+            decideMovingForward(randomNumber, racingProgressStatus, carName);
         }
     }
 
-    private void decideMovingForward(int randomNumber, LinkedHashMap<String, Integer> progressStatus, String carName) {
+    private void decideMovingForward(int randomNumber, LinkedHashMap<String, Integer> racingProgressStatus,
+                                     String carName) {
         if (racingCarGameService.isMovingForward(randomNumber)) {
-            racingCarGameService.moveForward(progressStatus, carName);
+            racingCarGameService.moveForward(racingProgressStatus, carName);
         }
     }
 
-    private void printExecutionResult(LinkedHashMap<String, Integer> progressStatus) {
-        outputView.printExecutionResult(progressStatus);
+    private void printExecutionResult(LinkedHashMap<String, Integer> racingProgressStatus) {
+        outputView.printExecutionResult(racingProgressStatus);
     }
 
-    private List<String> getWinners(LinkedHashMap<String, Integer> progressStatus) {
-        return racingCarGameService.getWinners(progressStatus);
+    private List<String> getWinners(LinkedHashMap<String, Integer> racingProgressStatus) {
+        return racingCarGameService.getWinners(racingProgressStatus);
     }
 
     private void printWinners(List<String> winners) {

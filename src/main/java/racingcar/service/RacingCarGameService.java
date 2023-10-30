@@ -16,8 +16,8 @@ public class RacingCarGameService {
         return false;
     }
 
-    public void moveForward(LinkedHashMap<String, Integer> progressStatus, String carName) {
-        progressStatus.put(carName, progressStatus.get(carName) + 1);
+    public void moveForward(LinkedHashMap<String, Integer> racingProgressStatus, String carName) {
+        racingProgressStatus.put(carName, racingProgressStatus.get(carName) + 1);
     }
 
     public List<String> getWinners(LinkedHashMap<String, Integer> finalResult) {

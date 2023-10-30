@@ -31,11 +31,11 @@ public class OutputViewTest {
     @DisplayName("자동차 이동의 실행 결과를 출력한다.")
     void printExecutionResult() {
         OutputView outputView = new OutputView();
-        LinkedHashMap<String, Integer> carNamesAndMovingCount = new LinkedHashMap<>();
-        carNamesAndMovingCount.put("park", 3);
-        carNamesAndMovingCount.put("yong", 1);
-        carNamesAndMovingCount.put("hyeon", 2);
-        outputView.printExecutionResult(carNamesAndMovingCount);
+        LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>();
+        racingProgressStatus.put("park", 3);
+        racingProgressStatus.put("yong", 1);
+        racingProgressStatus.put("hyeon", 2);
+        outputView.printExecutionResult(racingProgressStatus);
 
         String[] output = outputStream.toString().split(System.lineSeparator());
 

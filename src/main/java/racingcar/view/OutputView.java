@@ -22,19 +22,19 @@ public class OutputView {
         System.out.println(EXECUTION_RESULT_MESSAGE);
     }
 
-    public void printExecutionResult(LinkedHashMap<String, Integer> progressStatus) {
+    public void printExecutionResult(LinkedHashMap<String, Integer> racingProgressStatus) {
         StringBuilder ExecutionResult = new StringBuilder();
-        for (String carName : progressStatus.keySet()) {
-            makeCarMovingResult(progressStatus, carName, ExecutionResult);
+        for (String carName : racingProgressStatus.keySet()) {
+            makeCarMovingResult(racingProgressStatus, carName, ExecutionResult);
         }
         System.out.println(ExecutionResult);
     }
 
-    private void makeCarMovingResult(LinkedHashMap<String, Integer> progressStatus, String carName,
+    private void makeCarMovingResult(LinkedHashMap<String, Integer> racingProgressStatus, String carName,
                                      StringBuilder ExecutionResult) {
         ExecutionResult.append(carName)
                 .append(" : ");
-        for (int i = 0; i < progressStatus.get(carName); i++) {
+        for (int i = 0; i < racingProgressStatus.get(carName); i++) {
             ExecutionResult.append("-");
         }
         ExecutionResult.append("\n");
