@@ -18,8 +18,7 @@ public class Game {
         System.out.println("시도할 회수는 몇회인가요?");
         setTimes();
         moveCar();
-        // System.out.println(readLine);
-
+        printWinner();
     }
 
     public String[] parser(String readLine) {
@@ -51,5 +50,22 @@ public class Game {
             }
             System.out.println();
         }
+    }
+
+    public void printWinner() {
+        int max = -1;
+        ArrayList<String> winners = new ArrayList<String>();
+        for (Car car : cars) {
+            if (car.getPosition() > max) {
+                max = car.getPosition();
+            }
+        }
+        for (Car car : cars) {
+            if (car.getPosition() == max) {
+                winners.add(car.getName());
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", winners));
     }
 }
