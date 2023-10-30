@@ -98,5 +98,12 @@ public class GameTest {
 
     }
 
-    
+    @Test
+    public void testIsNumberSuccess(){
+        Game game = new Game();
+        String strNumber = "3";
+        boolean isNumber = game.isNumber(strNumber);
+
+        assertThat(isNumber).isTrue();
+    }
 }
