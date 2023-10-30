@@ -50,4 +50,29 @@ public class UnitTest {
             assertThatIllegalArgumentException().isThrownBy(() -> computer.readCarNames("green,, red"));
         }
     }
+
+    @Nested
+    @DisplayName("사용자는 자동차 이동을 시도할 횟수를 입력한다.")
+    class AttemptCountInputTest {
+
+        @Test
+        void 시도횟수는_0이상이다() {
+            assertDoesNotThrow(() -> computer.readAttemptCount("0"));
+        }
+
+        @Test
+        void 시도횟수가_음수이면_예외발생() {
+            assertThatIllegalArgumentException().isThrownBy(() -> computer.readAttemptCount("-1"));
+        }
+
+        @Test
+        void 시도횟수가_숫자가_아니면_예외발생() {
+            assertThatIllegalArgumentException().isThrownBy(() -> computer.readAttemptCount("a"));
+        }
+
+        @Test
+        void 시도횟수가_정수가_아니면_예외발생() {
+            assertThatIllegalArgumentException().isThrownBy(() -> computer.readAttemptCount("1.1"));
+        }
+    }
 }

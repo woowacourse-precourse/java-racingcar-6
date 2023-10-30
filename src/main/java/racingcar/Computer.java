@@ -33,4 +33,19 @@ public class Computer {
     private boolean hasSizeGreaterThanFive(String name) {
         return name.length() > 5;
     }
+
+    public void readAttemptCount(String input) {
+        if (isInvalidCount(input)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private boolean isInvalidCount(String input) {
+        final int number = Integer.parseInt(input);
+        return isNegative(number);
+    }
+
+    private boolean isNegative(int number) {
+        return number < 0;
+    }
 }
