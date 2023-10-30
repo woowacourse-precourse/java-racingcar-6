@@ -20,37 +20,18 @@ public class RacingGame {
         createCars(carNames);
 
         System.out.println("시도할 회수는 몇회인가요?");
-        final int playTimes = validPlayTimes(Console.readLine());
+        final int playTimes = validator.playTimes(Console.readLine());
         playRound(cars, playTimes);
 
         Console.close();
     }
 
-    private int validPlayTimes(final String input) {
-        if (input.isBlank()) {
-            throw new IllegalArgumentException("시도 횟수는 1자리 이상의 숫자이어야 합니다.");
-        }
-        try {
-            return Integer.parseInt(input);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("시도 횟수는 숫자 입력값이어야 합니다.");
-        }
-    }
-
     private void createCars(final String carNames) {
         final List<String> members = Arrays.asList(carNames.split(","));
-        validSingleComma(members);
+        validator.singleComma(members);
         this.cars = members.stream()
                 .map(Car::new)
                 .toList();
-    }
-
-    private void validSingleComma(final List<String> members) {
-        boolean isMemberEmpty = members.stream()
-                .anyMatch(String::isBlank);
-        if (isMemberEmpty) {
-            throw new IllegalArgumentException("쉼표를 연속으로 입력할 수 없습니다.");
-        }
     }
 
     private void playRound(final List<Car> cars, final int playTimes) {
