@@ -5,8 +5,9 @@ import racingcar.Domain.Car;
 import racingcar.Domain.Winner;
 
 public class WinnerService {
-    public List<Car> getWinners(List<Car> cars) {
+    CarService carService = new CarService();
+    public List<Car> getWinners() {
         // Winner 클래스를 활용하여 우승자 리스트를 반환
-        return Winner.getWinners(cars);
+        return Winner.getWinners(carService.carList());
     }
 }
