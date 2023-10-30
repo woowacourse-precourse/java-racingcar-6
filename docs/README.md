@@ -2,21 +2,21 @@
 
 ## 기능 목록
 
-- [x] 자동차 이름 입력 - InputView inputStringSplitByComma()
-  - [x] 쉼표로 문자열 분리 - InputView splitByComma(String input)
-  - [x] 중복 이름 예외 처리 - InputView checkForDuplicateStrings(List<String> stringList)
-  - [x] 빈 이름 예외 처리 - InputView checkForEmptyString(List<String> stringList)
-  - [ ] 길이 제한 확인
+- [x] 자동차 이름 입력 - `InputView` `inputStringSplitByComma()`
+  - [x] 쉼표로 문자열 분리 - `InputView` `splitByComma(String input)`
+  - [x] 중복 이름 예외 처리 - `InputView` `checkForDuplicateStrings(List<String> stringList)`
+  - [x] 빈 이름 예외 처리 - `InputView` `checkForEmptyString(List<String> stringList)`
+  - [x] 길이 제한 확인 - `Car` `checkNameLength(String name, int nameMaxLength)`
 
-- [ ] 몇 번 시도할 것인지 입력
-  - [ ] 잘못된 문자 입력 예외 처리
-- [ ] 입력한 시도 횟수(n)만큼, 자동차 진행 조건에 따라 이동
-  - [ ] 0 ~ 9 사이의 무작위 값 생성
-  - [ ] 4 이상인 경우 해당 자동차 이동
-- [ ] 우승자 출력
-  - [ ] 단독 우승
-  - [ ] 공동 우승
-  - [ ] 모두 실패
+- [x] 몇 번 시도할 것인지 입력 - `InputView inputDigit`
+  - [x] 잘못된 문자 입력 예외 처리
+- [x] 입력한 시도 횟수(n)만큼, 자동차 진행 조건에 따라 이동 - `Race tick`
+  - [x] 0 ~ 9 사이의 무작위 값 생성 - `Race generateCarDistanceMovementList`
+  - [x] 4 이상인 경우 해당 자동차 이동 - `Race moveCars`
+- [x] 우승자 출력 - `OutputView showWinners`
+  - [x] 단독 우승
+  - [x] 공동 우승
+  - [x] 모두 실패
 
 
 ## 기능 요구 사항
