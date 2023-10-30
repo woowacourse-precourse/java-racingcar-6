@@ -4,7 +4,9 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class RacingCarGame {
 
@@ -18,7 +20,7 @@ public class RacingCarGame {
     }
 
     static void printRaceResult(Integer position) {
-        for (int i = 0; i<position;i++) {
+        for (int i = 0; i < position; i++) {
             System.out.print("-");
         }
 
@@ -32,7 +34,7 @@ public class RacingCarGame {
             printRaceResult(carResultList.get(i));
         }
 
-        return  carResultList;
+        return carResultList;
     }
 
     public static void playGame() {
@@ -67,5 +69,23 @@ public class RacingCarGame {
             raceResultList = raceResult(carNamesList, raceResultList);
             System.out.println();
         }
+
+        Integer max = Collections.max(raceResultList);
+        List<Integer> winnerIndex = new ArrayList<>();
+        List<String> winnerNames = new ArrayList<>();
+
+        for (int i = 0; i < raceResultList.size(); i++) {
+            if (Objects.equals(raceResultList.get(i), max)) {
+                winnerIndex.add(i);
+            }
+        }
+
+        for (int i = 0; i < winnerIndex.size(); i++) {
+            winnerNames.add(carNamesList.get(winnerIndex.get(i)));
+        }
+
+        String winnerOutput = String.join(",", winnerNames);
+
+        System.out.println("최종 우승자 : " + winnerOutput);
     }
 }
