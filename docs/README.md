@@ -23,7 +23,8 @@
   - [x] 공동 우승자 쉼표 구분
 
 ## 🗂️ 디렉터리 구조
-📦src<br/>
+
+ 📦src<br/>
  ┣ 📂main<br/>
  ┃ ┗ 📂java<br/>
  ┃ ┃ ┗ 📂racingcar<br/>
@@ -37,3 +38,8 @@
  ┃ ┃ ┃ ┃ ┗ 📜OutputView.java<br/>
  ┃ ┃ ┃ ┗ 📜Application.java<br/>
  ┗ 📂test<br/>
+ ┃ ┗ 📂java<br/>
+ ┃ ┃ ┣ 📂racingcar<br/>
+ ┃ ┃ ┃ ┗ 📜ApplicationTest.java<br/>
+ ┃ ┃ ┗ 📂study<br/>
+ ┃ ┃ ┃ ┗ 📜StringTest.java<br/>
