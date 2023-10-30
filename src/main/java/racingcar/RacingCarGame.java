@@ -34,12 +34,21 @@ public class RacingCarGame {
         for (int i = 0; i < carNames.length; i++) {
             carNames[i] = carNames[i].trim();
         }
-
+        if (isDuplicatedString(carNames)) {
+            throw new IllegalArgumentException("RacingCar name duplicated error");
+        }
         Arrays.stream(carNames).forEach(carName -> {
             racingCarList.add(new RacingCar(carName));
         });
     }
 
+    private boolean isDuplicatedString(String[] strings) {
+        if (strings.length == Arrays.stream(strings).distinct().count()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     private void requestTryNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
