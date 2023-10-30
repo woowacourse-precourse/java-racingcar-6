@@ -2,18 +2,18 @@
 
 ### **사용자로부터 이동횟수를 입력 받는 기능**
 
-- [ ] 사용자로부터 이동 횟수를 입력 받는다. - **UserInputHandler**#getUserInputForMoves
+- [x] 사용자로부터 이동 횟수를 입력 받는다. - **UserInputHandler**#getUserInputForMoves
   
   ```
   5
   ```
-  - [ ] 잘못된 입력(숫자가 아님)이면 `IllegalArgumentException`을 발생 후 종료한다. - **InputValidator**#validateNumberFormat
+  - [x] 잘못된 입력(숫자가 아님)이면 `IllegalArgumentException`을 발생 후 종료한다. - **InputValidator**#validateNumberFormat
 
 ### **자동차에게 이름을 부여하는 기능**
 
-- [ ] 자동차에게 이름을 부여할 수 있다. **RacingCarGame**#initCar
+- [x] 자동차에게 이름을 부여할 수 있다. **RacingCarGame**#initCar
   
-  - [ ] 사용자로부터 이름(들)을 입력 받는다. - **UserInputHandler**#getUserInputForNames
+  - [x] 사용자로부터 이름(들)을 입력 받는다. - **UserInputHandler**#getUserInputForNames
     
     ```
     pobi,woni,jun

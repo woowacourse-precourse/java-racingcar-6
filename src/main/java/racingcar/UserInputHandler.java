@@ -20,4 +20,13 @@ public class UserInputHandler {
         }
         return names;
     }
+
+    public int getInputForMoveCount(){
+        String inputData = Console.readLine();
+
+        inputValidator.validNumberic(inputData);
+        inputValidator.validateNull(inputData);
+
+        return Integer.parseInt(inputData);
+    }
 }
