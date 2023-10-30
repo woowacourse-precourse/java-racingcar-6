@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
 
-    public int Number(){
+    public int number(){
         String numString = Console.readLine();
         Integer number = null;
         try {
@@ -16,16 +16,16 @@ public class InputManager {
     }
     //todo validator 분리
 
-    public String Cars() {
-        String cars = Console.readLine();
-        String[] carNames = cars.split(",");
+    public String cars() {
+        String carStr = Console.readLine();
+        String[] carNames = carStr.split(",");
         for (String name:
              carNames) {
             if (name.length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
-        return cars;
+        return carStr;
     }
 
     //todo validator 분리
