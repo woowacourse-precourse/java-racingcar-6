@@ -6,6 +6,7 @@ public enum Constants {
     RESULT_CONSTANT("실행 결과"),
     WINNER_RESULT("최종 우승자"),
     NAME_SPLIT_REGEX(","),
+    WINNER_SPLIT_FORMAT(", "),
     ROUND_REGEX("^[1-9][0-9]*$"),
     OUTPUT_FORMAT(" : "),
     MINIMUM_CAR_SIZE("2"),
