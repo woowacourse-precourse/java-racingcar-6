@@ -1,11 +1,10 @@
 package racingcar.model;
 
-import static racingcar.model.ExceptionMessage.EMPTY_RACE_HISTORY_EXCEPTION_MESSAGE;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class RaceHistory {
+    private static final String EMPTY_RACE_HISTORY_EXCEPTION_MESSAGE = "경주 기록이 없습니다.";
     private static final int LAST_ROUND_OFFSET = 1;
 
     private final List<RaceStage> raceStages;

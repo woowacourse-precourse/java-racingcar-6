@@ -1,14 +1,15 @@
 package racingcar.model;
 
 import static java.util.stream.Collectors.toList;
-import static racingcar.model.ExceptionMessage.DUPLICATE_CAR_GROUP_EXCEPTION_MESSAGE;
-import static racingcar.model.ExceptionMessage.EMPTY_CAR_GROUP_EXCEPTION_MESSAGE;
-import static racingcar.model.ExceptionMessage.EMPTY_WINNER_GROUP_EXCEPTION_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarGroup {
+    private static final String EMPTY_CAR_GROUP_EXCEPTION_MESSAGE = "자동차 그룹은 비어있을 수 없습니다.";
+    private static final String DUPLICATE_CAR_GROUP_EXCEPTION_MESSAGE = "자동차 그룹에 중복된 이름이 존재합니다.";
+    private static final String EMPTY_WINNER_GROUP_EXCEPTION_MESSAGE = "우승자를 찾기 위한 자동차 그룹이 비어있습니다.";
+
     private final List<Car> cars;
 
     CarGroup(List<Car> cars) {

@@ -1,10 +1,9 @@
 package racingcar.model;
 
-import static racingcar.model.ExceptionMessage.POSITION_UNDER_LIMIT_FORMAT_MESSAGE;
-
 import java.util.Objects;
 
 public final class CarPosition implements Comparable<CarPosition> {
+    private static final String POSITION_UNDER_LIMIT_FORMAT_MESSAGE = "자동차의 위치는 %d보다 작을 수 없습니다.";
     private static final int INITIAL_POSITION = 0;
     private static final int MOVE_STEP = 1;
 

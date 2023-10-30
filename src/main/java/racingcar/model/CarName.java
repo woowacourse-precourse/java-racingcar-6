@@ -1,13 +1,12 @@
 package racingcar.model;
 
-import static racingcar.model.ExceptionMessage.BLANK_NAME_EXCEPTION_MESSAGE;
-import static racingcar.model.ExceptionMessage.CAR_NAME_OVER_LIMIT_FORMAT_MESSAGE;
-
 import java.util.Objects;
 
 public final class CarName {
+    private static final String BLANK_NAME_EXCEPTION_MESSAGE = "공백 문자로는 이름을 입력할 수 없습니다.";
+    private static final String CAR_NAME_OVER_LIMIT_FORMAT_MESSAGE = "자동차 이름은 %d자를 초과할 수 없습니다.";
     private static final int MAX_NAME_LENGTH = 5;
-    
+
     private final String name;
 
     private CarName(String name) {
