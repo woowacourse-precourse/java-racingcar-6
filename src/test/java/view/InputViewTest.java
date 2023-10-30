@@ -37,4 +37,19 @@ public class InputViewTest {
         //then
         Assertions.assertThat(result).isEqualTo(expectedName);
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "2", "3"})
+    @DisplayName("시도 횟수 입력 테스트")
+    public void 시도_횟수_입력_테스트(String input) {
+        //given
+        String exceptedInput = input;
+
+        //when
+        provideInput(input);
+        String result = InputView.getAttemptsFromUserInput();
+
+        //then
+        Assertions.assertThat(result).isEqualTo(exceptedInput);
+    }
 }
