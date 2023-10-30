@@ -21,5 +21,13 @@ public class Application {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(e);
         }
+
+        /* 회차만큼 게임 실행 */
+        System.out.println("실행 결과");
+        while (count > 0) {
+            cars.forEach(carController::race);
+            Printer.printRace(cars);
+            count--;
+        }
     }
 }
