@@ -34,7 +34,7 @@ public class RaceControllerImpl implements RaceController {
         for ( int i = 0; i < Integer.parseInt( raceCount ); i++ ) {
             raceService.runRace(participants);
             participants.forEach(
-                    p -> console.displayState(p.getName(), p.getDistance())
+                    p -> console.displayStatus(p.getName(), p.getDistance())
             );
             System.out.println();
         }

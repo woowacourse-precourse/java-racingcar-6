@@ -41,7 +41,7 @@ public class ConsoleImpl implements Console {
     }
 
     @Override
-    public void displayState(String Name, int distance) {
+    public void displayStatus(String Name, int distance) {
         print(Name);
         print(" : ");
         for ( int i = 0; i < distance; i++ )
