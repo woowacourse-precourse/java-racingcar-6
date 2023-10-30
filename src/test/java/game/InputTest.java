@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.InputValidator;
 import racingcar.GameInputHandler;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +15,26 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class InputTest {
     InputValidator validator = new InputValidator();
     @Test
-    void split_메서드로_주어진_값을_구분() {
+    void splitStringToList_메서드로_주어진_값을_구분() {
         GameInputHandler gameInputHandler = new GameInputHandler();
-        String input = "1,2";
-        List<String> cars = gameInputHandler.splitStringToList(input);
+        Method method = null;
+        try {
+            method = gameInputHandler.getClass().getDeclaredMethod("splitStringToList", String.class);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException("private 메서드를 찾을 수 없습니다.", e);
+        }
+        //splitStringToList 메서드 테스트 하기 위해 private 메서드 접근 허용
+        method.setAccessible(true);
+        String input = "aaa,bbb,ccc";
+        List<String> cars = new ArrayList<>();
+        try {
+            cars = (List<String>) method.invoke(gameInputHandler, input);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException("private 메서드 호출 실패", e);
+        }
 
-        assertThat(cars).contains("2", "1");
-        assertThat(cars).containsExactly("1", "2");
+        assertThat(cars).contains("bbb", "aaa", "ccc");
+        assertThat(cars).containsExactly("aaa", "bbb", "ccc");
     }
 
     @Test
@@ -60,6 +75,6 @@ public class InputTest {
     void 시도할_횟수_숫자_외_값(){
         String input = "a";
 
-        assertThrows(IllegalArgumentException.class, () -> validator.checkEttempts(input));
+        assertThrows(IllegalArgumentException.class, () -> validator.checkAttempts(input));
     }
 }
