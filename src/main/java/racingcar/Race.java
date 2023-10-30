@@ -40,4 +40,24 @@ public class Race {
         play_count = Integer.parseInt(Console.readLine());
     }
 
+    private void play() {
+        for (int i = 0; i < car_name.size(); i++) {
+            int rand_num = Randoms.pickNumberInRange(0,9);
+            if (rand_num >= 4) car_score.add(i, car_score.get(i) + 1);
+
+            StringBuilder result = new StringBuilder();
+            result.append(car_name.get(i));
+            result.append(" : ");
+            System.out.print(car_name.get(i) + " : ");
+
+            if (car_score.get(i) > 0) {
+                for (int j = 0; j < car_score.get(i); i++) {
+                    result.append("-");
+                }
+            }
+            System.out.println(result);
+        }
+        System.out.println();
+    }
+
 }
