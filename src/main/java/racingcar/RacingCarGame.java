@@ -3,7 +3,6 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingCarGame {
@@ -25,8 +24,11 @@ public class RacingCarGame {
             carNamesList.add(s);
         }
 
-        for (String s: carNamesList) {
-            System.out.println(s);
-        }
+        System.out.println("시도할 횟수는 몇회인가요?");
+
+        String playNumberInput = readLine();
+        int playNumber = Integer.parseInt(playNumberInput);
+
+        System.out.println(playNumber);
     }
 }
