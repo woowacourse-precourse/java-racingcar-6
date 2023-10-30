@@ -27,4 +27,4 @@
 - [x] 이름 쉼표를 기준으로 구분
     - [x] 중복된 이름 검증, 검증 실패 시 IllegalArgumentException 발생
     - [x] 각 이름 5글자 이하, 검증 실패 시 IllegalArgumentException 발생
-- [] MovePossibilityChecker값이 FORWARD면 전진, 아니면 전진x
+- [x] MovePossibilityChecker값이 FORWARD면 전진, 아니면 전진x
