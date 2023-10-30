@@ -45,7 +45,6 @@ class GameConsoleIOTest extends ConsolePrintTest {
                             .contains("car0 : ", "car1 : -");
                 }
         );
-
     }
 
     @Test
@@ -64,8 +63,6 @@ class GameConsoleIOTest extends ConsolePrintTest {
                             .contains("최종 우승자 : car1", "최종 우승자 : car1, car2");
                 }
         );
-
     }
-
 
 }

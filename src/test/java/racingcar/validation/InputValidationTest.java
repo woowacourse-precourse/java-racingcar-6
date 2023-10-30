@@ -19,7 +19,6 @@ class InputValidationTest {
     @Test
     void 자동차_이름_형태_유효성_확인() {
         inputValidation.validateCarNameSize("pobi", NAME_SIZE);
-
     }
 
     @Test
