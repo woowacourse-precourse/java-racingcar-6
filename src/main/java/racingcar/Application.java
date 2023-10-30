@@ -12,6 +12,7 @@ public class Application {
 
     private static void startRacing() {
         List<Car> carList = inputAndGetCarList();
+        int racingCount = inputRacingCount();
     }
 
     private static List<Car> inputAndGetCarList() {
@@ -33,5 +34,11 @@ public class Application {
             carList.add(car);
         }
         return carList;
+    }
+
+    private static int inputRacingCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String racingCount = Console.readLine();
+        return Integer.parseInt(racingCount);
     }
 }
