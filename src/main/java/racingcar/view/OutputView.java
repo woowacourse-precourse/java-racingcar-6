@@ -8,7 +8,6 @@ import static racingcar.constant.Constant.START_GAME_MESSAGE;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import racingcar.model.Car;
 import racingcar.model.RacingCars;
 
 public final class OutputView {
@@ -28,10 +27,9 @@ public final class OutputView {
         System.out.println();
     }
 
-    public static void printWinner(List<Car> winner) {
+    public static void printWinner(List<String> winner) {
         System.out.print(END_WINNER_MESSAGE);
         String winnerNames = winner.stream()
-                .map(Car::getName)
                 .collect(Collectors.joining(SEPARATOR_CHAR));
 
         System.out.print(winnerNames);

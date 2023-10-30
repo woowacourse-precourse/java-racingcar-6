@@ -41,7 +41,6 @@ class RacingCarsTest extends NsTest {
                 () -> {
                     run();
                     Assertions.assertThat(cars.findWinner())
-                            .extracting("name")
                             .containsExactly("pobi");
                 },
                 5, 3, 2
