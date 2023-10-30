@@ -61,7 +61,8 @@ public class Game {
     }
 
     private void printWinner() {
-        String winner = positions.entrySet().stream()
+        String winner = positions.entrySet()
+                .stream()
                 .filter(entry -> entry.getValue() == winnerPosition)
                 .map(Entry::getKey)
                 .map(Car::getName)

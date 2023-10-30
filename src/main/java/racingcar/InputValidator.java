@@ -11,9 +11,7 @@ public class InputValidator {
     }
 
     private static void validateDuplication(String[] names) {
-        int distinctNum = (int) Arrays.stream(names)
-                .distinct()
-                .count();
+        int distinctNum = (int) Arrays.stream(names).distinct().count();
 
         if (distinctNum != names.length) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_DUPLICATED);

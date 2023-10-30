@@ -1,8 +1,6 @@
 package racingcar;
 
-
 import camp.nextstep.edu.missionutils.Console;
-import java.util.Arrays;
 import racingcar.constant.ExceptionMessage;
 
 public class GameBuilder {
