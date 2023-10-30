@@ -11,8 +11,7 @@ public class RacingCar extends Car {
     }
 
     @Override
-    public void moveCar() {
-        int number = Randoms.pickNumberInRange(0,9);
+    public void moveCar(int number) {
         if(number >= 4)
             distanceDriver += DISTANCE_DRIVER;
     }

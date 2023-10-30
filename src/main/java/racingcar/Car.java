@@ -10,7 +10,7 @@ public abstract class Car {
         this.name = name;
     }
 
-    public abstract void moveCar();
+    public abstract void moveCar(int number);
 
     @Override
     public String toString() {
