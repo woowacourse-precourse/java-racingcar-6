@@ -3,8 +3,10 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.OptionalInt;
 
 import static racingcar.Production.*;
+import static racingcar.Production.makeEmptyList;
 import static racingcar.RacingGame.*;
 
 public class Application {
@@ -20,7 +22,8 @@ public class Application {
             if (car.length() > 5)
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
         }
-        List<String> gameSituation = makeGameSituationList(racingCar);
+
+        List<String> gameSituation = makeEmptyList(racingCar.size());
 
         System.out.println("실행 결과");
 
@@ -50,7 +53,8 @@ public class Application {
 
     static int judgeMaxNum(int[] raceResult) {
         // 가장 멀리 간 거리를 계산
-        return Arrays.stream(raceResult).max().getAsInt();
+        return Arrays.stream(raceResult).max()
+                .orElse(-1);
     }
 
     static void judgeWinner(int max, List<String> racingcarList, int[] distanceList) {

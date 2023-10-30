@@ -8,17 +8,6 @@ import static racingcar.Production.*;
 
 public class RacingGame {
 
-    static List<String> makeGameSituationList(List<String> racingCarList) {
-        // 비어있는 게임 현황 리스트 만들기
-        String[] gameSituationArray = new String[racingCarList.size()];
-
-        for (int i = 0; i < racingCarList.size(); i++) {
-            gameSituationArray[i] = "";
-        }
-
-        return Arrays.asList(gameSituationArray);
-    }
-
     static List<String> ifNumIsOver4(List<Integer> randomNumList, List<String> gameSituation) {
         // randomNumList 를 받아서 4 이상인지 판단 후, repeat 함수 호출해서 gameSituation 리스트에 반영하기
         int listLength = randomNumList.size();
