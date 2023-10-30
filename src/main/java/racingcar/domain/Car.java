@@ -5,9 +5,16 @@ public class Car{
     private String name;
     private int forwardCount;
 
-    public Car(String name, int forwardCount){
+    public Car(String name){
+        throwIfInvalidNameLength(name);
         this.name = name;
-        this.forwardCount = forwardCount;
+        this.forwardCount = 0;
+    }
+
+    private void throwIfInvalidNameLength(String name){
+        if(name.length()>5){
+            throw new IllegalArgumentException("Racing car name length cannot be more than 5.");
+        }
     }
 
     public void drive(){

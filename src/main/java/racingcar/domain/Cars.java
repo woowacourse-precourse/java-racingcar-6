@@ -13,9 +13,8 @@ public class Cars{
 
     private List<Car> nameListIntoCarList(List<String> names){
         List<Car> cars= new ArrayList<>();
-        int initialForwardCount=0;
         for (String name : names){
-            cars.add(new Car(name,initialForwardCount));
+            cars.add(new Car(name));
         }
         return cars;
     }
