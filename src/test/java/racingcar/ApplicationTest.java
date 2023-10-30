@@ -24,6 +24,18 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 단독_우승자_출력_확인(){
+        assertRandomNumberInRangeTest(
+                ()  -> {
+                    run("pobi,woni,jun", "2");
+                    assertThat(output()).contains("pobi : -", "woni : --", "jun : -",
+                            "pobi : ---", "woni : -", "jun : ", "최종 우승자 : pobi");
+                },
+                4,5,4,6,4,3
+        );
+    }
+
+    @Test
     void 공동_우승자_출력_확인(){
         assertRandomNumberInRangeTest(
                 ()  -> {
@@ -36,12 +48,29 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void 이름_길이_위반_예외_처리_길이0(){
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 이름_길이_위반_예외_처리_길이0_2(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("jun,,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_길이_위반_예외_처리_길이5_초과(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("jun,pobibi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
     @Override
     public void runMain() {

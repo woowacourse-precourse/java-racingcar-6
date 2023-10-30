@@ -39,14 +39,20 @@ public class Simulation {
 
         for (int i = 0; i < nameArr.length; i++) {
 
-            if (nameArr[i].length() > 5) {
-
-                throw new IllegalArgumentException("이름 자리수 위반");
-            }
+            isException(nameArr[i]);
 
             RacingCar racingCar = new RacingCar(nameArr[i]);
 
             racingCarList.add(racingCar);
+        }
+    }
+
+    private void isException(String name){
+
+
+        if(name.length() < 1 || name.length() > 5) {
+
+            throw new IllegalArgumentException("입력 가능한 자동차 이름 길이 위반");
         }
     }
 
