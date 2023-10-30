@@ -18,7 +18,7 @@ public class FindWinnerController {
         sortedCarByAdvances();
         findWinner();
 
-        return winnerCars;
+        return new ArrayList<>(winnerCars);
     }
 
     private void sortedCarByAdvances(){
