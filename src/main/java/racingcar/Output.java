@@ -37,7 +37,7 @@ public class Output {
         System.out.print(WINNERS);
         for (String winner : winners) {
             if (is_last(winner, winners)) {
-                System.out.print(winner);
+                System.out.println(winner);
                 continue;
             }
             System.out.print(winner+", ");
