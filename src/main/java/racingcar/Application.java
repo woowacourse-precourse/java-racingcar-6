@@ -1,16 +1,20 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.List;
 import java.util.Map;
 
 public class Application {
     public static void main(String[] args) {
-
+      inputCarName();
 
 
     }
-    public String inputCarName(){
-      return null;
+    public static String inputCarName(){
+      System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+      String input = Console.readLine();
+      return input;
     }
 
     public String inputCarNameValidation(String inputCarName){
