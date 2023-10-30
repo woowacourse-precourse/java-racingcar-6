@@ -24,7 +24,7 @@ public class Referee {
     private static List<Car> parsingCarString(String[] carName) {
         List<Car> tempCars = new ArrayList<>();
         for (String name : carName) {
-            if (name.length() > 5 || name.isEmpty()){
+            if (name.length() > 5 || name.isEmpty() || tempCars.stream().map(Car::getName).anyMatch(name::equals)) {
                 throw new IllegalArgumentException();
             }
             Car car = new Car();
