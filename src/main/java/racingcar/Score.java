@@ -26,10 +26,9 @@ public class Score {
         }
     }
 
-    public void printResult(){
-        for (int i : score){
-            System.out.println(i);
+    public void printResult(int memberNum){
+        for (int i=0;i<score.get(memberNum);i++){
+            System.out.print("-");
         }
-
     }
 }
