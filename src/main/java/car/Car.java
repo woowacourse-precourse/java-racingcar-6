@@ -13,4 +13,10 @@ public class Car {
         return name;
     }
 
+    public int getCount(){
+        return count;
+    }
+
+
+
 }

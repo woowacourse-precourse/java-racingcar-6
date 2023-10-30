@@ -14,4 +14,13 @@ public class CarTest {
 
         assertThat(result).isEqualTo("TestCar");
     }
+
+    @Test
+    public void testGetCount(){
+        Car car = new Car("TestCar");
+
+        int result = car.getCount();
+
+        assertThat(result).isEqualTo(0);
+    }
 }
