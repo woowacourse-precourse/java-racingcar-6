@@ -1,5 +1,6 @@
 ### 구현할 기능 목록
 
+- [ ] skeleton code 만들기
 - 자동차 클래스 
   - [x] 필드 추가 및 getter, setter 추가
 - 경주 클래스
