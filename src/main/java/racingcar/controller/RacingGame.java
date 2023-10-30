@@ -9,36 +9,46 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
+    private List<Car> cars;
+
     public void start() {
         List<String> racingCarNames = InputView.readRacingCarName();
-        List<Car> cars = new ArrayList<>();
+        Long tryCount = InputView.readTryCount();
 
+        cars = createCars(racingCarNames);
+
+        OutputView.printResultMessage();
+        printResult(tryCount);
+
+        List<Car> winners = findWinner();
+        OutputView.printWinners(winners);
+    }
+
+    private List<Car> createCars(List<String> racingCarNames) {
         Validator.validateIsDuplicate(racingCarNames);
+
+        List<Car> cars = new ArrayList<>();
         for (String name : racingCarNames) {
             cars.add(new Car(name, new RandomNumberGenerator()));
         }
 
-        Long tryCount = InputView.readTryCount();
-
-        OutputView.printResultMessage();
-        for (int i = 0; i < tryCount; i++) {
-            tryToMoveCars(cars);
-            OutputView.printResult(cars);
-        }
-
-        List<Car> winners = findWinner(cars);
-
-        OutputView.printWinners(winners);
-
+        return cars;
     }
 
-    private void tryToMoveCars(List<Car> cars) {
+    private void printResult(Long tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            tryToMoveCars();
+            OutputView.printResult(cars);
+        }
+    }
+
+    private void tryToMoveCars() {
         for (Car car : cars) {
             car.moveOrStay();
         }
     }
 
-    private List<Car> findWinner(List<Car> cars) {
+    private List<Car> findWinner() {
         List<Car> winners = new ArrayList<>();
         Car maxCar = cars.get(0);
 
