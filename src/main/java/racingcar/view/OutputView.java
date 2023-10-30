@@ -4,7 +4,7 @@ import java.util.List;
 import racingcar.domain.RacingPlayer;
 
 public class OutputView {
-    public void outputWinners(List<RacingPlayer> players){
+    public void outputRaceProgress(List<RacingPlayer> players){
         for(RacingPlayer player : players) {
             StringBuilder score = new StringBuilder();
 
