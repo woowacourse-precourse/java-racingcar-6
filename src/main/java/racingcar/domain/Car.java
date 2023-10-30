@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Car {
+	private static final int MOVE_STANDARD = 4;
 	private final String name;
 	private Position position;
 
@@ -8,12 +9,23 @@ public class Car {
 		this.name = name;
 		this.position = new Position();
 	}
-	public String getName() {
-		return name;
+
+	public void race(Car car) {
+		if (isMovable(getRandomNumber())) {
+			car.position.move();
+		}
 	}
 
-	public void move() {
-		position.move();
+	private int getRandomNumber() {
+		return RandomNumberFactory.createRandomNumber();
+	}
+
+	private boolean isMovable (int number) {
+		return number >= MOVE_STANDARD;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public int getCurrentPosition() {

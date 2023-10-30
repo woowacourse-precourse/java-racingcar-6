@@ -18,11 +18,11 @@ public class Controller {
 	}
 
 	public void run() {
-		setGame();
+		setRace();
 		OutputView.printResultMessage();
 		do {
-			service.tryOnce(racingCar, tryNumber);
-			OutputView.printTryResult(racingCar);
+			service.tryRace(racingCar, tryNumber);
+			OutputView.printResult(racingCar);
 		} while(isTryable());
 	}
 
@@ -30,7 +30,7 @@ public class Controller {
 		return tryNumber.isTryable();
 	}
 
-	private void setGame() {
+	private void setRace() {
 		setCar();
 		setTryNumber();
 	}
