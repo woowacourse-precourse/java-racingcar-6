@@ -23,7 +23,7 @@ public class RacingOutputView implements OutputView {
 
     private void printRacingResult(List<Car> cars) {
         for (Car car : cars) {
-            System.out.println(car.getName()
+            System.out.println(car.getName() + " : "
                     + convertDistance(car.getDistance()));
         }
     }
