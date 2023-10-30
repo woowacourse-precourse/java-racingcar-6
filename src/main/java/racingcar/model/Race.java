@@ -14,12 +14,16 @@ public class Race {
     }
 
     private void setCarList(String inputCarNames) {
-        String[] carNameArray = inputCarNames.split(",");
-        List<String> carNames = List.of(carNameArray);
+        List<String> carNames = makeStringToList(inputCarNames);
         for (String carName : carNames) {
             Car newCar = new Car(carName);
             carList.add(newCar);
         }
+    }
+
+    private List<String> makeStringToList(String input) {
+        String[] nameArray = input.split(",");
+        return List.of(nameArray);
     }
 
     public List<String> getCarNames() {
