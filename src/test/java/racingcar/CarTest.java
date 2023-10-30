@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.RacingCarTestConstants.MOVING_FORWARD;
 
 public class CarTest {
 
@@ -16,7 +17,7 @@ public class CarTest {
                     car.movingForward();
                     assertThat(car.getDistance()).isEqualTo(1);
                 },
-                4
+                MOVING_FORWARD
         );
     }
 }

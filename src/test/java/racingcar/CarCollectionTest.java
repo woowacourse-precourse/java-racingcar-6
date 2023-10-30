@@ -10,6 +10,8 @@ import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.RacingCarTestConstants.MOVING_FORWARD;
+import static racingcar.RacingCarTestConstants.STOP;
 
 public class CarCollectionTest {
     @Test
@@ -41,7 +43,7 @@ public class CarCollectionTest {
                         assertThat(car.getDistance()).isEqualTo(1);
                     }
                 },
-                4, 4, 4
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
@@ -63,7 +65,7 @@ public class CarCollectionTest {
                     String captured = outputStream.toString().trim();
                     assertThat(captured).contains("car1 : -", "car2 :");
                 },
-                4, 3
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -82,7 +84,7 @@ public class CarCollectionTest {
 
                     assertThat(maxDistance).isEqualTo(1);
                 },
-                4, 3, 4
+                MOVING_FORWARD, STOP, MOVING_FORWARD
         );
     }
 
@@ -102,7 +104,7 @@ public class CarCollectionTest {
 
                     assertThat(winners).contains("car1", "car3");
                 },
-                4, 3, 4
+                MOVING_FORWARD, STOP, MOVING_FORWARD
         );
     }
 
@@ -126,7 +128,7 @@ public class CarCollectionTest {
                     String captured = outputStream.toString().trim();
                     assertThat(captured).contains("최종 우승자 : car1, car3");
                 },
-                4, 3, 4
+                MOVING_FORWARD, STOP, MOVING_FORWARD
         );
     }
 

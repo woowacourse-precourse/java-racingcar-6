@@ -9,6 +9,8 @@ import java.io.PrintStream;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.RacingCarTestConstants.MOVING_FORWARD;
+import static racingcar.RacingCarTestConstants.STOP;
 
 public class GameTest {
 
@@ -30,7 +32,7 @@ public class GameTest {
                     String captured = outputStream.toString().trim();
                     assertThat(captured).contains("car1 : -", "car2 : -", "car3 : ", "최종 우승자 : car1, car2");
                 },
-                4, 4, 3
+                MOVING_FORWARD, MOVING_FORWARD, STOP
         );
     }
 }
