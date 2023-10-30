@@ -20,12 +20,24 @@ public class RacingCarGameController {
 
     public void startGame(List<Car> carList, String racingRoundTimes) {
         roundProgress(carList, Integer.parseInt(racingRoundTimes));
-        caculateScore(carList);
+        caculateGameResult(carList);
     }
 
-    public void caculateScore(List<Car> carList) {
-        // 계산하는 부분
-        OutView.printWinnerCar(carList);
+    public void caculateGameResult(List<Car> carList) {
+        List<String> winnerList = new ArrayList<>();
+        int max=0;
+
+        for (Car car : carList) {
+            if (car.getStepCount() > max) {
+                max = car.getStepCount();
+                winnerList.clear();
+                winnerList.add(car.getName());
+            }
+            if (car.getStepCount() <= max && car.getStepCount() == max) {
+                winnerList.add(car.getName()); // 같은 숫자가 나타나면 리스트에 추가
+            }
+        }
+        OutView.printWinnerCar(winnerList);
     }
 
     public List<Car> createRacingCar(List<String> carNameList) {
