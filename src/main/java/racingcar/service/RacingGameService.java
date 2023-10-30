@@ -1,6 +1,8 @@
 package racingcar.service;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -28,7 +30,8 @@ public class RacingGameService {
     public String checkWinner(Map<String, Integer> position, int count) {
         List<String> winners = new ArrayList<>();
         Set<String> cars = position.keySet();
-        cars.stream().filter(car -> position.get(car) == count)
+        int maxPosition = Collections.max(position.values());
+        cars.stream().filter(car -> position.get(car) == maxPosition)
                 .forEach(car -> winners.add(car));
         return String.join(", ", winners);
     }
