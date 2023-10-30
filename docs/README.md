@@ -3,8 +3,11 @@
 
 ## 자동차 정보 `Car` 클래스
 - 목적: 자동차 이름, 위치 정보 저장
-- Field: 이름(`String`), 위치(`Integer`), 숫자 판별(`Numbers`)
-- Method: 차종별 시도(`void` &rarr; `void`), 차종별 출력(`void` &rarr; `void`)
+- Field이름(`String`), 위치(`Integer`), 숫자 판별(`Numbers`)
+- Method
+  - 차종별 시도(`void` &rarr; `void`)
+  - 차종별 움직임 출력(`void` &rarr; `void`)
+  - 차종별 이름 get(`void` &rarr; `String`)
 
 ### 차종별 출력
 `this.name` : `"-".repeat(this.position)` 꼴로 출력
