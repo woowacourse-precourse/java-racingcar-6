@@ -40,6 +40,15 @@ public class RacingGame {
         consoleProcessor.closeConsole();
     }
 
+    private void playRound() {
+        scoreBoard.forEach((key, value) -> {
+            int count = regulateCount(Randoms.pickNumberInRange(0, 9));
+            consoleProcessor.printRoundScore(key.getName(), count);
+            scoreBoard.put(key, value + count);
+        });
+        consoleProcessor.printNewLine();
+    }
+
     private List<String> getWinners(final Map<Car, Integer> scoreBoard) {
         final int maxCount = scoreBoard.values().stream()
                 .max(Integer::compareTo)
@@ -48,15 +57,6 @@ public class RacingGame {
                 .filter(entry -> entry.getValue() >= maxCount)
                 .map(entry -> entry.getKey().getName())
                 .toList();
-    }
-
-    private void playRound() {
-        scoreBoard.forEach((key, value) -> {
-            int count = regulateCount(Randoms.pickNumberInRange(0, 9));
-            consoleProcessor.printRoundScore(key.getName(), count);
-            scoreBoard.put(key, value + count);
-        });
-        consoleProcessor.printNewLine();
     }
 
     private int regulateCount(final int count) {
