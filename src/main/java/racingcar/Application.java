@@ -22,7 +22,7 @@ public class Application {
         String countInput = Console.readLine();
         int count;
         try {
-             count = Integer.parseInt(countInput);
+            count = Integer.parseInt(countInput);
             if (count == 0) throw new IllegalArgumentException("0 이외의 숫자를 입력해주세요");
 
         } catch (NumberFormatException e) {
@@ -30,10 +30,10 @@ public class Application {
         }
 
         System.out.println("실행 결과");
-        for (int i = 0; i < count ; i ++){
-            for (Map.Entry<String, String> car: carList.entrySet()){
+        for (int i = 0; i < count; i++) {
+            for (Map.Entry<String, String> car : carList.entrySet()) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
-                if(randomNumber >= 4) car.setValue(car.getValue() + "-");
+                if (randomNumber >= 4) car.setValue(car.getValue() + "-");
                 System.out.println(car.getKey() + " : " + car.getValue());
             }
             System.out.println();
@@ -47,7 +47,7 @@ public class Application {
         int max = carList.get(firstWinner).length();
         System.out.print(firstWinner);
 
-        for (int i = 1; i < carNameByKeyDesc.size(); i++){
+        for (int i = 1; i < carNameByKeyDesc.size(); i++) {
             String carName = carNameByKeyDesc.get(i);
             if (carList.get(carName).length() != max) break;
             System.out.print(", " + carName);
