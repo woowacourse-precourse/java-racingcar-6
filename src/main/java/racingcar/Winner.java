@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Winner {
     List<Car> cars;
-    List<Car> maxCars = new ArrayList<>();
+    List<String> maxCars = new ArrayList<>();
 
     public Winner(List<Car> cars){
         this.cars = cars;
     }
 
-    public List<Car> whoIsWinner(){
+    public List<String> whoIsWinner(){
         int max = 0;
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
@@ -23,7 +23,7 @@ public class Winner {
         for (int i = 0; i < cars.size(); i++) {
             Car car = cars.get(i);
             if(car.getDistance()==max){
-                maxCars.add(car);
+                maxCars.add(car.getName());
             }
         }
 

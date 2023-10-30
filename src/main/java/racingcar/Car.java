@@ -1,20 +1,17 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import static camp.nextstep.edu.missionutils.Randoms.*;
 
 public class Car {
     private int distance = 0;
-    private String name;
+    private final String name;
 
     public Car(String name){
         this.name = name;
     }
 
     public void goStop(){
-        int randomNumber = pickNumberInRange(0,9);
-        if(randomNumber>4) distance++;
+        if(pickNumberInRange(0,9) >= 4) distance++;
     }
 
     public String getName(){
@@ -25,7 +22,4 @@ public class Car {
         return distance;
     }
 
-    public void setDistance(){
-        distance++;
-    }
 }
