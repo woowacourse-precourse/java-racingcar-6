@@ -9,6 +9,12 @@ public class Car {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return name + " : "
+                + "-".repeat(Math.max(0, distance));
+    }
+
     public String getName() {
         return name;
     }
