@@ -47,13 +47,18 @@ public class RacingCarController {
     }
     public void run() {
         List<String> carList = car.getCarList();
+        StringBuilder sb;
         outputView.result();
         int moveSize = user.getMoveSize();
         while(moveSize--> 0) {
+            sb = new StringBuilder();
             move();
-            outputView.moveResult(carMap, carList);
+            outputView.moveResult(carMap, carList,sb);
+            outputView.printBuilder(sb);
         }
         outputView.winner();
-        outputView.winnerList(winner());
+        sb = new StringBuilder();
+        outputView.winnerList(winner(),sb);
+        outputView.printBuilder(sb);
     }
 }

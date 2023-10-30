@@ -20,18 +20,22 @@ public class OutputView {
     public void winner() {
         System.out.print(WINNER);
     }
-    public void moveResult(Map<String,Integer> carMap, List<String> carList) {
+    public StringBuilder moveResult(Map<String,Integer> carMap, List<String> carList,StringBuilder sb) {
         for (String car : carList) {
-            System.out.print(car + " : ");
-            for(int i=0;i<carMap.get(car);i++){
-                System.out.print(HYPHEN);
+            sb.append(car).append(" : ");
+            for (int i = 0; i < carMap.get(car); i++) {
+                sb.append(HYPHEN);
             }
-            System.out.println();
+            sb.append("\n");
         }
-        System.out.println();
+        return sb;
     }
-    public void winnerList(List<String> winnerList){
+    public StringBuilder winnerList(List<String> winnerList, StringBuilder sb){
         String str = winnerList.toString().replaceAll(SQUARE_BRACKET_ELIMINATE, EMPTY);
-        System.out.println(str);
+        sb.append(str);
+        return sb;
+    }
+    public void printBuilder(StringBuilder sb) {
+        System.out.println(sb);
     }
 }
