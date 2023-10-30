@@ -16,9 +16,7 @@ class CarsTest {
     @DisplayName("Cars 생성 성공 테스트")
     @Test
     void createCarsSuccessTest() {
-        List<CarName> carNames = Stream.of("a", "b", "c")
-                .map(CarName::new)
-                .toList();
+        List<CarName> carNames = Stream.of("a", "b", "c").map(CarName::new).toList();
 
         Cars cars = Cars.createByNames(carNames);
 
@@ -28,9 +26,7 @@ class CarsTest {
     @DisplayName("Cars 생성 실패 테스트 - 중복")
     @Test
     void createCarsFailTest_1() {
-        List<CarName> carNames = Stream.of("a", "a", "c")
-                .map(CarName::new)
-                .toList();
+        List<CarName> carNames = Stream.of("a", "a", "c").map(CarName::new).toList();
 
         assertThrows(IllegalArgumentException.class, () -> Cars.createByNames(carNames));
     }
@@ -48,9 +44,7 @@ class CarsTest {
     void carsGoForwardTest() {
 
         List<String> names = List.of("a", "b", "c");
-        List<CarName> carNames = names.stream()
-                .map(CarName::new)
-                .toList();
+        List<CarName> carNames = names.stream().map(CarName::new).toList();
 
         Cars cars = Cars.createByNames(carNames);
 
@@ -62,5 +56,20 @@ class CarsTest {
 
             assertThat(position).isGreaterThanOrEqualTo(0);
         }
+    }
+
+    @DisplayName("Cars getWinningCarNames 테스트")
+    @Test
+    void carsGetWinningCarNamesTest() {
+        List<String> names = List.of("a", "b", "c");
+        List<CarName> carNames = names.stream().map(CarName::new).toList();
+
+        Cars cars = Cars.createByNames(carNames);
+
+        cars.goForward();
+
+        List<String> winningCarNames = cars.getWinningCarNames();
+
+        assertThat(names.containsAll(winningCarNames)).isTrue();
     }
 }
