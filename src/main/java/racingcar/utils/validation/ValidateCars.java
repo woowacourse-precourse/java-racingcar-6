@@ -1,11 +1,10 @@
 package racingcar.utils.validation;
 
-import static racingcar.config.Constants.NAME_MAX_LENGTH;
-
 import java.util.HashSet;
 import java.util.Set;
 
 public class ValidateCars extends Validator {
+    private static final int NAME_MAX_LENGTH = 5;
     private static final String errorMessage = String.format(
             "이름은 %d글자 이하로 입력해주세요. 쉼표(,)를 이용해서 여러 개 입력할 수 있습니다. 공백은 허용하지 않습니다.", NAME_MAX_LENGTH);
 
