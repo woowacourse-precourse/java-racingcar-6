@@ -25,4 +25,13 @@ public class LogicTest {
         car2 = new Car("수현",1);
         carsList.add(car1); carsList.add(car2);
     }
+
+    @Test
+    public void 한칸이동테스트() {
+        // when
+        car1.increaseCarLocation();
+
+        // then
+        Assertions.assertThat(car1.getLocation()).isEqualTo(1);
+    }
 }
