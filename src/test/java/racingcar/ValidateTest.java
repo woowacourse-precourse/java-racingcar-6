@@ -1,8 +1,10 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import validate.InputValidation;
 
 import static org.assertj.core.api.Assertions.*;
+import static validate.InputValidation.*;
 import static validate.InputValidation.validateNumericInput;
 import static validate.InputValidation.validateInputLengthExceeded;
 
@@ -24,5 +26,14 @@ public class ValidateTest {
         assertThatThrownBy(() -> validateInputLengthExceeded(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차의 이름은 5글자를 초과할 수 없습니다.");
+     }
+
+     @Test
+    public void validateInputIsEmpty_입력된_자동차의_이름이_공백일때_예외_발생() {
+        String name = "";
+
+         assertThatThrownBy(() -> validateInputIsEmpty(name))
+                 .isInstanceOf(IllegalArgumentException.class)
+                 .hasMessageContaining("자동차의 이름은 공백일 수 없습니다.");
      }
 }
