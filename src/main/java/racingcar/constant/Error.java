@@ -6,9 +6,13 @@ public enum Error {
     BLANKINPUT("Input value cannot be blank."),
     EXCEEDNAME("The car name cannot be longer than 5 characters.");
 
-    Error(String message) {
+    private String message;
 
+    Error(String message) {
+        this.message = message;
     }
 
-
+    public String getMessage() {
+        return message;
+    }
 }

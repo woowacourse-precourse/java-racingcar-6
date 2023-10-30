@@ -1,4 +1,4 @@
 package racingcar.constant;
 
-public class JudgmentCriteria {
+public enum JudgmentCriteria {
 }
