@@ -1,6 +1,7 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static racingcar.constant.RaceSetting.MIN_MOVE_NUMBER;
+import static racingcar.constant.RaceSetting.MOVE_NUMBER;
 
 public class Car {
     private final String name;
@@ -11,8 +12,14 @@ public class Car {
         this.distance = 0;
     }
 
-    public void move() {
-        distance += Randoms.pickNumberInRange(0, 9);
+    public void run(int number) {
+        if (move(number)) {
+            distance += MOVE_NUMBER.getValue();
+        }
+    }
+
+    private boolean move(int number) {
+        return number >= MIN_MOVE_NUMBER.getValue();
     }
 
     public String getName() {

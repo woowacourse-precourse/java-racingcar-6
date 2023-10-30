@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Cars {
@@ -11,7 +12,8 @@ public class Cars {
 
     public void run() {
         for (Car car : cars) {
-            car.move();
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            car.run(randomNumber);
         }
     }
 
