@@ -9,7 +9,7 @@ public class OutputView {
     }
 
     public void printMoveResult(Car car) {
-        System.out.println(car.getName() + Output.SEPARATOR + car.getDistance());
+        System.out.println(car.getName() + Output.SEPARATOR.getComment() + car.getDistance());
     }
 
 }
