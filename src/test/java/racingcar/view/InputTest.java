@@ -14,7 +14,7 @@ class InputTest {
     Input input = new Input();
 
     @Test
-    void Input_자동차의_이름들을_입력받는다(){
+    void Input_자동차의_이름들을_입력(){
         String text = "pobi,hash,neo";
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
