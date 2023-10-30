@@ -4,27 +4,24 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.UserInputException;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.in;
-import static org.junit.jupiter.api.Assertions.*;
 
-class CarsTest {
+class UserInputCarNameTest {
     private UserInputException userInputException;
-    private Cars cars;
+    private UserInputCarName userInputCarName;
     @BeforeEach
     void setUp(){
         userInputException = new UserInputException();
     }
     @Test
     void 리스트_잘_나오는지_확인(){
-        String input = "pobi";
+        String input = "pobi,woni,jun";
         List<String> answer = Arrays.asList(input.split(","));
-        Cars cars = new Cars();
-        List<String> result = cars.createCarName(input);
+        UserInputCarName userInputCarName = new UserInputCarName();
+        List<String> result = userInputCarName.createCarName(input);
         assertThat(result).isEqualTo(answer);
 
     }

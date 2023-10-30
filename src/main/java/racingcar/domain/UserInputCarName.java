@@ -5,7 +5,7 @@ import racingcar.exception.UserInputException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cars {
+public class UserInputCarName {
     private static List<String> carName = new ArrayList<>();
     private UserInputException userInputException;
 
