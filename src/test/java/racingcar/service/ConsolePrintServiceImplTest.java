@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
@@ -16,21 +17,21 @@ class ConsolePrintServiceImplTest extends NsTest {
     @Test
     void printInputNameNotice() {
         printService.printInputNameNotice();
-        assertThat(output()).isEqualTo(OutputSentence.INPUT_NAME_NOTICE.getSentence());
+        assertThat(output()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     @DisplayName("횟수 입력 안내 문구 출력")
     @Test
     void printInputCountNotice() {
         printService.printInputCountNotice();
-        assertThat(output()).isEqualTo(OutputSentence.INPUT_COUNT_NOTICE.getSentence());
+        assertThat(output()).isEqualTo("시도할 회수는 몇회인가요?");
     }
 
     @DisplayName("실행 결과 문구 출력")
     @Test
     void printResultNotice() {
         printService.printResultNotice();
-        assertThat(output()).isEqualTo(OutputSentence.RESULT_NOTICE.getSentence());
+        assertThat(output()).isEqualTo("실행 결과");
     }
 
     @DisplayName("게임 결과 출력")
