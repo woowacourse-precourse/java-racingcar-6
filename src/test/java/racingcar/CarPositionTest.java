@@ -20,4 +20,12 @@ public class CarPositionTest {
         CarPosition pos = new CarPosition();
         Assertions.assertThat(pos.toInt()).isEqualTo(0);
     }
+
+    @Test
+    @DisplayName("자동차 위치 움직임 테스트")
+    void 자동차_움직임_테스트(){
+        CarPosition pos = new CarPosition();
+        pos.moveByDistance(1);
+        Assertions.assertThat(pos.toInt()).isEqualTo(1);
+    }
 }
