@@ -50,8 +50,8 @@ public class RacingCarGameInput {
             if (car.getName().length() > 5) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_BIGGER_THAN_5CHAR);
             }
-            if (car.getName().isEmpty()){
-               throw new IllegalArgumentException(ERROR_MESSAGE_EMPTY);
+            if (car.getName().isEmpty()) {
+                throw new IllegalArgumentException(ERROR_MESSAGE_EMPTY);
             }
         }
         return true;
