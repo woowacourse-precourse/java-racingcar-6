@@ -7,10 +7,10 @@ import racingcar.dto.RacingResult;
 import racingcar.dto.RacingRoundResult;
 
 public class RacingCarOutputView {
-    public static final String RACING_EXECUTE_MESSAGE = "실행 결과";
-    public static final String EACH_RACING_RESULT_FORMAT = "%s : %s";
-    public static final String DELIMITER = ", ";
-    public static final String FINAL_WINNERS_MESSAGE = "최종 우승자 : ";
+    private static final String RACING_EXECUTE_MESSAGE = "실행 결과";
+    private static final String EACH_RACING_RESULT_FORMAT = "%s : %s";
+    private static final String DELIMITER = ", ";
+    private static final String FINAL_WINNERS_MESSAGE = "최종 우승자 : ";
 
     public void printStartMessage() {
         System.out.println(RACING_EXECUTE_MESSAGE);
