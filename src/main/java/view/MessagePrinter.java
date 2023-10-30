@@ -1,6 +1,9 @@
 package view;
 
+import java.util.List;
+import service.Car;
 import util.ProgressMessage;
+import vo.Cars;
 
 public class MessagePrinter {
     static ProgressMessage start = ProgressMessage.START;
@@ -22,5 +25,25 @@ public class MessagePrinter {
 
     public static void winner() {
         System.out.println(winner.getMessage());
+    }
+
+    public static void racing(Cars cars){
+        List<Car> car = cars.getCar();
+        car.forEach(i -> {
+            name(i);
+            distance(i);
+        });
+        System.out.println();
+    }
+
+    public static void name(Car car){
+        System.out.print(car.getName() + " : ");
+    }
+
+    public static void distance(Car car){
+        for (int j = 0; j < car.getDistance(); j++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
