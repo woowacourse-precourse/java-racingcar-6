@@ -11,19 +11,13 @@ public class RacingGameView {
     private static final String INPUT_FOR_ATTEMPTS = "시도할 회수는 몇회인가요?";
     private static final String FINAL_WINNERS_MESSAGE = "최종 우승자 : ";
 
-    public void inputForCarNames() {
+    public String readCarNamesFromConsole() {
         System.out.println(INPUT_FOR_CAR_NAMES);
-    }
-
-    public void inputForAttempts(){
-        System.out.println(INPUT_FOR_ATTEMPTS);
-    }
-
-    public String readStringFromConsole() {
         return Console.readLine();
     }
 
-    public int convertIntFromConsoleStringInput() {
+    public int convertAttemptsToIntFromConsoleStringInput() {
+        System.out.println(INPUT_FOR_ATTEMPTS);
         String input = Console.readLine();
         return Integer.parseInt(input);
     }

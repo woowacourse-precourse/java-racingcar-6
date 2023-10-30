@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.RacingGameModel;
 import racingcar.view.RacingGameView;
 
@@ -17,11 +16,8 @@ public class RacingGameController {
     }
 
     public void startRacingGame() {
-        view.inputForCarNames();
-        String carNames = view.readStringFromConsole();
-
-        view.inputForAttempts();
-        int attempts = view.convertIntFromConsoleStringInput();
+        String carNames = view.readCarNamesFromConsole();
+        int attempts = view.convertAttemptsToIntFromConsoleStringInput();
 
         model = new RacingGameModel(carNames);
 
