@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.domain.Winner;
 import racingcar.dto.CarDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -72,7 +73,8 @@ public class RaceController {
     }
 
     private void printFinalWinner() {
-        List<String> winners = cars.findWinners();
+        Winner winner = new Winner(cars);
+        List<String> winners = winner.findWinners();
         outputView.printFinalWinner(winners);
     }
 }

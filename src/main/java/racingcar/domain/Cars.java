@@ -52,24 +52,6 @@ public class Cars {
                 .forEach(car -> car.goOrStop(RandomNumberGenerator.generateRandomNumber()));
     }
 
-    public List<String> findWinners() {
-        Car maxPositionCar = findMaxPositionCar();
-        return findMaxPositionCarList(maxPositionCar);
-    }
-
-    private Car findMaxPositionCar() {
-        return cars.stream()
-                .max(Car::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException());
-    }
-
-    private List<String> findMaxPositionCarList(Car maxPositionCar) {
-        return cars.stream()
-                .filter(car -> maxPositionCar.isSamePosition(car))
-                .map(Car::getName)
-                .toList();
-    }
-
     public List<Car> getCars() {
         return cars;
     }
