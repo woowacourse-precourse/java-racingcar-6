@@ -17,14 +17,18 @@ import java.util.stream.Collectors;
 public class RacingGame {
     private List<Car> cars;
     private int attemptCount;
+    private OutputView outputView;
 
-    public RacingGame(List<Car> cars, int attemptCount) {
+    public RacingGame(List<Car> cars, int attemptCount, OutputView outputView) {
         this.cars = cars;
         this.attemptCount = attemptCount;
+        this.outputView = outputView;
     }
 
     public void gameStart() {
-        System.out.print(PRINT_RESULT_MESSAGE);
+        outputView.lineBreak();
+        outputView.print(PRINT_RESULT_MESSAGE);
+        outputView.lineBreak();
         while (attemptCount-- >= MIN_ATTEMPT_COUNT) {
             moveCars();
             printResult();
@@ -43,26 +47,26 @@ public class RacingGame {
 
     private void printResult() {
         cars.forEach(car -> {
-            System.out.print(car.getName() + PRINT_DISTANCE_SEPARATOR);
+            outputView.print(car.getName() + PRINT_DISTANCE_SEPARATOR);
             for (int i = 0; i < car.getDistance(); i++) {
-                System.out.print(DISTANCE);
+                outputView.print(DISTANCE);
             }
-            System.out.println();
+            outputView.lineBreak();
         });
-        System.out.println();
+        outputView.lineBreak();
     }
 
     private void printWinner() {
         int winnerDistance = getMaxDistance();
 
-        System.out.print(FINAL_WINNER_MESSAGE);
+        outputView.print(FINAL_WINNER_MESSAGE);
         List<String> winners = cars.stream()
                 .filter(car -> car.getDistance() == winnerDistance)
                 .map(Car::getName)
                 .collect(Collectors.toList());
 
         String result = String.join(RESULT_JOIN_SEPARATOR, winners);
-        System.out.println(result);
+        outputView.print(result);
     }
 
     private int getMaxDistance() {
