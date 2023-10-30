@@ -61,13 +61,13 @@ public class Game {
         validateCarDistinct(cars);
     }
 
-    private static void validateListNotEmpty(List<String> cars) {
+    private void validateListNotEmpty(List<String> cars) {
         if (cars.isEmpty()) {
             throw new IllegalArgumentException(NO_CAR_INPUT);
         }
     }
 
-    private static void validateCarDistinct(List<String> cars) {
+    private void validateCarDistinct(List<String> cars) {
         long distinctCars = cars.stream()
                 .distinct()
                 .count();
