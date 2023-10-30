@@ -4,16 +4,18 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Console;
 public class Function {
 	
-	public static String check() {
+	public static boolean check() {
 		int number= Randoms.pickNumberInRange(0,9);
-		String result= "";
+		boolean result= false;
 		
 		if(number>=4) {
-			result= "-";
+			result= true;
 		}
 		return result;
 	}
@@ -29,13 +31,21 @@ public class Function {
 		
 		return number;
 	}
-	public static void run(int count, ArrayList<String> carName) {
+	public static Map<String, Integer> run(int count, ArrayList<String> carName) {
+//		map에 이름:횟수 저장후 출력메서드 따로 만들기
+		Map<String, Integer> result= new LinkedHashMap<String, Integer>();
 		for(String name:carName) {
-			String result= name+" : ";
-			for(int i=0; i< count; i++) {
-				result+= check();
-			}
-			System.out.println(result);
+			result.put(name,eachRun(count));
 		}
+		return result;
+	}
+	public static int eachRun(int count) {
+		int result= 0;
+		for(int i= 0; i<count; i++) {
+			if(check()) {
+				result+=1;
+			}
+		}
+		return result;
 	}
 }
