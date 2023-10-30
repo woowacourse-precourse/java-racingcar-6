@@ -30,6 +30,5 @@ public class UserInput {
         String userInput = Console.readLine();
         inputValidator.gameCount(userInput);
         race.saveGameCount(userInput);
-        Console.close();
     }
 }

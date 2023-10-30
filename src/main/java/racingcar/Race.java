@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.userinput.UserInput;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class Race {
         System.out.println(START_RACE);
         userInput.inputCarNames();
         userInput.inputGameCount();
-        play();
+        Console.close();
     }
 
     public void createCar(String carName) {
@@ -41,7 +42,7 @@ public class Race {
         return countEqualNames > NOT_HAVE_SAME_NAMES;
     }
 
-    private void play() {
+    public void play() {
 
         System.out.println();
         System.out.println(PLAY_OUTPUT);
