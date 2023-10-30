@@ -4,6 +4,7 @@ public class Car{
 
     private String name;
     private int forwardCount;
+    private int randomNumber;
 
     public Car(String name){
         throwIfInvalidNameLength(name);
@@ -18,15 +19,18 @@ public class Car{
     }
 
     public void drive(){
-
+        this.randomNumber = NumberGenerator.createRandomNumber();
+        if(isGoingForward(randomNumber)){
+            this.forwardCount++;
+        }
     }
 
-    public boolean isGoingForward(){
-        return false;
+    private boolean isGoingForward(int number){
+        return number>=4;
     }
 
-    public String printCarState(){
-        return "";
+    public void printCarState(){
+
     }
 
     public String getName(){
