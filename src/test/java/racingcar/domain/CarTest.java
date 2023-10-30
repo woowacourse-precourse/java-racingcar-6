@@ -76,7 +76,7 @@ class CarTest {
     @DisplayName("자동차가 현재 위치를 알려줄 수 있다.")
     void 자동차_위치(){
         //given
-        int distance=3;
+        String distance="---";
 
         //when
         car1.moveForward();
@@ -98,7 +98,7 @@ class CarTest {
         car1.clear();
 
         //then
-        Assertions.assertThat(car1.located()).isEqualTo(0);
+        Assertions.assertThat(car1.located()).isEqualTo("");
     }
 
 }

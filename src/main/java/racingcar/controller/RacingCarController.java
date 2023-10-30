@@ -25,8 +25,8 @@ public class RacingCarController {
     }
 
     private void repeat(int count){
+        System.out.println("실행 결과");
         for(int num=0;num<count;num++){
-            System.out.println("실행 결과");
             startForEach();
             System.out.println();
         }
