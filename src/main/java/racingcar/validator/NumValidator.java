@@ -3,7 +3,7 @@ package racingcar.validator;
 import static racingcar.validator.Constants.*;
 
 public class NumValidator {
-    public final String NUM;
+    public static String NUM = null;
 
     public NumValidator(String num) {
         NUM = num;

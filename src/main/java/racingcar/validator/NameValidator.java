@@ -9,7 +9,7 @@ public class NameValidator {
     //이름의 길이가 맞지 않는 경우
     //공백을 입력한 경우
     public final String NAMESTRING;
-    public final ArrayList<String> NAMES;
+    public static ArrayList<String> NAMES = null;
 
     public NameValidator(String namestring) {
         this.NAMESTRING = namestring;

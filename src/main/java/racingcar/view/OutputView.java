@@ -8,7 +8,7 @@ import java.util.List;
 import static racingcar.validator.Constants.*;
 
 public class OutputView {
-    public void printResult(){
+    public static void printResult(){
         System.out.println("실행 결과 ");
 
     }
