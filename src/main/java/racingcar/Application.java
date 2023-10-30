@@ -26,7 +26,7 @@ public class Application {
         int attemptsNumber = converter.wordToInt(attemptsString);
         System.out.println();
         System.out.println(RUN_RESULT_START_MESSAGE);
-        movingStatus.printRaceStatus(attemptsNumber, carNameHashMap);
+        movingStatus.printRaceResult(attemptsNumber, carNameHashMap);
 
         int largestMove = 0;
         for (Entry<String, String> element : carNameHashMap.entrySet()) {

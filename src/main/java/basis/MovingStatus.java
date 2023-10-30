@@ -11,17 +11,21 @@ import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
 public class MovingStatus {
-    public void printRaceStatus(int attemptsNumber, LinkedHashMap<String, String> carNameHashMap) {
-        for (int i = 0; i < attemptsNumber; i++) {
-            for (Entry<String, String> element : carNameHashMap.entrySet()) {
-                String move = decideMove();
-                String originalValue = element.getValue();
-                String newValue = originalValue + move;
-                carNameHashMap.put(element.getKey(), newValue);
-                System.out.println(element.getKey() + " : " + element.getValue());
-            }
-            System.out.println("");
+    public void printRaceResult(int attemptsNumber, LinkedHashMap<String, String> carNameHashMap) {
+        for (int round = 0; round < attemptsNumber; round++) {
+            printRoundResult(carNameHashMap);
         }
+    }
+
+    private void printRoundResult(LinkedHashMap<String, String> carNameHashMap) {
+        for (Entry<String, String> element : carNameHashMap.entrySet()) {
+            String move = decideMove();
+            String originalValue = element.getValue();
+            String newValue = originalValue + move;
+            carNameHashMap.put(element.getKey(), newValue);
+            System.out.println(element.getKey() + " : " + element.getValue());
+        }
+        System.out.println("");
     }
 
     private String decideMove() {
