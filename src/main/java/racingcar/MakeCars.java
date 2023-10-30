@@ -12,7 +12,7 @@ public class MakeCars {
 
         names = makeNames.makeNames();
         for (int i = 0; i < names.size(); i++){
-            if (!integrityCheck.nameIntegrityCheck(names.get(i))){
+            if (integrityCheck.nameIntegrityCheck(names.get(i))){
                 throw new IllegalArgumentException();
             }
             cars.add(new Racingcar(names.get(i)));

@@ -37,11 +37,11 @@ class InputTest extends NsTest {
         IntegrityCheck integrityCheck = new IntegrityCheck();
 
         // 이름의 길이에 대한 예외처리
-        assertThat(integrityCheck.nameIntegrityCheck("123456")).isEqualTo(false);
+        assertThat(integrityCheck.nameIntegrityCheck("123456")).isEqualTo(true);
         // 이름이 없는 것에 대한 예외처리
-        assertThat(integrityCheck.nameIntegrityCheck("")).isEqualTo(false);
+        assertThat(integrityCheck.nameIntegrityCheck("")).isEqualTo(true);
         // 이름에 제어 문자가 들어간 것에 대한 예외처리
-        assertThat(integrityCheck.nameIntegrityCheck((char)(0) + "123")).isEqualTo(false);
+        assertThat(integrityCheck.nameIntegrityCheck((char)(0) + "123")).isEqualTo(true);
     }
 
     @Test
