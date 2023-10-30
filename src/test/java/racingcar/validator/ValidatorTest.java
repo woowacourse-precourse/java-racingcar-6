@@ -100,6 +100,18 @@ public class ValidatorTest extends NsTest {
                 .hasMessageContainingAll("차는 2대 이상 이여야 경주가 가능합니다.");
     }
 
+    @Test
+    void 시도_횟수_정수_확인_예외_테스트() {
+        String tryNum = "tryNum";
+        Validator validator = new Validator();
+
+        assertThatThrownBy(() -> validator.checkTryNumType(tryNum))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContainingAll("시도 횟수에 대한 입력이 정수가 아닙니다.");
+    }
+
+  
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
