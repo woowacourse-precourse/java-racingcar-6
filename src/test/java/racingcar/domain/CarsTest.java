@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.Error;
 
 class CarsTest {
 
@@ -24,7 +25,7 @@ class CarsTest {
         String[] stringArray = {"A", "A", "B"};
         assertThatThrownBy(() -> new Cars(stringArray))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복된 자동차 이름을 입력하였습니다.");
+                .hasMessageContaining(Error.DUPLICATE_CAR_NAME_ERROR.getMessage());
     }
 
     @Test

@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.NumberConstant;
+
 public class RacingGame {
     private final Cars cars;
     private final int tryCount;
@@ -19,7 +21,7 @@ public class RacingGame {
 
     private void moveCars() {
         for (int i = 0; i < cars.size(); i++) {
-            if (Utils.getRandomNumber() >= 4) {
+            if (Utils.getRandomNumber() >= NumberConstant.TARGET_NUMBER) {
                 cars.moveCar(i);
             }
         }

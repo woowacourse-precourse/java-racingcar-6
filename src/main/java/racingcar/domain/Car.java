@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.Error;
+import racingcar.NumberConstant;
 
 public class Car {
     private final String name;
@@ -24,12 +25,13 @@ public class Car {
     }
 
     private void validateCarNameLength(String carName) {
-        if (!isStringLengthInRange(carName)) {
+        if (!isCarNameLengthInRange(carName)) {
             throw new IllegalArgumentException(Error.CAR_NAME_LENGTH_ERROR.getMessage());
         }
     }
 
-    private boolean isStringLengthInRange(String string) {
-        return string.length() <= 5 && string.length() != 0;
+    private boolean isCarNameLengthInRange(String carName) {
+        return carName.length() <= NumberConstant.MAX_CAR_NAME_LENGTH
+                && carName.length() != NumberConstant.MIN_CAR_NAME_LENGTH;
     }
 }
