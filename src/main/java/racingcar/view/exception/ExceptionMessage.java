@@ -1,4 +1,4 @@
-package racingcar.exception;
+package racingcar.view.exception;
 
 public enum ExceptionMessage {
 
