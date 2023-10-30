@@ -14,15 +14,16 @@ public class UserInput {
 
         List<String> carTypeList = new ArrayList<String>();
         HashSet<String> carSet = new HashSet<>();
-        for (String carType : input.split(CAR_NAME_SEPARATOR)) {
+        checkEmptyInput(input);
+        checkInvalidCarTypeInput(input);
+        String[] carArr = input.split(CAR_NAME_SEPARATOR);
+        for (String carType : carArr) {
             checkLength(carType);
-            checkEmptyInput(carType);
-            checkInvalidCarTypeInput(carType);
             checkCarNameFrontBlank(carType);
-            carTypeList.add(String.valueOf(carType));
+            checkCarNameDuplicate(carType, carSet);
 
-//            carSet.add(carType);
-//            checkCarNameDuplicate(carType, carSet);
+            carTypeList.add(carType);
+            carSet.add(carType);
         }
 
         return carTypeList;
@@ -36,8 +37,8 @@ public class UserInput {
         }
     }
 
-    public void checkEmptyInput(String carType){
-        if (carType.isEmpty()){
+    public void checkEmptyInput(String carArr){
+        if (carArr.isEmpty()){
             System.out.println(ERROR_EMPTY_INPUT);
             throw new IllegalArgumentException(ERROR_EMPTY_INPUT);
         }
