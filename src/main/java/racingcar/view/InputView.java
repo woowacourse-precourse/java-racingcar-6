@@ -5,14 +5,18 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.StringTokenizer;
 
 public class InputView {
+
+    private static final String INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String INPUT_GAME_ROUND = "시도할 회수는 몇회인가요?";
+
     public static String inputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_CAR_NAME);
         String input = Console.readLine();
         validInputCarName(input);
         return input;
     }
     public static String inputGameRound(){
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(INPUT_GAME_ROUND);
         String input = Console.readLine();
         validInputGameRound(input);
         return input;
