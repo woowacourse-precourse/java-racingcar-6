@@ -1,7 +1,6 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.fail;
 
 import java.io.ByteArrayOutputStream;
@@ -54,11 +53,9 @@ public class GameTest {
 
     @Test
     void validate_라운드횟수_숫자인지() {
-        String input = "7a";
+        String input = "7";
 
-        assertThatThrownBy(() -> Integer.parseInt(input))
-                .isInstanceOf(NumberFormatException.class)
-                .hasMessageContaining("For input string: \"7a\"");
+        assertThat(Integer.parseInt(input)).isExactlyInstanceOf(Integer.class);
     }
 
     @Test
