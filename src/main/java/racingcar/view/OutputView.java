@@ -7,7 +7,7 @@ public class OutputView {
     private final static String winnerMessage = "최종 우승자";
 
     public void getWinnerMessage(List<String> winnerList) {
-        String winner = winnerMessage + ": " + String.join(",", winnerList);
+        String winner = winnerMessage + ": " + String.join(", ", winnerList);
         System.out.println(winner);
     }
 }
