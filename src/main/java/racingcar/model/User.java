@@ -32,5 +32,7 @@ public class User {
         Matcher matcher = pattern.matcher(size);
         return matcher.matches();
     }
-
+    public int getMoveSize() {
+        return this.moveSize;
+    }
 }
