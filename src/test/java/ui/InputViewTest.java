@@ -48,6 +48,14 @@ class InputViewTest {
                 .hasMessage("자동차 이름 중복은 불가능합니다.");
     }
 
+    @Test
+    void inputNumberOfTries_ValidInput() {
+        String input = "5";
+        provideInput(input);
+
+        assertThat(InputView.inputNumberOfTries()).isEqualTo(5);
+    }
+
     private void provideInput(String input) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
