@@ -4,6 +4,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.dto.output.CarOutputDto;
 import racingcar.dto.output.CarsOutputDto;
+import racingcar.util.message.Printer;
 
 public class OutputView implements Output{
     private final static int ZERO = 0;
@@ -14,15 +15,11 @@ public class OutputView implements Output{
 
     @Override
     public void showResult(CarsOutputDto carsOutputDto) {
-        printingWinners(comparingResult(carsOutputDto.cars(),
-                                        carsOutputDto.cars()
-                                                .getCarList()
-                                                .get(0)
-                                                .getCarPosition()));
+        printingWinners(comparingResult(carsOutputDto.cars(), carsOutputDto.cars().getCarList().get(0).getCarPosition()));
     }
 
     private static void printingWinners(ResultList resultList) {
-        System.out.print("최종 우승자 : ");
+        Printer.finalWinner();
         printingNames(resultList);
     }
 
@@ -33,13 +30,13 @@ public class OutputView implements Output{
     }
 
     private static void printingOneWinner(ResultList resultList, int i) {
-        System.out.print(resultList.getResults().get(i));
+        Printer.nowWinner(resultList.getResults().get(i));
         checkNumberOfPrintingNames(resultList, i);
     }
 
     private static void checkNumberOfPrintingNames(ResultList resultList, int i) {
         if (isNotFinished(resultList, i)){
-            System.out.print(", ");
+            Printer.comma();
         }
     }
 
@@ -77,12 +74,13 @@ public class OutputView implements Output{
     }
 
     private static void foundSame(ResultList resultList, Car car) {
-        resultList.getResults().add(car.getCarName());
+        resultList.getResults().add(
+                car.getCarName()
+        );
     }
 
     private static int foundMax(ResultList resultList, Car car) {
-        int max;
-        max = car.getCarPosition();
+        int max = car.getCarPosition();
         resultList.getResults().clear();
         resultList.getResults().add(car.getCarName());
         return max;
@@ -101,20 +99,17 @@ public class OutputView implements Output{
     private static void printNameAndPosition(CarOutputDto carOutputDto) {
         printName(carOutputDto);
         printPosition(carOutputDto);
-        switchLine();
+        Printer.switchLine();
     }
 
-    private static void switchLine() {
-        System.out.println();
-    }
 
     private static void printPosition(CarOutputDto carOutputDto) {
         for(int i = ZERO; i< carOutputDto.car().getCarPosition();i++){
-            System.out.print("-");
+            Printer.positionDash();
         }
     }
 
     private static void printName(CarOutputDto carOutputDto) {
-        System.out.printf("%s : ", carOutputDto.car().getCarName());
+        Printer.carName(carOutputDto.car().getCarName());
     }
 }

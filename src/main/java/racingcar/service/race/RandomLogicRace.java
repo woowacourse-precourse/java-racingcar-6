@@ -11,19 +11,16 @@ public class RandomLogicRace implements Racing{
         driveCars(cars);
 
     }
-
     private static void driveCars(Cars cars) {
         for(Car car: cars.getCarList()){
             move(car, Randoms.pickNumberInRange(0, 9));
         }
     }
-
     private static void move(Car car, int value) {
         if(checkValuableNumber(value)){
             car.updatePosition();
         }
     }
-
     private static boolean checkValuableNumber(int value) {
         return value >= MOVE_NUMBER;
     }

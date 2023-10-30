@@ -3,18 +3,19 @@ package racingcar.service.input;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.dto.input.CarInputDto;
 import racingcar.dto.input.TimeInputDto;
+import racingcar.util.message.Printer;
 import racingcar.util.validator.Validator;
 
 public class InputView implements Input{
     @Override
     public CarInputDto getCarInput() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        Printer.inputNameQuestion();
         return new CarInputDto(getCars());
     }
 
     @Override
     public TimeInputDto getTimeInput() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        Printer.inputTimeQuestion();
         return new TimeInputDto(getTime());
     }
 

@@ -9,6 +9,7 @@ import racingcar.service.output.Output;
 import racingcar.service.output.OutputView;
 import racingcar.service.race.Racing;
 import racingcar.service.race.RandomLogicRace;
+import racingcar.util.message.Printer;
 
 public class RacingGame implements GameInterface{
     private static final int END_TIME = 0;
@@ -34,7 +35,7 @@ public class RacingGame implements GameInterface{
     }
 
     private void competing(int time, Cars cars) {
-        System.out.println("실행 결과");
+        Printer.raceResult();
         while(isCounting(time)){
             racing.race(cars);
             output.showPlaying(new CarsOutputDto(cars));
