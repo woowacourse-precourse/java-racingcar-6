@@ -6,6 +6,6 @@ public class RandomNumberGenerator {
     private RandomNumberGenerator() {
     }
     public static int generateRandomNumber() {
-        return 1;
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
