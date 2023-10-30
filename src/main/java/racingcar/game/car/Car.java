@@ -3,8 +3,7 @@ package racingcar.game.car;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car implements Comparable<Car> {
-    private static final String UNNAMED_CAR = "이름이 입력되지 않은 자동차가 있습니다.";
-    private static final String UNNAMED_CAR_FOUND = UNNAMED_CAR;
+    private static final String UNNAMED_CAR_FOUND = "이름이 입력되지 않은 자동차가 있습니다.";
     private static final String NAME_LENGTH_EXCESSIVE = "자동차의 이름은 5글자를 넘을 수 없습니다.";
     private static final String WHITESPACE_DETECTED = "이름에 공백이 포함된 자동차가 있습니다.";
     private static final int PROCEED_FLAG = 3;
