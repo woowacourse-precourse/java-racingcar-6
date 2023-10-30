@@ -20,6 +20,10 @@ public class Cars {
             .collect(Collectors.toList());
     }
 
+    public void printCarNamesAndPositions() {
+        cars.forEach(Car::printCarNameAndPosition);
+    }
+
     public static Cars createdByName(List<String> carNames) {
         List<Car> list = carNames.stream()
             .map(Car::new)
