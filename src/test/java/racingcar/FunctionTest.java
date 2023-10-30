@@ -8,8 +8,11 @@ import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_OVERED;
 import static racingcar.ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH;
 
 import java.util.List;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class FunctionTest {
@@ -28,28 +31,19 @@ public class FunctionTest {
         assertThat(output).isEqualTo(expected);
     }
 
-    @Test
-    void 차_이름이_길면_예외_처리() {
-        String input = "asd,asdfgh";
-
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(input));
-        assertThat(e.getMessage()).isEqualTo(CAR_NAME_LENGTH_OVERED);
+    @ParameterizedTest(name = "{index}:{2}")
+    @MethodSource("invalidNameParameters")
+    void 차_이름_예외_처리(String name, String exceptionMessage, String message) {
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(name));
+        assertThat(e.getMessage()).isEqualTo(exceptionMessage);
     }
 
-    @Test
-    void 차_이름에_공백이_포함되면_예외처리() {
-        String input = "asd, as";
-
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(input));
-        assertThat(e.getMessage()).isEqualTo(CAR_NAME_HAS_BLANK);
-    }
-
-    @Test
-    void 차_이름이_중복이면_예외_처리() {
-        String input = "asd,asdf,asd";
-
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(input));
-        assertThat(e.getMessage()).isEqualTo(CAR_NAME_DUPLICATION);
+    static Stream<Arguments> invalidNameParameters() {
+        return Stream.of(
+                Arguments.of("asd,asdfgh", CAR_NAME_LENGTH_OVERED, "길이 초과"),
+                Arguments.of("asd, as", CAR_NAME_HAS_BLANK, "공백 포함"),
+                Arguments.of("asd,asdf,asd", CAR_NAME_DUPLICATION, "중복")
+        );
     }
 
     @ParameterizedTest
@@ -103,5 +97,4 @@ public class FunctionTest {
 
         assertThat(result).isEqualTo("\n최종 우승자 : a, b");
     }
-
 }
