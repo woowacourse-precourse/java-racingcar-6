@@ -5,7 +5,6 @@ import static constant.ErrorMessage.INVALID_INPUT_CASE_MESSAGE;
 import static constant.ErrorMessage.NOT_NUMBER_INPUT_CASE_MESSAGE;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 import validation.UserInputValidator;
 
 public class Converter {
@@ -18,17 +17,9 @@ public class Converter {
     }
 
     public LinkedHashMap<String, String> splitAndAddToMap(String Name) { // ["k1",v1,v2]
-        LinkedHashMap<String, String> hashMap = new LinkedHashMap<>();
         try {
             String[] parts = tokenizeByComma(Name);
-            for (String part : parts) {
-                if (part.isBlank()) {
-                    throw new IllegalArgumentException(EMPTY_NAME_CASE_MESSAGE);
-                }
-                hashMap.put(part, "");
-                UserInputValidator.checkNameLength(part);
-            }
-            return hashMap;
+            return getCarNameHashMap(parts);
         } catch (IllegalArgumentException error) {
             throw new IllegalArgumentException(INVALID_INPUT_CASE_MESSAGE);
         }
@@ -36,5 +27,17 @@ public class Converter {
 
     private String[] tokenizeByComma(String entireString) {
         return entireString.split(",");
+    }
+
+    private LinkedHashMap<String, String> getCarNameHashMap(String[] parts) {
+        LinkedHashMap<String, String> carNameHashMap = new LinkedHashMap<>();
+        for (String part : parts) {
+            if (part.isBlank()) {
+                throw new IllegalArgumentException(EMPTY_NAME_CASE_MESSAGE);
+            }
+            carNameHashMap.put(part, "");
+            UserInputValidator.checkNameLength(part);
+        }
+        return carNameHashMap;
     }
 }
