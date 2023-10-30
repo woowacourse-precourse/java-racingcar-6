@@ -1,6 +1,5 @@
 package racingcar;
 
-import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
@@ -10,8 +9,8 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class RacingCarGame {
-    final int trial;
-    final List<RacingCar> cars;
+    private final int trial;
+    private final List<RacingCar> cars;
     private final OutputInterface out;
     private final GameRandom random;
 

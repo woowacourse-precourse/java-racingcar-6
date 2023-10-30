@@ -3,7 +3,7 @@ package racingcar;
 import java.util.Comparator;
 
 public class RacingCar {
-    final String name;
+    private final String name;
     public static Comparator<RacingCar>
             positionComparator = Comparator.comparingInt(r -> r.position);
     private int position = 0;
