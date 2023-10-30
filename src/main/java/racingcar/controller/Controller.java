@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,6 +18,11 @@ public class Controller {
 
     public static int readCount() {
         input = Console.readLine();
+        Validator.isNumber(input);
         return Integer.parseInt(input);
+    }
+
+    public static int makeRandomNum() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
