@@ -9,4 +9,8 @@ public class RacingCarController {
     public void createCars() {
         racingCarService.createCars();
     }
+
+    public int inputAttemptNumber() {
+        return racingCarService.inputAttemptNumber();
+    }
 }

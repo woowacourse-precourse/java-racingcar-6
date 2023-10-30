@@ -12,4 +12,8 @@ public class RacingCarService {
         String carsName = inputView.inputCars();
         cars = new Cars(carsName);
     }
+
+    public int inputAttemptNumber() {
+        return Integer.parseInt(inputView.inputAttemptNumber());
+    }
 }
