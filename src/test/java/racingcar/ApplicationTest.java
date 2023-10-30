@@ -140,6 +140,12 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 시도회수_예외_처리_숫자가아닐때() {
+        String gameTurnsInput = "...";
+
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("wtc,prcs", gameTurnsInput))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining("Not valid input: game turn number"));
     }
 
     @Test
