@@ -83,6 +83,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void N에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "av12s"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
