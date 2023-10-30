@@ -15,4 +15,13 @@ class CarTest {
                 .hasMessageContaining("[ERROR] : 자동차 이름을 입력해주세요.");
     }
 
+    @Test
+    @DisplayName("5글자를 초과하는 이름 입력 시 예외 처리")
+    public void checkNameLength() {
+        assertThatThrownBy(() -> {
+            Car car = new Car("kiminsu");
+        }).isInstanceOf(RuntimeException.class)
+                .hasMessageContaining("[ERROR] : 5글자 이하의 자동차 이름을 입력해주세요");
+    }
+
 }
