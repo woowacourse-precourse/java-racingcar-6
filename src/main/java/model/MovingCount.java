@@ -8,6 +8,10 @@ public class MovingCount {
         this.movingCount = 0;
     }
 
+    public void increase() {
+        this.movingCount++;
+    }
+
     public int getMovingCount() {
         return this.movingCount;
     }
