@@ -1,8 +1,6 @@
 package racingcar;
 
 public class Racer {
-    static int moveCount;
-
     private String name;
 
     private StringBuilder score;
@@ -12,9 +10,16 @@ public class Racer {
         this.score = new StringBuilder();
     }
 
-    public void move(int randomNumber){
-        if(randomNumber >= 4){
-            score.append('-');
-        }
+    public void move() {
+        score.append('-');
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public StringBuilder getScore() {
+        return score;
     }
 }
+
