@@ -8,6 +8,7 @@ import racingcar.domain.racing.CarManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static racingcar.domain.racing.RandomMoveStrategy.MIN_NUM;
 
 class CarManagerTest {
     @Test
@@ -43,11 +44,10 @@ class CarManagerTest {
     @DisplayName("0에서 9 사이의 무작위 값이 4 이상일 경우 자동차가 전진한다.")
     void move_RandomNumberGreaterThanOrEqualFour_CarMoves() {
         // Given
-        Car car = new Car("car");
+        Car car = new Car("car",()-> 5 >= MIN_NUM);
 
         // When
-        car.move(() -> 4);
-        car.move(() -> 8);
+        car.move();
 
         // Then
         assertThat(car.getPosition()).isEqualTo(2);
@@ -57,11 +57,10 @@ class CarManagerTest {
     @DisplayName("0에서 9 사이의 무작위 값이 4 미만일 경우 자동차가 전진하지 않는다.")
     void move_RandomNumberLessThanFour_CarDoesNotMove() {
         // Given
-        Car car = new Car("car");
+        Car car = new Car("car",()-> 3 >= MIN_NUM);
 
         // When
-        car.move(() -> 3);
-        car.move(() -> 1);
+        car.move();
 
         // Then
         assertThat(car.getPosition()).isEqualTo(0);

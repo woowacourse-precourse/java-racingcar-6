@@ -1,17 +1,20 @@
 package racingcar.domain.car;
 
 import java.util.function.Supplier;
+import racingcar.domain.racing.MoveStrategy;
 
 public class Car {
     private final String name;
     private int position;
+    private final MoveStrategy moveStrategy;
 
-    public Car(String name) {
+    public Car(String name, MoveStrategy moveStrategy) {
         if (name.length() > 5) {
             throw new IllegalArgumentException("이름은 5자 이하여야 합니다.");
         }
         this.name = name;
         this.position = 0;
+        this.moveStrategy = moveStrategy;
     }
 
     public String getName() {
@@ -22,8 +25,8 @@ public class Car {
         return position;
     }
 
-    public void move(Supplier<Integer> randomNumberSupplier) {
-        if (randomNumberSupplier.get() >= 4) {
+    public void move() {
+        if (moveStrategy.move()) {
             position += 1;
         }
     }
