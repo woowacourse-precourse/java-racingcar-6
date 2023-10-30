@@ -63,9 +63,7 @@ public class Application {
     }
 
     private static int validateTryCount(String answer) {
-        if (answer.length() > 9) {
-            throw new IllegalArgumentException("시도 횟수는 10자리 미만의 수여야 합니다.");
-        }
+        validateLengthOfTryCount(answer);
 
         int ans;
         try {
@@ -78,6 +76,12 @@ public class Application {
             throw new IllegalArgumentException("시도 횟수는 0번 이상이어야 합니다.");
         }
         return ans;
+    }
+
+    private static void validateLengthOfTryCount(String answer) {
+        if (answer.length() > 9) {
+            throw new IllegalArgumentException("시도 횟수는 10자리 미만의 수여야 합니다.");
+        }
     }
 
     private static void validateCarsName(List<Car> carList) {
