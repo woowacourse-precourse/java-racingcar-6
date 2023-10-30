@@ -2,8 +2,8 @@ package racingcar.domain;
 
 import java.util.List;
 
-public class CarFactory {
-    private CarFactory() {
+public class CarsFactory {
+    private CarsFactory() {
     }
 
     public static Cars createRacingCars(List<String> carNames) {
