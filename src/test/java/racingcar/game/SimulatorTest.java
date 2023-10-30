@@ -3,6 +3,7 @@ package racingcar.game;
 import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic.Verification;
 import org.mockito.Mockito;
@@ -11,23 +12,32 @@ import racingcar.game.director.Round;
 import racingcar.game.director.Simulator;
 
 class SimulatorTest {
-    private final static Car CAR_A = Mockito.mock(Car.class);
-    private final static Car CAR_B = Mockito.mock(Car.class);
-    private final static Car CAR_C = Mockito.mock(Car.class);
-    private final static Car CAR_D = Mockito.mock(Car.class);
-    private final static List<Car> CAR_LIST = Arrays.asList(CAR_A, CAR_B, CAR_C, CAR_D);
-    private final static Simulator simulator = new Simulator();
+
+    private List<Car> carList;
+    private Car mockCarA;
+    private Car mockCarB;
+    private Car mockCarC;
+    private Car mockCarD;
+    private final Simulator simulator = new Simulator();
+
+    @BeforeEach
+    public void setCars(){
+        mockCarA = Mockito.mock(Car.class);
+        mockCarB = Mockito.mock(Car.class);
+        mockCarC = Mockito.mock(Car.class);
+        mockCarD = Mockito.mock(Car.class);
+        carList = Arrays.asList(mockCarA, mockCarB, mockCarC, mockCarD);
+    }
 
 
     @Test
-    void 라운드_진행시_Car_drive_호출() {
+    void 라운드_진행시_Car_forwardCount_확인() {
+        simulator.perRound(carList);
 
-        simulator.perRound(CAR_LIST);
-
-        Mockito.verify(CAR_A).drive();
-        Mockito.verify(CAR_B).drive();
-        Mockito.verify(CAR_C).drive();
-        Mockito.verify(CAR_D).drive();
+        Mockito.verify(mockCarA).drive();
+        Mockito.verify(mockCarB).drive();
+        Mockito.verify(mockCarC).drive();
+        Mockito.verify(mockCarD).drive();
 
     }
 }

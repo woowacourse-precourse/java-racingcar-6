@@ -11,25 +11,27 @@ import racingcar.game.director.Rule;
 
 class RuleTest {
 
-    private final Rule rule = new Rule();
-    private final List<String> NAME_LIST = Arrays.asList("한놈", "두식이", "석삼", "너구리");
-    private final String RACE_POINT = "----";
-    private final Car CAR_A = Mockito.mock(Car.class);
-    private final Car CAR_B = Mockito.mock(Car.class);
-    private final Car CAR_C = Mockito.mock(Car.class);
-    private final Car CAR_D = Mockito.mock(Car.class);
-    private final List<Car> CAR_LIST = Arrays.asList(CAR_A, CAR_B, CAR_C, CAR_D);
+    private final static Rule rule = new Rule();
+    private final static List<String> NAME_LIST = Arrays.asList("한놈", "두식이", "석삼", "너구리");
+    private final static String RACE_POINT = "----";
+    private List<Car> carList;
 
     @BeforeEach
     public void setCars(){
-        Mockito.when(CAR_A.getName()).thenReturn(NAME_LIST.get(0));
-        Mockito.when(CAR_A.getForwardCount()).thenReturn(1);
-        Mockito.when(CAR_B.getName()).thenReturn(NAME_LIST.get(1));
-        Mockito.when(CAR_B.getForwardCount()).thenReturn(2);
-        Mockito.when(CAR_C.getName()).thenReturn(NAME_LIST.get(2));
-        Mockito.when(CAR_C.getForwardCount()).thenReturn(2);
-        Mockito.when(CAR_D.getName()).thenReturn(NAME_LIST.get(3));
-        Mockito.when(CAR_D.getForwardCount()).thenReturn(3);
+        Car mockCarA = Mockito.mock(Car.class);
+        Car mockCarB = Mockito.mock(Car.class);
+        Car mockCarC = Mockito.mock(Car.class);
+        Car mockCarD = Mockito.mock(Car.class);
+        carList = Arrays.asList(mockCarA, mockCarB, mockCarC, mockCarD);
+
+        Mockito.when(mockCarA.getName()).thenReturn(NAME_LIST.get(0));
+        Mockito.when(mockCarA.getForwardCount()).thenReturn(1);
+        Mockito.when(mockCarB.getName()).thenReturn(NAME_LIST.get(1));
+        Mockito.when(mockCarB.getForwardCount()).thenReturn(2);
+        Mockito.when(mockCarC.getName()).thenReturn(NAME_LIST.get(2));
+        Mockito.when(mockCarC.getForwardCount()).thenReturn(2);
+        Mockito.when(mockCarD.getName()).thenReturn(NAME_LIST.get(3));
+        Mockito.when(mockCarD.getForwardCount()).thenReturn(3);
     }
 
     @Test
@@ -48,7 +50,7 @@ class RuleTest {
     @Test
     void 우승자_확인() {
         //when
-        List<Car> winnerList = rule.findWinners(CAR_LIST);
+        List<Car> winnerList = rule.findWinners(carList);
 
         //then
         Assertions.assertThat(winnerList.get(0).getName()).isEqualTo(NAME_LIST.get(3));
