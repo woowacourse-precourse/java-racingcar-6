@@ -7,7 +7,6 @@ import static racingcar.constant.Constant.POINT;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
-import java.util.Random;
 
 public class ScoreBoard {
     private final Map<String, StringBuilder> scoreBoard;
