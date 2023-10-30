@@ -8,16 +8,15 @@ public class NumberOfGames {
         return validation(input);
     }
 
-    private int validation(String input){
-        int num;
+    private int validation(String input) {
         try {
-            num = Integer.parseInt(input);
+            int num = Integer.parseInt(input);
+            if (num < 1) {
+                throw new IllegalArgumentException("1 이상의 정수를 입력하세요.");
+            }
+            return num;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력하세요.");
         }
-        if (num < 1) {
-            throw new IllegalArgumentException("1 이상의 정수를 입력하세요.");
-        }
-        return num;
     }
 }
