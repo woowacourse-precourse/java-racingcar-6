@@ -1,10 +1,12 @@
 package racingcar.model;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public final class CarName {
-    private static final String BLANK_NAME_EXCEPTION_MESSAGE = "공백 문자로는 이름을 입력할 수 없습니다.";
     private static final String CAR_NAME_OVER_LIMIT_FORMAT_MESSAGE = "자동차 이름은 %d자를 초과할 수 없습니다.";
+    private static final String BLANK_NAME_EXCEPTION_MESSAGE = "공백 문자로는 이름을 입력할 수 없습니다.";
+    private static final String NULL_NAME_EXCEPTION_MESSAGE = "자동차 이름은 null이 될 수 없습니다.";
     private static final int MAX_NAME_LENGTH = 5;
 
     private final String name;
@@ -15,8 +17,14 @@ public final class CarName {
     }
 
     private void validate(String name) {
+        validateNull(name);
         validateBlank(name);
         validateLength(name);
+    }
+
+    private void validateNull(String name) {
+        Optional.ofNullable(name)
+                .orElseThrow(() -> new IllegalArgumentException(NULL_NAME_EXCEPTION_MESSAGE));
     }
 
     private void validateBlank(String name) {
