@@ -17,16 +17,22 @@ public class GameController {
 
     public int getUserInput() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        SaveData(Console.readLine());
+        SaveCar(Console.readLine());
         System.out.println("시도할 횟수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        return SaveNum(Console.readLine());
     }
 
-    private void SaveData(String cars) {
+    private void SaveCar(String cars) {
         for(String s : cars.split(",")) {
-            validation.validation_check(s);
+            validation.validationName_check(s);
             gameData.addData(s);
         }
+        validation.validation_isEmpty(gameData.getCarList());
+    }
+
+    private int SaveNum(String num) {
+        validation.validationGame_check(num);
+        return Integer.parseInt(num);
     }
 
     public void decideToMove() {
