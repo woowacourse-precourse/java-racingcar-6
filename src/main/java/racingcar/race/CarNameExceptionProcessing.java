@@ -15,7 +15,7 @@ public class CarNameExceptionProcessing {
 
     }
 
-    private static void checkComma(String[] carName) {
+    public static void checkComma(String[] carName) {
 
         try {
             if (carName.length == 0) {
@@ -27,7 +27,7 @@ public class CarNameExceptionProcessing {
 
     }
 
-    private static void checkLength(String carName) {
+    public static void checkLength(String carName) {
 
         try {
             if (carName.length() > 5) {
@@ -39,7 +39,7 @@ public class CarNameExceptionProcessing {
 
     }
 
-    private static void checkEmpty(String carName) {
+    public static void checkEmpty(String carName) {
 
         try {
             if (carName.isEmpty()) {
@@ -51,7 +51,7 @@ public class CarNameExceptionProcessing {
 
     }
 
-    private static void checkEquals(String carName) {
+    public static void checkEquals(String carName) {
 
         try {
             if (" ".equals(carName)) {
