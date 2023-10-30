@@ -5,8 +5,10 @@ import static racingcar.util.constant.ExceptionConstant.*;
 public class InputValidate {
 
     static public void validateNameFormat(String input) {
-        if (input.isEmpty()) {
+        if (input.isEmpty() || input.equals(",")) {
             throw new IllegalArgumentException(EMPTY_NAME);
+        } else if (input.startsWith(",") || input.endsWith(",")) {
+            throw new IllegalArgumentException(INVALID_INPUT_NAME);
         }
     }
 
@@ -30,9 +32,15 @@ public class InputValidate {
         }
     }
 
+    static public void validateUsernameStartsWithBlank(String name) {
+        if (name.startsWith(" ")) {
+            throw new IllegalArgumentException(INPUT_NAME_NOT_STARTS_WITH_EMPTY);
+        }
+    }
+
     static public String validatePrintWinners(String winnerList) {
         if (!winnerList.contains(", ")) {
-            throw new IllegalArgumentException("우승자가 2명 이상일 경우 출력은 ', '로 구분해야합니다.");
+            throw new IllegalArgumentException(MORE_THAN_TWO_WINNERS);
         }
         return winnerList;
     }
