@@ -7,6 +7,11 @@ public class Car {
 
     private Distance distance;
 
+    public Car(String name) {
+        this.name = new Name(name);
+        this.distance = new Distance();
+    }
+
     public void move() {
         if (getRandomNumber() >= 4) {
             distance.add(1);
