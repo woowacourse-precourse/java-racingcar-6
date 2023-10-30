@@ -18,17 +18,14 @@ public class Race {
         this.lapProgresses = new ArrayList<>();
     }
 
-    public void registerRacer() {
-        Output.consoleLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        racers = Input.consoleStrings(",").stream()
-                .map(Racer::new)
-                .toList();
+    public void registerRacer(List<Racer> racers) {
+        this.racers = racers;
     }
 
     public void decideRoundNumber() {
         Output.consoleLine("시도할 회수는 몇회인가요?");
         numberOfRound = Input.consoleNumber();
-        Output.consoleLine(""); // 입력 후 공백 한 줄이 들어가게 되어있음
+        Output.consoleLine(); // 입력 후 공백 한 줄이 들어가게 되어있음
     }
 
     public void run() {
