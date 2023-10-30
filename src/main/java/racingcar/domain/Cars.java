@@ -9,14 +9,19 @@ public class Cars {
     private static List<String> carName = new ArrayList<>();
     private UserInputException userInputException;
 
-    public static List<String> createCarName(String userInput) {
+    public List<String> createCarName(String userInput) {
+        List<String> carNameList = stringToList(userInput);
+        UserInputException.isDuplicate(carNameList);
+        return carNameList;
+    }
+
+    public List<String> stringToList(String userInput) {
         for (String name : userInput.split(",")) {
             UserInputException.isLength(name);
-            UserInputException.isMoreThan(name);
-            UserInputException.isDuplicate(name);
             UserInputException.isComma(name);
             UserInputException.isBlank(name);
             carName.add(name);
+
         }
         return carName;
     }
