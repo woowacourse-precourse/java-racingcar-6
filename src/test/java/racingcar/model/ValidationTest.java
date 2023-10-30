@@ -18,4 +18,13 @@ class ValidationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름은 5자리 이하만 가능");
     }
+
+    @Test
+    public void 이름_중복_금지(){
+        List<String> input = Arrays.asList("JiHun", "JiHun", "Mac");
+
+        assertThatThrownBy(() -> Validation.name(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름은 중복될 수 없습니다");
+    }
 }
