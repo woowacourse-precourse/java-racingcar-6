@@ -3,8 +3,10 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MoveTest {
@@ -57,6 +59,24 @@ public class MoveTest {
         assertThat(car.movedDistances).isEqualTo(Arrays.asList("", "", ""));
     }
 
+    @Test
+    void 이동_결과_출력문() {
+
+        // given
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        // when
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+        car.move(5);
+
+        // then
+        assertThat(out.toString())
+                .contains("실행 결과")
+                .contains("pobi : ")
+                .contains("woni : ")
+                .contains("jun : ");
+    }
 }
 
 
