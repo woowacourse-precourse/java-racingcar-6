@@ -2,7 +2,9 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        RacingCarApplication racingCarApplication = new RacingCarApplication();
+        CarViewer carViewer = CarViewer.getInstance();
+
+        RacingCarApplication racingCarApplication = new RacingCarApplication(carViewer);
         racingCarApplication.run();
     }
 }

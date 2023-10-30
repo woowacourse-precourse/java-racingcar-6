@@ -49,13 +49,13 @@ public class Cars {
         }
     }
 
-    public String getWinningCarNames() {
+    public List<String> getWinningCarNames() {
         Car winnerCar = cars.stream().max(Car::compareTo)
                 .orElseThrow(() -> new IllegalArgumentException("우승 차가 존재하지 않습니다"));
 
         return cars.stream()
                 .filter(car -> car.isEqualPosition(winnerCar))
                 .map(Car::getCarName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.toList());
     }
 }
