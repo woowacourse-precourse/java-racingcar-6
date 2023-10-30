@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import racingcar.dto.CarDto;
 import racingcar.util.NumberGenerator;
 
 public class RacingGame {
@@ -21,5 +22,11 @@ public class RacingGame {
         final Car car = carList.get(carIndex);
         final int randomNumber = numberGenerator.createRandomNumber();
         car.moveForward(randomNumber);
+    }
+
+    public List<CarDto> getResult() {
+        return carList.stream()
+                .map(CarDto::from)
+                .toList();
     }
 }
