@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -7,16 +7,16 @@ public class Car {
     private static final int START_RANGE = 0;
     private static final int END_RANGE = 9;
 
-    private String name;
+    private CarName name;
     private int location;
 
     public Car(String name) {
-        this.name = name;
+        this.name = new CarName(name);
         this.location = 0;
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     /**
@@ -41,7 +41,7 @@ public class Car {
      * @return round result using name and location
      */
     public String getRoundResult() {
-        StringBuilder sb = new StringBuilder(name);
+        StringBuilder sb = new StringBuilder(name.getName());
         sb.append(" : ");
         for (int i = 0; i < location; i++) {
             sb.append("-");
