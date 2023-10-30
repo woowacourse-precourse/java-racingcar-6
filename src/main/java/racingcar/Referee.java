@@ -12,16 +12,16 @@ public class Referee {
 
 	public HashMap<String, Boolean> checkTryOutcome(List<Integer> randomNumbers) {
 		final int MIN_MOVABLE_NUMBER = 4;
-		HashMap<String, Boolean> tryOutcome = new HashMap<>();
+		HashMap<String, Boolean> tryResult = new HashMap<>();
 
 		for (int i = 0; i < names.size(); i++) {
 			if (randomNumbers.get(i) >= MIN_MOVABLE_NUMBER) {
-				tryOutcome.put(names.get(i), true);
+				tryResult.put(names.get(i), true);
 				continue;
 			}
-			tryOutcome.put(names.get(i), false);
+			tryResult.put(names.get(i), false);
 		}
 
-		return tryOutcome;
+		return tryResult;
 	}
 }
