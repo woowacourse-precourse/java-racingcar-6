@@ -176,7 +176,7 @@ Randoms.pickNumberInRange(0,9);
 - [x] 입출력 요구사항 바탕 매커니즘 분석하기
 - [x] 기능 리스트 만들기
 3. 구현 요구사항
-- [ ] 라이브러리 사용
+- [x] 라이브러리 사용
   - random 값 추출(camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용)
   - 사용자 입력 (camp.nextstep.edu.missionutils.Console의 readLine()을 활용)
 - [ ] 기본 테스트 성공 
@@ -209,7 +209,7 @@ Randoms.pickNumberInRange(0,9);
 <img src="image/기능요구사항/초기메커니즘설계.png">
 
 ## 📌기능 목록
-- [ ] 난수 생성하기 (**라이브러리 이용하기**)
+- [x] 난수 생성하기 (**라이브러리 이용하기**)
 - [x] 메시지 출력하기
 - [x] 사용자 입력 받기 (**라이브러리 이용하기**)
 - [x] 사용자 입력 검증하기 (IllegalException 발생)
