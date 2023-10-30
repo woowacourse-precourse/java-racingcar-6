@@ -1,8 +1,6 @@
 package racingcar.utils;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import racingcar.views.SystemMessage;
 import racingcar.model.Car;
@@ -59,9 +57,9 @@ public class GameUtils {
 
     private int countMax(List<Car> cars) {
         int max = 0;
-        for (int index = 0; index < cars.size(); index++) {
-            if (cars.get(index).getCount() > max) {
-                max = cars.get(index).getCount();
+        for (Car car : cars) {
+            if (car.getCount() > max) {
+                max = car.getCount();
             }
         }
         return max;
