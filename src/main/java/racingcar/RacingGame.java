@@ -6,22 +6,27 @@ import java.util.ArrayList;
 
 public class RacingGame {
 
-    private static String[] carList;
-    private static int[] gameResultCount;
-    private static int carListLength;
-    private static int winCount;
-    private static ArrayList<String> winningCarList = new ArrayList<>();
+    private final ArrayList<String> winningCarList;
+    private final String[] carList;
+    private final int carListLength;
+    private final int playCount;
+    private final int[] gameResultCount;
+    private int winCount;
 
-    public static void printWinningCar() {
-        System.out.print("최종 우승자 : ");
-        if (winningCarList.size() == 1) {
-            System.out.print(winningCarList.get(0));
-        } else {
-            System.out.print(String.join(", ", winningCarList));
-        }
+    public RacingGame(String[] inputCarList, int inputPlayCount) {
+        winningCarList = new ArrayList<>();
+        carList = inputCarList;
+        carListLength = carList.length;
+        playCount = inputPlayCount;
+        gameResultCount = new int[carListLength];
+        winCount = 0;
     }
 
-    public static void countWinningCar() {
+    public void printWinningCar() {
+        System.out.print("최종 우승자 : " + String.join(", ", winningCarList));
+    }
+
+    public void countWinningCar() {
         for (int i = 0; i < carListLength; i++) {
             if (winCount == gameResultCount[i]) {
                 winningCarList.add(carList[i]);
@@ -29,7 +34,7 @@ public class RacingGame {
         }
     }
 
-    public static void printMoveResult(String carName, int moveCount) {
+    public void printMoveResult(String carName, int moveCount) {
         System.out.print(carName + " : ");
         for (int i = 0; i < moveCount; i++) {
             System.out.print("-");
@@ -37,8 +42,7 @@ public class RacingGame {
         System.out.print("\n");
     }
 
-    public static void moveCar() {
-        winCount = 0;
+    public void moveCar() {
         for (int i = 0; i < carListLength; i++) {
             if (Randoms.pickNumberInRange(0, 9) > 3) {
                 gameResultCount[i]++;
@@ -49,12 +53,7 @@ public class RacingGame {
         System.out.print("\n");
     }
 
-    public static void playGame(String[] inputCarList, int playCount) {
-        carList = inputCarList;
-        carListLength = carList.length;
-        gameResultCount = new int[carListLength];
-        winningCarList = new ArrayList<>();
-
+    public void playGame() {
         System.out.println("\n실행 결과");
         for (int i = 0; i < playCount; i++) {
             moveCar();

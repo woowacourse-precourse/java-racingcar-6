@@ -40,8 +40,7 @@ public class Application {
         }
     }
 
-    public static String findInputCarError() {
-        String inputCar = Console.readLine();
+    public static void findInputCarError(String inputCar) {
         if (Objects.equals(inputCar, "") || inputCar.contains(" ")) {
             throw new IllegalArgumentException();
         }
@@ -51,13 +50,12 @@ public class Application {
         if (inputCar.charAt(0) == ',' || inputCar.charAt(inputCar.length() - 1) == ',') {
             throw new IllegalArgumentException();
         }
-
-        return inputCar;
     }
 
     public static String[] makeCarList() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputCar = findInputCarError();
+        String inputCar = Console.readLine();
+        findInputCarError(inputCar);
 
         String[] carList = inputCar.split(",");
         findCarListError(carList);
@@ -69,6 +67,7 @@ public class Application {
         String[] carList = makeCarList();
         int playCount = makePlayCount();
 
-        RacingGame.playGame(carList, playCount);
+        RacingGame racingGame = new RacingGame(carList, playCount);
+        racingGame.playGame();
     }
 }
