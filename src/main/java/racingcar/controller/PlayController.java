@@ -27,6 +27,6 @@ public class PlayController {
     }
 
     public void showFinalWinner() {
-        racingCars.showWinner();
+        racingCars.showWinners();
     }
 }

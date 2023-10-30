@@ -7,6 +7,7 @@ import racingcar.car.Car;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static racingcar.Constants.*;
@@ -45,6 +46,8 @@ public class Util {
     // 최종 우승자 문구 출력
     public static void printWinner(ArrayList<String> winners) {
         System.out.print(WINNER_MESSAGE + ROUND_RESULT_DELIMETER);
+        String result = winners.stream().collect(Collectors.joining(", "));
+        System.out.println(result);
     }
 
     // 점수 출력
