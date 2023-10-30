@@ -32,7 +32,7 @@ public class InputView {
         for (String carName : carNames) {
             validateCarNameLength(carName);
             validateCarNameNoSpace(carName);
-            validateCarNameOverlap(carNames);
+            validateCarNameDuplicate(carNames);
         }
     }
 
@@ -48,7 +48,7 @@ public class InputView {
         }
     }
 
-    private static void validateCarNameOverlap(List<String> carNames) {
+    private static void validateCarNameDuplicate(List<String> carNames) {
         Set<String> uniqueNames = new HashSet<>(carNames);
 
         if (uniqueNames.size() < carNames.size()) {
