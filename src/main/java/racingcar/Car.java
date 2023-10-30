@@ -2,10 +2,9 @@ package racingcar;
 
 public class Car {
     String name;
-    int distance;
+    int distance = 0;
 
-    public Car(String name, int distance){
+    public Car(String name){
         this.name = name;
-        this.distance = distance;
     }
 }

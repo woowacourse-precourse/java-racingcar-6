@@ -4,40 +4,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import static camp.nextstep.edu.missionutils.Console.readLine;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
-
 
 public class Application {
 
-    // car 전진
     public static void forward(List<Car> cars){
         for(Car c: cars) {
             if (pickNumberInRange(0, 9) >= 4) {
                 c.distance += 1;
-            } else {
-                continue;
             }
         }
-
-        //return cars;
     }
 
-    // 객체 리스트를 객체의 2번째 인자 값으로 정렬
     public static List<Car> sortCarDistance(List<Car> carList){
-        Collections.sort(carList, new Comparator<Car>() {
-            @Override
-            public int compare(Car c1, Car c2) {
-                return c2.distance - c1.distance;
-            }
-        });
-
+        Collections.sort(carList, (c1, c2) -> c2.distance - c1.distance);
         return carList;
     }
 
-
-    // 우승자 리스트 생성
     public static List<String> winnerListGenerator(List<Car> carList){
         List<String> winners = new ArrayList<>();
 
@@ -49,9 +32,6 @@ public class Application {
 
         return winners;
     }
-
-
-
 
     public static void main(String[] args) {
 
@@ -66,9 +46,6 @@ public class Application {
             for(String s: carName){
                 if(s.length() > 5){
                     throw new IllegalArgumentException();
-                }
-                else{
-                    continue;
                 }
             }
         } catch (RuntimeException e) {
@@ -86,7 +63,7 @@ public class Application {
 
         // car 객체 생성 후 리스트에 넣기
         for(String s: carName){
-            Car c = new Car(s, 0);
+            Car c = new Car(s);
             carList.add(c);
         }
 

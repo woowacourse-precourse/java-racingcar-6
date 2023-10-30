@@ -23,7 +23,6 @@ public class Print {
 
     }
 
-    // 실행 결과 출력
     public static void result(List<Car> cars){
         for(Car c: cars){
             System.out.println(c.name + " : " + "-".repeat(c.distance));
@@ -31,12 +30,11 @@ public class Print {
 
     }
 
-    // 우승자 출력
-    public static void winner(List<String> winnerName){
+    public static void winner(List<String> winners){
         System.out.print(WinnerInfo + " : ");
 
-        for(String s: winnerName){
-            if(s.equals(winnerName.get(winnerName.size()-1))){
+        for(String s: winners){
+            if(s.equals(winners.get(winners.size()-1))){
                 System.out.print(s);
             } else {
                 System.out.print(s + ", ");
