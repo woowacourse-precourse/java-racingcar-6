@@ -9,7 +9,7 @@
 ### 출력
 * 이동 후 실행 결과 출력 (Car Class, Information Class) ✅ [TEST 구현완료]
 * 최종 우승자 출력 (RacingCar Class) ✅
-* 입력받을때 안내메시지 출력 (RacingSetting Class) ✅
+* 입력받을때 안내메시지 출력 (RacingSetting Class) ✅ [TEST 구현완료]
 ### 구현
 * 자동차 전진 기능 구현 (Car Class) ✅ [TEST 구현완료]
 * 랜덤한 값(0~9) 구하는 기능 구현 (Car Class) ✅
@@ -30,7 +30,7 @@
 클래스 변수 : MoveNum moveNum, CarNum carNum
 * 경주할 자동차 입력받기 ✅ [TEST 구현완료]
 * 이동을 시도할 횟수 입력받기 ✅ [TEST 구현완료]
-* 입력받을때 안내메시지 출력 ✅
+* 입력받을때 안내메시지 출력 ✅ [TEST 구현완료]
 
 ### Car
 클래스 변수 : Information information
