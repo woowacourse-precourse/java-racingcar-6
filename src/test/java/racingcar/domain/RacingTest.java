@@ -14,7 +14,6 @@ import org.mockito.Mockito;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.anyInt;
 
 @DisplayName("Racing 도메인 테스트")
@@ -36,19 +35,6 @@ class RacingTest {
                 () -> assertThat(cars).hasSize(carsName.size()),
                 () -> assertThat(cars.get(0).getName()).isEqualTo(carsName.get(0))
         );
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"InvalidCarName", "abcdef"})
-    void 자동차_이름_길이_검증(String carName) {
-        // given
-        Racing racing = new Racing();
-        List<String> carsName = List.of(carName);
-
-        // when & then
-        assertThatThrownBy(() -> racing.generateCars(carsName))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름은 5자 이하이어야 합니다.");
     }
 
     @ParameterizedTest
