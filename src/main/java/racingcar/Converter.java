@@ -13,4 +13,8 @@ public class Converter {
         }
 
     }
+
+    public static String[] stringToArr(String s) {
+        return s.split(",");
+    }
 }
