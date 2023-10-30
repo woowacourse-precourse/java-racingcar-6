@@ -6,10 +6,10 @@ import java.util.regex.Pattern;
 
 public class Car {
 
-    Long id;
-    String name;
-    int currentPosition = 0;
-    List<Integer> pickedNumbers = new ArrayList<>();
+    private Long id;
+    private String name;
+    private int currentPosition = 0;
+    private List<Integer> pickedNumbers = new ArrayList<>();
 
     private Car(String name) {
         this.name = name;
