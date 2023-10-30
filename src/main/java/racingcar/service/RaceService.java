@@ -1,11 +1,17 @@
 package racingcar.service;
 
 import racingcar.model.CarList;
+import racingcar.model.TryNumber;
 
 public class RaceService {
-    CarList carList;
+    private CarList carList;
+    private TryNumber tryNumber;
 
     public void makeCarList(String carNames) {
-        this.carList = new CarList(carNames);
+        carList = new CarList(carNames);
+    }
+
+    public void makeTryCount(String tryCount) {
+        tryNumber = new TryNumber(tryCount);
     }
 }

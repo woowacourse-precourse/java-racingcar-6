@@ -14,6 +14,10 @@ public class RaceController {
         getCarList();
     }
 
+    private void getTryCount() {
+        print(PrintMessage.GET_TRY_COUNT);
+        raceService.makeTryCount(inputView.input());
+    }
     private void getCarList() {
         print(PrintMessage.GET_CAR_NAME);
         raceService.makeCarList(inputView.input());
