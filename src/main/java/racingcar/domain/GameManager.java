@@ -18,6 +18,7 @@ public class GameManager {
 
         for (int i = 0; i < InputValue.count; i++) {
             checkForwardStop(carRace);
+            ResultPrinter.printCourse(carRace);
         }
     }
 
