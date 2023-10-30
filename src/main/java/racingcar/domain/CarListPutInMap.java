@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CarList {
+public class CarListPutInMap {
     private static final Map<String, Integer> carMap = new HashMap<>();
     Exception exception = new Exception();
 

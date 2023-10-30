@@ -3,10 +3,10 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
 
-public class ForwardCar {
+public class ForwardCarCondition {
 
     public Map<String, Integer> racingCarCount() {
-        CarList carName = new CarList();
+        CarListPutInMap carName = new CarListPutInMap();
         Map<String, Integer> carMap = carName.getCarList();
         carMap.forEach((key, value) -> {
             int count = forwardControl(getRandomNumber());

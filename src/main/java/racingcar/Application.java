@@ -1,13 +1,13 @@
 package racingcar;
 
-import racingcar.domain.CarList;
-import racingcar.domain.RacingCarName;
+import racingcar.domain.CarListPutInMap;
+import racingcar.domain.InputRacingCarName;
 import racingcar.domain.Referee;
 
 public class Application {
     public static void main(String[] args) {
-        CarList carList = new CarList();
-        RacingCarName racingCarName = new RacingCarName();
+        CarListPutInMap carList = new CarListPutInMap();
+        InputRacingCarName racingCarName = new InputRacingCarName();
         Referee referee = new Referee();
 
         carList.setCarList(racingCarName.inputRacingCarName());

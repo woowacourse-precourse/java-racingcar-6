@@ -7,12 +7,12 @@ import java.util.Map;
 
 public class Referee {
     public String callWinnerCar() {
-        Racing racing = new Racing();
+        RacingStatus racing = new RacingStatus();
         Map<String, Integer> racingResult = racing.racingMoveCount();
-        return "최종 우승자 : " + String.join(", ", winnerCar(racingResult));
+        return "최종 우승자 : " + String.join(", ", winnerCarSelect(racingResult));
     }
 
-    public List<String> winnerCar(Map<String, Integer> racingResult) {
+    public List<String> winnerCarSelect(Map<String, Integer> racingResult) {
         List<String> winnerCar = new ArrayList<>();
         int racingResultMax = Collections.max(racingResult.values());
         for (String key : racingResult.keySet()) {
