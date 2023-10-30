@@ -7,6 +7,7 @@ public class Game {
 
     public static List<Car> cars = new ArrayList<>();
     public static Player player = new Player();
+    public static List<String> winners = new ArrayList<>();
 
     public static void play() {
         start();
@@ -15,6 +16,8 @@ public class Game {
             race();
             printMidTermResult();
         }
+        result();
+        printResult();
     }
 
     public static void start() {
@@ -52,5 +55,36 @@ public class Game {
             System.out.println(car.getName() + " : " + "-".repeat(car.getMoveForwardCount()));
         }
         System.out.println();
+    }
+
+    public static void result() {
+        int maxMoveForwardCount = findMaxMoveForwardCount();
+        for (Car car : cars) {
+            if (car.getMoveForwardCount() == maxMoveForwardCount) {
+                winners.add(car.getName());
+            }
+        }
+    }
+
+    public static int findMaxMoveForwardCount() {
+        int maxMoveForwardCount = 0;
+        for (Car car : cars) {
+            int moveForwardCount = car.getMoveForwardCount();
+            if (moveForwardCount > maxMoveForwardCount) {
+                maxMoveForwardCount = moveForwardCount;
+            }
+        }
+
+        return maxMoveForwardCount;
+    }
+
+    public static void printResult() {
+        System.out.print("최종 우승자 : " + winners.get(0));
+
+        if (winners.size() > 1) {
+            for (int i = 1; i < winners.size(); i++) {
+                System.out.print(", " + winners.get(i));
+            }
+        }
     }
 }
