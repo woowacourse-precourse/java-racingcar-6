@@ -10,16 +10,23 @@ public class Car {
     private static final String SEPARATOR = " : ";
 
     private final Name name;
-    private String location = EMPTY_SPACE;
+    private String location;
 
     public Car(Name name) {
         this.name = name;
+        location = EMPTY_SPACE;
     }
-    public String move(int randomNumber) {
+
+    private Car(Name name, String location) {
+        this.name = name;
+        this.location = location;
+    }
+
+    public Car move(int randomNumber) {
         if (isForward(randomNumber)) {
             location += FORWARD_MOVEMENT_INDICATOR;
         }
-        return getName() + SEPARATOR + location;
+        return new Car(name, location);
     }
 
     public int getLocationLength() {
@@ -39,12 +46,17 @@ public class Car {
             return false;
         }
         Car car = (Car) o;
-        return Objects.equals(name, car.name);
+        return Objects.equals(name, car.name) && Objects.equals(location, car.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name, location);
+    }
+
+    @Override
+    public String toString() {
+        return getName() + SEPARATOR + location;
     }
 
     private boolean isForward(int randomNumber) {
