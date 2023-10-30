@@ -34,4 +34,8 @@ public class RaceService {
         return race.getCars();
     }
 
+    public List<String> getWinners() {
+        return race.getWinners();
+    }
+
 }

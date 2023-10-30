@@ -35,4 +35,8 @@ public class RaceController {
         }
     }
 
+    private void printResults() {
+        List<String> winners = raceService.getWinners();
+        //OutputView.printWinners(winners);
+    }
 }
