@@ -6,15 +6,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static racingcar.model.RacingRule.isOkToUseAttemptCount;
 import static racingcar.model.RacingRule.isOkToUseCarName;
 import static racingcar.view.InputView.getAttemptCountFromUser;
 import static racingcar.view.InputView.getCarNamesFromUser;
+import static racingcar.view.OutputView.displayAttemptPrompt;
 import static racingcar.view.OutputView.displayCarNamePrompt;
 
 public class RacingService {
     private List<Car> cars;
     private List<String> carNameList;
-    private List<String> totalRound;
+    private int totalRound;
 
     /**
      * 자동차 이름 세팅
@@ -46,4 +48,21 @@ public class RacingService {
 
         return true;
     }
+
+    /**
+     * 시도할 횟수 세팅
+     */
+    public void readyAttemptCount() {
+        displayAttemptPrompt();
+        totalRound = getAttemptCount();
+    }
+
+    protected int getAttemptCount() {
+        int attemptCountFromUser = getAttemptCountFromUser();
+
+        isOkToUseAttemptCount(attemptCountFromUser);
+
+        return attemptCountFromUser;
+    }
+
 }
