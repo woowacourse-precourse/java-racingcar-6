@@ -3,7 +3,6 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,7 @@ class CarTest {
 
     @BeforeEach
     void setup() {
-        car = new Car("pobi");
+        car = Car.fromName("pobi");
     }
 
     @Test
@@ -25,7 +24,7 @@ class CarTest {
 
     @Test
     void 이름이_5자_초과_시_예외_발생() {
-        assertThrows(IllegalArgumentException.class, () -> new Car("pororo"));
+        assertThrows(IllegalArgumentException.class, () -> Car.fromName("pororo"));
     }
 
     @Test

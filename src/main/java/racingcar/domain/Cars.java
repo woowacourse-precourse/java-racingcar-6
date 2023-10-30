@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.response.RaceResultResponse;
 
 public class Cars {
 
@@ -11,8 +12,8 @@ public class Cars {
 
     public Cars(List<String> carNames) {
         validate(carNames);
-        cars = carNames.stream()
-            .map(name -> new Car(name))
+        this.cars = carNames.stream()
+            .map(Car::fromName)
             .collect(Collectors.toList());
     }
 
