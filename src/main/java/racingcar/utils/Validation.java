@@ -8,15 +8,15 @@ public class Validation {
 
 
     public static void isBlank(String name) {
-      if (name == null || name.trim().isEmpty()) {
-        ErrorView.isBlankError();
-      }
+        if (name == null || name.trim().isEmpty()) {
+            ErrorView.isBlankError();
+        }
     }
 
     public static void isLengthError(String name) {
-      if (name.length() > 5) {
-        ErrorView.isLengthError();
-      }
+        if (name.length() > 5) {
+            ErrorView.isLengthError();
+        }
     }
 
     public static void isDuplicated(String name, List<Car> car) {
