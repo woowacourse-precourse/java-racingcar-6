@@ -57,7 +57,7 @@ public class RacingGameController implements GameController {
 
     public void setUpGameCount() {
         outputManager.printRequestGameCountInputMessage();
-        int gameCount = inputManager.getOneNumber();
+        int gameCount = inputManager.getOnePositiveNumber();
         racingGame.setGameCount(gameCount);
     }
 }

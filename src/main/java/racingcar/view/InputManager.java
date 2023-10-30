@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.InputVerifier;
 
 public class InputManager {
     public String readLine() {
@@ -15,8 +16,11 @@ public class InputManager {
         return new ArrayList<>(Arrays.asList(input.split(",")));
     }
 
-    public int getOneNumber() {
+    public int getOnePositiveNumber() {
         String input = this.readLine();
+        if (!InputVerifier.isPositiveInteger(input)) {
+            throw new IllegalArgumentException();
+        }
         return Integer.parseInt(input);
     }
 }
