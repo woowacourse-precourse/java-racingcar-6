@@ -1,6 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -48,7 +47,7 @@ class ApplicationTest extends NsTest {
             new RacingCar("woni")
         );
         carList.get(0).moveForword();
-        RacingCarGameOutput.printResultMessage(carList);
+        RacingCarGameOutput.printGameProgress(carList);
         assertThat(output()).contains("pobi : -", "woni :");
     }
 
