@@ -2,7 +2,7 @@ package racingcar.domain.race;
 
 import racingcar.domain.car.Car;
 import racingcar.domain.policy.DriveRule;
-import racingcar.domain.policy.RandomDriveRule;
+import racingcar.application.RandomDriveRule;
 
 import java.util.List;
 
