@@ -7,13 +7,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
+    private Car car = new Car();
+
     @DisplayName("이름이 널이거나 범위를 벗어나면 예외 발생")
     @Test
     void nameIsNullOrOutOfRange() {
         //Given
         String shortName = "";
         String LongName = "가나다라마";
-        Car car = new Car();
 
         //When & Then
         assertThrows(IllegalArgumentException.class, () -> car.lengthValidation(null));
@@ -26,7 +27,6 @@ public class CarTest {
     void forwardIfRandomIsOverStandard() {
         //Given
         int randomValue = 4;
-        Car car = new Car();
 
         //When
         car.run(randomValue);
@@ -40,7 +40,6 @@ public class CarTest {
     void stopIfRandomIsUnderStandard() {
         //Given
         int randomValue = 3;
-        Car car = new Car();
 
         //When
         car.run(randomValue);
