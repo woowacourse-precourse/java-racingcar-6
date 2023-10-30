@@ -1,19 +1,25 @@
 package racingcar.util.channel;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.constant.ConstStandard;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class ReaderForRacingCars extends Reader {
+
     private static final String SPLIT_SEPARATOR = "";
+
     public ReaderForRacingCars() {
         super();
     }
+
     @Override
     public String read() {
         String carsInput = Console.readLine().trim();
+
         validateBlank(carsInput);
         validateSeparator(carsInput);
         validateNameLength(carsInput);
+
         return carsInput;
     }
 

@@ -5,8 +5,8 @@ import racingcar.domain.RacingCar;
 import racingcar.util.channel.Printer;
 import racingcar.util.constant.ConstVariable;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class RacingGame {
@@ -30,8 +30,10 @@ public class RacingGame {
         viewWinners(race);
     }
 
+    /** 각 서킷의 결과를 출력합니다. */
     private void viewCircuitResult(Race race) {
         for (RacingCar car : race.getRacingCars()) {
+            // 거리만큼 "-"로 변환
             String distanceStatus = ConstVariable.RESULT_MOVEMENT.repeat(car.getDistance().intValue());
             String circuitResult = String.join(ConstVariable.RESULT_SEPARATOR, car.getName(), distanceStatus);
 
@@ -39,11 +41,13 @@ public class RacingGame {
         }
     }
 
+    /** 최종 레이스의 결과를 출력합니다. */
     private void viewWinners(Race race) {
         Long farthestDistance = race.getMostFarthestDistance();
         List<String> winners = new ArrayList<>();
 
         for (RacingCar car : race.getRacingCars()) {
+            // 본 레이스의 가장 긴 거리 기록과 동일한 차량의 이름을 구합니다.
             if (Objects.equals(car.getDistance(), farthestDistance)) {
                 winners.add(car.getName());
             }
