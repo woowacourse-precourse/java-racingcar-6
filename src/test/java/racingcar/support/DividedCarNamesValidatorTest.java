@@ -1,5 +1,6 @@
 package racingcar.support;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Assertions;
@@ -44,5 +45,13 @@ class DividedCarNamesValidatorTest {
 		// when & then
 		assertThrows(IllegalArgumentException.class,
 				() -> DividedCarNamesValidator.validate(input.split(",")));
+	}
+
+	@DisplayName("자동차 이름은 중복제외하고 1~5글자 이내인 경우만 입력할 수 있다.")
+	@ParameterizedTest
+	@ValueSource(strings = {"12345, 1234"})
+	void can_input_car_name(String input) {
+		// when & then
+		assertDoesNotThrow(() -> DividedCarNamesValidator.validate(input.split(",")));
 	}
 }
