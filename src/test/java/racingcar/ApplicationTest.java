@@ -235,6 +235,13 @@ class ApplicationTest extends NsTest {
 
     }
 
+    @Test
+    @DisplayName("기능 11번: 결과 출력 암시 문구 출력되는지 확인")
+    void 암시_문구_출력_확인() {
+        OutputViewer.printNoticeResultWillBePrinted();
+        assertThat(output()).contains("실행 결과");
+    }
+
     private void command(final String... args) {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));

@@ -3,6 +3,10 @@ package racingcar.views;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputViewer {
+
+    private InputViewer() {
+    }
+
     public static String requestCarNameInput() {
         OutputViewer.printRequestingCarName();
         return Console.readLine();
