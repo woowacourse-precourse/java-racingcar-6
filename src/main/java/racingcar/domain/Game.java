@@ -35,7 +35,7 @@ public class Game {
     public void running() {
         for(Car car : carList.getCars()) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
-            car.moveOrNot(randomNumber);
+            car.move(randomNumber);
         }
         gameResult = carList.getResultOfRound();
     }
