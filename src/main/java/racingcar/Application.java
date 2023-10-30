@@ -7,7 +7,9 @@ public class Application {
     public static void main(String[] args) {
 
         AppConfigure appConfigure = new AppConfigure();
-        Game game = new Game(appConfigure.outputView());
+        Game game = new Game(
+                appConfigure.outputView(),
+                appConfigure.inputView());
         game.start();
     }
 }
