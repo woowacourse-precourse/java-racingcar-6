@@ -20,11 +20,15 @@
 10. 최종 우승자를 출력하는 기능
 11. 경주를 종료하는 기능
 
+## 기능 구현 중 추가된 기능 목록
+
+12. 자동차의 이름을 저장하는 기능
+
 ## 기능을 할당받는 클래스 설계
 
 - RacingStadium : 1번 기능, 11번 기능
 - CarFactory : 2번 기능, 3번 기능
-- Car : 6번 기능
+- Car : 6번 기능, 12번 기능
 - RandomNumberGenerator : 4번 기능
 - NumberComparator : 5번 기능
 - SystemConstant : 7번 기능
