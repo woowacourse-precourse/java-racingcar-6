@@ -48,16 +48,14 @@ public class RacingGameController {
 
     private RacingGame gameSet(Cars cars) {
         Referee referee = new Referee();
-        RacingGame racingGame = new RacingGame(cars, referee);
-        return racingGame;
+        return new RacingGame(cars, referee);
     }
 
     private void startRacing(Cars cars, TryNumber tryNumber, RacingGame racingGame) {
         outputView.printResultMessage();
-        IntStream.range(0, tryNumber.number())
-                .forEach(i -> {
-                    racingGame.playOneStep();
-                    outputView.printResult(CarDto.toDtoList(cars));
-                });
+        IntStream.range(0, tryNumber.number()).forEach(i -> {
+            racingGame.playOneStep();
+            outputView.printResult(CarDto.toDtoList(cars));
+        });
     }
 }

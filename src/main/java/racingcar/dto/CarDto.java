@@ -10,6 +10,7 @@ public record CarDto(CarName carName, CarDistance carDistance) {
 
     public static List<CarDto> toDtoList(final Cars cars) {
         List<Car> carList = cars.getCarList();
+
         return carList.stream()
                 .map(car -> new CarDto(car.getCarName(), car.getCarDistance()))
                 .toList();

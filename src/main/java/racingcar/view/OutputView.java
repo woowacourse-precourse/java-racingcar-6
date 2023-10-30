@@ -34,6 +34,7 @@ public class OutputView {
             String distance = DISTANCE_CHARACTER.repeat(carDto.carDistance().distance());
             System.out.println(carName + SEPARATOR_COLON + distance);
         });
+
         System.out.println();
     }
 

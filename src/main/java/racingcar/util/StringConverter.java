@@ -23,8 +23,8 @@ public class StringConverter {
 
     public static TryNumber stringToTryNumber(String tryNumber) {
         InputValidator.validateInputTryNumber(tryNumber);
-
         Integer number = Integer.valueOf(tryNumber);
+        
         return new TryNumber(number);
     }
 }
