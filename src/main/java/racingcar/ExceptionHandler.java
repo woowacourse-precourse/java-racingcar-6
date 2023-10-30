@@ -8,5 +8,9 @@ public class ExceptionHandler {
         if (!Validation.isNum(input)) {
             throw new IllegalArgumentException("시도 횟수가 숫자가 아닙니다.");
         }
+
+        if (Validation.isBlank(input)) {
+            throw new IllegalArgumentException("시도 횟수가 공백입니다.");
+        }
     }
 }
