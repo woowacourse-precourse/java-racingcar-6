@@ -3,7 +3,6 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.ArrayList;
-import racingcar.view.View;
 
 public class Model {
     public List<Car> makeCarList(String[] carNameArray){

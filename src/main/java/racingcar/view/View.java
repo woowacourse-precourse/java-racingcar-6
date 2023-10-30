@@ -5,36 +5,24 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class View {
-    public String[] getCarNameArray() {
+    public String getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
         String carNames  = Console.readLine();
 
-        String[] carNameArray = carNames.split(",");
-
-        for (String name : carNameArray) {
-            if (name.length()>5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-            }
-        }
-
-        return carNameArray;
+        return carNames;
     }
 
-    public int getTimes() {
+    public String getStringOfTimes() {
         System.out.println("시도할 횟수는 몇회인가요?");
         String stringOfTimes = Console.readLine();
 
-        try {
-            int intOfTimes = Integer.parseInt(stringOfTimes);
-            return intOfTimes;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("입력값이 정수가 아닙니다.");
-        }
+        return stringOfTimes;
     }
 
     public void printResult(List<Car> carList) {
         for (Car currentCar : carList) {
             String carName = currentCar.getName();
+
             int intOfDistance = currentCar.getDistance();
             String stringOfDistance  = getStringOfDistance(intOfDistance);
 
