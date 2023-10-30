@@ -14,5 +14,11 @@ public class Application {
         InputHandler input = new InputHandler();
         names = input.inputName();
         trialToDo = input.inputTrial();
+
+        System.out.println(TrialRepeat.RESULT_PRINT_TEXT);
+        while (trialCurrent < trialToDo) {
+            TrialRepeat trial = new TrialRepeat();
+            trial.trialExecution(names);
+        }
     }
 }
