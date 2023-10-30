@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.constants.ErrorMessage;
 import racingcar.utils.Converter;
 import racingcar.utils.Validator;
@@ -68,5 +70,18 @@ public class InputTest {
 
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NOT_DUPLICATED.getMessage());
 
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {",java,jigi", "java,,jigi", "java, ,jigi", " ,java,jigi"})
+    @DisplayName("사용자의 입력에 공백이 있는 경우, 에러를 출력하는가?")
+    void input_자동차_이름_공백_테스트(String input) {
+        List<String> names = Converter.convertStringToList(input);
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class, () -> Validator.validateNoSpace(names)
+        );
+
+        assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_NO_SPACE.getMessage());
     }
 }
