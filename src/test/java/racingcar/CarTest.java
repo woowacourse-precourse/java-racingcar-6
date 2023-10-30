@@ -13,16 +13,15 @@ import racingcar.utils.Random;
 public class CarTest {
     @ParameterizedTest
     @ValueSource(ints = {0,1,2,3})
-    @DisplayName("전진 조건을 올바르게 판단하는가? - 멈춘다")
-    void test(int number) {
-        System.out.println(number);
+    @DisplayName("전진 조건을 올바르게 판단하는가? - 충족X")
+    void car_전진조건_충족테스트_충족X(int number) {
         assertThat(Random.isConditionsAdvancementMet(number)).isFalse();
     }
 
     @ParameterizedTest
     @ValueSource(ints = {4,5,6,7,8,9})
-    @DisplayName("전진 조건을 올바르게 판단하는가? - 전진한다")
-    void test2(int number) {
+    @DisplayName("전진 조건을 올바르게 판단하는가? - 충족O")
+    void car_전진조건_충족테스트_충족O(int number) {
         assertThat(Random.isConditionsAdvancementMet(number)).isTrue();
     }
 
