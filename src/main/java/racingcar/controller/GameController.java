@@ -12,19 +12,15 @@ import racingcar.view.RacingCarView;
 public class GameController {
 
     public void gameRun() {
-        String[] carNames = RacingCarView.inputCarNames();
-        List<Car> cars = Arrays.stream(carNames)
-                .map(Car::new)
-                .toList();
+        List<Car> cars = makeCars();
         CarStorage storage = new CarStorage(cars);
 
-        int numOfCars = carNames.length;
         int gameCount = RacingCarView.inputGameCount();
 
         CarGameService carGameService = new RacingCarGameService(storage);
 
         for (int i = 0; i < gameCount; i++) {
-            List<Integer> randomNumbers = RandomNumberCreator.makeRandomNumbers(numOfCars);
+            List<Integer> randomNumbers = RandomNumberCreator.makeRandomNumbers(cars.size());
             List<Car> playingCars = gameStart(randomNumbers, carGameService);
             if (i == 0) {
                 System.out.println("\n실행 결과");
@@ -35,6 +31,13 @@ public class GameController {
         List<Car> finalPlayingCars = carGameService.getDuplicatedCars();
 
         RacingCarView.outputWinners(finalPlayingCars);
+    }
+
+    private List<Car> makeCars() {
+        String[] carNames = RacingCarView.inputCarNames();
+        return Arrays.stream(carNames)
+                .map(Car::new)
+                .toList();
     }
 
     private List<Car> gameStart(List<Integer> randomNumbers, CarGameService carGameService) {
