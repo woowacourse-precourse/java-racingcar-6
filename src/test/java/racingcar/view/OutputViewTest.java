@@ -10,6 +10,19 @@ import java.util.List;
 class OutputViewTest extends NsTest {
 
     @Test
+    @DisplayName("출력 - 시도할 회수는 몇회인가요?")
+    public void testPrintRacingCountInputMessage() {
+        //given
+
+        //when
+        OutputView.printRacingCountInputMessage();
+        String result = output();
+
+        //then
+        Assertions.assertThat(result).isEqualTo("시도할 회수는 몇회인가요?");
+    }
+
+    @Test
     public void testPrintRacingRoundResult() {
         //given
         String carName = "CarA";
