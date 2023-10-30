@@ -43,10 +43,10 @@ public class GameUtils {
                 this.appendString(winner, cars, index);
             }
         }
-        System.out.println("최종 우승자 : " +  winner);
+        System.out.println("최종 우승자 : " + winner);
     }
 
-    private void appendString(StringBuilder winner, List<Car> cars,  int index) {
+    private void appendString(StringBuilder winner, List<Car> cars, int index) {
         if (!winner.isEmpty()) {
             winner.append(", ");
             winner.append(cars.get(index).getName());
@@ -76,7 +76,7 @@ public class GameUtils {
     }
 
     private void printResult(Car car) {
-        System.out.println(car.getName() + ":" + "-".repeat(car.getCount()));
+        System.out.println(car.getName() + " : " + "-".repeat(car.getCount()));
     }
 
     private boolean isValid(String car) {
