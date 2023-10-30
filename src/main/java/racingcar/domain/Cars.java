@@ -20,6 +20,14 @@ public class Cars {
         carList.forEach(Car::move);
     }
 
+    public List<String> getWinnerNames() {
+        return carList.stream().filter(c -> c.getDistance() == getMaxDistance()).map(Car::getName).toList();
+    }
+
+    private int getMaxDistance() {
+        return carList.stream().max(Car::compareTo).get().getDistance();
+    }
+
     private void validateDuplicate(final List<Car> carList) {
         final Set<Car> carSet = new HashSet<>(carList);
         if (carSet.size() != carList.size()) {
