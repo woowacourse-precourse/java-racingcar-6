@@ -4,6 +4,8 @@ import java.util.List;
 
 public class OutputView {
 
+    private static final String MOVE_SYMBOL = "-";
+
     public static void printRacingResultMessage() {
         System.out.println("실행 결과");
     }
@@ -11,7 +13,7 @@ public class OutputView {
     public static void printMoveResult(List<String> carNames, List<Integer> forwardCounts) {
         for (int i = 0; i < carNames.size(); i++) {
             System.out.print(carNames.get(i) + " : ");
-            System.out.println("-".repeat(forwardCounts.get(i)));
+            System.out.println(MOVE_SYMBOL.repeat(forwardCounts.get(i)));
         }
         System.out.print("\n");
     }
