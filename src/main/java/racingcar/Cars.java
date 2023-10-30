@@ -24,21 +24,17 @@ public class Cars {
                 .anyMatch(car -> car.getName().equals(carName));
     }
 
-    private List<String> findWinners() {
-        int maxPosition = cars.stream()
+    public int findMaxPosition() {
+        return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
+    }
 
+    public List<String> findWinners(int maxPosition) {
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .toList();
-    }
-
-    public void printFinalResult() {
-        List<String> winners = findWinners();
-        String result = String.join(", ", winners);
-        System.out.println("최종 우승자 : " + result);
     }
 }
