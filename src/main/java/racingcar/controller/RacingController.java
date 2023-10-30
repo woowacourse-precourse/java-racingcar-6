@@ -32,7 +32,7 @@ public class RacingController {
     private void repeatRacing() {
         OutputView.printResult();
         for (int i = 0; i < repeatNumber; i++) {
-            cars.forwardCars();
+            cars.moveCars();
         }
     }
 

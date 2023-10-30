@@ -17,7 +17,7 @@ public class Cars {
         }
     }
 
-    public void forwardCars() {
+    public void moveCars() {
         for (Car car : carList) {
             car.forward(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER));
             OutputView.printRacing(car.getName(), car.getLocation());
@@ -29,7 +29,7 @@ public class Cars {
         int maxLocation = maxLocation();
 
         return carList.stream()
-            .filter(car -> car.getLocation() == maxLocation)
+            .filter(car -> car.isMaxLocation(maxLocation))
             .toList();
     }
 
