@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import racingcar.exception.GameExceptionMessage;
 import racingcar.exception.NotValidInputException;
 
 import java.util.regex.Pattern;
@@ -17,7 +16,7 @@ public class InputService {
         checkLengthValidation(carName); // 자동차의 이름 길이 제약 조건 확인
     }
 
-    public void checkCompetitionNumberValidation(String competition) {
+    public void checkFrequencyValidation(String competition) {
         checkBlankValidation(competition, USER_INPUT_CAN_NOT_BE_BLANK.getMessage()); // 공백 확인
         checkNumberPatternValidation(competition); // 입력한 횟수가 숫자인지 확인
     }

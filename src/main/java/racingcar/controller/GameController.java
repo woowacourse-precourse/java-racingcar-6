@@ -48,7 +48,7 @@ public class GameController {
         String frequency = Console.readLine();
         System.out.println();
 
-        inputService.checkCompetitionNumberValidation(frequency);
+        inputService.checkFrequencyValidation(frequency);
 
         return Integer.parseInt(frequency);
     }
