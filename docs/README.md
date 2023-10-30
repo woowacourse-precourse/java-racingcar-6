@@ -11,12 +11,12 @@
 
 ### 세부적으로 구현할 기능 목록
 
-- [ ] 경주할 자동차 이름 입력
+- [x] 경주할 자동차 이름 입력
   - [x] 경주할 자동차 이름 입력을 위한 안내 문구 출력
   - [x] 입력받은 자동차 이름들을 쉼표(,) 기준으로 구분하여 저장
-  - [ ] 자동차 이름이 5자 이하인지 검증
-  - [ ] 자동차 이름이 5자 초과인 경우 IllegalArgumentException 발생 후 종료
-  - [ ] 자동차 이름이 빈 문자열인 경우 IllegalArgumentException 발생 후 종료
+  - [x] 자동차 이름이 5자 이하인지 검증
+  - [x] 자동차 이름이 5자 초과인 경우 IllegalArgumentException 발생 후 종료
+  - [x] 자동차 이름이 빈 문자열인 경우 IllegalArgumentException 발생 후 종료
 - [ ] 전진 시도할 횟수 입력
   - [x] 전진 시도할 횟수 입력을 위한 안내 문구 출력
   - [ ] 입력 값이 정수 형식이 아닌 경우 IllegalArgumentException 발생 후 종료
