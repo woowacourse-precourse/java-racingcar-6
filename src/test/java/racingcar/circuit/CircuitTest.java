@@ -8,31 +8,31 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.Car;
+import racingcar.domain.car.RacingCar;
 import racingcar.domain.result.RacingCarResult;
 import racingcar.domain.result.RacingGameStatistics;
 import racingcar.generator.NumberGenerator;
 
 class CircuitTest {
 
-    private List<Car> cars;
+    private List<RacingCar> racingCars;
 
     @BeforeEach
     void setUp() {
-        cars = new ArrayList<>();
-        Car car1 = new Car("one");
-        Car car2 = new Car("two");
-        Car car3 = new Car("three");
-        cars.add(car1);
-        cars.add(car2);
-        cars.add(car3);
+        racingCars = new ArrayList<>();
+        RacingCar racingCar1 = new RacingCar("one");
+        RacingCar racingCar2 = new RacingCar("two");
+        RacingCar racingCar3 = new RacingCar("three");
+        racingCars.add(racingCar1);
+        racingCars.add(racingCar2);
+        racingCars.add(racingCar3);
     }
 
     @DisplayName("서킷 경기장의 모든 자동차에게 난수를 전달한다.")
     @Test
     void tryRacingGame() {
         Circuit circuit = getTestCircuit();
-        cars.forEach(circuit::addRacingCar);
+        racingCars.forEach(circuit::addRacingCar);
 
         circuit.tryRacingGame();
         RacingGameStatistics results = circuit.summarizeRacingResult();

@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class RacingCarRandomNumberGeneratorTest {
+class RacingRacingCarRandomNumberGeneratorTest {
 
     @DisplayName("숫자 생성기에 하나의 숫자가 생성된다.")
     @Test

@@ -3,7 +3,7 @@ package racingcar.domain.car;
 import racingcar.domain.car.validate.NameLengthValidator;
 import racingcar.domain.result.RacingCarResult;
 
-public class Car {
+public class RacingCar {
 
     private static final int START_LOCATION = 0;
     private static final int MOVE_CONDITION = 4;
@@ -11,7 +11,7 @@ public class Car {
     private final String name;
     private Integer location;
 
-    public Car(String name) {
+    public RacingCar(String name) {
         validate(name);
         this.name = name;
         this.location = START_LOCATION;

@@ -2,7 +2,7 @@ package racingcar.game;
 
 import java.util.List;
 import racingcar.circuit.Circuit;
-import racingcar.domain.car.Car;
+import racingcar.domain.car.RacingCar;
 import racingcar.domain.result.RacingGameStatistics;
 import racingcar.domain.trial.Trial;
 import racingcar.domain.winner.Winners;
@@ -53,7 +53,7 @@ public class RacingGame {
 
     private void setUpCars() {
         List<String> carNames = receiveCarNames();
-        carNames.stream().map(Car::new).forEach(circuit::addRacingCar);
+        carNames.stream().map(RacingCar::new).forEach(circuit::addRacingCar);
     }
 
     private List<String> receiveCarNames() {
