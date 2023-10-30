@@ -13,4 +13,11 @@ public class CarPositionTest {
         CarPosition pos = new CarPosition();
         Assertions.assertThat(pos).isNotNull();
     }
+
+    @Test
+    @DisplayName("자동차 초기 위치 테스트")
+    void 자동차_초기위치_테스트(){
+        CarPosition pos = new CarPosition();
+        Assertions.assertThat(pos.toInt()).isEqualTo(0);
+    }
 }
