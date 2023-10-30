@@ -8,12 +8,33 @@ import java.util.stream.IntStream;
 
 public class Output {
 
-    public static void printResult(List<Car> list){
-        System.out.println("\n실행 결과");
-        list.forEach(car -> System.out.println(car.getName() + " : " +
-                toOutputForm(car.getMoveCount())));
+    private static StringBuilder outputBuilder;
+    private static final String RESULT_PRINT_FORM = "\n실행 결과\n";
+    private static final String WINNER_PRINT_FORM = "최종 우승자 : ";
 
-        System.out.println();
+    public static void init(){
+        outputBuilder = new StringBuilder(RESULT_PRINT_FORM);
+    }
+
+    public static void printResult(){
+        System.out.println(outputBuilder.toString());
+    }
+
+    public static void addResultOutput(Car car){
+        outputBuilder.append(car.getName()).append(" : ").append(toOutputForm(car.getMoveCount())).append("\n");
+    }
+
+    public static void addResultOutput(List<Car> carList){
+        outputBuilder.append(WINNER_PRINT_FORM);
+
+        String result = carList.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+        outputBuilder.append(result);
+    }
+
+    public static void addResultOutput(String input){
+        outputBuilder.append(input);
     }
 
     //이동한 횟수만큼 출력 폼인 - 로 변환
@@ -23,12 +44,4 @@ public class Output {
                 .collect(Collectors.joining());
     }
 
-    public static void printWinner(List<Car> list){
-        System.out.print("\n최종 우승자 : ");
-
-        String result = list.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(", "));
-        System.out.println(result);
-    }
 }

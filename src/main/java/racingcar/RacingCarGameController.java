@@ -24,6 +24,7 @@ public class RacingCarGameController {
                                    UserInputCarMoveCountFactory userInputCarMoveCountFactory,
                                    CarMoveService carMoveService,
                                    CarRacingWinnerService carRacingWinnerService){
+
         this.userInputCarNameFactory = userInputCarNameFactory;
         this.userInputCarMoveCountFactory = userInputCarMoveCountFactory;
         this.carMoveService = carMoveService;
@@ -43,16 +44,16 @@ public class RacingCarGameController {
         //4. 이동 횟수 유효성 검증 및 이동 객체 생성
         UserInputCarMoveCountDto userInputCarMoveCountDto = userInputCarMoveCountFactory.createUserInputCarMoveCountDto();
 
-        //5. 자동차 전진
+        //5. 출력 객체 초기화
+        Output.init();
+
+        //6. 자동차 전진
         carMoveService.move(cars,userInputCarMoveCountDto);
 
-        //6. 전진 결과 출력
-        Output.printResult(cars.getCars());
-
         //7. 우승자 판별
-        List<Car> carRacingWinner = carRacingWinnerService.selectWinner(cars);
+        carRacingWinnerService.selectWinner(cars);
 
-        //8. 우승자 출력
-        Output.printWinner(carRacingWinner);
+        //8. 출력
+        Output.printResult();
     }
 }

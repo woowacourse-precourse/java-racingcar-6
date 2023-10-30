@@ -2,6 +2,7 @@ package service;
 
 import domain.Car;
 import domain.Cars;
+import ui.Output;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,11 +11,11 @@ import java.util.stream.IntStream;
 
 public class CarRacingWinnerService {
 
-    public List<Car> selectWinner(Cars cars){
+    public void selectWinner(Cars cars){
         ArrayList<Car> carList = cars.getCars();
         sort(carList);
         int lastIndex = findLastIndex(carList);
-        return carList.subList(0,lastIndex);
+        Output.addResultOutput(carList.subList(0,lastIndex));
     }
 
     private void sort(ArrayList<Car> carList){
