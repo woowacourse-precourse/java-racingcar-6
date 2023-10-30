@@ -11,6 +11,8 @@ import racingcar.view.OutputView;
 import java.util.Arrays;
 import java.util.List;
 
+import static racingcar.validation.ValidateForm.*;
+
 public class Application {
     public static void main(String[] args) {
         OutputView.outputForRaceStart();
@@ -19,7 +21,7 @@ public class Application {
 
     private static void raceBefore(){
         List<String> racerNameList = racerNameForm();
-        targetScoreForm();
+        TargetScore targetScore = targetScoreForm();
     }
 
     private static List<String> racerNameForm(){
@@ -30,19 +32,26 @@ public class Application {
         return racerNameList;
     }
 
-    private static void targetScoreForm(){
+    private static TargetScore targetScoreForm(){
         OutputView.outputForRaceTargetScore();
+        String targetScoreInput = InputTool.readLineByConsole();
+        return new TargetScore(validateTargetScore(targetScoreInput));
     }
 
     private static void validateRacerNameList(String racerNameList){
-        ValidateForm.validateForValidateType(ValidateType.NAME_LIST,racerNameList);
+        validateForValidateType(ValidateType.NAME_LIST,racerNameList);
     }
 
     private static void validateRacerName(List<String> racerNameList){
         racerNameList.stream()
-                            .forEach(racerName->ValidateForm.validateForValidateType(
+                            .forEach(racerName-> validateForValidateType(
                                     ValidateType.NAME,racerName
                             )
                 );
+    }
+
+    private static int validateTargetScore(String targetScore){
+        validateForValidateType(ValidateType.SCORE,targetScore);
+        return Integer.parseInt(targetScore);
     }
 }
