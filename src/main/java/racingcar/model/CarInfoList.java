@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 
-import static racingcar.model.Constants.IS_GO_FORWARD;
+import static racingcar.model.Constants.*;
 
 public class CarInfoList {
 
@@ -17,8 +17,8 @@ public class CarInfoList {
 
     public CarInfoList(String userInputString) {
         this.carNameList = Arrays.asList(userInputString.split(","));
-        for (String s : carNameList) {
-            InputValidator.checkNameLength(s);
+        for (String carName : carNameList) {
+            InputValidator.checkNameLengthIsOverflow(carName,MAX_NAME_LENGTH);
         }
         this.carPositionList = new ArrayList<>();
         for (int i=0;i<carNameList.size();i++) { carPositionList.add(0); }
@@ -37,7 +37,6 @@ public class CarInfoList {
     }
 
     public void updateCarInfoList(List<Integer> carRandomOutputList) {
-        System.out.println("carRandomOutputList : "+carRandomOutputList);
         for (int i=0;i<carRandomOutputList.size();i++) {
             if (carRandomOutputList.get(i) >= IS_GO_FORWARD) {
                 this.carPositionList.set(i,carPositionList.get(i)+1);
