@@ -22,7 +22,7 @@ public class Race {
         while (!raceGameCount.isGameOver()) {
             raceGameCount.run();
             cars.run();
-            result.add(cars);
+            result.captureCars(cars);
         }
     }
 
