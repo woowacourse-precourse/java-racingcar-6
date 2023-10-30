@@ -17,6 +17,10 @@ public class RacingGame {
         for (String name : inputArray) {
             carList.add(generateCar(name));
         }
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        String inputRound = Console.readLine();
+        validateInputRound(inputRound);
     }
 
     private static void validateInputName(String input) {
@@ -41,5 +45,24 @@ public class RacingGame {
 
     private static Car generateCar(String name) {
         return new Car(name);
+    }
+
+    private static void validateInputRound(String round) {
+        isNumeric(round);
+        isPositive(round);
+    }
+
+    private static void isNumeric(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 회수는 숫자이어야 합니다.");
+        }
+    }
+
+    private static void isPositive(String input) {
+        if (Integer.parseInt(input)<=0) {
+            throw new IllegalArgumentException("시도할 회수는 1회 이상을 입력해주세요.");
+        }
     }
 }
