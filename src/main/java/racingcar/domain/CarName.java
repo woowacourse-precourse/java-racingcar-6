@@ -1,10 +1,12 @@
 package racingcar.domain;
 
 public class CarName {
+
+    public static final int NAME_MAX_LENGTH = 5;
     private final String name;
 
     public CarName(String name) {
-        validateName(name);
+        validateInRange(name);
         validateEmptyName(name);
         this.name = name;
     }
@@ -13,8 +15,8 @@ public class CarName {
         return name;
     }
 
-    private void validateName(String name) {
-        if(name.length()>5){
+    private void validateInRange(String name) {
+        if(name.length()> NAME_MAX_LENGTH){
             throw new IllegalArgumentException("이름의 길이를 5이하로 해주세요");
         }
     }
