@@ -13,18 +13,20 @@ public class GameController {
 
     private Cars cars;
 
+    private int turns;
+
     public void play() {
-        final int turns = prepare();
-        process(turns);
+        prepare();
+        process();
         declareWinner();
     }
 
-    private int prepare() {
+    private void prepare() {
         cars = Cars.from(inputCarNames());
-        return inputAttemptCount();
+        turns = inputAttemptCount();
     }
 
-    private void process(final int turns) {
+    private void process() {
         printExecutionStart();
         for (int i = 0; i < turns; i++) {
             cars.processTurn();
