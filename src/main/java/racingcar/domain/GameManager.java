@@ -1,49 +1,44 @@
 package racingcar.domain;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class GameManager {
-    public List<Car> createCar(String[] carNames) {
 
-        return Arrays.stream(carNames)
-                .map(Car::new)
+    private final List<Car> cars = new ArrayList<>();
+    private int maxPosition;
+
+    public GameManager(List<String> carNames) {
+        carNames.forEach(carName -> cars.add(new Car(new CarName(carName))));
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void moveCar() {
+        cars.forEach(car -> car.move(RandomNumber.createRandomNumber()));
+    }
+
+    public Winner findWinnerCar() {
+        findMaxPosition();
+        return findWinner();
+    }
+
+    private void findMaxPosition() {
+        this.maxPosition = cars.stream()
+                .map(Car::getPosition)
+                .max(Integer::compareTo)
+                .orElse(Integer.MIN_VALUE); // 예외처리하기
+    }
+
+    private Winner findWinner() {
+        List<String> winnerCarNames = cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
                 .collect(Collectors.toList());
-    }
 
-    public static void moveCar(List<Car> cars) {
-        for (Car car : cars) {
-            car.move();
-        }
-    }
-
-    public int findWinnerCar(List<Car> cars) {
-        int max=0;
-
-        for (Car car : cars) {
-            max = findMaxPosition(max,car.getPosition());
-        }
-
-        return max;
-    }
-
-    private int findMaxPosition(int max,int position) {
-
-        if (max < position) {
-            max = position;
-        }
-
-        return max;
-    }
-
-    public static String resultPosition(Car car) {
-        StringBuilder resultPosition = new StringBuilder();
-
-        for (int i = 0; i < car.getPosition(); i++) {
-            resultPosition.append("-");
-        }
-
-        return resultPosition.toString();
+        return new Winner(winnerCarNames);
     }
 }
