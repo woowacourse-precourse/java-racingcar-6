@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
@@ -24,34 +24,34 @@ class CarValidationTest {
     @Test
     void validateAll_too_longCarNames() {
         // given
-        String[] tooLongCarNames = {"Car123454", "Car5", "Car1"};
+        String[] validCarNames = {"Car123454", "Car5", "Car1"};
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            carValidation.carValidateAll(tooLongCarNames);
-        });
+        assertThatThrownBy(() -> carValidation.carValidateAll(validCarNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름이 5자 이하가 아닙니다: " + validCarNames[0]);
     }
 
     @Test
     void validateAll_invalidCarNames() {
         // given
-        String[] invalidCarNames = {"Car@4", "Car5$", "Car1"};
+        String[] validCarNames = {"Car@4", "Car5$", "Car1"};
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            carValidation.carValidateAll(invalidCarNames);
-        });
+        assertThatThrownBy(() -> carValidation.carValidateAll(validCarNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("특수문자가 포함된 문자열이 입력되었습니다: " + validCarNames[0]);
     }
 
     @Test
     void testValidateDuplication() {
         // given
-        String[] duplicateCarNames = {"Car2", "Car2", "Car1"};
+        String[] validCarNames = {"Car2", "Car2", "Car1"};
 
         // when & then
-        assertThrows(IllegalArgumentException.class, () -> {
-            carValidation.carValidateAll(duplicateCarNames);
-        });
+        assertThatThrownBy(() -> carValidation.carValidateAll(validCarNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복된 이름이 입력되었습니다: " + validCarNames[1]);
     }
 
 }
