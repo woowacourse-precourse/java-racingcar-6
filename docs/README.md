@@ -67,10 +67,14 @@
 - 시도 횟수 입력 값을 String ➡ int 로 변경한다.
   - [**convertStringToNumber**] 메시지 ➡ 시도 횟수 (String)
 
+### ✔ 우승자 리스트 문자열 변경 기능
+- 우승자 목록을 List -> String 으로 변경한다.
+  - [convertListToString]
+
 ### ✔ 랜덤 숫자 발급 기능
 - 0~9 사이 랜덤 숫자를 발급한다.
   - [makeRandomNumber]
 
 ---
 ## 📄클래스 다이어그램
-![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/e7f2b5a6-1ff9-417a-be01-fb777c171d40)
+![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/41159394-1613-4ff6-96e6-6208af675a84)
