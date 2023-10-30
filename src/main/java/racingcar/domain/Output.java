@@ -54,4 +54,12 @@ public class Output {
 
         return gameResult;
     }
+
+    public int getMax(int[] arr) {
+        int max = 0;
+        for (int num : arr) {
+            max = Math.max(num, max);
+        }
+        return max;
+    }
 }
