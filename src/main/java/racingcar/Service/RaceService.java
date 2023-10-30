@@ -10,6 +10,7 @@ import racingcar.domain.Car;
 public class RaceService {
 
     Car car=new Car();
+
     private int requestAttempts(){
         String attemptsInput = Console.readLine();
         return validateConvertToInt(attemptsInput);
@@ -25,14 +26,18 @@ public class RaceService {
 
     private List<String> requestCarNames(){
         String carListInput = Console.readLine();
+        validateDelimiter(carListInput);
+        return car.getCarNameList();
+    }
+
+    private void validateDelimiter(String carListInput) {
         StringTokenizer st=new StringTokenizer(carListInput,",");
         Set<String> tokenSet=new HashSet<>();
         while(st.hasMoreTokens()){
-            String carName = validateDelimiter(st);
+            String carName = validateIncorrectDelimiter(st);
             validateDuplication(tokenSet, carName);
             car.addCarName(carName);
         }
-        return car.getCarNameList();
     }
 
     private static void validateDuplication(Set<String> tokenSet, String carName) {
@@ -41,7 +46,7 @@ public class RaceService {
         }
     }
 
-    private static String validateDelimiter(StringTokenizer st) {
+    private static String validateIncorrectDelimiter(StringTokenizer st) {
         String carName = st.nextToken();
         String[] token=carName.split("[^a-zA-Z0-9]+");
         if(token.length>1){
