@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import static racingcar.util.Parser.parseCarName;
+import static racingcar.util.Utils.parseCarName;
 
 import java.util.List;
 import racingcar.domain.RacingCars;

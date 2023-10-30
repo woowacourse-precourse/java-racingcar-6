@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.validator.CarNameValidator;
-import racingcar.util.Parser;
+import racingcar.util.Utils;
 
 class CarNameValidatorTest {
 
@@ -15,7 +15,7 @@ class CarNameValidatorTest {
     void validateAllCasesDoesNotThrowAnyException() {
         // given
         String validCarName = "i,am,sully";
-        List<String> carNames = Parser.parseCarName(validCarName);
+        List<String> carNames = Utils.parseCarName(validCarName);
 
         // when
         // then
@@ -28,7 +28,7 @@ class CarNameValidatorTest {
     void validateCarNameExistsWithBlank() {
         // given
         String invalidCarName = "sully,,i";
-        List<String> carNames = Parser.parseCarName(invalidCarName);
+        List<String> carNames = Utils.parseCarName(invalidCarName);
 
         // when
         // then
@@ -42,7 +42,7 @@ class CarNameValidatorTest {
     void validateAlphanumericAndCommaCarNameWithInvalidCarName() {
         // given
         String invalidCarName = "i,am,siu^^";
-        List<String> carNames = Parser.parseCarName(invalidCarName);
+        List<String> carNames = Utils.parseCarName(invalidCarName);
 
         // when
         // then
@@ -56,7 +56,7 @@ class CarNameValidatorTest {
     void validateCarNameLengthWithInvalidLength() {
         // given
         String invalidCarName = "romero,sully,hi";
-        List<String> carNames = Parser.parseCarName(invalidCarName);
+        List<String> carNames = Utils.parseCarName(invalidCarName);
 
         // when
         // then
@@ -70,7 +70,7 @@ class CarNameValidatorTest {
     void validateCarNamesDuplicateWithInvalidCarNames() {
         // given
         String invalidCarName = "sully,hi,my,name,is,sully";
-        List<String> carNames = Parser.parseCarName(invalidCarName);
+        List<String> carNames = Utils.parseCarName(invalidCarName);
 
         // when
         // then
