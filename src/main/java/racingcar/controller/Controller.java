@@ -42,6 +42,7 @@ public class Controller {
     private void executeRaces(List<Car> list, int tryNumber) {
         for (int i = 0; i < tryNumber; i++) {
             executeSingleRace(list);
+            outputView.displayNewLine();
         }
     }
 

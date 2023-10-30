@@ -25,4 +25,8 @@ public class OutputView {
     public void displayWinner(String winner) {
         System.out.print(WINNER_GUIDE_MESSAGE + winner);
     }
+
+    public void displayNewLine() {
+        System.out.println();
+    }
 }
