@@ -3,7 +3,6 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.repository.RaceRepository;
