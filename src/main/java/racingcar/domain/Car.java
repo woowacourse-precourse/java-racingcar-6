@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Car implements Comparable<Car> {
     private static final int MINIMUM_MOVABLE_SYMBOL = 4;
+    private static final String INVALID_MOVABLE_SYMBOL = "움직임을 나타내는 신호는 0 ~ 9 사이의 숫자입니다";
 
     private final CarName carName;
     private int position;
@@ -14,6 +15,11 @@ public class Car implements Comparable<Car> {
     }
 
     public void goForward(int movableSymbol) {
+
+        if (!(0 <= movableSymbol && movableSymbol <= 9)) {
+            throw new IllegalArgumentException(INVALID_MOVABLE_SYMBOL);
+        }
+
         if (isMovable(movableSymbol)) {
             this.position += 1;
         }
