@@ -14,7 +14,7 @@ public class RacingCarController {
 
 
         view.displayRoundCountSetupMessage();
-        String roundCount = view.getUserInput();
+        String stringRoundCount = view.getUserInput();
 
     }
 }
