@@ -48,6 +48,13 @@ public class Validation {
         }
     }
 
+    private static void validateNumberRange(String input) {
+        if (Integer.parseInt(input) < 0) {
+            throw new IllegalArgumentException("음수는 입력 불가합니다.");
+        }
+    }
+
+
 
 
 }
