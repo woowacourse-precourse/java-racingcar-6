@@ -3,6 +3,16 @@ package racingcar;
 public class Validate {
 
     public static void carNames(String[] splitNames) {
-        //TODO: carName은 5자 이하만 가능 체크.
+        for (String splitName : splitNames) {
+            if (splitName.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
+    public static void number(String inputNumber) {
+        if (!inputNumber.matches("\\d+")) {
+            throw new IllegalArgumentException();
+        }
     }
 }
