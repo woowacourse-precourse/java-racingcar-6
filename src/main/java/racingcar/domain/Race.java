@@ -38,6 +38,7 @@ public class Race {
             }
             System.out.println();
         }
+        String[] names = Winner.winnerList(car.getCars(), Winner.maxForward(car.getCars()));
     }
 
     private int toInt(String inputPlayCount) {
