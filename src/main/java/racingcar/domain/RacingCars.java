@@ -19,4 +19,10 @@ public class RacingCars {
             throw new IllegalArgumentException(EMPTY_CAR_EXCEPTION);
         }
     }
+
+    public void addCar(String carNames) {
+        for (String carName : carNames.split(",")) {
+            racingCars.add(carName);
+        }
+    }
 }
