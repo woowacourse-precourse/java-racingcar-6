@@ -1,8 +1,8 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 
@@ -34,21 +34,17 @@ public class Cars {
     }
 
     private int findMaxForward() {
-        int maxForward = MAX_FORWARD;
-        for (Car car : carList) {
-            maxForward = Math.max(maxForward, car.getForward());
-        }
-        return maxForward;
+        return carList.stream()
+                .mapToInt(Car::getForward)
+                .max()
+                .orElse(MAX_FORWARD);
     }
 
     private List<String> findWinnerCarNames(int maxForward) {
-        List<String> winnerCarList = new ArrayList<>();
-        for (Car car : carList) {
-            if (maxForward == car.getForward()) {
-                winnerCarList.add(car.getName());
-            }
-        }
-        return winnerCarList;
+        return carList.stream()
+                .filter(car -> car.getForward() == maxForward)
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private boolean isForward(int randomNumber) {
