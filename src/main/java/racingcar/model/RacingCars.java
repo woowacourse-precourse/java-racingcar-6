@@ -46,4 +46,24 @@ public class RacingCars {
             racingCar.tryMove();
         }
     }
+
+    public List<String> getNames() {
+        List<String> names = new ArrayList<>();
+
+        for (RacingCar racingCar : this.racingCars) {
+            names.add(racingCar.getName());
+        }
+
+        return names;
+    }
+
+    public List<Integer> getPositions() {
+        List<Integer> positions = new ArrayList<>();
+
+        for (RacingCar racingCar : this.racingCars) {
+            positions.add(racingCar.getPosition());
+        }
+
+        return positions;
+    }
 }
