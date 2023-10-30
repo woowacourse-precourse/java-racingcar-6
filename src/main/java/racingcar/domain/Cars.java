@@ -10,7 +10,9 @@ public class Cars {
     public Cars(List<String> carNameList) {
         CarNameValidator.validateDuplicatedName(carNameList);
         CarNameValidator.validateNameLength(carNameList);
-        this.carList = carNameList.stream().map(Car::new).toList();
+        this.carList = carNameList.stream()
+                .map(Car::new)
+                .toList();
     }
 
     public static Cars from(List<String> carNameList) {
