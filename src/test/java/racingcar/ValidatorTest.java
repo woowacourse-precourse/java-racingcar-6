@@ -25,4 +25,15 @@ public class ValidatorTest {
 
         assertThrows(IllegalArgumentException.class, () -> Validator.inputCarNames(racingCars));
     }
+
+    @Test
+    void 자동차이름_길이_성공_테스트() {
+        racingCars.put("pobi", "");
+        racingCars.put("woni", ""); // Name with length < 5
+
+        assertDoesNotThrow(() -> Validator.inputCarNames(racingCars));
+    }
+
+    
+
 }
