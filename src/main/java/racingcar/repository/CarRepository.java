@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.repository;
 
 import racingcar.domain.Car;
 
