@@ -87,7 +87,7 @@ public class CarsTest {
         String carsStatus = cars.getAllCarsStatus();
 
         //then
-        Assertions.assertThat(carsStatus).isEqualTo("pobi : -\nlisa : -\njiny : \n\n");
+        Assertions.assertThat(carsStatus).isEqualTo("pobi : -\nlisa : -\njiny : \n");
 
     }
 }
