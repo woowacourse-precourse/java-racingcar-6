@@ -102,7 +102,7 @@
 
 
 ## 진행 사항
-- [ ] Validator 객체
+- [X] Validator 객체
 - [ ] Input 객체
 - [ ] Car 객체
 - [ ] GameUtil 객체
