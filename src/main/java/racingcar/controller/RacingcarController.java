@@ -1,5 +1,8 @@
 package racingcar.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import racingcar.service.RacingCarService;
 import racingcar.view.MainView;
 
 public class RacingcarController {
@@ -12,8 +15,11 @@ public class RacingcarController {
     private RacingcarController() {
     }
 
+    private RacingCarService baseBallService = RacingCarService.getInstance();
+
     public void run() {
         MainView.printStartMessage();
-        String carNames = MainView.getCarNames();
+        List<String> carNames = MainView.getCarNames();
+        HashMap<String, Integer> racingStatus = baseBallService.initRacingStatus(carNames);
     }
 }
