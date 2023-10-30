@@ -1,16 +1,19 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.CharacterUnits;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static racingcar.util.CharacterUnits.*;
+
 public class InputView {
 
     public List<String> inputNames() {
         System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        System.out.print("\n");
+        System.out.print(ENTER.getUnit());
         String inputNames = Console.readLine();
         validateBlank(inputNames);
         List<String> nameList = Arrays.stream(
@@ -24,7 +27,7 @@ public class InputView {
 
     public Integer inputCountOfGameRound() {
         System.out.print("시도할 회수는 몇회인가요?");
-        System.out.print("\n");
+        System.out.print(ENTER.getUnit());
         String inputCountOfGameRound = Console.readLine();
         validateBlank(inputCountOfGameRound);
         validateNumber(inputCountOfGameRound);

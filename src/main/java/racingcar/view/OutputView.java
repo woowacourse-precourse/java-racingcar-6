@@ -5,6 +5,8 @@ import racingcar.domain.Cars;
 
 import java.util.List;
 
+import static racingcar.util.CharacterUnits.*;
+
 public class OutputView {
 
     private static final String OUTPUT_GAME_RESULT_MESSAGE = "실행 결과";
@@ -27,12 +29,12 @@ public class OutputView {
         for (Car car : cars.getCars()) {
             drawCarPosition(car);
         }
-        System.out.print("\n");
+        System.out.print(ENTER.getUnit());
     }
 
     public void outputWinner(List<Car> winners) {
         System.out.print(createWinnerMessage(winners));
-        System.out.print("\n");
+        System.out.print(ENTER.getUnit());
     }
 
 
@@ -41,9 +43,9 @@ public class OutputView {
         initOutputBuilder();
         outputBuilder.append(OUTPUT_WINNER_MESSAGE);
         for (Car winner : winners) {
-            outputBuilder.append(winner.getName()).append(", ");
+            outputBuilder.append(winner.getName()).append(COMMA.getUnit()).append(SPACE.getUnit());
         }
-        outputBuilder.replace(outputBuilder.length()-2, outputBuilder.length(), "");
+        outputBuilder.replace(outputBuilder.length()-2, outputBuilder.length(), BLANK.getUnit());
         return outputBuilder.toString();
     }
 
@@ -54,9 +56,9 @@ public class OutputView {
     private String createCarGraph(Car car) {
         initOutputBuilder();
         for (int i=0; i<car.getPosition(); i++) {
-            outputBuilder.append("-");
+            outputBuilder.append(BAR.getUnit());
         }
-        outputBuilder.append("\n");
+        outputBuilder.append(ENTER.getUnit());
         return outputBuilder.toString();
     }
 
