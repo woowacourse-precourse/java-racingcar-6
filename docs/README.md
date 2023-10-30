@@ -2,20 +2,21 @@
 
 ## 기능 구현
 
-- [ ] 자동차 이름을 쉼표(,)를 기준으로 여러대 입력받는다. - InputView#readCarName()
+- [x] 자동차 이름을 쉼표(,)를 기준으로 여러대 입력받는다. - InputView#readCarName()
     - [x] 자동차의 이름이 5자 이하인지 검사한다. - CarNameValidator#validateLengthFiveOrLess()
     - [x] 자동차의 이름이 1자 이상인지 검사한다. - CarNameValidator#validateNotBlank()
-- [ ] 자동차를 몇 번 이동 할 것인지 입력 받는다. - InputView#readMoveCount()
+- [x] 자동차를 몇 번 이동 할 것인지 입력 받는다. - InputView#readMoveCount()
     - [x] 입력이 숫자인지 검사한다. - NumberValidator#validateDigit()
-- [ ] 전진하는 자동차를 출력 한다. - OutputView#printRacingResult()
-- [ ] 최종 우승자를 출력 한다. - OutputView#printWinner()
+- [x] 전진하는 자동차를 출력 한다. - OutputView#printRacingResult()
+- [x] 최종 우승자를 출력 한다. - OutputView#printWinners()
 - [x] 자동차는 랜덤 숫자가 4 이상이라면 전진한다. - Car#move()
     - [x] 무작위 값이 4 이상인지 여부를 반환한다. - Car#isMoveForward()
 - [x] 레이싱 게임에 참여할 자동차를 추가한다. - RacingGame#addCar()
 - [x] 레이싱 게임은 자동차를 이동시킨다. - RacingGame#moveCar()
     - [x] 0에서 9 사이의 무작위 값을 구해 반환한다. - NumberGenerator#createRandomNumber()
-- [ ] 레이싱 게임 라운드 결과를 반환한다. - RacingGame#getResult()
-- [ ] 레이싱 게임 우승자를 반환한다. - RacingGame#winners()
+- [x] 레이싱 게임 라운드 결과를 반환한다. - RacingGame#getResult()
+- [x] 레이싱 게임 우승자를 반환한다. - RacingGame#getWinners()
+- [ ] 레이싱 게임을 시작한다. - RacingGameController#play()
 
 ## 기능 요구 사항
 
