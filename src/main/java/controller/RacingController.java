@@ -26,6 +26,7 @@ public class RacingController {
             cars = new Cars(InputView.inputCarNames());
             inputTryCount();
             race();
+            result();
         } catch(IllegalArgumentException e){
             OutputView.printException(e);
         }
@@ -47,6 +48,12 @@ public class RacingController {
 
         while(tryCount.isNotSame(nowTryCnt++)){
             cars.moveAll();
+            OutputView.printCarsStatus(cars.getCars());
         }
+    }
+
+    private void result() {
+        OutputView.printCarsStatus(cars.getCars());
+        //cars.getWinners();
     }
 }

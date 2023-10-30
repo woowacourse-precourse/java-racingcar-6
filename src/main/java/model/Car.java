@@ -23,6 +23,14 @@ public class Car {
     private String name;
     private int position;
 
+    public String getName(){
+        return this.name;
+    }
+
+    public int getPosition(){
+        return this.position;
+    }
+
     public Car(String name){
         validate(name);
         this.name = name;

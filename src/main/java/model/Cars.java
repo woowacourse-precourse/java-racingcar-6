@@ -29,6 +29,10 @@ public class Cars {
 
     private final List<Car> cars = new ArrayList<>();
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public Cars(String carNames) {
         String[] carNameArray = stripStringArray(splitByDelimiter(carNames, DELIMITER));
         validateDuplicatedName(carNameArray);
@@ -50,4 +54,8 @@ public class Cars {
             car.goOrStop(RandomGenerator.generateNumber(MIN, MAX + 1));
         }
     }
+
+//    public Winners getWinners() {
+//        return new Winners(cars);
+//    }
 }

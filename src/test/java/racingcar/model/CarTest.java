@@ -5,6 +5,7 @@ import model.Cars;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
@@ -40,5 +41,23 @@ public class CarTest {
         assertThatThrownBy(() -> new Car(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(errorMessage);
+    }
+
+    @Test
+    @DisplayName("자동차 전진")
+    public void Go(){
+        goOrStopTest(6, 1);
+    }
+
+    @Test
+    @DisplayName("자동차 멈춤")
+    public void Stop(){
+        goOrStopTest(2, 0);
+    }
+
+    private void goOrStopTest(int random, int expected) {
+        Car car = new Car("test");
+        car.goOrStop(random);
+        assertThat(car.getPosition()).isEqualTo(expected);
     }
 }
