@@ -9,7 +9,7 @@ public class Race {
     private static final int MOVING_FORWARD = 4;
     private static final int ONE_STEP = 1;
     public List<Car> cars = new ArrayList<>();
-    public NumberGenerator numberGenerator;
+    public NumberGenerator numberGenerator = new NumberGenerator();
 
     public void play() {
         createCarObjects(inputCarNames());
@@ -46,7 +46,6 @@ public class Race {
     }
 
     public void updateCarsPosition() {
-        numberGenerator = new NumberGenerator();
         for (Car car : cars) {
             int number = numberGenerator.createRandomNumber();
 
