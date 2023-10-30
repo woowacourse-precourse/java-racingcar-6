@@ -19,11 +19,11 @@ public class RacingGame {
             int randomNum = getRandomNum();
             car.move(randomNum);
         }
-        return new CurrentResultMap().getCurrentResultMap(cars);
+        return CurrentResultMap.getCurrentResultMap(cars);
     }
 
     public String getWinners() {
-        return new WinnerCalculator().getWinners(cars);
+        return WinnerCalculator.getWinners(cars);
     }
 
     private List<Car> getCars() {
