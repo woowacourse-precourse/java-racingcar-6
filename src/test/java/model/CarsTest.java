@@ -22,4 +22,21 @@ public class CarsTest {
             Cars cars = new Cars(carList);
         }).doesNotThrowAnyException();
     }
+
+    @Test
+    @DisplayName("가장 큰 movingCount를 가진 Car객체의 이름 반환 테스트")
+    public void 가장_큰_movingCount_Car_객체_테스트() {
+        //given
+        Car pobiCar = new Car("pobi");
+        Car lisaCar = new Car("lisa");
+        Car jinyCar = new Car("jiny");
+        lisaCar.increaseMovingCountIfGreater(4, 5);
+        Cars cars = new Cars(List.of(pobiCar, lisaCar, jinyCar));
+
+        //when
+        String[] maxMovingCountName = cars.findMaxMovingCount();
+
+        //then
+        Assertions.assertThat(maxMovingCountName).isEqualTo(new String[]{"lisa"});
+    }
 }
