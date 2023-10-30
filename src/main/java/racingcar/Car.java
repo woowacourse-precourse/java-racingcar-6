@@ -11,7 +11,7 @@ public class Car {
         this.carName = carName;
     }
 
-    void move(int num) {
+    void move() {
         movement += isMovable();
         printCurrentState();
     }

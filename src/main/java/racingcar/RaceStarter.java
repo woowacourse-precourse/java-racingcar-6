@@ -9,11 +9,12 @@ public class RaceStarter {
     int carNum;
 
     public RaceStarter(String str, int moveNum) {
-
+        carNum = getCars(str);
+        this.moveNum = moveNum;
     }
 
     int getCars(String str) {
-
+    
     }
 
     void start() {

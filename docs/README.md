@@ -10,7 +10,7 @@
 ##### Car(name) 생성자
 + 자동차의 이름을 입력받아 저장함
 
-##### void move(num)
+##### void move()
 + isMovable() 함수를 호출함
 + isMovable() 함수의 반환값을 movement에 더해줌
 + printCurrentState() 함수를 호출함
