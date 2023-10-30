@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.ExceptionMessage.PLAY_COUNT_VALUE_EXCEPTION;
+import static racingcar.exception.ExceptionMessage.PLAY_COUNT_VALUE_EXCEPTION;
 
 public class PlayCount {
 
