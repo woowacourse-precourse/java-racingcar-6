@@ -6,6 +6,6 @@ final class RealRoulette implements Roulette{
 
     @Override
     public int spin() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(Rule.FROM.value, Rule.TO.value);
     }
 }
