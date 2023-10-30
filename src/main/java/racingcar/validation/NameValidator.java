@@ -3,11 +3,11 @@ package racingcar.validation;
 import java.util.List;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
-import racingcar.constant.CarName;
-import racingcar.constant.Delimiter;
-import racingcar.constant.InvalidNameMessage;
-import racingcar.constant.NameRegex;
-import racingcar.constant.ParticipantRule;
+import racingcar.constant.range.CarNameRange;
+import racingcar.constant.format.Delimiter;
+import racingcar.constant.message.InvalidNameMessage;
+import racingcar.constant.regex.NameRegex;
+import racingcar.constant.rule.ParticipantRule;
 
 public class NameValidator {
     private final List<String> names;
@@ -42,7 +42,7 @@ public class NameValidator {
     }
 
     private void validateNameLength(String name) {
-        if (name.length() < CarName.MIN_LENGTH.getValue() || name.length() > CarName.MAX_LENGTH.getValue()) {
+        if (name.length() < CarNameRange.MIN_LENGTH.getValue() || name.length() > CarNameRange.MAX_LENGTH.getValue()) {
             throw new IllegalArgumentException(InvalidNameMessage.LENGTH.getMessage());
         }
     }

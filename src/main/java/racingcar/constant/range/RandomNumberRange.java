@@ -1,4 +1,4 @@
-package racingcar.constant;
+package racingcar.constant.range;
 
 public enum RandomNumberRange {
     START_INCLUSIVE(0),

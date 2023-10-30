@@ -1,8 +1,8 @@
 package racingcar.validation;
 
-import racingcar.constant.RoundRange;
-import racingcar.constant.InvalidRoundMessage;
-import racingcar.constant.RoundRegex;
+import racingcar.constant.range.RoundRange;
+import racingcar.constant.message.InvalidRoundMessage;
+import racingcar.constant.regex.RoundRegex;
 
 public class RoundValidator {
 

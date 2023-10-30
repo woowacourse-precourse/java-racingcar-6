@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.strategy.RandomMoveStrategy;
+import racingcar.util.RandomNumberGenerator;
 
 public class Cars {
     private final List<Car> cars;

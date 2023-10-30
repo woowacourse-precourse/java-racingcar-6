@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
-import racingcar.domain.RandomMoveStrategy;
-import racingcar.domain.RandomNumberGenerator;
+import racingcar.domain.strategy.RandomMoveStrategy;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.OutputView;
 
 public class GameRunner {

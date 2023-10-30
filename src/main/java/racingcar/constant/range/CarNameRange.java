@@ -1,12 +1,12 @@
-package racingcar.constant;
+package racingcar.constant.range;
 
-public enum CarName {
+public enum CarNameRange {
     MIN_LENGTH(1),
     MAX_LENGTH(5);
 
     private final int value;
 
-    CarName(int value) {
+    CarNameRange(int value) {
         this.value = value;
     }
 

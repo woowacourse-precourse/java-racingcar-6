@@ -2,8 +2,8 @@ package racingcar;
 
 import racingcar.controller.Controller;
 import racingcar.controller.GameRunner;
-import racingcar.domain.RandomMoveStrategy;
-import racingcar.domain.RandomNumberGenerator;
+import racingcar.domain.strategy.RandomMoveStrategy;
+import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

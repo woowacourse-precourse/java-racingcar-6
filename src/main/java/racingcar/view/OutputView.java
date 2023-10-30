@@ -2,8 +2,8 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.constant.Delimiter;
-import racingcar.constant.GameMessage;
+import racingcar.constant.format.Delimiter;
+import racingcar.constant.message.GameMessage;
 import racingcar.domain.Car;
 import racingcar.domain.CarDto;
 

@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.constant.Delimiter;
+import racingcar.constant.format.Delimiter;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.util.InputConverter;

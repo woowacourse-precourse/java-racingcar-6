@@ -1,11 +1,12 @@
-package racingcar.constant;
+package racingcar.constant.range;
 
-public enum MovementRule {
-    FORWARD_MINIMUM_VALUE(4);
+public enum RoundRange {
+    MIN(1),
+    MAX(10000);
 
     private final int value;
 
-    MovementRule(int value) {
+    RoundRange(int value) {
         this.value = value;
     }
 

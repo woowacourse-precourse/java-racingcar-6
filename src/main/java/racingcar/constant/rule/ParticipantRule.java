@@ -1,4 +1,4 @@
-package racingcar.constant;
+package racingcar.constant.rule;
 
 public enum ParticipantRule {
     MINIMUM_PARTICIPANTS(2);

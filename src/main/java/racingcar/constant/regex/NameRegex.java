@@ -1,11 +1,11 @@
-package racingcar.constant;
+package racingcar.constant.regex;
 
-public enum RoundRegex {
-    NUMBER("\\d+");
+public enum NameRegex {
+    ALPHABETIC("^[a-zA-Z]+$");
 
     private final String regex;
 
-    RoundRegex(String regex) {
+    NameRegex(String regex) {
         this.regex = regex;
     }
 

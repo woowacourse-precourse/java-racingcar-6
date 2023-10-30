@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.constant.CarPosition;
+import racingcar.constant.initial.CarPosition;
 
 public class Car {
     private final String name;

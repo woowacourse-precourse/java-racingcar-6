@@ -1,6 +1,6 @@
-package racingcar.domain;
+package racingcar.domain.strategy;
 
-import racingcar.constant.MovementRule;
+import racingcar.constant.rule.MovementRule;
 
 public class RandomMoveStrategy implements MoveStrategy {
 

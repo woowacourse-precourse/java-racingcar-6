@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.constant.GameMessage;
+import racingcar.constant.message.GameMessage;
 
 public class CarDto {
     private final String name;

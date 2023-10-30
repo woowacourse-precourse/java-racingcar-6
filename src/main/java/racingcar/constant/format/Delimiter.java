@@ -1,4 +1,4 @@
-package racingcar.constant;
+package racingcar.constant.format;
 
 public enum Delimiter {
     COMMA(","),

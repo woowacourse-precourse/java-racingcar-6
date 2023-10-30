@@ -1,4 +1,6 @@
-package racingcar.constant;
+package racingcar.constant.message;
+
+import racingcar.constant.range.RoundRange;
 
 public enum InvalidRoundMessage {
     NOT_NUMERIC("라운드 입력은 숫자이어야 합니다."),

@@ -1,4 +1,4 @@
-package racingcar.constant;
+package racingcar.constant.initial;
 
 public enum CarPosition {
     INITIAL_POSITION(0);
