@@ -107,6 +107,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("최소한 10번 이상 같은 이릉밍 출력되는지 확인")
+    void 실행_결과_출력() {
+        assertSimpleTest(() -> {
+                    run("pobi,andy,hola", "10");
+                    assertThat(output().split("pobi", -1).length - 1<10).isFalse();
+                }
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
