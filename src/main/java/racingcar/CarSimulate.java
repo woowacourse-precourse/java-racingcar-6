@@ -12,7 +12,6 @@ public class CarSimulate {
             if (randomnum >= 4) {
                 track.set(i, track.get(i) + 1);
             }
-
         }
     }
 
@@ -22,10 +21,7 @@ public class CarSimulate {
             for (int j = 0; j < track.get(i); j++) {
                 System.out.print('-');
             }
-
             System.out.println();
         }
-
     }
-
 }
