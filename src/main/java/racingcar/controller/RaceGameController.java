@@ -26,10 +26,9 @@ public class RaceGameController {
         outputView.printFirstResultMessage();
         playGameMultipleTimes(racingCars, inputLoop);
 
-        Result result = new Result();
-        result.findWinnerDistance(racingCars);
+        Result result = new Result(racingCars);
 
-        List<String> winnerNames = result.winnerNameList(racingCars);
+        List<String> winnerNames = result.getWinnerNames();
         outputView.printWinnerResultMessage(winnerNames);
 
     }

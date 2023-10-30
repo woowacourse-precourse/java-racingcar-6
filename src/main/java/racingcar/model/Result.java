@@ -4,31 +4,36 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 public class Result {
-    private List<String> winnerNameList;
-    private int winnerDistance;
+    private final List<String> winnerNames;
+    private final int winnerDistance;
 
-    public Result() {
-        winnerNameList = new ArrayList<>();
+    public Result(RacingCars cars) {
+        this.winnerDistance = findWinnerDistance(cars);
+        this.winnerNames = findWinnerNames(cars);
     }
 
-    public void findWinnerDistance(RacingCars cars) {
+    private int findWinnerDistance(RacingCars cars) {
+        int maxDistance = 0;
         for (Car car : cars.getAllCars()) {
-            winnerDistance = findMaxDistance(car.getCurrentPosition());
+            maxDistance = Math.max(car.getCurrentPosition(), maxDistance);
         }
+        return maxDistance;
     }
 
-    private int findMaxDistance(int currentPosition) {
-        return Math.max(currentPosition, winnerDistance);
-    }
-
-    public List<String> winnerNameList(RacingCars cars) {
+    private List<String> findWinnerNames(RacingCars cars) {
+        List<String> names = new ArrayList<>();
         for (Car car : cars.getAllCars()) {
             if (winnerDistance == car.getCurrentPosition()) {
-                winnerNameList.add(car.getName());
+                names.add(car.getName());
             }
         }
-        return Collections.unmodifiableList(winnerNameList);
+        return Collections.unmodifiableList(names);
+    }
+
+    public List<String> getWinnerNames() {
+        return winnerNames;
     }
 
 }
