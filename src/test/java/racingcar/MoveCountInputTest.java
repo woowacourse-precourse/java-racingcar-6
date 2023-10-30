@@ -1,8 +1,9 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.assertj.core.api.Assertions.assertThatNoException;
+import static racingcar.util.GameConstants.MAXIMUM_MOVE_COUNT;
+import static racingcar.util.GameConstants.ZERO;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,7 +23,7 @@ public class MoveCountInputTest {
     @DisplayName("자료형에 부합할 경우 테스트를 통과한다.")
     public void 자료형에_부합할_경우_테스트를_통과한다() {
         // given
-        String input = "1";
+        Long input = Long.valueOf(MAXIMUM_MOVE_COUNT);
 
         // when & then
         assertThatNoException().isThrownBy(() -> moveCountValidator.validateType(input));
@@ -32,7 +33,7 @@ public class MoveCountInputTest {
     @DisplayName("자료형에 부합하지 않을 경우 예외를 반환한다.")
     public void 자료형에_부합하지_않을_경우_예외를_반환한다() {
         // given
-        String input = Integer.toString(MAXIMUM_MOVE_COUNT + 1);
+        Long input = Long.valueOf(MAXIMUM_MOVE_COUNT) + 1;
 
         // when & then
         assertThatIllegalArgumentException().isThrownBy(() -> moveCountValidator.validateType(input));
@@ -42,7 +43,7 @@ public class MoveCountInputTest {
     @DisplayName(ZERO + "일 경우 테스트를 통과한다.")
     public void ZERO일_경우_테스트를_통과한다() {
         // given
-        String input = ZERO;
+        Long input = Long.valueOf(ZERO);
 
         // when & then
         assertThatNoException().isThrownBy(() -> moveCountValidator.validatePositive(input));
@@ -52,7 +53,7 @@ public class MoveCountInputTest {
     @DisplayName("음수일 경우 예외를 반환한다")
     public void 음수일_경우_예외를_반환한다() {
         // given
-        String input = "-123";
+        Long input = Long.valueOf(MAXIMUM_MOVE_COUNT * -1);
 
         // when & then
         assertThatIllegalArgumentException().isThrownBy(() -> moveCountValidator.validatePositive(input));
