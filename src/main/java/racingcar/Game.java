@@ -14,9 +14,9 @@ public class Game {
 		ArrayList<Car> cars = input.getCars();
 		
 	    for (int i = 0; i < count; i++) {
-	        raceGame(cars);
-	        printResult(cars);
+	        GameHelper.raceGame(cars);
+	        GameHelper.printResult(cars);
 	    }
-	    printWinners(cars);
+	    GameHelper.printWinners(cars);
 	}
 }
