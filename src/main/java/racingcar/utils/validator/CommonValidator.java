@@ -1,7 +1,7 @@
 package racingcar.utils.validator;
 
-public class CarCommonValidator implements Validator<String>{
-    public CarCommonValidator() {}
+public class CommonValidator implements Validator<String>{
+    public CommonValidator() {}
 
     @Override
     public void validate(final String value) {
