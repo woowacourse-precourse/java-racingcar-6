@@ -2,8 +2,12 @@ package racingcar.valid;
 
 public class ValidationManager {
 
+    private static final String COMMA = ",";
+    private static final int MIN_NAME_LENGTH = 0;
+    private static final int MAX_NAME_LENGTH = 5;
+
     public static void validateCarNames(String inputCarNames) {
-        for (String carName : inputCarNames.split(",")) {
+        for (String carName : inputCarNames.split(COMMA)) {
             validateInputEmpty(carName);
             validateCarNameLength(carName);
         }
@@ -28,7 +32,7 @@ public class ValidationManager {
     }
 
     private static boolean isValidCarNameLength(String inputCarName) {
-        return inputCarName.length() > 0 && inputCarName.length() <= 5;
+        return inputCarName.length() > MIN_NAME_LENGTH && inputCarName.length() <= MAX_NAME_LENGTH;
     }
 
     private static void validateTryCountIsNumeric(String inputTryCount) {
