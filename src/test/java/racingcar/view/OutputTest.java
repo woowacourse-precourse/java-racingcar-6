@@ -23,4 +23,14 @@ class OutputTest {
 
         assertThat(out.toString()).contains("실행 결과");
     }
+
+    @Test
+    void input_최종_우승자를_포함하는_문구_출력(){
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        output.printFinalWinner("pobi, suyeon");
+
+        assertThat(out.toString()).contains("최종 우승자");
+    }
 }
