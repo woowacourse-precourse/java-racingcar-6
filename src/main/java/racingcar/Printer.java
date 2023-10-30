@@ -12,6 +12,7 @@ public class Printer {
             sb.append(name).append(" : ").append("-".repeat(racerPos));
             System.out.println(sb.toString());
         }
+        System.out.println();
     }
     public static void printRaceResultInTotalWithWinnerList(List<String>winnerList){
         StringBuilder sb = new StringBuilder();

@@ -26,9 +26,12 @@ public class Server {
         this.racerCount = racerCount;
     }
     public void startRace(){
+        System.out.println("실행 결과");
         for (int i =0; i<racerCount;i++){
             continueRace();
+            Printer.printRaceResultInProgressWithRacerList(racerList);
         }
+
     }
     private void continueRace(){
         for (Racer racer : racerList){
