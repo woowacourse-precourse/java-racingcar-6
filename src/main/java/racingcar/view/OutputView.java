@@ -6,14 +6,10 @@ import racingcar.domain.Cars;
 import java.util.List;
 
 import static racingcar.util.CharacterUnits.*;
+import static racingcar.view.OutputViewMessage.*;
 
 public class OutputView {
 
-    private static final String OUTPUT_GAME_RESULT_MESSAGE = "실행 결과";
-
-    private static final String OUTPUT_CAR_POSITION_MESSAGE_FORMAT = "%s : %s";
-
-    private static final String OUTPUT_WINNER_MESSAGE = "최종 우승자 : ";
     private final StringBuilder outputBuilder;
 
     public OutputView() {
@@ -21,7 +17,7 @@ public class OutputView {
     }
 
     public void outputGameResultMessage() {
-        System.out.print(OUTPUT_GAME_RESULT_MESSAGE);
+        System.out.print(OUTPUT_GAME_RESULT_MESSAGE.getMessage());
         System.out.print(ENTER.getUnit());
     }
 
@@ -42,7 +38,7 @@ public class OutputView {
 
     private String createWinnerMessage(List<Car> winners) {
         initOutputBuilder();
-        outputBuilder.append(OUTPUT_WINNER_MESSAGE);
+        outputBuilder.append(OUTPUT_WINNER_MESSAGE.getMessage());
         for (Car winner : winners) {
             outputBuilder.append(winner.getName()).append(COMMA.getUnit()).append(SPACE.getUnit());
         }
@@ -51,7 +47,7 @@ public class OutputView {
     }
 
     private void drawCarPosition(Car car) {
-        System.out.printf(OUTPUT_CAR_POSITION_MESSAGE_FORMAT, car.getName(), createCarGraph(car));
+        System.out.printf(OUTPUT_CAR_POSITION_MESSAGE_FORMAT.getMessage(), car.getName(), createCarGraph(car));
     }
 
     private String createCarGraph(Car car) {
