@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import racingcar.util.Utils;
 
 import java.util.List;
@@ -68,7 +66,6 @@ class CarsTest {
     @Test
     void findWinner() {
         // given
-        mockStatic(Utils.class);
         when(Utils.makeRandomNumber()).thenReturn(7,5, 6, 8, 6, 2, 9, 1, 0);
         for(int i=0; i<3; i++) { cars.moveCars(); }
 
