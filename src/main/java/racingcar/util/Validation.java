@@ -34,6 +34,12 @@ public class Validation {
         }
     }
 
+    private static void validateNumberNull(String input) {
+        if (input.isBlank()) {
+            throw new IllegalArgumentException("빈칸입니다.");
+        }
+    }
+
 
 
 }
