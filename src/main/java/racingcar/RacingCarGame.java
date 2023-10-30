@@ -4,8 +4,10 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 public class RacingCarGame {
@@ -19,9 +21,7 @@ public class RacingCarGame {
         this.trial = trial;
         this.out = out;
         this.random = random;
-        cars = Arrays.stream(names)
-                .map(RacingCar::new)
-                .collect(toList());
+        cars = createCars(names);
     }
 
     public void run() {
@@ -43,6 +43,21 @@ public class RacingCarGame {
                 .map(RacingCar::getName)
                 .collect(toList());
 
+    }
+
+    private List<RacingCar> createCars(String[] names) {
+        Set<String> carSet = new HashSet<>();
+
+        for (String name : names) {
+            if (carSet.contains(name)) {
+                throw new IllegalArgumentException("자동차의 이름이 중복됩니다.: "+ name);
+            }
+            carSet.add(name);
+        }
+
+        return carSet.stream()
+                .map(RacingCar::new)
+                .collect(toList());
     }
 
     private void runStage() {
