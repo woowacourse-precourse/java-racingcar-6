@@ -24,9 +24,9 @@ public class RacingCarGameUtils {
     return input;
   }
 
-  public static List<Integer> generateRandomValuesForCarGame(int size) {
+  public static List<Integer> generateRandomValuesForCarGame(Integer carsCount) {
     List<Integer> randomList = new ArrayList<>();
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < carsCount; i++) {
       randomList.add(Randoms.pickNumberInRange(0, 9));
     }
     return randomList;
