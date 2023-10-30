@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Output {
@@ -29,6 +31,42 @@ public class Output {
         return line;
     }
 
+
+    public static int findNumOfWinner(HashMap groupMap, String[] groupName, int getRoundNum) {
+        // 최고 전진 횟수를 찾고 이후 이 최고 전진횟수를 가진 유저를 찾는다.
+        int roundNum = getRoundNum;
+        boolean judgeTrue = true;
+        while (!groupMap.containsValue(roundNum)) {
+            roundNum -= 1;
+        }
+        return roundNum;
+    }
+
+
+    public static String[] findWinner(HashMap groupMap, String[] groupName, int roundNum) {
+        //list에 몇명이 들어갈지 모름. 사이즈만큼 String 배열 만들고
+        // 배열만큼 쉼표 넣어서 구분지어서 승리자 출력
+        List<String> winnerList = new ArrayList<>();
+        for (String name : groupName) {
+            if (groupMap.get(name) == (Integer) roundNum) {
+                winnerList.add(name);
+            }
+        }
+        String[] winnerGroup = new String[winnerList.size()];
+        return winnerGroup;
+    }
+
+    public static void showWinner(String[] winnerGroup) {
+        System.out.print("최종 우승자 : "); // static final 로 상수화 꼭 시켜주는 작업해주기
+        if (winnerGroup.length == 1) {
+            System.out.println(winnerGroup[0]);
+        } else {
+            System.out.print(winnerGroup[0]);
+            for(int i =1;i<winnerGroup.length;i++){
+                System.out.print(", "+winnerGroup[i]);
+            }
+        }
+    }
 }
 
 
