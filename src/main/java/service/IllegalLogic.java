@@ -1,7 +1,7 @@
 package service;
 
 import model.CarInformation;
-import static model.Constants.CARNAME_MAXLENGTH;
+import static model.Constants.CAR_NAME_MAXLENGTH;
 
 public class IllegalLogic {
 
@@ -30,7 +30,7 @@ public class IllegalLogic {
     }
 
     private void compareNameLength(String carName){
-        if(carName.isEmpty() ||carName.length()>CARNAME_MAXLENGTH){
+        if(carName.isEmpty() ||carName.length()>CAR_NAME_MAXLENGTH){
             throw new IllegalArgumentException("차량의 이름은 1자이상 5자이하 입니다.");
         }
     }

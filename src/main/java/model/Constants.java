@@ -7,7 +7,7 @@ public class Constants {
     public static final String NUMBER_ATTEMPTS_MESSAGE = "시도할 회수는 몇회인가요?";
     public static final String FORWARD = "-";
     public static final String FINAL_OUTPUT_MESSAGE = "최종 우승자 : ";
-    public static final int CARNAME_MAXLENGTH = 5;
+    public static final int CAR_NAME_MAXLENGTH = 5;
     public static final int STANDARD_NUMBER_OF_ATTEMPTS = 4;
     public static final int START_COUNT = 0;
 }

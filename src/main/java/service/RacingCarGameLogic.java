@@ -64,4 +64,34 @@ public class RacingCarGameLogic {
         }
         carInformation.setCarForwardCount(carForwardCount);
     }
+
+    public void finalWinner(){
+        int MaxCount= getMaxForwardCount();
+        String winner = "";
+        for(int i=0;i<carForwardCount.size();i++){
+            if(isEqualMaxAndCarForwardCount(MaxCount,carForwardCount.get(i))){
+                winner=carNames.get(i)+", ";
+            }
+        }
+        winner=winner.substring(0,winner.length()-2);
+        outputPhrase.outputFinalMessage(winner);
+    }
+
+    private int getMaxForwardCount(){
+        int max=0;
+        for(int i=0;i<carForwardCount.size();i++){
+            if(carForwardCount.get(i)>max){
+                max=carForwardCount.get(i);
+            }
+        }
+        return max;
+    }
+
+    private boolean isEqualMaxAndCarForwardCount(int maxCount,int CarForwardCount){
+        if(maxCount==CarForwardCount){
+            return true;
+        }
+        return false;
+    }
+
 }

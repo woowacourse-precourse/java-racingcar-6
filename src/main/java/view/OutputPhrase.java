@@ -11,4 +11,8 @@ public class OutputPhrase {
     public void outputRunOnce(){
         System.out.println();
     }
+
+    public void outputFinalMessage(String winner){
+        System.out.println(Constants.FINAL_OUTPUT_MESSAGE+winner);
+    }
 }

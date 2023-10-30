@@ -20,5 +20,6 @@ public class RacingCarGame {
         for(int i=0;i<repeteNumber;i++){
             racingCarGameLogic.checkFrontAttempts();
         }
+        racingCarGameLogic.finalWinner();
     }
 }
