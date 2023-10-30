@@ -8,11 +8,11 @@ public class MovementDto {
 
     private final String movementMessage;
 
-    public MovementDto(Car car) {
+    public MovementDto(final Car car) {
         this.movementMessage = createMessage(car);
     }
 
-    public String createMessage(Car car) {
+    public String createMessage(final Car car) {
         StringBuilder builder = new StringBuilder();
         builder.append(car.getName())
                 .append(DELIMITER)

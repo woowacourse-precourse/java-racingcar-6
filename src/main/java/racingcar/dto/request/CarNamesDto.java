@@ -14,7 +14,7 @@ public class CarNamesDto {
         validateNameLength(names);
     }
 
-    private void validateNameLength(List<String> names) {
+    private void validateNameLength(final List<String> names) {
         for(String name: names) {
             if(name.length() > NAME_SIZE || name.length() == 0) {
                 throw new IllegalArgumentException("length of numbers must be below " + NAME_SIZE);

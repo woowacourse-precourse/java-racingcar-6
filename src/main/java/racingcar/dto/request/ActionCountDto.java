@@ -4,11 +4,11 @@ public class ActionCountDto {
 
     private final Integer actionCount;
 
-    public ActionCountDto(String actionCount) {
+    public ActionCountDto(final String actionCount) {
         this.actionCount = convertToInteger(actionCount);
     }
 
-    private Integer convertToInteger(String actionCount) {
+    private Integer convertToInteger(final String actionCount) {
         try {
             return Integer.valueOf(actionCount);
         } catch (NumberFormatException e) {

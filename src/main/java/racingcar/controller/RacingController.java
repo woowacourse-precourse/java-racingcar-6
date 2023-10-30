@@ -32,7 +32,7 @@ public class RacingController {
         printFinalWinner();
     }
 
-    public void startRacing(ActionCountDto actionCountDto) {
+    public void startRacing(final ActionCountDto actionCountDto) {
         outputView.announceGameResult();
         Integer iteration = actionCountDto.getActionCount();
         for(int i = 0; i < iteration; i++) {
