@@ -13,6 +13,9 @@ import racingcar.view.OutputView;
 
 public final class Configuration {
 
+    private Configuration() {
+    }
+
     public static GameController getDefaultGameController() {
         final ComponentWriter componentWriter = new ComponentWriter(new StdWriter());
         final StdReader reader = new StdReader();
