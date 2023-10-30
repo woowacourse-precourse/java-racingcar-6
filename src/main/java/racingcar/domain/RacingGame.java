@@ -32,6 +32,14 @@ public class RacingGame {
             System.out.println();
         }
 
+        List<String> winnerList = new ArrayList<>();
+        for (Car car : carList) {
+            int maxPosition = getMaxPosition(carList);
+            if (maxPosition == car.position) {
+                winnerList.add(car.name);
+            }
+        }
+
     }
 
     private static void validateInputName(String input) {
@@ -79,5 +87,15 @@ public class RacingGame {
 
     private static String createPositionPrint(int position) {
         return "-".repeat(position);
+    }
+
+    private static int getMaxPosition(List<Car> carList) {
+        int maxPosition = 0;
+        for (Car car : carList) {
+            if (maxPosition < car.position) {
+                maxPosition = car.position;
+            }
+        }
+        return maxPosition;
     }
 }
