@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
 public class Output {
@@ -14,5 +16,16 @@ public class Output {
     }
     public static void printRaceResult(Car car) {
         System.out.println(car.getCarName()+" : "+"-".repeat(car.getPosition()));
+    }
+
+    public static String Winner(List<Car> cars){
+        int maxPosition=cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+        return cars.stream()
+                .filter(car -> car.getPosition()==maxPosition)
+                .map(Car::getCarName)
+                .collect(Collectors.joining(", ","최종 우승자 : ",""));
     }
 }
