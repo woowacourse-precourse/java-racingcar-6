@@ -10,6 +10,7 @@ public class ReadRacingResult {
         for (Map.Entry<String, Integer> entry : racingResult.entrySet()) {
             System.out.println(entry.getKey() + " : " + "-".repeat(entry.getValue()));
         }
+        System.out.println();
 
     }
 
