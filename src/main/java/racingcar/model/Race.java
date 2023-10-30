@@ -16,6 +16,10 @@ public class Race {
 
     }
 
+    public boolean isFinish() {
+        return totalTrial == currentTrial;
+    }
+
     public List<Car> initCarList(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
         Car car;
