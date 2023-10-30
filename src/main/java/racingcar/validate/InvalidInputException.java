@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InvalidInputException {
-    private static final String EMPTY_EXCEPTION_MESSAGE = "입력값이 비었습니다.";
     private static final String NULL_EXCEPTION_MESSAGE = "입력값이 null입니다.";
+    private static final String EMPTY_EXCEPTION_MESSAGE = "입력값이 비었습니다.";
     private static final String BLANK_NAME_EXCEPTION_MESSAGE = "자동차 이름은 공백일 수 없습니다.";
     private static final String SINGLE_CAR_EXCEPTION_MESSAGE = "자동차 수는 2이상이여야만 경주가 가능합니다.";
     private static final String CAR_NAME_OVER_LIMIT_EXCEPTION_MESSAGE = "자동차 이름은 5글자를 초과할 수 없습니다.";
@@ -14,10 +14,9 @@ public class InvalidInputException {
     private static final String NOT_NATURAL_NUMBER_EXCEPTION_MESSAGE = "이동 시도 횟수는 1이상이어야 합니다.";
 
 
-    public void checkInput(String input) {
-        isEmpty(input);
+    public void checkCarNames(String input) {
         isNull(input);
-
+        isEmpty(input);
         String[] carNames = input.split(",");
         isBlankName(carNames);
         isSingleCar(carNames);
@@ -26,8 +25,8 @@ public class InvalidInputException {
     }
 
     public void checkTimes(String times) {
-        isEmpty(times);
         isNull(times);
+        isEmpty(times);
         isNumber(times);
         isNaturalNumber(times);
     }
