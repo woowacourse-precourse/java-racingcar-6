@@ -22,12 +22,16 @@ public class RaceService {
                 .collect(Collectors.toList());
     }
 
+    public boolean isRaceFinished() {
+        return race.isFinished();
+    }
+
     public void runRound() {
         race.runRound();
     }
 
-    public boolean isRaceFinished() {
-        return race.isFinished();
+    public List<Car> getRoundResult() {
+        return race.getCars();
     }
 
 }

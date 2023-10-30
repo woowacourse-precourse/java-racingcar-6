@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Race {
@@ -29,6 +30,10 @@ public class Race {
 
     public boolean isFinished() {
         return currentRound >= totalRounds;
+    }
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 
 }

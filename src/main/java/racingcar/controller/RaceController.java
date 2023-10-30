@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.domain.Car;
 import racingcar.service.RaceService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -27,7 +29,8 @@ public class RaceController {
     private void executeRace() {
         while (!raceService.isRaceFinished()) {
             raceService.runRound();
-            // print 라운드 결과
+            List<Car> roundResult = raceService.getRoundResult();
+            OutputView.printRoundResult(roundResult);
         }
     }
 
