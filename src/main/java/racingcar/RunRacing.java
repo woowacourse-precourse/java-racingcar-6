@@ -18,11 +18,9 @@ public class RunRacing {
         RunRacing StartRacing = new RunRacing();
         RunRacing GetResult = new RunRacing();
 
-//        System.out.println("되냐?");
         GetMembersAndTurn.GetMembersAndTurn();
         StartRacing.StartRacing();
         GetResult.GetResult();
-//        System.out.println(members);
     }
     public void GetMembersAndTurn() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -60,6 +58,7 @@ public class RunRacing {
     public void GetResult() {
         Iterator<String> keys = members.keySet().iterator();
         Collection<Integer> values = members.values();
+
         maxScore = Collections.max(values);
         System.out.print("최종 우승자 :");
         while(keys.hasNext()){
