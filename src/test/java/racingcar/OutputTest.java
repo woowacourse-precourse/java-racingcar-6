@@ -12,7 +12,7 @@ import racingcar.view.OutputView;
 public class OutputTest extends NsTest {
 
     @Test
-    public void 테스트_출력결과_테스트() {
+    public void 테스트_결과출력() {
         // given
         Car car1 = new Car("pobi");
         car1.moveForward();

@@ -7,7 +7,7 @@ import racingcar.model.Car;
 public class CarTest {
 
     @Test
-    public void 자동차_전진_테스트() {
+    public void 테스트_자동차_전진() {
         // given
         Car car = new Car("Car1");
         // when
@@ -17,7 +17,7 @@ public class CarTest {
     }
 
     @Test
-    public void 자동차_이름_테스트() {
+    public void 테스트_자동차_이름() {
         // given
         Car car = new Car("pobi");
         // when
