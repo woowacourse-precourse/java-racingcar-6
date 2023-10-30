@@ -7,13 +7,21 @@
 #### Set the Entry List
 - [x] n대의 자동차 이름을 입력받는다. - reception.receptionDesk.registering()
   - [x] 각각의 자동차 이름은 쉼표(,)를 통해 구분한다. - `.spiit(",")`
-  - [x] 자동차 이름이 5자 이상이면 `IllegalArgumentException` - exception.Checker.lenCheck()
 
 #### Laps
 - [x] n대의 자동차가 몇 번의 이동을 할 것인지 입력받는다. - regulation.Regulation.setLaps()
-  - [x] 숫자가 아니면 `IllegalArgumentException` - exception.Checker.typeCheck()
 
+##
+### Exception
 
+#### registering
+- [x] registering()에 입력 받은 문자열 쉼표(,) 전후에 값이 없는 경우 `IllegalArgumentException` - exception.Checker.hasCommasWithoutSurroundingValues()
+- [x] 자동차 이름이 5자 이상이면 `IllegalArgumentException` - exception.Checker.lenCheck()
+
+#### Laps
+- [x] 숫자가 아니면 `IllegalArgumentException` - exception.Checker.typeCheck()
+
+##
 ### Output
 
 #### Racing Start
