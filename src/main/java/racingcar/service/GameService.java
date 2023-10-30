@@ -8,7 +8,7 @@ import racingcar.domain.RacingGame;
 public class GameService {
 
     public static void playSingleRound(RacingGame racingGame) {
-        while (!racingGame.isFinalRound()) {
+        if (!racingGame.isFinalRound()) {
             racingGame.nextRound();
             racingGame.getCars().forEach(CarService::moveIfRandomNumberExceedsFour);
         }
