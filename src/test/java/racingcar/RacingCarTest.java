@@ -1,51 +1,45 @@
 package racingcar;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.service.CarService;
+import racingcar.service.RacingCarService;
 
-import java.net.CacheRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingCarTest {
-    private CarService carService = new CarService();
-    @DisplayName("자동차 이름이 중복이면 예외가 발생한다.")
-    @Test
-    void duplicateCarName() {
-        assertThatThrownBy(()-> carService.stringToList("stlla,stlla"))
-                .isInstanceOf(IllegalArgumentException.class);
 
-    }
-    @DisplayName("자동차 이름이 빈값이면 예외가 발생한다.")
+    private RacingCarService racingCarService = new RacingCarService();
+
+    @DisplayName("랜덤 번호가 4 이상이면 1칸 전진한다.")
     @Test
-    void emptyCarName() {
-        assertThatThrownBy(()-> carService.stringToList(" "))
-                .isInstanceOf(IllegalArgumentException.class);
+    void moveForward() {
+        Car car = new Car("stella");
+        car.setPosition(0);
+        racingCarService.move(car,5);
+        assertThat(car.getPosition()==1);
     }
-    @DisplayName("자동차 이름이 null이면 예외가 발생한다.")
+    @DisplayName("랜덤 번호가 4 이하이면 전진하지 않는다.")
     @Test
-    void nullCarName() {
-        assertThatThrownBy(()-> carService.stringToList(null))
-                .isInstanceOf(IllegalArgumentException.class);
+    void notMoveForward() {
+        Car car = new Car("stella");
+        car.setPosition(0);
+        racingCarService.move(car,1);
+        assertThat(car.getPosition()==0);
     }
 
-    @DisplayName("자동차 이름이 5글자를 초과하면 예외가 발생한다.")
+    @DisplayName("가장 많이 전진한 숫자를 찾는다.")
     @Test
-    void overLengthCarName() {
-        assertThatThrownBy(() -> carService.stringToList("abcdefg,abcde"))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-    @DisplayName("알맞은 자동차 이름은 입력에 성공한다.")
-    @Test
-    void successCarName() {
-        List<Car> cars = carService.initRacingCars(List.of("stella,jay"));
-        assertThat(cars.equals(Arrays.asList(new Car("stella"),new Car("jay"))));
+    void findMaxPosition() {
+        Car maxCar = new Car("stella");
+        maxCar.setPosition(4);
+        Car minCar = new Car("jay");
+        minCar.setPosition(1);
+        List<Car> cars = Arrays.asList(maxCar,minCar);
+        assertThat(racingCarService.findMaxPosition(cars)==4);
     }
 }
