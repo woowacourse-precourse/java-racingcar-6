@@ -19,6 +19,7 @@ public class RacingGame {
         int numberOfTry = inputView.readNumberOfTry();
 
         outputView.printResult();
+
         for(int i = 0; i < numberOfTry; i++){
             racingCarService.moveRandomly(racingCars);
             outputView.printRacingResult(racingCars);

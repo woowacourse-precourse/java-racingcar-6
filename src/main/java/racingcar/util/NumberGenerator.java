@@ -1,7 +1,6 @@
 package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.stream.Stream;
 import racingcar.config.RacingGameConfig;
 
 public class NumberGenerator {
