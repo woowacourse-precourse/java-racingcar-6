@@ -8,8 +8,8 @@ public class GameService {
     private final int NAME_LENGTH = 5;
     CarRepository carRepository;
 
-    public GameService() {
-        carRepository = new CarRepository();
+    public GameService(CarRepository carRepository) {
+        this.carRepository = carRepository;
     }
 
     public void createCars(List<String> names) {
