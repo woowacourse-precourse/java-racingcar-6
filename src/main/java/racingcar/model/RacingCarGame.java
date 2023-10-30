@@ -1,7 +1,8 @@
 package racingcar.model;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.util.Converter;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -40,12 +41,10 @@ public class RacingCarGame {
     }
 
     private Cars makeCars(String[] carNames) {
-        List<Car> cars = new ArrayList<>();
-
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
-        return new Cars(cars);
+        List<Car> carList = Arrays.stream(carNames)
+                .map(Car::new)
+                .collect(Collectors.toList());
+        return new Cars(carList);
     }
 
     private void printTryResult() {
