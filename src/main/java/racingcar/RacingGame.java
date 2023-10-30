@@ -1,9 +1,11 @@
 package racingcar;
 
+import static racingcar.Constant.DISTANCE;
 import static racingcar.Constant.MAX_RANDOM_NUM;
 import static racingcar.Constant.MIN_ATTEMPT_COUNT;
 import static racingcar.Constant.MIN_RANDOM_NUM;
 import static racingcar.Constant.MOVE_FORWARD_NUM;
+import static racingcar.Constant.PRINT_DISTANCE_SEPARATOR;
 import static racingcar.Constant.PRINT_RESULT_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -37,7 +39,14 @@ public class RacingGame {
     }
 
     private void printResult() {
-
+        cars.forEach(car -> {
+            System.out.print(car.getName() + PRINT_DISTANCE_SEPARATOR);
+            for (int i = 0; i < car.getDistance(); i++) {
+                System.out.print(DISTANCE);
+            }
+            System.out.println();
+        });
+        System.out.println();
     }
 
     private void printWinner() {
