@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.car;
 
 import static racingcar.constant.Constant.COLON;
 

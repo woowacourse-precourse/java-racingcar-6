@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.car;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.car.Car;
 
 import static racingcar.constant.Constant.DISTANCE_DRIVER;
 
