@@ -13,33 +13,43 @@ public class GameController {
     private Game game = new Game();
 
     public void run() {
-        createCarList();
-        createTrialNum();
+        List<Car> carList = createCarList();
+        int trialNum = createTrialNum();
+
+        // 확인절차(추후 삭제 예정)
+        System.out.println(carList.get(0).getName());
+        System.out.println(carList.get(1).getName());
+        System.out.println(carList.get(2).getName());
+        System.out.println(trialNum);
     }
 
-    private void createCarList() {
+    private List<Car> createCarList() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carName = Console.readLine();
-        List<String> carList = gameService.parseCarName(carName);
-        saveCars(carList);
+        List<String> carNames = gameService.parseCarName(carName);
+        List<Car> cars = saveCars(carNames);
+        return cars;
     }
 
-    private void createTrialNum() {
+    private int createTrialNum() {
         System.out.println("시도할 회수는 몇회인가요?");
         String countTrial = Console.readLine();
-        saveTrialNum(countTrial);
+        int trialNum = saveTrialNum(countTrial);
+        return trialNum;
     }
 
-    private void saveCars(List<String> carNames) {
+    private List<Car> saveCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             Car car = new Car(carName);
             cars.add(car);
         }
+        return cars;
     }
 
-    private void saveTrialNum(String input) {
+    private int saveTrialNum(String input) {
         int trialNum = Integer.parseInt(input);
         game.setTrial(trialNum);
+        return trialNum;
     }
 }
