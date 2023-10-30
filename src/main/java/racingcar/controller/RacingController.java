@@ -9,14 +9,16 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingController {
     private final InputView inputView;
+    private final Cars cars;
 
     public RacingController() {
         inputView = new InputView();
+        cars = new Cars();
     }
 
     public void start() {
         inputView.printRequestCarName();
         inputView.printRequestAttemptsNumber();
-
+        cars.addCar(Console.readLine());
     }
 }
