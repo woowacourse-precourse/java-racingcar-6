@@ -14,13 +14,13 @@ public class RacingController {
         this.game = new Game(cars);
         OutputView.printResultMessage();
         playAllRounds(attemptCount);
-        OutputView.printWinnerMessage(WinnerFinder.findWinners(game.getCarsDTO().getCars()));
+        OutputView.printWinnerMessage(WinnerFinder.findWinners(game.getCarsDTO().cars()));
     }
 
     private void playAllRounds(int attemptCount) {
         for (int i = 0; i < attemptCount; i++) {
             game.playOneRound();
-            OutputView.printResult(game.getCarsDTO().getCars());
+            OutputView.printResult(game.getCarsDTO().cars());
         }
     }
 }
