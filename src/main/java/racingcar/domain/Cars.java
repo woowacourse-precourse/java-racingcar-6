@@ -11,7 +11,7 @@ import static java.util.stream.Collectors.toUnmodifiableList;
 
 public class Cars {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars() {
         this.cars = new ArrayList<>();
