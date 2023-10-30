@@ -2,11 +2,12 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class User {
-    private Validator validator;
-    private List<String> carNames;
+    private final Validator validator;
+    private final List<String> carNames;
 
     public User() {
         validator = new Validator();
@@ -18,10 +19,8 @@ public class User {
         String input = Console.readLine();
         validator.validateInput(input);
 
-        String[] carNameArray = input.split(",");
-        for (String carName : carNameArray) {
-            carNames.add(carName);
-        }
+        String[] carNamesArray = input.split(",");
+        carNames.addAll(Arrays.asList(carNamesArray));
         validator.validateCarNames(carNames);
 
         return carNames;
