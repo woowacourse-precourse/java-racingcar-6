@@ -64,10 +64,16 @@ public class InputValidator {
 
         for (String carName : carNames) {
             count = carNames.stream()
+                    .map(String::trim)
                     .filter(name -> name.equals(carName))
                     .count();
+
+            if (count > 1) {
+                return true;
+            }
         }
-        return count > 1;
+
+        return false;
     }
 
     public static void validateInputTryCountCharacter(final String input) {
