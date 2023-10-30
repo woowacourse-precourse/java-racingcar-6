@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Model.Car;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RaceService {
     InputValidation inputValidation = new InputValidation();
@@ -15,12 +16,10 @@ public class RaceService {
     public String winnerResult(List<Car> cars) {
         cars.sort(((o1, o2) -> o2.getLocation() - o1.getLocation()));
         int maxNum = cars.get(0).getLocation();
-        List<String> members = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getLocation() == maxNum) {
-                members.add(car.getName());
-            }
-        }
+        List<String> members = cars.stream()
+                .filter(car -> car.getLocation() == maxNum)
+                .map(Car::getName)
+                .collect(Collectors.toList());
         return String.join(", ", members);
     }
 
