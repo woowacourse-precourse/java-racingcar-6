@@ -13,10 +13,10 @@ public class OutputView {
     }
 
     public static void printFinalWinner(List<String> winners) {
-        System.out.println("최종 우승자 : " + winnersNameStringBuilder(winners));
+        System.out.println("최종 우승자 : " + getWinnersNameString(winners));
     }
 
-    private static String winnersNameStringBuilder(List<String> winners) {
+    private static String getWinnersNameString(List<String> winners) {
         StringBuilder builder = new StringBuilder();
         for (String winner : winners) {
             builder.append(winner);
