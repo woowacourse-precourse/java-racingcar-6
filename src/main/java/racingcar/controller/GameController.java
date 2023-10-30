@@ -1,9 +1,6 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import racingcar.message.OutputMessage;
 import racingcar.model.Car;
 import racingcar.model.RacingGame;
@@ -19,9 +16,10 @@ public class GameController {
     private final WinningResult winningResult = new WinningResult();
 
     String[] names = inputView.getNames();
-    int rounds = inputView.getRounds();
 
     public void start() {
+
+        int rounds = inputView.getRounds();
 
         List<Car> cars = racingGame.saveCarsInfo(names);
         roundResult(rounds, cars);

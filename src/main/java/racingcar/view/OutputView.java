@@ -1,11 +1,14 @@
 package racingcar.view;
 
+import java.util.ArrayList;
 import java.util.List;
-import racingcar.controller.GameController;
+import java.util.StringJoiner;
 import racingcar.message.OutputMessage;
 import racingcar.model.Car;
 
 public class OutputView {
+
+    List<String> winners = new ArrayList<>();
 
     public void round(List<Car> cars){
 
@@ -18,14 +21,18 @@ public class OutputView {
     }
 
     public void winnerResult(List<Car> cars, int finalPrize){
-       printMessage(OutputMessage.FINAL_WINNER);
-        int count = 0;
-        for(int i = 0; i < cars.size(); i++){
-            if(cars.get(i).getPosition() == finalPrize){
-                if(count == 0) System.out.print(cars.get(i).getName() + ", ");
-                else System.out.print(cars.get(i).getName());
-            }
+        printMessage(OutputMessage.FINAL_WINNER);
+        for(Car car : cars){
+            if(car.getPosition() == finalPrize) winners.add(car.getName());
         }
+
+        useStringJoiner();
+    }
+
+    public void useStringJoiner(){
+        StringJoiner joiner = new StringJoiner(", ");
+        for(String winner : winners) joiner.add(winner);
+        System.out.println(joiner);
     }
 
     private void printMessage(String text) {
