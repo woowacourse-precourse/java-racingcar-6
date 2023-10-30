@@ -21,6 +21,10 @@ public class SavedCar {
         return car;
     }
 
+    public String getName() {
+        return car.getName();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
