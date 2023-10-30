@@ -42,7 +42,7 @@ public class RacingOutput {
         System.out.print("\n");
     }
 
-    public List<String> getResultOfWinner(List<Car> carList) throws IOException
+    public List<String> getResultOfWinner(List<Car> carList)
     {
         if (carList.size()==0)    return new ArrayList<>();
 
