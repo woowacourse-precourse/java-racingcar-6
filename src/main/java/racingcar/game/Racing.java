@@ -14,6 +14,14 @@ public class Racing {
         }
     }
 
+    public List<Car> getRacingCars() {
+        return racingCars;
+    }
+
+    public List<Car> getWinningCars() {
+        return winningCars;
+    }
+
     public void moveAllCarsForward() {
         for (Car car : racingCars) {
             if (car.isMovable()) {
