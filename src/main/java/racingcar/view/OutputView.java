@@ -1,6 +1,5 @@
-package racingcar;
+package racingcar.view;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class OutputView {
@@ -18,11 +17,10 @@ public class OutputView {
     }
 
     public void printWinners(List<String> winners) {
-        String win = "";
+        String winCars = "";
         System.out.print("최종 우승자 : ");
-        for (String winner : winners) {
-            win +=  winner;
-        }
+        winCars = String.join(",", winners);
+        System.out.println(winCars);
     }
 
 }
