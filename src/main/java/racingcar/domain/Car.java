@@ -1,7 +1,8 @@
 package racingcar.domain;
 
-public class Car implements Comparable{
+public class Car implements Comparable {
     private final int MOVE_FORWARD_CONDITION = 4;
+    private final String DISTANCE_EXPRESS = "-";
     private String name;
     private int position = 0;
 
@@ -16,7 +17,13 @@ public class Car implements Comparable{
     }
 
     public String expressMoveDistance() {
-        return null;
+        String movedDistance = "";
+
+        for (int i = 0; i < position; i++) {
+            movedDistance += DISTANCE_EXPRESS;
+        }
+
+        return name + " : " + movedDistance;
     }
 
     public String getName() {
