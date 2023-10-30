@@ -1,14 +1,14 @@
 ### 기능 목록 ###
 
-[-] 사용자에게 자동차 이름과 전진횟수를 입력받는다. -Input.carName(), Input.gameRound()
+[o] 사용자에게 자동차 이름과 전진횟수를 입력받는다. -Input.carName(), Input.gameRound()
 
-[-] 전진횟수만큼 난수를 발생시킨다. -RandomNum.number()
+[o] 전진횟수만큼 난수를 발생시킨다. -RandomNum.number()
 
-[-] 발생시킨 난수가 4이상 시 자동차를 전진시킨다. -Action.moveCar()
+[o] 발생시킨 난수가 4이상 시 자동차를 전진시킨다. -Action.moveCar()
 
-[-] 횟수가 1회 진행될때의 상황을 출력한다. -Output.printResult()
+[o] 횟수가 1회 진행될때의 상황을 출력한다. -Output.printResult()
 
-[-] 마지막 회차까지 진행했을때 우승자를 출력한다.(동차는 허용한다.) -Output.printWinner()
+[o] 마지막 회차까지 진행했을때 우승자를 출력한다.(동차는 허용한다.) -Output.printWinner()
 
 
 
