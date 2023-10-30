@@ -6,6 +6,7 @@ public class Car {
 
     public Car(String carName) {
         this.carName = carName;
+        this.position = 0;
     }
 
     public String getCarName() {
