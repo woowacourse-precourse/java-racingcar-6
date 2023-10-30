@@ -21,7 +21,7 @@ public class RacingGame {
                 .forEach(name -> racingCarList.add(Car.from(name)));
     }
 
-    public static RacingGame of(final String inputNameString) {
+    public static RacingGame from(final String inputNameString) {
         return new RacingGame(inputNameString);
     }
 

@@ -12,7 +12,7 @@ public class RacingGameController {
     public void run() {
 
         String inputCarNames = InputView.inputCarNames();
-        RacingGame racingGame = RacingGame.of(inputCarNames);
+        RacingGame racingGame = RacingGame.from(inputCarNames);
         int tryCount = InputView.inputTryCount();
 
         playRacingGame(racingGame, tryCount);
