@@ -15,4 +15,12 @@ final class CountTest {
     void 시도_횟수가_음수일_경우_예외를_던진다() {
         assertThrows(IllegalArgumentException.class, () -> new Count("-1"));
     }
+
+    @Test
+    void count가_0일_경우_턴_종료() {
+        Count count = new Count("1");
+        count.countDown();
+
+        assertTrue(count.isEnd());
+    }
 }
