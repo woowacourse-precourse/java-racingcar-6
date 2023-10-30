@@ -19,6 +19,7 @@ public class Car {
     private void isCorrectName() {
         for (String name : names) {
             checkCarNameLength(name);
+            checkCarNameHasBlank(name);
         }
         checkCarNameDuplication();
     }
@@ -26,6 +27,12 @@ public class Car {
     private void checkCarNameLength(String name) {
         if (name.length() > CAR_NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_LENGTH_OVERED);
+        }
+    }
+
+    private void checkCarNameHasBlank(String name) {
+        if (name.contains(" ")) {
+            throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_HAS_BLANK);
         }
     }
 
