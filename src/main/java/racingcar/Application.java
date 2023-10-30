@@ -42,14 +42,28 @@ class Car {
 
 class Game {
     public static int MOVES;
-    List<String> name;
+    List<String> nameList;
+    List<Car> carList;
 
     public void getCarNames() {
         String input = Console.readLine();
-        name = Arrays.asList(input.split(","));
+        nameList = Arrays.asList(input.split(","));
     }
 
     public void getNumberOfMoves() {
         MOVES = Integer.parseInt(Console.readLine());
+    }
+
+    public void gameRun() {
+        for (String name : nameList) {
+            carList.add(new Car(name));
+        }
+        for (int i = 0; i < MOVES; i++) {
+
+            for (Car car : carList){
+                car.move();
+            }
+            // TODO : 결과 출력
+        }
     }
 }
