@@ -10,7 +10,7 @@ import java.util.Map;
  * 장단점이 모두 있으니 2주차 목표에 맞게 함수를 분리해서 구현.
  */
 
-public class CreateCar {
+public class CreateCarV2 {
     public String input() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
