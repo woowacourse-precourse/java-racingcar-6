@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,6 +12,7 @@ public class Cars {
     private final Parser parser = new Parser();
 
     public Cars(String carNames) {
+        validateCarNamesDuplicate(carNames);
         cars = parser.parseCarNames(carNames)
                 .stream()
                 .map(Car::new)
@@ -35,8 +37,17 @@ public class Cars {
                 .orElse(0);
     }
 
-    public List<Car> getCars(){
+    public List<Car> getCars() {
         return cars;
+    }
+
+    private void validateCarNamesDuplicate(String carNames) {
+        List<String> carNameList = parser.parseCarNames(carNames);
+        boolean hasDuplicate = carNameList.stream()
+                .anyMatch(e -> Collections.frequency(carNameList, e) > 1);
+        if (hasDuplicate) {
+            throw new IllegalArgumentException();
+        }
     }
 
 
