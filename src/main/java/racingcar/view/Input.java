@@ -2,7 +2,10 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.regex.Pattern;
+
 import static racingcar.constant.Constant.INIT_CAR_NAME;
+import static racingcar.constant.Constant.INIT_NUMBER;
 
 public class Input {
 
@@ -21,5 +24,15 @@ public class Input {
             }
         }
         return cars;
+    }
+
+    public int InputMovingNumber(){
+        System.out.println(INIT_NUMBER);
+        String input = Console.readLine();
+
+        if(!Pattern.matches("^[1-9]+$",input))
+            throw new IllegalArgumentException("숫자외 다른 문자는 쓸 수 없습니다.");
+
+        return Integer.parseInt(input);
     }
 }
