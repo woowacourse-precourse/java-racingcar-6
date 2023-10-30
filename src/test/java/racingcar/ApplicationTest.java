@@ -4,8 +4,6 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.control.GameProcess;
 import racingcar.domain.CreateRandomNum;
 import racingcar.domain.GameHost;
@@ -13,7 +11,6 @@ import racingcar.domain.JudgeStandard;
 import racingcar.domain.RaceCar;
 import racingcar.view.GameStart;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -229,7 +226,7 @@ class ApplicationTest extends NsTest {
         thirdRaceCar.movementControlCar(3);
         thirdRaceCar.movementControlCar(4);
 
-        winRaceCarList = gameHost.winRaceCar(raceCarList, 3);
+        winRaceCarList = gameHost.knowWinRaceCar(raceCarList, 3);
         String result = winRaceCarList.get(0).toString();
 
         // then

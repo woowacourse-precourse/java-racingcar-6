@@ -17,7 +17,7 @@ public class GameHost {
      * @param numOfWinCondition   승리를 위한 조건 (입력 진행숫자)
      * @return
      */
-    public List<RaceCar> winRaceCar(List<RaceCar> progressRaceCarList, Integer numOfWinCondition) {
+    public List<RaceCar> knowWinRaceCar(List<RaceCar> progressRaceCarList, Integer numOfWinCondition) {
         List<RaceCar> raceCarOfWinnerList = new ArrayList<>();
         int cntOfMaxMove = getCntMaxMove(progressRaceCarList);
         boolean isVictoryOfRace = true;
