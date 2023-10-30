@@ -8,11 +8,14 @@ public class IO {
     public String[] inputCarNames() {
         outputCarNameInputRequest();
         String name = Console.readLine();
-        if (name.isBlank()) {
+        String[] carNames = name.split(",");
+        if (name.isBlank() || name.startsWith(",") || name.endsWith(",")) {
             throw new IllegalArgumentException();
         }
-        if (name.charAt(0) == ',' || name.charAt(name.length() - 1) == ',') {
-            throw new IllegalArgumentException();
+        for (String carName : carNames) {
+            if (carName.length() >= 6) {
+                throw new IllegalArgumentException();
+            }
         }
         return name.split(",");
     }
