@@ -43,7 +43,7 @@ public class Cars {
 
     private static void validateDuplicate(List<Car> cars) {
         List<Name> carNames = cars.stream()
-                .map(Car::name)
+                .map(Car::getName)
                 .toList();
         Set<Name> nonDuplicateCarNames = new HashSet<>(carNames);
         if (nonDuplicateCarNames.size() != carNames.size()) {
@@ -71,7 +71,7 @@ public class Cars {
     private List<String> getMaxPositionCarNames(Car maxPositionCar) {
         return cars.stream()
                 .filter(maxPositionCar::isSamePosition)
-                .map(Car::name)
+                .map(Car::getName)
                 .map(Name::name)
                 .toList();
     }
