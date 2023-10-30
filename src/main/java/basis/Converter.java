@@ -1,6 +1,5 @@
 package basis;
 
-import static constant.ErrorMessage.EMPTY_NAME_CASE_MESSAGE;
 import static constant.ErrorMessage.INVALID_INPUT_CASE_MESSAGE;
 import static constant.ErrorMessage.NOT_NUMBER_INPUT_CASE_MESSAGE;
 
@@ -8,6 +7,8 @@ import java.util.LinkedHashMap;
 import validation.UserInputValidator;
 
 public class Converter {
+    UserInputValidator userInputValidator;
+
     public int wordToInt(String word) {
         try {
             return Integer.parseInt(word);
@@ -16,7 +17,7 @@ public class Converter {
         }
     }
 
-    public LinkedHashMap<String, String> splitAndAddToMap(String Name) { // ["k1",v1,v2]
+    public LinkedHashMap<String, String> splitAndAddToMap(String Name) {
         try {
             String[] parts = tokenizeByComma(Name);
             return getCarNameHashMap(parts);
@@ -32,9 +33,7 @@ public class Converter {
     private LinkedHashMap<String, String> getCarNameHashMap(String[] parts) {
         LinkedHashMap<String, String> carNameHashMap = new LinkedHashMap<>();
         for (String part : parts) {
-            if (part.isBlank()) {
-                throw new IllegalArgumentException(EMPTY_NAME_CASE_MESSAGE);
-            }
+            UserInputValidator.checkEmptyInput(part);
             carNameHashMap.put(part, "");
             UserInputValidator.checkNameLength(part);
         }
