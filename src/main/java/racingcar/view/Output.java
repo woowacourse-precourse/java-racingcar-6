@@ -15,7 +15,7 @@ public class Output {
 	
 	public void roundResult(Car[] cars) {
 		for(Car car : cars) {
-			System.out.printf("%s : %s\n", car.getName(), car.getForwardCount());
+			System.out.printf("%s : %s\n", car.getName(), car.getForwardResult());
 		}
 		System.out.println();
 	}

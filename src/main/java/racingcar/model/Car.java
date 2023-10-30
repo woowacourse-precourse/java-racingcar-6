@@ -23,4 +23,8 @@ public class Car {
 		this.forwardCount++;
 		this.forwardResult += "-";
 	}
+	
+	public String getForwardResult() {
+		return this.getForwardResult();
+	}
 }
