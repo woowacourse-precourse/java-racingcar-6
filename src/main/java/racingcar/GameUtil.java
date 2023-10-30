@@ -16,7 +16,8 @@ public class GameUtil {
     public void printEachResult(List<Racer> racerList) {
         StringBuilder result = new StringBuilder();
         for (Racer racer : racerList) {
-            result.append(String.format("%5s : ", racer.getName()))
+            result.append(racer.getName())
+                    .append(" : ")
                     .append(racer.getScore())
                     .append("\n");
         }
