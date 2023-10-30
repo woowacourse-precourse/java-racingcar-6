@@ -38,7 +38,7 @@ public class InputValidation {
         try {
             Integer.parseInt(str);
         } catch (Exception e) {
-            throw new IllegalArgumentException(e.getMessage());
+            throw new IllegalArgumentException("Invalid input String: " + e.getMessage());
         }
 
     }
