@@ -9,6 +9,7 @@ import racingcar.util.Validator;
 public class ValidatorTest {
 
     private static final Validator validator = new Validator();
+
     @Test
     void 자동차_이름이_5보다_크면_에러발생() {
         String input = "자동차1,자동차2,에러자동자입니다";

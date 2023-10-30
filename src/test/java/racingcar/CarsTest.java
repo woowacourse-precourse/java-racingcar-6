@@ -1,16 +1,13 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.assertThat;;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.view.OutputView;
 
 
 public class CarsTest {
@@ -38,7 +35,7 @@ public class CarsTest {
 
     @Test
     void 자동차_위치_문자열_테스트() {
-        Cars cars = Cars.makeCarList(List.of("car1","car2"));
+        Cars cars = Cars.makeCarList(List.of("car1", "car2"));
         assertThat(cars.WinnersToString()).isEqualTo("car1, car2");
     }
 }

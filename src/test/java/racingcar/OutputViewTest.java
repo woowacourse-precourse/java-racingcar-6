@@ -13,6 +13,7 @@ public class OutputViewTest {
 
 
     private final OutputView outputView = new OutputView();
+
     @Test
     public void printPosition_함수_테스트() {
 
