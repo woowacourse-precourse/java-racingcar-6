@@ -14,4 +14,11 @@ public class RaceView {
                 .toList();
     }
 
+    public Integer askRoundNumber() {
+        Output.consoleLine("시도할 회수는 몇회인가요?");
+        Integer numberOfRound = Input.consoleNumber();
+        Output.consoleLine(); // 입력 후 공백 한 줄이 들어가게 되어있음
+        return numberOfRound;
+    }
+
 }
