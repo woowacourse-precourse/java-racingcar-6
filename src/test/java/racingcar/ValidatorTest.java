@@ -13,21 +13,21 @@ public class ValidatorTest {
     final Validator validator = new Validator();
 
     @Test
-    void 자동차_이름_쉼표로_구분되는지() {
+    void separateAndRemoveSpace_메서드로_자동차_이름_구분() {
         String input = "a, b, c";
         List<String> result = Arrays.asList("a", "b", "c");
         assertThat(validator.separateAndRemoveSpace(input)).isEqualTo(result);
     }
 
     @Test
-    void 중복된_차가_있는지() {
+    void existsDuplicateName_메서드로_중복된_차_여부_검증() {
         List<String> carNames = Arrays.asList("a", "a", "c");
         boolean result = true;
         assertThat(validator.existsDuplicateName(carNames)).isEqualTo(result);
     }
 
     @Test
-    void 자동차_길이_1과_5사이인지() {
+    void ensureLengthInRange_메서드로_자동차_길이_검증() {
         List<List<String>> carsNames = Arrays.asList(
             Arrays.asList("a", "a", "c"),
             Arrays.asList("abcdef", "g", "hij")
@@ -42,14 +42,14 @@ public class ValidatorTest {
     }
 
     @Test
-    void 자동차_개수_2이상인지() {
+    void ensureNumberOfCars_메서드로_자동차_개수_검증() {
         List<String> carNames = Arrays.asList("a");
         boolean result = false;
         assertThat(validator.ensureNumberOfCars(carNames)).isEqualTo(result);
     }
 
     @Test
-    void 자동차_예외_처리() {
+    void validateCarNamesInput_메서드_사용시_예외_발생() {
         List<String> input = Arrays.asList("pobi,pobi,jun", "p, , bi", " ", "\n");
 
         for (String carNames : input) {
@@ -59,7 +59,7 @@ public class ValidatorTest {
     }
 
     @Test
-    void 시도_횟수_1이상인지() {
+    void ensureRange_메서드로_시도_횟수_검증() {
         List<Integer> attempts = Arrays.asList(1, 0, 55);
         List<Boolean> result = Arrays.asList(true, false, true);
 
@@ -71,7 +71,7 @@ public class ValidatorTest {
     }
 
     @Test
-    void 시도_횟수_예외_처리() {
+    void validateCarNamesInput_메서드_사용시_1이상의_숫자가_아닌_경우_예외_처리() {
         List<String> input = Arrays.asList("10.11", "-10", "f", "0", " ", "");
 
         for (String attempt : input) {
