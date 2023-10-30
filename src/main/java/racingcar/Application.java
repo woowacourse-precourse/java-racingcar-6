@@ -43,7 +43,7 @@ class Event {
         }
 
         if (moveTimes < 1) {
-            throw new IllegalArgumentException("1 이상의 정수를 입력해야합니다.");
+            throw new IllegalArgumentException("1 이상의 정수를 입력해야 합니다.");
         }
     }
 
