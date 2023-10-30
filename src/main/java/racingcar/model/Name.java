@@ -19,6 +19,9 @@ public class Name {
         if (name.isEmpty() || name.length() > MAXIMUM_LENGTH) {
             throw new IllegalArgumentException("이름 길이는 1자 이상 5자 이하여야 합니다.");
         }
+        if (name.contains(" ")) {
+            throw new IllegalArgumentException("공백이 있으면 안 됩니다.");
+        }
     }
 
     public String getName() {
