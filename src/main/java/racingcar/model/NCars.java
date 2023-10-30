@@ -40,7 +40,7 @@ public class NCars {
     public List<String> getSingleRoundResult() {
         List<String> resultMessage = new ArrayList<>();
         for (Car car : cars) {
-            resultMessage.add(car.getRoundResult());
+            resultMessage.add(car.getRoundResult().toString());
         }
         return resultMessage;
     }
@@ -51,5 +51,24 @@ public class NCars {
             names.add(car.toString());
         }
         return names;
+    }
+
+    public List<String> getWinnerName() {
+        List<String> winnerNames = new ArrayList<>();
+        List<RoundResult> results = new ArrayList<>();
+        for (Car car : cars) {
+            results.add(car.getRoundResult());
+        }
+        Integer maxPosition = results
+                .stream()
+                .mapToInt(RoundResult::position)
+                .max()
+                .orElse(0);
+        for (Car car : cars) {
+            if(car.isWinner(maxPosition)){
+                winnerNames.add(car.toString());
+            };
+        }
+        return winnerNames;
     }
 }

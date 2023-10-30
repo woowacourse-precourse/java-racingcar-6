@@ -31,11 +31,10 @@ public final class Car {
         throw new IllegalArgumentException();
     }
 
-    public String getRoundResult() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(this);
-        sb.append(" : ");
-        IntStream.range(0, position).forEach(i -> sb.append("-"));
-        return sb.toString();
+    public RoundResult getRoundResult() {
+        return new RoundResult(name,position);
+    }
+    public boolean isWinner(Integer givenPosition) {
+        return position.equals(givenPosition);
     }
 }
