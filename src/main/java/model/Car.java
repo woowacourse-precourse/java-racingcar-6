@@ -1,12 +1,8 @@
 package model;
 
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
-
 public class Car {
     private String name;
     private int distance = 0;
-    private final int MIN_NUM = 0;
-    private final int MAX_NUM = 9;
 
     Car() {
     }
@@ -15,8 +11,8 @@ public class Car {
         this.name = name;
     }
 
-    public void move() {
-        if(canGoFoward()) {
+    public void move(int randomNumber) {
+        if(randomNumber>=4) {
             this.distance += 1;
         }
     }
@@ -29,7 +25,5 @@ public class Car {
         return this.distance;
     }
 
-    private boolean canGoFoward() {
-        return pickNumberInRange(MIN_NUM,MAX_NUM) >= 4;
-    }
+
 }
