@@ -38,7 +38,7 @@ public class Cars {
         cars.forEach(Car::move);
     }
 
-    public List<String> findWinner() {
+    public List<String> findWinners() {
         int maxPosition = findMaxPosition(cars);
         return findCarNamesWithMaxPosition(maxPosition);
     }
@@ -53,7 +53,7 @@ public class Cars {
     private List<String> findCarNamesWithMaxPosition(int maxPosition) {
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
-                .map(Car::getName) // Car 객체를 해당 Car의 이름(String)으로 매핑
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 }

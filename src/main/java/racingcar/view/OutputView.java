@@ -26,20 +26,22 @@ public class OutputView {
 
     public static void printRoundResult(Cars cars) {
         for (Car car : cars.getCars()) {
-            System.out.println(String.format("%s : %s", car.getName(), car.getPositionString()));
+            System.out.println(car.toString());
         }
         System.out.println();
     }
 
-    public static void printFinalResult(List<String> winnerList) {
-        String result;
-        if (getNumberOfWinners(winnerList) > 1) {
-            generateWinnersString(winnerList);
-            result = FINAL_WINNER_LABEL + generateWinnersString(winnerList);
-        } else {
-            result = FINAL_WINNER_LABEL + winnerList.get(0);
-        }
+    public static void printFinalResult(List<String> winnerNames) {
+        String result = generateResultString(winnerNames);
         System.out.println(result);
+    }
+
+    private static String generateResultString(List<String> winnerNames) {
+        if (getNumberOfWinners(winnerNames) > 1) {
+            return FINAL_WINNER_LABEL + generateWinnersString(winnerNames);
+        } else {
+            return FINAL_WINNER_LABEL + winnerNames.get(0);
+        }
     }
 
     private static int getNumberOfWinners(List<String> winnerList) {
@@ -53,4 +55,5 @@ public class OutputView {
         }
         return joiner.toString();
     }
+
 }
