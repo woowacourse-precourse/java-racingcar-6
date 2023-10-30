@@ -2,12 +2,15 @@ package racingcar;
 
 import racingcar.controller.GameController;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
         InputView inputView = new InputView();
-        GameController gameController = new GameController(inputView);
+        OutputView outputView = new OutputView();
 
+        GameController gameController = new GameController(inputView, outputView);
+        
         try {
             gameController.run();
         } catch (Exception e) {

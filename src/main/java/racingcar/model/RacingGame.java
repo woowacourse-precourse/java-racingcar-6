@@ -24,6 +24,10 @@ public class RacingGame {
         }
     }
 
+    public Cars getCars() {
+        return cars;
+    }
+
     public int getRaceCount() {
         return raceCount;
     }
