@@ -23,6 +23,7 @@
 ## 기능 구현 중 추가된 기능 목록
 
 12. 자동차의 이름을 저장하는 기능
+13. 반복 횟수를 입력받는 기능
 
 ## 기능을 할당받는 클래스 설계
 
@@ -33,5 +34,5 @@
 - NumberComparator : 5번 기능
 - SystemConstant : 7번 기능
 - SystemMessage : 8번 기능
-- InputView : 2번 기능
+- InputView : 2번 기능, 13번 기능
 - OutputView : 9번 기능, 10번 기능
