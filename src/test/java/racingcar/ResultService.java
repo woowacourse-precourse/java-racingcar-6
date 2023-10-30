@@ -44,16 +44,19 @@ public class ResultService {
         return cars;
     }
 
-    public static List<Car> decideWinners(Cars cars) {
+    public static List<String> decideWinners(Cars cars) {
         Integer maxNumberOfMovingForward = (Integer) Collections.max(cars.values());
-        List<Car> carList = new ArrayList<>();
+        List<String> carList = new ArrayList<>();
         for (Object car : cars.keySet()) {
             if (cars.get(car).equals(maxNumberOfMovingForward)) {
-                carList.add((Car) car);
+                carList.add((String) car);
             }
         }
         return carList;
     }
 
-
+    public static void printWinners(List<String> carList) {
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", carList));
+    }
 }
