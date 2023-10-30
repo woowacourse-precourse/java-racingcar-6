@@ -35,7 +35,7 @@ class RacingControllerTest {
         List<Car> cars = Arrays.asList(car1, car2, car3);
         int attemptCount = 5;
         RacingController racingController = new RacingController();
-        racingController.playGame(cars,attemptCount);
+        racingController.playGame(cars, attemptCount);
 
         String expectedOutput = "실행 결과\n" + "pobi : -\n" + "woni : \n" + "jun : \n" + "\n" +
                 "pobi : --\n" + "woni : \n" + "jun : \n" + "\n" + "pobi : ---\n" + "woni : \n" + "jun : \n" + "\n" +
