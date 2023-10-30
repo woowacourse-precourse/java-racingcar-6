@@ -1,6 +1,6 @@
 package racingcar.domain.core.car;
 
-public interface CarDomain {
+public interface BasicCar {
 
     CarName getCarName();
 }
