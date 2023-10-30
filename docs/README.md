@@ -45,9 +45,9 @@
 
 ### 2. 입력 관리 (InputManager 클래스)
 - getCarNames(): 사용자로부터 자동차 이름을 입력 받아서 String 배열로 반환한다.
-     - 이름이 5자 초과일 경우 IllegalArgumentException 발생.
+- isValidName(String name): 5자 초과일 경우 IllegalArgumentException 발생.
 - getTryCount(): 사용자로부터 시도할 횟수를 입력 받아서 int로 반환한다.
-     - 음수 또는 문자가 입력되면 IllegalArgumentException 발생.
+- isValidNum(): 음수 또는 문자가 입력되면 IllegalArgumentException 발생.
 
 ### 3. 게임 관리 (RaceManager 클래스)
 - 멤버 변수
