@@ -8,11 +8,11 @@ public class Car {
 
     }
 
-    public void movingForward(int times) {
+    public void movingForward(Integer times) {
     }
 
-    public boolean judgeForward(int number) {
-
+    public boolean judgeForward(Integer number) {
+        return true;
     }
 
     public void stop() {

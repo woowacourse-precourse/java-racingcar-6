@@ -13,11 +13,10 @@
     - Car.print() : 차의 이름 출력 기능
     - Car.setName() : 차의 이름 제한과 구분자 설정, 이름을 정하는 기능
 - [ ] 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다.
-    - Car.movingForward(int times) : 차가 전진 하는 기능에 몇번을 이동할지 입력
+    - Car.movingForward(Integer times) : 차가 전진 하는 기능에 몇번을 이동할지 입력
 - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
     - Randoms.pickNumberInRange(0,9) : 라이브러리를 사용하여 0~9 사이의 값 얻기
     - Car.judgeForward() : 앞으로 갈것인지 판단하는 기능
-    - Car.movingForward(int times) : 입력 된 값이 4이상일 경우 전진하는 조건식
 - [ ] 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
     - Game.printResult() : 게임의 결과를 발표하는 기능
 - [ ] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
@@ -62,3 +61,37 @@ jun : ---
 ```
 최종 우승자 : pobi, jun
 ```
+
+### 실행 결과 예시
+
+```
+경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
+pobi,woni,jun
+시도할 회수는 몇회인가요?
+5
+
+실행 결과
+pobi : -
+woni : 
+jun : -
+
+pobi : --
+woni : -
+jun : --
+
+pobi : ---
+woni : --
+jun : ---
+
+pobi : ----
+woni : ---
+jun : ----
+
+pobi : -----
+woni : ----
+jun : -----
+
+최종 우승자 : pobi, jun
+```
+
+---
