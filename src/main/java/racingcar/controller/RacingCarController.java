@@ -9,6 +9,7 @@ import racingcar.view.OutputView;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class RacingCarController {
     private static final int FORWARD_RULE = 4;
@@ -18,6 +19,14 @@ public class RacingCarController {
     public RacingCarController() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
+    }
+
+    public void racingCar() {
+        List<Car> cars = createCarList();
+        int numberOfTimes = Integer.parseInt(inputView.inputNumberOfTimes());
+        IntStream.range(0, numberOfTimes)
+                .forEach(i -> repeatRaceNumberOfTimes(cars));
+        outputView.printWinnerOrWinners(findWinner(cars));
     }
 
     private String findWinner(List<Car> cars) {
