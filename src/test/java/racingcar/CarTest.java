@@ -17,9 +17,8 @@ public class CarTest {
     @DisplayName("자동차에 이름을 부여할 수 있다.")
     public void carNameApplyTest(){
         String givenName = "sung";
-        String targetMessage = givenName+" : ";
         Car car = Car.applyName(givenName);
-        assertThat(car.toString()).isEqualTo(targetMessage);
+        assertThat(car.toString()).isEqualTo(givenName);
     }
     @Test
     @DisplayName("숫자가 3일때 정지하는 상태를 반환한다.")
