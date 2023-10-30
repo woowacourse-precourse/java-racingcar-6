@@ -39,10 +39,11 @@
 
 생성 시 인자로 받은 메시지 파일 경로를 통해 메시지를 Properties로 로드한다.
 
-| 구현                   | 메서드                        | 기능                                                             |
-|----------------------|----------------------------|----------------------------------------------------------------|
-| :white_large_square: | `showInputRequiredMessage` | 입력이 필요하다고 메시지를 출력한다.                                           |
-| :white_large_square: | `showResultOf`             | 알맞은 게임 인스턴스가 아니면 `IllegalArgumentException`을 던지고 게임의 결과를 출력한다. |
+| 구현                   | 메서드                        | 기능                                                               |
+|----------------------|----------------------------|------------------------------------------------------------------|
+| :white_large_square: | `showInputRequiredMessage` | 입력이 필요하다고 메시지를 출력한다.                                             |
+| :white_large_square: | `showProgressOf`           | 알맞은 게임 인스턴스가 아니면 `IllegalArgumentException`을 던지고 게임의 진행상황을 출력한다. |
+| :white_large_square: | `showResultOf`             | 알맞은 게임 인스턴스가 아니면 `IllegalArgumentException`을 던지고 게임의 결과를 출력한다.   |
 
 ## RacingCarGameController
 
