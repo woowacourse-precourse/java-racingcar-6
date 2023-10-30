@@ -32,13 +32,17 @@ public class RacingGame {
     }
 
     public List<String> determineRaceWinners() {
-        Collections.sort(racingCarList);
-        int winnerMoveCount = racingCarList.get(0).getMovedCount();
+        int winnerMoveCount = getWinnerMoveCount();
         return findWinners(winnerMoveCount);
     }
 
     public List<Car> getRacingCarList() {
         return racingCarList;
+    }
+
+    private int getWinnerMoveCount() {
+        Collections.sort(racingCarList);
+        return racingCarList.get(0).getMovedCount();
     }
 
     private List<String> findWinners(int winnerMoveCount) {
