@@ -25,10 +25,16 @@ public class Cars {
 
     private void validate(List<String> carsName) {
         validateCarsNameLength(carsName);
+        validateCarsNameNotNull(carsName);
     }
 
     private void validateCarsNameLength(List<String> carsName) {
-        if(carsName.stream().anyMatch(carName->carName.length() > CAR_NAME_MAX_LENGTH))
-            throw new IllegalArgumentException("문자열의 길이가 5를 넘어갔습니다.");
+        if(carsName.stream().anyMatch(carName -> carName.length() > CAR_NAME_MAX_LENGTH))
+            throw new IllegalArgumentException("자동차 이름의 길이가 5를 넘어갔습니다.");
+    }
+
+    private void validateCarsNameNotNull(List<String> carsName) {
+        if(carsName.stream().anyMatch(carName -> carName == null))
+            throw new IllegalArgumentException("자동차의 이름이 null 입니다.");
     }
 }
