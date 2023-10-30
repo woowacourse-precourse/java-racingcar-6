@@ -2,6 +2,7 @@ package racingcar.v2;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Collections;
 import java.util.Map;
 
 public class Racing {
@@ -12,7 +13,17 @@ public class Racing {
         return Integer.parseInt(input);
     }
 
-
-
+    // TODO: Racing#findWinner()
+    public void findWinner(Map<String, Integer> stateMap) {
+        int farthestDistance = Collections.max(stateMap.values());
+        String winner = "";
+        for (Map.Entry<String, Integer> entry : stateMap.entrySet()) {
+            if (entry.getValue() == farthestDistance) {
+                winner = entry.getKey();
+                break;
+            }
+        }
+        System.out.println("최종 우승자: " + winner);
+    }
 
 }

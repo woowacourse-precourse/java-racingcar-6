@@ -32,7 +32,4 @@ public class CreateCarV2 {
         return carCount;
     }
 
-
-
-
 }
