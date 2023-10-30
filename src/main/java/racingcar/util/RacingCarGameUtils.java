@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.exception.RacingCarGameException;
 
-public class ConvertUtils {
+public class RacingCarGameUtils {
 
   public static List<String> convertStringToList(String inputCarName) {
     return new ArrayList<>(Arrays.asList(inputCarName.split(",")));
@@ -21,5 +21,8 @@ public class ConvertUtils {
       throw new RacingCarGameException("라운드 횟수는 0보다 작거나 같을 수 없습니다.");
     }
     return input;
+  }
+
+  public static void generateRandomValuesForCarGame(int size) {
   }
 }

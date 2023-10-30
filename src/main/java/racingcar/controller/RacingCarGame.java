@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import static racingcar.util.ConvertUtils.convertStringToInt;
-import static racingcar.util.ConvertUtils.convertStringToList;
+import static racingcar.util.RacingCarGameUtils.convertStringToInt;
+import static racingcar.util.RacingCarGameUtils.convertStringToList;
 import static racingcar.view.InputView.getCarNamesFromPlayer;
 import static racingcar.view.InputView.getNumberOfRoundsFromPlayer;
 
