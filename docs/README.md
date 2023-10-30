@@ -22,5 +22,5 @@
 [x] n개의 무작위 수(0-9)>4 인 수를 생성한다. -- NumberGenerator#createRandomNumbers()
     - [] n개의 숫자를 비교해 가장 큰 값을 return한다 --CompareNumber #compare()
         - [] 큰값이 2개 이상일 경우 ,로 구분해 return 한다
-[] 이름과 무작위 생성 수를 매칭한다. -- NumberGenerator#getNamemap()
+[x] 이름과 무작위 생성 수를 매칭한다. -- NumberGenerator#getNamemap()
 [] 무작위로 생성된 값을 -로 표시하고 replay만큼 반복한다 -- Replaygame#replay()

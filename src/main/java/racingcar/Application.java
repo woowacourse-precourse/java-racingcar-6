@@ -6,6 +6,7 @@ import java.util.HashMap;
 import javax.naming.directory.SchemaViolationException;
 import racingcar.NumberGenerator;
 import racingcar.NameMap;
+import racingcar.CompareNumber;
 class Car {
     private String name;
 
@@ -38,17 +39,36 @@ public class Application {
         for (String name : carNames) {
             carNamesList.add(name);
         }
-        //System.out.println(carName);
+      //시도횟수 받기
 		System.out.println("시도할 횟수는 몇회인가요?");
 		replay = sc.nextInt();
-		//System.out.println(replay);
+	
+        for(int i=0; i<replay; i++){
+            // n개의 숫자 생성    
+            NumberGenerator numberGenerator = new NumberGenerator(carNames.length);
+            ArrayList<Integer> numbers = numberGenerator.getNumbers();
+		    
+            // NameMap을 이용해 차 이름과 숫자 매핑
+            NameMap nameMap = new NameMap(carNamesList, numbers);
+            HashMap<Integer, String> getNamMap = nameMap.getNameMap();
+            
 
-        NumberGenerator numberGenerator = new NumberGenerator(carNames.length);
-        ArrayList<Integer> numbers = numberGenerator.getNumbers();
-		System.out.println(carNamesList);
-        
-        NameMap nameMap = new NameMap(carNamesList, numbers);
-        HashMap<Integer, String> getNamMap = nameMap.getNameMap();
-        System.out.println(getNamMap);
+            // CompareNumber를 사용하여 가장 큰 이름 찾기
+            CompareNumber compareNumber = new CompareNumber(getNamMap);
+            compareNumber.compare();
+            ArrayList<String> maxNames = compareNumber.getMaxNames();
+            //결과 출력하기
+            for (int j = 0; j < carNamesList.size(); j++) {
+                String car = carNamesList.get(j);
+                int score = numbers.get(j);
+
+                System.out.print(car + ": ");
+                for (int k = 0; k < score; k++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+            System.out.println("최종 우승자 :"+maxNames);
+        }
     }
 }
