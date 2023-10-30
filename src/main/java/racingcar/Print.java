@@ -17,7 +17,6 @@ public class Print {
         System.out.println("실행 결과");
     }
 
-    // todo tdd
     public void executeProgress(Map<String, Integer> carsData) {
         carsData.forEach((key, value) -> System.out.println(key + " : " + "-".repeat(Math.max(0, value))));
         System.out.println();
