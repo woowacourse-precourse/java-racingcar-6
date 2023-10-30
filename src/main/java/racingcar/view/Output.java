@@ -18,4 +18,9 @@ public class Output {
 		}
 		System.out.println();
 	}
+	
+	public void winner(String winners) {
+		System.out.print(WINNER_MESSAGE + " : ");
+		System.out.print(winners);
+	}
 }
