@@ -16,8 +16,9 @@ public class Validation {
     }
 
     public static int validateMoveNumber (String input){
-        return 0;
+        return validateInteger(input);
     }
+
     private static List<String> validateDivision(String cars){
         List<String> carsStingList = new ArrayList<>();
         String[] carInputList = cars.split(",");
@@ -27,7 +28,11 @@ public class Validation {
 
     private static void validateLength(String carName){
         if (carName.length() > CAR_NAME_MAX_SIZE || carName.isEmpty()){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INPUT_LENGTH_EXCEPTION_MSG);
         }
+    }
+
+    private static int validateInteger(String input){
+        return 0;
     }
 }
