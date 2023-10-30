@@ -1,6 +1,14 @@
 package racingcar.utils.validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.utils.validator.GetNameValidator.BLANK_ERROR_MESSAGE;
+import static racingcar.utils.validator.GetNameValidator.CARS_NUMBER_ERROR_MESSAGE;
+import static racingcar.utils.validator.GetNameValidator.COMMA_POSITION_ERROR_MESSAGE;
+import static racingcar.utils.validator.GetNameValidator.DUPLICATE_ERROR_MESSAGE;
+import static racingcar.utils.validator.GetNameValidator.NOT_FORMAT_ERROR_MESSAGE;
+import static racingcar.utils.validator.GetNameValidator.OVER_DIGIT_ERROR_MESSAGE;
+import static racingcar.utils.validator.GetNameValidator.validateArrayListNames;
+import static racingcar.utils.validator.GetNameValidator.validateStringNames;
 
 import java.util.ArrayList;
 import org.assertj.core.util.Lists;
@@ -8,14 +16,13 @@ import org.junit.jupiter.api.Test;
 
 class GetNameValidatorTest {
 
-
     @Test
     void 이름_공백_예외처리() {
         String input = "abc,asd fas,df df";
 
-        assertThatThrownBy(() -> GetNameValidator.validateStringNames(input))
+        assertThatThrownBy(() -> validateStringNames(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("공백");
+                .hasMessageContaining(BLANK_ERROR_MESSAGE);
     }
 
     @Test
@@ -23,52 +30,50 @@ class GetNameValidatorTest {
         String input1 = "abc,";
         String input2 = ",abc";
 
-        assertThatThrownBy(() -> GetNameValidator.validateStringNames(input1))
+        assertThatThrownBy(() -> validateStringNames(input1))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("위치");
+                .hasMessageContaining(COMMA_POSITION_ERROR_MESSAGE);
 
-        assertThatThrownBy(() -> GetNameValidator.validateStringNames(input2))
+        assertThatThrownBy(() -> validateStringNames(input2))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("위치");
-
-
+                .hasMessageContaining(COMMA_POSITION_ERROR_MESSAGE);
     }
 
     @Test
     void 이름_지정되지_않은문자_예외처리() {
         String input = "@#ab,2322,!@312";
 
-        assertThatThrownBy(() -> GetNameValidator.validateStringNames(input))
+        assertThatThrownBy(() -> validateStringNames(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("문자, 숫자");
+                .hasMessageContaining(NOT_FORMAT_ERROR_MESSAGE);
     }
 
     @Test
     void 이름_5글자_이상_예외처리() {
-        String[] stringArray = {"abc","asdfas","dfdf"};
+        String[] stringArray = {"abc", "asdfas", "dfdf"};
         ArrayList<String> stringArrayList = Lists.newArrayList(stringArray);
 
-        assertThatThrownBy(() -> GetNameValidator.validateArrayListNames(stringArrayList))
+        assertThatThrownBy(() -> validateArrayListNames(stringArrayList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("5");
+                .hasMessageContaining(OVER_DIGIT_ERROR_MESSAGE);
     }
 
     @Test
     void 이름_중복_예외처리() {
-        String[] stringArray = {"abc","abc","dfdf"};
+        String[] stringArray = {"abc", "abc", "dfdf"};
         ArrayList<String> stringArrayList = Lists.newArrayList(stringArray);
-        assertThatThrownBy(() -> GetNameValidator.validateArrayListNames(stringArrayList))
+        assertThatThrownBy(() -> validateArrayListNames(stringArrayList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("중복");
+                .hasMessageContaining(DUPLICATE_ERROR_MESSAGE);
     }
 
     @Test
     void 이름_2개이하_예외처리() {
         String[] stringArray = {"abc"};
         ArrayList<String> stringArrayList = Lists.newArrayList(stringArray);
-        assertThatThrownBy(() -> GetNameValidator.validateArrayListNames(stringArrayList))
+        assertThatThrownBy(() -> validateArrayListNames(stringArrayList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("2개");
+                .hasMessageContaining(CARS_NUMBER_ERROR_MESSAGE);
     }
 
     @Test
@@ -76,10 +81,9 @@ class GetNameValidatorTest {
         String[] stringArray = {""};
         ArrayList<String> stringArrayList = Lists.newArrayList(stringArray);
 
-        assertThatThrownBy(() -> GetNameValidator.validateArrayListNames(stringArrayList))
+        assertThatThrownBy(() -> validateArrayListNames(stringArrayList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("2개");
+                .hasMessageContaining(CARS_NUMBER_ERROR_MESSAGE);
     }
-
 
 }

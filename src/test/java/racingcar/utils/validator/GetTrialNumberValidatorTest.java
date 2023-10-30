@@ -1,6 +1,8 @@
 package racingcar.utils.validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.utils.Converter.NUMBER_FORMAT_ERROR_MESSAGE;
+import static racingcar.utils.validator.GetTrialNumberValidator.*;
 
 import org.junit.jupiter.api.Test;
 import racingcar.utils.Converter;
@@ -9,7 +11,7 @@ class GetTrialNumberValidatorTest {
 
     public int trialNumberTestMethod(String input){
         int i = Converter.convertStringToInt(input);
-        GetTrialNumberValidator.validateNumberRange(i);
+        validateNumberRange(i);
         return 1;
     }
     @Test
@@ -18,7 +20,7 @@ class GetTrialNumberValidatorTest {
 
         assertThatThrownBy(() -> trialNumberTestMethod(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1부터 100");
+                .hasMessageContaining(NUMBER_RANGE_ERROR_MESSAGE);
     }
 
     @Test
@@ -27,7 +29,7 @@ class GetTrialNumberValidatorTest {
 
         assertThatThrownBy(() -> trialNumberTestMethod(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1부터 100");
+                .hasMessageContaining(NUMBER_RANGE_ERROR_MESSAGE);
     }
 
     @Test
@@ -36,7 +38,7 @@ class GetTrialNumberValidatorTest {
 
         assertThatThrownBy(() -> trialNumberTestMethod(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자");
+                .hasMessageContaining(NUMBER_FORMAT_ERROR_MESSAGE);
     }
 
     @Test
@@ -45,7 +47,7 @@ class GetTrialNumberValidatorTest {
 
         assertThatThrownBy(() -> trialNumberTestMethod(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("숫자");
+                .hasMessageContaining(NUMBER_RANGE_ERROR_MESSAGE);
     }
 
 }
