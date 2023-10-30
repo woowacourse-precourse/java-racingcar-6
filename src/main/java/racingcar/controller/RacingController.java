@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.controller.dto.RacingResultResponse;
 import racingcar.model.Cars;
+import racingcar.model.TryCount;
 import racingcar.util.Converter;
 import racingcar.util.NumberGenerator;
 import racingcar.util.RandomNumberGenerator;
@@ -9,8 +10,6 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
-
-    private static final int ZERO = 0;
 
     private final InputView inputView;
     private final OutputView outputView;
@@ -22,10 +21,10 @@ public class RacingController {
 
     public void start() {
         Cars cars = getCars();
-        int tryCount = getTryCount();
+        TryCount tryCount = getTryCount();
         NumberGenerator numberGenerator = new RandomNumberGenerator();
         outputView.printResultMessage();
-        raceCarsMultipleTimes(cars, tryCount, numberGenerator);
+        runMultipleRaces(cars, tryCount, numberGenerator);
         outputView.printWinners(cars.getWinnerNames());
     }
 
@@ -35,15 +34,16 @@ public class RacingController {
         return Cars.from(Converter.convertCommaSeparatedStringToList(carNames));
     }
 
-    private int getTryCount() {
+    private TryCount getTryCount() {
         outputView.printTryCountInputMessage();
         String count = inputView.readInput();
-        return Converter.convertStringToPositiveInt(count);
+        return TryCount.from(count);
     }
 
-    private void raceCarsMultipleTimes(final Cars cars, int tryCount, final NumberGenerator numberGenerator) {
-        while (tryCount-- > ZERO) {
+    private void runMultipleRaces(final Cars cars, final TryCount tryCount, final NumberGenerator numberGenerator) {
+        while (!tryCount.isEnd()) {
             race(cars, numberGenerator);
+            tryCount.decreaseCount();
         }
     }
 
