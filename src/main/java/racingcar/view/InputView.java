@@ -22,6 +22,6 @@ public class InputView {
         String input = readLine();
         System.out.println(input + "\n");
         Validator.validateNumber(input);
-        return Integer.parseInt(input);
+        return StringUtil.convertStringToInt(input);
     }
 }
