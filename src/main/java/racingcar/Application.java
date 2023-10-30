@@ -12,5 +12,8 @@ public class Application {
 
         List<String> formattedCarNames = formatCarNames(carWithComma);
         int round = formatRound(roundStr);
+
+        RacingCarGameManager racingCarGameManager = new RacingCarGameManager(round, formattedCarNames);
+        racingCarGameManager.start();
     }
 }
