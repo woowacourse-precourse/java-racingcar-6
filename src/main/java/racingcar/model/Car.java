@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.InputValidator;
 
 public class Car {
     private final static int moveCondition = 4;
@@ -8,6 +8,7 @@ public class Car {
     private int moveDistance;
 
     public Car(String name) {
+        InputValidator.validateCarName(name);
         this.name = name;
         moveDistance = 0;
     }
@@ -20,20 +21,9 @@ public class Car {
         return moveDistance;
     }
 
-    public void move() {
-        if (canMove()) {
+    public void move(int randomNum) {
+        if(randomNum>=moveCondition){
             moveDistance += 1;
         }
-    }
-
-    private boolean canMove() {
-        if (getMoveValue() >= moveCondition) {
-            return true;
-        }
-        return false;
-    }
-
-    private int getMoveValue() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 }
