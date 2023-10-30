@@ -1,26 +1,18 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.GameResult;
 
-public class View {
+public class OuputView {
     private static final String DISTANCE_FORMATTER = "-";
-
-    public static void inputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    }
-
-    public static void inputGameTime() {
-        System.out.println("시도할 회수는 몇회인가요?");
-    }
 
     public static void outputEmptyLine() {
         System.out.println();
     }
 
     public static void ouputBeforeGameResult() {
-        System.out.println("실행결과");
+        System.out.println("\n실행결과");
     }
 
     public static void ouputGameResult(GameResult gameResult) {

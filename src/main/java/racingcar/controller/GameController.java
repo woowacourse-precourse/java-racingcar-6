@@ -1,12 +1,12 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.View;
 import racingcar.model.GameResult;
 import racingcar.service.GameService;
 import racingcar.util.CarNamesSeperator;
 import racingcar.util.GameTimeParser;
+import racingcar.view.InputView;
+import racingcar.view.OuputView;
 
 public class GameController {
     private final GameService gameService;
@@ -17,44 +17,33 @@ public class GameController {
 
     public void run() {
         gameService.enrollCars(getCarNames());
-        int gameTime = getGameTime();
+        final int gameTime = getGameTime();
 
-        View.outputEmptyLine();
-        View.ouputBeforeGameResult();
+        OuputView.ouputBeforeGameResult();
 
         for (int i = 0; i < gameTime; i++) {
             runRound();
-            View.outputEmptyLine();
+            OuputView.outputEmptyLine();
         }
         List<String> winners = gameService.getWinners();
-        View.ouputGameWinner(winners);
+        OuputView.ouputGameWinner(winners);
     }
 
     private void runRound() {
         List<GameResult> gameResultList = gameService.runGame();
         for (GameResult gameResult : gameResultList) {
-            View.ouputGameResult(gameResult);
+            OuputView.ouputGameResult(gameResult);
         }
     }
 
-    private List<String> getCarNames() {
-        String userInputCarNames = inputNames();
-        return CarNamesSeperator.separate(userInputCarNames);
-    }
-
     private int getGameTime() {
-        String gameTimeInput = inputGameTime();
-        return GameTimeParser.parse(gameTimeInput);
+        String inputGameTime = InputView.inputGameTime();
+        return GameTimeParser.parse(inputGameTime);
     }
 
-    private String inputGameTime() {
-        View.inputGameTime();
-        return Console.readLine();
-    }
-
-    private String inputNames() {
-        View.inputCarName();
-        return Console.readLine();
+    private List<String> getCarNames() {
+        String carNames = InputView.inputCarName();
+        return CarNamesSeperator.separate(carNames);
     }
 
 }
