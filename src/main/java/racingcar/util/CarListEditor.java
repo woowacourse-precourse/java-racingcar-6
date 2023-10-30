@@ -10,5 +10,15 @@ public class CarListEditor {
                 .collect(Collectors.toList());
     }
 
+    public static String removeSpace(String input) {
+        return input.replaceAll(Regex.SPACE.regex, Regex.NO_SPACE.regex);
+    }
 
+    private enum Regex {
+        SPACE(" "), NO_SPACE("");
+        private final String regex;
+        Regex(String regex) {
+            this.regex = regex;
+        }
+    }
 }
