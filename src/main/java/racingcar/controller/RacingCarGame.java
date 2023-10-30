@@ -13,11 +13,18 @@ import racingcar.view.OutputView;
 
 public class RacingCarGame {
 
+    private static final String CAR_NAME_SPLIT_REGEX = ",";
+    private static final int ZERO_VALUE = 0;
+    private static final int MIN_ADVANCE_COUNT = 4;
+    private static final int ADVANCE_COUNT = 1;
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
+
     private OutputView outputView = OutputView.getInstance();
     private InputView inputView = InputView.getInstance();
     private Cars cars = new Cars();
 
-    public void run(){
+    public void run() {
         carInitialize();
         playRacingGame(inputView.InputTryNumber());
         chooseWinner(cars.getCars());
@@ -30,7 +37,7 @@ public class RacingCarGame {
     }
 
     public List<String> getWinnerList(Map<String, Car> carsMap, int maxAdvanceCount) {
-        return  carsMap.values()
+        return carsMap.values()
                 .stream()
                 .filter(car -> car.getAdvanceCount() == maxAdvanceCount)
                 .map(Car::getCarName)
@@ -38,7 +45,7 @@ public class RacingCarGame {
     }
 
     public int getMaxAdvanceCount(Map<String, Car> carsMap) {
-        int maxAdvanceCount = 0;
+        int maxAdvanceCount = ZERO_VALUE;
         for (Car car : carsMap.values()) {
             maxAdvanceCount = max(maxAdvanceCount, car.getAdvanceCount());
         }
@@ -47,7 +54,7 @@ public class RacingCarGame {
 
     public void playRacingGame(int tryNumber) {
         outputView.printPlayResultMessage();
-        for(int tryCount = 0; tryCount < tryNumber;tryCount++){
+        for (int tryCount = 0; tryCount < tryNumber; tryCount++) {
             pickEachCarRandomNumber(cars.getCars());
             printEachRoundResult(cars.getCars());
         }
@@ -70,14 +77,14 @@ public class RacingCarGame {
     }
 
     public void judgeAdvanceOrLeft(Car car, int randomNumber) {
-        if(randomNumber >= 4){
+        if (randomNumber >= MIN_ADVANCE_COUNT) {
             int currentAdvanceCount = car.getAdvanceCount();
-            car.setAdvanceCount(currentAdvanceCount + 1);
+            car.setAdvanceCount(currentAdvanceCount + ADVANCE_COUNT);
         }
     }
 
-    public int pickRandomNumber(){
-        return Randoms.pickNumberInRange(0, 9);
+    public int pickRandomNumber() {
+        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
     public void carInitialize() {
@@ -86,8 +93,8 @@ public class RacingCarGame {
         cars.makeCarsFromCarList(carNameList);
     }
 
-    public List<String> carList(String carNames){
-        String[] carNameList = carNames.split(",");
+    public List<String> carList(String carNames) {
+        String[] carNameList = carNames.split(CAR_NAME_SPLIT_REGEX);
         return List.of(carNameList);
     }
 }
