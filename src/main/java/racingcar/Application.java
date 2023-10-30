@@ -16,5 +16,6 @@ public class Application {
         racingcarException.exception_not_int(move_num);
 
         Games game = new Games(names_list, Integer.parseInt(move_num));
+        game.racingcar_game();
     }
 }
