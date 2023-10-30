@@ -40,7 +40,7 @@ public class Car {
     public void moveForwardOrStop() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (isOkayToMove(randomNumber)) {
-            mileage.append(INDICATOR_PER_MOVE);
+            moveForward();
         }
     }
 
@@ -48,6 +48,9 @@ public class Car {
         return randomNumber >= MOVABLE_LOWER_BOUND;
     }
 
+    private void moveForward() {
+        mileage.append(INDICATOR_PER_MOVE);
+    }
 
     public int getMileageAsInt() {
         return mileage.toString().length();
