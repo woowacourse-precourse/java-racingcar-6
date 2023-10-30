@@ -1,16 +1,15 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.view.InputView;
 
 public class Controller {
     private final InputView inputView = new InputView();
-    //    private final OutputView outputView = new OutputView();
-    private final List<Object> carsList = new ArrayList<>();
-    private String trial;
+    private final OutputView outputView = new OutputView();
+    private final List<Car> carsList = new ArrayList<>(10);
+    private int trial;
 
     public void run() {
         startGame();
@@ -20,13 +19,17 @@ public class Controller {
 
     public void startGame() {
         String[] carsList = inputView.inputCarsName();
-        trial = inputView.inputTrial();
+        trial = Integer.parseInt(inputView.inputTrial());
         carGenerator(carsList);
     }
 
     public void playGame() {
-        moveCar();
-        showRoundResult();
+        outputView.showResult();
+        while (trial > 0) {
+            moveCar();
+            outputView.showRoundResult(carsList);
+            trial--;
+        }
     }
 
     public void endGame() {
@@ -39,6 +42,14 @@ public class Controller {
             Car car = new Car();
             car.putName(cars[i]);
             carsList.add(car);
+        }
+    }
+
+    public void moveCar() {
+        for (int i = 0; i < carsList.size(); i++) {
+            Car car = carsList.get(i);
+            int randNum = car.randomNumber();
+            car.moveForward(randNum);
         }
     }
 
