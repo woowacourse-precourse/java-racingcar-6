@@ -27,7 +27,7 @@ public class RacingGameController {
         System.out.println("실행 결과");
         for (int i = 0; i < attempts; i++) {
             model.moveCars();
-            view.printCars(model.getCars());
+            view.printRoundResults(model.getCars());
         }
 
         view.printWinners(model.getWinners());
