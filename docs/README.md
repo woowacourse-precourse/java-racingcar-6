@@ -41,7 +41,7 @@
 
 ### OutputView
 
-- [ ]  경주 진행 상황 출력 함수 (**`outputRaceProgress`**)
+- [x]  경주 진행 상황 출력 함수 (**`outputRaceProgress`**)
 - [ ]  우승자 결정 및 출력 함수 (**`outputWinners`**)
 
 ## **컨트롤러 (Controller)**
