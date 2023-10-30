@@ -32,8 +32,8 @@ public class CarRacingGame {
         private GameChanger() {
         }
 
-        public static void changeGame(LinkedHashMap<String, StringBuilder> car,
-                                      List<Integer> generatedNumbers) {
+        static void changeGame(LinkedHashMap<String, StringBuilder> car,
+                               List<Integer> generatedNumbers) {
             Iterator temp = generatedNumbers.iterator();
 
             for (Map.Entry<String, StringBuilder> entry : car.entrySet()) {
@@ -59,12 +59,12 @@ public class CarRacingGame {
         }
     }
 
-    public class Winners {
+    class Winners {
 
         private Winners() {
         }
 
-        public static List<String> judgeWinner(LinkedHashMap<String, StringBuilder> carName) {
+        static List<String> judgeWinner(LinkedHashMap<String, StringBuilder> carName) {
             List<String> winners = new ArrayList<>();
             int maxScore = 0;
             for (Map.Entry<String, StringBuilder> entry : carName.entrySet()) {
@@ -93,5 +93,4 @@ public class CarRacingGame {
             return SaveWinner.NOT;
         }
     }
-
 }

@@ -19,31 +19,37 @@ public class MainController {
         leadGame();
     }
 
-    private void leadGame() throws IllegalArgumentException {
-        initializeCarRacingGame();
+    private void leadGame() {
+        initializeCarRacingGame(CarMapGenerator.cutName(InputReader.inputCarName()));
         view.askForTimes();
-
-        String times = InputReader.inputTimes();
-        if(!ValidationMan.checkException(times))
-        {
-            throw new IllegalArgumentException();
-        }
+        String times = getUserInput();
 
         view.speakResultStart();
-        for (int i = 0; i < Integer.parseInt(times); i++) {
-            model.changeStatus();
-            view.speakResult(model.getCarName());
-        }
+        processWithResults(times);
         view.speakWinner(model.getWinner());
     }
 
-    private void initializeCarRacingGame()
-    {
-        String[] userInput = CarMapGenerator.cutName(InputReader.inputCarName());
+    private void initializeCarRacingGame(String[] userInput) throws IllegalArgumentException {
         LinkedHashMap<String, StringBuilder> carName = CarMapGenerator.makeLinkedHashMap(userInput);
         if (!ValidationMan.checkException(carName, userInput.length)) {
             throw new IllegalArgumentException();
         }
         model = new CarRacingGame(carName);
+    }
+
+    private String getUserInput() {
+        view.askForTimes();
+        String times = InputReader.inputTimes();
+        if (!ValidationMan.checkException(times)) {
+            throw new IllegalArgumentException();
+        }
+        return times;
+    }
+
+    private void processWithResults(String times) {
+        for (int i = 0; i < Integer.parseInt(times); i++) {
+            model.changeStatus();
+            view.speakResult(model.getCarName());
+        }
     }
 }
