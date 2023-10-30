@@ -1,8 +1,10 @@
 package racingcar.controller;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.FinalResult;
 import racingcar.domain.ProgressState;
 import racingcar.view.ConsoleInput;
 
@@ -26,6 +28,19 @@ public class CarManager {
     private static void proceedEachCar(Car car) {
         int progress = ConsoleInput.inputProgress();
         car.go(progress);
+    }
+
+    public static FinalResult getFinalWinner() {
+        int maxProgress = Collections.max(
+                carList.stream()
+                        .map(Car::getProgress)
+                        .toList());
+
+        List<Car> maxCarList = carList.stream()
+                .filter(car -> car.getProgress() == maxProgress)
+                .toList();
+
+        return FinalResult.create(maxCarList);
     }
 
 }

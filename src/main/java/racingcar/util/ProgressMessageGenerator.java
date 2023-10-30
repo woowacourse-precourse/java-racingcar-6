@@ -1,6 +1,9 @@
 package racingcar.util;
 
+import static racingcar.constant.ConsoleOutputConstants.FINAL_WINNER;
+
 import racingcar.domain.Car;
+import racingcar.domain.FinalResult;
 
 public class ProgressMessageGenerator {
 
@@ -8,4 +11,9 @@ public class ProgressMessageGenerator {
         String messageFormat = "%s : %s";
         return messageFormat.formatted(car.getName(), car.getDash());
     }
+
+    public static String generateFinalResultMessage(FinalResult finalResult) {
+        return FINAL_WINNER + finalResult.getNameString();
+    }
+
 }

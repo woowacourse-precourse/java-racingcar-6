@@ -3,6 +3,11 @@ package racingcar.view;
 import static racingcar.constant.ConsoleOutputConstants.EXECUTION_RESULT;
 import static racingcar.constant.ConsoleOutputConstants.INPUT_CAR_NAMES_MESSAGE;
 import static racingcar.constant.ConsoleOutputConstants.INPUT_PLAY_NUMBER_MESSAGE;
+import static racingcar.util.ProgressMessageGenerator.generateFinalResultMessage;
+import static racingcar.util.ProgressMessageGenerator.generateProgressStateMessage;
+
+import racingcar.domain.FinalResult;
+import racingcar.domain.ProgressState;
 
 
 public class ConsoleOutput {
@@ -29,6 +34,11 @@ public class ConsoleOutput {
                     String progressMessage = generateProgressStateMessage(car);
                     System.out.println(progressMessage);
                 });
+    }
+
+    public static void printFinalWinner(FinalResult finalResult) {
+        String finalWinnerMessage = generateFinalResultMessage(finalResult);
+        System.out.println(finalWinnerMessage);
     }
 
 }
