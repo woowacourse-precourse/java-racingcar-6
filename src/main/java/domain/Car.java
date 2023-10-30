@@ -19,6 +19,21 @@ public class Car {
         return new Car(this.name, this.progress+1);
     }
 
+    public RaceResult generateResult(Car car) {
+        int currentProgress = car.getProgress();
+        String currentName = car.getName();
+
+        return new RaceResult(currentProgress, currentName);
+    }
+
+    private String getName() {
+        return this.name;
+    }
+
+    private int getProgress() {
+        return this.progress;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
