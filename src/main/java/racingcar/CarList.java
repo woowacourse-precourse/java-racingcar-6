@@ -34,10 +34,10 @@ public class CarList {
     }
 
     private boolean isShortEnglishName(){
-        Pattern pattern = Pattern.compile("^[a-zA-Z]");
+        Pattern pattern = Pattern.compile("^[a-zA-Z]+$");
 
         for(String car: this.carList){
-            if(!(car.length() < 6) && !pattern.matcher(car).matches()) return false;
+            if(!((car.length() < 6) && pattern.matcher(car).matches())) return false;
         }
         return true;
     }
