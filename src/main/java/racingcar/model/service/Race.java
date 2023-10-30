@@ -13,7 +13,7 @@ public class Race {
         this.numberGenerator = numberGenerator;
     }
 
-    public List<Car> start(List<Car> cars) {
+    public List<Car> start(final List<Car> cars) {
         for (Car car : cars) {
             tryMove(car);
         }
@@ -21,10 +21,21 @@ public class Race {
         return cars;
     }
 
-    private void tryMove(Car car) {
+    private void tryMove(final Car car) {
         int randomValue = numberGenerator.generate();
         if (RandomConstants.MINIMUM_MOVE_THRESHOLD <= randomValue && randomValue <= RandomConstants.END_NUMBER) {
             car.addPosition();
         }
+    }
+
+    public static WinnerResponse getWinner(final List<Car> cars) {
+        int maxDistance = cars.get(0).getDistance();
+        for (Car car : cars) {
+            if (car.getDistance() > maxDistance) {
+                maxDistance = car.getDistance();
+            }
+        }
+
+        return WinnerResponse.from(cars, maxDistance);
     }
 }

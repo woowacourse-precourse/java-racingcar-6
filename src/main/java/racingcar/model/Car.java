@@ -1,23 +1,32 @@
 package racingcar.model;
 
+import racingcar.util.constants.ValidationConstants;
+
 public class Car {
     private String name;
-    private int position;
+    private int distance;
 
     public Car(final String name) {
+        validateName(name);
         this.name = name;
-        this.position = 0;
+        this.distance = 0;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPosition() {
-        return position;
+    public int getDistance() {
+        return distance;
     }
 
     public void addPosition() {
-        this.position += 1;
+        this.distance += 1;
+    }
+
+    private void validateName(final String name) {
+        if (name.length() > ValidationConstants.CAR_NAME_LIMIT) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능하다.");
+        }
     }
 }
