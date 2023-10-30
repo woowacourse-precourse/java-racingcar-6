@@ -3,14 +3,11 @@ package racingcar.domain;
 import java.util.List;
 
 public class Announcer {
-    private String symbol;
+    private final static String JOIN_SYMBOL = ", ";
+    private final static String LOCATION_SYMBOL = "-";
 
-    public String announceWinner() {
-        return null;
-    }
-
-    public String createAnnouncement() {
-        return null;
+    public String generateWinnerAnnouncement(List<String> winners) {
+        return String.join(JOIN_SYMBOL, winners);
     }
 
     public String generateLocationAnnouncement(List<Car> carList) {
