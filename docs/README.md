@@ -19,7 +19,7 @@
 ### Player
 - [ ] 이름으로 플레이어를 생성한다.
 
-### PlayerList
+### Players
 - [ ] 플레이어 리스트로 가진 일급 컬렉션
 
 ### IOManager
