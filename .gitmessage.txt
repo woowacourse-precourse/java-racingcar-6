@@ -1,12 +1,13 @@
+# Leave a blank line for each block
 # title - type(scope): <subject>
 
-################
+
 # body
 
-################
+
 # footer
 
-################
+#####<Refs>#####
 # Allowed <type>:
 # feat (feature)
 # fix (bug fix)
