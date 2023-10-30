@@ -64,7 +64,6 @@ class CarTest {
         // when
         car.move();
 
-
         // then
         assertThat(car).extracting("moveDistance").isEqualTo(1);
     }
