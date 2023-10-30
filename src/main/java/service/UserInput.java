@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
-import vo.Car;
 import vo.Cars;
 
 public class UserInput {
@@ -21,7 +20,7 @@ public class UserInput {
 
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
-            cars.add(new Car(carName, 0));
+            cars.add(new Car(carName));
         }
 
         return new Cars(cars);
