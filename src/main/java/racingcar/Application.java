@@ -21,9 +21,8 @@ public class Application {
 
     private static String[] inputNames() {
         String input = Console.readLine();
-        String[] result = input.split(",");
 
-        return result;
+        return input.split(",");
     }
 
     private static void addCars(List<Car> carList, String[] carNames) {
