@@ -33,7 +33,6 @@ public class GameController {
     }
 
     private void createCarsFromCarNamesUserInput() {
-        outputView.askCarNames();
         List<String> carNames = getCarNames();
         List<Car> carList = new ArrayList<>();
         for (String name : carNames) {
@@ -43,12 +42,13 @@ public class GameController {
     }
 
     private List<String> getCarNames() {
-        return Validator.validateCarNames(inputView.readFromUser());
+        String input = inputView.readCarNames();
+        return Validator.validateCarNames(input);
     }
 
     private void setTotalRoundFromUserInput() {
-        outputView.askTotalRound();
-        totalRound = Validator.validateTotalRound(inputView.readFromUser());
+        String input = inputView.readTotalRound();
+        totalRound = Validator.validateTotalRound(input);
     }
 
     private void play(Cars cars, int totalRound) {

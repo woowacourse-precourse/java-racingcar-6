@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OutputView {
-    private static final String ASK_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String ASK_TOTAL_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String WINNER_MESSAGE_FORMAT = "최종 우승자 : %s";
 
@@ -16,14 +14,6 @@ public class OutputView {
     }
 
     private OutputView() {
-    }
-
-    public void askCarNames() {
-        System.out.println(ASK_NAME_MESSAGE);
-    }
-
-    public void askTotalRound() {
-        System.out.println(ASK_TOTAL_ROUND_MESSAGE);
     }
 
     public void printResult(int totalRound, List<String> carNames, List<List<Integer>> roundScores, List<String> winnerNames) {
