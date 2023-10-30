@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 import racingcar.model.Game;
 import racingcar.service.GameService;
+import racingcar.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class GameController {
 
         while (!finishedGame(trialNum, game.getTriedNum())) {
             gameService.play(game);
-            printScore(game.getCars());
+            View.printScore(game.getCars());
         }
 
         // 확인절차(추후 삭제 예정)
@@ -62,24 +63,5 @@ public class GameController {
             return true;
         }
         return false;
-    }
-
-    private void printScore(List<Car> cars) {
-        for (Car car : cars) {
-            printScoreOfCars(car);
-        }
-        System.out.println();
-    }
-
-    private void printScoreOfCars(Car car) {
-        System.out.print(car.getName() + " : ");
-        printPosition(car);
-        System.out.println();
-    }
-
-    private void printPosition(Car car) {
-        for (int i = 0; i < car.getPosition(); i++) {
-            System.out.print("-");
-        }
     }
 }
