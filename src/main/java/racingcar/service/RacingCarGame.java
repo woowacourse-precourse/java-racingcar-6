@@ -10,6 +10,7 @@ import racingcar.domain.Car;
 
 
 public class RacingCarGame {
+    CarService carService = new CarService();
     String carName = "";
     String inputStr = "";
 
@@ -22,7 +23,6 @@ public class RacingCarGame {
             throw new IllegalArgumentException("각 자동차 이름의 길이가 5글자 미만으로 ,로 구분해 작성해주세요.");
         }
         carName = inputStr;
-        CarService carService = new CarService();
         List<Car> carList = carService.createCar(carName);
 
         System.out.println("시도할 회수는 몇회인가요?");
@@ -34,12 +34,17 @@ public class RacingCarGame {
 
         System.out.println("실행 결과");
         int attemptNum = Integer.parseInt(inputStr);
+
+        displayGameProgress(attemptNum, carList);
+        displayWinnerCar(carList);
+    }
+
+    public void displayGameProgress(int attemptNum, List<Car> carList) {
         for(int i = 0; i < attemptNum; i++) {
             carService.moveForwards(carList);
             carService.displayPositions(carList);
             System.out.println();
         }
-        displayWinnerCar(carList);
     }
 
     public List<String> findWinnerCar(List<Car> carList) {
@@ -70,8 +75,8 @@ public class RacingCarGame {
     }
 
     private boolean isInvalidValue (String inputStr) {
-        return inputStr != null ||
-                inputStr != "" ||
+        return inputStr == null ||
+                inputStr == "" ||
                 isTooLongString(inputStr) ||
                 hasSameName(inputStr) ||
                 hasSpace(inputStr);
@@ -83,7 +88,6 @@ public class RacingCarGame {
         }
         return false;
     }
-
     private boolean hasSameName (String inputStr) {
         String[] inputStringArray = inputStr.split(",");
         Set<String> nameSet = new HashSet<>(Arrays.asList(inputStringArray));
