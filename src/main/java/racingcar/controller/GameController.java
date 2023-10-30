@@ -51,6 +51,10 @@ public class GameController {
 
     private void playOneRound(final Cars cars) {
         gameService.moveCars(cars);
+        printRoundResult(cars);
+    }
+
+    private void printRoundResult(final Cars cars) {
         CarsDto roundResult = gameService.getRoundResult(cars);
         outputView.printRoundResult(roundResult);
     }
