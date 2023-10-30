@@ -22,7 +22,7 @@ public class RacingController {
         List<String> names = input.readCarNames();
         int tryCount = input.readTryCount();
 
-        game = new RacingGame(new Cars(names), new JudgeWinnerImpl());
+        game = new RacingGame(names, new JudgeWinnerImpl());
 
         output.printResultTitle();
 

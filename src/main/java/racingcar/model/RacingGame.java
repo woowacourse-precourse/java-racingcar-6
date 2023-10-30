@@ -8,8 +8,8 @@ public class RacingGame {
     private final Cars cars;
     private final JudgeWinner judgeWinner;
 
-    public RacingGame(Cars cars, JudgeWinner judgeWinner){
-        this.cars = cars;
+    public RacingGame(List<String> names, JudgeWinner judgeWinner){
+        this.cars = new Cars(names);
         this.judgeWinner = judgeWinner;
     }
 
