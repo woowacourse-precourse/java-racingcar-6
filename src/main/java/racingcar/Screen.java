@@ -37,4 +37,22 @@ public class Screen {
         }
         System.out.println();
     }
+
+    static public void displayWinners(List<String> winners) {
+        System.out.print("최종 우승자 : ");
+        System.out.println(makeWinnerListMessage(winners));
+    }
+
+    static public String makeWinnerListMessage(List<String> winners) {
+        String message = winners.get(0);
+
+        if (winners.size() == 1) {
+            return message;
+        }
+        for (int idx = 1; idx < winners.size(); idx++) {
+            message += ", ";
+            message += winners.get(idx);
+        }
+        return message;
+    }
 }

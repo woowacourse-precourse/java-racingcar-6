@@ -28,6 +28,7 @@ public class Race {
             playOneRound();
             Screen.displayResult(cars);
         }
+        Screen.displayWinners(getWinners());
     }
 
     private void playOneRound() {
