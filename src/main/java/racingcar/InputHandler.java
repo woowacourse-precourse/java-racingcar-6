@@ -19,7 +19,7 @@ public class InputHandler {
     private static final Pattern INTEGER_PATTERN = Pattern.compile("^-?\\d+$");
     private static final int MINIMUM_NUMBER_OF_NAME = 2;
 
-    public List<String> getValidCarNamesFromUser() throws IllegalArgumentException{
+    public List<String> getValidCarNamesFromUser() throws IllegalArgumentException {
         String userInput = getUserInputForCarNames();
         List<String> carNames = splitByCommaAndTrim(userInput);
         validateCarNames(carNames);
@@ -49,20 +49,31 @@ public class InputHandler {
         }
     }
 
-    public int getValidAttemptsFromUser() throws IllegalArgumentException{
-        System.out.println(MESSAGE_TO_INQUIRE_ATTEMPTS);
-
-        String userInput = Console.readLine();
-        if (!isInteger(userInput)) throw new IllegalArgumentException(ERROR_NOT_INTEGER);
+    public int getValidAttemptsFromUser() throws IllegalArgumentException {
+        String userInput = getUserInputForAttempts();
+        validateInteger(userInput);
 
         int attempts = Integer.parseInt(userInput);
-        if (attempts < 0) throw new IllegalArgumentException(ERROR_LESS_THAN_ONE);
+        validatePositiveNumber(attempts);
 
         return attempts;
     }
 
-    public boolean isInteger(String str) {
+    private String getUserInputForAttempts() {
+        System.out.println(MESSAGE_TO_INQUIRE_ATTEMPTS);
+        return Console.readLine();
+    }
+
+    private void validateInteger(String userInput) {
+        if (!isInteger(userInput)) throw new IllegalArgumentException(ERROR_NOT_INTEGER);
+    }
+
+    private boolean isInteger(String str) {
         Matcher matcher = INTEGER_PATTERN.matcher(str);
         return matcher.matches();
+    }
+
+    private void validatePositiveNumber(int attempts) {
+        if (attempts < 0) throw new IllegalArgumentException(ERROR_LESS_THAN_ONE);
     }
 }
