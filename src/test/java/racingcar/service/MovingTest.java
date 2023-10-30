@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
 import racingcar.common.Size;
 import racingcar.entity.Car;
@@ -36,11 +35,10 @@ class MovingTest {
         assertThat(car.getDistance()).isEqualTo(1);
     }
 
-    static class MovingStub extends Moving {
-        int condition;
+    private static class MovingStub {
+        private int condition;
 
-        @Override
-        public void moveOrStop(Car car) {
+        private void moveOrStop(Car car) {
             if (condition >= Size.MOVING_BOUNDARY.getValue()) {
                 car.move();
             }
