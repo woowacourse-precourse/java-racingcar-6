@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +22,7 @@ public class NumberGeneratorTest{
         int number = generator.createRandomNumber();
 
         //then
-        assertThat(number).isBetween(0,9);
+        assertThat(number).isBetween(0, 9);
 
     }
 

@@ -9,7 +9,7 @@
 
 ### 2. 게임 진행 : 전진하기
 - [ ] `GameManager`가 입력 받은 횟수 동안 n대 자동차 전진 or 멈춤 - Car#drive()
-- [ ] 0~9 사이에서 무작위 값을 구한다. - NumberGenerator#createRandomNumber()
+- [x] 0~9 사이에서 무작위 값을 구한다. - NumberGenerator#createRandomNumber()
   - Random 값 추출은 `camp.nextstep.edu.missionutils.Random`s의 `pickNumberInRange()` 활용
 - [ ] 전진 조건 : 무작위 값이 4 이상일 경우 - Car#isGoingForward()
 - [ ] 실행결과(출력) : 전진하는 자동차 이름을 같이 출력 - Car#printCarState()

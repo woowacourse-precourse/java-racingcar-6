@@ -17,4 +17,12 @@ public class Car{
         return "";
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public int getForwardCount(){
+        return forwardCount;
+    }
+
 }
