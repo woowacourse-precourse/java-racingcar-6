@@ -24,7 +24,7 @@ public class GameManager {
         }
 
         for (String name : names) {
-            if (name.equals("")) {
+            if (name == null || "".equals(name)) {
                 throw new IllegalArgumentException("이름을 입력해주세요.");
             }
             if (name.length() > 5) {
@@ -55,7 +55,10 @@ public class GameManager {
                 car.move();
             }
             String length = "-".repeat(car.getCount());
-            sb.append(car.getName()).append(" : ").append(length).append('\n');
+            sb.append(car.getName())
+                    .append(" : ")
+                    .append(length)
+                    .append('\n');
         }
 
         System.out.println(sb);
