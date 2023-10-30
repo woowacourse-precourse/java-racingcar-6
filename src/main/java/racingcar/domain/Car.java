@@ -11,7 +11,7 @@ public class Car {
         this.carPosition = carPosition;
     }
 
-    public static Car from(DriveBehavior driveBehavior, String carName) {
+    public static Car createOnStart(DriveBehavior driveBehavior, String carName) {
         return new Car(driveBehavior, new CarName(carName), CarPosition.createStartPosition());
     }
 

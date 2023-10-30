@@ -30,7 +30,7 @@ public class RacingCarsTest {
         DriveBehavior behavior = new RandomDriveBehavior(RandomDriveBehavior::generateRandomNumber);
 
         return Stream.of(
-                Arguments.of(List.of(Car.from(behavior, "a"))),
+                Arguments.of(List.of(Car.createOnStart(behavior, "car1"))),
                 Arguments.of(Collections.emptyList())
         );
     }
@@ -39,8 +39,19 @@ public class RacingCarsTest {
         DriveBehavior behavior = new RandomDriveBehavior(RandomDriveBehavior::generateRandomNumber);
 
         return Stream.of(
-                Arguments.of(List.of(Car.from(behavior, "a"), Car.from(behavior, "b"))),
-                Arguments.of(List.of(Car.from(behavior, "a"), Car.from(behavior, "b"), Car.from(behavior,"c")))
+                Arguments.of(
+                        List.of(
+                                Car.createOnStart(behavior, "car1"),
+                                Car.createOnStart(behavior, "car2")
+                        )
+                ),
+                Arguments.of(
+                        List.of(
+                                Car.createOnStart(behavior, "car1"),
+                                Car.createOnStart(behavior, "car2"),
+                                Car.createOnStart(behavior,"car3")
+                        )
+                )
         );
     }
 }
