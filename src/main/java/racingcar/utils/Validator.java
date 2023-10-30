@@ -28,9 +28,19 @@ public class Validator {
         }
     }
 
+    private void validateCarNameDuplicates(List<String> input) {
+        List<String> distinctInput = input.stream()
+                .distinct()
+                .toList();
+        if(distinctInput.size() < input.size()) {
+            throw new IllegalArgumentException("자동차의 이름은 중복되어서는 안 됩니다.");
+        };
+    }
+
     public void validateInputCar(List<String> input) {
         validateInputCarOneToFive(input);
         validateCarName(input);
+        validateCarNameDuplicates(input);
     }
 
     public void validateInputCarNameStartOrEndComma(String input) {
