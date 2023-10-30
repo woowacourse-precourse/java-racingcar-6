@@ -22,7 +22,11 @@
 
 ### controller package
  - racingCarGameManager class
-   + [0] view,model 활용해 게임 진행 - racingStart
+   + [0] view,model 활용해 게임 진행 기능 - racingStart
+   + [0] 자동차 이름 입력을 유도하고 입력값을 변형하는 기능 - carNameInputProcess
+   + [0] 경기 횟수 입력을 유도하고 입력값을 변형하는 기능 - numberOfRacingProcess
+   + [0] 게임 로직을 실행하는 기능 - gameLogicProcess
+   + [0] 로직 결과에 따라 우승자를 출력하는 기능 - racingWinnerOutputProcess
  
 ### utility package
  - validateException class
