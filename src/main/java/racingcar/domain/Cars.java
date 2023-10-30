@@ -29,6 +29,18 @@ public class Cars {
         validateDuplicatedCarNames(carNames);
     }
 
+    public List<String> findWinners() {
+        int maxPosition = cars.stream()
+            .mapToInt(Car::getPosition)
+            .max()
+            .orElseThrow(() -> new IllegalStateException("Car 리스트가 존재하지 않습니다"));
+
+        return cars.stream()
+            .filter(car -> car.getPosition() == maxPosition)
+            .map(Car::getName)
+            .collect(Collectors.toList());
+    }
+
     public void validateCarNamesSize(List<String> carNames) {
         if (carNames.size() < 2) {
             throw new IllegalArgumentException("자동차는 두 대 이상 입력해야 합니다.");
