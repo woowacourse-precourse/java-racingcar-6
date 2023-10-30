@@ -1,9 +1,9 @@
 package racingcar.domain;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
+import racingcar.view.OutputView;
 
 public class Cars {
     private List<Car> carList;
@@ -12,9 +12,9 @@ public class Cars {
         this.carList = carList;
     }
 
-    public List<String> findWinners() {
+    public void findWinners() {
         Car farthestCar = findFarthestCar();
-        return findCoWinner(farthestCar);
+        OutputView.printWinner(String.join(", ", findCoWinner(farthestCar)));
     }
 
     private Car findFarthestCar() {
@@ -30,15 +30,20 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public Map<String, Integer> getRaceStatus() {
-        Map<String, Integer> result = new HashMap<>();
-        for (Car car : carList) {
-            String status = car.getPosition();
-            String name = status.split(",")[0];
-            int position = Integer.parseInt(status.split(",")[0]);
-            result.put(name, position);
-        }
-        return result;
+    public void getRoundResult() {
+        OutputView.printRoundResult(new ArrayList<>(carList.stream()
+                .map(Car::getCurrentPosition)
+                .collect(Collectors.toList())
+        ));
+    }
+
+    private void move() {
+        carList.forEach(Car::move);
+    }
+
+    public void play() {
+        move();
+        getRoundResult();
     }
 
 }
