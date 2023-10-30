@@ -14,6 +14,8 @@ public class Car {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             length++;
         };
+
+        printLocation();
     }
 
     public void printLocation() {
@@ -27,4 +29,6 @@ public class Car {
     public int getLength() {
         return length;
     }
+
+    public String getName() { return car_name; }
 }
