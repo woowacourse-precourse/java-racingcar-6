@@ -2,7 +2,7 @@
 
 - Car class
   - 각 자동차 이름이 5자 이하가 아니면 IllegalArgumentException 발생시키는 기능
-- Cars class 
+- CarsService class 
   - 자동자 이름을 ,를 기준으로 분리하여 HashMap에 저장하는 기능
 - GameService class
   - 경주할 자동차 이름 입력받는 기능
