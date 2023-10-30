@@ -2,15 +2,18 @@ package racingcar.model;
 
 public class Car {
 	private String name;
-	private int ForwardCount;
+	private String ForwardCount;
 
 	public Car(String nm) {
 		this.name = nm;
-		this.ForwardCount = 0;
+		this.ForwardCount = "";
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 
-	public int getForwardCount() {
+	public String getForwardCount() {
 		return this.ForwardCount;
 	}
-
 }
