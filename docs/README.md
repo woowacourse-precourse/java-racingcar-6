@@ -55,12 +55,13 @@
   ```java
   void initRandomNum()
   ```
-
-## Racing
+## Game
 - 경주 게임 동작
     ```java
     void run()
     ```
+  
+## Racing
 - 입력한 차 이름에 대한 차 객체를 리스트에 담는 기능
     ```java
     List<Car> toCarList(List<String> carNameList)
