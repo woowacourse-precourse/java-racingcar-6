@@ -59,6 +59,7 @@
 
 # View
 ### InputView.java
+- getInstance()
 - readCarNames()
 - readMoveCount()
 - 메세지 enum으로 정리
