@@ -47,7 +47,7 @@ class CarServiceTest {
 
             when(car.getName()).thenReturn("carName");
             when(otherCar.getName()).thenReturn("otherCarName");
-            when(carRepository.findCarWithMaxPosition()).thenReturn(List.of(car, otherCar));
+            when(carRepository.findAllCarsWithMaxPosition()).thenReturn(List.of(car, otherCar));
 
             List<String> winner = carService.getWinner();
 

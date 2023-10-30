@@ -26,7 +26,7 @@ public class CarRepository {
                 .toList();
     }
 
-    public List<Car> findCarWithMaxPosition() {
+    public List<Car> findAllCarsWithMaxPosition() {
         int maxPosition = carDatabase.values()
                 .stream()
                 .mapToInt(Car::getPosition)

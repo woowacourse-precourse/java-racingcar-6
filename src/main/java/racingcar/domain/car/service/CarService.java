@@ -32,7 +32,7 @@ public class CarService {
     }
 
     public List<String> getWinner() {
-        List<Car> carWithMaxPosition = carRepository.findCarWithMaxPosition();
+        List<Car> carWithMaxPosition = carRepository.findAllCarsWithMaxPosition();
         return carWithMaxPosition.stream()
                 .map(Car::getName)
                 .toList();

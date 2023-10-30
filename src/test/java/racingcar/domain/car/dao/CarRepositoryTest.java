@@ -21,7 +21,7 @@ class CarRepositoryTest {
 
     // 1. save
     // 2. findAll
-    // 3. findCarWithMaxPosition
+    // 3. findAllCarsWithMaxPosition
 
     @Nested
     @DisplayName("Car 저장 테스트")
@@ -70,7 +70,7 @@ class CarRepositoryTest {
             carRepository.save(firstCar);
             carRepository.save(secondCar);
 
-            List<Car> carWithMaxPosition = carRepository.findCarWithMaxPosition();
+            List<Car> carWithMaxPosition = carRepository.findAllCarsWithMaxPosition();
 
             assertThat(carWithMaxPosition.size()).isEqualTo(1);
             assertThat(carWithMaxPosition.get(0).getName()).isEqualTo("secondCar");
@@ -98,7 +98,7 @@ class CarRepositoryTest {
             carRepository.save(secondCar);
             carRepository.save(thirdCar);
 
-            List<Car> carWithMaxPosition = carRepository.findCarWithMaxPosition();
+            List<Car> carWithMaxPosition = carRepository.findAllCarsWithMaxPosition();
 
             assertThat(carWithMaxPosition.size()).isEqualTo(2);
             assertThat(carWithMaxPosition.get(0).getName()).isEqualTo("secondCar");
@@ -144,7 +144,7 @@ class CarRepositoryTest {
             carRepository.clear();
 
             assertThrows(IllegalArgumentException.class,
-                    carRepository::findCarWithMaxPosition,
+                    carRepository::findAllCarsWithMaxPosition,
                     ErrorMessage.CAR_NOT_EXIST.getErrorMessage());
         }
     }
