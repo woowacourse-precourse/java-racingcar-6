@@ -3,12 +3,12 @@
 - 입력
   - [X] 자동차 이름 입력받기
     - [X] 이름으로 공백을 입력하면 예외 발생
-        - [X] 각 이름 앞 뒤로 공백 제거
-        - [X] 이름이 중복되면 예외 발생
-        - [X] 이름이 5글자를 넘으면 예외 발생
+      - [X] 각 이름 앞 뒤로 공백 제거
+      - [X] 이름이 중복되면 예외 발생
+      - [X] 이름이 5글자 초과시 예외 발생
     - [X] 게임 횟수 입력받기
-        - [X] 문자이면 예외 발생
-        - [X] 숫자인데 0이면 예외 발생
+      - [X] 문자이면 예외 발생
+      - [X] 숫자인데 0 또는 음수이면 예외 발생
 - 출력
   - [X] 실행 결과 출력문 출력
   - [X] 각 게임 횟수별 출력
@@ -22,11 +22,20 @@
 
 # ✅ 설계
 
-- RaceController
-- Cars
-- Car
-- Name
-- Position
-- RandomNumberGenerator (유틸리티 클래스)
-- InputView (유틸리티 클래스)
-- OutputView (유틸리티 클래스)
+- domain
+  - Cars
+  - Car
+  - Name
+  - Position
+  - Winners
+  - PlayCount
+- controller
+  - RaceController
+- util
+  - RandomNumberGenerator
+- dto
+  - CarDto
+- view
+  - InputView
+  - OutputView
+
