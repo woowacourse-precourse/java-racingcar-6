@@ -15,7 +15,6 @@
 
 | 구현                   | 메서드                | 기능                                                        |
 |----------------------|--------------------|-----------------------------------------------------------|
-| :white_large_square: | `pickRandomNumber` | 0에서 9 사이에서 무작위 값을 구한다.                                    |
 | :white_large_square: | `validateAttempts` | player가 입력한 횟수를 검증한다.                                     |
 | :white_large_square: | `validateCarName`  | player가 설정한 자동차 이름을 검사한다.                                 |
 | :white_large_square: | `goAhead`          | 조건에 맞는 경우 해당하는 차를 전진시킨다.                                  |
@@ -39,11 +38,12 @@
 
 생성 시 인자로 받은 메시지 파일 경로를 통해 메시지를 Properties로 로드한다.
 
-| 구현                   | 메서드                        | 기능                                                               |
-|----------------------|----------------------------|------------------------------------------------------------------|
-| :white_large_square: | `showInputRequiredMessage` | 입력이 필요하다고 메시지를 출력한다.                                             |
-| :white_large_square: | `showProgressOf`           | 알맞은 게임 인스턴스가 아니면 `IllegalArgumentException`을 던지고 게임의 진행상황을 출력한다. |
-| :white_large_square: | `showResultOf`             | 알맞은 게임 인스턴스가 아니면 `IllegalArgumentException`을 던지고 게임의 결과를 출력한다.   |
+| 구현                   | 메서드                                  | 기능                   |
+|----------------------|--------------------------------------|----------------------|
+| :white_large_square: | `showInputRequiredMessage`           | 입력이 필요하다고 메시지를 출력한다. |
+| :white_large_square: | `showRepeatingNumberRequiredMessage` | 횟수를 입력하라고 메시지를 출력한다. |
+| :white_large_square: | `showProgressOf`                     | 게임의 진행상황을 출력한다.      |
+| :white_large_square: | `showResultOf`                       | 게임의 결과를 출력한다.        |
 
 ## RacingCarGameController
 
