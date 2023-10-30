@@ -36,7 +36,6 @@ class GameServiceTest {
         GameService gameService = new GameService(cars, 1);
 
         List<String> winners = gameService.getWinners();
-        System.out.println(cars.get(0).getScore());
 
         assertEquals(1, winners.size());
         assertEquals("Car3", winners.get(0));
