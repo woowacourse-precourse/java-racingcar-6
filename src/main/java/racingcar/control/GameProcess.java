@@ -118,7 +118,7 @@ public class GameProcess {
         sizeOfWinnerList = raceCarOfWinnerList.size();
 
         if (Utill.valueGreaterThanEqualOne(sizeOfWinnerList)) {
-            raceCarOfWinnerArr = makeNameArrFromCarList();
+            raceCarOfWinnerArr = makeNameArrFromWinnerCarList();
             nameOfWinnerRaceCar = getNameOfWinnerRaceCarFromArr(raceCarOfWinnerArr);
         }
 
@@ -141,19 +141,19 @@ public class GameProcess {
      *
      * @return
      */
-    private String[] makeNameArrFromCarList() {
+    private String[] makeNameArrFromWinnerCarList() {
         Integer sizeOfRaceCarList = raceCarOfWinnerList.size();
-        String[] arrOfStr = new String[sizeOfRaceCarList];
-        RaceCar raceCar = null;
+        String[] nameOfWinnerArr = new String[sizeOfRaceCarList];
+        RaceCar raceCarOfWinner = null;
         String name = "";
 
-        for (int index = 0; index < sizeOfRaceCarList; index++) {
-            raceCar = raceCarOfWinnerList.get(index);
-            name = raceCar.toString();
-            arrOfStr[index] = name;
+        for (int indexOfWinCarList = 0; indexOfWinCarList < sizeOfRaceCarList; indexOfWinCarList++) {
+            raceCarOfWinner = raceCarOfWinnerList.get(indexOfWinCarList);
+            name = raceCarOfWinner.toString();
+            nameOfWinnerArr[indexOfWinCarList] = name;
         }
 
-        return arrOfStr;
+        return nameOfWinnerArr;
     }
 
     public void moveOfRaceCar() {
