@@ -1,10 +1,14 @@
 package racingcar.controller;
 
 import racingcar.domain.Announcer;
+import racingcar.domain.Car;
 import racingcar.domain.Random;
 import racingcar.domain.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class Controller {
 
@@ -15,5 +19,15 @@ public class Controller {
     private final static OutputView outputView = new OutputView();
 
     public void start() {
+        outputView.displayCarNameInputMessage();
+        List<Car> carList = prepareCarList();
+    }
+
+    private List<Car> prepareCarList() {
+        List<Car> list = new LinkedList<>();
+        for (String name : inputView.inputCarNames()) {
+            list.add(new Car(name));
+        }
+        return list;
     }
 }
