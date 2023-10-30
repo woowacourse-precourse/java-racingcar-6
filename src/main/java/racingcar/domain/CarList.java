@@ -25,4 +25,8 @@ public class CarList {
                 .collect(Collectors.toList());
     }
 
+    public int size(){
+        return carList.size();
+    }
+
 }
