@@ -13,17 +13,10 @@ public class Utill {
     public static String inputString() {
         String inputStr = readLine();
 
-        // 숫자을 포함하는가 검사
-        ValidException.isValidIncludeNum(inputStr);
-
-        // 공백입력 검사
-        ValidException.isValidBlankCheck(inputStr);
-
-        // 공백포함 검사
-        ValidException.isValidIncludeBlank(inputStr);
-
-        // 특수기호 포함 검사.
-        ValidException.isValidIncludeSpecialString(inputStr);
+        ValidException.isValidIncludeNum(inputStr); // 숫자을 포함하는가 검사
+        ValidException.isValidBlankCheck(inputStr); // 공백입력 검사
+        ValidException.isValidIncludeBlank(inputStr); // 공백포함 검사
+        ValidException.isValidIncludeSpecialString(inputStr); // 특수기호 포함 검사.
 
         return inputStr;
     }
