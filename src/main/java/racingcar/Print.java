@@ -13,20 +13,10 @@ public class Print {
     }
 
     void Winner(List<Car> carList) {
-        List<String> winnerName = new ArrayList<>();
-        int max = 0;
-        for (Car car : carList) {
-            if (max < car.score) {
-                max = car.score;
-            }
-        }
-
-        for (Car car : carList) {
-            if (car.score == max) {
-                winnerName.add(car.name);
-            }
-        }
+        GameFunction gameFunction = new GameFunction();
+        List<String> winnerName = gameFunction.getWinner(carList);
         String result = String.join(", ", winnerName);
+
         System.out.print("최종 우승자 : ");
         System.out.println(result);
     }
