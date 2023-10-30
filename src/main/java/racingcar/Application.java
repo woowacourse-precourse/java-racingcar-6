@@ -23,7 +23,7 @@ class Car{
 
 }
 
-class insertionNameAndResetDistance{
+class InsertionNameAndResetDistance{
     public static void resetNameAndDistance(ArrayList<Car> carList, String [] carNameList){
         int i;
         for(i = 0; i < carNameList.length; i++){
@@ -32,13 +32,24 @@ class insertionNameAndResetDistance{
     }
 }
 
+class RacingCar{
+    public static void start() {
+        ArrayList<Car> carList = new ArrayList<Car>();
+
+        String[] carNameList = Console.readLine().split(",");
+
+        InsertionNameAndResetDistance.resetNameAndDistance(carList, carNameList);
+
+        int i;
+        for(i = 0; i < carList.size(); i++)
+            System.out.println(carList.get(i).getName());
+    }
+}
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        ArrayList<Car> carList = new ArrayList<Car>();
-
-        String [] carNameList = Console.readLine().split(",");
-
-        insertionNameAndResetDistance.resetNameAndDistance(carList, carNameList);
+        RacingCar.start();
+        int trying = Integer.parseInt(Console.readLine());
     }
 }
