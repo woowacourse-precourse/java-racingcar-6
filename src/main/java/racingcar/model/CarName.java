@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 public class CarName {
     private List<String> carList;
+    private static final int nameLength = 5;
 
     public void setCarName(String carNames){
         validateNull(carNames);
@@ -22,7 +23,7 @@ public class CarName {
     }
     public static void validateLength(List<String> carList){
         for(String carName : carList){
-            if(carName.length()>5){
+            if(carName.length()>nameLength){
                 throw new IllegalArgumentException();
             }
         }
