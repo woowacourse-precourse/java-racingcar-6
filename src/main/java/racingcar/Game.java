@@ -1,13 +1,16 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
 
-    private CarList carList;
+    private List<Car> carList;
 
     public Game() {
-        carList = new CarList();
+        carList = new ArrayList<>();
     }
 
     public void run() {
@@ -41,7 +44,19 @@ public class Game {
     }
 
     public void race() {
+        for (int i = 0; i < carList.size(); i++) {
+            Car car = carList.get(i);
+            if (isMoveForward())
+                car.addForward();
+        }
+    }
 
+    private Boolean isMoveForward() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber > 4) {
+            return true;
+        }
+        return false;
     }
 
 }
