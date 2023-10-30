@@ -25,7 +25,6 @@ public class Race {
             goForward();
             Result.printResult(carList);
         }
-        System.out.println();
     }
 
 
