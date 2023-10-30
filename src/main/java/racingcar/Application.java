@@ -11,6 +11,7 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         inputCarName();
         System.out.println("시도할 회수는 몇회인가요?");
+        inputCount();
     }
 
     public static void inputCarName() {
@@ -74,6 +75,7 @@ public class Application {
 
         try {
             if(!checkisDigit(input)) throw new IllegalArgumentException("숫자만 입력하세요");
+            else if(!checkNegative(input)) throw new IllegalArgumentException("양수만 입력하세요");
         }catch (IllegalArgumentException e){
             System.out.println(e.getMessage());
         }
@@ -87,6 +89,15 @@ public class Application {
                 flag = false;
             }
         }
+
+        return flag;
+    }
+
+    private static boolean checkNegative(String s){
+        boolean flag = true;
+        int result = Integer.parseInt(s);
+
+        if(result < 0) flag = false;
 
         return flag;
     }
