@@ -34,6 +34,16 @@ class InputViewTest extends MyTest {
                 .isThrownBy(() -> input(arg, inputView::getAttemptCount));
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "0"})
+    void 시도_횟수가_1_보다_작으면_에러_발생(String attemptCount) {
+        System.setIn(new ByteArrayInputStream(attemptCount.getBytes()));
+        InputView inputView = new InputView();
+
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> input(attemptCount, inputView::getAttemptCount));
+    }
+
     @Test
     void 이름을_입력받을_수_있다() {
         String arg = "a,ab,abc,12345";
@@ -42,6 +52,6 @@ class InputViewTest extends MyTest {
         List<String> actual = input(arg, inputView::getNames);
 
         assertThat(output()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
-        assertThat(actual).isEqualTo(List.of("a","ab","abc","12345"));
+        assertThat(actual).isEqualTo(List.of("a", "ab", "abc", "12345"));
     }
 }

@@ -50,8 +50,6 @@ class ParticipantsTest {
         assertThat(positions).isEqualTo(List.of(1, 0, 1));
     }
 
-    // TODO: 시도 횟수 테스트 작성하기
-
     @Test
     void 우승자_목록을_가져올_수_있다() {
         Car car1 = createCar(true);

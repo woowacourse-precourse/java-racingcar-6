@@ -30,7 +30,6 @@ public class RacingCarController {
         int attemptCount = inputView.getAttemptCount();
         outputView.printRaceResult();
         for (int i = 0; i < attemptCount; i++) {
-            // TODO: 시도 횟수 검증
             List<Car> cars = participants.race();
             outputView.printCarsPosition(cars);
         }

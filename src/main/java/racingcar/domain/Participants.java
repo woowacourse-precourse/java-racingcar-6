@@ -5,9 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Participants {
-    private static final String INVALID_ATTEMPT_COUNT = "시도 횟수는 1 이상이어야 합니다";
-    private static final int MIN_ATTEMPT_COUNT = 1;
-
     private final List<Car> cars;
 
     public Participants(List<Car> cars) {
