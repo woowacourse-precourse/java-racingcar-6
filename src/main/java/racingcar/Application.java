@@ -16,7 +16,7 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
 
-        for (int turn = 0; turn < turnCount; turn++){
+        for (int turn = 0; turn < turnCount; turn++) {
             moveCars(cars);
             printCars(cars);
         }
