@@ -151,7 +151,7 @@
 - [x] RaceCar
 - [x] ValidConstants
 - [ ] Utill
-- [ ] ValidException
+- [x] ValidException
 - [x] GameStart
 
 
