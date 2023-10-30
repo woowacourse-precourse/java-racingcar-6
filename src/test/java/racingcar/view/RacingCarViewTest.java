@@ -18,7 +18,7 @@ class RacingCarViewTest extends IOTest {
         RacingCarView racingCarView = new RacingCarView();
 
         //when
-        racingCarView.printStartRacingCar();
+        racingCarView.printStartMessage();
 
         //then
         assertThat(getSystemOut()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
@@ -31,7 +31,7 @@ class RacingCarViewTest extends IOTest {
         RacingCarView racingCarView = new RacingCarView();
 
         //when
-        racingCarView.printAskingNumberOfRetries();
+        racingCarView.printAskingRepeatCountMessage();
 
         //then
         assertThat(getSystemOut()).isEqualTo("시도할 회수는 몇회인가요?\n");
@@ -62,7 +62,7 @@ class RacingCarViewTest extends IOTest {
         racingCar.getCars().get(2).moveForward(MOVE_CONDITION_MIN_NUMBER);
 
         //when
-        racingCarView.printCarListMovement(racingCar);
+        racingCarView.printAllTravelDistance(racingCar);
 
         //then
         assertThat(getSystemOut()).isEqualTo("baek : --\neun : -\nhee : -\n\n");
@@ -76,7 +76,7 @@ class RacingCarViewTest extends IOTest {
         RacingCarView racingCarView = new RacingCarView();
 
         //when
-        racingCarView.printFinalMessage(winners);
+        racingCarView.printWinners(winners);
 
         //then
         assertThat(getSystemOut()).isEqualTo("최종 우승자 : baek, eun");

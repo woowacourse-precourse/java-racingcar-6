@@ -27,14 +27,14 @@ public class RacingCarController {
     }
 
     private String askCarNames() {
-        racingCarView.printStartRacingCar();
+        racingCarView.printStartMessage();
         String userInput = Console.readLine();
         UserInputValidator.validateUserInput(userInput);
         return userInput;
     }
 
     private Integer askRepeatCount() {
-        racingCarView.printAskingNumberOfRetries();
+        racingCarView.printAskingRepeatCountMessage();
         String repeatCount = Console.readLine();
         UserInputValidator.validateNumberOfRetriesInput(repeatCount);
         return Integer.valueOf(repeatCount);
@@ -49,12 +49,12 @@ public class RacingCarController {
         while (repeatCount > 0) {
             racingCar.moveRandomAllCar();
             repeatCount--;
-            racingCarView.printCarListMovement(racingCar);
+            racingCarView.printAllTravelDistance(racingCar);
         }
     }
 
     private void findWinners() {
         List<Car> winners = racingCar.findWinners();
-        racingCarView.printFinalMessage(winners);
+        racingCarView.printWinners(winners);
     }
 }
