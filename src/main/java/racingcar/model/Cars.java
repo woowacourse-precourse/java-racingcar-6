@@ -20,6 +20,7 @@ public class Cars {
 
     public static Cars from(String[] carNames) {
         validateDuplicatedName(carNames);
+        validateCarsSize(carNames);
 
         List<Car> cars = new ArrayList<>();
         for (String name : carNames) {
@@ -49,6 +50,12 @@ public class Cars {
     private static void validateIsBlank(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_IS_BLANK.getMessage());
+        }
+    }
+
+    private static void validateCarsSize(String[] carNames) {
+        if (carNames.length < CarConstant.MIN_CARS_SIZE.getValue()) {
+            throw new IllegalArgumentException(ErrorMessage.ERROR_CARS_SIZE.getMessage());
         }
     }
 
