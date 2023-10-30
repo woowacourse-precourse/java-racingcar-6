@@ -17,8 +17,8 @@
 - [✅] 랜덤 값이 4이상일 경우 전진한다.
 
 #### 실행 결과 출력 기능
-- [ ] 실행 결과를 출력한다. #Game - #OutputView printResult()
-  - [ ] 각 자동차마다 전진한 횟수를 '-'로 표시한다.
+- [✅] 실행 결과를 출력한다. #Game - #OutputView printResult()
+  - [✅] 각 자동차마다 전진한 횟수를 '-'로 표시한다.
 
 #### 최종 우승자 출력 기능
 - [ ] 최종 우승자를 출력한다. #Game - #OutputView printFinalWinner()
