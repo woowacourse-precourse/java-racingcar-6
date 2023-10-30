@@ -117,6 +117,6 @@ public class CarController {
     private void forwardResultOutput(Cars cars) {
         cars.getCars()
                 .stream()
-                .forEach(car -> output.position(car.getForward()));
+                .forEach(car -> output.position(car.getForwardPosition()));
     }
 }

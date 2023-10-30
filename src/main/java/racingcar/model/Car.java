@@ -30,7 +30,7 @@ public class Car {
     }
 
     // 현재 위치 정보 출력 (예시: member : --- (position = 3))
-    public String getForward() {
+    public String getForwardPosition() {
         return this.member + " : " + "-".repeat(this.position);
     }
 }
