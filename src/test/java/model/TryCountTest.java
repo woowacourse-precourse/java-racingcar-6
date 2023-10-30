@@ -1,5 +1,6 @@
 package model;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -29,5 +30,17 @@ class TryCountTest {
         assertThrows(IllegalArgumentException.class, () -> {
             TryCount.from(inputValue);
         });
+    }
+
+    @Test
+    void 시도_횟수가_1일_때_한_번_시도하면_더_이상_사용할_수_없음() {
+        // given
+        TryCount count = TryCount.from("1");
+
+        // when
+        count.useOneCount();
+
+        // then
+        assertFalse(count.canUseCount());
     }
 }
