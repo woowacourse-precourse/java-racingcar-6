@@ -1,6 +1,6 @@
 package racingcar.car;
 
-public class Car {
+public class Car implements Comparable {
 
     public static final int FORWARD_MOVE_INIT_COUNT = 0;
     public static final String COLON = " : ";
@@ -13,7 +13,7 @@ public class Car {
         this.forwardMoveCount = FORWARD_MOVE_INIT_COUNT;
     }
 
-    public static Car of (String name) {
+    public static Car of(String name) {
         return new Car(name);
     }
 
@@ -29,4 +29,22 @@ public class Car {
         return stringBuilder.toString();
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Car otherCar = (Car) o;
+        return Integer.compare(otherCar.forwardMoveCount, this.forwardMoveCount);
+    }
+
+    public boolean isSameForwardMoveCount(Car otherCar) {
+        if (this.forwardMoveCount == otherCar.forwardMoveCount) return true;
+        return false;
+    }
+
+    public int getForwardMoveCount() {
+        return this.forwardMoveCount;
+    }
 }
