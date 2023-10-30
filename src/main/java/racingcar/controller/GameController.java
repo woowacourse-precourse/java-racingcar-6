@@ -13,8 +13,8 @@ public class GameController {
     private final InputView inputView = new InputView();
 
     public void start() {
-        outputView.printInputCarNameMessage();
-        List<Car> cars = inputView.readCarNames();
+        gameService = new GameService(readCarNames());
+        process(readAttemptCount());
         outputView.printInputAttemptCountMessage();
         AttemptCount attemptCount = inputView.readAttemptCount();
         process(cars, attemptCount);
@@ -33,5 +33,13 @@ public class GameController {
     private void finish(List<Car> cars) {
         List<Car> winner = new Result(cars).getWinner();
         outputView.printWinnerName(winner);
+    private int readAttemptCount() {
+        outputView.printInputAttemptCountMessage();
+        return inputView.readAttemptCount();
+    }
+
+    private Cars readCarNames() {
+        outputView.printInputCarNameMessage();
+        return inputView.readCarNames();
     }
 }
