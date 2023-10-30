@@ -14,7 +14,7 @@
 
 #### 전진하는 조건을 만족을 확인하는 기능
 - [✅] 각 자동차마다 랜덤 값(0-9) 구한다. #GenerateRandomNumber generateRandomNumber()
-- [✅] 랜덤 값이 4이상일 경우 전진한다.
+- [✅] 랜덤 값이 4이상일 경우 전진한다. #Car goFoward()
 
 #### 최종 우승자를 가려내는 기능
 - [✅] 전진을 가장 많이 한 자동차가 우승한다. #Cars 
@@ -23,7 +23,7 @@
 
 #### 실행 결과 출력 기능
 - [✅] 실행 결과를 출력한다. #Game - #OutputView printResult()
-  - [✅] 각 자동차마다 전진한 횟수를 '-'로 표시한다.
+  - [✅] 각 자동차마다 전진한 횟수를 '-'로 표시한다. #OutputView printSticks()
 
 #### 최종 우승자 출력 기능
 - [✅] 최종 우승자를 출력한다. #Game - #OutputView printFinalWinner()
