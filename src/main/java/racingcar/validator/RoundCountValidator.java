@@ -4,10 +4,9 @@ import racingcar.view.RoundCountErrorMessage;
 
 public class RoundCountValidator {
 
-    public boolean validateInputGameRound(String inputRound) {
+    public void validateInputGameRound(String inputRound) {
         int round = validateNotInteger(inputRound);
         validateNotPositive(round);
-        return true;
     }
 
     private int validateNotInteger(String inputRound) {

@@ -30,9 +30,9 @@ public class RacingController {
 
     public void initInputCarAndRound() {
         String carName = inputCarName();
-        int carCount = carService.initInputCarName(carName);
-
         String inputRound = inputGameRound();
+
+        int carCount = carService.initInputCarName(carName);
         int round = gameService.initGameRound(inputRound);
 
         game = gameService.setGame(carCount, round);

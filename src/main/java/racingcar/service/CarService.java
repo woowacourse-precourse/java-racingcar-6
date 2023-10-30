@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CarService {
 
-    private final List<String> carsName = new ArrayList<>();
+    private List<String> carsName = new ArrayList<>();
     private Car[] car;
     private int carCount;
     private BuilderUtils builderUtils;
@@ -21,17 +21,10 @@ public class CarService {
 
         CarNameValidator carNameValidator = new CarNameValidator();
 
-        for (String word : carName.split(",")) {
-            if (carNameValidator.validateInputCarName(word)) {
-                carsName.add(word);
-            }
-        }
+        carsName = carNameValidator.validateInputCarName(carName) ;
+
         carCount = carsName.size();
         return carCount;
-    }
-
-    public void initBuilder() {
-        builderUtils = new BuilderUtils(carsName);
     }
 
     public void initCar() {
@@ -41,6 +34,11 @@ public class CarService {
             car[i] = new Car(carsName.get(i), 0);
         }
     }
+    public void initBuilder() {
+        builderUtils = new BuilderUtils(carsName);
+    }
+
+
 
     public void updateCarPosition() {
         for (int carIndex = 0; carIndex < carsName.size(); carIndex++) {
