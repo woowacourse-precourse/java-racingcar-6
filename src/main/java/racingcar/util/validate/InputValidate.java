@@ -31,7 +31,7 @@ public class InputValidate {
     }
 
     static public String validatePrintWinners(String winnerList) {
-        if (winnerList.contains(",")) {
+        if (!winnerList.contains(", ")) {
             throw new IllegalArgumentException("우승자가 2명 이상일 경우 출력은 ', '로 구분해야합니다.");
         }
         return winnerList;
