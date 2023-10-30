@@ -37,7 +37,7 @@ public class GameController {
     }
 
     private void notifyBeforeResult() {
-        outputView.notifyBeforeResult();
+        outputView.notifyInitRoundResult();
     }
 
     private Integer getTotalGameRound() {

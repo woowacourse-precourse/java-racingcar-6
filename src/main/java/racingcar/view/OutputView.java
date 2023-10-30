@@ -40,7 +40,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void notifyBeforeResult() {
+    public void notifyInitRoundResult() {
         System.out.println(NOTIFY_BEFORE_RESULT);
     }
 
