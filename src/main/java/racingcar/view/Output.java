@@ -4,7 +4,7 @@ import static racingcar.constant.Constant.EXECUTION_RESULT;
 import static racingcar.constant.Constant.FINAL_WINNER;
 import static racingcar.constant.Constant.COLON;
 
-public class Input {
+public class Output {
 
     public void printExecutionResult(String executionResult){
         System.out.println(EXECUTION_RESULT);
