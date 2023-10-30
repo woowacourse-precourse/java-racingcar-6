@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.domain.Winners;
 import racingcar.message.ProcessMessage;
 
 import java.util.List;
@@ -24,9 +25,9 @@ public class OutputView {
         System.out.println(ProcessMessage.PROCESS_RESULT);
     }
 
-    public void printWinnerName(List<Car> winners) {
+    public void printWinnerName(Winners winners) {
         printWinnerTitle();
-        System.out.print(
+        System.out.println(winners.toString());
                 winners.stream()
                         .map(Car::getName)
                         .collect(Collectors.joining(", "))
