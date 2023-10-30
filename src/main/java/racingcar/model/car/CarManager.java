@@ -36,6 +36,13 @@ public class CarManager {
                 .toList();
     }
 
+    public List<Car> move() {
+        this.cars.forEach(car ->
+                car.move(new Movable().isMove()));
+
+        return this.getCars();
+    }
+
     public List<Car> getCars() {
         return cars;
     }

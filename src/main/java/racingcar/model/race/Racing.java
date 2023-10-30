@@ -1,5 +1,8 @@
 package racingcar.model.race;
 
+import java.util.List;
+import java.util.function.Consumer;
+import racingcar.model.car.Car;
 import racingcar.model.car.CarManager;
 import racingcar.model.cycle.RaceCount;
 
@@ -16,6 +19,10 @@ public class Racing {
     public Racing(final CarManager carManager, final RaceCount raceCount) {
         this.carManager = carManager;
         this.raceCount = raceCount;
+    }
+
+    public void start(final Consumer<List<Car>> printSingleRaceResult) {
+        this.raceCount.runActionInLoop(printSingleRaceResult, this.carManager::move);
     }
 
     public CarManager getCarManager() {
