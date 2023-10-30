@@ -51,6 +51,12 @@ public class Validator {
         return carNameList.size() >= MIN_CAR_NUM;
     }
 
+    public void checkTryNumType(String tryNum) {
+        if (!isTryNumInteger(tryNum)) {
+            throw new IllegalArgumentException("시도 횟수에 대한 입력이 정수가 아닙니다.");
+        }
+    }
+
     private boolean isTryNumInteger(String tryNum) {
         try {
             Integer.parseInt(tryNum);
