@@ -3,14 +3,14 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    public static final int MIN_MOVABLE_NUMBER = 4;
-    public static final int START_RANGE = 0;
-    public static final int END_RANGE = 9;
+    private static final int MIN_MOVABLE_NUMBER = 4;
+    private static final int START_RANGE = 0;
+    private static final int END_RANGE = 9;
 
-    String name;
-    int location;
+    private String name;
+    private int location;
 
-    public Car(String name){
+    public Car(String name) {
         this.name = name;
         this.location = 0;
     }
@@ -32,10 +32,10 @@ public class Car {
         return randomNum >= MIN_MOVABLE_NUMBER;
     }
 
-    public String getRoundResult(){
+    public String getRoundResult() {
         StringBuilder sb = new StringBuilder(name);
         sb.append(" : ");
-        for(int i = 0; i<location; i++){
+        for (int i = 0; i < location; i++) {
             sb.append("-");
         }
 

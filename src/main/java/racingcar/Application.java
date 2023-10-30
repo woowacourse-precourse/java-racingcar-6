@@ -4,14 +4,14 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
     public static void main(String[] args) {
-        try{
+        try {
             Game game = new GameBuilder()
                     .getCarsName()
                     .getRoundNumber()
                     .build();
 
             game.play();
-        }finally {
+        } finally {
             Console.close();
         }
     }

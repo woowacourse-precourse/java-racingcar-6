@@ -7,31 +7,16 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class Game {
-    Car[] cars;
-    int roundNumber;
-    Map<Car, Integer> positions;
-    int winnerPosition;
+    private Car[] cars;
+    private int roundNumber;
+    private Map<Car, Integer> positions;
+    private int winnerPosition;
 
-    public Game(String[] carNames, int roundNumber){
+    public Game(String[] carNames, int roundNumber) {
         makeCars(carNames);
         initPosition();
         winnerPosition = 0;
         this.roundNumber = roundNumber;
-    }
-
-    public void play(){
-        System.out.println("실행 결과");
-        for(int round = 0; round < roundNumber; round++){
-            playRound();
-        }
-        printWinner();
-    }
-
-    private void initPosition() {
-        positions = new HashMap<>();
-        for(Car car : cars){
-            positions.put(car, 0);
-        }
     }
 
     private void makeCars(String[] carNames) {
@@ -40,8 +25,23 @@ public class Game {
                 .toArray(Car[]::new);
     }
 
-    public void playRound(){
-        for(Car car : cars){
+    private void initPosition() {
+        positions = new HashMap<>();
+        for (Car car : cars) {
+            positions.put(car, 0);
+        }
+    }
+
+    public void play() {
+        System.out.println("실행 결과");
+        for (int round = 0; round < roundNumber; round++) {
+            playRound();
+        }
+        printWinner();
+    }
+
+    private void playRound() {
+        for (Car car : cars) {
             moveCar(car);
             System.out.println(car.getRoundResult());
         }
@@ -49,19 +49,20 @@ public class Game {
     }
 
     private void moveCar(Car car) {
-        if(!car.isMove()) {
+        if (!car.isMove()) {
             return;
         }
 
         int nextPosition = positions.get(car) + 1;
         positions.put(car, nextPosition);
-        if(winnerPosition < nextPosition){
+        if (winnerPosition < nextPosition) {
             winnerPosition = nextPosition;
         }
     }
 
-    public void printWinner(){
-        String winner = positions.entrySet().stream()
+    private void printWinner() {
+        String winner = positions.entrySet()
+                .stream()
                 .filter(entry -> entry.getValue() == winnerPosition)
                 .map(Entry::getKey)
                 .map(Car::getName)
