@@ -3,7 +3,7 @@ package racingcar;
 import java.util.LinkedList;
 
 public class RacingCars {
-    private LinkedList<Car> cars;
+    private final LinkedList<Car> cars;
 
     public RacingCars(LinkedList<Car> cars){
         validateCarNames(cars);

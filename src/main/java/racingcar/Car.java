@@ -3,9 +3,7 @@ package racingcar;
 public class Car {
     private final String name;
     private int position = 0;
-
-    public static int MINIMUM_REQUIRED_FOR_MOVE = 4;
-
+    public static int MINIMUM_REQUIRED_TO_MOVE = 4;
     public static int MOVE_DISTANCE = 1;
 
     public Car(String name) {
@@ -13,7 +11,7 @@ public class Car {
     }
 
     protected void move(Dice dice) {
-        if (dice.roll() >= MINIMUM_REQUIRED_FOR_MOVE){
+        if (dice.roll() >= MINIMUM_REQUIRED_TO_MOVE){
             position += MOVE_DISTANCE;
         }
         printResult();

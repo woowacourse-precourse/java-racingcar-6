@@ -1,10 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import net.bytebuddy.dynamic.scaffold.MethodGraph;
-
 import java.util.LinkedList;
-import java.util.List;
+
 
 public class Game {
     private RacingCars racingCars;
