@@ -19,19 +19,19 @@ public class OutputView {
         System.out.println(Message.GAMERESULT.getMessage());
     }
 
-    public void displayGameWinner(List<GameWinnerDto> gameresult) {
+    public void displayGameWinner(List<GameWinnerDto> gameWinnerDtos) {
         System.out.print(Message.GAMEWINNER.getMessage());
 
-        String winners = gameresult.stream()
+        String winners = gameWinnerDtos.stream()
                 .map(GameWinnerDto::getWinnerCar)
                 .collect(Collectors.joining(Message.REST.getMessage()));
 
         System.out.println(winners);
     }
 
-    public void displayEachGameResult(List<EachGameResultDto> moveResults) {
+    public void displayEachGameResult(List<EachGameResultDto> eachGameResultDtos) {
 
-        moveResults.stream()
+        eachGameResultDtos.stream()
                 .forEach(moveResultDto -> System.out.println(
                         moveResultDto.getCarName() + Message.EACHGAMERESULT.getMessage()
                                 + Message.MOVEFOWARD.getMessage()
