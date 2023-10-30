@@ -4,17 +4,13 @@ public class CarDto {
     private String name;
     private int position;
 
-    public CarDto(String name) {
+    public CarDto(String name, int position) {
         this.name = name;
-        position = 0;
+        this.position = position;
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getPosition() {
