@@ -54,71 +54,123 @@
     - [x]  distance
     - [x]  생성자(String name)
     - [x]  update Distance
-          - distance 직접 업그레이드
+
+        - distance 직접 업그레이드 → 1씩 증가함
 
     - [x]  여기서 toString 만들기 (1개)
+    - [x]  int getDistance
+        - 값 복사해서
 - CarList
     - [x]  생성자(List<String> names)
+
         - controller/putCar에서 List<String> names 받으면 이걸로 CarList 생성하기
 
     - [x]  upgrade distance(List<Integer> distances)
+
         - 리스트별로 생성자에 업그레이드, 근데 이게 맞나? 이름에 맞춰서 해야 되지 않나? - update Distance 사용하기
 
-    - [ ]  List<String> getWinner()
-        - 정렬해서 우승자가 담긴 스트링 리스트 리턴
+    - [x]  List<String> getWinner()
+
+        - 스트림을 돌면서 getDistance해서 값 같은 애들 getName해서 집어넣기
 
     - [x]  String toString (자동차 수만큼)
+
         - carList에서 car 하나의 tostring을 받아와서 다 붙이고 마지막에 \n 붙이기
+
+    - [x]  getSize()
+        - 자동차 갯수 리턴하는 함수
+    - [x]  int getMaxDistance()
+        - car 하나씩 비교해서 max가져오기 아님 모.. 스트림 만들어서 distance만 가져오고 거기에서 max를 구할 수 있는 간단한 함수가 있으면 그걸 쓰셈
+
+       ```java
+       List<Car> cars = new ArrayList<>();
+         cars.add(new Car("a", 3));
+         cars.add(new Car("b", 5));
+         cars.add(new Car("c", 6));
+         cars.add(new Car("d", 6));
+       
+         System.out.println(cars.stream().max(Comparator.comparingInt(Car::getDistance)).get().getDistance());
+       ```
 
 
 ### Controller
 
 - controller
-    - putCarList(view에서 받은 List<String>)
+    - [x]  putCarList(view에서 받은 List<String>)
 
-      validateName 실행시키고
+        - validateName 실행시키고
 
-      CarList 생성자 만들기
+        - CarList 생성자 만들기
 
-    - ~~int howMany = view의 askHowMany에서 return한 값~~ → main에서 view에서 가져오고 play를 실행시키기로 함
-    - play(int howMany)
-        - List <Integer> distances5개의 new Generator(); 해서 반복문 들어가게
+    - ~~int howMany = view의 askHowMany에서 return한 값~~ → main에서 view에서 가져오고 play를 실행시키기로 함(main에서 실행할 때 inputView의 askNumber 실행해서 String으로 받아오고 validation 실행하기(그리고 main에서 parseInt 실행하자..
+    - [x]  int getHowMany(String view에서 온 친구들)
+        - 여기서 validateName 실행시키고 int 리턴하기
+    - [x]  play(int howMany)
+        - [x]  List <Integer> distances5개의 new Generator(); 해서 반복문 들어가게
         - updatedistance(List<Integer> distances) // 자동차 갯수만큼 넘김
+        - play 윗단에서  while howMany만큼 실행하게 되고 play는 아닌가..? play만큼 해도 되려나?
         - view에게 carList에서 얻은 toString 넘기기 `중간결과toView` 이런거
             - 이거 어디서 받는데?
             - CarList의 toString 받아서 이걸 View에 전달할거임 그냥 바로 리턴하면 됨
     - whoWinner
         - CarList의 getWinner 호출
 - validate
-    - name가 제대로 들어왔는지 확인
-    - number가 제대로 들어왔는지 확인
+    - [x]  name가 제대로 들어왔는지 확인
+    - [x]  number가 제대로 들어왔는지 확인
+    - [x]  랜덤한 수가 4 이상이면 1, 4미만이면 0으로 바꾸기 → 스트림 어쩌구 바꿔서  매핑을 하거나 filter인가 머시기 쓰면 됨!
+        - java stream mapping을 사용하는 것 같은데 아직 와닿지 않음
+
+          https://futurecreator.github.io/2018/08/26/java-8-streams/
+
+        - 람다식 안에서 리턴하면 될 듯
+
+        - 그리고 collect?로 결과 리턴
+
+            ```java
+            // main에서 테스트
+            Validate v = new Validate();
+            List<Integer> arr = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+            List<Integer> result = v.replaceZeroAndOne(arr);
+            System.out.println(result);
+            ```
+
+            ```java
+            [0, 0, 0, 1, 1]
+            ```
+
+          https://www.slipp.net/questions/552
+
 - Generator
     - 랜덤 숫자 리턴
 
 ### View
 
 - inputView
-    - List<String> askNames (”
-        - `경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)`
+    - [x]  List<String> getNames (”
         - 사용자의 입력 받아 리턴
-    - int askHowMany
+    - [x]  String askHowMany
         - `시도할 회수는 몇회인가요?`
         - 사용자의 입력 받아 리턴
+        - 유효한지는 controller에서 평가
 - outputView
-    - void print”실행 결과”
+    - [x]  void askNames
+        - `경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)`
+    - [x]  void print”실행 결과”
         - ㄹㅇ sout (”실행 결고”)
-    - void print중간과정
+    - [x]  void print중간과정
 
-      controller에서 받은 string 넘긴걸 sout 하기 `중간결과toView`에서 리턴받으세요
+        - controller에서 받은 string 넘긴걸 sout 하기 `중간결과toView`에서 리턴받으세요
 
-        ```
-        pobi : -
-        woni :
-        jun : -
-        ```
+       ```
+       pobi : -
+       woni :
+       jun : -
+       ```
 
-    - void 최종우승자
+    - [ ]  void 최종우승자
         - controller의 whoWinnner 호출해서 sout
+    - [x]  void printError()
+        - 잘못된 값을 입력하셨습니다.
 
 ### Application
 
@@ -135,3 +187,7 @@ view의 실행결과 실행
 view의 print중간과정 실행
 
 view의 최종우승자 실행
+
+controller의 getHowMany를 실행시켜 play에 집어넣기
+
+입력 컴ㅁ마가 없을 때?
