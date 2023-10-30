@@ -10,6 +10,7 @@ public class OutputManager {
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
     public static void printResultMessage() {
+        System.out.println();
         System.out.println(OUTPUT_MESSAGE);
     }
 
