@@ -10,7 +10,6 @@ public class RandomNumber {
   }
 
   private int generateRandomNumber() {
-    // 랜덤 숫자 생성
     return Randoms.pickNumberInRange(0, 9);
   }
 
