@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.component.Car;
 import racingcar.component.Inputter;
 import racingcar.component.Printer;
 import racingcar.component.RaceSimulator;
@@ -75,6 +76,15 @@ class ApplicationTest extends NsTest {
             assertThatThrownBy(() -> runException("pobi,javaji", "two"))
                 .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    @DisplayName("차량 전진 기능 테스트")
+    void 차량_전진_테스트() {
+        Car car = new Car("wj");
+        assertThat(car.getProgress()).isEqualTo("");
+        car.go();
+        assertThat(car.getProgress()).isEqualTo("-");
     }
 
     @Override
