@@ -1,19 +1,26 @@
 package Domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cars {
-    private final String[] carNames;
+    private final List<Car> cars = new ArrayList<>();
 
     public Cars(String[] carNames) {
-        this.carNames = carNames;
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 
     public void move() {
-        for (String carName : carNames) {
-            System.out.println(carName + " : " + "-");
+        for (Car car : cars) {
+            car.move();
+            System.out.println(car.getName() + " : " + car.getPosition());
         }
     }
 
     public String getWinners() {
+
         return "최종 우승자 : ";
     }
 }
