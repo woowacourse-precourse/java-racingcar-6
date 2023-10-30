@@ -85,6 +85,6 @@ public class Race {
     }
 
     private void showWinner() {
-
+        System.out.println(WINNER_TEMPLATE + String.join(",", winnerList));
     }
 }
