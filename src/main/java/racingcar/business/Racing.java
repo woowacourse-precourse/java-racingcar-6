@@ -26,6 +26,10 @@ public class Racing {
         System.out.println("names = " + names);
 
         carList = getCars(names);
+
+        for (Car car : carList) {
+            tryMoving(car);
+        }
     }
 
     private void tryMoving(Car car) {
