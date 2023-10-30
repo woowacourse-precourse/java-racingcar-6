@@ -46,6 +46,17 @@ class InputTest {
     }
 
     @Test
+    void input_경기에_출전하는_자동차가_2대_미만인_경우_예외(){
+        String text = "pobi";
+        InputStream in = new ByteArrayInputStream(text.getBytes());
+        System.setIn(in);
+
+        assertThatThrownBy(() -> input.inputCarName())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("자동차는 2대 이상이 경기에 참여해야 합니다");
+    }
+
+    @Test
     void Input_자동차의_시도할_횟수를_입력(){
         String text = "5";
         InputStream in = new ByteArrayInputStream(text.getBytes());
