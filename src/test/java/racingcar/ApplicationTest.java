@@ -24,9 +24,26 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 참가자_한명(){
+        assertSimpleTest(() ->
+        {   run("pobi","1");
+            assertThat(output()).contains("pobi");
+            }
+        );
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 시도횟수에_대한_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java","j"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }

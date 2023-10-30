@@ -26,13 +26,13 @@ public class Game {
         }
     }
 
-    public boolean moveForwardAttempt(){
-        return Randoms.pickNumberInRange(0,9) >= FORWARD_THRESHOLD ;
+    public boolean moveForwardAttempt(Integer input){
+        return input >= FORWARD_THRESHOLD ;
     }
 
     public void moveForwardAttemptCars(){
         for(Car car: cars){
-            if(moveForwardAttempt()){
+            if(moveForwardAttempt(Randoms.pickNumberInRange(0,9))){
                 car.moveForward();
             }
         }
