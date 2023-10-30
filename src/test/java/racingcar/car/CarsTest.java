@@ -82,13 +82,13 @@ class CarsTest {
                 arguments("1,2번째 차량의 공동 우승", List.of(4, 7, 0), List.of(
                         new Car("a", 1),
                         new Car("ab", 1))),
-                arguments("1,3번째 차량의 공동 우승", List.of(5,1,6), List.of(
+                arguments("1,3번째 차량의 공동 우승", List.of(5, 1, 6), List.of(
                         new Car("a", 1),
                         new Car("abc", 1))),
-                arguments("2,3번째 차량의 공동 우승", List.of(1,6,9), List.of(
+                arguments("2,3번째 차량의 공동 우승", List.of(1, 6, 9), List.of(
                         new Car("ab", 1),
                         new Car("abc", 1))),
-                arguments("3개의 모든 차량이 공동 우승", List.of(7,8,9), List.of(
+                arguments("3개의 모든 차량이 공동 우승", List.of(7, 8, 9), List.of(
                         new Car("a", 1),
                         new Car("ab", 1),
                         new Car("abc", 1)))

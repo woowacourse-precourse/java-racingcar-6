@@ -1,6 +1,5 @@
 package racingcar.game;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
@@ -16,7 +15,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.game.InputProvider;
 
 class InputProviderTest {
     InputProvider inputProvider;
@@ -82,6 +80,7 @@ class InputProviderTest {
                 arguments("-1", "경주 횟수는 1 이상의 정수값만 가능합니다.")
         );
     }
+
     static Stream<Arguments> namesProvider() {
         return Stream.of(
                 arguments(" ", "입력값이 존재하지 않습니다."),

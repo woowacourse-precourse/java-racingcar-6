@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.car.Car;
 import racingcar.car.Cars;
-import racingcar.game.RaceResult;
 
 class RaceResultTest {
     RaceResult raceResult = new RaceResult();
