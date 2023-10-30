@@ -10,4 +10,12 @@ public class GameDto {
         this.gameId = gameId;
         this.playCount = playCount;
     }
+
+    public Long getGameId() {
+        return gameId;
+    }
+
+    public Integer getPlayCount() {
+        return playCount;
+    }
 }
