@@ -53,7 +53,7 @@ final class CarTest {
 
     @Test
     void 선두라면_true를_반환한다() {
-        Car car = new Car("wooteco");
+        Car car = new Car("name");
         int front = 2;
 
         car.move();
@@ -62,5 +62,13 @@ final class CarTest {
         assertTrue(car.isFront(front));
     }
 
+    @Test
+    void 선두가_아니라면_false를_반환한다() {
+        Car car = new Car("name");
+        int front = 2;
 
+        car.move();
+
+        assertFalse(car.isFront(front));
+    }
 }
