@@ -6,6 +6,7 @@ import java.util.List;
 public class Racing {
     private final static int MOVING_FORWARD = 4;
     private final static int FIRST_CAR_INDEX = 0;
+    private final static int SECOND_CAR_INDEX = 1;
 
     public List<Car> toCarList(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
@@ -22,22 +23,18 @@ public class Racing {
     }
 
     public void modifyForwardNum(List<Car> carList) {
-        for (Car car : carList) {
-            if (isMove(car)) {
-                car.increaseForwardNum();
-            }
-        }
+        carList.stream()
+                .filter(car -> isMove(car))
+                .forEach(car -> car.increaseForwardNum());
     }
 
     public List<String> findWinners(List<Car> carList) {
         List<String> winners = new ArrayList<>();
         int maxValue = findMaxValue(carList);
 
-        for (Car car : carList) {
-            if (car.getForwardNum() == maxValue) {
-                winners.add(car.getName());
-            }
-        }
+        carList.stream()
+                .filter(car -> car.getForwardNum() == maxValue)
+                .forEach(car -> winners.add(car.getName()));
 
         return winners;
     }
@@ -45,7 +42,7 @@ public class Racing {
     private int findMaxValue(List<Car> carList) {
         int maxValue = carList.get(FIRST_CAR_INDEX).getForwardNum();
 
-        for (int i = 1; i < carList.size(); i++) {
+        for (int i = SECOND_CAR_INDEX; i < carList.size(); i++) {
             if (maxValue < carList.get(i).getForwardNum()) {
                 maxValue = carList.get(i).getForwardNum();
             }
