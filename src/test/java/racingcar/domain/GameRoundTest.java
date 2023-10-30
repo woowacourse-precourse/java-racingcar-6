@@ -35,13 +35,34 @@ class GameRoundTest {
     }
 
     @Test
-    void increaseCurrentRound() {
+    @DisplayName("현재 라운드가 총 라운드 보다 작은 경우 increaseCurrentRound()는 true를 반환")
+    void increaseCurrentRound_현재_라운드_올라감_테스트() {
         // given
+        GameRound gameRound = new GameRound(5, 0);
+
         // when
+        Boolean result = gameRound.increaseCurrentRound();
+
         // then
+        assertEquals(true, result);
     }
 
     @Test
+    @DisplayName("현재 라운드가 총 라운드 보다 같은 경우 increaseCurrentRound()는 false를 반환")
+    void increaseCurrentRound_현재_라운드_올라가지_않음_테스트() {
+        // given
+        GameRound gameRound = new GameRound(5, 0);
+
+        // when
+        Boolean result = gameRound.increaseCurrentRound();
+
+        // then
+        assertEquals(false, result);
+    }
+
+
+    @Test
+    @DisplayName("현재 라운드가 총 라운드 보다 작은 경우 isLeftRound()는 true를 반환")
     void isLeftRound_남은_라운드_있음_테스트() {
         // given
         GameRound gameRound = new GameRound(5, 0);
@@ -54,6 +75,7 @@ class GameRoundTest {
     }
 
     @Test
+    @DisplayName("현재 라운드가 총 라운드 보다 같은 경우 isLeftRound()는 false를 반환")
     void isLeftRound_남은_라운드_없음_테스트() {
         // given
         GameRound gameRound = new GameRound(5, 0);
