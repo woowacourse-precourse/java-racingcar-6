@@ -48,24 +48,24 @@ class GameRankingTest {
     @ParameterizedTest
     @CsvSource(value = {"---:pobi", "--:woni", "-:jun"}, delimiter = ':')
     void getWinner(String score, String winner) {
-        RacingCar winnerRacingCar = new RacingCar(winner);
-        participants.put(winnerRacingCar, score);
-        GameRanking gameRanking = new GameRanking(participants);
+        GameRanking gameRanking = createSingleWinner(new RacingCar(winner), score);
         List<RacingCar> result = gameRanking.getWinner();
         Assertions.assertAll(
                 () -> assertThat(result.size()).isEqualTo(1),
-                () -> assertThat(result.get(0)).isEqualTo(winnerRacingCar)
+                () -> assertThat(result.get(0)).isEqualTo(new RacingCar(winner))
         );
+    }
+
+    private GameRanking createSingleWinner(RacingCar winner, String score) {
+        participants.put(winner, score);
+        return new GameRanking(participants);
     }
 
     @DisplayName("우승자가 여러명인 경우 누가 우승했는지 알 수 있다.")
     @ParameterizedTest
     @MethodSource("winnerData")
     void getMultipleWinner(String score, List<RacingCar> winners) {
-        for (RacingCar winner : winners) {
-            participants.put(winner, score);
-        }
-        GameRanking gameRanking = new GameRanking(participants);
+        GameRanking gameRanking = createMultipleWinner(winners, score);
         List<RacingCar> result = gameRanking.getWinner();
         Assertions.assertAll(
                 () -> assertThat(result.size()).isEqualTo(winners.size()),
@@ -73,11 +73,18 @@ class GameRankingTest {
         );
     }
 
+    private GameRanking createMultipleWinner(List<RacingCar> winners, String score) {
+        for (RacingCar winner : winners) {
+            participants.put(winner, score);
+        }
+        return new GameRanking(participants);
+    }
+
     static Stream<Arguments> winnerData() {
         return Stream.of(
                 arguments("---", Arrays.asList(new RacingCar("pobi"), new RacingCar("woni"))),
-                arguments("--", Arrays.asList(new RacingCar("pobi"), new RacingCar("jun")),
-                        arguments("---", Arrays.asList(new RacingCar("pobi"), new RacingCar("jun"), new RacingCar("woni")))
-                ));
+                arguments("--", Arrays.asList(new RacingCar("pobi"), new RacingCar("jun"))),
+                arguments("---", Arrays.asList(new RacingCar("pobi"), new RacingCar("jun"), new RacingCar("woni")))
+        );
     }
 }
