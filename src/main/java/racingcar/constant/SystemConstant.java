@@ -7,4 +7,5 @@ public class SystemConstant {
     public static final String SPACE = " ";
     public static final String COMMA = ",";
 
+    public static final String NUMBER_PATTERN = "^[1-9]\\d*$";
 }

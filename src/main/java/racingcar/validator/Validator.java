@@ -51,6 +51,8 @@ public class Validator {
     }
 
     public static void validateTotalTurnInput(String input) {
-
+        if (!Pattern.matches(NUMBER_PATTERN, input)){
+            throw new IllegalArgumentException(TOTAL_ROUND_INPUT_ERROR.getMessage());
+        }
     }
 }
