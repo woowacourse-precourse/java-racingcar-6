@@ -17,7 +17,7 @@ class CarTest {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(name));
 
         // then
-        assertThat(e.getMessage()).isEqualTo(ErrorMessage.CAR_NAME_LENGTH_OVER_ERR_MESSAGE);
+        assertThat(e.getMessage()).isEqualTo(ErrorMessage.CAR_NAME_LENGTH_OVER);
     }
 
     @Test
@@ -29,7 +29,7 @@ class CarTest {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> new Car(name));
 
         // then
-        assertThat(e.getMessage()).isEqualTo(ErrorMessage.CAR_NAME_BLANK_ERR_MESSAGE);
+        assertThat(e.getMessage()).isEqualTo(ErrorMessage.CAR_NAME_BLANK);
     }
 
 }

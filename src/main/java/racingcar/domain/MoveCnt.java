@@ -19,13 +19,13 @@ public class MoveCnt {
 
     public void validateMoveCnt(String str) {
         if (str.length() == 0 || str == null) { // null 또는 공백 입력할 경우 예외 발생
-            throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_BLANK_ERR_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_BLANK);
         }
         if (isNotNumber(str)) { // 숫자 아니면 예외 발생
-            throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_NOT_NUMBER_ERR_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_NOT_NUMBER);
         }
         if (Integer.parseInt(str) < 0) { // 음수이면 예외 발생
-            throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_NEGATIVE_ERR_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_NEGATIVE);
         }
     }
 
