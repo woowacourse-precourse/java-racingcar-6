@@ -22,6 +22,10 @@ public class CarList {
         }
     }
 
+    public List<Car> getCarList() {
+        return carList;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
