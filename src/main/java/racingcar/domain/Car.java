@@ -1,5 +1,10 @@
 package racingcar.domain;
 
+import static racingcar.domain.enums.Constants.MAX_NAME_LENGTH;
+import static racingcar.domain.enums.Constants.MIN_MOVE_THRESHOLD;
+import static racingcar.domain.enums.Constants.RANDOM_END_RANGE;
+import static racingcar.domain.enums.Constants.RANDOM_START_RANGE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
@@ -17,14 +22,14 @@ public class Car {
     }
 
     private void validateNameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
 
     public void moveWithRandomNumber() {
-        int num = Randoms.pickNumberInRange(0, 9);
-        if (num >= 4) {
+        int num = Randoms.pickNumberInRange(RANDOM_START_RANGE, RANDOM_END_RANGE);
+        if (num >= MIN_MOVE_THRESHOLD) {
             this.moveCount++;
         }
     }
