@@ -1,13 +1,11 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.view.OutputView;
 
 public enum CarRepository {
     INSTANCE;
-    private List<Car> carList = new ArrayList<Car>();
+    private final List<Car> carList = new ArrayList<Car>();
 
     public void addCar(List<String> nameList) {
         for(String name : nameList) {
@@ -15,11 +13,9 @@ public enum CarRepository {
         }
     }
 
-    public void go(int numberExcution) {
-        for(int i=0; i<numberExcution; i++) {
-            for(Car car : carList) {
-                car.go();
-            }
+    public void go() {
+        for(Car car : carList) {
+            car.go();
         }
     }
 
