@@ -4,16 +4,20 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;  //refactor final
-    private String position;
+    private String positionString;
+    private int positionInt;
 
     public Car(String name) {
         this.name = name;
-        position = "";
+        positionString = "";
+        positionInt = 0;
+
     }
 
     public void move(int randomNum) {
         if (randomNum >= 4) {
-            position += "-";
+            positionString += "-";
+            positionInt += 1;
         }
     }
 
@@ -21,7 +25,11 @@ public class Car {
         return name;
     }
 
-    public String getPosition() {
-        return position;
+    public String getPositionString() {
+        return positionString;
+    }
+
+    public int getPositionInt() {
+        return positionInt;
     }
 }
