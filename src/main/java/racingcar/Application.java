@@ -8,5 +8,6 @@ public class Application {
         racingGame.InputTryNumber();
         racingGame.SetAnswerList();
         racingGame.GamePlay();
+        racingGame.CheckWinner();
     }
 }

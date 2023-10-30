@@ -49,5 +49,21 @@ public class RacingGame {
         }
 
     }
+    public void CheckWinner(){
+        int checkSize = 0;
+        for(String s : answerList){
+            if(s.length() > checkSize)
+                checkSize = s.length();
+        }
+        String answer = "최종 우승자 : ";
+        for(int i=0; i<answerList.size(); i++){
+            if(answerList.get(i).length() == checkSize){
+                answer += carNameList[i]+", ";
+            }
+        }
+        System.out.println(answer);
+
+    }
+
 
 }
