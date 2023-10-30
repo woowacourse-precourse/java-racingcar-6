@@ -6,6 +6,7 @@ import static racingcar.view.InputView.getCarNamesFromPlayer;
 import static racingcar.view.InputView.getNumberOfRoundsFromPlayer;
 
 import racingcar.model.Cars;
+import racingcar.view.OutputView;
 
 public class RacingCarGame {
 
@@ -22,12 +23,9 @@ public class RacingCarGame {
 
     for (int i = 0; i < numberOfRounds; i++) {
       cars.playRacingGame();
+      OutputView.printRoundResult(cars);
     }
 
-    printRacingCarGameWinner(cars);
-  }
-
-  private void printRacingCarGameWinner(Cars cars) {
-
+    OutputView.printRacingCarGameWinner(cars);
   }
 }
