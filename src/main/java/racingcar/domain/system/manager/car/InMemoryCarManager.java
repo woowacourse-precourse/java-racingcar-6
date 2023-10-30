@@ -21,6 +21,7 @@ public class InMemoryCarManager implements CarManager {
     private final Map<CarKey, SavedCar> cars = new TreeMap<>();
 
 
+    @Override
     public SavedCar save(Car car) {
         validate(car);
         CarKey key = CarKey.of(car.getCarName());
@@ -41,11 +42,13 @@ public class InMemoryCarManager implements CarManager {
             });
     }
 
+    @Override
     public List<SavedCar> saveAll(List<Car> cars) {
         return cars.stream().map(this::save).sorted(Comparator.comparing(SavedCar::getKey))
             .collect(Collectors.toList());
     }
 
+    @Override
     public SavedCar findByName(CarName carName) {
         return cars.values().stream().filter(carNameFilter(carName)).findAny()
             .orElseThrow(NotFoundSourceException::new);
@@ -55,7 +58,18 @@ public class InMemoryCarManager implements CarManager {
         return car -> car.getName().equals(carName.getName());
     }
 
+    @Override
     public List<SavedCar> findAll() {
         return cars.values().stream().toList();
+    }
+
+    @Override
+    public List<SavedCar> findAll(List<CarKey> keys) {
+        List<SavedCar> savedCars = new ArrayList<>();
+        for (CarKey key : keys) {
+            SavedCar car = cars.get(key);
+            savedCars.add(car);
+        }
+        return savedCars;
     }
 }
