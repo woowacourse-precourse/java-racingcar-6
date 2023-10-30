@@ -97,3 +97,10 @@ application 구현
 - race 실행
 
 추후 리팩토링 필요
+--------
+4회차
+리팩토링 완료
+input class 주석 내용 다른 함수로 기능 분산 시키기
+racing class victory 가 무슨 기능을 하는지 정확히 의미를 내포하고 있지않아
+MakeVictoryList로 이름 변경.
+MaxDistance, MaxDistanceCar 로 MakeVictoryList 기능을 분산

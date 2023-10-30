@@ -32,10 +32,14 @@ public class Racing {
         int randomCount;
         for(Car car : GetCarList()){
             randomCount = Randoms.pickNumberInRange(0,9);
-            if(randomCount >= 4){
-                car.PlusDistance(1);
-            }
+            MovePossible(randomCount,car);
             System.out.println(car.toString());
+        }
+    }
+
+    void MovePossible(int num, Car car){
+        if(num >= 4){
+            car.PlusDistance(1);
         }
     }
 
@@ -47,27 +51,39 @@ public class Racing {
             Move();
             System.out.println("");
         }
-        Output.VictoryText(Victory());
+        Output.VictoryText(MakeVictoryList());
     }
 
 
-    ArrayList<String> Victory(){
-        int maxValue = 0;
+    ArrayList<String> MakeVictoryList(){
+        int maxDistance;
+        ArrayList<String> result;
+        maxDistance = MaxDistance(GetCarList());
+        result = MaxDistanceCar(GetCarList(),maxDistance);
+        return result;
+    }
+
+    int MaxDistance(ArrayList<Car> carList){
+        int maxDistance = 0;
         int distance;
-        ArrayList<String> result = new ArrayList<>();
-        for(Car car : GetCarList()){
+        for(Car car : carList){
             distance = car.GetDistance();
-            if(maxValue < distance){
-                maxValue = distance;
+            if(maxDistance < distance){
+                maxDistance = distance;
             }
         }
-
-        for(Car car : GetCarList()) {
+        return maxDistance;
+    }
+    ArrayList<String> MaxDistanceCar(ArrayList<Car> carList,int maxDistance){
+        ArrayList<String> result = new ArrayList<>();
+        int distance;
+        for(Car car : carList) {
             distance = car.GetDistance();
-            if (maxValue == distance) {
+            if (maxDistance == distance) {
                 result.add(car.GetName());
             }
         }
         return result;
     }
+
 }
