@@ -66,6 +66,12 @@ public class Validator {
         }
     }
 
+    public void checkTryNum(int tryNum) {
+        if (!isTryNumPositiveNum(tryNum)) {
+            throw new IllegalArgumentException("시도 횟수가 옳바르지 않습니다. 양수로 입력해주세요.");
+        }
+    }
+
     private boolean isTryNumPositiveNum(int tryNum) {
         return tryNum > 0;
     }
