@@ -23,4 +23,12 @@ class ValidatorTest {
             validator.validationCarName("ABC,DEF,");
         });
     }
+
+    @Test
+    @DisplayName("숫자 이외의 값 입력 테스트")
+    void validationTrialNumberTest() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            validator.validationTrialNumber("A");
+        });
+    }
 }
