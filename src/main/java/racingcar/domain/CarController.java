@@ -1,23 +1,26 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class CarController {
-    private final List<Car> carList;
+    private Cars cars;
 
     private int moveChance;
 
-    public CarController(CarFactory carFactory, int moveChance) {
-        this.carList = carFactory.getCarList();
+
+    public void setStatus(Cars cars, int moveChance) {
+        this.cars = cars;
         this.moveChance = moveChance;
     }
 
     public void moveCars() {
-        carList.forEach(Car::move);
+        cars.move();
         moveChance--;
     }
 
     public boolean checkMoveChance() {
         return moveChance != 0;
+    }
+
+    public String findWinner() {
+        return cars.findWinner();
     }
 }

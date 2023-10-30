@@ -1,19 +1,14 @@
 package racingcar.domain;
 
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toList;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CarFactory {
-
-    private List<Car> carList;
-
-    public void produceCars(List<String> carNameList) {
-        carList = carNameList.stream()
+    public Cars produceCars(List<String> carNameList) {
+        return carNameList.stream()
                 .map(Car::new)
-                .collect(Collectors.toList());
-    }
-
-    public List<Car> getCarList() {
-        return carList;
+                .collect(collectingAndThen(toList(), Cars::new));
     }
 }
