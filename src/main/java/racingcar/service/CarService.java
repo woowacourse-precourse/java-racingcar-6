@@ -18,14 +18,19 @@ public class CarService {
     public void moveForwards(List<Car> carList) {
         for(int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
-            car.modifyRandomNum();
             car.moveForward();
         }
     }
+    public void moveForwards(List<Car> carList, int power) {
+        for(int i = 0; i < carList.size(); i++) {
+            Car car = carList.get(i);
+            car.moveForward(power);
+        }
+    }
 
-    public void displayForwardCounts(List<Car> carList) {
+    public void displayPositions(List<Car> carList) {
         for (Car car : carList) {
-            car.displayMoveCount();
+            car.displayPosition();
         }
     }
 }

@@ -3,36 +3,40 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private final int MIN_POWER = 0;
+    private final int MAX_POWER = 9;
+
     private final String name;
-    private int moveCount = 0;
-    public int randomNum = Randoms.pickNumberInRange(0,9);
+    private int Position = 0;
 
     public Car(String name) {
         this.name = name;
     }
 
-    public int getForwardCount() {
-        return moveCount;
+    public int getPosition() {
+        return Position;
     }
 
     public String getName() {
         return name;
     }
 
-    public void modifyRandomNum() {
-        randomNum = Randoms.pickNumberInRange(0,9);
-    }
     public int moveForward() {
-        if(randomNum > 3) {
-            moveCount++;
-        }
-        return moveCount;
+        return moveForward(Randoms.pickNumberInRange(MIN_POWER, MAX_POWER));
     }
 
-    public void displayMoveCount() {
-        System.out.print(name + " : ");
-        for (int i = 0; i < moveCount; i++) {
-            System.out.print("-");
+    public int moveForward(int power) {
+        if(power > 3) {
+            Position++;
         }
+        return Position;
+    }
+
+    public void displayPosition() {
+        String positionStr = "";
+        for (int i = 0; i < Position; i++) {
+            positionStr += "-";
+        }
+        System.out.println(name + " : " + positionStr);
     }
 }
