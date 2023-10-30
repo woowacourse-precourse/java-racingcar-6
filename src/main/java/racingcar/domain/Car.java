@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.common.util.OutputMessage;
 import racingcar.common.util.StatusEnum;
 
 public class Car {
@@ -16,7 +17,8 @@ public class Car {
 
     private String validationLimitLength(String carName) {
         if (carName.length() > CAR_NAME_LIMIT) {
-            throw new IllegalArgumentException("자동차 이름은 5글자 이하로 입력해 주세요.");
+            throw new IllegalArgumentException(OutputMessage.VALIDATE_LIMIT_NAME
+                    .getMessage());
         }
         return carName;
     }

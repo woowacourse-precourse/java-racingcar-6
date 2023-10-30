@@ -5,7 +5,8 @@ public enum OutputMessage {
     TRY_NUMBER("시도할 회수는 몇회인가요?"),
     RESULT("실행 결과"),
     FINISH("최종 우승자 : "),
-    VALIDATE_NOT_NUMBER("입력된 문자열에 숫자 이외의 문자가 포함되어 있습니다.");
+    VALIDATE_NOT_NUMBER("입력된 문자열에 숫자 이외의 문자가 포함되어 있습니다."),
+    VALIDATE_LIMIT_NAME("자동차 이름은 5글자 이하로 입력해 주세요.");
 
     private final String message;
 
