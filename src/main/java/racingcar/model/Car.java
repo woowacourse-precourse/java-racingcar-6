@@ -16,15 +16,15 @@ public class Car {
         this.currentLocation = new ArrayList<>();
     }
 
-    public int forwardCount() {
-        return this.currentLocation.size();
-    }
-
     public void forwardCar() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (randomNumber >= 4) {
             currentLocation.add("-");
         }
+    }
+
+    public int forwardCount() {
+        return this.currentLocation.size();
     }
 
     public void validateNameLength(String name) {

@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 
@@ -20,5 +21,9 @@ public class GameView {
 
     public void printResult(Cars cars) {
         System.out.println(cars);
+    }
+
+    public void printWinner(List<Car> cars) {
+        System.out.println("최종 우승자 : " + cars);
     }
 }

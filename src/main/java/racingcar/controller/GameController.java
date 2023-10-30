@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.GameModel;
 import racingcar.view.GameView;
 
@@ -10,10 +10,13 @@ public class GameController {
 
     public void gameStart() {
         this.gameView = new GameView();
+        this.gameModel = new GameModel();
         String[] carsName = gameView.inputCarsName();
         int numberGames = gameView.inputNumberGames();
-        this.gameModel = new GameModel();
         gameModel.initGame(carsName, numberGames);
-        gameView.printResult(gameModel.progressGame());
+        for (int i = 0; i < numberGames; i++) {
+            gameView.printResult(gameModel.progressGame());
+        }
+//        gameView.printWinner(gameModel.getWinner());
     }
 }

@@ -9,11 +9,14 @@ public class GameModel {
     private Cars carList;
     private int numberGames;
 
-    public Cars progressGame(){
-        for (int i = 0 ; i < numberGames ; i++){
-            carList.allCarsForward();
-        }
+    public Cars progressGame() {
+        carList.allCarsForward();
         return this.carList;
+    }
+
+    public Cars getWinner() { // 이것만 하면 끝난다.
+        List<Car> winnerCars = new ArrayList<>();
+        return new Cars(winnerCars);
     }
 
     public void validateNumberGames(int numberGames) {
