@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import racingcar.message.ErrorMessage;
+import racingcar.message.ExceptionMessage;
 
 import java.util.regex.Pattern;
 
@@ -9,7 +9,7 @@ public class InputValidator {
 
     public void validateIsDigit(String number) {
         if (!Pattern.matches(REGEX, number)) {
-            throw new IllegalArgumentException(ErrorMessage.IS_NOT_DIGIT.toString());
+            throw new IllegalArgumentException(ExceptionMessage.IS_NOT_DIGIT.toString());
         }
     }
 }

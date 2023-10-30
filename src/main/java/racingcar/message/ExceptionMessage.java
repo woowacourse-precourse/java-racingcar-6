@@ -1,13 +1,13 @@
 package racingcar.message;
 
-public enum ErrorMessage {
+public enum ExceptionMessage {
     OVER_FIVE_LENGTH("자동차 이름은 5자 이하만 가능합니다."),
     IS_NOT_DIGIT("시도 횟수는 숫자만 입력 가능합니다."),
     IS_DUPLICATE("자동차 이름은 중복이 없어야 합니다.");
 
     private final String message;
 
-    ErrorMessage(String message) {
+    ExceptionMessage(String message) {
         this.message = message;
     }
 

@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.message.ErrorMessage;
+import racingcar.message.ExceptionMessage;
 
 public class Car {
     private static final int START_INCLUSIVE = 0;
@@ -20,7 +20,7 @@ public class Car {
 
     private void validateNameLength(String name) {
         if(name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessage.OVER_FIVE_LENGTH.toString());
+            throw new IllegalArgumentException(ExceptionMessage.OVER_FIVE_LENGTH.toString());
         }
     }
 

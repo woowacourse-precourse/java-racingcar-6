@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.message.ErrorMessage;
+import racingcar.message.ExceptionMessage;
 import racingcar.message.ProcessMessage;
 
 import java.util.List;
@@ -15,7 +15,7 @@ public class Cars {
 
     private void validateIsDuplicate(List<Car> values) {
         if(values.size() != values.stream().map(Car::getName).distinct().count()){
-            throw new IllegalArgumentException(ErrorMessage.IS_DUPLICATE.toString());
+            throw new IllegalArgumentException(ExceptionMessage.IS_DUPLICATE.toString());
         }
     }
 
