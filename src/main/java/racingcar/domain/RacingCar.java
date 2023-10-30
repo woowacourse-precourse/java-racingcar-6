@@ -29,4 +29,12 @@ public class RacingCar {
         return "-".repeat(Math.max(0, position));
     }
 
+    public int getPosition() {
+        return position;
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
 }
