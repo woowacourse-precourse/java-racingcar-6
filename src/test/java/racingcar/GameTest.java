@@ -15,21 +15,17 @@ class GameTest {
     void playGame() {
     }
 
-    @DisplayName("우승자를 출력")
-    @Test
-    void printWinner() {
-    }
-
     @DisplayName("가장 멀리 전진한 자동차 찾기")
     @Test
     void findWinner() {
         //given
+        Game game = new Game();
         List<User> users = new ArrayList<>();
         users.add(new User("abc", 3));
         users.add(new User("qwer", 5));
 
         //when
-        int max = Game.findWinner(users);
+        int max = game.findWinner(users);
 
         //then
         assertThat(max).isEqualTo(5);
@@ -39,21 +35,30 @@ class GameTest {
     @Test
     void randomNumber() {
         //given
-        int number = 0;
+        Game game = new Game();
 
         //when
-        number = Game.randomNumber();
+        int number = game.randomNumber();
 
         //then
         assertThat(number).isBetween(0, 9);
     }
 
-    @DisplayName("")
+    @DisplayName("무작위 값이 4보다 크면 전진")
     @Test
     void moveForward() {
+        //given
+        Game game = new Game();
+        User a = new User("a", 4);
+        User b = new User("b", 6);
+
+        //when
+        game.moveForward(3, a);
+        game.moveForward(7, b);
+
+        //then
+        assertThat(a.length).isEqualTo(4);
+        assertThat(b.length).isEqualTo(7);
     }
 
-    @Test
-    void printRacing() {
-    }
 }
