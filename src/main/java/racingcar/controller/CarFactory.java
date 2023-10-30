@@ -15,6 +15,7 @@ public class CarFactory {
         List<Car> cars = new ArrayList<>();
 
         for (String carName : carNames) {
+            if (carName.length() >= 6) throw new IllegalArgumentException("이름은 5자 이하만 가능하다.");
             Car car = new Car(carName);
             cars.add(car);
         }
