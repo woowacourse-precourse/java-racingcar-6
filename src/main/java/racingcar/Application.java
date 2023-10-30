@@ -102,7 +102,7 @@ public class Application {
                 nameList.add(e.getName());
             }
         }
-        String finalWinner = String.join(",",nameList);
+        String finalWinner = String.join(", ",nameList);
         System.out.printf("최종 우승자 : " + finalWinner);
     }
 
