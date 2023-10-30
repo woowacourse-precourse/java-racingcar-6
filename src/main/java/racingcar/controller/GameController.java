@@ -2,37 +2,37 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.Car;
-//import racingcar.util.Parser;
-import racingcar.domain.CarName;
-import racingcar.domain.CarPosition;
+import racingcar.domain.Cars;
+import racingcar.service.GameService;
 import racingcar.util.Parser;
 import racingcar.view.InputView;
 
 public class GameController {
+    private final GameService gameService;
 
-    private List<Car> cars;
+    public GameController() {
+        gameService = new GameService();
+    }
 
     public void run() {
         InputView.printStart();
 
         String input = InputView.getUserInput();
-        cars = Parser.parseStringToCars(input);
+        Cars cars = Parser.parseStringToCars(input);
 
+        InputView.printAsking();
         int attempts = Integer.parseInt(InputView.getUserInput());
 
         InputView.printResult();
-
         System.out.println("attempts: " + attempts);
-        for (Car car : cars) {
-            CarName name = car.getName();
-            CarPosition position = car.getPosition();
+        List<Car> carList = cars.getCars();
 
-            String carName = name.getName();
-            int carPosition = position.getPosition();
-
-            System.out.println("carName: " + carName);
-            System.out.println("carPosition: " + carPosition);
+        for (Car car : carList) {
+            System.out.println("Car Name: " + car.getName().getName());
+            System.out.println("Car Position: " + car.getPosition().getPosition());
         }
+
+        System.out.println(gameService.getRandomNumber());
 
     }
 

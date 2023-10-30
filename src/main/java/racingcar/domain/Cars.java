@@ -6,10 +6,10 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
-//        validate();
         this.cars = cars;
     }
 
-
-
+    public List<Car> getCars() {
+        return cars;
+    }
 }
