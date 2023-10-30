@@ -3,6 +3,7 @@ package racingcar.validation;
 import racingcar.property.ValidateType;
 
 import static racingcar.validation.NameValidation.*;
+import static racingcar.validation.ScoreValidation.*;
 
 public class ValidateForm {
 
@@ -16,6 +17,8 @@ public class ValidateForm {
             verifyForRacerNameList(inputValue);
             return;
         }
+
+        verifyForTargetScore(inputValue);
     }
 
     private static void verifyForRacerName(String inputValue){
@@ -27,5 +30,12 @@ public class ValidateForm {
 
     private static void verifyForRacerNameList(String racerNameList){
         verifyForRacerNameIsDuplicate(racerNameList);
+    }
+
+    private static void verifyForTargetScore(String targetScore){
+        verifyForEmptyValue(targetScore);
+        verifyForSpaceValue(targetScore);
+        verifyForScoreIsNumericValue(targetScore);
+        verifyForScoreIsOverStandard(targetScore);
     }
 }
