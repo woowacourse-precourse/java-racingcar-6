@@ -8,6 +8,7 @@ import java.util.List;
 public class Game {
 
     private List<Car> carList;
+    private Integer moveNumber;
 
     public Game() {
         carList = new ArrayList<>();
@@ -17,6 +18,11 @@ public class Game {
         alertEnterCarName();
         saveCarName();
         alertEnterMoveNumber();
+        saveMoveNumber();
+        while (moveNumber > 0) {
+            race();
+            moveNumber--;
+        }
     }
 
     private void alertEnterCarName() {
@@ -41,6 +47,20 @@ public class Game {
 
     private void alertEnterMoveNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    private void saveMoveNumber() {
+        String readLine = Console.readLine();
+        try {
+            moveNumber = Integer.parseInt(readLine);
+        }
+        catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+
+        if (moveNumber <= 0) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void race() {
