@@ -1,18 +1,24 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarList {
 
-    private List<Car> carList;
+    private final List<Car> carList;
 
-    public List<Car> getCarList(){
+    
+    public CarList() {
+        this.carList = new ArrayList<>();
+    }
+
+    public List<Car> getCarList() {
         return carList;
     }
 
-    public void addCarList(Car car){
-        carList.add(car);
+    public void addCarList(Car car) {
+        this.carList.add(car);
     }
 
     public int getRacingCarWinnerLocation() {
@@ -22,7 +28,7 @@ public class CarList {
                 .getAsInt();
     }
 
-    public List<String> getRacingCarWinnerName(int winnerLocation){
+    public List<String> getRacingCarWinnerName(int winnerLocation) {
         return carList.stream()
                 .filter(car -> car.getLocation() == winnerLocation)
                 .map(car -> car.getName())
