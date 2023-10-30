@@ -14,7 +14,7 @@ public class RacingCarsTest {
     @ParameterizedTest
     @MethodSource("provideCarsForException")
     void 자동차의_개수가_2대_이상이_아니라면_예외를_발생시킨다(List<Car> cars) {
-        assertThatThrownBy(() -> RacingCars.validateCarCount(cars))
+        assertThatThrownBy(() -> new RacingCars(cars))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error: 자동차의 개수는 2대 이상이어야 합니다.");
     }
@@ -22,7 +22,7 @@ public class RacingCarsTest {
     @ParameterizedTest
     @MethodSource("provideCarsForNotException")
     void 자동차의_개수는_2대_이상이어야_한다(List<Car> cars) {
-        assertThatCode(() -> RacingCars.validateCarCount(cars))
+        assertThatCode(() -> new RacingCars(cars))
                 .doesNotThrowAnyException();
     }
 

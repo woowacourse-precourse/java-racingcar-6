@@ -15,7 +15,7 @@ public final class RacingCars {
         this.racingCars = new ArrayList<>(racingCars);
     }
 
-    public static void validateCarCount(List<Car> cars) {
+    private void validateCarCount(List<Car> cars) {
         if (cars.size() < MIN_CAR_COUNT) {
             throw new IllegalArgumentException(CAR_COUNT_EXCEPTION_MESSAGE);
         }
