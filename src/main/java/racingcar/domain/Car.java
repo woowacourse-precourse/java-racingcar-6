@@ -1,7 +1,8 @@
 package racingcar.domain;
 
+import racingcar.constant.Rule;
+
 public class Car {
-	private static final int MOVE_STANDARD = 4;
 	private final String name;
 	private Position position;
 
@@ -21,7 +22,7 @@ public class Car {
 	}
 
 	private boolean isMovable (int number) {
-		return number >= MOVE_STANDARD;
+		return number >= Rule.MOVE_STANDARD;
 	}
 
 	public String getName() {

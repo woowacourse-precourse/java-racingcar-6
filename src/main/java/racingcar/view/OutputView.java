@@ -1,15 +1,12 @@
 package racingcar.view;
 
+import racingcar.constant.View;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCar;
 
 public class OutputView {
-	private static final String RESULT_MESSAGE = "실행 결과";
-	private static final String BAR = "-";
-	private static final String EACH_RESULT = "%s : %s";
-
 	public static void printResultMessage() {
-		System.out.println(RESULT_MESSAGE);
+		System.out.println(View.RESULT_MESSAGE);
 	}
 
 	public static void printResult(RacingCar racingCar) {
@@ -21,10 +18,10 @@ public class OutputView {
 	}
 
 	private static void printEach(Car car) {
-		System.out.println(String.format(EACH_RESULT, car.getName(), convertToBar(car.getCurrentPosition())));
+		System.out.println(String.format(View.EACH_RESULT, car.getName(), convertToBar(car.getCurrentPosition())));
 	}
 
 	private static String convertToBar(int position) {
-		return BAR.repeat(position);
+		return View.BAR.repeat(position);
 	}
 }

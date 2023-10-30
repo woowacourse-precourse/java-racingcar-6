@@ -1,7 +1,8 @@
 package racingcar.domain;
 
+import racingcar.constant.Rule;
+
 public class Position {
-	private final int MOVE_SIZE = 1;
 	private Integer position;
 
 	public Position() {
@@ -9,7 +10,7 @@ public class Position {
 	}
 
 	protected void move() {
-		position += MOVE_SIZE;
+		position += Rule.MOVE_SIZE;
 	}
 
 	protected int getPosition() {
