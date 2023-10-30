@@ -9,10 +9,10 @@ public class Car {
     private int position;
 
     public Car(String carName) {
+        isCarNameNull(carName);
+        isCarNameBlank(carName);
         isCarNameLengthOver(carName);
         isNotAlphaBetAndComma(carName);
-        isCarNameBlank(carName);
-        isCarNameNull(carName);
         this.carName = carName;
         this.position = 0;
     }
