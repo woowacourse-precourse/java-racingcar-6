@@ -1,18 +1,24 @@
 package racingcar.domain;
 
 public class RacingCar {
-
     private int id;
     private String name;
     private int distance;
 
-    public void car(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public String getCarName(int id) {
+        return this.name;
     }
 
-    public void moving(int forward) {
+    public int getDistance(int id) {
+        return this.distance;
+    }
+
+    public void moving(int id, int forward) {
         distance += forward;
     }
 
+    public void carDataSave(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

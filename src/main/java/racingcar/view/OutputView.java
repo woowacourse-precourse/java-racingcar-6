@@ -19,5 +19,8 @@ public class OutputView {
     public static void lastWinnerView() {
         System.out.println(FINAL_WINNER);
     }
+    public static void blankLine() {
+        System.out.println();
+    }
 
 }
