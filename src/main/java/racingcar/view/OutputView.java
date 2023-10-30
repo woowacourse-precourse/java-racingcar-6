@@ -11,4 +11,12 @@ public class OutputView {
     public static void printTryMessage() {
         System.out.println(TRY_MESSAGE);
     }
+
+    public static void printShowResultString() {
+        System.out.println("실행 결과");
+    }
+
+    public static void printShowWinnerString() {
+        System.out.print("최종 우승자 : ");
+    }
 }

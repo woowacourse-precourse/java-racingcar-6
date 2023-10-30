@@ -7,5 +7,11 @@ public class Game {
     public void start() {
         OutputView.printStartMessage();
         InputView.getRacingCars();
+
+        OutputView.printTryMessage();
+        InputView.getTryNumber();
+
+        OutputView.printShowResultString();
     }
+
 }
