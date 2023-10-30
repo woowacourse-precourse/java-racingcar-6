@@ -4,6 +4,8 @@ import java.util.List;
 import racingcar.dto.Car;
 import racingcar.repository.CarRepository;
 
+import static racingcar.exception.InputException.existsNameException;
+
 public class CarInfo {
     private static final CarRepository carRepository = CarRepository.getInstance();
     private static final CarInfo instance = new CarInfo();
@@ -13,6 +15,13 @@ public class CarInfo {
     }
 
     public void saveCarInfo(Car car) {
+        if (carRepository.hasName(car.name())) {
+            existsNameException();
+        }
+        carRepository.saveCar(car);
+    }
+
+    public void updateCarInfo(Car car) {
         carRepository.saveCar(car);
     }
 

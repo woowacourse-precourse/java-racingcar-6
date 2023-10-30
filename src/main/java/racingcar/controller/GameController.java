@@ -11,18 +11,25 @@ import racingcar.view.InputVeiw;
 import racingcar.view.OutputView;
 
 public class GameController {
-    private static final InputVeiw inputView = new InputVeiw();
     private static final CarInfo carInfo = CarInfo.getInstance();
-
     private int MAX_CAR_NUMBER;
     private int MAX_ROUND;
     private final int ZERO = 0;
 
     public void run() {
-        getCarNameInput(inputView.inputCarName());
-        getTotalRoundInput(inputView.inputRoundNumber());
+        OutputView.printInputMessageCarInfo();
+        getCarNameInput(InputVeiw.inputCarNameList());
+
+        OutputView.printInputMessageTotalRound();
+        getTotalRoundInput(InputVeiw.inputRoundNumber());
+
+        OutputView.printBlankLine(1);
+        OutputView.printOutputMessageResult();
 
         startGame();
+
+        GameWinnerFinder gameWinnerFinder = new GameWinnerFinder(carInfo.getAllCarInfo());
+        OutputView.printGameWinner(gameWinnerFinder.findWinner());
     }
 
     private void getCarNameInput(List<String> carList) {
@@ -42,9 +49,7 @@ public class GameController {
         while (gameRound.getCurrentRound() < MAX_ROUND) {
             gameRound.passRound();
             gameRound.startRound();
+            OutputView.printBlankLine(1);
         }
-        
-        GameWinnerFinder gameWinnerFinder = new GameWinnerFinder(carInfo.getAllCarInfo());
-        OutputView.printGameWinner(gameWinnerFinder.findWinner());
     }
 }

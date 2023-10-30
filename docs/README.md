@@ -33,7 +33,8 @@
     * 조건 충족 체크
 
 * 뷰
-  * 사용자는 몇 번의 이동을 할 것인지를 입력한다.   
-    **=> inputView.inputMovingCount**  
+  * 입력: 자동차의 이름 -> 예외발생) 빈값, 5자 이하
+  * 입력: 몇 번 의 이동을 할 것인지를 입력한다.   
+    **=> inputView.inputMovingCount** -> 예외발생) 숫자가 아닌값, 빈값, 숫자범위를 벗어난 값  
   * 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다.   
-    **=> outView.printWinner()**  
+    **=> outView.printWinner()** 

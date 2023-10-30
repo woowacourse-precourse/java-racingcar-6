@@ -21,7 +21,6 @@ public class GameRound {
         carInfo.getAllCarInfo().stream()
                 .map(currentCar -> (new CarMovement(currentCar)).car())
                 .forEach(OutputView::printStatusOfRaceCar);
-        System.out.println();
     }
 
     public int getCurrentRound() {
