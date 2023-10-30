@@ -11,4 +11,8 @@ public class Position {
 	protected void move() {
 		position+=MOVE_SIZE;
 	}
+
+	protected int getPosition() {
+		return position;
+	}
 }

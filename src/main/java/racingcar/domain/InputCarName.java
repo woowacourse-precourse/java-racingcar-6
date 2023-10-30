@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import static racingcar.error.Error.INVALID_CARNAME_LENGTH;
-
 import java.util.Arrays;
 import java.util.List;
 

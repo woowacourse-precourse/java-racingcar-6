@@ -1,28 +1,33 @@
 package racingcar.controller;
 
-import java.util.List;
-
-import org.junit.platform.commons.function.Try;
-
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
 import racingcar.domain.InputCarName;
 import racingcar.domain.RacingCar;
-import racingcar.domain.RandomNumberFactory;
 import racingcar.domain.TryNumber;
 import racingcar.service.Service;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Controller {
 	private RacingCar racingCar;
 	private TryNumber tryNumber;
 	private Service service;
 
+	public Controller() {
+		this.service = new Service();
+	}
+
 	public void run() {
 		setGame();
+		OutputView.printResultMessage();
 		do {
 			service.tryOnce(racingCar, tryNumber);
+			printResult();
 		} while(isTryable());
+	}
+
+	private void printResult() {
+		OutputView.printTryResult(racingCar.getRacingCar());
 	}
 
 	private boolean isTryable() {
@@ -46,5 +51,6 @@ public class Controller {
 	private void setTryNumber() {
 		InputView.askTryNumber();
 		this.tryNumber = new TryNumber(Console.readLine());
+		System.out.println();
 	}
 }
