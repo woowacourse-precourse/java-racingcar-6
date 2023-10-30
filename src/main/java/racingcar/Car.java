@@ -18,7 +18,6 @@ public class Car implements Comparable<Car> {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             this.position += 1;
         }
-
     }
 
     @Override
@@ -43,11 +42,11 @@ public class Car implements Comparable<Car> {
         return Objects.hash(carName, position);
     }
 
-    public String getStatusMessage() {
-        return carName.getName() + " : " + "-".repeat(position);
-    }
-
     public String getCarName() {
         return carName.getName();
+    }
+
+    public Integer getPosition() {
+        return position;
     }
 }

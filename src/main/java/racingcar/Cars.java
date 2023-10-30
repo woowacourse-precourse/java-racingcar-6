@@ -1,6 +1,8 @@
 package racingcar;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -39,14 +41,15 @@ public class Cars {
     }
 
 
-    public void goForward(int attemptCount) {
-        for (int i = 0; i < attemptCount; i++) {
-            cars.forEach(car -> {
-                car.goForward();
-                System.out.println(car.getStatusMessage());
-            });
-            System.out.println();
-        }
+    public Map<String, Integer> goForward() {
+        Map<String, Integer> status = new LinkedHashMap<>();
+        
+        cars.forEach(car -> {
+            car.goForward();
+            status.put(car.getCarName(), car.getPosition());
+        });
+
+        return status;
     }
 
     public List<String> getWinningCarNames() {

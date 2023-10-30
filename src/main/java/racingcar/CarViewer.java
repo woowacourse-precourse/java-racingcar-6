@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 public class CarViewer {
 
@@ -18,7 +18,6 @@ public class CarViewer {
     static {
         GUIDE_NAME_DIVIED = "(이름은 쉼표(" + INPUT_NAME_DELIMITER + ") 기준으로 구분)";
     }
-
 
 
     private CarViewer() {
@@ -56,5 +55,11 @@ public class CarViewer {
     public void outputWinner(List<String> winningCarNames) {
         String result = String.join(", ", winningCarNames);
         System.out.println("최종 우승자 : " + result);
+    }
+
+    public void outputStatus(Map<String, Integer> status) {
+        for (String carName : status.keySet()) {
+            System.out.println(carName + " : " + "-".repeat(status.get(carName)));
+        }
     }
 }

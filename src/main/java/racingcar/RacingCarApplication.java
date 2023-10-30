@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import java.util.Map;
 
 public class RacingCarApplication {
     private final CarViewer carViewer;
@@ -19,7 +20,13 @@ public class RacingCarApplication {
 
         carViewer.outputExecute();
 
-        cars.goForward(attemptCount);
+        for (int i = 0; i < attemptCount; i++) {
+            Map<String, Integer> status = cars.goForward();
+
+            carViewer.outputStatus(status);
+        }
+
+
 
 
         carViewer.outputWinner(cars.getWinningCarNames());
