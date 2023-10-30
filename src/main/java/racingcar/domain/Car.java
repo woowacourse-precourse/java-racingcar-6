@@ -18,6 +18,7 @@ public class Car {
 
     private void validateName(String name) {
         validateLength(name);
+        validateCharacters(name);
     }
 
     private void validateLength(String name) {
@@ -28,5 +29,15 @@ public class Car {
 
     private boolean isLengthExceeded(String name) {
         return name.length() > MAX_LENGTH_OF_NUMBER.getValue();
+    }
+
+    private void validateCharacters(String name) {
+        if (containsInvalidCharacters(name)) {
+            throw new IllegalArgumentException("영문자만 입력해주세요.");
+        }
+    }
+
+    private boolean containsInvalidCharacters(String name) {
+        return !name.matches("[a-zA-Z]+");
     }
 }
