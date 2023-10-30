@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import racingcar.NumberGenerator;
-import racingcar.RandomNumberGenerator;
 import racingcar.exception.ErrorMessage;
 
 public class Car {
@@ -26,7 +24,7 @@ public class Car {
         }
     }
 
-    public void forward(){
+    public void moveOneStep(){
         if(generator.generate() >= FORWARD_LOWER_INCLUSIVE){
             step++;
         }

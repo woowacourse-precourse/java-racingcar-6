@@ -1,8 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.JudgeWinnerImpl;
-import racingcar.model.Cars;
+import racingcar.model.JudgeWinnerImpl;
 import racingcar.model.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -27,7 +26,7 @@ public class RacingController {
         output.printResultTitle();
 
         for(int i=0; i<tryCount; i++){
-            game.moveOneStep();
+            game.move();
             output.printStatus(game.getStatus());
         }
 
