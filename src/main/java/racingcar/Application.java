@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 
 public class Application {
     public static void main(String[] args) {
@@ -14,18 +15,23 @@ public class Application {
         // 자동차 이름이 5자 이하인지 검사
         Validation.isLongName(carNames);
 
-        // TODO 2. 시도 횟수 입력
+        // 2. 시도 횟수 입력
         System.out.println("시도할 회수는 몇회인가요?");
         // 정수를 입력했는지 검증
         int n = Validation.stringToIntValidation(Console.readLine());
         // n이 양수인지 검증
         Validation.isPositive(n);
 
-        // TODO 3. 앞으로 간 거리("-")를 저장할 배열 생성
+        // 3. 앞으로 간 거리("-")를 저장할 배열 생성
+        String[] movedDistance = new String[numberOfCars];
+        Arrays.fill(movedDistance, "");
 
-        // TODO 4. 한줄 띄어쓰기
+        // 4. 한줄 띄어쓰기
+        System.out.println();
+        System.out.println("실행 결과");
 
         // TODO 5. for문을 사용해 n회 게임 반복
+
 
         // TODO 6. 최종 우승자 출력
     }
