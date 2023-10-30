@@ -25,9 +25,7 @@ public class RacingController {
         int tryCount = getTryCount();
         NumberGenerator numberGenerator = new RandomNumberGenerator();
         outputView.printResultMessage();
-        while (tryCount-- > ZERO) {
-            race(cars, numberGenerator);
-        }
+        raceCarsMultipleTimes(cars, tryCount, numberGenerator);
         outputView.printWinners(cars.getWinnerNames());
     }
 
@@ -43,8 +41,18 @@ public class RacingController {
         return Converter.convertStringToPositiveInt(count);
     }
 
+    private void raceCarsMultipleTimes(final Cars cars, int tryCount, final NumberGenerator numberGenerator) {
+        while (tryCount-- > ZERO) {
+            race(cars, numberGenerator);
+        }
+    }
+
     private void race(final Cars cars, final NumberGenerator numberGenerator) {
         cars.moveAll(numberGenerator);
+        printCarsRaceResult(cars);
+    }
+
+    private void printCarsRaceResult(final Cars cars) {
         cars.getCars()
                 .forEach(car -> outputView.printResult(RacingResultResponse.from(car)));
         outputView.printNewLine();
