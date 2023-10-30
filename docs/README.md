@@ -8,7 +8,7 @@
   - [x] 자동차 이름이 blank일 경우 예외 처리 (IllegalArgumentException 발생)
 
 - [ ] 사용자가 시도할 횟수를 입력 받는다.
-  - [ ] 횟수가 숫자가 아닐 경우 예외 처리 (IllegalArgumentException 발생)
+  - [x] 횟수가 숫자가 아닐 경우 예외 처리 (IllegalArgumentException 발생)
   - [x] 횟수가 0 이하일 경우 예외 처리 (IllegalArgumentException 발생
 
 - [x] 입력이 null일 경우 예외 처리 (IllegalArgumentException 발생)
