@@ -2,9 +2,8 @@ package racingcar.racing;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.playrule.RacingRule;
+import racingcar.properties.RacingProperty;
 import racingcar.racingcar.Car;
-import racingcar.racingcar.RacingParticipants;
 
 /**
  * @author 민경수
@@ -14,39 +13,44 @@ import racingcar.racingcar.RacingParticipants;
 public class RacingManager {
 
     private final List<Car> cars;
-    private int count;
+    private int moveChanceCount;
 
-    public RacingManager(RacingParticipants racingParticipants, int count, RacingRule racingRule) {
-        this.cars = racingParticipants.participantNames()
+    public RacingManager(RacingProperty racingProperty) {
+        this.cars = racingProperty.racingParticipants()
+                .participantNames()
                 .stream()
-                .map(e -> new Car(racingRule, e, 0))
+                .map(e -> new Car(racingProperty.racingRule(), e, 0))
                 .collect(Collectors.toList());
 
-        this.count = count;
+        this.moveChanceCount = racingProperty.moveChanceCount();
     }
 
     public boolean isEnd() {
-        return this.count == 0;
+        return this.moveChanceCount == 0;
     }
 
     public void processRacing() {
         cars.forEach(Car::move);
-        count--;
+
+        moveChanceCount--;
     }
 
-    public List<Car> currentCarPositions() {
+    public List<Car> cars() {
         return cars;
     }
 
-    public List<String> getWinnerName() {
-        int maxPosition = this.cars.stream()
-                .map(Car::position)
-                .max(Integer::compare)
-                .orElseThrow(() -> new IllegalArgumentException("자동차 리스트가 비어 있습니다."));
-
+    public List<String> getRacingWinners() {
         return this.cars.stream()
-                .filter(car -> car.position() == maxPosition)
+                .filter(car -> car.position() == getMaxPosition())
                 .map(Car::name)
                 .collect(Collectors.toList());
     }
+
+    private int getMaxPosition() {
+        return this.cars.stream()
+                .map(Car::position)
+                .max(Integer::compare)
+                .orElseThrow(() -> new IllegalArgumentException("자동차 리스트가 비어 있습니다."));
+    }
+
 }

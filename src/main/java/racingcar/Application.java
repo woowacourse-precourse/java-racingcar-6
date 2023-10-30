@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.properties.RacingProperty;
 import racingcar.ui.input.CarNamesInputReader;
 import racingcar.ui.input.NumberOfMovementInputReader;
 import racingcar.playrule.RandomNumberRacingRule;
@@ -12,11 +13,13 @@ public class Application {
         CarNamesInputReader carNamesInputReader = new CarNamesInputReader();
         NumberOfMovementInputReader numberOfMovementInputReader = new NumberOfMovementInputReader();
 
-        RacingManager racingManager = new RacingManager(
+        RacingProperty racingProperty = new RacingProperty(
                 new RacingParticipants(carNamesInputReader.readLine()),
                 numberOfMovementInputReader.readLine(),
                 new RandomNumberRacingRule()
         );
+
+        RacingManager racingManager = new RacingManager(racingProperty);
 
         ResultViewer resultViewer = new ResultViewer(racingManager);
 

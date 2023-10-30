@@ -9,22 +9,10 @@ import camp.nextstep.edu.missionutils.Console;
  **********************************************************************************************************************/
 public class NumberOfMovementInputReader{
 
-    public int readLine() {
+    public String readLine() {
         System.out.println("시도할 회수는 몇회인가요?");
 
-        return convertToInteger(Console.readLine());
-    }
-
-    private int convertToInteger(String number) {
-        if (number.equals("0")) {
-            throw new IllegalArgumentException("시도 횟수는 0보다 커야 합니다.");
-        }
-
-        try {
-            return Integer.parseInt(number);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("입력한 값을 확인해주세요. 값 : " + number);
-        }
+        return (Console.readLine());
     }
 
 }

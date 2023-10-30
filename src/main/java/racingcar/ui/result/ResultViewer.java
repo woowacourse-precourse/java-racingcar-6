@@ -1,6 +1,5 @@
 package racingcar.ui.result;
 
-import java.util.List;
 import racingcar.racing.RacingManager;
 import racingcar.racingcar.Car;
 
@@ -24,15 +23,15 @@ public class ResultViewer {
     }
 
     public void printCurrentPositions() {
-        this.racingManager.currentCarPositions()
+        this.racingManager.cars()
                 .stream()
-                .map(this::generateCurrentPosition)
+                .map(this::generateCurrentCarPosition)
                 .forEach(System.out::println);
 
         System.out.println();
     }
 
-    private String generateCurrentPosition(Car car) {
+    private String generateCurrentCarPosition(Car car) {
         StringBuilder result = new StringBuilder()
                 .append(car.name())
                 .append(" : ");
@@ -45,6 +44,7 @@ public class ResultViewer {
     }
 
     public void printWinner() {
-        System.out.println("최종 우승자 : " + String.join(", ", racingManager.getWinnerName()));
+        System.out.println("최종 우승자 : " + String.join(", ", racingManager.getRacingWinners()));
     }
+
 }
