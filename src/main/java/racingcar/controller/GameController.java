@@ -48,13 +48,10 @@ public class GameController {
     }
 
     private List<String> racingResult(List<String> carNames, List<Integer> movement) {
-        List<String> winner = new ArrayList<>();
-
         List<Integer> winnerIndex = getWinnerIndex(movement);
-        for (int i = 0; i < winnerIndex.size(); i++) {
-            winner.add(carNames.get(winnerIndex.get(i)));
-        }
-        return winner;
+        return winnerIndex.stream()
+                .map(carNames::get)
+                .toList();
     }
 
     private List<Integer> getWinnerIndex(List<Integer> movement) {
