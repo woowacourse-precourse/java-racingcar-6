@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.message.ErrorMessage;
 import racingcar.model.Car;
 
 public class InputView {
@@ -17,7 +18,7 @@ public class InputView {
                 .anyMatch(name -> name.length() > 5);
 
         if (isValidateName) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME.getMessage());
         }
         ArrayList<Car> cars = new ArrayList<>();
 
@@ -30,6 +31,17 @@ public class InputView {
 
     public int receiveTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        try {
+            int times = Integer.parseInt(input);
+
+            if (times < 1) {
+                throw new NumberFormatException();
+            }
+
+            return times;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_TIMES.getMessage());
+        }
     }
 }
