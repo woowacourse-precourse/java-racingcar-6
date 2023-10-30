@@ -102,6 +102,10 @@ class Game {
     }
 
     public void gameRun() {
+        System.out.print(NAME_MESSAGE);
+        getCarNames();
+        System.out.print(MOVES_MESSAGE);
+        getNumberOfMoves();
         for (String name : nameList) {
             carList.add(new Car(name));
         }
@@ -112,6 +116,7 @@ class Game {
             }
             printOutput();
         }
+        whoIsWinner(carList);
         System.out.print(WINNER_MESSAGE);
         printWinner(carList);
     }
