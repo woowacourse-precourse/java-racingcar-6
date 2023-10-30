@@ -25,16 +25,15 @@ public class CarController {
     }
 
     public void racing() {
-        int forwardAttempt = 0;
-        String inputCars = "";
-
         try {
-            inputCars = input.promptForCarNames();
+            String inputCars = input.promptForCarNames();
             Validate.inputIsNull(inputCars);
 
             cars = inputCarsStringToCarsClass(inputCars);
 
-            forwardAttempt = inputForForward();
+            String tempForwardAttempt = inputForForwardAndReturnStringType();
+            int forwardAttempt = forwardStringToInteger(tempForwardAttempt);
+
             attemptForwardAndOutputResult(forwardAttempt, cars);
 
             output.resultHeader();
@@ -46,16 +45,22 @@ public class CarController {
         }
     }
 
+    // 입력받은 자동차들 String -> Cars 변환
     private Cars inputCarsStringToCarsClass(String inputTemp) {
-        List<String> carList = new ArrayList<>();
-
-        Validate.inputStringNotContainsComma(inputTemp);
+        Validate.inputStringNotContainsComma(inputTemp); // 구분자가 컴마가 아닌 경우 유효성 검사
         Validate.lastCharIsComma(inputTemp); // 구분자 뒤 자동치 이름이 없는 경우 유효성 검사
-        carList = splitCarNamesReturnList(inputTemp); // , 를 기준으로 구분하여 List<String> 생성
+
+        List<String> carList = splitCarNamesReturnList(inputTemp); // , 를 기준으로 구분하여 List<String> 생성
 
         return listToCarModel(carList);
     }
 
+    // 입력받은 자동차들 Type 변환 String -> List<String> 변환
+    private List<String> splitCarNamesReturnList(String carMembers) {
+        return Arrays.asList(carMembers.split(delimiter));
+    }
+
+    // Type 변환 splitCarNamesReturnList() 결과 List<String> -> Cars 로 변환
     private Cars listToCarModel(List<String> carList) {
         List<Car> cars = new ArrayList<>();
 
@@ -66,21 +71,19 @@ public class CarController {
         return new Cars(cars);
     }
 
-    private List<String> splitCarNamesReturnList(String carMembers) {
-        return Arrays.asList(carMembers.split(delimiter));
+    // 시도횟수 console 출력 및 유효성 검사
+    private String inputForForwardAndReturnStringType() {
+        String attemptsForward  = input.promptForAttempts();
+
+        Validate.inputIsNull(attemptsForward);
+
+        return attemptsForward;
     }
 
-    private int inputForForward() {
-        String move  = input.promptForAttempts();
-        Validate.inputIsNull(move);
-
-        return forwardStringToInteger(move);
-    }
-
+    // 입력받은 시도 횟수 String -> int 변환
     private int forwardStringToInteger(String move) {
-        int result = 0;
+        int result = Validate.forwardIsNumericAndReturnInteger(move);
 
-        result = Validate.forwardIsNumericAndReturnInteger(move);
         Validate.forwardIsPositiveNumber(result);
 
         return result;
@@ -88,6 +91,7 @@ public class CarController {
 
     private void forward(Car car) {
         int randomValue = Randoms.pickNumberInRange(1, 9);
+
         if (randomValue >= 4) {
             car.forward();
         }
