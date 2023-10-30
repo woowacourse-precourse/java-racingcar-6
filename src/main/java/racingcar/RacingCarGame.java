@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
-
+    private static final String TRY_RESULT = "실행 결과";
+    private static final int MIN_TRY_COUNT = 0;
     private Integer tryCount;
-
     private Cars cars;
 
     public void run() {
         initCars();
         this.tryCount = InputView.inputTryCount();
-        System.out.println("실행 결과\n");
+        printTryResult();
         while (isTryCountRemain()) {
             playOneTry();
         }
@@ -44,8 +44,13 @@ public class RacingCarGame {
         return new Cars(cars);
     }
 
+    private void printTryResult() {
+        System.out.println(TRY_RESULT);
+        System.out.println();
+    }
+
     private boolean isTryCountRemain() {
-        return this.tryCount > 0;
+        return this.tryCount > MIN_TRY_COUNT;
     }
 
     private void minusTryCount() {
