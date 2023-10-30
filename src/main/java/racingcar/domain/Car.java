@@ -18,10 +18,7 @@ public class Car {
     }
 
     public int comparePosition(int position) {
-        if (this.position > position) {
-            return this.position;
-        }
-        return position;
+        return Math.max(this.position, position);
     }
 
     public boolean isFurthestDistance(int furtherDistance) {
