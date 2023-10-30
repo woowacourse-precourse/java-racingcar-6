@@ -12,6 +12,14 @@ public class Application {
         String[] car = inputCar.split(",");
         int carCount = car.length;
 
+        for(int i=0;i<carCount;i++){
+            if (car[i].length() > 5) {
+                throw new IllegalArgumentException("잘못된 입력");
+            }
+
+        }
+
+
         System.out.println("시도할 회수는 몇회인가요?");
         String inputTime = Console.readLine();
         int time = Integer.parseInt(inputTime);
