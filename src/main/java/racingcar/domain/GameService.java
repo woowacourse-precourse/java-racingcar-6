@@ -5,9 +5,9 @@ import java.util.List;
 
 public class GameService {
 
-    private Navigation navigation;
+    private final Navigation navigation;
 
-    public void init(ArrayList<Car> carList) {
+    public GameService(ArrayList<Car> carList) {
         navigation=new Navigation(carList);
     }
 
