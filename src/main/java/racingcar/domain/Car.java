@@ -52,7 +52,7 @@ public class Car implements Comparable<Car> {
     }
 
     public String getCarName() {
-        return carName.getName();
+        return carName.name();
     }
 
     public Integer getPosition() {

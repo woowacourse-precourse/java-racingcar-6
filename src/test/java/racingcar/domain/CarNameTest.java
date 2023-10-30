@@ -16,7 +16,7 @@ class CarNameTest {
     void createCarNameSuccessTest(String name) {
         CarName carName = new CarName(name);
 
-        assertThat(carName.getName()).isEqualTo(name);
+        assertThat(carName.name()).isEqualTo(name);
     }
 
     @DisplayName("CarName 생성 실패 테스트 - 공백")
