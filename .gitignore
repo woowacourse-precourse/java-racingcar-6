@@ -46,3 +46,6 @@ out/
 *.zip
 *.tar.gz
 *.rar
+
+# Log file
+*.log
