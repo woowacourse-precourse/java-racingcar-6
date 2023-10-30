@@ -24,14 +24,14 @@ public class CarTest {
     @DisplayName("숫자가 3일때 정지하는 상태를 반환한다.")
     public void carReturnStopWhenNumberIsThreeTest(){
         Integer targetNumber = 3;
-        CarMovementStatus carMovementStatus = CarMovementStatus.getMoveState(targetNumber);
+        CarMovementStatus carMovementStatus = CarMovementStatus.getMovementStatusByCheckNumber(targetNumber);
         assertThat(CarMovementStatus.STOP).isEqualTo(carMovementStatus);
     }
     @Test
     @DisplayName("숫자가 4일때 전진하는 상태를 반환한다.")
     public void carReturnMoveWhenNumberIsFourTest(){
         Integer targetNumber = 4;
-        CarMovementStatus carMovementStatus = CarMovementStatus.getMoveState(targetNumber);
+        CarMovementStatus carMovementStatus = CarMovementStatus.getMovementStatusByCheckNumber(targetNumber);
         assertThat(CarMovementStatus.MOVE_FORWARD).isEqualTo(carMovementStatus);
     }
     @Test
