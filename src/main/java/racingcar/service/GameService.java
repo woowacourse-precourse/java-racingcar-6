@@ -1,25 +1,19 @@
 package racingcar.service;
 
 import java.util.List;
-import racingcar.model.CarList;
+import racingcar.utils.GameUtils;
+import racingcar.model.Car;
 
 public class GameService {
-    CarList carList = new CarList();
+    GameUtils gameUtils = new GameUtils();
 
     public void start() {
-        this.setGame();
         this.runGame();
     }
 
-    private void setGame() {
-        carList.setCarList();
-        carList.setTrial();
-    }
-
     private void runGame() {
-        List<String> A = carList.getCarList();
-        Integer B = carList.getTrial();
-        System.out.println(A);
-        System.out.println(B);
+        List<Car> cars = gameUtils.convertCarList(gameUtils.setCarList());
+        int trial = gameUtils.setTrialNumber();
+        gameUtils.processGame(cars, trial);
     }
 }
