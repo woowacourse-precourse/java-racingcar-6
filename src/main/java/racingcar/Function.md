@@ -16,13 +16,16 @@
 
 
 ## 기능 정리
-- [ ] 경주 세팅 - #RaceSetting
-    - [ ] 경주할 자동차 이름 입력(쉼표(,) 기준 으로 구분) - regCar()
-    - [ ] 시도할 횟수 입력 - playNumber()
-- [ ] 랜덤 한 수 뽑기 - #NumberGenerater - generateRandomNumber()
+- [x] 경주 세팅 - #RaceSetting
+    - [x] 경주할 자동차 이름 입력 - regCar()
+      - [x] 쉼표(,) 기준 으로 구분 해서 - splitCars()
+    - [x] 시도할 횟수 입력 - playNumber()
+      - [x] String -> Integer 변환 - StringToNumber()
+- [x] 랜덤 한 수 뽑기 - #NumberGenerater - generateRandomNumber()
 - [ ] 경기 진행 - #PlayRacing
-    - [ ] 전진 or 정지 판단 - judgement()
-    - [ ] 우승자 판단 - winnerList()
+  - [ ] 경기 하기 - playRace()
+  - [ ] 전진 or 정지 판단 - judgement()
+  - [ ] 우승자 판단 - winnerList()
 
 ### 입출력 요구 사항
 

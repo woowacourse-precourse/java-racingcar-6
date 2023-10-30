@@ -1,8 +1,6 @@
 package racingcar;
 
-import java.util.List;
 import racingcar.domain.NumberManager;
-import racingcar.domain.PlayRacing;
 import racingcar.domain.RaceSetting;
 
 public class Application {
