@@ -12,4 +12,20 @@ public class RaceService {
             racingCar.forward(randomNumber);
         });
     }
+
+    public List<RacingCar> getWinners(List<RacingCar> racingCars) {
+        List<RacingCar> winners = new ArrayList<>();
+        int maxDistance = Integer.MIN_VALUE;
+        for (RacingCar racingCar : racingCars) {
+            if (racingCar.getDistance() > maxDistance) {
+                maxDistance = racingCar.getDistance();
+            }
+        }
+        for (RacingCar racingCar : racingCars) {
+            if (racingCar.getDistance() == maxDistance) {
+                winners.add(racingCar);
+            }
+        }
+        return winners;
+    }
 }
