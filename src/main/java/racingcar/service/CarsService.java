@@ -46,15 +46,15 @@ public class CarsService {
     }
 
     public void moveCars() {
-        for (int i = 0; i < cars.size(); i++) {
-            if (Utils.getRandomNumber() >= NumberConstant.TARGET_NUMBER) {
-                moveCar(i);
-            }
+        for (int index = 0; index < cars.size(); index++) {
+            moveCarOrNot(index);
         }
     }
 
-    private void moveCar(int index) {
-        Car car = cars.getCar(index);
-        car.addPosition();
+    private void moveCarOrNot(int index) {
+        if (Utils.getRandomNumber() >= NumberConstant.TARGET_NUMBER) {
+            Car car = cars.getCar(index);
+            car.addPosition();
+        }
     }
 }
