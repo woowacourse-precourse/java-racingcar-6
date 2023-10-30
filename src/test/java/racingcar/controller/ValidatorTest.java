@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.controller;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -11,9 +11,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcar.controller.Validator;
 
-public class ValidatorTest extends ApplicationTest {
+public class ValidatorTest {
     @ParameterizedTest
     @MethodSource("generateInvalidCarNames")
     void 이름_유효성_실패_테스트(List<String> carNames) {
