@@ -24,11 +24,46 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void 한명_단독우승() {
+
+    }
+
+    @Test
+    void 두명_단독우승_역전없음() {
+
+    }
+
+    @Test
+    void 두명_단독우승_역전() {
+
+    }
+
+    @Test
+    void 두명_공동우승() {
+
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_길이초과() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_빈문자열() {
+
+    }
+
+    @Test
+    void 시도회수_예외_처리_숫자가아닐때() {
+
+    }
+
+    @Test
+    void 시도회수_예외_처리_음수() {
+
     }
 
     @Override
