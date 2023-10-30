@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class RacingTest {
 
     @Test
-    void 우승자_반환_기능_한명인_경우(){
+    void 우승자_반환_기능_한명인_경우() {
 
         Racing racing = new Racing();
         Car car1 = new Car("Car1");
@@ -20,7 +20,7 @@ public class RacingTest {
     }
 
     @Test
-    void 우승자_반환_기능_여러명인_경우(){
+    void 우승자_반환_기능_여러명인_경우() {
         Racing racing = new Racing();
         Car car1 = new Car("Car1");
         Car car2 = new Car("Car2");
@@ -36,7 +36,7 @@ public class RacingTest {
     }
 
     @Test
-    void 가장_멀리_간_자동차_위치_찾기(){
+    void 가장_멀리_간_자동차_위치_찾기() {
         Racing racing = new Racing();
         Car car1 = new Car("Car1");
         Car car2 = new Car("Car2");
@@ -49,7 +49,7 @@ public class RacingTest {
     }
 
     @Test
-    void 특정_위치에_있는_자동차_찾기_한개인_경우(){
+    void 특정_위치에_있는_자동차_찾기_한개인_경우() {
         Racing racing = new Racing();
         Car car1 = new Car("Car1");
         Car car2 = new Car("Car2");
@@ -63,7 +63,7 @@ public class RacingTest {
 
 
     @Test
-    void 특정_위치에_있는_자동차_찾기_여러개인_경우(){
+    void 특정_위치에_있는_자동차_찾기_여러개인_경우() {
         Racing racing = new Racing();
         Car car1 = new Car("Car1");
         Car car2 = new Car("Car2");
@@ -76,7 +76,7 @@ public class RacingTest {
     }
 
     @Test
-    void 특정_위치에_있는_자동차_찾기_존재하지_않는_경우(){
+    void 특정_위치에_있는_자동차_찾기_존재하지_않는_경우() {
         Racing racing = new Racing();
         Car car1 = new Car("Car1");
         racing.addCar(car1);

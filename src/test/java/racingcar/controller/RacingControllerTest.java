@@ -10,7 +10,7 @@ public class RacingControllerTest {
 
 
     @Test
-    void 레이스_진행시_우승자를_1명이상_반환(){
+    void 레이스_진행시_우승자를_1명이상_반환() {
         RacingController racingController = new RacingController();
         List<String> carNames = new ArrayList<>();
         carNames.add("car1");

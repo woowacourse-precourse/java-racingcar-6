@@ -22,6 +22,6 @@ public class CarTest {
 
         car.moves(4);
 
-        Assertions.assertEquals(start+1, car.getLocation());
+        Assertions.assertEquals(start + 1, car.getLocation());
     }
 }
