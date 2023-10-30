@@ -8,11 +8,12 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static racingcar.util.CharacterUnits.*;
+import static racingcar.view.InputViewMessage.*;
 
 public class InputView {
 
     public List<String> inputNames() {
-        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.print(INPUT_NAMES_MESSAGE.getMessage());
         System.out.print(ENTER.getUnit());
         String inputNames = getInput();
         return convertStrToList(inputNames);
@@ -31,7 +32,7 @@ public class InputView {
 
 
     public Integer inputCountOfGameRound() {
-        System.out.print("시도할 회수는 몇회인가요?");
+        System.out.print(INPUT_GAME_ROUND_MESSAGE.getMessage());
         System.out.print(ENTER.getUnit());
         String inputCountOfGameRound = getInput();
         return convertStrToInt(inputCountOfGameRound);
