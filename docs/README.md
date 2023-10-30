@@ -4,8 +4,10 @@
 - 목적: 자동차 이름, 위치 정보 저장
 - Field: 이름(`String`), 위치(`Integer`), 숫자 판별(`Numbers`)
 - Method: 차종별 시도(`void` &rarr; `void`), 차종별 출력(`void` &rarr; `void`)
+
 ### 차종별 출력
-`${this.name}` : `${"-".repeat(this.position)}` 꼴로 출력
+`this.name` : `"-".repeat(this.position)` 꼴로 출력
+
 ### 차종별 시도
 1. 랜덤한 0~9 사이 숫자 생성
 2. 숫자 판별(`Numbers.compareFour`) 함수로 체크
@@ -20,5 +22,5 @@ map에서 해당 value를 리턴
 
 ## 레이싱 시작 및 종료 `Racing` 클래스
 - 목적: 레이싱 시작과 종료를 모듈화하기 위한 클래스
-- Field: 차량 목록(`List<Car>`)
+- Field: 차량 목록(`List<Car>`), 시행 횟수(`int`)
 - Method: 차량 목록 입력(`void` &rarr; `void`)

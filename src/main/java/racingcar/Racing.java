@@ -6,7 +6,7 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Racing {
-    private List<Car> cars;
+    private List<Car> cars = new ArrayList<>();
     public void getCarName() {
         List<String> carName = List.of(readLine().split(","));
         carName.forEach(name -> cars.add(new Car(name, 0)));
