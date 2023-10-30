@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.Collections;
 import java.util.List;
+import racingcar.util.NumberGenerator;
 
 public class Cars {
 
