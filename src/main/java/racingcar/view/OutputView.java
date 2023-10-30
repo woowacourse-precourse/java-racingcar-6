@@ -9,11 +9,12 @@ import static racingcar.util.Utils.formatListToString;
 
 public class OutputView {
 
-    public void printResult(List<Car> cars) {
+    public void printCarDistanceAll(List<Car> cars) {
         cars.forEach(car -> {
             System.out.print(car.getName() + " : ");
             printCarDistance(car);
         });
+        System.out.println();
     }
 
     private void printCarDistance(Car car) {
