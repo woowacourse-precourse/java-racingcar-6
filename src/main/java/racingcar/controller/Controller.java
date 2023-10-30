@@ -14,7 +14,7 @@ public class Controller {
         while (!raceRepetition.isRepetitionEnd()) {
             RandomNumber randomNumber = new RandomNumber(carInfoList.getCarNums());
             carInfoList.updateCarInfoList(randomNumber.getRandomNumberList());
-            if (raceRepetition.isFirstRepetition()) { OutputView.printFirstSeperator(); }
+            if (raceRepetition.isFirstRepetition()) { OutputView.printFirstSeparator(); }
             OutputView.printCarNameNPosition(carInfoList.getCarNameList(), carInfoList.getCarPositionList());
             raceRepetition.addNowRepeat();
         }
