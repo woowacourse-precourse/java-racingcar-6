@@ -27,7 +27,7 @@ class ParticipantsTest {
         assertThat(cars).size().isEqualTo(names.size());
     }
 
-    public static Stream<Arguments> 유효한_이름이면_정상_생성() {
+    private static Stream<Arguments> 유효한_이름이면_정상_생성() {
         return Stream.of(
                 Arguments.of(List.of("1", "12345")),
                 Arguments.of(List.of("1", "2", "3", "4", "5"))
@@ -52,7 +52,7 @@ class ParticipantsTest {
                 .isThrownBy(() -> new Participants(cars));
     }
 
-    public static Stream<Arguments> 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다() {
+    private static Stream<Arguments> 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다() {
         return Stream.of(
                 Arguments.of(List.of()),
                 Arguments.of(List.of(createCar()))

@@ -10,6 +10,7 @@ public class Car implements Comparable<Car> {
     private static final String INVALID_NAME_LENGTH_FORMAT = "자동차 이름은 %d자 이하여야 합니다";
     private static final int MAX_NAME_LENGTH = 5;
     public static final int MOVE_THRESHOLD = 4;
+    private static final int DEFAULT_CAR_POSITION = 0;
     private static final Pattern WHITE_SPACE_AROUND_STRING = Pattern.compile("^\\s+|\\s+$");
 
     private final String name;
@@ -24,7 +25,7 @@ public class Car implements Comparable<Car> {
     }
 
     public Car(String name, IntSupplier intSupplier) {
-        this(name, intSupplier, 0);
+        this(name, intSupplier, DEFAULT_CAR_POSITION);
     }
 
     public Car(String name, int position) {
@@ -32,27 +33,41 @@ public class Car implements Comparable<Car> {
     }
 
     public Car(String name) {
-        this(name, new DefaultSupplier(), 0);
+        this(name, new DefaultSupplier(), DEFAULT_CAR_POSITION);
     }
 
     private void validateName(String name) {
+        validateBlank(name);
+        validateWhiteSpaceAround(name);
+        validateLength(name);
+    }
+
+    private void validateBlank(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException(NOT_BLANK_NAME);
         }
+    }
 
+    private void validateWhiteSpaceAround(String name) {
         if (WHITE_SPACE_AROUND_STRING.matcher(name).find()) {
             throw new IllegalArgumentException(NO_WHITESPACE_AROUND_NAME);
         }
+    }
 
+    private void validateLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(String.format(INVALID_NAME_LENGTH_FORMAT, MAX_NAME_LENGTH));
         }
     }
 
     public void moveForward() {
-        if (intSupplier.getAsInt() >= MOVE_THRESHOLD) {
+        if (isMovable()) {
             position++;
         }
+    }
+
+    private boolean isMovable() {
+        return intSupplier.getAsInt() >= MOVE_THRESHOLD;
     }
 
     public int getPosition() {

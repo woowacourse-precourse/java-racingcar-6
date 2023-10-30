@@ -12,7 +12,6 @@ public class OutputViewTest extends MyTest {
 
     @Test
     void 게임_결과를_출력할_수_있다() {
-        // given
         List<Car> cars = List.of(
                 new Car("car1", 3),
                 new Car("car2", 0),
@@ -20,7 +19,6 @@ public class OutputViewTest extends MyTest {
 
         new OutputView().printCarsPosition(cars);
 
-        // then
         assertThat(output()).isEqualTo("""
                 car1 : ---
                 car2 :\s
