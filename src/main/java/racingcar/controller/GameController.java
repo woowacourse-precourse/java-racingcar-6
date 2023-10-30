@@ -6,9 +6,8 @@ import racingcar.service.GameService;
 import racingcar.view.PrintView;
 
 public class GameController {
-    Config config = new Config();
     PrintView printView = new PrintView();
-    GameService gameService = new GameService(config);
+    GameService gameService = new GameService();
     CarService carService = new CarService();
 
     public void play() {

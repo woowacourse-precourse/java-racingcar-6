@@ -15,12 +15,10 @@ public class GameServiceTest {
 
     private GameService gameService;
     private CarService carService;
-    private Config config;
 
     @BeforeEach
     void setUp() {
-        config = new Config();
-        gameService = new GameService(config);
+        gameService = new GameService();
         carService = new CarService();
     }
 

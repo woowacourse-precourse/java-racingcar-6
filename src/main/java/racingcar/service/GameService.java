@@ -10,15 +10,14 @@ import racingcar.utils.Validation;
 
 public class GameService {
 
-    private Config config;
+
     public List<Car> carList;
     public List<Car> winnerList;
     public int tryNum;
 
 
 
-    public GameService(Config config) {
-        this.config = config;
+    public GameService() {
         winnerList = new ArrayList<Car>();
         carList = new ArrayList<Car>();
     }
