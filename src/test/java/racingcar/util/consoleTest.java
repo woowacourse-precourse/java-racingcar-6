@@ -8,7 +8,7 @@ import java.io.ByteArrayInputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.constants.ErrorConstants.NOT_DIGIT_ERROR_MESSAGE;
+import static racingcar.constants.ErrorMessage.NOT_DIGIT_ERROR_MESSAGE;
 
 class consoleTest {
 
@@ -52,7 +52,7 @@ class consoleTest {
         // when // then
         assertThatThrownBy(() -> racingcar.util.Console.getNumberOfMovementAttempts())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(NOT_DIGIT_ERROR_MESSAGE);
+                .hasMessage(NOT_DIGIT_ERROR_MESSAGE.getMessage());
     }
 
 }

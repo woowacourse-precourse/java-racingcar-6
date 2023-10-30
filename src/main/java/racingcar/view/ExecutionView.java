@@ -2,7 +2,8 @@ package racingcar.view;
 
 import racingcar.domain.car.Car;
 
-import static racingcar.constants.MessageConstants.*;
+import static racingcar.constants.GameMessage.EXECUTION_START_MESSAGE;
+
 
 public class ExecutionView {
 
@@ -10,7 +11,7 @@ public class ExecutionView {
     private static final String HYPHEN = "-";
 
     public void printExecutionStartMessage(){
-        System.out.println(EXECUTION_START_MESSAGE);
+        System.out.println(EXECUTION_START_MESSAGE.getMessage());
     }
 
     public void printExecutionMessage(Car car) {

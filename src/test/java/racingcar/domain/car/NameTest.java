@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.constants.ErrorConstants.*;
+import static racingcar.constants.ErrorMessage.CAR_NAME_ERROR_MESSAGE;
 
 class NameTest {
 
@@ -27,7 +27,7 @@ class NameTest {
         // when // then
         assertThatThrownBy(() -> new Name(carName))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(CAR_NAME_ERROR_MESSAGE);
+                .hasMessage(CAR_NAME_ERROR_MESSAGE.getMessage());
     }
 
 }

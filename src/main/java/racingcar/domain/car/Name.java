@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import java.util.Objects;
 
-import static racingcar.constants.ErrorConstants.*;
+import static racingcar.constants.ErrorMessage.CAR_NAME_ERROR_MESSAGE;
 
 public class Name {
 
@@ -12,7 +12,7 @@ public class Name {
 
     public Name(String name) {
         if (name.length() > NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE);
+            throw new IllegalArgumentException(CAR_NAME_ERROR_MESSAGE.getMessage());
         }
         this.name = name;
     }

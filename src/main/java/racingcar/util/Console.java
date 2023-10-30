@@ -1,6 +1,6 @@
 package racingcar.util;
 
-import static racingcar.constants.ErrorConstants.NOT_DIGIT_ERROR_MESSAGE;
+import static racingcar.constants.ErrorMessage.NOT_DIGIT_ERROR_MESSAGE;
 
 public class Console {
 
@@ -24,7 +24,7 @@ public class Console {
         try {
             return Integer.parseInt(movementAttempts);
         } catch (NumberFormatException e){
-            throw new IllegalArgumentException(NOT_DIGIT_ERROR_MESSAGE);
+            throw new IllegalArgumentException(NOT_DIGIT_ERROR_MESSAGE.getMessage());
         }
     }
 

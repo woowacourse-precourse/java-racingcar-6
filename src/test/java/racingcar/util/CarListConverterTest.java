@@ -7,7 +7,8 @@ import racingcar.domain.car.Car;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.constants.ErrorConstants.*;
+import static racingcar.constants.ErrorMessage.CAR_NAME_ERROR_MESSAGE;
+import static racingcar.constants.ErrorMessage.DUPLICATE_NAME_ERROR_MESSAGE;
 
 class CarListConverterTest {
 
@@ -32,7 +33,7 @@ class CarListConverterTest {
         // when // then
         assertThatThrownBy(() -> CarListConverter.convertCarNamesToCarList(names))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(DUPLICATE_NAME_ERROR_MESSAGE);
+                .hasMessage(DUPLICATE_NAME_ERROR_MESSAGE.getMessage());
     }
 
     @Test
@@ -43,7 +44,7 @@ class CarListConverterTest {
         // when // then
         assertThatThrownBy(() -> CarListConverter.convertCarNamesToCarList(names))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(CAR_NAME_ERROR_MESSAGE);
+                .hasMessage(CAR_NAME_ERROR_MESSAGE.getMessage());
     }
 
 }

@@ -6,7 +6,7 @@ import racingcar.OutputTestSupport;
 import racingcar.domain.car.Car;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.constants.MessageConstants.*;
+import static racingcar.constants.GameMessage.EXECUTION_START_MESSAGE;
 
 class ExecutionViewTest extends OutputTestSupport {
 
@@ -18,7 +18,7 @@ class ExecutionViewTest extends OutputTestSupport {
         // given // when
         executionView.printExecutionStartMessage();
         // then
-        assertThat(outputWithoutTrim()).isEqualTo(EXECUTION_START_MESSAGE);
+        assertThat(outputWithoutTrim()).isEqualTo(EXECUTION_START_MESSAGE.getMessage());
     }
 
     @Test

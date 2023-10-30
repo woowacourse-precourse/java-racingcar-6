@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.constants.ErrorConstants.NOT_CONTAINS_CAR_ERROR_MESSAGE;
+import static racingcar.constants.ErrorMessage.NOT_CONTAINS_CAR_ERROR_MESSAGE;
 
 public class RaceCars {
 
@@ -32,7 +32,7 @@ public class RaceCars {
     private Car maxCarMovementCount(){
         return cars.stream()
                 .max(Car::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException(NOT_CONTAINS_CAR_ERROR_MESSAGE));
+                .orElseThrow(() -> new IllegalArgumentException(NOT_CONTAINS_CAR_ERROR_MESSAGE.getMessage()));
     }
 
     private String getSameCarsNames(Car maxMovementCountCar) {

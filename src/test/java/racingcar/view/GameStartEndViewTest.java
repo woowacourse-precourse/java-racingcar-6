@@ -9,8 +9,8 @@ import racingcar.domain.car.RaceCars;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.constants.MessageConstants.ATTEMPT_COUNT_MESSAGE;
-import static racingcar.constants.MessageConstants.START_MESSAGE;
+import static racingcar.constants.GameMessage.ATTEMPT_COUNT_MESSAGE;
+import static racingcar.constants.GameMessage.START_MESSAGE;
 
 class GameStartEndViewTest extends OutputTestSupport {
 
@@ -22,7 +22,7 @@ class GameStartEndViewTest extends OutputTestSupport {
         // given // when
         gameStartEndView.printStartMessage();
         // then
-        assertThat(outputWithoutTrim()).isEqualTo(START_MESSAGE);
+        assertThat(outputWithoutTrim()).isEqualTo(START_MESSAGE.getMessage());
     }
 
     @Test
@@ -31,7 +31,7 @@ class GameStartEndViewTest extends OutputTestSupport {
         // given // when
         gameStartEndView.printAttemptCountMessage();
         // then
-        assertThat(outputWithoutTrim()).isEqualTo(ATTEMPT_COUNT_MESSAGE);
+        assertThat(outputWithoutTrim()).isEqualTo(ATTEMPT_COUNT_MESSAGE.getMessage());
     }
 
     @Test
