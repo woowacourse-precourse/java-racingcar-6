@@ -25,15 +25,20 @@ public class CarRaceGame {
 
     public static void startGame() {
         String carNames = CarRaceGameView.startGameView();
+        dealWitCarNames(carNames);
+        String roundNumberString = CarRaceGameView.attemptNumberView();
+        startCarRaceGame(Integer.parseInt(roundNumberString));
+    }
+
+    public static void dealWitCarNames(String carNames) {
         List<String> carNameList = CarNamesToList(carNames);
         validateCarName(carNameList);
 
         List<Car> carImplList = setUpCar(carNameList);
         GameManager.setCarImplList(carImplList);
 
-        String roundNumberString = CarRaceGameView.attemptNumberView();
-        startCarRaceGame(Integer.parseInt(roundNumberString));
     }
+
 
     private static List<Car> setUpCar(List<String> carNameList) {
         List<Car> carImplList = new ArrayList<>();
