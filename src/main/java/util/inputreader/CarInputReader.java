@@ -5,10 +5,9 @@ import static racingcar.Constants.COMMA;
 import static racingcar.Constants.MIN_TRY_COUNT;
 import static racingcar.Constants.PLAYER_NAME_MAX_LENGTH;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
-public class RacingCarInputReader implements InputReader {
+public class CarInputReader implements InputReader {
     public String readPlayers() throws IllegalArgumentException{
         String players =  this.readStringInput();
         if(!isValidPlayers(players)){

@@ -2,12 +2,12 @@ package racingcar.model;
 
 import java.util.List;
 
-public class RacingCarGameModel {
-    private RacingCarPlayerListModel players;
+public class CarGameModel {
+    private CarPlayerListModel players;
     private int tryCount;
 
-    public RacingCarGameModel(List<RacingCarPlayerModel> players, int tryCount){
-        this.players = new RacingCarPlayerListModel(players);
+    public CarGameModel(List<CarPlayerModel> players, int tryCount){
+        this.players = new CarPlayerListModel(players);
         this.tryCount = tryCount;
     }
 
@@ -19,11 +19,11 @@ public class RacingCarGameModel {
         return this.tryCount;
     }
 
-    public List<RacingCarPlayerModel> getPlayers(){
+    public List<CarPlayerModel> getPlayers(){
         return this.players.players();
     }
 
-    public List<RacingCarPlayerModel> getWinners(){
+    public List<CarPlayerModel> getWinners(){
         int maxPosition = this.players.getMaxPosition();
         return this.players.filterPlayersByPosition(maxPosition);
     }

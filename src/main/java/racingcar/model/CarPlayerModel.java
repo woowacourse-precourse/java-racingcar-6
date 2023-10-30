@@ -3,12 +3,14 @@ package racingcar.model;
 import static racingcar.Constants.MOVE_CONDITION;
 import static racingcar.Constants.START_POSITION;
 
-public class RacingCarPlayerModel {
+import util.CarRandoms;
+
+public class CarPlayerModel {
     private final String carName;
     //현재 위치
     private int currentPosition;
 
-    public RacingCarPlayerModel(String carName) {
+    public CarPlayerModel(String carName) {
         this.carName = carName;
         this.currentPosition = START_POSITION;
     }
@@ -28,6 +30,6 @@ public class RacingCarPlayerModel {
     }
 
     private boolean isMoveAllowed(){
-        return util.RacingCarRandoms.getRandomNumber() >= MOVE_CONDITION;
+        return CarRandoms.getRandomNumber() >= MOVE_CONDITION;
     }
 }

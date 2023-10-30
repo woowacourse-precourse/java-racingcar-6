@@ -1,18 +1,18 @@
 package racingcar.controller;
 
-import util.inputreader.RacingCarInputReader;
+import util.inputreader.CarInputReader;
 
 public class InputController {
-    private final RacingCarInputReader racingCarInputReader;
+    private final CarInputReader carInputReader;
     public InputController(){
-        this.racingCarInputReader = new RacingCarInputReader();
+        this.carInputReader = new CarInputReader();
     }
 
     public String readRacingCarPlayers(){
-        return this.racingCarInputReader.readPlayers();
+        return this.carInputReader.readPlayers();
     }
 
     public int readTryCount(){
-        return this.racingCarInputReader.readTryCount();
+        return this.carInputReader.readTryCount();
     }
 }
