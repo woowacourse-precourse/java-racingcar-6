@@ -8,6 +8,8 @@ public class GameManager {
     static List<Car> carRace;
     static List<String> winner;
 
+    int maxValue = Integer.MIN_VALUE;
+
     public GameManager() {
         InputValue inputValue = new InputValue();
         playGame();
@@ -20,6 +22,8 @@ public class GameManager {
             checkForwardStop(carRace);
             ResultPrinter.printCourse(carRace);
         }
+
+        checkWinner(carRace);
     }
 
     private void makeCars(List<String> list) {
@@ -46,6 +50,29 @@ public class GameManager {
             car.forward();
         } else {
             car.stop();
+        }
+    }
+
+    private void checkWinner(List<Car> list) {
+        for (Car car : list) {
+            addWinner(car, maxValue);
+        }
+    }
+
+    private int getPosition(Car car) {
+        return car.position;
+    }
+
+    private void addWinner(Car car, int maxValue) {
+        if (winner.isEmpty() && getPosition(car) > maxValue) {
+            winner.add(car.carName);
+            this.maxValue = car.position;
+        } else if (!winner.isEmpty() && getPosition(car) > maxValue) {
+            winner.clear();
+            winner.add(car.carName);
+            this.maxValue = car.position;
+        } else if (!winner.isEmpty() && getPosition(car) == maxValue) {
+            winner.add(car.carName);
         }
     }
 }
