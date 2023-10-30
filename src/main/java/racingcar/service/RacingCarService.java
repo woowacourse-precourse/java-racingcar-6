@@ -6,12 +6,14 @@ import racingcar.domain.RacingCar;
 import racingcar.util.NumberGenerator;
 
 public class RacingCarService {
-    public void save(String[] carNames){
+    public List<RacingCar> save(String[] carNames){
         List<RacingCar> racingCars = new ArrayList<>();
 
         for(int i = 0; i < carNames.length; i++){
             racingCars.add(new RacingCar(carNames[i]));
         }
+
+        return racingCars;
     }
 
     public void moveRandomly(List<RacingCar> racingCars){
@@ -46,7 +48,7 @@ public class RacingCarService {
         for(RacingCar racingCar : racingCars){
             int moveNumber = racingCar.getMoveNumber();
 
-            if(isBiggerThanMax(max, moveNumber){
+            if(isBiggerThanMax(max, moveNumber)){
                 max = moveNumber;
             }
         }
