@@ -61,41 +61,35 @@ class RaceServiceTest {
         @Nested
         @DisplayName("양수인 횟수가 주어진다면")
         class Context_count_is_a_positive_number {
+            private int cnt;
+
+            @BeforeEach
+            void setup() {
+                raceService = new RaceService(new ByteArrayInputStream("5".getBytes()));
+                cnt = raceService.inputCnt();
+            }
             @Test
             @DisplayName("오류없이 리턴")
             void it_successfully_return() {
-
+                assertThat(cnt).isNotNull();
+                assertThat(cnt).isEqualTo(5);
             }
         }
 
         @Nested
-        @DisplayName("횟수가 음수가 주어진다면")
+        @DisplayName("횟수가 음수 혹은 문자가 주어진다면")
         class Context_count_is_character {
+
+            @BeforeEach
+            void setup() {
+                raceService = new RaceService(new ByteArrayInputStream("-5".getBytes()));
+            }
             @Test
             @DisplayName("IllegalArgumentException 발생시킴")
             void it_throw_IllegalArgumentException() {
-
+                assertThatThrownBy(() -> raceService.inputCnt()).isInstanceOf(IllegalArgumentException.class).hasMessage("입력된 문자열이 숫자가 아닙니다.");
             }
         }
     }
 
-    @Nested
-    @DisplayName("raceStart 메서드는")
-    class Describe_raceStart {
-        @Test
-        @DisplayName("차를 이동시키고 결과를 보여줌")
-        void it_move_cars_and_show_cars_and_distance_moved() {
-
-        }
-    }
-
-    @Nested
-    @DisplayName("showWinner 메서드는")
-    class Describe_showWinners {
-        @Test
-        @DisplayName("가장 많이 이동한 자동차 출력, 만약 여러대일 경우 복수 출력")
-        void it_finds_the_cars_with_the_longest_distance_and_if_there_are_multiple_it_prints_all_of_them() {
-
-        }
-    }
 }
