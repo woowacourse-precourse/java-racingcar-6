@@ -16,6 +16,10 @@ public class RacingCarGameOutput {
         System.out.println(message);
     }
 
+    public static void printBeforeGameProgress(String message) {
+        System.out.println(message);
+    }
+
     public static void printGameProgress(List<RacingCar> carList) {
         StringBuilder sb = new StringBuilder();
         for (RacingCar car : carList) {
