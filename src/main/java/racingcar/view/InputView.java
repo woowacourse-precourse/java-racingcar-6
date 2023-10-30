@@ -17,7 +17,7 @@ public class InputView {
         }
     }
 
-    public static int askTryCount() {
+    public static int askMaxProgressCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         return stringToInt(Console.readLine());
     }
