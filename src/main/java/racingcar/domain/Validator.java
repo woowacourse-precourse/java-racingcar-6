@@ -24,17 +24,17 @@ public class Validator {
         if (validator.existsDuplicateName(carNames)) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름은 중복될 수 없습니다.");
         }
-        if (validator.ensureLengthInRange(carNames)) {
+        if (!validator.ensureLengthInRange(carNames)) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름은 1자 이상, 5자 이하여야 합니다.");
         }
-        if (validator.ensureNumberOfCars(carNames)) {
+        if (!validator.ensureNumberOfCars(carNames)) {
             throw new IllegalArgumentException("[ERROR] 자동차 개수는 2개 이상여야 합니다.");
         }
     }
 
     public void validateAttemptInput(String userInput) throws IllegalArgumentException {
         int attemptNumber = Integer.valueOf(userInput);
-        if (ensureRange(attemptNumber)) {
+        if (!ensureRange(attemptNumber)) {
             throw new IllegalArgumentException("[ERROR] 1 이상의 숫자를 입력해주세요.");
         }
     }
