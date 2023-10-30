@@ -2,29 +2,28 @@ package racingcar.domain.raingcar;
 
 import racingcar.constant.Constant;
 import racingcar.constant.ErrorMessage;
-import racingcar.util.RandomNumberGenerator;
 
 public class RacingCar {
-    private final String name;
+    private String name;
     private Integer position;
 
     public RacingCar(String name) {
         verify(name);
+
         this.name = name;
         this.position = 0;
     }
 
-    public void move() {
-        int randomNumber = RandomNumberGenerator.pick();
-        if(moveForward(randomNumber)) position += randomNumber;
+    public String getName() {
+        return this.name;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 
     public Integer getPosition() {
-        return position;
-    }
-
-    private boolean moveForward(final int number) {
-        return number >= 4;
+        return this.position;
     }
 
     private void verify(final String name) {
