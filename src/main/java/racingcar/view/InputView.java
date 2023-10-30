@@ -8,6 +8,6 @@ public class InputView {
     }
 
     public int inputTry() {
-        return 0;
+        return Integer.parseInt(Console.readLine());
     }
 }
