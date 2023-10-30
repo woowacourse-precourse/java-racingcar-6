@@ -22,9 +22,8 @@ public class RacingGameController {
     }
 
     private void initialize() {
-        String inputNames = inputView.inputNames();
-        List<String> carNames = Converter.getCarNames(inputNames);
-        InputValidator.validateCarNames(carNames);
+        List<String> carNames = makeCarNames();
+
         for (String name : carNames) {
             cars.addCar(new Car(name));
         }
@@ -33,6 +32,14 @@ public class RacingGameController {
         if (InputValidator.validateAttemptNumber(inputNumber)) {
             attemptNumber = Integer.parseInt(inputNumber);
         }
+    }
+
+    private List<String> makeCarNames() {
+        String inputNames = inputView.inputNames();
+        List<String> carNames = Converter.getCarNames(inputNames);
+        InputValidator.validateCarNames(carNames);
+
+        return carNames;
     }
 
     private void start() {
