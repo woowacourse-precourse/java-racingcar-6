@@ -31,10 +31,20 @@ public class GameManager {
     private void checkForwardStop(List<Car> car) {
         for (int i = 0; i < car.size(); i++) {
             int randomNum = getRandomNum();
+
+            decideCallForwardStop(car.get(i), randomNum);
         }
     }
 
     private int getRandomNum() {
         return Randoms.pickNumberInRange(0,9);
+    }
+
+    private void decideCallForwardStop(Car car, int RandomNum) {
+        if (RandomNum >= 4) {
+            car.forward();
+        } else {
+            car.stop();
+        }
     }
 }
