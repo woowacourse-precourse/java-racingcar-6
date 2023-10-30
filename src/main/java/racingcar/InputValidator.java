@@ -12,6 +12,13 @@ public class InputValidator {
         }
     }
 
+    public static void validateNameContainSpace(String[] input) {
+        for (String name : input) {
+            if (name.contains(" ")) {
+                throw new IllegalArgumentException("이름 사이에 공백이 있습니다. 프로그램 종료");
+            }
+        }
+    }
 
     }
 
