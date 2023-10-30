@@ -16,7 +16,7 @@
     - [x] 0에서 9 사이의 무작위 값을 구해 반환한다. - NumberGenerator#createRandomNumber()
 - [x] 레이싱 게임 라운드 결과를 반환한다. - RacingGame#getResult()
 - [x] 레이싱 게임 우승자를 반환한다. - RacingGame#getWinners()
-- [ ] 레이싱 게임을 시작한다. - RacingGameController#play()
+- [x] 레이싱 게임을 시작한다. - RacingGameController#play()
 
 ## 기능 요구 사항
 
