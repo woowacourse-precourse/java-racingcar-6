@@ -86,8 +86,15 @@ class RandomGenerator{
 }
 
 class InputValidator{
+    private static final int MAX_CAR_NAME_LENGTH=5;
 
-}
+    public static void validateCarNames(String[] carNames){
+        for(String name : carNames){
+            if(name.length()>MAX_CAR_NAME_LENGTH){
+                throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다");
+            }
+        }
+    }
 
 class InputManger{
 
