@@ -41,7 +41,7 @@ public class MessagePrinter {
     }
 
     public static void distance(Car car){
-        for (int j = 0; j < car.getDistance(); j++) {
+        for (int distance = 0; distance < car.getDistance(); distance++) {
             System.out.print("-");
         }
         System.out.println();
