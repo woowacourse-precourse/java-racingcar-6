@@ -19,4 +19,14 @@ public class RacingCar {
         }
         return car_list;
     }
+
+    public Integer countRacingGame(){
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = Console.readLine();
+        if(input.matches("[1-9]+")){
+            return Integer.parseInt(input);
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
 }

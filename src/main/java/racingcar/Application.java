@@ -10,6 +10,6 @@ public class Application {
         // TODO: 프로그램 구현
         RacingCar racingCar = new RacingCar();
         ArrayList<Car> car_list = racingCar.createCarList();
-
+        Integer count = racingCar.countRacingGame();
     }
 }
