@@ -4,14 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PrintOutput {
-    public static void printMove(int move){
-        for (int i = 0; i<move; i++){
+    public static void printMove(int move) {
+        for (int i = 0; i < move; i++) {
             System.out.print("-");
         }
         System.out.println();
     }
-    public static void printAllMove(HashMap<String, Integer> car_list){
-        for (Map.Entry<String,Integer> item : car_list.entrySet()) {
+
+    public static void printAllMove(HashMap<String, Integer> car_list) {
+        for (Map.Entry<String, Integer> item : car_list.entrySet()) {
             System.out.print(item.getKey() + " : ");
             printMove(item.getValue());
         }

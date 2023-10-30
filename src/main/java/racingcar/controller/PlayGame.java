@@ -12,14 +12,14 @@ import java.util.HashMap;
 import java.util.List;
 
 public class PlayGame {
-    public void play(){
+    public void play() {
         PrintInput.inputCar();
-        HashMap<String,Integer> car_list = SettingCar.settingcar();
+        HashMap<String, Integer> car_list = SettingCar.settingcar();
 
         PrintInput.inputNumberOfMove();
         int game = SettingGame.numberOfGame();
 
-        for (int i = 0; i<game; i++){
+        for (int i = 0; i < game; i++) {
             CarMove.move(car_list);
             PrintOutput.printAllMove(car_list);
         }
