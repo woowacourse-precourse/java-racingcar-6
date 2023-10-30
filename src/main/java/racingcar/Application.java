@@ -14,8 +14,10 @@ public class Application {
         referee.notifyNumOfGame();
         referee.setNumOfGame(Integer.parseInt(Console.readLine()));
 
+        referee.notifyResult();
         for (int i = 0; i < referee.getNumOfGame(); i++) {
             referee.moveCars();
+            referee.showCarsStatus();
         }
 
     }

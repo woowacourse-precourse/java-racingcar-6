@@ -44,9 +44,20 @@ public class Referee {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
+    public void notifyResult(){
+        System.out.println("실행 결과");
+    }
+
     public void moveCars(){
         for (Car car : this.cars) {
             car.move();
         }
+    }
+
+    public void showCarsStatus(){
+        for (Car car : this.cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+        }
+        System.out.println();
     }
 }
