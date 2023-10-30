@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.HashMap;
+import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import modules.racingcarModules;
@@ -28,5 +29,6 @@ public class Games {
             }
             System.out.println();
         }
+        List<String> champion_member = racingcarModules.campion_racing(car_situations);
     }
 }
