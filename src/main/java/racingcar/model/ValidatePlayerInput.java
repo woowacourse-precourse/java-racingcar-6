@@ -13,8 +13,18 @@ public class ValidatePlayerInput {
         }
     }
 
+    public void validateNotContainCarName(String playerInput){
+        String[] splitsPlayerInput = playerInput.split(",", -1);
+
+        for (String carName : splitsPlayerInput) {
+            if (carName == "") {
+                throw new IllegalArgumentException("레이싱 자동차 이름이 없이, 콤마가 연속으로 입력하셨습니다");
+            }
+        }
+    }
+
     public void validateAlphaCarName(String playerInput) {
-        String[] splitsPlayerInput = playerInput.split(",");
+        String[] splitsPlayerInput = playerInput.split(",", -1);
 
         for (String carName : splitsPlayerInput) {
             if (!Pattern.matches("^[a-zA-Z]*$", carName)) {
@@ -24,7 +34,7 @@ public class ValidatePlayerInput {
     }
 
     public void validateCarNameLength(String playerInput) {
-        String[] splitsPlayerInput = playerInput.split(",");
+        String[] splitsPlayerInput = playerInput.split(",", -1);
 
         for (String carName : splitsPlayerInput) {
             if (carName.length() > 5) {
@@ -34,7 +44,7 @@ public class ValidatePlayerInput {
     }
 
     public void validateDuplicateCarNames(String playerInput) {
-        String[] splitsPlayerInput = playerInput.split(",");
+        String[] splitsPlayerInput = playerInput.split(",", -1);
 
         Set<String> dulplicateSet = Arrays.stream(splitsPlayerInput).collect(Collectors.toSet());
         if (dulplicateSet.size() != splitsPlayerInput.length) {
@@ -53,10 +63,9 @@ public class ValidatePlayerInput {
     }
 
     public List<String> convertStringToListCarNames(String playerInput) {
-        String [] splitsPlayerInput = playerInput.split(",");
+        String [] splitsPlayerInput = playerInput.split(",", -1);
 
         final List<String> convertedValues = Arrays.stream(splitsPlayerInput).toList();
         return convertedValues;
     }
-
 }

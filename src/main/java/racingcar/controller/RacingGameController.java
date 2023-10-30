@@ -16,6 +16,7 @@ public class RacingGameController {
     public void play() {
         gameViewer.startMessage();
         String inputLine = getInputLine();
+
         validatePlayerInput.validateContainSpace(inputLine);
         validatePlayerInput.validateCarNameLength(inputLine);
         validatePlayerInput.validateDuplicateCarNames(inputLine);
