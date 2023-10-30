@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(List<String> cars) {
-        validateDuplicate(cars);
-        this.cars = cars.stream()
+    public Cars(List<String> carNames) {
+        validateDuplicate(carNames);
+        this.cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
