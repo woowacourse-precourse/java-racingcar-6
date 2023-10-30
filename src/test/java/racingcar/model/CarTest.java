@@ -24,13 +24,13 @@ class CarTest {
 
     @Test
     void move_기준값이상일때_1칸전진() {
-        int location = car.move(4);
-        assertThat(location).isEqualTo(1);
+        car.move(4);
+        assertThat(car.getLocation()).isEqualTo(1);
     }
 
     @Test
     void move_기준값미만일때_정지() {
-        int location = car.move(2);
-        assertThat(location).isEqualTo(0);
+        car.move(2);
+        assertThat(car.getLocation()).isEqualTo(0);
     }
 }

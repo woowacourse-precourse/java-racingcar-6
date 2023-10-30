@@ -13,11 +13,10 @@ public class Car {
     }
 
 
-    public int move(int randomNumber) {
+    public void move(int randomNumber) {
         if (isMoveFront(randomNumber)) {
             location++;
         }
-        return location;
     }
 
     private boolean isMoveFront(int randomNumber) {
