@@ -35,6 +35,7 @@ public class InputView {
     }
 
     public static String inputRound() {
+        OutputView.printRoundInputMessage();
         return Console.readLine();
     }
 
