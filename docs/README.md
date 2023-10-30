@@ -7,9 +7,9 @@
 - [x] 자동차 시뮬레이션 CarSimulate#goSimulate()#viewCurrentProgress()
   - [x] 자동차 별 전진여부 기록하기 
   - [x] 회차별 진행상황 출력하기 
-- [] 우승자 Winner#decisionWinner()#printResult()
-    - [] 우승자 결정하기
-    - [] 결과 출력하기
+- [x] 우승자 Winner#decisionWinner()#printResult()
+    - [x] 우승자 결정하기
+    - [x] 결과 출력하기
 
 ## 기능 요구사항
 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
