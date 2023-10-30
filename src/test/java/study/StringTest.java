@@ -181,4 +181,18 @@ public class StringTest {
         // 방법 2 assertThat().isFalse
         assertThat(resultList_1.equals(resultList_2)).isFalse();
     }
+
+    @DisplayName("두개의_List가_같은지_확인하는_테스트")
+    @Test
+    void 두개의_List가_같은지_확인하는_테스트() throws Exception {
+        //given
+        List<Integer> resultList_1 = List.of(1, 2, 3);
+        List<Integer> resultList_2 = List.of(1, 2, 3);
+
+        // then
+        // 방법 1 assertEquals
+        assertEquals(resultList_1, resultList_2);
+        // 방법 2 assertThat().isTrue
+        assertThat(resultList_1.equals(resultList_2)).isTrue();
+    }
 }
