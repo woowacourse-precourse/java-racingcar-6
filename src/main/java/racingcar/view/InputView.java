@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import java.util.Arrays;
 import java.util.function.Supplier;
 
 public class InputView {
@@ -14,13 +13,13 @@ public class InputView {
         this.reader = reader;
     }
 
-    public String readCarNames() {
+    public String[] readCarNames() {
         System.out.println(CAR_NAMES_INPUT_MESSAGE);
         String carNames = reader.get();
 
         validateIsBlank(carNames);
 
-        return carNames;
+        return carNames.split(CAR_NAMES_DELIMITER);
     }
 
     private void validateIsBlank(String string) {

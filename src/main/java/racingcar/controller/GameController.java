@@ -9,7 +9,6 @@ public class GameController {
         this.inputView = inputView;
     }
     public void startGame() {
-        String carNames = inputView.readCarNames();
-        System.out.println(carNames);
+        String[] carNames = inputView.readCarNames();
     }
 }
