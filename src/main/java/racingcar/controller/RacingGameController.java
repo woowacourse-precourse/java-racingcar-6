@@ -2,27 +2,27 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.RacingCar;
-import racingcar.model.RacingCarGameMachine;
+import racingcar.model.RacingGameService;
 import racingcar.model.ValidatePlayerInput;
-import racingcar.view.GameViewer;
+import racingcar.view.RacingGameView;
 
 import java.util.List;
 
 public class RacingGameController {
-    private GameViewer gameViewer;
+    private RacingGameView racingGameView;
     private ValidatePlayerInput validatePlayerInput;
-    private RacingCarGameMachine racingCarGameMachine;
+    private RacingGameService racingGameService;
     private List<String> carNames;
     private int parsedTryCount;
 
     public RacingGameController() {
-        this.gameViewer = new GameViewer();
+        this.racingGameView = new RacingGameView();
         this.validatePlayerInput = new ValidatePlayerInput();
-        this.racingCarGameMachine = new RacingCarGameMachine();
+        this.racingGameService = new RacingGameService();
     }
 
     public void validatePlayerInputLine() {
-        gameViewer.startMessage();
+        racingGameView.startMessage();
         String inputLine = getInputLine();
 
         validatePlayerInput.convertStringToArray(inputLine);
@@ -34,7 +34,7 @@ public class RacingGameController {
 
         this.carNames = validatePlayerInput.convertStringToListCarNames();
 
-        gameViewer.tryCountMessage();
+        racingGameView.tryCountMessage();
         String tryCountInputLine = getInputLine();
         validatePlayerInput.validatePlayerTryCountInput(tryCountInputLine);
 
@@ -42,16 +42,16 @@ public class RacingGameController {
     }
 
     public void play() {
-        racingCarGameMachine.readyToPlay(carNames);
-        gameViewer.gameResultMessage();
+        racingGameService.readyToPlay(carNames);
+        racingGameView.gameResultMessage();
         for (int i = 0; i < parsedTryCount; i++) {
-            racingCarGameMachine.race();
-            List<RacingCar> raceResult = racingCarGameMachine.getRacingCars();
-            gameViewer.racingCarsMoveStatus(raceResult);
+            racingGameService.race();
+            List<RacingCar> raceResult = racingGameService.getRacingCars();
+            racingGameView.racingCarsMoveStatus(raceResult);
         }
 
-        List<String> winners = racingCarGameMachine.getWinner();
-        gameViewer.gameWinners(winners);
+        List<String> winners = racingGameService.getWinner();
+        racingGameView.gameWinners(winners);
     }
 
     public String getInputLine() {

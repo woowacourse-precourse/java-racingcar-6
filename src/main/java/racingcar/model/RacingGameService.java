@@ -5,7 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.List;
 
-public class RacingCarGameMachine {
+public class RacingGameService {
     private List<RacingCar> racingCars;
 
     public void readyToPlay(List<String> carNames) {

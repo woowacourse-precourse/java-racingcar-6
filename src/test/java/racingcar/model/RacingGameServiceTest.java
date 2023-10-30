@@ -2,8 +2,6 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.RacingCar;
-import racingcar.model.RacingCarGameMachine;
 import racingcar.view.GameMessage;
 
 import java.util.Arrays;
@@ -12,17 +10,17 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
-public class RacingCarGameMachineTest {
+public class RacingGameServiceTest {
     @DisplayName("레이싱 자동차 이름으로 레이싱 자동차 class 생성하는 테스트")
     @Test
     void constructorRacingCarWithCarNamesTest() {
         //when
-        RacingCarGameMachine racingCarGameMachine = new RacingCarGameMachine();
+        RacingGameService racingGameService = new RacingGameService();
         //given
         List<String> carsName = Arrays.asList("pobi", "namzi", "jnam", "jonhan");
 
-        racingCarGameMachine.readyToPlay(carsName);
-        List<RacingCar> racingCars = racingCarGameMachine.getRacingCars();
+        racingGameService.readyToPlay(carsName);
+        List<RacingCar> racingCars = racingGameService.getRacingCars();
         //then
         assertThat(racingCars.size()).isEqualTo(4);
         assertThat(racingCars.get(0).getRacingCarName()).isEqualTo("pobi");
@@ -35,11 +33,11 @@ public class RacingCarGameMachineTest {
     @Test
     void OneWinnerTest() {
         //when
-        RacingCarGameMachine racingCarGameMachine = new RacingCarGameMachine();
+        RacingGameService racingGameService = new RacingGameService();
         //given
         List<String> carsName = Arrays.asList("pobi", "namzi", "jnam", "jonhan");
-        racingCarGameMachine.readyToPlay(carsName);
-        List<RacingCar> racingCars = racingCarGameMachine.getRacingCars();
+        racingGameService.readyToPlay(carsName);
+        List<RacingCar> racingCars = racingGameService.getRacingCars();
 
         RacingCar pobi = racingCars.get(0);
         RacingCar namzi = racingCars.get(1);
@@ -62,7 +60,7 @@ public class RacingCarGameMachineTest {
         jonhan.isRacingCarMove(4);
         jonhan.isRacingCarMove(6);
         //then
-        List<String> winners = racingCarGameMachine.getWinner();
+        List<String> winners = racingGameService.getWinner();
         String joinString = String.join(", ", winners);
         assertThat(winners.get(0)).isEqualTo("namzi");
         assertThat(winners.size()).isEqualTo(1);
@@ -74,11 +72,11 @@ public class RacingCarGameMachineTest {
     @Test
     void MoreOneWinnerTest() {
         //when
-        RacingCarGameMachine racingCarGameMachine = new RacingCarGameMachine();
+        RacingGameService racingGameService = new RacingGameService();
         //given
         List<String> carsName = Arrays.asList("pobi", "namzi", "jnam", "jonhan");
-        racingCarGameMachine.readyToPlay(carsName);
-        List<RacingCar> racingCars = racingCarGameMachine.getRacingCars();
+        racingGameService.readyToPlay(carsName);
+        List<RacingCar> racingCars = racingGameService.getRacingCars();
 
         RacingCar pobi = racingCars.get(0);
         RacingCar namzi = racingCars.get(1);
@@ -102,7 +100,7 @@ public class RacingCarGameMachineTest {
         jonhan.isRacingCarMove(6);
 
         //then
-        List<String> winners = racingCarGameMachine.getWinner();
+        List<String> winners = racingGameService.getWinner();
         String joinString = String.join(", ", winners);
         assertThat(winners.get(0)).isEqualTo("namzi");
         assertThat(winners.get(1)).isEqualTo("jnam");

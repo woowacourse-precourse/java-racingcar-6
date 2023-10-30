@@ -3,7 +3,7 @@ package racingcar.view;
 import racingcar.model.RacingCar;
 import java.util.List;
 
-public class GameViewer {
+public class RacingGameView {
 
     public void startMessage() {
         System.out.println(GameMessage.START_MESSAGE.getStartMessage());
