@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.CarNames;
+import racingcar.domain.Round;
 import racingcar.view.Console;
 
 public class RacingCarGame {
@@ -13,7 +14,7 @@ public class RacingCarGame {
 
     public void run() {
         CarNames carNames = new CarNames(console.readCarNames());
-
+        Round round = new Round(console.readNumberOfTrials());
     }
 
 }
