@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.constant.MessageConstants.DASH;
+import static racingcar.constant.MessageConstants.WINNER_SUFFIX;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingCar {
@@ -22,11 +25,11 @@ public class RacingCar {
     }
 
     public String createRoundResult() {
-        return carName + " : " + repeatDash();
+        return carName + WINNER_SUFFIX + repeatDash();
     }
 
     private String repeatDash() {
-        return "-".repeat(Math.max(0, position));
+        return DASH.repeat(Math.max(0, position));
     }
 
     public int getPosition() {

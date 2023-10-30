@@ -1,6 +1,10 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.constant.MessageConstants.CAR_NAME_ALPHANUMERIC_COMMA_ONLY;
+import static racingcar.constant.MessageConstants.CAR_NAME_DUPLICATE;
+import static racingcar.constant.MessageConstants.CAR_NAME_MAX_LENGTH_EXCEEDED;
+import static racingcar.constant.MessageConstants.CAR_NAME_NOT_PROVIDED;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -38,7 +42,7 @@ class CarNameValidatorTest {
         // then
         assertThatThrownBy(carNameValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름을 입력해주세요.");
+                .hasMessage(CAR_NAME_NOT_PROVIDED);
     }
 
     @DisplayName("validateAlphanumericAndCommaCarName()로 자동차 이름이 영숫자와 콤마로만 구성되지 않는 경우 예외가 발생한다.")
@@ -54,7 +58,7 @@ class CarNameValidatorTest {
         // then
         assertThatThrownBy(carNameValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 영숫자와 콤마로만 구성되어야 합니다.");
+                .hasMessage(CAR_NAME_ALPHANUMERIC_COMMA_ONLY);
     }
 
     @DisplayName("validateCarNameLength()로 자동차 이름의 길이가 0에서 5글자가 아니라면 예외가 발생한다.")
@@ -70,7 +74,7 @@ class CarNameValidatorTest {
         // then
         assertThatThrownBy(carNameValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 5글자 이하여야 합니다.");
+                .hasMessage(CAR_NAME_MAX_LENGTH_EXCEEDED);
     }
 
     @DisplayName("validateCarNamesDuplicate()로 자동차 이름들이 중복된다면 예외가 발생한다.")
@@ -86,7 +90,7 @@ class CarNameValidatorTest {
         // then
         assertThatThrownBy(carNameValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 중복될 수 없습니다.");
+                .hasMessage(CAR_NAME_DUPLICATE);
     }
 
 }

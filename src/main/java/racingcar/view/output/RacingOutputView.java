@@ -1,24 +1,32 @@
 package racingcar.view.output;
 
+import static racingcar.constant.MessageConstants.WINNER_DELIMITER;
+import static racingcar.constant.MessageConstants.INPUT_CAR_NAME;
+import static racingcar.constant.MessageConstants.INPUT_TRY_COUNT;
+import static racingcar.constant.MessageConstants.NONE_INSTANTIABLE_CLASS;
+import static racingcar.constant.MessageConstants.RESULT;
+import static racingcar.constant.MessageConstants.WINNER_PREFIX;
+import static racingcar.constant.MessageConstants.WINNER_SUFFIX;
+
 import java.util.List;
 
 public class RacingOutputView {
 
     private RacingOutputView() {
-        throw new AssertionError("인스턴스화 불가능");
+        throw new AssertionError(NONE_INSTANTIABLE_CLASS);
     }
 
     public static void outputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_CAR_NAME);
     }
 
     public static void outputTryCount() {
-        System.out.println("시도할 횟수는 몇 회인가요?");
+        System.out.println(INPUT_TRY_COUNT);
     }
 
     public static void outputResultMessage() {
         outputNextLine();
-        System.out.println("실행 결과");
+        System.out.println(RESULT);
     }
 
     public static void outputRoundResults(List<String> roundResults) {
@@ -31,8 +39,8 @@ public class RacingOutputView {
     }
 
     public static void outputWinners(List<String> winners) {
-        System.out.print("최종 우승자 : ");
-        System.out.print(String.join(", ", winners));
+        System.out.print(WINNER_PREFIX + WINNER_SUFFIX);
+        System.out.print(String.join(WINNER_DELIMITER, winners));
     }
 
 }

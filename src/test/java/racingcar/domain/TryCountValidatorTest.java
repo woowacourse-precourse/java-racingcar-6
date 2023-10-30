@@ -1,6 +1,9 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_INTEGER;
+import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_POSITIVE;
+import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_PROVIDED;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,7 +33,7 @@ class TryCountValidatorTest {
         // then
         assertThatThrownBy(() -> new TryCountValidator(invalidTryCount))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도할 횟수를 입력해주세요.");
+                .hasMessage(TRY_COUNT_NOT_PROVIDED);
     }
 
     @DisplayName("validateTryCountIsInteger()로 시도할 횟수가 정수가 아니라면 예외가 발생한다.")
@@ -43,7 +46,7 @@ class TryCountValidatorTest {
         // then
         assertThatThrownBy(() -> new TryCountValidator(invalidTryCount))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도할 횟수는 정수여야 합니다.");
+                .hasMessage(TRY_COUNT_NOT_INTEGER);
     }
 
     @DisplayName("validateTryCountIsInteger()로 시도할 횟수가 양의 정수가 아니라면 예외가 발생한다.")
@@ -56,7 +59,7 @@ class TryCountValidatorTest {
         // then
         assertThatThrownBy(() -> new TryCountValidator(invalidTryCount))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도할 횟수는 양의 정수여야 합니다.");
+                .hasMessage(TRY_COUNT_NOT_POSITIVE);
     }
 
 }
