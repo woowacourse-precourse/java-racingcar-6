@@ -55,7 +55,7 @@ public class InputView {
     private void validateNumberRange(String numberStr) {
         int number = Integer.parseInt(numberStr);
         if (number < 1) {
-            throw new IllegalArgumentException("[ERROR] 입력할 수 있는 실행 회수는 1 이상의 숫자입니다.")
+            throw new IllegalArgumentException("[ERROR] 입력할 수 있는 실행 회수는 1 이상의 숫자입니다.");
         }
     }
 

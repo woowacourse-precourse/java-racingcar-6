@@ -76,10 +76,10 @@ class InputViewTest extends InTest {
     void inputNames() {
         // given
         InputView inputView = new InputView();
-        systemIn("pobi,yono,haho,nimo");
         List<String> expected = List.of("pobi", "yono", "haho", "nimo");
 
         // when
+        systemIn("pobi,yono,haho,nimo");
         List<String> result = inputView.inputNames();
 
         // then

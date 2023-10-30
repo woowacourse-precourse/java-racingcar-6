@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -26,6 +27,7 @@ public abstract class InTest {
     protected void printResult() {
         System.setOut(standardOut);
         System.out.println(getOutput());
+        Console.close();
     }
 
     protected String getOutput() {
