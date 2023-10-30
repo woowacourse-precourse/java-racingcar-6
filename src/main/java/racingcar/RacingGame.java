@@ -4,12 +4,14 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class RacingGame {
     public static String[] carName;
+    public static int tryNumber;
 
     private RacingGame(){
         throw new IllegalArgumentException();
     }
     public static void startGame(){
         inputCarName();
+        inputTryNumber();
     }
     private static void inputCarName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -32,5 +34,10 @@ public class RacingGame {
         if (inputResult) {
             throw new IllegalArgumentException();
         }
+    }
+    private static void inputTryNumber() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String stringNumber = Console.readLine();
+        tryNumber = Integer.parseInt(stringNumber);
     }
 }
