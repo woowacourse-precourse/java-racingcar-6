@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -17,6 +18,12 @@ class CarTest {
     private static final int MIN_MOVING_FORWARD = 4;
     private static final int MOVE_SUCCESS = 1;
     private static final int MOVE_FAIL = 0;
+    private Car pobiCar;
+
+    @BeforeEach
+    void setUp() {
+        pobiCar = new Car("pobi");
+    }
 
     private static Stream<Arguments> testMoveCountAndRandomNumber() {
         return Stream.of(
@@ -36,14 +43,10 @@ class CarTest {
     @ParameterizedTest
     @MethodSource("testMoveCountAndRandomNumber")
     void getMoveCount_테스트(int expectedMoveCount, int randomNumber) {
-        //given
-        Car pobi = new Car("pobi");
-
-        //when, then
         assertRandomNumberInRangeTest(
                 () -> {
-                    pobi.moveIfSatisfy();
-                    int moveCount = pobi.getMoveCount();
+                    pobiCar.moveIfSatisfy();
+                    int moveCount = pobiCar.getMoveCount();
                     assertThat(moveCount).isEqualTo(expectedMoveCount);
                 },
                 randomNumber
@@ -52,12 +55,7 @@ class CarTest {
 
     @Test
     void 자동차_이름_정상동작() {
-        // given
-        String carName = "pobi";
-        // when
-        Car car = new Car(carName);
-        // then
-        assertThat(car.getName()).isEqualTo("pobi");
+        assertThat(pobiCar.getName()).isEqualTo("pobi");
     }
 
     @Test
