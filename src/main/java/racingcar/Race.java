@@ -7,12 +7,11 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Race {
     public List<Car> cars = new ArrayList<>();
-    private int moveNum;
     public NumberGenerator numberGenerator;
 
     public void play() {
         createCarObjects(inputCarNames());
-        inputMovingNumber();
+        int moveNum = inputMovingNumber();
 
         System.out.println("실행 결과");
         for (int num = 0; num < moveNum; num++) {
@@ -37,9 +36,11 @@ public class Race {
         }
     }
 
-    private void inputMovingNumber() {
+    private int inputMovingNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        moveNum = Integer.parseInt(readLine());
+        String moveNum = readLine();
+        InputValidator.validateMovingNumber(moveNum);
+        return Integer.parseInt(moveNum);
     }
 
     public void updateCarsPosition() {

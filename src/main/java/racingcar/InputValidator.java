@@ -43,7 +43,11 @@ public class InputValidator {
         }
     }
 
-    public static void notNumber(int number) {
+    public static void validateNotNumber(String number) {
+        if (!number.matches("\\d+")) {
+            throw new IllegalArgumentException("시도 횟수는 숫자로만 입력해야 합니다. 프로그램 종료");
+        }
+    }
 
     }
 }
