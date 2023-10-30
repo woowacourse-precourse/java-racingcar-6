@@ -182,8 +182,6 @@ public class GameProcess {
      * @return
      */
     public Map<RaceCar, String> makeMapOfCurrentRace() {
-        String result = "";
-
         for (RaceCar raceCar : raceCarOfCurrentList) {
             raceCarStringMap.put(raceCar, raceCar.toStringMoveState());
         }
