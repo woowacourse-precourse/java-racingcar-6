@@ -9,7 +9,7 @@ public class Validate {
     }
 
     public static String isValidAttemptNumber(String attemptNumber) {
-        if (attemptNumber.matches("^\\d{1,3}$")) {
+        if (!attemptNumber.matches("^\\d{1,3}$")) {
             throw new IllegalArgumentException();
         }
         return attemptNumber;
