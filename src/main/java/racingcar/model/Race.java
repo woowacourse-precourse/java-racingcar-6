@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Race {
 
@@ -25,6 +26,14 @@ public class Race {
             car.decideDrive();
         }
     }
+
+    public List<String> makeCarNameList() {
+        return carList.stream()
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
+    }
+
+
 
     public List<Car> initCarList(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
