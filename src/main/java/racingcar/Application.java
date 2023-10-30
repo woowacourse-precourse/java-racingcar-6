@@ -3,11 +3,13 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         InputView inputView = new InputView();
+        OutputView outputView = new OutputView();
 
         List<String> nameList = inputView.inputCarName();
         int round = inputView.inputTryNumber();
@@ -19,6 +21,9 @@ public class Application {
             if(racing.isGo())
                 car.move +=1;
         }
+
+        List<String> winner = racing.determineWinner();
+        outputView.getWinnerMessage(winner);
     }
 
     private static List<Car> mappingCar(List<String> nameList) {
