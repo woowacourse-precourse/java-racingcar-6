@@ -14,15 +14,30 @@ public class OutputView {
                 .getMessage());
     }
 
+    public void outputResultMessage() {
+        printlnOut(OutputMessage.RESULT
+                .getMessage());
+    }
+
+    public void outputFinishMessage() {
+        printOut(OutputMessage.FINISH
+                .getMessage());
+    }
 
     public void outputRacingResult(String carName, Integer location) {
         printlnOut(carName + " : " + "-".repeat(location));
         printlnOut("");
     }
 
+    public void outputWinners(String winners) {
+        printlnOut(winners);
+    }
 
     private void printlnOut(String message) {
         System.out.println(message);
     }
 
+    private void printOut(String message) {
+        System.out.print(message);
+    }
 }

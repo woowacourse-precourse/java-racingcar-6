@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.stream.IntStream;
 import racingcar.service.RacingService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -22,8 +23,23 @@ public class RacingController {
     public void play() {
         start();
         tryNumber();
+
+        gamePlay();
+
+        outputView.outputFinishMessage();
+        String result = getWinnersList();
+        outputView.outputWinners(result);
     }
 
+    private String getWinnersList() {
+        return racingService.getListToStringWinners();
+    }
+
+    private void gamePlay() {
+        outputView.outputResultMessage();
+        IntStream.range(0, this.tryNumber)
+                .forEach(i -> racingService.racingStart());
+    }
 
     private void tryNumber() {
         outputView.outputTryNumberMessage();
@@ -36,6 +52,7 @@ public class RacingController {
         String carsName = inputView.inputCarsName();
 
         this.racingService = new RacingService(carsName);
-        this.racingService.setOutputView(outputView);
+        this.racingService
+                .setOutputView(outputView);
     }
 }

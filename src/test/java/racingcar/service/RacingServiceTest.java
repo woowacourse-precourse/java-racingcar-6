@@ -34,6 +34,16 @@ class RacingServiceTest {
 
         // then
         assertThat(statusEnum).isEqualTo(StatusEnum.STOP);
+    }
 
+    @DisplayName("다 위치값이 동일해서 전부 우승")
+    @Test
+    void test3() {
+
+        // when
+        String listToStringWinners = racingService.getListToStringWinners();
+
+        // then
+        assertThat(listToStringWinners).isEqualTo("pobi, woni, jun");
     }
 }

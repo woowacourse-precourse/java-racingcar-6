@@ -2,13 +2,17 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.common.util.StatusEnum;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.view.OutputView;
 
 public class RacingService {
 
     private final Cars cars;
+
+    private OutputView outputView;
 
     private static final int MOVE_CONDITION = 4;
 
@@ -30,7 +34,16 @@ public class RacingService {
                 .forEach(car -> {
                     StatusEnum statusEnum = getMoveOrStop(getRandomNum());
                     car.moveOrStop(statusEnum);
+                    outputView.outputRacingResult(car.getCarName(), car.getLocation());
                 });
+    }
+
+    public String getListToStringWinners() {
+        List<Car> carList = getTopCars();
+
+        return carList.stream()
+                .map(Car::getCarName)
+                .collect(Collectors.joining(", "));
     }
 
     private List<Car> getTopCars() {
@@ -53,4 +66,7 @@ public class RacingService {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public void setOutputView(OutputView outputView) {
+        this.outputView = outputView;
+    }
 }
