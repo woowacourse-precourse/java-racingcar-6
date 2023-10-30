@@ -15,4 +15,14 @@ public class OutputView {
     public static void printRaceResultIntroduction() {
         System.out.println("실행 결과");
     }
+
+    public static void printRaceResult(RaceResult raceResult) {
+        int progress = raceResult.progress();
+        String name = raceResult.name();
+
+        System.out.print(name + " : ");
+        for (int i = 0; i < progress; i++) {
+            System.out.print("-");
+        }
+    }
 }
