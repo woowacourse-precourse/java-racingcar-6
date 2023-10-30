@@ -4,6 +4,9 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.assertj.core.api.ObjectArrayAssert;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,6 +15,20 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+
+    @Test
+    void 자동차_이동(){
+        Application application = new Application();
+        String[] split = {"pobi", "crong", "wooni"};
+        Car[] carlist = application.createCar(split);
+
+        application.move(carlist[0], true);
+        application.move(carlist[1], false);
+
+        assertThat(carlist[0].getPos()).isEqualTo(1);
+        assertThat(carlist[1].getPos()).isEqualTo(0);
+
+    }
 
     @Test
     void 자동차_생성(){
