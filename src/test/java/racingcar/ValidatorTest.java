@@ -34,6 +34,21 @@ public class ValidatorTest {
         assertDoesNotThrow(() -> Validator.inputCarNames(racingCars));
     }
 
-    
+    @Test
+    void 자동차이름_공백_실패_테스트() {
+        racingCars.put("pobi", "");
+        racingCars.put("", ""); // Blank name
 
+        assertThrows(IllegalArgumentException.class, () -> Validator.inputCarNames(racingCars));
+    }
+
+    @Test
+    void 자동차이름_공백_성공_테스트() {
+        racingCars.put("pobi", "");
+        racingCars.put("woni", ""); // Not Blank name
+
+        assertDoesNotThrow(() -> Validator.inputCarNames(racingCars));
+    }
+
+    
 }
