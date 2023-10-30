@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.StringJoiner;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarGroup;
 import racingcar.domain.MoveCount;
@@ -14,10 +14,12 @@ public class OutputView {
     }
 
     public void renderRace(CarGroup carGroup, MoveCount moveCount) {
+        showBlankLine();
+        System.out.println("실행 결과");
         for (int i = 0; i < moveCount.intValue(); i++) {
-            showBlankLine();
             carGroup.run();
             renderRaceStatus(carGroup);
+            showBlankLine();
         }
     }
 
@@ -27,17 +29,16 @@ public class OutputView {
 
     private void renderRaceStatus(CarGroup carGroup) {
         String positionMarker = "-";
-        for (Car car : carGroup.getCarGroup()) {
+        for (Car car : carGroup.getList()) {
             System.out.println(car.getName() + " : " + positionMarker.repeat(car.getPosition()));
         }
     }
 
     public void showWinners(List<Car> winners) {
-        StringJoiner sj = new StringJoiner(", ");
-        for (Car car : winners) {
-            sj.add(car.getName());
-        }
-        System.out.println();
-        System.out.println("최종 우승자 : " + sj);
+        String winnerNames = winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 }
