@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class RaceStatus {
     private static final HashMap<Racer,Integer> raceScore=new HashMap<>();
 
-    private static Integer scoreCheckByRacer(Racer racer){
+    public static Integer scoreCheckByRacer(Racer racer){
         return raceScore.getOrDefault(racer,0);
     }
 
