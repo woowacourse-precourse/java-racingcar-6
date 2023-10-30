@@ -46,4 +46,11 @@ public class Cars {
         }
     }
 
+    public void printRaceStatus() {
+        for (Car car : cars) {
+            System.out.println(car);
+        }
+        System.out.println();
+    }
+
 }
