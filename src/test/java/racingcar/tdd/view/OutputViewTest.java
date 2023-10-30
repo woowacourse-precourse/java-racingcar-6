@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class OutputViewTest {
@@ -59,6 +61,19 @@ public class OutputViewTest {
 
         setUpStreams();
         OutputView.printRoundResult("Car1", 1);
+        doTest(message);
+    }
+
+    @Test
+    void 올바른_최종_우승자_메시지_출력시_통과() {
+        List<String> winners = new ArrayList<>();
+        winners.add("Car1");
+        winners.add("Car2");
+
+        String message = "최종 우승자 : Car1, Car2\n";
+
+        setUpStreams();
+        OutputView.printWinner(winners);
         doTest(message);
     }
 }
