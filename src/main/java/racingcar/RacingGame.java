@@ -27,11 +27,11 @@ public class RacingGame {
     public void inputCarName(List<Car> cars) {
         String[] carNames = Console.readLine().split(",");
         for (String name : carNames) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("이름은 5자 이내로 입력해 주세요");
-            }
             if (name.contains(" ")) {
                 name = name.replace(" ", "");
+            }
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("이름은 5자 이내로 입력해 주세요");
             }
             cars.add(new Car(name));
         }
