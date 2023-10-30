@@ -19,16 +19,20 @@ public final class InputView {
     }
 
     public static List<CarNameRequest> requestCarNames() {
-        final String carNames = Console.readLine();
-        validateBlank(carNames);
+        final String carNames = readLineAndValidateBlank();
         return Arrays.stream(carNames.split(INPUT_NAMES_SEPARATOR)).map(CarNameRequest::new).collect(Collectors.toList());
     }
 
     public static TotalRoundNumberRequest requestTotalRoundNumber() {
-        final String totalRound = Console.readLine();
-        validateBlank(totalRound);
+        final String totalRound = readLineAndValidateBlank();
         validateNumeric(totalRound);
         return new TotalRoundNumberRequest(Integer.parseInt(totalRound));
+    }
+
+    private static String readLineAndValidateBlank() {
+        final String input = Console.readLine();
+        validateBlank(input);
+        return input;
     }
 
     private static void validateBlank(final String input) {
