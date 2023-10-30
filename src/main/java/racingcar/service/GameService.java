@@ -11,22 +11,23 @@ public class GameService {
     private final WinnerRepository winnerRepository = new WinnerRepository();
     private final CarsRepository carsRepository = new CarsRepository();
     private final GameNum gameNum = new GameNum();
+    int carsSize = 0;
 
     public void run() {
         print.result();
+        carsSize = carsRepository.size();
         while (gameNum.isOverZero()) {
             addRandomNum();
-            print.racing(carsRepository.size());
+            print.racing(carsSize);
             gameNum.minus();
         }
 
         findWinner(carsRepository.findMaxPosition());
         print.winner(winnerRepository.winnerToString());
-        carsRepository.reset();
     }
 
     private void findWinner(int max) {
-        for (int i = 0; i < carsRepository.size(); i++) {
+        for (int i = 0; i < carsSize; i++) {
             if (max == carsRepository.getGameNum(i)) {
                 winnerRepository.add(carsRepository.getName(i));
             }
@@ -34,15 +35,8 @@ public class GameService {
     }
 
     private void addRandomNum() {
-        for (int i = 0; i < carsRepository.size(); i++) {
-            if (isLessThan4(pickNumberInRange(0, 9))) {
-                continue;
-            }
-            carsRepository.plusNum(i);
+        for (int i = 0; i < carsSize; i++) {
+            carsRepository.plusNum(i, pickNumberInRange(0, 9));
         }
-    }
-
-    private boolean isLessThan4(int random) {
-        return random < 4;
     }
 }

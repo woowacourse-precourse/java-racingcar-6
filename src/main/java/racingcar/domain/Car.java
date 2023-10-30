@@ -13,8 +13,8 @@ public class Car {
         return new Car(name, num);
     }
 
-    public void plusPosition() {
-        position.plusNum();
+    public void plusPosition(int random) {
+        position.plusNum(random);
     }
 
     public String getName() {

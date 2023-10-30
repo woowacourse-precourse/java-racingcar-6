@@ -21,8 +21,8 @@ public class CarsRepository {
         return cars.size();
     }
 
-    public void plusNum(int i) {
-        cars.plusNum(i);
+    public void plusNum(int i, int random) {
+        cars.plusNum(i, random);
     }
 
     public int getGameNum(int i) {

@@ -35,8 +35,8 @@ public class Cars {
         return carList.size();
     }
 
-    public void plusNum(int i) {
-        getCar(i).plusPosition();
+    public void plusNum(int i, int random) {
+        getCar(i).plusPosition(random);
     }
 
     public String getName(int i) {
@@ -54,6 +54,7 @@ public class Cars {
     public int findMaxPosition() {
         int max = 0;
         for (Car car : carList) {
+
             max = Math.max(max, car.getPosition());
         }
         return max;
