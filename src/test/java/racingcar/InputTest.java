@@ -54,7 +54,7 @@ class InputTest {
         List<String> carNames = Computer.createCarNames(userInput);
 
         // then
-        assertThatThrownBy(() -> Validator.checkBlankAndLength(carNames))
+        assertThatThrownBy(() -> Validator.checkLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름을 5자 이하로 입력해 주세요.");
 
