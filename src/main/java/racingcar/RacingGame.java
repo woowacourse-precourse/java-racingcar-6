@@ -31,6 +31,20 @@ public class RacingGame {
         this.count = Integer.parseInt(input);
         System.out.println(this.count);
 
+        // 실행 결과 출력
+        for (int i = 0; i < this.count; i++) {
+            for (int j = 0; j < this.carArrayList.size(); j++) {
+                int temp = Randoms.pickNumberInRange(0, 9);
+                if (temp >= 4) {
+                    this.carArrayList.get(j).distance++;
+                }
+                String result = "-".repeat(this.carArrayList.get(j).distance);
+                System.out.println(this.carArrayList.get(j).name + " : " + result);
+            }
+            System.out.println();
+        }
+
+
     }
 }
 
