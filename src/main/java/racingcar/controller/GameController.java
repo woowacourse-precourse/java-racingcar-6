@@ -24,7 +24,6 @@ public class GameController {
 
         CarsGenerateDto generatedCars = new CarsGenerateDto(carNames);
         outputView.showResultMessage();
-
         gameService.playUntilTrialNumber(trialNumber, generatedCars);
     }
 }
