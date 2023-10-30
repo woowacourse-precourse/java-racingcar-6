@@ -9,12 +9,11 @@ public class Race {
     private final List<Car> carList;
     private List<Integer> randomNumbersForTest = new ArrayList<>();
 
-    public Race(String inputCarNames) {
+    public Race() {
         carList = new ArrayList<>();
-        setCarList(inputCarNames);
     }
 
-    private void setCarList(String inputCarNames) {
+    public void setCarList(String inputCarNames) {
         List<String> carNames = makeStringToList(inputCarNames);
         for (String carName : carNames) {
             Car newCar = new Car(carName);
