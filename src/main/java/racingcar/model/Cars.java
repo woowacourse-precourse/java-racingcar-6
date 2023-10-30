@@ -4,8 +4,6 @@ import org.mockito.internal.util.StringUtil;
 import racingcar.view.OutputView;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +29,6 @@ public class Cars {
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
-
         OutputView.printWinner(winnerNames);
     }
     public void go(){

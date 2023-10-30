@@ -22,17 +22,17 @@ public class GameController {
     public void setName(){
         try{
             NameValidator nameCheck = new NameValidator(input.inputPlayer());
-            new Cars(NameValidator.NAMES);
+            new Cars(nameCheck.NAMES);
         }catch (IllegalArgumentException e){
-            e.getMessage();
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
     public void setNum(){
         try{
             NumValidator numCheck = new NumValidator(input.inputNum());
-            playNum = Integer.parseInt(NumValidator.NUM);
+            playNum = Integer.parseInt(numCheck.NUM);
         }catch (IllegalArgumentException e){
-            e.getMessage();
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
 

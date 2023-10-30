@@ -3,6 +3,7 @@ package racingcar.validator;
 import java.util.regex.Pattern;
 
 public class Constants {
+    //정규 표현식 이용
     public static final Pattern namesStringPattern = Pattern.compile("^[가-힣\\w]+[가-힣\\w" + "," + "]*[가-힣\\w]$");
 
     //예외처리 관련 문구

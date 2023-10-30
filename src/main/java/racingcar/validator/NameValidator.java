@@ -17,8 +17,8 @@ public class NameValidator {
         validate();
     }
     public void validate(){
-        isRightNameSize();
         isRightNameString();
+        isRightNameSize();
         isNotDuplicate();
     }
 
@@ -28,7 +28,7 @@ public class NameValidator {
         }
     }
     public void isRightNameSize(){
-        if(!NAMES.stream().anyMatch(name -> name.length()>5||name.isEmpty())){
+        if(NAMES.stream().anyMatch(name -> name.length()>5||name.isEmpty())){
             throw new IllegalArgumentException(CARNAME_SIZE_ERROR);
         }
     }

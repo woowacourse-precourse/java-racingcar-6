@@ -7,13 +7,10 @@ public class NumValidator {
 
     public NumValidator(String num) {
         NUM = num;
-        validate();
-    }
-    public void validate(){
-        isInt();
+        validateIsInt();
     }
     //숫자인지 확인
-    public void isInt(){
+    public void validateIsInt(){
         if(Integer.parseInt(NUM)<'0'|| Integer.parseInt(NUM)>'9'){
             throw new IllegalArgumentException(NUMBER_ERROR);
         }
