@@ -1,6 +1,9 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InputProcessorTest {
@@ -11,7 +14,7 @@ public class InputProcessorTest {
         assertDoesNotThrow(() -> InputProcessor.carNameInputProcess(validInput));
 
         String invalidInput = "pobi,woni,junnnnnnn";
-        StringIndexOutOfBoundsException exception = assertThrows(StringIndexOutOfBoundsException.class,
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class,
                 () -> InputProcessor.carNameInputProcess(invalidInput));
         assertEquals("String index out of range: 5 \nerrorVar : junnnnnnn", exception.getMessage());
 
