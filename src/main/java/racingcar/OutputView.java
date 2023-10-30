@@ -2,5 +2,7 @@ package racingcar;
 
 public interface OutputView {
     void outputMessage(String message);
-    void outputMessage(OutputMessage outputMessage);
+    default void outputMessage(OutputMessage outputMessage) {
+        outputMessage(outputMessage.getMessage());
+    }
 }
