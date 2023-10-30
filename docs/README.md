@@ -59,8 +59,8 @@
 + [ ] DriveController 클래스를 구현
     + [ ] 자동차가 전진하도록 하는 기능을 구현한다.
     + [ ] 자동차가 멈추도록 하는 기능을 구현한다.
-+ [ ] RandomGenerator 클래스를 구현
-    + [ ] 0-9사이의 랜덤한 정수를 ```camp.nextstep.edu.missionutils.Randos```의 ```pickNumberInRange()``` 를 활용해 구현
++ [x] RandomGenerator 클래스를 구현
+    + [x] 0-9사이의 랜덤한 정수를 ```camp.nextstep.edu.missionutils.Randos```의 ```pickNumberInRange()``` 를 활용해 구현
 + [ ] GameManager 클래스를 구현
     + [ ] 게임 시작할때, 사용자에게 입력을 받는다.
     + [ ] 입력의 내용을 바탕으로 Car 속성을 초기화한다.
