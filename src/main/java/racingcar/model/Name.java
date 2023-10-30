@@ -1,6 +1,11 @@
 package racingcar.model;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 import racingcar.constant.GameConstant;
 
 public class Name {
@@ -24,13 +29,30 @@ public class Name {
     }
 
     private void validateNoWhiteSpace(String name) {
-        if (name.matches(GameConstant.WHITE_SPACE_REGEX)) {
+        if (name.matches(GameConstant.WHITE_SPACE_EXISTS_REGEX)) {
             throw new IllegalArgumentException("이름에 공백이 없도록 입력해주세요.");
         }
     }
 
-    @Override
-    public String toString() {
+    public static List<Name> createNameList(String names) {
+        String[] splitNames = splitNames(names);
+        return Arrays.stream(splitNames)
+                .map(Name::new)
+                .collect(Collectors.toList());
+    }
+
+    private static String[] splitNames(String names) {
+        return names.split(",");
+    }
+
+    public static void validateDuplicateName(List<Name> nameList) {
+        Set<Name> nameSet = new HashSet<>(nameList);
+        if (nameSet.size() != nameList.size()) {
+            throw new IllegalArgumentException("중복된 이름을 입력하셨습니다.");
+        }
+    }
+
+    public String value() {
         return name;
     }
 
