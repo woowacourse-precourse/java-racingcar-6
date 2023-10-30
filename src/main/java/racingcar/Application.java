@@ -37,7 +37,7 @@ class Car {
     }
 
     public void move(){
-        if(Randoms.pickNumberInRange(0,9)>=4){
+        if(RandomGenerator.pickNumberInRange(0,9)>=4){
             position++;
         }
     }
@@ -80,7 +80,9 @@ class Race {
 }
 
 class RandomGenerator{
-
+    public static int pickNumberInRange(int start, int end){
+        return Randoms.pickNumberInRange(start,end);
+    }
 }
 
 class InputValidator{
