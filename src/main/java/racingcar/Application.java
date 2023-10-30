@@ -19,13 +19,25 @@ public class Application {
 
     //차 이동 기록
     public static List<Integer> moveCars(int sizeOfCars, List carsStatus) {
-            for (int i = 0; i < sizeOfCars; i++) {
-                boolean movementOrNot = isMove();
-                if (movementOrNot){
-                    carsStatus.set(i, (int) carsStatus.get(i) + 1);
-                }
+        for (int i = 0; i < sizeOfCars; i++) {
+            boolean movementOrNot = isMove();
+            if (movementOrNot) {
+                carsStatus.set(i, (int) carsStatus.get(i) + 1);
             }
-            return carsStatus;
+        }
+        return carsStatus;
+    }
+
+    //차 이동 상태 출력
+    private static void printCarsStatus(List<Integer> carsStatus, List<String> cars) {
+        for ( int i=0;i<cars.size();i++){
+            System.out.print(cars.get(i));
+            System.out.print(" : ");
+            for(int j=0;j<carsStatus.get(i);j++){
+            System.out.print("-");
+            }
+            System.out.println();
+        }
     }
 
     public static void game() throws IllegalArgumentException {
@@ -55,15 +67,22 @@ public class Application {
 
         System.out.println("실행 결과");
 
+        //초기화
         List<Integer> carsStatus = new ArrayList<>();
-        for(int i=0;i< cars.size();i++){
+        for (int i = 0; i < cars.size(); i++) {
             carsStatus.add(0);
         }
 
-        for(int i=0;i<numberOfGames;i++) {
-            carsStatus= moveCars(cars.size(),carsStatus);
+        for (int i = 0; i < numberOfGames; i++) {
+            carsStatus = moveCars(cars.size(), carsStatus);
+            printCarsStatus(carsStatus, cars);
         }
+
+        //최종 우승자 출력 (중복 가능)
+
     }
+
+
 
     public static void main(String[] args) {
         game();
