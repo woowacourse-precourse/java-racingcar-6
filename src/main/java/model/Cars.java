@@ -31,4 +31,16 @@ public class Cars {
         });
     }
 
+    public int getMaxPosition() {
+        return cars.stream().map(car -> car.getNowPlace().length())
+                .max(Integer::compareTo)
+                .orElse(0);
+    }
+
+    public List<Car> getWinner() {
+        return cars.stream().filter(car ->
+                car.getNowPlace().length() == getMaxPosition())
+                .collect(Collectors.toList());
+    }
+
 }
