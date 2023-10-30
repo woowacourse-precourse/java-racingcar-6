@@ -3,7 +3,7 @@ package racingcar.constants;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("자동차 이동에 대해 ")
 class RacingCarMoveTest {
@@ -21,7 +21,7 @@ class RacingCarMoveTest {
 
     @Test
     @DisplayName("시도 횟수가 한 단계씩 줄어든다.")
-    void update_attempt_count(){
+    void update_attempt_count() {
         //given
         //when
         int attemptCount = RacingCarMove.updateAttemptCount(5);

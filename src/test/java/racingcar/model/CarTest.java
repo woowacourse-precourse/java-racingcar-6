@@ -1,11 +1,13 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import java.util.stream.IntStream;
+
+import static org.assertj.core.api.Assertions.*;
 
 @DisplayName("자동차 객체에 대해")
 class CarTest {
@@ -24,5 +26,21 @@ class CarTest {
     void correct_name_length(String name) {
         assertThatCode(() -> new Car(name))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    @DisplayName("이동한 만큼의 현재 위치를 알 수 있다.")
+    void status_car_position() {
+        //given
+        Car car = new Car("pobi");
+        IntStream
+                .range(0, 3)
+                .forEach(i -> car.movePosition());
+
+        //when
+        String carPosition = car.statusCarPosition();
+
+        //then
+        assertThat(carPosition).isEqualTo("pobi : ---\n");
     }
 }

@@ -21,7 +21,7 @@ class InputPatternTest {
 
     @Test
     @DisplayName("숫자를 입력하지 않으면 true를 반환한다.")
-    void check_attempt_count_numeric_pattern(){
+    void check_attempt_count_numeric_pattern() {
         //given
         //when
         boolean isNotMatch = InputPattern.isNotNumeric("pobi#");
