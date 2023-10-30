@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
+import racingcar.util.GlobalExceptionHandler;
 
 import java.util.*;
 
@@ -11,6 +12,8 @@ import static java.util.Collections.list;
 import static java.util.Collections.max;
 
 public class Application {
+
+    private final static GlobalExceptionHandler globalExceptionHandler = new GlobalExceptionHandler();
 
     static int getRandomNumber() {
         // 0부터 9 사이의 무작위 값 반환
@@ -28,8 +31,12 @@ public class Application {
     public static void main(String[] args) {
 
         // 경주 할 자동차 이름 입력받기
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         final String cars = Console.readLine();
-        final List<String> carArray = List.of(cars.split(","));
+        List<String> carArray = new ArrayList<>();
+        if (globalExceptionHandler.isValidCarArray(cars)) {
+            carArray = List.of(cars.split(","));
+        }
 
         // 입력받은 자동차 이름의 자동차 클래스들 생성하기
         final List<Car> carList = new ArrayList<>();
@@ -43,6 +50,7 @@ public class Application {
         final Racing racingGame = new Racing(carList);
 
         // 자동차 경주 시도 횟수 입력받아 저장하기
+        System.out.println("시도할 회수는 몇회인가요?");
         final String racingCount = Console.readLine();
         racingGame.updateRacingCount(Integer.parseInt(racingCount));
 
@@ -71,7 +79,9 @@ public class Application {
             }
         });
 
-        System.out.println("최종 우승자 : "+racingGame.getWinnerList().toString());
+        String winners = String.join(", ", racingGame.getWinnerList());
+
+        System.out.println("최종 우승자 : "+winners);
 
     }
 }
