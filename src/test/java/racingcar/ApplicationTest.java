@@ -127,6 +127,56 @@ class ApplicationTest extends NsTest {
                         .hasMessageMatching("tryNumber range error"));
     }
 
+    @Test
+    void 정상_주행_오름차순_순위() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("test1,test2,test3", "2");
+                    assertThat(output()).contains("test1 : --", "test2 : -", "test3 : ", "최종 우승자 : test1");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, STOP,
+                MOVING_FORWARD, STOP, STOP
+        );
+    }
+
+    @Test
+    void 정상_주행_내림차순_순위() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("test1,test2,test3", "2");
+                    assertThat(output()).contains("test1 : ", "test2 : -", "test3 : --", "최종 우승자 : test3");
+                },
+                STOP, MOVING_FORWARD, MOVING_FORWARD,
+                STOP, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 정상_주행_공동_우승_1() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("test1,test2,test3", "2");
+                    assertThat(output()).contains("test1 : --", "test2 : --", "test3 : --",
+                            "최종 우승자 : test1, test2, test3");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
+    @Test
+    void 정상_주행_공동_우승_2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("test1,test2,test3", "2");
+                    assertThat(output()).contains("test1 : --", "test2 : --", "test3 : -",
+                            "최종 우승자 : test1, test2");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, STOP,
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
