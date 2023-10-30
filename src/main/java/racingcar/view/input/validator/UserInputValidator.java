@@ -4,7 +4,7 @@ import java.util.List;
 
 public class UserInputValidator {
 
-    public Integer validateRoundCount(String rawInput) {
+    public void validateRoundCount(String rawInput) {
         int roundCountInt;
 
         try {
@@ -14,8 +14,6 @@ public class UserInputValidator {
         }
 
         validateNumberUnderZero(roundCountInt);
-
-        return roundCountInt;
     }
 
     public void validateCarNames(List<String> carNames) {
