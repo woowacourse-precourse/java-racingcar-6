@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
@@ -72,4 +73,33 @@ class ApplicationTest extends NsTest {
       }
       assertThat(cars).hasSize(3);
     }
+
+    @Test
+    void inputAttemptsValidation() {
+      String inputAttempts = "5";
+      int attempts = Integer.parseInt(inputAttempts);
+      assertThat(attempts).isEqualTo(5);
+    }
+
+  @Test
+  void movementCount() {
+    Map<String,Integer> cars = new HashMap<>();
+    cars.put("테스트1",0);
+    cars.put("테스트2",0);
+    cars.put("테스트3",0);
+
+    cars.forEach((carName, movement) -> {
+      int number = 4;
+
+      if(number>=4){
+        movement = movement.intValue();
+        movement++;
+        cars.replace(carName,movement);
+      }
+    });
+
+    assertThat(cars.get("테스트1")).isEqualTo(1);
+
+  }
+
 }
