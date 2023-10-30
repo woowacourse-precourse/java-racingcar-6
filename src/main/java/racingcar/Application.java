@@ -14,7 +14,8 @@ public class Application {
                 .map(i -> 0)
                 .boxed()
                 .collect(Collectors.toList());
-        if(!Objects.equals(InputDataList.numberOfTime, -1)){
+
+        if (!Objects.equals(InputDataList.numberOfTime, -1)) {
             PlayGameFunction playGameFunction = new PlayGameFunction();
             playGameFunction.PlayGame(UserRace,
                     InputDataList.inputDataList,
