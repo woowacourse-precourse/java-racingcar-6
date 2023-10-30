@@ -26,4 +26,9 @@ public class Race {
             core.printResult(cars);
         }
     }
+
+    public void printWinner(List<String> winner) {
+        System.out.println("최종 우승자 : " + String.join(", ", winner));
+        
+    }
 }
