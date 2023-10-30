@@ -14,8 +14,15 @@ import racingcar.utils.RandomNumberGenerator;
 
 public class ComponentFactory {
 
+    private final RacingCarController racingCarController;
+
+    public ComponentFactory() {
+        this.racingCarController =
+                new RacingCarController(outputView(), inputManager(), racingCarService());
+    }
+
     public RacingCarController racingCarController() {
-        return new RacingCarController(outputView(), inputManager(), racingCarService());
+        return this.racingCarController;
     }
 
     private RacingCarService racingCarService() {
