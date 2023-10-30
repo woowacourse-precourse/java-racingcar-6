@@ -28,10 +28,7 @@ public class RacingGameController {
             cars.addCar(new Car(name));
         }
 
-        String inputNumber = inputView.inputAttemptNumber();
-        if (InputValidator.validateAttemptNumber(inputNumber)) {
-            attemptNumber = Integer.parseInt(inputNumber);
-        }
+        attemptNumber = makeAttemptNumber();
     }
 
     private List<String> makeCarNames() {
@@ -40,6 +37,13 @@ public class RacingGameController {
         InputValidator.validateCarNames(carNames);
 
         return carNames;
+    }
+
+    private int makeAttemptNumber() {
+        String inputNumber = inputView.inputAttemptNumber();
+        InputValidator.validateAttemptNumber(inputNumber);
+
+        return Integer.parseInt(inputNumber);
     }
 
     private void start() {
