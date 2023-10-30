@@ -17,9 +17,9 @@ public class RacingCarController {
     public void start() {
         Cars cars = generateCar();
         int tryCount = InputView.readTryCount();
-        OutputView.printPlayResult();
+        OutputView.printPlayResultMessage();
         for (int i = 0; i < tryCount; i++) {
-            cars.move(numberGenerator);
+            cars.moveCars(numberGenerator);
             OutputView.printResult(cars);
         }
         OutputView.printWinner(cars);

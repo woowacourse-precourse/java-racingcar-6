@@ -36,7 +36,7 @@ class CarTest {
     void move_메서드는_랜덤한_숫자가_4이상이_나오면_position을_증가시킨다() {
         NumberGenerator numberGenerator = new IncreasePositionNumber();
 
-        car.move(numberGenerator.generate());
+        car.movePosition(numberGenerator.generate());
 
         assertEquals(car.getPosition(), 1);
     }
@@ -45,22 +45,22 @@ class CarTest {
     void move_메서드는_랜덤한_숫자가_4이하가_나오면_position을_증가시키지_않는다() {
         NumberGenerator numberGenerator = new NotIncreasePositionNumber();
 
-        car.move(numberGenerator.generate());
+        car.movePosition(numberGenerator.generate());
 
         assertEquals(car.getPosition(), 0);
     }
 
     @Test
     void isSamePosition_메서드는_자동차의_position이랑_같으면_true를_반환한다() {
-        car.move(5);
+        car.movePosition(5);
 
         assertTrue(car.isSamePosition(1));
     }
 
     @Test
     void comparePosition_메서드는_자동차의_position과_maxPosition을_비교하여_더_큰_값을_반환한다() {
-        car.move(5);
+        car.movePosition(5);
 
-        assertEquals(car.comparePosition(5), 5);
+        assertEquals(car.compareAndReturnMaxPosition(5), 5);
     }
 }

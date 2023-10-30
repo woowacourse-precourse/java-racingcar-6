@@ -15,7 +15,7 @@ public class Car {
         this.name = name;
     }
 
-    public void move(int number) {
+    public void movePosition(int number) {
         if (judgeNumber(number)) {
             position++;
         }
@@ -29,7 +29,7 @@ public class Car {
         return this.position == maxPosition;
     }
 
-    public int comparePosition(int maxPosition) {
+    public int compareAndReturnMaxPosition(int maxPosition) {
         return Math.max(maxPosition, position);
     }
 

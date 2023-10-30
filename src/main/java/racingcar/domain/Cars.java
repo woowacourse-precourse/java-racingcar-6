@@ -19,8 +19,8 @@ public class Cars {
                 .collect(Collectors.toList()));
     }
 
-    public void move(NumberGenerator numberGenerator) {
-        cars.forEach(car -> car.move(numberGenerator.generate()));
+    public void moveCars(NumberGenerator numberGenerator) {
+        cars.forEach(car -> car.movePosition(numberGenerator.generate()));
     }
 
     public List<String> getWinners() {
@@ -42,7 +42,7 @@ public class Cars {
     private int calculateMaxPosition() {
         int maxPosition = Integer.MIN_VALUE;
         for (Car car : cars) {
-            maxPosition = car.comparePosition(maxPosition);
+            maxPosition = car.compareAndReturnMaxPosition(maxPosition);
         }
         return maxPosition;
     }

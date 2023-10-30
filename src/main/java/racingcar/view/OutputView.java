@@ -8,7 +8,7 @@ public class OutputView {
     private static final String MOVE_MESSAGE = "-";
     private static final String LINE_BREAK = System.lineSeparator();
 
-    public static void printPlayResult() {
+    public static void printPlayResultMessage() {
         System.out.print(LINE_BREAK);
         System.out.println("실행 결과");
     }
