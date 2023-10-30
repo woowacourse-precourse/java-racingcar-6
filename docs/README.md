@@ -23,14 +23,10 @@
  - racingCarGameManager class
    + [0] view,model 활용해 게임 진행 - racingStart
  
-### utility package 
-#### - model, view에 특수하게 개입할 필요가 있을 때 사용
+### utility package
  - validateException class
-   + [ ] 6이상인 자동차 이름이 입력될 경우 - 예외 처리 racingCarNameInvalid
-   + [ ] 경기 시도 횟수 입력시 int가 아닌 값이 입력될 경우 - 예외 처리 numberOfRacingInvalid
- - manageConstantValue class
-   + [ ] outputView에서 고정된 출력값들 enum으로 관리 - constantOutputView
-   + [ ] 각 기능에서 활용되는 메직넘버들 상수 값으로 관리 - replaceMagicNumberToConstant
+   + [0] 6이상인 자동차 이름이 입력될 경우 - 예외 처리 racingCarNameInvalid
+   + [0] 경기 시도 횟수 입력시 int가 아닌 값이 입력될 경우 - 예외 처리 numberOfRacingInvalid
 
    
 ## 기능 요구 사항 
