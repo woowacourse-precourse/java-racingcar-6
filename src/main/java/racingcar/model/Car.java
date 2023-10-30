@@ -1,4 +1,4 @@
-package racingcar.domain.model;
+package racingcar.model;
 
 public class Car {
 
@@ -35,5 +35,13 @@ public class Car {
                 "distance=" + distance +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public Integer getDistance() {
+        return distance;
+    }
+
+    public String getName() {
+        return name;
     }
 }
