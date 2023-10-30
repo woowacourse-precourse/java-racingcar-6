@@ -17,7 +17,7 @@ public class InputView {
         String inputNames = Console.readLine();
         validateBlank(inputNames);
         List<String> nameList = Arrays.stream(
-                        inputNames.split(","))
+                        inputNames.split(COMMA.getUnit()))
                         .toList();
         validateNamesCount(nameList);
         validateNamesFormat(nameList);

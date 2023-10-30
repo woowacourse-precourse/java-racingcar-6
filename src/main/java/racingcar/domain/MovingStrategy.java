@@ -1,15 +1,12 @@
 package racingcar.domain;
 
-import racingcar.util.RandomNumberGenerator;
-import racingcar.util.RandomUtil;
-
 import static racingcar.domain.MovingStrategySetting.*;
 
 public class MovingStrategy {
 
-    private final RandomUtil randomNumberGenerator;
+    private final RandomNumberUtil randomNumberGenerator;
 
-    public MovingStrategy(RandomUtil randomNumberGenerator) {
+    public MovingStrategy(RandomNumberUtil randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
