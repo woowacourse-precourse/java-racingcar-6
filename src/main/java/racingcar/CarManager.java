@@ -4,7 +4,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class CarManager {
-    final Validation validation = new Validation();
+    Validation validation = new Validation();
     String[] carArray;
     int moveCount;
     int carMoveCount;
