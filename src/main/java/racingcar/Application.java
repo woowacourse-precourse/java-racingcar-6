@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -35,6 +36,23 @@ public class Application {
     }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+    }
+
+    public static void enterName() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String names = Console.readLine();
+        validateCarsName(names);
+        String[] strArr = names.split(",");
+        ArrayList<String> carNames;
+        carNames = new ArrayList<>(Arrays.asList(strArr));
+        validateCarsName2(carNames);
+        validateCarsName3(carNames);
+        int num = carNames.size();
+        car = new Car[num];
+        for (int i = 0; i < num; i++) {
+            car[i] = new Car(carNames.get(i));
+            car[i].setLength(0);
+        }
     }
 
     public static void printDashes(Car[] car) {
