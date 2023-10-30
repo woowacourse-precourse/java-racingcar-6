@@ -3,16 +3,28 @@ package racingcar;
 public class Car {
     private String name;
     private int position = 0;
-    public Car(String name){
+
+    public Car(String name) {
         this.name = name;
     }
-    public void moveForward(){
+
+    public void moveForward() {
         position++;
     }
-    public int getForward(){
+
+    public int getForward() {
         return position;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
+    }
+
+    public String toString() {
+        StringBuilder distance= new StringBuilder();
+        for(int i = 0; i < position; i++){
+            distance.append("-");
+        }
+        return name + " : " + distance;
     }
 }

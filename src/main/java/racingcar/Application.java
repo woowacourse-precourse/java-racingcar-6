@@ -124,11 +124,15 @@ public class Application {
         return false;
     }
 
-    private static void goOrStop(List<Car> cars) {
+    private static void moveCars(List<Car> cars) {
         for (Car car : cars) {
             if (isForward()) {
                 car.moveForward();
             }
         }
+    }
+
+    private static void printResult(){
+        System.out.println("실행 결과");
     }
 }
