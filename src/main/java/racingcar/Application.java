@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Application {
@@ -24,6 +25,9 @@ public class Application {
             carRacing.setRacingMap();
             carRacing.printRacingProgress();
         }
-        carRacing.printRacingResult();
+        HashMap<String, Integer> racingMap = carRacing.getRacingMap();
+
+        RacingResult racingResult = new RacingResult(racingMap, carArrayList);
+        racingResult.printRacingResult();
     }
 }

@@ -38,48 +38,22 @@ public class CarRacing {
         }
     }
 
+    public HashMap<String, Integer> getRacingMap(){
+        return this.racingMap;
+    }
+
     public void printRacingProgress(){
-       for(String car: this.carList){
+        for(String car: this.carList){
             System.out.print(car + " : ");
             this.printEachCarProgress(racingMap.get(car));
             System.out.println();
         }
-       System.out.println();
+        System.out.println();
     }
 
     private void printEachCarProgress(int num){
         for(int i = 0; i < num; i ++){
             System.out.print("-");
         }
-    }
-
-    private List<String> setRacingResult(){
-        List<String> winnerList = new ArrayList<>();
-        int maxNum = racingMap.get(carList.get(0));
-
-        for(Entry<String, Integer> entry : racingMap.entrySet()){
-            int entryNum = entry.getValue();
-
-            if(entryNum > maxNum){
-                maxNum = entryNum;
-                winnerList.clear();
-                winnerList.add(entry.getKey());
-            }
-            else if(entryNum == maxNum) {
-                winnerList.add(entry.getKey());
-            }
-        }
-        return winnerList;
-    }
-
-    public void printRacingResult(){
-        List<String> winnerList = this.setRacingResult();
-
-        System.out.print("최종 우승자 : ");
-        StringJoiner joiner = new StringJoiner(", ");
-        for (String winner : winnerList) {
-            joiner.add(winner);
-        }
-        System.out.println(joiner);
     }
 }
