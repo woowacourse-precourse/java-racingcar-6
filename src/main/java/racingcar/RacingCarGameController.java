@@ -10,25 +10,23 @@ import service.UserInputCarMoveCountFactory;
 import service.UserInputCarNameFactory;
 import ui.Input;
 import ui.Output;
+import util.BeanFactory;
 
 import java.util.List;
 
 public class RacingCarGameController {
 
-    private UserInputCarNameFactory userInputCarNameFactory;
-    private UserInputCarMoveCountFactory userInputCarMoveCountFactory;
-    private CarMoveService carMoveService;
-    private CarRacingWinnerService carRacingWinnerService;
+    private final UserInputCarNameFactory userInputCarNameFactory;
+    private final UserInputCarMoveCountFactory userInputCarMoveCountFactory;
+    private final CarMoveService carMoveService;
+    private final CarRacingWinnerService carRacingWinnerService;
 
-    public RacingCarGameController(UserInputCarNameFactory userInputCarNameFactory,
-                                   UserInputCarMoveCountFactory userInputCarMoveCountFactory,
-                                   CarMoveService carMoveService,
-                                   CarRacingWinnerService carRacingWinnerService){
+    public RacingCarGameController(){
 
-        this.userInputCarNameFactory = userInputCarNameFactory;
-        this.userInputCarMoveCountFactory = userInputCarMoveCountFactory;
-        this.carMoveService = carMoveService;
-        this.carRacingWinnerService = carRacingWinnerService;
+        this.userInputCarNameFactory = BeanFactory.getInstanceUserInputCarNameFactory();
+        this.userInputCarMoveCountFactory = BeanFactory.getInstanceUserInputCarMoveCountFactory();
+        this.carMoveService = BeanFactory.getInstanceCarMoveService();
+        this.carRacingWinnerService = BeanFactory.getInstanceCarRacingWinnerService();
     }
     public void play() throws InvalidTypeException {
 
