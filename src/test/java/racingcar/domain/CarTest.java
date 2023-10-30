@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.policy.MovingPolicy;
@@ -11,9 +12,36 @@ import racingcar.policy.RacingCarGameMovingPolicy;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CarTest {
+
+    @Test
+    void 모든_필드값이_같다면_자동차의_동등성을_보장한다() {
+        // given, when
+        Car car1 = new Car(new CarName("자동차1"), new Position(0));
+        Car car2 = new Car(new CarName("자동차1"), new Position(0));
+
+        // then
+        assertAll(
+                () -> assertThat(car1).isEqualTo(car2),
+                () -> assertThat(car1).hasSameHashCodeAs(car2)
+        );
+    }
+
+    @Test
+    void 모든_필드값이_같지_않으면_자동차의_동등성을_보장하지_않는다() {
+        // given, when
+        Car car1 = new Car(new CarName("자동차1"), new Position(0));
+        Car car2 = new Car(new CarName("자동차1"), new Position(1));
+
+        // then
+        assertAll(
+                () -> assertThat(car1).isNotEqualTo(car2),
+                () -> assertThat(car1).doesNotHaveSameHashCodeAs(car2)
+        );
+    }
 
     @ParameterizedTest(name = "{index}번째 NumberGeneratePolicy")
     @MethodSource("movableNums")
