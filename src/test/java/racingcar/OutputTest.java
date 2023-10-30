@@ -29,4 +29,10 @@ public class OutputTest {
         printCarNameInputRequest();
         assertThat(output.toString()).isEqualTo(CAR_NAME_INPUT_REQUEST_MESSAGE+"\r\n");
     }
+
+    @Test
+    void printTryNumberInputRequestTest() {
+        printTryNumberInputRequest();
+        assertThat(output.toString()).isEqualTo(TRY_NUMBER_INPUT_REQUEST_MESSAGE+"\r\n");
+    }
 }
