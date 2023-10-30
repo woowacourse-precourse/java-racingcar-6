@@ -10,7 +10,6 @@ public class CarName {
     private final String name;
 
     public CarName(String name) {
-        System.out.println(name);
         validate(name);
         this.name = name;
     }
