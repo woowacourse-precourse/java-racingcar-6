@@ -30,7 +30,7 @@ public class Service {
     }
 
     public static boolean canMove() {
-        return Randoms.pickNumberInRange(Constant.BOUNDARY_START,Constant.BOUNDARY_END) > Constant.FORWARD_BOUNDARY;
+        return Randoms.pickNumberInRange(Constant.BOUNDARY_START,Constant.BOUNDARY_END) >= Constant.FORWARD_BOUNDARY;
     }
 
     public static void moveCar(Car car){
