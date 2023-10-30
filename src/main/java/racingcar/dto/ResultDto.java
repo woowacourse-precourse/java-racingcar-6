@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.dto;
 
 // TODO: record로 변경 가능한 듯 함. 뭔지 자료조사하고, 적용가능하면 적용해볼 것
 public class ResultDto {

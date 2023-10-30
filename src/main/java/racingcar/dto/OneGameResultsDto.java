@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.dto;
 
 import java.util.ArrayList;
 import java.util.Collections;
