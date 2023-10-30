@@ -36,7 +36,11 @@ public class Game {
     }
 
     private void setTimes() {
-        this.times = Integer.parseInt(readLine());
+        Validator validator = new Validator();
+
+        String timeValue = readLine();
+        validator.isTimesValidated(timeValue);
+        this.times = Integer.parseInt(timeValue);
         // System.out.println(time);
     }
 

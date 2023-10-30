@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 public class Validator {
 
-    public boolean isNameValidated(String[] strings) {
+    public void isNameValidated(String[] strings) {
         if (!isValidatedPlayerNum(strings)) {
             throw new IllegalArgumentException("플레이어수");
         }
@@ -15,11 +15,16 @@ public class Validator {
         if (!isValidatedDuplication(strings)) {
             throw new IllegalArgumentException("중복");
         }
-        return true;
     }
 
-    public boolean isTimesValidated(String string) {
-        return true;
+    public void isTimesValidated(String string) {
+        int number;
+        try {
+            number = Integer.parseInt(string);
+        }
+        catch (Exception e) {
+            throw new IllegalArgumentException("정수 아님");
+        }
     }
 
     public boolean isValidatedPlayerNum(String[] strings) {
