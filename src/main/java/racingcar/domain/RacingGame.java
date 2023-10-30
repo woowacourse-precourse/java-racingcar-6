@@ -4,6 +4,9 @@ import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import java.util.List;
 import java.util.stream.IntStream;
+import racingcar.dto.RaceStatus;
+import racingcar.dto.RacingGameStatus;
+import racingcar.dto.WinnerNames;
 
 public class RacingGame {
     private static final int START_NUMBER = 0;

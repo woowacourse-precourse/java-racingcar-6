@@ -1,7 +1,7 @@
 package racingcar.view;
 
-import racingcar.domain.RacingGameStatus;
-import racingcar.domain.WinnerNames;
+import racingcar.dto.RacingGameStatus;
+import racingcar.dto.WinnerNames;
 
 public interface OutputView {
     void requestCarNames(String delimiterDescription, String delimiter);

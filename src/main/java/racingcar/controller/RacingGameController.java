@@ -3,9 +3,9 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.CarFactory;
 import racingcar.domain.Cars;
-import racingcar.domain.RacingGameStatus;
+import racingcar.dto.RacingGameStatus;
 import racingcar.domain.RacingGame;
-import racingcar.domain.WinnerNames;
+import racingcar.dto.WinnerNames;
 import racingcar.view.View;
 
 public class RacingGameController {

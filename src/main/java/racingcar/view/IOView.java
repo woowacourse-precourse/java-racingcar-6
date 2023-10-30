@@ -1,8 +1,8 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.domain.RacingGameStatus;
-import racingcar.domain.WinnerNames;
+import racingcar.dto.RacingGameStatus;
+import racingcar.dto.WinnerNames;
 
 public class IOView implements View {
     private final InputView inputView;

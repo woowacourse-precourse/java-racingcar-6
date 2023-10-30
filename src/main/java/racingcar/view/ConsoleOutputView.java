@@ -1,9 +1,9 @@
 package racingcar.view;
 
-import racingcar.domain.CarStatus;
-import racingcar.domain.RaceStatus;
-import racingcar.domain.RacingGameStatus;
-import racingcar.domain.WinnerNames;
+import racingcar.dto.CarStatus;
+import racingcar.dto.RaceStatus;
+import racingcar.dto.RacingGameStatus;
+import racingcar.dto.WinnerNames;
 
 public class ConsoleOutputView implements OutputView {
 

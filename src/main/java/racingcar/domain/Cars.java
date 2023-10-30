@@ -3,6 +3,9 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BooleanSupplier;
+import racingcar.dto.CarStatus;
+import racingcar.dto.RaceStatus;
+import racingcar.dto.WinnerNames;
 
 public class Cars {
     private final List<Car> cars;
