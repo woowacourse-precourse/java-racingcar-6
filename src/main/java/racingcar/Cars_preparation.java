@@ -19,4 +19,14 @@ public class Cars_preparation {
     public Set<Entry<Car, Integer>> entrySet() {
         return carGoCountMap.entrySet();
     }
+
+    public List<String> getWinners(int leadCarNumber) {
+        List<String> win_person = new ArrayList<>();
+        for (Entry<Car, Integer> entry : carGoCountMap.entrySet()) {
+            if (entry.getValue() == leadCarNumber) {
+                win_person.add(entry.getKey().toString());
+            }
+        }
+        return win_person;
+    }
 }

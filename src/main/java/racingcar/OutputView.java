@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.Map.Entry;
 
 public class OutputView {
+    public static void printWinners(List<String> winners) {
+        String result = String.join(", ", winners);
+        System.out.print("최종 우승자 : ");
+        System.out.println(result);
+    }
 
     public static void print_position_bar(int position){
         for (int j = 0; j < position; j++) {

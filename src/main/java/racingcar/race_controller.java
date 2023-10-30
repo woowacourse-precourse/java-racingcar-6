@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class race_controller {
+    private int leadCarNumber = 0;
     private Cars cars;
     private int[] storage;
     private Cars_preparation carGoCountMap;
@@ -29,6 +30,7 @@ public class race_controller {
             runGame();
             round++;
         }
+        who_win(carGoCountMap);
     }
 
     public Cars createCars(List<String> carNames) {
@@ -78,5 +80,18 @@ public class race_controller {
             return false;
         }
         return true;
+    }
+
+    public void leadPosition(Cars_preparation carGoCountMap){
+        for(Entry<Car, Integer> entry : carGoCountMap.entrySet()){
+            if(this.leadCarNumber < entry.getValue()){
+                this.leadCarNumber = entry.getValue();
+            }
+        }
+    }
+
+    public void who_win(Cars_preparation carGoCountMap){
+        leadPosition(carGoCountMap);
+        OutputView.printWinners(carGoCountMap.getWinners(leadCarNumber));
     }
 }
