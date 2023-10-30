@@ -7,16 +7,16 @@ import racingcar.service.domain.RacingCars;
 import racingcar.service.domain.WootecoEngine;
 import racingcar.utils.GameUtil;
 import racingcar.view.InputView;
-import racingcar.view.View;
+import racingcar.view.OutputView;
 
 public class GameController {
-    private final View view;
+    private final OutputView outputView;
     private final InputView inputView;
 
     private final RacingGameService racingGameService;
 
-    public GameController(View view, InputView inputView, RacingGameService racingGameService) {
-        this.view = view;
+    public GameController(OutputView outputView, InputView inputView, RacingGameService racingGameService) {
+        this.outputView = outputView;
         this.inputView = inputView;
         this.racingGameService = racingGameService;
     }
@@ -24,21 +24,21 @@ public class GameController {
     public void run() {
         final RacingCars racingCars = readyToCarRace();
         int attemptCounts = chooseAttemptCounts();
-        view.printPlayResultText();
+        outputView.printPlayResultText();
         playCarRace(attemptCounts, racingCars);
         List<String> winnerNames = racingGameService.calculateFinalWinners(racingCars);
-        view.printFinalWinners(winnerNames);
+        outputView.printFinalWinners(winnerNames);
     }
 
     private RacingCars readyToCarRace() {
-        view.printGameStartMessage();
+        outputView.printGameStartMessage();
         String carNamesInput = inputView.inputCarNames();
         List<String> carNames = GameUtil.splitByCommas(carNamesInput);
         return new RacingCars(carNames, new WootecoEngine());   // TODO: 컨트롤러에서 엔진을 설정하는게 마음에 안듦
     }
 
     private int chooseAttemptCounts() {
-        view.printAttemptCountsQuestionMessage();
+        outputView.printAttemptCountsQuestionMessage();
         return inputView.inputAttemptCounts();
     }
 
@@ -50,7 +50,7 @@ public class GameController {
     }
 
     private void deliverToViewAboutOneGameResult(OneGameResultsDto resultDto) {
-        view.printResult(resultDto);
+        outputView.printResult(resultDto);
     }
 
 }
