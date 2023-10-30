@@ -14,7 +14,7 @@ class CarMovementTest {
         CarMovement carMovement = new CarMovement();
 
         // then
-        assertThat(carMovement.toString()).isEqualTo("");
+        assertThat(carMovement.movement()).isEqualTo(0);
     }
 
     @Test
@@ -27,22 +27,7 @@ class CarMovementTest {
         carMovement.goForward();
 
         // then
-        assertThat(carMovement.toString()).isEqualTo("-");
-    }
-
-    @Test
-    @DisplayName("toString() 이 이동 횟수 만큼의 '-' 반환한다.")
-    void toStringReturnValueOfDashes() {
-        // given
-        CarMovement carMovement = new CarMovement();
-        carMovement.goForward();
-        carMovement.goForward();
-
-        // when
-        String message = carMovement.toString();
-
-        // then
-        assertThat(message).isEqualTo("--");
+        assertThat(carMovement.movement()).isEqualTo(1);
     }
 
     @Test

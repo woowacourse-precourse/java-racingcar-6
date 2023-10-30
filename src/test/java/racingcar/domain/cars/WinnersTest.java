@@ -7,9 +7,11 @@ import static org.mockito.Mockito.mockStatic;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
+import racingcar.domain.car.Car;
 
 class WinnersTest {
 
@@ -33,32 +35,11 @@ class WinnersTest {
         Winners winners = Winners.judge(players);
 
         // then
-        assertThat(winners.toString()).isEqualTo("최종 우승자 : tae");
-
-        mockedRandoms.close();
-    }
-
-    @Test
-    @DisplayName("toString() 이 최종 우승자를 담은 문자열을 반환한다.")
-    void toStringReturnFinalWinners() {
-        // given
-        List<String> names = Arrays.asList("tae", "wan");
-        Players players = new Players(names);
-
-        MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
-        mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
-            .thenReturn(DONT_MOVE_VALUE, MOVE_VALUE);
-
-        players.moveAll();
-        players.moveAll();
-
-        Winners winners = Winners.judge(players);
-
-        // when
-        String message = winners.toString();
-
-        // then
-        assertThat(message).isEqualTo("최종 우승자 : wan");
+        assertThat(
+            winners.cars().stream()
+                .map(Car::name)
+                .collect(Collectors.toList())
+        ).contains("tae");
 
         mockedRandoms.close();
     }

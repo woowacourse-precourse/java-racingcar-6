@@ -7,15 +7,16 @@ import static org.mockito.Mockito.mockStatic;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import racingcar.domain.car.Car;
-import racingcar.domain.car.CarMovement;
 
 class PlayersTest {
 
     static final int MOVE_VALUE = 5;
+    static final int DONT_MOVE_VALUE = 1;
 
     @Test
     @DisplayName("이름 리스트를 받아 생성할 수 있다.")
@@ -28,6 +29,11 @@ class PlayersTest {
 
         // then
         assertThat(players.cars().size()).isEqualTo(3);
+        assertThat(
+            players.cars().stream()
+                .map(Car::name)
+                .collect(Collectors.toList())
+        ).isEqualTo(names);
     }
 
     @Test
@@ -42,9 +48,11 @@ class PlayersTest {
 
         // then
         assertThat(cars.size()).isEqualTo(3);
-        assertThat(cars.get(0).name()).isEqualTo(names.get(0));
-        assertThat(cars.get(1).name()).isEqualTo(names.get(1));
-        assertThat(cars.get(2).name()).isEqualTo(names.get(2));
+        assertThat(
+            cars.stream()
+                .map(Car::name)
+                .collect(Collectors.toList())
+        ).isEqualTo(names);
     }
 
     @Test
@@ -56,42 +64,14 @@ class PlayersTest {
 
         MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
         mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
-            .thenReturn(MOVE_VALUE);
-
-        CarMovement expectedMovement = new CarMovement();
-        expectedMovement.goForward();
+            .thenReturn(MOVE_VALUE, DONT_MOVE_VALUE);
 
         // when
         players.moveAll();
 
         // then
-        assertThat(players.cars().get(0).movement()).isEqualTo(expectedMovement);
-        assertThat(players.cars().get(1).movement()).isEqualTo(expectedMovement);
-
-        mockedRandoms.close();
-    }
-
-    @Test
-    @DisplayName("toString() 이 자동차들의 현재 진행 상황을 담은 문자열을 반환한다.")
-    void toStringReturnCurrentRacingState() {
-        // given
-        List<String> names = Arrays.asList("tae", "wan");
-        Players players = new Players(names);
-
-        MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
-        mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
-            .thenReturn(MOVE_VALUE);
-
-        players.moveAll();
-        players.moveAll();
-
-        String expectedMessage = "tae : --\nwan : --";
-
-        // when
-        String message = players.toString();
-
-        // then
-        assertThat(message).isEqualTo(expectedMessage);
+        assertThat(players.cars().get(0).movement().movement()).isEqualTo(1);
+        assertThat(players.cars().get(1).movement().movement()).isEqualTo(0);
 
         mockedRandoms.close();
     }
