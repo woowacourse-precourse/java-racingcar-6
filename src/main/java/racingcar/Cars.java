@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 final class Cars {
 
     private final List<Car> cars = new ArrayList<>();
     private final Roulette roulette;
+    private int maxDistance = 0;
 
     Cars(Roulette roulette, String inputNames) {
         this.roulette = roulette;
@@ -49,16 +51,4 @@ final class Cars {
     public int hashCode() {
         return Objects.hash(cars, roulette);
     }
-
-    enum Constant {
-        COMMA(","),
-        ;
-
-        String value;
-
-        Constant(String value) {
-            this.value = value;
-        }
-    }
-
 }
