@@ -9,7 +9,7 @@ public class MovementDecider {
     private static final int MOVE_CONDITION = 4;
 
     public boolean movable() {
-        return generateRandomNumber() > MOVE_CONDITION;
+        return generateRandomNumber() >= MOVE_CONDITION;
     }
 
     private int generateRandomNumber() {
