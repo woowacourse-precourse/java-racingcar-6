@@ -7,5 +7,8 @@ public class Game {
         this.cars = cars;
     }
 
-    
+    public void racing() {
+        cars.racing();
+    }
+
 }
