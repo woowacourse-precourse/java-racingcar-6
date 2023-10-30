@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.enums.ErrorMessage;
@@ -22,6 +23,10 @@ public class Generator {
         validateConvertStringToInteger(origin);
 
         return Integer.parseInt(origin);
+    }
+
+    public Integer generateRandomValue0To9() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     private void validateConvertStringToInteger(String origin) {
