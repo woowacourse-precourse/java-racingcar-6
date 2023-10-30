@@ -13,4 +13,21 @@ public class Cars {
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
+
+    public void playGame() {
+        for (Car car : carList) {
+            checkNumberAndMoveCar(car);
+        }
+    }
+
+    private void checkNumberAndMoveCar(Car car) {
+        int randomNumber = Computer.createRandomNumber();
+        if (checkNumberOverThree(randomNumber)) {
+            car.moveCar();
+        }
+    }
+
+    private boolean checkNumberOverThree(int number) {
+        return number > 3;
+    }
 }

@@ -24,12 +24,15 @@ public class RacingController {
         List<String> carNames = racingService.stringToList(input);
         InputValidator.isLengthGreaterThanFive(carNames);
 
+        Cars cars = new Cars(carNames);
+
         ConsoleOutput.displayMessage(ConsoleOutput.TRY_MESSAGE);
         int tries = inputView.getTries();
         InputValidator.isGreaterThanZero(tries);
 
-        List<Car> carList = new ArrayList<>();
-        Cars cars = new Cars(carNames);
 
+        for (int num = 0; num < tries; num++) {
+            cars.playGame();
+        }
     }
 }
