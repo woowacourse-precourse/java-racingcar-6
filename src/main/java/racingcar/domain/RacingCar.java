@@ -11,6 +11,10 @@ public class RacingCar {
 		this.racingCarList = createCarList(inputCarName);
 	}
 
+	public List<Car> getRacingCar() {
+		return racingCarList;
+	}
+
 	private List<Car> createCarList(InputCarName inputCarName) {
 		return inputCarName.getCarNameList().stream()
 			.map(carName -> new Car(carName))

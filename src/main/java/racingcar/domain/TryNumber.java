@@ -4,11 +4,19 @@ import static racingcar.error.Error.INVALID_NUMBER;
 import static racingcar.error.Error.NUMBER_POSITIVE_ERROR;
 
 public class TryNumber {
-	private final Integer tryNumber;
+	private Integer tryNumber;
 
 	public TryNumber(String input) {
 		validateNumber(input);
 		this.tryNumber = Integer.parseInt(input);
+	}
+
+	public boolean isTryable() {
+		return tryNumber > 0;
+	}
+
+	public void decrease() {
+		tryNumber--;
 	}
 
 	private void validateNumber(String input) {
