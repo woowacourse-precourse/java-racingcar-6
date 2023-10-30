@@ -9,7 +9,8 @@ public class CarNameValidator {
     private static final String INPUT_HAS_DUPLICATED_NAME = "입력 값에 중복 값이 존재합니다.";
     private static final String COMMA = ",";
     private static final String SPACE = " ";
-    private static final int ZERO_LENGTH = 0;
+    private static final int CAR_NAME_MIN_LENGTH = 1;
+    private static final int CAR_NAME_MAX_LENGTH = 5;
     private List<String> carName;
 
     public List<String> validateCarName(String carNames){
@@ -17,6 +18,12 @@ public class CarNameValidator {
             throw new IllegalArgumentException(INPUT_HAS_SPACE);
         }
         carName = convertCarName(carNames);
+        if(hasZeroLength(carName)){
+            throw new IllegalArgumentException(INPUT_HAS_ZERO_LENGTH);
+        }
+        if(hasOverFiveLength(carName)){
+            throw new IllegalArgumentException(INPUT_HAS_OVER_FIVE_LENGTH);
+        }
         return carName;
     }
 
@@ -30,6 +37,11 @@ public class CarNameValidator {
 
     private static boolean hasZeroLength(List<String> carNames){
         return carNames.stream()
-                .anyMatch(car -> car.length() == ZERO_LENGTH);
+                .anyMatch(car -> car.length() < CAR_NAME_MIN_LENGTH);
+    }
+
+    private static boolean hasOverFiveLength(List<String> carNames){
+        return carNames.stream()
+                .anyMatch(car -> car.length() > CAR_NAME_MAX_LENGTH);
     }
 }
