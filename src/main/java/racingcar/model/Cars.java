@@ -7,7 +7,7 @@ import racingcar.util.RacingCarGameUtils;
 
 public class Cars {
 
-  private List<Car> cars;
+  private final List<Car> cars;
 
   private Cars(List<Car> cars) {
     this.cars = cars;
@@ -31,5 +31,14 @@ public class Cars {
     if (randomValues.get(i) >= GAME_WIN_CONDITION) {
       cars.get(i).move();
     }
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    for (Car car : cars) {
+      sb.append(car.getCarInfo());
+    }
+    return sb.toString();
   }
 }

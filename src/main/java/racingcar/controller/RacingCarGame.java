@@ -21,6 +21,8 @@ public class RacingCarGame {
 
     int numberOfRounds = convertStringToInt(getNumberOfRoundsFromPlayer());
 
+    OutputView.printRoundResultNotice();
+
     for (int i = 0; i < numberOfRounds; i++) {
       cars.playRacingGame();
       OutputView.printRoundResult(cars);
