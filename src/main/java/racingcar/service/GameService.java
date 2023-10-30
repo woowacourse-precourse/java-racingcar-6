@@ -3,7 +3,6 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.config.Config;
 import racingcar.model.Car;
 import racingcar.utils.Validation;
 
