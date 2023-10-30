@@ -16,6 +16,7 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
         race(carList, cnt);
+        printWinners(carList);
     }
 
     private static List<Car> generateCarList() {
@@ -40,6 +41,7 @@ public class Application {
     }
 
     private static int inputCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
 
         validateInputCount(input);
