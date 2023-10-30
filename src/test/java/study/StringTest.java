@@ -10,6 +10,8 @@ import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
+import java.io.IOException;
+
 public class StringTest {
 
     @Test
@@ -117,5 +119,20 @@ public class StringTest {
             throw new Exception("boom!");
         }).isInstanceOf(Exception.class)
                 .hasMessageContaining("boom");
+    }
+
+    @Test
+    public void assertThatExceptionOfType_을_이용한_예외를_테스트() {
+        assertThatExceptionOfType(IOException.class)
+                .isThrownBy(() -> {
+                    throw new IOException("boom!");
+                })
+                .withMessage("%s!", "boom") // 예외 메시지가 "boom!"과 일치하는지 확인하고
+                .withMessageContaining("boom") // 메시지에 "boom"이 포함되어 있는지 확인하고
+                .withNoCause(); // 예외가 특정 원인을 갖지 않는지 확인한다.
+
+//        코드에서 withMessage("%s!", "boom")는
+//        문자열 "boom"을 %s 자리 표시자에 대체하고,
+//        그 뒤에 느낌표를 추가하여 "boom!"이라는 문자열을 생성합니다.
     }
 }
