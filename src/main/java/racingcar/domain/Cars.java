@@ -25,21 +25,15 @@ public class Cars {
         }
     }
 
+    private boolean invalidSize(List<Car> cars) {
+        return !(MIN_CARS_SIZE <= cars.size() && cars.size() <= MAX_CARS_SIZE);
+    }
+
     private void validateDuplicatedName(List<Car> cars) {
         List<String> carNames = getCarNames(cars);
         for (int i = 0; i < carNames.size(); i++) {
             throwIfContainsDuplicatedName(carNames, i);
         }
-    }
-
-    private boolean invalidSize(List<Car> cars) {
-        return !(MIN_CARS_SIZE <= cars.size() && cars.size() <= MAX_CARS_SIZE);
-    }
-
-    private List<String> getCarNames(List<Car> cars) {
-        return cars.stream()
-                .map(Car::getName)
-                .toList();
     }
 
     private void throwIfContainsDuplicatedName(List<String> carNames, int i) {
@@ -51,11 +45,16 @@ public class Cars {
 
     public MoveResult handleCarMovement(NumberGenerator numberGenerator) {
         List<Integer> forwardCounts = new ArrayList<>();
-        for (Car car : cars) {
-            int forwardCount = car.move(numberGenerator.generate());
-            forwardCounts.add(forwardCount);
-        }
+        cars.forEach(car ->
+                forwardCounts.add(car.move(numberGenerator.generate()))
+        );
         return new MoveResult(getCarNames(cars), forwardCounts);
+    }
+
+    private List<String> getCarNames(List<Car> cars) {
+        return cars.stream()
+                .map(Car::getName)
+                .toList();
     }
 
     public List<Car> getCarsWithMaxForwardCount() {
