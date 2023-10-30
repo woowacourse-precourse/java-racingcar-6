@@ -3,9 +3,20 @@ package domain;
 public class Car {
 
     private final String name;
+    private int progress;
 
     public Car(String name) {
         this.name = name;
+        this.progress = 0;
+    }
+
+    private Car(String name, int progress) {
+        this.name = name;
+        this.progress = progress;
+    }
+
+    public Car moveAhead() {
+        return new Car(this.name, this.progress+1);
     }
 
     @Override
