@@ -5,11 +5,14 @@ import static racingcar.SystemMessage.EXECUTION_RESULT_PREFIX;
 import static racingcar.SystemMessage.INPUT_THE_CAR_NAMES;
 import static racingcar.SystemMessage.INPUT_THE_NUMBER_OF_ATTEMPTS;
 import static racingcar.SystemMessage.OUTPUT_THE_WINNER_PREFIX;
+import static racingcar.SystemPolicy.ATTEMPTS_MAXIMUM_VALUE;
+import static racingcar.SystemPolicy.CAR_NAME_SEPARATOR;
 import static racingcar.SystemPolicy.Input.ATTEMPTS_MINIMUM_VALUE;
 import static racingcar.SystemPolicy.Input.CAR_NAME_MAXIMUM_LENGTH;
 import static racingcar.SystemPolicy.Input.CAR_NAME_MINIMUM_LENGTH;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class RacingCarGame {
     private final Prompt prompt;
@@ -24,18 +27,22 @@ public class RacingCarGame {
 
     public void start() {
         prompt.println(INPUT_THE_CAR_NAMES);
-        String participants = prompt.input();
-        verifyCarNames(participants);
+        String carNames = prompt.input();
+        verifyCarNames(carNames);
 
         prompt.println(INPUT_THE_NUMBER_OF_ATTEMPTS);
         String numberOfAttempts = prompt.input();
         verifyNumberOfAttempts(numberOfAttempts);
+
+        List<Car> cars = racingCarMapper.toCar(CAR_NAME_SEPARATOR.getValue(), carNames);
         int verifiedNumberOfAttempts = racingCarMapper.toInteger(numberOfAttempts);
         prompt.printNewLine();
 
         prompt.println(EXECUTION_RESULT_PREFIX);
         while (verifiedNumberOfAttempts-- > 0) {
-            prompt.println(() -> "실행 과정 출력하기");
+            cars.forEach(Car::moveForward);
+            String progressBar = racingCarMapper.toProgressBar(cars);
+            prompt.println(() -> progressBar);
             prompt.printNewLine();
         }
 
@@ -44,8 +51,9 @@ public class RacingCarGame {
         prompt.print(() -> winners);
     }
 
+
     private void verifyCarNames(String participants) {
-        Arrays.stream(participants.split(","))
+        Arrays.stream(participants.split(CAR_NAME_SEPARATOR.getValue()))
                 .forEach(carName -> {
                     validator.verifyNullAndBlank(carName);
                     validator.verifyLength(
@@ -62,7 +70,7 @@ public class RacingCarGame {
         int verifiedNumber = racingCarMapper.toInteger(numberOfAttempts);
         validator.verifyInRangeClosed(
                 ATTEMPTS_MINIMUM_VALUE.getValue(),
-                ATTEMPTS_MINIMUM_VALUE.getValue(),
+                ATTEMPTS_MAXIMUM_VALUE.getValue(),
                 verifiedNumber);
     }
 }

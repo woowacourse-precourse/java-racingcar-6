@@ -1,25 +1,22 @@
 package racingcar;
 
 public sealed interface SystemPolicy {
+    Input<Integer> CAR_NAME_MINIMUM_LENGTH = new Input<>(1);
+    Input<Integer> CAR_NAME_MAXIMUM_LENGTH = new Input<>(5);
+    Input<Integer> ATTEMPTS_MINIMUM_VALUE = new Input<>(1);
+    Input<Integer> ATTEMPTS_MAXIMUM_VALUE = new Input<>(100_000_000);
+    Input<String> CAR_NAME_SEPARATOR = new Input<>(",");
 
-    enum Input implements SystemPolicy {
-        CAR_NAME_MINIMUM_LENGTH(1),
-        CAR_NAME_MAXIMUM_LENGTH(5),
-        ATTEMPTS_MINIMUM_VALUE(1),
-        ATTEMPTS_MAXIMUM_VALUE(100_000_000);
+    final class Input<T> implements SystemPolicy {
+        private T value;
 
-
-        private final int value;
-
-        Input(int value) {
+        public Input(T value) {
             this.value = value;
         }
 
-        public int getValue() {
-            return value;
+        public T getValue() {
+            return this.value;
         }
     }
-
-
 }
 
