@@ -3,6 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -42,11 +45,16 @@ public class Application {
 
     public Car[] createCar(String[] split){
         Car[] carList = new Car[split.length];
-        
         for(int i=0; i< split.length; i++){
             carList[i] = new Car(split[i], 0);
         }
 
         return carList;
+    }
+
+    public void move(Car car, Boolean go){
+        if(go == true){
+            car.setPos(car.getPos()+1);
+        }
     }
 }
