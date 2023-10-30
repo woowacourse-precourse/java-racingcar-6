@@ -16,14 +16,14 @@ public class Application {
         String[] carArr = cars.split(",");
         for (int i = 0; i < carArr.length; i++) {
             if (carArr[i].length() > 5){
-                throw new IllegalArgumentException("5글자 넘었습니다.");
+                throw new IllegalArgumentException();
             }
         }
         return carArr;
     }
 
     public static int moveCount() {
-        System.out.println("시도 휫수 입력");
+        System.out.println("시도할 회수는 몇회인가요?");
         String inputNum = readLine();
         try {
             int moveNum = Integer.parseInt(inputNum);
@@ -35,60 +35,41 @@ public class Application {
     }
 
     public static void game(){
-        int count = 0;
+        int count1 = 0;
+        int count2 = 0;
+        int count3 = 0;
         String[] cars = Application.carName();
         int tryNum = Application.moveCount();
-        for (int i = 0; i < cars.length; i++){
-            System.out.println(cars[i]);
-        }
-        for (int i = 0; i < tryNum; i ++){
-            int randomNumber = Randoms.pickNumberInRange(0,9);
-            if (randomNumber < 4){
-                System.out.println(randomNumber);
-                System.out.println("4 미만");
-                System.out.println("-".repeat(count));
-            } else {
-                count += 1;
-                System.out.println(randomNumber);
-                System.out.println("4 이상");
-                System.out.println("-".repeat(count));
-            }
-        }
-        /*for (int i = 1; i <= tryNum; i++){
-            for (int j = 0; j <= cars.length; j++){
-                if (randomNumber < 4) {
-                    System.out.println(cars[j] + " : " + "-".repeat(count));
-                } else {
-                    count += 1;
-                    System.out.println(cars[j] + " : " + "-".repeat(count));
+
+        System.out.println("실행 결과");
+        for (int j = 0; j < tryNum; j ++){
+            for (int i = 0; i < cars.length; i++) {
+                if (i == 0) {
+                    int randomNumber = Randoms.pickNumberInRange(0, 9);
+                    if (randomNumber < 4) {
+                        System.out.println(cars[0] + " : " + "-".repeat(count1));
+                    } else {
+                        count1 += 1;
+                        System.out.println(cars[0] + " : " + "-".repeat(count1));
+                    }
+                } else if (i == 1) {
+                    int randomNumber = Randoms.pickNumberInRange(0, 9);
+                    if (randomNumber < 4) {
+                        System.out.println(cars[1] + " : " + "-".repeat(count2));
+                    } else {
+                        count2 += 1;
+                        System.out.println(cars[1] + " : " + "-".repeat(count2));
+                    }
+                } else if (i == 2) {
+                    int randomNumber = Randoms.pickNumberInRange(0, 9);
+                    if (randomNumber < 4) {
+                        System.out.println(cars[2] + " : " + "-".repeat(count3));
+                    } else {
+                        count3 += 1;
+                        System.out.println(cars[2] + " : " + "-".repeat(count3));
+                    }
                 }
             }
-
-
-        }/*
-        /*
-        System.out.println("tryNum");
-        System.out.println(tryNum);
-        System.out.println("randomNumber");
-        System.out.println(randomNumber);
-        if (randomNumber<4){
-
-        } else {
-
-        }
-
-         */
-    }
-
-    /*public static void Counter(){
-        int randomNumber = Randoms.pickNumberInRange(0,9);
-        int count = 0;
-        if (randomNumber<4){
-
-        } else {
-
         }
     }
-
-     */
 }
