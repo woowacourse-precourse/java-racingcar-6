@@ -3,12 +3,11 @@ package racingcar.view;
 import racingcar.domain.Car;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
 
-    public void writeInlineMessage(String message) {
-        System.out.print(message);
-    }
+    private final static String WIN = "최종 우승자 : ";
 
     public void writeNewlineMessage(String message) {
         System.out.println(message);
@@ -18,6 +17,15 @@ public class OutputView {
         StringBuilder content = new StringBuilder();
         cars.forEach(car -> addCarResult(content, car));
         writeNewlineMessage(content.toString());
+    }
+
+    public void printWinners(List<Car> winners) {
+        final String DELIMITER = ", ";
+        String message = winners.stream()
+                .map(Car::getName)
+                .map(Object::toString)
+                .collect(Collectors.joining(DELIMITER));
+        System.out.println(WIN + message);
     }
 
     private void addCarResult(StringBuilder roundResult, Car car) {
