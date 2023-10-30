@@ -9,7 +9,7 @@ import static racingcar.constant.ExceptionMessage.NO_WINNER_MESSAGE;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Map.Entry;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -53,21 +53,24 @@ public class Race {
     }
 
     public List<String> findWinner() {
-        Optional<Integer> longestDistance = getLongestDistance();
+        Integer longestDistance = getLongestDistance();
         validateWinner(longestDistance);
-        return null;
+        return playCars.entrySet().stream()
+                .filter(car -> car.getValue().equals(longestDistance))
+                .map(Entry::getKey)
+                .toList();
     }
 
-    private void validateWinner(Optional<Integer> longestDistance) {
-        if (longestDistance.get()==ZERO) {
+    private void validateWinner(Integer longestDistance) {
+        if (longestDistance==ZERO) {
             throw new IllegalArgumentException(NO_WINNER_MESSAGE.getMessage());
         }
     }
 
-    private Optional<Integer> getLongestDistance() {
+    private Integer getLongestDistance() {
         return playCars.values().stream()
                 .map(car -> car.getMoveDistance())
-                .max(Integer::compareTo);
+                .max(Integer::compareTo).get();
     }
 
 }
