@@ -51,7 +51,7 @@ public class InputValidator {
     }
 
     private static void validateBlank(String input) {
-        if (input.trim().isEmpty()) {
+        if (input.isBlank()) {
             throw new IllegalArgumentException(BLANK_ERROR);
         }
     }
