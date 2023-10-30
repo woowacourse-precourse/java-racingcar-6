@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Validator {
 
-    public static void checkCarCount(List<String> carNames) {
+    public static void checkCount(List<String> carNames) {
 
         if (carNames.size() < 2) {
             throw new IllegalArgumentException("2대 이상의 자동차 이름을 입력해 주세요.");

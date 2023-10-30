@@ -6,7 +6,7 @@ import java.util.List;
 public class CarManager {
 
     public static void validateNames(List<String> carNames) {
-        Validator.checkCarCount(carNames);
+        Validator.checkCount(carNames);
         Validator.checkBlank(carNames);
         Validator.checkLength(carNames);
         Validator.checkDuplication(carNames);

@@ -40,11 +40,11 @@ class CarInputTest {
         List<String> carNamesTwo = CarManager.createNames(userInputTwo);
 
         // when, then
-        assertThatThrownBy(() -> Validator.checkCarCount(carNamesOne))
+        assertThatThrownBy(() -> Validator.checkCount(carNamesOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("2대 이상의 자동차 이름을 입력해 주세요.");
 
-        assertThatThrownBy(() -> Validator.checkCarCount(carNamesTwo))
+        assertThatThrownBy(() -> Validator.checkCount(carNamesTwo))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("2대 이상의 자동차 이름을 입력해 주세요.");
     }
