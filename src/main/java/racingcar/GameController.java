@@ -20,7 +20,6 @@ public class GameController {
 
     public void startGame() {
         outputHandler.printStartMessages();
-        setCars();
 
         Race race = new Race(setCars());
 
