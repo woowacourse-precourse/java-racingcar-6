@@ -36,7 +36,7 @@ public class Controller {
 
     private void startGame() {
         outputView.printStartGame();
-        gameManager.setCarIdxNamePosList();
+        gameManager.setCarIdxNamePosList(userInput.getCarsName());
 
         List<Map.Entry<String, String>> carIdxNamePosList = gameManager.getCarIdxNamePosList();
 

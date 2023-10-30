@@ -16,9 +16,7 @@ public class GameManager {
         return this.carIdxNamePosList;
     }
 
-    public void setCarIdxNamePosList() {
-        ArrayList<String> carsName = Controller.userInput.getCarsName();
-
+    public void setCarIdxNamePosList(ArrayList<String> carsName) {
         for (String name : carsName) {
             Map.Entry<String, String> car = new AbstractMap.SimpleEntry<>(name, "");
             this.carIdxNamePosList.add(car);
