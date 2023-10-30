@@ -1,31 +1,34 @@
 # 자동차 경주 게임
 ## 기능 목록
-#### 경주 게임
-- [x] 사용자로부터 입력받은 시도 횟수만큼 경주를 진행한다
-
-#### 자동차 목록
-- [x] 사용자로부터 입력받은 경주할 자동차 이름을 쉼표(,)를 기준으로 구분해서 목록을 만든다 - Roster(TString input)
-- [x] 목록에 있는 자동차가 순서대로 전진 시도한다 - Roster.moveAllCarsForward
-- [x] 게임을 완료한 후 우승자를 선별한다 - Roster.determineWinningCars
-
-#### 자동차
-- [x] 자동차는 생성될 때 이름을 부여받는다 - Car(TString name)
-- [x] 자동차는 전진한다 - Car.moveForward
-- [x] 0에서 9 사이에서 무작위 값을 구한 후 값이 4 이상인지 알려준다 - Car.isMovable
-- [x] 자동차가 이름을 알려준다 - Car.getName
-- [x] 자동차가 전진한 거리를 알려준다 - Car.getRoute
-
-#### 입력
-- [x] 사용자로부터 경주할 자동차 이름을 입력받는다 - InputManager.readCarNames
-    - [x] 사용자 입력으로 받은 자동차 이름이 5자 이하가 아닌 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다
-- [x] 사용자로부터 전진 시도할 횟수를 입력받는다 - InputManager.readNumberOfAttempts
-    - [x] 사용자 입력으로 받은 시도할 횟수가 숫자가 아닌 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다
-    
-#### 출력
+#### 경주 게임 (Application)
 - [x] 게임 시작 시 "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"를 출력한다
 - [x] 경주할 자동차 이름을 입력받은 후 "시도할 회수는 몇회인가요?"를 출력한다
-- [x] 각 시도별로 실행 결과를 출력한다 - OutputManager.printRacingStatus
-- [x] 게임을 완료한 후 우승자 안내 문구를 출력한다 - OutputManager.printRacingResult
+- [x] 사용자로부터 입력받은 시도 횟수만큼 경주를 진행한다
+
+#### 경주 (Racing)
+- [x] 사용자로부터 입력받은 경주할 자동차 이름을 쉼표(,)를 기준으로 구분해서 목록을 만든다 → `Racing(TString userInput)`
+- [x] 목록에 있는 자동차가 순서대로 전진 시도한다 → `Racing.moveAllCarsForward`
+- [x] 게임을 완료한 후 우승자를 선별한다 → `Racing.determineWinningCars`
+    - [x] 가장 긴 경로를 업데이트한다 → `Racing.updateLongestCarRoute`
+
+#### 자동차 (Car)
+- [x] 자동차는 생성될 때 이름을 부여받는다 → `Car(TString name)`
+- [x] 자동차가 이름을 알려준다 → `Car.getName`
+- [x] 자동차가 전진한 루트를 알려준다 → `Car.getRoute`
+- [x] 자동차는 전진한다 → `Car.moveForward`
+- [x] 0에서 9 사이에서 무작위 값을 구한 후 값이 4 이상인지 알려준다 → `Car.isMovable`
+
+#### 입력 (InputManager & Validator)
+- [x] 사용자로부터 경주할 자동차 이름을 입력받는다 → `InputManager.readCarNames`
+    - [x] 사용자 입력으로 받은 자동차 이름이 5자 이하가 아닌 경우<br/>
+    `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다 → `Validator.validateCarNames`
+- [x] 사용자로부터 전진 시도할 횟수를 입력받는다 → `InputManager.readNumberOfAttempts`
+    - [x] 사용자 입력으로 받은 시도할 횟수가 숫자가 아닌 경우<br/>
+    `IllegalArgumentException`을 발생시킨 후 애플리케이션을 종료시킨다 → `Validator.validateCarNames`
+    
+#### 출력 (OutputManager)
+- [x] 각 시도별로 실행 결과를 출력한다 → `OutputManager.printRacingStatus`
+- [x] 게임을 완료한 후 우승자 안내 문구를 출력한다 → `OutputManager.printRacingResult`
     - [x] 공등 우승자가 있을 경우 쉼표(,)를 이용하여 구분한다
 
 ## 🚀 기능 요구 사항
