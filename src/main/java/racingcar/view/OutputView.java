@@ -4,6 +4,7 @@ import static racingcar.view.RacingCarConsole.*;
 import static racingcar.view.RacingCarConstants.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.RacingCar;
 
 public class OutputView {
@@ -12,41 +13,31 @@ public class OutputView {
     }
 
     public void printCars(List<RacingCar> racingCars) {
-        for (RacingCar racingCar : racingCars) {
-            String carStatus = formatCarStatus(racingCar);
-            print(carStatus);
-        }
+        racingCars.stream()
+                .map(this::formatCarStatus)
+                .forEach(RacingCarConsole::print);
         print(NEW_LINE);
     }
 
     private String formatCarStatus(RacingCar racingCar) {
-        return new StringBuilder()
-                .append(racingCar.getName())
-                .append(CAR_NAME_POSITION_SEPARATOR)
-                .append(getProgressIndicator(racingCar))
-                .append(NEW_LINE)
-                .toString();
+        return racingCar.getName()
+                + CAR_NAME_POSITION_SEPARATOR
+                + generateProgressIndicator(racingCar)
+                + NEW_LINE;
     }
 
-    public String getProgressIndicator(RacingCar racingCar) {
-        StringBuilder progressIndicator = new StringBuilder();
-        for (int i = 0; i < racingCar.getPosition(); i++) {
-            progressIndicator.append(CAR_PROGRESS_INDICATOR);
-        }
-        return progressIndicator.toString();
+    public String generateProgressIndicator(RacingCar racingCar) {
+        return CAR_PROGRESS_INDICATOR.repeat(racingCar.getPosition());
     }
 
     public void printWinners(List<RacingCar> winners) {
-        String winnerNames = formatWinnerNames(winners);
-        print(winnerNames);
+        print(formatWinnerNames(winners));
     }
 
     private String formatWinnerNames(List<RacingCar> winners) {
-        StringBuilder builder = new StringBuilder(WINNER_PREFIX);
-        for (int i = 0; i < winners.size(); i++) {
-            builder.append(winners.get(i).getName());
-            if (i != winners.size() - 1) builder.append(NAME_SEPARATOR);
-        }
-        return builder.append(NEW_LINE).toString();
+        String joinedNames = winners.stream()
+                .map(RacingCar::getName)
+                .collect(Collectors.joining(NAME_SEPARATOR));
+        return WINNER_PREFIX + joinedNames + NEW_LINE;
     }
 }
