@@ -6,18 +6,13 @@ final class Count {
 
     private int times;
 
-    private Count() {
-    }
-
-    static Count create(String input) {
-        Count instance = new Count();
+    Count(String input) {
         try {
-            instance.times = Integer.parseInt(input);
+            times = Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
-        if(instance.times < 1) throw new IllegalArgumentException();
-        return instance;
+        if(times < 1) throw new IllegalArgumentException();
     }
 
     boolean isEnd() {
