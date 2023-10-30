@@ -5,7 +5,7 @@ import racingcar.constant.ExceptionMessage;
 
 public class GameBuilder {
     private String[] names;
-    private int roundNumber;
+    private String roundString;
 
     /**
      * (use builder pattern) get cars name from user
@@ -22,18 +22,18 @@ public class GameBuilder {
      */
     public GameBuilder getRoundNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String roundNumberString = Console.readLine();
-        InputValidator.validateRoundNumber(roundNumberString);
-        this.roundNumber = Integer.parseInt(roundNumberString);
+        roundString = Console.readLine();
+        //InputValidator.validateRoundNumber(roundNumberString);
+        //this.roundNumber = Integer.parseInt(roundNumberString);
         return this;
     }
 
 
     public Game build() {
-        if (names == null || roundNumber == 0) {
+        if (names == null || roundString == null) {
             throw new IllegalArgumentException(ExceptionMessage.CANT_BUILD_GAME_YET);
         }
 
-        return new Game(names, roundNumber);
+        return new Game(names, roundString);
     }
 }

@@ -5,16 +5,17 @@ import java.util.stream.Collectors;
 import racingcar.firstclasscollection.CarList;
 import racingcar.firstclasscollection.PositionMap;
 import racingcar.model.Car;
+import racingcar.model.RoundNumber;
 
 public class Game {
     private CarList carList;
-    private int roundNumber;
+    private RoundNumber roundNumber;
     private PositionMap positions;
 
-    public Game(String[] carNames, int roundNumber) {
+    public Game(String[] carNames, String roundString) {
         makeCars(carNames);
         initPosition();
-        this.roundNumber = roundNumber;
+        this.roundNumber = new RoundNumber(roundString);
     }
 
     private void makeCars(String[] carNames) {
@@ -31,7 +32,7 @@ public class Game {
 
     public void play() {
         System.out.println("실행 결과");
-        for (int round = 0; round < roundNumber; round++) {
+        for (int round = 0; round < roundNumber.getNumber(); round++) {
             playRound();
         }
         printWinner();
