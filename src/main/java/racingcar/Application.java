@@ -101,9 +101,14 @@ public class Application {
     private static List<Car> initializeCars(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
         for (int i = 0; i < carNameList.size(); i++) {
-            Car car = new Car(carNameList.get(i), 0);
+            Car car = initializeCar(carNameList, i);
             carList.add(car);
         }
         return carList;
+    }
+
+    private static Car initializeCar(List<String> carNameList, int i) {
+        Car car = new Car(carNameList.get(i), 0);
+        return car;
     }
 }
