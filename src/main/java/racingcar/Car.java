@@ -34,4 +34,12 @@ public class Car {
 
         if (rand_num >= FORWARD_CRITERIA) score += 1;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getScore() {
+        return score;
+    }
 }
