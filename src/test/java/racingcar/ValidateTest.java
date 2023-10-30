@@ -56,4 +56,15 @@ public class ValidateTest {
                  .isInstanceOf(IllegalArgumentException.class)
                  .hasMessageContaining(INPUT_DOES_NOT_CONTAIN_SPECIAL_CHARACTERS_ERROR_MESSAGE);
      }
+
+     @Test
+    void validateListIsEmpty_입력된_자동차가_한대도_없을때_예외_발생() {
+        String input = ",,,";
+
+        String[] list = input.split(",");
+
+         assertThatThrownBy(() -> validateListIsEmpty(list))
+                 .isInstanceOf(IllegalArgumentException.class)
+                 .hasMessageContaining(LIST_IS_EMPTY_ERROR_MESSAGE);
+     }
 }
