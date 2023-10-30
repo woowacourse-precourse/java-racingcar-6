@@ -14,7 +14,15 @@ public class AttemptCountValidatorTest {
 
     @DisplayName("시도횟수 입력 - 정상입력")
     @Test
-    void checkAttempNoramInt() {
+    void checkAttempNoramlInt() {
+        String attempCount = "   21     ";
+        int number = attemptCountValidator.getAttemptCount(attempCount);
+        org.assertj.core.api.Assertions.assertThat(number).isEqualTo(21);
+    }
+
+    @DisplayName("시도횟수 입력 - 숫자 양 옆 공백제거 확인")
+    @Test
+    void checkAttempTrimInput() {
         String attempCount = "21";
         assertDoesNotThrow(() -> attemptCountValidator.getAttemptCount(attempCount));
     }
