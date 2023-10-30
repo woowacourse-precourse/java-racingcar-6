@@ -9,7 +9,19 @@ public class Car {
         this.distance = distance;
     }
 
-    public void moveForwad(int distance){
-        this.distance += distance;
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void moveForwad(){
+        this.distance += 1;
+    }
+
+    public String showDistance(){
+        return "-".repeat(this.distance);
     }
 }

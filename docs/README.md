@@ -10,11 +10,11 @@
 8. 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
 ### 기능 목록
-- [ ] 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)을 입력 - Game # String CarNames
-  - [ ] 입력 받은 자동차 이름 split - Game # parseCarNames(String CarNames)
-  - [ ] 자동차 이름 수 만큼 자동차 객체 생성 - Car # createCar(String carName)
+- [x] 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)을 입력 
+  - [x] 입력 받은 자동차 이름 split 
+  - [x] 자동차 이름 수 만큼 자동차 객체 생성 
   
-- [ ] 시도할 회수를 입력 - Game # int raceAttemptCount
+- [x] 시도할 회수를 입력
 
 - [ ] 경주 할 자동차는 0 에서 9 사이에서 무작위 값이 4 이상인 경우 전진
   - [ ] 무작위 수 생성 (0 에서 9사이) - Game # generateRandomDigit()
