@@ -30,4 +30,25 @@ class ValidatorTest {
         List<String> answer = List.of("pobi", "woni");
         assertThat(result).isEqualTo(answer);
     }
+
+    @Test
+    void 이름에_대한_예외처리_6자_이상_입력() {
+        assertThatThrownBy(() -> Validator.validateCheckCarName("hg_yellow"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CAR_NAME_LENGTH_ERROR.getMessage());
+    }
+
+    @Test
+    void 이름에_대한_예외처리_0자_입력() {
+        assertThatThrownBy(() -> Validator.validateCheckCarName(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CAR_NAME_LENGTH_ERROR.getMessage());
+    }
+
+    @Test
+    void 이름에_대한_예외처리_공백_포함() {
+        assertThatThrownBy(() -> Validator.validateCheckCarName("pobi "))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CAR_NAME_CONTAINS_SPACE_ERROR.getMessage());
+    }
 }
