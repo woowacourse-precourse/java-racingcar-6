@@ -23,12 +23,16 @@ public class Application {
             cars.add(new Car(carName));
         }
 
-        for (Car car : cars) {
-            car.move();
-        }
+        for (int i = 0; i < playCount; i++) {
+            for (Car car : cars) {
+                car.move();
+            }
 
-        for (Car car : cars) {
-            car.printLocation();
+            for (Car car : cars) {
+                car.printLocation();
+            }
+
+            System.out.print("\n");
         }
 
     }
