@@ -22,7 +22,9 @@ public class Server {
         }
     }
     public void confirmRacerCount(String racerCountString){
-
+        validator.validateUserInputIsCorrectCount(racerCountString);
+        Integer racerCount = Integer.parseInt(racerCountString);
+        this.racerCount = racerCount;
     }
 
     public List<Racer> getRacerList(){ return racerList; }
