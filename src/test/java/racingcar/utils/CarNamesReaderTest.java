@@ -2,11 +2,14 @@ package racingcar.utils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import racingcar.domain.Car;
@@ -16,6 +19,20 @@ import racingcar.domain.RandomNumberGenerator;
 public class CarNamesReaderTest {
 
     private ByteArrayInputStream inputStream;
+    private ByteArrayOutputStream outputStream;
+    private PrintStream originalSystemOut;
+
+    @BeforeEach
+    public void setUp() {
+        outputStream = new ByteArrayOutputStream();
+        originalSystemOut = System.out;
+        System.setOut(new PrintStream(outputStream));
+    }
+
+    @AfterEach
+    public void tearDown() {
+        System.setOut(originalSystemOut);
+    }
 
     @Test
     public void 자동차객체리스트_생성_테스트() {
@@ -36,5 +53,7 @@ public class CarNamesReaderTest {
             Car expectedCar = expectedCars.get(i);
             assertThat(actualCar.getName()).isEqualTo(expectedCar.getName());
         }
+        String outputContent = outputStream.toString().trim();
+        assertThat(outputContent).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 }
