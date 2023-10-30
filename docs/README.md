@@ -145,7 +145,7 @@
 ## 메서드 분리
 
 - [x] GameProcess
-- [ ] CreateRandomNum
+- [x] CreateRandomNum
 - [ ] GameHost
 - [ ] JudgeStandard
 - [ ] RaceCar
