@@ -29,7 +29,7 @@ public class InputView {
         String inputCarName = Console.readLine();
         carNameValidation.validateUserInput(inputCarName);
 
-        return RacingCar.fromInputCarName(inputCarName);
+        return RacingCar.createRacingCars(inputCarName);
     }
 
     public Integer inputMovement() {

@@ -1,39 +1,31 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCar {
     private static final String STATUS_FORMAT = " : ";
     private static final String PROGRESS = "-";
     private static final String SPLIT_STANDARD = ",";
-    private static final Integer CAR_MOVEMENT = 0;
+    private static final Integer INITIAL_MOVEMENT = 0;
 
     private String carName;
     private Integer carMovement;
 
     public RacingCar(String carName) {
         this.carName = carName;
-        this.carMovement = CAR_MOVEMENT;
+        this.carMovement = INITIAL_MOVEMENT;
     }
 
     public String printCarName() {
         return carName;
     }
 
-    public static List<RacingCar> fromInputCarName(String inputCarName) {
-        List<String> carNames = Arrays.asList(inputCarName.split(SPLIT_STANDARD));
-
-        List<RacingCar> racingCars = new ArrayList<>();
-        for (String carName : carNames) {
-            racingCars.add(new RacingCar(carName));
-        }
-        return racingCars;
-    }
-
-    public boolean isMoveCountLessThanOrEqualTo(Integer userInputMovement) {
-        return carMovement <= userInputMovement;
+    public static List<RacingCar> createRacingCars(String inputCarName) {
+        return Arrays.stream(inputCarName.split(SPLIT_STANDARD))
+                .map(RacingCar::new)
+                .collect(Collectors.toList());
     }
 
     public void forward() {
