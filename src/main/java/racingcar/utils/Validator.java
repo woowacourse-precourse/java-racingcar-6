@@ -12,35 +12,58 @@ public class Validator {
     private final static String UNDER_NUMBER_ERROR = "[ERROR] 1이상의 정수를 적어주세요.";
 
     public void validateCarNameInput(String carNames) {
-        if (carNames == null)
+        if (isNull(carNames))
             throw new IllegalArgumentException(NULL_ERROR);
-        if (carNames.trim().isEmpty())
+        if (isEmpty(carNames))
             throw new IllegalArgumentException(EMPTY_ERROR);
-        if (carNames.startsWith(Common.SEPARATOR.getStringValue())
-                || carNames.endsWith(Common.SEPARATOR.getStringValue()))
+        if (isStartsWith(carNames) || isEndsWith(carNames))
             throw new IllegalArgumentException(SEPARATOR_ERROR);
 
         String[] carNamesArray = carNames.split(Common.SEPARATOR.getStringValue());
 
         for (String carName : carNamesArray) {
-            if (carName.length() > Common.MAX_LENGTH.getIntValue())
+            if (isOverLength(carName))
                 throw new IllegalArgumentException(OVER_LENGTH_ERROR);
         }
     }
 
     public void validateNumberOfAttemptsInput(String numberOfAttempts) {
-        if (numberOfAttempts == null)
+        if (isNull(numberOfAttempts))
             throw new IllegalArgumentException(NULL_ERROR);
 
-        if (numberOfAttempts.trim().isEmpty())
+        if (isEmpty(numberOfAttempts))
             throw new IllegalArgumentException(EMPTY_ERROR);
 
         try {
             int number = Integer.valueOf(numberOfAttempts);
-            if (number < 1)
+            if (!isPositive(number))
                 throw new IllegalArgumentException(UNDER_NUMBER_ERROR);
         } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException(NUMERIC_ERROR);
         }
+    }
+
+    private boolean isNull(String input) {
+        return input == null;
+    }
+
+    private boolean isEmpty(String input) {
+        return input.trim().isEmpty();
+    }
+
+    private boolean isStartsWith(String input) {
+        return input.startsWith(Common.SEPARATOR.getStringValue());
+    }
+
+    private boolean isEndsWith(String input) {
+        return input.endsWith(Common.SEPARATOR.getStringValue());
+    }
+
+    private boolean isOverLength(String input) {
+        return input.length() > Common.MAX_LENGTH.getIntValue();
+    }
+
+    private boolean isPositive(int number) {
+        return number < 1;
     }
 }
