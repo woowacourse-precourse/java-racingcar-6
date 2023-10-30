@@ -11,10 +11,6 @@
 ---
 ### 설계해보기
 
-
-**interface GameManager**   
-- function : play   
-
 **class CarGameManager**
 - function : play, else ...
 - car names string 입력받기
@@ -22,17 +18,33 @@
 
 **class Car**   
 - String name   
-- int count
-- function : addCount
+- int point
+- function : addPoint
 
 **class CarList**
 - List<Car> list; 
 - function : toString() // 결과출력
-- function : 모든 차 전진 여부 반영하기 (1바퀴) // 외부에서 입력받은 만큼 시키기
+- function : 모든 차 전진 여부 반영하기 (1바퀴) // Round 에 의해 제어
    
 **class CarListGenerator**
    function : createCarList(String input)   
 
 ---
-### 객체의 변동성이 계속 존재   
+###객체의 변동성이 계속 존재   
 **!!!! 클래스 내의 하나의 함수로만 객체를 변동할 수 있도록 제한해보자!!!!**
+
+---
+###refactor
+
+1. **class Round**
+- int round 
+- round 클래스의 숫자에 따라서 차 전진 루틴 실행할지 말지 판단하기
+- 외부에서 숫자 접근 및 수정 불가하게 하기 (getter, setter 사용 X)
+
+2. **class RoundFactory**
+- create : round 객체 생성
+- validate : 음수, overflow, 숫자 변환 불가 등
+
+3. **class CarListGenerator**
+- validate : 비어있는 string 에러처리하기
+
