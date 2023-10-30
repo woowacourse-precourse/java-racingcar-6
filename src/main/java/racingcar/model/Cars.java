@@ -15,6 +15,7 @@ public class Cars {
 
     public void settingNames() {
         String names = Console.readLine();
+        hasComma(names);
         for(String name : names.split(",")) {
             cars.add(new Car(name.trim()));
         }
@@ -44,5 +45,11 @@ public class Cars {
             .filter(car -> car.meter == findMaxScore())
             .map(car -> car.name)
             .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    private void hasComma(String name) {
+        if(!name.contains(",")) {
+            throw new IllegalArgumentException("이름을 쉼표(,)로 구분해야 합니다. 또한, 2개 이상의 이름을 등록해야 합니다.");
+        }
     }
 }
