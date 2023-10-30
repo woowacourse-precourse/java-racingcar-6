@@ -25,7 +25,7 @@ class RacingCarGameTest {
         RacingCarGame racingCarGame = new RacingCarGame();
 
         // when
-        racingCarGame.makeCars(userInput);
+        racingCarGame.makeCars(Converter.stringToArr(userInput));
 
         // then
         assertEquals(3,racingCarGame.getRacingCars().size());
@@ -45,8 +45,8 @@ class RacingCarGameTest {
         RacingCarGame racingCarGame = new RacingCarGame();
 
         // when
-        //then
-        assertThatThrownBy(() -> racingCarGame.makeCars(userInput))
+        // then
+        assertThatThrownBy(() -> racingCarGame.makeCars(Converter.stringToArr(userInput)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.CAR_NAME_LENGTH_EXCEPTION.getMessage());
     }
@@ -83,7 +83,7 @@ class RacingCarGameTest {
     void findMaxLocation() {
         //given
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.makeCars("test1,test2,test3");
+        racingCarGame.makeCars(Converter.stringToArr("test1,test2,test3"));
 
         //when
         racingCarGame.moveCars();
@@ -105,7 +105,7 @@ class RacingCarGameTest {
     void findWinner() {
         //given
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.makeCars("test1,test2,test3");
+        racingCarGame.makeCars(Converter.stringToArr("test1,test2,test3"));
 
         //when
         racingCarGame.moveCars();
