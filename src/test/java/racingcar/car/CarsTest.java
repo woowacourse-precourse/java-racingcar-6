@@ -26,7 +26,7 @@ class CarsTest {
 
     @DisplayName("입력된 차량들의 이름을 차량 리스트로 정확히 변환하는지 확인합니다.")
     @Test
-    void getCarsFromNames_IsReturnCorrectCarList() {
+    void fromNames_IsReturnCorrectCarList() {
         Cars actual = Cars.fromNames("a,ab,abc");
         Cars expected = cars;
 
