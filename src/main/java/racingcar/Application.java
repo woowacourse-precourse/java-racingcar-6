@@ -2,10 +2,20 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.*;
 
+import java.util.Arrays;
+
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         Car[] cars = generateCars();
+        System.out.println("시도할 회수는 몇회인가요?");
+        int turnCount = inputTurnCount();
+        System.out.println("실행 결과");
+    }
+
+    private static int inputTurnCount() {
+        String turnCountInput = readLine();
+        return Integer.parseInt(turnCountInput);
     }
 
     private static Car[] generateCars() {
