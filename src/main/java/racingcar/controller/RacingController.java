@@ -43,7 +43,7 @@ public class RacingController {
     private void runMultipleRaces(final Cars cars, final TryCount tryCount, final NumberGenerator numberGenerator) {
         while (!tryCount.isEnd()) {
             race(cars, numberGenerator);
-            tryCount.decreaseCount();
+            tryCount.decrease();
         }
     }
 

@@ -44,10 +44,10 @@ public class TryCount {
     }
 
     public boolean isEnd() {
-        return tryCount == ZERO_COUNT_VALUE;
+        return tryCount <= ZERO_COUNT_VALUE;
     }
 
-    public void decreaseCount() {
+    public void decrease() {
         tryCount--;
     }
 
