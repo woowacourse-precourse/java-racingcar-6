@@ -8,11 +8,10 @@ import java.util.stream.Collectors;
 public class RacingGame {
     private static final int MOVE_THRESHOLD = 4;
     private static final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-
     private final List<RacingCar> racingCars;
 
-    public RacingGame(List<String> carNames) {
-        this.racingCars = carNames.stream()
+    public RacingGame(CarNames carNames) {
+        this.racingCars = carNames.getNames().stream()
                 .map(RacingCar::new)
                 .collect(Collectors.toList());
     }
