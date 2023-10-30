@@ -7,10 +7,10 @@ public class Validation {
 
     public boolean isNotEmpty(List<String> carNames) {
         if (carNames.isEmpty()) {
-            throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
+            throw new IllegalArgumentException("이름을 입력해주세요.");
         }
         for (String name : carNames) {
-            if (name.isEmpty()) {
+            if (name.trim().isEmpty()) {
                 throw new IllegalArgumentException("이름이 없는 자동차가 있습니다.");
             }
         }
