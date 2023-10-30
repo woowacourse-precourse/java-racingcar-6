@@ -49,5 +49,6 @@ public class GameManager {
             moveCars(cars);
         }
         gameView.printResult(cars, numberOfMoves);
+        gameView.printWinners(getWinner(cars));
     }
 }

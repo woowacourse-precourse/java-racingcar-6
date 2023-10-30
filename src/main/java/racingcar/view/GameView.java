@@ -30,4 +30,11 @@ public class GameView {
             printPositions(cars, i);
         }
     }
+
+    public void printWinners(List<Car> winners){
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(",", winners.stream()
+                .map(Car::getName)
+                .toList()));
+    }
 }
