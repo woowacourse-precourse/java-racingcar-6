@@ -29,7 +29,7 @@ public class RacingGame {
             racingCars.turnOn();
 
             for (RacingCar car : racingCars.getRacingCars()) {
-                System.out.println(car.getName() + " : " + car.getDistance());
+                System.out.println(car.getName() + " : " + convertDistanceToDash(car.getDistance()));
             }
             System.out.println();
             count--;
@@ -42,6 +42,14 @@ public class RacingGame {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
+    }
+
+    private String convertDistanceToDash(int distance) {
+        String dash = "";
+        while(distance-- >0) {
+            dash += "-";
+        }
+        return dash;
     }
 
     private String convertWinnersToStr(List<String> winners) {
