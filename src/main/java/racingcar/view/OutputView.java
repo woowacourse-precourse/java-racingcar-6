@@ -1,10 +1,5 @@
 package racingcar.view;
 
-import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
 public class OutputView {
 
     public void initial() {
@@ -15,7 +10,7 @@ public class OutputView {
         System.out.println(name + " : " + bar);
     }
 
-    public void winner(HashMap distance) {
-        System.out.println(distance);
+    public void winner(String winnerName) {
+        System.out.println("최종 우승자 : " + winnerName);
     }
 }
