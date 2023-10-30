@@ -2,8 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
-import racingcar.service.GameService;
-import racingcar.view.GameView;
+import racingcar.model.GameModel;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -29,16 +28,16 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차의_존재_유뮤_예외_처리() {
         String[] inputName = {};
-        GameService service = new GameService();
+        GameModel model = new GameModel();
         assertThrows(IllegalArgumentException.class, () -> {
-            service.initGame(inputName, 5);
+            model.initGame(inputName, 5);
         });
     }
 
     @Test
     void 잘못된_게임회수_예외_처리() {
         String[] inputName = {"pobi"};
-        GameService service = new GameService();
+        GameModel service = new GameModel();
         assertThrows(IllegalArgumentException.class, () -> {
             service.initGame(inputName, -1);
         });

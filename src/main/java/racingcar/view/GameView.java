@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 
 public class GameView {
 
@@ -17,4 +18,7 @@ public class GameView {
         return Integer.parseInt(userInput);
     }
 
+    public void printResult(Cars cars) {
+        System.out.println(cars);
+    }
 }
