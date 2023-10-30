@@ -15,4 +15,8 @@ public class CarPosition {
     public int getPosition() {
         return position;
     }
+
+    public CarPosition next() {
+        return new CarPosition(this.position + 1);
+    }
 }

@@ -16,4 +16,11 @@ public class Car {
     public CarPosition getPosition() {
         return carPosition;
     }
+
+    public Car move(int number) {
+        if (number > 4) {
+            return new Car(this.carName, this.carPosition.next());
+        }
+        return this;
+    }
 }

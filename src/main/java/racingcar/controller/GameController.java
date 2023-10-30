@@ -32,8 +32,6 @@ public class GameController {
             System.out.println("Car Position: " + car.getPosition().getPosition());
         }
 
-        System.out.println(gameService.getRandomNumber());
-
     }
 
 }
