@@ -2,9 +2,11 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.validator.CarNameValidator;
+import racingcar.util.Parser;
 
 class CarNameValidatorTest {
 
@@ -13,10 +15,11 @@ class CarNameValidatorTest {
     void validateAllCasesDoesNotThrowAnyException() {
         // given
         String validCarName = "i,am,sully";
+        List<String> carNames = Parser.parseCarName(validCarName);
 
         // when
         // then
-        assertThatCode(() -> new CarNameValidator(validCarName))
+        assertThatCode(() -> new CarNameValidator(carNames))
                 .doesNotThrowAnyException();
     }
 
@@ -25,10 +28,11 @@ class CarNameValidatorTest {
     void validateCarNameExistsWithBlank() {
         // given
         String invalidCarName = "sully,,i";
+        List<String> carNames = Parser.parseCarName(invalidCarName);
 
         // when
         // then
-        assertThatThrownBy(() -> new CarNameValidator(invalidCarName))
+        assertThatThrownBy(() -> new CarNameValidator(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름을 입력해주세요.");
     }
@@ -38,10 +42,11 @@ class CarNameValidatorTest {
     void validateAlphanumericAndCommaCarNameWithInvalidCarName() {
         // given
         String invalidCarName = "i,am,siu^^";
+        List<String> carNames = Parser.parseCarName(invalidCarName);
 
         // when
         // then
-        assertThatThrownBy(() -> new CarNameValidator(invalidCarName))
+        assertThatThrownBy(() -> new CarNameValidator(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 영숫자와 콤마로만 구성되어야 합니다.");
     }
@@ -51,10 +56,11 @@ class CarNameValidatorTest {
     void validateCarNameLengthWithInvalidLength() {
         // given
         String invalidCarName = "romero,sully,hi";
+        List<String> carNames = Parser.parseCarName(invalidCarName);
 
         // when
         // then
-        assertThatThrownBy(() -> new CarNameValidator(invalidCarName))
+        assertThatThrownBy(() -> new CarNameValidator(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5글자 이하여야 합니다.");
     }
@@ -64,10 +70,11 @@ class CarNameValidatorTest {
     void validateCarNamesDuplicateWithInvalidCarNames() {
         // given
         String invalidCarName = "sully,hi,my,name,is,sully";
+        List<String> carNames = Parser.parseCarName(invalidCarName);
 
         // when
         // then
-        assertThatThrownBy(() -> new CarNameValidator(invalidCarName))
+        assertThatThrownBy(() -> new CarNameValidator(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
     }
