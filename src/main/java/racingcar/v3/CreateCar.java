@@ -18,6 +18,12 @@ public class CreateCar {
     }
 
 
+    public String[] validateCarNames(String[] carNames) throws IllegalArgumentException {
+        validateCarCount(carNames);
+        validateCarNameLength(carNames);
+        return carNames;
+    }
+
     public void validateCarCount(String[] carNames) throws IllegalArgumentException {
         if (carNames.length < 2 || carNames.length > 10) {
             throw new IllegalArgumentException("자동차의 수는 2대 이상 10대 이하만 가능합니다.");
