@@ -5,8 +5,6 @@ import model.Winners;
 
 import java.util.List;
 
-import static util.Messages.RUN_RESULT;
-
 /**
  * packageName    : view
  * fileName       : OutputView
@@ -23,6 +21,8 @@ public class OutputView {
     private static final String DISTANCE_MARK = "-";
     private static final String DELIMITER = ", ";
     private static final String WINNER_SENTENCE = "최종 우승자 : ";
+
+    public static final String RUN_RESULT = "실행 결과";
 
     public static void printResultMessage() {
         System.out.println(RUN_RESULT);
