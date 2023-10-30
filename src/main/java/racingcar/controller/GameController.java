@@ -27,7 +27,7 @@ public class GameController {
 
     private void readCarNameList() {
         println(READ_CAR_NAME.getMessage());
-        gameService.addCarNameList(InputView.readCarNameList());
+        gameService.addCarName(InputView.readCarNameList());
     }
 
     private void readProgressCount() {

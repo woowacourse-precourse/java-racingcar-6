@@ -8,7 +8,7 @@ public class GameService {
     private int progressCount;
     private final List<Car> carList = new ArrayList<>();
 
-    public void addCarNameList(List<String> carNameList) {
+    public void addCarName(List<String> carNameList) {
         carNameList.forEach(carName -> carList.add(new Car(carName)));
     }
 
