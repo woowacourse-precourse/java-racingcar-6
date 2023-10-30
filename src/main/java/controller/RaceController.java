@@ -18,17 +18,18 @@ public class RaceController {
         raceService = new RaceService();
         inputView = new InputView();
         outputView = new OutputView();
-
     }
 
     public void play() {
         String carNames = inputView.enterCarNames();
         ValidateInput.nameLengthException(carNames);
-        int tryNumber = inputView.enterTryNumber();
+        String tryNumber = inputView.enterTryNumber();
+        ValidateInput.numberFormatException(tryNumber);
+        int validatedTryNumber = Integer.parseInt(tryNumber);
         List<String> carNamesList = raceService.carNamesToList(carNames);
         int[] result = new int[carNamesList.size()];
         System.out.println(ConstantUtil.SHOW_RESULT_MESSAGE);
-        for (int i = 0; i < tryNumber; i++) {
+        for (int i = 0; i < validatedTryNumber; i++) {
             raceService.getResult(carNamesList, result);
             outputView.printResult(carNamesList, result);
         }
