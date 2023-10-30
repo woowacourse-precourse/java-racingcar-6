@@ -15,21 +15,25 @@
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
-### ErrorDetector 클래스
+### ~~ErrorDetector 클래스~~ Validation 클래스
 
 - 사용자가 입력한 값에 대한 유효성 검사 진행
-  - public static String[] throwIfCarNameIsLong(String cars)
+  - ~~public static String[] throwIfCarNameIsLong(String cars)~~
+  - public static String[] throwIfCarInputIsInvalid(String input)
+    - 입력한 차의 개수가 1이하일 경우 IllegalArgumentException을 발생
     - 입력한 차들의 이름의 길이가 5를 초과할 경우 IllegalArgumentException을 발생
-  - public static int throwIfInputIsString(String count)
+  - ~~- public static int throwIfInputIsString(String count)~~
+  - public static int throwIfCountInputIsInvalid(String count)
+    - 입력한 시도 회수가 0이하일 경우 IllegalArgumentException을 발생
     - 입력한 시도 횟수가 숫자가 아닐 경우 IllegalArgumentException을 발생
 
 ### Input, Output 클래스
 
 - Input 클래스
   - public static List<String> readCars()
-    - 차들의 이름을 입력 받고 ErrorDetector를 통한 유효성 검사를 진행
+    - 차들의 이름을 입력 받고 Validation를 통한 유효성 검사를 진행
   - public static int readCount()
-    - 시도 횟수를 입력 받고 ErrorDetector를 통한 유효성 검사를 진행
+    - 시도 횟수를 입력 받고 Validation를 통한 유효성 검사를 진행
 
 - Output 클래스
   - public static void printMessage(String message)

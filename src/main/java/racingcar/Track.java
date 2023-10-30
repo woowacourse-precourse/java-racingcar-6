@@ -34,10 +34,8 @@ public class Track {
     }
 
     public String showResult() {
-        StringBuilder sb = new StringBuilder();
         String result = findWinners().toString();
-        sb.append(result, 1, result.length()-1);
-        return sb.toString();
+        return result.substring(1, result.length()-1);
     }
     private Car findFirstPlace() {
         Collections.sort(track);
@@ -45,10 +43,10 @@ public class Track {
     }
 
     private List<String> findWinners() {
-        Car first = findFirstPlace();
+        Car firstPlace = findFirstPlace();
         List<String> winners = new ArrayList<>();
         for (Car car : track) {
-            if (first.compareTo(car) >= 0) {
+            if (firstPlace.compareTo(car) >= 0) {
                 winners.add(car.getName());
             }
         }

@@ -4,7 +4,7 @@ public class Car implements Comparable<Car> {
     public static final int FORWARD_STANDARD = 4;
     private String name;
     private int distance;
-    Car(String name) {
+    public Car(String name) {
         this.name = name;
         this.distance = 0;
     }

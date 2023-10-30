@@ -6,11 +6,11 @@ import java.util.List;
 
 public class Input {
     public static List<String> readCars() {
-        String[] input = ErrorDetector.throwIfCarNameIsLong(Console.readLine());
+        String[] input = Validation.throwIfCarInputIsInvalid(Console.readLine());
         return Arrays.asList(input);
     }
 
     public static int readCount() {
-        return ErrorDetector.throwIfInputIsString(Console.readLine());
+        return Validation.throwIfCountInputIsInvalid(Console.readLine());
     }
 }
