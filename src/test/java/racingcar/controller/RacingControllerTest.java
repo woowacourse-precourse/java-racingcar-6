@@ -4,12 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
-import racingcar.model.NameParser;
-import racingcar.view.InputView;
+
 
 public class RacingControllerTest {
     RacingController racingController = new RacingController();

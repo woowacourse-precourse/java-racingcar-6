@@ -6,20 +6,27 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.GoStopDecider;
 import racingcar.model.NameParser;
+import racingcar.model.WinnerDecider;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
     private final NameParser nameParser = new NameParser();
     private final GoStopDecider goStopDecider = new GoStopDecider();
+    private final WinnerDecider winnerDecider = new WinnerDecider();
 
 
     public void start() {
         List<Car> carList = makeCarList(readCarName());
+        int movingCount = readMovingCount();
 
         OutputView.printGameResult();
 
-        printAllRacingResult(readMovingCount(), carList);
+        printAllRacingResult(movingCount, carList);
+
+        OutputView.printWinner();
+        List<String> winnerNameList = winnerDecider.collectNamesOfTopCars(carList);
+        OutputView.printWinnerName(winnerNameList);
     }
 
     public List<String> readCarName() {

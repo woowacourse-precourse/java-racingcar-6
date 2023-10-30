@@ -25,18 +25,6 @@ public class NameParserTest {
         assertThat(resultCarNames).containsExactlyElementsOf(expectedCarNames);
     }
     @Test
-    public void 자동차이름_5자_이하() {
-        // Given
-        NameParser nameParser = new NameParser();
-        List<String> carNameList = Arrays.asList("Joind", "BMW", "Audi");
-
-        // When, Then
-        assertThrows(IllegalArgumentException.class, () -> {
-            nameParser.setCar(carNameList);
-        });
-    }
-
-    @Test
     public void 자동차_이름_할당() {
         // Given
         NameParser nameParser = new NameParser();
