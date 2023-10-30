@@ -1,4 +1,4 @@
-package racingcar.domain.car.carcomponent.carposition;
+package racingcar.domain.car.carposition;
 
 public enum CarPositionCompareResult {
     BIG, SMALL, SAME;

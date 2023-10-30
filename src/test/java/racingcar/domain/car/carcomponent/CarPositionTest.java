@@ -1,16 +1,16 @@
 package racingcar.domain.car.carcomponent;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.domain.car.carcomponent.carposition.CarPositionCompareResult.BIG;
-import static racingcar.domain.car.carcomponent.carposition.CarPositionCompareResult.SAME;
-import static racingcar.domain.car.carcomponent.carposition.CarPositionCompareResult.SMALL;
+import static racingcar.domain.car.carposition.CarPositionCompareResult.BIG;
+import static racingcar.domain.car.carposition.CarPositionCompareResult.SAME;
+import static racingcar.domain.car.carposition.CarPositionCompareResult.SMALL;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.carcomponent.carposition.CarPosition;
-import racingcar.domain.car.carcomponent.carposition.CarPositionCompareResult;
+import racingcar.domain.car.carposition.CarPosition;
+import racingcar.domain.car.carposition.CarPositionCompareResult;
 
 public class CarPositionTest {
 

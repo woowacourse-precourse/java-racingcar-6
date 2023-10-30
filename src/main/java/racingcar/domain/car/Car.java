@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
-import racingcar.domain.car.carcomponent.carposition.CarPosition;
-import racingcar.domain.car.carcomponent.carposition.CarPositionCompareResult;
+import racingcar.domain.car.carposition.CarPosition;
+import racingcar.domain.car.carposition.CarPositionCompareResult;
 
 public class Car {
     private static final String CAR_NAME_ERROR_MESSAGE = "자동차의 이름은 5자 이하만 가능합니다.";

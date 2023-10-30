@@ -1,4 +1,4 @@
-package racingcar.domain.car.carcomponent.carposition;
+package racingcar.domain.car.carposition;
 
 public class CarPosition {
     private static final String RESULT_MESSAGE_COMPONENT = "-";

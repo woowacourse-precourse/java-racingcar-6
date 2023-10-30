@@ -3,7 +3,7 @@ package racingcar.domain.car;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.car.carcomponent.carposition.CarPositionCompareResult;
+import racingcar.domain.car.carposition.CarPositionCompareResult;
 
 public class WinCars {
     private static final String DELIMITER_WIN_CAR = ", ";
