@@ -19,6 +19,8 @@ public class RaceController {
     private void initializeRace() {
         String carNames = InputView.getCarNames();
         int rounds = InputView.getRounds();
+
+        raceService.initializeRace(carNames, rounds);
     }
 
     private void executeRace() {
