@@ -18,6 +18,10 @@ public class OnRaceCars implements Iterable<OnRaceCar> {
     }
 
     public Long getPosition(OnRaceCar car) {
+        return getPosition((BasicCar) car);
+    }
+
+    public Long getPosition(BasicCar car) {
         return cars.stream()
             .filter(onRaceCar -> onRaceCar.equals(car))
             .map(OnRaceCar::getPosition)
