@@ -49,6 +49,7 @@ public class InputManagerTest {
     }
 
     @Test
+    @DisplayName("자동차의 길이가 0 이하에서 에러가 발생하는지 확인")
     public void 자동차길이_0이하() throws Exception {
         try {
             new InputManager(5, "pobi, ,jun");
@@ -64,4 +65,16 @@ public class InputManagerTest {
 
         }
     }
+
+    @Test
+    @DisplayName("중복되는 자동차가 있는지 확인")
+    public void 중복되는_자동차_확인() throws Exception {
+        try {
+            new InputManager(5, "pobi,woni,pobi");
+            fail("중복되는 자동차가 없다.");
+        } catch (IllegalArgumentException e) {
+
+        }
+    }
+
 }
