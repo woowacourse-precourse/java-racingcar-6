@@ -19,6 +19,14 @@ public class Car {
         this.winners = new ArrayList<>();
     }
 
+    public Car(List<String> names, int attempt, List<Integer> mileage) {
+        this.names = names;
+        this.attempt = attempt;
+        this.mileage = mileage;
+        this.winners = new ArrayList<>();
+    }
+
+
     public void forward () {
         for(int i = 0 ; i < names.size(); i++) {
             int random = Random.generate();
