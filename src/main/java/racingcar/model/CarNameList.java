@@ -9,7 +9,7 @@ public class CarNameList {
         this.carNameList = carNameList;
     }
 
-    public static CarNameList getinstance(String[] carNameList){
+    public static CarNameList getInstance(String[] carNameList){
         if(instance == null){
             instance = new CarNameList(carNameList);
         }
@@ -20,5 +20,9 @@ public class CarNameList {
         for(String s : carNameList){
             System.out.println(s);
         }
+    }
+
+    public int getCarCount(){
+        return carNameList.length;
     }
 }
