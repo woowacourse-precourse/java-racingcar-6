@@ -6,6 +6,9 @@ import racingcar.exception.NoCarsException;
 
 public final class CarsValidator {
 
+    private CarsValidator() {
+    }
+
     public static void validateCarsCount(final List<String> carNames) {
         if (carNames.isEmpty()) {
             throw new NoCarsException();
