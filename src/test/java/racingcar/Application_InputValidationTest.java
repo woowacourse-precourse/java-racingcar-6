@@ -15,7 +15,6 @@ public class Application_InputValidationTest extends MyApplicationTest {
     void 자동차_이름을_빈_문자열로_주면_프로그램_종료() {
         assertThatProgramExitsWithIllegalArgumentException(() -> {
             run("", "10");
-
         });
     }
 
@@ -23,7 +22,6 @@ public class Application_InputValidationTest extends MyApplicationTest {
     void 자동차_이름이_0글자이면_프로그램_종료() {
         assertThatProgramExitsWithIllegalArgumentException(() -> {
             run("pobi,,woni", "10");
-
         });
     }
 
@@ -31,7 +29,6 @@ public class Application_InputValidationTest extends MyApplicationTest {
     void 자동차_이름이_6글자_이상이면_프로그램_종료() {
         assertThatProgramExitsWithIllegalArgumentException(() -> {
             run("pobi,sebastian,woni", "10");
-
         });
     }
 
@@ -39,7 +36,13 @@ public class Application_InputValidationTest extends MyApplicationTest {
     void 시도할_횟수가_0_이하의_값이면_프로그램_종료() {
         assertThatProgramExitsWithIllegalArgumentException(() -> {
             run("pobi,woni", "-15");
+        });
+    }
 
+    @Test
+    void 자동차_이름이_중복되면_프로그램_종료() {
+        assertThatProgramExitsWithIllegalArgumentException(() -> {
+            run("pobi,woni,pobi", "10");
         });
     }
 
