@@ -2,7 +2,11 @@ package racingcar.service;
 
 import racingcar.domain.Car;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 
 import static racingcar.utils.RandomCalculator.calRandom;
 
@@ -37,7 +41,7 @@ public class CarManager {
 
 
     public String getWinnerList() {
-        for (Map.Entry entry : carMap.entrySet()) {
+        for (HashMap.Entry entry : carMap.entrySet()) {
             Car now = (Car) entry.getValue();
             if (now.getPosition() == max) {
                 winnerList.add((String) entry.getKey());
@@ -47,7 +51,7 @@ public class CarManager {
     }
 
     public void getState() {
-        for (Map.Entry entry : carMap.entrySet()) {
+        for (HashMap.Entry entry : carMap.entrySet()) {
             Car now = (Car) entry.getValue();
             printState((String) entry.getKey(), now.getPosition());
         }
