@@ -12,7 +12,7 @@ public class Car {
     final int INCREASE_NUM_FORWARD = 1;
     private int forwardCount;
     private String presentCondition;
-
+    private ErrorMessages errorType;
 
     public Car(String carName) {
         validateNameSpace(carName);
@@ -54,13 +54,15 @@ public class Car {
 
     final void validateNameLength(String carName) {
         if (!(carName.length() <= LENGTH_CAR_NAME)) {
-            throw new IllegalArgumentException(String.format("%d자 이하의 이름만 입력가능", LENGTH_CAR_NAME));
+            errorType = ErrorMessages.OVER_LENGTH_CARNAME;
+            throw new IllegalArgumentException(LENGTH_CAR_NAME + errorType.getDescription());
         }
     }
 
     final void validateNameSpace(String carName) {
         if (carName.contains(" ")) {
-            throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다.");
+            errorType = ErrorMessages.CONTAIN_WHITE_SPACE;
+            throw new IllegalArgumentException(errorType.getDescription());
         }
     }
 }

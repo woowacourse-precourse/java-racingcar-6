@@ -19,6 +19,7 @@ public class Game {
     public List<String> winnerList;
     public int roundNumber;
     public GameStatus gameStatus;
+    public ErrorMessages errorType;
 
     public Game() {
         this.carList = new ArrayList<Car>();
@@ -56,20 +57,23 @@ public class Game {
     public void inputCarsName() {
         System.out.print(MESSAGE_START);
         String inputNames = Console.readLine();
-
+        System.out.println(inputNames);
         if (inputNames == null) {
-            throw new IllegalArgumentException(String.format("%d대 이상의 이름을 입력해야 합니다", COUNT_MINIMUM_CAR));
+            errorType = ErrorMessages.NOT_ENOUGH_CAR_NUMBER;
+            throw new IllegalArgumentException(COUNT_MINIMUM_CAR + String.valueOf(errorType.getDescription()));
         }
 
         String[] arrayNames = inputNames.split(SEPARATOR_CAR_NAME);
         List<String> carNameList = Arrays.asList(arrayNames);
 
         if (!validateCarNamesLength(carNameList)) {
-            throw new IllegalArgumentException(String.format("%d대 이상의 이름을 입력해야 합니다", COUNT_MINIMUM_CAR));
+            errorType = ErrorMessages.NOT_ENOUGH_CAR_NUMBER;
+            throw new IllegalArgumentException(COUNT_MINIMUM_CAR + String.valueOf(errorType.getDescription()));
         }
 
         if (!validateCarNameDuplication(carNameList)) {
-            throw new IllegalArgumentException("중복되는 이름이 있습니다.");
+            errorType = ErrorMessages.CONTAIN_DUPLICATE_CARNAME;
+            throw new IllegalArgumentException(errorType.getDescription());
         }
 
         createCarList(carNameList);
@@ -147,19 +151,22 @@ public class Game {
         try {
             roundNumber = Integer.parseInt(inputNumber);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자만 입력해주세요.");
+            errorType = ErrorMessages.NOT_NUMBER;
+            throw new IllegalArgumentException(errorType.getDescription());
         }
     }
 
     private void validateIsGraterZero(String inputNumber) {
         if (inputNumber == null) {
-            throw new IllegalArgumentException("0보다 큰 수를 입력해주세요");
+            errorType = ErrorMessages.NOT_OVER_ZERO;
+            throw new IllegalArgumentException(errorType.getDescription());
         }
 
         int resultNumber = Integer.parseInt(inputNumber);
 
         if (resultNumber <= 0) {
-            throw new IllegalArgumentException("0보다 큰 수를 입력해주세요");
+            errorType = ErrorMessages.NOT_OVER_ZERO;
+            throw new IllegalArgumentException(errorType.getDescription());
         }
 
         roundNumber = resultNumber;
