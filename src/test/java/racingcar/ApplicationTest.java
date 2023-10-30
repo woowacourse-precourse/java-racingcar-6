@@ -62,6 +62,15 @@ class ApplicationTest extends NsTest {
 	}
 
 	@Test
+	void 공백_문자열에_대한_예외_처리() {
+		String input = " ";
+		Validator validator = new Validator();
+
+		assertThatThrownBy(() -> validator.validateSpace(input))
+			.isInstanceOf(IllegalArgumentException.class);
+	}
+
+	@Test
 	void 숫자가_아닌_문자에_대한_예외_처리() {
 		String input = ".";
 		Validator validator = new Validator();
