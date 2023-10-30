@@ -11,23 +11,25 @@ import org.mockito.Mockito;
 
 public class RaceTest {
 
+    Generator generator = new Generator();
+
     @DisplayName("race 회수 유효성 검사 테스트")
     @Test
     void testValidateNumberOfRace() {
-        assertDoesNotThrow(() -> Race.from(5));
+        assertDoesNotThrow(() -> Race.from(5, generator));
     }
 
     @DisplayName("race 회수 유효성 검사 exception 테스트")
     @Test
     void testValidateNumberOfRaceThrow() {
-        assertThrows(IllegalArgumentException.class, () -> Race.from(101));
+        assertThrows(IllegalArgumentException.class, () -> Race.from(101, generator));
     }
 
     @DisplayName("한 경기 진행 기능")
     @Test
     void testRunSingleRace() {
         Car car = Car.from("pobi");
-        Race race = Race.from(1);
+        Race race = Race.from(1, generator);
 
         race.runSingleRace(List.of(car));
 

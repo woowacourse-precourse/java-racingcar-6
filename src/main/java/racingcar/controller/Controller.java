@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.CarDto;
 import racingcar.model.CarRepository;
+import racingcar.model.Generator;
 import racingcar.model.Race;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -14,11 +15,12 @@ public class Controller {
     InputView inputView = new InputView();
     CarRepository carRepository = new CarRepository();
     Parser parser = new Parser();
+    Generator generator = new Generator();
     public void run() {
         prepareRace();
         outputView.requestNumberOfTryMessage();
         int num = Integer.parseInt(inputView.inputNumberOfTry());
-        Race race = Race.from(num);
+        Race race = Race.from(num, generator);
 
         while (race.isRunning()) {
             race.runSingleRace(carRepository.getCars());
