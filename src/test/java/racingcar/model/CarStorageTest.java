@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,5 +33,73 @@ public class CarStorageTest {
         Assertions.assertThatThrownBy(() -> new CarStorage(storage))
                 .isInstanceOf(IllegalArgumentException.class);
 
+    }
+
+    @Test
+    @DisplayName("자동차 이름 유효성 검사1")
+    void carStorage_형식테스트1() {
+        String input = "pobi,woni, ";
+
+        List<Car> storage = new ArrayList<>();
+
+        String[] carNames = input.split(",");
+
+        Arrays.stream(carNames)
+                .map(Car::new)
+                .forEach(storage::add);
+
+        Assertions.assertThatThrownBy(() -> new CarStorage(storage))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("자동차 이름 유효성 검사2")
+    void carStorage_형식테스트2() {
+        String input = ", ";
+
+        List<Car> storage = new ArrayList<>();
+
+        String[] carNames = input.split(",");
+
+        Arrays.stream(carNames)
+                .map(Car::new)
+                .forEach(storage::add);
+
+        Assertions.assertThatThrownBy(() -> new CarStorage(storage))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("자동차 이름 유효성 검사3")
+    void carStorage_형식테스트3() {
+        String input = "";
+
+        List<Car> storage = new ArrayList<>();
+
+        String[] carNames = input.split(",");
+
+        Arrays.stream(carNames)
+                .map(Car::new)
+                .forEach(storage::add);
+
+        Assertions.assertThatThrownBy(() -> new CarStorage(storage))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("자동차 이름 유효성 검사4")
+    void carStorage_형식테스트4() {
+        String input = "pobiiii,woni";
+
+        List<Car> storage = new ArrayList<>();
+
+        String[] carNames = input.split(",");
+
+        Arrays.stream(carNames)
+                .map(Car::new)
+                .forEach(storage::add);
+
+        Assertions.assertThatThrownBy(() -> new CarStorage(storage))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
