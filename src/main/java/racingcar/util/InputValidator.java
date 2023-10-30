@@ -10,19 +10,19 @@ public class InputValidator {
     private InputValidator() {
     }
 
-    public static void isBlankInput(String input) {
+    public static void isBlankInput(final String input) {
         if (input.isBlank()) {
             throwError(BLANK_ERROR_MESSAGE);
         }
     }
 
-    public static void isNullInput(String input) {
+    public static void isNullInput(final String input) {
         if (Objects.isNull(input)) {
             throwError(NULL_ERROR_MESSAGE);
         }
     }
 
-    private static void throwError(String errorMessage) {
+    private static void throwError(final String errorMessage) {
         throw new IllegalArgumentException(errorMessage);
     }
 

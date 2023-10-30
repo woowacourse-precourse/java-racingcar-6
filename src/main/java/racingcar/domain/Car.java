@@ -50,7 +50,7 @@ public class Car {
         }
     }
 
-    public boolean isSamePosition(Car car) {
+    public boolean isSamePosition(final Car car) {
         return this.position.equals(car.position);
     }
 

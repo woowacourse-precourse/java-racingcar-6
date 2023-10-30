@@ -42,11 +42,11 @@ public class OutputView {
         return HYPHEN.repeat(position);
     }
 
-    public void printWinnersName(List<String> winnersName) {
+    public void printWinnersName(final List<String> winnersName) {
         System.out.println(String.join(COLON_DELIMITER, WINNERS_GUIDE, divideNamesByComma(winnersName)));
     }
 
-    private String divideNamesByComma(List<String> names) {
+    private String divideNamesByComma(final List<String> names) {
         return String.join(COMMA_DELIMITER, names);
     }
 
