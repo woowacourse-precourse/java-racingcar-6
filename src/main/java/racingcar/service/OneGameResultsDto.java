@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import racingcar.service.domain.Car;
 
@@ -21,5 +22,9 @@ public class OneGameResultsDto {
 
     public int size() {
         return oneGameResults.size();
+    }
+
+    public List<ResultDto> getResults() {
+        return Collections.unmodifiableList(oneGameResults);
     }
 }
