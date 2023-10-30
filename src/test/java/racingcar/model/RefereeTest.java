@@ -31,8 +31,8 @@ class RefereeTest {
     void decideWinner_test() throws Exception {
         // given
         List<Car> carList = cars.getCarList();
-        Car car = carList.get(0);
 
+        Car car = carList.get(0);
         Field carDistance = Car.class.getDeclaredField("carDistance");
         carDistance.setAccessible(true);
         carDistance.set(car, new CarDistance(1));
