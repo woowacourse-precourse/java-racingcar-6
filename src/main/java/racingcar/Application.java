@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.controller.GameController;
 import racingcar.entity.Tries;
 
 import java.util.List;
@@ -8,7 +9,9 @@ import static racingcar.entity.Participantes.InputParticipantes;
 
 
 public class Application {
+
     public static void main(String[] args) {
+
         // TODO: 프로그램 구현
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> participantes=InputParticipantes();
@@ -17,6 +20,9 @@ public class Application {
         int tries= Tries.getTries();
         System.out.println();
         System.out.println("실행 결과");
+        for(int i=0; i<tries;i++){
+
+        }
     }
 }
 //pobi,woni,jun
