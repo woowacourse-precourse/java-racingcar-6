@@ -9,30 +9,35 @@ import java.util.HashMap;
 
 public class GameController {
 
-    private int tryCount;
+    private int repeatNum;
     private HashMap<String,Integer> carStates = new HashMap<>();
     private Cars cars;
 
     public GameController(){
         gameSet();
         gamePlay();
+        gameResult();
     }
 
     public void gameSet(){
         cars = new Cars(InputView.getCarName());
-        tryCount = GameUtil.setTryCount(InputView.getRound());
+        repeatNum = GameUtil.setTryCount(InputView.getRound());
     }
 
     public void gamePlay(){
         OutputView.playMessage();
-        for(int i=0; i<tryCount; i++) {
+        for(int i = 0; i< repeatNum; i++) {
             cars.move();
             getCarStates();
         }
     }
 
+    public void gameResult(){
+        OutputView.resultMessage(cars.getWinners());
+    }
+
     public void getCarStates(){
-        carStates = cars.carStates();
+        carStates = cars.carsStates();
         OutputView.carsStateShow(carStates);
     }
 }

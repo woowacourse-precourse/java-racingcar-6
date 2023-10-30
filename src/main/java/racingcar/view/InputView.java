@@ -9,7 +9,7 @@ public class InputView {
     }
 
     public static String getRound(){
-        OutputView.truCountMessage();
+        OutputView.repeatNumMessage();
         return Console.readLine();
     }
 }
