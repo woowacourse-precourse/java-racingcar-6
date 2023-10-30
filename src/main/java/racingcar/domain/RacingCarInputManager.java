@@ -19,7 +19,8 @@ public class RacingCarInputManager {
 
     public List<String> readCarNames() {
         outputManager.println(INPUT_CAR_NAMES_MESSAGE);
-        return Arrays.stream(readLine().split(CAR_NAME_SEPARATOR))
+        return Arrays
+                .stream(readLine().split(CAR_NAME_SEPARATOR))
                 .toList();
     }
 
