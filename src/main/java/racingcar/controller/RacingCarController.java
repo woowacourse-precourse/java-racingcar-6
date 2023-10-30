@@ -20,6 +20,20 @@ public class RacingCarController {
         this.outputView = new OutputView();
     }
 
+    private String findWinner(List<Car> cars) {
+        return cars.stream()
+                .filter(car -> car.getDistance() == maxDistance(cars))
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+    }
+
+    private int maxDistance(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("자동차 목록이 존재하지 않습니다."));
+    }
+
     private void repeatRaceNumberOfTimes(List<Car> cars) {
         checkEachCarForward(cars);
         outputView.printEachRaceResult(cars);
