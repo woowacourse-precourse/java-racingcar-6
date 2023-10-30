@@ -17,8 +17,7 @@ public class Application {
     public static void main(String[] args) {
         
     	System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    	String carInput = Console.readLine();
-    	List<String> carList = inputToCarList(carInput);
+    	List<String> carList = inputCarList();
     	validateCarList(carList);
     	
     	System.out.println("시도할 회수는 몇회인가요?");
@@ -26,8 +25,7 @@ public class Application {
     	validateTimes(timesInput);
     	
     	System.out.println("\n실행 결과");
-    	List<Integer> results = new ArrayList<>();
-    	setCarsOnStart(carList, results);
+    	List<Integer> results = setCarsOnStart(carList);
     	printTryAsRequest(carList, timesInput, results);
     	
     	System.out.print("최종 우승자 : ");
@@ -55,12 +53,12 @@ public class Application {
 
 	public static void printTryAsRequest(List<String> carList, String timesInput, List<Integer> results) {
 		for(int j = 0; j < Integer.valueOf(timesInput); j++) {
-    		playOnceEachCar(carList, results);
+			playOneRound(carList, results);
     		System.out.println("");
     	}
 	}
 
-	public static void playOnceEachCar(List<String> carList, List<Integer> results) {
+	public static void playOneRound(List<String> carList, List<Integer> results) {
 		for(int i = 0; i < results.size(); i++) {
 			goOrStopByRandomNum(results, i);
 			printCarAndGoTimes(carList, results, i);
@@ -78,14 +76,16 @@ public class Application {
 	public static void goOrStopByRandomNum(List<Integer> results, int i) {
 		int randomNum = Randoms.pickNumberInRange(0,9);
 		if(randomNum >= 4) {
-			results.set(i, results.get(i)+1);
+			results.set(i, results.get(i) + 1);
 		}
 	}
     
-	public static void setCarsOnStart(List<String> carList, List<Integer> results) {
+	public static List<Integer> setCarsOnStart(List<String> carList) {
+		List<Integer> results = new ArrayList<>();
 		for(int i = 0; i < carList.size(); i++) {
     		results.add(i, 0);
     	}
+		return results;
 	}
 
 	public static void validateTimes(String timesInput) {
@@ -95,35 +95,36 @@ public class Application {
 	}
 
 	public static void validateCarList(List<String> carList) {
-		atLeastOneCar(carList);
-    	limitFiveEach(carList);
-    	distinctName(carList);
+		validateNotEmpty(carList);
+    	validateLength(carList);
+    	validateDuplicates(carList);
 	}
 
-	public static void distinctName(List<String> carList) {
+	public static void validateDuplicates(List<String> carList) {
 		Set<String> carSet = new HashSet<>(carList);
     	if(carSet.size() != carList.size())
     		throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
 	}
 
-	public static void limitFiveEach(List<String> carList) {
-		for(int i = 0; i < carList.size(); i++) {
-    		if(carList.get(i).length() > MAX_CAR_NAME_LENGTH)
+	public static void validateLength(List<String> carList) {
+		for(String car : carList) {
+    		if(car.length() > MAX_CAR_NAME_LENGTH)
     			throw new IllegalArgumentException("각 자동차의 이름은 "+MAX_CAR_NAME_LENGTH+"자 이하로 작성해주세요.");
     	}
 	}
 
-	public static void atLeastOneCar(List<String> carList) {
-		if(carList.size() < 1)
+	public static void validateNotEmpty(List<String> carList) {
+		if(carList.isEmpty())
     		throw new IllegalArgumentException("유효한 자동차 이름이 없습니다.");
 	}
     
-    public static List<String> inputToCarList(String carInput) {
+    public static List<String> inputCarList() {
+    	String carInput = Console.readLine();
 		String[] separate = carInput.split(",");
     	List<String> carList = new ArrayList<>();
     	
-    	for(int i = 0; i < separate.length; i++) {
-    		carList.add(separate[i].trim());
+    	for(String car : separate) {
+    		carList.add(car.trim());
     	}
     	
     	while(carList.remove(String.valueOf("")));
