@@ -25,7 +25,7 @@ public class FindWinnerController {
         cars.sort((o1, o2) -> o2.getCarAdvances() - o1.getCarAdvances());
     }
 
-    public void findWinner() {
+    private void findWinner() {
 
         Car winnerCar = cars.get(0);
 
