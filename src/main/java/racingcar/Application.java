@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Application {
     public static void main(String[] args) throws IllegalArgumentException {
@@ -12,6 +14,8 @@ public class Application {
         String CarNames = Console.readLine();
         isCarNamesValid(CarNames);
         List<String> CarNamesArray = splitStringToArrayList(CarNames);
+        isCarNamesDuplicate(CarNamesArray);
+        
         requestCount();
     }
 
@@ -23,7 +27,7 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    static void isCarNamesValid(String CarNames) {
+    static void isCarNamesValid(String CarNames) throws IllegalArgumentException {
         for (int i = 0; i < CarNames.length(); i++) {
             if (CarNames.charAt(i) >= 'a' && CarNames.charAt(i) <= 'z') {
                 continue;
@@ -32,7 +36,7 @@ public class Application {
             } else if (CarNames.charAt(i) == ',') {
                 continue;
             } else {
-                throw new IllegalArgumentException("숫자나 영어로 이루어진 자동차 이름을 입력하세요.");
+                throw new IllegalArgumentException("[error] 숫자나 영어로 이루어진 자동차 이름을 입력하세요.");
             }
         }
     }
@@ -41,4 +45,15 @@ public class Application {
         String[] CarNamesStringArray = CarNames.split(",");
         return new ArrayList<>(Arrays.asList(CarNamesStringArray));
     }
+
+    static void isCarNamesDuplicate(List<String> CarNamesArray) throws IllegalArgumentException {
+        Set<String> set = new HashSet<>();
+        for (String CarName : CarNamesArray) {
+            if (!set.add(CarName)) {
+                throw new IllegalArgumentException("[error] 자동차 이름이 중복되었습니다.");
+            }
+        }
+    }
+
+
 }
