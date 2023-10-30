@@ -12,4 +12,10 @@ public class UserInput {
         return carNames;
     }
 
+    public static int trialCount() {
+        String trialCount = Console.readLine();
+        Validator.validateTrialCount(trialCount);
+        return Integer.parseInt(trialCount);
+    }
+
 }
