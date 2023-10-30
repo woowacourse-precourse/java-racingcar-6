@@ -19,13 +19,13 @@ public class Car implements Comparable<Car> {
         goOrStop(randomNumber);
     }
 
-    public void goOrStop(int randomNumber) {
+    private void goOrStop(int randomNumber) {
         if(isMovable(randomNumber)) {
             position.move();
         }
     }
 
-    public boolean isMovable(int randomNumber) {
+    private boolean isMovable(int randomNumber) {
         return randomNumber >= MOVABLE_BOUND;
     }
 
