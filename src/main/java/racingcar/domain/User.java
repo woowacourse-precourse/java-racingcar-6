@@ -16,10 +16,6 @@ public class User {
         return cars;
     }
 
-    public int fillInMovingNumber() {
-        return 0;
-    }
-
     public boolean validateName(String name) {
         return name.length()<=MAX_NAME_SIZE;
     }

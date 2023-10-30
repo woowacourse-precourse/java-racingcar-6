@@ -70,10 +70,11 @@ class RefereeTest {
     void 우승자_발표_1(){
         //given
         User user=new User();
-        List<Car> winner=user.nameForCar("carA");
+        List<Car> cars=user.nameForCar("carA,carB");
 
         //when
-        String singleWinner=referee.announceWinner(winner);
+        cars.get(0).moveForward();
+        String singleWinner=referee.announceWinner(referee.decideWinner(cars));
 
         //then
         Assertions.assertThat(singleWinner).isEqualTo("carA");

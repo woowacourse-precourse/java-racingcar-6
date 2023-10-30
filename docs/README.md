@@ -7,8 +7,6 @@
 -[]각 자동차에 이름을 부여할 수 있다. User#nameForCar()
     -[]자동차 이름은 쉼표(,)를 기준으로 구분한다. 
     -[]이름은 5자 이하만 가능하다. User#vailedName()
--[]사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. User#fillInMovingNumber();
-
 
 -[] 0에서 9사이의 무작위 값을 구해야 한다. Random#createNumber()
 
@@ -23,9 +21,7 @@
 -[] 경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분) InputView#inputCars()
 -[] 시도할 회수 입력 InputView#inputCount()
 
-
 -[]전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.(차수별 출력) OutputView#printForEach();
 -[]우승자 안내 문구 출력 OutputView#printWinner
 -[]사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.    Error#processError()
 
--[] 입력한 회수만큼 반복하는 기능
