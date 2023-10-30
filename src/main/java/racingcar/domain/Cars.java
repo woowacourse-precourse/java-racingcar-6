@@ -1,11 +1,9 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Cars {
-    private static final String DELIMITER_OF_INPUT_NAMES = ",";
     List<Car> carList;
 
     private Cars(List<Car> carList) {
