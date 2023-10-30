@@ -26,7 +26,7 @@ public class RacingController {
 
         FinalResult finalFinalResult = racingModel.startRacing(carNames, finalRound);
 
-        displayResult(finalFinalResult);
+        displayResults(finalFinalResult);
     }
 
     private String[] readCarNames() {
@@ -53,8 +53,8 @@ public class RacingController {
         return Integer.parseInt(inputNumber);
     }
 
-    private void displayResult(FinalResult finalFinalResult) {
-        racingView.displayResults(finalFinalResult.getRoundResults());
-        racingView.displayWinnerMessage(finalFinalResult);
+    private void displayResults(FinalResult finalFinalResult) {
+        racingView.displayFinalResult(finalFinalResult);
+        racingView.displayWinner(finalFinalResult);
     }
 }
