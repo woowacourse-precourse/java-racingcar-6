@@ -37,7 +37,7 @@
 > + ScoreBoardService-ScoreBoard에 대한 비즈니스 로직 수행하는 역할.
 
 > ### controller
-> + RacingCarController-게임의 전반적인 흐름을 담당하는 역할.
+> + RaceGameController-게임의 전반적인 흐름을 담당하는 역할.
 
 > ### util
 > + RandomNumberGenerator-0~9사이의 랜덤한 숫자를 반환해주는 역할.
