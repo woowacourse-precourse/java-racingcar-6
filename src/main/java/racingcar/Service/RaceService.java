@@ -69,4 +69,11 @@ public class RaceService {
     private void initializationRace(List<String> carList,int attemptsNumber){
         race.initializationRace(carList,attemptsNumber);
     }
+
+    private void raceResult(){
+        for(Car car:race.getRacingCars()){
+            car.forwardOrStop();
+            System.out.println(car.getCarName()+" : "+"-".repeat(car.getPosition()));
+        }
+    }
 }
