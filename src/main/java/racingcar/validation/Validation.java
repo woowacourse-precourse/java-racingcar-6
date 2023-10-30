@@ -11,7 +11,7 @@ public class Validation {
             "양의 정수를 입력하셔야 합니다.";
 
     public static void checkCarName(String carName) {
-        if (carName.length() > 5) {
+        if (carName.length() > 5 || carName.length() == 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_FOR_WRONG_LENGTH_OF_CAR_NAME);
         }
     }
