@@ -25,4 +25,8 @@ public class CarPosition {
         }
     }
 
+    public int value() {
+        return value;
+    }
+
 }
