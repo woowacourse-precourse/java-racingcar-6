@@ -29,6 +29,26 @@ class CarsTest {
         assertThat(cars).isNotNull();
     }
 
+    @DisplayName("CarsMovementDto로 변환 시 유효한 데이터를 제공하는지 확인")
+    @Test
+    void should_Provide_Valid_CarsMovementDto() {
+        // when
+        CarsMovementDto carsMovementDto = cars.toCarsMovementDto();
+
+        // then
+        List<CarMovementDto> carsMovement = carsMovementDto.carsMovementDto();
+        assertThat(carsMovement).extracting(CarMovementDto::carName)
+                .containsOnly(
+                        CarName.from("audi"),
+                        CarName.from("benz"),
+                        CarName.from("bmw")
+                );
+
+        assertThat(carsMovement).extracting(CarMovementDto::position)
+                .containsOnly(0);
+    }
+
+
     @DisplayName("Car가 전진 조건을 만족해서 움직인다면, 각 자동차의 position은 1이어야 한다")
     @Test
     void should_Move_Cars_If_Condition_Met() {
@@ -39,8 +59,9 @@ class CarsTest {
         cars.moveOnceIfMovable(fixedMoveStrategy);
 
         // then
-        for (Car car : cars.getCars()) {
-            assertThat(car.getPosition()).isEqualTo(1);
+        CarsMovementDto carsMovementDto = cars.toCarsMovementDto();
+        for (CarMovementDto carMovementDto : carsMovementDto.carsMovementDto()) {
+            assertThat(carMovementDto.position()).isEqualTo(1);
         }
     }
 
@@ -54,39 +75,24 @@ class CarsTest {
         cars.moveOnceIfMovable(fixedMoveStrategy);
 
         // then
-        for (Car car : cars.getCars()) {
-            assertThat(car.getPosition()).isEqualTo(0);
+        CarsMovementDto carsMovementDto = cars.toCarsMovementDto();
+        for (CarMovementDto carMovementDto : carsMovementDto.carsMovementDto()) {
+            assertThat(carMovementDto.position()).isEqualTo(0);
         }
     }
 
-    @DisplayName("CarsMovementDto로 변환 시 유효한 데이터를 제공하는지 확인")
-    @Test
-    void should_Provide_Valid_CarsMovementDto() {
-        // given
-        List<CarMovementDto> carsMovementDto = cars.getCars().stream()
-                .map(Car::toCarMovementDto)
-                .toList();
-        CarsMovementDto expected = new CarsMovementDto(carsMovementDto);
-
-        // when
-        CarsMovementDto result = cars.toCarsMovementDto();
-
-        // then
-        assertThat(expected).isEqualTo(result);
-    }
-
-    @DisplayName("최종 우승자를 가려내는지 검증")
+    @DisplayName("우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다")
     @Test
     void should_Determine_Final_Winners() {
         // given
-        cars.getCars().get(0).moveOnce();
-        cars.getCars().get(1).moveOnce();
+        FixedMoveStrategy fixedMoveStrategy = new FixedMoveStrategy(true);
+        cars.moveOnceIfMovable(fixedMoveStrategy);
 
         // when
         WinnersDto winnersDto = cars.toWinnerDto();
 
         // then
         assertThat(winnersDto).isNotNull();
-        assertThat(winnersDto.winners()).isEqualTo("audi, benz");
+        assertThat(winnersDto.winners()).isEqualTo("audi, benz, bmw");
     }
 }
