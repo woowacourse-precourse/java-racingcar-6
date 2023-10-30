@@ -24,6 +24,12 @@ public class Cars {
     public List<Car> findWinner() {
         List<Car> winnerList = new ArrayList<>();
 
+        getMaxPosition(winnerList);
+
+        return winnerList;
+    }
+
+    private void getMaxPosition(final List<Car> winnerList) {
         int maxPosition = 0;
         for (Car car : carList) {
             if (car.getPosition() > maxPosition) {
@@ -36,8 +42,6 @@ public class Cars {
                 winnerList.add(car);
             }
         }
-
-        return winnerList;
     }
 
     public CarsDto toCarsDto() {
