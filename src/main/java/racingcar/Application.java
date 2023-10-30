@@ -11,15 +11,18 @@ public class Application {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
 
-        List<String> nameList = inputView.inputCarName();
+        String names = inputView.inputCarName();
+        List<String> nameList = inputView.splitNames(names);
         int round = inputView.inputTryNumber();
 
         List<Car> carList = mappingCar(nameList);
         Racing racing = new Racing(carList);
 
-        for (Car car : carList) {
-            if(racing.isGo())
-                car.move +=1;
+        for(int i = 0; i<round; i++){
+            for (Car car : carList) {
+                if(racing.isGo())
+                    car.move +=1;
+            }
         }
 
         List<String> winner = racing.determineWinner();

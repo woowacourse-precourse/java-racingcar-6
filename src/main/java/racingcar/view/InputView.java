@@ -10,13 +10,13 @@ public class InputView {
     private final static String inputCarNameMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private final static String inputTryNumberMessage = "시도할 횟수는 몇회인가요?";
 
-    public List<String> inputCarName() {
+    public String inputCarName() {
         System.out.println(inputCarNameMessage);
-        String names = Console.readLine();
-        return splitNames(names);
+
+        return Console.readLine();
     }
 
-    private List<String> splitNames(String names) {
+    public List<String> splitNames(String names) {
         String[] namesArray = names.split(",");
         List<String> nameList = new ArrayList<>();
 
