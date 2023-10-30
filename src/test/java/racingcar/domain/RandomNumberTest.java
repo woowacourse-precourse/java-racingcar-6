@@ -12,7 +12,7 @@ class RandomNumberTest {
     @Test
     void 랜덤_값은_1_이상_9_이하_수를_반환() {
         RandomNumber randomNumber = new RandomNumber();
-        int number = randomNumber.getRandomNumber();
+        int number = randomNumber.generateRandomNumber();
 
         assertTrue(number >= 1 && number <= 9);
     }
