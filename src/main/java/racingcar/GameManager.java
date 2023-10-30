@@ -2,7 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,22 +31,47 @@ public class GameManager {
         for(int i = 0; i < attempts; i++){
             forwardCount = plusForwardCount(forwardCount);
             forward = forwardHyphen(forwardCount);
-            //전진 출력
             consoleOutput.printForward(cars, forward);
             System.out.println();
         }
+        consoleOutput.printWinners(findWinners());
     }
 
-    public int randomNumber(){
+    //우승자 찾아서 반환
+    private String findWinners(){
+        List<String> winnerCarName = winnerCarName(winnerCount());
+        return String.join(", ", winnerCarName);
+    }
+
+    //우승자 전진 수 반환
+    private int winnerCount(){
+        int winnerCount = 0;
+        for(int count : forwardCount){
+            if(count > winnerCount) winnerCount = count;
+        }
+        return winnerCount;
+    }
+
+    //우승자 이름이 담겨있는 리스트 반환
+    private List<String> winnerCarName(int winnerCount){
+        List<String> winnerCarName = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++){
+            if(winnerCount == forwardCount.get(i)) winnerCarName.add(cars.get(i));
+        }
+        return winnerCarName;
+    }
+
+    private int randomNumber(){
         return Randoms.pickNumberInRange(MIN_RANDOM_VALUE,MAX_RANDOM_VALUE);
     }
+
     private List<Integer> resetForwardCount(List<Integer> forwardCount){
         for (String car : cars) forwardCount.add(ZERO);
         return forwardCount;
     }
 
     //랜덤값이 4이상이면 전진 수 하나씩 더하기
-    public List<Integer> plusForwardCount(List<Integer> forwardCount){
+    private List<Integer> plusForwardCount(List<Integer> forwardCount){
         for(int j = 0; j < cars.size(); j++){
             if(randomNumber() >= MIN_FORWARD_THRESHOLD) forwardCount.set(j, forwardCount.get(j) + 1);
         }

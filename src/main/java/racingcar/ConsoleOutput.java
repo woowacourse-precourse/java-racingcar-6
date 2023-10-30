@@ -14,4 +14,8 @@ public class ConsoleOutput {
             System.out.println(cars.get(i) + " : " + forward.get(i));
         }
     }
+    public void printWinners(String winners){
+        System.out.println("최종 우승자 : " + winners);
+    }
+
 }
