@@ -11,22 +11,32 @@ public class Application {
         // TODO: 프로그램 구현
     }
 }
+
 class Car {
     String name;
     int count;
+
     public Car(String name) {
         this.name = name;
         this.count = 0;
+    }
+
+    public void move() {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            this.count++;
+        }
     }
 }
 
 class Game {
     public static int MOVES;
     List<String> name;
+
     public void getCarNames() {
         String input = Console.readLine();
         name = Arrays.asList(input.split(","));
     }
+
     public void getNumberOfMoves() {
         MOVES = Integer.parseInt(Console.readLine());
     }
