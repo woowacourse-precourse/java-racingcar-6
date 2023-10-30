@@ -3,18 +3,39 @@ package racingcar.domain;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import racingcar.vo.CarId;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import java.lang.reflect.Field;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CarTest {
 
     @BeforeEach
-    void beforeEach() {
-//         정적 변수 Count, Id 초기화
-//         테스트는 독립적이어야 한다.
-        Car.resetId();
+    public void resetIdAutoIncrement() throws Exception {
+        // 리플렉션을 이용해서, 각 테스트마다 정적 변수 idAutoIncrement 0으로 초기화
+        Field field = Car.class.getDeclaredField("idAutoIncrement");
+        field.setAccessible(true);
+        field.set(null, 0L);
+    }
+
+    @Test
+    public void Car_객체_성생시_정적변수_ID_증가하면서_초기화1() {
+        // Car 객체를 생성
+        Car car1 = new Car("Car1");
+        assertEquals(0L, car1.getId());
+
+        Car car2 = new Car("Car2");
+        assertEquals(1L, car2.getId());
+    }
+
+    @Test
+    public void Car_객체_성생시_정적변수_ID_증가하면서_초기화2() {
+        // Car 객체를 생성
+        Car car1 = new Car("Car1");
+        assertEquals(0L, car1.getId());
+
+        Car car2 = new Car("Car2");
+        assertEquals(1L, car2.getId());
     }
 
     @Test
@@ -23,25 +44,6 @@ public class CarTest {
         Assertions.assertThat(car.getName()).isEqualTo("pobi");
         Assertions.assertThat(car.getPosition()).isEqualTo(0);
         Assertions.assertThat(car.getClass()).isEqualTo(Car.class);
-    }
-
-    @Test
-    void Car_객체_성생시_정적변수_ID_증가하면서_초기화() throws NoSuchFieldException, IllegalAccessException {
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
-
-        Car spyCar1 = Mockito.spy(car1);
-        Car spyCar2 = Mockito.spy(car2);
-
-        // Reflection을 사용하여 private 필드인 id의 값을 가져옵니다.
-        java.lang.reflect.Field field = Car.class.getDeclaredField("id");
-        field.setAccessible(true);
-        CarId id1 = (CarId) field.get(spyCar1);
-        CarId id2 = (CarId) field.get(spyCar2);
-
-        // id 값을 검증합니다.
-        assertThat(0).isEqualTo(id1.value());
-        assertThat(1).isEqualTo(id2.value());
     }
 
     @Test

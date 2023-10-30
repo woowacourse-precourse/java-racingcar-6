@@ -11,7 +11,7 @@ import racingcar.vo.CarName;
 
 public class Car {
 
-    private static long  idAutoIncrement = 0L; // ID 를 위한 정적 변수 (생성자를 호출할 때 마다, 카운트 증가 → 각각의 자동차 ID)
+    private static long idAutoIncrement = 0L; // ID 를 위한 정적 변수 (생성자를 호출할 때 마다, 카운트 증가 → 각각의 자동차 ID)
 
     private final CarId id; // 중복 이름을 고려한, 자동차 ID
     private final CarName name;
@@ -21,6 +21,10 @@ public class Car {
         this.id = new CarId(idAutoIncrement++);
         this.name = new CarName(name);
         this.position = 0;
+    }
+
+    public long getId() {
+        return id.value();
     }
 
     public String getName() {
@@ -34,10 +38,5 @@ public class Car {
     public void forward(int frowardCount) {
         if (frowardCount < 0) return;
         position += frowardCount;
-    }
-
-    // 테스트 용 코드
-    public static void resetId() {
-        idAutoIncrement = 0;
     }
 }
