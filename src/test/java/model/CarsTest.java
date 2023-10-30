@@ -76,6 +76,8 @@ public class CarsTest {
         Car pobiCar = new Car("pobi");
         Car lisaCar = new Car("lisa");
         Car jinyCar = new Car("jiny");
+        pobiCar.increaseMovingCountIfGreater(4, 5);
+        lisaCar.increaseMovingCountIfGreater(4, 5);
         carList.add(pobiCar);
         carList.add(lisaCar);
         carList.add(jinyCar);
