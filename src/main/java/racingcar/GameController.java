@@ -1,24 +1,13 @@
 package racingcar;
 
-import racingcar.util.RandomNumberGenerator;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
     InputHandler inputHandler = new InputHandler();
     OutputHandler outputHandler = new OutputHandler();
-    RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-    public boolean canGoForward() {
-        int randomNumber = randomNumberGenerator.getNumber();
-        if (randomNumber > 4) {
-            return true;
-        }
-        return false;
-    }
-
-    public void setCars(List<String> carName) {
+    public List<Car> setCars() {
         List<Car> cars = new ArrayList<>();
         List<String> carNames = inputHandler.getCarNames();
 
@@ -26,18 +15,25 @@ public class GameController {
             cars.add(new Car(name));
         }
 
+        return cars;
     }
-
 
     public void startGame() {
         outputHandler.printStartMessages();
+        setCars();
 
+        Race race = new Race(setCars());
 
         outputHandler.printAskRounds();
         int numberOfRounds = inputHandler.getNumberOfRound();
+        outputHandler.printRunResult();
 
         for (int round = 0; numberOfRounds > round; round++) {
-
+            race.runOneRound();
+            outputHandler.printResults(race.getCars());
         }
+
+        race.setWinners();
+        outputHandler.printWinners(race.getWinners());
     }
 }
