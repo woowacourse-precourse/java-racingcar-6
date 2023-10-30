@@ -59,7 +59,7 @@ class CarsTest {
         Cars cars = new Cars(carList);
 
         // when
-        MoveResult moveResult = cars.handleCarMovement(new FixedNumberGenerator());
+        MoveResult moveResult = cars.handleCarMovement(new FixedNumberGenerator(6));
 
         // then
         Assertions.assertThat(moveResult.carNames()).isEqualTo(List.of("car1", "car2", "car3"));

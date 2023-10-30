@@ -2,10 +2,14 @@ package racingcar.utils;
 
 public class FixedNumberGenerator implements NumberGenerator {
 
-    private static final int FIXED_NUMBER = 6;
+    private final int fixedNumber;
+
+    public FixedNumberGenerator(int fixedNumber) {
+        this.fixedNumber = fixedNumber;
+    }
 
     @Override
     public int generate() {
-        return FIXED_NUMBER;
+        return fixedNumber;
     }
 }
