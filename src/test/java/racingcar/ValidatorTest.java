@@ -1,8 +1,9 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import java.util.Arrays;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ValidatorTest {
@@ -15,7 +16,23 @@ public class ValidatorTest {
     void validateInput_입력값이_영문자_한글_쉼표로_이루어져있는지() {
         String invalidInput = "한국,pobi,MYCAR,ahn!";
 
-        Assertions.assertThatThrownBy(() -> validator.validateInput(invalidInput))
+        assertThatThrownBy(() -> validator.validateInput(invalidInput))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void validateCarNames_자동차이름이_1자부터_5자인지_확인1() {
+        List<String> invalidList = Arrays.asList("pobi", "안종혁", "");
+
+        assertThatThrownBy(() -> validator.validateCarNames(invalidList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void validateCarNames_자동차이름이_1자부터_5자인지_확인2() {
+        List<String> invalidList = Arrays.asList("pobi", "안종혁", "mycars");
+
+        assertThatThrownBy(() -> validator.validateCarNames(invalidList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
