@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class RacingCarService {
 
@@ -21,5 +20,19 @@ public class RacingCarService {
         this.carList = carList;
         this.racingCarValidation = racingCarValidation;
     }
-    
+
+    public void createCarList() {
+        List<String> nameList = Arrays.stream(readLine().split(",")).toList();
+
+        createCarAddList(nameList);
+    }
+
+    public void createCarAddList(List<String> nameList) {
+        for (String name : nameList) {
+            racingCarValidation.checkNameLength(name);
+            racingCarValidation.checkDuplicateName(carList, name);
+            carList.addCarList(new Car(name));
+        }
+    }
+
 }
