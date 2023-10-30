@@ -4,9 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class Preference {
-    private List<String> cars;
-    private int round;
-    private int nCars;
+    private final List<String> cars;
+    private final int round;
+    private final int nCars;
 
     public Preference() {
         this.cars = requestNames();
