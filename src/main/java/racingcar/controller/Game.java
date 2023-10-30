@@ -8,22 +8,25 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Game {
+    List<Car> racingCarList;
     public void start() {
         OutputView.printStartMessage();
-        List<String> stringCarList = InputView.getRacingCars(); // [abc,def,ge]
-        List<Car> racingCarList = new ArrayList<>();
-        for (String stringCar : stringCarList) {
-            Car car = new Car(stringCar, 0);
-            racingCarList.add(car);
-        }
-
+        makeCarList(InputView.getRacingCars());
         Race race = new Race(racingCarList);
         OutputView.printTryMessage();
-        int tryNumber = InputView.getTryNumber(); // 5
+        int tryNumber = InputView.getTryNumber();
         OutputView.printShowResultString();
         for (int i = 0; i < tryNumber; i++) {
             race.run();
             System.out.println();
+        }
+    }
+
+    private void makeCarList(List<String> stringCarList) {
+        racingCarList = new ArrayList<>();
+        for (String stringCar : stringCarList) {
+            Car car = new Car(stringCar, 0);
+            racingCarList.add(car);
         }
     }
 }
