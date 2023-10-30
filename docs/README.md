@@ -46,7 +46,8 @@
 
 ### 아이디어
 - "pobi,woni,jun" 형식의 입력을 String.split() 을 이용해 나누면 좋을 것 같다.
-- 자동차의 위치를 저장할때 Map을 이용하면 좋을 것 같다. 다만 일반 Map 구현체는 순서를 저장하지 않으므로 LinkedHashMap 을 이용해야겠다.
+- ~~자동차의 위치를 저장할때 Map을 이용하면 좋을 것 같다. 다만 일반 Map 구현체는 순서를 저장하지 않으므로 LinkedHashMap 을 이용해야겠다.~~
+- 자동차를 저장하는건 ArrayList로 저장한다.
 
 ### 객체 분리
 #### Model
@@ -75,17 +76,17 @@
     - 라운드를 진행한다.
     - 지금 음직인 거리를 알려준다.
   - 상호작용 :
-    - CarMap : 요청을 받아라운드를 진행한다. 
-- CarMap
-  - 역할 : LinkedHashMap을 이용해 이름과 RacingCar 객체를 매핑한다.
+    - CarList : 요청을 받아라운드를 진행한다. 
+- CarList
+  - 역할 : ArrayList를 이용해 RacingCar 객체를 저장한다.
   - 책임 : 
-    - 이름과 RacingCar를 받아 저장한다.
+    - 이름을 받아 RacingCar를 저장한다.
     - 각 자동차들이 라운드를 진행하게한다.
     - 우승한 자동차들의 리스트를 뽑아낸다.
   - 상호작용 :
     - RacingCar : 각 자동차들이 라운드를 진행하도록 요청한다.
     - RacingController : 
-      - 요청을 받아 이름과 RacingCar를 추가한다.
+      - 요청을 받아 RacingCar를 추가한다.
       - 우승자 리스트를 반환한다.
 
 #### View
@@ -104,7 +105,7 @@
   - 책임 :
     - 레이싱을 진행한다.
   - 상호작용 : 
-    - CarMap : 맴버변수로 CarMap을 가지고 있는다.
+    - CarList : 맴버변수로 carList을 가지고 있는다.
     - OutputView : static 메서드를 이용해 출력을 요청한다.
     - InputView : static 메서드를 이용해 입력을 요청한다.
     - CarInput : 지역 변수로 생성하여 이름 리스트를 요청한다.
@@ -126,9 +127,10 @@
   - 정지를 할 수 있다. -> private void stop()
   - 전진을 할 조건이 필요하다. -> private boolean isMovable()
   - 라운드를 진행한다. -> public void excuteRound()
+  - 자동차의 이름을 알려준다. -> public int getName()
   - 지금 음직인 거리를 알려준다. -> public int getDistance()
-- CarMap
-  - 이름과 RacingCar를 받아 저장한다. -> public void add(String name)
+- CarList
+  - 이름을 받아 RacingCar를 저장한다. -> public void add(String name)
   - 각 자동차들이 라운드를 진행하게한다. -> public void excuteRound() 
   - 우승한 자동차들의 리스트를 뽑아낸다. -> public List<String> getWinners()
 #### View
