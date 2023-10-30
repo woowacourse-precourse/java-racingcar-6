@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
 
 public class Game {
     private static final String START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -44,14 +46,12 @@ public class Game {
 
     private void setCarNames() {
         String input = Console.readLine();
-        String[] carNames = input.split(WINNER_SEPARATOR);
+        List<String> carNames = Arrays.stream(input.split(WINNER_SEPARATOR))
+                .map(String::trim)
+                .toList();
 
-        for (String carName : carNames) {
-            String trimmedCarName = carName.trim();
-
-            inputValidator.validCarNameLength(trimmedCarName);
-            gameManager.addCar(trimmedCarName);
-        }
+        inputValidator.validCarNames(carNames);
+        carNames.forEach(gameManager::addCar);
     }
 
     private void setTrialNumber() {

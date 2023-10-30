@@ -1,5 +1,9 @@
 package racingcar;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,7 +16,20 @@ public class InputValidator {
     private static final String NOT_ONLY_NUMBER_EXCEPTION = "숫자만 입력해야 합니다.";
     private static final Pattern ONLY_NUMBER_PATTERN = Pattern.compile(ONLY_NUMBER_REGEX);
 
-    public void validCarNameLength(String carName) {
+    public void validCarNames(List<String> carNames) {
+        validNotDuplicatedNames(carNames);
+        carNames.forEach(this::validCarNameLength);
+    }
+
+    private void validNotDuplicatedNames(List<String> carNames) {
+        Set<String> distinctCarNames = new HashSet<>(carNames);
+
+        if (distinctCarNames.size() != carNames.size()) {
+            throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION);
+        }
+    }
+
+    private void validCarNameLength(String carName) {
         if (carName.length() < CAR_NAME_MIN_LENGTH || carName.length() > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_EXCEPTION);
         }

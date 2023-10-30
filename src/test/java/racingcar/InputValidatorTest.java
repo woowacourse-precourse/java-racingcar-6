@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,14 +18,14 @@ public class InputValidatorTest {
 
     @Test
     void 유효한_자동차_이름() {
-        assertThatCode(() -> inputValidator.validCarNameLength("pobi"))
+        assertThatCode(() -> inputValidator.validCarNames(List.of("pobi")))
                 .doesNotThrowAnyException();
     }
 
     @Test
     void 차_이름_빈_입력_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> inputValidator.validCarNameLength(""))
+                assertThatThrownBy(() -> inputValidator.validCarNames(List.of("")))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -32,7 +33,7 @@ public class InputValidatorTest {
     @Test
     void 길이_초과한_이름_예외_처리() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> inputValidator.validCarNameLength("pobipobi"))
+                assertThatThrownBy(() -> inputValidator.validCarNames(List.of("pobipobi")))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
