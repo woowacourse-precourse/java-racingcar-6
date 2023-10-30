@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.util.InputValidator;
 
@@ -33,7 +34,9 @@ public class RaceController {
         return carNames;
     }
 
-    public List<Car> createCars() {
-        return null;
+    public List<Car> createCars(List<String> carNames) {
+        return carNames.stream()
+                .map(carName -> new Car(carName.trim()))
+                .collect(Collectors.toList());
     }
 }
