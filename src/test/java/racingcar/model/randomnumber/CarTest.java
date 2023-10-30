@@ -23,4 +23,19 @@ public class CarTest {
         // then
         assertThat(car.getPosition()).isEqualTo(0);
     }
+
+    @Test
+    @DisplayName("4 이상의 값이 주어질 시 이동된다.")
+    void moveTest() {
+        // given
+        Name name = Name.from("john");
+        Car car = Car.createDefault(name);
+        RandomNumber randomNumber = new MovableNumber();
+
+        // when
+        car.move(randomNumber.pickNumber());
+
+        // then
+        assertThat(car.getPosition()).isEqualTo(1);
+    }
 }
