@@ -1,15 +1,11 @@
 package racingcar;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.View.SystemMessage;
 import racingcar.model.Referee;
 import racingcar.util.ExceptionHandling;
 import racingcar.model.CarAction;
 import racingcar.model.Cars;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -64,11 +60,12 @@ public class TestCase {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("0은 입력할 수 없습니다");
     }
+    @Test
     void 문자_입력시_예외발생(){
         String input = "Hi";
         assertThatThrownBy(() -> ExceptionHandling.isNumberValid(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("0은 입력할 수 없습니다");
+                .hasMessageContaining("숫자를 입력해주세요");
     }
     @Test
     void 가장_높은_점수_출력(){
