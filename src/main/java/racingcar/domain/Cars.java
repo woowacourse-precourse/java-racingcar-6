@@ -10,7 +10,7 @@ import racingcar.dto.CarsDto;
 
 public class Cars {
 
-    private static final String DELIMITER = ",";
+    private static final String NAME_DELIMITER = ",";
     private static final String SIZE_ERROR_MESSAGE = "자동차는 1대 이상이여야 합니다.";
     private static final String NO_CAR_ERROR_MESSAGE = "자동차가 존재하지 않습니다.";
 
@@ -25,13 +25,13 @@ public class Cars {
     }
 
     private void validateSize(final String names) {
-        if (names.split(DELIMITER).length == 0) {
+        if (names.split(NAME_DELIMITER).length == 0) {
             throw new IllegalArgumentException(SIZE_ERROR_MESSAGE);
         }
     }
 
     private List<Car> convertToCars(final String names) {
-        return Arrays.stream(names.split(DELIMITER))
+        return Arrays.stream(names.split(NAME_DELIMITER))
                 .map(Car::new)
                 .toList();
     }
