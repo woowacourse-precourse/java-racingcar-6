@@ -8,10 +8,10 @@ public class Car {
     private StringBuilder nowMoveTrace; // 현재 까지의 이동 경로 StringBuilder
     private int moveCount;  // 총 이동 횟수
 
-    public Car(String name, int moveCount) {
+    public Car(String name, StringBuilder nowMoveTrace, int moveCount) {
         this.name = name;
+        this.nowMoveTrace = nowMoveTrace;
         this.moveCount = moveCount;
-        this.nowMoveTrace = new StringBuilder();
     }
 
     public void setNowMoveTrace(CarStatus status) {
