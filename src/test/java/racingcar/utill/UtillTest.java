@@ -99,10 +99,14 @@ class UtillTest {
     @Test
     void isSameNum() {
         // given
+        int num_1 = 1;
+        int num_2 = 1;
 
         // when
+        boolean result = Utill.isSameNum(num_1, num_2);
 
         // than
+        assertThat(result).isTrue();
     }
 
     @DisplayName("값이 1이상인지 확인한다. 테스트")
