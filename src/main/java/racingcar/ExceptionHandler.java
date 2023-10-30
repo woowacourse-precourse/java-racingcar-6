@@ -5,7 +5,7 @@ import java.util.List;
 public class ExceptionHandler {
 
     public void isAttemptException(String attempt) {
-        if(Validation.isEmpty(attempt)){
+        if (Validation.isEmpty(attempt)) {
             throw new IllegalArgumentException("시도 횟수가 빈 문자열입니다.");
         }
 
@@ -27,7 +27,7 @@ public class ExceptionHandler {
     }
 
     public void isCarNamePlainTextException(String str) {
-        if(Validation.isEmpty(str)){
+        if (Validation.isEmpty(str)) {
             throw new IllegalArgumentException("자동차 이름이 빈 문자열입니다.");
         }
 
@@ -41,8 +41,8 @@ public class ExceptionHandler {
     }
 
     public void isMembersException(List<String> members) {
-        for(int i = 0; i < members.size(); i++){
-            if(Validation.isEmpty(members.get(i))){
+        for (int i = 0; i < members.size(); i++) {
+            if (Validation.isEmpty(members.get(i))) {
                 throw new IllegalArgumentException("자동차 이름이 빈 문자열입니다.");
             }
         }
