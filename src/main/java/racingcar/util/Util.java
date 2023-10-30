@@ -1,5 +1,7 @@
 package racingcar.util;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Util {
     public static boolean isNullOrEmpty(String string) {
         if (string == null) {
@@ -12,5 +14,9 @@ public class Util {
             return true;
         }
         return false;
+    }
+
+    public static int getRandomDecimalNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }

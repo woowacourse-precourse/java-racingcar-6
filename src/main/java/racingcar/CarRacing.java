@@ -1,8 +1,8 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.console.RacingCarConsole;
+import racingcar.util.Util;
 
 public class CarRacing {
     private final List<Car> carList;
@@ -38,14 +38,14 @@ public class CarRacing {
 
     private void progressOneStep() {
         for (Car car : carList) {
-            if (isCarMoveForward()) {
+            int randomNumber = Util.getRandomDecimalNumber();
+            if (isCarMoveForward(randomNumber)) {
                 car.moveForward();
             }
         }
     }
 
-    private boolean isCarMoveForward() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+    private boolean isCarMoveForward(int randomNumber) {
         return randomNumber >= 4;
     }
 }
