@@ -11,7 +11,7 @@ public class Car {
         String cars = Console.readLine();
         return cars;
     }
-    public static List<String> makeRacingCarList(){
+    public static List<String> makeRacingCarList() {
         String cars = selectCars();
         List<String> carList =new ArrayList<>();
         String[] carArray = cars.split(",");
@@ -19,6 +19,12 @@ public class Car {
             carList.add(carArray[i]);
         }
         System.out.println(carList);
+        for(int i = 0 ; i< carList.size();i++){
+                if(carList.get(i).length()>5){
+                    throw new IllegalArgumentException();
+                }
+
+        }
         return carList;
     }
 
