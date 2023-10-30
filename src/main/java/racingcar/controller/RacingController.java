@@ -28,6 +28,6 @@ public class RacingController {
         while(racingService.isContinue()) {
             outputView.printRoundResult(carNames, racingService.race());
         }
-
+        outputView.printWinner(racingService.getWinners());
     }
 }
