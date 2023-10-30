@@ -8,8 +8,8 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static int inputTryCount() {
+    public static String inputTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 }
