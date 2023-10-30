@@ -44,6 +44,21 @@ class ParticipantsTest {
                 .isThrownBy(() -> new Participants(cars));
     }
 
+    @ParameterizedTest
+    @MethodSource
+    void 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다(List<Car> cars) {
+
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> new Participants(cars));
+    }
+
+    public static Stream<Arguments> 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다() {
+        return Stream.of(
+                Arguments.of(List.of()),
+                Arguments.of(List.of(createCar()))
+        );
+    }
+
     @Test
     void 레이스를_진행할_수_있다() {
         List<Car> cars = List.of(
