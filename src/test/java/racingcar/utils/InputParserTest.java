@@ -33,7 +33,7 @@ class InputParserTest {
     }
 
     @Test
-    void 첫_시작_컴마() {
+    void 첫_시작이_컴마일_때() {
         String input = ",pobi,jun";
         List<String> expected = Arrays.asList("", "pobi", "jun");
         List<String> result = InputParser.parseCarNames(input);
@@ -41,7 +41,7 @@ class InputParserTest {
     }
 
     @Test
-    void 연속_컴마() {
+    void 연속_컴마가_들어올_때() {
         String input = "pobi,,jun,aa";
         List<String> expected = Arrays.asList("pobi","","jun","aa");
         List<String> result = InputParser.parseCarNames(input);
@@ -49,7 +49,7 @@ class InputParserTest {
     }
 
     @Test
-    void 컴마_빈칸_컴마(){
+    void 띄어쓰기가_들어올때(){
         String input = "pobi, ,jun";
         List<String> expected = Arrays.asList("pobi", " ", "jun");
         List<String> result = InputParser.parseCarNames(input);
