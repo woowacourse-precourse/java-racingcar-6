@@ -9,6 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import racingcar.domain.Cars;
+import racingcar.dto.CarsDto;
+
 class GameServiceTest {
 
     private GameService gameService;
@@ -37,6 +40,21 @@ class GameServiceTest {
     void givenInput_whenCreateTrialCount_thenThrowException(String input) {
         assertThatThrownBy(() -> gameService.createTrialCount(input))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("라운드를 실행하고 정상적인 결과를 알려주는지 확인")
+    void givenCars_whenPlayRound_thenReturnCorrectResult() {
+        // given
+        Cars cars = new Cars("pobi,woni");
+
+        // when
+        CarsDto result = gameService.playRound(cars);
+
+        // then
+        assertThat(result.carDtos().size()).isEqualTo(2);
+        assertThat(result.carDtos().get(0)).extracting("name").isEqualTo("pobi");
+        assertThat(result.carDtos().get(1)).extracting("name").isEqualTo("woni");
     }
 
 }
