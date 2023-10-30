@@ -13,12 +13,12 @@ public class RacingCar {
     }
 
     public void moveCar() {
-        if (isMoreThanFour()) {
+        if (isMoreThanMinMoveNumber()) {
             moveNumber++;
         }
     }
 
-    private boolean isMoreThanFour() {
+    private boolean isMoreThanMinMoveNumber() {
         return RacingCarService.getRandomNumber() >= minMoveNumber;
     }
 
