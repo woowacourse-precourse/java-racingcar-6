@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.LinkedHashMap;
 import java.util.List;
 import racingcar.RandomNumberGenerator;
-import racingcar.model.RacingCarName;
+import racingcar.model.RacingCarNames;
 import racingcar.service.RacingCarGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -52,8 +52,8 @@ public class RacingCarGameController {
 
     private LinkedHashMap<String, Integer> racingProgressStatusInitialize(List<String> carNames) {
         LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>();
+        new RacingCarNames(carNames);
         for (String carName : carNames) {
-            new RacingCarName(carName);
             racingProgressStatus.put(carName, 0);
         }
         return racingProgressStatus;
