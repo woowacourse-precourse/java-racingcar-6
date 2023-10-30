@@ -1,26 +1,21 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Random;
 
 public class GoStopDecider {
-    private int movingCount;
-    private boolean isGoForward;
 
+    private static final int GO_STANDARD_NUMBER = 4;
     public int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
     private boolean checkGoStop(int randomNumber) {
-        return randomNumber >= 4;
-    }
-
-    private void decideGoStop(int randomNumber) {
-        isGoForward = checkGoStop(randomNumber);
+        return randomNumber >= GO_STANDARD_NUMBER;
     }
 
     public void moveCarOnRandomValue(Car car) {
-        decideGoStop(getRandomNumber());
-        if(isGoForward) car.upDistance();
+        if (checkGoStop(getRandomNumber())) {
+            car.upDistance();
+        }
     }
 }

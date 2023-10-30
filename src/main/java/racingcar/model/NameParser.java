@@ -5,13 +5,14 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NameParser {
+    private final static int CAR_NAME_LIMIT = 5;
     public List<String> parseCarName(String inputNames) {
         return Arrays.asList(inputNames.split(","));
     }
 
     public void carNameLengthUnderFive(List<String> carNameList) {
         for (String carName:carNameList) {
-            if (carName.length() > 5) {
+            if (carName.length() > CAR_NAME_LIMIT) {
                 throw new IllegalArgumentException("이름이 5글자를 넘어갈 수 없습니다.");
             }
         }
@@ -20,8 +21,8 @@ public class NameParser {
     public List<Car> setCar(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
         for (String carName : carNameList) {
-            Car newCar = new Car(carName, 0);
-            carList.add(newCar);
+            Car car = new Car(carName);
+            carList.add(car);
         }
         return carList;
     }
