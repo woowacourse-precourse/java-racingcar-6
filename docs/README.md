@@ -27,5 +27,6 @@
 ## 5.Validator
 ### 기능
     사용자가 숫자가 아닌 다른 값을 입력할 경우 IllegalArgumentException발생 후 애플리케이션 종료 
+    사용자가 자동차 이름을 5자 이상으로 입력할 경우 IllegalArgumentException발생 후 애플리케이션 종료 
     
 
