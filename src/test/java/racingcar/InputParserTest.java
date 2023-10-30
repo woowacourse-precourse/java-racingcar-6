@@ -25,4 +25,17 @@ public class InputParserTest {
         assertThat(result1).isEqualTo(expected1);
         assertThat(result2).isEqualTo(expected2);
     }
+
+    @Test
+    @DisplayName("시도 횟수 입력을 Int형태로 파싱하는 기능 테스트")
+    void parseNumberOfAttemptTest() {
+        String input1 = "5";
+        String input2 = "425";
+
+        int result1 = inputParser.parseNumberOfAttempt(input1);
+        int result2 = inputParser.parseNumberOfAttempt(input2);
+
+        assertThat(result1).isEqualTo(5);
+        assertThat(result2).isEqualTo(425);
+    }
 }
