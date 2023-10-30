@@ -17,6 +17,7 @@ public class Car {
     }
 
     public Car(String name, int distance) {
+        lengthValidation(name);
         this.name = name;
         this.distance = distance;
     }
