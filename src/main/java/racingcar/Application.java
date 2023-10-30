@@ -30,13 +30,14 @@ public class Application {
         for (String racerName:racerNameList){
             Racer currentRacer = Racer.getInstance(racerName);
             Racing racing = new Racing(currentRacer);
-            generateOutputRoundResult(racing.racingByRacer(),currentRacer);
+            racing.racingByRacer();
+            generateOutputRoundResult(currentRacer);
         }
         RoundResult.writeLineBreak();
     }
 
-    private static void generateOutputRoundResult(RoundScore roundScore, Racer racer){
-        RoundResult.writeRoundResult(roundScore,racer);
+    private static void generateOutputRoundResult(Racer racer){
+        RoundResult.writeRoundResult(racer);
     }
 
     private static List<String> racerNameForm(){
@@ -73,8 +74,7 @@ public class Application {
 
     private static void generateRacer(List<String> racerNameList){
         for (String racerName:racerNameList){
-            GenerateRacer generateRacer = generateRacerByInputValue(racerName);
-            Racer racer = generateRacer.generateRacerByInputValue(racerName);
+            generateRacerByInputValue(racerName);
         }
     }
     private static GenerateRacer generateRacerByInputValue(String inputValue){

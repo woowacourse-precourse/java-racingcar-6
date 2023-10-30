@@ -1,17 +1,19 @@
 package racingcar.entity;
 
+import racingcar.property.ResultProperty;
+
+import static racingcar.property.ResultProperty.*;
+
 public class RoundResult {
     private static final StringBuilder resultOfRound =new StringBuilder();
 
-    public static void writeRoundResult(RoundScore roundScore,Racer racer){
-        resultOfRound.append(racer.getName()).append(" : ").append(writeRoundResultScore(roundScore));
+    public static void writeRoundResult(Racer racer){
+        resultOfRound.append(racer.getName()).append(" : ");
+        writeRoundResultScore(racer);
         writeLineBreak();
     }
-    private static String writeRoundResultScore(RoundScore roundScore){
-        if (roundScore == RoundScore.FORWARD){
-            return "-";
-        }
-        return "";
+    private static void writeRoundResultScore(Racer racer){
+        resultOfRound.append(SCORE.repeat(Math.max(0, RaceStatus.scoreCheckByRacer(racer))));
     }
 
     public static void writeLineBreak(){
