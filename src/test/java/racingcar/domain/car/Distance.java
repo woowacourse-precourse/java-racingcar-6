@@ -6,4 +6,8 @@ public class Distance {
     public Distance(int distance) {
         this.distance = distance;
     }
+
+    public void add(int number) {
+        this.distance += number;
+    }
 }
