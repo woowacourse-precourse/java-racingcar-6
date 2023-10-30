@@ -22,4 +22,8 @@ public class Racing {
     public void printMoves() {
         cars.forEach(Car::printMoves);
     }
+
+    public void printWinner() {
+
+    }
 }
