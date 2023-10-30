@@ -1,43 +1,38 @@
 package racingcar.domain;
 
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Cars {
     private final List<Car> cars;
-
     private Cars(final List<Car> cars) {
         this.cars = cars;
     }
-
-    public static Cars createCarsFrom(List<Car> cars) {
-        return new Cars(cars);
+    public static Cars from(List<String> carNames) {
+        return new Cars(createCars(carNames));
     }
 
-    public void startRound() {
+    private static List<Car> createCars(List<String> carNames) {
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(Car.createCar(carName));
+        }
+        return cars;
+    }
+
+    public void startRace(MovableStrategy movableStrategy) {
         for (Car car : cars) {
-            car.go();
+            car.move(movableStrategy);
         }
     }
 
-    private List<Car> findWinners(int fastestCar) {
-        return cars.stream().filter(car -> car.isWinner(fastestCar))
-                .collect(Collectors.toList());
+    public Stream<Car> stream() {
+        return cars.stream();
     }
 
-    public List<Car> findFinalWinners() {
-        int fastestCar = findFastestCar();
-        return findWinners(fastestCar);
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
-
-    private int findFastestCar() {
-        List<Integer> carRanks = cars.stream()
-                .sorted(Comparator.comparing(Car::getPosition).reversed())
-                .map(Car::getPosition)
-                .collect(Collectors.toList());
-        return carRanks.get(0);
-    }
-
-
 }

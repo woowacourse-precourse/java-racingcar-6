@@ -1,26 +1,17 @@
 package racingcar.application;
 
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.domain.Winners;
+import racingcar.domain.GameAdmin;
+import racingcar.domain.RandomMoveStrategy;
 import racingcar.view.InputView;
 import racingcar.view.ResultView;
 
-import java.util.List;
-
 public class RacingGame {
-
     public void race() {
-        List<Car> carList = Car.createCarFrom(InputView.inputCarName());
-        Cars cars = Cars.createCarsFrom(carList);
-        int round = InputView.inputRound();
+        Cars cars = Cars.from(InputView.inputCarName());
         ResultView resultView = new ResultView();
-        resultView.printShowResult();
-        while (round-- > 0) {
-            cars.startRound();
-            resultView.showRoundResult(carList);
-        }
-        Winners winners = Winners.createWinnersFrom(cars.findFinalWinners());
-        resultView.callWinner(winners.getWinnerName());
+        GameAdmin gameAdmin = GameAdmin.from(resultView);
+        gameAdmin.startGame(cars, RandomMoveStrategy.createStrategy());
+        gameAdmin.presentWinner(cars);
     }
 }

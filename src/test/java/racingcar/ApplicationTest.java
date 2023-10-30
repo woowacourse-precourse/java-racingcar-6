@@ -13,7 +13,8 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    void
+    전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
