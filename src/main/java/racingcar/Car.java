@@ -19,16 +19,16 @@ public class Car {
         return name;
     }
 
-    public boolean isMove() {
-        int randomNum = Randoms.pickNumberInRange(START_RANGE, END_RANGE);
-        if (canGo(randomNum)) {
+    public boolean isMove(){
+        if(canGo()){
             this.location++;
             return true;
         }
         return false;
     }
 
-    private boolean canGo(int randomNum) {
+    private boolean canGo() {
+        int randomNum = Randoms.pickNumberInRange(START_RANGE, END_RANGE);
         return randomNum >= MIN_MOVABLE_NUMBER;
     }
 
