@@ -20,8 +20,8 @@ public class RacingCarController {
         String userInput = askCarNames();
         racingCar = new RacingCar(userInput);
 
-        Integer numberOfRetries = askNumberOfRetires();
-        startRacingCar(numberOfRetries);
+        Integer repeatCount = askRepeatCount();
+        startRacing(repeatCount);
 
         findWinners();
     }
@@ -33,22 +33,22 @@ public class RacingCarController {
         return userInput;
     }
 
-    private Integer askNumberOfRetires() {
+    private Integer askRepeatCount() {
         racingCarView.printAskingNumberOfRetries();
-        String numberOfRetries = Console.readLine();
-        UserInputValidator.validateNumberOfRetriesInput(numberOfRetries);
-        return Integer.valueOf(numberOfRetries);
+        String repeatCount = Console.readLine();
+        UserInputValidator.validateNumberOfRetriesInput(repeatCount);
+        return Integer.valueOf(repeatCount);
     }
 
-    private void startRacingCar(Integer numberOfRetries) {
+    private void startRacing(Integer repeatCount) {
         racingCarView.printResultMessage();
-        startAllRetries(numberOfRetries);
+        raceAll(repeatCount);
     }
 
-    private void startAllRetries(Integer numberOfRetries) {
-        while (numberOfRetries > 0) {
+    private void raceAll(Integer repeatCount) {
+        while (repeatCount > 0) {
             racingCar.moveRandomAllCar();
-            numberOfRetries--;
+            repeatCount--;
             racingCarView.printCarListMovement(racingCar);
         }
     }
