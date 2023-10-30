@@ -1,13 +1,12 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.random.RandomGenerator;
 
 /* Random 생성기
 *  0 ~ 9*/
-public class RadomGenerator {
+public class RandomGenerator {
     private boolean result;
-    public RadomGenerator() {
+    public RandomGenerator() {
         this.result = generateRandom();
     }
 
