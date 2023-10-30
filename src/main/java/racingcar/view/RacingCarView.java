@@ -2,7 +2,6 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
-import racingcar.domain.Racing;
 
 import java.util.List;
 

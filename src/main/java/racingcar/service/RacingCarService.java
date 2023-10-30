@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 import racingcar.util.GlobalExceptionHandler;
-import racingcar.view.RacingCarView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +13,6 @@ import static java.util.Collections.max;
 
 public class RacingCarService {
 
-    private final static RacingCarView racingCarView = new RacingCarView();
     private final static GlobalExceptionHandler globalExceptionHandler = new GlobalExceptionHandler();
 
     private static List<String> getCarsNameList(String cars) {
