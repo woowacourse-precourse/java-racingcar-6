@@ -8,4 +8,10 @@ public class Race {
     public Race() {
         this.cars = new ArrayList<>();
     }
+
+    public void advanceOneRound() {
+        for (Car car : cars) {
+            car.moveForward();
+        }
+    }
 }
