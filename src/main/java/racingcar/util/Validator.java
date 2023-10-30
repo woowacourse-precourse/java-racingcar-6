@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Validator {
 
-    public void validationCarName(String input) {
+    public void validationCarName(String input) throws IllegalArgumentException {
         List<String> carNames = Arrays.stream(input.split(",")).toList();
         validationCarNamesLength(carNames);
         validationCarNamesListLength(carNames);
@@ -35,7 +35,7 @@ public class Validator {
         }
     }
 
-    private void validationCarNameHasSpace(List<String> carNames){
+    private void validationCarNameHasSpace(List<String> carNames) throws IllegalArgumentException{
         carNames.stream().filter(name -> name.contains(" "))
                 .findAny()
                 .ifPresent(name ->{
@@ -53,8 +53,6 @@ public class Validator {
         if (!input.matches(regex)){
             throw new IllegalArgumentException(ExceptionMessage.INVALID_NOT_NUMERIC.getMessage());
         }
-
-
     }
 
     private void validationTrialIsZero(String input) {
