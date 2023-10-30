@@ -3,6 +3,7 @@ package racingcar.domain.validator;
 import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_INTEGER;
 import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_POSITIVE;
 import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_PROVIDED;
+import static racingcar.constant.NumberConstants.ZERO;
 
 public class TryCountValidator {
 
@@ -34,7 +35,7 @@ public class TryCountValidator {
     }
 
     private void validateTryCountIsPositive() {
-        if (Integer.parseInt(tryCount) <= 0) {
+        if (Integer.parseInt(tryCount) <= ZERO) {
             throw new IllegalArgumentException(TRY_COUNT_NOT_POSITIVE);
         }
     }

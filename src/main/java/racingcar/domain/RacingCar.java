@@ -2,6 +2,10 @@ package racingcar.domain;
 
 import static racingcar.constant.MessageConstants.DASH;
 import static racingcar.constant.MessageConstants.WINNER_SUFFIX;
+import static racingcar.constant.NumberConstants.MAX_MOVE_CONDITION;
+import static racingcar.constant.NumberConstants.MIN_MOVE_CONDITION;
+import static racingcar.constant.NumberConstants.MOVE_CONDITION;
+import static racingcar.constant.NumberConstants.ZERO;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -19,7 +23,7 @@ public class RacingCar {
     }
 
     public void move() {
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(MIN_MOVE_CONDITION, MAX_MOVE_CONDITION) >= MOVE_CONDITION) {
             position += 1;
         }
     }
@@ -29,7 +33,7 @@ public class RacingCar {
     }
 
     private String repeatDash() {
-        return DASH.repeat(Math.max(0, position));
+        return DASH.repeat(Math.max(ZERO, position));
     }
 
     public int getPosition() {
