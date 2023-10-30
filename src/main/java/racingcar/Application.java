@@ -2,7 +2,6 @@ package racingcar;
 
 import racingcar.controller.RacingController;
 import racingcar.domain.RandomCarEngine;
-import racingcar.service.RacingCarAssemblyService;
 import racingcar.service.RacingCarService;
 import racingcar.view.RacingCarInputValidator;
 import racingcar.view.RacingCarInputView;
@@ -14,7 +13,7 @@ public class Application {
                 new RacingCarInputView(),
                 new RacingCarOutputView(),
                 new RacingCarInputValidator(),
-                new RacingCarService(new RacingCarAssemblyService(), new RandomCarEngine())
+                new RacingCarService(new RandomCarEngine())
         );
         racingController.run();
     }
