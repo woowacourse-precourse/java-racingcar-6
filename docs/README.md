@@ -144,7 +144,7 @@
 
 ## 메서드 분리
 
-- [ ] GameProcess
+- [x] GameProcess
 - [ ] CreateRandomNum
 - [ ] GameHost
 - [ ] JudgeStandard
