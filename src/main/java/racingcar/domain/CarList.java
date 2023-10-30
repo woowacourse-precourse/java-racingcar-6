@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CarList {
@@ -12,14 +13,14 @@ public class CarList {
         addCars(carNameArray);
     }
 
-    protected void addCars(String[] carNameArray) {
+    public String[] splitName(String carNames) {
+        return carNames.split(",");
+    }
+
+    public void addCars(String[] carNameArray) {
         Arrays.stream(carNameArray)
                 .map(Car::new)
                 .forEach(carList::add);
-    }
-
-    public String[] splitName(String carNames) {
-        return carNames.split(",");
     }
 
     public List<Car> getCarList() {
