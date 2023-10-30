@@ -30,11 +30,11 @@ public class CarController {
         racing(tryNum);
     }
 
-    public void makeCars(String carNames) {
+    private void makeCars(String carNames) {
         carService.generateCarsInstance(carNames);
     }
 
-    public void racing(Integer tryNum) {
+    private void racing(Integer tryNum) {
         while(tryNum --> 0) {
             carService.tryRacing();
             outputView.printCarRacingStatus(carService.getRacingResult());
@@ -42,7 +42,7 @@ public class CarController {
         endRacing();
     }
 
-    public void endRacing() {
+    private void endRacing() {
         outputView.printWinner(carService.getWinner());
     }
 
