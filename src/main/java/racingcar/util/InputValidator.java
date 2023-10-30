@@ -1,28 +1,34 @@
 package racingcar.util;
 
+import java.util.List;
+
 public class InputValidator {
     private static final String REGEX = "[1-9]+";
     private static final int NAME_LENGTH_CONDITION = 5;
 
-    public static boolean checkInputCarName(String carNameList) {
-        String[] carList = carNameList.split(",");
+    public static List<String> checkInputCarNameList(String carNameList) {
+        List<String> carList = List.of(carNameList.split(","));
         for (var car : carList) {
-            if (isLengthOverThanLengthCondition(car.length())) {
+            if (!isLengthCondition(car.length())) {
                 throw new IllegalArgumentException();
             }
         }
-        return true;
+        return carList;
     }
 
-    public static boolean checkInputTryNumber(int inputNumber) {
-        return isNumber(inputNumber);
+    public static int checkInputTryNumber(String inputNumber) {
+        if(isNumber(inputNumber)) {
+            return Integer.parseInt(inputNumber);
+        }
+        throw new IllegalArgumentException();
     }
 
-    private static boolean isNumber(int inputNumber) {
-        return String.valueOf(inputNumber).matches(REGEX);
+    private static boolean isNumber(String inputNumber) {
+        return inputNumber.matches(REGEX);
     }
 
-    private static boolean isLengthOverThanLengthCondition(int carNameLength) {
-        return carNameLength > NAME_LENGTH_CONDITION;
+    private static boolean isLengthCondition(int carNameLength) {
+        return carNameLength <= NAME_LENGTH_CONDITION && carNameLength > 0;
     }
+
 }
