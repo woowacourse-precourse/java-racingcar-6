@@ -1,6 +1,6 @@
 <div align="center">
 
-[![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=4&animation=fadeIn&height=230&section=header&text=우아한테크코스%20Precourse%202주차&desc=자동차%20경주%20게임%20(Racing%20Car)%20-%20변해빈&fontSize=40&fontAlign=50&fontAlignY=33&descSize=20&descAlign=50&descAlignY=55)](https://github.com/h-beeen/java-racingcar-6/blob/h-beeen/docs/README.md)
+[![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2&animation=fadeIn&height=230&section=header&text=우아한테크코스%20Precourse%202주차&desc=🚘%20자동차%20경주%20게임%20(Racing%20Car)%20-%20변해빈&fontSize=40&fontAlign=50&fontAlignY=33&descSize=20&descAlign=50&descAlignY=55)](https://github.com/h-beeen/java-racingcar-6/blob/h-beeen/docs/README.md)
 
 </div>
 
@@ -8,8 +8,12 @@
 
 - [📦&nbsp;&nbsp;패키지 구조](#패키지-구조)
 - [✨&nbsp;&nbsp;구현 목록](#구현-목록)
-- [🎨&nbsp;&nbsp;구현 간 고민했던 내용들](#구현-간-고민했던-내용들)
-- [🎨&nbsp;&nbsp;31명과 함께한 223개의 소중한 코드리뷰 적용기](#31명과-함께한-223개의-소중한-코드리뷰-적용기)
+    * [Non-Functional Requirement](#1%EF%B8%8F⃣-non-functional-requirement)
+    * [Functional Requirement](#2%EF%B8%8F⃣-functional-requirement-controller-code-flow)
+- [🆘&nbsp;&nbsp;고민의-흔적](#고민의-흔적)
+    * [MVC 패턴에서 View Layer와 Domain Layer의 검증 책임](#1%EF%B8%8F⃣mvc-패턴에서-view-layer와-domain-layer의-검증-책임)
+    * [객체 간 관계를 static으로 풀어낸 결과 어려워진 테스트 코드 작성](#2%EF%B8%8F⃣객체-간-관계를-static으로-풀어낸-결과-어려워진-테스트-코드-작성)
+- [👬&nbsp;&nbsp;31명과 함께 나눈 224개의 소중한 코드리뷰 적용기](#31명과-함께한-223개의-소중한-코드리뷰-적용기)
 
 ---
 
@@ -61,7 +65,7 @@
     </tr>
     <tr><td colspan="3"></td></tr>
     <tr>
-        <td rowspan="2"><b><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/9a2cdecd-2df4-4541-86ec-4e8fa1017643" width="20px">&nbsp;&nbsp;exception</b></td>
+        <td rowspan="2"><b><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/1de269e3-5ceb-4e91-b9a9-922e81bc0e6a" width="20px">&nbsp;&nbsp;exception</b></td>
         <td><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/b8e837c7-bc6a-4bbc-a4c3-267ec11da553" height="32px">&nbsp;&nbsp;ErrorMessage</b></td>
         <td>예외를 던질 때 사용되는 에러 메세지 Enum 클래스</td>
     </tr>
@@ -91,15 +95,6 @@
         <td><b>&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/a7b13c6b-dc98-4571-b8bc-7d50d2ca5b49" width="20px" align="center">&nbsp;&nbsp;constants</b></td>
                 <td><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/b8e837c7-bc6a-4bbc-a4c3-267ec11da553" height="32px">&nbsp;&nbsp;Message</b></td>
         <td>사용자에게 출력할 정적 메세지 Enum 클래스</td>
-    </tr>
-    <tr><td colspan="3"></td></tr>
-    <tr>
-        <td colspan="3" align="center"><b>Package Structure Overview</b></td>
-    </tr>
-    <tr>
-        <td colspan="3">null</td>
-    </tr>
-
 </table>
 </div>
 
@@ -109,7 +104,7 @@
 
 ## ✨&nbsp;&nbsp;구현 목록
 
-### Non-Functional Requirement
+### 1️⃣ Non-Functional Requirement
 
 + [X] 자동차 경주
   프로그램은 [MVC 패턴]("https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC") 에 따라
@@ -118,7 +113,7 @@
 
 <br>
 
-### Functional Requirement (Controller Code Flow)
+### 2️⃣ Functional Requirement (Controller Code Flow)
 
 + [X] [Game] 사용자에게 자동차 이름을 `,(Comma)`를 기준으로 입력 받는다
 
@@ -176,24 +171,38 @@
 
 --------------------------------------------------------
 
-## 🎨&nbsp;&nbsp;구현 간 고민했던 내용들
+## 🆘&nbsp;&nbsp;고민의 흔적
 
-### 1️⃣&nbsp;&nbsp;&nbsp;View Layer & [MVC 패턴]("https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC")에서 Model Layer와 Domain Layer의 관계
+### 1️⃣&nbsp;&nbsp;&nbsp;[MVC 패턴]("https://ko.wikipedia.org/wiki/%EB%AA%A8%EB%8D%B8-%EB%B7%B0-%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC")에서 View Layer와 Domain Layer의 검증 책임
 
-### 1️⃣&nbsp;&nbsp;&nbsp;정적 팩토리 메소드의 장단점
+> Input Layer에서 유효성 검사를 진행하는게 맞을까에 대한 고민을 꾸준히 해왔습니다.<br>
+>
+> ➡️ (View) 순수하게 문자열을 입/출력하는 기능<br>
+> ➡️ (Validator) 기본 유효성, 자료형 검사<br>
+> ➡️ (Parser) Validator를 통해 검증된 문자열을 자료형에 맞게 변환 `ex : String ➡️ List<String>`<br>
+> ➡️ (Domain Constructor) 요구사항 예외처리 및 검증
+>
+> 위 순서로 View Layer에서 검증하지 않고, 별도의 Validator 도메인에서 유효성/자료형 검증을 진행합니다.<br>
+> 이렇게 기본적인 유효성 검증을 마치고, 개발 요구사항에 대한 검증은 일급컬렉션 및 각 도메인의 생성자에서 검증합니다.<br>
+>
+> 위와 같은 방식의 설계가 MVC 패턴에 입각해 좋은 설계로 구성되었는지 봐주시면 좋을 것 같아요. ⸝⸝ʚ̴̶̷̆ ̯ʚ̴̶̷̆⸝⸝
 
-### 1️⃣&nbsp;&nbsp;&nbsp;엇갈린 코드리뷰
+### 2️⃣&nbsp;&nbsp;&nbsp;객체 간 관계를 Static으로 풀어낸 결과, 어려워진 테스트 코드 작성
+
+> 도메인 구조를 싱글톤으로 가져가지 않고, 설계하다 보니 테스트 코드 작성 간 어려움을 겪었습니다.<br><br>
+> `MovementCondition` 의 경우, 개별 `Car`가 매 라운드마다 <br>새로운 `MovementCondition` 객체를 생성하고, 전진 여부를 요청합니다.<br><br>
+>
+> 이런 상황에서
 
 ---------------------------------------------------------
 
-## 🎨&nbsp;&nbsp;31명과 함께한 223개의 소중한 코드리뷰 적용기
+## 👬&nbsp;&nbsp;31명과 함께한 223개의 소중한 코드리뷰 적용기
 
 - [1주차 숫자 야구 Pull Request](https://github.com/woowacourse-precourse/java-baseball-6/pull/1613) 는 많은 리뷰가 남겨져 있어 로드하는데
   시간이 좀 걸립니다!<br>
   (유니콘 414 에러가 뜨면서 PR창이 뜨지 않는다면 새로고침 해주세요!)
-- 지난 리뷰에서 아쉬웠다고 말씀 주신 부분을 아래와 같이 반영하고자 노력했습니다.
+- 지난 리뷰에서 **아쉬웠다고 리뷰를 받은 부분**을 아래와 같이 반영하고자 노력했습니다.
 
-<div align="center">
 <table>
     <tr>
         <th align="center">Type</th>
@@ -203,7 +212,7 @@
     <tr><td colspan="3"></td></tr>
     <tr>
         <td rowspan="1"><b><img align="center" src="https://github.com/woowacourse-precourse/java-racingcar-6/assets/112257466/9a2cdecd-2df4-4541-86ec-4e8fa1017643" height="32px">&nbsp;&nbsp;README</b></td>
-        <td>0x00. 어떤 객체가 기능들을 할당하는지도 같이 명시되어 있으면 좋을것 같아요!</td>
+        <td>0x00. 어떤 객체가 기능들을 할당하는지도 같이 명시되어 있으면 좋을 것 같다.</td>
         <td><b>@Gyu-won</b></td>
     </tr>
     <tr><td colspan="3"></td></tr>
@@ -217,70 +226,54 @@
         <td><b>@OiKimiO</b></td>
     </tr>
       <tr>
-        <td>0x03. MVC 패턴에서 <b>모델에서 뷰의 정보를 알아서는 안된다</b>.</td>
+        <td>0x03. MVC 패턴에서 <b>모델에서 뷰의 정보를 알아서는 안 된다.</b></td>
         <td><b>@oxdjww</b></td>
     </tr>
       <tr>
-        <td>0x04. 검증 메소드에서 <b>긍정 조건</b>을 사용하는게 가독성에 좋다.</td>
-        <td><b>@junseoparkk</b></td>
-    </tr>
-      <tr>
-        <td>0x05. 일부 <b>접근지정자가 세밀하게 조정되지 않았다</b>.</td>
+        <td>0x04. 일부 <b>접근지정자가 세밀하게 조정되지 않았다</b>.</td>
         <td><b>@U-Keun</b></td>
     </tr>
       <tr>
-        <td>0x06. Config 네이밍은 <b>설정 파일의 의미가 강하다.</b></td>
-        <td><b>@Mingyum-Kim</b></td>
+        <td>0x05. <b>Open-Closed Principle</b> vs <b>YAGNI</b></td>
+        <td><b>@oxdjww</b></td>
     </tr>
       <tr>
-        <td>0x07. <b>Flag 네이밍은 Boolean</b>의 의미가 강하다. 정수는 다른 네이밍이 필요하다.</td>
+        <td>0x06. <b>Flag 네이밍은 boolean</b>의 의미가 강하다. 정수는 다른 네이밍이 필요하다.</td>
         <td><b>@cosyflower</b></td>
     </tr>
       <tr>
-        <td>0x08.일부 메소드 <b>순서 재배치</b>가 필요하다.</td>
+        <td>0x07. <b>클래스 내부 함수의 선언 순서가</b> 세밀하게 조정될 필요가 있다.</td>
         <td><b>@jcoding-play</b></td>
     </tr>
     <tr>
-        <td>0x09. 커스텀 예외 선언은 <b>정적 팩토리 메소드보다, 직접 선언하는게 정확</b>하다.</td>
+        <td>0x08. 커스텀 예외 선언은 <b>정적 팩토리 메소드보다, 직접 선언하는게 정확</b>하다.</td>
         <td><b>@IMWoo94</b></td>
     </tr>
     <tr>
-        <td>0x0a. Protected 생성자 vs Private 생성자</td>
-        <td><b>@IMWoo94</b></td>
+        <td>0x09. <b>Protected</b> 생성자 vs <b>Private</b> 생성자</td>
+        <td><b>@cosyflower</b></td>
     </tr>
     <tr>
-        <td>0x0b. Open-Closed Principle vs YAGNI</td>
-        <td><b>@oxdjww</b></td>
-    </tr>
-    <tr>
-        <td>0x0c. <b>조건에 따라 분기하는 것은 검증(Validator)계층</b>이 아니다.</td>
-        <td><b>@minnim1010</b></td>
-    </tr>
-    <tr>
-        <td>0x0d. <b>조건에 따라 분기하는 것은 검증(Validator)계층</b>이 아니다.</td>
-        <td><b>@minnim1010</b></td>
-    </tr>
-    <tr>
-        <td>0x0e. <b>조건에 따라 분기하는 것은 검증(Validator)계층</b>이 아니다.</td>
-        <td><b>@minnim1010</b></td>
-    </tr>
-   <tr>
-        <td>0x0f. <b>조건에 따라 분기하는 것은 검증(Validator)계층</b>이 아니다.</td>
+        <td>0x0a. <b>조건에 따라 분기하는 것은 검증(Validator)계층</b>이 아니다.</td>
         <td><b>@minnim1010</b></td>
     </tr>
 </table>
-</div>
 
-#### 🌱 0x01
+#### 🌱 0x00 `어떤 객체가 기능들을 할당하는지도 같이 명시되어 있으면 좋을 것 같다.`
 
-> 리드미에 기능 명세를 강화해서, Controller Code Flow를 따라갈 수 있도록 설계했습니다.<br/>
-> 기능, 비기능 요구사항을 나누고 설계 방향에 대한 명시를 강화했습니다.<br/>
-> 플로우 차트를 추가해, 직관적으로 코드 플로우를 눈으로 따라갈 수 있게 설계했습니다.<br/>
+> 리드미에 기능 명세를 강화해서, **Controller Code Flow를 따라갈 수 있도록 설계**했습니다.<br/>
+> 기능, 비기능 요구사항을 나누고 **설계 방향에 대한 명시를 강화**했습니다.<br/>
+> 플로우 차트를 추가해, 직관적으로 **코드 플로우를 눈으로 따라갈 수 있도록 설계**했습니다.<br/>
 
-#### 🌱 0x02
+#### 🌱 0x01 `검증 메소드에서 긍정 조건을 사용하는게 가독성에 좋다.`
+
+> 예외처리 메소드에서 사용할 **검증 메소드(boolean)의 포스트컨디션에 따라, 긍정문으로 작성**했습니다.<br>
+> **isInvalidRoundCount, isExceedLength와 같이 직관적으로 해석되도록 정의**했습니다.
+
+#### 🌱 0x02 `컨벤션이 없는 상황에서 정적 팩토리 메소드 사용은 혼선을 가져올 수 있다.`
 
 > private 생성자 + 정적 팩토리 메소드 조합으로 명백한 의도가 표현되도록 노력했습니다.<br/>
-> 메소드 명 자체가 해당 생성자의 의미를 직관적으로 담을 수 있도록 다음 표를 참고했습니다. <br/>
+> 메소드 명 자체가 해당 생성자의 의미를 직관적으로 담을 수 있도록 다음 표의 컨벤션 참고했습니다. <br/>
 
 |   메소드명   |               역할               |
 |:--------:|:------------------------------:|
@@ -291,20 +284,82 @@
 | getXxxx  | 호출하는 클래스와 다른 타입의 인스턴스를 반환할때 사용 |
 | newXxxx  |  getXxxx와 같으나 매번 새로운 인스턴스를 반환  |
 
-출처 : [Static Factory Method 네이밍 컨벤션](https://multifrontgarden.tistory.com/255), Effective java
+출처 : [Static Factory Method 네이밍 컨벤션](https://multifrontgarden.tistory.com/255) - Tistory, Effective java
 
-#### 🌱 0x03
+#### 🌱 0x03 `MVC 패턴에서 모델에서 뷰의 정보를 알아서는 안 된다.`
 
-> 모델에서 View를 호출하지 않고, View ↔️ Controller ↔️ Domain(Model) 의존 구조로 설계했습니다. <br/>
-> Domain 에서 Controller로 출력할 데이터를 DTO를 통해 전달하고 <br/>View에서는 DTO의 Response를 단순 출력하는 방식으로 설계했습니다.
+> 모델에서 View를 호출하지 않고, **View ↔️ Controller ↔️ Domain(Model) 의존 구조로 설계**했습니다. <br/><br>
+> Domain 에서 Controller로 출력할 데이터를 **DTO를 통해 전달하고 <br/>View에서는 DTO의 Response를 단순 출력하는 방식으로 설계**했습니다.
 
-#### 🌱 0x04
+#### 🌱 0x04 `일부 접근지정자가 세밀하게 조정되지 않았다.`
 
-> 예외처리 메소드에서 사용할 검증 메소드(boolean)의 포스트컨디션에 따라, 긍정문으로 작성했습니다.
-> isInvalidRoundCount, isExceedLength와 같이 직관적으로 해석되도록 정의했습니다.
+> private 메소드로 선언해야 했음에도, 꼼꼼하게 체크하지 않은 탓에, public으로 불필요하게 개방적인 함수가 일부 존재했습니다.
+> 이번 자동차 경주 미션에서는, 해당 사항을 꼼꼼하게 검증해, 함수의 권한을 적절하게 관리하도록 통제했습니다.
 
-#### 🌱 0x05
+#### 🌱 0x05 `Open-Closed Principle vs YAGNI`
 
-> 기존에 상속과 다형성을 목표로 제한하지 않았던 protected 생성자에 대해 리뷰를 받았습니다.
-> 상속과 다형성으로 개발되지 않은 클래스의 생성 제한을 위해 private 생성자를 사용했습니다.
-> 기본적으로 Singletone 패턴을 활용하지는 않았기 때문에, Static Factory 메소드로 객체를 생성합니다.
+> 실제로 필요할 때 무조건 구현하되, 그저 필요할 것이라고 예상할 때에는 절대 구현하지 말라.
+
+출처 : [YAGNI](https://ko.wikipedia.org/wiki/YAGNI) - Wikipedia
+
+> 기존 1주차에 OCP를 준수하기 위해 작성했던 코드에서, **과제 요구사항과는 거리가 있다**는 리뷰를 받았습니다.<br>
+> 반면 긍정적인 리뷰도 있었습니다. 확장성 있는 설계로 좋은 리뷰를 남겨주신 분도 계셨습니다.<br>
+> 이번 미션은 자동차 경주 게임의 본질을 꾸준히 되새기며 YAGNI 설계로 구성했습니다.
+
+#### 🌱 0x06 `Flag 네이밍은 boolean의 의미가 강하다. 정수는 다른 네이밍이 필요하다.`
+
+> 선언한 모든 변수에 대해서, 누구나 읽어도 직관적으로 해석이 가능한 변수 명으로 설정하고자 노력했습니다.<br>
+> 기존 리뷰 받았던 `xxFlag`, `xxOption`, `xxOrNot` 과 같이 해석에 혼동을 줄 수 있는 변수와 클래스명 사용을 지양했습니다.
+
+#### 🌱 0x07 `클래스 내부 함수의 선언 순서가 세밀하게 조정될 필요가 있다.`
+
+> 클래스 내부 선언 순서 컨벤션
+> 1. Static Variable : `public -> protected -> private`
+> 2. Member Variable : `public -> protected -> private`
+> 3. Constructor
+> 4. Static Method
+> 5. Other Method : 기능 및 역할별로 분류하여 기능을 구현하는 그룹별로 작성
+> 6. Standard Method : toString, equals, hashcode 와 같은 메소드
+> 7. Getter / Setter : 클래스의 가장 하단 부분에 위치
+>
+출처 : [Are there Any Java method ordering conventions?](https://stackoverflow.com/questions/4668218/are-there-any-java-method-ordering-conventions)  -
+Stack Overflow
+
+#### 🌱 0x08 `예외 복구, 예외 회피, 예외 전환의 역할을 잘 알고 활용하자.`
+
+> 자바에서 예외처리는 예외 복구, 예외 회피, 예외전환을 방식이 각각 있습니다.
+> | 종류 | 역할 |
+> |:-----:|:------------------------------------------------:|
+> | 예외 복구 | try catch -> 예외를 처리하고 정상 로직 처리 |
+> | 예외 회피 | throw 로 상위 컨텐츠에게 위임 |
+> | 예외 전환 | checkedExcpetion 을 unckeckedException 으로 변경하여 리턴 |
+>
+>예외는 정적 팩토리메소드 보다는 있는 그대로를 보여주는 것이 더 정확하다고 생각합니다.<br>
+> Exception 에 대한 처리는 정확하게 처리해야 서버의 죽음을 막을 수 있고,<br>
+> 에러에 대한 정보가 정확 해야지 추후 원인 판단에 빠른 해결책을 제공할 수 있을거라 봅니다.<br>
+
+출처 : [1주차 숫자야구 코드리뷰](https://github.com/woowacourse-precourse/java-baseball-6/pull/1613/files#r1373396177)  - @IMWoo94
+
+> 이번 미션에서 `RacingCarException` 이라는 전역 예외를 공통으로 던지도록 설계했습니다.<br>
+> 에러 메세지를 정적으로 관리하고, 각 테스트 케이스에서 JUnit5의 `hasMessageContaining` 메소드를 활용해 <br/>
+> 해당 예외 발생 여부와 Containing ErrorMessage 여부를 이중으로 검증해,<br>
+> 간결하면서 신뢰도 높은 테스트를 만들고자 했습니다.<br><br>
+> `IllegalArgumentException`을 원시 형태로 발생시키는 것 보다, <br>전역에서 에러를 공통 규격으로 관리하는 것이 더욱 확장성이 높다고 판단합니다.<br>
+> 서버가 예외의 상태를 파악할 수 있도록, 추후 Logging 방식을 통해 말씀 주신 문제를 해결할 수 있다고 생각합니다.
+
+#### 🌱 0x09. `Protected 생성자 vs Private 생성자`
+
+> 기존에 상속과 다형성을 목표로 작성했던 **protected 생성자에 대해 리뷰**를 받았습니다.<br>
+> 상속과 다형성으로 최종 개발되지 않은 클래스는 **private 생성자를 사용**했습니다.<br>
+> private 생성자를 기반으로, public Static Factory 메소드로 객체를 생성합니다.
+>
+> 기존에 버릇처럼 사용하던 protected 생성자는 Spring Data JPA에서<br>
+> Entity Reflection을 활용해 객체 인스턴스를 만들기 위해서 입니다.
+
+출처 : [[JPA] JPA에서 Entity에 protected 생성자를 만드는 이유](https://velog.io/@jyyoun1022/JPA-JPA%EC%97%90%EC%84%9C-Entity%EC%97%90-protected-%EC%83%9D%EC%84%B1%EC%9E%90%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%EC%9D%B4%EC%9C%A0)  -
+Velog
+
+#### 🌱 0x0a. `조건에 따라 분기하는 것은 검증(Validator)계층이 아니다.`
+
+> 일부 검증 메소드(`isExitFlag`, `isRestartFlag`)와 같은 함수는<br> 값에 대한 `검증`의 성격을 띄지 않는다는 리뷰를 받았습니다.<br><br>
+> 함수의 위치와, 이름, 그리고 이를 담는 패키지 이름까지,<br>조금 더 함수의 역할을 담을 수 있도록 설계했습니다.
