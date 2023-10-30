@@ -39,3 +39,22 @@
 			
 		
 
+## 클래스 설명
+**CarList Class**
+- setCarName  : 사용자로부터 자동차의 이름을 입력받는 함수입니다.
+- checkCarName : 자동차의 이름에 오류가 있는지 확인하는 함수로 오류 시 False를 return합니다.
+- getCarList : 자동차 이름에 오류가 없을 경우 자동차 이름을 List로 return합니다.
+
+**RacingNumber Class**
+- setRacingNum : 사용자로부터 경주 횟수를 입력받는 함수입니다.
+- isPositiveInteger :사용자가 입력한 값이 양의 정수인지 확인하는 함수입니다. 오류시 False를 return합니다.
+- getRacingNum : 사용자가 입력한 회수를 출력합니다.  
+
+**carRacing Class**
+- 생성자에서 List로 받은 자동차 이름을 HashMap 형태로 변환합니다. 이 때 key는 자동차의 이름이며 value는 0입니다. 
+- setRacingMap : 랜덤 값이 4가 넘을 경우 해당 자동차를 key로 가진 HashMap의 value를 1만큼 증가시킵니다. 
+- printRacingProgress : 해당 횟차의 결과를 출력합니다. 
+
+**racingResult Class**
+- 생성자에서 racing 결과를 담은 HashMap을 저장합니다. 
+- printRacingResult : 우승자를 선정하여 결과를 출력합니다. 
