@@ -4,7 +4,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static racingcar.contant.GameNotice.*;
+import static racingcar.contant.GameNotice.DUPLICATE_CAR_NAME;
+import static racingcar.contant.GameNotice.LENGTH_NOT_MATCH;
+import static racingcar.contant.GameNotice.INPUT_ONLY_POSITIVE_NUMBER;
+import static racingcar.contant.GameNotice.INPUT_ONLY_NUMBER;
+import static racingcar.contant.GameNotice.NUM_OF_MIN_PARTICIPANT;
+import static racingcar.contant.GameNotice.CONTAINS_GAP;
 import static racingcar.contant.RacingCarGameConfig.CAR_NAME_MAX_LENGTH;
 import static racingcar.contant.RacingCarGameConfig.PARTICIPANT_MIN_NUMBER;
 
