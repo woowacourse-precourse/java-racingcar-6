@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static racingcar.Constant.*;
 public class Validation {
 
     public static List<String> validateCarNames(String cars){
         List<String> carsStingList = validateDivision(cars);
-        validateLength(carsStingList);
+        for (String carName : carsStingList){
+            validateLength(carName);
+        }
         return carsStingList;
     }
     private static List<String> validateDivision(String cars){
@@ -18,7 +21,9 @@ public class Validation {
         return carsStingList;
     }
 
-    private static void validateLength(List<String> carsStingList){
-
+    private static void validateLength(String carName){
+        if (carName.length() > CAR_NAME_MAX_SIZE || carName.isEmpty()){
+            throw new IllegalArgumentException();
+        }
     }
 }
