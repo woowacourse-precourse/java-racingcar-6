@@ -1,52 +1,44 @@
 package racingcar.input;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
-import org.junit.jupiter.api.Test;
+import camp.nextstep.edu.missionutils.Console;
+import java.io.ByteArrayInputStream;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.validator.Validator;
 
-class ConsoleInputCountTest extends NsTest {
+class ConsoleInputCountTest {
 
-    Validator defaultValidator = new Validator();
-    Input consoleInput = new ConsoleInput(defaultValidator);
+    Input consoleInput;
 
-    @Test
-    void 실행_횟수_입력() {
-        String input = "42";
-
-        run(input);
-        assertThat(output()).contains("42");
+    @BeforeEach
+    void beforeEach() {
+        consoleInput = new ConsoleInput(new Validator());
     }
 
-    @Test
-    void 실행_횟수_입력_예외_문자_입력() {
-        String input = "ab";
-
-        assertThatThrownBy(() -> runException(input))
-                .isInstanceOf(IllegalArgumentException.class);
+    @ParameterizedTest
+    @MethodSource("provideExecutionCount")
+    @DisplayName("실행 횟수 입력 시 실행 횟수 반환")
+    void 실행_횟수_입력시_실행_횟수_반환(String input) {
+        assertThat(run(input)).isEqualTo(Integer.parseInt(input));
     }
 
-    @Test
-    void 실행_횟수_입력_예외_1미만_입력() {
-        String input = "0";
-
-        assertThatThrownBy(() -> runException(input))
-                .isInstanceOf(IllegalArgumentException.class);
+    static Stream<Arguments> provideExecutionCount() {
+        return IntStream.rangeClosed(1, 1000)
+                .mapToObj(count -> Arguments.of(String.valueOf(count)));
     }
 
-    @Test
-    void 실행_횟수_입력_예외_100초과_입력() {
-        String input = "438";
+    private int run(String... args) {
+        final byte[] buf = String.join("\n", args).getBytes();
+        System.setIn(new ByteArrayInputStream(buf));
+        Console.close();
 
-        assertThatThrownBy(() -> runException(input))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Override
-    protected void runMain() {
-        int execution = consoleInput.receiveTotalCountOfExecution();
-        System.out.println(execution);
+        return consoleInput.receiveTotalCountOfExecution();
     }
 }
