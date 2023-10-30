@@ -1,10 +1,12 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Referee {
     private int numOfGame;
     private  List<Car> cars;
+
 
     public void setNumOfGame(int numOfGame) {
         this.numOfGame = numOfGame;
@@ -18,7 +20,23 @@ public class Referee {
         return cars;
     }
 
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
+    public void setCars(String cars) {
+        String[] carName = cars.split(",");
+        this.cars = parsingCarString(carName);
+    }
+
+    private static List<Car> parsingCarString(String[] carName) {
+        List<Car> tempCars = new ArrayList<>();
+        for (String name : carName) {
+            Car car = new Car();
+            car.setName(name);
+            car.setPosition(0);
+            tempCars.add(car);
+        }
+        return tempCars;
+    }
+
+    public void notifyInsertCars(){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 }
