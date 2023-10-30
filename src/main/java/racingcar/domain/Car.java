@@ -3,16 +3,24 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class Car {
-    private final Name name;
+    private final NickName nickName;
     private Position position;
 
-    public Car(final String name) {
-        this(name, 0);
+    public Car(final String nickName) {
+        this(nickName, 0);
     }
 
-    public Car(final String name, int position) {
-        this.name = new Name(name);
+    public Car(final String nickName, int position) {
+        this.nickName = new NickName(nickName);
         this.position = new Position(position);
+    }
+
+    public NickName getNickName() {
+        return nickName;
+    }
+
+    public Position getPosition() {
+        return position;
     }
 
     public void move(MovingStrategy movingStrategy) {
@@ -21,12 +29,8 @@ public class Car {
         }
     }
 
-    public Name getName() {
-        return name;
-    }
-
-    public int getPosition() {
-        return position.getPosition();
+    public boolean isWinner(Position maxPosition) {
+        return position.equals(maxPosition);
     }
 
     @Override
@@ -38,18 +42,18 @@ public class Car {
             return false;
         }
         Car car = (Car) o;
-        return Objects.equals(name, car.name) && Objects.equals(position, car.position);
+        return Objects.equals(nickName, car.nickName) && Objects.equals(position, car.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, position);
+        return Objects.hash(nickName, position);
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "name='" + name + '\'' +
+                "nickName='" + nickName + '\'' +
                 ", position=" + position +
                 '}';
     }
