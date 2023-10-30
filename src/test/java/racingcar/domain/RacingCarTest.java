@@ -26,10 +26,31 @@ class RacingCarTest {
         assertThat(resultMessage).isEqualTo(predictionMessage);
     }
 
-    private String createResultMessage(List<String> names){
+    @DisplayName("레이싱에 우승한 자동차들의 이름을 찾는다.")
+    @Test
+    void getWinnerNames() {
+        //given
+        final List<String> names = Arrays.asList("bonsi", "soeun", "left");
+        final String predictionMessage = createWinnerMessage(names);
+
+        RacingCar racingCar = new RacingCar(names);
+
+        //when
+        String winnerMessage = racingCar.getWinnerMessage();
+
+        //then
+        assertThat(winnerMessage).isEqualTo(predictionMessage);
+    }
+
+    private String createResultMessage(List<String> names) {
         return names.stream()
                 .map(n -> n + " : ")
                 .collect(Collectors.joining("\n"));
+    }
+
+    private String createWinnerMessage(List<String> names){
+        return String.join(", ", names);
+
     }
 
 }

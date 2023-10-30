@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,22 @@ public class RacingCar {
                 .stream()
                 .map(Car::resultMessage)
                 .collect(Collectors.joining("\n"));
+    }
+
+    public String getWinnerMessage() {
+        int maxMovementCount = getMaxCarMovementCount();
+
+        return this.cars.stream()
+                .filter(c -> c.getMovementCount() == maxMovementCount)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+    }
+
+    private int getMaxCarMovementCount() {
+        return this.cars.stream()
+                .max(Comparator.comparing(Car::getMovementCount))
+                .map(Car::getMovementCount)
+                .orElseGet(() -> 0);
     }
 
 }

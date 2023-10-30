@@ -36,6 +36,14 @@ public class Car {
         return name + " : " + hyphenStr;
     }
 
+    protected int getMovementCount(){
+        return this.movementCount;
+    }
+
+    protected String getName(){
+        return this.name;
+    }
+
     private void checkNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(EXCEED_NAME_LENGTH_MESSAGE);
