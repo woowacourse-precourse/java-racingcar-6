@@ -26,8 +26,8 @@ public class Car implements CarCondition{
     }
 
     @Override
-    public boolean isMoreThanCondition(int randomNumber) {
-        return MOVE_CONDITION <= randomNumber;
+    public boolean isMoreThanCondition(int number) {
+        return MOVE_CONDITION <= number;
     }
 
     public void move() {

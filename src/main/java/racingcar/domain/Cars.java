@@ -38,4 +38,12 @@ public class Cars {
         }
         return longDistanceCars;
     }
+
+    public void moveCars(int number) {
+        for (Car car : cars) {
+            if (car.isMoreThanCondition(number)) {
+                car.move();
+            }
+        }
+    }
 }

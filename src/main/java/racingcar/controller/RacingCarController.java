@@ -13,4 +13,8 @@ public class RacingCarController {
     public int inputAttemptNumber() {
         return racingCarService.inputAttemptNumber();
     }
+
+    public void moveCars() {
+        racingCarService.moveCars();
+    }
 }
