@@ -11,6 +11,10 @@ public class CarName {
         this.name = name;
     }
 
+    public String toString(){
+        return this.name;
+    }
+
     private void validateCarName(String name) {
         validateCarNameLength(name);
         validateCarNameHasNoSpace(name);
