@@ -5,7 +5,7 @@ import static racingcar.utils.Validator.validIsNumber;
 import static racingcar.utils.Validator.validNameFormat;
 
 import java.util.Arrays;
-import racingcar.domain.FinalResult;
+import racingcar.domain.FinalRoundResult;
 import racingcar.model.RacingModel;
 import racingcar.utils.Validator;
 import racingcar.view.RacingView;
@@ -25,9 +25,9 @@ public class RacingController {
         String[] carNames = readCarNames();
         int finalRound = readRoundNumber();
 
-        FinalResult finalResult = racingModel.startRacingGame(carNames, finalRound);
+        FinalRoundResult finalRoundResult = racingModel.startRacingGame(carNames, finalRound);
 
-        displayResult(finalResult);
+        displayResult(finalRoundResult);
     }
 
     private String[] readCarNames() {
@@ -54,8 +54,8 @@ public class RacingController {
         return Integer.parseInt(inputNumber);
     }
 
-    private void displayResult(FinalResult finalResult) {
-        racingView.displayResults(finalResult.getSingleRoundResults());
-        racingView.displayWinnerMessage(finalResult.getWinnerNames());
+    private void displayResult(FinalRoundResult finalRoundResult) {
+        racingView.displayResults(finalRoundResult.getRoundResults());
+        racingView.displayWinnerMessage(finalRoundResult);
     }
 }
