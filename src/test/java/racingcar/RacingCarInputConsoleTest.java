@@ -6,10 +6,17 @@ import static org.assertj.core.api.Assertions.catchThrowable;
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.console.RacingCarConsole;
 
-public class RacingCarConsoleTest {
+public class RacingCarInputConsoleTest {
+    private static RacingCarConsole racingCarConsole;
+
+    @BeforeEach
+    void openRacingCarConsole() {
+        racingCarConsole = new RacingCarConsole();
+    }
 
     @AfterEach
     void closeConsole() {
@@ -22,8 +29,6 @@ public class RacingCarConsoleTest {
                 () -> {
                     String input = "";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-                    RacingCarConsole racingCarConsole = new RacingCarConsole();
                     racingCarConsole.readCarNames();
                 }
         );
@@ -37,8 +42,6 @@ public class RacingCarConsoleTest {
                 () -> {
                     String input = "\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-                    RacingCarConsole racingCarConsole = new RacingCarConsole();
                     racingCarConsole.readCarNames();
                 }
         );
@@ -52,8 +55,6 @@ public class RacingCarConsoleTest {
                 () -> {
                     String input = "홍길동,test,a맨\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-                    RacingCarConsole racingCarConsole = new RacingCarConsole();
                     racingCarConsole.readCarNames();
                 }
         );
@@ -67,8 +68,6 @@ public class RacingCarConsoleTest {
                 () -> {
                     String input = "3\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-                    RacingCarConsole racingCarConsole = new RacingCarConsole();
                     racingCarConsole.readIterationNumBer();
                 }
         );
@@ -82,8 +81,6 @@ public class RacingCarConsoleTest {
                 () -> {
                     String input = "0\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-                    RacingCarConsole racingCarConsole = new RacingCarConsole();
                     racingCarConsole.readIterationNumBer();
                 }
         );
@@ -97,8 +94,6 @@ public class RacingCarConsoleTest {
                 () -> {
                     String input = "-12\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-                    RacingCarConsole racingCarConsole = new RacingCarConsole();
                     racingCarConsole.readIterationNumBer();
                 }
         );
@@ -112,8 +107,6 @@ public class RacingCarConsoleTest {
                 () -> {
                     String input = "-11abc#\n";
                     System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-                    RacingCarConsole racingCarConsole = new RacingCarConsole();
                     racingCarConsole.readIterationNumBer();
                 }
         );
