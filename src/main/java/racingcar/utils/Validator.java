@@ -15,9 +15,16 @@ public class Validator {
         }
     }
 
+    private void validateInputCarNameLengthOneToFive(String input) {
+        if (input.length() < 1 || input.length() > 5) {
+            throw new IllegalArgumentException("자동차의 이름은 한글자 이상, 다섯글자 이하로 입력해 주세요.");
+        }
+    }
+
     private void validateCarName(List<String> input) {
         for(String carName : input) {
             validateInputCarNameIsEnglish(carName);
+            validateInputCarNameLengthOneToFive(carName);
         }
     }
 
