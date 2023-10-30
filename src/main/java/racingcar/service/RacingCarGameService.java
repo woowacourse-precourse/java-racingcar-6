@@ -39,7 +39,11 @@ public class RacingCarGameService {
         return maxMovingValue;
     }
 
-    private void addWinner(Map.Entry<String, Integer> finalResultEntry, int maxMovingValue, List<String> winners) {
+    private void addWinner(
+            Map.Entry<String, Integer> finalResultEntry,
+            int maxMovingValue,
+            List<String> winners
+    ) {
         if (finalResultEntry.getValue() == maxMovingValue) {
             winners.add(finalResultEntry.getKey());
         }

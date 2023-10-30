@@ -14,9 +14,11 @@ public class RacingCarGameController {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public RacingCarGameController(RacingCarGameService racingCarGameService,
-                                   InputView inputView,
-                                   OutputView outputView) {
+    public RacingCarGameController(
+            RacingCarGameService racingCarGameService,
+            InputView inputView,
+            OutputView outputView
+    ) {
         this.racingCarGameService = racingCarGameService;
         this.inputView = inputView;
         this.outputView = outputView;
@@ -76,17 +78,22 @@ public class RacingCarGameController {
         outputView.printExecutionResultMessage();
     }
 
-    private void proceedOneRound(RandomNumberGenerator racingNumberGenerator,
-                                 List<String> carNames,
-                                 LinkedHashMap<String, Integer> racingProgressStatus) {
+    private void proceedOneRound(
+            RandomNumberGenerator racingNumberGenerator,
+            List<String> carNames,
+            LinkedHashMap<String, Integer> racingProgressStatus
+    ) {
         for (String carName : carNames) {
             int randomNumber = racingNumberGenerator.getRandomNumber();
             decideMovingForward(randomNumber, racingProgressStatus, carName);
         }
     }
 
-    private void decideMovingForward(int randomNumber, LinkedHashMap<String, Integer> racingProgressStatus,
-                                     String carName) {
+    private void decideMovingForward(
+            int randomNumber,
+            LinkedHashMap<String, Integer> racingProgressStatus,
+            String carName
+    ) {
         if (racingCarGameService.isMovingForward(randomNumber)) {
             racingCarGameService.moveForward(racingProgressStatus, carName);
         }
