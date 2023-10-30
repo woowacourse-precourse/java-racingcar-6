@@ -10,41 +10,44 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.util.MoveResolver;
 
-class GameTest {
+class CarsTest {
     private final int MOVING_DISTANCE = 1;
 
     MoveResolver moveResolver = mock(MoveResolver.class);
     MoveResolver nonMoveResolver = mock(MoveResolver.class);
 
-    Game game;
-    List<Car> cars;
+    Car car1;
+    Car car2;
+    Car car3;
+    Cars cars;
 
     @BeforeEach
     void setEnvionment() {
-        game = new Game();
-        cars = List.of(new Car("테스트"), new Car("테스트1"), new Car("테스트2"));
-        cars.forEach(car -> game.addCar(car));
+        car1 = new Car("테스트1");
+        car2 = new Car("테스트2");
+        car3 = new Car("테스트3");
+        cars = new Cars(List.of(car1,car2,car3));
         setGivenBehaviorMoveResolver(moveResolver,nonMoveResolver);
     }
 
     @Test
     void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들의_이름을_구할_수_있다_우승자가_하나일때() {
-        stop(cars.get(0));
-        stop(cars.get(1));
-        goForward(cars.get(2));
+        stop(car1);
+        stop(car2);
+        goForward(car3);
 
-        List<String> winners = game.getWinnerCars();
-        assertThat(winners).containsOnly("테스트2");
+        List<String> winners = cars.getWinnerCars();
+        assertThat(winners).containsOnly(car3.getName());
     }
 
     @Test
     void 가장_먼_거리를_이동한_자동차를_기준으로_우승한_자동차들의_이름을_구할_수_있다_우승자가_둘이상일때() {
-        stop(cars.get(0));
-        goForward(cars.get(1));
-        goForward(cars.get(2));
+        stop(car1);
+        goForward(car2);
+        goForward(car3);
 
-        List<String> winners = game.getWinnerCars();
-        assertThat(winners).containsOnly("테스트1","테스트2");
+        List<String> winners = cars.getWinnerCars();
+        assertThat(winners).containsOnly(car2.getName(),car3.getName());
     }
 
     private void setGivenBehaviorMoveResolver(MoveResolver moveResolver,MoveResolver nonMoveResolver) {
