@@ -1,6 +1,7 @@
 package racingcar.controller.dto.response;
 
-import racingcar.model.Cars;
+import java.util.List;
+import racingcar.model.Car;
 
-public record RaceResultDto(Cars cars) {
+public record RaceResultDto(List<Car> carList) {
 }

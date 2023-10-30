@@ -12,7 +12,7 @@ public class OutputView {
     }
 
     public void printRaceResult(RaceResultDto raceResultDto) {
-        for (Car car : raceResultDto.cars().getCarList()) {
+        for (Car car : raceResultDto.carList()) {
             printCarStatus(car);
         }
         printEmptyLine();

@@ -38,7 +38,7 @@ public class GameController {
         for (int i = 1; i <= racingGame.getRaceCount(); i++) {
             racingGame.playRaceGame();
 
-            outputView.printRaceResult(new RaceResultDto(racingGame.getCars()));
+            outputView.printRaceResult(new RaceResultDto(racingGame.getCarList()));
         }
     }
 }

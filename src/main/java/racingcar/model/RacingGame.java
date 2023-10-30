@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.List;
+
 public class RacingGame {
     private static final int MOVE_THRESHOLD = 4;
     private final Cars cars;
@@ -24,8 +26,8 @@ public class RacingGame {
         }
     }
 
-    public Cars getCars() {
-        return cars;
+    public List<Car> getCarList() {
+        return cars.getCarList();
     }
 
     public int getRaceCount() {
