@@ -9,8 +9,8 @@ public class RacingCar {
         moveNumber = 0;
     }
 
-    public void moveRandom(int randomNumber){
-        if(randomNumber >= 4) moveNumber++;
+    public void increaseRandom(){
+        moveNumber++;
     }
 
     public String getName() {

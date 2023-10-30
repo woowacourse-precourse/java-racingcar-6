@@ -18,20 +18,5 @@ public class RacingGame {
 
         outputView.printNumberOfTryInputMessage();
         int numberOfTry = inputView.readNumberOfTry();
-
-        List<RacingCar> racingCars = new ArrayList<>();
-
-        for(int i = 0; i < carNames.length; i++){
-            racingCars.add(new RacingCar(carNames[i]));
-        }
-
-        for(int i = 0; i < numberOfTry; i++){
-            for(int k = 0; k < racingCars.size(); k++){
-                racingCars.get(k).moveRandom(numberGenerator.generateNumber());
-            }
-            outputView.printResult(racingCars);
-        }
-
-        outputView.printWinner(racingCars);
     }
 }
