@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -37,11 +39,13 @@ public class OutputTest {
         printTryNumberInputRequest();
         assertThat(output.toString()).isEqualTo(TRY_NUMBER_INPUT_REQUEST_MESSAGE + lineSeparator);
     }
+
     @Test
     void printResultTitleTest() {
         printResultTitle();
         assertThat(output.toString()).isEqualTo(RESULT_TITLE + lineSeparator);
     }
+
     @Test
     void printRacingMapTest() {
         LinkedHashMap racingMap = new LinkedHashMap<String, Integer>();
@@ -51,5 +55,13 @@ public class OutputTest {
         printRacingMap(racingMap);
         String answer = "car1 : ---" + lineSeparator + "car2 : -----" + lineSeparator + "car3 : -" + lineSeparator + lineSeparator;
         assertThat(output.toString()).isEqualTo((answer));
+    }
+
+    @Test
+    void printWinnersTest() {
+        ArrayList<String> winners= new ArrayList<>(Arrays.asList("car1", "car2", "car3"));
+        printWinners(winners);
+        String answer = "최종 우승자 : car1, car2, car3";
+        assertThat(output.toString()).isEqualTo(answer + lineSeparator);
     }
 }
