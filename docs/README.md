@@ -12,15 +12,15 @@
 
 ### 사용자 출력 기능 - [OutputView](../src/main/java/racingcar/view/OutputView.java)
 
-- [ ] 각 차수별 실행 결과를 출력한다.
+- [x] 각 차수별 실행 결과를 출력한다. #printResult()
 - [ ] 우승자 안내 문구를 출력한다.
     - 단독 우승자 안내 문구는 `최종 우승자 : {이름}`을 따른다.
     - 공동 우승자 안내 문구는 `최종 우승자 : {이름1}, {이름2}`를 따른다. (공동 우승자는 `,` 로 구분한다.)
 
 ### 게임 제어 기능 - [GameController](../src/main/java/racingcar/controller/GameController.java)
 
-- [ ] 자동차를 생성하라고 지시한다.
-- [ ] 자동차 경주 게임을 진행하라 지시한다.
+- [x] 자동차를 생성하라고 지시한다. #generateCars()
+- [x] 자동차 경주 게임을 진행하라 지시한다. #racing()
 - [ ] 결과를 출력하라고 지시한다.
 
 ### 자동차 리스트 기능 - [Cars](../src/main/java/racingcar/model/Cars.java)
@@ -28,12 +28,12 @@
 - [x] 자동차를 생성한다. #from()
     - [x] ❗️ 빈 자동차 리스트일 경우 예외처리 한다. #validateEmpty()
     - [x] ❗️ 자동차의 이름이 중복될 경우 예외처리 한다. #validateDuplicate()
-- [ ] 자동차들에게 경주하라 지시한다.
+- [x] 자동차들에게 경주하라 지시한다. #race()
 - [ ] 자동차 우승자의 이름을 조회한다.
 
 ### 자동차 기능 - [Car](../src/main/java/racingcar/model/car/Car.java)
 
-- [ ] 랜덤수와 비교하여 전진하거나 머무른다.
+- [x] 랜덤수와 비교하여 전진하거나 머무른다. #race()
 - [ ] 서로의 위치를 비교한다.
 
 ### 자동차 이름 - [Name](../src/main/java/racingcar/model/car/Name.java)
@@ -43,7 +43,7 @@
 
 ### 자동차 위치 - [Position](../src/main/java/racingcar/model/car/Position.java)
 
-- [ ] 자동차의 위치를 증가한다.
+- [x] 자동차의 위치를 증가한다. #plus()
 
 ### 랜덤 수 생성 기능 - [RandomNumberGenerator](../src/main/java/racingcar/model/RandomNumberGenerator.java)
 

@@ -7,4 +7,8 @@ public class Position {
     public Position(int position) {
         this.position = position;
     }
+
+    public void plus() {
+        this.position++;
+    }
 }

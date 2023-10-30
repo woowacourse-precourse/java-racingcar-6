@@ -48,4 +48,14 @@ public class Cars {
                 .map(name -> new Car(name, new Position(0)))
                 .toList();
     }
+
+    public void race() {
+        for (Car car : cars) {
+            car.race();
+        }
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
