@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.RacingService.RacingService;
 
+import static racingcar.view.OutputView.displayFinishOnce;
 import static racingcar.view.OutputView.displayResultHeader;
 
 public class RacingController {
@@ -15,7 +16,8 @@ public class RacingController {
         displayResultHeader();
 
         while(gameContinue()) {
-
+            service.playOneRound();
+            displayFinishOnce();
         }
 
     }

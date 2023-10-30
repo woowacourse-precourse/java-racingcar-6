@@ -12,8 +12,7 @@ import static racingcar.model.RacingRule.isOkToUseAttemptCount;
 import static racingcar.model.RacingRule.isOkToUseCarName;
 import static racingcar.view.InputView.getAttemptCountFromUser;
 import static racingcar.view.InputView.getCarNamesFromUser;
-import static racingcar.view.OutputView.displayAttemptPrompt;
-import static racingcar.view.OutputView.displayCarNamePrompt;
+import static racingcar.view.OutputView.*;
 
 public class RacingService {
     private List<Car> cars;
@@ -86,5 +85,17 @@ public class RacingService {
         return totalRounds;
     }
 
+    /**
+     * 레이싱 1회 진행
+     */
+    public void playOneRound() {
+        for (Car car : cars) {
+            car.move();
+            displayCurrentGameResult(car.getName(), convertPositionToDashes(car));
+        }
+    }
 
+    private String convertPositionToDashes(Car car) {
+        return "-".repeat(car.getPosition());
+    }
 }
