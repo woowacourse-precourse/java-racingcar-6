@@ -2,7 +2,9 @@ package racingcar.v2;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class Racing {
@@ -33,12 +35,13 @@ public class Racing {
     // TODO : 예외 처리 고민해보기
     public String findWinner(Map<String, Integer> stateMap) {
         int farthestDistance = Collections.max(stateMap.values());
+        List<String> winners = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : stateMap.entrySet()) {
             if (entry.getValue() == farthestDistance) {
-                return entry.getKey();
+                winners.add(entry.getKey());
             }
         }
-        return null;  // 모든 자동차가 0 거리인 경우
+        return String.join(", ", winners);
     }
 
     public void printWinner(String winner) {
