@@ -13,4 +13,9 @@ public class Car {
     public Integer steps() {
         return this.steps;
     }
+    public void addStep(Integer randInt) {
+        if (randInt >= 4) {
+            this.steps++;
+        }
+    }
 }
