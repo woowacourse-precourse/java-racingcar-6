@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CarMap {
 
-    private LinkedHashMap<String, String> carMap = new LinkedHashMap<>();
+    private final LinkedHashMap<String, String> carMap = new LinkedHashMap<>();
 
     public CarMap(String carList){
 
