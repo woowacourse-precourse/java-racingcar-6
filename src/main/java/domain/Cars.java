@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import util.generator.RandomNumberGenerator;
 
 public class Cars {
 
@@ -13,6 +14,13 @@ public class Cars {
 
     public Cars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public void move(){
+        for(Car car: cars){
+            int randomNumber = RandomNumberGenerator.generateRandomNumber();
+            car.move(randomNumber);
+        }
     }
 
     public List<RoundResultDto> getCarsInformation() {
