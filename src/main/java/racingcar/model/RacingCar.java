@@ -24,12 +24,10 @@ public class RacingCar {
         }
     }
 
-    public boolean move(int speed) {
+    public void move(int speed) {
         if (speed >= FORWARD_THRESHOLD) {
-            this.position += speed;
-            return true;
+            this.position++;
         }
-        return false;
     }
 
     public List<RacingCar> compare(List<RacingCar> nominees) {

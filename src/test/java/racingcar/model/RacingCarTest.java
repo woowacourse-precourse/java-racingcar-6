@@ -1,9 +1,7 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,10 +11,10 @@ public class RacingCarTest {
     @Test
     void move() {
         RacingCar racingCar = new RacingCar("name");
-        assertAll(
-                () -> assertTrue(racingCar.move(4)),
-                () -> assertFalse(racingCar.move(3))
-        );
+        racingCar.move(3);
+        assertThat(racingCar.toString()).isEqualTo("name : ");
+        racingCar.move(4);
+        assertThat(racingCar.toString()).isEqualTo("name : -");
     }
 
     @DisplayName("자동차 이름 짓기")
