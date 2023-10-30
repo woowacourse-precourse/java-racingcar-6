@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.List;
 
-public class ExceptionManager {
+public class Validation {
     public static boolean isNegative(int attemptNum) {
         if (attemptNum < 1) {
             return true;
