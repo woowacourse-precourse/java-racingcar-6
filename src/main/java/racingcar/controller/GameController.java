@@ -17,23 +17,25 @@ public class GameController {
         OutputView.printStartGame();
         String[] input = InputView.inputCarList();
         List<Car> carList = gameService.registerCarListFromInput(input);
+        OutputView.printAskGameRound();
         int gameRound = validator.validateGameRound(InputView.inputGameRound());
-
         OutputView.printRoundStart();
-        for (int i = 0; i < gameRound; i++) {
-            // 1개 라운드
-            for (Car tempCar : carList) {
-                tempCar.move();
-            }
-            // 게임 결과 출력
-            OutputView.printGameStatus(new RoundResponseDto(carList));
-        }
+        runRound(gameRound, carList);
 
         List<Car> winnerCars = gameService.extractWinner(carList);
 
         String gameWinner = gameService.getGameWinner(winnerCars);
         OutputView.printGameWinner(gameWinner);
 
+    }
+
+    private void runRound(int gameRound, List<Car> carList) {
+        for (int i = 0; i < gameRound; i++) {
+            for (Car tempCar : carList) {
+                tempCar.move();
+            }
+            OutputView.printGameStatus(new RoundResponseDto(carList));
+        }
     }
 
 }
