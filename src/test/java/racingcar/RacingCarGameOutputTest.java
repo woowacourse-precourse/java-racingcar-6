@@ -10,26 +10,28 @@ import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingCar;
 import racingcar.utils.RacingCarGameOutput;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
+public class RacingCarGameOutputTest {
     private ByteArrayOutputStream outputStreamCaptor;
 
-public class RacingCarGameOutputTest extends NsTest {
     @BeforeEach
     private void setUp() {
         outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
+    private String getOutputString() {
+        return outputStreamCaptor.toString().trim();
+    }
+
     @Test
     void printResultMessage_메소드를_사용시_실행_결과들이_출력() {
         List<RacingCar> carList = List.of(
                 new RacingCar("pobi"),
-                new RacingCar("woni")
-        );
+                new RacingCar("woni"));
         carList.get(0).moveForword();
         RacingCarGameOutput.printGameProgress(carList);
-        assertThat(output()).contains("pobi : -", "woni :");
+        assertThat(getOutputString()).isEqualTo("pobi : -\nwoni :");
     }
 
     @Test
@@ -38,7 +40,7 @@ public class RacingCarGameOutputTest extends NsTest {
                 new RacingCar("woni")
         );
         RacingCarGameOutput.printWinnersMessage(carList);
-        assertThat(output()).contains("최종 우승자 : woni");
+        assertThat(getOutputString()).contains("최종 우승자 : woni");
     }
 
     @Test
@@ -49,11 +51,6 @@ public class RacingCarGameOutputTest extends NsTest {
                 new RacingCar("javaji")
         );
         RacingCarGameOutput.printWinnersMessage(carList);
-        assertThat(output()).contains("최종 우승자 : pobi, woni, javaji");
-    }
-
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
+        assertThat(getOutputString()).contains("최종 우승자 : pobi, woni, javaji");
     }
 }
