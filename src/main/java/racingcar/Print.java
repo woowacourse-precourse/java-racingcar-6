@@ -15,4 +15,9 @@ public class Print {
             System.out.println();
         }
     }
+
+    public static void winner(List<String> winner) {
+        String result = String.join(", ", winner);
+        System.out.println("최종 우승자 : " + result);
+    }
 }
