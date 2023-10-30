@@ -19,7 +19,7 @@
 - [ ] 정리한 기능 목록이 정상 작동함을 테스트 코드로 확인한다.
 
 ### 라이브러리
-- [ ] JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils 에서 제공하는 Randoms 및 Console API 사용
+- [x] JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils 에서 제공하는 Randoms 및 Console API 사용
 
 ## 🌊 Flow
 
