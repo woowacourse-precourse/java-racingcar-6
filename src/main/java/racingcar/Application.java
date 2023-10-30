@@ -1,6 +1,9 @@
 package racingcar;
 
+import java.util.List;
+
 import racingcar.model.GenerateRandomNumber;
+import racingcar.model.SplitPlayerName;
 
 public class Application {
     public static void main(String[] args) {
@@ -10,6 +13,13 @@ public class Application {
 
         int randomNumber = generator.getRandomNumber();
         System.out.println(randomNumber);
+
+        String test = "pobi,woni,jun";
+        List<String> testres = SplitPlayerName.splitPlayerName(test);
+
+        System.out.println(testres);
+        System.out.println(testres.get(0));
+
 
         
     }
