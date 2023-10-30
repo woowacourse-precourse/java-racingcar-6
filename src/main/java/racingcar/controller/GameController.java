@@ -13,5 +13,7 @@ public class GameController {
         this.outputView = outputView;
     }
 
-    public void play() {}
+    public void play() {
+        outputView.askCarNames();
+    }
 }
