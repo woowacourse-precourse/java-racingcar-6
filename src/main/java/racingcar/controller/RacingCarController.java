@@ -66,6 +66,7 @@ public class RacingCarController {
 
     private List<Car> createCarList() {
         String input = inputView.inputCarNames();
+        validateLastCharComma(input);
         Cars cars = new Cars(splitCarNamesByComma(input));
         return cars.getCars();
     }
@@ -79,6 +80,12 @@ public class RacingCarController {
 
     private void validateEmptyName(List<String> carNames){
         if(carNames.contains("")){
+            throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
+        }
+    }
+
+    private void validateLastCharComma(String input){
+        if(input.charAt(input.length() - 1) == ','){
             throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
         }
     }
