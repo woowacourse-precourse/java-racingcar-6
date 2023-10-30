@@ -23,5 +23,9 @@ public class GameManager {
         }
         return carList;
     }
+
+    public int setRoundNum(String inputRoundNum) {
+        return Integer.parseInt(inputRoundNum);
+    }
 }
 
