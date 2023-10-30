@@ -1,4 +1,4 @@
-package racingcar.implementTest;
+package racingcar.implementtest;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
@@ -13,7 +13,7 @@ public class InputTest {
     private Input input;
 
     @BeforeEach
-    void setUpCar() {
+    void initTest() {
         input = new Input();
     }
 

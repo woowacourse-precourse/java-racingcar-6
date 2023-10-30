@@ -1,4 +1,4 @@
-package racingcar.implementTest;
+package racingcar.implementtest;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -15,7 +15,7 @@ public class OutputTest {
     private Output output;
 
     @BeforeEach
-    void setUpCar() {
+    void initTest() {
         output = new Output();
     }
 
@@ -31,5 +31,5 @@ public class OutputTest {
         output.printRoundResult(printList);
         Assertions.assertThat(out.toString()).isEqualTo("pobi : -\njiho : \njava : \n");
     }
-    
+
 }

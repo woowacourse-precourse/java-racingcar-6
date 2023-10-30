@@ -1,4 +1,4 @@
-package racingcar.implementTest;
+package racingcar.implementtest;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,12 +9,12 @@ public class CarTest {
     private Car testCar;
 
     @BeforeEach
-    void setUpCar(){
+    void initTest() {
         testCar = new Car("Test");
     }
 
     @Test
-    void 자동차_이름_입력_저장(){
+    void 자동차_이름_저장() {
         Car pobiCar = new Car("pobi");
         Assertions.assertThat(pobiCar.getCarName()).isEqualTo("pobi");
         Car woniCar = new Car("woni");
@@ -22,7 +22,7 @@ public class CarTest {
     }
 
     @Test
-    void 자동차_전진(){
+    void 자동차_전진() {
         //초기값은 0
         Assertions.assertThat(testCar.getPosition()).isEqualTo(0);
 

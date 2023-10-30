@@ -1,4 +1,4 @@
-package racingcar.implementTest;
+package racingcar.implementtest;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -41,7 +41,7 @@ public class RoundServiceTest {
 
 
     @Test
-    void 자동차_이동_우테코테스트() throws NoSuchMethodException {
+    void 자동차_이동_우테코테스트코드() throws NoSuchMethodException {
         RoundService roundService = new RoundService(new RandomNumberImpl());
 
         Method method = RoundService.class.getDeclaredMethod("randomMoveSelect");
@@ -57,7 +57,7 @@ public class RoundServiceTest {
     }
 
     @Test
-    void 자동차_멈춤_우테코테스트() throws NoSuchMethodException {
+    void 자동차_멈춤_우테코테스트코드() throws NoSuchMethodException {
         RoundService roundService = new RoundService(new RandomNumberImpl());
 
         Method method = RoundService.class.getDeclaredMethod("randomMoveSelect");
@@ -73,7 +73,7 @@ public class RoundServiceTest {
     }
 
     @Test
-    void 자동차_전진_멈춤() {
+    void 자동차_전체_전진멈춤() {
         RoundService roundService = new RoundService(new RandomNumberImpl());
 
         List<Car> actual = Arrays.asList(new Car("pobi"), new Car("jiho"), new Car("java"));
