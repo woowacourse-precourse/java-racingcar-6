@@ -4,7 +4,7 @@ import static racingcar.util.RandomNumberGenerator.generateRandomNumber;
 
 import racingcar.view.ViewConstants;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private static final int MOVE_THRESHOLD = 4;
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
@@ -36,4 +36,12 @@ public class Car {
         return String.format(ViewConstants.OUTPUT_CAR_RESULT_FORMAT.toString(), name, "-".repeat(distance));
     }
 
+    @Override
+    public int compareTo(Car o) {
+        return Integer.compare(this.distance, o.distance);
+    }
+
+    public boolean isSameDistance(Car car) {
+        return this.distance == car.distance;
+    }
 }
