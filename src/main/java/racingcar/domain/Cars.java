@@ -10,8 +10,9 @@ public class Cars {
     public List<Car> createCarList(String inputNames) {
         String[] nameArr = inputNames.split(",");
         carList = Arrays.stream(nameArr)
-                .map(x -> new Car(x.trim()))
+                .map(name -> new Car(name.trim()))
                 .collect(Collectors.toList());
+        forceStop(isValidate());
         return carList;
     }
 
@@ -22,8 +23,19 @@ public class Cars {
 
     public List<String> findWinner() {
         return carList.stream()
-                .filter(x -> x.equals(findMaxDistanceCar()))
+                .filter(car -> car.equals(findMaxDistanceCar()))
                 .map(Car::getName)
                 .toList();
+    }
+
+    public boolean isValidate() {
+        return carList.stream()
+                .noneMatch(car -> car.getName().length() > 5);
+    }
+
+    public void forceStop(boolean isValidate) {
+        if (!isValidate) {
+            throw new IllegalArgumentException();
+        }
     }
 }
