@@ -16,10 +16,6 @@ public class Referee {
         return numOfGame;
     }
 
-    public List<Car> getCars() {
-        return cars;
-    }
-
     public void setCars(String cars) {
         String[] carName = cars.split(",");
         this.cars = parsingCarString(carName);
@@ -74,5 +70,9 @@ public class Referee {
             }
         }
         return winners;
+    }
+
+    public void showWinners(){
+        System.out.println("최종 우승자 : " + String.join(", ", getWinners()));
     }
 }
