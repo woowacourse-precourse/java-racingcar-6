@@ -15,14 +15,19 @@ public class RacingGame {
     private TryCount tryCount;
 
     public void start() {
-        cars = createCars(InputView.readRacingCarName());
-        tryCount = new TryCount(InputView.readTryCount());
+        cars = readCarNames();
+        tryCount = readTryCount();
 
         OutputView.printResultMessage();
         printResult();
 
-        Winners winners = new Winners(findWinners());
+        Winners winners = findWinners();
         OutputView.printWinners(winners);
+    }
+
+    private Cars readCarNames() {
+        List<String> racingCarNames = InputView.readRacingCarName();
+        return createCars(racingCarNames);
     }
 
     private Cars createCars(List<String> racingCarNames) {
@@ -33,6 +38,10 @@ public class RacingGame {
         );
     }
 
+    private TryCount readTryCount() {
+        return new TryCount(InputView.readTryCount());
+    }
+
     private void printResult() {
         for (int i = 0; i < tryCount.tryCount(); i++) {
             cars.tryToMoveCars();
@@ -40,8 +49,8 @@ public class RacingGame {
         }
     }
 
-    private List<String> findWinners() {
-        return cars.findWinners();
+    private Winners findWinners() {
+        return new Winners(cars.findWinners());
     }
 
 
