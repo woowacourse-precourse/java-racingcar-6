@@ -27,11 +27,9 @@ public class Cars {
 
 
     public Integer findWinnerPosition() {
-        List<Car> sorted = cars.stream()
-                .sorted()
-                .collect(Collectors.toList());
-
-        return sorted.get(sorted.size()-1).getPosition();
+        return cars.stream().max(Car::compareTo)
+                            .get()
+                            .getPosition();
     }
 
     public List<Car> findWinner(Integer winnerPosition) {
