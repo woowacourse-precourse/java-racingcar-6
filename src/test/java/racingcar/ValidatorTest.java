@@ -41,8 +41,22 @@ public class ValidatorTest  {
     }
 
     @Test()
+    void 중복_이름_예외_처리() {
+        assertThatThrownBy(() -> carNameValidator = new CarNameValidator("hyun,hyun,pobi"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
+    }
+
+    @Test()
     void 진행_라운드_숫자_외_문자_입력_예외_처리() {
         assertThatThrownBy(() -> roundValidator = new RoundValidator("asd"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR_MESSAGE);
+    }
+
+    @Test()
+    void 진행_라운드_미_입력_예외_처리() {
+        assertThatThrownBy(() -> roundValidator = new RoundValidator(""))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR_MESSAGE);
     }
