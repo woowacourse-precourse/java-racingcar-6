@@ -29,4 +29,10 @@ public class InputValidatorTest {
         String[] input = { "name1", "name2", "name1" };
         assertThrows(IllegalArgumentException.class, () -> InputValidator.validateDuplicateName(input));
     }
+
+    @Test
+    void validateNotNumberTest() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNotNumber("1a2b3"));
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNotNumber("abc"));
+    }
 }
