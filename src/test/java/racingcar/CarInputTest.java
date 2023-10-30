@@ -2,7 +2,17 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.Computer.calculateMaxDistance;
+import static racingcar.Computer.createCarNames;
+import static racingcar.Computer.createRoundCount;
+import static racingcar.Computer.findWinner;
+import static racingcar.Computer.getInput;
+import static racingcar.Computer.printWinner;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -110,7 +120,6 @@ class CarInputTest {
         String userInputOne = "pobi,pobi";
         String userInputTwo = "jun, jun ";
 
-
         // when
         List<String> carNamesOne = Computer.createCarNames(userInputOne);
         List<String> carNamesTwo = Computer.createCarNames(userInputTwo);
@@ -126,4 +135,22 @@ class CarInputTest {
 
     }
 
+    @Test
+    void 명시된_출력문_출력() {
+
+        // given
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        String input = "pobi,woni,jun";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // when
+        Car car = new Car(createCarNames(getInput("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)")));
+
+        // then
+        assertThat(out.toString())
+                .contains("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
+    }
 }
