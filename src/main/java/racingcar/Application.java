@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,10 @@ public class Application {
     private static void startRacing() {
         List<Car> carList = inputAndGetCarList();
         int racingCount = inputRacingCount();
+
+        for (int i = 0; i < racingCount; i++) {
+            playRacing(carList);
+        }
     }
 
     private static List<Car> inputAndGetCarList() {
@@ -40,5 +45,15 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String racingCount = Console.readLine();
         return Integer.parseInt(racingCount);
+    }
+
+    private static void playRacing(List<Car> carList) {
+        for (Car car : carList) {
+            int randomNumber = getRandomNumber();
+        }
+    }
+
+    private static int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
