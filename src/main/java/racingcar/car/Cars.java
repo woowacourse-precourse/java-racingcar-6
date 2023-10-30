@@ -4,16 +4,16 @@ import java.util.List;
 import racingcar.util.CarListMaker;
 
 public record Cars(List<Car> carList) {
-    public static Cars getCarsFromNames(String names) {
+    public static Cars fromNames(String names) {
         return new Cars(CarListMaker.makeCarList(names));
     }
 
-    public Cars race() {
-        List<Car> result = carList.stream()
-                .map(Car::moveForward)
-                .toList();
-
-        return new Cars(result);
+    public void race(List<Integer> numberList) {
+        for (int index = 0; index < numberList.size(); index++) {
+            Car car = carList.get(index);
+            int randomNumber = numberList.get(index);
+            car.moveForward(randomNumber);
+        }
     }
 
     public List<Car> findWinners() {
@@ -24,12 +24,12 @@ public record Cars(List<Car> carList) {
 
     private int getMaxLocation() {
         return carList.stream()
-                .mapToInt(Car::location)
+                .mapToInt(Car::getCarLocation)
                 .max()
                 .orElse(0);
     }
 
     private boolean isWinner(Car car) {
-        return car.location() == getMaxLocation();
+        return car.getCarLocation() == getMaxLocation();
     }
 }
