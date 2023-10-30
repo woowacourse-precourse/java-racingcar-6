@@ -6,12 +6,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -33,20 +33,19 @@ class InputViewTest {
     }
 
     @Test
-    @DisplayName("사용자는 자동차를 두 대 이상 입력해서 List<Car>로 반환받을 수 있다.")
+    @DisplayName("사용자는 자동차를 두 대 이상 입력해서 Cars로 반환받을 수 있다.")
     void carsInputTest() {
         // given
         String input = "pobi,woni";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        List<Car> cars = inputView.inputCarNames();
+        Cars cars = inputView.inputCarNames();
 
         // then
         assertAll(
-                () -> assertThat(cars).hasSize(2),
-                () -> assertThat(cars.get(0).getNameValue()).isEqualTo("pobi"),
-                () -> assertThat(cars.get(1).getNameValue()).isEqualTo("woni")
+                () -> assertThat(cars.value()).hasSize(2),
+                () -> assertThat(cars.value()).containsExactly(new Car("pobi"), new Car("woni"))
         );
     }
 

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.Name;
 
 import java.io.ByteArrayOutputStream;
@@ -79,7 +80,7 @@ class OutputViewTest {
         cars.get(1).tryMove(MOVING_NUMBER);
 
         // when
-        outputView.printResult(cars);
+        outputView.printResult(new Cars(cars));
 
         // then
         String expectedOutput = "car1 : -\n" + "car2 : --\n\n";

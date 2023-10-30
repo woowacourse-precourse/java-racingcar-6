@@ -1,10 +1,9 @@
 package racingcar.view;
 
-import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.Name;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OutputView {
 
@@ -29,12 +28,9 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void printResult(List<Car> cars) {
-        final String NEW_LINE = "\n";
+    public void printResult(Cars cars) {
 
-        String gameProgress = cars.stream()
-                .map(car -> car.getNameValue() + SEPARATOR + car.getPositionSymbol())
-                .collect(Collectors.joining(NEW_LINE)) + NEW_LINE;
+        String gameProgress = cars.progressSingleRound();
 
         System.out.println(gameProgress);
     }

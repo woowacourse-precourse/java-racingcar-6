@@ -2,24 +2,24 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
 import racingcar.validator.GameValidator;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class InputView {
 
     private static final String DELIMITER = ",";
 
-    public List<Car> inputCarNames() {
+    public Cars inputCarNames() {
 
         String cars = getCars();
 
-        return Arrays.stream(cars.split(DELIMITER))
+        return new Cars(Arrays.stream(cars.split(DELIMITER))
                 .map(String::trim)
                 .map(Car::makeCar)
-                .toList();
+                .toList());
     }
 
     public TryCount inputTryCount() {
