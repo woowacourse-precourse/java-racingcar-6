@@ -8,15 +8,15 @@ import racingcar.view.constants.GameNotice;
 
 public class OutputView {
     public static void printRoundResult(List<Car> cars) {
-        for (Car c: cars) {
-            System.out.println(c.convertPositionToString());
+        for (Car car : cars) {
+            System.out.println(car.combineCarNameAndPosition());
         }
         System.out.print("\n");
     }
 
     public static void printWinners(List<Car> winners) {
         printGameNotice(FINAL_WINNER);
-        System.out.println(winners.toString().replace("[","").replace("]",""));
+        System.out.println(winners.toString().replace("[", "").replace("]", ""));
     }
 
     public static void printGameNotice(GameNotice gameNotice) {

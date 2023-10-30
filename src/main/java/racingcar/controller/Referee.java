@@ -18,7 +18,7 @@ public class Referee {
     }
 
     public void proceedRound() {
-        for (Car c: cars) {
+        for (Car c : cars) {
             decideMoveForward(c);
         }
     }
@@ -33,21 +33,28 @@ public class Referee {
     public List<Car> determineWinner() {
         List<Car> winners = new ArrayList<>();
         int winnerPosition = getWinnerPosition(cars);
-        for (Car c: cars) {
-            if (c.isWinner(winnerPosition)) {
-                winners.add(c);
-            }
+
+        for (Car car : cars) {
+            compareCarToWinnerPosition(winners, car, winnerPosition);
         }
         return winners;
     }
 
     private int getWinnerPosition(List<Car> cars) {
         List<String> raceResult = new ArrayList<>();
-        for (Car c: cars) {
-            raceResult.add(c.convertPositionToResult());
+
+        for (Car car : cars) {
+            raceResult.add(car.convertPositionToString());
         }
+
         return raceResult.stream()
                 .collect(Collectors.summarizingInt(String::length))
                 .getMax();
+    }
+
+    private void compareCarToWinnerPosition(List<Car> winners, Car car, int winnerPosition) {
+        if (car.isWinner(winnerPosition)) {
+            winners.add(car);
+        }
     }
 }

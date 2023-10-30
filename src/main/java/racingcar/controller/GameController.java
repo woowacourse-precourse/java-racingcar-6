@@ -6,7 +6,6 @@ import static racingcar.view.OutputView.printRoundResult;
 import static racingcar.view.OutputView.printWinners;
 import static racingcar.view.constants.GameNotice.EXECUTION_RESULT;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
@@ -20,7 +19,8 @@ public class GameController {
     public void play() {
         setUp();
         printGameNotice(EXECUTION_RESULT);
-        while(roundCount.hasRemainRound()) {
+
+        while (roundCount.hasRemainRound()) {
             referee.proceedRound();
             printRoundResult(cars);
         }
@@ -30,14 +30,16 @@ public class GameController {
     private void setUp() {
         List<String> userInputCarNames = askCarNames();
         createCars(userInputCarNames);
+
         String userInputRoundCount = askHowManyRounds();
         roundCount = RoundCount.store(userInputRoundCount);
+
         referee = Referee.of(cars);
     }
 
     private void createCars(List<String> userInput) {
         for (String carName : userInput) {
-            cars.add(Car.createCar(carName));
+            cars.add(Car.create(carName));
         }
     }
 }

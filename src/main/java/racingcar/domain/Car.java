@@ -3,32 +3,32 @@ package racingcar.domain;
 import static racingcar.util.GameConfig.CAR_INITIAL_POSITION;
 
 public class Car {
-    private final Name carName;
+    private final CarName carName;
     private int position;
 
-    private Car(String carName) {
-        this.carName = Name.of(carName);
+    private Car(String name) {
+        this.carName = CarName.of(name);
         this.position = CAR_INITIAL_POSITION.getValue();
     }
 
-    public static Car createCar(String carName) {
-        return new Car(carName);
+    public static Car create(String name) {
+        return new Car(name);
     }
 
     public void moveForward() {
         position++;
     }
 
-    public String convertPositionToString() {
-        return carName + " : " + convertPositionToResult();
+    public String combineCarNameAndPosition() {
+        return carName + " : " + convertPositionToString();
     }
 
-    public String convertPositionToResult() {
+    public String convertPositionToString() {
         return "-".repeat(position);
     }
 
-    public boolean isWinner(int maxPosition) {
-        return this.position == maxPosition;
+    public boolean isWinner(int winnerPosition) {
+        return this.position == winnerPosition;
     }
 
     @Override

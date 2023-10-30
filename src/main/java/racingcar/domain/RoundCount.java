@@ -20,9 +20,9 @@ public class RoundCount {
     public static RoundCount store(String userInput) {
         return new RoundCount(userInput);
     }
+
     public boolean hasRemainRound() {
         roundCount--;
         return roundCount >= LAST_ROUND.getValue();
     }
-
 }
