@@ -9,9 +9,11 @@ import java.util.Map;
 
 public class Validation {
 
-    public void checkNullOrSpaceInNameInput(String carNameInput) {
+    public void checkNameInputCommaOrSpace(String carNameInput) {
         if (carNameInput.contains(COMMA)) {
             checkComma(carNameInput);
+        }
+        if (carNameInput.contains(SPACE)) {
             checkSpace(carNameInput);
         }
     }
