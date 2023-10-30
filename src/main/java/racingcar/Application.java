@@ -40,7 +40,7 @@ public class Application {
         return user;
     }
 
-    //회차 입력받기
+    //회차 회수 입력받기
     public static int setTime(){
         System.out.println("시도할 회수는 몇회인가요?");
         int res = Integer.parseInt(Console.readLine());        
