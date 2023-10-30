@@ -2,7 +2,7 @@
 
 ## 기능 목록
 - [ ] 0에서 9 사이에서 무작위 값을 생성한다. - `NumberGenerator#createRandomNumber()`
-- [ ] 자동차 경주는 n대의 자동차들이 참여할 수 있다. - `CarRacing#cars`
+- [ ] 자동차 경주는 n대의 자동차들이 참여할 수 있다. - `CarRacing#participateCars()`
   - [ ] 자동차의 이름들을 입력받는다. - `Prompt#readCarNames()`
     - [ ] 자동차 이름은 쉼표로 구분한다. - `Splitter#splitCarNameWith()`
     - [ ] 자동차 이름은 5자 이내이어야 한다. - `Validator#isNotCarName()`
