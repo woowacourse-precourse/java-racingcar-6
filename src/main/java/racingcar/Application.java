@@ -12,9 +12,7 @@ public class Application {
         String[] carList = InputView.inputParticipants();
         int round = InputView.inputRound();
 
-        HashMap<String, String> participants = new HashMap<>();
-        for (String car : carList)
-            participants.put(car, "");
+        HashMap<String, String> participants = convertStringToHashMap(carList);
 
         while (isRoundLeft(round)) {
             for (String car : carList) {
@@ -32,6 +30,13 @@ public class Application {
         }
 
         OutputView.showFinalResultOf(participants);
+    }
+
+    private static HashMap<String, String> convertStringToHashMap(String[] carList) {
+        HashMap<String, String> participants = new HashMap<>();
+        for (String car : carList)
+            participants.put(car, "");
+        return participants;
     }
 
     public static boolean isRoundLeft(int round) {
