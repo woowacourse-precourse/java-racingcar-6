@@ -27,7 +27,7 @@ public class Validation {
 
     public static boolean isBlank(List<String> members) {
         for (int i = 0; i < members.size(); i++) {
-            if (isBlank(members.get(i))) {
+            if (members.get(i).contains(" ")) {
                 return true;
             }
         }
