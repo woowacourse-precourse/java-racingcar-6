@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGameConsole {
-    private final Car car;
     private static final int MOVE_JUDGE_INTEGER = 4;
+    private final Car car;
+    private final List<String> winnerCarNames = new ArrayList<>();
     private final int numberOfCars;
     private final int timesToTry;
     private int carIndex = 0;
     private int mostMovedAmount = 0;
-    private final List<String> winnerCarNames = new ArrayList<>();
 
     public RacingCarGameConsole(Car car, int timesToTry) {
         this.car = car;

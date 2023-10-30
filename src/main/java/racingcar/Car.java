@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Car {
+    private static final int CAR_NAME_LENGTH_MAX = 5;
     private final List<String> names;
     private final int[] moveAmount;
     private final int number;
-    private static final int CAR_NAME_LENGTH_MAX = 5;
 
     public Car(String carNamesString) {
         isCorrectNameString(carNamesString);
