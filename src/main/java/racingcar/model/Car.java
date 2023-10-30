@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.model.dto.GameResult;
 import racingcar.util.CarNameValidator;
 import racingcar.util.MoveResolver;
 
@@ -10,6 +11,17 @@ public class Car {
     public Car(String name) {
         CarNameValidator.validate(name);
         this.name = name;
+    }
+
+    public static Car maxByPostion(Car car1, Car car2) {
+        if (car1.position > car2.position) {
+            return car1;
+        }
+        return car2;
+    }
+
+    public boolean isSamePosition(Car target) {
+        return this.position == target.position;
     }
 
     public String getName() {
