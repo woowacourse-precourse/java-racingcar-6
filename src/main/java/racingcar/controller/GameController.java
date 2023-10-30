@@ -54,7 +54,7 @@ public class GameController {
         List<String> winners = cars.getCars()
                 .stream()
                 .filter(car -> car.isPositionEqualTo(winnerPosition))
-                .map(CarConverter::from)
+                .map(CarConverter::fromEntity)
                 .map(CarResponse::getName)
                 .toList();
 

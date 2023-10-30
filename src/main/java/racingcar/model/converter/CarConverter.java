@@ -8,7 +8,7 @@ public class CarConverter {
     private CarConverter() {
     }
 
-    public static CarResponse from(final Car car) {
+    public static CarResponse fromEntity(final Car car) {
         return CarResponse.of(car.getName(), car.getPosition());
     }
 }
