@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import racingcar.vo.Car;
 
 public class RacingGameEvent {
@@ -20,5 +21,14 @@ public class RacingGameEvent {
         return positionHistory;
     }
 
-    
+
+    public void startEvent(int attempt) {
+        for (int i = 0; i < attempt; i++) {
+            for (Entry<Car, List<Integer>> value : positionHistory.entrySet()) {
+                Car carName = value.getKey();
+                List<Integer> position = value.getValue();
+                position.add(carName.moveForward(new MoveForward().success()));
+            }
+        }
+    }
 }
