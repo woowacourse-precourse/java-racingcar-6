@@ -10,14 +10,17 @@ public class Player {
     private final int NAME_SIZE = 5;
     private final Exception exception = new Exception();
 
-    public List<String> inputCarNames() {
+    public String inputNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-        if (!input.contains(",")) {
+        return Console.readLine();
+    }
+
+    public List<String> validateInputCarNames(String names) {
+        if (!names.contains(",")) {
             exception.checkCountCarNames();
         }
 
-        String[] inputNames = input.split(",");
+        String[] inputNames = names.split(",");
         List<String> carNames = new ArrayList<>();
         for (int i = 0; i < inputNames.length; i++) {
             if (inputNames[i].contains(" ")) {
@@ -34,18 +37,21 @@ public class Player {
         return carNames;
     }
 
-    public int inputCounts() {
+    public String inputCounts() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String input = Console.readLine();
-        if (input.length() < 1) {
+        return Console.readLine();
+    }
+
+    public int validateInputCounts(String counts) {
+        if (counts.length() < 1) {
             exception.checkNothing();
         }
-        for (char ch : input.toCharArray()) {
+        for (char ch : counts.toCharArray()) {
             if (!Character.isDigit(ch)) {
                 exception.checkIsDigit();
             }
         }
-        return Integer.parseInt(input);
+        return Integer.parseInt(counts);
     }
 
 }
