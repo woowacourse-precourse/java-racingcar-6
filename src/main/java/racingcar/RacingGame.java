@@ -1,19 +1,19 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class RacingGame {
 
-    ArrayList<Car> Cars = new ArrayList<Car>();
+    private ArrayList<Car> cars = new ArrayList<Car>();
 
     public void createCars(String[] carNames) {
         for (int carNumber = 0; carNumber < carNames.length; carNumber++)
         {
             String carName = carNames[carNumber];
-            Cars.add(new Car(carName));
+            cars.add(new Car(carName));
         }
     }
 
@@ -23,7 +23,7 @@ public class RacingGame {
     }
 
     void moveCars() {
-        for (Car car : Cars) {
+        for (Car car : cars) {
             if (makeRandomNumber() >= 4) {
                 car.moveForward();
             }
@@ -32,7 +32,7 @@ public class RacingGame {
 
      LinkedHashMap<String, Integer> getCurrentStatus() {
          LinkedHashMap<String, Integer> currStatus = new LinkedHashMap<String, Integer>();
-         for (Car car : Cars) {
+         for (Car car : cars) {
              currStatus.put(car.getName(), car.getLocation());
          }
          return currStatus;
@@ -41,7 +41,7 @@ public class RacingGame {
      ArrayList<String> getWinner() {
         int maxLocation = -1;
         HashMap<Integer, ArrayList<String>> carsClassifiedByLocation = new HashMap<>();
-        for (Car car : Cars) {
+        for (Car car : cars) {
             int currentLocation = car.getLocation();
             if (currentLocation > maxLocation) {
                 maxLocation = currentLocation;
