@@ -22,13 +22,7 @@ public class RacingCarController {
 
         racingCarView.printAskingNumberOfRetries();
         Integer numberOfRetries = askingNumberOfRetires();
-
-        racingCarView.printResultPerRacing();
-        while (numberOfRetries > 0) {
-            this.racingCar.moveRandomAllCar();
-            numberOfRetries--;
-            racingCarView.printCarListMovement(this.racingCar);
-        }
+        startRacingCar(numberOfRetries);
 
         List<Car> winners = this.racingCar.findWinners();
         racingCarView.printFinalMessage(winners);
@@ -45,6 +39,19 @@ public class RacingCarController {
         String numberOfRetries = Console.readLine();
         UserInputValidator.validateNumberOfRetriesInput(numberOfRetries);
         return Integer.valueOf(numberOfRetries);
+    }
+
+    private void startRacingCar(Integer numberOfRetries) {
+        racingCarView.printResultPerRacing();
+        startAllRetries(numberOfRetries);
+    }
+
+    private void startAllRetries(Integer numberOfRetries) {
+        while (numberOfRetries > 0) {
+            racingCar.moveRandomAllCar();
+            numberOfRetries--;
+            racingCarView.printCarListMovement(racingCar);
+        }
     }
 
 }
