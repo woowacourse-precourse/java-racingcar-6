@@ -19,6 +19,10 @@ public class InputParser {
                 .map(Car::new)
                 .collect(Collectors.toList()));
     }
+
+    public int parseTrialNumber(String number) {
+        return Integer.parseInt(number);
+    }
 }
 
 
