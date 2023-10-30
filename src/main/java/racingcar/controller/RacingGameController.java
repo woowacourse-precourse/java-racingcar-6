@@ -3,18 +3,22 @@ package racingcar.controller;
 import static java.lang.Integer.parseInt;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.model.CarNameList;
+import racingcar.model.ResultList;
 
 public class RacingGameController {
     private static CarNameList carNameList;
+    private static ResultList resultList;
     private static Integer tryNumber;
     public void init(){
-        carNameList = CarNameList.getinstance(getCarString());
+        carNameList = CarNameList.getInstance(getCarString());
         carNameList.PrintCarName();
         tryNumber = getTryNumber();
-    }
-    public void progress(){
 
+        resultList = ResultList.getInstance(getResultList());
+        resultList.PrintResult();
     }
     public String[] getCarString(){
         String carName = Console.readLine();
@@ -23,5 +27,12 @@ public class RacingGameController {
     public Integer getTryNumber(){
         Integer inputNumber = parseInt(Console.readLine());
         return inputNumber;
+    }
+    public List<String> getResultList(){
+        List<String> resultList = new ArrayList<>();
+        for(int i=0; i< carNameList.getCarCount(); i++){
+            resultList.add("");
+        }
+        return resultList;
     }
 }
