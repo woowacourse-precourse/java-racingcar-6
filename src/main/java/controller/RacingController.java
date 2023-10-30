@@ -1,8 +1,5 @@
 package controller;
 
-
-import camp.nextstep.edu.missionutils.Randoms;
-import service.Car;
 import service.UserInput;
 import view.MessagePrinter;
 import vo.Cars;
