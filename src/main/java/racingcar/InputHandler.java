@@ -14,10 +14,8 @@ public class InputHandler {
         List<String> result = new ArrayList<>();
 
         for (String part : parts) {
-            //공백제거 후 리스트에 추가
-            result.add(part.trim());
+            result.add(part);
         }
-
         return result;
     }
 
