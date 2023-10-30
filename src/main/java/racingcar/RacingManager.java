@@ -10,9 +10,19 @@ import java.util.Comparator;
 import java.util.List;
 
 public class RacingManager {
-    private final NumberGenerator ng = new RandomNumberGenerator();
+    private final NumberGenerator ng;
     private List<RacingCar> racingCars;
     private int moveCount;
+
+    public RacingManager(String carNamesInput, String moveCountInput) {
+        this(carNamesInput, moveCountInput, new RandomNumberGenerator());
+    }
+
+    public RacingManager(String carNamesInput, String moveCountInput, NumberGenerator ng) {
+        this.racingCars = createRacingCars(carNamesInput);
+        this.moveCount = parseMoveCountInput(moveCountInput);
+        this.ng = ng;
+    }
 
     public void initRace() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
