@@ -14,6 +14,12 @@ public class Race {
     public void start(){
         inputCars();
         inputTurnNum();
+        Progress();
+        end();
+    }
+
+    private void Progress() {
+        System.out.println(Constant.RACE_PROCESS);
         for (int i = 0; i < turnNum; i++) {
             driveCar();
             printResult();
@@ -59,6 +65,7 @@ public class Race {
 
         int number = Integer.parseInt(Console.readLine());
         validateInputTurnNUm(number);
+        turnNum = number;
     }
 
     public void validateInputTurnNUm(int number){
@@ -83,5 +90,26 @@ public class Race {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public void end(){
+        selectWinner();
+    }
+
+    private void selectWinner() {
+        StringBuilder sb = new StringBuilder();
+        int maxDistance = 0;
+        for (Car car : allCars) {
+
+            if(car.distance==maxDistance){
+                sb.append(", "+ car.carName);
+            }else if(car.distance>maxDistance){
+                maxDistance = car.distance;
+                sb.setLength(0);
+                sb.append(car.carName);
+            }
+
+        }
+        System.out.println("최종 우승자 : " + sb);
     }
 }
