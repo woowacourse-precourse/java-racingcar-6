@@ -1,28 +1,12 @@
 package racingcar;
 
-
-import static racingcar.view.InputView.inputAttemptsCount;
-
 import racingcar.domain.Controller;
-import racingcar.model.Car;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
+import racingcar.view.View;
 
 public class Application {
     public static void main(String[] args) {
-        OutputView.startInputMessage();
-
-        String carName = InputView.inputCarName();
-        new Car(carName);
-        Controller.validateCarNames(); // 버그 고쳐야됨
-
-        OutputView.askForAttemptsCount();
-        String inputAttemptsCount = inputAttemptsCount();
-        Controller.validateInputAttemptsCount(inputAttemptsCount);
-
-        OutputView.resultMessage();
-        Controller.playRace(inputAttemptsCount);
-
-        OutputView.winnerMessage();
+        View.startInputMessage();
+        Controller controller = new Controller();
+        controller.gameLogic();
     }
 }

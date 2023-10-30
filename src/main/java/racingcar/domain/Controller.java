@@ -1,95 +1,52 @@
 package racingcar.domain;
 
-import static racingcar.view.OutputView.createStringBuilders;
-import static racingcar.view.OutputView.displayResult;
-
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
-import racingcar.view.Validator;
+import racingcar.model.InputData;
+import racingcar.preprocess.ProcessNames;
+import racingcar.view.View;
 
 public class Controller {
-    private static final List<String> carNameList = Car.getCarName();
-    static List<StringBuilder> result = createStringBuilders(carNameList);
-    static List<StringBuilder> resultsb = displayResult(result);
+    public void gameLogic() {
+        String inputCarName = View.input();
+        Car car = createCar(inputCarName);
+        validateCarNames(car);
 
-    public static void validateCarNames() {
-        if (!Validator.isCarNameOverFiveCharacters(carNameList)) {
-            throw new IllegalArgumentException();
-        }
+        int attemptsCount = askForAttemptsCount();
+        InputData inputData = new InputData(String.valueOf(attemptsCount));
+        validateInputAttemptsCount(inputData);
 
-        if (!Validator.validateDelimiter(carNameList)) {
-            throw new IllegalArgumentException();
-        }
-
-        if (!Validator.isEmpty(carNameList)) {
-            throw new IllegalArgumentException();
-        }
+        runRace(inputData, car);
+        showWinnerMessage();
     }
 
-    public static void validateInputAttemptsCount(String inputAttemptsCount) {
-        if (!Validator.isNonNumericInput(inputAttemptsCount)) {
-            throw new IllegalArgumentException();
-        }
-
-        if (!Validator.isEmpty(Collections.singletonList(inputAttemptsCount))) {
-            throw new IllegalArgumentException();
-        }
+    private Car createCar(String inputCarName) {
+        ProcessNames processNames = new ProcessNames();
+        List<String> carNames = processNames.processNames(inputCarName);
+        return new Car(carNames);
     }
 
-    public static boolean makeMoveDecision() {
-        boolean move = false;
-        int moveDecision = Randoms.pickNumberInRange(0, 9);
-        if (moveDecision >= 4) {
-            move = true;
-        }
-        return move;
+    private void validateCarNames(Car car) {
+        ValidatorException.validateCarNames(car);
     }
 
-    public static void playRace(String inputAttemptsCount) {
-        int raceCount = Integer.parseInt(inputAttemptsCount);
-        for (int i = 0; i < raceCount; i++) {
-            displayResult(result);
-            System.out.println();
-        }
+    private int askForAttemptsCount() {
+        View.askForAttemptsCount();
+        String inputAttemptsCount = View.input();
+        return Integer.parseInt(inputAttemptsCount);
     }
 
-    public static int winnerDashCount() {
-        int winnerDashCount = 0;
-        for (int i = 0; i < resultsb.size(); i++) {
-            String carInfo = String.valueOf(resultsb.get(i));
-            int dashCount = countChar(carInfo, '-');
-            if (dashCount >= winnerDashCount) {
-                winnerDashCount = dashCount;
-            }
-        }
-        return winnerDashCount;
+    private void validateInputAttemptsCount(InputData inputData) {
+        ValidatorException.validateInputAttemptsCount(inputData);
     }
 
-    private static int countChar(String carInfo, char c) {
-        int count = 0;
-
-        for (int i = 0; i < carInfo.length(); i++) {
-            if (carInfo.charAt(i) == c) {
-                count++;
-            }
-        }
-
-        return count;
+    private void runRace(InputData inputData, Car car) {
+        View.resultMessage();
+        RacingCarGame.playRace(inputData, car);
     }
 
-    public static List<String> getgameWinner() {
-        List<String> winnerList = new ArrayList<>();
-        for (int i = 0; i < resultsb.size(); i++) {
-            String carInfo = String.valueOf(resultsb.get(i));
-            int dashCount = countChar(carInfo, '-');
-            if (dashCount == winnerDashCount()) {
-                winnerList.add(carInfo.substring(0, carInfo.indexOf(" ")));
-            }
-        }
-        return winnerList;
+    private void showWinnerMessage() {
+        View.winnerMessage();
     }
 }
 
