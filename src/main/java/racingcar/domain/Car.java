@@ -3,7 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
+    private final String name;
     // 일직선 상의 차의 위치
     private Integer position;
 
