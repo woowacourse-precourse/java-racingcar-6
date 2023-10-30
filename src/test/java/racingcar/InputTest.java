@@ -2,7 +2,6 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.assertj.core.api.Assertions.assertThatNoException;
-import static racingcar.util.GameConstants.CAR_NAME_DELIMITER;
 import static racingcar.util.GameConstants.COUNT_OF_CAR;
 import static racingcar.util.GameConstants.MAXIMUM_CAR_NAME_LENGTH;
 
@@ -31,10 +30,10 @@ public class InputTest {
             char name = (char) ('a' + i);
             strings.add(Character.toString(name));
         }
-        final String input = String.join(CAR_NAME_DELIMITER, strings);
+        final String[] input = strings.toArray(new String[strings.size()]);
 
         // when & then
-        assertThatNoException(() -> carNameValidator.validateCount(input));
+        assertThatNoException().isThrownBy(() -> carNameValidator.validateCount(input));
     }
 
     @Test
@@ -46,63 +45,73 @@ public class InputTest {
             char name = (char) ('a' + i);
             strings.add(Character.toString(name));
         }
-        final String input = String.join(CAR_NAME_DELIMITER, strings);
+        final String[] input = strings.toArray(new String[strings.size()]);
 
         // when & then
-        assertThatIllegalArgumentException(() -> carNameValidator.validateCount(input));
+        assertThatIllegalArgumentException().isThrownBy(() -> carNameValidator.validateCount(input));
     }
 
     @Test
     @DisplayName("공백을 입력받을 경우 예외를 반환한다.")
     public void 공백을_입력받을_경우_예외를_반환한다() {
         // given
+        List<String> strings = new ArrayList<>();
+        strings.add("");
+        final String[] input = strings.toArray(new String[strings.size()]);
+
         // when & then
-        assertThatIllegalArgumentException(() -> carNameValidator.validateCount(""));
+        assertThatIllegalArgumentException().isThrownBy(() -> carNameValidator.validateCount(input));
     }
 
     @Test
-    @DisplayName("형식을 벗어난 경우 예외를 반환한다.")
-    public void 형식을_벗어난_경우_예외를_반환한다() {
+    @DisplayName("이름의 길이가 최소 길이 이상일 경우 테스트를 통과한다.")
+    public void 이름이_길이가_최소_길이_이상일_경우_테스트를_통과한다() {
         // given
         List<String> strings = new ArrayList<>();
         for (int i = 0; i < COUNT_OF_CAR; i++) {
             char name = (char) ('a' + i);
             strings.add(Character.toString(name));
         }
-        final String input = String.join(CAR_NAME_DELIMITER, strings) + CAR_NAME_DELIMITER;
+        final String[] input = strings.toArray(new String[strings.size()]);
 
         // when & then
-        assertThatIllegalArgumentException(() -> carNameValidator.validateCount(input));
+        assertThatNoException().isThrownBy(() -> carNameValidator.validateLength(input));
     }
 
     @Test
-    @DisplayName("이름의 길이가 범위 내일 경우 테스트를 통과한다.")
-    public void 이름이_길이가_범위_내일_경우_테스트를_통과한다() {
+    @DisplayName("이름의 길이가 최소 길이 미만인 경우 예외를 반환한다.")
+    public void 이름이_길이가_최소_길이_미만인_경우_예외를_반환한다() {
         // given
-        // when & then
-        assertThatNoException(() -> carNameValidator.validateLength("a"));
-    }
-
-    @Test
-    @DisplayName("이름의 길이가 0일 경우 예외를 반환한다.")
-    public void 이름이_길이가_0일_경우_예외를_반환한다() {
-        // given
-        // when & then
-        assertThatIllegalArgumentException(() -> carNameValidator.validateLength(""));
-    }
-
-    @Test
-    @DisplayName("이름의 길이가 범위 밖일 경우 예외를 반환한다.")
-    public void 이름이_길이가_범위_밖일_경우_예외를_반환한다() {
-        // given
-        String carName = "";
-        for (int i = 0; i <= MAXIMUM_CAR_NAME_LENGTH; i++) {
-            carName += "a";
+        List<String> strings = new ArrayList<>();
+        for (int i = 0; i < COUNT_OF_CAR - 1; i++) {
+            char name = (char) ('a' + i);
+            strings.add(Character.toString(name));
         }
-        final String finalCarName = carName;
+        strings.add("");
+        final String[] input = strings.toArray(new String[strings.size()]);
+
+        // when & then
+        assertThatIllegalArgumentException().isThrownBy(() -> carNameValidator.validateLength(input));
+    }
+
+    @Test
+    @DisplayName("이름의 길이가 최대 길이 초과인 경우 예외를 반환한다.")
+    public void 이름이_길이가_최대_길이_초과인_경우_예외를_반환한다() {
+        // given
+        List<String> strings = new ArrayList<>();
+        for (int i = 0; i < COUNT_OF_CAR - 1; i++) {
+            char name = (char) ('a' + i);
+            strings.add(Character.toString(name));
+        }
+        String overString = "";
+        for (int i = 0; i < MAXIMUM_CAR_NAME_LENGTH + 1; i++) {
+            overString += "a";
+        }
+        strings.add(overString);
+        final String[] input = strings.toArray(new String[strings.size()]);
 
         // when & then=
-        assertThatIllegalArgumentException(() -> carNameValidator.validateLength(finalCarName));
+        assertThatIllegalArgumentException().isThrownBy(() -> carNameValidator.validateLength(input));
     }
 
     @Test
@@ -114,10 +123,10 @@ public class InputTest {
             char name = (char) ('a' + i);
             strings.add(Character.toString(name));
         }
-        final String input = String.join(CAR_NAME_DELIMITER, strings);
+        final String[] input = strings.toArray(new String[strings.size()]);
 
         // when & then
-        assertThatNoException(() -> carNameValidator.validateDuplicate(input));
+        assertThatNoException().isThrownBy(() -> carNameValidator.validateDuplicate(input));
     }
 
     @Test
@@ -129,9 +138,9 @@ public class InputTest {
             char name = 'a';
             strings.add(Character.toString(name));
         }
-        final String input = String.join(CAR_NAME_DELIMITER, strings);
+        final String[] input = strings.toArray(new String[strings.size()]);
 
         // when & then
-        assertThatIllegalArgumentException(() -> carNameValidator.validateDuplicate(input));
+        assertThatIllegalArgumentException().isThrownBy(() -> carNameValidator.validateDuplicate(input));
     }
 }
