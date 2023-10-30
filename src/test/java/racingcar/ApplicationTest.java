@@ -19,6 +19,22 @@ class ApplicationTest extends NsTest {
 
 
     @Test
+    void 최대값_추출() {
+        // 최대값 5 설정
+        int[] array = new int[3];
+        array[0] = 5;
+        array[1] = 3;
+        array[2] = 2;
+
+        // finmaxDistance 함수 테스트
+        int max = Application.findMaxDistance(array);
+
+        // 예상값 5
+        assertThat(max).isEqualTo(5);
+
+    }
+
+    @Test
     void 레이싱_과정_출력() {
         assertRandomNumberInRangeTest(
                 () -> {
