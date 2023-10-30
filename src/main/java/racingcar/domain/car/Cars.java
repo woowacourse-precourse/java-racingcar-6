@@ -1,5 +1,7 @@
 package racingcar.domain.car;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,7 +17,10 @@ public class Cars {
 
     //==비즈니스 로직==//
     public void move() {
-        cars.forEach(Car::move);
+        cars.forEach(car -> {
+            int randomNumber = Randoms.pickNumberInRange(START, END);
+            CarController.move(car, randomNumber, MOVING_FORWARD);
+        });
     }
 
     public String getWinnersString() {

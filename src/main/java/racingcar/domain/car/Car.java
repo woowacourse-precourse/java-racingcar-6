@@ -1,6 +1,6 @@
 package racingcar.domain.car;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Objects;
 
 import static racingcar.Constant.*;
 
@@ -13,15 +13,8 @@ public class Car {
         this.name = name;
     }
 
-    //==비즈니스 로직==//
-    public void move() {
-        if (canForward())
-            point++;
-    }
-
-    private boolean canForward() {
-        int number = Randoms.pickNumberInRange(START, END);
-        return number >= MOVING_FORWARD;
+    void forward() {
+        point++;
     }
 
     //==검증 로직==//
@@ -48,4 +41,16 @@ public class Car {
                 LINE.repeat(point);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return point == car.point && Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, point);
+    }
 }
