@@ -23,4 +23,10 @@ public class InputValidatorTest {
         String[] input = { "name12345", "name2", "name3" };
         assertThrows(IllegalArgumentException.class, () -> InputValidator.validateNameLength(input));
     }
+
+    @Test
+    void validateDuplicateNameTest() {
+        String[] input = { "name1", "name2", "name1" };
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.validateDuplicateName(input));
+    }
 }
