@@ -7,8 +7,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-        String[] carList = readLine().split(",");
+        String[] carList = InputView.inputParticipants();
 
         System.out.println("시도할 회수는 몇회인가요");
         int count = Integer.parseInt(readLine());
@@ -33,6 +32,8 @@ public class Application {
 
         OutputView.showFinalResultOf(participants);
     }
+
+
 
     public static class OutputView {
         public static void showEachRoundResultOf(HashMap<String, String> participants) {
@@ -59,13 +60,18 @@ public class Application {
                 }
             }
             System.out.println("최종 우승자 : " + stringJoiner.toString());
-
         }
     }
 
-    public class InputView {
+    public static class InputView {
+        private static String[] inputParticipants() {
+            System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
+            String[] carList = readLine().split(",");
+            if(Arrays.stream(carList).anyMatch(c -> c.length() > 5))
+                throw new IllegalArgumentException();
 
-
+            return carList;
+        }
     }
 
 
