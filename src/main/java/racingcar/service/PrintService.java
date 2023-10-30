@@ -20,8 +20,8 @@ public class PrintService {
     // 값마다 다른것
     public void racing(int size, Cars cars) {
         for (int i = 0; i < size; i++) {
-            name(cars.findName(i));
-            position(cars.findGameNum(i));
+            name(cars.getName(i));
+            position(cars.getGameNum(i));
             spaceSkip();
         }
         spaceSkip();

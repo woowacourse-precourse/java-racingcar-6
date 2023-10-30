@@ -4,7 +4,7 @@ public class Position {
 
     private int num;
 
-    public Position(int num) {
+    private Position(int num) {
         this.num = num;
     }
 

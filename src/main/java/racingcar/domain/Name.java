@@ -5,7 +5,7 @@ public class Name {
     private final static int NAME_LENGH_MAX = 5;
     private String name;
 
-    public Name(String name) {
+    private Name(String name) {
         validateRange(name);
         this.name = name;
     }

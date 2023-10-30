@@ -23,8 +23,8 @@ public class GameService {
 
     private void findWinner(Cars cars, int max) {
         for (int i = 0; i < cars.size(); i++) {
-            if (max == cars.findGameNum(i)) {
-                winnerRepository.add(cars.findName(i));
+            if (max == cars.getGameNum(i)) {
+                winnerRepository.add(cars.getName(i));
             }
         }
     }

@@ -15,6 +15,6 @@ public class GameController {
 
         print.questionTryNum();
         inputService.gameNum();
-        gameService.run(inputService.findGameNum(), inputService.findCars());
+        gameService.run(inputService.getGameNum(), inputService.getCars());
     }
 }

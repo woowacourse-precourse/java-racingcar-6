@@ -34,11 +34,11 @@ public class Cars {
         carList.get(i).plusPosition();
     }
 
-    public String findName(int i) {
+    public String getName(int i) {
         return carList.get(i).getName();
     }
 
-    public int findGameNum(int i) {
+    public int getGameNum(int i) {
         return carList.get(i).getPosition();
     }
 

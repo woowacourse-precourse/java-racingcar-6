@@ -4,7 +4,7 @@ public class Car {
     private final Name name;
     private final Position position;
 
-    public Car(String name, int num) {
+    private Car(String name, int num) {
         this.name = Name.create(name);
         this.position = Position.create(num);
     }

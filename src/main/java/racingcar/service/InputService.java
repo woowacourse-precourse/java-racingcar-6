@@ -35,11 +35,11 @@ public class InputService {
         return Integer.parseInt(s);
     }
 
-    public int findGameNum() {
+    public int getGameNum() {
         return gameRepository.getGameNum();
     }
 
-    public Cars findCars() {
+    public Cars getCars() {
         return gameRepository.getCars();
     }
 }
