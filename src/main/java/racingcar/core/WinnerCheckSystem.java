@@ -16,13 +16,11 @@ public class WinnerCheckSystem {
         }
         return winners;
     }
-
     public static int maxLineCount(List<Car> cars) {
         int maxLine = 0;
         for (Car car : cars) {
             maxLine = Math.max(maxLine, car.getCurrentStep());
         }
-
         return maxLine;
     }
 }

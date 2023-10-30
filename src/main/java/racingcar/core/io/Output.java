@@ -4,10 +4,10 @@ import racingcar.domain.Car;
 
 import java.util.List;
 
-public class Output {
-    private final static String ONE_STEP_RESULT = "실행 결과";
-    private final static String FINAL_STEP_RESULT = "최종 우승자 : ";
+import static racingcar.constant.OutputConstant.FINAL_STEP_RESULT;
+import static racingcar.constant.OutputConstant.ONE_STEP_RESULT;
 
+public class Output {
     public void printResult(List<Car> cars) {
         System.out.println(ONE_STEP_RESULT);
         for (Car car : cars) {

@@ -6,6 +6,8 @@ import racingcar.core.utils.Validator;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.*;
+import static racingcar.constant.InputConstant.INPUT_CARS_NAME;
+import static racingcar.constant.InputConstant.INPUT_MAX_TRY;
 
 public class Input {
     private final Validator validator;
@@ -15,9 +17,6 @@ public class Input {
         this.validator = validator;
         this.parser = parser;
     }
-
-    private final static String INPUT_CARS_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private final static String INPUT_MAX_TRY = "시도할 회수는 몇회인가요?";
     public List<String> readNames(){
         System.out.println(INPUT_CARS_NAME);
         String userInput = readLine();
@@ -35,7 +34,6 @@ public class Input {
             throw new IllegalArgumentException();
         }
     }
-
     private static int parseInt() {
         int res = Integer.parseInt(readLine());
         if (res < 1) {
@@ -43,12 +41,9 @@ public class Input {
         }
         return res;
     }
-
     private void useValidator(final List<String> parsedNames) {
         validator.valid(parsedNames);
     }
-
-
     public List<String> useParser(String userInput) {
         return parser.parsing(userInput);
     }

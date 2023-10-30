@@ -7,7 +7,6 @@ import java.util.List;
 
 public class GameAwards {
     private final WinnerCheckSystem winnerCheckSystem;
-
     public GameAwards(final WinnerCheckSystem winnerCheckSystem) {
         this.winnerCheckSystem = winnerCheckSystem;
     }
@@ -16,7 +15,6 @@ public class GameAwards {
         List<Car> winners = winnerCheckSystem.getWinners(cars);
         return getNames(winners);
     }
-
     public List<String> getNames(List<Car> winners){
         List<String> res = new ArrayList<>();
         for (Car winner : winners) {

@@ -32,7 +32,6 @@ public class GameManager {
             List<Car> progressedCar = game.progress(carList);
             output.printResult(progressedCar);
         }
-
         List<String> awardsList = gameAwards.awards(carList);
         output.printWinner(awardsList);
     }
