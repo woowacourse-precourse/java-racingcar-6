@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class Car {
     private Map<String, Integer> cars;
+    private final int NAME_SIZE = 5;
+    private final int FOWARD_NUMBER = 4;
 
     public Car() {
     }
@@ -27,7 +29,7 @@ public class Car {
 
     private String[] validateNameLength(String[] names) {
         for (String name : names) {
-            if (name.length() > 5) {
+            if (name.length() > NAME_SIZE) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하로만 가능합니다.");
             }
         }
@@ -40,7 +42,7 @@ public class Car {
     }
 
     public boolean isForward(int randomNumber) {
-        return randomNumber >= 4;
+        return randomNumber >= FOWARD_NUMBER;
     }
 
     public Map<String, Integer> getCars() {
