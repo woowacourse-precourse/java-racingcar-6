@@ -5,15 +5,10 @@ import racingcar.car.Car;
 import racingcar.car.Cars;
 
 public final class RacingGame {
-    private static final RacingGame racingGame = new RacingGame();
     private final RaceResult raceResult = new RaceResult();
     private Cars cars;
 
-    private RacingGame() {
-    }
-
-    public static RacingGame getInstance() {
-        return racingGame;
+    public RacingGame() {
     }
 
     public void startGame() {
