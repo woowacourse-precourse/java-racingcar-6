@@ -7,7 +7,7 @@ import java.util.HashMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.util.FixedNumberGenerator;
+import racingcar.testhelpers.FixedNumberGenerator;
 
 public class RacingTest {
 

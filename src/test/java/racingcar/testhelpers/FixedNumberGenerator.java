@@ -1,4 +1,6 @@
-package racingcar.util;
+package racingcar.testhelpers;
+
+import racingcar.util.RandomNumberGenerator;
 
 public class FixedNumberGenerator implements RandomNumberGenerator {
 
