@@ -16,7 +16,7 @@ class CarTest {
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     void testTryDriveWithEnoughPower(int power) {
         PowerGenerator powerGenerator = () -> new Power(power);
-        Car car = new Car("TestCar", 0, powerGenerator);
+        Car car = new Car("test", 0, powerGenerator);
 
         car.tryDrive();
         assertEquals(1, car.getPosition());
@@ -27,7 +27,7 @@ class CarTest {
     @ValueSource(ints = {0, 1, 2, 3})
     void testTryDriveWithInsufficientPower(int power) {
         PowerGenerator powerGenerator = () -> new Power(power);
-        Car car = new Car("TestCar", 0, powerGenerator);
+        Car car = new Car("test", 0, powerGenerator);
 
         car.tryDrive();
         assertEquals(0, car.getPosition());
