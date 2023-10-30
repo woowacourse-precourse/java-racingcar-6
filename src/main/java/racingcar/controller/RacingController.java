@@ -33,16 +33,15 @@ public class RacingController {
     }
 
     private void playRacing() {
-        outputView.printRaceResultHeader();
+        outputView.printRaceResultHeaderMessage();
         while (tryCount.isAbleTry()) {
             cars.race(movement);
             tryCount.decrease();
-            outputView.printRacingResult(cars.toDto());
+            outputView.printCarRaceResults(cars.toDto());
         }
     }
 
     private void endRacing() {
-        outputView.printWinCarNames(cars.findWinnerNames());
+        outputView.printWinnerNames(cars.findWinnerNames());
     }
-
 }
