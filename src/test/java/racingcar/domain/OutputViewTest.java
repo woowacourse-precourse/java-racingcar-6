@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.utils.RacingcarTestConstantUtils.DELIMITER;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.Arrays;
@@ -13,7 +14,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.Application;
 
 class OutputViewTest extends NsTest {
-    private static final String DELIMITER = ",";
 
     @Test
     void printCarsLocation_테스트() {

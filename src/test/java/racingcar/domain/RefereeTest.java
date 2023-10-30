@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static racingcar.utils.RacingcarTestConstantUtils.DELIMITER;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -10,7 +11,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 class RefereeTest {
-    private static final String DELIMITER = ",";
 
     @ParameterizedTest
     @CsvSource({"1,pobi", "2,'pobi,woni'"})

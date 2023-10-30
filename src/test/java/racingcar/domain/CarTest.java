@@ -3,6 +3,10 @@ package racingcar.domain;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.utils.RacingcarTestConstantUtils.MIN_MOVING_FORWARD;
+import static racingcar.utils.RacingcarTestConstantUtils.MIN_STOP;
+import static racingcar.utils.RacingcarTestConstantUtils.MOVE_FAIL;
+import static racingcar.utils.RacingcarTestConstantUtils.MOVE_SUCCESS;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,10 +17,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 class CarTest {
     private static final int MAX_NAME_LENGTH = 5;
-    private static final int MIN_STOP = 0;
-    private static final int MIN_MOVING_FORWARD = 4;
-    private static final int MOVE_SUCCESS = 1;
-    private static final int MOVE_FAIL = 0;
     private Car pobiCar;
 
     private static Stream<Arguments> testMoveCountAndRandomNumber() {
