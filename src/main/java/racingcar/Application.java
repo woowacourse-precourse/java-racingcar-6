@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,24 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         input();
+        System.out.println("실행 결과");
+        for (int i = 0; i < numberOfTimes; i++) {
+            set();
+        }
     }
+
+    private static void set() {
+        for (String car : countOfStep.keySet()) {
+            if(Randoms.pickNumberInRange(0,9) >= 4)
+                countOfStep.put(car, countOfStep.get(car) + 1);
+        }
+
+        for (Map.Entry<String, Integer> entry : countOfStep.entrySet()) {
+            System.out.println(entry.getKey() + " : " + "-".repeat(entry.getValue()));
+        }
+        System.out.println();
+    }
+
 
     private static void input() {
         countOfStep = new HashMap<>();
@@ -33,7 +51,7 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         numberOfTimes = Integer.parseInt(Console.readLine());
-        if(numberOfTimes < 1 || numberOfTimes > 100)
+        if (numberOfTimes < 1 || numberOfTimes > 100)
             throw new IllegalArgumentException("시도 횟수는 1-100 사이의 숫자를 입력해주세요.");
     }
 }
