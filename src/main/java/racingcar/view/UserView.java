@@ -25,4 +25,16 @@ public class UserView {
         }
         System.out.println();
     }
+    public void printWinners() {
+        CarStorage carStorage = new CarStorage();
+        List<Car> winners = carStorage.winners();
+        System.out.print(WINNERS + COLON);
+        for (Car winner: winners) {
+            System.out.print(winner.name());
+            if (winners.indexOf(winner) != winners.size() - 1) { // 마지막 원소라면 콤마를 출력하지 않음
+                System.out.print(COMMA + " ");
+            }
+        }
+        System.out.println();
+    }
 }
