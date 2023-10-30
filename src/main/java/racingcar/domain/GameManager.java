@@ -26,4 +26,10 @@ public class GameManager {
         }
     }
 
+    public void readAttemptCount() {
+        int enteredAttemptCount = Integer.parseInt(Console.readLine());
+
+        this.attemptCount = enteredAttemptCount;
+    }
+
 }
