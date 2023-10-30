@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.utils.CarNamesInputValidator.CarNamesInputExceptionMessage;
 
 class CarNamesInputValidatorTest {
     @Nested
@@ -58,7 +59,7 @@ class CarNamesInputValidatorTest {
             String wrongLengthInput = "jun,junnn,junnng";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(wrongLengthInput))
-                    .hasMessage(ExceptionMessage.OUT_OF_LENGTH.getError());
+                    .hasMessage(CarNamesInputExceptionMessage.OUT_OF_LENGTH.getError());
         }
 
         @Test
@@ -68,7 +69,7 @@ class CarNamesInputValidatorTest {
             String blankInput = " ,  ,   ";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .hasMessage(ExceptionMessage.ELEMENT_BLANK.getError());
+                    .hasMessage(CarNamesInputExceptionMessage.ELEMENT_BLANK.getError());
         }
 
         @Test
@@ -78,7 +79,7 @@ class CarNamesInputValidatorTest {
             String blankInput = "";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .hasMessage(ExceptionMessage.BLANK.getError());
+                    .hasMessage(CarNamesInputExceptionMessage.BLANK.getError());
         }
 
         @Test
@@ -88,7 +89,7 @@ class CarNamesInputValidatorTest {
             String blankInput = ",pobi,jun";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .hasMessage(ExceptionMessage.FIRST_CHARACTER_COMMA.getError());
+                    .hasMessage(CarNamesInputExceptionMessage.FIRST_CHARACTER_COMMA.getError());
         }
 
         @Test
@@ -98,7 +99,7 @@ class CarNamesInputValidatorTest {
             String blankInput = "pobi,jun,";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .hasMessage(ExceptionMessage.LAST_CHARACTER_COMMA.getError());
+                    .hasMessage(CarNamesInputExceptionMessage.LAST_CHARACTER_COMMA.getError());
         }
 
         @Test
@@ -108,7 +109,7 @@ class CarNamesInputValidatorTest {
             String blankInput = "pobi,,jun";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .hasMessage(ExceptionMessage.ELEMENT_BLANK.getError());
+                    .hasMessage(CarNamesInputExceptionMessage.ELEMENT_BLANK.getError());
         }
 
         @Test
@@ -118,7 +119,7 @@ class CarNamesInputValidatorTest {
             String blankInput = ",,pobi,jun";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .hasMessage(ExceptionMessage.FIRST_CHARACTER_COMMA.getError());
+                    .hasMessage(CarNamesInputExceptionMessage.FIRST_CHARACTER_COMMA.getError());
         }
 
         @Test
@@ -128,7 +129,7 @@ class CarNamesInputValidatorTest {
             String blankInput = "pobi,jun,,";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .hasMessage(ExceptionMessage.LAST_CHARACTER_COMMA.getError());
+                    .hasMessage(CarNamesInputExceptionMessage.LAST_CHARACTER_COMMA.getError());
         }
     }
 

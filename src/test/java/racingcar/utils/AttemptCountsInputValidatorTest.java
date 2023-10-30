@@ -3,6 +3,7 @@ package racingcar.utils;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.utils.AttemptCountsInputValidator.AttemptCountsInputExceptionMessage;
 
 class AttemptCountsInputValidatorTest {
 
@@ -13,9 +14,9 @@ class AttemptCountsInputValidatorTest {
         String input = "r";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(ExceptionMessage.NOT_NUMERIC.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
     }
-    
+
     @Test
     @DisplayName("[실패 테스트] 숫자가 아닌 입력: 공백 혼합")
     void blankMixTest() {
@@ -23,7 +24,7 @@ class AttemptCountsInputValidatorTest {
         String input = "1 ";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(ExceptionMessage.NOT_NUMERIC.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
     }
 
     @Test
@@ -33,7 +34,7 @@ class AttemptCountsInputValidatorTest {
         String input = "00000001";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(ExceptionMessage.NOT_NUMERIC.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
     }
 
     @Test
@@ -43,7 +44,7 @@ class AttemptCountsInputValidatorTest {
         String input = "-0";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(ExceptionMessage.NOT_NUMERIC.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
     }
 
     @Test
@@ -53,7 +54,7 @@ class AttemptCountsInputValidatorTest {
         String input = "";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(ExceptionMessage.NOT_NUMERIC.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.NOT_NUMERIC.getError());
     }
 
     @Test
@@ -63,7 +64,7 @@ class AttemptCountsInputValidatorTest {
         String input = "2147483648";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(ExceptionMessage.OUT_OF_INTEGER_RANGE.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_INTEGER_RANGE.getError());
     }
 
     @Test
@@ -73,7 +74,7 @@ class AttemptCountsInputValidatorTest {
         String input = "-2147483649";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(ExceptionMessage.OUT_OF_INTEGER_RANGE.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_INTEGER_RANGE.getError());
     }
 
     @Test
@@ -83,7 +84,7 @@ class AttemptCountsInputValidatorTest {
         String input = "0";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(ExceptionMessage.OUT_OF_RANGE.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_RANGE.getError());
     }
 
     @Test
@@ -93,7 +94,7 @@ class AttemptCountsInputValidatorTest {
         String input = "-1";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(ExceptionMessage.OUT_OF_RANGE.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_RANGE.getError());
     }
 
     @Test
