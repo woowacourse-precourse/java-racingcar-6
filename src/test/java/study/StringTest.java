@@ -195,4 +195,11 @@ public class StringTest {
         // 방법 2 assertThat().isTrue
         assertThat(resultList_1.equals(resultList_2)).isTrue();
     }
+
+    @DisplayName("문자열_검증")
+    @Test
+    void 문자열_검증() {
+        String expression = "This is a string";
+        assertThat(expression).startsWith("This").endsWith("string").contains("a");
+    }
 }
