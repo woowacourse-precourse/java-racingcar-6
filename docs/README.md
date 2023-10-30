@@ -98,10 +98,13 @@
 
 ##
 
-#### 검증 역할 (Validator)
+#### 시도 횟수 입력 검증 역할 (AttemptCountsInputValidator)
 
-- [ ] 이동 횟수 입력을 검증한다
-- [ ] 잘못된 값을 입할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료된다.
+- [ ] 검증 기능 `public`
+- [ ] 숫자가 아닌 문자 검증 기능 `private`
+- [ ] 정수형 범위 -2147483648 ~ 2147483647 검증 기능 `private`
+- [ ] 유효한 범위 1 ~ 2,147,483,647 검증 기능 `private`
+- [ ] 잘못된 값을 입할 경우 IllegalArgumentException을 발생시킨다
 
 ##
 
@@ -113,7 +116,7 @@
 - [x] 입력의 맨 마지막 글자가 콤마(,) 인지 검증 기능 `private`
 - [x] 콤마(,)로 구분했을 때 각 원소가 공백으로만 이루어졌는지 검증 기능 `private`
 - [x] 콤마(,)로 구분했을 때 각 원소의 길이가 5 이하인지 검증 기능 `private`
-- [x] 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다 `private`
+- [x] 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨다
 
 ##
 
