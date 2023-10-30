@@ -26,7 +26,7 @@ public class RacingGame {
     public static void run() {
 
         UserOutput.askForCarNames();
-        String carNames = UserInput.readCarName();
+        String[] carNames = UserInput.readCarName();
 
         RacingGame game = RacingGame.getInstance();
         game.addCar(carNames);
@@ -41,11 +41,9 @@ public class RacingGame {
         Console.close();
     }
 
-    private void addCar(String input) {
-
-        String[] carNames = input.split(",");
-
-        for (String name : carNames) {
+    private void addCar(String[] input) {
+        
+        for (String name : input) {
             cars.add(new Car(name));
         }
     }

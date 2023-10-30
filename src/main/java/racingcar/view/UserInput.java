@@ -9,18 +9,22 @@ public class UserInput {
     private UserInput() {
     }
 
-    public static String readCarName() {
+    public static String[] readCarName() {
 
         String carNames = Console.readLine();
 
         if (Validator.isEmpty(carNames)) {
             throw new IllegalArgumentException(StringError.REQUIRED_CAR_NAME);
         }
-        if (Validator.isValidCarName(carNames)) {
-            throw new IllegalArgumentException(StringError.CAR_NAME_TOO_LONG);
+
+        String[] split = carNames.split(",");
+        for (String name : split) {
+            if (Validator.isValidCarName(name)) {
+                throw new IllegalArgumentException(StringError.CAR_NAME_TOO_LONG);
+            }
         }
 
-        return carNames;
+        return split;
     }
 
     public static int readRound() {
