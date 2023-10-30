@@ -19,15 +19,19 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    public List<String> findWinner() {
-        Car maxDistanceCar = cars.stream()
-                .max(Car::compareTo)
-                .orElse(cars.get(0));
+    public List<String> findWinners() {
+        Car maxDistanceCar = findMaxDistanceCar();
 
         return cars.stream()
                 .filter(car -> car.isWinner(maxDistanceCar))
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    private Car findMaxDistanceCar() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElse(cars.get(0));
     }
 
 

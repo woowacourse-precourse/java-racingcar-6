@@ -1,15 +1,14 @@
 package racingcar.view;
 
-import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.Winners;
 
 public class OutputView {
     private static final String RESULT_NOTICE_MESSAGE = "실행 결과";
     private static final String WINNER_NOTICE_MESSAGE = "최종 우승자 : ";
     private static final String HYPHEN = "-";
     private static final String COLON = " : ";
-    private static final String COMMA = ", ";
 
     public static void printResultMessage() {
         System.out.println(RESULT_NOTICE_MESSAGE);
@@ -31,8 +30,8 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printWinners(List<String> winners) {
+    public static void printWinners(Winners winners) {
         System.out.print(WINNER_NOTICE_MESSAGE);
-        System.out.println(String.join(COMMA, winners));
+        System.out.println(winners.getWinnersName());
     }
 }

@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.TryCount;
+import racingcar.model.Winners;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -20,7 +21,7 @@ public class RacingGame {
         OutputView.printResultMessage();
         printResult();
 
-        List<String> winners = cars.findWinner();
+        Winners winners = new Winners(findWinners());
         OutputView.printWinners(winners);
     }
 
@@ -37,6 +38,10 @@ public class RacingGame {
             cars.tryToMoveCars();
             OutputView.printResult(cars);
         }
+    }
+
+    private List<String> findWinners() {
+        return cars.findWinners();
     }
 
 
