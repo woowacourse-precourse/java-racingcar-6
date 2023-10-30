@@ -10,10 +10,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RacingTest {
 
     @Test
-    void 경주_참여자_레이서_입력(){
-        RacingController racer = new RacingController();
+    void 경주_자동차이름_반점_기준으로_구분() {
+        RacingController car = new RacingController();
         String input = "pobi,woni,jun";
-        String[] lst = racer.generateRacersFromNames(input);
+        String[] lst = car.generateRacersFromNames(input);
 
         assertThat(lst).isEqualTo(new String[]{"pobi", "woni", "jun"});
     }
