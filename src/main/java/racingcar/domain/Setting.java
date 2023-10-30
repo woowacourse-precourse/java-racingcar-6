@@ -19,12 +19,8 @@ public class Setting {
     }
 
     private static List<String> initCarName() {
-        List<String> carNameList = new ArrayList<>();
-        String[] carNames = InputView.inputCarName();
-        for (String carName : carNames) {
-            carNameList.add(carName);
-        }
-        return carNameList;
+        String carNames = InputView.inputCarName();
+        return Input.getSplitList(carNames);
     }
 
     public static int initNumberOfAttempt() {
