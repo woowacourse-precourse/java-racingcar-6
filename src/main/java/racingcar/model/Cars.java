@@ -20,14 +20,21 @@ public class Cars {
 
     public void forward() {
         for(Car car: cars) {
-            int distance = car.getDistance();
             int random = Random.generate();
 
-            if(Random.isConditionsAdvancementMet(random)) {
-                distance += 1;
-            }
+            int distance = forwardCondition(car, random);
 
             car.setDistance(distance);
         }
+    }
+
+    public int forwardCondition(Car car, int random) {
+        int distance = car.getDistance();
+
+        if(Random.isConditionsAdvancementMet(random)) {
+            distance += 1;
+        }
+
+        return distance;
     }
 }
