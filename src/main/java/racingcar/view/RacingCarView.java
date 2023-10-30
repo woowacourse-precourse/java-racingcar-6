@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.domain.Car;
+import racingcar.domain.Racing;
 
 public class RacingCarView {
 
@@ -14,5 +16,12 @@ public class RacingCarView {
         System.out.println("시도할 회수는 몇회인가요?");
         final String racingCount = Console.readLine();
         return racingCount;
+    }
+
+    public void printGoAheadCount(Racing racingGame) {
+        for (Car car:racingGame.getRacingCarList()){
+            System.out.println(car.getName()+" : "+"-".repeat(car.getAheadCount()));
+        }
+        System.out.println("");
     }
 }

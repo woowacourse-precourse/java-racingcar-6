@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 import racingcar.util.GlobalExceptionHandler;
@@ -40,6 +41,32 @@ public class RacingCarService {
             return racingGame;
         }
         return null;
+    }
+
+    private int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private boolean goFront() {
+        int randomNumber = getRandomNumber();
+        if (randomNumber>=4) {
+            return true;
+        }
+        return false;
+    }
+
+    public void countAhead(Racing racingGame){
+        for (Car car:racingGame.getRacingCarList()){
+            if (goFront()) {
+                car.updateAheadCount();
+            }
+        }
+    }
+
+    public void startRacingRound(Racing racingGame){
+        for (int i=0; i<racingGame.getRacingCount(); i++){
+            countAhead(racingGame);
+        }
     }
 
 }

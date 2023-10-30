@@ -20,18 +20,6 @@ public class RacingCarController {
     private final static RacingCarView racingCarView = new RacingCarView();
     private final static RacingCarService racingCarService = new RacingCarService();
 
-    private int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
-    private boolean goFront() {
-        int randomNumber = getRandomNumber();
-        if (randomNumber>=4) {
-            return true;
-        }
-        return false;
-    }
-
     public void startRacingCar(){
 
         String cars = racingCarView.inputStartRacingCar();
@@ -40,17 +28,8 @@ public class RacingCarController {
         String racingCarCount = racingCarView.inputRacingCarTryCount();
         final Racing racingGame = racingCarService.startRace(racingCarCount, racingCarList);
 
-        // 전진 횟수 카운트
-        for (int i=0; i<racingGame.getRacingCount(); i++){
-            for (Car car:racingGame.getRacingCarList()){
-                if (goFront()) {
-                    car.updateAheadCount();
-                }
-                // 경주 각 차수별 실행 결과 출력
-                System.out.println(car.getName()+" : "+"-".repeat(car.getAheadCount()));
-            }
-            System.out.println("");
-        }
+        racingCarService.startRacingRound(racingGame);
+        racingCarView.printGoAheadCount(racingGame);
 
         // 경기가 끝나면 최종 우승자 저장 및 출력
         final HashMap<String, Integer> goAheadCountList = new HashMap<>();
