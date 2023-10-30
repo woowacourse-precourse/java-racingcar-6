@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Racing extends IndexModel {
+
     private Participations participations;
     private int tryCount;
     private Winners winners;
@@ -17,38 +18,12 @@ public class Racing extends IndexModel {
         return winners;
     }
 
-    private Racing(Builder builder) {
-        this.participations = builder.participations;
-        this.tryCount = builder.tryCount;
-        this.winners = builder.winners;
+    private Racing(Participations participations, int tryCount) {
+        this.participations = participations;
+        this.tryCount = tryCount;
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
-
-    public static class Builder {
-        private Participations participations;
-        private int tryCount;
-        private Winners winners;
-
-        public Builder participations(Participations participations) {
-            this.participations = participations;
-            return this;
-        }
-
-        public Builder tryCount(int tryCount) {
-            this.tryCount = tryCount;
-            return this;
-        }
-
-        public Builder winners(Winners winners) {
-            this.winners = winners;
-            return this;
-        }
-
-        public Racing build() {
-            return new Racing(this);
-        }
+    public static Racing create(Participations participations, int tryCount) {
+        return new Racing(participations, tryCount);
     }
 }
