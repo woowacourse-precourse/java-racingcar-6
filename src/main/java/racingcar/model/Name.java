@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.ExceptionMessage.NAME_VALUE_BLANK_EXCEPTION;
+
 public class Name {
 
     private static final int MINIMUM_LENGTH = 1;
@@ -23,7 +25,7 @@ public class Name {
         }
 
         if (name.contains(" ")) {
-            throw new IllegalArgumentException("공백이 있으면 안 됩니다.");
+            throw new IllegalArgumentException(NAME_VALUE_BLANK_EXCEPTION.getMessage());
         }
     }
 
