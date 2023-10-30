@@ -8,7 +8,8 @@ import util.Validator;
 import java.util.List;
 
 
-public class OutputConsole {
+public class IOConsole {
+
 
     public static List<String> readCarNames(){
         System.out.println(Messages.CAR_NAME_INPUT);
