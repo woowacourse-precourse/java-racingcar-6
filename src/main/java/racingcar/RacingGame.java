@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -17,14 +16,9 @@ public class RacingGame {
         }
     }
 
-    int makeRandomNumber() {
-        int randomNumber = Randoms.pickNumberInRange(0,9);
-        return (randomNumber);
-    }
-
-    void moveCars() {
+    void moveCars(int movingNumber) {
         for (Car car : cars) {
-            if (makeRandomNumber() >= 4) {
+            if (movingNumber >= 4) {
                 car.moveForward();
             }
         }
