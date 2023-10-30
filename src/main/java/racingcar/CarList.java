@@ -30,7 +30,7 @@ public class CarList {
     public boolean isDuplicate(){
         Set<String> carSet = new HashSet<>(carList);
 
-        return carSet.size() == carList.size();
+        return carSet.size() != carList.size();
     }
 
     public boolean isShortEnglishName(){
