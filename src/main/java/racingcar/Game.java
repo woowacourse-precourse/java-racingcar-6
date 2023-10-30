@@ -9,7 +9,7 @@ public class Game {
     private static final InputValidator inputValidator = new InputValidator();
     private static final String TRIAL_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_TITLE_MESSAGE = "실행 결과";
-    private static final String WINNER_SEPARATOR = ",";
+    private static final String CAR_NAMES_SEPARATOR = ",";
 
     private final GameManager gameManager = new GameManager();
 
@@ -46,7 +46,7 @@ public class Game {
 
     private void setCarNames() {
         String input = Console.readLine();
-        List<String> carNames = Arrays.stream(input.split(WINNER_SEPARATOR))
+        List<String> carNames = Arrays.stream(input.split(CAR_NAMES_SEPARATOR))
                 .map(String::trim)
                 .toList();
 
