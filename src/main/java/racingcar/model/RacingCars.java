@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.ValidateInput;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,6 +13,7 @@ public class RacingCars {
     private final List<Car> racingCars;
 
     public RacingCars(String[] names) {
+        ValidateInput.isRightCarNames(names);
         this.racingCars = createCars(names);
     }
 
