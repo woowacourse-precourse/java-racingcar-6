@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Game;
 import racingcar.service.GameService;
@@ -35,5 +34,6 @@ public class GameTest extends NsTest {
     }
 
     @Override
-    protected void runMain() { }
+    protected void runMain() {
+    }
 }
