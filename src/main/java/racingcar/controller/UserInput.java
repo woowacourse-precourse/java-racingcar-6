@@ -2,25 +2,34 @@ package racingcar.controller;
 
 import racingcar.model.GameSettingsDto;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class UserInput {
-    private String carsName;
+    private List<String> carsNameList;
     private int racingCount;
 
     public UserInput(){}
 
     public GameSettingsDto readUserGameSettingInput(){
-        readCarsName();
+        splitCarNameStringToList(readCarsName());
         readRacingCount();
-        return new GameSettingsDto(carsName,racingCount);
+        return new GameSettingsDto(carsNameList,racingCount);
     }
 
-    private void readCarsName(){
+    private String readCarsName(){
+        String carsName;
         carsName = readLine();
+        return carsName;
     }
 
     private void readRacingCount(){
         racingCount = Integer.parseInt(readLine()); // int형으로 변환
+    }
+
+    private void splitCarNameStringToList(String carsName){
+        carsNameList = List.of(carsName.split(",")); //자동차 이름을 불변리스트에 저장
     }
 }
