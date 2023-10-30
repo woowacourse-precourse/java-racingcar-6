@@ -19,13 +19,13 @@
 
 ## 🎮 Game_Method
 
-|           메서드명            |             역할              |                리턴                |
-|:-------------------------:|:---------------------------:|:--------------------------------:|
-|        startGame()        |    게임을 시작, 사용자에게 입력값을 받음    |               void               |
-|         runGame()         | 게임 단계별 진행<br/>중간 결과 밑 결과 출력 |               void               |
-|    parsingInput(Input)    |        사용자의 입력값을 파싱         |          List\<String\>          |
-| validateInput(paredInput) |       파싱된 데이터들의 유효성검사       |               void               |
-|                           |                             | 🚨 IllegalArgumentException 발생가능 |
-|   compareCarPosition()    |      어느 차가 가장 멀리있는지 확인      |           List\<int\>            |
+|            메서드명            |             역할              |                리턴                |
+|:--------------------------:|:---------------------------:|:--------------------------------:|
+|        startGame()         |    게임을 시작, 사용자에게 입력값을 받음    |               void               |
+|         runGame()          | 게임 단계별 진행<br/>중간 결과 밑 결과 출력 |               void               |
+|    parsingInput(Input)     |        사용자의 입력값을 파싱         |          List\<String\>          |
+| validateInput(parsedInput) |       파싱된 데이터들의 유효성검사       |               void               |
+|                            |                             | 🚨 IllegalArgumentException 발생가능 |
+|    compareCarPosition()    |      어느 차가 가장 멀리있는지 확인      |           List\<int\>            |
 
 
