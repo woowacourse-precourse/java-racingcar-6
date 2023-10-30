@@ -1,6 +1,8 @@
 package racingcar;
 
 import racingcar.controller.RacingController;
+import view.InputMessage;
+import view.OutputMessage;
 
 public class Application {
     public static void main(String[] args) {

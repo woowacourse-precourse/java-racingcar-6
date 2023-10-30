@@ -1,5 +1,7 @@
 package racingcar.validator;
 
+import view.RoundCountErrorMessage;
+
 public class RoundCountValidator {
 
     public boolean validateInputGameRound(String inputRound) {
@@ -12,14 +14,14 @@ public class RoundCountValidator {
         try {
             round = Integer.parseInt(inputRound);
         }catch (Exception e) {
-            throw new IllegalArgumentException("정수가 아닌 문자는 입력할 수 없습니다");
+            throw new IllegalArgumentException(RoundCountErrorMessage.NOT_INTEGER_ERROR_MESSAGE);
         }
         return round;
     }
 
     private void validateNotPositive(int round) {
         if(round <= 0) {
-            throw new IllegalArgumentException("0보다 큰 숫자를 입력해주세요.");
+            throw new IllegalArgumentException(RoundCountErrorMessage.NOT_POSITIVE_ERROR_MESSAGE);
         }
     }
 

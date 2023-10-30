@@ -13,7 +13,6 @@ public class CarService {
 
     private final List<String> carsName = new ArrayList<>();
     private Car[] car;
-//    private StringBuilder[] builder;
     private int carCount;
     private BuilderUtils builderUtils;
 
@@ -42,12 +41,6 @@ public class CarService {
         }
     }
 
-//    public void initStringBuilder() {
-//        builder = new StringBuilder[carCount];
-//        for (int stringBuilderIndex = 0; stringBuilderIndex < carCount; stringBuilderIndex++) {
-//            builder[stringBuilderIndex] = new StringBuilder(carsName.get(stringBuilderIndex)).append(" : ");
-//        }
-//    }
     public void updateCarPosition() {
         for (int carIndex = 0; carIndex < carsName.size() ; carIndex++) {
             String position = RandomUtils.detarminPostionByRandomNumber();
@@ -55,15 +48,10 @@ public class CarService {
                 builderUtils.appendToCarPosition(carIndex);
             };
         }
-        showGameStatus(carCount);
     }
 
-    public void showGameStatus(int carCount) {
-        String[] carPositions = builderUtils.getCarPositions();
-        for (int i = 0; i < carCount; i++) {
-            System.out.println(carPositions[i]);
-        }
-        System.out.println();
+    public String[] getGameStatus() {
+        return builderUtils.getCarPositions();
     }
 
     public List<String> getWinner() {

@@ -4,18 +4,21 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Game;
 import racingcar.service.CarService;
 import racingcar.service.GameService;
+import view.InputMessage;
+import view.OutputMessage;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class RacingController {
 
     private final GameService gameService = new GameService();
     private final CarService carService = new CarService();
+    private Game game;
 
     public void run() {
         initGame();
         gameStart();
+        getWinner();
     }
 
     public void initGame() {
@@ -26,21 +29,21 @@ public class RacingController {
 
     public void initInputCarAndRound() {
         String carName = inputCarName();
-        int carCount = this.carService.initInputCarName(carName);
+        int carCount = carService.initInputCarName(carName);
 
         String inputRound = inputGameRound();
-        int round = this.gameService.initGameRound(inputRound);
+        int round = gameService.initGameRound(inputRound);
 
-        this.gameService.initGame(carCount,round);
+        game = gameService.setGame(carCount,round);
     }
 
     public String inputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(InputMessage.INPUT_CAR_NAME_MESSAGE);
         return Console.readLine();
     }
 
     public String inputGameRound() {
-        System.out.println("게임 횟수 입력: ");
+        System.out.println(InputMessage.INPUT_GAME_ROUND_MESSAGE);
         return Console.readLine();
     }
 
@@ -54,25 +57,21 @@ public class RacingController {
 
     public void gameStart() {
 
-        int roundCount = this.gameService.setGameRound();
+        int roundCount = game.getRoundCount();
+        int carsCount = game.getCarsCount();
 
         for (int roundIndex = 0; roundIndex < roundCount; roundIndex++) {
-            this.carService.updateCarPosition();
+            carService.updateCarPosition();
+            String[] carPositions = carService.getGameStatus();
+           OutputMessage.printGameStatusMessage(carPositions, carsCount);
         }
-        getWinner();
     }
 
     public void getWinner() {
-        List<String> winner = this.carService.getWinner();
-        System.out.print("최종 우승자 : ");
-        showWinner(winner);
+        List<String> winner = carService.getWinner();
+        System.out.print(OutputMessage.OUTPUT_WINNER_MESSAGE);
+        OutputMessage.printWinnerMessage(winner);
     }
 
-    public void showWinner(List<String> winner) {
-        String result = winner.stream()
-                .collect(Collectors.joining(","));
-
-        System.out.print(result);
-    }
 
 }

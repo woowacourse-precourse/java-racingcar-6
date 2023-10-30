@@ -2,7 +2,7 @@ package racingcar.utils;
 import java.util.List;
 
 public class BuilderUtils {
-    private StringBuilder[] builder;
+    private final StringBuilder[] builder;
 
     public BuilderUtils(List<String> carsName) {
         builder = new StringBuilder[carsName.size()];
