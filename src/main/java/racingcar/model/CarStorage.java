@@ -13,4 +13,7 @@ public class CarStorage {
         winners = new ArrayList<>();
         stepsList = new ArrayList<>();
     }
+    public static List<Car> cars() {
+        return cars;
+    }
 }
