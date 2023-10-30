@@ -6,8 +6,8 @@ public class Constant {
     public static final String INPUT_RACING_ROUND_MESSAGE = "시도할 회수는 몇회인가요?";
 
     public static final int CAR_NAME_MAX_SIZE = 5;
-    public static final int MAX_RANDOM_NUM = 0;
-    public static final int MIN_RANDOM_NUM = 9;
+    public static final int MIN_RANDOM_NUM = 0;
+    public static final int MAX_RANDOM_NUM = 9;
     public static final int ROUND_MINIMUM_NUM = 1;
     public static final int MOVE_MINIMUM_NUM = 4;
 
