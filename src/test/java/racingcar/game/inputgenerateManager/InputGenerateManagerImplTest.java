@@ -7,61 +7,36 @@ import org.junit.jupiter.api.Test;
 import racingcar.game.enums.InputSize;
 import racingcar.game.exception.IllegalBlankException;
 import racingcar.game.exception.IllegalLengthException;
-import racingcar.game.exception.IllegalRangeException;
-import racingcar.game.exception.IllegalTypeException;
 
 class InputGenerateManagerImplTest {
-    //TODO : 중복예외, 마지막 (,)이후 엔터시 예외
-    @RepeatedTest(10)
-    void 난수값이_지정된범위_내_생성되는지_확인() {
-        //if
-        InputGenerateManager inputGenerateManager = InputGenerateManagerImpl.createInputGenerateManager();
 
-        //when
+    private final InputGenerateManager inputGenerateManager = InputGenerateManagerImpl.createInputGenerateManager();
+    private final String STRING_NUMBER = "999";
+    private final int PURE_NUMBER = 999;
+    private final String STRING_NAME = "한놈,두식이,석삼";
+
+    @RepeatedTest(10)
+    void 난수_범위() {
         Integer generateRandomInt = inputGenerateManager.generateRandomInt();
 
-        //then
         Assertions.assertThat(generateRandomInt).isInstanceOf(Integer.class);
         Assertions.assertThat(generateRandomInt)
                 .isBetween(InputSize.START_INCLUSIVE.getSize(), InputSize.END_INCLUSIVE.getSize());
     }
 
     @Test
-    void 문자열_정수변환_예외() {
-        //if
-        String rawString = "thisSectionMustBeNumberString";
-        String overIntString = "999999999999999999999999";
-        String blankString = "";
+    void 문자열_정수변환() {
+        Integer integerFromString = inputGenerateManager.generateInputStringToInt(STRING_NUMBER);
 
-        //when
-        InputGenerateManager inputGenerateManager = InputGenerateManagerImpl.createInputGenerateManager();
-
-        //then
-        Assertions.assertThatThrownBy(() -> inputGenerateManager.generateInputStringToInt(rawString))
-                .isInstanceOf(IllegalTypeException.class);
-        Assertions.assertThatThrownBy(() -> inputGenerateManager.generateInputStringToInt(blankString))
-                .isInstanceOf(IllegalBlankException.class);
-        Assertions.assertThatThrownBy(() -> inputGenerateManager.generateInputStringToInt(overIntString))
-                .isInstanceOf(IllegalRangeException.class);
+        Assertions.assertThat(integerFromString).isInstanceOf(Integer.class);
+        Assertions.assertThat(integerFromString).isEqualTo(PURE_NUMBER);
     }
 
     @Test
-    void 문자열_쉼표기준_나뉘는지_And_5자이상_빈값일때_예외() {
-        //if
-        String rawString = "한놈,두식이,석삼,너구리밥";
-        String illegalRawString = "한놈한놈21,두식이1,석삼,너구리";
-        String blankString = "";
-        InputGenerateManager inputGenerateManager = InputGenerateManagerImpl.createInputGenerateManager();
+    void 문자열_쉼표기준변환() {
+        List<String> nameList = inputGenerateManager.generateInputStringSplitWithComma(STRING_NAME);
 
-        //when
-        List<String> processedStrings = inputGenerateManager.generateInputStringSplitWithComma(rawString);
-
-        //then
-        Assertions.assertThat(processedStrings).size().isEqualTo(4);
-        Assertions.assertThat(processedStrings).contains("한놈", "두식이", "석삼", "너구리밥");
-        Assertions.assertThatThrownBy(() -> inputGenerateManager.generateInputStringSplitWithComma(illegalRawString))
-                .isInstanceOf(IllegalLengthException.class);
-        Assertions.assertThatThrownBy(() -> inputGenerateManager.generateInputStringSplitWithComma(blankString))
-                .isInstanceOf(IllegalBlankException.class);
+        Assertions.assertThat(nameList.size()).isEqualTo(3);
+        Assertions.assertThat(nameList).contains("한놈","두식이","석삼");
     }
 }

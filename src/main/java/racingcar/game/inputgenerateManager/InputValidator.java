@@ -1,5 +1,7 @@
 package racingcar.game.inputgenerateManager;
 
+import java.util.HashSet;
+import java.util.Set;
 import racingcar.game.enums.InputSize;
 import racingcar.game.exception.IllegalBlankException;
 import racingcar.game.exception.IllegalDuplicateException;
@@ -60,14 +62,9 @@ public class InputValidator {
     }
 
     private static void validateDuplicateName(String[] nameArray) {
+        Set<String> nameSet = new HashSet<>();
         for (String name : nameArray) {
-            compareName(nameArray, name);
-        }
-    }
-
-    private static void compareName(String[] nameArray, String name1) {
-        for (String name : nameArray) {
-            if (name1.equals(name)) {
+            if (!nameSet.add(name)) {
                 throw new IllegalDuplicateException();
             }
         }
