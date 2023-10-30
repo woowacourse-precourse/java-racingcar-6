@@ -8,6 +8,7 @@ public enum ExceptionMessage {
     NOT_NUMBER_MESSAGE("숫자를 제외한 문자는 입력하실 수 없습니다."),
     ZERO_NUMBER_MESSAGE("게임 횟수는 1보다 크거나 같고 100_000 보다 작거나 같은 양의 정수여야 합니다."),
     MAX_VALUE_MESSAGE("100_000 보다 작거나 같은 양의 정수값을 입력해야 합니다."),
+    NO_WINNER_MESSAGE("참여한 모든 자동차의 이동거리 0 이므로, 우승자가 없습니다."),
     ;
 
     final String message;
