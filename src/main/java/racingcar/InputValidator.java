@@ -6,25 +6,27 @@ import java.util.List;
 public class InputValidator {
 
     public static List<String> validateCarNames(String input) {
-        String[] splitInput = checkAtLeastOneName(input);
-        return (List<String>) checkNameLengthLimit(splitInput);
-    }
-
-    private static String[] checkAtLeastOneName(String input) {
         String[] splitInput = input.split(",");
-        if (splitInput.length == 0) {
-            throw new IllegalArgumentException("하나 이상의 이름이 입력되어야 합니다.");
-        }
-        return splitInput;
+        List<String> carNames = checkNameLengthLimit(splitInput);
+        return checkAtLeastOneName(carNames);
     }
 
     private static List<String> checkNameLengthLimit(String[] splitInput) {
         List<String> carNames = new ArrayList<>();
         for (String carName : splitInput) {
+            carName = carName.trim();
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            } else if (!carName.isEmpty()) {
+                carNames.add(carName);
             }
-            carNames.add(carName);
+        }
+        return carNames;
+    }
+
+    private static List<String> checkAtLeastOneName(List<String> carNames) {
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException("이름이 없습니다.");
         }
         return carNames;
     }
