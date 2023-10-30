@@ -22,7 +22,13 @@ public class InvalidInput {
     }
 
     public static void NotIntegerValueException(String number) {
-        for (int i = 0; i < number.length(); i++) {
+        int startIndex = 0;
+
+        if (number.contains("-")) {
+            startIndex = 1;
+        }
+
+        for (int i = startIndex; i < number.length(); i++) {
             if (!Character.isDigit(number.charAt(i))) {
                 throw new IllegalArgumentException("횟수는 숫자 여야 합니다.");
             }
@@ -31,6 +37,7 @@ public class InvalidInput {
 
     public static void OutOfRangeException(String number) {
         int num = Integer.parseInt(number);
+
         if (num <= 0) {
             throw new IllegalArgumentException("횟수는 1 이상 이어야 합니다.");
         }
