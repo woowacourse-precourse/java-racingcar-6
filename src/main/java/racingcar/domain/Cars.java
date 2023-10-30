@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.response.RoundResultDto;
+import racingcar.view.ConsoleOutput;
 import racingcar.view.OutputView;
 
 public class Cars {
@@ -22,7 +23,7 @@ public class Cars {
             checkNumberAndMoveCar(car);
             printCarInfo(car);
         }
-        System.out.println();
+        ConsoleOutput.printNewLine();
     }
 
     private void checkNumberAndMoveCar(Car car) {
