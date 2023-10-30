@@ -10,6 +10,14 @@ import racingcar.view.OutputView;
 import java.util.List;
 
 public class GameManagerController {
+    public void start() {
+        final Cars cars = createCars();
+        final TotalRoundNumberRequest totalRoundNumberRequest = getTotalRoundNumber();
+
+        runCarRace(cars, totalRoundNumberRequest);
+        OutputView.printWinnerNames(cars);
+    }
+
     private List<CarNameRequest> getCarNames() {
         OutputView.printCarNameInputQuestion();
         return InputView.requestCarNames();
