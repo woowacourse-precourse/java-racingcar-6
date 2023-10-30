@@ -1,6 +1,8 @@
 package racingcar;
 
 import java.util.Scanner;
+import view.InputView;
+import view.OutputView;
 
 public class GameManager {
     private Cars cars;
@@ -9,6 +11,10 @@ public class GameManager {
 
     public void startRace(Scanner scanner) {
         createCar(scanner);
+
+        cars.showRaceStateResultMessage();
+        cars.doRace(tryTimes);
+        cars.showRaceResult();
     }
 
     public void createCar(Scanner scanner) {
@@ -18,8 +24,14 @@ public class GameManager {
 
 
     private void initCar(Scanner scanner) {
+        OutputView.printInputCarName();
+
+        cars = new Cars(InputView.inputPlayerName(scanner));
     }
 
     private void initTryTimes(Scanner scanner) {
+        OutputView.printInputCarName();
+
+        tryTimes = InputView.inputTryTimes(scanner);
     }
 }
