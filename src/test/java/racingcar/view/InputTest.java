@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -8,7 +7,6 @@ import java.io.InputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class InputTest {
 
@@ -20,7 +18,7 @@ class InputTest {
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
 
-        String[] carNames = input.InputCarName();
+        String[] carNames = input.inputCarName();
 
         assertThat(new String[]{"pobi","hash","neo"}).isEqualTo(carNames);
     }
@@ -31,7 +29,7 @@ class InputTest {
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
 
-        assertThatThrownBy(() -> input.InputCarName())
+        assertThatThrownBy(() -> input.inputCarName())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("쉽표(,)를 통해 구분해 주세요.");
     }
@@ -42,7 +40,7 @@ class InputTest {
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
 
-        int number = input.InputMovingNumber();
+        int number = input.inputMovingNumber();
 
         assertThat(Integer.parseInt(text)).isEqualTo(number);
     }
@@ -53,7 +51,7 @@ class InputTest {
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
 
-        assertThatThrownBy(() -> input.InputCarName())
+        assertThatThrownBy(() -> input.inputCarName())
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

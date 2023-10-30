@@ -9,7 +9,7 @@ import static racingcar.constant.Constant.INIT_NUMBER;
 
 public class Input {
 
-    public String[] InputCarName(){
+    public String[] inputCarName(){
         System.out.println(INIT_CAR_NAME);
         String input = Console.readLine();
         if(input.contains(" "))
@@ -26,7 +26,7 @@ public class Input {
         return cars;
     }
 
-    public int InputMovingNumber(){
+    public int inputMovingNumber(){
         System.out.println(INIT_NUMBER);
         String input = Console.readLine();
 
