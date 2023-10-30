@@ -53,7 +53,6 @@
         - findMaxPosition() : 가장 멀리간 포지션을 찾는 함수
         - getWinners() : 최대 position을 가진 자동차들을 리스트로 반환
         - convertListToString() : 자동차 이름 리스트를 ','로 구분하는 문자열로 반환
-        - makeWinnersName() : 우승자들의 이름을 리스트로 생성
       - printWinner() : 최종 우승자 출력
         
 
