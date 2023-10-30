@@ -259,6 +259,7 @@ class ApplicationTest extends NsTest {
 
     // 추가 완료 - 박승찬
 
+    // 테스트 할시 main 함수를 하는 방법
     @Override
     public void runMain() {
         Application.main(new String[]{});
