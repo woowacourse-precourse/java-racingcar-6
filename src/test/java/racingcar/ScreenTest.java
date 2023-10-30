@@ -67,7 +67,7 @@ public class ScreenTest {
     }
 
     @Test
-    void 한_라운드_실행_결과_출력() {
+    void 이동이_하나도_없는_경우_한_라운드_실행_결과_출력() {
         String[] names = {"pobi", "yen"};
         List<Car> cars = new ArrayList<>();
 
@@ -78,5 +78,19 @@ public class ScreenTest {
         System.setOut(new PrintStream(out));
         Screen.displayResult(cars);
         assertThat(out.toString()).isEqualTo("pobi : \nyen : \n\n");
+    }
+
+    @Test
+    void 이동이_있는_경우_한_라운드_실행_결과_출력() {
+        String[] names = {"pobi", "yen"};
+        List<Car> cars = new ArrayList<>();
+        int idx = 1;
+        for (String name : names) {
+            cars.add(new Car(name, idx++));
+        }
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        Screen.displayResult(cars);
+        assertThat(out.toString()).isEqualTo("pobi : -\nyen : --\n\n");
     }
 }
