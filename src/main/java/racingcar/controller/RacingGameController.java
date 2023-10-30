@@ -15,8 +15,7 @@ public class RacingGameController {
 
     public void gameStart() {
         getCarName();
-        int tryCount = getUserTryCount();
-        printGameResult(tryCount);
+        printGameResult(getUserTryCount());
         printGameWinner();
     }
 

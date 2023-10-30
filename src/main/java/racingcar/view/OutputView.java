@@ -14,15 +14,24 @@ public class OutputView {
 
     public void printCarPosition(List<Car> carList) {
         sb = new StringBuilder();
+        printCarRaceProgress(carList);
+        System.out.println(sb);
+
+    }
+
+    private void printCarRaceProgress(List<Car> carList) {
         for (int i = 0; i < carList.size(); i++) {
             int distance = carList.get(i).getDistance();
             sb.append(carList.get(i).getName()).append(" : ");
-            for (int j = 0; j < distance; j++) {
-                sb.append("-");
-            }
-            sb.append('\n');
+            printCarRaceProgressBar(distance);
         }
-        System.out.println(sb);
+    }
+
+    private void printCarRaceProgressBar(int distance) {
+        for (int j = 0; j < distance; j++) {
+            sb.append("-");
+        }
+        sb.append('\n');
     }
 
     public void printEmptyLine() {
@@ -32,13 +41,25 @@ public class OutputView {
     public void printWinners(List<String> winners) {
         sb = new StringBuilder();
         sb.append("최종 우승자 : ");
-        if (winners.size() > 1) {
-            for (int i = 0; i < winners.size(); i++) {
-                sb.append(winners.get(i)).append(", ");
-            }
-        } else {
-            sb.append(winners.get(0));
-        }
+        printWinnersByLength(winners);
         System.out.println(sb);
+    }
+
+    private void printWinnersByLength(List<String> winners) {
+        if (winners.size() > 1) {
+            printWinnersName(winners);
+        } else {
+            printWinnerName(winners);
+        }
+    }
+
+    private void printWinnerName(List<String> winners) {
+        sb.append(winners.get(0));
+    }
+
+    private void printWinnersName(List<String> winners) {
+        for (int i = 0; i < winners.size(); i++) {
+            sb.append(winners.get(i)).append(", ");
+        }
     }
 }
