@@ -1,7 +1,7 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GameUtil {
 
@@ -23,8 +23,11 @@ public class GameUtil {
         System.out.println(result.toString());
     }
 
-    public String[] inputToNameArr(String input) {
-        String[] nameArr = input.split(",");
+    public List<String> inputToNameList(String input) {
+        List<String> nameArr = Arrays.stream(input.split(","))
+                .map(String::trim)
+                .toList();
+
         for (String name : nameArr) {
             if (!isNameOK(name)) {
                 throw new IllegalArgumentException("이름은 한 글자 이상 다섯 글자 이하여야 합니다.");
