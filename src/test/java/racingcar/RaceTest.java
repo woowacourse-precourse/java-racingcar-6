@@ -5,12 +5,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.race.Car;
 import racingcar.race.Race;
-import racingcar.view.ResultView;
+import racingcar.view.OutputView;
 
 class RaceTest {
     private List<Car> cars = Arrays.asList(new Car("kim"), new Car("mi"));
@@ -28,7 +27,7 @@ class RaceTest {
     @DisplayName("경주 시 전진에 대한 동작확인")
     void startRace_동작확인_전진() {
         race.getMoveStatus().setTestMoveStatus(true);
-        race.startRace(new ResultView(cars));
+        race.startRace(new OutputView(cars));
 
         for (Car car : cars) {
             assertThat(car.getPosition()).isEqualTo(3);
@@ -39,7 +38,7 @@ class RaceTest {
     @DisplayName("경주 시 정지에 대한 동작확인")
     void startRace_동작확인_정지() {
         race.getMoveStatus().setTestMoveStatus(false);
-        race.startRace(new ResultView(cars));
+        race.startRace(new OutputView(cars));
 
         for (Car car : cars) {
             assertThat(car.getPosition()).isEqualTo(0);

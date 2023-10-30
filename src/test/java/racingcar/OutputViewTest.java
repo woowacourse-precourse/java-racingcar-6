@@ -12,9 +12,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.race.Car;
-import racingcar.view.ResultView;
+import racingcar.view.OutputView;
 
-class ResultViewTest {
+class OutputViewTest {
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
     private List<Car> cars;
@@ -36,14 +36,13 @@ class ResultViewTest {
     @Test
     @DisplayName("결과출력 인스턴스 생성확인")
     void ResultView_인스턴스_생성확인() {
-        ResultView resultView = new ResultView(new ArrayList<Car>());
+        OutputView outputView = new OutputView(new ArrayList<Car>());
     }
 
     @Test
     @DisplayName("각 라운드 경주 상태에 대한 출력 확인")
     void printRace_동작확인() {
-        ResultView resultView = new ResultView(cars);
-        resultView.printRace(cars);
+        OutputView.printRace(cars);
         String expectedOutput = "kim : \n" + "mi : \n\n";
         assertThat(byteArrayOutputStream.toString()).isEqualTo(expectedOutput);
     }
@@ -51,8 +50,7 @@ class ResultViewTest {
     @Test
     @DisplayName("우승자 출력 확인")
     void printWinners_동작확인() {
-        ResultView resultView = new ResultView(winners);
-        resultView.printWinners(winners);
+        OutputView.printWinners(winners);
         String expectedOutput = "최종 우승자 : kim, mi\n";
         assertThat(byteArrayOutputStream.toString()).isEqualTo(expectedOutput);
     }
