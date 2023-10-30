@@ -6,6 +6,7 @@ public class Config {
     public static final String START_RACING_MESSAGE = "실행 결과";
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
     public static final String SPLIT_REGEXP = ",";
+    public static final String RACING_COUNT_CHARACTER = "-";
     public static final Integer MAX_NAME_SIZE = 5;
     public static final Integer FORWARD_NUMBER = 4;
 }
