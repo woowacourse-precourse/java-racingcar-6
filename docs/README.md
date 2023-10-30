@@ -40,6 +40,7 @@
 - Car()
 - move() : position++
 - getName()
+- getPosition()
 
 
 ### CarList.java
@@ -67,11 +68,15 @@
 
 
 ### OutputView.java
-
+- getInstance()
+- printResult()
+- resultDisplay()
+- printResultCarList()
+- printWinner()
 
 # Controller
 ### MainController.java
-ㅍ
+
 
 
 # Util
