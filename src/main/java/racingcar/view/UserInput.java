@@ -9,8 +9,12 @@ public class UserInput {
 
     public List<String> readCarNames() {
         String names = Console.readLine();
-        validateCarNames(names);
-        return Arrays.stream(names.split(CAR_NAMES_DELIMETER)).toList();
+        validateInputComma(names); //컴마 검증
+
+        List<String> nameList = parseCarNamesToList(names);
+        validateCarNamesList(nameList);//각각의 이름 상태 검증
+
+        return nameList;
     }
 
     public int readGameCount() {
@@ -19,39 +23,71 @@ public class UserInput {
         return Integer.parseInt(gameCount);
     }
 
+    private List<String> parseCarNamesToList(String names) {
+        return Arrays.stream(names.split(CAR_NAMES_DELIMETER)).toList();
+    }
 
-    //2) 사용자 입력에 대한 예외처리
-    private void validateCarNames(String carName) throws IllegalArgumentException {
-        List<String> names = Arrays.stream(carName.split(CAR_NAMES_DELIMETER)).toList();
-        //1) 각 이름 길이 5초과 시 예외
+    /**
+     * 처음 String으로 입력된 Input 상태에서 ,(쉼표) 위치에 따른 예외처리
+     */
+    private void validateInputComma(String carName) throws IllegalArgumentException {
+        validateFirstComma(carName);
+
+        validateMiddleCommaRepeat(carName);
+
+        validateLastComma(carName);
+    }
+
+    // 첫 입력에 ,pobi가 입력되면 안됩니다.
+    private void validateFirstComma(String names) throws IllegalArgumentException {
+        if (names.charAt(0) == ',')
+            throw new IllegalArgumentException("자동차 이름 입력이 (,) 쉼표로 시작되면 안됩니다.");
+    }
+
+    // 컴마가 여러번 포함된 이름 (pobi,,,,,)이런 식의 입력,
+    private void validateMiddleCommaRepeat(String names) throws IllegalArgumentException {
+        String commaRepeat = ",,";
+        if (names.contains(commaRepeat)) {
+            throw new IllegalArgumentException("자동차 이름에는 (,) 연속된 쉼표만 입력해서는 안됩니다.");
+        }
+    }
+
+    // 끝 입력에 pobi, 가 입력되면 안됩니다.
+    private void validateLastComma(String names) throws IllegalArgumentException {
+        int len = names.length();
+        if (names.charAt(len - 1) == ',')
+            throw new IllegalArgumentException("자동차 이름 입력 끝에는 (,) 쉼표가 있으면 안됩니다.");
+    }
+
+    /**
+     * List<String> 으로 쪼갠 각각의 Car 이름형태에 대한 예외처리
+     */
+    private void validateCarNamesList(List<String> names) throws IllegalArgumentException {
         validateCarNamesLength(names);
-        //2) 각 이름에 " " 공백 포함 시 예외
+
         validateCarNamesBlank(names);
-        //3) 이름 중복도 안됨
+
         validateCarNamesDuplicate(names);
     }
 
-
-    //validate 메소드 분리 - 길이
     private void validateCarNamesLength(List<String> names) {
         if (names.stream().anyMatch(name -> name.length() > 5)) {
             throw new IllegalArgumentException("경주할 자동차 이름의 길이는 5 이하여야 합니다.");
         }
     }
 
-    //- 공백 포함 시
     private void validateCarNamesBlank(List<String> names) {
         if (names.stream().anyMatch(name -> name.contains(" "))) {
             throw new IllegalArgumentException("경주할 자동차 이름에 공백이 포함되면 안됩니다.");
         }
     }
 
-    // -이름 중복될 경우 - abc, ab,
     private void validateCarNamesDuplicate(List<String> names) {
         if (names.size() != names.stream().distinct().count()) {
             throw new IllegalArgumentException("경주할 자동차 이름은 중복되면 안됩니다.");
         }
     }
+
 
     /**
      * gameCount 입력에 대한 예외처리
