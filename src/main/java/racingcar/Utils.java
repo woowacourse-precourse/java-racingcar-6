@@ -13,5 +13,4 @@ public class Utils {
     public static int checkSize(String str) {
         return str.length();
     }
-
 }

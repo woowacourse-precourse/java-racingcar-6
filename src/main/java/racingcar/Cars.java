@@ -4,7 +4,7 @@ import static racingcar.Validation.validateLengthOfName;
 
 public class Cars {
     private int distance;
-    private String carName;
+    private final String carName;
 
     public Cars(String carName) {
         validateLengthOfName(carName);
@@ -12,8 +12,8 @@ public class Cars {
         this.distance = 0;
     }
 
-    public int goOneStep() {
-        return ++distance;
+    public void goOneStep() {
+        ++distance;
     }
 
     public String getName() {
