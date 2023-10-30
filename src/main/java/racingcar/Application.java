@@ -59,7 +59,7 @@ public class Application {
       }
     }
 
-    public Map<String,Integer> movementCount(Map<String,Integer> cars){
+    public static Map<String,Integer> movementCount(Map<String,Integer> cars){
 
       cars.forEach((carName, movement) -> {
         int number = Randoms.pickNumberInRange(1, 9);
@@ -74,8 +74,16 @@ public class Application {
       return cars;
     }
 
-    public void progressDisplay(Map<String,Integer> cars){
+    public static void progressDisplay(Map<String,Integer> cars){
+      cars.forEach((carName, movement) -> {
+        String result = "";
+        for(int i =  1; i<=movement ; i++){
+          result+="-";
+        }
+        System.out.println(carName + " : " + result);
 
+      });
+      System.out.println("");
     }
 
     public void winnerDisplay(Map<String,Integer> cars){
