@@ -22,7 +22,7 @@ public class CountInputTest {
         String userInputOne = "-1";
         String userInputTwo = "0";
 
-        // then
+        // when, then
         assertThatThrownBy(() -> Validator.checkPositiveNumber(userInputOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("1이상의 숫자를 입력하세요.");
@@ -39,7 +39,7 @@ public class CountInputTest {
         String userInputOne = "3pobi";
         String userInputTwo = " ";
 
-        // then
+        // when, then
         assertThatThrownBy(() -> Validator.checkPositiveNumber(userInputOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자만 입력하세요.");
@@ -53,6 +53,8 @@ public class CountInputTest {
     void 시도_횟수_출력문() {
 
         // given
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
@@ -60,7 +62,6 @@ public class CountInputTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // when
-        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
         car.move(createRoundCount(getInput("시도할 회수는 몇회인가요?")));
 
         // then

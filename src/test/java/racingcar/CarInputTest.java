@@ -37,11 +37,10 @@ class CarInputTest {
         String userInputOne = "";
         String userInputTwo = "pobi";
 
-        // when
         List<String> carNamesOne = Computer.createCarNames(userInputOne);
         List<String> carNamesTwo = Computer.createCarNames(userInputTwo);
 
-        // then
+        // when, then
         assertThatThrownBy(() -> Validator.checkCarCount(carNamesOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("2대 이상의 자동차 이름을 입력해 주세요.");
@@ -57,10 +56,9 @@ class CarInputTest {
         // given
         String userInput = "123456";
 
-        // when
         List<String> carNames = Computer.createCarNames(userInput);
 
-        // then
+        // when, then
         assertThatThrownBy(() -> Validator.checkLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름을 5자 이하로 입력해 주세요.");
@@ -75,12 +73,11 @@ class CarInputTest {
         String userInputTwo = "";
         String userInputThree = "pobi, ";
 
-        // when
         List<String> carNamesOne = Computer.createCarNames(userInputOne);
         List<String> carNamesTwo = Computer.createCarNames(userInputTwo);
         List<String> carNamesThree = Computer.createCarNames(userInputThree);
 
-        // then
+        // when, then
         assertThatThrownBy(() -> Validator.checkBlank(carNamesOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름을 공백으로 입력하지 마세요.");
@@ -101,8 +98,9 @@ class CarInputTest {
         // given
         String userInput = " jun , pobi";
 
-        // when
         List<String> carNames = Computer.createCarNames(userInput);
+
+        // when
         Computer.trimCarNames(carNames);
 
         // then
@@ -117,11 +115,10 @@ class CarInputTest {
         String userInputOne = "pobi,pobi";
         String userInputTwo = "jun, jun ";
 
-        // when
         List<String> carNamesOne = Computer.createCarNames(userInputOne);
         List<String> carNamesTwo = Computer.createCarNames(userInputTwo);
 
-        // then
+        // when, then
         assertThatThrownBy(() -> Validator.checkDuplication(carNamesOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("중복되지 않은 이름을 입력해 주세요.");
