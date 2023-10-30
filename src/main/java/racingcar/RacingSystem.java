@@ -7,10 +7,10 @@ import java.util.List;
 
 public class RacingSystem {
 
-    private InputSystem inputSystem = new InputSystem();
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 9;
 
+    private InputSystem inputSystem = new InputSystem();
     private List<Car> cars = new ArrayList<>();
     private Winners winners = new Winners();
     private int cnt = 0;
@@ -24,12 +24,12 @@ public class RacingSystem {
 
     public void input() {
         inputSystem.inputCarName(cars);
-        int cnt = inputSystem.inputTryCount();
+        cnt = inputSystem.inputTryCount();
     }
 
     public void racingStart() {
         System.out.println("\n" + "실행 결과");
-        while (winners.getWinnersCount() == 0) {
+        while (cnt > 0) {
             for(Car car : cars) {
                 int random = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
                 car.go(random);
@@ -37,6 +37,7 @@ public class RacingSystem {
                 getWinner(car.getName(), car.getPosition());
             }
             System.out.println();
+            cnt--;
         }
     }
 
