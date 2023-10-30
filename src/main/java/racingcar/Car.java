@@ -28,16 +28,21 @@ public class Car {
 
     void inputTryNum() {
         System.out.println("시도할 회수는 몇회인가요?");
-        tryNum = Integer.parseInt(Console.readLine());
+        try {
+            tryNum = Integer.parseInt(Console.readLine());
+        }
+        catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     void draw() {
         for (int i = 0; i < car.size(); i++) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                car.get(i).race+="-";
+                car.get(i).race += "-";
                 continue;
             }
-            car.get(i).race+="";
+            car.get(i).race += "";
         }
     }
 
@@ -72,8 +77,17 @@ public class Car {
         }
     }
 
+    void validateName() {
+        for (int i = 0; i < car.size(); i++) {
+            if (car.get(i).name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
     void run() {
         inputCarsName();
+        validateName();
         inputTryNum();
         drawRotation();
         winner();
