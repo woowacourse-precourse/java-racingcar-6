@@ -11,8 +11,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static racingcar.domain.Cars.Car;
 import static racingcar.domain.Cars.createCars;
 
@@ -72,10 +71,10 @@ class RaceServiceTest {
                 raceService = new RaceService(new ByteArrayInputStream("5".getBytes()));
                 cnt = raceService.inputCnt();
             }
+
             @Test
             @DisplayName("오류없이 리턴")
             void it_successfully_return() {
-                assertThat(cnt).isNotNull();
                 assertThat(cnt).isEqualTo(5);
             }
         }
@@ -88,6 +87,7 @@ class RaceServiceTest {
             void setup() {
                 raceService = new RaceService(new ByteArrayInputStream("-5".getBytes()));
             }
+
             @Test
             @DisplayName("IllegalArgumentException 발생시킴")
             void it_throw_IllegalArgumentException() {
@@ -112,6 +112,7 @@ class RaceServiceTest {
                 cars.addCar(new Car("pobi", 0));
                 when(raceService.getRandomMoveDistance()).thenReturn(6);
             }
+
             @Test
             @DisplayName("자동차가 멈추거나 랜덤하게 앞으로 감")
             void it_move_car_randomly() {
@@ -137,6 +138,7 @@ class RaceServiceTest {
                 cars.addCar(new Car("maxi", 0));
                 when(raceService.getRandomMoveDistance()).thenReturn(4);
             }
+
             @Test
             @DisplayName("여러 대의 자동차가 멈추거나 랜덤하게 앞으로 감")
             void it_move_cars_randomly() {
@@ -150,6 +152,57 @@ class RaceServiceTest {
                 assertThat(cars.getCars().get(2).getName()).isEqualTo("maxi");
                 assertThat(cars.getCars().get(2).getDistance()).isEqualTo(8);
             }
+        }
+
+    }
+
+    @Nested
+    @DisplayName("showWinner 메서드는")
+    class Describe_showWinner {
+        @Nested
+        @DisplayName("우승 차가 한대일 경우 자동차 출력")
+        class Context_single_car {
+            private RaceService raceService;
+            private Cars cars;
+
+            @BeforeEach
+            void setup() {
+                raceService = spy(new RaceService());
+                cars = createCars();
+                cars.addCar(new Car("pobi", 8));
+                cars.addCar(new Car("crong", 4));
+                cars.addCar(new Car("maxi", 2));
+            }
+
+            @Test
+            void it_show_winner_car() {
+                String winner = raceService.showWinners(cars);
+                assertThat(winner).isEqualTo("pobi");
+            }
+
+        }
+
+        @Nested
+        @DisplayName("우승 차가 복수일 경우 복수 출력")
+        class Context_multiple_cars {
+            private RaceService raceService;
+            private Cars cars;
+
+            @BeforeEach
+            void setup() {
+                raceService = spy(new RaceService());
+                cars = createCars();
+                cars.addCar(new Car("pobi", 8));
+                cars.addCar(new Car("crong", 8));
+                cars.addCar(new Car("maxi", 2));
+            }
+
+            @Test
+            void it_show_winner_car() {
+                String winner = raceService.showWinners(cars);
+                assertThat(winner).isEqualTo("pobi, crong");
+            }
+
         }
 
     }
