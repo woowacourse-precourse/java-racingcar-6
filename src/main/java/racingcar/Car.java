@@ -12,11 +12,19 @@ public class Car {
         position++;
     }
 
-    public CarName getName() {
-        return name;
+    public String getName() {
+        return name.getName();
     }
 
     public int getPosition() {
         return position;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name=" + name +
+                ", position=" + position +
+                '}';
     }
 }
