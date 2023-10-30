@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.constant.GameConfig;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCarList;
 
@@ -11,6 +12,7 @@ import static racingcar.constant.GameConfig.*;
 
 public class GameController {
     private final GameProcess process;
+    private int ZERO = GameConfig.ZERO.getValue();
 
     public GameController() {
         process = new GameProcess();
@@ -22,31 +24,31 @@ public class GameController {
         int tryAttempt = getPlayerAttempts();
 
         gameResultMessge();
-        while (tryAttempt > ZERO.getValue()) {
+        while (tryAttempt > ZERO) {
             process.processGame(car);
             tryAttempt = decreaseAttempt(tryAttempt);
         }
-        printFinalWinner(getFinalWinner(car));
+        printFinalWinner(getFinalWinner(car, car.size()));
     }
     private int decreaseAttempt(int attempt){
         return attempt - 1;
     }
 
-    private List<String> getFinalWinner(RacingCarList racingCarList) {
-        int maxDistance = ZERO.getValue();
-        List<String> result = new ArrayList<>();
-        for (int carIndex = 0; carIndex < racingCarList.size(); carIndex++) {
+    private List<String> getFinalWinner(RacingCarList racingCarList, int length) {
+        int maxDistance = ZERO;
+        List<String> winners = new ArrayList<>();
+        for (int carIndex = 0; carIndex < length; carIndex++) {
             RacingCar car = racingCarList.getCar(carIndex);
             int carDistance = car.getDistance();
 
             if (carDistance > maxDistance) {
-                result.clear();
+                winners.clear();
                 maxDistance = carDistance;
             }
             if (car.getDistance() == maxDistance) {
-                result.add(car.getName());
+                winners.add(car.getName());
             }
         }
-        return result;
+        return winners;
     }
 }
