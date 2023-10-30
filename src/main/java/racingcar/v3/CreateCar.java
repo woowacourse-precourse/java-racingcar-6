@@ -11,11 +11,12 @@ public class CreateCar {
 
     public String[] splitCarNames(String input) {
         String[] carNames = input.split(",");
-        for (String carName : carNames) {
-            carName.trim();
+        for (int i = 0; i < carNames.length; i++) {
+            carNames[i] = carNames[i].trim();
         }
         return carNames;
     }
+
 
     public void validateCarCount(String[] carNames) throws IllegalArgumentException {
         if (carNames.length < 2 || carNames.length > 10) {
