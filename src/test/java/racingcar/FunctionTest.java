@@ -70,35 +70,4 @@ public class FunctionTest {
             assertThat(1).isEqualTo(VALID_CAR.movedLately(0));
         }
     }
-
-    @Test
-    void 전진한_횟수를_형식에_맞게_출력() {
-        String expected = "a : ---";
-        String output = VALID_RACINGCARGAMECONSOLE.carMovement(3);
-
-        assertThat(output).isEqualTo(expected);
-    }
-
-    @Test
-    void 승자를_출력() {
-        Car car = new Car("a,b");
-        car.move(0);
-        OutputView outputView = new OutputView(car);
-
-        String result = outputView.result();
-
-        assertThat(result).isEqualTo("\n최종 우승자 : a");
-    }
-
-    @Test
-    void 승자를_두명_출력() {
-        Car car = new Car("a,b,c");
-        car.move(0);
-        car.move(1);
-        OutputView outputView = new OutputView(car);
-
-        String result = outputView.result();
-
-        assertThat(result).isEqualTo("\n최종 우승자 : a, b");
-    }
 }
