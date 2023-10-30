@@ -49,7 +49,6 @@
 #### `setCar()`
 - 경주할 자동차를 설정한다.
   - Console API의 readLine()을 사용해 입력값을 받고 저장한다.
-  - Console API의 close()을 사용해 입력값을 닫는다.
   - 입력값에 쉼표가 없는 경우면 `IllegalArgumentException`을 발생시킨다.
   - 입력값에 쉼표가 있는 경우면
     - 입력값을 쉼표 기준으로 분리한다.
@@ -63,7 +62,6 @@
 #### `setTrialInput()`
 - 전진 또는 멈춤 시도(실행) 횟수를 설정한다.
   - Console API의 readLine()을 사용해 입력값을 받고 저장한다.
-  - Console API의 close()을 사용해 입력값을 닫는다.
   - 입력값이 정수가 아니면 `IllegalArgumentException`을 발생시킨다.
     - 입력값이 0 이하면 `IllegalArgumentException`을 발생시킨다.
     - 입력값이 1 이상이면 이 값을 저장한다.
