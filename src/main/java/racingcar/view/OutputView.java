@@ -22,6 +22,6 @@ public class OutputView {
 
         raceResult.append(winnerNames);
 
-        System.out.println(raceResult);
+        System.out.print(raceResult);
     }
 }
