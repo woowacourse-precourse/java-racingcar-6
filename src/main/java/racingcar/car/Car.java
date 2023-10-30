@@ -4,11 +4,11 @@ import racingcar.Constants;
 import racingcar.Util;
 
 public class Car {
-    private final String NAME;
+    private final String name;
     private int position = 0;
 
     public Car(String name) {
-        this.NAME = name;
+        this.name = name;
         this.position = 0;
     }
 
@@ -18,7 +18,11 @@ public class Car {
         }
     }
 
+    public int getPosition() {
+        return position;
+    }
 
-
-
+    public String getName() {
+        return name;
+    }
 }
