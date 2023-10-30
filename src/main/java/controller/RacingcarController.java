@@ -3,6 +3,7 @@ package controller;
 import controller.dto.CarDto;
 import domain.Car;
 import domain.CarService;
+import domain.RemainingRound;
 import view.InputView;
 import view.OutputView;
 
@@ -14,7 +15,7 @@ public class RacingcarController {
     private final OutputView outputView;
     private final CarService carService = new CarService();
 
-    private int remainingRounds;
+    private RemainingRound remainingRound = new RemainingRound();
 
     public RacingcarController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -25,18 +26,18 @@ public class RacingcarController {
         outputView.inputCarName();
         carService.add(inputView.carName());
         outputView.inputRoundNumber();
-        remainingRounds = inputView.roundNumber();
+        remainingRound.set(inputView.roundNumber());
         outputView.outputRunResult();
     }
 
     public void playRound() {
+        remainingRound.playRound();
         carService.playRound();
         outputView.outputCarPosition(carsToDto(carService.getState()));
-        remainingRounds--;
     }
 
     public boolean isEnd() {
-        return remainingRounds <= 0;
+        return remainingRound.isEnd();
     }
 
     public void endGame() {
