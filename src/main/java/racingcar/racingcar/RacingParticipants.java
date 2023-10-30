@@ -7,15 +7,17 @@ import java.util.List;
  * @description racing car
  * @since 2023.10.27
  **********************************************************************************************************************/
-public class RacingParticipants {
+public record RacingParticipants(List<String> participantNames) {
 
-    private final List<String> participantNames;
+    public RacingParticipants {
+        validateParticipantsCount(participantNames);
 
-    public RacingParticipants(List<String> participantNames) {
-        this.participantNames = participantNames;
     }
 
-    public List<String> getParticipantNames() {
-        return this.participantNames;
+    private void validateParticipantsCount(List<String> participantNames) {
+        if (participantNames.size() == 0) {
+            throw new IllegalArgumentException("레이싱 참가자를 최소 1명 입력해주세요.");
+        }
     }
+    
 }

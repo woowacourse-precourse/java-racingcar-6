@@ -20,6 +20,7 @@ public class CarNamesInputReader{
 
     private List<String> convertToStringList() {
         return Stream.of(Console.readLine().split(",", -1))
+                .filter(e -> !e.isBlank())
                 .collect(Collectors.toList());
     }
 

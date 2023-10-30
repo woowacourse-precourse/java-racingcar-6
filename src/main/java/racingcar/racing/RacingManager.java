@@ -17,7 +17,7 @@ public class RacingManager {
     private int count;
 
     public RacingManager(RacingParticipants racingParticipants, int count, RacingRule racingRule) {
-        this.cars = racingParticipants.getParticipantNames()
+        this.cars = racingParticipants.participantNames()
                 .stream()
                 .map(e -> new Car(racingRule, e, 0))
                 .collect(Collectors.toList());
