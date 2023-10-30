@@ -33,8 +33,11 @@ public class ValidateTest extends NsTest {
             return Stream.of(
                     Arguments.of("javajigi,aaa", "이름은 5자 이하로 입력해주세요."),
                     Arguments.of("aaa,javajigi", "이름은 5자 이하로 입력해주세요."),
-                    Arguments.of("", "공란입니다. 이름을 입력해주세요.")
-
+                    Arguments.of("aaa, java", "자동차 이름은 공백으로 시작할 수 없습니다."),
+                    Arguments.of("", "공란입니다. 이름을 입력해주세요."),
+                    Arguments.of(",", "공란입니다. 이름을 입력해주세요."),
+                    Arguments.of("aa,", "잘못된 형식의 입력입니다."),
+                    Arguments.of(",java", "잘못된 형식의 입력입니다.")
             );
         }
 
