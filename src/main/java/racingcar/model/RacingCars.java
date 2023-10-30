@@ -3,7 +3,9 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCars {
 
@@ -51,6 +53,21 @@ public class RacingCars {
             carLocations.add(car.getLocation());
         }
         return carLocations;
+    }
+
+
+    public List<String> getWinners(){
+        Integer maxLocationValue = getLocationMaxValue();
+
+        List<String> winners = racingCars.stream()
+                .filter(car->car.getLocation()==maxLocationValue)
+                .map(car -> car.getName()).collect(Collectors.toList());
+
+        return winners;
+    }
+
+    private Integer getLocationMaxValue(){
+        return Collections.max(getCarLocations());
     }
 
 }
