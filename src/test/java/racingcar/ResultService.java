@@ -20,4 +20,10 @@ public class ResultService {
         }
     }
 
+    public static void printResultStart() {
+        System.out.println("실행 결과");
+    }
+
+
+
 }
