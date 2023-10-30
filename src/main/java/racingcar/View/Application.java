@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.View;
 
 import racingcar.View.CarRacing;
 
