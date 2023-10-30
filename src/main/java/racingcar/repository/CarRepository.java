@@ -12,4 +12,12 @@ public class CarRepository {
     public void add(Car car) {
         cars.add(car);
     }
+
+    public Car findById(int id) {
+        return cars.get(id);
+    }
+
+    public int findIdByCar(Car car) {
+        return cars.indexOf(car);
+    }
 }
