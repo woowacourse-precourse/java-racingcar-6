@@ -26,33 +26,6 @@ public class Race {
             }
         }
     }
-    public void findWinner(){
-        List<String> winners=new ArrayList<>();
-        for (String key : this.CarsNameAndForwardTimes.keySet()) {
-            if (winners.isEmpty()) {
-                winners.add(key);
-            } else {
-                turnaroundOrTie(winners,key);
-            }
-        }
-        this.winners=winners;
-    }
-    private void turnaroundOrTie(List<String> originalWinner,String key){
-        int originalWinnersAdvance = this.CarsNameAndForwardTimes.get(originalWinner.get(0));
-        if (this.CarsNameAndForwardTimes.get(key) > originalWinnersAdvance) {
-            originalWinner.clear();
-            originalWinner.add(key);
-        } else if (this.CarsNameAndForwardTimes.get(key) == originalWinnersAdvance) {
-            originalWinner.add(key);
-        }
-    }
-    public void printWinner(){
-        System.out.print("\n최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            if (i != winners.size() - 1) System.out.print(winners.get(i) + ", ");
-            else System.out.println(winners.get(i));
-        }
-    }
     public void printAllCarAndAdvance(){
         for(String key: this.CarsNameAndForwardTimes.keySet()) {
             printCarAndAdvance(key);
