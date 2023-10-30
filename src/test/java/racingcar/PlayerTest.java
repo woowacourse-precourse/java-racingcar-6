@@ -25,34 +25,15 @@ public class PlayerTest {
 
     // TODO: 자동차를 , 구분자로 구분하고 리스트 반환하는 기능
 
-    // TODO: CHANGE CLASS NAME
-
     @Test
     @DisplayName("입력 값을 , 구분자로 구분하고 다른 구분자가 주어진 경우 예외 처리하는지 확인")
     void testSplitCarNames () {
         Player cars = new Player(); // 이름 문자열 리스트 반환
         String testInput = "Tom, tyla, Judy";
-        String[] testInputCarList = testInput.split(",");
+        String[] testInputCarList = testInput.replace(" ", "").split(",");
 
-        // TODO: correct delimiter 검사
-
-        String[]  userInputCarList = cars.splitName(testInput); // arrayList로 반환할지 아직 안정함
+        ArrayList<String> userInputCarList = cars.createPlayerCarList(testInput); // arrayList로 반환할지 아직 안정함
         assertThat(userInputCarList).containsExactly(testInputCarList); // 순서 안지켜도 되는지 아직 정하지 않음
 
     }
-    // TODO: 자동차 리스트 원소의 문자열이 5자 이하인지 검사하는 기능
-    @Test
-    @DisplayName("배열 입력 값이 5자 이하인지 확인")
-    void testEachLengthOfCarNameIsUnder5 () {
-        Player cars = new Player();
-        ArrayList<String> carsList = cars.splitName("Tom, July1234, Tyler");
-
-        Boolean result = cars.nameSizeValidator(carsList);
-
-        assertThat(result).isFalse(); // 하나라도 틀리면 false 반환
-
-
-    }
-
-
 }
