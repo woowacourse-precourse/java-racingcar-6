@@ -25,6 +25,7 @@ public class RacingcarController {
         int attemptNumber = MainView.getAttemptNumber();
         for (int i = 0; i < attemptNumber; ++i) {
             racingCarService.proceedGame(carNames, racingStatus);
+            MainView.printProceedResult(carNames, racingStatus);
         }
     }
 }
