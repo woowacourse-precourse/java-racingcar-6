@@ -4,7 +4,7 @@ import controller.dto.MoveResult;
 import java.util.List;
 import model.Car;
 import model.Cars;
-import model.RandomReferee;
+import model.CompareNumberReferee;
 import model.Referee;
 
 public class RacingService {
@@ -18,12 +18,7 @@ public class RacingService {
     }
 
     public static RacingService createDefault(final List<String> carNames) {
-        Referee referee = new RandomReferee();
-        return new RacingService(referee, Cars.from(carNames));
-    }
-
-    public static RacingService createServiceWithReferee(final Referee referee,
-        final List<String> carNames) {
+        Referee referee = new CompareNumberReferee();
         return new RacingService(referee, Cars.from(carNames));
     }
 
