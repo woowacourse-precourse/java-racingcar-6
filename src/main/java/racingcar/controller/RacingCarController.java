@@ -34,20 +34,11 @@ public class RacingCarController {
 
     public void startRacingCar(){
 
-        racingCarView.printStartRacingCar();
-        final String cars = racingCarView.inputRacingCars();
-
+        String cars = racingCarView.inputStartRacingCar();
         List<Car> racingCarList = racingCarService.getRacingCarsList(cars);
 
-        // 자동차 경주 게임 객체 생성해 자동차 리스트 저장하기
-        final Racing racingGame = new Racing(racingCarList);
-
-        // 자동차 경주 시도 횟수 입력받아 저장하기
-        System.out.println("시도할 회수는 몇회인가요?");
-        final String racingCount = Console.readLine();
-        if (globalExceptionHandler.isValidRacingCount(racingCount)) {
-            racingGame.updateRacingCount(Integer.parseInt(racingCount));
-        }
+        String racingCarCount = racingCarView.inputRacingCarTryCount();
+        final Racing racingGame = racingCarService.startRace(racingCarCount, racingCarList);
 
         // 전진 횟수 카운트
         for (int i=0; i<racingGame.getRacingCount(); i++){

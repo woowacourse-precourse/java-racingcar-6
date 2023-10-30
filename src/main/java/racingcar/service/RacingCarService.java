@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import racingcar.domain.Car;
+import racingcar.domain.Racing;
 import racingcar.util.GlobalExceptionHandler;
 import racingcar.view.RacingCarView;
 
@@ -31,6 +32,14 @@ public class RacingCarService {
             }
         }
         return carList;
+    }
+
+    public Racing startRace(String racingCount, List<Car> racingCarList) {
+        if (globalExceptionHandler.isValidRacingCount(racingCount)) {
+            final Racing racingGame = new Racing(racingCarList, Integer.parseInt(racingCount));
+            return racingGame;
+        }
+        return null;
     }
 
 }

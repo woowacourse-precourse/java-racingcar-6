@@ -8,9 +8,9 @@ public class Racing {
     private int racingCount;
     private List<String> winnerList;
 
-    public Racing(List<Car> racingCarList){
+    public Racing(List<Car> racingCarList, int racingCount){
         this.racingCarList = racingCarList;
-        this.racingCount = 0;
+        this.racingCount = racingCount;
         this.winnerList = new ArrayList<>();
     }
 
@@ -24,10 +24,6 @@ public class Racing {
 
     public List<String> getWinnerList() {
         return winnerList;
-    }
-
-    public void updateRacingCount(int racingCount){
-        this.racingCount = racingCount;
     }
 
     public void updateWinnerList(String winnerName) {
