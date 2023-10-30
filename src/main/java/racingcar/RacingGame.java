@@ -19,4 +19,10 @@ public class RacingGame {
             System.out.println(car);
         }
     }
+
+    void executeStep() {
+        for(Car car : racingCars) {
+            car.moveRandom();
+        }
+    }
 }
