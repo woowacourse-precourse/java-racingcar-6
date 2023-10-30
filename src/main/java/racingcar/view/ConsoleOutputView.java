@@ -19,7 +19,7 @@ public class ConsoleOutputView implements OutputView {
     }
 
     @Override
-    public void printGameAttemptsNumberRequestMessage() {
+    public void printGameAttemptCountRequestMessage() {
         System.out.println(GAME_ATTEMPTS_NUMBER_REQUEST_MESSAGE);
     }
 

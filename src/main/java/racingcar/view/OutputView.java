@@ -7,7 +7,7 @@ public interface OutputView {
 
     void printCarNameRequestMessage();
 
-    void printGameAttemptsNumberRequestMessage();
+    void printGameAttemptCountRequestMessage();
 
     void printGameResultMessage();
 

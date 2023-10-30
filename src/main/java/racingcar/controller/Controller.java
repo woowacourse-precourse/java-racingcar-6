@@ -1,9 +1,8 @@
 package racingcar.controller;
 
-import static racingcar.util.Constant.ZERO;
-
 import java.util.List;
 import racingcar.controller.dto.GameResultResponse;
+import racingcar.model.AttemptCount;
 import racingcar.model.Cars;
 import racingcar.model.Vehicles;
 import racingcar.util.Converter;
@@ -23,10 +22,11 @@ public class Controller {
 
     public void start() {
         Vehicles vehicles = getVehicles();
-        int attemptsNumber = getAttemptsNumber();
+        AttemptCount attemptCount = getAttemptCount();
         outputView.printGameResultMessage();
-        while (attemptsNumber-- > ZERO.getValue()) {
+        while (!attemptCount.isGameOver()) {
             move(vehicles);
+            attemptCount.decrease();
         }
         finish(vehicles);
     }
@@ -38,10 +38,10 @@ public class Controller {
         return Cars.createWith(carNameList);
     }
 
-    private int getAttemptsNumber() {
-        outputView.printGameAttemptsNumberRequestMessage();
-        String attemptsNumber = inputView.readLine();
-        return Converter.stringToInt(attemptsNumber);
+    private AttemptCount getAttemptCount() {
+        outputView.printGameAttemptCountRequestMessage();
+        String attemptCount = inputView.readLine();
+        return new AttemptCount(attemptCount);
     }
 
     private void move(final Vehicles vehicles) {
