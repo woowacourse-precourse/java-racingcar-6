@@ -1,7 +1,9 @@
 package racingcar.util;
 
+import java.util.List;
+
 public class Validation {
-    public static void validateNameInput(String[] list) {
+    public static void validateNameInput(List<String> list) {
         for (String input : list) {
             if (input.length() > 5) {
                 throw new IllegalArgumentException("5자 이하의 이름만 입력 가능합니다");
