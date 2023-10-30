@@ -16,7 +16,7 @@ public class OutputView {
         System.out.println("최종 우승자 : " + winner);
     }
 
-    public String printResult(Car car) {
+    private String printResult(Car car) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < car.getLocation(); i++) {
             sb.append("-");
