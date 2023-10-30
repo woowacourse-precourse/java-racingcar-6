@@ -13,15 +13,12 @@ public class Application {
       
 //      실행할 횟수 입력
       AttemptNumber attempt = new AttemptNumber();
-      System.out.println(attempt.Attempt());
-
+      int number = attempt.Attempt();
       
       List<String> savedCarNames = car.getCarNames();
       MoveResult move = new MoveResult();
-      move.move(savedCarNames);
-//      for (String name : savedCarNames) {
-//          System.out.println(name);
-//      }
+      move.move(savedCarNames,number);
+
       
     }
 }

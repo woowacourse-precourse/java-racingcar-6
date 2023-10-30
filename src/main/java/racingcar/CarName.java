@@ -3,10 +3,12 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarName {
 
   private List<String> carNames;
+  
 
   public CarName() {
     carNames = new ArrayList<>();
@@ -48,4 +50,5 @@ public class CarName {
       }
     }
   }
+
 }
