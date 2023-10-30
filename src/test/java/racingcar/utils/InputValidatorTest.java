@@ -33,4 +33,11 @@ public class InputValidatorTest {
     void preprocessSpacingInputTest(String names) {
         assertThat(inputValidator.preprocessInputString(names)).isEqualTo("pobi");
     }
+
+    @DisplayName("입력값 전처리 테스트 - 공백/빈 문자열 포함 데이터 - 성공")
+    @ValueSource(strings = {"po bi, "})
+    @ParameterizedTest
+    void preprocessSpacingWIthEmptyInputTest(String names) {
+        assertThat(inputValidator.preprocessInputString(names)).isEqualTo("pobi,");
+    }
 }
