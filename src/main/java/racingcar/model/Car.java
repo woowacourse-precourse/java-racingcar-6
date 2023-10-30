@@ -14,11 +14,15 @@ public class Car implements Comparable<Car> {
     private final String name;
     private Integer movedCount;
 
-    public Car(final String name) {
+    private Car(final String name) {
         validateEmptyName(name);
         validateNameLength(name);
         this.name = name;
         this.movedCount = 0;
+    }
+
+    public static Car from(final String name) {
+        return new Car(name);
     }
 
     public Result move() {
