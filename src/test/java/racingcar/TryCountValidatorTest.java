@@ -26,4 +26,11 @@ public class TryCountValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수가 빈 값입니다. 애플리케이션을 종료합니다.");
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {" ", "  ", "   ", "    ", "     "})
+    void 시도_횟수가_공백을_포함하는_경우_예외처리_발생_테스트(String tryCount) {
+        Assertions.assertThatThrownBy(() -> TryCountValidator.validateTryCountIncludeEmpty(tryCount))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
