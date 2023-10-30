@@ -14,14 +14,13 @@ public class Player {
 
     public int setLapsOfRace(String inputLaps) {
         Validators validators = new Validators();
-        boolean result = validators.isInteger(inputLaps);
+        try {
+            validators.isInteger(inputLaps);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException();
+        }
+        int lapsOfRace = Integer.parseInt(inputLaps);
 
-        if(result) {
-           int lapsOfRace = Integer.parseInt(inputLaps);
-           return lapsOfRace;
-        }
-        else {
-            return 0;
-        }
+        return lapsOfRace;
     }
 }

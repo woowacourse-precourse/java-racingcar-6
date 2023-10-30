@@ -2,15 +2,18 @@
 
 # 구현 기능 목록
 
-- [ ] 사용자가 입력한 총 게임 회수와 자동차 이름을 배열로 반환한다. - racingcar#Player
-- [ ] 입력 값이 올바른지 검사한다. - racingcar#Validators
-  - [ ] 입력한 자동차 이름이 5자 이하인지 검사한다.
-  - [ ] 입력한 게임 회수가 정수로 변환 가능한지 검사한다.
-- [ ] 1턴동안 자동차가 1칸 전진 또는 멈추고, 이를 주어진 횟수 동안 반복한다. - racingcar#Game
-  - [ ] 전진 조건 (무작위 값이 4 이상)을 충족하면 전진한다.
-  - [ ] 충족하지 못하면 멈춘다.
-- [ ] 최종 우승자를 출력한다. - racingcar#Winner
-- [ ] 입력 값 검사 후 잘못된 값이 입력되면 에러를 발생한다. - racingcar#InputError
+- [x] 사용자가 입력한 총 게임 회수와 자동차 이름을 배열로 반환한다. - Player#createPlayerCarList, Player#setLapsOfRace
+- [x] 입력 값이 올바른지 검사한다. 
+  - [x] 입력한 자동차 이름이 5자 이하인지 검사한다. - Validators#isListElementOverFive
+  - [x] 입력한 게임 회수가 정수로 변환 가능한지 검사한다. - Validators#isInteger
+- [ ] 1턴동안 자동차가 1칸 전진 또는 멈추고, 이를 주어진 횟수 동안 반복한다. 
+  - [x] 0~9 사이의 임의의 숫자 1개를 생성한다. - NumberGenerator#createRandomNumber
+  - [ ] 각 플레이어에게 숫자를 부여한다. - Game#givePlayerNumber
+  - [ ] 플레이어 별로 전진 조건을 충족했는지 검사한다. - Judgement#moveForward
+  - [ ] 1턴 게임 결과를 출력한다. - Game#printLapResult
+- [ ] 최종 우승자를 출력한다. 
+  - [ ] 마지막 게임 결과를 가지고 플레이어 간 비교를 통해 가장 많이 이동한 사람을 알 수 있다. - Winner#compare
+  - [ ] 최종 우승자를 출력한다. - Game#printWinner
 
 
 

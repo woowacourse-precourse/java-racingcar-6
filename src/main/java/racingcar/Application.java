@@ -12,17 +12,20 @@ public class Application {
         String playerInput = Console.readLine();
 
         Player player = new Player();
-        ArrayList<String> cars = player.createPlayerCarList(playerInput);
+        ArrayList<String> carList = player.createPlayerCarList(playerInput);
 
 
         // TODO: validates playerCars
+        Validators validator = new Validators();
+        validator.isListElementOverFive(carList);
+
 
         System.out.println("시도할 회수는 몇회인가요?");
         String numberOfLaps = Console.readLine();
+        int lapOfRace = player.setLapsOfRace(numberOfLaps);
 
-        // TODO: validates numberOfLaps -> 필요한가
 
-        // TODO: convert String playerCars into ArrayList
+
         // TODO: convert numberOfLaps into Integer
 
         // TODO: play racing games for numberOfLaps
