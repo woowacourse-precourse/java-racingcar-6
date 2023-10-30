@@ -1,4 +1,4 @@
-package racingcar.common.Consts;
+package racingcar.common.consts;
 
 public class SystemMessage {
     //출력문

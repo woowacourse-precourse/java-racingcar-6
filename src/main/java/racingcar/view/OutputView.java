@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.common.Consts.SystemMessage;
+import racingcar.common.consts.SystemMessage;
 
 public class OutputView {
     public static void print(String text){
