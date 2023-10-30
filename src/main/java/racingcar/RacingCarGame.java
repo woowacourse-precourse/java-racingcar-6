@@ -19,6 +19,30 @@ public class RacingCarGame {
             printCarsCount(racingCars);
             System.out.println();
         }
+
+        List<RacingCar> winner = getWinner(racingCars);
+        printResult(winner);
+    }
+
+    private void printResult(List<RacingCar> winner) {
+
+    }
+
+    private List<RacingCar> getWinner(List<RacingCar> racingCars) {
+        int max = 0;
+        List<RacingCar> winners= new ArrayList<RacingCar>();
+
+        for(int i=0;i<racingCars.size();i++){
+            if(max<racingCars.get(i).getCount()){
+                max=racingCars.get(i).getCount();
+                winners.clear();
+                winners.add(racingCars.get(i));
+            } else if (max==racingCars.get(i).getCount()) {
+                winners.add(racingCars.get(i));
+            }
+        }
+
+        return winners;
     }
 
     private void printCarsCount(List<RacingCar> racingCars) {
