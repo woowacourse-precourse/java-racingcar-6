@@ -31,4 +31,8 @@ public class Validator {
             throw new IllegalArgumentException(CAR_NAME_INPUT_DUPLICATE_ERROR.getMessage());
         }
     }
+
+    public static void validateCheckCarName(String carName) {
+
+    }
 }
