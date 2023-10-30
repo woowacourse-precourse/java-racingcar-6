@@ -1,13 +1,13 @@
 package racingcar.constants;
 
-public enum GameConstant {
+public enum UtilConstant {
 
     MIN_RANDOM_NUMBER(0),
     MAX_RANDOM_NUMBER(9),
     SEPARATOR(44);
 
     private int value;
-    GameConstant(int constant) {
+    UtilConstant(int constant) {
         this.value = constant;
     }
 
