@@ -11,6 +11,11 @@ public class Car {
         this.count = 0;
     }
 
+    public Car(String carName, int count) {
+        this.carName = carName;
+        this.count = count;
+    }
+
     public int getCount() {
         return count;
     }
