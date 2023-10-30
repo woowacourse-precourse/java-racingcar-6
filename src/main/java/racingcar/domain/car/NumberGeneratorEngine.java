@@ -2,11 +2,11 @@ package racingcar.domain.car;
 
 import racingcar.domain.util.NumberGenerator;
 
-public class RandomEngine implements CarEngine {
+public class NumberGeneratorEngine implements CarEngine {
     private static final int MOVE_BOUNDARY = 4;
     private final NumberGenerator generator;
 
-    public RandomEngine(NumberGenerator generator) {
+    public NumberGeneratorEngine(NumberGenerator generator) {
         this.generator = generator;
     }
 
