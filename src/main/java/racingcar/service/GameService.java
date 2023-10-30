@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 import static racingcar.domain.NumberConstant.*;
 import static racingcar.service.InputService.*;
-import static racingcar.service.PrintService.*;
+import static racingcar.service.OutputService.*;
 
 public class GameService {
     public static void runOneGame() {

@@ -8,7 +8,7 @@ import java.util.stream.LongStream;
 
 import static racingcar.domain.StringConstant.*;
 
-public class PrintService {
+public class OutputService {
     public static void printRacingCarNameInputForm() {
         System.out.println(RACING_CAR_NAME_INPUT_FORM_MESSAGE);
     }
