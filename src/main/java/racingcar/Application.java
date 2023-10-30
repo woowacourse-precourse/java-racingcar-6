@@ -1,6 +1,6 @@
 package racingcar;
 import java.util.ArrayList;
-
+import java.util.Collections;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -10,11 +10,38 @@ public class Application {
     static int gameRepeatNum;
     static String[] carNameList;
     static ArrayList<Integer> carRacingCountList = new ArrayList<Integer>();
+    static ArrayList<String> winnerNameList = new ArrayList<String>();
+    static int maxCount;
+
+    public static void WinnerCount(){
+        maxCount = Collections.max(carRacingCountList);
+    }
+
+    public static void WinnerFind(){
+        int index = 0;
+        for(int countNum :carRacingCountList){
+            if (countNum == maxCount)
+                winnerNameList.add(carNameList[index]);
+            index++;
+        }
+    }
+
+    public static void WinnerPrint(){
+        System.out.print("최종 우승자 :");
+        boolean commaFlag = false;
+
+        for(String winner : winnerNameList){
+            if (commaFlag){
+                System.out.print(",");
+            }
+            System.out.print(" " + winner);
+            commaFlag = true;
+        }       
+    }
 
     public static void HyhpenPrint(int j){
-        for(int k=0; k<carRacingCountList.get(j); k++){
-                System.out.print('-');
-            }
+        for(int k=0; k<carRacingCountList.get(j); k++)
+            System.out.print('-');        
     }
     
     public static void RacingCountPrint(){
@@ -28,9 +55,8 @@ public class Application {
     }
 
     public static void RacingStart(){
-        for(int i=0; i<carNameList.length; i++){
-            carRacingCountList.set(i, carRacingCountList.get(i) + Randoms.pickNumberInRange(0,9));
-        }
+        for(int i=0; i<carNameList.length; i++)
+            carRacingCountList.set(i, carRacingCountList.get(i) + Randoms.pickNumberInRange(0,9));        
     }
 
     public static void RacingGameStart(){
@@ -44,7 +70,10 @@ public class Application {
             RacingStart();
             RacingCountPrint();
         }
-   
+
+        WinnerCount();
+        WinnerFind();
+        WinnerPrint();
     }
 
     public static void NameCheck(String carName){
