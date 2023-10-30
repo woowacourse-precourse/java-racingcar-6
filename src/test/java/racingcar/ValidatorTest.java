@@ -36,4 +36,26 @@ class ValidatorTest {
                 () -> Validator.checkValidCarNames(carNames),
                 "자동차 이름은 1글자 이상만 가능합니다.");
     }
+
+    @Test
+    @DisplayName("자동차 이름이 중복되는지 확인")
+    void checkValidCarNamesTest4() {
+        String[] carNames = {"pobi", "woni", "pobi", "abcde"};
+
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> Validator.checkValidCarNames(carNames),
+                "자동차 이름은 중복될 수 없습니다.");
+    }
+
+    @Test
+    @DisplayName("자동차 이름에 공백이 있는지 확인")
+    void checkValidCarNamesTest5() {
+        String[] carNames = {"pobi", "woni", "jun ", "abcde"};
+
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> Validator.checkValidCarNames(carNames),
+                "자동차 이름에 공백이 있을 수 없습니다.");
+    }
 }
