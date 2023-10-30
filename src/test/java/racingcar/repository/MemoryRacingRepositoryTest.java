@@ -27,10 +27,14 @@ public class MemoryRacingRepositoryTest {
         Participations participations = new Participations();
         int tryCount = 5;
         Winners winners = new Winners();
-        Racing racing = new Racing(participations, tryCount, winners);
+        Racing racing = Racing.builder()
+                .participations(participations)
+                .tryCount(tryCount)
+                .winners(winners)
+                .build();
 
         // when
-        final Racing result = racingRepository.save(racing);
+        final Racing result = (Racing) racingRepository.save(racing);
 
         // then
         assertThat(result.getId()).isNotNull();
@@ -38,6 +42,5 @@ public class MemoryRacingRepositoryTest {
         assertThat(result.getTryCount()).isEqualTo(tryCount);
         assertThat(result.getWinners()).isSameAs(winners);
     }
-
 
 }
