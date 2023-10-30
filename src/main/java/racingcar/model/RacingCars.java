@@ -3,6 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import racingcar.exception.ErrorException;
 
@@ -25,18 +26,15 @@ public class RacingCars {
     }
 
     public List<Car> findWinner() {
-        List<Car> winnerCars = new ArrayList<>();
         Car maxDistanceCar = findMaxDistanceCar();
 
-        racingCars.stream()
+        return racingCars.stream()
                 .filter(car -> findSameDistanceCar(maxDistanceCar, car))
-                .forEach(winner -> winnerCars.add(winner));
-
-        return winnerCars;
+                .collect(Collectors.toList());
     }
 
     private boolean findSameDistanceCar(Car maxDistanceCar, Car otherCar) {
-        return maxDistanceCar.getDistance() == otherCar.getDistance();
+        return maxDistanceCar.isSameDistance(otherCar);
     }
 
     private void validateRacingCars(List<Car> racingCars) {

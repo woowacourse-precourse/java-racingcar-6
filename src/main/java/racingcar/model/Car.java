@@ -30,6 +30,10 @@ public class Car {
         }
     }
 
+    public boolean isSameDistance(Car otherCar) {
+        return Objects.equals(this.distance, otherCar.distance);
+    }
+
     private void validateName(String carName) {
         isOverStandardLength(carName);
     }
@@ -68,5 +72,6 @@ public class Car {
     public int getDistance() {
         return distance;
     }
+
 
 }
