@@ -6,6 +6,7 @@ import java.util.List;
 public class Racing {
     private static final Integer CARFORWARD_NUMBER = 4;
     public List<String> raceSituation = new ArrayList<>();
+    public List<Integer> forwardCountNumbers = new ArrayList<>();
 
 
     public void createRace(List<String> carNames) {
@@ -30,6 +31,14 @@ public class Racing {
                 currentString += "-";
                 raceSituation.set(i, currentString);
             }
+        }
+    }
+
+    public void forwardCount(List<String> raceSituation){
+        for(String situation : raceSituation){
+            String withoutCount = situation.replace("-", "");
+            int count = situation.length() - withoutCount.length();
+            forwardCountNumbers.add(count);
         }
     }
 }
