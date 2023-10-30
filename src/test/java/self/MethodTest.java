@@ -15,7 +15,7 @@ class MethodTest {
     @Test
     void car() {
         Car car = new Car("poby");
-        Car car2=new Car("woni");
+        Car car2 = new Car("woni");
         car2.setSteps(3);
 
         assertThat(car.getSteps()).isEqualTo(0);
