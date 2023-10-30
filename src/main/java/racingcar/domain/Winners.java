@@ -24,6 +24,6 @@ public final class Winners {
 
     public String toResultMessage() {
         return ProgressMessage.WINNERS_MESSAGE_PREFIX.toValue()
-                + String.join(Delimiter.WINNERS_DIVIDER.toExpression(), names);
+                + String.join(Delimiter.BLANK_AFTER_COMMA.toExpression(), names);
     }
 }

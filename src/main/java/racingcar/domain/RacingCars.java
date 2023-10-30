@@ -63,12 +63,12 @@ public final class RacingCars {
 
     public Winners findWinners() {
         final Integer maxDistance = calculateMaxDistance();
-        return findSameDistanceCars(maxDistance);
+        return findMaxDistanceCars(maxDistance);
     }
 
-    private Winners findSameDistanceCars(final Integer distance) {
+    private Winners findMaxDistanceCars(final Integer maxDistance) {
         return elements.stream()
-                .filter(racingCar -> racingCar.hasSameDistance(distance))
+                .filter(racingCar -> racingCar.hasSameDistance(maxDistance))
                 .map(RacingCar::toName)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), Winners::new));
     }

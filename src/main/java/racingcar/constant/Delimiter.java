@@ -5,8 +5,7 @@ public enum Delimiter {
     BLANK(" "),
     DOUBLE_COMMA(COMMA.expression + COMMA.expression),
     BLANK_AFTER_COMMA(COMMA.expression + BLANK.expression),
-    BLANK_BEFORE_COMMA(BLANK.expression + COMMA.expression),
-    WINNERS_DIVIDER(COMMA.expression + BLANK.expression);
+    BLANK_BEFORE_COMMA(BLANK.expression + COMMA.expression);
 
     private final String expression;
 
