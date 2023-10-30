@@ -3,6 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -22,6 +26,28 @@ class ApplicationTest extends NsTest {
             },
             MOVING_FORWARD, STOP
         );
+    }
+
+    @Test
+    @DisplayName("자동차 이름 parsing")
+    void 자동차_이름_파싱(){
+        String input = "pobi,woni";
+        String[] carName = input.split(",");
+
+        List<Car> tempCars = new ArrayList<>();
+        for (String name : carName) {
+            if (name.length() > 5 || name.isEmpty() || tempCars.stream().map(Car::getName).anyMatch(name::equals)) {
+                throw new IllegalArgumentException();
+            }
+            Car car = new Car();
+            car.setName(name);
+            car.setPosition(0);
+            tempCars.add(car);
+        }
+
+        assertThat(tempCars.get(0).getName()).isEqualTo("pobi");
+        assertThat(tempCars.get(1).getName()).isEqualTo("woni");
+
     }
 
     @Test
