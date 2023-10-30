@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Car {
     private final String name;
     private int status;
@@ -17,7 +19,14 @@ public class Car {
         return status;
     }
 
-    public void move() {
+    public void race() {
+        int conditionNumber = Randoms.pickNumberInRange(0, 9);
+        moveOrStop(conditionNumber);
+    }
+
+    public void moveOrStop(int condition) {
+        if (condition < 4)
+            return;
         this.status++;
     }
 }
