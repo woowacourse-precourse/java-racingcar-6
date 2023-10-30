@@ -27,5 +27,14 @@ public class Game {
         int tryCount = Integer.parseInt(input);
         myOutput.printExecutionResult();
 
-    } 
+        for(int i=0; i<tryCount; i++){
+
+        }
+    }
+
+    public void movingALLCar(){
+        for(int i=0; i<carList.size(); i++){
+            carList.get(i).moving();
+        }
+    }
 }
