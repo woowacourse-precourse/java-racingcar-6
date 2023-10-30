@@ -39,6 +39,6 @@ public class Car implements Comparable<Car> {
 
     @Override
     public String toString() {
-        return this.name + " : " + "-".repeat(getPosition());
+        return this.name + " : " + "-".repeat(getPosition()) + "\n";
     }
 }

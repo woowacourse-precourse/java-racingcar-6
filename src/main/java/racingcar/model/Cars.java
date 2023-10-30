@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -76,7 +75,12 @@ public class Cars {
                 .toList();
     }
 
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Car car : cars) {
+            sb.append(car.toString());
+        }
+        return sb.toString();
     }
 }

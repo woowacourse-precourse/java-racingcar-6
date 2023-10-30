@@ -12,8 +12,7 @@ public class OutputView {
     }
 
     public void printResult(Cars cars) {
-        cars.getCars().forEach(System.out::println);
-        System.out.println();
+        System.out.println(cars);
     }
 
     public void printWinnerNames(List<String> winnerNames) {
