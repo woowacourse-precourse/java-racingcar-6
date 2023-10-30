@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.domain.ImplementGame;
+import static racingcar.domain.Constants.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +15,7 @@ public class Application {
         Map<String, Integer> numMoveMap = implementGame.playGame();
         List<String> winnerList = getWinner(numMoveMap);
         String prizeWinner = String.join(",", winnerList);
-        System.out.println("최종우승자: " + prizeWinner);
+        System.out.println(FINAL_WINNER_MESSAGE + prizeWinner);
     }
     public static List<String> getWinner(Map<String, Integer> numMap) {
         int maxValue = Collections.max(numMap.values());

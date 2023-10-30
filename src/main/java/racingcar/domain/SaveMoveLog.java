@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 public class SaveMoveLog {
-    UserInput carInput = new UserInput();
+    UserInput userInput = new UserInput();
     RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-    public Map<String, Integer> initMap(List<String> carInput){
+    public Map<String, Integer> initMap(List<String> userInput){
         Map<String, Integer> numMoveMap = new HashMap();
-        for (String carType: carInput){
+        for (String carType: userInput){
             if (!numMoveMap.containsKey(carType)){
                 numMoveMap.put(carType, 0);
             }
@@ -18,8 +18,8 @@ public class SaveMoveLog {
         return numMoveMap;
     }
 
-    public Map<String, Integer> decideIncMove(List<String> carInput, Map<String, Integer>numMoveMap) {
-        for (String carType : carInput) {
+    public Map<String, Integer> decideIncMove(List<String> userInput, Map<String, Integer>numMoveMap) {
+        for (String carType : userInput) {
             if (randomNumberGenerator.generateRandomNumber() < 4) {
                 continue;
             }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import camp.nextstep.edu.missionutils.Console;
+import static racingcar.domain.Constants.*;
 
 public class UserInput {
 
@@ -12,7 +13,7 @@ public class UserInput {
         String input = Console.readLine();
 
         List<String> carTypeList = new ArrayList<String>();
-        for (String carType : input.split(",")) {
+        for (String carType : input.split(CAR_NAME_SEPARATOR)) {
             checkLength(carType);
             carTypeList.add(String.valueOf(carType));
         }
@@ -21,8 +22,9 @@ public class UserInput {
     }
 
     public void checkLength(String carType) {
-        if (carType.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5글자 보다 적어야 합니다.");
+        if (carType.length() > MAX_CAR_NAME_LENGTH) {
+            System.out.println(ERROR_CAR_NAME_LENGTH);
+            throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH);
         }
     }
 
