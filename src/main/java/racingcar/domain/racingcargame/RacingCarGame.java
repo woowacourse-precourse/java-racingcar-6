@@ -31,4 +31,8 @@ public class RacingCarGame {
     public Winners winners() {
         return Winners.judge(players);
     }
+
+    public Players players() {
+        return players;
+    }
 }

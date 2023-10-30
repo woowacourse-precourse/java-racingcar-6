@@ -17,6 +17,10 @@ public class CarMovement implements Comparable<CarMovement> {
         movement += 1;
     }
 
+    public int movement() {
+        return movement;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

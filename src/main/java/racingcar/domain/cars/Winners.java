@@ -33,6 +33,10 @@ public class Winners {
             .orElseThrow(() -> new IllegalArgumentException(ERROR_MESSAGE_CANNOT_FIND_WINNER));
     }
 
+    public List<Car> cars() {
+        return cars;
+    }
+
     @Override
     public String toString() {
         List<String> carsName = cars.stream()
