@@ -2,17 +2,13 @@ package racingcar;
 
 import java.util.List;
 import racingcar.domain.Car;
-import racingcar.domain.CarName;
 import racingcar.domain.Cars;
-import racingcar.domain.Position;
 import racingcar.domain.TrialCount;
 import racingcar.message.ViewMessage;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class MainController {
-    public static final String CAR_NAME_DELIMITER = ",";
-
     public void run() {
         Cars cars = initCars();
         TrialCount trialCount = initTrialCount();
@@ -22,12 +18,7 @@ public class MainController {
 
     private Cars initCars() {
         String inputValue = InputView.inputString(ViewMessage.INPUT_CAR_NAME);
-        List<Car> carList = Converter.splitByDelimiter(inputValue, CAR_NAME_DELIMITER)
-                .stream()
-                .map(CarName::new)
-                .map(carName -> new Car(carName, new Position(0)))
-                .toList();
-        return new Cars(carList);
+        return Cars.createCarsByString(inputValue);
     }
 
     private TrialCount initTrialCount() {
