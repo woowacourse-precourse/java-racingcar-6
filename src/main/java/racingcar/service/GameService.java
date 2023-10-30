@@ -48,4 +48,8 @@ public class GameService {
     }
 
 
+    public void resultPrint(GameDto request) {
+        Game game = gameRepository.findById(request.getGameId());
+        game.printResult();
+    }
 }

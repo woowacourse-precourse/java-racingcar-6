@@ -38,8 +38,8 @@ public class GameController {
         }
     }
 
-    private void printResult(Game game) {
-
+    public void printResult(GameDto request) {
+        gameService.resultPrint(request);
 
     }
 

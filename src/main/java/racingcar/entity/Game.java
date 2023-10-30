@@ -1,6 +1,7 @@
 package racingcar.entity;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.IO.IOService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,5 +49,26 @@ public class Game {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void printResult() {
+        List<String> winnerList = getWinner();
+        String winners=String.join("", winnerList);
+        IOService.printNotice(IOService.END,winners);
+    }
+
+    public  List<String> getWinner() {
+        int maxScore = 0;
+        List<String> winnerList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getScore() > maxScore) {
+                maxScore = car.getScore();
+                winnerList.clear();
+                winnerList.add(car.getName());
+            } else if (car.getScore() == maxScore) {
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerList;
     }
 }
