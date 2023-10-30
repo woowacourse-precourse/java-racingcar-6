@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.model.Car;
+import racingcar.model.Racing;
 import racingcar.view.RacingView;
 
 public class RacingController {
@@ -13,13 +13,14 @@ public class RacingController {
     }
 
     public void run() {
-        List<Car> cars = view.inputCarNames();
+        final List<String> carNames = view.inputCarNames();
+        final Racing racing = Racing.makeRacingByCarNames(carNames);
         Integer tryCount = view.inputTryCount();
         view.startPrintTryResult();
         for (Integer i = 0; i < tryCount; i++) {
-            cars.forEach(car -> car.randomGoForward());
-            view.showRacingProgress(cars);
+            racing.tryCarsMoveForward();
+            view.showRacingProgress(racing);
         }
-        view.showRacingWinner(cars);
+        view.showRacingWinner(racing);
     }
 }
