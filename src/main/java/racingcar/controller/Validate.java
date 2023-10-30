@@ -13,7 +13,7 @@ public class Validate {
     public boolean validateName(List<String> nameList){
         for (String name: nameList){
             if (name.length() > 5){
-                outputView.printError();
+                throw new IllegalArgumentException("잘못된 값을 입력했습니다. 프로그램이 종료됩니다.");
             }
         }
         return true;
@@ -23,7 +23,7 @@ public class Validate {
         try{
             parseInt(number);
         } catch (NumberFormatException e) {
-            outputView.printError();
+            throw new IllegalArgumentException("잘못된 값을 입력했습니다. 프로그램이 종료됩니다.");
         }
         return true;
     }

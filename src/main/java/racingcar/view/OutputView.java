@@ -26,8 +26,4 @@ public class OutputView {
         System.out.println("최종 우승자 : "+result);
 
     }
-
-    public void printError(){
-        System.out.println("잘못된 값을 입력하셨습니다. 프로그램이 종료됩니다.");
-    }
 }
