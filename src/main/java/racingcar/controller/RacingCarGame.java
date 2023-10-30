@@ -1,8 +1,8 @@
 package racingcar.controller;
 
 import static java.lang.Math.max;
+import static racingcar.domain.RandomNumberGenerator.pickRandomNumber;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -17,8 +17,6 @@ public class RacingCarGame {
     private static final int ZERO_VALUE = 0;
     private static final int MIN_ADVANCE_COUNT = 4;
     private static final int ADVANCE_COUNT = 1;
-    private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_RANDOM_NUMBER = 9;
 
     private OutputView outputView = OutputView.getInstance();
     private InputView inputView = InputView.getInstance();
@@ -81,10 +79,6 @@ public class RacingCarGame {
             int currentAdvanceCount = car.getAdvanceCount();
             car.setAdvanceCount(currentAdvanceCount + ADVANCE_COUNT);
         }
-    }
-
-    public int pickRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 
     public void carInitialize() {
