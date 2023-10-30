@@ -9,5 +9,8 @@ public class Cars {
     public void saveCars(Car car){
         carList.add(car);
     }
+    public List<Car> getCars(){
+        return carList;
+    }
 
 }
