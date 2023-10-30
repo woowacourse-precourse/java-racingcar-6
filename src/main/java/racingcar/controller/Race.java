@@ -18,6 +18,7 @@ public class Race {
             if (number.isMovable()) {
                 car.move();
             }
+            System.out.println(car.getStatus());
         }
     }
 }

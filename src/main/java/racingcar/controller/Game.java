@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.params.ParameterizedTest;
 import racingcar.model.Car;
 import racingcar.model.RandomNumber;
 import racingcar.view.InputView;
@@ -12,7 +11,6 @@ public class Game {
     public void start() {
         OutputView.printStartMessage();
         List<String> stringCarList = InputView.getRacingCars(); // [abc,def,ge]
-        System.out.println(stringCarList);
         List<Car> racingCarList = new ArrayList<>();
         for (String stringCar : stringCarList) {
             Car car = new Car(stringCar, 0);
@@ -22,10 +20,10 @@ public class Game {
         Race race = new Race(racingCarList);
         OutputView.printTryMessage();
         int tryNumber = InputView.getTryNumber(); // 5
+        OutputView.printShowResultString();
         for (int i = 0; i < tryNumber; i++) {
             race.run();
+            System.out.println();
         }
-
-        OutputView.printShowResultString();
     }
 }

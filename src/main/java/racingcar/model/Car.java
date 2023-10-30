@@ -12,4 +12,13 @@ public class Car {
     public void move() {
         status++;
     }
+
+   public String getStatus() {
+        String statusString = "";
+        for (int i=0;i<status;i++) {
+            statusString += "-";
+        }
+        StringBuilder sb = new StringBuilder();
+        return sb.append(name).append(" : ").append(statusString).toString();
+   }
 }
