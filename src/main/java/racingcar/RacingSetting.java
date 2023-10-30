@@ -27,7 +27,7 @@ public class RacingSetting {
     }
 
     private void isVaildInputCarName(String inputCarName) throws IllegalArgumentException{
-        if (inputCarName.matches(".*,.*|.*,+$|^,.*")) {
+        if (inputCarName.matches(".*,,.*|.*,+$|^,.*")) {
             throw new IllegalArgumentException("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
         }
     }
