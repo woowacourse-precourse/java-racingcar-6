@@ -56,7 +56,7 @@ class Race {
     private  int attempts;
 
     public Race(List<String> carNames, int attempts){
-        this.carList=carNames.stream().map(Car::new).collect(Collectors.toList());
+        this.carList=carNames.stream().map(Car::new).toList();
         this.attempts=attempts;
     }
 
@@ -73,7 +73,7 @@ class Race {
     public void printWinners(){
         int maxPosition = carList.stream().mapToInt(Car::getPosition).max().orElse(0);
         List<String> winners = carList.stream().filter(car->car.getPosition()==maxPosition)
-                .map(Car::getName).collect(Collectors.toList());
+                .map(Car::getName).toList();
 
         System.out.println("최종 우승자 : " + String.join(", "+winners));
     }
