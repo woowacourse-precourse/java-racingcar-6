@@ -12,13 +12,13 @@ import static java.util.Collections.list;
 
 public class Application {
 
-    public int getRandomNumber() {
+    static int getRandomNumber() {
         // 0부터 9 사이의 무작위 값 반환
         return Randoms.pickNumberInRange(0, 9);
     }
 
     // 반환받은 무작위 값이 4 이상일 경우 전진
-    public boolean goFront() {
+    static boolean goFront() {
         int randomNumber = getRandomNumber();
         if (randomNumber>=4) {
             return true;
@@ -45,6 +45,15 @@ public class Application {
         // 자동차 경주 시도 횟수 입력받아 저장하기
         final String racingCount = Console.readLine();
         racingGame.updateRacingCount(Integer.parseInt(racingCount));
+
+        // 전진 횟수 카운트
+        for (int i=0; i<racingGame.getRacingCount(); i++){
+            for (Car car:racingGame.getRacingCarList()){
+                if (goFront()) {
+                    car.updateAheadCount();
+                }
+            }
+        }
 
 
 
