@@ -8,8 +8,8 @@ public class RacingBoard {
 
     private ArrayList<String> winnerBoard = new ArrayList<>();
 
-    public void join(int num, Car car) {
-        board.set(num, car);
+    public void join(Car car) {
+        board.add(board.size(), car);
     }
 
     public void write(ArrayList<Car> board) {
