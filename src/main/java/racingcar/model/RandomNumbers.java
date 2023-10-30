@@ -6,7 +6,6 @@ import static racingcar.common.Config.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import racingcar.common.Config;
 
 public class RandomNumbers {
     private final List<Boolean> randomNumberList;
