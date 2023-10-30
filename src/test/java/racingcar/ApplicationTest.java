@@ -66,22 +66,17 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 이름_작성_기준_예외처리(){
-        // 이름 길이 예외처리
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("123456,ABC,abc", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-        // 이름이 없을 경우 예외처리
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("123,,abc", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-        // 이름에 제어문자가 포함된 경우 예외처리
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException((char)(0) + "23", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
+        IntegrityCheck integrityCheck = new IntegrityCheck();
+
+        // 이름의 길이에 대한 예외처리
+        assertThat(integrityCheck.nameIntegrityCheck("123456")).isEqualTo(false);
+        // 이름이 없는 것에 대한 예외처리
+        assertThat(integrityCheck.nameIntegrityCheck("")).isEqualTo(false);
+        // 이름에 제어 문자가 들어간 것에 대한 예외처리
+        assertThat(integrityCheck.nameIntegrityCheck((char)(0) + "123")).isEqualTo(false);
     }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
