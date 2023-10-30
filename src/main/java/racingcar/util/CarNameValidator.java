@@ -1,20 +1,15 @@
 package racingcar.util;
 
 public class CarNameValidator {
-    private final String REGEX = "^[a-zA-Z]+$";
-    private final String SEPARATOR = ",";
-    private final int LIMIT_LENGTH = 5;
     private String[] allCarNames;
     public boolean check(String carNames) {
-        if(isNull(carNames) && isSize(carNames) && isString()){
-            return true;
-        }
-        throw new IllegalArgumentException("올바르지 차 이름 입력입니다.");
+        return isNull(carNames) && isSize(carNames) && isString();
     }
 
     private boolean isString() {
-        for(int index = 0; index < allCarNames.length; index++){
-            if(!allCarNames[index].matches(REGEX)){
+        for (String allCarName : allCarNames) {
+            String regex = "^[a-zA-Z]+$";
+            if (!allCarName.matches(regex)) {
                 return false;
             }
         }
@@ -22,10 +17,11 @@ public class CarNameValidator {
     }
 
     private boolean isSize(String carNames) {
-        allCarNames = carNames.split(SEPARATOR);
+        allCarNames = carNames.split(",");
 
-        for (String allCarName : allCarNames) {
-            if (allCarName.isEmpty() || allCarName.length() > LIMIT_LENGTH) {
+        for (String carName : allCarNames) {
+            int limit = 5;
+            if (carName.isEmpty() || carName.length() > limit) {
                 return false;
             }
         }
