@@ -1,21 +1,21 @@
 # 자동차 경주 기능 구현 목록
 
-## Main Package
+## main Package
 
 ### Application
 Game 타입의 CarRaceGame 객체를 생성한다.<br>
-UserInterface 객체에 Game을 주입해 생성한다.<br>
-UserInterface 객체의 start 메서드를 실행한다.
+CommandLineController 객체에 Game을 주입해 생성한다.<br>
+CommandLineController 객체의 start 메서드를 실행한다.
 
-## UI
+## controller Package
 
-### UserInterface
+### CommandLineController
 - 멤버변수
   - Game
 - 메서드
   - start() 프로그램을 시작한다.
 
-## Game Package
+## game Package
 
 ### Game (interface)
 - 메서드
@@ -37,7 +37,7 @@ UserInterface 객체의 start 메서드를 실행한다.
   - printRaceResult() 1회의 레이스 결과를 출력한다.
   - printFinalResult() 레이스의 최종 결과를 출력한다.
 
-## Service Package
+## service Package
 
 ### CarRaceService
 - 멤버변수
@@ -55,7 +55,7 @@ UserInterface 객체의 start 메서드를 실행한다.
   - shouldMoveForward() 자동차가 전진할지 말지 boolean으로 리턴
 
 
-## Domain Package
+## domain Package
 ### Car
 - 멤버변수
   - String name 자동차의 이름
