@@ -1,7 +1,7 @@
 package racingcar.collaborator.race;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.collaborator.race.generic.RacerProgress;
+import racingcar.generic.RacerProgress;
 
 public class Racer {
 

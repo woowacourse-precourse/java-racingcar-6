@@ -2,11 +2,9 @@ package racingcar.collaborator.race;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.collaborator.race.generic.LapProgress;
-import racingcar.collaborator.race.generic.RaceTotalProgress;
-import racingcar.collaborator.race.generic.RacerProgress;
-import racingcar.io.Input;
-import racingcar.io.Output;
+import racingcar.generic.LapProgress;
+import racingcar.generic.RaceTotalProgress;
+import racingcar.generic.RacerProgress;
 
 public class Race {
 
@@ -22,10 +20,8 @@ public class Race {
         this.racers = racers;
     }
 
-    public void decideRoundNumber() {
-        Output.consoleLine("시도할 회수는 몇회인가요?");
-        numberOfRound = Input.consoleNumber();
-        Output.consoleLine(); // 입력 후 공백 한 줄이 들어가게 되어있음
+    public void decideRoundNumber(Integer numberOfRound) {
+        this.numberOfRound = numberOfRound;
     }
 
     public void run() {

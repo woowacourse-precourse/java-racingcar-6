@@ -1,4 +1,4 @@
-package racingcar.collaborator.race.generic;
+package racingcar.generic;
 
 import java.util.List;
 import java.util.stream.Stream;
