@@ -1,11 +1,15 @@
 package racingcar.view;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import racingcar.model.Car;
 import racingcar.model.Race;
 
 public class OutputView {
+
     public static void printIndividualResultHeader() {
+        System.out.println();
         System.out.println("실행 결과");
     }
     public static void printIndividualResult(Race race) {
