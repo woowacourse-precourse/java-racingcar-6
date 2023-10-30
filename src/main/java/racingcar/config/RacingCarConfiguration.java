@@ -3,8 +3,8 @@ package racingcar.config;
 import racingcar.domain.race.RaceChecker;
 import racingcar.domain.util.NumberGenerator;
 import racingcar.domain.util.RandomNumberGenerator;
-import racingcar.port.in.RacingCarInputPort;
-import racingcar.port.in.console.RacingCarInputConsoleAdapter;
+import racingcar.port.output.RacingCarOutputPort;
+import racingcar.port.output.console.RacingCarOutputConsoleAdapter;
 import racingcar.application.service.CarService;
 import racingcar.application.service.RacingCarGameService;
 import racingcar.application.usecase.RacingCarUseCase;
@@ -35,8 +35,8 @@ public class RacingCarConfiguration {
         return new RacingCarView();
     }
 
-    private RacingCarInputPort racingCarInputPort() {
-        return new RacingCarInputConsoleAdapter();
+    private RacingCarOutputPort racingCarOutputPort() {
+        return new RacingCarOutputConsoleAdapter();
     }
 
     private RacingCarUseCase racingCarUseCase() {
@@ -44,7 +44,7 @@ public class RacingCarConfiguration {
                 carService(numberGenerator()),
                 racingCarGameService(raceChecker()),
                 racingCarView(),
-                racingCarInputPort()
+                racingCarOutputPort()
         );
     }
 }

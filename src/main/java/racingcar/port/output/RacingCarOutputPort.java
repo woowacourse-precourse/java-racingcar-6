@@ -1,8 +1,8 @@
-package racingcar.port.in;
+package racingcar.port.output;
 
 import java.util.List;
 
-public interface RacingCarInputPort {
+public interface RacingCarOutputPort {
     List<String> getCarNames();
     int getTryCount();
 }

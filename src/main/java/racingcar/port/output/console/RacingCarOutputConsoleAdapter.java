@@ -1,11 +1,11 @@
-package racingcar.port.in.console;
+package racingcar.port.output.console;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.port.in.RacingCarInputPort;
+import racingcar.port.output.RacingCarOutputPort;
 
 import java.util.List;
 
-public class RacingCarInputConsoleAdapter implements RacingCarInputPort {
+public class RacingCarOutputConsoleAdapter implements RacingCarOutputPort {
     @Override
     public List<String> getCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");

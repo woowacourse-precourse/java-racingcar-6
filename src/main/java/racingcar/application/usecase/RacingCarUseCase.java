@@ -1,6 +1,6 @@
 package racingcar.application.usecase;
 
-import racingcar.port.in.RacingCarInputPort;
+import racingcar.port.output.RacingCarOutputPort;
 import racingcar.domain.car.Car;
 import racingcar.domain.race.RaceResult;
 import racingcar.application.service.CarService;
@@ -13,18 +13,18 @@ public class RacingCarUseCase {
     private final CarService carService;
     private final RacingCarGameService gameService;
     private final RacingCarView racingCarView;
-    private final RacingCarInputPort racingCarInputPort;
+    private final RacingCarOutputPort racingCarOutputPort;
 
     public RacingCarUseCase(
             CarService carService,
             RacingCarGameService gameService,
             RacingCarView racingCarView,
-            RacingCarInputPort racingCarInputPort
+            RacingCarOutputPort racingCarOutputPort
     ) {
         this.carService = carService;
         this.gameService = gameService;
         this.racingCarView = racingCarView;
-        this.racingCarInputPort = racingCarInputPort;
+        this.racingCarOutputPort = racingCarOutputPort;
     }
 
     public RaceResult play() {
@@ -41,13 +41,13 @@ public class RacingCarUseCase {
     }
 
     private List<Car> createCars() {
-        List<String> carNames = racingCarInputPort.getCarNames();
+        List<String> carNames = racingCarOutputPort.getCarNames();
 
         return carService.createCars(carNames);
     }
 
     private int getTryCount() {
-        return racingCarInputPort.getTryCount();
+        return racingCarOutputPort.getTryCount();
     }
 
     private void playGame(List<Car> cars, int tryCount) {

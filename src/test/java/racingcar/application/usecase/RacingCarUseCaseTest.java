@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 import racingcar.domain.car.Car;
 import racingcar.domain.race.RaceChecker;
 import racingcar.domain.race.RaceResult;
-import racingcar.port.in.RacingCarInputPort;
+import racingcar.port.output.RacingCarOutputPort;
 import racingcar.application.service.CarService;
 import racingcar.application.service.RacingCarGameService;
 import racingcar.view.RacingCarView;
@@ -20,7 +20,7 @@ class RacingCarUseCaseTest {
     @DisplayName("play를 실행하면 자동차 경주 결과를 반환한다.")
     void play() {
         // given
-        RacingCarInputPort racingCarInputPort = new RacingCarInputPort() {
+        RacingCarOutputPort racingCarOutputPort = new RacingCarOutputPort() {
             public List<String> getCarNames() {
                 return List.of("pobi", "crong", "honux");
             }
@@ -43,7 +43,7 @@ class RacingCarUseCaseTest {
                 carService,
                 new RacingCarGameService(new RaceChecker()),
                 new RacingCarView(),
-                racingCarInputPort
+                racingCarOutputPort
         );
 
         // when
