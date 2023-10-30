@@ -30,6 +30,16 @@ class CarsTest {
     }
 
     @Test
-    void findWinner() {
+    void findWinner_메서드로_우승자_찾기() {
+        String input = "pobi,woni,jun";
+        Cars cars = new Cars();
+        List<Car> carList = cars.createCarList(input);
+        carList.get(0).moveForward(4);
+        carList.get(1).moveForward(4);
+        carList.get(2).moveForward(4);
+        List<String> Winners = cars.findWinner();
+        System.out.println(Winners);
+        assertThat(Winners).contains("pobi", "woni");
+        assertThat(Winners).containsExactly("pobi", "woni", "jun");
     }
 }
