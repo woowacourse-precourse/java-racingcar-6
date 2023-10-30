@@ -81,14 +81,8 @@ public class Race {
         return winners;
     }
 
-    public void displayWinner(List<Car> winners) {
-        System.out.print("최종 우승자 : ");
-        for (int idx = 0; idx < winners.size(); idx++) {
-            System.out.print(winners.get(idx).getName());
-
-            if (idx < winners.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+    public void displayWinner(List<String> winners) {
+        String result = String.join(", ", winners);
+        System.out.print("최종 우승자 : " + result);
     }
 }

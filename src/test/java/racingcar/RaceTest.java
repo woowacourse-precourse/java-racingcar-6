@@ -104,10 +104,10 @@ public class RaceTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
 
-        List<Car> winners = new ArrayList<>();
-        winners.add(new Car("Car1"));
-        winners.add(new Car("Car2"));
-        winners.add(new Car("Car3"));
+        List<String> winners = new ArrayList<>();
+        winners.add("Car1");
+        winners.add("Car2");
+        winners.add("Car3");
 
         Race race = new Race();
         race.displayWinner(winners);
