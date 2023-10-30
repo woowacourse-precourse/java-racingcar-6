@@ -31,7 +31,7 @@ class RacingCarGameTest {
     void canConstructByPlayersAndAttempt() {
         // given
         List<String> names = Arrays.asList("tae", "wan");
-        Players players = new Players(names);
+        Players players = Players.of(names);
         int attemptValue = 3;
         Attempt attempt = new Attempt(attemptValue);
 
@@ -72,7 +72,7 @@ class RacingCarGameTest {
         final String ERROR_MESSAGE_CANNOT_RACE = "더 이상 게임을 진행할 수 없습니다.";
 
         List<String> names = Arrays.asList("tae", "wan");
-        Players players = new Players(names);
+        Players players = Players.of(names);
         int attemptValue = 1;
         Attempt attempt = new Attempt(attemptValue);
 
@@ -91,7 +91,7 @@ class RacingCarGameTest {
     void hasNextReturnTrue_whenRaceCanExecute() {
         // given
         List<String> names = Arrays.asList("tae", "wan");
-        Players players = new Players(names);
+        Players players = Players.of(names);
         int attemptValue = 3;
         Attempt attempt = new Attempt(attemptValue);
 
@@ -113,7 +113,7 @@ class RacingCarGameTest {
             .thenReturn(MOVE_VALUE, DONT_MOVE_VALUE, MOVE_VALUE);
 
         List<String> names = Arrays.asList("kim", "tae", "wan");
-        Players players = new Players(names);
+        Players players = Players.of(names);
         int attemptValue = 1;
         Attempt attempt = new Attempt(attemptValue);
 

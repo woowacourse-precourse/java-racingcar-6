@@ -29,7 +29,7 @@ public class RacingCarGameController {
         String names = InputView.nameInput();
         List<String> carNames = Arrays.stream(names.split(COMMA))
             .collect(Collectors.toList());
-        return new Players(carNames);
+        return Players.of(carNames);
     }
 
     private Attempt comfirmAttempt() {

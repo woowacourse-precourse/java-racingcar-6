@@ -23,7 +23,7 @@ class WinnersTest {
     void returnWinners_whenCallStaticMethodJudgeWithPlayer() {
         // given
         List<String> names = Arrays.asList("tae", "wan");
-        Players players = new Players(names);
+        Players players = Players.of(names);
 
         MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
         mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))

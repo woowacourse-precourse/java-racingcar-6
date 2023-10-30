@@ -19,13 +19,13 @@ class PlayersTest {
     static final int DONT_MOVE_VALUE = 1;
 
     @Test
-    @DisplayName("이름 리스트를 받아 생성할 수 있다.")
-    void canConstructByNamesList() {
+    @DisplayName("스테틱 매소드 of에 이름 리스트를 입력해 생성할 수 있다.")
+    void createPlayer_whenCallStaticMethodOfWithNameList() {
         // given
         List<String> names = Arrays.asList("kim", "tae", "Wan");
 
         // when
-        Players players = new Players(names);
+        Players players = Players.of(names);
 
         // then
         assertThat(players.cars().size()).isEqualTo(3);
@@ -41,7 +41,7 @@ class PlayersTest {
     void carsReturnAllSavedCars() {
         // given
         List<String> names = Arrays.asList("kim", "tae", "Wan");
-        Players players = new Players(names);
+        Players players = Players.of(names);
 
         // when
         List<Car> cars = players.cars();
@@ -60,7 +60,7 @@ class PlayersTest {
     void allCarsMoveWithCondition_whenMoveAll() {
         // given
         List<String> names = Arrays.asList("tae", "wan");
-        Players players = new Players(names);
+        Players players = Players.of(names);
 
         MockedStatic<Randoms> mockedRandoms = mockStatic(Randoms.class);
         mockedRandoms.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
