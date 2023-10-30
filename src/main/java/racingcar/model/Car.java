@@ -30,10 +30,14 @@ public class Car {
     public void forward () {
         for(int i = 0 ; i < names.size(); i++) {
             int random = Random.generate();
-            boolean isSatisfied = Random.isConditionsAdvancementMet(random);
-            if(isSatisfied) {
-                mileage.set(i, mileage.get(i) + 1);
-            }
+            setMileage(random, i);
+        }
+    }
+
+    public void setMileage(int random, int i) {
+        boolean isSatisfied = Random.isConditionsAdvancementMet(random);
+        if(isSatisfied) {
+            mileage.set(i, mileage.get(i) + 1);
         }
     }
 
@@ -47,6 +51,10 @@ public class Car {
 
     public String getNameByIndex(int idx) {
         return names.get(idx);
+    }
+
+    public List<Integer> getMileage() {
+        return mileage;
     }
 
     public int getMileageByIndex(int idx) {
