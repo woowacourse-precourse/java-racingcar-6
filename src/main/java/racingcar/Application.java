@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.controller.RacingCarGame;
+import racingcar.controller.RacingCarGameController;
 import racingcar.model.RacingCarGameModel;
 import racingcar.view.input.InputView;
 import racingcar.view.output.OutputView;
@@ -12,7 +12,7 @@ public class Application {
         RacingCarGameModel racingCarGameModel = new RacingCarGameModel();
 
 
-        RacingCarGame game = new RacingCarGame(
+        RacingCarGameController game = new RacingCarGameController(
                 userInputView,
                 userOutputView,
                 racingCarGameModel

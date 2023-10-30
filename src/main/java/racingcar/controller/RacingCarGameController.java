@@ -15,12 +15,12 @@ import static racingcar.contant.GameNotice.EXECUTE_RESULT;
 import static racingcar.view.output.OutputView.printGameNotice;
 import static utils.StringUtils.splitStringToArray;
 
-public class RacingCarGame {
+public class RacingCarGameController {
     private InputView inputView;
     private OutputView outputView;
     private RacingCarGameModel racingCarGameModel;
 
-    public RacingCarGame(InputView inputView, OutputView outputView, RacingCarGameModel racingCarGameModel) {
+    public RacingCarGameController(InputView inputView, OutputView outputView, RacingCarGameModel racingCarGameModel) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.racingCarGameModel = racingCarGameModel;
