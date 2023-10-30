@@ -5,12 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 import java.util.stream.Stream;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import racingcar.model.car.Car;
 import racingcar.model.car.RacingCar;
 
 @Nested
@@ -39,6 +41,17 @@ class RacingCarTest {
                 arguments("자동차222"),
                 arguments((Object) null)
         );
+    }
+
+    @Test
+    @DisplayName("자동차 이동 테스트")
+    public void moveCar() {
+
+        Car testCar = new RacingCar("test", 10L);
+        testCar.move(true);
+
+        assertThat(testCar.getProgress())
+                .isEqualTo(11L);
     }
 
 }
