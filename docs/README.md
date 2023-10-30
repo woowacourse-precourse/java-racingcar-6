@@ -60,7 +60,7 @@
 - [x] 자동차 이동 로직 - Car
 - [x] 입력 받은 회수 만큼의 게임 진행 - Game
 - [x] 결과 출력 - Communicator
-- [ ] 최종 우승자 선정 - Game
+- [x] 최종 우승자 선정 - Game
 - [ ] 최종 우승자 출력 - Communicator
 - [ ] 시스템 종료 - ExceptionHandler
 - [ ] 예외 처리 - ExceptionHandler

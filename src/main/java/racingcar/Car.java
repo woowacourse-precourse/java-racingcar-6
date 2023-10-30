@@ -25,6 +25,10 @@ public class Car {
         return stringBuilder.toString();
     }
 
+    public int getDisplacement() {
+        return displacement;
+    }
+
     private boolean isAbleToProceed() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber > 3;
