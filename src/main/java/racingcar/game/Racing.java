@@ -30,7 +30,7 @@ public class Racing {
         }
     }
 
-    public void updateLongestCarRoute() {
+    private void updateLongestCarRoute() {
         for (Car car : racingCars) {
             String carRoute = car.getRoute();
             if (carRoute.length() > longestCarRouteLength) {
@@ -40,6 +40,7 @@ public class Racing {
     }
 
     public void determineWinningCars() {
+        updateLongestCarRoute();
         for (Car car : racingCars) {
             String carRoute = car.getRoute();
             if (carRoute.length() == longestCarRouteLength) {

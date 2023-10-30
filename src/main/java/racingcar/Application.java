@@ -11,12 +11,13 @@ public class Application {
         Racing racing = new Racing(carNames);
         System.out.printf("시도할 회수는 몇회인가요?\n");
         int numberOfAttempts = InputManager.readNumberOfAttempts();
+
         System.out.printf("\n실행 결과\n");
         for (int i = 0; i < numberOfAttempts; i++) {
             racing.moveAllCarsForward();
             OutputManager.printRacingStatus(racing);
         }
-        racing.updateLongestCarRoute();
         racing.determineWinningCars();
+        OutputManager.printRacingResult(racing);
     }
 }
