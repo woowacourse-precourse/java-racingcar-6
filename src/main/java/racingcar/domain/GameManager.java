@@ -63,4 +63,11 @@ public class GameManager {
         }
     }
 
+    public String getGameLog() {
+        return gameLog.toString();
+    }
+
+    public String getGameWinner() {
+        return gameWinner.toString();
+    }
 }
