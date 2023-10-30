@@ -44,7 +44,7 @@ public class CarGroup {
 
     public CarGroupDto toDto() {
         List<CarDto> carDtos = cars.stream()
-                .map(car -> car.toDto())
+                .map(Car::toDto)
                 .collect(toList());
         return new CarGroupDto(carDtos);
     }
