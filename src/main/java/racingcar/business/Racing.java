@@ -5,7 +5,10 @@ import racingcar.ui.Output;
 import racingcar.ui.OutputView;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Racing {
 
@@ -31,6 +34,27 @@ public class Racing {
             runRound();
         }
 
+        String winnerNames = getWinnerNames();
+
+    }
+
+    private String getWinnerNames() {
+        Optional<Car> maxDistanceCar = carList.stream().max(Comparator.comparingInt(Car::getDistance));
+        Integer maxDistance = maxDistanceCar.get().getDistance();
+
+        return carList.stream().filter(car -> car.getDistance() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+    }
+
+    private List<Car> getCars(List<String> names) {
+        List<Car> carList = new ArrayList<>();
+
+        for (String name : names) {
+            carList.add(new Car(name));
+        }
+
+        return carList;
     }
 
     private void runRound() {
@@ -47,12 +71,4 @@ public class Racing {
         outputView.printMoveResult(car);
     }
 
-    private static List<Car> getCars(List<String> names) {
-        List<Car> carList = new ArrayList<>();
-
-        for (String name : names) {
-            carList.add(new Car(name));
-        }
-        return carList;
-    }
 }
