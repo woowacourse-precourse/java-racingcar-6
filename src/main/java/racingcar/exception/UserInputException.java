@@ -27,8 +27,7 @@ public class UserInputException {
         }
     }
 
-    public static void isDuplicate(String carName) {
-        List<String> carNameList = Arrays.asList(carName.split(","));
+    public static void isDuplicate(List<String> carNameList) {
         if(!(carNameList.size() == carNameList.stream().distinct().count())) {
             throw new IllegalArgumentException(DUPLICATE_MESSAGE);
         }
