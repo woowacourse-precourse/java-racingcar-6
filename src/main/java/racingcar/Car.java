@@ -10,4 +10,13 @@ public class Car {
         this.name = name;
         this.position = 0;
     }
+
+    public void move() {
+        int randomValue = Randoms.pickNumberInRange(0, 9);
+        if (randomValue >= 4) {
+            position++;
+        }
+    }
+
+
 }
