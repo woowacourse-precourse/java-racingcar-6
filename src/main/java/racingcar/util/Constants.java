@@ -7,6 +7,7 @@ public enum Constants {
     ROUND_REGEX("^[1-9][0-9]*$"),
     MINIMUM_CAR_SIZE("2"),
     NAME_MAX_SIZE("5"),
+    MINIMUM_DISTANCE_SIZE("4"),
 
     //** error Message **/
     HAS_BLANK_IN_NAME("입력된 자동차 이름에 공백이 포함 되어 있습니다."),
