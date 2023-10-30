@@ -22,10 +22,14 @@ public class Car {
     }
 
     public void move() {
-        if (RandomNumber.canMove(RandomNumber.createRandomNumber())) {
+        if (canMove(RandomNumber.createRandomNumber())) {
             moveDistance += 1;
         }
         OutputUtils.printCarMove(name, moveDistance);
+    }
+
+    private static boolean canMove(int number) {
+        return number >= 4;
     }
 
 }

@@ -8,7 +8,4 @@ public class RandomNumber {
         return Randoms.pickNumberInRange(0,9);
     }
 
-    public static boolean canMove(int number) {
-        return number >= 4;
-    }
 }
