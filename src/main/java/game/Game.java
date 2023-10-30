@@ -10,6 +10,42 @@ import java.util.List;
 
 public class Game {
 
+    public void gameStart(){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String persons = Console.readLine();
+        List<String> people = addPerson(persons);
+        List<Car> carList = addCar(people);
+
+        int count = count();
+        System.out.println();
+        gameResult(carList, count);
+
+        int maxCount = maxCount(carList);
+
+        List<String> winnerList = winner(carList, maxCount);
+
+        printWinner(winnerList);
+
+    }
+
+    public void gameStart(int randNumber){
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String persons = Console.readLine();
+        List<String> people = addPerson(persons);
+        List<Car> carList = addCar(people);
+
+        int count = count();
+        System.out.println();
+        gameResult(carList,randNumber, count);
+
+        int maxCount = maxCount(carList);
+
+        List<String> winnerList = winner(carList, maxCount);
+
+        printWinner(winnerList);
+
+    }
+
     //사람 추가
     public List<String> addPerson(String persons){
         String[] personArray = persons.split(",");
