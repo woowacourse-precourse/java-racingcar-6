@@ -20,6 +20,10 @@ public class GameService {
         for(String carName : carNames) {
             cars.add(new Car(carName));
         }
+
+        // tryCount를 입력받아 tryCount를 초기화
+        String rawInputStringTryCount = InputView.requestInputTryCount();
+        tryCount = convertInputToTryCount(rawInputStringTryCount);
     }
 
     public void playGame() {
@@ -48,5 +52,21 @@ public class GameService {
         }
 
         return carNameSet;
+    }
+
+    private Integer convertInputToTryCount(String rawInputString){
+        Integer tryCount;
+
+        try{
+            tryCount = Integer.parseInt(rawInputString);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자만 입력 가능합니다.");
+        }
+
+        if(tryCount < 1){
+            throw new IllegalArgumentException("시도 횟수는 1 이상만 가능합니다.");
+        }
+
+        return tryCount;
     }
 }

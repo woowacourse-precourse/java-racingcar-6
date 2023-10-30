@@ -27,7 +27,7 @@
   
 
 - 시도 횟수 입력 기능 구현 (사용자)
-  - [ ] 잘못된 값 입력할 경우 `IllegalArgumentException` 예외 처리
+  - [x] 잘못된 값 입력할 경우 `IllegalArgumentException` 예외 처리
     - 입력된 시도 횟수가 0 이하
     - 입력된 시도 횟수가 숫자가 아닌 경우
   
