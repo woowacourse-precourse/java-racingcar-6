@@ -10,9 +10,8 @@ public class Output {
 
     public void printRacingProcess(Map<String, Integer> carNameAndMoving) {
         for (String carName : carNameAndMoving.keySet()) {
-            StringBuilder bar = new StringBuilder();
             int count = carNameAndMoving.get(carName);
-            System.out.println(carName + IS + appendBar(bar, count));
+            System.out.println(carName + IS + appendBar(count));
         }
         System.out.println();
     }
@@ -33,7 +32,8 @@ public class Output {
         System.out.println("최종 우승자 : " + winners);
     }
 
-    private StringBuilder appendBar(StringBuilder bar, int count) {
+    private StringBuilder appendBar(int count) {
+        StringBuilder bar = new StringBuilder();
         for (int i = 0; i < count; i++) {
             bar.append("-");
         }
