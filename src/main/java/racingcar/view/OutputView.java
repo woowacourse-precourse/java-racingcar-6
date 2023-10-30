@@ -1,20 +1,18 @@
 package racingcar.view;
 
-import racingcar.controller.ViewController;
 import racingcar.domain.Car;
+import racingcar.domain.Winner;
 
 import java.util.List;
 
 public class OutputView {
 
     public static void showCarNameAndPosition(List<Car> cars) {
-        for (Car car : cars) {
-            System.out.println(car.getName() + " : " + ViewController.resultPosition(car));
-        }
+        cars.forEach(car -> System.out.println(car.getName() + " : " + car.resultPosition()));
         System.out.println("\n");
     }
 
-    public static void finalWinnerMessage() {
-        System.out.println("최종 우승자 :");
+    public static void finalWinnerMessage(Winner winner) {
+        System.out.println("최종 우승자 : " + winner.getWinnerCarNames());
     }
 }
