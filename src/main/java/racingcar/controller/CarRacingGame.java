@@ -13,7 +13,7 @@ import java.util.List;
 public class CarRacingGame {
   public void playGame() {
     List<Car> cars = new ArrayList<>();
-    int movingCounts = 0;
+    int movingCounts;
 
     OutputView.printSetCarName();
     String carNames = InputView.setCarName();

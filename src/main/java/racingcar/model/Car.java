@@ -1,9 +1,6 @@
 package racingcar.model;
 
 import racingcar.util.CarMoving;
-import racingcar.util.ValidationCarName;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class Car {
   private final String name;
