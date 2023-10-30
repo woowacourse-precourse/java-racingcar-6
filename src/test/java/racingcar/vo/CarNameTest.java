@@ -1,5 +1,6 @@
 package racingcar.vo;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -15,8 +16,10 @@ class CarNameTest {
     @Test
     void validCarName_test() {
         String validName = "a".repeat(CAR_NAME_MAX_LENGTH);
-        CarName carName = new CarName(validName);
 
+        CarName carName = assertDoesNotThrow(() -> {
+            return new CarName(validName);
+        });
         assertEquals(validName, carName.name());
     }
 

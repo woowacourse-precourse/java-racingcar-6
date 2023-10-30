@@ -24,7 +24,6 @@ class CarDistanceTest {
         assertEquals(carDistance1, carDistance2);
     }
 
-
     @DisplayName("필드값이 동일하지 않으면 객체는 동일하지 않다.")
     @Test
     void carDistance_not_equal_test() {
