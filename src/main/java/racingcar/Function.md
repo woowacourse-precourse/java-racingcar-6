@@ -24,7 +24,7 @@
 - [x] 랜덤 한 수 뽑기 - #NumberGenerater - generateRandomNumber()
 - [ ] 경기 진행 - #PlayRacing
   - [ ] 경기 하기 - playRace()
-  - [ ] 전진 or 정지 판단 - judgement()
+  - [ ] 전진 or 정지 판단 - judgementGoStop()
   - [ ] 우승자 판단 - winnerList()
 
 ### 입출력 요구 사항
