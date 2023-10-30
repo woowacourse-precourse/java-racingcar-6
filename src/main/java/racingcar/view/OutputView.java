@@ -13,7 +13,7 @@ public class OutputView {
     private static int maxPosition;
 
 
-    public static void printRacingStatus(String carName, int position) {
+    public static void printRacingProcess(String carName, int position) {
         System.out.print(carName + " : ");
         for (int i = 0; i < position; i++) {
             System.out.print(RACING_ROAD);
@@ -36,7 +36,6 @@ public class OutputView {
                 winners.add(car.getName());
             }
         }
-
         System.out.println("\n최종 우승자 : " + String.join(", ", winners));
     }
 }
