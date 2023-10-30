@@ -6,28 +6,29 @@
 - [x] n 대의 자동차 이름을 입력 받는다. InputView#inputCarName
   - [x] 자동차 이름은 쉼표를 기준으로 5자 이하 (1 ~ 5)로 입력 받는다. (split 메소드 사용)
   - [x] 사용자 입력 예외 처리 InputValidation 클래스
-        [x] 1. 사용자가 아무 값을 입력하지 않은 경우 validationName 메소드
-        [x] 2. 6 자 이상의 이름을 입력할 경우 validationName 메소드
-        [x] 3. 쉼표로 구분하여 입력하지 않은 경우 validateAndSplit 메소드
-        [x] 4. 2 이상의 자동차 이름을 입력 하지 않은 경우 validateAndSplit 메소드
-        [x] 5. 입력한 자동차의 이름이 같은 경우 carSameNameValidation 메소드
+        [x] 1. 사용자가 아무 값을 입력하지 않은 경우 validationName
+        [x] 2. 6 자 이상의 이름을 입력할 경우 validationName
+        [x] 3. 쉼표로 구분하여 입력하지 않은 경우 validateAndSplit
+        [x] 4. 2 이상의 자동차 이름을 입력 하지 않은 경우 validateAndSplit
+        [x] 5. 입력한 자동차의 이름이 같은 경우 carSameNameValidation
   
-- [x] '시도할 회수는 몇회인가요?' 출력 한다. inputview#tryGameNumber 메소드
-- [x] 사용자가 몇 번 이동할지 숫자 값을 입력 받는다. Inputview#carNumericValue 메소드
-- [x] 사용자 입력 예외 처리 InputValidation#carNumericValidation 메소드
+- [x] '시도할 회수는 몇회인가요?' 출력 한다. inputview#tryGameNumber
+- [x] 사용자가 몇 번 이동할지 숫자 값을 입력 받는다. Inputview#carNumericValue
+- [x] 사용자 입력 예외 처리 InputValidation#carNumericValidation
       [x] 1. 사용자가 숫자가 아닌 다른 값을 입력했을 경우 예외 처리
 
-- [] 0에서 9까지의 무작위 값을 구한다. util 패키지. GoStopCar 클래스. pickNumberInRange 메소드.
-  - [] 4 ~ 9 이상의 값일 경우 자동차가 전진한다. controller 패키지. RacingCarController 클래스. 
-    - [] "자동차 이름 : " + "-" (추가) view 패키지. Outputview 클래스. outputViewCar 메소드.
-  - [] 1 ~ 3 의 값일 경우 자동차는 멈춘다. domain 패키지. Car 클래스.
-    - [] "자동차 이름 : " 만 출력 view 패키지. OutputView 클래스. outputViewCar 메소드.
-  - [] 사용자가 이동할 숫자 값 까지 무작위 값을 호출한다. 
+- [x] 입력한 자동차의 데이터를 저장하는 Car
+- [x] 0에서 9까지의 무작위 값을 구한다. GoStopCar#pickNumberInRange
+  - [x] 4 ~ 9 이상의 값일 경우 자동차가 전진한다. OutputView#generateAdvancedIcon
+    - [x] "자동차 이름 : " + "-" (추가) OutputView#printCurrentPositions
+  - [x] 1 ~ 3 의 값일 경우 자동차는 멈춘다.  
+    - [x] "자동차 이름 : " 만 출력 
+  - [x] 사용자가 이동할 숫자 값 까지 무작위 값을 호출한다. GoStopCar#pickNumberInRange
   
-- [] 우승자를 출력 한다. 
-  - [] random 숫자에서 (4 ~ 9) 값이 나온 자동차를 ++ 처리한다. controller 패키지
-  - [] 숫자를 더한 값 중 가장 높은 값의 자동차가 우승 한다. controller 패키지
-  - [] "최종 우승자 : " + 우승 자동차 view 패키지. OutputView 클래스.
+- [x] 우승자를 출력 한다. OutputView#printWinners
+  - [x] random 숫자에서 (4 ~ 9) 값이 나온 자동차를 ++ 처리한다. OutputView#generateAdvancedIcon
+  - [x] 숫자를 더한 값 중 가장 높은 값의 자동차가 우승 한다. Cars#getWinnersCar
+  - [x] "최종 우승자 : " + 우승 자동차 OutputView#printWinners
    
 
 ## 기능 요구 사항
