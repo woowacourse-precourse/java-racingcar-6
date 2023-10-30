@@ -14,11 +14,11 @@ public class Race {
     }
     public static void againRacingByRandomNumber(){
         List<String> carList = Car.makeRacingCarList();
-        int[] go = new int[carList.size()];
-        System.out.println(Arrays.toString(go));
+        int[] goCount = new int[carList.size()];
+        System.out.println(Arrays.toString(goCount));
         int round = numberOfGameRound();
         for(int i = 0 ; i<round;i++){
-            racingByRandomNumber(carList,go);
+            racingByRandomNumber(carList,goCount);
             System.out.println();
         }
     }

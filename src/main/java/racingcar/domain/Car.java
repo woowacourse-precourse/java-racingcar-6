@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.exeption.CustomizedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +20,7 @@ public class Car {
             carList.add(carArray[i]);
         }
         System.out.println(carList);
-        for(int i = 0 ; i< carList.size();i++){
-                if(carList.get(i).length()>5){
-                    throw new IllegalArgumentException();
-                }
-
-        }
+        CustomizedException.numberUpException(carList);
         return carList;
     }
 
