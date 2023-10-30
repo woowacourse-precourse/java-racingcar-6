@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class Input {
+public class Input implements checkException {
     List<String> nameList;
 
     Input() {
@@ -17,6 +17,20 @@ public class Input {
         for (String carName : nameList)
             System.out.print(carName + " ");
         System.out.println();
+    }
+
+    @Override
+     public boolean isValidNameLength(){
+        return true;
+    }
+
+    @Override
+    public boolean isBlankString(){
+        return true;
+    }
+
+    public void exceptionHandling() throws IllegalArgumentException{
+        if(!isValidNameLength() || isBlankString())throw new IllegalArgumentException();
     }
 
 
