@@ -16,6 +16,7 @@ public class GamePlayer {
 
     public void play() {
         for (int i = 0; i < attempts; i++) {
+            System.out.print(OutputView.ENTER);
             for (int j = 0; j < cars.size(); j++) {
                 int number = randomNumber.generate();
                 cars.get(j).move(randomNumber.judge(number));
