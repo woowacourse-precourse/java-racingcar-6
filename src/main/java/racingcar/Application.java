@@ -53,4 +53,18 @@ public class Application {
         }
         return true;
     }
+
+    private static void race(List<Car> carList, int cnt) {
+        for (int i = 0; i < cnt; i++) {
+            moveList(carList);
+            System.out.println();
+        }
+    }
+
+    private static void moveList(List<Car> carList) {
+        for (Car car : carList) {
+            car.move();
+            System.out.println(car.path());
+        }
+    }
 }
