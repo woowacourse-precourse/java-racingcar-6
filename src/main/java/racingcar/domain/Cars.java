@@ -23,7 +23,7 @@ public class Cars {
     public List<String> findWinner() {
         return carList.stream()
                 .filter(x -> x.equals(findMaxDistanceCar()))
-                .map(x -> x.getName())
+                .map(Car::getName)
                 .toList();
     }
 }
