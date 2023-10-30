@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.Objects;
 
 public class Car implements Comparable<Car> {
@@ -13,7 +15,10 @@ public class Car implements Comparable<Car> {
     }
 
     public void goForward() {
-        this.position += 1;
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            this.position += 1;
+        }
+
     }
 
     @Override

@@ -1,11 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingCarApplication {
 
@@ -27,16 +25,9 @@ public class RacingCarApplication {
 
         System.out.println("실행 결과");
 
-        for (int i = 0; i < attemptCount; i++) {
-            cars.getCars().forEach(car -> {
-                if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                    car.goForward();
-                }
+        cars.goForward(attemptCount);
 
-                System.out.println(car.getStatusMessage());
-            });
-            System.out.println();
-        }
+
 
 //        cars.getCars().sort(Car::compareTo);
 //

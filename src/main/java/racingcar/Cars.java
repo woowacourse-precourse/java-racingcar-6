@@ -31,4 +31,14 @@ public class Cars {
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }
+
+    public void goForward(int attemptCount) {
+        for (int i = 0; i < attemptCount; i++) {
+            cars.forEach(car -> {
+                car.goForward();
+                System.out.println(car.getStatusMessage());
+            });
+            System.out.println();
+        }
+    }
 }
