@@ -8,10 +8,7 @@ import java.util.List;
 
 public class Game {
 
-    public final String ANNOUNCEMENT_INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    public final String ANNOUNCEMENT_INPUT_MOVE_COUNT = "시도할 회수는 몇회인가요?";
-    public final String ANNOUNCEMENT_EXECUTION_RESULT = "실행 결과";
-    public final String ANNOUNCEMENT_WINNER = "최종 우승자 : ";
+    public final int MOVING_FORWARD = 4;
 
     public String[] carNameArray;
     public int[] carLocationArray;
@@ -23,7 +20,7 @@ public class Game {
     }
 
     public void run() {
-        System.out.println(this.ANNOUNCEMENT_EXECUTION_RESULT);
+        System.out.println(Announcement.EXECUTION_RESULT.getValue());
         for (int i = 0; i < this.moveCount; i++) {
             carRuns();
             System.out.println();
@@ -33,7 +30,7 @@ public class Game {
     }
 
     private void printWinner(String[] winnerArray) {
-        System.out.print(this.ANNOUNCEMENT_WINNER);
+        System.out.print(Announcement.WINNER.getValue());
         int i = 0;
         for (; i < winnerArray.length - 1; i++) {
             System.out.print(winnerArray[i] + ",");
@@ -55,7 +52,7 @@ public class Game {
     private void carRuns() {
         for (int i = 0; i < this.numberOfCar; i++) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
-            if (randomNumber >= 4) {
+            if (randomNumber >= this.MOVING_FORWARD) {
                 this.carLocationArray[i]++;
             }
             int currentLocation = this.carLocationArray[i];
@@ -71,14 +68,14 @@ public class Game {
     }
 
     private String[] getCarNameArrayFromInput() {
-        System.out.println(this.ANNOUNCEMENT_INPUT_CAR_NAMES);
+        System.out.println(Announcement.INPUT_CAR_NAMES.getValue());
         String[] inputCarNameArray = Console.readLine().split(",");
         Validator.validateCarNameArray(inputCarNameArray);
         return inputCarNameArray;
     }
 
     private int getMoveCountFromInput() {
-        System.out.println(this.ANNOUNCEMENT_INPUT_MOVE_COUNT);
+        System.out.println(Announcement.INPUT_MOVE_COUNT.getValue());
         String inputMoveCountString = Console.readLine();
         Validator.validateMoveCount(inputMoveCountString);
         return Integer.parseInt(inputMoveCountString);
