@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarInfoList {
-    private static final List<String> carList = new ArrayList<>();
+    private final List<String> carList = new ArrayList<>();
 
     public RacingCarInfoList(List<String> carNameList) {
+
         for (String carName : carNameList) {
             validateDuplicate(carName);
             RacingCarInfo racingCarInfo = new RacingCarInfo(carName);
