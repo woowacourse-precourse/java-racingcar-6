@@ -2,7 +2,6 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class RacingCars {
@@ -22,10 +21,14 @@ public class RacingCars {
     }
 
     public List<Car> findWinner() {
-        List<Car> maxPositionCars = cars.stream()
-                .collect(Collectors.groupingBy(Car::getPosition, TreeMap::new, Collectors.toList()))
-                .lastEntry()
-                .getValue();
-        return maxPositionCars;
+
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 }
