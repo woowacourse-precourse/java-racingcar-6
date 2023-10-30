@@ -12,7 +12,7 @@ public class CarName {
     public void carNamesToList(String inputCarNames) {
         this.inputCarNames = inputCarNames;
         String[] str = inputCarNames.split("[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9]");
-        this.carList.addAll(Arrays.asList(str));
+        carList.addAll(Arrays.asList(str));
     }
 
     public void setClearCarList() {
@@ -21,7 +21,7 @@ public class CarName {
         isSameCarName(carList);
         isCarNameLengthOver5(carList);
 
-        this.clearCarList = carList;
+        clearCarList = carList;
     }
 
     public ArrayList<String> getClearCarList() {
@@ -39,7 +39,7 @@ public class CarName {
     public void isSameCarName(ArrayList<String> carList) throws IllegalArgumentException {
         HashSet<String> set = new HashSet<>(carList);
         if (set.size() != carList.size()) {
-            throw new IllegalArgumentException("중복된 자동차 이름이 없어야 합니다.");
+            throw new IllegalArgumentException("중복된 자동차 이름은 허용되지 않습니다.");
         }
     }
 

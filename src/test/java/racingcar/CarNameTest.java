@@ -53,7 +53,7 @@ public class CarNameTest {
         String input = ("woni,woni,jun");
         carName.carNamesToList(input);
         Throwable exception = assertThrows(IllegalArgumentException.class, carName::setClearCarList);
-        assertEquals("중복된 자동차 이름이 없어야 합니다.", exception.getMessage());
+        assertEquals("중복된 자동차 이름은 허용되지 않습니다.", exception.getMessage());
     }
 
     @DisplayName("예외처리-자동차이름 길이 ")

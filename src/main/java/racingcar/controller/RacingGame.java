@@ -15,6 +15,7 @@ public class RacingGame {
     TryNumber tryNumber;
     RandomNumber randomNumber;
     Winner winner;
+    private static final int minNumberToForward = 4;
     private int[] ranking;
     private int tryNum;
     private ArrayList<String> cars = new ArrayList<>();
@@ -29,8 +30,8 @@ public class RacingGame {
 
     public void start() {
         InputCarNames();
-        getTryNumber();
-        onRacing(cars, tryNum);
+        setTryNumber();
+        showRacingState(cars, tryNum);
         showWinner(ranking, cars);
 
     }
@@ -42,7 +43,7 @@ public class RacingGame {
         this.cars = carName.getClearCarList();
     }
 
-    public void getTryNumber() {
+    public void setTryNumber() {
         String tryNum = inputView.InputTryNumber();
         tryNumber.setClearTryNumber(tryNum);
         this.tryNum = tryNumber.getTryNumber();
@@ -52,7 +53,7 @@ public class RacingGame {
         return ranking;
     }
 
-    public void onRacing(ArrayList<String> cars, int tryNumber) {
+    public void showRacingState(ArrayList<String> cars, int tryNumber) {
         ranking = new int[cars.size()];
         for (int i = 0; i < tryNumber; i++) {
             carForwarding(cars);
@@ -70,7 +71,7 @@ public class RacingGame {
         int go = 0;
         randomNumber.generateRandomNumber();
         go = randomNumber.getRandomNumber();
-        if (go >= 4) {
+        if (go >= minNumberToForward) {
             return true;
         }
         return false;
