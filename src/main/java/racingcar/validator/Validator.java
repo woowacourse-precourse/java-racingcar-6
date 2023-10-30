@@ -11,11 +11,11 @@ public class Validator {
             throw new IllegalArgumentException(ExceptionMessage.NOT_MORE_THAN_FIVE);
         }
 
-        if (!isEmptyOrBlank(carNames)) {
+        if (isEmptyOrBlank(carNames)) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_EMPTY_AND_BLANK);
         }
 
-        if (!hasDuplicatesCarName(carNames)) {
+        if (hasDuplicatesCarName(carNames)) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_DUPLICATE_NAME);
         }
     }
@@ -33,7 +33,7 @@ public class Validator {
     }
 
     private static boolean isEmptyOrBlank(List<String> carNames) {
-        return carNames.stream().anyMatch(carName -> carName.equals(" ") || carName.isEmpty());
+        return carNames.stream().anyMatch(String::isEmpty);
     }
 
     private static boolean isFiveCharactersOrLess(List<String> carNames) {
