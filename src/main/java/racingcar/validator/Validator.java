@@ -10,7 +10,7 @@ public class Validator {
 
     public void checkCarNameInput(String input) {
         checkEmptyAndThrowException(input);
-        List<String> carNameList = parser.parseInputCarNames(input);
+        List<String> carNameList = parser.parseCarNames(input);
         for (String carName : carNameList) {
             checkLengthAndThrowException(carName);
         }

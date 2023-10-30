@@ -5,11 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Parser {
-    public List<String> parseInputCarNames(String input) {
+    public List<String> parseCarNames(String input) {
         return new ArrayList<>(Arrays.asList(input.split(",")));
     }
 
-    public int parserAttemptNumber(String input) {
+    public int parseAttemptNumber(String input) {
         return Integer.parseInt(input);
     }
 }
