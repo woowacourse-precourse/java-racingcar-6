@@ -1,7 +1,7 @@
 package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.awt.print.PrinterAbortException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.dto.RacingCar;
@@ -24,20 +24,22 @@ public class RacingCarGameInput {
         validateCarList(carList);
         return carList;
     }
-    private static boolean validateCarNamesInput(String input){
-        String noWhiteSpaceInput = input.replace(" ","");
-        if(noWhiteSpaceInput.length() != input.length()){
+
+    private static boolean validateCarNamesInput(String input) {
+        String noWhiteSpaceInput = input.replace(" ", "");
+        if (noWhiteSpaceInput.length() != input.length()) {
             throw new IllegalArgumentException(ERROR_MESSAGE_EMPTY);
         }
         return true;
     }
 
-    private static boolean validateDuplication(String[] arr){
-        List<String> tempArr = List.of();
-        for(String e : arr){
-            if(tempArr.contains(e)){
+    private static boolean validateDuplication(String[] arr) {
+        List<String> tempArr = new ArrayList<>();
+        for (String e : arr) {
+            if (tempArr.contains(e)) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_DUPLICATION);
             }
+            tempArr.add(e);
         }
         return true;
     }
