@@ -6,12 +6,16 @@ import racingcar.constant.IllegalStateExceptionType;
 public class RacingGameState {
     private static final int MIN_DISTANCE = 0;
 
-    private final boolean isGameEnd;
+    private final boolean isEnd;
     private final List<? extends Car> cars;
 
-    public RacingGameState(boolean isGameEnd, List<Car> cars) {
-        this.isGameEnd = isGameEnd;
+    public RacingGameState(boolean isEnd, List<Car> cars) {
+        this.isEnd = isEnd;
         this.cars = cars;
+    }
+
+    public boolean isEnd() {
+        return isEnd;
     }
 
     public int getCarAmount() { return cars.size(); }
@@ -29,7 +33,7 @@ public class RacingGameState {
     }
 
     private void validateIsGameEnd() {
-        if (!isGameEnd) {
+        if (!isEnd) {
             throw IllegalStateExceptionType.GAME_NOT_ENDED_MESSAGE.getException();
         }
     }
