@@ -8,7 +8,7 @@ public class Car {
     private static final int THRESHOLD = 4;
 
     public Car(String name) {
-        if(name.length() > LIMIT_NAME_LENGTH) {
+        if (name.length() > LIMIT_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
         this.name = name;
@@ -22,8 +22,10 @@ public class Car {
         return location;
     }
 
-    public int moves(int number){
-        if(number >= THRESHOLD) location++;
+    public int moves(int number) {
+        if (number >= THRESHOLD) {
+            location++;
+        }
         return location;
     }
 }
