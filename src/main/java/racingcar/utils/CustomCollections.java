@@ -2,6 +2,7 @@ package racingcar.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -26,6 +27,7 @@ public class CustomCollections {
      * @throws ClassCastException     컬렉션에 <i>상호 비교 가능</i>하지 않은 요소 (예: 문자열과 정수)가 포함된 경우
      * @throws NoSuchElementException 컬렉션이 비어 있는 경우
      * @see Comparable
+     * @see Collections
      */
     public static <T extends Object & Comparable<? super T>> List<T> maxAll(Collection<? extends T> coll) {
         Iterator<? extends T> i = coll.iterator();
