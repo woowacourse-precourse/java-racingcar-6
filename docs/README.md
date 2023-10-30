@@ -14,8 +14,9 @@
 - [x] 자동차가 전진하는지 판단한다. ``Car - isMoveForward``
 - [x] 0에서 9 사이의 무작위 값을 구한다. ``NumberGenerator - createRandomNumber`` 
 - [x] 자동차가 전진한다. ``Car - moveForward``
-- [ ] 자동차의 이름을 출력한다. ``OutputView - printCarName``
-- [ ] 자동차의 전진 상황을 출력한다. ``OutputView - printCarProgress``
+- [x] 자동차들의 횟수별 실행 결과를 출력한다. ``OutputView - printCarsProgress``
+- [x] 자동차의 이름을 출력한다. ``OutputView - printCarName``
+- [x] 자동차의 전진 상황을 출력한다. ``OutputView - printCarProgress``
 - [ ] 우승자를 안내한다. ``GameController - announceWinner``
 - [x] 자동차중 가장 많이 전진한 자동차들이 누구인지 확인한다. ``Referee - findMostProgressCar``
 - [ ] 우승자를 출력한다. ``OutputView - printWinner``
