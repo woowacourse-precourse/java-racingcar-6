@@ -1,9 +1,13 @@
 package racingcar.collaborator;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import racingcar.collaborator.generic.RaceProgress;
 import racingcar.collaborator.generic.RacerProgress;
+import racingcar.collaborator.generic.RecordingRace;
+import racingcar.collaborator.generic.Winners;
 import racingcar.io.Input;
 import racingcar.io.Output;
 
@@ -31,7 +35,7 @@ public class Race {
     }
 
     public void run() {
-        while (0 < numberOfRound--) {
+        for (int i = 0; i < numberOfRound; i++) {
             for (Racer racer : racers) {
                 racer.drive();
             }
@@ -45,7 +49,28 @@ public class Race {
         }
     }
 
-    public List<RaceProgress> result() {
-        return raceProgress;
+    public RecordingRace getRecorded() {
+        return new RecordingRace(raceProgress);
+    }
+
+    public Winners decideWinner() {
+        List<String> winners = getLastMeter().stream()
+                .filter(racerProgress ->
+                        Objects.equals(racerProgress.mileage(), getBiggestMileage()))
+                .map(RacerProgress::name)
+                .toList();
+        return new Winners(winners);
+    }
+
+    private Integer getBiggestMileage() {
+        return getLastMeter().stream()
+                .sorted(Comparator.comparingInt(RacerProgress::mileage).reversed())
+                .map(RacerProgress::mileage)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("값이 없는 상태를 허용하지 않음."));
+    }
+
+    private List<RacerProgress> getLastMeter() {
+        return raceProgress.get(numberOfRound - 1).racerProgress();
     }
 }
