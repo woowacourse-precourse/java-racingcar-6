@@ -1,6 +1,6 @@
 package racingcar.domain.core.car;
 
-public class OnRaceCar {
+public class OnRaceCar implements CarDomain, MovingCar {
 
     private final Car savedCar;
     private final Long position;
@@ -11,24 +11,18 @@ public class OnRaceCar {
         this.position = position;
     }
 
-    public Car getCar() {
-        return savedCar;
-    }
-
+    @Override
     public CarName getCarName() {
         return savedCar.getCarName();
-    }
-
-    public String getName() {
-        return savedCar.getName();
     }
 
     public Long getPosition() {
         return position;
     }
 
+    @Override
     public OnRaceCar move(MoveSignal signal) {
         Long movedPosition = signal.move(position);
-        return new OnRaceCar(this.getCar(), movedPosition);
+        return new OnRaceCar(savedCar, movedPosition);
     }
 }
