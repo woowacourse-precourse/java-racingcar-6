@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map.Entry;
 
 public class WinnerResult {
-
     public void printWinner(LinkedHashMap<String, String> carNameHashMap) {
         int largestMove = getLargestMove(carNameHashMap);
         List<String> winnerList = getWinnerList(carNameHashMap, largestMove);
