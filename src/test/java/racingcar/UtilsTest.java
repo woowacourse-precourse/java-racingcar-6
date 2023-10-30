@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import jdk.jshell.execution.Util;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -32,9 +34,11 @@ public class UtilsTest extends NsTest {
 
     }
 
-    @Test
-    void 랜덤_숫자_생성() {
+    @RepeatedTest(100)
+    void 랜덤_숫자_생성(RepetitionInfo repetitionInfo) {
+        // RepetitionInfo : 현재 반복 정보를 제공
         int num = Utils.getRandomNumber();
+        System.out.println("RANDOM NUMBER in repetition " + repetitionInfo.getCurrentRepetition() + ": " + num);
         // 예상 범위(ex. 0 ~ 9사이)에 해당하는 지 확인
         assertThat(num).isBetween(0, 9);
     }
