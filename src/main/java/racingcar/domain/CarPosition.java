@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.domain.strategy.MovingStrategy;
+
 public class CarPosition {
     private static final int MINIMUM_VALUE = 0;
 
@@ -22,6 +24,13 @@ public class CarPosition {
         if (value < MINIMUM_VALUE) {
             throw new IllegalArgumentException("자동차의 위치는 양수여야 합니다. 주어진 값은 " + value + " 입니다.");
         }
+    }
+
+    public CarPosition move(MovingStrategy movingStrategy) {
+        if (movingStrategy.movable()) {
+            return new CarPosition(value + 1);
+        }
+        return this;
     }
 
     public int value() {
