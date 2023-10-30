@@ -20,4 +20,9 @@ public class MainView {
     public static void printInputAttemptMessage() {
         System.out.println(INPUT_ATTEMP_MESSAGE);
     }
+
+    public static Integer getAttemptNumber() {
+        String attemptNumber = Console.readLine();
+        return Convert.stringToInteger(attemptNumber);
+    }
 }

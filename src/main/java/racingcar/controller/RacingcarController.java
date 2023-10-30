@@ -22,5 +22,6 @@ public class RacingcarController {
         List<String> carNames = MainView.getCarNames();
         HashMap<String, Integer> racingStatus = baseBallService.initRacingStatus(carNames);
         MainView.printInputAttemptMessage();
+        Integer attemptNumber = MainView.getAttemptNumber();
     }
 }
