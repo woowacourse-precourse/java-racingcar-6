@@ -6,7 +6,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Referee;
-import racingcar.util.RandomNumberGenerator;
+import racingcar.gameutil.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

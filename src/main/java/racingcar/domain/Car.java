@@ -2,8 +2,7 @@ package racingcar.domain;
 
 import static racingcar.gameutil.GameConstants.*;
 
-import racingcar.gameutil.GameConstants;
-import racingcar.util.RandomUtil;
+import racingcar.gameutil.RandomUtil;
 
 public class Car implements Comparable<Car>{
 
