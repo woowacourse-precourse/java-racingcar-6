@@ -24,6 +24,154 @@
 
 ✅ 일급 컬렉션 적용해보기
 
+# 🧳기능 목록
+
+    ✔️ 체크 리스트 기준으로 기능 구현하고 커밋하기
+프로젝트
+<br>     📦 패키지
+<br>         📔 클래스
+<br>             🔤 변수
+<br>             📝 메서드
+
+## 📦 도메인 - Domain
+
+- [ ]  📔 자동차그룹 - CarGroup
+   - [ ]  📝 생성자 - CarGroup
+   - [ ]  📝 자동차 그룹 생성하기 - of
+   - [ ]  📝 자동차 그룹의 크기 구하기 - findSize
+   - [ ]  📝 들어온 순서로 자동차 검색하기 - findCarByOrder
+   - [ ]  📝 최종 우승자 검색하기 - findFinalWinner
+   - [ ]  📝 그룹에 속한 자동차 이름들 조회하기 - findCarNames
+- [ ]  📔 자동차 - Car
+   - [ ]  📝 생성자 - Car
+   - [ ]  📝 자동차 생성하기 - of
+   - [ ]  📝 자동차 이름 조회하기 - findName
+   - [ ]  📝 자동차 위치 조회하기 - findPostion
+   - [ ]  📝 자동차의 위치 수정하기 - updatePosition
+
+## 🧪 도메인 테스트 - Domain
+
+- [ ]  📔 자동차그룹 
+   - [ ]  📝 자동차 그룹 생성하기 테스트
+   - [ ]  📝 자동차 그룹의 크기 구하기 테스트
+   - [ ]  📝 들어온 순서로 자동차 검색하기 테스트
+   - [ ]  📝 최종 우승자 검색하기 테스트
+   - [ ]  📝 그룹에 속한 자동차 이름들 조회하기 테스트
+- [ ]  📔 자동차 
+   - [ ]  📝 자동차 객체 생성하기 테스트
+   - [ ]  📝 자동차 이름 조회하기 테스트
+   - [ ]  📝 자동차 초기 위치 조회하기 테스트
+   - [ ]  📝 자동차 위치 수정하기 테스트
+
+## 📦 검증 - Validator
+
+- [ ]  📔 자동차 검증 - CarValidator
+   - [ ]  📝통합 검증하기
+   - [ ]  📝자동차 이름 1글자 이상 5글자 이하인지 검증하기 - isValidLength
+   - [ ]  📝 자동차 이름에 공백이 들어가 있는지 검증하기 - hasWhiteSpace
+   - [ ]  📝 중복된 이름이 있는지 검증하기 - hasDuplicateName
+- [ ]  📔 이동 횟수 검증 - RoundValidator
+   - [ ]  📝통합 검증하기
+   - [ ]  📝 문자열이 아닌지 검증하기 - isNotString
+   - [ ]  📝 실수가 아닌지 검증하기 - isNotRealNumber
+   - [ ]  📝 `1`이상의 정수인지 검증하기 - isValidRange
+- [ ]  📔 자동차 이름 검증하는 기준값들 - CarNameValidationCriteria
+
+## 🧪  검증 테스트- Validator
+
+- [ ]  📔 자동차 이름 검증 - CarValidatorTest
+   - [ ]  📝 자동차 이름 1글자 이상 5글자 이하인지 검증하기 테스트
+   - [ ]  📝 자동차 이름에 공백이 들어가 있는지 검증하기 테스트
+   - [ ]  📝 중복된 이름이 있는지 검증하기 테스트
+- [ ]  📔 시도 횟수 검증 - RoundValidator Test
+   - [ ]  📝 문자열이 아닌지 검증하기 테스트
+   - [ ]  📝 실수가 아닌지 검증하기 테스트
+   - [ ]  📝 `1`이상의 정수인지 검증하기 테스트
+
+## 📦 게임 관리 - Controller
+
+- [ ]  📔 게임 관리 - GameController
+   - [ ]  📝 게임 시작 - startGame
+   - `자동차 이름 입력 받기` 호출하기
+   - `자동차 이름에 대해 전처리 하기` 호출하기
+   - `시도할 횟수 입력 받기` 호출하기
+   - `시도 횟수에 대한 전처리 하기`  호출하기
+   - `실행 결과 문구 출력하기` 호출하기
+   - `게임 한판 진행하기` 이동 횟수만큼 호출하기
+   - `차수 결과 출력하기` 호출 하기
+   - `최종 우승자 출력하기` 호출 하기
+
+## 🧪 게임 관리 테스트 - Controller
+
+- [ ]  📔 게임 관리 - GameControllerTest
+   - [ ]  📝 게임 시작 테스트 - startGame
+      - 입력값에 따른 결과가 올바른지 테스트
+
+## 📦 비즈니스 로직 - Model
+
+- [ ]  📔 게임 모델 - GameModel
+   - [ ] 📝 게임 한 판 진행하기 - playGameRound
+   - [ ] 📝 이동 여부 판단해주기 - detremineMove
+- [ ]  📔 자동차 모델 - CarModel
+   - [ ]  🔤 자동차 이름 검증
+   - [ ]  📝 자동차 이름에 대해 전처리 하기 - PreProcessing
+   - [ ]  📝 `,`을 기준으로 자동차 이름 나누기 - divideCarNameByCriteria
+- [ ]  📔 시도 횟수 모델 - NumberOfRoundModel
+   - [ ]  🔤 시도횟수 검증
+   - [ ]  📝 시도 횟수에 대한 전처리 하기 - preProcessing
+
+## 🧪 비즈니스 로직 테스트 - Model
+
+- [ ]  📔 게임 모델 - GameModelTest
+   - [ ]  📝 게임 한 판 진행하기 테스트
+   - [ ]  📝 이동 여부 판단해주기 테스트
+- [ ]  📔 자동차 모델 - CarModelTest
+   - [ ]  📝 자동차 이름에 대해 전처리 하기 테스트
+   - [ ]  📝 `,`을 기준으로 자동차 이름 나누기 테스트
+- [ ]  📔 시도 횟수 모델 - NumberOfRoundModel
+   - [ ]  📝 시도 횟수에 대한 전처리 하기 테스트
+
+## 📦 입출력 출력 - View
+
+- [ ]  📔 사용자 입력 - InputView
+   - [ ]  📝 자동차 이름 입력받기 - getCarNames
+   - [ ]  📝 시도할 횟수 입력받기 - getNumberOfRound
+- [ ]  📔 결과 출력 - OutputView
+   - [ ]  📝 차수 결과 출력하기 - showRoundResult
+   - [ ]  📝 차량별 현재 위치 나타내기 - makeIndividualPosition
+   - [ ]  📝 최종 우승자 출력하기 - showFinalWinner
+
+## 🧪 입출력 - View
+
+- [ ]  📔 사용자 입력 - InputViewTest
+   - [ ]  📝 자동차 이름 입력받기 테스트
+   - [ ]  📝 시도할 횟수 입력받기 테스트
+- [ ]  📔 결과 출력 - OutputViewTest
+   - [ ]  📝 차수 결과 출력하기 테스트
+   - [ ]  📝 최종 우승자가 두명 이상 있을때 출력하기 - showFinalWinnerMoreThanTwo
+   - [ ]  📝 최종 우승자가 한 명일때 출력하기 - showFinalWinner
+
+## 📦 예외 처리 - Exception
+
+- [ ]  📔 사용자 정의 예외 - GameException
+   - [ ]  📔 CarNameException
+   - [ ]  📔 RoundException
+## 📦 문구 - Message
+
+- [ ]  📔 문구 - GamePrompt
+   - inputCarNamesMessage
+   - inputRoundMessage
+   - outputResultMessage
+   - outputCarPositionMessage
+   - outputFinalWinnerMessage
+- [ ]  📔 자동차 이름 예외 - CarNameExceptionPrompt
+   - lengthMessage
+   - whiteSpaceMessage
+   - duplicateMessage
+- [ ]  📔 시도 횟수 예외 - RoundExceptionPrompt
+   - stringPrompt
+   - realNumberPrompt
+   - rangePrompt
 
 ---
 
@@ -72,150 +220,3 @@
 ✅ [커밋 메시지 컨벤션](https://velog.io/@outstandingboy/Git-%EC%BB%A4%EB%B0%8B-%EB%A9%94%EC%8B%9C%EC%A7%80-%EA%B7%9C%EC%95%BD-%EC%A0%95%EB%A6%AC-the-AngularJS-commit-conventions) 가이드를 참고해 커밋 메시지를 작성한다.
 
 ---
-
-# 🧳기능 목록
-
-    ✔️ 체크 리스트 기준으로 기능 구현하고 커밋하기
-프로젝트
-<br>     📦 패키지
-<br>         📔 클래스
-<br>             🔤 변수
-<br>             📝 메서드
-
-## 📦 도메인 - Domain
-
-- [ ]  📔 자동차그룹 - CarGroup
-   - [ ]  📝 생성자 - CarGroup
-   - [ ]  📝 자동차 그룹 생성하기 - of
-   - [ ]  📝 자동차 그룹의 크기 구하기 - findSize
-   - [ ]  📝 들어온 순서로 자동차 검색하기 - findCarByOrder
-   - [ ]  📝 최종 우승자 검색하기 
-- [ ]  📔 자동차 - Car
-   - [ ]  📝 생성자 - Car
-   - [ ]  📝 자동차 생성하기 - of
-   - [ ]  📝 자동차 이름 조회하기 - findName
-   - [ ]  📝 자동차 위치 조회하기 - findPostion
-   - [ ]  📝 자동차의 위치 수정하기 - updatePosition
-   
-## 🧪 도메인 테스트 - Domain
-
-- [ ]  📔 자동차그룹 - CarGroupTest
-   - [ ]  📝 자동차 그룹 생성하기 테스트
-   - [ ]  📝 자동차 그룹의 크기 구하기 테스트
-   - [ ]  📝 들어온 순서로 자동차 검색하기 테스트
-   - [ ]  📝 최종 우승자 검색하기 테스트
-- [ ]  📔 자동차 - CarTest
-   - [ ]  📝 자동차 객체 생성하기 테스트
-   - [ ]  📝 자동차 이름 조회하기 테스트
-   - [ ]  📝 자동차 초기 위치 조회하기 테스트
-   - [ ]  📝 자동차 위치 수정하기 테스트
-
-## 📦 검증 - Validator
-
-- [ ]  📔 자동차 검증 - CarValidator
-    - [ ]  📝통합 검증하기
-    - [ ]  📝자동차 이름 1글자 이상 5글자 이하인지 검증하기 - isValidLength
-    - [ ]  📝 자동차 이름에 공백이 들어가 있는지 검증하기 - hasWhiteSpace
-    - [ ]  📝 중복된 이름이 있는지 검증하기 - hasDuplicateName
-- [ ]  📔 이동 횟수 검증 - RoundValidator
-    - [ ]  📝통합 검증하기
-    - [ ]  📝 문자열이 아닌지 검증하기 - isNotString
-    - [ ]  📝 실수가 아닌지 검증하기 - isNotRealNumber
-    - [ ]  📝 `1`이상의 정수인지 검증하기 - isValidRange
-- [ ]  📔 자동차 이름 검증하는 기준값들 - CarNameValidationCriteria
-
-## 🧪  검증 테스트- Validator
-
-- [ ]  📔 자동차 이름 검증 - CarValidatorTest
-   - [ ]  📝 자동차 이름 1글자 이상 5글자 이하인지 검증하기 테스트
-   - [ ]  📝 자동차 이름에 공백이 들어가 있는지 검증하기 테스트
-   - [ ]  📝 중복된 이름이 있는지 검증하기 테스트
-- [ ]  📔 시도 횟수 검증 - RoundValidator Test
-   - [ ]  📝 문자열이 아닌지 검증하기 테스트
-   - [ ]  📝 실수가 아닌지 검증하기 테스트
-   - [ ]  📝 `1`이상의 정수인지 검증하기 테스트
-
-## 📦 게임 관리 - Controller
-
-- [ ]  📔 게임 관리 - GameController
-    - [ ]  📝 게임 시작 - startGame
-      - `자동차 이름 입력 받기` 호출하기
-      - `자동차 이름에 대해 전처리 하기` 호출하기
-      - `시도할 횟수 입력 받기` 호출하기
-      - `시도 횟수에 대한 전처리 하기`  호출하기
-      - `게임 한판 진행하기` 이동 횟수만큼 호출하기
-      - `차수 결과 출력하기` 자동차 대수만큼 호출 하기
-      - `최종 우승자 출력하기` 호출 하기
-
-## 🧪 게임 관리 테스트 - Controller
-
-- [ ]  📔 게임 관리 - GameControllerTest
-   - [ ]  📝 게임 시작 테스트 - startGame
-      - 입력값에 따른 결과가 올바른지 테스트
-
-## 📦 비즈니스 로직 - Model
-
-- [ ]  📔 게임 모델 - GameModel
-   - [ ] 📝 게임 한 판 진행하기 - playGameRound
-   - [ ] 📝 이동 여부 판단해주기 - detremineMove
-- [ ]  📔 자동차 모델 - CarModel
-   - [ ]  🔤 자동차 이름 검증
-   - [ ]  📝 자동차 이름에 대해 전처리 하기 - carNamePreProcess
-   - [ ]  📝 `,`을 기준으로 자동차 이름 나누기 - divideCarNameByCriteria
-- [ ]  📔 시도 횟수 모델 - NumberOfRoundModel
-   - [ ]  🔤 시도횟수 검증
-   - [ ]  📝 시도 횟수에 대한 전처리 하기
-
-## 🧪 비즈니스 로직 테스트 - Model
-
-- [ ]  📔 게임 모델 - GameModelTest
-   - [ ]  📝 게임 한 판 진행하기 테스트
-   - [ ]  📝 이동 여부 판단해주기 테스트
-- [ ]  📔 자동차 모델 - CarModelTest
-   - [ ]  📝 자동차 이름에 대해 전처리 하기 테스트
-   - [ ]  📝 `,`을 기준으로 자동차 이름 나누기 테스트
-- [ ]  📔 시도 횟수 모델 - NumberOfRoundModel
-   - [ ]  📝 시도 횟수에 대한 전처리 하기 테스트
-
-## 📦 입출력 출력 - View
-
-- [ ]  📔 사용자 입력 - InputView
-    - [ ]  📝 자동차 이름 입력받기 - getCarNames
-    - [ ]  📝 시도할 횟수 입력받기 - getNumberOfRound
-- [ ]  📔 결과 출력 - OutputView
-    - [ ]  📝 차수 결과 출력하기 - showRoundResult
-    - [ ]  📝 차량별 현재 위치 나타내기
-    - [ ]  📝 최종 우승자 출력하기 - showFinalWinner
-
-## 🧪 입출력 - View
-
-- [ ]  📔 사용자 입력 - InputViewTest
-   - [ ]  📝 자동차 이름 입력받기 테스트
-   - [ ]  📝 시도할 횟수 입력받기 테스트
-- [ ]  📔 결과 출력 - OutputViewTest
-   - [ ]  📝 차수 결과 출력하기 테스트
-   - [ ]  📝 차량별 현재 위치 나타내기 테스트
-   - [ ]  📝 최종 우승자가 두명 이상 있을때 출력하기 - showFinalWinnerMoreThanTwo
-   - [ ]  📝 최종 우승자가 한 명일때 출력하기 - showFinalWinner
-
-## 📦 예외 처리 - Exception
-
-- [ ]  📔 사용자 정의 예외 - GameException
-   - [ ]  📔 CarNameException
-   - [ ]  📔 RoundException
-## 📦 문구 - Message
-
-- [ ]  📔 문구 - GamePrompt
-    - inputCarNamesMessage
-    - inputRoundMessage
-    - outputResultMessage
-    - outputCarPositionMessage
-    - outputFinalWinnerMessage
-- [ ]  📔 자동차 이름 예외 - CarNameExceptionPrompt
-    - lengthMessage
-    - whiteSpaceMessage
-    - duplicateMessage
-- [ ]  📔 시도 횟수 예외 - RoundExceptionPrompt
-    - stringPrompt
-    - realNumberPrompt
-    - rangePrompt
