@@ -19,10 +19,10 @@ public class MainController {
         circuit = new Circuit(inputView.readEntryNames());
 
         int round = inputView.readRound();
-        String roundResult = "";
+        StringBuilder roundResult = new StringBuilder();
         for (int i = 0; i < round; i++) {
-            roundResult += circuit.race();
+            roundResult.append(circuit.race());
         }
-        outputView.printRoundResult(roundResult);
+        outputView.printRoundResult(roundResult.toString());
     }
 }
