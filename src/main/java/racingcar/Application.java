@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class Application {
@@ -38,6 +40,13 @@ public class Application {
     public static void validateCarsName(String names) {
         boolean nameCheck = Pattern.matches("^[가-힣\\w]+[가-힣\\w" + "," + "]*[가-힣\\w]$",names);
         if(!nameCheck) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void validateCarsName2(ArrayList<String> names) {
+        Set<String> nameSet = new HashSet<>(names);
+        if (names.size() != nameSet.size()) {
             throw new IllegalArgumentException();
         }
     }
