@@ -22,15 +22,15 @@ public class CarRace {
         );
         return randomNumber;
     }
-
-    private void moveForward() {
+    public void moveForward(int randomNumber) {
         cars.stream()
-                .filter(car -> randomGenerator() >= Numbers.MOVE_POSITION_NUMBER.getNumber())
+                .filter(car -> randomNumber >= Numbers.MOVE_POSITION_NUMBER.getNumber())
                 .forEach(car -> car.updatePosition());
     }
 
     public void printPlayers() {
-        moveForward();
+        int randomNumber = randomGenerator();
+        moveForward(randomNumber);
         cars.stream()
                 .map(car -> car.getName() + " : " + car.getPosition())
                 .forEach(System.out::println);
