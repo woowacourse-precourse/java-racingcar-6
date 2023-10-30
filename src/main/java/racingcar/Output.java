@@ -10,6 +10,7 @@ public class Output {
     private static final void printMessage(String message){
         System.out.println(message);
     }
+
     public static final void printCarName(){
         printMessage(MESSAGE_CAR_NAME);
     }
@@ -25,6 +26,7 @@ public class Output {
     public static final void printCarDistance(String name, String distance){
         System.out.printf(MESSAGE_CAR_DISTANCE_FORMAT, name, distance);
     }
+
     public static final void printFinalWinner(String winner){
         System.out.printf((MESSAGE_FINAL_WINNER) + "%n", winner);
     }

@@ -9,6 +9,7 @@ public class Car {
         this.distance = "";
 
     }
+
     public final String  getName(){
         return this.name;
     }
