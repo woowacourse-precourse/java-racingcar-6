@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.RacingRepeat;
 
 public class InputView {
     private static final String INPUT_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -13,17 +12,15 @@ public class InputView {
 
     public static String[] inputNames() {
         System.out.println(INPUT_NAME);
-        return inputNames(Console.readLine());
-    }
-    public static String[] inputNames(String input) {
-        return input.split(",");
+        return splitNames(Console.readLine());
     }
 
-    public static RacingRepeat inputRepeat() {
-        System.out.println(INPUT_REPEAT);
-        return inputRepeat(Console.readLine());
+    public static String[] splitNames(String names) {
+        return names.split(",");
     }
-    public static RacingRepeat inputRepeat(String input) {
-        return new RacingRepeat(input);
+
+    public static String inputRepeat() {
+        System.out.println(INPUT_REPEAT);
+        return Console.readLine();
     }
 }

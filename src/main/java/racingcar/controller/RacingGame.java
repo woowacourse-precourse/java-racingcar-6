@@ -38,7 +38,8 @@ public class RacingGame {
     }
 
     public void setRepeat() {
-        repeat = InputView.inputRepeat();
+        String repeatString = InputView.inputRepeat();
+        repeat = new RacingRepeat(repeatString);
     }
 
     private void move() {
