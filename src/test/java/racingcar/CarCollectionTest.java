@@ -2,12 +2,9 @@ package racingcar;
 
 import car.Car;
 import car.CarCollection;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.List;
 
@@ -15,27 +12,6 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarCollectionTest {
-
-    private PrintStream standardOut;
-    private OutputStream captor;
-
-    @BeforeEach
-    protected final void init() {
-        standardOut = System.out;
-        captor = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(captor));
-    }
-
-    @AfterEach
-    protected final void printOutput() {
-        System.setOut(standardOut);
-        System.out.println(output());
-    }
-
-    protected final String output() {
-        return captor.toString();
-    }
-
     @Test
     void addCar_자동차_추가() {
         Car car1 = new Car("car1");
@@ -78,10 +54,14 @@ public class CarCollectionTest {
 
                     CarCollection carCollection = createCarCollection(car1, car2);
 
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    System.setOut(new PrintStream(outputStream));
+
                     carCollection.moveCarsForward();
                     carCollection.printCarsDistance();
 
-                    assertThat(output()).contains("car1 : -", "car2 :");
+                    String captured = outputStream.toString().trim();
+                    assertThat(captured).contains("car1 : -", "car2 :");
                 },
                 4, 3
         );
@@ -136,11 +116,15 @@ public class CarCollectionTest {
 
                     CarCollection carCollection = createCarCollection(car1, car2, car3);
 
+                    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                    System.setOut(new PrintStream(outputStream));
+
                     carCollection.moveCarsForward();
                     List<String> winners = carCollection.getWinners();
                     carCollection.printWinners(winners);
 
-                    assertThat(output()).contains("최종 우승자 : car1, car3");
+                    String captured = outputStream.toString().trim();
+                    assertThat(captured).contains("최종 우승자 : car1, car3");
                 },
                 4, 3, 4
         );
