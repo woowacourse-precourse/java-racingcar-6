@@ -2,6 +2,8 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class GameService {
     private static final String ErrorMessage = "0보다 큰 숫자를 입력해주세요.";
     public static String getUserInputForCars() {
@@ -22,6 +24,10 @@ public class GameService {
             return number;
         }
         throw new IllegalArgumentException(ErrorMessage);
+    }
+
+    private static int pickRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
 
