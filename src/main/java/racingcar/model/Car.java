@@ -37,7 +37,7 @@ public class Car {
      * 앞으로 이동하는 기준
      */
     private boolean canMove() {
-        return Constraints.FORWARD_STANDARD.getValue() <= numberGenerator.generateNumber();
+        return Constraints.MINIMUM_FOR_FORWARD.getValue() <= numberGenerator.generateNumber();
     }
 
     /**

@@ -1,10 +1,11 @@
 package racingcar.utils;
 
 public enum Constraints {
-    MAX_SIZE(5),
-    MIN_NUM(0),
-    MAX_NUM(9),
-    FORWARD_STANDARD(4);
+    MIN_SIZE(1), //자동차 이름 최소 길이
+    MAX_SIZE(5), //자동차 이름 최대 길이
+    MIN_NUM(0), //랜덤 숫자 최소값
+    MAX_NUM(9), //랜덤 숫자 최대값
+    MINIMUM_FOR_FORWARD(4); //앞으로 움직일 수 있는 조건 숫자
 
     private final int value;
 
