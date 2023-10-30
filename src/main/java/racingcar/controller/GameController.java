@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.common.exception.ConfirmException;
 import racingcar.domain.FindMaxScore;
 import racingcar.domain.FindWinnerCar;
 import racingcar.domain.JudgeMoveCar;
@@ -20,7 +21,9 @@ public class GameController {
 
     public void run() {
         OutputAboutGame.PrintCarInputPhrase();
-        GameService.carsDataSave(InputAboutGame.InputCarNames());
+        List<String> carNames = InputAboutGame.InputCarNames();
+        ConfirmException.confirmCarName(carNames);
+        GameService.carsDataSave(carNames);
         OutputAboutGame.PrintAttemptInputPhrase();
         GameService.raceDataSave(InputAboutGame.InputAttempt());
         RaceEntity raceData = RaceDAO.loadAll();
@@ -32,7 +35,7 @@ public class GameController {
             GameService.raceDataSave(raceData.getAttemptNumber() - 1);
             raceData = RaceDAO.loadAll();
         }
-        List<CarEntity> winner=FindWinnerCar.equalMaxScroe(
+        List<CarEntity> winner = FindWinnerCar.equalMaxScroe(
                 CarDAO.loadAll(), FindMaxScore.FindMax(CarDAO.loadAll())
         );
         OutputAboutGame.PrintWinner(winner);
