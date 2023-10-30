@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +9,7 @@ import java.util.List;
 import static racingcar.domain.ErrorMessage.*;
 
 public class GameManager {
+    private static final String NEW_LINE = "\n";
     private static final String CAR_NAME_DELIMIT = ",";
     private static final String SPACE = " ";
     private static final Integer MINIMUM_CAR_COUNT = 1;
@@ -78,9 +78,9 @@ public class GameManager {
             for (Car car : cars) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
                 car.decideMoveOrNot(randomNumber);
-                gameLog.append(car.getCurrentStatus()).append(View.NEW_LINE);
+                gameLog.append(car.getCurrentStatus()).append(NEW_LINE);
             }
-            gameLog.append(View.NEW_LINE);
+            gameLog.append(NEW_LINE);
         }
     }
 
