@@ -22,7 +22,7 @@ public class RacingCarRandomNumber {
     }
 
     public static void validateRandomNumberRange(int randomNumber) {
-        if (randomNumber > 9) {
+        if (randomNumber > END_NUMBER || randomNumber < START_NUMBER) {
             throw new IllegalArgumentException(RandomNumberRange);
         }
     }

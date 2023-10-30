@@ -2,7 +2,7 @@ package racingcar.Controller;
 
 import racingcar.Model.Cars;
 import racingcar.Util.Compare;
-import racingcar.Util.WinnerCarList;
+import racingcar.Util.Winner;
 import racingcar.View.InputView;
 import racingcar.View.OutputView;
 
@@ -15,26 +15,35 @@ import static racingcar.Model.RacingCarRandomNumber.RacingCarRandomNumbers;
 public class RacingCar {
     private List<String> carList = new ArrayList<>();
     private List<Integer> carListRandomCount = new ArrayList<>();
-    private List<Integer> goAndStop;
+    private List<Integer> location;
     private List<String> winnerList = new ArrayList<>();
     private int raceTries;
 
     public void racingStart() {
-        RacingCar(carList, carListRandomCount);
+        playerJoin();
     }
 
-    private void RacingCar(List<String> carList, List<Integer> carListRandomCount) {
-        carList = Cars.carSplit(InputView.getCarName());
+    private void playerJoin() {
+        carList = Cars.split(InputView.getCarName());
         raceTries = InputView.setRaceAttempts();
-        goAndStop = new ArrayList<>(Collections.nCopies(carList.size(), 0));
         OutputView.setTryResult();
+        location = new ArrayList<>(Collections.nCopies(carList.size(), 0));
+        playRacing();
+    }
+
+    private void playRacing() {
         for (int i = 0; i < raceTries; i++) {
             carListRandomCount = RacingCarRandomNumbers(carList.size());
-            OutputView.carGo(carList, carListRandomCount);
+            OutputView.moveForward(carList, carListRandomCount);
             System.out.println();
-            goAndStop = Compare.numberCompare(carListRandomCount, goAndStop);
+            location = Compare.number(carListRandomCount, location);
         }
-        winnerList = WinnerCarList.winnerCarList(carList, goAndStop);
+        RacingWinner();
+    }
+
+
+    private void RacingWinner() {
+        winnerList = Winner.carList(carList, location);
         OutputView.result(winnerList);
     }
 }
