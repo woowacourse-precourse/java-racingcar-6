@@ -36,6 +36,7 @@ public class Race {
     }
 
     public void moveCars() {
+        randomNumbersForTest.clear();
         for (Car car : carList) {
             int randomNumber = RandomGenerator.createNumber();
             if (randomNumber >= CAN_MOVE) {
