@@ -11,13 +11,13 @@ public class OutputView {
     private static final String HYPHEN = "-";
     private static final String NEXT_LINE = "\n";
     private static final String WINNER = "최종 우승자 : %s";
-    private static final OutputView instance = new OutputView();
+    private static final OutputView INSTANCE = new OutputView();
 
     private OutputView() {
     }
 
     public static OutputView getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     public void printResultMessage() {

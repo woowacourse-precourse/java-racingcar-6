@@ -4,13 +4,13 @@ import racingcar.exception.ExceptionMessage;
 
 public class CarNameValidator implements Validator {
     private static final int MAX_CAR_NAME_LENGTH = 5;
-    private static final CarNameValidator instance = new CarNameValidator();
+    private static final Validator INSTANCE = new CarNameValidator();
 
     private CarNameValidator() {
     }
 
-    public static CarNameValidator getInstance() {
-        return instance;
+    public static Validator getInstance() {
+        return INSTANCE;
     }
 
     @Override

@@ -3,13 +3,13 @@ package racingcar.validation;
 import racingcar.exception.ExceptionMessage;
 
 public class NumberValidator implements Validator {
-    private static final NumberValidator instance = new NumberValidator();
+    private static final Validator INSTANCE = new NumberValidator();
 
     private NumberValidator() {
     }
 
-    public static NumberValidator getInstance() {
-        return instance;
+    public static Validator getInstance() {
+        return INSTANCE;
     }
 
     @Override
