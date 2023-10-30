@@ -1,14 +1,15 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class MoveInput {
     private final String move;
 
-    MoveInput(){
-      move = Console.readLine();
+    MoveInput() {
+        move = Console.readLine();
     }
 
-    public String getMove(){
+    public String getMove() {
         return move;
     }
 }
