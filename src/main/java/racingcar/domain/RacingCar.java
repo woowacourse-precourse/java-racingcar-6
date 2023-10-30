@@ -8,6 +8,7 @@ import static racingcar.constant.NumberConstants.MOVE_CONDITION;
 import static racingcar.constant.NumberConstants.ZERO;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
 
 public class RacingCar {
 

@@ -16,8 +16,4 @@ public class Utils {
         return List.of(input.split(PARSE_CAR_NAME_DELIMITER));
     }
 
-    public static Integer findMaxInteger(List<Integer> list) {
-        return Collections.max(list);
-    }
-
 }

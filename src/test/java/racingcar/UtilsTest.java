@@ -22,17 +22,4 @@ class UtilsTest {
         assertThat(carNames).containsExactly("i", "am", "sully");
     }
 
-    @DisplayName("Integer 타입 List에서 가장 큰 값을 찾는다.")
-    @Test
-    void find_max_integer() {
-        // given
-        List<Integer> integerList = List.of(1, 3, 4, 2, 9);
-
-        // when
-        Integer maxInteger = Utils.findMaxInteger(integerList);
-
-        // then
-        assertThat(maxInteger).isEqualTo(9);
-    }
-
 }

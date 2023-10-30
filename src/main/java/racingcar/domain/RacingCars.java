@@ -1,9 +1,10 @@
 package racingcar.domain;
 
-import static racingcar.Utils.findMaxInteger;
+import static racingcar.constant.NumberConstants.ZERO;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.constant.NumberConstants;
 import racingcar.view.RacingOutputView;
 
 public class RacingCars {
@@ -29,15 +30,16 @@ public class RacingCars {
 
     public void noticeWinners() {
         RacingOutputView.outputWinners(racingCarList.stream()
-                .filter(racingCar -> racingCar.isWinner(findMaxInteger(findPositions())))
+                .filter(racingCar -> racingCar.isWinner(findMaxPosition()))
                 .map(RacingCar::getCarName)
                 .toList());
     }
 
-    private List<Integer> findPositions() {
+    private int findMaxPosition() {
         return racingCarList.stream()
-                .map(RacingCar::getPosition)
-                .toList();
+                .mapToInt(RacingCar::getPosition)
+                .max()
+                .orElse(ZERO);
     }
 
 }
