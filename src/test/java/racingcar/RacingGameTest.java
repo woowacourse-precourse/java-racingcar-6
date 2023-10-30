@@ -35,4 +35,13 @@ public class RacingGameTest {
         }
         assertTrue(true);
     }
+
+    @Test
+    void canMoveCars() throws NoSuchFieldException {
+        Car car = new Car("car1");
+        racingGame.moveCar(car, 8);
+        racingGame.moveCar(car, 2);
+        racingGame.moveCar(car, 7);
+        assertEquals(2,car.getLocation());
+    }
 }
