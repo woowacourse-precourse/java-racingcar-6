@@ -8,35 +8,19 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        Preference preference = makePreference();
+        Preference preference = new Preference();
 
         System.out.println(Printer.PRINT_PROGRESS);
-        List<Integer> progress = new ArrayList<>(Collections.nCopies(preference.cars().size(), 0));
-        for (int i = 0; i < preference.round(); i++) {
+        List<Integer> progress = new ArrayList<>(Collections.nCopies(preference.getSize(), 0));
+        for (int i = 0; i < preference.getRound(); i++) {
             playEachRound(progress);
-            Printer.printResultOfEachRound(preference.cars(), progress);
+            Printer.printResultOfEachRound(preference.getCars(), progress);
         }
 
-        Printer.printWinner(progress, preference.cars());
+        Printer.printWinner(progress, preference.getCars());
         Console.close();
     }
 
-    private static Preference makePreference() {
-        return new Preference(requestNames(), requestRound());
-    }
-
-    private static int requestRound() {
-        System.out.println(Printer.REQUEST_ROUND);
-        return Scanner.extractRound(Console.readLine());
-    }
-
-    private static List<String> requestNames() {
-        System.out.println(Printer.REQUEST_NAME);
-        return Scanner.extractNames(Console.readLine());
-    }
-
-    private record Preference(List<String> cars, int round) {
-    }
 
     private static void playEachRound(List<Integer> progress) {
         for (int i = 0; i < progress.size(); i++) {
