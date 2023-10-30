@@ -53,8 +53,6 @@
 - `private int moveCount`
   - 각 레이서들이 움직일 차수
 ---
-- 무작위 값 추출하기
-- 
 #### 멤버 메소드
 
 ---
@@ -95,14 +93,15 @@
 
 ---
 입력된 문자열을 변환하고 문구 및 결과를 출력해주는 클래스
-- 우승자 출력
 
 #### 멤버 메소드
 
 ---
 
 ##### 각 차수 결과를 실행해주는 메소드
-- signature : `public void printEachResult()`
+- signature : `public void printEachResult(final List<Racer> racerList)`
+- parameters
+  - racerList : 게임에 참여한 `Racer`를 담은 리스트
 - return : void
 - description
   - `String.format`메소드를 활용해 각 `Racer`마다 이름과 차수결과를 오른쪽 정렬한다.
@@ -129,3 +128,11 @@
 - description
   - 만약 문자열의 길이가 5를 초과하거나 0이하면 `false`를 반환한다.
   - 1 ~ 5자면 `true`를 반환한다.
+
+##### 우승자를 출력하는 메소드
+- signature : `public void printWinner(List<Racer> winner)`
+- parameters
+  - winner : 우승자를 담은 배열
+- description
+  - 우승자 배열에서 각 우승자의 이름을 추출한다.
+  - 추출한 우승자 이름을 ','과 함께 합쳐 출력한다.
