@@ -34,7 +34,23 @@ class ParticipantsTest {
         );
     }
 
-    // TODO: 레이스, 시도 횟수 테스트 작성하기
+    // TODO: 검증 추가하고, List<Car> 생성자 테스트 작성하기
+
+    @Test
+    void 레이스를_진행할_수_있다() {
+        List<Car> cars = List.of(
+                createCar(true),
+                createCar(false),
+                createCar(true));
+        Participants participants = new Participants(cars);
+
+        List<Car> race = participants.race();
+
+        List<Integer> positions = race.stream().map(Car::getPosition).toList();
+        assertThat(positions).isEqualTo(List.of(1, 0, 1));
+    }
+
+    // TODO: 시도 횟수 테스트 작성하기
 
     @Test
     void 우승자_목록을_가져올_수_있다() {
