@@ -22,9 +22,11 @@ public class OutputGenerateManager {
     }
 
     public void printWinners(List<Car> cars) {
-        String winners = rule.printWinners(cars);
+        List<Car> winnerList = rule.findWinners(cars);
+        String winners = rule.winnersToString(winnerList);
         System.out.println(winners);
     }
+
 
     public void printCarNameAnnounce() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");

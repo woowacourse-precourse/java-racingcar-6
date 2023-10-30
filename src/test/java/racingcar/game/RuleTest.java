@@ -1,5 +1,6 @@
 package racingcar.game;
 
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -81,5 +82,6 @@ class RuleTest {
 
         //then
         Assertions.assertThat(winnerListToString).isEqualTo("한놈, 두식이");
+
     }
 }

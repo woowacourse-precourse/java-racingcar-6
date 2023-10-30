@@ -15,11 +15,6 @@ public class Rule {
         return String.valueOf(stringBuffer);
     }
 
-    public String printWinners(List<Car> carList) {
-        List<Car> winners = this.findWinners(carList);
-        return this.winnersToString(winners);
-    }
-
     public List<Car> findWinners(List<Car> carList) {
         int maxForwardCount = carList.stream().mapToInt(Car::getForwardCount).max().orElseThrow();
 

@@ -1,9 +1,13 @@
 package racingcar.game.outputgeneratemanager;
 
+
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +35,7 @@ class OutputGenerateManagerTest {
     }
 
     @Test
-    void 우승자_확인() {
+    void 우승자_확인(){
         Rule rule = new Rule();
 
         List<String> racingCarNameList = Arrays.asList("한놈", "두식이", "석삼", "너구리");
@@ -50,6 +54,15 @@ class OutputGenerateManagerTest {
 
         //then
         Assertions.assertThat(outContent.toString()).isEqualTo("한놈, 석삼" + System.lineSeparator());
+    }
 
+    @Test
+    void 기타_출력_메서드_확인() {
+        Rule rule = new Rule();
+        OutputGenerateManager outputGenerateManager = new OutputGenerateManager(rule);
+        outputGenerateManager.printRepeatCountAnnounce();
+
+        //then
+        Assertions.assertThat(outContent.toString()).isEqualTo("");
     }
 }
