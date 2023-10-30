@@ -10,12 +10,9 @@ public class Racing {
 
     NumberGenerator numberGenerator = new NumberGenerator();
 
-    public String moveForward(int RandomNumber) {
-        String count = "";
-        if(RandomNumber > 3){
-             count += "-";
-        }
-        return count;
+    public Boolean isMoveCondition() {
+        int randomNumber = numberGenerator.createRandomNumber();
+        return randomNumber >= 4;
     }
 
     public String[] moveResult(List<String> cars,String[] raceResult) {
@@ -23,10 +20,15 @@ public class Racing {
             if(raceResult[i] == null){
                 raceResult[i] = "";
             }
-            int randomNumber = numberGenerator.createRandomNumber();
-            raceResult[i] += moveForward(randomNumber);
+          moveForward(raceResult,i);
         }
         return raceResult;
+    }
+
+    public void moveForward(String[] raceResult,int index) {
+        if(isMoveCondition()){
+            raceResult[index] += "-";
+        }
     }
 
 }
