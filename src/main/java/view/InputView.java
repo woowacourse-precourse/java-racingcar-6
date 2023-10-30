@@ -15,7 +15,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public int enterTryNumber(){
+    public int enterTryNumber() {
         outputView.enterTryNumberMessage();
         String tryNumber = Console.readLine();
         return Integer.parseInt(tryNumber);

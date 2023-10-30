@@ -1,18 +1,19 @@
 package view;
 
+import domain.ConstantUtil;
 import java.util.List;
 
 public class OutputView {
 
-    private static final String carNamesMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String tryNumberMessage = "시도할 회수는 몇회인가요?";
+    private static final String ENTER_CAR_NAMES_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String TRY_NUMBER_MESSAGE = "시도할 회수는 몇회인가요?";
 
     public void enterCarNamesMessage() {
-        System.out.println(carNamesMessage);
+        System.out.println(ConstantUtil.ENTER_CAR_NAMES_MESSAGE);
     }
 
     public void enterTryNumberMessage() {
-        System.out.println(tryNumberMessage);
+        System.out.println(ConstantUtil.ENTER_TRY_NUMBER_MESSAGE);
     }
 
     public void printResult(List<String> carNames, int[] result) {
@@ -26,5 +27,4 @@ public class OutputView {
         }
         System.out.println();
     }
-
 }
