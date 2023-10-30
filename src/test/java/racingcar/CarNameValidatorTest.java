@@ -26,6 +26,13 @@ public class CarNameValidatorTest {
         assertDoesNotThrow(() -> carNameValidator.processCarNames(carName));
     }
 
+    @DisplayName("자동차이동름입력 - 양옆 공백 입력시 정상입력처리")
+    @Test
+    void checklCarNmaeWithSpacesOnBothSides() {
+        String carName = "kim,   1245     ,jun";
+        assertDoesNotThrow(() -> carNameValidator.processCarNames(carName));
+    }
+
     @DisplayName("자동차이동름입력 - 공백포함 5자 초과입력시 예외발생")
     @Test
     void checklCarNmaeWithSpacesOver5() {
