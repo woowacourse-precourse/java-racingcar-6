@@ -2,6 +2,7 @@ package racingcar.utils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -26,6 +27,7 @@ class AttemptCountReaderTest {
     @AfterEach
     public void tearDown() {
         System.setOut(originalSystemOut);
+        Console.close();
     }
 
     @Test
