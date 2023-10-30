@@ -27,11 +27,9 @@ public class RacingGameService {
         }
     }
 
-    public void validateUserInputInputRaceCount(int userEnteredRaceCount) {
+    public void validateUserInputRaceCount(int userEnteredRaceCount) {
         validateInput.validateInputRaceCount(userEnteredRaceCount);
     }
-
-
 
     public void settingForRacingGame(String userEnteredApplicantCarList, int raceCount) {
         ArrayList<RacingCar> ParticipationConfirmedCarList = makeParticipationConfirmedCarList(userEnteredApplicantCarList);
@@ -61,7 +59,7 @@ public class RacingGameService {
         }
     }
 
-    public ArrayList<GameResultDto> midResultAnnouncement() {
+    private ArrayList<GameResultDto> midResultAnnouncement() {
         ArrayList<RacingCar> participationConfirmedCarList = carRacingGame.getParticipationConfirmedCarList();
         ArrayList<GameResultDto> gameResultDtoList = new ArrayList<>();
 
