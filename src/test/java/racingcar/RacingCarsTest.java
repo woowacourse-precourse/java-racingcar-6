@@ -28,7 +28,13 @@ public class RacingCarsTest extends NsTest {
 
     @Test
     void 경주자동차_이름_중복_예외_처리() {
-        List<String> invalidNames = List.of("car1", "car1", "car2");
+        List<String> invalidNames = List.of("k-3", "k-5", "k-5");
+        assertThrows(IllegalArgumentException.class, () -> new RacingCars(invalidNames));
+    }
+
+    @Test
+    void 경주자동차_길이_초과_예외_처리() {
+        List<String> invalidNames = List.of("car1", "5431132", "car2");
         assertThrows(IllegalArgumentException.class, () -> new RacingCars(invalidNames));
     }
 

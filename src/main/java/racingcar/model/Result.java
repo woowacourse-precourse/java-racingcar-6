@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Referee {
+public class Result {
     private List<String> winnerNameList;
     private int winnerDistance;
 
-    public Referee() {
+    public Result() {
         winnerNameList = new ArrayList<>();
     }
 

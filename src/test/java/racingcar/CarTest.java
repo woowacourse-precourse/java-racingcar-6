@@ -8,15 +8,20 @@ import racingcar.model.Car;
 
 public class CarTest extends NsTest {
     @Test
-    void testConstructorWithValidName() {
-        Car car = new Car("Car1");
-        assertEquals("Car1", car.getName());
+    void 생성자_테스트() {
+        Car car = new Car("k-5");
+        assertEquals("k-5", car.getName());
     }
 
     @Test
-    void testConstructorWithInvalidName() {
+    void 이름_공백_예외_처리() {
         assertThrows(IllegalArgumentException.class, () -> new Car("  "));
     }
+    @Test
+    void 이름_길이_초과_예외_처리() {
+        assertThrows(IllegalArgumentException.class, () -> new Car(" 123141123"));
+    }
+
 
     @Override
     protected void runMain() {

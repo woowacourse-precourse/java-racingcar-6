@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.RacingCars;
-import racingcar.model.Referee;
+import racingcar.model.Result;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -26,10 +26,10 @@ public class RaceGameController {
         outputView.printFirstResultMessage();
         playGameMultipleTimes(racingCars, inputLoop);
 
-        Referee referee = new Referee();
-        referee.findWinnerDistance(racingCars);
+        Result result = new Result();
+        result.findWinnerDistance(racingCars);
 
-        List<String> winnerNames = referee.winnerNameList(racingCars);
+        List<String> winnerNames = result.winnerNameList(racingCars);
         outputView.printWinnerResultMessage(winnerNames);
 
     }
