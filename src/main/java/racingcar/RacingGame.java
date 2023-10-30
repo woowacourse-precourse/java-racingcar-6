@@ -15,9 +15,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingGame {
-    private List<Car> cars;
+    private final List<Car> cars;
     private int attemptCount;
-    private OutputView outputView;
+    private final OutputView outputView;
 
     public RacingGame(List<Car> cars, int attemptCount, OutputView outputView) {
         this.cars = cars;
