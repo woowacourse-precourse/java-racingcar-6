@@ -22,16 +22,16 @@ public class Application {
         String[] participants = input.split(",");
         validateLength(participants);
 
-        int[] runDistance = new int[participants.length];
+        int[] raceDistance = new int[participants.length];
         int winnerDistance = 0;
-        String[] runDistanceByHyphen = new String[participants.length];
-        Arrays.fill(runDistanceByHyphen, "");
+        String[] raceDistanceByHyphen = new String[participants.length];
+        Arrays.fill(raceDistanceByHyphen, "");
 
         for (int i = 0; i < tryCount; i++) {
-            proceedRun(participants, runDistance, runDistanceByHyphen);
+            raceProceed(participants, raceDistance, raceDistanceByHyphen);
             for (int k = 0; k < participants.length; k++) {
-                winnerDistance = Math.max(winnerDistance, runDistance[k]);
-                System.out.println(participants[k] + " : " + runDistanceByHyphen[k]);
+                winnerDistance = Math.max(winnerDistance, raceDistance[k]);
+                System.out.println(participants[k] + " : " + raceDistanceByHyphen[k]);
             }
             System.out.println();
         }
@@ -39,9 +39,9 @@ public class Application {
         String winners = "";
 
         for (int l = 0; l < participants.length; l++) {
-            if (runDistance[l] == winnerDistance && winners.equals("")) {
+            if (raceDistance[l] == winnerDistance && winners.equals("")) {
                 winners += participants[l];
-            } else if (runDistance[l] == winnerDistance && !winners.equals("")) {
+            } else if (raceDistance[l] == winnerDistance && !winners.equals("")) {
                 winners += ", ";
                 winners += participants[l];
             }
@@ -77,11 +77,11 @@ public class Application {
         }
     }
 
-    public static void proceedRun(String[] participants, int[] runDistance, String[] runDistanceByHyphen) {
+    public static void raceProceed(String[] participants, int[] raceDistance, String[] raceDistanceByHyphen) {
         for (int j = 0; j < participants.length; j++) {
             if (goOrStop()) {
-                runDistance[j] = runDistance[j] + 1;
-                runDistanceByHyphen[j] += "-";
+                raceDistance[j] = raceDistance[j] + 1;
+                raceDistanceByHyphen[j] += "-";
             }
         }
     }
