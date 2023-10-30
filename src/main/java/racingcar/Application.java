@@ -37,6 +37,15 @@ public class Application {
         // TODO: 프로그램 구현
     }
 
+    public static int moveForward() {
+        int num = makeRandomNumber();
+        int plusNum = 0;
+        if (num >= 4) {
+            plusNum++;
+        }
+        return plusNum;
+    }
+
     public static void validateCarsName(String names) {
         boolean nameCheck = Pattern.matches("^[가-힣\\w]+[가-힣\\w" + "," + "]*[가-힣\\w]$",names);
         if(!nameCheck) {
