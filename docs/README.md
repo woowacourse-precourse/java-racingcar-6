@@ -9,7 +9,7 @@
 
 - [ ] 사용자가 시도할 횟수를 입력 받는다.
   - [ ] 횟수가 숫자가 아닐 경우 예외 처리 (IllegalArgumentException 발생)
-  - [ ] 횟수가 0 이하일 경우 예외 처리 (IllegalArgumentException 발생
+  - [x] 횟수가 0 이하일 경우 예외 처리 (IllegalArgumentException 발생
 
 
 - [ ] 매 차례 마다 0 ~ 9 사이의 무작위 값을 구해 4 이상일 경우 전진, 3 이하일 경우 멈춘다.
