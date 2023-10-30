@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -16,5 +17,11 @@ public class RacingCarTest {
                 () -> assertTrue(racingCar.move(4)),
                 () -> assertFalse(racingCar.move(3))
         );
+    }
+
+    @DisplayName("자동차 이름 짓기")
+    @Test
+    void naming() {
+        assertThatThrownBy(() -> new RacingCar("Kailyn")).isInstanceOf(IllegalArgumentException.class);
     }
 }
