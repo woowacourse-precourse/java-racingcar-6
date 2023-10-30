@@ -3,6 +3,9 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.test.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -37,8 +40,38 @@ class ApplicationTest extends NsTest {
 	}
 
 	@Test
-	@DisplayName("자동차 이름 입력 테스트 - 입력하지 않았을 경우 예외 처리")
+	@DisplayName("자동차 이름 입력 테스트1 - 1개 입력 시 정상 동작")
 	void carNameTest1() {
+		Race race = new Race();
+		Car car = new Car("poby");
+
+		List<Car> carList = new ArrayList<>();
+		carList.add(car);
+		race.setCarList(carList);
+
+		assertThat(carList).isEqualTo(race.getCarList());
+	}
+
+	@Test
+	@DisplayName("자동차 이름 입력 테스트2 - 3개 입력 시 정상 동작")
+	void carNameTest2() {
+		Race race = new Race();
+		Car car1 = new Car("poby");
+		Car car2 = new Car("woni");
+		Car car3 = new Car("jinee");
+
+		List<Car> carList = new ArrayList<>();
+		carList.add(car1);
+		carList.add(car2);
+		carList.add(car3);
+		race.setCarList(carList);
+
+		assertThat(carList).isEqualTo(race.getCarList());
+	}
+
+	@Test
+	@DisplayName("자동차 이름 입력 테스트3 - 입력하지 않았을 경우 예외 처리")
+	void carNameTest3() {
 		assertSimpleTest(() ->
 				assertThatThrownBy(() -> runException("", "1"))
 						.isInstanceOf(IllegalArgumentException.class)
@@ -46,8 +79,8 @@ class ApplicationTest extends NsTest {
 	}
 
 	@Test
-	@DisplayName("자동차 이름 입력 테스트 - 6글자 이상일 경우 예외 처리")
-	void carNameTest2() {
+	@DisplayName("자동차 이름 입력 테스트4 - 6글자 이상일 경우 예외 처리")
+	void carNameTest4() {
 		assertSimpleTest(() ->
 				assertThatThrownBy(() -> runException("jinwoo", "1"))
 						.isInstanceOf(IllegalArgumentException.class)

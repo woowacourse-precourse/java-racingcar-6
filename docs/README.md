@@ -63,11 +63,14 @@
 
 #### 자동차 이름 입력 테스트
 
+- [x] 자동차 이름을 1개 입력했을 경우 정상 동작 여부 확인
+- [x] 자동차 이름을 3개 입력했을 경우 정상 동작 여부 확인
 - [x] 자동차 이름을 입력하지 않았을 경우 `IllegalArgumentException` 예외 여부 확인
 - [x] 자동차 이름의 길이가 6글자를 입력했을 경우 `IllegalArgumentException` 예외 여부 확인
 
 #### 시도 횟수 입력 테스트
 
+- [ ] 시도 횟수를 5로 입력했을 경우 정상 동작 여부 확인
 - [x] 시도 횟수를 입력하지 않았을 경우 `IllegalArgumentException` 예외 여부 확인
 - [x] 시도 횟수를 정수가 아닌 문자열로 입력했을 경우 `IllegalArgumentException` 예외 여부 확인
 

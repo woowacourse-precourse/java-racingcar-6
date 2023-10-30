@@ -12,7 +12,7 @@ public class Race {
 	private static int CAR_NAME_MAXIMUM_LENGTH = 5;
 
 	public void start() {
-		setCarList();
+		inputCarName();
 		setTurnCount();
 		System.out.println();
 		for (int i = 0; i < turnCount; i++) {
@@ -21,15 +21,22 @@ public class Race {
 		printResult();
 	}
 
-	private void setCarList() {
+	public void setCarList(List<Car> carList) {
+		carList.forEach(car -> this.carList.add(car));
+	}
+
+	private void inputCarName() {
+		List<Car> newCarList = new ArrayList<>();
+
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String input = readLine().trim();
 		for (String carName : input.split(",")) {
 			if (carName.length() == 0 || carName.length() > CAR_NAME_MAXIMUM_LENGTH) {
 				throw new IllegalArgumentException("자동차 이름이 올바르지 않습니다.");
 			}
-			carList.add(new Car(carName));
+			newCarList.add(new Car(carName));
 		}
+		setCarList(newCarList);
 	}
 
 	private void setTurnCount() {
@@ -66,5 +73,9 @@ public class Race {
 			}
 		});
 		System.out.println("최종 우승자 : ".concat(String.join(", ", winnerList)));
+	}
+
+	public List<Car> getCarList() {
+		return carList;
 	}
 }
