@@ -32,7 +32,7 @@ public class Cars {
         return this.cars;
     }
 
-    public List<Car> judgeWinner() {
+    private List<Car> judgeWinner() {
         int maxProgress = getMaxProgress();
 
         return this.cars.stream()
