@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cars {
 
-    private static final int STARTING_POSITION = 1;
+    private static final int STARTING_POSITION = 0;
 
     private final List<Car> cars;
 
@@ -21,6 +21,11 @@ public class Cars {
         return names.stream()
                 .map(name -> Car.of(name, STARTING_POSITION))
                 .toList();
+    }
+
+    public List<Car> race(NumberGenerator numberGenerator) {
+        cars.forEach(car -> car.move(numberGenerator.generate()));
+        return get();
     }
 
     public List<Car> get() {

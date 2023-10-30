@@ -18,7 +18,26 @@ public class CarsTest {
     @Test
     void createCars() {
         Cars cars = Cars.of(names);
-        assertThat(cars.get().size()).isEqualTo(3);
+        assertThat(cars.get()).isEqualTo(List.of(
+                Car.of("pobi", 0),
+                Car.of("crong", 0),
+                Car.of("honux", 0)
+        ));
+    }
+
+    @Test
+    void race() {
+        Cars cars = Cars.of(names);
+        NumberGenerator numberGenerator = () -> 4;
+
+        List<Car> racedCars = cars.race(numberGenerator);
+        assertThat(racedCars).isEqualTo(
+                List.of(
+                        Car.of("pobi", 1),
+                        Car.of("crong", 1),
+                        Car.of("honux", 1)
+                )
+        );
     }
 
 }
