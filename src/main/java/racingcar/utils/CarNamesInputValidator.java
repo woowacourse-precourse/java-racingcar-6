@@ -1,10 +1,16 @@
 package racingcar.utils;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class CarNamesInputValidator {
 
     private static final String SPLIT_REGEX = ",";
     private static final char COMMA = ',';
-    private static final int VALID_MAX_LENGTH = 5;
+    private static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final int CAR_TOTAL_MIN_COUNT = 1;
+    private static final int CAR_TOTAL_MAX_COUNT = 10;
 
 
     public static void validate(String target) {
@@ -15,6 +21,8 @@ public class CarNamesInputValidator {
         String[] elements = target.split(SPLIT_REGEX);
         validateEachElementIsNotBlank(elements);
         validateEachElementCorrectLength(elements);
+        validateNonDuplicate(elements);
+        validateTotalCount(elements);
     }
 
     private static void validateIsNotBlank(String target) {
@@ -45,9 +53,24 @@ public class CarNamesInputValidator {
 
     private static void validateEachElementCorrectLength(String[] targets) {
         for (String target : targets) {
-            if (target.length() > VALID_MAX_LENGTH) {
+            if (target.length() > CAR_NAME_MAX_LENGTH) {
                 throw new IllegalArgumentException(CarNamesInputExceptionMessage.OUT_OF_LENGTH.getError());
             }
+        }
+    }
+
+    private static void validateNonDuplicate(String[] targets) {
+        List<String> distinctTargets = Arrays.stream(targets)
+                .distinct()
+                .collect(Collectors.toList());
+        if (distinctTargets.size() != targets.length) {
+            throw new IllegalArgumentException(CarNamesInputExceptionMessage.DUPLICATE_EXISTS.getError());
+        }
+    }
+
+    private static void validateTotalCount(String[] targets) {
+        if (targets.length < CAR_TOTAL_MIN_COUNT || targets.length > CAR_TOTAL_MAX_COUNT) {
+            throw new IllegalArgumentException(CarNamesInputExceptionMessage.OUT_OF_TOTAL_COUNT.getError());
         }
     }
 
@@ -56,7 +79,10 @@ public class CarNamesInputValidator {
         FIRST_CHARACTER_COMMA("첫 번째 문자로 콤마(,)를 입력하면 안됩니다."),
         LAST_CHARACTER_COMMA("마지막 문자로 콤마(,)를 입력하면 안됩니다."),
         ELEMENT_BLANK("자동차 이름은 공백 문자로만 이루어져선 안됩니다."),
-        OUT_OF_LENGTH("자동차 이름은 5글자 이하여야 합니다.");
+        OUT_OF_LENGTH("자동차 이름은 5글자 이하여야 합니다."),
+        DUPLICATE_EXISTS("중복된 자동차 이름이 존재합니다."),
+        OUT_OF_TOTAL_COUNT(String.format("자동차이름은 %d ~ %d 개만 입력 가능합니다.", CAR_TOTAL_MIN_COUNT, CAR_TOTAL_MAX_COUNT));
+
 
         private final String error;
 
