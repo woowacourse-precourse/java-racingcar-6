@@ -22,7 +22,7 @@ public class CarRacing {
 
 
     public void start() {
-        Cars cars = readCarInfo();
+        Cars cars = readCarsInfo();
         Turn turn = readMovingTurn();
         move(turn, cars);
 
@@ -55,7 +55,7 @@ public class CarRacing {
         return new Turn(inputManager.readTryToMoveTurnCount());
     }
 
-    private Cars readCarInfo() {
+    private Cars readCarsInfo() {
         return new Cars(inputManager.readCarNames());
     }
 }
