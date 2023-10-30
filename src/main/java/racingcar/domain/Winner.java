@@ -1,9 +1,15 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Winner {
-    private List<String> winnerCarNames;
+    private final List<String> winnerCarNames;
 
+    public Winner(List<String> winnerCarNames) {
+        this.winnerCarNames = winnerCarNames;
+    }
+
+    public String getWinnerCarNames() {
+        return String.join(", ",winnerCarNames);
+    }
 }
