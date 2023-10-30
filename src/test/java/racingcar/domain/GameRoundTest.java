@@ -36,9 +36,33 @@ class GameRoundTest {
 
     @Test
     void increaseCurrentRound() {
+        // given
+        // when
+        // then
     }
 
     @Test
-    void isLeftRound() {
+    void isLeftRound_남은_라운드_있음_테스트() {
+        // given
+        GameRound gameRound = new GameRound(5, 0);
+
+        // when
+        Boolean result = gameRound.isLeftRound();
+
+        // then
+        assertEquals(true, result);
+    }
+
+    @Test
+    void isLeftRound_남은_라운드_없음_테스트() {
+        // given
+        GameRound gameRound = new GameRound(5, 0);
+        while (gameRound.isLeftRound()) gameRound.increaseCurrentRound(); // 남아 있는 모든 라운드 돌리기
+
+        // when
+        Boolean result = gameRound.isLeftRound();
+
+        // then
+        assertEquals(false, result);
     }
 }
