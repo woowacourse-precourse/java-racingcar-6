@@ -1,5 +1,6 @@
 package racingcar;
 
+import static basis.WinnerResult.getLargestMove;
 import static constant.Constant.ATTEMPTS_NUMBER_REQUEST_MESSAGE;
 import static constant.Constant.CAR_NAME_REQUEST_MESSAGE;
 import static constant.Constant.RUN_RESULT_START_MESSAGE;
@@ -28,13 +29,7 @@ public class Application {
         System.out.println(RUN_RESULT_START_MESSAGE);
         movingStatus.printRaceResult(attemptsNumber, carNameHashMap);
 
-        int largestMove = 0;
-        for (Entry<String, String> element : carNameHashMap.entrySet()) {
-            int moveLength = element.getValue().length();
-            if (moveLength > largestMove) {
-                largestMove = moveLength;
-            }
-        }
+        int largestMove = getLargestMove(carNameHashMap);
 
         List<String> winnerList = new ArrayList<>();
         for (Entry<String, String> element : carNameHashMap.entrySet()) {
