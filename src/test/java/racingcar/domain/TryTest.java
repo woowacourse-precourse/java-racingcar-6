@@ -4,15 +4,28 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 @DisplayName("Try 클래스")
 class TryTest {
 
+    private Try tryCount;
+
+    @BeforeEach
+    void setup() {
+        tryCount = new Try(5);
+    }
+
     @Test
-    void 자연수로_시도_횟수를_생성(){
-        Try tri = new Try(5);
-        assertThat(tri.getCount()).isEqualTo(5);
+    void 자연수로_시도_횟수를_생성() {
+        assertThat(tryCount.getCount()).isEqualTo(5);
+    }
+
+    @Test
+    void 레이스_진행_시_시도_횟수가_1_감소() {
+        tryCount.tryRace();
+        assertThat(tryCount.getCount()).isEqualTo(4);
     }
 }
