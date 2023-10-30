@@ -34,7 +34,7 @@ class OutputViewTest {
     @Test
     void printRacingResult_Success() {
         // when
-        OutputView.printMoveResult(new MoveResult(List.of("pobi", "woni", "jun"), List.of(1, 2, 1)));
+        OutputView.printMoveResult(List.of("pobi", "woni", "jun"), List.of(1, 2, 1));
 
         // then
         Assertions.assertThat(out.toString()).isEqualTo("pobi : -\nwoni : --\njun : -\n\n");

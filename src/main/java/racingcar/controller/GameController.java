@@ -41,7 +41,7 @@ public class GameController {
         OutputView.printRacingResultMessage();
         while (numberOfAttempts.hasRemainingAttempts()) {
             MoveResult moveResult = cars.handleCarMovement(numberGenerator);
-            OutputView.printMoveResult(moveResult);
+            OutputView.printMoveResult(moveResult.carNames(), moveResult.forwardCounts());
             numberOfAttempts.decreaseNumberOfAttempts();
         }
     }

@@ -2,17 +2,13 @@ package racingcar.view;
 
 import java.util.List;
 
-import racingcar.MoveResult;
-
 public class OutputView {
 
     public static void printRacingResultMessage() {
         System.out.println("실행 결과");
     }
 
-    public static void printMoveResult(MoveResult moveResult) {
-        List<String> carNames = moveResult.carNames();
-        List<Integer> forwardCounts = moveResult.forwardCounts();
+    public static void printMoveResult(List<String> carNames, List<Integer> forwardCounts) {
         for (int i = 0; i < carNames.size(); i++) {
             System.out.print(carNames.get(i) + " : ");
             System.out.println("-".repeat(forwardCounts.get(i)));
