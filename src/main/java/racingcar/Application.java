@@ -1,7 +1,8 @@
 package racingcar;
 
-import racingcar.input.InputManager;
 import racingcar.game.Racing;
+import racingcar.input.InputManager;
+import racingcar.output.OutputManager;
 
 public class Application {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class Application {
         System.out.printf("\n실행 결과\n");
         for (int i = 0; i < numberOfAttempts; i++) {
             racing.moveAllCarsForward();
+            OutputManager.printRacingStatus(racing);
         }
         racing.updateLongestCarRoute();
         racing.determineWinningCars();
