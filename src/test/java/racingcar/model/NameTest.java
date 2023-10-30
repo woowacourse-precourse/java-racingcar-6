@@ -20,4 +20,16 @@ public class NameTest {
         // then
         Assertions.assertThat(resultName).isEqualTo(name);
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"pobipobi", "lisalisa", "jinyjiny"})
+    public void 이름_입력_예외_테스트(String input) {
+        //given
+        String name = input;
+
+        //when, then
+        Assertions.assertThatThrownBy(() -> new Name(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("5글자 미만 이름만 입력 가능합니다.");
+    }
 }
