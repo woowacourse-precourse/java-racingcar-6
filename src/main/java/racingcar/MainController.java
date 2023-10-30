@@ -18,7 +18,7 @@ public class MainController {
 
     private Cars initCars() {
         String inputValue = InputView.inputString(ViewMessage.INPUT_CAR_NAME);
-        return Cars.createCarsByString(inputValue);
+        return Cars.createByString(inputValue);
     }
 
     private TrialCount initTrialCount() {

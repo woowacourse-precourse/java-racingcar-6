@@ -8,7 +8,7 @@ import racingcar.Utils;
 public record Cars(List<Car> carList) {
     public static final String CAR_NAME_DELIMITER = ",";
 
-    public static Cars createCarsByString(String carsString) {
+    public static Cars createByString(String carsString) {
         List<Car> carList = Converter.splitByDelimiter(carsString, CAR_NAME_DELIMITER)
                 .stream()
                 .map(CarName::new)
