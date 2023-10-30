@@ -3,44 +3,42 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.domain.Car;
 import racingcar.dto.CarDTO;
-import racingcar.dto.GameDTO;
+import racingcar.dto.RoundDTO;
 
 public class Winners {
-    private final List<String> winners = new ArrayList<>();
-    private final CarManager manager;
-    private final RacingGame game;
+    public List<String> getWinners(RoundDTO finalRound) {
+        List<CarDTO> states = finalRound.getStates();
+        List<String> winners = findWinners(states);
 
-    public Winners(CarManager manager, RacingGame game) {
-        this.manager = manager;
-        this.game = game;
+        return winners;
     }
 
 
-    public String getWinners() {
-        calculateWinners();
+    // 이동 거리가 가장 먼 자동차를 모두 찾아 winners 배열로 반환
+    private List<String> findWinners(List<CarDTO> states) {
+        List<String> winners = new ArrayList<>();
+        int farthest = findFarthestPosition(states);
 
-        String string = String.join(",", winners);
-        return string;
-    }
-
-
-    // 이동 횟수가 가장 많은 자동차들을 winners 배열에 삽입
-    private void calculateWinners() {
-        GameDTO gameData = game.toDTO();
-        int carAmount = gameData.getCarAmount();
-        
-        for (int index = 0; index < carAmount; index++) {
-            int farthest = manager.getFarthestPosition();
-
-            Car car = manager.getCarFromIndex(index);
-            CarDTO carData = car.toDTO();
-
-            if (carData.getPosition() == farthest) {
-                winners.add(carData.getName());
+        for (CarDTO car : states) {
+            if (car.getPosition() == farthest) {
+                String name = car.getName();
+                winners.add(name);
             }
         }
+        return winners;
+    }
+
+    // 가장 멀리 이동한 거리 찾기
+    private int findFarthestPosition(List<CarDTO> states) {
+        int farthest = 0;
+        for (CarDTO car : states) {
+            int position = car.getPosition();
+            if (position > farthest) {
+                farthest = position;
+            }
+        }
+        return farthest;
     }
 
 }

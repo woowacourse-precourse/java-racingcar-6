@@ -8,36 +8,28 @@ import racingcar.dto.CarDTO;
 public class CarManager {
     private final List<Car> cars = new ArrayList<>();
 
-
-    public Car getCarFromIndex(int index) {
-        Car car = cars.get(index);
-
-        return car;
-    }
-
-    public int getFarthestPosition() {
-        int number = findBiggestNumber();
-
-        return number;
-    }
-
+    
     public void createAndAddCars(String[] names) {
         for (String name : names) {
             cars.add(new Car(name));
         }
     }
 
-
-    // Car의 DTO를 받아서 그 중 가장 큰 position의 값 반환
-    private int findBiggestNumber() {
-        int farthest = 0;
-        for (Car car : cars) {
-            CarDTO carData = car.toDTO();
-            if (farthest < carData.getPosition()) {
-                farthest = carData.getPosition();
-            }
+    public void tryToMoveCar(int CAR_AMOUNT) {
+        for (int index = 0; index < CAR_AMOUNT; index++) {
+            Car car = cars.get(index);
+            car.tryMove();
         }
-        return farthest;
+
+    }
+
+    public List<CarDTO> getRoundResult() {
+        List<CarDTO> roundResult = new ArrayList<>();
+        for (Car car : cars) {
+            roundResult.add(car.toDTO());
+        }
+
+        return roundResult;
     }
 
 }

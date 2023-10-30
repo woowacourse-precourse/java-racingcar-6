@@ -1,69 +1,61 @@
 package racingcar.controller;
 
-import racingcar.dto.GameDTO;
-import racingcar.model.CarManager;
+import java.util.List;
+import racingcar.dto.RoundDTO;
 import racingcar.model.RacingGame;
-import racingcar.model.Winners;
+import racingcar.utils.validation.ValidateAttempts;
+import racingcar.utils.validation.ValidateCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
-    CarManager manager = new CarManager();
-    Winners winners;
-    RacingGame game;
+    private RacingGame game;
     InputView input = new InputView();
     OutputView output = new OutputView();
 
 
     public void playGame() {
-        setGameSession();
-        proceedGame();
-
-        String gameResult = winners.getWinners();
-        output.displayWinners(gameResult);
+        createGameSession();
+        game.proceedGame();
+        displayGameResult();
+        displayWinners();
     }
 
 
-    // View에서 받은 자동차 이름을 토대로 자동차 생성 요청
-    private String[] askAndGenerateCars() {
-        String[] carsList = input.askForCarNames();
-        manager.createAndAddCars(carsList);
-
-        return carsList;
-    }
-
-    // View에서 받은 시도 횟수를 설정 파일에 전달
-    private int askAndGetAttempts() {
-        int attempts = input.askForAttempts();
-        return attempts;
-    }
-
-    // 게임 정보를 입력받고 그것을 기반으로 RacingGame 세션 생성
-    private void setGameSession() {
-        String[] cars = askAndGenerateCars();
-        int carAmount = cars.length;
+    // 게임 정보를 입력받아 그것을 기반으로 RacingGame 세션 생성, 게임 진행
+    private void createGameSession() {
+        String[] cars = askAndGetCarList();
         int attempts = askAndGetAttempts();
-
-        game = new RacingGame(manager, carAmount, attempts);
-        winners = new Winners(manager, game);
-        output.startDisplayResult();
+        game = new RacingGame(cars, attempts);
     }
 
-    // 정해진 시도 횟수만큼 라운드별 진행을 요청, 라운드마다 결과 출력
-    private void proceedGame() {
-        GameDTO gameData = game.toDTO();
-        int maxRound = gameData.getMaxRound();
-
-        for (int round = 1; round <= maxRound; round++) {
-            game.playRound();
-            displayRound();
-        }
+    // 게임 결과를 받아와 OutputView에 출력
+    private void displayGameResult() {
+        List<RoundDTO> rounds = game.getRoundDTO();
+        output.displayResult(rounds);
     }
 
-    // 라운드가 끝난 후 결과 출력
-    private void displayRound() {
-        String roundResult = game.getRoundResult();
-        output.display(roundResult);
+    // 승자 정보를 받아와 OutputView에 출력
+    private void displayWinners() {
+        List<String> winners = game.getWinners();
+        output.displayWinners(winners);
+    }
+
+    // InputView를 통해 자동차 목록 입력받기
+    private String[] askAndGetCarList() {
+        String[] carList = input.askForCarNames();
+        ValidateCars.isValid(carList);
+
+        return carList;
+    }
+
+    // InputView를 통해 시도 횟수 입력받기
+    private int askAndGetAttempts() {
+        String tmp = input.askForAttempts();
+        ValidateAttempts.isValid(tmp);
+        int attempts = Integer.parseInt(tmp);
+
+        return attempts;
     }
 
 }
