@@ -1,12 +1,9 @@
 package racingcar;
 
 import model.Car;
-import model.CarName;
-import model.MoveRule;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 public class CarTest {
     @Test
