@@ -22,4 +22,17 @@ public class RacingCar {
     private boolean canMovingForward() {
         return randomNumberGenerator.generateRandomNumber() >= MINIMUM_NUMBER_TO_MOVING_FORWARD;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public String getMovingBar() {
+        return movingBar;
+    }
 }
+
