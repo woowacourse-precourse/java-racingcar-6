@@ -4,8 +4,8 @@ import static racingcar.support.PrintType.DASH;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.core.car.BasicCar;
 import racingcar.domain.core.car.CarName;
-import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.core.car.OnRaceCars;
 import racingcar.domain.system.game.round.Round;
 import racingcar.domain.system.game.round.reuslt.RoundResult;
@@ -108,7 +108,7 @@ public abstract class BasicGame implements Game {
     }
 
     private void printRound(RoundResult result) {
-        for (OnRaceCar onRaceCar : result.getAllCars()) {
+        for (BasicCar onRaceCar : result.getAllCars()) {
             Long positionResult = result.getPosition(onRaceCar);
             String position = getPositionPrint(DASH, positionResult);
             viewer.print(onRaceCar.getCarName(), position);
