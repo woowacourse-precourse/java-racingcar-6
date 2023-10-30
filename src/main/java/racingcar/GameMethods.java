@@ -17,4 +17,18 @@ public class GameMethods {
         return howFar;
     }
 
+    /**
+     * 난수가 4 이상일 때 "-" 추가
+     *
+     * @param numberOfCars
+     * @param movedDistance
+     * @param howFar
+     */
+    public static void goOrStop(int numberOfCars, String[] movedDistance, int[] howFar) {
+        for (int i = 0; i < numberOfCars; i++) {
+            if (howFar[i] >= 4) {
+                movedDistance[i] += "-";
+            }
+        }
+    }
 }
