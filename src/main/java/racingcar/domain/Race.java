@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.List;
+import racingcar.util.ParserUtils;
 
 public class Race {
     private ArrayList<Car> cars;
@@ -23,6 +25,15 @@ public class Race {
         for (Car car : cars) {
             car.moveForward();
             car.print();
+        }
+    }
+
+    public void initializeCars(String input) {
+        List<String> carNameList = ParserUtils.namesParser(input);
+
+        for (String carName : carNameList) {
+            Car car = new Car(carName);
+            cars.add(car);
         }
     }
 
