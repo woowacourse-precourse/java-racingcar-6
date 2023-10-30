@@ -47,4 +47,8 @@ public class RacingCarGameView implements RepeatingGameView {
         System.out.println(messageProperties.get("winners")
                 + String.join(",", ((RacingCarGame) game).getWinners()));
     }
+
+    public void showResultMessage() {
+        System.out.println(messageProperties.get("result"));
+    }
 }
