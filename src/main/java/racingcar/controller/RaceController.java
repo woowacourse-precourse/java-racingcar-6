@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
@@ -13,7 +14,8 @@ public class RaceController {
     }
 
     public List<String> askCarNames() {
-        return null;
+        String inputNames = Console.readLine();
+        return divideCarNames(inputNames);
     }
 
     public int askMoveCount() {
