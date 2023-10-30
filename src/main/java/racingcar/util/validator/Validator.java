@@ -6,28 +6,21 @@ import racingcar.util.message.ErrorMessage;
 
 public class Validator {
 
-	private static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]*$");
-	private static final int LENGTH = 5;
-	
-	public static void validateOutOfLength(String carNames) {
-		String[] carNameArr = carNames.split(",");
+	public static final Pattern NUMBER_PATTERN = Pattern.compile("^[0-9]*$");
 		
-		for(String carName : carNameArr) {
-			if (carName.length() > LENGTH) {
-				throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
-			}
-		}
-	}
-	
-	public static void validateContainNumber(String carName) {
-		if (carName.matches(".*[0-9].*")) {
-			throw new IllegalArgumentException(ErrorMessage.CONTAIN_NUMBER_ERROR.getMessage());
-		}
-	}
-	
 	public static void validateNumberFormat(String inputValue) {
 		if (!NUMBER_PATTERN.matcher(inputValue).matches()) {
 			throw new IllegalArgumentException(ErrorMessage.INPUT_LETTER_ERROR.getMessage());
 		}
 	}
+	
+	public static void validateIsEmpty(String inputValue) {
+		if(isStringEmpty(inputValue)) {
+			throw new IllegalArgumentException(ErrorMessage.INPUT_EMPTY.getMessage());
+		}
+	}
+	
+	private static boolean isStringEmpty(String str) {
+        return str == null || str.isBlank();
+    }
 }

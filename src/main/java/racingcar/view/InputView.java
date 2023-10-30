@@ -24,11 +24,11 @@ public class InputView {
 	}
 
 	private void inputCarNamesValidate(String inputValue) {
-		Validator.validateContainNumber(inputValue);
-		Validator.validateOutOfLength(inputValue);
+		Validator.validateIsEmpty(inputValue);
 	}
 	
 	private void inputTryNumberValidate(String inputValue) {
+		Validator.validateIsEmpty(inputValue);
 		Validator.validateNumberFormat(inputValue);
 	}
 }
