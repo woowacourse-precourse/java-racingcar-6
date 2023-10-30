@@ -15,10 +15,10 @@ class MoveStrategyTest {
 		NumberGenerator numberGenerator = () -> 4;
 
         // when
-        boolean result = moveStrategy.canMove(numberGenerator);
+		int actual = moveStrategy.move(numberGenerator);
 
         // then
-        assertTrue(result);
+        assertEquals(1, actual);
 	}
 
 	@Test
@@ -29,9 +29,9 @@ class MoveStrategyTest {
 		NumberGenerator numberGenerator = () -> 3;
 
 		// when
-		boolean result = moveStrategy.canMove(numberGenerator);
+		int actual = moveStrategy.move(numberGenerator);
 
 		// then
-		assertFalse(result);
+		assertEquals(0, actual);
 	}
 }
