@@ -16,6 +16,11 @@
 - [✅] 각 자동차마다 랜덤 값(0-9) 구한다. #GenerateRandomNumber generateRandomNumber()
 - [✅] 랜덤 값이 4이상일 경우 전진한다.
 
+#### 최종 우승자를 가려내는 기능
+- [ ] 전진을 가장 많이 한 자동차가 우승한다. #Cars 
+  - [ ] 최종 우승자를 가려낸다. getFinalWinner()
+  - [ ] 가장 많이 전진한 횟수를 가져온다. getMaxMovement()
+
 #### 실행 결과 출력 기능
 - [✅] 실행 결과를 출력한다. #Game - #OutputView printResult()
   - [✅] 각 자동차마다 전진한 횟수를 '-'로 표시한다.
