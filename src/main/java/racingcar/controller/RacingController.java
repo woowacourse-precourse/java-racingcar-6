@@ -9,7 +9,7 @@ public class RacingController {
 
     private Game game;
 
-    public void play(List<Car> cars, int attemptCount) {
+    public void playGame(List<Car> cars, int attemptCount) {
         this.game = new Game(cars);
         OutputView.printResultMessage();
         playAllRounds(attemptCount);
