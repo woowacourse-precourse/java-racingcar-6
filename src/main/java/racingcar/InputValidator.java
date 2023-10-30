@@ -4,6 +4,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class InputValidator {
+    public static void validateCarNames(String[] input) {
+        validateNamesIsEmpty(input);
+        validateNameContainSpace(input);
+        validateNameLength(input);
+        validateDuplicateName(input);
+    }
+
     public static void validateNamesIsEmpty(String[] input) {
         for (String name : input) {
             if (name.trim().isEmpty()) {
