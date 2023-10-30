@@ -1,15 +1,18 @@
 package racingcar;
 
 import static racingcar.Constant.DISTANCE;
+import static racingcar.Constant.FINAL_WINNER_MESSAGE;
 import static racingcar.Constant.MAX_RANDOM_NUM;
 import static racingcar.Constant.MIN_ATTEMPT_COUNT;
 import static racingcar.Constant.MIN_RANDOM_NUM;
 import static racingcar.Constant.MOVE_FORWARD_NUM;
 import static racingcar.Constant.PRINT_DISTANCE_SEPARATOR;
 import static racingcar.Constant.PRINT_RESULT_MESSAGE;
+import static racingcar.Constant.RESULT_JOIN_SEPARATOR;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGame {
     private List<Car> cars;
@@ -50,6 +53,26 @@ public class RacingGame {
     }
 
     private void printWinner() {
+        int winnerDistance = getMaxDistance();
 
+        System.out.print(FINAL_WINNER_MESSAGE);
+        List<String> winners = cars.stream()
+                .filter(car -> car.getDistance() == winnerDistance)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+
+        String result = String.join(RESULT_JOIN_SEPARATOR, winners);
+        System.out.println(result);
+    }
+
+    private int getMaxDistance() {
+        int maxDistance = -1;
+        for (Car car : cars) {
+            if (maxDistance < car.getDistance()) {
+                maxDistance = car.getDistance();
+            }
+        }
+
+        return maxDistance;
     }
 }
