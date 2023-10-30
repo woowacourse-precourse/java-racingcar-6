@@ -49,6 +49,7 @@ public class RacingController {
         outputView.outputTryNumberMessage();
 
         this.tryNumber = inputView.inputTryNumber();
+        outputView.outputCustomMessage("");
     }
 
     private void start() {

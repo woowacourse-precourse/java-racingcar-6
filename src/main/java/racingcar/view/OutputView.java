@@ -26,7 +26,10 @@ public class OutputView {
 
     public void outputRacingResult(String carName, Integer location) {
         printlnOut(carName + " : " + "-".repeat(location));
-        printlnOut("");
+    }
+
+    public void outputCustomMessage(String message) {
+        printlnOut(message);
     }
 
     public void outputWinners(String winners) {

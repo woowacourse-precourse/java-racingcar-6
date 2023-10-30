@@ -36,6 +36,7 @@ public class RacingService {
                     car.moveOrStop(statusEnum);
                     outputView.outputRacingResult(car.getCarName(), car.getLocation());
                 });
+        outputView.outputCustomMessage("");
     }
 
     public String getListToStringWinners() {
