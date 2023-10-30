@@ -26,6 +26,11 @@ public class ConsoleOutputView implements Outputview {
     }
 
     @Override
+    public void printBlankLine() {
+        System.out.println();
+    }
+
+    @Override
     public void printWinners() {
         System.out.println("최종 우승자 : ");
     }

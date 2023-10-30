@@ -2,9 +2,12 @@ package racingcar.controller;
 
 import racingcar.model.Cars;
 import racingcar.model.PlayCount;
+import racingcar.model.converter.CarConverter;
+import racingcar.model.dto.CarResponse;
 import racingcar.model.randomnumber.RandomNumber;
 import racingcar.view.input.InputView;
 import racingcar.view.output.Outputview;
+import java.util.List;
 
 public class GameController {
 
@@ -29,7 +32,21 @@ public class GameController {
         outputView.printResult();
         while (!playCount.isGameEnd()) {
             playCars.race(randomNumber);
+            printEachStatus(playCars);
             playCount.endOneRound();
         }
+    }
+
+    private void printEachStatus(final Cars cars) {
+        List<CarResponse> carResponses = cars.getCars()
+                .stream()
+                .map(CarConverter::from)
+                .toList();
+
+        carResponses.forEach(response -> {
+            outputView.printEachCarStatus(response.getName(), response.getPosition());
+        });
+
+        outputView.printBlankLine();
     }
 }

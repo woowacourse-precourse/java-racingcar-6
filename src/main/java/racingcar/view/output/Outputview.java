@@ -6,5 +6,6 @@ public interface Outputview {
     void askPlayCount();
     void printResult();
     void printEachCarStatus(final String name, final int position);
+    void printBlankLine();
     void printWinners();
 }
