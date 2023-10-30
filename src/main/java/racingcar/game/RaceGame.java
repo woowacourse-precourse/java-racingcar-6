@@ -9,13 +9,19 @@ import java.util.List;
 
 public class RaceGame {
     private List<Car> cars;
-    private List<Integer> positions;
     private Integer moveCount;
     private InputValidator inputValidator;
     public void run(){
         play();
     }
     private void play(){
+        inputName();
+        inputMoveCount();
+        for(int i = 0;i < moveCount;i++){
+            for(Car car : cars){
+                car.move();
+            }
+        }
     }
 
     private void inputName(){
