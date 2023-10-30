@@ -10,7 +10,7 @@
         - [ ] 이동 시도 횟수 입력 - InputController#insertMoveAttempt()
         - [ ] 각 자동차 이름 입력 - InputController#insertCarNames()
 
-    - [ ] 자동차 생성시 자동차에 이름을 부여한다. - InputController#setCarName()
+    - [ ] 자동차 생성하며 이름을 부여한다. - InputController#setCar()
         - [ ] 쉼표(,)를 기준으로 구분한다.
         - [ ] 5자 이하의 이름만 받는다.
 
