@@ -17,7 +17,6 @@ public class CarMove {
     public static void move(HashMap<String, Integer> car_list) {
         for (Map.Entry<String, Integer> item : car_list.entrySet()) {
             item.setValue(item.getValue() + moveCheck());
-
         }
     }
 }

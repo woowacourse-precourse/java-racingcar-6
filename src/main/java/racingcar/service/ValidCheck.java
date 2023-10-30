@@ -1,6 +1,7 @@
-package racingcar.domain;
+package racingcar.service;
 
 public class ValidCheck {
+
     public static void nameSize_check(String car_name) {
         if (car_name.length() > 5) {
             throw new IllegalArgumentException();

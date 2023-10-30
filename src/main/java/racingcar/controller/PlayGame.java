@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import racingcar.service.CarMove;
 import racingcar.service.FindWinner;
-import racingcar.service.SettingCar;
 import racingcar.service.SettingGame;
 import racingcar.view.PrintInput;
 import racingcar.view.PrintOutput;
@@ -13,11 +12,13 @@ import java.util.List;
 
 public class PlayGame {
     public void play() {
+        SettingGame setGame = new SettingGame();
+
         PrintInput.inputCar();
-        HashMap<String, Integer> car_list = SettingCar.settingcar();
+        HashMap<String, Integer> car_list = setGame.settingcar();
 
         PrintInput.inputNumberOfMove();
-        int game = SettingGame.numberOfGame();
+        int game = setGame.numberOfGame();
 
         for (int i = 0; i < game; i++) {
             CarMove.move(car_list);
