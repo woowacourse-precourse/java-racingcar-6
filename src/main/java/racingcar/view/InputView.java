@@ -1,4 +1,4 @@
-package racingcar.input;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.Constants;
