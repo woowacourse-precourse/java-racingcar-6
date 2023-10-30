@@ -4,7 +4,7 @@
 
 # GameService
 - 전진조건을 Service에서 계산하고 이를 carManager에게 수행시킨다.
-- OutputManager를 통해 매 시도 횟수마다 출력한다. 
+- OutputManager를 통해 매 시도 횟수가 끝난 후 현재 위치를 출력한다. 
 - 게임이 끝난 후 자동차 경주 게임을 완료한 후 누가 우승했는지 알려준다.
 
 ## Game 시나리오
