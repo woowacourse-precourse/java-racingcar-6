@@ -12,12 +12,12 @@
         - [x] 테스트: 문자나 음수 등 잘못된 형식의 입력 시 `IllegalArgumentException`이 발생하는지 확인
 
 2. **자동차 객체**
-    - [ ] 자동차 이름을 가진다. 👉 `domain#Car#Car(String name)`, `domain#Car#getName()`
-        - [ ] 테스트: 자동차 객체 생성 시 주어진 이름을 정확히 저장하는지 확인
-    - [ ] 자동차는 전진할 수 있다. 👉 `domain#Car#move()`
-        - [ ] 테스트: 전진 명령을 내렸을 때 자동차의 위치가 1 증가하는지 확인
-    - [ ] 자동차는 현재 위치(전진 횟수)를 가진다. 👉 `domain#Car#getPosition()`
-        - [ ] 테스트: 자동차의 현재 위치를 올바르게 반환하는지 확인
+    - [x] 자동차 이름을 가진다. 👉 `domain#Car#Car(String name)`, `domain#Car#getName()`
+        - [x] 테스트: 자동차 객체 생성 시 주어진 이름을 정확히 저장하는지 확인
+    - [x] 자동차는 전진할 수 있다. 👉 `domain#Car#move()`
+        - [x] 테스트: 전진 명령을 내렸을 때 자동차의 위치가 1 증가하는지 확인
+    - [x] 자동차는 현재 위치(전진 횟수)를 가진다. 👉 `domain#Car#getPosition()`
+        - [x] 테스트: 자동차의 현재 위치를 올바르게 반환하는지 확인
 
 3. **자동차 전진 조건 체크**
     - [ ] 0에서 9 사이의 무작위 값을 구하는 기능 👉 `utils#RandomGenerator#generateNumber()`
