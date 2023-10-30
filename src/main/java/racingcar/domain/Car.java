@@ -12,6 +12,7 @@ public class Car {
 
     public Car(String carName) {
         validateDuplicatedName(carName);
+        validateNameLength(carName);
         this.name = new Name(carName);
         this.move = new Move();
         carNames.add(carName);
@@ -36,5 +37,15 @@ public class Car {
 
     private boolean isNameDuplicated(String carName) {
         return carNames.contains(carName);
+    }
+
+    private void validateNameLength(String carName) {
+        if (isNameTooLong(carName)) {
+            throw new IllegalArgumentException("자동차 이름은 5글자 이하만 가능합니다");
+        }
+    }
+
+    private boolean isNameTooLong(String carName) {
+        return carName.length() > 5;
     }
 }
