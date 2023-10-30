@@ -17,4 +17,12 @@ public class RacingCarController {
     public void moveCars() {
         racingCarService.moveCars();
     }
+
+    public void outputResultMessage() {
+        racingCarService.outputResultMessage();
+    }
+
+    public void outputMoveResult() {
+        racingCarService.outputMoveResult();
+    }
 }

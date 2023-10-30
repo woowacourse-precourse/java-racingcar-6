@@ -46,4 +46,8 @@ public class Cars {
             }
         }
     }
+
+    public int size() {
+        return cars.size();
+    }
 }
