@@ -20,17 +20,23 @@ public class Validator {
             });
     }
 
-    public static int StringToInt(String str) {
+    public static int stringToInt(String str) {
+        int number = parseToInt(str);
+        validateNumber(number);
+        return number;
+    }
+
+    private static int parseToInt(String str) {
         try {
-            int number = Integer.parseInt(str);
-
-            if (number < MIN_NAME_LENGTH) {
-                throw new IllegalArgumentException(ERROR_LESS_THAN_ONE);
-            }
-
-            return number;
+            return Integer.parseInt(str);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_ONLY_INT);
+        }
+    }
+
+    private static void validateNumber(int number) {
+        if (number < MIN_NAME_LENGTH) {
+            throw new IllegalArgumentException(ERROR_LESS_THAN_ONE);
         }
     }
 

@@ -4,7 +4,6 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.GameInfo;
 import racingcar.domain.RacingCar;
 import racingcar.utils.Validator;
@@ -38,7 +37,7 @@ public class RacingCarView {
     }
 
     private static int getAttempt() {
-        return Validator.StringToInt(Console.readLine());
+        return Validator.stringToInt(Console.readLine());
     }
 
     private static void printStart() {
