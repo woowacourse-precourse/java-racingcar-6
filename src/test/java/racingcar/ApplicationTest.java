@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -23,34 +25,20 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 이름에_대한_예외_처리_이름이_6자_이상인_경우() {
+    @ValueSource(strings = {"pobi,javaji", ""})
+    @ParameterizedTest
+    void 이름에_대한_예외_처리_테스트(String names) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                assertThatThrownBy(() -> runException(names, "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
-    @Test
-    void 이름에_대한_예외_처리_이름이_입력되지_않은_경우() {
+    @ValueSource(strings = {"1번", " "})
+    @ParameterizedTest
+    void 시도횟수에_대한_예외_처리_테스트(String numbers) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 시도횟수에_대한_예외_처리_숫자가_아닌_값이_있는_경우() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi", "1번"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 시도횟수에_대한_예외_처리_값이_없는_경우() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi", null))
+                assertThatThrownBy(() -> runException("pobi", numbers))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
