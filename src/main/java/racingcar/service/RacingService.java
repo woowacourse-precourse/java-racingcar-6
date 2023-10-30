@@ -3,9 +3,10 @@ package racingcar.service;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingService {
+    private final static int FORWARD_NUMBER = 4;
 
     public static boolean isMovingForward() {
-        return generateRandomNumber() >= 4;
+        return generateRandomNumber() >= FORWARD_NUMBER;
     }
 
     private static int generateRandomNumber() {

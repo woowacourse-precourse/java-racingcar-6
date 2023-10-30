@@ -1,21 +1,14 @@
 package racingcar.domain;
 
-import java.util.Objects;
-
 public class Car {
     private final String name;
     private int position;
+    private final int MAX_CAR_NAME_LENGTH = 5;
 
     public Car(String name) {
         validateCarNameLength(name);
         this.name = name;
         this.position = 0;
-    }
-
-    private void validateCarNameLength(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("[ERROR] 이름이 다섯글자를 초과했습니다.");
-        }
     }
 
     public int getPosition() {
@@ -30,22 +23,9 @@ public class Car {
         position += 1;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+    private void validateCarNameLength(String name) {
+        if (name.length() > MAX_CAR_NAME_LENGTH) {
+            throw new IllegalArgumentException("[ERROR] 이름이 다섯글자를 초과했습니다.");
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Car car = (Car) o;
-        return Objects.equals(name, car.name);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
-
-
 }
