@@ -25,7 +25,7 @@ public class Checker {
         try {
             return Integer.parseInt(val);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+            throw new IllegalArgumentException("숫자만 입력해야 합니다.");
         }
     }
 }
