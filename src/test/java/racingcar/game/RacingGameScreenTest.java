@@ -4,10 +4,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.common.io.reader.Reader;
 import racingcar.common.io.writer.Writer;
 
@@ -85,6 +89,22 @@ class RacingGameScreenTest {
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("\n실행 결과\n");
+    }
+
+
+    @DisplayName("최종 우승자 출력 화면을 올바르게 구성하였는지 확인한다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"name1", "name1,name2", "name1,name2,name3"})
+    void test_ShowFinalWinnerScreen(String expected) {
+        //given
+        List<String> result = Arrays.asList(expected.split(","));
+
+        //when
+        racingGameScreen.showFinalWinner(result);
+
+        //then
+        String output = mockWriter.getOutput();
+        assertThat(output).isEqualTo(String.format("최종 우승자 : %s\n", expected));
     }
 
     @DisplayName("실행 결과 화면을 올바르게 구성하였는지 확인한다.")

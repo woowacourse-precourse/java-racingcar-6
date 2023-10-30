@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.common.io.reader.Reader;
 import racingcar.common.io.writer.Writer;
@@ -10,6 +11,7 @@ public class RacingGameScreen {
     private static final String INPUT_RACER = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String INPUT_NUMBER_OF_TURNS = "시도할 횟수는 몇 회인가요?";
     private static final String START_SHOW_GAME_RESULT = "실행 결과";
+    private static final String FINAL_WINNER = "최종 우승자 : %s";
 
     private static final char DISTANCE_CHARACTER = '-';
 
@@ -48,5 +50,12 @@ public class RacingGameScreen {
         Arrays.fill(chars, DISTANCE_CHARACTER);
 
         return String.valueOf(chars);
+    }
+
+    public void showFinalWinner(List<String> winnerNames) {
+        String winnerName = winnerNames.stream()
+                .collect(Collectors.joining(","));
+
+        writer.writeLine(String.format(FINAL_WINNER, winnerName));
     }
 }
