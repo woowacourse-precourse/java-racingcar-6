@@ -1,8 +1,15 @@
 package racingcar;
 
+import java.util.stream.IntStream;
+
 public final class Car {
     private final String name;
     private Integer position;
+
+    @Override
+    public String toString() {
+        return name +" : ";
+    }
 
     private Car(final String givenName) {
         this.name = givenName;
@@ -13,11 +20,6 @@ public final class Car {
         return new Car(givenName);
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
-
     public Integer changePosition(final CarMovementStatus movementStatus) {
         if (movementStatus.equals(CarMovementStatus.MOVE_FORWARD)) {
             return ++position;
@@ -26,5 +28,12 @@ public final class Car {
             return position;
         }
         throw new IllegalArgumentException();
+    }
+
+    public String getRoundResult() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this);
+        IntStream.range(0, position).forEach(i -> sb.append("-"));
+        return sb.toString();
     }
 }
