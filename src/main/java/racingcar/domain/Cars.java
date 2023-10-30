@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Cars {
 
-    private final List<Car> carList = new ArrayList<>();
+    private final static List<Car> carList = new ArrayList<>();
 
     public void init(String[] carArr) {
         for (String carName : carArr) {
@@ -17,5 +17,13 @@ public class Cars {
 
     public List<Car> getCarList() {
         return unmodifiableList(carList);
+    }
+
+    public int size() {
+        return carList.size();
+    }
+
+    public void plusGameNum(int i) {
+        carList.get(i).plusPosition();
     }
 }

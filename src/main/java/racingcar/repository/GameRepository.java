@@ -17,6 +17,10 @@ public class GameRepository {
         cars.init(carArr);
     }
 
+    public Cars findCars() {
+        return cars;
+    }
+
     public void initGameNum(int num) {
         gameNum.init(num);
     }

@@ -2,9 +2,13 @@ package racingcar.domain;
 
 public class Position {
 
-    private int position;
+    private int num;
 
-    public Position(int position) {
-        this.position = position;
+    public Position(int num) {
+        this.num = num;
+    }
+
+    public void plusNum() {
+        this.num++;
     }
 }
