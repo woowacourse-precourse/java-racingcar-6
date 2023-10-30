@@ -26,7 +26,7 @@ public class PlayGame {
 
     private static void playRace(List<Car> cars, int tryCount) {
         Race race = new Race(cars, tryCount);
-        race.startRace(new OutputView(cars));
+        race.startRace();
         OutputView.printWinners(race.getWinners());
     }
 }

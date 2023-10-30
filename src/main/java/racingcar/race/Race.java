@@ -18,10 +18,10 @@ public class Race {
         this.tryCount = tryCount;
     }
 
-    public void startRace(OutputView outputView) {
+    public void startRace() {
         for (int i = 0; i < tryCount; i++) {
             carMove();
-            outputView.printRace(cars);
+            OutputView.printRace(cars);
         }
     }
 
