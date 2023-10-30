@@ -55,6 +55,7 @@ public class RacingCarController {
 
         for (int i = 0; i < playCount; i++) {
             racingCarService.race(carList);
+            OutputView.printResult(carList);
         }
     }
 }
