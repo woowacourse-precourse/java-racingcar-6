@@ -4,10 +4,10 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class NumberOfGames {
     public int  numOfGames() { //게임 진행 횟수 설정
-        System.out.println("시도할 회수는 몇회인가요?");
-        String input = Console.readLine();
+        String input = InputString.inputNumOfGames();
         return validation(input);
     }
+
     private int validation(String input){
         int num;
         try {

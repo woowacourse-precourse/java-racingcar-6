@@ -12,7 +12,8 @@ public class GameProgression {
     private final int minNum = 0;
     private final int maxNum = 9;
     private final int isForward = 4;
-    List<String> playerList = player.setThePlayer();
+    String playerName =InputString.playerName();
+    List<String> playerList = player.setThePlayer(playerName);
     List<Integer> scoreList = player.setScore(playerList);
     int repetition = numberOfGames.numOfGames();
     public void resultsPerGame(){

@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Player {
-
-    public List<String> setThePlayer(){   //플레이어 설정
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String player = Console.readLine();
+    public List<String> setThePlayer(String player){   //플레이어 설정
         List<String> PlayerList = Arrays.stream(player.split(",")).map(String::trim).collect(Collectors.toList());
         nameError(PlayerList); //이름에 대한 예외 처리
         return PlayerList;
@@ -30,8 +27,6 @@ public class Player {
             }
         }
     }
-
-
 }
 
 
