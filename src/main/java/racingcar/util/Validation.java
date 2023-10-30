@@ -34,6 +34,14 @@ public class Validation {
         }
     }
 
+    // 숫자(rounds) 입력 검증
+    public static void validateNumberInput(String input) {
+        validateNumberNull(input);
+        validateNumberRange(input); //이거 여기서 integer로 바꿔줘도 됨
+        validateNumberFormat(input);
+    }
+
+
     private static void validateNumberNull(String input) {
         if (input.isBlank()) {
             throw new IllegalArgumentException("빈칸입니다.");
