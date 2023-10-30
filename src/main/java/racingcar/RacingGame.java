@@ -42,6 +42,12 @@ public class RacingGame {
 
 
 
+    private void printWinners(List<Car> winners) {
+        String winnerNames = winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(" ,"));
 
-
+        String message = String.format(WINNERS_MESSAGE_FORMAT, winnerNames);
+        System.out.print(message);
+    }
 }
