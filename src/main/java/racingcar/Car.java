@@ -15,6 +15,11 @@ public class Car {
         return name;
     }
 
+    public void race() {
+        setRandomNumber();
+        move();
+    }
+
     private void setRandomNumber() {
         this.randomNumber = Randoms.pickNumberInRange(0, 9);
     }
