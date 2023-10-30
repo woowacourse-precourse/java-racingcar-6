@@ -12,23 +12,30 @@ public class GameService {
         return Randoms.pickNumberInRange(0,9);
     }
 
+    public static int checkMovement(int num){
+        if(num >= 4) return num;
+        else return 0;
+    }
 
     //1판 실행
     public List<Car> racing(List<Car> cars){
-        int maxMove = 0;
-
         //경주
         for(Car car : cars){
             int move = getRanNum();
             car.setMove(move);
+        }
+
+        return cars;
+    }
+
+    public List<Car> setRacingResult(List<Car> cars){
+        int maxMove = 0;
+        for(Car car : cars){
+            int move = checkMovement(car.getMove()); //4이상인지 체크
+            car.setMove(move);
             maxMove = Math.max(maxMove, move);
         }
 
-        //이번 판 승자 저장
-        return setRacingResult(cars, maxMove);
-    }
-
-    public List<Car> setRacingResult(List<Car> cars, int maxMove){
         for(Car car : cars){
             if(car.getMove() == maxMove) car.setWin(car.getWin()+1);
         }

@@ -26,12 +26,19 @@ public class InputView {
     
     public static List<Car> convertToCarList(String cars){
         List<Car> res = new ArrayList<>();
+        //이름은 5자 이하 -> 아니면 오류발생
         for(String name : List.of(cars.split(","))){
-            res.add(new Car(name));
+            if(checkName(name))
+                res.add(new Car(name));
         }
         return res;
     }
-    
+
+
+    public static boolean checkName(String name) {
+        if(name.length() <= 5) return true;
+        else throw new IllegalArgumentException("올바르지 않은 입력입니다.");
+    }
     
 
 }
