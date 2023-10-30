@@ -6,6 +6,6 @@ public class Constants {
     public static String RESULT = "실행 결과";
     public static String FINAL_WINNER = "최종 우승자";
 
-    public static String WRONG_INPUT_SIZE = "자동차 개수는 5개 이하로 작성해주세요.";
+    public static String WRONG_INPUT_SIZE = "자동차 이름은 5글자 이하로 작성해주세요.";
     public static String WRONG_INPUT_DUPLICATION = "중복된 이름입니다.";
 }

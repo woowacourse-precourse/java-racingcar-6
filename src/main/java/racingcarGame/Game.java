@@ -12,7 +12,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Game {
     List<String> carNames = new ArrayList<>();
-
+    int carNumber;
     public Game(){
 
     }
@@ -32,12 +32,12 @@ public class Game {
         System.out.println(INPUT_CAR_NAMES);
         String inputString = Console.readLine();
         String[] inputStringArr = inputString.split(",");
-        int arrLength = inputStringArr.length;
-        if(arrLength > 5){
-            throw new IllegalArgumentException(WRONG_INPUT_SIZE);
-        }
+        carNumber = inputStringArr.length;
         Set<String> carNameSet = new HashSet<>();
-        for(int i = 0; i < arrLength; i++) {
+        for(int i = 0; i < carNumber; i++) {
+            if(inputStringArr[i].length() > 5){
+                throw new IllegalArgumentException(WRONG_INPUT_SIZE);
+            }
             carNames.add(inputStringArr[i]);
         }
         for(String carName : carNames){
@@ -45,11 +45,7 @@ public class Game {
                 throw new IllegalArgumentException(WRONG_INPUT_DUPLICATION);
             }
             carNameSet.add(carName);
-//                System.out.println(name);
         }
-//        for (String carName : carNameSet) {
-//            System.out.println(carName);
-//        }
     }
 
     private void inputNumber(){
@@ -61,7 +57,35 @@ public class Game {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
+        racing(inputNum);
+    }
 
+    private void racing(int inputNum){
+        int[] tryNumber = new int[3];
 
+        for(int i = 0; i < inputNum; i++){ // 총 5번 반복
+            racingOnce(tryNumber);
+//            printRanking(trynumber);
+
+//            System.out.println();
+        }
+    }
+
+    private void racingOnce(int[] tryNumber){
+//        System.out.println("racingOnce함수");
+        for(int i = 0; i < carNumber; i++){
+            int randomNum = getRandomNum();
+            System.out.println(randomNum);
+            if(randomNum >= 4){
+                tryNumber[i]++;
+            }
+            System.out.println("이번 넘버 : "+tryNumber[i]);
+        }
+
+    }
+    private int getRandomNum(){
+//        System.out.println("랜덤넘버 실행");
+        int randomNum = Randoms.pickNumberInRange(0,9);
+        return randomNum;
     }
 }
