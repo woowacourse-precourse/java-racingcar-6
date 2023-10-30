@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OutputHandler {
@@ -14,7 +15,12 @@ public class OutputHandler {
         System.out.println(result);
     }
 
-    public void printResults(String name, int distance) {
+    public void printRunResult() {
+        String result = "실행 결과";
+        System.out.println(result);
+    }
+
+    public StringBuilder buildCarResult(String name, int distance) {
         StringBuilder result = new StringBuilder();
         result.append(name + " : ");
 
@@ -22,11 +28,28 @@ public class OutputHandler {
             result.append("-");
         }
 
+        return result;
+    }
+
+    public void printResults(List<Car> cars) {
+        StringBuilder result = new StringBuilder();
+
+        for (Car car : cars) {
+            result.append(buildCarResult(car.getName(), car.getDistance()));
+            result.append('\n');
+        }
+        result.append('\n');
+
         System.out.println(result);
     }
 
-    public void printWinners(List<String> winners) {
-        String result = "최종 우승자 : " + String.join(", ", winners);
+    public void printWinners(List<Car> winners) {
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : winners) {
+            winnerNames.add(car.getName());
+        }
+
+        String result = "최종 우승자 : " + String.join(", ", winnerNames);
         System.out.println(result);
     }
 }
