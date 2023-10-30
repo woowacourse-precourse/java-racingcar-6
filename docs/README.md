@@ -37,7 +37,7 @@
       최종 우승자 : pobi, jun
       ```
 ### Refactor
-- [ ] position을 값 객체로 분리해 불변을 유지한다
+- [x] position을 값 객체로 분리해 불변을 유지한다
 
 
 ## 전체적인 구조

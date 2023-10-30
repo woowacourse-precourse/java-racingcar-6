@@ -20,14 +20,14 @@ class CarTest {
     void 정책에_따라서_움직일_수_있다면_위치를_하나_증가시킨다(NumberGeneratePolicy numberGeneratePolicy) {
         // given
         MovingPolicy movingPolicy = new RacingCarGameMovingPolicy();
-        Car car = new Car(new CarName("자동차1"), 0);
+        Car car = new Car(new CarName("자동차1"), new Position(0));
 
         // when
-        car.move(movingPolicy, numberGeneratePolicy);
+        Car movedCar = car.move(movingPolicy, numberGeneratePolicy);
 
         // then
-        Car expectedCar = new Car(new CarName("자동차1"), 1);
-        assertThat(car).isEqualTo(expectedCar);
+        Car expectedCar = new Car(new CarName("자동차1"), new Position(1));
+        assertThat(movedCar).isEqualTo(expectedCar);
     }
 
     @ParameterizedTest(name = "{index}번째 NumberGeneratePolicy")
@@ -35,14 +35,14 @@ class CarTest {
     void 정책에_따라서_움직일_수_없다면_위치를_증가시키지_않는다(NumberGeneratePolicy numberGeneratePolicy) {
         // given
         MovingPolicy movingPolicy = new RacingCarGameMovingPolicy();
-        Car car = new Car(new CarName("자동차1"), 0);
+        Car car = new Car(new CarName("자동차1"), new Position(0));
 
         // when
-        car.move(movingPolicy, numberGeneratePolicy);
+        Car movedCar = car.move(movingPolicy, numberGeneratePolicy);
 
         // then
-        Car expectedCar = new Car(new CarName("자동차1"), 0);
-        assertThat(car).isEqualTo(expectedCar);
+        Car expectedCar = new Car(new CarName("자동차1"), new Position(0));
+        assertThat(movedCar).isEqualTo(expectedCar);
     }
 
     static Stream<NumberGeneratePolicy> movableNums() {

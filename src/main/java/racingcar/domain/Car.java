@@ -8,17 +8,18 @@ import java.util.Objects;
 public class Car {
 
     private final CarName carName;
-    private int position;
+    private final Position position;
 
-    public Car(CarName carName, int position) {
+    public Car(CarName carName, Position position) {
         this.carName = carName;
         this.position = position;
     }
 
-    public void move(MovingPolicy movingPolicy, NumberGeneratePolicy numberGeneratePolicy) {
+    public Car move(MovingPolicy movingPolicy, NumberGeneratePolicy numberGeneratePolicy) {
         if (movingPolicy.canMove(numberGeneratePolicy.generate())) {
-            this.position++;
+            return new Car(this.carName, position.increase());
         }
+        return this;
     }
 
     @Override
@@ -26,7 +27,7 @@ public class Car {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         Car car = (Car) object;
-        return position == car.position && Objects.equals(carName, car.carName);
+        return Objects.equals(carName, car.carName) && Objects.equals(position, car.position);
     }
 
     @Override
