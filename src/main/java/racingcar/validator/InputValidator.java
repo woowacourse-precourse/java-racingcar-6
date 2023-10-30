@@ -6,8 +6,14 @@ import java.util.List;
 import racingcar.util.Util;
 
 public class InputValidator {
-    public static void validateCarNames(String carNames) {
-        if (Util.isNullOrEmpty(carNames)) {
+    private final Util util;
+
+    public InputValidator() {
+        this.util = new Util();
+    }
+
+    public void validateCarNames(String carNames) {
+        if (util.isNullOrEmpty(carNames)) {
             throw new IllegalArgumentException("검증할 자동차 이름 목록이 없습니다.");
         }
 
@@ -24,8 +30,8 @@ public class InputValidator {
         }
     }
 
-    public static void validateCarName(String carName) {
-        if (Util.isNullOrEmpty(carName)) {
+    public void validateCarName(String carName) {
+        if (util.isNullOrEmpty(carName)) {
             throw new IllegalArgumentException("검증할 자동차 이름이 없습니다.");
         }
 
@@ -36,7 +42,7 @@ public class InputValidator {
         }
     }
 
-    public static void validateIterationNumBer(int iterationNumBer) {
+    public void validateIterationNumBer(int iterationNumBer) {
         if (iterationNumBer <= 0) {
             throw new IllegalArgumentException("시도 회수는 양수입니다.");
         }

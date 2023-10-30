@@ -2,7 +2,7 @@ package racingcar;
 
 import java.util.List;
 import racingcar.console.RacingCarConsole;
-import racingcar.util.Util;
+import racingcar.util.NumberGenerator;
 
 public class CarRacing {
     private final List<Car> carList;
@@ -13,9 +13,9 @@ public class CarRacing {
         this.iterationNumBer = iterationNumBer;
     }
 
-    public CarRacingResult start() {
+    public CarRacingResult start(NumberGenerator numberGenerator) {
         for (int stepNumber = 0; stepNumber < iterationNumBer; stepNumber++) {
-            progressOneStep();
+            progressOneStep(numberGenerator);
             RacingCarConsole.printProgressState(carList);
         }
 
@@ -36,9 +36,9 @@ public class CarRacing {
         return new CarRacingResult(championCarList);
     }
 
-    private void progressOneStep() {
+    private void progressOneStep(NumberGenerator numberGenerator) {
         for (Car car : carList) {
-            int randomNumber = Util.getRandomDecimalNumber();
+            int randomNumber = numberGenerator.getRandomDecimalNumber();
             if (isCarMoveForward(randomNumber)) {
                 car.moveForward();
             }
