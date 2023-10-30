@@ -19,7 +19,6 @@ public class RacingInputController {
         carNameValidator.validateAll();
 
         return new RacingCars(carNames);
-
     }
 
     public int createTryCount() {
@@ -29,7 +28,6 @@ public class RacingInputController {
         tryCountValidator.validateAll();
 
         return Integer.parseInt(tryCount);
-
     }
 
 }
