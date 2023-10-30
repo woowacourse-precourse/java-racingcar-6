@@ -135,4 +135,17 @@ class UtillTest {
         // than
         assertThat(result).isTrue();
     }
+
+    @DisplayName("값이 1이상인지 확인한다. 테스트_2")
+    @Test
+    void valueGreaterThanEqualOne_2() {
+        // given
+        Integer input = 0;
+
+        // when
+        boolean result = Utill.valueGreaterThanEqualOne(input);
+
+        // than
+        assertThat(result).isFalse();
+    }
 }
