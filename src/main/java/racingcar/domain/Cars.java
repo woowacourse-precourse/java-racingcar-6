@@ -25,13 +25,13 @@ public record Cars(List<Car> carList) {
     }
 
     public List<Car> getWinnerList() {
-        Integer maxPosition = getMaxPosition();
+        Integer winnerPosition = getWinnerPosition();
         return carList.stream()
-                .filter(car -> car.isSamePosition(maxPosition))
+                .filter(car -> car.isSamePosition(winnerPosition))
                 .collect(Collectors.toList());
     }
 
-    private Integer getMaxPosition() {
+    private Integer getWinnerPosition() {
         return carList.stream()
                 .map(Car::getPosition)
                 .max(Integer::compareTo)
