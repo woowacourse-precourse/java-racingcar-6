@@ -29,9 +29,9 @@ public class User {
     public int inputMovingNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
         String inputMovingNumber = Console.readLine();
+        System.out.println();
         validator.validateMovingNumber(inputMovingNumber);
 
         return Integer.parseInt(inputMovingNumber);
     }
-
 }
