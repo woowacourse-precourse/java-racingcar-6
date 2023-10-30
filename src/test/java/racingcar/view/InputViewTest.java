@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Name;
 import racingcar.domain.TryCount;
 
 import java.io.ByteArrayInputStream;
@@ -45,8 +46,8 @@ class InputViewTest {
         // then
         assertAll(
                 () -> assertThat(cars.value()).hasSize(2),
-                () -> assertThat(cars.value()).containsExactly(new Car("pobi"), new Car("woni"))
-        );
+                () -> assertThat(cars.value()).containsExactly(new Car(new Name("pobi")), new Car(new Name("woni"))
+                ));
     }
 
     @Test

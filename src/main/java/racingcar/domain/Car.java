@@ -10,12 +10,12 @@ public class Car {
     private final Name name;
     private Position position;
 
-    public Car(final String name) {
+    public Car(final Name name) {
 
-        this(new Name(name), new Position(DEFAULT_POSITION));
+        this(name, new Position(DEFAULT_POSITION));
     }
 
-    public Car(final Name name, final Position position) {
+    public Car(final Name name, Position position) {
 
         this.name = name;
         this.position = position;

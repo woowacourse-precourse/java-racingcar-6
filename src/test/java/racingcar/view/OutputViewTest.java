@@ -74,7 +74,7 @@ class OutputViewTest {
     @DisplayName("printResult() 메서드는 자동차의 이름과 위치를 출력한다.")
     void testPrintResult() {
         // given
-        List<Car> cars = List.of(new Car("car1"), new Car("car2"));
+        List<Car> cars = List.of(new Car(new Name("car1")), new Car(new Name("car2")));
         cars.get(0).tryMove(MOVING_NUMBER);
         cars.get(1).tryMove(MOVING_NUMBER);
         cars.get(1).tryMove(MOVING_NUMBER);

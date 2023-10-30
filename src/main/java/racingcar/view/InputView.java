@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Name;
 import racingcar.domain.TryCount;
 import racingcar.validator.GameValidator;
 
@@ -18,6 +19,7 @@ public class InputView {
 
         return new Cars(Arrays.stream(cars.split(DELIMITER))
                 .map(String::trim)
+                .map(Name::new)
                 .map(Car::new)
                 .toList());
     }
