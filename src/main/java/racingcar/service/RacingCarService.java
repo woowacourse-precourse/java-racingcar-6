@@ -9,12 +9,10 @@ import java.util.List;
 
 public class RacingCarService {
     private final InputUtil inputUtil;
-    private final RandomUtil randomUtil;
     private Cars cars;
 
     public RacingCarService() {
         inputUtil = new InputUtil();
-        randomUtil = new RandomUtil();
     }
 
     public void start() {

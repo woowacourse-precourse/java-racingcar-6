@@ -15,10 +15,10 @@ public class InputUtilTest {
         String names = "poni,hi,hello";
 
         // when
-        String[] strings = inputUtil.splitString(names);
+        List<String> strings = inputUtil.splitString(names);
 
         // then
-        Assertions.assertThat(strings.length).isEqualTo(3);
+        Assertions.assertThat(strings.size()).isEqualTo(3);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class InputUtilTest {
         String names = "poni, hi, hello";
 
         // when
-        List<String> nameList = List.of(inputUtil.splitString(names));
+        List<String> nameList = inputUtil.splitString(names);
         // then
         Assertions.assertThatThrownBy(() -> nameList.forEach(inputUtil::validateCarName))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -77,6 +77,22 @@ public class InputUtilTest {
         Assertions.assertThatThrownBy(() -> inputUtil.validateCarName(name3))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("문자(영문자)만 입력해주세요.");
+    }
+
+    @Test
+    @DisplayName("자동차 입력 시 중복된 이름을 입력한 경우")
+    public void 중복된_이름_입력시_예외_테스트() throws Exception {
+        // given
+        String names = "poni,poni,hello";
+
+        // when
+        List<String> nameList = inputUtil.splitString(names);
+
+        // then
+        Assertions.assertThatThrownBy(() -> inputUtil.checkDuplicationName(nameList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복된 이름이 있습니다.");
+
     }
 
     @Test

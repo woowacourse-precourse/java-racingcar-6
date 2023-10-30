@@ -2,7 +2,7 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -18,9 +18,9 @@ public class InputUtil {
 
     public List<String> getCarNames() {
         String input = input();
-        String[] names = splitString(input);
-        Arrays.stream(names).forEach(this::validateCarName);
-        return List.of(names);
+        List<String> names = splitString(input);
+        names.forEach(this::validateCarName);
+        return checkDuplicationName(names);
     }
 
     public int getCount() {
@@ -36,8 +36,21 @@ public class InputUtil {
         checkNameType(name);
     }
 
-    public String[] splitString(String input) {
-        return input.split(",");
+    public List<String> splitString(String input) {
+        String[] split = input.split(",");
+        return List.of(split);
+    }
+
+    public List<String> checkDuplicationName(List<String> names) {
+        List<String> nameList = new ArrayList<>();
+        for (String name : names
+        ) {
+            if (nameList.contains(name)) {
+                throw new IllegalArgumentException("중복된 이름이 있습니다.");
+            }
+            nameList.add(name);
+        }
+        return nameList;
     }
 
     public int stringToInt(String input) {
