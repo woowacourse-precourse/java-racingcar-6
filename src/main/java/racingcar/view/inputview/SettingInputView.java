@@ -14,12 +14,6 @@ public class SettingInputView implements InputView {
             Map.entry(GAME_COUNT, this::readGameCount)
     );
 
-    private final InputValidator inputValidator;
-
-    public SettingInputView(InputValidator inputValidator) {
-        this.inputValidator = inputValidator;
-    }
-
     @Override
     public void read(Map<String, String> parameter) {
         parameter.keySet()
@@ -35,15 +29,15 @@ public class SettingInputView implements InputView {
 
     private String readCarNames() {
         String input = readLine().trim();
-        inputValidator.isSameNameSizeToDelimiter(input);
+        InputValidator.isSameNameSizeToDelimiter(input);
         return input;
     }
 
     private String readGameCount() {
         String input = readLine().trim();
 
-        inputValidator.isOnlyNaturalNumber(input);
-        inputValidator.isEmpty(input);
+        InputValidator.isOnlyNaturalNumber(input);
+        InputValidator.isEmpty(input);
         return input;
     }
 }
