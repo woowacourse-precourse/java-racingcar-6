@@ -11,8 +11,10 @@ import java.util.List;
 
 public class RacingManager {
     private final NumberGenerator ng;
-    private List<RacingCar> racingCars;
-    private int moveCount;
+    private final List<RacingCar> racingCars;
+    private final int moveCount;
+
+    private final List<RacingHistory> racingResult = new ArrayList<>();
 
     public RacingManager(String carNamesInput, String moveCountInput) {
         this(carNamesInput, moveCountInput, new RandomNumberGenerator());
@@ -38,6 +40,8 @@ public class RacingManager {
         System.out.println("\n실행 결과");
         for (int i = 0; i < moveCount; i++) {
             moveRacingCars();
+            addRacingHistory();
+
             printMoveResult();
             System.out.println();
         }
@@ -49,6 +53,19 @@ public class RacingManager {
             int moveWeight = ng.generate(1, 9);
             racingCar.move(moveWeight);
         }
+    }
+
+    private void addRacingHistory() {
+        List<RacingCarSnapshot> currentSnapshots = racingCars.stream()
+                .map((car) -> new RacingCarSnapshot(car.getName(), car.getForwardCount()))
+                .toList();
+        RacingHistory history = new RacingHistory(currentSnapshots);
+        
+        racingResult.add(history);
+    }
+
+    public List<RacingHistory> getRacingHistory() {
+        return racingResult;
     }
 
     private void printMoveResult() {
