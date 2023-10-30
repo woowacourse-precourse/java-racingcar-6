@@ -1,14 +1,14 @@
 package racingcar;
 
-import static racingcar.constant.RandomNumberConstant.MAXIMUM_PICK_RANDOM_NUMBER;
-import static racingcar.constant.RandomNumberConstant.MINIMUM_PICK_RANDOM_NUMBER;
 import static racingcar.constant.RandomNumberConstant.MOVE_FORWARD;
+import static racingcar.constant.RandomNumberConstant.NINE;
+import static racingcar.constant.RandomNumberConstant.ZERO;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 
-    private String name;
+    private final String name;
 
     private int distance;
 
@@ -25,9 +25,7 @@ public class Car {
     }
 
     public void moveForward() {
-        if (Randoms.pickNumberInRange(
-                MINIMUM_PICK_RANDOM_NUMBER.getNumber(),
-                MAXIMUM_PICK_RANDOM_NUMBER.getNumber()) >= MOVE_FORWARD.getNumber()) {
+        if (Randoms.pickNumberInRange(ZERO.number(), NINE.number()) >= MOVE_FORWARD.number()) {
             distance++;
         }
     }

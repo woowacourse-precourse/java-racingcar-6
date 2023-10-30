@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -14,8 +13,7 @@ class ValidatorCarNamesInputTest {
 
     private Validator validator;
 
-    @BeforeEach
-    void beforeEach() {
+    public ValidatorCarNamesInputTest() {
         validator = new Validator();
         validator.setMaxCar(10); //최대 자동차 수 제한 설정
         validator.setAllowCarNameDuplication(false); //자동차 이름 중복 가능 여부 설정
