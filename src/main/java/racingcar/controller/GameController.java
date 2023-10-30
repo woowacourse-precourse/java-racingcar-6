@@ -54,7 +54,7 @@ public class GameController {
         while (gameRound.isLeftRound()) {
             gameRound.increaseCurrentRound();
             cars.raceAllCars();
-            outputView.outputCarsPosition(cars);
+            outputView.outputCarsPosition(cars.getCars());
         }
     }
 

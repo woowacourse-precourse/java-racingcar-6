@@ -26,8 +26,8 @@ public class OutputView {
     }
 
 
-    public void outputCarsPosition(Cars cars) {
-        for (Car car : cars.getCars()) {
+    public void outputCarsPosition(List<Car> carsList) {
+        for (Car car : carsList) {
             drawCarPosition(car);
         }
         System.out.print(ENTER.getUnit());
