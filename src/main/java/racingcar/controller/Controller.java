@@ -24,6 +24,9 @@ public class Controller {
 
         outputView.displayTryCountInputMessage();
         int tryNumber = inputView.inputTry();
+
+        outputView.displayResultGuideMessage();
+        executeRaces(carList, tryNumber);
     }
 
     private List<Car> prepareCarList() {
@@ -32,5 +35,22 @@ public class Controller {
             list.add(new Car(name));
         }
         return list;
+    }
+
+    private void executeRaces(List<Car> list, int tryNumber) {
+        for (int i = 0; i < tryNumber; i++) {
+            executeSingleRace(list);
+        }
+    }
+
+    private void executeSingleRace(List<Car> carList) {
+        for (Car car : carList) {
+            int number = random.createNumber();
+            if (referee.isGreaterThanEqual(number)) {
+                car.go();
+            }
+        }
+        String locationAnnouncement = announcer.generateLocationAnnouncement(carList);
+        outputView.displayLocation(locationAnnouncement);
     }
 }
