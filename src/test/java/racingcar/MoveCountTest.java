@@ -21,6 +21,30 @@ class MoveCountTest {
     }
 
     @Test
+    void 이동횟수_범위_확인(){
+        MoveCount moveCount = new MoveCount("1");
+        assertTrue(moveCount.isRemained());
+
+        moveCount.decreaseCount();
+        assertFalse(moveCount.isRemained());
+    }
+    @Test
+    void 이동횟수_감소() {
+        MoveCount moveCount = new MoveCount("1");
+        moveCount.decreaseCount();
+        assertEquals(0, moveCount.getMoveCount());
+
+    }
+
+    @Test
+    void 이동횟수_언더플로우_테스트() {
+        MoveCount moveCount = new MoveCount("0");
+
+        moveCount.decreaseCount();
+        assertEquals(0, moveCount.getMoveCount());
+    }
+
+    @Test
     void 이동횟수_입력_숫자_정상() {
         assertDoesNotThrow(() -> new MoveCount("1"));
     }

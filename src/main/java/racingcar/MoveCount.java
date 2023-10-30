@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class MoveCount {
-    private final int moveCount;
+    private int moveCount;
 
     public MoveCount(String moveCount) throws IllegalArgumentException {
         validateMoveCount(moveCount);
@@ -23,5 +23,15 @@ public class MoveCount {
 
     public int getMoveCount() {
         return moveCount;
+    }
+
+    public void decreaseCount() {
+        if (isRemained()) {
+            moveCount--;
+        }
+    }
+
+    public boolean isRemained() {
+        return moveCount > 0;
     }
 }
