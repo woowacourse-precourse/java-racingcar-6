@@ -1,32 +1,28 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
+import racingcar.domain.GameManager;
+import racingcar.domain.Winner;
 import racingcar.view.OutputView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class GameController {
 
-    public List<Car> createCar(String[] carNames) {
+    private GameManager gameManager;
+    private int tryCount;
 
-        return Arrays.stream(carNames)
-                .map(Car::new)
-                .collect(Collectors.toList());
+    public void gameSetInput() {
+        this.gameManager = new GameManager(ViewController.setCars());
+        this.tryCount = ViewController.setTryCount();
     }
 
-    public void playRacing(int tryCount,List<Car> cars) {
+    public void playRacing() {
         for (int i=0; i<tryCount; i++) {
-            moveCar(cars);
-            OutputView.showCarNameAndPosition(cars);
+            gameManager.moveCar();
+            OutputView.showCarNameAndPosition(gameManager.getCars());
         }
     }
 
-    private void moveCar(List<Car> cars) {
-        for (Car car : cars) {
-            car.move();
-        }
+    public void showWinnerCars() {
+        Winner winner = gameManager.findWinnerCar();
+        OutputView.finalWinnerMessage(winner);
     }
 }
