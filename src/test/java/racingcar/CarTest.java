@@ -41,4 +41,29 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("null은 이름이 될 수 없습니다");
     }
+
+    @Test
+    void moveForwardOrStop_메서드에서_4가_나왔을때_앞으로_이동() {
+        try (MockedStatic<Randoms> mocked = mockStatic(Randoms.class)) {
+            mocked.when(() -> Randoms.pickNumberInRange(0, 9)).thenReturn(4);
+
+            Car car = Car.createCarByName("abc");
+            car.moveForwardOrStop();
+
+            assertThat(car.getMileageAsInt()).isEqualTo(1);
+        }
+    }
+
+    @Test
+    void moveForwardOrStop_메서드_에서_3이_나왔을때_멈춤() {
+        try (MockedStatic<Randoms> mocked = mockStatic(Randoms.class)) {
+            mocked.when(() -> Randoms.pickNumberInRange(0, 9)).thenReturn(3);
+
+            Car car = Car.createCarByName("abc");
+            car.moveForwardOrStop();
+
+            assertThat(car.getMileageAsInt()).isEqualTo(0);
+        }
+    }
+
 }
