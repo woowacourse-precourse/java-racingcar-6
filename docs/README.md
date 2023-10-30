@@ -31,9 +31,9 @@
 | ✔ | 쉼표로 구분되어 있지 않으면 `IllegalArgumentException` 발생하고 종료                           |
 | ✔ | 구분된 자동차 이름이 각자 5자 이하인지 확인                                                    |
 | ✔ | 5자 이하가 아닌 경우 `IllegalArgumentException` 발생하고 종료                              |
-|   | 시도할 횟수 문구 출력                                                                 |
-|   | 사용자에게 시도 횟수 n번을 입력받음                                                         |
-|   | 숫자가 아닌 입력을 받은 경우 `IllegalArgumentException` 발생하고 종료                          |
+| ✔ | 시도할 횟수 문구 출력                                                                 |
+| ✔ | 사용자에게 시도 횟수 n번을 입력받음                                                         |
+| ✔ | 숫자가 아닌 입력을 받은 경우 `IllegalArgumentException` 발생하고 종료                          |
 |   | 실행 결과 문구 출력                                                                  |
 |   | Random 값: `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()` 사용 |
 |   | Random 값은 0~9 사이의 숫자이고, 4 이상일 때만 전진시킴                                        |
