@@ -2,8 +2,8 @@ package racingcar.exception;
 
 public class TryNumberValidator {
 
-    public static final Integer MIN_TRY_NUMBER = 1;
-    public static final String SMALLER_THAN_MIN_NUMBER_MESSAGE = " 이상의 정수값만 입력할 수 있습니다.";
+    private static final Integer MIN_TRY_NUMBER = 1;
+    private static final String SMALLER_THAN_MIN_NUMBER_MESSAGE = " 이상의 정수값만 입력할 수 있습니다.";
 
     private TryNumberValidator() {
     }
