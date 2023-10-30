@@ -18,10 +18,9 @@ public record Cars(List<Car> carList) {
     }
 
     public void moveRandomly() {
-        carList.forEach(car -> {
-            if (Utils.isTrueWithProbability60Percent()) {
-                car.moveForward();
-        }});
+        carList.stream()
+                .filter((car) -> Utils.isTrueWithProbability60Percent())
+                .forEach(Car::moveForward);
     }
 
     public List<Car> getWinnerList() {
