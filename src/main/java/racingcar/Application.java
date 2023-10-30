@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.controller.GameController;
+import racingcar.dto.GameDto;
 import racingcar.repository.CarRepository;
 import racingcar.repository.GameRepository;
 import racingcar.service.CarService;
@@ -15,7 +16,9 @@ public class Application {
         GameService gameService = new GameService(gameRepository,carService);
 
         GameController gameController = new GameController(gameService, carService);
-        gameController.gameStart();
+        GameDto gameDto = gameController.createGame();
+        gameController.gameStart(gameDto);
+        gameController.printResult(gameDto);
 
     }
 }

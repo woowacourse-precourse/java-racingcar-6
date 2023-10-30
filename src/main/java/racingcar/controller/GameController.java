@@ -13,20 +13,18 @@ public class GameController {
     private GameService gameService;
     private CarService carService;
 
-    private IOService ioService;
 
 
-    public GameController(GameService gameService, CarService carService, IOService ioService) {
+    public GameController(GameService gameService, CarService carService) {
         this.gameService = gameService;
         this.carService = carService;
-        this.ioService = ioService;
     }
 
     public GameDto createGame() {
-        ioService.printNoticeln(IOService.START);
-        String nameList=ioService.inputCreate();
-        ioService.printNoticeln(IOService.COUNT);
-        Integer playCount = Integer.parseInt(ioService.inputCreate());
+        IOService.printNoticeln(IOService.START);
+        String nameList=IOService.inputCreate();
+        IOService.printNoticeln(IOService.COUNT);
+        Integer playCount = Integer.parseInt(IOService.inputCreate());
 
         return gameService.initGame(nameList, playCount);
     }
