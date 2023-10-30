@@ -20,8 +20,8 @@
   - [X] 가장 먼거리를 이동한 player들을 판단한다. - racingWinner()
 
 
-- [] 입력값에 따른 정상적인 예외처리하는지 확인하는 테스트코드 생성한다. - class validationTest()
-- [] 출력값이 정상적인지 확인하는 테스트코드를 작성한다. - class OutputViewTest()
+- [X] 입력값에 따른 정상적인 예외처리하는지 확인하는 테스트코드 생성한다. - class validationTest()
+- [X] 출력값이 정상적인지 확인하는 테스트코드를 작성한다. - class OutputViewTest()
 - [] Controller가 정상적으로 작동하는지 확인한다. - class ControllerTest()
 
 
