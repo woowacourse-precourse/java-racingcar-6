@@ -10,13 +10,13 @@ public class CarFactory {
   private static final int DEFAULT_POSITION = 0;
 
   public static List<Car> createCars(List<String> carNames) {
-    validateCars(carNames);
+    validateCarNames(carNames);
     return carNames.stream()
         .map(CarFactory::createCar)
         .collect(Collectors.toList());
   }
 
-  private static void validateCars(List<String> carNames) {
+  private static void validateCarNames(List<String> carNames) {
     isDistinct(carNames);
   }
 
