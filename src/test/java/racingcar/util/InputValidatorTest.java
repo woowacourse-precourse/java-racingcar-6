@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class InputValidatorTest {
-    private final InputValidator testInputValidator = Validator.generateInputValidator();
+    private final InputValidator testInputValidator = (InputValidator) Validator.generateInputValidator();
     @Test
     @DisplayName("이름 입력 예외 발생 테스트")
     void isValidList() {

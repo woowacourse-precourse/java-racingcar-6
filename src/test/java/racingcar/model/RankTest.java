@@ -15,7 +15,7 @@ class RankTest {
         List<String> names = Arrays.asList("uk", "eu", "n");
         AtomicInteger index = new AtomicInteger();
         List<Car> cars = names.stream()
-                .map(name -> Model.generateCar(name, index.getAndIncrement()))
+                .map(name -> (Car) Model.generateCar(name, index.getAndIncrement()))
                 .toList();
 
         assertRandomNumberInRangeTest(
@@ -23,7 +23,7 @@ class RankTest {
                     for (Car car:cars) {
                         car.moveOrStop();
                     }
-                    Rank testRank = Model.generateRank(cars);
+                    Rank testRank = (Rank) Model.generateRank(cars);
                     List<String> testWinner = testRank.getWinnerList();
 
                     assertEquals(testWinner, List.of("eu"));
