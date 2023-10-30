@@ -32,6 +32,15 @@ public class Race {
         initializeCar(carNamesInput);
     }
 
+    private void validateAttempt(String input) {
+        validateNullOrBlank(input);
+        validatePositiveInteger(input);
+    }
+
+    private void parsePositiveInteger(String input) {
+        attempt = Integer.parseInt(input);
+    }
+
     private void initializeCar(String carNamesInput) {
         List<String> carNameList = ParserUtils.namesParser(carNamesInput);
 
@@ -39,15 +48,6 @@ public class Race {
             Car car = new Car(carName);
             cars.add(car);
         }
-    }
-
-    private void parsePositiveInteger(String input) {
-        attempt = Integer.parseInt(input);
-    }
-
-    private void validateAttempt(String input) {
-        validateNullOrBlank(input);
-        validatePositiveInteger(input);
     }
 
     private void validateNullOrBlank(String input) {
