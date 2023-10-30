@@ -64,6 +64,9 @@ public class Circuit {
     }
 
     private boolean checkInputError(String[] input) {
+        if (input.length == 0) {
+            return true;
+        }
         for (String s : input) {
             if (s.length() > 5 || s.isEmpty()) {
                 return true;
