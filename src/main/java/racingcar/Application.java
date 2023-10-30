@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.core.generate.GenerateRacer;
 import racingcar.entity.Racer;
+import racingcar.entity.TargetScore;
 import racingcar.property.ValidateType;
 import racingcar.tool.InputTool;
 import racingcar.validation.ValidateForm;
@@ -17,9 +18,9 @@ public class Application {
     }
 
     private static void raceBefore(){
-        String inputValue = InputTool.readLineByConsole();
-        List<String> racerNameList = Arrays.asList(inputValue.split(" "));
-        validateRacerNameList(inputValue);
+        String racerNameListInput = InputTool.readLineByConsole();
+        List<String> racerNameList = Arrays.asList(racerNameListInput.split(" "));
+        validateRacerNameList(racerNameListInput);
         validateRacerName(racerNameList);
     }
 
