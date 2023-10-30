@@ -2,10 +2,10 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import view.InputView;
-import view.OutputView;
-import model.TransformRacingValue;
-import model.ValidateRacingValue;
+import view.Input;
+import view.Output;
+import model.Transform;
+import model.Validation;
 import utility.ValidateException;
 
 public class RacingCarGameManager {
@@ -15,19 +15,19 @@ public class RacingCarGameManager {
         String carNameBundle;
         int numberOfMatch;
 
-        OutputView.racingCarName();
-        carNameBundle = InputView.racingCarName();
-        OutputView.numberOfRacing();
-        numberOfMatch = Integer.parseInt(InputView.numberOfMatch());
-        carName = TransformRacingValue.carNameInputToList(carNameBundle);
+        Output.carNameManuel();
+        carNameBundle = Input.carName();
+        carName = Transform.carNameToList(carNameBundle);
         ValidateException.racingCarNameInvalid(carName);
-        raceResult = TransformRacingValue.raceResultListReset(carName.size(), raceResult);
+        Output.numberOfRacingManuel();
+        numberOfMatch = Integer.parseInt(Input.numberOfRacing());
+        raceResult = Transform.resultListReset(carName.size(), raceResult);
         for (int i = 0; i < numberOfMatch; i++) {
-            ValidateRacingValue.racingResult(carName, raceResult);
-            OutputView.racingResult(carName, raceResult);
+            Validation.racingResult(carName, raceResult);
+            Output.racingResult(carName, raceResult);
         }
-        ValidateRacingValue.racingWinner(carName, raceResult);
-        OutputView.racingWinner(carName);
+        Validation.racingWinner(carName, raceResult);
+        Output.racingWinner(carName);
     }
 
 

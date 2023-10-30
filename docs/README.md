@@ -2,20 +2,20 @@
 
 ## 기능 목록
 ### view package
- - outputView class
-   + [o] 경주할 자동차 이름을 입력해야 함을 출력하는 기능 - racingCarName
-   + [0] 경주 시도 횟수를 입력해야 함을 출력하는 기능 - numberOfRacing
+ - output class
+   + [o] 경주할 자동차 이름을 입력해야 함을 출력하는 기능 - carNameManual
+   + [0] 경주 시도 횟수를 입력해야 함을 출력하는 기능 - numberOfRacingManual
    + [0] 경기 시도 횟수 만큼 실행결과를 출력하는 기능 - racingResult
-   + [0] 최종 우승자를 출력하는 기능 - RacingWinner
-- inputView class 
-   + [0] 경주할 자동차 이름을 입력받는 기능 - racingCarName
-   + [0] 경주 시도 횟수를 입력받는 기능 - numberOfMatch
+   + [0] 최종 우승자를 출력하는 기능 - racingWinner
+- input class 
+   + [0] 경주할 자동차 이름을 입력받는 기능 - CarName
+   + [0] 경주 시도 횟수를 입력받는 기능 - numberOfRacing
 
 ### model package
- - TransformRacingValue class
-   + [0] view가 받은 경주할 자동차 이름을 list로 전환 - carNameInputToList
-   + [0] 자동차 숫자만큼 경기 결과 저장 list를 0으로 초기화 - raceResultListReset
- - validateRacingValue class
+ - transform class
+   + [0] view가 받은 경주할 자동차 이름을 list로 전환 - carNameToList
+   + [0] 자동차 숫자만큼 경기 결과 저장 list를 0으로 초기화 - resultListReset
+ - validation class
    + [0] 0부터 9사이의 무작위 값 중 4이상 값이 나오는지 판단하는 기능 randomMoreFour
    + [0] 각 자동차의 경기 결과를 판단하는 기능 racingResult
    + [0] 최종 우승자를 판단하는 기능 racingWinner
@@ -26,7 +26,7 @@
  
 ### utility package
  - validateException class
-   + [0] 6이상인 자동차 이름이 입력될 경우 - 예외 처리 racingCarNameInvalid
+   + [0] 6이상인 자동차 이름이 입력될 경우 - 예외 처리 CarNameInvalid
 
    
 ## 기능 요구 사항 

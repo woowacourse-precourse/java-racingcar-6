@@ -1,11 +1,11 @@
 package view;
 import camp.nextstep.edu.missionutils.Console;
 
-public class InputView {
-    public static String racingCarName() {
+public class Input {
+    public static String carName() {
         return Console.readLine();
     }
-    public static String numberOfMatch() {
+    public static String numberOfRacing() {
         return Console.readLine();
     }
 }

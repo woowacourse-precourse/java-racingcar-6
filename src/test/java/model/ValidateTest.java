@@ -1,9 +1,8 @@
 package model;
 
-import static model.TransformRacingValue.carNameInputToList;
-import static model.ValidateRacingValue.racingResult;
-import static model.ValidateRacingValue.racingWinner;
-import static model.ValidateRacingValue.randomMoreFour;
+import static model.Validation.racingResult;
+import static model.Validation.racingWinner;
+import static model.Validation.randomMoreFour;
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class ValidateRacingValueTest {
+class ValidateTest {
 
     @DisplayName("숫자 랜덤 추출 기능이 작동하는가")
     @Test
