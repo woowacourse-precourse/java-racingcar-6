@@ -6,8 +6,12 @@ import java.util.Map;
 
 public class DiceNumber {
 
-    Map<String, String> carMoveCheck = new LinkedHashMap<>();
-    RandomNumber randomNumber;
+    private final Map<String, String> carMoveCheck = new LinkedHashMap<>();
+    private final RandomNumber randomNumber;
+
+    public Map<String, String> getCarMoveCheck() {
+        return carMoveCheck;
+    }
 
     public DiceNumber(RandomNumber randomNumber) {
         this.randomNumber = randomNumber;

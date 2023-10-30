@@ -9,8 +9,8 @@ public class Run {
     private static final String TRY_TIMES = "시도할 회수는 몇회인가요?";
     private static final String EXECUTION_RESULTS = "실행 결과";
 
-    Input input;
-    Race race;
+    private final Input input;
+    private final Race race;
 
     public Run(Input input, Race race) {
         this.input = input;

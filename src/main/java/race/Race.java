@@ -1,11 +1,11 @@
 package race;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 
 public class Race {
 
-    DiceNumber diceNumber;
+    private final DiceNumber diceNumber;
 
     public Race(DiceNumber diceNumber) {
         this.diceNumber = diceNumber;
@@ -24,7 +24,7 @@ public class Race {
     }
 
     private void carMoveCheck() {
-        for (Map.Entry<String, String> map : diceNumber.carMoveCheck.entrySet()) {
+        for (Entry<String, String> map : diceNumber.getCarMoveCheck().entrySet()) {
             System.out.printf("%s : %s\n", map.getKey(), map.getValue());
         }
     }
