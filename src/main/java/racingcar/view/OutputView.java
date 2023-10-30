@@ -1,9 +1,11 @@
 package racingcar.view;
 
+import racingcar.dto.Result;
+
 public interface OutputView {
     void printExecutionMessage();
 
-    void printResult(String result);
+    void printResult(Result result);
 
-    void printFinalWinner(String winner);
+    void printFinalWinner(Result result);
 }

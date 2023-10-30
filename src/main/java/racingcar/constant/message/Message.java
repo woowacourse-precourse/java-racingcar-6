@@ -8,8 +8,8 @@ public class Message {
 
     public static final String MARK = "-";
     public static final String NAME_SEPARATOR = ",";
-    public static final String NAME_POSITION_SEPARATOR = " : ";
-    
+    public static final String RESULT_FORMAT = "%s : %s";
+
     private Message() {
     }
 }

@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.constant.message.Message;
+import racingcar.dto.Result;
 import racingcar.model.car.Car;
 import racingcar.model.car.OrderByPosition;
 import racingcar.model.car.OrderStrategy;
@@ -10,22 +11,23 @@ import racingcar.validation.ValidatorFactory;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Racer {
 
     private final List<Car> racer;
+    private final OrderStrategy orderStrategy;
 
-    private Racer(String value) {
+    private Racer(String value, OrderStrategy orderStrategy) {
         validate(value);
         this.racer = Arrays.stream(value.split(Message.NAME_SEPARATOR))
                 .map(String::trim)
                 .map(Car::ofStartingPoint)
                 .toList();
+        this.orderStrategy = orderStrategy;
     }
 
     public static Racer of(String value) {
-        return new Racer(value);
+        return new Racer(value, new OrderByPosition());
     }
 
     public void play(Accelerator accelerator) {
@@ -38,20 +40,18 @@ public class Racer {
         validator.validate(value);
     }
 
-    public String winnerToString() {
-        return getWinner(new OrderByPosition())
-                .stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(Message.NAME_SEPARATOR + " "));
-    }
-
-    private List<Car> getWinner(OrderStrategy orderStrategy) {
+    //TODO: Car가 아니라 position으로 비교
+    public Result getWinner() {
         Car first = racer.stream()
                 .max(orderStrategy)
                 .orElseThrow();
-        return racer.stream()
+        return Result.of(racer.stream()
                 .filter(car -> car.equals(first))
-                .toList();
+                .toList());
+    }
+
+    public Result getResult() {
+        return Result.of(racer);
     }
 
     @Override

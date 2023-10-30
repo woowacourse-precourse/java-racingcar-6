@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.dto.Result;
 import racingcar.model.Racer;
 import racingcar.model.Round;
 import racingcar.service.RacingGame;
@@ -21,9 +22,9 @@ public class RacingCarController {
         RacingGame racingGame = new RacingGame(racer, round);
         outputView.printExecutionMessage();
         while (racingGame.isEnd()) {
-            Racer race = racingGame.race();
-            outputView.printResult(race.toString()); //TODO: 여기 race 대신 다른 객체를 던져 출력해달라는 메시지를 전하자.
+            Result result = racingGame.race();
+            outputView.printResult(result);
         }
-        outputView.printFinalWinner(racer.winnerToString());
+        outputView.printFinalWinner(racingGame.winner());
     }
 }

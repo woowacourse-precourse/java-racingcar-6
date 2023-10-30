@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.constant.message.Message;
+import racingcar.dto.Result;
 
 public class OutputViewImpl implements OutputView {
 
@@ -10,12 +11,12 @@ public class OutputViewImpl implements OutputView {
     }
 
     @Override
-    public void printResult(String result) {
-        System.out.println(result);
+    public void printResult(Result result) {
+        System.out.println(result.toIntermediateResult());
     }
 
     @Override
-    public void printFinalWinner(String winner) {
-        System.out.printf(Message.FINAL_WINNER, winner);
+    public void printFinalWinner(Result result) {
+        System.out.print(result.toFinalWinner());
     }
 }

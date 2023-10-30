@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.dto.Result;
 import racingcar.model.Racer;
 import racingcar.model.Round;
 
@@ -14,13 +15,17 @@ public class RacingGame {
         this.round = round;
     }
 
-    public Racer race() {
+    public Result race() {
         racer.play(accelerator);
         round.turn();
-        return racer;
+        return racer.getResult();
     }
 
     public Boolean isEnd() {
         return round.hasRound();
+    }
+
+    public Result winner() {
+        return racer.getWinner();
     }
 }
