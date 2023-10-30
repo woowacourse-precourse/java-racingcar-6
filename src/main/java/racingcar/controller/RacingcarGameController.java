@@ -1,11 +1,10 @@
 package racingcar.controller;
 
 import racingcar.RacingcarGame;
-import racingcar.domain.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.List;
+import java.util.HashMap;
 
 public class RacingcarGameController {
     InputView inputView;
@@ -19,10 +18,25 @@ public class RacingcarGameController {
     }
 
     public void start() {
-        inputView.readInputCarNameMessage();
-        racingcarGame.setCars(inputView.getCarsName());
+        setCarsName();
+        setTryCount();
+        outputView.readOngoingResultMessage();
+        do {
+            outputView.readOngoingResult(ongoing());
+        }while(racingcarGame.isContinue());
+    }
+
+    private void setTryCount() {
         inputView.readInputTryCountMessage();
         racingcarGame.setTryCount(inputView.getTryCount());
-        racingcarGame.raceStart();
+    }
+
+    private void setCarsName() {
+        inputView.readInputCarNameMessage();
+        racingcarGame.setCars(inputView.getCarsName());
+    }
+
+    private HashMap<String, Integer> ongoing() {
+        return racingcarGame.race();
     }
 }

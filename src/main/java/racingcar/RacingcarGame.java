@@ -3,7 +3,7 @@ package racingcar;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RacingcarGame {
@@ -27,10 +27,13 @@ public class RacingcarGame {
         this.tryCount = tryCount;
     }
 
-    public void raceStart() {
-        do {
-            moveOrStop();
-        }while(tryCount > 0);
+    public HashMap<String,Integer> race() {
+        moveOrStop();
+        HashMap<String, Integer> raceResult = new HashMap<>();
+        for (Car car : cars.getRacingCars()) {
+            raceResult.put(car.getName(), car.getDistance());
+        }
+        return raceResult;
     }
 
     private void moveOrStop() {
@@ -40,5 +43,11 @@ public class RacingcarGame {
             car.moveOrStop(num);
         }
         tryCount -= 1;
+    }
+
+    public Boolean isContinue() {
+        if (tryCount == 0) {
+            return false;
+        }return true;
     }
 }
