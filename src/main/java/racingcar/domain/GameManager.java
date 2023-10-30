@@ -56,9 +56,14 @@ public class GameManager {
     }
 
     public void readAttemptCount() {
-        int enteredAttemptCount = Integer.parseInt(Console.readLine());
-
-        this.attemptCount = enteredAttemptCount;
+        try {
+            attemptCount = Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도할 횟수는 숫자만 입력이 가능합니다.");
+        }
+        if (attemptCount < 1) {
+            throw new IllegalArgumentException("시도할 횟수는 1 이상이어야 게임 진행이 가능합니다.");
+        }
     }
 
     public void startGame() {
