@@ -29,11 +29,11 @@ public class GameService {
     }
 
     private RaceResult play(int roundCount) {
-        List<CarStatus> carStatuses = play(cars);
+        List<CarStatus> carStatuses = move(cars);
         return new RaceResult(roundCount, carStatuses);
     }
 
-    private List<CarStatus> play(List<Car> cars) {
+    private List<CarStatus> move(List<Car> cars) {
         return cars.stream()
                 .map(car -> {
                     car.forward();
