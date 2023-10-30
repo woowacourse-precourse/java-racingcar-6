@@ -15,6 +15,7 @@ public class RacingCarGameMachineValidatorTest {
     private final String RACING_CAR_NAME_4 = "pre";
     private final String RACING_CAR_NAME_5 = "java";
     private final String RACING_CAR_NAME_6 = "back";
+    private final int VALID_ROUND_COUNT = 5;
     private final int TOO_SMALL_ROUND_COUNT = 0;
     private final int TOO_LARGE_ROUND_COUNT = 31;
 
@@ -26,7 +27,17 @@ public class RacingCarGameMachineValidatorTest {
     }
 
     @Test
-    void 레이싱카_허용_개수_초과() {
+    void 유효한_레이싱카_이름_목록() {
+        List<String> validRacingCarNames = new ArrayList<>();
+        validRacingCarNames.add(RACING_CAR_NAME_1);
+        validRacingCarNames.add(RACING_CAR_NAME_2);
+        validRacingCarNames.add(RACING_CAR_NAME_3);
+
+        callValidateNameInputMethod(validRacingCarNames);
+    }
+
+    @Test
+    void 레이싱카_허용_개수_초과_예외_처리() {
         List<String> tooManyRacingCarNameList = new ArrayList<>();
         tooManyRacingCarNameList.add(RACING_CAR_NAME_1);
         tooManyRacingCarNameList.add(RACING_CAR_NAME_2);
@@ -41,7 +52,7 @@ public class RacingCarGameMachineValidatorTest {
     }
 
     @Test
-    void 레이싱카_허용_개수_미만() {
+    void 레이싱카_허용_개수_미만_예외_처리() {
         List<String> tooFewRacingCarNameList = new ArrayList<>();
         tooFewRacingCarNameList.add(RACING_CAR_NAME_1);
 
@@ -50,7 +61,7 @@ public class RacingCarGameMachineValidatorTest {
     }
 
     @Test
-    void 중복된_이름_포함() {
+    void 중복된_이름_포함_예외_처리() {
         List<String> containingDuplicateRacingCarNameList = new ArrayList<>();
         containingDuplicateRacingCarNameList.add(RACING_CAR_NAME_1);
         containingDuplicateRacingCarNameList.add(RACING_CAR_NAME_1);
@@ -64,13 +75,18 @@ public class RacingCarGameMachineValidatorTest {
     }
 
     @Test
-    void 최소_라운드_미만() {
+    void 유효한_라운드_횟수() {
+        callValidateRoundCountMethod(VALID_ROUND_COUNT);
+    }
+
+    @Test
+    void 최소_라운드_미만_예외_처리() {
         assertThatThrownBy(() -> callValidateRoundCountMethod(TOO_SMALL_ROUND_COUNT))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void 최대_라운드_초과() {
+    void 최대_라운드_초과_예외_처리() {
         assertThatThrownBy(() -> callValidateRoundCountMethod(TOO_LARGE_ROUND_COUNT))
                 .isInstanceOf(IllegalArgumentException.class);
     }
