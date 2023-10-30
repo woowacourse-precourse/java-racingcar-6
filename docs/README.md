@@ -23,22 +23,17 @@
   - [x] 공동 우승자 쉼표 구분
 
 ## 🗂️ 디렉터리 구조
-📦src
- ┣ 📂main
- ┃ ┗ 📂java
- ┃ ┃ ┗ 📂racingcar
- ┃ ┃ ┃ ┣ 📂Controller
- ┃ ┃ ┃ ┃ ┗ 📜RacingController.java
- ┃ ┃ ┃ ┣ 📂Model
- ┃ ┃ ┃ ┃ ┣ 📜MemberState.java
- ┃ ┃ ┃ ┃ ┗ 📜RacingGame.java
- ┃ ┃ ┃ ┣ 📂View
- ┃ ┃ ┃ ┃ ┣ 📜InputView.java
- ┃ ┃ ┃ ┃ ┗ 📜OutputView.java
- ┃ ┃ ┃ ┗ 📜Application.java
- ┗ 📂test
- ┃ ┗ 📂java
- ┃ ┃ ┣ 📂racingcar
- ┃ ┃ ┃ ┗ 📜ApplicationTest.java
- ┃ ┃ ┗ 📂study
- ┃ ┃ ┃ ┗ 📜StringTest.java
+📦src<br/>
+ ┣ 📂main<br/>
+ ┃ ┗ 📂java<br/>
+ ┃ ┃ ┗ 📂racingcar<br/>
+ ┃ ┃ ┃ ┣ 📂Controller<br/>
+ ┃ ┃ ┃ ┃ ┗ 📜RacingController.java<br/>
+ ┃ ┃ ┃ ┣ 📂Model<br/>
+ ┃ ┃ ┃ ┃ ┣ 📜MemberState.java<br/>
+ ┃ ┃ ┃ ┃ ┗ 📜RacingGame.java<br/>
+ ┃ ┃ ┃ ┣ 📂View<br/>
+ ┃ ┃ ┃ ┃ ┣ 📜InputView.java<br/>
+ ┃ ┃ ┃ ┃ ┗ 📜OutputView.java<br/>
+ ┃ ┃ ┃ ┗ 📜Application.java<br/>
+ ┗ 📂test<br/>
