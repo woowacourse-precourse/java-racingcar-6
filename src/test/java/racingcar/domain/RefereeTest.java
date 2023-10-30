@@ -14,9 +14,9 @@ class RefereeTest {
     void 우승자가_여러명일_경우_테스트() {
         List<Car> cars = new ArrayList<>();
 
-        Car car1 = new Car("dobi", 4, (min, max) -> max);
-        Car car2 = new Car("pobi", 4, (min, max) -> max);
-        Car car3 = new Car("apple", 3, (min, max) -> max);
+        Car car1 = new Car("dobi", 4);
+        Car car2 = new Car("pobi", 4);
+        Car car3 = new Car("apple", 3);
 
         cars.add(car1);
         cars.add(car2);
@@ -36,9 +36,9 @@ class RefereeTest {
     void 우승자가_한명일_경우_테스트() {
         List<Car> cars = new ArrayList<>();
 
-        Car car1 = new Car("dobi", 4, (min, max) -> max);
-        Car car2 = new Car("pobi", 2, (min, max) -> max);
-        Car car3 = new Car("apple", 3, (min, max) -> max);
+        Car car1 = new Car("dobi", 4);
+        Car car2 = new Car("pobi", 2);
+        Car car3 = new Car("apple", 3);
 
         cars.add(car1);
         cars.add(car2);
