@@ -1,5 +1,8 @@
 package racingcar.util;
 
+import static racingcar.model.RacingCarGameConfig.RANDOM_MAXIMUM_VALUE;
+import static racingcar.model.RacingCarGameConfig.RANDOM_MINIMUM_VALUE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,7 +30,7 @@ public class RacingCarGameUtils {
   public static List<Integer> generateRandomValuesForCarGame(Integer carsCount) {
     List<Integer> randomList = new ArrayList<>();
     for (int i = 0; i < carsCount; i++) {
-      randomList.add(Randoms.pickNumberInRange(0, 9));
+      randomList.add(Randoms.pickNumberInRange(RANDOM_MINIMUM_VALUE, RANDOM_MAXIMUM_VALUE));
     }
     return randomList;
   }
