@@ -8,6 +8,8 @@ public enum Constants {
     MINIMUM_CAR_SIZE("2"),
     NAME_MAX_SIZE("5"),
     MINIMUM_DISTANCE_SIZE("4"),
+    GENERATE_RANDOM_MIN_VALUE("0"),
+    GENERATE_RANDOM_MAX_VALUE("9"),
 
     //** error Message **/
     HAS_BLANK_IN_NAME("입력된 자동차 이름에 공백이 포함 되어 있습니다."),
