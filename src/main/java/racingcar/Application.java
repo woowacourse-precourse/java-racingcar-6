@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
+
 import java.util.ArrayList;
 
 class Car{
@@ -16,6 +18,7 @@ public class Application {
         // TODO: 프로그램 구현
         ArrayList<Car> carList = new ArrayList<Car>();
 
+        String [] carNameList = Console.readLine().split(",");
 
     }
 }
