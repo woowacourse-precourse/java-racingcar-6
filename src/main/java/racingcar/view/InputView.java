@@ -9,4 +9,9 @@ public class InputView {
         InputValidator.validateCarsFormat(input);
         InputValidator.validateCarLength(input);
     }
+
+    public static void getTryNumber() {
+        String input = Console.readLine();
+        InputValidator.validateTryNumber(input);
+    }
 }

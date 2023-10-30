@@ -20,6 +20,9 @@ public class InputValidator {
     }
 
     public static void validateTryNumber(String input) {
+        if (!Character.isDigit(input.charAt(0))) {
+            throw new IllegalArgumentException("[ERROR] 올바른 시도 횟수를 입력해주세요.");
+        }
     }
 }
 
