@@ -1,8 +1,9 @@
 package racingcar;
 
 public class Converter {
+    private static final String COMMA = ",";
 
     public static String[] splitCarNameWithComma(String inputCarNames) {
-        return inputCarNames.split(",");
+        return inputCarNames.split(COMMA);
     }
 }
