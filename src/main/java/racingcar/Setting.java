@@ -9,14 +9,14 @@ import static camp.nextstep.edu.missionutils.Console.*;
 
 public class Setting {
     List<Car> cars = new ArrayList<>();
-    int cycleNumber;
+    private int cycleNumber;
 
     public Setting(){
         try{
            beforeSetting();
         }catch (IllegalStateException ex){
             System.out.println("잘못받았습니다");
-
+            //추후 예외처리!!
         }
     }
 
@@ -48,7 +48,7 @@ public class Setting {
     public List<Car> getCars(){
         return cars;
     }
-    public int getNumber(){
+    public int getCycleNumber(){
         return cycleNumber;
     }
 

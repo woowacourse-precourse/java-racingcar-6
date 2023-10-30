@@ -16,4 +16,16 @@ public class Car {
         int randomNumber = pickNumberInRange(0,9);
         if(randomNumber>4) distance++;
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getDistance(){
+        return distance;
+    }
+
+    public void setDistance(){
+        distance++;
+    }
 }
