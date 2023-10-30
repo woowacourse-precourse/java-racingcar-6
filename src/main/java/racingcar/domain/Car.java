@@ -1,10 +1,13 @@
 package racingcar.domain;
 
+import racingcar.util.converter.NameAndDistanceMessageGenerator;
+
 public class Car {
 
     private static final int INITIAL_DISTANCE = 0;
     private static final int DISTANCE_PER_MOVE = 1;
     private static final int MIN_REQUIRED_GASOLINE = 4;
+    private static final NameAndDistanceMessageGenerator nameAndDistanceMessageGenerator = new NameAndDistanceMessageGenerator();
 
     private final String name;
     private int drivenDistance = INITIAL_DISTANCE;
@@ -22,6 +25,10 @@ public class Car {
             return;
         }
         drive();
+    }
+
+    public String generateNameAndDistanceMessage() {
+        return nameAndDistanceMessageGenerator.generate(name, drivenDistance);
     }
 
     private void drive() {

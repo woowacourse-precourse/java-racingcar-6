@@ -1,7 +1,10 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.dto.CarRegistrationDTO;
+import racingcar.dto.RaceProgressDTO;
 import racingcar.util.InputHandler;
 
 public class RaceGame {
@@ -22,10 +25,13 @@ public class RaceGame {
         List<Car> cars = registerCars();
         RandomGasolineProvider gasolineProvider = new RandomGasolineProvider();
         int remainRoundCount = inputHandler.getRaceRoundCount();
-
+        List<String> nameAndDistanceMessages = new ArrayList<>();
         while (remainRoundCount-- > MIN_ROUND_COUNT) {
             tryDriveCarsByGasolineProvider(cars, gasolineProvider);
+            nameAndDistanceMessages.add(geNameAndDistanceMessagesOfRound(cars));
         }
+
+        billboard.displayraceprogress(new RaceProgressDTO(nameAndDistanceMessages));
     }
 
     private List<Car> registerCars() {
@@ -38,6 +44,12 @@ public class RaceGame {
             int gasoline = gasolineProvider.provide();
             car.tryDrive(gasoline);
         }
+    }
+
+    private String geNameAndDistanceMessagesOfRound(List<Car> cars) {
+        return cars.stream()
+                .map(Car::generateNameAndDistanceMessage)
+                .collect(Collectors.joining());
     }
 
     public static class Builder {
