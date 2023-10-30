@@ -47,4 +47,4 @@
 
 ### 랜덤 수 생성 기능 - [RandomNumberGenerator](../src/main/java/racingcar/model/RandomNumberGenerator.java)
 
-- [ ] 0보다 크고 9보다 작은 랜덤 수를 생성한다.
+- [x] 0보다 크고 9보다 작은 랜덤 수를 생성한다. #generate()
