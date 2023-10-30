@@ -15,7 +15,7 @@ public class CycleInputValidatorTest {
         assertDoesNotThrow(() -> CycleInputValidator.validate(input));
     }
     @ParameterizedTest
-    @ValueSource(strings = {"0", "-1", "2"})
+    @ValueSource(strings = {"", " "})
     void validate_빈_문자열은_예외_발생(String input) {
         assertThatThrownBy(() -> CycleInputValidator.validate(input)).isInstanceOf(IllegalArgumentException.class);
     }
@@ -27,8 +27,8 @@ public class CycleInputValidatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"0", "-1", "2"})
-    void validate_음의_정수는_예외_발생(String input) {
+    @ValueSource(strings = {"0", "-1", "-3"})
+    void validate_자연수가_아닌_정수는_예외_발생(String input) {
         assertThatThrownBy(() -> CycleInputValidator.validate(input)).isInstanceOf(IllegalArgumentException.class);
     }
 }
