@@ -29,7 +29,7 @@ public class InputValidation {
     }
 
     public void inputMovementLimit(long movement) {
-        if (movement < 1 || movement > Long.MAX_VALUE) {
+        if (movement < 1) {
             throw new IllegalArgumentException("이동 횟수 입력 값이 범위는 1 ~ 9,223,372,036,854,775,807 입니다.");
         }
     }

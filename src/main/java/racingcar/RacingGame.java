@@ -36,7 +36,6 @@ public class RacingGame {
         System.out.print("최종 우승자 :");
 
         printResult(foundMax);
-        System.out.println(Long.MAX_VALUE);
     }
 
     private long findMax() {
