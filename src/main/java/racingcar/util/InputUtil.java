@@ -3,28 +3,24 @@ package racingcar.util;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class InputUtil {
     private final int NAME_LENGTH_MIN_SIZE = 1;
     private final int NAME_LENGTH_MAX_SIZE = 5;
-    private InputUtil() {
-
-    }
-
-    public static InputUtil of() {
-        return new InputUtil();
+    public InputUtil() {
     }
 
     public String input() {
         return Console.readLine();
     }
 
-    public String[] getCarNames() {
+    public List<String> getCarNames() {
         String input = input();
         String[] names = splitString(input);
         Arrays.stream(names).forEach(this::validateCarName);
-        return names;
+        return List.of(names);
     }
 
     public int getCount() {

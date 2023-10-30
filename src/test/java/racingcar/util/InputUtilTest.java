@@ -1,14 +1,13 @@
-package racingcar;
+package racingcar.util;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.util.InputUtil;
 
 import java.util.List;
 
-public class InputTest {
-    private InputUtil inputUtil = InputUtil.of();
+public class InputUtilTest {
+    private InputUtil inputUtil = new InputUtil();
     @Test
     @DisplayName("자동차 이름 입력하기")
     public void 자동차_이름_입력하기() throws Exception {
