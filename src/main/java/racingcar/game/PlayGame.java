@@ -1,9 +1,13 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.race.Car;
+import racingcar.race.Race;
+import racingcar.view.InputView;
+import racingcar.view.ResultView;
 
 public class PlayGame {
     public static void playGame() {

@@ -1,9 +1,10 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import racingcar.variable.MagicVariable;
 
 public class InputView {
     MagicVariable magicVariable = new MagicVariable();

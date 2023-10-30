@@ -10,6 +10,8 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.race.Car;
+import racingcar.view.ResultView;
 
 class ResultViewTest {
     private final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

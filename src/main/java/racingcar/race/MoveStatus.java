@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.race;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.variable.MagicVariable;
 
 public class MoveStatus {
     MagicVariable magicVariable = new MagicVariable();

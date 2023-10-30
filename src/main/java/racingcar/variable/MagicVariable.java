@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.variable;
 
 public class MagicVariable {
     public final int PICK_NUM_MIN = 0;

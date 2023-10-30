@@ -4,6 +4,8 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import racingcar.race.Car;
+import racingcar.race.MoveStatus;
 
 class CarTest {
     @Test
