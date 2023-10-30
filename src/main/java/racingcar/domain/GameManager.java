@@ -24,6 +24,12 @@ public class GameManager {
         }
 
         checkWinner(carRace);
+
+        if (winner.size() > 1) {
+            ResultPrinter.printWinners(winner);
+        } else {
+            ResultPrinter.printWinner(winner.get(0));
+        }
     }
 
     private void makeCars(List<String> list) {
