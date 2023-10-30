@@ -18,6 +18,7 @@ public class Car {
     private static final int MOVING_DISTANCE = 1;
     private static final int STANDARD_VALUE = 4;
     private static final int MAX_LENGTH = 5;
+    private static final int INIT_POSITION = 0;
 
     private String name;
     private int position;
@@ -25,7 +26,7 @@ public class Car {
     public Car(String name){
         validate(name);
         this.name = name;
-        init();
+        this.position = INIT_POSITION;
     }
 
     private void validate(String name) {
@@ -44,13 +45,13 @@ public class Car {
             throw new IllegalArgumentException(ErrorMessages.LONG_NAME);
         }
     }
-
-    private void init(){
-        this.position = 0;
+    public void goOrStop(int random) {
+        if (random >= STANDARD_VALUE) {
+            move(MOVING_DISTANCE);
+        }
     }
-//    public void goOrStop(int random) {
-//        if (random >= STANDARD_VALUE) {
-//            move(MOVING_DISTANCE);
-//        }
-//    }
+
+    private void move(int distance){
+        this.position += distance;
+    }
 }
