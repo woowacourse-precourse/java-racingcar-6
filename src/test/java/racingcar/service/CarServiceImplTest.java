@@ -6,14 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.configuration.AppConfig;
+import racingcar.configuration.Config;
 import racingcar.domain.Car;
 import racingcar.repository.CarRepository;
-import racingcar.repository.MemoryCarRepository;
 
 public class CarServiceImplTest {
 
-    private CarRepository memoryCarRepository = MemoryCarRepository.getInstance();
-    private CarService carService = CarServiceImpl.getInstance(memoryCarRepository);
+    Config config = AppConfig.getInstance();
+    private CarRepository memoryCarRepository = config.carRepository();
+    private CarService carService = config.carService();
 
     @BeforeEach
     public void setUp() {
