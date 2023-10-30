@@ -29,4 +29,11 @@ public class Car {
         }
         return carGUI.toString();
     }
+
+    public void move() {
+        int randomNumber = Utils.makeRandomInt();
+        if (randomNumber >= 4) {
+            this.moveState += 1;
+        }
+    }
 }

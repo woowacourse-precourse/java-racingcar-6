@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.List;
 
 public class Utils {
@@ -30,5 +32,9 @@ public class Utils {
             }
         }
         return false;
+    }
+
+    public static int makeRandomInt() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }

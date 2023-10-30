@@ -18,11 +18,32 @@ public class RacingSystem {
         }
     }
 
+    public void printCars() {
+        for (Car car : cars) {
+            car.printCar();
+        }
+    }
+
+    public void moveCars() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
+
+    public void raceProgress() {
+        for (int i = 0; i < movement; i++) {
+            moveCars();
+            printCars();
+            System.out.println();
+        }
+    }
+
     public void startApp() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         this.carNames = user.inputCarName();
         System.out.println("시도할 회수는 몇회인가요?");
         this.movement = user.inputNumberOfCarMovement();
         makeCarsInstance();
+        raceProgress();
     }
 }
