@@ -29,12 +29,12 @@
     - [x] ❗️ 빈 자동차 리스트일 경우 예외처리 한다. #validateEmpty()
     - [x] ❗️ 자동차의 이름이 중복될 경우 예외처리 한다. #validateDuplicate()
 - [x] 자동차들에게 경주하라 지시한다. #race()
-- [ ] 자동차 우승자의 이름을 조회한다.
+- [x] 자동차 우승자의 이름을 조회한다. #getWinnerNames()
 
 ### 자동차 기능 - [Car](../src/main/java/racingcar/model/car/Car.java)
 
 - [x] 랜덤수와 비교하여 전진하거나 머무른다. #race()
-- [ ] 서로의 위치를 비교한다.
+- [x] 서로의 위치를 비교한다. #isSamePosition()
 
 ### 자동차 이름 - [Name](../src/main/java/racingcar/model/car/Name.java)
 

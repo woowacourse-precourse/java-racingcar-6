@@ -11,6 +11,7 @@ import racingcar.model.car.Position;
 public class Cars {
     private static final String DUPLICATE_CAR_MESSAGE = "중복된 이름의 자동차가 존재합니다.";
     private static final String EMPTY_CAR_MESSAGE = "자동차 리스트가 비었습니다.";
+    private static final String NO_CAR_MESSAGE = "자동차가 존재하지 않습니다.";
 
     private final List<Car> cars;
 
@@ -53,6 +54,25 @@ public class Cars {
         for (Car car : cars) {
             car.race();
         }
+    }
+
+    public List<String> getWinnerNames() {
+        Car maxPositionCar = findMaxPositionCar();
+        return getMaxPositionCarNames(maxPositionCar);
+    }
+
+    private Car findMaxPositionCar() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(NO_CAR_MESSAGE));
+    }
+
+    private List<String> getMaxPositionCarNames(Car maxPositionCar) {
+        return cars.stream()
+                .filter(maxPositionCar::isSamePosition)
+                .map(Car::name)
+                .map(Name::name)
+                .toList();
     }
 
     public List<Car> getCars() {
