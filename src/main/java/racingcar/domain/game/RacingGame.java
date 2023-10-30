@@ -15,7 +15,9 @@ public class RacingGame {
         outputView.printCarNameInputMessage();
         String[] inputCars = inputView.nextStringArray();
 
-
+        // 시도할 회수 입력
+        outputView.printRacingRoundInputMessage();
+        int num = RacingGameInputView.nextInt();
 
     }
 }
