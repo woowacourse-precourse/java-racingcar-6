@@ -31,6 +31,7 @@ public class PlayGame {
     public void printCount(int index) {
         for (int i = 0; i < moveCount.get(index); i++)
             System.out.print("-");
+        System.out.println();
     }
 
 
@@ -39,7 +40,6 @@ public class PlayGame {
         for (int i = 0; i < nameList.size(); i++) {
             System.out.print(nameList.get(i) + " : ");
             printCount(i);
-            System.out.println();
         }
         System.out.println();
     }
