@@ -19,7 +19,8 @@ public class RacingCarService {
 
     public void start() {
         initCars();
-        int count = inputUtil.getCount();
+        int count = initCount();
+        System.out.println("실행결과");
         for (int i = 0; i < count; i++) {
             move(cars);
         }
@@ -32,10 +33,15 @@ public class RacingCarService {
     }
 
     public void initCars() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> input = inputUtil.getCarNames();
         cars = createCars(input);
     }
 
+    public int initCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return inputUtil.getCount();
+    }
     public Cars createCars(List<String> names) {
         List<Car> carList = new ArrayList<>();
         names.forEach(name -> carList.add(new Car(name)));
