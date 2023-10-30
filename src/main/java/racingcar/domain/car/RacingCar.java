@@ -1,23 +1,29 @@
 package racingcar.domain.car;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.RandomNumber;
 
 public class RacingCar implements Car {
         private final String name;
+        private final RandomNumber util;
         private long drivenDistance;
 
-        public RacingCar(String name) {
+        public RacingCar(final String name, RandomNumber util) {
                 this.name = name;
+                this.util = util;
                 drivenDistance = 0L;
         }
 
         @Override
         public void move() {
-                int randomNumber = Randoms.pickNumberInRange(0, 9);
-
-                if (randomNumber >= 4) {
-                        drivenDistance += 1;
+                if (!isOverFour(util.pickRandomNumber())) {
+                        return;
                 }
+
+                drivenDistance += 1;
+        }
+
+        private boolean isOverFour(final int randomNumber) {
+                return randomNumber >= 4;
         }
 
         @Override
@@ -28,12 +34,5 @@ public class RacingCar implements Car {
         @Override
         public long getDrivenDistance() {
                 return drivenDistance;
-        }
-
-        @Override
-        public String toString() {
-                return "RacingCar{" +
-                        "name='" + name + '\'' +
-                        '}';
         }
 }
