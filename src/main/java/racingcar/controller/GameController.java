@@ -4,9 +4,12 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RaceRound;
 import racingcar.domain.MovingStrategy;
+import racingcar.util.RandomNumberUtil;
+import racingcar.util.RandomNumberUtilImp;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
@@ -24,19 +27,32 @@ public class GameController {
 
 
     public void play() {
-        Cars cars = createCars();
+        MovingStrategy movingStrategy = createMovingStrategy(new RandomNumberUtilImp());
+        Cars cars = createCars(movingStrategy);
         RaceRound raceRound = createGameRound();
         playAllGameRound(raceRound, cars);
         List<Car> winner = findWinner(cars);
         showWinner(winner);
     }
 
-    private Cars createCars() {
-        // 수정하기
-//        List<String> names = inputView.inputNames();
-//        Cars cars = new Cars(names);
+    private MovingStrategy createMovingStrategy(RandomNumberUtil randomNumberUtil) {
+        return new MovingStrategy(randomNumberUtil);
+    }
 
-        return cars;
+    private Cars createCars(MovingStrategy movingStrategy) {
+        List<Car> carList = convertNamesCarList(movingStrategy);
+        return new Cars(carList);
+    }
+
+    private List<Car> convertNamesCarList(MovingStrategy movingStrategy) {
+        List<String> names = inputView.inputNames();
+        List<Car> carList = new ArrayList<>();
+
+        for (String name : names) {
+            carList.add(new Car(movingStrategy, name));
+        }
+
+        return carList;
     }
 
     private RaceRound createGameRound() {
