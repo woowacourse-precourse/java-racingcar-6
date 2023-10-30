@@ -47,11 +47,6 @@ public class RaceCar {
         moveStateStr = moveStateStr + "-";
     }
 
-    // TODO: 10/27/23 자동차 멈춤(정지), 나중에 추가할지 말지 생각
-    public void pauseTemp() {
-//        - [ ] 멈춤은 아무런 출력을 하지 않는다.
-    }
-
     /**
      * 문자열 리턴 "one"
      *
