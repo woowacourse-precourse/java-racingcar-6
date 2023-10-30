@@ -11,4 +11,12 @@ public class Car {
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
 }
