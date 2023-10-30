@@ -8,7 +8,7 @@ import java.util.Set;
 
 public final class CarNameValidation extends InputValidation {
 
-    public static void isValidCarNameList(List<String> carNameList) {
+    public static void validate(List<String> carNameList) {
         if (isWrongNameSize(carNameList) || hasDuplicateName(carNameList)) {
             throw new IllegalArgumentException();
         }

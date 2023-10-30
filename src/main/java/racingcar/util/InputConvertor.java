@@ -13,14 +13,13 @@ public final class InputConvertor {
     public static RacingCars toRacingCars(String input) {
         CarNameValidation.isEmptyInput(input);
         List<String> carNameList = splitStringToListWithTrim(input);
-        CarNameValidation.isValidCarNameList(carNameList);
+        CarNameValidation.validate(carNameList);
 
         return new RacingCars(carNameList);
     }
 
     public static Integer toMoveCount(String input) {
-        CountValidation.isEmptyInput(input);
-        CountValidation.isNumeric(input);
+        CountValidation.validate(input);
         return Integer.parseInt(input);
     }
 
