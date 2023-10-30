@@ -50,7 +50,7 @@ public class CarsTest {
     }
 
     @Test
-    void 우승자_판단_기능() {
+    void 우승자_판단_기능_테스트() {
         // given
         String[] carNames = {"jy", "wb"};
         Cars cars = Cars.from(carNames);
