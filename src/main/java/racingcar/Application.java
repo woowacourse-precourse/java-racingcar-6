@@ -4,7 +4,10 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Application {
     public static void main(String[] args) {
@@ -56,5 +59,17 @@ public class Application {
         if(go == true){
             car.setPos(car.getPos()+1);
         }
+    }
+
+    public List<Car> compare(Car[] cars) {
+        List<Car> collect = Arrays.stream(cars).sorted(Comparator.comparing(Car::getPos).reversed())
+                .collect(Collectors.toList());
+
+        List<String> result = null;
+
+        List<Car> victorylist = collect.stream().filter((Car car) -> car.getPos() == collect.get(0).getPos())
+                .collect(Collectors.toList());
+
+        return victorylist;
     }
 }
