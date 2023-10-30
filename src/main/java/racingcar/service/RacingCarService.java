@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.utils.Message;
 import racingcar.view.OutputView;
 
 public class RacingCarService {
@@ -55,10 +56,7 @@ public class RacingCarService {
         return classifyWinners(maxMoveCountCarNames);
     }
 
-    public String classifyWinners(List<String> winners) {
-        if (winners.size() != 1) {
-            return "최종 우승자 : " + String.join(", ", winners);
-        }
-        return "최종 우승자 : " + winners.get(0);
+    private String classifyWinners(List<String> winners) {
+        return Message.FINAL_WINNER_MESSAGE.getMessage() + String.join(", ", winners);
     }
 }

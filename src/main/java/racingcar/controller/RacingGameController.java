@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.service.RacingCarService;
+import racingcar.utils.Message;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -21,7 +22,7 @@ public class RacingGameController {
         List<Car> carList = racingGameService.participateCar(cars);
 
         int moveCount = InputView.inputMovesCount();
-        System.out.println("실행 결과");
+        System.out.println(Message.EXECUTION_RESULT_MESSAGE.getMessage());
         while (moveCount-- > 0) {
             RacingCarService.moveCar();
             System.out.println();
