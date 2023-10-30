@@ -18,6 +18,7 @@ public class Course {
 	}
 
 	public void racingStart(List<Car> cars, Referee referee) {
+		referee.announceRacingStart();
 		for (int i = 0; i < attempt; i++) {
 			cars.forEach(Car::startEngine);
 			referee.broadcast(cars);

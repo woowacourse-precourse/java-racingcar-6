@@ -61,4 +61,9 @@ public class Referee {
 				.map(Car::getName)
 				.collect(Collectors.toList());
 	}
+
+	public void announceRacingStart() {
+		System.out.println();
+		System.out.println("실행 결과");
+	}
 }
