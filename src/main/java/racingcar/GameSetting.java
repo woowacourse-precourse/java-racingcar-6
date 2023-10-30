@@ -12,9 +12,9 @@ public class GameSetting {
     private int attemptNumber;
 
 
-    public HashMap<String, Integer> getCarName() {
-        inputDataHandler.getStringFromPlayer();
-
+    public HashMap<String, Integer> createCarName() {
+        cars = inputDataHandler.getStringFromPlayer();
+        return cars;
     }
 
     public String getCarName(int index) {
@@ -22,6 +22,7 @@ public class GameSetting {
     }
 
     public void setAttemptNumber() {
+        inputDataHandler
         attemptNumber = Integer.parseInt(Console.readLine());
     }
 

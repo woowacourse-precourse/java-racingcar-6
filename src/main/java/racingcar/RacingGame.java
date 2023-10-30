@@ -14,12 +14,12 @@ public class RacingGame {
 
     public void GameStart() {
         scriptHandler.printGetCarNameScript();
-        gameSetting.getCarName();
+        cars = gameSetting.createCarName();
         scriptHandler.printGetAttemptScript();
-        gameSetting.setAttemptNumber();
+        gameSetting.getAttemptNumber();
         attemptNumber = gameSetting.getAttemptNumber();
 
-        cars = gameSetting.getCarName();
+
         carNumber = cars.size();
 
         gameProgress(attemptNumber);

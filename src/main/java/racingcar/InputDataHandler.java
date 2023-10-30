@@ -10,7 +10,7 @@ public class InputDataHandler {
     private String[] carNames;
     private HashMap<String, Integer> cars = new HashMap<>();
 
-    public void getStringFromPlayer(){
+    public HashMap<String, Integer> getStringFromPlayer(){
         inputCarNames = Console.readLine();
         carNames = seperateString(inputCarNames);
         for(String names : carNames){
@@ -18,7 +18,10 @@ public class InputDataHandler {
                 cars.put(names, 0);
             }
         }
+        return cars;
     }
+
+    public int get
 
     public String[] seperateString(String inputCarNames){
         return inputCarNames.split(",");
