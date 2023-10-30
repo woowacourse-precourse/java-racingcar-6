@@ -188,4 +188,19 @@ class GameHostTest {
         // than
         assertThat(result).isEqualTo(3);
     }
+
+    @DisplayName("현제 레이싱을 하는 자동차의 움직인 횟수중에 최고로 많은 횟수를 알려준다._4")
+    @Test
+    void getCntMaxMoveTest_4() {
+        // given
+        moveRaceCar(raceCar_2);
+        moveRaceCar(raceCar_2);
+        moveRaceCar(raceCar_2);
+
+        // when
+        Integer result = gameHost.getCntMaxMove(progressRaceCarList);
+
+        // than
+        assertThat(result).isEqualTo(3);
+    }
 }
