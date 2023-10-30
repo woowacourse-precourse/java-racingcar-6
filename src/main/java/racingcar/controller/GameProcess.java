@@ -12,11 +12,11 @@ public class GameProcess {
             RacingCar currentCar = racingCars.getCar(carIndex);
             currentCar.moveForward(randomNumber);
         }
-        printGameAttemptResult(racingCars);
+        printGameAttemptResult(racingCars, racingCars.size());
     }
 
-    public void printGameAttemptResult(RacingCarList racingCars) {
-        for (int element = 0; element < racingCars.size(); element++) {
+    public void printGameAttemptResult(RacingCarList racingCars, int length) {
+        for (int element = 0; element < length; element++) {
             RacingCar racingCar = racingCars.getCar(element);
             moveDistanceMessage(racingCar);
         }
