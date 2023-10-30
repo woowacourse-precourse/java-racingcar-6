@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.constant;
 
 public enum GameCondition {
     NAME_SIZE(5),
