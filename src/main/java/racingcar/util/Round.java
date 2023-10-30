@@ -13,8 +13,9 @@ public class Round {
         this.round_index = round_index;
     }
     public int Increase() {
+        this.round_index += INCREASED_ROUND;
         Error_Check.Round(this.round_number, this.round_index);
-        return this.round_index += INCREASED_ROUND;
+        return this.round_index;
     }
 
     public int Get_Round_index() {

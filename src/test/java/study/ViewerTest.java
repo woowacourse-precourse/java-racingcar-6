@@ -14,6 +14,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.util.Car;
+import racingcar.util.Round;
 import racingcar.viewer.*;
 
 public class ViewerTest {
@@ -87,6 +88,26 @@ public class ViewerTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> Error_Check.Number(error_num_5))
                         .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void Error_Round_테스트(){
+        Round round= new Round(5,0);
+        int current_round = round.Increase();
+        assertEquals(current_round,1);
+        current_round = round.Increase();
+        assertEquals(current_round,2);
+        current_round = round.Increase();
+        assertEquals(current_round,3);
+        current_round = round.Increase();
+        assertEquals(current_round,4);
+        current_round = round.Increase();
+        assertEquals(current_round,5);
+        assertSimpleTest(() -> {
+                    assertThatThrownBy(round::Increase)
+                            .isInstanceOf(IllegalArgumentException.class);
+                }
         );
     }
 

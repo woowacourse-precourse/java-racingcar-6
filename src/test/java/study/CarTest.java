@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.util.Car;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CarTest {
     @Test
@@ -24,18 +25,18 @@ public class CarTest {
         boolean result10 = car4.Position_Comparator(car1);
         boolean result11 = car4.Position_Comparator(car2);
         boolean result12 = car4.Position_Comparator(car3);
-        assertThat(result1).isEqualTo(false);
-        assertThat(result2).isEqualTo(true);
-        assertThat(result3).isEqualTo(true);
-        assertThat(result4).isEqualTo(false);
-        assertThat(result5).isEqualTo(true);
-        assertThat(result6).isEqualTo(true);
-        assertThat(result7).isEqualTo(false);
-        assertThat(result8).isEqualTo(false);
-        assertThat(result9).isEqualTo(true);
-        assertThat(result10).isEqualTo(false);
-        assertThat(result11).isEqualTo(false);
-        assertThat(result12).isEqualTo(false);
+        assertFalse(result1);
+        assertTrue(result2);
+        assertTrue(result3);
+        assertFalse(result4);
+        assertTrue(result5);
+        assertTrue(result6);
+        assertFalse(result7);
+        assertFalse(result8);
+        assertTrue(result9);
+        assertFalse(result10);
+        assertFalse(result11);
+        assertFalse(result12);
     }
 
     //위치가 다른 위치와 같은지 비교
@@ -57,38 +58,38 @@ public class CarTest {
         boolean result10 = car4.Same_Position_Check(car1);
         boolean result11 = car4.Same_Position_Check(car2);
         boolean result12 = car4.Same_Position_Check(car3);
-        assertThat(result1).isEqualTo(true);
-        assertThat(result2).isEqualTo(false);
-        assertThat(result3).isEqualTo(false);
-        assertThat(result4).isEqualTo(true);
-        assertThat(result5).isEqualTo(false);
-        assertThat(result6).isEqualTo(false);
-        assertThat(result7).isEqualTo(false);
-        assertThat(result8).isEqualTo(false);
-        assertThat(result9).isEqualTo(false);
-        assertThat(result10).isEqualTo(false);
-        assertThat(result11).isEqualTo(false);
-        assertThat(result12).isEqualTo(false);
+        assertTrue(result1);
+        assertFalse(result2);
+        assertFalse(result3);
+        assertTrue(result4);
+        assertFalse(result5);
+        assertFalse(result6);
+        assertFalse(result7);
+        assertFalse(result8);
+        assertFalse(result9);
+        assertFalse(result10);
+        assertFalse(result11);
+        assertFalse(result12);
     }
 
     @Test
     void Get_Name_테스트() {
         Car car = new Car("pobi");
-        assertThat(car.Get_Name()).isEqualTo("pobi");
+        assertEquals(car.Get_Name(),"pobi");
     }
 
     @Test
     void Get_Position_테스트() {
         Car car = new Car("pobi",5);
-        assertThat(car.Get_Position()).isEqualTo(5);
+        assertEquals(car.Get_Position(),5);
     }
 
     @Test
     void Position_Move_테스트(){
         Car car = new Car("pobi",0);
         car.Position_Move(()->true);
-        assertThat(car.Get_Position()).isEqualTo(1);
+        assertEquals(car.Get_Position(),1);
         car.Position_Move(()->false);
-        assertThat(car.Get_Position()).isEqualTo(1);
+        assertEquals(car.Get_Position(),1);
     }
 }
