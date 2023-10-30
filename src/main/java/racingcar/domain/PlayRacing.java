@@ -34,7 +34,7 @@ public class PlayRacing {
             scoreList = raceResult(carList, scoreList);
         }
 
-        getWinnerList(carList, scoreList);
+        System.out.println(getWinnerList(carList, scoreList));
     }
 
     public int getMaxScore(String[] scoreList) {
@@ -53,7 +53,7 @@ public class PlayRacing {
         winnerList.append(car);
     }
 
-    public void getWinnerList(String[] carList, String[] scoreList) {
+    public String getWinnerList(String[] carList, String[] scoreList) {
         StringBuilder winnerList = new StringBuilder();
         int maxScore = getMaxScore(scoreList);
 
@@ -64,7 +64,6 @@ public class PlayRacing {
             }
         }
 
-        String result = "최종 우승자 : " + winnerList;
-        System.out.println(result);
+        return "최종 우승자 : " + winnerList;
     }
 }
