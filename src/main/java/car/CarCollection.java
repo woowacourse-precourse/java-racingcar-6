@@ -13,6 +13,10 @@ public class CarCollection {
         this.cars = new ArrayList<>();
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+    
     public void addCar(Car car) {
         cars.add(car);
     }
