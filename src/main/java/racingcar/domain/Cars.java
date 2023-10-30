@@ -12,7 +12,7 @@ public class Cars {
         carList = Arrays.stream(nameArr)
                 .map(name -> new Car(name.trim()))
                 .collect(Collectors.toList());
-        forceStop(isValidate());
+        forceStop(isValidateName());
         return carList;
     }
 
@@ -28,13 +28,13 @@ public class Cars {
                 .toList();
     }
 
-    public boolean isValidate() {
+    public boolean isValidateName() {
         return carList.stream()
                 .noneMatch(car -> car.getName().length() > 5);
     }
 
-    public void forceStop(boolean isValidate) {
-        if (!isValidate) {
+    public void forceStop(boolean isValidateName) {
+        if (!isValidateName) {
             throw new IllegalArgumentException();
         }
     }
