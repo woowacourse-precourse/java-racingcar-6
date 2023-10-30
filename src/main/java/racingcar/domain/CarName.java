@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.util.Utils;
 import racingcar.validation.Validation;
 
 import java.util.ArrayList;
@@ -10,7 +11,8 @@ public class CarName {
     private final List<String> carNameStrList;
     public CarName(String carNameStr) {
         Validation.validateEmptyInput(carNameStr);
-        carNameStrList = Arrays.asList(carNameStr.split(","));
+//        carNameStrList = Arrays.asList(carNameStr.split(","));
+        carNameStrList = Utils.stringToStringList(carNameStr);
         Validation.validateLength(carNameStrList);
         Validation.validateNameLength(carNameStrList);
         Validation.validateUnique(carNameStrList);
