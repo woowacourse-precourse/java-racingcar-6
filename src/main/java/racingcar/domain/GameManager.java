@@ -24,9 +24,34 @@ public class GameManager {
 
     public void readCarNames() {
         String enteredCarNames = Console.readLine();
+        validateCarNames(enteredCarNames);
+    }
+
+    private void validateCarNames(String enteredCarNames) {
         String[] carNames = enteredCarNames.split(CAR_NAME_DELIMIT);
         for (String carName : carNames) {
+            checkBlankName(carName);
+            checkNameLength(carName);
             cars.add(new Car(carName));
+        }
+        checkCarCount();
+    }
+
+    private void checkCarCount() {
+        if (cars.size() <= 1) {
+            throw new IllegalArgumentException("최소 1대의 자동차가 입력되어야 합니다.");
+        }
+    }
+
+    private void checkBlankName(String carName) {
+        if (carName.isBlank()) {
+            throw new IllegalArgumentException("자동차 이름이 공란입니다.");
+        }
+    }
+
+    private void checkNameLength(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
 
