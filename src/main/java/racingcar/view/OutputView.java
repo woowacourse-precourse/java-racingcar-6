@@ -7,6 +7,7 @@ public class OutputView {
     private static final String ROUND_REG_EX = " : ";
     private static final String POSITION_EXPRESSION = "-";
     private static final String WINNER_EXPRESSION = "최종 우승자 : ";
+    private static final String WINNER_DELIMITER = ", ";
 
     private OutputView() {
     }
@@ -23,6 +24,6 @@ public class OutputView {
     }
 
     public static void printResult(List<String> winners) {
-        System.out.print(WINNER_EXPRESSION + String.join(", ", winners));
+        System.out.print(WINNER_EXPRESSION + String.join(WINNER_DELIMITER, winners));
     }
 }

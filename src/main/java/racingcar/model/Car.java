@@ -3,13 +3,14 @@ package racingcar.model;
 import racingcar.validator.Validator;
 
 public class Car {
+    private static final int INITIAL_POSITION = 0;
     private static final int MINIMUM_ADVANCE_NUMBER = 4;
     private final String name;
     private int position;
 
     private Car(String name) {
         this.name = name;
-        this.position = 0;
+        this.position = INITIAL_POSITION;
     }
 
     public static Car createCar(String name) {
