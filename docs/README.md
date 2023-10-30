@@ -62,5 +62,5 @@
     - [X] 결과 표시
 - [X] 에러 메세지 Enum
 - [X] View IO Enum
-- [ ] Application
-    - [ ] RaceController 호출
+- [X] Application
+    - [X] RaceController 호출
