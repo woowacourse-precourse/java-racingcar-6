@@ -72,12 +72,19 @@ public class RacingGame {
     private static void checkCar(){
         for (int i=0;i<carName.length;i++){
             runCar(i);
+            printRacingSequence(i);
         }
+        System.out.println();
     }
     private static boolean isRandomValueOverFour(){
         return Randoms.pickNumberInRange(0,9) >= 4;
     }
     private static void runCar(int number){
         distance[number] += Boolean.compare(isRandomValueOverFour(), false);
+    }
+    private static void printRacingSequence(int number){
+        String sequence = carName[number]+" : ";
+        sequence += "-".repeat(distance[number]);
+        System.out.println(sequence);
     }
 }
