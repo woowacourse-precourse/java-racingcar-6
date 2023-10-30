@@ -13,7 +13,7 @@ public class OutputViewTest extends NsTest {
 
 	@DisplayName("현재 자동차들의 위치 상황의 메세지 출력을 확인한다.")
 	@Test
-	void checkPrintExecutionResult() {
+	void checkPrintCarLocationCurrentSituation() {
 		OutputView outputView = new OutputView();
 		CreateCarsService createService = new CreateCarsService();
 
