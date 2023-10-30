@@ -4,23 +4,23 @@ import java.util.List;
 
 public class Race {
     private final Cars cars;
-    private int count;
+    private final Count count;
 
-    public Race(Cars cars, int count) {
+    public Race(Cars cars, Count count) {
         this.cars = cars;
         this.count = count;
     }
 
     public void run() {
         cars.run();
-        count -= 1;
+        count.decrease();
     }
 
     public List<Car> getCars() {
         return cars.getCars();
     }
 
-    public boolean play() {
-        return count != 0;
+    public boolean playable() {
+        return count.playable();
     }
 }

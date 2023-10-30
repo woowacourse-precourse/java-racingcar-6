@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Count;
 import racingcar.domain.Race;
 import racingcar.service.RaceService;
 import racingcar.view.InputView;
@@ -27,11 +28,11 @@ public class RaceController {
 
     private Race initializeRace() {
         Cars cars = initializeCars();
-        int count = initializeCount();
+        Count count = initializeCount();
         return new Race(cars, count);
     }
 
-    private int initializeCount() {
+    private Count initializeCount() {
         outputView.countOutput();
         String countInput = inputView.getCountInput();
         return raceService.initializeCount(countInput);
@@ -44,7 +45,7 @@ public class RaceController {
     }
 
     private void runRace(Race race) {
-        while (race.play()) {
+        while (race.playable()) {
             List<Car> raceCars = raceService.runRace(race);
             outputView.carsDistanceOutput(raceCars);
         }
