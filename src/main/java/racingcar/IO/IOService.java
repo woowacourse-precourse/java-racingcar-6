@@ -9,11 +9,11 @@ public class IOService {
     public final static String RESULT = "실행 결과";
     public final static String END = "최종 우승자";
 
-    public void printNoticeln(String ment) {
+    public static void printNoticeln(String ment) {
         System.out.println(ment);
     }
 
-    public void printNotice(String subject, String value) {
+    public static void printNotice(String subject, String value) {
         System.out.println(subject+" : "+value);
     }
 

@@ -1,5 +1,7 @@
 package racingcar.entity;
 
+import racingcar.IO.IOService;
+
 public class Car {
     public Car(String name) {
         this.name = name;
@@ -23,6 +25,6 @@ public class Car {
     }
 
     public void printStatus() {
-        System.out.println(name+" : "+score);
+        IOService.printNotice(name, score.toString());
     }
 }
