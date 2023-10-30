@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RacingCarGameMachine {
@@ -11,5 +12,10 @@ public class RacingCarGameMachine {
 
     public RacingCarGameMachine(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
+    }
+
+    private List<String> parseNameInput(String nameInput) {
+        String[] names = nameInput.split(",");
+        return Arrays.stream(names).toList();
     }
 }
