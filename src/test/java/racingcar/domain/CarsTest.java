@@ -92,7 +92,7 @@ class CarsTest {
         List<Car> updatedCarList = cars.getCars();
 
         // 우승자 위치 찾아내기
-        int expected = carList.stream()
+        int expected = updatedCarList.stream()
                 .max(Car::compareTo)
                 .get()
                 .getPosition();
@@ -121,7 +121,7 @@ class CarsTest {
         List<Car> updatedCarList = cars.getCars();
 
         // 우승자 위치 찾아내기
-        int winnerPosition = carList.stream()
+        int winnerPosition = updatedCarList.stream()
                                 .max(Car::compareTo)
                                 .get()
                                 .getPosition();
