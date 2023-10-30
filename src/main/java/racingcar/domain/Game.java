@@ -40,7 +40,7 @@ public class Game {
     }
 
     public String[] inputCarNames() {
-        String[] carNames = Arrays.stream(Console.readLine().split(","))
+        String[] carNames = Arrays.stream(Console.readLine().split(",", -1))
                                     .sequential()
                                     .map(String::strip)
                                     .toArray(String[]::new);

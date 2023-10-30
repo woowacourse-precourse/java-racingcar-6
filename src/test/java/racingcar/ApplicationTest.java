@@ -130,8 +130,11 @@ class ApplicationTest extends NsTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"wtc,,prcs", "wtc, ,prcs", "wtc,　,prcs"})
+    @ValueSource(strings = {",wtc,prcs", " ,wtc,prcs", "　,wtc,prcs",
+            "wtc,,prcs", "wtc, ,prcs", "wtc,　,prcs",
+            "wtc,prcs,", "wtc,prcs, ", "wtc,prcs,　"})
     void 이름에_대한_예외_처리_빈문자열(String carNamesInput) {
+        System.out.println(carNamesInput);
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException(carNamesInput, "1"))
                         .isInstanceOf(IllegalArgumentException.class)
