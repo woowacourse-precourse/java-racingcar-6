@@ -3,12 +3,18 @@ package racingcar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingCarGameMachineValidatorTest {
-    private final String TOO_FEW_RACING_CAR_NAME_INPUT = "semin";
-    private final String TOO_MANY_RACING_CAR_NAME_INPUT = "semin,woo,wa,tech,pre,cour,se";
-    private final String CONTAINING_DUPLICATE_RACING_CAR_NAME_INPUT = "semin,semin";
+    private final String RACING_CAR_NAME_1 = "semin";
+    private final String RACING_CAR_NAME_2 = "woowa";
+    private final String RACING_CAR_NAME_3 = "tech";
+    private final String RACING_CAR_NAME_4 = "pre";
+    private final String RACING_CAR_NAME_5 = "java";
+    private final String RACING_CAR_NAME_6 = "back";
     private final int TOO_SMALL_ROUND_COUNT = 0;
     private final int TOO_LARGE_ROUND_COUNT = 31;
 
@@ -21,24 +27,40 @@ public class RacingCarGameMachineValidatorTest {
 
     @Test
     void 레이싱카_허용_개수_초과() {
-        assertThatThrownBy(() -> callValidateNameInputMethod(TOO_MANY_RACING_CAR_NAME_INPUT))
+        List<String> tooManyRacingCarNameList = new ArrayList<>();
+        tooManyRacingCarNameList.add(RACING_CAR_NAME_1);
+        tooManyRacingCarNameList.add(RACING_CAR_NAME_2);
+        tooManyRacingCarNameList.add(RACING_CAR_NAME_3);
+        tooManyRacingCarNameList.add(RACING_CAR_NAME_4);
+        tooManyRacingCarNameList.add(RACING_CAR_NAME_5);
+        tooManyRacingCarNameList.add(RACING_CAR_NAME_6);
+
+
+        assertThatThrownBy(() -> callValidateNameInputMethod(tooManyRacingCarNameList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 레이싱카_허용_개수_미만() {
-        assertThatThrownBy(() -> callValidateNameInputMethod(TOO_FEW_RACING_CAR_NAME_INPUT))
+        List<String> tooFewRacingCarNameList = new ArrayList<>();
+        tooFewRacingCarNameList.add(RACING_CAR_NAME_1);
+
+        assertThatThrownBy(() -> callValidateNameInputMethod(tooFewRacingCarNameList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 중복된_이름_포함() {
-        assertThatThrownBy(() -> callValidateNameInputMethod(CONTAINING_DUPLICATE_RACING_CAR_NAME_INPUT))
+        List<String> containingDuplicateRacingCarNameList = new ArrayList<>();
+        containingDuplicateRacingCarNameList.add(RACING_CAR_NAME_1);
+        containingDuplicateRacingCarNameList.add(RACING_CAR_NAME_1);
+
+        assertThatThrownBy(() -> callValidateNameInputMethod(containingDuplicateRacingCarNameList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    private void callValidateNameInputMethod(String nameInput) {
-        racingCarGameMachineValidator.validateNameInput(nameInput);
+    private void callValidateNameInputMethod(List<String> names) {
+        racingCarGameMachineValidator.validateNameList(names);
     }
 
     @Test
