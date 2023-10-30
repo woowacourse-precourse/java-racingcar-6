@@ -1,75 +1,66 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Race {
 
-    List<String> car_name;
-    List<Integer> car_score = new ArrayList<>();
+    List<Car> cars = new ArrayList<>();
 
     int play_count;
 
     public void startGame() {
-        init();
+        setCarName();
+        setPlayCount();
 
         System.out.println("실행 결과");
 
         for (int i = 0; i < play_count; i++) {
             play();
+            System.out.println();
         }
 
         result();
     }
 
-    private void init() {
+    private void setCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
-        car_name = Arrays.asList(Console.readLine().split(","));
+        List<String> car_name = List.of(Console.readLine().split(","));
+        car_name.stream().forEach(name -> cars.add(new Car(name)));
+    }
 
-        for (int i = 0; i < car_name.size(); i++) {
-            car_score.add(0);
-        }
-
+    private void setPlayCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         play_count = Integer.parseInt(Console.readLine());
     }
 
     private void play() {
-        for (int i = 0; i < car_name.size(); i++) {
-            int rand_num = Randoms.pickNumberInRange(0,9);
-            if (rand_num >= 4) car_score.add(i, car_score.get(i) + 1);
+        cars.forEach(car -> {
+            car.move();
+            String name = car.getName();
+            int score = car.getScore();
+            printEachCarResult(name, score);
+        });
+    }
 
-            StringBuilder result = new StringBuilder();
-            result.append(car_name.get(i));
-            result.append(" : ");
-            System.out.print(car_name.get(i) + " : ");
-
-            if (car_score.get(i) > 0) {
-                for (int j = 0; j < car_score.get(i); i++) {
-                    result.append("-");
-                }
-            }
-            System.out.println(result);
-        }
-        System.out.println();
+    private void printEachCarResult(String name, int score) {
+        StringBuilder result = new StringBuilder(name + " : ");
+        Optional<String> formattedPosition = Stream.generate(() -> "-").limit(score).reduce((a, b) -> a + b);
+        formattedPosition.ifPresent(result::append);
+        System.out.println(result);
     }
 
     private void result() {
         StringBuilder result = new StringBuilder();
         result.append("최종 우승자 : ");
-        for (int i = 0; i < car_name.size(); i++) {
-            if (car_score.get(i) >= Collections.max(car_score)) {
-                Collections.max(car_score);
-                result.append(car_name.get(i));
-            }
-            result.append(" ");
-        }
+
+        int max_score = cars.stream().max(Comparator.comparingInt(Car::getScore)).get().getScore();
+        result.append(cars.stream().filter(Car -> Car.getScore() == max_score).map(Car -> Car.getName()).collect(Collectors.joining(", ")));
+
         System.out.println(result);
     }
 
