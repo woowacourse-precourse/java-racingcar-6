@@ -1,13 +1,29 @@
 package racingcar.view;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import org.junit.jupiter.api.BeforeEach;
 
 public abstract class IOTest {
 
+    private ByteArrayOutputStream outputStreamCaptor;
+
+    @BeforeEach
+    void allocateSystemOut() {
+        outputStreamCaptor = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStreamCaptor);
+        System.setOut(printStream);
+    }
+
     void allocateSystemIn(String input) {
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
+        byte[] bytesInput = input.getBytes(StandardCharsets.UTF_8);
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(bytesInput);
         System.setIn(inputStream);
     }
 
+    String getSystemOut() {
+        return outputStreamCaptor.toString();
+    }
 }
