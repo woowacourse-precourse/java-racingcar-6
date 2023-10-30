@@ -15,6 +15,7 @@ public class GameController {
 
     public void startGame() {
         String[] carNames = inputView.readCarNames();
+        int attemptCount = inputView.readAttemptCount();
     }
 
     private void printRoundResult(Car car) {
