@@ -11,7 +11,10 @@ public class Referee {
     }
 
     public List<Car> findWinners() {
-        return null;
+        Car maxPositionCar = findFarthestPositionCar();
+        List<Car> winners = findSamePositionCar(maxPositionCar);
+
+        return winners;
     }
 
     public Car findFarthestPositionCar() {
