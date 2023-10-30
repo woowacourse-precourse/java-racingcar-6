@@ -25,4 +25,10 @@ public class Race {
         }
         return maxDistanceCar;
     }
+
+    public String toString() {
+        return cars.stream()
+                .map(Car::toString)
+                .collect(Collectors.joining("\n"));
+    }
 }
