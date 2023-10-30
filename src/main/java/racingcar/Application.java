@@ -40,7 +40,12 @@ public class Application {
     //시도 횟수//
     public static Integer Try_Numb() {
     	System.out.println("시도할 회수는 몇회인가요?");
-    	Integer Try_numb = Randoms.pickNumberInRange(1, 9);
+    	Integer Try_numb = null;
+    	try {
+    		Try_numb = Integer.parseInt(Console.readLine());
+    	}catch (Exception e1) {
+    		throw new IllegalArgumentException("정수를 입력하시오.");
+    	}
     	//System.out.print(Try_numb);
     	return Try_numb;
     }
