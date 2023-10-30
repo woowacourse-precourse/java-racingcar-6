@@ -4,16 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+    public List<String> carList = new ArrayList<>();
+    public List<Integer> countList = new ArrayList<>();
 
-    public List<String> makeCarList(String carNames) {
-        List<String> carList = new ArrayList<>();
+    public Cars(String carName){
+        makeCarList(carName);
+    }
+    public void makeCarList(String carNames) {
         for (String carName : carNames.split(",")) {
             isCarNameNull(carName);
             isCarNameOverSize(carName);
             isCarNameSame(carName, carList);
+            countList.add(0);
             carList.add(carName);
         }
-        return carList;
     }
 
     public static void isCarNameNull(String carName) throws IllegalArgumentException {
