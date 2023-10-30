@@ -19,10 +19,13 @@ public class InputView {
 
     public static int readTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        String tryCount = Console.readLine();
-        validateBlank(tryCount);
-        return validateInteger(tryCount);
+        String tryCountInput = Console.readLine();
+        validateBlank(tryCountInput);
+        int tryCount = validateInteger(tryCountInput);
+        validateTryCount(tryCount);
+        return tryCount;
     }
+
 
     private static void validateBlank(String input) {
         if (input == null || input.isBlank()) {
@@ -40,6 +43,12 @@ public class InputView {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력해 주세요.");
+        }
+    }
+
+    private static void validateTryCount(int tryCount) {
+        if (tryCount < 1) {
+            throw new IllegalArgumentException("시도 횟수는 1보다 작으면 안됩니다.");
         }
     }
 }
