@@ -5,10 +5,7 @@ import racingcar.util.RandomNumberGenerator;
 
 public class Accelerator {
 
-    private Accelerator() {
-    }
-
-    public static boolean canMoveForward() {
+    public boolean canMoveForward() {
         return RandomNumberGenerator.generate() >= Rule.MOVING_POSSIBILITY;
     }
 }

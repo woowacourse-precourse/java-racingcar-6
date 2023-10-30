@@ -4,6 +4,7 @@ import racingcar.constant.message.Message;
 import racingcar.model.car.Car;
 import racingcar.model.car.OrderByPosition;
 import racingcar.model.car.OrderStrategy;
+import racingcar.service.Accelerator;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
 
@@ -22,8 +23,8 @@ public class Racer {
                 .toList();
     }
 
-    public void play() {
-        racer.forEach(Car::move);
+    public void play(Accelerator accelerator) {
+        racer.forEach(car -> car.move(accelerator));
     }
 
     private void validate(String value) {

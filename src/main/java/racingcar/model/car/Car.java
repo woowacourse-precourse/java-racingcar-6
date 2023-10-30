@@ -5,7 +5,6 @@ import racingcar.service.Accelerator;
 import racingcar.validation.Validator;
 import racingcar.validation.ValidatorFactory;
 
-//TODO: 허무맹랑할 수 있는 이야기이지만, 자동차 경주에 말이 들어온다면?? 해당 경우도 한번 고민해보기
 public class Car {
 
     protected final String name;
@@ -21,8 +20,8 @@ public class Car {
         return new Car(name, 0L);
     }
 
-    public void move() {
-        if (Accelerator.canMoveForward()) {
+    public void move(Accelerator accelerator) {
+        if (accelerator.canMoveForward()) {
             currentPosition++;
         }
     }
