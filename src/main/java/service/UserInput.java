@@ -10,12 +10,12 @@ import vo.Cars;
 
 public class UserInput {
 
-    public static String input(){
+    public static String Input(){
         return Console.readLine();
     }
 
     public static Cars CarNames(){
-        List<String> carNames = Arrays.stream(input().split(","))
+        List<String> carNames = Arrays.stream(Input().split(","))
                                     .toList();
 
         carNames.forEach(Validation::CarNames);
