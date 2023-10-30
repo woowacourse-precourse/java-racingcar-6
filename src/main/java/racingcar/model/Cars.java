@@ -5,12 +5,13 @@ import java.util.List;
 import racingcar.utils.Random;
 
 public class Cars {
-    private List<Car> cars;
+    private final List<Car> cars;
+
     public Cars() {
         this.cars = new ArrayList<>();
     }
 
-    public void addCar (Car car) {
+    public void addCar(Car car) {
         cars.add(car);
     }
 
@@ -19,7 +20,7 @@ public class Cars {
     }
 
     public void forward() {
-        for(Car car: cars) {
+        for (Car car : cars) {
             int random = Random.generate();
 
             int distance = forwardCondition(car, random);
@@ -31,7 +32,7 @@ public class Cars {
     public int forwardCondition(Car car, int random) {
         int distance = car.getDistance();
 
-        if(Random.isConditionsAdvancementMet(random)) {
+        if (Random.isConditionsAdvancementMet(random)) {
             distance += 1;
         }
 

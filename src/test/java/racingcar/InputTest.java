@@ -19,9 +19,7 @@ public class InputTest {
         String input = "pobi,jun";
         List<String> names = Converter.convertStringToList(input);
 
-        assertThat(names).isEqualTo(
-                List.of("pobi", "jun")
-        );
+        assertThat(names).isEqualTo(List.of("pobi", "jun"));
     }
 
     @Test
@@ -31,8 +29,8 @@ public class InputTest {
 
         List<String> names = Converter.convertStringToList(input);
 
-        IllegalArgumentException exception = assertThrows(
-                IllegalArgumentException.class, () -> Validator.validateCarName(names));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> Validator.validateCarName(names));
 
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_5_CHARACTERS_LESS.getMessage());
     }
@@ -51,8 +49,8 @@ public class InputTest {
     void testErrorConvertToInt() {
         String input = "다섯번";
 
-        IllegalArgumentException exception = assertThrows(
-                IllegalArgumentException.class, () -> Validator.validateNumber(input));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> Validator.validateNumber(input));
 
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
     }
@@ -62,8 +60,8 @@ public class InputTest {
     void input_숫자가_아닌_공백() {
         String input = "";
 
-        IllegalArgumentException exception = assertThrows(
-                IllegalArgumentException.class, () -> Validator.validateNumber(input));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> Validator.validateNumber(input));
 
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
     }
@@ -75,9 +73,8 @@ public class InputTest {
 
         List<String> names = Converter.convertStringToList(input);
 
-        IllegalArgumentException exception = assertThrows(
-                IllegalArgumentException.class, () -> Validator.validateNotDuplicate(names)
-        );
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> Validator.validateNotDuplicate(names));
 
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NOT_DUPLICATED.getMessage());
 
@@ -89,9 +86,8 @@ public class InputTest {
     void input_자동차_이름_공백_테스트(String input) {
         List<String> names = Converter.convertStringToList(input);
 
-        IllegalArgumentException exception = assertThrows(
-                IllegalArgumentException.class, () -> Validator.validateNoSpace(names)
-        );
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> Validator.validateNoSpace(names));
 
         assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_NO_SPACE.getMessage());
     }

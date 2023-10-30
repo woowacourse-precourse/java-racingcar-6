@@ -10,6 +10,7 @@ public enum GameMessage {
     OUTPUT_FORWARD("-");
 
     private final String message;
+
     GameMessage(String message) {
         this.message = message;
     }

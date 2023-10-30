@@ -6,6 +6,7 @@ public enum ErrorMessage {
     ERROR_NAME_MUST_BE_NOT_DUPLICATED("자동차 이름이 중복되었습니다."),
     ERROR_NAME_MUST_NO_SPACE("자동차 이름은 공백이 될 수 없습니다.");
     private final String message;
+
     ErrorMessage(String message) {
         this.message = message;
     }

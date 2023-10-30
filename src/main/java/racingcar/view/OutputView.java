@@ -6,11 +6,12 @@ import racingcar.model.Cars;
 import racingcar.model.Winner;
 
 public class OutputView {
-    public static void displayTitle(){
+    public static void displayTitle() {
         System.out.println(GameMessage.OUTPUT_EXECUTION_RESULTS.getMessage());
     }
+
     public static void displayRacingSituation(Cars cars) {
-        for(Car car: cars.getCars()) {
+        for (Car car : cars.getCars()) {
             System.out.print(car.getName());
             System.out.print(GameMessage.OUTPUT_COLON.getMessage());
             displayForward(car);
@@ -19,7 +20,7 @@ public class OutputView {
     }
 
     public static void displayForward(Car car) {
-        for(int i = 0; i < car.getDistance(); i++) {
+        for (int i = 0; i < car.getDistance(); i++) {
             System.out.print(GameMessage.OUTPUT_FORWARD.getMessage());
         }
         System.out.println();

@@ -31,13 +31,13 @@ public class GameController {
     }
 
     private void initCars(List<String> names) {
-        for(String name : names) {
+        for (String name : names) {
             cars.addCar(new Car(name));
         }
     }
 
     private void racing(int attempt) {
-        for(int i = 0; i < attempt; i++) {
+        for (int i = 0; i < attempt; i++) {
             cars.forward();
             OutputView.displayRacingSituation(cars);
         }
