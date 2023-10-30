@@ -3,7 +3,6 @@ package racingcar.domain;
 import java.util.List;
 import racingcar.util.StringUtils;
 import racingcar.util.io.InputUtils;
-import racingcar.util.io.InputValidator;
 import racingcar.util.io.OutputUtils;
 
 public class Game {
@@ -38,13 +37,13 @@ public class Game {
 
     public List<String> getCarsInfo() {
         String carNames = InputUtils.getCarsName();
-        InputValidator.validateCarNameInput(carNames);
+        InputUtils.validateCarNameInput(carNames);
         return StringUtils.toCarNameList(carNames);
     }
 
     public String getMoveInfo() {
         String moveNumber = InputUtils.getMoveNumber();
-        InputValidator.validateMoveNumberInput(moveNumber);
+        InputUtils.validateMoveNumberInput(moveNumber);
         return moveNumber;
     }
 }
