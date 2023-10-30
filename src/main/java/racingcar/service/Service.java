@@ -7,10 +7,16 @@ import racingcar.dto.CarsDto;
 import racingcar.repository.CarRepository;
 
 public class Service {
+
+    private static final Service instance = new Service();
     CarRepository carRepository;
 
-    public Service() {
+    private Service() {
         this.carRepository = CarRepository.getInstance();
+    }
+
+    public static Service getInstance(){
+        return instance;
     }
 
 
@@ -28,7 +34,6 @@ public class Service {
         return resultEachTrackList;
     }
 
-
     public CarsDto getWinner() {
         CarsDto carsDto = carRepository.findAll();
         ArrayList<CarDto> carDtoArrayList = carsDto.getCarArrayList();
@@ -36,7 +41,6 @@ public class Service {
         int winnerDistance = getWinnerDistance(carDtoArrayList);
         ArrayList<CarDto> winners = findWinner(carDtoArrayList, winnerDistance);
         return new CarsDto(winners);
-
     }
 
     private static int getWinnerDistance(ArrayList<CarDto> carDtoArrayList) {

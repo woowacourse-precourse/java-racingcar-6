@@ -22,7 +22,7 @@ public class Controller {
     private final Service service;
 
     private Controller() {
-        this.service = new Service();
+        this.service = Service.getInstance();
     }
 
     public static Controller getInstance() {
@@ -38,7 +38,6 @@ public class Controller {
 
         saveCars(carsNameList);
     }
-
 
     private void saveCars(ArrayList<String> carsName) {
         ArrayList<CarDto> cars = new ArrayList<>();
@@ -73,8 +72,9 @@ public class Controller {
         printResult(resultList);
     }
 
-
     public void printFinalResult() {
         printResultWinner(service.getWinner());
+        service.initRepository();
     }
+
 }
