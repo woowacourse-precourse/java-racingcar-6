@@ -1,10 +1,12 @@
 package racingcar.domain;
 
+import static racingcar.global.constants.SymbolType.DELIMITER;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class Cars {
-    List<Car> carList;
+    private List<Car> carList;
 
     private Cars(List<Car> carList) {
         this.carList = carList;
@@ -25,6 +27,6 @@ public class Cars {
     }
 
     private static String[] splitNames(String names) {
-        return names.split(DELIMITER_OF_INPUT_NAMES);
+        return names.split(DELIMITER.getSymbol());
     }
 }
