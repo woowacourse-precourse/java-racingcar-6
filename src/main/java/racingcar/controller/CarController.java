@@ -21,7 +21,7 @@ public class CarController {
     }
 
     public void racing() {
-        int move = 0;
+        int forwardAttempt = 0;
         String inputCars = "";
 
         inputCars = input.promptForCarNames();
@@ -29,11 +29,11 @@ public class CarController {
 
         cars = inputCarsStringToCarsClass(inputCars);
 
-        move = inputForMove();
+        forwardAttempt = inputForForward();
 
         output.resultHeader();
 
-        for(int moveCount = 0; moveCount < move; moveCount++) {
+        for(int forward = 0; forward < forwardAttempt; forward++) {
             // 전진하는 조건은 랜덤으로 생성한 값이 4 이상인 경우 전진
         }
     }
@@ -64,18 +64,18 @@ public class CarController {
         return Arrays.asList(carMembers.split(delimiter));
     }
 
-    private int inputForMove() {
+    private int inputForForward() {
         String move  = input.promptForAttempts();
         Validate.inputIsNull(move);
 
-        return moveStringToInteger(move);
+        return forwardStringToInteger(move);
     }
 
-    private int moveStringToInteger(String move) {
+    private int forwardStringToInteger(String move) {
         int result = 0;
 
-        result = Validate.moveIsNumericAndReturnInteger(move);
-        Validate.moveIsPositiveNumber(result);
+        result = Validate.forwardIsNumericAndReturnInteger(move);
+        Validate.forwardIsPositiveNumber(result);
 
         return result;
     }

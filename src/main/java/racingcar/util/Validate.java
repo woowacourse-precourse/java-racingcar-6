@@ -1,7 +1,6 @@
 package racingcar.util;
 
 import racingcar.model.Car;
-import racingcar.model.Cars;
 
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class Validate {
         }
     }
 
-    public static int moveIsNumericAndReturnInteger(String move) {
+    public static int forwardIsNumericAndReturnInteger(String move) {
         try {
             return Integer.parseInt(move);
         } catch(NumberFormatException exception) {
@@ -55,7 +54,7 @@ public class Validate {
         }
     }
 
-    public static void moveIsPositiveNumber(int move) {
+    public static void forwardIsPositiveNumber(int move) {
         if(move < 0) {
             throw new IllegalArgumentException("시도할 숫자는 0보다 커야합니다.");
         }
