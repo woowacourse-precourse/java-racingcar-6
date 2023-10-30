@@ -9,14 +9,14 @@ import racingcar.exception.DuplicateCarNameException;
 import racingcar.exception.OnlyCommaInputException;
 
 class ValidatorTest {
-    private static final String ONLY_COMMA_NOT_ALLOWED_MESSAGE = "쉼표(,)만 입력할 수 없습니다.";
+    private static final String ONLY_COMMA_NOT_ALLOWED_MESSAGE = "쉼표(,)사이에 이름을 입력해주세요.";
     private static final String CAR_NAME_OUT_OF_RANGE_MESSAGE = "자동차 이름은 5자 이하만 가능합니다.";
     private static final String REQUEST_CAR_NAME_INPUT_MESSAGE = "자동차 이름을 입력하세요.";
     private static final String DUPLICATE_CAR_NANE_MESSAGE = "중복된 자동차 이름입니다.";
 
     @Test
     void 쉼표만_입력하면_예외_발생() {
-        String carNames = ",";
+        String carNames = ",,,,,,,,,,,";
 
         assertThatThrownBy(() -> Validator.carNameValidator(carNames))
                 .isInstanceOf(OnlyCommaInputException.class)
