@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.List;
+import java.util.Map;
 import racingcar.domain.Car;
 import racingcar.domain.CarListGenerator;
 import racingcar.domain.Cars;
@@ -34,7 +35,8 @@ public class Application {
         OutputView.printResultMessage();
         for (int count = 0; count < moveCount; count++) {
             cars.move();
-            OutputView.printCarsLocation(cars);
+            Map<String, Integer> moveCountMap = cars.getMoveCountMap();
+            OutputView.printCarsLocation(moveCountMap);
         }
     }
 
