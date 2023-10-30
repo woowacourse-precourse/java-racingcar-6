@@ -18,6 +18,8 @@ public class MainController {
         setInput();
         carGame.CarGame(CARS);
 
+        System.out.println(CARS);
+
         for (int i = ATTEMPT_COUNT; i >= 1; i--) {
             attemptWithRepeat();
         }
