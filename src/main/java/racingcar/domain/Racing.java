@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Racing {
+    private final static int MOVING_FORWARD = 4;
+    private final static int FIRST_CAR_INDEX = 0;
+
     public List<Car> toCarList(List<String> carNameList) {
         List<Car> carList = new ArrayList<>();
 
@@ -15,7 +18,7 @@ public class Racing {
     }
 
     private boolean isMove(Car car) {
-        return car.getRandomNum() >= 4;
+        return car.getRandomNum() >= MOVING_FORWARD;
     }
 
     public void modifyForwardNum(List<Car> carList) {
@@ -40,7 +43,7 @@ public class Racing {
     }
 
     private int findMaxValue(List<Car> carList) {
-        int maxValue = carList.get(0).getForwardNum();
+        int maxValue = carList.get(FIRST_CAR_INDEX).getForwardNum();
 
         for (int i = 1; i < carList.size(); i++) {
             if (maxValue < carList.get(i).getForwardNum()) {

@@ -7,7 +7,11 @@ import java.util.List;
 import java.util.Set;
 
 public class Validator {
+    private final static String REGEX_CAR_NAMES_INPUT = "([0-9a-zA-Zㄱ-ㅎ가-힣]+,)*[0-9a-zA-Zㄱ-ㅎ가-힣]+";
     private final static int MIN_CAR_NUM = 2;
+    private final static int MIN_CAR_NAME_LENGTH = 1;
+    private final static int MAX_CAR_NAME_LENGTH = 5;
+    private final static int MIN_TRY_NUM = 1;
 
     public void checkCarNameInputForm(String carNameInput) {
         if (!isIdentifierComma(carNameInput)) {
@@ -16,8 +20,7 @@ public class Validator {
     }
 
     private boolean isIdentifierComma(String carNameInput){
-        String regex = "([0-9a-zA-Zㄱ-ㅎ가-힣]+,)*[0-9a-zA-Zㄱ-ㅎ가-힣]+";
-        return carNameInput.matches(regex);
+        return carNameInput.matches(REGEX_CAR_NAMES_INPUT);
     }
 
     public void checkCarNameForm(String carName){
@@ -27,7 +30,7 @@ public class Validator {
     }
 
     private boolean isCarNameLength(String carName) {
-        return 0 < carName.length() && carName.length() <= 5;
+        return MIN_CAR_NAME_LENGTH <= carName.length() && carName.length() <= MAX_CAR_NAME_LENGTH;
     }
 
     public void checkDuplicateCarName(List<String> carNameList){
@@ -74,6 +77,6 @@ public class Validator {
     }
 
     private boolean isTryNumPositiveNum(int tryNum) {
-        return tryNum > 0;
+        return tryNum >= MIN_TRY_NUM;
     }
 }

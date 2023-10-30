@@ -7,6 +7,10 @@ import java.util.List;
 import static racingcar.util.ProgramMessage.*;
 
 public class OutputView {
+    private static final String BAR = "-";
+    private static final String COMMA = ", ";
+    private static final int STRING_FIRST_INDEX = 0;
+    private static final int NUMBER_FOR_LAST_COMMA_REMOVE = 2;
 
     public void printCarNameInputGuide() {
         System.out.println(CAR_NAME_INPUT_GUIDE_MESSAGE.getMessage());
@@ -18,7 +22,7 @@ public class OutputView {
 
     public void printRacingResult(List<Car> carList) {
         for (Car car : carList) {
-            String bar = "-".repeat(car.getForwardNum());
+            String bar = BAR.repeat(car.getForwardNum());
             System.out.println(String.format("%s : %s", car.getName(), bar));
         }
         System.out.print(NEXT_LINE.getMessage());
@@ -32,11 +36,12 @@ public class OutputView {
         String winnerMsg = FINAL_WINNER_NOTIFICATION_MESSAGE.getMessage();
 
         for (int i = 0; i < winnerList.size(); i++) {
-            winnerMsg += winnerList.get(i) + ", ";
+            winnerMsg += winnerList.get(i) + COMMA;
         }
 
-        if (winnerMsg.endsWith(", ")) {
-            winnerMsg = winnerMsg.substring(0, winnerMsg.length() - 2);
+        if (winnerMsg.endsWith(COMMA)) {
+            winnerMsg = winnerMsg
+                    .substring(STRING_FIRST_INDEX, winnerMsg.length() - NUMBER_FOR_LAST_COMMA_REMOVE);
         }
 
         System.out.println(winnerMsg);

@@ -3,13 +3,15 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private final static int FIRST_FORWARD_NUM = 0;
+
     private String name;
     private int forwardNum;
     private int randomNum;
 
     public Car(String name) {
         this.name = name;
-        this.forwardNum = 0;
+        this.forwardNum = FIRST_FORWARD_NUM;
     }
 
     public String getName() {
