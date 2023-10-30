@@ -63,7 +63,7 @@ public class Cars {
 
     public void validateNumberOfParticipants(List<Car> cars) {
         if (cars.size() < 2)
-            throw new IllegalArgumentException("참가 인원 부족");
+            throw new IllegalArgumentException("참가 자동차 부족");
     }
 
     public void validateDuplicateName(List<Car> cars) {

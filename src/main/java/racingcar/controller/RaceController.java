@@ -17,7 +17,6 @@ public class RaceController {
 
     private static final OutputView outputView = new OutputView();
     private static final InputView inputView = new InputView();
-    private static final NumberGenerator numberGenerator = new NumberGenerator();
 
     private static final String DELIMITER = ",";
     private static final String NUMERIC_REGX = "\\d";
@@ -36,12 +35,13 @@ public class RaceController {
     // 9. winner 출력하기
 
     public void gameStart() {
-        Cars cars = generateCars();
+        Cars cars = generateCars(getCarsName());
         int tryNumber = getTryNumber();
+        NumberGenerator numberGenerator = new NumberGenerator(cars.getNumberOfPeople());
 
         outputView.printResultStart();
         for (int i = 0; i < tryNumber; i++) {
-            List<Integer> numbers = numberGenerator.createRandomNumbers(cars.getNumberOfPeople());
+            List<Integer> numbers = numberGenerator.createRandomNumbers();
             cars.move(numbers);
             outputView.printResult(cars);
         }
@@ -50,16 +50,19 @@ public class RaceController {
         outputView.printWinner(winner);
     }
 
-    private Cars generateCars() {
-        outputView.printInputCarsName();
-        String stringNames = inputView.inputName();
-        List<String> carsName = Arrays.stream(stringNames.split(DELIMITER)).toList();
+    private Cars generateCars(List<String> carsName) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carsName) {
             Car car = new Car(carName);
             cars.add(car);
         }
         return new Cars(cars);
+    }
+
+    public List<String> getCarsName() {
+        outputView.printInputCarsName();
+        String stringNames = inputView.inputName();
+        return Arrays.stream(stringNames.split(DELIMITER)).toList();
     }
 
     private int getTryNumber() {
@@ -71,13 +74,13 @@ public class RaceController {
         return tryNumber;
     }
 
-    public void validateNumeric(String tryNumber) {
+    private static void validateNumeric(String tryNumber) {
         Matcher matcher = Pattern.compile(NUMERIC_REGX).matcher(tryNumber);
         if(!matcher.matches())
             throw new IllegalArgumentException("숫자가 아님");
     }
 
-    public void validateTryNumberSize(int tryNumber) {
+    private static void validateTryNumberSize(int tryNumber) {
         if (tryNumber < 1)
             throw new IllegalArgumentException("시도 횟수 부족");
     }
