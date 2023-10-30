@@ -45,4 +45,24 @@ public class CarGroupTest {
             assertThat(carGroup.getStatusAsString()).contains("pobi : -", "woni : ");
         }, RANDOM_NUMBER_THRESHOLD, RANDOM_NUMBER_THRESHOLD - 1);
     }
+
+    @Test
+    @DisplayName("우승자가 하나일 때 결과 출력")
+    void winnerOnlyOne() {
+        assertRandomNumberInRangeTest(() -> {
+            CarGroup carGroup = CarGroup.from("pobi,woni");
+            carGroup.moveAllProbabilistically();
+            assertThat(carGroup.getWinnerAsString()).contains("pobi");
+        }, RANDOM_NUMBER_THRESHOLD, RANDOM_NUMBER_THRESHOLD - 1);
+    }
+
+    @Test
+    @DisplayName("우승자가 둘 이상일 때 결과 출력")
+    void winnersMoreThanTwo() {
+        assertRandomNumberInRangeTest(() -> {
+            CarGroup carGroup = CarGroup.from("pobi,woni");
+            carGroup.moveAllProbabilistically();
+            assertThat(carGroup.getWinnerAsString()).contains("pobi", "woni");
+        }, RANDOM_NUMBER_THRESHOLD, RANDOM_NUMBER_THRESHOLD);
+    }
 }
