@@ -13,12 +13,12 @@ public class CarName {
     }
 
     private void validateCarName() {
-        isCarNameNull();
+        isCarNameLength();
         isCommaPresent();
     }
 
-    private void isCarNameNull() {
-        if (name.length() < 5) {
+    private void isCarNameLength() {
+        if (name.length() >= 5) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하로만 입력해주세요.");
         }
     }
