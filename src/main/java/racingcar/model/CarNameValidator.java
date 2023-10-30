@@ -9,6 +9,7 @@ public class CarNameValidator {
     private static final String INPUT_HAS_DUPLICATED_NAME = "입력 값에 중복 값이 존재합니다.";
     private static final String COMMA = ",";
     private static final String SPACE = " ";
+    private static final int ZERO_LENGTH = 0;
     private List<String> carName;
 
     public List<String> validateCarName(String carNames){
@@ -25,5 +26,10 @@ public class CarNameValidator {
 
     private static boolean hasSpace(String carNames){
         return carNames.contains(SPACE);
+    }
+
+    private static boolean hasZeroLength(List<String> carNames){
+        return carNames.stream()
+                .anyMatch(car -> car.length() == ZERO_LENGTH);
     }
 }
