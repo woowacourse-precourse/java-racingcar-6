@@ -34,12 +34,11 @@ public class RacingCarController {
 
         // 경주 시작
         carService.runRacing();
-//
+        outputView.printResult(carService.carList());
 //        // 우승자 결정
 //        List<Car> winners = winnerService.getWinners(racingCars.getCars());
-//
+
 //        // 결과 출력
-//        outputView.printCars(racingCars.getCars());
 //        outputView.printWinners(winners);
     }
 }

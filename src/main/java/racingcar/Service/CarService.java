@@ -31,4 +31,8 @@ public class CarService {
                 .collect(Collectors.toList());
     }
 
+    public List<Car> carList(){
+        return racingCars.getCars();
+    }
+
 }

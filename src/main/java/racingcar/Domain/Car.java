@@ -29,9 +29,4 @@ public class Car {
             position++;
         }
     }
-
-//    @Override
-//    public String toString() {
-//        return name + " : " + "-".repeat(position);
-//    }
 }
