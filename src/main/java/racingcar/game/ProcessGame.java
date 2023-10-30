@@ -6,7 +6,7 @@ import racingcar.car.CarInfo;
 
 import java.util.List;
 
-public class processGame {
+public class ProcessGame {
     private static int randomNumber(){
         return Randoms.pickNumberInRange(Constant.MIN_VALUE,Constant.MAX_VALUE);
     }
