@@ -26,6 +26,7 @@ public class CarService {
         if (carName.length() <= CAR_NAME_LIMIT_SIZE) {
             return carName;
         }
+
         return null;
     }
 
@@ -37,13 +38,10 @@ public class CarService {
             }
             CarObject.name.add(carNameSizeJudgment(name));
         }
+        CarObject.size = CarObject.name.size();
     }
 
     public void insertCarDistance() {
-        if (!CarObject.distance.isEmpty()) {
-            CarObject.distance.clear();
-        }
-
         for (int i = 0; i < CarObject.size; i++) {
             setCarOnceMoveDistance();
             CarObject.distance.add(carOnceMove);
@@ -56,6 +54,14 @@ public class CarService {
         insertCarName(this.name);
         insertCarDistance();
         CarInstance.addComponent();
+    }
+
+    public void carDistanceUpdate() {
+        CarObject CarInstance = CarObject.getInstance();
+
+        CarInstance.distance.clear();
+        insertCarDistance();
+        CarInstance.updateDistance();
     }
 
     private static class SingleInstanceHolder {

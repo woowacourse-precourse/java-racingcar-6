@@ -14,11 +14,12 @@ public class progressView {
         for(int i = 0; i < distanceSize; i++) {
             System.out.print("-");
         }
+        System.out.println();
     }
 
     public void printProgress() {
         for(int i = 0; i < carOut.getSize(); i++) {
-            System.out.println(
+            System.out.print(
                     carOut.getInstance().getComponentIndexOf(i).getName() + " : " );
             printDistance(carOut.getInstance().getComponentIndexOf(i).getDistance());
         }
@@ -28,8 +29,8 @@ public class progressView {
     public void printAllProgress() {
         for(int i = 0; i < carOut.getEpoch(); i++) {
             printProgress();
-            carOut.getService().insertCarDistance();
-            carOut.getInstance().updateDistance();
+            carOut.getService().carDistanceUpdate();
+            System.out.println();
         }
     }
 
@@ -45,9 +46,11 @@ public class progressView {
         carIn.inputEpoch();
     }
 
-    public void print() {
+    public void process() {
         inputCarString();
         inputCarEpoch();
+
+        carOut.getService().carAction();
         printAllProgress();
     }
 

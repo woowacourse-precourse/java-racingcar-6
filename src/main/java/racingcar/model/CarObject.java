@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class CarObject {
     public static int size = 0;
-    public static ArrayList<Integer> distance;
-    public static ArrayList<String> name;
-    private ArrayList<CarComponent> cars;
+    public static ArrayList<Integer> distance = new ArrayList<>();
+    public static ArrayList<String> name = new ArrayList<>();
+    private ArrayList<CarComponent> cars = new ArrayList<>();
 
     private CarObject() {}
 
