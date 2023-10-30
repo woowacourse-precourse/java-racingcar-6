@@ -20,14 +20,14 @@ public class RacingController {
     }
     private void inputNames() {
         OutputView.printCarName();
-        List<String> carList = Arrays.asList(InputView.readLine().split(","));
+        List<String> carList = Arrays.asList(InputView.read().split(","));
 
         this.cars = new Cars(carList);
     }
 
     private void inputRepeatNumber() {
         OutputView.printRepeatNumber();
-        repeatNumber = Integer.parseInt(InputView.readLine());
+        repeatNumber = Integer.parseInt(InputView.read());
         ExceptionCheck.iterateNumberValidation(repeatNumber);
     }
 

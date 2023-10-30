@@ -4,7 +4,7 @@ package racingcar.model;
 public class CarModel {
 
     private static final int FORWARD_NUMBER = 4;
-    private static final int MIN_NAME_LENGTH = 5;
+    private static final int MAX_NAME_LENGTH = 5;
     private final String name;
     private int location;
 
@@ -29,8 +29,7 @@ public class CarModel {
     }
 
     private void nameLengthValidation(String carName) {
-        if (!(carName.length() <= MIN_NAME_LENGTH)) {
-            System.out.println("자동차 이름은 5 자 초과할 수 없습니다.");
+        if (carName.length() >= MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
