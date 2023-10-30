@@ -1,4 +1,4 @@
-package racingcar.exception;
+package racingcar.exception.business;
 
 import java.util.HashSet;
 import java.util.List;

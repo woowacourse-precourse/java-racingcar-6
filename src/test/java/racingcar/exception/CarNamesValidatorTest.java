@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.business.CarNamesValidator;
 import racingcar.vo.CarName;
 
 class CarNamesValidatorTest {

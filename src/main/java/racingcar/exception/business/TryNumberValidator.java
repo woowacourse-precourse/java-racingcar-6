@@ -1,16 +1,17 @@
-package racingcar.exception;
+package racingcar.exception.business;
 
 public class TryNumberValidator {
 
     private static final Integer MIN_TRY_NUMBER = 1;
-    private static final String SMALLER_THAN_MIN_NUMBER_MESSAGE = " 이상의 정수값만 입력할 수 있습니다.";
+    private static final String SMALLER_THAN_MIN_NUMBER_MESSAGE = "%s 이상의 정수값만 입력할 수 있습니다.";
 
     private TryNumberValidator() {
     }
 
     public static void validateTryNumber(Integer number) {
         if (isLessThanMinTryNumber(number)) {
-            throw new IllegalArgumentException(MIN_TRY_NUMBER + SMALLER_THAN_MIN_NUMBER_MESSAGE);
+            String errorMessage = String.format(SMALLER_THAN_MIN_NUMBER_MESSAGE, MIN_TRY_NUMBER);
+            throw new IllegalArgumentException(errorMessage);
         }
     }
 
