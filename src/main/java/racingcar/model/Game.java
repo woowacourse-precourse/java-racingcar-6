@@ -2,18 +2,15 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Game {
-    private GameScore gameScore;
-    private List<RacingCar> racingCars;
+    private final GameScore gameScore;
+    private final List<RacingCar> racingCars;
 
     public Game(List<String> cars) {
         this.racingCars = initRacingCars(cars);
-        this.gameScore = new GameScore(initScore(racingCars));
+        this.gameScore = initScore(racingCars);
     }
 
 
@@ -23,13 +20,18 @@ public class Game {
                 .toList();
     }
 
-    private Map<RacingCar, String> initScore(List<RacingCar> racingCars) {
-        Map<RacingCar, String> gameScore = new HashMap<>();
+    private GameScore initScore(List<RacingCar> racingCars) {
+        Map<RacingCar, String> gameScore = new LinkedHashMap<>();
         for (RacingCar racingCar : racingCars) {
             gameScore.put(racingCar, CarStatus.STOP.getOutput());
         }
-        return gameScore;
+        return new GameScore(gameScore);
     }
 
-
+    public GameScore playOnce(){
+        for (RacingCar racingCar : racingCars) {
+            gameScore.update(racingCar, () -> Randoms.pickNumberInRange(0, 9));
+        }
+        return gameScore;
+    }
 }
