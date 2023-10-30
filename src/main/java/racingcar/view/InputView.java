@@ -16,9 +16,9 @@ public class InputView {
         return new Cars(Arrays.stream(input.split(",")).map(Car::new).toList());
     }
 
-    public AttemptCount readAttemptCount() {
+    public int readAttemptCount() {
         String input = Console.readLine();
         inputValidator.validateIsDigit(input);
-        return new AttemptCount(Integer.parseInt(input));
+        return Integer.parseInt(input);
     }
 }
