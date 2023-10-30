@@ -6,6 +6,7 @@ import racingcar.util.StringUtil;
 
 import java.io.InputStream;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 import static racingcar.domain.Cars.Car;
 
@@ -66,5 +67,22 @@ public class RaceService {
         System.out.println();
     }
 
+    public String showWinners(Cars cars) {
+        StringJoiner joiner = new StringJoiner(", ");
+        int winnerDistance = 0;
+        for (Car car : cars.getCars()) {
+            if (car.getDistance() > winnerDistance) {
+                joiner = new StringJoiner(", ");
+                joiner.add(car.getName());
+                winnerDistance = car.getDistance();
+            } else if (car.getDistance() == winnerDistance) {
+                joiner.add(car.getName());
+            }
+        }
+
+        System.out.println(String.format("최종 우승자 : %s", joiner));
+
+        return joiner.toString();
+    }
 
 }
