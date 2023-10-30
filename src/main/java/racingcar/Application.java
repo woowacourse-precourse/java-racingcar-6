@@ -5,7 +5,7 @@ import racingcar.enums.GameStatus;
 
 public class Application {
     public static void main(String[] args) {
-        RacingGame racingGame = new RacingGame(GameStatus.PLAYING);
+        RacingGame racingGame = new RacingGame(GameStatus.READY);
         String inputString = Console.readLine();
         if (!isValidMoveCount(inputString)) {
             racingGame.setStatus(GameStatus.INVALID_USER_INPUT);
