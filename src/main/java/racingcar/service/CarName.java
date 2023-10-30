@@ -6,20 +6,17 @@ import java.util.List;
 
 public class CarName {
 
-    public String inputCar = new String();
     public List<String> splitCarList = new ArrayList<>();
     public List<String> rangeCarList = new ArrayList<>();
 
-    public String input() {
-        String inputCar = Console.readLine();
-        return inputCar;
-    }
 
     public List<String> split() {
+        String inputCar = Console.readLine();
         String[] splitCars = inputCar.split(",");
-        for(String car : splitCars){
+        for (String car : splitCars) {
             splitCarList.add(car);
         }
+        System.out.println(splitCarList);
         return splitCarList;
     }
 
@@ -30,6 +27,7 @@ public class CarName {
                 rangeCarList.add(range);
             }
         }
+        System.out.println(rangeCarList);
         return rangeCarList;
     }
 }
