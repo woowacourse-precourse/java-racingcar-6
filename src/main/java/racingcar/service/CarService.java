@@ -1,7 +1,7 @@
-package service;
+package racingcar.service;
 
-import domain.Car;
-import exception.RacingCarException;
+import racingcar.domain.Car;
+import racingcar.exception.RacingCarException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +10,9 @@ import java.util.List;
 public class CarService {
     public static RacingCarException racingCarException = new RacingCarException();
     public List<String> stringToList(String carName) {
-        List<String> carNames = Arrays.asList(carName.split(","));
+        List<String> carNames = Arrays.stream(carName.split(","))
+                        .map(String::trim)
+                        .toList();
         racingCarException.validateDuplicateName(carNames);
         for(String car : carNames) {
             racingCarException.validateCarNameLength(car);
@@ -18,7 +20,6 @@ public class CarService {
         }
         return carNames;
     }
-
     public List<Car> initRacingCars(List<String>carNames) {
         List<Car> racingCars = new ArrayList<>();
         for(int i=0; i<carNames.size(); i++) {

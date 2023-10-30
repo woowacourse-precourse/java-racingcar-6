@@ -1,5 +1,5 @@
-package service;
-import domain.Car;
+package racingcar.service;
+import racingcar.domain.Car;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
-package view;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import exception.RacingCarException;
+import racingcar.exception.RacingCarException;
 
 public class InputView {
 

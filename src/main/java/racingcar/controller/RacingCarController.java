@@ -1,10 +1,10 @@
-package controller;
+package racingcar.controller;
 
-import domain.Car;
-import service.CarService;
-import service.RacingCarService;
-import view.InputView;
-import view.OutputView;
+import racingcar.domain.Car;
+import racingcar.service.CarService;
+import racingcar.service.RacingCarService;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
