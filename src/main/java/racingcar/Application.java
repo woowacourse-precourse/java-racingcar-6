@@ -162,6 +162,18 @@ public class Application {
         return winner;
     }
 
+    private static void printWinner(List<Car> cars) {
+        List<String> winner = findWinner(cars);
+        System.out.print("최종 우승자 : ");
+        System.out.print(winner.get(0));
+        if (winner.size() != 1) {
+            for (int i = 1; i < winner.size(); i++) {
+                System.out.print(", " + winner.get(i));
+            }
+        }
+
+    }
+
     private static void playGame() {
         printInputCarNames();
         List<Car> cars = makeCars(saveCarNames(getCarNames()));
@@ -173,6 +185,7 @@ public class Application {
             attemptOneRound(cars);
             printOneRoundResult(cars);
         }
+        printWinner(cars);
 
     }
 
