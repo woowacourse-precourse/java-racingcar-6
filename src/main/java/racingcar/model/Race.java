@@ -1,13 +1,9 @@
 package racingcar.model;
 
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 public class Race {
 
-    private Cars cars;
-    private GameCount gameCount;
+    private final Cars cars;
+    private final GameCount gameCount;
 
     private Race(Cars cars, GameCount gameCount) {
         this.cars = cars;
@@ -16,5 +12,21 @@ public class Race {
 
     public static Race of(Cars cars, GameCount gameCount) {
         return new Race(cars, gameCount);
+    }
+
+    public void start() {
+        while (!gameCount.isGameOver()) {
+            gameCount.run();
+            cars.run();
+            printProcess();
+        }
+    }
+
+    private void printProcess() {
+        
+    }
+
+    public void printResult() {
+
     }
 }

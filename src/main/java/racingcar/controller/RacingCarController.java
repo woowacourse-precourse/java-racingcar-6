@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.Arrays;
 import java.util.List;
+
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.GameCount;
@@ -23,6 +24,8 @@ public class RacingCarController {
     public void start() {
         Cars cars = createCarsFromCarNames(inputView.askCarNames());
         GameCount gameCount = GameCount.from(inputView.askGameCount());
+        race = Race.of(cars, gameCount);
+        race.start();
     }
 
     private Cars createCarsFromCarNames(String[] input) {
