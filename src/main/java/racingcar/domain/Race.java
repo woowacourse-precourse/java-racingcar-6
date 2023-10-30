@@ -9,11 +9,8 @@ public class Race {
     private final List<Car> cars;
     private final int moveCount;
 
-    public Race(List<String> carNames, int moveCount) {
-        cars = new ArrayList<>();
-        for (String Name : carNames) {
-            cars.add(new Car(Name));
-        }
+    public Race(List<Car> cars, int moveCount) {
+        this.cars = cars;
         this.moveCount = moveCount;
     }
 

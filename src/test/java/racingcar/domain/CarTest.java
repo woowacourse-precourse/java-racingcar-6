@@ -9,19 +9,19 @@ class CarTest {
 
     @ParameterizedTest
     @CsvSource({"pobi", "woni", "jun"})
-    void 자동차에_이름_부여(String result) {
-        Car car = new Car(result);
+    void 자동차에_이름_부여(String expected) {
+        Car car = new Car(expected);
 
-        assertThat(result).isEqualTo(car.getName());
+        assertThat(car.getName()).isEqualTo(expected);
     }
 
     @ParameterizedTest
     @CsvSource({"3,0", "4,1"})
-    void 숫자가_4이상이면_자동차를_전진(int number, int result) {
+    void 숫자가_4이상이면_자동차를_전진(int number, int expected) {
         Car car = new Car("pobi");
 
         car.moveForward(number);
 
-        assertThat(result).isEqualTo(car.getMileage());
+        assertThat(car.getMileage()).isEqualTo(expected);
     }
 }
