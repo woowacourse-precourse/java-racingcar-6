@@ -1,7 +1,10 @@
 package racingcar.util;
 
 
+import static racingcar.constant.Delimeter.COMMA;
+
 import java.util.List;
+import racingcar.constant.Delimeter;
 
 public class Validator {
 
@@ -9,8 +12,6 @@ public class Validator {
 
     private static final String INPUT_GAME_COUNT_EXCEPTION = "게임 횟수는 숫자가 와야 합니다!";
     private static final String LENGTH_EXCEPTION = "자동차 이름의 길이는 5이하이여야 합니다.";
-
-    private static final char INPUT_DELIMETER = ','; // 이후에 constant 분리하기! 여러 곳에서 사용!
 
     private static final int CAR_NAME_LENGTH = 5;
 
@@ -64,10 +65,14 @@ public class Validator {
     }
 
     private void checkRightCommaContains(String carInput, List<String> carNames) {
-        long commaCount = carInput.chars().filter(c -> c == INPUT_DELIMETER).count();
-        if (isRightCommaCount(carNames, commaCount)) {
+
+        if (isRightCommaCount(carNames, countComma(carInput))) {
             throw new IllegalArgumentException(INPUT_NOT_FORMAT);
         }
+    }
+
+    private int countComma(String carInput) {
+        return (int) carInput.chars().filter(c -> c == Delimeter.COMMA.getDelimeter().charAt(0)).count();
     }
 
     private boolean isRightCommaCount(List<String> carNames, long count) {

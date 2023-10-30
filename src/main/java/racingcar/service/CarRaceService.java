@@ -1,15 +1,16 @@
 package racingcar.service;
 
+import static racingcar.constant.Delimeter.COMMA;
+
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.util.Validator;
 
 public class CarRaceService {
 
-    private static final String INPUT_DELIMETER = ",";
 
     private final RaceService raceService = new RaceService();
-    private Validator validator = new Validator();
+    private final Validator validator = new Validator();
 
 
 
@@ -20,7 +21,7 @@ public class CarRaceService {
     }
 
     public List<String> extractSeperator(String carInput) {
-        List<String> carNames = List.of(carInput.split(INPUT_DELIMETER));
+        List<String> carNames = List.of(carInput.split(COMMA.getDelimeter()));
         validator.isRightInputFormat(carInput,carNames);
         validator.isRightCarNameInput(carNames);
         return carNames;
