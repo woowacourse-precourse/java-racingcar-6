@@ -29,4 +29,23 @@ public class Application {
         System.out.println(prompt);
         return Console.readLine();
     }
+
+
+    private String[] validateCarNames(String inputNames) {
+        String[] carNames = inputNames.split(",");
+        Set<String> uniqueCarNames = new HashSet<>();
+
+        for (String name : carNames) {
+            String trimmedName = name.trim();
+            validateCarNameLength(trimmedName);
+            uniqueCarNames.add(trimmedName);
+        }
+
+        if (uniqueCarNames.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름을 입력하세요.");
+        }
+
+        return uniqueCarNames.toArray(new String[0]);
+    }
+
 }
