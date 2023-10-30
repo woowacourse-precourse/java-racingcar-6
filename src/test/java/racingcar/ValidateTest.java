@@ -12,4 +12,11 @@ public class ValidateTest {
         Assertions.assertThatThrownBy(() -> InputValidator.validateRacingCarNames(racingCarNames))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void uniqueRacingCarNames() {
+        String[] racingCarNames = {"john,grace,john"};
+        Assertions.assertThatThrownBy(() -> InputValidator.validateRacingCarNames(racingCarNames))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
