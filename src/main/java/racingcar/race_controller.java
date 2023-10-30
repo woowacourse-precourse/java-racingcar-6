@@ -17,9 +17,18 @@ public class race_controller {
 
         List<String> carNames = inputRacingInformation.InputCarNames();
         total_round = inputRacingInformation.round_number();
+        cars = createCars(carNames);
         storage = new int[cars.size()];
         carGoCountMap = Car_Go_Count_Map(cars, storage);
-        cars = createCars(carNames);
+    }
+
+    public void game() {
+        OutputView.printresultMessage();
+        int round = 0;
+        while(isEnd(round)){
+            runGame();
+            round++;
+        }
     }
 
     public Cars createCars(List<String> carNames) {
@@ -31,6 +40,15 @@ public class race_controller {
         return new Cars(cars);
     }
 
+    public void runGame() {
+        for (Entry<Car, Integer> carGoCountEntry : carGoCountMap.entrySet()) {
+            int newPosition = process(carGoCountEntry.getValue());
+            carGoCountEntry.setValue(newPosition);
+            OutputView.printCarPosition(carGoCountEntry.getKey(), carGoCountEntry.getValue());
+        }
+        System.out.println();
+    }
+
     public Cars_preparation Car_Go_Count_Map(Cars cars, int[] storage) {
         Map<Car, Integer> cars_go_count_map = new LinkedHashMap<>();
         for (int i = 0; i < cars.size(); i++) {
@@ -38,5 +56,27 @@ public class race_controller {
             cars_go_count_map.put(car, storage[i]);
         }
         return new Cars_preparation(cars_go_count_map);
+    }
+
+    public int process(int position){
+        if(isGo()){
+            position++;
+        }
+        return position;
+    }
+
+    public boolean isGo() {
+        int go_number = Randoms.pickNumberInRange(0, 9);
+        if (go_number >= 4) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isEnd(int round){
+        if(total_round == round){
+            return false;
+        }
+        return true;
     }
 }
