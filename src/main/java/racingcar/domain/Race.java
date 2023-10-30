@@ -10,7 +10,7 @@ import java.util.List;
 public class Race {
     private int moveCount;
     private List<Car> carList;
-    private List<Car> winnerList;
+    private List<String> winnerList;
 
     private static String GET_CAR_NAME_STRING = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static String GET_MOVE_COUNT_STRING = "시도할 회수는 몇회인가요?";
@@ -44,16 +44,16 @@ public class Race {
 
     private void checkWinner() {
         int maxPosition = 0;
-        winnerList = new ArrayList<Car>();
+        winnerList = new ArrayList<String>();
 
         for(Car car : carList) {
             if (car.getPostion() == maxPosition) {
-                winnerList.add(car);
+                winnerList.add(car.getName());
             } else if(car.getPostion() > maxPosition) {
                 maxPosition = car.getPostion();
 
                 winnerList.clear();
-                winnerList.add(car);
+                winnerList.add(car.getName());
             }
         }
 
