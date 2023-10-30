@@ -44,6 +44,10 @@ public class ConsoleInput {
         return inputNumber;
     }
 
+    public static int inputProgress() {
+        return camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
+    }
+
     private static List<String> convertStringToCarNameList(String inputString) {
         String[] split = inputString.split(",");
 
