@@ -26,4 +26,19 @@ class CarResultTest {
         Assertions.assertThat("woni").contains(maxPlayer);
     }
 
+    @Test
+    @DisplayName("가장 많이 전진한 플레이어가 2명 이상일 때 올바르게 작동하는지 테스트")
+    public void multipleMovedPlayers(){
+        List<Car> cars = Arrays.asList(
+                new Car("pobi", "-"),
+                new Car("woni", "--"),
+                new Car("jun", "--")
+        );
+        CarResult result = new CarResult(cars);
+        List<String> maxPlayer = result.getMaxPlayer();
+        Assertions.assertThat(2).isEqualTo(maxPlayer.size());
+    }
+
+
+
 }
