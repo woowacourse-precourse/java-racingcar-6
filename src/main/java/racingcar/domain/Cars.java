@@ -20,6 +20,10 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
+    public void moveAllCars() {
+        cars.forEach(car -> car.moveForward(RandomNumber.generateRandomNumber()));
+    }
+
     public void validate(List<String> carNames) {
         validateCarNamesSize(carNames);
         validateDuplicatedCarNames(carNames);
