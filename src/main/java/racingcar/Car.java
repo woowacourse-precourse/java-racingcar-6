@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class Car {
     private static final String DISTANCE_ICON = "-";
+    private static final int NAME_LENGTH_LIMIT = 5;
+    private static final int MOVING_FORWARD_VALUE = 4;
     private final String name;
     private int distance;
 
@@ -20,13 +22,13 @@ public class Car {
     }
 
     private void validateLengthLimit(String name) {
-        if (name.length() > 5) {
+        if (name.length() > NAME_LENGTH_LIMIT) {
             throw new IllegalArgumentException("자동차 이름은 5글자를 초과할 수 없습니다.");
         }
     }
 
     public void go(RandomNumber randomNumber) {
-        if (randomNumber.getNumber() >= 4) {
+        if (randomNumber.getNumber() >= MOVING_FORWARD_VALUE) {
             distance++;
         }
     }
