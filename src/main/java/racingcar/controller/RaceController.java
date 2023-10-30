@@ -15,6 +15,7 @@ public class RaceController {
     }
 
     public void startRace() {
+        // 유효성 검증
         String carName = UserInputValue.inputCarName();
         String[] carNames = carNameValidator.changeArrayType(carName);
         carNameValidator.checkNameValidation(carNames);
@@ -22,6 +23,7 @@ public class RaceController {
         int countNum = Integer.parseInt(count);
         movingCountValidator.checkMovementCount(count);
 
+        // 경주 시작
         System.out.println();
         System.out.println("실행 결과");
 

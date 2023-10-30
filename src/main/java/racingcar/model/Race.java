@@ -17,7 +17,22 @@ public class Race {
         for (int i = 0; i < cars.length; i++) {
             System.out.print(cars[i].printMovement() + "\n");
         }
+//        System.out.println();
+//        System.out.println(rankFirst());
         System.out.println();
     }
 
+    // 일단 여기다 작성하고 RankResult 클래스로 분할할 방법 없나... 흠...
+    public int rankFirst() {
+        int max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < cars.length; i++){
+            int rank = cars[i].getCarRank();
+            if (rank > max) {
+                max = rank;
+            }
+        }
+
+        return max;
+    }
 }
