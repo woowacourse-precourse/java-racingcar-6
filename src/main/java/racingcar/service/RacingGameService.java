@@ -11,8 +11,8 @@ import java.util.List;
 public class RacingGameService {
     private RacingGameRepository racingGameRepository;
 
-    public RacingGameService() {
-        this.racingGameRepository = new RacingGameRepository();
+    public RacingGameService(RacingGameRepository racingGameRepository) {
+        this.racingGameRepository = racingGameRepository;
     }
 
     public boolean isMove() {

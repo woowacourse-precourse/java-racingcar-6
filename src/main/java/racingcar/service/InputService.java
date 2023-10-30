@@ -13,8 +13,8 @@ public class InputService {
     private RacingGameRepository racingGameRepository;
     private InputValidatorUtils inputValidatorUtils;
 
-    public InputService() {
-        this.racingGameRepository = new RacingGameRepository();
+    public InputService(RacingGameRepository racingGameRepository) {
+        this.racingGameRepository = racingGameRepository;
         this.inputValidatorUtils = new InputValidatorUtils();
     }
 
