@@ -42,7 +42,7 @@ public class Car {
         return distance == car.distance;
     }
 
-    public static List<Car> parseCars(String string) {
+    public static List<Car> parseCars(String string) throws IllegalArgumentException{
         String[] carNames = string.split(",");
         ArrayList<Car> list = new ArrayList<>();
 

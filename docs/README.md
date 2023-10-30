@@ -26,9 +26,9 @@
       - 자동차의 이름은 5자 이하이다.
 
 ### `class` Controller
-  - [ ] (static) inputName
+  - [x] (static) inputNames
 
-    - 사용자로부터 자동차 이름을 입력받습니다.
+    - 사용자로부터 자동차 이름들을 입력받습니다.
 
   - [ ] (static) inputCount
 
