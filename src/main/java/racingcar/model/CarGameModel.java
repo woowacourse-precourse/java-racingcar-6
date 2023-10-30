@@ -3,8 +3,8 @@ package racingcar.model;
 import java.util.List;
 
 public class CarGameModel {
-    private CarPlayerListModel players;
-    private int tryCount;
+    private final CarPlayerListModel players;
+    private final int tryCount;
 
     public CarGameModel(List<CarPlayerModel> players, int tryCount){
         this.players = new CarPlayerListModel(players);
