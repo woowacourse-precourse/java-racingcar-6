@@ -6,6 +6,7 @@ public class IllegalCheck {
 
     static final int INPUT_RANGE_MIN = 0;
     static final int INPUT_RANGE_MAX = Integer.MIN_VALUE;
+    static final int STRING_MAX_LENGTH = 5;
     private String inputLine;
     private ConvertType type;
     private boolean flag = false;
@@ -16,7 +17,7 @@ public class IllegalCheck {
 
         characterCheck();
 
-        if(isSuccess()){
+        if (isSuccess()) {
             return Optional.ofNullable(inputLine);
         }
 
@@ -31,7 +32,11 @@ public class IllegalCheck {
                 .allMatch(Character::isDigit);
     }
 
-    private boolean isSuccess(){
+    public boolean stringLengthOverCheck(String splittedName) {
+        return splittedName.length() >= STRING_MAX_LENGTH;
+    }
+
+    private boolean isSuccess() {
         return flag;
     }
 }

@@ -10,10 +10,10 @@ public class CarField {
     private int round;
 
     public void run(){
+        OutputView.printInitCars();
+        stringConverter.stringToCarNames(",");
         OutputView.printRoundSet();
         round = stringConverter.stringToInteger();
-
-        System.out.println(round + "회");
     }
 
 
