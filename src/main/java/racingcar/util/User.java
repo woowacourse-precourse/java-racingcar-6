@@ -8,23 +8,28 @@ import java.util.List;
 public class User {
     public List<String> inputCar() {
         String input = Console.readLine();
-        List<String> carName = Arrays.asList(input.split(","));
-        checkInputCar(carName);
-        return carName;
+        List<String> carNames = Arrays.asList(input.split(","));
+        checkInputCar(carNames);
+        checkDuplicateName(carNames);
+        return carNames;
     }
 
-    public void checkInputCar(List<String> carName){
-        HashSet<String> DuplicateName = new HashSet<>();
-        DuplicateName.addAll(carName);
-        if(carName.size() != DuplicateName.size()){
-            throw new IllegalArgumentException();
-        }
-        for(int i = 0; i < carName.size(); i++){
-            if(carName.get(i).length() > 5){
+    public void checkInputCar(List<String> carNames){
+        for(String carName : carNames){
+            if(carName.length() > 5 || carName.length() < 1){
                 throw new IllegalArgumentException();
             }
         }
     }
+
+    public void checkDuplicateName(List<String> carNames){
+        HashSet<String> duplicateName = new HashSet<>();
+        duplicateName.addAll(carNames);
+        if(carNames.size() != duplicateName.size()){
+            throw new IllegalArgumentException();
+        }
+    }
+
 
     public int inputTryNumber(){
         String input = Console.readLine();
