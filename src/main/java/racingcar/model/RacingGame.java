@@ -14,11 +14,11 @@ public class RacingGame {
 
     public void startGame() {
         OutputView.askCarName();
-        this.playerName = Controller.splitName(OutputView.readCarName());
+        this.playerName = Controller.splitName(OutputView.readInput());
         Validator.isRightName(playerName);
         setStartPoint();
         OutputView.askCount();
-        this.count = Controller.readCount();
+        this.count = Controller.readCount(OutputView.readInput());
         OutputView.startRace();
         for (int i = 0; i < this.count; i++) {
             moveForward();

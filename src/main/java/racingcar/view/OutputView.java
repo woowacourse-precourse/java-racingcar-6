@@ -51,7 +51,7 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public static String readCarName() {
+    public static String readInput() {
         return Console.readLine();
     }
 }
