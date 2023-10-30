@@ -3,13 +3,14 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.car.Car;
 import racingcar.car.CarFactory;
 
-public class CarTest {
+public class CarTest extends NsTest {
     @Test
     void 차_생성_테스트() {
         String testCarName = "찬";
@@ -46,5 +47,10 @@ public class CarTest {
 
         assertThatThrownBy(() -> CarFactory.createCar(testCarName))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Override
+    protected void runMain() {
+        Application.main(new String[]{});
     }
 }
