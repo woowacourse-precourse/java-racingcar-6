@@ -26,7 +26,6 @@ public class Cars {
         return maxPosition;
     }
 
-
     private List<String> findTiedWinners(Car winner) {
         List<String> tiedWinners = new ArrayList<>();
         for (Car car : cars) {
@@ -37,12 +36,11 @@ public class Cars {
         return tiedWinners;
     }
 
-
-    public void moveCars() {
+    public void moveCars(){
         RandomNumbersGenerator.randomNumberGenerator(cars);
     }
 
-    public List<Car> getCars() {
+    public List<Car> getCars(){
         return cars;
     }
 }
