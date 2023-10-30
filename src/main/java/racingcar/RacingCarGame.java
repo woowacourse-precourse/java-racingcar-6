@@ -12,13 +12,25 @@ public class RacingCarGame {
         List<RacingCar> racingCars = InputManager.get_input_car_names();
         int play_num = InputManager.get_input_play_num();
 
+        System.out.println("실행 결과");
+
         for(int i=0;i<play_num;i++){
             move(racingCars);
+            printCarsCount(racingCars);
+            System.out.println();
+        }
+    }
+
+    private void printCarsCount(List<RacingCar> racingCars) {
+        for(int i=0;i<racingCars.size();i++){
+            racingCars.get(i).printNowCount();
         }
     }
 
     public void move(List<RacingCar> cars){
-
+        for(int i=0;i<cars.size();i++){
+            cars.get(i).move();
+        }
     }
 
 }
