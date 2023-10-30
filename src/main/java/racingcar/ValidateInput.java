@@ -6,8 +6,12 @@ public class ValidateInput {
     private final static int MAX_NAME_LENGTH = 5;
 
 
-    public static void isRightInput(String input) throws IllegalStateException {
-        if ( input.isBlank()) {
+    public static void isNotNullOrEmpty(String input) throws IllegalStateException {
+        if (input == null) {
+            throw new IllegalStateException();
+        }
+
+        if (input.isBlank()) {
             throw new IllegalStateException();
         }
     }
