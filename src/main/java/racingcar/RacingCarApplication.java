@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCarApplication {
 
@@ -37,5 +38,17 @@ public class RacingCarApplication {
             });
             System.out.println();
         }
+
+        cars.sort(Car::compareTo);
+
+        Car firstPrizeCar = cars.get(0);
+
+        String result = cars.stream()
+                .filter(car -> car.equalsPosition(firstPrizeCar))
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+
+
+        System.out.println("최종 우승자 : " + result);
     }
 }

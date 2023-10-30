@@ -16,10 +16,21 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int compareTo(Car o) {
-        return this.position - o.position;
+        return o.position - this.position;
+    }
+
+    public boolean equalsPosition(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return position == car.position;
     }
 
     public String getStatusMessage() {
         return name + " : " + "-".repeat(position);
+    }
+
+    public String getName() {
+        return name;
     }
 }
