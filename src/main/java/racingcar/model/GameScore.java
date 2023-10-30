@@ -1,25 +1,21 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class GameScore {
+    private final static String DELIMITER =  " : ";
     private final Map<RacingCar, String> participants;
 
     public GameScore(Map<RacingCar, String> participants) {
         this.participants = participants;
     }
 
-    public Map<RacingCar, String> progressRound() {
-        for (RacingCar racingCar : participants.keySet()) {
-            participants.replace(racingCar, participants.get(racingCar)
-                    + racingCar.apply((Randoms.pickNumberInRange(0, 9))).getOutput());
-        }
-        return Collections.unmodifiableMap(participants);
+    public void update(RacingCar racingCar, Supplier<Integer> supplier) {
+        participants.replace(racingCar, participants.get(racingCar)
+                + racingCar.apply(supplier.get()).getOutput());
     }
 
     public List<RacingCar> getWinner() {
@@ -32,6 +28,16 @@ public class GameScore {
                 .filter(entry -> winnerScore.length() == entry.getValue().length())
                 .map(Map.Entry::getKey)
                 .toList();
+    }
+
+    @Override
+    public String toString() {
+        String gameScore = new String();
+        for(Map.Entry<RacingCar, String> entry :participants.entrySet()){
+            gameScore += entry.getKey() + DELIMITER + entry.getValue();
+            gameScore += System.lineSeparator();
+        }
+        return gameScore;
     }
 
 

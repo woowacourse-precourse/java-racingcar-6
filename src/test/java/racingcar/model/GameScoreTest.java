@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,10 +10,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,7 +21,7 @@ class GameScoreTest {
 
     @BeforeEach
     void setUp() {
-        participants = new HashMap() {{
+        participants = new LinkedHashMap<>() {{
             put(new RacingCar("pobi"), CarStatus.STOP.getOutput());
             put(new RacingCar("woni"), CarStatus.STOP.getOutput());
             put(new RacingCar("jun"), CarStatus.STOP.getOutput());
@@ -31,17 +29,13 @@ class GameScoreTest {
     }
 
 
-    @DisplayName("자동차 경주 게임의 현황을 알 수 있다")
+    @DisplayName("자동차 경주 게임의 자동차별 점수를 최신화 할 수 있다.")
     @ParameterizedTest
-    @ValueSource(strings = {"pobi", "woni", "jun"})
-    void progressRound(String name) {
+    @MethodSource("updatedData")
+    void update(RacingCar racingCar, String output) {
         GameScore gameScore = new GameScore(participants);
-        Map<RacingCar, String> result = gameScore.progressRound();
-        RacingCar racingCar = new RacingCar(name);
-        Assertions.assertAll(
-                () -> assertThat(result.containsKey(racingCar)).isTrue(),
-                () -> assertThat(result.get(racingCar)).isEqualTo(participants.get(racingCar))
-        );
+        gameScore.update(racingCar, () -> Randoms.pickNumberInRange(4, 9));
+        assertThat(gameScore.toString()).isEqualTo(output);
     }
 
     @DisplayName("우승자가 한명인 경우 누가 우승했는지 알 수 있다.")
@@ -78,6 +72,14 @@ class GameScoreTest {
             participants.put(winner, score);
         }
         return new GameScore(participants);
+    }
+
+    static Stream<Arguments> updatedData() {
+        return Stream.of(
+                arguments(new RacingCar("pobi"), "pobi : -\n" + "woni : \n" + "jun : \n"),
+                arguments(new RacingCar("woni"), "pobi : \n" + "woni : -\n" + "jun : \n"),
+                arguments(new RacingCar("jun"), "pobi : \n" + "woni : \n" + "jun : -\n")
+        );
     }
 
     static Stream<Arguments> winnerData() {
