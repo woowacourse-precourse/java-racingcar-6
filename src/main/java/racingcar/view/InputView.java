@@ -12,6 +12,7 @@ public class InputView {
         String carList = inputCarList();
         System.out.println(INPUT_TRY_COUNT);
         int tryCount = inputGameProcessCount();
+        gameProcessCountValidate(tryCount);
         return new InputManager(tryCount, carList);
     }
 
@@ -21,5 +22,11 @@ public class InputView {
 
     private static String inputCarList() {
         return Console.readLine();
+    }
+
+    private static void gameProcessCountValidate(int tryCount){
+        if(tryCount <= 0){
+            throw new IllegalArgumentException("게임 횟수는 1 이상이여야 합니다.");
+        }
     }
 }
