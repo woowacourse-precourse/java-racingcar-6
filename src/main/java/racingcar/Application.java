@@ -11,11 +11,12 @@ import java.util.HashSet;
 public class Application {
     public static void main(String[] args) throws IllegalArgumentException {
         requestCarNames();
-        String CarNames = Console.readLine();
-        isCarNamesValid(CarNames);
-        List<String> CarNamesArray = splitStringToArrayList(CarNames);
-        isCarNamesDuplicate(CarNamesArray);
-        isCarNameValidLength(CarNamesArray);
+        String carNames = Console.readLine();
+        isCarNameValid(carNames);
+        isCarNameStringValid(carNames);
+        List<String> carNamesArray = splitStringToArrayList(carNames);
+        isCarNameValidLength(carNamesArray);
+        isCarNameDuplicate(carNamesArray);
 
         requestCount();
     }
@@ -28,13 +29,13 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    static void isCarNamesValid(String CarNames) throws IllegalArgumentException {
-        for (int i = 0; i < CarNames.length(); i++) {
-            if (CarNames.charAt(i) >= 'a' && CarNames.charAt(i) <= 'z') {
+    static void isCarNameValid(String carNames) throws IllegalArgumentException {
+        for (int i = 0; i < carNames.length(); i++) {
+            if (carNames.charAt(i) >= 'a' && carNames.charAt(i) <= 'z') {
                 continue;
-            } else if (CarNames.charAt(i) >= '0' && CarNames.charAt(i) <= '9') {
+            } else if (carNames.charAt(i) >= '0' && carNames.charAt(i) <= '9') {
                 continue;
-            } else if (CarNames.charAt(i) == ',') {
+            } else if (carNames.charAt(i) == ',') {
                 continue;
             } else {
                 throw new IllegalArgumentException("[error] 숫자나 영어로 이루어진 자동차 이름을 입력하세요.");
@@ -42,25 +43,35 @@ public class Application {
         }
     }
 
-    static List<String> splitStringToArrayList(String CarNames) {
-        String[] CarNamesStringArray = CarNames.split(",");
-        return new ArrayList<>(Arrays.asList(CarNamesStringArray));
+    static void isCarNameStringValid(String carNames) throws IllegalArgumentException {
+        int carNameStringLength = carNames.length();
+        if (carNames.charAt(0) == ',' || carNames.charAt(carNameStringLength - 1) == ',') {
+            throw new IllegalArgumentException("[error] 잘못된 형식의 입력입니다.");
+        }
     }
 
-    static void isCarNamesDuplicate(List<String> CarNamesArray) throws IllegalArgumentException {
+    static List<String> splitStringToArrayList(String carNames) {
+        String[] carNamesStringArray = carNames.split(",");
+        List<String> carNamesArray = new ArrayList<>(Arrays.asList(carNamesStringArray));
+        return carNamesArray;
+    }
+
+    static void isCarNameDuplicate(List<String> carNamesArray) throws IllegalArgumentException {
         Set<String> set = new HashSet<>();
-        for (String CarName : CarNamesArray) {
-            if (!set.add(CarName)) {
+        for (String carName : carNamesArray) {
+            if (!set.add(carName)) {
                 throw new IllegalArgumentException("[error] 자동차 이름이 중복되었습니다.");
             }
         }
     }
 
-    static void isCarNameValidLength(List<String> CarNamesArray) throws IllegalArgumentException {
-        for (String CarName : CarNamesArray) {
-            if (!CarName.isEmpty() && CarName.length() <= 5) {
+    static void isCarNameValidLength(List<String> carNamesArray) throws IllegalArgumentException {
+        for (String carName : carNamesArray) {
+            if (carName.isEmpty() || carName.length() > 5) {
                 throw new IllegalArgumentException("[error] 자동차 이름의 길이는 1이상 5이하 이어야 합니다");
             }
         }
     }
+
+
 }
