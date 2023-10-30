@@ -14,4 +14,9 @@ public class Move {
     public void print() {
         System.out.print(move.toString());
     }
+
+    @Override
+    public String toString() {
+        return move.toString();
+    }
 }
