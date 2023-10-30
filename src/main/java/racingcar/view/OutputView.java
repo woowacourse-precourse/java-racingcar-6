@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import racingcar.model.MoveInfo;
-
 import java.util.List;
 
 public class OutputView {
@@ -18,9 +16,9 @@ public class OutputView {
         System.out.println(RESULT_TITLE);
     }
 
-    public static void printResult(MoveInfo info) {
-        System.out.print(info.getName() + " : ");
-        System.out.println(RESULT_SIGN.repeat(info.getMoved()));
+    public static void printResult(String name, int moved) {
+        System.out.print(name + " : ");
+        System.out.println(RESULT_SIGN.repeat(moved));
     }
 
     public static void printFinalWinner(List<String> names) {

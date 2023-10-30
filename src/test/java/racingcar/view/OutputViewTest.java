@@ -5,10 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import racingcar.model.CarMoved;
-import racingcar.model.CarName;
-import racingcar.model.MoveInfo;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
@@ -47,11 +43,7 @@ public class OutputViewTest {
     @Test
     @DisplayName("인자로 받은 moved의 횟수만큼 '-'를 반복하여 형식에 맞게 출력하는지")
     public void printResult() {
-        CarName testCarName = new CarName("poky");
-        CarMoved testMoved = new CarMoved(4);
-        MoveInfo testInfo = new MoveInfo(testCarName, testMoved);
-
-        OutputView.printResult(testInfo);
+        OutputView.printResult("poky", 4);
 
         assertThat(console.toString())
                 .contains("poky : ----");

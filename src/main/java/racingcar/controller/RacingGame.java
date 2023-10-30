@@ -45,7 +45,11 @@ public class RacingGame {
     private void move() {
         for (Car participant : participants) {
             participant.move();
-            OutputView.printResult(participant.info());
+
+            String name = participant.info().getName();
+            int moved = participant.info().getMoved();
+
+            OutputView.printResult(name, moved);
         }
         System.out.println();
     }
