@@ -3,55 +3,51 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.car.CarList;
 import racingcar.domain.car.CarListFactory;
+import racingcar.domain.round.Round;
+import racingcar.domain.round.RoundFactory;
 
 import static racingcar.Constant.*;
 
 public class GameManager {
 
     private final CarListFactory carListFactory;
+    private final RoundFactory roundFactory;
 
-    public GameManager(CarListFactory carListFactory) {
+    public GameManager(CarListFactory carListFactory, RoundFactory roundFactory) {
         this.carListFactory = carListFactory;
+        this.roundFactory = roundFactory;
     }
 
     public void play() {
-        CarList carList = create();
+        CarList carList = getCarList();
 
-        move(carList, moveCount());
+        Round round = getRound();
+
+        move(carList, round);
 
         carList.printWinners();
     }
 
-    private CarList create() {
+    private CarList getCarList(){
         System.out.println(MESSAGE_INPUT_CAR_NAMES);
+        String input = Console.readLine();
 
-        String carNames = Console.readLine();
-        return carListFactory.create(carNames);
+        return carListFactory.create(input);
     }
 
-    private void move(CarList carList, int moveCount) {
-        System.out.println(MESSAGE_OUTPUT);
+    private Round getRound(){
+        System.out.println(MESSAGE_INPUT_ROUND);
+        String input = Console.readLine();
 
-        for (int i = 0; i < moveCount; i++) {
+        return roundFactory.create(input);
+    }
+
+    private void move(CarList carList, Round round) {
+        System.out.println(MESSAGE_SHOW_OUTPUT);
+
+        while (round.isLeft()) {
             carList.move();
             System.out.println(carList);
         }
-    }
-
-    private int moveCount() {
-        System.out.println(MESSAGE_INPUT_MOVE_COUNT);
-
-        String input = Console.readLine();
-        return parseAndCheckValid(input);
-    }
-
-    private int parseAndCheckValid(String input) {
-        int moveCount;
-        try {
-            moveCount = Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ERROR_INPUT_MOVE_COUNT);
-        }
-        return moveCount;
     }
 }
