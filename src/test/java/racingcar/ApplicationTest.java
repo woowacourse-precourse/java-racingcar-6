@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,6 +33,59 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 자동차_이름_입력_중복_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("king,king,king,King,king"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_이름_입력_길이초과_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("dokgomay,uncleking"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_이름_입력_쉼표제외_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("dokgo may cat uncle king"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 자동차_이름_입력_숫자포함_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("dokgo,may,cat1,uncle2,king3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이동_횟수_0_입력_예외_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "0");
+                    assertThat(IllegalArgumentException.class);
+                },
+                MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 이동_횟수_문자_입력_예외_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "a");
+                    assertThat(IllegalArgumentException.class);
+                },
+                MOVING_FORWARD, STOP
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
