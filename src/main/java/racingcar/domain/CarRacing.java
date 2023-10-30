@@ -26,15 +26,15 @@ public class CarRacing {
         Turn turn = readMovingTurn();
         move(turn, cars);
 
-        List<String> winnerNames = judgeWinners(cars);
-        announceWinners(winnerNames);
+        Winners winners = judgeWinners(cars);
+        announceWinners(winners);
     }
 
-    private void announceWinners(List<String> WinnerNames) {
-        outputManager.printWinners(WinnerNames);
+    private void announceWinners(Winners winners) {
+        outputManager.printWinners(winners.getWinners());
     }
 
-    private List<String> judgeWinners(Cars cars) {
+    private Winners judgeWinners(Cars cars) {
         return referee.judgeWinners(cars.getCurrentStatus());
     }
 

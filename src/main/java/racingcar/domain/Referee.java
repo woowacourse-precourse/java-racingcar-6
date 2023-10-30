@@ -9,17 +9,17 @@ public class Referee {
     private final static int FIRST_PRIZE_CAR_INDEX = 0;
 
 
-    public List<String> judgeWinners(List<Car> cars) {
+    public Winners judgeWinners(List<Car> cars) {
         int winnerPosition = findFirstPrizeCarPosition(cars);
 
-        List<String> winners = new ArrayList<>();
+        List<Car> winningCars = new ArrayList<>();
         for (Car car : cars) {
             if (car.isLocatedIn(winnerPosition)) {
-                winners.add(car.getName());
+                winningCars.add(car);
             }
         }
 
-        return winners;
+        return new Winners(winningCars);
     }
 
     private int findFirstPrizeCarPosition(List<Car> cars) {

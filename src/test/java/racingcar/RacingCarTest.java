@@ -13,6 +13,7 @@ import racingcar.domain.Cars;
 import racingcar.domain.RacingCarOutputManager;
 import racingcar.domain.Referee;
 import racingcar.domain.Turn;
+import racingcar.domain.Winners;
 
 public class RacingCarTest {
 
@@ -105,9 +106,9 @@ public class RacingCarTest {
         List<Car> cars = new ArrayList<>(List.of(car1, car2, car3));
 
         Referee referee = new Referee();
-        List<String> winners = referee.judgeWinners(cars);
+        Winners winners = referee.judgeWinners(cars);
 
-        assertThat(winners).containsOnly("car2", "car3");
+        assertThat(winners.getWinners()).containsOnly(car2, car3);
     }
 
     @Test
@@ -126,9 +127,9 @@ public class RacingCarTest {
             List<Car> cars = new ArrayList<>(List.of(car1, car2, car3));
 
             Referee referee = new Referee();
-            List<String> winners = referee.judgeWinners(cars);
+            Winners winners = referee.judgeWinners(cars);
 
-            outputManager.printWinners(winners);
+            outputManager.printWinners(winners.getWinners());
 
             String expectedOutput = "최종 우승자 : car1, car2";
             String actualOutput = outputStream.toString().trim();
