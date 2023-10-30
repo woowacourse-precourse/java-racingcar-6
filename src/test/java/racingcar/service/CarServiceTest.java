@@ -18,7 +18,7 @@ public class CarServiceTest {
 
         //when
         carService.join(car);
-        Car savedCar = carService.findCar(1L);
+        Car savedCar = carService.findCarById(1L);
 
         //then
         Assertions.assertThat(car).isEqualTo(savedCar);
