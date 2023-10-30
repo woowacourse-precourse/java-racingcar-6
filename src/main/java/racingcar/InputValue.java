@@ -21,6 +21,12 @@ public class InputValue {
         String userInputCarName = Console.readLine();
         validateInputCorrectSeparator(userInputCarName);
 
+        String[] carList = createCarList(userInputCarName);
+
+        return carList;
+    }
+
+    public static String[] createCarList(String userInputCarName) {
         String[] namesOfCars = userInputCarName.split(MessageConst.STANDARD_SAPARATOR);
         validateNameOfCarsRange(namesOfCars);
         validateDuplicateName(namesOfCars);
