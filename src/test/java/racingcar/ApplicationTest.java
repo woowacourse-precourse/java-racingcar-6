@@ -61,6 +61,16 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("시도 횟수 입력 도움 문구 출력")
+    void 시도횟수입력_문구출력() {
+        assertSimpleTest(() -> {
+                    run("pobi", "1");
+                    assertThat(output()).contains("시도할 회수는 몇회인가요?");
+                }
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
