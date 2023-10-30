@@ -17,9 +17,13 @@ class Car {
 }
 
 class Game {
+    public static int MOVES;
     List<String> name;
     public void getCarNames() {
         String input = Console.readLine();
         name = Arrays.asList(input.split(","));
+    }
+    public void getNumberOfMoves() {
+        MOVES = Integer.parseInt(Console.readLine());
     }
 }
