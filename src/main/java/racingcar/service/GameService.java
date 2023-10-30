@@ -20,7 +20,7 @@ public class GameService {
 
     public void play(Game game) {
         moveForwardOfGame(game);
-        game.increaseTrialNum();
+        game.increaseTriedNum();
     }
 
     private void moveForwardOfGame(Game game) {

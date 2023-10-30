@@ -10,11 +10,15 @@ import java.util.List;
 
 public class GameController {
     private final GameService gameService = new GameService();
-    private Game game = new Game();
 
     public void run() {
         List<Car> carList = createCarList();
         int trialNum = createTrialNum();
+        Game game = new Game(carList, trialNum);
+
+        while (!finishedGame(trialNum, game.getTriedNum())) {
+            gameService.play(game);
+        }
 
         // 확인절차(추후 삭제 예정)
         System.out.println(carList.get(0).getName());
@@ -49,7 +53,13 @@ public class GameController {
 
     private int saveTrialNum(String input) {
         int trialNum = Integer.parseInt(input);
-        game.setTrial(trialNum);
         return trialNum;
+    }
+
+    private boolean finishedGame(int trialNum, int triedNum) {
+        if (trialNum == triedNum) {
+            return true;
+        }
+        return false;
     }
 }

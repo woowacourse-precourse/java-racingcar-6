@@ -5,22 +5,22 @@ import java.util.List;
 public class Game {
     private int trial;
     private List<Car> cars;
-    private int trialNum = 0;
+    private int triedNum = 0;
 
-//    public Game(List<Car> cars, int trialNum) {
-//        this.cars = cars;
-//        this.trialNum = trialNum;
-//    }
+    public Game(List<Car> cars, int trial) {
+        this.cars = cars;
+        this.trial = trial;
+    }
 
     public List<Car> getCars() {
         return cars;
     }
 
-    public void increaseTrialNum() {
-        this.trialNum += 1;
+    public int getTriedNum() {
+        return triedNum;
     }
 
-    public void setTrial(int trialNum) {
-        this.trial = trialNum;
+    public void increaseTriedNum() {
+        this.triedNum += 1;
     }
 }
