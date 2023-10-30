@@ -13,7 +13,7 @@ public class GameManager {
     private List<Car> getCars(){
         String carNames = gameView.readCarNames();
         Validator.validateCarNames(carNames);
-        return null;
+        return Car.createCars(carNames);
     }
 
     private int getNumberOfMoves(){
