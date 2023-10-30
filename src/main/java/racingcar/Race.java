@@ -1,6 +1,7 @@
 package racingcar;
 
 import racingcar.util.RandomNumberGenerator;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -35,7 +36,7 @@ public class Race {
         }
     }
 
-    public void setWinners(List<Car> cars) {
+    public void setWinners() {
         winners = (List<Car>) cars.stream()
                 .max(Comparator.comparing(Car::getDistance))
                 .orElseThrow();
