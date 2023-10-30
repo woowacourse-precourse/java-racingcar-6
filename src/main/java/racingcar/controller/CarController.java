@@ -18,6 +18,14 @@ public class CarController {
     private List<String> stringList = new ArrayList<>();
     private Integer countNumber = 0;
 
+    private CarController() {
+
+    }
+
+    public static CarController createCarController() {
+        return new CarController();
+    }
+
     public void welcome() {
         gameStartMessage();
     }
