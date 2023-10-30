@@ -69,4 +69,16 @@ public class GameServiceImplTest {
         //then
         assertThat(result).isNotNull();
     }
+
+    @Test
+    public void 시도횟수_정수하나_입력받아_저장하기() {
+        // given
+        String input = "3";
+
+        // when
+        racingService.processTryCountInput(input);
+
+        // then
+        assertThat(memoryCarRepository.findAll()).hasSize(3);
+    }
 }
