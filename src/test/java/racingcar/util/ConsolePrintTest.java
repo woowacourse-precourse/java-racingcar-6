@@ -23,6 +23,7 @@ class ConsolePrintTest {
     static void ConsolePrint_객체_생성() {
         consolePrint = new ConsolePrint();
     }
+
     @BeforeEach()
     void 출력_캡처_세팅() {
         outputStream = new ByteArrayOutputStream();
