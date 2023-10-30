@@ -1,26 +1,40 @@
 package racingcar.model;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
+import racingcar.model.car.CarList;
+import racingcar.model.car.RandomNumber;
+import racingcar.model.car.RandomUtil;
 
 public class RacingCarService {
+    private RandomUtil randomUtil = new RandomNumber();
+    private CarList carList;
 
-    public List<String> splitCarName(String userInputCarNames) {
-        CarGenerator carGenerator = new CarGenerator(userInputCarNames);
-        return carGenerator.generateCarNameList();
+    public CarList getCarList() {
+        return carList;
     }
 
-    public Map<String, List<Integer>> raceCar(String userInputCarNames, Integer tryNumber) {
-        List<String> carNameList = splitCarName(userInputCarNames);
-        RacingCarResult moveCarOnce = new RacingCarResult(carNameList, tryNumber);
-        return moveCarOnce.getCarPositionMap();
-    }
-
-    public Map<String, List<String>> translateResult(String userInputCarNames, String userInputTryNumber) {
+    public Integer parsingTryNumber(String userInputTryNumber) {
         InputValidator.validateNumber(userInputTryNumber);
-        int tryNumber = Integer.parseInt(userInputTryNumber);
-        RacingCarResultTranslator translator = new RacingCarResultTranslator(raceCar(userInputCarNames, tryNumber),
-                tryNumber);
-        return translator.translatePositionMap();
+        return Integer.parseInt(userInputTryNumber);
+    }
+
+    public List<String> createCarNameList(String userInputCarNames) {
+        return Arrays.stream(userInputCarNames.split(",")).toList();
+    }
+
+    public void createCarList(List<String> carNameList) {
+        InputValidator.validateEmptyName(carNameList);
+        InputValidator.validateNameLength(carNameList);
+        InputValidator.validateDuplication(carNameList);
+        carList = new CarList(carNameList, randomUtil);
+    }
+
+    public void raceOneStep() {
+        carList.move();
+    }
+
+    public String raceOneStepResult() {
+        return carList.translateRacingCarResult();
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 public class InputValidator {
+    private static final int MAX_LENGTH = 5;
 
     public static void validateNumber(String userInputTryNumber) {
         if (!userInputTryNumber.matches("^[0-9]+$")) {
@@ -42,6 +43,6 @@ public class InputValidator {
 
     private static boolean isContainOverMaxLength(List<String> carNameList) {
         return carNameList.stream()
-                .anyMatch(name -> name.length() > 5);
+                .anyMatch(name -> name.length() > MAX_LENGTH);
     }
 }
