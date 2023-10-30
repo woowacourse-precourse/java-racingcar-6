@@ -12,10 +12,10 @@ public class Referee {
 
     public void decideWinner(final List<Car> carList) {
         CarDistance maxDistance = getMaxDistance(carList);
-        this.winnerNames = getCarNameForMaxDistance(carList, maxDistance);
+        this.winnerNames = getCarNamesForMaxDistance(carList, maxDistance);
     }
 
-    private List<CarName> getCarNameForMaxDistance(List<Car> carList, CarDistance maxDistance) {
+    private List<CarName> getCarNamesForMaxDistance(List<Car> carList, CarDistance maxDistance) {
         return carList.stream()
                 .filter(car -> car.getCarDistance().distance() == maxDistance.distance())
                 .map(car -> car.getCarName())
