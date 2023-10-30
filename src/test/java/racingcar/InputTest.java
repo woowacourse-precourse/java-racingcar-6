@@ -58,6 +58,17 @@ public class InputTest {
     }
 
     @Test
+    @DisplayName("사죵자의 입력이 숫자가 아닐때, 에러를 출력하는가? - 공백")
+    void input_숫자가_아닌_공백() {
+        String input = "";
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class, () -> Validator.validateNumber(input));
+
+        assertThat(exception.getMessage()).isEqualTo(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
+    }
+
+    @Test
     @DisplayName("사용자의 입력이 중복이 된 경우, 에러를 출력하는가?")
     void testErrorNameDuplicated() {
         String input = "pobi,pobi";

@@ -27,7 +27,7 @@ public class Validator {
     }
 
     public static void validateNumber(String number) {
-        if(!number.chars().allMatch(Character::isDigit)) {
+        if(!number.chars().allMatch(Character::isDigit) || number.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_MUST_BE_NUMBER.getMessage());
         }
     }
