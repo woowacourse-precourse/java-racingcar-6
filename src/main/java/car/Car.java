@@ -21,12 +21,12 @@ public class Car {
         return distance;
     }
 
-    public int getRandomNumber() {
+    public int getRandomNumberBetweenZeroAndNine() {
         return Randoms.pickNumberInRange(0,9);
     }
 
     public void movingForward() {
-        int randomNumber = getRandomNumber();
+        int randomNumber = getRandomNumberBetweenZeroAndNine();
         if (randomNumber >= 4){
             distance++;
         }
