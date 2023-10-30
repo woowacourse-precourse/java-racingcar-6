@@ -68,15 +68,18 @@ public class Application {
         System.out.println();
     }
 
-    private String winnerChoice() {
-        int max = 0;
-        String winners = "";
-
+    private Integer MoveCarMax() {
+       int max =0;
         for (String carMoves : carStatus.values()) {
             if (max < carMoves.length()) {
                 max = carMoves.length();
             }
         }
+        return max;
+    }
+    private String winnerChoice() {
+        Integer max = MoveCarMax();
+        String winners = "";
 
         for (String carName : carStatus.keySet()) {
             if (carStatus.get(carName).length() == max) {
