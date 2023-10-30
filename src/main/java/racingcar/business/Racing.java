@@ -30,6 +30,8 @@ public class Racing {
 
     private void tryMoving(Car car) {
         int randomNumber = numberMaker.getRandomNumber();
+        car.moveCar(randomNumber);
+        outputView.printMoveResult(car);
     }
 
     private static List<Car> getCars(List<String> names) {
