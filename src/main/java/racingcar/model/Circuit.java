@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.util.RandomGenerator;
 
@@ -18,5 +19,15 @@ public class Circuit {
                 racingCar.move(RandomGenerator.pickNumber());
             }
         }
+    }
+
+    public RaceResult report() {
+        List<RacingCar> nominees = new ArrayList<>();
+
+        for (RacingCar racingCar : racingCars) {
+            nominees = racingCar.compare(nominees);
+        }
+
+        return new RaceResult(nominees);
     }
 }
