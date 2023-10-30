@@ -34,9 +34,9 @@ public class CarsTest {
         Cars cars = new Cars(List.of(pobiCar, lisaCar, jinyCar));
 
         //when
-        String[] maxMovingCountName = cars.findMaxMovingCount();
+        List<String> maxMovingCountName = cars.findMaxMovingCount();
 
         //then
-        Assertions.assertThat(maxMovingCountName).isEqualTo(new String[]{"lisa"});
+        Assertions.assertThat(maxMovingCountName).isEqualTo(List.of("lisa"));
     }
 }
