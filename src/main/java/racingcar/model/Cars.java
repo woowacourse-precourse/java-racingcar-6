@@ -9,6 +9,8 @@ import racingcar.view.OutputView;
 
 public class Cars {
 
+    public static final int MAX_NUMBER = 9;
+    public static final int MIN_NUMBER = 0;
     private final List<CarModel> carModelList = new ArrayList<>();
 
     public Cars(List<String> carList) {
@@ -20,7 +22,7 @@ public class Cars {
 
     public void forwardCars() {
         for (CarModel carModel : carModelList) {
-            carModel.forward(Randoms.pickNumberInRange(0, 9));
+            carModel.forward(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER));
             OutputView.printRacing(carModel.getName(), carModel.getLocation());
         }
         System.out.println("");
