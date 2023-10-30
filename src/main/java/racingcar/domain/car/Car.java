@@ -10,23 +10,23 @@ public class Car {
   private final String name;
   private int position;
 
-  public Car(String name, int position) {
+  public Car(final String name, final int position) {
     validateName(name);
     this.name = name;
     this.position = position;
   }
 
-  private void validateName(String name) {
+  private void validateName(final String name) {
     isNameLengthValid(name);
   }
 
-  private void isNameLengthValid(String name) {
+  private void isNameLengthValid(final String name) {
     if (name.isEmpty() || name.length() > MAXIMUM_NAME_LENGTH) {
       throw new IllegalArgumentException("이름은 1자 이상 5자 이하만 가능합니다.");
     }
   }
 
-  public int move(Formula formula) {
+  public int move(final Formula formula) {
     if (formula.move() == MoveState.MOVING_FORWARD) {
       position++;
     }

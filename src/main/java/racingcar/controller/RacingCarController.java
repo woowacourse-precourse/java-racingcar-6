@@ -34,7 +34,7 @@ public class RacingCarController {
     outputView.printFinalHeadOfRace(raceGame.currentHeadOfRace());
   }
 
-  private void printCarPositionResults(List<RaceGameResult> raceResults) {
+  private void printCarPositionResults(final List<RaceGameResult> raceResults) {
     List<CarPositionResult> results = raceResults.stream()
         .map(result -> new CarPositionResult(result.carName(), result.position()))
         .toList();

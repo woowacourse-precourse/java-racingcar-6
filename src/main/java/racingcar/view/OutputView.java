@@ -14,18 +14,18 @@ public class OutputView {
     System.out.println(START_RACE_GAME);
   }
 
-  public void printCarPositionResults(List<CarPositionResult> results) {
+  public void printCarPositionResults(final List<CarPositionResult> results) {
     results.forEach(result -> {
       System.out.println(result.carName() + CAR_POSITION_DELIMITER + mark(result.position()));
     });
     System.out.println();
   }
 
-  private String mark(int position) {
+  private String mark(final int position) {
     return CAR_POSITION_MARK.repeat(position);
   }
 
-  public void printFinalHeadOfRace(List<String> headOfRaceCarNames) {
+  public void printFinalHeadOfRace(final List<String> headOfRaceCarNames) {
     System.out.println(FINAL_HEAD_OF_RACE_PREFIX_MESSAGE +
         String.join(FINAL_HEAD_OF_RACE_DELIMITER, headOfRaceCarNames));
   }

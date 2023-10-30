@@ -14,7 +14,7 @@ public class RaceGame {
   private final Formula formula;
   private int round;
 
-  public RaceGame(Formula formula, List<Car> cars, int round) {
+  public RaceGame(final Formula formula, final List<Car> cars, final int round) {
     validateCars(cars);
     validateRound(round);
     this.formula = formula;
@@ -22,27 +22,27 @@ public class RaceGame {
     this.round = round;
   }
 
-  private void validateCars(List<Car> cars) {
+  private void validateCars(final List<Car> cars) {
     isCarsEmpty(cars);
   }
 
-  private void isCarsEmpty(List<Car> cars) {
+  private void isCarsEmpty(final List<Car> cars) {
     if (cars.isEmpty()) {
       throw new IllegalArgumentException("자동차는 1대 이상이어야 합니다.");
     }
   }
 
-  private void validateRound(int round) {
+  private void validateRound(final int round) {
     isRoundPositive(round);
   }
 
-  private void isRoundPositive(int round) {
+  private void isRoundPositive(final int round) {
     if (round < MINIMUM_ROUND) {
       throw new IllegalArgumentException("시도할 회수는 1 이상이어야 합니다.");
     }
   }
 
-  public void race(Consumer<List<RaceGameResult>> consumer) {
+  public void race(final Consumer<List<RaceGameResult>> consumer) {
     while (round >= MINIMUM_ROUND) {
       List<RaceGameResult> raceResults = cars.stream()
           .map(car -> new RaceGameResult(car.getName(), car.move(formula)))

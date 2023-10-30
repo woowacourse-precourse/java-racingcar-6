@@ -7,34 +7,34 @@ public record RaceGameInput(List<String> carNames, int round) {
 
   private static final String DELIMITER = ",";
 
-  public static RaceGameInput from(String carNamesInput, String roundInput) {
+  public static RaceGameInput from(final String carNamesInput, final String roundInput) {
     validateCarNamesInput(carNamesInput);
     validateRoundInput(roundInput);
     return new RaceGameInput(List.of(carNamesInput.split(DELIMITER)), Integer.parseInt(roundInput));
   }
 
-  private static void validateCarNamesInput(String carNamesInput) {
+  private static void validateCarNamesInput(final String carNamesInput) {
     isInputEmpty(carNamesInput);
     startOrEndsWithDelimiter(carNamesInput);
   }
 
-  private static void isInputEmpty(String input) {
+  private static void isInputEmpty(final String input) {
     if (input.isEmpty()) {
       throw new IllegalArgumentException("입력값이 비어있습니다.");
     }
   }
 
-  private static void startOrEndsWithDelimiter(String input) {
+  private static void startOrEndsWithDelimiter(final String input) {
     if (input.startsWith(DELIMITER) || input.endsWith(DELIMITER)) {
       throw new IllegalArgumentException("입력값은 쉼표로 시작하거나 끝날 수 없습니다.");
     }
   }
 
-  private static void validateRoundInput(String roundInput) {
+  private static void validateRoundInput(final String roundInput) {
     isNumeric(roundInput);
   }
 
-  private static void isNumeric(String input) {
+  private static void isNumeric(final String input) {
     try {
       Integer.parseInt(input);
     } catch (NumberFormatException e) {

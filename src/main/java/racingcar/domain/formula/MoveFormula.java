@@ -8,7 +8,7 @@ public class MoveFormula implements Formula {
 
   private final NumberGenerator numberGenerator;
 
-  public MoveFormula(NumberGenerator numberGenerator) {
+  public MoveFormula(final NumberGenerator numberGenerator) {
     this.numberGenerator = numberGenerator;
   }
 
