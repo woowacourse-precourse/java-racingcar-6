@@ -9,6 +9,7 @@ public class Controller {
     ValidatorCarName validatorCarName = new ValidatorCarName();
     ValidatorTryNumber validatorTryNumber = new ValidatorTryNumber();
     CarFuntion makecar = new CarFuntion();
+    PlayRacing playRacing = new PlayRacing();
 
     public void racingStart(){
         String carNames = inputCarNames();
@@ -19,7 +20,7 @@ public class Controller {
         validatorTryNumber.checkNum(tryNumber);
 
         printPlayResult();
-        PlayRacing.forwardRecord(validatorTryNumber.getTryNumber(), makecar.getCar());
+        playRacing.forwardRecord(validatorTryNumber.getTryNumber(), makecar.getCar());
         printFinalWinner();
         PlayRacing.selectWinner(makecar.getCar());
 
