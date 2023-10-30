@@ -24,6 +24,8 @@ public class Car {
         return this.name;
     }
 
-    public int getTotalMove(){ return this.totalMove; }
+    public int getTotalMove() {
+        return this.totalMove;
+    }
 
 }
