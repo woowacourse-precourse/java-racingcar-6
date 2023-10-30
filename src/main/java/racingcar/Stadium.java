@@ -85,7 +85,7 @@ class Stadium {
 
     public static String showCar(Car car) {
         String dash = "-".repeat(car.getPos());
-        return String.format("%s: %s", car.getName(), dash);
+        return String.format("%s : %s", car.getName(), dash);
     }
 
     private static void print(String s) {
