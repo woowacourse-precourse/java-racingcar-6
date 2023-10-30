@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 class InputTest {
@@ -22,5 +23,13 @@ class InputTest {
         List<String> carNames = Input.readCarName(input);
 
         assertThat(carNames).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"1,1", "2,2", "3,3"})
+    void 몇번의_이동을_할_것인지_입력받기(String input, int expected) {
+        int moveCount = Input.readMoveCount(input);
+
+        assertThat(moveCount).isEqualTo(expected);
     }
 }
