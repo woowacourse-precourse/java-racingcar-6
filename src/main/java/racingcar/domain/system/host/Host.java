@@ -1,4 +1,4 @@
-package racingcar.domain.system.game.round.host;
+package racingcar.domain.system.host;
 
 import racingcar.domain.core.car.MoveSignal;
 import racingcar.domain.core.car.MovingCar;
