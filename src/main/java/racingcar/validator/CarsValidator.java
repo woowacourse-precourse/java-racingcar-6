@@ -1,28 +1,13 @@
 package racingcar.validator;
 
-import java.util.Arrays;
 import java.util.List;
-import racingcar.constants.Constants;
 import racingcar.constants.ExceptionMessage;
 
 public enum CarsValidator {
     INSTANCE;
 
-    public List<String> validate(String target) {
-        List<String> names = Arrays.stream(splitNames(target))
-                .map(this::removeWhiteSpace)
-                .toList();
-        checkHasDuplicates(names);
-
-        return names;
-    }
-
-    private String[] splitNames(String names) {
-        return names.split(Constants.COMMA);
-    }
-
-    private String removeWhiteSpace(String name) {
-        return name.replace(Constants.WHITESPACE, Constants.EMPTY);
+    public void validate(List<String> carNames) {
+        checkHasDuplicates(carNames);
     }
 
     private void checkHasDuplicates(List<String> names) {

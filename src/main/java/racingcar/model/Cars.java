@@ -3,7 +3,6 @@ package racingcar.model;
 import java.util.Comparator;
 import java.util.List;
 import racingcar.dto.CarsState;
-import racingcar.validator.CarsValidator;
 
 public class Cars {
     private final List<Car> cars;
@@ -13,22 +12,8 @@ public class Cars {
     }
 
     public Cars(String inputCars) {
-        cars = toCars(CarsValidator.INSTANCE.validate(inputCars));
-    }
-
-    private List<Car> toCars(List<String> names) {
-        return names.stream()
-                .map(Name::new)
-                .map(this::createCar)
-                .toList();
-    }
-
-    private Car createCar(Name name) {
-        return new Car(name, createPosition());
-    }
-
-    private Position createPosition() {
-        return new Position();
+        CarsGenerator carsGenerator = new CarsGenerator();
+        cars = carsGenerator.getnerate(inputCars);
     }
 
     public void attemptForward() {
