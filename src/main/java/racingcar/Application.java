@@ -47,11 +47,13 @@ public class Application {
         return res;
     }    
 
-    // 회차 결과 출력
+    // 차량 위치(거리) 출력
     public static void showCar(int score, String carName){
         System.out.println(String.format("%s : ", carName) + "-".repeat(score));
     }
 
+
+    // 최대 점수 탐색
     public static int maxScore(ArrayList<User> user){
         int M = 0;
         for (User p : user) {
@@ -88,7 +90,7 @@ public class Application {
     public static void main(String[] args) {
         ArrayList<User> user = setCarName();
         int n = setTime();
-        System.err.println();
+        System.out.println();
         race(user,n);
     }
 }
