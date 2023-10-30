@@ -9,19 +9,24 @@ import java.util.List;
 public class UserInput {
     Verification verification = new Verification();
 
-    private List<String> carNames;
+    private List<String> carNames ;
     private int numberOfTry;
+
+
     public void labelNameOfCar() {
         String readLine = Console.readLine();
         carNames = List.of(readLine.split(","));
         verification.verifyArg(carNames);
+        Console.close();
     }
 
     public void setupNumberOfTry() {
         String readLine = Console.readLine();
         verification.verifyNumberOfTry(readLine);
         numberOfTry = Integer.valueOf(readLine);
+        Console.close();
     }
+
 
     public List<String> getCarNames() {
         return carNames;

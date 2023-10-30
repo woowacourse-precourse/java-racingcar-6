@@ -12,7 +12,7 @@ public class Verification {
     }
 
     public void verifyNumberOfTry(String number){
-        if (Integer.valueOf(number) < 0) {
+        if (Integer.valueOf(number) <= 0) {
             throw new IllegalArgumentException();
         } else if (!number.matches(number)) {
             throw new IllegalArgumentException();
