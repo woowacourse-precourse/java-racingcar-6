@@ -48,10 +48,11 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 경주_참여_자동차_0대(){
+    void 경주_참여_자동차_0대(){ //자동차의 이름을 입력하지 않은 경우 이름의 길이가 0이 되어 이름 길이 조건을 위반하게 된다.
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("입력 가능한 자동차 이름 길이를 위반하였습니다.")
         );
     }
 
@@ -60,6 +61,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("jun,,pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("입력 가능한 자동차 이름 길이를 위반하였습니다.")
         );
     }
 
@@ -68,6 +70,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("jun,pobibi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("입력 가능한 자동차 이름 길이를 위반하였습니다.")
         );
     }
 
@@ -76,6 +79,7 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("중복된 자동차 이름이 있습니다.")
         );
     }
 
@@ -84,14 +88,25 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("포비,pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("자동차의 이름에는 영문만 사용 가능합니다.")
         );
     }
 
     @Test
-    void 이름_공백_예외_처리(){
+    void 영문_아닌_이름_예외_처리2(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("jun12,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("자동차의 이름에는 영문만 사용 가능합니다.")
+        );
+    }
+
+    @Test
+    void 이름_공백_예외_처리(){ //공백 문자도 영문이 아닌 문자에 포함되어 영문 처리 정규표현식에 걸러진다.
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("p bi,pobi", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("자동차의 이름에는 영문만 사용 가능합니다.")
         );
     }
 

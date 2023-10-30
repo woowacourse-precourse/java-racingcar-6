@@ -55,14 +55,13 @@ public class Simulation {
 
         nameLengthCheck(name);
         nameViolationCheck(name);
-        nameBlackCheck(name);
     }
 
     private void nameLengthCheck(String name){
 
         if(name.length() < 1 || name.length() > 5) {
 
-            throw new IllegalArgumentException("입력 가능한 자동차 이름 길이 위반");
+            throw new IllegalArgumentException("입력 가능한 자동차 이름 길이를 위반하였습니다.");
         }
     }
 
@@ -88,16 +87,6 @@ public class Simulation {
         if(set.size() != racingCarList.size()){
 
             throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
-        }
-    }
-
-    private void nameBlackCheck(String name){
-
-        String REGEX = "[\\S]*$";
-
-        if(!name.matches(REGEX)){
-
-            throw new IllegalArgumentException("자동차 이름에 공백이 포함되어있습니다.");
         }
     }
 
