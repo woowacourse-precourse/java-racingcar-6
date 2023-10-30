@@ -31,8 +31,18 @@ public class CarFuctSet {
 	}
 	
 	public String ReturnAdvance() {
+		MoveCondition();
 		if(MoveCondition() ==true) return "-";
-		return null;
+		return " ";
+	}
+	
+	public void MoveAdvance(List<String> Carmove) {
+		for(int i =0; i < Carmove.size(); i++) {
+			
+			System.out.println(Carmove.get(i) + ":" + ReturnAdvance() );
+			
+		}
+		
 	}
 	
 	

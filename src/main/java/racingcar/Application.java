@@ -1,11 +1,13 @@
 package racingcar;
 
+import CarGameStart.CarGameStart;
 import Carset.CarNamedSet;
 
 public class Application {
     public static void main(String[] args) {
-        CarNamedSet carname = new CarNamedSet();
-        carname.NameSetting(); // 먼저 이름을 설정
+        CarGameStart gamestart = new CarGameStart();
+        
+        gamestart.run();// 먼저 이름을 설정
         
     }
 }
