@@ -3,7 +3,7 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +26,7 @@ public class CarsTest {
         cars.addCars(Arrays.asList("pobi", "woni", "jun"));
 
         // When
-        HashMap<String, Integer> carPositions = cars.getCars();
+        LinkedHashMap<String, Integer> carPositions = cars.getCars();
 
         // Then
         assertThat(carPositions).hasSize(3);
@@ -44,7 +44,7 @@ public class CarsTest {
 
         // When
         cars.moveCar(carName);
-        HashMap<String, Integer> carPositions = cars.getCars();
+        LinkedHashMap<String, Integer> carPositions = cars.getCars();
 
         // Then
         assertThat(carPositions.get("pobi")).isEqualTo(MOVED_POSITION);

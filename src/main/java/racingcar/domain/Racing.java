@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import racingcar.util.RandomNumberGenerator;
 
 public class Racing {
@@ -14,15 +14,17 @@ public class Racing {
     }
 
     public void race() {
-        HashMap<String, Integer> carPositions = cars.getCars();
-        carPositions.forEach(this::moveCarIfMovable);
+        LinkedHashMap<String, Integer> carPositions = cars.getCars();
+        carPositions.forEach((car, position) -> {
+            if (shouldMoveCar()) {
+                cars.moveCar(car);
+            }
+        });
     }
 
-    private void moveCarIfMovable(String car, Integer position) {
+    private boolean shouldMoveCar() {
         int randomValue = pickRandomNumber();
-        if (isMovable(randomValue)) {
-            cars.moveCar(car);
-        }
+        return isMovable(randomValue);
     }
 
     private int pickRandomNumber() {
