@@ -3,17 +3,20 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.race.Car;
 import racingcar.race.MoveStatus;
 
 class CarTest {
     @Test
+    @DisplayName("자동차 인스턴스 생성 확인")
     void Car_인스턴스_생성확인() {
         Car car = new Car("kim");
     }
 
     @Test
+    @DisplayName("자동차 이름 불러오기 동작확인")
     void getCarName_동작확인() {
         Car car = new Car("da");
         String carName = car.getCarName();
@@ -21,6 +24,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("자동차 위치 불러오기 동작확인")
     void getPosition_동작확인() {
         Car car = new Car("bo");
         int position = car.getPosition();
@@ -28,6 +32,7 @@ class CarTest {
     }
 
     @Test
+    @DisplayName("자동차 이동 동작확인")
     void move_동작확인() {
         Car car = new Car("mi");
         int prevPosition = car.getPosition();

@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.race.Car;
 import racingcar.view.ResultView;
@@ -33,11 +34,13 @@ class ResultViewTest {
 
 
     @Test
+    @DisplayName("결과출력 인스턴스 생성확인")
     void ResultView_인스턴스_생성확인() {
         ResultView resultView = new ResultView(new ArrayList<Car>());
     }
 
     @Test
+    @DisplayName("각 라운드 경주 상태에 대한 출력 확인")
     void printRace_동작확인() {
         ResultView resultView = new ResultView(cars);
         resultView.printRace(cars);
@@ -46,6 +49,7 @@ class ResultViewTest {
     }
 
     @Test
+    @DisplayName("우승자 출력 확인")
     void printWinners_동작확인() {
         ResultView resultView = new ResultView(winners);
         resultView.printWinners(winners);

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.race.Car;
 import racingcar.race.Race;
@@ -20,6 +21,7 @@ class RaceTest {
     }
 
     @Test
+    @DisplayName("경주게임 인스턴스 생성확인")
     void Race_인스턴스_생성확인() {
         List<Car> car = new ArrayList<Car>();
         int tryCount = 0;
@@ -27,6 +29,7 @@ class RaceTest {
     }
 
     @Test
+    @DisplayName("경주 시 전진에 대한 동작확인")
     void startRace_동작확인_전진() {
         Race race = new Race(cars, 3);
         race.getMoveStatus().setTestMoveStatus(true);
@@ -38,6 +41,7 @@ class RaceTest {
     }
 
     @Test
+    @DisplayName("경주 시 정지에 대한 동작확인")
     void startRace_동작확인_정지() {
         Race race = new Race(cars, 3);
         race.getMoveStatus().setTestMoveStatus(false);
@@ -49,6 +53,7 @@ class RaceTest {
     }
 
     @Test
+    @DisplayName("우승자 가져오기에 대한 동작확인")
     void getWinners_동작확인() {
         Race race = new Race(cars, 3);
         race.getMoveStatus().setTestMoveStatus(true);
@@ -58,6 +63,7 @@ class RaceTest {
     }
 
     @Test
+    @DisplayName("공동우승자 가져오기에 대한 동작확인")
     void getWinners_공동우승_동작확인() {
         Race race = new Race(cars, 3);
         race.getMoveStatus().setTestMoveStatus(true);

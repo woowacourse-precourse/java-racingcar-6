@@ -7,10 +7,6 @@ public class MoveStatus {
     MagicVariable magicVariable = new MagicVariable();
     private Boolean testMoveStatus = null;
 
-    public Boolean getTestMoveStatus() {
-        return testMoveStatus;
-    }
-
     public void setTestMoveStatus(Boolean testMoveStatus) {
         this.testMoveStatus = testMoveStatus;
     }
