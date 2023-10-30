@@ -35,7 +35,7 @@ public class Cars {
 
     public void forceStop(boolean isValidateName) {
         if (!isValidateName) {
-            throw new IllegalArgumentException("차량 정이름이 올바르지 않습니다.");
+            throw new IllegalArgumentException("차량 이름이 올바르지 않습니다.");
         }
     }
 }
