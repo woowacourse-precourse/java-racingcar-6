@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.List;
 
 public class GameManager {
@@ -13,6 +15,10 @@ public class GameManager {
 
     private void playGame() {
         makeCars(InputValue.carName);
+
+        for (int i = 0; i < InputValue.count; i++) {
+            checkForwardStop(carRace);
+        }
     }
 
     private void makeCars(List<String> list) {
@@ -20,5 +26,15 @@ public class GameManager {
             Car car = new Car(list.get(i));
             carRace.add(car);
         }
+    }
+
+    private void checkForwardStop(List<Car> car) {
+        for (int i = 0; i < car.size(); i++) {
+            int randomNum = getRandomNum();
+        }
+    }
+
+    private int getRandomNum() {
+        return Randoms.pickNumberInRange(0,9);
     }
 }
