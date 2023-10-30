@@ -3,6 +3,8 @@ package racingcar.model;
 import java.util.List;
 
 public class CarModel {
+
+    public static final int FORWARD_NUMBER = 4;
     private final String name;
     private int location;
 
@@ -19,7 +21,7 @@ public class CarModel {
     }
 
     public void increaseLocation(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= FORWARD_NUMBER) {
             this.location++;
         }
     }
