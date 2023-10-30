@@ -17,7 +17,7 @@ public class Application {
                 String inputMoves = Console.readLine();
                 attemptInput(participants, inputMoves); //시도 회수 저장 및 진행 상황 출력
 
-//                victory(participants, inputMoves);    // 우승자 출력
+                victory(participants);    // 우승자 출력
         }
 
         public static List<Car> participantsInput(String participantInputName) {      //명단(이름) 메소드
@@ -58,20 +58,21 @@ public class Application {
                 }
         }
 
-//                int maxMove = 0;
-//                List<String> winner = new ArrayList<>();
-//                for (Car car : participants) {
-//                        int carMove = car.getMove();
-//                        if (carMove > maxMove) {
-//                                maxMove = carMove;
-//                                winner.clear();
-//                                winner.add(car.getName());
-//                        } else if (carMove == maxMove) {
-//                                winner.add(car.getName());
-//                        }
-//                }
-//                System.out.print("최종 우승자 : " + String.join(", ", winner));          // 우승자 출력
-
+        public static void victory(List<Car> participants){
+                int maxMove = 0;
+                List<String> winner = new ArrayList<>();
+                for (Car car : participants) {
+                        int carMove = car.getMove();
+                        if (carMove > maxMove) {
+                                maxMove = carMove;
+                                winner.clear();
+                                winner.add(car.getName());
+                        } else if (carMove == maxMove) {
+                                winner.add(car.getName());
+                        }
+                }
+                System.out.print("최종 우승자 : " + String.join(", ", winner));          // 우승자 출력
+        }
 
 }
 
