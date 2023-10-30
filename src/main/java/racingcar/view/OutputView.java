@@ -6,6 +6,10 @@ import java.util.List;
 
 public class OutputView {
 
+    public void printRaceStart() {
+        System.out.println("\n실행 결과");
+    }
+
     public void printCarsProgress(List<Car> carList) {
         for (Car car : carList) {
             printCarName(car);

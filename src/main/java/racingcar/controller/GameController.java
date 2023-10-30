@@ -26,6 +26,8 @@ public class GameController {
 
         int raceCount = inputView.readCarMoveCount();
         validateRaceCount(raceCount);
+        outputView.printRaceStart();
+
         for (int i = 0; i < raceCount; i++) {
             for (Car car : carList) {
                 car.move(NumberGenerator.createRandomNumber());
