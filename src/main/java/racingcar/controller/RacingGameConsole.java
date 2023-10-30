@@ -20,13 +20,8 @@ public class RacingGameConsole {
     }
 
     public void run() {
-        String carNamesInput = InputView.inputCarNames();
-        InputValidator.validateCarNames(carNamesInput);
-        Cars cars = createCars(carNamesInput);
-
-        String roundInput = InputView.inputRound();
-        InputValidator.validateRound(roundInput);
-        int roundCount = Integer.parseInt(roundInput);
+        Cars cars = createCars(InputView.inputCarNames());
+        int roundCount = parseRoundCount(InputView.inputRound());
 
         startRacing(cars, roundCount);
     }
@@ -45,9 +40,17 @@ public class RacingGameConsole {
     }
 
     private Cars createCars(String carNamesInput) {
+        InputValidator.validateCarNames(carNamesInput);
+
         List<String> carNames = Arrays.asList(carNamesInput.split(Constants.CAR_NAME_DELIMITER));
         return new Cars(carNames.stream()
                 .map(Car::new)
                 .toList());
+    }
+
+    private int parseRoundCount(String roundInput) {
+        InputValidator.validateRound(roundInput);
+
+        return Integer.parseInt(roundInput);
     }
 }
