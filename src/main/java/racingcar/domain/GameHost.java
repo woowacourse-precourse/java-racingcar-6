@@ -32,7 +32,7 @@ public class GameHost {
     }
 
     /**
-     * 현제 RaceCarList의 RaceCar의 움직인 횟수중에
+     * 현제 레이싱을 하는 자동차의 움직인 횟수중에
      * 최고로 많은 횟수를 알려준다.
      *
      * @param progressCarList
