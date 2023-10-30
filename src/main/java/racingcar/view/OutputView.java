@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.EachMoveResultDto;
+import racingcar.domain.EachGameResultDto;
 import racingcar.domain.GameWinnerDto;
 
 public class OutputView {
@@ -29,7 +29,7 @@ public class OutputView {
         System.out.println(winners);
     }
 
-    public void displayEachGameResult(List<EachMoveResultDto> moveResults) {
+    public void displayEachGameResult(List<EachGameResultDto> moveResults) {
 
         moveResults.stream()
                 .forEach(moveResultDto -> System.out.println(

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Cars;
-import racingcar.domain.EachMoveResultDto;
+import racingcar.domain.EachGameResultDto;
 import racingcar.domain.GameWinnerDto;
 import racingcar.domain.RandomGenerator;
 
@@ -25,10 +25,9 @@ public class CarsTest {
         when(mockRandomGenerator.generate()).thenReturn(5);
 
         cars.moveCars();
-        List<EachMoveResultDto> moveResults = cars.getEachGameResult();
+        List<EachGameResultDto> moveResults = cars.getEachGameResult();
 
-        moveResults.stream()
-                .forEach(result -> assertEquals(1, result.getPosition()));
+        moveResults.stream().forEach(result -> assertEquals(1, result.getPosition()));
     }
 
     @Test
@@ -43,8 +42,7 @@ public class CarsTest {
         cars.moveCars();
         List<GameWinnerDto> winnerResults = cars.getWinners();
 
-        winnerResults.stream()
-                .forEach(result -> assertEquals("car1", result.getWinnerCar()));
+        winnerResults.stream().forEach(result -> assertEquals("car1", result.getWinnerCar()));
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.EachMoveResultDto;
+import racingcar.domain.EachGameResultDto;
 import racingcar.domain.GameWinnerDto;
 import racingcar.view.OutputView;
 
@@ -41,7 +41,7 @@ public class OutputViewTest {
     @Test
     void displayEachGameResult() {
         String result = "pobi : -" + System.lineSeparator().repeat(2);
-        List<EachMoveResultDto> eachMoveResultDtos = Arrays.asList(new EachMoveResultDto("pobi", 1));
+        List<EachGameResultDto> eachMoveResultDtos = Arrays.asList(new EachGameResultDto("pobi", 1));
         outputView.displayEachGameResult(eachMoveResultDtos);
         assertThat(outputStream.toString()).isEqualTo(result);
     }

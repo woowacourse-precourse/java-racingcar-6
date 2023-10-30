@@ -27,14 +27,14 @@ public class Cars {
         car.moveFoward(randomGenerator.generate());
     }
 
-    public List<EachMoveResultDto> getEachGameResult() {
+    public List<EachGameResultDto> getEachGameResult() {
         return cars.stream()
                 .map(this::getResult)
                 .collect(Collectors.toList());
     }
 
-    private EachMoveResultDto getResult(Car car) {
-        return new EachMoveResultDto(car.getName(), car.getPosition());
+    private EachGameResultDto getResult(Car car) {
+        return new EachGameResultDto(car.getName(), car.getPosition());
     }
 
     public List<GameWinnerDto> getWinners() {
