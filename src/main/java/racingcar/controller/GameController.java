@@ -19,6 +19,7 @@ public class GameController {
         OutputView.printGameResult(cars, numberOfAttempts);
         OutputView.printWinners(winners);
     }
+
     private List<Car> createCars(String carNamesInput) {
         String[] carNames = carNamesInput.split(",");
         List<Car> cars = new ArrayList<>();
@@ -27,4 +28,12 @@ public class GameController {
         }
         return cars;
     }
+
+    private void moveCar(Car car) {
+        int randomNumber = GoStopCar.pickNumberInRange();
+        if (randomNumber >= 4) {
+            car.moveForward();
+        }
+    }
+
 }
