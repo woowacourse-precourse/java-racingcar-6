@@ -7,6 +7,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScreenTest {
 
@@ -59,5 +64,19 @@ public class ScreenTest {
 
         assertThatThrownBy(Screen::askRacingTime)
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 한_라운드_실행_결과_출력() {
+        String[] names = {"pobi", "yen"};
+        List<Car> cars = new ArrayList<>();
+
+        for (String name : names) {
+            cars.add(new Car(name));
+        }
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        Screen.displayResult(cars);
+        assertThat(out.toString()).isEqualTo("pobi : \nyen : \n\n");
     }
 }

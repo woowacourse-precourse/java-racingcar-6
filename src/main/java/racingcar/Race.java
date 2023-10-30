@@ -22,6 +22,7 @@ public class Race {
         System.out.println("\n실행 결과");
         for (int idx = 0; idx < time; idx++) {
             playOneRound();
+            Screen.displayResult(cars);
         }
     }
 
