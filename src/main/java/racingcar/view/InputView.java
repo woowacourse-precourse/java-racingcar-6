@@ -19,7 +19,7 @@ public class InputView {
 
     private static void validateNumber(int attemptNumber) {
         if (attemptNumber < 1) {
-            throw new IllegalArgumentException("입력하신 횟수가 올바르지 않습니다.");
+            throw new IllegalArgumentException("횟수가 올바르지 않습니다.");
         }
     }
 }
