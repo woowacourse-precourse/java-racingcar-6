@@ -43,7 +43,7 @@ public class Game {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void race() {
+    private void race() {
         for (int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
             if(isMoveForward()) {
