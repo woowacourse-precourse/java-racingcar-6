@@ -1,14 +1,28 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Cars {
-    private final static List<Car> carList = new ArrayList<>();
+    private final List<Car> carList = new ArrayList<>();
 
     public void init(String[] carArr) {
         for (String carName : carArr) {
             carList.add(Car.from(carName, 0));
+        }
+        validateDuplicateName();
+    }
+
+    private void validateDuplicateName() {
+        Set<String> carSet = new HashSet<>();
+        for (Car car : carList) {
+            String name = car.getName();
+            if (carSet.contains(name)) {
+                throw new IllegalArgumentException("중복되는 이름이 있습니다.");
+            }
+            carSet.add(car.getName());
         }
     }
 
@@ -21,17 +35,17 @@ public class Cars {
     }
 
     public String findName(int i) {
-        return carList.get(i).getName().getName();
+        return carList.get(i).getName();
     }
 
     public int findGameNum(int i) {
-        return carList.get(i).getPosition().getNum();
+        return carList.get(i).getPosition();
     }
 
     public int findMaxPosition() {
         int max = 0;
         for (Car car : carList) {
-            max = Math.max(max, car.getPosition().getNum());
+            max = Math.max(max, car.getPosition());
         }
         return max;
     }

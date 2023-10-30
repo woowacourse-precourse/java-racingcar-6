@@ -17,11 +17,11 @@ public class Car {
         this.position.plusNum();
     }
 
-    public Name getName() {
-        return name;
+    public String getName() {
+        return name.getName();
     }
 
-    public Position getPosition() {
-        return position;
+    public int getPosition() {
+        return position.getNum();
     }
 }
