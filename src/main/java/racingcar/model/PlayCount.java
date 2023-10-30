@@ -7,7 +7,6 @@ public class PlayCount {
     private static final int DEFAULT_ROUND = 0;
 
     private final int goal;
-
     private int round;
 
     private PlayCount(final int goal, final int round) {
