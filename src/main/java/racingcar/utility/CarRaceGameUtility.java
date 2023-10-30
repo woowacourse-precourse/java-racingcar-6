@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.GameManager;
+import racingcar.validator.Validator;
 import racingcar.view.CarRaceGameView;
 
 public class CarRaceGameUtility {
@@ -19,7 +20,9 @@ public class CarRaceGameUtility {
 
     public static void startCarRaceGameOneRound() {
         for (Car car : GameManager.getCarImplList()) {
-            decideToMove(car);
+            if (car.decideToMove(randomNumberGenerator())) {
+                car.forwardOneBlock();
+            }
             CarRaceGameView.tryForwardResultView(car.getCarName(), car.getAdvanceNumber());
         }
         CarRaceGameView.newRoundRefreshView();
@@ -27,14 +30,10 @@ public class CarRaceGameUtility {
 
     public static int randomNumberGenerator() {
         int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
+        Validator.randomNumberRange(randomNumber);
         return randomNumber;
     }
 
-    public static void decideToMove(Car car) {
-        if (4 >= randomNumberGenerator()) {
-            car.forwardOneBlock();
-        }
-    }
 
     public static List<String> findWinner(List<Car> carImplList) {
         int max = 0;

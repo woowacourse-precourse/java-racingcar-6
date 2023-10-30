@@ -20,5 +20,12 @@ public class Car {
     public void forwardOneBlock() {
         this.advanceNumber++;
     }
+
+    public static boolean decideToMove(int randomNumber) {
+        if (4 >= randomNumber) {
+            return true;
+        }
+        return false;
+    }
 }
 
