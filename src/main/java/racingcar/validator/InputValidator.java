@@ -5,19 +5,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputValidator {
+    private static final String DELIMITER = ",";
+
     public static void validateCarsFormat(String input) {
-        // 정규식 패턴: 문자 또는 쉼표 외의 문자가 하나이상 있는지 확인
-        Pattern pattern = Pattern.compile("[^a-zA-Z,]+");
+        Pattern pattern = Pattern.compile("[^a-zA-Z,]+"); // regex: 문자||쉼표 외의 문자가 있는지 확인
         Matcher matcher = pattern.matcher(input);
-        if (matcher.find()) {
-            throw new IllegalArgumentException("[ERROR] 입력에 허용되지 않는 문자가 포함되어있어요.");
+        if (matcher.find() || input.endsWith(DELIMITER) || input.startsWith(DELIMITER)) {
+            throw new IllegalArgumentException("[ERROR] 형식에 맞게 입력해주세요.");
         }
     }
 
-    public static void validateCarLength(List<String> inputs) {
+    public static void validateCarNameValid(List<String> inputs) {
         for (String input : inputs) {
             if (input.length() > 5) {
                 throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하로 작성해주세요.");
+            }
+            else if (input.equals("")) {
+                throw new IllegalArgumentException("[ERROR] 형식에 맞게 입력해주세요.");
             }
         }
     }
