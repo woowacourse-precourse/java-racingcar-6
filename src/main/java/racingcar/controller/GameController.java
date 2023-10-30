@@ -4,7 +4,6 @@ import racingcar.view.InputHandler;
 import racingcar.view.OutputHandler;
 import racingcar.model.Race;
 import racingcar.model.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 
