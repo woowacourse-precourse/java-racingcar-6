@@ -75,7 +75,7 @@ class Race {
         List<String> winners = carList.stream().filter(car->car.getPosition()==maxPosition)
                 .map(Car::getName).toList();
 
-        System.out.println("최종 우승자 : " + String.join(", "+winners));
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
 
