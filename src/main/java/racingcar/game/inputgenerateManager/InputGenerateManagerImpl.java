@@ -7,6 +7,7 @@ import racingcar.game.enums.InputSize;
 
 public class InputGenerateManagerImpl implements InputGenerateManager {
     private static final String COMMA_DELIMITER = ",";
+
     @Override
     public Integer generateRandomInt() {
         return Randoms.pickNumberInRange(InputSize.START_INCLUSIVE.getSize(), InputSize.END_INCLUSIVE.getSize());
@@ -26,7 +27,8 @@ public class InputGenerateManagerImpl implements InputGenerateManager {
         InputValidator.validateLength(splitData);
         return Arrays.asList(splitData);
     }
-    public static InputGenerateManager createInputGenerateManager(){
+
+    public static InputGenerateManager createInputGenerateManager() {
         return new InputGenerateManagerImpl();
     }
 }

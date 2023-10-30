@@ -8,11 +8,11 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import racingcar.game.Rule;
 import racingcar.game.Simulator;
 import racingcar.game.car.Car;
+import racingcar.game.CarFactory;
 import racingcar.game.inputgenerateManager.InputGenerateManagerImpl;
 
 class OutputGenerateManagerTest {
@@ -34,22 +34,22 @@ class OutputGenerateManagerTest {
     void 우승자_확인() {
         Rule rule = new Rule();
 
-        List<String> racingCarNameList = Arrays.asList("한놈","두식이","석삼","너구리");
+        List<String> racingCarNameList = Arrays.asList("한놈", "두식이", "석삼", "너구리");
         InputGenerateManagerImpl mockInputGenerateManager = Mockito.mock(InputGenerateManagerImpl.class);
+        CarFactory carFactory = new CarFactory(mockInputGenerateManager);
         Mockito.when(mockInputGenerateManager.generateRandomInt())
-                .thenReturn(4,3,4,2);
+                .thenReturn(4, 3, 4, 2);
 
-        Simulator simulator = new Simulator(mockInputGenerateManager);
-        List<Car> cars = simulator.nameToRacingCar(racingCarNameList);
+        Simulator simulator = new Simulator();
+        List<Car> cars = carFactory.createCars(racingCarNameList);
         OutputGenerateManager outputGenerateManager = new OutputGenerateManager(rule);
 
         //when
         simulator.perRound(cars);
         outputGenerateManager.printWinners(cars);
 
-
         //then
-        Assertions.assertThat(outContent.toString()).isEqualTo("한놈, 석삼"+System.lineSeparator());
+        Assertions.assertThat(outContent.toString()).isEqualTo("한놈, 석삼" + System.lineSeparator());
 
     }
 }

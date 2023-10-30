@@ -20,11 +20,11 @@ class CarTest {
 
         //when
         CarEngineV1 carEngineA = new CarEngineV1(moveForwardValue);
-        Car carA = new Car("carA",carEngineA);
+        Car carA = new Car("carA", carEngineA);
         carA.drive();
 
         CarEngineV1 carEngineB = new CarEngineV1(stopValue);
-        Car carB = new Car("carB",carEngineB);
+        Car carB = new Car("carB", carEngineB);
         carB.drive();
 
         //then

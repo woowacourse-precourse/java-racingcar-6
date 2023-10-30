@@ -1,7 +1,6 @@
 package racingcar.game.car.engin;
 
 import org.assertj.core.api.Assertions;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import racingcar.game.enums.CarMove;

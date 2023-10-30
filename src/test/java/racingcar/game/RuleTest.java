@@ -11,7 +11,7 @@ import racingcar.game.inputgenerateManager.InputGenerateManagerImpl;
 class RuleTest {
 
     @Test
-    void countToHyphen() {
+    void 자동차_반복횟수마다_하이픈_추가() {
         //if
         Rule rule = new Rule();
         Car mockCar = Mockito.mock(Car.class);
@@ -26,22 +26,23 @@ class RuleTest {
     }
 
     @Test
-    void callWinners() {
+    void 우승자_확인() {
         //if
         Rule rule = new Rule();
-        List<String> racingCarNameList = Arrays.asList("한놈","두식이","석삼","너구리");
+        List<String> racingCarNameList = Arrays.asList("한놈", "두식이", "석삼", "너구리");
         InputGenerateManagerImpl mockInputGenerateManager = Mockito.mock(InputGenerateManagerImpl.class);
+        CarFactory carFactory = new CarFactory(mockInputGenerateManager);
         Mockito.when(mockInputGenerateManager.generateRandomInt())
-                .thenReturn(4,4,4,2)
-                .thenReturn(2,4,3,4)
-                .thenReturn(4,2,4,3)
-                .thenReturn(3,4,2,4)
-                .thenReturn(4,3,1,2);
+                .thenReturn(4, 4, 4, 2)
+                .thenReturn(2, 4, 3, 4)
+                .thenReturn(4, 2, 4, 3)
+                .thenReturn(3, 4, 2, 4)
+                .thenReturn(4, 3, 1, 2);
 
         //when
-        Simulator simulator = new Simulator(mockInputGenerateManager);
-        List<Car> cars = simulator.nameToRacingCar(racingCarNameList);
-        for(int i=0; i<5;i++){
+        Simulator simulator = new Simulator();
+        List<Car> cars = carFactory.createCars(racingCarNameList);
+        for (int i = 0; i < 5; i++) {
             simulator.perRound(cars);
         }
         List<Car> winnerList = rule.findWinners(cars);
@@ -53,22 +54,23 @@ class RuleTest {
     }
 
     @Test
-    void printWinnerList() {
+    void 우승자_스트링_변환() {
         //if
         Rule rule = new Rule();
-        List<String> racingCarNameList = Arrays.asList("한놈","두식이","석삼","너구리");
+        List<String> racingCarNameList = Arrays.asList("한놈", "두식이", "석삼", "너구리");
         InputGenerateManagerImpl mockInputGenerateManager = Mockito.mock(InputGenerateManagerImpl.class);
+        CarFactory carFactory = new CarFactory(mockInputGenerateManager);
         Mockito.when(mockInputGenerateManager.generateRandomInt())
-                .thenReturn(4,4,4,2)
-                .thenReturn(2,4,3,4)
-                .thenReturn(4,2,4,3)
-                .thenReturn(3,4,2,4)
-                .thenReturn(4,3,1,2);
+                .thenReturn(4, 4, 4, 2)
+                .thenReturn(2, 4, 3, 4)
+                .thenReturn(4, 2, 4, 3)
+                .thenReturn(3, 4, 2, 4)
+                .thenReturn(4, 3, 1, 2);
 
         //when
-        Simulator simulator = new Simulator(mockInputGenerateManager);
-        List<Car> cars = simulator.nameToRacingCar(racingCarNameList);
-        for(int i=0; i<5;i++){
+        Simulator simulator = new Simulator();
+        List<Car> cars = carFactory.createCars(racingCarNameList);
+        for (int i = 0; i < 5; i++) {
             simulator.perRound(cars);
         }
         List<Car> winnerList = rule.findWinners(cars);

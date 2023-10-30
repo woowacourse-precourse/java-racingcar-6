@@ -11,12 +11,14 @@ public class Director {
     private final InputGenerateManager inputGenerateManager;
     private final OutputGenerateManager outputGenerateManager;
     private final Simulator simulator;
+    private final CarFactory carFactory;
 
     public Director(InputGenerateManager inputGenerateManager, OutputGenerateManager outputGenerateManager,
-                    Simulator simulator) {
+                    Simulator simulator, CarFactory carFactory) {
         this.inputGenerateManager = inputGenerateManager;
         this.outputGenerateManager = outputGenerateManager;
         this.simulator = simulator;
+        this.carFactory = carFactory;
     }
 
     public void startProcess() {
@@ -44,7 +46,7 @@ public class Director {
         outputGenerateManager.printCarNameAnnounce();
         String rawString = this.readLine();
         List<String> racingCarNameList = inputGenerateManager.generateInputStringSplitWithComma(rawString);
-        List<Car> cars = simulator.nameToRacingCar(racingCarNameList);
+        List<Car> cars = carFactory.createCars(racingCarNameList);
         return cars;
     }
 
@@ -56,8 +58,8 @@ public class Director {
         Console.close();
     }
 
-    private void repeatRound(List<Car> cars,Integer integerRepeatCount){
-        for (int i=0; i<integerRepeatCount; i++){
+    private void repeatRound(List<Car> cars, Integer integerRepeatCount) {
+        for (int i = 0; i < integerRepeatCount; i++) {
             Round round = simulator.perRound(cars);
             outputGenerateManager.printResultList(round);
         }
