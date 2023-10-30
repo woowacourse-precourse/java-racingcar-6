@@ -10,8 +10,10 @@ public class InputValidator {
         }
     }
 
-    public void validateTimes(String times) {
-
+    public void validateTimes(int times) {
+        if (times < 0) {
+            throw new IllegalArgumentException();
+        }
     }
 
 }
