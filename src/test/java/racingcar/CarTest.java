@@ -2,6 +2,9 @@ package racingcar;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarTest {
@@ -23,5 +26,16 @@ class CarTest {
         for (int i=0; i < STEP; i++)
             car.moveOrStop(MOVE_CONDITION - 1);
         assertThat(car.getStatus()).isEqualTo(0);
+    }
+
+    @Test
+    void 자동차_이동상태_출력() {
+        Car car = new Car("name");
+        for (int i=0; i < STEP; i++)
+            car.moveOrStop(MOVE_CONDITION + 1);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+        car.showStatus();
+        assertThat(outputStream.toString()).contains("name : ---");
     }
 }
