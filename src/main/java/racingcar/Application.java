@@ -6,7 +6,7 @@ import racingcar.entity.Tries;
 import java.util.List;
 
 import static racingcar.entity.Participantes.InputParticipantes;
-//import static racingcar.generator.DashStringGenerator.DashStringGenerator;
+
 
 
 public class Application {
@@ -28,10 +28,7 @@ public class Application {
         for(int i=0; i<participantes.size();i++){
             System.out.println(participantes.get(i) + " : " + gameController.win[i] + "회");
         }
-//        for (int i = 0; i < participantes.size(); i++) {
-//            String dashString = DashStringGenerator(i, gameController.win);
-//            System.out.println(participantes.get(i) + " : " + dashString);
-//        }
+
     }
 
 
