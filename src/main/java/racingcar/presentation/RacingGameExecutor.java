@@ -32,7 +32,7 @@ public class RacingGameExecutor {
         Printer.printLine(Command.ASK_CAR_NAMES.getMessage());
         String carNamesInput = racingCarsReader.read();
 
-        List<String> carNames = Arrays.asList(carNamesInput.split(ConstStandard.CRITERIA_SEPARATE));
+        List<String> carNames = Arrays.asList(carNamesInput.split(ConstStandard.CRITERIA_NAMES_INPUT_SEPARATOR));
 
         return carNames.stream().map(String::trim)
                 .toList();
