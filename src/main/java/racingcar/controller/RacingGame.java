@@ -32,6 +32,6 @@ public class RacingGame {
             outputView.printResult(racingCars);
         }
 
-        outputView.printWinner();
+        outputView.printWinner(racingCars);
     }
 }

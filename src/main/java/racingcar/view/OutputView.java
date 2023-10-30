@@ -24,9 +24,31 @@ public class OutputView {
         }
     }
 
-    public void printWinner(){
-        System.out.println("최종 우승자 : ");
+    public void printWinner(List<RacingCar> racingCars){
+        System.out.print("최종 우승자 : ");
+
+        int max = 0;
+
+        for(int i = 0; i < racingCars.size(); i++){
+            if(max < racingCars.get(i).getMoveNumber()){
+                max = racingCars.get(i).getMoveNumber();
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < racingCars.size(); i++){
+            if(racingCars.get(i).getMoveNumber() == max){
+                if(sb.isEmpty()){
+                    sb.append(racingCars.get(i).getName());
+
+                    continue;
+                }
+
+                sb.append(", " + racingCars.get(i).getName());
+            }
+        }
+
+        System.out.println(sb.toString());
     }
-
-
 }
