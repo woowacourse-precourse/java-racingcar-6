@@ -16,15 +16,9 @@ public class Simulation {
 
         createRacingCarList();
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        howManyRounds();
 
-        String input = Console.readLine();
-
-        int times = Integer.parseInt(input);
-
-        setRandomRecord(times);
-
-        print(times);
+        printRoundResult();
 
         printWinner();
     }
@@ -90,40 +84,59 @@ public class Simulation {
         }
     }
 
-    private void setRandomRecord(int times) {
+    private void howManyRounds(){
 
-        for (int i = 0; i < times; i++) {
+        System.out.println("시도할 회수는 몇회인가요?");
 
-            for (int j = 0; j < racingCarList.size(); j++) {
+        String input = Console.readLine();
 
-                int record = Randoms.pickNumberInRange(1, 9) - 3;
+        int times = Integer.parseInt(input);
 
-                if (record < 0) record = 0;
-
-                racingCarList.get(j).saveRecord(record);
-                racingCarList.get(j).calculateTotalRecord(record);
-            }
+        for(int i=0; i<times; i++) {
+            setRandomRecord();
         }
     }
 
-    private void print(int times) {
+    private void setRandomRecord() {
+
+        for(RacingCar car : racingCarList){
+
+            int record = Randoms.pickNumberInRange(1, 9) - 3;
+
+            if (record < 0) record = 0;
+
+            car.saveRecord(record);
+            car.calculateTotalRecord(record);
+        }
+    }
+
+    private void print(int index) {
+
+        for(RacingCar car : racingCarList){
+
+            System.out.print(car.getName()+" : ");
+
+            int count = car.getRecords().get(index);
+
+            for(int i=0; i<count; i++){
+
+                System.out.print("-");
+            }
+
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    private void printRoundResult(){
 
         System.out.println("실행 결과");
 
-        for(int i=0 ; i<times; i++) {
-            for (int j=0; j<racingCarList.size(); j++) {
+        int times = racingCarList.get(0).getRecords().size();
 
-                System.out.print(racingCarList.get(j).getName() + " : ");
+        for(int i=0; i<times; i++){
 
-                int count = racingCarList.get(j).getRecords().get(i);
-
-                for (int k = 0; k < count; k++) {
-
-                    System.out.print("-");
-                }
-                System.out.println();
-            }
-            System.out.println();
+            print(i);
         }
     }
 
