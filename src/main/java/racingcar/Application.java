@@ -15,7 +15,10 @@ public class Application {
         // 입력 받은 문자열을 쉼표를 기준으로 구분하여 자동차 이름 저장하기
         String[] carNameAfterSplit = carNameBeforeSplit.split(",");
         ArrayList<String> carList = new ArrayList<String>(Arrays.asList(carNameAfterSplit));
-        System.out.println(carList);
+
+        // 시도할 횟수 입력받기
+        System.out.println("시도할 회수는 몇회인가요?");
+        numberOfMoves = readLine();
     }
 
 }
