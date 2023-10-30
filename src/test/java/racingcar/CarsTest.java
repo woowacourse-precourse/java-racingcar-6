@@ -88,5 +88,18 @@ final class CarsTest {
                 .contains("aaa : ");
     }
 
+    @Test
+    void 우승자를_선별한다() {
+        Cars cars = new Cars(roulette, "a,aaa");
+
+        roulette.fixNumber(4);
+        cars.tryMove();
+        cars.tryMove();
+        cars.tryMove();
+
+        assertThat(cars.whosWinners())
+                .contains("a")
+                .contains("aaa");
+    }
 
 }
