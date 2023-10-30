@@ -5,16 +5,17 @@ import java.util.List;
 import racingcar.util.Validator;
 
 public class Names {
-    String names;
+
+    List<String> nameList;
 
     public Names(String names) {
-        List<String> nameList = Arrays.asList(names.split(",", -1));
+        nameList = Arrays.asList(names.split(",", -1));
         for (int i = 0; i < nameList.size(); i++) {
             nameList.set(i, nameList.get(i).trim());
         }
         new Validator().names(nameList);
 
-        this.names = names; //trim이 필요하지만 검증 받은 이름
+        this.nameList = nameList; //검증 받은 이름 리스트
     }
 
 }
