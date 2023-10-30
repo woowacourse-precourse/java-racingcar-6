@@ -7,7 +7,6 @@ import java.util.List;
 public class Race {
     private final static int CAN_MOVE = 4;
     private final List<Car> carList;
-    private List<Integer> randomNumbersForTest = new ArrayList<>();
 
     public Race() {
         carList = new ArrayList<>();
@@ -35,20 +34,13 @@ public class Race {
     }
 
     public void moveCars() {
-        randomNumbersForTest.clear();
         for (Car car : carList) {
             int randomNumber = RandomGenerator.createNumber();
             if (randomNumber >= CAN_MOVE) {
                 car.moveForward();
 
             }
-            randomNumbersForTest.add(randomNumber);
         }
-    }
-
-    public List<Integer> getRandomNumbersForTest() {
-        // 테스트를 위한 랜덤 번호 반환 메서드
-        return randomNumbersForTest;
     }
 
     public List<Integer> getRoundResult() {
