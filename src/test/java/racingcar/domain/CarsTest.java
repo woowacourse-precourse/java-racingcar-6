@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import racingcar.FixedNumberGenerator;
+import racingcar.MoveResult;
 
 class CarsTest {
 
@@ -63,8 +64,8 @@ class CarsTest {
         MoveResult moveResult = cars.move(new FixedNumberGenerator());
 
         // then
-        Assertions.assertThat(moveResult.getCarNames()).isEqualTo(List.of("car1", "car2", "car3"));
-        Assertions.assertThat(moveResult.getForwardCounts()).isEqualTo(List.of(1, 1, 1));
+        Assertions.assertThat(moveResult.carNames()).isEqualTo(List.of("car1", "car2", "car3"));
+        Assertions.assertThat(moveResult.forwardCounts()).isEqualTo(List.of(1, 1, 1));
     }
 
     @DisplayName("가장 많이 전진한 자동차가 1대라면, 가장 많이 전진한 자동차 목록을 조회했을 때 그 목록의 크기는 1이다.")

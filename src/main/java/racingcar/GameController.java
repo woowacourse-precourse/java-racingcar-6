@@ -4,7 +4,6 @@ import java.util.List;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.domain.MoveResult;
 import racingcar.domain.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -32,7 +31,7 @@ public class GameController {
         OutputView.printRacingResultMessage();
         while (numberOfAttempts > 0) {
             MoveResult moveResult = cars.move(numberGenerator);
-            OutputView.printRacingResult(moveResult.getCarNames(), moveResult.getForwardCounts());
+            OutputView.printRacingResult(moveResult.carNames(), moveResult.forwardCounts());
             numberOfAttempts--;
         }
         List<String> winners = decideWinners(cars);

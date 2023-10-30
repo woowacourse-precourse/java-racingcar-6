@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import racingcar.MoveResult;
 import racingcar.NumberGenerator;
 
 public class Cars {
