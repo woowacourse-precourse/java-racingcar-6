@@ -27,7 +27,7 @@ public class Validator {
 
     }
 
-    public static void checkLength(List<String> carNames){
+    public static void checkLength(List<String> carNames) {
 
         for (String carName : carNames) {
 
@@ -62,5 +62,4 @@ public class Validator {
         }
 
     }
-
 }
