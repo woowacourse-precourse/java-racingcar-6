@@ -27,4 +27,14 @@ class RacingCarsTest {
                 .hasMessageContaining("[ERROR] : 중복되지 않은 자동차 이름을 입력해주세요.");
     }
 
+    @Test
+    @DisplayName("두 개 미만의 자동차 입력 시 예외 처리")
+    public void checkCarCountValidity() {
+        List<String> carNames = Arrays.asList("pobi");
+        assertThatThrownBy(() -> {
+            RacingCars racingCars = new RacingCars(carNames);
+        }).isInstanceOf(RuntimeException.class)
+                .hasMessageContaining("[ERROR] : 두 개 이상의 자동차를 입력해주세요");
+    }
+
 }
