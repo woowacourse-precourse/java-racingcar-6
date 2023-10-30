@@ -1,13 +1,13 @@
 package racingcar.service;
 
 import racingcar.domain.Car;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import racingcar.view.InputView;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.view.OutView;
 
 public class GameService {
     private List<Car> cars = new ArrayList<>();
@@ -35,6 +35,8 @@ public class GameService {
                 Integer randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
                 car.move(randomNumber);
             }
+
+            OutView.printMoveResult(cars);
         }
     }
 
