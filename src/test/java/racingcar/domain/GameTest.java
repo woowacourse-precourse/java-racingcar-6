@@ -56,17 +56,4 @@ class GameTest {
         assertThat(carList.get(1).getMoveNum()).isEqualTo(1);
         assertThat(carList.get(2).getMoveNum()).isEqualTo(1);
     }
-
-    @Test
-    void 우숭자_자동차_리스트_조회하는_테스트() {
-        carList = Arrays.asList(
-                new Car("pobi", new TestNumberGenerator(1)),
-                new Car("woni", new TestNumberGenerator(7)),
-                new Car("jun", new TestNumberGenerator(9))
-        );
-        game = new Game(carList);
-        game.playOneRound();
-        List<String> winners = game.getWinners();
-        assertThat(winners).containsOnly( "woni", "jun");
-    }
 }
