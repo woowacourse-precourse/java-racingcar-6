@@ -2,9 +2,25 @@ package car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class CarTest {
+
+    private ByteArrayOutputStream outputStreamCaptor;
+
+    @BeforeEach
+    void setUp() {
+        outputStreamCaptor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
+    }
+
+    protected String getOutput() {
+        return outputStreamCaptor.toString();
+    }
 
     @Test
     public void testGetName(){
@@ -44,5 +60,17 @@ public class CarTest {
         int result = car.getCount();
 
         assertThat(result).isEqualTo(0);
+    }
+
+    @Test
+    public void testPrintResult(){
+        Car car = new Car("TestCar");
+
+        car.move(4);
+
+        car.printResult();
+
+        assertThat(getOutput()).isEqualTo("TestCar : -\n");
+
     }
 }
