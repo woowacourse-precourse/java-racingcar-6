@@ -1,4 +1,87 @@
+```
+src
+├─ main
+│  └─ java
+│       ├─ racingcar
+│       │   ├─ constant
+│       │   │   ├─ GameNotice ["게임 출력 문구 및 에러 문구"]
+│       │   │   └─ RacingCarGameConfig ["게임에서 사용되는 상수"]
+│       │   ├─ controller
+│       │   │   └─ RacingCarGameController ["게임 주요 로직"]
+│       │   ├─ model
+│       │   │   ├─ RacingCar ["Racing Car 객체"]
+│       │   │   └─ RacingCarGameModel ["Racing Car Game 객체"]
+│       │   ├─ validation
+│       │   │   └─ InputValidator ["사용자 입력에 대한 유효성 검사 로직"]
+│       │   ├─ view
+│       │   │   ├─ input 
+│       │   │   │   └─ InputView ["사용자 입력 받는 로직"]
+│       │   │   └─ output
+│       │   │       └─ OutputView ["사용자에게 문구 출력하는 로직"]
+│       │   └─ Application
+│       └─ utils
+│           ├─ Console ["출력 유틸리티 클래스"]
+│           └─ StringUtils [" String split 관련 유틸리티 클래스 "]
+└─ test
+   └─ java
+        ├─ racingcar
+        │   ├─ ApplicationTest
+        │   └─ InputValidationTest ["사용자 입력 유효성 테스트 코드"]
+        └─ study
+            └─ StringTest
+```
 
+---
+
+# Flow Chart
+![flow chart](./image/flow_chart.jpeg)
+
+---
+# 요구사항 분석
+
+## 입력
+
+- 경주 할 자동차 이름
+    - 쉼표 기준으로 구분
+    - 5자이하 만 가능
+- 전진 시도할 횟수
+- 전진 수
+    - 0 ~ 9 사이에서 무작위 값을 구한 후 무작위 값이 4이상일 경우 전진
+
+## 출력
+
+- 각 차수별 실행 결과
+- 우승자 안내 문구
+    - 단독 우승장 안내 문구
+    - 공동 우승자 안내 문구
+
+## MVC
+
+1. Model
+    - 자동차 이름
+    - 시도할 횟수
+    - 이동한 거리/횟수
+2. View
+    - 사용자로부터 자동차 이름 입력 받기
+    - 사용자로부터 시도할 횟수 입력 받기
+    - 경주 중간 결과 출력하기
+    - 우승자 출력하기
+3. Controller
+    - Model - View 메시지 전달
+
+---
+
+## 사용자 입력 유효성 체크 목록
+### CarName
+- 1자리 이상 5자리 이하인지 체크하기 [✅]
+- 중복되게 입력했는지 확인하기 [✅]
+- "," 으로 구분된 갯수가 2개 이상인지 확인하기 [✅]
+
+### RoundNumber
+- 1 이상의 값인지 [✅]
+- 숫자가 맞는지 [✅]
+
+---
 # 지난 주차 미션 PR 리뷰
 ```java
 private int[] scoreBoard = {0, 0};
@@ -106,53 +189,3 @@ A:유틸리티 클래스에 생성자를 package-private 보다는 private으로
 6. remove: 파일 삭제
 7. comment: 주석 추가/변경
 8. style: 코드 포맷 변경, 세미 콜론 누락, 코드 수정이 없는 경우
-
----
-
-# Flow Chart
-![flow chart](./image/flow_chart.jpeg)
-
----
-# 요구사항 분석
-
-## 입력
-
-- 경주 할 자동차 이름
-  - 쉼표 기준으로 구분
-  - 5자이하 만 가능
-- 전진 시도할 횟수
-- 전진 수
-  - 0 ~ 9 사이에서 무작위 값을 구한 후 무작위 값이 4이상일 경우 전진
-
-## 출력
-
-- 각 차수별 실행 결과
-- 우승자 안내 문구
-  - 단독 우승장 안내 문구
-  - 공동 우승자 안내 문구
-
-## MVC
-
-1. Model
-   - 자동차 이름
-   - 시도할 횟수
-   - 이동한 거리/횟수
-2. View
-   - 사용자로부터 자동차 이름 입력 받기
-   - 사용자로부터 시도할 횟수 입력 받기
-   - 경주 중간 결과 출력하기
-   - 우승자 출력하기
-3. Controller
-   - Model - View 메시지 전달
-
----
-
-## 사용자 입력 유효성 체크 목록
-### CarName
-- 1자리 이상 5자리 이하인지 체크하기
-- 중복되게 입력했는지 확인하기
-- "," 으로 구분된 갯수가 2개 이상인지 확인하기
-### RoundNumber
-- 1 이상의 값인지
-- 숫자가 맞는지
-
