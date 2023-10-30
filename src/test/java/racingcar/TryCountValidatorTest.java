@@ -33,4 +33,12 @@ public class TryCountValidatorTest {
         Assertions.assertThatThrownBy(() -> TryCountValidator.validateTryCountIncludeEmpty(tryCount))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, -1, -2, -3, -10000})
+    void 시도_횟수가_양의_정수가_아닌_경우_예외처리_발생_테스트(int tryCount) {
+        Assertions.assertThatThrownBy(() -> TryCountValidator.validateNatureNumber(tryCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("시도 횟수가 양의 정수가 아닙니다. 애플리케이션을 종료합니다.");
+    }
 }
