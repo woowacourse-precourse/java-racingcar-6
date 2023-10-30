@@ -19,4 +19,8 @@ public class PrintUtils {
     public static void print(Message message) {
         System.out.println(message.getDescription());
     }
+
+    public static void print(String message) {
+        System.out.println(message);
+    }
 }
