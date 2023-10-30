@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -60,5 +61,12 @@ class OutputManagerTest extends NsTest {
                         List.of(MIN_VALUE_FOR_MOVE_FORWARD - 1, MIN_VALUE_FOR_MOVE_FORWARD - 1),
                         "최종 우승자 : test1, test2")
         );
+    }
+
+    @Test
+    void 자동차_이름_입력_가이드_출력_테스트(){
+        OutputManager.printCarsNameInputGuide();
+        assertThat(output())
+                .isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n".trim());
     }
 }
