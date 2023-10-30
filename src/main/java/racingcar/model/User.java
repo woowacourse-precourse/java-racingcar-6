@@ -9,7 +9,9 @@ import static racingcar.util.Constants.MIN_RANGE;
 import static racingcar.util.Constants.MAX_RANGE;
 import static racingcar.util.Constants.NUMBER_REGEXP;
 import static racingcar.util.Constants.MOVE_FORWARD;
+import static racingcar.util.Constants.INIT;
 import static racingcar.util.VerificationMessage.IS_NOT_NUMBER;
+import static racingcar.util.VerificationMessage.NOT_ZERO;
 
 public class User {
     private final int moveSize;
@@ -19,6 +21,7 @@ public class User {
     }
     public int moveSize(String size) {
         if(!isNumber(size)) throw new IllegalArgumentException(IS_NOT_NUMBER);
+        if(isZero(size)) throw new IllegalArgumentException(NOT_ZERO);
         return Integer.parseInt(size);
     }
     public boolean moveForward() {
@@ -31,6 +34,9 @@ public class User {
         Pattern pattern = Pattern.compile(NUMBER_REGEXP);
         Matcher matcher = pattern.matcher(size);
         return matcher.matches();
+    }
+    private boolean isZero(String size) {
+        return Integer.parseInt(size) == INIT;
     }
     public int getMoveSize() {
         return this.moveSize;
