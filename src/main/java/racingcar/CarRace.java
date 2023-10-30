@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import java.util.StringJoiner;
 
 public class CarRace {
@@ -9,13 +10,13 @@ public class CarRace {
         return Integer.parseInt(userInput);
     }
 
-    public static int calculateMaxDistance(Car car) {
+    public static int findBest(List<String> movedDistances) {
         int maxDistance = 0;
 
-        for (int i = 0; i < car.names.size(); i++) {
+        for (int i = 0; i < movedDistances.size(); i++) {
 
-            if (maxDistance <= car.movedDistances.get(i).length()) {
-                maxDistance = car.movedDistances.get(i).length();
+            if (maxDistance <= movedDistances.get(i).length()) {
+                maxDistance = movedDistances.get(i).length();
             }
 
         }

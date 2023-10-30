@@ -10,7 +10,7 @@ public class Application {
 
         car.move(CarRace.createRound(getInput("시도할 회수는 몇회인가요?")));
 
-        CarRace.printWinner(CarRace.findWinner(car, CarRace.calculateMaxDistance(car)));
+        CarRace.printWinner(CarRace.findWinner(car, CarRace.findBest(car.movedDistances)));
 
     }
 }
