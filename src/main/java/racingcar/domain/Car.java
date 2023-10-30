@@ -4,8 +4,8 @@ import racingcar.view.OutputView;
 
 import java.util.List;
 
-public class Car implements Comparable<Car>{
-    private CarName carName;
+public class Car implements Comparable<Car> {
+    private final CarName carName;
     private int movingDistance;
 
     public Car(String carName) {
@@ -23,8 +23,7 @@ public class Car implements Comparable<Car>{
     }
 
     public int moveRandomly() {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-        if (randomNumberGenerator.getRandomNumber() >= 4) {
+        if (Dice.isSuccess()) {
             movingDistance++;
         }
         return movingDistance;
