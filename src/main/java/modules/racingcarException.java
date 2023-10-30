@@ -1,6 +1,12 @@
 package modules;
 
 public class racingcarException {
+    public static void exception_len_0(String[] name_list) {
+        if (name_list.length < 2) {
+            System.out.println("exception_len_0의 if문 안에 들어옴");
+            throw new IllegalArgumentException();
+        }
+    }
     public static void exception_len_5(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException();
