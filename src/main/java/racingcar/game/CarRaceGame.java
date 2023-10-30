@@ -25,13 +25,14 @@ public class CarRaceGame implements Game {
         this.gameRound = Integer.parseInt(input);
     }
 
-//    private void printResult() {
-//        System.out.println("실행 결과");
-//        List<String> names = service.getCarsName();
-//        for (int i = 0; i < names.size(); i++) {
-//            System.out.println(names.get(i) + " : ");
-//        }
-//    }
+    private void printResult() {
+        System.out.println("실행 결과");
+        List<String> names = service.getCarsName();
+        List<Integer> locations = service.getCarsLocation();
+        for (int i = 0; i < names.size(); i++) {
+            System.out.println(names.get(i) + " : " + repeatHyphen(locations.get(i)));
+        }
+    }
 
     private String repeatHyphen(int location) {
         return "-".repeat(Math.max(0, location));
