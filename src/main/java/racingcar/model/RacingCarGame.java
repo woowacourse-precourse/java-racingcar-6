@@ -25,7 +25,7 @@ public class RacingCarGame {
         OutputView.outputWinnerRacingCarNames(cars);
     }
 
-    public void initCars() {
+    private void initCars() {
         String[] carsNames = getCarNames();
         this.cars = makeCars(carsNames);
     }
