@@ -86,7 +86,6 @@ public class Application {
         List<String> winners = new ArrayList<>();
         for (Car car : racerList) {
             if (car.getPosition() == maxPosition) {
-                System.out.println(car.getName());
                 winners.add(car.getName());
             }
         }
