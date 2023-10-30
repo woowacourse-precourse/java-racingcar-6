@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 public class InputView {
 
+    private static final int MIN_TRY_COUNT = 1;
+
     private InputView() {
     }
 
@@ -47,7 +49,7 @@ public class InputView {
     }
 
     private static void validateTryCount(int tryCount) {
-        if (tryCount < 1) {
+        if (tryCount < MIN_TRY_COUNT) {
             throw new IllegalArgumentException("시도 횟수는 1보다 작으면 안됩니다.");
         }
     }
