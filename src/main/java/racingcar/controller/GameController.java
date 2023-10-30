@@ -61,10 +61,10 @@ public class GameController {
         tryCount.decreaseCount();
     }
 
-    private Map<String, Integer> getRacingStatus(Cars cars) {
+    private Map<String, Integer> getRacingStatus(Cars carList) {
         Map<String, Integer> carAndPosition = new HashMap<>();
 
-        for (Car car : cars.getCars()) {
+        for (Car car : carList.cars()) {
             carAndPosition.put(car.getName(), car.getPosition());
         }
         return carAndPosition;
