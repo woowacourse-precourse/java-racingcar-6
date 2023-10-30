@@ -52,7 +52,7 @@ public class GameController {
     }
 
     private void showResult() {
-        InputView.printResult();
+        InputView.printWinners(cars.getWinners());
     }
 
 

@@ -23,4 +23,8 @@ public class Car {
         }
         return this;
     }
+
+    public boolean isSamePosition(Car highestCar) {
+        return carPosition.equals(highestCar.carPosition);
+    }
 }
