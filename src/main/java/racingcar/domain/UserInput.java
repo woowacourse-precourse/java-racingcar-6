@@ -2,6 +2,7 @@ package racingcar.domain;
 
 public class UserInput {
     private String nameOfCars;
+    private String attemptsNumber;
     private String[] carArray;
 
     public UserInput(String nameOfCars) {
@@ -10,6 +11,10 @@ public class UserInput {
 
     public String[] getCarArray() {
         return carArray;
+    }
+
+    public void setAttemptsNumber(String attemptsNumber) {
+        this.attemptsNumber = attemptsNumber;
     }
 
     public void checkValidity() {
@@ -80,5 +85,38 @@ public class UserInput {
         }
 
         return false;
+    }
+
+    public void checkAttempsNumberValidity() {
+        if (isStringEmpty(attemptsNumber)) {
+            throw new IllegalArgumentException("Input value cannot be blank");
+        }
+
+        if (!isOnlyNumbers(attemptsNumber)) {
+            throw new IllegalArgumentException(
+                    "Non-numeric values cannot be included, and therefore, negative numbers and decimals are also not allowed.");
+        }
+
+        if (isZero(attemptsNumber)) {
+            throw new IllegalArgumentException("It cannot be 0.");
+        }
+
+        if (attemptsNumber.length() >= 2) {
+            if (isHighestDigitZero(attemptsNumber)) {
+                throw new IllegalArgumentException("The number in the highest digit cannot be 0.");
+            }
+        }
+    }
+
+    private boolean isOnlyNumbers(String string) {
+        return string.matches("\\d*");
+    }
+
+    private boolean isZero(String string) {
+        return string.equals("0");
+    }
+
+    private boolean isHighestDigitZero(String string) {
+        return string.charAt(0) == '0';
     }
 }
