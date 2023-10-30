@@ -15,12 +15,13 @@ public class RacingCarGame {
 
     public void start() {
         prompt.println(INPUT_THE_CAR_NAMES);
+        String participants = prompt.input();
         prompt.println(INPUT_THE_NUMBER_OF_ATTEMPTS);
-        int numberOfAttempts = 3;
-
+        String numberOfAttempts = prompt.input();
+        int verifiedNumberOfAttempts = 3;
         prompt.printNewLine();
         prompt.println(EXECUTION_RESULT_PREFIX);
-        while (numberOfAttempts-- > 0) {
+        while (verifiedNumberOfAttempts-- > 0) {
             prompt.println(() -> "실행 과정 출력하기");
             prompt.printNewLine();
         }
