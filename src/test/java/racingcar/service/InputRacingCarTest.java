@@ -52,5 +52,20 @@ class InputRacingCarTest {
         }).doesNotThrowAnyException();
     }
 
-    
+    @Test
+    void 이름에_공백이_있을때(){
+        List<String> namesWithSpace = List.of("poby,j un");
+        assertThatThrownBy(() -> {
+            InputRacingCar.checkName(namesWithSpace);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.EMPTY_NAME_ERROR);
+    }
+
+    @Test
+    void 이름에_공백이_없을때() {
+        List<String> namesValid = List.of("pobi", "jun");
+        assertThatCode(() -> {
+            InputRacingCar.checkName(namesValid);
+        }).doesNotThrowAnyException();
+    }
 }
