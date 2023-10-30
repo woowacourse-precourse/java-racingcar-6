@@ -13,8 +13,11 @@ public class PrintView {
         System.out.println("시도할 횟수는 몇회인가요?");
     }
 
-    public void carForwardView(List<Car> car) {
+    public void carForwardStartView() {
         System.out.println("실행 결과");
+    }
+
+    public void carForwardView(List<Car> car) {
         for (int i = 0; i < car.size(); i++) {
             System.out.print(car.get(i).getName() + " : ");
           for (int k = 0; k < car.get(i).getForward(); k++) {
@@ -35,5 +38,6 @@ public class PrintView {
             }
         }
     }
+
 
 }
