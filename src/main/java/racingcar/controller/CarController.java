@@ -34,9 +34,9 @@ public class CarController {
             String tempForwardAttempt = inputForForwardAndReturnStringType();
             int forwardAttempt = forwardStringToInteger(tempForwardAttempt);
 
-            attemptForwardAndOutputResult(forwardAttempt, cars);
-
             output.resultHeader();
+
+            attemptForwardAndOutputResult(forwardAttempt, cars);
 
             output.winners(cars.getWinner(cars.getCars()));
         }
