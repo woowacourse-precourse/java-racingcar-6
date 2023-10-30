@@ -9,6 +9,7 @@ public class OutputView {
     private static final String GAME_WINNER_FORMAT = "최종 우승자 : %s\n";
     private static final String ONE_STEP = "-";
     private static final String GAME_STATUS_FORMAT = "%s : %s\n";
+    private static final String JOIN_PARAMETER = ", ";
 
     public void printResultTitle() {
         System.out.println(GAME_RESULT_TITLE);
@@ -23,7 +24,7 @@ public class OutputView {
     }
 
     public void printWinner(List<String> winners) {
-        System.out.printf(GAME_WINNER_FORMAT, String.join(", ", winners));
+        System.out.printf(GAME_WINNER_FORMAT, String.join(JOIN_PARAMETER, winners));
     }
 
 }
