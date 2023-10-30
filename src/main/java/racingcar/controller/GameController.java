@@ -1,8 +1,8 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.Car;
-import racingcar.Service.GameService;
+import racingcar.model.Car;
+import racingcar.service.GameService;
 
 import java.util.ArrayList;
 import java.util.List;
