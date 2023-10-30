@@ -17,11 +17,10 @@ public class Controller {
     public void putCarList(List<String> nameList){
         // CarList 생성자 만들기 -> 여기에 저장을 하든지 해야지
         this.carList = new CarList(nameList);
-        //THINK: 여기서 carlist를 넘겨주는게 맞는지
     }
 
     public int getHowMany(){
-        String strNumber = inputView.askHowMany();
+        String strNumber = inputView.getLine();
         int number = 0;
         if (validate.validateNumber(strNumber)){
             number = parseInt(strNumber);
@@ -29,10 +28,21 @@ public class Controller {
         return number;
     }
     public List<String> getNames(){
-        List<String> inputNames = inputView.getNames();
-        validate.validateName(inputNames);
+        String inputLine = inputView.getLine();
+        List<String> inputNames = seperateNames(inputLine);
+        validate.validateOverNameorZero(inputNames);
+        validate.validateDuplicate(inputNames);
         return inputNames;
     }
+
+    public List<String> seperateNames(String line){
+        List<String> nameList = new ArrayList<>();
+        for (String name: line.split(",")){
+            nameList.add(name);
+        }
+        return nameList;
+    }
+
 
     /* 입력한 수 만큼 반복 진행
     * 자동차 수 만큼 랜덤한 숫자 만들어서
@@ -52,9 +62,8 @@ public class Controller {
         }
     }
 
-    public void whoWinner(){
-        outputView.printWinner(carList.getWinner());
-
+    public List<String> whoWinner(){
+        return carList.getWinner();
     }
 
 }
