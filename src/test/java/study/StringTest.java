@@ -222,5 +222,23 @@ public class StringTest {
         String[] result = input.split(",");
 
         assertThat(result).contains("1");
+        assertThat(result).contains("1", "23");
+    }
+
+    @DisplayName("containsAnyOf_을_활용한_이중에_하나가_포함되어있으면_테스트_통과_1")
+    @Test
+    void containsAnyOf_을_활용한_이중에_하나가_포함되어있으면_테스트_통과_1() {
+        assertThat("The Lord of the Rings")
+                // 널이 아니고
+                .isNotNull()
+                // The로 시작하고
+                .startsWith("The")
+                // Lord가 포함하고
+                .contains("Lord")
+                .contains("of")
+                // 이중에 하나가 포함되었다.
+                .containsAnyOf("the", "rings")
+                // 끝이 Rings이다.
+                .endsWith("Rings");
     }
 }
