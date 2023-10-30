@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 public class InputValidationTest {
 
     @Test
-    void validateNameAndSplit_자동차_콤마구분_검증_성공한다() {
+    void validateNameAndSplit도_자동차_콤마구분_검증_성공한다() {
         String carName = "pobi,crong";
         String[] result = carName.split(",");
         assertThat(result).contains("pobi", "crong");
