@@ -15,19 +15,26 @@ class CarListTest {
 
 
     @Test
-    void 자동차_이름_중복_테스트(){
+    void 자동차_이름_중복_테스트() {
         List<Car> cars = Arrays.asList(
                 new Car("중복이름"),
                 new Car("중복이름"));
-
-        assertThatThrownBy( () -> new CarList(cars))
+        assertThatThrownBy(() -> new CarList(cars))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(Constants.ERROR_CAR_NAME_DUPLICATION);
-
     }
 
+    @Test
+    void 모든_자동차_전진_테스트(){
+        List<Car> cars = Arrays.asList(
+                new Car("povi"),
+                new Car("woni"));
 
+        CarList carList = new CarList(cars);
+        List<Integer> carsPosition = carList.moveAll();
+        assertThat(carsPosition).isNotNull();
 
+    }
 
 
 }

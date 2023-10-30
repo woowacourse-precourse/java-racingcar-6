@@ -1,7 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 import racingcar.utils.Constants;
 
@@ -13,11 +13,16 @@ public class CarList {
         this.carList = carList;
     }
 
-    public void validateCarNameDuplication(List<Car> cars){
-        if(cars.stream().map(Car::getName).collect(Collectors.toSet()).size() != cars.size()){
+    public void validateCarNameDuplication(List<Car> cars) {
+        if (cars.stream().map(Car::getName).collect(Collectors.toSet()).size() != cars.size()) {
             throw new IllegalArgumentException(Constants.ERROR_CAR_NAME_DUPLICATION);
         }
     }
 
+    public List<Integer> moveAll() {
+        return carList.stream()
+                .map(i -> i.move(Randoms.pickNumberInRange(Constants.MINIMUM_RANGE, Constants.MAXIMUM_RANGE)))
+                .collect(Collectors.toList());
+    }
 
 }
