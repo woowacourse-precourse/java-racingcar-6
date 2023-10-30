@@ -1,3 +1,5 @@
+## 레이싱 게임
+
 ## 🚀 기능 요구 사항
 
 초간단 자동차 경주 게임을 구현한다.
@@ -11,14 +13,23 @@
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
-## (초기) 기능구현 목록
+## 기능 구현 목록
 
-- 경주 할 자동차 입력 받는 기능
-    - 자동차 이름 쉼표 구분 후 저장 기능
-    - 자동차 이름 유효성 검증 기능
-- 유저로부터 이동 횟수 입력 받는 기능
-    - 이동 횟수 값 유효성 검사 기능
-- 전진을 위한 각 자동차 별 무작위 값 생성 기능
-    - 무작위 값 판별 기능 (전진 조건 : 4이상)
-- 우승자 출력 기능
-    - 단독 우승, 공동 우승 판별 기능
+### GameSetting
+- [ ] 경주 할 자동차 이름을 부여한다. - `GameSetting`#`getCarNames()`
+  - [ ] 사용자로부터 자동차 이름을 입력 받는다. - `InputDataHandler`#`getStringFromPlayer()`
+  - [ ] 자동차 이름을 쉼표를 기준으로 분리한다. - `InputDataHandler`#`separateString()`
+  - [ ] 자동차 이름이 5자리 이하인지 검사한다. 잘못된 입력이면 `IllegalArgumentException`을 발생시키고 종료한다. - `InputValidator`#`checkStringLength()`
+- [ ] 시도 횟수를 입력 받는다. - `GameSetting`#`getAttemptNumber()`
+  - [ ] 사용자로부터 시도 횟수를 입력 받는다. - `InputDataHandler`#`getNumberFromPlayer()`
+  - [ ] 시도 횟수를 제대로 입력 받았는지 검사한다. 잘못된 입력이면 `IllegalArgumentException`을 발생시키고 종료한다. - `InputValidator`#`checkNumber()`
+
+### Racing
+- [ ] 자동차 이름 입력 스크립트를 출력 한다. - `ScriptHandler`#`printGetCarNameScript()`
+- [ ] 시도 횟수 입력 스크립트를 출력 한다. - `ScriptHandler`#`printGetAttemptScript()`
+- [ ] 0-9사이의 난수를 생성 한다. - `NumberGenerator`#`createRandomNumber()`
+    - [ ] 난수를 판단 한다. (4이상 전진 or Nothing) - `Judgement`#`isOverFour()`
+- [ ] 각 차수별 실행 결과를 출력한다. - `ScriptHandler`#`printCarMovement()`
+- [ ] 제일 멀리간 우승자를 판별한다. - `Judgement`#`checkWinner()`
+    - [ ] 단독 우승, 공동 우승을 판별 한다. - `Judgement`#`checkWinnersNumber()`
+    - [ ] 우승자를 출력한다. - `ScriptHandler`#`printSoloWinner()`,`printJointWinner()`
