@@ -9,6 +9,7 @@ public class CarList {
     private final List<Car> carList;
 
     public CarList(List<Car> carList) {
+        checkEmpty(carList);
         this.carList = carList;
     }
 
@@ -36,6 +37,12 @@ public class CarList {
 
     private boolean isWinner(Car car, int winnerPoint) {
         return car.getPoint() == winnerPoint;
+    }
+
+    //==검증 로직==//
+    private void checkEmpty(List<Car> carList) {
+        if (carList.isEmpty())
+            throw new IllegalArgumentException(ERROR_EMPTY_CAR_LIST);
     }
 
     //==출력==//

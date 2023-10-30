@@ -19,4 +19,5 @@ public class Constant {
     public final static String ERROR_INPUT_ROUND = "RoundFactory : create : not normal input";
     public final static String ERROR_INPUT_NAME = "CarListFactory : checkValid : not valid name";
     public final static String ERROR_WINNER_POINT = "CarList : getWinnerPoint : not exist";
+    public final static String ERROR_EMPTY_CAR_LIST = "CarList : checkEmpty : carList is empty";
 }
