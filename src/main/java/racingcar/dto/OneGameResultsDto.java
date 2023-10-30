@@ -28,8 +28,8 @@ public class OneGameResultsDto {
         return Collections.unmodifiableList(oneGameResults);
     }
 
-    public List<Long> getTotalMoveCounts() {
-        List<Long> totalMoveCounts = new ArrayList<>();
+    public List<Integer> getTotalMoveCounts() {
+        List<Integer> totalMoveCounts = new ArrayList<>();
         oneGameResults.forEach(resultDto -> totalMoveCounts.add(resultDto.getTotalMoveCount()));
         return Collections.unmodifiableList(totalMoveCounts);
     }

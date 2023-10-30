@@ -23,7 +23,7 @@ public class GameController {
 
     public void run() {
         final RacingCars racingCars = readyToCarRace();
-        long attemptCounts = chooseAttemptCounts();
+        int attemptCounts = chooseAttemptCounts();
         view.printPlayResultText();
         playCarRace(attemptCounts, racingCars);
         List<String> winnerNames = racingGameService.calculateFinalWinners(racingCars);
@@ -37,12 +37,12 @@ public class GameController {
         return new RacingCars(carNames, new WootecoEngine());   // TODO: 컨트롤러에서 엔진을 설정하는게 마음에 안듦
     }
 
-    private long chooseAttemptCounts() {
+    private int chooseAttemptCounts() {
         view.printAttemptCountsQuestionMessage();
         return input.inputAttemptCounts();
     }
 
-    private void playCarRace(long attemptCounts, RacingCars cars) {
+    private void playCarRace(int attemptCounts, RacingCars cars) {
         for (int attempCount = 0; attempCount < attemptCounts; attempCount++) {
             OneGameResultsDto resultDto = racingGameService.playOneTimeCarRace(cars);
             deliverToViewAboutOneGameResult(resultDto);

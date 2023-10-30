@@ -4,7 +4,7 @@ public class Car {
 
     public final String name;
     private final Engine engine;
-    private long totalMoveCount;
+    private int totalMoveCount;
 
     public Car(String name, Engine engine) {
         this.name = name;
@@ -26,7 +26,7 @@ public class Car {
         return power >= 4;
     }
 
-    public long getTotalMoveCount() {
+    public int getTotalMoveCount() {
         return totalMoveCount;
     }
 

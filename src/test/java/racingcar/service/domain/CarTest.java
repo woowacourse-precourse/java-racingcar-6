@@ -17,7 +17,7 @@ class CarTest {
         // given
         Car car = new Car("junGi", new CustomEngine());
         int totalMoveOrder = 8;
-        long expectedMoveCount = 4;
+        int expectedMoveCount = 4;
         // when
         for (int move = 0; move < totalMoveOrder; move++) {
             car.moveCar();
@@ -31,7 +31,7 @@ class CarTest {
     void moveSuccessEdgeTest() {
         // given
         Car car = new Car("junGi", () -> CAN_MOVE_EDGE_CONDITION);
-        long expectedMoveCount = 1;
+        int expectedMoveCount = 1;
         // when
         car.moveCar();
         // then
@@ -43,7 +43,7 @@ class CarTest {
     void moveFailEdgeTest() {
         // given
         Car car = new Car("p", () -> CANT_MOVE_EDGE_CONDITION);
-        long expectedMoveCount = 0;
+        int expectedMoveCount = 0;
         // when
         car.moveCar();
         // then

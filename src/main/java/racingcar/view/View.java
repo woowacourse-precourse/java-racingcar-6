@@ -26,13 +26,13 @@ public class View {
         StringBuilder resultForm = new StringBuilder();
         for (ResultDto result : resultDto.getResults()) {
             String name = result.getName();
-            long moveCount = result.getTotalMoveCount();
+            int moveCount = result.getTotalMoveCount();
             resultForm.append(name).append(" : ").append(convertMoveCountsToHyphens(moveCount)).append("\n");
         }
         return resultForm.toString();
     }
 
-    private String convertMoveCountsToHyphens(long moveCount) {
+    private String convertMoveCountsToHyphens(int moveCount) {
         StringBuilder hyphens = new StringBuilder();
         while (moveCount-- > 0) {
             hyphens.append("-");

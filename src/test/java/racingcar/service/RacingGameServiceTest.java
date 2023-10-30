@@ -11,8 +11,8 @@ import racingcar.service.domain.RacingCars;
 
 class RacingGameServiceTest {
 
-    static final Long MOVE = 1L;
-    static final Long STOP = 0L;
+    static final Integer MOVE = 1;
+    static final Integer STOP = 0;
     static final int CANT_MOVE_EDGE_CONDITION = 3;
     RacingGameService racingGameService = new RacingGameService();
 
