@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import racingcar.domain.Car;
@@ -22,25 +21,23 @@ public class GameController {
     public void playGame() {
         initializeGame();
         startRace();
+        endGame();
     }
 
     private void initializeGame() {
         outputView.requestCarNames();
-        cars = generateCars();
+        cars = generateCars(inputView.inputCars());
         outputView.requestTryCount();
-        tryCount = generateTryCount();
+        tryCount = generateTryCount(inputView.inputTryCount());
     }
 
-    private Cars generateCars() {
-        final String carName = inputView.inputCars();
-        final List<Car> cars = InputParser.carsSplit(carName);
-        return new Cars(cars);
+    private Cars generateCars(String carNames) {
+        List<Car> carNameList = InputParser.carsSplit(carNames);
+        return new Cars(carNameList);
     }
 
-    private TryCount generateTryCount() {
-        final String input = inputView.inputTryCount();
-        final int tryCount = InputParser.tryCountParser(input);
-        return new TryCount(tryCount);
+    private TryCount generateTryCount(String tryCountInput) {
+        return new TryCount(InputParser.tryCountParser(tryCountInput));
     }
 
     private void startRace() {
@@ -56,17 +53,13 @@ public class GameController {
 
     private void moveCarsAndPrintStatus() {
         cars.moveAll(numberGenerator);
-        Map<String, Integer> racingStatus = getRacingStatus(cars);
+        Map<String, Integer> racingStatus = cars.getRacingStatus();
         outputView.printRacingStatus(racingStatus);
         tryCount.decreaseCount();
     }
 
-    private Map<String, Integer> getRacingStatus(Cars carList) {
-        Map<String, Integer> carAndPosition = new HashMap<>();
-
-        for (Car car : carList.cars()) {
-            carAndPosition.put(car.getName(), car.getPosition());
-        }
-        return carAndPosition;
+    private void endGame() {
+        List<String> topRacers = cars.getTopRacers();
+        outputView.printResult(String.join(", ", topRacers));
     }
 }
