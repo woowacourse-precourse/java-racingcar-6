@@ -6,8 +6,23 @@ public class CarNameExceptionProcessing {
 
     public static void checkName(String[] carNames) {
 
+        checkComma(carNames);
         for (String carName : carNames) {
             checkLength(carName);
+            checkEmpty(carName);
+            checkEquals(carName);
+        }
+
+    }
+
+    private static void checkComma(String[] carName) {
+
+        try {
+            if (carName.length == 0) {
+                throw new IllegalArgumentException(NAME_WARNING);
+            }
+        } catch (IllegalStateException ignored) {
+
         }
 
     }
@@ -15,7 +30,31 @@ public class CarNameExceptionProcessing {
     private static void checkLength(String carName) {
 
         try {
-            if (carName.length() > 5 || carName.isEmpty()) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException(NAME_WARNING);
+            }
+        } catch (IllegalStateException ignored) {
+
+        }
+
+    }
+
+    private static void checkEmpty(String carName) {
+
+        try {
+            if (carName.isEmpty()) {
+                throw new IllegalArgumentException(NAME_WARNING);
+            }
+        } catch (IllegalStateException ignored) {
+
+        }
+
+    }
+
+    private static void checkEquals(String carName) {
+
+        try {
+            if (" ".equals(carName)) {
                 throw new IllegalArgumentException(NAME_WARNING);
             }
         } catch (IllegalStateException ignored) {

@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.race.CarNameExceptionProcessing;
+import racingcar.race.NumberTimeTryExceptionProcessing;
 
 public class Input {
 
@@ -18,8 +19,9 @@ public class Input {
     }
 
     public int numberTimesTry() {
+        int numberTimeTry = Integer.parseInt(Console.readLine());
+        return NumberTimeTryExceptionProcessing.checkNumber(numberTimeTry);
 
-        return Integer.parseInt(Console.readLine());
 
     }
 
