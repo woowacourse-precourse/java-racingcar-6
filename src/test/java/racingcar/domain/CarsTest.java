@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -52,7 +51,7 @@ class CarsTest {
     void 최대_위치_추출() {
         // given
         List<String> nameList = List.of("a", "b", "c", "d", "e");
-        Cars cars = Cars.of(nameList, new RandomNumberGenerator());
+        Cars cars = Cars.of(nameList, new MonotoneIncreasingNumberGenerator());
         int n = 10;
 
         // when
@@ -61,21 +60,14 @@ class CarsTest {
         }
 
         // then
-        Integer maxValue = cars.getCars()
-                .stream()
-                .max(Comparator.comparing(Car::getPosition)).get().getPosition();
-
         List<String> winnerNameList = cars.findWinnerNameList();
-
-        List<Integer> list = cars.getCars()
+        List<Car> carList = cars.getCars()
                 .stream()
                 .filter(car -> winnerNameList.contains(car.getName()))
-                .map(Car::getPosition)
-                .distinct()
                 .toList();
 
-        assertThat(list.size()).isEqualTo(1);
-        assertThat(list.get(0)).isEqualTo(maxValue);
+        assertThat(carList.get(0).getPosition()).isEqualTo(n);
+
     }
 
     @Test
@@ -83,7 +75,7 @@ class CarsTest {
     void 우승자_이름_추출() {
         // given
         List<String> nameList = List.of("a", "b", "c", "d", "e");
-        Cars cars = Cars.of(nameList, new RandomNumberGenerator());
+        Cars cars = Cars.of(nameList, new MonotoneIncreasingNumberGenerator());
         int n = 10;
 
         // when
@@ -92,19 +84,17 @@ class CarsTest {
         }
 
         // then
-        Car maxCar = cars.getCars()
-                .stream()
-                .max(Comparator.comparing(Car::getPosition)).get();
+        List<String> winnerNameList = cars.findWinnerNameList();
 
-        assertThat(cars.findWinnerNameList())
-                .contains(maxCar.getName());
+        assertThat(winnerNameList)
+                .contains("e");
     }
 
     @Test
     @DisplayName("공동 우승자도 추출된다.")
     void 공동_우승자_추출() {
         // given
-        Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"), new RandomNumberGenerator());
+        Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"), new ZeroNumberGenerator());
         int n = 10;
 
         // when
@@ -113,18 +103,11 @@ class CarsTest {
         }
 
         // then
-        Integer maxPosition = cars.getCars()
-                .stream()
-                .mapToInt(Car::getPosition)
-                .max().getAsInt();
 
-        List<String> carList = cars.getCars()
-                .stream().filter(car -> car.getPosition().equals(maxPosition))
-                .map(Car::getName)
-                .toList();
+        List<String> winnerNameList = cars.findWinnerNameList();
 
-        assertThat(cars.findWinnerNameList())
-                .isEqualTo(carList);
+        assertThat(winnerNameList)
+                .containsExactly("a", "b", "c", "d", "e");
     }
 
     @Test
@@ -170,5 +153,22 @@ class CarsTest {
 
         // then
         assertThat(beforeCars.getCars().get(0).getName()).isEqualTo("a");
+    }
+
+    public static class MonotoneIncreasingNumberGenerator implements NumberGenerator {
+
+        private int number = 0;
+        @Override
+        public int generate() {
+            return number++;
+        }
+    }
+
+    public static class ZeroNumberGenerator implements NumberGenerator {
+
+        @Override
+        public int generate() {
+            return 0;
+        }
     }
 }
