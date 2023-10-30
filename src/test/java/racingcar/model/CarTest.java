@@ -33,6 +33,32 @@ class CarTest {
     }
 
     @Test
+    void createCar_fail_invalid_name_format_1() {
+        String carName = "pob!";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Car(carName);
+        });
+    }
+
+    @Test
+    void createCar_fail_invalid_name_format_2() {
+        String carName = " pobi";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Car(carName);
+        });
+    }
+
+    @Test
+    void hasMaximumTotalMovingDistance() {
+        Car car = new Car("pobi");
+        int expectedMaximumTotalMovingDistance = 3;
+
+        assertEquals(false, car.hasMaximumMovingDistance(expectedMaximumTotalMovingDistance));
+    }
+
+    @Test
     void accelerate() {
         CarAccelerator carAccelerator = new CarAccelerator();
         carAccelerator.setFakeRandoms();
