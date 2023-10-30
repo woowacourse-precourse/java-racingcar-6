@@ -10,11 +10,12 @@ public class SettingGame {
 
     public HashMap<String, Integer> settingcar() {
         String input_carName = Console.readLine();
-        String[] car_name = input_carName.split(",");
+        String[] carNameList = input_carName.split(",");
 
-        for (String s : car_name) {
-            ValidCheck.nameSize_check(s);
-            cars.put(s, 0);
+        for (String carName : carNameList) {
+            ValidCheck.duplicate_check(cars.keySet(), carName);
+            ValidCheck.nameSize_check(carName);
+            cars.put(carName, 0);
         }
 
         return cars;

@@ -20,13 +20,14 @@ public class ApplicationTest2 extends NsTest {
     }
 
     @Test
-    void 전진_정지() {
+    @DisplayName("우승자가 여러명일 때에 대한 테스트")
+    void winners_Test() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("kim,min,je", "1");
                     assertThat(output()).contains("kim : -", "min : -", "je : -", "최종 우승자 : kim, min, je");
                 },
-                4,4,4
+                4, 4, 4
         );
     }
 
@@ -48,7 +49,16 @@ public class ApplicationTest2 extends NsTest {
                             "car8 : -",
                             "car9 : -");
                 },
-                0, 1,2,3,4,5,6,7,8,9
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+        );
+    }
+
+    @Test
+    @DisplayName("자동차의 이름이 중복으로 들어올 경우 유효성 검사 테스트")
+    void duplicationCheck_Test() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("kim,kim,min,je", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
