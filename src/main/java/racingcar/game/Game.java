@@ -54,7 +54,7 @@ public class Game {
     }
 
     private void printWinner() {
-        String winner = positions.getWinner()
+        String winner = positions.getWinners()
                 .stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(","));

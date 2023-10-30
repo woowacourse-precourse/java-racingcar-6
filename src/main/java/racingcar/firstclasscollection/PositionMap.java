@@ -45,7 +45,7 @@ public class PositionMap {
     /**
      * @return List of Winner Car instance
      */
-    public List<Car> getWinner() {
+    public List<Car> getWinners() {
         return positionMap.entrySet()
                 .stream()
                 .filter(entry -> entry.getValue() == winnerPosition)
