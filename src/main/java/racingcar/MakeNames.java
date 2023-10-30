@@ -11,9 +11,6 @@ public class MakeNames {
         String originalStr;
 
         originalStr = inputName();
-        if (commaCheck(originalStr) != 2){
-            throw new IllegalArgumentException();
-        }
         names = commaSplit(originalStr);
         return names;
     }

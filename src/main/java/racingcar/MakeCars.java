@@ -11,7 +11,7 @@ public class MakeCars {
         List<String> names;
 
         names = makeNames.makeNames();
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < names.size(); i++){
             if (!integrityCheck.nameIntegrityCheck(names.get(i))){
                 throw new IllegalArgumentException();
             }
