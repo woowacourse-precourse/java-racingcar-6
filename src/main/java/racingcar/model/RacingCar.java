@@ -20,4 +20,12 @@ public class RacingCar {
     private void move() {
         this.position++;
     }
+
+    public void tryMove() {
+        RandomNumber randomNumber = RandomNumber.createNumber();
+
+        if (randomNumber.getNumber() >= 4) {
+            move();
+        }
+    }
 }
