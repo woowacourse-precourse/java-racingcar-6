@@ -36,7 +36,10 @@ public class Car {
         return names;
     }
 
-    public void forward(Map.Entry<String, Integer> entry) {
+    public void forward(Map.Entry<String, Integer> entry, int randomNumber) {
+        if (!isForward(randomNumber)) {
+            return;
+        }
         int step = entry.getValue() + 1;
         cars.put(entry.getKey(), step);
     }

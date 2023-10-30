@@ -41,16 +41,20 @@ public class CarTest {
 
     @Test
     void forward_자동차_전진() {
-        Map<String, Integer> result = car.getCars();
-        Iterator<Map.Entry<String, Integer>> iterator = result.entrySet().iterator();
+        Iterator<Map.Entry<String, Integer>> iterator = car.getCars().entrySet().iterator();
+        Map.Entry<String, Integer> next;
 
-        while (iterator.hasNext()) {
-            car.forward(iterator.next());
-        }
+        next = iterator.next();
+        car.forward(next, 5);
+        assertThat(next.getValue()).isEqualTo(1);   // poni 전진
 
-        for (String key : result.keySet()) {
-            assertThat(result.get(key)).isEqualTo(1);
-        }
+        next = iterator.next();
+        car.forward(next, 1);
+        assertThat(next.getValue()).isEqualTo(0);   // woni 정지
+
+        next = iterator.next();
+        car.forward(next, 8);
+        assertThat(next.getValue()).isEqualTo(1);   // jun 전진
     }
 
     @ParameterizedTest

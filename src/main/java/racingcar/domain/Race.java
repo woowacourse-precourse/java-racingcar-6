@@ -21,14 +21,19 @@ public class Race {
         System.out.println();
         System.out.println("실행 결과");
 
+        playRace(playCount);
+    }
+
+    private void playRace(int playCount) {
+        Iterator<Map.Entry<String, Integer>> iterator;
+        Map.Entry<String, Integer> entry;
+
         for (int i = 0; i < playCount; i++) {
-            Iterator<Map.Entry<String, Integer>> iterator = car.getCars().entrySet().iterator();
+            iterator = car.getCars().entrySet().iterator();
 
             while (iterator.hasNext()) {
-                Map.Entry<String, Integer> entry = iterator.next();
-                if (car.isForward(NumberGenerator.generateRandomNumber())) {
-                    car.forward(entry);
-                }
+                entry = iterator.next();
+                car.forward(entry, NumberGenerator.generateRandomNumber());
                 outputView.currentScore(entry);
             }
             System.out.println();
