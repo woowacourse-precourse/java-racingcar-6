@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.junit.platform.commons.util.StringUtils;
 
-public record InputView() {
+public class InputView {
     private static final String NUMBER_FORMAT = "^[0-9]\\d*$";
     private static final Pattern NUMBER = Pattern.compile(NUMBER_FORMAT);
 

@@ -5,7 +5,15 @@ import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public record GameController(InputView inputView, OutputView outputView) {
+public class GameController {
+
+    private final InputView inputView;
+    private final OutputView outputView;
+
+    public GameController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+    }
 
     public void run() {
         Cars cars = generateCars();
