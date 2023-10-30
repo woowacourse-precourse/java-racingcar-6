@@ -4,7 +4,7 @@
 ```
 경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)
 ```
-&nbsp;
+
 2. 자동차 이름들을 입력 받는다
    1) 아무 내용도 없는지 검증
    2) 사용자 입력의 공백을 제거
@@ -12,7 +12,7 @@
    4) 2-iii에서 각 이름이 5자 이하인지 검증
    5) 2-iii에서 이름이 중복되는지 확인
 
-&nbsp;
+
 3. 시도횟수 안내문구 출력 
 
 ```
@@ -24,7 +24,7 @@
    2) 선택한 타입의 범위를 넘지 않는지 검증
    3) 양수인지 검증
 
-&nbsp;
+
 5. 게임 연산
    1) "실행결과"문구 출력
        ```
@@ -40,7 +40,7 @@
         ```
    3) 사용자가 입력한 시도횟수만큼 5-iii, iv반복
 
-    
+    ```
     pobi : --
     woni : -
     jun : --
@@ -56,9 +56,9 @@
     pobi : -----
     woni : ----
     jun : -----
-    
+    ```
 
-&nbsp;
+
 4. 최종우승자 출력
    1) 5번의 데이터를 기반으로 최종 우승자 선별
    2) 6-i데이터 기반으로 최종 우승자 출력
@@ -71,14 +71,14 @@
 ===
 
 ## domain
-   __1. CarNameManager__
-   - [x] processCarNames
-     - [x] processInput
-       1) removeSpaces
-       - 공백을 모두 제거
+   __1. CarNameValidator__
+   - [x] processCarNames(이름을 처리)
+     - [x] processInput(이름들을 쪼갠다)
+       1) validateCommas
+       - ,로 시작하거나 끝나는 경우와 ,다음에,가 바로 오는경우 검증
        2) splitByComma
        - ","단위로 분리 후 리스트에 저장
-     - [x] validateCarNames
+     - [x] validateCarNames(이름들을 검증)
         1) validateNameLength
          - 자동차 이름 길이를 검증
         2) validateUniqueNames
@@ -89,7 +89,7 @@
      - 자동차 리스트를 받아옴
    - [x] initializeCars
      - 해쉬맵을 사용하여 <자동차이름, 이동거리> 세팅
-   - [x] getCar
+   - [x] getCars
      - 자동차 데이터(해쉬맵) 게터
    - [x] moveCar
      - 해당 자동차 이동거리 +1
@@ -100,26 +100,21 @@
        - 위의 메소드 값과 같은 값의 자동차 이름을 추출
 
 __3. Racing__
-- [x] race
-    - [x] pickRandomNumber
-      - 0-9 랜덤 정수 반환
-    - [x] isMovable
-      - 4이상이면 true
-    - [x] getAttempCount
-      - 시도횟수 게터
-
+- [x] race(자동차들을 한번씩 경주진행)
+    - [x] moveCarIfMovable(전진할지 결정)
+      - pickRandomNumber
+        - 0-9 랜덤 정수 반환
+      - [x] isMovable
+        - 4이상이면 true
     
 __4. AttemptCountValidator__
-- [x] validateAttemptCount
-    - [x] trimSpaces
-      - 앞뒤 공백을 제거
+- [x] getAttemptCount(사용자가 입력한 시도횟수를 처리)
     - [x] ensureNoInternalSpaces
       - 숫자 안에 공백이 있다면 예외 던짐
-    - [x] convertToInt(int타입의 범위에 맞는 수인지 검증)
-        1) convertToBigInteger
-        - BigInteger로 변환하는 과정중에 정수 외의 타입이 있는지 확인
-        2) isNaturalNumber
-      - 자연수인지 검증
+    - [x] convertToInt(자연수인지 확인)
+       1. convertToBigInteger(BigInteger로 변환하는 과정중에 정수 외의 타입이 있는지 확인)
+          - isNaturalNumber
+            - 자연수인지 검증
 
 ## view
    __1. InputView__
@@ -162,6 +157,10 @@ __1. BlankValidator__
     - Cars와 Racing에서 공통적으로 사용되는 빈값입력을 검증한다
 -  [x] RandomNumberGenerator
     - moveCarIfMovable메서드를 테스트하기 위해 랜덤숫자제공 인터페이스 생성
+-  [x] RacingNumberGenerator
+    - 경주진행을 위한 0-9의 난수를 생성
+-  [x] FixedNumberGenerator
+    - moveCarIfMovable메소드 테스트를 위해 임의로 고정된 값을 생성
 
 ## controller
 __1. RacingController__
