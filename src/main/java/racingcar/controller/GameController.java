@@ -20,7 +20,7 @@ public class GameController {
         this.outputView = outputView;
     }
 
-    public void startGame() {
+    public void startRace() {
         String carsName = inputView.readCarsName();
         List<Car> carList = createCarList(carsName);
 
@@ -28,13 +28,7 @@ public class GameController {
         validateRaceCount(raceCount);
         outputView.printRaceStart();
 
-        for (int i = 0; i < raceCount; i++) {
-            for (Car car : carList) {
-                car.move(NumberGenerator.createRandomNumber());
-            }
-            outputView.printCarsProgress(carList);
-        }
-
+        race(carList, raceCount);
         announceWinner(carList);
     }
 
@@ -68,6 +62,15 @@ public class GameController {
     private void validateRaceCount(int raceCount) {
         if (raceCount < 1) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    private void race(List<Car> carList, int raceCount) {
+        for (int i = 0; i < raceCount; i++) {
+            for (Car car : carList) {
+                car.move(NumberGenerator.createRandomNumber());
+            }
+            outputView.printCarsProgress(carList);
         }
     }
 

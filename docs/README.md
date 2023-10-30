@@ -8,7 +8,8 @@
 - [x] 자동차가 몇 번 이동할 지 입력받는다.  ``InputView - readCarMoveCount``
   - [x] 🚫 입력값이 숫자인지 검증한다. ``InputView - validateDigit``
   - [x] 🚫 입력값이 1 이상인지 검증한다. ``GameController - validateRaceCount``
-- [x] 경주를 진행한다. ``GameController - startGame``
+- [x] 경주을 시작한다. ``GameController - startRace``
+- [x] 경주를 진행한다. ``GameController - race``
 - [x] 실행 결과 문구를 출력한다. ``GameController - printRaceStart``
 - [x] 자동차가 이동한다. ``Car - move``
 - [x] 자동차가 전진하는지 판단한다. ``Car - isMoveForward``
