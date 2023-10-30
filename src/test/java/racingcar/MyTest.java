@@ -77,4 +77,78 @@ public class MyTest {
         assertThat(error).isEqualTo(true);
     }
 
+    @Test
+    void 중복테스트() {
+
+        boolean error = false;
+        try {
+            new CarNameValidator("12345,12345,123");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(true);
+
+        error = false;
+        try {
+            new CarNameValidator("가나,나다,가나,가나다");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(true);
+
+        error = false;
+        try {
+            new CarNameValidator("abc,def,def");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(true);
+
+        error = false;
+        try {
+            new CarNameValidator("abc,def,gh");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(false);
+
+    }
+
+    @Test
+    void 길이테스트() {
+
+        boolean error = false;
+        try {
+            new CarNameValidator("123456,123");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(true);
+
+        error = false;
+        try {
+            new CarNameValidator("가나다라마바,나다,가나");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(true);
+
+        error = false;
+        try {
+            new CarNameValidator("abc,def,def123");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(true);
+
+        error = false;
+        try {
+            new CarNameValidator("abcde,가나다라마,12345,가나123");
+        } catch (IllegalArgumentException iae) {
+            error = true;
+        }
+        assertThat(error).isEqualTo(false);
+
+    }
+
 }
