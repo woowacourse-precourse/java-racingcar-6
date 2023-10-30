@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.constants.ExceptionMessage;
+import racingcar.constants.ExceptionMessages;
 
 public record CarName(String name) {
 
@@ -18,13 +18,13 @@ public record CarName(String name) {
 
     private void validateCarNameIsBlank(final String name) {
         if (name == null || name.trim().isEmpty()) {
-            ExceptionMessage.NONE_INPUT_CARS.throwException();
+            ExceptionMessages.NONE_INPUT_CARS.throwException();
         }
     }
 
     private void validateLengthCarName(final String name) {
         if (name.length() < NAME_LENGTH_MIN || name.length() > NAME_LENGTH_MAX) {
-            ExceptionMessage.CAR_NAME_LIMIT_EXCEEDED.throwException();
+            ExceptionMessages.CAR_NAME_LIMIT_EXCEEDED.throwException();
         }
     }
 }

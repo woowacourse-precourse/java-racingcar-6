@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import java.util.Map;
-import racingcar.constants.ExceptionMessage;
+import racingcar.constants.ExceptionMessages;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
@@ -36,7 +36,7 @@ public class GameController {
         try {
             tryCount = generateTryCount(inputView.inputTryCount());
         } catch (NumberFormatException e) {
-            ExceptionMessage.INVALID_INPUT_ERROR_MESSAGE.throwException();
+            ExceptionMessages.INVALID_INPUT_ERROR_MESSAGE.throwException();
         }
     }
 

@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import racingcar.constants.ExceptionMessage;
+import racingcar.constants.ExceptionMessages;
 import racingcar.util.NumberGenerator;
 
 public record Cars(List<Car> cars) {
@@ -23,13 +23,13 @@ public record Cars(List<Car> cars) {
 
     private void validateDuplicateName(final List<Car> cars) {
         if (hasDuplicateName(cars)) {
-            ExceptionMessage.NOT_INPUT_CARS_DUPLICATE.throwException();
+            ExceptionMessages.NOT_INPUT_CARS_DUPLICATE.throwException();
         }
     }
 
     private void validateMinimumCarCount(final List<Car> cars) {
         if (hasMinimumCarCount(cars)) {
-            ExceptionMessage.CARS_LESS_THAN_TWO.throwException();
+            ExceptionMessages.CARS_LESS_THAN_TWO.throwException();
         }
     }
 

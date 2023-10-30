@@ -1,6 +1,6 @@
 package racingcar.constants;
 
-public enum ExceptionMessage {
+public enum ExceptionMessages {
     NONE_INPUT_CARS("자동차 이름은 공백이 될 수 없습니다."),
     CAR_NAME_LIMIT_EXCEEDED("자동차 이름은 1자 이상 5자 이하만 가능합니다."),
     NOT_INPUT_CARS_DUPLICATE("자동차 이름은 중복될 수 없습니다."),
@@ -10,7 +10,7 @@ public enum ExceptionMessage {
     private static final String ERROR_TAG = "[ERROR] ";
     private final String exceptionMessage;
 
-    ExceptionMessage(String exceptionMessage) {
+    ExceptionMessages(String exceptionMessage) {
         this.exceptionMessage = ERROR_TAG + exceptionMessage;
     }
 

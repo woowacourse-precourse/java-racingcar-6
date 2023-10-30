@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.constants.ExceptionMessage;
+import racingcar.constants.ExceptionMessages;
 
 public class TryCount {
     private final int ONE = 1;
@@ -13,7 +13,7 @@ public class TryCount {
 
     private void validateTryCount(final int tryCount) {
         if (tryCount < ONE) {
-            ExceptionMessage.INVALID_INPUT_ERROR_MESSAGE.throwException();
+            ExceptionMessages.INVALID_INPUT_ERROR_MESSAGE.throwException();
         }
     }
 
