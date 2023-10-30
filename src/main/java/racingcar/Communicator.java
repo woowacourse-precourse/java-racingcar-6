@@ -1,11 +1,19 @@
 package racingcar;
 
+import java.util.Arrays;
+import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class Communicator {
     public static void instructInputCars() {
         printStart();
-        String cars = Console.readLine();
+        String carsInput = Console.readLine();
+        List<String> cars = Arrays.stream(carsInput.split(","))
+                .map(String::strip)
+                .toList();
+        Validator.validateCars(cars);
+        System.out.println(cars);
     }
 
     private static void printStart() {

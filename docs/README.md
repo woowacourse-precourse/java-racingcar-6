@@ -52,8 +52,8 @@
 
 ---
 - [x] 시작 문구 출력 - Communicator
-- [ ] 자동차 이름 입력 - Communicator
-- [ ] 이름 입력 검증 - Validator
+- [x] 자동차 이름 입력 - Communicator
+- [x] 이름 입력 검증 - Validator
 - [ ] 시도 횟수 입력 - Communicator
 - [ ] 횟수 입력 검증 - Validator
 - [ ] 자동차 이동 로직 - Car
