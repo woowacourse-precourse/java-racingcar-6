@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Input {
-    public String getreadLine(){
+    public String getReadLine() {
         return Console.readLine();
     }
 }

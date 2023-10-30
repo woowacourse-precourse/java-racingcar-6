@@ -11,8 +11,9 @@ import racingcar.Input;
 
 public class InputTest {
     private Input input;
+
     @BeforeEach
-    void setUpCar(){
+    void setUpCar() {
         input = new Input();
     }
 
@@ -20,17 +21,18 @@ public class InputTest {
     void closeConsole() {
         Console.close();
     }
+
     @Test
-    void 입력값_테스트(){
+    void 입력값_테스트() {
         System.setIn(createInputStream("pobi"));
-        Assertions.assertThat(input.getreadLine()).isEqualTo("pobi");
+        Assertions.assertThat(input.getReadLine()).isEqualTo("pobi");
 
         Console.close();
         System.setIn(createInputStream("tedi"));
-        Assertions.assertThat(input.getreadLine()).isEqualTo("tedi");
+        Assertions.assertThat(input.getReadLine()).isEqualTo("tedi");
     }
 
-    private InputStream createInputStream(String input){
+    private InputStream createInputStream(String input) {
         return new ByteArrayInputStream(input.getBytes());
     }
 
