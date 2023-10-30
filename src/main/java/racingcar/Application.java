@@ -4,6 +4,7 @@ import java.util.List;
 
 import racingcar.model.GenerateRandomNumber;
 import racingcar.model.SplitPlayerName;
+import racingcar.model.VerifyRandomNumber;
 
 public class Application {
     public static void main(String[] args) {
@@ -19,6 +20,9 @@ public class Application {
 
         System.out.println(testres);
         System.out.println(testres.get(0));
+
+        boolean testverify = VerifyRandomNumber.verifyRandomNumber(randomNumber);
+        System.out.println(testverify);
 
 
         
