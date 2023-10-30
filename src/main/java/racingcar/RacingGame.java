@@ -44,7 +44,7 @@ public class RacingGame {
 
         int tryNumber = Integer.parseInt(inputView.getTryNumber());
 
-        outputView.printResultMessage();
+        OutputView.printResultMessage();
 
         runRacing(racingPlayers, tryNumber);
 

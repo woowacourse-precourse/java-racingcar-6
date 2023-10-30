@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Utils.splitCarName;
+import static racingcar.Validation.isEmpty;
 import static racingcar.Validation.isNotNumber;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -10,7 +12,9 @@ public class InputView {
 
     public ArrayList<String> getCarsName() {
         String carsName = Console.readLine();
-        return Utils.splitCarName(carsName);
+        ArrayList<String> carNameList = splitCarName(carsName);
+        isEmpty(carNameList);
+        return carNameList;
     }
 
     public String getTryNumber() {

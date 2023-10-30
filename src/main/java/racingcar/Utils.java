@@ -9,4 +9,9 @@ public class Utils {
         ArrayList<String> result = new ArrayList<>(Arrays.asList(stringList));
         return result;
     }
+
+    public static int checkSize(String str) {
+        return str.length();
+    }
+
 }
