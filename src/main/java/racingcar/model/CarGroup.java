@@ -79,8 +79,8 @@ public class CarGroup {
     }
 
     public CarGroup moveAll(MovementCondition movementCondition) {
-        List<Car> movedCars = moveCars(movementCondition);
-        return new CarGroup(movedCars);
+        List<Car> cars = moveCars(movementCondition);
+        return new CarGroup(cars);
     }
 
     private List<Car> moveCars(MovementCondition movementCondition) {

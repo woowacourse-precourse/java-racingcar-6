@@ -22,32 +22,32 @@ public class OutputView {
 
     public void printRaceHistory(RaceHistoryDto raceHistoryDto) {
         System.out.println(GAME_RESULT_MESSAGE);
-        List<RaceStageDto> raceStages = raceHistoryDto.getRaceStages();
-        printRaceStages(raceStages);
+        List<RaceStageDto> raceStageDtos = raceHistoryDto.getRaceStages();
+        printRaceStages(raceStageDtos);
     }
 
-    private void printRaceStages(List<RaceStageDto> raceStages) {
-        for (RaceStageDto currentRaceStage : raceStages) {
-            List<CarProgressDto> carProgresses = currentRaceStage.getCarProgresses();
-            printCarProgresses(carProgresses);
+    private void printRaceStages(List<RaceStageDto> raceStagesDts) {
+        for (RaceStageDto currentRaceStageDto : raceStagesDts) {
+            List<CarProgressDto> carProgressDtos = currentRaceStageDto.getCarProgresses();
+            printCarProgresses(carProgressDtos);
             printEmptyLine();
         }
     }
 
     private void printCarProgresses(List<CarProgressDto> carProgressDtos) {
-        for (CarProgressDto currentCarProgress : carProgressDtos) {
-            printCarProgress(currentCarProgress);
+        for (CarProgressDto currentCarProgressDto : carProgressDtos) {
+            printCarProgress(currentCarProgressDto);
         }
     }
 
-    private void printCarProgress(CarProgressDto carProgressDto) {
-        String carProgress = formatCarProgress(carProgressDto);
-        System.out.println(carProgress);
+    private void printCarProgress(CarProgressDto currentCarProgressDto) {
+        String formattedCarProgress = formatCarProgress(currentCarProgressDto);
+        System.out.println(formattedCarProgress);
     }
 
-    private String formatCarProgress(CarProgressDto carProgressDto) {
-        String carName = carProgressDto.getCarName();
-        int carPosition = carProgressDto.getPosition();
+    private String formatCarProgress(CarProgressDto carProgress) {
+        String carName = carProgress.getCarName();
+        int carPosition = carProgress.getPosition();
         return formatCarProgressIntoString(carName, carPosition);
     }
 

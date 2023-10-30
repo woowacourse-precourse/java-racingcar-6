@@ -4,13 +4,13 @@ import java.util.List;
 
 public class RacingCarNamesDto {
 
-    private final List<String> racingCarNames;
+    private final List<String> carNames;
 
-    public RacingCarNamesDto(List<String> racingCarNames) {
-        this.racingCarNames = racingCarNames;
+    public RacingCarNamesDto(List<String> carNames) {
+        this.carNames = carNames;
     }
 
-    public List<String> getRacingCarNames() {
-        return racingCarNames;
+    public List<String> getCarNames() {
+        return carNames;
     }
 }

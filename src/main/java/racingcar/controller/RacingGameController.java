@@ -40,8 +40,8 @@ public class RacingGameController {
 
     private CarGroup createCarGroup() {
         RacingCarNamesDto racingCarNamesDto = inputView.readRacingCarNames();
-        List<String> racingCarNames = racingCarNamesDto.getRacingCarNames();
-        return CarGroup.from(racingCarNames);
+        List<String> carNames = racingCarNamesDto.getCarNames();
+        return CarGroup.from(carNames);
     }
 
     private TryCount createTryCount() {
