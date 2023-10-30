@@ -12,6 +12,10 @@ public class Car {
         Validation.nameLimitLength(carName);
     }
 
+    public List<String> getCarName() {
+        return carName;
+    }
+
     private void divideName(String name) {
         StringTokenizer tokenizer = new StringTokenizer(name,",");
 
