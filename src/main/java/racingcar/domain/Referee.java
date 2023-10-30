@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,12 +11,9 @@ public class Referee {
     public Winners judgeWinners(List<Car> cars) {
         int winnerPosition = findFirstPrizeCarPosition(cars);
 
-        List<Car> winningCars = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.isLocatedIn(winnerPosition)) {
-                winningCars.add(car);
-            }
-        }
+        List<Car> winningCars = cars.stream()
+                .filter(car -> car.isLocatedIn(winnerPosition))
+                .toList();
 
         return new Winners(winningCars);
     }
