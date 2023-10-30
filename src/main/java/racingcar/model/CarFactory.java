@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarFactory {
-
     private List<Car> store = new ArrayList<>();
 
     public void addCar(String name) {

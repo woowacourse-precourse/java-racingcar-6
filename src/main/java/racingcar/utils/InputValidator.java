@@ -1,6 +1,7 @@
 package racingcar.utils;
 
 public class InputValidator {
+
     public static void carNameValidate(String[] carNames) {
         for (String name : carNames) {
             if (name.isBlank() || name.length() > 5) {

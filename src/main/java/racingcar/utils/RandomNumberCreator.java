@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RandomNumberCreator {
+    
     public static int makeRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }

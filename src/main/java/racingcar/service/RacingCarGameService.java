@@ -5,7 +5,6 @@ import racingcar.model.Car;
 import racingcar.model.CarFactory;
 
 public class RacingCarGameService implements CarGameService {
-
     private final CarFactory factory;
 
     public RacingCarGameService(CarFactory factory) {

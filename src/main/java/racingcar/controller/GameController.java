@@ -7,7 +7,6 @@ import racingcar.utils.RandomNumberCreator;
 import racingcar.view.RacingCarView;
 
 public class GameController {
-
     private final CarGameService carGameService;
 
     public GameController(CarGameService carGameService) {
