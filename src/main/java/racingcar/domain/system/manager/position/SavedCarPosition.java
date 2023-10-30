@@ -7,10 +7,12 @@ public class SavedCarPosition {
 
     private final SavedCar savedCar;
     private final Long position;
+    private final CarPositionKey key;
 
-    public SavedCarPosition(SavedCar savedCar, Long position) {
+    public SavedCarPosition(SavedCar savedCar, Long position, CarPositionKey key) {
         this.savedCar = savedCar;
         this.position = position;
+        this.key = key;
     }
 
     public SavedCar getSavedCar() {
@@ -19,6 +21,10 @@ public class SavedCarPosition {
 
     public Long getPosition() {
         return position;
+    }
+
+    public CarPositionKey getKey() {
+        return key;
     }
 
     @Override
