@@ -38,7 +38,7 @@
 - [x] 이름을 입력받은 후 "시도할 횟수는 몇회인가요?" 출력 - printRoundInputMessage()
 - [x] 맨 첫 라운드 시작 시, "실행 결과" 출력 - printExecutionResultMessage()
 - [x] 라운드마다 자동차의 이름과 이동거리 출력 - printCarNameAndPosition()
-- [x] 라운드가 모두 끝나면 "최종 우승자" 문구 출력 후 최종 우승자 이름 출력
+- [x] 라운드가 모두 끝나면 "최종 우승자" 문구 출력 후 최종 우승자 이름 출력 - printWinners()
   - [x] 우승자가 한명일 경우 이름만 출력
   - [x] 우승자가 여러명일 경우 이름 사이에 쉼표(,)와 공백 한칸으로 구분 후 출력
 #### 예외처리
@@ -49,7 +49,8 @@
     - [x] 자동차가 1대인 경우 - InputView의 validateInputCount()
     - [x] 이름을 구분하는 기준이 쉼표가 아닌 경우 - InputView의 validateInputWithSeparator()
     - [x] 같은 이름이 있는 경우 - Cars의 validateDuplicateName()
-    - [x] 아무것도 입력하지 않은 경우
+    - [x] 아무것도 입력하지 않은 경우 - Cars의 getMaxPosition()
   - 시도 횟수 입력
     - [ ] 아무것도 입력하지 않은 경우
     - [ ] 시도 횟수에 숫자가 아닌 다른 값이 들어오는 경우
+    - [ ] 시도 횟수가 음수인 경우
