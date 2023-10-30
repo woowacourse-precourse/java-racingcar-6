@@ -8,10 +8,10 @@ import racingcar.exception.ErrorMessage;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(List<String> names){
+    public Cars(List<String> names, NumberGenerator numberGenerator) {
         validateDuplicate(names);
         cars = names.stream()
-                .map(Car::new)
+                .map(name -> new Car(name, numberGenerator))
                 .toList();
     }
 
@@ -23,10 +23,8 @@ public class Cars {
         }
     }
 
-    public void move(){
-        for(Car car : cars){
-            car.moveOneStep();
-        }
+    public void move() {
+        cars.forEach(Car::moveOneStep);
     }
 
     public List<Car> getCars() {

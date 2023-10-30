@@ -7,8 +7,9 @@ public class RacingGame {
     private final Cars cars;
     private final JudgeWinner judgeWinner;
 
-    public RacingGame(List<String> names, JudgeWinner judgeWinner){
-        this.cars = new Cars(names);
+
+    public RacingGame(List<String> names, JudgeWinner judgeWinner, NumberGenerator numberGenerator) {
+        this.cars = new Cars(names, numberGenerator);
         this.judgeWinner = judgeWinner;
     }
 
@@ -16,11 +17,11 @@ public class RacingGame {
         cars.move();
     }
 
-    public List<Car> getStatus(){
+    public List<Car> getStatus() {
         return cars.getCars();
     }
 
-    public List<String> judge(){
+    public List<String> judge() {
         return judgeWinner.judge(cars.getCars());
     }
 }
