@@ -1,9 +1,11 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingCarApplication {
@@ -19,5 +21,8 @@ public class RacingCarApplication {
         List<Car> cars = new ArrayList<>(Arrays.stream(inputCarNames.split(","))
                 .map(Car::new)
                 .toList());
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        int attemptCount = Integer.parseInt(Console.readLine());
     }
 }
