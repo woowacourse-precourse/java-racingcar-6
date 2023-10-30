@@ -15,8 +15,8 @@ public class Position {
     public void movePosition() {
         this.position += MOVE_SIZE;
     }
-    
-    public String getDisplayFormat() {
+
+    public String format() {
         return DISPLAY_STRING.repeat(position);
     }
 

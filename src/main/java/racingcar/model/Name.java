@@ -23,7 +23,7 @@ public class Name {
         }
     }
 
-    public String getDisplayFormat() {
+    public String format() {
         return this.name;
     }
 

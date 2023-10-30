@@ -27,15 +27,19 @@ public class Car {
         return position.isGreaterThan(maxPosition);
     }
 
-    public String getDisplayFormat() {
-        return name.getDisplayFormat() + " : " + position.getDisplayFormat();
+    public String displayResult() {
+        return getNameFormat() + " : " + getPositionFormat();
+    }
+
+    public String getNameFormat() {
+        return name.format();
+    }
+
+    private String getPositionFormat() {
+        return position.format();
     }
 
     public Position position() {
         return this.position;
-    }
-
-    public Name name() {
-        return this.name;
     }
 }

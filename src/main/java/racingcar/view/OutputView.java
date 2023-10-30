@@ -20,7 +20,7 @@ public class OutputView {
 
     public static void displayWinners(List<Car> winners) {
         String displayFormat = String.join(COMMA, winners.stream().map(
-                        car -> car.name().getDisplayFormat())
+                        car -> car.getNameFormat())
                 .collect(Collectors.toList()));
         System.out.println(WINNER_IS + displayFormat);
     }

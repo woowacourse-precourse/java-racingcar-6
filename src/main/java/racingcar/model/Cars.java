@@ -35,7 +35,7 @@ public class Cars {
     public String generateRoundResultString() {
         StringBuilder sb = new StringBuilder();
         cars.forEach(car -> {
-            sb.append(car.getDisplayFormat());
+            sb.append(car.displayResult());
             sb.append("\n");
         });
         return sb.toString();
