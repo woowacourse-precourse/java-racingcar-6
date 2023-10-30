@@ -8,7 +8,7 @@ import static racingcar.util.GameCondition.*;
 
 // 사용자가 입력한 값의 유효성을 판단하는 클래스
 public class InputService {
-    private final static String REGEXP_PATTERN_NUMBER = "[0-9]"; // 숫자만 입력 가능
+    private final static String REGEXP_PATTERN_NUMBER = "^[0-9]*$"; // 숫자만 입력 가능
 
     public void checkCarNameValidation(String carName) {
         checkBlankValidation(carName, "자동차의 이름은 공백이 될 수 없습니다."); // 공백 확인
