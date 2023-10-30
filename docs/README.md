@@ -40,6 +40,7 @@
 - playGame => 게임 실행 반복
 - showResult => 자동차 이름 + 이동 거리 출력
 - showWinner => 우승자 출력
+- maxDistance => 최대 이동 거리 이름 확인
 
 
 
