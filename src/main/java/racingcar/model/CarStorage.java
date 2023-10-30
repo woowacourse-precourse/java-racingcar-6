@@ -19,4 +19,7 @@ public class CarStorage {
     public static void addCar(Car car) {
         cars.add(car);
     }
+    public static List<Car> winners() {
+        return winners;
+    }
 }
