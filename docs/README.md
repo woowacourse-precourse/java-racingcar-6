@@ -174,20 +174,13 @@
 
 ### Application
 
-controller의 putcarlist
-
-controller의 죽실행
-
-view에서 숫자 가져오기
-
-controller의 play실행
-
-view의 실행결과 실행
-
-view의 print중간과정 실행
-
-view의 최종우승자 실행
-
-controller의 getHowMany를 실행시켜 play에 집어넣기
-
-입력 컴ㅁ마가 없을 때?
+- [x]  구현하기
+    - [view] 에서 입력 실행
+    - controller: 이름 입력값 가져오기
+    - [view]: 횟수 입력하세요 출력
+    - [controller]: 횟수 가져오기
+    - controller: put carlist
+    - [view] 실행 결과 출력되게
+    - [controller] play
+        - [view] 중간 과정 실행
+    - [view] 최종 우승자 실행

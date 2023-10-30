@@ -3,7 +3,7 @@ package racingcar.model;
 public class Car {
     private String name;
     private int distance;
-    private String bar;
+    private String bar ="";
 
     // test
     public Car(String name, int distance){
@@ -21,7 +21,9 @@ public class Car {
 
     // 객체의 distance 업데이트
     public void updateDistance(int distance){
-        this.bar += "-";
+        if (distance == 1){
+            this.bar += "-";
+        }
         this.distance += distance;
 
     }

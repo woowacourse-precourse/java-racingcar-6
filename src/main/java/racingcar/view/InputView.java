@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
-    Validate validate = new Validate();
 
     public List<String> getNames(){
         String inputString = Console.readLine();

@@ -3,7 +3,6 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CarList {
     private List<Car> carList = new ArrayList<>();
@@ -11,7 +10,7 @@ public class CarList {
     private int size;
     public CarList(List<String> names) {
         for (String name: names){
-            carList.add(new Car(name));
+            this.carList.add(new Car(name));
         }
         this.size = names.size();
     }
