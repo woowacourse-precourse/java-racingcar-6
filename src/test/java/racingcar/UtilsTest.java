@@ -43,6 +43,12 @@ public class UtilsTest extends NsTest {
         assertThat(num).isBetween(0, 9);
     }
 
+    @Test
+    void DASH_반복_생성() {
+        String repeatedDash = Utils.dashRepeat(5);
+        assertThat(repeatedDash).isEqualTo("------");
+    }
+
 
     @Override
     protected void runMain() {
