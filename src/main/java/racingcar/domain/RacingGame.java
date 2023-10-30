@@ -1,7 +1,10 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.utils.*;
+import racingcar.utils.Parser;
+import racingcar.utils.Referee;
+import racingcar.utils.Runner;
+import racingcar.utils.Validator;
 import racingcar.utils.io.InputManager;
 import racingcar.utils.io.OutputManager;
 
@@ -21,11 +24,10 @@ public class RacingGame {
         Validator.validateRoundNumber(roundNumberInput);
 
         // 초기화
-        List<String> names = Parser.parseStringList(carNamesInput);
-        names.stream().forEach(name -> {
-            cars.add(new Car(name));
-        });
-        rounds = Parser.parseInt(roundNumberInput);
+        List<String> names = Parser.parseStringToList(carNamesInput);
+        names.stream()
+                .forEach(name -> cars.add(new Car(name)));
+        rounds = Integer.parseInt(roundNumberInput);
 
         // 자동차 경주 과정 출력
         OutputManager.printResultMessage();
@@ -35,7 +37,8 @@ public class RacingGame {
         }
         
         // 우승자 출력
-        OutputManager.printWinner(cars);
+        String winners = Referee.judgeWinner(cars);
+        OutputManager.printWinner(winners);
 
         // 자원 해제
         Console.close();

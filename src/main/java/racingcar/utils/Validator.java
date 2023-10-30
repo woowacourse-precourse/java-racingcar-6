@@ -12,7 +12,7 @@ public class Validator {
     public static void validateCarNames(String input) {
         checkNull(input);
 
-        List<String> carNames = Parser.parseStringList(input);
+        List<String> carNames = Parser.parseStringToList(input);
         carNames.stream().forEach(Validator::checkValidLength);
     }
 

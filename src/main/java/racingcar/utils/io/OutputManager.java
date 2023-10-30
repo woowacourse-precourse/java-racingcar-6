@@ -1,11 +1,13 @@
 package racingcar.utils.io;
 
 import racingcar.domain.Car;
+import racingcar.utils.Referee;
 
 import java.util.List;
 
 public class OutputManager {
     private static final String OUTPUT_MESSAGE = "실행 결과";
+    private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
     public static void printResultMessage() {
         System.out.println(OUTPUT_MESSAGE);
@@ -16,7 +18,12 @@ public class OutputManager {
         System.out.println();
     }
 
-    public static void printWinner(List<Car> cars) {
+    public static void printWinner(String winners) {
+        StringBuilder stringBuilder = new StringBuilder();
 
+        stringBuilder.append(WINNER_MESSAGE);
+        stringBuilder.append(winners);
+
+        System.out.println(stringBuilder);
     }
 }

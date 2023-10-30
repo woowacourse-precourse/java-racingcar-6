@@ -12,7 +12,7 @@ public class ParserTest {
         String str = "첫번째,두번째,세번째";
 
         // when
-        List<String> strings = Parser.parseStringList(str);
+        List<String> strings = Parser.parseStringToList(str);
 
         // then
         Assertions.assertEquals(3, strings.size());
@@ -24,7 +24,7 @@ public class ParserTest {
         String str = "fdf,,dfd";
 
         // when
-        List<String> strings = Parser.parseStringList(str);
+        List<String> strings = Parser.parseStringToList(str);
 
         // then
         Assertions.assertEquals(3, strings.size());
@@ -36,7 +36,7 @@ public class ParserTest {
         String str = "fdfdfd";
 
         // when
-        List<String> strings = Parser.parseStringList(str);
+        List<String> strings = Parser.parseStringToList(str);
 
         // then
         Assertions.assertEquals(1, strings.size());
@@ -48,7 +48,7 @@ public class ParserTest {
         String str = "";
 
         // when
-        List<String> strings = Parser.parseStringList(str);
+        List<String> strings = Parser.parseStringToList(str);
 
         // then
         Assertions.assertEquals(1, strings.size());
@@ -61,7 +61,7 @@ public class ParserTest {
         String str = "fdfd,";
 
         // when
-        List<String> strings = Parser.parseStringList(str);
+        List<String> strings = Parser.parseStringToList(str);
 
         // then
         Assertions.assertEquals(2, strings.size());
@@ -73,7 +73,7 @@ public class ParserTest {
         String str = ",,";
 
         // when
-        List<String> strings = Parser.parseStringList(str);
+        List<String> strings = Parser.parseStringToList(str);
 
         // then
         Assertions.assertEquals(3, strings.size());
