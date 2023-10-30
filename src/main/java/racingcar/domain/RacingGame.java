@@ -1,11 +1,16 @@
 package racingcar.domain;
 
 import java.util.List;
+import racingcar.dto.RacingGameRequest;
 
 public class RacingGame {
 
     private final Navigation navigation;
     private final Counter counter;
+
+    public RacingGame(RacingGameRequest request) {
+        this(request.getCars(),request.getCount());
+    }
 
     public RacingGame(List<Car> carList, int count) {
         navigation = new Navigation(carList);
