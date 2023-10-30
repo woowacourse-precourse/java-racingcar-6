@@ -3,10 +3,10 @@
 ---
 
 1. **사용자 입력 처리**
-    - [ ] 사용자로부터 자동차 이름을 입력 받는 기능 👉 `view#InputView#getCarNames()`
-        - [ ] 테스트: 쉼표(,)로 구분된 문자열 입력 시 올바르게 이름 목록으로 변환되는지 확인
-        - [ ] 테스트: 이름이 5자 이하인 경우 올바르게 이름 목록으로 반환되는지 확인
-        - [ ] 테스트: 이름이 5자를 초과할 경우 `IllegalArgumentException`이 발생하는지 확인
+    - [x] 사용자로부터 자동차 이름을 입력 받는 기능 👉 `view#InputView#inputCarNames()`
+        - [x] 테스트: 쉼표(,)로 구분된 문자열 입력 시 올바르게 이름 목록으로 변환되는지 확인
+        - [x] 테스트: 이름이 5자 이하인 경우 올바르게 이름 목록으로 반환되는지 확인
+        - [x] 테스트: 이름이 5자를 초과할 경우 `IllegalArgumentException`이 발생하는지 확인
     - [ ] 사용자로부터 시도할 회수를 입력 받는 기능 👉 `view#InputView#getAttemptCount()`
         - [ ] 테스트: 정수를 입력했을 때 정상적으로 회수로 반환되는지 확인
         - [ ] 테스트: 문자나 음수 등 잘못된 형식의 입력 시 `IllegalArgumentException`이 발생하는지 확인
@@ -50,8 +50,6 @@
         - [ ] 테스트: 5자를 초과하는 이름으로 자동차 객체를 생성하려 할 때 `IllegalArgumentException`이 발생하는지 확인
     - [ ] 사용자 입력값이 잘못된 경우의 예외 처리 👉 `exception#InvalidAttemptCountException#validateAttempCount()`
         - [ ] 테스트: 잘못된 형식의 입력(예: 문자, 음수) 시 `IllegalArgumentException`이 발생하고 프로그램이 종료되는지 확인
-   - [ ] 콤마로 나눠진 입력 형태가 아닌 경우의 예외 처리 👉 `exception#InvalidCarNameException#validateCommaSeparatedFormat()`
-      - [ ] 테스트: 콤마로 구분되지 않는 이름 입력 형태로 자동차 객체를 생성하려 할 때 `IllegalArgumentException`이 발생하는지 확인
    - [ ] 자동차 이름이 중복된 경우의 예외 처리 👉 `exception#InvalidCarNameException#validateUniqueNames(List<String> names)`
       - [ ] 테스트: 중복된 이름으로 자동차 객체를 생성하려 할 때 `IllegalArgumentException`이 발생하는지 확인
 

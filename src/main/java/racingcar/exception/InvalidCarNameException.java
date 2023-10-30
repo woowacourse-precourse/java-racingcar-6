@@ -18,17 +18,11 @@ public class InvalidCarNameException extends IllegalArgumentException {
         super(message);
     }
 
-    public static void validateNameLength(String name) {
-        if (name.length() > 5) {
-            throw new InvalidCarNameException(LENGTH_EXCEED_MESSAGE);
-        }
-    }
-
-    public static void validateCommaSeparatedFormat(String name) {
-        String[] splitNames = name.split(",");
-        for (String splitName : splitNames) {
-            if (splitName.contains(",") || splitName.contains(" ")) {
-                throw new InvalidCarNameException(INVALID_FORMAT_MESSAGE);
+    public static void validateNameLength(String namesString) {
+        String[] names = namesString.split(",");
+        for (String name : names) {
+            if (name.trim().length() > 5) {
+                throw new InvalidCarNameException(LENGTH_EXCEED_MESSAGE);
             }
         }
     }
