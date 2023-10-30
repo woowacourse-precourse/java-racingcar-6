@@ -9,6 +9,8 @@ import java.util.List;
 public class RacingGame {
     private final List<Car> carList = new ArrayList<>();
     private final List<String> winner = new ArrayList<>();
+    private final String SEPARATOR = ",";
+    private final String BLANK = "";
     private CalculatingScore scoreBoard = new CalculatingScore();
     private PrizingWinners prizingWinners = new PrizingWinners();
     private MovingCars movingCars = new MovingCars();
@@ -22,10 +24,10 @@ public class RacingGame {
     }
 
     private void splitCars(String carNames) {
-        String[] cars = carNames.split(",");
+        String[] cars = carNames.split(SEPARATOR);
 
         for (String name : cars) {
-            Car car = new Car(name, "");
+            Car car = new Car(name, BLANK);
             carList.add(car);
         }
     }

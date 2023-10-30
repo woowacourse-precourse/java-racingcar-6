@@ -1,20 +1,20 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.util.RacingCountValidator;
+import racingcar.util.RotatingCountValidator;
 
 public class RotatingCount {
-    private RacingCountValidator racingCountValidator = new RacingCountValidator();
+    private RotatingCountValidator rotatingCountValidator = new RotatingCountValidator();
     private Order order = new Order();
     public int input() {
         order.rotateCount();
         String racingCount = Console.readLine();
 
-        if(racingCountValidator.check(racingCount)){
+        if(rotatingCountValidator.check(racingCount)){
             order.gameProcess();
             return  stringToInteger(racingCount);
         }
-        throw new IllegalArgumentException("잘못된 입력 입니다.");
+        throw new IllegalArgumentException("잘못된 Rotating count 입니다.");
 
     }
 
