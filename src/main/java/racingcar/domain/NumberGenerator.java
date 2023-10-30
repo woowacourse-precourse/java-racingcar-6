@@ -8,7 +8,6 @@ public class NumberGenerator {
     }
 
     public static int generateNumber() {
-        int randomNumber = Randoms.pickNumberInRange(GameRules.START_RANGE.getValue(), GameRules.END_RANGE.getValue());
-        return randomNumber;
+        return Randoms.pickNumberInRange(GameRules.START_RANGE.getValue(), GameRules.END_RANGE.getValue());
     }
 }
