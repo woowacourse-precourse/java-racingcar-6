@@ -13,13 +13,28 @@ public class Application {
         String strName = Console.readLine();
         String[] sepStr = strName.split(",");
         List<String> carName = new ArrayList<>();
+
         // 이름이 6자 이상인 경우 예외 발생
         for (int i = 0; i < sepStr.length; i++) {
             if (sepStr[i].length() <= 5) {
                 carName.add(sepStr[i]);
             } else {
-                throw new IllegalArgumentException("5자 이하로 입력하세요");
+                throw new IllegalArgumentException("5자 이하로 입력하세요.");
             }
         }
+
+        // 이동할 횟수 입력받기
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String strNum = Console.readLine();
+
+        // 이동할 횟수가 숫자가 아닌 경우 예외 발생
+        for (int i = 0; i < strNum.length(); i++) {
+            if (!Character.isDigit(strNum.charAt(i))) {
+                throw new IllegalArgumentException("숫자를 입력하세요.");
+            }
+        }
+        int moveNum = Integer.parseInt(strNum);
+        System.out.println(moveNum);
+
     }
 }
