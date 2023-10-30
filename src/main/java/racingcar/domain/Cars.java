@@ -9,6 +9,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Cars {
+    private static final String NO_CAR = "자동차가 존재하지 않습니다";
+    private static final String NO_DUPLICATION_FOR_NAME = "자동차 이름은 중복될 수 없습니다";
+    private static final String NO_WINNER = "우승 차가 존재하지 않습니다";
 
     private final List<Car> cars;
 
@@ -30,7 +33,7 @@ public class Cars {
 
     private static void validateExist(List<Car> cars) {
         if (cars.size() == 0) {
-            throw new IllegalArgumentException("자동차가 존재하지 않습니다");
+            throw new IllegalArgumentException(NO_CAR);
         }
     }
 
@@ -38,7 +41,7 @@ public class Cars {
         Set<Car> removeDuplicatedCars = Set.copyOf(cars);
 
         if (removeDuplicatedCars.size() != cars.size()) {
-            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다");
+            throw new IllegalArgumentException(NO_DUPLICATION_FOR_NAME);
         }
     }
 
@@ -55,7 +58,7 @@ public class Cars {
 
     public List<String> getWinningCarNames() {
         Car winnerCar = cars.stream().max(Car::compareTo)
-                .orElseThrow(() -> new IllegalArgumentException("우승 차가 존재하지 않습니다"));
+                .orElseThrow(() -> new IllegalArgumentException(NO_WINNER));
 
         return cars.stream()
                 .filter(car -> car.isEqualPosition(winnerCar))
