@@ -100,11 +100,11 @@
 
 #### 시도 횟수 입력 검증 역할 (AttemptCountsInputValidator)
 
-- [ ] 검증 기능 `public`
-- [ ] 숫자가 아닌 문자 검증 기능 `private`
-- [ ] 정수형 범위 -2147483648 ~ 2147483647 검증 기능 `private`
-- [ ] 유효한 범위 1 ~ 2,147,483,647 검증 기능 `private`
-- [ ] 잘못된 값을 입할 경우 IllegalArgumentException을 발생시킨다
+- [x] 검증 기능 `public`
+- [x] 숫자가 아닌 문자 검증 기능 `private`
+- [x] 정수형 범위 -2147483648 ~ 2147483647 검증 기능 `private`
+- [x] 유효한 범위 1 ~ 2147483647 검증 기능 `private`
+- [x] 잘못된 값을 입할 경우 IllegalArgumentException을 발생시킨다
 
 ##
 
