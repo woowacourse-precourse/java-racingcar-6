@@ -15,4 +15,12 @@ public class RacingCarGameOutput {
     public static void printMoveCountInputMessage(String message) {
         System.out.println(message);
     }
+
+    public static void printResultMessage(List<RacingCar> carList) {
+        StringBuilder sb = new StringBuilder();
+        for (RacingCar car : carList) {
+            sb.append(car.getName()).append(" : ").append("-".repeat(car.getDistance()));
+        }
+        System.out.println(sb.toString());
+    }
 }
