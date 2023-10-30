@@ -3,8 +3,9 @@ package racingcar;
 import racingcar.util.RandomNumberGenerator;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
 
 public class Race {
     private List<Car> cars;
@@ -37,9 +38,14 @@ public class Race {
     }
 
     public void setWinners() {
-        winners = (List<Car>) cars.stream()
-                .max(Comparator.comparing(Car::getDistance))
-                .orElseThrow();
+        int maxDistance = cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(0);
+
+        winners = cars.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .collect(Collectors.toList());
     }
 
     public List<Car> getWinners() {

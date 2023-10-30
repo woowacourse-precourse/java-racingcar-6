@@ -16,7 +16,7 @@ public class OutputHandler {
     }
 
     public void printRunResult() {
-        String result = "실행 결과";
+        String result = "\n실행 결과";
         System.out.println(result);
     }
 
@@ -38,7 +38,6 @@ public class OutputHandler {
             result.append(buildCarResult(car.getName(), car.getDistance()));
             result.append('\n');
         }
-        result.append('\n');
 
         System.out.println(result);
     }
