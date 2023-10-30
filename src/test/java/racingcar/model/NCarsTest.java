@@ -2,18 +2,14 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.Car;
-import racingcar.model.CarMovementStatus;
-import racingcar.model.NCars;
 
-public class NCarsTest extends NsTest {
+public class NCarsTest {
     String givenNames = "pobi,woni";
     List<String> names = Arrays.stream(givenNames.split(",")).toList();
     NCars nCars;
@@ -32,6 +28,7 @@ public class NCarsTest extends NsTest {
         List<String> targetNames = Arrays.stream(givenNames.split(",")).toList();
         assertThat(nCars.getNamesForTest()).isEqualTo(targetNames);
     }
+
     @Test
     @DisplayName("차량들을 한번 이동시킨다.")
     public void moveCarsByOneTimeNumberTest() {
@@ -39,6 +36,7 @@ public class NCarsTest extends NsTest {
         Integer numberOfCars = names.size();
         assertThat(carsPosition.size()).isEqualTo(numberOfCars);
     }
+
     @Test
     @DisplayName("차량들을 입력한만큼 이동시킨다.")
     public void moveCarsByGivenNumberTest() {
@@ -46,6 +44,7 @@ public class NCarsTest extends NsTest {
         List<List<Integer>> carsPosition = nCars.moveCarsRepeatedByRound(round);
         assertThat(carsPosition.size()).isEqualTo(5);
     }
+
     @Test
     @DisplayName("차량들 개별 이동 후 출력")
     public void showCarsPositionAndNameAfterEachRoundTest() {
@@ -65,9 +64,10 @@ public class NCarsTest extends NsTest {
         carList.add(carTwo);
         nCars = new NCars(carList);
 
-        List<String> message =  new ArrayList<>(Arrays.asList("cho : --","sung : --"));
+        List<String> message = new ArrayList<>(Arrays.asList("cho : --", "sung : --"));
         assertThat(nCars.getSingleRoundResult()).isEqualTo(message);
     }
+
     @Test
     @DisplayName("우승자 이름 출력")
     public void showWinnerNameAfterGameTest() {
@@ -94,13 +94,7 @@ public class NCarsTest extends NsTest {
 
         nCars = new NCars(carList);
 
-        List<String> message =  new ArrayList<>(Arrays.asList("sung","Loo"));
+        List<String> message = new ArrayList<>(Arrays.asList("sung", "Loo"));
         assertThat(nCars.getWinnerName()).isEqualTo(message);
-    }
-
-    @Override
-    protected void runMain() {
-
-
     }
 }
