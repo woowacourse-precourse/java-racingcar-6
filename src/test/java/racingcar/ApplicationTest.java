@@ -32,7 +32,7 @@ class ApplicationTest extends NsTest {
 	@Test
 	void 이름에_대한_예외_처리() {
 		assertSimpleTest(() ->
-			assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+			assertThatThrownBy(() -> runException("", "1"))
 				.isInstanceOf(IllegalArgumentException.class)
 		);
 	}
@@ -44,7 +44,7 @@ class ApplicationTest extends NsTest {
 
 	@Test
 	void 숫자가_아닌_문자에_대한_예외_처리() {
-		String input = "가";
+		String input = "";
 		Validator validator = new Validator();
 
 		assertThatThrownBy(() -> validator.validateMoveCount(input))

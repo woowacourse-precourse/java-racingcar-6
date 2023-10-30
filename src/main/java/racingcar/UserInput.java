@@ -24,9 +24,11 @@ public class UserInput {
 	private List<InformationOfCar> addToCarList(StringTokenizer nameDivider) {
 		while (nameDivider.hasMoreTokens()) {
 			String carName = nameDivider.nextToken();
-			if (validator.validateNameLength(carName)) {
+			if (validator.validateNameLength(carName)
+					&& validator.validateEmptyString(carName) && validator.validateSpace(carName)) {
 				carList.add(new InformationOfCar(carName, ""));
 			}
+
 		}
 		return carList;
 	}

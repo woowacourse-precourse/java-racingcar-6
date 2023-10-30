@@ -13,6 +13,20 @@ public class Validator {
 		return true;
 	}
 
+	public boolean validateEmptyString(String carName) {
+		if (carName.isEmpty()) {
+			throw new IllegalArgumentException();
+		}
+		return true;
+	}
+
+	public boolean validateSpace(String carName) {
+		if (carName.equals(" ")) {
+			throw new IllegalArgumentException();
+		}
+		return true;
+	}
+
 	public int validateMoveCount(String moveCountString) {
 		int moveCount = 0;
 		try {
