@@ -22,17 +22,17 @@ public class RacingController {
     }
 
     public void run() {
-        setRacingGame();
-        playGame();
-        endGame();
+        setRacing();
+        playRacing();
+        endRacing();
     }
 
-    private void setRacingGame() {
+    private void setRacing() {
         cars = new CarGroup(inputView.inputCarNames());
         tryCount = new TryCount(inputView.inputTryCount());
     }
 
-    private void playGame() {
+    private void playRacing() {
         outputView.printRaceResultHeader();
         while (tryCount.isAbleTry()) {
             cars.race(movement);
@@ -41,7 +41,7 @@ public class RacingController {
         }
     }
 
-    private void endGame() {
+    private void endRacing() {
         outputView.printWinCarNames(cars.findWinnerNames());
     }
 
