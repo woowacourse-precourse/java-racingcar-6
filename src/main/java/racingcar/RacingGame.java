@@ -42,7 +42,7 @@ public class RacingGame {
             }
         }
         HashSet<String> numSet = new HashSet<>(nameList);
-        if(numSet.size()!= nameList.size()){
+        if (numSet.size() != nameList.size()) {
             throw new IllegalArgumentException("자동차 이름이 중복됩니다.");
         }
     }
@@ -58,10 +58,13 @@ public class RacingGame {
     static private void validateCount(String input) {
         String regExp = "^[0-9]+$";
         if (!input.matches(regExp)) {
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+            throw new IllegalArgumentException("양의 정수만 입력 가능합니다.");
         }
         if (input.length() > 9) {
             throw new IllegalArgumentException("아홉 자리 이내 숫자만 입력 가능합니다.");
+        }
+        if (Integer.parseInt(input) <= 0) {
+            throw new IllegalArgumentException("0 이상의 숫자만 입력 가능합니다.");
         }
     }
 
