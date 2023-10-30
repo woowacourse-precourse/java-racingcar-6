@@ -40,5 +40,7 @@ public class GameController {
     }
 
     private void announceWinner(List<Car> carList) {
+        List<String> winnerList = Referee.findMostProgressCar(carList);
+        outputView.printWinner(winnerList);
     }
 }
