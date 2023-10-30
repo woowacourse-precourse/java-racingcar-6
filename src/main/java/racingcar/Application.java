@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.*;
 
 public class Application {
 
@@ -40,19 +41,38 @@ public class Application {
             checkCarEligibility(cars);
         }
 
+        Map<String, Integer> carRaces = new HashMap<>();
 
+        for (String car : cars) {
+            carRaces.put(car, carRaces.size());
+        }
+
+        int maxValue = Collections.max(carRaces.values());
+        List<String> winnerName = new ArrayList<>();
+
+        for(Map.Entry<String, Integer> m : carRaces.entrySet()) {
+            if (m.getValue() == maxValue) {
+                winnerName.add(m.getKey());
+            }
+        }
+
+        for(int i = 0; i < winnerName.size(); i++) {
+            System.out.print("최종 우승자: ");
+
+            if(winnerName.size() == 1) {
+                System.out.print(winnerName.get(i));
+            } else {
+                System.out.print(", ");
+            }
+        }
     }
 
-    public void checkCarNameValidation(String[] cars) {
+    public void checkCarNameValidation(String[] cars) throws IllegalArgumentException{
 
-        try {
-            for(int i = 0; i < cars.length; i++) {
-                if (cars[i].length() > 5) {
-                    throw new IllegalArgumentException();
-                }
+        for (String car : cars) {
+            if (car.length() > 5) {
+                throw new IllegalArgumentException();
             }
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
         }
     }
 
@@ -61,8 +81,6 @@ public class Application {
         int number = inputNumber();
 
         showRaceResult(number, cars);
-
-
     }
 
     public static void main(String[] args) {
