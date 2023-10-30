@@ -3,7 +3,7 @@ package racingcar.view;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputView {
-    private static final String REGULAR_EXP_CAR_NAMES = "^[a-zA-Z0-9]+(,[a-zA-Z0-9]+)*";
+    private static final String REGULAR_EXP_CAR_NAMES = "^[a-zA-Z0-9가-힣]+(,[a-zA-Z0-9가-힣]+)*";
     private static final String SEPARATOR = ",";
 
     public static String[] getCarNames() {
