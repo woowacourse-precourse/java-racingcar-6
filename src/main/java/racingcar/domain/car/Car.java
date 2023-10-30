@@ -1,6 +1,6 @@
 package racingcar.domain.car;
 
-import racingcar.domain.formula.MoveFormula;
+import racingcar.domain.formula.Formula;
 import racingcar.domain.formula.MoveState;
 
 public class Car {
@@ -13,8 +13,8 @@ public class Car {
     this.position = position;
   }
 
-  public synchronized int move(MoveFormula moveFormula) {
-    if (moveFormula.move() == MoveState.GO) {
+  public synchronized int move(Formula formula) {
+    if (formula.move() == MoveState.GO) {
       position++;
     }
     return position;

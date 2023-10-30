@@ -4,20 +4,20 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
-import racingcar.domain.formula.MoveFormula;
+import racingcar.domain.formula.Formula;
 
 public class RaceGame {
 
   private final int MINIMUM_ROUND = 0;
 
   private final List<Car> cars;
-  private final MoveFormula moveFormula;
+  private final Formula formula;
   private int round;
 
-  public RaceGame(MoveFormula moveFormula, List<Car> cars, int round) {
+  public RaceGame(Formula formula, List<Car> cars, int round) {
     validateCarCount(cars);
     validateRound(round);
-    this.moveFormula = moveFormula;
+    this.formula = formula;
     this.cars = cars;
     this.round = round;
   }
@@ -41,7 +41,7 @@ public class RaceGame {
   public synchronized void race(Consumer<List<RaceGameResult>> raceResultProcess) {
     while (round > MINIMUM_ROUND) {
       List<RaceGameResult> raceResults = cars.stream()
-          .map(car -> new RaceGameResult(car.getName(), car.move(moveFormula)))
+          .map(car -> new RaceGameResult(car.getName(), car.move(formula)))
           .collect(Collectors.toList());
       raceResultProcess.accept(raceResults);
       round--;

@@ -2,7 +2,7 @@ package racingcar.domain.formula;
 
 import racingcar.domain.generator.NumberGenerator;
 
-public class MoveFormula {
+public class MoveFormula implements Formula {
 
   private static final int MINIMUM_MOVING_CONDITIONS = 4;
 
