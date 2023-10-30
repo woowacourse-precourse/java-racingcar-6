@@ -2,12 +2,11 @@ package racingcar.domain;
 
 public class Car implements Comparable<Car> {
 
-    private static final int MOVABLE_BOUND = 4;
+    private static final int MIN_MOVABLE_VALUE = 4;
     private Name name;
     private Position position;
 
     public Car(String name) {
-
         this.name = new Name(name);
         this.position = new Position();
     }
@@ -19,7 +18,7 @@ public class Car implements Comparable<Car> {
     }
 
     private boolean isMovable(int randomNumber) {
-        return randomNumber >= MOVABLE_BOUND;
+        return randomNumber >= MIN_MOVABLE_VALUE;
     }
 
     @Override
