@@ -28,7 +28,7 @@
 
 # 테스트 구현 목표
 1. 이름 유효성 체크
-   - 세 개의 이름을 입력받지 않았을 경우 IllegalArgumentException을 반환한다.
+   - 형식이 잘못되었을 경우 IllegalArgumentException을 반환한다.
    - 각각의 이름이 5글자 초과일 경우 IllegalArgumentException을 반환한다.
    - 서로 같은 이름을 가졌을 경우 IllegalArgumentException을 반환한다.
 2. 총 이동 횟수 유효성 체크
