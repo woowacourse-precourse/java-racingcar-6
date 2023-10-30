@@ -35,11 +35,10 @@ public class Application {
     System.out.println("시도할 회수는 몇회인가요?");
     String inputCycleString = Console.readLine();
     int tryCycle = cs.StringConvertInt(inputCycleString);
+    List<CarVO> championList = new ArrayList<>();
 
     for (int i = 0; i < tryCycle; i++) {
       for(CarVO car : racingCarList){
-        System.out.print(car.getCar() + " : ");
-
         int randomNumber = Randoms.pickNumberInRange(1,9);
         if(randomNumber > 3){
           car.setMove(1 + car.getMove());
@@ -48,11 +47,15 @@ public class Application {
         for (int j = 0; j < car.getMove(); j++) {
           movePoint.append("-");
         }
+        System.out.print(car.getCar() + " : ");
         System.out.println(movePoint);
+
+        car.setCar(car.getCar());
+        championList.add(car);
       }
       System.out.println();
     }
-
+    
 
 
 
