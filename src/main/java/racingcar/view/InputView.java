@@ -19,9 +19,9 @@ public class InputView {
         this.inputParser = inputParser;
     }
     // 자동차 입력 받기
-    public  String inputCarName() {
+    public void inputCarName() {
         System.out.println(INPUT_CAR_NAME);
-        return Console.readLine();
+        inputParser.parseCarString(Console.readLine());
     }
 
     // 시도 횟수 입력 받기
