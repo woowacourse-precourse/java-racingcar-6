@@ -20,9 +20,12 @@ public class RacingController {
             displayFinishOnce();
         }
 
+        service.announceWinner();
     }
 
     private void initializeGame() {
+        service = new RacingService();
+
         service.readyCarName();
         service.readyAttemptCount();
         service.readyCars();
