@@ -13,4 +13,6 @@ package racingcar;
         3.
  */
 public class GameController {
+
+
 }
