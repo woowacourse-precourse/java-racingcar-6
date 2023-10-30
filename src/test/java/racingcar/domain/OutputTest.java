@@ -20,7 +20,6 @@ class OutputTest {
     @BeforeEach
     void setUpOutputStream() {
         System.setOut(new PrintStream(output));
-
     }
 
     @AfterEach

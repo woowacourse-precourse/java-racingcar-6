@@ -20,7 +20,6 @@ class RaceTest {
     @BeforeEach
     void setUpOutputStream() {
         System.setOut(new PrintStream(output));
-
     }
 
     @AfterEach
@@ -32,8 +31,7 @@ class RaceTest {
     static Stream<Arguments> generateData() {
         return Stream.of(
                 Arguments.of(Arrays.asList("pobi", "woni"), "최종 우승자 : pobi"),
-                Arguments.of(Arrays.asList("woni", "pobi"), "최종 우승자 : woni")
-        );
+                Arguments.of(Arrays.asList("woni", "pobi"), "최종 우승자 : woni"));
     }
 
     @ParameterizedTest
