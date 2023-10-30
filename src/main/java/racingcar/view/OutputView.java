@@ -22,7 +22,7 @@ public class OutputView {
     public static void displayFinishOnce() {
         System.out.println();
     }
-    public static void displayGameStartMessage() {
+    public static void displayResultHeader() {
         System.out.println();
         System.out.println(RESULT_HEADER);
     }
