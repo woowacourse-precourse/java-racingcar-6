@@ -35,18 +35,25 @@ public class Application {
     }
 
     public static void game(){
-        int randomNumber = Randoms.pickNumberInRange(0,9);
-        int count = 1;
+        int count = 0;
         String[] cars = Application.carName();
         int tryNum = Application.moveCount();
         for (int i = 0; i < cars.length; i++){
             System.out.println(cars[i]);
         }
         for (int i = 0; i < tryNum; i ++){
-            System.out.println("-".repeat(count));
-            count += 1;
+            int randomNumber = Randoms.pickNumberInRange(0,9);
+            if (randomNumber < 4){
+                System.out.println(randomNumber);
+                System.out.println("4 미만");
+                System.out.println("-".repeat(count));
+            } else {
+                count += 1;
+                System.out.println(randomNumber);
+                System.out.println("4 이상");
+                System.out.println("-".repeat(count));
+            }
         }
-        System.out.println(randomNumber);
         /*for (int i = 1; i <= tryNum; i++){
             for (int j = 0; j <= cars.length; j++){
                 if (randomNumber < 4) {
