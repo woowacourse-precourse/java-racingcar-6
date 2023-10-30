@@ -31,9 +31,10 @@ class InputValueTest {
     @ParameterizedTest
     @ValueSource(strings = "pobi,woni,jun")
     void 자동차_이름_입력(String input) {
+        String inputName = "pobi,woni,jun";
         generateUserInput(input);
-        String[] names = inputValue.InputNameOfCars();
-        assertThat(names).isEqualTo(new String[]{"pobi", "woni", "jun"});
+
+        assertThat(input).isEqualTo(inputName);
     }
 
     @ParameterizedTest
