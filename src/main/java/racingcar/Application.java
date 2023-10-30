@@ -4,7 +4,6 @@ import java.util.List;
 import racingcar.domain.Input;
 import racingcar.domain.Race;
 
-
 public class Application {
 
     public static void main(String[] args) {

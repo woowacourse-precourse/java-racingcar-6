@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car implements Comparable<Car> {
     private final String name;
     private int mileage;
@@ -11,8 +9,7 @@ public class Car implements Comparable<Car> {
         mileage = 0;
     }
 
-    public void moveForward() {
-        int number = Randoms.pickNumberInRange(0, 9);
+    public void moveForward(int number) {
         if (number >= 4) {
             ++mileage;
         }
