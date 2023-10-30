@@ -3,6 +3,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Cars;
+import racingcar.domain.RandomNumberGenerator;
 import racingcar.dto.CarsDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -19,7 +20,7 @@ public class RacingGame {
     }
 
     public void run() {
-        final Cars cars = Cars.from(inputView.enterCarNames());
+        final Cars cars = Cars.of(inputView.enterCarNames(), new RandomNumberGenerator());
         int rotateCount = inputView.enterRotateNumber();
 
         rotate(cars, rotateCount);
@@ -32,7 +33,7 @@ public class RacingGame {
         outputView.printRunResult();
 
         while (rotateCount-- > ZERO) {
-            cars.goByRandomNumber();
+            cars.goByNumber();
             outputView.printCarsResults(CarsDto.from(cars));
         }
 

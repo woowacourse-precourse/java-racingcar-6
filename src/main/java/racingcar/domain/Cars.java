@@ -7,22 +7,23 @@ import java.util.List;
 import racingcar.exception.RacingGameException;
 
 public class Cars {
-
+    private final NumberGenerator numberGenerator;
     private final List<Car> cars;
 
-    private Cars(final List<Car> cars) {
+    private Cars(final List<Car> cars, final NumberGenerator numberGenerator) {
         this.cars = cars;
+        this.numberGenerator = numberGenerator;
     }
 
-    public static Cars from(final List<String> nameList) {
+    public static Cars of(final List<String> nameList, final NumberGenerator numberGenerator) {
 
         return new Cars(nameList.stream()
                 .map(Car::from)
-                .toList());
+                .toList(), numberGenerator);
     }
 
-    public void goByRandomNumber() {
-        cars.forEach(car -> car.go(RandomNumberGenerator.generate()));
+    public void goByNumber() {
+        cars.forEach(car -> car.go(numberGenerator.generate()));
     }
 
     public List<String> findWinnerNameList() {

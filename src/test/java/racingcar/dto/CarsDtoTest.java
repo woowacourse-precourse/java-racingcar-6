@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Cars;
+import racingcar.domain.RandomNumberGenerator;
 
 class CarsDtoTest {
 
@@ -13,7 +14,7 @@ class CarsDtoTest {
     @DisplayName("CarsDto 생성")
     void 생성() {
         // given
-        Cars cars = Cars.from(List.of("aaa","bbb","ccc"));
+        Cars cars = Cars.of(List.of("aaa","bbb","ccc"), new RandomNumberGenerator());
 
         // when
         CarsDto carsDto = CarsDto.from(cars);

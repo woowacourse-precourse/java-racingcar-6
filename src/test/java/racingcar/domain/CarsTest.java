@@ -18,7 +18,7 @@ class CarsTest {
         List<String> nameList = List.of("a", "bb", "ccc", "dddd");
 
         // when
-        Cars cars = Cars.from(nameList);
+        Cars cars = Cars.of(nameList, new RandomNumberGenerator());
 
         // then
         assertThat(cars.getCars().size()).isEqualTo(4);
@@ -31,7 +31,7 @@ class CarsTest {
         List<String> nameList = List.of("a", "bb", "ccc", "dddddd");
 
         // when then
-        assertThatThrownBy(() -> Cars.from(nameList))
+        assertThatThrownBy(() -> Cars.of(nameList, new RandomNumberGenerator()))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -42,7 +42,7 @@ class CarsTest {
         List<String> nameZero = List.of("", " ");
 
         // when then
-        assertThatThrownBy(() -> Cars.from(nameZero))
+        assertThatThrownBy(() -> Cars.of(nameZero, new RandomNumberGenerator()))
                 .isInstanceOf(IllegalArgumentException.class);
 
     }
@@ -52,12 +52,12 @@ class CarsTest {
     void 최대_위치_추출() {
         // given
         List<String> nameList = List.of("a", "b", "c", "d", "e");
-        Cars cars = Cars.from(nameList);
+        Cars cars = Cars.of(nameList, new RandomNumberGenerator());
         int n = 10;
 
         // when
         while (n-- > 0) {
-            cars.goByRandomNumber();
+            cars.goByNumber();
         }
 
         // then
@@ -83,12 +83,12 @@ class CarsTest {
     void 우승자_이름_추출() {
         // given
         List<String> nameList = List.of("a", "b", "c", "d", "e");
-        Cars cars = Cars.from(nameList);
+        Cars cars = Cars.of(nameList, new RandomNumberGenerator());
         int n = 10;
 
         // when
         while (n-- > 0) {
-            cars.goByRandomNumber();
+            cars.goByNumber();
         }
 
         // then
@@ -104,12 +104,12 @@ class CarsTest {
     @DisplayName("공동 우승자도 추출된다.")
     void 공동_우승자_추출() {
         // given
-        Cars cars = Cars.from(List.of("a", "b", "c", "d", "e"));
+        Cars cars = Cars.of(List.of("a", "b", "c", "d", "e"), new RandomNumberGenerator());
         int n = 10;
 
         // when
         while (n-- > 0) {
-            cars.goByRandomNumber();
+            cars.goByNumber();
         }
 
         // then
@@ -131,7 +131,7 @@ class CarsTest {
     @DisplayName("자동차들 객체를 외부 변경으로부터 보호해야한다.")
     void 외부_변경_빈리스트_보호() {
         // given
-        Cars beforeCars = Cars.from(List.of("a", "b", "c"));
+        Cars beforeCars = Cars.of(List.of("a", "b", "c"), new RandomNumberGenerator());
 
         // when
         List<Car> carList = beforeCars.getCars();
@@ -146,7 +146,7 @@ class CarsTest {
     @DisplayName("자동차들 객체를 외부에서 객체 추가 보호해야한다.")
     void 외부_추가_보호() {
         // given
-        Cars beforeCars = Cars.from(List.of("a", "b", "c"));
+        Cars beforeCars = Cars.of(List.of("a", "b", "c"), new RandomNumberGenerator());
 
         // when
         List<Car> carList = beforeCars.getCars();
@@ -161,7 +161,7 @@ class CarsTest {
     @DisplayName("자동차들 객체 내부의 자동차 객체도 보호해야한다.")
     void 외부_변경_리스트_내부_변경_보호() {
         // given
-        Cars beforeCars = Cars.from(List.of("a", "b", "c"));
+        Cars beforeCars = Cars.of(List.of("a", "b", "c"), new RandomNumberGenerator());
 
         // when
         List<Car> carList = beforeCars.getCars();
