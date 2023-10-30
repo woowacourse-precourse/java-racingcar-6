@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarTest {
@@ -22,5 +23,15 @@ public class CarTest {
         assertThat(arr).allMatch(value -> value >= 0 && value <= 9);
 
     }
-
+    @Test
+    public void movingForward_자동차_앞으로_전진() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Car car = new Car("test");
+                    car.movingForward();
+                    assertThat(car.getDistance()).isEqualTo(1);
+                },
+                4
+        );
+    }
 }
