@@ -26,6 +26,17 @@ class InputTest {
     }
 
     @Test
+    void input_자동차의_이름을_구분하는_표시를_띄어쓰기로_한_경우_예외(){
+        String text = "pobi hash neo";
+        InputStream in = new ByteArrayInputStream(text.getBytes());
+        System.setIn(in);
+
+        assertThatThrownBy(() -> input.InputCarName())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("쉽표(,)를 통해 구분해 주세요.");
+    }
+
+    @Test
     void Input_자동차의_시도할_횟수를_입력(){
         String text = "5";
         InputStream in = new ByteArrayInputStream(text.getBytes());
