@@ -1,11 +1,10 @@
 기능 목록 정리
 
 Constant
-1. CarValue  
-   1-1. CAR_NAME < 5
-   1-2. CAR_MOVE_MINIMUM_RANGE = 0
-   1-3. CAR_MOVE_MAXIMUM_RANGE = 9
-   1-4. CAR_NAME_MAXIMUM_RANGE = 5
+1. CarValue
+   1-1. CAR_MOVE_MINIMUM_RANGE = 0
+   1-2. CAR_MOVE_MAXIMUM_RANGE = 9
+   1-3. CAR_NAME_MAXIMUM_RANGE = 5
 
 2. SystemMessage
    2-1. RUN_RESULT_MESSAGE = 실행 결과
