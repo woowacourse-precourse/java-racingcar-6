@@ -38,4 +38,13 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차의 이름이 5글자를 초과 했습니다. 5글자 이하의 이름으로 입력해주세요.");
     }
+
+    @DisplayName("1회 미만의 시도 횟수이면 예외처리")
+    @ParameterizedTest
+    @ValueSource(ints = {0, -1, -2})
+    void validateMoveCountRangeTest(int moveCount) {
+        assertThatThrownBy(() -> inputValidator.validateMoveCountRange(moveCount))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("최소 시도 횟수보다 낮은 값을 입력하셨습니다. 최소 1회 이상의 시도 횟수를 입력해주세요.");
+    }
 }
