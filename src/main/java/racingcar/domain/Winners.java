@@ -10,7 +10,7 @@ public class Winners {
         winners = findWinners(cars);
     }
 
-    public List<Car> findWinners(List<Car> cars) {
+    private List<Car> findWinners(List<Car> cars) {
         Car maxPositionCar = findMaxPositionCar(cars);
         return findMaxPositionCarList(maxPositionCar, cars);
     }
