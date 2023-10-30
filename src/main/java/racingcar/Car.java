@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String carName;
+    private final String carName;
     private Long totalMovements;
 
     public Car(String name) {
@@ -19,9 +19,9 @@ public class Car {
         return totalMovements;
     }
 
-    public boolean isGo() {
+    private boolean isGo() {
         int random = Randoms.pickNumberInRange(0, 9);
-        return random >= 4;
+        return random > 3;
     }
 
     public void moveForward() {
