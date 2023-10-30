@@ -25,9 +25,20 @@ public class InputManager {
     }
 
     public int getTryCount() {
-       String input = Console.readLine();
-       int count = Integer.parseInt(input);
+        String input = Console.readLine();
+        isValidNum(input);
+        int count = Integer.parseInt(input);
+        return count;
+    }
 
-       return count;
+    public void isValidNum(String input) {
+        try {
+            int count = Integer.parseInt(input);
+            if (count < 0) {
+                throw new IllegalArgumentException("시도 횟수는 음수가 될 수 없습니다.")
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("문자는 입력할 수 없습니다.");
+        }
     }
 }
