@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.Objects;
 
 public class CarName {
     String name;

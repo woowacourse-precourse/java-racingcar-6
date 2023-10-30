@@ -1,17 +1,23 @@
 package racingcar.service;
 
-import racingcar.model.CarList;
-import racingcar.model.TryNumber;
-
 public class RaceService {
-    private CarList carList;
-    private TryNumber tryNumber;
+    private RaceGame raceGame;
+    private int currentTryNumber = 0;
 
     public void makeCarList(String carNames) {
-        carList = new CarList(carNames);
+        raceGame = new RaceGame(carNames);
     }
 
-    public void makeTryCount(String tryCount) {
-        tryNumber = new TryNumber(tryCount);
+    public void makeTryNumber(String tryCount) {
+        raceGame.makeTryNumber(tryCount);
+    }
+
+    public String playOneRound() {
+        currentTryNumber++;
+        return raceGame.moveAllCars();
+    }
+
+    public boolean isEnd() {
+        return raceGame.isEnd(currentTryNumber);
     }
 }

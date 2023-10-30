@@ -32,6 +32,7 @@ public class CarList {
         for (Car car : carList) {
             sb.append(car.toString());
         }
+        sb.append("\n");
         return sb.toString();
     }
 }

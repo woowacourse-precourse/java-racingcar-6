@@ -19,7 +19,7 @@ public class Car {
     public void move() {
         int randomNumber = Randoms.pickNumberInRange(MINIMUM_NUMBER, MAXIMUM_NUMBER);
         if (isMovable(randomNumber)) {
-            position++;
+            position += randomNumber;
         }
     }
 
@@ -41,8 +41,9 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "name=" + this.name +
-                '}';
+        return this.name
+                + " : "
+                + "-".repeat(position)
+                +"\n";
     }
 }

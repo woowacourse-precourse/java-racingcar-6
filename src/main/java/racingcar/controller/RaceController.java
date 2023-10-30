@@ -11,18 +11,35 @@ public class RaceController {
     private final RaceService raceService = new RaceService();
 
     public void run() {
-        getCarList();
+        getInputs();
+        playGame();
     }
 
-    private void getTryCount() {
-        print(PrintMessage.GET_TRY_COUNT);
-        raceService.makeTryCount(inputView.input());
+    private void playGame() {
+        print(PrintMessage.RESULT);
+        while (!raceService.isEnd()) {
+            print(raceService.playOneRound());
+        }
     }
+
+    private void getInputs() {
+        getCarList();
+        getTryNumber();
+    }
+
+    private void getTryNumber() {
+        print(PrintMessage.GET_TRY_COUNT);
+        raceService.makeTryNumber(inputView.input());
+    }
+
     private void getCarList() {
         print(PrintMessage.GET_CAR_NAME);
         raceService.makeCarList(inputView.input());
     }
 
+    private void print(String message) {
+        outputView.printMessage(message);
+    }
 
     private void print(PrintMessage message) {
         outputView.printMessage(message);
