@@ -1,7 +1,7 @@
 package racingcar;
 
 import java.util.List;
-import racingcar.domain.Cars;
+import racingcar.domain.Car;
 
 public class Printer {
     private static final String REQUEST_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -20,8 +20,10 @@ public class Printer {
         System.out.println(RESULT);
     }
 
-    public void gameResult(List<Cars> carsList) {
-      
+    public void gameResult(List<Car> carsList) {
+        for (Car car : carsList) {
+            System.out.println(car);
+        }
     }
 }
 

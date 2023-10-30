@@ -13,4 +13,18 @@ public class Car {
             movement++;
         }
     }
+
+    @Override
+    public String toString() {
+
+        return name + " : " + showMovement();
+    }
+
+    public String showMovement() {
+        StringBuilder score = new StringBuilder();
+        for (int i = 0; i < movement; i++) {
+            score.append("-");
+        }
+        return score.toString();
+    }
 }

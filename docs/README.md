@@ -21,7 +21,7 @@
 
 - [ ] 자동차 클래스 - Car
     - [x] 이동 횟수 증가 - Car#race
-    - [ ] 경주 결과 만들기 - Car#toString
+    - [x] 경주 결과 만들기 - Car#toString
 - [ ] 자동차모음 클래스 - Cars
     - [x] 자동차 추가 - Cars#add
     - [ ] 가장 좋은 성적 찾기 - Cars#maxMovement
@@ -33,7 +33,7 @@
 
 - - -
 
-- [ ] 경주 결과 출력 - Printer#result
+- [x] 경주 결과 출력 - Printer#gameResult
 - [ ] 우승자 출력 - Printer#winner
 - [x] 기타 게임 안내 문구 출력
 
