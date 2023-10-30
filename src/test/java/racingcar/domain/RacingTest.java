@@ -85,7 +85,7 @@ class RacingTest {
     }
 
     @Test
-    void 최종_우승자_선정() throws Exception {
+    void 최종_우승자_선정() {
         // given
         Racing racing = new Racing();
         racing.generateCars(List.of("Car A", "Car B", "Car C"));
