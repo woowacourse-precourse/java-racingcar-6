@@ -15,7 +15,7 @@ public class RacingCars {
         this.racingCars = new ArrayList<>();
 
         for (String name : names) {
-            racingCars.add(RacingCar.createRacingCar(name));
+            this.racingCars.add(RacingCar.createRacingCar(name));
         }
     }
 
