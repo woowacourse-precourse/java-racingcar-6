@@ -29,4 +29,12 @@ public class RacingCar {
             throw new IllegalArgumentException();
         }
     }
+
+    public void playRacingGame(ArrayList<Car> car_list){
+        for(Car car : car_list){
+            car.determine_Move();
+            System.out.println(car.getCar_name() + " : " + "-".repeat(car.getMove_count()));
+        }
+        System.out.println("");
+    }
 }

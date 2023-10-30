@@ -11,5 +11,10 @@ public class Application {
         RacingCar racingCar = new RacingCar();
         ArrayList<Car> car_list = racingCar.createCarList();
         Integer count = racingCar.countRacingGame();
+
+        System.out.println("\n실행결과");
+        while(count-- != 0){
+            racingCar.playRacingGame(car_list);
+        }
     }
 }
