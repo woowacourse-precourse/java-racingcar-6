@@ -1,6 +1,5 @@
 package controller;
 
-import domain.Car;
 import domain.Cars;
 import view.InputView;
 import view.OutputView;

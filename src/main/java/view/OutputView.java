@@ -25,8 +25,8 @@ public class OutputView {
     }
 
     public static void printScores(Map<String, Integer> scores) {
-        scores.entrySet().forEach(entry ->
-                System.out.printf(PRINT_SCORES, entry.getKey(), REPEAT.repeat(entry.getValue())));
+        scores.entrySet()
+                .forEach(entry -> System.out.printf(PRINT_SCORES, entry.getKey(), REPEAT.repeat(entry.getValue())));
     }
 
     public static void printWinnerMessage(List<String> winner) {
