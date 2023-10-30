@@ -1,8 +1,12 @@
 package racingcar.start;
 
-public class RacingCarGame {
-	public void run() {
+import racingcar.controller.RacingCarController;
 
+public class RacingCarGame {
+
+	RacingCarController racingCarController = new RacingCarController();
+	public void run() {
+		racingCarController.saveCarName();
 	}
 
 }
