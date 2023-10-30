@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.ExceptionMessage.NAME_LENGTH_EXCEPTION;
 import static racingcar.ExceptionMessage.NAME_VALUE_BLANK_EXCEPTION;
 
@@ -32,5 +33,15 @@ public class NameTest {
         })
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NAME_LENGTH_EXCEPTION.getMessage());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"bob", "123", "john", "12a"})
+    @DisplayName("공백이 없고 길이가 5자 이하면 정상 생성 된다.")
+    void correctNameValueTest(final String value) {
+        // given & when & then
+        assertDoesNotThrow(() -> {
+            Name name = Name.from(value);
+        });
     }
 }
