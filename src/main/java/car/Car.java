@@ -35,6 +35,6 @@ public class Car {
     public void nameValidate(String name) {
         validateInputLengthExceeded(name);
         validateInputIsEmpty(name);
-        validateInputDoseNotContainSpecialCharacters(name);
+        validateInputDoesNotContainSpecialCharacters(name);
     }
 }
