@@ -1,7 +1,21 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String carNameBeforeSplit, numberOfMoves;
+        carNameBeforeSplit = readLine();
+
+        // 입력 받은 문자열을 쉼표를 기준으로 구분하여 자동차 이름 저장하기
+        String[] carNameAfterSplit = carNameBeforeSplit.split(",");
+        ArrayList<String> carList = new ArrayList<String>(Arrays.asList(carNameAfterSplit));
+        System.out.println(carList);
     }
+
 }
