@@ -24,6 +24,15 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 임시_테스팅() {
+        assertSimpleTest(
+                () -> {
+                    run("pobi,woni");
+                    assertThat(output()).contains("pobi : \nwoni :");
+                });
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
