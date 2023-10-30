@@ -17,7 +17,10 @@ public class RacingCarRound {
     }
 
     public boolean isGameState() {
-        return gameState;
+         if(gameState) {
+             return true;
+         }
+         return false;
     }
 
     private void gameSetCheck() {
@@ -26,12 +29,12 @@ public class RacingCarRound {
         }
     }
 
-    private void setNumber() {
+    private void endRound() {
         this.round -= 1;
     }
 
     public void roundStart() {
-        setNumber();
+        endRound();
         gameSetCheck();
     }
 }

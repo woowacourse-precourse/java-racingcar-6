@@ -1,36 +1,29 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Winner {
-    private static final String COMMA = ", ";
-    private String winnerRacingCar;
+    private List<RacingCar> racingCars;
 
-    public Winner() {
-    }
-
-    public String getWinnerRacingCar() {
-        return winnerRacingCar;
-    }
-
-    public Winner(List<RacingCar> racingCarList) {
-        int winnerValue = getWinnerValue(racingCarList);
-        this.winnerRacingCar = whoIsWinner(racingCarList, winnerValue);
-    }
-
-    public String whoIsWinner(List<RacingCar> racingCarList, int winnerValue) {
-        return racingCarList.stream()
+    public Winner(List<RacingCar> racingCars) {
+        int winnerValue = getWinnerValue(racingCars);
+        this.racingCars= racingCars.stream()
                 .filter(car -> car.getMove() == winnerValue)
-                .map(RacingCar::getName)
-                .reduce((name1, name2) -> name1 + COMMA + name2)
-                .orElse("");
+                .collect(Collectors.toList());
     }
 
-    Integer getWinnerValue(List<RacingCar> racingCarList) {
+    private Integer getWinnerValue(List<RacingCar> racingCarList) {
         return racingCarList
                 .stream()
                 .mapToInt(RacingCar::getMove)
                 .max()
                 .orElse(0);
+    }
+
+    public List<String> getWinners(){
+        return racingCars.stream()
+                .map(RacingCar::getName)
+                .collect(Collectors.toList());
     }
 }

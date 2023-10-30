@@ -26,7 +26,7 @@ public class RacingCar {
     }
 
     public Integer getMove() {
-        return move;
+        return this.move;
     }
 
     public void moveRacingCar() {
@@ -44,6 +44,10 @@ public class RacingCar {
 
     private Integer randomValue() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+    @Override
+    public String toString(){
+        return this.name + " : " + this.move;
     }
 
     /** 랜덤 값 테스트를 위한 메소드 **/

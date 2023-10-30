@@ -37,13 +37,12 @@ class OutputViewTest {
 
         List<RacingCar> racingCarList = new ArrayList<>();
         List<RacingCar> moveRacingCarList = new ArrayList<>();
-        RacingCars racingCars = new RacingCars();
 
         /** 이동 전 print 체크 **/
         racingCarList.add(racingCar1);
         racingCarList.add(racingCar2);
 
-        racingCars.setRacingCars(racingCarList);
+        RacingCars racingCars = new RacingCars(racingCarList);
 
         OutputView.printMoveRacingCar(racingCars);
 
@@ -62,7 +61,7 @@ class OutputViewTest {
 
         output.reset();
 
-        racingCars.setRacingCars(moveRacingCarList);
+        racingCars = new RacingCars(racingCarList);
 
         OutputView.printMoveRacingCar(racingCars);
 
