@@ -28,8 +28,9 @@ public class OutPut {
         System.out.println(ENTER_TRY_TIMES);
         int numberOfAttempts = input.numberTimesTry();
 
-        System.out.println(EXECUTION_RESULTS);
+        System.out.println("\n" + EXECUTION_RESULTS);
         result(carNames, numberOfAttempts);
+
     }
 
     public void result(List<String> carNames, int tryTimes) {
@@ -44,13 +45,17 @@ public class OutPut {
     }
 
     public void carDistanceCheck() {
+
         for (Entry<String, String> map : getCarMoveCheck().entrySet()) {
             System.out.printf("%s : %s\n", map.getKey(), map.getValue());
         }
+
     }
 
     private Map<String, String> getCarMoveCheck() {
+
         return carRacingStarts.getCarMoveCheck();
+
     }
 
 }
