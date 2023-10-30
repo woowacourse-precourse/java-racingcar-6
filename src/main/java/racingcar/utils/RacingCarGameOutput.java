@@ -31,7 +31,7 @@ public class RacingCarGameOutput {
 
     public static void printWinnersMessage(List<RacingCar> winners) {
         StringBuilder sb = new StringBuilder();
-        sb.append("최종 우승자는 : ");
+        sb.append("최종 우승자 : ");
         List<String> winnerNames = winners.stream().map(RacingCar::getName).toList();
         String winnersString = String.join(", ",winnerNames);
         sb.append(winnersString);
