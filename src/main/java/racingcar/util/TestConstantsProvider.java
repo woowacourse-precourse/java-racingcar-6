@@ -9,6 +9,10 @@ import static racingcar.constant.TestConstants.EXPECTED_PLAY_FIVE_TIMES;
 import static racingcar.constant.TestConstants.EXPECTED_PLAY_ONE_TIME;
 import static racingcar.constant.TestConstants.EXPECTED_THREE_CAR_NAMES;
 import static racingcar.constant.TestConstants.LONGER_THAN_FIVE_STRING;
+import static racingcar.constant.TestConstants.MOVING_FOUR;
+import static racingcar.constant.TestConstants.MOVING_NEGATIVE;
+import static racingcar.constant.TestConstants.MOVING_NINE;
+import static racingcar.constant.TestConstants.MOVING_TEN;
 import static racingcar.constant.TestConstants.NOT_NUMBER_STRING;
 import static racingcar.constant.TestConstants.NULL_STRING;
 import static racingcar.constant.TestConstants.ONE_CAR_NAME;
@@ -16,6 +20,10 @@ import static racingcar.constant.TestConstants.PLAY_FIVE_TIMES;
 import static racingcar.constant.TestConstants.PLAY_NEGATIVE_TIME;
 import static racingcar.constant.TestConstants.PLAY_NO_TIME;
 import static racingcar.constant.TestConstants.PLAY_ONE_TIME;
+import static racingcar.constant.TestConstants.POSITION_ONE;
+import static racingcar.constant.TestConstants.POSITION_ZERO;
+import static racingcar.constant.TestConstants.STOP_THREE;
+import static racingcar.constant.TestConstants.STOP_ZERO;
 import static racingcar.constant.TestConstants.THREE_CAR_NAMES;
 
 import java.util.stream.Stream;
@@ -55,6 +63,22 @@ public class TestConstantsProvider {
                 arguments(named("0", PLAY_NO_TIME)),
                 arguments(named("0보다 작은 값", PLAY_NEGATIVE_TIME)),
                 arguments(named("숫자가 아닌 값", NOT_NUMBER_STRING))
+        );
+    }
+
+    public static Stream<Arguments> provideValidMovingNumberConstants() {
+        return Stream.of(
+                arguments(MOVING_FOUR, POSITION_ONE),
+                arguments(MOVING_NINE, POSITION_ONE),
+                arguments(STOP_ZERO, POSITION_ZERO),
+                arguments(STOP_THREE, POSITION_ZERO)
+        );
+    }
+
+    public static Stream<Arguments> provideInvalidMovingNumberConstants() {
+        return Stream.of(
+                arguments(MOVING_NEGATIVE),
+                arguments(MOVING_TEN)
         );
     }
 
