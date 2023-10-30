@@ -17,24 +17,69 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni", "5");
-                    assertThat(output()).contains("pobi : -----", "woni : ", "최종 우승자 : pobi");
+                    assertThat(output()).contains("최종 우승자 : pobi, woni");
+                },
+                0, 4, 5, 1, 6, 2, 3, 7, 8, 9
+        );
+    }
+
+    @Test
+    void 단독_우승자일_경우() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "5");
+                    assertThat(output()).contains("최종 우승자 : pobi");
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD,
                 STOP
         );
     }
 
+    @Test
+    void 매_횟수_마다_실행_결과_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "5");
+                    assertThat(output()).contains("pobi : -", "woni : ", "pobi : --", "woni : ", "pobi : ---",
+                            "woni : ", "pobi : ----", "woni : ", "pobi : -----", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD,
+                STOP
+        );
+    }
+
+    @Test
     void 우승자가_여러명일_경우() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,java", "5");
-                    assertThat(output()).contains("pobi : -----", "woni : -----", "java : -----",
-                            "최종 우승자 : pobi,woni,java");
+                    assertThat(output()).contains(
+                            "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)",
+                            "시도할 회수는 몇회인가요?",
+                            "실행 결과",
+                            "pobi : -",
+                            "woni : -",
+                            "java : -",
+                            "pobi : --",
+                            "woni : --",
+                            "java : --",
+                            "pobi : ---",
+                            "woni : ---",
+                            "java : ---",
+                            "pobi : ----",
+                            "woni : ----",
+                            "java : ----",
+                            "pobi : -----",
+                            "woni : -----",
+                            "java : -----",
+                            "최종 우승자 : pobi, woni, java"
+                    );
                 },
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
         );
+
     }
 
     @Test
