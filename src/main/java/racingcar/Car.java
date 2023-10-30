@@ -22,4 +22,7 @@ public class Car {
 	public void setMove(int move) {
 		this.move = move;
 	}
+	public void move() {
+		this.move++;
+	}
 }
