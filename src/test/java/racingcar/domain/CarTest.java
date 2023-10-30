@@ -52,4 +52,27 @@ class CarTest {
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
+    @Test
+    @DisplayName("자동차 위치 비교: 똑같은 위치")
+    void givenTwoCar_whenIsSamePosition_thenReturnTrue() {
+        // given
+        Car pobi = new Car("pobi");
+        Car woni = new Car("woni");
+
+        // when & then
+        assertThat(pobi.isSamePosition(woni)).isTrue();
+    }
+
+    @Test
+    @DisplayName("자동차 위치 비교: 다른 위치")
+    void givenTwoCar_whenIsSamePosition_thenReturnFalse() {
+        // given
+        Car pobi = new Car("pobi");
+        Car woni = new Car("woni");
+        pobi.move(4);
+
+        // when & then
+        assertThat(pobi.isSamePosition(woni)).isFalse();
+    }
+
 }

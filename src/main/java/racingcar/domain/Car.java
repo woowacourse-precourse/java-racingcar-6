@@ -44,11 +44,14 @@ public class Car {
         }
     }
 
-
     public void move(final int randomNumber) {
         if (randomNumber >= MOVE_CONDITION) {
             position.moveForward();
         }
+    }
+
+    public boolean isSamePosition(Car car) {
+        return this.position.equals(car.position);
     }
 
     public String getName() {

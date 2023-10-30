@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -12,6 +11,7 @@ public class Cars {
 
     private static final String DELIMITER = ",";
     private static final String SIZE_ERROR_MESSAGE = "자동차는 1대 이상이여야 합니다.";
+    private static final String NO_CAR_ERROR_MESSAGE = "자동차가 존재하지 않습니다.";
 
     private final List<Car> cars;
     private final RandomNumberGenerator randomNumberGenerator;
@@ -42,16 +42,19 @@ public class Cars {
     }
 
     public List<String> findWinners() {
-        int winnerPosition = getWinnerPosition();
+        Car winner = getWinner();
         return cars.stream()
-                .filter(car -> car.getPosition() == winnerPosition)
+                .filter(car -> car.isSamePosition(winner))
                 .map(Car::getName)
                 .toList();
     }
 
-    private int getWinnerPosition() {
-        return Collections.max(cars, Comparator.comparingInt(Car::getPosition))
-                .getPosition();
+    private Car getWinner() {
+        return cars.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .orElseThrow(() -> {
+                    throw new IllegalArgumentException(NO_CAR_ERROR_MESSAGE);
+                });
     }
 
     public List<RoundResult> getCurrentCarStatus() {
