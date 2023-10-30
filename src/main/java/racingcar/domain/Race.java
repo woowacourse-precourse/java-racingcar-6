@@ -15,7 +15,7 @@ public class Race {
     }
 
     // 우승자가 여러명일때 추출하기
-    private static List<String> extractWinner(List<String> names, List<Integer> movementList, int moveCount) {
+    public List<String> extractWinner(List<String> names, List<Integer> movementList, int moveCount) {
         List<String> winnerList = new ArrayList<>();
         for (int i = 0; i < names.size(); i++) {
             if (movementList.get(i).equals(moveCount)) {
