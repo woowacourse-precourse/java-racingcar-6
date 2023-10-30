@@ -3,41 +3,58 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.constants.GameMessage;
 import racingcar.model.Car;
+import racingcar.model.Cars;
+import racingcar.model.Winner;
 import racingcar.utils.Converter;
 import racingcar.utils.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
-    private List<String> names;
-    private int attempt;
+    private Cars cars;
+
+    public GameController() {
+        this.cars = new Cars();
+    }
 
     public void startGame() {
-        getUserInputs();
+        List<String> names = initNames();
+        int attempt = initAttempt();
 
-        Car cars = new Car(names, attempt);
+        initCars(names);
 
-        racing(cars);
+        OutputView.displayTitle();
+
+        racing(attempt);
+
+        OutputView.displayWinner(new Winner(cars.getCars()));
     }
 
-    public void getUserInputs() {
-        String inputName = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_CAR_NAME.getMessage());
-        names = Converter.convertStringToList(inputName);
-        validate(names);
+    private void initCars(List<String> names) {
+        for(String name : names) {
+            cars.addCar(new Car(name, 0));
+        }
+    }
 
+    private void racing(int attempt) {
+        for(int i = 0; i < attempt; i++) {
+            cars.forward();
+            OutputView.displayRacingSituation(cars.getCars());
+        }
+    }
+
+
+    public List<String> initNames() {
+        String inputName = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_CAR_NAME.getMessage());
+        List<String> names = Converter.convertStringToList(inputName);
+        validate(names);
+        return names;
+    }
+
+    public int initAttempt() {
         String inputAttempt = InputView.input(GameMessage.INSTRUCTIONS_ENTERING_ATTEMPT_NUMBER.getMessage());
         Validator.validateNumber(inputAttempt);
-        attempt = Converter.convertStringToInt(inputAttempt);
-    }
-
-    private void racing(Car cars){
-        OutputView.displayTitle();
-        for(int i = 0; i < cars.getAttempt(); i ++) {
-            cars.forward();
-            OutputView.displayRacingSituation(cars);
-        }
-        cars.initWinners();
-        OutputView.displayWinner(cars);
+        return Converter.convertStringToInt(inputAttempt);
     }
 
     private void validate(List<String> names) {
