@@ -12,7 +12,7 @@ public class Cars {
 
     public static Cars assemble(List<String> inputCarNames, CarEngine carEngine) {
         List<Car> carList = inputCarNames.stream()
-                .map(carName -> new Car(carName, carEngine))
+                .map(carName -> new Car(new CarName(carName), carEngine))
                 .collect(Collectors.toList());
         return new Cars(carList);
     }
@@ -25,7 +25,7 @@ public class Cars {
 
     public List<Car> getReadOnlyCarList() {
         return cars.stream()
-                .map(car -> new Car(car.getName(), car.getCarEngine(), new Position(car.getPosition())))
+                .map(car -> new Car(new CarName(car.getCarName()), car.getCarEngine(), new Position(car.getPosition())))
                 .collect(Collectors.toUnmodifiableList());
     }
 }
