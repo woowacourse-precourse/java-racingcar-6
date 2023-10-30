@@ -19,14 +19,9 @@ public class GameController {
     private Integer tryCount;
 
     public void start() {
-        String nameInput = input.inputCarNames();
-        String[] names = nameInput.split(",");
+        String[] names = inputName();
+        String number = inputTryCount();
 
-        NameException.validation(names);
-
-        String number = input.inputTryCount();
-
-        CountException.validation(number);
         gameInit(names, number);
     }
 
@@ -46,27 +41,41 @@ public class GameController {
         output.printAnnounce();
 
         while (count < tryCount) {
-            carMove();
-            String[] names = convertCarNames();
-            String[] locations = convertCarLocationResults();
-            output.printRacing(names, locations);
+            playRacing();
             count += 1;
         }
 
         gameResult();
     }
 
+    private void playRacing() {
+        carMove();
+        String[] names = convertCarNames();
+        String[] positions = convertCarPositionString();
+        output.printRacing(names, positions);
+    }
+
     private void gameResult() {
-        Integer[] locations = convertCarLocations();
-        Integer winnerLocation = service.getWinnerLocation(locations);
+        Integer[] positions = convertCarPositions();
+        Integer winnerPosition = service.getWinnerPosition(positions);
+        String winners = resultRacingWinner(winnerPosition);
 
-        Winner winner = new Winner(winnerLocation);
+        output.printResult(winners);
+    }
 
-        winner.judgeRacingWinner(carList);
+    private String[] inputName() {
+        String nameInput = input.inputCarNames();
+        String[] names = nameInput.split(",");
 
-        String winnerNames = winner.getWinners();
+        NameException.validation(names);
+        return names;
+    }
 
-        output.printResult(winnerNames);
+    private String inputTryCount() {
+        String number = input.inputTryCount();
+
+        CountException.validation(number);
+        return number;
     }
 
     private void carMove() {
@@ -83,15 +92,23 @@ public class GameController {
                 .toArray(String[]::new);
     }
 
-    private String[] convertCarLocationResults() {
+    private String[] convertCarPositionString() {
         return carList.stream()
-                .map(Car::getLocationResult)
+                .map(Car::getPositionString)
                 .toArray(String[]::new);
     }
 
-    private Integer[] convertCarLocations() {
+    private Integer[] convertCarPositions() {
         return carList.stream()
-                .map(Car::getLocation)
+                .map(Car::getPosition)
                 .toArray(Integer[]::new);
+    }
+
+    private String resultRacingWinner(Integer winnerPosition) {
+        Winner winner = new Winner(winnerPosition);
+
+        winner.judgeRacingWinner(carList);
+
+        return winner.getWinners();
     }
 }

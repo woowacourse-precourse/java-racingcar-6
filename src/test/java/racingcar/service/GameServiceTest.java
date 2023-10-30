@@ -9,14 +9,14 @@ class GameServiceTest {
     @Test
     void 우승자_위치_반환() {
         GameService service = new GameService();
-        Integer[] locations = new Integer[10];
+        Integer[] positions = new Integer[10];
 
         for (int i=0; i<10; i++) {
-            locations[i] = i;
+            positions[i] = i;
         }
 
-        Integer winnerLocation = service.getWinnerLocation(locations);
+        Integer winnerPosition = service.getWinnerPosition(positions);
 
-        assertThat(winnerLocation).isEqualTo(9);
+        assertThat(winnerPosition).isEqualTo(9);
     }
 }

@@ -13,13 +13,13 @@ public class GameService {
         return number >= 4;
     }
 
-    public Integer getWinnerLocation(Integer[] locations) {
-        OptionalInt maxLocation = Arrays.stream(locations)
+    public Integer getWinnerPosition(Integer[] positions) {
+        OptionalInt winnerPosition = Arrays.stream(positions)
                 .mapToInt(Integer::intValue)
                 .max();
 
-        if (maxLocation.isPresent()) {
-            return maxLocation.getAsInt();
+        if (winnerPosition.isPresent()) {
+            return winnerPosition.getAsInt();
         }
 
         return 0;

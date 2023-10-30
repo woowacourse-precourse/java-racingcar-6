@@ -8,13 +8,13 @@ class CarTest {
     @Test
     void 자동차_전진_확인() {
         Car car = new Car("test");
-        Integer position = car.getLocation();
+        Integer position = car.getPosition();
 
         for (int i=0; i < 3; i++) {
             car.moveForward();
         }
 
-        int result = car.getLocation();
+        int result = car.getPosition();
 
         assertThat(position).isEqualTo(0);
         assertThat(result).isEqualTo(3);
@@ -32,7 +32,7 @@ class CarTest {
     void 자동차_위치_0_출력() {
         Car car = new Car("test");
 
-        String result = car.getLocationResult();
+        String result = car.getPositionString();
 
         assertThat("").isEqualTo(result);
     }
@@ -45,7 +45,7 @@ class CarTest {
             car.moveForward();
         }
 
-        String result = car.getLocationResult();
+        String result = car.getPositionString();
 
         assertThat("---").isEqualTo(result);
     }

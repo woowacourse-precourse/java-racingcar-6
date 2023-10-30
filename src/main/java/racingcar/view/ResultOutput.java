@@ -7,14 +7,14 @@ public class ResultOutput {
         System.out.println("실행 결과");
     }
 
-    public void printRacing(String[] names, String[] locations) {
+    public void printRacing(String[] names, String[] positions) {
         for (int i=0; i < names.length; i++) {
-            System.out.printf("%s : %s%n", names[i], locations[i]);
+            System.out.printf("%s : %s%n", names[i], positions[i]);
         }
         System.out.println();
     }
 
-    public void printResult(String winnerNames) {
-        System.out.println("최종 우승자 : " + winnerNames);
+    public void printResult(String winners) {
+        System.out.println("최종 우승자 : " + winners);
     }
 }
