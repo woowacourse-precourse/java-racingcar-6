@@ -25,6 +25,19 @@ public class CarManager {
         }
     }
 
+    public void goOrStop() {
+        for (Car now : carMap.values()) {
+            if (calRandom()) {
+                now.go();
+            }
+            if (now.getPosition() > max) {
+                max = now.getPosition();
+            }
+        }
+
+    }
+
+
 
 
 }
