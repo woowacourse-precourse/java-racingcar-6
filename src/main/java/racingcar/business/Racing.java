@@ -2,6 +2,7 @@ package racingcar.business;
 
 import racingcar.ui.InputView;
 import racingcar.ui.Output;
+import racingcar.ui.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +10,16 @@ import java.util.List;
 public class Racing {
 
     InputView inputView = new InputView();
+    OutputView outputView = new OutputView();
+    NumberMaker numberMaker = new NumberMaker();
 
     List<Car> carList;
 
     public void doRacing() {
-        Output.GET_NAMES.print();
+        outputView.print(Output.GET_NAMES);
         List<String> names = inputView.getNames();
 
-        Output.GET_GAME_COUNT.print();
+        outputView.print(Output.GET_GAME_COUNT);
         Integer gameCount = inputView.getGameCount();
 
         System.out.println("gameCount = " + gameCount);

@@ -10,12 +10,12 @@ public enum Output {
 
     private final String comment;
 
-    Output(String comment) {
-        this.comment = comment;
+    public String getComment() {
+        return this.comment;
     }
 
-    public void print() {
-        System.out.println(comment);
+    Output(String comment) {
+        this.comment = comment;
     }
 
 }
