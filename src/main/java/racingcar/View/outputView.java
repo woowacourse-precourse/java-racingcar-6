@@ -10,7 +10,7 @@ public class outputView {
 
     public static void displayPlayResult(ArrayList<Car> cars){
         for(Car car: cars){
-            System.out.println(car.getName()+":"+generateDashes(car.getCount()));
+            System.out.println(car.getName()+" : "+generateDashes(car.getCount()));
         }
     }
 
