@@ -15,7 +15,8 @@ public class GetWinnersService {
         List<Car> winners = getWinners(rankMap);
         return convertCarToCarName(winners);
     }
-    private static Map<Integer,List<Car>> getRankMap(Participants participants) {
+
+    private static Map<Integer, List<Car>> getRankMap(Participants participants) {
         Map<Integer, List<Car>> rankMap = new HashMap<>();
         for (int i = 0; i < participants.size(); i++) {
             Car car = participants.get(i);
@@ -27,14 +28,16 @@ public class GetWinnersService {
         }
         return rankMap;
     }
-    private static List<Car> getWinners(Map<Integer,List<Car>> rankMap) {
+
+    private static List<Car> getWinners(Map<Integer, List<Car>> rankMap) {
         return rankMap.keySet()
                 .stream()
                 .collect(Collectors.maxBy(Comparator.naturalOrder()))
                 .map(key -> rankMap.get(key))
                 .get();
     }
-    private static List<String> convertCarToCarName(List<Car> cars){
+
+    private static List<String> convertCarToCarName(List<Car> cars) {
         return cars.stream()
                 .map(car -> car.getCarName().name())
                 .toList();

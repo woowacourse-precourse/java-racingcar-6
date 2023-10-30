@@ -12,6 +12,7 @@ import racingcar.service.CarSaveService;
 public class CarTest {
 
     @Test
+    @DisplayName("이름은 대소문자 구분없이 1~5글자의 영문이다.")
     void 자동차_테스트(){
         Car.of(0,"j");
         Car.of(0,"jo");
@@ -20,6 +21,7 @@ public class CarTest {
         Car.of(0,"joHnN");
     }
     @Test
+    @DisplayName("공백, 띄어쓰기, 지정되지 않은범위의 이름은 예외가 발생한다.")
     void 자동차_테스트2(){
         Assertions.assertThatThrownBy(()->
                 Car.of(0,"")).isInstanceOf(IllegalArgumentException.class);

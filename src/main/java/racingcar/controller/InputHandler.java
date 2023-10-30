@@ -9,8 +9,8 @@ public class InputHandler {
         return Console.readLine();
     }
 
-    public static String[] StringToArray(String string){
-        return string.split(InputConfig.NAME_DELIMITER, Integer.MAX_VALUE);
+    public static String[] StringToArray(String string) {
+        return string.split(InputConfig.NAME_DELIMITER, InputConfig.NAME_QUANTITY_MAX);
     }
 
     public static int StringToInteger(String input) {
@@ -21,7 +21,8 @@ public class InputHandler {
 
     private static void validateRange(int round) {
         if (round < InputConfig.RACE_INPUT_MIN) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(InputConfig.RACE_INPUT_MIN + " ~ " +
+                    InputConfig.RACE_INPUT_MAX + "의 숫자를 입력하세요.");
         }
     }
 
@@ -29,7 +30,7 @@ public class InputHandler {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("숫자를 입력하세요");
         }
     }
 }

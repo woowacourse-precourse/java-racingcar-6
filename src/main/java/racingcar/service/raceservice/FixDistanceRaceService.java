@@ -10,8 +10,8 @@ public class FixDistanceRaceService implements RaceService {
     private static final int FIX_DISTANCE = 1;
 
     @Override
-    public Map<Car,Integer> runRace(Participants participants) {
-        Map<Car,Integer> map = new LinkedHashMap<>();
+    public Map<Car, Integer> runRace(Participants participants) {
+        Map<Car, Integer> map = new LinkedHashMap<>();
         int size = participants.size();
         for (int i = 0; i < size; i++) {
             Car car = participants.get(i);

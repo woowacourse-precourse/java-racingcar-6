@@ -26,7 +26,7 @@ public class RacingGame {
 
         View.raceStartMessage();
         for (int i = 0; i < round; i++) {
-            Map<Car,Integer> map = raceService.runRace(participants);
+            Map<Car, Integer> map = raceService.runRace(participants);
             View.printRaceResult(map);
         }
 

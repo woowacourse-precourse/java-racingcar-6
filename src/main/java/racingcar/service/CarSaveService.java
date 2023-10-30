@@ -1,7 +1,6 @@
 package racingcar.service;
 
 import java.util.ArrayList;
-import racingcar.AppConfig;
 import racingcar.InputConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
@@ -13,7 +12,7 @@ public class CarSaveService {
 
         Participants participants = new Participants(new ArrayList<>(length));
         for (int i = 0; i < length; i++) {
-            participants.save(Car.of(i,names[i]));
+            participants.save(Car.of(i, names[i]));
         }
         return participants;
     }

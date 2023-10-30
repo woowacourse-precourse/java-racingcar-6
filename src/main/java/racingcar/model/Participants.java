@@ -6,7 +6,7 @@ import racingcar.model.car.Car;
 public class Participants {
     private final List<Car> list;
 
-    public Participants(List<Car> list){
+    public Participants(List<Car> list) {
         this.list = list;
     }
 

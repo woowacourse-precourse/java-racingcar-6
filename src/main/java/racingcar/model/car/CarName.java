@@ -2,7 +2,6 @@ package racingcar.model.car;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import racingcar.AppConfig;
 import racingcar.InputConfig;
 
 public record CarName(String name) {

@@ -1,8 +1,8 @@
 package racingcar.model.car;
 
 public class Car {
-    private CarId carId;
-    private CarName carName;
+    private final CarId carId;
+    private final CarName carName;
     private int position = 0;
 
     private Car(CarId carId, CarName carName) {
@@ -18,7 +18,7 @@ public class Car {
     }
 
     public void move(int distance) {
-        if(distance > 0 && distance + position < 0) {
+        if (distance > 0 && distance + position < 0) {
             throw new IllegalArgumentException();
         }
         position += distance;

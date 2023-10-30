@@ -8,7 +8,8 @@ import racingcar.model.Participants;
 public interface RaceService {
 
     Map runRace(Participants participants);
-    default int getRandomValue(){
+
+    default int getRandomValue() {
         return Randoms.pickNumberInRange(AppConfig.DISTANCE_MIN, AppConfig.DISTANCE_MAX);
     }
 }

@@ -70,5 +70,6 @@ public class RaceTest {
         raceService.runRace(participants);
         List<String> winnersNames = GetWinnersService.getWinnersNames(participants);
         Assertions.assertThat(winnersNames).containsAnyOf("a","b","c","d","e");
+        Assertions.assertThat(winnersNames.size()).isGreaterThan(0);
     }
 }
