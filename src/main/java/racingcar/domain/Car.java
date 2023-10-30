@@ -1,15 +1,20 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Car implements Comparable<Car> {
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final String RESULT_DELIMITER = ", ";
+
     private String name;
-    private int moveDistance;
+    private Integer moveDistance;
 
     private Car() {
     }
 
     public Car(String name) {
+        validateNameLength(name);
         this.name = name;
         this.moveDistance = 0;
     }
@@ -24,10 +29,16 @@ public class Car implements Comparable<Car> {
 
     public StringBuilder isEqualDistance(List<Car> carList) {
         List<String> names = carList.stream()
-                .filter(car -> this.moveDistance == car.moveDistance)
+                .filter(car -> Objects.equals(this.moveDistance, car.moveDistance))
                 .map(car -> car.name)
                 .toList();
-        return new StringBuilder(String.join(", ", names));
+        return new StringBuilder(String.join(RESULT_DELIMITER, names));
+    }
+
+    private void validateNameLength(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override

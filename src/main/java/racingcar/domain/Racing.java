@@ -13,15 +13,19 @@ public class Racing {
     }
 
     public void run() {
-        Judgment judgment = new Judgment();
         NumberGenerator numberGenerator = new NumberGenerator();
         for (Car car : racingCar) {
-            if (judgment.isMoreThanFour(numberGenerator.createRandomNumber())) {
+            if (shouldCarMoveForward(numberGenerator)) {
                 car.forward();
             }
             printCarLocation(car);
         }
         System.out.println();
+    }
+
+    private boolean shouldCarMoveForward(NumberGenerator numberGenerator) {
+        Judgment judgment = new Judgment();
+        return judgment.isMoreThanFour(numberGenerator.createRandomNumber());
     }
 
     private void printCarLocation(Car car) {
