@@ -10,5 +10,8 @@ public class Application {
         String names = Console.readLine();
         String[] names_list = names.split(",");
         racingcarName.checked_car_name_len(names_list);
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        String move_num = Console.readLine();
     }
 }
