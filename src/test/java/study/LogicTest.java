@@ -34,4 +34,13 @@ public class LogicTest {
         // then
         Assertions.assertThat(car1.getLocation()).isEqualTo(1);
     }
+
+    @Test
+    public void 라운드증가테스트() {
+        //when
+        round.increaseRoundNum();
+
+        //then
+        Assertions.assertThat(round.getRoundNum()).isEqualTo(1);
+    }
 }
