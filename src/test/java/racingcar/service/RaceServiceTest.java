@@ -11,6 +11,10 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
+import static racingcar.domain.Cars.Car;
+import static racingcar.domain.Cars.createCars;
 
 @DisplayName("RaceService 클래스")
 class RaceServiceTest {
@@ -35,7 +39,7 @@ class RaceServiceTest {
             void it_successfully_return() {
                 assertThat(cars).isNotNull();
                 assertThat(cars.getCars()).hasSize(3);
-                assertThat(cars.getCars()).usingRecursiveComparison().isEqualTo(List.of(new Cars.Car("apple", 0), new Cars.Car("peer", 0), new Cars.Car("fruit", 0)));
+                assertThat(cars.getCars()).usingRecursiveComparison().isEqualTo(List.of(new Car("apple", 0), new Car("peer", 0), new Car("fruit", 0)));
             }
         }
 
@@ -91,5 +95,64 @@ class RaceServiceTest {
             }
         }
     }
+
+    @Nested
+    @DisplayName("raceStart 메서드는")
+    class Describe_raceStart {
+        @Nested
+        @DisplayName("한 대의 자동차가 주어질경우")
+        class Context_one_car {
+            private RaceService raceService;
+            private Cars cars;
+
+            @BeforeEach
+            void setup() {
+                raceService = spy(new RaceService(System.in));
+                cars = createCars();
+                cars.addCar(new Car("pobi", 0));
+                when(raceService.getRandomMoveDistance()).thenReturn(6);
+            }
+            @Test
+            @DisplayName("자동차가 멈추거나 랜덤하게 앞으로 감")
+            void it_move_car_randomly() {
+                raceService.raceStart(cars, 2);
+                assertThat(cars.getCars()).hasSize(1);
+                assertThat(cars.getCars().get(0).getName()).isEqualTo("pobi");
+                assertThat(cars.getCars().get(0).getDistance()).isEqualTo(12);
+            }
+        }
+
+        @Nested
+        @DisplayName("여러 대의 자동차가 주어질 경우")
+        class Context_many_cars {
+            private RaceService raceService;
+            private Cars cars;
+
+            @BeforeEach
+            void setup() {
+                raceService = spy(new RaceService(System.in));
+                cars = createCars();
+                cars.addCar(new Car("pobi", 0));
+                cars.addCar(new Car("crong", 0));
+                cars.addCar(new Car("maxi", 0));
+                when(raceService.getRandomMoveDistance()).thenReturn(4);
+            }
+            @Test
+            @DisplayName("여러 대의 자동차가 멈추거나 랜덤하게 앞으로 감")
+            void it_move_cars_randomly() {
+                raceService.raceStart(cars, 2);
+                assertThat(cars).isNotNull();
+                assertThat(cars.getCars()).isNotNull();
+                assertThat(cars.getCars().get(0).getName()).isEqualTo("pobi");
+                assertThat(cars.getCars().get(0).getDistance()).isEqualTo(8);
+                assertThat(cars.getCars().get(1).getName()).isEqualTo("crong");
+                assertThat(cars.getCars().get(1).getDistance()).isEqualTo(8);
+                assertThat(cars.getCars().get(2).getName()).isEqualTo("maxi");
+                assertThat(cars.getCars().get(2).getDistance()).isEqualTo(8);
+            }
+        }
+
+    }
+
 
 }
