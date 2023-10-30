@@ -50,4 +50,8 @@ public class CarGroup {
                 .collect(toList());
         return new CarGroupDto(carDtos);
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }

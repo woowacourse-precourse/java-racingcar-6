@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,6 +14,17 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarGroupTest {
+
+    @Test
+    void race_메서드는_자동차들의_움직임을_호출한다(){
+        CarGroup carGroup = new CarGroup(List.of("자동차1", "자동차2", "자동차3"), new TestMovement(List.of(true, false, false)));
+        carGroup.race();
+
+        assertThat(carGroup.getCars().get(0).getPosition()).isEqualTo(1);
+        assertThat(carGroup.getCars().get(1).getPosition()).isEqualTo(0);
+        assertThat(carGroup.getCars().get(2).getPosition()).isEqualTo(0);
+    }
+
 
     @ParameterizedTest
     @MethodSource("provideFindWinnersInformation")
