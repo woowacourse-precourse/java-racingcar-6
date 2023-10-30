@@ -14,6 +14,12 @@ public class GameController {
         this.gameService = gameService;
     }
 
+    public void play() {
+        init();
+        progressGame();
+        finishGame();
+    }
+
     private void init() {
         readCarNameList();
         readProgressCount();
@@ -27,12 +33,6 @@ public class GameController {
     private void readProgressCount() {
         println(READ_PROGRESS_COUNT.getMessage());
         gameService.setProgressCount(InputView.readProgressCount());
-    }
-
-    public void play() {
-        init();
-        progressGame();
-        finishGame();
     }
 
     private void progressGame() {
