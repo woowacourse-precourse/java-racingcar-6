@@ -20,7 +20,7 @@ public class RandomNumber {
         int number = pickNumberInRange(START_RANGE, END_RANGE);
         return new RandomNumber(number);
     }
-    
+
     public boolean isMovable() {
         return number >= MOVABLE_NUMBER;
     }

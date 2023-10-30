@@ -1,10 +1,8 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
-import racingcar.model.RandomNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -28,9 +26,9 @@ public class Game {
     }
 
     private static String getWinnerString(List<Car> winners) {
-        StringBuilder sb= new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append(FINAL_WINNER_STRING);
-        for (Car car:winners) {
+        for (Car car : winners) {
             sb.append(car.getName());
         }
         return sb.toString();

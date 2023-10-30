@@ -18,18 +18,18 @@ public class Car {
         status++;
     }
 
-   public String getStatusString() {
+    public String getStatusString() {
         String statusString = "";
-        for (int i=0;i<status;i++) {
+        for (int i = 0; i < status; i++) {
             statusString += "-";
         }
         StringBuilder sb = new StringBuilder();
         return sb.append(name).append(" : ").append(statusString).toString();
-   }
+    }
 
-   public int getStatus() {
+    public int getStatus() {
         return status;
-   }
+    }
 
     public String getName() {
         return name;
