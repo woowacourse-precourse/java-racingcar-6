@@ -92,6 +92,16 @@ class RaceCarTest {
         assertThat(result).isTrue();
     }
 
+    @DisplayName("자동차의 움직여도 되는 조건 이 맞는가. (4이상, 9이하)_2")
+    @Test
+    void isMovementCondition_2() {
+        // when
+        boolean result = raceCar.isMovementCondition(STOP);
+
+        // then
+        assertThat(result).isFalse();
+    }
+
     @DisplayName("차동차의 이동을 할때 차의 이동량과 이동을 위한 출력문자를 수정, 이동시 전진 카운터 증가.")
     @Test
     void moveForward() {
