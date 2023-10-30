@@ -27,6 +27,7 @@ public class RaceGame {
     private void playGame(){
         inputView.inputName(cars);
         Integer moveCount = inputView.inputMoveCount();
+        System.out.println("실행 결과");
         for(int i = 0;i < moveCount;i++){
             for(Car car : cars){
                 car.move();

@@ -36,9 +36,7 @@ public class InputView {
     }
     public Integer inputMoveCount(){
         System.out.println("시도할 회수는 몇회인가요?");
-        System.out.println("여기2222!");
         String input = Console.readLine();
-        System.out.println("여기!!" + inputValidator.isNotNullValid(input));
         if(!inputValidator.isNotNullValid(input)){
             throw new IllegalArgumentException("Input Error: moveCount is Null");
         }
