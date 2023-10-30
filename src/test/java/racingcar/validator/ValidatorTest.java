@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import racingcar.Application;
 import racingcar.domain.Car;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class ValidatorTest extends NsTest {
@@ -51,7 +54,7 @@ public class ValidatorTest extends NsTest {
 
         assertThatThrownBy(() -> validator.checkCarNameForm(car.getName()))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContainingAll("자동차 이름으 길이는 5이하 입니다.");
+                .hasMessageContainingAll("자동차 이름은 길이는 5이하 입니다.");
     }
 
     @Test
@@ -61,6 +64,18 @@ public class ValidatorTest extends NsTest {
 
         assertThatCode(() -> validator.checkCarNameForm(car.getName()))
                 .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 자동차_이름_중복_테스트() {
+        Car car1 = new Car("robih");
+        Car car2 = new Car("robih");
+        List<String> carNames = new ArrayList<>(List.of(car1.getName(), car2.getName()));
+
+        Validator validator = new Validator();
+        assertThatThrownBy(() -> validator.checkDuplicateCarName(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContainingAll("차 이름이 중복됐습니다.");
     }
 
 
