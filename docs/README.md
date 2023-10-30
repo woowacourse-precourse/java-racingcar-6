@@ -27,7 +27,7 @@
 <br>
 
 ### 뷰
-- [ ] 게임 시작 메시지를 출력한다. (printStartMessage)
-- [ ] 시도 횟수 입력에 대한 메시지를 출력한다. (printEnteredAttemptCountMessage)
-- [ ] 게임 매니저에게 게임로그를 받아서 게임 결과를 출력한다. (printGameProcess)
-- [ ] 게임 매니저에게 게임승자 데이터를 받아서 게임 최종 우승자를 출력한다. (printGameResult)
+- [x] 게임 시작 메시지를 출력한다. (printStartMessage)
+- [x] 시도 횟수 입력에 대한 메시지를 출력한다. (printEnteredAttemptCountMessage)
+- [x] 게임 매니저에게 게임로그를 받아서 게임 결과를 출력한다. (printGameProcess)
+- [x] 게임 매니저에게 게임승자 데이터를 받아서 게임 최종 우승자를 출력한다. (printGameResult)
