@@ -5,7 +5,7 @@ import racingcar.utils.RandomGenerator;
 
 public class Car {
     private static final String DISTANCE_MARK = "-";
-    private String name;
+    private final String name;
     private final StringBuilder distance;
 
     public Car(String name) {
