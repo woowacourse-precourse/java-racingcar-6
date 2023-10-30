@@ -4,11 +4,11 @@ import static racingcar.util.Constant.MAX_CAR_NAME_LENGTH;
 
 import racingcar.exception.car_name.NotValidNameLengthException;
 
-public class CarName {
+public class Name {
 
     private final String name;
 
-    public CarName(final String name) {
+    public Name(final String name) {
         validateName(name);
         this.name = name;
     }
