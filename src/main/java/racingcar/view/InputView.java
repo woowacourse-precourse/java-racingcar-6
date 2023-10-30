@@ -1,7 +1,9 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.util.CarNameValidator.Message;
+import racingcar.util.CarListEditor;
+import racingcar.util.CarNameValidator;
 
 public class InputView {
     private static final InputView instance = new InputView();
@@ -12,7 +14,16 @@ public class InputView {
 
     public List<String> readCarNames() {
         System.out.println(Message.INPUT_START.message);
-        List<String> names =
+        String input = Console.readLine();
+        List<String> names = CarListEditor.splitByComma(input);
+        CarNameValidator.validate(names);
+        return names;
+    }
+
+    public int readMoveCount() {
+        System.out.println(Message.INPUT_MOVE_COUNT.message);
+        String input = Console.readLine();
+        return Integer.parseInt(input);
     }
 
     public enum Message {
