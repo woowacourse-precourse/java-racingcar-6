@@ -8,7 +8,7 @@ public class InputView {
     public String[] readRacingCarName(){
         String[] racingCarNames = toStringArray(Console.readLine());
 
-        inputValidator.validateRacingCarName(racingCarNames);
+        inputValidator.validateRacingCarNameLength(racingCarNames);
 
         return racingCarNames;
     }

@@ -3,32 +3,36 @@ package racingcar.view;
 import racingcar.config.RacingGameConfig;
 
 public class InputValidator {
-    public void validateRacingCarName(String[] racingCarNames){
+    private final String numberRegex = "^[0|/-?[1-9]\\d]*$";
+
+    public void validateRacingCarNameLength(String[] racingCarNames){
         for(String racingCarName : racingCarNames){
             if(isBiggerMaxLength(racingCarName)){
-                throw new IllegalArgumentException("car name size must be smaller than 6.");
+                throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE.getErrorMessage());
             }
         }
     }
 
     public void validateNumberTypeOfTry(String input){
-        if(!isNumber(input)){
-            throw new IllegalArgumentException("number of try must be typed number");
+        if(isNotNumber(input)){
+            throw new IllegalArgumentException(ErrorMessage.NUMBER_OF_TRY_TYPE_ERROR_MESSAGE.getErrorMessage());
         }
     }
 
     public void validateNumberRangeOfTry(int input){
         if(isSmallerMinValue(input)){
-            throw new IllegalArgumentException("number range of try must be bigger than 0");
+            throw new IllegalArgumentException(ErrorMessage.NUMBER_OF_TRY_RANGE_ERROR_MESSAGE.getErrorMessage());
         }
     }
 
     private boolean isSmallerMinValue(int input){
         return input < RacingGameConfig.NUMBER_OF_TRY_MIN_VALUE.getValue();
     }
-    private boolean isNumber(String input){
-        return input.matches("0|[-]?[1-9]\\d*$");
+
+    private boolean isNotNumber(String input){
+        return !input.matches(numberRegex);
     }
+
     private boolean isBiggerMaxLength(String racingCarName){
         return racingCarName.length() > RacingGameConfig.CAR_NAME_MAX_LENGTH.getValue();
     }

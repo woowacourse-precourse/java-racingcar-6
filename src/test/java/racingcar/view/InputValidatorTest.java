@@ -20,7 +20,7 @@ class InputValidatorTest {
         String[] carNames = {"aaaaaa"};
 
         assertThrows(IllegalArgumentException.class, () -> {
-            inputValidator.validateRacingCarName(carNames);
+            inputValidator.validateRacingCarNameLength(carNames);
         });
     }
 
