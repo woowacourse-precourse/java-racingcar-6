@@ -91,6 +91,18 @@
     ```java
     boolean isIdentifierComma(String carNameInput)
     ```
+- 자동차 이름이 5자 이하인가
+    ```java
+    boolean isCarNameLength(String carName)
+    ```
+- 자동차 이름 입력이 중복되는 경우
+    ```java
+    boolean isDuplicateCarName(List<String> carNameList)
+    ```
+- 자동차 개수가 2대 이상인지 확인하는 기능
+    ```java
+    boolean isCarMoreThanOne(List<String> carNameList)
+    ```
 - 시도 횟수에 숫자로 입력하는가
     ```java
     boolean isTryNumInteger(String tryNum)
@@ -98,16 +110,4 @@
 - 시도 횟수가 1 이상인가
     ```java
     boolean isTryNumPositiveNum(String tryNum)
-    ```
-- 자동차 이름이 5자 이하인가
-    ```java
-    boolean checkCarNameLength(String carName)
-    ```
-- 자동차 이름 입력이 중복되는 경우
-    ```java
-    boolean checkDuplicateCarName(List<String> carNameList)
-    ```
-- 자동차 개수가 2대 이상인지 확인하는 기능
-    ```java
-    boolean isCarMoreThanOne(List<String> carNameList)
     ```

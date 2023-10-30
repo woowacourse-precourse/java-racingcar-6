@@ -7,9 +7,23 @@ import java.util.regex.Pattern;
 
 public class Validator {
     private final static int MIN_CAR_NUM = 2;
+
     public boolean isIdentifierComma(String carNameInput){
         String regex = "([0-9a-zA-Zㄱ-ㅎ가-힣]+,)*[0-9a-zA-Zㄱ-ㅎ가-힣]+";
         return carNameInput.matches(regex);
+    }
+
+    public boolean isCarNameLength(String carName) {
+        return 0 < carName.length() && carName.length() <= 5;
+    }
+
+    public boolean isDuplicateCarName(List<String> carNameList) {
+        Set<String> carNameSet = new HashSet<>(carNameList);
+        return carNameSet.size() != carNameList.size();
+    }
+
+    public boolean isCarMoreThanOne(List<String> carNameList) {
+        return carNameList.size() >= MIN_CAR_NUM;
     }
 
     public boolean isTryNumInteger(String tryNum) {
@@ -23,18 +37,5 @@ public class Validator {
 
     public boolean isTryNumPositiveNum(Integer tryNum) {
         return tryNum > 0;
-    }
-
-    public boolean checkCarNameLength(String carName) {
-        return 0 < carName.length() && carName.length() <= 5;
-    }
-
-    public boolean checkDuplicateCarName(List<String> carNameList) {
-        Set<String> carNameSet = new HashSet<>(carNameList);
-        return carNameSet.size() != carNameList.size();
-    }
-
-    public boolean isCarMoreThanOne(List<String> carNameList) {
-        return carNameList.size() >= MIN_CAR_NUM;
     }
 }
