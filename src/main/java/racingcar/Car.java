@@ -9,6 +9,7 @@ public class Car {
     final int END_RANDOM_RANGE = 9;
     final int TRIGGER_MINIMUM_FORWARD = 4;
     final String MARK_FOR_FORWARD = "-";
+    final int INCREASE_NUM_FORWARD = 1;
     private int forwardCount;
     private String presentCondition;
 
@@ -32,11 +33,15 @@ public class Car {
 
     public void runCar() {
         if (getRandomNumber() >= TRIGGER_MINIMUM_FORWARD) {
-            forwardCount++;
+            increaseForwardCount(INCREASE_NUM_FORWARD);
             presentCondition += MARK_FOR_FORWARD;
         }
 
         System.out.println(getPresentCondition());
+    }
+
+    public void increaseForwardCount(int increaseNum) {
+        forwardCount += increaseNum;
     }
 
     public int getForwardCount() {

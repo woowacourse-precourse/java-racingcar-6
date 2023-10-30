@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -27,7 +28,7 @@ public class Game {
 
         System.out.print(MESSAGE_ASK_TRY);
         inputRoundNumber();
-        
+
         System.out.print(MESSAGE_RACE_RESULT);
         proceedEachRound();
     }
@@ -73,6 +74,19 @@ public class Game {
 
             System.out.println();
         }
+    }
+
+    public List<String> selectWinner() {
+        Car winnerFirst = carList.stream().max(Comparator.comparing(Car::getForwardCount)).get();
+        List<String> winnerList = new ArrayList<String>();
+
+        for (Car car : carList) {
+            if (car.getForwardCount() == winnerFirst.getForwardCount()) {
+                winnerList.add(car.getCarName());
+            }
+        }
+
+        return winnerList;
     }
 
     public boolean validateCarNameDuplication(List<String> nameList) {
