@@ -8,7 +8,7 @@ public class GameResult {
     private final StringBuilder result;
 
     public GameResult() {
-        result = new StringBuilder("실행 결과\n");
+        result = new StringBuilder();
     }
 
     public void generateResult(final Cars cars) {
