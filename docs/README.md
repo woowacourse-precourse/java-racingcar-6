@@ -14,10 +14,11 @@
 - [x] 0~9 사이에서 무작위 값을 구한다. - NumberGenerator#createRandomNumber()
   - Random 값 추출은 `camp.nextstep.edu.missionutils.Random`s의 `pickNumberInRange()` 활용
 - [x] 전진 조건 : 무작위 값이 4 이상일 경우 - Car#isGoingForward()
-- [ ] 실행결과(출력) : 전진하는 자동차 이름을 같이 출력 - Car#printCarState()
+- [x] 실행결과(출력) : 전진하는 자동차 이름을 같이 출력 - Car#printCarState()
 
 ### 3. 우승자 구하기
-- [ ] `Referee`는 게임 완료 후 우승자를 알려준다. - Referee#determineWinners()
+- [ ] `Referee`는 게임 완료 후 우승자를 알려준다.
+  - [ ] 전진 횟수가 가장 많은 자동차가 우승할 수 있다. - Cars#getMaxForwardCountCarNames()
   - [ ] 출력 : "최종 우승자 : " - Referee#announceWinners()
   - 우승자는 한 명 이상일 수 있다.
   - 우승자가 여러 명일 경우 쉼표로 구분

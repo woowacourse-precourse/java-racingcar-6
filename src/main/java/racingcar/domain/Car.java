@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car{
+public class Car implements Comparable<Car>{
 
     private String name;
     private int forwardCount;
@@ -43,6 +43,14 @@ public class Car{
 
     public int getForwardCount(){
         return forwardCount;
+    }
+
+    @Override
+    public int compareTo(Car c){
+        if(this.forwardCount<=c.forwardCount){
+            return 1;
+        }
+        return 0;
     }
 
 }

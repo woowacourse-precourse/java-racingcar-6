@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars{
@@ -17,6 +18,17 @@ public class Cars{
             cars.add(new Car(name));
         }
         return cars;
+    }
+
+    public List<String> getMaxForwardCountCarNames(Cars cars){
+        List<String>carNames = new ArrayList<>();
+        Collections.sort(cars.getCarList());
+        for (Car car : carList){
+            if(carList.get(0).getForwardCount()==car.getForwardCount()){
+                carNames.add(car.getName());
+            }
+        }
+        return carNames;
     }
 
     public List<Car> getCarList(){
