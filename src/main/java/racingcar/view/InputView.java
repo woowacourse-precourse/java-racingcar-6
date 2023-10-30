@@ -13,8 +13,8 @@ public class InputView {
 
     public static List<Car> inputCarName(){
         System.out.println(INPUT_CAR_NAME);
-        String cars = Console.readLine();
-        return convertToCarList(cars);
+        String inputCar = Console.readLine();
+        return convertToCarList(inputCar);
     }
 
     public static int inputTimes() {
