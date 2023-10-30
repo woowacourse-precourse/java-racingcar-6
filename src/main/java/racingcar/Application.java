@@ -6,5 +6,7 @@ public class Application {
         RacingGame racingGame = new RacingGame();
         racingGame.init();
         racingGame.InputTryNumber();
+        racingGame.SetAnswerList();
+        racingGame.GamePlay();
     }
 }

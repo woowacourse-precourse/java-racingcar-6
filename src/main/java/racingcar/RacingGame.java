@@ -1,9 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGame {
     private String[] carNameList;
+    private final List<String> answerList = new ArrayList<>();
     private Integer tryNumber;
 
     public void init(){
@@ -20,6 +24,30 @@ public class RacingGame {
         tryNumber = Integer.parseInt(Console.readLine());
         // test code
         System.out.println("tryNumber = " + tryNumber);
+    }
+
+    public void SetAnswerList(){
+        for(int i=0; i<carNameList.length; i++){
+            answerList.add(i, " ");
+        }
+    }
+
+    public void GamePlay(){
+        System.out.println("실행 결과");
+        for(int j=0; j<tryNumber; j++) {
+            for (int i = 0; i < carNameList.length; i++) {
+                int randomint = Randoms.pickNumberInRange(0, 9);
+                if (randomint > 4) {
+                    answerList.set(i, answerList.get(i) + "-");
+                }
+            }
+
+            for(int i=0; i<carNameList.length; i++){
+                System.out.println(carNameList[i] + " : " + answerList.get(i));
+            }
+            System.out.println();
+        }
+
     }
 
 }
