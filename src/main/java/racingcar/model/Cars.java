@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
     private List<Car> carList;
@@ -24,21 +25,38 @@ public class Cars {
     }
 
     public String getRacingResult() {
-        StringBuilder racingResult = new StringBuilder();
-        for (Car car : carList) {
-            racingResult.append(car.getRacingResult()).append("\n");
-        }
-        return racingResult.toString();
+        return carList.stream()
+                .map(Car::getRacingResult)
+                .collect(Collectors.joining("\n", "", "\n"));
     }
 
-    public String getWinner() {
-        String winners = "";
-        for (Car car : carList) {
-            if(car.getDashNum() == maxDash()) {
-                winners += car.getWinnerName();
-            }
+    public String racingWinner() {
+        if(winnerCount() == 1) {
+         return getWinner();
         }
-        return winners;
+        return getWinners();
+    }
+
+    private String getWinner() {
+        return carList.stream()
+                .filter(car -> car.getDashNum() == maxDash())
+                .map(Car::getWinnerName)
+                .findAny()
+                .orElse("");
+    }
+
+    private String getWinners() {
+        int maxDashNum = maxDash();
+        return carList.stream()
+                .filter(car -> car.getDashNum() == maxDashNum)
+                .map(Car::getWinnerName)
+                .collect(Collectors.joining(", "));
+    }
+
+    private int winnerCount() {
+        return (int) carList.stream()
+                .filter(car -> car.getDashNum() == maxDash())
+                .count();
     }
 
     private int maxDash() {
