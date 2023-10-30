@@ -1,7 +1,9 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
 import racingcar.common.util.StatusEnum;
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 public class RacingService {
@@ -31,7 +33,24 @@ public class RacingService {
                 });
     }
 
+    private List<Car> getTopCars() {
+        return cars.getCarList()
+                .stream()
+                .filter(car -> car.getLocation() == getTopLocation())
+                .toList();
+    }
+
+    private int getTopLocation() {
+        return cars.getCarList()
+                .stream()
+                .mapToInt(Car::getLocation)
+                .filter(location -> location >= 0)
+                .max()
+                .orElse(0);
+    }
+
     private int getRandomNum() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
 }
