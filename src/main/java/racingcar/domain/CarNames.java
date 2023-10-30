@@ -30,6 +30,10 @@ public class CarNames {
     }
 
     private void validateDuplicateCarName(List<CarName> carNames) {
+        long distinctCarNameCount = carNames.stream().distinct().count();
+        if (distinctCarNameCount != carNames.size()) {
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+        }
     }
 
 }

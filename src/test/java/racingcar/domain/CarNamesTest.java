@@ -28,5 +28,24 @@ class CarNamesTest {
         // when, then
         assertThatNoException().isThrownBy(() -> new CarNames(carNames));
     }
-    
+
+    @Test
+    void 중복된_자동차_이름이_존재할_경우_예외를_발생한다() {
+        // given
+        String carNames = "자동차,자동차";
+
+        // when, then
+        assertThatThrownBy(() -> new CarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 중복된_자동차_이름이_존재하지_않을_경우_예외를_발생하지_않는다() {
+        // given
+        String carNames = "자동차1,자동차2";
+
+        // when, then
+        assertThatNoException().isThrownBy(() -> new CarNames(carNames));
+    }
+
 }
