@@ -7,7 +7,6 @@ import static racingcar.model.constants.Phrase.GAME_WINNER;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -51,7 +50,7 @@ class OutputViewTest {
     @Test
     @DisplayName("우승자를 출력하는지 테스트 합니다.")
     void 우승자_출력_문구() {
-        List<String> carNames = Arrays.asList("pobi");
+        List<String> carNames = List.of("pobi");
         CarResponseDto carResponseDto = new CarResponseDto(carNames);
         OutputView.printWinner(carResponseDto);
         assertOutputEquals(GAME_WINNER.getPhrase() + carResponseDto.getCarNames().get(0));

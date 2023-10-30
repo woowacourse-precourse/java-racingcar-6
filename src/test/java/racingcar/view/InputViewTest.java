@@ -16,7 +16,6 @@ class InputViewTest {
     @DisplayName("'경주할 자동차 이름을 입력하세요.' 출력 및, 자동차 이름을 입력을 테스트 합니다.")
     void 게임_시작_문구_출력_및_자동차_이름_입력() {
         String carName = "pobi,woni,jun";
-
         try {
             inputStream = new ByteArrayInputStream(carName.getBytes());
             System.setIn(inputStream);
@@ -24,7 +23,8 @@ class InputViewTest {
             CarRequestDto carRequestDto = InputView.setCarNames();
 
             assertThat(carRequestDto.getCarNames()).isEqualTo(new CarRequestDto(carName).getCarNames());
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+            e.getMessage();
         }
     }
 
@@ -32,15 +32,15 @@ class InputViewTest {
     @DisplayName("'시도할 회수는 몇회인가요?' 출력 및, 시도 횟수 입력을 테스트 합니다.")
     void 게임_시도_횟수_문구_출력_및_시도_횟수_입력() {
         String trial = "5";
-
         try {
             inputStream = new ByteArrayInputStream(trial.getBytes());
             System.setIn(inputStream);
 
             GameRequestDto gameRequestDto = InputView.setGameTrial();
 
-            assertThat(gameRequestDto.getTrial()).isEqualTo(Integer.parseInt(trial));
-        } catch (Exception ignored) {
+            assertThat(gameRequestDto.getTrial()).isEqualTo(5);
+        } catch (Exception e) {
+            e.getMessage();
         }
     }
 }

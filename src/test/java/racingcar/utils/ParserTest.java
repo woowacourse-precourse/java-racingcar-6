@@ -2,7 +2,6 @@ package racingcar.utils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +13,7 @@ class ParserTest {
         String inputCarNames = "pobi,woni,jun";
         List<String> carNames = Parser.parseCarNames(inputCarNames);
 
-        assertThat(Arrays.asList("pobi", "woni", "jun")).containsAll(carNames);
+        assertThat(carNames).containsExactly("pobi", "woni", "jun");
     }
 
     @Test
@@ -23,7 +22,6 @@ class ParserTest {
         String inputTrial = "5";
         int trial = Parser.parseTrial(inputTrial);
 
-        // 테스트 결과 검증
-        assertThat(5).isEqualTo(trial);
+        assertThat(trial).isEqualTo(5);
     }
 }
