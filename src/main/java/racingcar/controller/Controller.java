@@ -21,6 +21,9 @@ public class Controller {
     public void start() {
         outputView.displayCarNameInputMessage();
         List<Car> carList = prepareCarList();
+
+        outputView.displayTryCountInputMessage();
+        int tryNumber = inputView.inputTry();
     }
 
     private List<Car> prepareCarList() {
