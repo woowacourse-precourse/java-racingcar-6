@@ -25,7 +25,7 @@ public class ResultTest extends NsTest {
     }
 
     @Test
-    void 결과_단일_우승자_테스트() throws NoSuchFieldException, IllegalAccessException {
+    void 결과_단일_우승자_테스트_1() throws NoSuchFieldException, IllegalAccessException {
         List<Car> cars = racingCars.getAllCars();
         Car car1 = cars.get(0);
 
@@ -39,9 +39,45 @@ public class ResultTest extends NsTest {
 
         assertThat(result.winnerNameList(racingCars)).isEqualTo(resultTest);
     }
+    @Test
+    void 결과_단일_우승자_테스트_2() throws NoSuchFieldException, IllegalAccessException {
+        List<Car> cars = racingCars.getAllCars();
+        Car car1 = cars.get(0);
+        Car car2 = cars.get(1);
+
+        Field currentPositionField = Car.class.getDeclaredField("currentPosition");
+        currentPositionField.setAccessible(true);
+        currentPositionField.set(car1, 3);
+        currentPositionField.set(car2, 1);
+
+        result.findWinnerDistance(racingCars);
+
+        resultTest.add("car1");
+
+        assertThat(result.winnerNameList(racingCars)).isEqualTo(resultTest);
+    }
+    @Test
+    void 결과_단일_우승자_테스트_3() throws NoSuchFieldException, IllegalAccessException {
+        List<Car> cars = racingCars.getAllCars();
+        Car car1 = cars.get(0);
+        Car car2 = cars.get(1);
+        Car car3 = cars.get(2);
+
+        Field currentPositionField = Car.class.getDeclaredField("currentPosition");
+        currentPositionField.setAccessible(true);
+        currentPositionField.set(car1, 3);
+        currentPositionField.set(car2, 5);
+        currentPositionField.set(car3, 100);
+
+        result.findWinnerDistance(racingCars);
+
+        resultTest.add("car3");
+
+        assertThat(result.winnerNameList(racingCars)).isEqualTo(resultTest);
+    }
 
     @Test
-    void 결과_여러_우승자_테스트() throws NoSuchFieldException, IllegalAccessException {
+    void 결과_여러_우승자_테스트_1() throws NoSuchFieldException, IllegalAccessException {
         List<Car> cars = racingCars.getAllCars();
         Car car1 = cars.get(0);
         Car car2 = cars.get(1);
@@ -56,6 +92,26 @@ public class ResultTest extends NsTest {
         result.findWinnerDistance(racingCars);
 
         resultTest.add("car1");
+        resultTest.add("car2");
+        resultTest.add("car3");
+
+        assertThat(result.winnerNameList(racingCars)).isEqualTo(resultTest);
+    }
+    @Test
+    void 결과_여러_우승자_테스트_2() throws NoSuchFieldException, IllegalAccessException {
+        List<Car> cars = racingCars.getAllCars();
+        Car car1 = cars.get(0);
+        Car car2 = cars.get(1);
+        Car car3 = cars.get(2);
+
+        Field currentPositionField = Car.class.getDeclaredField("currentPosition");
+        currentPositionField.setAccessible(true);
+        currentPositionField.set(car1, 53);
+        currentPositionField.set(car2, 100);
+        currentPositionField.set(car3, 100);
+
+        result.findWinnerDistance(racingCars);
+
         resultTest.add("car2");
         resultTest.add("car3");
 
