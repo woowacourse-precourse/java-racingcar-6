@@ -7,6 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Input implements checkException {
     List<String> nameList;
+    final int maxNameLength=5;
 
     Input() {
         String nameString = Console.readLine();
@@ -21,6 +22,9 @@ public class Input implements checkException {
 
     @Override
      public boolean isValidNameLength(){
+        for(String carName:nameList){
+            if(carName.length()==0 || carName.length()>maxNameLength)return false;
+        }
         return true;
     }
 
