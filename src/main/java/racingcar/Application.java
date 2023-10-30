@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.controller.RacingCarController;
+import racingcar.port.in.console.RacingCarInputConsoleAdapter;
 import racingcar.domain.race.RaceChecker;
 import racingcar.domain.util.NumberGenerator;
 import racingcar.domain.util.RandomNumberGenerator;
@@ -21,7 +21,7 @@ public class Application {
                 new CarService(generator),
                 new RacingCarGameService(raceChecker),
                 new RacingCarView(),
-                new RacingCarController()
+                new RacingCarInputConsoleAdapter()
         );
 
         racingCarUseCase.play();

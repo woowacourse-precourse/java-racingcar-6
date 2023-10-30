@@ -1,10 +1,12 @@
-package racingcar.controller;
+package racingcar.port.in.console;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.port.in.RacingCarInputPort;
 
 import java.util.List;
 
-public class RacingCarController {
+public class RacingCarInputConsoleAdapter implements RacingCarInputPort {
+    @Override
     public List<String> getCarNames() {
         String input = Console.readLine();
 
@@ -14,6 +16,7 @@ public class RacingCarController {
         return carNames;
     }
 
+    @Override
     public int getTryCount() {
         String input = Console.readLine();
 
