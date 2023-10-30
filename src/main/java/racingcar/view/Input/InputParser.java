@@ -15,7 +15,7 @@ import racingcar.domain.Cars;
 *     - 중복된 자동차가 있을 경우: Car에서 하고 있긴 함*/
 public class InputParser {
     public static void parseCarString(String cars) {
-        new Cars(Stream.of(cars.split(","))
+        new Cars(Stream.of(cars.split(",+"))
                 .map(Car::new)
                 .collect(Collectors.toList()));
     }
