@@ -1,10 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
-    private String carName;
+    private final String carName;
     private int position;
 
     public Car(String carName, int position) {

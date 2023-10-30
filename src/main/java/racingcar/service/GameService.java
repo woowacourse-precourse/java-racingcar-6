@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.validator.RoundCountValidator;
 

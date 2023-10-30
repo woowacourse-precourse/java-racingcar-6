@@ -43,7 +43,7 @@ public class CarService {
 
     public void updateCarPosition() {
         for (int carIndex = 0; carIndex < carsName.size() ; carIndex++) {
-            String position = RandomUtils.detarminePostionByRandomNumber();
+            String position = RandomUtils.determinePositionByRandomNumber();
             if(car[carIndex].increasePosition(position)) {
                 builderUtils.appendToCarPosition(carIndex);
             };
@@ -56,7 +56,7 @@ public class CarService {
 
     public List<String> getWinner() {
         List<String> winner = new ArrayList<>();
-        int max = 0;
+        int max = Integer.MIN_VALUE;
         for (int i = 0; i < carCount; i++) {
             if (car[i].getPosition() > max) {
                 winner.clear();

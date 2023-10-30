@@ -1,13 +1,14 @@
 package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.config.RandomConfig;
 
 public class RandomUtils {
 
-    public static String detarminePostionByRandomNumber() {
+    public static String determinePositionByRandomNumber() {
         int randomNumber = makeRandomNumber();
         String position;
-        if(randomNumber >= 4) {
+        if(randomNumber >= RandomConfig.DETERMINE_VALUE) {
             position = "STRAIGHT";
         }else {
             position = "STOP";
@@ -16,7 +17,7 @@ public class RandomUtils {
     }
 
     public static int makeRandomNumber() {
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(RandomConfig.MIN_VALUE, RandomConfig.MAX_VALUE);
     }
 
 }

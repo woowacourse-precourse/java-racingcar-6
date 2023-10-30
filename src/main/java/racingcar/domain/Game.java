@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 public class Game {
-    private int carsCount;
-    private int roundCount;
+    private final int carsCount;
+    private final int roundCount;
 
     public Game(int carsCount, int roundCount) {
         this.carsCount = carsCount;

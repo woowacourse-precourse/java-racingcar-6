@@ -1,5 +1,6 @@
 package racingcar.validator;
 
+import racingcar.config.ValidatorConfig;
 import racingcar.view.CarNameErrorMessage;
 
 import java.util.HashSet;
@@ -30,13 +31,13 @@ public class CarNameValidator {
     }
 
     private void validateSpecialCharacter(String word) {
-        if (!word.matches("^[A-Za-z0-9]+$")) {
+        if (!word.matches(ValidatorConfig.VALIDATOR_SPECIAL_CHARACTER_REGEX)) {
             throw new IllegalArgumentException(CarNameErrorMessage.SPECIAL_CHARACTER_ERROR_MESSAGE);
         }
     }
 
     private void validateLength(String word) {
-        if (word.length() > 5) {
+        if (word.length() > ValidatorConfig.VALIDATOR_WORD_LENGTH) {
             throw new IllegalArgumentException(CarNameErrorMessage.LENGTH_ERROR_MESSAGE);
         }
     }
