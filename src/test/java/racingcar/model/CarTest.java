@@ -3,8 +3,8 @@ package racingcar.model;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
-import racingcar.exception.BlankCarNameException;
-import racingcar.exception.CarNameRangeException;
+import racingcar.exception.car.BlankCarNameException;
+import racingcar.exception.car.CarNameRangeException;
 
 class CarTest {
 

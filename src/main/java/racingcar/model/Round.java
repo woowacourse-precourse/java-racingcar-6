@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.exception.CountRangeException;
+import racingcar.exception.count.CountRangeException;
 
 public class Round {
     private static final int MINIMUM_COUNT = 0;

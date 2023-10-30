@@ -3,10 +3,10 @@ package racingcar.validator;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import racingcar.exception.BlankCarNameException;
-import racingcar.exception.CarNameRangeException;
-import racingcar.exception.DuplicateCarNameException;
-import racingcar.exception.OnlyCommaInputException;
+import racingcar.exception.car.BlankCarNameException;
+import racingcar.exception.car.CarNameRangeException;
+import racingcar.exception.car.DuplicateCarNameException;
+import racingcar.exception.car.OnlyCommaInputException;
 
 public class Validator {
     private static final int CAR_NAME_RANGE = 5;

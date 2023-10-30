@@ -3,10 +3,10 @@ package racingcar.validator;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
-import racingcar.exception.BlankCarNameException;
-import racingcar.exception.CarNameRangeException;
-import racingcar.exception.DuplicateCarNameException;
-import racingcar.exception.OnlyCommaInputException;
+import racingcar.exception.car.BlankCarNameException;
+import racingcar.exception.car.CarNameRangeException;
+import racingcar.exception.car.DuplicateCarNameException;
+import racingcar.exception.car.OnlyCommaInputException;
 
 class ValidatorTest {
     private static final String ONLY_COMMA_NOT_ALLOWED_MESSAGE = "쉼표(,)사이에 이름을 입력해주세요.";
