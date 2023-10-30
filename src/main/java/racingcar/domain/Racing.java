@@ -13,4 +13,8 @@ public class Racing {
         this.racingCount = 0;
         this.winnerList = new ArrayList<>();
     }
+
+    public void updateRacingCount(int racingCount){
+        this.racingCount = racingCount;
+    }
 }

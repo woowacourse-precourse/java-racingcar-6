@@ -27,5 +27,9 @@ public class Application {
         // 자동차 경주 게임 객체 생성해 자동차 리스트 저장하기
         final Racing racingGame = new Racing(carList);
 
+        // 자동차 경주 시도 횟수 입력받아 저장하기
+        final String racingCount = Console.readLine();
+        racingGame.updateRacingCount(Integer.parseInt(racingCount));
+
     }
 }
