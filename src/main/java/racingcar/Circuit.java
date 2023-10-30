@@ -12,9 +12,21 @@ public class Circuit {
     }
 
     public void makeCarList(String input) {
-        String[] splittedInput = input.split(",");
-        for (String s : splittedInput) {
+        String[] splitInput = input.split(",");
+        if (checkInputError(splitInput)) {
+            throw new IllegalArgumentException();
+        }
+        for (String s : splitInput) {
             carList.add(new Car(s));
         }
+    }
+
+    private boolean checkInputError(String[] input) {
+        for (String s : input) {
+            if (s.length() > 5 || s.isEmpty()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
