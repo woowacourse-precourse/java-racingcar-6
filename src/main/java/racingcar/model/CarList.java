@@ -10,11 +10,14 @@ public class CarList {
         this.carList = new ArrayList<>();
     }
 
-    public void addCar(Car car) {
-        carList.add(car);
-    }
-
     public List<Car> getCarList() {
         return carList;
+    }
+
+    public void generateCar(List<String> carNameList) {
+        for (String carName : carNameList) {
+            Car car = new Car(carName);
+            carList.add(car);
+        }
     }
 }

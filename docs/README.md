@@ -12,34 +12,32 @@
 
 ### CarList
 - [x] 경주에 참여할 자동차 목록을 생성합니다.
-
-### CarFactory
-- [x] 나누어진 이름별 자동차를 생성하여 자동차 목록에 추가합니다.
+- [x] 나누어진 이름별 자동차를 생성하여 자동차 목록에 추가합니다.  - generateCar()
 
 ### Race
-- [X] 무작위 추출 값이 4 이상인 경우의 자동차는 전진합니다.
-- [X] 모든 전진 시도 횟수가 끝나면 최종 우승자를 선정합니다.
+- [X] 무작위 추출 값이 4 이상인 경우의 자동차는 전진합니다. - moveForward()
+- [X] 모든 전진 시도 횟수가 끝나면 최종 우승자를 선정합니다. - checkWinner()
 
 ### RandomNumberGenerator
-- [X] 0~9사이의 무작위 숫자를 선택합니다.
+- [X] 0~9사이의 무작위 숫자를 선택합니다. - randomNumber()
 
 ### RaceController
-- [x] 경주를 시작부터 종료까지 경주 흐름을 제어합니다.
-- [X] 전진 시도 횟수 만큼 racing을 반복합니다.
+- [x] 경주를 시작부터 종료까지 경주 흐름을 제어합니다. - startRace(),endRace()
+- [x] 경주를 생성합니다. - createRace()
 
 ### InputView
-- [x] 경주할 자동차 이름을 입력받습니다.
-- [x] 전진 시도 횟수를 입력받니다.
+- [x] 경주할 자동차 이름을 입력받습니다. - inputString()
+- [x] 전진 시도 횟수를 입력받니다. - inputString()
 ### OutputView
-- [x] 전진 시도 회차 마다 전진 결과를 출력합니다.
-- [x] 최종 우승자를 출력합니다.
+- [x] 전진 시도 회차 마다 전진 결과를 출력합니다. - currentRacingView()
+- [x] 최종 우승자를 출력합니다. -winnerView
 
 ### Validator
-- [X] 입력한 자동차가 1개 이상인지 확인합니다.
-- [x] 자동차 이름이 빈 값인지 확인합니다.
-- [x] 자동차 이름이 5자 이하 인지 확인합니다.
-- [x] 전진 시도 횟수에 숫자만 입력하였는지 확인합니다.
+- [X] 입력한 자동차가 1개 이상인지 확인합니다. - checkCarNameListSize()
+- [x] 자동차 이름이 빈 값인지 확인합니다. - checkCarNameEmpty()
+- [x] 자동차 이름이 5자 이하 인지 확인합니다. - checkCarNameLength()
+- [x] 전진 시도 횟수에 숫자만 입력하였는지 확인합니다. - containsOnlyNumbers()
 
 ### Convertor
-- [x] 입력 받은 자동차 이름을 ,기준으로 나누어 줍니다.
+- [x] 입력 받은 자동차 이름을 ,기준으로 나누어 줍니다. - splitCarNamesByComma()
 
