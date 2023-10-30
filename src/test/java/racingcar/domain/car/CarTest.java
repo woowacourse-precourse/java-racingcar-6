@@ -16,7 +16,7 @@ class CarTest extends NsTest {
                 () -> {
                     Car car = new Car("car", new RandomMovement());
                     car.move();
-                    assertThat(car.toString()).contains("car : -");
+                    assertThat(car.toProgress()).contains("car : -");
                 },
                 4
         );
@@ -28,7 +28,7 @@ class CarTest extends NsTest {
                 () -> {
                     Car car = new Car("car", new RandomMovement());
                     car.move();
-                    assertThat(car.toString()).contains("car : ");
+                    assertThat(car.toProgress()).contains("car : ");
                 },
                 3
         );

@@ -18,21 +18,16 @@ public class Car implements Comparable<Car> {
         position.move();
     }
 
-    private Movement getPosition() {
-        return position;
-    }
-
     public void appendCarName(StringBuilder sb) {
         sb.append(name);
     }
 
     @Override
     public int compareTo(Car car) {
-        return getPosition().compareTo(car.getPosition());
+        return position.compareTo(car.position);
     }
 
-    @Override
-    public String toString() {
-        return name + " : " +  getPosition().toString();
+    public String toProgress() {
+        return name + " : " +  position.toStringBar();
     }
 }

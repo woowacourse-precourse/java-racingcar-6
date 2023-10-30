@@ -14,7 +14,11 @@ public class CarManager {
     }
 
     public void makeCar() {
-        cars = carFactory.createCars();
+        setCars(carFactory.createCars());
+    }
+
+    private void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 
     public void moveAndShowProgress() {
@@ -31,7 +35,7 @@ public class CarManager {
 
     private String makeProgress() {
         StringBuilder result = new StringBuilder();
-        cars.forEach(car -> result.append(car.toString()).append("\n"));
+        cars.forEach(car -> result.append(car.toProgress()).append("\n"));
         return result.toString();
     }
 

@@ -17,8 +17,7 @@ public abstract class Movement implements Comparable<Movement> {
         return getPosition() - o.getPosition();
     }
 
-    @Override
-    public String toString() {
+    public String toStringBar() {
         return "-".repeat(position);
     }
 }
