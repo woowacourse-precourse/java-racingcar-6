@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RacingCar;
+import racingcar.message.ValidateErrorMessage;
 
 public class RacingCarTest {
 
@@ -13,7 +14,8 @@ public class RacingCarTest {
         RacingCar racingCar = new RacingCar();
         Assertions.assertThatThrownBy(() ->
                 racingCar.updateCars("부릉부릉카카,부릉카"))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ValidateErrorMessage.NAME_LENGTH_ERROR);
     }
 
 
@@ -23,6 +25,7 @@ public class RacingCarTest {
         RacingCar racingCar = new RacingCar();
         Assertions.assertThatThrownBy(()->
                 racingCar.updateRaceCount("정수"))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ValidateErrorMessage.COUNT_TYPE_ERROR);
     }
 }
