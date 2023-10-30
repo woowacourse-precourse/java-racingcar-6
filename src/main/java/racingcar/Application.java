@@ -2,16 +2,17 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.ScheduledExecutorService;
+import java.util.*;
+
+import racingcar.Car;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        saveCarNames(getCarNames());
+        List<String> carNames = saveCarNames(getCarNames());
+        List<Car> cars = makeCars(carNames);
+        System.out.println(cars.get(1).getName());
+
     }
 
     private static void printInputCarNames() {
@@ -69,6 +70,15 @@ public class Application {
                 throw new IllegalStateException("이름이 중복됩니다.");
             }
         }
+    }
+
+    private static List<Car> makeCars(List<String> carNames){
+        List<Car> cars = new ArrayList<Car>();
+        for(int i = 0; i < carNames.size(); i++){
+            Car car = new Car(carNames.get(i));
+            cars.add(car);
+        }
+        return cars;
     }
 
 }
