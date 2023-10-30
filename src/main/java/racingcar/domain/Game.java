@@ -1,19 +1,28 @@
 package racingcar.domain;
 
+import racingcar.util.Validator;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class Game {
     private final List<Car> carList ;
     private String winnerPosition;
+    private final int repetitions;
 
-    public Game(){
+    public Game(String carNames, String repetitions){
         carList = new ArrayList<>();
         winnerPosition="";
-    }
 
-    public void addCar(Car car){
-        carList.add(car);
+        StringTokenizer st = new StringTokenizer(carNames);
+        while (st.hasMoreTokens()){
+            String carName = st.nextToken(",");
+            Validator.validateCarLength(carName);
+            carList.add(new Car(carName, ""));
+        }
+        Validator.validateIsNumber(repetitions);
+        this.repetitions = Integer.parseInt(repetitions);
     }
 
     public List<Car> getCar(){
@@ -26,5 +35,9 @@ public class Game {
 
     public String getWinnerPosition() {
         return winnerPosition;
+    }
+
+    public int getRepetitions() {
+        return repetitions;
     }
 }

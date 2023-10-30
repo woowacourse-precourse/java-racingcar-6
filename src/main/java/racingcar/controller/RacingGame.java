@@ -4,35 +4,24 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.util.Constant;
-import racingcar.util.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 public class RacingGame {
     Game game;
-    int repetitions=0;
     List<Car> carList;
 
     public void startGame(){
-        game = new Game();
+        game = new Game(InputView.inputCalNames(), InputView.inputRepetitions());
 
-        StringTokenizer st = new StringTokenizer(InputView.inputCalNames());
-        while (st.hasMoreTokens()){
-            String carName = st.nextToken(",");
-            Validator.validateCarLength(carName);
-            game.addCar(new Car(carName, ""));
-        }
         carList=game.getCar();
-        String inputRepetitions = InputView.inputRepetitions();
-        Validator.validateIsNumber(inputRepetitions);
-        repetitions = Integer.parseInt(inputRepetitions);
 
         OutputView.printResultText();
-        for(int i=0;i<repetitions;i++){
+
+        for(int i=0;i< game.getRepetitions();i++){
             playGame();
             OutputView.printResult(carList);
         }
