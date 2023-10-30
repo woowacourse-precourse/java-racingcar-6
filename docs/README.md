@@ -20,11 +20,11 @@
 
 #### 게임 관리자 역할 (GameController)
 
-- [x] 자동차 게임을 순서에 맞게 진행하는 기능 `public`
+- [x] 자동차 게임을 순서에 맞게 실행하는 기능 `public`
 - [x] 자동차들을 경주 준비하는 기능 `private`
-- [x] 시도 횟수를 요청하는 기능 `private`
-- [x] 주어진 횟수동안 게임을 진행하는 기능 `private`
-- [x] 1회 게임 결과를 OutputView에게 전달하는 기능 `private`
+- [x] 레이싱 게임을 진행하는 기능 `private`
+- [x] 1회 레이싱 게임 결과를 OutputView에게 전달하는 기능 `private`
+- [x] 최종 우승자 결과를 OutputView에게 전달하는 기능 `private`
 
 ##
 
