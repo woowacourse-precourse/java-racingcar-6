@@ -10,4 +10,12 @@ public class RacingCarGameController {
         this.inputView = inputView;
         this.outputView = outputView;
     }
+
+    private void init() {
+        outputView.outputMessage(OutputMessage.RACING_CAR_NAME_INPUT_REQUEST);
+        String nameInput = inputView.readLine();
+        outputView.outputMessage(OutputMessage.ROUND_COUNT_INPUT_REQUEST);
+        int roundCount = inputView.readInt();
+        racingCarGameMachine.init(nameInput, roundCount);
+    }
 }
