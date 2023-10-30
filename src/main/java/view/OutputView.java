@@ -1,5 +1,7 @@
 package view;
 
+import domain.RaceResult;
+
 public class OutputView {
 
     public static void printGetCarName() {
@@ -8,5 +10,9 @@ public class OutputView {
 
     public static void printGetTryCount() {
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    public static void printRaceResultIntroduction() {
+        System.out.println("실행 결과");
     }
 }
