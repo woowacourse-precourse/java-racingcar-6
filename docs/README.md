@@ -15,10 +15,12 @@
 
 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
-//[] 자동차 n개의 입력 이름을 받는 함수 -
-[] 이동할 숫자를 받는 함수 
-    - [] 입력 받은 이름을 쉼표로 구분하고 5자 이하인지 확인하는 함수 - #car
+//[x] 자동차 n개의 입력 이름을 받는 함수 -
+[x] 이동할 숫자를 받는 함수 
+    - [x] 입력 받은 이름을 쉼표로 구분하고 5자 이하인지 확인
 ----------------------------------------------
-[] n개의 무작위 수(0-9)>4 인 수를 생성한다. -- NumberGenerator#createRandomNumbers()
-    - [] n개의 숫자를 비교해 가장 큰 값을 return한다
+[x] n개의 무작위 수(0-9)>4 인 수를 생성한다. -- NumberGenerator#createRandomNumbers()
+    - [] n개의 숫자를 비교해 가장 큰 값을 return한다 --CompareNumber #compare()
         - [] 큰값이 2개 이상일 경우 ,로 구분해 return 한다
+[] 이름과 무작위 생성 수를 매칭한다. -- NumberGenerator#getNamemap()
+[] 무작위로 생성된 값을 -로 표시하고 replay만큼 반복한다 -- Replaygame#replay()
