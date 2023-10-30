@@ -13,6 +13,7 @@ public class CarList {
         this.carList = carList;
     }
 
+
     public void validateCarNameDuplication(List<Car> cars) {
         if (cars.stream().map(Car::getName).collect(Collectors.toSet()).size() != cars.size()) {
             throw new IllegalArgumentException(Constants.ERROR_CAR_NAME_DUPLICATION);
@@ -23,6 +24,11 @@ public class CarList {
         return carList.stream()
                 .map(i -> i.move(Randoms.pickNumberInRange(Constants.MINIMUM_RANGE, Constants.MAXIMUM_RANGE)))
                 .collect(Collectors.toList());
+    }
+
+    public String carsStatus() {
+        return carList.stream().map(car -> car.getName() + " : " + "-".repeat(car.getPosition()))
+                .collect(Collectors.joining("\n"));
     }
 
     public int size(){

@@ -1,24 +1,24 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import racingcar.domain.Car;
 import racingcar.domain.CarList;
+import racingcar.domain.TryCount;
 
 public class RacingGame {
     private CarList carList;
+    OutputView outputView = new OutputView();
+    TryCount tryCount = new TryCount("5");
 
 
-
-    public String printNameAndPosition(List<Car> cars, List<Integer> carsPosition){
-        return IntStream.range(0, cars.size())
-                .mapToObj(index -> cars.get(index).getName() + " : " + "-".repeat(carsPosition.get(index)))
-                .collect(Collectors.joining("\n"));
+    public void move() {
+        carList.moveAll();
     }
 
+    public void printCarsStatus() {
+        outputView.raceOutput(carList.carsStatus());
+    }
 
     public List<Car> generateCar(String carNames) {
         List<Car> cars = Arrays.stream(carNames.split(","))

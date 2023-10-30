@@ -36,5 +36,11 @@ class CarListTest {
 
     }
 
+    @Test
+    void 자동차_상태_출력(){
+        List<Car> cars = Arrays.asList(new Car("povi"));
+        assertThat(new CarList(cars).carsStatus()).contains("povi : ");
+    }
+
 
 }
