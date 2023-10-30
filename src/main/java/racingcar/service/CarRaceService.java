@@ -20,8 +20,8 @@ public class CarRaceService {
     }
 
     public List<String> extractSeperator(String carInput) {
-        List<String> carNames = List.of(carInput.split(","));
-        validator.isRightNameFormat(carInput,carNames);
+        List<String> carNames = List.of(carInput.split(INPUT_DELIMETER));
+        validator.isRightInputFormat(carInput,carNames);
         validator.isRightCarNameInput(carNames);
         return carNames;
     }
