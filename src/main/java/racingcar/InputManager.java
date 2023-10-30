@@ -10,13 +10,20 @@ public class InputManager {
         OutputManager.promptForCarNames();
 
         String carNameInput = Console.readLine();
+        String[] carNames = carNameInput.split(",");
 
-        return carNameInput.split(",");
+        ValidationManager.validateCarNames(carNames);
+
+        return carNames;
     }
 
     public static int getTrials() {
         OutputManager.promptForTrials();
-        return Integer.parseInt(Console.readLine());
+        String trialInput = Console.readLine();
+
+        ValidationManager.validateTrials(trialInput);
+
+        return Integer.parseInt(trialInput);
     }
 
     public static List<Car> getCars() {
