@@ -46,4 +46,13 @@ public class ExceptionManager {
         }
         return false;
     }
+
+    public static boolean isOverFiveWord(List<String> members) {
+        for (int i = 0; i < members.size(); i++) {
+            if (members.get(i).length() > 5) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
