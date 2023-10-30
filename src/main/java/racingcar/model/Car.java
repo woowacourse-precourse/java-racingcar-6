@@ -12,7 +12,17 @@ public class Car {
         this.distance = 0;
     }
 
-    public void move() {
-        this.distance += 1;
+    public void move(int randomNum) {
+        if (randomNum >= 4) {
+            this.distance += 1;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }

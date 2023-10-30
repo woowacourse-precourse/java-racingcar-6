@@ -1,8 +1,8 @@
 package racingcar.validator;
 
-import static racingcar.model.ControlValue.MAX_LEN_OF_CAR_NAME;
-import static racingcar.model.ControlValue.MIN_NUM_OF_CAR;
-import static racingcar.model.ControlValue.MIN_NUM_OF_MATCHES;
+import static racingcar.model.ConstantValue.MAX_LEN_OF_CAR_NAME;
+import static racingcar.model.ConstantValue.MIN_NUM_OF_CAR;
+import static racingcar.model.ConstantValue.MIN_NUM_OF_MATCHES;
 import static racingcar.validator.ErrorMessage.BLANK;
 import static racingcar.validator.ErrorMessage.EXCEED_MAX_LEN_OF_CAR_NAME;
 import static racingcar.validator.ErrorMessage.LESS_THAN_MIN_NUM_OF_CAR;
