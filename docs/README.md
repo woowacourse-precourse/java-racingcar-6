@@ -7,6 +7,7 @@
 - `List<Player> setPlayers()`
   - 플레이어 이름을 입력 받고 저장합니다.
   - , 를 기준으로 플레이어를 구분합니다.
+  - 플레이어의 이름이 입력되지 않은 경우는 무시합니다.
 - `boolean checkNameLength(String userName)`
   - 앞뒤 공백은 제거합니다.
   - 1자 이상 5자 이하인 경우 true, 아니면 false를 반환합니다.
