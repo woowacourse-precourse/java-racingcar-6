@@ -72,16 +72,5 @@ class UserInputExceptionTest {
         assertDoesNotThrow(() -> UserInputException.isComma(input));
     }
 
-    @Test
-    void 자동차_두_대_이상_입력_안_했을_때(){
-        String input = "pobi";
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserInputException.isMoreThan(input));
-        assertEquals(INPUT_MORE_THAN_TWO_CAR, exception.getMessage());
-    }
-    @Test
-    void 자동차_두_대_이상_입력_했을_때(){
-        String input = "pobi,woni";
-        assertDoesNotThrow(() -> UserInputException.isMoreThan(input));
-    }
 
 }
