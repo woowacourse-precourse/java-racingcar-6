@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,9 +10,11 @@ public class RacingGame {
 
     public void run() {
         List<String> carNames = inputHandler.getValidCarNamesFromUser();
-        List<Car> cars = createCars(carNames);
+        List<Car> cars = Car.createCarsByNames(carNames);
+
         int attempts = inputHandler.getValidAttemptsFromUser();
         startRacing(cars, attempts);
+
         List<Car> winners = referee.getWinners(cars);
         printWinners(winners);
     }
@@ -39,13 +40,7 @@ public class RacingGame {
         System.out.print(racingResult.toString());
     }
 
-    private List<Car> createCars(List<String> carNames) {
-        List<Car> cars = new ArrayList<>();
-        for (String name : carNames) {
-            cars.add(Car.createCarByName(name));
-        }
-        return cars;
-    }
+
 
 
 
