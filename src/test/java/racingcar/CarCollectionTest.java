@@ -126,6 +126,26 @@ public class CarCollectionTest {
         );
     }
 
+    @Test
+    void printWinners_자동차들_중_가장_많이_이동한_자동차들을_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Car car1 = new Car("car1");
+                    Car car2 = new Car("car2");
+                    Car car3 = new Car("car3");
+
+                    CarCollection carCollection = createCarCollection(car1, car2, car3);
+
+                    carCollection.moveCarsForward();
+                    List<String> winners = carCollection.getWinners();
+                    carCollection.printWinners(winners);
+
+                    assertThat(output()).contains("최종 우승자 : car1, car3");
+                },
+                4, 3, 4
+        );
+    }
+
     private CarCollection createCarCollection(Car... cars) {
         CarCollection carCollection = new CarCollection();
 
