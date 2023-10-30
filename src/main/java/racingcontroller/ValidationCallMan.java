@@ -15,8 +15,7 @@ public class ValidationCallMan {
 
     public static void callExceptionCheckForTimes(MainModel model, String times) throws IllegalArgumentException
     {
-        if(!model.exceptionCheck(times))
-        {
+        if(!model.exceptionCheck(times)) {
             throw new IllegalArgumentException();
         }
     }

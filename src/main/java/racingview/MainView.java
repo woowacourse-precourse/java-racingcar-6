@@ -22,7 +22,7 @@ public class MainView implements Viewable {
     @Override
     public void speakResult(LinkedHashMap<String, StringBuilder> map) {
         for (Map.Entry<String, StringBuilder> entry : map.entrySet()) {
-          System.out.printf("%s : %s\n",entry.getKey(),entry.getValue().toString());
+            System.out.printf("%s : %s\n", entry.getKey(), entry.getValue().toString());
         }
         System.out.println();
     }

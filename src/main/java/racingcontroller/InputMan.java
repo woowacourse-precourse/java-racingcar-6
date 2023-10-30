@@ -3,13 +3,11 @@ package racingcontroller;
 import camp.nextstep.edu.missionutils.Console;
 
 class InputMan {
-    static String inputCarName()
-    {
+    static String inputCarName() {
         return Console.readLine();
     }
 
-    static String inputTimes()
-    {
+    static String inputTimes() {
         return Console.readLine();
     }
 }

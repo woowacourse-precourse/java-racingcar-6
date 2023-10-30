@@ -16,8 +16,7 @@ public class ValidationMan {
 
     private final static int MAXNAMELENGTH = 5;
 
-    public boolean checkException(LinkedHashMap<String, StringBuilder> map, int userInputNum)
-    {
+    public boolean checkException(LinkedHashMap<String, StringBuilder> map, int userInputNum) {
         if (map.size() != userInputNum) {
             return false;
         }
@@ -33,7 +32,7 @@ public class ValidationMan {
         return true;
     }
 
-    public boolean checkException(String userTimes){
+    public boolean checkException(String userTimes) {
         if (!userTimes.matches("\\d+")) {
             return false;
         }

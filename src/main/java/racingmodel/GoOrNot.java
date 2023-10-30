@@ -1,5 +1,5 @@
 package racingmodel;
 
 public enum GoOrNot {
-    GO,NOTGO;
+    GO, NOTGO;
 }

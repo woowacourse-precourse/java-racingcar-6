@@ -16,7 +16,7 @@ public interface Viewable {
         System.out.printf("최종 우승자 : ");
         for (int i = 0; i < winner.size(); i++) {
 
-            System.out.printf("%s",winner.get(i));
+            System.out.printf("%s", winner.get(i));
             if (i != winner.size() - 1) {
                 System.out.printf(", ");
             }

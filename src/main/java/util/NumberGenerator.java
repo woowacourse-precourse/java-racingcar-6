@@ -9,12 +9,10 @@ public class NumberGenerator {
     private NumberGenerator() {
     }
 
-    public static List<Integer> numberGenerate(int carNumber)
-    {
+    public static List<Integer> numberGenerate(int carNumber) {
         List<Integer> temp = new ArrayList<>();
-        for(int i = 0; i < carNumber; i++)
-        {
-            temp.add(Randoms.pickNumberInRange(0,9));
+        for (int i = 0; i < carNumber; i++) {
+            temp.add(Randoms.pickNumberInRange(0, 9));
         }
         return temp;
     }
