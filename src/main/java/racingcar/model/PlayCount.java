@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.ExceptionMessage.PLAY_COUNT_VALUE_EXCEPTION;
+
 public class PlayCount {
 
     private static final int DEFAULT_ROUND = 0;
@@ -20,7 +22,7 @@ public class PlayCount {
 
     private static void validate(final String goal) {
         if (!goal.matches("[0-9]+")) {
-            throw new IllegalArgumentException("횟수는 양수여야 합니다.");
+            throw new IllegalArgumentException(PLAY_COUNT_VALUE_EXCEPTION.getMessage());
         }
     }
 
