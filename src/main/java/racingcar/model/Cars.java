@@ -2,7 +2,9 @@ package racingcar.model;
 
 import static racingcar.model.RacingCarGameConfig.GAME_WIN_CONDITION;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 import racingcar.util.RacingCarGameUtils;
 
 public class Cars {
@@ -33,6 +35,35 @@ public class Cars {
     }
   }
 
+  public String getWinnerByDistance() {
+    int maxDistance = this.cars.stream()
+        .mapToInt(Car::getLocation)
+        .max()
+        .orElse(0);
+    List<Car> winners = this.cars.stream()
+        .filter(car -> car.getLocation() == maxDistance)
+        .toList();
+
+    List<String> winnerList = new ArrayList<>();
+    for (Car winner : winners) {
+      winnerList.add(winner.getCarName());
+    }
+
+    return generateWinnerFormat(winnerList);
+  }
+
+  private String generateWinnerFormat(List<String> winnerList) {
+    if (winnerList.size() == 1) {
+      return winnerList.get(0);
+    }
+
+    StringJoiner joiner = new StringJoiner(", ");
+    for (String index : winnerList) {
+      joiner.add(index);
+    }
+    return joiner.toString();
+  }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -41,4 +72,7 @@ public class Cars {
     }
     return sb.toString();
   }
+
+
 }
+

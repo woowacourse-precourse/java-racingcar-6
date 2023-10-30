@@ -13,6 +13,7 @@ public class OutputView {
   }
 
   public static void printRacingCarGameWinner(Cars cars) {
-
+    System.out.println("최종 우승자 : " + cars.getWinnerByDistance());
   }
 }
+
