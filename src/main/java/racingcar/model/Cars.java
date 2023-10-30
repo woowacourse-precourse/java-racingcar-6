@@ -25,18 +25,17 @@ public class Cars {
     }
 
     public int findMaxPosition() {
-        int max = cars.get(0).getPosition();
-        for (Car car : cars) {
-            if (max < car.getPosition()) {
-                max = car.getPosition();
-            }
-        }
-        return max;
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 
     public List<String> findCarNamesAt(int position) {
-        return cars.stream().filter(car -> car.getPosition() == position)
-                .map(Car::getName).toList();
+        return cars.stream()
+                .filter(car -> car.getPosition() == position)
+                .map(Car::getName)
+                .toList();
     }
 
     private void validateCarNamesUnique(List<Car> carList) {
