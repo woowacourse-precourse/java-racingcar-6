@@ -105,7 +105,7 @@
     - [x] **예외** 문자열이 null 혹은 length()가 0 인 경우 
     - [x] **예외** 영문자로 구성된 이름이 아닌 경우 
     - [x] **예외 처리** throw new IllegalArgumentException 
-  - 받은 문자열을 StringToCarList을 활용하여 RacingCars를 형성한다
+  - 받은 문자열을 StringToCarList을 활용하여 List<Car>로 변환한다 ''
     - [ ] StringToCarList - 문자열을 ',' 단위로 구분하고 List<Car>을 구성한다 
       - [ ] **예외** 5글자가 넘어가는 이름
       - [ ] **예외 처리** throw new IllegalArgumentException

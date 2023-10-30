@@ -1,16 +1,19 @@
 package racingcarv2.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class InputView {
     private static final int EMPTY_INPUT_LENGTH = 0;
-    private static final Pattern NAME_PATTERN = Pattern.compile("^([a-aA-Z]+,?)+$");
+    private static final Pattern NAME_PATTERN = Pattern.compile("^([a-zA-Z]+,?)+$");
 
     public static String inputCarNames() {
         String readLine = Console.readLine();
-        validate(readLine);
+        Arrays.stream(readLine.split(","))
+                .map(splitName -> splitName.replaceAll(" ", ""))
+                        .forEach(name -> validate(name));
         return readLine;
     }
 
