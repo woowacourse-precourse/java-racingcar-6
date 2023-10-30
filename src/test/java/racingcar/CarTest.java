@@ -21,7 +21,7 @@ class CarTest {
         CarName carName = new CarName(name);
         Car mustang = new Car(carName);
 
-        mustang.drive();
+        mustang.moveForward();
 
         assertEquals(1, mustang.getPosition());
     }
