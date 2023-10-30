@@ -10,4 +10,11 @@ public class Circuit {
         this.carList = new ArrayList<Car>();
         this.repeat = 0;
     }
+
+    public void makeCarList(String input) {
+        String[] splittedInput = input.split(",");
+        for (String s : splittedInput) {
+            carList.add(new Car(s));
+        }
+    }
 }
