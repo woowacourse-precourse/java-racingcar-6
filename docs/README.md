@@ -38,6 +38,7 @@
         1. playGame(int step) : 시도할 횟수를 입력받아 게임을 실행한다.
         2. executeStep() : 각 Car 객체에 대하여 moveRandom()을 실행한다.
         3. printStep() : 하나의 실행에 대하여 결과를 출력한다.
+        4. printResult() : 레이싱 결과를 출력한다.
 
 3. **ApplicationTest** : 각종 예외에 대하여 테스트 코드를 추가한다.
     1. 정상_테스트 : 예외가 발생하지 않은 경우에 대하여 테스트한다.
