@@ -11,17 +11,15 @@ import racingcar.domain.CarListGenerator;
 class CarListGeneratorTest {
 
     @Test
-    void getCarList_순서유지_테스트() {
+    void getCarList_입력순서_유지하며_객체를_생성하는지_테스트() {
         // given
-        List<String> carStrings = Arrays.asList("pobi", "woni", "jun");
+        List<String> carStrings = Arrays.asList("pobi", "woni", "jun", "zzz", "cba", "abc");
         // when
         List<Car> carList = CarListGenerator.getCarList(carStrings);
-        for (int index = 0; index < carStrings.size(); index++) {
-            String expectedCarName = carStrings.get(index);
-            Car car = carList.get(index);
-            String carName = car.getName();
-            // then
-            assertThat(expectedCarName).isEqualTo(carName);
-        }
+        List<String> carNames = carList.stream()
+                .map(Car::getName)
+                .toList();
+        // then
+        assertThat(carNames).isEqualTo(carStrings);
     }
 }
