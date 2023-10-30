@@ -43,4 +43,24 @@ public class LogicTest {
         //then
         Assertions.assertThat(round.getRoundNum()).isEqualTo(1);
     }
+
+    @Test
+    public void 승자담기테스트() {
+        // given
+        int maxValue = 0;
+        ArrayList<String> winnerNameList = new ArrayList<>();
+
+        // when
+        for (Car car : carsList) {
+            maxValue = Math.max(maxValue,car.getLocation());
+        }
+        for (Car car : carsList) {
+            if (car.getLocation() == maxValue) {
+                winnerNameList.add(car.getName());
+            }
+        }
+
+        // then
+        Assertions.assertThat(winnerNameList).contains("수현");
+    }
 }
