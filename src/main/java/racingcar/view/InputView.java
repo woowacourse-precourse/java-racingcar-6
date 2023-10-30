@@ -10,4 +10,8 @@ public class InputView {
     public static String inputRacingCount() {
         return Console.readLine();
     }
+
+    public static String[] splitInputCarNames(String inputCarNames) {
+        return inputCarNames.split(",");
+    }
 }
