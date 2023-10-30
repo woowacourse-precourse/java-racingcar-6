@@ -10,9 +10,9 @@
 - [x] 던지기: roll()
 ***
 ### 기록표 관련: RacingBoard
-- [ ] 레이싱 참여: join()
-- [ ] 보드 기록: write()
-- [ ] 기록 열람: view()
+- [x] 레이싱 참여: join()
+- [x] 보드 기록: write()
+- [x] 기록 열람: view()
 ***
 ### 게임 진행 관련: GameProgress
 - [ ] 게임 시작: startGame()
