@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.in;
 public class EntityTest {
 
     @Test
-    void Racer_싱글톤_인스턴스_테스트(){
+    void Racer_유일_객체_인스턴스_테스트(){
         //given
         String racerName="test";
         int testRacerHashCode = Racer.getInstance("test").hashCode();
