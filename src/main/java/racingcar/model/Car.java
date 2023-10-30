@@ -18,7 +18,7 @@ public class Car {
     }
 
     public boolean isLocationEqual(int maxLocation) {
-        return getLocation() == location;
+        return getLocation() == maxLocation;
     }
 
     public int move(int forwardCount) {
