@@ -14,8 +14,8 @@ public class CarRaceService {
 
     private final Cars cars;
 
-    public CarRaceService(Cars cars) {
-        this.cars = cars;
+    public CarRaceService() {
+        this.cars = new Cars();
     }
 
 
