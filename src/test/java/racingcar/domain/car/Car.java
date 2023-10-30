@@ -7,6 +7,10 @@ public class Car {
 
     private Distance distance;
 
+    private Car() {
+
+    }
+
     public Car(String name) {
         this.name = new Name(name);
         this.distance = new Distance();
