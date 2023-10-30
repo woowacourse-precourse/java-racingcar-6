@@ -19,13 +19,13 @@ public class RacingCarOutputManager {
         println(String.format(CAR_POSITION_OUTPUT_MESSAGE, carName, positionText));
     }
 
-    public void printWinners(List<String> winners) {
-        StringJoiner winnerNames = new StringJoiner(WINNER_INFO_DELIMITER);
-        for (String winner : winners) {
-            winnerNames.add(winner);
+    public void printWinners(List<String> winnerNames) {
+        StringJoiner winnerNameJoiner = new StringJoiner(WINNER_INFO_DELIMITER);
+        for (String winner : winnerNames) {
+            winnerNameJoiner.add(winner);
         }
 
-        println(String.format(WINNERS_INFO_MESSAGE, winnerNames));
+        println(String.format(WINNERS_INFO_MESSAGE, winnerNameJoiner));
     }
 
     public void println(String text) {
