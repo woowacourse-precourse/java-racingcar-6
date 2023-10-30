@@ -37,6 +37,18 @@ public class Application {
         // TODO: 프로그램 구현
     }
 
+    public static void printDashes(Car[] car) {
+        ArrayList<String> dashes = new ArrayList<>();
+        for(Car e : car) {
+            int number = moveForward();
+            String racerName = e.getName();
+            e.setLength(number);
+            dashes = getDash(e);
+            String realDashes = String.join("",dashes);
+            System.out.println(racerName + " : " + realDashes);
+        }
+    }
+
     public static int getMaxNumber(Car[] car) {
         int max = 0;
         for (Car e : car) {
