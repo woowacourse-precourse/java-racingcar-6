@@ -15,24 +15,16 @@ public class Application {
 
         String names = inputView.inputCarName();
         List<String> nameList = inputView.splitNames(names);
+
         int round = inputView.inputTryNumber();
 
         List<Car> carList = mappingCar(nameList);
         Racing racing = new Racing(carList);
 
-        Map<String, List<Integer>> roundMap = new HashMap<>();
+        Map<String, List<Integer>> result = racing.startRacing(round);
 
-        for (int i = 0; i < round; i++) {
+        outputView.roundResult(result, round);
 
-            for (Car car : carList) {
-                if (racing.isGo()) {
-                    car.move += 1;
-                }
-                roundMap.computeIfAbsent(car.name, k -> new ArrayList<>()).add(car.move);
-            }
-        }
-
-        outputView.roundResult(roundMap, round);
         List<String> winner = racing.determineWinner();
         outputView.getWinnerMessage(winner);
     }

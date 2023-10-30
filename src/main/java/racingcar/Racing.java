@@ -2,14 +2,36 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Racing {
     private List<Car> carList;
     public Racing(List<Car> carList){
         this.carList = carList;
     }
-    public Boolean isGo() {
+
+    public Map<String, List<Integer>> startRacing(int round) {
+        Map<String, List<Integer>> result = new HashMap<>();
+
+        for (int i = 0; i < round; i++) {
+            for (Car car : carList) {
+                move(car);
+                result.computeIfAbsent(car.name, k -> new ArrayList<>()).add(car.move);
+            }
+        }
+
+        return result;
+    }
+
+    private void move(Car car) {
+        if (isGo()) {
+            car.move += 1;
+        }
+    }
+
+    private Boolean isGo() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (randomNumber >= 4) {
             return true;
