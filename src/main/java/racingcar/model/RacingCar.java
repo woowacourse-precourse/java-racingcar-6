@@ -49,4 +49,8 @@ public class RacingCar {
     private boolean compare(int position) {
         return this.position < position;
     }
+
+    public String getName() {
+        return name;
+    }
 }
