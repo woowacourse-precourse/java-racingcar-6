@@ -15,11 +15,12 @@
   - [x] 경주할 자동차 이름 입력을 위한 안내 문구 출력
   - [x] 입력받은 자동차 이름들을 쉼표(,) 기준으로 구분하여 저장
   - [ ] 자동차 이름이 5자 이하인지 검증
-  - [ ] 자동차 이름이 빈 문자열일 경우 IllegalArgumentException 발생 후 종료
+  - [ ] 자동차 이름이 5자 초과인 경우 IllegalArgumentException 발생 후 종료
+  - [ ] 자동차 이름이 빈 문자열인 경우 IllegalArgumentException 발생 후 종료
 - [ ] 전진 시도할 횟수 입력
   - [x] 전진 시도할 횟수 입력을 위한 안내 문구 출력
-  - [ ] 입력 값이 정수 형식이 아닐 경우 IllegalArgumentException 발생 후 종료
-  - [ ] 입력 값이 양수가 아닐 경우 IllegalArgumentException 발생 후 종료
+  - [ ] 입력 값이 정수 형식이 아닌 경우 IllegalArgumentException 발생 후 종료
+  - [ ] 입력 값이 양수가 아닌 경우 IllegalArgumentException 발생 후 종료
 - [ ] 각 횟수마다 각 자동차의 전진 결과 출력을 반복
   - [ ] 0 이상 9 이하 정수를 무작위로 생성
   - [ ] 생성한 값이 4 이상인 경우 해당 자동차를 전진
