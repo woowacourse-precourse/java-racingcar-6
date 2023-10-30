@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
-    private final Car testCar = Model.generateCar("ukeun");
+    private final Car testCar = Model.generateCar("ukeun", 0);
 
     @Test
     @DisplayName("move 메서드 테스트")

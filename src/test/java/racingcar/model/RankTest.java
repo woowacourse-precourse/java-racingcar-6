@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
 
 class RankTest {
@@ -13,8 +13,9 @@ class RankTest {
     @Test
     void getWinnerList() {
         List<String> names = Arrays.asList("uk", "eu", "n");
+        AtomicInteger index = new AtomicInteger();
         List<Car> cars = names.stream()
-                .map(Model::generateCar)
+                .map(name -> Model.generateCar(name, index.getAndIncrement()))
                 .toList();
 
         assertRandomNumberInRangeTest(
