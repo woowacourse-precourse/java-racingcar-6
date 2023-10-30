@@ -19,7 +19,10 @@ public class RaceController {
     }
 
     public int askMoveCount() {
-        return 0;
+        String inputMoveCount = Console.readLine();
+        int moveCount = Integer.valueOf(inputMoveCount);
+
+        return moveCount;
     }
 
     public List<String> divideCarNames(String inputNames) {
