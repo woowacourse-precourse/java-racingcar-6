@@ -8,6 +8,7 @@ public class Application {
     public static void main(String[] args) {
         UserInput userInput = new UserInput();
         Grandprix grandprix = new Grandprix();
+        SystemOutput systemOutput = new SystemOutput();
         List<String> carNames;
         Map<String, Car> racingPlayer = new HashMap<>();
 
@@ -20,9 +21,8 @@ public class Application {
             racingPlayer.put(name, new CarImpl());
         }
 
-        grandprix.playGrandprix(numberOfTry, racingPlayer);
-
-
+        Map<String, Car> playedRacingPlayer = grandprix.playGrandprix(numberOfTry, racingPlayer);
+        systemOutput.showResult(playedRacingPlayer);
     }
 
 }
