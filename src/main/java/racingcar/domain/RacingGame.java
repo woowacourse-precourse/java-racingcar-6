@@ -1,6 +1,9 @@
 package racingcar.domain;
 
-import static racingcar.Application.playRound;
+import static racingcar.Application.generateRandomNumber;
+import static racingcar.Application.judgeWinners;
+import static racingcar.Application.printRoundResult;
+import static racingcar.Application.printWinners;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
@@ -26,5 +29,17 @@ public class RacingGame {
         this.cars = members.stream()
                 .map(Car::new)
                 .toList();
+    }
+
+    private void playRound(final List<Car> cars, final int playTimes) {
+        System.out.println("실행 결과");
+        for (int i=0; i<playTimes; i++) {
+            cars.forEach(car -> car
+                    .move(generateRandomNumber()));
+            printRoundResult(cars);
+            System.out.println();
+        }
+        final List<Car> winners = judgeWinners(cars);
+        printWinners(winners);
     }
 }
