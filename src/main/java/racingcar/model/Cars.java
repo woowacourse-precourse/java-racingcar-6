@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.service.MovementStrategy;
 
 public class Cars {
 
@@ -13,9 +14,9 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars fromNames(List<String> carNames) {
+    public static Cars fromNames(List<String> carNames, MovementStrategy movementStrategy) {
         List<Car> cars = carNames.stream()
-            .map(carName -> new Car(carName, 0))
+            .map(carName -> new Car(carName, 0, movementStrategy))
             .collect(Collectors.toList());
         return new Cars(cars);
     }

@@ -1,25 +1,13 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.service.MovementStrategy;
 
-public record Car(String carName, int distance) {
-
-    private static final int MIN_NUMBER = 0;
-    private static final int MAX_NUMBER = 9;
-
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
-    }
-
-    private boolean isCarMoving() {
-        int randomNumber = generateRandomNumber();
-        return randomNumber > 3;
-    }
-
+public record Car(String carName, int distance, MovementStrategy movementStrategy) {
     public Car attemptMove() {
-        if (isCarMoving()) {
-            return new Car(carName, distance + 1);
+        if (movementStrategy.canMove()) {
+            return new Car(carName, distance + 1, movementStrategy);
         }
-        return new Car(carName, distance);
+        return new Car(carName, distance, movementStrategy);
     }
 }
