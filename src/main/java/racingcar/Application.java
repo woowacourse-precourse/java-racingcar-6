@@ -43,7 +43,30 @@ public class Application {
                 System.out.println();
             }
 
+            Map<String, Integer> carHashMap = new HashMap<String, Integer>();
+
+            for (int i = 0; i < carNames.size(); i++) {
+                carHashMap.put(carNames.get(i), carMovements[i].length());
+            }
+
+            List<String> finalWinners = findWinners(carHashMap);
+
+            // formatting
+            StringBuilder winnersFormatted = new StringBuilder();
+            for (String winner : finalWinners) {
+                if (winnersFormatted.length() > 0) {
+                    winnersFormatted.append(", ");
+                }
+                winnersFormatted.append(winner);
+            }
+
+            System.out.println("최종 우승자 : " + winnersFormatted.toString());
+
         } catch (NoSuchElementException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(e.getMessage());
         }
 
