@@ -25,6 +25,10 @@ public class ExceptionHandler {
     }
 
     public void isMembersException(List<String> members) {
+        if (Validation.isOverFiveWord(members)) {
+            throw new IllegalArgumentException("자동차 이름이 5자를 초과합니다.");
+        }
+
         for (int i = 0; i < members.size(); i++) {
             if (Validation.isDuplicates(members, members.get(i))) {
                 throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
