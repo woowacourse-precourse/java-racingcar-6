@@ -17,7 +17,7 @@ public class OutputView {
         for (RacingCar winner : winners) {
             sb.append(winner.getName()).append(", ");
         }
-        sb.deleteCharAt(sb.length() - 1);
+        sb.delete(sb.length() - 2, sb.length());
         System.out.printf("최종 우승자 : %s\n", sb.toString());
     }
 }
