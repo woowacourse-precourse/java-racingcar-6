@@ -92,7 +92,7 @@
 -[x] RandomNumberGenerator에게 숫자를 요청하고 자동차를 이동 할 수 있는지 판단한다.
   -[x] 이동할 수 있다면 이동한다.
 -[x] getLocation를 이용하여 이동한 거리를 반환한다.
-- getName을 이용하여 자동차의 이름을 반환한다.
+-[x] getName을 이용하여 자동차의 이름을 반환한다.
 
 #### RandomNumberGenerator
 -[x] 0~9사이의 랜덤한 숫자를 입력한다.
