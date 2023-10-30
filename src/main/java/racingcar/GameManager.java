@@ -69,7 +69,6 @@ public class GameManager {
     }
 
     public static void getWinner(List<Car> cars) {
-        StringBuilder sb = new StringBuilder("최종 우승자 : ");
 
         int max = 0;
 
@@ -85,15 +84,6 @@ public class GameManager {
             }
         }
 
-        if (winners.size() > 1) {
-            for (int i = 0; i < winners.size() - 1; i++) {
-                sb.append(winners.get(i)).append(", ");
-            }
-            sb.append(winners.get(winners.size() - 1));
-        } else {
-            sb.append(winners.get(0));
-        }
-
-        System.out.println(sb);
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 }
