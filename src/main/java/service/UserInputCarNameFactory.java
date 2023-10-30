@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class UserInputCarNameFactory {
 
+    //TODO .., 입력, empty 입력 등등 처리
     public Cars createCars(){
         String[] carNameInputArray = processCarNameInput();
         if(carNameInputArray.length==0) throw new IllegalArgumentException("적절하지 않은 이름입니다");
