@@ -16,12 +16,12 @@ public class GetWinnersService {
         return convertCarToCarName(winners);
     }
     private static Map<Integer,List<Car>> getRankMap(Participants participants) {
-        HashMap<Integer, List<Car>> rankMap = new HashMap<>();
+        Map<Integer, List<Car>> rankMap = new HashMap<>();
         for (int i = 0; i < participants.size(); i++) {
             Car car = participants.get(i);
             Integer position = car.getPosition();
 
-            List<Car> samePositionList = rankMap.getOrDefault(car, new ArrayList<Car>());
+            List<Car> samePositionList = rankMap.getOrDefault(position, new ArrayList<Car>());
             samePositionList.add(car);
             rankMap.put(position, samePositionList);
         }

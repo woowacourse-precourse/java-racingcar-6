@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.AppConfig;
+import racingcar.InputConfig;
 
 public class InputHandler {
     public static String readInput() {
@@ -9,7 +10,7 @@ public class InputHandler {
     }
 
     public static String[] StringToArray(String string){
-        return string.split(AppConfig.INPUT_DELIMITER, Integer.MAX_VALUE);
+        return string.split(InputConfig.NAME_DELIMITER, Integer.MAX_VALUE);
     }
 
     public static int StringToInteger(String input) {
@@ -19,7 +20,7 @@ public class InputHandler {
     }
 
     private static void validateRange(int round) {
-        if (round <= 0) {
+        if (round < InputConfig.RACE_INPUT_MIN) {
             throw new IllegalArgumentException();
         }
     }

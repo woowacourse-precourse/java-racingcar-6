@@ -7,6 +7,7 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.AppConfig;
+import racingcar.InputConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
 import racingcar.service.CarSaveService;
@@ -21,7 +22,7 @@ public class RaceTest {
     @BeforeEach
     void 참가자_저장() {
         String s = "a,b,c,d,e";
-        String[] split = s.split(AppConfig.INPUT_DELIMITER);
+        String[] split = s.split(InputConfig.NAME_DELIMITER);
         participants = CarSaveService.save(split);
     }
 

@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.ArrayList;
 import racingcar.AppConfig;
+import racingcar.InputConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
 
@@ -18,7 +19,7 @@ public class CarSaveService {
     }
 
     private static void validateLength(String[] names) {
-        if (names.length < AppConfig.PARTICIPANT_MIN) {
+        if (names.length < InputConfig.PARTICIPANT_MIN) {
             throw new IllegalArgumentException();
         }
     }
