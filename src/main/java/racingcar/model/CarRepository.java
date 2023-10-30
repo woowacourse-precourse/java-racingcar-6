@@ -20,10 +20,8 @@ public class CarRepository {
         }
     }
 
-    public List<CarDto> getCarDto() {
-        return cars.stream()
-                .map(car -> new CarDto(car))
-                .toList();
+    public List<Car> getCars() {
+        return cars;
     }
 
     public List<String> getWinner() {

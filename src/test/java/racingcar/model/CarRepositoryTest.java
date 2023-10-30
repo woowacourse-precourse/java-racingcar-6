@@ -27,9 +27,12 @@ public class CarRepositoryTest {
     @DisplayName("Car 저장 기능 테스트")
     @Test
     void testSave() {
-        int expected = 3;
+        int expected = 4;
+        Car car4 = new Car("hani");
 
-        assertEquals(expected, carRepository.getCarDto().size());
+        carRepository.save(car4);
+
+        assertEquals(expected, carRepository.getCars().size());
     }
 
     @DisplayName("Car 저장 중 이름 중복 검사 기능 테스트")
