@@ -1,7 +1,6 @@
 package racingcar;
 
-import static racingcar.RandomNumberRange.MAXIMUM_RANGE_VALUE;
-import static racingcar.RandomNumberRange.MINIMUM_RANGE_VALUE;
+import static racingcar.RandomNumberRange.*;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -16,5 +15,9 @@ public class Car {
 
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(MINIMUM_RANGE_VALUE.getValue(), MAXIMUM_RANGE_VALUE.getValue());
+    }
+
+    private boolean isLargerThanStandard(int randomNumber) {
+        return STANDARD_VALUE.getValue() <= randomNumber;
     }
 }

@@ -2,9 +2,10 @@ package racingcar;
 
 public enum RandomNumberRange {
     MINIMUM_RANGE_VALUE(0),
-    MAXIMUM_RANGE_VALUE(9);
+    MAXIMUM_RANGE_VALUE(9),
+    STANDARD_VALUE(4);
 
-    private final int value;
+    private int value;
 
     private RandomNumberRange(int value) {
         this.value = value;
