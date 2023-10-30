@@ -19,4 +19,9 @@ public class InputController {
         Map<String, Integer> carNameMap = inputService.validateCarName(carName);
         return carNameMap;
     }
+
+    public int receiverNumberOfAttempts() {
+        String numberOfAttempts = Console.readLine();
+        return inputService.validateNumberOfAttempts(numberOfAttempts);
+    }
 }
