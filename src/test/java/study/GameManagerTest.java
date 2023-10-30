@@ -59,4 +59,42 @@ public class GameManagerTest {
         // When
         gameManager.readCarNames();
     }
+
+    @Test
+    void 입력한_시도_횟수가_숫자가_아닌_경우_예외발생() {
+        // Given
+        MockGameConsole gameConsole = new MockGameConsole();
+        gameConsole.setMockStream("english");
+        GameManager gameManager = new GameManager(new MockNumberGenerator(), gameConsole);
+
+        // When & Then
+        assertThatThrownBy(gameManager::readAttemptCount)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.ATTEMPT_COUNT_IS_NOT_NUMBER.getMessage());
+    }
+
+    @Test
+    void 입력한_시도_횟수가_0인_경우_예외발생() {
+        // Given
+        MockGameConsole gameConsole = new MockGameConsole();
+        gameConsole.setMockStream("0");
+        GameManager gameManager = new GameManager(new MockNumberGenerator(), gameConsole);
+
+        // When & Then
+        assertThatThrownBy(gameManager::readAttemptCount)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.INVALID_MINIMUM_ATTEMPT_COUNT.getMessage());
+    }
+
+    @Test
+    void 시도_횟수를_정상적으로_입력한_경우_정상실행() {
+        // Given
+        MockGameConsole gameConsole = new MockGameConsole();
+        gameConsole.setMockStream("3");
+        GameManager gameManager = new GameManager(new MockNumberGenerator(), gameConsole);
+
+        // When
+        gameManager.readAttemptCount();
+    }
+
 }
