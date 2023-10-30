@@ -5,10 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CarsTest {
 
@@ -40,5 +41,26 @@ class CarsTest {
         List<CarName> carNames = new ArrayList<>();
 
         assertThrows(IllegalArgumentException.class, () -> Cars.createByNames(carNames));
+    }
+
+    @DisplayName("Cars goForward 테스트")
+    @Test
+    void carsGoForwardTest() {
+
+        List<String> names = List.of("a", "b", "c");
+        List<CarName> carNames = names.stream()
+                .map(CarName::new)
+                .toList();
+
+        Cars cars = Cars.createByNames(carNames);
+
+        Map<String, Integer> status = cars.goForward();
+
+        assertThat(status.keySet().containsAll(names)).isTrue();
+        for (String key : status.keySet()) {
+            Integer position = status.get(key);
+
+            assertThat(position).isGreaterThanOrEqualTo(0);
+        }
     }
 }
