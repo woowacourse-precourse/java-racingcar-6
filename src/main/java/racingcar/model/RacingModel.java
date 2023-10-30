@@ -1,16 +1,18 @@
 package racingcar.model;
 
+import java.util.List;
+
 public class RacingModel {
 
-    private String[] players;
+    private List<String> players;
     private int[] moving_distances;
     private int number_of_times;
 
-    public RacingModel(String[] players, int number_of_times) {
+    public RacingModel(List<String> players, int number_of_times) {
 
         this.players = players;
         this.number_of_times = number_of_times;
-        this.moving_distances = new int[players.length];
+        this.moving_distances = new int[players.size()];
 
     }
 
@@ -18,7 +20,7 @@ public class RacingModel {
         this.moving_distances = moving_distance;
     }
 
-    public String[] getPlayers() {
+    public List<String> getPlayers() {
         return players;
     }
 

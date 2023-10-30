@@ -8,6 +8,23 @@
 3. 함수를 최대한 작게만든다. (최소기능만을 수행하게 만들기)
 4. JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
 
+기능 목록
+-
+- [X] 이름을 입력받는다. -inputPlayers()
+  - [X] 입력값이 정상적인지 판별한다. - nameValidation()
+- [X] 횟수를 입력받는다. - inputTimes()
+  - [X] 숫자인지, 음수는 아닌지 판별한다. - numberValidation()
+- [X] 반복횟수만큼 racing을 진행한다. - racingPlay()
+  - [X] 랜덤값을 생성하고 그값이 4이상이면 전진한다. - racing_Play_Onetime()
+- [X] 최종 결과를 출력한다. - racingResult()
+  - [X] 가장 먼거리를 이동한 player들을 판단한다. - racingWinner()
+
+
+- [] 입력값에 따른 정상적인 예외처리하는지 확인하는 테스트코드 생성한다. - class validationTest()
+- [] 출력값이 정상적인지 확인하는 테스트코드를 작성한다. - class OutputViewTest()
+- [] Controller가 정상적으로 작동하는지 확인한다. - class ControllerTest()
+
+
 기능 요구 사항
 -
 1. 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.
@@ -22,4 +39,11 @@
 스스로 다짐
 -
 1. 1주차 공통 피드백 내용을 최대한 준수하려고 노력할 것
+   - 배열대신 Java Collection을 사용한다
+   - 이름을 통해 의도를 드러낸다
+   - 커밋 메시지를 의미 있게 작성한다
+   - space와 tap을 혼용하지 않는다
+   - 의미 없는 주석을 달지 않는다
+   - IDE의 코드 자동 정렬 기능 적극 활용한다
+   - Java에서 제공하는 API를 적극 활용한다
 2. MVC패턴 규칙을 준수하며 만들어볼 것
