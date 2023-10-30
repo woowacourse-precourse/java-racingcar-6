@@ -14,7 +14,7 @@ public class Names {
         }
         new Validator().names(nameList);
 
-        this.names = names;
+        this.names = names; //trim이 필요하지만 검증 받은 이름
     }
 
 }
