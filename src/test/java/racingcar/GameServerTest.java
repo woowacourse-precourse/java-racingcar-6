@@ -53,6 +53,14 @@ class GameServerTest extends NsTest {
         );
     }
 
+    @Test
+    void 시도_횟수가_숫자가_아닐경우_예외를_던진다() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
