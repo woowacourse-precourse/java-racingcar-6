@@ -18,7 +18,7 @@ public class RacingCarTest extends NsTest {
     @DisplayName("무작위 값을 생성할 때 0 ~ 9 사이의 값이 생성이 되는가?")
     void createRandomNumberValidRange() {
         int number = Randoms.pickNumberInRange(START_NUMBER, LAST_NUMBER);
-        assertThat(number).isGreaterThan(0).isLessThanOrEqualTo(9);
+        assertThat(number).isGreaterThanOrEqualTo(0).isLessThanOrEqualTo(9);
     }
 
     @ParameterizedTest
