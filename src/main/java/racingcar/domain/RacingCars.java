@@ -5,7 +5,6 @@ import static racingcar.constant.NumberConstants.ZERO;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.view.RacingOutputView;
 
 public class RacingCars {
 
@@ -15,22 +14,22 @@ public class RacingCars {
         carNames.forEach(carName -> racingCarList.add(new RacingCar(carName)));
     }
 
-    public void playRound() {
+    public List<String> playRound() {
         moveRacingCar();
-        RacingOutputView.outputRoundResults(racingCarList.stream()
+        return racingCarList.stream()
                 .map(RacingCar::createRoundResult)
-                .toList());
+                .toList();
     }
 
     private void moveRacingCar() {
         racingCarList.forEach(racingCar -> racingCar.move(makeRandomNumber()));
     }
 
-    public void noticeWinners() {
-        RacingOutputView.outputWinners(racingCarList.stream()
+    public List<String> noticeWinners() {
+        return racingCarList.stream()
                 .filter(racingCar -> racingCar.isWinner(findMaxPosition()))
                 .map(RacingCar::createWinnerName)
-                .toList());
+                .toList();
     }
 
     private int findMaxPosition() {

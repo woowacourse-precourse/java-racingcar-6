@@ -22,13 +22,14 @@ public class RacingGameController {
 
     private void play() {
         RacingOutputView.outputResultMessage();
+
         for (int i = 0; i < tryCount; i++) {
-            racingCars.playRound();
+            RacingOutputView.outputRoundResults(racingCars.playRound());
         }
     }
 
     private void notice() {
-        racingCars.noticeWinners();
+        RacingOutputView.outputWinners(racingCars.noticeWinners());
     }
 
 }
