@@ -69,20 +69,22 @@ class ParticipantsTest {
 
         List<Car> race = participants.race();
 
-        List<Integer> positions = race.stream().map(Car::getPosition).toList();
+        List<Integer> positions = race.stream()
+                .map(Car::getPosition)
+                .toList();
         assertThat(positions).isEqualTo(List.of(1, 0, 1));
     }
 
     @Test
     void 우승자_목록을_가져올_수_있다() {
-        Car car1 = createCar(true);
-        Car car2 = createCar(false);
-        Car car3 = createCar(true);
-        Participants participants = new Participants(List.of(car1, car2, car3));
-        participants.race();
-        participants.race();
+        List<Car> cars = List.of(
+                new Car("car1", 3),
+                new Car("car2", 2),
+                new Car("car3", 3));
+        Participants participants = new Participants(cars);
 
         List<String> winners = participants.getWinners();
-        assertThat(winners).contains(car1.getName(), car3.getName()).doesNotContain(car2.getName());
+
+        assertThat(winners).contains("car1", "car3").doesNotContain("car2");
     }
 }
