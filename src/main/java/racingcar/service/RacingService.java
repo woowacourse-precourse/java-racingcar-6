@@ -16,4 +16,10 @@ public class RacingService {
             ExceptionHandler.throwIfStringLengthOverFive();
         }
     }
+
+    public void isGreaterThanZero(int tries) {
+        if (tries <= 0) {
+            ExceptionHandler.throwIfNumberIsZeroOrNegative();
+        }
+    }
 }

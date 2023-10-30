@@ -21,5 +21,6 @@ public class RacingController {
         racingService.isLengthGreaterThanFive(carNames);
         ConsoleOutput.displayMessage(ConsoleOutput.TRY_MESSAGE);
         int tries = inputView.getTries();
+        racingService.isGreaterThanZero(tries);
     }
 }
