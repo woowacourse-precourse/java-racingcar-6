@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.dto.NameDto;
 import java.util.Objects;
 
 public class Name {
@@ -17,6 +18,10 @@ public class Name {
         if (MAX_NAME_SIZE < name.length()) {
             throw new IllegalArgumentException("[Error] 이름 크기는 5이하여야 합니다.");
         }
+    }
+
+    public NameDto toDto() {
+        return new NameDto(this.name);
     }
 
     @Override

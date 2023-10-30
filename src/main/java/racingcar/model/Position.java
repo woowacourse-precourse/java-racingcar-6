@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.dto.PositionDto;
 import java.util.Objects;
 
 public class Position {
@@ -21,6 +22,18 @@ public class Position {
         if (position < INIT_POSITION) {
             throw new IllegalArgumentException("[Error] 초기위치값은 0보다 작을 수 없습니다.");
         }
+    }
+
+    public Position move() {
+        return new Position(this.position + 1);
+    }
+
+    public boolean isFrontOf(Position other) {
+        return this.position > other.position;
+    }
+
+    public PositionDto toDto() {
+        return new PositionDto(this.position);
     }
 
     @Override

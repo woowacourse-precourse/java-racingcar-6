@@ -5,9 +5,20 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.dto.NameDto;
 
 
 class NameTest {
+
+    @DisplayName("toDto() 테스트 : Car를 CarDto로 변환한다.")
+    @Test
+    void toDto() {
+        Name name = new Name("홍길동");
+
+        NameDto nameDto = name.toDto();
+
+        assertThat(nameDto).isEqualTo(new NameDto("홍길동"));
+    }
 
     @DisplayName("Name(name) 생성 테스트 : Name 생성 시 이름을 부여할 수 있다.")
     @Test

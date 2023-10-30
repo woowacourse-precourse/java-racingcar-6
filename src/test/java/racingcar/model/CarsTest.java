@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.CarDto;
+import racingcar.dto.NameDto;
+import racingcar.dto.PositionDto;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,10 +15,10 @@ class CarsTest {
 
     static Cars createCars() {
         List<Car> carList = Arrays.asList(
-                new Car("사람1", 3),
-                new Car("사람2", 4),
-                new Car("사람3", 5),
-                new Car("사람4", 5)
+                new Car(new Name("사람1"), new Position(3)),
+                new Car(new Name("사람2"), new Position(4)),
+                new Car(new Name("사람3"), new Position(5)),
+                new Car(new Name("사람4"), new Position(5))
         );
         return new Cars(carList);
     }
@@ -30,10 +32,10 @@ class CarsTest {
 
         assertThat(carDtos).usingRecursiveFieldByFieldElementComparator()
                 .containsExactly(
-                        new CarDto("사람1", 3),
-                        new CarDto("사람2", 4),
-                        new CarDto("사람3", 5),
-                        new CarDto("사람4", 5)
+                        new CarDto(new NameDto("사람1"), new PositionDto(3)),
+                        new CarDto(new NameDto("사람2"), new PositionDto(4)),
+                        new CarDto(new NameDto("사람3"), new PositionDto(5)),
+                        new CarDto(new NameDto("사람4"), new PositionDto(5))
                 );
     }
 
@@ -56,6 +58,6 @@ class CarsTest {
         List<Car> winner = cars.findWinner();
 
         assertThat(winner).usingRecursiveFieldByFieldElementComparator()
-                .containsExactly(new Car("사람3", 5), new Car("사람4", 5));
+                .containsExactly(new Car(new Name("사람3"), new Position(5)), new Car(new Name("사람4"), new Position(5)));
     }
 }

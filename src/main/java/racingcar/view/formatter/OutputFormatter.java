@@ -1,6 +1,8 @@
 package racingcar.view.formatter;
 
 import racingcar.dto.CarDto;
+import racingcar.dto.NameDto;
+import racingcar.dto.PositionDto;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -20,7 +22,8 @@ public class OutputFormatter {
 
     public static String makeWinner(List<CarDto> winners) {
         return winners.stream()
-                .map(c -> c.name())
+                .map(carDto -> carDto.name())
+                .map(nameDto -> nameDto.name())
                 .collect(Collectors.joining(DELIMITER_COMMA + SPACE, WINNER_MESSAGE, EMPTY_STRING));
     }
 
@@ -31,7 +34,9 @@ public class OutputFormatter {
     }
 
     private static String makeOnePlayerResult(CarDto carDto) {
-        return carDto.name() + SPACE + COLON_SEPARATOR + SPACE + makeDash(carDto.position());
+        NameDto nameDto = carDto.name();
+        PositionDto positionDto = carDto.position();
+        return nameDto.name() + SPACE + COLON_SEPARATOR + SPACE + makeDash(positionDto.position());
     }
 
     private static String makeDash(int position) {

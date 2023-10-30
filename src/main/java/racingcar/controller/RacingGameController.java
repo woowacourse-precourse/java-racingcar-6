@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.dto.CarDto;
+import racingcar.model.Name;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.NumberGenerator;
@@ -36,6 +37,7 @@ public class RacingGameController {
 
     private Cars participatePlayers() {
         List<Car> cars = InputView.inputNames().stream()
+                .map(Name::new)
                 .map(Car::new)
                 .collect(Collectors.toList());
         return new Cars(cars);
