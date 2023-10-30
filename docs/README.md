@@ -8,7 +8,8 @@
         - [ ] validateStringSeparateWithComma 메서드 구현
             - [ ] 입력받은 문자열이 쉼표(,)로 구분되어 있으면 통과
             - [ ] 아니라면 IllegalArgumentException 예외 발생
-        - [ ] 입력받은 문자열을 List 형태로 변환한다.
+        - [ ] stringToStringList 메서드 구현 
+          - [ ] 입력받은 문자열을 List 형태로 변환한다.
         - [ ] validateCarNameLength 메서드 구현
             - [ ] 자동차 이름의 길이가 5이하이면 통과
             - [ ] 아니라면 IllegalArgumentException 예외 발생
