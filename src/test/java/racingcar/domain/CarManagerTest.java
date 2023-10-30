@@ -4,7 +4,7 @@ import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
-import racingcar.domain.racing.CarManager;
+import racingcar.domain.car.CarManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
