@@ -1,9 +1,10 @@
 package racingcar.domain;
 
 public class Referee {
-    private int judgeStandard;
+    private final static int judgeStandard = 4;
 
-    public void judgeCarMovement() {
+    public boolean isGreaterThanEqual(int number) {
+        return number >= judgeStandard;
     }
 
     public void judgeNumber() {
