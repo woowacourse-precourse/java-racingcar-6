@@ -33,11 +33,6 @@ public class RacingCarView {
 	}
 	
 	void printWinner(String[] names) {
-		System.out.print("최종 우승자 : ");
-		for(int i = 0; i < names.length; i++) {
-			if(i != 0)
-				System.out.print(", ");
-			System.out.print(names[i]);
-		}
+		System.out.print("최종 우승자 : " + String.join(", ", names));
 	}
 }
