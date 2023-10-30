@@ -9,18 +9,19 @@ public class InputService {
     private final CheckService checkService = new CheckService();
     private final static String SEPARATOR = ",";
 
-    public String init() {
+    public String input() {
         return Console.readLine();
     }
 
-    public void carNames(String input) {
-        String[] carArr = splitBySeparator(input);
+    public void carsName() {
+        String[] carArr = splitBySeparator(input());
         if (checkService.cars(carArr)) {
             gameRepository.initCars(carArr);
         }
     }
 
-    public void numOfAttempts(String input) {
+    public void gameNum() {
+        String input = input();
         if (checkService.nums(input)) {
             gameRepository.initGameNum(StringToInt(input));
         }

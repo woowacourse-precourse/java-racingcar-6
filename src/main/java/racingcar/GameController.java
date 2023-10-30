@@ -11,12 +11,10 @@ public class GameController {
 
     public void start() {
         print.questionCarName();
-        String input = inputService.init();
-        inputService.carNames(input);
+        inputService.carsName();
 
         print.questionTryNum();
-        input = inputService.init();
-        inputService.numOfAttempts(input);
+        inputService.gameNum();
         gameService.run(inputService.findGameNum(), inputService.findCars());
     }
 }
