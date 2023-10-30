@@ -1,5 +1,6 @@
 package racingcar;
 
+//검증 클래스
 public class Validator {
 	private static final int MAXINUM_LENGTH = 5;
 	private static final int MININUM_NUMBER = 1;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+//게임 진행 클래스
 public class GameProcess {
 	private static final int START_RANGE = 0;
 	private static final int END_RANGE = 9;

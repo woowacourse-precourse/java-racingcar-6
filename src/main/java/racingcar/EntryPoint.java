@@ -3,6 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+//게임 시작 클래스
 public class EntryPoint {
 
 	private List<InformationOfCar> carList;

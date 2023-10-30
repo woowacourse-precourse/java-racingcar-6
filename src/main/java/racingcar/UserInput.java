@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 
 import camp.nextstep.edu.missionutils.Console;
 
+//사용자 입력 클래스
 public class UserInput {
 
 	private List<InformationOfCar> carList;
