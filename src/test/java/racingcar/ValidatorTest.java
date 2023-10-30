@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.controller.Validator;
+import racingcar.view.InputView;
 
 public class ValidatorTest extends ApplicationTest {
     @ParameterizedTest
@@ -39,5 +41,15 @@ public class ValidatorTest extends ApplicationTest {
                 Arguments.of(Arrays.asList("pobi", "shu")),
                 Arguments.of(Arrays.asList("jjjun", "pobi"))
         );
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "d",
+            "q"
+    })
+    void 시도할_횟수_유효성_실패_테스트(String attemptCount) {
+        assertThrows(IllegalArgumentException.class,
+                () -> Validator.validateNumeric(attemptCount));
     }
 }
