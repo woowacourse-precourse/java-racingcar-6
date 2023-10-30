@@ -23,4 +23,12 @@ public class ExceptionController {
             throw new IllegalArgumentException("공백을 제외한 문자열을 입력해주세요.");
         }
     }
+
+    public static int tryCountNotIntException(String tryCount) {
+        try {
+            return Integer.parseInt(tryCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자 외에 다른 문자는 사용할 수 없습니다.");
+        }
+    }
 }

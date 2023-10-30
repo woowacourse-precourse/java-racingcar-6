@@ -32,9 +32,13 @@ public class RacingGameView {
         return inputCarName;
     }
 
+    public static void inputTryCountMessage() {
+        System.out.println(Constant.INPUT_TRY_COUNT);
+    }
+
     public static int inputTryCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        inputTryCountMessage();
+        return ExceptionController.tryCountNotIntException(readLine());
     }
 
     public static void winner(List<String> carMoveStatus) {
