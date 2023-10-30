@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.Utils.makeRandomNumber;
 import static racingcar.constant.NumberConstants.ZERO;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class RacingCars {
     }
 
     private void moveRacingCar() {
-        racingCarList.forEach(RacingCar::move);
+        racingCarList.forEach(racingCar -> racingCar.move(makeRandomNumber()));
     }
 
     public void noticeWinners() {

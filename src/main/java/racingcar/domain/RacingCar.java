@@ -19,8 +19,8 @@ public class RacingCar {
         return position == maxPosition;
     }
 
-    public void move() {
-        if (makeRandomNumber() >= MOVE_CONDITION) {
+    public void move(int randomNumber) {
+        if (randomNumber >= MOVE_CONDITION) {
             position += 1;
         }
     }
