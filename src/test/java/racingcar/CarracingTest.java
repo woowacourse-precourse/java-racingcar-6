@@ -7,9 +7,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -51,6 +49,21 @@ class CarracingTest {
         assertThat(carracing.raceScore.get(resultName)).isEqualTo(score);
     }
 
+    @ParameterizedTest
+    @MethodSource("provideGameResult")
+    void 순위_정렬(Map<String, String> gameResult, List<String> winnerList) {
+        List<String> nameList = new ArrayList<>();
+        nameList.add("pobi");
+        nameList.add("woni");
+        nameList.add("jun");
+
+        carracing.raceScore = gameResult;
+
+        carracing.sortRanking(nameList);
+
+        assertThat(nameList).isEqualTo(winnerList);
+    }
+
     private static boolean checkNull(Map<String, String> nameList) {
         for (Map.Entry<String, String> entrySet : nameList.entrySet()) {
             if(entrySet.getValue().equals(null))
@@ -64,6 +77,29 @@ class CarracingTest {
                 Arguments.of((Object) new String[]{"pobi", "woni", "jun"}),
                 Arguments.of((Object) new String[]{"cheon", "hyun", "woo", "pobi", "woni", "jun"}),
                 Arguments.of((Object) new String[]{"pobi", "woni"})
+        );
+    }
+
+    private static Stream<Arguments> provideGameResult() {
+        return Stream.of(
+                Arguments.of(new LinkedHashMap<String, String>() {{
+                    put("pobi", "---");
+                    put("woni", "----");
+                    put("jun", "-----");
+                }}, Arrays.asList("jun", "woni", "pobi")),
+
+                Arguments.of(new LinkedHashMap<String, String>() {{
+                    put("pobi", "----");
+                    put("woni", "-----");
+                    put("jun", "---");
+                }}, Arrays.asList("woni", "pobi", "jun")),
+
+                Arguments.of(new LinkedHashMap<String, String>() {{
+                    put("pobi", "-----");
+                    put("woni", "----");
+                    put("jun", "-----");
+                }}, Arrays.asList("pobi", "jun", "woni"))
+
         );
     }
 }
