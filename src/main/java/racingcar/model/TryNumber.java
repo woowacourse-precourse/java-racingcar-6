@@ -24,4 +24,7 @@ public class TryNumber {
         }
     }
 
+    public int getTryNumber() {
+        return tryNumber;
+    }
 }
