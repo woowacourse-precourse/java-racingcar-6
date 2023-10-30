@@ -14,6 +14,10 @@ public class Application {
 class Car {
     String name;
     int count;
+    public Car(String name) {
+        this.name = name;
+        this.count = 0;
+    }
 }
 
 class Game {
