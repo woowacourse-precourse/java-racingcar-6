@@ -1,4 +1,4 @@
 package racingcar.constant;
 
-public class announcer {
+public class Announcer {
 }

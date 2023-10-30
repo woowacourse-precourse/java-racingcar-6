@@ -16,7 +16,7 @@
 > > judgement
 > 
 > domain
-> > carVO
+> > carDTO
 > 
 > utility
 > >exceptionHandler
