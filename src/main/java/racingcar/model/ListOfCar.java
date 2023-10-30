@@ -1,12 +1,12 @@
-package racingcar;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cars {
+public class ListOfCar {
     private List<Car> cars;
 
-    Cars(List<Car> cars) {
+    public ListOfCar(List<Car> cars) {
         this.cars = cars;
     }
 
