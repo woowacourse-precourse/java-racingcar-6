@@ -4,23 +4,24 @@ import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.model.RacingCarGameModel;
 import racingcar.model.RacingCarPlayerModel;
-import racingcar.view.RacingCarGameView;
-import racingcar.view.RacingCarPlayerView;
+import racingcar.view.input.RacingCarGameInputView;
+import racingcar.view.output.RacingCarGameOutputView;
+import racingcar.view.output.RacingCarPlayerOutPutView;
 
 public class RacingCarGameController{
     private InputController inputController;
     private RacingCarFormatController racingCarFormatController;
     private RacingCarGameModel racingCarGameModel;
-
-    private RacingCarGameView racingCarGameView;
-
-    private RacingCarPlayerView racingCarPlayerView;
+    private RacingCarGameInputView racingCarGameInputView;
+    private RacingCarGameOutputView racingCarGameOutputView;
+    private RacingCarPlayerOutPutView racingCarPlayerOutPutView;
 
     public void init(){
         this.inputController = new InputController();
         this.racingCarFormatController = new RacingCarFormatController();
-        this.racingCarGameView = new RacingCarGameView();
-        this.racingCarPlayerView = new RacingCarPlayerView();
+        this.racingCarGameInputView = new RacingCarGameInputView();
+        this.racingCarGameOutputView = new RacingCarGameOutputView();
+        this.racingCarPlayerOutPutView = new RacingCarPlayerOutPutView();
         this.initRacingCarGame();
         this.startGame();
         this.endGame();
@@ -30,12 +31,12 @@ public class RacingCarGameController{
         IntStream.range(0, this.racingCarGameModel.getTryCount())
             .forEach(i -> {
                 this.movePlayers();
-                this.racingCarPlayerView.printPlayersPosition(this.racingCarGameModel.getPlayers());
+                this.racingCarPlayerOutPutView.printPlayersPosition(this.racingCarGameModel.getPlayers());
             });
     }
 
     private void endGame() {
-        this.racingCarGameView.printWinners(this.racingCarGameModel.getWinners());
+        this.racingCarGameOutputView.printWinners(this.racingCarGameModel.getWinners());
     }
 
     private void movePlayers(){
@@ -43,10 +44,10 @@ public class RacingCarGameController{
     }
 
     private void initRacingCarGame(){
-        this.racingCarGameView.printInputRacingCarPlayers();
+        this.racingCarGameInputView.printInputRacingCarPlayers();
         String players = this.inputController.readRacingCarPlayers();
         List<RacingCarPlayerModel> listPlayers= this.racingCarFormatController.formatStringToListRacingCarPlayer(players);
-        this.racingCarGameView.printInputTryCount();
+        this.racingCarGameInputView.printInputTryCount();
         int tryCount = this.inputController.readTryCount();
         this.racingCarGameModel = new RacingCarGameModel(listPlayers, tryCount);
     }

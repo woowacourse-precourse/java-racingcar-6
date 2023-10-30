@@ -1,27 +1,14 @@
-package racingcar.view;
-
-import static racingcar.Constants.INPUT_CAR_NAMES_MESSAGE;
-import static racingcar.Constants.INPUT_TRY_NUMBER_MESSAGE;
+package racingcar.view.output;
 
 import java.util.List;
 import racingcar.model.RacingCarPlayerModel;
 import util.formatter.RacingCarFormatter;
 
-public class RacingCarGameView {
+public class RacingCarGameOutputView {
     private final RacingCarFormatter racingCarFormatter;
-
-    public RacingCarGameView(){
+    public RacingCarGameOutputView(){
         this.racingCarFormatter = new RacingCarFormatter();
     }
-
-    public void printInputRacingCarPlayers(){
-        System.out.println(INPUT_CAR_NAMES_MESSAGE);
-    }
-
-    public void printInputTryCount(){
-        System.out.println(INPUT_TRY_NUMBER_MESSAGE);
-    }
-
     public void printWinners(List<RacingCarPlayerModel> winners){
         System.out.print("최종 우승자 : ");
         System.out.println(this.racingCarFormatter.formatListPlayersToString(winners));
