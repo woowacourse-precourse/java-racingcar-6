@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -37,28 +38,20 @@ public class Game {
         }
     }
 
+    public List<Car> getCars(){
+        return cars;
+    }
+
     public Integer getMaxPosition(){
-        return cars.stream().max(Comparator.comparing(Car::getPosition)).orElseThrow(NoSuchElementException::new).getPosition();
+        return cars.stream().max(Comparator.comparing(Car::getPosition))
+                .orElseThrow(NoSuchElementException::new).getPosition();
     }
 
     public List<String> getFinalists(){
         int maxPosition = getMaxPosition();
-        List<String> finalists = new ArrayList<>();
 
-        for(Car car: cars){
-            if(car.getPosition() == maxPosition){
-                finalists.add(car.getName());
-            }
-        }
-
-        return finalists;
-    }
-
-    public void printCars(){
-        for(Car car: cars){
-            System.out.print(car.getName()+" : ");
-            car.printPosition();
-            System.out.println();
-        }
+        //우승자만 필터링하고 name field만 collect해 반환
+        return cars.stream().filter(car -> maxPosition == car.getPosition())
+                .map(Car::getName).collect(Collectors.toList());
     }
 }

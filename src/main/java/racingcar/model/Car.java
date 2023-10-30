@@ -20,10 +20,4 @@ public class Car {
     public void moveForward(){
         this.position++;
     }
-
-    public void printPosition(){
-        for(int i = 0; i<position; i++){
-            System.out.print("-");
-        }
-    }
 }
