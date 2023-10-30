@@ -8,12 +8,14 @@ import java.util.Map;
 
 public class GameController {
 
-    GameModel gameModel = new GameModel();
-    GameView gameView = new GameView();
-    Map<String, Integer> carData;
+    private final GameModel gameModel;
+    private final GameView gameView;
+    private Map<String, Integer> carData;
 
     public GameController() {
         carData = new LinkedHashMap<>();
+        this.gameView = new GameView();
+        this.gameModel = new GameModel();
     }
 
     public void insertCarToCarArray(Map<String, Integer> carData, String[] carNamesArray) {
@@ -48,7 +50,16 @@ public class GameController {
     public void carPrepare(Map<String, Integer> carData) {
         printStartMessage();
         String[] carNamesArray = Console.readLine().split(",");
+        checkNameLength(carNamesArray);
         insertCarToCarArray(carData, carNamesArray);
+    }
+
+    private void checkNameLength(String[] carNamesArray) {
+        for(String carName: carNamesArray) {
+            if(carName.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
     }
 
     public void saveResult(Map<String, Integer>carData, int count) {
