@@ -1,13 +1,15 @@
 package racingcar.ui;
 
+import racingcar.business.Car;
+
 public class OutputView {
 
     public void print(Output output) {
         System.out.println(output.getComment());
     }
 
-    public void printMoveResult(String name, Integer distance) {
-        System.out.println(name + Output.SEPARATOR + distance);
+    public void printMoveResult(Car car) {
+        System.out.println(car.getName() + Output.SEPARATOR + car.getDistance());
     }
 
 }
