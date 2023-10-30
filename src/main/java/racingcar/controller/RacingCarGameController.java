@@ -12,6 +12,7 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 import static racingcar.contant.GameNotice.EXECUTE_RESULT;
+import static racingcar.validation.InputValidator.*;
 import static racingcar.view.output.OutputView.printGameNotice;
 import static utils.StringUtils.splitStringToArray;
 
@@ -26,12 +27,11 @@ public class RacingCarGameController {
         this.racingCarGameModel = racingCarGameModel;
     }
 
-    private List<RacingCar> generateRacingCar(String carNames) {
-        List<String> carNameList = splitStringToArray(carNames, ",");
+    private List<RacingCar> generateRacingCar(List<String> _carNameList) {
         List<RacingCar> racingCarList = new ArrayList<RacingCar>();
 
-        for(String carName: carNameList) {
-            racingCarList.add(new RacingCar(carName));
+        for(String _carName: _carNameList) {
+            racingCarList.add(new RacingCar(_carName));
         }
 
         return racingCarList;
@@ -41,10 +41,19 @@ public class RacingCarGameController {
         String carNames = inputView.inputCarName();
         Console.println(carNames);
 
-        racingCarGameModel.setCarList(generateRacingCar(carNames));
+        List<String> carNameList = splitStringToArray(carNames, ",");
+        checkValidateCarName(carNameList);
+        checkValidateDuplicateCarName(carNameList);
+        checkValidateNumOfParticipantCar(carNameList);
+        checkValidateContainsGapInCarName(carNameList);
+
+        racingCarGameModel.setCarList(generateRacingCar(carNameList));
 
         String roundNumber = inputView.inputRoundNumber();
         Console.println(roundNumber);
+
+        checkValidateTypeOfRoundNumber(roundNumber);
+        checkValidatePositiveNumber(roundNumber);
 
         racingCarGameModel.setRoundNumber(parseInt(roundNumber));
 
@@ -56,6 +65,34 @@ public class RacingCarGameController {
 
         findWinner();
     }
+
+    private void checkValidatePositiveNumber(String _roundNumber) {
+        validatePositiveNumber(parseInt(_roundNumber));
+    }
+
+    private void checkValidateTypeOfRoundNumber(String _roundNumber) {
+        validateTypeOfRoundNumber(_roundNumber);
+    }
+
+    private void checkValidateCarName(List<String> _carNameList) {
+        for (String _carName: _carNameList) {
+            validateCarNameLength(_carName);
+        }
+    }
+
+    private void checkValidateContainsGapInCarName(List<String> _carNameList) {
+        validateContainsGap(_carNameList);
+    }
+
+    private void checkValidateDuplicateCarName(List<String> _carNameList) {
+        validateDuplicateCarName(_carNameList);
+    }
+
+
+    private void checkValidateNumOfParticipantCar(List<String> _carNameList) {
+        validateNumOfParticipantCar(_carNameList);
+    }
+
 
     private void round() {
         List<RacingCar> racingCarList = racingCarGameModel.getCarList();
@@ -77,13 +114,14 @@ public class RacingCarGameController {
 
         int maxCount = Collections.max(movedList);
 
-        racingCarList.stream().filter(
-                car -> car.getCarMoveCount() == maxCount
-        );
-
         List<String> winnerList = new ArrayList<String>();
 
-        racingCarList.forEach(car -> winnerList.add(car.name));
+        racingCarList.forEach(_car -> {
+            if (_car.getCarMoveCount() == maxCount) {
+                winnerList.add(_car.name);
+            }
+        });
+
         outputView.printWinner(winnerList);
     }
 }
