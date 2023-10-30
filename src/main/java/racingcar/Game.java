@@ -21,4 +21,9 @@ public class Game {
         String[] carsName = PromptHandler.promptInputCarsName();
     }
 
+    private String[] askCarsName() {
+        PromptHandler.promptOutput(GameMessage.ASK_CARS_NAME.getMessage());
+
+        return PromptHandler.promptInputCarsName();
+    }
 }
