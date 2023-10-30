@@ -27,19 +27,39 @@ public class Application {
     public static List<Car> inputCarNames(){
         String s = readLine();
         String[] carNames = s.split(",");
+        if(checkCarNamesError(carNames)){
+            throw new IllegalArgumentException();
+        }
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
         return cars;
     }
+
+    private static boolean checkCarNamesError(String[] carNames) {
+        for (int i = 0; i < carNames.length; i++) {
+            if(carNames[i].length()>5)return true;
+        }
+        return false;
+    }
+
     public static void printQuestionMessage(){
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
     public static int inputNumberOfTimes(){
         String s = readLine();
+        if(checkNumsError(s)){
+            throw new IllegalArgumentException();
+        }
         return Integer.parseInt(s);
+    }
+
+    private static boolean checkNumsError(String s) {
+        int tmp=Integer.parseInt(s);
+        if(tmp<0||tmp>9)return true;
+        return false;
     }
 
     public static int createRandomNumber(){
