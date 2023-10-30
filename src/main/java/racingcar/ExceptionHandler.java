@@ -5,6 +5,10 @@ import java.util.List;
 public class ExceptionHandler {
 
     public void isAttemptException(String attempt) {
+        if(Validation.isEmpty(attempt)){
+            throw new IllegalArgumentException("시도 횟수가 빈 문자열입니다.");
+        }
+
         if (!Validation.isNum(attempt)) {
             throw new IllegalArgumentException("시도 횟수가 숫자가 아닙니다.");
         }
@@ -23,6 +27,10 @@ public class ExceptionHandler {
     }
 
     public void isCarNamePlainTextException(String str) {
+        if(Validation.isEmpty(str)){
+            throw new IllegalArgumentException("자동차 이름이 빈 문자열입니다.");
+        }
+
         if (Validation.isBlank(str)) {
             throw new IllegalArgumentException("자동차 이름이 공백입니다.");
         }
@@ -33,6 +41,12 @@ public class ExceptionHandler {
     }
 
     public void isMembersException(List<String> members) {
+        for(int i = 0; i < members.size(); i++){
+            if(Validation.isEmpty(members.get(i))){
+                throw new IllegalArgumentException("자동차 이름이 빈 문자열입니다.");
+            }
+        }
+
         if (Validation.isBlank(members)) {
             throw new IllegalArgumentException("자동차 이름이 공백입니다.");
         }
