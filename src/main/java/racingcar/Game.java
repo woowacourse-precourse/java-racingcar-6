@@ -41,11 +41,11 @@ public class Game {
 
 	}
 
-	private int setGameCount() {
+	private void setGameCount() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String userInput = readLine();
 
-		return count = this.intValidator(userInput);// 이동할 회수 등록
+		count = this.intValidator(userInput);// 이동할 회수 등록
 	}
 
 	private void forwardOrStop() {
@@ -102,10 +102,10 @@ public class Game {
 	}
 
 	public void processGame() {
-		this.setGameUsers();
-		this.setGameCount();
-		this.forwardOrStop();
-		System.out.print("최종 우승자 : " + this.pickWinner());
+		this.setGameUsers(); // 사용자 등록 
+		this.setGameCount(); // 사용자로 부터 이동할 회수 등록
+		this.forwardOrStop(); // 입력받은 횟수만큼 전진결과 출력 
+		System.out.print("최종 우승자 : " + this.pickWinner()); // 최종 우승자 출력 
 	}
 
 }
