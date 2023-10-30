@@ -19,6 +19,11 @@ public class Computer {
         carNames.replaceAll(String::trim);
     }
 
+    public static int createRoundCount(String userInput) {
+        Validator.checkPositiveNumber(userInput);
+        return Integer.parseInt(userInput);
+    }
+
     public static int calculateMaxDistance(Car car) {
         int maxDistance = 0;
 
@@ -52,8 +57,4 @@ public class Computer {
         System.out.println(winner);
     }
 
-    public static int createRoundCount(String userInput) {
-        Validator.checkPositiveNumber(userInput);
-        return Integer.parseInt(userInput);
-    }
 }
