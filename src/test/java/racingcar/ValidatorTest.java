@@ -60,4 +60,35 @@ public class ValidatorTest {
         assertThatThrownBy(() -> validator.validateCarNames(invalidList))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void validateMovingNumber_자동차이동횟수가_숫자인지_확인() {
+        String input = "1.1";
+
+        assertThatThrownBy(() -> validator.validateMovingNumber(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+    @Test
+    void validateMovingNumber_자동차이동횟수가_1이상인지_확인1() {
+        String input = "-1";
+
+        assertThatThrownBy(() -> validator.validateMovingNumber(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void validateMovingNumber_자동차이동횟수가_1이상인지_확인2() {
+        String input = "1";
+
+        assertThatCode(() -> validator.validateMovingNumber(input))
+                .doesNotThrowAnyException();
+    }
+
+    @Test
+    void validateMovingNumber_자동차이동횟수가_최대20억인지_확인() {
+        String input = "2000000001";
+
+        assertThatThrownBy(() -> validator.validateMovingNumber(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
