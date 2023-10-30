@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.RandomNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,6 +13,6 @@ public class Game {
         InputView.getTryNumber();
 
         OutputView.printShowResultString();
+        RandomNumber.makeRandomNumber();
     }
-
 }
