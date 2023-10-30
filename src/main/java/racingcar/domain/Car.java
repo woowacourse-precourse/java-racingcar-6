@@ -3,8 +3,17 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    String name;
-    int location=0;
+    private String name;
+    private int location;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getLocation() {
+        return location;
+    }
+
     public Car(String name){
         if(name.length()>5)
             throw new IllegalArgumentException();
