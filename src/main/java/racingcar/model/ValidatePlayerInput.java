@@ -13,7 +13,7 @@ public class ValidatePlayerInput {
         }
     }
 
-    public void validateNotContainCarName(String playerInput){
+    public void validateNotContainCarNameAndContinuousComma(String playerInput) {
         String[] splitsPlayerInput = playerInput.split(",", -1);
 
         for (String carName : splitsPlayerInput) {

@@ -32,7 +32,7 @@ class ValidatePlayerInputTest {
         //given
         String playerInput = "pobi,suhwp,,";
         //then
-        assertThatThrownBy(() -> validatePlayerInput.validateNotContainCarName(playerInput))
+        assertThatThrownBy(() -> validatePlayerInput.validateNotContainCarNameAndContinuousComma(playerInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("레이싱 자동차 이름이 없이, 콤마가 연속으로 입력되었습니다");
     }
