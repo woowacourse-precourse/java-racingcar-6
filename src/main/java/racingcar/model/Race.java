@@ -27,7 +27,6 @@ public class Race {
     }
 
     public boolean isRunning() {
-        System.out.println(this.numberOfRace);
         return this.numberOfRace > 0;
     }
 }
