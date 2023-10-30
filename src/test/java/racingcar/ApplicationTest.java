@@ -4,6 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,31 +40,36 @@ class ApplicationTest extends NsTest {
         Application.main(new String[]{});
     }
 
+
+    @Test
+    void inputCarNameSplit() {
+      String inputCarName = "테스트1,테스트2";
+      String[] cars = inputCarName.split(",");
+
+      if(cars.length<2){
+        throw new IllegalArgumentException("이름은 쉼표(,) 기준으로 구분합니다.");
+
+      }
+
+      assertThat(cars.length).isEqualTo(2);
+      assertThat(cars).contains("테스트2", "테스트1");
+      assertThat(cars).containsExactly("테스트1", "테스트2");
+    }
+
+
     @Test
     void inputCarNameValidation() {
-      IllegalArgumentException illegalArgumentException = null;
+
       String input = "테스트1,테스트2,테스트3";
-      String[] cars = input.split(",");
-      assertThat(cars[2]).isEqualTo("테스트3");
+      String[] result = input.split(",");
+      Map<String,Integer> cars = new HashMap<>();
 
-      for (String car: cars) {
+      for (String car: result) {
         if (car.length()>5){
-          illegalArgumentException = new IllegalArgumentException("자동차이름 5자 이하만 가능합니다.");
+          throw new IllegalArgumentException("자동차이름은 5자 이하만 가능합니다.");
         }
+        cars.put(car,0);
       }
-      assertThat(illegalArgumentException).isEqualTo(null);
+      assertThat(cars).hasSize(3);
     }
-
-  @Test
-  void inputCarNameSplit() {
-    String inputCarName = "테스트1,테스트2";
-    String[] cars = inputCarName.split(",");
-    if(cars.length<2){
-      throw new IllegalArgumentException("이름은 쉼표(,) 기준으로 구분합니다.");
-    }
-    assertThat(cars.length).isEqualTo(2);
-    assertThat(cars).contains("테스트2", "테스트1");
-    assertThat(cars).containsExactly("테스트1", "테스트2");
-
-  }
 }
