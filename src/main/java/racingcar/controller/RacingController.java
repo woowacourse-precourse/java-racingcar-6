@@ -35,10 +35,9 @@ public class RacingController {
     public void startRacing(ActionCountDto actionCountDto) {
         outputView.announceGameResult();
         Integer iteration = actionCountDto.getActionCount();
-        while(iteration > 0) {
+        for(int i = 0; i < iteration; i++) {
             racingService.action();
             outputView.writeMovement(racingService.findAllCars());
-            iteration -= 1;
         }
     }
 
