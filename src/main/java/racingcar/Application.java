@@ -26,8 +26,8 @@ public class Application {
     }
 
     private static void addCars(List<Car> carList, String[] carNames) {
-        for (String name : carNames) {
-            carList.add(new Car(name));
+        for (int i = 0; i < carNames.length; i++) {
+            carList.add(new Car(carNames[i], i));
         }
     }
 
@@ -65,5 +65,11 @@ public class Application {
             car.move();
             System.out.println(car.path());
         }
+    }
+
+    private static void printWinners(List<Car> carList) {
+        Collections.sort(carList);
+        System.out.print("최종 우승자 : ");
+        System.out.print(Car.winnerString(carList));
     }
 }
