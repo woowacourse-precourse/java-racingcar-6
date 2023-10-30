@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.StringJoiner;
 import racingcar.model.Car;
 
 public class Result {
@@ -25,26 +26,19 @@ public class Result {
     }
 
     public void printWinner(List<Car> carList){
-        getSortCarList(carList);
         System.out.print("최종 우승자 : ");
-        int maxDistance = carList.get(0).getDistance();
-        System.out.println(carList.get(0).getCarName());
-        for(int i = 1; i < carList.size(); i++){
-            if(maxDistance == carList.get(i).getDistance()){
-                System.out.println(", ");
-                System.out.println(carList.get(i).getCarName());
-            }else{
-                break;
+        int maxDistance = getMaxNumber(carList);
+        StringJoiner winner = new StringJoiner(", ");
+        for(Car car : carList){
+            if(maxDistance == car.getDistance()){
+                winner.add(car.getCarName());
             }
         }
+        System.out.println(winner);
     }
 
-    public void getSortCarList(List<Car> carList){
-        Collections.sort(carList, new Comparator<Car>() {
-            @Override
-            public int compare(Car car1, Car car2) {
-                return Integer.compare(car2.getDistance(), car1.getDistance());
-            }
-        });
+    public int getMaxNumber(List<Car> carList){
+        Car maxDistanceCar = Collections.max(carList, Comparator.comparingInt(Car::getDistance));
+        return maxDistanceCar.getDistance();
     }
 }
