@@ -1,6 +1,10 @@
-package racingcar;
+package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Car;
+import racingcar.model.CarManager;
+import racingcar.model.RacingResult;
+import racingcar.view.RacingGameException;
+import racingcar.view.UserInput;
 
 public class RacingCarGame {
     public void run() {

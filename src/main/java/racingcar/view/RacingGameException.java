@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 public class RacingGameException extends RuntimeException {
     public RacingGameException(String message) {
