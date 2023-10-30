@@ -33,7 +33,7 @@ CommandLineController 객체의 start 메서드를 실행한다.
   - startGame() 자동차 경주 게임을 시작한다.
   - saveRaceRound(String input) 사용자의 입력을 받아 레이스 라운드를 추가한다.
   - printRaceResult() 1회의 레이스 결과를 출력한다.
-  - printLocation() 차들의 위치를 -로 출력한다.
+  - repeatHyphen() 자동차의 위치를 매개변수로 받아 매개변수만큼 하이픈을 반복해 리턴한다.
   - printFinalResult() 레이스의 최종 결과를 출력한다.
 
 ## service Package

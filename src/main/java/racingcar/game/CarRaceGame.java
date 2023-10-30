@@ -28,17 +28,13 @@ public class CarRaceGame implements Game {
 //    private void printResult() {
 //        System.out.println("실행 결과");
 //        List<String> names = service.getCarsName();
-//        List<Integer> locations = service.getCarsLocation();
 //        for (int i = 0; i < names.size(); i++) {
-//            System.out.println();
+//            System.out.println(names.get(i) + " : ");
 //        }
 //    }
 
-    private void printLocation() {
-        List<Integer> locations = service.getCarsLocation();
-        for (int i = 0; i < locations.size(); i++) {
-            System.out.print("-");
-        }
+    private String repeatHyphen(int location) {
+        return "-".repeat(Math.max(0, location));
     }
 
 
