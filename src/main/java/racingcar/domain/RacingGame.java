@@ -19,15 +19,19 @@ public class RacingGame {
     }
 
     public void play() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        messagePrinter.requestPlayTimesMessage();
+
         final int playTimes = validator.playTimes(Console.readLine());
         playRound(cars, playTimes);
-
         Console.close();
+
+        final List<Car> winners = judgeWinners(cars);
+        messagePrinter.winners(winners);
     }
 
     private List<Car> init() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        messagePrinter.initMessage();
+
         final String carNames = Console.readLine();
         validator.carNames(carNames);
         return createCarMembers(carNames);
@@ -42,15 +46,14 @@ public class RacingGame {
     }
 
     private void playRound(final List<Car> cars, final int playTimes) {
-        System.out.println("실행 결과");
+        messagePrinter.roundResultMessage();
+
         for (int i=0; i<playTimes; i++) {
             cars.forEach(car -> car
                     .move(generateRandomNumber()));
             messagePrinter.roundResult(cars);
-            System.out.println();
+            messagePrinter.enterLine();
         }
-        final List<Car> winners = judgeWinners(cars);
-        messagePrinter.winners(winners);
     }
 
     private int generateRandomNumber() {
@@ -64,7 +67,7 @@ public class RacingGame {
                 .toList();
     }
 
-    public static int getMaxPosition(final List<Car> cars) {
+    private int getMaxPosition(final List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
