@@ -18,4 +18,8 @@ public class User {
             CarStorage.addCar(new Car(car));
         }
     }
+    public Integer inputTryCount() {
+        Integer tryCount = Integer.parseInt(readLine());
+        return tryCount;
+    }
 }
