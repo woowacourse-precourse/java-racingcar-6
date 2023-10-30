@@ -15,7 +15,7 @@ public class OutputView {
 
         stringBuilder.append("최종 우승자 : ");
         for (String winnerCarName : winnerCarNameList) {
-            stringBuilder.append(winnerCarName + ", ");
+            stringBuilder.append(winnerCarName).append(", ");
         }
 
         stringBuilder.setLength(stringBuilder.length() - 2);
