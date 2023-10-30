@@ -6,13 +6,17 @@ import view.Input;
 
 public class GameStart {
 
-    public static void start(){
+    public static void start() {
 
         String names = Input.name();
 
         List<String> nameList = InputCheck.name(names);
 
-        String round = Input.round();
+        String roundStr = Input.round();
+
+        int round = InputCheck.round(roundStr);
+
+        System.out.println(round);
 
     }
 }
