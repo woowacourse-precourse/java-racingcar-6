@@ -21,6 +21,7 @@ public class CarController {
     private String inputCarNames() {
         String carNames = InputView.inputCarNames();
         ValidInput.validCarNameLength(carNames);
+        ValidInput.validDistinctCarName(carNames);
         return carNames;
     }
 

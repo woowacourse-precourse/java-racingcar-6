@@ -16,6 +16,13 @@ public class ValidInput {
         }
     }
 
+    public static void validDistinctCarName(String carNames) {
+        List<String> carNameList = Arrays.stream(carNames.split(",")).toList();
+        if (carNameList.stream().distinct().count() != carNameList.stream().count()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void validOnlyNumber(String input) {
         String reg = "^[0-9]*$";
         if (!input.matches(reg)) {
