@@ -15,4 +15,12 @@ public class Converter {
     public static int convertAttempts(String attempts){
         return Integer.parseInt(attempts);
     }
+
+    public static String convertDistance(List<String> distance){
+        StringBuilder convertedDistance = new StringBuilder();
+        for(int i = 0; i <distance.size(); i++){
+            convertedDistance.append(distance.get(i));
+        }
+        return convertedDistance.toString();
+    }
 }

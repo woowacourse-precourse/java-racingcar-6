@@ -14,5 +14,6 @@ public class Application {
         RandomNumber randomNumber = new RandomNumber();
 
         GamePlayer gamePlayer = new GamePlayer(cars, attempts, randomNumber);
+        gamePlayer.play();
     }
 }
