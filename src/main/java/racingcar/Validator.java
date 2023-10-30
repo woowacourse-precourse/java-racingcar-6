@@ -1,12 +1,19 @@
 package racingcar;
 
+import static racingcar.RacingConst.CAR_NAME_SIZE;
+
 public class Validator {
 
-    public Boolean isNumber(String input) {
-        return true;
+    public static Boolean isNotNumber(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            return true;
+        }
+        return false;
     }
 
-    public Boolean isNotCarName(String input) {
-        return true;
+    public static Boolean isNotCarName(String input) {
+        return input.length() > CAR_NAME_SIZE;
     }
 }
