@@ -12,9 +12,9 @@ public class CarInput {
     private static final int MINIMUM_NAME_LIST_SIZE = 2;
     private static final int MAXIMUM_NAME_LENGTH = 5;
     private static final String SEPARATOR = ",";
-    private static final String NAME_LIST_SIZE_ERROR = "플레이어는 2명 이상이여야 합니다.";
-    private static final String NAME_LENGTH_ERROR = "이름의 길이는 0일 수 없고 5보다 길 수 없습니다.";
-    private static final String NAME_DUPLICATED_ERROR = "중복된 이름이 있습니다.";
+    private static final String NAME_LIST_SIZE_ERROR_MESSAGE = "플레이어는 2명 이상이여야 합니다.";
+    private static final String NAME_LENGTH_ERROR_MESSAGE = "이름의 길이는 0일 수 없고 5보다 길 수 없습니다.";
+    private static final String NAME_DUPLICATED_ERROR_MESSAGE = "중복된 이름이 있습니다.";
 
     private final List<String> nameList;
 
@@ -50,7 +50,7 @@ public class CarInput {
      */
     private void validateMinimumSize() {
         if (nameList.size() < MINIMUM_NAME_LIST_SIZE) {
-            throw new IllegalArgumentException(NAME_LIST_SIZE_ERROR);
+            throw new IllegalArgumentException(NAME_LIST_SIZE_ERROR_MESSAGE);
         }
     }
 
@@ -61,7 +61,7 @@ public class CarInput {
         for (String name : nameList) {
             int nameLength = name.length();
             if (nameLength == 0 || nameLength > MAXIMUM_NAME_LENGTH) {
-                throw new IllegalArgumentException(NAME_LENGTH_ERROR);
+                throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE);
             }
         }
     }
@@ -74,7 +74,7 @@ public class CarInput {
                 .distinct()
                 .count();
         if (nameList.size() != count) {
-            throw new IllegalArgumentException(NAME_DUPLICATED_ERROR);
+            throw new IllegalArgumentException(NAME_DUPLICATED_ERROR_MESSAGE);
         }
     }
 
