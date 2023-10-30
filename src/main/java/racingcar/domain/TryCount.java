@@ -24,4 +24,8 @@ public class TryCount {
     public boolean hasRepeat() {
         return tryCount >= ONE;
     }
+
+    public int getTryCount() {
+        return tryCount;
+    }
 }
