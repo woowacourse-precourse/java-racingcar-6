@@ -1,11 +1,11 @@
-package racingcar;
+package racingcar.car;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<String> names) {
         cars = names.stream()
@@ -13,12 +13,7 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    private class Car {
-        private String name;
-        private int count = 0;
-
-        private Car(String name) {
-            this.name = name;
-        }
+    public void tryOnce() {
+        cars.forEach(Car::tryOnce);
     }
 }

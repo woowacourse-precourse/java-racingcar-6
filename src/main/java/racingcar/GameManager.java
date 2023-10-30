@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.car.Cars;
+
 import java.util.List;
 
 public class GameManager {
@@ -18,5 +20,12 @@ public class GameManager {
     public void startGame() {
         List<String> nameList = IOManager.getInstance().readCarNameList();
         Cars cars = new Cars(nameList);
+
+        int tryCount = IOManager.getInstance().readTryCount();
+        for (int i = 0; i < tryCount; i++) {
+            cars.tryOnce();
+        }
+
+
     }
 }
