@@ -11,13 +11,14 @@ public class Application {
         RacingCar[] RacingCars = new RacingCar[racersList.length];
 
         for(int i = 0; i< racersList.length; i++){
-            RacingCar car = new RacingCar(racersList[i],0);
+            RacingCar car = new RacingCar(racersList[i].trim(),0);
+            car.checkNameLength(car.getName());
             RacingCars[i] = car;
         }
 
         System.out.println("시도할 횟수는 몇회인가요?");
         int num = Integer.parseInt(Console.readLine());
-        System.out.print(num);
+
         System.out.println();
         System.out.println("실행 결과");
         for(int i=0; i<num; i++){
@@ -27,5 +28,9 @@ public class Application {
             }
             System.out.println();
         }
+
+        PrintWinner pW = new PrintWinner(RacingCars);
+        System.out.print(pW.winnerListPrint());
+
     }
 }
