@@ -92,6 +92,23 @@ class GameHostTest {
         assertThat(result).isEqualTo(List.of(raceCar_1, raceCar_2));
     }
 
+    @DisplayName("자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다._5 ")
+    @Test
+    void knowWinRaceCarsTest_5() {
+        // given
+        moveRaceCar(raceCar_1);
+        moveRaceCar(raceCar_2);
+        moveRaceCar(raceCar_3);
+        moveRaceCar(raceCar_3);
+        moveRaceCar(raceCar_3);
+
+        // when
+        List<RaceCar> result = gameHost.knowWinRaceCars(progressRaceCarList);
+
+        // than
+        assertThat(result).isEqualTo(List.of(raceCar_3));
+    }
+
     @Test
     void getCntMaxMoveTest() {
     }
