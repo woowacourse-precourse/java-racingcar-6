@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.car;
 
 public class CarMover implements Runnable{
     private final Car car;

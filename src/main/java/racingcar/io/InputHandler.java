@@ -1,10 +1,11 @@
-package racingcar;
+package racingcar.io;
 
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.StringManipulator;
 
-import static racingcar.Constants.*;
+import static racingcar.constant.Constants.*;
 
 public class InputHandler {
     public static List<String> carNames() {

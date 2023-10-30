@@ -1,4 +1,10 @@
-package racingcar;
+package racingcar.game;
+
+import racingcar.car.Car;
+import racingcar.car.CarFactory;
+import racingcar.car.ThreadManager;
+import racingcar.io.InputHandler;
+import racingcar.io.PrintHandler;
 
 import java.util.List;
 

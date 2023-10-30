@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.car;
 
-import static racingcar.Constants.DISTANCE;
+import static racingcar.constant.Constants.DISTANCE;
 
 public class Car {
     private String name;

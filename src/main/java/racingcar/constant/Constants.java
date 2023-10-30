@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public class Constants {
     public static final int DISTANCE = 1;
