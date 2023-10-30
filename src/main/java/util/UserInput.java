@@ -11,7 +11,7 @@ public class UserInput {
         return numValidation(userInput);
     }
 
-    public static int numValidation(String target) throws IllegalArgumentException{
+    private static int numValidation(String target) throws IllegalArgumentException{
         try {
             return Integer.parseInt(target);
         } catch (Exception e) {
@@ -24,7 +24,7 @@ public class UserInput {
         return carNamesSplitValidation(userInput);
     }
 
-    public static String[] carNamesSplitValidation(String target) throws IllegalArgumentException{
+    private static String[] carNamesSplitValidation(String target) throws IllegalArgumentException{
         try {
             return target.split(",");
         } catch (Exception e) {
