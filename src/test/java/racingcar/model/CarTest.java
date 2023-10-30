@@ -10,7 +10,7 @@ class CarTest {
     private final Car car = new Car();
 
     @Test
-    public void 이름_입력시_양쪽_공백은_문자_길이에_미포함(){
+    public void 이름_입력시_양쪽_공백은_문자_길이에_미포함() {
         //given
         String input = " JiHun ";
 

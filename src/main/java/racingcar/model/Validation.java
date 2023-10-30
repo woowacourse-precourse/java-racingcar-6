@@ -33,11 +33,11 @@ public class Validation {
         try {
             result = Integer.parseInt(count);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("정수만 입력 가능합니다.");
+            throw new IllegalArgumentException("회수는 정수만 입력 가능합니다.");
         }
 
         if(result<=0){
-            throw new IllegalArgumentException("양의 정수만 입력 가능합니다.");
+            throw new IllegalArgumentException("회수는 양의 정수만 입력 가능합니다.");
         }
     }
 }
