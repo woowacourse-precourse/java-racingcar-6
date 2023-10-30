@@ -11,14 +11,14 @@ public class InputView {
     public InputView() {
     }
 
-    public String carNames() {
+    public String getAllCarNames() {
         String input = Console.readLine();
         validateNotBlank(input);
         validateNotEndsWithComma(input);
         return input;
     }
 
-    public int askForNumberOfRuns() {
+    public int getNumberOfRounds() {
         String input = Console.readLine();
         int number = convertInt(input);
         return number;

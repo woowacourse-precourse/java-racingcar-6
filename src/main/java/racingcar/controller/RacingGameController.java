@@ -15,11 +15,11 @@ public class RacingGameController {
     }
 
     public void start() {
-        output.askForName();
-        String allCarNames = input.carNames();
+        output.askForAllCarNames();
+        String allCarNames = input.getAllCarNames();
         CarList cars = new CarList(allCarNames);
         output.askForNumberOfRuns();
-        int numberOfRuns = input.askForNumberOfRuns();
+        int numberOfRounds = input.getNumberOfRounds();
 
     }
 }
