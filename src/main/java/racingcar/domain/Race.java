@@ -16,7 +16,7 @@ public class Race {
 
     public void run() {
         car = new Car(inputView.inputCarName());
-        int playCount = toInt(inputView.inputPlayCount());
+        int playCount = NumberGenerator.toInt(inputView.inputPlayCount());
 
         System.out.println();
         System.out.println("실행 결과");
@@ -40,9 +40,5 @@ public class Race {
         }
         Map<String, Integer> cars = car.getCars();
         outputView.winner(Winner.winnerList(cars, Winner.maxForward(cars)));
-    }
-
-    private int toInt(String inputPlayCount) {
-        return Integer.parseInt(inputPlayCount);
     }
 }

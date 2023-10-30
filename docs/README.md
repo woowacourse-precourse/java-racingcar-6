@@ -12,6 +12,7 @@
     - [x] 자동차 이름은 5자 이하만 가능하다. - Car#validateNameLength()
 - [x] 전진하는 자동차를 출력할 때 자동차 이름을 같이 출력한다.
 - [x] 시도 횟수를 입력할 수 있다.
+  - [x] 시도 횟수 입력은 숫자만 가능하다. NumberGenerator#toInt()
 - [x] 전진을 가장 많이 한 자동차의 최대값을 구한다. - Winner#maxForward()
 - [x] 전진을 가장 많이 한 자동차의 최대값에 해당하는 이름 목록을 구한다. - Winner#winnerList()
   - [x] 우승자는 한 명 이상일 수 있다.

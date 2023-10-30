@@ -1,11 +1,12 @@
 package study;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class StringTest {
 
@@ -61,5 +62,11 @@ public class StringTest {
 
         assertThat(result1).isEqualTo(str);
         assertThat(result2).isEqualTo("poni");
+    }
+
+    @ParameterizedTest
+    @CsvSource({"5", "10", "100"})
+    void validateNumber_숫자인지_확인(String input) {
+        assertThat(Integer.parseInt(input)).isInstanceOf(Number.class);
     }
 }
