@@ -39,7 +39,7 @@ public class CarRaceGameView {
 
     }
 
-    public static void LineBreakView() {
+    public static void newRoundRefreshView() {
         System.out.println(NULL);
     }
 

@@ -26,10 +26,10 @@ public class CarRaceGameUtility {
 
     private static void startCarRaceGameOneRound() {
         for (Car car : GameManager.getCarImplList()) {
-            tryForward(car);
+            decideToMove(car);
             CarRaceGameView.tryForwardResultView(car.getCarName(), car.getAdvanceNumber());
         }
-        CarRaceGameView.LineBreakView();
+        CarRaceGameView.newRoundRefreshView();
     }
 
     private static int randomNumberGenerator() {
@@ -37,13 +37,13 @@ public class CarRaceGameUtility {
         return randomNumber;
     }
 
-    private static void tryForward(Car car) {
+    private static void decideToMove(Car car) {
         if (4 >= randomNumberGenerator()) {
-            car.setAdvanceNumber(car.getAdvanceNumber() + 1);
+            car.forwardOneBlock();
         }
     }
 
-    private static List<String> findWinner(List<Car> carImplList) {
+    public static List<String> findWinner(List<Car> carImplList) {
         int max = 0;
         List<String> winnerList = new ArrayList<String>();
         for (Car car : carImplList) {
@@ -61,3 +61,4 @@ public class CarRaceGameUtility {
         return winnerList;
     }
 }
+

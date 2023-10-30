@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import java.util.HashMap;
-
 public class Car {
     private final String carName;
     private int advanceNumber;
@@ -19,7 +17,8 @@ public class Car {
         return advanceNumber;
     }
 
-    public void setAdvanceNumber(int advanceNumber) {
-        this.advanceNumber = advanceNumber;
+    public void forwardOneBlock() {
+        this.advanceNumber++;
     }
 }
+
