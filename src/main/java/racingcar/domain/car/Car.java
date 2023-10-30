@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
 /**
- * 자동차의 핵심 로직을 정의한 인터페이스입니다.
+ * 자동차 경주에 참여하는 자동차의 핵심 로직을 정의한 인터페이스입니다.
  */
 public interface Car {
         /**

@@ -23,7 +23,7 @@ public class RaceProgressLogger {
     /**
      * 주어진 차량들의 주행 거리 로그 리스트를 반환합니다.
      *
-     * @param carList
+     * @param carList 자동차 리스트
      * @return 주행 거리 로그 리스트
      */
     private static Stream<String> logIntermediateResult(List<Car> carList) {
@@ -33,7 +33,7 @@ public class RaceProgressLogger {
     /**
      * 콘솔에 표시할 차량의 주행 정보 문자열을 반환합니다.
      *
-     * @param car
+     * @param car 자동차
      * @return 주행 거리 로그
      */
     private static String formatCarProgress(Car car) {
@@ -47,7 +47,7 @@ public class RaceProgressLogger {
      * `-` 는 1 거리를 의미합니다.
      * ex) ----- : 5 만큼의 거리를 간 것입니다.
      *
-     * @param length
+     * @param length 주핼 거리
      * @return 주행 거리 상태바
      */
     private static String progressBar(long length) {

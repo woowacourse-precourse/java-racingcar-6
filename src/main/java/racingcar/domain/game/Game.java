@@ -1,7 +1,7 @@
 package racingcar.domain.game;
 
 /**
- * 게임의 핵심 로직을 정의한 인터페이스입니다.
+ * 자동차 경주 게임의 핵심 로직을 정의한 인터페이스입니다.
  */
 public interface Game {
         /**
