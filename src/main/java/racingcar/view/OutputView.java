@@ -7,7 +7,7 @@ public class OutputView {
         System.out.println(OutputProperty.RACE_START);
     }
 
-    public static void outputForRaceTargetScore(){
-        System.out.println(OutputProperty.RACE_TARGET_SCORE);
+    public static void outputForRaceCount(){
+        System.out.println(OutputProperty.RACE_COUNT);
     }
 }

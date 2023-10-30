@@ -2,10 +2,9 @@ package racingcar;
 
 import racingcar.core.generate.GenerateRacer;
 import racingcar.entity.Racer;
-import racingcar.entity.TargetScore;
+import racingcar.entity.RaceCount;
 import racingcar.property.ValidateType;
 import racingcar.tool.InputTool;
-import racingcar.validation.ValidateForm;
 import racingcar.view.OutputView;
 
 import java.util.Arrays;
@@ -21,10 +20,10 @@ public class Application {
 
     private static void raceBefore(){
         List<String> racerNameList = racerNameForm();
-        TargetScore targetScore = targetScoreForm();
+        RaceCount raceCount = raceCountForm();
     }
 
-    private static void race(List<String> racerNameList,TargetScore targetScore){
+    private static void race(List<String> racerNameList, RaceCount raceCount){
 
     }
 
@@ -36,10 +35,10 @@ public class Application {
         return racerNameList;
     }
 
-    private static TargetScore targetScoreForm(){
-        OutputView.outputForRaceTargetScore();
-        String targetScoreInput = InputTool.readLineByConsole();
-        return new TargetScore(validateTargetScore(targetScoreInput));
+    private static RaceCount raceCountForm(){
+        OutputView.outputForRaceCount();
+        String raceCountInput = InputTool.readLineByConsole();
+        return new RaceCount(validateRaceCount(raceCountInput));
     }
 
     private static void validateRacerNameList(String racerNameList){
@@ -54,8 +53,8 @@ public class Application {
                 );
     }
 
-    private static int validateTargetScore(String targetScore){
-        validateForValidateType(ValidateType.SCORE,targetScore);
-        return Integer.parseInt(targetScore);
+    private static int validateRaceCount(String raceCount){
+        validateForValidateType(ValidateType.COUNT,raceCount);
+        return Integer.parseInt(raceCount);
     }
 }

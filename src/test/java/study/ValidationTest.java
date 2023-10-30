@@ -7,7 +7,7 @@ import racingcar.property.ErrorProperty;
 import racingcar.property.ValidateProperty;
 import racingcar.validation.InputValidation;
 import racingcar.validation.NameValidation;
-import racingcar.validation.ScoreValidation;
+import racingcar.validation.CountValidation;
 
 import java.math.BigInteger;
 
@@ -83,7 +83,7 @@ public class ValidationTest {
 
         //when
         assertThatThrownBy(()->{
-            ScoreValidation.verifyForScoreIsNumericValue(target);
+            CountValidation.verifyForRaceCountIsNumericValue(target);
         }
             ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.SCORE_VALUE_IS_NOT_NUMERIC);
@@ -98,7 +98,7 @@ public class ValidationTest {
 
         //when
         assertThatThrownBy(()->{
-                    ScoreValidation.verifyForScoreIsOverStandard(target);
+                    CountValidation.verifyForRaceCountIsOverStandard(target);
                 }
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorProperty.SCORE_VALUE_IS_OVER_STANDARD);
