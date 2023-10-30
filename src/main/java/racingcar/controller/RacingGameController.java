@@ -10,14 +10,15 @@ import racingcar.model.Model;
 import racingcar.model.Rank;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import racingcar.view.View;
 
 public class RacingGameController implements Controller {
     private final InputView inputView;
     private final OutputView outputView;
 
-    RacingGameController(final InputView inputView, final OutputView outputView) {
-        this.inputView = inputView;
-        this.outputView = outputView;
+    RacingGameController(final View inputView, final View outputView) {
+        this.inputView = (InputView) inputView;
+        this.outputView = (OutputView) outputView;
     }
 
     public void gameStart() {
