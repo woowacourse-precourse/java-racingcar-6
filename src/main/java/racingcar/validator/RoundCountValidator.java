@@ -1,15 +1,15 @@
 package racingcar.validator;
 
-import static racingcar.constant.Constant.MAX_INT_VALUE;
-import static racingcar.constant.Constant.MIN_INT_VALUE;
-
 public class RoundCountValidator {
+
+    private static final int ROUND_COUNT_MAX_INT_VALUE = 2_147_483_647; // RoundCount 최대 개수
+    private static final int ROUND_COUNT_MIN_INT_VALUE = 1; // RoundCount 최소 개수
 
     private static final String ERROR = "[ERROR] ";
     private static final String ERROR_BLANK = ERROR + "공백을 허용하지 않습니다.";
-    private static final String ERROR_NON_NUMERIC = ERROR + "숫자를 입력해 주세요." + "입력 값은 1부터 "  + MAX_INT_VALUE + "까지 입니다.";
+    private static final String ERROR_NON_NUMERIC = ERROR + "숫자를 입력해 주세요." + "입력 값은 1부터 "  + ROUND_COUNT_MAX_INT_VALUE + "까지 입니다.";
     private static final String ERROR_NON_ZERO = ERROR + "1 이상인 양수를 입력해 주세요.";
-    private static final String ERROR_INT_OVERFLOW = ERROR + "입력 값은 최대 " + MAX_INT_VALUE + "입니다.";
+    private static final String ERROR_INT_OVERFLOW = ERROR + "입력 값은 최대 " + ROUND_COUNT_MAX_INT_VALUE + "입니다.";
 
     private RoundCountValidator() {}
 
@@ -36,14 +36,14 @@ public class RoundCountValidator {
 
     private static void validatePositiveNumber(final String input) {
         int number = Integer.parseInt(input);
-        if (number < MIN_INT_VALUE) {
+        if (number < ROUND_COUNT_MIN_INT_VALUE) {
             throw new IllegalArgumentException(ERROR_NON_ZERO);
         }
     }
 
     private static void validateIntegerOverflowException(final String input) {
         long number = Long.parseLong(input);
-        if (number > MAX_INT_VALUE || number < MIN_INT_VALUE) {
+        if (number > ROUND_COUNT_MAX_INT_VALUE || number < ROUND_COUNT_MIN_INT_VALUE) {
             throw new IllegalArgumentException(ERROR_INT_OVERFLOW);
         }
     }

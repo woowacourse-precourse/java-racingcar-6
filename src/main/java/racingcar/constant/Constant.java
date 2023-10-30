@@ -4,8 +4,6 @@ public interface Constant {
 
     String SPACE = " ";
     String LINE = "\n";
-    int MAX_INT_VALUE = 2_147_483_647; // RoundCount 최대 개수
-    int MIN_INT_VALUE = 1; // RoundCount 최소 개수
 
     /**
      * 자동차 이름을 구분하는 주요 구분자이다.
