@@ -15,6 +15,7 @@ public class Cars {
         String[] result = carsName.split(",");
 
         return Arrays.stream(result)
+                .filter(carName -> !carName.isEmpty())
                 .map(Car::new)
                 .toList();
     }
