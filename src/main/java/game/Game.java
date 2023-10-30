@@ -127,4 +127,16 @@ public class Game {
         return winnerList;
     }
 
+    // 우승자 출력하기
+    public void printWinner(List<String> winnerList){
+        System.out.print("최종 우승자 : ");
+        for(int i = 0; i < winnerList.size(); i++){
+            if(i < winnerList.size() - 1){
+                System.out.printf("%s, ", winnerList.get(i));
+            }else{
+                System.out.print(winnerList.get(i));
+            }
+        }
+    }
+
 }
