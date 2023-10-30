@@ -8,13 +8,6 @@ public class Application {
         return Arrays.stream(carNames.split(",")).toList();
     }
 
-    public void outputCarStepDistance(String carName, int stepDistance) {
-        System.out.print(carName + " : ");
-        for (int i = 0; i < stepDistance; i++) {
-            System.out.print("-");
-        }
-    }
-
     public static void main(String[] args) {
 
     }
