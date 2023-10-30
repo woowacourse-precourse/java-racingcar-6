@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import racingcar.model.Car;
@@ -19,8 +20,14 @@ public class Output {
 		System.out.println();
 	}
 	
-	public void winner(String winners) {
+	public void winner(List<Car> winnerCars) {
+		
+		List<String> carName = new LinkedList<String>();
+		for(Car car : winnerCars) {
+			carName.add(car.getName());
+		}
+		
 		System.out.print(WINNER_MESSAGE + " : ");
-		System.out.print(winners);
+		System.out.print(String.join(", ", carName));
 	}
 }
