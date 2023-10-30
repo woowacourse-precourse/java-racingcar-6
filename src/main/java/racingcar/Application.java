@@ -20,5 +20,7 @@ public class Application {
             referee.showCarsStatus();
         }
 
+        referee.showWinners();
+
     }
 }
