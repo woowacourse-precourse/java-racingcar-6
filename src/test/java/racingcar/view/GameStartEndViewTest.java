@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.OutputTestSupport;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.RaceCars;
+import racingcar.dto.WinnerCarDto;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ class GameStartEndViewTest extends OutputTestSupport {
         String name = "haen";
         RaceCars raceCars = new RaceCars(List.of(new Car(name)));
         // when
-        gameStartEndView.printWinningCarNames(raceCars);
+        gameStartEndView.printWinningCarNames(new WinnerCarDto(raceCars.getWinningCarNames()));
         // then
         assertThat(outputWithoutTrim()).isEqualTo("최종 우승자 : " + name);
     }

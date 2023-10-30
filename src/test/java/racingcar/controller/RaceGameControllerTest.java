@@ -9,6 +9,7 @@ import racingcar.OutputTestSupport;
 import racingcar.dto.RaceGameInfoDto;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.RaceCars;
+import racingcar.dto.WinnerCarDto;
 import racingcar.util.Randoms;
 
 import java.io.ByteArrayInputStream;
@@ -72,7 +73,7 @@ class RaceGameControllerTest extends OutputTestSupport {
         String result = "최종 우승자 : haen";
         RaceCars raceCars = new RaceCars(List.of(new Car("haen")));
         // when
-        raceGameController.printWinningCarNames(raceCars);
+        raceGameController.printWinningCarNames(new WinnerCarDto(raceCars.getWinningCarNames()));
         // then
         assertThat(getOutput()).isEqualTo(result);
     }

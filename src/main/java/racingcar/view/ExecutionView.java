@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.domain.car.Car;
+import racingcar.dto.PrintCarDetailsDto;
 
 import static racingcar.constants.GameMessage.EXECUTION_START_MESSAGE;
 
@@ -14,8 +14,8 @@ public class ExecutionView {
         System.out.println(EXECUTION_START_MESSAGE.getMessage());
     }
 
-    public void printExecutionMessage(Car car) {
-        System.out.println(getExecutionMessage(car.getName(), car.getMoveCount()));
+    public void printExecutionMessage(PrintCarDetailsDto carDetailsDTO) {
+        System.out.println(getExecutionMessage(carDetailsDTO.getName(), carDetailsDTO.getMoveCount()));
     }
 
     private String getExecutionMessage(String name, int moveCount) {

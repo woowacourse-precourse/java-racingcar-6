@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.OutputTestSupport;
 import racingcar.domain.car.Car;
+import racingcar.dto.PrintCarDetailsDto;
 
 import static org.assertj.core.api.Assertions.*;
 import static racingcar.constants.GameMessage.EXECUTION_START_MESSAGE;
@@ -28,7 +29,7 @@ class ExecutionViewTest extends OutputTestSupport {
         Car car = new Car("myCar");
         car.controlMovement(4); // 전진 1회
         // when
-        executionView.printExecutionMessage(car);
+        executionView.printExecutionMessage(new PrintCarDetailsDto(car));
         // then
         assertThat(outputWithoutTrim()).isEqualTo("myCar : -");
     }

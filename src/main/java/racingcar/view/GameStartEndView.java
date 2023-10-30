@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.domain.car.RaceCars;
+import racingcar.dto.WinnerCarDto;
 
 import static racingcar.constants.GameMessage.ATTEMPT_COUNT_MESSAGE;
 import static racingcar.constants.GameMessage.CAR_NAME_MESSAGE;
@@ -18,8 +18,8 @@ public class GameStartEndView {
         System.out.println(ATTEMPT_COUNT_MESSAGE.getMessage());
     }
 
-    public void printWinningCarNames(RaceCars raceCars) {
-        System.out.print(String.format(WINNING_CAR_NAMES_MESSAGE_FORMAT, raceCars.getWinningCarNames()));
+    public void printWinningCarNames(WinnerCarDto winnerCarDTO) {
+        System.out.print(String.format(WINNING_CAR_NAMES_MESSAGE_FORMAT, winnerCarDTO.getWinnerCarNames()));
     }
 
 }

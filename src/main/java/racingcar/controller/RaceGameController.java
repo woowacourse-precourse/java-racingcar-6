@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.RaceCars;
 import racingcar.dto.RaceGameInfoDto;
+import racingcar.dto.WinnerCarDto;
 import racingcar.util.Console;
 import racingcar.service.RaceGameService;
 import racingcar.view.GameStartEndView;
@@ -36,12 +37,12 @@ public class RaceGameController {
         return Console.requestMovementAttemptCount();
     }
 
-    public RaceCars run(RaceGameInfoDto raceGameInfoDto) {
+    public WinnerCarDto run(RaceGameInfoDto raceGameInfoDto) {
         return raceGameService.run(raceGameInfoDto);
     }
 
-    public void printWinningCarNames(RaceCars raceCars) {
-        gameStartEndView.printWinningCarNames(raceCars);
+    public void printWinningCarNames(WinnerCarDto winnerCarDTO) {
+        gameStartEndView.printWinningCarNames(winnerCarDTO);
     }
 
 }
