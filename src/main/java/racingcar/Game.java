@@ -12,7 +12,7 @@ public class Game {
     public void setForwordOrStay(User playUser) {
         Car[] carList = playUser.getCarList();
         for (int i = 0; i < carList.length; i++) {
-            if (setRandNum() >= 4) {
+            if (setRandNum() >= Config.FORWARD_RANGE_NUM) {
                 carList[i].addForwardCount();
             }
         }
@@ -24,14 +24,14 @@ public class Game {
 
     public void compareWinner(User playUser) {
         Car[] carList = playUser.getCarList();
-        int max_num = 0;
+        int maximumCompareValue = 0;
         for (Car eachCar : carList) {
-            if (eachCar.getForwardCount() > max_num) {
+            if (eachCar.getForwardCount() > maximumCompareValue) {
                 winnerList.clear();
                 winnerList.add(eachCar.getCarName());
-                max_num = eachCar.getForwardCount();
+                maximumCompareValue = eachCar.getForwardCount();
             }
-            else if(eachCar.getForwardCount() == max_num){
+            else if(eachCar.getForwardCount() == maximumCompareValue){
                 winnerList.add(eachCar.getCarName());
             }
         }
@@ -39,7 +39,7 @@ public class Game {
     }
 
     public int setRandNum() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        int randomNumber = Randoms.pickNumberInRange(Config.MIN_VALUE, Config.MAX_VALUE);
         return randomNumber;
     }
 }
