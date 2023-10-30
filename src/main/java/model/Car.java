@@ -18,6 +18,7 @@ public class Car {
     private static final int MOVING_DISTANCE = 1;
     private static final int STANDARD_VALUE = 4;
     private static final int MAX_LENGTH = 5;
+    private static final int MIN_LENGTH = 1;
     private static final int INIT_POSITION = 0;
 
     private String name;
@@ -49,7 +50,7 @@ public class Car {
     }
 
     private void validateLength(String name) {
-        if (name.length() > MAX_LENGTH) {
+        if (name.length() > MAX_LENGTH || name.length() < MIN_LENGTH) {
             throw new IllegalArgumentException(ErrorMessages.LONG_NAME);
         }
     }

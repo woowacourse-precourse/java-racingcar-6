@@ -4,6 +4,8 @@ import model.Car;
 import model.Cars;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -20,6 +22,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
  * 2023-10-30        qkrtn_ulqpbq2       최초 생성
  */
 public class CarTest {
+
+    @Test
+    @DisplayName("자동차 정상 생성")
+    public void success() {
+        Car car = new Car("test");
+        assertThat(car).isNotNull();
+    }
 
     @Test
     @DisplayName("자동차 이름이 5자보다 클 경우 예외 발생")
@@ -59,5 +68,12 @@ public class CarTest {
         Car car = new Car("test");
         car.goOrStop(random);
         assertThat(car.getPosition()).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", "1231456"})
+    @DisplayName("Name 생성 실패")
+    public void failed(String string) {
+        assertThatThrownBy(() -> new Car(string)).isInstanceOf(IllegalArgumentException.class);
     }
 }
