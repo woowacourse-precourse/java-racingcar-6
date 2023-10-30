@@ -4,6 +4,8 @@ import racingcar.util.NumberGenerator;
 
 public class Car {
 
+    private static final int MIN_MOVE_STANDARD = 4;
+
     private final Name name;
     private final Position position;
 
@@ -20,7 +22,13 @@ public class Car {
 
     public void move(final NumberGenerator generator) {
         int number = generator.generate();
-        position.move(number);
+        if (canMove(number)) {
+            position.move();
+        }
+    }
+
+    private boolean canMove(int number) {
+        return number >= MIN_MOVE_STANDARD;
     }
 
     public String getName() {

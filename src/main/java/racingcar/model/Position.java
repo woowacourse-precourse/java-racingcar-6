@@ -4,7 +4,6 @@ import java.util.Objects;
 
 public class Position {
 
-    private static final int MIN_MOVE_STANDARD = 4;
     private static final int INITIAL_POSITION = 0;
 
     private int position;
@@ -17,14 +16,8 @@ public class Position {
         return new Position(INITIAL_POSITION);
     }
 
-    public void move(final int number) {
-        if (canMove(number)) {
-            position++;
-        }
-    }
-
-    private boolean canMove(final int number) {
-        return number >= MIN_MOVE_STANDARD;
+    public void move() {
+        position++;
     }
 
     @Override
