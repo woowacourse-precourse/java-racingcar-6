@@ -36,7 +36,7 @@ public class Car {
         if(name.length()>MAX_NAME_SIZE){
             throw new IllegalArgumentException("자동차의 이름은 5자 이하만 가능합니다.");
         }
-        if(name.length()==0){
+        if(name.isEmpty()){
             throw new IllegalArgumentException("자동차의 이름은 최소 1자 이상 입력해야 합니다.");
         }
     }

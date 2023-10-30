@@ -7,6 +7,7 @@ import java.util.List;
 public class User {
 
     private static final int MAX_NAME_SIZE=5;
+    private static final int MIN_CAR_NUMBER=2;
 
     public List<Car> nameForCar(String names) {
         List<String> carsName=separateNames(names);
@@ -25,8 +26,15 @@ public class User {
 
     public List<String> separateNames(String names) {
         String[] temp = names.split(",");
+        validateGame(temp);
         List<String> cars = new ArrayList<>(Arrays.asList(temp));
         return cars;
+    }
+
+    public void validateGame(String[] cars){
+        if(cars.length<MIN_CAR_NUMBER){
+            throw new IllegalArgumentException("게임을 진행하기 위한 자동차의 개수는 최소 2대 입니다.");
+        }
     }
 
 
