@@ -26,4 +26,10 @@ public class RacingCarInputTest {
         assertThat(result3).contains("", "b", "a");
         assertThat(result3).containsExactly("", "a", "b");
     }
+
+    @Test
+    void 무작위_랜덤숫자_생성() {
+        int result = PickNum.pickNum();
+        assertThat(result).isBetween(0, 9);
+    }
 }
