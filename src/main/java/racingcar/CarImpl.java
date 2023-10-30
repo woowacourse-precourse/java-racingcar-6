@@ -7,8 +7,8 @@ public class CarImpl implements Car {
     private int location = 0;
 
     @Override
-    public void goOrStop() {
-        randNumber = pickNumberInRange(1, 9);
+    public void goOrStop(int min, int max) {
+        randNumber = pickNumberInRange(min, max);
         if (randNumber >= 4){
             writeLocation();
         }
