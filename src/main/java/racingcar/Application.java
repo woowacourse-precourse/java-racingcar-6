@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.broadcast.Broadcast;
 import racingcar.domain.regulation.Regulation;
 import racingcar.domain.script.Script;
@@ -12,7 +13,7 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         Script.REGISTER.print();
-        HashMap<String, Integer> lineUp = registering();
+        HashMap<String, Integer> lineUp = registering(Console.readLine().split(","));
         // hi,my,name,is,hello,world
 
         Script.LAPS.print();
