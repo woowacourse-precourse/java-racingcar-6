@@ -14,9 +14,7 @@ public class ServerTest {
     }
     @Test
     void 해당_경주에_참여하는_레이서_명단을_접수한다(){
-
-        System.setIn(new ByteArrayInputStream("pobi,woni".getBytes()));
-        server.confirmRacerList();
+        server.confirmRacerList("pobi,woni");
         Assertions.assertEquals(2,server.getRacerList().size());
     }
 }

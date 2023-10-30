@@ -6,16 +6,20 @@ import java.util.List;
 
 public class Server {
     private List<Racer> racerList ;
-    private Player player;
     private Validator validator;
     Server(){
-        player = new Player();
         racerList = new ArrayList<>();
         validator = new Validator();
     }
 
-    public void confirmRacerList(){
+    public void confirmRacerList(String racerListString){
+        validator.validateUserInputIsCorrectFormat(racerListString);
+        List<String> racerNameList = Arrays.asList(racerListString.split(","));
+        for ( String racerName : racerNameList){
+            racerList.add(new Racer(racerName));
+        }
     }
+
     public List<Racer> getRacerList(){ return racerList; }
 
 }
