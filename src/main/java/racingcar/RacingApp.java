@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class RacingApp {
@@ -25,6 +24,7 @@ public class RacingApp {
             racingCarList.printRacingCarsCurrentStatus();
         }
     }
+
     private void printRacingResult() {
         int maxForward = racingCarList.getMaxForward();
         List<String> winnerList = racingCarList.getWinnerList(maxForward);
@@ -48,7 +48,7 @@ public class RacingApp {
     }
 
     private void throwExceptionIfCountLessThanZero() {
-        if (this.executeCount < 0){
+        if (this.executeCount < 0) {
             throw new IllegalArgumentException();
         }
     }
