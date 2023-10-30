@@ -17,7 +17,7 @@ public class Application {
     public static void Run(List<String> Car_Names, Integer Try_Numb) {
     	
     }
-    
+    //[입력값]
     //차량 이름//
     public static String[] Car_Names() {
     	System.out.println("경주할 자동차 이름을 입력하세요.(이름은(,쉼표) 기준으로 구분.");
@@ -29,15 +29,14 @@ public class Application {
     	for (int i = 0 ; i < Car_Names.length; i++) {
     		//System.out.println(Car_Names.length);
     		//System.out.println(Car_Names[i]);
-    		//System.out.println(Car_Names[i].length());
+    		//System.out.println(Car_Names[i].lesngth());
     		if(Car_Names[i].length()>=5) {
     			throw new IllegalArgumentException("자동차 이름이 5자 이상입니다.");
     		}
     	}
     
     }
-    
-    
+        
     //시도 횟수//
     public static Integer Try_Numb() {
     	System.out.println("시도할 회수는 몇회인가요?");
@@ -47,4 +46,10 @@ public class Application {
     }
     
     
+    //[랜덤값]
+    public static Integer Car_Race() {
+    	Integer Race_numb = Randoms.pickNumberInRange(1, 9);
+    	//System.out.print(Try_numb);
+    	return Race_numb;
+    }
 }
