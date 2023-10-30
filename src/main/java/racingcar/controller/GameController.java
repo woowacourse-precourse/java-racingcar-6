@@ -32,10 +32,14 @@ public class GameController {
     }
 
     public void roundResult(int rounds, List<Car> cars){
-        System.out.println(OutputMessage.ROUND_RESULT);
+        printMessage(OutputMessage.ROUND_RESULT);
         for (int i = 0; i < rounds; i++) {
             racingGame.saveRoundResult(cars);
             outputView.round(cars);
         }
+    }
+
+    public void printMessage(String text){
+        System.out.println(text);
     }
 }

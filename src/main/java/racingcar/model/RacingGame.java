@@ -15,9 +15,10 @@ public class RacingGame {
     }
 
     public void saveRoundResult(List<Car> cars) {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
         for (int i = 0; i < cars.size(); i++) {
-                int randomNumber = Randoms.pickNumberInRange(0, 9);
-                if (randomNumber >= 4) cars.get(i).setPosition(cars.get(i).getPosition() + 1);
+                if (randomNumber >= 4)
+                    cars.get(i).setPosition(cars.get(i).getPosition() + 1);
             }
     }
 
