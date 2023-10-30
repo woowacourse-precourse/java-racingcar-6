@@ -7,18 +7,11 @@ public class NumberOfRoundsInputValidator implements BasicValidator<String> {
         isInputEmpty(userInput);
         isInputInteger(userInput);
         isInputPositive(userInput);
-        isInputNumeric(userInput);
     }
 
     private void isInputEmpty(String userInput) {
         if (userInput.isEmpty()) {
             throw new IllegalArgumentException("입력값이 없습니다.");
-        }
-    }
-
-    private void isInputNumeric(String userInput) {
-        if (!userInput.matches("^[0-9]*$")) {
-            throw new IllegalArgumentException("입력값이 숫자가 아닙니다.");
         }
     }
 
