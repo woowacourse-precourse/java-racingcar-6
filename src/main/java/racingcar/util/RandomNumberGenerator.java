@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.util;
 
 public class RandomNumberGenerator {
-    private int number;
+    private static int number;
 
-    int getNumber() {
+    public static int getNumber() {
         number = camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(0, 9);
 
         return number;
