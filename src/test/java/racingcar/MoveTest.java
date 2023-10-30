@@ -37,6 +37,25 @@ public class MoveTest {
         assertThat(car.movedDistances).isEqualTo(Arrays.asList("-", "-", "-"));
     }
 
+    @Test
+    void 랜덤_값_0이상_3이하_시_스톱() {
+
+        // given
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+
+        // moveRandomly()
+        for (int i = 0; i < car.movedDistances.size(); i++) {
+
+            if (Randoms.pickNumberInRange(0, 3) >= 4) {
+                car.movedDistances.set(i, car.movedDistances.get(i) + "-");
+            }
+
+        }
+
+        // then
+        assertThat(car.movedDistances).isEqualTo(Arrays.asList("", "", ""));
+    }
+
 }
 
 
