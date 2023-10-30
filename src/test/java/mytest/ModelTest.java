@@ -18,6 +18,7 @@ public class ModelTest {
         testList.add(4);
         LinkedHashMap<String, StringBuilder> testMap= new LinkedHashMap<String, StringBuilder>();
         testMap.put("pobi",new StringBuilder("---"));
+        String[] newStr = new String[4];
 
         GameChanger.getInstance().changeGame(testMap,testList);
         assertThat(testMap.get("pobi").toString()).isEqualTo("----");

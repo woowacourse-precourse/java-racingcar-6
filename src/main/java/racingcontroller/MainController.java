@@ -1,11 +1,8 @@
 package racingcontroller;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.util.LinkedHashMap;
 import racingmodel.MainModel;
 import racingview.MainView;
 import racingview.Viewable;
-import validation.ValidationMan;
 
 public class MainController {
     private Viewable view = null;
@@ -27,7 +24,6 @@ public class MainController {
         String times = InputMan.inputTimes();
         ValidationCallMan.callExceptionCheckForTimes(model, times);
         view.speakResultStart();
-        ;
         for (int i = 0; i < Integer.parseInt(times); i++) {
             model.changeStatus();
             view.speakResult(model.getCarName());

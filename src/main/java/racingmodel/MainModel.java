@@ -18,38 +18,31 @@ public class MainModel {
         return carName;
     }
 
-    public boolean saveName(String userCarName)
-    {
+    public boolean saveName(String userCarName) {
         String[] splitedName = cutName(userCarName);
         makeLinkedHashMap(splitedName);
         return ValidationMan.getInstance().checkException(carName, splitedName.length);
     }
 
-    private String[] cutName(String userCarName)
-    {
+    private String[] cutName(String userCarName) {
         return userCarName.split(",");
     }
 
-    private void makeLinkedHashMap(String[] userCarName)
-    {
-        for(String i : userCarName)
-        {
+    private void makeLinkedHashMap(String[] userCarName) {
+        for (String i : userCarName) {
             carName.put(i, new StringBuilder(""));
         }
     }
 
-    public boolean exceptionCheck(String userTimes)
-    {
+    public boolean exceptionCheck(String userTimes) {
         return ValidationMan.getInstance().checkException(userTimes);
     }
 
-    public void changeStatus()
-    {
-        GameChanger.getInstance().changeGame(carName,NumberGenerator.numberGenerate(carName.size()));
+    public void changeStatus() {
+        GameChanger.getInstance().changeGame(carName, NumberGenerator.numberGenerate(carName.size()));
     }
 
-    public List<String> getWinner()
-    {
+    public List<String> getWinner() {
         return Winners.judgeWinner(carName);
     }
 
