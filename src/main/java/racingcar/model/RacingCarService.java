@@ -37,4 +37,8 @@ public class RacingCarService {
     public String raceOneStepResult() {
         return carList.translateRacingCarResult();
     }
+
+    public String findWinnerByCarPosition() {
+        return carList.translateMaxPositionCars();
+    }
 }

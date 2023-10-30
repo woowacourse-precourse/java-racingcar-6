@@ -28,7 +28,7 @@ public class RacingCarTest extends NsTest {
 
     @Test
     void 전진_안한_자동차_출력() {
-        //give
+        //given
         String userInputCarNames = "a";
         List<String> carNameList = service.createCarNameList(userInputCarNames);
         service.createCarList(carNameList);
@@ -42,7 +42,7 @@ public class RacingCarTest extends NsTest {
 
     @Test
     void 한번이상_전진한_결과() {
-        //give
+        //given
         String userInputCarNames = "a";
         String userInputTryNumber = "2";
         int tryNumber = service.parsingTryNumber(userInputTryNumber);

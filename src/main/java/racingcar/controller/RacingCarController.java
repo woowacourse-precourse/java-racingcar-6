@@ -28,11 +28,17 @@ public class RacingCarController {
         OutputView.racingResultMessage();
 
         if (tryNumber == 0) {
-            OutputView.racingResult(service.raceOneStepResult());
+            OutputView.racingResult(service.raceOneStepResult()+"\n");
         }
         for (int step = 0; step < tryNumber; step++) {
             service.raceOneStep();
-            OutputView.racingResult(service.raceOneStepResult() + "\n");
+            OutputView.racingResult(service.raceOneStepResult()+"\n");
         }
+
+        findWinner();
+    }
+
+    private void findWinner() {
+        OutputView.winnerMessage(service.findWinnerByCarPosition());
     }
 }
