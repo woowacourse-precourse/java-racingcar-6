@@ -69,8 +69,7 @@ public class Application {
         List<String> result = null;
 
         List<String> victorylist = collect.stream().filter((Car car) -> car.getPos() == collect.get(0).getPos())
-                .map(v -> v.getName())
-                .collect(Collectors.toList());
+                .map(v -> v.getName()).collect(Collectors.toList());
 
         return victorylist;
     }
