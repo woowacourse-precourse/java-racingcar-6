@@ -2,8 +2,8 @@
 
 ## 기능 목록
 - [] 입력받은 사용자의 이름으로 자동차를 생성한다 - racer#create()
-
 - [] 자동차를 전진시킨다 - racer#moveForward()
+- [] 현재까지 자신의 이동거리를 출력한다 - racer#printDistance()
 
 
 - [] 자동차를 전진시키기 위한 무작위 숫자를 생성한다 - pickNumberInRange()
@@ -14,6 +14,7 @@
 - [] 자동차 경주를 시작한다 - Referee#run()
 - [] 레이스를 진행할 그룹에 사용자를 추가한다 - Referee#addGroup()
 - [] 현재까지의 경주 결과를 출력한다 - Referee#printProgress()
+- 
 - [] 우승자를 출력한다 - Referee#printWinner()
 
 Judgment 판단

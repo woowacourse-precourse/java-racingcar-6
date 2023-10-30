@@ -20,4 +20,10 @@ public class Racer{
   public void moveForward(int distance){
     this.distance += distance;
   }
+
+  public void printDistance(){
+    System.out.println(this.name +
+                        " : " +
+                        "-".repeat(this.distance));
+  }
 }
