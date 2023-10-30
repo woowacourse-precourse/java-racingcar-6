@@ -9,6 +9,10 @@ public class Race {
 
     private List<Car> cars;
 
+    private Race() {
+
+    }
+
     public Race(List<Car> cars) {
         this.cars = cars;
     }
