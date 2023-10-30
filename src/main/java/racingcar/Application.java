@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class Application {
     public static void main(String[] args) {
@@ -27,6 +29,13 @@ public class Application {
             }
         System.out.println(" ");
         }
-        System.out.println("최종 우승자 : ");
+        //최종 우승자 구하기
+        List<String> answer = new ArrayList<>();
+        for (int i=0; i<value.length; i++){
+            if (Objects.equals(userDis.get(i), Collections.max(userDis))){
+                answer.add(value[i]);
+            }
+        }
+        System.out.println("최종 우승자 : " + answer);
     }
 }
