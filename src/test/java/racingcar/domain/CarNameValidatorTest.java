@@ -18,8 +18,10 @@ class CarNameValidatorTest {
         List<String> carNames = Utils.parseCarName(validCarName);
 
         // when
+        CarNameValidator carNameValidator = new CarNameValidator(carNames);
+
         // then
-        assertThatCode(() -> new CarNameValidator(carNames))
+        assertThatCode(carNameValidator::validateAll)
                 .doesNotThrowAnyException();
     }
 
@@ -31,8 +33,10 @@ class CarNameValidatorTest {
         List<String> carNames = Utils.parseCarName(invalidCarName);
 
         // when
+        CarNameValidator carNameValidator = new CarNameValidator(carNames);
+
         // then
-        assertThatThrownBy(() -> new CarNameValidator(carNames))
+        assertThatThrownBy(carNameValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름을 입력해주세요.");
     }
@@ -45,8 +49,10 @@ class CarNameValidatorTest {
         List<String> carNames = Utils.parseCarName(invalidCarName);
 
         // when
+        CarNameValidator carNameValidator = new CarNameValidator(carNames);
+
         // then
-        assertThatThrownBy(() -> new CarNameValidator(carNames))
+        assertThatThrownBy(carNameValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 영숫자와 콤마로만 구성되어야 합니다.");
     }
@@ -59,8 +65,10 @@ class CarNameValidatorTest {
         List<String> carNames = Utils.parseCarName(invalidCarName);
 
         // when
+        CarNameValidator carNameValidator = new CarNameValidator(carNames);
+
         // then
-        assertThatThrownBy(() -> new CarNameValidator(carNames))
+        assertThatThrownBy(carNameValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5글자 이하여야 합니다.");
     }
@@ -73,8 +81,10 @@ class CarNameValidatorTest {
         List<String> carNames = Utils.parseCarName(invalidCarName);
 
         // when
+        CarNameValidator carNameValidator = new CarNameValidator(carNames);
+
         // then
-        assertThatThrownBy(() -> new CarNameValidator(carNames))
+        assertThatThrownBy(carNameValidator::validateAll)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
     }
