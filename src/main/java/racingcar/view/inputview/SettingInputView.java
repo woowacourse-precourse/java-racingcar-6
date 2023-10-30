@@ -7,7 +7,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class SettingInputView implements InputView {
     static final char DELIMITER = ',';
-    private final Map<String, Supplier<Object>> methodMap = Map.ofEntries(
+    private final Map<String, Supplier<String>> methodMap = Map.ofEntries(
             Map.entry("carNames", this::readCarNames),
             Map.entry("gameCount", this::readGameCount)
     );
@@ -19,16 +19,16 @@ public class SettingInputView implements InputView {
     }
 
     @Override
-    public void read(Map<String, Object> readEntities) {
-        readEntities.keySet()
-                .forEach(name -> runMethodByName(readEntities, name));
+    public void read(Map<String, String> parameter) {
+        parameter.keySet()
+                .forEach(name -> runMethodByName(parameter, name));
     }
 
-    private void runMethodByName(Map<String, Object> readEntities, String name) {
+    private void runMethodByName(Map<String, String> parameter, String name) {
         if (!methodMap.containsKey(name)) {
             throw new IllegalArgumentException();
         }
-        readEntities.computeIfAbsent(name, e -> methodMap.get(e).get());
+        parameter.computeIfAbsent(name, e -> methodMap.get(e).get());
     }
 
     private String readCarNames() {
@@ -39,10 +39,8 @@ public class SettingInputView implements InputView {
 
     private String readGameCount() {
         String input = readLine().trim();
-        if (input != null) {
-            inputValidator.isOnlyNaturalNumber(input);
-            inputValidator.isEmpty(input);
-        }
+        inputValidator.isOnlyNaturalNumber(input);
+        inputValidator.isEmpty(input);
         return input;
     }
 }

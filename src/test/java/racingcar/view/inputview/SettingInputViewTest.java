@@ -17,7 +17,7 @@ class SettingInputViewTest {
             Map.entry("carNames", List.of(",", ",,", ",가", "가,", ",가,", "가,,", "가,나,", " , ")),
             Map.entry("gameCount", List.of("-1", "가", "", " ", ".가", "-3", "1-1", "111111.111111", "11111-1111")));
 
-    private final Map<String, Object> model = new HashMap<>();
+    private final Map<String, String> model = new HashMap<>();
     private final InputView inputView = new SettingInputView(new InputValidator());
 
     private static void input(String target) {
