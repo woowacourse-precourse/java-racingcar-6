@@ -27,6 +27,6 @@ public record RoundResult(Map<Name, Distance> results) {
     private Distance getMaxDistance() {
         return results.values().stream()
                 .max(Comparator.comparingInt(Distance::value))
-                .get();
+                .orElseThrow(() -> new IllegalArgumentException("최대 거리를 찾을 수 없습니다."));
     }
 }
