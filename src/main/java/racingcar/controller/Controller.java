@@ -12,10 +12,14 @@ public class Controller {
     RacingcarGame racingcarGame = new RacingcarGame();
 
     public void run() {
+        OutputView.printInputCarName();
         List<Car> cars = addCarToList();
+
+        OutputView.printInputAttemptCount();
         Attempt attempt = createAttempt();
-        OutputView.printResult();
         int attemptCount = attempt.getAttemptCount();
+
+        OutputView.printResult();
         result(cars, attemptCount);
     }
 
