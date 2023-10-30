@@ -9,8 +9,8 @@ import racingcar.model.Winners;
 import racingcar.validator.AttemptCountValidator;
 
 public class GamePlayingService {
-    public Cars generateCars(String inputCars) {
-        return new Cars(inputCars);
+    public Cars generateCars(String inputNames) {
+        return new Cars(inputNames);
     }
 
     public AttemptCount createAttemptCount(String input) {
