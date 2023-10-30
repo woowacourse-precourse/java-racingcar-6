@@ -26,7 +26,7 @@ public class Game {
         return validateAttemptCount(readLine());
     }
 
-    private int validateAttemptCount(String stringAttemptCount){
+    public int validateAttemptCount(String stringAttemptCount){
         try{
             int attemptCount = Integer.parseInt(stringAttemptCount);
             if(attemptCount < 0){
