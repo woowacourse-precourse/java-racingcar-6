@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.service.RacingCarService;
 import racingcar.service.ScoreBoardService;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RaceGameController {
     private final RacingCarService racingCarService;
@@ -15,6 +16,7 @@ public class RaceGameController {
 
     public void startRace() {
         int attemptCount = InputView.inputAttemptCount();
+        OutputView.beforeRaceMessage();
         run(attemptCount);
     }
 
