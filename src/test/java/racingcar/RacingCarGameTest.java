@@ -1,5 +1,6 @@
 package racingcar;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -16,6 +17,8 @@ import racingcar.util.TestUtil;
 
 class RacingCarGameTest extends NsTest {
     static final String[] TEST_CAR_NAME = {"Car1", "Car2", "Car3"}; // 자동차 이름
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
 
     RacingCarGame racingCarGame;
 
@@ -135,6 +138,76 @@ class RacingCarGameTest extends NsTest {
         })
                 .isInstanceOf(InvocationTargetException.class)
                 .hasCauseInstanceOf(IllegalArgumentException.class);
+    }
+
+
+    @DisplayName("준비가 되었는지 확인한다.")
+    @Test
+    void checkReady() throws NoSuchMethodException {
+        // given
+        Method method = getAccessibleMethod("checkReady");
+
+        assertThatThrownBy(() -> {
+            method.invoke(racingCarGame);
+        })
+                .isInstanceOf(InvocationTargetException.class)
+                .hasCauseInstanceOf(RuntimeException.class);
+    }
+
+    @DisplayName("한 라운드가 정상적으로 잘 되는지 확인")
+    @Test
+    void oneRound() throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException {
+        // given
+        setTestCar(new Car[]{new Car("car1"), new Car("car2")});
+        Method method = getAccessibleMethod("oneRound");
+
+        // when, then
+        assertRandomNumberInRangeTest(
+                () -> {
+                    method.invoke(racingCarGame);
+                    assertThat(output()).contains("car1 : ", "car2 : -");
+                },
+                STOP, MOVING_FORWARD
+        );
+
+    }
+
+    @DisplayName("승리 결과가 정상 출력되는지 확인한다.")
+    @Test
+    void printResult()
+            throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        // given
+        Car car1 = new Car("car1");
+        Car car2 = new Car("car2");
+        car1.increaseAdvance();
+        setTestCar(new Car[]{car1, car2});
+        Method method = getAccessibleMethod("printResult");
+
+        // when, then
+        method.invoke(racingCarGame);
+        assertThat(output()).contains("최종 우승자 : car1");
+    }
+
+    /**
+     * 생성한 자동차들을 설정한다.
+     *
+     * @param cars 필드를 통해 설정할 자동차들
+     * @return field를 반환
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    private Field setTestCar(Car[] cars) throws NoSuchFieldException, IllegalAccessException {
+        Field field = getAccessibleField("cars");
+        field.set(racingCarGame, cars);
+
+        return field;
+    }
+
+    private Field getAccessibleField(String variableName) throws NoSuchFieldException {
+        Field field = racingCarGame.getClass().getDeclaredField(variableName);
+        field.setAccessible(true);
+
+        return field;
     }
 
     private Method getAccessibleMethod(String methodName, Class<?>... parameterTypes)
