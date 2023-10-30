@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class car {
-    int position = 0;
+    private int position = 0;
 
     public void go() {
         position++;
