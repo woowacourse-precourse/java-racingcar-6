@@ -31,12 +31,12 @@ class CarTest {
     }
     @DisplayName("차 위치가 같은지에 대해 테스트 True")
     @ParameterizedTest
-    @ValueSource(ints = {1,4,9})
-    void 차_이동_포지션_테스트_TRUE (int position) {
+    @CsvSource(value = {"1,3", "5,1", "10,5"})
+    void 차_이동_포지션_테스트_TRUE (int position, int otherPosition) {
 
         //given
         Car car = Car.createCar(new Name("test"), position);
-        Car otherCar = Car.createCar(new Name("other"), position);
+        Car otherCar = Car.createCar(new Name("other"), otherPosition);
 
         //then
         Assertions.assertThat(car.isSamePosition(otherCar)).isTrue();
@@ -45,10 +45,10 @@ class CarTest {
     @DisplayName("차 위치가 같은지에 대해 테스트 FALSE")
     @ParameterizedTest
     @CsvSource(value = {"1,3", "5,1", "10,5"})
-    void 차_이동_포지션_테스트_FALSE (int postion, int otherPosition) {
+    void 차_이동_포지션_테스트_FALSE (int position, int otherPosition) {
 
         //given
-        Car car = Car.createCar(new Name("test"), postion);
+        Car car = Car.createCar(new Name("test"), position);
         Car otherCar = Car.createCar(new Name("other"), otherPosition);
 
         //then
