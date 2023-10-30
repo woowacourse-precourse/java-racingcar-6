@@ -1,4 +1,4 @@
-package racingcar.util.io;
+package racingcar.io;
 
 public class OutputViewPrinter implements Printer{
 	

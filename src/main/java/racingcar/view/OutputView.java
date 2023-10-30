@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.util.io.OutputViewPrinter;
+import racingcar.io.OutputViewPrinter;
 import racingcar.util.message.ProgressMessage;
 
 public class OutputView {
