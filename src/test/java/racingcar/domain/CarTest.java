@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class CarTest {
 
     @ParameterizedTest
-    @CsvSource({"pobi", "woni", "jun"})
+    @CsvSource(value = {"pobi", "woni", "jun"})
     void 자동차에_이름_부여(String expected) {
         Car car = new Car(expected);
 
@@ -16,7 +16,7 @@ class CarTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"3,0", "4,1"})
+    @CsvSource(value = {"3,0", "4,1"})
     void 숫자가_4이상이면_자동차를_전진(int number, int expected) {
         Car car = new Car("pobi");
 

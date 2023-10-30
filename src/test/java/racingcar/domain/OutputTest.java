@@ -29,7 +29,7 @@ class OutputTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"1,pobi : -", "2,pobi : --"})
+    @CsvSource(value = {"1,pobi : -", "2,pobi : --"})
     void 전진하는_자동차_이름과_같이_출력(int count, String expected) {
         Car car = new Car("pobi");
 
