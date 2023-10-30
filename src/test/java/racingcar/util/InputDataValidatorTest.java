@@ -27,9 +27,23 @@ class InputDataValidatorTest {
     }
 
     @Test
+    @DisplayName("정상적인 자동차 이름 입력 시 예외 없는지 확인")
+    void testCorrectMessage() {
+        assertThatCode(() -> validateHasSpace("asd"))
+                .doesNotThrowAnyException();
+    }
+
+    @Test
     @DisplayName("시도 횟수 숫자 아닐 경우 예외 발생")
     void testIsNotInteger() {
         assertThatThrownBy(() -> validateIsInteger("asdfgh"))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("정상적인 횟수 입력 시 예외 없는지 확인")
+    void testCorrectInputCount() {
+        assertThatCode(() -> validateHasSpace("1"))
+                .doesNotThrowAnyException();
     }
 }
