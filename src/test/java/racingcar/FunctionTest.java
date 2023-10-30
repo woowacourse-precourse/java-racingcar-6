@@ -6,7 +6,7 @@ import racingcar.util.RoundCountValidator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class MyTest {
+class FunctionTest {
     @Test
     void 정규식테스트() {
         String regex = "^[0-9a-zA-Zㄱ-ㅎ가-힣,]*$";

@@ -16,11 +16,11 @@ public class RoundCountValidator {
 
 
     private boolean isDigit() {
-        return roundCount.matches("^[1-9]\\d*$");
+        return roundCount.matches(Constant.REGEXP_ROUND_NUM);
     }
 
     private boolean isMinRoundCount() {
-        return Integer.parseInt(roundCount) >= 1;
+        return Integer.parseInt(roundCount) >= Constant.ROUND_MINIMUM_NUM;
     }
 
 }
