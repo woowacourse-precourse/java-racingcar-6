@@ -4,18 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.groups.Tuple.tuple;
 
 import java.util.Arrays;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class GameManagerTest{
-
-    private GameManager gameManager;
-
-    @BeforeEach
-    void init(){
-        gameManager = new GameManager();
-    }
+public class CarsTest{
 
     @Test
     @DisplayName("입력받은 문자열을 쉼표 기준으로 구분하여 자동차 목록을 반환한다.")
