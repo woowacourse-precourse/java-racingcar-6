@@ -1,7 +1,5 @@
 package domain;
 
-import util.RandomGenerator;
-
 public class RacingCar {
 
     private static final int MOVE_FORWARD_MINIMUM = 4;
