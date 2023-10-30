@@ -13,7 +13,7 @@ public class Cars {
     }
 
 
-    public List<Car> findMaxMovingCount() {
+    public List<Car> findCarsWithMaxMovingCount() {
         cars.sort(Car::compareTo);
         List<Car> maxMovingCounts = new ArrayList<>();
 
