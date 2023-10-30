@@ -2,19 +2,18 @@ package racingcar.game;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class RaceResult {
 
-    public int calculateForwardPoint(Map<String, StringBuilder> scoreResult) {
+    public int calculateForwardPoint(ScoreBoard scoreBoard) {
 
-        return scoreResult.values().stream().mapToInt(StringBuilder::length).max().orElse(0);
+        return scoreBoard.getScoreBoard().values().stream().mapToInt(StringBuilder::length).max().orElse(0);
     }
 
-    public List<String> findWinners(int maxForwardPoint, Map<String, StringBuilder> scoreBoard) {
+    public List<String> findWinners(int maxForwardPoint, ScoreBoard scoreBoard) {
         List<String> winnerList = new ArrayList<>();
 
-        scoreBoard.forEach((key, value) -> {
+        scoreBoard.getScoreBoard().forEach((key, value) -> {
             if (value.length() == maxForwardPoint) {
                 winnerList.add(key);
             }

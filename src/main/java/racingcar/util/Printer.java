@@ -4,6 +4,7 @@ import static racingcar.constant.Constant.*;
 
 import java.util.List;
 import java.util.Map;
+import racingcar.game.ScoreBoard;
 
 public class Printer {
     public void printStartMessage() {
@@ -18,10 +19,11 @@ public class Printer {
         System.out.println(RACE_RESULT_MESSAGE);
     }
 
-    public void printRoundResult(Map<String, StringBuilder> scoreBoard) {
-        for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
+    public void printRoundResult(ScoreBoard scoreBoard) {
+        for (Map.Entry<String, StringBuilder> pair : scoreBoard.getScoreBoard().entrySet()) {
             System.out.println(pair.getKey() + " : " + pair.getValue());
         }
+        System.out.println();
     }
 
     public void printWinnersNames(List<String> winnerNames) {

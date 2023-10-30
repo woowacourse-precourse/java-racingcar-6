@@ -3,15 +3,20 @@ package racingcar.game;
 import static racingcar.constant.Constant.DICE_MAX_RANGE;
 import static racingcar.constant.Constant.DICE_MIN_RANGE;
 import static racingcar.constant.Constant.FORWARD_ABLE_NUMBER;
+import static racingcar.constant.Constant.POINT;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
+import java.util.Random;
 
-import static racingcar.constant.Constant.POINT;
+public class ScoreBoard {
+    private final Map<String, StringBuilder> scoreBoard;
 
-public class RaceProcess {
+    public ScoreBoard(Map<String, StringBuilder> scoreBoard) {
+        this.scoreBoard = scoreBoard;
+    }
 
-    public void oneRound(Map<String, StringBuilder> scoreBoard) {
+    public void updateScore() {
         for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
             if (isMovable()) {
                 pair.getValue().append(POINT);
@@ -27,4 +32,7 @@ public class RaceProcess {
         return makeRandomNumber(DICE_MIN_RANGE, DICE_MAX_RANGE) >= FORWARD_ABLE_NUMBER;
     }
 
+    public Map<String, StringBuilder> getScoreBoard() {
+        return scoreBoard;
+    }
 }
