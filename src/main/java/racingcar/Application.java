@@ -52,5 +52,10 @@ public class Application {
             throw new IllegalArgumentException("자동차 이름은 1에서 5자 사이여야 합니다.");
         }
     }
+    private void validateTryCount(int tryCount) {
+        if (tryCount <= 0) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
+    }
 
 }
