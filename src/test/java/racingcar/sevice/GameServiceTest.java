@@ -32,4 +32,15 @@ class GameServiceTest {
         assertEquals("test", winners.get(0).getName());
         assertEquals("hello", winners.get(1).getName());
     }
+
+    @Test
+    @DisplayName("string 배열에서 자동차 등록")
+    void registerCarFromListSuccess() {
+        String[] input = {"test", "hello"};
+        List<Car> registerCars = gameService.registerCarListFromInput(input);
+
+        assertEquals(2, registerCars.size());
+        assertEquals(input[0], registerCars.get(0).getName());
+        assertEquals(input[1], registerCars.get(1).getName());
+    }
 }
