@@ -25,8 +25,15 @@ public class RacingGame implements Game {
         }
 
         private void initGame() {
+                readyToRacingCar();
                 laps = player.submitLaps();
                 System.out.println();
+        }
+
+        private void readyToRacingCar() {
+                int LIMIT_NAME_LENGTH = 5;
+                List<String> carNameList = player.submitRacingCarNameList(LIMIT_NAME_LENGTH);
+                carList = carNameList.stream().map(name -> new RacingCar(name, util)).collect(Collectors.toList());
         }
 
         @Override
