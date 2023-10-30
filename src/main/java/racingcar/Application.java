@@ -8,6 +8,10 @@ import java.util.ArrayList;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        Race race = receiveRaceInformation();
+        race.raceAccumulations=playGame(race.tryNumber,race.carArray,race.raceAccumulations);
+        ArrayList<String>WinnerNames = findFinalWinner(race.raceAccumulations,race.carArray);
+        printFinalResult(WinnerNames);
 
     }
     private static Race receiveRaceInformation(){
@@ -38,6 +42,7 @@ public class Application {
             for (int changeScore=0; changeScore<carArray.length; changeScore++){
                 raceAccumulations = giveScore(changeScore,raceAccumulations);
             }
+            printEachRace(raceAccumulations,carArray);
         }
         return raceAccumulations;
     }
