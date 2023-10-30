@@ -1,10 +1,8 @@
 package racingcar.controller;
 
-import java.util.List;
 import racingcar.domain.CarFactory;
 import racingcar.domain.RacingCars;
 import racingcar.domain.RacingResult;
-import racingcar.dto.CarStatusDto;
 import racingcar.util.Convertor;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -34,7 +32,7 @@ public class RacingController {
         while (isNotRacingFinished(tryCount)) {
             racingCars.move();
             racingResult = racingCars.createRacingResult();
-            OutputView.printResult(getCarStatuses(racingResult));
+            OutputView.printResult(racingResult.getCarStatuses());
             tryCount--;
         }
         OutputView.printWinner(racingResult.findWinner());
@@ -42,9 +40,5 @@ public class RacingController {
 
     private boolean isNotRacingFinished(int tryCount) {
         return tryCount > 0;
-    }
-
-    private static List<CarStatusDto> getCarStatuses(RacingResult racingResult) {
-        return racingResult.getCarStatuses();
     }
 }
