@@ -4,7 +4,10 @@ import static racingcar.constant.Constant.MOVE_LOWER_BOUND;
 import static racingcar.constant.Constant.RANDOM_NUMBER_MAX;
 import static racingcar.constant.Constant.RANDOM_NUMBER_MIN;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -25,21 +28,32 @@ public class Race {
 
     private void decideMoveOrStay(String carName) {
         int randomNumber = getRandomNumber();
-        if(isAvailableMove(randomNumber)){
+        if (isAvailableMove(randomNumber)) {
             go(carName);
         }
     }
 
-    private void go(String carName){
+    private void go(String carName) {
         playCars.get(carName).moving();
     }
 
-    private boolean isAvailableMove(int randomNumber){
-        return randomNumber >= MOVE_LOWER_BOUND ;
+    private boolean isAvailableMove(int randomNumber) {
+        return randomNumber >= MOVE_LOWER_BOUND;
     }
 
     private int getRandomNumber() {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
+    }
+
+    public List<String> findWinner() {
+
+        return new ArrayList<>();
+    }
+
+    private Optional<Integer> getLongestDistance() {
+        return playCars.values().stream()
+                .map(car -> car.getMoveDistance().length())
+                .max(Integer::compareTo);
     }
 
 }
