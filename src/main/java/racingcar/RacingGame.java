@@ -29,7 +29,7 @@ public class RacingGame {
     }
 
     private long findMax() {
-        long instantMax = ConstantNumber.max;
+        long instantMax = ConstantNumber.MAX;
 
         for (String car : carName.keySet()) {
             int findMax = carName.get(car);

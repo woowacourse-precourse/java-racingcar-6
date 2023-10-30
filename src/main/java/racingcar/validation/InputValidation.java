@@ -10,7 +10,7 @@ import java.util.List;
 public class InputValidation {
     public void inputCarNameLength(HashMap<String, Integer> carName) {
         for (String car : carName.keySet()) {
-            if (car.isEmpty() || car.length() > inputLength) {
+            if (car.isEmpty() || car.length() > INPUT_LENGTH) {
                 throw new IllegalArgumentException("입력 값 길이 범위는 1 ~ 5자 입니다.");
             }
         }
@@ -33,11 +33,11 @@ public class InputValidation {
     public void inputMovementLimit(String movement) {
         try {
             long move = Long.parseLong(movement);
-            if (move < movelowerBound) {
+            if (move < MOVE_LOWER_BOUND) {
                 throw new Exception();
             }
         } catch (Exception e) {
-            throw new IllegalArgumentException("이동 횟수 입력 값의 범위는 1 ~ 9,223,372,036,854,775,807 (정수) 입니다.");
+            throw new IllegalArgumentException("이동 횟수 입력 값의 범위는 1부터 이며, 정수입니다.");
         }
     }
 }

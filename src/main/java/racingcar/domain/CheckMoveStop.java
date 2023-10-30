@@ -8,9 +8,9 @@ import java.util.HashMap;
 public class CheckMoveStop {
     public void checkMoveStop(HashMap<String, Integer> carName) {
         for (String car : carName.keySet()) {
-            int randomNum = Randoms.pickNumberInRange(randomStartRange, randomEndRange);
+            int randomNum = Randoms.pickNumberInRange(RANDOM_START_RANGE, RANDOM_END_RANGE);
 
-            if (randomNum >= moveCondition) {
+            if (randomNum >= MOVE_CONDITION) {
                 carName.put(car, carName.get(car) + 1);
             }
         }
