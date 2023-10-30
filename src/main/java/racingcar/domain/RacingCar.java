@@ -17,4 +17,12 @@ public class RacingCar {
         }
     }
 
+    public String createRoundResult() {
+        return carName + " : " + repeatDash();
+    }
+
+    private String repeatDash() {
+        return "-".repeat(Math.max(0, position));
+    }
+
 }
