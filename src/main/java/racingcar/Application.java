@@ -19,7 +19,7 @@ public class Application {
 
     public void displayResult() {
         for (int i = 0; i < scoreList.size(); i++) {
-            System.out.println(carNamesList.get(i) + ":" + "-".repeat(scoreList.get(i)));
+            System.out.println(carNamesList.get(i) + " : " + "-".repeat(scoreList.get(i)));
         }
         System.out.println();
     }
@@ -32,7 +32,7 @@ public class Application {
                 winners.add(carNamesList.get(i));
             }
         }
-        System.out.println("최종우승자: " + String.join(",", winners));
+        System.out.println("최종 우승자 : " + String.join(",", winners));
     }
 
     public static void main(String[] args) {
