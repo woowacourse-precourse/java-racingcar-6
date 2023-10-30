@@ -11,10 +11,12 @@ public class Cars {
     public static List<Integer> countList = new ArrayList<>();
 
     public Cars(String carName) {
+        Cars.carList = new ArrayList<>();
+        Cars.countList = new ArrayList<>();
         makeCarList(carName);
     }
 
-    public void makeCarList(String carNames) {
+    private void makeCarList(String carNames) {
         for (String carName : carNames.split(",")) {
             ExceptionHandling.isCarNameNull(carName);
             ExceptionHandling.isCarNameOverSize(carName);
