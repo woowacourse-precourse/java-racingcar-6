@@ -41,4 +41,8 @@ public class Core {
             }
         }
     }
+
+    public String countForward(Car car) {
+        return "-".repeat(Math.max(0, car.getForward()));
+    }
 }
