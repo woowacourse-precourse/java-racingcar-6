@@ -18,6 +18,7 @@ public class RacingGame {
         for(Car car : racingCars) {
             System.out.println(car);
         }
+        System.out.println();
     }
 
     void executeStep() {
