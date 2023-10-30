@@ -38,6 +38,10 @@ public class Car {
         return move.getMoveCount();
     }
 
+    public String getCarName() {
+        return name.toString();
+    }
+
     private void validateDuplicatedName(String carName) {
         if (isNameDuplicated(carName)) {
             throw new IllegalArgumentException("이미 사용중인 자동차 이름입니다.");
