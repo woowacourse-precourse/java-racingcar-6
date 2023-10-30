@@ -2,35 +2,31 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.model.Game;
-import racingcar.model.GameResult;
+import racingcar.model.dto.GameResult;
 import racingcar.util.CarNamesSeperator;
 import racingcar.util.GameTimeParser;
 import racingcar.view.InputView;
 import racingcar.view.OuputView;
 
 public class GameController {
-    private final Game game = new Game();
-
     public void run() {
-        game.enrollCars(getCarNames());
-        final int gameTime = getGameTime();
-        runGame(gameTime);
-        endGame();
+        List<String> carNames = getCarNames();
+        int gameTime = getGameTime();
+
+        final Game game = new Game(gameTime,carNames);
+        runGame(game);
+        endGame(game);
     }
 
-    private void runGame(int gameTime) {
+    private void runGame(final Game game) {
         OuputView.ouputBeforeGameResult();
-        for (int i = 0; i < gameTime; i++) {
-            runRound();
+        while (game.isGameNotEnded()) {
+            game.playGame();
+            printResult(game);
         }
     }
 
-    private void runRound() {
-        game.playRound();
-        printResult();
-    }
-
-    private void printResult() {
+    private void printResult(final Game game) {
         List<GameResult> gameResultList = game.generateGameResultList();
         for (GameResult gameResult : gameResultList) {
             OuputView.ouputGameResult(gameResult);
@@ -38,7 +34,7 @@ public class GameController {
         OuputView.outputEmptyLine();
     }
 
-    private void endGame() {
+    private void endGame(final Game game) {
         List<String> winners = game.getWinnerCars();
         OuputView.ouputGameWinner(winners);
     }
