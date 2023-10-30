@@ -15,10 +15,8 @@ public class CreateCarV2 {
     // TODO: 자동차 이름 예외 처리. 5자 초과, 중복, 공백
     public String[] carName(String input) {
         String[] carNames = input.split(",");
-        for (String carName : carNames) {
-            if (carName.trim().length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-            }
+        if (carNames.length > 10 || carNames.length < 2) {
+            throw new IllegalArgumentException("자동차는 2대 이상, 10대 이하만 가능합니다.");
         }
         return carNames;
     }
