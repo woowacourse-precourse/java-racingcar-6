@@ -30,6 +30,6 @@ public class Race {
             carGroup.moveAllProbabilistically();
             OutputView.printStatus(carGroup.getStatusAsString());
         }
-        // TODO: Print winner
+        OutputView.printWinner(carGroup.getWinnerAsString());
     }
 }
