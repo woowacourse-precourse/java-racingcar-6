@@ -65,7 +65,7 @@
 ### Application
 
 #### Controller
-- InputView에 입력을 RacingGame요청하고 에 이동을 요청한다
+-[x] InputView에 입력을 RacingGame요청하고 에 이동을 요청한다
 - RacingGame 승자 데이터 요청을 한다.
 - RacingGame에 경주의 상태를 요청한다.
 
