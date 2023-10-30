@@ -26,8 +26,12 @@ public class CarName {
     }
 
     private void validateEmptyName(String name){
-        if(name.isEmpty()){
+        if(isEmpty(name)){
             throw new IllegalArgumentException("이름을 입력해주세요");
         }
+    }
+
+    private static boolean isEmpty(String name) {
+        return name.isEmpty();
     }
 }
