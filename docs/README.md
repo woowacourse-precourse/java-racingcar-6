@@ -45,11 +45,11 @@
  
 3. 자동차 (car)
 - value
-  - [ ] 자동차 이름 (name)
-  - [ ] 이동한 거리 (moving)
+  - [x] 자동차 이름 (name)
+  - [x] 이동한 거리 (moving)
 - func
-  - [ ] 자동차 이름 setter / getter
-  - [ ] 이동한 거리 setter / getter
+  - [x] 자동차 이름 setter / getter
+  - [x] 이동한 거리 setter / getter
 
 4. 자동차들 (Cars)
 - value
@@ -78,6 +78,11 @@
    - [x]  "실행 결과"
    - [ ]  Cars -> car.name + ": " + "-"*car.moving
    - [x]  "최종 우승자 :" + winner
+
+7. 변환 (convertUtil)
+- func
+  - [ ] newCarsName(String) -> carsNameArray(String[])
+  - [ ] newTurn(String) -> turn(int)
 
 ----------------------------------------------------------------
 주의 사항
