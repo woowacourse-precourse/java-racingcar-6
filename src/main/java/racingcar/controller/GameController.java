@@ -36,4 +36,11 @@ public class GameController {
         }
     }
 
+    private void moveCars(List<Car> cars) {
+        for (Car car : cars) {
+            moveCar(car);
+        }
+        OutputView.printCurrentPositions(cars);
+    }
+
 }
