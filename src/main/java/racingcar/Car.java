@@ -26,11 +26,8 @@ public class Car implements Comparable<Car> {
         return this.position - o.position;
     }
 
-    public boolean equalsPosition(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
-        return position == car.position;
+    public boolean isEqualPosition(Car car) {
+        return this.position == car.position;
     }
 
     @Override

@@ -1,7 +1,5 @@
 package racingcar;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,7 +43,7 @@ public class Cars {
                 .orElseThrow(() -> new IllegalArgumentException("우승 차가 존재하지 않습니다"));
 
         return cars.stream()
-                .filter(car -> car.equalsPosition(winnerCar))
+                .filter(car -> car.isEqualPosition(winnerCar))
                 .map(Car::getCarName)
                 .collect(Collectors.joining(", "));
     }
