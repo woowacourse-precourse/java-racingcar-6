@@ -17,33 +17,60 @@ class inputValidatorTest {
         @Test
         @DisplayName("이름 정상 입력")
         void testValidNameInput() {
-            Assertions.assertDoesNotThrow(() -> inputValidator.validateInputCarName("pobi,woni,jun"));
-            Assertions.assertDoesNotThrow(() -> inputValidator.validateInputCarName("pobi,lee d,apple"));
-            Assertions.assertDoesNotThrow(() -> inputValidator.validateInputCarName("pobi,lee,apple"));
+            // given
+            String names1 = "pobi,woni,jun";
+            String names2 = "pobi,lee,apple";
+            String names3 = "pobi,lee";
+
+            // when
+            // then
+            assertDoesNotThrow(() -> inputValidator.validateInputCarName(names1));
+            assertDoesNotThrow(() -> inputValidator.validateInputCarName(names2));
+            assertDoesNotThrow(() -> inputValidator.validateInputCarName(names3));
         }
 
         @Test
-        @DisplayName("이름 앞 공백 예외")
-        void testStartingWithSpace() {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi, apple"));
+        @DisplayName("공백이 있을 경우 예외")
+        void testWithSpace() {
+            // given
+            String namesWithSpace = "pobi, apple";
+
+            // when
+            // then
+            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName(namesWithSpace));
         }
 
         @Test
         @DisplayName("이름 구분자가 ,가 아닌 경우 예외")
         void testInvalidDelimiter() {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobi&apple&jun"));
+            // given
+            String invalidDelimiterNames = "pobi&apple&jun";
+
+            // when
+            // then
+            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName(invalidDelimiterNames));
         }
 
         @Test
         @DisplayName("한글이름 예외")
         void testKoreanName() {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("한글이름"));
+            // given
+            String koreanNames = "한글이름1,한글이름2";
+
+            // when
+            // then
+            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName(koreanNames));
         }
 
         @Test
         @DisplayName("길이 예외")
         void testLongName() {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName("pobiii"));
+            // given
+            String overLengthNames = "pobiii, applee";
+
+            // when
+            // then
+            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputCarName(overLengthNames));
         }
     }
 
@@ -53,22 +80,40 @@ class inputValidatorTest {
         @Test
         @DisplayName("정상 입력")
         void testValidTryValue() {
-            Assertions.assertDoesNotThrow(() -> inputValidator.validateInputTryCount("123"));
-            Assertions.assertDoesNotThrow(() -> inputValidator.validateInputTryCount("103"));
-            Assertions.assertDoesNotThrow(() -> inputValidator.validateInputTryCount("1"));
+            // given
+            String tryValue1 = "123";
+            String tryValue2 = "103";
+            String tryValue3 = "1";
+
+            // when
+            // then
+            assertDoesNotThrow(() -> inputValidator.validateInputTryCount(tryValue1));
+            assertDoesNotThrow(() -> inputValidator.validateInputTryCount(tryValue2));
+            assertDoesNotThrow(() -> inputValidator.validateInputTryCount(tryValue3));
         }
 
         @Test
         @DisplayName("입력 앞에 공백이 있는 경우 예외")
         void testStartWithSpace() {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount(" 123"));
+            // given
+            String startWithSpaceTryValue = " 123";
+
+            // when
+            // then
+            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount(startWithSpaceTryValue));
         }
 
         @Test
         @DisplayName("맨 앞에 0이 있는 경우")
         void testStartWithZero() {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount("0"));
-            Assertions.assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount("012"));
+            // given
+            String zeroTryValue = "0";
+            String startWithZeroTryValue = "012";
+
+            // when
+            // then
+            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount(zeroTryValue));
+            assertThrows(IllegalArgumentException.class, () -> inputValidator.validateInputTryCount(startWithZeroTryValue));
         }
     }
 }

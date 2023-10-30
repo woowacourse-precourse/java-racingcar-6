@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ class RefereeTest {
     @Test
     @DisplayName("우승자가 여러명인 경우 테스트")
     void testMultipleWinners() {
+        // given
         List<Car> cars = new ArrayList<>();
 
         Car car1 = new Car("dobi", 4);
@@ -26,17 +28,21 @@ class RefereeTest {
 
         Cars carList = new Cars(cars);
 
-        //예상되는 우승자 지정
         List<String> result = new ArrayList<>();
         result.add("dobi");
         result.add("pobi");
 
-        Assertions.assertThat(referee.checkResult(carList)).isEqualTo(result);
+        // when
+        List<String> winners = referee.checkResult(carList);
+
+        // then
+        assertThat(winners).isEqualTo(result);
     }
 
     @Test
     @DisplayName("우승자가 한 명인 경우 테스트")
     void testSingleWinner() {
+        // given
         List<Car> cars = new ArrayList<>();
 
         Car car1 = new Car("dobi", 4);
@@ -49,10 +55,13 @@ class RefereeTest {
 
         Cars carList = new Cars(cars);
 
-        //예상되는 우승자 지정
         List<String> result = new ArrayList<>();
         result.add("dobi");
 
-        Assertions.assertThat(referee.checkResult(carList)).isEqualTo(result);
+        // when
+        List<String> winner = referee.checkResult(carList);
+
+        // then
+        assertThat(winner).isEqualTo(result);
     }
 }
