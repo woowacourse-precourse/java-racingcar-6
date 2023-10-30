@@ -18,7 +18,7 @@
  - [o] 변환한 입력값에 따라 자동차를 생성하고 저장한다. (CarSaveService.save / Participants)
  - [o] (기재되어 있지 않은사항) 참가 인원은 2명 이상으로 한다.
 
-[] 두 번째 입력값을 받아 유효성 검사(숫자와 범위)한다. (InputHandler 대신 RaceService 구현체가 검사)
+[o] 두 번째 입력값을 받아 유효성 검사(숫자와 범위)한다. (InputHandler 가 검사)
  - [] 레이스는 주어진 입력값만큼 반복한다. (RaceService)
  - - [] (기재되어 있지 않은사항) 입력은 1보다 크고 Integer 최대값보다 작은 정수이다. 
  - - [] 각 자동차는 0~9의 랜덤값에 따라 전진하거나 전진하지 않는다. (RaceService.runRace) 
