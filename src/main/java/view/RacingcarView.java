@@ -9,30 +9,31 @@ import java.util.List;
 
 
 public class RacingcarView {
-    RacingcarController rc = new RacingcarController();
-    public void run(){
-        String car_names;
-        String repeat_n;
-
+    public static void requestCarNamesMessage(){
         System.out.println(START_GAME);
-        car_names = Console.readLine();
+    }
+    public static void requestInputNumberOfRepeatMessage(){
         System.out.println(INPUT_NUMBER);
-        repeat_n = Console.readLine();
-        rc.RacingInputCheck(car_names, repeat_n);
     }
 
-    public void showForwardCount(List<String> car_names, List<Integer> forward_count){
+    public static void printResultHead(){
+        System.out.println();
         System.out.println(EXECUTION_RESULT);
-        for(int i=0; i<car_names.size(); i++){
-            System.out.printf(car_names.get(i) + ": ");
-            for(int j=0; j<forward_count.get(i); j++){
-                System.out.printf("-");
+    }
+
+    public void showForwardResult(List<String> car_forward, List<Integer> car_forward_count){
+        for(int i=0; i<car_forward.size(); i++){
+            System.out.print(car_forward.get(i) + " : ");
+            for(int j=0; j<car_forward_count.get(i); j++){
+                System.out.print("-");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
-    public void showWinner(){
-
+    public void showWinner(String winner){
+        System.out.println(FINAL_WINNER + winner);
     }
+
 }
