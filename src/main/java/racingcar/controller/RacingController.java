@@ -12,13 +12,20 @@ public class RacingController {
     RacingService racingService;
 
     public void run() {
+        CarsDto carsDto = createCarsDto();
+        Client client = createClientDto();
+        racingService = new RacingService(carsDto, client);
+    }
+
+    private CarsDto createCarsDto() {
         outputView.beforeInputCarNames();
         String inputtedCarNames = inputView.inputCarNames();
-        CarsDto carsDto = new CarsDto(inputtedCarNames);
+        return new CarsDto(inputtedCarNames);
+    }
 
+    private Client createClientDto() {
         outputView.beforeInputTryNumber();
         String inputtedTryNumber = inputView.inputTryNumber();
-        Client client = new Client(inputtedTryNumber);
-        racingService = new RacingService(carsDto, client);
+        return new Client(inputtedTryNumber);
     }
 }
