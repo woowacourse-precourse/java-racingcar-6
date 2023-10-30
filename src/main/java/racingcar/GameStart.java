@@ -19,4 +19,13 @@ public class GameStart {
         carsScoreString = new String[carsName.length];
         Arrays.fill(carsScoreString,"");
     }
+
+    private boolean canGo(){
+        int randomNum = Randoms.pickNumberInRange(0,9);
+        if(randomNum >= 4){
+            return true;
+        }
+        return false;
+    }
+
 }
