@@ -37,4 +37,28 @@ public class Application {
         return pickNumberInRange(0, 9);
     }
 
+    public List<Car> tryCarSteps(List<Car> cars, int steps){
+        for (int tryNums = 0; tryNums < steps; tryNums++) {
+            cars=checkCarSteps(cars);
+            printCarSteps(cars);
+        }
+        return cars;
+    }
+    public void printCarSteps(List<Car> cars){
+        for (int i = 0; i < cars.size(); i++) {
+            StringBuilder message= new StringBuilder(cars.get(i).getCarName() + " : ");
+            for (int j = 0; j < cars.get(i).getSteps(); j++) {
+                message.append("-");
+            }
+            System.out.println(message);
+        }
+    }
+    public List<Car> checkCarSteps(List<Car> cars) {
+        for (int i = 0; i <cars.size() ; i++) {
+            int randomNumber = createRandomNumber();
+            if(randomNumber>=4) cars.get(i).setSteps(cars.get(i).getSteps()+1);
+        }
+        return cars;
+    }
+
 }
