@@ -14,4 +14,15 @@ public class RacingCarController {
         this.racingCarView = racingCarView;
     }
 
+    public void initCar(){
+        racingCarView.carNameListInputPrint();
+        racingCarService.createCarList();
+    }
+
+    public int setCount(){
+        racingCarView.readCountPrint();
+
+        return racingCarService.readCount();
+    }
+
 }
