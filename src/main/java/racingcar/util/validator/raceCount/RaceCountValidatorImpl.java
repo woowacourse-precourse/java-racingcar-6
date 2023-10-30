@@ -3,10 +3,10 @@ package racingcar.util.validator.raceCount;
 public class RaceCountValidatorImpl implements RaceCountValidator {
     @Override
     public boolean validateRaceCount(String input) {
-        return isMatch(input);
+        return isNumeric(input);
     }
 
-    private boolean isMatch(String input) {
+    private boolean isNumeric(String input) {
         String regex = "^[0-9]+$";
         return input.matches(regex);
     }
