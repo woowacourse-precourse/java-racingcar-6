@@ -5,8 +5,6 @@ import java.util.List;
 
 public class ResultList {
     private List<String> results;
-
-
     public ResultList() {
         this.results = new ArrayList<>();
     }
