@@ -2,7 +2,6 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.config.Settings;
 import racingcar.domain.Car;
 import racingcar.dto.CarDTO;
 
@@ -22,11 +21,15 @@ public class CarManager {
         return number;
     }
 
+
+    public int getCarLength() {
+        return cars.size();
+    }
+
     public void createAndAddCars(String[] names) {
         for (String name : names) {
             cars.add(new Car(name));
         }
-        Settings.setCarAmount(cars.size());
     }
 
 

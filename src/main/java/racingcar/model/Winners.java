@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import static racingcar.config.Settings.CAR_AMOUNT;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,7 @@ public class Winners {
 
     // 이동 횟수가 가장 많은 자동차들을 winners 배열에 삽입
     private void calculateWinners() {
-        for (int index = 0; index < CAR_AMOUNT; index++) {
+        for (int index = 0; index < manager.getCarLength(); index++) {
             int farthest = manager.getFarthestPosition();
 
             Car car = manager.getCarFromIndex(index);
