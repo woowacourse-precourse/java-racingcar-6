@@ -86,4 +86,16 @@ public class RacingCarGame {
             movementSoFar.set(indexOfCarName, (movementSoFar.get(indexOfCarName) + 1));
         }
     }
+
+    public String getDash(Integer indexOfCarName) {
+        String getDash = "";
+        for (int i = 0; i < movementSoFar.get(indexOfCarName); i++) {
+            getDash += "-";
+        }
+        return getDash;
+    }
+
+    public void printMovement(Integer indexOfCarName) {
+        System.out.printf("%s : %s%n", carName.get(indexOfCarName), getDash(indexOfCarName));
+    }
 }
