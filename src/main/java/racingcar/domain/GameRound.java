@@ -1,8 +1,9 @@
 package racingcar.domain;
 
+import static racingcar.domain.GameRoundSetting.*;
+
 public class GameRound {
 
-    private static final Integer MIN_ROUND_COUNT = 1;
 
     private final int totalRound;
     private int currentRound;
@@ -28,13 +29,13 @@ public class GameRound {
 
 
     private void validateTotalRound(int totalRound) {
-        if (totalRound < MIN_ROUND_COUNT) {
+        if (totalRound < MIN_TOTAL_GAME_ROUND_COUNT.getSetting()) {
             throw new IllegalArgumentException("[ERROR] 게임 실행 회수 입력값은 1 이상이어야 합니다.");
         }
     }
 
     private void validateInitCurrentRound(int currentRound) {
-        if (currentRound != 0) {
+        if (currentRound != INIT_CURRENT_GAME_ROUND_COUNT.getSetting()) {
             throw new IllegalArgumentException("[ERROR] 현재 실행된 게임 회수의 초기값은 0이어야 합니다.");
         }
     }
