@@ -15,5 +15,7 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         String move_num = Console.readLine();
         racingcarException.exception_not_int(move_num);
+
+        Games game = new Games(names_list, Integer.parseInt(move_num));
     }
 }
