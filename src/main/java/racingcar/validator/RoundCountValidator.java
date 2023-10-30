@@ -13,20 +13,20 @@ public class RoundCountValidator {
 
     private RoundCountValidator() {}
 
-    public static void validate(String input) {
+    public static void validate(final String input) {
         validateBlankException(input);
         validateNumericException(input);
         validatePositiveNumber(input);
         validateIntegerOverflowException(input);
     }
 
-    private static void validateBlankException(String input) {
+    private static void validateBlankException(final String input) {
         if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException(ERROR_BLANK);
         }
     }
 
-    private static void validateNumericException(String input) {
+    private static void validateNumericException(final String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -34,14 +34,14 @@ public class RoundCountValidator {
         }
     }
 
-    private static void validatePositiveNumber(String input) {
+    private static void validatePositiveNumber(final String input) {
         int number = Integer.parseInt(input);
         if (number < MIN_INT_VALUE) {
             throw new IllegalArgumentException(ERROR_NON_ZERO);
         }
     }
 
-    private static void validateIntegerOverflowException(String input) {
+    private static void validateIntegerOverflowException(final String input) {
         long number = Long.parseLong(input);
         if (number > MAX_INT_VALUE || number < MIN_INT_VALUE) {
             throw new IllegalArgumentException(ERROR_INT_OVERFLOW);
