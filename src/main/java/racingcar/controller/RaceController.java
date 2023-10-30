@@ -15,7 +15,7 @@ public class RaceController {
     private final CarRepository carRepository = new CarRepository();
 
     public void run() {
-        Race race = new Race(getCarListByCarNames(getCarNamesByInput()), getNumRacesByInput());
+        Race race = raceService.createRace(getCarListByCarNames(getCarNamesByInput()), getNumRacesByInput());
         raceService.saveRace(race);
         play(race);
         getFinalResult(race);

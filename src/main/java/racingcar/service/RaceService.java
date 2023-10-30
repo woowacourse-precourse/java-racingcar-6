@@ -24,6 +24,10 @@ public class RaceService {
         race.increaseGameOrder();
     }
 
+    public Race createRace(List<Car> cars, int numRaces) {
+        return new Race(cars, numRaces);
+    }
+
     public Long saveRace(Race race) {
         return raceRepository.save(race);
     }
