@@ -9,10 +9,13 @@ public class Application {
         //Console.readLine() 메서드를 이용해서 자동차 이름 받기
         String inputCarName = Console.readLine();
         String[] tokens = inputCarName.split(",");
-        for (String token : tokens){
-            //공백 제거할 때는 trim()메서드 사용하기
-            System.out.println(token.trim());
-        }
+
+        //String이 기본 적용된 readLine() 메서드를 사용하기 위해 int로 변경
+        System.out.println("시도할 회수는 몇회인가요?");
+        String tryNumber = Console.readLine();
+        int number = Integer.parseInt(tryNumber);
+
+
 
 
     }
