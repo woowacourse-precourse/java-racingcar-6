@@ -51,6 +51,6 @@
 
 ### Car
     하나의 자동차를 구현하는 클래스
-- [ ] String name
-- [ ] int position
-- [ ] 포지션에 대한 변경 메소드 moveSingleUnit()를 제공한다.
+- [x] String name
+- [x] int position
+- [x] 포지션에 대한 변경 메소드 moveSingleUnit()를 제공한다.
