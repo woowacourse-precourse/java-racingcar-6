@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.controller.RacingController;
 import racingcar.domain.ConvertService;
 import racingcar.domain.vo.CarVO;
+import racingcar.io.ExceptionCheck;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,16 +13,15 @@ import java.util.List;
 public class Application {
   private final static ConvertService cs = new ConvertService();
   private final static RacingController rc = new RacingController();
+  private final static ExceptionCheck ec = new ExceptionCheck();
   public static void main(String[] args) {
-
-    // 변경됨 checkPoint
     List<String> carStringList = rc.carStringInputListOutput();
 
-    for(String car : carStringList){
-      if(car.length() > 5){
-        throw new IllegalArgumentException();
-      }
+    // 변화 Point
+    if(ec.isCarLengthOverCheck(carStringList)){
+      throw new IllegalArgumentException();
     }
+
     List<CarVO> racingCarList = new ArrayList<>();
     for(String name : carStringList){
       CarVO car = new CarVO();
