@@ -12,20 +12,25 @@ public class GameController {
     Validator validator = new Validator();
     GameService gameService = new GameService(validator);
 
+    private List<Car> carList;
+    private int gameRound;
+    
     public void run() {
         OutputView.printStartGame();
-        String[] input = InputView.inputCarList();
-        List<Car> carList = gameService.registerCarListFromInput(input);
-        OutputView.printAskGameRound();
-        int gameRound = gameService.getGameRound();
+        getUserInput();
         OutputView.printRoundStart();
         gameService.runRound(gameRound, carList);
-
         List<Car> winnerCars = gameService.extractWinner(carList);
-
         String gameWinner = gameService.getGameWinner(winnerCars);
         OutputView.printGameWinner(gameWinner);
 
+    }
+
+    private void getUserInput() {
+        String[] input = InputView.inputCarList();
+        carList = gameService.registerCarListFromInput(input);
+        OutputView.printAskGameRound();
+        gameRound = gameService.getGameRound();
     }
 
 }
