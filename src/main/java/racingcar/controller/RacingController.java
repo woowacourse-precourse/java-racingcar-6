@@ -22,7 +22,7 @@ public class RacingController {
          int movingCount = readMovingCount();
 
          for (Car car : carList) {
-            goStopDecider.numbersOfMovement(car);
+            goStopDecider.moveCarOnRandomValue(car);
         }
 
 

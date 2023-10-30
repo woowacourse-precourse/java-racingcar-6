@@ -7,7 +7,7 @@ public class GoStopDecider {
     private int movingCount;
     private boolean isGoForward;
 
-    private int getRandomNumber() {
+    public int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
@@ -19,9 +19,8 @@ public class GoStopDecider {
         isGoForward = checkGoStop(randomNumber);
     }
 
-    public void numbersOfMovement(Car car) {
-        if(isGoForward) {
-            car.upDistance();
-        }
+    public void moveCarOnRandomValue(Car car) {
+        decideGoStop(getRandomNumber());
+        if(isGoForward) car.upDistance();
     }
 }
