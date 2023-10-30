@@ -15,6 +15,7 @@ public class GameController {
 
     public void run() {
         RacingGame racingGame = initializeGame();
+        repeatPlayRace(racingGame);
     }
 
     private RacingGame initializeGame() {
@@ -25,5 +26,11 @@ public class GameController {
         int raceCount = raceCountDto.getCnt();
 
         return RacingGame.init(cars, raceCount);
+    }
+
+    private void repeatPlayRace(RacingGame racingGame) {
+        for (int i = 1; i <= racingGame.getRaceCount(); i++) {
+            racingGame.playRaceGame();
+        }
     }
 }

@@ -28,4 +28,12 @@ public class Car {
     private boolean isInvalidNameLength(String name) {
         return name.length() >= MAX_CAR_NAME_LENGTH;
     }
+
+    public void move() {
+        setPosition(this.position + 1);
+    }
+
+    private void setPosition(int position) {
+        this.position = position;
+    }
 }

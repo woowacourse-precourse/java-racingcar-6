@@ -17,4 +17,8 @@ public class Cars {
                 .map(Car::create)
                 .collect(collectingAndThen(toList(), Cars::new));
     }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 }
