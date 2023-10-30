@@ -1,18 +1,21 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.game.ResultDTO;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class View {
+public class InputView {
 
     private static final String NAME_DELIMITER = ",";
 
     private static final String MESSAGE_INPUT_CAR_NAMES
             = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(" + NAME_DELIMITER + ") 기준으로 구분)";
     private static final String MESSAGE_INPUT_ROUNDS = "시도할 회수는 몇회인가요?";
+
+    private InputView() {
+
+    }
 
     public static List<String> inputCarNames() {
         System.out.println(MESSAGE_INPUT_CAR_NAMES);
@@ -32,12 +35,5 @@ public class View {
         } catch (NumberFormatException exception) {
             throw new IllegalArgumentException();
         }
-    }
-
-    public static void printResult(ResultDTO result) {
-        List<String> logs = result.logs();
-        logs.forEach(System.out::println);
-
-        System.out.println(result.winners());
     }
 }
