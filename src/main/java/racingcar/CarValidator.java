@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.mockito.internal.matchers.Null;
 import racingcar.Input;
 import racingcar.NumbersUtil;
 
@@ -22,7 +23,7 @@ public class CarValidator {
         return new ArrayList<>(Arrays.asList(carList));
     }
 
-    public void CarValid () {
+    public ArrayList<String> CarValid () {
         ArrayList<String> carList = CarList();
 
         //CarList().stream().filter(e -> e.length() < NumbersUtil.carNameMax).forEach(e ->System.out.println(e));
@@ -31,13 +32,17 @@ public class CarValidator {
                 throw new IllegalArgumentException();
             }
 
-
         }
+        return carList;
     }
 
     public void tryValid() {
         String pattern = "^[0-9]*$";
         boolean numberCheck = Pattern.matches(pattern, tryNumbers);
+
+        if(tryNumbers.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
 
         if (!numberCheck) {
             throw new IllegalArgumentException();
@@ -45,8 +50,9 @@ public class CarValidator {
     }
 
     public Integer intTryNumber () {
+        tryValid();
 
-        return Integer.parseInt(input.inputTryNumber());
+        return Integer.parseInt(tryNumbers);
     }
 
 
