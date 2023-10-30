@@ -89,7 +89,7 @@ public class Application {
         boolean matches = pattern.matcher(repeatNumber).matches();
 
         if (!matches) {
-            throw new IllegalArgumentException("this should be only number");
+            throw new IllegalArgumentException("This should be only number");
         }
     }
 
