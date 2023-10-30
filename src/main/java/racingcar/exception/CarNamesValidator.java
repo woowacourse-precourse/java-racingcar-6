@@ -7,7 +7,7 @@ import racingcar.vo.CarName;
 
 public class CarNamesValidator {
 
-    private static final String EMPTY_CAR_NAME_MESSAGE = "자동차 이름은 필수 항목입니다. 빈 값은 허용되지 않습니다.";
+    private static final String EMPTY_CAR_NAME_MESSAGE = "자동차 이름에 빈 값은 허용되지 않습니다.";
     private static final String DUPLICATE_CAR_NAME_MESSAGE = "중복된 자동차 이름이 존재합니다.";
 
     private CarNamesValidator() {
