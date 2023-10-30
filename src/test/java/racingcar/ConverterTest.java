@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -30,5 +31,17 @@ class ConverterTest {
                 .hasMessageContaining(ErrorMessage.IS_NOT_NUMBER.getMessage());
     }
 
+    @Test
+    void stringToListConverter() {
+        //given
+        String s = "aaa,bbb,ccc";
 
+        //when
+        List<String> stringToList = Converter.stringToList(s);
+
+        //then
+        Assertions.assertEquals("aaa", stringToList.get(0));
+        Assertions.assertEquals("bbb", stringToList.get(1));
+        Assertions.assertEquals("ccc", stringToList.get(2));
+    }
 }
