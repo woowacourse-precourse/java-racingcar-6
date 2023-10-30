@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import java.util.List;
-import racingcar.domain.RaceDecisionMaker;
 
 public class Game {
     List<Car> cars;
@@ -19,10 +18,17 @@ public class Game {
     }
 
     public void play() {
+        System.out.println("\n실행 결과");
         for (int i = 0; i < totalRounds; ++i) {
             driveCars();
             printCars();
         }
+        gameEnd();
+    }
+    void gameEnd() {
+        String winners = "최종 우승자 : ";
+        winners += WinnerDeterminer.winner(cars);
+        System.out.print(winners);
     }
     void driveCars() {
         decision = new RaceDecisionMaker();
