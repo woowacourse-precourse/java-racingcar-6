@@ -31,6 +31,18 @@ class InputValidatorTest {
                 IllegalArgumentException.class).hasMessage(InputValidator.WRONG_INPUT_CAR_NAME_CHARACTER_MASSAGE);
     }
 
+    @DisplayName("자동차 이름이 2개 이상이 아니라면 예외 발생")
+    @Test
+    void test() {
+        // given
+        String input = "carA";
+
+        // when
+        // then
+        assertThatThrownBy(() -> InputValidator.validateInputCarNameCount(input)).isInstanceOf(
+                IllegalArgumentException.class).hasMessage(InputValidator.WRONG_INPUT_CAR_NAME_COUNT);
+    }
+
     @DisplayName("자동차 이름이 5자 이상이면 예외 발생")
     @Test
     void testValidateInputCarNameLength() {
