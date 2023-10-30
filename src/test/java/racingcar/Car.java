@@ -3,6 +3,7 @@ package racingcar;
 public class Car {
 	private String name;
 	private int moveCount;
+	private static int CAR_MOVE_CONDITION = 4;
 
 	public Car(String name) {
 		this.name = name;
@@ -18,7 +19,7 @@ public class Car {
 	}
 
 	public void run(int value) {
-		if (value >= Application.CAR_MOVE_CONDITION) {
+		if (value >= CAR_MOVE_CONDITION) {
 			moveCount++;
 		}
 	}

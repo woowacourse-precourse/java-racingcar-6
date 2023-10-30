@@ -41,8 +41,8 @@
 - `start()`: 레이스를 시작하는 메서드
 - `setCarList()`: 사용자에게 자동차명을 입력을 받아 Car 객체들을 생성하고 이를 carList에 저장하는 메서드
 - `setTurnCount()`: 사용자에게 레이싱에서 진행할 차수를 입력받아 이를 turnCount에 저장하기 위한 메서드
-- `getCarList()`: carList를 반환하는 메서드
-- `getTurnCount`; turnCount를 반환하는 메서드
+- `executeTurn()`: 턴을 실행하는 메서드, carList의 모든 차는 정지 혹은 진행
+- `printResult()`: 레이스의 결과를 출력하는 메서드
 
 ### Car
 
