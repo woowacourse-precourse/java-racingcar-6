@@ -6,26 +6,31 @@ import racingcar.view.Order;
 import java.util.List;
 
 public class CalculatingScore {
+    private int maxScore = Integer.MIN_VALUE;
     private Order order = new Order();
     public void result(List<Car> carList, List<String> winner) {
         order.printWinner();
-        int maxPoint = Integer.MIN_VALUE;
 
         for (Car car : carList) {
-            int carPoint = point(car);
+            int carScore = locate(car);
 
-            if (carPoint > maxPoint) {
-                maxPoint = carPoint;
+            if (carScore > maxScore) {
+                maxScore = carScore;
                 winner.clear();
-                winner.add(car.getName());
+                plus(winner, car.getName());
             }
 
-            else if (carPoint == maxPoint) {
-                winner.add(car.getName());
+            else if (carScore == maxScore) {
+                plus(winner, car.getName());
             }
         }
     }
-    private int point(Car car) {
+
+    private void plus(List<String> winner, String name) {
+        winner.add(name);
+    }
+
+    private int locate(Car car) {
         return score(car.getMove());
     }
 

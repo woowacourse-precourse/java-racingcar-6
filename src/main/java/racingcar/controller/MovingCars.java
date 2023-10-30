@@ -16,6 +16,7 @@ public class MovingCars {
         for(int count = 0; count < total; count++){
             moveOrStop(carList);
             checkLocation(carList);
+            order.blank();
         }
     }
 
@@ -23,8 +24,6 @@ public class MovingCars {
         for (Car car : carList) {
             printLocation(car);
         }
-
-        order.blank();
     }
 
     private void moveOrStop(List<Car> carList) {

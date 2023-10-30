@@ -37,7 +37,7 @@ public class Order {
         return location + FORWARD;
     }
 
-    public void printPerson(List<String> winner, int index){
+    public void printLast(List<String> winner, int index){
         System.out.print(winner.get(index));
     }
 

@@ -13,6 +13,7 @@ public class RacingGame {
     private PrizingWinners prizingWinners = new PrizingWinners();
     private MovingCars movingCars = new MovingCars();
     private CarName carName = new CarName();
+
     public void play() {
         splitCars(inputCarName());
         movingCars.start(carList);

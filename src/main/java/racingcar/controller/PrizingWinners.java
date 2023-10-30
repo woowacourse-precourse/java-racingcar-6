@@ -27,12 +27,12 @@ public class PrizingWinners {
                 order.printPeoPle(winners, person);
             }
             else if(person == winners.size()-1){
-                order.printPerson(winners, person);
+                order.printLast(winners, person);
             }
         }
     }
 
     private void person(List<String> winner) {
-        order.printPerson(winner,0);
+        order.printLast(winner,0);
     }
 }
