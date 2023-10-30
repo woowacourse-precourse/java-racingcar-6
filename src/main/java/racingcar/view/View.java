@@ -1,7 +1,8 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.service.OneGameResultDto;
+import racingcar.dto.OneGameResultsDto;
+import racingcar.dto.ResultDto;
 
 public class View {
     public void printGameStartMessage() {
@@ -16,16 +17,16 @@ public class View {
         System.out.println("\n실행 결과");
     }
 
-    public void printResult(OneGameResultDto resultDto) {
+    public void printResult(OneGameResultsDto resultDto) {
         String result = convertToResultForm(resultDto);
         System.out.println(result);
     }
 
-    private String convertToResultForm(OneGameResultDto resultDto) {
+    private String convertToResultForm(OneGameResultsDto resultDto) {
         StringBuilder resultForm = new StringBuilder();
-        for (int idx = 0; idx < resultDto.getNames().size(); idx++) {
-            String name = resultDto.getNames().get(idx);
-            long moveCount = resultDto.getTotalMoveCounts().get(idx);
+        for (ResultDto result : resultDto.getResults()) {
+            String name = result.getName();
+            long moveCount = result.getTotalMoveCount();
             resultForm.append(name).append(" : ").append(convertMoveCountsToHyphens(moveCount)).append("\n");
         }
         return resultForm.toString();
