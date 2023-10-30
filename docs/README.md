@@ -13,8 +13,8 @@
 - [ ] 우승자가 결정나면 우승자 목록을 출력한다 - `showWinner()`
 
 **자동차 - Car**
-- [ ] 자동차는 조건에 따라 움직일 수 있어야 한다. - `move()`
-- [ ] 자동차의 현 상황을 반환할 수 있어야 한다. - `status()`
+- [x] 자동차는 조건에 따라 움직일 수 있어야 한다. - `move()`
+- [x] 자동차의 현 상황을 반환할 수 있어야 한다. - `status()`
 
 **예외처리 - ExceptionHandler**
 - [ ] 잘못된 입력에 대해 `IllegalArgumentException`을 발생시킨다. - `InputException()`
