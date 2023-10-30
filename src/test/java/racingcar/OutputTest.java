@@ -56,4 +56,20 @@ public class OutputTest {
         String result = GameMessage.OUTPUT_WINNER_ANNOUNCEMENT.getMessage() + "java";
         assertThat(result).isEqualTo(outputStreamCaptor.toString().trim());
     }
+
+    @Test
+    @DisplayName("공동 우승자 출력 테스트")
+    void output_공동_우승자() {
+        List<String> names = List.of("pobi","hj", "ji", "java", "n");
+        int attempt = 3;
+        List<Integer> mileages = List.of(1, 4, 4, 2, 4);
+
+        Car car = new Car(names, attempt, mileages);
+        car.initWinners();
+
+        OutputView.displayWinner(car);
+
+        String result = GameMessage.OUTPUT_WINNER_ANNOUNCEMENT.getMessage() + "hj, ji, n";
+        assertThat(result).isEqualTo(outputStreamCaptor.toString().trim());
+    }
 }
