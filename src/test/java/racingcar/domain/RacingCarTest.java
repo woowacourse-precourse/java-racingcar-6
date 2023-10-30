@@ -1,17 +1,13 @@
 package racingcar.domain;
 
 import org.assertj.core.api.Assertions;
-import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.Arrays;
 import java.util.List;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class RacingCarTest  {
     RacingCar racingCar = new RacingCar();
@@ -37,11 +33,7 @@ class RacingCarTest  {
         List<String> actual = racingCar.naming(input);
 
         assertThat(actual).contains("1","2");
+        assertThat(actual).containsExactly("1", "2");
     }
 
-    @DisplayName("자동차 이름은 6자 이상이면 exception 발생")
-    @Test
-    void nameLength() {
-
-    }
 }
