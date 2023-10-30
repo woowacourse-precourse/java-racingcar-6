@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.car.Cars;
-import racingcar.domain.car.carcomponent.carmove.CarMoveReader;
+import racingcar.domain.car.carmove.CarMoveReader;
 import racingcar.util.Generator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -23,8 +23,8 @@ public class GameController {
     }
 
     private CarController getCarController() {
-        Cars cars = Generator.generaterCars(inputView.inputCarNames());
-        CarMoveReader carMoveReader = Generator.generateCarMoveReader(inputView.inputAttemptTimes());
+        Cars cars = inputView.inputCarNames();
+        CarMoveReader carMoveReader = inputView.inputTotalMoveNumber();
         return new CarController(cars, carMoveReader);
     }
 
