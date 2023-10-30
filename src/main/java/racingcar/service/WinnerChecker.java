@@ -12,14 +12,14 @@ public class WinnerChecker {
     private static Progress maxProgress;
 
     public static List<Car> findWinner(List<Car> carList) {
-        maxProgress = getMaxProgress(carList);
+        getMaxProgress(carList);
         return carList.stream()
                 .filter(WinnerChecker::isWinner)
                 .collect(toList());
     }
 
-    private static Progress getMaxProgress(List<Car> carList) {
-        return carList.stream()
+    private static void getMaxProgress(List<Car> carList) {
+        maxProgress = carList.stream()
                 .max(comparingInt(Car::getProgressToInt))
                 .map(Car::getProgress)
                 .orElseThrow();
