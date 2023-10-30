@@ -1,6 +1,7 @@
-package race;
+package racingcar.race;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class Race {
@@ -12,21 +13,24 @@ public class Race {
     }
 
     public void result(List<String> carNames, int numberOfAttempts) {
+
         while (numberOfAttempts > 0) {
             diceNumber.creation(carNames);
             carMoveCheck();
             System.out.println();
-
             numberOfAttempts--;
-
-
         }
+
     }
 
     private void carMoveCheck() {
-        for (Entry<String, String> map : diceNumber.getCarMoveCheck().entrySet()) {
+        for (Entry<String, String> map : getCarMoveCheck().entrySet()) {
             System.out.printf("%s : %s\n", map.getKey(), map.getValue());
         }
+    }
+
+    private Map<String, String> getCarMoveCheck() {
+        return diceNumber.getCarMoveCheck();
     }
 
 }

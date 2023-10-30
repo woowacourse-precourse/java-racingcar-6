@@ -1,7 +1,7 @@
-package race;
+package racingcar.race;
 
 import java.util.List;
-import view.Input;
+import racingcar.view.Input;
 
 public class Run {
 

@@ -1,4 +1,4 @@
-package race;
+package racingcar.race;
 
 import java.util.LinkedHashMap;
 import java.util.List;
