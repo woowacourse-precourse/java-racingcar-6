@@ -47,7 +47,7 @@ public class ValidationManager {
     }
 
     private static boolean isStartWithZero(String inputTryCount) {
-        return inputTryCount.charAt(0) == '0';
+        return '0' == inputTryCount.charAt(0);
     }
 
 }
