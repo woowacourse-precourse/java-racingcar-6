@@ -11,6 +11,7 @@ public class RacingController {
 
     public List<Car> race(List<String> carNames, int NumberOfExecutions) {
         createCars(carNames);
+        Output.printIntroductionOfResult();
         for (int i = 0; i < NumberOfExecutions; i++) {
             racing.moveCars();
             Output.printResultOfEachExecution(racing.getCarList());
