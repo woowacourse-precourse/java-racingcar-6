@@ -16,31 +16,37 @@ public class RacingGame {
     RotatingCount rotatingCount = new RotatingCount();
     CarName carName = new CarName();
     public void play() {
-        order.racingStart();
-        String[] carNames = carName.input().split(",");
+        String[] carNames = splitCars(inputCarName());
         init(carNames);
-        order.rotateCount();
-        int racingCount = rotatingCount.input();
-        order.gameProcess();
-        check(racingCount);
-        order.printWinner();
+        check(rotatingCount.input());
         calculate();
         win();
     }
 
+    private String[] splitCars(String carNames) {
+        return carNames.split(",");
+    }
+
+    private String inputCarName() {
+        order.racingStart();
+        return carName.input();
+    }
+
     private void calculate() {
+        order.printWinner();
         int maxPoint = Integer.MIN_VALUE;
 
-        for(int index = 0; index < carList.size(); index++){
-            int carPoint = point(carList.get(index));
-            if(carPoint > maxPoint){
+        for (Car car : carList) {
+            int carPoint = point(car);
+
+            if (carPoint > maxPoint) {
                 maxPoint = carPoint;
                 winner.clear();
-                winner.add(carList.get(index).getName());
+                winner.add(car.getName());
             }
 
-            else if(carPoint == maxPoint){
-                winner.add(carList.get(index).getName());
+            else if (carPoint == maxPoint) {
+                winner.add(car.getName());
             }
         }
     }
@@ -83,6 +89,7 @@ public class RacingGame {
     }
 
     private void check(int racingCount) {
+        order.gameProcess();
         for(int count = 0; count < racingCount; count++){
             moveOrStop();
             moveState();
@@ -119,9 +126,10 @@ public class RacingGame {
     }
 
     private void init(String[] carNames){
-        for(int index=0; index<carNames.length; index++){
-            Car car = new Car(carNames[index],"");
+        for (String name : carNames) {
+            Car car = new Car(name, "");
             carList.add(car);
         }
+        order.rotateCount();
     }
 }
