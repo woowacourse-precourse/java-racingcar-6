@@ -16,4 +16,8 @@ public class Car {
 	public String getForwardCount() {
 		return this.ForwardCount;
 	}
+	
+	public void forward() {
+		this.ForwardCount += "-";
+	}
 }
