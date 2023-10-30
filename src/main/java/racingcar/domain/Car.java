@@ -30,16 +30,23 @@ public class Car implements Comparable<Car> {
         }
     }
 
-
     public void triesToMove() {
-        int power = Randoms.pickNumberInRange(CAR_MIN_MOVE_POWER, CAR_MAX_MOVE_POWER);
+        int power = pushAccelerator();
         if (power >= CAR_MOVABLE_POWER) {
             move();
         }
     }
 
+    private int pushAccelerator() {
+        return Randoms.pickNumberInRange(CAR_MIN_MOVE_POWER, CAR_MAX_MOVE_POWER);
+    }
+
     public boolean isLocatedIn(int position) {
         return this.position == position;
+    }
+
+    public void move() {
+        position++;
     }
 
     public String getName() {
@@ -48,10 +55,6 @@ public class Car implements Comparable<Car> {
 
     public int getPosition() {
         return position;
-    }
-
-    public void move() {
-        position++;
     }
 
     @Override
