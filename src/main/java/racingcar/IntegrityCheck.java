@@ -6,7 +6,7 @@ public class IntegrityCheck {
             return false;
         }
         for (int i = 0; i < name.length(); i++){
-            if ((name.charAt(i) <= 8) && (14 <= name.charAt(i) && name.charAt(i) <= 31)){
+            if ((name.charAt(i) <= 8) || (14 <= name.charAt(i) && name.charAt(i) <= 31)){
                 return false;
             }
         }
