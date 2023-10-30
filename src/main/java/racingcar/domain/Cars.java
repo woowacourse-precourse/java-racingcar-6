@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.message.ErrorMessage;
+import racingcar.message.ProcessMessage;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class Cars {
 
     public String getMoveRecord() {
         StringBuilder sb = new StringBuilder();
-        values.forEach(value -> sb.append(value.mapRecord()).append("\n"));
+        values.forEach(value -> sb.append(value.mapRecord()).append(ProcessMessage.NEW_LINE));
         return sb.toString();
     }
 

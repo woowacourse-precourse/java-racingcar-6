@@ -1,11 +1,8 @@
 package racingcar.view;
 
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Winners;
 import racingcar.message.ProcessMessage;
-
-import java.util.stream.Collectors;
 
 public class OutputView {
     public void printInputCarNameMessage() {
