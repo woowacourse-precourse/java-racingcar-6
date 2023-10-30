@@ -5,7 +5,7 @@ import racingcar.constant.message.Message;
 public class OutputViewImpl implements OutputView {
 
     @Override
-    public void printExecutionResult() {
+    public void printExecutionMessage() {
         System.out.println(Message.EXECUTION_RESULT);
     }
 

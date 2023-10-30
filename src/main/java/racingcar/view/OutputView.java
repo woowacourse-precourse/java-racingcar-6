@@ -1,7 +1,7 @@
 package racingcar.view;
 
 public interface OutputView {
-    void printExecutionResult();
+    void printExecutionMessage();
 
     void printResult(String result);
 
