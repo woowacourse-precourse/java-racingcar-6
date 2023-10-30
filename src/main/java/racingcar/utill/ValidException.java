@@ -21,8 +21,6 @@ public class ValidException {
         throw new IllegalArgumentException(ValidConstants.MSG_INPUT_STRING_LENGTH_CHECK());
     }
 
-    // TODO: 10/28/23 문자열 이름, 다음에는 문자가 나와야 한다. "sue,woo," 금지. isValidCommaNextBlankCheck
-
 
     /**
      * 한글 포함 검사
