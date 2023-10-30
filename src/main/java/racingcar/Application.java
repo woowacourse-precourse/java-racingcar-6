@@ -36,30 +36,24 @@ public class Application {
 
     public static void moveOrStopCar(List<Car> carList) {
 
-        for (Car car : carList) {
+        carList.forEach(car -> {
             car.moveOrStop(new RandomRaceNumberGenerator());
             OutputView.printCarsPosition(car);
-        }
+        });
 
         System.out.println();
     }
 
     private static int getWinnerPosition(List<Car> carList) {
 
-        int winnerPosition = 0;
-        for (Car car : carList) {
-            winnerPosition = Math.max(winnerPosition, car.getPositionLength());
-        }
-
-        return winnerPosition;
+        return carList.stream()
+                .mapToInt(Car::getPositionLength)
+                .max()
+                .orElse(0);
     }
 
     private static void findWinners(List<Car> carList, List<Car> winnerList, int winnerPosition) {
 
-        for (Car car : carList) {
-            if (car.getPositionLength() == winnerPosition) {
-                winnerList.add(car);
-            }
-        }
+        carList.stream().filter(car -> car.getPositionLength() == winnerPosition).forEach(winnerList::add);
     }
 }

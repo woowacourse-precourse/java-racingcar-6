@@ -1,5 +1,6 @@
 package racingcar.validation;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class InputValidation {
@@ -8,10 +9,12 @@ public class InputValidation {
     static final String REGEXP_PATTERN_ZERO_TO_NINE_NUMBER = "^[0-9]*$";
 
     public static void validateCarsName(String[] split) {
-        for (String carName : split) {
-            validateBlankCarName(carName);
-            validateCarNameLength(carName);
-        }
+
+        Arrays.stream(split)
+                .forEach(carName -> {
+                    validateBlankCarName(carName);
+                    validateCarNameLength(carName);
+                });
     }
 
     private static void validateBlankCarName(String carName) {

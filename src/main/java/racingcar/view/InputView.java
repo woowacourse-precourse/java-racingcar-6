@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.validation.InputValidation;
@@ -15,9 +16,7 @@ public class InputView {
         String[] split = str.split(",", -1);
         InputValidation.validateCarsName(split);
 
-        for (String name : split) {
-            carList.add(new Car(name));
-        }
+        Arrays.stream(split).map(Car::new).forEach((carList::add));
     }
 
     public static int inputTimes() {
