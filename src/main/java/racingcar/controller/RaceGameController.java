@@ -14,13 +14,13 @@ public class RaceGameController {
         scoreBoardService = new ScoreBoardService();
     }
 
-    public void startRace() {
+    public void run() {
         int attemptCount = InputView.inputAttemptCount();
         OutputView.beforeRaceMessage();
-        run(attemptCount);
+        startRace(attemptCount);
     }
 
-    private void run(int attemptCount) {
+    private void startRace(int attemptCount) {
         for (int round = 1; round <= attemptCount; round++) {
             racingCarService.moveRacingCars();
             scoreBoardService.recordRound(round, racingCarService.getRacingCars());
