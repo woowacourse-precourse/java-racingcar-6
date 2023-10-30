@@ -13,6 +13,10 @@ public class CarPosition {
         return new CarPosition(START_POSITION);
     }
 
+    public static CarPosition create(CarPosition carPosition) {
+        return new CarPosition(carPosition.position);
+    }
+
     public void driveForward() {
         ++position;
     }

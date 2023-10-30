@@ -15,6 +15,10 @@ public class Car {
         return new Car(driveBehavior, new CarName(carName), CarPosition.createStartPosition());
     }
 
+    public static Car create(Car car) {
+        return new Car(car.driveBehavior, car.carName, CarPosition.create(car.carPosition));
+    }
+
     public void drive() {
         driveBehavior.drive(carPosition);
     }

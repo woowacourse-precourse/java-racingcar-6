@@ -11,12 +11,15 @@ public final class RacingCars {
     private final List<Car> racingCars;
 
     public RacingCars(List<Car> racingCars) {
-        validateCarCount(racingCars);
-        this.racingCars = new ArrayList<>(racingCars);
+        this.racingCars = racingCars.stream()
+                .map(Car::create)
+                .toList();
+
+        validateCarCount();
     }
 
-    private void validateCarCount(List<Car> cars) {
-        if (cars.size() < MIN_CAR_COUNT) {
+    private void validateCarCount() {
+        if (racingCars.size() < MIN_CAR_COUNT) {
             throw new IllegalArgumentException(CAR_COUNT_EXCEPTION_MESSAGE);
         }
     }
