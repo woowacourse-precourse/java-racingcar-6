@@ -13,30 +13,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CarsTest {
 
-    @Test
-    @DisplayName("중복된 이름이 입력된 경우 예외 발생")
-    void 예외_처리_테스트_1() {
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        List<String> names = Arrays.asList("pobi", "pobi", "crong", "horan");
-
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    new Cars(names, movingStrategy);
-                });
-    }
 
     @Test
     @DisplayName("Cars의 동차 저장 리스트 필드가 같은지 테스트")
     void getCars() {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        List<String> names = Arrays.asList("pobi", "crong", "horan");
-        List<Car> expected = Arrays.asList(new Car(movingStrategy, "pobi"),
+        List<Car> carList = Arrays.asList(new Car(movingStrategy, "pobi"),
                 new Car(movingStrategy, "crong"),
                 new Car(movingStrategy, "horan"));
+        List<Car> expected = carList;
 
         // when
-        Cars cars = new Cars(names, movingStrategy);
+        Cars cars = new Cars(carList);
         List<Car> result = cars.getCars();
         
 
@@ -51,8 +40,10 @@ class CarsTest {
     void raceAllCars_전진() {
         // given
         MovingStrategy moveStrategy = new MovingStrategy((start, end)->4); // isCarMove() 항상 true 반환, 즉 항상 전진
-        List<String> names = Arrays.asList("pobi", "crong", "horan");
-        Cars cars = new Cars(names, moveStrategy);
+        List<Car> carList = Arrays.asList(new Car(moveStrategy, "pobi"),
+                                    new Car(moveStrategy, "crong"),
+                                    new Car(moveStrategy, "nimo"));
+        Cars cars = new Cars(carList);
 
         // when
         cars.raceAllCars();
@@ -68,9 +59,11 @@ class CarsTest {
     @DisplayName("자동차가 모두 멈추는 경우")
     void raceAllCars_멈춤() {
         // given
-        MovingStrategy stopStrategy = new MovingStrategy((start, end)->3); // isCarMove() 항상 false 반환, 즉 항상 멈춤
-        List<String> names = Arrays.asList("pobi", "crong", "horan");
-        Cars cars = new Cars(names, stopStrategy);
+        MovingStrategy stopStrategy = new MovingStrategy((start, end)->3); // isCarMove() 항상 true 반환, 즉 항상 전진
+        List<Car> carList = Arrays.asList(new Car(stopStrategy, "pobi"),
+                new Car(stopStrategy, "crong"),
+                new Car(stopStrategy, "nimo"));
+        Cars cars = new Cars(carList);
 
         // when
         cars.raceAllCars();
@@ -87,14 +80,16 @@ class CarsTest {
     void findWinnerPosition() {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        List<String> names = Arrays.asList("pobi", "crong", "horan");
-        Cars cars = new Cars(names, movingStrategy);
+        List<Car> carList = Arrays.asList(new Car(movingStrategy, "pobi"),
+                                        new Car(movingStrategy, "crong"),
+                                        new Car(movingStrategy, "nimo"));
+        Cars cars = new Cars(carList);
 
         // 경주 세번 돌리기
         for (int i=0; i<3; i++) {
             cars.raceAllCars();
         }
-        List<Car> carList = cars.getCars();
+        List<Car> updatedCarList = cars.getCars();
 
         // 우승자 위치 찾아내기
         int expected = carList.stream()
@@ -114,14 +109,16 @@ class CarsTest {
     void findWinner() {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        List<String> names = Arrays.asList("pobi", "crong", "horan");
-        Cars cars = new Cars(names, movingStrategy);
+        List<Car> carList = Arrays.asList(new Car(movingStrategy, "pobi"),
+                new Car(movingStrategy, "crong"),
+                new Car(movingStrategy, "nimo"));
+        Cars cars = new Cars(carList);
 
         // 경주 세번 돌리기
         for (int i=0; i<3; i++) {
             cars.raceAllCars();
         }
-        List<Car> carList = cars.getCars();
+        List<Car> updatedCarList = cars.getCars();
 
         // 우승자 위치 찾아내기
         int winnerPosition = carList.stream()
