@@ -6,4 +6,8 @@ public class Race {
     private Race(final int raceTime){
         this.raceTime = raceTime;
     }
+
+    public boolean runningTime(int race) {
+        return race != this.raceTime;
+    }
 }

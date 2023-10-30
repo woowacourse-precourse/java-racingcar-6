@@ -11,6 +11,10 @@ public class Car {
         this.position = 0;
     }
 
+    public static Car create(final String name) {
+        return new Car(name);
+    }
+
     public String getName() {
         return name;
     }
