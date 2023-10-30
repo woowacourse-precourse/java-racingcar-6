@@ -1,7 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -22,9 +24,11 @@ class ApplicationTest extends NsTest {
 
     private IOService ioService = new IOService();
     private GameService gameService = new GameService();
-    void systemIn(String input){
+
+    void systemIn(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
+
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
@@ -45,49 +49,38 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름_입력_정상(){
-        systemIn("pobi,woni,jun,,");
-        List<String> carNames = ioService.scanCarNames();
-        assertEquals("pobi", carNames.get(0));
-        assertEquals("woni", carNames.get(1));
-        assertEquals("jun", carNames.get(2));
+    void 자동차_이름_공백_입력_예외_테스트() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
     @Test
-    void 자동차_이름_공백_입력_예외_테스트(){
-        systemIn("\n");
-        List<String> carNames;
-
-        assertThatThrownBy(()->
-                ioService.scanCarNames()
-        ).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    void 자동차_이름_입력_글자수_초과_테스트(){
+    void 자동차_이름_입력_글자수_초과_테스트() {
         systemIn("pobi,woni,jun,lujaeeee");
         List<String> carNames;
 
-        assertThatThrownBy(()->
+        assertThatThrownBy(() ->
                 ioService.scanCarNames()
         ).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void 랜덤_숫자_리스트_생성_테스트(){
+    void 랜덤_숫자_리스트_생성_테스트() {
         int size = 9;
         List<Integer> randomNumbers = NumberGenerator.createRandomNumbers(size);
 
         assertThat(randomNumbers).hasSize(size);
         randomNumbers.forEach(
-                (number)->assertThat(number)
+                (number) -> assertThat(number)
                         .isGreaterThanOrEqualTo(0)
                         .isLessThanOrEqualTo(9)
         );
     }
 
     @Test
-    void 문자_자동차_현재_상태_출력_테스트(){
+    void 문자_자동차_현재_상태_출력_테스트() {
         Car car = new Car("youjae", 4);
 
         ioService.printCarState(car);
@@ -103,26 +96,26 @@ class ApplicationTest extends NsTest {
 
         List<Car> carList = List.of(car1, car2, car3, car4);
 
-        try{
+        try {
             Method selectWinners = GameService.class.getDeclaredMethod("selectWinners", List.class);
             selectWinners.setAccessible(true);
 
-            List<Car> winners = (List<Car>)selectWinners.invoke(gameService, carList);
+            List<Car> winners = (List<Car>) selectWinners.invoke(gameService, carList);
 
             assertThat(winners.get(0).getName()).isEqualTo("car1");
             assertThat(winners.get(1).getName()).isEqualTo("car3");
             assertThat(winners.get(2).getName()).isEqualTo("car4");
-        } catch (NoSuchMethodException e){
+        } catch (NoSuchMethodException e) {
             e.printStackTrace();
-        } catch(IllegalAccessException e){
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
-        }catch (InvocationTargetException e){
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    void 게임_우승자_출력_테스트(){
+    void 게임_우승자_출력_테스트() {
         List<String> nameList = List.of("youea1", "intell");
 
         ioService.printWinners(nameList);
