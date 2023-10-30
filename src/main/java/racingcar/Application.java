@@ -24,14 +24,16 @@ public class Application {
         System.out.println("실행 결과");
         for(int i=0; i<tries;i++){
             gameController.GameStart(participantes);
+            for (int j = 0; j < participantes.size(); j++) {
+                String dashString = DashStringGenerator(j, gameController.win);
+                System.out.println(participantes.get(j) + " : " + dashString);
+            }
+            System.out.println();
         }
-        for(int i=0; i<participantes.size();i++){
-            System.out.println(participantes.get(i) + " : " + gameController.win[i] + "회");
-        }
-        for (int i = 0; i < participantes.size(); i++) {
-            String dashString = DashStringGenerator(i, gameController.win);
-            System.out.println(participantes.get(i) + " : " + dashString);
-        }
+        int[] forwinner = gameController.win;
+        System.out.println(forwinner[0]);
+        System.out.println(forwinner[1]);
+        System.out.println(forwinner[2]);
     }
 
 

@@ -3,8 +3,6 @@ package racingcar.controller;
 import racingcar.entity.GameCount;
 import racingcar.generator.ListLengthGenerator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
