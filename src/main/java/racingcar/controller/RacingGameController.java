@@ -11,11 +11,11 @@ import racingcar.model.Rank;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingGameController {
+public class RacingGameController implements Controller {
     private final InputView inputView;
     private final OutputView outputView;
 
-    RacingGameController(InputView inputView, OutputView outputView) {
+    RacingGameController(final InputView inputView, final OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
     }
@@ -40,12 +40,12 @@ public class RacingGameController {
         List<Car> cars = new ArrayList<>();
         int index = STARTING_INDEX.number();
         for (String name:participants) {
-            cars.add(Model.generateCar(name, index++));
+            cars.add((Car) Model.generateCar(name, index++));
         }
         return cars;
     }
 
-    private void updateRaceStatus(List<Car> cars) {
+    private void updateRaceStatus(final List<Car> cars) {
         int tryCount = inputView.getUserInputCount();
         while (tryCount-- > MINIMUM_TRY_COUNT.number()) {
             cars.forEach(Car::moveOrStop);
@@ -53,8 +53,8 @@ public class RacingGameController {
         }
     }
 
-    private void judgeWinner(List<Car> cars) {
-        Rank rank = Model.generateRank(cars);
+    private void judgeWinner(final List<Car> cars) {
+        Rank rank = (Rank) Model.generateRank(cars);
         outputView.recordWinner(rank.getWinnerList());
     }
 }
