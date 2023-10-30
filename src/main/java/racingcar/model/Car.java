@@ -12,7 +12,7 @@ public class Car {
     public String getName() {
         return name.get();
     }
-    
+
     public int getStep() {
         return step;
     }

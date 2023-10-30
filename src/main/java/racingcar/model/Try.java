@@ -2,6 +2,7 @@ package racingcar.model;
 
 public class Try {
     private int number;
+
     public Try(int number) {
         validateNumber(number);
         this.number = number;

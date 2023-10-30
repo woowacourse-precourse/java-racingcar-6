@@ -52,6 +52,7 @@ public class GameController {
             cars.add(newCar);
         }
     }
+
     private void readTheNumberOfTry() {
         viewer.printAskTheNumberOfTry();
 
@@ -60,10 +61,12 @@ public class GameController {
 
         coin = new Try(num);
     }
+
     private boolean canProgress() {
         int nextNumber = Randoms.pickNumberInRange(0, 9);
         return (nextNumber >= MOVE_CONDITION);
     }
+
     private List<Car> findWinners() {
         int max = -1;
         List<Car> winners = new ArrayList<>();
