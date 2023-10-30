@@ -8,21 +8,17 @@ import racingcar.utils.MessagePrinter;
 import racingcar.utils.Validator;
 
 public class RacingGame {
-    private List<Car> cars;
+    private final List<Car> cars;
     private final Validator validator;
     private final MessagePrinter messagePrinter;
 
     public RacingGame() {
         this.validator = Validator.getInstance();
         this.messagePrinter = MessagePrinter.getInstance();
+        this.cars = init();
     }
 
     public void play() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        final String carNames = Console.readLine();
-        validator.carNames(carNames);
-        createCars(carNames);
-
         System.out.println("시도할 회수는 몇회인가요?");
         final int playTimes = validator.playTimes(Console.readLine());
         playRound(cars, playTimes);
@@ -30,10 +26,17 @@ public class RacingGame {
         Console.close();
     }
 
-    private void createCars(final String carNames) {
+    private List<Car> init() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        final String carNames = Console.readLine();
+        validator.carNames(carNames);
+        return createCarMembers(carNames);
+    }
+
+    private List<Car> createCarMembers(final String carNames) {
         final List<String> members = Arrays.asList(carNames.split(","));
         validator.singleComma(members);
-        this.cars = members.stream()
+        return members.stream()
                 .map(Car::new)
                 .toList();
     }
