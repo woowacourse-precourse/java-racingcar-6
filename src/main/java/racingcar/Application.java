@@ -18,9 +18,9 @@ public class Application {
     static List<String> winners;
     static int gameCount;
     static Map<String,String> userInfomation;
+    static final String MATCH_RECORD_AND_NAME = " : ";
+    static final String TAB = "";
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-
         systemMessage.printStartMessage();
         carList =  user.initCarList();
         userInfomation = user.initUser(carList);
@@ -43,9 +43,9 @@ public class Application {
             if(user.decideMove(randomNumber)){
                 car.moveForward(carList.get(index),userInfomation);
             }
-            System.out.println(carList.get(index) + " : "+ userInfomation.get(carList.get(index)));
+            System.out.println(carList.get(index) + MATCH_RECORD_AND_NAME+ userInfomation.get(carList.get(index)));
         }
-        System.out.println("");
+        System.out.println(TAB);
 
     }
 }
