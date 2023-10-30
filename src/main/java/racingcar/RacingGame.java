@@ -65,5 +65,6 @@ public class RacingGame {
     }
 
     public void printResult(CarMap carMap){
+
     }
 }

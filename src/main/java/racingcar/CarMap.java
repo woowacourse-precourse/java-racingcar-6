@@ -1,13 +1,10 @@
 package racingcar;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class CarMap {
 
-    private Map<String, String> carMap = new HashMap<>();
+    private LinkedHashMap<String, String> carMap = new LinkedHashMap<>();
 
     public CarMap(String carList){
 
@@ -34,7 +31,7 @@ public class CarMap {
         return true;
     }
 
-    public Map<String, String> getMap(){
+    public LinkedHashMap<String, String> getMap(){
         return carMap;
     }
 
