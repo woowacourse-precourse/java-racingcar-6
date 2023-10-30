@@ -1,4 +1,4 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 
@@ -28,7 +28,7 @@ public class Input {
         }
     }
 
-    private static void checkDuplicateName(List<String> names) {
+    public static void checkDuplicateName(List<String> names) {
         Set<String> nameSet = new HashSet<>(names);
         if (names.size() != nameSet.size()) {
             throw new IllegalArgumentException();

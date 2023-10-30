@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.Controller.Play.start;
+import static racingcar.controller.Play.start;
 
 public class Application {
 

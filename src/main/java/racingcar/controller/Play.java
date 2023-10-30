@@ -1,14 +1,14 @@
-package racingcar.Controller;
+package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.Model.Car;
+import racingcar.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static racingcar.Controller.FindWin.findWinCars;
-import static racingcar.Controller.Input.inputCarName;
-import static racingcar.Controller.Input.inputNum;
+import static racingcar.controller.FindWin.findWinCars;
+import static racingcar.controller.Input.inputCarName;
+import static racingcar.controller.Input.inputNum;
 import static racingcar.View.Message.inputNameMessage;
 import static racingcar.View.Message.inputNumMessage;
 import static racingcar.View.Print.printEachRotate;
