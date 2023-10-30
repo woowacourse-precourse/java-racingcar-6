@@ -40,6 +40,10 @@ public final class Car {
         return movementDistance;
     }
 
+    public boolean hasMovementDistanceOf(int movementDistance) {
+        return this.movementDistance == movementDistance;
+    }
+
     public Car move() {
         int currentMovementDistance = movementDistance;
         if (movableStrategy.isMovable()) {
