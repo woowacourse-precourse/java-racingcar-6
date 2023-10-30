@@ -7,6 +7,7 @@ import racingcar.Validator;
 
 public class Judge {
     private List<Car> cars;
+    private int numberOfAttempts;
 
     public Judge() {
         this.cars = new ArrayList<>();
@@ -19,11 +20,11 @@ public class Judge {
         return carNamesArray;
     }
 
-    private int makeNumberOfAttempts() {
+    private void makeNumberOfAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
         int numberOfAttempts = InputHandler.inputNumberOfAttempts();
         Validator.isValidNumberOfAttempts(numberOfAttempts);
-        return numberOfAttempts;
+        this.numberOfAttempts = numberOfAttempts;
     }
 
     public void setCars(String[] carNamesWithStringArray) {
