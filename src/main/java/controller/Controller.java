@@ -8,11 +8,17 @@ import view.OutputView;
 
 public class Controller {
 
-    public static UserInput userInput = new UserInput();
-    public static GameManager gameManager = new GameManager();
-    public static GameResult gameResult = new GameResult();
-    public static InputView inputView = new InputView();
-    public static OutputView outputView = new OutputView();
+    private final static Controller instance = new Controller();
+    private Controller() {}
+    public static Controller getInstance() {
+        return instance;
+    }
+
+    private final UserInput userInput = UserInput.getInstance();
+    private final GameManager gameManager = GameManager.getInstance();
+    private final GameResult gameResult = GameResult.getInstance();
+    private final InputView inputView = InputView.getInstance();
+    private final OutputView outputView = OutputView.getInstance();
 
     public void playGame() {
         getUserInput();

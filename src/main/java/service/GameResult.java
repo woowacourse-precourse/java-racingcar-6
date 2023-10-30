@@ -7,10 +7,17 @@ import java.util.Map;
 
 public class GameResult {
 
+    private final static GameResult instance = new GameResult();
+    private GameResult() {}
+    public static GameResult getInstance() {
+        return instance;
+    }
+
     private final ArrayList<String> winnersList = new ArrayList<>();
 
-    public ArrayList<String> getWinnersList() {
-        return winnersList;
+    private List<Map.Entry<String, String>> sortByPositionLength(List<Map.Entry<String, String>> carIdxNamePosList) {
+        carIdxNamePosList.sort(Comparator.comparing(e -> e.getValue().length(), Comparator.reverseOrder()));
+        return carIdxNamePosList;
     }
 
     public void setWinnersList(List<Map.Entry<String, String>> carIdxNamePosList) {
@@ -31,13 +38,12 @@ public class GameResult {
         }
     }
 
-    private List<Map.Entry<String, String>> sortByPositionLength(List<Map.Entry<String, String>> carIdxNamePosList) {
-        carIdxNamePosList.sort(Comparator.comparing(e -> e.getValue().length(), Comparator.reverseOrder()));
-        return carIdxNamePosList;
-    }
-
     private int setLongestPos(List<Map.Entry<String, String>> carIdxNamePosList) {
         return carIdxNamePosList.get(0).getValue().length();
+    }
+
+    public ArrayList<String> getWinnersList() {
+        return winnersList;
     }
 
     public void cleanup() {

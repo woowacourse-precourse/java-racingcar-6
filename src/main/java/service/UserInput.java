@@ -5,6 +5,12 @@ import java.util.Arrays;
 
 public class UserInput {
 
+    private final static UserInput instance = new UserInput();
+    private UserInput() {}
+    public static UserInput getInstance() {
+        return instance;
+    }
+
     private final ArrayList<String> carsName = new ArrayList<>();
     private int carCount;
     private int playTime;

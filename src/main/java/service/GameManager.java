@@ -9,10 +9,16 @@ import java.util.Map;
 
 public class GameManager {
 
+    private final static GameManager instance = new GameManager();
+    private GameManager() {}
+    public static GameManager getInstance() {
+        return instance;
+    }
+
     private final List<Map.Entry<String, String>> carIdxNamePosList = new ArrayList<>();
 
-    public List<Map.Entry<String, String>> getCarIdxNamePosList() {
-        return this.carIdxNamePosList;
+    public boolean chkCarGoOrStop() {
+        return setRandomNum() >= 4;
     }
 
     public void setCarIdxNamePosList(ArrayList<String> carsName) {
@@ -26,10 +32,6 @@ public class GameManager {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public boolean chkCarGoOrStop() {
-        return setRandomNum() >= 4;
-    }
-
     public void setCarsMove(int carIdx) {
         Map.Entry<String, String> car = this.carIdxNamePosList.get(carIdx);
 
@@ -41,6 +43,10 @@ public class GameManager {
 
             this.carIdxNamePosList.set(carIdx, new AbstractMap.SimpleEntry<>(car.getKey(), newCarPos));
         }
+    }
+
+    public List<Map.Entry<String, String>> getCarIdxNamePosList() {
+        return this.carIdxNamePosList;
     }
 
     public void cleanup() {
