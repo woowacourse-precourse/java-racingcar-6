@@ -5,9 +5,10 @@ import java.util.regex.Pattern;
 
 public class Validation {
     private static final Pattern LOWERCASE_AND_COMMA = Pattern.compile("^[a-z,]*[a-z]$");
+    private static final Pattern NUMBER = Pattern.compile("[0-9]*$");
 
     /**
-     * 입력된 자동차 데이터 유효성 검사
+     * 입력된 자동차 이름 데이터 유효성 검사
      * @param inputCarName
      * @return true || false
      */
@@ -43,5 +44,34 @@ public class Validation {
         return true;
     }
 
+    /**
+     * 입력받은 시도할 횟수 검증
+     * @param inputNumber
+     * @return true || false
+     */
+    public boolean validationNumber(String inputNumber) {
 
+        if (!checkNumberCharacter(inputNumber)) {
+            return false;
+        }
+        if (!checkZero(inputNumber)) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkNumberCharacter(String inputNumber) {
+        Matcher matcher = NUMBER.matcher(inputNumber);
+
+        if (!matcher.matches()) {
+            return false;
+        }
+        return true;
+    }
+    private boolean checkZero(String inputNumber) {
+        if ("0".equals(inputNumber)) {
+            return false;
+        }
+        return true;
+    }
 }
