@@ -17,20 +17,22 @@ public class Game {
         this.cars = new ArrayList<>();
         carsNameInput();
         System.out.println("시도할 횟수는 몇회인가요?");
+
         try {
             this.count = Integer.parseInt(Console.readLine());
         } catch (Exception e) {
             throw new IllegalArgumentException();
         }
         System.out.println();
+
         while (this.count != 0) {
             startRacing(cars);
-            racingStepInfo(cars);
+            showRacingStepResult(cars);
             count--;
         }
+
         findWinner(cars);
         System.out.printf("최종 우승자 : %s", this.winner);
-
     }
 
     public List<Car> carsNameInput() {
@@ -80,7 +82,7 @@ public class Game {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public void racingStepInfo(List<Car> cars) {
+    public void showRacingStepResult(List<Car> cars) {
         for (Car carInfo : cars) {
             System.out.println(carInfo);
         }
