@@ -1,4 +1,4 @@
-package racingcar.util.generator;
+package racingcar.generator;
 
 @FunctionalInterface
 public interface Generator<T> {

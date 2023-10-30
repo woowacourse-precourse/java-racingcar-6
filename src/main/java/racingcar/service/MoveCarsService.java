@@ -2,7 +2,7 @@ package racingcar.service;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.util.generator.NumberGenerator;
+import racingcar.generator.NumberGenerator;
 
 public class MoveCarsService {
 	
