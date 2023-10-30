@@ -18,7 +18,7 @@ public class InputView {
         return convertStrToList(inputNames);
     }
 
-    public List<String> convertStrToList(String inputNames) {
+    private List<String> convertStrToList(String inputNames) {
         validateBlank(inputNames);
         List<String> namesList = Arrays.stream(
                         inputNames.split(COMMA.getUnit()))
@@ -37,7 +37,7 @@ public class InputView {
         return convertStrToInt(inputCountOfGameRound);
     }
 
-    public Integer convertStrToInt(String inputCountOfGameRound) {
+    private Integer convertStrToInt(String inputCountOfGameRound) {
         validateBlank(inputCountOfGameRound);
         validateNumber(inputCountOfGameRound);
         return Integer.parseInt(inputCountOfGameRound);

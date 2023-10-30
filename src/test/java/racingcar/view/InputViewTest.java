@@ -72,6 +72,7 @@ class InputViewTest extends InTest {
     }
 
     @Test
+    @DisplayName("여러 이름을 입력하면 리스트로 변환하는 기능 테스트")
     void inputNames() {
         // given
         InputView inputView = new InputView();
@@ -85,20 +86,7 @@ class InputViewTest extends InTest {
         assertEquals(expected, result);
     }
 
-    @Test
-    @DisplayName("여러 이름을 입력하면 리스트로 변환하는 기능 테스트")
-    void convertStrToList() {
-        // given
-        InputView inputView = new InputView();
-        String inputNames = "pobi,yono,haho,nimo";
-        List<String> expected = List.of("pobi", "yono", "haho", "nimo");
 
-        // when
-        List<String> result = inputView.convertStrToList(inputNames);
-
-        // then
-        assertEquals(expected, result);
-    }
 //
 //    @Test
 //    void inputCountOfGameRound() {
