@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 
 public class GameMethods {
     /**
@@ -31,4 +32,29 @@ public class GameMethods {
             }
         }
     }
+
+    /**
+     * 이긴 사람 정해서 ArrayList에 저장
+     *
+     * @param movedDistance
+     * @param carNames
+     * @return
+     */
+    public static ArrayList<String> decideWinner(String[] movedDistance, String[] carNames) {
+        int max = 0;
+        ArrayList<String> winningCandidate = new ArrayList<>();
+
+        for (int i = 0; i < movedDistance.length; i++) {
+            if (max < movedDistance[i].length()) {
+                max = movedDistance[i].length();
+                winningCandidate.clear();
+                winningCandidate.add(carNames[i]);
+            } else if (max == movedDistance[i].length()) {
+                winningCandidate.add(carNames[i]);
+            }
+        }
+
+        return winningCandidate;
+    }
+
 }
