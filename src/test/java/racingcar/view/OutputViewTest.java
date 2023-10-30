@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,6 +49,21 @@ public class OutputViewTest {
         // Then
         String expectedOutput = "car1 : ---\n" + "car2 : --\n";
         assertThat(outContent.toString()).isEqualTo(expectedOutput);
+    }
+
+    @DisplayName("최종 우승자 정상출력 테스트")
+    @Test
+    public void testPrintFinalWinner() {
+        // Given
+        ArrayList<String> winners = new ArrayList<>();
+        winners.add("car1");
+        winners.add("car2");
+
+        // When
+        outputView.printFinalWinner(winners);
+
+        // Then
+        assertThat(outContent.toString()).isEqualTo("최종 우승자 : car1, car2");
     }
 
 }
