@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import racingcar.model.Car;
 import racingcar.model.Cars;
 
 public class OutputView {
@@ -16,8 +18,10 @@ public class OutputView {
         System.out.println(cars.generateRoundResultString());
     }
 
-    public static void displayWinners(List<String> winners) {
-        String displayFormat = String.join(COMMA, winners);
+    public static void displayWinners(List<Car> winners) {
+        String displayFormat = String.join(COMMA, winners.stream().map(
+                        car -> car.name().getDisplayFormat())
+                .collect(Collectors.toList()));
         System.out.println(WINNER_IS + displayFormat);
     }
 }
