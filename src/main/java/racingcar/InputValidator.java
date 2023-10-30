@@ -18,8 +18,8 @@ public class InputValidator {
         else if(checkInputEmpty(inputValue)) throw new IllegalArgumentException("입력값이 비어있습니다.");
     }
     //시도할 횟수 예외 체크
-    public void checkEttempts(String ettempts){
-        if(!checkNumericOnly(ettempts)) throw new IllegalArgumentException("시도할 횟수는 숫자만 입력 가능합니다.");
+    public void checkAttempts(String attempts){
+        if(!checkNumericOnly(attempts)) throw new IllegalArgumentException("시도할 횟수는 숫자만 입력 가능합니다.");
     }
 
 

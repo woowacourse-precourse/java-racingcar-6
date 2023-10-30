@@ -27,7 +27,7 @@ public class GameInputHandler {
         return userData;
     }
 
-    public List<String> splitStringToList(String carsString){
+    private List<String> splitStringToList(String carsString){
         List<String> carList = new ArrayList<>();
         String[] cars = carsString.split(",");
         for(String car: cars){
@@ -46,6 +46,6 @@ public class GameInputHandler {
     private void checkForExceptionAttempts(String attempts){
         InputValidator inputValidator = new InputValidator();
         inputValidator.checkInputValue(attempts);
-        inputValidator.checkEttempts(attempts);
+        inputValidator.checkAttempts(attempts);
     }
 }
