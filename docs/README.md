@@ -44,6 +44,7 @@
 | :white_large_square: | `showRepeatingNumberRequiredMessage` | 횟수를 입력하라고 메시지를 출력한다. |
 | :white_large_square: | `showProgressOf`                     | 게임의 진행상황을 출력한다.      |
 | :white_large_square: | `showResultOf`                       | 게임의 결과를 출력한다.        |
+| :white_large_square: | `showResultMessage`                  | `실행 결과`를 출력한다.       |
 
 ## RacingCarGameController
 
