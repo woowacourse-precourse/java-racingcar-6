@@ -17,44 +17,44 @@ public class GameController {
 
     public void startGame() {
         List<String> nameList = getNameList();
-        int attempts = getAttempts();
+        int maxAttempts = getMaxAttempts();
 
         Cars cars = Cars.of(nameList);
 
-        playGame(attempts, cars);
+        playGame(maxAttempts, cars);
 
         showGameResult(cars);
     }
 
     private List<String> getNameList() {
-        String carNames = getCarNamesInput();
-        return convertNamesToList(carNames);
+        String carNamesInput = getCarNamesInput();
+        return convertToNameList(carNamesInput);
     }
 
     private String getCarNamesInput() {
         return gameView.getCarNamesInput();
     }
 
-    private List<String> convertNamesToList(String carNames) {
-        return inputHandler.convertNamesToNameList(carNames);
+    private List<String> convertToNameList(String carNamesInput) {
+        return inputHandler.toNameList(carNamesInput);
     }
 
-    private int getAttempts() {
-        String inputAttempts = getAttemptsInput();
-        return convertAttemptsToInt(inputAttempts);
+    private int getMaxAttempts() {
+        String attemptsInput = getAttemptsInput();
+        return convertToInt(attemptsInput);
     }
 
     private String getAttemptsInput() {
         return gameView.getAttemptsInput();
     }
 
-    private int convertAttemptsToInt(String inputAttempts) {
-        return inputHandler.convertAttemptsToInt(inputAttempts);
+    private int convertToInt(String attemptsInput) {
+        return inputHandler.parseToInt(attemptsInput);
     }
 
     private void playGame(int attempts, Cars cars) {
         showRaceResult();
-        for (int i = 0; i < attempts; i++) {
+        for (int currentAttempts = 0; currentAttempts < attempts; currentAttempts++) {
             executeRound(cars);
             showRoundResult(cars);
         }

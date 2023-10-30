@@ -10,7 +10,7 @@ public class InputHandler {
     private static final int MAX_LENGTH = 5;
     private static final String NAME_DELIMITER = ",";
 
-    public List<String> convertNamesToNameList(String names) {
+    public List<String> toNameList(String names) {
         validateNull(names);
 
         String[] nameArray = names.split(NAME_DELIMITER);
@@ -27,7 +27,7 @@ public class InputHandler {
         return nameList;
     }
 
-    public int convertAttemptsToInt(String inputAttempts) {
+    public int parseToInt(String inputAttempts) {
         validateNull(inputAttempts);
 
         try {

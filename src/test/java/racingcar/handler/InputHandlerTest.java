@@ -18,7 +18,7 @@ class InputHandlerTest {
         List<String> expectedList = Arrays.asList("kim", "lee", "park");
 
         String carNames = "kim,lee,park";
-        List<String> actualList = inputHandler.convertNamesToNameList(carNames);
+        List<String> actualList = inputHandler.toNameList(carNames);
 
         assertThat(actualList).isEqualTo(expectedList);
     }
@@ -27,7 +27,7 @@ class InputHandlerTest {
     @DisplayName("자동차 이름 공백시 예외 발생 테스트")
     void convertBlankNamesExceptionTest() {
         String blankName = "";
-        assertThatThrownBy(() -> inputHandler.convertNamesToNameList(blankName))
+        assertThatThrownBy(() -> inputHandler.toNameList(blankName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -35,7 +35,7 @@ class InputHandlerTest {
     @DisplayName("자동차 이름 중복시 예외 발생 테스트")
     void convertDuplicateNamesExceptionTest() {
         String duplicateName = "kim,kim,kim";
-        assertThatThrownBy(() -> inputHandler.convertNamesToNameList(duplicateName))
+        assertThatThrownBy(() -> inputHandler.toNameList(duplicateName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -43,7 +43,7 @@ class InputHandlerTest {
     @DisplayName("자동차 이름 길이 허용범위 초과시 예외 발생 테스트")
     void convertLongNamesExceptionTest() {
         String longName = "honggildong";
-        assertThatThrownBy(() -> inputHandler.convertNamesToNameList(longName))
+        assertThatThrownBy(() -> inputHandler.toNameList(longName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -52,7 +52,7 @@ class InputHandlerTest {
     @DisplayName("시도횟수 입력값 타입 변환 테스트")
     void convertAttemptsToInt() {
         String inputAttempts = "5";
-        int attempts = inputHandler.convertAttemptsToInt(inputAttempts);
+        int attempts = inputHandler.parseToInt(inputAttempts);
 
         assertThat(attempts).isEqualTo(Integer.parseInt(inputAttempts));
     }
@@ -62,7 +62,7 @@ class InputHandlerTest {
     void convertAttemptsToIntExceptionTest() {
         String alphabetAttempts = "a";
 
-        assertThatThrownBy(() -> inputHandler.convertAttemptsToInt(alphabetAttempts))
+        assertThatThrownBy(() -> inputHandler.parseToInt(alphabetAttempts))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
