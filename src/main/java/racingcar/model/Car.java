@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Car {
-    private String carName;
+    private final String carName;
     private int position = 0;
 
 
@@ -34,7 +34,7 @@ public class Car {
     }
 
     public String getCarName() {
-        return carName;
+        return this.carName;
     }
 
     public int getPosition() {

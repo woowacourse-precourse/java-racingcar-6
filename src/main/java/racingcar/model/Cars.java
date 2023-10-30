@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private List<Car> carList;
+    private final List<Car> carList;
 
 
     private Cars(List<Car> carList) {
