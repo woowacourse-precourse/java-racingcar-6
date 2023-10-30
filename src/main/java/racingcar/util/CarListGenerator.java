@@ -7,6 +7,11 @@ import java.util.stream.Collectors;
 
 import static racingcar.constant.Constant.COMMA_REGEX_DELIMITER;
 
+/**
+ * 사용자가 자동차 이름 -> "pobi,woni,sola" 을 입력하면
+ * List<Car> CarList = [new Car("pobi"), new Car("woni"), new Car("sola")] 을 생성한다.
+ */
+
 public class CarListGenerator {
 
     private CarListGenerator() {}
