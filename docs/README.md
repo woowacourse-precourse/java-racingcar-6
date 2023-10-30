@@ -29,6 +29,7 @@
   - [RandomNumberGenerator.java](RandomNumberGenerator.java)
   - [RandomNumberValidator.java](RandomNumberValidator.java)
   - [CarListEditor.java](CarListEditor.java)
+  - [MoveCountValidator.java](MoveCountValidator.java)
 
 ---
 
@@ -101,3 +102,10 @@
 
 ### CarListEditor.java
 - splitByComma()
+
+
+### MoveCountValidator.java
+- validateNumeric()
+- validateNumberRange()
+- validate()
+- 메시지 enum으로 정리
