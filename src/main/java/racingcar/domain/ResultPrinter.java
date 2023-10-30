@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class ResultPrinter {
@@ -16,15 +15,20 @@ public class ResultPrinter {
         System.out.println(getTry);
     }
 
-    public static void printCourse(HashMap<String,Integer> race) {
-        for (String key : race.keySet()) {
-            System.out.print(key + " : ");
+    public static void printCourse(List<Car> cars) {
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
 
-            for (int i = 0; i < race.get(key); i++) {
-                System.out.print("-");
-            }
+            System.out.print(car.carName + " : ");
+            printCourseFormat(car.position);
+        }
 
-            System.out.println();
+        System.out.println();
+    }
+
+    private static void printCourseFormat(int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print("-");
         }
 
         System.out.println();
