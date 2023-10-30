@@ -1,11 +1,12 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.view.Input.InputParser;
+import racingcar.view.Input.InputView;
 
 public class InputParserTest {
     @Test
@@ -14,13 +15,5 @@ public class InputParserTest {
        String input = "BMW, Audi, Tesla";
         InputParser inputParser = new InputParser();
         inputParser.parseCarString(input);
-    }
-
-    @Test
-    @DisplayName("예외 처리 : 자동차List")
-    void Cars() {
-        String input = "BMW, Audi, Tesla";
-        InputView inputView = new InputView(new InputParser());
-        inputView.inputCarName();
     }
 }
