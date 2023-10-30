@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.CarNameValidator;
+import racingcar.util.TryNumValidator;
 
 public class InputView {
     private static final String INPUT_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -21,11 +23,15 @@ public class InputView {
     public String readCarNames() {
         System.out.println(INPUT_NAME_MESSAGE);
         // 입력 요구사항에 대해선 이쪽에서 유효성 검사를 해야할듯함.
-        return Console.readLine();
+        String inputCarNames = Console.readLine().trim();
+        new CarNameValidator().validate(inputCarNames);
+        return inputCarNames;
     }
 
     public Integer readTryNum() {
         System.out.println(INPUT_MOVE_NUM_MESSAGE);
-        return Integer.parseInt(Console.readLine());
+        String tryNum = Console.readLine().trim();
+        new TryNumValidator().validate(tryNum);
+        return Integer.parseInt(tryNum);
     }
 }
