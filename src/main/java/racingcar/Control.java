@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Control {
-    static int tryNumber;
+    static int tryNumber;                                   // 사용자가 입력한 시도 횟수를 저장하는 변수
     static List<String> winnerName = new ArrayList<>();     // 우승자를 저장할 List
     static List<String> names = new ArrayList<>();          // Car 객체의 이름을 저장할 List
     static List<Car> Cars = new ArrayList<>();              // Car 객체를 저장할 List
