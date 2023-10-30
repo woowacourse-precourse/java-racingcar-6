@@ -166,4 +166,24 @@ public class GameTest {
                         "user2 : ---\n" +
                         "\n");
     }
+
+    @Test
+    public void testMaxCount(){
+        Game game = new Game();
+
+        int randNumber = game.randomNumber(5);
+
+        List<String> people = game.addPerson("user1,user2");
+
+        List<Car> carList = game.addCar(people);
+
+        systemIn("3");
+        int count = game.count();
+
+        game.gameResult(carList, randNumber, count);
+
+        int maxCount = game.maxCount(carList);
+
+        assertThat(maxCount).isEqualTo(3);
+    }
 }
