@@ -12,4 +12,12 @@ public class RacingCar {
     public void moveRandom(int randomNumber){
         if(randomNumber >= 4) moveNumber++;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getMoveNumber() {
+        return moveNumber;
+    }
 }

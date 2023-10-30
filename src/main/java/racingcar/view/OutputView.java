@@ -12,8 +12,16 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printResult(){
+    public void printResult(List<RacingCar> racingCars){
         System.out.println("실행 결과");
+
+        for(int i = 0; i < racingCars.size(); i++){
+            System.out.print(racingCars.get(i).getName() + " : ");
+            for(int k = 0; k < racingCars.get(i).getMoveNumber(); k++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
     }
 
     public void printWinner(){

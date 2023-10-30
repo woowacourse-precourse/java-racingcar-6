@@ -29,7 +29,7 @@ public class RacingGame {
             for(int k = 0; k < racingCars.size(); k++){
                 racingCars.get(k).moveRandom(numberGenerator.generateNumber());
             }
-            outputView.printResult();
+            outputView.printResult(racingCars);
         }
 
         outputView.printWinner();
