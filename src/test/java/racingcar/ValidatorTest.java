@@ -150,4 +150,28 @@ class ValidatorTest {
         // then
         Assertions.assertThat(result).isFalse();
     }
+
+    @Test
+    void 이름이_5글자_이하인지_검증_성공_케이스() {
+        // given
+        String input = "성겸,성민";
+
+        // when
+        boolean result = validateNames(input);
+
+        // then
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    void 이름이_5글자_이하인지_검증_실패_케이스() {
+        // given
+        String input = "성겸,성민,성민민민민민";
+
+        // when
+        boolean result = validateNames(input);
+
+        // then
+        Assertions.assertThat(result).isFalse();
+    }
 }
