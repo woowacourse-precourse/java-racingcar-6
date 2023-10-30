@@ -28,4 +28,20 @@ class CarWinnerTest {
         assertThat("pobi").isEqualTo(winner);
     }
 
+    @Test
+    @DisplayName("우승자가 한명 이상일 때 올바르게 출력되는지 테스트")
+    public void multipleWinner() {
+        List<Car> cars = Arrays.asList(
+                new Car("pobi", "-----"),
+                new Car("woni", "-----"),
+                new Car("jun", "--")
+        );
+        CarResult result = new CarResult(cars);
+        CarWinner carWinner = new CarWinner(result);
+        String winner = carWinner.printWinner();
+        assertThat(winner).contains(",");
+
+        String[] winners = winner.split(",");
+        assertThat(winners.length).isEqualTo(2);
+    }
 }
