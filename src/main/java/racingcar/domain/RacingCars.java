@@ -1,11 +1,10 @@
 package racingcar.domain;
 
-import static racingcar.util.Utils.findMaxInteger;
+import static racingcar.Utils.findMaxInteger;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import racingcar.view.output.RacingOutputView;
+import racingcar.view.RacingOutputView;
 
 public class RacingCars {
 

@@ -1,7 +1,6 @@
-package racingcar.view.input;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.view.output.RacingOutputView;
 
 public class RacingInputView {
 
