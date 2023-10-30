@@ -16,4 +16,10 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    public void moveAdvance() {
+        if (Move.isMove()) {
+            position++;
+        }
+    }
 }
