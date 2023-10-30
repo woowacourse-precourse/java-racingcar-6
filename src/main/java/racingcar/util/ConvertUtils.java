@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.validator.RacingCarNameValidator;
 
 public class ConvertUtils {
+
   private static final RacingCarNameValidator validator = new RacingCarNameValidator();
 
   public static List<String> convertStringToList(String inputCarName) {
