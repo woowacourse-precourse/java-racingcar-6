@@ -26,8 +26,6 @@
 
 ## ✅ 2. 시도할 횟수 입력받기
 
-<<<<<<< HEAD
-
 - ✅ 숫자만 입력할 수 있습니다.
     - ✅ 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킵니다.
         - ✅ 아래 3가지의 경우, "Input value cannot be blank" 예외 메시지 설정
@@ -38,18 +36,6 @@
           also not allowed." 예외 메시지 설정
         - ✅ 입력된 값이 '0'일 경우, "It cannot be 0." 예외 메시지 설정
         - ✅ 값의 길이가 2이상인데 가장 큰 자리의 수가 0일 경우, "The number in the highest digit cannot be 0." 예외 메시지 설정
-          =======
-- 숫자만 입력할 수 있습니다.
-    - 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킵니다.
-        - 숫자가 아닌 값이 포함된 경우, "It cannot contain non-numeric values and cannot be negative." 예외 메시지 설정
-        - 입력된 값이 '0'일 경우, "It cannot be 0." 예외 메시지 설정
-        - 값의 길이가 2이상인데 가장 큰 자리의 수가 0일 경우, "The number in the largest digit cannot be 0." 예외 메시지 설정
-        - 아래 3가지의 경우, "Input value cannot be blank" 예외 메시지 설정
-            - null일 경우
-            - 빈 문자열일 경우
-            - 값이 공백만으로 구성된 경우
-
-> > > > > > > feature/car-name-input
 
 ## 3. 자동차 경주 시작
 
