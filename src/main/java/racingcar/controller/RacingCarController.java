@@ -36,5 +36,6 @@ public class RacingCarController {
             System.out.println();
         }
         winner.findWinnerName(cars.getCars());
+        outputView.printWinnerCarName(winner.getWinnerName());
     }
 }

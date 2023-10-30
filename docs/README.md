@@ -50,12 +50,12 @@
 
 2. OutputView
    - [x] 회수별 이동 결과 메시지
-   - [] 최종 우승자 메시지
+   - [x] 최종 우승자 메시지
 
 ### Controller
 1. RacingCarController
-   - [] 레이싱시작
-   - [] 레이싱 종료
+   - [x] 레이싱시작
+   - [x] 레이싱 종료
 
 ### Validation
 1. InputValidation
