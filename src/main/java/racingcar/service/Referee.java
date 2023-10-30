@@ -31,7 +31,7 @@ public class Referee {
         return false;
     }
 
-    public List<Map<CarType, String>> getResults() {
+    public List<Map<CarType, String>> getPlayResults() {
         cars.everyCarMoveForward(); // 모든 차가 전진한다.
 
         List<Map<CarType, String>> results = new ArrayList<>();
