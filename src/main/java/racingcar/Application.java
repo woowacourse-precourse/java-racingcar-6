@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.controller.GameController;
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.constant.Constant;
 
 public class Application {
 
@@ -9,17 +10,17 @@ public class Application {
         try{
             return Integer.parseInt(input);
         }catch(NumberFormatException e){
-            throw new IllegalArgumentException("Invalid input");
+            throw new IllegalArgumentException(Constant.ERROR_NUMBER_OF_ATTEMPT_MESSAGE);
         }
     }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         GameController gameController = new GameController();
 
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Constant.INPUT_CAR_NAME_MESSAGE);
         gameController.setUp(Console.readLine());
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(Constant.INPUT_NUMBER_OF_ATTEMPT_MESSAGE);
         gameController.startGame(inputValidation(Console.readLine()));
 
         gameController.printFinalists();
