@@ -3,31 +3,31 @@ package racingcar.view;
 import java.util.List;
 import java.util.Map;
 
-import racingcar.constants.Constants;
-import racingcar.constants.MyEnum;
+import racingcar.enums.Common;
+import racingcar.enums.CarType;
 
 public class OutputView {
-    public void printCarNameInputMessage() {
-        System.out.printf("경주할 자동차 이름을 입력하세요.(이름은 쉼표(%s) 기준으로 구분)%n", Constants.SEPARATOR.getStringValue());
+    public static void printCarNameInputMessage() {
+        System.out.printf("경주할 자동차 이름을 입력하세요.(이름은 쉼표(%s) 기준으로 구분)%n", Common.SEPARATOR.getStringValue());
     }
 
-    public void printNumberOfAttemptsInputMessage() {
+    public static void printNumberOfAttemptsInputMessage() {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printPlayResultMessage() {
+    public static void printPlayResultMessage() {
         System.out.println();
         System.out.println("실행 결과");
     }
 
-    public void printPlayResult(List<Map<MyEnum, String>> results) {
-        for (Map<MyEnum, String> result : results) {
-            System.out.printf("%s : %s%n", result.get(MyEnum.CAR_NAME), result.get(MyEnum.DISTANCE));
+    public static void printPlayResult(List<Map<CarType, String>> results) {
+        for (Map<CarType, String> result : results) {
+            System.out.printf("%s : %s%n", result.get(CarType.CAR_NAME), result.get(CarType.DISTANCE));
         }
         System.out.println();
     }
 
-    public void printWinners(String winners) {
-        System.out.printf("최종 우승자 : %s", winners);
+    public static void printWinners(List<String> winnerNames) {
+        System.out.printf("최종 우승자 : %s", String.join(Common.SEPARATOR.getStringValue() + " ", winnerNames));
     }
 }
