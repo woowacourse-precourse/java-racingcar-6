@@ -6,6 +6,8 @@ import racingcar.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import static racingcar.domain.ErrorMessage.*;
+
 public class GameManager {
     private static final String CAR_NAME_DELIMIT = ",";
     private static final String SPACE = " ";
@@ -43,19 +45,19 @@ public class GameManager {
 
     private void checkCarCount() {
         if (cars.size() <= MINIMUM_CAR_COUNT) {
-            throw new IllegalArgumentException("최소 1대의 자동차가 입력되어야 합니다.");
+            throw new IllegalArgumentException(INVALID_MINIMUM_CAR_COUNT.getMessage());
         }
     }
 
     private void checkBlankName(String carName) {
         if (carName.isBlank()) {
-            throw new IllegalArgumentException("자동차 이름이 공란입니다.");
+            throw new IllegalArgumentException(CAR_NAME_IS_BLANK.getMessage());
         }
     }
 
     private void checkNameLength(String carName) {
         if (carName.length() > MAXIMUM_CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException(EXCEEDED_CAR_NAME_LENGTH.getMessage());
         }
     }
 
@@ -63,10 +65,10 @@ public class GameManager {
         try {
             attemptCount = Integer.parseInt(Console.readLine());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도할 횟수는 숫자만 입력이 가능합니다.");
+            throw new IllegalArgumentException(ATTEMPT_COUNT_IS_NOT_NUMBER.getMessage());
         }
         if (attemptCount < MINIMUM_ATTEMPT_COUNT) {
-            throw new IllegalArgumentException("시도할 횟수는 1 이상이어야 게임 진행이 가능합니다.");
+            throw new IllegalArgumentException(INVALID_MINIMUM_ATTEMPT_COUNT.getMessage());
         }
     }
 
