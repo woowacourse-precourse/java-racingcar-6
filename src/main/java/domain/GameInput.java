@@ -7,8 +7,6 @@ import validate.ValidateNameInRange;
 
 public class GameInput {
 
-
-
     public static int userGameTries(){
         String Tries = Console.readLine();
         //정규식 0-9로만 이루어져있는지
@@ -16,14 +14,14 @@ public class GameInput {
             ExceptionalTry.exception();
         }
         Console.close();
-        return 5;
+        return Integer.parseInt(Tries);
     }
 
-    public static void userCarNameInput(){
+    public static List<String> userCarNameInput(){
         String strCarName = Console.readLine();
         List<String> CarNames = NameSplit(strCarName);
-        ValidateNameInRange.NameInRange(CarNames);
         Console.close();
+        return ValidateNameInRange.NameInRange(CarNames);
     }
     private static List<String> NameSplit(String strCarName){
         List<String> CarNames = Arrays.stream(strCarName.split(",")).toList();
