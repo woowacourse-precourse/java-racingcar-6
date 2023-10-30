@@ -2,7 +2,7 @@
 - [ ] 자동차의 이름들을 입력받는다. ``InputView - readCarName``
   - [ ] 🚫 자동차 이름이 공백인지 검증한다. ``InputView - validateBlankName``
   - [ ] 🚫 중복된 자동차 이름이 있는지 검증한다. ``Car - validateDuplicateName``
-  - [ ] 🚫 자동차 이름이 5자 이하인지 검증한다. ``Car - validateNameLength``
+  - [x] 🚫 자동차 이름이 5자 이하인지 검증한다. ``Car - validateNameLength``
 - [ ] 이름 문자열을 이름 리스트로 변환한다. ``GameController - convertStringToList``
 - [ ] 자동차 리스트를 생성한다. ``GameController - createCarList``
 - [ ] 자동차에 이름을 부여한다. ``GameController - generateCarName``

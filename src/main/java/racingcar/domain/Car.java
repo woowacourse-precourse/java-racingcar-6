@@ -6,8 +6,15 @@ public class Car {
     private int progressCount;
 
     public Car(String name) {
+        validateNameLength(name);
         this.name = name;
         progressCount = 0;
+    }
+
+    private void validateNameLength(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void move(int randomNum) {
