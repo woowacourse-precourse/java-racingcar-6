@@ -30,7 +30,7 @@ public class InputValidation {
     }
 
     private static void validateNameUniqueness(List<String> inputList) {
-        if(inputList.size() != inputList.stream().distinct().count()){
+        if (inputList.size() != inputList.stream().distinct().count()) {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
     }

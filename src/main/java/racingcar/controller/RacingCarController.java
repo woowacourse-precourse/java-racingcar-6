@@ -28,16 +28,16 @@ public class RacingCarController {
         printRaceResult(racingCars);
     }
 
-    private int getTryNumber() {
-        return inputView.inputTryNumber();
-    }
-
     private void printMoveResult(RacingCars racingCars) {
         outputView.outputExecutionResult();
         for (int tryNumber = getTryNumber(); tryNumber > 0; tryNumber--) {
             racingCars.moveCars();
             printMoveString(racingCars);
         }
+    }
+
+    private int getTryNumber() {
+        return inputView.inputTryNumber();
     }
 
     private void printMoveString(RacingCars racingCars) {
