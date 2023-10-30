@@ -18,9 +18,9 @@ public class RacingGame {
     }
 
     public void run() {
-
         readyRacingGame();
         while (isRemainPlayTime()){
+
         }
 
         input.close();
