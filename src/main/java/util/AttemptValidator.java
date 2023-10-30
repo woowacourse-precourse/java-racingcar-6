@@ -10,7 +10,7 @@ public class AttemptValidator {
         Matcher numberMatcher = ATTEMPT_NUMBER_PATTERN.matcher(number);
 
         if (!numberMatcher.matches()) {
-            new IllegalArgumentException();
+            throw new IllegalArgumentException();
         }
     }
 }
