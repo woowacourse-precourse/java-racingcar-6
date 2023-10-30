@@ -24,10 +24,14 @@ public class RacingGameStart {
         String[] carNamesList = carNames.split(",");
         RacingCar[] racingCars = new RacingCar[carNamesList.length];
         for (int i = 0; i < carNamesList.length; i++) {
-            checkNameLength(carNamesList[i]);
-            racingCars[i] = new RacingCar(carNamesList[i].trim(), 0);
+            racingCars[i] = createRacingCar(carNamesList[i]);
         }
         return racingCars;
+    }
+
+    private static RacingCar createRacingCar(String carName) {
+        checkNameLength(carName);
+        return new RacingCar(carName.trim(), 0);
     }
 
     private static void runRace(RacingCar[] racingCars, int num){
