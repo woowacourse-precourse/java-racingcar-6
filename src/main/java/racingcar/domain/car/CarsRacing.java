@@ -25,7 +25,12 @@ public final class CarsRacing extends Cars {
     }
 
     public CarsFinished toFinished() {
-        return CarsFinished.from(this);
+        return new CarsFinished(
+                cars.stream()
+                        .map(car -> ((CarRacing) car).toFinished())
+                        .toList()
+
+        );
     }
 
     public CarsRacingDto toDto() {
