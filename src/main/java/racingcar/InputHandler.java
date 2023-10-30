@@ -4,12 +4,13 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputHandler {
 
-    public static String inputCarNames() {
+    public static String[] inputCarNames() {
         String rawCarNames = Console.readLine();
-        return rawCarNames;
+        String[] carNamesArray = changeStringToArray(rawCarNames);
+        return carNamesArray;
     }
 
-    public static String[] parseCarName(String rawCarNames) {
+    private static String[] changeStringToArray(String rawCarNames) {
         String[] carNames = rawCarNames.split(",");
         return carNames;
     }

@@ -1,7 +1,7 @@
 # 구현할 기능 목록
 ## 1. 자동차 이름 분류하기
-- InputHandler#parseCarName()
-- 사용자에게 입력 받은 값을 구분자에 맞게 분류한다.
+- InputHandler#inputCarNames()
+- 사용자에게 입력 받은 값을 구분자에 맞게 분류하여 배열로 반환한다.
 
 ## 2. 자동차 이름 입력 유효성 확인하기
 - Validator#checkValidCarNames()
