@@ -4,40 +4,40 @@ import java.util.stream.IntStream;
 
 public class Car {
 
-	private String carName;
-	private int carLocation;
+	private CarName carName;
+	private CarLocation carLocation;
 
 	public Car(String carName) {
-		this.carName = carName;
-		this.carLocation = 0;
+		this.carName = new CarName(carName);
+		this.carLocation = new CarLocation();
 	}
 	
 	public Car(String carName, int carLocation) {
-		this.carName = carName;
-		this.carLocation = carLocation;
+		this.carName = new CarName(carName);
+		this.carLocation = new CarLocation(carLocation);
 	}
 	
 	public void move() {
-		carLocation++;
+		carLocation.increaseLocation();
 	}
 
 	public String printCarStatus() {
-		return String.format("%s : %s", carName, convertCarLocationToMinus());
+		return String.format("%s : %s", carName.getName(), convertCarLocationToMinus());
 	}
 
 	private String convertCarLocationToMinus() {
 		StringBuilder strBuilder = new StringBuilder();
 
-		IntStream.range(0, carLocation).forEach(x -> strBuilder.append("-"));
+		IntStream.range(0, carLocation.getLocation()).forEach(x -> strBuilder.append("-"));
 
 		return strBuilder.toString();
 	}
 
 	public String getCarName() {
-		return carName;
+		return carName.getName();
 	}
 	
 	public int getCarLocation() {
-		return carLocation;
+		return carLocation.getLocation();
 	}
 }
