@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -17,7 +18,7 @@ class CarTest {
     void 차_이동_테스트 (int maxTryCount) {
 
         //given
-        Car car = Car.createCar(new Name("test"), 0);
+        Car car = Car.createCar(new Name("test"));
 
         //when
         int currentTryCount = 0;
@@ -30,29 +31,30 @@ class CarTest {
         Assertions.assertThat(car.getPosition()).isEqualTo(maxTryCount);
     }
     @DisplayName("차 위치가 같은지에 대해 테스트 True")
-    @ParameterizedTest
-    @CsvSource(value = {"1,3", "5,1", "10,5"})
-    void 차_이동_포지션_테스트_TRUE (int position, int otherPosition) {
+    @Test
+    void 차_이동_포지션_테스트_TRUE () {
 
         //given
-        Car car = Car.createCar(new Name("test"), position);
-        Car otherCar = Car.createCar(new Name("other"), otherPosition);
+        Car moveCar = Car.createCar(new Name("test"));
+        moveCar.move();
+        Car otherMoveCar = Car.createCar(new Name("other"));
+        otherMoveCar.move();
 
         //then
-        Assertions.assertThat(car.isSamePosition(otherCar)).isTrue();
+        Assertions.assertThat(moveCar.isSamePosition(otherMoveCar)).isTrue();
     }
 
     @DisplayName("차 위치가 같은지에 대해 테스트 FALSE")
-    @ParameterizedTest
-    @CsvSource(value = {"1,3", "5,1", "10,5"})
-    void 차_이동_포지션_테스트_FALSE (int position, int otherPosition) {
+    @Test
+    void 차_이동_포지션_테스트_FALSE () {
 
         //given
-        Car car = Car.createCar(new Name("test"), position);
-        Car otherCar = Car.createCar(new Name("other"), otherPosition);
+        Car moveCar = Car.createCar(new Name("test"));
+        moveCar.move();
+        Car notMovedCar = Car.createCar(new Name("other"));
 
         //then
-        Assertions.assertThat(car.isSamePosition(otherCar)).isFalse();
+        Assertions.assertThat(moveCar.isSamePosition(notMovedCar)).isFalse();
     }
 
 }
