@@ -2,6 +2,7 @@ package racingcar.view.Input;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.Input.InputParser;
+import racingcar.view.Input.InputValidator;
 
 /* 자동차 입력 받는 클래스
 *  입력만 받기
@@ -27,8 +28,13 @@ public class InputView {
     }
 
     // 시도 횟수 입력 받기
-    public void inputTrialNumber() {
+    public int inputTrialNumber() {
         System.out.println(INPUT_TRIAL_NUMBER);
-        trialNumber = Integer.parseInt(Console.readLine());
+        String trialNumber = Console.readLine();
+
+        inputValidator.isNumberOnly(trialNumber);
+        inputValidator.isPositiveOnly(trialNumber);
+
+        return inputParser.parseTrialNumber(trialNumber);
     }
 }
