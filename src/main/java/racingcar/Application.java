@@ -23,6 +23,7 @@ public class Application {
             cars.add(new Car(carName));
         }
 
+        System.out.println("실행 결과");
         for (int i = 0; i < playCount; i++) {
             for (Car car : cars) {
                 car.move();
