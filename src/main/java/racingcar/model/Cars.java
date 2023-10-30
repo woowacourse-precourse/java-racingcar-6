@@ -23,7 +23,11 @@ public class Cars {
         return new Cars();
     }
 
-    public void insertNewCar(Car car) {
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
+    }
+
+    public void insert(Car car) {
         if (!validateIfDuplicatedNameExists(car.getName())) {
             throw new IllegalArgumentException(DUPLICATED_NAME_ERROR_MESSAGE);
         }
