@@ -1,7 +1,11 @@
 package racingcar;
 
+import static constant.Message.COLON_WITH_WHITESPACE;
+import static constant.Message.COMMA_WITH_WHITESPACE;
+import static constant.Message.FINAL_WINNERS;
+
 import controller.RacingCarController;
-import util.View;
+import View.View;
 
 public class Application {
     public static void main(String[] args) {
@@ -10,8 +14,10 @@ public class Application {
 
         View.printStartMessage();
         racingCarController.extractName(View.input());
+        View.printRacingResultMessage();
         View.printCycleInputMessage();
-        racingCarController.startRacing(View.input());
-        racingCarController.showResult();
+        View.printRacingResult(racingCarController.racing(View.input()));
+        View.printMessage(String.join(COLON_WITH_WHITESPACE.getMessage(), FINAL_WINNERS.getMessage(),
+                String.join(COMMA_WITH_WHITESPACE.getMessage(), racingCarController.showResult())));
     }
 }

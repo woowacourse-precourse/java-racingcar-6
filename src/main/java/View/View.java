@@ -1,4 +1,4 @@
-package util;
+package View;
 
 import static constant.Message.CYCLE_INPUT_MESSAGE;
 import static constant.Message.RACING_RESULT;

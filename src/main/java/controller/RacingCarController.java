@@ -3,10 +3,7 @@ package controller;
 import static constant.Exception.DUPLICATED_NAME;
 import static constant.Exception.NON_NUMERIC;
 import static constant.Exception.OVER_LIMIT_NAME_LENGTH;
-import static constant.Message.COLON_WITH_WHITESPACE;
 import static constant.Message.COMMA;
-import static constant.Message.COMMA_WITH_WHITESPACE;
-import static constant.Message.FINAL_WINNERS;
 
 import dto.RacingStatusDTO;
 import java.util.Arrays;
@@ -14,7 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import service.RacingCarService;
-import util.View;
 
 public class RacingCarController {
 
@@ -31,26 +27,15 @@ public class RacingCarController {
         return carNameSet;
     }
 
-    public void startRacing(String input) {
+    public List<List<RacingStatusDTO>> racing(String input) {
         validateIsNumeric(input);
         int cycle = changeInputToInt(input);
 
-        View.printRacingResultMessage();
-        printRacingStatus(racingCarService.racing(cycle));
+        return racingCarService.racing(cycle);
     }
 
-    private static void printRacingStatus(List<List<RacingStatusDTO>> allRacingStatus) {
-        for (List<RacingStatusDTO> statusPerRacing : allRacingStatus) {
-            for (RacingStatusDTO racingStatus : statusPerRacing) {
-                View.printMessage(racingStatus.toString());
-            }
-            View.printMessage("\n");
-        }
-    }
-
-    public void showResult() {
-        View.printMessage(String.join(COLON_WITH_WHITESPACE.getMessage(), FINAL_WINNERS.getMessage(),
-                            String.join(COMMA_WITH_WHITESPACE.getMessage(), racingCarService.judgeWinners())));
+    public List<String> showResult() {
+        return racingCarService.judgeWinners();
     }
 
     private int changeInputToInt(String input) {
