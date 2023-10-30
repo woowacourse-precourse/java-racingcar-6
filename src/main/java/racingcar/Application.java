@@ -81,38 +81,37 @@ public class Application {
         return attempts;
     }
 
+}
 
-    static class Car{
-        String car_name;
-        int current_location;
+class Car{
+    String car_name;
+    int current_location;
 
-        Car(String car_name){
-            this.car_name = car_name;
-            this.current_location = 0;
-        }
+    Car(String car_name){
+        this.car_name = car_name;
+        this.current_location = 0;
+    }
 
-        private void carMoving(){
-            int rnd_num = Randoms.pickNumberInRange(0, 9);
-            if(rnd_num >= 4){
-                current_location +=1;
-            }
-        }
-
-        private int getCurrentLocation(){
-            return current_location;
-        }
-
-        private void printCurrentLocation(){
-            System.out.print(car_name + " : ");
-            for (int cnt =0; cnt < current_location; cnt++){
-                System.out.print("-");
-            }
-            System.out.println();
-        }
-
-        private String getCarName(){
-            return car_name;
+    void carMoving(){
+        int rnd_num = Randoms.pickNumberInRange(0, 9);
+        if(rnd_num >= 4){
+            current_location +=1;
         }
     }
 
+    int getCurrentLocation(){
+        return current_location;
+    }
+
+    void printCurrentLocation(){
+        System.out.print(car_name + " : ");
+        for (int cnt =0; cnt < current_location; cnt++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    String getCarName(){
+        return car_name;
+    }
 }
