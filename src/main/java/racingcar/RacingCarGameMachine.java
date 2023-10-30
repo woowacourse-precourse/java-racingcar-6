@@ -34,6 +34,10 @@ public class RacingCarGameMachine {
         return Arrays.stream(names).toList();
     }
 
+    public boolean isGameInProgress() {
+        return curRound < roundCount;
+    }
+
     private void moveAllRacingCar() {
         for (RacingCar racingCar : racingCarList) {
             racingCar.move();
