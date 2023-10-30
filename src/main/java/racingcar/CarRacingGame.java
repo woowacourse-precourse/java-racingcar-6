@@ -65,7 +65,11 @@ public class CarRacingGame {
             throw new IllegalArgumentException();
         }
 
-        List<String> carName = List.of(input.split(","));
+        String[] inputBeforeIsDistinct = input.split(",");
+        String[] inputAfterIsDistinct =isDistinct(inputBeforeIsDistinct);
+
+        List<String> carName = List.of(inputAfterIsDistinct);
+
 
         for (String element: carName) {
             if (element.length() > 5) {
@@ -78,6 +82,19 @@ public class CarRacingGame {
         }
 
     }
+
+    private String[] isDistinct(String[] stringArray) throws IllegalArgumentException {
+        for (int i=0; i<stringArray.length; i++) {
+            for (int j=i+1; j<stringArray.length; j++) {
+                if (stringArray[i].equals(stringArray[j])) {
+                    throw new IllegalArgumentException();
+                }
+            }
+        }
+
+        return stringArray;
+    }
+
 
     void setTrialInput() throws IllegalArgumentException {
         System.out.println("시도할 회수는 몇회인가요?");
