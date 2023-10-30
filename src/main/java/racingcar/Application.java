@@ -40,18 +40,18 @@ public class Application {
     }
 
     private static void validateInputCount(String input) {
-        if (input.isEmpty() || !isNumber(input)) {
+        if (input.isEmpty() || notNumber(input)) {
             throw (new IllegalArgumentException());
         }
     }
 
-    private static boolean isNumber(String str) {
+    private static boolean notNumber(String str) {
         for (char ch : str.toCharArray()) {
             if (!Character.isDigit(ch)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     private static void race(List<Car> carList, int cnt) {
