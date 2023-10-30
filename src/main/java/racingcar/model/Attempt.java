@@ -3,9 +3,20 @@ package racingcar.model;
 public class Attempt {
     private final int attemptNumber;
 
+    private int attemptCount;
+
     public Attempt(String attemptNumber) {
         validate(attemptNumber);
         this.attemptNumber = Integer.parseInt(attemptNumber);
+        attemptCount = 0;
+    }
+
+    public void increaseAttemptCount(){
+        attemptCount++;
+    }
+
+    public boolean isContinue(){
+        return attemptCount < attemptNumber;
     }
 
     private void validate(String attemptNumber) {

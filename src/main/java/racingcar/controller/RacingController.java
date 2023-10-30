@@ -23,5 +23,9 @@ public class RacingController {
         inputView.printRequestAttemptsNumber();
         racingService.saveAttemptNumber(Console.readLine());
         outputView.printRacingStartMessage();
+        while(racingService.isContinue()) {
+            racingService.race();
+        }
+
     }
 }

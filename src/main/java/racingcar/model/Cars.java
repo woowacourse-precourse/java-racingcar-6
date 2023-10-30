@@ -27,7 +27,7 @@ public class Cars {
         return carScores;
     }
 
-    private void increaseCarScore(String carName) {
+    public void increaseCarScore(String carName) {
         int score = carScores.get(carName) + 1;
         carScores.put(carName, score);
     }
