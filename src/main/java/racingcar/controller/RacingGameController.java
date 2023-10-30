@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Cars;
 import racingcar.domain.Round;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGameController {
     private Cars cars;
@@ -14,5 +15,6 @@ public class RacingGameController {
     public void playGame() {
         cars = new Cars(InputView.inputNames());
         round = new Round(InputView.inputRound());
+        OutputView.printExecutionResultMessage();
     }
 }
