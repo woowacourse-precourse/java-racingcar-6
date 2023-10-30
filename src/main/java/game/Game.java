@@ -56,4 +56,11 @@ public class Game {
         }
     }
 
+    // 이동 결과 출력하기
+    public void result(List<Car> carList){
+        for(int i = 0; i < carList.size(); i++){
+            carList.get(i).printResult();
+        }
+    }
+
 }
