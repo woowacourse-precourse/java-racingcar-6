@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import static racingcar.Utils.makeRandomNumber;
 import static racingcar.constant.MessageConstants.DASH;
 import static racingcar.constant.MessageConstants.WINNER_SUFFIX;
 import static racingcar.constant.NumberConstants.MOVE_CONDITION;

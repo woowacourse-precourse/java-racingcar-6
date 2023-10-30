@@ -18,8 +18,8 @@ public class RacingCars {
     public void playRound() {
         moveRacingCar();
         RacingOutputView.outputRoundResults(racingCarList.stream()
-                        .map(RacingCar::createRoundResult)
-                        .toList());
+                .map(RacingCar::createRoundResult)
+                .toList());
     }
 
     private void moveRacingCar() {
