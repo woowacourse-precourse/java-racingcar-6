@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 
@@ -10,6 +11,11 @@ import java.util.List;
 import static java.util.Collections.list;
 
 public class Application {
+
+    public int getRandomNumber() {
+        // 0부터 9 사이의 무작위 값 반환
+        return Randoms.pickNumberInRange(0, 9);
+    }
     public static void main(String[] args) {
 
         // 경주 할 자동차 이름 입력받기
@@ -30,6 +36,8 @@ public class Application {
         // 자동차 경주 시도 횟수 입력받아 저장하기
         final String racingCount = Console.readLine();
         racingGame.updateRacingCount(Integer.parseInt(racingCount));
+
+
 
     }
 }
