@@ -12,6 +12,8 @@ public class InputView {
 
     public String getNumberOfRound() {
         System.out.println(NUMBER_OF_ROUND_INPUT_MESSAGE);
-        return Console.readLine();
+        String numberOfRound = Console.readLine();
+        Console.close();
+        return numberOfRound;
     }
 }
