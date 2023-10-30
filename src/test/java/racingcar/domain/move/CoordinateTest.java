@@ -38,4 +38,63 @@ final class CoordinateTest {
                 .isInstanceOf(InvalidCoordinateException.class)
                 .hasMessage(InvalidCoordinateException.INVALID_COORDINATE_EXCEPTION);
     }
+
+    @DisplayName("coordinate 간의 뺄셈 연산")
+    @Test
+    void doSubtractBetweenCoordinates() {
+        // given
+        final Coordinate coordinate1 = new Coordinate(1);
+        final Coordinate coordinate2 = new Coordinate(2);
+
+        // when
+        final int result1 = coordinate1.subtractAsInt(coordinate2);
+        final int result2 = coordinate2.subtractAsInt(coordinate1);
+
+        // then
+        assertThat(result1).isEqualTo(-1);
+        assertThat(result2).isEqualTo(1);
+    }
+
+    @DisplayName("서로 같거나 다른 coordinate 간의 비교가 가능하다")
+    @Test
+    void compareCoordinates() {
+        // given
+        final Coordinate coordinate1 = new Coordinate(1);
+        final Coordinate coordinate2 = new Coordinate(1);
+        final Coordinate coordinate3 = new Coordinate(2);
+
+        // when
+        final boolean result1 = coordinate1.isSameAs(coordinate2);
+        final boolean result2 = coordinate1.isSameAs(coordinate3);
+
+        // then
+        assertThat(result1).isTrue();
+        assertThat(result2).isFalse();
+    }
+
+    @DisplayName("increase를 호출할 때마다 Coordinate를 1씩 증가시킬 수 있다")
+    @Test
+    void increaseCoordinate() {
+        // given
+        final int input1 = 1;
+        final Coordinate coordinate1 = new Coordinate(input1);
+
+        // when
+        coordinate1.increase();
+
+        // then
+        assertThat(coordinate1.getCoordinate()).isEqualTo(input1 + 1);
+    }
+
+
+    @DisplayName("Coordinate.zero는 coordinate가 0인 객체 생성한다.")
+    @Test
+    void createCoordinateZero() {
+        // given
+        final Coordinate coordinate1 = Coordinate.zero();
+
+        // when
+        // then
+        assertThat(coordinate1.getCoordinate()).isZero();
+    }
 }
