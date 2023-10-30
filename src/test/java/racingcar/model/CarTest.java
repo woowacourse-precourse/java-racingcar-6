@@ -5,8 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.Car;
-import racingcar.model.CarMovementStatus;
 
 public class CarTest {
     Car car;
@@ -55,7 +53,7 @@ public class CarTest {
     public void showCarMoveResultMoveTest(){
         car.changePosition(CarMovementStatus.MOVE_FORWARD);
         String targetMessage = "cho : -";
-        assertThat(car.getRoundResult()).isEqualTo(targetMessage);
+        assertThat(car.getRoundResult().toString()).isEqualTo(targetMessage);
     }
 
     @Test
@@ -67,6 +65,20 @@ public class CarTest {
 
         String targetMessage = "cho : --";
 
-        assertThat(car.getRoundResult()).isEqualTo(targetMessage);
+        assertThat(car.getRoundResult().toString()).isEqualTo(targetMessage);
+    }
+    @Test
+    @DisplayName("자동차가 우승자인지 확인한다. ")
+    public void checkIsWinnerTest(){
+        car.changePosition(CarMovementStatus.MOVE_FORWARD);
+        Integer maxPositionGiven = 1;
+        assertThat(car.isWinner(maxPositionGiven)).isTrue();
+    }
+    @Test
+    @DisplayName("자동차가 우승자인지 확인한다. ")
+    public void checkIsWinnerFalseTest(){
+        car.changePosition(CarMovementStatus.MOVE_FORWARD);
+        Integer maxPositionGiven = 2;
+        assertThat(car.isWinner(maxPositionGiven)).isFalse();
     }
 }

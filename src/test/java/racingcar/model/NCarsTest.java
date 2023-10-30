@@ -68,6 +68,35 @@ public class NCarsTest extends NsTest {
         List<String> message =  new ArrayList<>(Arrays.asList("cho : --","sung : --"));
         assertThat(nCars.getSingleRoundResult()).isEqualTo(message);
     }
+    @Test
+    @DisplayName("우승자 이름 출력")
+    public void showWinnerNameAfterGameTest() {
+        List<Car> carList = new ArrayList<>();
+
+        String nameOne = "cho";
+        Car carOne = Car.applyName(nameOne);
+        carOne.changePosition(CarMovementStatus.STOP);
+        carOne.changePosition(CarMovementStatus.MOVE_FORWARD);
+
+        String nameTwo = "sung";
+        Car carTwo = Car.applyName(nameTwo);
+        carTwo.changePosition(CarMovementStatus.MOVE_FORWARD);
+        carTwo.changePosition(CarMovementStatus.MOVE_FORWARD);
+
+        String nameThree = "Loo";
+        Car carThree = Car.applyName(nameThree);
+        carThree.changePosition(CarMovementStatus.MOVE_FORWARD);
+        carThree.changePosition(CarMovementStatus.MOVE_FORWARD);
+
+        carList.add(carOne);
+        carList.add(carTwo);
+        carList.add(carThree);
+
+        nCars = new NCars(carList);
+
+        List<String> message =  new ArrayList<>(Arrays.asList("sung","Loo"));
+        assertThat(nCars.getWinnerName()).isEqualTo(message);
+    }
 
     @Override
     protected void runMain() {
