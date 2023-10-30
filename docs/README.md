@@ -4,7 +4,7 @@
 
 - 사용자에게 입력 받는다. <UserInput>
   - 각 자동차의 이름을 입력 받는다.(쉼표로 구분, 5자 이하) <carName>
-  - 이동 횟수를 입력 받는다. <carMovementCount>
+  - 이동 횟수를 입력 받는다. <attemptCount>
   - 사용자가 잘못된 값을 입력할 결우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료한다. <processException>
 
 - 각 자동차 객체를 생성한다. <GameController#playGame>
