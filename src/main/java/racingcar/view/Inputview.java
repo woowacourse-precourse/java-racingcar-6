@@ -16,20 +16,22 @@ public class Inputview {
     public static void startGame() {
         System.out.println(GAME_START_MESSAGE);
         List<String> carNames = inputCarName();
-        int numberOfAttempts = tryGameNumber();
+        int numberOfAttempts = inputTryCount();
         GameController gameController = new GameController();
         gameController.playGame(String.join(",", carNames), numberOfAttempts);
     }
 
     public static List<String> inputCarName() {
         String input = Console.readLine();
-        return InputValidation.validationNameSeparate(InputValidation.validateAndSplit(input));
+        List<String> carNames = InputValidation.validateNameAndSplit(input);
+        InputValidation.validateNameList(carNames);
+        return carNames;
     }
 
-    public static int tryGameNumber() {
+    public static int inputTryCount() {
         System.out.println(GAME_NUMBER_OF_ATTEMPTS);
-        String input = String.valueOf(Console.readLine());
+        String input = Console.readLine();
         System.out.println(EXECUTION_RESULT);
-        return InputValidation.carNumericValidation(input);
+        return InputValidation.validateIsNumber(input);
     }
 }
