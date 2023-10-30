@@ -25,6 +25,7 @@ public class Application {
         }
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNumber = Integer.parseInt(Console.readLine());
+        System.out.println();
 
         int[]raceAccumulations = new int[carArray.length];
         return new Race(carArray,tryNumber,raceAccumulations);
@@ -44,6 +45,7 @@ public class Application {
 
 
     private static int[] playGame(int tryNumber, String[]carArray,int[] raceAccumulations){
+        System.out.println("실행 결과");
         for (int i=0; i<tryNumber; i++){
             for (int changeScore=0; changeScore<carArray.length; changeScore++){
                 raceAccumulations = giveScore(changeScore,raceAccumulations);
@@ -92,7 +94,7 @@ public class Application {
             System.out.print(" "+WinnerNames.get(winnerName));}
 
             else {
-                System.out.println(", "+WinnerNames.get(winnerName));
+                System.out.print(", "+WinnerNames.get(winnerName));
             }
         }
     }
