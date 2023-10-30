@@ -31,4 +31,26 @@ public class Application {
             carList.add(new Car(name));
         }
     }
+
+    private static int inputCount() {
+        String input = Console.readLine();
+
+        validateInputCount(input);
+        return (Integer.parseInt(input));
+    }
+
+    private static void validateInputCount(String input) {
+        if (input.isEmpty() || !isNumber(input)) {
+            throw (new IllegalArgumentException());
+        }
+    }
+
+    private static boolean isNumber(String str) {
+        for (char ch : str.toCharArray()) {
+            if (!Character.isDigit(ch)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
