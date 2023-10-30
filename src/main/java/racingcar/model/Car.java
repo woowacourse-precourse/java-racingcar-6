@@ -25,6 +25,6 @@ public class Car {
 	}
 	
 	public String getForwardResult() {
-		return this.getForwardResult();
+		return this.forwardResult;
 	}
 }
