@@ -22,7 +22,7 @@ public class CarGameController {
         this.carGameInputView = new CarGameInputView();
         this.carGameOutputView = new CarGameOutputView();
         this.carPlayerOutPutView = new CarPlayerOutPutView();
-        this.initRacingCarGame();
+        this.initCarGame();
         this.startGame();
         this.endGame();
     }
@@ -43,10 +43,10 @@ public class CarGameController {
         this.carGameModel.movePlayers();
     }
 
-    private void initRacingCarGame(){
-        this.carGameInputView.printInputRacingCarPlayers();
-        String players = this.inputController.readRacingCarPlayers();
-        List<CarPlayerModel> listPlayers= this.carFormatController.formatStringToListRacingCarPlayer(players);
+    private void initCarGame(){
+        this.carGameInputView.printInputCarPlayers();
+        String players = this.inputController.readCarPlayers();
+        List<CarPlayerModel> listPlayers= this.carFormatController.formatStringToListCarPlayer(players);
         this.carGameInputView.printInputTryCount();
         int tryCount = this.inputController.readTryCount();
         this.carGameModel = new CarGameModel(listPlayers, tryCount);

@@ -8,7 +8,7 @@ public class InputController {
         this.carInputReader = new CarInputReader();
     }
 
-    public String readRacingCarPlayers(){
+    public String readCarPlayers(){
         return this.carInputReader.readPlayers();
     }
 

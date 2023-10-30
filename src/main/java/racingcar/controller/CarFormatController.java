@@ -11,27 +11,27 @@ public class CarFormatController {
         this.formatter = new CarFormatter();
     }
 
-    public String formatRacingCarPlayerToString(CarPlayerModel player) {
+    public String formatCarPlayerToString(CarPlayerModel player) {
         return this.formatter.formatPlayerToString(player);
     }
 
-    public CarPlayerModel formatStringToRacingCarPlayer(String string) {
+    public CarPlayerModel formatStringToCarPlayer(String string) {
         return this.formatter.formatStringToPlayer(string);
     }
 
-    public List<String> formatListRacingCarPlayersToListString(List<CarPlayerModel> players) {
+    public List<String> formatListCarPlayersToListString(List<CarPlayerModel> players) {
         return this.formatter.formatListPlayersToListString(players);
     }
 
-    public String formatListRacingCarPlayersToString(List<CarPlayerModel> players) {
+    public String formatListCarPlayersToString(List<CarPlayerModel> players) {
         return this.formatter.formatListPlayersToString(players);
     }
 
-    public List<CarPlayerModel> formatListStringToListRacingCarPlayer(List<String> players){
+    public List<CarPlayerModel> formatListStringToListCarPlayer(List<String> players){
         return this.formatter.formatListStringToListPlayers(players);
     }
 
-    public List<CarPlayerModel> formatStringToListRacingCarPlayer(String players){
+    public List<CarPlayerModel> formatStringToListCarPlayer(String players){
         return this.formatter.formatListStringToListPlayers(this.formatter.formatStringToListString(players));
     }
 }
