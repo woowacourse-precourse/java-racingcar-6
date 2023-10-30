@@ -51,10 +51,11 @@ class ValidExceptionTest {
     @Test
     void isValidBlankCheck() {
         // given
-
-        // when
-
+        String input = "";
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidBlankCheck(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("양수 입력 검사.")
