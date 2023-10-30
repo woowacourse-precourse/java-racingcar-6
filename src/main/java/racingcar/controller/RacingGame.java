@@ -4,10 +4,6 @@ import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,20 +22,19 @@ public class RacingGame {
             playGame();
             OutputView.printResult(carList);
         }
-        calcAndPrintWinner();
+        OutputView.printWinner(calcWinner());
     }
 
     public void playGame(){
-        carList.forEach(car -> car.movePosition());
+        carList.forEach(Car::movePosition);
     }
 
-    public void calcAndPrintWinner(){
+    public List<String> calcWinner(){
         int maxScore = getWinnerScore();
-        List<String> winnerList = carList.stream()
+        return carList.stream()
                 .filter(car -> car.getScore().length()==maxScore)
                 .map(Car::getName)
                 .collect(Collectors.toList());
-        OutputView.printWinner(winnerList);
     }
 
     public int getWinnerScore() {
