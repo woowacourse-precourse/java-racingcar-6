@@ -4,9 +4,13 @@ public class RacingCar {
     private String name;
     private int position;
 
-    public RacingCar(String name) {
+    private RacingCar(String name) {
         this.name = name;
         this.position = 0;
+    }
+
+    public static RacingCar createRacingCar(final String name) {
+        return new RacingCar(name);
     }
 
     public String getName() {
