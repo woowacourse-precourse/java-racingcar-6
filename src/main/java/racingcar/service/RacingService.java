@@ -9,14 +9,13 @@ import racingcar.util.Message;
 public class RacingService {
 
     private List<Car> carList = new ArrayList<>();
-    private Message message = new Message();
 
     public void startRacing() {
-        message.printStartMessage();
+        Message.printStartMessage();
         createRacingCar();
 
         int count = getCount();
-        message.printAskCountMessage(count);
+        Message.printAskCountMessage(count);
 
         moveAllRacingCar(count);
     }
@@ -32,7 +31,7 @@ public class RacingService {
     private void createRacingCar() {
         String cars = Console.readLine();
 
-        message.printCreateCarListMessage(cars);
+        Message.printCreateCarListMessage(cars);
 
         for (String car : cars.split(",")) {
             carList.add(new Car(car));
@@ -42,7 +41,7 @@ public class RacingService {
     private void moveAllRacingCar(int count) {
         while (count-- > 0) {
             carList.stream().forEach(x -> x.moveWithRandomNumber());
-            message.printMoveResultMessage(carList);
+            Message.printMoveResultMessage(carList);
         }
     }
 

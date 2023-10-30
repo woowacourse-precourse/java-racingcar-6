@@ -9,23 +9,23 @@ public class Message {
 
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
-    public void printStartMessage() {
+    public static void printStartMessage() {
         System.out.println(START_MESSAGE);
     }
 
-    public void printCreateCarListMessage(String car) {
+    public static void printCreateCarListMessage(String car) {
         System.out.println(car);
     }
 
-    public void printAskCountMessage(int num) {
-        System.out.println(ASK_COUNT_MESSAGE + "\n" + num);
+    public static void printAskCountMessage(int num) {
+        System.out.println(ASK_COUNT_MESSAGE + "\n" + num + "\n");
     }
 
-    public void printRacingResultMessage(String winner) {
+    public static void printRacingResultMessage(String winner) {
         System.out.println(WINNER_MESSAGE + winner);
     }
 
-    public void printMoveResultMessage(List<Car> carList) {
+    public static void printMoveResultMessage(List<Car> carList) {
         carList.forEach(x ->
                 System.out.println(x.getName() + " : " + "-".repeat(x.getMoveCount()))
         );
