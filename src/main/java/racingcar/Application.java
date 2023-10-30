@@ -24,6 +24,7 @@ public class Application {
                 new RacingCarInputConsoleAdapter()
         );
 
-        racingCarUseCase.play();
+        RaceResult raceResult = racingCarUseCase.play();
+        racingCarUseCase.printWinnerMessage(raceResult);
     }
 }

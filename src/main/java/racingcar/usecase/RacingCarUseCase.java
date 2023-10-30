@@ -27,13 +27,16 @@ public class RacingCarUseCase {
         this.racingCarInputPort = racingCarInputPort;
     }
 
-    public void play() {
+    public RaceResult play() {
         List<Car> cars = createCars();
         int tryCount = getTryCount();
 
         playGame(cars, tryCount);
 
-        RaceResult raceResult = gameService.checkWinner(cars);
+        return gameService.checkWinner(cars);
+    }
+
+    public void printWinnerMessage(RaceResult raceResult) {
         racingCarView.printWinnerMessage(raceResult);
     }
 
