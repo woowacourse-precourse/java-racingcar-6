@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
@@ -15,5 +16,12 @@ public class Cars {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    public List<Car> findWinners() {
+        int maxLocation = cars.stream().mapToInt(Car::getCurrentLocation).max().orElse(0);
+        return cars.stream()
+                .filter(car -> car.getCurrentLocation() == maxLocation)
+                .collect(Collectors.toList());
     }
 }
