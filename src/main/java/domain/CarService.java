@@ -23,6 +23,15 @@ public class CarService {
         names.forEach(this::add);
     }
 
+    public void playRound() {
+        for (Car car : cars) {
+            if (decideGo(pickNumberInRange(0, 9))) {
+                car.go();
+                continue;
+            }
+            car.stop();
+        }
+    }
     boolean decideGo(int condition) {
         return condition >= STANDARD_FOR_GO;
     }
