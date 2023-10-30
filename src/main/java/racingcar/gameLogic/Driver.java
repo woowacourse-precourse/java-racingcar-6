@@ -14,6 +14,12 @@ public class Driver {
         return car.getCarName();
     }
 
+    public boolean canMove() {
+        int randomNumber = requestRandomNumber();
+
+        return randomNumber >= 4;
+    }
+
     private int requestRandomNumber() {
         return RandomNumbers.generateZeroToNineDigit();
     }

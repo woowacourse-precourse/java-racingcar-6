@@ -6,14 +6,17 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.mockStatic;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 import racingcar.gameLogic.Driver;
 import racingcar.gameLogic.RacingCar;
 import racingcar.gameLogic.User;
@@ -106,7 +109,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     @DisplayName("기능 4번")
-        //확인 위해서는 RacingCar 클래스 내부의 멤버변수들 접근인자 수정 필요
+        //확인 위해서는 RacingCar 클래스 내부의 drivers리스트, setDrivers() 접근제어자 수정 필요
     void 차량_생성_확인() {
         RacingCar racingCar = new RacingCar();
         racingCar.init();
@@ -186,6 +189,21 @@ class ApplicationTest extends NsTest {
             numberOfTry++;
         }
 
+    }
+
+    @Test
+    @DisplayName("기능 9번")
+        // Driver의 canMove()의 접근자 변경 후 테스트 필요
+    void 전진_여부_결정_검증() {
+        Driver driver = new Driver("test");
+
+        try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
+            mock.when(RandomNumbers::generateZeroToNineDigit)
+                    .thenReturn(4, 3);
+
+            assertThat(driver.canMove()).isEqualTo(true);
+            assertThat(driver.canMove()).isEqualTo(false);
+        }
     }
 
     private void command(final String... args) {
