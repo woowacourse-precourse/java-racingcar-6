@@ -24,6 +24,9 @@ public class Referee {
     private static List<Car> parsingCarString(String[] carName) {
         List<Car> tempCars = new ArrayList<>();
         for (String name : carName) {
+            if (name.length() > 5 || name.isEmpty()){
+                throw new IllegalArgumentException();
+            }
             Car car = new Car();
             car.setName(name);
             car.setPosition(0);
