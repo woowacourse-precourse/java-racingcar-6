@@ -30,9 +30,8 @@
 ### 문자열 나누기: Divider
 - [x] 쉼표로 나누기: doByComma()
 ### 잘못된 입력 검출: WrongChecker
-- [ ] 자동차 생성 대수 확인: hasWrongCarCount()
-- [ ] 잘못된 자동차 이름 확인: hasWrongCarName()
-- [ ] 잘못된 시도 횟수 입력 확인: hasWrongAttemptsNum()
+- [x] 잘못된 자동차 이름 확인: hasWrongCarName()
+- [x] 잘못된 시도 횟수 입력 확인: hasWrongAttemptsNum()
 ***
 ### 출력 관련: Output
 - [ ] 자동차 이름 입력 요청: questionCarName()
