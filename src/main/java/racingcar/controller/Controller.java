@@ -1,14 +1,13 @@
 package racingcar.controller;
 
-import racingcar.function.CheckName;
+import racingcar.function.NameChecker;
 import racingcar.value.Value;
 import racingcar.view.InputView;
-import racingcar.function.CheckNumber;
+import racingcar.function.NumberChecker;
 import racingcar.function.GoStopRule;
 import racingcar.view.OutputView;
 
 import java.util.List;
-
 
 public class Controller {
     private String inputNames;
@@ -41,7 +40,7 @@ public class Controller {
     }
 
     private void validateCarName() {
-        CheckName.validate(this.inputNames);
+        NameChecker.validate(this.inputNames);
     }
 
     private void saveCarName() {
@@ -54,7 +53,7 @@ public class Controller {
     }
 
     private void validateAttemptNumber() {
-        this.numberOfAttempts = CheckNumber.validate(this.inputNumber);
+        this.numberOfAttempts = NumberChecker.validate(this.inputNumber);
     }
 
     private void saveAttemptNumber() {
