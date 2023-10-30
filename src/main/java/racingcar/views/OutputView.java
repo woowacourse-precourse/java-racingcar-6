@@ -9,6 +9,7 @@ public class OutputView {
         racingCars.forEach((RacingCar racingCar) -> {
             System.out.printf("%s : %s\n", racingCar.getName(), "-".repeat(racingCar.getDistance()));
         });
+        System.out.println();
     }
 
     public void printRaceResult(List<RacingCar> winners) {
