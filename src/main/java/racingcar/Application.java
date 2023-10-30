@@ -41,9 +41,8 @@ public class Application {
 
       return cars;
     }
-    public Map<String,Integer> cars(String inputCarName){
-      return null;
-    }
+
+
 
     public String inputAttempts(){
       return null;
