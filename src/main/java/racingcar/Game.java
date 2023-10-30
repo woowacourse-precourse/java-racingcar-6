@@ -23,6 +23,9 @@ public class Game {
         }
 
         myOutput.printEnterTryTime();
+        input = Console.readLine();
+        int tryCount = Integer.parseInt(input);
+        myOutput.printExecutionResult();
 
     } 
 }
