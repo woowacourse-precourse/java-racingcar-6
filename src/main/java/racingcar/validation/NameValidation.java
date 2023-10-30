@@ -10,7 +10,8 @@ import java.util.List;
 public class NameValidation extends InputValidation{
 
     public static void verifyForRacerNameIsEngOrKor(String racerName){
-        if (!racerName.equals("^[a-zA-Z가-힣]*$")){
+        System.out.println("Race"+racerName);
+        if (!racerName.matches("^[a-zA-Z가-힣]*$")){
             throw new IllegalArgumentException(ErrorProperty.NAME_VALUE_IS_NOT_CORRECT_FORM);
         }
     }
