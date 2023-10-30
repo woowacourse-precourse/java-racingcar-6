@@ -25,4 +25,9 @@ public class RacingCarGameController {
             outputView.outputMessage(roundResult);
         }
     }
+
+    private void generateResult() {
+        String gameResult = racingCarGameMachine.getGameResult();
+        outputView.outputMessage(gameResult);
+    }
 }
