@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
+import racingcar.view.Output;
 
 public class RacingController {
 
@@ -12,6 +13,7 @@ public class RacingController {
         createCars(carNames);
         for (int i = 0; i < NumberOfExecutions; i++) {
             racing.moveCars();
+            Output.printResultOfEachExecution(racing.getCarList());
         }
         return racing.getWinners();
     }
@@ -22,6 +24,5 @@ public class RacingController {
             racing.addCar(car);
         }
     }
-
 
 }
