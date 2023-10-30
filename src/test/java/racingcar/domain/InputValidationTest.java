@@ -30,15 +30,25 @@ class InputValidationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("중복된 이름이 있습니다.");
     }
+
     @EmptySource
     @ParameterizedTest
     @CsvSource(value = {"123456"})
-    void 자동차_이름_길이가_맞지_않을_경우_예외_발생(String input){
+    void 자동차_이름_길이가_맞지_않을_경우_예외_발생(String input) {
         List<String> carNames = new ArrayList<>();
         carNames.add(input);
 
         assertThatThrownBy(() -> InputValidation.checkNameLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름의 길이가 맞지 않습니다.");
+    }
+
+    @EmptySource
+    @ParameterizedTest
+    @CsvSource(value = {"한글", "English"})
+    void 입력받은_값이_숫자가_아닐_경우_예외_발생(String input) {
+        assertThatThrownBy(() -> InputValidation.checkNumber(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자가 아닌 값입니다.");
     }
 }
