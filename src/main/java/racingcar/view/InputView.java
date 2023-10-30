@@ -12,4 +12,11 @@ public interface InputView {
      * @return 자동차 이름
      */
     List<String> getCarNamesInput();
+
+    /**
+     * 시도할 횟수를 입력받습니다.
+     *
+     * @return 시도할 횟수
+     */
+    String getRoundInput();
 }

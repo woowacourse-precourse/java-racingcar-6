@@ -14,6 +14,11 @@ public class ConsoleInputView implements InputView {
         return namesToList(Console.readLine());
     }
 
+    public String getRoundInput() {
+        displayMessage(ROUND_MESSAGE);
+        return Console.readLine();
+    }
+
     private void displayMessage(String message) {
         System.out.println(message);
     }
