@@ -22,6 +22,9 @@ public class Car {
     }
 
     public String showDistance(){
+        if(this.distance == 0){
+            return " ";
+        }
         return "-".repeat(this.distance);
     }
 }
