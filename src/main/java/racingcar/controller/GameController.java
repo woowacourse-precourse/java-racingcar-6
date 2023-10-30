@@ -14,17 +14,23 @@ public class GameController {
     public void run() {
         game.enrollCars(getCarNames());
         final int gameTime = getGameTime();
+        runGame(gameTime);
+        endGame();
+    }
 
+    private void runGame(int gameTime) {
         OuputView.ouputBeforeGameResult();
-
         for (int i = 0; i < gameTime; i++) {
             runRound();
         }
-        endGame();
     }
 
     private void runRound() {
         game.playRound();
+        printResult();
+    }
+
+    private void printResult() {
         List<GameResult> gameResultList = game.generateGameResultList();
         for (GameResult gameResult : gameResultList) {
             OuputView.ouputGameResult(gameResult);
