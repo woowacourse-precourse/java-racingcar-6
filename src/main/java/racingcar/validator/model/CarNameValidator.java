@@ -7,16 +7,6 @@ import racingcar.exception.car.name.LengthException;
 import racingcar.model.CarName;
 
 public class CarNameValidator extends ModelValidator {
-    private static CarNameValidator carNameValidator = new CarNameValidator();
-
-    private CarNameValidator() {
-    }
-
-    public static CarNameValidator getInstance() {
-        return carNameValidator;
-    }
-
-    // validate(): 인스턴스 별로 검증
     @Override
     public void validate(Object target) {
         CarName carName = (CarName) target;

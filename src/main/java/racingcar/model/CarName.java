@@ -1,13 +1,15 @@
 package racingcar.model;
 
-import racingcar.validator.model.CarNameValidator;
+import racingcar.validator.model.ModelValidator;
 
 public class CarName {
     private final String name;
 
     public CarName(String name) {
         this.name = name;
-        CarNameValidator.getInstance().validate(this);
+
+        ModelValidator modelValidator = new ModelValidator();
+        modelValidator.validate(this);
     }
 
     public String getName() {

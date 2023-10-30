@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.validator.model.TotalNumberOfRoundsValidator;
+import racingcar.validator.model.ModelValidator;
 
 public class TotalNumberOfRounds {
     private final int total;
@@ -8,7 +8,8 @@ public class TotalNumberOfRounds {
     public TotalNumberOfRounds(int total) {
         this.total = total;
 
-        TotalNumberOfRoundsValidator.getInstance().validate(this);
+        ModelValidator modelValidator = new ModelValidator();
+        modelValidator.validate(this);
     }
 
     public int getTotal() {

@@ -7,13 +7,13 @@ public class RoundValidator extends UserInputValidator {
 
     private static RoundValidator roundValidator = new RoundValidator();
 
-    private RoundValidator(){};
+    private RoundValidator() {
+    }
 
     public static RoundValidator getInstance() {
         return roundValidator;
     }
 
-    // 시도할 회수 입력 검증
     @Override
     public void validate(String userInput) {
         validatePositiveInteger(userInput);

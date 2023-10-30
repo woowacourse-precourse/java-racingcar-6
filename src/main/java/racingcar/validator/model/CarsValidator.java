@@ -9,15 +9,6 @@ import racingcar.model.CarName;
 import racingcar.model.Cars;
 
 public class CarsValidator extends ModelValidator {
-    private static CarsValidator carsValidator = new CarsValidator();
-
-    private CarsValidator() {
-    }
-
-    public static CarsValidator getInstance() {
-        return carsValidator;
-    }
-
     @Override
     public void validate(Object target) {
         Cars cars = (Cars) target;

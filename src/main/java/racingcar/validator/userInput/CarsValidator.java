@@ -13,8 +13,6 @@ public class CarsValidator extends UserInputValidator {
     private CarsValidator() {
     }
 
-    ;
-
     public static CarsValidator getInstance() {
         return carsValidator;
     }

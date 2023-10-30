@@ -2,9 +2,6 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.exception.NullException;
-import racingcar.exception.cars.DuplicateException;
-import racingcar.validator.model.CarsValidator;
 import racingcar.validator.model.ModelValidator;
 
 public class Cars {
@@ -13,7 +10,8 @@ public class Cars {
     public Cars(List<Car> carList) {
         this.carList = carList;
 
-        CarsValidator.getInstance().validate(this);
+        ModelValidator modelValidator = new ModelValidator();
+        modelValidator.validate(this);
     }
 
     public List<Car> getCarList() {
