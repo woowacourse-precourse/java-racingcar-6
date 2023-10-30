@@ -21,8 +21,7 @@ public class RacingCarController {
         cars=user.nameForCar(inputView.inputCars());
         int count=inputView.inputCount();
         repeat(count);
-        referee.announceWinner(referee.decideWinner(cars));
-
+        outputView.printWinner(referee.announceWinner(referee.decideWinner(cars)));
     }
 
     private void repeat(int count){
