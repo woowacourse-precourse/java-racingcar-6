@@ -130,4 +130,20 @@ class RaceCarTest {
         assertThat(resultNum).isEqualTo(2);
         assertThat(rasultStr).isEqualTo("--");
     }
+
+    @DisplayName("차동차의 이동을 할때 차의 이동량과 이동을 위한 출력문자를 수정, 이동시 전진 카운터 증가._3")
+    @Test
+    void moveForward_3() {
+        // when
+        raceCar.moveForward();
+        raceCar.moveForward();
+        raceCar.moveForward();
+
+        int resultNum = raceCar.getCntMovementOfCar();
+        String rasultStr = raceCar.toStringMoveState();
+
+        // then
+        assertThat(resultNum).isEqualTo(3);
+        assertThat(rasultStr).isEqualTo("---");
+    }
 }
