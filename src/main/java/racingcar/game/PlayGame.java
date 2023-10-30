@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import racingcar.race.Car;
 import racingcar.race.Race;
 import racingcar.view.InputView;
-import racingcar.view.ResultView;
+import racingcar.view.OutputView;
 
 public class PlayGame {
     public static void playGame() {
@@ -26,8 +26,7 @@ public class PlayGame {
 
     private static void playRace(List<Car> cars, int tryCount) {
         Race race = new Race(cars, tryCount);
-        ResultView resultView = new ResultView(cars);
-        race.startRace(resultView);
-        ResultView.printWinners(race.getWinners());
+        race.startRace(new OutputView(cars));
+        OutputView.printWinners(race.getWinners());
     }
 }

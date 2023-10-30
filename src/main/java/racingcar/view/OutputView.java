@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.race.Car;
 
-public class ResultView {
+public class OutputView {
     private final List<Car> cars;
 
-    public ResultView(List<Car> cars) {
+    public OutputView(List<Car> cars) {
         this.cars = cars;
     }
 
-    public void printRace(List<Car> cars) {
+    public static void printRace(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(car.getCarName() + " : " + "-".repeat(car.getPosition()));
         }

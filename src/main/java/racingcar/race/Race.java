@@ -2,7 +2,7 @@ package racingcar.race;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.view.ResultView;
+import racingcar.view.OutputView;
 
 public class Race {
     private final List<Car> cars;
@@ -18,10 +18,10 @@ public class Race {
         this.tryCount = tryCount;
     }
 
-    public void startRace(ResultView resultView) {
+    public void startRace(OutputView outputView) {
         for (int i = 0; i < tryCount; i++) {
             carMove();
-            resultView.printRace(cars);
+            outputView.printRace(cars);
         }
     }
 
