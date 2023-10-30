@@ -53,10 +53,10 @@ public class GameController {
             count += 1;
         }
 
-        gameEnd();
+        gameResult();
     }
 
-    private void gameEnd() {
+    private void gameResult() {
         Integer[] locations = convertCarLocations();
         Integer winnerLocation = service.getWinnerLocation(locations);
 
