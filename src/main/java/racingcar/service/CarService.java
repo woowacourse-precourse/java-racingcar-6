@@ -7,7 +7,7 @@ public class CarService {
     public static final int START_INCLUSIVE = 0;
     public static final int END_INCLUSIVE = 9;
 
-    public static void goByPickRandomNumber(Car car) {
+    public static void moveIfRandomNumberExceedsFour(Car car) {
         if (Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE) >= 4) {
             car.go();
         }
