@@ -1,7 +1,7 @@
-package racingcar;
+package racingcar.domain;
 
-import static racingcar.Constant.MINIMUM_RACE_COUNT;
-import static racingcar.ErrorMessage.RACE_COUNT_IS_NOT_IN_RANGE;
+import static racingcar.domain.Constant.MINIMUM_RACE_COUNT;
+import static racingcar.domain.ErrorMessage.RACE_COUNT_IS_NOT_IN_RANGE;
 
 public class RaceCount {
 

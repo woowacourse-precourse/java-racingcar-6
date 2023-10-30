@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 public class Constant {
     public static final String NUMBER_FORMAT = "\\d+";

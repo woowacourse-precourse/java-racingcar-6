@@ -1,7 +1,12 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.view.InputView;
+import racingcar.dto.MoveResultDto;
+import racingcar.view.OutputView;
+import racingcar.dto.PlayerNamesDto;
+import racingcar.dto.PlayersDto;
 
 public class GameController {
     private final MoveFactory moveFactory;

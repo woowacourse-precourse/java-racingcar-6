@@ -1,9 +1,13 @@
-package racingcar;
+package racingcar.view;
 
-import static racingcar.Constant.PLAYER_NAMES_DELIMITER;
-import static racingcar.Constant.PLAYER_NAMES_DELIMITER_NAME;
+import static racingcar.domain.Constant.PLAYER_NAMES_DELIMITER;
+import static racingcar.domain.Constant.PLAYER_NAMES_DELIMITER_NAME;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.dto.PlayerNamesDto;
+import racingcar.domain.RaceCount;
+import racingcar.util.InputConvertor;
+import racingcar.util.InputValidator;
 
 public class InputView {
 

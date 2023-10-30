@@ -1,9 +1,11 @@
-package racingcar;
+package racingcar.util;
 
-import static racingcar.Constant.PLAYER_NAMES_DELIMITER;
+import static racingcar.domain.Constant.PLAYER_NAMES_DELIMITER;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.dto.PlayerNamesDto;
+import racingcar.domain.RaceCount;
 
 public class InputConvertor {
     public static PlayerNamesDto convertPlayerNames(String rawPlayerNames) {

@@ -8,6 +8,9 @@ import static org.mockito.Mockito.verify;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.domain.Distance;
+import racingcar.domain.Player;
+import racingcar.domain.PlayerMove;
 
 public class PlayerMoveTest {
 

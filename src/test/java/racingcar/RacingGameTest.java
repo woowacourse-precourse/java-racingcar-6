@@ -6,6 +6,12 @@ import static org.mockito.Mockito.verify;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.MoveFactory;
+import racingcar.domain.NumberGenerator;
+import racingcar.domain.PlayerMove;
+import racingcar.domain.PlayerMoveList;
+import racingcar.domain.RacingGame;
+import racingcar.domain.RandomNumberGenerator;
 
 public class RacingGameTest {
     NumberGenerator numberGenerator = new RandomNumberGenerator();

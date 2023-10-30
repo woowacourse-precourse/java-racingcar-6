@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 public class ErrorMessage {
     public static final String RACE_COUNT_IS_NOT_NUMBER = "[ERROR] 시도 횟수는 숫자로 입력해야 합니다.";

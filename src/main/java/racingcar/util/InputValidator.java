@@ -1,9 +1,9 @@
-package racingcar;
+package racingcar.util;
 
-import static racingcar.Constant.NUMBER_FORMAT;
-import static racingcar.Constant.PLAYER_NAMES_FORMAT;
-import static racingcar.ErrorMessage.PLAYER_NAMES_IS_INVALID_FORMAT;
-import static racingcar.ErrorMessage.RACE_COUNT_IS_NOT_NUMBER;
+import static racingcar.domain.Constant.NUMBER_FORMAT;
+import static racingcar.domain.Constant.PLAYER_NAMES_FORMAT;
+import static racingcar.domain.ErrorMessage.PLAYER_NAMES_IS_INVALID_FORMAT;
+import static racingcar.domain.ErrorMessage.RACE_COUNT_IS_NOT_NUMBER;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.dto;
+
+import racingcar.domain.PlayerMove;
 
 public class MoveResultDto {
     private final String playerName;

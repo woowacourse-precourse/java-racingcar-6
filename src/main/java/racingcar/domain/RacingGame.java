@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.domain;
 
-import static racingcar.GameStatus.PLAYING;
+import static racingcar.domain.GameStatus.PLAYING;
 
 import java.util.Objects;
 

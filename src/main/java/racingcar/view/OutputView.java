@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.List;
+import racingcar.dto.MoveResultDto;
 
 public class OutputView {
     public static void printMoveResult(List<MoveResultDto> moveResultDtoList) {

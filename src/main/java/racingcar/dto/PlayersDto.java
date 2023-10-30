@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.domain.Player;
 
 public class PlayersDto {
     private final List<Player> players;

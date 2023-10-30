@@ -1,7 +1,7 @@
-package racingcar;
+package racingcar.domain;
 
-import static racingcar.Constant.MAXIMUM_PLAYER_NAME_LENGTH;
-import static racingcar.ErrorMessage.PLAYER_NAME_LENGTH_IS_INVALID;
+import static racingcar.domain.Constant.MAXIMUM_PLAYER_NAME_LENGTH;
+import static racingcar.domain.ErrorMessage.PLAYER_NAME_LENGTH_IS_INVALID;
 
 public class PlayerName {
 
