@@ -21,6 +21,12 @@ public class Validation {
         }
     }
 
+    private static void validateDuplicateName(List<String> list) {
+        if (list.size() != list.stream().distinct().count()) {
+            throw new IllegalArgumentException("이름이 중복되었습니다.");
+        }
+    }
+
 
 
 }
