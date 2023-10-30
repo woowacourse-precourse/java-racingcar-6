@@ -17,6 +17,6 @@ public class Utils {
     }
 
     public static int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(Constants.MIN_NUM, Constants.MAX_NUM);
     }
 }
