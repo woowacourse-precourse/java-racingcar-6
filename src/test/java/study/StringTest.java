@@ -10,9 +10,9 @@ import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StringTest {
 
@@ -155,5 +155,17 @@ public class StringTest {
 
         // than
         assertThat(outContent.toString()).isEqualTo("\n");
+    }
+
+    @DisplayName("List의_모든_원소에_대한_확인_하는_테스트")
+    @Test
+    public void List의_모든_원소에_대한_확인_하는_테스트() throws Exception {
+        // given
+        List<Integer> resultList = List.of(1, 1, 1, 1, 1);
+
+        // then
+        assertThat(resultList).allMatch((value) -> {
+            return value.equals(1);
+        });
     }
 }
