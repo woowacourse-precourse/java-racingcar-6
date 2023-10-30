@@ -13,19 +13,30 @@ public class Application {
         Map<String, String> carList = Arrays.stream(carsInput.split(",")).collect(Collectors.toMap(car -> car, car -> ""));
 
 
-        for (String car: carList.values()){
+        for (String car : carList.values()) {
             if (car.length() > 5) throw new IllegalArgumentException("자동차 이름은 5글자 이하로 작성해주세요.");
         }
 
 
         System.out.println("시도할 회수는 몇회인가요?");
         String countInput = Console.readLine();
-        try{
-            int count = Integer.parseInt(countInput);
-            if(count == 0) throw new IllegalArgumentException("0 이외의 숫자를 입력해주세요");
+        int count = 0;
+        try {
+             count = Integer.parseInt(countInput);
+            if (count == 0) throw new IllegalArgumentException("0 이외의 숫자를 입력해주세요");
 
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+
+        System.out.println("실행 결과");
+        for (int i = 0; i < count ; i ++){
+            for (Map.Entry<String, String> car: carList.entrySet()){
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
+                if(randomNumber >= 4) car.setValue(car.getValue() + "-");
+                System.out.println(car.getKey() + " : " + car.getValue());
+            }
+            System.out.println();
         }
 
     }
