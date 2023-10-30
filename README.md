@@ -168,7 +168,7 @@ Randoms.pickNumberInRange(0,9);
 - [x] 각 자동차에 이름을 부여할 수 있다. - inputCarsName()
     - [x] 자동차 이름은 쉼표(,)를 기준으로 구분한다. - splitNameByComma()
     - [x] 이름은 5자 이하만 가능하다. - isValidNameLength()
-- [ ] 사용자는 몇 번의 이동을 할 것인지를 입력한다. - inputRaceTime()
+- [x] 사용자는 몇 번의 이동을 할 것인지를 입력한다. - inputRaceTime()
 - [ ] 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다. - oneTimeRace
     - [ ] 0에서 9 사이에서 무작위 값을 구한다. - makeRandomNumber()
     - [ ] 전진하는 조건은 값이 4 이상일 경우이다. - goOrStop()

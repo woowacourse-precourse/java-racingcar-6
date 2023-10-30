@@ -2,12 +2,13 @@ package racingcar;
 
 public class RacingGame {
 
-    public RacingGame(){
+    public RacingGame() {
     }
 
-    public void startRacingProcess(){
+    public void startRacingProcess() {
         String carsName = GameInput.inputCarsName();
         CarList racingCarList = new CarList(carsName);
+        int raceTime = GameInput.raceTime();
     }
 
 }
