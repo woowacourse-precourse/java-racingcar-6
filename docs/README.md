@@ -23,7 +23,8 @@
 ## 모든 자동차에 대해
   - [X] 0부터 9까지의 정수 중 무작위 값을 1개 뽑는다. - NumberGenerator#pickNumberFrom0To9()
   - [X] 무작위 값이 4 이상이면 전진한다. - Car#moveForward()
-  - [ ] 실행 결과를 출력한다. - MessageContainer#printResult()
+  - [X] 자동차의 이름과 현재 위치를 나타내는 문자열을 생성한다. - MessageContainer#showCarResult()
+  - [ ] 한 라운드 실행 결과를 출력한다.
   - [ ] 사용자가 입력한 시도 횟수만큼 반복한다.
 
 
@@ -33,14 +34,14 @@
 
 
 ## 우승자를 알려준다.
-  - [ ] 우승자 안내 문구를 출력한다. - MessageContainer#printWinners()
-    - [ ] 공동 우승자는 쉼표로 구분하여 출력한다.
+  - [ ] 우승자 안내 문구를 생성한다. - MessageContainer#showWinners()
+    - [ ] 공동 우승자는 쉼표로 구분하여 표기한다.
 
 
-## 안내 메시지를 출력한다
-- [ ] 자동차 이름 입력 안내 문구를 출력한다 - MessageContainer#enterCarNames()
-- [ ] 시도 횟수 입력 안내 문구를 출력한다 - MessageContainer#enterTotalRounds()
-- [ ] 실행 결과 문구를 출력한다 - MessageContainer#executionResult()
+## 안내 메시지를 출력한다.
+- [ ] 자동차 이름 입력 안내 문구를 리턴한다 - MessageContainer#enterCarNames()
+- [ ] 시도 횟수 입력 안내 문구를 리턴한다 - MessageContainer#enterTotalRounds()
+- [ ] 실행 결과 문구를 리턴한다 - MessageContainer#executionResult()
 
 
 ## `IllegalArgumentException`이 발생하면 애플리케이션을 종료한다.
