@@ -15,9 +15,11 @@ public class RacingController {
     }
 
     public void run() {
-        ConsoleOutput.displayMessage(ConsoleOutput.INPUT_MESSAGE);
+        ConsoleOutput.displayMessage(ConsoleOutput.CAR_NAME_MESSAGE);
         String input = inputView.getCarNames();
         List<String> carNames = racingService.stringToList(input);
         racingService.isLengthGreaterThanFive(carNames);
+        ConsoleOutput.displayMessage(ConsoleOutput.TRY_MESSAGE);
+        int tries = inputView.getTries();
     }
 }
