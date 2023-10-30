@@ -29,8 +29,7 @@ public abstract class BasicGame implements Game {
     private final Viewer viewer;
     private final Host host;
 
-    protected BasicGame(CarNameReader carNamesReader, TryCountReader tryCountReader,
-        Viewer viewer,
+    protected BasicGame(CarNameReader carNamesReader, TryCountReader tryCountReader, Viewer viewer,
         Host host) {
         this.carNamesReader = carNamesReader;
         this.tryCountReader = tryCountReader;
@@ -54,13 +53,21 @@ public abstract class BasicGame implements Game {
 
         for (int i = 0; i < roundCount; i++) {
             List<SavedCarPosition> onRaceCars = getOnRaceCars(enrolledCars);
-            RoundResult results = executeRound(host, onRaceCars);
+            List<SavedCarPosition> orderedCars = getOrderedCars(onRaceCars);
+            RoundResult results = executeRound(host, orderedCars);
             saveRound(results);
             printRound(results);
         }
 
         List<CarName> winners = calculateWinners(enrolledCars);
         printWinners(winners);
+    }
+
+    /**
+     * 현재는 저장 순서 기준과 정렬 기준이 동일하여 단순 반환
+     */
+    private List<SavedCarPosition> getOrderedCars(List<SavedCarPosition> onRaceCars) {
+        return onRaceCars;
     }
 
     protected abstract List<SavedCar> initializeCars(List<CarName> carCarNames);
