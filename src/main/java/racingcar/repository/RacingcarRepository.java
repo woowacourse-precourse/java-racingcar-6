@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import racingcar.domain.Racingcar;
 
-public interface RacingCarRepository {
+public interface RacingcarRepository {
 
     Racingcar save(String name);
 

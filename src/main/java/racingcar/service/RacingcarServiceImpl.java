@@ -5,12 +5,12 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 import racingcar.domain.Racingcar;
-import racingcar.repository.RacingCarRepository;
-import racingcar.repository.MemoryRacingcarRepositoryRacing;
+import racingcar.repository.RacingcarRepository;
+import racingcar.repository.MemoryRacingcarRepository;
 
 public class RacingcarServiceImpl implements RacingcarService {
 
-    private final static RacingCarRepository carRepository = new MemoryRacingcarRepositoryRacing();
+    private final static RacingcarRepository carRepository = new MemoryRacingcarRepository();
     private final int MOVING_DISTANCE = 1;
 
     public void joinRacingcar(String nameList) {

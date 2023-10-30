@@ -4,7 +4,7 @@ import java.util.*;
 
 import racingcar.domain.Racingcar;
 
-public class MemoryRacingcarRepositoryRacing implements RacingCarRepository {
+public class MemoryRacingcarRepository implements RacingcarRepository {
 
     private static Map<String, Racingcar> carStore = new HashMap<>();
 
