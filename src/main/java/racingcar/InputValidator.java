@@ -11,6 +11,11 @@ public class InputValidator {
         validateDuplicateName(input);
     }
 
+    public static void validateMovingNumber(String input) {
+        validateNotNumber(input);
+        validateNumberRange(input);
+    }
+
     public static void validateNamesIsEmpty(String[] input) {
         for (String name : input) {
             if (name.trim().isEmpty()) {
