@@ -26,11 +26,11 @@ public class Car {
         return new RaceResult(currentProgress, currentName);
     }
 
-    private String getName() {
+    public String getName() {
         return this.name;
     }
 
-    private int getProgress() {
+    public int getProgress() {
         return this.progress;
     }
 
