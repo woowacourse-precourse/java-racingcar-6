@@ -1,6 +1,6 @@
 package racingcar.config;
 
-public abstract class GameConfig {
+public final class GameConfig {
 
     public static final String CAR_NAME_DELIMITER = ",";
     public static final String CAR_NAME_DELIMITER_KR = "쉼표";
@@ -12,4 +12,6 @@ public abstract class GameConfig {
     public static final int MOVING_MAX_VALUE = 9;
     public static final String POSITION_VIEW_EXPRESSION = "-";
 
+    private GameConfig() {
+    }
 }
