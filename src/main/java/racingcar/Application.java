@@ -20,7 +20,7 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String countInput = Console.readLine();
-        int count = 0;
+        int count;
         try {
              count = Integer.parseInt(countInput);
             if (count == 0) throw new IllegalArgumentException("0 이외의 숫자를 입력해주세요");
@@ -39,5 +39,18 @@ public class Application {
             System.out.println();
         }
 
+        List<String> carNameByKeyDesc = new ArrayList<>(carList.keySet());
+        carNameByKeyDesc.sort((value1, value2) -> Integer.compare(carList.get(value2).length(), carList.get(value1).length()));
+
+        System.out.print("최종 우승자 : ");
+        String firstWinner = carNameByKeyDesc.get(0);
+        int max = carList.get(firstWinner).length();
+        System.out.print(firstWinner);
+
+        for (int i = 1; i < carNameByKeyDesc.size(); i++){
+            String carName = carNameByKeyDesc.get(i);
+            if (carList.get(carName).length() != max) break;
+            System.out.print(", " + carName);
+        }
     }
 }
