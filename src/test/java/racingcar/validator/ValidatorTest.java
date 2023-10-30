@@ -51,4 +51,13 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("공백은 사용할 수 없는 입력입니다.");
     }
+
+    @Test
+    void 시도할_횟수에_양수가_아닌_입력시_예외_처리() {
+        long input = 0;
+
+        assertThatThrownBy(() -> Validator.validateIsPositive(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("양수만 입력할 수 있습니다.");
+    }
 }

@@ -2,16 +2,17 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.model.Cars;
+import racingcar.model.TryCount;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingGame {
     private Cars cars;
-    private Long tryCount;
+    private TryCount tryCount;
 
     public void start() {
         cars = new Cars(InputView.readRacingCarName());
-        tryCount = InputView.readTryCount();
+        tryCount = new TryCount(InputView.readTryCount());
 
         OutputView.printResultMessage();
         printResult();
@@ -21,7 +22,7 @@ public class RacingGame {
     }
 
     private void printResult() {
-        for (int i = 0; i < tryCount; i++) {
+        for (int i = 0; i < tryCount.tryCount(); i++) {
             cars.tryToMoveCars();
             OutputView.printResult(cars);
         }

@@ -4,6 +4,7 @@ import static racingcar.controller.GameConstants.MAX_LENGTH;
 import static racingcar.message.ErrorMessages.BLANK_ERROR;
 import static racingcar.message.ErrorMessages.DUPLICATE_ERROR;
 import static racingcar.message.ErrorMessages.NON_NUMERIC;
+import static racingcar.message.ErrorMessages.NON_POSITIVE;
 import static racingcar.message.ErrorMessages.OVER_AVAILABLE_LENGTH;
 
 import java.util.List;
@@ -35,6 +36,12 @@ public class Validator {
     public static void validateIsNumeric(String input) {
         if (!input.chars().allMatch(Character::isDigit)) {
             throw new IllegalArgumentException(NON_NUMERIC);
+        }
+    }
+
+    public static void validateIsPositive(long tryCount) {
+        if (tryCount <= 0) {
+            throw new IllegalArgumentException(NON_POSITIVE);
         }
     }
 }
