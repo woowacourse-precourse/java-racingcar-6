@@ -21,7 +21,7 @@ public class RaceGameCount {
     }
 
     public boolean isGameOver() {
-        return count == 0;
+        return count == NO_MORE_GAME_COUNT;
     }
 
     public void run() {
