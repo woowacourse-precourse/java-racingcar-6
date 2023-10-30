@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -26,6 +28,17 @@ public class Cars {
                 .filter(farthestCar::isSamePosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    public Map<String, Integer> getRaceStatus() {
+        Map<String, Integer> result = new HashMap<>();
+        for (Car car : carList) {
+            String status = car.getPosition();
+            String name = status.split(",")[0];
+            int position = Integer.parseInt(status.split(",")[0]);
+            result.put(name, position);
+        }
+        return result;
     }
 
 }
