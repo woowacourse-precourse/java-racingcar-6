@@ -40,6 +40,14 @@ public class Validation {
         }
     }
 
+    private static void validateNumberFormat(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자가 아닙니다.");
+        }
+    }
+
 
 
 }
