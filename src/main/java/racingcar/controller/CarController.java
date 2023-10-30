@@ -40,6 +40,10 @@ public class CarController {
             cars.getCars()
                     .stream()
                     .forEach(car -> forward(car));
+            // 전진이 완료된 이후 현재 위치 정보 출력
+            cars.getCars().stream().forEach(car -> output.position(car.getForward()));
+            // 각 자동차들의 위치 정보가 모두 출력 되면 줄만 하나 출력
+            System.out.println();
         }
     }
 
