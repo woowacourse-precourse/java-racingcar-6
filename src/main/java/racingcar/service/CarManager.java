@@ -38,6 +38,16 @@ public class CarManager {
     }
 
 
+    public String getWinnerList() {
+        for (Map.Entry entry : carMap.entrySet()) {
+            Car now = (Car) entry.getValue();
+            if (now.getPosition() == max) {
+                winnerList.add((String) entry.getKey());
+            }
+        }
+        return String.join(",", winnerList);
+    }
+
 
 
 }
