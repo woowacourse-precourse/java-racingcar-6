@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.AttemptCount;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -18,7 +19,8 @@ public class RacingController {
 
     public void start() {
         inputView.printRequestCarName();
-        inputView.printRequestAttemptsNumber();
         cars.addCar(Console.readLine());
+        inputView.printRequestAttemptsNumber();
+        AttemptCount attemptCount = new AttemptCount(Console.readLine());
     }
 }
