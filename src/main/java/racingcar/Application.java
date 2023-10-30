@@ -11,13 +11,6 @@ public class Application {
         racingGame.play();
     }
 
-    public static int getMaxPosition(final List<Car> cars) {
-        return cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .getAsInt();
-    }
-
     public static void printWinners(final List<Car> winners) {
         List<String> winnerNames = winners.stream()
                 .map(Car::getName)

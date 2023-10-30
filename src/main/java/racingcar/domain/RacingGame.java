@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import static racingcar.Application.getMaxPosition;
 import static racingcar.Application.printWinners;
 import static racingcar.utils.MessagePrinter.roundResult;
 
@@ -52,5 +51,12 @@ public class RacingGame {
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .toList();
+    }
+
+    public static int getMaxPosition(final List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .getAsInt();
     }
 }
