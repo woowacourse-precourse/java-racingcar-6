@@ -10,31 +10,31 @@ public class Controller {
 
     public void startRace() {
 
-        String carNameInput = raceView.printStartMeg();
-        List<String> carNames = splitCarNames(carNameInput);
+        String carInput = raceView.startMeg();
+        List<String> carNames = splitNames(carInput);
 
         this.race = new Race(carNames.toArray(new String[0]));
 
-        int countNumber = raceView.printGoCount();
+        int countNumber = raceView.countMeg();
 
-        raceView.printResultMeg();
+        raceView.resultMeg();
 
         for (int i = 0; i < countNumber; i++) {
 
              for(String carName : carNames){
                 race.moveCars(carName);
             }
-            raceView.printRaceResult(race.getCars());
+            raceView.raceResult(race.getCars());
         }
 
         String winnerCar = checkWinner();
 
-        raceView.printWinner(winnerCar);
+        raceView.winnerCar(winnerCar);
     }
 
-    private List<String> splitCarNames(String carNameInput) {
+    private List<String> splitNames(String carInput) {
 
-        String[] carArray = carNameInput.split(",");
+        String[] carArray = carInput.split(",");
         List<String> carNames = new ArrayList<>();
 
         for (String carName : carArray) {
