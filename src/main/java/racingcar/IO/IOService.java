@@ -17,11 +17,15 @@ public class IOService {
         System.out.println(subject+" : "+value);
     }
 
-    public void inputCreatre() {
+    public String inputCreate() {
         String inputString=Console.readLine();
+
+        return inputString;
     }
 
-    public void inputCount() {
+    public String inputCount() {
         String inputString=Console.readLine();
+
+        return inputString;
     }
 }
