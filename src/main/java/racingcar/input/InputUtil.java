@@ -20,8 +20,8 @@ public class InputUtil {
         validatior.inputCarNameDuplication(carName, carNameList);
     }
 
-    public int inputMovement() {
+    public long inputMovement() {
         System.out.println("시도할 횟수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        return Long.parseLong(Console.readLine());
     }
 }
