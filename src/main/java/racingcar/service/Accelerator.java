@@ -6,6 +6,10 @@ import racingcar.util.RandomNumberGenerator;
 public class Accelerator {
 
     public boolean canMoveForward() {
-        return RandomNumberGenerator.generate() >= Rule.MOVEMENT_POSSIBILITY;
+        return Rule.MOVEMENT_POSSIBILITY <= getMovementPotential();
+    }
+
+    private Integer getMovementPotential() {
+        return RandomNumberGenerator.generate();
     }
 }
