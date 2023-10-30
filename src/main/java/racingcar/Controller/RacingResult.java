@@ -2,6 +2,7 @@ package racingcar.Controller;
 
 import static racingcar.Controller.WinnerController.outputView;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class RacingResult {
@@ -10,7 +11,7 @@ public class RacingResult {
         boolean allValuesAreZero = areAllValuesZero(map);
 
         if (allValuesAreZero) {
-            throw new IllegalArgumentException("All values in the Map are 0.");
+            throw new IllegalArgumentException("아무런 자동차도 전진하지 못했습니다.");
         }else {
             int maxValue = Integer.MIN_VALUE;
 
@@ -20,6 +21,15 @@ public class RacingResult {
             // Map을 순회하며 최대 값을 찾음
             for (String carName : map.keySet()) {
                 int value = map.get(carName);
+                Map<String, Integer> carResultNumber = new HashMap<>();
+                carResultNumber.put(carName,value);
+                String resultBar = outputView.printRandomCount(value);
+
+                Map<String, String> carResultBar = new HashMap<>();
+                carResultBar.put(carName,resultBar);
+
+                System.out.print( carName + " : " + carResultBar.get(carName) + ", ");
+
 
                 if (value > maxValue) {
                     maxValue = value;
@@ -27,6 +37,7 @@ public class RacingResult {
                 } else if (value == maxValue) {
                     maxKeys += ", " +  carName;
                 }
+
             }
             outputView.printWinnerName();
             System.out.println(maxKeys);
