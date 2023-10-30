@@ -11,4 +11,8 @@ public class Constants {
     public static final String CARNAME_DUPLICATE_ERROR="자동차 이름에 중복이 없어야 한다.";
     public static final String NUMBER_ERROR = "시고 횟수는 1번 이상의 숫자여야 한다.";
 
+    public static final int STARTNUM =0;
+    public static final int ENDNUM =9;
+    public static final String DASH = "-";
+    public static final String WINNER = "최종 우승자 : ";
 }

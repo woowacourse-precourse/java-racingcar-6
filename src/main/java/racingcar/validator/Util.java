@@ -11,4 +11,14 @@ public class Util {
         }
         return list;
     }
+    public static String getDashString(String dash,int repeat){
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<repeat;i++){
+            sb.append(dash);
+        }
+        return sb.toString();
+    }
+    public static int maxPosition(){
+        return 0;
+    }
 }

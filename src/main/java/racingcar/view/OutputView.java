@@ -1,11 +1,25 @@
 package racingcar.view;
 
+import racingcar.model.Car;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static racingcar.validator.Constants.*;
+
 public class OutputView {
     public void printResult(){
         System.out.println("실행 결과 ");
 
     }
-    public void printWinner(){
-        System.out.print("최종 우승자 : ");
+    public static void printRoundResult(ArrayList<String> roundResult){
+        roundResult.forEach(System.out::println);
+        System.out.println();
+    }
+
+    public static void printWinner(List<String> winners){
+        System.out.print(WINNER);
+        winners.forEach(System.out::println);
+
     }
 }
