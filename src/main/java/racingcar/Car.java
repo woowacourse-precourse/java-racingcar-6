@@ -26,6 +26,10 @@ public class Car {
 
     }
 
+    public void printLocation() {
+        System.out.println(this.name + " : " + this.location);
+    }
+
     private void changeLocation() {
         this.location += "-";
     }

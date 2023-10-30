@@ -23,8 +23,12 @@ public class Application {
             cars.add(new Car(carName));
         }
 
-        for(Car car : cars) {
+        for (Car car : cars) {
             car.move();
+        }
+
+        for (Car car : cars) {
+            car.printLocation();
         }
 
     }
