@@ -1,7 +1,9 @@
 package racingcar.RacingService;
 
 import racingcar.model.Car;
+import racingcar.utils.RandomNumberGenerator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -65,4 +67,18 @@ public class RacingService {
         return attemptCountFromUser;
     }
 
+    /**
+     * 레이싱할 자동차 등록
+     */
+    public void readyCars() {
+        cars = new ArrayList<>();
+        for(String carName : carNameList) {
+            cars.add(new Car(carName, new RandomNumberGenerator()));
+        }
+    }
+
+    // test를 위한 getter
+    protected List<Car> getCars() {
+        return cars;
+    }
 }
