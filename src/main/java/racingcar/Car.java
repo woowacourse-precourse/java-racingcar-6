@@ -24,6 +24,10 @@ final class Car {
         return name.name() + Constant.COLON.value + Constant.DASH.value.repeat(moveCount);
     }
 
+    String getName() {
+        return name.name();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
