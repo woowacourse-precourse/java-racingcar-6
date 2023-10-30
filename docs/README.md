@@ -40,6 +40,10 @@
 
 - 전진 조건에 사용될 숫자를 0에서 9 사이에서 무작위로 구한다.
 
+## RacingCarNames
+
+- 자동차 이름이 중복되는지 검사한다.
+
 ## RacingCarName
 
 - 자동차 이름의 유효성 검사를 한다.
@@ -70,6 +74,10 @@
 ## OutputView
 
 - 각 시도의 실행 결과를 출력하는 기능을 테스트한다.
+
+## RacingCarNames
+
+- 자동차 이름이 중복되면 IllegalArgumentException이 발생한다.
 
 ## RacingCarName
 
