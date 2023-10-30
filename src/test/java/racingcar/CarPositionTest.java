@@ -1,6 +1,5 @@
 package racingcar;
 
-import model.CarName;
 import model.CarPosition;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -25,7 +24,7 @@ public class CarPositionTest {
     @DisplayName("자동차 위치 움직임 테스트")
     void 자동차_움직임_테스트(){
         CarPosition pos = new CarPosition();
-        pos.moveByDistance(1);
+        pos.advancePosition();
         Assertions.assertThat(pos.toInt()).isEqualTo(1);
     }
 }
