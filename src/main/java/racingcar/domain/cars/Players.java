@@ -21,12 +21,4 @@ public class Players {
     public void moveAll() {
         cars.forEach((car) -> car.move());
     }
-
-    @Override
-    public String toString() {
-        List<String> carMessages = cars.stream()
-            .map(Car::toString)
-            .toList();
-        return String.join("\n", carMessages);
-    }
 }

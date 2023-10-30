@@ -5,7 +5,6 @@ import java.util.Objects;
 public class CarMovement implements Comparable<CarMovement> {
 
     private static final int INITIAL_VALUE = 0;
-    private static final String DASH = "-";
 
     private int movement;
 
@@ -19,15 +18,6 @@ public class CarMovement implements Comparable<CarMovement> {
 
     public int movement() {
         return movement;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < movement; i++) {
-            stringBuilder.append(DASH);
-        }
-        return stringBuilder.toString();
     }
 
     @Override

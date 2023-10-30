@@ -7,7 +7,6 @@ public class Car {
     private final int RANDOM_START_INCLUSIVE = 0;
     private final int RANDOM_END_INCLUSIVE = 9;
     private final int CRITICAL_VALUE = 4;
-    private final String CURRENT_STATE_FORMAT = "%s : %s";
 
     private final CarName name;
     private final CarMovement movement;
@@ -38,10 +37,5 @@ public class Car {
 
     public boolean isSameDistance(Car car) {
         return movement.equals(car.movement);
-    }
-
-    @Override
-    public String toString() {
-        return String.format(CURRENT_STATE_FORMAT, name.name(), movement.toString());
     }
 }
