@@ -23,4 +23,11 @@ public class InputManager {
             throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
         }
     }
+
+    public int getTryCount() {
+       String input = Console.readLine();
+       int count = Integer.parseInt(input);
+
+       return count;
+    }
 }
