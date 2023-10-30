@@ -25,7 +25,7 @@ class TryCountTest {
         TryCount tryCount = TryCount.from("1");
 
         // when
-        tryCount.decreaseCount();
+        tryCount.decrease();
 
         // then
         assertThat(tryCount.isEnd()).isTrue();
