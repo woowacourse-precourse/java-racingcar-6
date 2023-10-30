@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import java.util.Map;
 import racingcar.response.RaceResultResponse;
 
@@ -10,6 +11,7 @@ public class OutputView {
     private static final String RACE_RESULT_MESSAGE = "\n 실행 결과";
     private static final String RACE_MESSAGE = "%s : %s\n";
     private static final String ROAD = "-";
+    private static final String RACE_WINNER_MESSAGE = "최종 우승자 : ";
 
     public static void printRaceStart() {
         System.out.println(RACE_START_MESSAGE);
@@ -32,5 +34,12 @@ public class OutputView {
 
     public static String printRoad(int position) {
         return ROAD.repeat(position);
+    }
+
+    private static void printWinners(List<String> winners) {
+        StringBuilder winnersName = new StringBuilder();
+        winners.forEach(winner -> winnersName.append(winner + ", "));
+        winnersName.delete(winnersName.length() - 2, winnersName.length());
+        System.out.println(RACE_WINNER_MESSAGE + winnersName.toString());
     }
 }
