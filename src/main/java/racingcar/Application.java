@@ -73,6 +73,8 @@ public class Application {
     static int getPlayCount() {
         int playCount = 0;
 
+        System.out.println("시도할 회수는 몇회인가요?");
+
         try {
             String inputCount = readLine();
             playCount = Integer.parseInt(inputCount);
