@@ -20,16 +20,20 @@ public class Application {
 
         printWinners(cars); //가장 많은 거리를 간 자동차 출력
     }
+
     public static List<String> inputCars() {
         String input = Console.readLine();
         return List.of(input.split(",")); //쉼표 기준으로 분할한 자동차 이름 리스트
     }
+
     public static Boolean checkCarNameLength(String car_name) {
         return car_name.length() > 5; //자동차 이름 5글자 초과 체크
     }
+
     public static Boolean checkCarDuplication(Map<String, Integer> cars, String car) {
         return cars.containsKey(car); //자동차 중복 체크
     }
+
     public static Map<String, Integer> storeCars(List<String> input_cars) {
         Map<String, Integer> cars = new HashMap<>();
         for (String car : input_cars) {
@@ -42,15 +46,19 @@ public class Application {
         }
         return cars; // (자동차, 0)으로 맵핑된 map
     }
+
     public static Integer inputN() {
         return Integer.parseInt(Console.readLine()); //정수형 N
     }
+
     public static Integer randomNumber() {
         return Randoms.pickNumberInRange(0, 9); //0에서 9사이 수 랜덤 생성
     }
+
     public static Boolean checkRandomNumber(int randomNumber) {
         return randomNumber >= 4; //랜덤 값 4 이상 체크
     }
+
     public static int addStep(int random_number) {
         //랜덤 값이 4 이상이면 1
         if (checkRandomNumber(random_number)) {
@@ -59,7 +67,8 @@ public class Application {
         //랜덤 값이 4 미만이면 0
         return 0;
     }
-    public static void racing(Map<String, Integer> cars,int N) {
+
+    public static void racing(Map<String, Integer> cars, int N) {
         for (int i = 0; i < N; i++) { //경주 N번 반복
             for (String car : cars.keySet()) {
                 //경주 동안 각 자동차 전진 또는 멈춤
@@ -68,10 +77,11 @@ public class Application {
             printRacing(cars); //경주 결과 출력
         }
     }
+
     public static void printRacing(Map<String, Integer> cars) {
         String result = "";
         for (String car : cars.keySet()) {
-             result += car + " : "; //자동차 이름
+            result += car + " : "; //자동차 이름
             for (int i = 0; i < cars.get(car); i++) {
                 result += "-"; //자동차가 이동한 거리를 '-'로 출력
             }
@@ -80,6 +90,7 @@ public class Application {
         }
         System.out.println();
     }
+
     public static void printWinners(Map<String, Integer> cars) {
         int maxCar = Collections.max(cars.values()); //거리 중 가장 큰 값
         List<String> maxCars = new ArrayList<>();
