@@ -23,10 +23,14 @@ public class OutputView {
     public static void outputWinner(List<String> winners) {
         System.out.print(WINNER_MESSAGE);
         for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if (i != winners.size() - 1) {
-                System.out.print(", ");
-            }
+            printComma(winners.get(i), winners.size()-i);
+        }
+    }
+
+    private static void printComma(String winnerName, int valueForCheck) {
+        System.out.print(winnerName);
+        if (valueForCheck != 1) {   // winners.size와 index를 뺐을 때 1이면 마지막이므로 ,를 출력하지 않는다.
+            System.out.print(", ");
         }
     }
 }
