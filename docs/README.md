@@ -51,9 +51,11 @@
 # 구현 목록
 
 ---
-- [ ] 시작 문구 출력 - Communicator
-- [ ] 사용자의 자동차 이름 입력 - Communicator, Validator
-- [ ] 시도 회수 입력 - Communicator, Validator
+- [x] 시작 문구 출력 - Communicator
+- [ ] 자동차 이름 입력 - Communicator
+- [ ] 이름 입력 검증 - Validator
+- [ ] 시도 횟수 입력 - Communicator
+- [ ] 횟수 입력 검증 - Validator
 - [ ] 자동차 이동 로직 - Car
 - [ ] 입력 받은 회수 만큼의 게임 진행 - Game
 - [ ] 결과 출력 - Communicator
