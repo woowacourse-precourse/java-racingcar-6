@@ -17,7 +17,7 @@ public class Car {
         }
     }
 
-    private int generateRandomNumber() {
+    public int generateRandomNumber() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber;
     }
