@@ -31,6 +31,11 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 랜덤_변수_생성_테스트() {
+        int result = Application.makeRandomNumber();
+        assertThat(result).isBetween(0,9);
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});

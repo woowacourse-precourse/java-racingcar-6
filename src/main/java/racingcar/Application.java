@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Application {
     public class Car {
         String name;
@@ -23,5 +25,11 @@ public class Application {
     }
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+    }
+
+    public static int makeRandomNumber() {
+        int random;
+        random = Randoms.pickNumberInRange(0,9);
+        return random;
     }
 }
