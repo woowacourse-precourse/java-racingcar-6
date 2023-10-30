@@ -23,14 +23,14 @@ public class OutputView {
         System.out.println(RACE_RESULT);
     }
 
-    public void printProgressOfAllCars(Map<String, Integer> carNameList) {
+    public void printAllCarProgress(Map<String, Integer> carNameList) {
         for (String carName : carNameList.keySet()) {
-            printProgressOfOne(carName, carNameList.get(carName));
+            printOneCarProgress(carName, carNameList.get(carName));
         }
         System.out.println();
     }
 
-    private void printProgressOfOne(String carName, int moves) {
+    private void printOneCarProgress(String carName, int moves) {
         System.out.println(convertProgressToString(carName, moves));
     }
 

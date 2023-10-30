@@ -40,7 +40,7 @@ public class Racing {
     public void playAllRounds(Map<String, Integer> carNameList, int counts) {
         for (int i = 0; i < counts; i++) {
             Map<String, Integer> oneRoundResult = playOneRound(carNameList);
-            outputView.printProgressOfAllCars(oneRoundResult);
+            outputView.printAllCarProgress(oneRoundResult);
         }
     }
 
