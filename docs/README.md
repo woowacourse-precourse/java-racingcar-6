@@ -18,7 +18,7 @@
 - [x] 각 자동차를 1회 전진 시도하고 결과를 볼 수 있다. - RaceController#tryMoveCars()
 - [ ] 자동차 경주에서 어떤 차가 우승했는지 찾는다.(중복 우승 가능) - Referee#findWinners()
   - [x] 가장 먼 위치에 있는 자동차를 찾는다. - Referee#findFarthestPositionCar()
-  - [ ] 같은 위치에 있는 자동차를 찾는다. - Referee#findSamePositionCars()
+  - [x] 같은 위치에 있는 자동차를 찾는다. - Referee#findSamePositionCars()
 - [ ] 자동차 경주 게임의 우승자를 출력한다. - OutputView#showWinners()
 - [ ] 자동차 경주 게임의 정해진 프로세스에 따라 게임을 실행시킨다. - RaceController#run()
 
