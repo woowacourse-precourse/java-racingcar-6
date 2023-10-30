@@ -1,10 +1,12 @@
-package racingcar;
+package racingcar.communication;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.game.GameProgress;
+import racingcar.game.car.Car;
 
 public class Communicator {
     public static List<String> instructInputCars() {

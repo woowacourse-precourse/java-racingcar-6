@@ -1,9 +1,11 @@
-package racingcar;
+package racingcar.game.storage;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import racingcar.game.car.Car;
 
 public class CarStorage {
     private final Map<String, Car> cars;

@@ -1,8 +1,11 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.IntStream;
+
+import racingcar.game.car.Car;
+import racingcar.game.storage.CarStorage;
 
 public class Game {
     private final CarStorage carStorage;

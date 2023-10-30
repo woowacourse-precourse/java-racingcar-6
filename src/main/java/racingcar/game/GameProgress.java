@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.game;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import racingcar.game.car.Car;
 
 public class GameProgress {
     private final List<Car> carsAfterTrial;

@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.exception;
+
+import racingcar.communication.Communicator;
 
 public class ExceptionHandler {
     public static void handleException(RuntimeException exception) {

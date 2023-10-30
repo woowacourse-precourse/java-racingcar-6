@@ -1,6 +1,12 @@
-package racingcar;
+package racingcar.commander;
 
 import java.util.List;
+
+import racingcar.communication.Communicator;
+import racingcar.exception.ExceptionHandler;
+import racingcar.game.GameProgress;
+import racingcar.game.car.Car;
+import racingcar.game.Game;
 
 public class GameHandler {
     private final Game game;

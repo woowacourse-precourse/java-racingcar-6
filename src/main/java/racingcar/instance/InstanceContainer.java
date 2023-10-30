@@ -1,4 +1,8 @@
-package racingcar;
+package racingcar.instance;
+
+import racingcar.commander.GameHandler;
+import racingcar.game.Game;
+import racingcar.game.storage.CarStorage;
 
 public class InstanceContainer {
     private final GameHandler gameHandler;
