@@ -6,35 +6,39 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static racingcar.Constant.InputMenu.*;
+import static racingcar.Constant.OutputMenu.*;
+import static racingcar.Constant.RacingMenu.PLUS_SCORE;
+
 public class Application {
     public static void main(String[] args) {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_CAR_NAME);
         String carsInput = Console.readLine();
-        Map<String, String> carList = Arrays.stream(carsInput.split(",")).collect(Collectors.toMap(car -> car, car -> ""));
+        Map<String, String> carList = Arrays.stream(carsInput.split(COMMA)).collect(Collectors.toMap(car -> car, car -> BLANK));
 
 
         for (String car : carList.keySet()) {
-            if (car.length() > 4) throw new IllegalArgumentException("자동차 이름은 5글자 이하로 작성해주세요.");
+            if (car.length() > CAR_NAME_MAXIMUM_LENGTH) throw new IllegalArgumentException(EXCEPTION_INVALID_CAR_NAME);
         }
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(INPUT_COUNT);
         String countInput = Console.readLine();
         int count;
         try {
             count = Integer.parseInt(countInput);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력해주세요.");
+            throw new IllegalArgumentException(EXCEPTION_INVALID_INTEGER);
         }
 
-        if (count == 0) throw new IllegalArgumentException("0 이외의 숫자를 입력해주세요");
+        if (count == 0) throw new IllegalArgumentException(EXCEPTION_INVALID_INTEGER_ZERO);
 
 
-        System.out.println("실행 결과");
+        System.out.println(OUTPUT_RESULT);
         for (int i = 0; i < count; i++) {
             for (Map.Entry<String, String> car : carList.entrySet()) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
-                if (randomNumber >= 4) car.setValue(car.getValue() + "-");
-                System.out.println(car.getKey() + " : " + car.getValue());
+                if (randomNumber >= 4) car.setValue(car.getValue() + PLUS_SCORE);
+                System.out.println(car.getKey() + COLON + car.getValue());
             }
             System.out.println();
         }
@@ -42,7 +46,7 @@ public class Application {
         List<String> carNameByKeyDesc = new ArrayList<>(carList.keySet());
         carNameByKeyDesc.sort((value1, value2) -> Integer.compare(carList.get(value2).length(), carList.get(value1).length()));
 
-        System.out.print("최종 우승자 : ");
+        System.out.print(FINAL_WINNER);
         String firstWinner = carNameByKeyDesc.get(0);
         int max = carList.get(firstWinner).length();
         System.out.print(firstWinner);
@@ -50,7 +54,7 @@ public class Application {
         for (int i = 1; i < carNameByKeyDesc.size(); i++) {
             String carName = carNameByKeyDesc.get(i);
             if (carList.get(carName).length() != max) break;
-            System.out.print(", " + carName);
+            System.out.print(COMMA_AND_SPACE + carName);
         }
     }
 }
