@@ -14,8 +14,8 @@ public class Car {
         this.moveDistance += CAR_MOVE_MARK;
     }
 
-    public String getMoveDistance() {
-        return this.moveDistance;
+    public Integer getMoveDistance() {
+        return this.moveDistance.length();
     }
 
 }
