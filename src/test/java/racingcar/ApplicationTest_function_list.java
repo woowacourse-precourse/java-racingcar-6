@@ -172,6 +172,14 @@ class ApplicationTest_function_list extends NsTest {
     @Test
     void 기능목록_테스트_시도_횟수_입력_오류_처리() {
 
+        Class<?> testClass = Input.class;
+        String testMethodName = "checkRepetitionsError";
+        List<List<Object>> testCase = Arrays.asList(
+                Arrays.asList("", new IllegalArgumentException()),
+                Arrays.asList("0", new IllegalArgumentException()),
+                Arrays.asList("-1", new IllegalArgumentException()),
+                Arrays.asList("9223372036854775808", new IllegalArgumentException()));
+        testPrivateMethod(testClass, testMethodName, testCase);
     }
 
     @Test
