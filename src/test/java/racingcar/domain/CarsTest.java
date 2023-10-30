@@ -41,4 +41,16 @@ class CarsTest {
         assertThat(result).containsAnyOf("pobi", "woni");
     }
 
+    @Test
+    @DisplayName("최종 우승자 이름 구하기 불변 리스트 확인")
+    void givenWinners_whenModify_thenThrowException() {
+        // given
+        Cars cars = new Cars("pobi");
+        List<String> winners = cars.findWinners();
+
+        // when & then
+        assertThatThrownBy(() -> winners.add("woni"))
+                .isInstanceOf(UnsupportedOperationException.class);
+    }
+
 }
