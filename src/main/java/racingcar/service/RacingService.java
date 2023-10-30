@@ -63,4 +63,16 @@ public class RacingService {
 
         return winner.toString();
     }
+
+    public List<String> racerNameStringToList(String racerName){
+        String[] items = racerName.split(",");
+
+        List<String> racerList = new ArrayList<>();
+
+        for (String name : items) {
+            racerList.add(name.trim());
+        }
+
+        return racerList;
+    }
 }
