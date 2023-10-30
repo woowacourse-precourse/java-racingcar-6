@@ -72,9 +72,9 @@ public class InputCarTest {
     @Test
     @DisplayName("자동차의 이름이 중복일 경우 예외 발생")
     void 자동차가_중복인가() {
-        List<String> cars = List.of("pobi","pobi");
+        List<String> cars = List.of("pobi", "pobi");
 
-        assertThatThrownBy(() -> validator.validateCarNameDuplicates(cars))
+        assertThatThrownBy(() -> validator.validateInputCar(cars))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
