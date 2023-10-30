@@ -5,6 +5,9 @@ import racingcar.domain.Car;
 import java.util.List;
 
 public class Runner {
+    private Runner() {
+    }
+
     public static void runRound(List<Car> cars) {
         cars.stream().forEach(car -> {
             int random = RandomNumberGenerator.generateRandomNumber();

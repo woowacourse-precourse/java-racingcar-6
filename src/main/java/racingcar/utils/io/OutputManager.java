@@ -1,13 +1,15 @@
 package racingcar.utils.io;
 
 import racingcar.domain.Car;
-import racingcar.utils.Referee;
 
 import java.util.List;
 
 public class OutputManager {
     private static final String OUTPUT_MESSAGE = "실행 결과";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
+
+    private OutputManager() {
+    }
 
     public static void printResultMessage() {
         System.out.println();

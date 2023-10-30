@@ -14,10 +14,7 @@ public class Car implements Comparable<Car> {
     }
 
     public boolean compareTraveledDistance(Car target) {
-        if (traveledDistance.equals(target.traveledDistance)) {
-            return true;
-        }
-        return false;
+        return traveledDistance.equals(target.traveledDistance);
     }
 
     public String getName() {

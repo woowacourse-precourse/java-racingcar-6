@@ -6,6 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Parser {
+    private Parser() {
+    }
+
     public static List<String> parseStringToList(String input) {
         String[] split = input.split(",", -1);
         List<String> result = new ArrayList<>();

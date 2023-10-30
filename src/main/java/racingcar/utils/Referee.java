@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Referee {
+    private Referee() {
+    }
+
     public static String judgeWinner(List<Car> cars) {
         List<Car> winners = filterWinners(cars);
         List<String> winnerNames = collectWinnerNames(winners);
