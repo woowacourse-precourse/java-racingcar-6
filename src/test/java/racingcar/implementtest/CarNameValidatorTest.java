@@ -59,4 +59,26 @@ public class CarNameValidatorTest {
                 .hasMessageContaining("쉼표를 연속으로 사용하였습니다.");
     }
 
+    @Test
+    void 이름이_5자_이상일_경우() {
+        Assertions.assertThatThrownBy(() -> carNameValidator.checkNameLength("longName"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름은 5자 이하만 가능합니다.");
+    }
+
+    @Test
+    void 이름이_공백으로_시작한_경우() {
+        Assertions.assertThatThrownBy(() -> carNameValidator.checkNameBlankStart(" name"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름이 공백으로 시작하면 안됩니다.");
+    }
+
+    @Test
+    void 이름이_공백으로_끝난_경우() {
+        Assertions.assertThatThrownBy(() -> carNameValidator.checkNameBlankEnd("name "))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름이 공백으로 끝나면 안됩니다.");
+    }
+
+
 }
