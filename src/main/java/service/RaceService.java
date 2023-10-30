@@ -1,5 +1,6 @@
 package service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import exception.RaceException;
 
 import java.util.HashMap;
@@ -53,5 +54,18 @@ public class RaceService {
         }
 
     }
+
+    public Map<String, Integer> raceStart(Map<String, Integer> racer) {
+        for (Map.Entry<String, Integer> entry : racer.entrySet()) {
+            String carName = entry.getKey();
+            Integer carScore = entry.getValue();
+
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                racer.put(carName, carScore + 1);
+            }
+        }
+        return racer;
+    }
+
 
 }
