@@ -32,4 +32,10 @@ public class Validator {
         validateInputCarOneToFive(input);
         validateCarName(input);
     }
+
+    public void validateInputCarNameStartOrEndComma(String input) {
+        if (input.startsWith(",") || input.endsWith(",")) {
+            throw new IllegalArgumentException("형식에 맞게 자동차 이름을 입력해 주세요.");
+        }
+    }
 }
