@@ -15,6 +15,7 @@ public class UserInput {
         for (String carType : input.split(CAR_NAME_SEPARATOR)) {
             checkLength(carType);
             checkEmptyInput(carType);
+            checkInvalidCarTypeInput(carType);
             carTypeList.add(String.valueOf(carType));
         }
         return carTypeList;
@@ -32,6 +33,20 @@ public class UserInput {
         if (carType.isEmpty()){
             System.out.println(ERROR_EMPTY_INPUT);
             throw new IllegalArgumentException(ERROR_EMPTY_INPUT);
+        }
+    }
+
+    public void checkInvalidCarTypeInput(String carType){
+        char lastChar = carType.charAt(carType.length()-1);
+        char firstChar = carType.charAt(0);
+
+        if(lastChar == CAR_NAME_SEPARATOR.charAt(0)){
+            System.out.println(ERROR_CAR_NAME_INPUT_ETC);
+            throw new IllegalArgumentException(ERROR_CAR_NAME_INPUT_ETC);
+        }
+        if (carType.contains(",,") || firstChar == CAR_NAME_SEPARATOR.charAt(0)){
+            System.out.println(ERROR_CAR_NAME_INPUT_ETC);
+            throw new IllegalArgumentException(ERROR_CAR_NAME_INPUT_ETC);
         }
     }
 

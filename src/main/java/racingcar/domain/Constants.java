@@ -11,6 +11,8 @@ public class Constants {
 
     public static final String ERROR_EMPTY_INPUT = "입력값이 없습니다.";
 
+    public static final String ERROR_CAR_NAME_INPUT_ETC = "옳바르지 않은 입력타입입니다. \"pobi,woni,jun\"와 같은 타입으로 입력해주세요.";
+
     public static final String CAR_NAME_SEPARATOR = ",";
     public static final int MAX_CAR_NAME_LENGTH = 5;
     public static final int MIN_RANDOM_NUM = 0;
