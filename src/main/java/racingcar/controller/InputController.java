@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.CarValidation;
 import racingcar.model.RacingCars;
+import racingcar.model.RoundNumValidator;
 import racingcar.view.InputView;
 
 public class InputController {
@@ -12,6 +13,7 @@ public class InputController {
     }
 
     public static int getRoundCount() {
-        return Integer.parseInt(InputView.roundInput());
+        RoundNumValidator roundNumValidator = new RoundNumValidator(InputView.roundInput());
+        return Integer.parseInt(roundNumValidator.roundNumString());
     }
 }

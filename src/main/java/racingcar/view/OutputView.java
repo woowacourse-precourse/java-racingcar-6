@@ -8,14 +8,23 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printRoundResult(List<String> carStatuses) {
-        for (String status : carStatuses) {
-            System.out.println(status);
-        }
+    public static void printRoundResult(List<Car> carStatuses) {
+        carStatuses.forEach(OutputView::printCarStatus);
     }
 
-    public static void printWinner(List<String> winners) {
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+    private static void printCarStatus(Car car) {
+        System.out.println(car.getName() + " : " + getStatusRepresentation(car.getPosition()));
+    }
+
+    private static String getStatusRepresentation(int position) {
+        return "-".repeat(position);
+    }
+
+    public static void printWinner(List<Car> winners) {
+        String winnerNames = String.join(", ", winners.stream()
+                .map(Car::getName)
+                .toList());
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 
     public static void printNewLine() {

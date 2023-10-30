@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.Util;
-import racingcar.view.OutputView;
 
 public class RacingCars {
 
@@ -14,28 +13,20 @@ public class RacingCars {
         carNames.forEach(name -> cars.add(new Car(name)));
     }
 
-    public void play() {
+    public List<Car> play() {
         advanceCar();
-        OutputView.printRoundResult(getCarStatuses());
+        return getCarStatuses();
     }
 
-    public void showWinners() {
-        List<String> winners = getWinners();
-        OutputView.printWinner(winners);
-    }
-
-    private List<String> getWinners() {
+    public List<Car> getWinners() {
         int maxPosition = Util.getMaxPosition(cars);
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
-                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
-    private List<String> getCarStatuses() {
-        return cars.stream()
-                .map(Car::toString)
-                .collect(Collectors.toList());
+    private List<Car> getCarStatuses() {
+        return new ArrayList<>(cars);
     }
 
     private void advanceCar() {
