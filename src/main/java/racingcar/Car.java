@@ -18,27 +18,27 @@ public class Car {
         }
     }
 
-    void moveCar() {
+    void runRace() {
         Set<String> carNames = this.racingLineup.keySet();
         for (String name : carNames) {
             increaseCarPosition(name);
-            printOutCarPosition(name);
+            printRaceResult(name);
         }
         System.out.println();
     }
 
-    boolean checkCarMove() {
+    boolean canMove() {
         int randomNumber = Randoms.pickNumberInRange(0,9);
         return randomNumber > 3;
     }
 
     void increaseCarPosition(String name) {
-        if (checkCarMove()) {
+        if (canMove()) {
             this.racingLineup.put(name, this.racingLineup.get(name) + 1);
         }
     }
 
-    void printOutCarPosition(String name) {
+    void printRaceResult(String name) {
         System.out.printf("%s : ",name);
         for (int i=0; i<this.racingLineup.get(name); i++) {
             System.out.print("-");
@@ -46,16 +46,16 @@ public class Car {
         System.out.println();
     }
 
-    ArrayList<String> whoIsWinner() {
+    ArrayList<String> makeWinnerList() {
         int maxPosition = Collections.max(this.racingLineup.values());
         for (String carName : this.racingLineup.keySet()) {
-            this.winnerList.add(findCar(carName, maxPosition));
+            this.winnerList.add(findNameByPosition(carName, maxPosition));
         }
         winnerList.removeAll(Collections.singletonList(null));
 
         return this.winnerList;
     }
-    String findCar(String carName, Integer position) {
+    String findNameByPosition(String carName, Integer position) {
         if(racingLineup.get(carName).equals(position)) {
             return carName;
         }

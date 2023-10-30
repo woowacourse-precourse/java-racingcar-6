@@ -9,19 +9,19 @@ public class Application {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String names = Console.readLine();
-        Car cars = Input.makingLineup(names);
+        Car cars = Input.initRacingCarLineup(names);
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println("시도할 횟수는 몇회인가요?");
         String number = Console.readLine();
-        int repeatTimes = Input.inputNumber(number);
+        int repeatTimes = Input.inputNumberOfGame(number);
 
         System.out.println();
         System.out.println("실행 결과");
         for (int i=0; i<repeatTimes; i++){
-            cars.moveCar();
+            cars.runRace();
         }
 
-        ArrayList<String> winnerList = cars.whoIsWinner();
+        ArrayList<String> winnerList = cars.makeWinnerList();
         System.out.print("최종 우승자 : ");
         String winner = String.join(", ", winnerList);
         System.out.println(winner);

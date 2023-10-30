@@ -1,12 +1,12 @@
 package racingcar;
 
 public class Input {
-    static Car makingLineup(String name) {
+    static Car initRacingCarLineup(String name) {
         String[] names = name.split(",");
-        validateNames(names);
+        validateName(names);
         return new Car(names);
     }
-    static void validateNames(String[] names) {
+    static void validateName(String[] names) {
         for (String name : names) {
             checkNameLengthLimit(name);
         }
@@ -17,7 +17,7 @@ public class Input {
         }
     }
 
-    static int inputNumber(String number) throws IllegalArgumentException{
+    static int inputNumberOfGame(String number) throws IllegalArgumentException{
         try {
             int repeatNumber = Integer.parseInt(number);
             validateNumberAtLeast(repeatNumber);
