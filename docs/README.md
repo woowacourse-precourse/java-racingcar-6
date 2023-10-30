@@ -4,6 +4,7 @@
   - [x] 이름은 5자 이하만 가능
   - [x] ,를 기준으로 구분
   - [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생 후 종료
+    - [x] 중복된 이름을 입력해도 예외 발생
 - [x] 시도할 횟수 입력
   - [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생 후 종료
 

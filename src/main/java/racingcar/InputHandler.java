@@ -22,10 +22,12 @@ public class InputHandler {
     }
 
     private void isValidCarNames(String[] carNameGroup) {
-        for (String s : carNameGroup) {
-            if (s.length() < MIN_CAR_NAME_LEN || s.length() > MAX_CAR_NAME_LEN) {
-                throw new IllegalArgumentException("자동차 이름의 길이는 " + MIN_CAR_NAME_LEN + "이상, " + MAX_CAR_NAME_LEN + "이하여야 합니다.");
-            }
+        if (!StringManipulator.isValidLength(carNameGroup)) {
+            throw new IllegalArgumentException("자동차 이름의 길이는 " + MIN_CAR_NAME_LEN + "이상, " + MAX_CAR_NAME_LEN + "이하여야 합니다.");
+        }
+
+        if (StringManipulator.hasDuplicates(carNameGroup)) {
+            throw new IllegalArgumentException("중복된 이름을 입력하였습니다.");
         }
     }
 
