@@ -1,6 +1,6 @@
 package racingcar.model.validator.moveCount;
 
-public class DefaultMoveCountValidator implements MoveCountValidator{
+public class MoveCountValidatorImpl implements MoveCountValidator{
     @Override
     public void validateMoveCount() {
 
