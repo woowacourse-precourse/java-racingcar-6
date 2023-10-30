@@ -5,6 +5,7 @@ import java.util.List;
 public class InputValidator {
     private static final int MIN_CAR_NAMES_SIZE = 2;
     private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final int MIN_MOVE_COUNT = 1;
 
     public static void validateCarNamesSize(List<String> carNames) {
         if (carNames.size() < MIN_CAR_NAMES_SIZE) {
@@ -22,7 +23,9 @@ public class InputValidator {
         }
     }
 
-    public static void validateMoveCountRange() {
-
+    public static void validateMoveCountRange(int moveCount) {
+        if (moveCount < MIN_MOVE_COUNT) {
+            throw new IllegalArgumentException("최소 시도 횟수보다 낮은 값을 입력하셨습니다. 최소 1회 이상의 시도 횟수를 입력해주세요.");
+        }
     }
 }

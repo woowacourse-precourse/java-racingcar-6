@@ -7,7 +7,7 @@
   - [x] 사용자로부터 입력받은 이름은 적어도 2개 이상을 입력받아야한다. 2개 이하의 이름을 입력 시 `IllegalArgumentException`을 발생시킨다. - InputValidator#validateCarNamesSize()
   - [x] 각 자동차 이름은 5글자 이하만 가능하다. 5글자를 초과한 이름이면 `IllegalArgumentException`을 발생시킨다. - InputValidator#validateCarNameLength()
 - [ ] 사용자로부터 이동을 시도할 횟수를 입력받는다. - RaceController#askMoveCount()
-  - [ ] 시도 횟수가 음수가 될 수 없으며 적어도 한 번 이상의 시도 횟수를 입력받아야 한다. 이 조건을 만족하지 않는 입력이면 `IllegalArgumentException`을 발생시킨다. - InputValidator#validateMoveCountRange()
+  - [x] 시도 횟수가 음수가 될 수 없으며 적어도 한 번 이상의 시도 횟수를 입력받아야 한다. 이 조건을 만족하지 않는 입력이면 `IllegalArgumentException`을 발생시킨다. - InputValidator#validateMoveCountRange()
 - [ ] 입력 받은 이름들을 각각 자동차에 부여하여 `List<Car>` 로 생성한다. - RaceController#createCars()
 - [ ] 0에서 9사이의 무작위 값을 생성한다. - NumberGenerator#generateRandomNumber()
 - [ ] 무작위 값이 전진 조건(4이상)을 만족하면 자동차는 위치를 +1 전진한다. - Car#moveForward()
