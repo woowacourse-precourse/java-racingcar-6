@@ -16,7 +16,15 @@ public class NumberOfMovementInputReader{
     }
 
     private int convertToInteger(String number) {
-        return Integer.parseInt(number);
+        if (number.equals("0")) {
+            throw new IllegalArgumentException("시도 횟수는 0보다 커야 합니다.");
+        }
+
+        try {
+            return Integer.parseInt(number);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("입력한 값을 확인해주세요. 값 : " + number);
+        }
     }
 
 }
