@@ -6,6 +6,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RacingCarService {
 
@@ -93,6 +94,26 @@ public class RacingCarService {
             outputView.newLine();
         }
         outputView.newLine();
+    }
+
+    public void winner(List<String> name, int[] arr) {
+        Set<String> list;
+
+        HashMap<String, Integer> hashMap = new HashMap<>();
+
+        for (int i = 0; i < name.size(); i++) {
+            hashMap.put(name.get(i), arr[i]);
+        }
+        int max = Collections.max(hashMap.values());
+
+        list = hashMap.values().stream()
+                .filter(value -> value >= max)
+                .flatMap(value -> hashMap.keySet().stream())
+                .filter(s -> hashMap.get(s).equals(max))
+                .collect(Collectors.toSet());
+
+        outputView.winnerOutView(list);
+
     }
 
 }
