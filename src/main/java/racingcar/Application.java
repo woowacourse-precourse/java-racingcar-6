@@ -1,7 +1,19 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.*;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
+        System.out.println("hello world");
+        input();
     }
+
+    private static void input(){
+        String input = Console.readLine();
+
+    }
+
+
+
 }
