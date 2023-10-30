@@ -28,6 +28,30 @@ public class GameManageController {
             }
             OutputView.printResult(carList);
         }
+        List<Car> winners = findWinners(carList);
+        OutputView.printWinners(winners);
+
+    }
+
+    public List<Car> findWinners(List<Car> carList) {
+        List<Car> winners = new ArrayList<Car>();
+        int maxPosition = findMaxPosition(carList);
+        for (Car car : carList) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car);
+            }
+        }
+        return winners;
+    }
+
+    public int findMaxPosition(List<Car> carList) {
+        int maxPosition = 0;
+        for (Car car : carList) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
     }
 
 
