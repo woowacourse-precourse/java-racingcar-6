@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class OutputView {
     private final static String RESULT = "실행 결과";
@@ -30,6 +29,15 @@ public class OutputView {
 
     public void printOneWinner(String winnerName) {
         System.out.println(WINNER + COLON + winnerName);
+    }
+
+    public void printWinners(List<String> winnerNameList) {
+        String winnerNames = winnerNameListToString(winnerNameList);
+        System.out.println(WINNER + COLON + winnerNames);
+    }
+
+    private String winnerNameListToString(List<String> winnerNameList) {
+        return String.join(", ", winnerNameList);
     }
 
     private String driveCountToString(int driveCount) {
