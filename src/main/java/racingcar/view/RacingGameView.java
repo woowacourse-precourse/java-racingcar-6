@@ -11,12 +11,8 @@ import racingcar.controller.ExceptionController;
 
 public class RacingGameView {
 
-    public static void moveStatus(HashMap<String, String> carMoveStatus) {
-        for (String userCarName : carMoveStatus.keySet()) {
-            String userCarMoveResult = carMoveStatus.get(userCarName);
-            System.out.println(userCarName + " : " + userCarMoveResult);
-        }
-        System.out.println();
+    public static void gameResultMessage() {
+        System.out.println(Constant.GAME_RESULT);
     }
 
     public static void inputCarNameMessage() {
@@ -39,6 +35,22 @@ public class RacingGameView {
     public static int inputTryCount() {
         inputTryCountMessage();
         return ExceptionController.tryCountNotIntException(readLine());
+    }
+
+    public static void forwardResultMessage(String carName, String result) {
+        System.out.println(carName + " : " + result);
+    }
+
+    public static void blankLine() {
+        System.out.println();
+    }
+
+    public static void forwardResult(HashMap<String, String> forwardStatus) {
+        for (String carName : forwardStatus.keySet()) {
+            String result = forwardStatus.get(carName);
+            forwardResultMessage(carName, result);
+        }
+        blankLine();
     }
 
     public static void winner(List<String> carMoveStatus) {
