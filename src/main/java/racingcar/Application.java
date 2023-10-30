@@ -17,9 +17,11 @@ public class Application {
         System.out.println();
 
         System.out.println("실행 결과");
-        Map<String, List<String>> raceResult = new HashMap<>();
+        Map<String, String> raceResult = new HashMap<>();
+
+        Map<String, String> readyForRaceHMap = Race.registerCars(carNamesArrayList);
         for (int i = 0; i < trialNumber; i++) {
-            raceResult = Race.doRace(carNamesArrayList);
+            raceResult = Race.doRace(readyForRaceHMap);
             Race.showRace(raceResult);
         }
 
