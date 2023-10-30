@@ -4,9 +4,8 @@ import racingcar.domain.Car;
 
 import java.util.ArrayList;
 import java.util.List;
-import camp.nextstep.edu.missionutils.Console;
-
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -33,4 +32,9 @@ public class Application {
         String s = readLine();
         return Integer.parseInt(s);
     }
+
+    public int createRandomNumber(){
+        return pickNumberInRange(0, 9);
+    }
+
 }
