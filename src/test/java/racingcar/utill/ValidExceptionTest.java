@@ -123,13 +123,13 @@ class ValidExceptionTest {
     }
 
     @DisplayName("자동차의 각각의 이름이 5글자 이하인가 확인")
-    @Test
-    void isValidCarEachNameFIveLessStringCheck() {
-        // given
-
-        // when
-
+    @ParameterizedTest
+    @ValueSource(strings = {"qweqwe,asd,asd", "asd,qweqwe,asd", "asd,asd,qweqwe"})
+    void isValidCarEachNameFIveLessStringCheck(String input) {
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidCarEachNameFIveLessStringCheck(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("자동차의 이름을 입력할때 자동차 하나만 입력하면 안된다.")
