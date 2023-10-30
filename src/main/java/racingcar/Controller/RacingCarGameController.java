@@ -21,7 +21,14 @@ public class RacingCarGameController {
     public void startGame(List<Car> carList, String racingRoundTimes) { // 이것도 분리..?
         roundProgress(carList, Integer.parseInt(racingRoundTimes));
         List<String> winnerList = caculateGameWinner(carList);
-        OutView.printWinnerCar(String.join(", ", winnerList));
+        printGameResult(winnerList);
+    }
+
+    public void printGameResult(List<String> winnerList){
+        if(winnerList.size() != 1) {
+            OutView.printWinnerCarList(String.join(", ", winnerList));
+        }
+        OutView.printWinnerCar(winnerList.get(0));
     }
 
     public List<String> caculateGameWinner(List<Car> carList) {

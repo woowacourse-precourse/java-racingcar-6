@@ -18,4 +18,8 @@ public class OutView {
     public static void printWinnerCar(String winner) {
         System.out.print("최종 우승자 : " + winner);
     }
+
+    public static void printWinnerCarList(String winner) {
+        System.out.print("최종 우승자 : " + winner);
+    }
 }
