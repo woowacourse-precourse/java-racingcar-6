@@ -2,8 +2,8 @@ package racingcar.game.director;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.game.car.CarFactory;
 import racingcar.game.car.Car;
+import racingcar.game.car.CarFactory;
 import racingcar.game.inputgenerateManager.InputGenerateManager;
 import racingcar.game.outputgeneratemanager.OutputGenerateManager;
 
@@ -23,9 +23,9 @@ public class Director {
     }
 
     public void startProcess() {
-        List<Car> cars = insertName();
-        Integer integerRepeatCount = insertCount();
-        showResultAndClose(cars, integerRepeatCount);
+        List<Car> cars = this.insertName();
+        Integer integerRepeatCount = this.insertCount();
+        this.showResultAndClose(cars, integerRepeatCount);
     }
 
     private void showResultAndClose(List<Car> cars, Integer integerRepeatCount) {

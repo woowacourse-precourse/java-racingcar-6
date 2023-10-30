@@ -37,7 +37,7 @@ class RoundTest {
 
     @Test
     void 리스트_넣고_라운드_반환() {
-        //if
+        //given
         Round round = new Round(carList);
 
         //when

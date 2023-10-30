@@ -22,6 +22,7 @@ class OutputGenerateManagerTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final Rule rule = new Rule();
     private final OutputGenerateManager outputGenerateManager = new OutputGenerateManager(rule);
+    private final List<String> NAME_LIST = Arrays.asList("한놈", "두식이", "석삼", "너구리");
 
     @BeforeEach
     public void setUp() {
@@ -35,13 +36,12 @@ class OutputGenerateManagerTest {
 
     @Test
     void 우승자_확인(){
-        List<String> racingCarNameList = Arrays.asList("한놈", "두식이", "석삼", "너구리");
+        //given
         InputGenerateManagerImpl mockInputGenerateManager = Mockito.mock(InputGenerateManagerImpl.class);
         CarFactory carFactory = new CarFactory(mockInputGenerateManager);
-        Mockito.when(mockInputGenerateManager.generateRandomInt())
-                .thenReturn(4, 3, 4, 2);
+        Mockito.when(mockInputGenerateManager.generateRandomInt()).thenReturn(4, 3, 4, 2);
         Simulator simulator = new Simulator();
-        List<Car> cars = carFactory.createCars(racingCarNameList);
+        List<Car> cars = carFactory.createCars(NAME_LIST);
 
         //when
         simulator.perRound(cars);
