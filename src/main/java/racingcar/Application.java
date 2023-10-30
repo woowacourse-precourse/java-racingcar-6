@@ -5,6 +5,6 @@ public class Application {
         Racing racing = new Racing();
         racing.getCarNameAndTrials();
         racing.start();
-        racing.printResult();
+        racing.printMoves();
     }
 }

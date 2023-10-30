@@ -12,7 +12,7 @@ public class Car {
         this.numbers = new Numbers();
     }
 
-    public void print() {
+    public void printMoves() {
         System.out.println(this.name + " : " + "-".repeat(this.position));
     }
 

@@ -19,7 +19,7 @@ public class Racing {
         IntStream.range(0, trials).forEach(i -> cars.forEach(Car::trial));
     }
 
-    public void printResult() {
-        cars.forEach(Car::print);
+    public void printMoves() {
+        cars.forEach(Car::printMoves);
     }
 }
