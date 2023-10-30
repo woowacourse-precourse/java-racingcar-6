@@ -38,23 +38,31 @@ public class GameController {
     }
 
     private void printEachStatus(final Cars cars) {
-        List<CarResponse> carResponses = cars.getCars()
-                .stream()
-                .map(car -> CarResponse.of(car.getName(), car.getPosition()))
-                .toList();
+        List<CarResponse> carResponses = getCarResponses(cars);
 
         outputView.printEachCarStatus(carResponses);
         outputView.printBlankLine();
     }
 
+    private static List<CarResponse> getCarResponses(final Cars cars) {
+        return cars.getCars()
+                .stream()
+                .map(car -> CarResponse.of(car.getName(), car.getPosition()))
+                .toList();
+    }
+
     private void printWinners(final Cars cars) {
+        List<CarResponse> winners = getWinners(cars);
+        outputView.printWinners(winners);
+    }
+
+    private static List<CarResponse> getWinners(final Cars cars) {
         int maxPosition = cars.calculateWinnersPosition();
-        List<CarResponse> winners = cars.getCars()
+
+        return cars.getCars()
                 .stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(car -> CarResponse.of(car.getName(), car.getPosition()))
                 .toList();
-
-        outputView.printWinners(winners);
     }
 }
