@@ -12,6 +12,9 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -52,7 +55,7 @@ class ApplicationTest extends NsTest {
     아래부터 docs에 명시된 기능들(1번부터 15번까지)을 검증하는 테스트 코드입니다.
      */
     @Test
-    @DisplayName("기능 1번")
+    @DisplayName("기능 1번: 시작문구 출력되는지 테스트")
     void 시작문구_출력함수_확인() {
         OutputViewer.printRequestingCarName();
 
@@ -60,7 +63,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("기능 2번")
+    @DisplayName("기능 2번: 차 이름 입력되는지 테스트")
     void 자동차_이름_입력_확인() {
         User user = new User();
 
@@ -74,7 +77,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("기능 3번")
+    @DisplayName("기능 3번: 차 이름 검증되는지 테스트")
     void 자동차_이름_입력_검증_확인() {
         User user = new User();
 
@@ -108,22 +111,30 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("기능 4번")
-        //확인 위해서는 RacingCar 클래스 내부의 drivers리스트, setDrivers() 접근제어자 수정 필요
-    void 차량_생성_확인() {
+    @DisplayName("기능 4번: Driver클래스 생성 잘되는지 테스트")
+    @SuppressWarnings("unchecked")
+    void 차량_생성_확인()
+            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
         RacingCar racingCar = new RacingCar();
         racingCar.init();
+
+        Method setDrivers = RacingCar.class.getDeclaredMethod("setDrivers", List.class);
+        setDrivers.setAccessible(true);
+
+        Field drivers = RacingCar.class.getDeclaredField("drivers");
+        drivers.setAccessible(true);
+        List<Driver> driversTest = (List<Driver>) drivers.get(racingCar);
 
         List<Driver> correctList = new ArrayList<>(
                 List.of(new Driver("pobi"), new Driver("jun"))
         );
-        List<String> carNames = new ArrayList<>(List.of("pobi", "jun"));
+        setDrivers.invoke(racingCar, new ArrayList<>(List.of("pobi", "jun")));
 
-        racingCar.setDrivers(carNames);
-        assertThat(racingCar.drivers.size()).isEqualTo(correctList.size());
+        // RacingCar내부의 drivers 리스트에 driver가 잘 추가되었는지
+        assertThat(driversTest.size()).isEqualTo(correctList.size());
 
-        Driver pobiTest = racingCar.drivers.get(0);
-        Driver junTest = racingCar.drivers.get(1);
+        Driver pobiTest = driversTest.get(0);
+        Driver junTest = driversTest.get(1);
         Driver pobiCorrect = correctList.get(0);
         Driver junCorrect = correctList.get(1);
 
@@ -132,7 +143,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("기능 5번")
+    @DisplayName("기능 5번: 시도횟수 요청문구 출력되는지 테스트")
     void 시도횟수_요청문구_출력함수_확인() {
         OutputViewer.printRequestingNumberOfTry();
 
@@ -140,7 +151,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("기능 6번")
+    @DisplayName("기능 6번: 시도횟수 입력되는지 테스트")
     void 시도횟수_입력_확인() {
         User user = new User();
         int numberOfTry;
@@ -155,7 +166,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("기능 7번")
+    @DisplayName("기능 7번: 시도횟수 검증되는지 테스트")
     void 시도횟수_입력_검증_확인() {
         User user = new User();
 
@@ -178,8 +189,8 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("기능 8번")
-    void 난수_생성_범위_검증() {
+    @DisplayName("기능 8번: 난수가 0이상 9이하인지 테스트")
+    void 난수_생성_범위_확인() {
         int numberOfTry = 0;
 
         while (numberOfTry < 10000) {
@@ -192,18 +203,36 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    @DisplayName("기능 9번")
-        // Driver의 canMove()의 접근자 변경 후 테스트 필요
-    void 전진_여부_결정_검증() {
+    @DisplayName("기능 9번: 4이상이면 참, 아니면 거짓이 잘나오는지 테스트")
+    void 전진_여부_결정_확인()
+            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         Driver driver = new Driver("test");
+        Method canMove = Driver.class.getDeclaredMethod("canMove");
+        canMove.setAccessible(true);
 
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
             mock.when(RandomNumbers::generateZeroToNineDigit)
                     .thenReturn(4, 3);
 
-            assertThat(driver.canMove()).isEqualTo(true);
-            assertThat(driver.canMove()).isEqualTo(false);
+            assertThat(canMove.invoke(driver)).isEqualTo(true);
+            assertThat(canMove.invoke(driver)).isEqualTo(false);
         }
+    }
+
+    @Test
+    @DisplayName("기능 10번: 차량 전진/정지 기능 확인")
+    void 차량_전진_확인() {
+        Driver driver = new Driver("test");
+        try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
+            mock.when(RandomNumbers::generateZeroToNineDigit)
+                    .thenReturn(4, 3);
+
+            driver.pushPedal();// 난수: 4, 전진
+            assertThat(driver.sayMovedDistance()).isEqualTo(1);
+            driver.pushPedal();// 난수: 3, 정지
+            assertThat(driver.sayMovedDistance()).isEqualTo(1);
+        }
+
     }
 
     private void command(final String... args) {

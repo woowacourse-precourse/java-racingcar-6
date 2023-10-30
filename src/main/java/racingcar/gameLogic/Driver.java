@@ -14,7 +14,17 @@ public class Driver {
         return car.getCarName();
     }
 
-    public boolean canMove() {
+    public int sayMovedDistance() {
+        return car.getCarMileage();
+    }
+
+    public void pushPedal() {
+        if (canMove()) {
+            car.moveForward();
+        }
+    }
+
+    private boolean canMove() {
         int randomNumber = requestRandomNumber();
 
         return randomNumber >= 4;

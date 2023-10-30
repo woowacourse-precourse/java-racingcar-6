@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RacingCar {
 
-    public List<Driver> drivers;
+    private List<Driver> drivers;
     private User user = new User();
     int tryCount;
 
@@ -17,7 +17,7 @@ public class RacingCar {
     public void run() {
     }
 
-    public void setDrivers(List<String> carNames) {
+    private void setDrivers(List<String> carNames) {
         for (String carName : carNames) {
             drivers.add(new Driver(carName));
         }

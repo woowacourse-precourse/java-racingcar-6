@@ -11,4 +11,12 @@ public class Car {
     public String getCarName() {
         return carName;
     }
+
+    public int getCarMileage() {
+        return carMileage;
+    }
+
+    public void moveForward() {
+        carMileage++;
+    }
 }
