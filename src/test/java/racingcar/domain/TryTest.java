@@ -34,4 +34,9 @@ class TryTest {
         Try tryCount = new Try(0);
         assertThat(tryCount.isRaceOver()).isEqualTo(true);
     }
+
+    @Test
+    void 처음_시도_횟수가_1_미만이면_예외_발생() {
+        assertThrows(IllegalArgumentException.class, () -> new Try(0));
+    }
 }
