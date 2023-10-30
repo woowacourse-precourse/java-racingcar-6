@@ -9,6 +9,7 @@ import racingcar.domain.core.car.Car;
 import racingcar.domain.core.car.CarName;
 import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.core.car.OnRaceCars;
+import racingcar.domain.system.game.round.reuslt.RoundResult;
 import racingcar.domain.system.host.RandomSignalHost;
 
 class RoundTest {
