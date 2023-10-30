@@ -41,8 +41,12 @@ public class Car {
         setLocation(presentLocation + 1);
     }
 
-    private int getLocation() {
+    public int getLocation() {
         return location;
+    }
+
+    public String getName() {
+        return name;
     }
 
     private void setLocation(int location) {
