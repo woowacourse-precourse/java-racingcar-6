@@ -8,8 +8,17 @@ import racingcar.view.ErrorMessage;
 
 class InputTryCountTest {
     @Test
-    void 양수가_아닐때() {
+    void 양수가_아닐때1() {
         String input = "a2f";
+        assertThatThrownBy(() -> {
+            InputTryCount.isNumeric(input);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.NOT_NUM_ERROR);
+    }
+
+    @Test
+    void 양수가_아닐때2() {
+        String input = "-1";
         assertThatThrownBy(() -> {
             InputTryCount.isNumeric(input);
         }).isInstanceOf(IllegalArgumentException.class)
