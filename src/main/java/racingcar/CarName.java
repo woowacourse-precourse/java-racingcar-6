@@ -4,9 +4,10 @@ import java.util.Objects;
 
 public class CarName {
     private static final int MAX_LENGTH = 5;
+
     private final String value;
 
-    CarName(String value){
+    CarName(String value) {
         validateNullOrEmpty(value);
         validateLengthLimit(value);
         this.value = value;

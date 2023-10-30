@@ -3,9 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumber {
-
     private static final int MINIMUM_VALUE = 0;
     private static final int MAXIMUM_VALUE = 9;
+
     private final int number;
 
     RandomNumber() {

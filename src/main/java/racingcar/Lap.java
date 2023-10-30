@@ -1,9 +1,9 @@
 package racingcar;
 
 public class Lap {
-
     private static final String REGEXP_SIZE_FORMAT = "[1-9]+";
     private static final int MINIMUM_SIZE = 1;
+
     private final int size;
 
     public Lap(String size) {

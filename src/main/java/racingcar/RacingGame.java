@@ -1,7 +1,6 @@
 package racingcar;
 
 public class RacingGame {
-
     private final Cars cars;
     private final Lap lap;
 
