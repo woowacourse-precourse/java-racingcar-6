@@ -3,17 +3,16 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Application {
 
     public String[] inputCarNames() {
+        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
         String[] cars = Console.readLine().split(",");
         return cars;
     }
 
     public int inputNumber() {
+        System.out.println("시도할 횟수는 몇 회인가요?");
         return Integer.parseInt(Console.readLine());
     }
 
@@ -29,6 +28,21 @@ public class Application {
             System.out.println(cars[i] + ": " +carRace[i]);
         }
     }
+
+    public void showRaceResult(int number, String[] cars) {
+        number =  inputNumber();
+        cars = inputCarNames();
+        System.out.println("실행 결과");
+
+        for (int i = number; i>0; i--) {
+            System.out.println();
+            checkCarEligibility(cars);
+        }
+    }
+
+
     public static void main(String[] args) {
+        Application application = new Application();
+        application.checkCarEligibility(args);
     }
 }
