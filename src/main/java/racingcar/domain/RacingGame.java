@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.Application.judgeWinners;
+import static racingcar.Application.getMaxPosition;
 import static racingcar.Application.printWinners;
 import static racingcar.utils.MessagePrinter.roundResult;
 
@@ -45,5 +45,12 @@ public class RacingGame {
 
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private List<Car> judgeWinners(final List<Car> cars) {
+        final int maxPosition = getMaxPosition(cars);
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
     }
 }
