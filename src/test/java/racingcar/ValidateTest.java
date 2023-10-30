@@ -36,4 +36,23 @@ public class ValidateTest {
                  .isInstanceOf(IllegalArgumentException.class)
                  .hasMessageContaining("자동차의 이름은 공백일 수 없습니다.");
      }
+
+     @Test
+    public void validateInputDoesNotContainSpecialCharacters_입력된_자동차의_이름이_공백이나_특수문자가_포함되었을때_예외_발생() {
+        String name1 = "a*c";
+        String name2 = "a b";
+        String name3 = " ";
+
+         assertThatThrownBy(() -> validateInputDoesNotContainSpecialCharacters(name1))
+                 .isInstanceOf(IllegalArgumentException.class)
+                 .hasMessageContaining("자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.");
+
+         assertThatThrownBy(() -> validateInputDoesNotContainSpecialCharacters(name2))
+                 .isInstanceOf(IllegalArgumentException.class)
+                 .hasMessageContaining("자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.");
+
+         assertThatThrownBy(() -> validateInputDoesNotContainSpecialCharacters(name3))
+                 .isInstanceOf(IllegalArgumentException.class)
+                 .hasMessageContaining("자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.");
+     }
 }
