@@ -2,16 +2,16 @@ package racingcar.dto;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 class CarDtoTest {
-    @ParameterizedTest
-    @CsvSource(value = {"apple:0", "melon:3"}, delimiter = ':')
-    void 이름과_위치를_인자로_객체를_생성한다(String name, int position) {
-        CarDto carDto = CarDto.of(name, position);
+    @Test
+    void 주어진_Car을_통해_DTO_객체를_생성한다() {
+        Car car = Car.from("melon");
+        CarDto carDto = CarDto.from(car);
 
-        assertThat(carDto.name()).isEqualTo(name);
-        assertThat(carDto.position()).isEqualTo(position);
+        assertThat(carDto.name()).isEqualTo("melon");
+        assertThat(carDto.position()).isEqualTo(0);
     }
 }
