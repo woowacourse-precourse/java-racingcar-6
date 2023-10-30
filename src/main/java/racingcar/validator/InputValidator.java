@@ -93,8 +93,8 @@ public class InputValidator {
         return this.playTime;
     }
 
-    protected String removeSpacePlayTime(String playTime){
-        return playTime.replaceAll("\\s","");
+    protected String removeSpacePlayTime(String playTime) {
+        return playTime.replaceAll("\\s", "");
     }
 
     protected Integer validateNumber(String playTime) {
