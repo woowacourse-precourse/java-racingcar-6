@@ -7,8 +7,8 @@ public class CarController {
 
     private int moveChance;
 
-    public CarController(List<Car> carList, int moveChance) {
-        this.carList = carList;
+    public CarController(CarFactory carFactory, int moveChance) {
+        this.carList = carFactory.getCarList();
         this.moveChance = moveChance;
     }
 
@@ -17,7 +17,7 @@ public class CarController {
         moveChance--;
     }
 
-    public boolean checkChance() {
+    public boolean checkMoveChance() {
         return moveChance != 0;
     }
 }

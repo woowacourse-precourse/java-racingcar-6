@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 public class CarManager {
     private final List<Car> carList;
 
-    public CarManager(List<Car> carList) {
-        this.carList = carList;
+    public CarManager(CarFactory carFactory) {
+        this.carList = carFactory.getCarList();
     }
 
     public String findWinner() {
