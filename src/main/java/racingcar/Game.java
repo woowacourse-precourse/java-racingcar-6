@@ -1,11 +1,13 @@
 package racingcar;
 
+import racingcar.view.InputView;
+import racingcar.view.ResultView;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
 public class Game {
-    Message message = new Message();
     private static ArrayList<Car> cars;
     private static ArrayList<String> winners;
     private Integer gameRound;
@@ -17,23 +19,15 @@ public class Game {
     }
 
     public void readyGame() {
-        String inputCarName = message.inputCarName();
-        gameRound = Integer.parseInt(message.inputGameRound());
+        String inputCarName = InputView.inputCarName();
         cars = createCars(inputCarName);
-    }
-
-    public ArrayList<Car> createCars(String input) {
-        ArrayList<Car> cars = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(input, ",");
-        while (st.hasMoreTokens()){
-            cars.add(new Car(st.nextToken(), 0));
-        }
-        return cars;
+        gameRound = Integer.parseInt(InputView.inputGameRound());
+        System.out.println();
     }
 
     public void startGame() {
+        ResultView.printResult();
         while (gameRound-->0) {
-            message.printResult();
             for(Car car : cars) {
                 car.move();
                 car.printMove();
@@ -43,15 +37,18 @@ public class Game {
     }
 
     public void endGame() {
-        message.printWinners();
+        ResultView.printWinners();
         findWinner();
         printWinner();
     }
 
-    public void printCarMove(){
-        for(Car car : cars) {
-            car.printMove();
+    public ArrayList<Car> createCars(String input) {
+        ArrayList<Car> cars = new ArrayList<>();
+        StringTokenizer st = new StringTokenizer(input, ",");
+        while (st.hasMoreTokens()){
+            cars.add(new Car(st.nextToken(), 0));
         }
+        return cars;
     }
 
     public void printWinner(){

@@ -1,21 +1,17 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-
-public class Message {
-
-    public String inputCarName() {
+public class InputView {
+    public static String inputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         validInputCarName(input);
         return input;
     }
-    public String inputGameRound(){
+    public static String inputGameRound(){
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
         validInputGameRound(input);
@@ -24,8 +20,6 @@ public class Message {
 
     public void validInputCarName(String input){
         if(input.isBlank()) throw new IllegalArgumentException("입력 문자열이 비어 있습니다.");
-
-        ArrayList<String> cars = new ArrayList<>();
         StringTokenizer st = new StringTokenizer(input, ",");
         while(st.hasMoreTokens()){
             if(st.nextToken().length() > 5) throw new IllegalArgumentException("자동차 이름을 5자 이하로 입력해주세요.");
@@ -41,13 +35,5 @@ public class Message {
 
         int num = Integer.parseInt(input);
         if(num<=0) throw new IllegalArgumentException("1회 이상 게임이 진행 되어야 합니다.");
-    }
-
-    public void printResult() {
-        System.out.println("실행 결과");
-    }
-
-    public void printWinners() {
-        System.out.print("최종 우승자 : ");
     }
 }
