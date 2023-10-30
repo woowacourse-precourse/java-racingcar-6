@@ -10,20 +10,21 @@ import racingcar.view.Result;
 public class Race {
     User user = new User();
     Computer computer = new Computer();
+    List<Car> carList = new ArrayList<>();
 
     public void startRacing() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<Car> carList = settingCar(user.inputCar());
+        carList = settingCar(user.inputCar());
         System.out.println("시도할 회수는 몇회인가요?");
         int cycle = user.inputTryNumber();
-        goCycle(carList, cycle);
+        goCycle(cycle);
         Result result = new Result();
         result.printWinner(carList);
     }
 
-    public void goCycle(List<Car> carList, int cycle) {
+    public void goCycle(int cycle) {
         for (int i = 0; i < cycle; i++) {
-            goForward(carList);
+            goForward();
             Result result = new Result();
             result.printResult(carList);
         }
@@ -38,7 +39,7 @@ public class Race {
         return false;
     }
 
-    public void goForward(List<Car> carList) {
+    public void goForward() {
         for (int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
             if (checkForward(computer.getRandomNumber())) {
