@@ -22,4 +22,14 @@ class NavigationTest {
         assertThat(list).filteredOn(car -> car.getLocation() != 0).hasSize(2);
     }
 
+    @Test
+    public void 같은_이름이있을_시_예외() {
+        List<Car> cars = List.of(
+                new Car("pobi", new TestNumberGenerator(5)),
+                new Car("pobi", new TestNumberGenerator(3)),
+                new Car("hun", new TestNumberGenerator(9)));
+
+        assertThatThrownBy(()->new Navigation(cars)).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
