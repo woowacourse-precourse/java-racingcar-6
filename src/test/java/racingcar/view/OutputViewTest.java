@@ -16,7 +16,7 @@ class OutputViewTest {
     void printRacingResultTitleTest() {
         MockPrinter printer = new MockPrinter();
         OutputView outputView = new OutputView(printer);
-        String expectedMessage = String.format("%n실행 결과");
+        String expectedMessage = "%n실행 결과".formatted();
 
         outputView.printRacingResultTitle();
 
@@ -30,11 +30,7 @@ class OutputViewTest {
         OutputView outputView = new OutputView(printer);
         RacingResultDto resultDto = new RacingResultDto(
                 List.of(new CarDto("pobi", 3), new CarDto("woni", 2), new CarDto("jun", 3)));
-        String expectedMessage = """
-                pobi : ---
-                woni : --
-                jun : ---
-                \n""";
+        String expectedMessage = "pobi : ---%nwoni : --%njun : ---%n%n".formatted();
 
         outputView.printRacingResult(resultDto);
 

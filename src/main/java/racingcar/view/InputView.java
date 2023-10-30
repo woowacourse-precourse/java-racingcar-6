@@ -13,9 +13,8 @@ public class InputView {
     private static final String NAME_DELIMITER = ",";
 
     private static final String INPUT_NAMES_REQUEST_MESSAGE =
-            String.format("경주할 자동차 이름을 입력하세요.(이름은 쉼표(%s) 기준으로 구분)%n", NAME_DELIMITER);
-    private static final String INPUT_COUNT_OF_TRY_REQUEST_MESSAGE =
-            String.format("시도할 회수는 몇회인가요?%n");
+            "경주할 자동차 이름을 입력하세요.(이름은 쉼표(%s) 기준으로 구분)%n".formatted(NAME_DELIMITER);
+    private static final String INPUT_COUNT_OF_TRY_REQUEST_MESSAGE = "시도할 회수는 몇회인가요?%n".formatted();
 
     private final Reader reader;
     private final Printer printer;

@@ -25,7 +25,7 @@ class InputViewTest {
         void inputNamesTest_printRequestMessage() {
             MockPrinter printer = new MockPrinter();
             InputView inputView = new InputView(new MockReader(EXAMPLE_NAMES), printer);
-            String expectedMessage = String.format("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)%n");
+            String expectedMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)%n".formatted();
 
             inputView.inputNames();
 
@@ -68,7 +68,7 @@ class InputViewTest {
         void inputNamesTest_printRequestMessage() {
             MockPrinter printer = new MockPrinter();
             InputView inputView = new InputView(new MockReader(EXAMPLE_COUNT_OF_TRY), printer);
-            String expectedMessage = String.format("시도할 회수는 몇회인가요?%n");
+            String expectedMessage = "시도할 회수는 몇회인가요?%n".formatted();
 
             inputView.inputCountOfTry();
 

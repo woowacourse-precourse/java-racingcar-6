@@ -8,10 +8,10 @@ import racingcar.view.printer.Printer;
 
 public class OutputView {
 
-    private static final String NEW_LINE = "\n";
-    private static final String LOCATION_RESULT_TITLE = String.format("%n실행 결과");
-    private static final String CAR_RESULT_FORMAT = "%s : %s".concat(NEW_LINE);
+    private static final String LOCATION_RESULT_TITLE = "%n실행 결과".formatted();
+    private static final String CAR_RESULT_FORMAT = "%s : %s%n";
     private static final String POSITION_CHARACTER = "-";
+    private static final String NEW_NINE = "%n".formatted();
 
     private final Printer printer;
 
@@ -29,7 +29,7 @@ public class OutputView {
 
     public void printRacingResult(RacingResultDto resultDto) {
         resultDto.cars().forEach(this::printCarResult);
-        print("\n");
+        print(NEW_NINE);
     }
 
     private void printCarResult(CarDto carDto) {
