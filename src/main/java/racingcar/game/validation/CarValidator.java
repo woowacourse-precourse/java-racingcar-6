@@ -17,7 +17,7 @@ public class CarValidator implements Validator{
 
     private void validateNameLength(String name) {
         if (name.length() < 1 || name.length() > 5) {
-            throw new IllegalArgumentException("자동차의 이름이 5자 이하가 아닙니다.");
+            throw new IllegalArgumentException("자동차의 이름이 1~5자 사이가 아닙니다.");
         }
     }
 
