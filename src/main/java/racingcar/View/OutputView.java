@@ -12,10 +12,12 @@ public class OutputView {
         System.out.print(WHO_IS_WINNER);
     }
 
-    public void printRandomCount(int underBar) {
-        for(int i = 0 ; i < underBar ; i++){
-            System.out.print("-");
+    public String printRandomCount(int underBar) {
+        String underbar = "";
+        for (int i = 0; i < underBar; i++) {
+            underbar += "-";
         }
-        System.out.println();
+        return underbar;
+
     }
 }
