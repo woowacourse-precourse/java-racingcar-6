@@ -28,16 +28,16 @@ public class PickWinnerServiceTest {
 	static Stream<Arguments> createCheckWinnerTestValue(){
 		return Stream.of(
 						Arguments.of(
-								new Cars(List.of(new Car("car1", 1), new Car("car2", 2), new Car("car3", 3))),
-								"car3"
+								new Cars(List.of(new Car("one", 1), new Car("two", 2), new Car("three", 3))),
+								"three"
 								),
 						Arguments.of(
-								new Cars(List.of(new Car("car1", 1), new Car("car2", 2), new Car("car3", 2))),
-								"car2, car3"
+								new Cars(List.of(new Car("one", 1), new Car("two", 2), new Car("three", 2))),
+								"two, three"
 								),
 						Arguments.of(
-								new Cars(List.of(new Car("car1", 1), new Car("car2", 1), new Car("car3", 1))),
-								"car1, car2, car3"
+								new Cars(List.of(new Car("one", 1), new Car("two", 1), new Car("three", 1))),
+								"one, two, three"
 								)
 						);
 	}

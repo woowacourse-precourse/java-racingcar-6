@@ -17,11 +17,11 @@ public class OutputViewTest extends NsTest {
 		OutputView outputView = new OutputView();
 		CreateCarsService createService = new CreateCarsService();
 
-		Cars cars = createService.createCars("car1,car2,car3");
+		Cars cars = createService.createCars("one,two,three");
 		
 		outputView.printCarLocationCurrentSituation(cars.printCarsStatus());
 
-		assertThat(output()).contains("car1 :", "car2 :", "car3 :");
+		assertThat(output()).contains("one :", "two :", "three :");
 	}
 	
 	@DisplayName("최종우승자 메세지 출력을 확인한다.")
@@ -29,9 +29,9 @@ public class OutputViewTest extends NsTest {
 	void checkPrintWinner() {
 		OutputView outputView = new OutputView();
 		
-		outputView.printWinner("car1, car2, car3");
+		outputView.printWinner("one, two, three");
 		
-		assertThat(output()).contains("최종 우승자 : car1, car2, car3");
+		assertThat(output()).contains("최종 우승자 : one, two, three");
 	}
 	
 	@Override protected void runMain() {}

@@ -19,7 +19,7 @@ public class CarLocationTest {
 				.hasMessageContaining(ErrorMessage.CAR_LOCATION_NEGATIVE_NUMBER.getMessage());
 	}
 	
-	@DisplayName("차 이름의 길이가 5이하일때 정삭적으로 작동하는 지 확인한다.")
+	@DisplayName("0이상일 떄 정상적으로 작동한다.")
 	@ValueSource(ints = { 0, 2 })
 	@ParameterizedTest
 	void checkNomalOperation1(int number) {

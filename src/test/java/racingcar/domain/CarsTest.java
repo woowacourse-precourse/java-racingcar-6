@@ -12,9 +12,9 @@ public class CarsTest {
 	@DisplayName("printCarsStatus메소드 출력 형태를 확인한다.")
 	@Test
 	void checkPrintCarStatusMethodPrintMessage() {
-		Car car1 = new Car("car1");
-		Car car2 = new Car("car2");
-		Car car3 = new Car("car3");
+		Car car1 = new Car("one");
+		Car car2 = new Car("two");
+		Car car3 = new Car("three");
 		
 		car2.move();
 		car2.move();
@@ -27,6 +27,6 @@ public class CarsTest {
 
 		String carsStatusMessage = cars.printCarsStatus();
 
-		assertThat(carsStatusMessage).contains("car1 : ", "car2 : --", "car3 : ---");
+		assertThat(carsStatusMessage).contains("one : ", "two : --", "three : ---");
 	}
 }

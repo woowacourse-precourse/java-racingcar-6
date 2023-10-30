@@ -35,7 +35,7 @@ public class ValidatorTest {
 				.hasMessageContaining(ErrorMessage.INPUT_EMPTY.getMessage());
 	}
 
-	@DisplayName("숫자만을 입력했을 떄 정상적으로 작동하는 지 확인한다.")
+	@DisplayName("값이 있을 떄 정상적으로 작동하는 지 확인한다.")
 	@ValueSource(strings = { "123", "456" })
 	@ParameterizedTest
 	void checkNomalOperation2(String str) {

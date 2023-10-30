@@ -19,7 +19,7 @@ public class CarNameTest {
 				.hasMessageContaining(ErrorMessage.CAR_NAME_LENGTH_ERROR.getMessage());
 	}
 	
-	@DisplayName("차 이름의 길이가 5이하일때 정삭적으로 작동하는 지 확인한다.")
+	@DisplayName("차 이름의 길이가 5이하일 때 정삭적으로 작동하는 지 확인한다.")
 	@ValueSource(strings = { "nnaa", "jjaa" })
 	@ParameterizedTest
 	void checkNomalOperation1(String str) {

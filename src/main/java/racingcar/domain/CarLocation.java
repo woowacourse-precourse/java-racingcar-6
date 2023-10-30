@@ -4,12 +4,12 @@ import racingcar.util.message.ErrorMessage;
 
 public class CarLocation {
 	
-	private final static int DEFAULT_VALUE = 0;
+	private final static int DEFAULT_LOCATION = 0;
 	
 	private int location;
 	
 	public CarLocation() {
-		this.location = DEFAULT_VALUE;
+		this.location = DEFAULT_LOCATION;
 	}
 	
 	public CarLocation(int location) {

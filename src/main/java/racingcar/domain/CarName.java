@@ -7,7 +7,7 @@ import racingcar.util.message.ErrorMessage;
 public class CarName {
 	
 	private static final int LIMIT_LENGTH = 5;
-	private static final Pattern PATTERN = Pattern.compile(".*[0-9].*");
+	private static final Pattern CONTAIN_NUMBER_PATTERN = Pattern.compile(".*[0-9].*");
 	
 	private final String name;
 	
@@ -28,7 +28,7 @@ public class CarName {
 	}
 	
 	private static void validateContainNumber(String name) {
-		if (PATTERN.matcher(name).matches()) {
+		if (CONTAIN_NUMBER_PATTERN.matcher(name).matches()) {
 			throw new IllegalArgumentException(ErrorMessage.CONTAIN_NUMBER_ERROR.getMessage());
 		}
 	}
