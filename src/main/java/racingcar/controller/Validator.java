@@ -10,6 +10,11 @@ public class Validator {
         validateCarNamesUnique(carNames);
     }
 
+    public static void validateTryCount(String tryCount) {
+        validateTryCountNumeric(tryCount);
+        validateTryCountRange(tryCount);
+    }
+
     private static void validateCarNamesBlank(List<String> carNames) {
         if (carNames.stream().anyMatch(String::isBlank)) {
             throw new IllegalArgumentException("공백만 입력할 수 있습니다.");
@@ -28,13 +33,13 @@ public class Validator {
         }
     }
 
-    public static void validateTryCountNumeric(String tryCount) {
+    private static void validateTryCountNumeric(String tryCount) {
         if (!tryCount.matches("^[0-9]+$")) {
             throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
         }
     }
 
-    public static void validateTryCountRange(String tryCount) {
+    private static void validateTryCountRange(String tryCount) {
         if (Integer.parseInt(tryCount) < 1) {
             throw new IllegalArgumentException("1 이하의 값은 입력할 수 없습니다.");
         }
