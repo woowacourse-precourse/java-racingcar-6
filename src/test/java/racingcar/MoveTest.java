@@ -9,13 +9,34 @@ import org.junit.jupiter.api.Test;
 public class MoveTest {
 
     @Test
-    void Car_객체_생성_시_이동_리스트_초기화(){
+    void Car_객체_생성_시_이동_리스트_초기화() {
 
         // given
-        Car car = new Car(Arrays.asList("pobi","woni","jun"));
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
 
         // then
-        assertThat(car.movedDistances).isEqualTo(Arrays.asList("","",""));
+        assertThat(car.movedDistances).isEqualTo(Arrays.asList("", "", ""));
+    }
+
+    @Test
+    void 랜덤_값_4이상_시_전진() {
+
+        // given
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+
+        // moveRandomly()
+        for (int i = 0; i < car.movedDistances.size(); i++) {
+
+            if (Randoms.pickNumberInRange(4, 9) >= 4) {
+                car.movedDistances.set(i, car.movedDistances.get(i) + "-");
+            }
+
+        }
+
+        // then
+        assertThat(car.movedDistances).isEqualTo(Arrays.asList("-", "-", "-"));
     }
 
 }
+
+
