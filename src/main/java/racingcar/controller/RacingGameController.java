@@ -21,7 +21,7 @@ public class RacingGameController {
     private final NumberGenerator numberGenerator;
 
     public RacingGameController() {
-         this.numberGenerator = new RandomNumberGenerator();
+         numberGenerator = new RandomNumberGenerator();
     }
 
     public void gameStart() {

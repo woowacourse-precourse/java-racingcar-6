@@ -21,7 +21,7 @@ public class Name {
     }
 
     public NameDto toDto() {
-        return new NameDto(this.name);
+        return new NameDto(name);
     }
 
     @Override

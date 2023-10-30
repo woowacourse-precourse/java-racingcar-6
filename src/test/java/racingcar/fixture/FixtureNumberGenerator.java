@@ -17,6 +17,6 @@ public class FixtureNumberGenerator implements NumberGenerator {
 
     @Override
     public RandomNumber generate() {
-        return new RandomNumber(this.number);
+        return new RandomNumber(number);
     }
 }

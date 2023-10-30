@@ -12,7 +12,7 @@ public class Cars {
     }
 
     public void moveUsingRandomNumber(NumberGenerator numberGenerator, MovingStrategy movingStrategy) {
-        this.cars.stream()
+        cars.stream()
                 .forEach(car -> car.moveUsingRandomNumber(numberGenerator, movingStrategy));
     }
 
@@ -24,13 +24,13 @@ public class Cars {
     }
 
     private Car findLeadCar() {
-        return this.cars.stream()
+        return cars.stream()
                 .reduce(this::compareCars)
                 .orElseThrow(() -> new IllegalArgumentException("[Error] 자동차가 한대도 없습니다."));
     }
 
     private List<Car> findAllLeadCar(Car leadCar) {
-        return this.cars.stream()
+        return cars.stream()
                 .filter(car -> car.isSamePosition(leadCar))
                 .collect(Collectors.toList());
     }
@@ -43,7 +43,7 @@ public class Cars {
     }
 
     public List<CarDto> toDtos() {
-        return this.cars.stream()
+        return cars.stream()
                 .map(Car::toDto)
                 .collect(Collectors.toList());
     }

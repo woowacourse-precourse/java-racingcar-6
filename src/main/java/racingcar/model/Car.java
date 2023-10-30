@@ -24,11 +24,11 @@ public class Car {
     }
 
     public boolean isSamePosition(Car car) {
-        return this.position.equals(car.position);
+        return position.equals(car.position);
     }
 
     public void move() {
-        this.position = this.position.move();
+        position = position.move();
     }
 
     public void moveUsingRandomNumber(NumberGenerator numberGenerator, MovingStrategy movingStrategy) {
@@ -39,7 +39,7 @@ public class Car {
     }
 
     public boolean isFrontOf(Car car) {
-        return this.position.isFrontOf(car.position);
+        return position.isFrontOf(car.position);
     }
 
     public CarDto toDto() {

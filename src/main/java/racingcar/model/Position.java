@@ -25,15 +25,15 @@ public class Position {
     }
 
     public Position move() {
-        return new Position(this.position + 1);
+        return new Position(position + 1);
     }
 
     public boolean isFrontOf(Position other) {
-        return this.position > other.position;
+        return position > other.position;
     }
 
     public PositionDto toDto() {
-        return new PositionDto(this.position);
+        return new PositionDto(position);
     }
 
     @Override

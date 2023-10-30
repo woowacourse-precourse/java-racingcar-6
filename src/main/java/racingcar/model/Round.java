@@ -14,14 +14,14 @@ public class Round {
         if (hasNotRemainingRound()) {
             throw new IllegalArgumentException("[Error] 남은 라운드 횟수가 없습니다.");
         }
-        this.round--;
+        round--;
     }
 
     public boolean hasNotRemainingRound() {
-        return this.round == NO_ROUND;
+        return round == NO_ROUND;
     }
 
     public boolean hasRemainingRound() {
-        return this.round != NO_ROUND;
+        return round != NO_ROUND;
     }
 }
