@@ -7,7 +7,7 @@ import java.util.List;
 public class ResultView {
     public static void printRace(List<Car> cars) {
         for (Car car : cars) {
-            printRace(car);
+            printCar(car);
         }
         System.out.println();
     }
