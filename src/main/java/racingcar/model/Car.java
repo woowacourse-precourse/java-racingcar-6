@@ -12,6 +12,9 @@ public class Car {
     private String name;
     private int position;
 
+    private Car() {
+    }
+
     public Car(String name) {
         if (StringUtils.isBlank(name)) {
             throw new IllegalArgumentException("Car name cannot be null, empty, or only whitespace");
