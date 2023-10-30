@@ -35,7 +35,7 @@ public class CarGroup {
             maxPosition = Math.max(maxPosition, car.findPosition());
         }
 
-        Map<Integer, Car> finalWinners = new HashMap<>();
+        Map<Integer, Car> finalWinners = new LinkedHashMap<>();
         for (Car car : this.car_group.values()) {
             if (car.findPosition().equals(maxPosition)) {
                 finalWinners.put(finalWinners.size() + 1, car);
