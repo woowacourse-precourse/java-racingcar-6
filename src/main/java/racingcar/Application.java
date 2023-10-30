@@ -5,13 +5,13 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String racers = Console.readLine();
-        String[] racersList = racers.split(",");
+        String carNames = Console.readLine();
+        String[] carsList = carNames.split(",");
 
-        RacingCar[] RacingCars = new RacingCar[racersList.length];
+        RacingCar[] RacingCars = new RacingCar[carsList.length];
 
-        for(int i = 0; i< racersList.length; i++){
-            RacingCar car = new RacingCar(racersList[i].trim(),0);
+        for(int i = 0; i< carsList.length; i++){
+            RacingCar car = new RacingCar(carsList[i].trim(),0);
             car.checkNameLength(car.getName());
             RacingCars[i] = car;
         }
@@ -22,7 +22,7 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
         for(int i=0; i<num; i++){
-            for(int j=0; j< racersList.length; j++){
+            for(int j=0; j< carsList.length; j++){
                 RapsResult rR = new RapsResult(RacingCars[j]);
                 System.out.println(rR.forwardOrNot());
             }
