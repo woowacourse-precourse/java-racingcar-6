@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import racingcar.util.ErrorMessage;
@@ -22,7 +23,11 @@ public class CarGroup {
     }
 
     private void createCarListByNames(String carNames) {
-        for (String name : carNames.split(",")) {
+        List<String> nameList = Arrays.stream(carNames.split(","))
+                .map(String::trim)
+                .toList();
+
+        for (String name : nameList) {
             validateUniqueName(name);
             carList.add(new Car(name));
         }
