@@ -129,9 +129,6 @@ jun : -----
 
 ### validator
 
-사용자 입력에 대한 validator를 먼저 구현하고,
-시간이 남으면 model에 대한 validator도 구현합니다.
-
 * userInput: 사용자 입력에 대한 Validator. 사용자 입력 종류 별 존재.
     * 경기에 참여할 자동차들 이름
         * 이름은 1자 이상 5자 이하만 가능합니다.
