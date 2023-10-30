@@ -24,7 +24,7 @@ public class Circuit {
             roundResult.add(racingCar.toString());
         }
 
-        return roundResult + "\n";
+        return roundResult + "\n\n";
     }
 
     public RaceResult report() {

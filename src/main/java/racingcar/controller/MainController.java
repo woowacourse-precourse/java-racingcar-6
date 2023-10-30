@@ -17,6 +17,12 @@ public class MainController {
 
     public void start() {
         circuit = new Circuit(inputView.readEntryNames());
+
         int round = inputView.readRound();
+        String roundResult = "";
+        for (int i = 0; i < round; i++) {
+            roundResult += circuit.race();
+        }
+        outputView.printRoundResult(roundResult);
     }
 }
