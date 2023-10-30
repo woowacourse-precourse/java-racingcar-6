@@ -1,16 +1,25 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.List;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingCar;
 import racingcar.utils.RacingCarGameOutput;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+    private ByteArrayOutputStream outputStreamCaptor;
 
 public class RacingCarGameOutputTest extends NsTest {
+    @BeforeEach
+    private void setUp() {
+        outputStreamCaptor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
+    }
 
     @Test
     void printResultMessage_메소드를_사용시_실행_결과들이_출력() {
