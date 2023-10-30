@@ -10,4 +10,13 @@ public class OutputView {
             System.out.printf("%s : %s\n", racingCar.getName(), "-".repeat(racingCar.getDistance()));
         });
     }
+
+    public void printRaceResult(List<RacingCar> winners) {
+        StringBuilder sb = new StringBuilder();
+        for (RacingCar winner : winners) {
+            sb.append(winner.getName()).append(", ");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        System.out.printf("최종 우승자 : %s\n", sb.toString());
+    }
 }
