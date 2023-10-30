@@ -69,6 +69,24 @@ public class CarCollectionTest {
         );
     }
 
+    @Test
+    void printCarsDistance_자동차가_전진한_거리를_각_자동차별로_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Car car1 = new Car("car1");
+                    Car car2 = new Car("car2");
+
+                    CarCollection carCollection = createCarCollection(car1, car2);
+
+                    carCollection.moveCarsForward();
+                    carCollection.printCarsDistance();
+
+                    assertThat(output()).contains("car1 : -", "car2 :");
+                },
+                4, 3
+        );
+    }
+
     private CarCollection createCarCollection(Car... cars) {
         CarCollection carCollection = new CarCollection();
 
