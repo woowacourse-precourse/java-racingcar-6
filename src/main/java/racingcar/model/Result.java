@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 public class Result {
     private final List<String> winnerNames;
     private final int winnerDistance;
@@ -23,17 +22,17 @@ public class Result {
     }
 
     private List<String> findWinnerNames(RacingCars cars) {
-        List<String> names = new ArrayList<>();
+        List<String> winnerNames = new ArrayList<>();
         for (Car car : cars.getAllCars()) {
             if (winnerDistance == car.getCurrentPosition()) {
-                names.add(car.getName());
+                winnerNames.add(car.getName());
             }
         }
-        return Collections.unmodifiableList(names);
+        return winnerNames;
     }
 
     public List<String> getWinnerNames() {
-        return winnerNames;
+        return Collections.unmodifiableList(winnerNames);
     }
 
 }

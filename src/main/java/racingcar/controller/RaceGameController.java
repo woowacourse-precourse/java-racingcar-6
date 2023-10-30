@@ -5,7 +5,6 @@ import racingcar.model.RacingCars;
 import racingcar.model.Result;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
 import java.util.List;
 
 public class RaceGameController {
@@ -27,9 +26,7 @@ public class RaceGameController {
         playGameMultipleTimes(racingCars, inputLoop);
 
         Result result = new Result(racingCars);
-
-        List<String> winnerNames = result.getWinnerNames();
-        outputView.printWinnerResultMessage(winnerNames);
+        outputView.printWinnerResultMessage(result.getWinnerNames());
 
     }
 
