@@ -14,7 +14,7 @@ public class MoveFormula implements Formula {
 
   public MoveState move() {
     if (numberGenerator.generate() >= MINIMUM_MOVING_CONDITIONS) {
-      return MoveState.GO;
+      return MoveState.MOVING_FORWARD;
     }
     return MoveState.STOP;
   }

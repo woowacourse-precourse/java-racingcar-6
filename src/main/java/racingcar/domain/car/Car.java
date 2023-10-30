@@ -14,7 +14,7 @@ public class Car {
   }
 
   public synchronized int move(Formula formula) {
-    if (formula.move() == MoveState.GO) {
+    if (formula.move() == MoveState.MOVING_FORWARD) {
       position++;
     }
     return position;
