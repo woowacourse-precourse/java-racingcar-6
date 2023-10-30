@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.validator.Validator;
 
 public class Car {
+    private static final int MINIMUM_ADVANCE_NUMBER = 4;
     private final String name;
     private int position;
 
@@ -23,7 +24,7 @@ public class Car {
 
     public void moveForward() {
         final int result = RandomNumberGenerator.generate();
-        if (result >= 4) {
+        if (result >= MINIMUM_ADVANCE_NUMBER) {
             this.position++;
         }
     }
