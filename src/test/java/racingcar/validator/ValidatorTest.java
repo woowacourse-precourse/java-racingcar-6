@@ -51,4 +51,25 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(CAR_NAME_CONTAINS_SPACE_ERROR.getMessage());
     }
+
+    @Test
+    void 라운드에_대한_예외처리_0_입력() {
+        assertThatThrownBy(() -> Validator.validateTotalTurnInput("0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(TOTAL_ROUND_INPUT_ERROR.getMessage());
+    }
+
+    @Test
+    void 라운드에_대한_예외처리_음수_입력() {
+        assertThatThrownBy(() -> Validator.validateTotalTurnInput("-123"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(TOTAL_ROUND_INPUT_ERROR.getMessage());
+    }
+
+    @Test
+    void 라운드에_대한_예외처리_알파벳_입력() {
+        assertThatThrownBy(() -> Validator.validateTotalTurnInput("pobi"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(TOTAL_ROUND_INPUT_ERROR.getMessage());
+    }
 }
