@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toUnmodifiableList;
-
 public class Cars {
 
     private final List<Car> cars;
@@ -20,7 +17,7 @@ public class Cars {
     public void makeCars(List<String> carNames) {
         cars.addAll(carNames.stream()
                 .map(Car::makeCarByName)
-                .collect(toList()));
+                .toList());
     }
 
     public void moveCars() {
@@ -30,7 +27,7 @@ public class Cars {
     public List<Car> getCars() {
         return cars.stream()
                 .map(car -> Car.makeCarByNameDistance(car.getName(), car.getDistance()))
-                .collect(toUnmodifiableList());
+                .toList();
     }
 
     public List<String> findWinner() {
