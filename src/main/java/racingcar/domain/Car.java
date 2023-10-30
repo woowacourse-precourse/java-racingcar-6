@@ -3,7 +3,7 @@ package racingcar.domain;
 public class Car {
 
     private final int ZERO = 0;
-    private final int THR거ESHOLD = 4;
+    private final int THRESHOLD = 4;
     private final CarName carName;
     private Position position;
 
