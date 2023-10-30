@@ -6,9 +6,15 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RaceController {
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
-    private final RaceService raceService = new RaceService();
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final RaceService raceService;
+
+    public RaceController(InputView inputView, OutputView outputView, RaceService raceService) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+        this.raceService = raceService;
+    }
 
     public void run() {
         getInputs();
