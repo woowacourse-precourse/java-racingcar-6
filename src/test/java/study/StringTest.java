@@ -241,4 +241,21 @@ public class StringTest {
                 // 끝이 Rings이다.
                 .endsWith("Rings");
     }
+
+    @DisplayName("containsAnyOf_을_활용한_이중에_하나가_포함되어있으면_테스트_통과_1")
+    @Test
+    void containsAnyOf_을_활용한_이중에_하나가_포함되어있으면_테스트_통과_2() {
+        assertThat("123")
+                // 널이 아니고
+                .isNotNull()
+                // The로 시작하고
+                .startsWith("1")
+                // Lord가 포함하고
+                .contains("3")
+                .contains("2")
+                // 이중에 하나가 포함되었다.
+                .containsAnyOf("1", "aslkdjasd", "아무단어")
+                // 끝이 Rings이다.
+                .endsWith("3");
+    }
 }
