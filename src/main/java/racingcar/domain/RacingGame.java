@@ -18,6 +18,10 @@ public class RacingGame {
         currentRound++;
     }
 
+    public boolean isFinalRound() {
+        return currentRound >= finalRound;
+    }
+
     public List<Car> getCars() {
         return cars;
     }
