@@ -7,13 +7,10 @@ import java.util.Set;
 import racingcar.constants.ExceptionMessage;
 import racingcar.util.NumberGenerator;
 
-public class Cars {
+public record Cars(List<Car> cars) {
 
-    private final List<Car> cars;
-
-    public Cars(final List<Car> cars) {
+    public Cars {
         validateCars(cars);
-        this.cars = cars;
     }
 
     private void validateCars(final List<Car> cars) {
@@ -51,7 +48,8 @@ public class Cars {
         }
     }
 
-    public List<Car> getCars() {
+    @Override
+    public List<Car> cars() {
         return Collections.unmodifiableList(cars);
     }
 }

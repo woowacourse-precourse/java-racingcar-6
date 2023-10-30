@@ -2,13 +2,10 @@ package racingcar.domain;
 
 import racingcar.constants.ExceptionMessage;
 
-public class CarName {
+public record CarName(String name) {
 
-    private final String name;
-
-    public CarName(final String name) {
+    public CarName {
         validateName(name);
-        this.name = name;
     }
 
     private void validateName(final String name) {
@@ -26,9 +23,5 @@ public class CarName {
         if (name.length() < 1 || name.length() > 5) {
             ExceptionMessage.CAR_NAME_LIMIT_EXCEEDED.throwException();
         }
-    }
-
-    public String getName() {
-        return name;
     }
 }
