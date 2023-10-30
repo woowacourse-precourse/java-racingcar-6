@@ -19,31 +19,31 @@ public class Application {
             throw new IllegalArgumentException();
         }
 
-        String[] participants = input.split(",");
-        validateLength(participants);
+        String[] carNames = input.split(",");
+        validateLength(carNames);
 
-        int[] raceDistance = new int[participants.length];
+        int[] raceDistance = new int[carNames.length];
         int winnerDistance = 0;
-        String[] raceDistanceByHyphen = new String[participants.length];
+        String[] raceDistanceByHyphen = new String[carNames.length];
         Arrays.fill(raceDistanceByHyphen, "");
 
         for (int i = 0; i < tryCount; i++) {
-            raceProceed(participants, raceDistance, raceDistanceByHyphen);
-            for (int k = 0; k < participants.length; k++) {
+            raceProceed(carNames, raceDistance, raceDistanceByHyphen);
+            for (int k = 0; k < carNames.length; k++) {
                 winnerDistance = Math.max(winnerDistance, raceDistance[k]);
-                System.out.println(participants[k] + " : " + raceDistanceByHyphen[k]);
+                System.out.println(carNames[k] + " : " + raceDistanceByHyphen[k]);
             }
             System.out.println();
         }
 
         String winners = "";
 
-        for (int l = 0; l < participants.length; l++) {
+        for (int l = 0; l < carNames.length; l++) {
             if (raceDistance[l] == winnerDistance && winners.equals("")) {
-                winners += participants[l];
+                winners += carNames[l];
             } else if (raceDistance[l] == winnerDistance && !winners.equals("")) {
                 winners += ", ";
-                winners += participants[l];
+                winners += carNames[l];
             }
         }
 
@@ -68,17 +68,17 @@ public class Application {
         }
     }
 
-    public static void validateLength(String[] participants) {
+    public static void validateLength(String[] carNames) {
         //자동차 이름이 5자를 넘어가면 IllegalArgumentException 발생
-        for (int i = 0; i < participants.length; i++) {
-            if (participants[i].length() > 5) {
+        for (int i = 0; i < carNames.length; i++) {
+            if (carNames[i].length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
     }
 
-    public static void raceProceed(String[] participants, int[] raceDistance, String[] raceDistanceByHyphen) {
-        for (int j = 0; j < participants.length; j++) {
+    public static void raceProceed(String[] carNames, int[] raceDistance, String[] raceDistanceByHyphen) {
+        for (int j = 0; j < carNames.length; j++) {
             if (goOrStop()) {
                 raceDistance[j] = raceDistance[j] + 1;
                 raceDistanceByHyphen[j] += "-";
