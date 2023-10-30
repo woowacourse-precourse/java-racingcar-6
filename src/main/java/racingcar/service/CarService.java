@@ -32,8 +32,8 @@ public class CarService {
     }
 
     private void validateName(String name) {
-        if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("이름은 5자 이하여야 합니다.");
+        if (name == null || name.isEmpty() || name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException("유효하지 않은 이름입니다: " + name);
         }
     }
 
