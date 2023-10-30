@@ -1,4 +1,4 @@
-package racingcar.validation;
+package racingcar.util;
 
 public final class ExceptionHandler {
     public static void throwIfStringLengthOverFive() {

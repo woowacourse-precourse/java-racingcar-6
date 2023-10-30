@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.service.RacingService;
+import racingcar.validation.InputValidator;
 import racingcar.view.ConsoleOutput;
 import racingcar.view.InputView;
 
@@ -21,13 +22,14 @@ public class RacingController {
         ConsoleOutput.displayMessage(ConsoleOutput.CAR_NAME_MESSAGE);
         String input = inputView.getCarNames();
         List<String> carNames = racingService.stringToList(input);
-        racingService.isLengthGreaterThanFive(carNames);
+        InputValidator.isLengthGreaterThanFive(carNames);
 
         ConsoleOutput.displayMessage(ConsoleOutput.TRY_MESSAGE);
         int tries = inputView.getTries();
-        racingService.isGreaterThanZero(tries);
+        InputValidator.isGreaterThanZero(tries);
 
         List<Car> carList = new ArrayList<>();
         Cars cars = new Cars(carNames);
+
     }
 }
