@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.domain.RacingGameStatus;
 
 public class IOView implements View {
     private final InputView inputView;
@@ -21,5 +22,10 @@ public class IOView implements View {
     public int getRacingCount() {
         outputView.requestTryCount();
         return inputView.enterTryCount();
+    }
+
+    @Override
+    public void showRacingGameStatus(RacingGameStatus racingGameStatus) {
+        outputView.printRacingGameStatus(racingGameStatus);
     }
 }
