@@ -7,11 +7,7 @@ public class Car {
     public Car(String carName) {
         // 이름 검사, 이름이 잘못되면 IllegalArgumentException 발생
         CarNameValidator carNameValidator = new CarNameValidator();
-        try {
-            carNameValidator.isValidName(carName);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e);
-        }
+        carNameValidator.isValidName(carName);
         this.carName = carName;
         this.position = 0;
     }
