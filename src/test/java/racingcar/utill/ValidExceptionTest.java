@@ -114,10 +114,12 @@ class ValidExceptionTest {
     @Test
     void isValidCommaNextBlankCheck() {
         // given
-
-        // when
+        String input = "woo,";
 
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidCommaNextBlankCheck(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("자동차의 각각의 이름이 5글자 이하인가 확인")
