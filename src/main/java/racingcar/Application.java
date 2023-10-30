@@ -26,6 +26,18 @@ class Car {
             this.count++;
         }
     }
+
+    public void printCounts() {
+        for (int i = 0; i < count; i++) {
+            System.out.print("-");
+        }
+    }
+
+    public void printMoves() {
+        System.out.print(this.name + " : ");
+        printCounts();
+        System.out.print("\n");
+    }
 }
 
 class Game {
