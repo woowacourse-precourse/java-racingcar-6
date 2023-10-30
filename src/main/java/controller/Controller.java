@@ -1,6 +1,7 @@
 package controller;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import java.util.ArrayList;
 import java.util.List;
 import view.InputView;
@@ -57,7 +58,7 @@ public class Controller {
 
     private void CarMove() {
         for(int i=0; i<this.groupOfCar.size();i++) {
-            this.groupOfCar.get(i).move();
+            this.groupOfCar.get(i).move(pickNumberInRange(0,9));
             OutputView.printCurrentLocationOfCar(this.groupOfCar.get(i).getName(),this.groupOfCar.get(i).getDistance());
         }
     }
@@ -102,6 +103,4 @@ public class Controller {
             throw e;
         }
     }
-
-
 }
