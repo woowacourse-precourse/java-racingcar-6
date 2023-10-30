@@ -6,10 +6,11 @@ import java.util.Iterator;
 
 public class RacingCarModel {
     private ArrayList<Car> carList;
-    public RacingCarModel(Iterator<String> playerList){
+    public RacingCarModel(Iterator<String> carNameListIterator){
         carList = new ArrayList<>();
-        while(playerList.hasNext()){
-            Car newCar = new Car(playerList.next());
+        while(carNameListIterator.hasNext()){
+            String carName = carNameListIterator.next();
+            Car newCar = new Car(carName);
             carList.add(newCar);
         }
     }
