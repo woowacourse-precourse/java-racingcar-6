@@ -18,6 +18,15 @@ public class UtilsTest extends NsTest {
 
         int result = Utils.getMax(test);
         assertThat(result).isEqualTo(5);
+    }
+
+    @Test
+    void 문자열_배열_저장() {
+        String str = "pobi,woni,jun";
+        ArrayList<String> names = Utils.toArrayList(str);
+
+        assertThat(names).contains("woni", "pobi");
+        assertThat(names).containsExactly("pobi", "woni", "jun");
 
     }
 
