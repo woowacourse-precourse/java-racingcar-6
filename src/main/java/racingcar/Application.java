@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+
 public class Application {
 
     public static void main(String[] args) {
@@ -11,8 +12,6 @@ public class Application {
         simulateRace(initData.tryCount(), initData.carNames(), initData.distanceArray());
 
         // TODO : 결과값 추출
-
-
 
     }
 
@@ -66,8 +65,21 @@ public class Application {
         System.out.println("실행 결과");
         for (int i = 0; i < tryCount; i++) {
 
-            // TODO : print progress
+            printProgress(carNames, distanceArray);
 
+            System.out.println();
+        }
+    }
+
+    private static void printProgress(String[] carNames, int[] distanceArray) {
+        for (int i = 0; i < carNames.length; i++) {
+            if (Randoms.pickNumberInRange(0, 9) > 3) {
+                distanceArray[i] = distanceArray[i] + 1;
+            }
+            System.out.print(carNames[i] + " : ");
+            for (int j = 0; j < distanceArray[i]; j++) {
+                System.out.print("-");
+            }
             System.out.println();
         }
     }
