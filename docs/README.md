@@ -85,25 +85,55 @@
     ```java
     int findMaxValue(List<Car> carList)
     ```
+  
 ## Validator
-- 자동차 입력 구분은 ,로 하고 있는가
+- 자동차 입력 구분은 ,로 하는지 예외 기능
     ```java
-    boolean isIdentifierComma(String carNameInput)
+    void checkCarNameInputForm(String carNameInput)
     ```
-- 시도 횟수에 숫자로 입력하는가
+  - 자동차 입력 구분은 ,로 하고 있는가
+      ```java
+      boolean isIdentifierComma(String carNameInput)
+      ```
+- 자동차 이름 길이에 대한 예외
     ```java
-    boolean isTryNumInteger(String tryNum)
+    void checkCarNameLengthForm(String carName)
     ```
-- 시도 횟수가 1 이상인가
+  - 자동차 이름이 5자 이하인가
+      ```java
+      boolean isCarNameLength(String carName)
+      ```
+- 자동차 이름 입력 중복 예외
     ```java
-    boolean isTryNumPositiveNum(String tryNum)
+    void checkDuplicateCarName(List<String> carNameList)
     ```
-- 자동차 이름이 5자 이하인가
+  - 자동차 이름 입력이 중복되는 경우
+      ```java
+      boolean isDuplicateCarName(List<String> carNameList)
+      ```
+- 자동차 개수에 대한 예외
     ```java
-    boolean checkCarNameLength(String carName)
+    void checkCarNum(List<String> carNameList)
     ```
-- 자동차 이름 입력이 중복되는 경우
-    ```java
-    boolean checkDuplicateCarName(String carName)
-    ```
+  - 자동차 개수가 2대 이상인지 확인하는 기능
+      ```java
+      boolean isCarMoreThanOne(List<String> carNameList)
+      ```
+<br> 
 
+- 시도 횟수 타입에 대한 예외
+    ```java
+    void checkTryNumType(String tryNum)
+    ```
+  - 시도 횟수에 숫자로 입력하는가
+      ```java
+      boolean isTryNumInteger(String tryNum)
+      ```
+- 시도 횟수에 대한 예외
+    ```java
+    void checkTryNum(int tryNum)
+    ```
+  - 시도 횟수가 1 이상인가
+      ```java
+      boolean isTryNumPositiveNum(int tryNum)
+      ```
