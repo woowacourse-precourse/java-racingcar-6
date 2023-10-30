@@ -22,16 +22,18 @@ public class GameManager {
         }
     }
 
-    public int setRandomNum() {
+    private int setRandomNum() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public boolean chkCarGoOrStop(int randomNum) {
-        return randomNum >= 4;
+    public boolean chkCarGoOrStop() {
+        return setRandomNum() >= 4;
     }
 
-    public void setCarsMove(boolean goOrStop, int carIdx) {
+    public void setCarsMove(int carIdx) {
         Map.Entry<String, String> car = this.carIdxNamePosList.get(carIdx);
+
+        boolean goOrStop = chkCarGoOrStop();
 
         if (goOrStop) {
             String nowCarBeforePos = car.getValue();

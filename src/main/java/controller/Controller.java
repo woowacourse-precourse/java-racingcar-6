@@ -38,21 +38,17 @@ public class Controller {
         outputView.printStartGame();
         gameManager.setCarIdxNamePosList(userInput.getCarsName());
 
-        List<Map.Entry<String, String>> carIdxNamePosList = gameManager.getCarIdxNamePosList();
-
         int playTime = userInput.getPlayTime();
         for (int time = 0; time < playTime; time++) {
             moveCars();
-            outputView.printCarsMove(carIdxNamePosList);
+            outputView.printCarsMove(gameManager.getCarIdxNamePosList());
         }
     }
 
     private void moveCars() {
         int carCount = userInput.getCarCount();
         for (int idx = 0; idx < carCount; idx++) {
-            int randomNum = gameManager.setRandomNum();
-            boolean goOrStop = gameManager.chkCarGoOrStop(randomNum);
-            gameManager.setCarsMove(goOrStop, idx);
+            gameManager.setCarsMove(idx);
         }
     }
 
