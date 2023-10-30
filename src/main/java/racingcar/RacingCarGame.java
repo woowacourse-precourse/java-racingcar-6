@@ -24,4 +24,8 @@ public class RacingCarGame {
     static int convertStringToInt(String userInput) {
         return Integer.parseInt(userInput);
     }
+
+    static void printExecutionResult() {
+        System.out.println("실행 결과");
+    }
 }
