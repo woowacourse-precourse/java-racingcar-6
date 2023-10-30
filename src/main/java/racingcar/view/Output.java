@@ -22,14 +22,26 @@ public class Output {
     }
 
     public static void printWinner(Iterator<RaceCar> iterator) {
+        Output.printMessage(concat(FINAL_WINNER_MESSAGE, generateWinnerMessage(iterator)));
+    }
+
+    private static String generateWinnerMessage(Iterator<RaceCar> iterator) {
         StringBuilder builder = new StringBuilder();
 
         while (iterator.hasNext()) {
             RaceCar raceCar = iterator.next();
-            builder.append(raceCar).append(RESULTS_DELIMITER);
+            append(builder, raceCar, iterator.hasNext());
         }
 
-        Output.printMessage(concat(FINAL_WINNER_MESSAGE, builder));
+        return builder.toString();
+    }
+
+    private static void append(StringBuilder builder, RaceCar raceCar, boolean hasNext) {
+        if (hasNext) {
+            builder.append(concat(raceCar.toString(), RESULTS_DELIMITER));
+            return;
+        }
+        builder.append(raceCar);
     }
 
     private static String concat(Object... objects) {
