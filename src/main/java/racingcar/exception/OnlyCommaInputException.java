@@ -1,7 +1,7 @@
 package racingcar.exception;
 
 public class OnlyCommaInputException extends IllegalArgumentException {
-    private static final String ONLY_COMMA_NOT_ALLOWED_MESSAGE = "쉼표(,)만 입력할 수 없습니다.";
+    private static final String ONLY_COMMA_NOT_ALLOWED_MESSAGE = "쉼표(,)사이에 이름을 입력해주세요.";
 
     public OnlyCommaInputException() {
         super(ONLY_COMMA_NOT_ALLOWED_MESSAGE);
