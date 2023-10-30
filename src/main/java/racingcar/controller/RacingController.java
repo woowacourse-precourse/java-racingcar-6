@@ -14,9 +14,9 @@ public class RacingController {
 
 
     public void initRacingGame() {
-        outputView.printRequestCarName();
+        inputView.printRequestCarName();
         List<String> userInput = inputView.getUserInputCarNames();
-        outputView.printRequestRound();
+        inputView.printRequestRound();
         int racingRound = inputView.getUserInputRacingRound();
         racingService.setCars(userInput);
         outputView.printResult();
@@ -25,8 +25,8 @@ public class RacingController {
 
     private void playRacingGame(int racingRound) {
         for (int i = 0; i < racingRound; i++) {
-            List<CarDto> carDtos = racingService.startRacing();
-            outputView.printRoundResult(carDtos);
+            List<CarDto> carDtoList = racingService.startRacing();
+            outputView.printRoundResult(carDtoList);
         }
     }
 

@@ -8,6 +8,6 @@ public class Application {
         // TODO: 프로그램 구현
         RacingController racingController = new RacingController();
         racingController.initRacingGame();
-        racingController.replayRacingGame();
+//        racingController.replayRacingGame();
     }
 }
