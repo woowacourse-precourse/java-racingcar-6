@@ -25,6 +25,7 @@ public class InputView {
         inputException.sameName(carArrayList);
         for(int i=0;i<carArrayList.size();i++){
             inputException.nameLengthOver(carArrayList.get(i).getName());
+            inputException.splitNameEmpty(carArrayList.get(i).getName());
         }
         return carName;
     }

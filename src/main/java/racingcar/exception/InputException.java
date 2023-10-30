@@ -44,6 +44,15 @@ public class InputException {
         }
     }
 
+    public void splitNameEmpty(String name){
+        try {
+            if(name.trim().equals("")){
+                throw new IllegalArgumentException("쉼표(,) 기준으로 구분시 이름이 비어있음");
+            }
+        }catch (IllegalArgumentException illegalArgumentException){
+            throw illegalArgumentException;
+        }
+    }
     public int toNumber(String numberString) {
         try {
             return Integer.parseInt(numberString);
