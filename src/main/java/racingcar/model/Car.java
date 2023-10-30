@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
 
 	private final String NAME;
@@ -16,7 +14,7 @@ public class Car {
 		this.distance = 0;
 	}
 
-	public void validateName(String name) {
+	private void validateName(String name) {
 
 		final int MAX_NAME_LENGTH = 5;
 
@@ -26,24 +24,14 @@ public class Car {
 
 	}
 
-	public void moveOrStop() {
+	public void moveOrStop(int randomNumber) {
 
 		final int MOVE_DECISION_SIGN = 4;
-
-		int randomNumber = makeRandomNumber();
 
 		if (randomNumber >= MOVE_DECISION_SIGN) {
 			this.distance++;
 		}
 
-	}
-
-	private int makeRandomNumber() {
-
-		final int MIN_NUMBER = 0;
-		final int MAX_NUMBER = 9;
-
-		return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
 	}
 
 	public boolean isLaggingCar(Car other) {
@@ -56,6 +44,10 @@ public class Car {
 
 	private String makeDistanceGraph(String graphUnit) {
 		return graphUnit.repeat(distance);
+	}
+
+	public int getDistance() {
+		return this.distance;
 	}
 
 	public String toString() {
