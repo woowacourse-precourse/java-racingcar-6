@@ -91,4 +91,43 @@ class RefereeTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 두 개 이상의 자동차를 입력하세요.");
     }
+
+    @Test
+    @DisplayName("이동 횟수 입력 성공")
+    void successInputRoundNumber() {
+        // Given
+        String inputRoundNumber = "3";
+
+        // When
+        int roundNumber = referee.inputRoundNumber(inputRoundNumber);
+
+        // Then
+        assertThat(roundNumber).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("이동 횟수 입력 시 숫자가 아닌 값 예외")
+    void failedInputRoundNumberNotNumber() {
+        // Given
+        String inputRoundNumber = "adf";
+
+        // When
+        // Then
+        assertThatThrownBy(() -> referee.inputRoundNumber(inputRoundNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자를 입력하세요.");
+    }
+
+    @Test
+    @DisplayName("이동 횟수 입력 시 1 이상 숫자가 아닌 값 예외")
+    void failedInputRoundNumberNotRange() {
+        // Given
+        String inputRoundNumber = "-1";
+
+        // When
+        // Then
+        assertThatThrownBy(() -> referee.inputRoundNumber(inputRoundNumber))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("1이상의 숫자를 입력하세요.");
+    }
 }
