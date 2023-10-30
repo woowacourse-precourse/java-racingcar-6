@@ -4,6 +4,8 @@ import racingcar.domain.CarList;
 import racingcar.service.RacingCarService;
 import racingcar.view.RacingCarView;
 
+import java.util.List;
+
 public class RacingCarController {
 
     private final RacingCarService racingCarService;
@@ -31,6 +33,11 @@ public class RacingCarController {
             CarList carList = racingCarService.checkCarListMove();
             racingCarView.gameProgressPrint(carList);
         }
+    }
+
+    public void getWinner() {
+        List<String> winnerList = racingCarService.getWinner();
+        racingCarView.printWinner(winnerList);
     }
 
 }
