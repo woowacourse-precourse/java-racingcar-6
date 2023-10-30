@@ -2,6 +2,7 @@ package racingcar.utils;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -18,15 +19,17 @@ class MovementValidationTest {
         movementValidation = new MovementValidation();
     }
 
-    @DisplayName("사용자가 이동 횟수에 아무것도 입력하지 않았을 때, 예외를 발생하는지")
-    @ParameterizedTest
-    @NullSource
-    void 셍(Integer movement) {
-        // given & when & then
+    @DisplayName("사용자가 이동 회수에 0을 입력했을 때, 예외를 발생하는지")
+    @Test
+    void validateMovementIsZeroTest() {
+        // given
+        Integer movement = 0;
+
+        // when & then
         assertThatThrownBy(
                 () -> movementValidation.validateMovement(movement))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("아무것도 입력하지 않았습니다.");
+                .hasMessageContaining("이동회수는 0을 입력할 수 없습니다.");
     }
 
     @DisplayName("사용자가 이동 횟수에 음수를 입력했을 때, 예외를 발생하는지")

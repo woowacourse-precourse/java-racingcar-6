@@ -7,15 +7,8 @@ public class MovementValidation {
 
 
     public void validateMovement(Integer movement) {
-        validateNullMovement(movement);
         validateMovementIsZero(movement);
         validateMovementIsPositiveInteger(movement);
-    }
-
-    private void validateNullMovement(Integer movement) {
-        if (movement == null) {
-            throw new IllegalArgumentException(NULL_MOVEMENT_MESSAGE);
-        }
     }
 
     private void validateMovementIsZero(Integer movement) {
