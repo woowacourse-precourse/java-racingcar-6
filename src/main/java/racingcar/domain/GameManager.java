@@ -7,9 +7,25 @@ import java.util.List;
 
 public class GameManager{
 
+    private final Referee referee = new Referee();
+
     public void run(){
         Cars cars = askCarNames();
         int tryCount = askTryCount();
+        while (tryCount != 0){
+            race(cars);
+            tryCount--;
+        }
+        List<String> winners = referee.determineWinners(cars);
+        referee.announceWinners(winners);
+    }
+
+    private void race(Cars cars){
+        for (Car car : cars.getCarList()){
+            car.drive();
+            car.printCarState();
+        }
+        System.out.println();
     }
 
     private Cars askCarNames(){

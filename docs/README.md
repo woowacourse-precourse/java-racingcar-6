@@ -7,6 +7,7 @@
   - [x] 입력받은 문자열을 쉼표 기준으로 구분하여 자동차 목록으로 반환한다. - Cars#constructor()
   - [x] 자동차 이름은 쉼표 기준으로 구분하여 5자 이하 - Car#throwIfInvalidNameLength()
   - [ ] 중복된 이름에 대한 예외 처리 추가
+  - [ ] 이름 길이가 0인 경우 예외 처리 추가
 - [x] 시도할 횟수 입력받기 : "시도할 회수는 몇회인가요?"
   - [x] 입력받은 값이 숫자 형식이 아닌 경우 예외 처리
 
@@ -20,6 +21,6 @@
 ### 3. 우승자 구하기
 - [x] `Referee`는 게임 완료 후 우승자를 알려준다. - Referee#determineWinners()
   - [x] 전진 횟수가 가장 많은 자동차가 우승할 수 있다. - Cars#getMaxForwardCountCarNames()
-  - [ ] 출력 : "최종 우승자 : " - Referee#announceWinners()
+  - [x] 출력 : "최종 우승자 : " - Referee#announceWinners()
   - 우승자는 한 명 이상일 수 있다.
   - 우승자가 여러 명일 경우 쉼표로 구분
