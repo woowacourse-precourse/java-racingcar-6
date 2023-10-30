@@ -10,19 +10,10 @@ public class Computer {
         return Console.readLine();
     }
 
-    public static List<String> createCarNames(String userInput) {
-        return Arrays.asList(userInput.split(","));
-    }
 
-    public static void trimCarNames(List<String> carNames) {
-        carNames.replaceAll(String::trim);
-    }
 
     public static int createRoundCount(String userInput) {
         Validator.checkPositiveNumber(userInput);
         return Integer.parseInt(userInput);
     }
-
-
-
 }

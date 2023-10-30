@@ -21,12 +21,7 @@ public class Car {
         movedDistances = new ArrayList<>(Collections.nCopies(this.names.size(), ""));
     }
 
-    private void validateCarNames(List<String> carNames) {
-        Validator.checkCarCount(carNames);
-        Validator.checkBlank(carNames);
-        Validator.checkLength(carNames);
-        Validator.checkDuplication(carNames);
-    }
+
 
     public void move(int roundCount) {
         System.out.println("실행 결과");
