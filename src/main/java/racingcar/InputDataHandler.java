@@ -31,4 +31,8 @@ public class InputDataHandler {
     public String[] seperateString(String inputCarNames){
         return inputCarNames.split(",");
     }
+
+    public String findCarName(int index){
+        return carNames[index];
+    }
 }

@@ -10,6 +10,7 @@ public class GameSetting {
     private HashMap<String, Integer> cars = new HashMap<>();
     private String[] inputCarNames;
     private int attemptNumber;
+    private String carName;
 
 
     public HashMap<String, Integer> createCarName() {
@@ -18,7 +19,8 @@ public class GameSetting {
     }
 
     public String getCarName(int index) {
-        return inputCarNames[index];
+        carName = inputDataHandler.findCarName(index);
+        return carName;
     }
 
     public int createAttemptNumber() {
