@@ -13,7 +13,11 @@ public class InputView {
     public static List<String> readRacingCarName() {
         System.out.println(READ_RACING_CAR_NAME);
         String racingCarName = Console.readLine();
-        return Arrays.stream(racingCarName.split(SEPARATOR))
+        return splitStringBySeparator(racingCarName);
+    }
+
+    private static List<String> splitStringBySeparator(String input) {
+        return Arrays.stream(input.split(SEPARATOR))
                 .map(String::trim)
                 .toList();
     }
