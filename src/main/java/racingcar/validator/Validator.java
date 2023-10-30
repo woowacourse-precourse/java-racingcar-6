@@ -3,15 +3,15 @@ package racingcar.validator;
 import java.util.List;
 
 public class Validator {
-    public static void validateUnderFiveLength(String input) {
+    public static void validateAvailableLength(String input) {
         if (input.length() > 5) {
-            throw new IllegalArgumentException("자동차의 이름은 5자 이하로 입력해야 합니다.");
+            throw new IllegalArgumentException("5자 이하로 입력해야 합니다.");
         }
     }
 
     public static void validateIsBlank(String input) {
-        if (input.equals("")) {
-            throw new IllegalArgumentException("자동차의 이름으로 공백은 사용할 수 없습니다.");
+        if (input.isBlank()) {
+            throw new IllegalArgumentException("공백은 사용할 수 없는 입력입니다.");
         }
     }
 
@@ -22,7 +22,7 @@ public class Validator {
                 .count();
 
         if (inputSize != uniqueInputSize) {
-            throw new IllegalArgumentException("서로 다른 이름을 입력해야 합니다.");
+            throw new IllegalArgumentException("중복되지 않게 입력해야 합니다.");
         }
     }
 

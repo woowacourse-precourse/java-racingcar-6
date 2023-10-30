@@ -13,7 +13,7 @@ public class RacingGame {
         List<Car> cars = new ArrayList<>();
         Validator.validateIsDuplicate(racingCarNames);
         for (String name : racingCarNames) {
-            Validator.validateUnderFiveLength(name);
+            Validator.validateAvailableLength(name);
             Validator.validateIsBlank(name);
             cars.add(new Car(name));
         }
