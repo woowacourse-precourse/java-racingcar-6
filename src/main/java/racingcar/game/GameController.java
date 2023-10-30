@@ -18,9 +18,12 @@ public class GameController {
     }
 
     public void start() {
-        //String carNames = inputCarName();
+        String carNames = inputCarName();
 
     }
 
-
+    private String inputCarName() {
+        writer.write(inputCarNameContext);
+        return reader.read();
+    }
 }
