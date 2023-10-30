@@ -18,10 +18,19 @@ public class Application {
     }
 
     private static void raceBefore(){
+        List<String> racerNameList = racerNameForm();
+        targetScoreForm();
+    }
+
+    private static List<String> racerNameForm(){
         String racerNameListInput = InputTool.readLineByConsole();
         List<String> racerNameList = Arrays.asList(racerNameListInput.split(" "));
         validateRacerNameList(racerNameListInput);
         validateRacerName(racerNameList);
+        return racerNameList;
+    }
+
+    private static void targetScoreForm(){
         OutputView.outputForRaceTargetScore();
     }
 
