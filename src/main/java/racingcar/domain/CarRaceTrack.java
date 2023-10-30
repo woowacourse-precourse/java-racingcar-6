@@ -12,10 +12,9 @@ public class CarRaceTrack implements RaceTrack<Car>  {
     }
 
     @Override
-    public List<String> race(int repeat, Consumer<Car> consumer) {
+    public List<String> race(int repeat, Consumer<List<Car>> consumer) {
         for (int i = 0; i < repeat; i++) {
-            racers.raceOfOneCycle()
-                    .forEach(consumer);
+            consumer.accept(racers.raceOfOneCycle());
         }
         return racers.getMostMovementCarNames();
     }

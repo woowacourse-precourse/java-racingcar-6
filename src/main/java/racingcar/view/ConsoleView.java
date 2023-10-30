@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.domain.Car;
 
 public class ConsoleView implements View{
 
@@ -23,8 +24,11 @@ public class ConsoleView implements View{
     }
 
     @Override
-    public void displayRaceStatus(String name, int movementDistance) {
-        OutputConsole.printCarStatus(name, movementDistance);
+    public void displayRaceStatus(List<Car> cars) {
+        cars.forEach(car -> {
+            OutputConsole.printCarStatus(car.getName(), car.getMovementDistance());
+        });
+        OutputConsole.printEmptyLine();
     }
 
     @Override

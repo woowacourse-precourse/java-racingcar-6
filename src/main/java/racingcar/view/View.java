@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.domain.Car;
 
 public interface View {
 
@@ -10,7 +11,7 @@ public interface View {
 
     void displayRaceResult();
 
-    void displayRaceStatus(String name, int movementDistance);
+    void displayRaceStatus(List<Car> cars);
 
     void displayWinner(List<String> winner);
 
