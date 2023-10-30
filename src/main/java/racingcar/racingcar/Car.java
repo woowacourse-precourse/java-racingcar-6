@@ -33,10 +33,6 @@ public class Car {
         }
     }
 
-    public RacingRule racingRule() {
-        return racingRule;
-    }
-
     public String name() {
         return name;
     }

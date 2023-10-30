@@ -11,6 +11,7 @@ public class NumberOfMovementInputReader{
 
     public int readLine() {
         System.out.println("시도할 회수는 몇회인가요?");
+
         return convertToInteger(Console.readLine());
     }
 

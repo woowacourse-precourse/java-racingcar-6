@@ -12,13 +12,13 @@ import racingcar.racingcar.Car;
 public class ResultViewer {
 
     private final RacingManager racingManager;
-    private final static String POSITION_UNIT = "-";
+    private final static String POSITION_INDICATOR = "-";
 
     public ResultViewer(RacingManager racingManager) {
         this.racingManager = racingManager;
     }
 
-    public void printResult() {
+    public void printProgress() {
         System.out.println();
         System.out.println("실행 결과");
     }
@@ -28,28 +28,23 @@ public class ResultViewer {
                 .stream()
                 .map(this::generateCurrentPosition)
                 .forEach(System.out::println);
+
         System.out.println();
     }
 
     private String generateCurrentPosition(Car car) {
-        String carName = car.name();
-        int currentPosition = car.position();
-
-        StringBuilder builder = new StringBuilder()
-                .append(carName)
+        StringBuilder result = new StringBuilder()
+                .append(car.name())
                 .append(" : ");
 
-        for (int i = 0; i < currentPosition; ++i) {
-            builder.append(POSITION_UNIT);
+        for (int i = 0; i < car.position(); ++i) {
+            result.append(POSITION_INDICATOR);
         }
 
-        return builder.toString();
+        return result.toString();
     }
 
     public void printWinner() {
-        List<String> winnerCarName = racingManager.getWinnerName();
-        String winnerJoinList = String.join(", ", winnerCarName);
-
-        System.out.println("최종 우승자 : " + winnerJoinList);
+        System.out.println("최종 우승자 : " + String.join(", ", racingManager.getWinnerName()));
     }
 }

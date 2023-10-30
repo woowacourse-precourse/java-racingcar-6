@@ -20,7 +20,7 @@ public class Application {
 
         ResultViewer resultViewer = new ResultViewer(racingManager);
 
-        resultViewer.printResult();
+        resultViewer.printProgress();
         while (!racingManager.isEnd()) {
             racingManager.processRacing();
             resultViewer.printCurrentPositions();
