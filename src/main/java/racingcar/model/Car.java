@@ -6,14 +6,14 @@ public class Car {
 
     private final String carName;
     private int position;
-    private int YOU_CAN_GO = 4;
+    private int MOVE_NUM = 4;
     public Car(String name){
         carName = name;
         position = 0;
     }
 
     public void move(){
-        if (GameUtil.getRandomNumber() >= YOU_CAN_GO){
+        if (GameUtil.getRandomNumber() >= MOVE_NUM){
             position ++;
         }
     }

@@ -2,7 +2,6 @@ package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.validator.RoundValidator;
-import racingcar.view.InputView;
 
 public class GameUtil {
 
@@ -15,6 +14,7 @@ public class GameUtil {
 
     public static int setTryCount(String round){
         RoundValidator roundValidator = new RoundValidator(round);
-        return Integer.parseInt(roundValidator.tryCount);
+        return Integer.parseInt(roundValidator.repeatNum);
     }
+
 }
