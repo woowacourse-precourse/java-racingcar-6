@@ -44,4 +44,18 @@ class RefereeTest {
 
         assertThat(otherMaxPositionCarName).isEqualTo(expectedName);
     }
+
+    @DisplayName("경주의 우승자를 찾는 기능 테스트")
+    @Test
+    void findWinnersTest() {
+        String expected1 = "test1";
+        String expected2 = "test3";
+
+        List<Car> winners = referee.findWinners();
+        String winnerName1 = winners.get(0).getName();
+        String winnerName2 = winners.get(1).getName();
+
+        assertThat(winnerName1).isEqualTo(expected1);
+        assertThat(winnerName2).isEqualTo(expected2);
+    }
 }
