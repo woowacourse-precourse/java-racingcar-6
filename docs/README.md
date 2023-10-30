@@ -22,4 +22,4 @@
 - [x] 자동차 이름이 중복될 경우 - InputValidation#checkOverlap()
 - [x] 자동차 이름의 길이가 1미만이거나 5를 초과할 경우 - InputValidation#checkNameLength()
 - [x] 입력받은 값이 숫자가 아닐 경우 - InputValidation#checkNumber()
-- [ ] 이동 횟수가 1 미만일 경우
+- [x] 이동 횟수가 1 미만일 경우 - InputValidation#checkNumberSize()

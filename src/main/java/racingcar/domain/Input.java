@@ -15,6 +15,7 @@ public class Input {
     public static int readMoveCount() {
         String input = Console.readLine();
         int moveCount = InputValidation.checkNumber(input);
+        InputValidation.checkNumberSize(moveCount);
         return moveCount;
     }
 }

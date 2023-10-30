@@ -39,4 +39,10 @@ public class InputValidation {
             throw new IllegalArgumentException("숫자가 아닌 값입니다.");
         }
     }
+
+    public static void checkNumberSize(int number) {
+        if (number < 1) {
+            throw new IllegalArgumentException("숫자의 크기가 작습니다");
+        }
+    }
 }
