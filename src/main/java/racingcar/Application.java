@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.controller.RacingController;
 import racingcar.domain.ConvertService;
 import racingcar.domain.vo.CarVO;
 
@@ -10,11 +11,11 @@ import java.util.List;
 
 public class Application {
   private final static ConvertService cs = new ConvertService();
+  private final static RacingController rc = new RacingController();
   public static void main(String[] args) {
 
-    System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    String inputCarStringS = Console.readLine();
-    List<String> carStringList = cs.StringConvertList(inputCarStringS);
+    // 변경됨 checkPoint
+    List<String> carStringList = rc.carStringInputListOutput();
 
     for(String car : carStringList){
       if(car.length() > 5){
