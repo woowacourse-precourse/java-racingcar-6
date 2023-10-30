@@ -34,6 +34,7 @@ public class RacingCarService {
     public List<RunningCarDto> rushCars() {
         tryNumber--;
         List<Car> carList = cars.rushCars();
+
         return carList.stream()
                 .map(DtoConverter::toRunningCarDto)
                 .collect(Collectors.toList());
@@ -45,6 +46,7 @@ public class RacingCarService {
 
     public List<WinnerDto> getWinner() {
         List<Car> winners = cars.findWinners();
+
         return winners.stream()
                 .map(DtoConverter::toWinnerDto)
                 .collect(Collectors.toList());

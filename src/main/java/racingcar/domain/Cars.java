@@ -18,11 +18,13 @@ public class Cars {
         cars.stream()
                 .filter(Car::canRush)
                 .forEach(Car::rush);
+
         return cars;
     }
 
     public List<Car> findWinners() {
         int winnerLocationValue = getCarWithLongestLocation();
+
         return cars.stream()
                 .filter((c)-> c.getLocation() == winnerLocationValue)
                 .collect(Collectors.toList());

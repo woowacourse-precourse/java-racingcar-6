@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private static final int JUDGE_CAN_GO_NUMBER = 4;
+
     private final String name;
     private int location = 0;
 

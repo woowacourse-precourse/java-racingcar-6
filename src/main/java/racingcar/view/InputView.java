@@ -8,11 +8,13 @@ public class InputView {
 
     public String readCarNames() {
         System.out.println(INSERT_NAMES);
+
         return Console.readLine();
     }
 
     public String readTryNumber() {
         System.out.println(INSERT_TRY_NUMBER);
+
         return Console.readLine();
     }
 }

@@ -19,6 +19,7 @@ public class OutputView {
         runningCarDtos.stream()
                 .map(runningCarDto -> runningCarDto.name() + " : " + "-".repeat(runningCarDto.location()))
                 .forEach(System.out::println);
+
         System.out.println();
     }
 
