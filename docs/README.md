@@ -1,9 +1,13 @@
 # 미션 - 자동차 경주
 ## 구현할 기능 목록
 ### 자동차 기능
-- [x] `camp.nextstep.edu.missionutils.Random`의 `pickNumberInRange()`를 사용하여 자동차가 전진하는 기능
+- [x] 받은 숫자에 따라 자동차가 전진하는 기능
 
 ### 경주 할 자동차들을 경주에 참가하는 기능
+
+### 경주를 진행하는 기능
+- [x] 경주를 진행해 자동차들을 진행시킴
+- [x] `camp.nextstep.edu.missionutils.Random`의 `pickNumberInRange()`를 사용하여 자동차가 전진하는 기능
 
 ### 우승자를 판별하는 기능
 - [x] 자동차들 중 가장 많이 전진한 자동차 판별
