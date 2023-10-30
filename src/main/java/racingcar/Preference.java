@@ -14,6 +14,16 @@ public class Preference {
         this.nCars = cars.size();
     }
 
+    private static int requestRound() {
+        System.out.println(Printer.REQUEST_ROUND);
+        return Scanner.extractRound(Console.readLine());
+    }
+
+    private static List<String> requestNames() {
+        System.out.println(Printer.REQUEST_NAME);
+        return Scanner.extractNames(Console.readLine());
+    }
+
     public int getSize() {
         return nCars;
     }
@@ -24,15 +34,5 @@ public class Preference {
 
     public List<String> getCars() {
         return cars;
-    }
-
-    private static int requestRound() {
-        System.out.println(Printer.REQUEST_ROUND);
-        return Scanner.extractRound(Console.readLine());
-    }
-
-    private static List<String> requestNames() {
-        System.out.println(Printer.REQUEST_NAME);
-        return Scanner.extractNames(Console.readLine());
     }
 }
