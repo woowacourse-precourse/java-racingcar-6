@@ -1,24 +1,25 @@
 package racingcar.domain;
 
-import java.util.function.BooleanSupplier;
+import java.util.function.IntSupplier;
 
 public class Car implements Comparable<Car> {
     public static final String NOT_BLANK_NAME = "자동차 이름은 비어있을 수 없습니다";
     public static final String INVALID_NAME_LENGTH_FORMAT = "자동차 이름은 %d자 이하여야 합니다";
     public static final int MAX_NAME_LENGTH = 5;
+    public static final int MOVE_THRESHOLD = 4;
 
     private final String name;
-    private final BooleanSupplier engine;
+    private final IntSupplier intSupplier;
     private int position;
 
     public Car(String name) {
-        this(name, new Engine());
+        this(name, new DefaultSupplier());
     }
 
-    public Car(String name, BooleanSupplier engine) {
+    public Car(String name, IntSupplier intSupplier) {
         validateName(name);
         this.name = name;
-        this.engine = engine;
+        this.intSupplier = intSupplier;
         this.position = 0;
     }
 
@@ -32,7 +33,7 @@ public class Car implements Comparable<Car> {
     }
 
     public void moveForward() {
-        if (engine.getAsBoolean()) {
+        if (intSupplier.getAsInt() >= MOVE_THRESHOLD) {
             position++;
         }
     }

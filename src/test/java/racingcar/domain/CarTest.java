@@ -12,11 +12,12 @@ class CarTest {
 
     @ParameterizedTest
     @CsvSource(textBlock = """
-            true, 1
-            false, 0
+            1, 0
+            3, 0
+            4, 1
             """)
-    void 엔진_결과에_따라_차를_움직일_수_있다(boolean engineResult, int expected) {
-        Car car = new Car("car1", () -> engineResult);
+    void 제공받은_숫자에_따라_차를_움직일_수_있다(int suppliedInt, int expected) {
+        Car car = new Car("car1", () -> suppliedInt);
 
         car.moveForward();
 

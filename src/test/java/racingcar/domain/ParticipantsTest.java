@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.testutils.TestCarFactory.createCar;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -37,8 +38,8 @@ class ParticipantsTest {
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 30})
     void 레이스를_하면_시도_횟수만큼_결과가_기록된다(int attemptCount) {
-        Car car1 = new Car("car1", () -> true);
-        Car car2 = new Car("car2", () -> true);
+        Car car1 = createCar();
+        Car car2 = createCar();
         Participants participants = new Participants(List.of(car1, car2));
 
         RaceHistory raceHistory = participants.raceNTimes(attemptCount);
@@ -50,8 +51,8 @@ class ParticipantsTest {
     @ParameterizedTest
     @ValueSource(ints = {-1, 0})
     void 시도_횟수가_유효하지_않으면_예외가_발생한다(int attemptCount) {
-        Car car1 = new Car("car1", () -> true);
-        Car car2 = new Car("car2", () -> true);
+        Car car1 = createCar();
+        Car car2 = createCar();
         Participants participants = new Participants(List.of(car1, car2));
 
         assertThatIllegalArgumentException()
@@ -60,13 +61,13 @@ class ParticipantsTest {
 
     @Test
     void 우승자_목록을_가져올_수_있다() {
-        Car car1 = new Car("car1", () -> true);
-        Car car2 = new Car("car2", () -> false);
-        Car car3 = new Car("car3", () -> true);
+        Car car1 = createCar(true);
+        Car car2 = createCar(false);
+        Car car3 = createCar(true);
         Participants participants = new Participants(List.of(car1, car2, car3));
         participants.raceNTimes(10);
 
         List<String> winners = participants.getWinners();
-        assertThat(winners).contains("car1", "car3").doesNotContain("car2");
+        assertThat(winners).contains(car1.getName(), car3.getName()).doesNotContain(car2.getName());
     }
 }
