@@ -7,10 +7,10 @@
 - [x] 우승자를 확인한다 - `checkWinner()` 
 
 **입출력 - Race**
-- [ ] 자동차의 이름을 입력 받아 저장한다. - `getCarNames()`
-- [ ] 몇 번의 이동을 할 것인지 입력 받는다. - `getMoveCount()`
-- [ ] 현 경주 상황을 출력할 수 있다. - `showCurrentRace()`
-- [ ] 우승자가 결정나면 우승자 목록을 출력한다 - `showWinner()`
+- [x] 자동차의 이름을 입력 받아 저장한다. - `getCarNames()`
+- [x] 몇 번의 이동을 할 것인지 입력 받는다. - `getMoveCount()`
+- [x] 현 경주 상황을 출력할 수 있다. - `showCurrentRace()`
+- [x] 우승자가 결정나면 우승자 목록을 출력한다 - `showWinner()`
 
 **자동차 - Car**
 - [x] 자동차는 조건에 따라 움직일 수 있어야 한다. - `move()`
