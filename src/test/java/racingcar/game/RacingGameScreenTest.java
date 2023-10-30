@@ -43,7 +43,7 @@ class RacingGameScreenTest {
 
     @DisplayName("경주할 자동차 이름 입력 화면을 올바르게 구성하였는지 확인한다.")
     @Test
-    void checkInputRacingScreen(){
+    void test_InputRacingScreen(){
         //given
         String input = "name1,name2";
         mockReader.setInput(input);
@@ -59,7 +59,7 @@ class RacingGameScreenTest {
 
     @DisplayName("시도 횟수 입력 화면을 올바르게 구성하였는지 확인한다.")
     @Test
-    void checkInputNumberOfTurnsScreen(){
+    void test_InputNumberOfTurnsScreen(){
         //given
         String input = "10";
         mockReader.setInput(input);
@@ -71,5 +71,17 @@ class RacingGameScreenTest {
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("시도할 횟수는 몇 회인가요?\n");
         assertThat(racerInput).isEqualTo(input);
+    }
+
+    @DisplayName("실행 결과 출력을 시작하는 화면을 올바르게 구성하였는지 확인한다.")
+    @Test
+    void test_StartShowGameResultScreen(){
+        //given
+        //when
+        racingGameScreen.startShowGameResult();
+
+        //then
+        String output = mockWriter.getOutput();
+        assertThat(output).isEqualTo("\n실행 결과\n");
     }
 }
