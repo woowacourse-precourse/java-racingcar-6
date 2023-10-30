@@ -54,6 +54,14 @@ public class RacingCarGameInputTest {
                 .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_DUPLICATION);
     }
 
+    @Test
+    void 자동차_이름이_비어_있을_경우_예외_발생() {
+        setInputStream("yang,,min");
+        assertThatThrownBy(() -> RacingCarGameInput.readCarNames())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_EMPTY);
+    }
+
 
     @Test
     void 시도_횟수가_숫자가_아닌_경우_예외_반환() {
