@@ -14,9 +14,9 @@ import static racingcar.exception.CarsExceptionMessage.*;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(List<String> names, MovingStrategy movingStrategy) {
-        validateDuplicateName(names);
-        this.cars = createCars(names, movingStrategy);
+
+    public Cars(List<Car> cars) {
+        this.cars = cars;
     }
 
     public void raceAllCars() {
@@ -39,19 +39,6 @@ public class Cars {
     }
 
 
-
-    private List<Car> createCars(List<String> names, MovingStrategy movingStrategy) {
-        return names.stream()
-                .map(name -> new Car(movingStrategy, name))
-                .collect(Collectors.toList());
-    }
-
-    private void validateDuplicateName(List<String> names) {
-        if (names.stream()
-                .collect(Collectors.toSet()).size() != names.size()) {
-            throw new IllegalArgumentException(ERROR_NAME_DUPLICATED.getMessage());
-        }
-    }
 
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);

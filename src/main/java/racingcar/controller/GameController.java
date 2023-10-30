@@ -32,9 +32,9 @@ public class GameController {
     }
 
     private Cars createCars() {
-        // 경주 할 자동차 이름 입력 받기
-        List<String> names = inputView.inputNames();
-        Cars cars = new Cars(names, movingStrategy);
+        // 수정하기
+//        List<String> names = inputView.inputNames();
+//        Cars cars = new Cars(names);
 
         return cars;
     }

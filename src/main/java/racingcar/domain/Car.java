@@ -9,7 +9,6 @@ import static racingcar.exception.CarExceptionMessage.*;
 
 
 public class Car implements Comparable<Car> {
-
     private final MovingStrategy movingStrategy;
     private final String name;
     private int position;

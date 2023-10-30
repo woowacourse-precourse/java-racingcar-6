@@ -3,6 +3,9 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static racingcar.exception.CarsExceptionMessage.ERROR_NAME_DUPLICATED;
 import static racingcar.exception.ViewExceptionMessage.*;
 import static racingcar.util.CharacterUnits.*;
 import static racingcar.view.InputViewMessage.*;
@@ -82,6 +85,7 @@ public class InputView {
             }
         }
     }
+
 
     private String getInput() {
         return Console.readLine();
