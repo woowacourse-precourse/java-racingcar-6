@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.List;
 import racingcar.view.OutputView;
 
 public class RacingGame {
@@ -13,9 +14,12 @@ public class RacingGame {
     }
 
     public void startGame() {
+        System.out.println();
         for (int i = 0; i < raceCountInput.getRaceCount(); i++) {
             playRound();
+            displayRoundResults();
         }
+        printWinner();
     }
 
     private void playRound() {
@@ -23,8 +27,14 @@ public class RacingGame {
             if (getRandomNumber() >= 4) {
                 car.move();
             }
+        }
+    }
+
+    private void displayRoundResults() {
+        for (Car car : cars.getCars()) {
             printCurrent(car);
         }
+        System.out.println();
     }
 
     private static int getRandomNumber() {
@@ -32,13 +42,14 @@ public class RacingGame {
         return numberGenerator.getRandomNumber();
     }
 
-    private static void printCurrentLocation(String name, int currentNum) {
-        OutputView.currentLocation(name, currentNum);
-    }
-
     private static void printCurrent(Car car) {
         String name = car.getName();
         int currentNum = car.getCurrentLocation();
-        printCurrentLocation(name, currentNum);
+        OutputView.currentLocation(name, currentNum);
+    }
+
+    private void printWinner() {
+        List<Car> winners = cars.findWinners();
+        OutputView.announceWinners(winners);
     }
 }
