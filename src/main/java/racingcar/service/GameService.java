@@ -18,19 +18,24 @@ public class GameService {
 
     public void playRace(){
         for(int i = 0; i < trial; i++){
-            getScoreOrNot();
+            raceOnce();
             System.out.println(" ");
         }
     }
+    private void raceOnce() {
+        getScoreOrNot();
+        showScores();
+    }
     private void getScoreOrNot(){
-        for (Car car : cars) {
+        cars.forEach(car -> {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.increaseScore();
             }
-        }
+        });
+    }
+    private void showScores(){
         IOConsole.printScores(cars);
     }
-
     public List<String> getWinners() throws IllegalArgumentException{
         int maxScore = cars.stream().map(Car::getScore).max(Integer::compare).orElseThrow();
 
