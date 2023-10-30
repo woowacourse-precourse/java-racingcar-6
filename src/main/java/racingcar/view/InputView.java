@@ -12,7 +12,7 @@ public class InputView {
     }
 
     private static void validateBlank(String str) {
-        if(str.isEmpty()) {
+        if (str.isEmpty()) {
             throw new IllegalArgumentException("값은 빈칸이면 안됩니다");
         }
     }
