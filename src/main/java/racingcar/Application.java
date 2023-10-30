@@ -23,7 +23,9 @@ public class Application {
                     carList.get(i).setForward(carList.get(i).getForward()+1);
                 }
             }
-            
+
+            printResultByOrder(carList);
+
             n--;
         }
     }
@@ -54,5 +56,16 @@ public class Application {
         }
 
         return forwardNum;
+    }
+
+    public static void printResultByOrder(List<Car> carList){
+        for(int i=0; i<carList.size(); i++){
+            System.out.print(carList.get(i).getName()+" : ");
+            for(int j=0; j<carList.get(i).getForward(); j++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
