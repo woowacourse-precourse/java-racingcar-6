@@ -14,7 +14,7 @@
 * 자동차 전진 기능 구현 (Car Class) ✅
 * 랜덤한 값(0~9) 구하는 기능 구현 (Car Class) ✅
 * 자동차 이름이 유효한지 검사하는 기능 구현 (Information Class) ✅ [TEST 구현완료]
-* 자동차 개수가 유효한지 검사하는 기능 구현 (CarNum Class) ✅
+* 자동차 개수가 유효한지 검사하는 기능 구현 (CarNum Class) ✅ [TEST 구현완료]
 * 이동을 시도할 횟수가 유효한지 검사하는 기능 구현 (MoveNum Class) ✅ [TEST 구현완료]
 * 입력값이 이동을 시도할 횟수를 넘었는지 검사하는 기능 구현 (MoveNum Class, CarNum Class) ✅
 * 입력받은 자동차 이름 쉼표 기준 파싱 (RacingSetting Class) ✅
