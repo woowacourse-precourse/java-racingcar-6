@@ -62,10 +62,15 @@ public class RacingGame {
     private void checkWinner() {
         int max = carList.getMax();
         boolean flag = false;
+        int arrLength = carNameList.length;
 
-        for (String carName : carNameList) {
+        sb.append("최종 우승자 : ");
+
+        for (int i=0; i<arrLength; i++) {
+            String carName = carNameList[i];
             int position = carList.getPosition(carName);
-            if (flag) {
+
+            if (flag && position == max) {
                 sb.append(", ");
             }
             if (position == max) {
