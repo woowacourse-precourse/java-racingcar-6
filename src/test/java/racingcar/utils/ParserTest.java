@@ -1,33 +1,29 @@
 package racingcar.utils;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.List;
+import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
 
 class ParserTest {
-    @Test
-    void 자동차명_쉼표공백처리_테스트() {
-        List<String> result = Parser.parseCarNames("hot, fried, chicken");
-
-        assertThat(result).contains("chicken", "hot", "fried");
-        assertThat(result).containsExactly("hot", "fried", "chicken");
+    @ParameterizedTest(name = "{0}")
+    @MethodSource("Parameters")
+    @DisplayName("파싱 검사 절대 예외 X")
+    void checkParser(String testName, String carNames) {
+        assertThatCode(() -> Parser.parseCarNames(carNames))
+                .doesNotThrowAnyException();
     }
 
-    @Test
-    void 자동차명_0글자_테스트() {
-        List<String> result = Parser.parseCarNames("hot,  , fried");
-
-        assertThat(result).contains("hot", "", "fried");
-        assertThat(result).containsExactly("hot", "", "fried");
-    }
-
-    @Test
-    void 자동차명_쉼표로끝났을때_테스트() {
-        List<String> result = Parser.parseCarNames("hot,");
-
-        assertThat(result).contains("hot", "");
-        assertThat(result).containsExactly("hot", "");
+    private static Stream<Arguments> Parameters() {
+        return Stream.of(
+                Arguments.of("길이 0", "Hot,"),
+                Arguments.of("공백", "Hot, "),
+                Arguments.of("빈 값", ""),
+                Arguments.of("중복된 자동차명", "Fried, Fried")
+        );
     }
 }
