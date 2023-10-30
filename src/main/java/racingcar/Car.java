@@ -10,7 +10,7 @@ public class Car {
     private String name;
     private int location;
 
-    public Car(String name){
+    public Car(String name) {
         this.name = name;
         this.location = 0;
     }
@@ -19,9 +19,9 @@ public class Car {
         return name;
     }
 
-    public boolean isMove(){
+    public boolean isMove() {
         int randomNum = Randoms.pickNumberInRange(START_RANGE, END_RANGE);
-        if(canGo(randomNum)){
+        if (canGo(randomNum)) {
             this.location++;
             return true;
         }
@@ -32,10 +32,10 @@ public class Car {
         return randomNum >= MIN_MOVABLE_NUMBER;
     }
 
-    public String getRoundResult(){
+    public String getRoundResult() {
         StringBuilder sb = new StringBuilder(name);
         sb.append(" : ");
-        for(int i = 0; i<location; i++){
+        for (int i = 0; i < location; i++) {
             sb.append("-");
         }
 
