@@ -14,4 +14,14 @@ public class RacingGame {
             carNames.replace(carName, ++moveCnt);
         }
     }
+
+    public int maxValue(int tryCount, Map<String, Integer> carsData) {
+        int maxValue = 0;
+        for (int i = tryCount; i > 0; i--) {
+            if (!carsData.containsValue(i)) continue;
+            maxValue = i;
+            break;
+        }
+        return maxValue;
+    }
 }
