@@ -16,7 +16,7 @@ public class CarsTest {
 
 
     @Test
-    void moveCarsAndCollectResults() {
+    void EachGameResultTest() {
         List<String> carNames = Arrays.asList("car1", "car2", "car3");
 
         RandomGenerator mockRandomGenerator = mock(RandomGenerator.class);
@@ -24,14 +24,15 @@ public class CarsTest {
 
         when(mockRandomGenerator.generate()).thenReturn(5);
 
-        List<EachMoveResultDto> moveResults = cars.moveCarsAndCollectResults();
+        cars.moveCars();
+        List<EachMoveResultDto> moveResults = cars.getEachGameResult();
 
         moveResults.stream()
                 .forEach(result -> assertEquals(1, result.getPosition()));
     }
 
     @Test
-    public void FindWinnersDto() {
+    public void getWinnersTest() {
         List<String> carNames = Arrays.asList("car1");
 
         RandomGenerator mockRandomGenerator = mock(RandomGenerator.class);
@@ -39,7 +40,8 @@ public class CarsTest {
 
         when(mockRandomGenerator.generate()).thenReturn(5);
 
-        List<GameWinnerDto> winnerResults = cars.findWinnersDto();
+        cars.moveCars();
+        List<GameWinnerDto> winnerResults = cars.getWinners();
 
         winnerResults.stream()
                 .forEach(result -> assertEquals("car1", result.getWinnerCar()));
