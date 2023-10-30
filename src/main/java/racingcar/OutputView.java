@@ -5,9 +5,7 @@ import java.util.List;
 public class OutputView {
 
     public static void outputRacingStatus(Cars cars) {
-        for (Car car : cars.getCarList()) {
-            System.out.println(makeRacingStatus(car));
-        }
+        outputCarRacingStatus(cars);
         System.out.println();
     }
 
@@ -23,6 +21,12 @@ public class OutputView {
         stringBuilder.setLength(stringBuilder.length() - 2);
 
         System.out.println(stringBuilder);
+    }
+
+    private static void outputCarRacingStatus(Cars cars) {
+        for (Car car : cars.getCarList()) {
+            System.out.println(makeRacingStatus(car));
+        }
     }
 
     private static String makeRacingStatus(Car car) {
