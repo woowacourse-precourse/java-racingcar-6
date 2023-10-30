@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import static java.util.Comparator.comparing;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,9 +9,14 @@ import racingcar.domain.Number;
 public class Referee {
     private List<Car> cars;
 
-    Referee(List<Car> cars) {
+    private Referee(List<Car> cars) {
         this.cars = cars;
     }
+
+    public static Referee of(List<Car> cars) {
+        return new Referee(cars);
+    }
+
     public void proceedRound() {
         for (Car c: cars) {
             decideMoveForward(c);

@@ -1,11 +1,14 @@
 package racingcar.domain;
 
+import static racingcar.util.GameConfig.CAR_INITIAL_POSITION;
+
 public class Car {
-    private Name carName;
+    private final Name carName;
     private int position;
+
     private Car(String carName) {
         this.carName = Name.of(carName);
-        this.position = 0;
+        this.position = CAR_INITIAL_POSITION.getValue();
     }
 
     public static Car createCar(String carName) {

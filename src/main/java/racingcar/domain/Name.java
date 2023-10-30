@@ -3,10 +3,12 @@ package racingcar.domain;
 import static racingcar.util.Validator.*;
 
 public class Name {
-    private String name;
+    private final String name;
+
     private Name(String name) {
         validateEmpty(name);
         validateLength(name);
+
         this.name = name;
     }
 

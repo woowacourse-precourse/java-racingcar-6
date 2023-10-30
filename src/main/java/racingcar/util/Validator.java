@@ -1,11 +1,12 @@
 package racingcar.util;
 
+import static racingcar.util.GameConfig.MAX_CAR_NAME_LENGTH;
+import static racingcar.util.GameConfig.MIN_ROUND;
 import static racingcar.util.exception.ErrorMessage.*;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Stream;
 import racingcar.util.exception.RacingCarException;
 
 public class Validator {
@@ -26,7 +27,7 @@ public class Validator {
     }
 
     private static boolean isValidLength(String name) {
-        return name.length() <= 5;
+        return name.length() <= MAX_CAR_NAME_LENGTH.getValue();
     }
 
     public static void validateDuplication(List<String> splitUserInput) {
@@ -48,7 +49,7 @@ public class Validator {
     }
 
     private static boolean isLessThanOne(String userInput) {
-        return Integer.parseInt(userInput) < 1;
+        return Integer.parseInt(userInput) < MIN_ROUND.getValue();
     }
 
     public static void validateInteger(String userInput) {

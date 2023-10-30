@@ -2,17 +2,20 @@ package racingcar.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.util.Utils.splitString;
+import static racingcar.view.OutputView.printGameNotice;
+import static racingcar.view.constants.GameNotice.PROMPT_CAR_NAMES;
+import static racingcar.view.constants.GameNotice.PROMPT_ROUNDS;
 
 import java.util.List;
 
 public class InputView {
     public static List<String> askCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        printGameNotice(PROMPT_CAR_NAMES);
         return splitString(readLine());
     }
 
     public static String askHowManyRounds() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        printGameNotice(PROMPT_ROUNDS);
         return readLine();
     }
 }
