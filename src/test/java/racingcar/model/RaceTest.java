@@ -1,6 +1,7 @@
 package racingcar.model;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,48 +12,47 @@ public class RaceTest {
 
     @Test
     void initialize() {
+        // given
         ArrayList<String> carNames = new ArrayList<>(List.of("Car1", "Car2", "Car3"));
 
+        // when
         race.initialize(carNames);
 
-        ArrayList<String> resultCarNames = race.getCarNames();
-        ArrayList<Integer> resultCarGoingCount = race.getCarGoingCount();
-
-        // initialize 메서드가 예상대로 동작하는지 확인
-        assertEquals(carNames, resultCarNames);
-        assertEquals(carNames.size(), resultCarGoingCount.size());
+        // then
+        assertThat(carNames).containsExactly("Car1", "Car2", "Car3");
+        assertThat(race.getCarGoingCount()).containsExactly(0, 0, 0);
     }
 
     @Test
     void runRace() {
+        // given
         ArrayList<String> carNames = new ArrayList<>(List.of("Car1", "Car2", "Car3"));
-
         race.initialize(carNames);
 
+        // when
         race.runRace();
-
         ArrayList<Integer> resultCarGoingCount = race.getCarGoingCount();
 
-        // runRace 메서드가 예상대로 동작하는지 확인
+        // then
         for (int count : resultCarGoingCount) {
-            assertEquals(true, count >= 0 && count <= 1);
+            assertTrue(count >= 0 && count <= 1);
         }
     }
 
     @Test
-    void getWinners() {
+    void winners() {
+        // given
         ArrayList<String> carNames = new ArrayList<>(List.of("Car1", "Car2", "Car3"));
-
         race.initialize(carNames);
-
         ArrayList<Integer> carGoingCount = new ArrayList<>(List.of(1, 2, 2));
 
+        // when
         for (int i = 0; i < carGoingCount.size(); i++) {
             race.getCarGoingCount().set(i, carGoingCount.get(i));
         }
         String winners = race.winners();
 
-        // getWinners 메서드가 예상대로 동작하는지 확인
-        assertEquals("Car2, Car3", winners);
+        // then
+        assertThat("Car2, Car3").isEqualTo(winners);
     }
 }

@@ -11,35 +11,35 @@ class OutputViewTest {
 
     @Test
     void showExecutionResultsHeader() {
-        //when
+        // when
         String output = outputView.showExecutionResultsHeader();
 
-        //then
+        // then
         assertThat(output).isEqualTo("실행 결과");
     }
 
     @Test
     void showExecutionResults() {
-        //given
+        // given
         ArrayList<String> carNames = new ArrayList<>(List.of("Tom", "Bob", "Lisa"));
         ArrayList<Integer> carGoingCount = new ArrayList<>(List.of(3, 5, 2));
 
-        //when
+        // when
         String output = outputView.showExecutionResults(carNames, carGoingCount);
 
-        //then
+        // then
         assertThat(output).isEqualTo("Tom : ---\nBob : -----\nLisa : --\n");
     }
 
     @Test
     void showWinner() {
-        //given
+        // given
         String winners = "Bob";
 
-        //when
+        // when
         String output = outputView.showWinner(winners);
 
-        //then
+        // then
         assertThat(output).isEqualTo("최종 우승자 : " + winners);
     }
 }

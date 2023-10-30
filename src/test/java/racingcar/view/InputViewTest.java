@@ -17,7 +17,7 @@ class InputViewTest {
 
     @Test
     void inputCarNames() {
-        //given
+        // given
         inputView = new InputView();
         String input = "Tom,Bob,Lisa";
 
@@ -25,20 +25,20 @@ class InputViewTest {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 
-        //when
+        // when
         String[] result = inputView.inputCarNames();
 
         // 테스트 후에는 System.in을 원래대로 복원
         System.setIn(System.in);
 
-        //then
+        // then
         assertThat(result).containsExactly("Tom", "Bob", "Lisa");
 
     }
 
     @Test
     void inputTryNumber() {
-        //given
+        // given
         inputView = new InputView();
         String input = "5";
 
@@ -46,13 +46,13 @@ class InputViewTest {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 
-        //when
+        // when
         String result = inputView.inputTryNumber();
 
         // 테스트 후에는 System.in을 원래대로 복원
         System.setIn(System.in);
 
-        //then
+        // then
         assertThat(result).isEqualTo("5");
     }
 }
