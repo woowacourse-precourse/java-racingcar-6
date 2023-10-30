@@ -6,6 +6,8 @@ import java.util.List;
 public class Car {
     public String name;
     public int score;
+    public Car(){
+    }
 
     public Car(String name, int score){
         this.name=name;
