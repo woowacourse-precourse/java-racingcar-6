@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.List;
-import racingcar.game.RacePreparation;
 import racingcar.game.RaceResult;
 import racingcar.game.Round;
 import racingcar.game.ScoreBoard;
@@ -11,15 +10,13 @@ import racingcar.util.UserInput;
 public class RaceGame {
     private final Printer printer = new Printer();
     private final UserInput userInput = new UserInput();
-    private final RacePreparation racePreparation = new RacePreparation();
     private final RaceResult raceResult = new RaceResult();
     private final ScoreBoard scoreBoard;
     private final Round round;
 
     public RaceGame() {
         printer.printStartMessage();
-        List<String> carNames = userInput.getCarNames();
-        this.scoreBoard = new ScoreBoard(racePreparation.makeScoreBoard(carNames));
+        this.scoreBoard = new ScoreBoard(userInput.getCarNames());
 
         printer.printRequestRoundMessage();
         this.round = new Round(userInput.getGameRound());
@@ -39,4 +36,5 @@ public class RaceGame {
 
         printer.printWinnersNames(winnerList);
     }
+
 }
