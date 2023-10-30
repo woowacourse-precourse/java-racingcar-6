@@ -49,6 +49,8 @@ class Game {
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
     List<String> nameList;
     List<Car> carList;
+    static int winnerCount = 0;
+    static int outputCount = 0;
 
     public void getCarNames() {
         String input = Console.readLine();
@@ -76,9 +78,26 @@ class Game {
                 max = car.count;
             }
         }
-        for(Car car : carList) {
-            if(car.count == max)
+        for (Car car : carList) {
+            if (car.count == max) {
                 car.win = true;
+                winnerCount++;
+            }
+        }
+    }
+
+    public void printWinner(List<Car> carList) {
+        System.out.print(OUTPUT_MESSAGE);
+        for(Car car : carList){
+            if(car.win) {
+                System.out.print(car.name);
+                outputCount++;
+            }
+            if(outputCount == winnerCount){
+                System.out.print("\n");
+                break;
+            }
+            System.out.print(", ");
         }
     }
 
@@ -93,5 +112,7 @@ class Game {
             }
             printOutput();
         }
+        System.out.print(WINNER_MESSAGE);
+        printWinner(carList);
     }
 }
