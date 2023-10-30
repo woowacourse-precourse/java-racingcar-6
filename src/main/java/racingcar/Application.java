@@ -29,18 +29,6 @@ class Car {
             this.count++;
         }
     }
-
-    public void printCounts() {
-        for (int i = 0; i < count; i++) {
-            System.out.print("-");
-        }
-    }
-
-    public void printMoves() {
-        System.out.print(this.name + " : ");
-        printCounts();
-        System.out.print("\n");
-    }
 }
 
 class Game {
@@ -49,8 +37,8 @@ class Game {
     public static final String MOVES_MESSAGE = "시도할 회수는 몇회인가요?\n";
     public static final String OUTPUT_MESSAGE = "실행 결과\n";
     public static final String WINNER_MESSAGE = "최종 우승자 : ";
-    List<String> nameList;
-    List<Car> carList;
+    List<String> nameList = new ArrayList<>();
+    List<Car> carList = new ArrayList<>();
     static int winnerCount = 0;
     static int outputCount = 0;
 
