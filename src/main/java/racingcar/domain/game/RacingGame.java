@@ -9,16 +9,15 @@ public class RacingGame {
 
     private final RandomNumberGenerator randomNumberGenerator;
 
+    private int progressCount = 0;
+
     public RacingGame(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
     public void progress(List<Car> cars, int tryMaxCount) {
-        int tryCount = 0;
-        while (tryCount < tryMaxCount) {
-            move(cars);
-            tryCount++;
-        }
+        progressCount++;
+        move(cars);
     }
 
     private void move(List<Car> cars) {
@@ -48,4 +47,7 @@ public class RacingGame {
 
     }
 
+    public boolean isRun(int tryCount) {
+        return this.progressCount < tryCount;
+    }
 }
