@@ -20,6 +20,8 @@
     - [CarRegister.java](CarRegister.java)
   - [Manager](Manager)
 - [View](view)
+  - [InputView.java](InputView.java)
+  - [OutputView.java](OutputView.java)
 - [Controller](Controller)
   - [MainController.java](MainController.java)
 - [Uitl](Util)
@@ -56,11 +58,18 @@
 - isMove()
 
 # View
+### InputView.java
+- readCarNames()
+- readMoveCount()
+- 메세지 enum으로 정리
+
+
+### OutputView.java
 
 
 # Controller
 ### MainController.java
-
+ㅍ
 
 
 # Util
