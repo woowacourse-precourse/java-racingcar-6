@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.model.Cars;
 import racingcar.model.PlayCount;
 import racingcar.model.converter.CarConverter;
+import racingcar.model.converter.CarsConverter;
 import racingcar.model.dto.CarResponse;
 import racingcar.model.randomnumber.RandomNumber;
 import racingcar.view.input.InputView;
@@ -39,10 +40,7 @@ public class GameController {
     }
 
     private void printEachStatus(final Cars cars) {
-        List<CarResponse> carResponses = cars.getCars()
-                .stream()
-                .map(CarConverter::from)
-                .toList();
+        List<CarResponse> carResponses = CarsConverter.fromEntity(cars);
 
         carResponses.forEach(response -> {
             outputView.printEachCarStatus(response.getName(), response.getPosition());
