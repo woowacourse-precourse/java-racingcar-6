@@ -18,8 +18,10 @@ public class CarModel {
         return location;
     }
 
-    public void increaseLocation() {
-        this.location++;
+    public void increaseLocation(int randomNumber) {
+        if (randomNumber >= 4) {
+            this.location++;
+        }
     }
 
     public boolean compareMaxLocation(int a) {

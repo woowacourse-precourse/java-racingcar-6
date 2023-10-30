@@ -17,17 +17,10 @@ public class Cars {
     }
     public void carsForward() {
         for ( CarModel carModel : carModelList) {
-
-            if (forwardCheck()) {
-                carModel.increaseLocation();
-            }
+            carModel.increaseLocation(Randoms.pickNumberInRange(0, 9));
             OutputView.printRacing(carModel.getName(), carModel.getLocation());
         }
         System.out.println("");
-    }
-
-    private boolean forwardCheck() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 
     public List<CarModel> winnerCheck(int maxLocation) {
