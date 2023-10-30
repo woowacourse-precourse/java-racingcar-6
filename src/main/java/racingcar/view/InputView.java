@@ -18,6 +18,7 @@ public class InputView {
 
         InputValidator.validateNotInputComma(input);
         InputValidator.validateInputCarNameCharacter(input);
+        InputValidator.validateInputCarNameCount(input);
         InputValidator.validateInputCarNameLength(input);
         InputValidator.validateDuplicationCarNames(input);
 
