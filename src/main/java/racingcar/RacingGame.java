@@ -7,6 +7,7 @@ public class RacingGame {
 
     private GameSetting gameSetting = new GameSetting();
     private ScriptHandler scriptHandler = new ScriptHandler();
+    private GameController gameController = new GameController();
     private HashMap<String, Integer> cars;
     private ArrayList<String> winnerList = new ArrayList<>();
     private int attemptNumber, carNumber, carMoveMent, randomNumber, updateCarValue;
@@ -27,7 +28,7 @@ public class RacingGame {
         scriptHandler.printSimpleResultScript();
         for (int i = 0; i < attemptNumber; i++) {
             for (int j = 0; j < carNumber; j++) {
-                carName = gameSetting.getCarName(j);
+                carName = gameController.getCarName(j);
                 eachCarPickRandomNumber(carName);
                 printProgress(carName);
             }
@@ -39,7 +40,7 @@ public class RacingGame {
 
     public void printProgress(String carName) {
         System.out.printf("%s : ", carName);
-        carMoveMent = gameSetting.getCarMoveForward(carName);
+        carMoveMent = gameController.getCarMoveForward(carName);
         for (int i = 0; i < carMoveMent; i++) {
             System.out.print("-");
         }
@@ -47,7 +48,7 @@ public class RacingGame {
     }
 
     public void eachCarPickRandomNumber(String carName) {
-        randomNumber = gameSetting.getRandomNumber();
+        randomNumber = gameController.getRandomNumber();
         if (randomNumber >= 4) {
             updateCarValue = cars.get(carName) + 1;
             cars.put(carName, updateCarValue);
@@ -57,8 +58,8 @@ public class RacingGame {
     public void checkWinner() {
         int furthestMovement = findFurthestMovement();
         for (int i = 0; i < cars.size(); i++) {
-            carName = gameSetting.getCarName(i);
-            carMoveMent = gameSetting.getCarMoveForward(carName);
+            carName = gameController.getCarName(i);
+            carMoveMent = gameController.getCarMoveForward(carName);
             if (carMoveMent == furthestMovement) {
                 winnerList.add(carName);
             }
@@ -68,8 +69,8 @@ public class RacingGame {
     public int findFurthestMovement() {
         int max = -1;
         for (int i = 0; i < cars.size(); i++) {
-            carName = gameSetting.getCarName(i);
-            carMoveMent = gameSetting.getCarMoveForward(carName);
+            carName = gameController.getCarName(i);
+            carMoveMent = gameController.getCarMoveForward(carName);
             if (carMoveMent > max) {
                 max = carMoveMent;
             }

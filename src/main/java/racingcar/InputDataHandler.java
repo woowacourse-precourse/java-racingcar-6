@@ -35,4 +35,8 @@ public class InputDataHandler {
     public String findCarName(int index){
         return carNames[index];
     }
+
+    public int findCarMovement(String carName){
+        return cars.get(carName);
+    }
 }
