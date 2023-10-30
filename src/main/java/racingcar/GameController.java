@@ -3,10 +3,17 @@ package racingcar;
 import java.util.List;
 
 public class GameController {
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
-    private final Player player = new Player();
-    private final GameService gameService = new GameService();
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final Player player;
+    private final GameService gameService;
+
+    public GameController(InputView inputView, OutputView outputView, Player player, GameService gameService) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+        this.player = player;
+        this.gameService = gameService;
+    }
 
     public void play() {
         racingCarGamePlayerInputInfo();

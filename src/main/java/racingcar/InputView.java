@@ -3,7 +3,11 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    private final GameException gameException = new GameException();
+    private final GameException gameException;
+
+    public InputView() {
+        this.gameException = new GameException();
+    }
 
     private static final String SPLIT_COMMA = ",";
 
