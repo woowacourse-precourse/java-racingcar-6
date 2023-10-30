@@ -47,7 +47,7 @@
 
 ## 개발 방향
 ```
-1. 입력받는 Dto 생성. - List<String>(자동차 이름), int(게임 횟수)
+1. 입력받는 Dto 생성. - Map<String, Integer>(자동차 이름), int(게임 횟수)
 2. 사용자 입력에 대한 util 클래스 생성
     2-1. 문구를 출력하고 데이터를 입력받는 메서드 생성
     2-2. 문구가 잘 들어왔는지 확인하는 메서드 생성. ( IllegalArgumentException 에러를 던지고 종료 )
