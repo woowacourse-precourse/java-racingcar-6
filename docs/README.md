@@ -17,7 +17,7 @@
             - ✅ null일 경우
             - ✅ 빈 문자열일 경우
             - ✅ 값이 공백만으로 구성된 경우
-        - ✅ 길이가 6이상일 경우, "The length of the name must be 5 or less." 예외 메시지 설정
+        - ✅ 길이가 5초과일 경우, "The length of the name must be 5 or less." 예외 메시지 설정
         - ✅ 영어, 숫자, '-' 이외의 다른 값이 포함된 경우, "Only English letters, numbers, and '-' symbol are allowed in the name." 예외
           메시지 설정
 - ✅ 자동차 이름은 중복될 수 없습니다.

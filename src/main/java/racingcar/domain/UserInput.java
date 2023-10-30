@@ -8,6 +8,8 @@ public class UserInput {
     private String[] carArray;
     private HashSet<String> carHashSet = new HashSet<>();
 
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+
     public UserInput(String nameOfCars) {
         this.nameOfCars = nameOfCars;
     }
@@ -37,7 +39,7 @@ public class UserInput {
                 throw new IllegalArgumentException("None of the names can be blank.");
             }
 
-            if (name.length() >= 6) {
+            if (name.length() > MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException("The length of the name must be 5 or less.");
             }
 
@@ -94,7 +96,7 @@ public class UserInput {
 
         return false;
     }
-    
+
     public void checkAttempsNumberValidity() {
         if (isStringEmpty(attemptsNumber)) {
             throw new IllegalArgumentException("Input value cannot be blank");
