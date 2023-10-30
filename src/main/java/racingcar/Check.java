@@ -13,4 +13,12 @@ public class Check {
         // car_list 넣어주면 이름길이 0<이름<=5인지 체크해주는 함수
         return result;
     }
+
+    public int countComma(String carlist){
+        int result=0;
+        for(int i=0;i<carlist.length();i++){
+            if(carlist.charAt(i)==',')result++;
+        }
+        return result;
+    }
 }
