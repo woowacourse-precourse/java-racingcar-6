@@ -44,9 +44,8 @@ public class User {
     private boolean validateCarName(String name) {
         if (name.length() <= 5) {
             return true;
-        } else {
-            throw new IllegalArgumentException("5 이하 길이");
         }
+        throw new IllegalArgumentException("5 이하 길이");
     }
 
     private void addCarName(String name) {

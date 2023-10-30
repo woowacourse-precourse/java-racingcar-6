@@ -27,4 +27,12 @@ public class Car {
         this.move();
         this.printStatus();
     }
+
+    public int getPositionLength() {
+        return this.position.length();
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }
