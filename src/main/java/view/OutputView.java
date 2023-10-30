@@ -21,4 +21,8 @@ public class OutputView {
                 .toList())
         );
     }
+
+    public static void displayCurrentRacingStatus(Cars cars) {
+        System.out.println(cars.getAllCarsStatus());
+    }
 }

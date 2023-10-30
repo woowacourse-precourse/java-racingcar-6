@@ -47,6 +47,5 @@ public class OutputViewTest {
 
         //then
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo("최종 우승자 : pobi,lisa");
-
     }
 }
