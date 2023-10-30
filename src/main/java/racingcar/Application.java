@@ -30,6 +30,6 @@ public class Application {
         }
 
         resultViewer.printWinner();
-
     }
+
 }

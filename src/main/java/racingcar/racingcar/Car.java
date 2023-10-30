@@ -9,7 +9,7 @@ import racingcar.playrule.RacingRule;
  **********************************************************************************************************************/
 public class Car {
 
-    private RacingRule racingRule;
+    private final RacingRule racingRule;
     private final String name;
     private Integer position;
 
