@@ -11,9 +11,9 @@ public class CarNameValidator {
     private static final String SPACE = " ";
     private static final int CAR_NAME_MIN_LENGTH = 1;
     private static final int CAR_NAME_MAX_LENGTH = 5;
-    private List<String> carName;
+    private static List<String> carName;
 
-    public List<String> validateCarName(String carNames){
+    public static List<String> validateCarName(String carNames){
         if(hasSpace(carNames)){
             throw new IllegalArgumentException(INPUT_HAS_SPACE);
         }
@@ -30,7 +30,7 @@ public class CarNameValidator {
         return carName;
     }
 
-    private List<String> convertCarName(String carNames){
+    private static List<String> convertCarName(String carNames){
         return List.of(carNames.split(COMMA));
     }
 
