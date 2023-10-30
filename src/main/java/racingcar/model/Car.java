@@ -1,7 +1,7 @@
-package racingcar.domain;
+package racingcar.model;
 
-import racingcar.Error;
-import racingcar.NumberConstant;
+import racingcar.constant.Error;
+import racingcar.constant.NumberConstant;
 
 public class Car {
     private final String name;

@@ -1,6 +1,10 @@
-package racingcar.domain;
+package racingcar.controller;
 
-import racingcar.NumberConstant;
+import racingcar.constant.NumberConstant;
+import racingcar.model.Cars;
+import racingcar.model.TryCount;
+import racingcar.util.Utils;
+import racingcar.view.OutputView;
 
 public class RacingGame {
     private final Cars cars;
@@ -14,9 +18,9 @@ public class RacingGame {
     public void run() {
         for (int i = 0; i < tryCount; i++) {
             moveCars();
-            Output.printCarNameAndPosition(cars.getCarNamePositionMap());
+            OutputView.printCarNameAndPosition(cars.getCarNamePositionMap());
         }
-        Output.printVictoryCarNames(cars.getVictoryCarNames());
+        OutputView.printVictoryCarNames(cars.getVictoryCarNames());
     }
 
     private void moveCars() {

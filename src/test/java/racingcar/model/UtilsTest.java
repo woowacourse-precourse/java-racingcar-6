@@ -1,17 +1,19 @@
-package racingcar.domain;
+package racingcar.model;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
+import racingcar.util.Utils;
 
 class UtilsTest {
-        @Test
-        void 시도할_회수는_자연수만_가능합니다() {
-            assertFalse(Utils.isNaturalNumber("-1"));
-            assertFalse(Utils.isNaturalNumber("0"));
-            assertFalse(Utils.isNaturalNumber("1.5"));
-        }
+    @Test
+    void 시도할_회수는_자연수만_가능합니다() {
+        assertFalse(Utils.isNaturalNumber("-1"));
+        assertFalse(Utils.isNaturalNumber("0"));
+        assertFalse(Utils.isNaturalNumber("1.5"));
+    }
 
     @Test
     void 랜덤_숫자_범위_테스트() {
@@ -20,6 +22,6 @@ class UtilsTest {
             int randomNumber = Utils.getRandomNumber();
             randomNumbers.add(randomNumber);
         }
-        assertThat(randomNumbers).contains(0,9);
+        assertThat(randomNumbers).contains(0, 9);
     }
 }

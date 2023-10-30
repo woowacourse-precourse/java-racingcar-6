@@ -1,8 +1,8 @@
-package racingcar.domain;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class Input {
+public class InputView {
     public static String[] getCarsByUser() {
         return Console.readLine().split(",");
     }

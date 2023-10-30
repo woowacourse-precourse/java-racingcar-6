@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public class NumberConstant {
     public static int MIN_CAR_NAME_LENGTH = 0;

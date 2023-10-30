@@ -1,10 +1,11 @@
-package racingcar.domain;
+package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
-import racingcar.Error;
+import racingcar.constant.Error;
+import racingcar.util.Utils;
 
 public class Cars {
     private List<Car> carList = new ArrayList<>();

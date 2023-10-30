@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public class SystemMessage {
     public static String GAME_RESULT = "실행 결과";

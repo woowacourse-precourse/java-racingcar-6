@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.constant;
 
 public enum Error {
     CAR_NAME_LENGTH_ERROR(

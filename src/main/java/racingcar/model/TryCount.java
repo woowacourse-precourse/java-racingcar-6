@@ -1,6 +1,7 @@
-package racingcar.domain;
+package racingcar.model;
 
-import racingcar.Error;
+import racingcar.constant.Error;
+import racingcar.util.Utils;
 
 public class TryCount {
 
