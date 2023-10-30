@@ -62,13 +62,26 @@ public class Race {
 
     private static int getMoveCount() {
         String userInput = InputView.userInput();
-        return Integer.parseInt(userInput);
+        try {
+            int moveCount = Integer.parseInt(userInput);
+            if (moveCount < 4) {
+                throw new IllegalArgumentException(ErrorMessage.USER_INSERT_MIN_NUMBER_FOUR.getMessage());
+            }
+            return moveCount;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.USER_INSERT_ONLY_NUMBER.getMessage());
+        }
     }
 
 
     private void callCarNames() {
         String input = InputView.userInput();
         String[] carNames = input.split(",");
+        for (String carName : carNames) {
+            if (carName.trim().isEmpty()) {
+                throw new IllegalArgumentException(ErrorMessage.USER_INSERT_NOT_BLANK.getMessage());
+            }
+        }
         List<Car> carList = Arrays.stream(carNames)
                 .map(Car::new)
                 .collect(Collectors.toList());
@@ -77,22 +90,34 @@ public class Race {
     }
 
     private static StringBuilder showWinner(List<Car> currentWinner) {
-        return new StringBuilder(currentWinner.stream()
-                .map(Car::getName)
-                .collect(Collectors.joining(",")));
+        StringBuilder winnerResult = new StringBuilder();
+        for (int i = 0; i < currentWinner.size(); i++) {
+            winnerResult.append(currentWinner.get(i));
+            if (i != currentWinner.size() - 1) {
+                winnerResult.append(",");
+            }
+        }
+        return winnerResult;
     }
 
     public static void validateUserInput(List<Car> userInput) {
         for (Car car : userInput) {
-            if (car.getName().length() >= 5) {
+            if (car.getName().length() >= 6) {
                 throw new IllegalArgumentException(ErrorMessage.CAR_NAME_ONLY_FIVE_BELOW.getMessage());
             }
         }
-//        Set<Car> userInputSet = new HashSet<>(userInput);
-//        if (userInputSet.size() == userInput.size()) {
-//            throw new IllegalArgumentException(ErrorMessage.USER_INSERT_NOT_DUPLICATION.getMessage());
-//        }
+        Set<String> carNames = new HashSet<>();
+        for (Car car : userInput) {
+            if (!carNames.add(car.getName())) {
+                throw new IllegalArgumentException(ErrorMessage.USER_INSERT_NOT_DUPLICATION.getMessage());
+            }
+        }
+
     }
+
+
+
+
 
 }
 
