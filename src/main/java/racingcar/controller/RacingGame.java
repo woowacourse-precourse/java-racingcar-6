@@ -10,15 +10,14 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
     private List<Car> cars;
+    private Long tryCount;
 
     public void start() {
-        List<String> racingCarNames = InputView.readRacingCarName();
-        Long tryCount = InputView.readTryCount();
-
-        cars = createCars(racingCarNames);
+        cars = createCars(InputView.readRacingCarName());
+        tryCount = InputView.readTryCount();
 
         OutputView.printResultMessage();
-        printResult(tryCount);
+        printResult();
 
         List<Car> winners = findWinner();
         OutputView.printWinners(winners);
@@ -35,7 +34,7 @@ public class RacingGame {
         return cars;
     }
 
-    private void printResult(Long tryCount) {
+    private void printResult() {
         for (int i = 0; i < tryCount; i++) {
             tryToMoveCars();
             OutputView.printResult(cars);
