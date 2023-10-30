@@ -79,6 +79,15 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    @DisplayName("시도 횟수에 대한 예외 처리-음수")
+    void 시도_횟수에_대한_예외_처리_음수(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     @DisplayName("이름 입력 도움 문구 출력")
     void 이름입력_문구출력() {
         assertSimpleTest(() -> {
