@@ -8,6 +8,7 @@ public class Application {
     public static void main(String[] args) {
         Config config = generateConfig();
         RacingController racingController = generateRacingController(config);
+
         racingController.playGame();
     }
 

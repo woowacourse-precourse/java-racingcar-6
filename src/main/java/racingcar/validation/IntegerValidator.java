@@ -17,5 +17,4 @@ public class IntegerValidator {
             ExceptionUtil.throwInvalidValueException(INVALID_INTEGER_MESSAGE);
         }
     }
-
 }
