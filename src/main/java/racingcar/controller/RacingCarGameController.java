@@ -71,10 +71,14 @@ public class RacingCarGameController {
     }
 
     public void judgeAdvanceOrLeft(Car car, int randomNumber) {
-        if (randomNumber >= MIN_ADVANCE_COUNT) {
+        if (isBiggerThanMinAdvanceCount(randomNumber)) {
             int currentAdvanceCount = car.getAdvanceCount();
             car.setAdvanceCount(currentAdvanceCount + ADVANCE_COUNT);
         }
+    }
+
+    public boolean isBiggerThanMinAdvanceCount(int randomNumber) {
+        return randomNumber >= MIN_ADVANCE_COUNT;
     }
 
     public void chooseWinner(Map<String, Car> carsMap) {
