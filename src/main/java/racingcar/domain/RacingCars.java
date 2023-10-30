@@ -16,7 +16,7 @@ public class RacingCars {
         cars.forEach(car -> car.move(getMoveCondition()));
     }
 
-    public List<CarStatusDto> createRacingResult() {
+    public List<CarStatusDto> submitCarStatuses() {
         return cars.stream()
                 .map(car -> new CarStatusDto(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());

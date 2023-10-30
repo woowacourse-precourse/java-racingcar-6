@@ -33,14 +33,14 @@ class RacingCarsTest {
     }
 
     @Test
-    void createRacingResult() {
+    void submitCarStatuses() {
         // given
         Car car1 = new Car("pony");
         Car car2 = new Car("zon");
         RacingCars racingCars = new RacingCars(Arrays.asList(car1, car2));
 
         // when
-        RacingResult racingResult =  new RacingResult(racingCars.createRacingResult());
+        RacingResult racingResult =  new RacingResult(racingCars.submitCarStatuses());
 
         // then
         assertThat(racingResult.getCarStatuses())
