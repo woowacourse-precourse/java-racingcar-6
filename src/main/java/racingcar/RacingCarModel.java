@@ -15,7 +15,7 @@ public class RacingCarModel {
         }
     }
 
-    public Iterator<String> getWinnerList(){
+    public Iterator<String> getWinnerListIterator(){
         ArrayList<String> winnerList = new ArrayList<>();
         Collections.sort(carList);
         int maxMoveCount = carList.get(0).getMoveCount();
@@ -32,7 +32,7 @@ public class RacingCarModel {
         return winnerList.iterator();
     }
 
-    public Iterator<String> getRoundResults(){
+    public Iterator<String> getRoundResultIterator(){
         ArrayList<String> roundResults =  new ArrayList<>(carList.size());
         for (Car car: carList){
             roundResults.add(car.toString());

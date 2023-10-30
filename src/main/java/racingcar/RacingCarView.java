@@ -2,6 +2,8 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import java.util.Iterator;
+
 public class RacingCarView {
 
     public void displayCarNameSetupMessage(){
@@ -15,8 +17,8 @@ public class RacingCarView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void displayRoundResults(){}
+    public void displayRoundResults(Iterator<String> roundResultIterator){}
 
-    public void displayWinnerList(){}
+    public void displayWinnerList(Iterator<String> winnerListIterator){}
 
 }
