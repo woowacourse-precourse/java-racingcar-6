@@ -37,4 +37,19 @@ public class OutputTest {
         // then
         Assertions.assertThat(output).contains("포비 : ---");
     }
+
+    @Test
+    public void 최종_결과_출력() {
+        // given
+        ArrayList<String> winnerNameList = new ArrayList<>();
+        winnerNameList.add("포비");
+        winnerNameList.add("수현");
+
+        // when
+        OutputView.printWinnerResult(winnerNameList);
+        String output = outContent.toString();
+
+        // then
+        Assertions.assertThat(output).contains("최종 우승자 : 포비, 수현");
+    }
 }
