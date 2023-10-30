@@ -3,6 +3,8 @@ package racingcar.domain;
 import static racingcar.constant.Constant.MOVE_LOWER_BOUND;
 import static racingcar.constant.Constant.RANDOM_NUMBER_MAX;
 import static racingcar.constant.Constant.RANDOM_NUMBER_MIN;
+import static racingcar.constant.Constant.ZERO;
+import static racingcar.constant.ExceptionMessage.NO_WINNER_MESSAGE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,9 +47,21 @@ public class Race {
         return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
     }
 
-    public List<String> findWinner() {
+    public List<String> getWinner() {
 
         return new ArrayList<>();
+    }
+
+    public List<String> findWinner() {
+        Optional<Integer> longestDistance = getLongestDistance();
+        validateWinner(longestDistance);
+        return null;
+    }
+
+    private void validateWinner(Optional<Integer> longestDistance) {
+        if (longestDistance.get()==ZERO) {
+            throw new IllegalArgumentException(NO_WINNER_MESSAGE.getMessage());
+        }
     }
 
     private Optional<Integer> getLongestDistance() {
