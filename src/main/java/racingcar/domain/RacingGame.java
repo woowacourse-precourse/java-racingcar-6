@@ -20,9 +20,10 @@ public class RacingGame {
     public void run() {
         readyRacingGame();
         while (isRemainPlayTime()){
+            raceController.round();
 
         }
-
+        raceController.gameOver();
         input.close();
     }
 
@@ -33,8 +34,8 @@ public class RacingGame {
     private void readyRacingGame(){
         input.printGameStartMessage();
         List<String> racingCarNames = input.writeCarNames();
-        raceController = new RaceController(racingCarNames);
         input.printPlayTimeQuestion();
         playTime = input.writePlayTime();
+        raceController = new RaceController(racingCarNames);
     }
 }
