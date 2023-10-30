@@ -10,7 +10,7 @@ import java.util.Map;
 public class RacingCar {
     ExceptionCase exception = new ExceptionCase();
     public String nameInput(){
-        return Console.readLine();
+        return Console.readLine().trim();
     }
 
     public List<String> naming(String input) {
@@ -30,7 +30,7 @@ public class RacingCar {
     }
 
     public int attemptInput() {
-        String attempt = Console.readLine();
+        String attempt = Console.readLine().trim();;
         exception.nullStringInput(attempt);
         return Integer.parseInt(attempt);
     }
