@@ -5,9 +5,9 @@ import racingcar.domain.util.NumberGenerator;
 import racingcar.domain.util.RandomNumberGenerator;
 import racingcar.port.in.RacingCarInputPort;
 import racingcar.port.in.console.RacingCarInputConsoleAdapter;
-import racingcar.service.CarService;
-import racingcar.service.RacingCarGameService;
-import racingcar.usecase.RacingCarUseCase;
+import racingcar.application.service.CarService;
+import racingcar.application.service.RacingCarGameService;
+import racingcar.application.usecase.RacingCarUseCase;
 import racingcar.view.RacingCarView;
 
 public class RacingCarConfiguration {

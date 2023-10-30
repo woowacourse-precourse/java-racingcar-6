@@ -1,4 +1,4 @@
-package racingcar.usecase;
+package racingcar.application.usecase;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,8 +7,8 @@ import racingcar.domain.car.Car;
 import racingcar.domain.race.RaceChecker;
 import racingcar.domain.race.RaceResult;
 import racingcar.port.in.RacingCarInputPort;
-import racingcar.service.CarService;
-import racingcar.service.RacingCarGameService;
+import racingcar.application.service.CarService;
+import racingcar.application.service.RacingCarGameService;
 import racingcar.view.RacingCarView;
 
 import java.util.List;

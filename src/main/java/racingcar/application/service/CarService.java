@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.application.service;
 
 import racingcar.domain.car.Car;
 import racingcar.domain.car.CarEngine;

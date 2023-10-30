@@ -2,7 +2,7 @@ package racingcar;
 
 import racingcar.config.RacingCarFramework;
 import racingcar.domain.race.RaceResult;
-import racingcar.usecase.RacingCarUseCase;
+import racingcar.application.usecase.RacingCarUseCase;
 
 public class Application {
     public static void main(String[] args) {

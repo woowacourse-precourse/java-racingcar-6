@@ -1,10 +1,10 @@
-package racingcar.usecase;
+package racingcar.application.usecase;
 
 import racingcar.port.in.RacingCarInputPort;
 import racingcar.domain.car.Car;
 import racingcar.domain.race.RaceResult;
-import racingcar.service.CarService;
-import racingcar.service.RacingCarGameService;
+import racingcar.application.service.CarService;
+import racingcar.application.service.RacingCarGameService;
 import racingcar.view.RacingCarView;
 
 import java.util.List;
