@@ -1,6 +1,6 @@
-package service;
+package racingcar.service;
 
-import model.RaceCar;
+import racingcar.model.RaceCar;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,11 +1,11 @@
-package controller;
+package racingcar.controller;
 
-import view.InputView;
-import view.OutputView;
-import validator.Validator;
-import service.GameService;
-import model.RaceCar;
-import status.ProgressType;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+import racingcar.validator.Validator;
+import racingcar.service.GameService;
+import racingcar.model.RaceCar;
+import racingcar.status.ProgressType;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,12 +13,19 @@ import java.util.List;
 import java.util.Objects;
 
 public class GameController {
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
-    private final Validator validator = new Validator();
-    private final GameService gameService = new GameService();
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final GameService gameService;
+    private final Validator validator;
     private List<RaceCar> raceCars = new ArrayList<>();
     private int tryNumber;
+
+    public GameController(InputView inputView, OutputView outputView,GameService gameService, Validator validator) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+        this.gameService = gameService;
+        this.validator = validator;
+    }
 
     public boolean Progress() {
         runName();

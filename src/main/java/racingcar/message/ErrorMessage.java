@@ -1,4 +1,4 @@
-package message;
+package racingcar.message;
 
 public class ErrorMessage {
     public static final String EXCEPTION_NAME_OVER = "자동차 이름의 길이가 5 초과!";

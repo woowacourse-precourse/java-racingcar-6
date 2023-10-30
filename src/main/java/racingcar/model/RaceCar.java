@@ -1,6 +1,6 @@
-package model;
+package racingcar.model;
 
-import message.ErrorMessage;
+import racingcar.message.ErrorMessage;
 
 public class RaceCar {
     private final String name;

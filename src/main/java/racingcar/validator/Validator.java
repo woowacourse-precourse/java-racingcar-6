@@ -1,6 +1,6 @@
-package validator;
+package racingcar.validator;
 
-import message.ErrorMessage;
+import racingcar.message.ErrorMessage;
 
 import java.util.List;
 

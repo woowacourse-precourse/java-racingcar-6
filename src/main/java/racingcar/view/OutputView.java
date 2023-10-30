@@ -1,6 +1,6 @@
-package view;
+package racingcar.view;
 
-import message.ViewMessage;
+import racingcar.message.ViewMessage;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package status;
+package racingcar.status;
 
 public enum ProgressType {
     RESTART("1"),
