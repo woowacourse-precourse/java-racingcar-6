@@ -1,6 +1,7 @@
 package racingcar.view;
 
-import racingcar.model.Car;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OutputView {
     private final static String INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)기준으로 구분)";
@@ -25,14 +26,18 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public static void positionShow(Car car){
-        for(int i=0; i<car.getCarPosition(); i++){
+    public static void positionShow(int position){
+        for(int i=0; i<position; i++){
             System.out.print("-");
         }
-        System.out.println("");
+        System.out.println();
     }
 
-    public static void carNameShow(Car car){
-        System.out.print(car.getCarName()+" : ");
+    public static void carsStateShow(HashMap<String,Integer> carsState){
+        for(Map.Entry<String,Integer> entry: carsState.entrySet()){
+            System.out.print(entry.getKey()+" : ");
+            positionShow(entry.getValue());
+        }
+        System.out.println();
     }
 }

@@ -1,17 +1,17 @@
 package racingcar.model;
 
 import racingcar.validator.CarNameValidator;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Cars {
 
     public static ArrayList<Car> cars = new ArrayList<Car>();
 
-    public Cars(){
-        CarNameValidator validator = new CarNameValidator(InputView.getCarName());
+    public Cars(String input){
+        CarNameValidator validator = new CarNameValidator(input);
         for (String Name:validator.NAMES){
             Car car = new Car(Name);
             cars.add(car);
@@ -24,10 +24,12 @@ public class Cars {
         }
     }
 
-    public void carsState(){
+    public static HashMap<String, Integer> carStates(){
+        HashMap<String,Integer> carState = new LinkedHashMap<>();
         for(Car car:cars){
-            OutputView.carNameShow(car);
-            OutputView.positionShow(car);
+            carState.put(car.getCarName(), car.getCarPosition());
         }
+        return carState;
     }
+
 }
