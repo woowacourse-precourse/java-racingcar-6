@@ -19,4 +19,6 @@ public class RacingGameEvent {
     public Map<Car, List<Integer>> getPositionHistory() {
         return positionHistory;
     }
+
+    
 }
