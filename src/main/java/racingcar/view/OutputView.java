@@ -23,7 +23,7 @@ public class OutputView {
         System.out.print(WINNER);
         for (int i = 0; i < winners.size(); i++) {
             System.out.print(winners.get(i));
-            if (i < winners.size() - 2) {
+            if (i < winners.size() - 1) {
                 System.out.print(", ");
             }
         }

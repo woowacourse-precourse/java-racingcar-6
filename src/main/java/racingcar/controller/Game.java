@@ -3,6 +3,7 @@ package racingcar.controller;
 import static racingcar.view.InputView.askAttemptNumber;
 import static racingcar.view.InputView.askCarName;
 import static racingcar.view.OutputView.printResult;
+import static racingcar.view.OutputView.printWinner;
 
 import java.util.List;
 import racingcar.domain.Car;
@@ -21,6 +22,7 @@ public class Game {
             }
             System.out.println();
         }
-
+        List<String> winners = cars.findWinner();
+        printWinner(winners);
     }
 }
