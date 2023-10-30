@@ -26,7 +26,9 @@ public class Race {
     private String[] inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = readLine();
-        return input.split(",");
+        String[] carNames = input.split(",");
+        InputValidator.validateCarNames(carNames);
+        return carNames;
     }
 
     public void createCarObjects(String[] carNames){
@@ -51,11 +53,11 @@ public class Race {
         }
     }
 
-    private void displayCarMoving() {
+    public void displayCarMoving() {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }
-        System.out.println(" ");
+        System.out.print("\n");
     }
 
     public List<Car> decideWinner() {
