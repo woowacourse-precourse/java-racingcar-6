@@ -9,8 +9,8 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static int readNumber() {
+    public static String readNumber() {
         System.out.println(Constants.INPUT_NUMBER);
-        return Integer.parseInt(Console.readLine());
+        return Console.readLine();
     }
 }

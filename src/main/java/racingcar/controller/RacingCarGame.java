@@ -11,7 +11,7 @@ public class RacingCarGame {
 
     public void start() {
         carNames = InputView.readCarNames();
-        number = InputView.readNumber();
+        number = toInt(InputView.readNumber());
 
         OutputView.printBlankLine();
         run();
@@ -32,5 +32,13 @@ public class RacingCarGame {
 
     private void exist() {
         OutputView.printGameWinner(carController.getWinner());
+    }
+
+    private int toInt(String str) {
+        try {
+            return Integer.parseInt(str);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("숫자 이외의 값을 입력했습니다.");
+        }
     }
 }
