@@ -19,4 +19,12 @@ public class InputValidation {
             throw new IllegalArgumentException("자동차 이름이 중복되었습니다.");
         }
     }
+
+    public void inputCarNameBlank(HashMap<String, Integer> carName) {
+        for (String car : carName.keySet()) {
+            if (car.contains(" ")) {
+                throw new IllegalArgumentException("자동차 이름에 빈칸을 허용하지 않습니다.");
+            }
+        }
+    }
 }

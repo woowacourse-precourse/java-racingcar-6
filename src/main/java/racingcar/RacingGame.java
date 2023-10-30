@@ -18,6 +18,7 @@ public class RacingGame {
         carName = new HashMap<>();
         inputUtil.inputCarName(carName);
         validator.inputCarNameLength(carName);
+        validator.inputCarNameBlank(carName);
         movement = inputUtil.inputMovement();
 
         System.out.println();
