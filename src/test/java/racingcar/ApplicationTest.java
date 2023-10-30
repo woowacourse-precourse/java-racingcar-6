@@ -24,6 +24,20 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 전진_정지2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("jam1,jam2,jam3", "3");
+                    assertThat(output()).contains("jam1 : -", "jam2 : ", "jam3 : -"
+                            , "jam1 : -", "jam2 : -", "jam3 : -"
+                            , "jam1 : --", "jam2 : -", "jam3 : --"
+                            , "최종 우승자 : jam1, jam3");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
+
+    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
