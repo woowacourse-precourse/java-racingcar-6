@@ -10,4 +10,7 @@ public class Car {
     public String name() {
         return this.name;
     }
+    public Integer steps() {
+        return this.steps;
+    }
 }
