@@ -6,7 +6,6 @@ import static racingcar.constant.Constant.RANDOM_NUMBER_MIN;
 import static racingcar.constant.Constant.ZERO;
 import static racingcar.constant.ExceptionMessage.NO_WINNER_MESSAGE;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -21,12 +20,9 @@ public class Race {
         this.playCars = playCars;
     }
 
-
     public void start() {
-        playCars.forEach((car, distance)
-                -> decideMoveOrStay(car));
+        playCars.forEach((car, distance) -> decideMoveOrStay(car));
     }
-
 
     private void decideMoveOrStay(String carName) {
         int randomNumber = getRandomNumber();
@@ -48,15 +44,14 @@ public class Race {
     }
 
     public List<String> getWinner() {
-
-        return new ArrayList<>();
+        return findWinner();
     }
 
     public List<String> findWinner() {
         Integer longestDistance = getLongestDistance();
         validateWinner(longestDistance);
         return playCars.entrySet().stream()
-                .filter(car -> car.getValue().equals(longestDistance))
+                .filter(car -> car.getValue().getMoveDistance().equals(longestDistance))
                 .map(Entry::getKey)
                 .toList();
     }
