@@ -16,8 +16,8 @@ public class RaceService {
     }
 
     public Cars initializeCars(List<String> carNamesInput) {
-        List<String> carNames = validationService.validateCarNamesInput(carNamesInput);
-        return new Cars(carNames);
+        validationService.validateCarNamesInput(carNamesInput);
+        return new Cars(carNamesInput);
     }
 
     public Count initializeCount(String countInput) {

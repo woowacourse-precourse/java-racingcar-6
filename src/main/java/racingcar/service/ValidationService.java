@@ -12,11 +12,10 @@ import java.util.List;
 import java.util.Set;
 
 public class ValidationService {
-    public List<String> validateCarNamesInput(List<String> carNamesInput) {
+    public void validateCarNamesInput(List<String> carNamesInput) {
         validateEmptyInput(carNamesInput);
         validateLengthInput(carNamesInput);
         validateDuplicateInput(carNamesInput);
-        return carNamesInput;
     }
 
     private void validateEmptyInput(List<String> carNamesInput) {
