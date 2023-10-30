@@ -145,12 +145,12 @@ public class GameProcess {
         Integer sizeOfRaceCarList = raceCarOfWinnerList.size();
         String[] nameOfWinnerArr = new String[sizeOfRaceCarList];
         RaceCar raceCarOfWinner = null;
-        String name = "";
+        String nameOfWinnerCar = "";
 
         for (int indexOfWinCarList = 0; indexOfWinCarList < sizeOfRaceCarList; indexOfWinCarList++) {
             raceCarOfWinner = getRaceCarOfWinnerList(indexOfWinCarList);
-            name = raceCarOfWinner.toString();
-            nameOfWinnerArr[indexOfWinCarList] = name;
+            nameOfWinnerCar = raceCarOfWinner.toString();
+            nameOfWinnerArr[indexOfWinCarList] = nameOfWinnerCar;
         }
 
         return nameOfWinnerArr;
