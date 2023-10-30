@@ -44,24 +44,23 @@ public class GameController {
         outputView.printBlankLine();
     }
 
-    private static List<CarResponse> getCarResponses(final Cars cars) {
-        return cars.getCars()
-                .stream()
-                .map(car -> CarResponse.of(car.getName(), car.getPosition()))
-                .toList();
-    }
-
     private void printWinners(final Cars cars) {
-        List<CarResponse> winners = getWinners(cars);
+        List<CarResponse> winners = getWinnerResponses(cars);
         outputView.printWinners(winners);
     }
 
-    private static List<CarResponse> getWinners(final Cars cars) {
+    private static List<CarResponse> getWinnerResponses(final Cars cars) {
         int maxPosition = cars.calculateWinnersPosition();
 
+        return getCarResponses(cars)
+                .stream()
+                .filter(response -> response.getPosition() == maxPosition)
+                .toList();
+    }
+
+    private static List<CarResponse> getCarResponses(final Cars cars) {
         return cars.getCars()
                 .stream()
-                .filter(car -> car.getPosition() == maxPosition)
                 .map(car -> CarResponse.of(car.getName(), car.getPosition()))
                 .toList();
     }
