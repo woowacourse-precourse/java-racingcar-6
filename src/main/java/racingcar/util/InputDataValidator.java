@@ -1,5 +1,7 @@
 package racingcar.util;
 
+import static racingcar.common.ExceptionMessage.*;
+
 import java.util.List;
 import racingcar.common.Config;
 
@@ -16,7 +18,7 @@ public class InputDataValidator {
     private static void validateEachInputSize(String input) throws IllegalArgumentException {
 
         if (input.length() > Config.MAX_NAME_SIZE) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(SIZE_OVER);
         }
 
     }
@@ -24,7 +26,7 @@ public class InputDataValidator {
     public static void validateHasSpace(String input) throws IllegalArgumentException {
 
         if (input.contains(" ")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(HAS_SPACE);
         }
 
     }
@@ -34,7 +36,7 @@ public class InputDataValidator {
         try {
             Integer.parseInt(input);
         } catch (Exception e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NOT_INTEGER);
         }
 
     }
