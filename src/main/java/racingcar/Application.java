@@ -21,7 +21,7 @@ public class Application {
         System.out.println(TrialRepeat.RESULT_PRINT_TEXT);
         while (trialCurrent < trialToDo) {
             TrialRepeat trial = new TrialRepeat();
-            trial.trialExecution(names);
+            trial.trialExecution(scoreboard);
         }
     }
 }

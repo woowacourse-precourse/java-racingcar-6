@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import java.util.List;
+import java.util.Hashtable;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class TrialRepeat {
@@ -9,18 +9,18 @@ public class TrialRepeat {
     public TrialRepeat() {
     }
 
-    public void trialExecution(List<String> names) {
-        for (String name : names) {
-            System.out.print(name + " : ");
+    public void trialExecution(Hashtable<String, Integer> scoreboard) {
+        for (String name : scoreboard.keySet()) {
             if (goOrNot()) {
-                
+                scoreboard.put(name, scoreboard.get(name) + 1);
             }
+            System.out.println(name + " : " + "-".repeat(scoreboard.get(name)));
         }
+        System.out.println();
     }
 
     private boolean goOrNot() {
         int randomInt = Randoms.pickNumberInRange(0, 9);
         return randomInt >= 4;
     }
-
 }
