@@ -8,22 +8,19 @@ public class Cars {
     private List<Car> cars = new ArrayList<>();
     private int tryCount;
 
-    public List<Car> getCars() {
-        return cars;
+    public Cars(List<String> carNames, int tryCount) {
+        insertCars(carNames);
+        this.tryCount = tryCount;
+    }
+
+    private void insertCars(List<String> carNames) {
+        carNames.forEach(carName -> cars.add(new Car(carName)));
     }
 
     public Map<String, Integer> getScores() {
         Map<String, Integer> scores = new HashMap<>();
         cars.forEach(car -> scores.put(car.getName(), car.getScore()));
         return scores;
-    }
-
-    public void setTryCount(int tryCount) {
-        this.tryCount = tryCount;
-    }
-
-    public void insertCar(Car car) {
-        cars.add(car);
     }
 
     public void moveAllCar() {

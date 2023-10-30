@@ -6,7 +6,7 @@ import view.InputView;
 import view.OutputView;
 
 public class RacingController {
-    Cars cars = new Cars();
+    Cars cars;
 
     public void startGame() {
         initCars();
@@ -20,9 +20,7 @@ public class RacingController {
     }
 
     public void initCars() {
-        InputView.inputCarNames().forEach(name
-                -> cars.insertCar(new Car(name)));
-        cars.setTryCount(InputView.inputTryCount());
+        cars = new Cars(InputView.inputCarNames(), InputView.inputTryCount());
     }
 
     public void tryOnce() {

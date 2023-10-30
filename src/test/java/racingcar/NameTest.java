@@ -19,23 +19,19 @@ public class NameTest {
     @DisplayName("문자열을 구분하고 자동차 객체를 저장하는 기능")
     @Test
     void inputCarNamesTest() {
-        System.setIn(new ByteArrayInputStream("pobi,woni,jun".getBytes()));
-        List<String> answer = new ArrayList<>() {
+        List<String> name = new ArrayList<>() {
             {
                 add("pobi");
                 add("woni");
                 add("jun");
             }
         };
-        Cars cars = new Cars();
+        Cars answer = new Cars(name, 5);
 
-        InputView.inputCarNames()
-                .forEach(name -> cars.insertCar(new Car(name)));
-        List<String> carNames = cars.getCars().stream()
-                .map(Car::getName)
-                .toList();
+        System.setIn(new ByteArrayInputStream("pobi,woni,jun".getBytes()));
+        Cars cars = new Cars(InputView.inputCarNames(), 5);
 
-        assertThat(answer).isEqualTo(carNames);
+        assertThat(cars).usingRecursiveComparison().isEqualTo(answer);
     }
 
     @DisplayName("[예외] 자동차 이름 개수 예외 테스트")
