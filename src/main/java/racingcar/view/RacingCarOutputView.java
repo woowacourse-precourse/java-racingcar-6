@@ -1,6 +1,8 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.List;
+import racingcar.Car;
+import racingcar.utils.Messages;
 
 public class RacingCarOutputView {
     public void moveResultPrint(Integer iterNumber, List<Car> cars) {

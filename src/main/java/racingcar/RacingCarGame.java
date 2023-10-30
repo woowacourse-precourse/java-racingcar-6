@@ -2,6 +2,9 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.utils.Validator;
+import racingcar.view.RacingCarInputView;
+import racingcar.view.RacingCarOutputView;
 
 public class RacingCarGame {
     private final List<Car> cars = new ArrayList<>();

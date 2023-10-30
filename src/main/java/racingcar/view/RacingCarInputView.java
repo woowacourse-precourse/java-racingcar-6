@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.utils.Messages;
 
 public class RacingCarInputView {
     public String carNameInput() {

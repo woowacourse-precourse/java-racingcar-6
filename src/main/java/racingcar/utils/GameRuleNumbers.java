@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.utils;
 
 public class GameRuleNumbers {
     public static int RANDOM_NUMBER_MIN = 0;

@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.utils.GameRuleNumbers;
 
 public class Car {
     private String name;
