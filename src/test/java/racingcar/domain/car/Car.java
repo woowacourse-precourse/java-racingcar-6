@@ -16,4 +16,8 @@ public class Car {
     public int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    public boolean isEqualOrGreaterThan(Car otherCar) {
+        return distance.getDistance() >= otherCar.distance.getDistance();
+    }
 }
