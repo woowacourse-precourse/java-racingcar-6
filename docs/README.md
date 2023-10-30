@@ -10,13 +10,15 @@
       - [ ] 자동차 수 예외 처리
         - [ ] 자동차 생성 가능 최대 수는 10대로 한다. (2023 F1 출전 팀을 기준 10팀)
         - [ ] 자동차 생성 가능 최소 수는 2대로 한다. (경주 게임을 진행하기 위한 최소 인원)
-- [ ] 자동차가 앞으로 이동한다. Forward 
+- [x] 자동차가 앞으로 이동한다. Forward 
   - [x] 0에서 9 사이에서 무작위 값을 구한다. Forward#randomNums()
-  - [ ] Forward#randomNums()가 4 이상일 때 전진한다. Forward#canForward()
-  - [ ] canForward()에 따른 변경사항을 반영한다. Forward#updatePosition
+  - [x] Forward#randomNums()가 4 이상일 때 전진한다. Forward#canForward()
+  - [x] canForward()에 따른 변경사항을 반영한다. Forward#updatePosition
   
-- [ ] 경주의 라운드 별 상태를 나타낸다. Racing
+- [ ] 진행할 경주 라운드를 입력 받고 라운드 마다의 상태를 나타낸다 그리고 경주의 최종 결과를 나타낸다. Racing
+  - [ ] 경주를 진행할 라운드를 입력 받는다. Racing#Round()
   - [ ] 전진하는 자동차를 출력할 때 이름을 같이 출력한다. Racing#state()
+  - [ ] 경주의 최종 결과를 나타낸다. Racing#Winner()
  
 
 ## 기능 목록 V1

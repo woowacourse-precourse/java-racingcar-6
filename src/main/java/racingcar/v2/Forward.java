@@ -15,14 +15,12 @@ public class Forward {
         return randomsNum >= 4;
     }
 
-    public void updatePosition(Map<String, Integer> carMap, String carName) {
+    public void updatePosition(Map<String, Integer> stateMap, String carName) {
         int randomsNum = randomNums();
         if (canForward(randomsNum)) {
-            int currentPosition = carMap.get(carName);
-            carMap.put(carName, currentPosition + 1);
+            int currentPosition = stateMap.get(carName);
+            stateMap.put(carName, currentPosition + 1);
         }
     }
-
-
 
 }
