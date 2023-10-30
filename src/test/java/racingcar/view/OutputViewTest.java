@@ -35,4 +35,15 @@ class OutputViewTest {
 
         assertThat(out.toString()).isEqualTo(expectedMessage);
     }
+
+    @DisplayName("단독 우승자 출력 테스트")
+    @Test
+    void showWinnerTest() {
+        List<Car> winners = Arrays.asList(new Car("test"));
+        String expectedMessage = "최종 우승자 : test";
+
+        outputView.showWinners(winners);
+
+        assertThat(out.toString()).isEqualTo(expectedMessage);
+    }
 }
