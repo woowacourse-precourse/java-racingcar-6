@@ -2,7 +2,6 @@ package racingcar;
 
 import static racingcar.Car.makeCar;
 
-import java.awt.image.TileObserver;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
