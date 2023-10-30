@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import static racingcar.util.RandomNumberGenerator.generateRandomNumber;
+
+
 public class Car {
     private static final int MOVE_THRESHOLD = 4;
     private static final int MIN_NAME_LENGTH = 1;
@@ -16,6 +19,12 @@ public class Car {
         }
         this.name = name;
         this.distance = 0;
+    }
+
+    public void updateDistance() {
+        if (generateRandomNumber() >= MOVE_THRESHOLD) {
+            this.distance++;
+        }
     }
 
     private boolean validateNameLength(String name) {
