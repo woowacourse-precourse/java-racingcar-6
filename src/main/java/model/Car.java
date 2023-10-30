@@ -23,4 +23,9 @@ public class Car {
     public boolean isSameMovingCount(Car otherCar) {
         return this.movingCount.equals(otherCar.movingCount);
     }
+
+    @Override
+    public String toString() {
+        return this.name.getName();
+    }
 }

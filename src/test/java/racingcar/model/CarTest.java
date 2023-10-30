@@ -69,4 +69,20 @@ public class CarTest {
         Assertions.assertThat(isSame).isTrue();
     }
 
+    @Test
+    @DisplayName("현재 경주상태 반환 테스트")
+    public void 현재_경주_상태_테스트() {
+        //given
+        Car car = new Car("pobi");
+        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
+        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
+        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
+
+        //when
+        String currentStatus = car.currentRacingStatus();
+
+        //then
+        Assertions.assertThat(currentStatus).isEqualTo("pobi : ---");
+    }
+
 }
