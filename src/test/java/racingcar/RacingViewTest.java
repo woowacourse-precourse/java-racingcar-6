@@ -92,4 +92,14 @@ public class RacingViewTest {
                 .contains("green : --")
                 .contains("blue : ------");
     }
+
+    @Test
+    void printCarListInputMessage_테스트() {
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        view.printCarListInputMessage();
+
+        assertEquals("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)", out.toString().trim());
+    }
 }
