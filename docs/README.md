@@ -50,5 +50,5 @@
 
 ### GameController
 
-- [ ]  게임 실행 함수 (**`runGame`**)
+- [x]  게임 실행 함수 (**`runGame`**)
 - [ ]  경주 진행 함수 (**`conductRace`**)
