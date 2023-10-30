@@ -9,12 +9,16 @@ public class Car {
   private final String carName;
   private int location = 0;
 
-  private Car(String carName) {
+  private Car(final String carName) {
     this.carName = carName;
   }
 
-  public static Car from(String carName) {
+  public static Car from(final String carName) {
     validator.validate(carName);
     return new Car(carName);
+  }
+
+  public void move() {
+    this.location++;
   }
 }

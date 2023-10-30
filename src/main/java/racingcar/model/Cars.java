@@ -1,6 +1,9 @@
 package racingcar.model;
 
+import static racingcar.model.RacingCarGameConfig.GAME_WIN_CONDITION;
+
 import java.util.List;
+import racingcar.util.RacingCarGameUtils;
 
 public class Cars {
 
@@ -18,5 +21,15 @@ public class Cars {
   }
 
   public void playRacingGame() {
+    List<Integer> randomValues = RacingCarGameUtils.generateRandomValuesForCarGame(cars.size());
+    for (int i = 0; i < cars.size(); i++) {
+      moveCarByRandomValues(randomValues, i);
+    }
+  }
+
+  private void moveCarByRandomValues(List<Integer> randomValues, Integer i) {
+    if (randomValues.get(i) >= GAME_WIN_CONDITION) {
+      cars.get(i).move();
+    }
   }
 }
