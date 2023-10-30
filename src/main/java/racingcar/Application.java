@@ -49,7 +49,7 @@ public class Application {
         return Randoms.pickNumberInRange(0, 9); //0에서 9사이 수 랜덤 생성
     }
     public static Boolean checkRandomNumber(int randomNumber) {
-        return !(randomNumber < 5); //랜덤 값 4 이상 체크
+        return randomNumber >= 4; //랜덤 값 4 이상 체크
     }
     public static int addStep(int random_number) {
         //랜덤 값이 4 이상이면 1
