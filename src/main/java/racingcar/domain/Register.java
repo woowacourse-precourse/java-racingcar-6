@@ -21,7 +21,7 @@ public class Register {
     }
 
     private void checkCarName(String car){
-        if(car.length() > 6){
+        if(car.length() > 5){
             throw new IllegalArgumentException();
         }
     }
