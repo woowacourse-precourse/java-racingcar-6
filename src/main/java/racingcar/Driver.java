@@ -17,9 +17,6 @@ public class Driver {
     }
 
     public static Driver of(String name){
-        if (name.length() > 5){
-            throw new IllegalArgumentException("이름은 5글자 이하");
-        }
         return new Driver(name);
     }
 
