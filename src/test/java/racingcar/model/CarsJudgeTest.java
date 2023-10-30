@@ -11,9 +11,9 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class JudgmentTest {
+class CarsJudgeTest {
 
-    private Game game;
+    private Cars cars;
 
     @BeforeEach
     void setUp() {
@@ -22,7 +22,7 @@ class JudgmentTest {
             WONY.움직인_횟수와_생성(2),
             JUN.움직인_횟수와_생성(1),
             HYUK.움직인_횟수와_생성(3));
-        game = new Game(cars);
+        this.cars = new Cars(cars);
     }
 
     @Test
@@ -31,7 +31,7 @@ class JudgmentTest {
         List<String> expected = List.of("poby", "hyuk");
 
         // when
-        List<String> result = game.judge();
+        List<String> result = cars.judge();
 
         // then
         assertThat(result.size()).isEqualTo(expected.size());
