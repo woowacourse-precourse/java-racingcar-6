@@ -99,7 +99,6 @@ GetMaxValues()
 - 멤버들의 이동횟수에서 최댓값을 구합니다. 
 
 - 🚨`racingcarView` 클래스의 `printResult()` 를 호출합니다. 
-  
 
 ### 3. racingcarModel
 
@@ -108,5 +107,3 @@ GetMaxValues()
   - 게임에 사용되는 상수들과 변수
   
   - 유저들의 게임진행도를 저장하는 해쉬맵
-
-
