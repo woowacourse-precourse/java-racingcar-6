@@ -19,14 +19,15 @@ public class LeaderBoard {
         LinkedHashMap<String, Integer> currentPaceMap = paceComputer.createDefaultPaceMap(machines);
 
         int raceLapNumber = Integer.parseInt(raceLap.getRaceLapNumber());
+
         for (int i = 0; i < raceLapNumber; i++) {
             paceComputer.updatePaceMap(currentPaceMap);
-            paceMapList.add(new LinkedHashMap<>(currentPaceMap));
 
             currentPaceMap.forEach((machineName, driveSuccessNumber) ->
                     System.out.println(machineName + " : " + convertPaceToGraphic(driveSuccessNumber)));
-
             System.out.println();
+
+            paceMapList.add(new LinkedHashMap<>(currentPaceMap));
         }
 
         showResult(currentPaceMap);
