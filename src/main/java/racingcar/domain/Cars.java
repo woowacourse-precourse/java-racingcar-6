@@ -20,7 +20,7 @@ public class Cars {
     public List<String> moveCars(RandomNumberGenerator randomNumberGenerator) {
         return carList.stream()
                 .map(car -> car.move(randomNumberGenerator.generate()))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public String findWinnerCars() {

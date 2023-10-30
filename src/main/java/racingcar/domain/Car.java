@@ -15,7 +15,6 @@ public class Car {
     public Car(Name name) {
         this.name = name;
     }
-
     public String move(int randomNumber) {
         if (isForward(randomNumber)) {
             location += FORWARD_MOVEMENT_INDICATOR;

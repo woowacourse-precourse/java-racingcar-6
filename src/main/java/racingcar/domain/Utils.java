@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Utils {
 
@@ -19,6 +18,6 @@ public class Utils {
     public static List<Name> splitNamesOfCars(String namesOfCars) {
         return Arrays.stream(namesOfCars.split(CAR_NAME_SEPARATOR))
                 .map(Name::new)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
