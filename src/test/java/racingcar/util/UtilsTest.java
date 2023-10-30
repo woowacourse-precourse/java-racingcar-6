@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class ParserTest {
+class UtilsTest {
 
     @DisplayName("정상적으로 ','로 파싱이 된다.")
     @Test
@@ -15,7 +15,7 @@ class ParserTest {
         String validInput = "i,am,sully";
 
         // when
-        List<String> carNames = Parser.parseCarName(validInput);
+        List<String> carNames = Utils.parseCarName(validInput);
 
         // then
         assertThat(carNames).containsExactly("i", "am", "sully");
