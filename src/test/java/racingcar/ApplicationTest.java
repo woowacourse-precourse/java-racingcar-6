@@ -15,6 +15,18 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
 
+    @Test
+    void 공동_우승자_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("love,peace", "4");
+                    assertThat(output()).contains("최종 우승자 : love, peace");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD,
+                MOVING_FORWARD
+        );
+    }
 
 
 
