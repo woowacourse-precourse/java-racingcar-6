@@ -16,10 +16,6 @@ public class RacingGame {
         return carsIdList;
     }
 
-    public void increaseGameCount() {
-        this.currentGameCount += 1;
-    }
-
     public boolean isGameFinish() {
         return currentGameCount == maxGameCount;
     }
