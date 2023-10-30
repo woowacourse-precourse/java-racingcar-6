@@ -52,12 +52,12 @@ public class CarListTest {
         carList.splitCarNames(carNames);
 
         Winners winners = carList.getWinners();
-        List<Car> winningCars = winners.getWinningsCars();
+        List<Car> winningCars = winners.getWinningCars();
+
         assertEquals(3, winningCars.size());
 
         for (Car car : winningCars) {
             assertTrue(carNames.contains(car.getName()));
         }
     }
-
 }
