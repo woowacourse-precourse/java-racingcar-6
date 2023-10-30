@@ -18,4 +18,9 @@ public class ExceptionController {
         }
     }
 
+    public static void stringBlankException(String carName) {
+        if (carName.replaceAll("\\s", "").length() != carName.length()) {
+            throw new IllegalArgumentException("공백을 제외한 문자열을 입력해주세요.");
+        }
+    }
 }

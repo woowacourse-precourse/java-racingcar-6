@@ -1,8 +1,13 @@
 package racingcar.view;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
 import camp.nextstep.edu.missionutils.Console;
+
 import java.util.HashMap;
 import java.util.List;
+import racingcar.Constant;
+import racingcar.controller.ExceptionController;
 
 public class RacingGameView {
 
@@ -14,9 +19,16 @@ public class RacingGameView {
         System.out.println();
     }
 
+    public static void inputCarNameMessage() {
+        System.out.println(Constant.INPUT_CAR_NAME);
+    }
+
     public static String inputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputCarName = Console.readLine();
+        inputCarNameMessage();
+        String inputCarName = readLine();
+
+        ExceptionController.stringBlankException(inputCarName);
+
         return inputCarName;
     }
 
