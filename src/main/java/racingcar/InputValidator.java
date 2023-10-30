@@ -1,11 +1,13 @@
 package racingcar;
 
-import java.util.List;
-
 public class InputValidator {
 
-    public void validateName(List<String> names) {
+    private static final int MAX_NAME_LENGTH = 5;
 
+    public void validateName(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void validateTimes(String times) {

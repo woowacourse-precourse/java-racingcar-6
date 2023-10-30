@@ -3,7 +3,7 @@
 ## 기능 목록
 ### 플레이어 입력
 - [x] 자동차의 이름을 입력받는다. - InputView: readCarNames
-  - [ ] 예외 사항 : 이름이 5자를 초과하면 `IllegalArgumentException` 을 발생시킨다. - InputValidator: validateName
+  - [x] 예외 사항 : 이름이 5자를 초과하면 `IllegalArgumentException` 을 발생시킨다. - InputValidator: validateName
 - [x] 시도할 횟수를 입력받는다. - InputView: readTimes
   - [ ] 예외 사항 : 횟수가 0 ~ 2,147,483,647 를 벗어나면 `IllegalArgumentException` 을 발생시킨다. - InputValidator: validateTimes
 ### 게임 진행 
