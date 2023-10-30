@@ -62,6 +62,11 @@ public class RacingService {
         return winners;
     }
 
+    public void printWinners(List<String> winners) {
+        System.out.print("최종 우숭자: ");
+        System.out.println(String.join(", ", winners));
+    }
+
     public boolean isMorethanDigit(int digit, int num) {
         return digit <= num;
     }

@@ -37,5 +37,6 @@ public class RacingController {
 
     public void fiinishRacing() {
         List<String> winners = racingService.pickWinner(cars);
+        racingService.printWinners(winners);
     }
 }
