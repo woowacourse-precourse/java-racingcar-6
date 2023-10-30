@@ -50,4 +50,17 @@ final class CarTest {
 
         assertEquals(expected, car.currentStatus());
     }
+
+    @Test
+    void 선두라면_true를_반환한다() {
+        Car car = new Car("wooteco");
+        int front = 2;
+
+        car.move();
+        car.move();
+
+        assertTrue(car.isFront(front));
+    }
+
+
 }
