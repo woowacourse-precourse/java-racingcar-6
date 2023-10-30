@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomUtils {
 
-    public static String detarminPostionByRandomNumber() {
+    public static String detarminePostionByRandomNumber() {
         int randomNumber = makeRandomNumber();
         String position;
         if(randomNumber >= 4) {
