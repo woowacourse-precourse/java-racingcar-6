@@ -18,13 +18,9 @@ public class RacingCarGameController {
         startGame(carList, racingRoundTimes);
     }
 
-    public void startGame(List<Car> carList, String racingRoundTimes) {
+    public void startGame(List<Car> carList, String racingRoundTimes) { // 이것도 분리..?
         roundProgress(carList, Integer.parseInt(racingRoundTimes));
         List<String> winnerList = caculateGameWinner(carList);
-        printGameResult(winnerList);
-    }
-
-    public void printGameResult(List<String> winnerList) {
         OutView.printWinnerCar(String.join(", ", winnerList));
     }
 
