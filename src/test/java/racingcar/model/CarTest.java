@@ -12,15 +12,15 @@ class CarTest {
     void moveForwardIfNumberOverThree() {
         //given
         Car junCar = new Car("jun");
-        Integer beforeDistance = junCar.getMovingDistance();
+        Integer beforeDistance = junCar.getTravelDistance();
         int randomNumberOverThree = 4;
 
         //when
         junCar.moveForward(randomNumberOverThree);
 
         //then
-        int movingStep = junCar.getMovingDistance() - beforeDistance;
-        assertThat(movingStep).isEqualTo(Car.MOVE_ONE_STEP);
+        int movingStep = junCar.getTravelDistance() - beforeDistance;
+        assertThat(movingStep).isEqualTo(Car.ONE_STEP);
     }
 
     @DisplayName("주어진 랜덤 값이 4미만이면 전진하지 않는다.")
@@ -28,14 +28,14 @@ class CarTest {
     void moveForwardIfNumberUnderFour() {
         //given
         Car junCar = new Car("jun");
-        Integer beforeDistance = junCar.getMovingDistance();
+        Integer beforeDistance = junCar.getTravelDistance();
         int randomNumberUnderFour = 3;
 
         //when
         junCar.moveForward(randomNumberUnderFour);
 
         //then
-        int movingStep = junCar.getMovingDistance() - beforeDistance;
+        int movingStep = junCar.getTravelDistance() - beforeDistance;
         assertThat(movingStep).isZero();
     }
 

@@ -4,30 +4,30 @@ import racingcar.validation.CarValidator;
 
 public class Car {
 
-    private final String carName;
-    private Integer movingDistance;
+    private final String name;
+    private Integer travelDistance;
 
-    public static final Integer MOVE_CONDITION_MIN_NUMBER = 4;
+    public static final Integer MIN_NUMBER_ALLOWED_TO_MOVE = 4;
+    public static final Integer ONE_STEP = 1;
     private static final Integer STARTING_LINE = 0;
-    public static final Integer MOVE_ONE_STEP = 1;
 
-    public Car(String carName) {
-        CarValidator.validateCarName(carName);
-        this.carName = carName;
-        this.movingDistance = STARTING_LINE;
+    public Car(String name) {
+        CarValidator.validateCarName(name);
+        this.name = name;
+        this.travelDistance = STARTING_LINE;
     }
 
     public void moveForward(int randomNumber) {
-        if (randomNumber >= MOVE_CONDITION_MIN_NUMBER) {
-            this.movingDistance += MOVE_ONE_STEP;
+        if (randomNumber >= MIN_NUMBER_ALLOWED_TO_MOVE) {
+            this.travelDistance += ONE_STEP;
         }
     }
 
-    public Integer getMovingDistance() {
-        return movingDistance;
+    public Integer getTravelDistance() {
+        return travelDistance;
     }
 
     @Override public String toString() {
-        return carName;
+        return name;
     }
 }

@@ -28,7 +28,7 @@ public class RacingCar {
         Integer maxDistance = findMaxDistance();
 
         return this.cars.stream()
-                .filter(car -> car.getMovingDistance().equals(maxDistance))
+                .filter(car -> car.getTravelDistance().equals(maxDistance))
                 .collect(Collectors.toList());
     }
 
@@ -43,7 +43,7 @@ public class RacingCar {
     private Integer findMaxDistance() {
         int max = Integer.MIN_VALUE;
         for (Car car : cars) {
-            max = Math.max(car.getMovingDistance(), max);
+            max = Math.max(car.getTravelDistance(), max);
         }
 
         return max;

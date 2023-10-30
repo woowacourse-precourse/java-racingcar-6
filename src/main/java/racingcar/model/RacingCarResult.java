@@ -19,7 +19,7 @@ public class RacingCarResult {
     }
 
     private static String carMovement(Car car) {
-        return ONE_STEP.repeat(car.getMovingDistance());
+        return ONE_STEP.repeat(car.getTravelDistance());
     }
 
     private static String convertWinnersToString(List<Car> winners) {

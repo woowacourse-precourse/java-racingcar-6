@@ -30,10 +30,10 @@ class RacingCarTest {
         Car pobiCar = new Car("pobi");
         Car woniCar = new Car("woni");
         Car junCar = new Car("jun");
-        pobiCar.moveForward(Car.MOVE_CONDITION_MIN_NUMBER);
-        woniCar.moveForward(Car.MOVE_CONDITION_MIN_NUMBER);
-        junCar.moveForward(Car.MOVE_CONDITION_MIN_NUMBER);
-        junCar.moveForward(Car.MOVE_CONDITION_MIN_NUMBER);
+        pobiCar.moveForward(Car.MIN_NUMBER_ALLOWED_TO_MOVE);
+        woniCar.moveForward(Car.MIN_NUMBER_ALLOWED_TO_MOVE);
+        junCar.moveForward(Car.MIN_NUMBER_ALLOWED_TO_MOVE);
+        junCar.moveForward(Car.MIN_NUMBER_ALLOWED_TO_MOVE);
         RacingCar racingCar = new RacingCar(List.of(pobiCar, woniCar, junCar));
 
         //when
@@ -50,11 +50,11 @@ class RacingCarTest {
         Car pobiCar = new Car("pobi");
         Car woniCar = new Car("woni");
         Car junCar = new Car("jun");
-        pobiCar.moveForward(Car.MOVE_CONDITION_MIN_NUMBER);
-        pobiCar.moveForward(Car.MOVE_CONDITION_MIN_NUMBER);
-        woniCar.moveForward(Car.MOVE_CONDITION_MIN_NUMBER);
-        woniCar.moveForward(Car.MOVE_CONDITION_MIN_NUMBER);
-        junCar.moveForward(Car.MOVE_CONDITION_MIN_NUMBER);
+        pobiCar.moveForward(Car.MIN_NUMBER_ALLOWED_TO_MOVE);
+        pobiCar.moveForward(Car.MIN_NUMBER_ALLOWED_TO_MOVE);
+        woniCar.moveForward(Car.MIN_NUMBER_ALLOWED_TO_MOVE);
+        woniCar.moveForward(Car.MIN_NUMBER_ALLOWED_TO_MOVE);
+        junCar.moveForward(Car.MIN_NUMBER_ALLOWED_TO_MOVE);
         RacingCar racingCar = new RacingCar(List.of(pobiCar, woniCar, junCar));
 
         //when

@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.model.Car.MOVE_CONDITION_MIN_NUMBER;
+import static racingcar.model.Car.MIN_NUMBER_ALLOWED_TO_MOVE;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -56,10 +56,10 @@ class RacingCarViewTest extends IOTest {
         //given
         RacingCar racingCar = new RacingCar("baek,eun,hee");
         RacingCarView racingCarView = new RacingCarView();
-        racingCar.getCars().get(0).moveForward(MOVE_CONDITION_MIN_NUMBER);
-        racingCar.getCars().get(0).moveForward(MOVE_CONDITION_MIN_NUMBER);
-        racingCar.getCars().get(1).moveForward(MOVE_CONDITION_MIN_NUMBER);
-        racingCar.getCars().get(2).moveForward(MOVE_CONDITION_MIN_NUMBER);
+        racingCar.getCars().get(0).moveForward(MIN_NUMBER_ALLOWED_TO_MOVE);
+        racingCar.getCars().get(0).moveForward(MIN_NUMBER_ALLOWED_TO_MOVE);
+        racingCar.getCars().get(1).moveForward(MIN_NUMBER_ALLOWED_TO_MOVE);
+        racingCar.getCars().get(2).moveForward(MIN_NUMBER_ALLOWED_TO_MOVE);
 
         //when
         racingCarView.printAllTravelDistance(racingCar);
