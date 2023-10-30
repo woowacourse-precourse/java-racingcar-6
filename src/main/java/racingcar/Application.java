@@ -23,6 +23,7 @@ public class Application {
         for (int i=0;i<raceCount.inputScore();i++){
             race(racerNameList);
         }
+        generateRacingResult();
     }
 
     private static void race(List<String> racerNameList){
@@ -60,9 +61,9 @@ public class Application {
 
     private static void validateRacerName(List<String> racerNameList){
         racerNameList.stream()
-                            .forEach(racerName-> validateForValidateType(
-                                    ValidateType.NAME,racerName
-                            )
+                .forEach(racerName-> validateForValidateType(
+                                ValidateType.NAME,racerName
+                        )
                 );
     }
 
@@ -79,5 +80,9 @@ public class Application {
     }
     private static GenerateRacer generateRacerByInputValue(String inputValue){
         return (racerName)-> Racer.getInstance(inputValue);
+    }
+
+    private static void generateRacingResult(){
+        OutputView.outputForRacingResult(RoundResult.getResultOfRound().toString());
     }
 }
