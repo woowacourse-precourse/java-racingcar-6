@@ -10,11 +10,11 @@ public class WinnersConverter {
     }
 
     public static List<WinnerResponse> fromEntity(final Cars cars) {
-        int winnerScore = cars.calculateWinnersPosition();
+        int winnerPosition = cars.calculateWinnersPosition();
 
         return CarsConverter.fromEntity(cars)
                 .stream()
-                .filter(response -> response.getPosition() == winnerScore)
+                .filter(response -> response.getPosition() == winnerPosition)
                 .map(response -> WinnerResponse.from(response.getName()))
                 .toList();
     }
