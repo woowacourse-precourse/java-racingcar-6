@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import jdk.internal.util.xml.impl.Input;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +14,12 @@ public class RacingGameService {
 
 
     private int getPlayCount(){
+        System.out.println(InputMessage.CAR_NAME);
         return inputView.playCount();
     }
 
     private List<String> getCarNameList(){
+        System.out.println(InputMessage.COUNT);
         return inputView.carNameList();
     }
 
