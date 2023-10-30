@@ -12,6 +12,7 @@ import racingcar.view.Validator;
 
 public class Controller {
     private static final List<String> carNameList = Car.getCarName();
+    static List<StringBuilder> result = createStringBuilders(carNameList);
 
     public static void validateCarNames() {
         if (!Validator.isCarNameOverFiveCharacters(carNameList)) {
@@ -48,10 +49,34 @@ public class Controller {
 
     public static void playRace(String inputAttemptsCount) {
         int raceCount = Integer.parseInt(inputAttemptsCount);
-        List<StringBuilder> result = createStringBuilders(carNameList);
         for (int i = 0; i < raceCount; i++) {
             displayResult(result);
             System.out.println();
         }
     }
+
+    public static int winnerDashCount() {
+        List<StringBuilder> resultsb = displayResult(result);
+        int winnerDashCount = 0;
+        for (int i = 0; i < resultsb.size(); i++) {
+            String carInfo = String.valueOf(resultsb.get(i));
+            int dashCount = countChar(carInfo, '-');
+            if (dashCount >= winnerDashCount){
+                winnerDashCount = dashCount;
+        }
+    }
+        return winnerDashCount;
+    }
+    private static int countChar(String carInfo, char c) {
+        int count = 0;
+
+        for (int i = 0; i < carInfo.length(); i++) {
+            if (carInfo.charAt(i) == c) {
+                count++;
+            }
+        }
+
+        return count;
+    }
 }
+

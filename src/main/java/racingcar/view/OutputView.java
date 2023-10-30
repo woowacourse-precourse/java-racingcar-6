@@ -20,11 +20,12 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void displayResult(List<StringBuilder> result) {
+    public static List<StringBuilder> displayResult(List<StringBuilder> result) {
         for (StringBuilder sb : result) {
             sb.append(moveCount());
             System.out.println(sb);
         }
+        return result;
     }
 
     public static List<StringBuilder> createStringBuilders(List<String> carNameList) {
