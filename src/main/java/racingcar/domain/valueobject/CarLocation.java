@@ -1,4 +1,4 @@
-package racingcar.domain.car.valueobject;
+package racingcar.domain.valueobject;
 
 public class CarLocation {
     private int location;

@@ -3,7 +3,7 @@ package racingcar.domain.referee;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.car.Car;
-import racingcar.domain.car.valueobject.CarLocation;
+import racingcar.domain.valueobject.CarLocation;
 
 public class InGameReferee {
     private static final int LOWER_LIMIT = 4;

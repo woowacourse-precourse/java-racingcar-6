@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
-import racingcar.domain.car.valueobject.CarLocation;
-import racingcar.domain.car.valueobject.CarName;
+import racingcar.domain.valueobject.CarLocation;
+import racingcar.domain.valueobject.CarName;
 
 public class Car {
     private CarName name;
