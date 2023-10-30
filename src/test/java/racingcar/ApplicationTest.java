@@ -34,12 +34,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @DisplayName("자동차 이름")
-    @Test
-    void 우승차_판별() {
-        Cars cars = new Cars(List.of("pobi", "yeon", "jjang"));
-    }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});
