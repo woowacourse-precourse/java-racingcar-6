@@ -9,7 +9,8 @@ public class Application {
         AppConfigure appConfigure = new AppConfigure();
         Game game = new Game(
                 appConfigure.outputView(),
-                appConfigure.inputView());
+                appConfigure.inputView(),
+                appConfigure.manager());
         game.start();
     }
 }

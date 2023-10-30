@@ -20,7 +20,7 @@ public class Manager {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private List<Player> stringListToPlayerList(List<String> players) {
+    public List<Player> stringListToPlayerList(List<String> players) {
         List<Player> playerList = new ArrayList<>();
         for (String name : players) {
             Player player = new Player(name);
