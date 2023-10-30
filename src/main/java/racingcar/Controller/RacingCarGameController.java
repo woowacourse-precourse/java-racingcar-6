@@ -2,7 +2,9 @@ package racingcar.Controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import racingcar.Model.Car;
 import racingcar.View.InputView;
 import racingcar.View.OutView;
@@ -65,8 +67,16 @@ public class RacingCarGameController {
         System.out.println("실행결과");
         for(int i=0; i<racingRoundTimes; i++){
             decideGoOrStop(carList);
-            OutView.printCurrentRoundResult(carList);
+            totalCurrentRoundResult(carList);
         }
+    }
+
+    public void totalCurrentRoundResult(List<Car> carList) {
+        Map<String, Integer> roundResult = new HashMap<>();
+        for(Car car: carList){
+            roundResult.put(car.getName(), car.getStepCount());
+        }
+        OutView.printCurrentRoundResult(roundResult);
     }
 
     public void decideGoOrStop(List<Car> carList){
