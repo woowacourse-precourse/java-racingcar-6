@@ -21,15 +21,13 @@ public class Car {
         return randomUtil.moveForward();
     }
 
-    public String generateExecutionResult() {
-        String prefix = String.format("%s : ",name);
-        StringBuilder moveRange = new StringBuilder(prefix);
-        for(int i = 0; i<moveCount; i++) {
-            moveRange.append("-");
-        }
-        return moveRange.toString();
+    public boolean isSameAs(Car otherCar) {
+        return this.moveCount == otherCar.getMoveCount();
     }
 
+    public int compareTo(Car otherCar) {
+        return this.moveCount - otherCar.getMoveCount();
+    }
 
     public String getName() {
         return name;

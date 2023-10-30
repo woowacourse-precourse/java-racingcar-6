@@ -1,21 +1,19 @@
 package racingcar.domain.car;
 
-import racingcar.domain.car.dto.CarsNameDto;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    public List<Car> cars;
-    public RandomUtil randomUtil;
+    private List<Car> cars;
+    private RandomUtil randomUtil;
 
-    public Cars(RandomUtil randomUtil) {
-        this.cars = new ArrayList<>();
+    public Cars(RandomUtil randomUtil, String carNames) {
         this.randomUtil = randomUtil;
+        this.cars = new ArrayList<>();
+        generateCars(carNames);
     }
 
-    public void generateCars(CarsNameDto names) {
-        String carNames = names.names();
+    public void generateCars(String carNames) {
         String[] carNamesArr = carNames.split(",");
         for (String carName : carNamesArr) {
             Car car = new Car(carName, randomUtil);
@@ -24,20 +22,6 @@ public class Cars {
     }
     public void runRace() {
         cars.forEach(Car::moveCar);
-    }
-
-    public String generateExecutionResultAllCars() {
-        Car firstCar = cars.get(0);
-        String firstResult = firstCar.generateExecutionResult();
-
-        StringBuilder results = new StringBuilder(firstResult);
-        for (int i = 1; i<cars.size(); i++) {
-            results.append('\n');
-            Car car = cars.get(i);
-            String result = car.generateExecutionResult();
-            results.append(result);
-        }
-        return results.toString();
     }
 
     public List<Car> getCars() {
