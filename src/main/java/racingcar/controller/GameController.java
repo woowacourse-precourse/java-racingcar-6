@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.model.Attempt;
+import racingcar.model.AttemptNum;
 import racingcar.model.Game;
 import racingcar.model.Move;
 import racingcar.model.Name;
@@ -13,7 +13,7 @@ public class GameController {
     private final InputView inputView = new InputView();
     private final Name name = new Name();
     private final Move move = new Move();
-    private final Attempt attemptNum = new Attempt();
+    private final AttemptNum attemptNum = new AttemptNum();
     private final OutputView outputView = new OutputView();
     HashMap<Object, String> distance = new HashMap<Object, String>();
     private int MAX_ENTRY = 0;

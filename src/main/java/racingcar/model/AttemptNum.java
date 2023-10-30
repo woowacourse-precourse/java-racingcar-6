@@ -1,8 +1,8 @@
 package racingcar.model;
 
-public class Attempt {
+public class AttemptNum {
     public void isValid(String attemptsNum) {
-        if (!attemptsNum.matches("^[1-9]+$")){
+        if (!attemptsNum.matches("^[0-9]+") || attemptsNum.equals("0")){
             throw new IllegalArgumentException();
         }
     }
