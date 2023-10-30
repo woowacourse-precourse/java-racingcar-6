@@ -23,6 +23,7 @@ public class CarView {
             }
         }
 
+        System.out.print("최종 우승자 : ");
         if (winner.size() == 1) {
             System.out.println(winner.get(0));
         } else if (winner.size() >= 2) {
