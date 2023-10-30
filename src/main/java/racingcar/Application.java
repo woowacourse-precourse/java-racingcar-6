@@ -12,7 +12,9 @@ public class Application {
         String inputName = Console.readLine();
 
         List<Car> carList = parseInputName(inputName);
-        System.out.println(inputName);
+
+        int n = Integer.parseInt(Console.readLine());
+
 
     }
 
