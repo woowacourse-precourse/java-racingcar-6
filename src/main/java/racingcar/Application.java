@@ -36,5 +36,18 @@ public class Application {
             throw new IllegalArgumentException();
         }
     }
+    //게임 시작
+    public static void playGame(List<Car> cars, int numberOfMove){
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < numberOfMove; i++) {
+            for (Car car : cars) {
+                car.move(Randoms.pickNumberInRange(0, 9));
+            }
+            printCarPositions(cars);
+        }
+    }
+    //현재 차의 위치 print 함수
+    public static void printCarPositions(List<Car> cars){
 
+    }
 }
