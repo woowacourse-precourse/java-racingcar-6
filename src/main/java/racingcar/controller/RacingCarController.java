@@ -71,8 +71,16 @@ public class RacingCarController {
     }
 
     private List<String> splitCarNamesByComma(String input) {
-        return Arrays.stream(input.split(","))
-                .collect(Collectors.toList());
+        List<String> carNames = Arrays.stream(input.split(","))
+                .toList();
+        validateEmptyName(carNames);
+        return carNames;
+    }
+
+    private void validateEmptyName(List<String> carNames){
+        if(carNames.contains("")){
+            throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
+        }
     }
 
     private void validateInputIsNumber(String input) {
