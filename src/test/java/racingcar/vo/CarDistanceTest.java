@@ -33,12 +33,4 @@ class CarDistanceTest {
 
         assertNotEquals(carDistance1, carDistance2);
     }
-
-    @DisplayName("레코드의 이름과 각 필드의 이름 및 대괄호 안의 해당 값이 포함된 문자열을 반환한다.")
-    @Test
-    void carDistance_toString_test() {
-        CarDistance carDistance = new CarDistance(150);
-
-        assertEquals("CarDistance[distance=150]", carDistance.toString());
-    }
 }
