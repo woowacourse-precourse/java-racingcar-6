@@ -23,7 +23,7 @@
     
     - [x] 잘못된 입력 (5자 초과, null)이면 `IllegalArgumentException`을 발생 후 종료한다. - **InputValidator**#
   
-  - [ ] 자동차를 이름과 함께 생성한다. **CarController**#createCar
+  - [x] 자동차를 이름과 함께 생성한다. **CarController**#createCar
 
 ### **Racing Car 게임을 진행하는 기능**
 

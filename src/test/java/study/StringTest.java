@@ -1,8 +1,12 @@
 package study;
 
 import org.junit.jupiter.api.Test;
+import racingcar.Car;
+import racingcar.CarController;
 import racingcar.Constant;
 import racingcar.StringOperator;
+
+import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -22,6 +26,21 @@ public class StringTest {
         String [] result = sp.seperate("pobi,woni,jun", ",");
         String [] expected = new String[] {"pobi", "woni", "jun"};
         assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    void 자동차_생성(){
+        CarController carController = new CarController();
+        String [] carNames = new String[] {"pobi", "woni", "jun"};
+        ArrayList<Car> result =  carController.createCars(carNames);
+
+        ArrayList<Car> expected = new ArrayList<>();
+        expected.add(new Car("pobi"));
+        expected.add(new Car("woni"));
+        expected.add(new Car("jun"));
+
+        // 객체 비교
+        assertThat(result).usingRecursiveComparison().isEqualTo(expected);
     }
     @Test
     void split_메서드로_주어진_값을_구분() {

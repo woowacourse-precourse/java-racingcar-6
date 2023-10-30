@@ -4,8 +4,11 @@ import racingcar.Constant.*;
 
 public class RacingCarGame {
     private UserInputHandler userInputHandler;
+    private CarController carController;
     RacingCarGame(){
+
         this.userInputHandler = new UserInputHandler();
+        this.carController = new CarController();
     }
 
     public void play(){
@@ -14,14 +17,14 @@ public class RacingCarGame {
 
     private void initConfig(){
         System.out.println(UserRequestMessage.CAR_NAME_REQUEST_MESSAGE);
-        initCar();
+        initializeCars();
 
         System.out.println(UserRequestMessage.Repeat_REQUEST_MESSAGE);
     }
 
-    private void initCar(){
-        String [] names = userInputHandler.getInputForNames();
-        System.out.println(names);
+    private void initializeCars(){
+        String [] carNames = userInputHandler.getInputForNames();
+        carController.initializeOperatedCars(carNames);
     }
 
 }
