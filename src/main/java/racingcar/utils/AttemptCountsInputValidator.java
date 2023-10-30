@@ -8,11 +8,20 @@ public class AttemptCountsInputValidator {
 
     public static void validate(String target) {
         validateNumeric(target);
+        validateIntegerRange(target);
     }
 
     private static void validateNumeric(String target) {
         if (!NUMERIC_REGEX.matcher(target).matches()) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_NUMERIC.getError());
+        }
+    }
+
+    private static void validateIntegerRange(String target) {
+        try {
+            Integer.parseInt(target);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ExceptionMessage.OUT_OF_INTEGER_RANGE.getError());
         }
     }
 }
