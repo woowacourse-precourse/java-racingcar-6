@@ -8,11 +8,13 @@ public class RacingGame {
     public void start() {
 
         List<Car> cars = new ArrayList<>();
+        int tryCount;
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         inputCarName(cars);
 
-        //TODO: 경주 시도 횟수 입력 받기
+        System.out.println("시도할 횟수는 몇회인가요?");
+        tryCount = inputTry();
 
         //TODO: 각 차수별 전진 상태 출력 하기
 
@@ -29,5 +31,13 @@ public class RacingGame {
             }
             cars.add(new Car(name));
         }
+    }
+
+    public int inputTry() {
+        String tryNumber = Console.readLine();
+        if (!tryNumber.chars().allMatch(Character::isDigit)) {
+            throw new IllegalArgumentException("숫자만 입력해 주세요");
+        }
+        return Integer.parseInt(tryNumber);
     }
 }
