@@ -35,6 +35,8 @@ public class Application {
             System.out.print("\n");
         }
 
+        printGameResult(cars);
+
     }
 
     static Set<String> getCarNames() {
@@ -83,5 +85,24 @@ public class Application {
         }
 
         return playCount;
+    }
+
+    static void printGameResult(List<Car> cars) {
+
+        int maxMoveDistance = 0;
+        String winnerName = "";
+
+        for (Car car : cars) {
+
+            int nowCarMoveDistance = car.getMovedDistance();
+
+            if (nowCarMoveDistance > maxMoveDistance) {
+                maxMoveDistance = nowCarMoveDistance;
+                winnerName = car.getName();
+            }
+
+        }
+
+        System.out.println("최종 우승자 : " + winnerName);
     }
 }
