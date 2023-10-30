@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.util.InputValidation;
@@ -19,12 +20,14 @@ public class RacingController {
         int round = inputValidation.checkRoundInputValid(InputView.inputRoundCount());
         OutputView.printResultConstant();
 
-        doRound(carNames,round);
+        List<Car> winners = doRound(carNames,round);
+        OutputView.printWinnerList(winners);
     }
 
-    public void doRound(List<String> carNames, int round) {
+    public List<Car> doRound(List<String> carNames, int round) {
         Cars cars = new Cars();
         cars.doRound(carNames, round);
+        return cars.checkWinner();
     }
 
 }

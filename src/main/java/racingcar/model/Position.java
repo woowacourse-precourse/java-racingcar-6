@@ -22,4 +22,8 @@ public class Position {
         IntStream.range(0, this.position).forEach(i -> sb.append("-"));
         return sb.toString();
     }
+
+    public int getPosition() {
+        return this.position;
+    }
 }
