@@ -2,6 +2,7 @@ package racingcar.model.dto;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ class CarRequestDtoTest {
         CarRequestDto carRequestDto = new CarRequestDto(carName);
 
         assertThat(carRequestDto).isNotNull();
-        assertThat(carRequestDto.getNames()).isEqualTo(carName);
+        assertThat(carRequestDto.getCarNames()).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
     }
 
     @Test

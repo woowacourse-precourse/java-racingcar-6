@@ -17,7 +17,7 @@ class GeneratorTest {
     }
 
     @Test
-    @DisplayName("입램덤 숫자 생성을 테스트 합니다.")
+    @DisplayName("램덤 숫자 생성을 테스트 합니다.")
     void 랜덤_숫자_생성_검사() {
         assertThat(randomNumber).isNotNull();
     }

@@ -12,7 +12,7 @@ public class OutputView {
     }
 
     public static void printGameScore(GameResponseDto gameResponseDto) {
-        System.out.println(gameResponseDto.createMessage());
+        System.out.println(gameResponseDto.getGameResult());
     }
 
     public static void printJumpLine() {
@@ -20,6 +20,6 @@ public class OutputView {
     }
 
     public static void printWinner(CarResponseDto carResponse) {
-        System.out.println(GAME_WINNER.getPhrase() + carResponse.createMessage());
+        System.out.println(GAME_WINNER.getPhrase() + carResponse.getWinnerCarNames());
     }
 }

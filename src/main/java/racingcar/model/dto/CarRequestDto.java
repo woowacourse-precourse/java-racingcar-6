@@ -1,30 +1,24 @@
 package racingcar.model.dto;
 
-import static racingcar.model.constants.Rule.DELIMITER;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.domain.Car;
+import racingcar.utils.Parser;
 import racingcar.utils.Validator;
 
 public class CarRequestDto {
-    private final String names;
+    private final List<String> carNames;
 
-    public CarRequestDto(String names) {
-        Validator.validateCarName(names);
-        this.names = names;
+    public CarRequestDto(String inputCarNames) {
+        Validator.validateAndParseCarNames(inputCarNames);
+        carNames = Parser.parseCarNames(inputCarNames);
     }
 
     public List<Car> toCar() {
-        String[] carNames = names.split(DELIMITER.getMessage());
-        List<Car> cars = new ArrayList<>();
-        for (String name : carNames) {
-            cars.add(Car.from(name));
-        }
-        return cars;
+        return carNames.stream().map(Car::from).collect(Collectors.toList());
     }
 
-    public String getNames() {
-        return names;
+    public List<String> getCarNames() {
+        return carNames;
     }
 }

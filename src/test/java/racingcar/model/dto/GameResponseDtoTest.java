@@ -23,7 +23,7 @@ class GameResponseDtoTest {
         Car car = Car.from("pobi");
         car.move();
         GameResponseDto gameResponseDto = new GameResponseDto(car);
-        String result = gameResponseDto.createMessage();
+        String result = gameResponseDto.getGameResult();
 
         assertThat(result).isEqualTo("pobi : -");
     }

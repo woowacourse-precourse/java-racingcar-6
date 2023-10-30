@@ -23,7 +23,7 @@ class InputViewTest {
 
             CarRequestDto carRequestDto = InputView.setCarNames();
 
-            assertThat(carRequestDto.getNames()).isEqualTo(new CarRequestDto(carName).getNames());
+            assertThat(carRequestDto.getCarNames()).isEqualTo(new CarRequestDto(carName).getCarNames());
         } catch (Exception ignored) {
         }
     }
