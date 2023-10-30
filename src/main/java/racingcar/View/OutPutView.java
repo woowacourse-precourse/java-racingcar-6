@@ -1,5 +1,6 @@
 package racingcar.View;
 
+import java.util.List;
 import racingcar.Domain.Car;
 import racingcar.Domain.CarGroup;
 
@@ -26,13 +27,8 @@ public class OutPutView {
     public void showFinalWinner(CarGroup carGroup) {
         CarGroup finalWinners = carGroup.findFinalWinner();
         System.out.print(FooterPrompt);
-        for (int order = 1; order <= finalWinners.findSize(); order++) {
-            Car findCar = finalWinners.findCarByOrder(order);
-            System.out.print(findCar.findName());
-            if (order != finalWinners.findSize()) {
-                System.out.print(FinalWinnerConcat);
-            }
-        }
+        List<String> carNames = finalWinners.findCarNames();
+        System.out.print(String.join(FinalWinnerConcat, carNames));
     }
 
 

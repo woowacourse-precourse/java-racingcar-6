@@ -45,4 +45,10 @@ public class CarGroup {
         return new CarGroup(finalWinners);
 
     }
+
+    public List<String> findCarNames() {
+        return this.car_group.values().stream()
+                .map(Car::findName)
+                .toList();
+    }
 }
