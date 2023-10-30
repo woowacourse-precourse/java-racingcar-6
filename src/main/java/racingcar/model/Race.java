@@ -9,8 +9,8 @@ import java.util.stream.IntStream;
 public class Race {
 
     private final int totalTrial;
-    private int currentTrial;
-    private List<Car> carList;
+    private final int currentTrial;
+    private final List<Car> carList;
 
     public Race(int totalTrial, List<String> carNameList) {
         this.totalTrial = totalTrial;
