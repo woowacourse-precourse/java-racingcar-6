@@ -14,6 +14,15 @@ public class RacingCarGameMachine {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
+    private void initRacingCar(String nameInput) {
+        racingCarList = new ArrayList<>();
+
+        List<String> nameList = parseNameInput(nameInput);
+        for (String name : nameList) {
+            racingCarList.add(new RacingCar(randomNumberGenerator, name));
+        }
+    }
+
     private List<String> parseNameInput(String nameInput) {
         String[] names = nameInput.split(",");
         return Arrays.stream(names).toList();
