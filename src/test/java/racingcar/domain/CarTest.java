@@ -2,22 +2,34 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mockStatic;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.MockedStatic;
 
 public class CarTest{
 
     @Mock
-    NumberGenerator numberGenerator;
+    MockedStatic<Randoms> randoms;
 
     @BeforeEach
     void init(){
-        MockitoAnnotations.openMocks(this);
+        randoms = mockStatic(Randoms.class);
+    }
+
+    @AfterEach
+    void afterAll(){
+        randoms.close();
     }
 
     @Test
@@ -33,7 +45,7 @@ public class CarTest{
         Car car = new Car("Pobi");
 
         //when
-        Mockito.when(numberGenerator.createRandomNumber()).thenReturn(4);
+        given(Randoms.pickNumberInRange(anyInt(), anyInt())).willReturn(4);
         car.drive();
 
         //then
@@ -48,11 +60,29 @@ public class CarTest{
         Car car = new Car("Pobi");
 
         //when
-        Mockito.when(numberGenerator.createRandomNumber()).thenReturn(2);
+        given(Randoms.pickNumberInRange(anyInt(), anyInt())).willReturn(2);
         car.drive();
 
         //then
         assertThat(car.getForwardCount()).isEqualTo(0);
+
+    }
+
+    @Test
+    @DisplayName("자동차 상태를 형식에 맞춰 출력한다.")
+    void 자동차_상태_출력(){
+        //given
+        Car car = new Car("Pobi");
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        //when
+        given(Randoms.pickNumberInRange(anyInt(), anyInt())).willReturn(7);
+        car.drive();
+        car.printCarState();
+
+        //then
+        assertThat(out.toString()).isEqualTo("Pobi : -------\r\n");
 
     }
 
