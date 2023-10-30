@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
     private static final int MIN_MOVE_COND = 4;
     private final String name;
@@ -11,8 +9,8 @@ public class Car {
         this.name = name;
     }
 
-    public void move() {
-        if (getMoveCondition() >= MIN_MOVE_COND) {
+    public void move(int moveCond) {
+        if (moveCond>= MIN_MOVE_COND) {
             position++;
         }
     }
@@ -23,9 +21,5 @@ public class Car {
 
     public String getName() {
         return name;
-    }
-
-    private int getMoveCondition() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 }
