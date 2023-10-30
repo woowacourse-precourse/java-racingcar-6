@@ -14,7 +14,7 @@ public class OutputView {
     }
 
     public void renderRace(CarGroup carGroup, MoveCount moveCount) {
-        for (int i = 0; i < moveCount.get(); i++) {
+        for (int i = 0; i < moveCount.intValue(); i++) {
             showBlankLine();
             carGroup.run();
             renderRaceStatus(carGroup);

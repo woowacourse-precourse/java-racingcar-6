@@ -6,13 +6,17 @@ public class MoveCount {
 
     private final int value;
 
-    public MoveCount(String value) {
-        validateNumber(value);
-        validateRange(value);
-        this.value = Integer.parseInt(value);
+    private MoveCount(int value) {
+        this.value = value;
     }
 
-    private void validateNumber(String value) {
+    public static MoveCount valueOf(String value) {
+        validateNumber(value);
+        validateRange(value);
+        return new MoveCount(Integer.parseInt(value));
+    }
+
+    private static void validateNumber(String value) {
         if (value == null || value.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT_NUMBER.getMessage());
         }
@@ -24,14 +28,14 @@ public class MoveCount {
         }
     }
 
-    private void validateRange(String value) {
+    private static void validateRange(String value) {
         int moveCount = Integer.parseInt(value);
         if (moveCount < 1) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT_TOO_LOW.getMessage());
         }
     }
 
-    public int get() {
+    public int intValue() {
         return this.value;
     }
 }

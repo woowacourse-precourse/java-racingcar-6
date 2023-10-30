@@ -21,8 +21,7 @@ public class Race {
 
     public void start() {
         CarGroup carGroup = carManager.createCarList(inputCarNames());
-        MoveCount moveCount = new MoveCount(inputMoveCount());
-        outputView.renderRace(carGroup, moveCount);
+        outputView.renderRace(carGroup, MoveCount.valueOf(inputMoveCount()));
         outputView.showWinners(carGroup.getWinners());
     }
 
