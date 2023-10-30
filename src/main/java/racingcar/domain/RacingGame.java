@@ -6,16 +6,16 @@ import java.util.List;
 public class RacingGame {
 
     private final Navigation navigation;
-    private int count;
+    private final Counter counter;
 
     public RacingGame(ArrayList<Car> carList, int count) {
         navigation = new Navigation(carList);
-        this.count = count;
+        this.counter = new Counter(count);
     }
 
     public void doRace() {
         navigation.moveAll();
-        reduceCount();
+        counter.reduceCount();
     }
 
     public List<Car> getStatus() {
@@ -23,13 +23,6 @@ public class RacingGame {
     }
 
     public boolean isEnd() {
-        if (count <= 0) {
-            return true;
-        }
-        return false;
-    }
-
-    private void reduceCount() {
-        count--;
+      return counter.isEnd();
     }
 }
