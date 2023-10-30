@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import racingcar.dto.CarDto;
+
 class CarTest {
 
     @ParameterizedTest(name = "입력값 : {0}")
@@ -73,6 +75,21 @@ class CarTest {
 
         // when & then
         assertThat(pobi.isSamePosition(woni)).isFalse();
+    }
+
+    @Test
+    @DisplayName("CarDto 생성 확인")
+    void givenCar_thenToCarDto_thenSuccess() {
+        // given
+        Car pobi = new Car("pobi");
+        pobi.move(4);
+
+        // when
+        CarDto result = pobi.toCarDto();
+
+        // then
+        assertThat(result).extracting("name").isEqualTo("pobi");
+        assertThat(result).extracting("position").isEqualTo(1);
     }
 
 }
