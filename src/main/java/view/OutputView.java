@@ -11,11 +11,11 @@ public class OutputView {
     }
 
     public void inputRoundNumber() {
-        System.out.println(Message.INPUT_ROUND_NUMBER);
+        System.out.println(Message.INPUT_ROUND_NUMBER.getMessage());
     }
 
     public void outputRunResult() {
-        System.out.println(Message.OUTPUT_RUN_RESULT);
+        System.out.println(Message.OUTPUT_RUN_RESULT.getMessage());
     }
 
     public void outputCarPosition(List<CarDto> cars) {
@@ -24,7 +24,7 @@ public class OutputView {
                     Message.OUTPUT_CAR_POSITION.getMessage(car)
             );
         }
-        System.out.println(Message.OUTPUT_NEWLINE);
+        System.out.println(Message.OUTPUT_NEWLINE.getMessage());
     }
 
     public void outputFinalWinner(List<CarDto> cars) {
