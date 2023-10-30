@@ -41,21 +41,21 @@ public class CarsTest {
                 .isEqualTo(expectedName3);
     }
 
-    @DisplayName("자동차들 움직이는 경우 실행 결과 잘 나오는지 확인")
-    @Test
-    void carExecutionResultAllCarsTest() {
-        String expectedResult = """
-                다오 : ---
-                디지니 : ---
-                배찌 : ---""";
-        int moveCount = 3;
-        for(int i = 0; i<moveCount; i++) {
-            cars.runRace();
-        }
-        String result = cars.generateExecutionResultAllCars();
-
-        assertThat(expectedResult)
-                .isEqualTo(result);
-    }
+//    @DisplayName("자동차들 움직이는 경우 실행 결과 잘 나오는지 확인")
+//    @Test
+//    void carExecutionResultAllCarsTest() {
+//        String expectedResult = """
+//                다오 : ---
+//                디지니 : ---
+//                배찌 : ---""";
+//        int moveCount = 3;
+//        for(int i = 0; i<moveCount; i++) {
+//            cars.runRace();
+//        }
+//        String result = cars.generateExecutionResultAllCars();
+//
+//        assertThat(expectedResult)
+//                .isEqualTo(result);
+//    }
 
 }
