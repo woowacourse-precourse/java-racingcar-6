@@ -21,7 +21,11 @@ public class RacingCarService {
     }
 
     public void moveCars() {
-        int number = randomNumber.create();
+        int number = generateNumber();
         cars.moveCars(number);
+    }
+
+    private int generateNumber() {
+        return randomNumber.create();
     }
 }
