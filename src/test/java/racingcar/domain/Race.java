@@ -9,6 +9,10 @@ public class Race {
 
     private List<Car> cars;
 
+    public void moveEachCar() {
+        cars.forEach(Car::move);
+    }
+
     public List<Car> findWinnerCars() {
         Car carWithMaxDistance = getCarWithMaxDistance();
         return cars.stream()
