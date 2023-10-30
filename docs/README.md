@@ -150,7 +150,7 @@
 - [x] JudgeStandard
 - [x] RaceCar
 - [x] ValidConstants
-- [ ] Utill
+- [x] Utill
 - [x] ValidException
 - [x] GameStart
 
