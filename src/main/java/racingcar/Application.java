@@ -1,7 +1,5 @@
 package racingcar;
 
-import racingcar.utils.RacingCarGameInput;
-
 public class Application {
     public static void main(String[] args) {
         RacingCarGameLauncher launcher = new RacingCarGameLauncher();
