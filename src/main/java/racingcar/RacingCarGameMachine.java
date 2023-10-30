@@ -10,12 +10,17 @@ public class RacingCarGameMachine {
     private final String GAME_RESULT = "최종 우승자 : %s";
 
     private final RandomNumberGenerator randomNumberGenerator;
+    private final RacingCarGameMachineValidator racingCarGameMachineValidator;
 
     private List<RacingCar> racingCarList = new ArrayList<>();
     private int currentRound = 1;
     private int maxRoundCount;
 
-    public RacingCarGameMachine(RandomNumberGenerator randomNumberGenerator) {
+    public RacingCarGameMachine(
+            RacingCarGameMachineValidator racingCarGameMachineValidator,
+            RandomNumberGenerator randomNumberGenerator
+    ) {
+        this.racingCarGameMachineValidator = racingCarGameMachineValidator;
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
