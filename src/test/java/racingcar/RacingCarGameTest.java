@@ -25,7 +25,7 @@ class RacingCarGameTest {
         RacingCarGame racingCarGame = new RacingCarGame();
 
         // when
-        racingCarGame.makeCars(Converter.stringToArr(userInput));
+        racingCarGame.makeCars(Converter.stringToList(userInput));
 
         // then
         assertEquals(3,racingCarGame.getRacingCars().size());
@@ -46,7 +46,7 @@ class RacingCarGameTest {
 
         // when
         // then
-        assertThatThrownBy(() -> racingCarGame.makeCars(Converter.stringToArr(userInput)))
+        assertThatThrownBy(() -> racingCarGame.makeCars(Converter.stringToList(userInput)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.CAR_NAME_LENGTH_EXCEPTION.getMessage());
     }
@@ -83,7 +83,7 @@ class RacingCarGameTest {
     void findMaxLocation() {
         //given
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.makeCars(Converter.stringToArr("test1,test2,test3"));
+        racingCarGame.makeCars(Converter.stringToList("test1,test2,test3"));
 
         //when
         racingCarGame.moveCars();
@@ -105,7 +105,7 @@ class RacingCarGameTest {
     void findWinner() {
         //given
         RacingCarGame racingCarGame = new RacingCarGame();
-        racingCarGame.makeCars(Converter.stringToArr("test1,test2,test3"));
+        racingCarGame.makeCars(Converter.stringToList("test1,test2,test3"));
 
         //when
         racingCarGame.moveCars();
@@ -123,6 +123,19 @@ class RacingCarGameTest {
         }
 
         assertEquals(findWinner,winner);
+    }
+
+    @Test
+    void makeCarsDuplicatedName() {
+        //given
+        RacingCarGame racingCarGame = new RacingCarGame();
+        String s = "aaa,bbb,aaa";
+
+        //when
+        //then
+        assertThatThrownBy(() -> racingCarGame.makeCars(Converter.stringToList(s)))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.DUPLICATE_CAR_NAME.getMessage());
     }
 
     public void setUpInputStream(String input) {
