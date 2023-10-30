@@ -1,7 +1,8 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import racingcar.model.Car;
+import racingcar.model.CarList;
 import racingcar.model.Racing;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -11,38 +12,22 @@ public class Controller {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     Racing racing = new Racing();
+    CarList carList = new CarList();
+
 
     public void racingGame() {
         List<String> carNames = inputView.askName();
+        List<Car> cars = carList.makeCarList(carNames, carNames.size());
         int count = inputView.askGameCount();
-        List<Integer> forwardCountList = forwardCount(carNames.size());
+        System.out.println("실행 결과");
         for (int i = 0; i < count; i++) {
-            for (int j = 0; j < forwardCountList.size(); j++) {
-                int step = forwardCountList.get(j);
-                step += addCount();
-                forwardCountList.set(j, step);
-                outputView.showRacing(carNames.get(j), step);
-            }
+            racing.startRacing(cars);
+            outputView.showRacing(cars);
             System.out.println("");
-
         }
-        System.out.println("최종 우승자 : " + outputView.selectWinner(carNames, forwardCountList));
+        System.out.println("최종 우승자 : " + outputView.selectWinner(cars));
+
 
     }
 
-    public List<Integer> forwardCount(int carNameSize) {
-        List<Integer> forwardCountList = new ArrayList<>();
-        for (int i = 0; i < carNameSize; i++) {
-            forwardCountList.add(0);
-        }
-        return forwardCountList;
-    }
-
-    public int addCount() {
-        if (racing.moveForward()) {
-            return 1;
-        }
-        return 0;
-
-    }
 }
