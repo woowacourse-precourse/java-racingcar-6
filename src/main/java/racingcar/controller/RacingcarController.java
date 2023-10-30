@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static racingcar.view.errorMessage.*;
+
 public class RacingcarController {
     private static final RacingcarService racingcarService = new RacingcarService();
     private static final InputView inputView = InputView.getInstance();
@@ -25,7 +27,7 @@ public class RacingcarController {
 
         for (String carName : carNames) {
             if(carName.length() > 5){
-                throw new IllegalArgumentException("자동차 이름은 5글자 이하입니다.");
+                throw new IllegalArgumentException(ERROR_CAR_NAME_TOO_LONG);
             }
 
             carList.add(new Car(carName, 0));
@@ -36,7 +38,14 @@ public class RacingcarController {
     }
 
     private void game(){
-        int roundCount = Integer.parseInt(inputView.getRoundCount());
+        int roundCount;
+
+        try{
+            roundCount = Integer.parseInt(inputView.getRoundCount());
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException(ERROR_INTEGER_ONLY);
+        }
+
         outputView.printResultInfo();
 
         for (int i = 0; i < roundCount; i++) {
