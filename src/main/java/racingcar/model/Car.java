@@ -27,7 +27,7 @@ public class Car {
         return position.isGreaterThan(maxPosition);
     }
 
-    public String displayResult() {
+    public String getResultFormat() {
         return getNameFormat() + " : " + getPositionFormat();
     }
 
