@@ -22,10 +22,10 @@ public class Game {
     }
 
     private void makeCars(String[] carNames) {
-        carList = new CarList(
-                Arrays.stream(carNames)
-                        .map(Car::new)
-                        .collect(Collectors.toList()));
+        carList = new CarList();
+        Arrays.stream(carNames)
+                .map(Car::new)
+                .forEach(carList::addCar);
     }
 
     private void initPosition() {
