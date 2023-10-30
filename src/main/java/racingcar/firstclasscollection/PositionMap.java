@@ -1,7 +1,10 @@
 package racingcar.firstclasscollection;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 import racingcar.constant.ExceptionMessage;
 import racingcar.model.Car;
 
@@ -39,5 +42,14 @@ public class PositionMap {
         }
     }
 
-    // TODO : List<Car> getWinner()
+    /**
+     * @return List of Winner Car instance
+     */
+    public List<Car> getWinner() {
+        return positionMap.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == winnerPosition)
+                .map(Entry::getKey)
+                .collect(Collectors.toList());
+    }
 }
