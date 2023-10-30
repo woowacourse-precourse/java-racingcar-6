@@ -26,7 +26,11 @@ public class RaceController {
             raceService.getResult(carNamesList, result);
             outputView.printResult(carNamesList, result);
         }
+        int maxScore = raceService.getMaxScore(carNamesList, result);
+
     }
+
+
 
 
 }

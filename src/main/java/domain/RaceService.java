@@ -7,6 +7,7 @@ import java.util.List;
 public class RaceService {
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 1;
+
     public List<String> carNamesToList(String carNames) {
         String[] carNamesArr = carNames.split(",");
         return Arrays.asList(carNamesArr);
@@ -15,9 +16,19 @@ public class RaceService {
     public void getResult(List<String> carNamesList, int[] result) {
         for (int j = 0; j < carNamesList.size(); j++) {
             int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
-            if (randomNumber >= 4){
+            if (randomNumber >= 4) {
                 result[j] += 1;
             }
         }
+    }
+
+    public Integer getMaxScore(List<String> carNamesList, int[] result) {
+        int maxScore = -1;
+        for (int i = 0; i < carNamesList.size(); i++) {
+            if (result[i] > maxScore) {
+                maxScore = result[i];
+            }
+        }
+        return maxScore;
     }
 }
