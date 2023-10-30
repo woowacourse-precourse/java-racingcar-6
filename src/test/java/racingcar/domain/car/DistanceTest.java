@@ -14,4 +14,13 @@ public class DistanceTest {
         assertEquals(first, second);
         assertEquals(second, first);
     }
+
+    @Test
+    void visualize_메소드_테스트() {
+        Distance five = Distance.zero();
+        for (int i = 0; i < 5; i++) {
+            five = five.plusOne();
+        }
+        assertEquals(five.visualize(), "-----");
+    }
 }
