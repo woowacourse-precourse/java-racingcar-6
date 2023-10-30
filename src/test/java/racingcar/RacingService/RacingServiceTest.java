@@ -3,7 +3,9 @@ package racingcar.RacingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
+import racingcar.utils.NumberGenerator;
 import racingcar.utils.RandomNumberGenerator;
+import racingcar.utils.StubNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,8 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.*;
 import static racingcar.view.InputView.getCarNamesFromUser;
 
 class RacingServiceTest {
@@ -67,13 +68,42 @@ class RacingServiceTest {
         racingService.readyCarName();
 
         //when
-        racingService.readyCars();
+        racingService.readyCars(new RandomNumberGenerator());
 
         //then
 
         assertEquals(expectedPobi, racingService.getCars().get(0).getName());
         assertEquals(expectedWoni, racingService.getCars().get(1).getName());
         assertEquals(expectedJun, racingService.getCars().get(2).getName());
+    }
+
+    @Test
+    public void 레이싱_1회_진행() throws Exception {
+        //given
+        List<String> carNames = Arrays.asList("pobi", "woni", "jun");
+        doReturn(carNames).when(racingService).getCarNameList();
+
+        racingService.readyCarName();
+        racingService.readyCars(new StubNumberGenerator(5));
+
+        List<Car> cars = racingService.getCars();
+
+        //when
+        racingService.playOneRound();
+
+        //then
+        for (Car car : cars) {
+            assertEquals(1, car.getPosition());
+        }
+    }
+
+    @Test
+    public void 우승자_찾기_테스트() throws Exception {
+        //given
+
+        //when
+
+        //then
     }
 
 }
