@@ -11,7 +11,7 @@ public class InputView {
     }
 
     public String readCarNames() {
-        String carNames = Console.readLine();
+        String carNames = readInput();
         validateCarNames(carNames);
         return carNames;
     }
