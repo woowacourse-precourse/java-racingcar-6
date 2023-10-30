@@ -52,8 +52,8 @@ public class RacingService {
             if (isBiggerThanFour(getRandomValue())) {
                 car.increaseDistance();
             }
-            OutputMessage.printRacingProgressOutputMessage(car);
         }
+        OutputMessage.printRacingProgressOutputMessage(carRepository.getCarList());
     }
 
     private int getRandomValue() {

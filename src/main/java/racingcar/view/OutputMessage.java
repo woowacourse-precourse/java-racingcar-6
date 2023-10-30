@@ -10,10 +10,9 @@ public class OutputMessage {
         System.out.println("\n실행 결과");
     }
 
-    public static void printRacingProgressOutputMessage(Car car) {
-        System.out.print(car.getName() + " : ");
-        for (int i = 0; i < car.getDistance(); i++) {
-            System.out.println(BAR);
+    public static void printRacingProgressOutputMessage(List<Car> list) {
+        for (Car car : list) {
+            System.out.println(car.getName() + " : " + BAR.repeat(car.getDistance()));
         }
         System.out.println();
     }
