@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
@@ -9,7 +10,7 @@ public class Race {
     private final int numRaces;
 
     public Race(int numRaces, List<Car> cars) {
-        this.cars = cars;
+        this.cars = new ArrayList<>(cars);
         this.numRaces = numRaces;
     }
 
