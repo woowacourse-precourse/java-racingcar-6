@@ -38,8 +38,9 @@ public class Controller {
         outputView.printStartGame();
         gameManager.setCarIdxNamePosList();
 
-        int playTime = userInput.getPlayTime();
         List<Map.Entry<String, String>> carIdxNamePosList = gameManager.getCarIdxNamePosList();
+
+        int playTime = userInput.getPlayTime();
         for (int time = 0; time < playTime; time++) {
             moveCars();
             outputView.printCarsMove(carIdxNamePosList);
