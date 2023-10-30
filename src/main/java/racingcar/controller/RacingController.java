@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.CarList.CarDto;
-import racingcar.domain.racing.RacingService;
+import racingcar.service.RacingService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,7 +14,9 @@ public class RacingController {
 
 
     public void initRacingGame() {
+        outputView.printRequestCarName();
         List<String> userInput = inputView.getUserInputCarNames();
+        outputView.printRequestRound();
         int racingRound = inputView.getUserInputRacingRound();
         racingService.setCars(userInput);
         outputView.printResult();
