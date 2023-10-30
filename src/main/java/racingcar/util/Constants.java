@@ -3,6 +3,7 @@ package racingcar.util;
 public enum Constants {
     GET_GREETING_MESSAGE("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
     GET_ROUND_COUNT("시도할 회수는 몇회인가요?"),
+    RESULT_CONSTANT("실행 결과"),
     NAME_SPLIT_REGEX(","),
     ROUND_REGEX("^[1-9][0-9]*$"),
     OUTPUT_FORMAT(" : "),
