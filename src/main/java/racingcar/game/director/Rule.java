@@ -22,16 +22,4 @@ public class Rule {
                 .collect(Collectors.toList());
     }
 
-    public String winnersToString(List<Car> winnerList) {
-        List<String> nameList = new ArrayList<>();
-
-        for (Car car : winnerList) {
-            String name = car.getName();
-            nameList.add(name);
-        }
-
-        return String.join(", ", nameList);
-    }
-
-
 }

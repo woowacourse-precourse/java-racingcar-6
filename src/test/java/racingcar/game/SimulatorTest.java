@@ -4,38 +4,30 @@ import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic.Verification;
 import org.mockito.Mockito;
 import racingcar.game.car.Car;
-import racingcar.game.car.CarFactory;
+import racingcar.game.director.Round;
 import racingcar.game.director.Simulator;
-import racingcar.game.inputgenerateManager.InputGenerateManagerImpl;
 
 class SimulatorTest {
+    private final static Car CAR_A = Mockito.mock(Car.class);
+    private final static Car CAR_B = Mockito.mock(Car.class);
+    private final static Car CAR_C = Mockito.mock(Car.class);
+    private final static Car CAR_D = Mockito.mock(Car.class);
+    private final static List<Car> CAR_LIST = Arrays.asList(CAR_A, CAR_B, CAR_C, CAR_D);
+    private final static Simulator simulator = new Simulator();
+
 
     @Test
-    void 라운드_반복시_값확인() {
-        //if
-        List<String> racingCarNameList = Arrays.asList("한놈", "두식이", "석삼", "너구리");
-        InputGenerateManagerImpl mockInputGenerateManager = Mockito.mock(InputGenerateManagerImpl.class);
-        CarFactory carFactory = new CarFactory(mockInputGenerateManager);
-        Mockito.when(mockInputGenerateManager.generateRandomInt())
-                .thenReturn(4, 3, 4, 2)
-                .thenReturn(2, 4, 3, 4)
-                .thenReturn(4, 2, 4, 3)
-                .thenReturn(3, 4, 2, 4)
-                .thenReturn(4, 3, 1, 2);
+    void 라운드_진행시_Car_drive_호출() {
 
-        //when
-        Simulator simulator = new Simulator();
-        List<Car> cars = carFactory.createCars(racingCarNameList);
-        for (int i = 0; i < 5; i++) {
-            simulator.perRound(cars);
-        }
+        simulator.perRound(CAR_LIST);
 
-        //then
-        Assertions.assertThat(cars.get(0).getForwardCount()).isEqualTo(3);
-        Assertions.assertThat(cars.get(1).getForwardCount()).isEqualTo(2);
-        Assertions.assertThat(cars.get(2).getForwardCount()).isEqualTo(2);
-        Assertions.assertThat(cars.get(3).getForwardCount()).isEqualTo(2);
+        Mockito.verify(CAR_A).drive();
+        Mockito.verify(CAR_B).drive();
+        Mockito.verify(CAR_C).drive();
+        Mockito.verify(CAR_D).drive();
+
     }
 }

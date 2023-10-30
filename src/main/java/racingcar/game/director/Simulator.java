@@ -8,6 +8,7 @@ public class Simulator {
 
     public Round perRound(List<Car> carList) {
         List<Car> tempList = new ArrayList<>();
+
         for (Car car : carList) {
             car.drive();
             tempList.add(car);

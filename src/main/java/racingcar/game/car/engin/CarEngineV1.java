@@ -6,6 +6,10 @@ import racingcar.game.inputgenerateManager.InputGenerateManager;
 public class CarEngineV1 implements CarEngine {
     private final InputGenerateManager inputGenerateManager;
 
+    public CarEngineV1(InputGenerateManager inputGenerateManager) {
+        this.inputGenerateManager = inputGenerateManager;
+    }
+
     @Override
     public CarMove operateEngine() {
         Integer moveOrStopCondition = inputGenerateManager.generateRandomInt();
@@ -21,7 +25,4 @@ public class CarEngineV1 implements CarEngine {
         return CarMove.STOP;
     }
 
-    public CarEngineV1(InputGenerateManager inputGenerateManager) {
-        this.inputGenerateManager = inputGenerateManager;
-    }
 }

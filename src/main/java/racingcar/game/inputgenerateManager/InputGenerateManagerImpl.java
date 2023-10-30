@@ -26,8 +26,4 @@ public class InputGenerateManagerImpl implements InputGenerateManager {
         InputValidator.validateName(splitData);
         return Arrays.asList(splitData);
     }
-
-    public static InputGenerateManager createInputGenerateManager() {
-        return new InputGenerateManagerImpl();
-    }
 }

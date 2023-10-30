@@ -10,11 +10,11 @@ import racingcar.game.exception.IllegalLengthException;
 
 class InputGenerateManagerImplTest {
 
-    private final InputGenerateManager inputGenerateManager = InputGenerateManagerImpl.createInputGenerateManager();
-    private final String STRING_NUMBER = "999";
-    private final int PURE_NUMBER = 999;
-    private final String STRING_NAME = "한놈,두식이,석삼";
-    private final String[] NAME_LIST = {"한놈","두식이","석삼"};
+    private final static InputGenerateManager inputGenerateManager = new InputGenerateManagerImpl();
+    private final static String STRING_NUMBER = "999";
+    private final static int PURE_NUMBER = 999;
+    private final static String STRING_NAME = "한놈,두식이,석삼";
+    private final static String[] NAME_LIST = {"한놈","두식이","석삼"};
 
     @RepeatedTest(10)
     void 난수_범위() {
@@ -37,7 +37,7 @@ class InputGenerateManagerImplTest {
     void 문자열_쉼표기준변환() {
         List<String> nameList = inputGenerateManager.generateInputStringSplitWithComma(STRING_NAME);
 
-        Assertions.assertThat(nameList.size()).isEqualTo(3);
+        Assertions.assertThat(nameList.size()).isEqualTo(NAME_LIST.length);
         Assertions.assertThat(nameList).contains(NAME_LIST[0], NAME_LIST[1], NAME_LIST[2]);
     }
 }

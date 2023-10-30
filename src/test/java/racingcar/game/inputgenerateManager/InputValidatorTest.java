@@ -10,12 +10,12 @@ import racingcar.game.exception.IllegalTypeException;
 
 class InputValidatorTest {
 
-    private final String ONLY_STRING = "onlyString";
-    private final String OVER_VALUE = "99999999999999999";
-    private final String ONLY_BLANK = " ";
-    private final String[] NAME_LIST_CONTAIN_OVER_LENGTH = {"한놈", "두식이", "다섯글자이상"};
-    private final String[] NAME_LIST_CONTAIN_SPACE = {"한놈", "두식이", " "};
-    private final String[] NAME_LIST_CONTAIN_DUPLICATE_NAME = {"한놈","두식이","한놈"};
+    private final static String ONLY_STRING = "onlyString";
+    private final static String OVER_VALUE = "99999999999999999";
+    private final static String ONLY_BLANK = " ";
+    private final static String[] NAME_LIST_CONTAIN_OVER_LENGTH = {"한놈", "두식이", "다섯글자이상"};
+    private final static String[] NAME_LIST_CONTAIN_SPACE = {"한놈", "두식이", " "};
+    private final static String[] NAME_LIST_CONTAIN_DUPLICATE_NAME = {"한놈","두식이","한놈"};
 
     @Test
     void 숫자검증() {

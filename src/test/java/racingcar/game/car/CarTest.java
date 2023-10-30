@@ -9,28 +9,38 @@ import racingcar.game.inputgenerateManager.InputGenerateManager;
 
 class CarTest {
 
-    @Test
-    void Car_객체_내부엔진이_각각_독립적인_객체인지_확인() {
-        //if
-        InputGenerateManager moveForwardValue = Mockito.mock(InputGenerateManager.class);
-        Mockito.when(moveForwardValue.generateRandomInt()).thenReturn(4);
+    private final InputGenerateManager moveForwardValue = Mockito.mock(InputGenerateManager.class);
 
-        InputGenerateManager stopValue = Mockito.mock(InputGenerateManager.class);
-        Mockito.when(stopValue.generateRandomInt()).thenReturn(3);
+
+    @Test
+    void CarEngine_GO_FORWARD_반환시_forwardCount_증가() {
+        //if
+        Mockito.when(moveForwardValue.generateRandomInt()).thenReturn(4);
 
         //when
         CarEngineV1 carEngineA = new CarEngineV1(moveForwardValue);
         Car carA = new Car("carA", carEngineA);
         carA.drive();
 
-        CarEngineV1 carEngineB = new CarEngineV1(stopValue);
-        Car carB = new Car("carB", carEngineB);
-        carB.drive();
-
         //then
         Assertions.assertThat(carA.getForwardCount()).isEqualTo(1);
-        Assertions.assertThat(carB.getForwardCount()).isEqualTo(0);
-        Assertions.assertThat(carEngineA).isNotEqualTo(carEngineB);
+        Assertions.assertThat(carA.getName()).isEqualTo("carA");
     }
+
+    @Test
+    void CarEngine_STOP_반환시_forwardCount_증가안함() {
+        //if
+        Mockito.when(moveForwardValue.generateRandomInt()).thenReturn(1);
+
+        //when
+        CarEngineV1 carEngineA = new CarEngineV1(moveForwardValue);
+        Car carA = new Car("carA", carEngineA);
+        carA.drive();
+
+        //then
+        Assertions.assertThat(carA.getForwardCount()).isEqualTo(0);
+        Assertions.assertThat(carA.getName()).isEqualTo("carA");
+    }
+
 
 }
