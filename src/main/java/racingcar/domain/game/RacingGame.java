@@ -19,5 +19,9 @@ public class RacingGame {
         outputView.printRacingRoundInputMessage();
         int num = RacingGameInputView.nextInt();
 
+        List<RacingCar> cars = RacingCars.fromNames(inputCars);
+        Racing racing = new Racing(cars, num);
+
+
     }
 }
