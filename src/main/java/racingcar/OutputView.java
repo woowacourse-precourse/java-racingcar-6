@@ -23,10 +23,10 @@ public class OutputView {
 
     private static String makeRacingStatus(Car car) {
         return car.getName() + " : "
-                + forwardToHyphen(car.getForward());
+                + convertForwardToHyphen(car.getForward());
     }
 
-    private static String forwardToHyphen(Integer forward) {
+    private static String convertForwardToHyphen(Integer forward) {
         return "-".repeat(forward);
     }
 
