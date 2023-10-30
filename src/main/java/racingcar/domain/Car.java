@@ -20,8 +20,12 @@ public class Car {
         return carName + " : " + convertPositionToResult();
     }
 
-    private String convertPositionToResult() {
+    public String convertPositionToResult() {
         return "-".repeat(position);
+    }
+
+    public boolean isWinner(int maxPosition) {
+        return this.position == maxPosition;
     }
 
     @Override
