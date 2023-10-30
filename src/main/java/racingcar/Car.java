@@ -9,5 +9,12 @@ public class Car {
         this.move = move;
     }
 
+    public void setMove(String move){
+        this.move += move;
+    }
 
+    @Override
+    public String toString(){
+        return String.format("%s : %s", this.name, this.move);
+    }
 }
