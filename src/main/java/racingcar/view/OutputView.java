@@ -17,7 +17,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void getResult(List<String> maxCars) {
+    public void printGameResult(List<String> maxCars) {
         System.out.printf(OUTPUT_FINAL_WINNER, maxCars.get(0));
         for (int i = 1; i < maxCars.size(); i++) {
             System.out.print(OUTPUT_FINAL_WINNER_SPLITTER + maxCars.get(i));
