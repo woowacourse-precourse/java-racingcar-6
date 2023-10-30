@@ -4,10 +4,15 @@ import java.util.List;
 
 public class OutputView {
 
+    public static void printFirstSeperator() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
     public static void printCarNameNPosition(List<String>carNameList, List<Integer> carPositionList) {
         for (int i=0;i<carNameList.size();i++) {
             System.out.println(carNameList.get(i)+" : " + "-".repeat(carPositionList.get(i)));
         }
+        System.out.println();
     }
 
     public static void printWinnerNameList(List<String>winnerNameList) {
