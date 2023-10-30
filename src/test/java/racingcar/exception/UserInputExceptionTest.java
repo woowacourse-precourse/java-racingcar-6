@@ -1,5 +1,6 @@
 package racingcar.exception;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,6 +13,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class UserInputExceptionTest {
     private UserInputException userInputException;
+
+    @BeforeEach
+    void setUp(){
+        userInputException = new UserInputException();
+    }
     private static final String LENGTH_ERROR_MESSAGE = "자동차 이름은 1 이상, 5 이하로 입력해 주세요";
     private static final String BLANK_STRING_MESSAGE = "빈 문자를 입력하셨습니다.";
     private static final String DUPLICATE_MESSAGE = "자동차 이름은 중복되지 않게 입력해주세요";
@@ -25,7 +31,7 @@ class UserInputExceptionTest {
     }
     @Test
     void 이름_길이가_유효하지_않을_때() {
-        String input = "asdfadsfasdf";
+        String input = "adddaddad";
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserInputException.isLength(input));
         assertEquals(LENGTH_ERROR_MESSAGE, exception.getMessage());
     }
@@ -43,20 +49,20 @@ class UserInputExceptionTest {
 
     @Test
     void 중복된_값이_존재_할_때(){
-        List<String> input = Arrays.asList("pobi","pobi","woni");
+        String input = "pobi,woni,woni";
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserInputException.isDuplicate(input));
         assertEquals(DUPLICATE_MESSAGE, exception.getMessage());
     }
 
     @Test
     void 중복된_값이_존재하지_않을_때() {
-        List<String> input = Arrays.asList("pobi","jun","woni");
+        String input = "pobi,jun,woni";
         assertDoesNotThrow(() -> UserInputException.isDuplicate(input));
     }
 
     @Test
     void 컴마_숫자_문자_이외의_것_일_때() {
-        String input = "pobi.woni,jun";
+        String input = "pobi@woni,jun";
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserInputException.isComma(input));
         assertEquals(ONLY_COMMA, exception.getMessage());
     }
@@ -68,13 +74,13 @@ class UserInputExceptionTest {
 
     @Test
     void 자동차_두_대_이상_입력_안_했을_때(){
-        List<String> input = Arrays.asList("pobi");
+        String input = "pobi";
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> UserInputException.isMoreThan(input));
         assertEquals(INPUT_MORE_THAN_TWO_CAR, exception.getMessage());
     }
     @Test
     void 자동차_두_대_이상_입력_했을_때(){
-        List<String> input = Arrays.asList("pobi","woni");
+        String input = "pobi,woni";
         assertDoesNotThrow(() -> UserInputException.isMoreThan(input));
     }
 
