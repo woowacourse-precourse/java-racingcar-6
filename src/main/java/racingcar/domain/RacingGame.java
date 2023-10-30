@@ -1,17 +1,21 @@
 package racingcar.domain;
 
-import static racingcar.utils.MessagePrinter.roundResult;
-import static racingcar.utils.MessagePrinter.winners;
-
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.utils.MessagePrinter;
 import racingcar.utils.Validator;
 
 public class RacingGame {
     private List<Car> cars;
-    private final Validator validator = Validator.getInstance();
+    private final Validator validator;
+    private final MessagePrinter messagePrinter;
+
+    public RacingGame() {
+        this.validator = Validator.getInstance();
+        this.messagePrinter = MessagePrinter.getInstance();
+    }
 
     public void play() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -39,11 +43,11 @@ public class RacingGame {
         for (int i=0; i<playTimes; i++) {
             cars.forEach(car -> car
                     .move(generateRandomNumber()));
-            roundResult(cars);
+            messagePrinter.roundResult(cars);
             System.out.println();
         }
         final List<Car> winners = judgeWinners(cars);
-        winners(winners);
+        messagePrinter.winners(winners);
     }
 
     private int generateRandomNumber() {
