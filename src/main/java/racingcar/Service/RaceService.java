@@ -11,7 +11,7 @@ public class RaceService {
 
     Car car=new Car();
 
-    private int requestAttempts(){
+    public int requestAttempts(){
         String attemptsInput = Console.readLine();
         return validateConvertToInt(attemptsInput);
     }
@@ -24,7 +24,7 @@ public class RaceService {
         }
     }
 
-    private List<String> requestCarNames(){
+    public List<String> requestCarNames(){
         String carListInput = Console.readLine();
         validateDelimiter(carListInput);
         return car.getCarNameList();
