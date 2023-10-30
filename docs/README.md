@@ -71,7 +71,7 @@
 
 ### Domain
 
-#### GameService
+#### RacingGame
 -[x] Navigation을 생성한다.
 -[x] Navigation에 이동 요청을 한다.
 - Navigation에게 승자 요청을 한다.
