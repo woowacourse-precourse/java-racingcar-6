@@ -1,6 +1,6 @@
 # 구현한 기능 목록
 
-## 1. 자동차 정보 `Car` 클래스
+## 자동차 정보 `Car` 클래스
 - 목적: 자동차 이름, 위치 정보 저장
 - Field: 이름(`String`), 위치(`Integer`), 숫자 판별(`Numbers`)
 - Method: 차종별 시도(`void` &rarr; `void`), 차종별 출력(`void` &rarr; `void`)
@@ -11,9 +11,14 @@
 2. 숫자 판별(`Numbers.compareFour`) 함수로 체크
 3. 판별 후 `this.position += 0 || 1`
 
-## 1. 숫자 판별 `Numbers` 클래스
+## 숫자 판별 `Numbers` 클래스
 - 목적: if 문을 대신 하기 위해 `HashMap`를 이용하여 0~9 를 key 값으로 두고 value로 increasement
 - Field: map(`Map<Integer, Integer>`)
 - Method: 숫자 판별(`int` &rarr; `int`)
 ### 숫자 판별
 map에서 해당 value를 리턴
+
+## 레이싱 시작 및 종료 `Racing` 클래스
+- 목적: 레이싱 시작과 종료를 모듈화하기 위한 클래스
+- Field: 차량 목록(`List<Car>`)
+- Method: 차량 목록 입력(`void` &rarr; `void`)
