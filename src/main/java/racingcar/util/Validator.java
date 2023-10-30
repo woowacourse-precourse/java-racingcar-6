@@ -30,4 +30,12 @@ public class Validator {
             throw new IllegalArgumentException("중복된 이름은 불가합니다.");
         }
     }
+
+
+    private void blank(String trial){
+       if(trial.equals("")) {
+           throw new IllegalArgumentException("숫자를 입력하십시오.");
+       }
+    }
+
 }

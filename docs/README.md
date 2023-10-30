@@ -7,6 +7,7 @@
 - [ ] 입력 받은 시도 횟수를 검증 한다. - Validator#trial
   - [ ] 양의 정수 형태 이외 금지(앞뒤 공백 제외) -Validator#positive
     - 맨 앞 0도 금지 ex) 012
+  - [x] 공백 이름 금지 - Validator#blank
 - - -
 
 - [ ] 이름 클래스 - Names 
