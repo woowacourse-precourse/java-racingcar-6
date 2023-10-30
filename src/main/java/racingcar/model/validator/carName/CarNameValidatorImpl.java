@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CarNameValidatorImpl implements CarNameValidator{
+
     @Override
     public void validateCount(String[] inputs) {
         if (inputs.length != COUNT_OF_CAR) {
@@ -45,5 +46,12 @@ public class CarNameValidatorImpl implements CarNameValidator{
         if (inputSet.size() != COUNT_OF_CAR) {
             throw new IllegalArgumentException("중복되지 않은 이름을 입력해주세요.");
         }
+    }
+
+    @Override
+    public void validateAll(String[] inputs) {
+        validateCount(inputs);
+        validateLength(inputs);
+        validateDuplicate(inputs);
     }
 }

@@ -8,4 +8,12 @@ public class RaceView {
         this.inputView = inputView;
         this.outputView = outputView;
     }
+
+    public void displayCarNameInputNotice() {
+        outputView.displayCarNameInputNotice();
+    }
+
+    public String[] getCarNamesFromUsers() {
+        return inputView.getCarNamesFromUsers();
+    }
 }
