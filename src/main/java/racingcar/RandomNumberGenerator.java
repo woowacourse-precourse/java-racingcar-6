@@ -6,7 +6,7 @@ public class RandomNumberGenerator {
     public static final int MIN_RANDOM_INTEGER = 0;
     public static final int MAX_RANDOM_INTEGER = 9;
 
-    public static Integer getRandomInteger() {
+    public Integer getRandomInteger() {
         return Randoms.pickNumberInRange(MIN_RANDOM_INTEGER,MAX_RANDOM_INTEGER);
     }
 }
