@@ -20,10 +20,10 @@ public class RacingCarApplication {
         CarGameRound gameRound = carViewer.inputGameRound();
 
         CarGame carGame = CarGame.create(cars, gameRound);
-        List<Map<String, Integer>> gameResult = carGame.race();
+        List<Map<String, Integer>> gameResultByRound = carGame.race();
 
         carViewer.outputExecute();
-        carViewer.outputResult(gameResult);
+        carViewer.outputResult(gameResultByRound);
 
         carViewer.outputWinner(carGame.getWinnerNames());
     }

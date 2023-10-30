@@ -19,15 +19,15 @@ public class CarGame {
     }
 
     public List<Map<String, Integer>> race() {
-        List<Map<String, Integer>> gameResult = new ArrayList<>();
+        List<Map<String, Integer>> gameResultByRound = new ArrayList<>();
 
         for (int i = 0; gameRound.isRunning(i); i++) {
             Map<String, Integer> status = cars.goForward();
 
-            gameResult.add(status);
+            gameResultByRound.add(status);
         }
 
-        return gameResult;
+        return gameResultByRound;
     }
 
     public List<String> getWinnerNames() {
