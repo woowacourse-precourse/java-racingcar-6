@@ -2,6 +2,7 @@ package racingcar.service;
 
 import static racingcar.validation.Validation.inputCarNameValidate;
 import static racingcar.view.InputView.inputCarNameMessage;
+import static racingcar.view.InputView.inputRacingTimeMessage;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
@@ -29,5 +30,13 @@ public class RacingService {
         inputCarNameValidate(carName);
         return carName;
     }
+
+    public int inputRacingTime() {
+        inputRacingTimeMessage();
+        int racingTime = Integer.parseInt(Console.readLine());
+        return racingTime;
+    }
+
+
 
 }
