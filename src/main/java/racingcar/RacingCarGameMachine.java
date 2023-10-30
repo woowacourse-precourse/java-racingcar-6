@@ -3,6 +3,7 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class RacingCarGameMachine {
     private final RandomNumberGenerator randomNumberGenerator;
@@ -34,6 +35,15 @@ public class RacingCarGameMachine {
         return Arrays.stream(names).toList();
     }
 
+    public String playRound() {
+        if(!isGameInProgress()) {
+            throw new IllegalStateException();
+        }
+        currentRound++;
+        moveAllRacingCar();
+        return getRoundResult();
+    }
+
     public boolean isGameInProgress() {
         return currentRound <= maxRoundCount;
     }
@@ -42,5 +52,13 @@ public class RacingCarGameMachine {
         for (RacingCar racingCar : racingCarList) {
             racingCar.move();
         }
+    }
+
+    private String getRoundResult() {
+        StringJoiner stringJoiner = new StringJoiner("\n");
+        for (RacingCar racingCar : racingCarList) {
+            stringJoiner.add(racingCar.getCurrentStatus());
+        }
+        return stringJoiner.toString();
     }
 }
