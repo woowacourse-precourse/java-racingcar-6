@@ -10,7 +10,7 @@ public class CarController {
     public void run() {
         String carNames = inputCarNames();
         int gameCount = inputGameCount();
-        CarGame carGame = new CarGame(carNames, gameCount);
+        CarGame carGame = new CarGame(carNames);
 
         OutputView.printResult();
         playMovingCar(carGame, gameCount);

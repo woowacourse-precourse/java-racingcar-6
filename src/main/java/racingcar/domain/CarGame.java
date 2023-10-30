@@ -11,11 +11,9 @@ import racingcar.util.ConvertUtil;
 public class CarGame {
 
     private List<Car> cars;
-    private int gameCount;
 
-    public CarGame(String carNames, int gameCount) {
+    public CarGame(String carNames) {
         cars = ConvertUtil.convertStrToListCar(carNames);
-        this.gameCount = gameCount;
     }
 
     public void movePosition() {
