@@ -18,4 +18,10 @@ class CarNameTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    public void 이름에_null입력시_예외(){
+        assertThatThrownBy(()->new CarName(null))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
