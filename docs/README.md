@@ -12,7 +12,8 @@
   - [x] 입력받은 값이 숫자 형식이 아닌 경우 예외 처리
 
 ### 2. 게임 진행 : 전진하기
-- [x] `GameManager`가 입력 받은 횟수 동안 n대 자동차 전진 or 멈춤 - Car#drive()
+- [x] `GameManager`가 입력 받은 횟수 동안 n대로 게임 진행 - GameManager#run()
+- [x] 자동차 전진 or 멈춤 - Car#drive()
 - [x] 0~9 사이에서 무작위 값을 구한다. - NumberGenerator#createRandomNumber()
   - Random 값 추출은 `camp.nextstep.edu.missionutils.Random`s의 `pickNumberInRange()` 활용
 - [x] 전진 조건 : 무작위 값이 4 이상일 경우 - Car#isGoingForward()
