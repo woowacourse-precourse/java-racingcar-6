@@ -10,7 +10,6 @@ public class Validator {
     private static final String DUPLICATION_MSG = "입력 값에 중복이 있습니다";
     private static final String OVER_LENGTH_MSG = "자동차 이름은 최대 5글자입니다.";
     private static final String IS_NOT_NUMBER_MSG = "숫자가 아닌 값이 들어왔습니다.";
-    private static final String JUDGE_NAME_MSG = "입력 값 중 오류가 있습니다";
 
     public static void isNull(String input) {
         if (input.isEmpty()) {
@@ -19,7 +18,7 @@ public class Validator {
     }
 
     public static void nameLength(String input) {
-        if (input.length() >= MAX_LENGTH_NAME) {
+        if (input.length() > MAX_LENGTH_NAME) {
             throw new IllegalArgumentException(OVER_LENGTH_MSG);
         }
     }
@@ -52,8 +51,7 @@ public class Validator {
                 nameLength(name.trim());
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
+            throw new IllegalArgumentException("오류입니다.");
         }
         return true;
     }
@@ -63,8 +61,7 @@ public class Validator {
             isNull(input.trim());
             isNumber(input.trim());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
+            throw new IllegalArgumentException("오류입니다.");
         }
         return true;
     }
