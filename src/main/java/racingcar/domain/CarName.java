@@ -19,7 +19,7 @@ public final class CarName {
     }
 
     private void validateLength() {
-        if (name.length() > 5) {
+        if (name.length() > MAX_LENGTH) {
             throw new IllegalArgumentException(LENGTH_EXCEPTION_MESSAGE);
         }
     }
