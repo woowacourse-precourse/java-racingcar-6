@@ -11,7 +11,7 @@ import racingcar.domain.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-public class RacingCarGame {
+public class RacingCarGameController {
 
     private static final String CAR_NAME_SPLIT_REGEX = ",";
     private static final int ZERO_VALUE = 0;
