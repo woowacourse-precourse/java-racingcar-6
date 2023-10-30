@@ -32,7 +32,7 @@ public class InputHandler {
     }
 
     private void isValidTryNumber(String trialNum) {
-        if (!trialNum.matches("^[1-9][0-9]*$")){
+        if (!trialNum.matches("^[1-9][0-9]*$")) {
             throw new IllegalArgumentException("시도 횟수는 1이상의 숫자만 입력해야 합니다.");
         }
     }
