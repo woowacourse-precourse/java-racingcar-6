@@ -39,4 +39,32 @@ class CarManagerTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름은 5자 이하여야 합니다.");
     }
+
+    @Test
+    @DisplayName("0에서 9 사이의 무작위 값이 4 이상일 경우 자동차가 전진한다.")
+    void move_RandomNumberGreaterThanOrEqualFour_CarMoves() {
+        // Given
+        Car car = new Car("car");
+
+        // When
+        car.move(() -> 4);
+        car.move(() -> 8);
+
+        // Then
+        assertThat(car.getPosition()).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("0에서 9 사이의 무작위 값이 4 미만일 경우 자동차가 전진하지 않는다.")
+    void move_RandomNumberLessThanFour_CarDoesNotMove() {
+        // Given
+        Car car = new Car("car");
+
+        // When
+        car.move(() -> 3);
+        car.move(() -> 1);
+
+        // Then
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
 }
