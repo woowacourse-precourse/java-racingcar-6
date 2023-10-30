@@ -17,7 +17,7 @@ public class Round {
     }
 
     public Boolean hasRound() {
-        return round >= 0;
+        return round > 0;
     }
 
     public void turn() {

@@ -36,6 +36,6 @@ class RoundTest {
             round.turn();
             count--;
         }
-        assertThat(count).isEqualTo(-1);
+        assertThat(count).isEqualTo(0);
     }
 }
