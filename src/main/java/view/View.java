@@ -2,6 +2,7 @@ package view;
 
 import controller.RaceController;
 
+import java.util.List;
 import java.util.Map;
 
 public class View {
@@ -22,6 +23,8 @@ public class View {
             printRaceResult(racer);
             System.out.println();
         }
+        List<String> winner = raceController.raceWinner(racer);
+        System.out.println("최종 우승자 : " + String.join(", ", winner));
     }
 
     private void printRaceResult(Map<String, Integer> raceResult) {
@@ -37,5 +40,6 @@ public class View {
             System.out.println(result);
         }
     }
+
 
 }

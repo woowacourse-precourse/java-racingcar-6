@@ -4,6 +4,8 @@ package controller;
 import camp.nextstep.edu.missionutils.Console;
 import service.RaceService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
@@ -25,5 +27,11 @@ public class RaceController {
 
     public Map<String, Integer> raceStart(Map<String, Integer> racer) {
         return raceService.raceStart(racer);
+    }
+
+    public List<String> raceWinner(Map<String, Integer> raceResult) {
+
+        return raceService.raceWinner(raceResult);
+
     }
 }

@@ -3,9 +3,7 @@ package service;
 import camp.nextstep.edu.missionutils.Randoms;
 import exception.RaceException;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class RaceService {
 
@@ -68,4 +66,22 @@ public class RaceService {
     }
 
 
+    public List<String> raceWinner(Map<String, Integer> raceResult) {
+        // 1. 가장 높은 점수를 찾습니다.
+        int maxScore = 0;
+        for (Integer score : raceResult.values()) {
+            if (score > maxScore) {
+                maxScore = score;
+            }
+        }
+
+        // 2. 가장 높은 점수를 가진 자동차의 이름들을 찾습니다.
+        List<String> winners = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : raceResult.entrySet()) {
+            if (entry.getValue() == maxScore) {
+                winners.add(entry.getKey());
+            }
+        }
+        return winners;
+    }
 }
