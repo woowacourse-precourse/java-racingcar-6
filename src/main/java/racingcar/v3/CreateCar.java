@@ -9,5 +9,12 @@ public class CreateCar {
         return input;
     }
 
+    public String[] splitCarNames(String input) {
+        String[] carNames = input.split(",");
+        for (String carName : carNames) {
+            carName.trim();
+        }
+        return carNames;
+    }
 
 }
