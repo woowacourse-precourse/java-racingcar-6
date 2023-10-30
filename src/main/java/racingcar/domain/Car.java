@@ -1,17 +1,17 @@
 package racingcar.domain;
 
+import racingcar.enums.GameCondition;
+
 public class Car {
     private final String name;
-    private int position;
-    private static final int CAR_SPEED = 1;
+    private int position = 0;
 
     public Car(final String name) {
         this.name = name;
-        this.position = 0;
     }
 
     public void moveForward() {
-        position += CAR_SPEED;
+        position += GameCondition.CAR_SPEED.getValue();
     }
 
     public String getName() {
