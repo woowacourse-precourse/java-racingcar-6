@@ -97,7 +97,7 @@ public class GameController {
         carList.getCars().clear();
         String carNames = inputView.printCarName();
         carsToList(carNames);
-        count = inputView.printTryCount();
+        count = validator.validCount(inputView.printTryCount());
     }
 
     public void carsToList(String carNames) {
