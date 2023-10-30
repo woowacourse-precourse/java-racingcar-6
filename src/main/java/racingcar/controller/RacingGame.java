@@ -1,33 +1,25 @@
 package racingcar.controller;
 
-import racingcar.constant.NumberConstant;
-import racingcar.model.Cars;
 import racingcar.model.TryCount;
-import racingcar.util.Utils;
+import racingcar.service.CarsService;
 import racingcar.view.OutputView;
 
 public class RacingGame {
-    private final Cars cars;
+    private final CarsService carsService;
     private final int tryCount;
 
-    public RacingGame(Cars cars, TryCount tryCount) {
-        this.cars = cars;
+    public RacingGame(CarsService carsService, TryCount tryCount) {
+        this.carsService = carsService;
         this.tryCount = tryCount.getTryCount();
     }
 
     public void run() {
         for (int i = 0; i < tryCount; i++) {
-            moveCars();
-            OutputView.printCarNameAndPosition(cars.getCarNamePositionMap());
+            carsService.moveCars();
+            OutputView.printCarNameAndPosition(carsService.getCarNamePositionMap());
         }
-        OutputView.printVictoryCarNames(cars.getVictoryCarNames());
+        OutputView.printVictoryCarNames(carsService.getCarNamesAtPosition(carsService.getMaxPosition()));
     }
 
-    private void moveCars() {
-        for (int i = 0; i < cars.size(); i++) {
-            if (Utils.getRandomNumber() >= NumberConstant.TARGET_NUMBER) {
-                cars.moveCar(i);
-            }
-        }
-    }
+
 }
