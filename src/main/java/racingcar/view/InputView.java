@@ -7,19 +7,17 @@ import java.util.Set;
 import racingcar.variable.MagicVariable;
 
 public class InputView {
-    MagicVariable magicVariable = new MagicVariable();
-
     public InputView() {}
 
     private void carNameDuplicateException(String[] carNames, Set<String> uniqueNames) {
         if (uniqueNames.size() != carNames.length) {
-            throw new IllegalArgumentException(magicVariable.CAR_DUPLICATE_ERROR_MESSAGE);
+            throw new IllegalArgumentException(MagicVariable.CAR_DUPLICATE_ERROR_MESSAGE);
         }
     }
 
     private void carNameRullException(String carName) {
-        if (!carName.matches(magicVariable.CAR_NAME_RULE)) {
-            throw new IllegalArgumentException(magicVariable.CAR_NAME_ERROR_MESSAGE);
+        if (!carName.matches(MagicVariable.CAR_NAME_RULE)) {
+            throw new IllegalArgumentException(MagicVariable.CAR_NAME_ERROR_MESSAGE);
         }
     }
 
@@ -33,7 +31,7 @@ public class InputView {
     }
 
     public String getCarNameInput() {
-        System.out.println(magicVariable.RACE_START_MESSAGE);
+        System.out.println(MagicVariable.RACE_START_MESSAGE);
         String carNameInput = Console.readLine();
         String[] carNames = carNameInput.split(",");
         checkCarNameExceptions(carNames);
@@ -41,15 +39,15 @@ public class InputView {
     }
 
     public int getTryCount() {
-        System.out.println(magicVariable.ASK_TRY_COUNT_MESSAGE);
+        System.out.println(MagicVariable.ASK_TRY_COUNT_MESSAGE);
         int tryCount = Integer.parseInt(Console.readLine());
         checkTryCountExceptions(tryCount);
         return tryCount;
     }
 
     public void checkTryCountExceptions(int tryCount) {
-        if (tryCount <= magicVariable.PICK_NUM_MIN) {
-            throw new IllegalArgumentException(magicVariable.TRY_COUNT_RANGE_ERROR_MESSAGE);
+        if (tryCount <= MagicVariable.PICK_NUM_MIN) {
+            throw new IllegalArgumentException(MagicVariable.TRY_COUNT_RANGE_ERROR_MESSAGE);
         }
     }
 }

@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.variable.MagicVariable;
 
 public class MoveStatus {
-    MagicVariable magicVariable = new MagicVariable();
     private Boolean testMoveStatus = null;
 
     public void setTestMoveStatus(Boolean testMoveStatus) {
@@ -15,7 +14,7 @@ public class MoveStatus {
         if (testMoveStatus != null) {
             return testMoveStatus;
         }
-        return Randoms.pickNumberInRange(magicVariable.PICK_NUM_MIN,magicVariable.PICK_NUM_MAX) >= magicVariable.FORWARD_NUM;
+        return Randoms.pickNumberInRange(MagicVariable.PICK_NUM_MIN,MagicVariable.PICK_NUM_MAX) >= MagicVariable.FORWARD_NUM;
     }
 }
 
