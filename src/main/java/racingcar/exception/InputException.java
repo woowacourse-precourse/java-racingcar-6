@@ -11,11 +11,9 @@ public class InputException {
         }
     }
 
-    public static int validateInputCount(int moveCount) {
-        try {
-            return moveCount;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력하세요");
+    public static void validateInputCount(int moveCount) {
+        if (moveCount <= 0) {
+            throw new IllegalArgumentException("1 이상의 숫자를 입력하세요");
         }
     }
 

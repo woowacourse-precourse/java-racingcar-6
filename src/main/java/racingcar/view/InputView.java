@@ -18,7 +18,12 @@ public class InputView {
 
     public int getMoveCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int moveCount = Integer.parseInt(Console.readLine());
+        int moveCount;
+        try {
+            moveCount = Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력하세요");
+        }
         validateInputCount(moveCount);
         return moveCount;
     }
