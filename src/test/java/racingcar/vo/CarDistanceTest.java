@@ -6,23 +6,23 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class CarDistanceTest {
+class carPositionTest {
 
     @DisplayName("필드값이 동일하면 레코드는 동일하다.")
     @Test
-    void carDistance_equality_test() {
-        CarDistance carDistance1 = new CarDistance(200);
-        CarDistance carDistance2 = new CarDistance(200);
+    void carPosition_equality_test() {
+        CarPosition carPosition1 = new CarPosition(200);
+        CarPosition carPosition2 = new CarPosition(200);
 
-        assertEquals(carDistance1, carDistance2);
+        assertEquals(carPosition1, carPosition2);
     }
 
     @DisplayName("필드값이 동일하지 않으면 레코드는 동일하지 않다.")
     @Test
-    void carDistance_not_equal_test() {
-        CarDistance carDistance1 = new CarDistance(200);
-        CarDistance carDistance2 = new CarDistance(300);
+    void carPosition_not_equal_test() {
+        CarPosition carPosition1 = new CarPosition(200);
+        CarPosition carPosition2 = new CarPosition(300);
 
-        assertNotEquals(carDistance1, carDistance2);
+        assertNotEquals(carPosition1, carPosition2);
     }
 }

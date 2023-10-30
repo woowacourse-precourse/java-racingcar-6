@@ -8,8 +8,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.vo.CarDistance;
 import racingcar.vo.CarName;
+import racingcar.vo.CarPosition;
 
 class RefereeTest {
 
@@ -33,9 +33,9 @@ class RefereeTest {
         List<Car> carList = cars.getCarList();
 
         Car car = carList.get(0);
-        Field carDistance = Car.class.getDeclaredField("carDistance");
-        carDistance.setAccessible(true);
-        carDistance.set(car, new CarDistance(1));
+        Field carPosition = Car.class.getDeclaredField("carPosition");
+        carPosition.setAccessible(true);
+        carPosition.set(car, new CarPosition(1));
 
         referee.decideWinner(carList);
 

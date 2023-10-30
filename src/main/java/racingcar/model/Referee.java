@@ -1,8 +1,8 @@
 package racingcar.model;
 
 import java.util.List;
-import racingcar.vo.CarDistance;
 import racingcar.vo.CarName;
+import racingcar.vo.CarPosition;
 
 public class Referee {
 
@@ -11,24 +11,24 @@ public class Referee {
     private List<CarName> winnerNames;
 
     public void decideWinner(final List<Car> carList) {
-        CarDistance maxDistance = getMaxDistance(carList);
-        this.winnerNames = getCarNamesForMaxDistance(carList, maxDistance);
+        CarPosition maxposition = getMaxposition(carList);
+        this.winnerNames = getCarNamesForMaxposition(carList, maxposition);
     }
 
-    private List<CarName> getCarNamesForMaxDistance(List<Car> carList, CarDistance maxDistance) {
+    private List<CarName> getCarNamesForMaxposition(List<Car> carList, CarPosition maxposition) {
         return carList.stream()
-                .filter(car -> car.getCarDistance().distance() == maxDistance.distance())
+                .filter(car -> car.getCarPosition().position() == maxposition.position())
                 .map(car -> car.getCarName())
                 .toList();
     }
 
-    private CarDistance getMaxDistance(List<Car> carList) {
-        Integer maxDistance = carList.stream()
-                .mapToInt(car -> car.getCarDistance().distance())
+    private CarPosition getMaxposition(List<Car> carList) {
+        Integer maxposition = carList.stream()
+                .mapToInt(car -> car.getCarPosition().position())
                 .max()
                 .orElse(START_POINT);
 
-        return new CarDistance(maxDistance);
+        return new CarPosition(maxposition);
     }
 
     public List<CarName> getWinnerNames() {

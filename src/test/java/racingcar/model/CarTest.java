@@ -26,7 +26,7 @@ class CarTest {
         // then
         assertNotNull(car);
         assertEquals(carName.name(), car.getCarName().name());
-        assertEquals(INIT_DISTANCE, car.getCarDistance().distance());
+        assertEquals(INIT_DISTANCE, car.getCarPosition().position());
     }
 
     @DisplayName("자동차 이름이 6자 이상인 경우 예외가 발생한다.")

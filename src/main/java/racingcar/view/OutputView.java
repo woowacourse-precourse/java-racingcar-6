@@ -12,7 +12,7 @@ public class OutputView {
     private static final String LINE = "\n";
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String SEPARATOR_COLON = " : ";
-    private static final String DISTANCE_CHARACTER = "-";
+    private static final String position_CHARACTER = "-";
     private static final String WINNER_INFO_MESSAGE = "최종 우승자";
     private static final String COMMA_SEPARATOR = ", ";
 
@@ -31,8 +31,8 @@ public class OutputView {
     public void printResult(List<CarDto> carDtoList) {
         carDtoList.stream().forEach(carDto -> {
             String carName = carDto.carName().name();
-            String distance = DISTANCE_CHARACTER.repeat(carDto.carDistance().distance());
-            System.out.println(carName + SEPARATOR_COLON + distance);
+            String position = position_CHARACTER.repeat(carDto.carPosition().position());
+            System.out.println(carName + SEPARATOR_COLON + position);
         });
 
         System.out.println();

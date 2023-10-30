@@ -8,8 +8,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.vo.CarDistance;
 import racingcar.vo.CarName;
+import racingcar.vo.CarPosition;
 
 class RacingGameTest {
 
@@ -35,14 +35,14 @@ class RacingGameTest {
         for (int i = 0; i < 1000; i++) {
             // when
             racingGame.playOneStep();
-            Integer distanceOfCar1 = carList.get(0).getCarDistance().distance();
-            Integer distanceOfCar2 = carList.get(1).getCarDistance().distance();
+            Integer distanceOfCar1 = carList.get(0).getCarPosition().position();
+            Integer distanceOfCar2 = carList.get(1).getCarPosition().position();
 
             // then
-            assertTrue(distanceOfCar1 == carList.get(0).getCarDistance().distance()
-                    || distanceOfCar1 == carList.get(0).getCarDistance().distance() + 1);
-            assertTrue(distanceOfCar2 == carList.get(1).getCarDistance().distance()
-                    || distanceOfCar1 == carList.get(1).getCarDistance().distance() + 1);
+            assertTrue(distanceOfCar1 == carList.get(0).getCarPosition().position()
+                    || distanceOfCar1 == carList.get(0).getCarPosition().position() + 1);
+            assertTrue(distanceOfCar2 == carList.get(1).getCarPosition().position()
+                    || distanceOfCar1 == carList.get(1).getCarPosition().position() + 1);
         }
     }
 
@@ -52,9 +52,9 @@ class RacingGameTest {
         // given
         Car car = cars.getCarList().get(0);
 
-        Field carDistance = Car.class.getDeclaredField("carDistance");
-        carDistance.setAccessible(true);
-        carDistance.set(car, new CarDistance(1));
+        Field carPosition = Car.class.getDeclaredField("carPosition");
+        carPosition.setAccessible(true);
+        carPosition.set(car, new CarPosition(1));
 
         // when
         List<CarName> winners = racingGame.getWinners();

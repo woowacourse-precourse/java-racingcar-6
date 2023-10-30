@@ -14,7 +14,7 @@ public class RacingGame {
     }
 
     public void playOneStep() {
-        cars.updateDistance();
+        cars.updatePosition();
     }
 
     public List<CarName> getWinners() {

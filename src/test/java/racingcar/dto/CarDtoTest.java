@@ -25,9 +25,9 @@ class CarDtoTest {
         assertEquals(2, carDtoList.size());
 
         assertEquals("Car1", carDtoList.get(0).carName().name());
-        assertEquals(0, carDtoList.get(0).carDistance().distance());
+        assertEquals(0, carDtoList.get(0).carPosition().position());
 
         assertEquals("Car2", carDtoList.get(1).carName().name());
-        assertEquals(0, carDtoList.get(0).carDistance().distance());
+        assertEquals(0, carDtoList.get(0).carPosition().position());
     }
 }
