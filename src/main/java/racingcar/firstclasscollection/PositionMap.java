@@ -22,7 +22,7 @@ public class PositionMap {
      * @param car
      * @throws IllegalArgumentException - 중복된 Car 객체를 저장 시도시
      */
-    public void addCar(Car car) {
+    public void putCar(Car car) {
         if (positionMap.containsKey(car)) {
             throw new IllegalArgumentException(ExceptionMessage.CAR_NAME_DUPLICATED);
         }
