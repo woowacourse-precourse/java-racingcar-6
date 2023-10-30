@@ -18,7 +18,7 @@ public class InputView {
         return input;
     }
 
-    public void validInputCarName(String input){
+    public static void validInputCarName(String input){
         if(input.isBlank()) throw new IllegalArgumentException("입력 문자열이 비어 있습니다.");
         StringTokenizer st = new StringTokenizer(input, ",");
         while(st.hasMoreTokens()){
@@ -26,7 +26,7 @@ public class InputView {
         }
     }
 
-    public void validInputGameRound(String input) {
+    public static void validInputGameRound(String input) {
         if(input.isBlank()) throw new IllegalArgumentException("입력 문자열이 비어 있습니다.");
 
         for(int i=0; i<input.length(); i++) {
