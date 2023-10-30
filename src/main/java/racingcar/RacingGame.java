@@ -6,6 +6,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class RacingGame {
     public static String[] carName;
     public static int tryNumber;
+    public static int[] distance;
 
     private RacingGame(){
         throw new IllegalArgumentException();
@@ -61,6 +62,7 @@ public class RacingGame {
         return (number <= 0);
     }
     private static void playGame(){
+        distance = new int[carName.length];
         System.out.println("실행 결과");
         while (tryNumber > 0) {
             tryNumber--;
@@ -68,5 +70,8 @@ public class RacingGame {
     }
     private static boolean isRandomValueOverFour(){
         return Randoms.pickNumberInRange(0,9) >= 4;
+    }
+    private static void runCar(int number){
+        distance[number] += Boolean.compare(isRandomValueOverFour(), false);
     }
 }
