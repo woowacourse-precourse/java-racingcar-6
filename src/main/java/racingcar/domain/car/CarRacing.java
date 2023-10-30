@@ -18,4 +18,9 @@ public final class CarRacing extends Car {
     public CarRacingDto toDto() {
         return new CarRacingDto(carName.carName(), coordinate.getCoordinate());
     }
+
+
+    public CarFinished toFinished() {
+        return new CarFinished(carName, coordinate);
+    }
 }
