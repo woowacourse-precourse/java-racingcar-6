@@ -60,4 +60,14 @@ public class ValidatorTest extends ApplicationTest {
         assertThrows(IllegalArgumentException.class,
                 () -> Validator.validateTryCount(""));
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1",
+            "10",
+            "30"
+    })
+    void 시도할_횟수_유효성_성공_테스트(String tryCount) {
+        assertDoesNotThrow(() -> Validator.validateTryCount(tryCount));
+    }
 }
