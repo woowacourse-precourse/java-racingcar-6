@@ -18,9 +18,16 @@ public class Application {
     }
 
     public String inputCarNameValidation(String inputCarName){
-      String[] cars = inputCarName.split(",");
 
       return null;
+    }
+
+    public static String[] inputCarNameSplit(String inputCarName){
+      String[] cars = inputCarName.split(",");
+      if(cars.length<2){
+        throw new IllegalArgumentException("이름은 쉼표(,) 기준으로 구분합니다.");
+      }
+      return cars;
     }
 
     public Map<String,Integer> cars(String inputCarName){
