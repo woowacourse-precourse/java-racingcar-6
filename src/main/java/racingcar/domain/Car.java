@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Objects;
+
 import static racingcar.config.GameConfig.INITIAL_DISTANCE;
 import static racingcar.config.GameConfig.MAX_RANDOM_VALUE;
 import static racingcar.config.GameConfig.MIN_RANDOM_VALUE;
@@ -38,5 +40,23 @@ public class Car implements Comparable<Car> {
     @Override
     public int compareTo(final Car other) {
         return Integer.compare(this.distance, other.distance);
+    }
+
+    @Override
+    public boolean equals(final Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (other == null || getClass() != other.getClass()) {
+            return false;
+        }
+
+        final Car car = (Car) other;
+        return Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
