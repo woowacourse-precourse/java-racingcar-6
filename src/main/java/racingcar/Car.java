@@ -6,9 +6,6 @@ public class Car {
 
     private static final int DEFAULT_FORWARD_COUNT = 0;
     private static final int KEY_NUMBER = 4;
-    private static final String COLON = " : ";
-    private static final String DASH = "-";
-    private static final String CAR_NAME_OUTPUT_DELIMITER = ", ";
 
     private String name;
     private Integer forwardCount;
@@ -18,22 +15,19 @@ public class Car {
         this.forwardCount = DEFAULT_FORWARD_COUNT;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public boolean isEqualName(String inputName) {
         return inputName.equals(name);
     }
 
-    public void compareNumberAndMove(int randomNumber) {
+    public int compareNumberAndMove(int randomNumber) {
         if (randomNumber >= KEY_NUMBER) {
             forwardCount++;
         }
-    }
-
-    public void printCarName() {
-        System.out.print(name + COLON);
-    }
-
-    public void printForwardState() {
-        System.out.println(DASH.repeat(forwardCount));
+        return forwardCount;
     }
 
     public boolean isEqualForwardCount(Integer inputForwardCount) {
@@ -44,10 +38,9 @@ public class Car {
         return Math.max(this.forwardCount, forwardCount);
     }
 
-    public static void printWinnerCars(List<Car> winnerCars) {
-        List<String> winnerCarsNames = winnerCars.stream()
+    public static List<String> getCarsNames(List<Car> cars) {
+        return cars.stream()
                 .map(car -> car.name)
                 .toList();
-        System.out.println(String.join(CAR_NAME_OUTPUT_DELIMITER, winnerCarsNames));
     }
 }

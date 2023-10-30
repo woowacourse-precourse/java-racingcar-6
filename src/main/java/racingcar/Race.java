@@ -11,6 +11,9 @@ public class Race {
     private static final int NOT_HAVE_SAME_NAMES = 0;
     private static final int MAX_FORWARD_COUNT_TARGET = -1;
 
+    private static final String DASH = "-";
+    private static final String COLON = " : ";
+    private static final String CAR_NAME_OUTPUT_DELIMITER = ", ";
     private static final String START_RACE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String PLAY_OUTPUT = "실행 결과";
     private static final String FINAL_RESULT = "최종 우승자 : ";
@@ -55,12 +58,16 @@ public class Race {
 
     private void playAllCars() {
         for (Car car : cars) {
-            car.printCarName();
             int randomNumber = RandomNumberGenerator.createRandomNumber();
-            car.compareNumberAndMove(randomNumber);
-            car.printForwardState();
+            int forwardCount = car.compareNumberAndMove(randomNumber);
+            printProgress(car.getName(), forwardCount);
         }
         System.out.println();
+    }
+
+    private void printProgress(String carName, int forwardCount) {
+        System.out.print(carName + COLON);
+        System.out.println(DASH.repeat(forwardCount));
     }
 
     private void printResult() {
@@ -69,7 +76,9 @@ public class Race {
 
         List<Car> winnerCars = findWinnerCars();
 
-        Car.printWinnerCars(winnerCars);
+        List<String> winnerCarsNames = Car.getCarsNames(winnerCars);
+
+        System.out.println(String.join(CAR_NAME_OUTPUT_DELIMITER, winnerCarsNames));
 
     }
 
