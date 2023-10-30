@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import static racingcar.view.InputView.*;
+import static racingcar.view.OutputView.printRoundResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,28 +18,16 @@ public class GameController {
             cars.add(Car.createCar(s));
         }
         round = Number.inputUserRounds();
-        System.out.println(cars);
         referee = new Referee(cars);
     }
 
     public void play() {
         setUp();
+        System.out.println("실행 결과");
         for (int i = 0; i < round.getNumber();i++) {
             referee.proceedRound();
-            for (Car c: cars) {
-                System.out.println(c.convertPositionToString());
-            }
+            printRoundResult(cars);
         }
 
     }
-        /*
-         *  - one round
-         *      throw dice for each car
-         *      determine whether car move forward (dice >= 4)
-         *      print result
-         *  loop rounds according to user input
-         *  decide winner
-         *  print winner
-         *  exit00
-         */
 }
