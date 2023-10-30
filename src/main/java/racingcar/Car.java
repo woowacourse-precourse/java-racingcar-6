@@ -8,6 +8,7 @@ public abstract class Car {
 
     public Car(String name){
         this.name = name;
+        this.distanceDriver = "";
     }
 
     public abstract void moveCar(int number);
