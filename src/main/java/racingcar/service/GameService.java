@@ -20,8 +20,17 @@ public class GameService {
         String[] carNames = validator.stringToArray(input.getCarNames());
         List<Car> cars = createCars(carNames);
         int attemptCount = validator.stringToInt(input.getNumberOfAttempts());
+
+        proceedRacing(attemptCount, cars);
     }
 
+    private void proceedRacing(int attemptCount, List<Car> cars) {
+        output.printResultMessage();
+        for (int i = 0; i < attemptCount; i++) {
+            carMove(cars);
+            output.printResultsByOrder(cars);
+        }
+    }
 
     private List<Car> createCars(String[] carNames) {
         return Arrays.stream(carNames).map(Car::new).collect(Collectors.toList());
