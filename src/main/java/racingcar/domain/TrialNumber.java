@@ -3,7 +3,7 @@ package racingcar.domain;
 import racingcar.view.OutputView;
 
 public class TrialNumber {
-    int trialNumber;
+    private final int trialNumber;
 
     public TrialNumber(String trialNumberInput) {
         int trialNumber = convertTrialNumberInputToInteger(trialNumberInput);
@@ -16,12 +16,13 @@ public class TrialNumber {
             cars.playTurn();
         }
     }
-    public int convertTrialNumberInputToInteger(String trialNumberInput) {
+
+    private int convertTrialNumberInputToInteger(String trialNumberInput) {
         validateTrialNumberNotInteger(trialNumberInput);
         return Integer.parseInt(trialNumberInput);
     }
 
-    public void validateTrialNumberNotInteger(String trialNumber) {
+    private void validateTrialNumberNotInteger(String trialNumber) {
         if (trialNumber.matches("\\d*")) {
             return;
         }
