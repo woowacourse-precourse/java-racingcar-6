@@ -22,13 +22,17 @@ public class RaceGameController {
 
     public void run() {
         Race race = new Race(getCars(), getGameCount());
+        List<Car> winners = playRaceGame(race);
+        outputView.writeWinners(winners);
+    }
 
+    private List<Car> playRaceGame(Race race) {
         while(race.hasNextRound()) {
             race.playOneRound();
             outputView.writeOneRoundResult(race.getCars());
         }
 
-        outputView.writeWinners(race.getWinners());
+        return race.getWinners();
     }
 
     private Cars getCars() {
