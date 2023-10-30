@@ -31,6 +31,24 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 시도할_횟수에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "abc"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 다수_우승자() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "5");
+                    assertThat(output()).contains("최종 우승자 : pobi, woni, jun");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
     @Override
     public void runMain() {
         Application.main(new String[]{});
