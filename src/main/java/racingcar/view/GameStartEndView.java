@@ -3,15 +3,15 @@ package racingcar.view;
 import racingcar.domain.car.RaceCars;
 
 import static racingcar.constants.GameMessage.ATTEMPT_COUNT_MESSAGE;
-import static racingcar.constants.GameMessage.START_MESSAGE;
+import static racingcar.constants.GameMessage.CAR_NAME_MESSAGE;
 
 
 public class GameStartEndView {
 
     private static final String WINNING_CAR_NAMES_MESSAGE_FORMAT = "최종 우승자 : %s";
 
-    public void printStartMessage() {
-        System.out.println(START_MESSAGE.getMessage());
+    public void printCarNameMessage() {
+        System.out.println(CAR_NAME_MESSAGE.getMessage());
     }
 
     public void printAttemptCountMessage() {

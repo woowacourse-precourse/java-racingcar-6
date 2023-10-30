@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 import static racingcar.constants.GameMessage.ATTEMPT_COUNT_MESSAGE;
-import static racingcar.constants.GameMessage.START_MESSAGE;
+import static racingcar.constants.GameMessage.CAR_NAME_MESSAGE;
 
 class GameStartEndViewTest extends OutputTestSupport {
 
@@ -20,9 +20,9 @@ class GameStartEndViewTest extends OutputTestSupport {
     @DisplayName("시작 메시지를 출력할 수 있다.")
     public void printStartMessage() {
         // given // when
-        gameStartEndView.printStartMessage();
+        gameStartEndView.printCarNameMessage();
         // then
-        assertThat(outputWithoutTrim()).isEqualTo(START_MESSAGE.getMessage());
+        assertThat(outputWithoutTrim()).isEqualTo(CAR_NAME_MESSAGE.getMessage());
     }
 
     @Test

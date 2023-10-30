@@ -11,7 +11,7 @@ public class Console {
         return readLine().split(",");
     }
 
-    public static int getNumberOfMovementAttempts() {
+    public static int requestMovementAttemptCount() {
         String movementAttempts = readLine();
         return parseInt(movementAttempts);
     }

@@ -27,13 +27,13 @@ public class RaceGameController {
     }
 
     private String[] requestCarNames() {
-        gameStartEndView.printStartMessage();
+        gameStartEndView.printCarNameMessage();
         return Console.requestNames();
     }
 
     private int requestAttemptCount() {
         gameStartEndView.printAttemptCountMessage();
-        return Console.getNumberOfMovementAttempts();
+        return Console.requestMovementAttemptCount();
     }
 
     public RaceCars run(RaceGameInfoDto raceGameInfoDto) {

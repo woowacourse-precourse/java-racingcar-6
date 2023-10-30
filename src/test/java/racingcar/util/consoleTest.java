@@ -38,7 +38,7 @@ class consoleTest {
         String request = "5";
         System.setIn(new ByteArrayInputStream(request.getBytes()));
         // when
-        int movementAttempts = racingcar.util.Console.getNumberOfMovementAttempts();
+        int movementAttempts = racingcar.util.Console.requestMovementAttemptCount();
         // then
         assertThat(5).isEqualTo(movementAttempts);
     }
@@ -50,7 +50,7 @@ class consoleTest {
         String request = "haen";
         System.setIn(new ByteArrayInputStream(request.getBytes()));
         // when // then
-        assertThatThrownBy(() -> racingcar.util.Console.getNumberOfMovementAttempts())
+        assertThatThrownBy(() -> racingcar.util.Console.requestMovementAttemptCount())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NOT_DIGIT_ERROR_MESSAGE.getMessage());
     }
