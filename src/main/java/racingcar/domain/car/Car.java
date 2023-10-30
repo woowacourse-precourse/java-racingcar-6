@@ -5,9 +5,9 @@ public class Car implements Comparable<Car> {
     private Name name;
     private int position;
 
-    public Car(Name name) {
+    private Car(Name name, int position) {
         this.name = name;
-        this.position = 0;
+        this.position = position;
     }
 
     public void move() {
@@ -30,5 +30,9 @@ public class Car implements Comparable<Car> {
 
     public String getName() {
         return name.getName();
+    }
+
+    public static Car createCar(Name name, int position) {
+        return new Car(name, position);
     }
 }
