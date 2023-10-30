@@ -4,7 +4,7 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Model;
 import racingcar.utility.Utility;
-import racingcar.varification.Varification;
+import racingcar.verification.Verification;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,17 +12,17 @@ public class Controller {
     public Controller() {
         Model model = new Model();
         Utility utility = new Utility();
-        Varification varification = new Varification();
+        Verification verification = new Verification();
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
 
         String carNames = inputView.getCarNames();
         String[] carNameArray = utility.splitStringToArray(carNames);
-        varification.checkNameLength(carNameArray);
+        verification.checkNameLength(carNameArray);
         List<Car> carList = model.makeCarList(carNameArray);
 
         String stringOfTimes = inputView.getStringOfTimes();
-        varification.checkStringIsNum(stringOfTimes);
+        verification.checkStringIsNum(stringOfTimes);
         int intOfTimes = utility.makeStringToInt(stringOfTimes);
 
         for(int i = 0 ; i < intOfTimes ; i++) {

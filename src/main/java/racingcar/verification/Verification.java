@@ -1,6 +1,6 @@
-package racingcar.varification;
+package racingcar.verification;
 
-public class Varification {
+public class Verification {
     public void checkNameLength(String[] carNameArray) {
         for (String name : carNameArray) {
             if (name.length()>5) {
@@ -11,7 +11,7 @@ public class Varification {
 
     public void checkStringIsNum(String stringOfTimes) {
         try {
-            int intOfTimes = Integer.parseInt(stringOfTimes);
+            Integer.parseInt(stringOfTimes);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("입력값이 정수가 아닙니다.");
         }
