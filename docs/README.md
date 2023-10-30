@@ -16,15 +16,15 @@
 
 ### RacingGame
     게임의 룰(business logic)을 구현하는 클래스
-- [ ] List<Car> cars 멤버를 갖는다.
-- [ ] 게임 횟수를 멤버로 갖는다.
+- [x] List<Car> cars 멤버를 갖는다.
+- [x] 게임 횟수를 멤버로 갖는다.
 - [ ] RacingGameBridge를 통해 입출력을 처리한다.
   - [ ] RacingGameBridge의 입력은 검증하지 않는다.
-- [ ] 0~9 사이의 정수를 랜덤하게 생성하여 진행 여부를 결정하고, cars의 상태를 수정한다.
-- [ ] RacingGameBridge와 연동하는 Enum class를 갖는다.
-  - [ ] READY_TO_START
-  - [ ] RUNNING
-  - [ ] RESULT_READY
+- [x] 0~9 사이의 정수를 랜덤하게 생성하여 진행 여부를 결정하고, cars의 상태를 수정한다.
+- [x] RacingGameBridge와 연동하는 Enum class를 갖는다.
+  - [x] READY_TO_START
+  - [x] RUNNING
+  - [x] RESULT_READY
 
 ## racingcar.game.io package
 
