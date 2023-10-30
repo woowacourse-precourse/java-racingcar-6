@@ -1,10 +1,7 @@
 package racingcar.service;
 
-import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.MoveRule;
-
-import java.util.List;
 
 public class CarService {
     private final Cars cars;
@@ -19,8 +16,7 @@ public class CarService {
         cars.getCars().forEach(car -> car.move(moveRule));
     }
 
-    public List<String> findWinnersName() {
-        List<Car> winningCars = cars.getWinningCars().getCars();
-        return winningCars.stream().map(Car::getName).toList();
+    public Cars findWinners() {
+        return cars.getWinningCars();
     }
 }
