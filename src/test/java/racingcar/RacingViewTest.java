@@ -8,7 +8,9 @@ import racingcar.view.RacingView;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RacingViewTest {
     private RacingView view;
     private InputStream originalIn;
-    private PrintStream originalOut;
+    private OutputStream originalOut;
 
     @BeforeEach
     void setUp() {
@@ -28,7 +30,7 @@ public class RacingViewTest {
     @AfterEach
     void restoreIn() {
         System.setIn(originalIn);
-        System.setOut(originalOut);
+        System.setOut((PrintStream) originalOut);
         Console.close();
     }
 
@@ -71,5 +73,23 @@ public class RacingViewTest {
         view.printWinners(input);
 
         assertThat(out.toString().trim()).contains("최종 우승자 : ").contains("red").contains("green");
+    }
+
+    @Test
+    void printProgress_테스트() {
+        Map<String, Integer> input = new HashMap<>();
+        input.put("red", 3);
+        input.put("green", 2);
+        input.put("blue", 6);
+
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        view.printProgress(input);
+
+        assertThat(out.toString())
+                .contains("red : ---")
+                .contains("green : --")
+                .contains("blue : ------");
     }
 }
