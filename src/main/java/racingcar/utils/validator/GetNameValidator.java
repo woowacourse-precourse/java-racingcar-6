@@ -8,10 +8,9 @@ public class GetNameValidator {
     public static final String BLANK_ERROR_MESSAGE = "공백 없이 입력해주세요";
     public static final String COMMA_POSITION_ERROR_MESSAGE = "콤마의 위치를 확인해주세요";
     public static final String NOT_FORMAT_ERROR_MESSAGE = "문자, 숫자, 컴마만 입력해주세요";
-    public static final String OVER_DIGIT_ERROR_MESSAGE = "이름은 5자 이하로 입력해주세요";
+    public static final String DIGIT_ERROR_MESSAGE = "이름은 1자 이상 5자 이하로 입력해주세요";
     public static final String DUPLICATE_ERROR_MESSAGE = "중복된 이름이 있습니다";
     public static final String CARS_NUMBER_ERROR_MESSAGE = "2대 이상이 필요합니다";
-
     private GetNameValidator() {
 
     }
@@ -44,7 +43,8 @@ public class GetNameValidator {
 
     public static void validateArrayListNames(ArrayList<String> carsNameList) {
         validateOverDigit(carsNameList);
-        validateDupicateName(carsNameList);
+        validateUnderDigit(carsNameList);
+        validateDuplicateName(carsNameList);
         validateCarsNumber(carsNameList);
     }
 
@@ -52,11 +52,21 @@ public class GetNameValidator {
         if (carsNameList.stream()
                 .filter((carName) -> carName.length() > 5)
                 .count() > 0) {
-            throw new IllegalArgumentException(OVER_DIGIT_ERROR_MESSAGE);
+            throw new IllegalArgumentException(DIGIT_ERROR_MESSAGE);
         }
     }
 
-    private static void validateDupicateName(ArrayList<String> carsNameList) {
+    private static void validateUnderDigit(ArrayList<String> carsNameList) {
+        if (carsNameList.stream()
+                .filter((carName) -> carName.length() == 0)
+                .count() > 0){
+            throw new IllegalArgumentException(DIGIT_ERROR_MESSAGE);
+
+        }
+    }
+
+
+    private static void validateDuplicateName(ArrayList<String> carsNameList) {
         if (carsNameList.size() != carsNameList.stream()
                 .distinct()
                 .count()) {

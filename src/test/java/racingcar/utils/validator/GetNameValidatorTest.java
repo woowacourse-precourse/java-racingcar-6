@@ -4,9 +4,9 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.utils.validator.GetNameValidator.BLANK_ERROR_MESSAGE;
 import static racingcar.utils.validator.GetNameValidator.CARS_NUMBER_ERROR_MESSAGE;
 import static racingcar.utils.validator.GetNameValidator.COMMA_POSITION_ERROR_MESSAGE;
+import static racingcar.utils.validator.GetNameValidator.DIGIT_ERROR_MESSAGE;
 import static racingcar.utils.validator.GetNameValidator.DUPLICATE_ERROR_MESSAGE;
 import static racingcar.utils.validator.GetNameValidator.NOT_FORMAT_ERROR_MESSAGE;
-import static racingcar.utils.validator.GetNameValidator.OVER_DIGIT_ERROR_MESSAGE;
 import static racingcar.utils.validator.GetNameValidator.validateArrayListNames;
 import static racingcar.utils.validator.GetNameValidator.validateStringNames;
 
@@ -55,7 +55,7 @@ class GetNameValidatorTest {
 
         assertThatThrownBy(() -> validateArrayListNames(stringArrayList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(OVER_DIGIT_ERROR_MESSAGE);
+                .hasMessageContaining(DIGIT_ERROR_MESSAGE);
     }
 
     @Test
@@ -83,7 +83,17 @@ class GetNameValidatorTest {
 
         assertThatThrownBy(() -> validateArrayListNames(stringArrayList))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(CARS_NUMBER_ERROR_MESSAGE);
+                .hasMessageContaining(DIGIT_ERROR_MESSAGE);
+    }
+
+    @Test
+    void 이름_1자_미만_예외처리() {
+        String[] stringArray = {"abd,,dfdf"};
+        ArrayList<String> stringArrayList = Lists.newArrayList(stringArray);
+
+        assertThatThrownBy(() -> validateArrayListNames(stringArrayList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(DIGIT_ERROR_MESSAGE);
     }
 
 }
