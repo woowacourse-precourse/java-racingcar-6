@@ -3,6 +3,10 @@ package racingcar.game;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
+    private static final int MAXIMUM_RANDOM_NUMBER = 9;
+    private static final int MINIMUM_RANDOM_NUMBER = 0;
+    private static final int MINIMUM_MOVABLE_NUMBER = 4;
+
     private String name;
     private String route;
 
@@ -16,8 +20,8 @@ public class Car {
     }
 
     public boolean isMovable() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber >= 4) {
+        int randomNumber = Randoms.pickNumberInRange(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
+        if (randomNumber >= MINIMUM_MOVABLE_NUMBER) {
             return true;
         }
         return false;
