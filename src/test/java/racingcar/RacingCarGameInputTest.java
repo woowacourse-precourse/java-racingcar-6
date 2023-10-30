@@ -1,14 +1,12 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
-import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import racingcar.dto.RacingCar;
 import racingcar.utils.RacingCarGameInput;
 
 public class RacingCarGameInputTest {
@@ -23,6 +21,13 @@ public class RacingCarGameInputTest {
 
     private ByteArrayInputStream convertToInputStream(String input) {
         return new ByteArrayInputStream(input.getBytes());
+    }
+
+    @Test
+    void 자동차_이름_입력_정상_작동() {
+        setInputStream("yang,min,cheol");
+        assertThatCode(() -> RacingCarGameInput.readCarNames())
+                .doesNotThrowAnyException();
     }
 
     @Test
