@@ -57,4 +57,13 @@ public class StringTest {
 
         assertThat(result).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
     }
+
+    @Test
+    void parseInt_메서드_사용시_정수로_변환_불가하면_예외_발생() {
+        String input = "a";
+
+        assertThatThrownBy(() -> Integer.parseInt(input))
+                .isInstanceOf(NumberFormatException.class)
+                .hasMessageContaining("For input string: \"a\"");
+    }
 }
