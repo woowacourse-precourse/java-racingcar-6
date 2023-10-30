@@ -27,7 +27,7 @@ public class CarRacingImp implements CarRacing{
     public RaceConditionDto start() {
         List<List<CarDto>> raceCondition = new ArrayList<>();
         for (int i = 0; i < numberOfRace; i++) {
-            raceCondition.add(progress());
+            raceCondition.add(racingProgress());
         }
         return new RaceConditionDto(raceCondition);
     }
@@ -47,7 +47,7 @@ public class CarRacingImp implements CarRacing{
         this.racing = new Racing(cars);
     }
 
-    private List<CarDto> progress() {
+    private List<CarDto> racingProgress() {
         racing.start();
         return racing.getAllCarDistances();
     }
