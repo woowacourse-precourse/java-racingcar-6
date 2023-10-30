@@ -22,6 +22,12 @@ public class Validation {
         valiCarNameLength(carName);
     }
 
+    private static void valiEmptyCarName(String carName) {
+        if (carName.isEmpty()) {
+            throw new IllegalArgumentException("Invalid car name isEmpty");
+        }
+    }
+
     private static void valiCarNameLength(String carName) {
         if (carName.length() <= CAR_NAME_LENGTH && carName.length() > 0) {
             return;
@@ -29,11 +35,6 @@ public class Validation {
         throw new IllegalArgumentException("Invalid car name length");
     }
 
-    private static void valiEmptyCarName(String carName) {
-        if (carName.isEmpty()) {
-            throw new IllegalArgumentException("Invalid car name isEmpty");
-        }
-    }
 
     private static boolean isNumber(String racingCount) {
         try {

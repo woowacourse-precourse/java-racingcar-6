@@ -18,37 +18,6 @@ public class RacingController {
         }
     }
 
-    private static void executeRacingRound(List<Car> cars) {
-        List<Integer> randomNumbers = generateRandomNumbers(cars.size());
-        manageCarsMovement(cars, randomNumbers);
-        showRacingRoundResult(cars);
-    }
-
-    private static void manageCarsMovement(List<Car> cars, List<Integer> randomNumbers) {
-        for (int i = 0; i < cars.size(); i++) {
-            manageCarMovement(cars.get(i), randomNumbers.get(i));
-        }
-    }
-
-    private static List<Integer> generateRandomNumbers(int count) {
-        List<Integer> randomNumbers = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            randomNumbers.add(generateCarRandomNumber());
-        }
-        return randomNumbers;
-    }
-
-    private static void showRacingRoundResult(List<Car> cars) {
-        for (Car car : cars) {
-            OutputView.printRacingRoundResult(car.getName(), car.getPosition());
-        }
-        System.out.println();
-    }
-
-    private static int generateCarRandomNumber() {
-        return Randoms.pickNumberInRange(0,9);
-    }
-
     public static void manageCarMovement(Car car, int randomNumber) {
         if (randomNumber >= DECIDE_TO_NUMBER_MOVE_STOP) {
             car.moveCar();
@@ -66,6 +35,38 @@ public class RacingController {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
+
+    private static void executeRacingRound(List<Car> cars) {
+        List<Integer> randomNumbers = generateRandomNumbers(cars.size());
+        manageCarsMovement(cars, randomNumbers);
+        showRacingRoundResult(cars);
+    }
+
+    private static List<Integer> generateRandomNumbers(int count) {
+        List<Integer> randomNumbers = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            randomNumbers.add(generateCarRandomNumber());
+        }
+        return randomNumbers;
+    }
+
+    private static void manageCarsMovement(List<Car> cars, List<Integer> randomNumbers) {
+        for (int i = 0; i < cars.size(); i++) {
+            manageCarMovement(cars.get(i), randomNumbers.get(i));
+        }
+    }
+
+    private static void showRacingRoundResult(List<Car> cars) {
+        for (Car car : cars) {
+            OutputView.printRacingRoundResult(car.getName(), car.getPosition());
+        }
+        System.out.println();
+    }
+
+    private static int generateCarRandomNumber() {
+        return Randoms.pickNumberInRange(0,9);
+    }
+
 
     private static int findRacingWinnerPosition(List<Car> cars) {
         return cars.stream().mapToInt(Car::getPosition).max().orElse(0);

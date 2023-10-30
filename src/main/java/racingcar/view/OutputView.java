@@ -26,6 +26,14 @@ public class OutputView {
         System.out.println(RACING_RESULT_MESSAGE);
     }
 
+    public static void printRacingWinner(List<String> carNames) {
+        StringJoiner joiner = new StringJoiner(WINNER_CAR_NAME_SEPARATOR);
+        for (String carName : carNames) {
+            joiner.add(carName);
+        }
+        System.out.println(RACING_RESULT_FINAL_WINNER_MESSAGE + joiner.toString());
+    }
+
     public static void printRacingRoundResult(String carName, int position) {
         System.out.println(carName + RACING_ROUND_CAR_RESULT_SEPARATOR + makeCarPosition(position));
     }
@@ -36,13 +44,5 @@ public class OutputView {
             carPosition.append(CAR_POSITION_SYMBOL);
         }
         return carPosition.toString();
-    }
-
-    public static void printRacingWinner(List<String> carNames) {
-        StringJoiner joiner = new StringJoiner(WINNER_CAR_NAME_SEPARATOR);
-        for (String carName : carNames) {
-            joiner.add(carName);
-        }
-        System.out.println(RACING_RESULT_FINAL_WINNER_MESSAGE + joiner.toString());
     }
 }
