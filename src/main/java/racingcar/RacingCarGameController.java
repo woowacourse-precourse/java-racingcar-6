@@ -11,6 +11,12 @@ public class RacingCarGameController {
         this.outputView = outputView;
     }
 
+    public void play() {
+        init();
+        executeGame();
+        generateResult();
+    }
+
     private void init() {
         outputView.outputMessage(OutputMessage.RACING_CAR_NAME_INPUT_REQUEST);
         String nameInput = inputView.readLine();
