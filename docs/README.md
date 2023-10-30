@@ -30,8 +30,6 @@
 - Car 객체를 활용해 구현해야 한다.
 - Car 기본 생성자를 추가할 수 없다.
 - name, position 변수의 접근 제어자인 private을 변경할 수 없다.
-- 정답 'Number'
-- 심판 'Referee'
 
 ## 기능 요구사항
 
