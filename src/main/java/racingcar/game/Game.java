@@ -2,11 +2,14 @@ package racingcar.game;
 
 import racingcar.car.Car;
 import racingcar.car.CarFactory;
-import racingcar.car.ThreadManager;
 import racingcar.io.InputHandler;
 import racingcar.io.PrintHandler;
+import racingcar.util.RandomManipulator;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static racingcar.car.CarMover.moveCarsIterator;
 
 public class Game {
     public void start() {
@@ -18,31 +21,36 @@ public class Game {
         int trialNum = InputHandler.tryNumber();
 
         PrintHandler.resultRunningSentence();
-        threadsStartIterator(cars, trialNum);
+        moveCarsIterator(cars, trialNum);
+
+        PrintHandler.finalWinnerSentence();
+        List<String> winnerNames = findFinalWinner(cars);
+        PrintHandler.finalWinner(winnerNames);
     }
 
-    private void threadsStart(List<Thread> carThreads) {
-        for (Thread thread : carThreads) {
-            thread.start();
-        }
-    }
 
-    private void threadsStartIterator(List<Car> cars, int trialNum) {
-        for (int i = 0; i < trialNum; i++) {
-            List<Thread> carThreads = ThreadManager.addThread(cars);
-            threadsStart(carThreads);
-            threadsJoinIterator(carThreads);
-            PrintHandler.resultRunning(cars);
-        }
-    }
 
-    private void threadsJoinIterator(List<Thread> carThreads) {
-        for (Thread thread : carThreads) {
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                System.out.println(e.toString());
+    private List<String> findFinalWinner(List<Car> cars) {
+        List<String> winnerNames = new ArrayList<>();
+        int maxLocation = findMaxLocation(cars);
+
+        for (Car car : cars) {
+            if (car.getLocation() == maxLocation) {
+                winnerNames.add(car.getName());
             }
         }
+        return winnerNames;
+    }
+
+    private int findMaxLocation(List<Car> cars) {
+        int maxLocation = cars.get(0).getLocation();
+
+        for (Car car : cars) {
+            if (car.getLocation() > maxLocation) {
+                maxLocation = car.getLocation();
+            }
+        }
+
+        return maxLocation;
     }
 }

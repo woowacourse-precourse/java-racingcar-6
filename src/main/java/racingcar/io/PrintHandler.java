@@ -32,8 +32,15 @@ public class PrintHandler {
         System.out.println();
     }
 
-    public static void finalWinner() {
+    public static void finalWinner(List<String> winnerNames) {
+        for (int i = 0; i < winnerNames.size(); i++) {
+            if (i == winnerNames.size()-1) {
+                System.out.print(winnerNames.get(i));
+            } else if (i != winnerNames.size()-1) {
+                System.out.print(winnerNames.get(i) + FINAL_WINNER_SEPARATOR);
+            }
 
+        }
     }
 
     private static void printDash(int location) {
