@@ -30,7 +30,7 @@ public class Validator {
 
     public static void validateTryCountNumeric(String tryCount) {
         if (!tryCount.matches("^[0-9]+$")) {
-            throw new IllegalArgumentException("문자는 입력할 수 없습니다.");
+            throw new IllegalArgumentException("숫자만 입력할 수 있습니다.");
         }
     }
 }
