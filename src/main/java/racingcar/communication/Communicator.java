@@ -9,10 +9,18 @@ import racingcar.game.GameProgress;
 import racingcar.game.car.Car;
 
 public class Communicator {
+    private static final String EXIT_MESSAGE = "시스템을 종료합니다.";
+    private static final String TRIALS_INPUT_MESSAGE = "시도할 횟수는 몇회인가요?";
+    private static final String CARS_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private static final String WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String RESULT_BEGIN_MESSAGE = "실행 결과";
+    private static final String INPUT_SPLITTER = ",";
+    private static final String WINNER_DELIMITER = ", ";
+
     public static List<String> instructInputCars() {
         printStart();
         String carsInput = Console.readLine();
-        return Arrays.stream(carsInput.split(","))
+        return Arrays.stream(carsInput.split(INPUT_SPLITTER))
                 .map(String::strip)
                 .toList();
     }
@@ -23,15 +31,15 @@ public class Communicator {
     }
 
     public static void printResult(List<GameProgress> gameResult) {
-        System.out.println("실행 결과");
+        System.out.println(RESULT_BEGIN_MESSAGE);
         gameResult.forEach(Communicator::printProgress);
     }
 
     public static void printWinners(List<Car> winners) {
         String winnerNames = winners.stream()
                 .map(Car::displayName)
-                .collect(Collectors.joining(", "));
-        System.out.println("최종 우승자 : " + winnerNames);
+                .collect(Collectors.joining(WINNER_DELIMITER));
+        System.out.println(WINNER_MESSAGE + winnerNames);
     }
 
     public static void printException(Exception exception) {
@@ -44,14 +52,14 @@ public class Communicator {
     }
 
     private static void printExit() {
-        System.out.println("시스템을 종료합니다.");
+        System.out.println(EXIT_MESSAGE);
     }
 
     private static void printInputTrials() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(TRIALS_INPUT_MESSAGE);
     }
 
     private static void printStart() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(CARS_INPUT_MESSAGE);
     }
 }
