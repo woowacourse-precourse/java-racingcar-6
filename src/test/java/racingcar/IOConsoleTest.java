@@ -61,6 +61,6 @@ class IOConsoleTest {
         IOConsole.printWinner(winners);
 
         String expectedOutput = "Car1,Car2,Car3";
-        assertThat(expectedOutput).contains("Car1,Car2,Car3");
+        assertThat(out.toString()).contains("Car1,Car2,Car3");
     }
 }
