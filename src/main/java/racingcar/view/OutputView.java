@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.dto.CarDto;
+import racingcar.domain.car.CarDto;
 
 public interface OutputView {
     void printRequestCarNames();

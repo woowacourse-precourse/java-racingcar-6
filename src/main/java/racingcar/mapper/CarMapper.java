@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
-import racingcar.dto.CarDto;
+import racingcar.domain.car.CarDto;
 
 public class CarMapper {
     private static final String DELIMITER = ",";
