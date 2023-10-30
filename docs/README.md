@@ -23,7 +23,8 @@
 ## GameManager  : 프로그램의 전반적인 실행, 종료 등을 수행
 - Application에서 실행될 대상
 - [] Car 객체 생성을 위한 Car List 생성
-- [] 해당 유저가 누구인지 체크하는 함수
+- [] Game을 실행시키기 위한 기본적인 셋팅을 하는 함수
+  - Car 객체를 생성하고 그 객체를 List에 담는 함수
 - [] pickNumberInRange를 통해 Random값 생성하는 함수
 - [] Random값을 이용해 car의 전진함수를 호출할지 멈춤 함수를 호출할지 확인하는 함수
 - [] winner를 체크할 함수
