@@ -21,7 +21,7 @@ class CarTest {
         assertThatIllegalArgumentException().isThrownBy(() -> Car.createCar(inputName));
     }
 
-    private Stream<Arguments> nameInputTestSource() {
+    private static Stream<Arguments> nameInputTestSource() {
         return Stream.of(
                 Arguments.of(null),
                 Arguments.of(""),
