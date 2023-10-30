@@ -2,17 +2,16 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class CarManager {
+public class CarService {
     private static final int STANDARD_FOR_GO = 4;
     private final List<Car> cars;
 
-    public CarManager() {
+    public CarService() {
         cars = new ArrayList<>();
     }
 
-    CarManager(List<Car> cars) {
+    CarService(List<Car> cars) {
         this.cars = cars;
     }
 

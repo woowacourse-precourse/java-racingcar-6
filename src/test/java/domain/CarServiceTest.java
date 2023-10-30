@@ -7,16 +7,16 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CarManagerTest {
+public class CarServiceTest {
 
     @Test
     void 전진_조건이_정상적으로_반영되는가() {
-        CarManager carManager = new CarManager();
+        CarService carService = new CarService();
 
-        assertFalse(carManager.decideGo(0));
-        assertFalse(carManager.decideGo(3));
-        assertTrue(carManager.decideGo(4));
-        assertTrue(carManager.decideGo(9));
+        assertFalse(carService.decideGo(0));
+        assertFalse(carService.decideGo(3));
+        assertTrue(carService.decideGo(4));
+        assertTrue(carService.decideGo(9));
     }
 
     @Test
@@ -26,8 +26,8 @@ public class CarManagerTest {
                 new Car("woni", 2),
                 new Car("jun", 3)
         );
-        CarManager carManager = new CarManager(cars);
-        List<Integer> winners = carManager.decideWinner();
+        CarService carService = new CarService(cars);
+        List<Integer> winners = carService.decideWinner();
         assertThat(winners).isEqualTo(List.of(2));
 
         cars = List.of(
@@ -35,8 +35,8 @@ public class CarManagerTest {
                 new Car("woni", 2),
                 new Car("jun", 1)
         );
-        carManager = new CarManager(cars);
-        winners = carManager.decideWinner();
+        carService = new CarService(cars);
+        winners = carService.decideWinner();
         assertThat(winners).isEqualTo(List.of(0, 1));
     }
 }

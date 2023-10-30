@@ -1,13 +1,13 @@
 package controller;
 
-import domain.CarManager;
+import domain.CarService;
 import view.InputView;
 import view.OutputView;
 
 public class RacingcarController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final CarManager carManager = new CarManager();
+    private final CarService carService = new CarService();
 
     private int remainingRounds;
 
@@ -18,7 +18,7 @@ public class RacingcarController {
 
     public void startGame() {
         outputView.inputCarName();
-        carManager.add(inputView.carName());
+        carService.add(inputView.carName());
         outputView.inputRoundNumber();
         remainingRounds = inputView.roundNumber();
     }
