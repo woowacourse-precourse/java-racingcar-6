@@ -19,4 +19,5 @@ public class Racer {
         return currentPos;
     }
     public Car getRaceCar(){return raceCar;};
+    public String getName(){return name;}
 }
