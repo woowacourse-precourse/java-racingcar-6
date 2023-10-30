@@ -3,13 +3,15 @@ package racingcar.service;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 import racingcar.domain.Cars;
+import racingcar.repository.CarsRepository;
 import racingcar.repository.WinnerRepository;
 
 public class GameService {
     private final PrintService print = new PrintService();
     private final WinnerRepository winnerRepository = new WinnerRepository();
+    private final CarsRepository carsRepository = new CarsRepository();
 
-    public void run(int gameNum, Cars cars) {
+    public void run() {
         print.result();
         while (gameNum > 0) {
             addRandomNum(cars);
