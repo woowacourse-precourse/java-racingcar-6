@@ -98,4 +98,15 @@ public class Application {
             return cars;
         }
 
+        void startRace() {
+            for (int tryNumber = 1; tryNumber <= tryCount; tryNumber++) {
+                StringBuilder raceResult = new StringBuilder("\n");
+                for (Car car : cars) {
+                    car.move();
+                    appendCarStatus(raceResult, car);
+                }
+                printRaceResult(raceResult.toString());
+            }
+            printWinners();
+        }
 }
