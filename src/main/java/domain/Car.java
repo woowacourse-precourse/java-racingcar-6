@@ -1,7 +1,7 @@
 package domain;
 
 public class Car implements Comparable<Car> {
-
+    private static final int STOP = 3;
     private final String name;
     private int distance;
 
@@ -16,7 +16,7 @@ public class Car implements Comparable<Car> {
 
 
     public void move(final int value) {
-        if(value > 3) {
+        if(value > STOP) {
             distance++;
         }
     }
