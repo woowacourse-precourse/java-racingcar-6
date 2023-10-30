@@ -9,6 +9,7 @@ public class Application {
     public static void main(String[] args) {
         Cars cars = new Cars();
         String carNames = askCarNames();
+        int tryCount = askTryCount();
 
         if (isNotValidInput(carNames)) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하의 영어 또는 한글만 가능합니다. 쉼표(,)로 구분하여 두 대 이상 입력해주세요.");
@@ -20,8 +21,6 @@ public class Application {
             }
             cars.addCar(new Car(carName));
         }
-
-        int tryCount = askTryCount();
 
         Game game = new Game(cars, tryCount);
         game.play();
