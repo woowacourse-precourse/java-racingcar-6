@@ -1,11 +1,11 @@
 ## 📝 구현할 기능 목록
 👊입력
 - [x] 자동차 이름 입력
-  - [ ] 이름은 5자 이하만 가능
+  - [x] 이름은 5자 이하만 가능
   - [x] ,를 기준으로 구분
-  - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생 후 종료
-- [ ] 시도할 횟수 입력
-  - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생 후 종료
+  - [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생 후 종료
+- [x] 시도할 횟수 입력
+  - [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException 발생 후 종료
 
 ✋출력
 - [ ] 시작 프롬프트 출력
