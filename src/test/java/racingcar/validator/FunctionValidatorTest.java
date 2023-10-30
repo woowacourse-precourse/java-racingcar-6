@@ -17,7 +17,7 @@ public class FunctionValidatorTest {
     }
 
     @Test
-    void 시도회수_빈칸_입력() {
+    void 시도횟수_빈칸_입력() {
         assertThatThrownBy(() -> validator.checkNumOfAttempt(""))
                 .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(validator.INPUT_CONTAIN_BLANK);
