@@ -23,7 +23,10 @@ public class Games {
                 int random_num = Randoms.pickNumberInRange(0, 9);
                 int value_update = car_situations.get(car_name) + racingcarModules.checked_random_num_over_4(random_num);
                 car_situations.put(car_name, value_update);
+
+                System.out.println(car_name + " : " + "-".repeat(value_update));
             }
+            System.out.println();
         }
     }
 }
