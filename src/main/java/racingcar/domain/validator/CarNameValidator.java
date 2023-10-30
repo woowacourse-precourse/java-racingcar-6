@@ -8,7 +8,6 @@ public class CarNameValidator {
 
     public CarNameValidator(List<String> carNames) {
         this.carNames = carNames;
-        validateAll();
     }
 
     public void validateAll() {
