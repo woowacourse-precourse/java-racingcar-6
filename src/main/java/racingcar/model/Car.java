@@ -1,11 +1,15 @@
 package racingcar.model;
 
+import racingcar.validation.CarNameValidator;
+
 public class Car {
     private static final int MOVEMENT_THRESHOLD = 4;
     private final String name;
     private int position = 0;
 
     public Car(final String name) {
+        final CarNameValidator carNameValidator = CarNameValidator.getInstance();
+        carNameValidator.validate(name);
         this.name = name;
     }
 
