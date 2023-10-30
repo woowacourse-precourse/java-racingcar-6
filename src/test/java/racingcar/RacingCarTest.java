@@ -31,4 +31,14 @@ class RacingCarTest {
 
         assertThat(pobi.toString()).isEqualTo("pobi : ---");
     }
+
+    @Test
+    void input_자동차가_세번의_이동할_시도를_하고_주행거리_반환(){
+        Car pobi = new RacingCar("pobi");
+        pobi.moveCar(0);
+        pobi.moveCar(4);
+        pobi.moveCar(8);
+
+        assertThat(pobi.toString()).isEqualTo("pobi : --");
+    }
 }
