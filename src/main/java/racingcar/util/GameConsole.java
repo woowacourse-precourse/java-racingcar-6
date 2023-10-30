@@ -10,18 +10,4 @@ public interface GameConsole {
          * @return console 에 입력한 문자열 반환
          */
         String readInput();
-
-        /**
-         * @implSpec 매개변수로 주어진 메시지를 쿤솔에 출력합니다.
-         *
-         * @param message
-         */
-        void printMessage(String message);
-
-        /**
-         * @implSpec 매개변수로 주어진 메시지를 콘솔에 출력 후 개행합니다.
-         *
-         * @param message
-         */
-        void printlnMessage(String message);
 }

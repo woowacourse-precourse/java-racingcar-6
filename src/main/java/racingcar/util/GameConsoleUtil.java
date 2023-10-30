@@ -29,24 +29,4 @@ public class GameConsoleUtil implements GameConsole {
         public String readInput() {
                 return Console.readLine();
         }
-
-        /**
-         * 매개변수인 message 를 콘솔에 출력합니다.
-         *
-         * @param message
-         */
-        @Override
-        public void printMessage(String message) {
-                System.out.print(message);
-        }
-
-        /**
-         * 매개변수인 message 를 콘솔에 출력 후 개행합니다.
-         *
-         * @param message
-         */
-        @Override
-        public void printlnMessage(String message) {
-                System.out.println(message);
-        }
 }
