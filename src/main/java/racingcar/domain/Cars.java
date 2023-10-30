@@ -21,4 +21,18 @@ public class Cars {
             throw new IllegalArgumentException(DUPLICATE_INPUT);
         }
     }
+
+    private int getMaxPosition() {
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException(""));
+    }
+
+    public List<Car> getWinners() {
+        int maxPosition = getMaxPosition();
+        return carList.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
+    }
 }
