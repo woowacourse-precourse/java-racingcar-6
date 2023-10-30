@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
 
@@ -23,6 +24,7 @@ public class Game {
             race();
             moveNumber--;
         }
+        informWinner();
     }
 
     private void alertEnterCarName() {
@@ -73,6 +75,24 @@ public class Game {
             System.out.println(car.getForward());
         }
         System.out.println();
+    }
+
+    private void informWinner() {
+        List<String> winnerNames = new ArrayList<>();
+        int maxForward = 0;
+        for (Car car : carList) {
+            if (maxForward < car.getForwardNumber()) {
+                maxForward = car.getForwardNumber();
+                winnerNames.clear();
+                winnerNames.add(car.getName());
+            }
+            if (maxForward == car.getForwardNumber()) {
+                winnerNames.add(car.getName());
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        String result = winnerNames.stream().collect(Collectors.joining(", "));
+        System.out.println(result);
     }
 
     private Boolean isMoveForward() {

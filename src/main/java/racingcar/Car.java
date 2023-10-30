@@ -17,7 +17,12 @@ public class Car {
         return this.forward;
     }
 
+    public Integer getForwardNumber() {
+        return this.forward.length();
+    }
+
     public void addForward() {
         this.forward += "-";
     }
+
 }
