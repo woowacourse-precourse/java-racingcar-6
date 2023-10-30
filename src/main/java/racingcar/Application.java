@@ -7,7 +7,7 @@ class Car {
     private String carName;
     private int position;
 
-    public Car(String name) {
+    public Car(String carName) {
         this.carName = carName;
     }
 
@@ -86,11 +86,10 @@ public class Application {
         List<String> winners = new ArrayList<>();
         for (Car car : racerList) {
             if (car.getPosition() == maxPosition) {
+                System.out.println(car.getName());
                 winners.add(car.getName());
             }
         }
-        // 임시 확인용 code
-        System.out.println("최대 이동 거리 : "+maxPosition);
 
         System.out.print("최종 우승자: ");
         for (int i = 0; i < winners.size(); i++) {
