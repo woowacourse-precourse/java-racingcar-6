@@ -8,6 +8,10 @@ public class Application {
         String[] cars = Console.readLine().split(",");
         return cars;
     }
+
+    public int inputNumber() {
+        return Integer.parseInt(Console.readLine());
+    }
     public static void main(String[] args) {
     }
 }
