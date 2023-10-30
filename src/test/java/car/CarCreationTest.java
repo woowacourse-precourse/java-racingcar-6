@@ -1,6 +1,5 @@
 package car;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -8,18 +7,15 @@ import org.junit.jupiter.api.Test;
 import racingcar.validator.CarValidator;
 
 public class CarCreationTest {
-
-    private final CarValidator carValidator = new CarValidator();
-
     @Test
     void 이름이_5자_이하인가() {
         String acceptName = "김수한무";
         String unAcceptName = "김수한무거북이";
 
-        assertDoesNotThrow(() -> carValidator.validateNameLength(acceptName));
+        assertDoesNotThrow(() -> CarValidator.validateNameLength(acceptName));
 
         assertThrows(IllegalArgumentException.class,
-            () -> carValidator.validateNameLength(unAcceptName));
+            () -> CarValidator.validateNameLength(unAcceptName));
     }
 
     @Test
@@ -27,9 +23,9 @@ public class CarCreationTest {
         String acceptName = "pobi,woni,jun";
         String unAcceptName = "pobi,woni;jun";
 
-        assertDoesNotThrow(() -> carValidator.validateNameUsingCommas(acceptName));
+        assertDoesNotThrow(() -> CarValidator.validateNameUsingCommas(acceptName));
 
         assertThrows(IllegalArgumentException.class,
-            () -> carValidator.validateNameUsingCommas(unAcceptName));
+            () -> CarValidator.validateNameUsingCommas(unAcceptName));
     }
 }

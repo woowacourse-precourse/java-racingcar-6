@@ -27,6 +27,7 @@ public class Game {
         for (Car car : participantCars) {
             if (isCarMoveToForward()) {
                 car.move();
+                System.out.println(car.getPosition());
             }
         }
     }

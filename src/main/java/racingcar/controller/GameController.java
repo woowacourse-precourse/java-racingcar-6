@@ -2,65 +2,58 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Game;
+import racingcar.service.GameService;
 import racingcar.validator.CarValidator;
-import racingcar.validator.RoundValidator;
 import racingcar.view.GameView;
 
 public class GameController {
 
-    private int rounds;
-    private Game game;
     private final GameView gameView;
+    private final GameService gameService;
 
-    public GameController(GameView gameView) {
+    public GameController(GameView gameView, GameService gameService) {
         this.gameView = gameView;
+        this.gameService = gameService;
     }
 
     public void playGame() {
-        setupGame();
+        // 시작 및 참가 차량 설정
+        List<Car> participantCars = setupParticipantCars();
 
-        gameView.displayResultMessage();
-        playRounds();
+        // 시도 횟수 설정
+        int rounds = setupRounds();
 
+        // 게임 실행
+        Game game = startGame(participantCars, rounds);
+
+        // 결과 표시
         gameView.displayFinalWinner(game.getWinnerNames());
     }
 
-    private void setupGame() {
+    private List<Car> setupParticipantCars() {
         gameView.displayStartGame();
-
-        this.game = new Game(setupParticipantCars());
-
-        this.rounds = setupRounds();
+        String input = Console.readLine();
+        CarValidator.validateNameUsingCommas(input);
+        List<String> carNameList = List.of(input.split(","));
+        return gameService.setupParticipantCars(carNameList);
     }
 
     private int setupRounds() {
         gameView.displayAskRounds();
-
-        String rounds = Console.readLine();
-        RoundValidator.validateRounds(rounds);
-        return Integer.parseInt(rounds);
+        return gameService.setupRounds(Console.readLine());
     }
 
-    private List<Car> setupParticipantCars() {
-        String input = Console.readLine();
+    private Game startGame(List<Car> participantCars, int rounds) {
+        Game game = gameService.createGame(participantCars);
 
-        CarValidator.validateNameUsingCommas(input);
-        List<String> carNameList = List.of(input.split(","));
-
-        return carNameList.stream()
-            .peek(CarValidator::validateNameLength)
-            .map(Car::new)
-            .collect(Collectors.toList());
-    }
-
-    private void playRounds() {
+        gameView.displayResultMessage();
         for (int i = 0; i < rounds; i++) {
-            game.moveCar();
-
+            gameService.controlCar(game);
             gameView.displayCurrentCarPosition(game.getCurrentParticipantCarPosition());
         }
+
+        return game;
     }
 }
