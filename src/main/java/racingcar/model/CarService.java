@@ -9,24 +9,24 @@ import java.util.List;
 public class CarService {
     public final int MOVE_LIMIT_CONDITION = 4;
     public final int CAR_NAME_LIMIT_SIZE = 5;
-    public int carOnceMove = 0;
-
+    private CarObject CarInstance = CarObject.getInstance();
     public String name;
     public int epoch;
 
     private CarService() {}
 
-    public void setCarOnceMoveDistance() {
-        do {
-            carOnceMove = Randoms.pickNumberInRange(0, 9);
-        } while (carOnceMove <= MOVE_LIMIT_CONDITION);
+    public boolean carMoveJudgment() {
+        int carOnceMove = Randoms.pickNumberInRange(0, 9);
+        if(carOnceMove >= MOVE_LIMIT_CONDITION) {
+            return true;
+        }
+        return false;
     }
 
     public String carNameSizeJudgment(String carName) {
         if (carName.length() <= CAR_NAME_LIMIT_SIZE) {
             return carName;
         }
-
         return null;
     }
 
@@ -41,27 +41,9 @@ public class CarService {
         CarObject.size = CarObject.name.size();
     }
 
-    public void insertCarDistance() {
-        for (int i = 0; i < CarObject.size; i++) {
-            setCarOnceMoveDistance();
-            CarObject.distance.add(carOnceMove);
-        }
-    }
-
-    public void carAction() {
-        CarObject CarInstance = CarObject.getInstance();
-
+    public void carInit() {
         insertCarName(this.name);
-        insertCarDistance();
         CarInstance.addComponent();
-    }
-
-    public void carDistanceUpdate() {
-        CarObject CarInstance = CarObject.getInstance();
-
-        CarInstance.distance.clear();
-        insertCarDistance();
-        CarInstance.updateDistance();
     }
 
     private static class SingleInstanceHolder {

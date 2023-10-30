@@ -9,15 +9,17 @@ public class CarComponent {
         this.distance = distance;
     }
 
-    public void addDistance(int distance) {
-        this.distance += distance;
+    public void addDistance() {
+        if(CarService.getInstance().carMoveJudgment()) {
+            this.distance += 1;
+        }
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getDistance() {
-        return distance;
+        return this.distance;
     }
 }

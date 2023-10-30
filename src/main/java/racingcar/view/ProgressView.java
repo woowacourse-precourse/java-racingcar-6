@@ -1,13 +1,14 @@
 package racingcar.view;
 
+import java.util.ArrayList;
 import racingcar.controller.Input;
 import racingcar.controller.Output;
 
-public class progressView {
+public class ProgressView {
     private final Output carOut = new Output();
     private final Input carIn = new Input();
 
-    private progressView() {}
+    private ProgressView() {}
 
     //car string : distance 출력 함수
     public void printDistance(int distanceSize) {
@@ -28,8 +29,8 @@ public class progressView {
     //epoch 만큼 반복해서 출력해주는 함수
     public void printAllProgress() {
         for(int i = 0; i < carOut.getEpoch(); i++) {
+            carOut.getInstance().updateDistance();
             printProgress();
-            carOut.getService().carDistanceUpdate();
             System.out.println();
         }
     }
@@ -46,19 +47,42 @@ public class progressView {
         carIn.inputEpoch();
     }
 
+    public void printWinner() {
+        ArrayList<Integer> haveMaxDistanceIndex = new ArrayList<>();
+        int maxDistance = 0;
+
+        for(int i = 0; i < carOut.getSize(); i++) {
+            int currentDistance = carOut.getInstance().getComponentIndexOf(i).getDistance();
+            if(currentDistance > maxDistance) {
+                maxDistance = currentDistance;
+                haveMaxDistanceIndex.clear();
+                haveMaxDistanceIndex.add(i);
+            } else if (currentDistance == maxDistance) {
+                haveMaxDistanceIndex.add(i);
+            }
+        }
+
+        System.out.print("최종 우승자 : ");
+
+        for(var index : haveMaxDistanceIndex) {
+            System.out.print(carOut.getInstance().getComponentIndexOf(index).getName() + " ");
+        }
+    }
+
     public void process() {
         inputCarString();
         inputCarEpoch();
 
-        carOut.getService().carAction();
+        carOut.getService().carInit();
         printAllProgress();
+        printWinner();
     }
 
     private static class SingleInstanceHolder {
-        private static final progressView INSTANCE = new progressView();
+        private static final ProgressView INSTANCE = new ProgressView();
     }
 
-    public static progressView view() {
+    public static ProgressView view() {
         return SingleInstanceHolder.INSTANCE;
     }
 }
