@@ -174,7 +174,7 @@ Service
     4.4 public List<String> findWinnerList(int k) {  // 우승자가 두명 이상인경우 WinnerList에 저장 후 리턴
     WinnerList.add(findWinnerName(k)); 
     WinnerList.add(findWinnerName(k+1));
-    return WinnerList;
+    return WinnerList; 
 }
 
 
