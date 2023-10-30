@@ -1,7 +1,10 @@
 package racingcar;
 
+import racingcar.utils.RacingCarGameInput;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        RacingCarGameLauncher launcher = new RacingCarGameLauncher();
+        launcher.launch();
     }
 }
