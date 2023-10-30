@@ -4,6 +4,7 @@ import static racingcar.util.StringConverter.stringToCarNameListByDelimiter;
 import static racingcar.util.StringConverter.stringToTryNumber;
 
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.dto.CarDto;
 import racingcar.model.Cars;
 import racingcar.model.RacingGame;
@@ -53,9 +54,10 @@ public class RacingGameController {
 
     private void startRacing(Cars cars, TryNumber tryNumber, RacingGame racingGame) {
         outputView.printResultMessage();
-        for (int i = 0; i < tryNumber.number(); i++) {
-            racingGame.playOneStep();
-            outputView.printResult(CarDto.toDtoList(cars));
-        }
+        IntStream.range(0, tryNumber.number())
+                .forEach(i -> {
+                    racingGame.playOneStep();
+                    outputView.printResult(CarDto.toDtoList(cars));
+                });
     }
 }
