@@ -4,12 +4,12 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cars {
-    public Cars(List<Car> cars) {
-        this.cars = cars;
+public class Racing {
+    public Racing(List<Car> cars) {
+        this.participant = cars;
     }
 
-    List<Car> cars = new ArrayList<>();
+    List<Car> participant = new ArrayList<>();
 
     public void drive(Car car) {
         car.go(createMovePoint());
