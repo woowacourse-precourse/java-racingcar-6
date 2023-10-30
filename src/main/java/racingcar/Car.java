@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Car {
-    private String name;
+    private final String name;
     private int position = 0;
 
     public static int MINIMUM_REQUIRED_FOR_MOVE = 4;
@@ -12,10 +12,11 @@ public class Car {
         this.name = name;
     }
 
-    protected void move(int number) {
-        if (number >= MINIMUM_REQUIRED_FOR_MOVE){
+    protected void move(Dice dice) {
+        if (dice.roll() >= MINIMUM_REQUIRED_FOR_MOVE){
             position += MOVE_DISTANCE;
         }
+        printResult();
     }
 
     public String getName() {
@@ -26,7 +27,7 @@ public class Car {
         return position;
     }
 
-    protected void printResult(){
+    private void printResult(){
         String posStr = this.name + " : " + "-".repeat(position);
         System.out.println(posStr);
     }

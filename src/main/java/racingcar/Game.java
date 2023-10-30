@@ -7,26 +7,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Game {
-    private LinkedList<Car> cars = new LinkedList<>();
+    private RacingCars racingCars;
     private int turns;
     private final Dice dice = new Dice();
 
     protected void run() {
-        getCarsInput();
-        getTurnsInput();
+        racingCars = new RacingCars(assignCars());
+        turns = getTurnsInput();
         System.out.println("실행 결과");
         for (int i = 0; i < turns; i++) {
-            for (Car car : cars) {
-                int number = dice.roll();
-                car.move(number);
-                car.printResult();
-            }
-            System.out.println();
+            racingCars.moveCars(dice);
         }
         printWinners();
     }
 
-    private void getCarsInput(){
+    private LinkedList<Car> assignCars(){
+        LinkedList<Car> cars = new LinkedList<>();
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String names = Console.readLine();
         if (!names.matches("^[a-zA-Z,]*$")){
@@ -36,9 +32,10 @@ public class Game {
         for (String eachName : namesSplit) {
             cars.add(new Car(eachName));
         }
+        return cars;
     }
 
-    private void getTurnsInput(){
+    private int getTurnsInput(){
         System.out.println("시도할 회수는 몇회인가요?");
         String number = Console.readLine();
         if (!number.matches("[0-9]+")){
@@ -47,23 +44,11 @@ public class Game {
         else if (number.equals("0")){
             throw new IllegalArgumentException("1 이상의 수를 입력해주세요.");
         }
-        turns = Integer.parseInt(number);
+        return Integer.parseInt(number);
     }
 
     private void printWinners(){
-        int max = 0;
-        LinkedList<String> winners = new LinkedList<>();
-        for (Car car : cars){
-            if (car.getPosition() >= max){
-               max = car.getPosition();
-            }
-        }
-
-        for (Car car: cars){
-            if (car.getPosition() == max){
-                winners.add(car.getName());
-            }
-        }
+        LinkedList<String> winners = racingCars.getWinners();
         System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
