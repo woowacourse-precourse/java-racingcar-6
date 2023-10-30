@@ -38,7 +38,7 @@ public class RacingCarService {
         return randomNumbers;
     }
 
-    public String determineRaceWinners() {
+    public String findWinners() {
         carList.sort(Comparator.comparingInt(Car::getMoveCount).reversed());
         int maxMoveCount = carList.get(0).getMoveCount();
 
@@ -52,7 +52,13 @@ public class RacingCarService {
                 maxMoveCountCarNames.add(car.getName());
             }
         }
+        return classifyWinners(maxMoveCountCarNames);
+    }
 
-        return String.join(", ", maxMoveCountCarNames);
+    public String classifyWinners(List<String> winners) {
+        if (winners.size() != 1) {
+            return "최종 우승자 : " + String.join(", ", winners);
+        }
+        return "최종 우승자 : " + winners.get(0);
     }
 }

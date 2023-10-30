@@ -6,6 +6,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.service.RacingCarService;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingGameController {
     private final RacingCarService racingGameService;
@@ -25,7 +26,6 @@ public class RacingGameController {
             RacingCarService.moveCar();
             System.out.println();
         }
-        //System.out.println(racingGameService.determineRaceWinners());
-
+        OutputView.printFinalWinner(racingGameService.findWinners());
     }
 }
