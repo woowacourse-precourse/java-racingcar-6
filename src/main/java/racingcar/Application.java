@@ -1,8 +1,8 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.RacingCar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
@@ -41,12 +41,13 @@ public class Application {
         System.out.println("실행 결과");
         for (int i = 0; i < Integer.parseInt(round) - 1; i++) {
             for (RacingCar car : carArray) {
-                car.moveForward();
+                car.moveForward(Randoms.pickNumberInRange(0, 9));
             }
             System.out.println();
         }
+        // 가장 많이 간 거리를 체크하기 위해 마지막 반복문은 따로 돌게했다.
         for (RacingCar car : carArray) {
-            car.moveForward();
+            car.moveForward(Randoms.pickNumberInRange(0, 9));
             if (maxDistance < car.step) {
                 maxDistance = car.step;
             }

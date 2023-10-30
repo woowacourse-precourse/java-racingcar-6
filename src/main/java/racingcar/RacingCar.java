@@ -12,15 +12,14 @@ public class RacingCar {
         this.step = 0;
     }
 
-    public void moveForward() {
-        int random = Randoms.pickNumberInRange(0, 9);
+    public void moveForward(int random) {
         if (random >= MOVING_FORWARD) {
             this.step++;
         }
         printCurrentPosition();
     }
 
-    private void printCurrentPosition() {
+    public void printCurrentPosition() {
         System.out.println(name + " : " + "-".repeat(this.step));
     }
 }
