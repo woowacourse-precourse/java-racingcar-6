@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +18,12 @@ public class RacingGame {
         tryCount = inputTry();
 
         //TODO: 각 차수별 전진 상태 출력 하기
+        System.out.println("\n실행 결과");
+        progress(cars, tryCount);
 
         //TODO: 우승자 출력 하기
     }
+
     public void inputCarName(List<Car> cars) {
         String[] carNames = Console.readLine().split(",");
         for (String name : carNames) {
@@ -40,4 +44,23 @@ public class RacingGame {
         }
         return Integer.parseInt(tryNumber);
     }
+
+    public void progress(List<Car> cars, int tryCount) {
+        if (tryCount <= 0) {
+            return;
+        }
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            if (randomNumber >= 4) {
+                car.state++;
+            }
+            System.out.print(car.name);
+            System.out.print(" : ");
+            System.out.println("-".repeat(car.state));
+        }
+        System.out.println();
+
+        progress(cars, tryCount - 1);
+    }
+
 }
