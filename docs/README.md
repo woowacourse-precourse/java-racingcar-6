@@ -32,40 +32,53 @@
   - [MoveCountValidator.java](MoveCountValidator.java)
 
 ---
+# Application.java
+- play()로 시작
 
+
+---
 # Model
 ## Car
 ### Car.java
 - String name
 - int position
 - Car()
-- move() : position++
+- move() : position + 1
 - getName()
 - getPosition()
+- isSame() : position 비교
 
 
 ### CarList.java
 - List<Car> carList
 - CarList()
 - validate()
+- moveAllCarListOnce()
+- getCurrentResult() : 리스트 불변 복사
+- getMaxPosition()
+- getWinners()
 
 
 ### CarRegister.java
 - carNames
 - CarRegister()
-- registerCar
+- registerCar()
+- prepareCarList()
+
 
 ## Manager
 ### CarMoveManager.java
 - CHECK_NUMBER = 4
-- isMove()
+- isMove() : 랜덤값이 4 이상인지 확인
 
+
+---
 # View
 ### InputView.java
 - getInstance()
 - readCarNames()
 - readMoveCount()
-- 메세지 enum으로 정리
+- enum 정리
 
 
 ### OutputView.java
@@ -73,20 +86,39 @@
 - printResult()
 - resultDisplay()
 - printResultCarList()
-- printWinner()
+- printWinners()
+- printExceptionMessage()
+- enum 정리
 
+
+---
 # Controller
 ### MainController.java
+- inputView
+- outputView
+- gameGuide
+- carMoveManager
+- carRegister
+- initializeGameGuide()
+- play()
+- race()
+- progress()
+- registerCarList()
+- moveAllCarList()
+- enum 정리 : GameStatus, isContinue()
 
 
-
+---
 # Util
 ### CarNameValidator.java
 - MIN_CARLIST_NUMBER = 2
 - MAX_CARNAME_LENGTH = 5
 - validateCarNumber() : 자동차가 2대 이상인지 확인
 - validateCarNameLength() : 자동차의 이름이 5자 이하인지 확인
-- 메세지 enum으로 정리
+- validateContainBlank() : 이름 공백 포함 확인
+- validateNotSame() : 이름 중복 확인
+- validate()
+- enum 정리
 
 
 ### RandomNumberGenerator.java
@@ -96,16 +128,18 @@
 ### RandomNumberValidator.java
 - MIN_NUMBER = 0
 - MAX_NUMBER = 9
-- validate()
-- 메시지 enum으로 정리
+- validate() : 0 이상 9 이하 확인
+- enum 정리
 
 
 ### CarListEditor.java
-- splitByComma()
+- splitByComma() : 콤마로 구분
+- removeSpace() : 공백 제거
+- enum 정리
 
 
 ### MoveCountValidator.java
 - validateNumeric()
 - validateNumberRange()
 - validate()
-- 메시지 enum으로 정리
+- enum 정리
