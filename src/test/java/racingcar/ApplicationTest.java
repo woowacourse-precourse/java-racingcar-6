@@ -31,7 +31,7 @@ class ApplicationTest extends NsTest {
         String[] inputName = {};
         GameService service = new GameService();
         assertThrows(IllegalArgumentException.class, () -> {
-            service.initCarsName(inputName);
+            service.initGame(inputName, 5);
         });
     }
 
