@@ -23,6 +23,7 @@ public class MainController {
 
         gameState = setGame(gameState, parameter, model);
         gameState = playGame(gameState, parameter, model);
+        finishGame(gameState, parameter, model);
     }
 
     private GameState setGame(GameState gameState, Map<String, String> parameter, Map<String, Object> model) {
@@ -38,11 +39,9 @@ public class MainController {
         return GameState.FINISH;
     }
 
-    private Map<GameState, Function<Object, Controller>> initControllerMapping() {
-        return Map.ofEntries(
-                Map.entry(GameState.SETTING, param -> config.createSettingController()),
-                Map.entry(GameState.PLAYING, config::createPlayController),
-                Map.entry(GameState.FINISH, config::createResultController)
-        );
+    private void finishGame(GameState gameState, Map<String, String> parameter, Map<String, Object> model) {
+        Cars cars = (Cars) model.get("cars");
+        Controller controller = adapter.get(gameState).apply(cars);
+        controller.run(parameter, model);
     }
 }

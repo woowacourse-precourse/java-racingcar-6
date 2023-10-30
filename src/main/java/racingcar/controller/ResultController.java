@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Cars;
 import racingcar.service.CarService;
 import racingcar.view.outputview.ResultOutputView;
 
@@ -16,6 +17,12 @@ public class ResultController implements Controller {
 
     @Override
     public void run(Map<String, String> parameter, Map<String, Object> model) {
+        viewWinnersName(model);
+    }
 
+    private void viewWinnersName(Map<String, Object> model) {
+        Cars winners = carService.findWinners();
+        model.put("winners", winners);
+        resultOutputView.display(model);
     }
 }
