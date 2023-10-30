@@ -3,13 +3,18 @@ package racingcar.domain;
 import java.util.List;
 
 public class SingleRoundResult {
-    public final List<String> carMoveHistories;
+    private final List<Car> cars;
+    private final List<MovementHistory> MovementHistories;
 
-    public SingleRoundResult(List<String> carMoveHistories) {
-        this.carMoveHistories = carMoveHistories;
+    public SingleRoundResult(List<Car> cars, List<MovementHistory> movementHistories) {
+        this.cars = cars;
+        MovementHistories = movementHistories;
     }
 
-    public List<String> getCarMoveHistories() {
-        return carMoveHistories;
+    public List<MovementHistory> getMovementHistories() {
+        return MovementHistories;
+    }
+    public List<Car> getCars() {
+        return cars;
     }
 }
