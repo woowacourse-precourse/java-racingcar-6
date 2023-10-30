@@ -25,7 +25,7 @@ public class RacingController {
         printAllRacingResult(movingCount, carList);
 
         OutputView.printWinner();
-        List<String> winnerNameList = winnerDecider.collectNamesOfTopCars(carList);
+        List<String> winnerNameList = winnerDecider.getWinners(carList);
         OutputView.printWinnerName(winnerNameList);
     }
 
@@ -49,7 +49,7 @@ public class RacingController {
             goStopDecider.moveCarOnRandomValue(car);
             printOneCarResult(car);
         }
-        System.out.print('\n');
+        System.out.println();
     }
 
     public void printOneCarResult(Car car) {

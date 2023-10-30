@@ -3,10 +3,12 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class GoStopDecider {
-
     private static final int GO_STANDARD_NUMBER = 4;
+    private static final int MIN_RANDOM_RANGE = 0;
+    private static final int MAX_RANDOM_RANGE = 9;
+
     public int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
+        return Randoms.pickNumberInRange(MIN_RANDOM_RANGE, MAX_RANDOM_RANGE);
     }
 
     private boolean checkGoStop(int randomNumber) {

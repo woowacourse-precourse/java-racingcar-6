@@ -1,8 +1,5 @@
 package racingcar.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
     private final String name;
     private int distance = 0;
@@ -13,6 +10,10 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 
     public int getDistance() {
