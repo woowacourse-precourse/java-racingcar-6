@@ -28,5 +28,4 @@ public class Car {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-
 }
