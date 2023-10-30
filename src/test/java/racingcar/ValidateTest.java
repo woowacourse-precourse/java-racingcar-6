@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import validate.InputValidation;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.RacingCarTestConstants.*;
 import static validate.InputValidation.*;
 import static validate.InputValidation.validateNumericInput;
 import static validate.InputValidation.validateInputLengthExceeded;
@@ -16,7 +17,7 @@ public class ValidateTest {
 
         assertThatThrownBy(() -> validateNumericInput(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("입력된 값에 숫자가 아닌 값이 포함되어있습니다.");
+                .hasMessageContaining(NUMERIC_INPUT_ERROR_MESSAGE);
      }
 
      @Test
@@ -25,7 +26,7 @@ public class ValidateTest {
 
         assertThatThrownBy(() -> validateInputLengthExceeded(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("자동차의 이름은 5글자를 초과할 수 없습니다.");
+                .hasMessageContaining(INPUT_LENGTH_EXCEEDED_ERROR_MESSAGE);
      }
 
      @Test
@@ -34,7 +35,7 @@ public class ValidateTest {
 
          assertThatThrownBy(() -> validateInputIsEmpty(name))
                  .isInstanceOf(IllegalArgumentException.class)
-                 .hasMessageContaining("자동차의 이름은 공백일 수 없습니다.");
+                 .hasMessageContaining(INPUT_IS_EMPTY_ERROR_MESSAGE);
      }
 
      @Test
@@ -45,14 +46,14 @@ public class ValidateTest {
 
          assertThatThrownBy(() -> validateInputDoesNotContainSpecialCharacters(name1))
                  .isInstanceOf(IllegalArgumentException.class)
-                 .hasMessageContaining("자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.");
+                 .hasMessageContaining(INPUT_DOES_NOT_CONTAIN_SPECIAL_CHARACTERS_ERROR_MESSAGE);
 
          assertThatThrownBy(() -> validateInputDoesNotContainSpecialCharacters(name2))
                  .isInstanceOf(IllegalArgumentException.class)
-                 .hasMessageContaining("자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.");
+                 .hasMessageContaining(INPUT_DOES_NOT_CONTAIN_SPECIAL_CHARACTERS_ERROR_MESSAGE);
 
          assertThatThrownBy(() -> validateInputDoesNotContainSpecialCharacters(name3))
                  .isInstanceOf(IllegalArgumentException.class)
-                 .hasMessageContaining("자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.");
+                 .hasMessageContaining(INPUT_DOES_NOT_CONTAIN_SPECIAL_CHARACTERS_ERROR_MESSAGE);
      }
 }
