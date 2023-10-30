@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -48,14 +49,50 @@ public class RacingCarService {
     public int getGameAttemptCount() {
         inputView.roundInput();
 
-        String count = Console.readLine();
-        int cnt = Integer.parseInt(count);
+        String s = Console.readLine();
+        int i = Integer.parseInt(s);
 
-        if(cnt<1){
+        if(i<1){
             throw new IllegalArgumentException("1보다 작은 수는 입력하실 수 없습니다.");
         }
 
-        return cnt;
+        return i;
+    }
+
+    public int[] playGame(int num, List<String> carList) {
+
+        int[] move = new int[carList.size()];
+
+        outputView.result();
+        for (int i = 0; i < num; i++) {
+
+            int[] score = score(carList, move);
+
+            result(score, carList);
+        }
+        return move;
+    }
+
+    private int[] score(List<String> name , int[] move){
+        for (int i = 0; i < name.size(); i++) {
+            int N = Randoms.pickNumberInRange(1, 9);
+            if(N>3){
+                move[i] += 1;
+            }
+        }
+        return move;
+    }
+
+    private void result(int[] score, List<String> carList){
+        for (int i = 0; i < carList.size(); i++) {
+            outputView.carNameOutView(carList.get(i));
+
+            for (int j = 0; j < score[i]; j++) {
+                outputView.score();
+            }
+            outputView.newLine();
+        }
+        outputView.newLine();
     }
 
 }
