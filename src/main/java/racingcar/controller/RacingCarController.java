@@ -30,11 +30,11 @@ public class RacingCarController {
         for (int i = 0; i < attemptNumber; i++) {
             racingCarService.moveCars();
             outputMoveResult();
+            outputView.outputLineBreak();
         }
     }
 
     private void outputResultMessage() {
-        outputView.outputLineBreak();
         outputView.outputResultMessage();
     }
 

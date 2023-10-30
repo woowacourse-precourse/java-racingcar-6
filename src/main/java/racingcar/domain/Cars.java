@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.util.RandomNumber;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class Cars {
 
     private final String names;
     private final List<Car> cars = new ArrayList<>();
+    private final RandomNumber randomNumber = new RandomNumber();
 
     public Cars(String names) {
         this.names = names;
@@ -41,9 +44,9 @@ public class Cars {
         return longDistanceCars;
     }
 
-    public void moveCars(int number) {
+    public void moveCars() {
         for (Car car : cars) {
-            if (car.isMoreThanCondition(number)) {
+            if (car.isMoreThanCondition(generateNumber())) {
                 car.move();
             }
         }
@@ -51,5 +54,9 @@ public class Cars {
 
     public int size() {
         return cars.size();
+    }
+
+    private int generateNumber() {
+        return randomNumber.create();
     }
 }
