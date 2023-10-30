@@ -1,7 +1,7 @@
 package racingcar.entity;
 
 public enum RoundScore {
-    FORWARD(1),STOP(0);
+    FORWARD(1), STOP(0);
 
     private int score;
 
