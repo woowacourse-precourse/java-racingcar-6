@@ -51,6 +51,15 @@ public class Application {
         }
     }
 
+    public static void validateCarsName3(ArrayList<String> names) {
+        for (String element : names) {
+            int length = element.length();
+            if (length < 1 || length > 5) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
     public static int makeRandomNumber() {
         int random;
         random = Randoms.pickNumberInRange(0,9);
