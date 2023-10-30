@@ -37,11 +37,13 @@ public class CarFuctSet {
 	}
 	
 	public void MoveAdvance(List<String> Carmove) {
-		for(int i =0; i < Carmove.size(); i++) {
-			
-			System.out.println(Carmove.get(i) + ":" + ReturnAdvance() );
-			
-		}
+		 StringBuilder output = new StringBuilder();
+
+	        for (int i = 0; i < Carmove.size(); i++) {
+	            output.append(Carmove.get(i)).append(" : ").append(ReturnAdvance()).append("\n");
+	        }
+
+	        System.out.println(output.toString());
 		
 	}
 	
