@@ -5,6 +5,7 @@ import racingcar.domain.InputManager;
 import racingcar.domain.Movable;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
+import racingcar.view.OutputView;
 
 public class GameService {
 
@@ -12,10 +13,11 @@ public class GameService {
         int round = inputManager.getGameProcessCount();
         List<Car> parsedCarList = inputManager.getParsedCarList();
         Cars cars = new Cars(parsedCarList);
+        OutputView.gameStartMessage();
         for (int i = 0; i < round; i++) {
-            cars.oneTurnContinue(new Movable());
+            cars.oneRoundContinue(new Movable());
+            OutputView.oneTurnResult(cars);
         }
     }
-
 
 }

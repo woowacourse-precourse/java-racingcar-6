@@ -10,9 +10,13 @@ public class Cars {
         this.carList = carList;
     }
 
-    public void oneTurnContinue(Movable movable){
+    public void oneRoundContinue(Movable movable){
         for(Car car : carList){
             car.goForward(movable);
         }
+    }
+
+    public List<Car> getCarList() {
+        return carList;
     }
 }

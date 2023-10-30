@@ -19,6 +19,13 @@ public class Car {
     public int getDistance() {
         return distance;
     }
+    public String getCarDistanceChar(){
+        String hyphen = "";
+        for(int i = 0; i < distance; i++){
+            hyphen += '-';
+        }
+        return hyphen;
+    }
 
     public void goForward(Movable movable){
         if(movable.canMove()){

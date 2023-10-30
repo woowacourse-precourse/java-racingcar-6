@@ -13,6 +13,7 @@ public class InputView {
         System.out.println(INPUT_TRY_COUNT);
         int tryCount = inputGameProcessCount();
         gameProcessCountValidate(tryCount);
+        System.out.println();
         return new InputManager(tryCount, carList);
     }
 
