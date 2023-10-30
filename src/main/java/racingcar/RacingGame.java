@@ -87,4 +87,17 @@ public class RacingGame {
         sequence += "-".repeat(distance[number]);
         System.out.println(sequence);
     }
+    private static void findWinner(){
+        int maxValue = findMax();
+
+    }
+    private static int findMax(){
+        int maxValue = distance[0];
+        for(int value : distance){
+            if (maxValue < value){
+                maxValue = value;
+            }
+        }
+        return maxValue;
+    }
 }
