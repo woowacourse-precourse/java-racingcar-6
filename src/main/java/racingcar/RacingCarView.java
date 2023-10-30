@@ -17,8 +17,21 @@ public class RacingCarView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void displayRoundResults(Iterator<String> roundResultIterator){}
+    public void displayRoundResults(Iterator<String> roundResultIterator){
+        while (roundResultIterator.hasNext()){
+            System.out.println(roundResultIterator.next());
+        }
+        System.out.println();
+    }
 
-    public void displayWinnerList(Iterator<String> winnerListIterator){}
+    public void displayWinnerList(Iterator<String> winnerListIterator){
+        System.out.print("최종 우승자 : ");
+        while (winnerListIterator.hasNext()){
+            System.out.print(winnerListIterator.next());
+            if (winnerListIterator.hasNext()) {
+                System.out.print(", ");
+            }
+        }
+    }
 
 }
