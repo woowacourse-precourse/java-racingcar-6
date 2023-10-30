@@ -34,8 +34,8 @@ public class OutputView {
     }
 
     public void printRoundResult(List<String> carResults) {
-        for (int index = 0; index < carResults.size(); index++) {
-            System.out.println(carResults.get(index));
+        for (String carResult : carResults) {
+            System.out.println(carResult);
         }
         System.out.println();
     }
@@ -45,6 +45,6 @@ public class OutputView {
     }
 
     public void printWinners(String winners) {
-        System.out.println(String.format(FINAL_WINNER,winners));
+        System.out.printf(FINAL_WINNER + "%n",winners);
     }
 }
