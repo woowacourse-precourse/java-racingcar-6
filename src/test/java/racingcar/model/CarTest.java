@@ -3,10 +3,14 @@ package racingcar.model;
 import model.Car;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class CarTest {
+
+    private static final int STANDARD_VALUE = 4;
+    private static final int RANDOM_NUMBER = 5;
 
     @ParameterizedTest
     @ValueSource(strings = {"pobipobi", "lisalisa", "jinyjiny"})
@@ -32,6 +36,23 @@ public class CarTest {
         Assertions.assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("공백 혹은 빈");
+    }
+
+    @Test
+    @DisplayName("임의의 수가 기준 값보다 크면 movingCount 증가하는지 테스트")
+    public void 기준_값_보다_큰_임의의_수_증가_테스트() {
+        //given
+        Car car = new Car("pobi");
+        int movingCount = car.getMovingCount();
+
+        //when
+        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
+        int expectedMovingCount = movingCount + 1;
+        int currentMovingCount = car.getMovingCount();
+
+        //then
+        Assertions.assertThat(currentMovingCount).isEqualTo(expectedMovingCount);
+
     }
 
 }
