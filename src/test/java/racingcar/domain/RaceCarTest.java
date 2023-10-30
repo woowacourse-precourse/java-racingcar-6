@@ -50,6 +50,22 @@ class RaceCarTest {
         assertThat(rasultStr).isEqualTo("--");
     }
 
+    @DisplayName("자동차의 이동을 제어한다._3")
+    @Test
+    void movementControlCar_3() {
+        // when
+        raceCar.movementControlCar(MOVE);
+        raceCar.movementControlCar(MOVE);
+        raceCar.movementControlCar(MOVE);
+
+        int resultNum = raceCar.getCntMovementOfCar();
+        String rasultStr = raceCar.toStringMoveState();
+
+        // then
+        assertThat(resultNum).isEqualTo(3);
+        assertThat(rasultStr).isEqualTo("---");
+    }
+
     @DisplayName("자동차의 움직여도 되는 조건 이 맞는가. (4이상, 9이하)")
     @Test
     void isMovementCondition() {
