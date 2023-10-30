@@ -101,5 +101,74 @@ class InputValidationTest {
         Assertions.assertThat(fourName[3]).isEqualTo("a b c");
         Assertions.assertThat(fourName[3].length()).isEqualTo(5);
     }
+    @Test
+    public void 이동횟수가_없다면() throws Exception{
+        //given (주어진 값)
+        String attemptOne = "";
+        String attemptTwo = " ";
+        String attemptThree = "  ";
 
+        //then (기능 작동 후 결과)
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputNumberValidation(attemptOne));
+
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputNumberValidation(attemptTwo));
+
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputNumberValidation(attemptThree));
+    }
+    @Test
+    public void 이동횟수가_문자라면() throws Exception{
+        //given (주어진 값)
+        String attemptOne = "a";
+        String attemptTwo = "1a";
+        String attemptThree = "g2";
+
+        //then (기능 작동 후 결과)
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputNumberValidation(attemptOne));
+
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputNumberValidation(attemptTwo));
+
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputNumberValidation(attemptThree));
+    }
+
+    @Test
+    public void 이동횟수가_마이너스라면() throws Exception{
+        //given (주어진 값)
+        String attemptOne = "-1";
+        String attemptTwo = "-12";
+        String attemptThree = "-1249";
+
+        //then (기능 작동 후 결과)
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputNumberValidation(attemptOne));
+
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputNumberValidation(attemptTwo));
+
+        assertThrows(IllegalArgumentException.class, () ->
+                inputValidation.checkedInputNumberValidation(attemptThree));
+    }
+
+    @Test
+    public void 이동횟수_구하기() throws Exception{
+        //given (주어진 값)
+        String attemptOne = "1";
+        String attemptTwo = "15";
+        String attemptThree = "145";
+
+        //when (기능 작동)
+        int one = inputValidation.checkedInputNumberValidation(attemptOne);
+        int two = inputValidation.checkedInputNumberValidation(attemptTwo);
+        int three = inputValidation.checkedInputNumberValidation(attemptThree);
+
+        //then (기능 작동 후 결과)
+        Assertions.assertThat(one).isEqualTo(1);
+        Assertions.assertThat(two).isEqualTo(15);
+        Assertions.assertThat(three).isEqualTo(145);
+    }
 }
