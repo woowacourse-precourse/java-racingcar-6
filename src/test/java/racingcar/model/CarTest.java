@@ -32,7 +32,7 @@ public class CarTest {
     }
 
     @Test
-    void 무작위_값이_기준값_이하일_때_1칸_이동() {
+    void 무작위_값이_기준값_이하일_때_정지() {
         //Given
         int randomValue = 3;
         Car car = new Car();

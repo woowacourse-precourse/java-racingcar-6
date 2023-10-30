@@ -38,7 +38,6 @@ public class RacingGameManager {
     void repeatMove(int tryCount){
         while (tryCount > 0){
             cars.moveCars();
-
             outputView.printProgressStatus(cars.getCarList());
             tryCount--;
         }
@@ -58,6 +57,6 @@ public class RacingGameManager {
     }
 
     private boolean isNumeric(String inputString) {
-        return inputString.matches("-?\\d+");  // 정수만 허용
+        return inputString.matches("-?\\d+");
     }
 }

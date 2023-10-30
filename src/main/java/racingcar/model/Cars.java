@@ -37,11 +37,10 @@ public class Cars {
 
     public List<Car> getWinner() {
         List<Car> winner = new ArrayList<>();
-
         Optional<Integer> maxDistance = getMaxDistance();
 
-        carList.stream().filter(car -> car.getDistance() == maxDistance.orElse(0)).forEach(winner::add);
-
+        carList.stream().filter(car -> car.getDistance() == maxDistance.orElse(0))
+                .forEach(winner::add);
         return winner;
     }
 
@@ -50,8 +49,7 @@ public class Cars {
     }
 
     private Optional<Integer> getMaxDistance() {
-        Optional<Integer> maxDistance = carList.stream().map(Car::getDistance).max(Comparator.naturalOrder());
-
-        return maxDistance;
+        return carList.stream().map(Car::getDistance)
+                .max(Comparator.naturalOrder());
     }
 }
