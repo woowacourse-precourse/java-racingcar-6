@@ -5,7 +5,6 @@ public class CarController {
 
     private int moveChance;
 
-
     public void setStatus(Cars cars, int moveChance) {
         this.cars = cars;
         this.moveChance = moveChance;
