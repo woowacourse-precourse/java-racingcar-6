@@ -1,9 +1,9 @@
 package racingcar.controller;
 
-
 import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.domain.Cars;
+import racingcar.domain.Constants;
 import racingcar.domain.GameWinnerDto;
 import racingcar.domain.RandomGenerator;
 import racingcar.view.InputView;
@@ -37,15 +37,16 @@ public class RacingGameController {
 
     private void playRacingGame(Cars cars, int raceCount) {
         outputView.displayGameResult();
-        IntStream.range(0, raceCount)
-                .mapToObj(i -> cars.moveCarsAndCollectResults())
-                .forEach(outputView::displayEachGameResult);
+        IntStream.range(Constants.ZERO, raceCount)
+                .forEach(i -> {
+                    cars.moveCars();
+                    outputView.displayEachGameResult(cars.getEachGameResult());
+                });
         displayWinners(cars);
-
     }
 
     private void displayWinners(Cars cars) {
-        List<GameWinnerDto> gameWinnerDto = cars.findWinnersDto();
+        List<GameWinnerDto> gameWinnerDto = cars.getWinners();
         outputView.displayGameWinner(gameWinnerDto);
     }
 }
