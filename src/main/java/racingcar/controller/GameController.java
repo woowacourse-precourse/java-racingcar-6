@@ -24,14 +24,21 @@ public class GameController {
     }
 
     public void start() {
+        initGame();
+        runGame();
+    }
+
+    private void initGame() {
         String namesInput = inputView.askCarNames();
         initCars(namesInput);
 
         String roundInput = inputView.askRound();
         outputView.printMessage(); // 공백 한 줄 출력
         setRounds(roundInput);
-        runRounds(rounds);
+    }
 
+    private void runGame() {
+        runRounds(rounds);
         printWinner();
     }
 
