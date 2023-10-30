@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 public class Car {
-    public String carName = "";
-    public int carPosition = 0;
+    String carName = "";
+    int carPosition = 0;
 
     public Car() {
     }
