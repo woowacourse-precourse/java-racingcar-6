@@ -9,9 +9,13 @@ public class Car {
     private int position;
 
     public Car(String carName) {
+        this(carName,0);
+    }
+
+    public Car(String carName, int position) {
         validateCarName(carName);
         this.carName = carName;
-        this.position = 0;
+        this.position = position;
     }
 
     private void validateCarName(String carName) {
