@@ -26,7 +26,7 @@ public class RacingGame {
 
     private void playRacingGame(Trial trial) {
         while (!trial.isExhausted()) {
-            circuit.tryRacingGame();
+            circuit.moveRacingCars();
             RacingGameStatistics statistics = tryRacingGame();
             trial.useTrialCount();
             selectWinner(trial, statistics);
@@ -34,7 +34,7 @@ public class RacingGame {
     }
 
     private RacingGameStatistics tryRacingGame() {
-        RacingGameStatistics statistics = circuit.summarizeRacingResult();
+        RacingGameStatistics statistics = circuit.getRacingGameStatistics();
         OutputView.showRacingResult(statistics);
         return statistics;
     }

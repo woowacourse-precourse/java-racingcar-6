@@ -22,14 +22,21 @@ public class Circuit {
         racingCars.add(racingCar);
     }
 
-    public void tryRacingGame() {
-        for (RacingCar racingCar : racingCars) {
-            racingCar.move(numberGenerator.generate());
-        }
+    public void moveRacingCars() {
+        racingCars.forEach(this::moveRacingCarWithRandomNumber);
     }
 
-    public RacingGameStatistics summarizeRacingResult() {
-        List<RacingCarResult> results = racingCars.stream().map(RacingCar::toResult).collect(Collectors.toList());
+    private void moveRacingCarWithRandomNumber(RacingCar racingCar) {
+        Integer randomNumber = numberGenerator.generate();
+        racingCar.move(randomNumber);
+    }
+
+    public RacingGameStatistics getRacingGameStatistics() {
+        List<RacingCarResult> results = getRacingCarResults();
         return new RacingGameStatistics(results);
+    }
+
+    private List<RacingCarResult> getRacingCarResults() {
+        return racingCars.stream().map(RacingCar::toResult).collect(Collectors.toList());
     }
 }

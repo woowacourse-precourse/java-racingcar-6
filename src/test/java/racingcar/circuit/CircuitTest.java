@@ -34,8 +34,8 @@ class CircuitTest {
         Circuit circuit = getTestCircuit();
         racingCars.forEach(circuit::addRacingCar);
 
-        circuit.tryRacingGame();
-        RacingGameStatistics results = circuit.summarizeRacingResult();
+        circuit.moveRacingCars();
+        RacingGameStatistics results = circuit.getRacingGameStatistics();
         List<RacingCarResult> racingCarResults = results.racingCarResults();
         List<Integer> racingCarLocations = racingCarResults.stream().map(RacingCarResult::location).toList();
 
