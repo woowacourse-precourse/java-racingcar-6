@@ -30,16 +30,44 @@ public class RacingCarGame {
     public void start() {
         outputView.printStartGame();
         setCarNames(inputView.inputCarName());
+        outputView.printInputTryCount();
         setTryCount(inputView.inputTryCount());
         initCarMoveCount();
 
-        outputView.printResultGame();
+        outputView.printResultTry();
         for (int tc = 0; tc < tryCount.getTryCount(); tc++) {
             setRandomNumber();
             printResult();
         }
-        
+        ResultGame();
 
+    }
+
+    private void ResultGame() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(findWinner(findMaxPoint()));
+        outputView.printResultGame(sb);
+    }
+
+    private int findMaxPoint() {
+        int maxPoint = 0;
+        for (String moveCount : carMoveCount) {
+            if (moveCount.length() > maxPoint) {
+                maxPoint = moveCount.length();
+            }
+        }
+        return maxPoint;
+    }
+
+    private String findWinner(int maxPoint) {
+        String winner = "";
+        for (int i = 0; i < carMoveCount.length; i++) {
+            if (carMoveCount[i].length() == maxPoint) {
+                winner += carNameList.get(i).getCarName() + ", ";
+            }
+        }
+        winner = winner.substring(0, winner.length() - 2);
+        return winner;
     }
 
     private void initCarMoveCount() {
