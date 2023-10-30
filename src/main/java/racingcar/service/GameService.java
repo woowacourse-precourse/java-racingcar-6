@@ -32,6 +32,10 @@ public class GameService {
 
     public void processGame(GameDto request) {
         Game game = gameRepository.findById(request.getGameId());
+        System.out.println("car list");
+        for (String s : game.getCarNameList()) {
+            System.out.println(s);
+        }
         for (String carName : game.getCarNameList()) {
             goOrStop(game,carName);
         }

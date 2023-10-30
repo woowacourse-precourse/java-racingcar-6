@@ -25,6 +25,10 @@ public class Car {
     }
 
     public void printStatus() {
-        IOService.printNotice(name, score.toString());
+        IOService.printNotice(name, makeProgressBar());
+    }
+
+    private String makeProgressBar() {
+        return "-".repeat(score);
     }
 }
