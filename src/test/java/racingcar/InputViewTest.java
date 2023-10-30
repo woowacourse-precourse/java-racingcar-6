@@ -1,68 +1,69 @@
 package racingcar;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.domain.InputView;
 
-class InputViewTest extends NsTest {
-    private InputStream originalSystemIn;
-
-    public static void main(String[] args) {
-        InputView.getMoveCount();
-    }
-
-    @BeforeEach
-    void setUp() {
-        originalSystemIn = System.in;
-    }
+class InputViewTest {
 
     @AfterEach
     void tearDown() {
-        System.setIn(originalSystemIn);
         Console.close();
     }
 
     @Test
-    void getCars_테스트() {
-        //given
-        InputStream inputStream = new ByteArrayInputStream("pobi, woni, jun".getBytes());
+    void getCarStrings_테스트() {
+        // given
+        InputStream inputStream = new ByteArrayInputStream("pobi, woni, ".getBytes());
         System.setIn(inputStream);
-        //when
+        // when
         List<String> carStrings = InputView.getCarStrings();
-        //then
-        assertThat(carStrings).containsExactly("pobi", " woni", " jun");
+        // then
+        assertThat(carStrings).containsExactly("pobi", " woni", " ");
+    }
+
+    @ParameterizedTest
+    @CsvSource({"'pobi,,woni',[ERROR] 입력이 널이거나 빈 문자열입니다.",
+            "'pobi,woni,',[ERROR] 입력의 끝이 구분자로 끝날 수 없습니다."})
+    void getCarStrings_예외발생_테스트(String input, String errorMessage) {
+        // given
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+        // when, then
+        assertThatThrownBy(InputView::getCarStrings)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(errorMessage);
     }
 
     @Test
     void getMoveCount_테스트() {
-        //given
+        // given
         InputStream inputStream = new ByteArrayInputStream("10".getBytes());
         System.setIn(inputStream);
-        //when
-        //then
-        assertThat(InputView.getMoveCount()).isEqualTo(10);
+        // when
+        int moveCount = InputView.getMoveCount();
+        // then
+        assertThat(moveCount).isEqualTo(10);
     }
 
-    @Test
-    void getMoveCount_오동작_테스트() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("1a"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Override
-    public void runMain() {
-        main(new String[]{});
+    @ParameterizedTest
+    @CsvSource({"1a,[ERROR] 입력이 숫자가 아닙니다.", "'\n',[ERROR] 입력이 널이거나 빈 문자열입니다."})
+    void getMoveCount_예외발생_테스트(String input, String errorMessage) {
+        // given
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+        // when, then
+        assertThatThrownBy(InputView::getMoveCount)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(errorMessage);
     }
 }
