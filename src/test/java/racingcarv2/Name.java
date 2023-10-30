@@ -7,11 +7,11 @@ public class Name {
     private static final String SEPARATOR_COMMA = ",";
     // 중복 여부 확인 그리고 5글자 이하인지 확인
     // regex, null empty는 뷰에서 처리
-    private final String name;
+    private final String nameValue;
 
     public Name(String name) {
         validateName(name.split(SEPARATOR_COMMA));
-        this.name = name;
+        this.nameValue = name;
     }
 
     private void validateName(String[] names) {
@@ -45,15 +45,15 @@ public class Name {
             return false;
         }
         Name name1 = (Name) o;
-        return Objects.equals(getName(), name1.getName());
+        return Objects.equals(getNameValue(), name1.getNameValue());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(getNameValue());
     }
 
-    public String getName() {
-        return name;
+    public String getNameValue() {
+        return nameValue;
     }
 }

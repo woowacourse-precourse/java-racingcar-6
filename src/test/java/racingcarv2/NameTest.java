@@ -11,7 +11,7 @@ public class NameTest {
     @Test
     void Name_생성() {
         Name pobi = new Name("pobi");
-        Assertions.assertThat(pobi.getName()).isEqualTo("pobi");
+        Assertions.assertThat(pobi.getNameValue()).isEqualTo("pobi");
     }
 
     private static Stream<Arguments> generateValidNames() {
