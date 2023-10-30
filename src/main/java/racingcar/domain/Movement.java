@@ -20,30 +20,37 @@ public class Movement {
     }
 
     /**
-     * 4이상의 값이면 한칸 움직이게 만드는 함수
+     * 각각의 자동차가 랜덤값을 생성하고
+     * 움직일지 말지 결정하고
+     * 한 사이클의 진행상황을 프린트 하는 함수
      */
-    public void raceMoveOrStop(List<String> names, List<Integer> movementList) {
-        for (int i = 0; i < names.size(); i++) {
-            if (isMove()) {
-                Integer movement = movementList.get(i);
-                movement += 1;
-                movementList.set(i, movement);
-            }
+    public void eachRace(List<String> names, List<Integer> movementList) {
+        for (int index = 0; index < names.size(); index++) {
+            int random = isMove();
+            int moveOrStop = raceMoveOrStop(movementList.get(index), random);
+            movementList.set(index, moveOrStop);
         }
         printRace(names, movementList);
     }
 
+    // 랜덤값 생성 ( 0~4: false, 0~9: true )
+    public int isMove() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    // 4이상의 값이면 한칸 움직이게 만드는 함수
+    public int raceMoveOrStop(int movementIndex, int random) {
+        if (random >= 4) {
+            movementIndex += 1;
+        }
+        return movementIndex;
+    }
+
     // 현재까지의 경주 현황 프린트
-    private void printRace(List<String> names, List<Integer> movementList) {
+    public void printRace(List<String> names, List<Integer> movementList) {
         for (int i = 0; i < names.size(); i++) {
             System.out.println(names.get(i) + " : " + "-".repeat(movementList.get(i)));
         }
         System.out.println();
-    }
-
-    // 랜덤값 생성 ( 0~4: false, 0~9: true )
-    private boolean isMove() {
-        int random = Randoms.pickNumberInRange(0, 9);
-        return random >= 4;
     }
 }

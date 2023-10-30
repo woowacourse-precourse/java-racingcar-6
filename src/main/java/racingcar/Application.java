@@ -25,7 +25,8 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
         while (true) {
-            movement.raceMoveOrStop(names, movementList);
+
+            movement.eachRace(names, movementList);
 
             if (movementList.contains(moveCount)) break;
         }
