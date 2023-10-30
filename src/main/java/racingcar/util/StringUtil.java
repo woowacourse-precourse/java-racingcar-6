@@ -18,4 +18,12 @@ public class StringUtil {
             throw new IllegalArgumentException();
         }
     }
+
+    public static Integer convertToNumber(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }

@@ -23,4 +23,10 @@ public class InputValidator {
             throw new IllegalArgumentException();
         }
     }
+
+    public static void validatePlayCount(Integer playCount) {
+        if (playCount < 1) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
