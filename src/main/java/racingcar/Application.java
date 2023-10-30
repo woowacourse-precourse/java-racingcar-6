@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -70,6 +71,22 @@ public class Application {
         System.out.print("\n");
     }
 
+    private static void printWinner(List<String> carNames, List<Integer> carSteps) {
+        int max = Collections.max(carSteps);
+
+        System.out.print("최종 우승자 :");
+        boolean isFirst = true;
+        for (int i = 0; i < carNames.size(); i++) {
+            if (carSteps.get(i) == max) {
+                if (isFirst) {
+                    System.out.printf(" %s", carNames.get(i));
+                    isFirst = false;
+                } else
+                    System.out.printf(", %s", carNames.get(i));
+            }
+        }
+    }
+
     public static void main(String[] args) {
         List<String> carNames = getCars();
         List<Integer> numberOfCarSteps = new ArrayList<>();
@@ -85,6 +102,6 @@ public class Application {
             run(numberOfCarSteps);
             printRun(carNames, numberOfCarSteps);
         }
-
+        printWinner(carNames, numberOfCarSteps);
     }
 }
