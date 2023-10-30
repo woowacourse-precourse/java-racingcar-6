@@ -28,10 +28,10 @@ public class RacingCarController {
     }
 
     private void playRacingGame(RacingGame racingGame) {
-        int totalRounds = inputView.readNumberOfAttempts();
+        int attemptsNumber = inputView.readAttemptsNumber().getAttemptsNumber();
         outputView.printResultHeader();
 
-        for (int i = 0; i < totalRounds; i++) {
+        for (int i = 0; i < attemptsNumber; i++) {
             racingGame.moveCars();
             outputView.printCars(racingGame.getRacingCars());
         }
