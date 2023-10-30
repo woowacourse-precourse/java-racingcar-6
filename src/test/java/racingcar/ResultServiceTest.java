@@ -27,6 +27,7 @@ class ResultServiceTest {
         assertThat(ResultService.decideWinners(cars)).contains(pew.getCar());
         assertThat(ResultService.decideWinners(cars)).doesNotContain(pobi.getCar(), nini.getCar());
     }
+
     @Test
     void decideWinners_메서드_사용시_전진_횟수가_가장_많은_자동차들을_우승자들로_선정() {
         // given

@@ -55,7 +55,8 @@ public class GameService {
         return false;
     }
 
-    public static Map<Car, Integer> recordNumberOfMovingForward(Map<Car, Integer> cars, Car car, boolean isMovingForward) {
+    public static Map<Car, Integer> recordNumberOfMovingForward(Map<Car, Integer> cars, Car car,
+                                                                boolean isMovingForward) {
         if (isMovingForward) {
             cars.replace(car, updateCount(cars, car));
         }

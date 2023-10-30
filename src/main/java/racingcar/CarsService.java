@@ -10,8 +10,7 @@ public class CarsService {
     public static Map<Car, Integer> makeCars(String userInput) {
         Map<Car, Integer> cars = new HashMap<>();
         String[] carsArray = Arrays.stream(userInput.split(",")) // 입력 내용 ,기준으로 공백 제거해서 배열에 저장
-                .map(String::trim)
-                .toArray(String[]::new);
+                .map(String::trim).toArray(String[]::new);
 
         for (String candidateCar : carsArray) {
             Car car = makeCar(candidateCar);
@@ -24,5 +23,4 @@ public class CarsService {
         int updateCount = cars.get(car) + 1;
         return updateCount;
     }
-
 }
