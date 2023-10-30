@@ -15,11 +15,11 @@ public class Car {
         return this.name;
     }
 
-    public int getTryCount() {
-        return this.tryCount;
-    }
-
     public int getMoveCount() {
         return moveCount;
+    }
+
+    public void addMoveCount() {
+        moveCount++;
     }
 }
