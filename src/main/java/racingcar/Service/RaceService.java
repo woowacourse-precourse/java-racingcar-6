@@ -15,6 +15,7 @@ public class RaceService {
     Race race=new Race();
 
     public int requestAttempts(){
+        Output.printRequestAttemptsNumber();
         String attemptsInput = Console.readLine();
         return validateConvertToInt(attemptsInput);
     }
@@ -28,6 +29,7 @@ public class RaceService {
     }
 
     public List<String> requestCarNames(){
+        Output.printRequestCarName();
         String carListInput = Console.readLine();
         validateDelimiter(carListInput);
         return car.getCarNameList();
@@ -72,6 +74,7 @@ public class RaceService {
     }
 
     private void raceResult(){
+        Output.printExecutionResultMessage();
         for(Car car:race.getRacingCars()){
             car.forwardOrStop();
             Output.printRaceResult(car);
