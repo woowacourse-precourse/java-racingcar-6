@@ -56,7 +56,7 @@
   * 현재 차수(currentRound)
   * 우승자(winner)
 * 자동차들(RacingCars)
-  * 자동차 맵(Map<RacingCar>)
+  * 자동차 리스트(List<RacingCar>)
 * 자동차(RacingCar)
   * 자동차 이름(name)
   * 위치(position)
