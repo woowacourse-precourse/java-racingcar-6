@@ -16,7 +16,7 @@ public class View {
         return readLine();
     }
 
-    public void printCurrentCarsResult(CarsState carsState) {
+    public void printCurrentCarsState(CarsState carsState) {
         carsState.carsState().forEach(this::printCurrentCarResult);
         System.out.println();
     }

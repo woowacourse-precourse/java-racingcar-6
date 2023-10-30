@@ -1,4 +1,4 @@
 package racingcar.dto;
 
-public record AttemptCount(int attemptCount) {
+public record AttemptCount(int count) {
 }

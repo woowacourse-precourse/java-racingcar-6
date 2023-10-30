@@ -37,14 +37,14 @@ public class Controller {
     }
 
     private int getCount(AttemptCount attemptCount) {
-        return attemptCount.attemptCount();
+        return attemptCount.count();
     }
 
     private void attemptForward(Cars cars, int count) {
         view.printAttemptResultMessage();
 
         for (int current = 0; current < count; current++) {
-            view.printCurrentCarsResult(tryForward(cars));
+            view.printCurrentCarsState(tryForward(cars));
         }
     }
 
