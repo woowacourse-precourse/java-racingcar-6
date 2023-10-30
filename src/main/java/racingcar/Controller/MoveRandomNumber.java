@@ -10,13 +10,14 @@ import java.util.Map;
 import racingcar.View.InputView;
 
 public class MoveRandomNumber {
-    //static InputView inputView = new InputView();
+
 
     public static List<Map<String,Integer>> generateRandomGameNumber() {
         List< Map<String,Integer>> randomNumbersMap = new ArrayList<>();    // 맵을 저장할 리스트
         Map<String,Integer> carCountMap = InputView. storeCarName();
 
         int tryCountNumber = InputView.askTryCount();
+        outputView.printResultMsg();
 
         for( int i = 0 ; i < tryCountNumber; i++ ){
             for(String key : carCountMap.keySet()){
@@ -24,8 +25,10 @@ public class MoveRandomNumber {
                 int randomNumber =  Randoms.pickNumberInRange(0, 9);
                 carCountMapNumber.put(key,randomNumber);
                 randomNumbersMap.add(carCountMapNumber);
-                System.out.print(carCountMapNumber.keySet() + " : " );
-                outputView.printRandomCount(randomNumber);
+                String randomNumberBar = outputView.printRandomCount(randomNumber);
+                System.out.print(carCountMapNumber.keySet() + " : " + randomNumberBar);
+
+                System.out.println();
 
             }
             System.out.println();
