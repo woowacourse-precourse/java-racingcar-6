@@ -1,5 +1,7 @@
 package racingcar.service;
 
+import racingcar.domain.Cars;
+
 public class MessageService {
 
     // 공통처리
@@ -16,7 +18,16 @@ public class MessageService {
     }
 
     // 값마다 다른것
-    public void printProcess(String name) {
+    public void printRacing(int size, Cars cars) {
+        for (int i = 0; i < size; i++) {
+            printName(cars.findName(i));
+            printPosition(cars.findGameNum(i));
+            jump();
+        }
+        jump();
+    }
+
+    public void printName(String name) {
         System.out.print(name + " : ");
     }
 
@@ -24,8 +35,8 @@ public class MessageService {
         System.out.println("최종 우승자 : " + winner);
     }
 
-    public void printRun(int i, int[] arr) {
-        for (int j = 0; j < arr[i]; j++) {
+    public void printPosition(int num) {
+        for (int i = 0; i < num; i++) {
             System.out.print("-");
         }
     }
