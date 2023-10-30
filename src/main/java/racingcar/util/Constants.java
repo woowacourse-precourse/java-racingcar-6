@@ -5,6 +5,7 @@ public enum Constants {
     GET_ROUND_COUNT("시도할 회수는 몇회인가요?"),
     NAME_SPLIT_REGEX(","),
     ROUND_REGEX("^[1-9][0-9]*$"),
+    OUTPUT_FORMAT(" : "),
     MINIMUM_CAR_SIZE("2"),
     NAME_MAX_SIZE("5"),
     MINIMUM_DISTANCE_SIZE("4"),
