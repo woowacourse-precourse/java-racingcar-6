@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import util.validator.CarNameRegexValidator;
 
-public class CarNameRegexTest {
+public class CarNameRegexValidatorTest {
 
     @ParameterizedTest
     @DisplayName("잘못된 자동차 이름 검증")

@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import util.formatter.WinnerFormatter;
 
-public class CarRaceResultEvaluatorTest {
+public class WinnerFormatterTest {
 
     @ParameterizedTest
     @DisplayName("우승자 출력 형식 포맷 검증")

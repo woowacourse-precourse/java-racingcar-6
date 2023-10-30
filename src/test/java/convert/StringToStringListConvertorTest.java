@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import util.convertor.StringToStringListConvertor;
 
-public class StringToStringListTest {
+public class StringToStringListConvertorTest {
 
     @ParameterizedTest
     @DisplayName("문자열 문자열 리스트로 변환 검증")
