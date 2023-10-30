@@ -38,6 +38,15 @@ public class Communicator {
         System.out.println("최종 우승자 : " + finalistNames);
     }
 
+    public static void printException(Exception exception) {
+        System.out.println(exception.getMessage());
+        printExit();
+    }
+
+    private static void printExit() {
+        System.out.println("시스템을 종료합니다.");
+    }
+
     private static void printInputGameTimes() {
         System.out.println("시도할 회수는 몇회인가요?");
     }

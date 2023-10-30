@@ -62,8 +62,8 @@
 - [x] 결과 출력 - Communicator
 - [x] 최종 우승자 선정 - Game
 - [x] 최종 우승자 출력 - Communicator
-- [ ] 시스템 종료 - ExceptionHandler
-- [ ] 예외 처리 - ExceptionHandler
+- [x] 시스템 종료 - ExceptionHandler
+- [x] 예외 처리 - ExceptionHandler
 ```
 요구 사항: 예외 발생 시 문구 출력 -> 종료
 ```

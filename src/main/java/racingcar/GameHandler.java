@@ -11,18 +11,22 @@ public class GameHandler {
 
 
     public void handle() {
-        List<String> carNames = Communicator.instructInputCars();
-        game.saveCars(carNames);
+        try {
+            List<String> carNames = Communicator.instructInputCars();
+            game.saveCars(carNames);
 
-        int gameTimes = Communicator.instructInputGameTimes();
+            int gameTimes = Communicator.instructInputGameTimes();
 
-        Communicator.printResult();
-        for (int i = 0; i < gameTimes; i++) {
-            List<Car> cars = game.playOnce();
-            Communicator.printProgress(cars);
+            Communicator.printResult();
+            for (int i = 0; i < gameTimes; i++) {
+                List<Car> cars = game.playOnce();
+                Communicator.printProgress(cars);
+            }
+
+            List<Car> finalists = game.getFinalists();
+            Communicator.printFinalists(finalists);
+        } catch (RuntimeException exception) {
+            ExceptionHandler.handleException(exception);
         }
-
-        List<Car> finalists = game.getFinalists();
-        Communicator.printFinalists(finalists);
     }
 }
