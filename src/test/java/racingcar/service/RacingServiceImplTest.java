@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Test;
 import racingcar.repository.CarRepository;
 import racingcar.repository.MemoryCarRepository;
 
-public class GameServiceImplTest {
+public class RacingServiceImplTest {
 
     private CarRepository memoryCarRepository = MemoryCarRepository.getInstance();
     private CarService carService = CarServiceImpl.getInstance(memoryCarRepository);
-    GameService gameService = GameServiceImpl.getInstance(carService);
+    RacingService racingService = RacingServiceImpl.getInstance(carService);
 
     @BeforeEach
     public void setUp() {
@@ -25,7 +25,7 @@ public class GameServiceImplTest {
         String input = "pobi,woni,jun";
 
         // when
-        gameService.processCarNamesInput(input);
+        racingService.processCarNamesInput(input);
 
         // then
         assertThat(memoryCarRepository.findAll()).hasSize(3);
@@ -38,7 +38,7 @@ public class GameServiceImplTest {
 
         //when
         final RuntimeException result = assertThrows(IllegalArgumentException.class,
-                () -> gameService.processCarNamesInput(input));
+                () -> racingService.processCarNamesInput(input));
 
         //then
         assertThat(result).isNotNull();
@@ -51,7 +51,7 @@ public class GameServiceImplTest {
 
         //when
         final RuntimeException result = assertThrows(IllegalArgumentException.class,
-                () -> gameService.processCarNamesInput(input));
+                () -> racingService.processCarNamesInput(input));
 
         //then
         assertThat(result).isNotNull();
@@ -64,7 +64,7 @@ public class GameServiceImplTest {
 
         //when
         final RuntimeException result = assertThrows(IllegalArgumentException.class,
-                () -> gameService.processCarNamesInput(input));
+                () -> racingService.processCarNamesInput(input));
 
         //then
         assertThat(result).isNotNull();
