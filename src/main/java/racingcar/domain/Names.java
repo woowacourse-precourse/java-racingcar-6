@@ -17,4 +17,12 @@ public class Names {
 
     }
 
+    public Cars toCars() {
+        Cars cars = new Cars();
+        for (String carName : nameList) {
+            cars.add(carName);
+        }
+        return cars;
+    }
+
 }
