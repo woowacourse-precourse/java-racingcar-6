@@ -64,9 +64,10 @@ class ValidateInputTest {
                     "203949",
                     "555555",
                     "abcdef",
-                    "ABCDEF"})
+                    "ABCDEF",
+                    "0"})
         @ParameterizedTest
-        void 자연수_검증_성공(String input) {
+        void 양수_및_0_검증_성공(String input) {
                 assertSimpleTest(
                                 () -> assertThatCode(() -> ValidateInput.validatePositiveNumberInput(input))
                                                 .doesNotThrowAnyException());
@@ -77,11 +78,10 @@ class ValidateInputTest {
                     "0xfff",
                     "moo",
                     "1.1",
-                    "0",
                     "-abcdef",
-                    "-ABCDEF",})
+                    "-ABCDEF"})
         @ParameterizedTest
-        void 자연수_검증_실패(String input) {
+        void 양수_및_0_검증_실패(String input) {
                 assertSimpleTest(
                                 () -> assertThatThrownBy(() -> ValidateInput.validatePositiveNumberInput(input))
                                                 .isInstanceOf(IllegalArgumentException.class)
@@ -90,9 +90,10 @@ class ValidateInputTest {
 
         @CsvSource({"123",
                     "203949",
-                    "555555",})
+                    "555555",
+                    "0"})
         @ParameterizedTest
-        void 정수_입력값_자연수_검증_성공(Integer input) {
+        void 정수_입력값_양수_및_0_검증_성공(Integer input) {
                 assertSimpleTest(
                                 () -> assertThatCode(() -> ValidateInput.validatePositiveNumberFromInteger(input))
                                                 .doesNotThrowAnyException());
@@ -102,7 +103,7 @@ class ValidateInputTest {
         @CsvSource({"-123",
                     "-1000"})
         @ParameterizedTest
-        void 정수_입력값_자연수_검증_실패(Integer input) {
+        void 정수_입력값_양수_및_0_검증_실패(Integer input) {
                 assertSimpleTest(
                                 () -> assertThatThrownBy(() -> ValidateInput.validatePositiveNumberFromInteger(input))
                                                 .isInstanceOf(IllegalArgumentException.class)

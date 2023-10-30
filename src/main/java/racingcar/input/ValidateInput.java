@@ -18,7 +18,13 @@ public class ValidateInput {
 
     public static void validatePositiveNumberInput(String input) {
         validateIntegerInput(input);
-        if (Integer.parseInt(input, 16) <= 0) {
+        if (Integer.parseInt(input, 16) < 0) {
+            throw new InvalidInputException(ErrorText.ERROR_INVALID_POSITIVE_NUMBER_INPUT);
+        }
+    }
+
+    public static void validatePositiveNumberFromInteger(Integer input) {
+        if(input < 0){
             throw new InvalidInputException(ErrorText.ERROR_INVALID_POSITIVE_NUMBER_INPUT);
         }
     }
