@@ -1,14 +1,15 @@
 package racingcar.domain;
 
 public class RaceCar {
+    private static final Character CAR_MOVE_FORWARD_CHAR = '-';
     private String nameOfCar;
     private Integer cntMovementOfCar;
     private StringBuilder moveStateStr;
 
+
     public RaceCar() {
         this("");
     }
-
 
     public RaceCar(String nameOfRaceCar) {
         nameOfCar = nameOfRaceCar;
@@ -44,7 +45,7 @@ public class RaceCar {
     public void moveForward() {
         // 이동시 전진 카운터 증가.
         cntMovementOfCar = cntMovementOfCar + 1;
-        moveStateStr.append("-");
+        moveStateStr.append(CAR_MOVE_FORWARD_CHAR);
     }
 
     /**
