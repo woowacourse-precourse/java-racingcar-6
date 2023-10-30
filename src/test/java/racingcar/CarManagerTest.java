@@ -3,8 +3,6 @@ package racingcar;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CarManagerTest {
     CarManager carManager = new CarManager();
 
@@ -17,6 +15,6 @@ class CarManagerTest {
         carManager.createCars(names);
 
         // then
-        Assertions.assertThat(carManager.getCars().getCars().size()).isEqualTo(3);
+        Assertions.assertThat(carManager.getCars().getCarList().size()).isEqualTo(3);
     }
 }
