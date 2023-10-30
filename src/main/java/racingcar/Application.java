@@ -28,4 +28,9 @@ public class Application {
     public void printQuestionMessage(){
         System.out.println("시도할 회수는 몇회인가요?");
     }
+
+    public int inputNumberOfTimes(){
+        String s = readLine();
+        return Integer.parseInt(s);
+    }
 }
