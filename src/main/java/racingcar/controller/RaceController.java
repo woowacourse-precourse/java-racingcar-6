@@ -20,6 +20,7 @@ public class RaceController {
         OutputView.printRaceResult();
         do {
             RaceResultResponse response = race.doRace();
+            OutputView.printRace(response);
         } while (race.isRaceOver());
     }
 
