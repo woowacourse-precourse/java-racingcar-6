@@ -8,6 +8,7 @@ public class Race {
 
     public Race(String input) {
         validateAttempt(input);
+        parsePositiveInteger(input);
         this.cars = new ArrayList<>();
     }
 
@@ -23,6 +24,10 @@ public class Race {
             car.moveForward();
             car.print();
         }
+    }
+
+    private void parsePositiveInteger(String input) {
+        attempt = Integer.parseInt(input);
     }
 
     private void validateAttempt(String input) {
