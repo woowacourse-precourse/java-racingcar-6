@@ -14,11 +14,11 @@ public class RacerName {
 
 
 
-        for (String racer: racerList) {
-            if(racer.length() >= 6){
-                throw new IllegalArgumentException("5자리 이하의 이름을 입력하세요");
-            }
-        }
+//        for (String racer: racerList) {
+//            if(racer.length() >= 6){
+//                throw new IllegalArgumentException("5자리 이하의 이름을 입력하세요");
+//            }
+//        }
 
         return racerList;
     }

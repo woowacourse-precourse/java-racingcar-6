@@ -9,6 +9,7 @@ public class Application {
         Integer gameNum = GameStarter.gameNumber();
 
         InputNameCheck.nameCheck(racerList);
+        GameSimulator.gameRunner(gameNum);
         System.out.println(racerList);
 
     }
