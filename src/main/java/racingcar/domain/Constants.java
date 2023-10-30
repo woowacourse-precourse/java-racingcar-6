@@ -13,6 +13,7 @@ public class Constants {
 
     public static final String ERROR_CAR_NAME_INPUT_ETC = "옳바르지 않은 입력타입입니다. \"pobi,woni,jun\"와 같은 타입으로 입력해주세요.";
 
+    public static final String ERROR_CAR_NAME_FRONT_BLANK = "차 이름 앞에 공백이 있습니다. \"pobi,woni,jun\"와 같은 타입으로 입력해주세요.";
     public static final String CAR_NAME_SEPARATOR = ",";
     public static final int MAX_CAR_NAME_LENGTH = 5;
     public static final int MIN_RANDOM_NUM = 0;
