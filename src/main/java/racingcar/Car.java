@@ -14,10 +14,10 @@ public class Car {
         this.names = names;
 
         CarManager.validateNames(this.names);
-        initializeMovedDistances();
+        initializeDistances();
     }
 
-    private void initializeMovedDistances() {
+    private void initializeDistances() {
         movedDistances = new ArrayList<>(Collections.nCopies(this.names.size(), ""));
     }
 
