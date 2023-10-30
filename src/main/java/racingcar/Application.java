@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Application {
@@ -46,6 +47,14 @@ public class Application {
         }
 
 
-        // TODO 6. 최종 우승자 출력
+        // 6. 최종 우승자 출력
+        // 가장 멀리 간 사람 명단을 ArrayList에 저장.
+        ArrayList<String> winningCandidate = GameMethods.decideWinner(movedDistance, carNames);
+
+        // 우승자 이름을 출력형식에 맞게 StringBuilder에 추가
+        StringBuilder winners = GameMethods.winnerPrintForm(winningCandidate);
+
+        // 출력
+        System.out.println(winners);
     }
 }
