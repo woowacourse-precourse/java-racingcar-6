@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.Validator.Validator.*;
+import static racingcar.Validator.Validator.validateLengthInRange;
+import static racingcar.Validator.Validator.validateNotBlank;
 
 public class CarList {
     private final List<Car> cars;
 
     public CarList(String allCarNames) {
-
         this.cars = Arrays.stream(allCarNames.split(","))
                 .map(this::createCar)
                 .collect(Collectors.toList());
