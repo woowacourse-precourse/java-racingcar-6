@@ -12,9 +12,10 @@
    + [0] 경주 시도 횟수를 입력받는 기능 - numberOfMatch
 
 ### model package
- - validateRacingValue class
+ - TransformRacingValue class
    + [0] view가 받은 경주할 자동차 이름을 list로 전환 - carNameInputToList
    + [0] 자동차 숫자만큼 경기 결과 저장 list를 0으로 초기화 - raceResultListReset
+ - validateRacingValue class
    + [0] 0부터 9사이의 무작위 값 중 4이상 값이 나오는지 판단하는 기능 randomMoreFour
    + [0] 각 자동차의 경기 결과를 판단하는 기능 racingResult
    + [0] 최종 우승자를 판단하는 기능 racingWinner
@@ -26,7 +27,6 @@
 ### utility package
  - validateException class
    + [0] 6이상인 자동차 이름이 입력될 경우 - 예외 처리 racingCarNameInvalid
-   + [0] 경기 시도 횟수 입력시 int가 아닌 값이 입력될 경우 - 예외 처리 numberOfRacingInvalid
 
    
 ## 기능 요구 사항 

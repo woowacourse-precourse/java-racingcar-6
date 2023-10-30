@@ -10,12 +10,4 @@ public class ValidateException {
             }
         }
     }
-
-    public static void numberOfRacingInvalid(String numberOfMatch) {
-        try {
-            Integer.parseInt(numberOfMatch);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException();
-        }
-    }
 }
