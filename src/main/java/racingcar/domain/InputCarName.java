@@ -10,20 +10,8 @@ public class InputCarName {
 
 	public InputCarName(String input) {
 		List<String> carNameList = toList(input);
-		validateLength(carNameList);
+		CarValidator.validateLength(carNameList);
 		this.carNameList = toList(input);
-	}
-
-	private void validateLength(List<String> carNameList) {
-		for (String carName : carNameList) {
-			if (isLong(carName)) {
-				throw new IllegalArgumentException(INVALID_CARNAME_LENGTH.getMessage());
-			}
-		}
-	}
-
-	private boolean isLong(String carName) {
-		return carName.length() > 5;
 	}
 
 	public List<String> getCarNameList() {

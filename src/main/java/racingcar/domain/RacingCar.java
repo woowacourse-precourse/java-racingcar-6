@@ -7,6 +7,7 @@ public class RacingCar {
 	private List<Car> racingCarList;
 
 	public RacingCar(InputCarName inputCarName) {
+		CarValidator.validateLength(inputCarName.getCarNameList());
 		this.racingCarList = createCarList(inputCarName);
 	}
 
