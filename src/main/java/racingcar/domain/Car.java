@@ -21,9 +21,9 @@ public class Car {
         return distance;
     }
 
-    public Integer located() {
+    public String located() {
 
-        return distance.length();
+        return distance;
     }
 
     public String getName(){
