@@ -16,5 +16,6 @@ public class Application {
         for (int i = 0; i < carNames.size(); i++) {
             System.out.println(carNames.get(i));
         }
+        int numberOfRounds = player.inputNumberOfRounds();
     }
 }
