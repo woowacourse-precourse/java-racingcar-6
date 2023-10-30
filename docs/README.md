@@ -42,17 +42,32 @@
 > NumberGenerator.createRandomNumber()
 - 0 ~ 9까지 사이의 무작위 값 뽑기
 
+## 이름 입력 값이 없을 경우 예외 처리
+> InputValidator.validateNamesIsEmpty()
+- 자동차 이름 입력 값이 없을 경우 예외 처리
+- 자동차 이름 입력 값이 존재할 경우 통과
+
+## 이름 사이에 공백이 존재할 경우 예외 처리
+> InputValidator.validateNameContainSpace()
+- 자동차 이름에 공백이 존재할 경우 예외 처리
+- 공백이 존재 하지 않을 경우 통과
+
 ## 이름이 5자 초과일 경우 예외 처리
-> InputValidator.nameLength()
+> InputValidator.validateNameLength()
 - 자동차 이름의 길이가 5를 초과할 경우 예외 처리
 - 자동차 이름의 길이가 5 이하일 경우 통과
 
 ## 동일한 이름이 있을 경우 예외 처리
-> InputValidator.duplicateName()
+> InputValidator.validateDuplicateName()
 - 입력한 자동차 이름에 중복 되는 이름이 있을 경우 예외 처리
 - 중복 되는 이름이 없을 경우 통과
 
 ## 숫자 아닐 경우 예외 처리
-> InputValidator.notNumber()
-- 최차 입력시 숫자가 아닐 경우 예외 처리
+> InputValidator.validateNotNumber()
+- 시도 회수 입력시 숫자가 아닐 경우 예외 처리
 - 숫자일 경우 통과
+
+## 1보다 작을 경우 예외 처리
+> validateNotNumber.validateNumberRange()
+- 시도 회수가 1보다 작을 경우 예외 처리
+- 1보다 클 경우 통과
