@@ -11,6 +11,17 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int turnCount = inputTurnCount();
         System.out.println("실행 결과");
+
+        for (int turn = 0; turn < turnCount; turn++){
+            printCars(cars);
+        }
+
+    }
+
+    private static void printCars(Car[] cars) {
+        for (int carIndex = 0; carIndex < cars.length; carIndex++) {
+            System.out.println(cars[carIndex].toString());
+        }
     }
 
     private static int inputTurnCount() {

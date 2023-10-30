@@ -11,9 +11,11 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", distance=" + distance +
-                '}';
+        String result = name + " : ";
+        for (int i = 0; i < distance; i++) {
+            result += "-";
+        }
+        return result;
+
     }
 }
