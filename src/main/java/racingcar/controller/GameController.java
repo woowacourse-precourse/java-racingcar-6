@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.model.Car;
 import racingcar.service.Game;
 
 public class GameController {
@@ -19,6 +20,16 @@ public class GameController {
             game.moveForwardAttemptCars();
             printCars();
         }
+    }
+
+    public void printFinalists(){
+        List<String> finalists = game.getFinalists();
+
+        System.out.print("최종 우승자 : ");
+        for(int i = 0; i<finalists.size()-1; i++){
+            System.out.print(finalists.get(i)+", ");
+        }
+        System.out.println(finalists.get(finalists.size()-1));
     }
 
     public void printCars(){

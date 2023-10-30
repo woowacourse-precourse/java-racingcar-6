@@ -1,7 +1,9 @@
 package racingcar.service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import racingcar.model.Car;
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -33,6 +35,23 @@ public class Game {
                 car.moveForward();
             }
         }
+    }
+
+    public Integer getMaxPosition(){
+        return cars.stream().max(Comparator.comparing(Car::getPosition)).orElseThrow(NoSuchElementException::new).getPosition();
+    }
+
+    public List<String> getFinalists(){
+        int maxPosition = getMaxPosition();
+        List<String> finalists = new ArrayList<>();
+
+        for(Car car: cars){
+            if(car.getPosition() == maxPosition){
+                finalists.add(car.getName());
+            }
+        }
+
+        return finalists;
     }
 
     public void printCars(){
