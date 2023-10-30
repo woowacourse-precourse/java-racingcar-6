@@ -17,9 +17,34 @@ public class GameStart {
 
         carsScore = new int[carsName.length];
         carsScoreString = new String[carsName.length];
-        Arrays.fill(carsScoreString,"");
     }
 
+    void Start(){
+        int repeatCount = repeatCount();
+        while(repeatCount-- > 0){
+            play();
+        }
+    }
+
+    void play(){
+        //자동차 점수 계산
+        calcCarsScore();
+        //자동차 점수 시각화
+        carsScoreToString();
+    }
+
+    void calcCarsScore(){
+        for (int i = 0; i < carsScore.length; i++) {
+            if(canGo()){
+                carsScore[i]++;
+            }
+        }
+    }
+    void carsScoreToString(){
+        for (int i = 0; i < carsScoreString.length; i++) {
+            carsScoreString[i] = "-".repeat(carsScore[i]);
+        }
+    }
 
     private int repeatCount(){
         String repeat = Console.readLine();
