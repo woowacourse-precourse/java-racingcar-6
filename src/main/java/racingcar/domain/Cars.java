@@ -9,9 +9,9 @@ import racingcar.Error;
 public class Cars {
     private List<Car> carList = new ArrayList<>();
 
-    public Cars(String[] cars) {
-        validateCars(cars);
-        carList = generateCarList(cars);
+    public Cars(String[] carNames) {
+        validateCars(carNames);
+        carList = generateCarList(carNames);
     }
 
     public LinkedHashMap<String, Integer> getCarNamePositionMap() {
@@ -51,16 +51,16 @@ public class Cars {
         car.addPosition();
     }
 
-    private List<Car> generateCarList(String[] cars) {
+    private List<Car> generateCarList(String[] carNames) {
         List<Car> carList = new ArrayList<>();
-        for (String car : cars) {
+        for (String car : carNames) {
             carList.add(new Car(car));
         }
         return carList;
     }
 
-    private void validateCars(String[] cars) {
-        if (Utils.hasDuplicateMember(cars)) {
+    private void validateCars(String[] carNames) {
+        if (Utils.hasDuplicateMember(carNames)) {
             throw new IllegalArgumentException(Error.DUPLICATE_CAR_NAME_ERROR.getMessage());
         }
     }

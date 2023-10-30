@@ -3,7 +3,7 @@ package racingcar.domain;
 public class GameManager {
 
     public void startRacingGame() {
-        Output.printCarInputMessage();
+        Output.printCarNamesInputMessage();
         String[] carArray = Input.getCarsByUser();
         Cars cars = new Cars(carArray);
         Output.printTryCountInputMessage();
