@@ -10,6 +10,7 @@
 
       구현) 자동차 이름 좌우 공백 제거
       예외) 이름이 중복되는 경우 IllegalArgumentException 발생
+      예외) 이름이 빈칸인 경우 IllegalArgumentException 발생(10.30 추가)
 ~~구현) 자동차 전진 횟수에 따라 순위 나열 추가(10.29)~~ -> 우선순위 큐를 사용하는 방식에서 Collection의 sort로 변경
 
 - 몇 번 이동할 것인지 사용자 입력을 받는 기능
