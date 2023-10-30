@@ -11,13 +11,14 @@ import racingcar.domain.car.RandomNumberGenerator;
 import racingcar.domain.car.Rule;
 import racingcar.service.Attempt;
 import racingcar.service.GameService;
+import racingcar.service.Service;
 import view.inputView.InputView;
 import view.outputView.OutputView;
 
 public class Controller {
     private final InputView inputView;
     private final OutputView outputView;
-    private GameService gameService;
+    private Service gameService;
 
     public Controller(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
