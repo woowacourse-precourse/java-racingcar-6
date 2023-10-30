@@ -15,6 +15,7 @@ public class InputView {
     public static List<String> parseCarNames(String names){
         List<String> parseCarNames = List.of(names.split(","));
         Validator.checkCarNameSize(parseCarNames);
+        Validator.checkCarNameDuplication(parseCarNames);
         return parseCarNames;
 
     }
