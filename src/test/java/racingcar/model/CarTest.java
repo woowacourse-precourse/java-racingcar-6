@@ -26,4 +26,10 @@ public class CarTest {
         car.run(3);
         assertThat(car.getPosition()).isEqualTo(0);
     }
+
+    @Test
+    void 현재_자동차_위치_정보_테스트() {
+        car.run(4);
+        assertThat(car.toString()).isEqualTo("name : -");
+    }
 }
