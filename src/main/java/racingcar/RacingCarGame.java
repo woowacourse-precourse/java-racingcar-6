@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.Arrays;
+import java.util.List;
 
 public class RacingCarGame {
     static void printGameStartMessage() {
@@ -9,5 +11,9 @@ public class RacingCarGame {
 
     static String getUserInput() {
         return Console.readLine();
+    }
+
+    static List<String> splitGamePlayers(String userInput) {
+        return Arrays.asList(userInput.split(","));
     }
 }
