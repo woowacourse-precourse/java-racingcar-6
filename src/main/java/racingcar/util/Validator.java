@@ -11,6 +11,7 @@ public class Validator {
         validationCarNamesLength(carNames);
         validationCarNamesListLength(carNames);
         validationDuplicate(carNames);
+        validationCarNameHasSpace(carNames);
     }
 
     private void validationCarNamesLength(List<String> carNames) {
@@ -32,6 +33,14 @@ public class Validator {
         if (carNames.size() != nonDuplicateList.size()) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_CAR_NAME_DUPLICATE.getMessage());
         }
+    }
+
+    private void validationCarNameHasSpace(List<String> carNames){
+        carNames.stream().filter(name -> name.contains(" "))
+                .findAny()
+                .ifPresent(name ->{
+                    throw new IllegalArgumentException(ExceptionMessage.INVALID_CAR_NAME_HAS_SPACE.getMessage());
+                });
     }
 
     public void validationTrial(String input) {
