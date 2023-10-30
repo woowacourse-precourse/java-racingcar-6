@@ -57,5 +57,7 @@ public class RacingCarController {
             racingCarService.race(carList);
             OutputView.printResult(carList);
         }
+
+        OutputView.printWinner(carList);
     }
 }
