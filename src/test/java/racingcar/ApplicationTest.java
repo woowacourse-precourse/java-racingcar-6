@@ -18,11 +18,13 @@ import racingcar.gameLogic.Driver;
 import racingcar.gameLogic.RacingCar;
 import racingcar.gameLogic.User;
 import racingcar.utils.InputValidator;
+import racingcar.utils.RandomNumbers;
 import racingcar.views.OutputViewer;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
+    private static final int UPPER_LIMIT_OF_DIGIT = 9;
 
 //    @Test
 //    void 전진_정지() {
@@ -170,6 +172,20 @@ class ApplicationTest extends NsTest {
         assertThatCode(user::inputNumberOfTry)
                 .doesNotThrowAnyException();
         Console.close();
+    }
+
+    @Test
+    @DisplayName("기능 8번")
+    void 난수_생성_범위_검증() {
+        int numberOfTry = 0;
+
+        while (numberOfTry < 10000) {
+            int randomNumber = RandomNumbers.generateZeroToNineDigit();
+            assertThat(randomNumber).isNotNegative();
+            assertThat(randomNumber).isLessThanOrEqualTo(UPPER_LIMIT_OF_DIGIT);
+            numberOfTry++;
+        }
+
     }
 
     private void command(final String... args) {
