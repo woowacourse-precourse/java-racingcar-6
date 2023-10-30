@@ -9,6 +9,7 @@ public class AttemptCountsInputValidator {
     public static void validate(String target) {
         validateNumeric(target);
         validateIntegerRange(target);
+        validateRange(target);
     }
 
     private static void validateNumeric(String target) {
@@ -22,6 +23,13 @@ public class AttemptCountsInputValidator {
             Integer.parseInt(target);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ExceptionMessage.OUT_OF_INTEGER_RANGE.getError());
+        }
+    }
+
+    private static void validateRange(String target) {
+        int attemptCounts = Integer.parseInt(target);
+        if (attemptCounts < 1) {
+            throw new IllegalArgumentException(ExceptionMessage.OUT_OF_RANGE.getError());
         }
     }
 }
