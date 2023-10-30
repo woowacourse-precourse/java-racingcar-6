@@ -6,19 +6,14 @@ public class RaceCar {
     private String moveStateStr;
 
     public RaceCar() {
-        nameOfCar = "";
-        cntMovementOfCar = 0;
-        moveStateStr = "";
+        this("");
     }
 
 
     public RaceCar(String nameOfRaceCar) {
-        // 이름은 5자 이하만 가능하다.
-        if (nameOfRaceCar.length() >= 1 && nameOfRaceCar.length() <= 5) {
-            nameOfCar = nameOfRaceCar;
-            cntMovementOfCar = 0;
-            moveStateStr = "";
-        }
+        nameOfCar = nameOfRaceCar;
+        cntMovementOfCar = 0;
+        moveStateStr = "";
     }
 
     /**
