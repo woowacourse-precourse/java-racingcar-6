@@ -7,11 +7,10 @@ import java.util.HashMap;
 
 public class ReceptionDesk {
 
-    public static HashMap<String, Integer> registering() {
-        HashMap<String, Integer> lineUp = new HashMap<>();
-        String[] lineUpArr = Console.readLine().split(",");
-
+    public static HashMap<String, Integer> registering(String[] lineUpArr) {
         Checker.lenCheck(lineUpArr);
+
+        HashMap<String, Integer> lineUp = new HashMap<>();
 
         for (String carName : lineUpArr) {
             lineUp.put(carName, 0);
