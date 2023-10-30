@@ -24,11 +24,10 @@ public class Application {
         String numberOfLaps = Console.readLine();
         int lapOfRace = player.setLapsOfRace(numberOfLaps);
 
-
-
-        // TODO: convert numberOfLaps into Integer
-
         // TODO: play racing games for numberOfLaps
+        for (int lap=0; lap<lapOfRace; lap++) {
+
+        }
 
         // TODO: print Winners
 
