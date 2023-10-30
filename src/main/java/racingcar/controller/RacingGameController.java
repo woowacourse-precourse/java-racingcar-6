@@ -12,11 +12,14 @@ public class RacingGameController {
     private Round round;
 
     public RacingGameController(){
-        playGame();
-        showWinners();
     }
 
     public void playGame() {
+        playRound();
+        showWinners();
+    }
+
+    public void playRound() {
         cars = new Cars(InputView.inputNames());
         round = new Round(InputView.inputRound());
 
