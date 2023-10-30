@@ -16,7 +16,7 @@ public class User {
         this.length = length;
     }
 
-    public static void inputCheck(List<User> users) {
+    public void inputCheck(List<User> users) {
         for (User u : users) {
             String carName = u.name;
             if (carName.length() > 5 || carName.isBlank()) {
