@@ -38,11 +38,11 @@ public class RacingServiceImplTest {
         // given
         String input = "";
 
-        //when
+        // when
         final RuntimeException result = assertThrows(IllegalArgumentException.class,
                 () -> racingService.processCarNamesInput(input));
 
-        //then
+        // then
         assertThat(result).isNotNull();
     }
 
@@ -51,11 +51,11 @@ public class RacingServiceImplTest {
         // given
         String input = " ";
 
-        //when
+        // when
         final RuntimeException result = assertThrows(IllegalArgumentException.class,
                 () -> racingService.processCarNamesInput(input));
 
-        //then
+        // then
         assertThat(result).isNotNull();
     }
 
@@ -64,11 +64,11 @@ public class RacingServiceImplTest {
         // given
         String input = ", , ,,";
 
-        //when
+        // when
         final RuntimeException result = assertThrows(IllegalArgumentException.class,
                 () -> racingService.processCarNamesInput(input));
 
-        //then
+        // then
         assertThat(result).isNotNull();
     }
 

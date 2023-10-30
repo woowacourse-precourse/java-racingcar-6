@@ -24,68 +24,68 @@ public class CarServiceImplTest {
 
     @Test
     public void Car객체저장() {
-        //given
+        // given
         String name = "car1";
         final Car car1 = Car.create(name);
 
-        //when
+        // when
         carService.join(car1);
 
-        //then
+        // then
         assertThat(memoryCarRepository.findByName("car1").get()).isEqualTo(car1);
     }
 
     @Test
     public void 중복된_이름의_Car객체저장() {
-        //given
+        // given
         String name = "car1";
         final Car car1 = Car.create(name);
         final Car car2 = Car.create(name);
 
-        //when
+        // when
         carService.join(car1);
 
-        //then
+        // then
         assertThatThrownBy(() -> carService.join(car2))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void Car_이름의_길이가_5초과하면_예외발생() {
-        //given
+        // given
         final Car car1 = Car.create("abcdef");
 
-        //when
+        // when
         final RuntimeException result = assertThrows(IllegalArgumentException.class,
                 () -> carService.join(car1));
 
-        //then
+        // then
         assertThat(result).isNotNull();
     }
 
     @Test
     public void Car_이름은_영어와숫자만_특수문자는_에러() {
-        //given
+        // given
         final Car car1 = Car.create("1bcd@");
 
-        //when
+        // when
         final RuntimeException result = assertThrows(IllegalArgumentException.class,
                 () -> carService.join(car1));
 
-        //then
+        // then
         assertThat(result).isNotNull();
     }
 
     @Test
     public void Car_이름은_영어와숫자만_공백은_에러() {
-        //given
+        // given
         final Car car1 = Car.create("1bc ");
 
-        //when
+        // when
         final RuntimeException result = assertThrows(IllegalArgumentException.class,
                 () -> carService.join(car1));
 
-        //then
+        // then
         assertThat(result).isNotNull();
     }
 
