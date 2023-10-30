@@ -1,12 +1,7 @@
 package racingcar.controller;
 
-
-import static racingcar.util.RandomNumber.randomNumber;
-
-import java.util.ArrayList;
 import java.util.List;
 
-import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -14,58 +9,35 @@ import racingcar.view.OutputView;
 public class RacingCarGameController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final List<Car> cars;
+    private final CarController carController;
 
 
-    public RacingCarGameController() {
-        this.inputView = new InputView();
-        this.outputView = new OutputView();
-        this.cars = new ArrayList<>();
+    public RacingCarGameController(InputView inputView, OutputView outputView, CarController carController) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+        this.carController = carController;
     }
 
     public void play() {
 
         List<String> carNames = inputView.getCarNames();
 
-        for (String carName : carNames) {
-            cars.add(new Car(carName, 0));
-        }
+        List<Car> cars = carController.initializeCars(carNames);
 
         int moveCount = inputView.getMoveCount();
-
-        int index = 0;
 
         System.out.println();
         System.out.println("실행 결과");
 
-        while (index < moveCount) {
-            moveCarForward();
+        for (int i = 0; i < moveCount; i++) {
+            carController.moveCarForward(cars);
             outputView.printPositions(cars);
-            index++;
+
         }
 
-        List<Car> winners = findWinners();
+        List<Car> winners = carController.findWinners(cars);
         outputView.printWinners(winners);
     }
 
-    private void moveCarForward() {
-        for (Car car : cars) {
-            int randomNumber = randomNumber();
-            if (randomNumber >= 4) {
-                car.move();
-            }
-        }
-    }
-
-    private List<Car> findWinners() {
-        int maxPosition = cars.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElse(-1);
-
-        return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .collect(Collectors.toList());
-    }
 
 }
