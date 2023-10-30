@@ -1,7 +1,6 @@
 # 🚘 자동차 경주
 
 ### USER
-1. [ ] USER가 입력하는 함수
 2. [ ] USER가 입력한 CarName을 split해주는 함수
 3. [ ] 시도 횟수 parseInt해주는 함수
 4. [ ] 초기값으로 car와 0을 LinkedHashMap에 저장하는 함수.
