@@ -1,14 +1,21 @@
 package racingcar.util;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.HashSet;
 import java.util.List;
 
 public class Validator {
 
     public void names(List<String> nameList) {
-        size(nameList);
-        blank(nameList);
-        duplicate(nameList);
+        try {
+            size(nameList);
+            blank(nameList);
+            duplicate(nameList);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            Console.close();
+            throw e;
+        }
     }
 
     private void size(List<String> nameList) {
@@ -35,8 +42,14 @@ public class Validator {
     }
 
     public void trial(String trial) {
-        blank(trial);
-        positive(trial);
+        try {
+            blank(trial);
+            positive(trial);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            Console.close();
+            throw e;
+        }
     }
 
     private void blank(String trial) {
