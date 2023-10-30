@@ -19,4 +19,10 @@ public class RacingCars {
         }
     }
 
+    public void movingRacingCars(){
+        for(Car car : racingCars){
+            car.moveCar();
+        }
+    }
+
 }
