@@ -1,6 +1,6 @@
 package racingcar.model.dto;
 
-import static racingcar.model.constants.Rule.DELIMITER;
+import static racingcar.model.constants.Phrase.DELIMITER;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class CarResponseDto {
     public List<String> getCarNames() {
         return carNames;
     }
-    
+
     public String getWinnerCarNames() {
         return String.join(DELIMITER.getMessage(), carNames);
     }

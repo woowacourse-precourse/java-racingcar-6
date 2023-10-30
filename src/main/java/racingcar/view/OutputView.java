@@ -8,7 +8,7 @@ import racingcar.model.dto.GameResponseDto;
 
 public class OutputView {
     public static void printGameResult() {
-        System.out.println(GAME_RESULT.getPhrase());
+        System.out.println(GAME_RESULT.getMessage());
     }
 
     public static void printGameScore(GameResponseDto gameResponseDto) {
@@ -20,6 +20,6 @@ public class OutputView {
     }
 
     public static void printWinner(CarResponseDto carResponse) {
-        System.out.println(GAME_WINNER.getPhrase() + carResponse.getWinnerCarNames());
+        System.out.println(GAME_WINNER.getMessage() + carResponse.getWinnerCarNames());
     }
 }

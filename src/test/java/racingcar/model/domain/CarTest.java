@@ -1,7 +1,6 @@
 package racingcar.model.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.model.constants.Rule.MOVEMENT;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -29,6 +28,6 @@ class CarTest {
         car.move();
 
         assertThat(car).isNotNull();
-        assertThat(car).extracting(Car::getLocation).isEqualTo(MOVEMENT.getValue());
+        assertThat(car).extracting(Car::getLocation).isEqualTo(1);
     }
 }

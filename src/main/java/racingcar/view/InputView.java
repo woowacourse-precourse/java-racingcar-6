@@ -15,7 +15,7 @@ public class InputView {
     }
 
     private static String printPhrase(Phrase phrase) {
-        System.out.println(phrase.getPhrase());
+        System.out.println(phrase.getMessage());
         return Console.readLine();
     }
 }

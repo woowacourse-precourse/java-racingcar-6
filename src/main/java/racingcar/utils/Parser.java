@@ -1,6 +1,6 @@
 package racingcar.utils;
 
-import static racingcar.model.constants.Rule.DELIMITER;
+import static racingcar.model.constants.Phrase.DELIMITER;
 
 import java.util.List;
 

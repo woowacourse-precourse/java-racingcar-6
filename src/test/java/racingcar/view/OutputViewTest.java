@@ -27,7 +27,7 @@ class OutputViewTest {
     @DisplayName("게임 결과 출력 문구인 '실행 결과'를 출력하는지 테스트 합니다.")
     void 게임_결과_출력_문구() {
         OutputView.printGameResult();
-        assertOutputEquals(GAME_RESULT.getPhrase().trim());
+        assertOutputEquals(GAME_RESULT.getMessage().trim());
     }
 
     @Test
@@ -53,7 +53,7 @@ class OutputViewTest {
         List<String> carNames = List.of("pobi");
         CarResponseDto carResponseDto = new CarResponseDto(carNames);
         OutputView.printWinner(carResponseDto);
-        assertOutputEquals(GAME_WINNER.getPhrase() + carResponseDto.getCarNames().get(0));
+        assertOutputEquals(GAME_WINNER.getMessage() + carResponseDto.getCarNames().get(0));
     }
 
     private void assertOutputEquals(String expected) {
