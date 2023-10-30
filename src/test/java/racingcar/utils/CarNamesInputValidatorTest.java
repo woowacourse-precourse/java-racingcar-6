@@ -131,6 +131,26 @@ class CarNamesInputValidatorTest {
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
                     .hasMessage(CarNamesInputExceptionMessage.LAST_CHARACTER_COMMA.getError());
         }
+
+        @Test
+        @DisplayName("[실패 테스트] 중복 이름 존재")
+        void duplicateTest() {
+            // given
+            String input = "pobi,jun,K!ING,pobi";
+            // when, then
+            Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
+                    .hasMessage(CarNamesInputExceptionMessage.DUPLICATE_EXISTS.getError());
+        }
+
+        @Test
+        @DisplayName("[실패 테스트] 10개 이상인 이름 입력")
+        void outOfTotalCountTest() {
+            // given
+            String input = "pobi,jun,woote, !_!,  WWW,LEO,Lisa,*(!(,pauq,fello,GUCCI";
+            // when, then
+            Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(input))
+                    .hasMessage(CarNamesInputExceptionMessage.OUT_OF_TOTAL_COUNT.getError());
+        }
     }
 
 }
