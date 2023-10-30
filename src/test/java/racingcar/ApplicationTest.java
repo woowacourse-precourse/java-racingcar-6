@@ -1,19 +1,15 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
+import static camp.nextstep.edu.missionutils.test.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
-
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import org.junit.jupiter.api.Test;
+
+import camp.nextstep.edu.missionutils.test.NsTest;
 
 class ApplicationTest extends NsTest {
 	private static final int MOVING_FORWARD = 4;
