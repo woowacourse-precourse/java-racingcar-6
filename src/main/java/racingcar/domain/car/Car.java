@@ -1,6 +1,9 @@
 package racingcar.domain.car;
 
 public class Car {
+    private static final int TRAVEL_DISTANCE = 0;
+    private static final int TRAVEL_DISTANCE_INCREMENT = 1;
+
     private final Name name;
     private final Engine engine;
     private int travelDistance;
@@ -8,12 +11,12 @@ public class Car {
     public Car(String name) {
         this.name = new Name(name);
         this.engine = new Engine();
-        this.travelDistance = 0;
+        this.travelDistance = TRAVEL_DISTANCE;
     }
 
     public void move() {
         if(engine.isForward()){
-            travelDistance += 1;
+            travelDistance += TRAVEL_DISTANCE_INCREMENT;
         }
     }
 
