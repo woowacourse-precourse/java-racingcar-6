@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.domain.Car;
 import racingcar.domain.Setting;
+import racingcar.domain.Win;
 import racingcar.view.OutputView;
 
 import java.util.List;
@@ -29,5 +30,7 @@ public class RacingGame {
             OutputView.executionResult(cars);
             System.out.println();
         }
+        Win win = new Win(cars);
+        OutputView.Winner(win.getWin());
     }
 }

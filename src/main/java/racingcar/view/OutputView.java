@@ -6,7 +6,7 @@ import java.util.List;
 
 public class OutputView {
     private static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
-    private static final String WINNER_MESSAGE = "최종 우승자 : ";
+    private static final String WINNER_MESSAGE = "최종 우승자 :";
 
     public static void executionMessage() {
         System.out.println();
@@ -25,5 +25,18 @@ public class OutputView {
             record += "-";
         }
         return record;
+    }
+
+    public static void Winner(String[] winners) {
+        System.out.print(WINNER_MESSAGE);
+        System.out.print(concatResult(winners));
+    }
+
+    private static String concatResult(String[] words) {
+        String result = "";
+        for (String word : words) {
+            result += " " + word + ",";
+        }
+        return result.substring(0, result.length() - 1);
     }
 }
