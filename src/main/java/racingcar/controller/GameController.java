@@ -43,19 +43,13 @@ public class GameController {
     private void printEachStatus(final Cars cars) {
         List<CarResponse> carResponses = CarsConverter.fromEntity(cars);
 
-        carResponses.forEach(response -> {
-            outputView.printEachCarStatus(response.getName(), response.getPosition());
-        });
-
+        outputView.printEachCarStatus(carResponses);
         outputView.printBlankLine();
     }
 
     private void printWinners(final Cars cars) {
         List<WinnerResponse> winners = WinnersConverter.fromEntity(cars);
-        List<String> winnerNames = winners.stream()
-                .map(WinnerResponse::getName)
-                .toList();
 
-        outputView.printWinners(winnerNames);
+        outputView.printWinners(winners);
     }
 }

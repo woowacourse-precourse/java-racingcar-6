@@ -1,5 +1,7 @@
 package racingcar.view.output;
 
+import racingcar.model.dto.CarResponse;
+import racingcar.model.dto.WinnerResponse;
 import java.util.List;
 
 public class ConsoleOutputView implements Outputview {
@@ -24,8 +26,10 @@ public class ConsoleOutputView implements Outputview {
     }
 
     @Override
-    public void printEachCarStatus(final String name, final int position) {
-        System.out.println(name + " : " + POSITION_MARK.repeat(position));
+    public void printEachCarStatus(final List<CarResponse> cars) {
+        cars.forEach(response -> {
+            System.out.println(response.getName() + " : " + POSITION_MARK.repeat(response.getPosition()));
+        });
     }
 
     @Override
@@ -34,7 +38,11 @@ public class ConsoleOutputView implements Outputview {
     }
 
     @Override
-    public void printWinners(final List<String> winners) {
-        System.out.println("최종 우승자 : " + String.join(WINNER_JOINER, winners));
+    public void printWinners(final List<WinnerResponse> winners) {
+        List<String> winnerNames = winners.stream()
+                .map(WinnerResponse::getName)
+                .toList();
+
+        System.out.println("최종 우승자 : " + String.join(WINNER_JOINER, winnerNames));
     }
 }
