@@ -18,6 +18,7 @@ public class CarSetting {
 
     public void setTrialNumber(int setInputValue){
         this.trialNumber = setInputValue;
+        System.out.println();
     }
 
     public int getTrialNumber(){
