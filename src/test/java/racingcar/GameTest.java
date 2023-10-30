@@ -19,4 +19,9 @@ public class GameTest {
         int result = game.forward(3, 0);
         assertThat(result).isEqualTo(0);
     }
+
+    @Test
+    void 게임테스트(){
+
+    }
 }

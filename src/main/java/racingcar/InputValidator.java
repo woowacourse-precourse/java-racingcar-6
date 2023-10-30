@@ -15,8 +15,10 @@ public class InputValidator {
         checkCarNameNull(cars);
     }
 
-    public void gameCountValidator(String input){
-        checkPositive(checkInteger(input));
+    public int gameCountValidator(String input){
+        int gameCount = checkInteger(input);
+        checkPositive(gameCount);
+        return gameCount;
     }
 
     private void checkCarNameLength(Map<String, Integer> cars){
