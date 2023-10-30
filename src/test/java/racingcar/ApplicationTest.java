@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.service.RacingService;
+import racingcar.service.CarService;
 
 import java.util.List;
 
@@ -38,7 +38,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 자동차_생성_확인() {
         String carNames = "pobi,woni,jun,kkkkk";
-        List<Car> cars = RacingService.createCars(carNames);
+        List<Car> cars = CarService.createCars(carNames);
 
         assertThat(cars.get(0).getName()).isEqualTo("pobi");
         assertThat(cars.get(1).getName()).isEqualTo("woni");
