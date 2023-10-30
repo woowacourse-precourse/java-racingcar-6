@@ -6,7 +6,7 @@ import static java.lang.System.out;
 
 public class SettingOutputView implements OutputView {
     private final Map<String, Runnable> methodMap = Map.ofEntries(
-            Map.entry("carNames", printCarNamesText()),
+            Map.entry("cars", printCarNamesText()),
             Map.entry("gameCount", printGameCount())
     );
 
