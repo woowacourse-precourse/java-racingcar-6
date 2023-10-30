@@ -14,21 +14,30 @@ public class InputView {
     public List<String> inputNames() {
         System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         System.out.print(ENTER.getUnit());
-        String inputNames = Console.readLine();
-        validateBlank(inputNames);
-        List<String> nameList = Arrays.stream(
-                        inputNames.split(COMMA.getUnit()))
-                        .toList();
-        validateNamesCount(nameList);
-        validateNamesFormat(nameList);
-
-        return nameList;
+        String inputNames = getInput();
+        return convertStrToList(inputNames);
     }
+
+    public List<String> convertStrToList(String inputNames) {
+        validateBlank(inputNames);
+        List<String> namesList = Arrays.stream(
+                        inputNames.split(COMMA.getUnit()))
+                                  .toList();
+        validateNamesCount(namesList);
+        validateNamesFormat(namesList);
+
+        return namesList;
+    }
+
 
     public Integer inputCountOfGameRound() {
         System.out.print("시도할 회수는 몇회인가요?");
         System.out.print(ENTER.getUnit());
-        String inputCountOfGameRound = Console.readLine();
+        String inputCountOfGameRound = getInput();
+        return convertStrToInt(inputCountOfGameRound);
+    }
+
+    public Integer convertStrToInt(String inputCountOfGameRound) {
         validateBlank(inputCountOfGameRound);
         validateNumber(inputCountOfGameRound);
         return Integer.parseInt(inputCountOfGameRound);
@@ -66,5 +75,9 @@ public class InputView {
                 throw new IllegalArgumentException("[ERROR] 이름에 글자 이외의 문자를 입력할 수 없습니다.");
             }
         }
+    }
+
+    private String getInput() {
+        return Console.readLine();
     }
 }
