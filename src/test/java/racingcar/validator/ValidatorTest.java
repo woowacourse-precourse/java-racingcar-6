@@ -78,6 +78,27 @@ public class ValidatorTest extends NsTest {
                 .hasMessageContainingAll("차 이름이 중복됐습니다.");
     }
 
+    @Test
+    void 자동차_개수_테스트() {
+        Car car1 = new Car("robih");
+        Car car2 = new Car("robin");
+        List<String> carNames = new ArrayList<>(List.of(car1.getName(), car2.getName()));
+
+        Validator validator = new Validator();
+        assertThatCode(() -> validator.checkCarNum(carNames))
+                .doesNotThrowAnyException();
+    }
+
+    @Test
+    void 자동차_개수_예외_테스트() {
+        Car car1 = new Car("robih");
+        List<String> carNames = new ArrayList<>(List.of(car1.getName()));
+
+        Validator validator = new Validator();
+        assertThatThrownBy(() -> validator.checkCarNum(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContainingAll("차는 2대 이상 이여야 경주가 가능합니다.");
+    }
 
     @Override
     public void runMain() {
