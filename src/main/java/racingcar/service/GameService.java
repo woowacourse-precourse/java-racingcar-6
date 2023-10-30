@@ -13,6 +13,6 @@ public class GameService {
     }
 
     public boolean isBiggerThanStandard(int number) {
-        return number <= STANDARD_NUMBER;
+        return number >= STANDARD_NUMBER;
     }
 }
