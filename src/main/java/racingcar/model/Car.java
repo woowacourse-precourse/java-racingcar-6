@@ -13,9 +13,10 @@ public class Car {
     }
 
     public void decideDrive() {
-        int driveCheck = Randoms.pickNumberInRange(0,9);
-        if (driveCheck >= 4)
+        int driveCheck = Randoms.pickNumberInRange(0, 9);
+        if (driveCheck >= 4) {
             driveCount += 1;
+        }
     }
 
     public String getCarName() {
