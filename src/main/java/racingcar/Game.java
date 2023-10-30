@@ -4,15 +4,16 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
 
-    public Game() {
+    private CarList carList;
 
+    public Game() {
+        carList = new CarList();
     }
 
     public void run() {
         alertEnterCarName();
         saveCarName();
         alertEnterMoveNumber();
-        saveMoveNumber();
     }
 
     private void alertEnterCarName() {
@@ -29,7 +30,9 @@ public class Game {
             if (name.length() > 5) {
                 throw new IllegalArgumentException();
             }
-            Car car = new Car(name);
+        }
+        for (int i = 0; i < nameArray.length; i++) {
+            carList.add(new Car(nameArray[i]));
         }
     }
 
@@ -37,18 +40,8 @@ public class Game {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    private void saveMoveNumber() {
-        String readLine = Console.readLine();
-        // 양수인 Integer 값이 아닌 경우
-        try {
-            int moveNumber = Integer.parseInt(readLine);
-            if (moveNumber <= 0) {
-                throw new IllegalArgumentException();
-            }
-        }
-        catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
+    public void race() {
+
     }
 
 }
