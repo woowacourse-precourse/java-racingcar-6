@@ -18,7 +18,7 @@ public class Validator {
         for (String carName : carNames) {
 
             if (carName.isBlank()) {
-                throw new IllegalArgumentException("공백을 입력하지 마세요.");
+                throw new IllegalArgumentException("이름을 공백으로 입력하지 마세요.");
             }
 
         }
