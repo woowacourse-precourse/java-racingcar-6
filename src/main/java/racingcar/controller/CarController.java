@@ -9,10 +9,9 @@ import java.util.List;
 public class CarController {
 
     public void startRacing() {
-        String carNames = UserService.getCarNames();
-        List<Car> cars = CarService.createCars(carNames);
-        int moveCount = UserService.getMoveCount();
-        CarService.startRacing(cars, moveCount);
+
+        List<Car> cars = CarService.createCars(UserService.getCarNames());
+        CarService.startRacing(cars, UserService.getMoveCount());
 
     }
 }
