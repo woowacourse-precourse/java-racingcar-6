@@ -7,10 +7,6 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         final GameController gameController = new GameController(new ConsoleView());
-        try {
-            gameController.startGame();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        gameController.startGame();
     }
 }
