@@ -12,4 +12,9 @@ public class InputAboutGame {
         List CarNamesList = Arrays.asList(CarNames.split(","));
         return CarNamesList;
     }
+
+    public static int InputAttempt() {
+        String AttemptNumber = readLine();
+        return Integer.parseInt(AttemptNumber);
+    }
 }

@@ -1,7 +1,9 @@
 package racingcar.service;
 
 import racingcar.domain.dao.CarDAO;
+import racingcar.domain.dao.RaceDAO;
 import racingcar.dto.CarResponse;
+import racingcar.dto.RaceResponse;
 
 import java.util.List;
 
@@ -11,5 +13,10 @@ public class GameService {
             CarResponse newCarData = new CarResponse(carName);
             CarDAO.saveAll(newCarData);
         }
+    }
+
+    public static void raceDataSave(int AttemptNumber) {
+        RaceResponse newRaceData = new RaceResponse(AttemptNumber);
+        RaceDAO.saveAll(newRaceData);
     }
 }

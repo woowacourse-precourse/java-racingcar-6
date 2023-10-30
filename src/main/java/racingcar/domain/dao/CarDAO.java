@@ -10,7 +10,8 @@ public class CarDAO {
     public static void saveAll(CarResponse carName) {
         CarsData.addCar(new CarEntity(carName.getCarName(), carName.getPosition()));
     }
-    public static List<CarEntity> loadAll(){
+
+    public static List<CarEntity> loadAll() {
         return CarsData.getCars();
     }
 }

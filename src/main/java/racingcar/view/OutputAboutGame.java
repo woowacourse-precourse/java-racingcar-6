@@ -5,7 +5,10 @@ import racingcar.common.constant.GuidePhrases;
 import java.sql.SQLOutput;
 
 public class OutputAboutGame {
-    public static void PrintGameStartPhrase() {
-        System.out.println(GuidePhrases.gameStartPhrase);
+    public static void PrintCarInputPhrase() {
+        System.out.println(GuidePhrases.carInputPhrases);
+    }
+    public static void PrintAttemptInputPhrase(){
+        System.out.println(GuidePhrases.attemptInputPhrases);
     }
 }

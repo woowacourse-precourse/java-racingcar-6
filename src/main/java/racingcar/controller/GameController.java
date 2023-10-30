@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.service.GameService;
 import racingcar.view.InputAboutGame;
 import racingcar.view.OutputAboutGame;
 
@@ -11,7 +12,9 @@ public class GameController {
     }
 
     public void run() {
-        OutputAboutGame.PrintGameStartPhrase();
-        InputAboutGame.InputCarNames();
+        OutputAboutGame.PrintCarInputPhrase();
+        GameService.carsDataSave(InputAboutGame.InputCarNames());
+        OutputAboutGame.PrintAttemptInputPhrase();
+        GameService.raceDataSave(InputAboutGame.InputAttempt());
     }
 }
