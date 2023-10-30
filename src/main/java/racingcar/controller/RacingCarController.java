@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.utils.Console.println;
+
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
@@ -18,23 +20,14 @@ public class RacingCarController {
         this.outputView = outputView;
     }
 
-    public void startRace() {
+    public void startGame() {
         List<String> carNames = inputCarNames();
         int count = inputCount();
         RacingCars racingCars = createRacingCars(carNames);
-
-        outputView.printResultMessage();
-
-        for (int gameCount = 0; gameCount < count; gameCount++) {
-            onceRace(racingCars);
-            printCarResults(racingCars.getCars());
-        }
-
-        List<String> winners = getWinners(racingCars.getCars());
-        outputView.printWinner(winners);
+        printGameResult(racingCars, count);
     }
 
-    private void onceRace(RacingCars racingCars) {
+    private void startRace(RacingCars racingCars) {
         List<Car> cars = racingCars.getCars();
         for (Car car : cars) {
             int randomNumber = RandomNumberGenerator.generateRandomNumber();
@@ -42,10 +35,22 @@ public class RacingCarController {
         }
     }
 
-    private void printCarResults(List<Car> cars) {
+    private void printGameResult(RacingCars racingCars, int count) {
+        outputView.printResultMessage();
+        for (int gameCount = 0; gameCount < count; gameCount++) {
+            startRace(racingCars);
+            printRaceResult(racingCars.getCars());
+        }
+
+        List<String> winners = getWinners(racingCars.getCars());
+        outputView.printWinner(winners);
+    }
+
+    private void printRaceResult(List<Car> cars) {
         for (Car car : cars) {
             outputView.printCarResult(car.getName(), car.getPosition());
         }
+        println();
     }
 
     private RacingCars createRacingCars(List<String> carNames) {
