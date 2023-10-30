@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.util.Validation;
 
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static racingcar.constant.Constant.*;
 
 class ValidationTest {
@@ -88,6 +89,27 @@ class ValidationTest {
         assertThatThrownBy(() -> validation.validateDuplicateName(carNames.length, carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(EXCEPTION_DUPLICATE_CAR_NAME);
+    }
+
+    @DisplayName("게임 횟수에 대한 통합 검증 테스트")
+    @Test
+    public void validateGameRound() throws Exception {
+        //given
+        String validRound = "33";
+        String containNotDigit = " 3";
+        String containAlpha = "3a3";
+        String blank = "";
+
+        assertThatThrownBy(() -> validation.validateGameRound(containNotDigit))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEPTION_ROUND_TYPE);
+        assertThatThrownBy(() -> validation.validateGameRound(containAlpha))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEPTION_ROUND_TYPE);
+        assertThatThrownBy(() -> validation.validateBlankRound(blank))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEPTION_ROUND_LENGTH);
+        assertThat(validation.validateGameRound(validRound)).isEqualTo(33);
     }
 
     @DisplayName("횟수가 숫자가 아닐 경우 에러 반환")
