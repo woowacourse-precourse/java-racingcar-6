@@ -1,6 +1,8 @@
 package racingcar.domain;
 
+
 public class StaticInputs {
-    static String inputCarNames;
-    static String inputCount;
+    public static String[] carNamesArray;
+    public static int intCount;
+
 }

@@ -1,7 +1,8 @@
 package racingcar.domain;
 
 public class Input {
-    public static String[] CarNamesToArray(String inputCarNames) {
+
+    public static String[] carNamesToArray(String inputCarNames) {
         String[] carNamesArray = inputCarNames.split(",");
         carNamesInputException(carNamesArray);
         return carNamesArray;
@@ -14,4 +15,19 @@ public class Input {
             }
         }
     }
+
+    public static int inputCountToInt(String inputCount){
+        try {
+            int intCount = Integer.parseInt(inputCount);
+            return intCount;
+        } catch (IllegalArgumentException e) {
+            System.err.println("숫자를 입력하세요");
+        }
+        return 0;
+
+    }
+
+
+
+
 }
