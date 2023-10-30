@@ -1,5 +1,6 @@
 package racingcar.domain.game.car;
 
+import java.util.Objects;
 import racingcar.util.Err;
 
 public class CarName {
@@ -34,5 +35,21 @@ public class CarName {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CarName carName)) {
+            return false;
+        }
+        return Objects.equals(name, carName.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
