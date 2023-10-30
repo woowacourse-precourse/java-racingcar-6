@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 
 import java.util.*;
 
+import static racingcar.controller.CheckInput.*;
+
 public class Input {
 
     public static List<String> inputCarName() {
@@ -14,26 +16,12 @@ public class Input {
         while (st.hasMoreElements()) {
             names.add(st.nextToken());
         }
-        checkIfNameLength(names);
+        checkNameLength(names);
         checkDuplicateName(names);
 
         return names;
     }
 
-    private static void checkIfNameLength(List<String> names) {
-        for (String name : names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        }
-    }
-
-    public static void checkDuplicateName(List<String> names) {
-        Set<String> nameSet = new HashSet<>(names);
-        if (names.size() != nameSet.size()) {
-            throw new IllegalArgumentException();
-        }
-    }
 
     public static int inputNum() {
         String sNum = Console.readLine();
@@ -41,12 +29,5 @@ public class Input {
         return Integer.parseInt(sNum);
     }
 
-    private static void checkIfNum(String sNum) {
-        try {
-            Integer.parseInt(sNum);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException();
-        }
 
-    }
 }
