@@ -9,7 +9,11 @@ public class NameValidator {
 
     private static void maximumName(String name) {
         if (name.length() > MAXIMUM_NAME) {
-            throw new IllegalArgumentException("String index out of range: 5");
+            throw new IllegalArgumentException("The name must be less than " + (MAXIMUM_NAME + 1) + " characters.");
         }
+    }
+
+    public static int getMaximumName_ForTest() {
+        return MAXIMUM_NAME;
     }
 }
