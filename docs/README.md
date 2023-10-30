@@ -20,8 +20,7 @@ CommandLineController 객체의 start 메서드를 실행한다.
 ### Game (interface)
 - 메서드
   - startGame() 게임을 시작한다.
-  - stopGame() 게임을 종료한다.
-
+  - 
 ### CarRaceGame
 - 멤버변수
   - CarRaceLogic
