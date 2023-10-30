@@ -10,4 +10,6 @@ public class Constants {
     /** 게임에 사용되는 숫자 */
     public static final Integer CAR_NAME_MAXIMUM = 5;
     public static final Integer PROGRESS_LIMIT_NUMBER = 4;
+    public static final Integer MAX_RANDOM_VALUE = 9;
+    public static final Integer MIN_RANDOM_VALUE = 0;
 }

@@ -9,10 +9,14 @@ import java.util.Comparator;
 public class GameUtil {
     private Integer repeatNumber;
     private ArrayList<Car> cars;
+    private final int minRandomValue;
+    private final int maxRandomValue;
 
-    public GameUtil() {
+    public GameUtil(Integer minRandomValue, Integer maxRandomValue) {
         this.repeatNumber = 0;
         this.cars = new ArrayList<>();
+        this.minRandomValue = minRandomValue;
+        this.maxRandomValue = maxRandomValue;
     }
 
     public void runGame() {
@@ -69,7 +73,7 @@ public class GameUtil {
 
     private void randomProgress() {
         for (Car car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            int randomNumber = Randoms.pickNumberInRange(minRandomValue, maxRandomValue);
 
             if (randomNumber >= Constants.PROGRESS_LIMIT_NUMBER) {
                 car.setProgress(car.getProgress() + 1);
