@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
  * @author haiseong
  */
 public class CarList {
+    private static final int DEFAULT_MAX_DISTANCE = 0;
+
     private final List<RacingCar> carList;
 
     public CarList() {
@@ -51,7 +53,7 @@ public class CarList {
         return carList.stream()
                 .mapToInt(RacingCar::getDistance)
                 .max()
-                .orElse(0);
+                .orElse(DEFAULT_MAX_DISTANCE);
     }
 
     /**
