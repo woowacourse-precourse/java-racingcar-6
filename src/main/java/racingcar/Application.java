@@ -50,10 +50,17 @@ public class Application {
     private static void playRacing(List<Car> carList) {
         for (Car car : carList) {
             int randomNumber = getRandomNumber();
+            updateMovingCountOrNot(car, randomNumber);
         }
     }
 
     private static int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    private static void updateMovingCountOrNot(Car car, int randomNumber) {
+        if (randomNumber >= 4) {
+            car.addOneMovingCount();
+        }
     }
 }
