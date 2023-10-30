@@ -6,12 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import racingcar.consts.ErrorMessages;
 import racingcar.consts.GameConstant;
+import racingcar.consts.ViewConstant;
 
 public class InputValidator {
-    private static final String DELIMITER = ",";
 
     public void validateCarNames(String playerInput) {
-        List<String> carNames = Arrays.stream(playerInput.split(DELIMITER)).toList();
+        List<String> carNames = Arrays.stream(playerInput.split(ViewConstant.DELIMITER.get())).toList();
         if (!isCarNameSizeOneBetweenFive(carNames)) {
             throwIllegalArgumentException(ErrorMessages.WRONG_CAR_NAME_LENGTH_MESSAGE.get());
         } else if (hasDuplicateCarName(carNames)) {
