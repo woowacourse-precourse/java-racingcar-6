@@ -30,8 +30,10 @@ public class RaceController {
     }
 
     private String calcResult() {
+        String tmpres = "";
+
         // Todo : Implement Calculating Result
-        return "\n";
+        return tmpres + "\n";
     }
 
     String getResult() {

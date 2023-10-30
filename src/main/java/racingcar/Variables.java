@@ -1,7 +1,7 @@
 package racingcar;
 
 public enum Variables {
-    NUM("사용할 숫자의 개수", 3);
+    RAND_NUM_EXPECT("Is Generated number bigger than", 4);
 
     Variables(String name, int value) {
         this.name = name;
