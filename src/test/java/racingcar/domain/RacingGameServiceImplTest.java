@@ -16,7 +16,9 @@ class RacingGameServiceImplTest {
     private RacingGameServiceImpl racingGameService;
     private Cars cars;
     private String name;
+    private String name2;
     private List<Car> carList;
+    private int tryCount;
 
     @BeforeEach
     void setUp() {
@@ -26,18 +28,19 @@ class RacingGameServiceImplTest {
         name = TestUtils.generateName(length, 'a');
         Car car1 = new Car(name);
 
-        name = TestUtils.generateName(length, 'b');
-        Car car2 = new Car(name);
+        name2 = TestUtils.generateName(length, 'b');
+        Car car2 = new Car(name2);
 
         carList = List.of(car1, car2);
         cars = new Cars(carList);
+        tryCount = 2;
     }
 
     @Test
     void 한_라운드_진행_전진_테스트() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    racingGameService.playRound(cars);
+                    racingGameService.playRound(cars, new GameResult());
                     for (Car car : cars.getCar()) {
                         assertThat(car.getPosition()).isEqualTo(1);
                     }
@@ -50,12 +53,27 @@ class RacingGameServiceImplTest {
     void 한_라운드_진행_전진_실패_테스트() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    racingGameService.playRound(cars);
+                    racingGameService.playRound(cars, new GameResult());
                     for (Car car : cars.getCar()) {
                         assertThat(car.getPosition()).isEqualTo(0);
                     }
                 },
                 FORWARD_THRESHOLD.getConstant() - 1
+        );
+    }
+
+    @Test
+    void 게임_종료_후_결과_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    GameResult gameResult = racingGameService.startGame(cars, tryCount);
+                    assertThat(gameResult.getResult())
+                            .contains(name + " : -", name2 + " : ", name + " : --", name2 + " : -");
+                },
+                FORWARD_THRESHOLD.getConstant(),
+                FORWARD_THRESHOLD.getConstant() - 1,
+                FORWARD_THRESHOLD.getConstant(),
+                FORWARD_THRESHOLD.getConstant()
         );
     }
 
@@ -68,7 +86,7 @@ class RacingGameServiceImplTest {
         WinnerDto winner = racingGameService.findWinner(cars);
 
         //then
-        assertThat(winner.getWinners().get(0)).isEqualTo(name);
+        assertThat(winner.getWinners().get(0)).isEqualTo(name2);
     }
 
 }

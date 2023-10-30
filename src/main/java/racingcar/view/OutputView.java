@@ -14,4 +14,8 @@ public class OutputView {
         System.out.print(TRY_COUNT_INPUT_MESSAGE.getOutputMessage());
     }
 
+    public static void printRoundResult(String result) {
+        System.out.print(result);
+    }
+
 }

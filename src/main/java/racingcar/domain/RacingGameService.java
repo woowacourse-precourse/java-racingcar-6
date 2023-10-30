@@ -4,7 +4,9 @@ import racingcar.controller.dto.WinnerDto;
 
 public interface RacingGameService {
 
-    void playRound(final Cars cars);
+    GameResult startGame(final Cars cars, final int tryCount);
+
+    void playRound(final Cars cars, final GameResult gameResult);
 
     WinnerDto findWinner(final Cars cars);
 }

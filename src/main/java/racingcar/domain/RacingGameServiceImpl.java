@@ -12,13 +12,23 @@ import racingcar.controller.dto.WinnerDto;
 public class RacingGameServiceImpl implements RacingGameService {
 
     @Override
-    public void playRound(final Cars cars) {
+    public GameResult startGame(final Cars cars, final int tryCount) {
+        GameResult gameResult = new GameResult();
+        for (int i = 1; i <= tryCount; i++) {
+            playRound(cars, gameResult);
+        }
+        return gameResult;
+    }
+
+    @Override
+    public void playRound(final Cars cars, final GameResult gameResult) {
         List<Car> carList = cars.getCar();
         for (Car car : carList) {
             if (canMoveForward(generateRandomNumber())) {
                 car.moveForward();
             }
         }
+        gameResult.generateResult(cars);
     }
 
     @Override
