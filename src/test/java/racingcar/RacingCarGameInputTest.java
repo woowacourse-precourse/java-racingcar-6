@@ -70,7 +70,7 @@ public class RacingCarGameInputTest {
     }
 
     @Test
-    void 시도_횟수가_숫자가_아닌_경우_예외_반환() {
+    void 이동_횟수가_숫자가_아닌_경우_예외_반환() {
         setInputStream("12ad");
         assertThatThrownBy(() -> RacingCarGameInput.readMoveCount())
                 .isInstanceOf(IllegalArgumentException.class)
@@ -78,7 +78,7 @@ public class RacingCarGameInputTest {
     }
 
     @Test
-    void 시도_횟수가_1이상이_아닌_경우_예외_반환() {
+    void 이동_횟수가_1이상이_아닌_경우_예외_반환() {
         setInputStream("0");
         assertThatThrownBy(() -> RacingCarGameInput.readMoveCount())
                 .isInstanceOf(IllegalArgumentException.class)
