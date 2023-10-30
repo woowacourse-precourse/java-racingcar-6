@@ -3,7 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 
 public class RacingGame {
     ArrayList<Car> carList = new ArrayList<>();
@@ -22,14 +24,27 @@ public class RacingGame {
         // 자동차 이름 입력
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
+        validateCareName(input);
 
-        // 몇대까지 가능하게 할 것인가?
-        String[] nameList = input.split(",");
+        ArrayList<String> nameList = new ArrayList<>(Arrays.asList(input.split(",")));
         for (String s : nameList) {
-            if (s.length() > 5) {
+            carList.add(new Car(s, 0));
+        }
+    }
+
+    static private void validateCareName(String input) {
+        ArrayList<String> nameList = new ArrayList<>(Arrays.asList(input.split(",")));
+        if (nameList.size() < 2 || nameList.size() > 10) {
+            throw new IllegalArgumentException("2대 이상 10대 이하의 자동자 이름을 입력해주세요.");
+        }
+        for (String name : nameList) {
+            if (name.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하입니다.");
             }
-            carList.add(new Car(s, 0));
+        }
+        HashSet<String> numSet = new HashSet<>(nameList);
+        if(numSet.size()!= nameList.size()){
+            throw new IllegalArgumentException("자동차 이름이 중복됩니다.");
         }
     }
 
@@ -37,9 +52,20 @@ public class RacingGame {
         // 시도할 횟수 입력
         System.out.println("시도할 횟수는 몇 회인가요?");
         String input = Console.readLine();
-        // 몇대까지 가능하게 할 것인가?
+        validateCount(input);
         this.count = Integer.parseInt(input);
         System.out.println();
+    }
+
+    static private void validateCount(String input) {
+        // 몇 회까지 가능하게 할 것인가?
+        String regExp = "^[0-9]+$";
+        if (!input.matches(regExp)) {
+            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+        }
+        if (input.length() > 9) {
+            throw new IllegalArgumentException("아홉 자리 이내 숫자만 입력 가능합니다.");
+        }
     }
 
     private void race() {
