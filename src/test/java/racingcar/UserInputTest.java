@@ -66,6 +66,8 @@ class UserInputTest {
         userInput.labelNameOfCar();
         assertThat(userInput.getCarNames().size()).isEqualTo(4);
         Console.close();
+
+        assertThat(userInput.getCarNames()).containsExactly("하나","둘","셋","넷");
     }
 
     @Test
