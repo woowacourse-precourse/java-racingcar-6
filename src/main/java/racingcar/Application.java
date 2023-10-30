@@ -19,15 +19,20 @@ public class Application {
 
     private static void race(){
         String inputValue = InputTool.readLineByConsole();
+        List<String> racerNameList = Arrays.asList(inputValue.split(" "));
         validateRacerNameList(inputValue);
+        validateRacerName(racerNameList);
     }
 
     private static void validateRacerNameList(String inputValue){
         ValidateForm.validateForValidateType(ValidateType.NAME_LIST,inputValue);
-        List<String> racerNameList = Arrays.asList(inputValue.split(" "));
+    }
+
+    private static void validateRacerName(List<String> racerNameList){
         racerNameList.stream()
                             .forEach(racerName->ValidateForm.validateForValidateType(
                                     ValidateType.NAME,racerName
-                            ));
+                            )
+                );
     }
 }
