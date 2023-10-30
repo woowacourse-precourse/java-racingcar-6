@@ -45,6 +45,7 @@ public class RacingLogic {
         int maxDistance=getMaxDistance(racingCars);
         List<String> winnerCarNames=new ArrayList<>();
         winnerCarNames=getWinnerCarName(racingCars,maxDistance);
+        PrintMessage.printWinnerCarNames(winnerCarNames);
     }
     public static int getMaxDistance(RacingCars racingCars){
         List<RacingCar> racingCarList=racingCars.getRacingCars();
