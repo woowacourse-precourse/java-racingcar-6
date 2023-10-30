@@ -2,7 +2,7 @@ package racingcar.validator.userInput;
 
 import java.util.List;
 import racingcar.constant.RacingGameConstants;
-import racingcar.exception.car.name.BlankException;
+import racingcar.exception.car.name.HasBlankException;
 import racingcar.exception.car.name.LengthException;
 import racingcar.exception.cars.DuplicateException;
 import racingcar.utils.Parser;
@@ -40,7 +40,7 @@ public class CarsValidator extends UserInputValidator {
 
     public void validateCarNameNoBlanks(String carName) {
         if (carName.contains(" ") || carName.contains("\t") || carName.contains("\n")) {
-            throw new BlankException();
+            throw new HasBlankException();
         }
     }
 

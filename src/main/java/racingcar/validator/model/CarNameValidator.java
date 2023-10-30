@@ -2,7 +2,7 @@ package racingcar.validator.model;
 
 import racingcar.constant.RacingGameConstants;
 import racingcar.exception.NullException;
-import racingcar.exception.car.name.BlankException;
+import racingcar.exception.car.name.HasBlankException;
 import racingcar.exception.car.name.LengthException;
 import racingcar.model.CarName;
 
@@ -44,7 +44,7 @@ public class CarNameValidator extends ModelValidator {
 
     private void validateNoBlanks(String name) {
         if (name.contains(" ") || name.contains("\t") || name.contains("\n")) {
-            throw new BlankException();
+            throw new HasBlankException();
         }
     }
 }
