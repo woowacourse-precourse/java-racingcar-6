@@ -21,7 +21,6 @@ public class RacingGame {
     }
 
     private void getInputCarName() {
-        // 자동차 이름 입력
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
         validateCareName(input);
@@ -49,7 +48,6 @@ public class RacingGame {
     }
 
     private void getInputCount() {
-        // 시도할 횟수 입력
         System.out.println("시도할 횟수는 몇 회인가요?");
         String input = Console.readLine();
         validateCount(input);
@@ -58,7 +56,6 @@ public class RacingGame {
     }
 
     static private void validateCount(String input) {
-        // 몇 회까지 가능하게 할 것인가?
         String regExp = "^[0-9]+$";
         if (!input.matches(regExp)) {
             throw new IllegalArgumentException("숫자만 입력 가능합니다.");
