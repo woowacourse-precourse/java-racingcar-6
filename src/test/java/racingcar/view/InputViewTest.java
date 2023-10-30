@@ -45,4 +45,24 @@ class InputViewTest {
         assertThrows(IllegalArgumentException.class, InputView::inputCarNames);
     }
 
+    @Test
+    void 시도_횟수가_양의_정수인_경우_정상적으로_시도_횟수로_반환된다() {
+        String input = "5\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        int attemptCount = InputView.inputAttemptCount();
+
+        assertEquals(5, attemptCount);
+    }
+
+    @Test
+    void 시도_횟수가_양의_정수가_아닌_경우_IllegalArgumentException이_발생한다() {
+        String[] inputs = {"-1\n", "0\n", "abc\n"};
+
+        for (String input : inputs) {
+            System.setIn(new ByteArrayInputStream(input.getBytes()));
+            assertThrows(IllegalArgumentException.class, InputView::inputAttemptCount);
+            Console.close();
+        }
+    }
 }

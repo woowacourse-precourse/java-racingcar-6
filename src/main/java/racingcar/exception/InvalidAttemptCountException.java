@@ -12,9 +12,17 @@ public class InvalidAttemptCountException extends IllegalArgumentException {
         super(message);
     }
 
+    public static int parseAttemptCount(String attemptCount) {
+        try {
+            return Integer.parseInt(attemptCount);
+        } catch (NumberFormatException e) {
+            throw new InvalidAttemptCountException("");
+        }
+    }
+
     public static void validate(int attemptCount) {
         if (attemptCount <= 0) {
-            throw new InvalidAttemptCountException();
+            throw new InvalidAttemptCountException(DEFAULT_MESSAGE);
         }
     }
 }
