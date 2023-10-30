@@ -37,7 +37,7 @@
 
 ### CarManager
 
-- [ ]  입력받은 숫자만큼 Car를 생성하고 Cars에 저장한다.
+- [ ]  입력받은 이름 목록의 Car를 생성하고 Cars에 저장한다.
 - [ ]  저장된 Cars 을 규칙에 맞게 이동시킨다.
 
 ### Validator
