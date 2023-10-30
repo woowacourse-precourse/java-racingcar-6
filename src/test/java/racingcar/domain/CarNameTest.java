@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class CarNameTest {
-
     @ParameterizedTest
     @ValueSource(strings = {"o", "one", "melon"})
     void 자동차이름을_입력받아_객체를_생성한다(String value) {
@@ -24,5 +23,4 @@ class CarNameTest {
         assertThatThrownBy(() -> CarName.from(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
 }

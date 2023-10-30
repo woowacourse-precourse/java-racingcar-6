@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 public class CarPosition {
-
     private static final int MINIMUM_VALUE = 0;
 
     private final int value;
@@ -28,5 +27,4 @@ public class CarPosition {
     public int value() {
         return value;
     }
-
 }

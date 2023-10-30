@@ -9,7 +9,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class CarPositionTest {
-
     @Test
     void 초기_값을_갖는_객체를_생성한다() {
         CarPosition carPosition = CarPosition.zero();
@@ -29,5 +28,4 @@ class CarPositionTest {
         assertThatThrownBy(() -> CarPosition.from(value))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
 }
