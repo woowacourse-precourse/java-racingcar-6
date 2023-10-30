@@ -9,17 +9,18 @@ import java.util.List;
 public class UserInput {
     public UserInput() {
     }
-    public List<String> carName() {
-        String input = Console.readLine();;
+    public String input() {
+        String input = Console.readLine();
+        return input;
+    }
+    public List<String> carName(String input) {
         String[] names = input.split(",");
         List<String> carNames = new ArrayList<>(Arrays.asList(names));
-//        System.out.println(carNames);
         return carNames;
     }
-    public int attemptCount() {
+    public int attemptCount(String input) {
         int attemptCount;
-        attemptCount = Integer.parseInt(Console.readLine());
-//        System.out.println(attemptCount);
+        attemptCount = Integer.parseInt(input);
         return attemptCount;
     }
     public void processException() {
