@@ -1,5 +1,9 @@
 package modules;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class racingcarModules {
     public static void checked_car_name_len(String[] carNames) {
         for (String carName : carNames) {
@@ -12,5 +16,19 @@ public class racingcarModules {
         } else {
             return 0;
         }
+    }
+    public static List<String> campion_racing(HashMap<String, Integer> car_situations) {
+        List<String> champion_member = new ArrayList<>();
+        var top_score = 0;
+        for (String car_name : car_situations.keySet()){
+            int car_name_value = car_situations.get(car_name);
+            if (top_score < car_name_value) {
+                top_score = car_name_value;
+                champion_member.clear();
+            } else if (top_score == car_name_value) {
+                champion_member.add(car_name);
+            }
+        }
+        return champion_member;
     }
 }
