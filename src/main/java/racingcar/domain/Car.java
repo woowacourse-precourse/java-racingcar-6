@@ -16,11 +16,16 @@ public class Car {
         position++;
     }
 
-    public String printPosition() {
+    public String convertPositionToString() {
         return carName + " : " + convertPositionToResult();
     }
 
     private String convertPositionToResult() {
         return "-".repeat(position);
+    }
+
+    @Override
+    public String toString() {
+        return carName.toString();
     }
 }

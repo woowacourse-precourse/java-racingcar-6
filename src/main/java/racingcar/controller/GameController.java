@@ -16,10 +16,16 @@ public class GameController {
             cars.add(Car.createCar(s));
         }
         round = Number.inputUserRounds();
+        System.out.println(cars);
+//        Referee referee = new Referee(cars, round);
     }
 
     public void play() {
         setUp();
+//        while(referee.isGameOver) {
+//
+//        }
+//        referee.determineWinner
     }
         /*
          *  - one round
