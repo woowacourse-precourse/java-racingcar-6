@@ -1,24 +1,30 @@
 package racingcar.domain.racingcargame;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.mockito.ArgumentMatchers.any;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import racingcar.domain.attempt.Attempt;
+import racingcar.domain.car.Car;
 import racingcar.domain.cars.Players;
 import racingcar.domain.cars.Winners;
 
 class RacingCarGameTest {
+
+    static final int MOVE_VALUE = 5;
+    static final int DONT_MOVE_VALUE = 1;
 
     @Test
     @DisplayName("Players와 Attempt로 생성할 수 있다.")
@@ -33,7 +39,11 @@ class RacingCarGameTest {
         RacingCarGame racingCarGame = new RacingCarGame(players, attempt);
 
         // then
-        assertThat(racingCarGame).isExactlyInstanceOf(RacingCarGame.class);
+        assertThat(
+            racingCarGame.players().cars().stream()
+                .map(Car::name)
+                .collect(Collectors.toList())
+        ).isEqualTo(names);
     }
 
     @Test
@@ -98,16 +108,26 @@ class RacingCarGameTest {
     @DisplayName("winners() 가 우승자들에 대한 정보를 반환한다.")
     void winnersReturnListOfWinningCars() {
         // given
-        Players players = mock(Players.class);
-        Attempt attempt = mock(Attempt.class);
-        MockedStatic<Winners> mockStatic = mockStatic(Winners.class);
+        MockedStatic<Randoms> randomsMock = mockStatic(Randoms.class);
+        randomsMock.when(() -> Randoms.pickNumberInRange(anyInt(), anyInt()))
+            .thenReturn(MOVE_VALUE, DONT_MOVE_VALUE, MOVE_VALUE);
+
+        List<String> names = Arrays.asList("kim", "tae", "wan");
+        Players players = new Players(names);
+        int attemptValue = 1;
+        Attempt attempt = new Attempt(attemptValue);
 
         RacingCarGame racingCarGame = new RacingCarGame(players, attempt);
+        racingCarGame.race();
 
         // when
-        racingCarGame.winners();
+        Winners winners = racingCarGame.winners();
 
         // then
-        mockStatic.verify(() -> Winners.judge(any(Players.class)));
+        assertThat(
+            winners.cars().stream()
+                .map(Car::name)
+                .collect(Collectors.toList())
+        ).contains("kim", "wan");
     }
 }
