@@ -22,5 +22,9 @@ public class Application {
         String[] splitCarNames = inputCarNames.split(",");
 
         validateAndThrow(splitCarNames);
+        String inputAttempts = Console.readLine();
+
+
+
     }
 }
