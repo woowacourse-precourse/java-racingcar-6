@@ -1,6 +1,6 @@
 package racingcar.domain.constants;
 
-public enum number {
+public enum Number {
     MIN_RANDOM_NUMBER(0),
     MAX_RANDOM_NUMBER(9),
     MOVEMENT_POSSIBLE_NUMBER(4);
@@ -8,7 +8,7 @@ public enum number {
 
     private final int number;
 
-    number(int number) {
+    Number(int number) {
         this.number = number;
     }
 

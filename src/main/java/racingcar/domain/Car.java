@@ -1,9 +1,9 @@
 package racingcar.domain;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
-import static racingcar.domain.constants.number.MAX_RANDOM_NUMBER;
-import static racingcar.domain.constants.number.MIN_RANDOM_NUMBER;
-import static racingcar.domain.constants.number.MOVEMENT_POSSIBLE_NUMBER;
+import static racingcar.domain.constants.Number.MAX_RANDOM_NUMBER;
+import static racingcar.domain.constants.Number.MIN_RANDOM_NUMBER;
+import static racingcar.domain.constants.Number.MOVEMENT_POSSIBLE_NUMBER;
 
 public class Car implements Comparable<Car> {
     private final String name;
