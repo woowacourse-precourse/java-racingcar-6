@@ -4,12 +4,23 @@ import java.util.List;
 
 public class Race {
 
+    private static final int MIN_CARS_SIZE = 2;
+
+    private static final int MAX_CARS_SIZE = 5;
+
     private static final String WINNER_DELIMITER = ", ";
 
     private final List<Car> cars;
 
     public Race(final List<Car> cars) {
         this.cars = cars;
+        validateCans();
+    }
+
+    private void validateCans() {
+        if (cars.size() < MIN_CARS_SIZE || cars.size() > MAX_CARS_SIZE) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public void moveEachCars() {
