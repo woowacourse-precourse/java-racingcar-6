@@ -58,6 +58,18 @@ public class Application {
         }
     }
 
+    private static void printRun(List<String> carNames, List<Integer> carSteps) {
+        for (int i = 0; i < carNames.size(); i++) {
+            System.out.printf("%s : ", carNames.get(i));
+
+            for (int j = 0; j < carSteps.get(i); j++) {
+                System.out.print("-");
+            }
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+    }
+
     public static void main(String[] args) {
         List<String> carNames = getCars();
         List<Integer> numberOfCarSteps = new ArrayList<>();
@@ -71,6 +83,7 @@ public class Application {
         System.out.println("실행 결과");
         for (int i = 0; i < n; i++) {
             run(numberOfCarSteps);
+            printRun(carNames, numberOfCarSteps);
         }
 
     }
