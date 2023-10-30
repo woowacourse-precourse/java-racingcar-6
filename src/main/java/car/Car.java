@@ -17,6 +17,12 @@ public class Car {
         return count;
     }
 
+    public void move(int readNumber){
+        if(readNumber >= 4){
+            count++;
+        }
+    }
+
 
 
 }
