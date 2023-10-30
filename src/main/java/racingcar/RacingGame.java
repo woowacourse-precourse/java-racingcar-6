@@ -16,9 +16,7 @@ public class RacingGame {
         scriptHandler.printGetCarNameScript();
         cars = gameSetting.createCarName();
         scriptHandler.printGetAttemptScript();
-
-        gameSetting.getAttemptNumber();
-        attemptNumber = gameSetting.getAttemptNumber();
+        attemptNumber = gameSetting.createAttemptNumber();
 
 
         carNumber = cars.size();

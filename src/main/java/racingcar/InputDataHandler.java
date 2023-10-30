@@ -9,7 +9,7 @@ public class InputDataHandler {
     private String[] carNames;
     private HashMap<String, Integer> cars = new HashMap<>();
     private String inputCarNames;
-    private int attemptNumber;
+    private String attemptNumber;
 
     public HashMap<String, Integer> getStringFromPlayer(){
         inputCarNames = Console.readLine();
@@ -23,8 +23,9 @@ public class InputDataHandler {
     }
 
     public int getNumberFromPlayer(){
-        attemptNumber = Integer.parseInt(Console.readLine());
-
+        attemptNumber = Console.readLine();
+        inputValidator.checkNumber(attemptNumber);
+        return Integer.parseInt(attemptNumber);
     }
 
     public String[] seperateString(String inputCarNames){

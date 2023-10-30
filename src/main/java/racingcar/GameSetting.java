@@ -21,12 +21,8 @@ public class GameSetting {
         return inputCarNames[index];
     }
 
-    public void createAttemptNumber() {
+    public int createAttemptNumber() {
         attemptNumber = inputDataHandler.getNumberFromPlayer();
-
-    }
-
-    public int getAttemptNumber() {
         return attemptNumber;
     }
 
