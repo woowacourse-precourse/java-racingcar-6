@@ -15,12 +15,6 @@ public class CarNameInput {
         nameList = Arrays.asList(nameString.split(","));
     }
 
-    public void print() {
-        for (String carName : nameList)
-            System.out.print(carName + " ");
-        System.out.println();
-    }
-
     public boolean isValidNameLength() {
         for (String carName : nameList) {
             if (carName.length() == 0 || carName.length() > maxNameLength) return false;
