@@ -15,6 +15,9 @@ public class GameController {
     }
 
     public void startGame() {
+        Cars cars = new Cars();
         String carsNames = inputView.carsInput();
+        cars.addCar(carsNames);
+
     }
 }
