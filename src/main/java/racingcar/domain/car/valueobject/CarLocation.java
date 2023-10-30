@@ -6,4 +6,8 @@ public class CarLocation {
     public CarLocation() {
         this.location = 0;
     }
+
+    public int getInteger() {
+        return location;
+    }
 }

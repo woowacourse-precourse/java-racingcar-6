@@ -7,4 +7,8 @@ public class CarName {
         // TODO: 2023-10-30 이름 유효성 검사
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
 }

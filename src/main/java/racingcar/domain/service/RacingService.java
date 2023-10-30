@@ -1,2 +1,4 @@
-package racingcar.domain.service;public class RacingService {
+package racingcar.domain.service;
+
+public class RacingService {
 }

@@ -11,4 +11,12 @@ public class Car {
         this.name = new CarName(name);
         this.location = new CarLocation();
     }
+
+    public CarName getName() {
+        return name;
+    }
+
+    public CarLocation getLocation() {
+        return location;
+    }
 }
