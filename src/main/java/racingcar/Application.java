@@ -2,6 +2,7 @@ package racingcar;
 
 import java.util.List;
 
+import racingcar.control.ControlGame;
 import racingcar.model.GenerateRandomNumber;
 import racingcar.model.SplitPlayerName;
 import racingcar.model.VerifyRandomNumber;
@@ -24,6 +25,8 @@ public class Application {
         boolean testverify = VerifyRandomNumber.verifyRandomNumber(randomNumber);
         System.out.println(testverify);
 
+        ControlGame game = new ControlGame();
+        game.StartGame();
 
         
     }
