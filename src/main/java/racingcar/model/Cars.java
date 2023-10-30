@@ -27,6 +27,12 @@ public class Cars {
         }
     }
 
+    public void run() {
+        for (Car car : cars) {
+            car.goOrStop();
+        }
+    }
+
     public int size() {
         return cars.size();
     }
