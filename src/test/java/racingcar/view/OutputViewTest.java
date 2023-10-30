@@ -66,5 +66,13 @@ public class OutputViewTest {
         assertThat(outContent.toString()).isEqualTo("최종 우승자 : car1, car2");
     }
 
+    @DisplayName("한줄띄기 메소드 테스트")
+    @Test
+    public void testPrintEnterLine() {
+        OutputView view = new OutputView();
+        view.printEnterLine();
+        assertThat(outContent.toString()).isEqualTo("\n");
+    }
+
 }
 
