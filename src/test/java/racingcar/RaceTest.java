@@ -117,7 +117,4 @@ public class RaceTest {
         String expectedOutput = "최종 우승자 : Car1, Car2, Car3";
         assertThat(outputStream.toString().trim()).isEqualTo(expectedOutput);
     }
-
-
-
 }
