@@ -1,2 +1,26 @@
-package racingcar;public class NCars {
+package racingcar;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class NCars {
+    List<Car> cars;
+    private NCars(final List<Car> cars) {
+        this.cars = cars;
+    }
+    public static NCars applyNames(List<String> names) {
+        List<Car> cars = new ArrayList<>();
+        for(String name : names) {
+            cars.add(Car.applyName(name));
+        }
+        return new NCars(cars);
+    }
+
+    public List<String> getNamesForTest() {
+        List<String> names = new ArrayList<>();
+        for (Car car : this.cars){
+            names.add(car.toString());
+        }
+        return names;
+    }
 }
