@@ -1,9 +1,10 @@
 package racingcar.view;
 
+import java.util.List;
+
 import racingcar.model.Car;
 import racingcar.utils.GetWinner;
 
-import java.util.List;
 
 public class AnnouncementView {
 

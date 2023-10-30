@@ -2,8 +2,6 @@ package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import racingcar.model.Car;
-import net.bytebuddy.pool.TypePool;
 
 public class Trials {
 

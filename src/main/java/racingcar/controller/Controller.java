@@ -1,16 +1,16 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import racingcar.model.Car;
 import racingcar.utils.Trials;
 import racingcar.utils.UserList;
 import racingcar.utils.GoStop;
-import racingcar.utils.GetWinner;
 import racingcar.view.SettingView;
 import racingcar.view.ProcessView;
 import racingcar.view.AnnouncementView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Controller {

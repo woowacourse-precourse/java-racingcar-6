@@ -1,9 +1,7 @@
 package racingcar.utils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Arrays;
 
 import racingcar.model.Car;
 public class GetWinner {

@@ -1,14 +1,13 @@
 package racingcar.utils;
 
-import racingcar.model.Car;
-
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
 import camp.nextstep.edu.missionutils.Console;
 
+import racingcar.model.Car;
 
-//문자열을 입력 받아 ,로 이름을 분리하고 유효성 검사를 진행한 후 리스트로 반환
+
 public class UserList {
 
     private static final int MIN_LENGTH = 1;
