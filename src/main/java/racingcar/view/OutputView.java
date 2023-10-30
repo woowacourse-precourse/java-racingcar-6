@@ -21,7 +21,8 @@ public class OutputView {
     }
 
     public void outputGameResultMessage() {
-        System.out.println(OUTPUT_GAME_RESULT_MESSAGE);
+        System.out.print(OUTPUT_GAME_RESULT_MESSAGE);
+        System.out.print(ENTER.getUnit());
     }
 
 

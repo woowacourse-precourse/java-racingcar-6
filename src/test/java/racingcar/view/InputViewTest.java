@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
-class InputViewTest extends InTest {
+class InputViewTest extends IOTest {
 
 
     @Test
@@ -124,6 +124,5 @@ class InputViewTest extends InTest {
 
         // then
         assertEquals(7, result);
-
     }
 }

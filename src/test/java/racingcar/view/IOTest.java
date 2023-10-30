@@ -8,7 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-public abstract class InTest {
+public abstract class IOTest {
     private ByteArrayOutputStream outputStreamCaptor;
     private PrintStream standardOut;
 
