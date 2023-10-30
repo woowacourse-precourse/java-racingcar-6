@@ -1,8 +1,5 @@
 package racingcar.validation;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class InputValidation {
     private static final String IS_NULL_CAR_NAME_ERROR_MESSAGE = "입력하지 않았습니다.";
     private static final String IS_NOT_RULE_NAME_ERROR_MESSAGE = "규칙에 맞지 않습니다";
