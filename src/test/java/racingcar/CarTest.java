@@ -3,6 +3,8 @@ package racingcar;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CarTest {
@@ -64,5 +66,22 @@ public class CarTest {
         Car car = new Car(name);
 
         assertFalse(car.isMovablePower(power));
+    }
+
+    @Test
+    void moveAttempt_테스트() {
+        String input = "red";
+        Car car = new Car(input);
+
+        assertRandomNumberInRangeTest(
+                () -> {
+                    car.moveAttempt();
+                    car.moveAttempt();
+                    car.moveAttempt();
+                    car.moveAttempt();
+                    assertEquals(2, car.getPosition());
+                },
+                4, 5, 3
+        );
     }
 }
