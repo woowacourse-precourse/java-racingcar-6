@@ -47,7 +47,7 @@ public class RacingCarGame {
         List<String> carNamesList = new ArrayList<>();
 
         for (String s : carNamesArray) {
-            if (s.length() >= 5) {
+            if (s.length() > 5) {
                 throw new IllegalArgumentException();
             }
 
