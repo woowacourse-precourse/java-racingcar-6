@@ -36,6 +36,24 @@ public class Server {
         }
     }
     public void finishRace(){
+        List<String> winnerList = aggregateRaceResults();
+        Printer.printRaceResultInTotalWithWinnerList(winnerList);
+    }
+    private List<String> aggregateRaceResults(){
+        Integer maxPos = 0;
+        for ( Racer racer : racerList){
+            Integer racerPos = racer.getCurrentPos();
+            if ( racerPos>= maxPos){
+                maxPos = racerPos;
+            }
+        }
+        List<String> winnerList = new ArrayList<>();
+        for ( Racer racer : racerList){
+            if ( racer.getCurrentPos() == maxPos){
+                winnerList.add(racer.getName());
+            }
+        }
+        return winnerList;
     }
     public List<Racer> getRacerList(){ return racerList; }
     public int getRacerCount() { return racerCount;}
