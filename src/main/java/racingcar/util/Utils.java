@@ -5,6 +5,6 @@ import java.util.List;
 
 public class Utils {
     public static List<String> toList(String carNames) {
-        return Arrays.asList(carNames.split(","));
+        return Arrays.asList(carNames.split("\\s*,\\s*"));
     }
 }
