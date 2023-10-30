@@ -3,6 +3,7 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.List;
 import java.util.Random;
@@ -13,17 +14,24 @@ import org.junit.jupiter.api.Test;
 import racingcar.console.RacingCarConsole;
 
 public class RacingCarOutputConsoleTest {
-    private static ByteArrayOutputStream outputMessage;
+    private PrintStream standardOut;
+    private OutputStream captor;
 
     @BeforeEach
-    void setUpStreams() {
-        outputMessage = new ByteArrayOutputStream(); // OutputStream 생성
-        System.setOut(new PrintStream(outputMessage)); // 생성한 OutputStream 으로 설정
+    protected final void init() {
+        standardOut = System.out;
+        captor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(captor));
     }
 
     @AfterEach
-    void restoresStreams() {
-        System.setOut(System.out); // 원상복귀
+    protected final void printOutput() {
+        System.setOut(standardOut);
+        System.out.println(output());
+    }
+
+    protected final String output() {
+        return captor.toString().trim();
     }
 
     @Test
@@ -32,11 +40,9 @@ public class RacingCarOutputConsoleTest {
                 new Car("bae")
         );
         CarRacingResult carRacingResult = new CarRacingResult(carList);
-
         RacingCarConsole.printCarRacingResult(carRacingResult);
-        String result = outputMessage.toString();
 
-        assertThat(result).isEqualTo("\n최종 우승자 : bae\r\n");
+        assertThat(output()).isEqualTo("최종 우승자 : bae");
     }
 
     @Test
@@ -46,11 +52,9 @@ public class RacingCarOutputConsoleTest {
                 new Car("sue")
         );
         CarRacingResult carRacingResult = new CarRacingResult(carList);
-
         RacingCarConsole.printCarRacingResult(carRacingResult);
-        String result = outputMessage.toString();
 
-        assertThat(result).isEqualTo("\n최종 우승자 : bae, sue\r\n");
+        assertThat(output()).isEqualTo("최종 우승자 : bae, sue");
     }
 
     @Test
@@ -70,16 +74,41 @@ public class RacingCarOutputConsoleTest {
             expectedStringBuilder.append(", ");
             expectedStringBuilder.append(nameList.get(i));
         }
-        String expectedString = "\n최종 우승자 : " + expectedStringBuilder + "\r\n";
+        String expected = "최종 우승자 : " + expectedStringBuilder;
 
-        List<Car> carList = nameList.stream().map(Car::new)
+        List<Car> carList = nameList.stream()
+                .map(Car::new)
                 .toList();
 
         CarRacingResult carRacingResult = new CarRacingResult(carList);
-
         RacingCarConsole.printCarRacingResult(carRacingResult);
-        String resultString = outputMessage.toString();
 
-        assertThat(resultString).isEqualTo(expectedString);
+        assertThat(output()).isEqualTo(expected);
+    }
+
+    @Test
+    void 경주_진행상황_출력_2대_정상처리() {
+        List<Car> carList = List.of(
+                new Car("bae"),
+                new Car("sue")
+        );
+        carList.get(0).moveForward();
+        RacingCarConsole.printProgressState(carList);
+
+        assertThat(output()).isEqualTo("bae : -" + System.lineSeparator() + "sue :");
+    }
+
+    @Test
+    void 경주_진행상황_출력_3대_정상처리() {
+        List<Car> carList = List.of(
+                new Car("bae"),
+                new Car("sue")
+        );
+        carList.get(0).moveForward();
+        carList.get(1).moveForward();
+        carList.get(1).moveForward();
+        RacingCarConsole.printProgressState(carList);
+
+        assertThat(output()).isEqualTo("bae : -" + System.lineSeparator() + "sue : --");
     }
 }
