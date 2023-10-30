@@ -19,8 +19,8 @@ public class Car {
         return position;
     }
 
-    public void move() {
-        if (NumberGenerator.createRandomNumber() >= MOVE_CONDITION) {
+    public void move(int number) {
+        if (number >= MOVE_CONDITION) {
             position++;
         }
     }

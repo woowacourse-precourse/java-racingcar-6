@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.NumberGenerator;
 import racingcar.view.UserInput;
 import racingcar.view.UserOutput;
 
@@ -42,7 +43,7 @@ public class RacingGame {
     }
 
     private void addCar(String[] input) {
-        
+
         for (String name : input) {
             cars.add(new Car(name));
         }
@@ -64,7 +65,8 @@ public class RacingGame {
 
     private void moveAllCars() {
         for (Car car : cars) {
-            car.move();
+            int num = NumberGenerator.createRandomNumber();
+            car.move(num);
         }
     }
 
