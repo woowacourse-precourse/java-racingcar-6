@@ -13,6 +13,16 @@ public class Racing {
         return Integer.parseInt(input);
     }
 
+    public int parseRound(String input) {
+        try {
+            int round = Integer.parseInt(input);
+            checkRound(round);
+            return round;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("라운드 수는 숫자로 입력해주세요.");
+        }
+    }
+
     // TODO: Racing#findWinner()
     // TODO : 예외 처리 고민해보기
     public String findWinner(Map<String, Integer> stateMap) {
