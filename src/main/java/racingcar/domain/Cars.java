@@ -6,8 +6,8 @@ import java.util.List;
 public class Cars {
 
     ArrayList<String> carNameList = new ArrayList<>();
-
     ArrayList<List<String>> carProgress = new ArrayList<>();
+
 
     public ArrayList<String> getCarNameList() {
         return carNameList;
@@ -25,13 +25,5 @@ public class Cars {
         this.carProgress = carProgress;
     }
 
-    public void initializeCarProgress() {
-
-        for (int i = 0; i < carNameList.size(); i++) {
-            List<String> lst = new ArrayList<>();
-            lst.add("");
-            carProgress.add(lst);
-        }
-    }
 
 }
