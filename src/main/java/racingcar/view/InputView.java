@@ -18,8 +18,8 @@ public class InputView {
     }
 
     private void validate(final String input) {
-        InputValidator.isBlankInput(input);
-        InputValidator.isNullInput(input);
+        InputValidator.validateBlank(input);
+        InputValidator.validateNull(input);
     }
 
 }

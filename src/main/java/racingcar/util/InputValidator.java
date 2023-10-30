@@ -10,13 +10,13 @@ public class InputValidator {
     private InputValidator() {
     }
 
-    public static void isBlankInput(final String input) {
+    public static void validateBlank(final String input) {
         if (input.isBlank()) {
             throwError(BLANK_ERROR_MESSAGE);
         }
     }
 
-    public static void isNullInput(final String input) {
+    public static void validateNull(final String input) {
         if (Objects.isNull(input)) {
             throwError(NULL_ERROR_MESSAGE);
         }
