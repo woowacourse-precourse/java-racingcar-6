@@ -22,11 +22,12 @@ public class Application {
     private static void raceBefore(){
         List<String> racerNameList = racerNameForm();
         RaceCount raceCount = raceCountForm();
-        raceCount.inputScore();
-        race(racerNameList,raceCount);
+        for (int i=0;i<raceCount.inputScore();i++){
+            race(racerNameList);
+        }
     }
 
-    private static void race(List<String> racerNameList, RaceCount raceCount){
+    private static void race(List<String> racerNameList){
         generateRacer(racerNameList);
         for (String racerName:racerNameList){
             Racing racing = new Racing(Racer.getInstance(racerName));
