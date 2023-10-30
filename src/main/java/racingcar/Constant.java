@@ -6,6 +6,8 @@ public class Constant {
     public static final int MINIMUM_RACE_COUNT = 0;
     public static final int MAXIMUM_PLAYER_NAME_LENGTH = 5;
     public static final String PLAYER_NAMES_DELIMITER = ",";
+    public static final String PLAYER_NAMES_DELIMITER_NAME = "쉼표";
+
 
     private Constant() {
     }
