@@ -1,7 +1,8 @@
 package racingcar.controller;
 
+import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Game;
-import racingcar.domain.RandomNumberGenerator;
 import racingcar.validator.AttemptCountValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -10,8 +11,8 @@ public class RacingController {
 
     private Game game;
 
-    public void play() {
-        this.game = new Game(InputView.getCarNames(), new RandomNumberGenerator());
+    public void play(List<Car> cars) {
+        this.game = new Game(cars);
         int attemptCount = AttemptCountValidator.validateAttemptCount(InputView.getAttemptCount());
         OutputView.printResultMessage();
         playAllRounds(attemptCount);
