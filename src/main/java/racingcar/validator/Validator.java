@@ -40,6 +40,13 @@ public class Validator {
         return carNameSet.size() != carNameList.size();
     }
 
+    public void checkCarNum(List<String> carNameList){
+        if(!isCarMoreThanOne(carNameList)) {
+            throw new IllegalArgumentException("차는 2대 이상 이여야 경주가 가능합니다.");
+        }
+    }
+
+
     private boolean isCarMoreThanOne(List<String> carNameList) {
         return carNameList.size() >= MIN_CAR_NUM;
     }
