@@ -1,24 +1,24 @@
 package controller;
 
-        import static enums.PrintMessages.*;
+import static enums.PrintMessages.*;
 
-        import domain.Car;
-        import domain.CarRaceResultEvaluator;
-        import domain.Cars;
-        import domain.ForwardStrategy;
-        import domain.RandomForwardStrategy;
-        import dto.RoundResultDto;
-        import dto.WinnerDto;
-        import java.util.List;
-        import util.convertor.StringListToCarListConvertor;
-        import util.convertor.StringToIntConvertor;
-        import util.convertor.StringToStringListConvertor;
-        import util.formatter.RoundResultFormatter;
-        import util.formatter.WinnerFormatter;
-        import view.ConsoleInput;
-        import view.ConsoleOutput;
-        import view.Input;
-        import view.Output;
+import domain.Car;
+import domain.CarRaceResultEvaluator;
+import domain.Cars;
+import domain.ForwardStrategy;
+import domain.RandomForwardStrategy;
+import dto.RoundResultDto;
+import dto.WinnerDto;
+import java.util.List;
+import util.convertor.StringListToCarListConvertor;
+import util.convertor.StringToIntConvertor;
+import util.convertor.StringToStringListConvertor;
+import util.formatter.RoundResultFormatter;
+import util.formatter.WinnerFormatter;
+import view.ConsoleInput;
+import view.ConsoleOutput;
+import view.Input;
+import view.Output;
 
 public class CarRace implements Race {
 
