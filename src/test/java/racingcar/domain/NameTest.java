@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class NameTest {
     @Test
     public void 인가된_이름_처리() {
-        String validName = "woni";
+        String validName = "Valid";
         Name name = new Name(validName);
         Assertions.assertEquals(validName, name.toString());
     }
@@ -14,6 +14,11 @@ public class NameTest {
     @Test
     void 이름의_길이에_대한_예외_처리() {
         String invalidName = "TooLongName";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Name(invalidName));
+    }
+    @Test
+    void null_값에_대한_예외_처리() {
+        String invalidName = null;
         Assertions.assertThrows(IllegalArgumentException.class, () -> new Name(invalidName));
     }
 }
