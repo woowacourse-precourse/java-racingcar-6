@@ -10,6 +10,7 @@ public class InputView {
 
     private enum InputMessage {
         REQUEST_INPUT_CAR_NAME("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
+        REQUEST_INPUT_ROUND_NUMBER("시도할 회수는 몇회인가요?"),
         EXCEED_NAME_SIZE_LIMIT("자동차 이름은 5글자 이하여야 합니다.");
 
         private final String message;
@@ -31,6 +32,13 @@ public class InputView {
         return names.stream()
                 .map(String::trim)
                 .collect(Collectors.toUnmodifiableList());
+    }
+
+    public int inputNumber() {
+        System.out.println(InputMessage.REQUEST_INPUT_ROUND_NUMBER.message);
+        String number = Console.readLine();
+
+        return Integer.parseInt(number);
     }
 
     public void validateFiveCharacter(List<String> names) {
