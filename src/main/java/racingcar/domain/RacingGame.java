@@ -18,7 +18,7 @@ public class RacingGame {
         createCars(carNames);
 
         System.out.println("시도할 회수는 몇회인가요?");
-        final int playTimes = Integer.parseInt(Console.readLine());
+        final int playTimes = validPlayTimes(Console.readLine());
         playRound(cars, playTimes);
 
         Console.close();
@@ -30,6 +30,17 @@ public class RacingGame {
         }
         if (!carNames.contains(",")) {
             throw new IllegalArgumentException("두 개 이상의 자동차 이름을 쉼표로 구분하여 입력해주세요.");
+        }
+    }
+
+    private int validPlayTimes(final String input) {
+        if (input.isBlank()) {
+            throw new IllegalArgumentException("시도 횟수는 1자리 이상의 숫자이어야 합니다.");
+        }
+        try {
+            return Integer.parseInt(input);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자 입력값이어야 합니다.");
         }
     }
 
