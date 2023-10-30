@@ -11,7 +11,11 @@ public class ScriptHandler {
     }
 
     public void printGetAttemptScript(){
-        
+        System.out.println(REQUIRE_ATTEMPT_NUMBER_MESSAGE);
+    }
+
+    public void printSimpleResultScript(){
+        System.out.println(PROGRESS_RESULT);
     }
 
     public void printCarMovement(){
