@@ -1,12 +1,13 @@
 package racingcar.controller;
 
 import java.util.HashMap;
+import racingcar.Constant;
 
 public class ExceptionController {
 
     public static void carNameMaxLengthException(String[] carNameArr) {
         for (String userCar : carNameArr) {
-            if (userCar.length() > 5) {
+            if (userCar.length() > Constant.MAX_CAR_NAME_SIZE) {
                 throw new IllegalArgumentException("자동차의 이름은 5글자를 초과할 수 없습니다.");
             }
         }
