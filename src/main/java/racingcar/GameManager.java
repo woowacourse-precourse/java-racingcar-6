@@ -5,27 +5,44 @@ import java.util.List;
 
 public class GameManager {
     private User user;
-    private List<String> winnerMembers = new ArrayList<>();
+    private List<String> winnerCars = new ArrayList<>();
 
     public GameManager(User user) {
         this.user = user;
     }
 
     public String announceWinner() {
-        int longestDistanceDriven = -1;
+        int longestDistance = getLongestDistance();
+        getWinnerCars(longestDistance);
+        return String.join(", ", winnerCars);
+    }
 
-        for (Car car : user.getCars()) {
-            if (longestDistanceDriven < car.getDistanceDriven().length()) {
-                longestDistanceDriven = car.getDistanceDriven().length();
-            }
+    private void getWinnerCars(int longestDistance) {
+        // 가장 긴 주행거리랑 일치하는 자동차를 구한다.
+        for (Car car : user.getCarList()) {
+            addCarWhichHasLongestDistance(longestDistance, car);
         }
+    }
 
-        for (Car car : user.getCars()) {
-            if (longestDistanceDriven == car.getDistanceDriven().length()) {
-                winnerMembers.add(car.getCarName());
-            }
+    private void addCarWhichHasLongestDistance(int longestDistance, Car car) {
+        if (longestDistance == car.getDistanceDriven().length()) {
+            winnerCars.add(car.getCarName());
         }
+    }
 
-        return String.join(", ", winnerMembers);
+    private int getLongestDistance() {
+        int longestDistance = -1;
+        // 가장 긴 주행거리를 구한다.
+        for (Car car : user.getCarList()) {
+            longestDistance = initLongestDistance(longestDistance, car);
+        }
+        return longestDistance;
+    }
+
+    private static int initLongestDistance(int longestDistance, Car car) {
+        if (longestDistance < car.getDistanceDriven().length()) {
+            longestDistance = car.getDistanceDriven().length();
+        }
+        return longestDistance;
     }
 }
