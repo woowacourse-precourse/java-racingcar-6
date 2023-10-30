@@ -14,9 +14,7 @@ public class Car {
 	}
 
 	public void move(MoveStrategy moveStrategy, NumberGenerator numberGenerator) {
-		if (moveStrategy.canMove(numberGenerator)) {
-			this.position = new Position(position.getPosition() + 1);
-		}
+		this.position = new Position(position.getPosition() + moveStrategy.move(numberGenerator));
 	}
 
 	public Position getPosition() {
