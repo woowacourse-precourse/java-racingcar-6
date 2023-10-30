@@ -42,5 +42,4 @@ public class Race {
         }
         return maxMove;
     }
-
 }

@@ -8,7 +8,6 @@ public class Validator {
         if (carNameList.isEmpty() || (carNameList.size() == CAR_NAME_SIZE_MIN)) {
             throw new IllegalArgumentException(Constants.CAR_LIST_SIZE_ERROR);
         }
-
     }
 
     public static void checkCarNameEmpty(List<String> carNameList) {

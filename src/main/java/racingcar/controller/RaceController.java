@@ -23,15 +23,14 @@ public class RaceController {
     }
 
     private void startRace() {
-        InputView.inputString(Constants.INPUT_CAR_NAME);
-        String input = Console.readLine();
+        String input = InputView.inputString(Constants.INPUT_CAR_NAME);
         List<String> CarNameList = Convertor.splitCarNamesByComma(input);
+
         Validator.checkCarNameListSize(CarNameList);
         Validator.checkCarNameLength(CarNameList);
         Validator.checkCarNameEmpty(CarNameList);
 
-        InputView.inputString(Constants.INPUT_MOVE_TRY_COUNT);
-        String inputMoveTryCount = Console.readLine();
+        String inputMoveTryCount = InputView.inputString(Constants.INPUT_MOVE_TRY_COUNT);
         Validator.containsOnlyNumbers(inputMoveTryCount);
 
         carFactory.generateCar(CarNameList);
