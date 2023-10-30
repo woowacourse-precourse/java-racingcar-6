@@ -4,6 +4,11 @@ public class Car {
     private String name;
     private int current;
 
+    public Car(String name, int current) {
+        this.name = name;
+        this.current = current;
+    }
+
     public String getName() {
         return name;
     }
