@@ -25,11 +25,11 @@ public class Car {
     }
 
 
-    private String validateNameLength(String name) throws IllegalStateException {
+    private String validateNameLength(String name) throws IllegalArgumentException {
         if(name != null && name.length() <= MAX_NAME_LENGTH){
             return name;
         }
-        throw new IllegalStateException();
+        throw new IllegalArgumentException();
     }
 
     public String getName() {

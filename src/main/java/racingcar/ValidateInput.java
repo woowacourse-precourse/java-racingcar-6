@@ -6,33 +6,33 @@ public class ValidateInput {
     private final static int MAX_NAME_LENGTH = 5;
 
 
-    public static void isNotNullOrEmpty(String input) throws IllegalStateException {
+    public static void isNotNullOrEmpty(String input) throws IllegalArgumentException {
         if (input == null) {
-            throw new IllegalStateException();
+            throw new IllegalArgumentException();
         }
 
         if (input.isBlank()) {
-            throw new IllegalStateException();
+            throw new IllegalArgumentException();
         }
     }
 
 
-    public static void isNumeric(String input) throws IllegalStateException {
+    public static void isNumeric(String input) throws IllegalArgumentException {
         if (input.matches("^[0-9]*$")) {
             return;
         }
-        throw new IllegalStateException();
+        throw new IllegalArgumentException();
     }
 
 
-    public static void isRightCarNames(String[] names) throws IllegalStateException {
+    public static void isRightCarNames(String[] names) throws IllegalArgumentException {
 
         if (isCarNameDuplicate(names)) {
-            throw new IllegalStateException();
+            throw new IllegalArgumentException();
         }
 
         if (isWrongLengthNames(names)) {
-            throw new IllegalStateException();
+            throw new IllegalArgumentException();
         }
     }
 
