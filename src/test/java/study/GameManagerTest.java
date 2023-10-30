@@ -6,6 +6,9 @@ import racingcar.domain.GameManager;
 import study.mock.MockGameConsole;
 import study.mock.MockNumberGenerator;
 
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class GameManagerTest {
@@ -97,4 +100,23 @@ public class GameManagerTest {
         gameManager.readAttemptCount();
     }
 
+    @Test
+    void 게임이_정상적인_흐름으로_실행되는지_테스트() {
+        // Given
+        MockNumberGenerator numberGenerator = new MockNumberGenerator();
+        MockGameConsole gameConsole = new MockGameConsole();
+        GameManager gameManager = new GameManager(numberGenerator, gameConsole);
+
+        numberGenerator.setRandomNumbers(List.of(1, 2, 4, 1, 2, 5));
+        gameConsole.setMockStream("pobi,woni,jun", "2");
+
+        // When
+        gameManager.readCarNames();
+        gameManager.readAttemptCount();
+        gameManager.startGame();
+
+        // Then
+        String gameWinner = gameManager.getGameWinner();
+        assertThat(gameWinner).isEqualTo("jun");
+    }
 }
