@@ -1,5 +1,6 @@
 package racingcar.domain.game;
 
+import racingcar.domain.car.CarDto;
 import racingcar.domain.car.Cars;
 
 import java.util.ArrayList;
@@ -9,12 +10,12 @@ public class RacingGame {
 
     private final Cars cars;
     private final Rounds rounds;
-    private final List<String> logs;
+    private final List<List<CarDto>> logs;
 
     public RacingGame(Cars cars, Rounds rounds) {
         this.cars = cars;
         this.rounds = rounds;
-        this.logs = new ArrayList<>();
+        logs = new ArrayList<>();
     }
 
     public void race() {
@@ -23,17 +24,17 @@ public class RacingGame {
         this.recordLog();
     }
 
-    public void recordLog() {
-        String log = this.cars.getStatus();
-        this.logs.add(log);
-    }
-
-    public ResultDTO getResult() {
-        List<String> winners = cars.findTopCars();
-        return new ResultDTO(logs, winners);
+    private void recordLog() {
+        List<CarDto> status = this.cars.getStatus();
+        this.logs.add(status);
     }
 
     public boolean isEnd() {
-        return rounds.isEnd();
+        return this.rounds.isEnd();
+    }
+
+    public GameResultDto getResult() {
+        List<String> winners = this.cars.findTopCars();
+        return new GameResultDto(this.logs, winners);
     }
 }

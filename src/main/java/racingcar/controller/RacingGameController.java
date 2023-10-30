@@ -1,10 +1,11 @@
 package racingcar.controller;
 
 import racingcar.domain.car.Cars;
+import racingcar.domain.game.GameResultDto;
 import racingcar.domain.game.RacingGame;
-import racingcar.domain.game.ResultDTO;
 import racingcar.domain.game.Rounds;
-import racingcar.view.View;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -15,17 +16,15 @@ public class RacingGameController {
         while (!racingGame.isEnd()) {
             racingGame.race();
         }
-        ResultDTO result = racingGame.getResult();
-        View.printResult(result);
+        GameResultDto result = racingGame.getResult();
+        OutputView.printResult(result);
     }
 
     private RacingGame generateNewRacingGame() {
-        // 경주 차량의 이름을 입력받고 Cars 객체를 생성
-        List<String> names = View.inputCarNames();
+        List<String> names = InputView.inputCarNames();
         Cars cars = Cars.createFromNames(names);
 
-        // 경주 회수를 입력받고 Round 객체를 생성
-        int inputRounds = View.inputRounds();
+        int inputRounds = InputView.inputRounds();
         Rounds rounds = new Rounds(inputRounds);
 
         return new RacingGame(cars, rounds);
