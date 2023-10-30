@@ -6,7 +6,7 @@ public class Application {
     public static void printCarNamePrompt() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
-    public static String getUserInputForCarNames() {
+    public static String getUserInput() {
         return Console.readLine();
     }
     public static void validateAndThrow(String[] splitCarNames) {
@@ -18,11 +18,11 @@ public class Application {
     }
     public static void main(String[] args) {
         printCarNamePrompt();
-        String inputCarNames = getUserInputForCarNames();
+        String inputCarNames = getUserInput();
         String[] splitCarNames = inputCarNames.split(",");
 
         validateAndThrow(splitCarNames);
-        String inputAttempts = Console.readLine();
+        String inputAttempts = getUserInput();
 
 
 
