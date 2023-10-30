@@ -18,7 +18,7 @@ public class RacingcarView {
         car_names = Console.readLine();
         System.out.println(START_GAME);
         repeat_n = Console.readLine();
-        rc.RacingStart(car_names, repeat_n);
+        rc.RacingInputCheck(car_names, repeat_n);
     }
 
 

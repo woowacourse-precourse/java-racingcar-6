@@ -7,12 +7,13 @@ import java.util.List;
 
 public class RacingcarController {
 
-    public void RacingStart(String car_names, String repeat){
+    public void RacingInputCheck(String car_names, String repeat){
         RacingcarModel rm;
         List<String> car_names_list = SliceByComma(car_names);
         ErrorCheck(car_names_list, repeat);
 
         rm = new RacingcarModel(car_names_list, repeat);
+        rm.RacingStart();
     }
     private void ErrorCheck(List<String> car_names_list, String repeat){
 
