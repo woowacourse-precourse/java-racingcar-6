@@ -1,12 +1,13 @@
 package util;
 
 import java.util.HashSet;
+import java.util.regex.Pattern;
 import model.Car;
 
 public class CarNameValidation {
 
     public static void checkCarNameValidation(String[] carNameList) {
-        if (!CarNameValidation.isDuplicate(carNameList) || !CarNameValidation.checkCarNameLength(carNameList)) {
+        if (!isDuplicate(carNameList) || !checkCarNameLength(carNameList) || !isAlpabet(carNameList)) {
             throw new IllegalArgumentException();
         }
     }
@@ -22,6 +23,16 @@ public class CarNameValidation {
             setCarNameList.add(carName);
         }
         return setCarNameList;
+    }
+
+    private static boolean isAlpabet(String[] carNameList) {
+        Pattern pattern = Pattern.compile("[a-zA-Z]+");
+        for (String carName : carNameList) {
+            if (!pattern.matcher(carName).matches()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static boolean checkCarNameLength(String[] carList) {
