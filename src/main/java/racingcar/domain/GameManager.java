@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
-    static List<Car> carRace = new ArrayList<>();
     static List<String> winner = new ArrayList<>();
 
     int maxValue = Integer.MIN_VALUE;
@@ -30,13 +29,6 @@ public class GameManager {
             ResultPrinter.printWinners(winner);
         } else {
             ResultPrinter.printWinner(winner.get(0));
-        }
-    }
-
-    private void makeCars(List<String> list) {
-        for (int i = 0; i < list.size(); i++) {
-            Car car = new Car(list.get(i));
-            carRace.add(car);
         }
     }
 
