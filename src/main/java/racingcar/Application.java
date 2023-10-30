@@ -16,7 +16,7 @@ public class Application {
     private static InitData getInitData() {
         System.out.println("경주 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNames = Console.readLine().split(",");
-        // TODO : 차이름 검증
+        validateCarNames(carNames);
 
         System.out.println("시도할 회수는 몇회 인가요?");
         int tryCount = 0;
@@ -29,6 +29,18 @@ public class Application {
 
     private record InitData(String[] carNames, int tryCount, int[] distanceArray) {
 
+    }
+
+    private static void validateCarNames(String[] carNames) {
+        for (int i = 0; i < carNames.length; i++) {
+            if (carNames[i].length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자를 넘길수 없습니다.");
+            }
+
+            if (!carNames[i].matches("^[0-9a-zA-Z]*$")) {
+                throw new IllegalArgumentException("자동차 이름은 영어 숫자만 가능 합니다.");
+            }
+        }
     }
 
 }
