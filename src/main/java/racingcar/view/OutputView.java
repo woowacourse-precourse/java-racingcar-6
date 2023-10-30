@@ -13,6 +13,7 @@ public class OutputView {
 
             System.out.println(carName + " : " + stringOfDistance);
         }
+
         System.out.println();
     }
 
@@ -33,6 +34,7 @@ public class OutputView {
             if (result.length() > 0) {
                 result.append(", ");
             }
+
             result.append(winner);
         }
 

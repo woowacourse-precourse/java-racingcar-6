@@ -1,8 +1,8 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Model {
     public List<Car> makeCarList(String[] carNameArray){
