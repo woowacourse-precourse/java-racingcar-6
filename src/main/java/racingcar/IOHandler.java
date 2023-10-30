@@ -6,11 +6,13 @@ import java.util.List;
 
 public class IOHandler {
 
+    InputValidator validator = new InputValidator();
+
     public List<String> inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         List<String> carNames = List.of(Console.readLine().split(","));
-        // TODO: validateCarNames(carNames);
+        validator.validateCarNames(carNames);
 
         return carNames;
     }
