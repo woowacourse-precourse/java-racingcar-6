@@ -17,6 +17,7 @@ public class Games {
     }
 
     public void racingcar_game() {
+        System.out.println("실행 결과");
         for (String car_name : car_situations.keySet()){
             int random_num = Randoms.pickNumberInRange(0, 9);
             int value_update = car_situations.get(car_name) + racingcarModules.checked_random_num_over_4(random_num);
