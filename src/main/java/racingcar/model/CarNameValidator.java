@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarNameValidator {
     private static final String INPUT_HAS_SPACE = "입력 값에 스페이스 값이 존재합니다.";
@@ -24,6 +25,9 @@ public class CarNameValidator {
         if(hasOverFiveLength(carName)){
             throw new IllegalArgumentException(INPUT_HAS_OVER_FIVE_LENGTH);
         }
+        if(hasDuplicatedName(carName)){
+            throw new IllegalArgumentException(INPUT_HAS_DUPLICATED_NAME);
+        }
         return carName;
     }
 
@@ -43,5 +47,11 @@ public class CarNameValidator {
     private static boolean hasOverFiveLength(List<String> carNames){
         return carNames.stream()
                 .anyMatch(car -> car.length() > CAR_NAME_MAX_LENGTH);
+    }
+
+    private static boolean hasDuplicatedName(List<String> carNames){
+        return carNames.stream()
+                .distinct()
+                .count() != carNames.size();
     }
 }
