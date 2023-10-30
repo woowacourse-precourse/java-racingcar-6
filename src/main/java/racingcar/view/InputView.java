@@ -14,14 +14,12 @@ public class InputView {
         OutputView.requestTrialNumberMessage();
         String userInput = readLine();
         return userInput;
-        //validator.isValidTrialNumber(userInput);
     }
 
     public String inputCarName(){
         OutputView.requestCarNameMessage();
         String userInput = readLine();
         return userInput;
-        //validator.isValidCarName(userInput);
     }
 
 
