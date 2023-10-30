@@ -52,4 +52,21 @@ public class Core {
         }
         System.out.println();
     }
+
+    public List<String> getWinner(List<Car> cars) {
+        List<String> winner = new ArrayList<>();
+        int max_val = 0;
+        for (Car car : cars) {
+            if (max_val < car.getForward()) {
+                max_val = car.getForward();
+                winner = new ArrayList<>();
+                winner.add(car.getName());
+                continue;
+            }
+            if (max_val == car.getForward()) {
+                winner.add(car.getName());
+            }
+        }
+        return winner;
+    }
 }
