@@ -27,7 +27,7 @@ public class MemoryCarRepositoryTest {
         final Car car = Car.create(name);
 
         // when
-        final Car result = memoryCarRepository.save(car);
+        final Car result = (Car) memoryCarRepository.save(car);
 
         // then
         assertThat(result.getId()).isNotNull();
@@ -41,8 +41,8 @@ public class MemoryCarRepositoryTest {
         final Car car2 = Car.create("car2");
 
         // when
-        final Car result1 = memoryCarRepository.save(car1);
-        final Car result2 = memoryCarRepository.save(car2);
+        final Car result1 = (Car) memoryCarRepository.save(car1);
+        final Car result2 = (Car) memoryCarRepository.save(car2);
 
         // then
         assertThat(result1.getId()).isEqualTo(1L);
