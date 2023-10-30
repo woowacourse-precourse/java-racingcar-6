@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
 
@@ -36,6 +37,7 @@ public class Game {
             }
             printRaceStatus();
         }
+        printWinner();
     }
 
     private void printRaceStatus() {
@@ -47,6 +49,21 @@ public class Game {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public String printWinner() {
+        int maxPosition = cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+
+        String winners = cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.println("최종 우승자 : " + winners);
+        return winners;
     }
 
     public List<Car> getCars() {
