@@ -12,17 +12,12 @@ public class Application {
         race.raceAccumulations=playGame(race.tryNumber,race.carArray,race.raceAccumulations);
         ArrayList<String>WinnerNames = findFinalWinner(race.raceAccumulations,race.carArray);
         printFinalResult(WinnerNames);
-
     }
     private static Race receiveRaceInformation(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carInput = Console.readLine();
         String[] carArray = carInput.split(",");
-        for (String carName: carArray){
-            if (carName.length()>5){
-                throw new IllegalArgumentException("5자를 넘는 이름을 입력하셨습니다. 오류 발생");
-            }
-        }
+        checkNameError(carArray);
         System.out.println("시도할 회수는 몇회인가요?");
         int tryNumber = Integer.parseInt(Console.readLine());
         System.out.println();
@@ -95,6 +90,17 @@ public class Application {
 
             else {
                 System.out.print(", "+WinnerNames.get(winnerName));
+            }
+        }
+    }
+
+    private static void checkNameError(String[]carArray){
+        for (String carName: carArray){
+            if (carName.length()>5){
+                throw new IllegalArgumentException("5자를 넘는 이름을 입력하셨습니다. 오류 발생");
+            }
+            if (carName.isEmpty()){
+                throw new IllegalArgumentException("자동차 이름으로 공백 값을 입력하셨습니다. 오류 발생");
             }
         }
     }
