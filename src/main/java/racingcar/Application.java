@@ -26,7 +26,7 @@ public class Application {
     }
 
     private static int parsingTryCount(String inputTryCount) {
-        //TODO: tryCount 기능 구현 및 validator class 구현
-        return 0;
+        Validate.number(inputTryCount);
+        return Integer.parseInt(inputTryCount);
     }
 }
