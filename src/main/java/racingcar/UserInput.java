@@ -14,6 +14,7 @@ public class UserInput {
 
 
     public void labelNameOfCar() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String readLine = Console.readLine();
         carNames = List.of(readLine.split(","));
         verification.verifyDuplication(carNames);
@@ -21,6 +22,7 @@ public class UserInput {
     }
 
     public void setupNumberOfTry() {
+        System.out.println("시도할 회수는 몇회인가요?");
         String readLine = Console.readLine();
         verification.verifyNumberOfTry(readLine);
         numberOfTry = Integer.valueOf(readLine);

@@ -7,6 +7,7 @@ public class Grandprix {
 
     public Map<String,Car> playGrandprix(int numberOfTry, Map<String,Car> racingPlayer) {
         for (int i = 0; i < numberOfTry; i++) {
+            System.out.println("실행 결과");
             for (String player : racingPlayer.keySet()) {
                 racingPlayer.get(player).goOrStop();
                 systemOutput.showStatus(player, racingPlayer.get(player).getLocation());
