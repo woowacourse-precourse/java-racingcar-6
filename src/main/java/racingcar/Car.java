@@ -1,7 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
+
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
