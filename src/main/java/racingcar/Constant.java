@@ -16,6 +16,20 @@ public class Constant {
         }
     }
 
+    public enum UserResponeMessage{
+        EXECUTION_RESULT("실행 결과");
+        private final String message;
+
+        UserResponeMessage(String message){
+            this.message = message;
+        }
+
+        @Override
+        public String toString(){
+            return message;
+        }
+    }
+
     public enum GameConfig{
         CAR_NAME(5, ",");
 

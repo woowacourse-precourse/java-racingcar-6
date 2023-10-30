@@ -29,4 +29,11 @@ public class CarController {
         }
     }
 
+    public void printRoundResult(){
+        for(Car car : this.operatedCars){
+            car.printForawrdSituation();
+        }
+        System.out.println();
+    }
+
 }

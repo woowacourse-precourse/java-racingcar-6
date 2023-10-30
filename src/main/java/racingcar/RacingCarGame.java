@@ -15,8 +15,11 @@ public class RacingCarGame {
     public void play(){
         initConfig();
 
+        System.out.println("\n"+ UserResponeMessage.EXECUTION_RESULT);
         for(int rount = 0; rount < moveCount; rount++){
+
             carController.grantForwardChanceForCars();
+            carController.printRoundResult();
         }
     }
 

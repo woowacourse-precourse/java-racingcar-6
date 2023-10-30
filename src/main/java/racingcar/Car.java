@@ -21,6 +21,10 @@ public class Car {
     }
 
     public void printForawrdSituation(){
-
+        System.out.print(name + " : ");
+        for(int i=0; i<advancedDistance; i++){
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
