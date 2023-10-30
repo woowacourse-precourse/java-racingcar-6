@@ -44,9 +44,17 @@ public class Application {
 
     private static int getTryCount() {
         String response = Console.readLine();
-        // TODO : 시도횟수 검증
-        int tryCount = 0;
+        int tryCount = validateTryCount(response);
         return tryCount;
     }
 
+    private static int validateTryCount(String response) {
+        int tryCount;
+        try {
+            tryCount = Integer.parseInt(response);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("회수는 숫자만 입력 받을수 있습니다.");
+        }
+        return tryCount;
+    }
 }
