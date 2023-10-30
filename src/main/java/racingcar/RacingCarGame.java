@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import racingcar.io.InputView;
 import racingcar.io.OutputView;
@@ -13,7 +12,7 @@ public class RacingCarGame {
 
     public void run() {
         OutputView.printRequestCarNames();
-        makeCars(Converter.stringToArr(InputView.carNamesInput()));
+        makeCars(Converter.stringToList(InputView.carNamesInput()));
         int tryCount = inputTryCount();
         OutputView.printGameResultMessage();
 
@@ -25,9 +24,9 @@ public class RacingCarGame {
         OutputView.printResultMessage(findWinner(findMaxLocation()));
     }
 
-    public void makeCars(String[] carNames) {
+    public void makeCars(List<String> carNames) {
         UserInputValidator.validCarNameIsDuplicated(carNames);
-        racingCars =  Arrays.stream(carNames).map(RacingCar::new).toList();
+        racingCars = carNames.stream().map(RacingCar::new).toList();
     }
 
     public int inputTryCount() {
