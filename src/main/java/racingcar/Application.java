@@ -54,7 +54,9 @@ public class Application {
         // 자동차 경주 시도 횟수 입력받아 저장하기
         System.out.println("시도할 회수는 몇회인가요?");
         final String racingCount = Console.readLine();
-        racingGame.updateRacingCount(Integer.parseInt(racingCount));
+        if (globalExceptionHandler.isValidRacingCount(racingCount)) {
+            racingGame.updateRacingCount(Integer.parseInt(racingCount));
+        }
 
         // 전진 횟수 카운트
         for (int i=0; i<racingGame.getRacingCount(); i++){

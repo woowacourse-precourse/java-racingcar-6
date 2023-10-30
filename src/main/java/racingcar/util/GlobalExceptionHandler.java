@@ -17,4 +17,13 @@ public class GlobalExceptionHandler {
             throw new IllegalArgumentException();
         }
     }
+
+    public boolean isValidRacingCount(String racingCount) {
+        try {
+            Integer.parseInt(racingCount);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 }
