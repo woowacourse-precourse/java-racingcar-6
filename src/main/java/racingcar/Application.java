@@ -6,5 +6,8 @@ public class Application {
 
         // System.out.println();
         // System.out.println("4500");
+
+        Game game = new Game();
+        game.play();
     }
 }
