@@ -17,13 +17,9 @@ class RacingTest {
     @Mock
     private Race race;
 
-    @Mock
-    private Car car;
-
     @BeforeEach
     void setup() {
         MockitoAnnotations.openMocks(this);
-        car = new Car("tayo");
     }
 
     @Test
@@ -43,6 +39,7 @@ class RacingTest {
 
     @Test
     void 랜덤번호가_4_이상인_경우_전진() {
+        Car car = new Car("tayo");
         car.move(4);
         assertEquals("-", car.getStatus());
     }
