@@ -15,14 +15,18 @@ public class RaceGame {
   private int round;
 
   public RaceGame(Formula formula, List<Car> cars, int round) {
-    validateCarCount(cars);
+    validateCars(cars);
     validateRound(round);
     this.formula = formula;
     this.cars = cars;
     this.round = round;
   }
 
-  private void validateCarCount(List<Car> cars) {
+  private void validateCars(List<Car> cars) {
+    isCarsEmpty(cars);
+  }
+
+  private void isCarsEmpty(List<Car> cars) {
     if (cars.isEmpty()) {
       throw new IllegalArgumentException("자동차는 1대 이상이어야 합니다.");
     }
