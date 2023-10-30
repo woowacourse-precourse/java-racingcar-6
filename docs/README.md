@@ -36,7 +36,7 @@
 ### Controller
 
 - Controller
-  - [ ] 자동차 경주 진행 기능
+  - [x] 자동차 경주 진행 기능
 - Parser
   - [x] 들어온 자동차 이름을 쉼표를 기준으로 파싱하는 기능
 - InputValidation
@@ -54,11 +54,11 @@
 - CarRepository
   - [x] n 대 Car 저장 기능
   - [x] 이름이 중복되는지 검사 기능
-  - [ ] 우승자 찾는 기능
+  - [x] 우승자 찾는 기능
 - Race
   - race 회수 저장
-  - [ ] race 회수 유효성 검사 기능
-  - [ ] race 진행 기능
+  - [x] race 회수 유효성 검사 기능
+  - [x] race 진행 기능
 - Generator
   - [x] 0-9 사이의 무작위 값 생성 기능
 
