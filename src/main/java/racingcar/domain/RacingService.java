@@ -2,14 +2,11 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.vo.CarVO;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingService {
-
   public RacingService() {}
-
   public List<CarVO> setCarListName(List<String> carList){
     List<CarVO> list = new ArrayList<>();
     for(String name : carList){
@@ -38,5 +35,17 @@ public class RacingService {
       System.out.println();
     }
   }
-
+  public void selectMaxMove(List<String> champions,List<CarVO> racingCarList){
+    int maxMove = -1;
+    for (CarVO car : racingCarList){
+      if (car.getMove() > maxMove){
+        maxMove = car.getMove();
+      }
+    }
+    for (CarVO car : racingCarList){
+      if (car.getMove() == maxMove){
+        champions.add(car.getCar());
+      }
+    }
+  }
 }
