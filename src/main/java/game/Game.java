@@ -8,6 +8,12 @@ import java.util.List;
 
 public class Game {
 
+    private Randoms randoms;
+
+    public void setRandoms(Randoms randoms){
+        this.randoms = randoms;
+    }
+
     //사람 추가
     public List<String> addPerson(String persons){
         String[] personArray = persons.split(",");
