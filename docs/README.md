@@ -1,5 +1,30 @@
 <h1>🚗자동차 경주 미션🚕</h1>
 
+<h2>📁디렉토리 구조</h2>
+
+```
+src
+┣ main
+┃ ┗ java
+┃ ┃ ┗ racingcar
+┃ ┃ ┃ ┣ util
+┃ ┃ ┃ ┃ ┣ InputUtil.java
+┃ ┃ ┃ ┃ ┗ InputValidator.java
+┃ ┃ ┃ ┣ view
+┃ ┃ ┃ ┃ ┣ InputView.java
+┃ ┃ ┃ ┃ ┗ OutputView.java
+┃ ┃ ┃ ┣ Application.java
+┃ ┃ ┃ ┣ Car.java
+┃ ┃ ┃ ┗ Game.java
+┗ test
+┃ ┗ java
+┃ ┃ ┣ racingcar
+┃ ┃ ┃ ┣ ApplicationTest.java
+┃ ┃ ┃ ┣ GameTest.java
+┃ ┃ ┃ ┣ InputTest.java
+┃ ┃ ┃ ┗ OutputTest.java
+```
+
 <h2>✨기능 목록</h2>
 
 <h3>1. 사용자 입력 받기</h3>
