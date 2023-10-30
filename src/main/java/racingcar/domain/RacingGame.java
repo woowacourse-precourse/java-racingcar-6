@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static racingcar.Application.printWinners;
+import static racingcar.utils.MessagePrinter.printWinners;
 import static racingcar.utils.MessagePrinter.roundResult;
 
 import camp.nextstep.edu.missionutils.Console;

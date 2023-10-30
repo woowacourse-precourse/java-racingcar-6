@@ -17,4 +17,12 @@ public class MessagePrinter {
         final int position = car.getPosition();
         return "-".repeat(position);
     }
+
+    public static void printWinners(final List<Car> winners) {
+        List<String> winnerNames = winners.stream()
+                .map(Car::getName)
+                .toList();
+        String result = String.join(", ", winnerNames);
+        System.out.println("최종 우승자 : " + result);
+    }
 }
