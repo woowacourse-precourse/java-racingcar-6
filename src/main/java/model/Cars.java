@@ -1,5 +1,6 @@
 package model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,5 +29,12 @@ public class Cars {
         }
 
         return maxMovingCounts;
+    }
+
+    public void updateMovingCount(int minimumNumber) {
+        for (Car car : cars) {
+            int randomNumber = Randoms.pickNumberInRange(1, 9);
+            car.increaseMovingCountIfGreater(minimumNumber, randomNumber);
+        }
     }
 }
