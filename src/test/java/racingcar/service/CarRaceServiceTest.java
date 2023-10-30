@@ -1,5 +1,8 @@
 package racingcar.service;
 
+import static racingcar.constant.Sign.COLONE;
+import static racingcar.constant.Sign.TRACE;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
@@ -8,14 +11,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.constant.ErrorMessage;
+import racingcar.constant.Sign;
 import racingcar.domain.Car;
 
 class CarRaceServiceTest {
 
 
     private static final int TEST_MOVE_COUNT = 3;
-    private static final String TRACE = "-";
-    private static final String COLONE = " : ";
     private CarRaceService carRaceService;
 
 
@@ -31,7 +34,7 @@ class CarRaceServiceTest {
     void 자동차이름_길이_5초과(String input) {
         Assertions.assertThatThrownBy(() ->
             carRaceService.extractSeperator(input)).isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("자동차 이름의 길이는 5이하이여야 합니다.");
+            .hasMessageContaining(String.format(ErrorMessage.INPUT_CAR_NAME_LENGTH_EXCEPTION.getMessage(), 5));
         ;
     }
 
@@ -42,7 +45,7 @@ class CarRaceServiceTest {
     void 자동차이름_길이_0인경우_(String input) {
         Assertions.assertThatThrownBy(() ->
             carRaceService.extractSeperator(input)).isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("자동차 이름을 다음과 같은 형태: (이름1, 이름2, 이름3) 과 같은 형태로 넣어주셔야합니다!")
+            .hasMessageContaining(ErrorMessage.INPUT_NOT_FORMAT.getMessage())
         ;
     }
 
@@ -53,7 +56,7 @@ class CarRaceServiceTest {
     void 게임횟수_입력_검증(String input) {
         Assertions.assertThatThrownBy(() -> carRaceService.convertGameRoundToNumber(input))
             .isInstanceOf(IllegalArgumentException.class)
-            .hasMessageContaining("게임 횟수는 숫자가 와야 합니다!");
+            .hasMessageContaining(ErrorMessage.INPUT_GAME_COUNT_EXCEPTION.getMessage());
     }
 
 
@@ -79,10 +82,8 @@ class CarRaceServiceTest {
 
     public String madeCarResult(Car car) {
         StringBuilder madeResult = new StringBuilder();
-        madeResult.append(car.getName()).append(COLONE);
-        for (int i = 0; i < car.getMoveCount(); i++) {
-            madeResult.append(TRACE);
-        }
+        madeResult.append(car.getName()).append(COLONE.getSign());
+        madeResult.append(TRACE.getSign().repeat(car.getMoveCount()));
         return madeResult.toString();
     }
 
