@@ -10,7 +10,7 @@ class RacingCarTest {
     @Test
     void test_정상적인경우() {
         // given
-        RacingCar racingCar = new RacingCar();
+        RacingCar racingCar = new RacingCar("povi");
 
         // when
         for (int i = 0; i < 5; i++) {

@@ -1,14 +1,13 @@
 package racingcar.controller;
 
 import racingcar.model.CarInput;
-import racingcar.model.CarMap;
+import racingcar.model.CarList;
 import racingcar.model.RacingCar;
 import racingcar.model.RoundCountInput;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 /**
  * RacingController는 레이싱을 진행시키는 클래스다.
@@ -16,31 +15,31 @@ import java.util.Map;
  * @author haiseong
  */
 public class RacingController {
-    private final CarMap carMap;
+    private final CarList carList;
 
     public RacingController() {
-        this.carMap = new CarMap();
+        this.carList = new CarList();
     }
 
     /**
      * 레이싱을 진행한다.
      */
     public void playRacing() {
-        initializeCarMap();
+        initializeCarList();
         int roundCount = getRoundCount();
         executeRounds(roundCount);
         displayWinners();
     }
 
     /**
-     * 자동차 이름에 대한 입력을 carMap에 저장한다.
+     * 자동차 이름에 대한 입력을 carList에 저장한다.
      */
-    private void initializeCarMap() {
+    private void initializeCarList() {
         OutputView.printCarInputMessage();
         CarInput carInput = new CarInput(InputView.readLine());
         List<String> nameList = carInput.getNameList();
         for (String name : nameList) {
-            carMap.add(name);
+            carList.add(name);
         }
     }
 
@@ -63,7 +62,7 @@ public class RacingController {
     private void executeRounds(int roundCount) {
         OutputView.printExecuteResultMessage();
         for (int i = 0; i < roundCount; i++) {
-            carMap.executeRound();
+            carList.executeRound();
             displayRoundResults();
             OutputView.println();
         }
@@ -73,12 +72,10 @@ public class RacingController {
      * 수행 결과를 출력한다.
      */
     private void displayRoundResults() {
-        Iterator<Map.Entry<String, RacingCar>> carMapIterator = carMap.getIterator();
-        while (carMapIterator.hasNext()) {
-            Map.Entry<String, RacingCar> carEntry = carMapIterator.next();
-            String name = carEntry.getKey();
-            RacingCar racingCar = carEntry.getValue();
-            OutputView.printDistanceMarker(name, racingCar.getDistance());
+        Iterator<RacingCar> carIterator = carList.getIterator();
+        while (carIterator.hasNext()) {
+            RacingCar racingCar = carIterator.next();
+            OutputView.printDistanceMarker(racingCar.getName(), racingCar.getDistance());
         }
     }
 
@@ -86,6 +83,6 @@ public class RacingController {
      * 우승자를 보여준다.
      */
     private void displayWinners() {
-        OutputView.printWinnersMessage(carMap.getWinners());
+        OutputView.printWinnersMessage(carList.getWinners());
     }
 }

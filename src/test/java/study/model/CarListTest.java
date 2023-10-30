@@ -1,28 +1,28 @@
 package study.model;
 
 import org.junit.jupiter.api.Test;
-import racingcar.model.CarMap;
+import racingcar.model.CarList;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-class CarMapTest {
+class CarListTest {
 
     @Test
     void test_정상적인경우() {
         // given
-        CarMap carMap = new CarMap();
-        carMap.add("pobi");
-        carMap.add("woni");
-        carMap.add("jun");
+        CarList carList = new CarList();
+        carList.add("pobi");
+        carList.add("woni");
+        carList.add("jun");
 
         // when
         for (int i = 0; i < 5; i++) {
-            carMap.executeRound();
+            carList.executeRound();
         }
-        List<String> winners = carMap.getWinners();
+        List<String> winners = carList.getWinners();
 
         // then
         System.out.println("winners = " + winners);

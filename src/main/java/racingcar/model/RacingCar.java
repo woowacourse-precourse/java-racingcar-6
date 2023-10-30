@@ -13,9 +13,11 @@ public class RacingCar {
     private static final int RANDOM_START_INCLUSIVE = 1;
     private static final int RANDOM_END_INCLUSIVE = 9;
 
+    private String name;
     private int distance;
 
-    public RacingCar() {
+    public RacingCar(String name) {
+        this.name = name;
         this.distance = START_DISTANCE;
     }
 
@@ -46,6 +48,14 @@ public class RacingCar {
         distance++;
     }
 
+    /**
+     * 자동차의 이름을 알려준다.
+     *
+     * @return 자동차의 이름
+     */
+    public String getName() {
+        return name;
+    }
 
     /**
      * 지금 음직인 거리를 알려준다.

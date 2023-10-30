@@ -2,36 +2,34 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
- * CarMap 클래스는 자동차 맵을 랩핑하는 클래스다.
+ * CarMap 클래스는 ArrayList를 이용해 RacingCar 객체를 저장한다.
  *
  * @author haiseong
  */
-public class CarMap {
-    private final Map<String, RacingCar> carMap;
+public class CarList {
+    private final List<RacingCar> carList;
 
-    public CarMap() {
-        carMap = new LinkedHashMap<>();
+    public CarList() {
+        carList = new ArrayList<>();
     }
 
     /**
-     * 이름을 입력 받아 Map에 RacingCar와 매핑한다.
+     * 이름을 받아 RacingCar를 저장한다.
      *
      * @param name 자동차에 붙일 이름
      */
     public void add(String name) {
-        carMap.put(name, new RacingCar());
+        carList.add(new RacingCar(name));
     }
 
     /**
      * 각 자동차들이 라운드를 진행하게한다.
      */
     public void executeRound() {
-        for (RacingCar racingCar : carMap.values()) {
+        for (RacingCar racingCar : carList) {
             racingCar.executeRound();
         }
     }
@@ -45,11 +43,9 @@ public class CarMap {
         int maxDistance = getMaxDistance();
 
         List<String> winners = new ArrayList<>();
-        for (Map.Entry<String, RacingCar> entry : carMap.entrySet()) {
-            RacingCar car = entry.getValue();
+        for (RacingCar car : carList) {
             if (car.getDistance() == maxDistance) {
-                String name = entry.getKey();
-                winners.add(name);
+                winners.add(car.getName());
             }
         }
 
@@ -59,7 +55,7 @@ public class CarMap {
     private int getMaxDistance() {
         int maxDistance = 0;
 
-        for (RacingCar car : carMap.values()) {
+        for (RacingCar car : carList) {
             int distance = car.getDistance();
             if (distance > maxDistance) {
                 maxDistance = distance;
@@ -73,7 +69,7 @@ public class CarMap {
      *
      * @return 자동차들의 iterator
      */
-    public Iterator<Map.Entry<String, RacingCar>> getIterator() {
-        return carMap.entrySet().iterator();
+    public Iterator<RacingCar> getIterator() {
+        return carList.iterator();
     }
 }
