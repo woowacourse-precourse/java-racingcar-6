@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import racingcar.model.Car;
 
 public class GameView {
     public String readCarNames(){
@@ -11,5 +13,21 @@ public class GameView {
     public String readNumberOfMoves() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Console.readLine();
+    }
+
+    private void printPositions(List<Car> cars, int index){
+        for(Car car : cars){
+            System.out.println(
+                    car.getName() + " : " + "-".repeat(car.getPosition(index))
+            );
+        }
+        System.out.println();
+    }
+
+    public void printResult(List<Car> cars, int numberOfMoves) {
+        System.out.println("실행 결과");
+        for(int i=1;i<=numberOfMoves;i++){
+            printPositions(cars, i);
+        }
     }
 }

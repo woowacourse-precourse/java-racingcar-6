@@ -39,5 +39,6 @@ public class GameManager {
         for(int i=0; i<numberOfMoves; i++){
             moveCars(cars);
         }
+        gameView.printResult(cars, numberOfMoves);
     }
 }
