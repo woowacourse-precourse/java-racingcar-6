@@ -5,5 +5,5 @@ public class Car {
     private int moveAmount;
 
     public void move() {}
-    public boolean isMoveCondition() {}
+//    public boolean isMoveCondition() {}
 }

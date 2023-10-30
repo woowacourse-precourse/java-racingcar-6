@@ -14,11 +14,6 @@ public class InputValidator {
     }
 
     private List<String> divideByComma(String input) {
-//        try {
-//            return List.of(input.split(","));
-//        } catch (PatternSyntaxException e) {
-//            throw new IllegalArgumentException(e);
-//        }
         return List.of(input.split(","));
     }
     private boolean isCorrectLength(String word) {
