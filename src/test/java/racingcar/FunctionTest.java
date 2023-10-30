@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static racingcar.ExceptionMessage.CAR_NAME_DUPLICATION;
 import static racingcar.ExceptionMessage.CAR_NAME_HAS_BLANK;
+import static racingcar.ExceptionMessage.CAR_NAME_HAS_NOTHING;
 import static racingcar.ExceptionMessage.CAR_NAME_LENGTH_OVERED;
 import static racingcar.ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH;
 
@@ -40,8 +41,11 @@ public class FunctionTest {
 
     static Stream<Arguments> invalidNameParameters() {
         return Stream.of(
-                Arguments.of("asd,asdfgh", CAR_NAME_LENGTH_OVERED, "길이 초과"),
                 Arguments.of("asd, as", CAR_NAME_HAS_BLANK, "공백 포함"),
+                Arguments.of("asd,,as", CAR_NAME_HAS_NOTHING, "중간에 없음"),
+                Arguments.of(",asd,as", CAR_NAME_HAS_NOTHING, "맨 앞에 없음"),
+                Arguments.of("asd,as,", CAR_NAME_HAS_NOTHING, "맨 뒤에 없음"),
+                Arguments.of("asd,asdfgh", CAR_NAME_LENGTH_OVERED, "길이 초과"),
                 Arguments.of("asd,asdf,asd", CAR_NAME_DUPLICATION, "중복")
         );
     }
