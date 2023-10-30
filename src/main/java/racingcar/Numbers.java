@@ -2,16 +2,13 @@ package racingcar;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 public class Numbers {
-    Map<Integer, Integer> map = new HashMap<>();
+    Map<Boolean, Integer> map = new HashMap<>();
     public Numbers() {
-        IntStream.range(0, 10).forEach(i -> {
-            if (i < 4) map.put(i, 0);
-            else map.put(i, 1);
-        });
+        map.put(true, 1);
+        map.put(false, 0);
     }
 
-    public int compareFour(int number) {return this.map.get(number);}
+    public int compareFour(int number) {return this.map.get(number >= 4);}
 }
