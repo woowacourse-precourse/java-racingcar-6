@@ -45,7 +45,8 @@ class PositionTest {
         Position expected = Position.createDefault();
 
         // when & then
-        assertThat(result).isEqualTo(expected);
+        assertThat(result).isEqualTo(expected)
+                .hasSameHashCodeAs(expected);
     }
 
     @Test

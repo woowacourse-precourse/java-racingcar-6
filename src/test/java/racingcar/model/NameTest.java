@@ -1,6 +1,5 @@
 package racingcar.model;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -9,6 +8,7 @@ import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.EmptySource;
 import racingcar.exception.InvalidNameException;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -16,6 +16,7 @@ import racingcar.exception.InvalidNameException;
 class NameTest {
 
     @CsvSource({"abcdef", "123456"})
+    @EmptySource
     @ParameterizedTest
     void 이름이_5글자를_초과하면_예외가_발생한다(String input) {
         // when & then
@@ -29,8 +30,9 @@ class NameTest {
         Name result = Name.from("abc");
         Name expected = Name.from("abc");
 
-        // when & then
-        assertThat(result).isEqualTo(expected);
+        // When & Then
+        assertThat(result).isEqualTo(expected)
+                .hasSameHashCodeAs(expected);
     }
 
     @Test
