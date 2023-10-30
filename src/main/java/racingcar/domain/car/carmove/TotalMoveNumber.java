@@ -1,4 +1,4 @@
-package racingcar.domain.car.carcomponent.carmove;
+package racingcar.domain.car.carmove;
 
 public class TotalMoveNumber {
     private static final String TOTAL_MOVE_NUMBER_MINUS_ERROR = "시도 횟수는 0 이상의 숫자 입력이 필요합니다.";
