@@ -22,6 +22,10 @@ public class Car {
         return name.getName();
     }
 
+    public void move() {
+        currentLocation.moveLocation();
+    }
+
     public int getCurrentLocation(){
         return currentLocation.getCurrent();
     }
