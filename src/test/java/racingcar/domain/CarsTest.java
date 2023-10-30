@@ -27,4 +27,13 @@ class CarsTest {
                 .hasMessageContaining("자동차 이름은 5글자 이하로 입력해 주세요.");
     }
 
+    @DisplayName("중복된 이름이 있으면 오류 처리")
+    @Test
+    void test3() {
+        assertThatThrownBy(() -> new Cars("pobi,pobi"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("중복된 자동차 이름 : pobi");
+
+    }
+
 }
