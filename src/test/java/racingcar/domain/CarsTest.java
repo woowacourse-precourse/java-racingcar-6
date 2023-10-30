@@ -28,7 +28,7 @@ class CarsTest {
         cars.add(name);
 
         // then
-        cars.forEach(car -> assertThat(car.getName()).contains(name));
+        assertThat(cars.getWinnerNameList()).contains(name);
     }
 
     @DisplayName("차 이름이 중복되면 예외가 발생해야 한다.")
