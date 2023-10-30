@@ -5,7 +5,7 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class GameViewer {
-
+    private static final String STEP = "-";
     public void printAskCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
@@ -14,7 +14,7 @@ public class GameViewer {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printStartOfResult() {
+    public void printStartMessage() {
         System.out.println("실행 결과");
     }
 
@@ -22,7 +22,7 @@ public class GameViewer {
         for (Car car : cars) {
             String steps = "";
             for (int i = 0; i < car.getStep(); i++) {
-                steps += "-";
+                steps += STEP;
             }
             System.out.println(car.getName() + " : " + steps);
         }

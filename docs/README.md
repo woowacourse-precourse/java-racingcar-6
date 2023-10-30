@@ -4,22 +4,22 @@
 ---
 ## 🛠️ 기능 목록
 - ### Model
-  - [ ] Car
-    - [ ] 자동차에 이름을 부여할 수 있다. - setCarName(), getCarName()
-    - [ ] 자동차는 전진한 정도 읽을 수 있다. - getStep()
-    - [ ] 자동차는 전진할 수 있다. - increaseStep()
+  - [x] Car
+    - [x] 자동차에 이름을 부여할 수 있다. - setCarName(), getCarName()
+    - [x] 자동차는 전진한 정도 읽을 수 있다. - getStep()
+    - [x] 자동차는 전진할 수 있다. - increaseStep()
     
 - ### Viewer
-  - [ ] 경주할 자동차 이름과 시도할 횟수에 대해서 물어본다. - printAskCarNames, printAskTheNumberOfTry
-  - [ ] 현재 자동차들의 전진 상태값을 출력한다. - printRaceState()
-  - [ ] 최종 우승자를 출력한다. - printWinners
+  - [x] 경주할 자동차 이름과 시도할 횟수에 대해서 물어본다. - printAskCarNames, printAskTheNumberOfTry
+  - [x] 현재 자동차들의 전진 상태값을 출력한다. - printRaceState()
+  - [x] 최종 우승자를 출력한다. - printWinners
   
 - ### Controller
-  - [ ] 사용자로부터 자동차의 이름과 시도할 횟수에 대해서 입력받는다. - readCarNames(), readTheNumberOfTry()
-    - [ ] 입력 받은 자동차들 이름을 tokenize하여 자동차 클래스를 만든다.
-  - [ ] 시도할 횟수 만큼 게임을 진행한다.
-    - [ ] 각각의 차마다 랜덤 숫자를 생성하고, 특정 조건에 맞춰 차량을 전진시킨다. - canProgress()
-    - [ ] 시도가 끝나면, 최종 우수자를 선별한다. - findWinners()
+  - [x] 사용자로부터 자동차의 이름과 시도할 횟수에 대해서 입력받는다. - readCarNames(), readTheNumberOfTry()
+    - [x] 입력 받은 자동차들 이름을 tokenize하여 자동차 클래스를 만든다.
+  - [x] 시도할 횟수 만큼 게임을 진행한다.
+    - [x] 각각의 차마다 랜덤 숫자를 생성하고, 특정 조건에 맞춰 차량을 전진시킨다. - canProgress()
+    - [x] 시도가 끝나면, 최종 우수자를 선별한다. - findWinners()
 
 ---
 ## 🚀 기능 요구 사항
