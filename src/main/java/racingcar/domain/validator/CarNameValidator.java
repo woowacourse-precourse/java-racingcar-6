@@ -4,6 +4,7 @@ import static racingcar.constant.MessageConstants.CAR_NAME_ALPHANUMERIC_COMMA_ON
 import static racingcar.constant.MessageConstants.CAR_NAME_DUPLICATE;
 import static racingcar.constant.MessageConstants.CAR_NAME_MAX_LENGTH_EXCEEDED;
 import static racingcar.constant.MessageConstants.CAR_NAME_NOT_PROVIDED;
+import static racingcar.constant.MessageConstants.CAR_NAME_REGEX;
 import static racingcar.constant.NumberConstants.MAX_CAR_NAME_LENGTH;
 
 import java.util.List;
@@ -30,9 +31,13 @@ public class CarNameValidator {
     }
 
     private void validateAlphanumericAndCommaCarName() {
-        if (carNames.stream().anyMatch(name -> !name.matches("[a-zA-Z0-9,]+"))) {
+        if (carNames.stream().anyMatch(name -> !isValidCarName(name))) {
             throw new IllegalArgumentException(CAR_NAME_ALPHANUMERIC_COMMA_ONLY);
         }
+    }
+
+    private boolean isValidCarName(String name) {
+        return name.matches(CAR_NAME_REGEX);
     }
 
     private void validateCarNameLength() {

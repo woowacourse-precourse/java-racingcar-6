@@ -19,12 +19,12 @@ public final class MessageConstants {
     public static final String CAR_NAME_MAX_LENGTH_EXCEEDED = "자동차 이름은 5글자 이하여야 합니다.";
     public static final String CAR_NAME_DUPLICATE = "자동차 이름은 중복될 수 없습니다.";
 
+    public static final String CAR_NAME_REGEX = "[a-zA-Z0-9,]+";
     public static final String PARSE_CAR_NAME_DELIMITER = ",";
     public static final String WINNER_DELIMITER = ", ";
     public static final String WINNER_PREFIX = "최종 우승자";
     public static final String WINNER_SUFFIX = " : ";
     public static final String RESULT = "실행 결과";
-
     public static final String DASH = "-";
 
 }
