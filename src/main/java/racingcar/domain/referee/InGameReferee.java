@@ -16,7 +16,7 @@ public class InGameReferee {
         return generatedNumber >= LOWER_LIMIT;
     }
 
-    public List<Car> findWinner(List<Car> carList) {
+    public static List<Car> findWinner(List<Car> carList) {
         List<Car> winner = new ArrayList<>();
 
         CarLocation maxLocation = findBiggest(carList);
@@ -29,7 +29,7 @@ public class InGameReferee {
         return winner;
     }
 
-    private CarLocation findBiggest(List<Car> carList) {
+    private static CarLocation findBiggest(List<Car> carList) {
         CarLocation maxLocation = new CarLocation();
 
         for (Car car : carList) {

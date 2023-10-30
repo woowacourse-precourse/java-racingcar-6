@@ -1,6 +1,6 @@
 package racingcar.domain.validator;
 
-public class ChallengeNumberValidator {
+public class ChallengeValidator {
     public static void validate(String input) {
         isNum(input);
     }

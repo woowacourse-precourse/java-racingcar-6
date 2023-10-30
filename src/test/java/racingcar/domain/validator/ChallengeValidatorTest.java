@@ -5,12 +5,12 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-class ChallengeNumberValidatorTest {
+class ChallengeValidatorTest {
     @Test
     public void 정상적인_입력() {
         String number = "3";
 
-        ChallengeNumberValidator.validate(number);
+        ChallengeValidator.validate(number);
     }
 
     @Nested
@@ -37,7 +37,7 @@ class ChallengeNumberValidatorTest {
         }
 
         private static void exception_generator(String input1) {
-            assertThatThrownBy(() -> ChallengeNumberValidator.validate(input1))
+            assertThatThrownBy(() -> ChallengeValidator.validate(input1))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining("Invalid number of attempts input");
         }
