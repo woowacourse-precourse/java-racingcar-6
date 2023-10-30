@@ -1,12 +1,9 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.util.CharacterUnits;
-
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
-
+import static racingcar.exception.ViewExceptionMessage.*;
 import static racingcar.util.CharacterUnits.*;
 import static racingcar.view.InputViewMessage.*;
 
@@ -48,7 +45,7 @@ public class InputView {
     private void validateNumber(String number) {
         for (char token : number.toCharArray()) {
             if (!Character.isDigit(token)) {
-                throw new IllegalArgumentException("[ERROR] 숫자 이외의 값을 입력할 수 없습니다.");
+                throw new IllegalArgumentException(ERROR_NOT_NUMBER.getMessage());
             }
         }
     }
@@ -56,19 +53,19 @@ public class InputView {
     private void validateNumberRange(String numberStr) {
         int number = Integer.parseInt(numberStr);
         if (number < 1) {
-            throw new IllegalArgumentException("[ERROR] 입력할 수 있는 실행 회수는 1 이상의 숫자입니다.");
+            throw new IllegalArgumentException(ERROR_GAME_ROUND_SMALL_THAN_ONE.getMessage());
         }
     }
 
     private void validateBlank(String input) {
         if (input == null || input.isBlank()) {
-            throw new IllegalArgumentException("[ERROR] 공백을 입력할 수 없습니다.");
+            throw new IllegalArgumentException(ERROR_GAME_ROUND_BLANK.getMessage());
         }
     }
 
     private void validateNamesCount(List<String> nameList) {
         if (nameList.size() <= 1) {
-            throw new IllegalArgumentException("[ERROR] 이름은 최소 2개 이상 입력하셔야 합니다.");
+            throw new IllegalArgumentException(ERROR_NAMES_SMALL_THAN_TWO.getMessage());
         }
     }
 
@@ -81,7 +78,7 @@ public class InputView {
     private void validateNameFormat(String name) {
         for (char token : name.toCharArray()) {
             if (!Character.isLetter(token)) {
-                throw new IllegalArgumentException("[ERROR] 이름에 글자 이외의 문자를 입력할 수 없습니다.");
+                throw new IllegalArgumentException(ERROR_NOT_LETTER.getMessage());
             }
         }
     }
