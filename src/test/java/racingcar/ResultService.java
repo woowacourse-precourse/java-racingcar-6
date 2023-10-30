@@ -1,5 +1,9 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class ResultService {
     public static void printNumberOfMovingForward(Cars cars) {
         for (Object car : cars.keySet()) {
@@ -38,6 +42,17 @@ public class ResultService {
             cars = GameService.recordNumberOfMovingForward(cars, (Car) car, isMovingForward);
         }
         return cars;
+    }
+
+    public static List<Car> decideWinners(Cars cars) {
+        Integer maxNumberOfMovingForward = (Integer) Collections.max(cars.values());
+        List<Car> carList = new ArrayList<>();
+        for (Object car : cars.keySet()) {
+            if (cars.get(car).equals(maxNumberOfMovingForward)) {
+                carList.add((Car) car);
+            }
+        }
+        return carList;
     }
 
 
