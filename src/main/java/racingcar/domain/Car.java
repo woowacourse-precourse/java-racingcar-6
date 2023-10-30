@@ -10,4 +10,12 @@ public class Car {
         this.name = name;
         this.currentStatus = new StringBuilder();
     }
+
+    public void decideMoveOrNot() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber >= 4) {
+            currentStatus.append("-");
+        }
+    }
+
 }

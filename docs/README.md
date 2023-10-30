@@ -1,6 +1,6 @@
 ### 🚗 자동차
 - [x] 자동차는 이름(name)과 자신의 현재 상태(currentStatus)를 갖는다.
-- [ ] 자동차는 자신이 전진할지 멈춰있을지 결정한다. (decideMoveOrNot)
+- [x] 자동차는 자신이 전진할지 멈춰있을지 결정한다. (decideMoveOrNot)
 - [ ] 자동차는 현재 상태를 반환할 수 있어야 한다. (getCurrentStatus)
 - [ ] 자동차는 다른 차와 비교를 위해 자신의 점수를 반환할 수 있어야 한다. (getScore)
 
