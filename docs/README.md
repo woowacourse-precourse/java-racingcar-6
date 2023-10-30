@@ -56,7 +56,7 @@
       - [ ] 테스트: 중복된 이름으로 자동차 객체를 생성하려 할 때 `IllegalArgumentException`이 발생하는지 확인
 
 8. **자동차 목록 변환**
-   - [ ] 자동차 이름 목록을 `List<Car>` 객체로 변환하는 기능 👉 `domain#CarFactory#createCars(String namesString)`
+   - [ ] 자동차 이름 목록을 `List<Car>` 객체로 변환하는 기능 👉 `domain#CarFactory#fromNameString(String namesString)`
       - [ ] 테스트: 주어진 자동차 이름 목록을 바탕으로 올바르게 `List<Car>` 객체가 생성되는지 확인
-   - [ ] `List<Car>` 객체를 자동차 이름 목록으로 변환하는 기능 👉 `domain#CarFactory#extractCarNames(List<Car> cars)`
+   - [ ] `List<Car>` 객체를 자동차 이름 목록으로 변환하는 기능 👉 `domain#CarFactory#toNameString(List<Car> cars)`
       - [ ] 테스트: 주어진 `List<Car>` 객체를 바탕으로 올바르게 자동차 이름 목록이 추출되는지 확인
