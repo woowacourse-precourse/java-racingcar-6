@@ -60,4 +60,19 @@ public class Referee {
         }
         System.out.println();
     }
+
+    public List<String> getWinners(){
+        int maxPosition = 0;
+        List<String> winners = new ArrayList<>();
+        for (Car car : this.cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+                winners.clear();
+                winners.add(car.getName());
+            } else if (car.getPosition() == maxPosition) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
 }
