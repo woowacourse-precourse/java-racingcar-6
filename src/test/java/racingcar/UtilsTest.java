@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import jdk.jshell.execution.Util;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -29,6 +30,13 @@ public class UtilsTest extends NsTest {
         assertThat(names).contains("woni", "pobi");
         assertThat(names).containsExactly("pobi", "woni", "jun");
 
+    }
+
+    @Test
+    void 랜덤_숫자_생성() {
+        int num = Utils.getRandomNumber();
+        // 예상 범위(ex. 0 ~ 9사이)에 해당하는 지 확인
+        assertThat(num).isBetween(0, 9);
     }
 
 
