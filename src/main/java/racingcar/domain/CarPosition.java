@@ -5,8 +5,12 @@ public class CarPosition {
 
     private int position;
 
-    public CarPosition() {
-        position = START_POSITION;
+    private CarPosition(int position) {
+        this.position = position;
+    }
+
+    public static CarPosition createStartPosition() {
+        return new CarPosition(START_POSITION);
     }
 
     public void driveForward() {
