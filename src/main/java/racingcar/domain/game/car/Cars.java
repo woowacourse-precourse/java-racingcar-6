@@ -1,6 +1,5 @@
 package racingcar.domain.game.car;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.dto.CarMovementDto;
@@ -37,14 +36,13 @@ public class Cars {
     }
 
     public WinnersDto toWinnerDto() {
-        int maxPosition = getMaxPosition();
-        String winners = getWinners(maxPosition);
+        String winners = getWinners();
         return new WinnersDto(winners);
     }
 
-    private String getWinners(int maxPosition) {
+    private String getWinners() {
         return cars.stream()
-                .filter(car -> car.isSameAs(maxPosition))
+                .filter(car -> car.isSameAs(getMaxPosition()))
                 .map(Car::getCarName)
                 .collect(Collectors.joining(WINNER_NAME_DELIMITER));
     }
@@ -56,7 +54,4 @@ public class Cars {
                 .orElse(MIN_POSITION);
     }
 
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
-    }
 }
