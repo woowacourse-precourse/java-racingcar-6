@@ -44,6 +44,15 @@ class ApplicationTest extends NsTest {
 	}
 
 	@Test
+	void 문자열_길이에_대한_예외_처리() {
+		String input = "exceedString";
+		Validator validator = new Validator();
+
+		assertThatThrownBy(() -> validator.validateNameLength(input))
+			.isInstanceOf(IllegalArgumentException.class);
+	}
+
+	@Test
 	void 빈_문자열에_대한_예외_처리() {
 		StringTokenizer testTokenizer = new StringTokenizer(",", ",");
 		Validator validator = new Validator();
