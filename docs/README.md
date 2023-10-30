@@ -32,11 +32,11 @@
         - [] 테스트: 경주 중 각 자동차의 전진 조건이 올바르게 적용되는지 확인
 
 5. **출력 기능**
-    - [ ] 각 차수별 실행 결과 출력 기능 👉 `view#ResultView#printRaceResult(List<Car> cars)`
+    - [x] 각 차수별 실행 결과 출력 기능 👉 `view#ResultView#printRaceResult(List<Car> cars)`
         - [ ] 테스트: 주어진 자동차의 상태에 따라 올바르게 출력 문자열이 생성되는지 확인
-    - [ ] 단독 우승자 안내 문구 출력 기능 👉 `view#ResultView#printWinner(List<Car> winners)`
+    - [x] 단독 우승자 안내 문구 출력 기능 👉 `view#ResultView#printWinner(List<Car> winners)`
         - [ ] 테스트: 단독 우승자 안내 문구가 올바르게 출력되는지 확인
-    - [ ] 공동 우승자 안내 문구 출력 기능 👉 `view#ResultView#printWinner(List<Car> winners)`
+    - [x] 공동 우승자 안내 문구 출력 기능 👉 `view#ResultView#printWinner(List<Car> winners)`
         - [ ] 테스트: 공동 우승자 안내 문구가 올바르게 출력되는지 확인
 
 6. **우승자 확인**
@@ -56,5 +56,5 @@
 8. **자동차 목록 변환**
    - [x] 자동차 이름 목록을 `List<Car>` 객체로 변환하는 기능 👉 `domain#CarFactory#fromNameString(String namesString)`
       - [x] 테스트: 주어진 자동차 이름 목록을 바탕으로 올바르게 `List<Car>` 객체가 생성되는지 확인
-   - [ ] `List<Car>` 객체를 자동차 이름 목록으로 변환하는 기능 👉 `domain#CarFactory#toNameString(List<Car> cars)`
+   - [x] `List<Car>` 객체를 자동차 이름 목록으로 변환하는 기능 👉 `domain#CarFactory#toNameString(List<Car> cars)`
       - [ ] 테스트: 주어진 `List<Car>` 객체를 바탕으로 올바르게 자동차 이름 목록이 추출되는지 확인

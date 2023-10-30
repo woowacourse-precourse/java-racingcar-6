@@ -2,14 +2,27 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.CarFactory;
 
 public class ResultView {
 
     public static void printRaceResult(List<Car> cars) {
-        // TODO: 각 차수별 실행 결과 출력
+        System.out.println("실행 결과");
+        for (Car car : cars) {
+            printCarPosition(car);
+        }
+        System.out.println();
+    }
+
+    public static void printCarPosition(Car car) {
+        System.out.print(car.getName() + " : ");
+        for (int i = 0; i < car.getPosition(); i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
     public static void printWinners(List<Car> winners) {
-        // TODO: 최종 우승자 출력
+        System.out.println("최종 우승자 : " + CarFactory.toNameString(winners));
     }
 }
