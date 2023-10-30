@@ -3,14 +3,9 @@ package racingcar.controller;
 import static racingcar.util.Constant.ZERO;
 
 import java.util.List;
-import java.util.Map;
 import racingcar.controller.dto.GameResultResponse;
-import racingcar.model.Car;
-import racingcar.model.CarName;
-import racingcar.model.CarRacingTrackGenerator;
-import racingcar.model.RacingGame;
-import racingcar.model.RacingTrackGenerator;
-import racingcar.model.Vehicle;
+import racingcar.model.Cars;
+import racingcar.model.Vehicles;
 import racingcar.util.Converter;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
@@ -27,35 +22,20 @@ public class Controller {
     }
 
     public void start() {
-        List<Car> carNames = getCarNames();
+        Vehicles vehicles = getVehicles();
         int attemptsNumber = getAttemptsNumber();
-        RacingGame racingGame = createTrack(carNames, attemptsNumber, new CarRacingTrackGenerator());
         outputView.printGameResultMessage();
         while (attemptsNumber-- > ZERO.getValue()) {
-            play(racingGame);
+            move(vehicles);
         }
-        finish(racingGame);
+        finish(vehicles);
     }
 
-    private void play(final RacingGame racingGame) {
-        racingGame.move(new RandomNumberGenerator());
-        Map<String, Integer> racingTrack = racingGame.getResult();
-        GameResultResponse gameResultResponse = GameResultResponse.from(racingTrack);
-        outputView.printGameResult(gameResultResponse);
-    }
-
-    private void finish(final RacingGame racingGame) {
-        List<String> winners = racingGame.getWinner();
-        outputView.printWinner(winners);
-    }
-
-    private List<Car> getCarNames() {
+    private Vehicles getVehicles() {
         outputView.printCarNameRequestMessage();
-        String carNames = inputView.readLine();
-        List<String> carNameList = Converter.splitWithComma(carNames);
-        return carNameList.stream()
-                .map(carName -> Car.createWith(new CarName(carName)))
-                .toList();
+        String vehicleNames = inputView.readLine();
+        List<String> carNameList = Converter.splitWithCommaAndConvertToList(vehicleNames);
+        return Cars.createWith(carNameList);
     }
 
     private int getAttemptsNumber() {
@@ -64,9 +44,14 @@ public class Controller {
         return Converter.stringToInt(attemptsNumber);
     }
 
+    private void move(final Vehicles vehicles) {
+        vehicles.moveAll(new RandomNumberGenerator());
+        GameResultResponse gameResultResponse = GameResultResponse.from(vehicles.getResult());
+        outputView.printGameResult(gameResultResponse);
+    }
 
-    private <T extends Vehicle> RacingGame createTrack(final List<T> carNamesList, final int attemptsNumber,
-                                                       final RacingTrackGenerator<T> racingTrackGenerator) {
-        return racingTrackGenerator.create(carNamesList, attemptsNumber);
+    private void finish(final Vehicles vehicles) {
+        List<String> winners = vehicles.getWinner();
+        outputView.printWinner(winners);
     }
 }
