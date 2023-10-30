@@ -20,15 +20,23 @@ public class GameUtil {
     }
 
     public void runGame() {
-        receiveCarsName();
-        receiveRepeatNumber();
-        repeatProgress();
-        findWinners();
+        System.out.println(Constants.CAR_NAME_INPUT_COMMENT);
+        String inputNames = Console.readLine();
+        setCarsName(inputNames);
+
+        System.out.println(Constants.REPEAT_NUMBER_INPUT_COMMENT);
+        String repeatNumber = Console.readLine();
+        setRepeatNumber(repeatNumber);
+
+        for (int i = 0; i < this.repeatNumber; i++) {
+            System.out.println(randomProgress());
+        }
+
+        System.out.println(findWinners());
     }
 
-    public void receiveCarsName() {
-        System.out.println(Constants.CAR_NAME_INPUT_COMMENT);
-        String[] carNames = validateAndSplitCarNames(Console.readLine());
+    public void setCarsName(String inputNames) {
+        String[] carNames = validateAndSplitCarNames(inputNames);
 
         for (String name : carNames) {
             Car car = new Car(name);
@@ -48,10 +56,7 @@ public class GameUtil {
         return carNames;
     }
 
-    public void receiveRepeatNumber() {
-        System.out.println(Constants.REPEAT_NUMBER_INPUT_COMMENT);
-        String repeatNumber = Console.readLine();
-
+    public void setRepeatNumber(String repeatNumber) {
         validateRepeatNumber(repeatNumber);
         this.repeatNumber = Integer.parseInt(repeatNumber);
     }
@@ -64,14 +69,7 @@ public class GameUtil {
         }
     }
 
-    public void repeatProgress() {
-        for (int i = 0; i < repeatNumber; i++) {
-            randomProgress();
-            printResult();
-        }
-    }
-
-    private void randomProgress() {
+    public String randomProgress() {
         for (Car car : cars) {
             int randomNumber = Randoms.pickNumberInRange(minRandomValue, maxRandomValue);
 
@@ -79,9 +77,11 @@ public class GameUtil {
                 car.setProgress(car.getProgress() + 1);
             }
         }
+
+        return makeResult();
     }
 
-    private void printResult() {
+    private String makeResult() {
         StringBuilder result = new StringBuilder();
 
         for (Car car : cars) {
@@ -89,10 +89,10 @@ public class GameUtil {
             result.append("\n");
         }
 
-        System.out.println(result);
+        return result.toString();
     }
 
-    public void findWinners() {
+    public String findWinners() {
         StringBuilder result = new StringBuilder();
         Car maxCar = cars.stream()
                 .max(Comparator.comparing(Car::getProgress))
@@ -105,6 +105,6 @@ public class GameUtil {
             }
         }
 
-        System.out.println(Constants.WINNER_PRINT_COMMENT + result.deleteCharAt(result.length()-2));
+        return Constants.WINNER_PRINT_COMMENT + result.deleteCharAt(result.length()-2);
     }
 }
