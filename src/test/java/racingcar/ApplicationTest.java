@@ -19,6 +19,23 @@ class ApplicationTest extends NsTest {
 
 
     @Test
+    void 우승자_추출() {
+        // distance array , max 설정
+        int[] distanceArray = new int[4];
+        distanceArray[0] = 1;
+        distanceArray[1] = 2;
+        distanceArray[2] = 3;
+        distanceArray[3] = 4;
+        int max = 4;
+
+        // getWinners 테스트
+        ArrayList<Integer> array = Application.getWinners(distanceArray, max);
+
+        // 예상값 index 3
+        assertThat(array.get(0)).isEqualTo(3);
+    }
+
+    @Test
     void 최대값_추출() {
         // 최대값 5 설정
         int[] array = new int[3];
