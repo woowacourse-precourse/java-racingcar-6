@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,11 +18,9 @@ class ValidExceptionTest {
     }
 
     @DisplayName("이름은 5자 이하 검사.")
-    @Test
-    void isValidFIveLessString() {
-        // given
-        String input = "abcdef";
-
+    @ParameterizedTest
+    @ValueSource(strings = {"abcdef", ""})
+    void isValidFIveLessString(String input) {
         // then
         Assertions.assertThatThrownBy(
                         () -> ValidException.isValidFIveLessString(input))
@@ -28,13 +28,13 @@ class ValidExceptionTest {
     }
 
     @DisplayName("한글 포함 검사")
-    @Test
-    void isValidIncludeKoreanCheck() {
-        // given
-
-        // when
-
+    @ParameterizedTest
+    @ValueSource(strings = {"한asd", "한글", "asd한", "한asd글"})
+    void isValidIncludeKoreanCheck(String input) {
         // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidIncludeKoreanCheck(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("숫자를 포함하는 여부 검사.")
