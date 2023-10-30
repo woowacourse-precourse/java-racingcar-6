@@ -57,6 +57,19 @@ public class RacingCars {
         return results;
     }
 
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        int maxPosition = getMaxPosition();
+
+        for (RacingCar racingCar : this.racingCars) {
+            if (racingCar.getPosition() == maxPosition) {
+                winners.add(racingCar.getName());
+            }
+        }
+
+        return winners;
+    }
+
     private int getMaxPosition() {
         int maxPosition = 0;
 
