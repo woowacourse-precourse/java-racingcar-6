@@ -27,6 +27,12 @@ class InputValidatorTest {
     }
 
     @Test
+    void 구분자가_연속으로_들어갈_때_예외_발생() {
+        assertThatThrownBy(() -> InputValidator.validateCarNames("pobi,,woni"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void round를_입력하지_않았을_때_예외_발생() {
         assertThatThrownBy(() -> InputValidator.validateRound(""))
                 .isInstanceOf(IllegalArgumentException.class)
