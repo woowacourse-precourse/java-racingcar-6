@@ -41,4 +41,12 @@ public class GameTest {
         assertThat(carList.get(0).getName()).isEqualTo("user1");
         assertThat(carList.get(1).getName()).isEqualTo("user2");
     }
+
+    @Test
+    public void testRandomNumber(){
+        Game game = new Game();
+        int result = game.randomNumber();
+
+        assertThat(result).isBetween(0, 9);
+    }
 }
