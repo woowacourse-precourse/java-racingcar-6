@@ -44,7 +44,7 @@ public class RaceGameTest {
       // when & then
       assertThatThrownBy(() -> new RaceGame(mockFormula, cars, round))
           .isInstanceOf(IllegalArgumentException.class)
-          .hasMessage("시도 회수는 1 이상이어야 합니다.");
+          .hasMessage("시도할 회수는 1 이상이어야 합니다.");
     }
   }
 

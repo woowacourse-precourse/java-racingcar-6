@@ -38,7 +38,7 @@ public class RaceGame {
 
   private void isRoundPositive(int round) {
     if (round < MINIMUM_ROUND) {
-      throw new IllegalArgumentException("시도 회수는 1 이상이어야 합니다.");
+      throw new IllegalArgumentException("시도할 회수는 1 이상이어야 합니다.");
     }
   }
 
