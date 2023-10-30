@@ -48,7 +48,7 @@ public class Application {
     }
 
     public static Integer inputN() {
-        return Integer.parseInt(Console.readLine()); //정수형 N
+        return Integer.parseInt(Console.readLine()); //정수 N
     }
 
     public static Integer randomNumber() {
