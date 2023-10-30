@@ -17,6 +17,7 @@ public class Validator {
 
     public void validateCarNames(List<String> carNames) {
         checkCarNameLength(carNames);
+        checkCarNameCounting(carNames);
         checkCarNameDuplicated(carNames);
     }
 
@@ -25,6 +26,12 @@ public class Validator {
             if (carName.length() < 1 || carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 1~5자로 입력해주세요.");
             }
+        }
+    }
+
+    private void checkCarNameCounting(List<String> carNames) {
+        if (carNames.size() < 2) {
+            throw new IllegalArgumentException("경주를 하기 위해서 자동차 이름을 최소 2개는 입력해주세요.");
         }
     }
 
