@@ -3,7 +3,6 @@ package racingcar.controller;
 import racingcar.model.Race;
 import racingcar.model.validator.CarNameValidator;
 import racingcar.model.validator.MovingCountValidator;
-import racingcar.model.RaceTrack;
 import racingcar.view.UserInputValue;
 
 public class RaceController {

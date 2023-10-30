@@ -17,8 +17,6 @@ public class Race {
         for (int i = 0; i < cars.length; i++) {
             System.out.print(cars[i].printMovement() + "\n");
         }
-//        System.out.println();
-//        System.out.println(rankFirst());
         System.out.println();
     }
 
@@ -39,15 +37,6 @@ public class Race {
 
     // 우승자 선정 및 출력
     public void selectWinner() {
-        StringBuilder winner = new StringBuilder();
-
-        for (int i = 0; i < cars.length; i++) {
-            if (cars[i].getCarRank() == rankFirst()) {
-                winner.append(cars[i].getCarName().substring(0, cars[i].getCarName().length() - cars[i].getCarRank() - 3)).append(", ");
-            }
-        }
-
-        String winners = winner.substring(0, winner.length() - 2);
-        System.out.println("최종 우승자 : " + winners);
+        RaceResult.printWinner(cars);
     }
 }
