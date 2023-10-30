@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.controller.RacingController;
-import racingcar.domain.Cars;
+import racingcar.domain.RacingCars;
 import racingcar.domain.ForwardTryCount;
 import racingcar.view.RacingTurnsInput;
 
@@ -9,7 +9,7 @@ public class CarRacingApplication {
 
     RacingController racingController;
 
-    public void runWith(Cars racingCars) {
+    public void runWith(RacingCars racingCars) {
 
         ForwardTryCount forwardTryCount = getForwardTryCountFromInput();
 

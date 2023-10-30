@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.controller.CarFactoryController;
-import racingcar.domain.Cars;
+import racingcar.domain.RacingCars;
 import racingcar.view.CarNamesInputView;
 
 public class CarFactoryApplication {
@@ -13,7 +13,7 @@ public class CarFactoryApplication {
         carFactoryController = new CarFactoryController();
     }
 
-    public Cars produceCarsWithInput() {
+    public RacingCars produceCarsWithInput() {
 
         return carFactoryController.createRacingCars(CarNamesInputView.input());
 

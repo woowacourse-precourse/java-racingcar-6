@@ -5,15 +5,13 @@ import static racingcar.enums.Integers.RANDOM_NUMBER_MAX;
 import static racingcar.enums.Integers.RANDOM_NUMBER_MIN;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.Car;
-import racingcar.domain.Cars;
+import racingcar.domain.RacingCars;
 
 public class RacingPlayService {
 
 
-    public void playRacingWith(Cars racingCars) {
+    public void playRacingWith(RacingCars racingCars) {
         racingCars.stream()
                   .peek(this::checkMoveForward);
 

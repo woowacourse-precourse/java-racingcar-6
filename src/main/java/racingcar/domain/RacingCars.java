@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class Cars {
+public class RacingCars {
 
     private final List<Car> cars;
 
-    public Cars(List<Car> cars) {
+    public RacingCars(List<Car> cars) {
         this.cars = new ArrayList<>(cars);
     }
 
