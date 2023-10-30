@@ -22,19 +22,19 @@ class RacingCarTest {
     @Test
     void 이동_횟수_테스트() {
 
-        String result;
+        Result result;
 
         racingCar.move(3);
         result = racingCar.makeResult();
-        Assertions.assertThat(result).isEqualTo("");
+        Assertions.assertThat(result.getAdvance()).isEqualTo(0);
 
         racingCar.move(5);
         result = racingCar.makeResult();
-        Assertions.assertThat(result).isEqualTo("-");
+        Assertions.assertThat(result.getAdvance()).isEqualTo(1);
 
         racingCar.move(5);
         result = racingCar.makeResult();
-        Assertions.assertThat(result).isEqualTo("--");
+        Assertions.assertThat(result.getAdvance()).isEqualTo(2);
     }
 
     @Test
@@ -42,7 +42,8 @@ class RacingCarTest {
 
         racingCar.move(5);
         racingCar.move(5);
-        String result = racingCar.reportResult();
-        Assertions.assertThat(result).isEqualTo("test : --");
+        Result result = racingCar.makeResult();
+        Assertions.assertThat(result.getName()).isEqualTo("test");
+        Assertions.assertThat(result.getAdvance()).isEqualTo(2);
     }
 }

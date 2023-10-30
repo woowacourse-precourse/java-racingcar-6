@@ -24,11 +24,7 @@ public class RacingCar {
         }
     }
 
-    public String makeResult() {
-        return "-".repeat(advance);
-    }
-
-    public String reportResult() {
-        return name + " : " + makeResult();
+    public Result makeResult() {
+        return new Result(name, advance);
     }
 }
