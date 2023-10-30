@@ -31,7 +31,7 @@ public class RacingCarInputValidator {
     }
 
     private void validateLength(String carName) {
-        if (carName.isEmpty() || MAX_CAR_NAME_LENGTH < carName.length()) {
+        if (carName.isEmpty() || carName.isBlank() || MAX_CAR_NAME_LENGTH < carName.length()) {
             throw new IllegalArgumentException(MAX_CAR_NAME_EXCEPTION);
         }
     }
