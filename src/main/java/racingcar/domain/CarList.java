@@ -18,14 +18,10 @@ public class CarList {
         this.carList = carList;
     }
 
-    public void carsStopOrMoveDecisionCall() {
-        for (Car car : carList) {
-            int carPosition = car.stopOrMoveDecision(RandomNumberGenerator.createRandomNumber());
-            String carName = car.getCarName();
-            carMoveOrStopDecisionResultView(carName, carPosition);
+    public void racing(int attemptNumber) {
+        for (int i = 0; i < attemptNumber; i++) {
+            carsStopOrMoveDecisionCall();
         }
-
-        newLine();
     }
 
     public String racingWinnerDecision() {
@@ -33,6 +29,16 @@ public class CarList {
                 .collect(Collectors.toMap(Car::getCarName, Car::getCarPosition));
         List<String> winnerList = findWinner(rankingMap);
         return (stringListToStringConvert(winnerList));
+    }
+
+    private void carsStopOrMoveDecisionCall() {
+        for (Car car : carList) {
+            int carPosition = car.stopOrMoveDecision(RandomNumberGenerator.createRandomNumber());
+            String carName = car.getCarName();
+            carMoveOrStopDecisionResultView(carName, carPosition);
+        }
+
+        newLine();
     }
 
     private List<String> findWinner(Map<String, Integer> rankingMap) {

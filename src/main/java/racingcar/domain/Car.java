@@ -36,16 +36,17 @@ public class Car {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object comparedCar) {
+        if (this == comparedCar) {
             return true;
         }
 
-        if (!(o instanceof Car car)) {
+        if (comparedCar == null || getClass() != comparedCar.getClass()) {
             return false;
         }
 
-        return Objects.equals(carName, car.carName);
+        Car cars = (Car) comparedCar;
+        return Objects.equals(carName, cars.carName);
     }
 
     @Override

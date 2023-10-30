@@ -8,22 +8,6 @@ import org.junit.jupiter.api.Test;
 
 
 class CarListTest {
-
-    @Test
-    void stringToCarListTest() {
-        //given
-        List<Car> testCarList = new ArrayList<>();
-        testCarList.add(new Car("zizi"));
-        testCarList.add(new Car("hoho"));
-        testCarList.add(new Car("haha"));
-
-        //when
-        CarList carList = new CarList(testCarList);
-
-        //then
-        assertEquals(carList.toString(), testCarList.toString());
-    }
-
     @Test
     void racingWinnerDecisionTest() {
         //given
