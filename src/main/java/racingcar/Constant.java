@@ -16,6 +16,6 @@ public class Constant {
     public static final String OVER_MAX_LENGTH_MESSAGE = "자동차 이름이 5자 이상입니다. 게임이 종료됩니다.";
     public static final String INVALID_NUMERIC_INPUT_MESSAGE = "시도할 횟수가 올바른 숫자가 아닙니다. 게임이 종료됩니다.";
     public static final String MINIMUM_ATTEMPT_COUNT_REQUIRED_MESSAGE = "시도할 횟수는 최소 1 이상이어야 합니다. 게임이 종료됩니다.";
-    public static final String PRINT_RESULT_MESSAGE = "\n실행 결과\n";
+    public static final String PRINT_RESULT_MESSAGE = "실행 결과";
     public static final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
 }
