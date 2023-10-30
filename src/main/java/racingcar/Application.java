@@ -13,7 +13,8 @@ public class Application {
 
         int max = findMaxDistance(initData.distanceArray());
         ArrayList<Integer> winner = getWinners(initData.distanceArray(), max);
-        // TODO : 우승자 출력
+
+        printWinners(winner, initData.carNames());
 
     }
 
@@ -106,5 +107,17 @@ public class Application {
             }
         }
         return winner;
+    }
+
+    private static void printWinners(ArrayList<Integer> winner, String[] carNames) {
+        if (winner.size() > 1) {
+            System.out.print("최종 우승자 : ");
+            System.out.print(carNames[winner.get(0)]);
+            for (int i = 1; i < winner.size(); i++) {
+                System.out.print(", " + carNames[winner.get(i)]);
+            }
+        } else {
+            System.out.print("최종 우승자 : " + carNames[winner.get(0)]);
+        }
     }
 }
