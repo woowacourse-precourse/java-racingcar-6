@@ -41,4 +41,23 @@ public class ScreenTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 경주_시행_횟수_입력() {
+        String input = "5";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        int result = Screen.askRacingTime();
+
+        assertThat(result).isEqualTo(5);
+    }
+
+    @Test
+    void 경주_시행_횟수_숫자가_아닌_문자열_입력() {
+        String input = "a";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        assertThatThrownBy(Screen::askRacingTime)
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
