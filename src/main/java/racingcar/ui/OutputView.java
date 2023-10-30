@@ -6,7 +6,7 @@ public class OutputView {
         System.out.println(output.getComment());
     }
 
-    public void printRoundResult(String name, Integer distance) {
+    public void printMoveResult(String name, Integer distance) {
         System.out.println(name + Output.SEPARATOR + distance);
     }
 
