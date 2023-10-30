@@ -15,7 +15,30 @@ public class GameController {
         PlayersDto playersDto = generatePlayers(playerNamesDto);
         PlayerMoveList playerMoveList = generatePlayerMoveList(playersDto);
         RaceCount raceCount = InputView.InputRaceCount();
+
+        play(playerMoveList, raceCount);
+
     }
+
+    private void play(PlayerMoveList playerMoveList, RaceCount raceCount) {
+        OutputView.printMoveResultMessage();
+        RacingGame racingGame = RacingGame.init(playerMoveList);
+        int tryCount = 0;
+        // 여기 리팩토링 필요 @
+        do {
+            racingGame.move();
+            tryCount++;
+            List<MoveResultDto> moveResultDtoList = getMoveResultList(playerMoveList);
+            OutputView.printMoveResult(moveResultDtoList);
+        } while (!raceCount.isSameCount(tryCount));
+    }
+
+    private List<MoveResultDto> getMoveResultList(PlayerMoveList playerMoveList) {
+        return playerMoveList.getPlayerMoveList().stream()
+                .map(MoveResultDto::from)
+                .collect(Collectors.toList());
+    }
+
 
     private PlayerMoveList generatePlayerMoveList(PlayersDto playersDto) {
         List<PlayerMove> playerMoveList = playersDto.getPlayers().stream()

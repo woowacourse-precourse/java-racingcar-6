@@ -25,4 +25,8 @@ public class RaceCount {
     private static boolean isInRange(int count) {
         return count >= MINIMUM_RACE_COUNT;
     }
+
+    public boolean isSameCount(int tryCount) {
+        return value == tryCount;
+    }
 }
