@@ -11,12 +11,12 @@ public class Input {
         String[] carNames = Console
                 .readLine()
                 .split(",");
-        Exception.nameVerification(carNames);
+        Exception.checkName(carNames);
         return Arrays.asList(carNames);
 
     }
 
-    public int numberOfAttempts() {
+    public int numberTry() {
 
         return Integer.parseInt(Console.readLine());
 
