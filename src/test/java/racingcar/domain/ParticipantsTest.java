@@ -34,7 +34,15 @@ class ParticipantsTest {
         );
     }
 
-    // TODO: 검증 추가하고, List<Car> 생성자 테스트 작성하기
+    @Test
+    void 중복된_이름의_자동차가_있으면_에러가_발생한다() {
+        List<Car> cars = List.of(
+                new Car("car1"),
+                new Car("car1"));
+
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> new Participants(cars));
+    }
 
     @Test
     void 레이스를_진행할_수_있다() {
