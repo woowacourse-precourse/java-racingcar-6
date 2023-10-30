@@ -24,6 +24,8 @@ public class RacingController {
 
         processRacing(trialNumber);
 
+        OutputView.printWinner(racingCars.getWinners());
+
     }
 
     private String[] getCarNames() {
