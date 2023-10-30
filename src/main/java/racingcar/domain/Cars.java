@@ -16,6 +16,11 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
+    public List<String> findWinners() {
+        final Car winner = findFrontPosition();
+        return findTiedWinners(winner);
+    }
+
     private Car findFrontPosition() {
         Car maxPosition = cars.get(0); // 초기값으로 첫 번째 자동차를 선택
         for (Car car : cars) {
