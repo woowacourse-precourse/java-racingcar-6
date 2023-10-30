@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.ArrayList;
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.model.Car;
 
 public class RacingCarView {
 	public String inputCarName() {
@@ -22,7 +23,7 @@ public class RacingCarView {
 		System.out.println();
 	}
 	
-	void printResultMessage() {
+	public void printResultMessage() {
 		System.out.println("\n실행 결과");
 	}
 	
@@ -32,7 +33,7 @@ public class RacingCarView {
 		System.out.println();
 	}
 	
-	void printWinner(String[] names) {
+	public void printWinner(String[] names) {
 		System.out.print("최종 우승자 : " + String.join(", ", names));
 	}
 }

@@ -1,7 +1,10 @@
-package racingcar;
+package racingcar.controller;
 
 import java.util.*;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.model.Car;
+import racingcar.model.CarRepository;
+import racingcar.view.RacingCarView;
 
 public class RacingGame {
 	static final int NAME_LENGTH = 5;
