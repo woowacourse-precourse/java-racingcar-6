@@ -17,11 +17,11 @@ public class RacingGame {
         System.out.println("시도할 횟수는 몇회인가요?");
         tryCount = inputTry();
 
-        //TODO: 각 차수별 전진 상태 출력 하기
         System.out.println("\n실행 결과");
         progress(cars, tryCount);
 
-        //TODO: 우승자 출력 하기
+        System.out.print("최종 우승자 : ");
+        getWinner(cars);
     }
 
     public void inputCarName(List<Car> cars) {
@@ -61,6 +61,27 @@ public class RacingGame {
         System.out.println();
 
         progress(cars, tryCount - 1);
+    }
+
+    public void getWinner(List<Car> cars) {
+        List<Car> winners = new ArrayList<>();
+        winners.add(cars.get(0));
+        for (int i = 1; i < cars.size(); i++) {
+            if (cars.get(i).state == winners.get(winners.size() - 1).state) {
+                winners.add(cars.get(i));
+            }
+            if (cars.get(i).state > winners.get(winners.size() - 1).state) {
+                winners.removeAll(winners);
+                winners.add(cars.get(i));
+            }
+        }
+
+        StringBuilder winnner = new StringBuilder();
+        for (Car car : winners) {
+            winnner.append(car.name).append(", ");
+        }
+        winnner.delete(winnner.length() - 2, winnner.length());
+        System.out.print(winnner);
     }
 
 }
