@@ -25,5 +25,30 @@ public class Validation {
         }
     }
 
+    /**
+     * 정수 입력했는지 검증
+     *
+     * @param str
+     * @return
+     */
+    public static int stringToIntValidation(String str) {
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("정수를 입력해야 합니다.");
+        }
+    }
+
+
+    /**
+     * 양수를 입력했는지 검증
+     *
+     * @param n
+     */
+    public static void isPositive(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("양수를 입력해야 합니다.");
+        }
+    }
 
 }

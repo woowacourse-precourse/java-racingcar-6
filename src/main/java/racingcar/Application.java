@@ -15,6 +15,11 @@ public class Application {
         Validation.isLongName(carNames);
 
         // TODO 2. 시도 횟수 입력
+        System.out.println("시도할 회수는 몇회인가요?");
+        // 정수를 입력했는지 검증
+        int n = Validation.stringToIntValidation(Console.readLine());
+        // n이 양수인지 검증
+        Validation.isPositive(n);
 
         // TODO 3. 앞으로 간 거리("-")를 저장할 배열 생성
 
