@@ -6,7 +6,7 @@ public class ExceptionCase {
 
     public void carNameLength(List<String> racers) {
         racers.forEach((a)-> {
-            if(a.length()>6) {
+            if(a.length()> 5) {
                 throw new IllegalArgumentException();
             }
         });

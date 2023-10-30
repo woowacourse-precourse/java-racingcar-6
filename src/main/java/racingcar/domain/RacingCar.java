@@ -22,7 +22,6 @@ public class RacingCar {
         return racers;
     }
 
-
     public int attemptInput() {
         String attempt = Console.readLine();
         return Integer.parseInt(attempt);

@@ -7,9 +7,7 @@ import racingcar.domain.Racing;
 import racingcar.domain.RacingCar;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -20,12 +18,29 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = racingCar.nameInput();
         List<String> cars = racingCar.naming(input);
-        List<String> raceResult = new ArrayList<>();
+
+        System.out.println("시도할 회수는 몇회인가요?");
         int attemptInput = racingCar.attemptInput();
 
-        for(int i=0; i<cars.size();i++) {
-           raceResult.add(racing.moveResult(attemptInput));
+        System.out.println("실행 결과");
+        String[] raceResult = new String[cars.size()];
+        Map<String,String> rank = new HashMap<>();
+        for(int i=0; i<attemptInput; i++) {
+            racing.moveResult(cars, raceResult);
+            for(int j=0; j<cars.size(); j++) {
+                System.out.println(cars.get(j) + " : " + raceResult[j]);
+                rank.put(cars.get(j),raceResult[j]);
+            }
+            System.out.println();
         }
-        System.out.println(raceResult);
+        String findWinner = Collections.max(rank.values());
+        List<String> winner =new ArrayList<>();
+        for(String key: rank.keySet()) {
+            if(rank.get(key).equals(findWinner)) {
+                winner.add(key);
+            }
+        }
+        String result = String.join(",", winner);
+        System.out.println("최종 우승자 : "+result);
     }
 }

@@ -2,6 +2,10 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Racing {
 
     NumberGenerator numberGenerator = new NumberGenerator();
@@ -14,13 +18,15 @@ public class Racing {
         return count;
     }
 
-    public String moveResult(int attemptInput) {
-        String result = "";
-        for(int i=0; i<attemptInput; i++) {
+    public String[] moveResult(List<String> cars,String[] raceResult) {
+        for(int i=0; i<cars.size(); i++) {
+            if(raceResult[i] == null){
+                raceResult[i] = "";
+            }
             int randomNumber = numberGenerator.createRandomNumber();
-            result += moveForward(randomNumber);
+            raceResult[i] += moveForward(randomNumber);
         }
-        return result;
+        return raceResult;
     }
 
 }
