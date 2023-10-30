@@ -23,4 +23,9 @@ public class Validator {
             throw new IllegalArgumentException("자동차 이름에 빈 칸은 포함될 수 없습니다.");
         }
     }
+
+    public void checkRoundNumberBlank(String round) {
+        if (round.contains(" "))
+            throw new IllegalArgumentException("게임 시도 회수에 빈 칸은 포함될 수 없습니다.");
+    }
 }

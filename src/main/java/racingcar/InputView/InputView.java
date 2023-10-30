@@ -20,4 +20,17 @@ public class InputView {
         }
         return names;
     }
+
+    public int getRoundNumber() {
+        int round = 0;
+
+        while(round == 0) {
+            System.out.println("시도할 회수는 몇회인가요?");
+            String input = Console.readLine();
+            validator.checkRoundNumberBlank(input);
+            round = Integer.parseInt(input);
+        }
+        return round;
+
+    }
 }
