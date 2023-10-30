@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.car.Car;
 
 public final class RacingCars {
     private static final int MIN_CAR_COUNT = 2;

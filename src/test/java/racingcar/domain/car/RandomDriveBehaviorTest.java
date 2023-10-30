@@ -1,10 +1,13 @@
-package racingcar.domain;
+package racingcar.domain.car;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.car.CarPosition;
+import racingcar.domain.car.DriveBehavior;
+import racingcar.domain.car.RandomDriveBehavior;
 
 public class RandomDriveBehaviorTest {
     @ParameterizedTest
