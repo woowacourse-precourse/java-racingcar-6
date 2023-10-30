@@ -17,9 +17,26 @@ import static util.Messages.INPUT_TRY_CNT;
  * 2023-10-26        qkrtn_ulqpbq2       최초 생성
  */
 public class InputView {
-    public static String inputCarNames(){
-        System.out.print(INPUT_CAR_NAMES);
-        return Console.readLine();
+
+    public static String carNames = "";
+    public static final String DELIMITER = ",";
+    public static String inputCarNames() {
+        boolean validInput;
+
+        do {
+            System.out.println(INPUT_CAR_NAMES);
+            carNames = Console.readLine();
+            validInput = isValidCarNames(carNames);
+        } while (!validInput);
+
+        return carNames;
+    }
+
+    private static boolean isValidCarNames(String carNames) {
+        if (!carNames.contains(DELIMITER)) {
+            return false;
+        }
+        return true;
     }
 
     public static String inputTryCount() {

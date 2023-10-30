@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -30,26 +31,29 @@ public class CarTest {
         assertThat(car).isNotNull();
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {" "})
+    @DisplayName("자동차 리스트 생성 실패")
+    public void failed(String string) {
+        assertThatThrownBy(() -> new Car(string)).isInstanceOf(IllegalArgumentException.class);
+    }
+
     @Test
     @DisplayName("자동차 이름이 5자보다 클 경우 예외 발생")
     public void carNameLong(){
-        String carNames = "AAAABBBB";
-        String errorMessage = "[ERROR] 너무 긴 이름입니다.";
+        String carNames = "javaji";
 
         assertThatThrownBy(() -> new Car(carNames))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(errorMessage);
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     @DisplayName("자동차 이름이 빈값일 경우 예외 발생")
     public void carNameEmpty(){
         String carNames = "";
-        String errorMessage = "[ERROR] 이름은 빈 값으로 입력할 수 없습니다.";
 
         assertThatThrownBy(() -> new Car(carNames))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(errorMessage);
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -68,12 +72,5 @@ public class CarTest {
         Car car = new Car("test");
         car.goOrStop(random);
         assertThat(car.getPosition()).isEqualTo(expected);
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"", " ", "1231456"})
-    @DisplayName("자동차 리스트 생성 실패")
-    public void failed(String string) {
-        assertThatThrownBy(() -> new Car(string)).isInstanceOf(IllegalArgumentException.class);
     }
 }

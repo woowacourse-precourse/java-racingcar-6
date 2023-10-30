@@ -3,12 +3,9 @@ package model;
 import util.ErrorMessages;
 import util.RandomGenerator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-import static util.StringUtils.splitByDelimiter;
-import static util.StringUtils.stripStringArray;
+import static util.StringUtils.*;
 
 /**
  * packageName    : model
@@ -26,6 +23,7 @@ public class Cars {
     private static final String DELIMITER = ",";
     private static final int MIN = 0;
     private static final int MAX = 9;
+    private static final int CARS_SIZE = 2;
 
     private final List<Car> cars = new ArrayList<>();
 
@@ -34,8 +32,10 @@ public class Cars {
     }
 
     public Cars(String carNames) {
-        String[] carNameArray = stripStringArray(splitByDelimiter(carNames, DELIMITER));
+        String[] carNameArray = stripStringArray(splitByDelimiter(notSplit(carNames), DELIMITER));
+
         validateDuplicatedName(carNameArray);
+
         for (String carName : carNameArray) {
             cars.add(new Car(carName));
         }
@@ -51,7 +51,7 @@ public class Cars {
 
     public void moveAll() {
         for (Car car : cars) {
-            car.goOrStop(RandomGenerator.generateNumber(MIN, MAX + 1));
+            car.goOrStop(RandomGenerator.generateNumber(MIN, MAX));
         }
     }
 

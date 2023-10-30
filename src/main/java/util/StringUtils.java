@@ -1,5 +1,8 @@
 package util;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -14,6 +17,15 @@ import java.util.stream.IntStream;
  * 2023-10-30        qkrtn_ulqpbq2       최초 생성
  */
 public class StringUtils {
+
+    public static final String DELIMITER = ",";
+
+    public static String notSplit(String string){
+        if(!string.contains(DELIMITER)){
+            throw new IllegalArgumentException();
+        }
+        return string;
+    }
     public static String[] splitByDelimiter(String string, String delimiter) {
         return string.split(delimiter);
     }

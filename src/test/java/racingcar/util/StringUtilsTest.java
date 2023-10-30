@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import util.StringUtils;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -21,7 +23,7 @@ public class StringUtilsTest {
 
     @Test
     @DisplayName("구분자로 문자열 자르기")
-    void splitByDelimiter(){
+    void splitByDelimiterCorrect(){
         String str = "a,b,c,d";
         String delimiter = ",";
 
@@ -31,8 +33,8 @@ public class StringUtilsTest {
     }
 
     @Test
-    @DisplayName("배열의 각 요소 strip 처리")
-    void stripStringArray() {
+    @DisplayName("구분자로 문자열 자르기_공백제거")
+    void splitByDelimiterInCorrect(){
         String[] arr = {"  test  "};
         String expectStr = "test";
 

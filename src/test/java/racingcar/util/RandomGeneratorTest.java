@@ -24,7 +24,7 @@ public class RandomGeneratorTest {
     @DisplayName("랜덤값 생성")
     public void makeRandomNumber(){
         int min = 0;
-        int max = 10;
+        int max = 9;
 
         int number = RandomGenerator.generateNumber(min, max);
         assertTrue(number >= 0 && number <= 9);

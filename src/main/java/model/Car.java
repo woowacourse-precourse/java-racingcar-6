@@ -2,6 +2,10 @@ package model;
 
 import util.ErrorMessages;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * packageName    : model
  * fileName       : Car
@@ -17,9 +21,9 @@ public class Car {
 
     private static final int MOVING_DISTANCE = 1;
     private static final int STANDARD_VALUE = 4;
-    private static final int MAX_LENGTH = 5;
-    private static final int MIN_LENGTH = 1;
     private static final int INIT_POSITION = 0;
+    private static final int MAX_LENGTH = 5;
+    private static final int MIN_LENGTH = 0;
 
     private String name;
     private int position;
@@ -28,7 +32,7 @@ public class Car {
         return this.name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return this.position;
     }
 
@@ -44,16 +48,17 @@ public class Car {
     }
 
     private void validateNotEmpty(String name) {
-        if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessages.EMPTY_NAME);
+        if (name == null || name.isBlank() || name.trim().isEmpty()) {
+            throw new IllegalArgumentException();
         }
     }
 
     private void validateLength(String name) {
-        if (name.length() > MAX_LENGTH || name.length() < MIN_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessages.LONG_NAME);
+        if (name.length() > MAX_LENGTH || name.length() <= MIN_LENGTH) {
+            throw new IllegalArgumentException();
         }
     }
+
     public void goOrStop(int random) {
         if (random >= STANDARD_VALUE) {
             move(MOVING_DISTANCE);
