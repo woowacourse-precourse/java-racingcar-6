@@ -58,7 +58,7 @@ class CarNamesInputValidatorTest {
             String wrongLengthInput = "jun,junnn,junnng";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(wrongLengthInput))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(ExceptionMessage.OUT_OF_LENGTH.getError());
         }
 
         @Test
@@ -68,17 +68,17 @@ class CarNamesInputValidatorTest {
             String blankInput = " ,  ,   ";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(ExceptionMessage.ELEMENT_BLANK.getError());
         }
 
         @Test
-        @DisplayName("[실패 테스트]")
+        @DisplayName("[실패 테스트] 입력값 없음")
         void test() {
             // given
             String blankInput = "";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(ExceptionMessage.BLANK.getError());
         }
 
         @Test
@@ -88,7 +88,7 @@ class CarNamesInputValidatorTest {
             String blankInput = ",pobi,jun";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .hasMessageContaining("첫 번째 문자로 콤마(,)를 입력하면 안됩니다.");
+                    .hasMessage(ExceptionMessage.FIRST_CHARACTER_COMMA.getError());
         }
 
         @Test
@@ -98,7 +98,7 @@ class CarNamesInputValidatorTest {
             String blankInput = "pobi,jun,";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(ExceptionMessage.LAST_CHARACTER_COMMA.getError());
         }
 
         @Test
@@ -108,7 +108,7 @@ class CarNamesInputValidatorTest {
             String blankInput = "pobi,,jun";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(ExceptionMessage.ELEMENT_BLANK.getError());
         }
 
         @Test
@@ -118,7 +118,7 @@ class CarNamesInputValidatorTest {
             String blankInput = ",,pobi,jun";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(ExceptionMessage.FIRST_CHARACTER_COMMA.getError());
         }
 
         @Test
@@ -128,7 +128,7 @@ class CarNamesInputValidatorTest {
             String blankInput = "pobi,jun,,";
             // when, then
             Assertions.assertThatThrownBy(() -> CarNamesInputValidator.validate(blankInput))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .hasMessage(ExceptionMessage.LAST_CHARACTER_COMMA.getError());
         }
     }
 
