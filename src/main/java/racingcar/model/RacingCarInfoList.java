@@ -7,7 +7,6 @@ public class RacingCarInfoList {
     private final List<String> carList = new ArrayList<>();
 
     public RacingCarInfoList(List<String> carNameList) {
-
         for (String carName : carNameList) {
             validateDuplicate(carName);
             RacingCarInfo racingCarInfo = new RacingCarInfo(carName);

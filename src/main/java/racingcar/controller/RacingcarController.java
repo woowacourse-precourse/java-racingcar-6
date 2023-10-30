@@ -3,7 +3,8 @@ package racingcar.controller;
 import java.util.HashMap;
 import java.util.List;
 import racingcar.service.RacingCarService;
-import racingcar.view.MainView;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingcarController {
     private static final RacingcarController instance = new RacingcarController();
@@ -15,19 +16,19 @@ public class RacingcarController {
     private RacingcarController() {
     }
 
-    private RacingCarService racingCarService = RacingCarService.getInstance();
+    private final RacingCarService racingCarService = RacingCarService.getInstance();
 
     public void run() {
-        MainView.printStartMessage();
-        List<String> carNames = MainView.getCarNames();
+        OutputView.printStartMessage();
+        List<String> carNames = InputView.getCarNames();
         HashMap<String, Integer> racingStatus = racingCarService.initRacingStatus(carNames);
-        MainView.printInputAttemptMessage();
-        int attemptNumber = MainView.getAttemptNumber();
+        OutputView.printInputAttemptMessage();
+        int attemptNumber = InputView.getAttemptNumber();
         for (int i = 0; i < attemptNumber; ++i) {
             racingCarService.proceedGame(carNames, racingStatus);
-            MainView.printProceedResult(carNames, racingStatus);
+            OutputView.printProceedResult(carNames, racingStatus);
         }
         List<String> winnerList = racingCarService.getWinner(carNames, racingStatus);
-        MainView.printWinner(winnerList);
+        OutputView.printWinner(winnerList);
     }
 }
