@@ -9,8 +9,12 @@ import java.util.stream.Collectors;
 public class RacingCars {
     private final List<Car> cars;
 
-    private RacingCars(final String carNames, final RaceNumberGenerator raceNumberGenerator) {
+    private RacingCars(final String carNames) {
         this.cars = stringToList(carNames);
+    }
+
+    public static RacingCars create(final String carNames) {
+        return new RacingCars(carNames);
     }
 
     public List<Car> getCars() {

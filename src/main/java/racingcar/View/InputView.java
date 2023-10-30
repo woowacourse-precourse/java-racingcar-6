@@ -22,9 +22,9 @@ public class InputView {
 
     public int inputRaceTime(){
         System.out.println(CAR_NAME_MESSAGE);
-        String carsName = Console.readLine();
+        String raceTime = Console.readLine();
         try {
-            return raceException.checkExceptionRace(carsName);
+            return raceException.checkExceptionRace(raceTime);
         } catch (IllegalArgumentException e) {
             System.out.println(ERROR_MESSAGE + e.getMessage());
             return -1;

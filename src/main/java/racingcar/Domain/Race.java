@@ -3,7 +3,7 @@ package racingcar.Domain;
 public class Race {
     private final int raceCount;
 
-    private Race(final int raceCount){
+    public Race(final int raceCount){
         this.raceCount = raceCount;
     }
 
