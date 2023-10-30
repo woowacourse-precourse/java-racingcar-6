@@ -9,7 +9,7 @@ public class RacingCar {
         moveNumber = 0;
     }
 
-    public void increaseRandom(){
+    public void increaseMoveNumber(){
         moveNumber++;
     }
 
