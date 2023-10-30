@@ -11,6 +11,10 @@ public class Cars {
         this.cars = createCars(carNames);
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
     public List<Car> createCars(String[] carNames) {
         List<Car> cars = mapCarNamesToCars(carNames);
         return cars;
@@ -28,4 +32,9 @@ public class Cars {
     private Car createCar(String carName) {
         return new Car(carName);
     }
+
+    public void playOneRound() {
+        cars.forEach(Car::move);
+    }
+
 }
