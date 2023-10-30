@@ -16,7 +16,7 @@ public class Validator {
             throw new IllegalArgumentException(CAR_NAMES_ERROR_MESSAGE);
         }
 
-        if(isCorrectCarNames(userInputCarNames)){
+        if(!isCorrectCarNames(userInputCarNames)){
             throw new IllegalArgumentException(CAR_NAMES_ERROR_MESSAGE);
         }
     }
