@@ -1,10 +1,10 @@
 package racingcar;
 
-import racingcar.application.GameManager;
+import racingcar.router.RacingGameRouter;
 
 public class Application {
     public static void main(final String[] args) {
-        final GameManager gameManager = new GameManager();
-        gameManager.run();
+        final RacingGameRouter racingGameRouter = new RacingGameRouter();
+        racingGameRouter.invoke();
     }
 }
