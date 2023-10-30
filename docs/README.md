@@ -15,6 +15,8 @@
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
+# 기능 구현
+
 ### ~~ErrorDetector 클래스~~ Validation 클래스
 
 - 사용자가 입력한 값에 대한 유효성 검사 진행
@@ -90,3 +92,14 @@
   - GAME_RESULT 결과 및 내용 출력
 - private void finish()
   - GAME_OVER 메세지 + 결과 출력
+
+# 기능 테스트
+
+### ValidationTest
+
+-  void 차_개수_1이하_시_예외_발생()
+  - 입력한 차의 개수가 1이하일 경우 IllegalArgumentException을 발생 여부 테스트
+- void 음수_입력_시_예외_발생()
+  - 입력한 시도 회수가 -1이하일 경우 IllegalArgumentException을 발생 여부 테스트
+- void 제로_입력_시_예외_발생()
+  - 입력한 시도 회수가 0일 경우 IllegalArgumentException을 발생 여부 테스트
