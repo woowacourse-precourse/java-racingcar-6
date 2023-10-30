@@ -12,12 +12,17 @@ public class StringConverter {
 
     public int stringToInteger(){
         String inputLine = Console.readLine();
-        Optional<String> checkedLine = illegalCheck.needConvertInteger(inputLine);
-
-        if(!checkedLine.isPresent()){
-            throw new IllegalArgumentException("잘못된 값이 입력되었습니다.");
+        if(!inputLine.chars().allMatch(illegalCheck::availableConvertInteger)){
+            throw new IllegalArgumentException(ERROR_MESSAGE);
         }
-        return Integer.parseInt(checkedLine.get());
+
+        long integerRangeCheck = Long.parseLong(inputLine);
+
+        if(!illegalCheck.integerRangeOverCheck(integerRangeCheck)){
+            throw new IllegalArgumentException(ERROR_MESSAGE);
+        }
+
+        return Integer.parseInt(inputLine);
     }
 
     public List<String> stringToCarNames(String separator){
