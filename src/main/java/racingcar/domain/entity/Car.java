@@ -7,9 +7,9 @@ public class Car {
     private Car() {
     }
 
-    public static Car create(String name) {
+    public static Car create(String carName) {
         Car car = new Car();
-        car.carName = name;
+        car.carName = carName;
         car.distance = 0;
 
         return car;

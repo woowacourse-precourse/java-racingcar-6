@@ -3,8 +3,8 @@ package racingcar.domain.entity;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import racingcar.domain.service.input.RegisterRacingCarGameInput;
 import racingcar.exception.RacingCarGameException;
-import racingcar.input.RegisterRacingCarGameInput;
 
 public class RacingCarGame extends Game {
     private List<String> winnerNames = new ArrayList<>();

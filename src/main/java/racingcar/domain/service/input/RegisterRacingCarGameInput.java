@@ -1,4 +1,4 @@
-package racingcar.input;
+package racingcar.domain.service.input;
 
 import java.util.List;
 import racingcar.domain.entity.Car;

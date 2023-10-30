@@ -55,11 +55,13 @@ public class CarService {
     }
 
     private void validationCarName(String carName) {
+        CarValidationHandler.validationHasText(carName);
         CarValidationHandler.validationAlphaNumericOrAlphaOrNumeric(carName);
         CarValidationHandler.validationCarNameUnder5Length(carName);
     }
 
     private void validationCarNames(List<String> carNameList, Set<String> carNameSet) {
-        CarValidationHandler.validationDuplicatedName(carNameList, carNameSet);
+        CarValidationHandler.validationDuplicatedCarNames(carNameList, carNameSet);
+        CarValidationHandler.validationCarNamesOneSize(carNameList);
     }
 }

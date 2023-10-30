@@ -1,4 +1,4 @@
-package racingcar.graphics;
+package racingcar.display.graphics;
 
 import java.util.HashMap;
 import java.util.List;

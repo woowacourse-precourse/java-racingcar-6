@@ -15,10 +15,10 @@ import racingcar.domain.entity.GameType;
 import racingcar.domain.entity.RacingCarGame;
 import racingcar.domain.repository.CarRepository;
 import racingcar.domain.repository.RacingCarGameRepository;
+import racingcar.domain.service.input.RegisterRacingCarGameInput;
 import racingcar.exception.RacingCarGameException;
 import racingcar.exception.RacingCarGameRepositoryException;
 import racingcar.exception.validtaion.RacingCarGameValidationHandler;
-import racingcar.input.RegisterRacingCarGameInput;
 
 class RacingCarGameServiceTest {
 

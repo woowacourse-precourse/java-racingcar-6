@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import racingcar.display.RacingCarGameDisplay;
+import racingcar.display.graphics.RacingCarDistanceGraphics;
 import racingcar.domain.entity.Car;
 import racingcar.domain.entity.GameType;
 import racingcar.domain.repository.CarRepository;
 import racingcar.domain.repository.RacingCarGameRepository;
 import racingcar.domain.service.CarService;
 import racingcar.domain.service.RacingCarGameService;
-import racingcar.graphics.RacingCarDistanceGraphics;
-import racingcar.input.RegisterRacingCarGameInput;
+import racingcar.domain.service.input.RegisterRacingCarGameInput;
 
 public class RacingCarGameSystem extends GameSystem {
 
@@ -28,19 +28,8 @@ public class RacingCarGameSystem extends GameSystem {
 
         List<Car> cars = registerCars();
         int gameCount = registerGameCount(racingGameId, cars);
-        simulateRace(racingGameId, cars, gameCount);
+        displaySimulateCarRacing(racingGameId, cars, gameCount);
         displayWinners(racingGameId);
-    }
-
-    private int registerGameCount(Long racingGameId, List<Car> cars) {
-        RacingCarGameDisplay.printGameCountMessage();
-        String gameCountLine = Console.readLine();
-
-        RegisterRacingCarGameInput input = new RegisterRacingCarGameInput(racingGameId, GameType.RACING_CAR_GAME,
-                gameCountLine, cars);
-        racingCarGameService.registerCarsAndGameCounter(input);
-
-        return Integer.parseInt(gameCountLine);
     }
 
     private List<Car> registerCars() {
@@ -50,13 +39,31 @@ public class RacingCarGameSystem extends GameSystem {
         return carService.registerCarsByCarNames(carNamesLine);
     }
 
-    private void simulateRace(Long racingGameId, List<Car> cars, int gameCount) {
+    private int registerGameCount(Long racingGameId, List<Car> cars) {
+        RacingCarGameDisplay.printGameCountMessage();
+        String gameCountLine = Console.readLine();
+
+        RegisterRacingCarGameInput input =
+                new RegisterRacingCarGameInput(racingGameId, GameType.RACING_CAR_GAME, gameCountLine, cars);
+        racingCarGameService.registerCarsAndGameCounter(input);
+
+        return Integer.parseInt(gameCountLine);
+    }
+
+    private void displaySimulateCarRacing(Long racingGameId, List<Car> cars, int gameCount) {
         RacingCarGameDisplay.printGameResultMessage();
         RacingCarDistanceGraphics racingCarDistanceGraphics = new RacingCarDistanceGraphics(cars);
         for (int count = 0; count < gameCount; count++) {
             List<Car> movedCars = moveCars(cars);
-            updateCarGraphicsAndCount(racingGameId, movedCars, racingCarDistanceGraphics);
+            displayCarRacingResult(racingGameId, movedCars, racingCarDistanceGraphics);
         }
+    }
+
+    private void displayWinners(Long racingGameId) {
+        List<String> winnerNames = racingCarGameService.computeGameWinners(racingGameId);
+        RacingCarGameDisplay.printFinalWinnerNames(winnerNames);
+
+        Console.close();
     }
 
     private List<Car> moveCars(List<Car> cars) {
@@ -66,18 +73,15 @@ public class RacingCarGameSystem extends GameSystem {
             Car movedCar = carService.move(car.getCarName(), number);
             movedCars.add(movedCar);
         }
+
         return movedCars;
     }
 
-    private void updateCarGraphicsAndCount(Long racingGameId, List<Car> movedCars, RacingCarDistanceGraphics graphics) {
+    private void displayCarRacingResult(Long racingGameId, List<Car> movedCars, RacingCarDistanceGraphics graphics) {
         racingCarGameService.computeCarsDistanceAndGameCount(racingGameId, movedCars);
         Map<String, String> carMovementMap = graphics.updateCarGraphicsBasedOnDistance(movedCars);
 
         RacingCarGameDisplay.printCarMovementResultMessage(carMovementMap);
     }
 
-    private void displayWinners(Long racingGameId) {
-        List<String> winnerNames = racingCarGameService.computeGameWinners(racingGameId);
-        RacingCarGameDisplay.printFinalWinnerNames(winnerNames);
-    }
 }

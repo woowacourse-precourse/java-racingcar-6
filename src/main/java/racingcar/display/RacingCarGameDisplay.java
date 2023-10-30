@@ -13,6 +13,7 @@ public class RacingCarGameDisplay {
     private static final String PROMPT_RACING_CAR_GAME_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String COMMA = ", ";
     private static final String COLON = " : ";
+    private static final String NEW_LINE = "\n";
     private static final int COMMA_LENGTH = 2;
 
     private RacingCarGameDisplay() {
@@ -23,7 +24,7 @@ public class RacingCarGameDisplay {
     }
 
     public static void printGameResultMessage() {
-        System.out.println("\n" + RACING_CAR_GAME_RESULT_MESSAGE);
+        System.out.println(NEW_LINE + RACING_CAR_GAME_RESULT_MESSAGE);
     }
 
     public static void printGameCountMessage() {
@@ -36,7 +37,7 @@ public class RacingCarGameDisplay {
 
         for (String carName : carNames) {
             String distanceGraphics = carMovementMap.get(carName);
-            carMovementResult.append(carName).append(COLON).append(distanceGraphics).append("\n");
+            carMovementResult.append(carName).append(COLON).append(distanceGraphics).append(NEW_LINE);
         }
 
         System.out.println(carMovementResult);

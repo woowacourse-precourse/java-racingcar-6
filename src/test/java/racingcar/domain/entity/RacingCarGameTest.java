@@ -7,8 +7,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.service.input.RegisterRacingCarGameInput;
 import racingcar.exception.RacingCarGameException;
-import racingcar.input.RegisterRacingCarGameInput;
 
 class RacingCarGameTest {
     @Test

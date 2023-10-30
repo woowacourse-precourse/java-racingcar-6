@@ -5,10 +5,10 @@ import java.util.stream.Collectors;
 import racingcar.domain.entity.Car;
 import racingcar.domain.entity.RacingCarGame;
 import racingcar.domain.repository.RacingCarGameRepository;
+import racingcar.domain.service.input.RegisterRacingCarGameInput;
 import racingcar.exception.RacingCarGameException;
 import racingcar.exception.RacingCarGameRepositoryException;
 import racingcar.exception.validtaion.RacingCarGameValidationHandler;
-import racingcar.input.RegisterRacingCarGameInput;
 
 public class RacingCarGameService {
 
@@ -25,7 +25,6 @@ public class RacingCarGameService {
         validationCars(input.getCars());
 
         RacingCarGame racingCarGame = RacingCarGame.createWithoutWinnerNames(input);
-
         racingCarGameRepository.save(racingCarGame);
     }
 

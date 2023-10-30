@@ -79,6 +79,42 @@ class CarServiceTest {
     }
 
     @Test
+    @DisplayName("자동차 이름에 이상이 있으면 예외가 발생한다.(중복이 있는 경우)")
+    void saveCarNameDuplicatedException() {
+        // given
+        String carNames = "pobi,woni,pobi";
+
+        // when // then
+        assertThatThrownBy(() -> carService.registerCarsByCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CarValidationHandler.CAR_NAME_DUPLICATED_RESTRICTION);
+    }
+
+    @Test
+    @DisplayName("자동차 이름에 이상이 있으면 예외가 발생한다.(1개 이하인 경우)")
+    void saveCarNameOneException() {
+        // given
+        String carNames = "pobi";
+
+        // when // then
+        assertThatThrownBy(() -> carService.registerCarsByCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CarValidationHandler.MIN_CAR_NAMES_REQUIRED_RESTRICTION);
+    }
+
+    @Test
+    @DisplayName("자동차 이름에 이상이 있으면 예외가 발생한다.(입력하지 않은 자동차 이름이 있는 경우)")
+    void saveCarNameExceptionHasText() {
+        // given
+        String carNames = "pobi,  ,won";
+
+        // when // then
+        assertThatThrownBy(() -> carService.registerCarsByCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CarValidationHandler.PROMPT_CAR_NAME_INPUT_RESTRICTION);
+    }
+
+    @Test
     @DisplayName("4이상의 숫자를 입력 받으면 자동차는 1칸 전진한다.")
     void moveForward() {
         // given

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.display.graphics.RacingCarDistanceGraphics;
 import racingcar.domain.entity.Car;
 
 class RacingCarDistanceGraphicsTest {
