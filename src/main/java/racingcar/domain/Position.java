@@ -14,6 +14,10 @@ public class Position {
         this.position += input;
     }
 
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

@@ -20,9 +20,15 @@ public class Car {
         }
     }
 
+    public void printCarNameAndPosition() {
+        System.out.println(carName + " : " + "-".repeat(position.getPosition()));
+    }
+
     private void validate(String input) {
         if (input.length() > 5) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR);
         }
     }
+
+
 }
