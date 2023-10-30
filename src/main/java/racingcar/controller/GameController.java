@@ -2,9 +2,16 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.dto.UserInput;
+import racingcar.service.InputService;
 
 // 사용자로부터 값을 입력받고 결과를 출력하기 위한 클래스
 public class GameController {
+    private final InputService inputService;
+
+    public GameController(InputService inputService) {
+        this.inputService = inputService;
+    }
+
     public void startGame() {
         UserInput userInput = readValue();
 
@@ -22,7 +29,9 @@ public class GameController {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] carNameArr = Console.readLine().split(",");
 
-        // checkValidation
+        for(String carName : carNameArr) {
+            inputService.checkCarNameValidation(carName);
+        }
 
         return carNameArr;
     }
@@ -32,7 +41,7 @@ public class GameController {
         String frequency = Console.readLine();
         System.out.println();
 
-        // checkValidation
+        inputService.checkCompetitionNumberValidation(frequency);
 
         return Integer.parseInt(frequency);
     }
