@@ -24,19 +24,17 @@ public class CarRaceGame {
     public static void startGame() {
         String carNames = CarRaceGameView.startGameView();
         List<String> carNameList = CarNamesToList(carNames);
-        List<Car> carImplList = setUpCar(carNameList);
         validateCarName(carNameList);
 
-        String attemptNumberString = CarRaceGameView.attemptNumberView();
-
-        GameManager.setAttemptNumber(Integer.parseInt(attemptNumberString));
+        List<Car> carImplList = setUpCar(carNameList);
         GameManager.setCarImplList(carImplList);
 
-        CarRaceGameUtility.startCarRaceGame();
+        String roundNumberString = CarRaceGameView.attemptNumberView();
+        CarRaceGameUtility.startCarRaceGame(Integer.parseInt(roundNumberString));
     }
 
     private static List<Car> setUpCar(List<String> carNameList) {
-        List<Car> carImplList = new ArrayList<Car>();
+        List<Car> carImplList = new ArrayList<>();
 
         for (String carName : carNameList) {
             carImplList.add(new Car(carName));
