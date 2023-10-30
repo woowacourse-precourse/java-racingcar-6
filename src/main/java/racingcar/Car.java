@@ -12,5 +12,11 @@ public class Car {
         if (power >= 4) position++;
     }
 
+    public int getPosition() {
+        return position;
+    }
 
+    public String getName() {
+        return name;
+    }
 }
