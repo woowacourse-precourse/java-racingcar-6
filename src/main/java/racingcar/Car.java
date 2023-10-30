@@ -21,7 +21,7 @@ public class Car {
         name = readLine();
         racer_name = parsingName(name);
         checkInput(racer_name);
-        return getRacerName();
+        return racer_name;
     }
 
     public List<String> parsingName(String name) {
