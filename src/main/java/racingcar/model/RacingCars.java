@@ -2,7 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,15 +11,12 @@ public class RacingCars {
 
     private final List<Car> racingCars;
 
-    public RacingCars() {
-        this.racingCars = new ArrayList<>();
+    public RacingCars(String[] names) {
+        this.racingCars = createCars(names);
     }
 
-
-    public void addCars(String[] carNames) {
-        for (String name : carNames) {
-            racingCars.add(new Car(name));
-        }
+    private List<Car> createCars(String[] carNames) {
+        return Arrays.stream(carNames).map(name -> new Car(name)).collect(Collectors.toList());
     }
 
 
@@ -35,37 +32,23 @@ public class RacingCars {
 
 
     public List<String> getCarNames() {
-
-        List<String> carNames = new ArrayList<>();
-
-        for (Car car : racingCars) {
-            carNames.add(car.getName());
-        }
-        return carNames;
+        return racingCars.stream().map(car -> car.getName()).collect(Collectors.toList());
     }
 
     public List<Integer> getCarLocations() {
-        List<Integer> carLocations = new ArrayList<>();
-
-        for (Car car : racingCars) {
-            carLocations.add(car.getLocation());
-        }
-        return carLocations;
+        return racingCars.stream().map(car -> car.getLocation()).collect(Collectors.toList());
     }
 
 
     public List<String> getWinners() {
-        Integer maxLocationValue = getLocationMaxValue();
+        int locationMaxValue = getLocationMaxValue();
 
-        List<String> winners = racingCars.stream()
-                .filter(car -> car.getLocation() == maxLocationValue)
+        return racingCars.stream()
+                .filter(car -> car.getLocation() == locationMaxValue)
                 .map(car -> car.getName()).collect(Collectors.toList());
-
-        return winners;
     }
 
     private Integer getLocationMaxValue() {
         return Collections.max(getCarLocations());
     }
-
 }
