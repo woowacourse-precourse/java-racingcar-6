@@ -31,7 +31,8 @@ class TryTest {
 
     @Test
     void 시도_횟수가_0이면_레이스_종료() {
-        Try tryCount = new Try(0);
+        Try tryCount = new Try(1);
+        tryCount.tryRace();
         assertThat(tryCount.isRaceOver()).isEqualTo(true);
     }
 
