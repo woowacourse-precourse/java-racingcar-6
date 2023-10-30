@@ -8,7 +8,7 @@ public class DetermineNameController {
 	public String[] isPossibleName(String names) {
 		String[] carNames = convertStringToStringList(names);
 		if (exceededNameLength(carNames))
-			new IllegalArgumentException(NAME_LENGTH_EXCEEDED_MESSAGE);
+			throw new IllegalArgumentException(NAME_LENGTH_EXCEEDED_MESSAGE);
 
 		return carNames;
 	}
