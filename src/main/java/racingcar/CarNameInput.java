@@ -35,7 +35,7 @@ public class CarNameInput {
     }
 
 
-    public void exceptionHandling() throws IllegalArgumentException {
+    public void carNameException() throws IllegalArgumentException {
         if (!isValidNameLength() || isBlankString()) throw new IllegalArgumentException();
     }
 

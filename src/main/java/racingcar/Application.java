@@ -6,9 +6,8 @@ public class Application {
         // TODO: 프로그램 구현
         CarNameInput carNameInput = new CarNameInput();
         carNameInput.print();
-        carNameInput.exceptionHandling();
+        carNameInput.carNameException();
         MoveInput moveInput = new MoveInput();
-        String move = moveInput.getMove();
-        if (move.isEmpty()) System.out.print("error");
+        moveInput.moveException();
     }
 }
