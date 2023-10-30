@@ -19,10 +19,10 @@ class CarsTest {
         Cars cars = new Cars(List.of(pobi, woni));
 
         // when
-        List<Name> winners = cars.findWinners();
+        Names winners = cars.findWinners();
 
         // then
-        assertThat(winners).containsExactly(new Name("pobi"));
+        assertThat(winners.value()).containsExactly(new Name("pobi"));
     }
 
     @Test
@@ -34,12 +34,12 @@ class CarsTest {
         Cars cars = new Cars(List.of(pobi, woni));
 
         // when
-        List<Name> winners = cars.findWinners();
+        Names winners = cars.findWinners();
 
         // then
         assertAll(
-                () -> assertThat(winners).hasSize(2),
-                () -> assertThat(winners).containsExactly(new Name("pobi"), new Name("woni"))
+                () -> assertThat(winners.value()).hasSize(2),
+                () -> assertThat(winners.value()).containsExactly(new Name("pobi"), new Name("woni"))
         );
     }
 

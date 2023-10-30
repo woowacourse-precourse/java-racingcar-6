@@ -5,17 +5,17 @@ import java.util.stream.Collectors;
 
 public record Cars(List<Car> value) {
 
-    public List<Name> findWinners() {
+    public Names findWinners() {
 
         Position maxPosition = value.stream()
                 .map(Car::getPosition)
                 .max(Position::compareTo)
                 .orElse(new Position(0));
 
-        return value.stream()
+        return new Names(value.stream()
                 .filter(car -> car.isAtPosition(maxPosition))
                 .map(Car::getName)
-                .toList();
+                .toList());
     }
 
     public String getSingleRoundResult() {
