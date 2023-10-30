@@ -24,11 +24,11 @@ public class Output {
     }
 
     public static void printWinner(List<Car> list){
-        System.out.println("\n최종 우승자 : ");
+        System.out.print("\n최종 우승자 : ");
+
         String result = list.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
-
-        System.out.println();
+        System.out.println(result);
     }
 }

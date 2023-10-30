@@ -54,6 +54,5 @@ public class RacingCarGameController {
 
         //8. 우승자 출력
         Output.printWinner(carRacingWinner);
-
     }
 }

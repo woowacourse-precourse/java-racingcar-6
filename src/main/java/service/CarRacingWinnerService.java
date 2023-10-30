@@ -27,6 +27,6 @@ public class CarRacingWinnerService {
         return IntStream.range(1, carList.size())
                 .filter(index -> carList.get(index).getMoveCount() != topMoveCountValue)
                 .findFirst()
-                .orElse(-1);
+                .orElse(carList.size());
     }
 }
