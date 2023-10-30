@@ -2,6 +2,8 @@ package racingcar.domain;
 
 public class Car{
 
+    private final NumberGenerator numberGenerator = new NumberGenerator();
+
     private String name;
     private int forwardCount;
     private int randomNumber;
@@ -19,8 +21,8 @@ public class Car{
     }
 
     public void drive(){
-        this.randomNumber = NumberGenerator.createRandomNumber();
-        if(isGoingForward(randomNumber)){
+        this.randomNumber = numberGenerator.createRandomNumber();
+        if(isGoingForward(this.randomNumber)){
             this.forwardCount++;
         }
     }
