@@ -13,7 +13,10 @@ public class Communicator {
                 .map(String::strip)
                 .toList();
         Validator.validateCars(cars);
-        System.out.println(cars);
+    }
+
+    public static void printInputGameTimes() {
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 
     private static void printStart() {
