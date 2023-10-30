@@ -22,6 +22,14 @@ public final class OutputView {
         System.out.println();
     }
 
+    private void printDtoInfo(CarDto carDto) {
+        System.out.print(carDto.getName() + COLON);
+        for (int i = 0; i < carDto.getPosition(); i++) {
+            System.out.print(HYPHEN);
+        }
+        System.out.println();
+    }
+
     public void printFinalWinner(List<String> winnerNames) {
         System.out.print(FINAL_WINNER + COLON);
         for (int i = 0; i < winnerNames.size(); ) {
@@ -31,13 +39,5 @@ public final class OutputView {
             }
         }
         System.out.println('\n');
-    }
-
-    private void printDtoInfo(CarDto carDto) {
-        System.out.print(carDto.getName() + COLON);
-        for (int i = 0; i < carDto.getPosition(); i++) {
-            System.out.print(HYPHEN);
-        }
-        System.out.println();
     }
 }
