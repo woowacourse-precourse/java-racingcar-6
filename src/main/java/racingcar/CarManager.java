@@ -1,26 +1,28 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class CarManager {
-    private List<Car> cars;
+    private List<Car> cars = new ArrayList<>();
 
-    public CarManager(List<Car> cars) {
-        this.cars = cars;
+    public void addCar(String name) {
+        if (isCarNameDuplicate(name)) {
+            throw new IllegalArgumentException("중복된 자동차 이름이 발견되었습니다.");
+        }
+        cars.add(new Car(name));
     }
 
-    public void race(int tryCount) {
-        Random random = new Random();
-        for (int i = 0; i < tryCount; i++) {
-            for (Car car : cars) {
-                car.move(random.nextInt(10));
-            }
-        }
+    private boolean isCarNameDuplicate(String name) {
+        return cars.stream().anyMatch(car -> car.getName().equals(name));
     }
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    public void moveAll() {
+        cars.forEach(Car::move);
     }
 }
 

@@ -1,40 +1,37 @@
 package racingcar;
 
-import java.util.Scanner;
+import camp.nextstep.edu.missionutils.Console;
 
 public class UserInput {
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static String getInputString(String prompt) {
-        String input;
-        do {
-            System.out.println(prompt);
-            input = scanner.nextLine().trim();
-            if (input.isEmpty()) {
-                System.out.println("입력된 값이 없습니다. 다시 입력하세요.");
-            } else if (input.contains(",")) {
-                System.out.println("자동차 이름에 쉼표(,)를 포함할 수 없습니다. 다시 입력하세요.");
-            }
-        } while (input.isEmpty() || input.contains(","));
-
-        return input;
+    public static String[] readCarNames() {
+        String input = Console.readLine();
+        String[] carNames = input.split(",");
+        validateCarNames(carNames);
+        return carNames;
     }
 
-    public static int getInputInt(String prompt, int min, int max) {
-        int input;
-        do {
-            System.out.println(prompt);
-            try {
-                input = Integer.parseInt(scanner.nextLine());
-                if (input < min || input > max) {
-                    System.out.println("범위(" + min + "~" + max + ")를 벗어난 입력입니다. 다시 입력하세요.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("잘못된 입력입니다. 다시 입력하세요.");
-                input = min - 1;
-            }
-        } while (input < min || input > max);
+    private static void validateCarNames(String[] carNames) {
+        if (carNames.length == 0) {
+            throw new RacingGameException("자동차 이름을 입력해야 합니다.");
+        }
+    }
 
-        return input;
+    public static int readNumberOfAttempts() {
+        String input = Console.readLine();
+        int numberOfAttempts = validateNumberOfAttempts(input);
+        return numberOfAttempts;
+    }
+
+    private static int validateNumberOfAttempts(String input) {
+        try {
+            int number = Integer.parseInt(input);
+            if (number < 1 || number > 9) {
+                throw new RacingGameException("1~9 사이의 횟수를 입력해야 합니다.");
+            }
+            return number;
+        } catch (NumberFormatException e) {
+            throw new RacingGameException("올바른 숫자를 입력해야 합니다.");
+        }
     }
 }
+

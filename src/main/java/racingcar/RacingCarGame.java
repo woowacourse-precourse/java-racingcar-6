@@ -1,35 +1,61 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import camp.nextstep.edu.missionutils.Console;
 
 public class RacingCarGame {
-    public void play() {
+    public void run() {
         try {
-            List<Car> cars = initializeGame();
-            int tryCount = UserInput.getInputInt("시도할 회수는 몇회인가요?", 1, 9);
-            CarManager gameManager = new CarManager(cars);
+            CarManager carManager = initializeCarManager();
+            int numberOfAttempts = getNumberOfAttempts();
 
-            List<List<String> > allResults = new ArrayList<>();
-            for (int i = 0; i < tryCount; i++) {
-                gameManager.race(1);
-                List<String> roundResults = cars.stream()
-                        .map(car -> car.getName() + " : " + car.getPositionString())
-                        .collect(Collectors.toList());
-                allResults.add(roundResults);
+            RacingResult racingResult = new RacingResult();
+
+            System.out.println("실행결과");
+
+            for (int i = 0; i < numberOfAttempts; i++) {
+                carManager.moveAll();
+                printCarMovements(carManager);
             }
 
-            RacingResult.printAllResults(allResults);
-            RacingResult.printWinners(cars);
+            determineWinners(racingResult, carManager);
+            printWinners(racingResult);
+
         } catch (RacingGameException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    private List<Car> initializeGame() throws RacingGameException {
-        String inputNames = UserInput.getInputString("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분) ");
-        List<Car> cars = ParkingLot.createCars(inputNames);
-        return cars;
+    private CarManager initializeCarManager() {
+        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분)");
+        String[] carNames = UserInput.readCarNames();
+        CarManager carManager = new CarManager();
+        for (String carName : carNames) {
+            carManager.addCar(carName);
+        }
+        return carManager;
+    }
+
+    private int getNumberOfAttempts() {
+        System.out.println("\n시도할 횟수를 입력하세요.");
+        return UserInput.readNumberOfAttempts();
+    }
+
+    private void printCarMovements(CarManager carManager) {
+        for (Car car : carManager.getCars()) {
+            System.out.println(car.getName() + " : " + car.getMovement());
+        }
+        System.out.println();
+    }
+
+    private void determineWinners(RacingResult racingResult, CarManager carManager) {
+        for (Car car : carManager.getCars()) {
+            racingResult.update(car.getName(), car.getPosition());
+        }
+    }
+
+    private void printWinners(RacingResult racingResult) {
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", racingResult.getWinners()));
     }
 }
+

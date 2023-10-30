@@ -1,7 +1,8 @@
 package racingcar;
 
-public class RacingGameException extends Exception {
+public class RacingGameException extends RuntimeException {
     public RacingGameException(String message) {
         super(message);
     }
 }
+
