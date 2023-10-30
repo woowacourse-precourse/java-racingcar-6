@@ -25,19 +25,19 @@ public class RacingCarController {
         return validateAndParseRoundsInput(input);
     }
 
-    private void validateCarNamesInput(String input) {
+    protected void validateCarNamesInput(String input) {
         if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException("첫번째 입력이 비어있습니다.");
         }
-        if (!input.matches("[a-zA-Z,]+")) {
-            throw new IllegalArgumentException("첫번째 입력은 영어와 ','만 포함해야 합니다.");
+        if ((!input.matches("^[^\\p{C}\\s]+$"))) {
+            throw new IllegalArgumentException("첫번째 입력은 제어문자와 공백문자를 허용하지 않습니다.");
         }
         if (input.contains(",,") || input.endsWith(",") || input.startsWith(",")) {
             throw new IllegalArgumentException("','는 연속해서 나오거나 시작/끝에 위치할 수 없습니다.");
         }
     }
 
-    private int validateAndParseRoundsInput(String input) {
+    protected int validateAndParseRoundsInput(String input) {
         if (!input.matches("\\d+")) {
             throw new IllegalArgumentException("회차는 숫자여야 합니다.");
         }
