@@ -9,8 +9,8 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         Race race = receiveRaceInformation();
-        race.raceAccumulations=playGame(race.tryNumber,race.carArray,race.raceAccumulations);
-        ArrayList<String>WinnerNames = findFinalWinner(race.raceAccumulations,race.carArray);
+        race.raceAccumulations=playGame(race);
+        ArrayList<String>WinnerNames = findFinalWinner(race);
         printFinalResult(WinnerNames);
     }
     private static Race receiveRaceInformation(){
@@ -31,53 +31,52 @@ public class Application {
         return randomNum;
     }
 
-    private static void printEachCarScore(int[] raceAccumulations,int index){
-            int substitutionNum = raceAccumulations[index];
+    private static void printEachCarScore(Race race,int index){
+            int substitutionNum = race.raceAccumulations[index];
             for (int printNum=0; printNum<substitutionNum; printNum++){
                 System.out.print("-");
             }
         }
 
-
-    private static int[] playGame(int tryNumber, String[]carArray,int[] raceAccumulations){
+    private static int[] playGame(Race race){
         System.out.println("실행 결과");
-        for (int i=0; i<tryNumber; i++){
-            for (int changeScore=0; changeScore<carArray.length; changeScore++){
-                raceAccumulations = giveScore(changeScore,raceAccumulations);
+        for (int i=0; i<race.tryNumber; i++){
+            for (int changeScore=0; changeScore<race.carArray.length; changeScore++){
+                race.raceAccumulations = giveScore(changeScore,race);
             }
-            printEachRace(raceAccumulations,carArray);
+            printEachRace(race);
         }
-        return raceAccumulations;
+        return race.raceAccumulations;
     }
 
-    private static int[] giveScore(int chanceScore,int[]raceAccumulations){
+    private static int[] giveScore(int chanceScore,Race race){
         int randomNum = makeRandomNum();
         if (randomNum>=4){
-            raceAccumulations[chanceScore]+=1;
+            race.raceAccumulations[chanceScore]+=1;
         }
-        return raceAccumulations;
+        return race.raceAccumulations;
     }
 
-    private static void printEachRace(int[] raceAccumulations, String[]carArray){
-        for (int index=0; index<carArray.length; index++){
-            System.out.print(carArray[index]+" : ");
-            printEachCarScore(raceAccumulations,index);
+    private static void printEachRace(Race race){
+        for (int index=0; index<race.carArray.length; index++){
+            System.out.print(race.carArray[index]+" : ");
+            printEachCarScore(race,index);
             System.out.println();
         }
         System.out.println();
     }
 
-    private static ArrayList<String> findFinalWinner(int[]raceAccumulations, String[]carArray){
+    private static ArrayList<String> findFinalWinner(Race race){
         int maxScore = 0;
         ArrayList<String>WinnerNames = new ArrayList<>();
-        for (int index=0; index<carArray.length; index++){
-            if (raceAccumulations[index]>maxScore){
-                maxScore = raceAccumulations[index];
+        for (int index=0; index<race.carArray.length; index++){
+            if (race.raceAccumulations[index]>maxScore){
+                maxScore = race.raceAccumulations[index];
                 WinnerNames.clear();
-                WinnerNames.add(carArray[index]);
+                WinnerNames.add(race.carArray[index]);
             }
-            else if (raceAccumulations[index]==maxScore){
-                WinnerNames.add(carArray[index]);
+            else if (race.raceAccumulations[index]==maxScore){
+                WinnerNames.add(race.carArray[index]);
             }
         }
         return WinnerNames;
