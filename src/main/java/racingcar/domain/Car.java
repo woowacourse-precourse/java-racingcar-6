@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Car {
     private String name;
-    private List<String> location;
+    private int location;
 
     public void go() {
     }
