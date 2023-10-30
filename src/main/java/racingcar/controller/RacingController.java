@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.RacingService.RacingService;
+import racingcar.utils.RandomNumberGenerator;
 
 import static racingcar.view.OutputView.displayFinishOnce;
 import static racingcar.view.OutputView.displayResultHeader;
@@ -28,7 +29,7 @@ public class RacingController {
 
         service.readyCarName();
         service.readyAttemptCount();
-        service.readyCars();
+        service.readyCars(new RandomNumberGenerator());
 
         getTotalRounds();
     }

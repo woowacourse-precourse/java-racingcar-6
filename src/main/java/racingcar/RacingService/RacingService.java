@@ -1,6 +1,7 @@
 package racingcar.RacingService;
 
 import racingcar.model.Car;
+import racingcar.utils.NumberGenerator;
 import racingcar.utils.RandomNumberGenerator;
 
 import java.util.ArrayList;
@@ -61,10 +62,10 @@ public class RacingService {
         return attemptCountFromUser;
     }
 
-    public void readyCars() {
+    public void readyCars(NumberGenerator numberGenerator) {
         cars = new ArrayList<>();
         for(String carName : carNameList) {
-            cars.add(new Car(carName, new RandomNumberGenerator()));
+            cars.add(new Car(carName, numberGenerator));
         }
     }
 
