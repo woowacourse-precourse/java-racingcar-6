@@ -5,30 +5,38 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 class ExceptionCaseTest {
     ExceptionCase exceptionCase = new ExceptionCase();
-    
+
     @DisplayName("자동차 이름은 6자 이상이면 exception 발생")
     @Test
     void nameLengthCheck() {
         Assertions.assertThatIllegalArgumentException()
-                .isThrownBy(() -> exceptionCase.carNameLength(Arrays.asList("pobi,javaji")));
+                .isThrownBy(() -> exceptionCase.carNameLength(List.of("pobi,javaji")));
     }
 
-    @DisplayName("공백 입력시 exception 발생")
+    @DisplayName("입력값 없으면 exception 발생")
     @Test
-    void isValueBlank() {
+    void checkIsValueBlank() {
         Assertions.assertThatIllegalArgumentException()
                 .isThrownBy(() -> exceptionCase.nullStringInput(""));
     }
 
     @DisplayName("null 입력시 exception 발생")
     @Test
-    void isValueNull() {
+    void checkIsValueNull() {
         Assertions.assertThatIllegalArgumentException()
                 .isThrownBy(() -> exceptionCase.nullStringInput(null));
+    }
+
+    @DisplayName("0~9보다 큰 수를 입력시 exception")
+    @Test
+    void digitOver9() {
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> exceptionCase.isNumberCorrect(99));
     }
 
 }

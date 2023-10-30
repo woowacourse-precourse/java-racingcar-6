@@ -22,20 +22,20 @@ public class Application {
 
         // 실행 결과
         System.out.println("실행 결과");
-        for(int i=0; i<attemptInput; i++) {
+        for (int i = 0; i < attemptInput; i++) {
             racing.moveResult(gameScore);
             System.out.println();
         }
         String findWinner = Collections.max(gameScore.values());
 
-        List<String> winner =new ArrayList<>();
-        for(String key: gameScore.keySet()) {
-            if(gameScore.get(key).equals(findWinner)) {
+        List<String> winner = new ArrayList<>();
+        for (String key : gameScore.keySet()) {
+            if (gameScore.get(key).equals(findWinner)) {
                 winner.add(key);
             }
         }
 
         String result = String.join(",", winner);
-        System.out.println("최종 우승자 : "+result);
+        System.out.println("최종 우승자 : " + result);
     }
 }

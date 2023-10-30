@@ -9,7 +9,8 @@ import java.util.Map;
 
 public class RacingCar {
     ExceptionCase exception = new ExceptionCase();
-    public String nameInput(){
+
+    public String nameInput() {
         return Console.readLine().trim();
     }
 
@@ -21,18 +22,24 @@ public class RacingCar {
         return cars;
     }
 
-    public Map<String,String> createRaceStatusMap(List<String> cars) {
+    public Map<String, String> createRaceStatusMap(List<String> cars) {
         Map<String, String> gameScore = new HashMap<>();
-        for(String car: cars) {
-            gameScore.put(car,"");
+        for (String car : cars) {
+            gameScore.put(car, "");
         }
         return gameScore;
     }
 
     public int attemptInput() {
-        String attempt = Console.readLine().trim();;
-        exception.nullStringInput(attempt);
-        return Integer.parseInt(attempt);
+        try {
+            String attempt = Console.readLine().trim();
+            exception.nullStringInput(attempt);
+            int num = Integer.parseInt(attempt);
+            exception.isNumberCorrect(num);
+            return num;
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력하세요");
+        }
     }
 
 }

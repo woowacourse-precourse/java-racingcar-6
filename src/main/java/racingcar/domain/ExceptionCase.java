@@ -5,8 +5,8 @@ import java.util.List;
 public class ExceptionCase {
 
     public void carNameLength(List<String> racers) {
-        racers.forEach((a)-> {
-            if(a.length()> 5) {
+        racers.forEach((a) -> {
+            if (a.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
         });
@@ -17,4 +17,11 @@ public class ExceptionCase {
             throw new IllegalArgumentException();
         }
     }
+    public void isNumberCorrect(int input) {
+        if (input < 0 || input > 9) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
+
