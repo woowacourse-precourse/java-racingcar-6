@@ -24,7 +24,7 @@ class CarNameValidatorTest {
 
     @DisplayName("자동차 이름이 최대 길이보다 긴 경우 예외가 발생해야 한다.")
     @Test
-    void testInvalidCarName() {
+    void invalidCarName_test() {
         String invalidCarName = "C".repeat(CAR_NAME_MAX_LENGTH);
 
         try {

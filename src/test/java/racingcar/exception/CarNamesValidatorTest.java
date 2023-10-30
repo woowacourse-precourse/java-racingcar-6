@@ -27,7 +27,7 @@ class CarNamesValidatorTest {
 
     @DisplayName("자동차 이름에 빈 값이 포함될 경우 예외가 발생한다.")
     @Test
-    void emptyCarName_exception_test() {
+    void empty_CarName_exception_test() {
         List<CarName> carNames = Arrays.asList(new CarName("Car1"), new CarName(""));
 
         try {
@@ -39,7 +39,7 @@ class CarNamesValidatorTest {
 
     @DisplayName("자동차 이름에 중복된 이름이 있을 경우 예외가 발생한다.")
     @Test
-    void duplicateCarName_exception_test() {
+    void duplicate_CarName_exception_test() {
         List<CarName> carNames = Arrays.asList(new CarName("Car1"), new CarName("Car1"));
 
         try {

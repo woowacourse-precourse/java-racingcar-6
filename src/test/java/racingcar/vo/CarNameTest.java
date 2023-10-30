@@ -12,7 +12,7 @@ class CarNameTest {
 
     private static final Integer CAR_NAME_MAX_LENGTH = 5;
 
-    @DisplayName("유효한 자동차 이름인 경우 예외가 발생하지 않고 객체가 정상적으로 생성된다.")
+    @DisplayName("유효한 자동차 이름인 경우 예외가 발생하지 않고 레코드가 정상적으로 생성된다.")
     @Test
     void validCarName_test() {
         String validName = "a".repeat(CAR_NAME_MAX_LENGTH);

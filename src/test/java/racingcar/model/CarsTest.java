@@ -35,7 +35,7 @@ class CarsTest {
 
     @DisplayName("자동차 이름이 유효한 경우 객체 생성를 생성한다.")
     @Test
-    void constructorValidInput_test() {
+    void valid_carnames_test() {
         List<CarName> carNames = Arrays.asList(new CarName("Car1"), new CarName("Car2"), new CarName("Car3"));
 
         assertDoesNotThrow(() -> new Cars(carNames));
@@ -43,7 +43,7 @@ class CarsTest {
 
     @DisplayName("자동차 이름 중 빈 값이 있는 경우 예외를 던져 객체 생성을 막는다.")
     @Test
-    void constructorInvalidInput_exception_test() {
+    void empty_carname_exception_test() {
         List<CarName> emptyCarNames = Arrays.asList(new CarName("pobi"), new CarName(""));
 
         assertThrows(IllegalArgumentException.class, () -> new Cars(emptyCarNames));
@@ -51,7 +51,7 @@ class CarsTest {
 
     @DisplayName("자동차 이름 중 중복이 있는 경우 예외를 던져 객체 생성을 막는다.")
     @Test
-    void constructorDuplicateInput_exception_test() {
+    void duplicate_carnames_exception_test() {
         List<CarName> duplicateCarNames = Arrays.asList(new CarName("pobi"), new CarName("pobi"));
 
         assertThrows(IllegalArgumentException.class, () -> new Cars(duplicateCarNames));
@@ -59,7 +59,7 @@ class CarsTest {
 
     @DisplayName("자동차의 목록을 List형태로 가져온다.")
     @Test
-    void getCarList_test() {
+    void get_carList_test() {
         // given
         List<CarName> carNames = Arrays.asList(new CarName("Car1"), new CarName("Car2"), new CarName("Car3"));
         cars = new Cars(carNames);

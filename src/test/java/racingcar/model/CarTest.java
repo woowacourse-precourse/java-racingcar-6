@@ -15,7 +15,7 @@ class CarTest {
 
     @DisplayName("자동차 이름이 5자 이하인 경우 예외 발생 없이, 객체가 생성된다.")
     @Test
-    void constructorValidCarName_test() {
+    void valid_carName_test() {
         // given
         CarName carName = new CarName("12345");
 

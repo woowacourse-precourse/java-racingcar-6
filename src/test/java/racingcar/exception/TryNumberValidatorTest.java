@@ -13,7 +13,7 @@ class TryNumberValidatorTest {
 
     @DisplayName("입력값이 최소 횟수 이상인 경우 예외가 발생하지 않아야 한다.")
     @Test
-    void validTryNumber_test() {
+    void valid_tryNumber_test() {
         Integer validCount = MIN_TRY_NUMBER;
 
         assertDoesNotThrow(() -> {
@@ -23,7 +23,7 @@ class TryNumberValidatorTest {
 
     @DisplayName("입력값이 최소 횟수 미만인 경우 예외가 발생해야 합니다.")
     @Test
-    void invalidTryNumber_test() {
+    void invalid_tryNumber_test() {
         Integer invalidCount = MIN_TRY_NUMBER - 1;
 
         try {

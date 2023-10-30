@@ -35,7 +35,7 @@ class InputValidatorTest {
 
     @DisplayName("시도 횟수에 대한 입력값이 비어있지 않고 숫자인 경우 예외가 발생하지 않는다.")
     @Test
-    void validTryNumber_test() {
+    void valid_tryNumber_test() {
         String tryNumber = "1";
 
         assertDoesNotThrow(() -> {
@@ -45,7 +45,7 @@ class InputValidatorTest {
 
     @DisplayName("시도 횟수 입력값이 비어있는 경우 예외가 발생해야 합니다.")
     @Test
-    void invalidTryNumber_empty_exception_test() {
+    void invalid_tryNumber_empty_exception_test() {
         String tryNumber = "";
 
         try {
@@ -57,7 +57,7 @@ class InputValidatorTest {
 
     @DisplayName("시도 횟수 입력값이 숫자가 아닌 경우 예외가 발생해야 한다.")
     @Test
-    void invalidTryNumber_character_exception_test() {
+    void invalid_tryNumber_character_exception_test() {
         String tryNumber = "c";
 
         try {
