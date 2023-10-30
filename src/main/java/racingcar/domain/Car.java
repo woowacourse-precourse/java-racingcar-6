@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.dto.CarDto;
+
 public class Car {
 
     private static final int MOVE_CONDITION = 4;
@@ -22,12 +24,12 @@ public class Car {
         return this.position.equals(car.position);
     }
 
-    public String getName() {
-        return name.getName();
-    }
-
     public int getPosition() {
         return position.getPosition();
+    }
+
+    public CarDto toCarDto() {
+        return new CarDto(name.getName(), position.getPosition());
     }
 
 }

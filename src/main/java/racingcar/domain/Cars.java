@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import racingcar.dto.RoundResult;
+import racingcar.dto.CarDto;
 
 public class Cars {
 
@@ -45,7 +45,8 @@ public class Cars {
         Car winner = getWinner();
         return cars.stream()
                 .filter(car -> car.isSamePosition(winner))
-                .map(Car::getName)
+                .map(Car::toCarDto)
+                .map(CarDto::name)
                 .toList();
     }
 
@@ -57,9 +58,9 @@ public class Cars {
                 });
     }
 
-    public List<RoundResult> getCurrentCarStatus() {
+    public List<CarDto> getCurrentCarStatus() {
         return cars.stream()
-                .map(car -> new RoundResult(car.getName(), car.getPosition()))
+                .map(Car::toCarDto)
                 .toList();
     }
 
