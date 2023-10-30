@@ -3,7 +3,6 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingCars {
@@ -16,7 +15,9 @@ public class RacingCars {
 
 
     public void addCars(String[] carNames) {
-        Arrays.stream(carNames).forEach(name -> racingCars.add(new Car(name)));
+        for(String name: carNames){
+            racingCars.add(new Car(name));
+        }
     }
 
 
@@ -30,6 +31,26 @@ public class RacingCars {
 
     private int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+
+    public List<String> getCarNames(){
+
+        List<String> carNames = new ArrayList<>();
+
+        for(Car car: racingCars){
+            carNames.add(car.getName());
+        }
+        return carNames;
+    }
+
+    public List<Integer> getCarLocations(){
+        List<Integer> carLocations = new ArrayList<>();
+
+        for(Car car: racingCars){
+            carLocations.add(car.getLocation());
+        }
+        return carLocations;
     }
 
 }
