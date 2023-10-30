@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,6 +27,14 @@ public class Cars {
         return new Cars(cars);
     }
 
+    private static List<Car> generateCars(String carNames) {
+        return Arrays.stream(carNames.split(","))
+                .map(String::trim)
+                .map(Name::from)
+                .map(name -> new Car(name, new Position(0)))
+                .toList();
+    }
+
     private static void validateEmpty(List<Car> cars) {
         if (cars.isEmpty()) {
             throw new IllegalArgumentException(EMPTY_CAR_MESSAGE);
@@ -40,14 +49,6 @@ public class Cars {
         if (nonDuplicateCarNames.size() != carNames.size()) {
             throw new IllegalArgumentException(DUPLICATE_CAR_MESSAGE + carNames);
         }
-    }
-
-    private static List<Car> generateCars(String carNames) {
-        return Arrays.stream(carNames.split(","))
-                .map(String::trim)
-                .map(Name::from)
-                .map(name -> new Car(name, new Position(0)))
-                .toList();
     }
 
     public void race() {
@@ -76,6 +77,6 @@ public class Cars {
     }
 
     public List<Car> getCars() {
-        return cars;
+        return Collections.unmodifiableList(cars);
     }
 }
