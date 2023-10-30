@@ -30,7 +30,7 @@ public class Race {
 //    }
 
 
-    private static Map<String, String> raceResultsHMap = new HashMap<>();
+    private static Map<String, String> raceResultsHMap = new LinkedHashMap<>();
 
     public static Map<String, String> registerCars(List<String> carNamesArrayList){
         for (String carName : carNamesArrayList) {

@@ -1,9 +1,6 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -17,7 +14,7 @@ public class Application {
         System.out.println();
 
         System.out.println("실행 결과");
-        Map<String, String> raceResult = new HashMap<>();
+        Map<String, String> raceResult = new LinkedHashMap<>();
 
         Map<String, String> readyForRaceHMap = Race.registerCars(carNamesArrayList);
         for (int i = 0; i < trialNumber; i++) {
