@@ -62,6 +62,12 @@ public class RacingCarGameInputTest {
                 .hasMessageContaining(RacingCarGameInput.ERROR_MESSAGE_EMPTY);
     }
 
+    @Test
+    void 이동_횟수_입력_정상_작동() {
+        setInputStream("2000");
+        assertThatCode(() -> RacingCarGameInput.readMoveCount())
+                .doesNotThrowAnyException();
+    }
 
     @Test
     void 시도_횟수가_숫자가_아닌_경우_예외_반환() {
