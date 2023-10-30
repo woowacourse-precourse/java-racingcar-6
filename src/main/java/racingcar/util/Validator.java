@@ -10,21 +10,21 @@ public class Validator {
         blank(nameList);
         duplicate(nameList);
     }
-    public void size(List<String> nameList){
+    private void size(List<String> nameList){
         for(String name:nameList){
             if(name.length()>5){
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다");
             }
         }
     }
-    public void blank(List<String> nameList){
+    private void blank(List<String> nameList){
         for(String name:nameList){
             if(name.equals("")){
                 throw new IllegalArgumentException("이름에 공백이나 ,은 불가합니다.");
             }
         }
     }
-    public void duplicate(List<String> nameList){
+    private void duplicate(List<String> nameList){
         HashSet<String> nonDuplicate= new HashSet<>(nameList);
         if(nonDuplicate.size()!=nameList.size()){
             throw new IllegalArgumentException("중복된 이름은 불가합니다.");
