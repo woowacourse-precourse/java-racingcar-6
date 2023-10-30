@@ -42,5 +42,6 @@ public class GameController {
     private void validate(List<String> names) {
         Validator.validateCarName(names);
         Validator.validateNotDuplicate(names);
+        Validator.validateNoSpace(names);
     }
 }

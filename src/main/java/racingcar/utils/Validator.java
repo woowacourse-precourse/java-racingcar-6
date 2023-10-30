@@ -19,4 +19,10 @@ public class Validator {
             throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_MUST_BE_NOT_DUPLICATED.getMessage());
         }
     }
+
+    public static void validateNoSpace(List<String> names) {
+        if(names.contains("") || names.contains(" ")) {
+            throw new IllegalArgumentException(ErrorMessage.ERROR_NAME_MUST_NO_SPACE.getMessage());
+        }
+    }
 }
