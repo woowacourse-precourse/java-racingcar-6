@@ -111,4 +111,11 @@ public class StringTest {
         assertThrows(StringIndexOutOfBoundsException.class, () -> input.charAt(5));
     }
 
+    @Test
+    public void assertThatThrownBy_을_이용한_예외를_테스트() {
+        assertThatThrownBy(() -> {
+            throw new Exception("boom!");
+        }).isInstanceOf(Exception.class)
+                .hasMessageContaining("boom");
+    }
 }
