@@ -27,10 +27,11 @@ public class RaceController {
             outputView.printResult(carNamesList, result);
         }
         int maxScore = raceService.getMaxScore(carNamesList, result);
+        System.out.print("최종 우승자 : ");
+        List<String> winnerList = raceService.getWinnerList(carNamesList, result, maxScore);
+        System.out.print(String.join(", ", winnerList));
 
     }
-
-
 
 
 }
