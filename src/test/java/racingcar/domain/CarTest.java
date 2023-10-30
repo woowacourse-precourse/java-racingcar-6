@@ -18,7 +18,7 @@ import org.mockito.MockedStatic;
 
 public class CarTest{
 
-    MockedStatic<Randoms> randoms;
+    private MockedStatic<Randoms> randoms;
 
     @BeforeEach
     void init(){
