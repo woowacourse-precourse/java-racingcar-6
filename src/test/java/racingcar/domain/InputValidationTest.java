@@ -51,4 +51,12 @@ class InputValidationTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("숫자가 아닌 값입니다.");
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {"-1", "0"})
+    void 이동횟수가_1미만일_경우_예외_발생(int number) {
+        assertThatThrownBy(() -> InputValidation.checkNumberSize(number))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자의 크기가 작습니다");
+    }
 }
