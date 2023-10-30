@@ -15,8 +15,8 @@ class PowerTest {
         PowerGenerator powerGenerator = new DefaultPowerGenerator();
         Power power = new Power(4);
 
-        assertTrue(power.isSufficientPowerToMove(new Power(0)));
-        assertTrue(power.isSufficientPowerToMove(new Power(4)));
-        assertFalse(power.isSufficientPowerToMove(new Power(9)));
+        assertTrue(power.isSufficientToDrive(new Power(0)));
+        assertTrue(power.isSufficientToDrive(new Power(4)));
+        assertFalse(power.isSufficientToDrive(new Power(9)));
     }
 }

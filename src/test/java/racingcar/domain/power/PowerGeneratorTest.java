@@ -19,11 +19,11 @@ class PowerGeneratorTest {
     }
 
     private boolean generatedPowerisAlwaysBiggerThanMinPower() {
-        return powerGenerator.generate().isSufficientPowerToMove(new Power(0));
+        return powerGenerator.generate().isSufficientToDrive(new Power(0));
     }
 
     private boolean generatedPowerCannotBeBiggerThanMaxPower() {
-        return !powerGenerator.generate().isSufficientPowerToMove(new Power(10));
+        return !powerGenerator.generate().isSufficientToDrive(new Power(10));
     }
 
 

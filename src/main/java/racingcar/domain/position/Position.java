@@ -14,7 +14,7 @@ public class Position implements Comparable<Position> {
         this.position += weight;
     }
 
-    public String resolvePositionToString() {
+    public String draw() {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < position; i++) {
             result.append("-");

@@ -8,7 +8,7 @@ public class Power {
         this.power = power;
     }
 
-    public boolean isSufficientPowerToMove(Power threshold) {
+    public boolean isSufficientToDrive(Power threshold) {
         if (threshold.power <= this.power) {
             return true;
         }

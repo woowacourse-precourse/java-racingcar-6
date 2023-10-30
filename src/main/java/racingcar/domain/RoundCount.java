@@ -27,17 +27,17 @@ public class RoundCount {
     }
 
     private void validateType(String target) {
-        if (!canConvertToInteger(target)) {
+        if (isInvalidType(target)) {
             throw new IllegalArgumentException(INVALID_ROUND_NUMBER_ERROR);
         }
     }
 
-    private static boolean canConvertToInteger(String target) {
+    private static boolean isInvalidType(String target) {
         try {
             Integer.parseInt(target);
-            return true;
-        } catch (NumberFormatException e) {
             return false;
+        } catch (NumberFormatException e) {
+            return true;
         }
     }
 }

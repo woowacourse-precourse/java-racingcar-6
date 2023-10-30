@@ -47,7 +47,7 @@ public class OutputView {
         for (Car car : cars) {
             result.append(car.getCarName()).append(" : ");
             Position position = car.getPosition();
-            result.append(position.resolvePositionToString());
+            result.append(position.draw());
             result.append("\n");
         }
         return result.toString();

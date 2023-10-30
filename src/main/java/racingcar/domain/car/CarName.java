@@ -6,15 +6,15 @@ public class CarName {
     private static final int MIN_LENGTH = 1;
     private static final String INVALID_LENGTH_ERROR_MESSAGE = "각 자동차 이름의 길이는 1-5사이여야 합니다.";
 
-    private String carName;
+    private String value;
 
-    public CarName(String carName) {
-        validate(carName);
-        this.carName = carName;
+    public CarName(String value) {
+        validate(value);
+        this.value = value;
     }
 
-    public String getCarName() {
-        return carName;
+    public String getValue() {
+        return value;
     }
 
     private void validate(String target) {
@@ -22,12 +22,12 @@ public class CarName {
     }
 
     private void validateLength(String target) {
-        if (invalidLength(target)) {
+        if (isInvalidLength(target)) {
             throw new IllegalArgumentException(INVALID_LENGTH_ERROR_MESSAGE);
         }
     }
 
-    private boolean invalidLength(String name) {
+    private boolean isInvalidLength(String name) {
         return name.length() > MAX_LENGTH || name.length() < MIN_LENGTH;
     }
 }

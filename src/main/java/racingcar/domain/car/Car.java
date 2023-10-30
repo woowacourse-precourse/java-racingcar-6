@@ -6,8 +6,8 @@ import racingcar.domain.power.PowerGenerator;
 
 public class Car {
 
-    private static final Power POWER_THRESHOLD_FOR_MOVE = new Power(4);
-    private static final int MOVE_DISTANCE = 1;
+    private static final Power POWER_THRESHOLD_FOR_DRIVE = new Power(4);
+    private static final int MOVE_WEIGHT = 1;
 
     private CarName carName;
     private Position position;
@@ -21,17 +21,17 @@ public class Car {
 
     public void tryDrive() {
         Power generatedPower = powerGenerator.generate();
-        if (generatedPower.isSufficientPowerToMove(POWER_THRESHOLD_FOR_MOVE)) {
+        if (generatedPower.isSufficientToDrive(POWER_THRESHOLD_FOR_DRIVE)) {
             drive();
         }
     }
 
     private void drive() {
-        position.move(MOVE_DISTANCE);
+        position.move(MOVE_WEIGHT);
     }
 
     public String getCarName() {
-        return carName.getCarName();
+        return carName.getValue();
     }
 
     public Position getPosition() {
