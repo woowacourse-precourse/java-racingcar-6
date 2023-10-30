@@ -2,7 +2,7 @@ package racingcar.domain.entity;
 
 public class CarEntity {
     private final String carName;
-    private final int position;
+    private int position;
 
     public CarEntity(String carName, int position) {
         this.carName = carName;
@@ -15,5 +15,9 @@ public class CarEntity {
 
     public int getPosition() {
         return position;
+    }
+
+    public void movePosition() {
+        this.position++;
     }
 }

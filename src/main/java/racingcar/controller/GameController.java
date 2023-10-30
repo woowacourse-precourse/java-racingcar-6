@@ -1,7 +1,9 @@
 package racingcar.controller;
 
-import racingcar.domain.RandomNumberGenerator;
+import racingcar.domain.JudgeMoveCar;
+import racingcar.domain.dao.CarDAO;
 import racingcar.domain.dao.RaceDAO;
+import racingcar.domain.entity.CarEntity;
 import racingcar.domain.entity.RaceEntity;
 import racingcar.service.GameService;
 import racingcar.view.InputAboutGame;
@@ -20,14 +22,12 @@ public class GameController {
         OutputAboutGame.PrintAttemptInputPhrase();
         GameService.raceDataSave(InputAboutGame.InputAttempt());
         RaceEntity raceData=RaceDAO.loadAll();
-        RandomNumberGenerator generator = new RandomNumberGenerator();
+        List<CarEntity> carsData= CarDAO.loadAll();
         while(raceData.getAttemptNumber()>0){
-            generator.NumberGenrate();
+            JudgeMoveCar.MoveCar(carsData);
             GameService.raceDataSave(raceData.getAttemptNumber()-1);
             raceData=RaceDAO.loadAll();
         }
 
-
-        generator.NumberGenrate();
     }
 }
