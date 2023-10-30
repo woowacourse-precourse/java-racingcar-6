@@ -8,9 +8,7 @@ public class Race {
     private ArrayList<Car> cars;
     private int attempt;
 
-    public Race(String input) {
-        validateAttempt(input);
-        parsePositiveInteger(input);
+    public Race() {
         this.cars = new ArrayList<>();
     }
 
@@ -28,8 +26,11 @@ public class Race {
         }
     }
 
-    public void initializeCars(String input) {
-        List<String> carNameList = ParserUtils.namesParser(input);
+    public void initializeRace(String attemptCountInput, String carNamesInput) {
+        validateAttempt(attemptCountInput);
+        parsePositiveInteger(attemptCountInput);
+
+        List<String> carNameList = ParserUtils.namesParser(carNamesInput);
 
         for (String carName : carNameList) {
             Car car = new Car(carName);
