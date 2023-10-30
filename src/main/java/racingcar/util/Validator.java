@@ -28,7 +28,9 @@ public class Validator {
     }
 
     public static void isLengthLessThanFive(String input) {
-        if (input.replaceAll("\\s", "").length() > 5) {
+        if (input
+                .replaceAll(Constants.SPACE_REMOVAL_REGEX, Constants.REPLACEMENT_STRING_REGEX)
+                .length() > Constants.MAX_INPUT_LENGTH) {
             throw new IllegalArgumentException(ExceptionMessage.INPUT_NAME_LENGTH_MAX_5);
         }
     }
@@ -44,7 +46,7 @@ public class Validator {
     }
 
     public static void isOneOrMore(String input) {
-        if (!Pattern.matches("^(0*[1-9][0-9]*)$", input)) {
+        if (!Pattern.matches(Constants.NUMBER_PATTERN, input)) {
             throw new IllegalArgumentException(ExceptionMessage.INPUT_ONE_OR_HIGHER_REQUIRED);
         }
     }
@@ -62,7 +64,7 @@ public class Validator {
     }
 
     public static void isValidName(String input) {
-        if (!Pattern.matches("^[^,]+(,[^,]+)*$", input)) {
+        if (!Pattern.matches(Constants.COMMA_SEPARATED_PATTERN, input)) {
             throw new IllegalArgumentException(ExceptionMessage.NAME_NOT_VALID);
         }
     }

@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.util.ConsoleMessage;
+import racingcar.util.Constants;
 import racingcar.util.Validator;
 
 public class InputView {
@@ -19,6 +20,6 @@ public class InputView {
 
     public static String[] splitByComma(String input) {
         Validator.isValidInput(input);
-        return input.split(",");
+        return input.split(Constants.COMMA);
     }
 }

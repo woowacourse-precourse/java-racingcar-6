@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.util.Constants;
 import racingcar.util.ResultMessage;
 
 public class Round {
@@ -15,7 +16,7 @@ public class Round {
 
 
     public void move(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= Constants.MOVING_FORWARD) {
             this.position++;
         }
     }
@@ -25,7 +26,7 @@ public class Round {
         StringBuilder record = new StringBuilder();
         record.append(String.format(ResultMessage.ROUND_RECORD, name));
         for (int i = 0; i < position; i++) {
-            record.append('-');
+            record.append(Constants.HYPHEN);
         }
         return record.toString();
     }
