@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 
+import java.util.List;
+
 public class RacingCarView {
 
     public String inputStartRacingCar() {
@@ -18,15 +20,15 @@ public class RacingCarView {
         return racingCount;
     }
 
-    public void printGoAheadCount(Racing racingGame) {
-        for (Car car:racingGame.getRacingCarList()){
+    public void printAheadCount(List<Car> racingCarList) {
+        for (Car car:racingCarList){
             System.out.println(car.getName()+" : "+"-".repeat(car.getAheadCount()));
         }
         System.out.println("");
     }
 
-    public void printWinner(Racing racingGame){
-        String winners = String.join(", ", racingGame.getWinnerList());
+    public void printWinner(List<String> winnerList){
+        String winners = String.join(", ", winnerList);
         System.out.println("최종 우승자 : "+winners);
     }
 }

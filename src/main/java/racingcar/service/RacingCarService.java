@@ -7,7 +7,10 @@ import racingcar.util.GlobalExceptionHandler;
 import racingcar.view.RacingCarView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import static java.util.Collections.max;
 
 public class RacingCarService {
 
@@ -67,6 +70,25 @@ public class RacingCarService {
         for (int i=0; i<racingGame.getRacingCount(); i++){
             countAhead(racingGame);
         }
+    }
+
+    public HashMap<String, Integer> getAheadCountList(Racing racingGame) {
+        final HashMap<String, Integer> aheadCountList = new HashMap<>();
+
+        for (Car car:racingGame.getRacingCarList()){
+            aheadCountList.put(car.getName(), car.getAheadCount());
+        }
+        return aheadCountList;
+    }
+
+    public void updateWinnerList(Racing racingGame) {
+        final HashMap<String, Integer> aheadCountList = getAheadCountList(racingGame);
+
+        aheadCountList.forEach((key, value) -> {
+            if (value == max(aheadCountList.values())) {
+                racingGame.updateWinnerList(key);
+            }
+        });
     }
 
 }

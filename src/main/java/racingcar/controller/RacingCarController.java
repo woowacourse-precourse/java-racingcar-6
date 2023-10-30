@@ -29,21 +29,9 @@ public class RacingCarController {
         final Racing racingGame = racingCarService.startRace(racingCarCount, racingCarList);
 
         racingCarService.startRacingRound(racingGame);
-        racingCarView.printGoAheadCount(racingGame);
+        racingCarView.printAheadCount(racingGame.getRacingCarList());
 
-        // 경기가 끝나면 최종 우승자 저장 및 출력
-        final HashMap<String, Integer> goAheadCountList = new HashMap<>();
-
-        for (Car car:racingGame.getRacingCarList()){
-            goAheadCountList.put(car.getName(), car.getAheadCount());
-        }
-
-        goAheadCountList.forEach((key, value) -> {
-            if (value == max(goAheadCountList.values())) {
-                racingGame.updateWinnerList(key);
-            }
-        });
-
-        racingCarView.printWinner(racingGame);
+        racingCarService.updateWinnerList(racingGame);
+        racingCarView.printWinner(racingGame.getWinnerList());
     }
 }
