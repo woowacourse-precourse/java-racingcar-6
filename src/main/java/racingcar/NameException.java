@@ -1,6 +1,6 @@
 package racingcar;
 
-public interface checkException {
+public interface NameException {
     boolean isValidNameLength();
 
     boolean isBlankString();

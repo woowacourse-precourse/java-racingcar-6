@@ -5,11 +5,11 @@ import java.util.Arrays;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class Input implements checkException {
-    List<String> nameList;
+public class CarNameInput implements NameException {
+    private final List<String> nameList;
     final int maxNameLength=5;
 
-    Input() {
+    CarNameInput() {
         String nameString = Console.readLine();
         nameList = Arrays.asList(nameString.split(","));
     }
