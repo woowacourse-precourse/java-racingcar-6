@@ -26,7 +26,7 @@ public class GameUtil {
     public String[] inputToNameArr(String input) {
         String[] nameArr = input.split(",");
         for (String name : nameArr) {
-            if (isNameOK(name)) {
+            if (!isNameOK(name)) {
                 throw new IllegalArgumentException("이름은 한 글자 이상 다섯 글자 이하여야 합니다.");
             }
         }
