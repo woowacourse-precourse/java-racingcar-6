@@ -1,7 +1,9 @@
 package racingcar.controller;
 
+import java.util.List;
 import java.util.stream.IntStream;
 import racingcar.model.RacingCarGameModel;
+import racingcar.model.RacingCarPlayerModel;
 import racingcar.view.RacingCarGameView;
 import racingcar.view.RacingCarPlayerView;
 
@@ -17,7 +19,6 @@ public class RacingCarGameController{
     public void init(){
         this.inputController = new InputController();
         this.racingCarFormatController = new RacingCarFormatController();
-        this.racingCarGameModel = new RacingCarGameModel();
         this.racingCarGameView = new RacingCarGameView();
         this.racingCarPlayerView = new RacingCarPlayerView();
         this.startGame();
@@ -44,8 +45,9 @@ public class RacingCarGameController{
     private void initRacingCarGame(){
         this.racingCarGameView.printInputRacingCarPlayers();
         String players = this.inputController.readRacingCarPlayers();
-        this.racingCarGameModel.setPlayers(this.racingCarFormatController.formatStringToListRacingCarPlayer(players));
+        List<RacingCarPlayerModel> listPlayers= this.racingCarFormatController.formatStringToListRacingCarPlayer(players);
         this.racingCarGameView.printInputTryCount();
-        this.racingCarGameModel.setTryCount(this.inputController.readTryCount());
+        int tryCount = this.inputController.readTryCount();
+        this.racingCarGameModel = new RacingCarGameModel(listPlayers, tryCount);
     }
 }

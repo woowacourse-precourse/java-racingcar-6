@@ -5,11 +5,9 @@ import java.util.List;
 public class RacingCarGameModel {
     private RacingCarPlayerListModel players;
     private int tryCount;
-    public void setPlayers(List<RacingCarPlayerModel> players){
-        this.players = new RacingCarPlayerListModel(players);
-    }
 
-    public void setTryCount(int tryCount){
+    public RacingCarGameModel(List<RacingCarPlayerModel> players, int tryCount){
+        this.players = new RacingCarPlayerListModel(players);
         this.tryCount = tryCount;
     }
 
