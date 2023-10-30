@@ -11,11 +11,19 @@ public class RacingGameController {
         this.inputView = inputView;
     }
 
-    public void startGame() {
-        String names = inputView.inputCarNames();
-        String attempts = inputView.inputAttempts();
-        System.out.println("자동차 이름: " + names + "시도할 회수: " + attempts);
+    public void setCarName(String names) {
+        inputView.inputCarNames();
+        // validation
+        // save CarName
+    }
 
+    public void setAttempts(String attempts) {
+        inputView.inputAttempts();
+        // validation
+        // save attempts
+    }
+
+    public void startGame(String names, String attempts) {
         Car car = Car.makeCar(new CarName(names), new RacingNumber());
         car.generateRandomNumber();
         System.out.println(car.toString());
