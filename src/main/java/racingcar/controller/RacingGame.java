@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.RandomNumberGenerator;
 import racingcar.validator.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -16,7 +17,7 @@ public class RacingGame {
         for (String name : racingCarNames) {
             Validator.validateAvailableLength(name);
             Validator.validateIsBlank(name);
-            cars.add(new Car(name));
+            cars.add(new Car(name, new RandomNumberGenerator()));
         }
 
         Long tryCount = InputView.readTryCount();

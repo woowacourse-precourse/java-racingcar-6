@@ -10,7 +10,15 @@ public class OutputView {
 
     public static void printResult(List<Car> cars) {
         for (Car car : cars) {
-            System.out.println(car.printResult());
+            String name = car.getName();
+            long distance = car.getDistance();
+            StringBuilder hyphen = new StringBuilder();
+
+            for (long i = 0; i < distance; i++) {
+                hyphen.append("-");
+            }
+
+            System.out.println(name + " : " + hyphen);
         }
         System.out.println();
     }
