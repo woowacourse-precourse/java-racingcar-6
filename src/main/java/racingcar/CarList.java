@@ -8,7 +8,7 @@ public class CarList {
 
     public CarList(String carsName) throws IllegalArgumentException {
         String[] names = splitNamesByComma(carsName);
-        if (isBlankSpace(carsName) || !isValidNameLength(names)) {
+        if (!isBlankSpace(carsName) || !isValidNameLength(names)) {
             throw new IllegalArgumentException();
         }
         this.carList = new ArrayList<>();
