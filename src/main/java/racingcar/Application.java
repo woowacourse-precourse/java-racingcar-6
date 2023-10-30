@@ -4,11 +4,6 @@ import racingcar.domain.Car;
 import racingcar.domain.Referee;
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-
 public class Application {
     public static void main(String[] args) {
         Referee referee = new Referee();
@@ -18,6 +13,10 @@ public class Application {
 
         referee.notifyNumOfGame();
         referee.setNumOfGame(Integer.parseInt(Console.readLine()));
+
+        for (int i = 0; i < referee.getNumOfGame(); i++) {
+            referee.moveCars();
+        }
 
     }
 }
