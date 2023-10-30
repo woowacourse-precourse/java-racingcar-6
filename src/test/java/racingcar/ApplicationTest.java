@@ -15,6 +15,16 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
 
+
+    @Test
+    void 시도_횟수_숫자_검증() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("love,peace", "one"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+
+    }
+
     @Test
     void 자동차_이름_숫자영어_검증() {
         assertSimpleTest(() ->
