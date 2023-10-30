@@ -32,7 +32,10 @@ public class RaceController {
         }
     }
 
-    public void repeatMoveCars() {
+    public void repeatMoveCars(int moveCount, List<Car> cars) {
+        while (moveCount-- > 0) {
+            tryMoveCars(cars);
+        }
     }
 
     public List<String> askCarNames() {
