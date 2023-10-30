@@ -16,8 +16,10 @@ public class Print {
         }
     }
 
-    public static void winner(List<String> winner) {
+    public static String winner(List<String> winner) {
+        String str = "최종 우승자 : ";
         String result = String.join(", ", winner);
-        System.out.println("최종 우승자 : " + result);
+        result = str + result;
+        return result;
     }
 }
