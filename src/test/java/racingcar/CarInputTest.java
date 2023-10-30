@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class InputTest {
+class CarInputTest {
 
     @Test
     void 예시_입력_테스트() {
