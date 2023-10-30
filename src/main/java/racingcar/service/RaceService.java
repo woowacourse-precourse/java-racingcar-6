@@ -1,6 +1,10 @@
 package racingcar.service;
 
 
+import static java.lang.String.format;
+import static racingcar.constant.ErrorMessage.*;
+import static racingcar.constant.RaceSetting.*;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,36 +30,38 @@ public class RaceService {
                 .stream()
                 .anyMatch(carName -> carName.trim().isEmpty());
         if (isEmptyInput) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(EMPTY_INPUT_ERROR.getMessage());
         }
     }
 
     private void validateLengthInput(List<String> carNames) {
-        boolean isInvalidCarName = carNames
+        boolean isValidCarName = carNames
                 .stream()
-                .anyMatch(carName -> carName.length() > 5);
+                .allMatch(carName -> carName.length() <= MAX_CAR_NAME_LENGTH.getValue());
 
-        if (isInvalidCarName) {
-            throw new IllegalArgumentException();
+        if (!isValidCarName) {
+            throw new IllegalArgumentException(
+                    format(LENGTH_INPUT_ERROR.getMessage(), MAX_CAR_NAME_LENGTH.getValue())
+            );
         }
     }
 
     private void validateDuplicateInput(List<String> carNames) {
         Set<String> uniqueCarNames = new HashSet<>(carNames);
         if (uniqueCarNames.size() != carNames.size()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(DUPLICATE_INPUT_ERROR.getMessage());
         }
     }
 
     public int initializeCount(String countInput) {
-        return validateNumeric(countInput);
+        return validateNumericInput(countInput);
     }
 
-    private int validateNumeric(String countInput) {
+    private int validateNumericInput(String countInput) {
         try {
             return Integer.parseInt(countInput);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(NUMERIC_INPUT_ERROR.getMessage());
         }
     }
 
