@@ -8,6 +8,7 @@ public class Name {
 
     public Name(String name) {
         this.name = name;
+        validateBelowLength();
         validateOverLength();
     }
 
@@ -18,6 +19,12 @@ public class Name {
     private void validateOverLength() {
         if (isNameTooLong()) {
             throw new IllegalArgumentException(OVER_LENGTH_MESSAGE);
+        }
+    }
+
+    private void validateBelowLength() {
+        if (name.isEmpty() || name.isBlank()) {
+            throw new IllegalArgumentException("공백 혹은 빈 문자열은 입력 할 수 없습니다.");
         }
     }
 

@@ -32,4 +32,16 @@ public class NameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("5글자 미만 이름만 입력 가능합니다.");
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", " "})
+    public void 이름_입력_예외_테스트_공백(String input) {
+        //given
+        String name = input;
+
+        //when, then
+        Assertions.assertThatThrownBy(() -> new Name(name))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("공백 혹은 빈 문자열은 입력 할 수 없습니다.");
+    }
 }
