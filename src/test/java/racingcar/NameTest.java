@@ -1,6 +1,5 @@
 package racingcar;
 
-import domain.Car;
 import domain.Cars;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

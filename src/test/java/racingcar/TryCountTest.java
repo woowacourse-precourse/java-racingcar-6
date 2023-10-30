@@ -1,9 +1,7 @@
 package racingcar;
 
-import domain.Cars;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.function.Try;
 import validator.TryCountValidator;
 import view.InputView;
 
