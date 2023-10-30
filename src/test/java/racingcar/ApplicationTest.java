@@ -1,6 +1,7 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -32,24 +33,24 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
     private static final int UPPER_LIMIT_OF_DIGIT = 9;
 
-//    @Test
-//    void 전진_정지() {
-//        assertRandomNumberInRangeTest(
-//                () -> {
-//                    run("pobi,woni", "1");
-//                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-//                },
-//                MOVING_FORWARD, STOP
-//        );
-//    }
-//
-//    @Test
-//    void 이름에_대한_예외_처리() {
-//        assertSimpleTest(() ->
-//                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-//                        .isInstanceOf(IllegalArgumentException.class)
-//        );
-//    }
+    @Test
+    void 전진_정지() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     /*
     아래부터 docs에 명시된 기능들(1번부터 15번까지)을 검증하는 테스트 코드입니다.
@@ -318,6 +319,16 @@ class ApplicationTest extends NsTest {
             raceOfficial.determineWinners(drivers);
             assertThat(raceOfficial.winners).containsExactly("pobi", "woni");
         }
+    }
+
+    @Test
+    @DisplayName("기능 15번: 우승자들 출력 확인")
+    void 우승자_명단_출력_확인() {
+        List<String> winners = new ArrayList<>(
+                Arrays.asList("pobi", "woni", "jun")
+        );
+        OutputViewer.printWinners(winners);
+        assertThat(output()).contains("최종 우승자 : pobi, woni, jun");
     }
 
     private void command(final String... args) {

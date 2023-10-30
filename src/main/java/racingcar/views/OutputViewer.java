@@ -1,5 +1,8 @@
 package racingcar.views;
 
+import java.util.List;
+import racingcar.utils.StringChanger;
+
 public class OutputViewer {
 
     private OutputViewer() {
@@ -26,4 +29,11 @@ public class OutputViewer {
         System.out.println();
     }
 
+    public static void printWinners(List<String> winners) {
+        StringBuilder stringBuilder = new StringBuilder("최종 우승자 : ");
+        for (String winner : winners) {
+            stringBuilder.append(winner).append(", ");
+        }
+        System.out.println(StringChanger.cutLastRegex(stringBuilder));
+    }
 }

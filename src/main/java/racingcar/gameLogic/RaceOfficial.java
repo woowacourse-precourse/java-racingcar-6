@@ -34,6 +34,7 @@ public class RaceOfficial {
 
     public void announceWinners(List<Driver> drivers) {
         determineWinners(drivers);
+        requestPrintWinners();
     }
 
     public void determineWinners(List<Driver> drivers) {
@@ -67,5 +68,7 @@ public class RaceOfficial {
         OutputViewer.printBlank();
     }
 
-
+    private void requestPrintWinners() {
+        OutputViewer.printWinners(winners);
+    }
 }

@@ -22,5 +22,9 @@ public class StringChanger {
         return Integer.parseInt(string);
     }
 
+    public static String cutLastRegex(StringBuilder stringBuilder) {
+        int cutLength = stringBuilder.length() - ", ".length();
+        return stringBuilder.substring(0, cutLength);
+    }
 
 }

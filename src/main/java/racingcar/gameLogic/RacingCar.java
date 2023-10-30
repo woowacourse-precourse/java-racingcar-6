@@ -35,10 +35,6 @@ public class RacingCar {
         }
     }
 
-    private void announceWinners() {
-        raceOfficial.announceWinners(drivers);
-    }
-
     private void setRounds() {
         roundCount = raceOfficial.setRounds(user.inputNumberOfTry());
     }
@@ -62,6 +58,10 @@ public class RacingCar {
 
     private void separateRoundOnScreen() {
         raceOfficial.separateRounds();
+    }
+
+    private void announceWinners() {
+        raceOfficial.announceWinners(drivers);
     }
 
 }
