@@ -28,8 +28,8 @@ public class Validator {
         }
     }
 
-    public static void validateNumeric(String attemptCount) {
-        if (!attemptCount.matches("^[0-9]+$")) {
+    public static void validateNumeric(String tryCount) {
+        if (!tryCount.matches("^[0-9]+$")) {
             throw new IllegalArgumentException("문자는 입력할 수 없습니다.");
         }
     }

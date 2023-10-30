@@ -13,12 +13,12 @@ public class RacingGame {
     public void setUp() {
         List<String> carNames = getCarNames();
         initializeCars(carNames);
-        play(getAttemptCount());
+        play(getTryCount());
     }
 
-    private void play(int attemptCount) {
+    private void play(int tryCount) {
         OutputView.displayGameResultMessage();
-        IntStream.range(0, attemptCount).forEach(attempt -> {
+        IntStream.range(0, tryCount).forEach(play -> {
             cars.moveAll();
             OutputView.displayGameResult(cars.toString());
         });
@@ -36,8 +36,8 @@ public class RacingGame {
         return parseNames(names);
     }
 
-    private int getAttemptCount() {
-        OutputView.displayAttemptCount();
+    private int getTryCount() {
+        OutputView.displayTryCount();
         String input = InputView.input();
         Validator.validateNumeric(input);
         return Integer.parseInt(input);

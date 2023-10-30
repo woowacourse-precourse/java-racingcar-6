@@ -48,9 +48,9 @@ public class ValidatorTest extends ApplicationTest {
             "d",
             "q"
     })
-    void 시도할_횟수_유효성_실패_테스트(String attemptCount) {
+    void 시도할_횟수_유효성_실패_테스트(String tryCount) {
         assertThrows(IllegalArgumentException.class,
-                () -> Validator.validateNumeric(attemptCount));
+                () -> Validator.validateNumeric(tryCount));
     }
 
     @Test
