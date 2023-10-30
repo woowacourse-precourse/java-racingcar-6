@@ -24,12 +24,6 @@ public class GameController {
 
         List<String> winner = gameService.getWinner(game);
         View.printWinner(winner);
-
-        // 확인절차(추후 삭제 예정)
-        System.out.println(carList.get(0).getName());
-        System.out.println(carList.get(1).getName());
-        System.out.println(carList.get(2).getName());
-        System.out.println(trialNum);
     }
 
     private List<Car> createCarList() {
