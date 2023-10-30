@@ -15,7 +15,6 @@ public class CarNameValidator {
         if (carName.contains(" ")) {
             throw new IllegalArgumentException("이름에 공백이 존재할 수 없습니다.");
         }
-
     }
 
     private static void validateLengthCheck(String carName) {
@@ -29,5 +28,4 @@ public class CarNameValidator {
             throw new IllegalArgumentException("이름을 입력하지 않았습니다.");
         }
     }
-
 }
