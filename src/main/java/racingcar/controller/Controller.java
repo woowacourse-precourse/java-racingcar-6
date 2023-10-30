@@ -5,7 +5,6 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.TrialNumber;
 import racingcar.service.GameService;
-import racingcar.utils.Parser;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -32,7 +31,7 @@ public class Controller {
     private void getCarListByUserInput() {
         InputView.requestCarsName();
         String carsName = Console.readLine();
-        cars = new Cars(Parser.parseCarsName(carsName));
+        cars = new Cars(carsName);
     }
 
     /**
