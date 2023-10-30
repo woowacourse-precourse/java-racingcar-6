@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.dto.CarDto;
 import racingcar.dto.GameDto;
 import racingcar.entity.Car;
 import racingcar.entity.Game;
@@ -29,15 +30,22 @@ public class GameService {
         return new GameDto(gameId,playCount);
     }
 
-    public void processGame(Game game) {
+    public void processGame(GameDto request) {
+        Game game = gameRepository.findById(request.getGameId());
         for (String carName : game.getCarNameList()) {
             goOrStop(game,carName);
         }
     }
 
-
+    public void printResult(GameDto request) {
+        Game game = gameRepository.findById(request.getGameId());
+        for (String name : game.getCarNameList()) {
+            carService.getCartInfo(name);
+        }
+    }
     private void goOrStop(Game game, String carName) {
         if (game.carGoOrStop()) carService.go(carName);
     }
+
 
 }

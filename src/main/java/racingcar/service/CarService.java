@@ -26,8 +26,8 @@ public class CarService {
         car.plusScore();
     }
 
-    public CarDto getCartInfo(String carName) {
+    public void getCartInfo(String carName) {
         Car car = carRepository.findByName(carName);
-        return new CarDto(car.getName(), car.getScore());
+        car.printStatus();
     }
 }

@@ -21,4 +21,8 @@ public class Car {
     public void plusScore() {
         score += 1;
     }
+
+    public void printStatus() {
+        System.out.println(name+" : "+score);
+    }
 }
