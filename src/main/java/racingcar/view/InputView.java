@@ -21,9 +21,13 @@ public class InputView {
     public static long readTryCount() {
         System.out.println(READ_TRY_COUNT);
         String tryCount = Console.readLine().trim();
-        Validator.validateIsBlank(tryCount);
-        Validator.validateIsNumeric(tryCount);
+        validateTryCount(tryCount);
 
         return Long.parseLong(tryCount);
+    }
+
+    private static void validateTryCount(String tryCount) {
+        Validator.validateIsBlank(tryCount);
+        Validator.validateIsNumeric(tryCount);
     }
 }
