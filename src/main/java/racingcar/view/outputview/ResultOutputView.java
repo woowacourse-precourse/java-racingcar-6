@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ResultOutputView implements OutputView {
-    private static final String WINNER_DELIMITER = " ,";
+    private static final String WINNER_DELIMITER = ", ";
 
     @Override
     public void display(Map<String, Object> displayEntities) {
