@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.validator.AttemptInputValidator;
 import racingcar.validator.Validator;
 
@@ -13,7 +12,7 @@ public class AttemptInput implements Input {
 
     public AttemptInput() {
         Output.printMessage(ASK_ATTEMPT_TIMES);
-        attempts = Console.readLine();
+        attempts = ConsoleInput.readLine();
         validate();
     }
 

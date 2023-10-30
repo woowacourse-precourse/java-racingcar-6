@@ -1,6 +1,5 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.validator.NamesInputValidator;
 import racingcar.validator.Validator;
 
@@ -13,7 +12,7 @@ public class NamesInput implements Input {
 
     public NamesInput() {
         Output.printMessage(ASK_NAME_OF_CARS);
-        names = Console.readLine();
+        names = ConsoleInput.readLine();
         validate();
     }
 
