@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain.random;
 
 import racingcar.constant.ErrorMessage;
 
@@ -9,11 +9,13 @@ public class TryNumber {
         return tryNumber;
     }
 
+    // 무작위 값 설정하기
     public void setTryNumber(String tryNumber) throws IllegalArgumentException {
         tryNumberValidation(tryNumber);
         this.tryNumber = tryNumber;
     }
 
+    // 무작위 값 검증하기
     public void tryNumberValidation(String tryNumber) {
         isDigitString(tryNumber);
         isNull(tryNumber);

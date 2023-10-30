@@ -1,6 +1,12 @@
 package racingcar.view;
 
+
 public class OutputView {
+
+    public static void printCarResult(){
+        System.out.println();
+        System.out.println("실행 결과");
+    }
 
     // 각 자동차 이름 출력하기
     public static void printCarName(String carName) {
@@ -17,5 +23,10 @@ public class OutputView {
     // 띄어쓰기 출력하기
     public static void printSpace(){
         System.out.println();
+    }
+
+    // 우승자 안내 문구
+    public static void printWinner(String winners) {
+        System.out.println("최종 우승자 : " + winners);
     }
 }

@@ -2,7 +2,6 @@ package racingcar.domain.car;
 
 import racingcar.constant.ConstantNumber;
 import racingcar.constant.ErrorMessage;
-import racingcar.domain.car.Car;
 
 import java.util.ArrayList;
 import java.util.List;

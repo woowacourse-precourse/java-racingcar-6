@@ -1,21 +1,19 @@
 package racingcar.controller;
 
-import racingcar.TryNumber;
+import racingcar.constant.ErrorMessage;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CarRacingGame {
+    private Cars cars = new Cars();
 
     public void start() {
-        Cars cars = new Cars();
 
         setCarsName(cars);
         setTryNumber(cars);
+        OutputView.printCarResult();
     }
 
     public void setCarsName(Cars cars) {
@@ -23,7 +21,7 @@ public class CarRacingGame {
         try {
             cars.addCar(InputView.printSetCarsNameMessage());
         } catch (IllegalArgumentException e){
-
+            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_ERROR.print());
         }
     }
 
@@ -31,7 +29,7 @@ public class CarRacingGame {
         try {
             cars.setTryNumber(InputView.printGetTryNumberMessage());
         } catch (IllegalArgumentException e){
-
+            throw new IllegalArgumentException(ErrorMessage.TRY_NUM_INPUT_ERROR.print());
         }
     }
 
@@ -53,7 +51,7 @@ public class CarRacingGame {
         }
     }
 
-    private void printWinner(Cars cars) {
+    public void printWinner(Cars cars) {
         OutputView.printWinner(getWinner(cars));
     }
 
@@ -61,4 +59,7 @@ public class CarRacingGame {
         return cars.getWinner(cars.getCarsPosition());
     }
 
+    public Cars getCars() {
+        return cars;
+    }
 }
