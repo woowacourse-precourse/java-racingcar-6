@@ -24,4 +24,8 @@ public class OutputView {
                 .mapToObj(i -> "-")
                 .collect(Collectors.joining());
     }
+
+    public void printWinnerOrWinners(String result) {
+        System.out.println("최종 우승자 : " + result);
+    }
 }
