@@ -10,6 +10,7 @@ public class RacingGameManager {
     private Cars cars;
     private InputView inputView;
     private OutputView outputView;
+    private int tryCount;
 
     public RacingGameManager() {
     }
@@ -25,8 +26,7 @@ public class RacingGameManager {
         cars.setCarList(names);
 
         String inputTryCount = inputView.enterTryCount();
-        tryCountValidation(inputTryCount);
-        int tryCount = convertStringToInt(inputTryCount);
+        setTryCount(inputTryCount);
 
         System.out.println("실행 결과");
         repeatMove(tryCount);
@@ -50,6 +50,10 @@ public class RacingGameManager {
         if(Integer.parseInt(tryCount) < 1){
             throw new IllegalArgumentException();
         }
+    }
+    private void setTryCount(String tryCount){
+        tryCountValidation(tryCount);
+        this.tryCount = convertStringToInt(tryCount);
     }
 
     private int convertStringToInt(String tryCount){
