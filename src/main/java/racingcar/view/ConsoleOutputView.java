@@ -5,7 +5,7 @@ import racingcar.constant.Message;
 public class ConsoleOutputView implements OutputView {
 
     @Override
-    public void printMessage() {
+    public void printEmptyLine() {
         System.out.println();
     }
 

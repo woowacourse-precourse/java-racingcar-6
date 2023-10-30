@@ -33,7 +33,7 @@ public class GameController {
         initCars(namesInput);
 
         String roundInput = inputView.askRound();
-        outputView.printMessage(); // 공백 한 줄 출력
+        outputView.printEmptyLine();
         setRounds(roundInput);
     }
 
@@ -72,7 +72,7 @@ public class GameController {
         for (String result: resultList) {
             outputView.printMessage(result);
         }
-            outputView.printMessage(); // 공백 한 줄 출력
+            outputView.printEmptyLine();
     }
 
     private void printWinner() {
