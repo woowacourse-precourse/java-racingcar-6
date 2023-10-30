@@ -14,6 +14,7 @@ public class Game {
     final String MESSAGE_START = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
     final String MESSAGE_ASK_TRY = "시도할 회수는 몇회인가요?\n";
     final String MESSAGE_RACE_RESULT = "실행 결과\n";
+    final String MESSAGE_ANNOUNCE_WINNER = "최종 우승자 : ";
     public List<Car> carList;
     public int roundNumber;
 
@@ -31,6 +32,9 @@ public class Game {
 
         System.out.print(MESSAGE_RACE_RESULT);
         proceedEachRound();
+
+        List<String> winnerList = selectWinner();
+        announceWinner(winnerList);
     }
 
     public void inputCarsName() {
@@ -87,6 +91,11 @@ public class Game {
         }
 
         return winnerList;
+    }
+
+    public void announceWinner(List<String> winnerList) {
+        String winnerListWithComma = String.join(", ", winnerList);
+        System.out.print(MESSAGE_ANNOUNCE_WINNER + winnerListWithComma);
     }
 
     public boolean validateCarNameDuplication(List<String> nameList) {
