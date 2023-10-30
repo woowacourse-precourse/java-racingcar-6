@@ -1,7 +1,5 @@
 package racingcar.controllers;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.List;
 
 import racingcar.models.RaceService;
