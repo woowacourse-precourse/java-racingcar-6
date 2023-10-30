@@ -13,7 +13,7 @@ public class GameBuilder {
     public GameBuilder getCarsName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         this.names = Console.readLine().split(",");
-        InputValidator.validateCarsName(this.names);
+
         return this;
     }
 
@@ -23,8 +23,7 @@ public class GameBuilder {
     public GameBuilder getRoundNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
         roundString = Console.readLine();
-        //InputValidator.validateRoundNumber(roundNumberString);
-        //this.roundNumber = Integer.parseInt(roundNumberString);
+
         return this;
     }
 
