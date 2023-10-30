@@ -12,13 +12,28 @@ import org.junit.jupiter.api.Test;
 public class WinnerTest {
 
     @Test
+    void 최대_주행거리_찾기(){
+
+        // given
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+        car.movedDistances.set(0, "-");
+        car.movedDistances.set(1, "-");
+
+        // when
+        int maxDistance = Computer.calculateMaxDistance(car);
+
+        // then
+        assertThat(maxDistance).isEqualTo(1);
+
+    }
+    @Test
     void 우승자_한명() {
 
         // given
         Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+        car.movedDistances.set(0, "-");
 
         // when
-        car.movedDistances.set(0, "-");
         StringJoiner winner = Computer.findWinner(car, 1);
 
         // then
@@ -30,9 +45,9 @@ public class WinnerTest {
 
         // given
         Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
+        car.movedDistances.replaceAll(empty -> "-");
 
         // when
-        car.movedDistances.replaceAll(empty -> "-");
         StringJoiner winner = Computer.findWinner(car, 1);
 
         // then
@@ -43,13 +58,13 @@ public class WinnerTest {
     void 우승자_출력문() {
 
         // given
-        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
-
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
-        // when
+        Car car = new Car(Arrays.asList("pobi", "woni", "jun"));
         car.movedDistances.replaceAll(empty -> "-");
+
+        // when
         Computer.printWinner(Computer.findWinner(car, 1));
 
         // then
