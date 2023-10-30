@@ -11,7 +11,14 @@ public class Cars {
     }
 
     public void addCar(String carName) {
-        Car car = new Car(carName);
-        cars.add(car);
+        cars.add(new Car(carName));
+    }
+
+    public Car getCar(int index){
+        return cars.get(index);
+    }
+
+    public List<Car> getAllCars() {
+        return cars;
     }
 }
