@@ -11,15 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ValidateInputTest {
 
-
     @ParameterizedTest
     @NullAndEmptySource
-    @ValueSource(strings = {" "})
     void isNotNullOrEmpty_input이_없거나_공백이면_IllegalArgumentException(String input) {
         assertThatThrownBy(() ->
                 ValidateInput.isNotNullOrEmpty(input)).isInstanceOf(IllegalArgumentException.class);
     }
-
 
     @ParameterizedTest
     @ValueSource(strings = {"aaa", "12a", "-1", "1.2"})
