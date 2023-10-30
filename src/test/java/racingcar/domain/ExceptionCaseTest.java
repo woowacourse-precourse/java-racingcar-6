@@ -17,4 +17,18 @@ class ExceptionCaseTest {
                 .isThrownBy(() -> exceptionCase.carNameLength(Arrays.asList("pobi,javaji")));
     }
 
+    @DisplayName("공백 입력시 exception 발생")
+    @Test
+    void isValueBlank() {
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> exceptionCase.nullStringInput(""));
+    }
+
+    @DisplayName("null 입력시 exception 발생")
+    @Test
+    void isValueNull() {
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> exceptionCase.nullStringInput(null));
+    }
+
 }

@@ -14,7 +14,7 @@ public class RacingCar {
     }
 
     public List<String> naming(String input) {
-        exception.nullInput(input);
+        exception.nullStringInput(input);
         String[] racers = input.split(",");
         List<String> cars = Arrays.asList(racers);
         exception.carNameLength(cars);
@@ -31,6 +31,7 @@ public class RacingCar {
 
     public int attemptInput() {
         String attempt = Console.readLine();
+        exception.nullStringInput(attempt);
         return Integer.parseInt(attempt);
     }
 
