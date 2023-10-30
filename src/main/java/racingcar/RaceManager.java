@@ -17,7 +17,8 @@ public class RaceManager {
             for (Car car: cars) {
                 car.move();
             }
-            // 각 라운드 결과 출력 예정
+            OutputManager outputManager = new OutputManager();
+            outputManager.printRaceResult(cars);
         }
     }
 
