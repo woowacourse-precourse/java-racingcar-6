@@ -1,12 +1,9 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
 import racingcar.service.InputRacingCar;
 import racingcar.service.InputTryCount;
 import racingcar.service.RacingLogic;
 import racingcar.view.PrintMessage;
-import racingcar.vo.RacingCar;
 import racingcar.vo.RacingCars;
 
 public class Racing {
