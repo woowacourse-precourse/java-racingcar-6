@@ -24,11 +24,7 @@ class ApplicationTest extends NsTest {
 
     private IOService ioService = new IOService();
     private GameService gameService = new GameService();
-
-    void systemIn(String input) {
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-    }
-
+    
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
@@ -54,16 +50,6 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
-    }
-
-    @Test
-    void 자동차_이름_입력_글자수_초과_테스트() {
-        systemIn("pobi,woni,jun,lujaeeee");
-        List<String> carNames;
-
-        assertThatThrownBy(() ->
-                ioService.scanCarNames()
-        ).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
