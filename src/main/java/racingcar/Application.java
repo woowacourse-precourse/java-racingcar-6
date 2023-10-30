@@ -82,5 +82,13 @@ public class Application {
             return name;
         }
     }
+    public class Race {
+        private final Car[] cars;
+        private final int tryCount;
+
+        Race(String[] carNames, int tryCount) {
+            this.tryCount = tryCount;
+            this.cars = createCars(carNames);
+        }
 
 }
