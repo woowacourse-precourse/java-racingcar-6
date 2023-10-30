@@ -3,7 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class User {
-    private int playnum;
+    private int playNum;
     private Car[] carList;
 
     public void inputCarName() {
@@ -35,7 +35,11 @@ public class User {
                 throw new IllegalArgumentException("정수만 입력하세요.");
             }
         }
-        playnum = Integer.parseInt(getplayNum);
+        playNum = Integer.parseInt(getplayNum);
+    }
+
+    public int getPlayNum(){
+        return playNum;
     }
 
     public Car[] getCarList() {

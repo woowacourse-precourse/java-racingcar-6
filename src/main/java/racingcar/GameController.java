@@ -2,7 +2,6 @@ package racingcar;
 
 public class GameController {
         private final GameService gameService = new GameService();
-
         public void run(){
             setGame();//input요소들
             play();//게임플레이(2.1)
@@ -17,6 +16,6 @@ public class GameController {
             gameService.startGame();
         }
         public void printWinner(){
-
+            gameService.printPutWinner();
         }
     }
