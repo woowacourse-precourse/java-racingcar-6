@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
+import static racingcar.domain.ErrorMessage.*;
+
 public class InputView {
     private InputView() {}
 
@@ -37,11 +39,13 @@ public class InputView {
     }
 
     private static class InputValidation {
+        private static final int MAX_VALUE = 20000;
+
         private InputValidation() {}
 
         private static void emptyInputValidation(String input) {
             if (input.length() == 0) {
-                throw new IllegalArgumentException("입력된 값이 없습니다.");
+                throw new IllegalArgumentException(EMPTY_INPUT_ERROR.getMessage());
             }
         }
 
@@ -52,13 +56,13 @@ public class InputView {
                     .count();
 
             if (count > 0) {
-                throw new IllegalArgumentException("','로 구분되는 자동차 이름은 1글자 이상이어야 합니다.");
+                throw new IllegalArgumentException(BLANK_INPUT_ERROR.getMessage());
             }
         }
 
         private static void checkLastCarNameValidation(String input) {
             if (input.charAt(input.length()-1) == ',') {
-                throw new IllegalArgumentException("입력한 자동차 이름 마지막에 ','를 입력할 수 없습니다.");
+                throw new IllegalArgumentException(LAST_CAR_NAME_ERROR.getMessage());
             }
         }
 
@@ -69,7 +73,7 @@ public class InputView {
                     .count();
 
             if (overRangeNameCount > 0) {
-                throw new IllegalArgumentException("입력된 자동차 이름이 5글자를 넘었습니다.(이름은 5자 이하만 가능)");
+                throw new IllegalArgumentException(CAR_NAME_RANGE_ERROR.getMessage());
             }
         }
 
@@ -77,7 +81,7 @@ public class InputView {
             for (int i=0; i<input.length(); i++) {
                 char checkData = input.charAt(i);
                 if (checkData < '0' || checkData > '9') {
-                    throw new IllegalArgumentException("입력된 값이 숫자 형태가 아닙니다.(0~9 사이의 값만 입력 가능)");
+                    throw new IllegalArgumentException(CONVERT_NUMBER_ERROR.getMessage());
                 }
             }
         }
@@ -85,14 +89,14 @@ public class InputView {
         private static void checkProgressCountMinValidation(String input) {
             long inputNumber = Long.parseLong(input);
             if (inputNumber < 1) {
-                throw new IllegalArgumentException("입력된 값이 1보다 작을 수 없습니다.");
+                throw new IllegalArgumentException(LESS_THEN_ONE_ERROR.getMessage());
             }
         }
 
         private static void checkProgressCountMaxValueValidation(String input) {
             long inputNumber = Long.parseLong(input);
-            if (inputNumber > Integer.MAX_VALUE) {
-                throw new IllegalArgumentException("입력된 값이 " + Integer.MAX_VALUE + "보다 클 수 없습니다.");
+            if (inputNumber > MAX_VALUE) {
+                throw new IllegalArgumentException(GREATER_THEN_MAX_VALUE_ERROR.getGreaterMaxValueThen(MAX_VALUE));
             }
         }
     }
