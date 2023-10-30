@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Objects;
 
 public class Car {
     private static final int MINIMUM_NUMBER = 0;

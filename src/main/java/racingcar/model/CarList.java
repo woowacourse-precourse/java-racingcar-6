@@ -23,7 +23,12 @@ public class CarList {
     }
 
     public List<Car> getCarList() {
-        return carList;
+        return List.copyOf(this.carList);
+    }
+
+    public String move() {
+        this.carList.forEach(Car::move);
+        return this.toString();
     }
 
     @Override

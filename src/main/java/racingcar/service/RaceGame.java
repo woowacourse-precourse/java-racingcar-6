@@ -18,9 +18,7 @@ public class RaceGame {
     }
 
     public String moveAllCars() {
-        carList.getCarList()
-                .forEach(Car::move);
-        return carList.toString();
+        return carList.move();
     }
 
     public boolean isEnd(int currentTryNumber) {
