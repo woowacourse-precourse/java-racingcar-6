@@ -1,4 +1,4 @@
-package racingcar.model;
+package racingcar.model.car;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,6 +8,7 @@ public class CarList {
     private final List<Car> carList;
 
     public CarList(List<Car> carList) {
+        validate(carList);
         this.carList = carList;
     }
 
@@ -17,5 +18,7 @@ public class CarList {
                 .collect(Collectors.toList());
         CarNameValidator.validate(carNames);
     }
+
+
 
 }
