@@ -35,6 +35,8 @@ public class Application {
             System.out.print("\n");
         }
 
+        printGameResult(cars);
+
     }
 
     static Set<String> getCarNames() {
@@ -83,5 +85,32 @@ public class Application {
         }
 
         return playCount;
+    }
+
+    static void printGameResult(List<Car> cars) {
+
+        int maxMoveDistance = 0;
+        List<String> winnerNames = new ArrayList<>();
+
+        for (Car car : cars) {
+
+            int nowCarMoveDistance = car.getMovedDistance();
+
+            if (nowCarMoveDistance == maxMoveDistance) {
+                winnerNames.add(car.getName());
+            }
+
+            if (nowCarMoveDistance > maxMoveDistance) {
+                maxMoveDistance = nowCarMoveDistance;
+                winnerNames.clear();
+                winnerNames.add(car.getName());
+            }
+        }
+
+        System.out.print("최종 우승자 : " + winnerNames.get(0));
+
+        for (int i = 1; i < winnerNames.size(); i++) {
+            System.out.print(", " + winnerNames.get(i));
+        }
     }
 }

@@ -30,6 +30,10 @@ public class Car {
         System.out.println(this.name + " : " + this.location);
     }
 
+    public int getMovedDistance() {
+        return this.location.length();
+    }
+
     private void changeLocation() {
         this.location += "-";
     }
