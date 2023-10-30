@@ -13,7 +13,7 @@ public class Converter {
     private Converter() {
     }
 
-    public static List<String> splitWithComma(final String string) {
+    public static List<String> splitWithCommaAndConvertToList(final String string) {
         String[] splitString = string.split(COMMA);
         return List.of(splitString);
     }
