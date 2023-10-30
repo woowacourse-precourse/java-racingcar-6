@@ -7,12 +7,14 @@ import static racingcar.constant.Constant.FORWARD_ABLE_NUMBER;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;
 
+import static racingcar.constant.Constant.POINT;
+
 public class RaceProcess {
 
     public void oneRound(Map<String, StringBuilder> scoreBoard) {
         for (Map.Entry<String, StringBuilder> pair : scoreBoard.entrySet()) {
             if (isMovable()) {
-                pair.getValue().append("-");
+                pair.getValue().append(POINT);
             }
         }
     }
