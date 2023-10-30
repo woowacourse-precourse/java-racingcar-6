@@ -20,6 +20,14 @@ public class GameStart {
         Arrays.fill(carsScoreString,"");
     }
 
+
+    private int repeatCount(){
+        String repeat = Console.readLine();
+        //에러 체크
+        return Integer.parseInt(repeat);
+    }
+
+
     private boolean canGo(){
         int randomNum = Randoms.pickNumberInRange(0,9);
         if(randomNum >= 4){
@@ -37,4 +45,6 @@ public class GameStart {
         }
         return winner;
     }
+
+
 }
