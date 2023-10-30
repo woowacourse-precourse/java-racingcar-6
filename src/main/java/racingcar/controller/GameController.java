@@ -20,24 +20,40 @@ public class GameController {
 
     public void playGame() {
         // 시작 및 참가 차량 설정
-        gameView.displayStartGame();
+        List<Car> participantCars = setupParticipantCars();
 
+        // 시도 횟수 설정
+        int rounds = setupRounds();
+
+        // 게임 실행
+        Game game = startGame(participantCars, rounds);
+
+        // 결과 표시
+        gameView.displayFinalWinner(game.getWinnerNames());
+    }
+
+    private List<Car> setupParticipantCars() {
+        gameView.displayStartGame();
         String input = Console.readLine();
         CarValidator.validateNameUsingCommas(input);
         List<String> carNameList = List.of(input.split(","));
-        List<Car> participantCars = gameService.setupParticipantCars(carNameList);
+        return gameService.setupParticipantCars(carNameList);
+    }
+
+    private int setupRounds() {
+        gameView.displayAskRounds();
+        return gameService.setupRounds(Console.readLine());
+    }
+
+    private Game startGame(List<Car> participantCars, int rounds) {
         Game game = gameService.createGame(participantCars);
 
-        // 시도횟수 설정
-        gameView.displayAskRounds();
-        int rounds = gameService.setupRounds(Console.readLine());
-
-        // 게임 실행
         gameView.displayResultMessage();
         for (int i = 0; i < rounds; i++) {
             gameService.controlCar(game);
             gameView.displayCurrentCarPosition(game.getCurrentParticipantCarPosition());
         }
-        gameView.displayFinalWinner(game.getWinnerNames());
+
+        return game;
     }
 }
