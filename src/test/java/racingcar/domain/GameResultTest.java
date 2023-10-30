@@ -27,6 +27,21 @@ class GameResultTest {
     }
 
     @Test
+    void 실행_결과_출력_테스트() {
+        GameResult gameResult = new GameResult();
+        final List<String> nameList = new ArrayList<>(List.of("pobi", "woni", "jun"));
+        final List<Integer> scoreList = new ArrayList<>(List.of(1, 4, 3));
+
+        gameResult.setCarsNameList(nameList);
+        gameResult.singleAttemptResult(scoreList);
+
+        assertThat(outputMessage.toString())
+                .isEqualTo("pobi : -\n"
+                        + "woni : ----\n"
+                        + "jun : ---\n\n");
+    }
+
+    @Test
     void 우승자_출력_테스트() {
         GameResult gameResult = new GameResult();
         final List<String> nameList = new ArrayList<>(List.of("pobi", "woni", "jun"));
@@ -42,7 +57,7 @@ class GameResultTest {
     @Test
     void 단독_우승_리스트_최댓값의_인덱스_추출() {
         GameResult gameResult = new GameResult();
-        final List<Integer> list = new ArrayList<>(List.of(1, 4, 2));
+        final List<Integer> list = new ArrayList<>(List.of(1, 4, 3));
 
         assertThat(gameResult.findIndexOfWinner(list))
                 .containsExactly(1);
