@@ -16,6 +16,10 @@ public class Application {
         // racer들의 이름을 List<Stirng>에 저장
         List<String> racerList = new ArrayList<>();
         for (int i = 0; i < racerArray.length; i++) {
+            // name의 길이가 5를 넘어가는 경우 -> 예외 발생
+            if (racerArray[i].length() > 5) {
+                throw new IllegalArgumentException();
+            }
             racerList.add(racerArray[i]);
         }
         // 시도할 횟수 입력
