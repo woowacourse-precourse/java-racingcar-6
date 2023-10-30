@@ -24,4 +24,12 @@ public class ResultGame {
                 .map(CarInfo::getName)
                 .collect(Collectors.toList());
     }
+
+    public static String connectWinners(List<String> winners){
+        return String.join(", ", winners);
+    }
+
+    public static void printWinner(String winner){
+        System.out.println("최종 우승자 : " + winner);
+    }
 }
