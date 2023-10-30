@@ -20,6 +20,10 @@ public class RacingCar {
         return new RacingCar(name, location.move(), isWinner);
     }
 
+    public RacingCar markAsWinner() {
+        return new RacingCar(name, location, new IsWinner(true));
+    }
+
     public String getName() {
         return name.getName();
     }
