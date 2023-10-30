@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Map;
 import racingcar.util.NumberGenerator;
 
-public interface RacingGame {
+public interface Vehicles {
 
-    void move(NumberGenerator numberGenerator);
+    void moveAll(NumberGenerator numberGenerator);
 
     Map<String, Integer> getResult();
 

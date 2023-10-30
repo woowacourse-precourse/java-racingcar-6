@@ -1,38 +1,24 @@
 package racingcar.model;
 
-import static racingcar.util.Constant.NEXT_INDEX;
-
-import java.util.HashMap;
-import java.util.Map;
-import racingcar.exception.position.NotExistPositionException;
+import static racingcar.util.Constant.ZERO;
 
 public class Position {
 
-    private static final Map<Integer, Position> cache = new HashMap<>();
+    private int currentSpace;
 
-    private final int positionIndex;
-
-    private Position(int positionIndex) {
-        this.positionIndex = positionIndex;
+    private Position(final int currentSpace) {
+        this.currentSpace = currentSpace;
     }
 
-    public static Position createWith(final int positionIndex) {
-        return cache.computeIfAbsent(positionIndex, Position::new);
+    public static Position createDefault() {
+        return new Position(ZERO.getValue());
     }
 
-    public Position getNextPosition() {
-        return cache.get(getKeyByValue(this) + NEXT_INDEX.getValue());
+    public void moveToNext() {
+        currentSpace++;
     }
 
-    private int getKeyByValue(final Position position) {
-        return cache.entrySet().stream()
-                .filter(entry -> entry.getValue().equals(position))
-                .findAny()
-                .orElseThrow(() -> new NotExistPositionException(position.getPositionIndex()))
-                .getKey();
-    }
-
-    public int getPositionIndex() {
-        return positionIndex;
+    public int getCurrentSpace() {
+        return currentSpace;
     }
 }

@@ -4,5 +4,5 @@ import racingcar.util.NumberGenerator;
 
 public interface Vehicle {
 
-    boolean canMove(NumberGenerator numberGenerator);
+    void move(NumberGenerator numberGenerator);
 }

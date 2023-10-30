@@ -6,22 +6,34 @@ import racingcar.util.NumberGenerator;
 
 public class Car implements Vehicle {
 
-    private final CarName carName;
+    private final Name name;
+    private final Position position;
 
-    private Car(final CarName carName) {
-        this.carName = carName;
+    private Car(final Name name, final Position position) {
+        this.name = name;
+        this.position = position;
     }
 
-    public static Car createWith(final CarName carName) {
-        return new Car(carName);
+    public static Car createWith(final String name) {
+        return new Car(new Name(name), Position.createDefault());
     }
 
     @Override
-    public boolean canMove(final NumberGenerator numberGenerator) {
+    public void move(final NumberGenerator numberGenerator) {
+        if (canMove(numberGenerator)) {
+            position.moveToNext();
+        }
+    }
+
+    private static boolean canMove(final NumberGenerator numberGenerator) {
         return numberGenerator.generate() >= FORWARD_THRESHOLD.getValue();
     }
 
     public String getName() {
-        return carName.getName();
+        return name.getName();
+    }
+
+    public int getPosition() {
+        return position.getCurrentSpace();
     }
 }
