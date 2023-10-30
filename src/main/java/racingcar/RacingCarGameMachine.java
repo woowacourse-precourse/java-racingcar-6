@@ -8,8 +8,8 @@ public class RacingCarGameMachine {
     private final RandomNumberGenerator randomNumberGenerator;
 
     private List<RacingCar> racingCarList = new ArrayList<>();
-    private int curRound = 0;
-    private int roundCount;
+    private int currentRound = 1;
+    private int maxRoundCount;
 
     public RacingCarGameMachine(RandomNumberGenerator randomNumberGenerator) {
         this.randomNumberGenerator = randomNumberGenerator;
@@ -17,7 +17,7 @@ public class RacingCarGameMachine {
 
     public void init(String nameInput, int roundCount) {
         initRacingCar(nameInput);
-        this.roundCount = roundCount;
+        this.maxRoundCount = roundCount;
     }
 
     private void initRacingCar(String nameInput) {
@@ -35,7 +35,7 @@ public class RacingCarGameMachine {
     }
 
     public boolean isGameInProgress() {
-        return curRound < roundCount;
+        return currentRound <= maxRoundCount;
     }
 
     private void moveAllRacingCar() {
