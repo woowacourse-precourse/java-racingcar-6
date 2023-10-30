@@ -4,15 +4,15 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
     public static String readCarNames() {
-        String input = Console.readLine();
-        Validator.validateCarNames(input);
-        return input;
+        String userInput = Console.readLine();
+        Validator.validateCarNames(userInput);
+        return userInput;
     }
 
     public static int readNumberOfAttempts() {
-        String input = Console.readLine();
-        Validator.validateNumberOfAttempts(input);
-        int numberOfAttempts = Integer.parseInt(input);
+        String userInput = Console.readLine();
+        Validator.validateNumberOfAttempts(userInput);
+        int numberOfAttempts = Integer.parseInt(userInput);
         return numberOfAttempts;
     }
 }
