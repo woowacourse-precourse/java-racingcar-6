@@ -18,7 +18,7 @@ class SettingInputViewTest {
             Map.entry("gameCount", List.of("-1", "가", "", " ", ".가", "-3", "1-1", "111111.111111", "11111-1111")));
 
     private final Map<String, String> model = new HashMap<>();
-    private final InputView inputView = new SettingInputView(new InputValidator());
+    private final InputView inputView = new SettingInputView();
 
     private static void input(String target) {
         InputStream input = new ByteArrayInputStream(target.getBytes());
