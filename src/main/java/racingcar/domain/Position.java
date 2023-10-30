@@ -8,6 +8,10 @@ public class Position {
         this.num = num;
     }
 
+    public static Position create(int num) {
+        return new Position(num);
+    }
+
     public void plusNum() {
         this.num++;
     }

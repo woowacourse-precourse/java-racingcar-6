@@ -9,7 +9,7 @@ public class Cars {
 
     public void init(String[] carArr) {
         for (String carName : carArr) {
-            carList.add(new Car(carName, 0));
+            carList.add(Car.from(carName, 0));
         }
     }
 
