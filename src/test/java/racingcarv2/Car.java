@@ -3,10 +3,10 @@ package racingcarv2;
 import java.util.Objects;
 
 public class Car {
-    private final String name;
+    private final Name name;
     private int position;
 
-    public Car(String name, int position) {
+    public Car(Name name, int position) {
         this.name = name;
         this.position = position;
     }
@@ -30,5 +30,13 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(name, position);
+    }
+
+    public Name getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
