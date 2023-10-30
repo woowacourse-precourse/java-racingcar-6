@@ -4,14 +4,14 @@ public class Car {
 
     public static final int MOVE_BOUNDARY = 4;
     private final Generator generator;
+    private final CarName name;
     private int location;
-    private final String name;
 
     public Car(String name, Generator generator) {
-        validateName(name);
-        this.name=name;
-        location = 0;
+
+        this.name=new CarName(name);
         this.generator = generator;
+        location = 0;
     }
 
     public void move() {
@@ -25,16 +25,11 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     private boolean isMove() {
         return MOVE_BOUNDARY <= generator.generate();
     }
 
-    private void validateName(String name) {
-        if(name.length()>5){
-            throw new IllegalArgumentException("이름의 길이를 5이하로 해주세요");
-        }
-    }
 }

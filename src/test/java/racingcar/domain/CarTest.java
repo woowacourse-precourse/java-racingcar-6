@@ -24,10 +24,4 @@ class CarTest {
         assertThat(car.getLocation()).isEqualTo(0);
     }
 
-    @Test
-    public void 이름이_5글자를_초과할시_예외(){
-        assertThatThrownBy(()->new Car("포비님은최고",new TestNumberGenerator(3)))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
 }
