@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,6 +20,9 @@ public class Validation {
             return false;
         }
         if (!checkCharacterNumber(carNames)) {
+            return false;
+        }
+        if (!checkDuplicate(carNames)) {
             return false;
         }
         return true;
@@ -41,6 +45,18 @@ public class Validation {
                 return false;
             }
         }
+        return true;
+    }
+
+    private boolean checkDuplicate(String[] carNames) {
+        Arrays.sort(carNames);
+
+        for (int i = 0; i < carNames.length - 1; i++) {
+            if (carNames[i].equals(carNames[i + 1])) {
+                return false;
+            }
+        }
+
         return true;
     }
 
