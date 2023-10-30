@@ -5,20 +5,16 @@ import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Model;
 import racingcar.model.Rank;
-import racingcar.util.InputValidator;
-import racingcar.util.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import racingcar.view.View;
 
 public class RacingGameController {
     private final InputView inputView;
     private final OutputView outputView;
 
-    RacingGameController() {
-        InputValidator inputValidator = Validator.generateInputValidator();
-        this.inputView = View.generateInputView(inputValidator);
-        this.outputView = View.generateOutputView();
+    RacingGameController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void gameStart() {
