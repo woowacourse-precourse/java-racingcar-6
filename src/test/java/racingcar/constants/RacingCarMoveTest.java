@@ -19,4 +19,13 @@ class RacingCarMoveTest {
         assertThat(isProcessing).isTrue();
     }
 
+    @Test
+    @DisplayName("시도 횟수가 한 단계씩 줄어든다.")
+    void update_attempt_count(){
+        //given
+        //when
+        int attemptCount = RacingCarMove.updateAttemptCount(5);
+        //then
+        assertThat(attemptCount).isEqualTo(4);
+    }
 }
