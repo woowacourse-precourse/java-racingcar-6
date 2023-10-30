@@ -15,7 +15,7 @@ class InputValidatorTest {
         final List<String> names = List.of("bonsik", "soeun", "");
 
         //when & then
-        assertThatThrownBy(() -> InputValidator.checkBlankAndDuplicationName(names))
+        assertThatThrownBy(() -> InputValidator.checkEmptyAndBlankNames(names))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -26,18 +26,7 @@ class InputValidatorTest {
         final List<String> names = List.of("bonsik", "soeun", " ");
 
         //when & then
-        assertThatThrownBy(() -> InputValidator.checkBlankAndDuplicationName(names))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @DisplayName("자동차 이름들 중 중복된 자동차 이름이 포함되어 예외가 발생한다.")
-    @Test
-    void checkDuplicationName() {
-        //given
-        final List<String> names = List.of("bonsik", "soeun", "bonsik");
-
-        //when & then
-        assertThatThrownBy(() -> InputValidator.checkBlankAndDuplicationName(names))
+        assertThatThrownBy(() -> InputValidator.checkEmptyAndBlankNames(names))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
