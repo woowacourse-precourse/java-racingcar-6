@@ -3,9 +3,11 @@
    2) 쉼표 기준으로 구분해서 carList 에 담음
    3) 자동차 이름 6자 이상 일 시 IllegalArgumentException
    4) 자동차 이름 중복 일시 IllegalArgumentException
+   5) 빈칸 으로 시작 하는 자동차 이름 IllegalArgumentException
 2. 이동 횟수 입력
    1) 시도할 회수는 몇회인가요? 출력
-   2) 양의 정수 아닐 시 IllegalArgumentException
+   2) 1보다 작은 수 입력 시 IllegalArgumentException
+   3) 문자 입력 시 IllegalArgumentException
 3. 자동차 이동
    1) Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용
    2) carList크기 만큼 Move 배열 생성
