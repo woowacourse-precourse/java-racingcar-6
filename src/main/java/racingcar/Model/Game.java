@@ -11,10 +11,9 @@ public class Game {
     public RandomNumberGenerator randomNumberGenerator;
     public static int randomNumberCondition = 4;
 
-    public Game(List<String> cars, int stage) {
-        for (String carName : cars) {
-            this.cars.add(new Car(carName));
-        }
+    public Game(List<Car> cars, RandomNumberGenerator randomNumberGenerator, int stage) {
+        this.cars = cars;
+        this.randomNumberGenerator = randomNumberGenerator;
         if (!isValidateStageNumber(stage)) {
             throw new IllegalArgumentException();
         }
@@ -22,7 +21,7 @@ public class Game {
     }
 
     public Boolean isValidateStageNumber(int stageNumber) {
-        return stage >= 0;
+        return stageNumber >= 0;
     }
 
     public Boolean isSatisfyForwardCondition(int randomNumber) {
