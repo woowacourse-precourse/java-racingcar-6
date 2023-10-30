@@ -6,14 +6,13 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Output {
+    private static final String IS = " : ";
 
     public void printRacingProcess(Map<String, Integer> carNameAndMoving) {
         for (String carName : carNameAndMoving.keySet()) {
             StringBuilder bar = new StringBuilder();
-            for (int i = 0; i < carNameAndMoving.get(carName); i++) {
-                bar.append("-");
-            }
-            System.out.println(carName + " : " + bar);
+            int count = carNameAndMoving.get(carName);
+            System.out.println(carName + IS + appendBar(bar, count));
         }
         System.out.println();
     }
@@ -32,5 +31,12 @@ public class Output {
         }
         String winners = String.join(", ", winnerList);
         System.out.println("최종 우승자 : " + winners);
+    }
+
+    private StringBuilder appendBar(StringBuilder bar, int count) {
+        for (int i = 0; i < count; i++) {
+            bar.append("-");
+        }
+        return bar;
     }
 }
