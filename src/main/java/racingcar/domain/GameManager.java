@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +15,14 @@ public class GameManager {
     private static final Integer MINIMUM_ATTEMPT_COUNT = 1;
     private static final Integer MAXIMUM_CAR_NAME_LENGTH = 5;
 
-
+    private final NumberGenerator numberGenerator;
     private List<Car> cars;
     private StringBuilder gameLog;
     private StringBuilder gameWinner;
     private Integer attemptCount;
 
-    public GameManager() {
+    public GameManager(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
         this.cars = new ArrayList<>();
         this.gameLog = new StringBuilder();
         this.gameWinner = new StringBuilder();
@@ -76,7 +76,7 @@ public class GameManager {
     public void startGame() {
         for (int count = 0; count < attemptCount; count++) {
             for (Car car : cars) {
-                int randomNumber = Randoms.pickNumberInRange(0, 9);
+                int randomNumber = numberGenerator.generate();
                 car.decideMoveOrNot(randomNumber);
                 gameLog.append(car.getCurrentStatus()).append(NEW_LINE);
             }

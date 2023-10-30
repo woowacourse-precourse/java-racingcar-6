@@ -10,7 +10,7 @@ public class RacingGame {
     }
 
     public static RacingGame create() {
-        return new RacingGame(new GameManager());
+        return new RacingGame(new GameManager(new RandomNumberGenerator()));
     }
 
     public void run() {
