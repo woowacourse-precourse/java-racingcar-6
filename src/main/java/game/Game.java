@@ -1,5 +1,6 @@
 package game;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import car.Car;
 
@@ -71,6 +72,17 @@ public class Game {
         }catch (NumberFormatException e){
             return false;
         }
+    }
+
+    // 실행 횟수
+    public int count(){
+        System.out.println("시도할 횟수는 몇회인가요?");
+        String strCount = Console.readLine();
+        if(!isNumber(strCount)){
+            throw new IllegalArgumentException("숫자가 아닙니다.");
+        }
+        int count = Integer.parseInt(strCount);
+        return count;
     }
 
 }
