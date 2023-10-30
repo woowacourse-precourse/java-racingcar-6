@@ -110,7 +110,25 @@ public class ValidatorTest extends NsTest {
                 .hasMessageContainingAll("시도 횟수에 대한 입력이 정수가 아닙니다.");
     }
 
-  
+    @Test
+    void 시도_횟수_양수_확인_예외_테스트1() {
+        int tryNum = -12;
+        Validator validator = new Validator();
+
+        assertThatThrownBy(() -> validator.checkTryNum(tryNum))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContainingAll("시도 횟수가 옳바르지 않습니다. 양수로 입력해주세요.");
+    }
+
+    @Test
+    void 시도_횟수_양수_확인_예외_테스트2() {
+        int tryNum = 0;
+        Validator validator = new Validator();
+
+        assertThatThrownBy(() -> validator.checkTryNum(tryNum))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContainingAll("시도 횟수가 옳바르지 않습니다. 양수로 입력해주세요.");
+    }
 
     @Override
     public void runMain() {
