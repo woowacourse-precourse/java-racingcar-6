@@ -35,9 +35,9 @@ public class Validator {
         return tryNumber;
     }
 
-    public void isZero(int tryNumber) {
-        if (tryNumber == 0) {
-            throw new IllegalArgumentException("0 이외의 숫자를 입력해주세요.");
+    public void isZeroOrNegativeNumber(int tryNumber) {
+        if (tryNumber <= 0) {
+            throw new IllegalArgumentException("0보다 큰 숫자를 입력해주세요.");
         }
     }
 }
