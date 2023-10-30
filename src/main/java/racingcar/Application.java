@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.domain.RacingCarApplication;
 import racingcar.presentation.CarViewer;
 
 public class Application {

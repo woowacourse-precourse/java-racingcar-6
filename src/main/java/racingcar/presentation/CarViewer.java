@@ -1,7 +1,7 @@
 package racingcar.presentation;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.CarGameRound;
+import racingcar.domain.CarGameRound;
 
 import java.util.List;
 import java.util.Map;
