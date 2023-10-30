@@ -1,6 +1,8 @@
 package racingcar;
 
 import racingcar.domain.ImplementGame;
+import racingcar.domain.SystemOutput;
+
 import static racingcar.domain.Constants.*;
 
 import java.util.ArrayList;
@@ -11,22 +13,22 @@ import java.util.Map;
 public class Application {
     public static void main(String[] args) {
         ImplementGame implementGame = new ImplementGame();
-
-        Map<String, Integer> numMoveMap = implementGame.playGame();
-        List<String> winnerList = getWinner(numMoveMap);
-        String prizeWinner = String.join(",", winnerList);
-        System.out.println(FINAL_WINNER_MESSAGE + prizeWinner);
+        implementGame.playGame();
+//        Map<String, Integer> numMoveMap = implementGame.playGame();
+//        List<String> winnerList = systemOutput.getWinner(numMoveMap);
+//        String prizeWinner = String.join(",", winnerList);
+//        System.out.println(FINAL_WINNER_MESSAGE + prizeWinner);
     }
-    public static List<String> getWinner(Map<String, Integer> numMap) {
-        int maxValue = Collections.max(numMap.values());
-        List<String> maxValueKeys = new ArrayList<>();
-
-        for (Map.Entry<String, Integer> entry : numMap.entrySet()) {
-            if (entry.getValue() == maxValue) {
-                maxValueKeys.add(entry.getKey());
-            }
-        }
-        return maxValueKeys;
-
-    }
+//    public static List<String> getWinner(Map<String, Integer> numMap) {
+//        int maxValue = Collections.max(numMap.values());
+//        List<String> maxValueKeys = new ArrayList<>();
+//
+//        for (Map.Entry<String, Integer> entry : numMap.entrySet()) {
+//            if (entry.getValue() == maxValue) {
+//                maxValueKeys.add(entry.getKey());
+//            }
+//        }
+//        return maxValueKeys;
+//
+//    }
 }
