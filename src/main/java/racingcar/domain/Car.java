@@ -23,7 +23,7 @@ public class Car {
 
     public void go(int progress) {
         if (progress >= 4) {
-            this.progress += progress;
+            this.progress++;
         }
     }
 }
