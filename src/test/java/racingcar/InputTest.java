@@ -24,7 +24,7 @@ class InputTest {
     }
 
     @Test
-    void 자동차_수가_1대_이하일_때_예외_처리(){
+    void 자동차_수가_1대_이하일_때_예외_처리() {
 
         // given
         String userInputOne = "";
@@ -45,7 +45,7 @@ class InputTest {
     }
 
     @Test
-    void 자동차_이름_6자_이상일_때_예외_처리(){
+    void 자동차_이름_6자_이상일_때_예외_처리() {
 
         // given
         String userInput = "123456";
@@ -61,12 +61,13 @@ class InputTest {
     }
 
     @Test
-    void 이름이_공백일_때_예외_처리(){
+    void 이름이_공백일_때_예외_처리() {
 
         // given
         String userInputOne = "  ";
         String userInputTwo = "";
-        String userInputThree ="pobi, ";
+        String userInputThree = "pobi, ";
+
         // when
         List<String> carNamesOne = Computer.createCarNames(userInputOne);
         List<String> carNamesTwo = Computer.createCarNames(userInputTwo);
@@ -84,6 +85,21 @@ class InputTest {
         assertThatThrownBy(() -> Validator.checkBlank(carNamesThree))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이름을 공백으로 입력하지 마세요.");
+
+    }
+
+    @Test
+    void 이름_양_끝의_공백_제거() {
+
+        // given
+        String userInput = " jun , pobi";
+
+        // when
+        List<String> carNames = Computer.createCarNames(userInput);
+        Computer.trimCarNames(carNames);
+
+        // then
+        assertThat(carNames).isEqualTo(Arrays.asList("jun", "pobi"));
 
     }
 
