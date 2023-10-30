@@ -22,6 +22,9 @@ public class RacingGame {
         List<RacingCar> cars = RacingCars.fromNames(inputCars);
         Racing racing = new Racing(cars, num);
 
+        // 최종 우승자 출력
+        List<String> finalWinnerNames = racing.getFinalWinners();
+        outputView.printFinalWinnerAnnouncedMessage(finalWinnerNames);
 
     }
 }
