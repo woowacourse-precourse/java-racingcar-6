@@ -25,10 +25,8 @@ public class CarGroup {
     }
 
     public void race() {
-        for(Car car: cars){
-            if(movement.canMove()){
-                car.go();
-            }
+        for (Car car : cars) {
+            car.go(movement.canMove());
         }
     }
 

@@ -17,8 +17,10 @@ public class Car {
         this.position = INIT_POSITION;
     }
 
-    public void go() {
-        position++;
+    public void go(boolean canMove) {
+        if(canMove){
+            position++;
+        }
     }
 
     public int comparePosition(Car compareCar) {
