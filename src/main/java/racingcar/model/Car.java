@@ -1,8 +1,12 @@
 package racingcar.model;
 
 import static racingcar.Constants.MAX_CAR_NAME_SIZE;
+import static racingcar.Constants.MAX_RANDOM_NUMBER;
+import static racingcar.Constants.MIN_RANDOM_NUMBER;
+import static racingcar.Constants.MOVE_CONDITION;
 import static racingcar.exception.InputErrorCode.INVALID_CAR_NAME_SIZE;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.exception.InputException;
 
 public class Car {
@@ -25,7 +29,14 @@ public class Car {
     }
 
     public void move() {
-        moveCount++;
+        if (canMoving()) {
+            moveCount++;
+        }
+    }
+
+    private boolean canMoving() {
+        final int random = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        return random >= MOVE_CONDITION;
     }
 
     private void validate() {

@@ -1,23 +1,23 @@
 package racingcar.model;
 
-import static racingcar.Constants.MAX_RANDOM_NUMBER;
-import static racingcar.Constants.MIN_RANDOM_NUMBER;
-import static racingcar.Constants.MOVE_CONDITION;
-
-import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Game {
+public class Cars {
 
-    private final List<Car> cars;
+    private final List<Car> carList;
 
-    public Game(List<Car> cars) {
-        this.cars = cars;
+    public Cars(List<Car> carList) {
+        this.carList = carList;
     }
 
-    public List<Car> processTurn() {
-        cars.forEach(this::attemptMoving);
-        return cars;
+    public List<Car> getCarList() {
+        return Collections.unmodifiableList(carList);
+    }
+
+    public void processTurn() {
+        carList.forEach(Car::move);
     }
 
     public List<String> judge() {
@@ -39,7 +39,7 @@ public class Game {
     }
 
     private int getMaxMoveCount() {
-        return cars.stream()
+        return carList.stream()
             .mapToInt(Car::getMoveCount)
             .max()
             .orElseThrow();
@@ -47,7 +47,7 @@ public class Game {
 
     private List<Car> getWinningCars() {
         final int maxMoveCount = getMaxMoveCount();
-        return cars.stream()
+        return carList.stream()
             .filter(car -> car.getMoveCount() == maxMoveCount)
             .toList();
     }

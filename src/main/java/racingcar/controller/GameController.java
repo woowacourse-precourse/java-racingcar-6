@@ -8,14 +8,14 @@ import static racingcar.view.OutView.printWinners;
 
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.model.CarsGenerator;
-import racingcar.model.Game;
 
 public class GameController {
 
     private final CarsGenerator carsGenerator;
 
-    private Game game;
+    private Cars cars;
 
     public GameController(CarsGenerator carsGenerator) {
         this.carsGenerator = carsGenerator;
@@ -28,21 +28,21 @@ public class GameController {
     }
 
     private int prepare() {
-        final List<Car> cars = carsGenerator.generate(inputCarNames());
-        game = new Game(cars);
+        final List<Car> carList = carsGenerator.generate(inputCarNames());
+        cars = new Cars(carList);
         return inputAttemptCount();
     }
 
     private void process(final int turns) {
         printExecutionStart();
         for (int i = 0; i < turns; i++) {
-            final List<Car> result = game.processTurn();
-            printCarsMovingResult(result);
+            cars.processTurn();
+            printCarsMovingResult(cars.getCarList());
         }
     }
 
     private void declareWinner() {
-        final List<String> winners = game.judge();
+        final List<String> winners = cars.judge();
         printWinners(winners);
     }
 
