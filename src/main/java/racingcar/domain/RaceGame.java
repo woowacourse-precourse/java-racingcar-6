@@ -6,6 +6,8 @@ import racingcar.util.InputHandler;
 
 public class RaceGame {
 
+    private static final int MIN_ROUND_COUNT = 0;
+
     private final InputHandler inputHandler;
     private final CarRegistration carRegistration;
     private final Billboard billboard;
@@ -18,12 +20,24 @@ public class RaceGame {
 
     public void play() {
         List<Car> cars = registerCars();
-        int roundCount = inputHandler.getRaceRoundCount();
+        RandomGasolineProvider gasolineProvider = new RandomGasolineProvider();
+        int remainRoundCount = inputHandler.getRaceRoundCount();
+
+        while (remainRoundCount-- > MIN_ROUND_COUNT) {
+            tryDriveCarsByGasolineProvider(cars, gasolineProvider);
+        }
     }
 
     private List<Car> registerCars() {
         List<CarRegistrationDTO> carRegistrationDTOS = inputHandler.getCarRegistrations();
         return carRegistration.register(carRegistrationDTOS);
+    }
+
+    private void tryDriveCarsByGasolineProvider(List<Car> cars, RandomGasolineProvider gasolineProvider) {
+        for (Car car : cars) {
+            int gasoline = gasolineProvider.provide();
+            car.tryDrive(gasoline);
+        }
     }
 
     public static class Builder {
