@@ -47,13 +47,13 @@ public class RacingCars {
         }
     }
 
-    public List<String> getPositions() {
-        List<String> positions = new ArrayList<>();
+    public List<String> getResultsMoving() {
+        List<String> results = new ArrayList<>();
 
         for (RacingCar racingCar : this.racingCars) {
-            positions.add(racingCar.getPosition());
+            results.add(racingCar.getResultMoving());
         }
 
-        return positions;
+        return results;
     }
 }

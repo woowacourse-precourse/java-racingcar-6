@@ -12,11 +12,11 @@ public class OutputView {
         System.out.println(RESULT_START_MESSAGE);
     }
 
-    public void printPositions(final RacingCars racingCars) {
-        List<String> positions = racingCars.getPositions();
+    public void printResultsMoving(final RacingCars racingCars) {
+        List<String> results = racingCars.getResultsMoving();
 
-        for (String position : positions) {
-            System.out.println(position);
+        for (String result : results) {
+            System.out.println(result);
         }
 
         System.out.println();
