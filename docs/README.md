@@ -7,9 +7,15 @@
       - 자동차 이름은 쉼표(,)로 구분한다
       - 각 이름은 5자 이하만 가능
         - 5자 초과 시 IllegalArgumentException 발생시키고 게임 종료
+      - 각 자동차 이름에 공백 불가
+        - 자동차 이름에 공백 포함 시 IllegalArgumentException 발생시키고 게임 종료
+      - 자동차 이름 중복 불가
+        - 자동차 이름이 중복될 시 IllegalArgumentException 발생시키고 게임 종료
 - 시도할 횟수 입력 기능
   - "시도할 회수는 몇회인가요?" 출력
     - 사용자로부터 몇 번(n)의 이동을 할 것인지 입력 받기
+      - 음수 라운드 입력 불가
+        - 음수 라운드 입력 시 IllegalArgumentException 발생시키고 게임 종료
 
 ## 2. 게임 진행 기능
 - 자동차 생성
