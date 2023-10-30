@@ -12,7 +12,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static String enterTryCount() {
+    public static String enterCycle() {
         System.out.println(ConsoleMessage.ENTER_TRY_COUNT);
         return Console.readLine();
     }
