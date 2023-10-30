@@ -27,6 +27,13 @@ public class Racing {
 
         carList = getCars(names);
 
+        for (int i = 0; i < gameCount; i++) {
+            runRound();
+        }
+
+    }
+
+    private void runRound() {
         for (Car car : carList) {
             tryMoving(car);
         }
