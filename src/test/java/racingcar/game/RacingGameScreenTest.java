@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.common.io.reader.Reader;
@@ -83,5 +85,27 @@ class RacingGameScreenTest {
         //then
         String output = mockWriter.getOutput();
         assertThat(output).isEqualTo("\n실행 결과\n");
+    }
+
+    @DisplayName("실행 결과 화면을 올바르게 구성하였는지 확인한다.")
+    @Test
+    void test_ShowTurnResultScreen() {
+        //given
+        Map<String, Integer> result = new LinkedHashMap<>();
+        result.put("name1", 1);
+        result.put("name2", 2);
+
+        TurnResult turnResult = new TurnResult(result);
+
+        //when
+        racingGameScreen.showTurnResult(turnResult);
+
+        //then
+        String output = mockWriter.getOutput();
+        assertThat(output).isEqualTo("""
+                name1 : -
+                name2 : --
+                                
+                """);
     }
 }
