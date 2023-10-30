@@ -19,8 +19,7 @@ public class Application {
         validateCarNames(carNames);
 
         System.out.println("시도할 회수는 몇회 인가요?");
-        int tryCount = 0;
-        // TODO : 시도횟수 받기
+        int tryCount = getTryCount();
         int[] distanceArray = new int[carNames.length];
         System.out.println();
         InitData initData = new InitData(carNames, tryCount, distanceArray);
@@ -41,6 +40,13 @@ public class Application {
                 throw new IllegalArgumentException("자동차 이름은 영어 숫자만 가능 합니다.");
             }
         }
+    }
+
+    private static int getTryCount() {
+        String response = Console.readLine();
+        // TODO : 시도횟수 검증
+        int tryCount = 0;
+        return tryCount;
     }
 
 }
