@@ -34,7 +34,7 @@ public class CarNamesInputValidator implements BasicValidator<String> {
 
     private void hasDuplicateCarNames(String input) {
         if (isDuplicate(input)) {
-            throw new IllegalArgumentException("중복된 자동차 이름이 있습니다.");
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
         }
     }
 
