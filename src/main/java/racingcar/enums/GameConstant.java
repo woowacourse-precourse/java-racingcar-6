@@ -4,7 +4,8 @@ public enum GameConstant {
     TRUE("true"),
     FALSE("false"),
     MAXIMUM_LENGTH_OF_CAR_NAME("5"),
-    NUMBERS("0123456789"),
+    NUMBERS("(+|-)?[0-9]+"),
+    POSITIVE_NUMBERS("+?[0-9]+"),
     DIVIDER(",");
 
     private final String content;
@@ -24,9 +25,9 @@ public enum GameConstant {
     }
 
     public Integer getContentToInteger() {
-        String numbers = GameConstant.NUMBERS.getContent();
+        String numbersPattern = GameConstant.NUMBERS.getContent();
 
-        if (numbers.contains(this.content)) {
+        if (this.content.matches(numbersPattern)) {
             return Integer.parseInt(this.content);
         }
 
