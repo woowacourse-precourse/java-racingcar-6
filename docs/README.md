@@ -43,3 +43,11 @@
 
 **Policy**
 - NumberGeneratePolicy (숫자 생성 정책)
+
+## 프로그래밍 요구사항 및 점검 사항
+- [ ] indent 2까지만 허용 (while문 안 if 까지가 indent 2)
+- [ ] 3항 연산자 사용 x
+- [ ] 메서드 한가지 일만 하도록 최대한 작게 만들기
+- [ ] 제공하는 Randoms 랜덤값 추출하기 (`Randoms.pickNumberInRange(0,9);`)
+- [ ] 제공하는 Console 클래스로 입력값 받기 (`Console.readLine();`)
+- [ ] clean -> test / clean -> test 확인 하기
