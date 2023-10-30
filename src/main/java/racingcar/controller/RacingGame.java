@@ -32,8 +32,8 @@ public class RacingGame {
 
     private List<String> getCarNames() {
         OutputView.displayCarNames();
-        String names = InputView.input();
-        return parseNames(names);
+        String CarNames = InputView.input();
+        return parseCarNames(CarNames);
     }
 
     private int getTryCount() {
@@ -44,13 +44,13 @@ public class RacingGame {
     }
 
     private void initializeCars(List<String> carNames) {
-        Validator.validateNames(carNames);
+        Validator.validateCarNames(carNames);
         for (String carName : carNames) {
             cars.add(carName);
         }
     }
 
-    private List<String> parseNames(String names) {
-        return Arrays.asList(names.split(","));
+    private List<String> parseCarNames(String carNames) {
+        return Arrays.asList(carNames.split(","));
     }
 }

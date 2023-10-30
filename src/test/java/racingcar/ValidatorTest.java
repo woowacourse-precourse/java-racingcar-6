@@ -15,19 +15,19 @@ import racingcar.controller.Validator;
 
 public class ValidatorTest extends ApplicationTest {
     @ParameterizedTest
-    @MethodSource("generateInvalidNames")
-    void 이름_유효성_실패_테스트(List<String> names) {
+    @MethodSource("generateInvalidCarNames")
+    void 이름_유효성_실패_테스트(List<String> carNames) {
         assertThrows(IllegalArgumentException.class,
-                () -> Validator.validateNames(names));
+                () -> Validator.validateCarNames(carNames));
     }
 
     @ParameterizedTest
-    @MethodSource("generateValidNames")
-    void 이름_유효성_성공_테스트(List<String> names) {
-        assertDoesNotThrow(() -> Validator.validateNames(names));
+    @MethodSource("generateValidCarNames")
+    void 이름_유효성_성공_테스트(List<String> carNames) {
+        assertDoesNotThrow(() -> Validator.validateCarNames(carNames));
     }
 
-    static Stream<Arguments> generateInvalidNames() {
+    static Stream<Arguments> generateInvalidCarNames() {
         return Stream.of(
                 Arguments.of(Arrays.asList("pobi", "pobi", "woni")),
                 Arguments.of(Arrays.asList("pobi", "jjjjun")),
@@ -35,7 +35,7 @@ public class ValidatorTest extends ApplicationTest {
         );
     }
 
-    static Stream<Arguments> generateValidNames() {
+    static Stream<Arguments> generateValidCarNames() {
         return Stream.of(
                 Arguments.of(Arrays.asList("pobi", "woni", "jun")),
                 Arguments.of(Arrays.asList("pobi", "shu")),
