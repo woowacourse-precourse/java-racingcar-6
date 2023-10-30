@@ -9,7 +9,7 @@ import static racingcar.domain.Constants.*;
 
 public class UserInput {
 
-    public List<String> askCar() {
+    public List<String> askCarList() {
         String input = Console.readLine();
 
         List<String> carTypeList = new ArrayList<String>();

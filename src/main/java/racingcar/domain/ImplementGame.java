@@ -11,7 +11,7 @@ public class ImplementGame {
 
     public Map<String, Integer> playGame(){
         System.out.println(CAR_NAME_INPUT_MESSAGE);
-        List<String> carList = userInput.askCar();
+        List<String> carList = userInput.askCarList();
         System.out.println(ATTEMP_INPUT_MESSAGE);
         int gameNumber = userInput.askNumberGame();
         System.out.println(RESULT_OF_GAME);
