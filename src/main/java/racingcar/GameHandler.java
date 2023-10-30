@@ -1,24 +1,19 @@
 package racingcar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GameHandler {
-    private final List<Car> cars;
+    private final Game game;
 
-    public GameHandler() {
-        this.cars = new ArrayList<>();
+    public GameHandler(Game game) {
+        this.game = game;
     }
+
 
     public void handle() {
         List<String> carNames = Communicator.instructInputCars();
-        saveCars(carNames);
-        Communicator.instructInputGameTimes();
-    }
+        game.saveCars(carNames);
 
-    private void saveCars(List<String> carNames) {
-        carNames.stream()
-                .map(carName -> new Car(carName, 0))
-                .forEach(cars::add);
+        int gameTimes = Communicator.instructInputGameTimes();
     }
 }

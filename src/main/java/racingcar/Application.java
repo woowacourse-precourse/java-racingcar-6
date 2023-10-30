@@ -2,7 +2,8 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        GameHandler gameHandler = new GameHandler();
+        Game game = new Game();
+        GameHandler gameHandler = new GameHandler(game);
 
         gameHandler.handle();
     }

@@ -16,9 +16,9 @@ public class Communicator {
         return cars;
     }
 
-    public static void instructInputGameTimes() {
+    public static int instructInputGameTimes() {
         printInputGameTimes();
-        int gameTimes = Integer.parseInt(Console.readLine());
+        return Integer.parseInt(Console.readLine());
     }
 
     private static void printInputGameTimes() {
