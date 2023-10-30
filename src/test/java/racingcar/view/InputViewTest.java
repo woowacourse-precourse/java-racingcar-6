@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.view.InputView.displayAttemptNumberInputView;
 import static racingcar.view.InputView.displayCarNamesInputView;
 
 class InputViewTest {
@@ -65,6 +66,32 @@ class InputViewTest {
     void 경주할_자동차_이름을_입력받는다_중복_예외처리() {
         setInput("성겸,성겸");
         assertThatThrownBy(() -> displayCarNamesInputView())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도할_횟수를_입력받는다() {
+        // given
+        setInput("5");
+
+        // when
+        Integer attempt = displayAttemptNumberInputView();
+
+        // then
+        Assertions.assertThat(attempt).isEqualTo(5);
+    }
+
+    @Test
+    void 시도할_횟수를_입력받는다_정수가_아닌_입력_예외처리() {
+        setInput("오");
+        assertThatThrownBy(() -> displayAttemptNumberInputView())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 시도할_횟수를_입력받는다_양의_정수가_아닌_입력_예외처리() {
+        setInput("-5");
+        assertThatThrownBy(() -> displayAttemptNumberInputView())
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
