@@ -13,6 +13,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 class ApplicationTest extends NsTest {
 	private static final int MOVING_FORWARD = 4;
@@ -43,8 +44,17 @@ class ApplicationTest extends NsTest {
 	}
 
 	@Test
+	void 빈_문자열에_대한_예외_처리() {
+		StringTokenizer testTokenizer = new StringTokenizer(",", ",");
+		Validator validator = new Validator();
+
+		assertThatThrownBy(() -> validator.validateEmptyString(testTokenizer.hasMoreTokens()))
+			.isInstanceOf(IllegalArgumentException.class);
+	}
+
+	@Test
 	void 숫자가_아닌_문자에_대한_예외_처리() {
-		String input = "";
+		String input = ".";
 		Validator validator = new Validator();
 
 		assertThatThrownBy(() -> validator.validateMoveCount(input))
