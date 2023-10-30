@@ -20,16 +20,21 @@ public class GameController {
 
     public void run() {
         Cars cars = inputView.getCarsFromUserInput();
-        int trial = inputView.getTrialFromUserInput();
-        WinnersDto winnersDto = playGame(trial, cars);
-        outputView.printGameWinner(winnersDto);
+        startGameWithTrials(cars);
+        announceGameWinners(cars);
     }
 
-    private WinnersDto playGame(int trial, Cars cars) {
-        for (int i = 1; i <= trial; i++) {
-            CarsMovementDto carsMovementDto = cars.moveOnce(moveStrategy);
+    private void startGameWithTrials(Cars cars) {
+        int trials = inputView.getTrialFromUserInput();
+        for (int i = 1; i <= trials; i++) {
+            cars.moveOnceIfMovable(moveStrategy);
+            CarsMovementDto carsMovementDto = cars.toCarsMovementDto();
             outputView.printGameResult(carsMovementDto);
         }
-        return cars.toWinnerDto();
+    }
+
+    private void announceGameWinners(Cars cars) {
+        WinnersDto winnersDto = cars.toWinnerDto();
+        outputView.printGameWinner(winnersDto);
     }
 }
