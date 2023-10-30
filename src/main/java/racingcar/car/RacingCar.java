@@ -1,7 +1,5 @@
 package racingcar.car;
 
-import racingcar.car.Car;
-
 import static racingcar.constant.Constant.DISTANCE_DRIVER;
 
 public class RacingCar extends Car {
