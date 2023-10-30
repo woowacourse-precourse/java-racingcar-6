@@ -13,7 +13,7 @@ public class Output {
 		System.out.println(RESULT_MESSAGE);
 	}
 	
-	public void roundResult(List<Car> cars) {
+	public void roundResult(Car[] cars) {
 		for(Car car : cars) {
 			System.out.printf("%s : %s\n", car.getName(), car.getForwardCount());
 		}
