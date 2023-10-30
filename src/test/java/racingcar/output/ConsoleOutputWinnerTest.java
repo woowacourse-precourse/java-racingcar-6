@@ -1,83 +1,67 @@
 package racingcar.output;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.lang.reflect.Field;
 import java.util.List;
-import org.junit.jupiter.api.Test;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.Car;
-import racingcar.input.ConsoleInput;
-import racingcar.input.Input;
-import racingcar.validator.Validator;
 
-class ConsoleOutputWinnerTest extends NsTest {
+class ConsoleOutputWinnerTest {
 
-    Validator defaultValidator = new Validator();
-    Input consoleInput = new ConsoleInput(defaultValidator);
-    Output consoleOutput = new ConsoleOutput();
+    private Output consoleOutput = new ConsoleOutput();
 
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
+    @ParameterizedTest
+    @MethodSource("provideCarList")
+    @DisplayName("차수별 실행 결과 출력")
+    void 차수별_실행_결과_출력(List<Car> carList, String result) {
+        assertThat(run(carList)).contains(result);
+    }
 
-    @Test
-    void 우승자_출력1() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("DY1,DY2,DY3", "1");
-                    assertThat(output()).contains("DY1, DY3");
-                },
-                MOVING_FORWARD, STOP, MOVING_FORWARD
+    static Stream<Arguments> provideCarList() {
+        List<Car> carList1 = IntStream.rangeClosed(1, 5)
+                .mapToObj(number -> createTestCar("DY" + number, number))
+                .toList();
+        String result1 = "최종 우승자 : DY5";
+
+        List<Car> carList2 = IntStream.rangeClosed(1, 5)
+                .mapToObj(number -> createTestCar("DY" + number, 6 - number))
+                .toList();
+        String result2 = "최종 우승자 : DY1";
+
+        return Stream.of(
+                Arguments.of(carList1, result1),
+                Arguments.of(carList2, result2)
         );
     }
 
-    @Test
-    void 우승자_출력2() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("DY1,DY2,DY3", "2");
-                    assertThat(output()).contains("DY1");
-                },
-                MOVING_FORWARD, STOP, MOVING_FORWARD,
-                MOVING_FORWARD, STOP, STOP
-        );
-    }
-
-    @Test
-    void 우승자_출력3() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("DY1,DY2,DY3", "3");
-                    assertThat(output()).contains("DY1, DY2, DY3");
-                },
-                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
-                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
-                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
-        );
-    }
-
-    @Test
-    void 우승자_출력4() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("DY1,DY2,DY3", "3");
-                    assertThat(output()).contains("DY1, DY2, DY3");
-                },
-                STOP, STOP, STOP,
-                STOP, STOP, STOP,
-                STOP, STOP, STOP
-        );
-    }
-
-    @Override
-    protected void runMain() {
-        List<Car> carList = consoleInput.receiveCarNamesAndMakeList();
-        int executionCount = consoleInput.receiveTotalCountOfExecution();
-
-        for (int i = 0; i < executionCount; i++) {
-            carList.forEach(car -> car.moveForward());
-        }
+    private String run(List<Car> carList) {
+        OutputStream print = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(print));
 
         consoleOutput.printWinner(carList);
+        return print.toString();
+    }
+
+    //Reflection 활용
+    private static Car createTestCar(String name, int distance) {
+        Car car = new Car(name);
+        try {
+            Field field = Car.class.getDeclaredField("distance");
+            field.setAccessible(true);
+            field.set(car, distance);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return car;
     }
 }
