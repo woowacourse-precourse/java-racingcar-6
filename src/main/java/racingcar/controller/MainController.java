@@ -21,14 +21,25 @@ public class MainController {
         while (true) {
             initializeCar();
         }
-
     }
 
     private void initializeCar() {
-        String names = inputView.inputToNameCar();
-        List<String> splits = Util.splitNameByComma(names);
-        for (String split : splits) {
-            initializeCarController.initializeCar(split);
+        List<String> splits = inputToNameCar();
+        int count = inputTryToMoveCar();
+        for (String name : splits) {
+            initializeCarController.initializeCar(name, count);
         }
+    }
+
+    private List<String> inputToNameCar() {
+        String inputToNameCar = inputView.inputToNameCar();
+        List<String> splits = Util.splitNameByComma(inputToNameCar);
+        return splits;
+    }
+
+    private int inputTryToMoveCar() {
+        String inputTryToMoveCar = inputView.inputTryToMoveCar();
+        int count = Util.convertStringToInt(inputTryToMoveCar);
+        return count;
     }
 }
