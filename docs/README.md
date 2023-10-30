@@ -26,8 +26,10 @@
     - 메서드 : 
       - inputMoveCount() : 사용자로부터 이동 횟수 입력 받기
       - inputCarNames() : 사용자에게 자동차 이름 입력 받는 함수
-      - numValidation : 숫자 입력 검증
-      - carNamesSplitValidation : 자동차 이름 입력 검증
+      - numValidation() : 숫자 입력 검증
+      - carNamesSplitValidation() : 자동차 이름 입력 검증
+      - validateNotNullOrEmpty() : 입력값이 비어있는지 검증
+      - validateNameLength() : 입력한 이름의 길이 검증
 
 ### - RandomGenerator 클래스
     - 메서드 : 
