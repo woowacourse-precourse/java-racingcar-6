@@ -1,7 +1,6 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Server {
@@ -36,7 +35,8 @@ public class Server {
             racer.runRaceEachStep();
         }
     }
-
+    public void finishRace(){
+    }
     public List<Racer> getRacerList(){ return racerList; }
     public int getRacerCount() { return racerCount;}
 

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.List;
 
 public class ServerTest {
@@ -33,5 +35,23 @@ public class ServerTest {
         for (Racer racer : racerList) {
             Assertions.assertNotEquals(0,racer.getCurrentPos());
         }
+    }
+    @Test
+    void 레이서들중_단일_우승자를_출력한다(){
+        server.confirmRacerList("pobi,woni,crong");
+        ByteArrayOutputStream outputStreamCaptor=new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
+        String expectedResult = "최종 우승자 : crong";
+
+        var racerList = server.getRacerList();
+        int multipleUnit = 1;
+        for ( Racer racer : racerList){
+            for ( int i =0;i<multipleUnit;i++)
+                racer.runRaceEachStep();
+            multipleUnit *=10;
+        }
+        server.finishRace();
+
+        Assertions.assertEquals(expectedResult, outputStreamCaptor.toString().trim());
     }
 }
