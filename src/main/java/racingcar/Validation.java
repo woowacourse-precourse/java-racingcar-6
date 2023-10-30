@@ -14,6 +14,10 @@ public class Validation {
         }
         return carsStingList;
     }
+
+    public static int validateMoveNumber (String input){
+        return 0;
+    }
     private static List<String> validateDivision(String cars){
         List<String> carsStingList = new ArrayList<>();
         String[] carInputList = cars.split(",");

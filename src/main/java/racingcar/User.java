@@ -22,6 +22,8 @@ public class User {
         return carList;
     }
     public int getMoveNumber(){
-        return 0;
+        System.out.print(INPUT_MOVE_NUMBER_MSG);
+        String input = Console.readLine();
+        return validateMoveNumber(input);
     }
 }
