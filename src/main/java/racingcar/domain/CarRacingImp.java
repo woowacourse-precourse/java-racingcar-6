@@ -1,14 +1,13 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.domain.Racing;
 import racingcar.domain.car.Car;
 import racingcar.dto.CarDto;
 import racingcar.dto.RaceConditionDto;
 
-public class CarRacingImp implements CarRacing{
+public class CarRacingImp implements CarRacing {
     private Racing racing;
     private int numberOfRace;
 

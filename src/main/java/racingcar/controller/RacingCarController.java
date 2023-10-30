@@ -1,5 +1,7 @@
-package racingcar;
+package racingcar.controller;
 
+import racingcar.domain.CarRacing;
+import racingcar.domain.CarRacingImp;
 import racingcar.view.InputView;
 import racingcar.view.OutView;
 
