@@ -14,7 +14,6 @@ public class GenerateRanNum {
 
     public HashMap<String, Integer> carHashMap(String[] carList) {
         HashMap<String, Integer> carMap = new HashMap<>();
-
         for (String car : carList) {
             int ranNum = ranNum();
             carMap.put(car, ranNum);
@@ -24,9 +23,10 @@ public class GenerateRanNum {
 
     public void returnCarMapList(String[] carList,int count){
         GenerateRanNum generateRanNum = new GenerateRanNum();
-        HashMap<String,Integer> carMap = generateRanNum.carHashMap(carList);
+
         int i = 0;
         while(i<count){
+            HashMap<String,Integer> carMap = generateRanNum.carHashMap(carList);
             carHashMapList.add(carMap);
             i+=1;
         }
