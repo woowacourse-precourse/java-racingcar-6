@@ -28,15 +28,15 @@ public class GameController {
             finishGame();
     }
 
-    public static int inputAttempts(){
+    private static int inputAttempts(){
         return Integer.parseInt(InputView.attempts());
     }
 
-    public static String inputCarName(){
+    private static String inputCarName(){
         return InputView.carsName();
     }
 
-    public static void play(){
+    private static void play(){
         for(Car car : cars){
             car.addAdvances(GeneratedRandomNumber.getNumber());
         }
@@ -45,13 +45,13 @@ public class GameController {
         System.out.println();
     }
 
-    public static void finishGame(){
+    private static void finishGame(){
         OutputView.executionResult();
         FindWinnerController findWinnerController = new FindWinnerController(cars);
         OutputView.winner(findWinnerController.getWinners());
     }
 
-    public static List<Car> getCars(final String cars){
+    private static List<Car> getCars(final String cars){
         List<Car> convertCars = new ArrayList<>();
 
         for (String carName : cars.split(",")){
