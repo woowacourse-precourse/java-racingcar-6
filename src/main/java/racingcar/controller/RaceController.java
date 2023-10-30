@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
 import racingcar.domain.Try;
+import racingcar.response.RaceResultResponse;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,6 +14,13 @@ public class RaceController {
 
     public void run() {
         initialize();
+    }
+
+    public void play() {
+        OutputView.printRaceResult();
+        do {
+            RaceResultResponse response = race.doRace();
+        } while (race.isRaceOver());
     }
 
     public void initialize() {
