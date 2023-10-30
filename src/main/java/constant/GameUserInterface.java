@@ -8,27 +8,9 @@ package constant;
 // 진척도 -
 // :
 // 최종우승자
-enum RacingEnums {
-    RANDOM_MIN, RANDOM_MAX, NUM_CHECK_GO,
-    ASK_CAR_NAME, ASK_GAME_TRYS, CAR_NAME_COLON,
-    RACING_RESULT, RACING_DISTANCE, RACING_WINNER
 
-}
 
-enum MagicNumbers {
-    RANDOM_MIN("0"), RANDOM_MAX("9"), NUM_CHECK_GO("4");
-    private final String Numbers;
-
-    MagicNumbers(String Numbers) {
-        this.Numbers = Numbers;
-    }
-
-    String getRandomNumbers() {
-        return Numbers;
-    }
-}
-
-enum GameUserInterface {
+public enum GameUserInterface {
     // %d 등 인수 작업 가능
     ASK_CAR_NAME("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)"),
     ASK_GAME_TRYS("시도할 회수는 몇회인가요?"),
@@ -42,7 +24,7 @@ enum GameUserInterface {
     GameUserInterface(String UserInterface) {
         this.UserInterface = UserInterface;
     }
-    String getRandomNumbers() {
+    String getUserInterface() {
         return UserInterface;
     }
 }
