@@ -15,7 +15,7 @@ public class RacingCarApplication {
         List<String> carNames = carViewer.inputCarNames();
         Cars cars = Cars.createByNames(carNames);
 
-        int gameRound = carViewer.inputGameRound();
+        CarGameRound gameRound = carViewer.inputGameRound();
 
         CarGame carGame = CarGame.create(cars, gameRound);
         List<Map<String, Integer>> gameResult = carGame.race();

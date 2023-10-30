@@ -41,15 +41,11 @@ public class CarViewer {
         return List.of(inputCarNames.split(INPUT_NAME_DELIMITER));
     }
 
-    public int inputGameRound() {
+    public CarGameRound inputGameRound() {
         System.out.println(INPUT_ATTEMPT_COUNT);
         String inputAttemptCount = Console.readLine();
-        try {
-            return Integer.parseInt(inputAttemptCount);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도할 횟수는 숫자이어야 합니다.", e);
-        }
 
+        return CarGameRound.createByString(inputAttemptCount);
     }
 
     public void outputExecute() {
