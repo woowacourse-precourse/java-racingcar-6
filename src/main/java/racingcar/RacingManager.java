@@ -1,8 +1,9 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.number_generator.NumberGenerator;
 import racingcar.number_generator.RandomNumberGenerator;
+import racingcar.records.RacingCarSnapshot;
+import racingcar.records.RacingHistory;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +14,6 @@ public class RacingManager {
     private final NumberGenerator ng;
     private final List<RacingCar> racingCars;
     private final int moveCount;
-
     private final List<RacingHistory> racingResult = new ArrayList<>();
 
     public RacingManager(String carNamesInput, String moveCountInput) {
@@ -26,26 +26,11 @@ public class RacingManager {
         this.ng = ng;
     }
 
-    public void initRace() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String carNamesInput = Console.readLine();
-        racingCars = createRacingCars(carNamesInput);
-
-        System.out.println("시도할 회수는 몇 회인가요?");
-        String moveCountInput = Console.readLine();
-        moveCount = parseMoveCountInput(moveCountInput);
-    }
-
     public void startRace() {
-        System.out.println("\n실행 결과");
         for (int i = 0; i < moveCount; i++) {
             moveRacingCars();
             addRacingHistory();
-
-            printMoveResult();
-            System.out.println();
         }
-        printRacingWinnerNames(getRacingWinnerNames());
     }
 
     public void moveRacingCars() {
@@ -60,20 +45,13 @@ public class RacingManager {
                 .map((car) -> new RacingCarSnapshot(car.getName(), car.getForwardCount()))
                 .toList();
         RacingHistory history = new RacingHistory(currentSnapshots);
-        
+
         racingResult.add(history);
     }
 
-    public List<RacingHistory> getRacingHistory() {
+    public List<RacingHistory> getRacingResult() {
         return racingResult;
     }
-
-    private void printMoveResult() {
-        for (RacingCar racingCar : racingCars) {
-            System.out.println(racingCar.toString());
-        }
-    }
-
 
     public List<String> getRacingWinnerNames() {
         int maxMovement = Collections.max(racingCars, Comparator.comparingInt(RacingCar::getForwardCount)).getForwardCount();
@@ -81,10 +59,6 @@ public class RacingManager {
                 .filter(car -> car.getForwardCount() == maxMovement)
                 .map(RacingCar::getName)
                 .toList();
-    }
-
-    private void printRacingWinnerNames(List<String> winners) {
-        System.out.printf("최종 우승자 : %s", String.join(", ", winners));
     }
 
     public List<RacingCar> createRacingCars(String carNamesInput) {
