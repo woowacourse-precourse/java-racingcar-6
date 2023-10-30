@@ -27,8 +27,11 @@ public class Game {
 
         List<Player> playerList = manager.stringListToPlayerList(inputString);
 
-        for(int i = 0; i<gameCount; i++){
+        outputView.printGameResult();
+
+        for (int i = 0; i < gameCount; i++) {
             manager.calculateRun(playerList);
+            outputView.printPartialResults(playerList);
         }
     }
 }
