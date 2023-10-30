@@ -3,8 +3,8 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private Name name;
-    private Distance distance;
+    private final Name name;
+    private final Distance distance;
 
     public Car(String name) {
         this.name = new Name(name);
@@ -30,10 +30,7 @@ public class Car {
     }
 
     private boolean shouldMove() {
-        if (generatedRandomNumber() >= 4) {
-            return true;
-        }
-        return false;
+        return generatedRandomNumber() >= 4;
     }
 
     protected int generatedRandomNumber() {
