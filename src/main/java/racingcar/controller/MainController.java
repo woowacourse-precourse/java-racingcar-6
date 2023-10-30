@@ -17,5 +17,6 @@ public class MainController {
 
     public void start() {
         circuit = new Circuit(inputView.readEntryNames());
+        int round = inputView.readRound();
     }
 }
