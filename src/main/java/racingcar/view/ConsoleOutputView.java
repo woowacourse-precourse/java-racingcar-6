@@ -31,9 +31,8 @@ public class ConsoleOutputView implements OutputView {
 
     @Override
     public void printGameResult(final GameResultResponse gameResultResponse) {
-        gameResultResponse.getResult().forEach((vehicleName, positionIndex) -> {
-            System.out.println(makeResult(vehicleName, positionIndex));
-        });
+        gameResultResponse.getResult()
+                .forEach((vehicleName, positionIndex) -> System.out.println(makeResult(vehicleName, positionIndex)));
         printNewLine();
     }
 
