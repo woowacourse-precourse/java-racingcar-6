@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class RacingGame {
     public void startGame() {
@@ -39,6 +40,13 @@ public class RacingGame {
                 winnerList.add(car.name);
             }
         }
+
+        System.out.print("최종 우승자 : ");
+        StringJoiner winnerPrint = new StringJoiner(", ");
+        for (String winner : winnerList) {
+            winnerPrint.add(winner);
+        }
+        System.out.print(winnerPrint);
 
     }
 
