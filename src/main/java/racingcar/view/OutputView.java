@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.constant.GameMessage;
 import racingcar.controller.Validator;
@@ -50,4 +51,7 @@ public class OutputView {
         System.out.println(result);
     }
 
+    public static String readCarName() {
+        return Console.readLine();
+    }
 }
