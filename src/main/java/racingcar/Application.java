@@ -99,19 +99,8 @@ public class Application {
     }
 
     private static List<Car> initializeCars(List<String> carNameList) {
-        List<Car> carList = new ArrayList<>();
-        for (int i = 0; i < carNameList.size(); i++) {
-            addCar(carList, initializeCar(carNameList, i));
-        }
-        return carList;
-    }
-
-    private static void addCar(List<Car> carList, Car car) {
-        carList.add(car);
-    }
-
-    private static Car initializeCar(List<String> carNameList, int i) {
-        Car car = new Car(carNameList.get(i), 0);
-        return car;
+        return carNameList.stream()
+                .map(carName -> new Car(carName, 0))
+                .collect(Collectors.toList());
     }
 }
