@@ -17,6 +17,11 @@ public class Car {
         return carName;
     }
 
+    public void setPlayCount(String playCount) {
+        Validation.isPositiveInt(playCount);
+        this.playCount = Integer.parseInt(playCount);
+    }
+
     private void divideName(String name) {
         StringTokenizer tokenizer = new StringTokenizer(name.trim(),",");
 
