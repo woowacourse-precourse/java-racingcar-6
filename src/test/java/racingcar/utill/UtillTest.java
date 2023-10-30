@@ -10,6 +10,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.in;
@@ -79,10 +81,18 @@ class UtillTest {
     @Test
     void makeListFromArr() {
         // given
+        Integer[] inputArr = new Integer[]{1, 2, 3};
+        List<Integer> targetList = new ArrayList<>();
+        targetList.add(1);
+        targetList.add(2);
+        targetList.add(3);
 
         // when
+        List<Integer> resultList = Utill.makeListFromArr(inputArr);
 
         // than
+        assertThat(resultList).isEqualTo(targetList);
+
     }
 
     @DisplayName("num_1 과 num_2의 숫자가 같으면 true 테스트")
