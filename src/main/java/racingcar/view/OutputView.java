@@ -11,6 +11,7 @@ public class OutputView {
 
 
     public static void processPrintStartMessage() {
+        printEmptyLine();
         System.out.println(PROCESS_PRINT_START);
     }
 
