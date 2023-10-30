@@ -20,6 +20,7 @@ public class RacingCarController {
     public void start() {
         List<Car> carList = inputCarList();
         Integer playCount = inputPlayCount();
+        play(carList, playCount);
     }
 
     private List<Car> inputCarList() {
@@ -47,5 +48,13 @@ public class RacingCarController {
         InputValidator.validatePlayCount(playCount);
 
         return playCount;
+    }
+
+    private void play(List<Car> carList, Integer playCount) {
+        OutputView.printInfo(PRINT_RESULT_MESSAGE);
+
+        for (int i = 0; i < playCount; i++) {
+            racingCarService.race(carList);
+        }
     }
 }

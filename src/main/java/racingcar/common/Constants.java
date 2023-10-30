@@ -6,4 +6,5 @@ public class Constants {
     public static final Integer MAXIMUM_CAR_NAME_LENGTH = 5;
     public static final Integer MINIMUM_PARTICIPANTS_NUMBER = 2;
     public static final String PLAY_COUNT_REQUEST_MESSAGE = "시도할 회수는 몇회인가요?\n";
+    public static final String PRINT_RESULT_MESSAGE = "\n실행결과\n";
 }
