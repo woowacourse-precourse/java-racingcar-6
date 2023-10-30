@@ -23,4 +23,12 @@ public class Car {
     public String getName() {
         return this.name;
     }
+
+    public String generateMovement() {
+        StringBuilder movementString = new StringBuilder();
+        for (int i = 0; i < moveCount; i++) {
+            movementString.append("-");
+        }
+        return movementString.toString();
+    }
 }

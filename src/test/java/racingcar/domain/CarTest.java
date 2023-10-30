@@ -25,4 +25,12 @@ class CarTest {
         Assertions.assertThat(car.getMoveCount()).isZero();
     }
 
+    @Test
+    void 이동_문자열() {
+        car.move(7);
+        car.move(7);
+        String movement = car.generateMovement();
+        Assertions.assertThat(movement).isEqualTo("--");
+    }
+
 }
