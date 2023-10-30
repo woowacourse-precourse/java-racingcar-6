@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.message.ExceptionMessage;
 import racingcar.message.InputMessage;
 
@@ -9,9 +11,27 @@ public class InputView {
         printMessage(InputMessage.START_GAME);
         String inputNames = Console.readLine();
         String [] names = inputNames.split(",");
+        nameCheckDuplicate(names);
         nameCheckLength(names);
         nameContainsNumber(names);
         return names;
+    }
+
+    public int getRounds(){
+        printMessage(InputMessage.SET_GAME_ROUND);
+        String inputRounds = Console.readLine();
+        int round = Integer.parseInt(inputRounds);
+        return round;
+    }
+
+    public void nameCheckDuplicate(String[] names){
+        List<String> duplicateCheck = new ArrayList<>();
+        for(String name : names){
+            if(duplicateCheck.contains(name)){
+                printMessage(ExceptionMessage.NAME_NOT_DUPLICATE);
+                throw new IllegalArgumentException();
+            }else duplicateCheck.add(name);
+        }
     }
 
     public void nameCheckLength(String[] names){
@@ -39,13 +59,6 @@ public class InputView {
             }
         }
         return false;
-    }
-
-    public int getRounds(){
-        printMessage(InputMessage.SET_GAME_ROUND);
-        String inputRounds = Console.readLine();
-        int round = Integer.parseInt(inputRounds);
-        return round;
     }
 
     private void printMessage(String text){

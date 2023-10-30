@@ -17,13 +17,14 @@ public class GameController {
 
     String[] names = inputView.getNames();
 
+
     public void start() {
 
         int rounds = inputView.getRounds();
 
         List<Car> cars = racingGame.saveCarsInfo(names);
-        roundResult(rounds, cars);
 
+        roundResult(rounds, cars);
         winningResult.winnerScore(cars);
         outputView.winnerResult(cars, winningResult.winningScore);
 
