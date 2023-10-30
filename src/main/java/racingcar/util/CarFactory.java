@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import racingcar.Console.Constants;
+import racingcar.Console.ExceptionMessage;
 import racingcar.domain.Car;
 
 public class CarFactory {
@@ -25,7 +25,7 @@ public class CarFactory {
 
         validateNullAndEmpty(carNamesInput);
 
-        String[] carNames = carNamesInput.replaceAll(" ", "").split(Constants.COMMAS);
+        String[] carNames = carNamesInput.replaceAll(" ", "").split(",");
         validateCarSize(carNames.length);
 
         List<Car> cars = new ArrayList<>();
@@ -36,7 +36,7 @@ public class CarFactory {
 
             duplicateNameSet.add(carNames[i]);
             if (duplicateNameSet.size() != cars.size() + 1) {
-                throw new IllegalArgumentException(Constants.EXCEPTION_CAR_NAME_DUPLICATE_MESSAGE);
+                throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_NAME_DUPLICATE_MESSAGE);
             }
 
             cars.add(new Car(carNames[i]));
@@ -48,11 +48,11 @@ public class CarFactory {
     private static void validateNullAndEmpty(String carNamesInput) {
 
         if (Objects.isNull(carNamesInput)) {
-            throw new IllegalArgumentException(Constants.EXCEPTION_CAR_NAME_EMPTY_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_NAME_EMPTY_MESSAGE);
         }
 
         if (carNamesInput.isEmpty()) {
-            throw new IllegalArgumentException(Constants.EXCEPTION_CAR_NAME_EMPTY_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_NAME_EMPTY_MESSAGE);
         }
     }
 
@@ -62,13 +62,13 @@ public class CarFactory {
 
         boolean isValid = matcher.find();
         if (!isValid) {
-            throw new IllegalArgumentException(Constants.EXCEPTION_CAR_NAME_FORMAT_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_NAME_FORMAT_MESSAGE);
         }
     }
 
     private static void validateCarSize(int size) {
         if (size > MAX_CAR_COUNT) {
-            throw new IllegalArgumentException(Constants.EXCEPTION_CAR_SIZE_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.EXCEPTION_CAR_SIZE_MESSAGE);
         }
     }
 }
