@@ -2,5 +2,6 @@ package racingcar.collaborator.generic;
 
 import java.util.List;
 
-public record RaceProgress(List<RacerProgress> racerProgress) {
+public record LapProgress(List<RacerProgress> racerProgress) {
+
 }
