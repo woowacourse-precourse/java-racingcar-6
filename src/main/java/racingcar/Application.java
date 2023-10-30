@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Application {
@@ -38,6 +40,7 @@ public class Application {
         int count1 = 0;
         int count2 = 0;
         int count3 = 0;
+
         String[] cars = Application.carName();
         int tryNum = Application.moveCount();
 
@@ -63,12 +66,38 @@ public class Application {
                 } else if (i == 2) {
                     int randomNumber = Randoms.pickNumberInRange(0, 9);
                     if (randomNumber < 4) {
-                        System.out.println(cars[2] + " : " + "-".repeat(count3));
+                        System.out.println(cars[2] + " : " + "-".repeat(count3) + "\n");
                     } else {
                         count3 += 1;
-                        System.out.println(cars[2] + " : " + "-".repeat(count3));
+                        System.out.println(cars[2] + " : " + "-".repeat(count3) + "\n");
                     }
                 }
+            }
+        }
+
+        if (count1 > count2){
+            if (count1 > count3){
+                System.out.println("최종 우승자 : " + cars[0]);
+            } else if (count1 == count3) {
+                System.out.println("최종 우승자 : " + cars[0] + ", " + cars[2]);
+            } else if (count1 < count3){
+                System.out.println("최종 우승자 : " + cars[2]);
+            }
+        } else if (count1 == count2) {
+            if (count1 > count3){
+                System.out.println("최종 우승자 : " + cars[0] + ", " + cars[1]);
+            } else if (count1 == count3) {
+                System.out.println("최종 우승자 : " + cars[0] + ", " + cars[1] + ", " + cars[2]);
+            } else if (count1 < count3) {
+                System.out.println("최종 우승자 : " + cars[2]);
+            }
+        } else if (count1 < count2) {
+            if (count2 > count3){
+                System.out.println("최종 우승자 : " + cars[1]);
+            } else if (count2 == count3) {
+                System.out.println("최종 우승자 : " + cars[1] + ", " + cars[2]);
+            } else if (count2 < count3) {
+                System.out.println("최종 우승자 : " + cars[2]);
             }
         }
     }
