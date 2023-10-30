@@ -14,10 +14,9 @@ public class Race {
 
     public void startRacing() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        carList = settingCar(user.inputCar());
+        settingCar(user.inputCar());
         System.out.println("시도할 회수는 몇회인가요?");
-        int cycle = user.inputTryNumber();
-        goCycle(cycle);
+        goCycle(user.inputTryNumber());
         Result.printWinner(carList);
     }
 
@@ -38,20 +37,17 @@ public class Race {
     }
 
     public void goForward() {
-        for (int i = 0; i < carList.size(); i++) {
-            Car car = carList.get(i);
+        for (Car car : carList) {
             if (checkForward(computer.getRandomNumber())) {
                 car.addDistance();
             }
         }
     }
 
-    public List<Car> settingCar(List<String> carNameList) {
-        List<Car> carList = new ArrayList<>();
-        for (int i = 0; i < carNameList.size(); i++) {
-            Car car = new Car(carNameList.get(i));
+    public void settingCar(List<String> carNameList) {
+        for (String carName : carNameList) {
+            Car car = new Car(carName);
             carList.add(car);
         }
-        return carList;
     }
 }
