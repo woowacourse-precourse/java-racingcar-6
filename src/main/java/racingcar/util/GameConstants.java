@@ -10,6 +10,10 @@ public class GameConstants {
     public static final String CAR_NAME_DELIMITER_KOR = "쉼표";
     public static final String CAR_NAME_DELIMITER = ",";
 
+    // 이동 횟수 입력
+    public static final int ZERO = 0;
+    public static final int MAXIMUM_MOVE_COUNT = 2147483647;
+
     // 랜덤 생성
     public static final int MINIMUM_GENERATED_NUM = 1;
     public static final int MAXIMUM_GENERATED_NUM = 9;

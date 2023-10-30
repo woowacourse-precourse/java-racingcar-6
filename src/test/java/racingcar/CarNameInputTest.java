@@ -12,7 +12,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.validator.carName.CarNameValidatorImpl;
 
-public class InputTest {
+public class CarNameInputTest {
 
     static CarNameValidatorImpl carNameValidator;
 
