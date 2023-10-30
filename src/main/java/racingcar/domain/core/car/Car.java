@@ -2,7 +2,7 @@ package racingcar.domain.core.car;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements CarDomain {
 
     private final CarName carName;
 
@@ -10,13 +10,9 @@ public class Car {
         this.carName = carName;
     }
 
-
+    @Override
     public CarName getCarName() {
         return carName;
-    }
-
-    public String getName() {
-        return carName.getName();
     }
 
     @Override
