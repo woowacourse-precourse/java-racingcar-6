@@ -52,5 +52,21 @@ public class GameManager {
         }
         return false;
     }
+
+    public List<Car> checkWinner(List<Car> carList) {
+        int maxMoveCount = 0;
+        List<Car> maxCarList = new ArrayList<>();
+        for (int i = 0; i < carList.size(); i++) {
+            if (maxMoveCount < carList.get(i).moveCount) {
+                maxMoveCount = carList.get(i).moveCount;
+            }
+        }
+        for (int i = 0; i < carList.size(); i++) {
+            if (maxMoveCount == carList.get(i).moveCount) {
+                maxCarList.add(carList.get(i));
+            }
+        }
+        return maxCarList;
+    }
 }
 
