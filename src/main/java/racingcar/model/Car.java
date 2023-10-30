@@ -5,17 +5,18 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class Car {
-    private List<String> car_name = new ArrayList<>();
+    private List<String> carName = new ArrayList<>();
 
-    public void setCar_name(String name) {
+    public void setCarName(String name) {
         divideName(name);
+        Validation.nameLimitLength(carName);
     }
 
     private void divideName(String name) {
         StringTokenizer tokenizer = new StringTokenizer(name,",");
 
         while (tokenizer.hasMoreTokens()) {
-            car_name.add(tokenizer.nextToken().trim());
+            carName.add(tokenizer.nextToken().trim());
         }
     }
 }
