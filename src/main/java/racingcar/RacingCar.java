@@ -4,10 +4,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 
 public class RacingCar {
-	private String name;
+	private final String name;
 	private int position;
 
-	public RacingCar(String name) {
+	public RacingCar(final String name) {
 		this.name = name;
 		this.position = 0;
 	}

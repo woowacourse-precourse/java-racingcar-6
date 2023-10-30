@@ -1,11 +1,16 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.*;
+
 import java.util.*;
 
 public class RacingGame {
 	private final List<RacingCar> cars = new ArrayList<>();
 
-	public RacingGame(String inputNames) {
+	public RacingGame() {
+
+		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+		String inputNames = Console.readLine();
 
 		String[] carNames = inputNames.split(",");
 		for (String name : carNames) {
@@ -21,7 +26,7 @@ public class RacingGame {
 		cars.clear();
 	}
 
-	public void runRacing(int tryCount) {
+	public void runRacing(final int tryCount) {
 		for (int i = 0; i < tryCount; i++) {
 			for (RacingCar car : cars) {
 				car.move(car.generateRandomNumber());
