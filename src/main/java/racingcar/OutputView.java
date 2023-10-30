@@ -3,6 +3,7 @@ package racingcar;
 import java.util.List;
 
 public class OutputView {
+
     private static final String FINAL_WINNER = "최종 우승자 : ";
     private static final String COLON = " : ";
     private static final String COMMA = ", ";

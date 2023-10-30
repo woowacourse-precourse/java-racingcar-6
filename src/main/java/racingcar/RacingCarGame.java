@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGame {
+
     private static final String TRY_RESULT = "실행 결과";
     private static final int MIN_TRY_COUNT = 0;
     private Integer tryCount;
@@ -54,7 +55,7 @@ public class RacingCarGame {
     }
 
     private void minusTryCount() {
-        this.tryCount --;
+        this.tryCount--;
     }
 
 }

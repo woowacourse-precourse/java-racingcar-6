@@ -16,11 +16,15 @@ public class ValidationManager {
     }
 
     private static void validateInputEmpty(String input) {
-        if(isNullOrEmpty(input)) throw new IllegalArgumentException();
+        if (isNullOrEmpty(input)) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static void validateCarNameLength(String inputCarName) {
-        if(!isValidCarNameLength(inputCarName)) throw new IllegalArgumentException();
+        if (!isValidCarNameLength(inputCarName)) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static boolean isValidCarNameLength(String inputCarName) {
@@ -28,11 +32,15 @@ public class ValidationManager {
     }
 
     private static void validateTryCountIsNumeric(String inputTryCount) {
-        if(!isNumeric(inputTryCount)) throw new IllegalArgumentException();
+        if (!isNumeric(inputTryCount)) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static void validateTryCountStartWithZero(String inputTryCount) {
-        if(isStartWithZero(inputTryCount)) throw new IllegalArgumentException();
+        if (isStartWithZero(inputTryCount)) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static boolean isNullOrEmpty(String input) {
@@ -41,7 +49,9 @@ public class ValidationManager {
 
     private static boolean isNumeric(String inputTryCount) {
         for (int i = 0; i < inputTryCount.length(); i++) {
-            if(!Character.isDigit(inputTryCount.charAt(i))) return false;
+            if (!Character.isDigit(inputTryCount.charAt(i))) {
+                return false;
+            }
         }
         return true;
     }

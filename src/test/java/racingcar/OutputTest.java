@@ -22,8 +22,7 @@ public class OutputTest extends NsTest {
         // when
         OutputView.outputRacingStatus(cars);
 
-        String expectedOutput =
-                "pobi : -\n" +
+        String expectedOutput = "pobi : -\n" +
                 "woni : \n" +
                 "jun : -";
         // then
