@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,5 +30,22 @@ public class Cars {
 
     public List<Car> getCars() {
         return this.cars;
+    }
+
+    public List<Car> judgeWinner() {
+        int maxProgress = getMaxProgress();
+
+        return this.cars.stream()
+                .filter(v -> v.getProgress() == maxProgress)
+                .collect(Collectors.toList());
+    }
+
+
+    private int getMaxProgress() {
+        List<Integer> progresses = this.cars.stream()
+                .map(Car::getProgress)
+                .collect(Collectors.toList());
+
+        return Collections.max(progresses);
     }
 }
