@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Arrays;
 
-import main.java.racingcar.model.Car;
+import racingcar.model.Car;
 public class GetWinner {
 
     public static List<String> winnerList(List<Car> Users) {

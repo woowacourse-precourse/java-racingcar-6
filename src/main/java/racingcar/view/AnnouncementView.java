@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import main.java.racingcar.model.Car;
+import racingcar.model.Car;
 import racingcar.utils.GetWinner;
 
 import java.util.List;

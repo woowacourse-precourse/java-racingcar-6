@@ -1,6 +1,6 @@
 package racingcar.utils;
 
-import main.java.racingcar.model.Car;
+import racingcar.model.Car;
 
 import java.util.List;
 import java.util.Arrays;

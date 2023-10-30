@@ -1,4 +1,4 @@
-package main.java.racingcar.model;
+package racingcar.model;
 
 public class Car {
     private final String name;
@@ -9,9 +9,7 @@ public class Car {
     }
 
     public void forward() {
-        if () {
-            this.position += 1;
-        }
+        this.position += 1;
     }
 
     public int getPosition(){

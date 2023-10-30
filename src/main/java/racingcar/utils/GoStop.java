@@ -3,7 +3,7 @@ package racingcar.utils;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
-import main.java.racingcar.model.Car;
+import racingcar.model.Car;
 
 public class GoStop {
 

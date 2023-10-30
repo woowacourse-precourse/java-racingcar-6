@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import main.java.racingcar.model.Car;
+import racingcar.model.Car;
 import racingcar.utils.Trials;
 import racingcar.utils.UserList;
 import racingcar.utils.GoStop;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Controller {
 
-    private static List<main.java.racingcar.model.Car> Users = new ArrayList<>();
+    private static List<Car> Users = new ArrayList<>();
     private static int trials;
     public static void Game() {
         initialize();

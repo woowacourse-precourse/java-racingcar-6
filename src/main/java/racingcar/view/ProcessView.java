@@ -1,8 +1,8 @@
-package main.java.racingcar.view;
+package racingcar.view;
 
 import java.util.List;
 
-import main.java.racingcar.model.Car;
+import racingcar.model.Car;
 public class ProcessView {
 
     public static void printMovement(List<Car> cars) {
