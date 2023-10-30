@@ -7,6 +7,7 @@ public class OutputView {
     private static final String COLON_SPACE = " : ";
     private static final String FINAL_WINNER = "최종 우승자 : ";
     private static final String COMMA = ", ";
+    private static final String HYPHEN = "-";
 
     public static void printResultCommand() {
         System.out.println(RESULT_COMMAND);
@@ -20,7 +21,7 @@ public class OutputView {
     }
 
     private static String generateHyphen(int count) {
-        return "-".repeat(count);
+        return HYPHEN.repeat(count);
     }
 
     public static void printWinner(List<String> winners) {

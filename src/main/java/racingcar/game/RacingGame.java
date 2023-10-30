@@ -8,6 +8,7 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
     private static final int RANDOM_MOVE_LIMIT = 4;
+    private static final int INITIAL_DISTANCE = 0;
     private final String[] carNames;
     private final int tryCount;
     private final int[] distance;
@@ -16,7 +17,7 @@ public class RacingGame {
         this.carNames = carNames;
         this.tryCount = tryCount;
         this.distance = new int[carNames.length];
-        Arrays.fill(distance, 0);
+        Arrays.fill(distance, INITIAL_DISTANCE);
     }
 
     public void run() {
