@@ -2,11 +2,12 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
-    static List<Car> carRace;
-    static List<String> winner;
+    static List<Car> carRace = new ArrayList<>();
+    static List<String> winner = new ArrayList<>();
 
     int maxValue = Integer.MIN_VALUE;
 
