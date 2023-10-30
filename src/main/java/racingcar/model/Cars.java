@@ -35,7 +35,7 @@ public class Cars {
     }
 
 
-    public void tryToMoveCars() {
+    public void moveCars() {
         for (Car car : cars) {
             car.moveOrStay();
         }
@@ -47,11 +47,5 @@ public class Cars {
 
     public Car get(int index) {
         return cars.get(index);
-    }
-
-    public List<String> getCarsNames() {
-        return cars.stream()
-                .map(Car::getName)
-                .collect(Collectors.toList());
     }
 }

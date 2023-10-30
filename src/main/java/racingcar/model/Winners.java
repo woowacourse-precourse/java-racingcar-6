@@ -13,6 +13,6 @@ public class Winners {
 
 
     public String getWinnersName() {
-        return String.join(",", winners);
+        return String.join(COMMA, winners);
     }
 }

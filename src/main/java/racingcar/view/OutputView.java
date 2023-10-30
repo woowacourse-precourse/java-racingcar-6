@@ -16,22 +16,35 @@ public class OutputView {
 
     public static void printResult(Cars cars) {
         for (int i = 0; i < cars.size(); i++) {
-            Car car = cars.get(i);
-            String name = car.getName();
-            long distance = car.getDistance();
-            StringBuilder hyphen = new StringBuilder();
-
-            for (long j = 0; j < distance; j++) {
-                hyphen.append(HYPHEN);
-            }
-
-            System.out.println(name + COLON + hyphen);
+            printOneCarResult(cars.get(i));
         }
-        System.out.println();
+        printBlankLine();
+    }
+
+    private static void printOneCarResult(Car car) {
+        String name = car.getName();
+        long distance = car.getDistance();
+        StringBuilder hyphen = printHyphen(distance);
+
+        System.out.println(name + COLON + hyphen);
+    }
+
+    private static StringBuilder printHyphen(long distance) {
+        StringBuilder hyphen = new StringBuilder();
+
+        for (long j = 0; j < distance; j++) {
+            hyphen.append(HYPHEN);
+        }
+
+        return hyphen;
     }
 
     public static void printWinners(Winners winners) {
         System.out.print(WINNER_NOTICE_MESSAGE);
         System.out.println(winners.getWinnersName());
+    }
+
+    private static void printBlankLine() {
+        System.out.println();
     }
 }

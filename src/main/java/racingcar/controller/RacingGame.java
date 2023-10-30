@@ -44,7 +44,7 @@ public class RacingGame {
 
     private void printResult() {
         for (int i = 0; i < tryCount.tryCount(); i++) {
-            cars.tryToMoveCars();
+            cars.moveCars();
             OutputView.printResult(cars);
         }
     }
