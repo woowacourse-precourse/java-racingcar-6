@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Car {
@@ -25,5 +26,9 @@ public class Car {
 
     public void findWinners() {
 
+    }
+
+    public List<String> getDistance() {
+        return Collections.unmodifiableList(distance);
     }
 }
