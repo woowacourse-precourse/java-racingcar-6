@@ -22,7 +22,8 @@ public class RacingGame {
         Printer.printLine(ConstVariable.RESULT_START_MESSAGE);
 
         for (int round = 1; round <= trial; round++) {
-            race.runCircuit();
+            race.circuit();
+
             viewCircuitResult(race);
             Printer.printBlankLine();
         }
@@ -39,13 +40,15 @@ public class RacingGame {
     }
 
     private void viewWinners(Race race) {
-        Long farthestDistance = race.getFarthestDistance();
+        Long farthestDistance = race.getMostFarthestDistance();
         List<String> winners = new ArrayList<>();
+
         for (RacingCar car : race.getRacingCars()) {
             if (Objects.equals(car.getDistance(), farthestDistance)) {
                 winners.add(car.getName());
             }
         }
+
         String winnersResult = String.join(ConstVariable.RESULT_WINNER_SEPARATOR, winners);
         Printer.printLine(ConstVariable.RESULT_WINNER_MESSAGE + winnersResult);
     }

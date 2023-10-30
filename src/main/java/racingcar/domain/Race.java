@@ -21,7 +21,7 @@ public class Race {
         return racingCars;
     }
 
-    public Long getFarthestDistance() {
+    public Long getMostFarthestDistance() {
         Long farthestDistance = 0L;
         for (RacingCar car : racingCars) {
             if (car.getDistance() > farthestDistance) {
@@ -31,7 +31,7 @@ public class Race {
         return farthestDistance;
     }
 
-    public void runCircuit() {
+    public void circuit() {
         for (RacingCar car : racingCars) {
             int movingValue = RandomNumberGenerator.generate();
             if (movingValue >= ConstStandard.CRITERIA_MOVE) {
