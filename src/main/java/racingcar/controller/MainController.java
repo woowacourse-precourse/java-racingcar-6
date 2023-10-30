@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Cars;
 import racingcar.domain.GameState;
 
 import java.util.HashMap;
@@ -20,19 +21,27 @@ public class MainController {
         Map<String, Object> model = new HashMap<>();
         GameState gameState = GameState.SETTING;
 
-        startLevel(gameState, parameter, model);
+        gameState = setGame(gameState, parameter, model);
+        gameState = playGame(gameState, parameter, model);
     }
 
-    private GameState startLevel(GameState gameState, Map<String, String> parameter, Map<String, Object> model) {
+    private GameState setGame(GameState gameState, Map<String, String> parameter, Map<String, Object> model) {
         Controller controller = adapter.get(gameState).apply(null);
         controller.run(parameter, model);
         return GameState.PLAYING;
     }
 
+    private GameState playGame(GameState gameState, Map<String, String> parameter, Map<String, Object> model) {
+        Cars cars = (Cars) model.get("cars");
+        Controller controller = adapter.get(gameState).apply(cars);
+        controller.run(parameter, model);
+        return GameState.FINISH;
+    }
+
     private Map<GameState, Function<Object, Controller>> initControllerMapping() {
         return Map.ofEntries(
                 Map.entry(GameState.SETTING, param -> config.createSettingController()),
-                Map.entry(GameState.PLAYING, config::createRacingController),
+                Map.entry(GameState.PLAYING, config::createPlayController),
                 Map.entry(GameState.FINISH, config::createResultController)
         );
     }

@@ -17,7 +17,7 @@ public class ControlConfig {
 
     public Controller createPlayController(Object param) {
         if (param instanceof Cars cars) {
-            return new playController(new PlayOutputView(),
+            return new PlayController(new PlayOutputView(),
                     new CarService(cars, new LimitScoreMoveRule(new RandomNumberGenerator())));
         }
         return null;
