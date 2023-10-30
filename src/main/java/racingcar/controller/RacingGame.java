@@ -2,8 +2,8 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.model.NumberGenerator;
-import racingcar.model.RacingCar;
+import racingcar.util.NumberGenerator;
+import racingcar.domain.RacingCar;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

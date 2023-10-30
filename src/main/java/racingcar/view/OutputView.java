@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.model.RacingCar;
+import racingcar.domain.RacingCar;
 
 public class OutputView {
     public void printRacingCarNameInputMessage(){
