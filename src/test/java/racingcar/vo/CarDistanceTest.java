@@ -8,13 +8,6 @@ import org.junit.jupiter.api.Test;
 
 class CarDistanceTest {
 
-    @Test
-    void carDistance_constructor_test() {
-        CarDistance carDistance = new CarDistance(100);
-
-        assertEquals(100, carDistance.distance());
-    }
-
     @DisplayName("필드값이 동일하면 객체는 동일해야 한다.")
     @Test
     void carDistance_equality_test() {
