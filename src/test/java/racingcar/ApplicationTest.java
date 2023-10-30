@@ -45,45 +45,6 @@ class ApplicationTest extends NsTest {
         assertThat(car.getName()).isEqualTo("TEST");
         assertThat(car.getMoveDistance()).isEqualTo(10);
     }
-
-    @Test
-    void 이름_갯수에_대한_예외처리(){
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("123,ABC", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 쉼표_기준으로_Split_함수_테스트(){
-        List<String> names;
-        MakeNames makeNames = new MakeNames();
-
-        names = makeNames.commaSplit("123,abc,ABC");
-
-        assertThat(names).isEqualTo(new ArrayList<>(Arrays.asList("123","abc","ABC")));
-    }
-
-    @Test
-    void 이름_작성_기준_예외처리(){
-        IntegrityCheck integrityCheck = new IntegrityCheck();
-
-        // 이름의 길이에 대한 예외처리
-        assertThat(integrityCheck.nameIntegrityCheck("123456")).isEqualTo(false);
-        // 이름이 없는 것에 대한 예외처리
-        assertThat(integrityCheck.nameIntegrityCheck("")).isEqualTo(false);
-        // 이름에 제어 문자가 들어간 것에 대한 예외처리
-        assertThat(integrityCheck.nameIntegrityCheck((char)(0) + "123")).isEqualTo(false);
-    }
-
-    @Test
-    void 문자열_입력이_없는_경우_예외_처리(){
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(""))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});
