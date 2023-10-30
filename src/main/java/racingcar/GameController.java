@@ -4,6 +4,7 @@ import java.util.List;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.NumberOfAttempts;
 import racingcar.domain.Referee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -22,17 +23,14 @@ public class GameController {
         Cars cars = createCars(carNames);
 
         // 시도 횟수 입력
-        int numberOfAttempts = InputView.readNumberOfAttempts();
-        if (!(1 <= numberOfAttempts && numberOfAttempts <= 100)) {
-            throw new IllegalArgumentException("[ERROR] 시도 횟수는 1 이상 100 이하만 가능합니다.");
-        }
+        NumberOfAttempts numberOfAttempts = new NumberOfAttempts(InputView.readNumberOfAttempts());
 
         // 게임 진행
         OutputView.printRacingResultMessage();
-        while (numberOfAttempts > 0) {
+        while (numberOfAttempts.hasRemainingAttempts()) {
             MoveResult moveResult = cars.move(numberGenerator);
             OutputView.printMoveResult(moveResult);
-            numberOfAttempts--;
+            numberOfAttempts.decreaseNumberOfAttempts();
         }
         List<String> winners = decideWinners(cars);
         OutputView.printWinners(winners);
