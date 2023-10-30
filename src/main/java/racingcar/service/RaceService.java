@@ -9,5 +9,5 @@ public interface RaceService {
     void validateRaceCount(String input);
     List<Participant> parseToParticipantList(String input);
     void runRace(List<Participant> participants);
-    List<Participant> filterWinner(List<Participant> participants);
+    List<String> filterWinner(List<Participant> participants);
 }

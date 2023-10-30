@@ -64,11 +64,11 @@ public class RaceServiceImpl implements RaceService {
     }
 
     @Override
-    public List<Participant> filterWinner(List<Participant> participants) {
+    public List<String> filterWinner(List<Participant> participants) {
         int maxDistance = participants.stream()
                 .map(Participant::getDistance)
                 .max(Integer::compareTo)
                 .orElse(DEFAULT_MAX_DISTANCE);
-        return participants.stream().filter(p -> p.getDistance() == maxDistance).toList();
+        return participants.stream().filter(p -> p.getDistance() == maxDistance).map(Participant::getName).toList();
     }
 }

@@ -2,8 +2,6 @@ package racingcar.console;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
-import racingcar.domain.participant.Participant;
-
 import java.util.List;
 
 public class ConsoleImpl implements Console {
@@ -50,10 +48,10 @@ public class ConsoleImpl implements Console {
     }
 
     @Override
-    public void displayWinner(List<Participant> winners) {
+    public void displayWinner(List<String> winners) {
         print("최종 우승자 : ");
         for ( int i = 0; i < winners.size(); i++ ) {
-            print(winners.get(i).getName());
+            print(winners.get(i));
             if ( i != winners.size() - 1 )
                 print(", ");
         }
