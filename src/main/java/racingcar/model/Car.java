@@ -11,8 +11,14 @@ public class Car {
 
 
     public Car(String name) {
+        if (!validateNameLength(name)) {
+            throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE);
+        }
         this.name = name;
         this.distance = 0;
     }
 
+    private boolean validateNameLength(String name) {
+        return name.length() >= MIN_NAME_LENGTH && name.length() <= MAX_NAME_LENGTH;
+    }
 }
