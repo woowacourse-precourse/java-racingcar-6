@@ -30,5 +30,6 @@ public class GameMainController {
 
     private void stopGame() {
         OutputView.printWinnerMessage();
+        gameService.printWinner();
     }
 }

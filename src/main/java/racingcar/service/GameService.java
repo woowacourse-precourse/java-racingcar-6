@@ -49,6 +49,10 @@ public class GameService {
         }
     }
 
+    public void printWinner(){
+        System.out.println(String.join(DIVISION_STANDARD, findWinner()));
+    }
+
     private List<String> findWinner() {
         int maxPosition = carList.stream()
                 .max(Comparator.comparingInt(Car::getPosition))
