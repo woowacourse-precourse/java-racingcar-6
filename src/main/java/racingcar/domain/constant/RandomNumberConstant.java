@@ -1,4 +1,4 @@
-package racingcar.utill.constant;
+package racingcar.domain.constant;
 
 public class RandomNumberConstant {
     public static final int RANDOM_NUMBER_START_RANGE = 0;

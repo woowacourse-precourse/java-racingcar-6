@@ -5,18 +5,18 @@ import static racingcar.utill.Validator.nullInputValidation;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public final class InputReadLine {
+public class CustomReadLine {
 
-    public static String carsNameInput() {
+    public String carsNameInput() {
         String carsName = Console.readLine();
         nullInputValidation(carsName);
         return carsName;
     }
 
-    public static String attemptNumberInput() {
+    public int attemptNumberInput() {
         String attemptNumber = Console.readLine();
         nullInputValidation(attemptNumber);
         attemptNumberValidation(attemptNumber);
-        return attemptNumber;
+        return Integer.parseInt(attemptNumber);
     }
 }

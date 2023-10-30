@@ -1,21 +1,21 @@
 package racingcar.domain;
 
-import static racingcar.utill.Converter.stringListToStringConvert;
 import static racingcar.view.RacingView.carMoveOrStopDecisionResultView;
 import static racingcar.view.RacingView.newLine;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
-import racingcar.utill.RandomNumberGenerator;
+import racingcar.domain.constant.CarConstant;
+import racingcar.utill.NumberGenerator;
 
 public class CarList {
     private final List<Car> carList;
+    private final NumberGenerator numberGenerator;
 
-    public CarList(List<Car> carList) {
-        this.carList = carList;
+    public CarList(List<Car> carList, NumberGenerator numberGenerator) {
+        this.carList = new ArrayList<>(carList);
+        this.numberGenerator = numberGenerator;
     }
 
     public void racing(int attemptNumber) {
@@ -24,16 +24,9 @@ public class CarList {
         }
     }
 
-    public String racingWinnerDecision() {
-        Map<String, Integer> rankingMap = carList.stream()
-                .collect(Collectors.toMap(Car::getCarName, Car::getCarPosition));
-        List<String> winnerList = findWinner(rankingMap);
-        return (stringListToStringConvert(winnerList));
-    }
-
     private void carsStopOrMoveDecisionCall() {
         for (Car car : carList) {
-            int carPosition = car.stopOrMoveDecision(RandomNumberGenerator.createRandomNumber());
+            int carPosition = car.stopOrMoveDecision(numberGenerator.generateNumber());
             String carName = car.getCarName();
             carMoveOrStopDecisionResultView(carName, carPosition);
         }
@@ -41,17 +34,21 @@ public class CarList {
         newLine();
     }
 
-    private List<String> findWinner(Map<String, Integer> rankingMap) {
-        List<String> winnerList = new ArrayList<>();
-        Integer maxPosition = Collections.max(rankingMap.values());
+    public String racingWinnerDecision() {
+        return String.join(", ", findWinner());
+    }
 
-        for (String carName : rankingMap.keySet()) {
-            if (rankingMap.get(carName).equals(maxPosition)) {
-                winnerList.add(carName);
-            }
-        }
+    private List<String> findWinner() {
+        return carList.stream()
+                .filter(car -> car.isSamePosition(findMaxPosition()))
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
+    }
 
-        return winnerList;
+    private int findMaxPosition() {
+        return carList.stream()
+                .mapToInt(Car::getCarPosition)
+                .max().orElse(CarConstant.CAR_INIT_POSITION);
     }
 
     @Override

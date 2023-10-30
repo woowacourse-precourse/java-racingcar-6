@@ -30,6 +30,10 @@ public class Car {
         return position;
     }
 
+    public boolean isSamePosition(int position) {
+        return this.getCarPosition() == position;
+    }
+
     @Override
     public String toString() {
         return carName;

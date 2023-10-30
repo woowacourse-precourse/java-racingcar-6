@@ -5,24 +5,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.utill.NumberGenerator;
 
 
 class CarListTest {
+
+    private final NumberGenerator numberGenerator = () -> 8;
+
     @Test
     void racingWinnerDecisionTest() {
         //given
         List<Car> testCarList = new ArrayList<>();
-        Car winnerCar = new Car("zizi");
-        winnerCar.stopOrMoveDecision(5);
-        testCarList.add(winnerCar);
-        testCarList.add(new Car("hoho"));
         testCarList.add(new Car("haha"));
-        CarList carList = new CarList(testCarList);
+        testCarList.add(new Car("hoho"));
+        CarList carList = new CarList(testCarList, numberGenerator);
 
         //when
         String winner = carList.racingWinnerDecision();
 
         //then
-        assertEquals(winner, "zizi");
+        assertEquals(winner, "haha, hoho");
     }
 }
