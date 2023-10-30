@@ -38,7 +38,7 @@ public class Race {
         return maxDistanceCar;
     }
 
-    public String toString() {
+    public String getStatusString() {
         return cars.stream()
                 .map(Car::toString)
                 .collect(Collectors.joining("\n")) + "\n";
