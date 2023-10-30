@@ -19,5 +19,7 @@ public class RacingGameController {
         Car car = Car.makeCar(new CarName(names), new RacingNumber());
         car.generateRandomNumber();
         System.out.println(car.toString());
+        car.stopOrMove();
+        System.out.println(car.toString());
     }
 }

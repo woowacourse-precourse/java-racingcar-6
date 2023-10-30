@@ -4,10 +4,12 @@ public class Car {
 
     private CarName name;
     private RacingNumber racingNumber;
+    private Integer location;
 
     public Car(CarName carName, RacingNumber racingNumber) {
         this.racingNumber = racingNumber;
         this.name = carName;
+        this.location = 0;
     }
 
     public static Car makeCar(CarName carName, RacingNumber racingNumber) {
@@ -19,11 +21,13 @@ public class Car {
     }
 
     public void stopOrMove() {
-
+        if (racingNumber.decideMoveOrStop(racingNumber)) {
+            location++;
+        }
     }
 
     @Override
     public String toString() {
-        return name.toString() + " : " + racingNumber.toString();
+        return name.toString() + " : " + location;
     }
 }
