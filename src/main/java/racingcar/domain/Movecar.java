@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Movecar {
@@ -11,7 +12,11 @@ public class Movecar {
         for (int i = 0; i < usercount; i++) {
             go_or_stop(carname, carmove);
         }
-        winner(carname, carmove);
+        List<String> winneruser = winner(carname, carmove);
+        System.out.printf("최종 우승자 : %s", winneruser.get(0));
+        for (int i = 1; i < winneruser.size(); i++) {
+            System.out.printf(", %s", winneruser.get(i));
+        }
     }
 
     public void go_or_stop(List<String> carname, int[] carmove) {
@@ -24,7 +29,8 @@ public class Movecar {
         System.out.println();
     }
 
-    public void winner(List<String> carname, int[] carmove) {
+    public List<String> winner(List<String> carname, int[] carmove) {
+        List<String> winner = new ArrayList<>();
         int max = 0, maxuser = 0;
         for (int i = 0; i < carname.size(); i++) {
             if (carmove[i] > max) {
@@ -32,9 +38,10 @@ public class Movecar {
                 maxuser = i;
             }
         }
-        System.out.printf("최종 우승자 : %s",carname.get(maxuser));
+        winner.add(carname.get(maxuser));
         for (int i = maxuser + 1; i < carname.size(); i++) {
-            if (carmove[i] == max) System.out.printf(", %s", carname.get(i));
+            if (carmove[i] == max) winner.add(carname.get(i));
         }
+        return winner;
     }
 }

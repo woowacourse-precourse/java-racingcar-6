@@ -16,6 +16,6 @@ public class Application {
         Count count = new Count();
         int usercount = count.usercount();
         Movecar movecar = new Movecar();
-        movecar.print(usercount,inputcar);
+        movecar.print(usercount, inputcar);
     }
 }
