@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.controller.GameController;
 import racingcar.view.Inputview;
 
 public class InputValidation {
@@ -16,7 +17,6 @@ public class InputValidation {
     private static final String CAR_NAME_SEPARATE_COMMA_EXCEPTION = "자동차 이름을 쉼표로 구분하여 2개 이상 입력해야 합니다.";
     private static final String CAR_SAME_NAME_EXCEPTION = "자동차 이름은 자동차마다 다르게 입력해야 합니다.";
     private static final String RACE_GAME_TRY_NUMBER = "게임을 시도할 횟수는 숫자민 입력 가능합니다.";
-
 
     public static List<String> validationName(String carName) {
         if (carName == null || carName.isBlank() || carName.length() < MIN_STRING || carName.length() > MAX_STRING) {
@@ -52,10 +52,8 @@ public class InputValidation {
         if (uniqueNames.size() < carNames.size()) {
             throw new IllegalArgumentException(CAR_SAME_NAME_EXCEPTION);
         }
-        Inputview.tryGameNumber();
     }
 
-    // 사용자가 숫자가 아닌 다른 값을 입력했을 경우 예외 처리
     public static int carNumericValidation(String input) {
         try {
             return Integer.parseInt(String.valueOf(input));
