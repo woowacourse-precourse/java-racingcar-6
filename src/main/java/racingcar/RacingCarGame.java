@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RacingCarGame {
     private static RacingCarGame racingCarGame;
@@ -18,6 +20,7 @@ public class RacingCarGame {
     public void run() {
         String carsName = getCarsName();
         String[] carName = extractCarName(carsName);
+        List<Car> carList = generateCars(carName);
     }
 
     private String getCarsName() {
@@ -29,5 +32,17 @@ public class RacingCarGame {
     private String[] extractCarName(String carsName) {
         String[] carName = carsName.split(",");
         return carName;
+    }
+
+    private List<Car> generateCars(String[] carName) {
+        List<Car> carList = new ArrayList<>();
+        int repeatNumber = carName.length;
+        int nameOrder = 0;
+        while (repeatNumber != 0) {
+            carList.add(new Car(carName[nameOrder]));
+            repeatNumber--;
+            nameOrder++;
+        }
+        return carList;
     }
 }
