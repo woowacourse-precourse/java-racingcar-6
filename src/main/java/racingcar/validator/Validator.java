@@ -11,7 +11,9 @@ public class Validator {
 
     public void checkCarNameInput(String input) {
         checkEmptyAndThrowException(input);
+        checkCommaAndThrowException(input);
         List<String> carNameList = parser.parseCarNames(input);
+        checkDuplicateAndThrowException(carNameList);
         for (String carName : carNameList) {
             checkLengthAndThrowException(carName);
             checkSpaceAndThrowException(carName);
@@ -52,7 +54,21 @@ public class Validator {
 
     private void checkCommaAndThrowException(String input) {
         if (input.lastIndexOf(",") == input.length() - 1) {
+            throw new IllegalArgumentException();
+        }
+    }
 
+    private void checkDuplicateAndThrowException(List<String> carNameList) {
+        for (int i = 0; i < carNameList.size(); i++) {
+            for (int j = i + 1; j < carNameList.size(); j++) {
+                checkEqualTwoCarNamesAndThrowException(carNameList.get(i), carNameList.get(j));
+            }
+        }
+    }
+
+    private void checkEqualTwoCarNamesAndThrowException(String carName1, String carName2) {
+        if (carName1.equals(carName2)) {
+            throw new IllegalArgumentException();
         }
     }
 
