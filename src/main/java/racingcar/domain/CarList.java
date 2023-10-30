@@ -1,13 +1,14 @@
 package racingcar.domain;
 
+import static racingcar.domain.constant.CarConstant.CAR_INIT_POSITION;
 import static racingcar.view.RacingView.carMoveOrStopDecisionResultView;
 import static racingcar.view.RacingView.newLine;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.constant.CarConstant;
 import racingcar.utill.NumberGenerator;
+import racingcar.view.RacingView;
 
 public class CarList {
     private final List<Car> carList;
@@ -19,6 +20,8 @@ public class CarList {
     }
 
     public void racing(int attemptNumber) {
+        newLine();
+        RacingView.resultView();
         for (int i = 0; i < attemptNumber; i++) {
             carsStopOrMoveDecisionCall();
         }
@@ -48,7 +51,7 @@ public class CarList {
     private int findMaxPosition() {
         return carList.stream()
                 .mapToInt(Car::getCarPosition)
-                .max().orElse(CarConstant.CAR_INIT_POSITION);
+                .max().orElse(CAR_INIT_POSITION);
     }
 
     @Override

@@ -3,6 +3,7 @@ package racingcar.view;
 import static racingcar.view.constant.ViewConstant.ATTEMPT_NUMBER_INPUT;
 import static racingcar.view.constant.ViewConstant.CAR_MOVE;
 import static racingcar.view.constant.ViewConstant.CAR_NAME_INPUT;
+import static racingcar.view.constant.ViewConstant.RESULT_VIEW;
 import static racingcar.view.constant.ViewConstant.WINNER;
 
 public class RacingView {
@@ -13,6 +14,10 @@ public class RacingView {
 
     public static void attemptNumberInputView() {
         System.out.println(ATTEMPT_NUMBER_INPUT);
+    }
+
+    public static void resultView() {
+        System.out.println(RESULT_VIEW);
     }
 
     public static void carMoveOrStopDecisionResultView(String carName, int cartPosition) {
