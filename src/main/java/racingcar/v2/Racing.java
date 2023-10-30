@@ -14,6 +14,7 @@ public class Racing {
     }
 
     // TODO: Racing#findWinner()
+    // TODO : 예외 처리 고민해보기
     public String findWinner(Map<String, Integer> stateMap) {
         int farthestDistance = Collections.max(stateMap.values());
         for (Map.Entry<String, Integer> entry : stateMap.entrySet()) {

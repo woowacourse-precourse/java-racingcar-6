@@ -12,10 +12,15 @@ public class CreateCarV2 {
         String input = Console.readLine();
         return input;
     }
-
+    // TODO: 자동차 이름 예외 처리. 5자 초과, 중복, 공백
     public String[] carName(String input) {
-        String[] carName = input.split(",");
-        return carName;
+        String[] carNames = input.split(",");
+        for (String carName : carNames) {
+            if (carName.trim().length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
+        }
+        return carNames;
     }
 
     public Map<String, Integer> stateMap(String input) {
