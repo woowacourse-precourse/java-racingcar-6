@@ -18,9 +18,9 @@
   - 자동차 이름은 5글자 이하
   - 시도 횟수는 ReadLine으로 읽어서 int형으로 변환
 - [ ] 각 자동차의 전진 결정 Car#move
-  - 자동차마다 0~9사이의 무작위 값 생성후, 전진 결정 Car#moveCondition
+  - 자동차마다 0~9사이의 무작위 값 생성후, 전진 결정 Car#isMoveCondition
   - 매번 자동차의 상태를 출력 Car#printStatus
-- [ ] 우승자 결정 Judge#getWinner
+- [ ] 우승자 결정 Referee#selectWinner
   - 다중 우승 고려 - 쉼표(,)로 구분
 - [ ] 입력 예외 처리
   - IllegalArgumentException
