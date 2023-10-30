@@ -18,6 +18,20 @@ class ApplicationTest extends NsTest {
 
 
 
+
+    @Test
+    void 단독_우승자_출력() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("love,peace", "4");
+                    assertThat(output()).contains("최종 우승자 : love");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD,
+                STOP
+        );
+    }
+
+
     @Test
     void 우승자_추출() {
         // distance array , max 설정
