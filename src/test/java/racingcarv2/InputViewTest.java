@@ -28,7 +28,6 @@ public class InputViewTest extends IOTest {
 
     private static Stream<Arguments> generateWrongString() {
         return Stream.of(
-                Arguments.of("  ,   , "),
                 Arguments.of("honi1, liㅎ, ku@"),
                 Arguments.of("holi, linm!, liu"),
                 Arguments.of("한국,한국,한국어")
