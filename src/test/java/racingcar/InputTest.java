@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,14 +13,35 @@ class InputTest {
     void 예시_입력_테스트() {
 
         //given
-        String uesrInput = "pobi,woni,jun";
+        String userInput = "pobi,woni,jun";
 
         //when
-        List<String> carNames = Computer.createCarNames(uesrInput);
+        List<String> carNames = Computer.createCarNames(userInput);
 
         //then
         assertThat(carNames).isEqualTo(Arrays.asList("pobi", "woni", "jun"));
 
+    }
+
+    @Test
+    void 자동차_수가_1대_이하일_때_예외_처리(){
+
+        //given
+        String userInputOne = "";
+        String userInputTwo = "pobi";
+
+        //when
+        List<String> carNamesOne = Computer.createCarNames(userInputOne);
+        List<String> carNamesTwo = Computer.createCarNames(userInputTwo);
+
+        //then
+        assertThatThrownBy(() -> Validator.checkCarCount(carNamesOne))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("2대 이상의 자동차 이름을 입력해 주세요.");
+
+        assertThatThrownBy(() -> Validator.checkCarCount(carNamesTwo))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("2대 이상의 자동차 이름을 입력해 주세요.");
     }
 
 }
