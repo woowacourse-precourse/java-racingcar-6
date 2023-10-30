@@ -3,7 +3,7 @@
 ## Input
 
 - [x] 사용자 입력받기 - null값 검증, 검증 실패 시 IllegalArgumentException 발생
-    - [] 이름 입력받기
+    - [x] 이름 입력받기
     - [] 시도할 회수 입력받기
         - [] 숫자만 들어왔는지 검증, 검증 실패 시 IllegalArgumentException 발생
         - [] 1 이상의 숫자만 들어왔는지 검증, 검증 실패 시 IllegalArgumentException 발생
@@ -20,7 +20,7 @@
 
 ## Cars
 
-- [] 이름 쉼표를 기준으로 구분
-    - [] 증복된 이름 검증, 검증 실패 시 IllegalArgumentException 발생
-    - [] 각 이름 5글자 이하, 검증 실패 시 IllegalArgumentException 발생
+- [x] 이름 쉼표를 기준으로 구분
+    - [x] 중복된 이름 검증, 검증 실패 시 IllegalArgumentException 발생
+    - [x] 각 이름 5글자 이하, 검증 실패 시 IllegalArgumentException 발생
 - [] 무작위 값이 4 이상일 경우에만 차 전진
