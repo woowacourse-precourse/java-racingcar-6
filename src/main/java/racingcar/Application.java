@@ -52,10 +52,11 @@ public class Application {
                 if (goFront()) {
                     car.updateAheadCount();
                 }
+                // 경주 각 차수별 실행 결과 출력
+                System.out.println(car.getName()+" : "+"-".repeat(car.getAheadCount()));
             }
+            System.out.println("");
         }
-
-
 
 
     }
