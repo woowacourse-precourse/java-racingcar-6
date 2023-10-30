@@ -21,11 +21,11 @@ public class ValidateForm {
         verifyForTargetScore(inputValue);
     }
 
-    private static void verifyForRacerName(String inputValue){
-        verifyForEmptyValue(inputValue);
-        verifyForSpaceValue(inputValue);
-        verifyForRacerNameIsLengthNotOver(inputValue);
-        verifyForRacerNameIsEngOrKor(inputValue);
+    private static void verifyForRacerName(String racerName){
+        verifyForEmptyValue(racerName);
+        verifyForSpaceValue(racerName);
+        verifyForRacerNameIsLengthNotOver(racerName);
+        verifyForRacerNameIsEngOrKor(racerName);
     }
 
     private static void verifyForRacerNameList(String racerNameList){
