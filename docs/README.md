@@ -1,3 +1,24 @@
+# 목차
+[🛠️ 1주차 피드백](#----1------) <br>
+[🧳기능 목록](#-------) <br>    
+[📦 도메인 - Domain](#---------domain) <br>    
+[🧪 도메인 테스트 - Domain](#-------------domain) <br>    
+[📦 검증 - Validator](#--------validator) <br>    
+[🧪  검증 테스트- Validator](#------------validator) <br>    
+[📦 게임 관리 - Controller](#-----------controller) <br>    
+[🧪 게임 관리 테스트 - Controller](#---------------controller) <br>     
+[📦 비즈니스 로직 - Model](#-------------model) <br>    
+[🧪 비즈니스 로직 테스트 - Model](#-----------------model) <br>    
+[📦 입출력 출력 - View](#------------view) <br>    
+[🧪 입출력 - View](#---------view) <br>    
+[📦 예외 처리 - Exception](#-----------exception) <br>    
+[📦 문구 - Message](#--------message) <br>
+[🚀 기능 요구사항](#----------) <br>
+[🎯프로그래밍 요구 사항](#-------------) <br> 
+[✏️과제 진행 요구 사항](#-------------) <br>
+
+---
+
 # 🛠️ 1주차 피드백
 
 ✅ [프리코스 1주 차 웹 백엔드 피드백](https://docs.google.com/document/d/1cW2jE3UoaBDNvGJ_Uh9zgkZXisOVezkRiPNpZvVmW9w/edit)
