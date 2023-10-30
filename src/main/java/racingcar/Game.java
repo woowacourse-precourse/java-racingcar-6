@@ -9,7 +9,7 @@ import java.util.List;
 public class Game {
     private LinkedList<Car> cars = new LinkedList<>();
     private int turns;
-    private Dice dice = new Dice(0, 9);
+    private final Dice dice = new Dice();
 
     protected void run() {
         getCarsInput();
@@ -21,7 +21,7 @@ public class Game {
                 car.move(number);
                 car.printResult();
             }
-            System.out.println("");
+            System.out.println();
         }
         printWinners();
     }
@@ -34,11 +34,7 @@ public class Game {
         }
         String[] namesSplit = names.split(",");
         for (String eachName : namesSplit) {
-            if (eachName.length() > 5) {
-                throw new IllegalArgumentException("차의 이름은 5글자를 넘을 수 없습니다.");
-            }
-            Car car = new Car(eachName);
-            cars.add(car);
+            cars.add(new Car(eachName));
         }
     }
 
@@ -47,6 +43,9 @@ public class Game {
         String number = Console.readLine();
         if (!number.matches("[0-9]+")){
             throw new IllegalArgumentException("숫자만 입력해주세요.");
+        }
+        else if (number.equals("0")){
+            throw new IllegalArgumentException("1 이상의 수를 입력해주세요.");
         }
         turns = Integer.parseInt(number);
     }
@@ -65,7 +64,7 @@ public class Game {
                 winners.add(car.getName());
             }
         }
-        System.out.println("최종 우승자 : " + String.join(",", winners));
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
 }
