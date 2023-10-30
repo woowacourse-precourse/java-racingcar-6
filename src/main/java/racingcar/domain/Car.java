@@ -18,4 +18,12 @@ public class Car {
     public void drive() {
         driveBehavior.drive(carPosition);
     }
+
+    public String getName() {
+        return carName.getName();
+    }
+
+    public int getPosition() {
+        return carPosition.getPosition();
+    }
 }
