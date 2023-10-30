@@ -32,8 +32,8 @@ public class RacingGame {
 
     private List<String> getCarNames() {
         OutputView.displayCarNames();
-        String CarNames = InputView.input();
-        return parseCarNames(CarNames);
+        String carNames = InputView.input();
+        return parseCarNames(carNames);
     }
 
     private int getTryCount() {
