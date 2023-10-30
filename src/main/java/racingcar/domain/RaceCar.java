@@ -22,14 +22,20 @@ public class RaceCar {
      * @param ranNumOfSingleDigit 0 ~ 9의 랜덤 한자릿 숫자
      * @return
      */
-    public Boolean movementControlCar(Integer ranNumOfSingleDigit) {
-        // 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다.
-        if (ranNumOfSingleDigit >= 4 && ranNumOfSingleDigit <= 9) {
-            // moveForward() 호출
+    public void movementControlCar(Integer ranNumOfSingleDigit) {
+        if (isMovementCondition(ranNumOfSingleDigit)) {
             moveForward();
-            return true;
         }
-        return false;
+    }
+
+    /**
+     * 자동차의 움직여도 되는 조건 (4이상, 9이하)
+     *
+     * @param ranNumOfSingleDigit 값이 4 이상, 9 이하 경우이다.
+     * @return
+     */
+    private boolean isMovementCondition(Integer ranNumOfSingleDigit) {
+        return ranNumOfSingleDigit >= 4 && ranNumOfSingleDigit <= 9;
     }
 
     /**
