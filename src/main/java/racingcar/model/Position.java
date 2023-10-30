@@ -1,11 +1,7 @@
 package racingcar.model;
 
 import static racingcar.constants.Constants.SLASH;
-import static racingcar.constants.PositionConstant.FORWARD_THRESHOLD;
-import static racingcar.constants.PositionConstant.VALUE_HIGH_BOUND;
-import static racingcar.constants.PositionConstant.VALUE_LOW_BOUND;
 
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Position {
     private int position;
@@ -19,17 +15,11 @@ public class Position {
     }
 
     public void attemptForward() {
-        if (checkValueIsOverFour(makeRandomValue())) {
+        RandomNumber randomNumber = new RandomNumber();
+
+        if (randomNumber.checkValueIsOverFour()) {
             moveForward();
         }
-    }
-
-    private int makeRandomValue() {
-        return Randoms.pickNumberInRange(VALUE_LOW_BOUND.getValue(), VALUE_HIGH_BOUND.getValue());
-    }
-
-    private boolean checkValueIsOverFour(int value) {
-        return value >= FORWARD_THRESHOLD.getValue();
     }
 
     private void moveForward() {
