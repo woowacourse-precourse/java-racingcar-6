@@ -5,3 +5,7 @@ public class Application {
         // TODO: 프로그램 구현
     }
 }
+class Car {
+    String name;
+    int count;
+}
