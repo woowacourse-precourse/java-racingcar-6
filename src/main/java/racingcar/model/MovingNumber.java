@@ -28,4 +28,8 @@ public class MovingNumber {
             throw new IllegalArgumentException(NOT_POSITIVE_INTEGER_ERROR_MESSAGE);
         }
     }
+
+    public int getNumber() {
+        return this.movingNumber;
+    }
 }
