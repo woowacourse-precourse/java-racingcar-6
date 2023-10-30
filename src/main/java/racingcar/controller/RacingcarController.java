@@ -24,18 +24,23 @@ public class RacingcarController {
 
     private void start() {
         String[] carNames = inputView.getCarNames().split(",");
+        validateCarNames(carNames);
 
         for (String carName : carNames) {
-            if(carName.length() > 5){
-                throw new IllegalArgumentException(ERROR_CAR_NAME_TOO_LONG);
-            }
-
             carList.add(new Car(carName, 0));
         }
 
         int roundCount = getRoundCount();
         game(roundCount);
-        outputView.printFinalResult(getFinalResult());
+        getFinalResult();
+    }
+
+    private void validateCarNames(String[] carNames){
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException(ERROR_CAR_NAME_TOO_LONG);
+            }
+        }
     }
 
     private int getRoundCount(){
@@ -63,7 +68,7 @@ public class RacingcarController {
         }
     }
 
-    private List<String> getFinalResult(){
+    private void getFinalResult(){
         List<String> result = new ArrayList<>();
         Car maxCar = Collections.max(carList);
 
@@ -73,6 +78,6 @@ public class RacingcarController {
             }
         }
 
-        return result;
+        outputView.printFinalResult(result);
     }
 }
