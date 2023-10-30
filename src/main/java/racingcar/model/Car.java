@@ -9,14 +9,16 @@ public class Car {
     private static final int INITIAL_POSITION = 0;
     private final String name;
     private int position;
+    private RandomNumberGenerator randomNumberGenerator;
 
     public Car(String name) {
         this.name = name;
         this.position = INITIAL_POSITION;
+        this.setRandomNumberGenerator(new RandomNumberGenerator());
     }
 
     public void startEngine() {
-        int generatedNumber = RandomNumberGenerator.generate();
+        int generatedNumber = randomNumberGenerator.generate();
         if (generatedNumber > MOVEMENT_CONDITION) {
             position++;
         }
@@ -45,5 +47,9 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public void setRandomNumberGenerator(RandomNumberGenerator randomNumberGenerator) {
+        this.randomNumberGenerator = randomNumberGenerator;
     }
 }
