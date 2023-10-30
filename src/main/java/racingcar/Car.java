@@ -9,4 +9,15 @@ public class Car {
     String[] splitCarName(String cars){
         return cars.split(",");
     }
+
+    boolean isValidate(String[] cars){
+        for (String car: cars){
+            if (car.length() > 5){
+                throw new IllegalArgumentException();
+            }
+        }
+        return true;
+    }
+
+
 }
