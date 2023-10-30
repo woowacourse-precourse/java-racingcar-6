@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarNameSeperator;
+import racingcar.domain.Cars;
 
 public class RacingCarService {
 
@@ -13,17 +14,14 @@ public class RacingCarService {
 
     private final CarNameSeperator carNameSeperator;
 
-    private List<Car> cars;
-
     public RacingCarService() {
         this.carNameSeperator = new CarNameSeperator();
     }
 
-    public void saveCarName(final String input) {
+    public Cars saveCarName(final String input) {
         List<String> seperatedCarNames = carNameSeperator.seperateCarNames(input);
-        seperatedCarNames.stream()
-                .map(Car::new)
-                .forEach(cars::add);
+        Cars cars = new Cars(seperatedCarNames.stream().map(Car::new).toList());
+        return cars;
     }
 
     public void moveCar(final String input) {

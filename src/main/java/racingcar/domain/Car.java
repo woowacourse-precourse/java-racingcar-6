@@ -5,12 +5,12 @@ public class Car {
     private String name;
     private int distance;
 
-    public Car(String name) {
-        this.name = name;
+    public Car(Car car) {
+        this.name = car.name;
     }
 
-    public void saveCarName(String input) {
-        this.name = input;
+    public Car(String name) {
+        this.name = name;
     }
 
     public void increaseDistance() {
