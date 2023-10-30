@@ -8,7 +8,8 @@ public class OutputView {
     private static final String INPUT_TRY_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_START_MESSAGE = "\n실행 결과";
     private static final String PRINT_SCORES = "%s : %s\n";
-    private static final String WINNER_MESSAGE = "\n최종 우승자 : %s";
+    private static final String WINNER_MESSAGE = "최종 우승자 : %s";
+    private static final String NEW_LINE = "\n";
     private static final String REPEAT = "-";
     private static final String DELIMITER = ", ";
 
@@ -27,6 +28,7 @@ public class OutputView {
     public static void printScores(Map<String, Integer> scores) {
         scores.entrySet()
                 .forEach(entry -> System.out.printf(PRINT_SCORES, entry.getKey(), REPEAT.repeat(entry.getValue())));
+        System.out.print(NEW_LINE);
     }
 
     public static void printWinnerMessage(List<String> winner) {
