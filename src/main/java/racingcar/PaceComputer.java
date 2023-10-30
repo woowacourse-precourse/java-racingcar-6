@@ -12,6 +12,16 @@ public class PaceComputer {
     private static final int LAST_RANDOM_NUMBER = 9;
     private static final int HURDLE_NUMBER_TO_DRIVE = 4;
     private final List<Integer> randomNumberList = new ArrayList<>();
+    private boolean isManualRandomNumber;
+    private int randomNumber;
+
+    public PaceComputer() {
+    }
+
+    public PaceComputer(boolean isManualRandomNumber, int randomNumber) {
+        this.isManualRandomNumber = isManualRandomNumber;
+        this.randomNumber = randomNumber;
+    }
 
     public LinkedHashMap<String, Integer> createDefaultPaceMap(Machines machines) {
         List<String> machineNameList = machines.getMachineNameList();
@@ -29,7 +39,9 @@ public class PaceComputer {
 
     public void updatePaceMap(LinkedHashMap<String, Integer> paceMap) {
         paceMap.forEach((machineName, driveSuccessNumber) -> {
-            int randomNumber = pickNumberInRange(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER);
+            if (!isManualRandomNumber) {
+                randomNumber = pickNumberInRange(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER);
+            }
 
             if (randomNumber >= HURDLE_NUMBER_TO_DRIVE) {
                 paceMap.put(machineName, driveSuccessNumber + 1);
