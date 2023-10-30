@@ -14,4 +14,11 @@ public class InvalidInput {
             }
         }
     }
+
+    public static void OutOfRangeException(String number) {
+        int num = Integer.parseInt(number);
+        if (num <= 0) {
+            throw new IllegalArgumentException("횟수는 1 이상 이어야 합니다.");
+        }
+    }
 }

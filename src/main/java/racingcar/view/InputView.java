@@ -31,7 +31,9 @@ public class InputView {
     public int inputTryNumber() {
         System.out.println(inputTryNumberMessage);
         String input = Console.readLine();
+
         InvalidInput.NotIntegerValueException(input);
+        InvalidInput.OutOfRangeException(input);
 
         return Integer.parseInt(input);
     }
