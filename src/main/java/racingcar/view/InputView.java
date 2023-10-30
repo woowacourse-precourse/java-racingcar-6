@@ -17,6 +17,7 @@ public class InputView {
     public static long readTryCount() {
         System.out.println("시도활 회수는 몇회인가요?");
         String tryCount = Console.readLine().trim();
+        Validator.validateIsBlank(tryCount);
         Validator.validateIsNumeric(tryCount);
 
         return Long.parseLong(tryCount);
