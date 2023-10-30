@@ -32,6 +32,11 @@ public class CarManager {
         });
     }
 
+    public Cars getWinners() {
+        List<Car> carsWithHighestDistance = cars.getCarsWithHighestDistance();
+        return new Cars(carsWithHighestDistance);
+    }
+
     public Cars getCars() {
         return cars;
     }
