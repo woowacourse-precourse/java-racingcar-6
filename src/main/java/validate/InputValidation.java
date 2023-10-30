@@ -20,7 +20,7 @@ public class InputValidation {
         }
     }
 
-    public static void validateInputDoseNotContainSpecialCharacters(String name) {
+    public static void validateInputDoesNotContainSpecialCharacters(String name) {
         if (name.matches(".*[ !@#$%^&*(),.?\":{}|<>].*")) {
             throw new IllegalArgumentException("자동차의 이름에는 특수문자 혹은 공백이 들어갈 수 없습니다.");
         }
