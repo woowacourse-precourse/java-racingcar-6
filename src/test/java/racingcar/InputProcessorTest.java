@@ -32,9 +32,9 @@ public class InputProcessorTest {
         assertEquals("Try count must be greater than 0. \nerrorVar : 0", exception.getMessage());
 
         String nonNumericInput = "abc";
-        exception = assertThrows(NumberFormatException.class,
+        NumberFormatException numberFormatException = assertThrows(NumberFormatException.class,
                 () -> InputProcessor.tryCountInputProcess(nonNumericInput));
-        assertEquals("Invalid number format. \nerrorVar : abc", exception.getMessage());
+        assertEquals("Invalid number format. \nerrorVar : abc", numberFormatException.getMessage());
 
         String emptyInput = "";
         NullPointerException nullPointerException = assertThrows(NullPointerException.class,
