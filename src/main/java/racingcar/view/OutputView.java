@@ -5,10 +5,11 @@ import racingcar.model.Car;
 
 public class OutputView {
 
-    public void showResult(){
+    public void showResult() {
         System.out.println("\n실행 결과");
     }
-    public void showRoundResult(List<Car> carList){
+
+    public void showRoundResult(List<Car> carList) {
         for (int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
             String name = car.getName();
@@ -20,7 +21,7 @@ public class OutputView {
         System.out.print("\n");
     }
 
-    private void moveBar(int move){
+    private void moveBar(int move) {
         for (int i = 0; i < move; i++) {
             System.out.print("-");
         }
