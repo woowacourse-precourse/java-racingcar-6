@@ -3,6 +3,7 @@ package racingcar.domain;
 import racingcar.service.RacingCarService;
 
 public class RacingCar {
+    private static final int minMoveNumber = 4;
     private final String name;
     private int moveNumber;
 
@@ -18,7 +19,7 @@ public class RacingCar {
     }
 
     private boolean isMoreThanFour() {
-        return RacingCarService.getRandomNumber() >= 4;
+        return RacingCarService.getRandomNumber() >= minMoveNumber;
     }
 
     public String getName() {

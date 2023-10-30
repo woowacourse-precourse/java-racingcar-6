@@ -6,6 +6,11 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class InputValidation {
+
+    private static final int minNameLength = 1;
+    private static final int maxNameLength = 5;
+    private static final String separateString = ",";
+
     public static List<String> validateInputName(String input) {
         validateInputFormat(input);
         validateEachNameLength(input);
@@ -15,14 +20,14 @@ public class InputValidation {
     }
 
     private static void validateInputFormat(String input) {
-        if (!isSeparateByComma(input)) {
+        if (!isSeparateBySeparateString(input)) {
             throw new IllegalArgumentException("올바르게 구분되지 않았습니다.");
         }
     }
 
-    private static boolean isSeparateByComma(String input) {
+    private static boolean isSeparateBySeparateString(String input) {
         try {
-            input.split(",");
+            input.split(separateString);
         } catch (PatternSyntaxException e) {
             return false;
         }
@@ -36,27 +41,27 @@ public class InputValidation {
     }
 
     private static void validateEachNameLength(String input) {
-        for (String s : input.split(",")) {
+        for (String s : input.split(separateString)) {
             validateNameLength(s);
         }
     }
 
     private static void validateNameLength(String input) {
-        if (isNameLengthMoreThanFive(input)) {
+        if (isNameLengthMoreThanMaxNameLength(input)) {
             throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
         }
 
-        if (isNameLengthLessThanZero(input)) {
+        if (isNameLengthLessThanMinNameLength(input)) {
             throw new IllegalArgumentException("이름을 입력하지 않았습니다");
         }
     }
 
-    private static boolean isNameLengthMoreThanFive(String input) {
-        return input.length() > 5;
+    private static boolean isNameLengthMoreThanMaxNameLength(String input) {
+        return input.length() > maxNameLength;
     }
 
-    private static boolean isNameLengthLessThanZero(String input) {
-        return input.isEmpty();
+    private static boolean isNameLengthLessThanMinNameLength(String input) {
+        return input.length() < minNameLength;
     }
 
     private static List<String> changeStringToList(String input) {
