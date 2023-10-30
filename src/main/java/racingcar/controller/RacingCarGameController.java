@@ -28,26 +28,15 @@ public class RacingCarGameController {
         chooseWinner(cars.getCars());
     }
 
-    public void chooseWinner(Map<String, Car> carsMap) {
-        int maxAdvanceCount = getMaxAdvanceCount(carsMap);
-        List<String> winnerList = getWinnerList(carsMap, maxAdvanceCount);
-        outputView.printFinalWinner(winnerList);
+    public void gameInitialize() {
+        String carNames = inputView.InputCarNames();
+        List<String> carNameList = convertStringToCarList(carNames);
+        cars.makeCarsFromCarList(carNameList);
     }
 
-    public List<String> getWinnerList(Map<String, Car> carsMap, int maxAdvanceCount) {
-        return carsMap.values()
-                .stream()
-                .filter(car -> car.getAdvanceCount() == maxAdvanceCount)
-                .map(Car::getCarName)
-                .collect(Collectors.toList());
-    }
-
-    public int getMaxAdvanceCount(Map<String, Car> carsMap) {
-        int maxAdvanceCount = ZERO_VALUE;
-        for (Car car : carsMap.values()) {
-            maxAdvanceCount = max(maxAdvanceCount, car.getAdvanceCount());
-        }
-        return maxAdvanceCount;
+    public List<String> convertStringToCarList(String carNames) {
+        String[] carNameList = carNames.split(CAR_NAME_SPLIT_REGEX);
+        return List.of(carNameList);
     }
 
     public void playRacingGame(int tryNumber) {
@@ -58,6 +47,14 @@ public class RacingCarGameController {
         }
     }
 
+    public int getMaxAdvanceCount(Map<String, Car> carsMap) {
+        int maxAdvanceCount = ZERO_VALUE;
+        for (Car car : carsMap.values()) {
+            maxAdvanceCount = max(maxAdvanceCount, car.getAdvanceCount());
+        }
+        return maxAdvanceCount;
+    }
+
     public void printEachRoundResult(Map<String, Car> cars) {
         for (Car car : cars.values()) {
             outputView.printCarName(car);
@@ -65,7 +62,6 @@ public class RacingCarGameController {
         }
         System.out.println();
     }
-
 
     public void pickEachCarRandomNumber(Map<String, Car> carsMap) {
         for (Car car : carsMap.values()) {
@@ -81,14 +77,17 @@ public class RacingCarGameController {
         }
     }
 
-    public void gameInitialize() {
-        String carNames = inputView.InputCarNames();
-        List<String> carNameList = convertStringToCarList(carNames);
-        cars.makeCarsFromCarList(carNameList);
+    public void chooseWinner(Map<String, Car> carsMap) {
+        int maxAdvanceCount = getMaxAdvanceCount(carsMap);
+        List<String> winnerList = getWinnerList(carsMap, maxAdvanceCount);
+        outputView.printFinalWinner(winnerList);
     }
 
-    public List<String> convertStringToCarList(String carNames) {
-        String[] carNameList = carNames.split(CAR_NAME_SPLIT_REGEX);
-        return List.of(carNameList);
+    public List<String> getWinnerList(Map<String, Car> carsMap, int maxAdvanceCount) {
+        return carsMap.values()
+                .stream()
+                .filter(car -> car.getAdvanceCount() == maxAdvanceCount)
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
     }
 }

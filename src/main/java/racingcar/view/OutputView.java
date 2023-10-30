@@ -35,7 +35,7 @@ public class OutputView {
         }
         System.out.println();
     }
-
+    
     public void printFinalWinner(List<String> winnerList) {
         String winners = String.join(STRING_JOIN_DELIMITER, winnerList);
         System.out.println(FINAL_WINNER_MESSAGE + winners);
