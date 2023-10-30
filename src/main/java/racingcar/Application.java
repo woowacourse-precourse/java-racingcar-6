@@ -8,6 +8,6 @@ public class Application {
         AppConfig appConfig = new AppConfig();
         RacingController racingController = appConfig.racingController();
 
-        racingController.startGame();
+        racingController.runGame();
     }
 }

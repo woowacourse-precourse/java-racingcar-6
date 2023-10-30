@@ -22,7 +22,7 @@ public class RacingController {
         this.racingService = racingService;
     }
 
-    public void startGame() {
+    public void runGame() {
         CarNamesDto carNamesDto = inputView.carNameRequest();
         ActionCountDto actionCountDto = inputView.actionCountRequest();
 
