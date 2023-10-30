@@ -3,38 +3,28 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class Racingcar_Game {
     public static List<String> userInput(){
-
-        List<String> carName = new ArrayList<>();
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input=readLine();
-        String name="";
+        String[] name=input.split(",");
 
-        for(int i =0;i<input.length();i++){
-            if(input.charAt(i)==','){
-                if(checkNameLength(name)){
-                    carName.add(name);
-                    name="";
-                }
-            }
-            else name+=input.charAt(i);
-        }
-        if(checkNameLength(name)){
-            carName.add(name);
-            name="";
-        }
-        return carName;
+        checkNameLength(name);
+
+        return new ArrayList<>(Arrays.asList(name));
     }
 
-    public static boolean checkNameLength(String name){
-        if(name.length() > 5)
-            throw new IllegalArgumentException("Name is too long");
-        return true;
+    public static void checkNameLength(String[] name){
+        for (String s : name) {
+            if (s.length() > 5)
+                throw new IllegalArgumentException("Name is too long");
+        }
+
     }
 
     public static boolean checkPush(){
@@ -42,6 +32,15 @@ public class Racingcar_Game {
         return randomNumber >= 4;
     }
 
+    public static void addPush(List<String> carName,List<String> gameList){
+        for (int i = 0; i < carName.size(); i++) {
+            if (checkPush()) {
+                String car = gameList.get(i);
+                car += ('-');
+                gameList.set(i, car);
+            }
+        }
+    }
     public static void playGame(List<String> carName) {
         System.out.println("시도할 회수는 몇회인가요?");
         int gameCnt = Integer.parseInt(readLine());
@@ -52,13 +51,7 @@ public class Racingcar_Game {
         }
 
         for (int i = 0; i < gameCnt; i++) {
-            for (int j = 0; j < carName.size(); j++) {
-                if (checkPush()) {
-                    String car = gameList.get(j);
-                    car += ('-');
-                    gameList.set(j, car);
-                }
-            }
+            addPush(carName,gameList);
             printProgress(carName,gameList);
         }
         checkWinner(carName,gameList);
@@ -73,14 +66,8 @@ public class Racingcar_Game {
 
     public static void checkWinner(List<String> carName,List<String> gameList){
         List<String> winnerList = new ArrayList<>();
-        int maxNum=0;
+        int maxNum=findMaxPush(gameList);
 
-        for(int i=0;i<carName.size();i++){
-            int progressLength =gameList.get(i).length();
-            if(maxNum<progressLength){
-                maxNum=progressLength;
-            }
-        }
         for(int i=0;i<carName.size();i++){
             int progressLength =gameList.get(i).length();
             if(maxNum==progressLength){
@@ -88,17 +75,34 @@ public class Racingcar_Game {
             }
         }
         System.out.print("최종 우승자 : ");
+
         if(winnerList.size()>1){
-            for(int i=0;i<winnerList.size();i++){
-                System.out.print(winnerList.get(i));
-                if(i!=(winnerList.size()-1)){
-                    System.out.print(", ");
-                }
-            }
+            printWinners(winnerList);
             return;
         }
+        //우승자가 한명일 경우
         System.out.print(winnerList.get(0));
 
 
+    }
+    public static int findMaxPush(List<String> gameList){
+        int maxNum=0;
+        for (String s : gameList) {
+            int progressLength = s.length();
+            if (maxNum < progressLength) {
+                maxNum = progressLength;
+            }
+        }
+        return maxNum;
+    }
+
+    public static void printWinners(List<String> winnerList){
+        int listCnt=winnerList.size();
+        for(int i=0;i<listCnt;i++){
+            System.out.print(winnerList.get(i));
+            if(i!=(listCnt-1)){
+                System.out.print(", ");
+            }
+        }
     }
 }
