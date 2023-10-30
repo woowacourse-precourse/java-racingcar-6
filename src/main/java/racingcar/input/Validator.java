@@ -17,8 +17,5 @@ class Validator {
         if (!userInput.matches(NUMBERS_ONLY_REGEX)) {
             throw new IllegalArgumentException("The number of attempts '" + userInput + "' should be an integer.");
         }
-        if (Integer.parseInt(userInput) < 0) {
-            throw new IllegalArgumentException("The number of attempts '" + userInput + "' should be a positive integer.");
-        }
     }
 }
