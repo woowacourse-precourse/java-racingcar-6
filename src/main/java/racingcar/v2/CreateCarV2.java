@@ -24,6 +24,11 @@ public class CreateCarV2 {
         return carNames;
     }
 
+    public int carCount(Map stateMap) {
+        int carCount = stateMap.size();
+        return carCount;
+    }
+
     public Map<String, Integer> stateMap(String input) {
         String[] carNames = carName(input);
         Map<String, Integer> stateMap = new HashMap<>();
@@ -46,12 +51,6 @@ public class CreateCarV2 {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
-
-    public int carCount(Map stateMap) {
-        int carCount = stateMap.size();
-        return carCount;
-    }
-
 
 
 }
