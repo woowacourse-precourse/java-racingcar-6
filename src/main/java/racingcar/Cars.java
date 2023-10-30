@@ -53,4 +53,17 @@ public class Cars {
         System.out.println();
     }
 
+    public String getWinner() {
+        List<Car> sortCars = cars.stream()
+                .sorted(Comparator.comparingInt(Car::getDistance))
+                .toList();
+        int maxDistance = sortCars.get(sortCars.size() - 1)
+                .getDistance();
+
+        return sortCars.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.joining(","));
+    }
+
 }
