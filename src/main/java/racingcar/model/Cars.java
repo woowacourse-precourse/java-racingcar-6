@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.validator.Validator;
 
 public class Cars {
@@ -17,22 +18,14 @@ public class Cars {
     }
 
     public List<String> findWinner() {
-        List<String> winners = new ArrayList<>();
-        Car maxCar = cars.get(0);
+        Car maxDistanceCar = cars.stream()
+                .max(Car::compareTo)
+                .orElse(cars.get(0));
 
-        for (Car car : cars) {
-            int comparisonResult = car.compareTo(maxCar);
-            if (comparisonResult > 0) {
-                maxCar = car;
-                winners.clear();
-                winners.add(car.getName());
-            }
-            if (comparisonResult == 0) {
-                winners.add(car.getName());
-            }
-        }
-
-        return winners;
+        return cars.stream()
+                .filter(car -> car.isWinner(maxDistanceCar))
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
 

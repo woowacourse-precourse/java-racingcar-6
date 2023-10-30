@@ -24,6 +24,10 @@ public class Car implements Comparable<Car> {
         return Long.compare(this.distance, otherCar.distance);
     }
 
+    public boolean isWinner(Car maxDistanceCar) {
+        return distance.equals(maxDistanceCar.distance);
+    }
+
     public String getName() {
         return name.name();
     }
