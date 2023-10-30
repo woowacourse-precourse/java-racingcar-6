@@ -16,8 +16,8 @@ final class Car {
         return ++moveCount;
     }
 
-    String currentStatus() {
-        return name.name() + " : " + "-".repeat(moveCount);
+    boolean isFront(int front) {
+        return moveCount == front;
     }
 
     @Override
