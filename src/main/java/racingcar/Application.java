@@ -37,6 +37,16 @@ public class Application {
         // TODO: 프로그램 구현
     }
 
+    public static ArrayList<String> getDash(Car car) {
+        int dashNumber = car.length;
+        ArrayList<String> dash = new ArrayList<>();
+        while (dashNumber>0) {
+            dash.add(DASH);
+            dashNumber--;
+        }
+        return dash;
+    }
+
     public static int moveForward() {
         int num = makeRandomNumber();
         int plusNum = 0;
