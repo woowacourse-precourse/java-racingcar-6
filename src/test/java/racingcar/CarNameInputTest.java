@@ -1,16 +1,35 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class CarNameInputTest {
+    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+    @BeforeEach
+    public void setUpStreams() {
+        System.setOut((new PrintStream(output)));
+    }
+
+    @AfterEach
+    public void restoreStreams() {
+        System.setOut(System.out);
+        output.reset();
+    }
+
     @ParameterizedTest
     @ValueSource(strings = {"부릉이,따릉이,딸랑이"})
     @DisplayName ("경주할 자동차 이름입력 정상동작 테스트")
@@ -33,7 +52,7 @@ public class CarNameInputTest {
         System.setIn(test);
         assertThatThrownBy(racingSetting::getName)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("Error : 자동차 개수가 너무 적습니다 최소 하나라도 입력해 주세요");
+                .hasMessageContaining("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
     }
 
     @ParameterizedTest
@@ -79,5 +98,19 @@ public class CarNameInputTest {
         assertThatThrownBy(() -> racingSetting.getName())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error : 자동차 이름이 중복되었습니다 중복되지않게 적어주세요");
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"부릉이"})
+    @DisplayName("자동차 이름 입력 안내 메시지 출력 확인")
+    void canPrintCarNameInputInformationTest(String testInput) throws Exception{
+        RacingSetting racingSetting = new RacingSetting();
+        String lineSeparator = System.lineSeparator();
+        InputStream test = new ByteArrayInputStream(testInput.getBytes());
+
+        System.setIn(test);
+        racingSetting.getName();
+        assertThat(output.toString())
+                .isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)" + lineSeparator);
     }
 }
