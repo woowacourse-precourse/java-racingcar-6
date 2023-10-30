@@ -10,7 +10,13 @@ public class Validation {
     private static final String EXCEPTION_MESSAGE_FOR_NEGATIVE_NUMBER =
             "양의 정수를 입력하셔야 합니다.";
 
-    public static void checkCarName(String carName) {
+    public static void checkCarNames(String[] carNames) {
+        for (String carName : carNames) {
+            checkCarName(carName);
+        }
+    }
+
+    private static void checkCarName(String carName) {
         if (carName.length() > 5 || carName.length() == 0) {
             throw new IllegalArgumentException(EXCEPTION_MESSAGE_FOR_WRONG_LENGTH_OF_CAR_NAME);
         }

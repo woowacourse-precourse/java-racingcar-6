@@ -24,11 +24,9 @@ class ValidationTest {
                 "strang"
         };
 
-        for (String testCase : testCases) {
-            Assertions.assertThatThrownBy(() -> Validation.checkCarName(testCase))
-                    .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessage(EXCEPTION_MESSAGE_FOR_WRONG_LENGTH_OF_CAR_NAME);
-        }
+        Assertions.assertThatThrownBy(() -> Validation.checkCarNames(testCases))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(EXCEPTION_MESSAGE_FOR_WRONG_LENGTH_OF_CAR_NAME);
     }
 
     @Test
@@ -39,9 +37,7 @@ class ValidationTest {
                 "a"
         };
 
-        for (String testCase : testCases) {
-            Assertions.assertThatNoException().isThrownBy(() -> Validation.checkCarName(testCase));
-        }
+        Assertions.assertThatNoException().isThrownBy(() -> Validation.checkCarNames(testCases));
     }
 
     @Test
