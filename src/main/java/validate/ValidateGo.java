@@ -4,7 +4,6 @@ package validate;
 import static constant.MagicNumbers.*;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import constant.MagicNumbers.*;
 
 public class ValidateGo {
 

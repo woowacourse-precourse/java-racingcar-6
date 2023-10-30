@@ -24,7 +24,7 @@ public enum GameUserInterface {
     GameUserInterface(String UserInterface) {
         this.UserInterface = UserInterface;
     }
-    String getUserInterface() {
+    public String getUserInterface() {
         return UserInterface;
     }
 }

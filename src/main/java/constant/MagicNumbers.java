@@ -7,7 +7,7 @@ public enum MagicNumbers {
     MagicNumbers(int Numbers) {
         this.Numbers = Numbers;
     }
-    int getRandomNumbers() {
+    public int getNumbers() {
         return Numbers;
     }
 }
