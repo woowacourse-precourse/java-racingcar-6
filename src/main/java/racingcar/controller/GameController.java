@@ -5,6 +5,8 @@ import racingcar.dto.UserInput;
 import racingcar.service.GameService;
 import racingcar.service.InputService;
 
+import static racingcar.util.GameDefaultMessage.*;
+
 // 사용자로부터 값을 입력받고 결과를 출력하기 위한 클래스
 public class GameController {
     private final InputService inputService;
@@ -29,7 +31,7 @@ public class GameController {
     }
 
     private String[] readCarNameArr() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(MESSAGE_INPUT_CAR_NAME);
         String[] carNameArr = Console.readLine().split(",");
 
         for(String carName : carNameArr) {
@@ -40,7 +42,7 @@ public class GameController {
     }
 
     private int readFrequency() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(MESSAGE_INPUT_FREQUENCY);
         String frequency = Console.readLine();
         System.out.println();
 

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static racingcar.util.GameDefaultMessage.*;
+
 // 게임을 진행하기 위한 클래스
 public class GameService {
     public void processGame(UserInput userInput) {
@@ -22,7 +24,7 @@ public class GameService {
 
         String winnerName = getWinnerName(carList, maxValue);
 
-        System.out.print("최종 우승자 : ");
+        System.out.print(MESSAGE_GAME_WINNER);
         System.out.println(winnerName);
     }
 
@@ -49,7 +51,7 @@ public class GameService {
 
     // 게임을 진행 결과를 출력
     private void printGameResult(List<Car> carList) {
-        System.out.println("실행 결과");
+        System.out.println(MESSAGE_GAME_RESULT);
         for(Car car : carList) {
             System.out.println(car);
         }

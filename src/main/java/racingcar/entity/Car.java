@@ -1,5 +1,7 @@
 package racingcar.entity;
 
+import static racingcar.util.GameDefaultMessage.*;
+
 // 게임에서 사용하는 자동차 정보를 저장하기 위한 클래스
 public class Car {
     private String carName; // 자동차 이름
@@ -34,7 +36,7 @@ public class Car {
             return "";
         }
 
-        return "-".repeat(location); // 자동차의 위치에 따른 결과 반환
+        return MESSAGE_CAR_LOCATION.toString().repeat(location); // 자동차의 위치에 따른 결과 반환
     }
 
     @Override
