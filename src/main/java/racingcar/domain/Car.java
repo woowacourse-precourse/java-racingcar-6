@@ -1,8 +1,6 @@
 package racingcar.domain;
 
-import java.util.List;
-
-public class Car {
+public class Car implements Comparable<Car> {
     private String name;
     private int location;
 
@@ -22,6 +20,8 @@ public class Car {
         location++;
     }
 
-    public void stop() {
+    @Override
+    public int compareTo(Car car) {
+        return Integer.compare(this.location, car.location);
     }
 }
