@@ -11,16 +11,25 @@ public class UserInput {
     ValueCheck valueCheck = new ValueCheck();
     List<String> getCarNames() {
         String input = Console.readLine();
+        List<String> trimmedCarNames;
 
         valueCheck.inputContainsComma(input);
 
         List<String> carNameList = List.of(input.split(","));
         valueCheck.sizeUnderFive(carNameList);
 
-        return carNameList ;
+        trimmedCarNames = trimInput(carNameList);
+        return trimmedCarNames;
     }
 
-
+    List<String> trimInput(List<String> carNameList){
+        List<String> trimmedCarNames = new ArrayList<>();
+        for (String car : carNameList) {
+            String trimmedCar = car.trim();
+            trimmedCarNames.add(trimmedCar);
+        }
+        return trimmedCarNames;
+    }
 
     int getTurn() {
         String turn = Console.readLine();
