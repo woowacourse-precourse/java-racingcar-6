@@ -2,14 +2,14 @@ package racingcar;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
+import racingcar.firstclasscollection.CarList;
 import racingcar.model.Car;
 
 public class Game {
-    private List<Car> cars;
+    private CarList carList;
     private int roundNumber;
     private Map<Car, Integer> positions;
     private int winnerPosition;
@@ -22,16 +22,15 @@ public class Game {
     }
 
     private void makeCars(String[] carNames) {
-        cars = Arrays.stream(carNames)
-                .map(Car::new)
-                .collect(Collectors.toList());
+        carList = new CarList(
+                Arrays.stream(carNames)
+                        .map(Car::new)
+                        .collect(Collectors.toList()));
     }
 
     private void initPosition() {
         positions = new HashMap<>();
-        for (Car car : cars) {
-            positions.put(car, 0);
-        }
+        carList.forEachCar((car) -> positions.put(car, 0));
     }
 
     public void play() {
@@ -43,10 +42,10 @@ public class Game {
     }
 
     private void playRound() {
-        for (Car car : cars) {
+        carList.forEachCar((car) -> {
             moveCar(car);
             System.out.println(car.getRoundResult());
-        }
+        });
         System.out.println();
     }
 
