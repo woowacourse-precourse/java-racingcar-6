@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Position {
+    public static final int FORWARD_VALUE = 1;
     private int value;
 
     public Position() {
@@ -10,8 +11,8 @@ public class Position {
         this.value = value;
     }
 
-    void goForward() {
-        this.value++;
+    Position goForward() {
+        return new Position(this.value + FORWARD_VALUE);
     }
 
     int getValue() {
