@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -25,9 +26,10 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @ValueSource(strings = {"pobi,javaji", ""})
+    @ValueSource(strings = {"pobi,javaji", "", "pobi,pobi", "6자한글이름"})
     @ParameterizedTest
-    void 이름에_대한_예외_처리_테스트(String names) {
+    @DisplayName("이름 예외 처리 테스트")
+    void inputNameValueTest(String names) {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException(names, "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -36,7 +38,8 @@ class ApplicationTest extends NsTest {
 
     @ValueSource(strings = {"1번", " "})
     @ParameterizedTest
-    void 시도횟수에_대한_예외_처리_테스트(String numbers) {
+    @DisplayName("시도 횟수 예외 처리 테스트")
+    void inputTryNumberValueTest(String numbers) {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi", numbers))
                         .isInstanceOf(IllegalArgumentException.class)
