@@ -1,28 +1,29 @@
 package racingcar.model;
 
+import static racingcar.exception.RacingCarExceptionType.*;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingGame {
-    private final List<RacingCar> racingCars;
-    private final RandomNumberGenerator randomNumberGenerator;
+    private static final int MOVE_THRESHOLD = 4;
+    private static final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-    public RacingGame(List<String> carNames, int totalRounds) {
+    private final List<RacingCar> racingCars;
+
+    public RacingGame(List<String> carNames) {
         this.racingCars = carNames.stream()
                 .map(RacingCar::new)
                 .collect(Collectors.toList());
-        this.randomNumberGenerator = new RandomNumberGenerator();
     }
 
     public void moveCars() {
-        for (RacingCar racingCar : racingCars) {
-            moveCar(racingCar);
-        }
+        racingCars.forEach(this::moveCar);
     }
 
-    public void moveCar(RacingCar racingCar) {
+    private void moveCar(RacingCar racingCar) {
         int number = randomNumberGenerator.generate();
-        if (number >= 4) {
+        if (number >= MOVE_THRESHOLD) {
             racingCar.moveForward();
         }
     }
@@ -32,14 +33,17 @@ public class RacingGame {
     }
 
     public List<RacingCar> getWinners() {
-        int maxPosition = racingCars.stream()
-                .mapToInt(RacingCar::getPosition)
-                .max()
-                .orElseThrow(() -> new IllegalArgumentException("List is empty"));
-
+        int maxPosition = findMaxCarPosition();
         return racingCars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
+    }
+
+    private int findMaxCarPosition() {
+        return racingCars.stream()
+                .mapToInt(RacingCar::getPosition)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException(EMPTY_CAR_LIST.getMessage()));
     }
 
 }

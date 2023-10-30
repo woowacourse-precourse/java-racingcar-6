@@ -18,7 +18,7 @@ public class RacingCarController {
     public void start() {
         List<String> carNames = inputView.readCarNames();
         int totalRounds = inputView.readNumberOfAttempts();
-        RacingGame racingGame = new RacingGame(carNames, totalRounds);
+        RacingGame racingGame = new RacingGame(carNames);
 
         playRacingGame(totalRounds, racingGame);
 
