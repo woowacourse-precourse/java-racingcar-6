@@ -8,6 +8,8 @@ public interface View {
 
     int requestRaceNumberOfTime();
 
+    void displayRaceResult();
+
     void displayRaceStatus(String name, int movementDistance);
 
     void displayWinner(List<String> winner);
