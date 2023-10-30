@@ -1,12 +1,13 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import org.assertj.core.util.Strings;
 import racingcar.code.ErrorMessage;
 import racingcar.code.Message;
 import racingcar.utils.PrintUtils;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Application {
 
@@ -15,10 +16,48 @@ public class Application {
         PrintUtils.print(Message.GAME_START);
         String carNameListInput = Console.readLine();
         validCarName(carNameListInput);
+        List<String> carNameList = Arrays.stream(carNameListInput.split(",")).toList();
 
         PrintUtils.print(Message.TRY_COUNT);
         String tryCountInput = Console.readLine();
         validTryCount(tryCountInput);
+        int tryCount = Integer.parseInt(tryCountInput);
+
+        System.out.println();
+
+        Map<String, String> result = new HashMap<>();
+        List<String> winner = new ArrayList<>();
+        int max = 0;
+        for (int i = 0; i < tryCount; i++) {
+            for (String car : carNameList) {
+
+
+                String move = "";
+                if (result.containsKey(car)) {
+                    move = result.get(car);
+                }
+
+                int number = Randoms.pickNumberInRange(0, 9);
+                if (number >= 4) {
+                    move = move + "-";
+                }
+                System.out.println(car + " : " + move);
+                result.put(car, move);
+
+                if (move.length() > max) {
+                    winner.clear();
+                    winner.add(car);
+                    max = move.length();
+                } else if (move.length() == max) {
+                    winner.add(car);
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+        System.out.println("최종 우승자 : " + String.join(",", winner));
+
     }
 
     private static void validCarName(String input) {
