@@ -17,8 +17,6 @@ public class RacingService {
 
         RacingOutput.printInputTryNumberMessage();
         tryNumber = RacingInput.readTryNumber();
-
-        progressRacing();
     }
 
     public static void progressRacing() {
