@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
@@ -29,6 +30,18 @@ class RefereeTest {
         Car maxPositionCar = referee.findFarthestPositionCar();
         String maxPositionCarName = maxPositionCar.getName();
 
-        Assertions.assertThat(maxPositionCarName).isEqualTo(expectedName);
+        assertThat(maxPositionCarName).isEqualTo(expectedName);
+    }
+
+    @DisplayName("또 다른 가장 먼 거리에 있는 자동차들 찾기 테스트")
+    @Test
+    void findSamePositionCarTest() {
+        String expectedName = "test3";
+        Car maxPositionCar = referee.findFarthestPositionCar();
+
+        List<Car> maxPositionCars = referee.findSamePositionCar(maxPositionCar);
+        String otherMaxPositionCarName = maxPositionCars.get(1).getName();
+
+        assertThat(otherMaxPositionCarName).isEqualTo(expectedName);
     }
 }
