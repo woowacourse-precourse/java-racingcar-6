@@ -16,7 +16,7 @@ public class CarList {
     public void setCarName(){
         String carString = Console.readLine();
         String[] carArray = carString.split(",");
-        this.carList = Arrays.asList(carArray);
+        this.carList =  new ArrayList<>(Arrays.asList(carArray));
     }
 
     public boolean checkCarName(){

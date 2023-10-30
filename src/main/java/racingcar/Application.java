@@ -27,7 +27,7 @@ public class Application {
         }
         HashMap<String, Integer> racingMap = carRacing.getRacingMap();
 
-        RacingResult racingResult = new RacingResult(racingMap, carArrayList);
+        RacingResult racingResult = new RacingResult(racingMap);
         racingResult.printRacingResult();
     }
 }

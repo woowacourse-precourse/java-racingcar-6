@@ -21,12 +21,8 @@ public class CarRacing {
         }
     }
 
-    private int setCarForwardNum(){
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
     private boolean isMoreFour(){
-        return this.setCarForwardNum() >= 4;
+        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 
     public void setRacingMap(){

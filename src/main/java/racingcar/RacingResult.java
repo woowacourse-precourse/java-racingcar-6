@@ -5,40 +5,28 @@ import java.util.*;
 public class RacingResult {
 
     private final HashMap<String, Integer> racingMap;
-    private final List<String> carList;
 
-    RacingResult(HashMap<String, Integer> racingMap, List<String> carList){
+    RacingResult(HashMap<String, Integer> racingMap){
         this.racingMap = racingMap;
-        this.carList = carList;
     }
 
-    private List<String> setRacingResult(){
+    private List<String> setRacingResult() {
         List<String> winnerList = new ArrayList<>();
-        int maxNum = racingMap.get(carList.get(0));
+        int maxNum = Collections.max(this.racingMap.values());
 
-        for(Map.Entry<String, Integer> entry : racingMap.entrySet()){
-            int entryNum = entry.getValue();
-
-            if(entryNum > maxNum){
-                maxNum = entryNum;
-                winnerList.clear();
-                winnerList.add(entry.getKey());
-            }
-            else if(entryNum == maxNum) {
+        for (Map.Entry<String, Integer> entry : this.racingMap.entrySet()) {
+            if (entry.getValue() == maxNum) {
                 winnerList.add(entry.getKey());
             }
         }
+
         return winnerList;
     }
 
-    public void printRacingResult(){
+    public void printRacingResult() {
         List<String> winnerList = this.setRacingResult();
 
         System.out.print("최종 우승자 : ");
-        StringJoiner joiner = new StringJoiner(", ");
-        for (String winner : winnerList) {
-            joiner.add(winner);
-        }
-        System.out.println(joiner);
+        System.out.println(String.join(", ", winnerList));
     }
 }
