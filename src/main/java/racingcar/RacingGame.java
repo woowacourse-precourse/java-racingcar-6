@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ public class RacingGame {
         int currentMoveNum = 0;
         while (racingSetting.isInRange(currentMoveNum++)) {
             for (Car currentCar: carList) {
-                currentCar.move();
+                currentCar.move(Randoms.pickNumberInRange(0,9));
             }
             printMovingResult();
             System.out.println();
