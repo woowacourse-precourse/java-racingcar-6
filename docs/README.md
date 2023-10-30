@@ -2,7 +2,7 @@
 
 - 자동차 (Car)
   - [X] 이름(name), 전진 상태 변수(distance)를 갖는다. ( new 형태로 생성 )
-  - [ ] 현재 자동차 실행결과를 출력한다. (printCars)
+  - [X] 현재 자동차 실행결과를 출력한다. (printCars)
   - [ ] 현재 자동차를 전진 시킨다. (move)
 
 - 컴퓨터 (Computer)
