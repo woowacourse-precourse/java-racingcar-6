@@ -1,6 +1,6 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import static racingcar.Moving.isMovable;
 
 public class Car {
     private static final int NAME_MAX_LENGTH = 5;
@@ -20,7 +20,7 @@ public class Car {
     }
 
     public void progress() {
-        if (Moving.isMovable()) {
+        if (isMovable()) {
             position += 1;
         }
     }
