@@ -12,5 +12,9 @@ public class Cars {
         this.cars = new ArrayList<>();
     }
 
+    public void updateAllDistance() {
+        cars.forEach(Car::updateDistance);
+    }
+
  
 }
