@@ -17,23 +17,16 @@ public class Application {
 
         System.out.println(Printer.PRINT_PROGRESS);
         List<Integer> progress = new ArrayList<>(Collections.nCopies(cars.size(), 0));
-        for (int i = 0; i < round; i++) {  // 라운드 시작
-            for (int j = 0; j < cars.size(); j++) {  // 각 차의 주사위
-                int dice = Randoms.pickNumberInRange(0, 9);
-                if (dice >= 4) {  // 전진
-                    int lastProgress = progress.get(j);
-                    progress.set(j, lastProgress + 1);
-                }
-            }
-
-            for (int j = 0; j < cars.size(); j++) {  // 라운드 결과 출력
-                int carAt = progress.get(j);
-                System.out.printf("%s : %s\n", cars.get(j), "-".repeat(carAt));
-            }
-            System.out.println();
+        for (int i = 0; i < round; i++) {
+            playEachRound(progress);
+            printResultOfEachRound(cars, progress);
         }
 
-        // 우승자 출력
+        printWinner(progress, cars);
+        Console.close();
+    }
+
+    private static void printWinner(List<Integer> progress, List<String> cars) {
         int maxMove = Collections.max(progress);
         List<String> winner = IntStream.range(0, cars.size())
                 .filter(i -> progress.get(i) == maxMove)
@@ -45,7 +38,27 @@ public class Application {
         } else {
             System.out.println(String.join(", ", winner));
         }
+    }
 
-        Console.close();
+    private static void printResultOfEachRound(List<String> cars, List<Integer> progress) {
+        for (int j = 0; j < cars.size(); j++) {
+            int carAt = progress.get(j);
+            System.out.printf("%s : %s\n", cars.get(j), "-".repeat(carAt));
+        }
+        System.out.println();
+    }
+
+    private static void playEachRound(List<Integer> progress) {
+        for (int i = 0; i < progress.size(); i++) {
+            rollTheDice(progress, i);
+        }
+    }
+
+    private static void rollTheDice(List<Integer> progress, int index) {
+        int dice = Randoms.pickNumberInRange(0, 9);
+        if (dice >= 4) {
+            int lastProgress = progress.get(index);
+            progress.set(index, lastProgress + 1);
+        }
     }
 }
