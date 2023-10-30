@@ -100,11 +100,11 @@
     
 ## Controller flow
 - 자동차 입력을 입력 받아 RacingCars를 형성한다 registerCarNames()
-  - [ ] OutputView - "경주할 자동차 이름을 입력하세요.(이름은..." 출력
-  - [ ] inputView - 문자열을 입력 받고, 해당 문자열을 Controller에게 반환한다 
-    - [ ] **예외** 문자열이 null 혹은 length()가 0 인 경우 
-    - [ ] **예외** 영문자로 구성된 이름이 아닌 경우 
-    - [ ] **예외 처리** throw new IllegalArgumentException 
+  - [x] OutputView - "경주할 자동차 이름을 입력하세요.(이름은..." 출력
+  - [x] inputView - 문자열을 입력 받고, 해당 문자열을 Controller에게 반환한다 
+    - [x] **예외** 문자열이 null 혹은 length()가 0 인 경우 
+    - [x] **예외** 영문자로 구성된 이름이 아닌 경우 
+    - [x] **예외 처리** throw new IllegalArgumentException 
   - 받은 문자열을 StringToCarList을 활용하여 RacingCars를 형성한다
     - [ ] StringToCarList - 문자열을 ',' 단위로 구분하고 List<Car>을 구성한다 
       - [ ] **예외** 5글자가 넘어가는 이름

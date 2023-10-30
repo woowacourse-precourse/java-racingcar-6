@@ -1,6 +1,7 @@
 package racingcarv2.controller;
 
-import racingcar.model.RacingCars;
+import racingcarv2.view.InputView;
+import racingcarv2.view.OutputView;
 
 public class RacingCarController {
     public void run() {
@@ -11,7 +12,8 @@ public class RacingCarController {
     }
 
     private void registerCarsByNames() {
-
+        OutputView.printInputCarNames();
+        InputView.inputCarNames();
     }
 
     private void registerRoundTotal() {
