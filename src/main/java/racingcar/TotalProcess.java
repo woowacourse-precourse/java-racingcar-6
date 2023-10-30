@@ -1,13 +1,14 @@
 package racingcar;
 
 public class TotalProcess {
-
-    TotalProcess(){
+    TotalProcess() {
 
     }
+
     public void runTotalProcess() {
         CarNameInput carNameInput = new CarNameInput();
-        carNameInput.carNameException();
+        carNameInput.exceptionHandling();
+
         MoveInput moveInput = new MoveInput();
         moveInput.moveException();
 
