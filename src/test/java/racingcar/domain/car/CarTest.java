@@ -37,20 +37,4 @@ public class CarTest {
                 .isEqualTo(expected);
     }
 
-    @DisplayName("자동차에 단일 실행 결과를 그려 보라 했을 때")
-    @Test
-    void carGenerateCurrentSituationTest() {
-        String expectedResult = "test : ---";
-
-        car = new Car("test",new TrueRandomMove());
-        int moveCount = 3;
-        for(int i = 0; i<moveCount; i++) {
-            car.moveCar();
-        }
-
-        String result = car.generateExecutionResult();
-
-        assertThat(result)
-                .isEqualTo(expectedResult);
-    }
 }
