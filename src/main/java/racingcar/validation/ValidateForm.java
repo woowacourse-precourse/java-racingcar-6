@@ -26,6 +26,6 @@ public class ValidateForm {
     }
 
     private static void verifyForRacerNameList(String racerNameList){
-
+        verifyForRacerNameIsDuplicate(racerNameList);
     }
 }
