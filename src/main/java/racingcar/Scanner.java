@@ -1,6 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,14 +13,12 @@ public class Scanner {
         return cars;
     }
 
-    public static int getRound() {
-        int round;
+    public static int extractRound(String line) {
         try {
-            round = Integer.parseInt(Console.readLine());
+            return Integer.parseInt(line);
         } catch (Exception e) {
             throw new IllegalArgumentException(Printer.NOT_AN_INTEGER_ERROR);
         }
-        return round;
     }
 
     private static void validateEmpty(String input) {

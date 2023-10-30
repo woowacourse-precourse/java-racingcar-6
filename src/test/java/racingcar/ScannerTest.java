@@ -40,5 +40,21 @@ class ScannerTest {
 
     @Test
     void round_정상입력() {
+        // given
+        String input = "1";
+
+        // when
+        int result = Scanner.extractRound(input);
+
+        // then
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    void round_잘못된입력() {
+        String input = "가";
+        assertThatThrownBy(() -> Scanner.extractRound(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("Input is not an integer");
     }
 }

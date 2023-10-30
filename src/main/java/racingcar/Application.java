@@ -13,7 +13,7 @@ public class Application {
         List<String> cars = Scanner.extractNames(Console.readLine());
 
         System.out.println(Printer.REQUEST_ROUND);
-        int round = Scanner.getRound();
+        int round = Scanner.extractRound(Console.readLine());
 
         System.out.println(Printer.PRINT_PROGRESS);
         List<Integer> progress = new ArrayList<>(Collections.nCopies(cars.size(), 0));
