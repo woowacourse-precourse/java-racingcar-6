@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import racingcar.CarPosition;
 import racingcar.domain.Car;
 import racingcar.utils.BuilderUtils;
 import racingcar.utils.RandomUtils;
@@ -43,8 +44,8 @@ public class CarService {
 
     public void updateCarPosition() {
         for (int carIndex = 0; carIndex < carsName.size() ; carIndex++) {
-            String position = RandomUtils.determinePositionByRandomNumber();
-            if(car[carIndex].increasePosition(position)) {
+            CarPosition position = RandomUtils.determinePositionByRandomNumber();
+            if(position.increase(car[carIndex])) {
                 builderUtils.appendToCarPosition(carIndex);
             };
         }

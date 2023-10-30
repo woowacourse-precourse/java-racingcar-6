@@ -1,19 +1,18 @@
 package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.CarPosition;
 import racingcar.config.RandomConfig;
 
 public class RandomUtils {
 
-    public static String determinePositionByRandomNumber() {
+    public static CarPosition determinePositionByRandomNumber() {
         int randomNumber = makeRandomNumber();
-        String position;
         if(randomNumber >= RandomConfig.DETERMINE_VALUE) {
-            position = "STRAIGHT";
+            return CarPosition.STRAIGHT;
         }else {
-            position = "STOP";
+            return CarPosition.STOP;
         }
-        return position;
     }
 
     public static int makeRandomNumber() {
