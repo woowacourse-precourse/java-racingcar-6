@@ -8,7 +8,7 @@ public enum Constant {
     NEXT_INDEX(1),
     FORWARD_THRESHOLD(4),
     MAX_CAR_NAME_LENGTH(5),
-    END_INCLUSIVE(9),;
+    END_INCLUSIVE(9);
 
     private final int value;
 
