@@ -35,7 +35,7 @@
     - 사용자로부터 이동 횟수를 입력받습니다.
 
 ### `class` RandomManager
-  - [ ] (static) isMovingCar
+  - [x] (static) isMovingCar
 
     - 자동차가 움직이는지 반환합니다.
 
