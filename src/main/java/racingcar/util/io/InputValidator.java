@@ -2,6 +2,7 @@ package racingcar.util.io;
 
 import java.util.Arrays;
 import java.util.List;
+import racingcar.util.StringUtils;
 
 public class InputValidator {
 
@@ -9,15 +10,16 @@ public class InputValidator {
         if (input == null || input.isEmpty()) {
             throw new IllegalArgumentException("입력 값이 없습니다.");
         }
+
+        List<String> names = StringUtils.toCarNameList(input);
+        for (String name : names) {
+            validateCarNameLength(name);
+        }
     }
 
-    public static void validateCarNameLength(String input) {
-        String[] names = input.split(",");
-        List<String> nameList = Arrays.asList(names);
-        for (String name : nameList) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름의 길이가 5자보다 깁니다.");
-            }
+    private static void validateCarNameLength(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름의 길이가 5자보다 깁니다.");
         }
     }
 
