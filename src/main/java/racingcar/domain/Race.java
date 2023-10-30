@@ -12,17 +12,20 @@ public class Race {
         Integer countOfGame = Integer.valueOf(Console.readLine());
         return countOfGame;
     }
-    public static void againRacingByRandomNumber(){
+    public static void playingMainGame(){
         List<String> carList = Car.makeRacingCarList();
         int[] goCount = new int[carList.size()];
         System.out.println(Arrays.toString(goCount));
         int round = numberOfGameRound();
+       repeatRacing(round,carList,goCount);
+    }
+
+    public static void repeatRacing(int round,List<String> carList,int[] goCount){
         for(int i = 0 ; i<round;i++){
             racingByRandomNumber(carList,goCount);
             System.out.println();
         }
     }
-
     public static void racingByRandomNumber(List<String> carList,int[] goCount){
         for(int i = 0 ; i<carList.size(); i++){
             int goStopNumber = Randoms.pickNumberInRange(0,9);
@@ -32,6 +35,7 @@ public class Race {
             System.out.println(carList.get(i)+" : "+ "-".repeat(goCount[i]));
         }
     }
+
 
 
 
