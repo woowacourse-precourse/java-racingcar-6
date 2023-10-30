@@ -12,9 +12,9 @@ public class RacingCarGameController {
 
     public void initRacingCarGame() {
         List<String> carNameList = InputView.inputRacingCarName();
-        String racingRoundTimes = InputView.inputRacingRoundTimes();
-
         List<Car> carList = createRacingCar(carNameList);
+
+        String racingRoundTimes = InputView.inputRacingRoundTimes();
 
         roundProgress(carList, Integer.parseInt(racingRoundTimes)); // 게임 진행
         OutView.printWinnerCar(carList);
@@ -29,23 +29,27 @@ public class RacingCarGameController {
         return carList;
     }
 
-    public int makeRandomNumber() { // 랜덤번호 생성 // 나쁘지 않아 보임
+    public int makeRandomNumber() { // 랜덤번호 생성
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    public void roundProgress(List<Car> carList, int racingRoundTimes){ //
+    public void roundProgress(List<Car> carList, int racingRoundTimes){
         System.out.println("실행결과");
         for(int i=0; i<racingRoundTimes; i++){
-            for (Car car : carList) {
-                if(checkRandomNumber(makeRandomNumber())){ // depth 신경쓸 것
-                    car.plusStepCount();
-                }
-            }
+            decideGoOrStop(carList);
             OutView.printCurrentRoundResult(carList);
         }
     }
 
-    public boolean checkRandomNumber(int num){ //
+    public void decideGoOrStop(List<Car> carList){
+        for (Car car : carList) {
+            if(checkRandomNumber(makeRandomNumber())){
+                car.plusStepCount();
+            }
+        }
+    }
+
+    public boolean checkRandomNumber(int num){
         if (num >= 4){
             return true;
         }
