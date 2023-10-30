@@ -1,13 +1,13 @@
 package racingcar;
 
-import java.util.List;
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingGame {
-    private List<Car> cars;
-    private int attempts;
+    private final List<Car> cars;
+    private final int attempts;
 
     public RacingGame(String carNames, int attempts) {
         this.cars = CarFactory.createCars(carNames);
@@ -21,18 +21,19 @@ public class RacingGame {
         }
     }
 
+    public void announceWinners() {
+        int maxPosition = getMaxPosition();
+        String winners = getWinners(maxPosition);
+        System.out.println("최종 우승자 : " + winners);
+    }
+
+
     private void playRound() {
         for (Car car : cars) {
             car.attemptToMove(Randoms.pickNumberInRange(0, 9));
             System.out.println(car);
         }
         System.out.println();
-    }
-
-    public void announceWinners() {
-        int maxPosition = getMaxPosition();
-        String winners = getWinners(maxPosition);
-        System.out.println("최종 우승자 : " + winners);
     }
 
     private int getMaxPosition() {
