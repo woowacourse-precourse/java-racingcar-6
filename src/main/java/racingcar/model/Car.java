@@ -1,33 +1,37 @@
 package racingcar.model;
 
+import static racingcar.common.Config.*;
+
 public class Car {
     private final String carName;
-    private String countingMove = "";
+    private Integer countingMovement;
 
     public Car(String carName) {
         this.carName = carName;
+        this.countingMovement = 0;
     }
 
-    public Integer carResult() {
-        return countingMove.length();
-    }
-
-    public void forwardCar(boolean ifForward) {
-        if (ifForward) {
-            this.countingMove += "-";
-        }
+    public Integer getCountingMovement() {
+        return countingMovement;
     }
 
     public String getCarName() {
         return this.carName;
     }
 
-    public boolean ifImWinner(Integer maxCountingMove) {
-        return maxCountingMove == countingMove.length();
+    public void forwardCar(boolean ifForward) {
+        if (ifForward) {
+            this.countingMovement++;
+        }
     }
 
     @Override
     public String toString() {
-        return this.carName + " : " + this.countingMove + "\n";
+        return this.carName + " : " + this.countingMovementToString() + "\n";
+    }
+
+    private String countingMovementToString() {
+        return RACING_COUNT_CHARACTER.repeat(
+                Math.max(0, countingMovement));
     }
 }

@@ -25,7 +25,7 @@ class CarTest {
         car.forwardCar(false);
 
         //then
-        assertThat(car.carResult()).isEqualTo(0);
+        assertThat(car.getCountingMovement()).isEqualTo(0);
     }
 
     @Test
@@ -37,7 +37,7 @@ class CarTest {
         car.forwardCar(true);
 
         //then
-        assertThat(car.carResult()).isEqualTo(1);
+        assertThat(car.getCountingMovement()).isEqualTo(1);
     }
 
     @Test
@@ -52,35 +52,6 @@ class CarTest {
         }
 
         //then
-        assertThat(car.carResult()).isEqualTo(number);
-    }
-
-    @Test
-    @DisplayName("ifImWinner 매개 변수 값과 다르면 false 반환 확인")
-    void testNotWinner() {
-        //given
-        boolean ifWinner;
-        car.forwardCar(true);
-
-        //when
-        ifWinner = car.ifImWinner(2);
-
-        //then
-        assertThat(ifWinner).isFalse();
-    }
-
-    @Test
-    @DisplayName("ifImWinner 매개 변수 값과 같으면 true 반환 확인")
-    void testWinner() {
-        //given
-        boolean ifWinner;
-        car.forwardCar(true);
-        car.forwardCar(true);
-
-        //when
-        ifWinner = car.ifImWinner(2);
-
-        //then
-        assertThat(ifWinner).isTrue();
+        assertThat(car.getCountingMovement()).isEqualTo(number);
     }
 }

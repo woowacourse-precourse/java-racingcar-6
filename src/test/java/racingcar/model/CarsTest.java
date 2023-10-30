@@ -15,13 +15,13 @@ class CarsTest {
 
     @BeforeEach
     void reset() {
-        cars = new Cars();
+        cars = Cars.createCars();
     }
 
     @Test
     @DisplayName("setCarsName 후 toString 출력 확인")
     void testSetCarsName() {
-        cars.setCarsName(CAR_LIST);
+        cars.createEachCar(CAR_LIST);
         assertThat(cars.toString()).isEqualTo("pobi : \nwoni : \nblur : \n");
     }
 
@@ -31,7 +31,7 @@ class CarsTest {
         //given
         List<Boolean> ifForwardList = new ArrayList<>(Arrays.asList(false, true, false));
 
-        cars.setCarsName(CAR_LIST);
+        cars.createEachCar(CAR_LIST);
         cars.ifForwardCars(ifForwardList);
 
         //when
@@ -46,7 +46,7 @@ class CarsTest {
         //given
         List<Boolean> ifForwardList = new ArrayList<>(Arrays.asList(true, true, true));
 
-        cars.setCarsName(CAR_LIST);
+        cars.createEachCar(CAR_LIST);
         cars.ifForwardCars(ifForwardList);
 
         //when

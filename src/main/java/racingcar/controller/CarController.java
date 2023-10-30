@@ -13,10 +13,10 @@ import static racingcar.view.OutputView.startRacingMessage;
 import static racingcar.view.OutputView.printWinner;
 
 public class CarController {
-    private final Cars cars = new Cars();
-    private final InputView inputView = new InputView();
-    private Integer countNumber = 0;
+    private final Cars cars = Cars.createCars();
+    private final InputView inputView = InputView.createInputView();
     private List<String> stringList = new ArrayList<>();
+    private Integer countNumber = 0;
 
     public void welcome() {
         gameStartMessage();
@@ -24,7 +24,7 @@ public class CarController {
 
     public void registerRacer() {
         stringList = inputView.inputCars();
-        cars.setCarsName(stringList);
+        cars.createEachCar(stringList);
     }
 
     public void setRacingCount() {
@@ -37,6 +37,7 @@ public class CarController {
     }
 
     public void inRacing() {
+
         for (int i = 0; i < countNumber; i++) {
             RandomNumbers randomNumbers = new RandomNumbers(stringList.size());
 
