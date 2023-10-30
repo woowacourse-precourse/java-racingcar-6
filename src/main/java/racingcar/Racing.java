@@ -26,7 +26,8 @@ public class Racing {
         output.printUserNameInputAnnouncement();
         String consoleInput = Console.readLine();
         car.insertUserName(consoleInput);
-        car.checkUserNameError();
+        car.checkUserNameLengthError();
+        car.checkUserNameDuplicate();
     }
 
     public void getUserRoundNumberByConsole() {

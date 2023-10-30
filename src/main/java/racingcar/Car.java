@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Car {
 
@@ -30,14 +32,21 @@ public class Car {
         userName.addAll(Arrays.asList(userNameInput));
     }
 
-    public void checkUserNameError() throws IllegalArgumentException {
-        for (String s : userName) {
-            UserNameError(s);
+    public void checkUserNameLengthError() throws IllegalArgumentException {
+        for (String carName : userName) {
+            checkUserNameLength(carName);
         }
     }
 
-    public void UserNameError(String UserName) throws IllegalArgumentException {
-        if (UserName.length() > 5) {
+    public void checkUserNameDuplicate() throws IllegalArgumentException {
+        Set<String> carNameList = new HashSet<>(userName);
+        if (carNameList.size() != userName.size()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void checkUserNameLength(String carName) throws IllegalArgumentException {
+        if (carName.length() > 5) {
             throw new IllegalArgumentException();
         }
     }
