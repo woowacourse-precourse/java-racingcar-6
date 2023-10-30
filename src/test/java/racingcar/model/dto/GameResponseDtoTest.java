@@ -20,7 +20,7 @@ class GameResponseDtoTest {
 
     @Test
     @DisplayName("GameResponse 생성자를 테스트 합니다.")
-    void GameResponse_생성자_확인() {
+    void GameResponseDto_생성자_확인() {
         assertThat(gameResponseDto).isNotNull();
         assertThat(gameResponseDto).extracting(GameResponseDto::getCarName).isEqualTo(car.getName());
     }

@@ -20,7 +20,7 @@ class CarResponseDtoTest {
 
     @Test
     @DisplayName("CarResponse 생성자를 테스트 합니다.")
-    void CarResponse_생성자_확인() {
+    void CarResponseDto_생성자_확인() {
         assertThat(carResponseDto).isNotNull();
         assertThat(carResponseDto).extracting(CarResponseDto::getCarNames).isEqualTo(carNames);
     }
