@@ -9,8 +9,10 @@ public class Car {
         this.position = 0;
     }
 
-    public void move() {
-        position++;
+    public void move(boolean isMove) {
+        if(isMove) {
+            position++;
+        }
     }
 
     public String getName() {
@@ -19,5 +21,9 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public boolean isSame(int position) {
+        return this.position == position;
     }
 }
