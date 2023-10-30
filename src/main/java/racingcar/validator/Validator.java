@@ -26,7 +26,7 @@ public class Validator {
         }
     }
 
-    public static boolean hasDuplicatesCarName(List<String> carNames) {
+    private static boolean hasDuplicatesCarName(List<String> carNames) {
         return carNames.stream()
                 .distinct()
                 .count() != carNames.size();

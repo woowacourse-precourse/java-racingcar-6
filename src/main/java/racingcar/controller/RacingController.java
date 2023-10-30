@@ -31,10 +31,11 @@ public class RacingController {
     private void runRaceByForwardCount(int forwardCount) {
         racingView.printExecutionResults();
 
-        IntStream.range(0, forwardCount).forEach(i -> {
-            carList.race();
-            racingView.printExecutionResultsForEachOrder(carList);
-        });
+        IntStream.range(0, forwardCount)
+                .forEach(i -> {
+                    carList.race();
+                    racingView.printExecutionResultsForEachOrder(carList);
+                });
     }
 
     private List<String> inputCarName() {
