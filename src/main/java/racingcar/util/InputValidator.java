@@ -12,7 +12,7 @@ import static racingcar.constant.StringConstant.INVALID_NUMBER_EXCEPTION_MESSAGE
 
 public class InputValidator {
     public static void validateCarNames(List<String> carNames) {
-        checkNameLength(carNames);
+        validateNameLength(carNames);
     }
 
     public static boolean validateAttemptNumber(String input) {
@@ -25,11 +25,12 @@ public class InputValidator {
         return true;
     }
 
-    private static void checkNameLength(List<String> carNames) {
-        for (String name : carNames) {
-            if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
-                throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION_MESSAGE);
-            }
+    private static void validateNameLength(List<String> carNames) {
+        boolean invalidLength = carNames.stream()
+                .anyMatch(name -> name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH);
+
+        if (invalidLength) {
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH_EXCEPTION_MESSAGE);
         }
     }
 
