@@ -3,6 +3,7 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,11 +14,11 @@ class RacingGameTest {
 
     @BeforeEach
     public void init() {
-        ArrayList<Car> carList = new ArrayList<>();
-        carList.add(new Car(new TestNumberGenerator(5)));
-        carList.add(new Car(new TestNumberGenerator(3)));
-        carList.add(new Car(new TestNumberGenerator(6)));
-        racingGame = new RacingGame(carList, TEST_REPEAT);
+        List<Car> cars = List.of(
+                new Car("pobi", new TestNumberGenerator(5)),
+                new Car("json", new TestNumberGenerator(3)),
+                new Car("hun", new TestNumberGenerator(9)));
+        racingGame = new RacingGame(cars, TEST_REPEAT);
     }
 
     @Test
