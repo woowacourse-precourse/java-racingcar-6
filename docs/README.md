@@ -11,8 +11,10 @@
     - [X] 자동차 이름이 5글자 초과일 경우
       <br>
       `IllegalArgumentException` 발생
+    - [X] 자동차 이름이 0글자인 경우
       <br>
-      (`,`를 기준으로 파싱하기 때문에 0글자인 경우는 없다.)
+      `IllegalArgumentException` 발생
+      <br>
     - [X] 자동차 이름이 중복된 경우
       `IllegalArgumentException` 발생
       <br><br><br>
@@ -20,10 +22,15 @@
     - [X] 회수 입력 안내 메시지 콘솔에 출력
       <br>
   #### 🎯예외사항
-    - [X] 입력 값이 숫자가 아닐 경우
+    - [X] 빈 입력값일 경우
       `IllegalArgumentException`을 발생
-
-<br>
+    - [X] 입력 값이 숫자가 아닐 경우 & 정수가 아닐 경우
+      `IllegalArgumentException`을 발생
+      <br>
+      (ParseInt시 동시에 검증 가능)
+    - [X] 양수가 아닌 0 또는 음수일 경우
+      `IllegalArgumentException`을 발생
+      <br>
 
 #### 한 판의 게임에 존재하는 기능
 
@@ -51,7 +58,6 @@
     - [x] 자동차 이름 입력 및 처리
     - [x] 입력 회수 입력 및 처리
     - [x] 입력 회수 만큼 게임 진행
-        - [x] 1회 게임 진행
     - [x] 우승 자동차 선정 및 출력
 
 <br>
@@ -70,38 +76,59 @@
 
 ### 2. Cars
 
-`이름을 입력 값으로 받고, 객체 내에서 검증`
+`이름을 입력 값으로 받고, CarsNameValidator 클래스로 검증`
 <br>
-`utils의 Parser를 통해 배열을 입력값으로 받는다.`
+`문자열을 입력값으로 받는다.`
 
-- [x] 자동차 이름 길이 검증
-- [x] 중복된 자동차 이름 검증
-- [x] 자동차 이름 배열 -> 자동차 객체 배열로 변환
+- [x] 자동차 이름 배열 -> 자동차 객체 배열로 변경
+- [x] 우승 자동차 배열 반환
+    -[x] 최대로 움직인 자동차 탐색
+        -[x] 최대로 움직인 거리 탐색
+-[x] 전체 자동차 움직이기
 
 ### 3. TrialNumber
 
-`시도 회수를 입력 값으로 받고, 객체 내에서 검증`
-
--[x] 숫자 여부를 검증
-
-## 🚀 Service
-
-### 1. GameService
-
--[x] 우승 자동차를 구하는 기능
- <br>
- (`List<Car>`를 입력값으로 받고, `List<String>` 반환)
-    -[x] 최대로 움직인 자동차 탐색
-        -[x] 최대 움직인 횟수 탐색
+`시도 회수를 입력 값으로 받고, TrialNumberValidator 클래스로 검증`
 
 ## 🚀 Util
+
+### 👉 Enums
 
 ### 1. Constraints
 
 - [x] 프로그램에 이용되는 상수를 정의하는 Enum
     -[x] 출력 기능
 
-### 2. NumberGenerator
+### 2. ErrorMessage
+
+- [x] 문자열 검증 시 오류 메시지를 정의하는 Enum
+    -[x] 출력 기능
+
+<br>
+
+### 👉 Validators
+
+### 1. CarNamesValidator
+
+`자동차 이름의 배열을 입력값으로 가진다.`
+<br>
+
+- [x] Parser를 통해 자동차 이름의 배열 생성
+    - [x] 자동차 이름의 길이가 0인 경우 검증
+    - [x] 길이가 조건보다 긴 경우 검증
+    - [x] 중복된 자동차 이름 검증
+
+### 2. TrialNumberValidator
+
+- [x] 빈 입력값 검증
+- [x] 숫자인지 아닌지 검증 + 정수인지 아닌지 검증
+  <br>
+  (ParseInt를 통해 동시에 검증)
+- [x] 양수인지 아닌지 검증
+
+<br>
+
+### NumberGenerator
 
 `숫자를 생성하는 기능의 인터페이스`
 
@@ -109,7 +136,9 @@
 
 ### 3. Parser
 
-- [x] 각 자동차 명 사이에 쉼표와 공백을 기준으로 파싱
+- [x] 각 자동차 명 사이에 쉼표를 기준으로 파싱
+  <br>
+- (`input.split(",", -1)`)으로 빈 문자열도 파싱
 
 ### 4. RandomNumberGenerator
 
@@ -119,7 +148,7 @@
 
 - [x] 0~9 사이의 랜덤한 숫자를 생성 하여 반환
 
-### [TestNumberGenerator]
+### [TestNumberGenerator] - 테스트 클래스
 
 `NumberGenerator를 구현한 클래스`
 <br>
