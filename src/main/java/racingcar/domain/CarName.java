@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import java.util.List;
-
 public class CarName {
 
     private static final int CAR_NAME_MIN_LENGTH = 1;
@@ -18,10 +16,6 @@ public class CarName {
         if (!(carName.length() <= CAR_NAME_MAX_LENGTH && carName.length() >= CAR_NAME_MIN_LENGTH)) {
             throw new IllegalArgumentException("이름은 1~5자 길이로 입력해주세요.");
         }
-    }
-
-    public void writeOnWinnerList(List<String> winnerList) {
-        winnerList.add(carName);
     }
 
     public String makeNameForPrintResult() {
