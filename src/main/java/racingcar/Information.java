@@ -6,7 +6,7 @@ public class Information {
     private int destination;
 
     Information(String name) {
-        isVaildCarName(name);
+        isValidCarName(name);
         this.name = name;
         destination = 0;
     }
@@ -19,7 +19,7 @@ public class Information {
         System.out.println(name + " : " + "-".repeat(destination));
     }
 
-    private void isVaildCarName(String name) throws IllegalArgumentException {
+    private void isValidCarName(String name) throws IllegalArgumentException {
         if (name.isBlank()) {
             throw new IllegalArgumentException("Error : 자동차 이름이 없습니다 최소 한글자 이상 적어주세요");
         }

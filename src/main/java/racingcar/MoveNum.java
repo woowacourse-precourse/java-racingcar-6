@@ -5,7 +5,7 @@ public class MoveNum {
     int num;
 
     MoveNum(String moveNumString) {
-        isVaildMoveNum(moveNumString);
+        isValidMoveNum(moveNumString);
         num = Character.getNumericValue(moveNumString.charAt(0));
     }
 
@@ -13,7 +13,7 @@ public class MoveNum {
         return (num > currentNum);
     }
 
-    void isVaildMoveNum(String moveNumString) throws IllegalArgumentException {
+    void isValidMoveNum(String moveNumString) throws IllegalArgumentException {
         if (moveNumString.isBlank()) {
             throw new IllegalArgumentException("Error : 시도할 회수에 값이 들어오지 않았습니다");
         }
