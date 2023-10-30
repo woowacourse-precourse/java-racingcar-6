@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 final class CarsTest {
 
-    private final Roulette roulette = new FakeRoulette(4);
+    private final FakeRoulette roulette = new FakeRoulette(4);
 
     @Test
     void Cars는_하나_이상의_Car를_가지지_않는경우_예외를_던진다() {
@@ -43,5 +43,20 @@ final class CarsTest {
     void Cars_생성시_요구사항에_맞는_이름을_입력하면_예외가_던져지지_않는다(String target) {
         assertDoesNotThrow(() -> new Cars(roulette, target));
     }
+
+    @Test
+    void 자동차를_움직일_수_있다_1() {
+        Cars cars = new Cars(roulette, "a,aaa");
+
+        roulette.fixNumber(4);
+        cars.tryMove();
+        roulette.fixNumber(1);
+        cars.tryMove();
+
+        assertThat(cars.collectCurrentStatus())
+                .contains("a : -")
+                .contains("aaa : -");
+    }
+
 
 }
