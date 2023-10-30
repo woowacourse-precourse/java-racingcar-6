@@ -33,13 +33,13 @@ public class GameService {
         List<Car> winnerCars = new ArrayList<>();
         int topPosition = -1;
         for (int i = 0; i < carList.size(); i++) {
-            Car tempCar = carList.get(i);
-            if (topPosition < tempCar.getPosition()) {
+            Car car = carList.get(i);
+            if (topPosition < car.getPosition()) {
                 winnerCars.clear();
-                topPosition = tempCar.getPosition();
+                topPosition = car.getPosition();
             }
-            if (topPosition == tempCar.getPosition()) {
-                winnerCars.add(tempCar);
+            if (topPosition == car.getPosition()) {
+                winnerCars.add(car);
             }
         }
         return winnerCars;

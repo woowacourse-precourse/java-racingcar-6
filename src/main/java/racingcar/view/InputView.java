@@ -6,8 +6,7 @@ public class InputView {
 
     public static String[] inputCarList() {
         String input = Console.readLine();
-        String[] result = input.split(",");
-        return result;
+        return input.split(",");
     }
 
     public static String inputGameRound() {

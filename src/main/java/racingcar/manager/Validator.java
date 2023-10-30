@@ -5,8 +5,10 @@ import java.util.Set;
 
 public class Validator {
 
-    public int validateGameRound(String input2) throws IllegalArgumentException {
-        return Integer.parseInt(input2);
+    public static final int MAXIMUM_CAR_NAME = 5;
+
+    public int validateGameRound(String input) throws IllegalArgumentException {
+        return Integer.parseInt(input);
     }
 
     public void validateCarName(String carName) {
@@ -15,7 +17,7 @@ public class Validator {
     }
 
     private void validateCarNameLength(String carName) {
-        if (carName.length() > 5) {
+        if (carName.length() > MAXIMUM_CAR_NAME) {
             throw new IllegalArgumentException("자동차 이름의 길이 5보다 큽니다.");
         }
     }
