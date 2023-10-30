@@ -19,6 +19,13 @@ public class CarNameValidatorTest {
         assertDoesNotThrow(() -> carNameValidator.processCarNames(carName));
     }
 
+    @DisplayName("자동차이동름입력 - 공백포함 5자입력시 정상입력처리")
+    @Test
+    void checklCarNmaeInput() {
+        String carName = "kim,12 45,jun";
+        assertDoesNotThrow(() -> carNameValidator.processCarNames(carName));
+    }
+
     @DisplayName("자동차이동름입력 - 5자 초과입력시 예외발생")
     @Test
     void checklCarNmaeInputOverSize() {
