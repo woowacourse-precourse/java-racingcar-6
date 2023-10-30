@@ -1,9 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -13,10 +11,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class GameResultTest {
+    private GameResult gameResult;
     private static ByteArrayOutputStream outputMessage;
 
     @BeforeEach
     void setUpStreams() {
+        gameResult = new GameResult();
         outputMessage = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputMessage));
     }
@@ -28,7 +28,6 @@ class GameResultTest {
 
     @Test
     void 실행_결과_출력_테스트() {
-        GameResult gameResult = new GameResult();
         final List<String> nameList = new ArrayList<>(List.of("pobi", "woni", "jun"));
         final List<Integer> scoreList = new ArrayList<>(List.of(1, 4, 3));
 
@@ -43,7 +42,6 @@ class GameResultTest {
 
     @Test
     void 우승자_출력_테스트() {
-        GameResult gameResult = new GameResult();
         final List<String> nameList = new ArrayList<>(List.of("pobi", "woni", "jun"));
         final List<Integer> scoreList = new ArrayList<>(List.of(1, 4, 3));
 
@@ -56,7 +54,6 @@ class GameResultTest {
 
     @Test
     void 단독_우승_리스트_최댓값의_인덱스_추출() {
-        GameResult gameResult = new GameResult();
         final List<Integer> list = new ArrayList<>(List.of(1, 4, 3));
 
         assertThat(gameResult.findIndexOfWinner(list))
@@ -65,11 +62,9 @@ class GameResultTest {
 
     @Test
     void 공동_우승_리스트_최댓값의_인덱스_추출() {
-        GameResult gameResult = new GameResult();
         final List<Integer> list = new ArrayList<>(List.of(1, 4, 3, 4));
 
         assertThat(gameResult.findIndexOfWinner(list))
                 .containsExactly(1, 3);
     }
-
 }
