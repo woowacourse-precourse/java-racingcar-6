@@ -102,4 +102,22 @@ class ApplicationTest extends NsTest {
 
   }
 
+  @Test
+  void progressDisplay() {
+    Map<String,Integer> cars = new HashMap<>();
+    cars.put("테스트1",1);
+    cars.put("테스트2",0);
+    cars.put("테스트3",3);
+
+    cars.forEach((carName, movement) -> {
+      String result = "";
+      for(int i = 1 ; i<=movement ; i++){
+        result+="-";
+      }
+      System.out.println(carName + " : " + result);
+    });
+
+
+  }
+
 }
