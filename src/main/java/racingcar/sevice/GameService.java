@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.controller.dto.GameResultDto;
 import racingcar.domain.Car;
 import racingcar.manager.Validator;
+import racingcar.view.InputView;
 
 public class GameService {
 
@@ -34,8 +35,8 @@ public class GameService {
             if (topPosition < tempCar.getPosition()) {
                 winnerCars.clear();
                 topPosition = tempCar.getPosition();
-                winnerCars.add(tempCar);
-            } else if (topPosition == tempCar.getPosition()){
+            }
+            if (topPosition == tempCar.getPosition()) {
                 winnerCars.add(tempCar);
             }
         }
@@ -45,5 +46,10 @@ public class GameService {
     public String getGameWinner(List<Car> winnerCars) {
         GameResultDto gameResultDto = new GameResultDto(winnerCars);
         return gameResultDto.convertOutput();
+    }
+
+    public int getGameRound() {
+        String round = InputView.inputGameRound();
+        return validator.validateGameRound(round);
     }
 }

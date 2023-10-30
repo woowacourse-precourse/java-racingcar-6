@@ -18,7 +18,7 @@ public class GameController {
         String[] input = InputView.inputCarList();
         List<Car> carList = gameService.registerCarListFromInput(input);
         OutputView.printAskGameRound();
-        int gameRound = validator.validateGameRound(InputView.inputGameRound());
+        int gameRound = gameService.getGameRound();
         OutputView.printRoundStart();
         runRound(gameRound, carList);
 
