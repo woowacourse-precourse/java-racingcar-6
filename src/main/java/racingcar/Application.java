@@ -2,6 +2,7 @@ package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        GameManager.GameStart();
+        GameManager gm = new GameManager();
+        gm.GameStart();
     }
 }
