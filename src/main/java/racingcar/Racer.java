@@ -12,7 +12,7 @@ public class Racer {
     public void continueRace(){
         Boolean canMoveForwardStatus = raceCar.checkCanMoveForwardIfSpeedIsExceedThreshold();
         if (canMoveForwardStatus){
-            currentPos+=1;
+            currentPos+=Config.FORWARD_DISTANCE;
         }
     }
     public Integer getCurrentPos(){

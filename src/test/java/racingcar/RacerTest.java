@@ -25,6 +25,6 @@ public class RacerTest {
             }
         }
         int currentPos = racer.getCurrentPos();
-        Assertions.assertEquals(pastPos+1,currentPos);
+        Assertions.assertEquals(pastPos+Config.FORWARD_DISTANCE,currentPos);
     }
 }
