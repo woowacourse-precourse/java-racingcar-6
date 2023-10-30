@@ -1,10 +1,10 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.Winners;
 import racingcar.message.ProcessMessage;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class OutputView {
@@ -28,18 +28,13 @@ public class OutputView {
     public void printWinnerName(Winners winners) {
         printWinnerTitle();
         System.out.println(winners.toString());
-                winners.stream()
-                        .map(Car::getName)
-                        .collect(Collectors.joining(", "))
-        );
     }
 
     private void printWinnerTitle() {
         System.out.print(ProcessMessage.WINNER_TITLE);
     }
 
-    public void printMoveRecords(List<Car> cars) {
-        cars.forEach(car -> System.out.println(car.getName() + " : " + "-".repeat(car.getPosition())));
-        printNewLine();
+    public void printMoveRecords(Cars cars) {
+        System.out.println(cars.getMoveRecord());
     }
 }
