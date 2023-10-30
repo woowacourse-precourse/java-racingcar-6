@@ -17,6 +17,15 @@ class CarRacingGameTest extends NsTest {
 
     }
 
+    @Test
+    void 경주할_자동차_설정_중_중복된_이름이_있는_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("jun,jun,camel", "3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
