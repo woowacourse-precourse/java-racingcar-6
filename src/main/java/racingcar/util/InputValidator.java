@@ -12,7 +12,7 @@ public class InputValidator implements Validator {
         }
     }
 
-    public Integer isNumber(String count) {
+    public Integer isInteger(String count) {
         int number;
         try {
             number = Integer.parseInt(count);
@@ -22,6 +22,6 @@ public class InputValidator implements Validator {
         return number;
     }
     private boolean isValidName(String name) {
-        return !name.isEmpty() && name.length() <= 5;
+        return !name.isBlank() && name.length() <= 5;
     }
 }

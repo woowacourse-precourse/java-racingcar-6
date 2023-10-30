@@ -28,6 +28,6 @@ public class InputView implements View {
 
     public Integer getUserInputCount() {
         System.out.println(TRY_COUNT_MESSAGE.getMessage());
-        return inputValidator.isNumber(Console.readLine());
+        return inputValidator.isInteger(Console.readLine());
     }
 }

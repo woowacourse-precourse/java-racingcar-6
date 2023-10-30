@@ -1,10 +1,8 @@
 package racingcar.util;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.catchThrowable;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -34,13 +32,13 @@ class InputValidatorTest {
         String invalidCount = "12af";
 
         assertThrows(IllegalArgumentException.class, () -> {
-            testInputValidator.isNumber(invalidCount);
+            testInputValidator.isInteger(invalidCount);
         });
 
         String validCount = "34";
 
         assertDoesNotThrow(() -> {
-            testInputValidator.isNumber(validCount);
+            testInputValidator.isInteger(validCount);
         });
     }
 }
