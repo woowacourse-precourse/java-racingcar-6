@@ -16,6 +16,15 @@ public class Application {
         // 0부터 9 사이의 무작위 값 반환
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    // 반환받은 무작위 값이 4 이상일 경우 전진
+    public boolean goFront() {
+        int randomNumber = getRandomNumber();
+        if (randomNumber>=4) {
+            return true;
+        }
+        return false;
+    }
     public static void main(String[] args) {
 
         // 경주 할 자동차 이름 입력받기
@@ -36,6 +45,7 @@ public class Application {
         // 자동차 경주 시도 횟수 입력받아 저장하기
         final String racingCount = Console.readLine();
         racingGame.updateRacingCount(Integer.parseInt(racingCount));
+
 
 
 
