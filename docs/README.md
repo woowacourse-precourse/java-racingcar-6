@@ -20,10 +20,10 @@
     - [ ] 자동차모음 으로 변환 - Setting#toCars
 
 - [ ] 자동차 클래스 - Car
-    - [ ] 이동 횟수 증가 - Car#race
+    - [x] 이동 횟수 증가 - Car#race
     - [ ] 경주 결과 만들기 - Car#toString
 - [ ] 자동차모음 클래스 - Cars
-    - [ ] 자동차 추가 - Cars#add
+    - [x] 자동차 추가 - Cars#add
     - [ ] 가장 좋은 성적 찾기 - Cars#maxMovement
     - [ ] 우승자 찾기 - Cars#findWinner
 - [ ] 무작위 수를 뽑아 자동차 경주를 진행 - Game#racing
