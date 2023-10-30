@@ -1,5 +1,8 @@
 package racingcar;
 
+import racingcar.service.FixDistanceRaceService;
+import racingcar.service.RaceService;
+
 public class AppConfig {
     public static final int NAME_LENGTH_MIN = 1;
     public static final int NAME_LENGTH_MAX = 5;
@@ -9,4 +12,8 @@ public class AppConfig {
     public static final int DISTANCE_MIN = 0;
     public static final int DISTANCE_MAX = 9;
     public static final int MOVE_CRITERIA = 4;
+
+    public static RaceService raceServiceImplements() {
+        return new FixDistanceRaceService();
+    }
 }

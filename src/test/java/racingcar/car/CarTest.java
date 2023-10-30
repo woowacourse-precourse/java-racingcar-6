@@ -9,7 +9,7 @@ import racingcar.model.car.Car;
 import racingcar.model.car.CarName;
 import racingcar.service.CarSaveService;
 
-public class carTest {
+public class CarTest {
 
     @Test
     void 자동차_테스트(){
