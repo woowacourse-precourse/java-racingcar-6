@@ -36,4 +36,34 @@ public class Cars {
             }
         }
     }
+
+    private int getMaxMoving(){
+        int maxMoving = 0;
+
+        for(Car car:this.cars){
+            if(maxMoving < car.getMoving()){
+                maxMoving = car.getMoving();
+            }
+        }
+
+        return maxMoving;
+    }
+    public String getWinner(){
+        String winner = "";
+
+        int maxMoving = getMaxMoving();
+        
+        // TODO : 함수 분리하기
+        for(Car car:this.cars){
+            if(maxMoving == car.getMoving()){
+                if(winner.isEmpty()){
+                    winner = winner.concat(car.getName());
+                } else {
+                    winner = winner.concat(", ").concat(car.getName());
+                }
+            }
+        }
+
+        return winner;
+    }
 }

@@ -57,7 +57,7 @@
 - func
   - [x] userInput.carsName(String) -> player.name setting
   - [x] go or stop : player 수 만큼 0~9 사이 수 랜덤 뽑기, 4 이상(player.moving up)
-  - [ ] getWinner : player.moving이 가장 큰 player 반환 (List<car>)
+  - [x] getWinner : player.moving이 가장 큰 player 반환 (List<car>)
   
 5. 레이싱 게임 (racing)
 - value
