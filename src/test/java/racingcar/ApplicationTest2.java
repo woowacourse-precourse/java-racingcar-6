@@ -29,9 +29,25 @@ class ApplicationTest2 extends NsTest {
     }
 
     @Test
+    void 이름이_한개인_경우(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException("apple","2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 동일한_이름_존재(){
         assertSimpleTest(()->
                 assertThatThrownBy(()->runException("apple,pen,apple","5"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 입력값이_숫자가_아님(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException("apple,peb,ball","문자열"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
