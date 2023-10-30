@@ -6,6 +6,7 @@ import static racingcar.constant.SystemConstant.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class Validator {
     public static List<String> validateCarNameInput(String input) {
@@ -47,5 +48,9 @@ public class Validator {
         if (catName.contains(SPACE)){
             throw new IllegalArgumentException(CAR_NAME_CONTAINS_SPACE_ERROR.getMessage());
         }
+    }
+
+    public static void validateTotalTurnInput(String input) {
+
     }
 }
