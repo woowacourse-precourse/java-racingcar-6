@@ -11,6 +11,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameServerTest extends NsTest {
 
+    @Test
+    void 전진_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni", "3");
+                    String output = output();
+                    assertThat(output).contains("이름을 입력", "시도할 회수", "실행 결과", "pobi : ---", "woni : ---", "최종 우승자 : pobi, woni");
+                    assertThat(output).hasLineCount(14);
+                },
+                Rule.GO.value, Rule.GO.value, Rule.GO.value, Rule.GO.value, Rule.GO.value, Rule.GO.value
+                );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
