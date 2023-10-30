@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toMap;
 
@@ -22,7 +21,9 @@ public class Application {
             throw new IllegalArgumentException();
         }
 
-        input = input.strip();
+        if (input.charAt(input.length() - 1) == ',') {
+            throw new IllegalArgumentException();
+        }
 
         String[] strCars = input.split(",");
 
@@ -74,5 +75,6 @@ public class Application {
         });
 
         System.out.println("최종 우승자 : " + String.join(", ", result));
+
     }
 }
