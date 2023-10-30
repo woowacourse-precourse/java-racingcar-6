@@ -1,10 +1,10 @@
-package racingcar;
+package racingcar.model;
 
+import racingcar.model.Car;
 import racingcar.util.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
 public class Race {
