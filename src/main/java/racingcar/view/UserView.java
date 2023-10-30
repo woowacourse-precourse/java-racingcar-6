@@ -7,4 +7,7 @@ public class UserView {
     public void printInputNameMessage() {
         System.out.println(INPUT_CAR_NAME);
     }
+    public void printInputCountMessage() {
+        System.out.println(INPUT_TRY_COUNT);
+    }
 }
