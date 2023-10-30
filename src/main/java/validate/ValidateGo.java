@@ -8,10 +8,14 @@ import constant.MagicNumbers.*;
 
 public class ValidateGo {
 
-    private int checkGo = Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
+    private int GoStopNumber = Randoms.pickNumberInRange(RANDOM_MIN.getNumbers(), RANDOM_MAX.getNumbers());
 
 
-    private ValidateGo(){
+    public boolean ValidateGo() {
+        if ( NUM_CHECK_GO.getNumbers() <= GoStopNumber ){
+            return true;
+        }
+        return false;
     }
 
 }
