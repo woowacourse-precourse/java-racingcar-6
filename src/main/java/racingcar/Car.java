@@ -1,22 +1,27 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.util.Arrays;
-import java.util.List;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private final String name;
-    private int position;
+    private String position;
 
-    public Car(String name, int position) {
+    public Car(String name) {
         this.name = name;
-        this.position = position;
+        this.position = "";
     }
 
+    @Override
+    public String toString() {
+        return this.name + " : " + position;
+    }
 
+    public void move() {
+        int pickedNumber = Randoms.pickNumberInRange(0, 9);
 
-    public String move() {
-
+        if (pickedNumber >= 4) {
+            position += "-";
+        }
     }
 
 
