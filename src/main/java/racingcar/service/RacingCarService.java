@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 
 public class RacingCarService {
 
+    private static final String DELIMITER = ", ";
+
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
     private final RandomNumber randomNumber = new RandomNumber();
@@ -59,6 +61,6 @@ public class RacingCarService {
     private String separateWinners(List<String> winnerName) {
         return winnerName.stream()
                 .map(String::valueOf)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(DELIMITER));
     }
 }

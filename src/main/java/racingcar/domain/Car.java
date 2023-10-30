@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.message.ErrorMessage.*;
+
 public class Car implements CarCondition{
 
     private final String name;
@@ -13,7 +15,7 @@ public class Car implements CarCondition{
     @Override
     public void checkNameLength(String name) {
         if (name.length() > NAME_CONDITION) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(EXCEED_NAME_LENGTH.getMessage());
         }
     }
 

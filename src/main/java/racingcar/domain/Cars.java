@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Cars {
 
+    private static final String DELIMITER = ",";
+
     private final String names;
     private final List<Car> cars = new ArrayList<>();
 
@@ -21,7 +23,7 @@ public class Cars {
     }
 
     private String[] separateName() {
-        return names.split(",");
+        return names.split(DELIMITER);
     }
 
     public Car getCar(int index) {
