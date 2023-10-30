@@ -11,6 +11,7 @@ public class racingCarGameController {
         raceCount = inputView.requireRacingCount();
 
         for (int i = 0; i < raceCount; i++) {
+            racingCars.race();
         }
     }
 }

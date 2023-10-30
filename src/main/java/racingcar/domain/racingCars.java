@@ -13,7 +13,6 @@ public class racingCars {
     public racingCars(String racingCarNameString) {
         String[] racingCarNameArray = validateRacingCarNameFormat(racingCarNameString);
         this.racingCarNumber = racingCarNameArray.length;
-        System.out.println("racingCarNumber = " + racingCarNumber);
         this.racingCarList = convertRacingCarFormat(racingCarNameArray);
     }
 
@@ -38,5 +37,11 @@ public class racingCars {
             throw new InvalidRacingCarNameLengthException();
         }
         return racingCarNameArray;
+    }
+
+    public void race() {
+        for (int i = 0; i < racingCarNumber; i++) {
+            racingCarList.get(i).randomRace();
+        }
     }
 }
