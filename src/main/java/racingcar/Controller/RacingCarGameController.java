@@ -38,11 +38,11 @@ public class RacingCarGameController {
         int max=0;
 
         for (Car car : carList) {
-            if (car.getStepCount() > max) {
-                max = car.getStepCount();
+            if (car.getMoveCount() > max) {
+                max = car.getMoveCount();
                 winnerList.clear();
                 winnerList.add(car.getName());
-            }else if (car.getStepCount() == max) {
+            }else if (car.getMoveCount() == max) {
                 winnerList.add(car.getName());
             }
         }
@@ -58,10 +58,6 @@ public class RacingCarGameController {
         return carList;
     }
 
-    public int makeRandomNumber() { // 랜덤번호 생성
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
     public void roundProgress(List<Car> carList, int racingRoundTimes){
         System.out.println("실행결과");
         for(int i=0; i<racingRoundTimes; i++){
@@ -73,23 +69,20 @@ public class RacingCarGameController {
     public void totalCurrentRoundResult(List<Car> carList) {
         Map<String, Integer> roundResult = new HashMap<>();
         for(Car car: carList){
-            roundResult.put(car.getName(), car.getStepCount());
+            roundResult.put(car.getName(), car.getMoveCount());
         }
         OutView.printCurrentRoundResult(roundResult);
     }
 
     public void decideGoOrStop(List<Car> carList){
         for (Car car : carList) {
-            if(checkRandomNumber(makeRandomNumber())){
-                car.plusStepCount();
+            if(isMove()){
+                car.accel();
             }
         }
     }
 
-    public boolean checkRandomNumber(int num){
-        if (num >= 4){
-            return true;
-        }
-        return false;
+    public boolean isMove() { // 랜덤번호 생성
+        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 }
