@@ -22,6 +22,14 @@ public class CarsController implements CarsCreator {
     }
 
     private List<String> splitInputNames(String inputName) {
-        return Arrays.asList(inputName.split(SEPARATOR));
+        List<String> carNames =  Arrays.asList(inputName.split(SEPARATOR));
+        checkCarNamesIsEmpty(carNames);
+        return carNames;
+    }
+
+    private void checkCarNamesIsEmpty(List<String> carNames) {
+        if (carNames.isEmpty()) {
+            throw new IllegalArgumentException("유효하지 않은 입력입니다.");
+        }
     }
 }
