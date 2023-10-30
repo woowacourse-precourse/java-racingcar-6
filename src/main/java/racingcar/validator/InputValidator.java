@@ -3,15 +3,15 @@ package racingcar.validator;
 import static racingcar.model.Constants.MAX_NAME_LENGTH;
 
 public class InputValidator {
-    public static void checkRepetitionIsNumber(String userRepeat) throws IllegalArgumentException {
+    public static void checkRepetitionIsInteger(String userRepeat) throws IllegalArgumentException {
         if(!userRepeat.matches("^[0-9]*$")) {
             throw new IllegalArgumentException("숫자만 입력해주세요.");
         }
     }
 
-    public static void checkRepetitionIsPositive(String userRepeat) throws IllegalArgumentException {
+    public static void checkRepetitionIsNonNegative(String userRepeat) throws IllegalArgumentException {
         if(Integer.parseInt(userRepeat) < 0) {
-            throw new IllegalArgumentException("양수만 입력해주세요.");
+            throw new IllegalArgumentException("음수는 입력이 불가능합니다.");
         }
     }
 
