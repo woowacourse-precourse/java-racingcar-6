@@ -38,8 +38,8 @@
 
 ### 자동차 이름 - [Name](../src/main/java/racingcar/model/car/Name.java)
 
-- [ ] 자동차의 이름을 생성한다.
-    - [ ] ❗️이름의 길이가 유효하지 않을 경우 예외처리 한다.
+- [x] 자동차의 이름을 생성한다. #from()
+    - [x] ❗️이름의 길이가 유효하지 않을 경우 예외처리 한다. #validateNameLength()
 
 ### 자동차 위치 - [Position](../src/main/java/racingcar/model/car/Position.java)
 
