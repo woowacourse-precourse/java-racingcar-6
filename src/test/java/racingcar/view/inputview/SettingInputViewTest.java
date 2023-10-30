@@ -5,16 +5,17 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class SettingInputViewTest {
-    private static final List<String> INPUT_EXCEPTION_TEST_CASE =
-            List.of(",", ",,", ",가", "가,", ",가,", "가,,", "가,나,", " , ");
+    private static final Map<String, List<String>> INPUT_EXCEPTION_TEST = Map.ofEntries(
+            Map.entry("carNames", List.of(",", ",,", ",가", "가,", ",가,", "가,,", "가,나,", " , ")),
+            Map.entry("gameCount", List.of("-1", "가", "", " ", ".가", "-3", "1-1", "111111.111111", "11111-1111")));
 
     private final Map<String, Object> model = new HashMap<>();
     private final InputView inputView = new SettingInputView(new InputValidator());
@@ -29,14 +30,23 @@ class SettingInputViewTest {
     void 차_번호_입력_예외_테스트() {
         //given
         model.put("carNames", null);
-        input(String.join("\n", INPUT_EXCEPTION_TEST_CASE));
-        Scanner scanner = new Scanner(System.in);
+        int nameTestSize = INPUT_EXCEPTION_TEST.get("carNames").size();
+        int countTestSize = INPUT_EXCEPTION_TEST.get("gameCount").size();
+        List<String> inputs = new ArrayList<>();
+        INPUT_EXCEPTION_TEST.values().forEach(inputs::addAll);
+        input(String.join("\n", inputs));
         //when,then
-        INPUT_EXCEPTION_TEST_CASE.forEach((e) -> {
+        for (int i = 0; i < nameTestSize; i++) {
             model.put("carNames", null);
             assertThrows(IllegalArgumentException.class, () -> {
                 inputView.read(model);
             });
-        });
+        }
+        for (int i = 0; i < countTestSize; i++) {
+            model.put("gameCount", null);
+            assertThrows(IllegalArgumentException.class, () -> {
+                inputView.read(model);
+            });
+        }
     }
 }
