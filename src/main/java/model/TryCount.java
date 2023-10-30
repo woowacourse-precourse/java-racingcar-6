@@ -3,8 +3,10 @@ package model;
 public class TryCount {
 
     private static final int MIN_TRY_COUNT = 1;
+    private static final int ZERO_COUNT_VALUE = 0;
+    private static final int ONE_TIME_VALUE = 1;
 
-    private final int tryCount;
+    private int tryCount;
 
     private TryCount(final int tryCount) {
         this.tryCount = tryCount;
@@ -17,6 +19,14 @@ public class TryCount {
         validateRange(intValue);
 
         return new TryCount(intValue);
+    }
+
+    public boolean canUseCount() {
+        return tryCount > ZERO_COUNT_VALUE;
+    }
+
+    public void useOneCount() {
+        tryCount -= ONE_TIME_VALUE;
     }
 
     private static void validateRange(final int intValue) {
@@ -38,9 +48,5 @@ public class TryCount {
     private static boolean isDigit(final String value) {
         return value.chars()
             .allMatch(Character::isDigit);
-    }
-
-    public int getTryCount() {
-        return tryCount;
     }
 }

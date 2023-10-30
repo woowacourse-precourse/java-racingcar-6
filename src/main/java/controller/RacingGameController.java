@@ -45,7 +45,8 @@ public class RacingGameController {
     private void startRace() {
         outputView.informBeforeShowMove();
 
-        for (int i = 0; i < tryCount.getTryCount(); i++) {
+        while (tryCount.canUseCount()) {
+            tryCount.useOneCount();
             List<MoveResult> moveResults = gameManager.moveEachCar();
             outputView.informResult(moveResults);
         }
