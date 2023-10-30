@@ -17,7 +17,9 @@ class User{
     static int howMuchTry(){
         System.out.println("시도할 회수는 몇회인가요?");
         String inputTry = readLine();
-        return CheckException.checkRightNumberOfMove(inputTry);
+        int moveTime = CheckException.checkRightNumberOfMove(inputTry);
+        moveTime = CheckException.checkPositiveNumberOfMove(moveTime);
+        return moveTime;
     }
 }
 
@@ -126,6 +128,15 @@ class CheckException {
             return Integer.parseInt(move);
         }
         catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    static int checkPositiveNumberOfMove(int num){
+        if (num > 0){
+            return num;
+        }
+        else{
             throw new IllegalArgumentException();
         }
     }
