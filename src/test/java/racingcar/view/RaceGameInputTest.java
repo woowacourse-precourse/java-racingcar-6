@@ -47,6 +47,18 @@ public class RaceGameInputTest {
   }
 
   @Test
+  @DisplayName("입력값이 쉼표로 끝나면 예외를 반환한다.")
+  void 입력값이_쉼표로_끝나면_예외를_반환한다() {
+    // given
+    String carNamesInput = "pobi,woni,jun,";
+
+    // when & then
+    assertThatThrownBy(() -> RaceGameInput.from(carNamesInput, "1"))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessage("입력값은 쉼표로 시작하거나 끝날 수 없습니다.");
+  }
+
+  @Test
   @DisplayName("시도할 횟수가 숫자가 아니면 예외를 반환한다.")
   void 시도할_횟수가_숫자가_아니면_예외를_반환한다() {
     // given
