@@ -2,22 +2,25 @@ package racingcar.model;
 
 public class Car {
 	private String name;
-	private String ForwardCount;
+	private int forwardCount;
+	private String forwardResult;
 
 	public Car(String nm) {
 		this.name = nm;
-		this.ForwardCount = "";
+		this.forwardCount =0;
+		this.forwardResult = "";
 	}
 	
 	public String getName() {
 		return this.name;
 	}
 
-	public String getForwardCount() {
-		return this.ForwardCount;
+	public int getForwardCount() {
+		return this.forwardCount;
 	}
 	
 	public void forward() {
-		this.ForwardCount += "-";
+		this.forwardCount++;
+		this.forwardResult += "-";
 	}
 }
