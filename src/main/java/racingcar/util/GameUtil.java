@@ -12,7 +12,7 @@ public class GameUtil {
         return Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
     }
 
-    public static int setTryCount(String round){
+    public static int setRepeatCount(String round){
         RoundValidator roundValidator = new RoundValidator(round);
         return Integer.parseInt(roundValidator.repeatNum);
     }

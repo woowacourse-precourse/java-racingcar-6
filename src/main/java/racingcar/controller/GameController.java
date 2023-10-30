@@ -21,7 +21,7 @@ public class GameController {
 
     public void gameSet(){
         cars = new Cars(InputView.getCarName());
-        repeatNum = GameUtil.setTryCount(InputView.getRound());
+        repeatNum = GameUtil.setRepeatCount(InputView.getRound());
     }
 
     public void gamePlay(){
