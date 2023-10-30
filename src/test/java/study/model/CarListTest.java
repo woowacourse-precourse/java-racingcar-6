@@ -1,12 +1,10 @@
 package study.model;
 
-import org.junit.jupiter.api.Test;
-import racingcar.model.CarList;
-
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import racingcar.model.CarList;
 
 class CarListTest {
 

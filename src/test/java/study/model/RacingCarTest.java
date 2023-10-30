@@ -1,9 +1,9 @@
 package study.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 import racingcar.model.RacingCar;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingCarTest {
 
