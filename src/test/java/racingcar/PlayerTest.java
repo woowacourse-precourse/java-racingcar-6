@@ -1,62 +1,74 @@
 package racingcar;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import org.junit.jupiter.api.BeforeAll;
 import racingcar.domain.Player;
-import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.RandomGenerator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.mock;
 
 public class PlayerTest {
 
     private Player player;
+    // System.out 값을 테스트할 객체
+    private OutputStream output;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         player = new Player("TestPlayer");
+        output = new ByteArrayOutputStream();
     }
 
     @Test
-    void testRunWithRandomNumAboveThreshold() {
-        // Mocking the random number generator
-        Randoms randoms = mock(Randoms.class);
-        when(randoms.pickNumberInRange(0, 9)).thenReturn(5); // Forcing a random number above the threshold
+    public void run_메서드_4이상일_때_전진() {
+        // Given: 랜덤 객체 생성 객체의 반환 값을 4로 고정
+        RandomGenerator randoms = mock(RandomGenerator.class);
+        when(randoms.randomNumberInRange(0, 9)).thenReturn(4);
 
-        // Setting the mocked random number generator to the Player object
-        // Player.setRandomGenerator(randoms);
-
-        // Running the player
+        // When: Player 객체 run 매서드 실행
+        player.setRandomGenerator(randoms);
         player.run();
 
-        // The player's run count should increase by 1
+        // Then: runCount 값이 증가하는지 확인
         assertEquals(1, player.getRunCount());
     }
 
     @Test
-    void testRunWithRandomNumBelowThreshold() {
-        // Mocking the random number generator
+    public void run_메서드_4미만일_때_정지() {
+        // Given: 랜덤 객체 생성 객체의 반환 값을 3으로 고정
         RandomGenerator randoms = mock(RandomGenerator.class);
-        when(randoms.randomNumberInRange(0, 9)).thenReturn(3); // Forcing a random number below the threshold
+        when(randoms.randomNumberInRange(0, 9)).thenReturn(3);
 
-        // Running the player
+        // When: Player 객체 run 매서드 실행
+        player.setRandomGenerator(randoms);
         player.run();
 
-        // The player's run count should remain the same
+        // Then: runCount 값이 증가하지 않는지 확인
         assertEquals(0, player.getRunCount());
     }
 
     @Test
-    void testPrintRunCount() {
-        // Set run count to 3
+    public void print_메서드_테스트_3회_전진() {
+        // Given
+        // runCount = 3 설정
         player.setRunCount(3);
 
-        // Expected output for 3 runs
+        // runCount가 3일 때, 예상 결과값
         StringBuilder expected = new StringBuilder();
         expected.append("TestPlayer : ---");
 
-        //assertEquals(expected.toString(), player.getRunCountString());
+        System.setOut(new PrintStream(output));
+
+        // When: print 실행
+        player.print();
+
+        assertTrue(output.toString().trim().contains(expected));
     }
 }

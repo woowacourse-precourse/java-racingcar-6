@@ -4,7 +4,15 @@ public class Player {
     private String name;
     private int runCount;
     // random 값을 생성해주는 객체
-    private final RandomGenerator randomGenerator;
+    private RandomGenerator randomGenerator;
+
+    public RandomGenerator getRandomGenerator() {
+        return randomGenerator;
+    }
+
+    public void setRandomGenerator(RandomGenerator randomGenerator) {
+        this.randomGenerator = randomGenerator;
+    }
 
     public String getName() {
         return name;
