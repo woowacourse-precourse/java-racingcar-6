@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static racingcar.ExceptionMessage.NAME_LENGTH_EXCEPTION;
 import static racingcar.ExceptionMessage.NAME_VALUE_BLANK_EXCEPTION;
 
 public class Name {
@@ -20,8 +21,7 @@ public class Name {
 
     private static void validate(final String name) {
         if (name.length() < MINIMUM_LENGTH || name.length() > MAXIMUM_LENGTH) {
-            throw new IllegalArgumentException("이름 길이는 " + MINIMUM_LENGTH + "자 이상 "
-                    + MAXIMUM_LENGTH + "자 이하여야 합니다.");
+            throw new IllegalArgumentException(NAME_LENGTH_EXCEPTION.getMessage());
         }
 
         if (name.contains(" ")) {
