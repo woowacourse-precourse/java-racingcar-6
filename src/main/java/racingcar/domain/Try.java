@@ -16,4 +16,8 @@ public class Try {
         this.count--;
     }
 
+    public boolean isRaceOver() {
+        return this.count == 0;
+    }
+
 }
