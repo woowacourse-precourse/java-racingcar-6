@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Car implements Comparable<Car> {
     private static final int INITIAL_POSITION = 0;
-    private static final int MIN_NUMBER_TO_MOVE = 4;
+    private static final int MINIMUM_NUMBER_TO_MOVE = 4;
 
     private final Name name;
     private final Position position;
@@ -23,13 +23,13 @@ public class Car implements Comparable<Car> {
     public void moveOrStop(int number) {
         validateNumber(number);
 
-        if (number >= MIN_NUMBER_TO_MOVE) {
+        if (number >= MINIMUM_NUMBER_TO_MOVE) {
             position.increase();
         }
     }
 
     private void validateNumber(int number) {
-        if (number < Constants.MIN_NUMBER_RANGE || number > Constants.MAX_NUMBER_RANGE) {
+        if (number < Constants.MINIMUM_NUMBER_RANGE || number > Constants.MAXIMUM_NUMBER_RANGE) {
             throw new IllegalArgumentException("잘못된 입력 값입니다.");
         }
     }

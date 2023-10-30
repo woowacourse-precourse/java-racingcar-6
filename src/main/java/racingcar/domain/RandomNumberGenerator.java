@@ -8,6 +8,6 @@ public class RandomNumberGenerator implements NumberGenerator {
     @Override
     public int generate() {
         return Randoms.pickNumberInRange(
-                Constants.MIN_NUMBER_RANGE, Constants.MAX_NUMBER_RANGE);
+                Constants.MINIMUM_NUMBER_RANGE, Constants.MAXIMUM_NUMBER_RANGE);
     }
 }

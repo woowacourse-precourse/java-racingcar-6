@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class RaceCount {
-    private static final int MIN_RACE_COUNT = 1;
+    private static final int MINIMUM_RACE_COUNT = 1;
     private static final int ZERO_COUNT = 0;
 
     private int raceCount;
@@ -14,9 +14,9 @@ public class RaceCount {
     }
 
     private void validateRaceCount(int raceCount) {
-        if (raceCount < MIN_RACE_COUNT) {
+        if (raceCount < MINIMUM_RACE_COUNT) {
             throw new IllegalArgumentException(
-                    String.format("경주를 진행할 횟수는 최소 %d이상이어야 합니다.", MIN_RACE_COUNT)
+                    String.format("경주를 진행할 횟수는 최소 %d이상이어야 합니다.", MINIMUM_RACE_COUNT)
             );
         }
     }

@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class Position implements Comparable<Position> {
-    private static final int MIN_POSITION = 0;
+    private static final int MINIMUM_POSITION = 0;
 
     private int position;
 
@@ -13,9 +13,9 @@ public class Position implements Comparable<Position> {
     }
 
     private void validatePosition(int position) {
-        if (position < MIN_POSITION) {
+        if (position < MINIMUM_POSITION) {
             throw new IllegalArgumentException(
-                    String.format("자동차의 위치는 %d보다 작을 수 없습니다.", MIN_POSITION)
+                    String.format("자동차의 위치는 %d보다 작을 수 없습니다.", MINIMUM_POSITION)
             );
         }
     }
