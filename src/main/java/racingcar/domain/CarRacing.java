@@ -5,28 +5,42 @@ import static racingcar.constant.RacingCarMessage.RACING_RESULT_MESSAGE;
 import java.util.List;
 
 public class CarRacing {
+    private final Referee referee;
     private final RacingCarInputManager inputManager;
     private final RacingCarOutputManager outputManager;
 
-    private CarRacing(RacingCarInputManager inputManager, RacingCarOutputManager outputManager) {
+    private CarRacing(Referee referee, RacingCarInputManager inputManager, RacingCarOutputManager outputManager) {
+        this.referee = referee;
         this.inputManager = inputManager;
         this.outputManager = outputManager;
     }
 
-    public static CarRacing init(RacingCarInputManager inputManager, RacingCarOutputManager outputManager) {
-        return new CarRacing(inputManager, outputManager);
+    public static CarRacing init(Referee referee, RacingCarInputManager inputManager,
+                                 RacingCarOutputManager outputManager) {
+        return new CarRacing(referee, inputManager, outputManager);
     }
 
 
     public void start() {
-        RacingCarOutputManager outputManager = new RacingCarOutputManager();
-        RacingCarInputManager inputManager = new RacingCarInputManager(outputManager);
+        Cars cars = readCarInfo();
+        Turn turn = readMovingTurn();
+        move(turn, cars);
 
-        Cars cars = new Cars(inputManager.readCarNames());
+        List<String> winners = judgeWinners(cars);
+        announceWinners(winners);
+    }
 
-        Turn turn = new Turn(inputManager.readTryToMoveTurnCount());
+    private void announceWinners(List<String> winners) {
+        outputManager.printWinners(winners);
+    }
 
+    private List<String> judgeWinners(Cars cars) {
+        return referee.judgeWinners(cars.getCurrentStatus());
+    }
+
+    private void move(Turn turn, Cars cars) {
         outputManager.println(RACING_RESULT_MESSAGE);
+
         List<Car> moveResult;
         for (int i = 0; i < turn.getCount(); i++) {
             moveResult = cars.tryToMove();
@@ -35,9 +49,13 @@ public class CarRacing {
             }
             outputManager.printEnter();
         }
+    }
 
-        Referee referee = new Referee();
-        List<String> winners = referee.judgeWinner(cars.getCurrentStatus());
-        outputManager.printWinners(winners);
+    private Turn readMovingTurn() {
+        return new Turn(inputManager.readTryToMoveTurnCount());
+    }
+
+    private Cars readCarInfo() {
+        return new Cars(inputManager.readCarNames());
     }
 }

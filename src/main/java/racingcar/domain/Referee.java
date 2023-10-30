@@ -9,7 +9,7 @@ public class Referee {
     private final static int FIRST_PRIZE_CAR_INDEX = 0;
 
 
-    public List<String> judgeWinner(List<Car> cars) {
+    public List<String> judgeWinners(List<Car> cars) {
         int winnerPosition = findFirstPrizeCarPosition(cars);
 
         List<String> winners = new ArrayList<>();

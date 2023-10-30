@@ -105,7 +105,7 @@ public class RacingCarTest {
         List<Car> cars = new ArrayList<>(List.of(car1, car2, car3));
 
         Referee referee = new Referee();
-        List<String> winners = referee.judgeWinner(cars);
+        List<String> winners = referee.judgeWinners(cars);
 
         assertThat(winners).containsOnly("car2", "car3");
     }
@@ -126,7 +126,7 @@ public class RacingCarTest {
             List<Car> cars = new ArrayList<>(List.of(car1, car2, car3));
 
             Referee referee = new Referee();
-            List<String> winners = referee.judgeWinner(cars);
+            List<String> winners = referee.judgeWinners(cars);
 
             outputManager.printWinners(winners);
 
