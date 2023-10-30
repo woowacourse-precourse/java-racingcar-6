@@ -2,15 +2,33 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class InputManagerTest {
 
-    @Test
-    void 정상_동작_테스트() {
+    @ParameterizedTest
+    @MethodSource("getNameInput")
+    void 정상_동작_테스트(String input, List<String> names) {
         List<String> carNames = InputManager.getCarNames("aaa,bbb");
         assertThat(carNames).contains("aaa", "bbb");
+    }
+
+    @ValueSource
+    private static Stream<Arguments> getNameInput() {
+        return Stream.of(
+                Arguments.of("aaa,b", Arrays.asList("aaa", "b")),
+                Arguments.of("aaa ,b", Arrays.asList("aaa ", "b")),
+                Arguments.of(" aaa,b", Arrays.asList(" aaa", "b")),
+                Arguments.of(" aaa ,b", Arrays.asList(" aaa ", "b")),
+                Arguments.of(" aaa , b ", Arrays.asList(" aaa ", " b "))
+        );
     }
 
     @Test
