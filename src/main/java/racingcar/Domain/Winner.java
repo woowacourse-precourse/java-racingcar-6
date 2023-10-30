@@ -11,7 +11,6 @@ public class Winner {
                 winners.add(car);
             }
         }
-
         return winners;
     }
 

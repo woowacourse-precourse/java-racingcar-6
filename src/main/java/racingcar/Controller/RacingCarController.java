@@ -35,8 +35,9 @@ public class RacingCarController {
         // 경주 시작
         carService.runRacing();
         outputView.printResult(carService.carList());
-//        // 우승자 결정
-//        List<Car> winners = winnerService.getWinners(racingCars.getCars());
+
+        // 우승자 결정
+        List<Car> winners = winnerService.getWinners(carService.carList());
 
 //        // 결과 출력
 //        outputView.printWinners(winners);
