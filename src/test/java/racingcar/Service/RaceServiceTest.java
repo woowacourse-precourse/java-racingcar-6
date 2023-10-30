@@ -10,8 +10,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.Service.RaceService.DUPLICATE_NAME_ERROR_MESSAGE;
-import static racingcar.Service.RaceService.EXCEED_ERROR_MESSAGE;
+import static racingcar.Service.RaceService.*;
 
 
 class RaceServiceTest {
@@ -58,6 +57,27 @@ class RaceServiceTest {
         assertThatThrownBy(() -> raceService.checkCarNamesValidation("jung,yuju,jung"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(DUPLICATE_NAME_ERROR_MESSAGE);
+    }
+
+    @Test
+    void 예외_이름입력시_빈칸일때() {
+        assertThatThrownBy(() -> raceService.checkCarNamesValidation(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(EMPTY_ERROR_MESSAGE);
+    }
+
+    @Test
+    void 예외_이름입력시_쉼표만_들어왔을때() {
+        assertThatThrownBy(() -> raceService.checkCarNamesValidation(","))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(DISTINGUISH_ERROR_MESSAGE);
+    }
+
+    @Test
+    void 예외_이름입력시_쉼표로_구분할_수_없을때() {
+        assertThatThrownBy(() -> raceService.checkCarNamesValidation("jung yuju dong"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(DISTINGUISH_ERROR_MESSAGE);
     }
 
 }
