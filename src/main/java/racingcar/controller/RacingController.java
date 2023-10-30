@@ -12,7 +12,8 @@ public class RacingController {
 
 
     public void startRace() {
-        generateRacersFromNames(InputView.readCarNames());
+        Cars cars = new Cars(generateRacersFromNames(InputView.readCarNames()));
+        int count = InputView.readTryGame();
     }
 
     public String[] generateRacersFromNames(String input) {
