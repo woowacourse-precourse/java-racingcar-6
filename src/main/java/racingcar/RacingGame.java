@@ -14,7 +14,7 @@ public class RacingGame {
 
     public void GameStart() {
         scriptHandler.printGetCarNameScript();
-        gameSetting.setCarName();
+        gameSetting.getCarName();
         scriptHandler.printGetAttemptScript();
         gameSetting.setAttemptNumber();
         attemptNumber = gameSetting.getAttemptNumber();
