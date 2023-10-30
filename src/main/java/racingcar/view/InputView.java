@@ -12,7 +12,7 @@ public class InputView {
     }
 
     public String inputAttemptNumber() {
-        System.out.println(ATTEMPT_NUMBER);
+        System.out.println(ATTEMPT_NUMBER.getMessage());
         return Console.readLine();
     }
 }
