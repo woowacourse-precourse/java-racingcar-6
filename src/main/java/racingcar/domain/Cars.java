@@ -17,10 +17,8 @@ public class Cars {
     }
 
     public void settingNames() {
-        String names = Console.readLine();
-        hasComma(names);
-        validateDuplicateName(names);
-        for(String name : names.split(",")) {
+        ArrayList<String> nameList = validateAndSendNames();
+        for(String name : nameList) {
             cars.add(new Car(name.trim()));
         }
     }
@@ -51,19 +49,27 @@ public class Cars {
             .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    private ArrayList<String> validateAndSendNames() {
+        String names = Console.readLine();
+        hasComma(names);
+
+        String[] split = names.split(",");
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(split));
+
+        validateDuplicateName(list);
+        return list;
+    }
+
     private void hasComma(String name) {
         if(!name.contains(",")) {
             throw new IllegalArgumentException("이름을 쉼표(,)로 구분해야 합니다. 또한, 최소 2대 이상의 자동차가 필요합니다.");
         }
     }
 
-    private void validateDuplicateName(String name) {
-        String[] names = name.split(",");
-        Set<String> nameSet = new HashSet<>(Arrays.asList(names));
-
-        if(nameSet.size() != names.length) {
+    private void validateDuplicateName(ArrayList<String> name) {
+        Set<String> nameSet = new HashSet<>(name);
+        if(nameSet.size() != name.size()) {
             throw new IllegalArgumentException("동일한 이름으로 경주 게임을 진행할 수 없습니다.");
         }
-
     }
 }
