@@ -24,6 +24,6 @@ public class RaceController {
     }
 
     public void gameOver() {
-        outPut.printFinalResult();
+        outPut.printFinalResult(race.getWinner());
     }
 }
