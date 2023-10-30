@@ -22,8 +22,8 @@ public class CarService {
     }
     public List<Car> initRacingCars(List<String>carNames) {
         List<Car> racingCars = new ArrayList<>();
-        for(int i=0; i<carNames.size(); i++) {
-            racingCars.add(new Car(carNames.get(i)));
+        for(String car: carNames) {
+            racingCars.add(new Car(car));
         }
         return racingCars;
     }

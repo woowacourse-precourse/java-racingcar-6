@@ -27,15 +27,17 @@ public class RacingCarController {
         while(tryCount<tryTime){
             List<Integer> allRandomNumber = racingCarService.saveRandomNumber(cars);
             outputView.printEachResultMessage(tryCount);
-            for(int i=0; i<cars.size(); i++) {
-                racingCarService.move(cars.get(i),allRandomNumber.get(i));
-                outputView.printEachResult(cars.get(i),allRandomNumber.get(i));
-            }
+            moveForward(allRandomNumber);
             System.out.println();
             tryCount++;
         }
         end(cars);
-
+    }
+    public void moveForward(List<Integer> allRandomNumber) {
+        for(int i=0; i<cars.size(); i++) {
+            racingCarService.move(cars.get(i), allRandomNumber.get(i));
+            outputView.printEachResult(cars.get(i),allRandomNumber.get(i));
+        }
     }
     public void end(List<Car> cars) {
         int maxPosition = racingCarService.findMaxPosition(cars);
