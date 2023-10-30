@@ -53,8 +53,12 @@ public class RacingGameView {
         blankLine();
     }
 
+    private static void winnerMessage(String winner) {
+        System.out.println(Constant.WINNER_LIST + winner);
+    }
+
     public static void winner(List<String> carMoveStatus) {
-        String winner = String.join(", ", carMoveStatus);
-        System.out.println("최종 우승자 : " + winner);
+        String winner = String.join(Constant.COMMA_SPACE, carMoveStatus);
+        winnerMessage(winner);
     }
 }
