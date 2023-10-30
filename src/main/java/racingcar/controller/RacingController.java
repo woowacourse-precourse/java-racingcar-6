@@ -26,6 +26,10 @@ public class RacingController {
 
         gamePlay();
 
+        finish();
+    }
+
+    private void finish() {
         outputView.outputFinishMessage();
         String result = getWinnersList();
         outputView.outputWinners(result);
@@ -51,6 +55,10 @@ public class RacingController {
         outputView.outputStartMessage();
         String carsName = inputView.inputCarsName();
 
+        setRacingService(carsName);
+    }
+
+    private void setRacingService(String carsName) {
         this.racingService = new RacingService(carsName);
         this.racingService
                 .setOutputView(outputView);
