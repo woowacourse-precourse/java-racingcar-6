@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.NumberGenerator;
 import racingcar.util.InputValidator;
 
 public class RaceController {
@@ -12,6 +13,13 @@ public class RaceController {
 
     public void run() {
 
+    }
+
+    public void tryMoveCars() {
+
+    }
+
+    public void repeatMoveCars() {
     }
 
     public List<String> askCarNames() {
