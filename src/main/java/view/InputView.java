@@ -9,9 +9,7 @@ public class InputView {
         return Console.readLine().split(",");
     }
 
-    public int inputTryCount() {
-        int tryCount = Integer.parseInt(Console.readLine());
-        TryCountValidation.checkTryCountValidation(tryCount);
-        return tryCount;
+    public String inputTryCount() {
+        return Console.readLine();
     }
 }

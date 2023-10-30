@@ -12,6 +12,6 @@ public class Car {
     }
 
     public String toString() {
-        return carName + ",";
+        return carName;
     }
 }

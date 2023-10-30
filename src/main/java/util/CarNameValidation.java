@@ -1,33 +1,32 @@
 package util;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import model.Car;
 
 public class CarNameValidation {
 
-    public static void checkCarNameValidation(ArrayList<Car> carNameList) {
+    public static void checkCarNameValidation(String[] carNameList) {
         if (!CarNameValidation.isDuplicate(carNameList) || !CarNameValidation.checkCarNameLength(carNameList)) {
             throw new IllegalArgumentException();
         }
     }
 
-    private static boolean isDuplicate(ArrayList<Car> carNameList) {
+    private static boolean isDuplicate(String[] carNameList) {
         HashSet<String> setCarNameList = insertCarName(carNameList);
-        return setCarNameList.size() == carNameList.size();
+        return setCarNameList.size() == carNameList.length;
     }
 
-    private static HashSet<String> insertCarName(ArrayList<Car> carNameList) {
+    private static HashSet<String> insertCarName(String[] carNameList) {
         HashSet<String> setCarNameList = new HashSet<>();
-        for (Car carName : carNameList) {
-            setCarNameList.add(carName.getCarName());
+        for (String carName : carNameList) {
+            setCarNameList.add(carName);
         }
         return setCarNameList;
     }
 
-    private static boolean checkCarNameLength(ArrayList<Car> carList) {
-        for (Car carName : carList) {
-            if (carName.getCarName().length() > 5) {
+    private static boolean checkCarNameLength(String[] carList) {
+        for (String carName : carList) {
+            if (carName.length() > 5) {
                 return false;
             }
         }
