@@ -25,7 +25,7 @@ public class Car {
         this.current = current;
     }
 
-    public void forward() {
-        this.current++;
+    public void forward(int forward) {
+        this.current += forward;
     }
 }
