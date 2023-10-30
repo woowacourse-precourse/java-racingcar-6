@@ -20,7 +20,7 @@ public class WinnerTest {
         car.movedDistances.set(1, "-");
 
         // when
-        int maxDistance = Computer.calculateMaxDistance(car);
+        int maxDistance = CarRace.calculateMaxDistance(car);
 
         // then
         assertThat(maxDistance).isEqualTo(1);
@@ -34,7 +34,7 @@ public class WinnerTest {
         car.movedDistances.set(0, "-");
 
         // when
-        StringJoiner winner = Computer.findWinner(car, Computer.calculateMaxDistance(car));
+        StringJoiner winner = CarRace.findWinner(car, CarRace.calculateMaxDistance(car));
 
         // then
         assertThat(winner.toString()).isEqualTo("pobi");
@@ -48,7 +48,7 @@ public class WinnerTest {
         car.movedDistances.replaceAll(empty -> "-");
 
         // when
-        StringJoiner winner = Computer.findWinner(car, Computer.calculateMaxDistance(car));
+        StringJoiner winner = CarRace.findWinner(car, CarRace.calculateMaxDistance(car));
 
         // then
         assertThat(winner.toString()).isEqualTo("pobi, woni, jun");
@@ -65,7 +65,7 @@ public class WinnerTest {
         car.movedDistances.replaceAll(empty -> "-");
 
         // when
-        Computer.printWinner(Computer.findWinner(car, 1));
+        CarRace.printWinner(CarRace.findWinner(car, 1));
 
         // then
         assertThat(out.toString())

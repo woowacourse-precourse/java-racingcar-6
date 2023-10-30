@@ -1,11 +1,8 @@
 package racingcar;
 
-import static racingcar.Computer.calculateMaxDistance;
 import static racingcar.Computer.createCarNames;
 import static racingcar.Computer.createRoundCount;
-import static racingcar.Computer.findWinner;
 import static racingcar.Computer.getInput;
-import static racingcar.Computer.printWinner;
 
 
 public class Application {
@@ -16,7 +13,7 @@ public class Application {
 
         car.move(createRoundCount(getInput("시도할 회수는 몇회인가요?")));
 
-        printWinner(findWinner(car, calculateMaxDistance(car)));
+        CarRace.printWinner(CarRace.findWinner(car, CarRace.calculateMaxDistance(car)));
 
     }
 }
