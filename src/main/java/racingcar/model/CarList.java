@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * CarMap 클래스는 ArrayList를 이용해 RacingCar 객체를 저장한다.
@@ -29,9 +30,7 @@ public class CarList {
      * 각 자동차들이 라운드를 진행하게한다.
      */
     public void executeRound() {
-        for (RacingCar racingCar : carList) {
-            racingCar.executeRound();
-        }
+        carList.forEach(RacingCar::executeRound);
     }
 
     /**
@@ -42,26 +41,17 @@ public class CarList {
     public List<String> getWinners() {
         int maxDistance = getMaxDistance();
 
-        List<String> winners = new ArrayList<>();
-        for (RacingCar car : carList) {
-            if (car.getDistance() == maxDistance) {
-                winners.add(car.getName());
-            }
-        }
-
-        return winners;
+        return carList.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .map(RacingCar::getName)
+                .collect(Collectors.toList());
     }
 
     private int getMaxDistance() {
-        int maxDistance = 0;
-
-        for (RacingCar car : carList) {
-            int distance = car.getDistance();
-            if (distance > maxDistance) {
-                maxDistance = distance;
-            }
-        }
-        return maxDistance;
+        return carList.stream()
+                .mapToInt(RacingCar::getDistance)
+                .max()
+                .orElse(0);
     }
 
     /**
