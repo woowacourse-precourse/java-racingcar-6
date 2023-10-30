@@ -30,6 +30,11 @@ public class Name {
         return Objects.hash(value);
     }
 
+    @Override
+    public String toString() {
+        return value;
+    }
+
     private void nameValidation(String name) {
         if(StringUtils.isBlank(name)) {
             throw new IllegalArgumentException(NAME_NOT_EMPTY_MESSAGE);

@@ -27,4 +27,13 @@ class NameTest {
         assertThatThrownBy(() -> new Name("123456"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void 자동차_이름_출력_테스트() {
+        // given
+        Name name = new Name("12345");
+
+        // when, then
+        assertThat(name.toString()).isEqualTo("12345");
+    }
 }
