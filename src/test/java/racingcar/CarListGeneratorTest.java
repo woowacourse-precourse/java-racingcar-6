@@ -12,15 +12,15 @@ class CarListGeneratorTest {
 
     @Test
     void getCarList_순서유지_테스트() {
-        //given
+        // given
         List<String> carStrings = Arrays.asList("pobi", "woni", "jun");
-        //when
+        // when
         List<Car> carList = CarListGenerator.getCarList(carStrings);
-        //then
         for (int index = 0; index < carStrings.size(); index++) {
             String expectedCarName = carStrings.get(index);
             Car car = carList.get(index);
             String carName = car.getName();
+            // then
             assertThat(expectedCarName).isEqualTo(carName);
         }
     }

@@ -22,6 +22,7 @@ class CarTest {
 
     @BeforeEach
     void setUp() {
+        // given
         pobiCar = new Car("pobi");
     }
 
@@ -43,10 +44,12 @@ class CarTest {
     @ParameterizedTest
     @MethodSource("testMoveCountAndRandomNumber")
     void getMoveCount_테스트(int expectedMoveCount, int randomNumber) {
+        // when
         assertRandomNumberInRangeTest(
                 () -> {
                     pobiCar.moveIfSatisfy();
                     int moveCount = pobiCar.getMoveCount();
+                    // then
                     assertThat(moveCount).isEqualTo(expectedMoveCount);
                 },
                 randomNumber
@@ -55,7 +58,10 @@ class CarTest {
 
     @Test
     void 자동차_이름_정상동작() {
-        assertThat(pobiCar.getName()).isEqualTo("pobi");
+        // when
+        String carName = pobiCar.getName();
+        // then
+        assertThat(carName).isEqualTo("pobi");
     }
 
     @Test

@@ -34,6 +34,7 @@ class CarsTest {
 
     @BeforeEach
     void setUp() {
+        // given
         pobiCar = new Car("pobi");
         woniCar = new Car("woni");
         cars = new Cars(Arrays.asList(pobiCar, woniCar));
@@ -42,11 +43,13 @@ class CarsTest {
     @ParameterizedTest
     @MethodSource("testMoveCountAndRandomNumber")
     void move_테스트(int expectedPobiMoveCount, int expectedWoniMoveCount, int pobiRandomNumber, int woniRandomNumber) {
+        // when
         assertRandomNumberInRangeTest(
                 () -> {
                     cars.move();
                     int pobiMoveCount = pobiCar.getMoveCount();
                     int woniMoveCount = woniCar.getMoveCount();
+                    // then
                     assertThat(pobiMoveCount).isEqualTo(expectedPobiMoveCount);
                     assertThat(woniMoveCount).isEqualTo(expectedWoniMoveCount);
                 },
@@ -57,15 +60,16 @@ class CarsTest {
     @ParameterizedTest
     @MethodSource("testMoveCountAndRandomNumber")
     void getMoveCountMap_테스트(int pobiMoveCount, int woniMoveCount, int pobiRandomNumber, int woniRandomNumber) {
-        //given
+        // given
         Map<String, Integer> expectedMap = new LinkedHashMap<>();
         expectedMap.put("pobi", pobiMoveCount);
         expectedMap.put("woni", woniMoveCount);
-        //when, then
+        // when
         assertRandomNumberInRangeTest(
                 () -> {
                     cars.move();
                     Map<String, Integer> moveCountMap = cars.getMoveCountMap();
+                    // then
                     assertThat(moveCountMap).isEqualTo(expectedMap);
                 },
                 pobiRandomNumber, woniRandomNumber

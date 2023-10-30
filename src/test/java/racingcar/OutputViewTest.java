@@ -26,11 +26,11 @@ class OutputViewTest extends NsTest {
 
     @Test
     void printWinner() {
-        //given
+        // given
         List<String> winnerList = Arrays.asList("pobi", "jun");
-        //when
+        // when
         OutputView.printWinner(winnerList);
-        //then
+        // then
         assertThat(output()).contains("최종 우승자 : pobi, jun");
     }
 
