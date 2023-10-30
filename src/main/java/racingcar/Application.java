@@ -11,6 +11,6 @@ public class Application {
         Race race = new Race(carList);
         CarFactory carFactory = new CarFactory(carList);
         RaceController raceController = new RaceController(carFactory, carList, race);
-        raceController.startRace();
+        raceController.createRace();
     }
 }
