@@ -28,6 +28,11 @@ public class Application {
 
             n--;
         }
+
+        System.out.print("최종 우승자 : ");
+        List<String> winner = findWinner(carList);
+        printWinner(winner);
+
     }
 
     public static List<Car> parseInputName(String inputName) {
@@ -67,5 +72,32 @@ public class Application {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public static List<String> findWinner(List<Car> carList){
+        int maxForward = -10000;
+        for(int i=0; i<carList.size(); i++){
+            if(carList.get(i).getForward() > maxForward){
+                maxForward = carList.get(i).getForward();
+            }
+        }
+
+        List<String> winner = new ArrayList<>();
+        for(int i=0; i<carList.size(); i++){
+            if(carList.get(i).getForward() == maxForward){
+                winner.add(carList.get(i).getName());
+            }
+        }
+
+        return winner;
+    }
+
+    public static void printWinner(List<String> winner){
+        for(int i=0; i<winner.size(); i++){
+            System.out.print(winner.get(i));
+            if(i < winner.size() - 1){
+                System.out.print(", ");
+            }
+        }
     }
 }
