@@ -1,4 +1,4 @@
-package racingcar.domain.car.carcomponent.carmove;
+package racingcar.domain.car.carmove;
 
 public record CarMoveCount(int moveCount) {
 

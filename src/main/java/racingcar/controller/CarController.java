@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.function.Supplier;
 import racingcar.domain.car.Cars;
-import racingcar.domain.car.carcomponent.carmove.CarMoveReader;
+import racingcar.domain.car.carmove.CarMoveReader;
 
 public class CarController {
     private final Cars cars;
