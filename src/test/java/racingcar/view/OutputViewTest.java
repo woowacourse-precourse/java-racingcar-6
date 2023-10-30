@@ -1,0 +1,77 @@
+package racingcar.view;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.util.List;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import racingcar.constant.IllegalStateExceptionType;
+import racingcar.domain.Car;
+import racingcar.domain.FakeCar;
+import racingcar.domain.RacingGameState;
+
+class OutputViewTest {
+
+    private PrintStream standardOut;
+    private OutputStream captor;
+    Car fakeCar1, fakeCar2;
+    List<Car> rawCars;
+    RacingGameState playingRacingGameState, endedRacingGameState;
+
+    OutputView outputView = new OutputView();
+
+    @BeforeEach
+    void setUp() {
+        fakeCar1 = new FakeCar("붕붕카", 1);
+        fakeCar2 = new FakeCar("차차차", 0);
+        rawCars = List.of(fakeCar1, fakeCar2);
+
+        playingRacingGameState = new RacingGameState(false, rawCars);
+        endedRacingGameState = new RacingGameState(true, rawCars);
+    }
+
+    @BeforeEach
+    protected final void init() {
+        standardOut = System.out;
+        captor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(captor));
+    }
+
+    @AfterEach
+    protected final void printOutput() {
+        System.setOut(standardOut);
+        System.out.println(output());
+    }
+
+    protected final String output() {
+        return captor.toString().trim();
+    }
+
+    @Test
+    void 게임_상태_출력_테스트() {
+        outputView.printGameState(playingRacingGameState);
+        assertThat(output()).contains("붕붕카 : -", "차차차 :");
+    }
+
+    @Test
+    void 최종_우승자_출력_성공_테스트() {
+        outputView.printWinners(endedRacingGameState);
+        assertThat(output()).contains("최종 우승자 : 붕붕카");
+    }
+
+    @Test
+    void 최종_우승자_출력_실패_테스트() {
+        IllegalStateException exception = IllegalStateExceptionType
+                .GAME_NOT_ENDED_MESSAGE
+                .getException();
+
+        assertThatThrownBy(() -> outputView.printWinners(playingRacingGameState))
+                .isInstanceOf(exception.getClass())
+                .hasMessage(exception.getMessage());
+    }
+}
