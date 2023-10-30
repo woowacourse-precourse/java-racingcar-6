@@ -1,5 +1,7 @@
 package racingcar.Domain;
 
+import static racingcar.Service.CarService.stringToList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,17 +21,4 @@ public class RacingCars {
         return cars.size();
     }
 
-
-    public void race() {
-        for (Car car : cars) {
-            car.isCarMove();
-        }
-    }
-
-    public List<Car> stringToList(final String carNames) {
-        String[] names = carNames.split(",");
-        return Arrays.stream(names)
-                .map(Car::create)
-                .collect(Collectors.toList());
-    }
 }
