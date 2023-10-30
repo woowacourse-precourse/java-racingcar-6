@@ -25,6 +25,7 @@ public class GameController {
         List<Car> carList = createCarList(carsName);
 
         int raceCount = inputView.readCarMoveCount();
+        validateRaceCount(raceCount);
         for (int i = 0; i < raceCount; i++) {
             for (Car car : carList) {
                 car.move(NumberGenerator.createRandomNumber());
@@ -58,6 +59,12 @@ public class GameController {
                 .count();
 
         if (uniqueCarNameCount != carNameList.size()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateRaceCount(int raceCount) {
+        if (raceCount < 1) {
             throw new IllegalArgumentException();
         }
     }
