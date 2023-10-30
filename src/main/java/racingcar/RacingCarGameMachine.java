@@ -14,6 +14,11 @@ public class RacingCarGameMachine {
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
+    public void init(String nameInput, int roundCount) {
+        initRacingCar(nameInput);
+        this.roundCount = roundCount;
+    }
+
     private void initRacingCar(String nameInput) {
         racingCarList = new ArrayList<>();
 
