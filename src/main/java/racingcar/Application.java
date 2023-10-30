@@ -36,5 +36,5 @@ public class Application {
             throw new IllegalArgumentException();
         }
     }
-    
+
 }
