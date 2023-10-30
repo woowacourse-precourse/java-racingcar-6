@@ -15,6 +15,7 @@
 # 목차
 - [Model](Model)
   - [Car.java](Car.java)
+  - [CarList.java](CarList.java)
 
 
 ---
@@ -25,5 +26,11 @@
 - int position
 - Car()
 - move()
+
+
+### CarList.java
+- List<Car> carList
+- CarList()
+- validate()
 
 
