@@ -15,10 +15,12 @@
 
 ## 구현 기능 목록
 - model
-  - [ ] car
-     - [ ] distance
-     - [ ] name
-     - [ ] forward() 
+  - [x] car
+     - [x] distance
+     - [x] name
+     - [x] forward()
+     - [x] maxDistanceCar()
+     - [x] isSameDistance()
 - controller
   - [ ] gameController
     - [ ] playGame 
