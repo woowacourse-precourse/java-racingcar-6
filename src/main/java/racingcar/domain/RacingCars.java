@@ -16,8 +16,7 @@ public class RacingCars {
 
     public void playRound() {
         moveRacingCar();
-        RacingOutputView.outputRoundResults(
-                racingCarList.stream()
+        RacingOutputView.outputRoundResults(racingCarList.stream()
                         .map(RacingCar::createRoundResult)
                         .toList());
     }
@@ -29,13 +28,13 @@ public class RacingCars {
     public void noticeWinners() {
         RacingOutputView.outputWinners(racingCarList.stream()
                 .filter(racingCar -> racingCar.isWinner(findMaxPosition()))
-                .map(RacingCar::getCarName)
+                .map(RacingCar::createWinnerName)
                 .toList());
     }
 
     private int findMaxPosition() {
         return racingCarList.stream()
-                .mapToInt(RacingCar::getPosition)
+                .mapToInt(RacingCar::createMaxPosition)
                 .max()
                 .orElse(ZERO);
     }

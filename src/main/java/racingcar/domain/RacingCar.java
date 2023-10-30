@@ -33,11 +33,11 @@ public class RacingCar {
         return DASH.repeat(Math.max(ZERO, position));
     }
 
-    public int getPosition() {
+    public int createMaxPosition() {
         return position;
     }
 
-    public String getCarName() {
+    public String createWinnerName() {
         return carName;
     }
 
