@@ -3,8 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class RacingGame {
 
@@ -65,6 +64,31 @@ public class RacingGame {
     }
 
     public void printResult(CarMap carMap){
+        int firstScore = getFirstScore(carMap);
+        String result = getResultString(carMap, firstScore);
+        System.out.println(result);
+    }
 
+    public int getFirstScore(CarMap carMap){
+        LinkedHashMap<String, String> racingMap = carMap.getMap();
+        Set<String> racingSet = carMap.getKeySet();
+        List<Integer> racingScore = new ArrayList<>();
+        for (String key : racingSet){
+            String value = racingMap.get(key);
+            racingScore.add(value.length());
+        }
+        Collections.sort(racingScore);
+        return racingScore.get(0);
+    }
+
+    public String getResultString(CarMap carMap, int firstScore){
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+        for (String key : carMap.getKeySet()){
+            String value = carMap.getMap().get(key);
+            if(value.length() == firstScore) sb.append(key).append(", ");
+        }
+        sb.delete(sb.length()-2, sb.length()-1);
+        return sb.toString();
     }
 }
