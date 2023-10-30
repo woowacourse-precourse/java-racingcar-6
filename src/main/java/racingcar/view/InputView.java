@@ -26,6 +26,12 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
+    private int inputTryCount() {
+        System.out.println(INPUT_TRY_COUNT);
+        String inputTryCount = readLine();
+        return Integer.parseInt(inputTryCount);
+    }
+
     private String readLine() {
         return Console.readLine();
     }
