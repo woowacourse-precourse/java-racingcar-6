@@ -21,31 +21,37 @@ public class GameController {
     }
 
     public void run() {
-        Cars cars = makeCars();
+        Cars cars = createCarsByNames(getNames());
         int trialCount = getTrialCount();
 
         playRounds(trialCount, cars);
         printWinnersName(cars);
     }
 
-    private Cars makeCars() {
+    private String getNames() {
         outputView.printNamesGuide();
-        String carNames = inputView.readCarNames();
-        return gameService.createCars(carNames);
+        return inputView.readCarNames();
+    }
+
+    private Cars createCarsByNames(final String names) {
+        return gameService.createCars(names);
     }
 
     private int getTrialCount() {
         outputView.printTrialGuide();
-        String trialCount = inputView.readTrialNumber();
-        return gameService.createTrialCount(trialCount);
+        return gameService.createTrialCount(inputView.readTrialNumber());
     }
 
     private void playRounds(final int trialCount, final Cars cars) {
         outputView.printResultGuide();
         for (int round = 0; round < trialCount; round++) {
-            CarsDto carsDto = gameService.playRound(cars);
-            outputView.printRoundResult(carsDto);
+            playOneRound(cars);
         }
+    }
+
+    private void playOneRound(final Cars cars) {
+        CarsDto carsDto = gameService.playRound(cars);
+        outputView.printRoundResult(carsDto);
     }
 
     private void printWinnersName(final Cars cars) {
