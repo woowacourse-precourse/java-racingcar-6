@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.service.raceservice;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -20,6 +20,7 @@ public class VariableDistanceRaceService implements RaceService{
 
             map.put(car, distance);
             if(canMove) {
+                //FixDistanceRaceService 와 이부분만 다름
                 car.move(distance);
             }
         }

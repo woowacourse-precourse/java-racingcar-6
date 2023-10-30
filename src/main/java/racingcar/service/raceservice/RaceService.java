@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.service.raceservice;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Map;

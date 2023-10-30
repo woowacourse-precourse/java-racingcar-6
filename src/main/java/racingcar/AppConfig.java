@@ -1,7 +1,7 @@
 package racingcar;
 
-import racingcar.service.FixDistanceRaceService;
-import racingcar.service.RaceService;
+import racingcar.service.raceservice.FixDistanceRaceService;
+import racingcar.service.raceservice.RaceService;
 
 public class AppConfig {
     public static final int NAME_LENGTH_MIN = 1;

@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.service.raceservice;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,12 +16,12 @@ public class FixDistanceRaceService implements RaceService {
         for (int i = 0; i < size; i++) {
             Car car = participants.get(i);
 
-            //VariableDistanceRaceService 와 이부분만 다름
             int randomValue = getRandomValue();
             boolean canMove = MoveOrNot(randomValue);
 
             map.put(car, randomValue);
             if (canMove) {
+                //VariableDistanceRaceService 와 이부분만 다름
                 car.move(FIX_DISTANCE);
             }
         }

@@ -8,9 +8,9 @@ import racingcar.AppConfig;
 import racingcar.model.Participants;
 import racingcar.model.car.Car;
 import racingcar.service.CarSaveService;
-import racingcar.service.FixDistanceRaceService;
-import racingcar.service.RaceService;
-import racingcar.service.VariableDistanceRaceService;
+import racingcar.service.raceservice.FixDistanceRaceService;
+import racingcar.service.raceservice.RaceService;
+import racingcar.service.raceservice.VariableDistanceRaceService;
 
 public class RaceTest {
     private Participants participants;

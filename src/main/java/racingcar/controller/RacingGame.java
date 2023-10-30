@@ -2,10 +2,10 @@ package racingcar.controller;
 
 import java.util.Map;
 import racingcar.AppConfig;
-import racingcar.controller.InputHandler;
 import racingcar.model.Participants;
 import racingcar.service.CarSaveService;
-import racingcar.service.RaceService;
+import racingcar.service.GetWinnersService;
+import racingcar.service.raceservice.RaceService;
 
 public class RacingGame {
     RaceService raceService = AppConfig.raceServiceImplements();
@@ -15,5 +15,7 @@ public class RacingGame {
         Participants cars = CarSaveService.save(names);
 
         Map map = raceService.runRace(cars);
+        //뷰가들어갈 자리
+
     }
 }
