@@ -2,6 +2,8 @@ package racingcar.view.output;
 
 public class ConsoleOutputView implements Outputview {
 
+    private static final String POSITION_MARK = "-";
+
     @Override
     public void askCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -19,8 +21,8 @@ public class ConsoleOutputView implements Outputview {
     }
 
     @Override
-    public void printEachCarStatus() {
-
+    public void printEachCarStatus(final String name, final int position) {
+        System.out.println(name + " : " + POSITION_MARK.repeat(position));
     }
 
     @Override
