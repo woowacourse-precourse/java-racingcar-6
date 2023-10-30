@@ -26,7 +26,10 @@ public class Game {
     }
 
     public void settingChance() {
-        this.tryChance = Integer.parseInt(Console.readLine());
+        String chance = Console.readLine().trim();
+        isNumericInput(chance);
+        isGreaterThanZero(chance);
+        this.tryChance = Integer.parseInt(chance);
     }
 
     public void running() {
@@ -35,5 +38,20 @@ public class Game {
             car.moveOrNot(randomNumber);
         }
         gameResult = carList.getResultOfRound();
+    }
+
+    private void isNumericInput(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+        }
+    }
+
+    private void isGreaterThanZero(String input) {
+        int chance = Integer.parseInt(input);
+        if(chance <= 0) {
+            throw new IllegalArgumentException("0보다 큰 숫자를 입력해야 합니다.");
+        }
     }
 }
