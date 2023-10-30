@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Cars {
-    private static final String DUPLICATE_CAR_NAME = "중복된 자동차 이름입니다.";
+    private static final String DUPLICATE_CAR_NAME = "중복된 자동차가 존재합니다.";
 
     private List<Car> cars;
 
@@ -42,6 +42,7 @@ public class Cars {
 
     private List<Car> createCars(String inputCarNames) {
         return Arrays.stream(inputCarNames.split(SpecialSign.SEPARATOR.getSign()))
+                .map(String::trim)
                 .map(Car::new)
                 .toList();
     }
