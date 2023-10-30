@@ -9,13 +9,12 @@ public class Application {
         String nameOfCars = Console.readLine();
 
         UserInput userInput = new UserInput(nameOfCars);
-        userInput.checkValidity();
+        userInput.checkNameOfCarsValidity();
 
         System.out.println("시도할 회수는 몇회인가요?");
         String attempsNumber = Console.readLine();
 
         userInput.setAttemptsNumber(attempsNumber);
         userInput.checkAttempsNumberValidity();
-
     }
 }

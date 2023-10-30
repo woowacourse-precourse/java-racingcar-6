@@ -1,9 +1,12 @@
 package racingcar.domain;
 
+import java.util.HashSet;
+
 public class UserInput {
     private String nameOfCars;
     private String attemptsNumber;
     private String[] carArray;
+    private HashSet<String> carHashSet = new HashSet<>();
 
     public UserInput(String nameOfCars) {
         this.nameOfCars = nameOfCars;
@@ -17,7 +20,7 @@ public class UserInput {
         this.attemptsNumber = attemptsNumber;
     }
 
-    public void checkValidity() {
+    public void checkNameOfCarsValidity() {
         if (isStringEmpty(nameOfCars)) {
             throw new IllegalArgumentException("Input value cannot be blank.");
         }
@@ -45,6 +48,11 @@ public class UserInput {
 
                 throw new IllegalArgumentException(
                         "Only English letters, numbers, and '-' symbol are allowed in the name.");
+            }
+
+            transferTohashSetFrom(carArray);
+            if (containsDuplicates()) {
+                throw new IllegalArgumentException("Car names cannot be duplicated.");
             }
         }
     }
@@ -86,7 +94,7 @@ public class UserInput {
 
         return false;
     }
-
+    
     public void checkAttempsNumberValidity() {
         if (isStringEmpty(attemptsNumber)) {
             throw new IllegalArgumentException("Input value cannot be blank");
@@ -118,5 +126,15 @@ public class UserInput {
 
     private boolean isHighestDigitZero(String string) {
         return string.charAt(0) == '0';
+    }
+
+    private void transferTohashSetFrom(String[] carArray) {
+        for (int i = 0; i < carArray.length; i++) {
+            carHashSet.add(carArray[i]);
+        }
+    }
+
+    private boolean containsDuplicates() {
+        return carArray.length != carHashSet.size();
     }
 }
