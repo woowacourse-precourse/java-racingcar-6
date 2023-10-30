@@ -21,16 +21,24 @@ public class CarNames {
             while (nowCarnames.contains(",")) {
                 int index = nowCarnames.indexOf(",");
                 String tempCarnames = nowCarnames.substring(0, index).trim();
+                checkCarnameSize(tempCarnames);
                 splitCarnames.add(tempCarnames);
                 nowCarnames = nowCarnames.substring(index + 1);
             }
         }
         if(!nowCarnames.isEmpty()) {
+            checkCarnameSize((nowCarnames));
             splitCarnames.add(nowCarnames);
         }
         if(nowCarnames.isEmpty()) {
+            checkCarnameSize(rawCarnames);
             splitCarnames.add(rawCarnames);
         }
         return splitCarnames;
+    }
+    private void checkCarnameSize(String Carname) {
+        if (Carname.length() > 5) {
+            throw new IllegalArgumentException();
+        }
     }
 }
