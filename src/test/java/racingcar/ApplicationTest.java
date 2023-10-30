@@ -76,6 +76,13 @@ class ApplicationTest extends NsTest {
         assertThat(integrityCheck.nameIntegrityCheck((char)(0) + "123")).isEqualTo(false);
     }
 
+    @Test
+    void 문자열_입력이_없는_경우_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException(""))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Override
     public void runMain() {
