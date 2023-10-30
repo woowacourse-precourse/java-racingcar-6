@@ -6,6 +6,7 @@
 ## 기능 목록 V3
 - [x] 게임에 참여하는 자동차를 생성한다. CreateCar
   - [x] 사용자로부터 자동차의 이름을 입력 받는다. CreateCar#input()
+  - [ ] 사용자로 부터 입력 받은 값을 쉼표(,)를 기준으로 구분하여 값을 저장한다. CreateCar#splite()
       - [x] 자동차 이름, 수 예외 처리
         - [x] 자동차 이름은 5자 이하만 가능하다. CreateCar#validateCarNameLength()
         - [x] 자동차 생성 가능 수는 최소 2대, 최대 10대로 한다. (게임 진행 필수 2대, 2023 F1 출전 팀을 기준 10팀) CreateCar#validateCarCount()
