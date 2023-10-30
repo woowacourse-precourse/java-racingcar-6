@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Cars;
 import racingcar.model.RaceResult;
+import racingcar.service.MovementStrategy;
+import racingcar.service.MovementStrategyFactory;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -29,7 +31,8 @@ public class RaceController {
 
     private Cars initializeCars() {
         List<String> carNames = inputView.inputCarNames();
-        return Cars.fromNames(carNames);
+        MovementStrategy movementStrategy = MovementStrategyFactory.createDefault();
+        return Cars.fromNames(carNames, movementStrategy);
     }
 
     private int initializeAttemptCount() {
