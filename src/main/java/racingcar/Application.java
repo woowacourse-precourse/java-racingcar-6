@@ -1,8 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import org.junit.platform.commons.util.StringUtils;
-import org.mockito.internal.util.StringUtil;
 
 import java.util.*;
 
