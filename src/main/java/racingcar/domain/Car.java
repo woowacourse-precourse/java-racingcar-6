@@ -13,7 +13,7 @@ public class Car {
 
     public void moveForward() {
         if (generateRandomNumber() >= 4) {
-            move.increaseMove();
+            move.increase();
         }
     }
 
