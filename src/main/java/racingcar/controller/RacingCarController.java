@@ -1,7 +1,10 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.view.OutputUserCar;
 import racingcar.view.PrintComment;
+
+import java.util.Map;
 
 public class RacingCarController {
     private Car car;
@@ -13,6 +16,12 @@ public class RacingCarController {
         PrintComment.printInitComment();
         car.carsSet();
         PrintComment.printTrialComment();
-        car.trialSet();
+        int trialNumber = car.trialSet();
+        while(trialNumber-- >0){
+            Map<String, Integer> situation = car.goFront();
+            OutputUserCar.printResultComment();
+            OutputUserCar.racingCurrent(situation);
+        }
+        OutputUserCar.printGameResultComment();
     }
 }

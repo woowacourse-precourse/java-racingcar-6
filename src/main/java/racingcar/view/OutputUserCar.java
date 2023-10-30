@@ -4,21 +4,35 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class OutputUserCar {
-    private static final String resultComment = "실행결과";
+    private static final String CYCLE_RESULT_COMMENT = "실행결과";
+    private static final String GAME_RESULT_COMMENT = "최종 우승자 : ";
 
-    public void printResultComment(){
-        System.out.println(resultComment);
+    public static void printResultComment(){
+        System.out.println(CYCLE_RESULT_COMMENT);
     }
-    public void racingCurrent(Map<String, Integer> currentSituation){
+    public static void racingCurrent(Map<String, Integer> currentSituation){
         Iterator<String> iterator = currentSituation.keySet().iterator();
         while(iterator.hasNext()){
             String keyValue = iterator.next();
-            printPersonalResultComment(keyValue, currentSituation.get(keyValue));
+            String scoreString = personalResultValue(currentSituation.get(keyValue));
+            printPersonalResultComment(keyValue, scoreString);
         }
         System.out.println();
     }
 
-    public void printPersonalResultComment(String carName, int scoreValue){
+    public static void printPersonalResultComment(String carName, String scoreValue){
         System.out.println(carName+" : "+scoreValue);
+    }
+
+    public static String personalResultValue(int scoreInt){
+        String scoreString = "";
+        while(scoreInt-- >0){
+            scoreString += "-";
+        }
+        return scoreString;
+    }
+
+    public static void printGameResultComment(){
+        System.out.println(GAME_RESULT_COMMENT);
     }
 }

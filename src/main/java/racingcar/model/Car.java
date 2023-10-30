@@ -17,9 +17,10 @@ public class Car {
         carSetting = new CarSetting(inputValue);
     }
 
-    public void trialSet(){
+    public int trialSet(){
         int trial = InputUserCar.inputStringToInt(InputUserCar.inputTrialNumber());
         carSetting.setTrialNumber(trial);
+        return trial;
     }
 
     public Map<String, Integer> goFront(){
