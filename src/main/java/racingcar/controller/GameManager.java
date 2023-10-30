@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import racingcar.model.Car;
+import racingcar.model.CarStorage;
 import racingcar.view.UserView;
 
 public class GameManager {
@@ -11,5 +13,17 @@ public class GameManager {
     public GameManager() {
         userView = new UserView();
         user = new User();
+    }
+
+
+    private void choiceWinner() {
+        Integer tempCarStep;
+        Integer maxStep = CarStorage.getMaxSteps();
+        for (Car tempCar : CarStorage.cars()) {
+            tempCarStep = tempCar.steps();
+            if (tempCarStep.equals(maxStep)) {
+                CarStorage.addWinner(tempCar);
+            }
+        }
     }
 }
