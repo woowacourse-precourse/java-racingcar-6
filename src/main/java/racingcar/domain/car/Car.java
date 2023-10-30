@@ -18,6 +18,6 @@ public class Car {
     }
 
     public void move(int number) {
-        position.forward(number);
+        position.moveForward(number);
     }
 }

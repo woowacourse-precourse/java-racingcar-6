@@ -14,7 +14,7 @@ public class Position {
         return position;
     }
 
-    public void forward(int number) {
+    public void moveForward(int number) {
         if (isValidNumberToIncreasePosition(number)) {
             position += MOVEMENT_DISTANCE;
         }
