@@ -15,17 +15,22 @@ public class Controller {
 
     public void startGame(){
         makeCars();
-        makeTrialNumber();
+        progressGame(makeTrialNumber(), cars.getCars());
+    }
+
+    public void progressGame(int trialNum, List<Car> carList){
+        for(int i=0; i < trialNum; i++){
+            service.moveRandomNumber(carList);
+        }
     }
 
     public void makeCars(){
         view.printInputCarMessage();
         makeCarList(service.splitCarNames(getCarNames()));
-
     }
-    public void makeTrialNumber(){
+    public int makeTrialNumber(){
         view.printInputTrialMessage();
-        getTrialNumber();
+        return getTrialNumber();
     }
     public String getCarNames(){
         String input = Console.readLine();
