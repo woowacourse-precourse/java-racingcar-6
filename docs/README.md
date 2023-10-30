@@ -28,6 +28,7 @@
   - [CarNameValidator.java](CarNameValidator.java)
   - [RandomNumberGenerator.java](RandomNumberGenerator.java)
   - [RandomNumberValidator.java](RandomNumberValidator.java)
+  - [CarListEditor.java](CarListEditor.java)
 
 ---
 
@@ -91,3 +92,7 @@
 - MAX_NUMBER = 9
 - validate()
 - 메시지 enum으로 정리
+
+
+### CarListEditor.java
+- splitByComma()
