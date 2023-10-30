@@ -15,6 +15,5 @@ public interface Constant {
      */
     String COMMA_DELIMITER = ",";
     String COMMA_REGEX_DELIMITER= ",";
-    String CONSECUTIVE_COMMA_DELIMITER = ",,";
     String KOREAN_COMMA_BRACKET_DELIMITER = "콤마(',')";
 }
