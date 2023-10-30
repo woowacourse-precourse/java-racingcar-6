@@ -10,7 +10,6 @@ import static racingcar.ExceptionMessage.INPUT_NUMBER_RANGE_MISMATCH;
 import static racingcar.ExceptionMessage.INPUT_TYPE_MISMATCH;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
@@ -50,10 +49,9 @@ public class InputTest {
     }
 
     @Test
-    void 이동_횟수_형식_오류() {
+    void 이동_횟수_입력_형식_오류() {
         String input = "asd";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
                 InputView::timesToTry);
