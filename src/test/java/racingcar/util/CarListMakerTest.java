@@ -21,7 +21,7 @@ class CarListMakerTest {
                 new Car("hello"),
                 new Car("i")
         );
-
-        assertThat(CarListMaker.makeCarList(input)).isEqualTo(expected);
+        CarListMaker carListMaker = new CarListMaker();
+        assertThat(carListMaker.makeCarList(input)).isEqualTo(expected);
     }
 }

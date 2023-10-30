@@ -5,7 +5,8 @@ import racingcar.util.CarListMaker;
 
 public record Cars(List<Car> carList) {
     public static Cars fromNames(String names) {
-        return new Cars(CarListMaker.makeCarList(names));
+        CarListMaker carListMaker = new CarListMaker();
+        return new Cars(carListMaker.makeCarList(names));
     }
 
     public void race(List<Integer> numberList) {
