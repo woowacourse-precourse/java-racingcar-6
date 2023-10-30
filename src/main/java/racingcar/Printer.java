@@ -13,4 +13,8 @@ public class Printer {
             System.out.println(sb.toString());
         }
     }
+    public static void printRaceResultInTotalWithWinnerList(List<String>winnerList){
+        System.out.println("hi");
+    }
+
 }

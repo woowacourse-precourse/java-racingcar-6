@@ -35,5 +35,28 @@ public class PrinterTest {
         Printer.printRaceResultInProgressWithRacerList(racerList);
         Assertions.assertEquals(expectedPrint,outputStreamCaptor.toString().trim());
     }
+    @Test
+    void 단독_우승자를_출력한다(){
+        List<String> winnerList = new ArrayList<>();
+        winnerList.add("poby");
+
+        Printer.printRaceResultInTotalWithWinnerList(winnerList);
+        String expectedResult = "최종 우승자 : pobi";
+
+        Assertions.assertEquals(expectedResult,outputStreamCaptor.toString().trim());
+    }
+
+    @Test
+    void 공동_우숭자들을_출력한다(){
+        List<String> winnerList = new ArrayList<>();
+        winnerList.add("poby");
+        winnerList.add("jun");
+
+        Printer.printRaceResultInTotalWithWinnerList(winnerList);
+        String expectedResult = "최종 우승자 : pobi, jun";
+
+        Assertions.assertEquals(expectedResult, outputStreamCaptor.toString().trim());
+    }
+
 
 }
