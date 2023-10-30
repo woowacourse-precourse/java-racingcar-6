@@ -19,7 +19,7 @@ public class RacingCar {
         printCurrentPosition();
     }
 
-    private void printCurrentPosition(){
+    private void printCurrentPosition() {
         System.out.println(name + " : " + "-".repeat(this.step));
     }
 }
