@@ -13,12 +13,13 @@ class PlayerTest {
     @DisplayName("정상 이름 테스트")
     @ParameterizedTest
     @ValueSource(strings = {"", "p", "pl", "pla", "play", "playa"})
-    void 정상_값_테스트(String input) {
+    void normal_test(String input) {
         assertDoesNotThrow(() -> new Player(input));
     }
 
     @Test
-    void 오류_6글자_이상_테스트() {
+    @DisplayName("6글자 예외 처리 테스트")
+    void exception_test() {
         assertThrows(IllegalArgumentException.class, () -> new Player("player"));
     }
 
