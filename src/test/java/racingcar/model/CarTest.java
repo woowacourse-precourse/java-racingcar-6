@@ -26,4 +26,15 @@ class CarTest {
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    @DisplayName("거리가 증가하고 반환한다.")
+    void testIncrementAndGetDistance() {
+        String name = "testC";
+        int initDistance = 0;
+        Car car = new Car(name);
+        car.forward();
+
+        assertThat(car.getDistance()).isEqualTo(++initDistance);
+    }
 }
