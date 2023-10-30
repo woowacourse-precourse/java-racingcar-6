@@ -41,8 +41,8 @@
 
 - `void CarName(String name)`
     - 다음 항목들을 검증하고, 만족하지 않는다면 `IllegalArgumentException`을 발생시킨다.
-        - 각 이름은 5글자 이하로 이루어져있다.
-        - 이름은 `null`, 빈 값, 공백으로 구성될 수 없다.
+      - 각 이름은 5글자 이하로 이루어져있다.
+      - 이름은 `null`, 빈 값, 공백으로 구성될 수 없다.
 
 ### 일급 객체 컬렉션
 
@@ -96,5 +96,3 @@
     - 사용자가 입력한 자동차 이름을 검증한다.
 - `void validateRoundNumber() throws IllegalArgumentException`
     - 사용자가 입력한 라운드 수를 검증한다.
-
-
