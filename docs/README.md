@@ -89,7 +89,8 @@ classDiagram
     +printWinner(winners: List<Car>)
   }
   class Validator{
-    -hasValidLength(carNames: String) boolean
+    -hasValidLength(rawString: String) boolean
+    -isInteger(rawString: String) boolean
     +validateCarNames(carNames: String)$
     +validateNumberOfMoves(numberOfMoves: int)$
   }
@@ -120,6 +121,8 @@ sequenceDiagram
 	GameManager->>+GameView: readNumberOfMoves()
 	GameView->>-GameManager: int
 	GameManager->>+Validator: validateNumberOfMoves()
+	Validator->>+Validator: isInteger(rawString: String)
+	Validator-->>-Validator: boolean
 	Validator-->>-GameManager: 
 	GameManager-->>-GameManager: int
 	GameManager->>GameManager: moveCars(cars: List<Car>)
