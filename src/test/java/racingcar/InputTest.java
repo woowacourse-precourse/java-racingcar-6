@@ -16,16 +16,13 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 public class InputTest {
-
     private final static String VALID_CAR_NAMES = "a,b,c";
-    private final static int VALID_TIMES_TO_TRY = 1;
+    private final static Car VALID_CAR = new Car(VALID_CAR_NAMES);
 
     @Test
     void 차_이름_분할() {
-        RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(VALID_CAR_NAMES, VALID_TIMES_TO_TRY);
-
         List<String> expected = List.of(VALID_CAR_NAMES.split(","));
-        List<String> output = racingCarGameConsole.car.names();
+        List<String> output = VALID_CAR.names();
 
         assertThat(output).isEqualTo(expected);
     }
@@ -34,7 +31,7 @@ public class InputTest {
     @MethodSource("invalidCarNamesParameters")
     void 차_이름_예외_처리(String carNames, String exceptionMessage, String name) {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> new RacingCarGameConsole(carNames, VALID_TIMES_TO_TRY));
+                () -> new Car(carNames));
         assertThat(e.getMessage()).isEqualTo(exceptionMessage);
     }
 
@@ -53,7 +50,7 @@ public class InputTest {
     @MethodSource("invalidTimesToTryParameters")
     void 이동_횟수_예외_처리(int timesToTry, String exceptionMessage, String name) {
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class,
-                () -> new RacingCarGameConsole(VALID_CAR_NAMES, timesToTry));
+                () -> new RacingCarGameConsole(VALID_CAR, timesToTry));
         assertThat(e.getMessage()).isEqualTo(exceptionMessage);
     }
 
