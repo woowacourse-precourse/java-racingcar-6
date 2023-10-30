@@ -15,5 +15,8 @@ public class GameHandler {
         game.saveCars(carNames);
 
         int gameTimes = Communicator.instructInputGameTimes();
+        for (int i = 0; i < gameTimes; i++) {
+            game.play();
+        }
     }
 }

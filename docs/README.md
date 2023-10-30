@@ -58,7 +58,7 @@
 - [x] 횟수 입력 검증 - Validator
 - [x] 입력 받은 자동차 수 만큼의 자동차 생성 - GameHandler
 - [x] 자동차 이동 로직 - Car
-- [ ] 입력 받은 회수 만큼의 게임 진행 - Game
+- [x] 입력 받은 회수 만큼의 게임 진행 - Game
 - [ ] 결과 출력 - Communicator
 - [ ] 최종 우승자 선정 - Game
 - [ ] 최종 우승자 출력 - Communicator

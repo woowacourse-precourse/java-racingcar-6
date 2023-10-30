@@ -16,5 +16,7 @@ public class Game {
                 .forEach(cars::add);
     }
 
-
+    public void play() {
+        cars.forEach(Car::conductAction);
+    }
 }
