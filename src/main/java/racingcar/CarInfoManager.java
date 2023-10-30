@@ -30,6 +30,7 @@ public class CarInfoManager {
         if (carInfoManager != null) {
             carInfoManager = null;
         }
+        carInfos.clear();
     }
 
 }

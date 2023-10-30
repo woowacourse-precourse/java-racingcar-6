@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -12,7 +13,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class RacingCarGameManagerTest extends NsTest {
 
     private static final String RESULT_PRINT_MESSAGE = "실행 결과";
-    private static final List<String> CAR_NAMES = Arrays.asList("yujin", "minji", "zion");
+    private static final List<String> CAR_NAME = Arrays.asList("yujin", "minji", "zion");
+
+    @BeforeEach
+    void setUp() {
+        CarInfoManager.initializeCarInfos(CAR_NAME);
+    }
 
     @Test
     void 실행_결과_출력_메세지() {
@@ -37,7 +43,6 @@ class RacingCarGameManagerTest extends NsTest {
 
     @Test
     void 최종_우승자_출력_메세지() {
-        CarInfoManager.initializeCarInfos(CAR_NAMES);
         runMain();
         assertThat(output().contains("최종 우승자 : "));
     }

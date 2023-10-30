@@ -41,7 +41,7 @@ public class RacingCarGameManager {
     }
 
     private static void printFinalResult() {
-        System.out.println("최종 우승자: " + getWinner());
+        System.out.println("최종 우승자 : " + getWinner());
     }
 
     private static String getWinner() {
