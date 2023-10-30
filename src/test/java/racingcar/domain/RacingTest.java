@@ -13,7 +13,6 @@ public class RacingTest {
 
     private static final int MOVE_BOUNDARY = 4;
     private static final int NO_MOVE_BOUNDARY = 3;
-    private static final long ATTEMPT_COUNT = 5;
     private static final int INITIAL_POSITION = 0;
     private static final int MOVED_POSITION = 1;
 
@@ -31,7 +30,7 @@ public class RacingTest {
     void race_whenRandomNumberIs4_shouldMoveCars() {
         // Given
         FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(MOVE_BOUNDARY);
-        racing = new Racing(cars, ATTEMPT_COUNT, fixedNumberGenerator);
+        racing = new Racing(cars, fixedNumberGenerator);
 
         // When
         racing.race();
@@ -48,7 +47,7 @@ public class RacingTest {
     void race_whenRandomNumberIs3_shouldNotMoveCars() {
         // Given
         FixedNumberGenerator fixedNumberGenerator = new FixedNumberGenerator(NO_MOVE_BOUNDARY);
-        racing = new Racing(cars, ATTEMPT_COUNT, fixedNumberGenerator);
+        racing = new Racing(cars, fixedNumberGenerator);
 
         // When
         racing.race();

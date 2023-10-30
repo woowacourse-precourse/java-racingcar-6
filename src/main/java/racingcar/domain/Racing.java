@@ -6,12 +6,10 @@ import racingcar.util.RandomNumberGenerator;
 public class Racing {
     private static final int MIN_FORWARD_VALUE = 4;
     private final Cars cars;
-    private final long attempCount;
     private final RandomNumberGenerator randomNumberGenerator;
 
-    public Racing(Cars cars, long attemptCount, RandomNumberGenerator randomNumberGenerator) {
+    public Racing(Cars cars, RandomNumberGenerator randomNumberGenerator) {
         this.cars = cars;
-        this.attempCount = attemptCount;
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
@@ -35,9 +33,6 @@ public class Racing {
         return randomValue >= MIN_FORWARD_VALUE;
     }
 
-    public long getAttempCount() {
-        return attempCount;
-    }
 }
 
 

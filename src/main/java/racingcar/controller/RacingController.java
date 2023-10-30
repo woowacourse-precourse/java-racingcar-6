@@ -19,6 +19,7 @@ public class RacingController {
     private final AttemptCountValidator attemptCountValidator = new AttemptCountValidator(blankValidator);
     private final RandomNumberGenerator randomNumberGenerator = new RacingNumberGenerator();
     private final Cars cars = new Cars();
+    private int attemptCount;
     private Racing racing;
 
     public void raceStart() {
@@ -40,14 +41,14 @@ public class RacingController {
 
     private void setAttemptCountForRace() {
         String attemptCountInput = inputView.printAttemptCountRequest();
-        int attemptCount = attemptCountValidator.getAttemptCount(attemptCountInput);
-        racing = new Racing(cars, attemptCount, randomNumberGenerator);
+        this.attemptCount = attemptCountValidator.getAttemptCount(attemptCountInput);
+        racing = new Racing(cars, randomNumberGenerator);
         outputView.printEnterLine();
     }
 
     private void runRace() {
         outputView.printResultText();
-        for (int i = 0; i < racing.getAttempCount(); i++) {
+        for (int i = 0; i < this.attemptCount; i++) {
             racing.race();
             outputView.printExecutionResult(cars.getCars());
             System.out.println();
