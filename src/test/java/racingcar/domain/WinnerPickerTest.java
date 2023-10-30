@@ -43,9 +43,9 @@ class WinnerPickerTest {
 
     @Test
     void 우승자가_한명인_경우_pickWinner_메서드로_우승자의_이름리스트를_반환() {
-        List<String> winnersName = winnerPicker.pickWinner(racingCars);
-        assertThat(winnersName.size()).isEqualTo(1);
-        assertThat(winnersName).contains(CAR2_NAME);
+        Winners winners = winnerPicker.pickWinner(racingCars);
+        assertThat(winners.getWinnersName().size()).isEqualTo(1);
+        assertThat(winners.getWinnersName()).contains(CAR2_NAME);
     }
 
     @Test
@@ -59,9 +59,9 @@ class WinnerPickerTest {
         carList.add(car4);
         racingCars = new RacingCars(carList);
 
-        List<String> winnersName = winnerPicker.pickWinner(racingCars);
+        Winners winners = winnerPicker.pickWinner(racingCars);
 
-        assertThat(winnersName.size()).isEqualTo(2);
-        assertThat(winnersName).contains(CAR2_NAME, CAR4_NAME);
+        assertThat(winners.getWinnersName().size()).isEqualTo(2);
+        assertThat(winners.getWinnersName()).contains(CAR2_NAME, CAR4_NAME);
     }
 }
