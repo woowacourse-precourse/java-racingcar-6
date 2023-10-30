@@ -53,7 +53,7 @@ public class ExceptionChecker {
         }
     }
 
-    public void lessThenZero(String strTries) throws IllegalArgumentException {
+    public void lessThanZero(String strTries) throws IllegalArgumentException {
         if (Integer.parseInt(strTries) < 0) {
             throw new IllegalArgumentException("입력한 횟수가 음수이므로 프로그램을 종료합니다.");
         }
@@ -61,6 +61,6 @@ public class ExceptionChecker {
 
     public void wrongInputTries(String strTries) {
         isNotInteger(strTries);
-        lessThenZero(strTries);
+        lessThanZero(strTries);
     }
 }
