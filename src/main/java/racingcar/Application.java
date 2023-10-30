@@ -6,6 +6,7 @@ import racingcar.RacingCar;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
+    static final int NAME_LENGTH_LIMIT = 5;
     static String[] carName;
     static String round;
 
@@ -72,7 +73,7 @@ public class Application {
 
     public static void checkWrongName(String[] carName) {
         for (String name : carName) {
-            if (name.length() > 5) {
+            if (name.length() > NAME_LENGTH_LIMIT) {
                 throw new IllegalArgumentException();
             }
         }
