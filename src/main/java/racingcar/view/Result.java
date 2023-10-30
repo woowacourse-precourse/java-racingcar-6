@@ -9,20 +9,21 @@ import racingcar.model.Car;
 
 public class Result {
     public void printResult(List<Car> carList){
-        for(int i = 0; i < carList.size(); i++){
-            Car car = carList.get(i);
-            System.out.print(car.getCarName());
-            System.out.print(" : ");
-            printDistance(car.getDistance());
-            System.out.println();
+        StringBuilder result = new StringBuilder();
+        for(Car car : carList){
+            result.append(car.getCarName()).append(" : ");
+            result.append(printDistance(car.getDistance()));
+            result.append(System.lineSeparator());
         }
-        System.out.println();
+        System.out.println(result);
     }
 
-    public void printDistance(int distance){
+    public String printDistance(int distance){
+        StringBuilder distanceBuilder = new StringBuilder();
         for(int i = 0; i < distance; i++){
-            System.out.print("-");
+            distanceBuilder.append("-");
         }
+        return distanceBuilder.toString();
     }
 
     public void printWinner(List<Car> carList){
