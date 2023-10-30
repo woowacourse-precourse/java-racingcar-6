@@ -7,14 +7,14 @@ public enum OutputMessage {
     ROUND_RESULT_MESSAGE("실행 결과"),
     WINNER_MESSAGE("최종 우승자 : ");
 
-    private final String outputMessage;
+    private final String message;
 
-    OutputMessage(String outputMessage) {
-        this.outputMessage = outputMessage;
+    OutputMessage(String message) {
+        this.message = message;
     }
 
-    public String getOutputMessage() {
-        return outputMessage;
+    public String getMessage() {
+        return message;
     }
 
 }

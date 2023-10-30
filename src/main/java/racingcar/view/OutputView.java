@@ -9,11 +9,11 @@ import static racingcar.enums.OutputMessage.WINNER_MESSAGE;
 public class OutputView {
 
     public static void printCarNameInputMessage() {
-        System.out.print(CAR_NAME_INPUT_MESSAGE.getOutputMessage());
+        System.out.print(CAR_NAME_INPUT_MESSAGE.getMessage());
     }
 
     public static void printTryCountInputMessage() {
-        System.out.print(TRY_COUNT_INPUT_MESSAGE.getOutputMessage());
+        System.out.print(TRY_COUNT_INPUT_MESSAGE.getMessage());
     }
 
     public static void printRoundResult(String result) {
@@ -23,7 +23,7 @@ public class OutputView {
     }
 
     public static void printWinnerNames(String result) {
-        System.out.print(WINNER_MESSAGE.getOutputMessage());
+        System.out.print(WINNER_MESSAGE.getMessage());
         System.out.print(result);
     }
 

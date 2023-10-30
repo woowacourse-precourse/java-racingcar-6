@@ -24,7 +24,7 @@ class OutputViewTest {
     @Test
     void 자동차_이름_입력_요구_출력() {
         //given
-        String expectedOutput = CAR_NAME_INPUT_MESSAGE.getOutputMessage();
+        String expectedOutput = CAR_NAME_INPUT_MESSAGE.getMessage();
 
         //when
         OutputView.printCarNameInputMessage();
@@ -37,7 +37,7 @@ class OutputViewTest {
     @Test
     void 시도_횟수_입력_요구_출력() {
         //given
-        String expectedOutput = TRY_COUNT_INPUT_MESSAGE.getOutputMessage();
+        String expectedOutput = TRY_COUNT_INPUT_MESSAGE.getMessage();
 
         //when
         OutputView.printTryCountInputMessage();
