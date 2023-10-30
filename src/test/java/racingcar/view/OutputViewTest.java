@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import racingcar.MoveResult;
+
 class OutputViewTest {
 
     OutputStream out = new ByteArrayOutputStream();
@@ -32,7 +34,7 @@ class OutputViewTest {
     @Test
     void printRacingResult_Success() {
         // when
-        OutputView.printRacingResult(List.of("pobi", "woni", "jun"), List.of(1, 2, 1));
+        OutputView.printMoveResult(new MoveResult(List.of("pobi", "woni", "jun"), List.of(1, 2, 1)));
 
         // then
         Assertions.assertThat(out.toString()).isEqualTo("pobi : -\nwoni : --\njun : -\n\n");

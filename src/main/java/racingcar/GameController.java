@@ -31,7 +31,7 @@ public class GameController {
         OutputView.printRacingResultMessage();
         while (numberOfAttempts > 0) {
             MoveResult moveResult = cars.move(numberGenerator);
-            OutputView.printRacingResult(moveResult.carNames(), moveResult.forwardCounts());
+            OutputView.printMoveResult(moveResult);
             numberOfAttempts--;
         }
         List<String> winners = decideWinners(cars);
