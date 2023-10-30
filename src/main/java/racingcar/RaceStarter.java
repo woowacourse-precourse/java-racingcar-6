@@ -6,15 +6,19 @@ public class RaceStarter {
 
     List<Car> cars = new ArrayList<>();
     int moveNum;
-    int carNum;
 
     public RaceStarter(String str, int moveNum) {
-        carNum = getCars(str);
+        getCars(str);
         this.moveNum = moveNum;
     }
 
-    int getCars(String str) {
-    
+    void getCars(String str) {
+        String[] carNames = str.split(",");
+        for (String carName : carNames) {
+            checkInputValidity(carName);
+            Car car = new Car(carName);
+            cars.add(car);
+        }
     }
 
     void start() {

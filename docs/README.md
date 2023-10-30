@@ -28,17 +28,15 @@
 > > 필드: 
 > > + ArrayList cars: Car 클래스를 저장
 > > + int moveNum: 사용자가 입력한 이동 횟수 저장
-> > + int carNum: 자동차의 개수 저장
 
 ##### RaceStarter(str, moveNum) 생성자
-+ getCars(str) 함수를 호출하고 반환값을 carNum에 할당함
++ getCars(str) 함수를 호출함
 + moveNum에 사용자가 입력한 횟수인 moveNum을 할당함
 
-##### int getCars(str)
+##### void getCars(str)
 + 사용자가 입력한 문자열을 ','를 기준으로 나눔
 + checkInputValidity 함수를 통해 입력값 유효성 체크
 + 각각의 자동차 이름으로 Car 클래스를 만들고 cars 리스트에 추가함
-+ 자동차의 개수를 반환함
 
 ##### void start()
 + cars 리스트 내부의 자동차들에 대해 move()를 moveNum번 반복
