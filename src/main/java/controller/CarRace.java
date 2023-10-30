@@ -9,7 +9,6 @@ package controller;
         import domain.RandomForwardStrategy;
         import dto.RoundResultDto;
         import dto.WinnerDto;
-        import enums.PrintMessages;
         import java.util.List;
         import util.convertor.StringListToCarListConvertor;
         import util.convertor.StringToIntConvertor;
@@ -19,12 +18,12 @@ package controller;
         import view.ConsoleInput;
         import view.ConsoleOutput;
         import view.Input;
-        import view.OutPut;
+        import view.Output;
 
 public class CarRace implements Race {
 
     private final Input input;
-    private final OutPut output;
+    private final Output output;
 
     private final ForwardStrategy forwardStrategy;
 

@@ -1,6 +1,6 @@
 package view;
 
-public interface OutPut {
+public interface Output {
 
     public void print(String value);
 }

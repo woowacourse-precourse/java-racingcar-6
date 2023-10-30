@@ -1,6 +1,6 @@
 package view;
 
-public class ConsoleOutput implements OutPut{
+public class ConsoleOutput implements Output {
 
     @Override
     public void print(String value) {
