@@ -1,7 +1,9 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import racingcar.view.OutputView;
 
@@ -33,4 +35,18 @@ public class Cars {
         System.out.println();
     }
 
+    public int maxDistance() {
+        Optional<Integer> maxPositionOptional = carList.stream()
+                .map(car -> car.position())
+                .max(Comparator.naturalOrder());
+
+        return maxPositionOptional.orElse(0);
+    }
+
+    public List<Car> checkWinner() {
+        int maxDistance = maxDistance();
+        return carList.stream()
+                .filter(car -> car.position() == maxDistance)
+                .collect(Collectors.toList());
+    }
 }
