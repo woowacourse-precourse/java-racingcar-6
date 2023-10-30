@@ -27,16 +27,10 @@ public class Game {
         return updatedCars;
     }
 
-    public List<Car> getFinalists() {
-        List<Car> cars = carStorage.getStoredCars();
-        int winningDisplacement = cars.stream()
-                .map(Car::getDisplacement)
-                .max(Integer::compareTo)
+    public List<Car> getWinners() {
+        Car leadingCar = carStorage.getLeadingCar()
                 .orElseThrow(() -> new NoSuchElementException("저장된 자동차가 없습니다"));
-
-        return cars.stream()
-                .filter(car -> car.getDisplacement() == winningDisplacement)
-                .toList();
+        return carStorage.getWinners(leadingCar);
     }
 
     private void updateStorage(List<Car> cars) {

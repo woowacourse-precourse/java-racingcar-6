@@ -31,7 +31,7 @@ public class Communicator {
         System.out.println();
     }
 
-    public static void printFinalists(List<Car> finalists) {
+    public static void printWinners(List<Car> finalists) {
         String finalistNames = finalists.stream()
                 .map(Car::displayName)
                 .collect(Collectors.joining(", "));

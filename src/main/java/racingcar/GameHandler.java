@@ -23,8 +23,8 @@ public class GameHandler {
                 Communicator.printProgress(cars);
             }
 
-            List<Car> finalists = game.getFinalists();
-            Communicator.printFinalists(finalists);
+            List<Car> winners = game.getWinners();
+            Communicator.printWinners(winners);
         } catch (RuntimeException exception) {
             ExceptionHandler.handleException(exception);
         }

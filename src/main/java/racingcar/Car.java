@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final String name;
     private final int displacement;
 
@@ -23,19 +23,15 @@ public class Car {
     }
 
     public String showCurrentDisplacement() {
-        StringBuilder stringBuilder = new StringBuilder(name).append(" : ");
-        for (int i = 0; i < displacement; i++) {
-            stringBuilder.append("-");
-        }
-        return stringBuilder.toString();
+        return name + " : " + "-".repeat(Math.max(0, displacement));
     }
 
     public String displayName() {
         return name;
     }
 
-    public int getDisplacement() {
-        return displacement;
+    public boolean isTieWith(Car competitor) {
+        return this.displacement == competitor.displacement;
     }
 
     private boolean isAbleToProceed() {
@@ -45,5 +41,10 @@ public class Car {
 
     private Car proceed() {
         return new Car(name, displacement + 1);
+    }
+
+    @Override
+    public int compareTo(Car competitor) {
+        return this.displacement - competitor.displacement;
     }
 }

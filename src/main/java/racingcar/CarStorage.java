@@ -3,6 +3,7 @@ package racingcar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class CarStorage {
     private final Map<String, Car> cars;
@@ -19,6 +20,19 @@ public class CarStorage {
     public List<Car> getStoredCars() {
         return cars.values()
                 .stream()
+                .toList();
+    }
+
+    public Optional<Car> getLeadingCar() {
+        return cars.values()
+                .stream()
+                .max(Car::compareTo);
+    }
+
+    public List<Car> getWinners(Car leadingCar) {
+        return cars.values()
+                .stream()
+                .filter(car -> car.isTieWith(car))
                 .toList();
     }
 }
