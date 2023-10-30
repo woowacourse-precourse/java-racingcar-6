@@ -8,14 +8,16 @@ class Validator {
         String[] carNames = userInput.split(",");
         for (String carName : carNames) {
             if (carName.length() > MINIMUM_CAR_NAME_LENGTH) {
-                throw new IllegalArgumentException("Car name '" + carName + "' should not exceed 5 characters.");
+                throw new IllegalArgumentException(
+                        "Car name '" + carName + "' should not exceed 5 characters.");
             }
         }
     }
 
     static void validateNumberOfAttempts(String userInput) {
         if (!userInput.matches(NUMBERS_ONLY_REGEX)) {
-            throw new IllegalArgumentException("The number of attempts '" + userInput + "' should be an integer.");
+            throw new IllegalArgumentException(
+                    "The number of attempts '" + userInput + "' should be a positive integer.");
         }
     }
 }
