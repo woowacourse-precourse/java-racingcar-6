@@ -16,7 +16,7 @@ public class Cars {
     public void settingNames() {
         String names = Console.readLine();
         for(String name : names.split(",")) {
-            cars.add(new Car(name));
+            cars.add(new Car(name.trim()));
         }
     }
 
