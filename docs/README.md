@@ -23,6 +23,9 @@
 | :white_large_square: | `makeCars`         | player가 입력한 자동차 이름을 검증하고 `,`를 기준으로 분리해 `List<Car>`로 저장한다. |
 | :white_large_square: | `saveSettings`     | player가 입력한 자동차 이름을 저장한다.                                 |
 | :white_large_square: | `continues`        | game이 진행중인지를 확인한다.                                        |
+| :white_large_square: | `checkWinners`     | game 우승자를 알아낸다.                                           |
+| :white_large_square: | `getWinners`       | Getter of `winners`.                                      |
+| :white_large_square: | `getCarList`       | Getter of `carList`.                                      |
 
 ## Car
 
