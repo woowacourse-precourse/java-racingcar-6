@@ -18,4 +18,14 @@ public class Car {
             movingCount++;
         }
     }
+
+    public String printResult() {
+        StringBuilder hyphen = new StringBuilder();
+
+        for (long i = 0; i < movingCount; i++) {
+            hyphen.append("-");
+        }
+
+        return name + " : " + hyphen.toString();
+    }
 }
