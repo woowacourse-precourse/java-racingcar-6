@@ -7,6 +7,7 @@ import java.util.*;
 public class User {
     private final int MAX_NAME_LENGTH = 5;
     private final int GO_STRAIGHT_NUMBER = 4;
+    private final String INIT_CARDISTANCE = "";
     public boolean decideMove(int order){
         if(order >= GO_STRAIGHT_NUMBER){
             return true;
@@ -34,7 +35,7 @@ public class User {
     public Map<String,String> initUser(List<String> nameList){
         HashMap<String,String> userInformation = new HashMap<>();
         for(int index = 0; index < nameList.size();index++){
-            userInformation.put(nameList.get(index),"");
+            userInformation.put(nameList.get(index),INIT_CARDISTANCE);
         }
         return userInformation;
     }
