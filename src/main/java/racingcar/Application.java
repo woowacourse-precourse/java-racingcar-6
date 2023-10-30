@@ -1,7 +1,14 @@
 package racingcar;
 
+import java.util.Arrays;
+import java.util.List;
+import racingcar.controller.RaceController;
+import racingcar.domain.Car;
+import racingcar.view.OutputView;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        RaceController raceController = new RaceController(new OutputView());
+        raceController.run();
     }
 }

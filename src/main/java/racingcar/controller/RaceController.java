@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.NumberGenerator;
+import racingcar.domain.Referee;
 import racingcar.util.InputValidator;
 import racingcar.view.OutputView;
 
@@ -18,7 +19,20 @@ public class RaceController {
     }
 
     public void run() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        List<String> carNames = askCarNames();
+        List<Car> cars = createCars(carNames);
 
+        System.out.println("시도할 회수는 몇회인가요?");
+        int moveCount = askMoveCount();
+
+        System.out.println("\n실행 결과");
+        repeatMoveCars(moveCount, cars);
+
+        Referee referee = new Referee(cars);
+        List<Car> winners = referee.findWinners();
+
+        outputView.showWinners(winners);
     }
 
     public void tryMoveCars(List<Car> cars) {
@@ -35,6 +49,7 @@ public class RaceController {
     public void repeatMoveCars(int moveCount, List<Car> cars) {
         while (moveCount-- > 0) {
             tryMoveCars(cars);
+            System.out.println();
         }
     }
 
