@@ -21,9 +21,17 @@ public class Controller {
     public void progressGame(int trialNum, List<Car> carList){
         for(int i=0; i < trialNum; i++){
             service.moveRandomNumber(carList);
+            printRoundResult(carList);
+            view.printLineBreak();
         }
     }
-
+    public void printRoundResult(List<Car> carList){
+        for(Car car : carList){
+            view.printCarName(car);
+            view.printLocation(car);
+            view.printLineBreak();
+        }
+    }
     public void makeCars(){
         view.printInputCarMessage();
         makeCarList(service.splitCarNames(getCarNames()));
