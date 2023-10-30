@@ -5,7 +5,7 @@ public enum ConstPrint {
     ASK_ATTEMPT("시도할 회수는 몇회인가요?\n"),
     PRINT_RESULT("실행 결과\n");
 
-    private String constPrint;
+    private final String constPrint;
 
     private ConstPrint(String constPrint){
         this.constPrint = constPrint;
