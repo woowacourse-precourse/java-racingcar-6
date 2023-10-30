@@ -8,8 +8,13 @@ import racingcar.io.Output;
 
 public class RacingGame {
 
+    private final Race race;
+
+    public RacingGame(Race race) {
+        this.race = race;
+    }
+
     public void play() {
-        Race race = new Race();
         race.registerRacer();
         race.decideRoundNumber();
 
