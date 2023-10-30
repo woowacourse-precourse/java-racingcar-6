@@ -33,13 +33,13 @@ class CarsTest {
         // given
         MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
         List<String> names = Arrays.asList("pobi", "crong", "horan");
+        List<Car> expected = Arrays.asList(new Car(movingStrategy, "pobi", 0),
+                new Car(movingStrategy, "crong", 0),
+                new Car(movingStrategy, "horan", 0));
 
         // when
         Cars cars = new Cars(names, movingStrategy);
         List<Car> result = cars.getCars();
-        List<Car> expected = Arrays.asList(new Car(movingStrategy, "pobi", 0),
-                                        new Car(movingStrategy, "crong", 0),
-                                        new Car(movingStrategy, "horan", 0));
         
 
         // then
@@ -52,7 +52,7 @@ class CarsTest {
     @DisplayName("자동차가 모두 전진하는 경우")
     void raceAllCars_전진() {
         // given
-        MovingStrategy moveStrategy = new MovingStrategy(()->4);
+        MovingStrategy moveStrategy = new MovingStrategy(()->4); // isCarMove() 항상 true 반환, 즉 항상 전진
         List<String> names = Arrays.asList("pobi", "crong", "horan");
         Cars cars = new Cars(names, moveStrategy);
 
@@ -70,7 +70,7 @@ class CarsTest {
     @DisplayName("자동차가 모두 멈추는 경우")
     void raceAllCars_멈춤() {
         // given
-        MovingStrategy stopStrategy = new MovingStrategy(()->3);
+        MovingStrategy stopStrategy = new MovingStrategy(()->3); // isCarMove() 항상 false 반환, 즉 항상 멈춤
         List<String> names = Arrays.asList("pobi", "crong", "horan");
         Cars cars = new Cars(names, stopStrategy);
 
@@ -92,18 +92,20 @@ class CarsTest {
         List<String> names = Arrays.asList("pobi", "crong", "horan");
         Cars cars = new Cars(names, movingStrategy);
 
-
-        // when
+        // 경주 세번 돌리기
         for (int i=0; i<3; i++) {
             cars.raceAllCars();
         }
         List<Car> carList = cars.getCars();
-        int expected = carList.stream()
-                                .max(Car::compareTo)
-                                .get()
-                                .getPosition();
 
-        int result = cars.findWinnerPosition();
+        // 우승자 위치 찾아내기
+        int expected = carList.stream()
+                .max(Car::compareTo)
+                .get()
+                .getPosition();
+
+        // when
+        int result = cars.findWinnerPosition(); // findWinnerPosition() 메서드로 우승자 위치 찾기
 
         // then
         assertEquals(expected, result);
@@ -117,24 +119,29 @@ class CarsTest {
         List<String> names = Arrays.asList("pobi", "crong", "horan");
         Cars cars = new Cars(names, movingStrategy);
 
-
+        // 경주 세번 돌리기
         for (int i=0; i<3; i++) {
             cars.raceAllCars();
         }
         List<Car> carList = cars.getCars();
+
+        // 우승자 위치 찾아내기
         int winnerPosition = carList.stream()
                                 .max(Car::compareTo)
                                 .get()
                                 .getPosition();
 
+        // 우승자 찾기
         List<Car> expected = carList.stream()
                 .filter(car -> car.getPosition() == winnerPosition)
                 .collect(Collectors.toList());
 
         // when
-        List<Car> result = cars.findWinner(winnerPosition);
+
+        List<Car> result = cars.findWinner(winnerPosition); // findWinner() 메서드로 우승자 찾기
 
         // then
+
         assertEquals(expected, result);
     }
 
