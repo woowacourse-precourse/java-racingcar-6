@@ -3,6 +3,7 @@ package racingcar.game.inputgenerateManager;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.game.exception.IllegalBlankException;
+import racingcar.game.exception.IllegalDuplicateException;
 import racingcar.game.exception.IllegalLengthException;
 import racingcar.game.exception.IllegalRangeException;
 import racingcar.game.exception.IllegalTypeException;
@@ -14,6 +15,7 @@ class InputValidatorTest {
     private final String ONLY_BLANK = " ";
     private final String[] NAME_LIST_CONTAIN_OVER_LENGTH = {"한놈", "두식이", "다섯글자이상"};
     private final String[] NAME_LIST_CONTAIN_SPACE = {"한놈", "두식이", " "};
+    private final String[] NAME_LIST_CONTAIN_DUPLICATE_NAME = {"한놈","두식이","한놈"};
 
     @Test
     void 숫자검증() {
@@ -31,5 +33,7 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalLengthException.class);
         Assertions.assertThatThrownBy(() -> InputValidator.validateName(NAME_LIST_CONTAIN_SPACE))
                 .isInstanceOf(IllegalBlankException.class);
+        Assertions.assertThatThrownBy(() -> InputValidator.validateName(NAME_LIST_CONTAIN_DUPLICATE_NAME))
+                .isInstanceOf(IllegalDuplicateException.class);
     }
 }
