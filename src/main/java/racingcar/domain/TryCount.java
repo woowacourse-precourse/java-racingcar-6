@@ -3,7 +3,7 @@ package racingcar.domain;
 import racingcar.constants.ExceptionMessage;
 
 public class TryCount {
-    private final int One = 1;
+    private final int ONE = 1;
     private int tryCount;
 
     public TryCount(final int tryCount) {
@@ -12,7 +12,7 @@ public class TryCount {
     }
 
     private void validateTryCount(final int tryCount) {
-        if (tryCount < One) {
+        if (tryCount < ONE) {
             ExceptionMessage.INVALID_INPUT_ERROR_MESSAGE.throwException();
         }
     }
@@ -22,6 +22,6 @@ public class TryCount {
     }
 
     public boolean hasRepeat() {
-        return tryCount >= One;
+        return tryCount >= ONE;
     }
 }
