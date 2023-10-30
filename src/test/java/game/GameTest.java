@@ -210,4 +210,39 @@ public class GameTest {
         assertThat(winnerList.get(0)).isEqualTo("user1");
         assertThat(winnerList.get(1)).isEqualTo("user2");
     }
+
+    @Test
+    public void testPrintWinner(){
+        Game game = new Game();
+
+        int randNumber = game.randomNumber(5);
+
+        List<String> people = game.addPerson("user1,user2");
+
+        List<Car> carList = game.addCar(people);
+
+        systemIn("3");
+        int count = game.count();
+
+        game.gameResult(carList, randNumber, count);
+
+        int maxCount = game.maxCount(carList);
+
+        List<String> winnerList = game.winner(carList, maxCount);
+
+        game.printWinner(winnerList);
+
+        assertThat(getOutput()).isEqualTo("시도할 횟수는 몇회인가요?\n" +
+                "실행 결과\n" +
+                "user1 : -\n" +
+                "user2 : -\n" +
+                "\n" +
+                "user1 : --\n" +
+                "user2 : --\n" +
+                "\n" +
+                "user1 : ---\n" +
+                "user2 : ---\n" +
+                "\n" +
+                "최종 우승자 : user1, user2");
+    }
 }
