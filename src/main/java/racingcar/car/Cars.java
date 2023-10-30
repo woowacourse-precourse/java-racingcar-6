@@ -32,4 +32,8 @@ public record Cars(List<Car> carList) {
     private boolean isWinner(Car car) {
         return car.getCarLocation() == getMaxLocation();
     }
+
+    public int totalCars() {
+        return carList.size();
+    }
 }
