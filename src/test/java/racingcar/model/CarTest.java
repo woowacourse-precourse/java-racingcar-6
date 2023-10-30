@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
@@ -24,4 +25,10 @@ class CarTest {
                 .hasMessageContaining("[ERROR] : 5글자 이하의 자동차 이름을 입력해주세요");
     }
 
+    @Test
+    @DisplayName("이름이 같으면 같은 객체로 인식")
+    public void nameEqualityTest(){
+        Car pobiCar = new Car("pobi");
+        assertThat(pobiCar).isEqualTo(new Car("pobi"));
+    }
 }
