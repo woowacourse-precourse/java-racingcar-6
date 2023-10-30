@@ -37,15 +37,15 @@ public class Race {
     }
 
     private StringBuilder getFindWinners() {
-        int currnetMaxPosition = cars.getCurrnetMaxPosition();
-        List<Car> winners = cars.findWinner(currnetMaxPosition);
+        int currentMaxPosition = cars.getCurrentPosition();
+        List<Car> winners = cars.findWinner(currentMaxPosition);
         System.out.println();
         return showWinner(winners);
     }
 
     private void carsInformation() {
-        Map<String, Integer> currentPostion = cars.carsInformation();
-        for (Entry<String, Integer> carsInformation : currentPostion.entrySet()) {
+        Map<String, Integer> currentPosition = cars.carsInformation();
+        for (Entry<String, Integer> carsInformation : currentPosition.entrySet()) {
             OutputView.printCarsMove(carsInformation.getKey(), carsInformation.getValue());
         }
     }

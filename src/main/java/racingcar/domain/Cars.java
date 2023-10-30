@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Cars {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
@@ -20,27 +20,27 @@ public class Cars {
     }
 
     public Map<String,Integer> carsInformation(){
-        Map<String,Integer> currentPostion = new HashMap<>();
+        Map<String,Integer> currentPosition = new HashMap<>();
         for (Car car : cars) {
-            currentPostion.put(car.getName(), car.getPosition());
+            currentPosition.put(car.getName(), car.getPosition());
         }
-        return currentPostion;
+        return currentPosition;
     }
 
-    public int getCurrnetMaxPosition() {
-        int currnetMaxPosition = 0;
+    public int getCurrentPosition() {
+        int currentMaxPosition = 0;
         for (Car car : cars) {
-            currnetMaxPosition = Math.max(currnetMaxPosition, car.getPosition());
+            currentMaxPosition = Math.max(currentMaxPosition, car.getPosition());
         }
-        return currnetMaxPosition;
+        return currentMaxPosition;
     }
 
 
 
-    public List<Car> findWinner(int currnetMaxPosition){
+    public List<Car> findWinner(int currentMaxPosition){
         List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
-            if(car.getPosition() == currnetMaxPosition){
+            if(car.getPosition() == currentMaxPosition){
                 winners.add(car);
             }
         }

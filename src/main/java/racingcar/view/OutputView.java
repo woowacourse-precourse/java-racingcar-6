@@ -17,11 +17,11 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printCarsMove(String name, int postion) {
+    public static void printCarsMove(String name, int position) {
         StringBuilder carString = new StringBuilder();
         carString.append(name);
         carString.append(" : ");
-        for (int i = 0; i < postion; i++) {
+        for (int i = 0; i < position; i++) {
             carString.append("-");
         }
         System.out.println(carString);
