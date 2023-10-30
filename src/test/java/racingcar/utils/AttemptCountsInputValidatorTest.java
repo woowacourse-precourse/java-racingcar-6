@@ -64,7 +64,7 @@ class AttemptCountsInputValidatorTest {
         String input = "2147483648";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_INTEGER_RANGE.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.NOT_INTEGER.getError());
     }
 
     @Test
@@ -74,7 +74,7 @@ class AttemptCountsInputValidatorTest {
         String input = "-2147483649";
         // when, then
         Assertions.assertThatThrownBy(() -> AttemptCountsInputValidator.validate(input))
-                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_INTEGER_RANGE.getError());
+                .hasMessage(AttemptCountsInputExceptionMessage.NOT_INTEGER.getError());
     }
 
     @Test
@@ -104,6 +104,6 @@ class AttemptCountsInputValidatorTest {
         String input = "2147483647";
         // when, then
         Assertions.assertThatCode(() -> AttemptCountsInputValidator.validate(input))
-                .doesNotThrowAnyException();
+                .hasMessage(AttemptCountsInputExceptionMessage.OUT_OF_RANGE.getError());
     }
 }
