@@ -13,14 +13,14 @@ public final class RandomMoveCommander implements MoveCommander {
 
     @Override
     public MoveCommand nextCommand() {
-        final int number = numberPicker.pick();
-        if (canGo(number)) {
+        if (canGo()) {
             return MoveCommand.GO;
         }
         return MoveCommand.STAY;
     }
 
-    private boolean canGo(final int number) {
+    private boolean canGo() {
+        final int number = numberPicker.pick();
         return number >= MIN_GO_NUMBER;
     }
 }
