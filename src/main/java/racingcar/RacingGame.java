@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +10,61 @@ public class RacingGame {
     Integer count = 0;
 
     public void start() {
+        getInputCarName();
+        getInputCount();
+        race();
+        printWinners();
+    }
+
+    private void race() {
+        for (int i = 0; i < this.count; i++) {
+            executeOneTurn();
+            printOneTurn();
+        }
+    }
+
+    private void executeOneTurn() {
+        for (Car car : carArrayList) {
+            car.goOrStop();
+        }
+    }
+
+    private void printOneTurn() {
+        for (Car car : carArrayList) {
+            car.printState();
+        }
+        System.out.println();
+    }
+
+    private void printWinners() {
+        // 우승자 출력
+        System.out.print("최종 우승자 : ");
+        Collections.sort(carArrayList);
+        int max = carArrayList.get(0).distance;
+        int cnt = 0;
+        for (Car c: carArrayList) {
+            if (c.distance == max) cnt++;
+        }
+        for (int i = 0; i < cnt; i++) {
+            System.out.print(carArrayList.get(i).name);
+            if (i != cnt-1) {
+                System.out.print(", ");
+            }
+        }
+    }
+
+    private void getInputCount() {
+        // 시도할 횟수 입력
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input;
+        input = Console.readLine();
+        // 몇대까지 가능하게 할 것인가?
+        this.count = Integer.parseInt(input);
+        System.out.println();
+
+    }
+
+    private void getInputCarName() {
         // 자동차 이름 입력
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
@@ -22,42 +76,6 @@ public class RacingGame {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하입니다.");
             }
             carArrayList.add(new Car(s, 0));
-        }
-
-        // 시도할 횟수 입력
-        System.out.println("시도할 회수는 몇회인가요?");
-        input = Console.readLine();
-        // 몇대까지 가능하게 할 것인가?
-        this.count = Integer.parseInt(input);
-        System.out.println(this.count);
-
-        // 실행 결과 출력
-        for (int i = 0; i < this.count; i++) {
-            for (int j = 0; j < this.carArrayList.size(); j++) {
-                int temp = Randoms.pickNumberInRange(0, 9);
-                if (temp >= 4) {
-                    this.carArrayList.get(j).distance++;
-                }
-                String result = "-".repeat(this.carArrayList.get(j).distance);
-                System.out.println(this.carArrayList.get(j).name + " : " + result);
-            }
-            System.out.println();
-        }
-
-        // 우승자 출력
-        System.out.print("최종 우승자 : ");
-        Collections.sort(carArrayList);
-        int max = carArrayList.get(0).distance;
-        int cnt = 0;
-        for (Car c: carArrayList) {
-            System.out.println(c.name);
-            if (c.distance == max) cnt++;
-        }
-        for (int i = 0; i < cnt; i++) {
-            System.out.print(carArrayList.get(i).name);
-            if (i != cnt-1) {
-                System.out.print(", ");
-            }
         }
     }
 }
