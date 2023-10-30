@@ -57,6 +57,9 @@ public class RacingCarGame {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("tryNumber format error");
         }
+        if (tryNumber <= 0) {
+            throw new IllegalArgumentException("tryNumber range error");
+        }
     }
 
     private void tryOnce() {
