@@ -26,7 +26,12 @@ map에서 해당 value를 리턴
 ## 레이싱 시작 및 종료 `Racing` 클래스
 - 목적: 레이싱 시작과 종료를 모듈화하기 위한 클래스
 - Field: 차량 목록(`List<Car>`), 시행 횟수(`int`)
-- Method: 정보 입력(`void` &rarr; `void`), 레이싱 시작(`void` &rarr; `void`), 결과 출력(`void` &rarr; `void`)
+- Method
+  - 정보 입력(`void` &rarr; `void`)
+  - 레이싱 시작(`void` &rarr; `void`)
+  - 결과 출력(`void` &rarr; `void`)
+  - 승자 판별(`void` &rarr; `List<Cars>`)
+  - 승자 출력(`void` &rarr; `void`)
 
 ### 정보 입력
 차량 이름 목록을 공백 없이 쉼표(`,`)로 구분 하여 입력 &rarr; 시행 횟수를 다음 줄에 입력
