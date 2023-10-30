@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -70,14 +71,34 @@ class InputViewTest extends InTest {
                 });
     }
 
-//    @Test
-//    void inputNames() {
-//
-//    }
-//
-//    @Test
-//    void convertStrToList() {
-//    }
+    @Test
+    void inputNames() {
+        // given
+        InputView inputView = new InputView();
+        systemIn("pobi,yono,haho,nimo");
+        List<String> expected = List.of("pobi", "yono", "haho", "nimo");
+
+        // when
+        List<String> result = inputView.inputNames();
+
+        // then
+        assertEquals(expected, result);
+    }
+
+    @Test
+    @DisplayName("여러 이름을 입력하면 리스트로 변환하는 기능 테스트")
+    void convertStrToList() {
+        // given
+        InputView inputView = new InputView();
+        String inputNames = "pobi,yono,haho,nimo";
+        List<String> expected = List.of("pobi", "yono", "haho", "nimo");
+
+        // when
+        List<String> result = inputView.convertStrToList(inputNames);
+
+        // then
+        assertEquals(expected, result);
+    }
 //
 //    @Test
 //    void inputCountOfGameRound() {
