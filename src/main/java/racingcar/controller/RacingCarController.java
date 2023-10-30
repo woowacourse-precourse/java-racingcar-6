@@ -15,23 +15,30 @@ public class RacingCarController {
         this.outputView = outputView;
     }
 
-    public void start() {
+    public void runRacingGame() {
+        RacingGame racingGame = setupRacingGame();
+        playRacingGame(racingGame);
+        displayWinners(racingGame);
+    }
+
+    private RacingGame setupRacingGame() {
         List<String> carNames = inputView.readCarNames();
+        return new RacingGame(carNames);
+    }
+
+    private void playRacingGame(RacingGame racingGame) {
         int totalRounds = inputView.readNumberOfAttempts();
-        RacingGame racingGame = new RacingGame(carNames);
+        outputView.printResultHeader();
 
-        playRacingGame(totalRounds, racingGame);
+        for (int i = 0; i < totalRounds; i++) {
+            racingGame.moveCars();
+            outputView.printCars(racingGame.getRacingCars());
+        }
+    }
 
+    private void displayWinners(RacingGame racingGame) {
         List<RacingCar> winners = racingGame.getWinners();
         outputView.printWinners(winners);
     }
 
-    private void playRacingGame(int totalRounds, RacingGame racingGame) {
-        outputView.printResultHeader();
-        for (int i = 0; i < totalRounds; i++) {
-            racingGame.moveCars();
-            List<RacingCar> racingCars = racingGame.getRacingCars();
-            outputView.printCars(racingCars);
-        }
-    }
 }
