@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
+
 import racingcar.handler.ExceptionHandler;
 
 import java.util.ArrayList;
@@ -17,13 +18,16 @@ public class Race {
     private static String START_STRING = "실행 결과";
     private static String WINNER_TEMPLATE  = "최종 우승자 : ";
 
-    private static String CAR_NAME_REGEX = "[a-zAA-Z]{1,5}(,[a-zA-Z]{1,5})*";
+    private static String CAR_NAME_REGEX = "\\w{1,5}(,\\w{1,5})*";
 
     public Race() {
         init();
     }
 
     private void init() {
+        carList = new ArrayList<Car>();
+        winnerList = new ArrayList<String>();
+
         getCarNames();
         getMoveCount();
     }
@@ -44,7 +48,6 @@ public class Race {
 
     private void checkWinner() {
         int maxPosition = 0;
-        winnerList = new ArrayList<String>();
 
         for(Car car : carList) {
             if (car.getPostion() == maxPosition) {
