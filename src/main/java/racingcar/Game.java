@@ -4,7 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import tool.Random;
 import validation.StringValidator;
+
 
 public class Game {
 
@@ -13,7 +15,7 @@ public class Game {
     StringTokenizer nameTokenizer = new StringTokenizer(nameList, ",");
 
     while (nameTokenizer.hasMoreTokens()) {
-      String carName = StringValidator.checkLengthOver(nameTokenizer.nextToken(), 5);
+      String carName = StringValidator.checkLengthOver(nameTokenizer.nextToken(), Const.CAR_NAME_LIMIT);
       Car carListElement = new Car(carName);
       carList.add(carListElement);
     }
@@ -23,23 +25,18 @@ public class Game {
 
   public static List<Car> moveCars(final List<Car> carList) {
     for (Car car : carList) {
-
+      if(Random.isRandOverValueInRange(Const.RANDOM_RANGE_BEGIN, Const.RANDOM_RANGE_END, Const.FORWARD_MOVE_BOUND)) {
+        car.addForwardDistance();
+      }
     }
 
     return carList;
   }
 
-  public static void play() {
-    System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    String input = Console.readLine();
-    List<Car> carList = makeCarList(input);
-
-    System.out.println("시도할 회수는 몇회인가요?");
-    int trialNumber = Integer.parseInt(
-        StringValidator.checkIntegerFormat(Console.readLine()));
-
-    while (trialNumber-- > 0) {
-
+  public static void printTrialResult(final List<Car> carList) {
+    for(Car car : carList) {
+      System.out.println(car.getStatus());
     }
+    System.out.println();
   }
 }
