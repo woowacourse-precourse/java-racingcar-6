@@ -19,10 +19,8 @@ public class Car {
         return this.carName;
     }
 
-    public void forwardCar(boolean ifForward) {
-        if (ifForward) {
-            this.countingMovement++;
-        }
+    public void forwardCar() {
+        this.countingMovement++;
     }
 
     @Override

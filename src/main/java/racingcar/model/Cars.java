@@ -23,9 +23,14 @@ public class Cars {
     }
 
     public void ifForwardCars(List<Boolean> resultRandomNumbers) {
+
         for (int i = 0; i < carList.size(); i++) {
+
             Car car = carList.get(i);
-            car.forwardCar(resultRandomNumbers.get(i));
+
+            if(resultRandomNumbers.get(i)) {
+                car.forwardCar();
+            }
         }
     }
 

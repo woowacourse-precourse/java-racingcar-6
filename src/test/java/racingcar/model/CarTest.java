@@ -14,27 +14,13 @@ class CarTest {
     void reset() {
         car = new Car(NAME);
     }
-
     @Test
-    @DisplayName("forwardCar 매개변수 false 시 멈춤 확인")
-    void carStop() {
-        //given
-        reset();
-
-        //when
-        car.forwardCar(false);
-
-        //then
-        assertThat(car.getCountingMovement()).isEqualTo(0);
-    }
-
-    @Test
-    @DisplayName("forwardCar 매개변수 true 시 전진 확인")
+    @DisplayName("forwardCar 전진 확인")
     void testCarMove() {
         //given
 
         //when
-        car.forwardCar(true);
+        car.forwardCar();
 
         //then
         assertThat(car.getCountingMovement()).isEqualTo(1);
@@ -48,7 +34,7 @@ class CarTest {
 
         //when
         for (int i = 0; i < number; i++) {
-            car.forwardCar(true);
+            car.forwardCar();
         }
 
         //then
