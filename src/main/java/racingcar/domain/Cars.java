@@ -10,22 +10,25 @@ public class Cars {
     private List<Car> cars;
 
     public Cars(String inputNames) {
-        String[] splitNames = inputNames.split(",", -1);
+
+        String[] splitNames = splitInputNames(inputNames);
         validateBlank(splitNames);
 
         String[] trimNames = trimNames(splitNames);
-        validateDuplicateName(trimNames);
+        validateDuplicates(trimNames);
 
         cars = Arrays.stream(trimNames)
                 .map(name -> new Car(name))
                 .toList();
     }
 
+    private String[] splitInputNames(String inputNames) {
+        return inputNames.split(",", -1);
+    }
+
     private void validateBlank(String[] names) {
         boolean hasBlank = Arrays.stream(names)
-                .filter(name -> StringUtils.isBlank(name))
-                .findFirst()
-                .isPresent();
+                .anyMatch(name -> StringUtils.isBlank(name));
         if (hasBlank) {
             throw new IllegalArgumentException();
         }
@@ -37,12 +40,12 @@ public class Cars {
                 .toArray(String[]::new);
     }
 
-    private void validateDuplicateName(String[] names) {
-        Set<String> notDuplicateNames = new HashSet<>();
+    private void validateDuplicates(String[] names) {
+        Set<String> nonDuplicateNames = new HashSet<>();
         Arrays.stream(names)
-                .forEach(name -> notDuplicateNames.add(name));
+                .forEach(name -> nonDuplicateNames.add(name));
 
-        if (notDuplicateNames.size() != names.length) {
+        if (nonDuplicateNames.size() != names.length) {
             throw new IllegalArgumentException();
         }
     }
