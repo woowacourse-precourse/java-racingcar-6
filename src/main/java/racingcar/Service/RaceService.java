@@ -77,4 +77,9 @@ public class RaceService {
             Output.printRaceResult(car);
         }
     }
+    public void startRace(){
+        for(int i=0;i<race.getAttemptsNumber();i++){
+            raceResult();
+        }
+    }
 }
