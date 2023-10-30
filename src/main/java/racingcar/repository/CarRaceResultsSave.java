@@ -5,11 +5,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import racingcar.util.CarRacingStarts;
 
-public class SaveCarRaceResults {
+public class CarRaceResultsSave {
 
     private final CarRacingStarts carRacingStarts;
 
-    public SaveCarRaceResults(CarRacingStarts carRacingStarts) {
+    public CarRaceResultsSave(CarRacingStarts carRacingStarts) {
         this.carRacingStarts = carRacingStarts;
     }
 
@@ -22,19 +22,25 @@ public class SaveCarRaceResults {
             tryTimes--;
         }
 
+
     }
 
     public void carDistanceOutput() {
 
+//        try {
+//            Thread.sleep(1000);
         for (Entry<String, String> map : getCarMoveCheck().entrySet()) {
             System.out.printf("%s : %s\n", map.getKey(), map.getValue());
         }
+//        }
+//        catch (InterruptedException e){
+//        }
 
     }
 
     private Map<String, String> getCarMoveCheck() {
 
-        return carRacingStarts.getCarMoveCheck();
+        return carRacingStarts.getCarsDistanceData();
 
     }
 

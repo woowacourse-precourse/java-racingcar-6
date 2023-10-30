@@ -1,7 +1,9 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.repository.SaveCarRaceResults;
+import racingcar.repository.CarRaceResultsSave;
+import racingcar.util.CarRacingStarts;
+import racingcar.util.FinalWinner;
 
 public class OutPut {
 
@@ -10,13 +12,18 @@ public class OutPut {
     private static final String EXECUTION_RESULTS = "실행 결과";
     private static final String FINAL_WINNER = "최종 우승자 : ";
 
+    private final CarRaceResultsSave carRaceResultsSave;
+    private final CarRacingStarts carRacingStarts;
+    private final FinalWinner finalWinner;
     private final Input input;
-    private final SaveCarRaceResults saveCarRaceResults;
 
 
-    public OutPut(Input input, SaveCarRaceResults saveCarRaceResults) {
+    public OutPut(CarRaceResultsSave carRaceResultsSave, CarRacingStarts carRacingStarts, FinalWinner finalWinner,
+                  Input input) {
+        this.carRaceResultsSave = carRaceResultsSave;
+        this.carRacingStarts = carRacingStarts;
+        this.finalWinner = finalWinner;
         this.input = input;
-        this.saveCarRaceResults = saveCarRaceResults;
     }
 
     public void racingGuide() {
@@ -28,8 +35,11 @@ public class OutPut {
         int numberOfAttempts = input.numberTimesTry();
 
         System.out.println("\n" + EXECUTION_RESULTS);
-        saveCarRaceResults.carMovingDistanceCalculation(carNames, numberOfAttempts);
-        System.out.println(FINAL_WINNER);
+        carRaceResultsSave.carMovingDistanceCalculation(carNames, numberOfAttempts);
+
+        System.out.printf(FINAL_WINNER);
+        finalWinner.carFinalDistanceComparison(carRacingStarts.getCarsDistanceData(),numberOfAttempts);
+
 
 
     }
