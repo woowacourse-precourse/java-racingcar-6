@@ -4,8 +4,16 @@ import java.util.List;
 import racingcar.model.Car;
 
 public class OutputView {
-    public void printProgressStatus(String progressStatus) {
-        System.out.println(progressStatus);
+    public void printProgressStatus(List<Car> cars) {
+        StringBuilder sb = new StringBuilder();
+
+        cars.forEach(car -> {
+            sb.append(car.getName() + " : ");
+            sb.append("-".repeat(car.getDistance()));
+            sb.append("\n");
+        });
+
+        System.out.println(sb);
     }
 
     public void printWinner(List<Car> cars) {

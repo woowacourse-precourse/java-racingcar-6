@@ -37,19 +37,4 @@ public class CarsTest {
         //When & Then
         assertEquals(winner, cars.getWinner());
     }
-
-    @Test
-    void 현재_자동차들의_이동상태_문자열로_조회() {
-        //Given
-        List<Car> carList = List.of(pobi, woni, jun);
-        cars.setCarList(carList);
-
-        //When
-        String progressStatus = cars.getProgressStatus();
-
-        //Then
-        assertEquals("pobi : ---\n"
-                + "woni : -\n"
-                + "jun : ---\n", progressStatus);
-    }
 }

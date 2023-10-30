@@ -39,7 +39,7 @@ public class RacingGameManager {
         while (tryCount > 0){
             cars.moveCars();
 
-            outputView.printProgressStatus(cars.getProgressStatus());
+            outputView.printProgressStatus(cars.getCarList());
             tryCount--;
         }
     }

@@ -40,23 +40,9 @@ public class Cars {
 
         Optional<Integer> maxDistance = getMaxDistance();
 
-        carList.stream()
-                .filter(car -> car.getDistance() == maxDistance.orElse(0))
-                .forEach(winner::add);
+        carList.stream().filter(car -> car.getDistance() == maxDistance.orElse(0)).forEach(winner::add);
 
         return winner;
-    }
-
-    public String getProgressStatus() {
-        StringBuilder sb = new StringBuilder();
-
-        carList.forEach(car -> {
-            sb.append(car.getName() + " : ");
-            sb.append("-".repeat(car.getDistance()));
-            sb.append("\n");
-        });
-
-        return sb.toString();
     }
 
     private int generateRandomNumber() {
@@ -64,9 +50,7 @@ public class Cars {
     }
 
     private Optional<Integer> getMaxDistance() {
-        Optional<Integer> maxDistance = carList.stream()
-                .map(Car::getDistance)
-                .max(Comparator.naturalOrder());
+        Optional<Integer> maxDistance = carList.stream().map(Car::getDistance).max(Comparator.naturalOrder());
 
         return maxDistance;
     }
