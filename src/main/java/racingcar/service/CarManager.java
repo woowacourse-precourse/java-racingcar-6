@@ -18,6 +18,13 @@ public class CarManager {
 
     private Integer max = 0;
 
+    public CarManager(String carStr) {
+        carList = Arrays.asList(carStr.split(","));
+        for (int i = 0; i < carList.size(); i++) {
+            carMap.put(carList.get(i), new Car());
+        }
+    }
+
 
 
 }
