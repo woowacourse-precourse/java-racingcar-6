@@ -1,4 +1,4 @@
-package racingcar.domain.system.game.round;
+package racingcar.domain.system.game.round.reuslt;
 
 import racingcar.domain.core.car.OnRaceCar;
 import racingcar.domain.core.car.OnRaceCars;
