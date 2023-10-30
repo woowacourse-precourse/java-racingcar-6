@@ -1,27 +1,28 @@
 package racingcar.domain;
 
-
 public class Car {
 
-    private final CarName carName;
     private final int ZERO = 0;
-    private Position position = new Position(ZERO);
+    private final int THR거ESHOLD = 4;
+    private final CarName carName;
+    private Position position;
 
     public Car(final CarName carName) {
         this.carName = carName;
+        this.position = new Position(ZERO);
     }
 
     public void moveToCar(final int value) {
-        if (value >= 4) {
-            this.position = position.move();
+        if (value >= THRESHOLD) {
+            position = position.move();
         }
     }
 
     public String getName() {
-        return this.carName.name();
+        return carName.name();
     }
 
     public int getPosition() {
-        return this.position.position();
+        return position.position();
     }
 }
