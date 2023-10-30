@@ -35,6 +35,7 @@ public class RacingGame implements GameInterface{
     }
 
     private void competing(int time, Cars cars) {
+        Printer.switchLine();
         Printer.raceResult();
         while(isCounting(time)){
             racing.race(cars);

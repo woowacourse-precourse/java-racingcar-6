@@ -1,8 +1,8 @@
 package racingcar.util.error;
 
 public enum ErrorMessage {
-    NO_NUMBER("[ERROR] 숫자만 입력해주세요"),
-    LOW_NUMBER("[ERROR] 횟수는 1이상이어야 합니다."),
+    NO_NUMBER("[ERROR] 하나의 숫자만 입력해주세요."),
+    LOW_NUMBER("[ERROR] 횟수는 1 이상이어야 합니다."),
     OVER_NAME_LENGTH("[ERROR] 이름은 5자 이하만 가능합니다."),
     NO_INPUT_ELEMENT("[ERROR] 빈 값은 입력이 불가능합니다.");
 

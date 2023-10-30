@@ -24,18 +24,15 @@ public class InputView implements Input{
 
     private static int getTime() {
         try{
-            String timeInput = Console.readLine();
-            return Validator.validateTime(timeInput);
+            return Validator.validateTime(Console.readLine());
         }catch (NoSuchElementException e){
             throw new IllegalArgumentException(NO_INPUT_ELEMENT.toString());
         }
-
     }
 
     private static String[] getCars() {
         try{
-            String input = Console.readLine();
-            return Validator.validateCars(input);
+            return Validator.validateCars(Console.readLine());
         }catch (NoSuchElementException e){
             throw new IllegalArgumentException(NO_INPUT_ELEMENT.toString());
         }
