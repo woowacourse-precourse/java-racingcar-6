@@ -4,8 +4,8 @@ import racingcar.vo.CarName;
 
 public class Car {
 
-     private final CarName name;
-     private int forwardCount;
+    private final CarName name;
+    private int forwardCount;
 
     public Car(CarName name) {
         this.name = name;
@@ -13,13 +13,9 @@ public class Car {
     }
 
 
-
     public void moveForward() {
         forwardCount++;
     }
-
-
-
 
 
 }

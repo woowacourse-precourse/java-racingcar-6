@@ -13,8 +13,6 @@ public class CarRacingApplication {
 
         ForwardTryCount forwardTryCount = getForwardTryCountFromInput();
 
-
-
     }
 
     private ForwardTryCount getForwardTryCountFromInput() {
@@ -26,8 +24,6 @@ public class CarRacingApplication {
         if (forwardTryCount.hasZeroCount()) {
             return;
         }
-
-
 
     }
 }

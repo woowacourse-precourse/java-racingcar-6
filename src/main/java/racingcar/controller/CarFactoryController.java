@@ -13,12 +13,10 @@ public class CarFactoryController {
     public Cars createRacingCars(String carNamesString) {
 
         List<CarName> carNames = Arrays.stream(carNamesString.split(","))
-                .map(CarName::new)
-                .toList();
+                                       .map(CarName::new)
+                                       .toList();
         return carFactory.createCarsWithNames(carNames);
     }
-
-
 
 
 }
