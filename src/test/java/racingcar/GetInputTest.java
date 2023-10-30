@@ -23,14 +23,14 @@ public class GetInputTest {
     }
 
     @Test
-    public void getMachineNamesThenRaceLapNumber() {
-        Machines machines = new Machines();
+    public void getCarNamesThenRaceLapNumber() {
+        Cars cars = new Cars();
         RaceLap raceLap = new RaceLap();
 
-        String machineNames = machines.getInput();
+        String carNames = cars.getInput();
         String lapNumber = raceLap.getInput();
 
-        assertThat(machineNames).isEqualTo("alpha,bravo,charm");
+        assertThat(carNames).isEqualTo("alpha,bravo,charm");
         assertThat(lapNumber).isEqualTo("5");
     }
 }

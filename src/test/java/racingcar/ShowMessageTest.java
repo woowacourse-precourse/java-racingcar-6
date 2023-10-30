@@ -23,10 +23,10 @@ public class ShowMessageTest {
     }
 
     @Test
-    public void machineNameInputInstructionMessage() {
-        Machines machines = new Machines();
+    public void carNameInputInstructionMessage() {
+        Cars cars = new Cars();
 
-        machines.showMessage();
+        cars.showMessage();
 
         assertThat(outputStreamForTest.toString().trim()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }

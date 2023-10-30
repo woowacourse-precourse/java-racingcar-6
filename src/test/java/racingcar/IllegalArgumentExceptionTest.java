@@ -23,10 +23,10 @@ public class IllegalArgumentExceptionTest {
     }
 
     @Test
-    public void machineNameWithinFiveLetters() {
-        Machines machines = new Machines();
+    public void carNameWithinFiveLetters() {
+        Cars cars = new Cars();
 
-        assertThatThrownBy(machines::getInput).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(cars::getInput).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

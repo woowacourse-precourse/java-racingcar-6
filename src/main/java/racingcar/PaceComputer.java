@@ -23,14 +23,14 @@ public class PaceComputer {
         this.randomNumber = randomNumber;
     }
 
-    public LinkedHashMap<String, Integer> createDefaultPaceMap(Machines machines) {
-        List<String> machineNameList = machines.getMachineNameList();
+    public LinkedHashMap<String, Integer> createDefaultPaceMap(Cars cars) {
+        List<String> carNameList = cars.getCarNameList();
 
-        return machineNameList
+        return carNameList
                 .stream()
                 .collect(Collectors
                         .toMap(
-                        machineName -> machineName,
+                        carName -> carName,
                         driveSuccessNumber -> 0,
                         (oldValues, newValues) -> oldValues,
                         LinkedHashMap::new
@@ -38,15 +38,15 @@ public class PaceComputer {
     }
 
     public void updatePaceMap(LinkedHashMap<String, Integer> paceMap) {
-        paceMap.forEach((machineName, driveSuccessNumber) -> {
+        paceMap.forEach((carName, driveSuccessNumber) -> {
             if (!isManualRandomNumber) {
                 randomNumber = pickNumberInRange(INITIAL_RANDOM_NUMBER, LAST_RANDOM_NUMBER);
             }
 
             if (randomNumber >= HURDLE_NUMBER_TO_DRIVE) {
-                paceMap.put(machineName, driveSuccessNumber + 1);
+                paceMap.put(carName, driveSuccessNumber + 1);
             }
-            randomNumberList.add(paceMap.get(machineName));
+            randomNumberList.add(paceMap.get(carName));
         });
     }
 

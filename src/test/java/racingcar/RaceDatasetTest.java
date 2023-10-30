@@ -27,12 +27,12 @@ public class RaceDatasetTest {
 
     @Test
     public void createDefaultPaceMap() {
-        Machines machines = new Machines();
+        Cars cars = new Cars();
         PaceComputer paceComputer = new PaceComputer();
 
-        machines.getInput();
+        cars.getInput();
 
-        LinkedHashMap<String, Integer> testMap = paceComputer.createDefaultPaceMap(machines);
+        LinkedHashMap<String, Integer> testMap = paceComputer.createDefaultPaceMap(cars);
 
         assertThat(testMap.keySet()).containsExactly("alpha", "bravo", "charm");
         assertThat(testMap.values()).containsExactly(0, 0, 0);
@@ -40,15 +40,15 @@ public class RaceDatasetTest {
 
     @Test
     public void updatePaceMapValues() {
-        Machines machines = new Machines();
+        Cars cars = new Cars();
         RaceLap raceLap = new RaceLap();
         PaceComputer paceComputer = new PaceComputer();
         LeaderBoard leaderBoard = new LeaderBoard();
 
-        machines.getInput();
+        cars.getInput();
         raceLap.getInput();
 
-        leaderBoard.showRace(machines, raceLap, paceComputer);
+        leaderBoard.showRace(cars, raceLap, paceComputer);
 
         List<LinkedHashMap<String, Integer>> paceMapList = leaderBoard.getPaceMapList();
         List<Integer> valuesInMap =

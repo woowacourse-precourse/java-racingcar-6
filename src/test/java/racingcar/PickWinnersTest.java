@@ -30,15 +30,15 @@ public class PickWinnersTest {
 
     @Test
     public void pickWinners() {
-        Machines machines = new Machines();
+        Cars cars = new Cars();
         RaceLap raceLap = new RaceLap();
         PaceComputer paceComputer = new PaceComputer(true,7);
         LeaderBoard leaderBoard = new LeaderBoard();
 
-        machines.getInput();
+        cars.getInput();
         raceLap.getInput();
 
-        leaderBoard.showRace(machines, raceLap, paceComputer);
+        leaderBoard.showRace(cars, raceLap, paceComputer);
 
         assertThat(outputStreamForTest.toString().contains("최종 우승자 : alpha, bravo, charm"));
     }

@@ -11,20 +11,20 @@ import java.util.stream.Stream;
 public class LeaderBoard {
     private final List<LinkedHashMap<String, Integer>> paceMapList = new ArrayList<>();
 
-    public void showRace(Machines machines, RaceLap raceLap, PaceComputer paceComputer) {
+    public void showRace(Cars cars, RaceLap raceLap, PaceComputer paceComputer) {
 
         System.out.println();
         System.out.println("실행 결과");
 
-        LinkedHashMap<String, Integer> currentPaceMap = paceComputer.createDefaultPaceMap(machines);
+        LinkedHashMap<String, Integer> currentPaceMap = paceComputer.createDefaultPaceMap(cars);
 
         int raceLapNumber = Integer.parseInt(raceLap.getRaceLapNumber());
 
         for (int i = 0; i < raceLapNumber; i++) {
             paceComputer.updatePaceMap(currentPaceMap);
 
-            currentPaceMap.forEach((machineName, driveSuccessNumber) ->
-                    System.out.println(machineName + " : " + convertPaceToGraphic(driveSuccessNumber)));
+            currentPaceMap.forEach((carName, driveSuccessNumber) ->
+                    System.out.println(carName + " : " + convertPaceToGraphic(driveSuccessNumber)));
             System.out.println();
 
             paceMapList.add(new LinkedHashMap<>(currentPaceMap));
