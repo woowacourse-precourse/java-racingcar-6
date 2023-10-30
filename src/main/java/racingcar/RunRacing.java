@@ -22,9 +22,14 @@ public class RunRacing {
         StartRacing.StartRacing();
         GetResult.GetResult();
     }
+    public void IsNameAccurate(String name) {
+        if (name.length() > 5)
+            throw new IllegalArgumentException();
+    }
     public void GetMembersAndTurn() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         for ( String name : String.valueOf(Console.readLine()).split(",")) {
+            IsNameAccurate(name);
             members.put(name, 0);
         }
         System.out.println("시도할 회수는 몇회인가요?");
