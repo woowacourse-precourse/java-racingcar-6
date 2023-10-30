@@ -8,5 +8,9 @@ public class Application {
         carNameInput.carNameException();
         MoveInput moveInput = new MoveInput();
         moveInput.moveException();
+        PlayGame playGame = new PlayGame();
+        for (int i = 0; i < moveInput.getMove(); i++) {
+            playGame.simulation();
+        }
     }
 }

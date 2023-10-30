@@ -6,7 +6,7 @@ import java.util.Arrays;
 import camp.nextstep.edu.missionutils.Console;
 
 public class CarNameInput {
-    private final List<String> nameList;
+    final List<String> nameList;
     final int maxNameLength = 5;
 
     CarNameInput() {
