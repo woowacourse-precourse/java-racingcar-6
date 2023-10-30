@@ -22,6 +22,7 @@ public class Game {
         String inputGameCount = InputView.inputGameCount();
         int gameCount = inputValidator.gameCountValidator(inputGameCount);
 
+        OutputView.gameResultStart();
         while(gameCount>0){
             cars.replaceAll((name, distance) -> forward(RandomNumberGenerator.generateRandomNumber(), distance));
             OutputView.gameResult(cars);
