@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
+import java.util.stream.Collectors;
 
 public class RacingCarGameMachine {
     private final RandomNumberGenerator randomNumberGenerator;
@@ -36,7 +37,7 @@ public class RacingCarGameMachine {
     }
 
     public String playRound() {
-        if(!isGameInProgress()) {
+        if (!isGameInProgress()) {
             throw new IllegalStateException();
         }
         currentRound++;
@@ -60,6 +61,16 @@ public class RacingCarGameMachine {
             stringJoiner.add(racingCar.getCurrentStatus());
         }
         return stringJoiner.toString();
+    }
+
+    private List<String> findWinRacingCarName() {
+        int maxDistance = findMaxDistance();
+        return racingCarList.stream()
+                .filter(racingCar -> {
+                    return racingCar.getDistance() == maxDistance;
+                })
+                .map(RacingCar::getName)
+                .collect(Collectors.toList());
     }
 
     private int findMaxDistance() {
