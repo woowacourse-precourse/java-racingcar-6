@@ -47,8 +47,7 @@ public class Cars {
             stringBuilder.append(car.currentRacingStatus());
             stringBuilder.append("\n");
         }
-
-        stringBuilder.append("\n");
+        
         return stringBuilder.toString();
     }
 }

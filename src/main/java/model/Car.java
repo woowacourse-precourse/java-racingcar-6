@@ -12,8 +12,8 @@ public class Car implements Comparable<Car> {
         this.movingCount = new MovingCount();
     }
 
-    public void increaseMovingCountIfGreater(int standardNumber, int randomNumber) {
-        if (randomNumber > standardNumber) {
+    public void increaseMovingCountIfGreater(int minimumNumber, int randomNumber) {
+        if (randomNumber >= minimumNumber) {
             this.movingCount.increase();
         }
     }

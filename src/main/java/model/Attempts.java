@@ -12,6 +12,10 @@ public class Attempts {
         this.attempts = Integer.parseInt(attempts);
     }
 
+    public int getAttempts() {
+        return this.attempts;
+    }
+
     private void validateEmpty(String attempts) {
         if (isEmpty(attempts)) {
             throw new IllegalArgumentException(EMPTY_MESSAGE);
