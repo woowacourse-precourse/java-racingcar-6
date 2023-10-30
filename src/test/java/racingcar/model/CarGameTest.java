@@ -1,13 +1,11 @@
 package racingcar.model;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class CarTest {
+class CarGameTest {
 
-    private final Car car = new Car();
+    private final CarGame car = new CarGame();
 
     @Test
     public void 이름_입력시_양쪽_공백은_문자_길이에_미포함() {
@@ -15,8 +13,8 @@ class CarTest {
         String input = " JiHun ";
 
         //when
-        car.setCarName(input);
-        int length = car.getCarName().get(0).length();
+        car.setCarsName(input);
+        int length = car.getCarsName().get(0).getName().length();
 
         //then
         Assertions.assertThat(5).isEqualTo(length);

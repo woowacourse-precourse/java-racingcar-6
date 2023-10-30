@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Car {
-    private List<String> carName = new ArrayList<>();
+public class CarGame {
+    private final List<Cars> cars = new ArrayList<>();
     private int playCount;
 
-    public void setCarName(String name) {
+    public void setCarsName(String name) {
         divideName(name);
-        Validation.name(carName);
+        Validation.name(cars);
     }
 
-    public List<String> getCarName() {
-        return carName;
+    public List<Cars> getCarsName() {
+        return cars;
     }
 
     public void setPlayCount(String playCount) {
@@ -22,11 +22,14 @@ public class Car {
         this.playCount = Integer.parseInt(playCount);
     }
 
+
+
     private void divideName(String name) {
         StringTokenizer tokenizer = new StringTokenizer(name.trim(),",");
 
         while (tokenizer.hasMoreTokens()) {
-            carName.add(tokenizer.nextToken().trim());
+            String result = tokenizer.nextToken().trim();
+            cars.add(new Cars(result, 0));
         }
     }
 }

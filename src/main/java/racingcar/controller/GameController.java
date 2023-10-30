@@ -1,15 +1,15 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
+import racingcar.model.CarGame;
 import racingcar.view.InputView;
 
 public class GameController {
 
     private final InputView inputView = new InputView();
-    private final Car car = new Car();
+    private final CarGame car = new CarGame();
 
     public void play() {
-        car.setCarName(inputView.carName());
+        car.setCarsName(inputView.carName());
         car.setPlayCount(inputView.playCount());
     }
 }
