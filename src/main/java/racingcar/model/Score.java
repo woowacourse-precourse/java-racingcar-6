@@ -17,6 +17,7 @@ public class Score {
         return score;
     }
 
+
     private int findFarthestDistance() {
         return score.stream()
                 .max(Comparator.comparing(Car::getDistance))
@@ -30,4 +31,8 @@ public class Score {
                 .toList();
     }
 
+    public boolean isSameRound(int round) {
+        return this.round == round;
+    }
+    
 }
