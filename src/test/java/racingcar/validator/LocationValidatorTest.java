@@ -6,16 +6,18 @@ import org.junit.jupiter.api.Test;
 
 class LocationValidatorTest {
 
+    private final BasicValidator<Integer> locationValidator = new LocationValidator();
+
     @Test
     void validate() {
         Throwable isNaturalNumberException = assertThrows(
                 IllegalArgumentException.class,
-                () -> new LocationValidator().validate(-1)
+                () -> locationValidator.validate(-1)
         );
         assertEquals("자연수가 아닙니다.", isNaturalNumberException.getMessage());
 
         assertDoesNotThrow(
-                () -> new LocationValidator().validate(0)
+                () -> locationValidator.validate(0)
         );
     }
 }
