@@ -41,9 +41,12 @@ public class RacingRuleMaker {
     }
 
     public List<String> getCars() {
+
         return cars;
     }
+
     public int getAllRoundCount() {
+
         return allRoundCount;
     }
 

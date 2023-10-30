@@ -20,7 +20,9 @@ public class CarController {
     }
 
     public LinkedHashMap<String, Integer> racingResult = new LinkedHashMap<>();
+
     public LinkedHashMap<String, Integer> gameStart() {
+
         for (String car : cars) {
             racingResult.put(car, racingResult.getOrDefault(car, 0) + isForward());
         }
