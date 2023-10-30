@@ -40,13 +40,13 @@ public class Racer {
         validator.validate(value);
     }
 
-    //TODO: Car가 아니라 position으로 비교
     public Result getWinner() {
-        Car first = racer.stream()
-                .max(orderStrategy)
+        Integer highPosition = racer.stream().
+                max(orderStrategy)
+                .map(Car::getCurrentPosition)
                 .orElseThrow();
         return Result.of(racer.stream()
-                .filter(car -> car.equals(first))
+                .filter(car -> car.hasSamePosition(highPosition))
                 .toList());
     }
 

@@ -40,6 +40,10 @@ public class Car {
         return this.currentPosition;
     }
 
+    public Boolean hasSamePosition(Integer position) {
+        return this.currentPosition.equals(position);
+    }
+
     @Override
     public String toString() {
         return this.name + Message.MARK.repeat(this.currentPosition);
@@ -53,6 +57,6 @@ public class Car {
         if (!(obj instanceof Car car)) {
             return false;
         }
-        return this.currentPosition.equals(car.currentPosition);
+        return this.equals(car);
     }
 }
