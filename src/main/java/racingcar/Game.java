@@ -1,14 +1,41 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
 
 
 
-    public Integer playTimes(){
+    public List<Integer> race(List<String> carNames, Integer playTimes){
+        ArrayList cars = new ArrayList<>(Collections.nCopies(carNames.size(), 0));
+        for (int i=0 ; i < playTimes ; i++){
+            raceEachTimes(cars);
+        }
+        return cars;
+    }
+
+    public void raceEachTimes(List<Integer> cars){
+        for (int i=0 ; i < cars.size() ; i++){
+            if(goForwardOrNot(creatRandomNum())){
+                cars.set(i, cars.get(i) + 1);
+            }
+        }
+    }
+
+    public boolean goForwardOrNot(Integer number){
+        return number>=4;
+    }
+
+    public Integer creatRandomNum(){
+        return Randoms.pickNumberInRange(0,9);
+    }
+
+    public Integer inputPlayTimes(){
         System.out.println("시도할 횟수는 몇회인가요?");
         String input = Console.readLine();
         checkPlayTimesInput(input);
