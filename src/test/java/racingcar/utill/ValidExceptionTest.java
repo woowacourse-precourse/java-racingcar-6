@@ -18,7 +18,13 @@ class ValidExceptionTest {
     @DisplayName("이름은 5자 이하 검사.")
     @Test
     void isValidFIveLessString() {
+        // given
+        String input = "abcdef";
 
+        // then
+        Assertions.assertThatThrownBy(
+                        () -> ValidException.isValidFIveLessString(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("한글 포함 검사")
