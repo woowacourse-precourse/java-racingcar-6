@@ -13,20 +13,29 @@ import java.util.stream.Stream;
 
 public class Application {
     public static void main(String[] args) {
+        Map<String, Integer> carMap;
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
         String carNames = Console.readLine();
-        String regex = "^[A-Za-z가-힣]{1,5}(,[A-Za-z가-힣]{1,5}){1,}$";
 
+        String regex = "^[A-Za-z가-힣]{1,5}(,[A-Za-z가-힣]{1,5}){1,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(carNames);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하의 영어 또는 한글만 가능합니다. 공백없이 쉼표(,)로 구분해주세요.");
         }
 
-        Map<String, Integer> carMap = Stream.of(carNames.split(","))
-                .collect(Collectors.toMap(carName -> carName, score -> 0));
-        //System.out.println(carMap);
+        try {
+            carMap = Stream.of(carNames.split(","))
+                    .collect(Collectors.toMap(carName -> carName, score -> 0));
+        } catch (IllegalStateException e) {
+            throw new IllegalArgumentException("중복된 이름의 자동차가 존재합니다.");
+        }
+
+//        System.out.println(carMap);
+//        System.out.println(carMap.keySet());
+//        System.out.println(carMap.values());
+//        System.out.println(carMap.entrySet());
 
         System.out.println("시도할 횟수는 몇회인가요?");
 
