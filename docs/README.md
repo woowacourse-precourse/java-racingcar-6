@@ -20,16 +20,16 @@
         - [x] 테스트: 자동차의 현재 위치를 올바르게 반환하는지 확인
 
 3. **자동차 전진 조건 체크**
-    - [ ] 0에서 9 사이의 무작위 값을 구하는 기능 👉 `utils#RandomGenerator#generateNumber()`
-        - [ ] 테스트: 생성된 무작위 값이 0~9 사이인지 확인
-    - [ ] 무작위 값이 4 이상인 경우에만 전진하는 기능 👉 `domain#Car#tryMove()`
-        - [ ] 테스트: 값이 4 이상일 때 자동차가 전진하는지 확인
-        - [ ] 테스트: 값이 4 미만일 때 자동차가 전진하지 않는지 확인
+    - [x] 0에서 9 사이의 무작위 값을 구하는 기능 👉 `utils#RandomGenerator#generateNumber()`
+        - [x] 테스트: 생성된 무작위 값이 0~9 사이인지 확인
+    - [x] 무작위 값이 4 이상인 경우에만 전진하는 기능 👉 `domain#Car#tryMove()`
+        - [x] 테스트: 값이 4 이상일 때 자동차가 전진하는지 확인
+        - [x] 테스트: 값이 4 미만일 때 자동차가 전진하지 않는지 확인
 
 4. **경주 진행**
-    - [ ] 주어진 횟수 동안 모든 자동차에 대해 전진 시도를 하는 기능 👉 `domain#Race#startRace()`
-        - [ ] 테스트: 지정된 횟수만큼 경주가 진행되는지 확인
-        - [ ] 테스트: 경주 중 각 자동차의 전진 조건이 올바르게 적용되는지 확인
+    - [x] 주어진 횟수 동안 모든 자동차에 대해 전진 시도를 하는 기능 👉 `domain#Race#startRace()`
+        - [] 테스트: 지정된 횟수만큼 경주가 진행되는지 확인
+        - [] 테스트: 경주 중 각 자동차의 전진 조건이 올바르게 적용되는지 확인
 
 5. **출력 기능**
     - [ ] 각 차수별 실행 결과 출력 기능 👉 `view#ResultView#printRaceResult(List<Car> cars)`
@@ -46,15 +46,15 @@
         - [ ] 테스트: 여러 명의 우승자가 올바르게 쉼표(,)로 구분되어 반환되는지 확인
 
 7. **예외 처리**
-    - [ ] 자동차 이름이 5자를 초과할 경우의 예외 처리 👉 `exception#InvalidCarNameException#validateNameLength()`
-        - [ ] 테스트: 5자를 초과하는 이름으로 자동차 객체를 생성하려 할 때 `IllegalArgumentException`이 발생하는지 확인
-    - [ ] 사용자 입력값이 잘못된 경우의 예외 처리 👉 `exception#InvalidAttemptCountException#validateAttempCount()`
-        - [ ] 테스트: 잘못된 형식의 입력(예: 문자, 음수) 시 `IllegalArgumentException`이 발생하고 프로그램이 종료되는지 확인
-   - [ ] 자동차 이름이 중복된 경우의 예외 처리 👉 `exception#InvalidCarNameException#validateUniqueNames(List<String> names)`
-      - [ ] 테스트: 중복된 이름으로 자동차 객체를 생성하려 할 때 `IllegalArgumentException`이 발생하는지 확인
+    - [x] 자동차 이름이 5자를 초과할 경우의 예외 처리 👉 `exception#InvalidCarNameException#validateNameLength()`
+        - [x] 테스트: 5자를 초과하는 이름으로 자동차 객체를 생성하려 할 때 `IllegalArgumentException`이 발생하는지 확인
+    - [x] 사용자 입력값이 잘못된 경우의 예외 처리 👉 `exception#InvalidAttemptCountException#validateAttempCount()`
+        - [x] 테스트: 잘못된 형식의 입력(예: 문자, 음수) 시 `IllegalArgumentException`이 발생하고 프로그램이 종료되는지 확인
+   - [x] 자동차 이름이 중복된 경우의 예외 처리 👉 `exception#InvalidCarNameException#validateUniqueNames(List<String> names)`
+      - [x] 테스트: 중복된 이름으로 자동차 객체를 생성하려 할 때 `IllegalArgumentException`이 발생하는지 확인
 
 8. **자동차 목록 변환**
-   - [ ] 자동차 이름 목록을 `List<Car>` 객체로 변환하는 기능 👉 `domain#CarFactory#fromNameString(String namesString)`
-      - [ ] 테스트: 주어진 자동차 이름 목록을 바탕으로 올바르게 `List<Car>` 객체가 생성되는지 확인
+   - [x] 자동차 이름 목록을 `List<Car>` 객체로 변환하는 기능 👉 `domain#CarFactory#fromNameString(String namesString)`
+      - [x] 테스트: 주어진 자동차 이름 목록을 바탕으로 올바르게 `List<Car>` 객체가 생성되는지 확인
    - [ ] `List<Car>` 객체를 자동차 이름 목록으로 변환하는 기능 👉 `domain#CarFactory#toNameString(List<Car> cars)`
       - [ ] 테스트: 주어진 `List<Car>` 객체를 바탕으로 올바르게 자동차 이름 목록이 추출되는지 확인
