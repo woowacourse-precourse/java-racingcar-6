@@ -12,8 +12,8 @@ final class Car {
         this.moveCount = 0;
     }
 
-    void move() {
-        moveCount++;
+    int move() {
+        return ++moveCount;
     }
 
     String currentStatus() {
