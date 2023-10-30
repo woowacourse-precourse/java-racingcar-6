@@ -25,5 +25,27 @@ public class Information {
 
 		return result;
 	}
+	
+	// 시도할 횟수 입력 및 랜덤 숫자를 통해 4이상인 경우 한 칸 앞으로 전진하기
+	public int inputNum() {
+		String strNum = Console.readLine();
+		int Num = Integer.parseInt(strNum);
+
+		for (int i = 0; i < Num; i++) {
+			for (int j = 0; j < result.length; j++) {
+				int check = Randoms.pickNumberInRange(0, 9);
+
+				if (check >= 4) {
+					result[j] += "-";
+				}
+
+				System.out.println(result[j]);
+			}
+			System.out.println();
+		}
+
+		return Num;
+	}
+
 
 }
