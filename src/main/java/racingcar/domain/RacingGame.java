@@ -29,4 +29,9 @@ public class RacingGame {
     public boolean isEnd() {
       return counter.isEnd();
     }
+
+    public List<String> getWinner() {
+        List<Car> winner=navigation.determineWinner();
+        return winner.stream().map(Car::getName).toList();
+    }
 }
