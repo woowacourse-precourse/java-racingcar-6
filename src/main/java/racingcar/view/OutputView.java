@@ -16,7 +16,6 @@ public class OutputView {
         }
     }
 
-
     public static void printNumberOfAttempts(int numberOfAttempts) {
         if (numberOfAttempts < numberOfAttempts - 1) {
             System.out.println();
@@ -39,8 +38,4 @@ public class OutputView {
         return icon.toString();
     }
 
-    public static void printWinners(List<String> winners) {
-        String winnerNames = String.join(", ", winners);
-        System.out.println("최종 우승자: " + winnerNames);
-    }
 }
