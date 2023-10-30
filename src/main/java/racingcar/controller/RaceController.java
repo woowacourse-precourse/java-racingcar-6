@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.domain.Cars;
+import racingcar.domain.PlayCount;
 import racingcar.domain.Winner;
 import racingcar.dto.CarDto;
 import racingcar.view.InputView;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class RaceController {
 
-    private int playCount;
+    private PlayCount playCount;
     private Cars cars;
     private final InputView inputView;
     private final OutputView outputView;
@@ -23,44 +24,27 @@ public class RaceController {
     }
 
     public void setRace() {
-        cars = setCar();
-        playCount = setPlayCount();
+        setCar();
+        setPlayCount();
     }
 
-    private Cars setCar() {
+    private void setCar() {
         String inputNames = inputView.askCarName();
-        return new Cars(inputNames);
+        cars = new Cars(inputNames);
     }
 
-    private int setPlayCount() {
+    private void setPlayCount() {
         String inputPlayCount = inputView.askPlayCount();
-        return validatePlayCount(inputPlayCount);
-    }
-
-    private int validatePlayCount(String inputPlayCount) {
-        int playCount;
-        try {
-            playCount = Integer.parseInt(inputPlayCount);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
-
-        if (playCount == 0) {
-            throw new IllegalArgumentException();
-        }
-
-        return playCount;
+        playCount = new PlayCount(inputPlayCount);
     }
 
     public void play() {
-        for (int i = 0; i < playCount; i++) {
-            if (i == 0) {
-                outputView.printResultMessage();
-            }
+        outputView.printPlayMessage();
+        int currentCount = 0;
+        while(playCount.isPlay(currentCount++)) {
             cars.play();
             printResult();
         }
-
         printFinalWinner();
     }
 
@@ -68,7 +52,6 @@ public class RaceController {
         List<CarDto> carDtos = cars.getCars().stream()
                 .map(car -> new CarDto(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());
-
         outputView.printResult(carDtos);
     }
 
