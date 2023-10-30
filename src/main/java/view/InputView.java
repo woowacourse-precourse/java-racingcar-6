@@ -5,7 +5,6 @@ import static constant.ConstantString.ENTER_CAR_NAME_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
 import domain.AttemptCount;
-import validator.AttemptValidator;
 
 public class InputView {
 

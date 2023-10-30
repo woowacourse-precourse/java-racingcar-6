@@ -2,13 +2,12 @@ package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import domain.AttemptCount;
 import domain.Car;
 import domain.Cars;
 import java.io.ByteArrayInputStream;
-import java.util.Arrays;
+
 import java.util.List;
-import java.util.stream.Collectors;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +25,7 @@ public class InputTest {
     @DisplayName("입력한 자동차가 2대 미만인 경우")
     void input_less_than_two_cars() {
         Assertions.assertThatThrownBy(() -> new Cars("ab"))
-                        .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

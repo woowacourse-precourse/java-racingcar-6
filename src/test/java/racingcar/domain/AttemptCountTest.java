@@ -1,8 +1,5 @@
 package racingcar.domain;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 import domain.AttemptCount;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

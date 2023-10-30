@@ -3,11 +3,12 @@ package domain;
 import static constant.ConstantNumber.DEFAULT_MAX_MOVE_COUNT;
 import static constant.ConstantString.DELIMITER;
 
-import controller.RaceController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import controller.RaceController;
 import validator.NameValidator;
 
 public class Cars {
@@ -43,6 +44,15 @@ public class Cars {
             int randomNumber = RaceController.getRandomNumber();
             car.moveOrStop(randomNumber);
         }
+    }
+
+    public List<String> getWinners() {
+        int maxCount = findMaxMoveCount();
+
+        return carsList.stream()
+                .filter(car -> car.getMoveCount() == maxCount)
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
     }
 
     public List<Car> getCarsList() {
