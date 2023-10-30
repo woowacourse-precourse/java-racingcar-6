@@ -1,5 +1,5 @@
 package racingcar.domain;
 
 public interface Commander {
-    void moveCar(Car car);
+    void moveCar(Car car, MoveCommandMaker moveCommandMaker);
 }
