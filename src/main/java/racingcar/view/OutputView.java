@@ -6,7 +6,7 @@ public class OutputView {
 
     private static final String COMMA = ",";
 
-    public void printRacingStart(){
+    public void printRacingStart() {
         System.out.println("\n실행 결과");
     }
 
