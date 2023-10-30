@@ -20,7 +20,7 @@ public class TryCount {
 
     private void validateZero(String count) {
         if (count.matches(GameConstant.ZERO_REGEX)) {
-            throw new IllegalArgumentException("1이상의 숫자를 입력해주세요.");
+            throw new IllegalArgumentException("1 이상의 숫자를 입력해주세요.");
         }
     }
 
