@@ -16,4 +16,8 @@ public class RacingCarGame {
     static List<String> splitGamePlayers(String userInput) {
         return Arrays.asList(userInput.split(","));
     }
+
+    static void printAskingForTrialNumberMessage() {
+        System.out.println("시도할 회수는 몇회인가요?");
+    }
 }
