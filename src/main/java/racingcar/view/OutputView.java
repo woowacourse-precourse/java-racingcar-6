@@ -15,8 +15,12 @@ public class OutputView {
     }
 
     public static void startRace() {
-        System.out.println();
+        nextLine();
         System.out.println(GameMessage.RESULT_MESSAGE);
+    }
+
+    public static void nextLine() {
+        System.out.println();
     }
 
     public static void printResult(List<String> userName, List<Integer> distance) {
@@ -26,9 +30,9 @@ public class OutputView {
             for (int j = 0; j < distance.get(i); j++) {
                 System.out.print("-");
             }
-            System.out.println();
+            nextLine();
         }
-        System.out.println();
+        nextLine();
     }
 
     public static String plusWinner(String result, String playerName) {
