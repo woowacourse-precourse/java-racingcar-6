@@ -18,9 +18,9 @@ public class RacingCarGameController {
     }
 
     private void init() {
-        outputView.outputMessage(OutputMessage.RACING_CAR_NAME_INPUT_REQUEST);
+        outputView.print(OutputMessage.RACING_CAR_NAME_INPUT_REQUEST);
         String nameInput = inputView.readLine();
-        outputView.outputMessage(OutputMessage.ROUND_COUNT_INPUT_REQUEST);
+        outputView.print(OutputMessage.ROUND_COUNT_INPUT_REQUEST);
         int roundCount = inputView.readInt();
         racingCarGameMachine.init(nameInput, roundCount);
     }
@@ -28,12 +28,12 @@ public class RacingCarGameController {
     private void executeGame() {
         while (racingCarGameMachine.isGameInProgress()) {
             String roundResult = racingCarGameMachine.playRound();
-            outputView.outputMessage(roundResult);
+            outputView.print(roundResult);
         }
     }
 
     private void generateResult() {
         String gameResult = racingCarGameMachine.getGameResult();
-        outputView.outputMessage(gameResult);
+        outputView.print(gameResult);
     }
 }
