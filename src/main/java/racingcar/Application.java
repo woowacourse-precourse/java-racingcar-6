@@ -1,19 +1,32 @@
 package racingcar;
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.Map;
+
 
 public class Application {
     static String[] carNames;
     static Long raceTime;
+    // 자동차 마다 현 위치를 저장하기 위해 map을 활용하였습니다. racTime 이 Long 이기 때문에 value type 은 Long 입니다.
+    static Map<String, Long> carRace;
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         inputCarName();
         inputRaceTime();
+
+        playGame();
     }
 
     public static void inputCarName() {
         String input = Console.readLine();
         carNames = parseCarName(input);
+
+        for (String carName : carNames) {
+            carRace.put(carName, 0L);
+        }
+
     }
     public static String[] parseCarName(String input) {
 
@@ -42,6 +55,47 @@ public class Application {
             raceTime = Long.parseLong(input);
         }catch (Exception e){
             throw new IllegalArgumentException("잘못된 횟수 입력입니다.");
+        }
+    }
+
+    public static void playGame(){
+        for(int i = 0; i < raceTime; i++){
+            moveCar();
+            printCarMap();
+        }
+    }
+
+    public static void printCarMap(){
+        for (String carName : carRace.keySet()) {
+            Long position = carRace.get(carName);
+            String carPosition = getPosition(position);
+            System.out.printf(carName + " : " + carPosition + "\n");
+        }
+    }
+
+    public static String getPosition(Long position){
+        StringBuilder carPosition = new StringBuilder();
+        for(int i = 0; i < position; i++){
+            carPosition.append("-");
+        }
+        return carPosition.toString();
+    }
+
+    public static void moveCar(){
+        for (String carName : carRace.keySet()) {
+            Long carPosition = carRace.get(carName);
+
+            if(isStraight()){
+                carRace.replace(carName, ++carPosition);
+            }
+        }
+    }
+
+    public static boolean isStraight(){
+        int randomNum = Randoms.pickNumberInRange(0,9);
+
+        if (randomNum >= 5){
+            return true;
         }
     }
 
