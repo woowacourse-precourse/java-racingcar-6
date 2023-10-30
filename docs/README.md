@@ -29,14 +29,14 @@
 
 
 <h2>설계</h2>
-| constant <br/>
+| Constant <br/>
 - int MINIMUM_CAR_NUMBER=3<br/>
 - String WINNER="winner"<br/>
 - int MINIMAM_RANDOM_NUM = 0<br/>
 - int MAXIMUM_RANDOM_NUM = 9<br/>
 
 <br/>
-| util <br/>
+| Util <br/>
 - 4 이상일 시 전진<br/>
 - 누가 이겼는지 판별<br/>
 - 자동차 이름 글자수 판별 (5 이하로 입력하도록)<br/>
@@ -46,3 +46,10 @@
 | Model<br/>
 - Car<br/>
 - Driver<br/>
+
+<br/>
+| View<br/>
+
+
+| Controller
+
