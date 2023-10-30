@@ -1,18 +1,18 @@
 package racingcar.controller;
 
-import racingcar.model.CarNames;
+import racingcar.model.CarNameRepository;
 
 public class RacingGameController {
 
-    private CarNames carNames;
+    private CarNameRepository carNameRepository;
 
     public RacingGameController() {
-        this.carNames = new CarNames();
+        this.carNameRepository = new CarNameRepository();
     }
 
     public void setCarName(String carName) {
         // validation & save car name
-        carNames.saveCarNames(carName);
+        carNameRepository.saveCarNames(carName);
     }
 
     public void setAttempts(String attempts) {
