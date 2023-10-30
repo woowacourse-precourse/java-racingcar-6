@@ -6,15 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGameModel {
+
+    private static final int CAR_NAMES_LIMIT = 5;
+
     private List<Car> cars;
 
     public RacingGameModel(String carNames) {
         cars = new ArrayList<>();
         String[] names = carNames.split(",");
         for (String name : names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
-            }
+            validateCarName(name);
             cars.add(new Car(name));
         }
     }
@@ -42,5 +43,11 @@ public class RacingGameModel {
             }
         }
         return winners;
+    }
+
+    private void validateCarName(String name) {
+        if (name.length() > CAR_NAMES_LIMIT || name.isEmpty()) {
+            throw new IllegalArgumentException("유효하지 않은 자동차 이름: " + name);
+        }
     }
 }
