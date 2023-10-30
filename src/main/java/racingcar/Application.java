@@ -3,8 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
@@ -15,10 +14,12 @@ public class Application {
 class Car {
     String name;
     int count;
+    boolean win;
 
     public Car(String name) {
         this.name = name;
         this.count = 0;
+        this.win = false;
     }
 
     public void move() {
@@ -60,12 +61,25 @@ class Game {
 
     public void printOutput() {
         for (Car car : carList) {
-            System.out.print(car.name+" : ");
-            for(int i = 0; i<car.count; i++){
+            System.out.print(car.name + " : ");
+            for (int i = 0; i < car.count; i++) {
                 System.out.print("-");
             }
         }
         System.out.print("\n");
+    }
+
+    public void whoIsWinner(List<Car> carList) {
+        int max = 0;
+        for (Car car : carList) {
+            if (car.count >= max) {
+                max = car.count;
+            }
+        }
+        for(Car car : carList) {
+            if(car.count == max)
+                car.win = true;
+        }
     }
 
     public void gameRun() {
@@ -74,12 +88,10 @@ class Game {
         }
         System.out.print(OUTPUT_MESSAGE);
         for (int i = 0; i < MOVES; i++) {
-
             for (Car car : carList) {
                 car.move();
             }
-            // TODO : 결과 출력
-
+            printOutput();
         }
     }
 }
