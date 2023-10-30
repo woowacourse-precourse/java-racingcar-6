@@ -115,4 +115,21 @@ class InputManger{
         InputValidator.validateCarNames(carNames);
         return carNames;
     }
+
+    public int getAttempts(){
+
+        System.out.println("시도할 횟수는 몇회인가요?");
+        int attempts;
+
+        try{
+            attempts = Integer.parseInt(Console.readLine());
+            InputValidator.validateAttempts(attempts);
+        }catch (IllegalArgumentException e){
+            System.out.println("유효한 숫자를 입력하세요.");
+            return getAttempts();
+        }
+
+        return attempts;
+    }
+
 }
