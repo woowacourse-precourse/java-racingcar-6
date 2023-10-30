@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.domain.RoundCount;
 import racingcar.domain.validator.InputValidator;
 import racingcar.util.StringParser;
 
@@ -26,10 +27,8 @@ public class InputView {
         return carNames;
     }
 
-    public Integer readNumberOfRounds() {
+    public RoundCount readNumberOfRounds() {
         System.out.println(REQUEST_NUMBER_OF_ROUNDS);
-        String roundNumberString = Console.readLine();
-        roundNumberValidator.validate(roundNumberString);
-        return Integer.parseInt(roundNumberString);
+        return new RoundCount(Console.readLine());
     }
 }

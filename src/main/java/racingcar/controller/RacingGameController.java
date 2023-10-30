@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.RoundCount;
 import racingcar.domain.car.Car;
 import racingcar.domain.power.DefaultPowerGenerator;
 import racingcar.view.InputView;
@@ -19,12 +20,13 @@ public class RacingGameController {
 
     public void runRacingGame() {
         List<Car> cars = prepareRacingCars();
-        Integer roundCount = setRoundNumber();
+        RoundCount roundCount = setRoundNumber();
 
         System.out.println("실행 결과");
 
-        for (int i = 0; i < roundCount; i++) {
+        while (roundCount.hasNextRound()) {
             executeRound(cars);
+            roundCount.consumeRound();
         }
         outputView.showGameResult(cars);
 
@@ -37,8 +39,8 @@ public class RacingGameController {
         outputView.showRoundResult(cars);
     }
 
-    private Integer setRoundNumber() {
-        Integer roundCount = inputView.readNumberOfRounds();
+    private RoundCount setRoundNumber() {
+        RoundCount roundCount = inputView.readNumberOfRounds();
         return roundCount;
     }
 

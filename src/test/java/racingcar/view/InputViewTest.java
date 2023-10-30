@@ -1,7 +1,8 @@
 package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
@@ -10,6 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.RoundCount;
 import racingcar.domain.validator.CarNamesValidator;
 import racingcar.domain.validator.InputValidator;
 import racingcar.domain.validator.RoundNumberValidator;
@@ -46,7 +48,11 @@ class InputViewTest {
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 
-        int numberOfRounds = inputView.readNumberOfRounds();
-        assertEquals(5, numberOfRounds);
+        RoundCount numberOfRounds = inputView.readNumberOfRounds();
+        for (int i = 0; i < 5; i++) {
+            assertTrue(numberOfRounds.hasNextRound());
+            numberOfRounds.consumeRound();
+        }
+        assertFalse(numberOfRounds.hasNextRound());
     }
 }
