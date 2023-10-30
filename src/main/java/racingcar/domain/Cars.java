@@ -1,6 +1,7 @@
 package racingcar.domain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cars {
     private final List<Car> cars;
@@ -21,7 +22,6 @@ public class Cars {
 
     public List<List<Integer>> provideAllCumulativeScoreList() {
         List<List<Integer>> roundScores = new ArrayList<>();
-
         for (Car car : cars) {
             roundScores.add(car.getCumulativeScoreList());
         }
@@ -37,7 +37,6 @@ public class Cars {
     }
 
     public List<String> determineWinners() {
-
         List<String> winnerNames = new ArrayList<>();
         int topScore = 0;
         for (Car car : cars) {
