@@ -34,6 +34,19 @@ public class RacingCarTest extends NsTest {
         );
     }
 
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    @DisplayName("무작위 값이 4 미만일 경우 전진하지 않는다.")
+    void invalidMovingForwardOnlyGreaterThanNumberFour(int value) {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("ha,yoon", "2");
+                    assertThat(output()).contains("ha : ", "yoon : ", "최종 우승자 : ha, yoon");
+                },
+                value
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
