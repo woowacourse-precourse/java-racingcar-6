@@ -8,8 +8,8 @@ import racingcar.view.OutputView;
 
 public class Race {
 
-    InputView inputView;
-    OutputView outputView;
+    private final InputView inputView;
+    private final OutputView outputView;
 
     public Race() {
         this.inputView = new InputView();
