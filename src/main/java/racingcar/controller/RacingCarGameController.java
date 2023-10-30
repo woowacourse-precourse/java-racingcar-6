@@ -23,7 +23,7 @@ public class RacingCarGameController {
         cars = new Cars(carList);
 
         OutputView.printInputNumberOfMovesMessage();
-        int numberOfMoves = Utils.convertStringToInt(InputView.inputNumberOfMoves());
+        int numberOfMoves = InputView.inputNumberOfMoves();
 
         for (int i = 0; i < numberOfMoves; i++) {
             List<Car> movedCars = cars.moveCars(randomNumberGenerator);
