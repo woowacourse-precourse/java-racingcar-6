@@ -4,12 +4,12 @@ import static racingcar.controller.GameConstants.MIN_NUMBER_TO_MOVE;
 
 public class Car implements Comparable<Car> {
     private Name name;
-    private Long distance;
+    private Distance distance;
     private NumberGenerator numberGenerator;
 
     public Car(String name, NumberGenerator numberGenerator) {
         this.name = new Name(name);
-        distance = 0L;
+        distance = new Distance();
         this.numberGenerator = numberGenerator;
     }
 
@@ -17,13 +17,13 @@ public class Car implements Comparable<Car> {
         int decisionNumber = numberGenerator.generateNumber();
 
         if (decisionNumber >= MIN_NUMBER_TO_MOVE.getNumber()) {
-            distance++;
+            distance.move();
         }
     }
 
     @Override
     public int compareTo(Car otherCar) {
-        return Long.compare(this.distance, otherCar.distance);
+        return distance.compare(otherCar.distance);
     }
 
     public boolean isWinner(Car maxDistanceCar) {
@@ -35,6 +35,6 @@ public class Car implements Comparable<Car> {
     }
 
     public Long getDistance() {
-        return distance;
+        return distance.getDistance();
     }
 }
