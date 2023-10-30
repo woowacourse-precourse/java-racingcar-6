@@ -7,16 +7,29 @@ import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.NumberGenerator;
 import racingcar.util.InputValidator;
+import racingcar.view.OutputView;
 
 public class RaceController {
     public static final String DELIMITER = ",";
+    private final OutputView outputView;
+
+    public RaceController(OutputView outputView) {
+        this.outputView = outputView;
+    }
 
     public void run() {
 
     }
 
-    public void tryMoveCars() {
+    public void tryMoveCars(List<Car> cars) {
+        for (Car car : cars) {
+            int randomNumber = NumberGenerator.generateRandomNumber();
 
+            car.moveForward(randomNumber);
+            String moveTryResult = car.expressMoveDistance();
+
+            outputView.showMoveDistance(moveTryResult);
+        }
     }
 
     public void repeatMoveCars() {
