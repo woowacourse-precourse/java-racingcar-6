@@ -38,6 +38,13 @@ class InputValueTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = "pobi,woni,jun")
+    void 자동차_이름_구분자를_기준으로_구분(String carName) {
+        String[] carList = inputValue.createCarList(carName);
+        assertThat(carList).isEqualTo(new String[]{"pobi", "woni", "jun"});
+    }
+
+    @ParameterizedTest
     @ValueSource(strings = "4")
     void 이동_횟수_입력(String input) {
         generateUserInput(input);
