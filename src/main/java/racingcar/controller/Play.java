@@ -16,21 +16,28 @@ import static racingcar.view.Print.printResult;
 
 
 public class Play {
-    public static List<Car> cars;
+    private static List<Car> cars;
+    private static int num;
     public static void start() {
         inputNameMessage();
-        cars = new ArrayList<>();
+        List<String> names = inputCarName();
+        List<Car> cars = new ArrayList<>();
         for (String name : inputCarName()) {
             cars.add(new Car(name, 0));
         }
 
-        int carLength = cars.size();
-
         inputNumMessage();
-        int num =  inputNum();
+        num = inputNum();
         System.out.println();
 
         System.out.println("실행 결과");
+        rotate(num);
+
+        result();
+    }
+
+    public static void rotate(int num) {
+        int carLength = cars.size();
         for (int i=0; i<num; i++) {
             for (int index : findEachCarRandomNum(carLength)) {
                 int pre = cars.get(index).length;
@@ -38,28 +45,10 @@ public class Play {
             }
             System.out.println(printEachRotate(cars));
         }
-
-        List<String> winCarsName = findWinCars(cars);
-        String answer = printResult(winCarsName);
-        System.out.println(answer);
-
-
-    }
-    public static int makeRandomNum() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
-    public static boolean checkIFGoOrStop(int num) {
-        //System.out.println(num);
-        if (num < 4) {
-            return false;
-        }
-        return true;
     }
 
     public static List<Integer> findEachCarRandomNum(int carLength) {
         List<Integer> randomNum = new ArrayList<>();
-
         for (int index=0; index<carLength; index++) {
             int tmpRandNum = makeRandomNum();
             if(checkIFGoOrStop(tmpRandNum)) {
@@ -68,5 +57,24 @@ public class Play {
         }
         return randomNum;
     }
+
+    public static int makeRandomNum() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public static boolean checkIFGoOrStop(int num) {
+        if (num < 4) {
+            return false;
+        }
+        return true;
+    }
+
+    public static void result() {
+        List<String> winCarsName = findWinCars(cars);
+        String answer = printResult(winCarsName);
+        System.out.println(answer);
+    }
+
+
 
 }
