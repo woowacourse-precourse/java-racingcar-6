@@ -23,6 +23,10 @@ public class Car {
         return randomNumber >= MOVEMENT_THRESHOLD;
     }
 
+    public boolean isWinner(final int winnerPosition) {
+        return position == winnerPosition;
+    }
+
     public String getName() {
         return name;
     }

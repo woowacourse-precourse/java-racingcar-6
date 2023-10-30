@@ -29,4 +29,19 @@ public class RacingGame {
                 .map(CarDto::from)
                 .toList();
     }
+
+    public List<CarDto> getWinners() {
+        final int winnerPosition = findWinnerPosition();
+        return carList.stream()
+                .filter(car -> car.isWinner(winnerPosition))
+                .map(CarDto::from)
+                .toList();
+    }
+
+    private int findWinnerPosition() {
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
 }
