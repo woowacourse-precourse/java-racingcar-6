@@ -34,19 +34,14 @@ public class CarRaceGame {
         List<String> carNameList = CarNamesToList(carNames);
         validateCarName(carNameList);
 
-        List<Car> carImplList = setUpCar(carNameList);
-        GameManager.setCarImplList(carImplList);
-
+        setUpCar(carNameList);
     }
 
 
-    private static List<Car> setUpCar(List<String> carNameList) {
-        List<Car> carImplList = new ArrayList<>();
-
+    private static void setUpCar(List<String> carNameList) {
         for (String carName : carNameList) {
-            carImplList.add(new Car(carName));
+            GameManager.addCarImpl(new Car(carName));
         }
-        return carImplList;
     }
 
     private static List<String> CarNamesToList(String carNames) {

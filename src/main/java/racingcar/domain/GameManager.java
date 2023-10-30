@@ -1,9 +1,10 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameManager {
-    private static List<Car> carImplList;
+    private static List<Car> carImplList = new ArrayList<Car>();
 
     private GameManager() {
     }
@@ -12,8 +13,8 @@ public class GameManager {
         return carImplList;
     }
 
-    public static void setCarImplList(List<Car> carImplList) {
-        GameManager.carImplList = carImplList;
+    public static void addCarImpl(Car carImpl) {
+        carImplList.add(carImpl);
     }
 
 
