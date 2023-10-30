@@ -134,5 +134,14 @@ public class Application {
             }
             return maxPosition;
         }
+        private String findWinners(int maxPosition) {
+            List<String> winnerList = new ArrayList<>();
+            for (Car car : cars) {
+                if (car.getPosition() == maxPosition) {
+                    winnerList.add(car.getName());
+                }
+            }
+            return String.join(", ", winnerList);
+        }
 
     }
