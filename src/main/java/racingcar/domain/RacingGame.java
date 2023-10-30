@@ -33,6 +33,7 @@ public class RacingGame {
 
         for (int i = 0; i < cars.size(); i++) {
             System.out.println(cars.get(i).getName() + " : " + "-".repeat(cars.get(i).getPosition()));
+            System.out.println(cars.get(i).getPosition());
         }
     }
 

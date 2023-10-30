@@ -17,13 +17,18 @@ public class Car {
         return position;
     }
 
+    public void setPosition() {
+        this.position = this.position + 1;
+        System.out.println("position = " + position);
+    }
+
     public void setPosition(int num) {
-        this.position = this.position + num;
+        this.position = num;
     }
 
     public void carMove(int randomNumber) {
         if (randomNumber >= 4) {
-            setPosition(this.position+1);
+            setPosition();
         }
     }
 }

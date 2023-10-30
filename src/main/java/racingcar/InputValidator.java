@@ -2,7 +2,7 @@ package racingcar;
 
 public class InputValidator {
     public static boolean validateString(String input) {
-        if (!input.matches("[a-zA-Z0-9,]+")) { // "[a-zA-Z0-9]+"
+        if (!input.matches("[a-zA-Z0-9,가-힣]+")) { // "[a-zA-Z0-9]+"
             throw new IllegalArgumentException("Invalid input format");
         }
         return true;
