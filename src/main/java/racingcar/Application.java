@@ -27,21 +27,20 @@ public class Application {
         }
 
         int[] raceDistance = new int[carNames.length];
-        int winnerDistance = 0;
         String[] raceDistanceByHyphen = new String[carNames.length];
         Arrays.fill(raceDistanceByHyphen, "");
 
+        int winnerDistance = 0;
         for (int i = 0; i < tryCount; i++) {
             raceProceed(carNames, raceDistance, raceDistanceByHyphen);
             for (int k = 0; k < carNames.length; k++) {
-                winnerDistance = Math.max(winnerDistance, raceDistance[k]);
+                winnerDistance = Math.max(winnerDistance, raceDistance[k]); //가장 많이 전진한 거리 저장
                 System.out.println(carNames[k] + " : " + raceDistanceByHyphen[k]);
             }
             System.out.println();
         }
 
         String winners = "";
-
         for (int l = 0; l < carNames.length; l++) {
             if (raceDistance[l] == winnerDistance && winners.equals("")) {
                 winners += carNames[l];
@@ -52,7 +51,6 @@ public class Application {
         }
 
         System.out.println("최종 우승자 : " + winners);
-
     }
 
 
