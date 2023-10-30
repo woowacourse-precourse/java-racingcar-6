@@ -1,7 +1,5 @@
 package racingcar;
 
-import static racingcar.Computer.trimCarNames;
-
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
