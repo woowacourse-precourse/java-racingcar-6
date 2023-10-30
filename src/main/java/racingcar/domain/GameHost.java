@@ -14,10 +14,9 @@ public class GameHost {
      * 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다.
      *
      * @param progressRaceCarList 현제 진행중인 RaceCarList
-     * @param numOfWinCondition   승리를 위한 조건 (입력 진행숫자)
      * @return
      */
-    public List<RaceCar> knowWinRaceCar(List<RaceCar> progressRaceCarList, Integer numOfWinCondition) {
+    public List<RaceCar> knowWinRaceCar(List<RaceCar> progressRaceCarList) {
         List<RaceCar> raceCarOfWinnerList = new ArrayList<>();
         int cntOfMaxMove = getCntMaxMove(progressRaceCarList);
         boolean isVictoryOfRace = true;
@@ -25,7 +24,6 @@ public class GameHost {
         for (RaceCar raceCarOfCurrentProgress : progressRaceCarList) {
             isVictoryOfRace = judgeStandard.isVictoryCondition(raceCarOfCurrentProgress, cntOfMaxMove);
 
-            // 전진 카운터가 입력한만큼있으면
             if (isVictoryOfRace) {
                 raceCarOfWinnerList.add(raceCarOfCurrentProgress);
             }

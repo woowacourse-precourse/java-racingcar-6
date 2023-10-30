@@ -114,7 +114,7 @@ public class GameProcess {
         int sizeOfWinnerList = 0;
 
         // 레이싱게임의 최종 승자를 알려준다.
-        raceCarOfWinnerList = gameHost.knowWinRaceCar(raceCarOfCurrentList, cntTryRace);
+        raceCarOfWinnerList = gameHost.knowWinRaceCar(raceCarOfCurrentList);
         sizeOfWinnerList = raceCarOfWinnerList.size();
 
         if (Utill.valueGreaterThanEqualOne(sizeOfWinnerList)) {
