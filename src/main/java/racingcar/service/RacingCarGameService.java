@@ -2,29 +2,22 @@ package racingcar.service;
 
 import java.util.List;
 import racingcar.model.Car;
-import racingcar.model.CarFactory;
+import racingcar.model.CarStorage;
 
 public class RacingCarGameService implements CarGameService {
-    private final CarFactory factory;
+    private final CarStorage storage;
 
-    public RacingCarGameService(CarFactory factory) {
-        this.factory = factory;
-    }
-
-    @Override
-    public void makeAndStoreCar(String[] carNames) {
-        for (String carName : carNames) {
-            factory.addCar(carName);
-        }
+    public RacingCarGameService(CarStorage storage) {
+        this.storage = storage;
     }
 
     @Override
     public void updateCar(List<Integer> randomNumbers) {
-        factory.updateCarDistance(randomNumbers);
+        storage.updateCarDistance(randomNumbers);
     }
 
     @Override
     public List<Car> getDuplicatedCars() {
-        return factory.getNameAndDistance();
+        return storage.getNameAndDistance();
     }
 }

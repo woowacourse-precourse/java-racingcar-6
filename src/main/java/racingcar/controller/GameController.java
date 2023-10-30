@@ -1,27 +1,31 @@
 package racingcar.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.CarStorage;
 import racingcar.service.CarGameService;
+import racingcar.service.RacingCarGameService;
 import racingcar.utils.RandomNumberCreator;
 import racingcar.view.RacingCarView;
 
 public class GameController {
-    private final CarGameService carGameService;
-
-    public GameController(CarGameService carGameService) {
-        this.carGameService = carGameService;
-    }
 
     public void gameRun() {
         String[] carNames = RacingCarView.inputCarNames();
+        List<Car> cars = Arrays.stream(carNames)
+                .map(Car::new)
+                .toList();
+        CarStorage storage = new CarStorage(cars);
+
         int numOfCars = carNames.length;
         int gameCount = RacingCarView.inputGameCount();
 
-        carGameService.makeAndStoreCar(carNames);
+        CarGameService carGameService = new RacingCarGameService(storage);
+
         for (int i = 0; i < gameCount; i++) {
             List<Integer> randomNumbers = RandomNumberCreator.makeRandomNumbers(numOfCars);
-            List<Car> playingCars = gameStart(randomNumbers);
+            List<Car> playingCars = gameStart(randomNumbers, carGameService);
             if (i == 0) {
                 System.out.println("\n실행 결과");
             }
@@ -33,7 +37,7 @@ public class GameController {
         RacingCarView.outputWinners(finalPlayingCars);
     }
 
-    private List<Car> gameStart(List<Integer> randomNumbers) {
+    private List<Car> gameStart(List<Integer> randomNumbers, CarGameService carGameService) {
         carGameService.updateCar(randomNumbers);
         return carGameService.getDuplicatedCars();
     }

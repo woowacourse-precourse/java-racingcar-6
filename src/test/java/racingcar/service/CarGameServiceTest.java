@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,28 +8,28 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
-import racingcar.model.CarFactory;
+import racingcar.model.CarStorage;
 
 public class CarGameServiceTest {
 
-    CarFactory factory;
     CarGameService gameService;
     String[] carNames = {"pobi", "jo", "Kim"};
 
     @BeforeEach
     void before() {
-        factory = new CarFactory();
-        gameService = new RacingCarGameService(factory);
-
-        gameService.makeAndStoreCar(carNames);
+        List<Car> cars = Arrays.stream(carNames)
+                .map(Car::new)
+                .toList();
+        CarStorage storage = new CarStorage(cars);
+        gameService = new RacingCarGameService(storage);
     }
 
     @Test
     @DisplayName("자동차를 생성하고, 잘 저장되어 있는지 확인")
     void makeAndStoreCarTest() {
-        List<Car> cars = factory.getNameAndDistance();
+        List<Car> cars = gameService.getDuplicatedCars();
         List<String> carNameList = cars.stream()
-                .map(car -> car.getName())
+                .map(Car::getName)
                 .toList();
         List<String> originalCarNameList = Arrays.asList(carNames);
 
@@ -45,7 +45,7 @@ public class CarGameServiceTest {
                 .toList();
         gameService.updateCar(boxedNumbers);
 
-        List<Car> cars = factory.getNameAndDistance();
+        List<Car> cars = gameService.getDuplicatedCars();
 
         assertThat(cars.get(0).getDistance()).isEqualTo(1);
         assertThat(cars.get(1).getDistance()).isEqualTo(1);
@@ -61,7 +61,7 @@ public class CarGameServiceTest {
                 .toList();
         gameService.updateCar(boxedNumbers);
 
-        List<Car> cars = factory.getNameAndDistance();
+        List<Car> cars = gameService.getDuplicatedCars();
 
         assertThat(cars.get(0).getDistance()).isEqualTo(0);
         assertThat(cars.get(1).getDistance()).isEqualTo(0);
