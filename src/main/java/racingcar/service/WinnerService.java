@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import static racingcar.constant.Delimeter.WINNER_OUTPUT_DELIMETER;
+import static racingcar.constant.Delimiter.WINNER_OUTPUT_DELIMETER;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ public class WinnerService {
         List<String> winners = new ArrayList<>();
         max = getMaxMove(cars, max);
         makeWinnersOutput(cars, winners, max);
-        return String.join(WINNER_OUTPUT_DELIMETER.getDelimeter(), winners);
+        return String.join(WINNER_OUTPUT_DELIMETER.getDelimiter(), winners);
     }
 
     private void makeWinnersOutput(List<Car> cars, List<String> winners, int max) {

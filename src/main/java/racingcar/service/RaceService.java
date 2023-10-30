@@ -14,8 +14,9 @@ public class RaceService {
     public List<String> raceRoundResult(List<Car> cars) {
         List<String> recordResult = new ArrayList<>();
         for (Car car : cars) {
-            if (numberGenerator.generate() >= MIN_RESTRICT_NUMBER)
+            if (numberGenerator.generate() >= MIN_RESTRICT_NUMBER) {
                 car.move();
+            }
             recordResult.add(recordService.madeCarResult(car));
         }
         return recordResult;

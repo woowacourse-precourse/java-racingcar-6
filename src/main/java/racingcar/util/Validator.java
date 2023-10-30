@@ -1,10 +1,8 @@
 package racingcar.util;
 
 
-import static racingcar.constant.Delimeter.COMMA;
-
 import java.util.List;
-import racingcar.constant.Delimeter;
+import racingcar.constant.Delimiter;
 
 public class Validator {
 
@@ -65,14 +63,14 @@ public class Validator {
     }
 
     private void checkRightCommaContains(String carInput, List<String> carNames) {
-
         if (isRightCommaCount(carNames, countComma(carInput))) {
             throw new IllegalArgumentException(INPUT_NOT_FORMAT);
         }
     }
 
     private int countComma(String carInput) {
-        return (int) carInput.chars().filter(c -> c == Delimeter.COMMA.getDelimeter().charAt(0)).count();
+        return (int) carInput.chars().filter(c -> c == Delimiter.COMMA.getDelimiter().charAt(0))
+            .count();
     }
 
     private boolean isRightCommaCount(List<String> carNames, long count) {
