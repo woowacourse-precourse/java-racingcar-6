@@ -1,7 +1,6 @@
 package racingcar.view.output;
 
 import racingcar.model.dto.CarResponse;
-import racingcar.model.dto.WinnerResponse;
 import java.util.List;
 
 public interface OutputView {
