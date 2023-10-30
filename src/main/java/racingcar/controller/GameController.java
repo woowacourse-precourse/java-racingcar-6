@@ -20,7 +20,9 @@ public class GameController {
     public void startGame() {
         UserInput userInput = readValue();
 
-        gameService.processGame(userInput);
+        String gameResult = gameService.processGame(userInput);
+
+        System.out.println(gameResult);
     }
 
     private UserInput readValue() {

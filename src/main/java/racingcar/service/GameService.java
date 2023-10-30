@@ -12,7 +12,9 @@ import static racingcar.util.GameDefaultMessage.*;
 
 // 게임을 진행하기 위한 클래스
 public class GameService {
-    public void processGame(UserInput userInput) {
+    private final StringBuilder sb = new StringBuilder();
+
+    public String processGame(UserInput userInput) {
         List<Car> carList = getCarList(userInput);
 
         for(int i = 0; i < userInput.frequency(); i++) {
@@ -24,8 +26,9 @@ public class GameService {
 
         String winnerName = getWinnerName(carList, maxValue);
 
-        System.out.print(MESSAGE_GAME_WINNER);
-        System.out.println(winnerName);
+        sb.append(MESSAGE_GAME_WINNER).append(winnerName).append("\n");
+
+        return sb.toString();
     }
 
     // 사용자가 입력한 값을 토대로 Car Entity List를 생성
@@ -51,11 +54,13 @@ public class GameService {
 
     // 게임을 진행 결과를 출력
     private void printGameResult(List<Car> carList) {
-        System.out.println(MESSAGE_GAME_RESULT);
+        sb.append(MESSAGE_GAME_RESULT).append("\n");
+
         for(Car car : carList) {
-            System.out.println(car);
+            sb.append(car).append("\n");
         }
-        System.out.println();
+
+        sb.append("\n");
     }
 
     // 가장 멀리 간 자동차의 위치를 반환
