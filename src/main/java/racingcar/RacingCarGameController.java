@@ -34,14 +34,18 @@ public class RacingCarGameController {
         Cars cars = userInputCarNameFactory.createCars();
 
         //3. 이동 횟수 사용자 입력
+        Input.carMoveCountReadLine();
+
+        //4. 이동 횟수 유효성 검증 및 이동 객체 생성
         UserInputCarMoveCountDto userInputCarMoveCountDto = userInputCarMoveCountFactory.createUserInputCarMoveCountDto();
 
-        //4. 자동차 전진
+        //5. 자동차 전진
         carMoveService.move(cars,userInputCarMoveCountDto);
 
-        //5. 우승자 판별
+        //6. 우승자 판별
         carRacingWinnerService.selectWinner(cars);
 
-        //6. 우승자 출력
+        //7. 우승자 출력
+
     }
 }
