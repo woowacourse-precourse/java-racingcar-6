@@ -62,6 +62,11 @@ public class Utill {
         System.out.println();
     }
 
+    /**
+     * print 메서드
+     *
+     * @param str
+     */
     public static void print(String str) {
         System.out.println(str);
     }
