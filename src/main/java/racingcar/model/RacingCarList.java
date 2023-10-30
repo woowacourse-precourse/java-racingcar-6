@@ -1,27 +1,33 @@
 package racingcar.model;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static racingcar.validator.InputValidation.*;
-public class RacingCarList {    // 경주 자동차의 속성을가진 객체
-    private static String SEPREATE_CHAR = ",";
+
+public class RacingCarList {
     private List<RacingCar> car;
-    public RacingCarList(String inputs){
+    private final static String SEPARATE_REGEX = ",";
+
+    public RacingCarList(String inputs) {
         splitByComma(inputs);
     }
-    private void splitByComma(String inputs){
+
+    private void splitByComma(String inputs) {
         car = new ArrayList<>();
-        String[] names = inputs.split(SEPREATE_CHAR);
-        for (String name:names){
+        String[] names = inputs.split(SEPARATE_REGEX);
+        for (String name : names) {
             validNameFormat(name);
             validNameLength(name);
             this.car.add(new RacingCar(name));
         }
     }
-    public int size(){
+
+    public int size() {
         return this.car.size();
     }
-    public RacingCar getCar(int index){
+
+    public RacingCar getCar(int index) {
         return this.car.get(index);
     }
 }

@@ -2,7 +2,7 @@ package racingcar.model;
 
 public class RacingCar {
     private static final String PROGRESS_BAR = "-";
-    private String name;
+    private final String name;
     private int distance;
 
     public RacingCar(String name) {
@@ -13,7 +13,7 @@ public class RacingCar {
         this.distance += distance;
     }
 
-    public int getDistance() {   //  테스트용 코도
+    public int getDistance() {
         return this.distance;
     }
 
