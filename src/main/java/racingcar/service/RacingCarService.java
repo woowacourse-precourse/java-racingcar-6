@@ -17,7 +17,7 @@ public class RacingCarService {
     public void generateCars(String carNames) {
         List<String> carsInfos = ConverterUtil.covertStringToList(carNames);
         cars = new Cars(carsInfos);
-        gameResult = cars.initGameResult();
+        gameResult = cars.initCarsStatus();
     }
 
     public int generateRandomNum() {

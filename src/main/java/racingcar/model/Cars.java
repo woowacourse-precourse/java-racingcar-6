@@ -10,7 +10,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public LinkedHashMap<String, String> initGameResult() {
+    public LinkedHashMap<String, String> initCarsStatus() {
         LinkedHashMap<String, String> gameResult = new LinkedHashMap<>();
         for (String car : cars) {
             gameResult.put(car, "");
