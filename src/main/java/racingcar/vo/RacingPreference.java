@@ -3,6 +3,7 @@ package racingcar.vo;
 public class RacingPreference {
 
     private String[] cars;
+
     private int attempt;
 
     public RacingPreference(String[] cars, int attempt) {
@@ -17,4 +18,5 @@ public class RacingPreference {
     public int getAttempt() {
         return attempt;
     }
+
 }

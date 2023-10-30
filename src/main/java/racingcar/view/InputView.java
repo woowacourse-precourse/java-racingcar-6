@@ -8,7 +8,7 @@ public class InputView {
     public RacingPreference startInfo() {
         System.out.println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).");
         String[] cars = Console.readLine().split(",");
-        System.out.println("시도할 횟수는 몇 회 인가요?");
+        System.out.println("시도할 회수는 몇 회 인가요?");
         String attempt = Console.readLine();
         System.out.println("");
 

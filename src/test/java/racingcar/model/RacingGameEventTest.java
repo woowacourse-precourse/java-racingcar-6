@@ -1,8 +1,9 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.List;
 import java.util.Map.Entry;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.vo.Car;
@@ -14,7 +15,7 @@ class RacingGameEventTest {
     public void createRacingCarTest() {
         String[] cars = {"pobi", "woni", "jun"};
         RacingGameEvent racingGameEvent = new RacingGameEvent(cars);
-        Assertions.assertThat(racingGameEvent.getPositionHistory().size()).isEqualTo(3);
+        assertThat(racingGameEvent.getPositionHistory().size()).isEqualTo(3);
     }
 
     @DisplayName("자동차가 이동 할 경우 테스트")
@@ -30,8 +31,8 @@ class RacingGameEventTest {
                 position.add(carName.moveForward(true));
             }
         }
-        Assertions.assertThat(racingGameEvent.getPositionHistory().values().toArray())
-                .isEqualTo(List.of(List.of(0, 1, 2)).toArray());
+        assertThat(racingGameEvent.getPositionHistory().values().toArray())
+                .isEqualTo(List.of(List.of(1, 2, 3)).toArray());
     }
 
     @DisplayName("자동차가 이동하지 않을 경우 테스트")
@@ -47,7 +48,7 @@ class RacingGameEventTest {
                 position.add(carName.moveForward(false));
             }
         }
-        Assertions.assertThat(racingGameEvent.getPositionHistory().values().toArray())
+        assertThat(racingGameEvent.getPositionHistory().values().toArray())
                 .isEqualTo(List.of(List.of(0, 0, 0)).toArray());
     }
 
@@ -66,6 +67,6 @@ class RacingGameEventTest {
         }
 
         List<String> winnerNames = racingGameEvent.getWinnerNames(racingGameEvent.getPositionHistory());
-        Assertions.assertThat(winnerNames.size()).isEqualTo(3);
+        assertThat(winnerNames.size()).isEqualTo(3);
     }
 }

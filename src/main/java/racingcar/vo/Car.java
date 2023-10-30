@@ -2,7 +2,7 @@ package racingcar.vo;
 
 public class Car {
 
-    private String name;
+    private final String name;
     private int position;
 
     public Car(String name) {
@@ -11,13 +11,13 @@ public class Car {
 
     public int moveForward(boolean success) {
         if (success) {
-            return ++position;
+            position++;
         }
         return position;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getPosition() {

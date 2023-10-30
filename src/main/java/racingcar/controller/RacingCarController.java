@@ -15,7 +15,7 @@ public class RacingCarController {
         racingGameEvent.startEvent(racingPreference.getAttempt());
 
         ResultView resultView = new ResultView();
-        resultView.showRacingResult(racingGameEvent.getPositionHistory(), racingPreference.getAttempt());
-
+        resultView.RacingResult(racingGameEvent.getPositionHistory(), racingPreference.getAttempt());
+        resultView.showRacingWinners(racingGameEvent.getWinnerNames(racingGameEvent.getPositionHistory()));
     }
 }
