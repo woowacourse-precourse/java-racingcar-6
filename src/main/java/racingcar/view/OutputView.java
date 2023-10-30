@@ -26,17 +26,28 @@ public class OutputView {
     }
 
     public void printFinalWinner(Cars cars) {
-        int maxDistance = cars.getCars().stream()
+        int maxDistance = getMaxDistance(cars);
+        List<Car> finalWinnerCars = getFinalWinnerCars(cars, maxDistance);
+        List<String> finalWinnerNames = getFinalWinnerNames(finalWinnerCars);
+        System.out.println(WINNER_MSG + String.join(DELIMITER, finalWinnerNames));
+    }
+
+    private static List<String> getFinalWinnerNames(List<Car> finalWinnerCars) {
+        return finalWinnerCars.stream()
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private static List<Car> getFinalWinnerCars(Cars cars, int maxDistance) {
+        return cars.getCars().stream()
+                .filter(car -> car.getPosition() == maxDistance)
+                .collect(Collectors.toList());
+    }
+
+    private static int getMaxDistance(Cars cars) {
+        return cars.getCars().stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(-1);
-        List<Car> finalWinner = cars.getCars().stream()
-                .filter(car -> car.getPosition() == maxDistance)
-                .collect(Collectors.toList());
-        List<String> finalWinnerNames = finalWinner.stream()
-                .map(Car::getName)
-                .collect(Collectors.toList());
-        System.out.println(WINNER_MSG + String.join(DELIMITER, finalWinnerNames));
-
     }
 }
