@@ -19,12 +19,10 @@ public class Car {
         return new Car(name, defaultPosition);
     }
 
-    public boolean isSatisfiedMove(final int number) {
-        return number >= MINIMUM_RACE_VALUE;
-    }
-
-    public void move() {
-        position.increase();
+    public void move(final int number) {
+        if (number >= MINIMUM_RACE_VALUE) {
+            position.increase();
+        }
     }
 
     public String getName() {

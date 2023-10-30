@@ -32,9 +32,7 @@ public class Cars {
     public void race(final RandomNumber randomNumber) {
         cars.forEach(car -> {
             int number = randomNumber.pickNumber();
-            if (car.isSatisfiedMove(number)) {
-                car.move();
-            }
+            car.move(number);
         });
     }
 
