@@ -19,4 +19,20 @@ public class RacingGame {
     public List<Car> getCars() {
         return new ArrayList<>(cars);
     }
+
+    public List<Car> getWinners() {
+        int maxDistance = 0;
+        for (Car car : cars) {
+            maxDistance = Math.max(maxDistance, car.getDistance());
+        }
+
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getDistance() == maxDistance) {
+                winners.add(car);
+            }
+        }
+
+        return new ArrayList<>(winners);
+    }
 }
