@@ -24,9 +24,11 @@
 
 ## Car
 
-| 구현                   | 메서드    | 기능                        |
-|----------------------|--------|---------------------------|
-| :white_large_square: | `move` | `Car`의 position을 1 증가시킨다. |
+| 구현                   | 메서드           | 기능                        |
+|----------------------|---------------|---------------------------|
+| :white_large_square: | `move`        | `Car`의 position을 1 증가시킨다. |
+| :white_large_square: | `getName`     | Getter of `name`.         |
+| :white_large_square: | `getPosition` | Getter of `position`.     |
 
 ## RacingCarGameView
 
