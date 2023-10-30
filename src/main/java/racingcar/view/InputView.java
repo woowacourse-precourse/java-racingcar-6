@@ -8,10 +8,10 @@ public class InputView {
     public String inputCarsName() {
         String carsName = Console.readLine();
 
-        return validateCarsName(carsName);
+        return blankReplaceAllCarsName(carsName);
     }
 
-    private String validateCarsName(String carsName) {
+    private String blankReplaceAllCarsName(String carsName) {
         return carsName.replaceAll(" ", "");
     }
 
