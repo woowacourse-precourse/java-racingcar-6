@@ -1,7 +1,13 @@
 package racingcar;
 
 public class Application {
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+
+        InputRacingInfo inputRacingInfo = new InputRacingInfo();
+        RacingInfo racingInfo = inputRacingInfo.createRacingInfo();
+
+//        System.out.println(Arrays.toString(racingInfo.carNames));
+//        System.out.println(racingInfo.racingTimes);
     }
 }
