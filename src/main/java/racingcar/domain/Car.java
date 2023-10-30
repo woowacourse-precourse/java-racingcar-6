@@ -1,13 +1,8 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
     private static final String LENGTH_ERROR_MESSAGE = "자동차 이름은 5글자 이하만 가능합니다.";
     private static final int MAX_NAME_LENGTH = 5;
-    private static final int MIN_DICE_VALUE = 0;
-    private static final int MAX_DICE_VALUE = 9;
-    private static final int STANDARD_VALUE = 4;
     private final String name;
     private int position = 0;
 
@@ -29,8 +24,8 @@ public class Car {
         return new Car(name);
     }
 
-    public void move() {
-        if (canMove()) {
+    public void move(boolean isCanMove) {
+        if (isCanMove) {
             position += 1;
         }
     }
@@ -39,10 +34,5 @@ public class Car {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(LENGTH_ERROR_MESSAGE);
         }
-    }
-
-    private boolean canMove() {
-        int value = Randoms.pickNumberInRange(MIN_DICE_VALUE, MAX_DICE_VALUE);
-        return value >= STANDARD_VALUE;
     }
 }

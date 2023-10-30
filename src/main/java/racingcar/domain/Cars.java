@@ -20,8 +20,11 @@ public class Cars {
         carList.add(Car.getNewCar(name));
     }
 
-    public void move() {
-        carList.forEach(Car::move);
+    public void move(Referee referee) {
+        carList.forEach(car -> {
+            boolean isCanMove = referee.shouldMove();
+            car.move(isCanMove);
+        });
     }
 
     public String getStringOfRaceResult() {

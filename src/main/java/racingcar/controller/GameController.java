@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Cars;
+import racingcar.domain.RandomReferee;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -23,7 +24,7 @@ public class GameController {
     private void playRace() {
         OutputView.printPlayResult();
         while (trialCount > 0) {
-            cars.move();
+            cars.move(new RandomReferee());
             trialCount--;
             OutputView.printRaceResult(cars.getStringOfRaceResult());
         }
