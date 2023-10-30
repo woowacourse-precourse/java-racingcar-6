@@ -2,9 +2,11 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 import racingcar.util.RandomGenerator;
 
 public class Circuit {
+    private static final String DELIMITER = "\n";
     private final List<RacingCar> racingCars;
 
     public Circuit(List<String> names) {
@@ -13,12 +15,15 @@ public class Circuit {
                 .toList();
     }
 
-    public void race(int round) {
-        for (int i = 0; i < round; i++) {
-            for (RacingCar racingCar : racingCars) {
-                racingCar.move(RandomGenerator.pickNumber());
-            }
+    public String race() {
+        StringJoiner roundResult = new StringJoiner(DELIMITER);
+
+        for (RacingCar racingCar : racingCars) {
+            racingCar.move(RandomGenerator.pickNumber());
+            roundResult.add(racingCar.toString());
         }
+
+        return roundResult + "\n";
     }
 
     public RaceResult report() {

@@ -6,6 +6,8 @@ public class RacingCar {
     private static final int FORWARD_THRESHOLD = 4;
     private static final int NAME_LIMIT = 5;
     private static final String WRONG_NAME_LENGTH = "이름은 5자 이하만 입력됩니다.";
+    private static final String POSITION_SIGN = "-";
+    private static final String COLON = " : ";
     private final String name;
     private int position;
 
@@ -51,6 +53,15 @@ public class RacingCar {
     }
 
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + COLON + position();
+    }
+
+    private String position() {
+        return POSITION_SIGN.repeat(this.position);
     }
 }
