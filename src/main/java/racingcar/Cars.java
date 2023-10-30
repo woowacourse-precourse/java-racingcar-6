@@ -50,4 +50,8 @@ class Cars {
                 .mapToInt(Car::getMoveForwardCount)
                 .max().orElse(0);
     }
+
+    int carCount(){
+        return carList.size();
+    }
 }
