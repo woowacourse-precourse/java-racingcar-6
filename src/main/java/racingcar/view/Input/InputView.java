@@ -1,9 +1,7 @@
-package racingcar.view;
+package racingcar.view.Input;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.List;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
+import racingcar.view.Input.InputParser;
 
 /* 자동차 입력 받는 클래스
 *  입력만 받기
@@ -14,14 +12,18 @@ public class InputView {
     public static int trialNumber; // 인스턴스 변수로 필요한지 고민
 
     private InputParser inputParser;
+    private InputValidator inputValidator;
     // 생성자
-    public InputView(InputParser inputParser) {
+    public InputView(InputParser inputParser, InputValidator inputValidator) {
         this.inputParser = inputParser;
+        this.inputValidator = inputValidator;
     }
     // 자동차 입력 받기
     public void inputCarName() {
         System.out.println(INPUT_CAR_NAME);
-        inputParser.parseCarString(Console.readLine());
+        String input = Console.readLine();
+        inputValidator.validateCarString(input.replace(" ",""));
+        inputParser.parseCarString(input);
     }
 
     // 시도 횟수 입력 받기
