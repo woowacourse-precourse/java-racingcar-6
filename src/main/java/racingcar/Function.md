@@ -22,10 +22,12 @@
     - [x] 시도할 횟수 입력 - playNumber()
       - [x] String -> Integer 변환 - StringToNumber()
 - [x] 랜덤 한 수 뽑기 - #NumberGenerater - generateRandomNumber()
-- [ ] 경기 진행 - #PlayRacing
-  - [ ] 경기 하기 - playRace()
-  - [ ] 전진 or 정지 판단 - judgementGoStop()
-  - [ ] 우승자 판단 - winnerList()
+- [x] 경기 진행 - #PlayRacing
+  - [x] 경기 하기 - playRace()
+  - [x] 자동차 별 스코어 계산 - raceResult()
+    - [x] 전진 or 정지 판단 - judgementGoStop()
+  - [x] 우승자 판단 - getWinnerList()
+    - [x] 최대 스코어 계산 - getMaxScore()
 
 ### 입출력 요구 사항
 

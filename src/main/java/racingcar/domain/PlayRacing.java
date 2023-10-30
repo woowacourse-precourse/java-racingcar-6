@@ -1,7 +1,6 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class PlayRacing {
     private final RaceSetting RACESETTING = new RaceSetting();
@@ -11,31 +10,61 @@ public class PlayRacing {
         return NUMBERMANAGER.generateRandomNumber() >= 4;
     }
 
-    public String raceResult(int playNumber) {
-        StringBuilder score = new StringBuilder();
-        for (int i = 0; i < playNumber; i++) {
-            if (judgementGoStop()) score.append("-");
+    public String[] raceResult(String[] carList, String[] scoreList) {
+        for (int i = 0; i < carList.length; i++) {
+            if (judgementGoStop()) {
+                scoreList[i] += "-";
+            }
+            System.out.println(carList[i] + " : " + scoreList[i]);
         }
-        return score.toString();
+
+        System.out.println();
+        return scoreList;
     }
 
     public void playRace() {
-        List<String> carList = RACESETTING.regCar();
+        String[] carList = RACESETTING.regCar();
         int playNumber = RACESETTING.playNumber();
-        List<String> scoreList = new ArrayList<>();
+        String[] scoreList = new String[carList.length];
+        Arrays.fill(scoreList, "");
 
-        for (int i = 0; i < carList.size(); i++) {
-            String score = raceResult(playNumber);
-            scoreList.add(score);
+        System.out.println();
+        System.out.println("실행 결과");
+        for (int i = 0; i < playNumber; i++) {
+            scoreList = raceResult(carList, scoreList);
         }
 
-        for (int j = 0; j < carList.size(); j++) {
-            System.out.println(carList.get(j) + " : " + scoreList.get(j));
-        }
-
+        getWinnerList(carList, scoreList);
     }
 
-    public void winnerList(List<String> scoreList) {
+    public int getMaxScore(String[] scoreList) {
+        int maxScore = 0;
 
+        for (String index : scoreList) {
+            int score = index.length();
+            maxScore = Math.max(maxScore, score);
+        }
+
+        return maxScore;
+    }
+
+    public void addWinner(StringBuilder winnerList, String car) {
+        if (!winnerList.isEmpty()) winnerList.append(", ");
+        winnerList.append(car);
+    }
+
+    public void getWinnerList(String[] carList, String[] scoreList) {
+        StringBuilder winnerList = new StringBuilder();
+        int maxScore = getMaxScore(scoreList);
+
+        for (int i = 0; i < scoreList.length; i++) {
+            String score = scoreList[i];
+            if (score.length() == maxScore) {
+                addWinner(winnerList, carList[i]);
+            }
+        }
+
+        String result = "최종 우승자 : " + winnerList;
+        System.out.println(result);
     }
 }
