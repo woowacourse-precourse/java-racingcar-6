@@ -11,7 +11,10 @@ public class InputView {
         print(CAR_NAMES_MESSAGE);
         return Console.readLine();
     }
-
+    public static String readCount() {
+        print(COUNT_MESSAGE);
+        return Console.readLine();
+    }
     private static void print(String message) {
         System.out.println(message);
     }
