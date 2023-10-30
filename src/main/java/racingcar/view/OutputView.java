@@ -28,7 +28,8 @@ public class OutputView {
         }
         System.out.println(racingStatusMessage);
     }
+
     public void printResult(String topRacers) {
-        System.out.println("최종 우승자 : "+topRacers);
+        System.out.println("최종 우승자 : " + topRacers);
     }
 }

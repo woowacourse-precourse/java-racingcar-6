@@ -11,6 +11,7 @@ import racingcar.util.NumberGenerator;
 
 public record Cars(List<Car> cars) {
     private static final int CARS_COUNT_MIN = 2;
+
     public Cars {
         validateCars(cars);
     }
@@ -49,6 +50,7 @@ public record Cars(List<Car> cars) {
             car.moveToCar(value);
         }
     }
+
     @Override
     public List<Car> cars() {
         return Collections.unmodifiableList(cars);
