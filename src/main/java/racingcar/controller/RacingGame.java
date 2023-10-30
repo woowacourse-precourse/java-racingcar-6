@@ -5,10 +5,12 @@ import static racingcar.view.ConsoleInput.inputPlayNumber;
 import static racingcar.view.ConsoleOutput.informInputCarNames;
 import static racingcar.view.ConsoleOutput.informInputPlayNumber;
 import static racingcar.view.ConsoleOutput.informPlayResult;
+import static racingcar.view.ConsoleOutput.printFinalWinner;
 import static racingcar.view.ConsoleOutput.printNewLine;
 import static racingcar.view.ConsoleOutput.printProgressState;
 
 import java.util.List;
+import racingcar.domain.FinalResult;
 import racingcar.domain.ProgressState;
 
 
@@ -25,6 +27,9 @@ public class RacingGame {
 
         informPlayResult();
         play(playNumber);
+
+        FinalResult finalResult = CarManager.getFinalWinner();
+        printFinalWinner(finalResult);
     }
 
     private static void play(int playNumber) {
