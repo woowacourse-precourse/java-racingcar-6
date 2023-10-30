@@ -16,4 +16,7 @@ public class CarStorage {
     public static List<Car> cars() {
         return cars;
     }
+    public static void addCar(Car car) {
+        cars.add(car);
+    }
 }
