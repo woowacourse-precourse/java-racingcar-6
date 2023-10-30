@@ -1,39 +1,36 @@
 package racingcar.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
 import racingcar.domain.Racingcar;
 
 public class MemoryRacingcarRepository implements CarRepository{
 
-    private static ArrayList<Racingcar> carStore = new ArrayList<>();
+    private static Map<String, Racingcar> carStore = new HashMap<>();
 
     @Override
     public Racingcar save(String name) {
         Racingcar racingCar = new Racingcar(name);
-        carStore.add(racingCar);
+        carStore.put(name, racingCar);
 
         return racingCar;
     }
 
     @Override
-    public Optional<Racingcar> findByName(String name) {
-        return carStore.stream()
-                .filter(racingcar -> racingcar.equals(racingcar.getName()))
-                .findAny();
+    public Racingcar findByName(String name) {
+        return carStore.get(name);
     }
 
     @Override
     public int update(String name, int distance) {
-        Optional<Racingcar> racingCar = findByName(name);
-        racingCar.get().setMovingforward(distance);
+        Racingcar racingcar = findByName(name);
+        racingcar.setMovingforward(distance);
 
-        return racingCar.get().getMovingforward();
+        return racingcar.getMovingforward();
     }
 
     @Override
     public List<Racingcar> findAll() {
-        return new ArrayList<>(carStore);
+        return new ArrayList<>(carStore.values());
     }
 }
