@@ -9,14 +9,6 @@ public class InputValidator {
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
 
-    public Boolean isMinLengthValid(String name){
-        return name.length() >= MIN_LENGTH;
-    }
-
-    public Boolean isMaxLengthValid(String name){
-        return name.length() <= MAX_LENGTH;
-    }
-
     public Boolean validateNameOfLength(String name){
         Boolean isMinLengthValid = this.isMinLengthValid(name);
         Boolean isMaxLengthValid = this.isMaxLengthValid(name);
@@ -39,5 +31,16 @@ public class InputValidator {
     // 경주에 참여하는 자동차가 최소 2대 이상인지 확인하는 메서드
     public Boolean validateNumberOfCar(List<String> candidateCars){
         return candidateCars.size() >= 2;
+    }
+
+    private Boolean isMinLengthValid(String name){
+        return name.length() >= MIN_LENGTH;
+    }
+
+    private Boolean isMaxLengthValid(String name){
+        return name.length() <= MAX_LENGTH;
+    }
+    public Boolean isNoSpaceValid(String name){
+        return !name.contains(" ");
     }
 }

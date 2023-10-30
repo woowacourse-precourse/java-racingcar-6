@@ -41,6 +41,9 @@ public class RaceGame {
             throw new IllegalArgumentException("Input Error: Invalid the minimum number of cars");
         }
         for(String result : parseResults){
+            if(!inputValidator.isNoSpaceValid(result)){
+                throw new IllegalArgumentException("Input Error: Invalid space condition");
+            }
             if(!inputValidator.validateNameOfLength(result)){
                 throw new IllegalArgumentException("Input Error: Invalid name length");
             }
@@ -49,9 +52,10 @@ public class RaceGame {
         }
     }
     private List<String> parseNamesFromInput(String input){
-        String[] parseResultArray = input.split(",");
+        String[] parseResultArray = input.split(",", -1);
+        System.out.println("parse: " + parseResultArray.length);
         // convert array type into list type
-        return Arrays.asList(parseResultArray);
+        return new ArrayList<>(Arrays.asList(parseResultArray));
     }
 
     private void inputMoveCount(){
