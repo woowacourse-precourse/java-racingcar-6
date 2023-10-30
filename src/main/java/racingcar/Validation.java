@@ -9,6 +9,9 @@ public class Validation {
             if (car.length() > 5) {
                 throw new IllegalArgumentException("잘못된 값을 입력하였습니다.");
             }
+            if (car.chars().allMatch(Character::isDigit)) {
+                throw new IllegalArgumentException("잘못된 값을 입력하였습니다.");
+            }
         }
     }
 

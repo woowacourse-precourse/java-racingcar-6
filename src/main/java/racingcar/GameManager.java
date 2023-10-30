@@ -3,11 +3,11 @@ package racingcar;
 import java.util.ArrayList;
 
 public class GameManager {
-    final CarManager carManager = new CarManager();
-    final Raching raching = new Raching();
-    String[] carArray = carManager.inputForCarName();
+    CarManager carManager = new CarManager();
+    Raching raching;
+    String[] carArray;
     ArrayList<Car> cars = new ArrayList<>();
-    final int maximomMove = carManager.inputForCarMove();
+    int maximomMove;
     public void carConstructor() {
         for (String name : carArray) {
             cars.add(new Car(name.trim()));
@@ -24,7 +24,13 @@ public class GameManager {
     }
 
     public void GamePlay() {
+        carManager.printCarNamePrompt();
+        carArray = carManager.inputForCarName();
         carConstructor();
+        carManager.printCarMovePrompt();
+        maximomMove = carManager.inputForCarMove();
+
+        raching = new Raching(maximomMove);
         while (true) {
             if (isMaximomMove(cars)) {
                 raching.ChampionPrint(cars);

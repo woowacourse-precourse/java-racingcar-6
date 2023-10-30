@@ -2,11 +2,14 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.zip.CheckedOutputStream;
 
 public class Raching {
-    static final CarManager carManager = new CarManager();
-    static final int maximomMove = carManager.inputForCarMove();
+    CarManager carManager = new CarManager();
+    int maximomMove;
+
+    public Raching(int maximomMove) {
+        this.maximomMove = maximomMove;
+    }
 
     public void generateRandomNumber(ArrayList<Car> cars) {
         for (Car car : cars) {
@@ -27,10 +30,11 @@ public class Raching {
         for (Car car : cars) {
             System.out.print(car.carName + " : ");
             for (int i = 0; i<car.moveCount; i++) {
-                System.out.println("-");
+                System.out.print("-");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void ChampionPrint(ArrayList<Car> cars) {
