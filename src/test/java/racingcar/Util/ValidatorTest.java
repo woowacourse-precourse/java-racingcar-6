@@ -39,4 +39,12 @@ class ValidatorTest {
             validator.validationTrialNumber("");
         });
     }
+
+    @Test
+    @DisplayName("int 최대값 초과 테스트")
+    void validationTrialNumberTest3() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            validator.validationTrialNumber("2,147,483,648");
+        });
+    }
 }
