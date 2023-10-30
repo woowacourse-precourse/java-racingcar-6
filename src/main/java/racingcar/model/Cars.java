@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import racingcar.model.dto.CarDto;
 
 public class Cars {
     private final List<Car> carList;
@@ -29,6 +30,14 @@ public class Cars {
             carsDto.add(new CarDto(car.getName(), car.getPosition()));
         }
         return Collections.unmodifiableList(carsDto);
+    }
+
+    public int getMaxPositions() {
+        List<Integer> positions = new ArrayList<>();
+        for (Car car : carList) {
+            positions.add(car.getPosition());
+        }
+        return Collections.max(positions);
     }
 
     private static String trimName(String name) {

@@ -1,10 +1,13 @@
 package racingcar.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import racingcar.exception.NoCountInputException;
-import racingcar.exception.NonNumericStringException;
+import racingcar.exception.count.NoCountInputException;
+import racingcar.exception.count.NonNumericStringException;
+import racingcar.model.dto.CarDto;
 
 public class Racing {
     private static final Pattern NUMBER = Pattern.compile("^\\d+$");
@@ -28,6 +31,20 @@ public class Racing {
 
     public List<CarDto> getStatus() {
         return cars.getStatus();
+    }
+
+    public List<String> getWinners() {
+        List<String> winners = new ArrayList<>();
+        for (CarDto car : cars.getStatus()) {
+            findWinners(car, winners);
+        }
+        return Collections.unmodifiableList(winners);
+    }
+
+    private void findWinners(CarDto car, List<String> winners) {
+        if (car.position() == cars.getMaxPositions()) {
+            winners.add(car.name());
+        }
     }
 
     public boolean isEnd() {
