@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.core.car.MoveSignal;
 import racingcar.domain.core.car.OnRaceCar;
+import racingcar.domain.core.car.MovingCar;
 import racingcar.domain.system.game.round.host.Host;
 import racingcar.domain.system.manager.car.InMemoryCarManager;
 import racingcar.domain.system.manager.car.SavedCar;
@@ -82,7 +83,7 @@ class RacingGameTest {
         private static int idx = 0;
 
         @Override
-        public OnRaceCar signal(OnRaceCar car) {
+        public OnRaceCar signal(MovingCar car) {
             return car.move(getSignal());
         }
 

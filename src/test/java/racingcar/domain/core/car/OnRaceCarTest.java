@@ -13,7 +13,7 @@ class OnRaceCarTest {
     void move_forward() {
         // given
         Car car = new Car(new CarName("a"));
-        OnRaceCar onRaceCar = new OnRaceCar(car, 0L);
+        MovingCar onRaceCar = new OnRaceCar(car, 0L);
 
         // when
         OnRaceCar movedCar = onRaceCar.move(FORWARD);
@@ -28,7 +28,7 @@ class OnRaceCarTest {
     void move_stop() {
         // given
         Car car = new Car(new CarName("a"));
-        OnRaceCar onRaceCar = new OnRaceCar(car, 0L);
+        MovingCar onRaceCar = new OnRaceCar(car, 0L);
 
         // when
         OnRaceCar movedCar = onRaceCar.move(MoveSignal.STOP);

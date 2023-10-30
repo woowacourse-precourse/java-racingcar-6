@@ -1,11 +1,12 @@
 package racingcar.domain.system.game.round.host;
 
 import racingcar.domain.core.car.MoveSignal;
+import racingcar.domain.core.car.MovingCar;
 import racingcar.domain.core.car.OnRaceCar;
 
 public abstract class Host {
 
-    public OnRaceCar signal(OnRaceCar car) {
+    public OnRaceCar signal(MovingCar car) {
         return car.move(getSignal());
     }
 
