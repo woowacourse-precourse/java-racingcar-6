@@ -12,4 +12,13 @@ public class GamePlayer {
         this.attempts = attempts;
         this.randomNumber = randomNumber;
     }
+
+    public void play() {
+        for (int i = 0; i < attempts; i++) {
+            for (int j = 0; j < cars.size(); j++) {
+                int number = randomNumber.generate();
+                cars.get(j).move(randomNumber.judge(number));
+            }
+        }
+    }
 }
