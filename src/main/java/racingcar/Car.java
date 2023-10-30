@@ -21,10 +21,14 @@ public class Car {
         return this.location;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void print() {
-        System.out.println(this.name + " : ");
+        System.out.print(this.name + " : ");
         for (int i = 0; i < this.location; ++i) {
-            System.out.println("-");
+            System.out.print("-");
         }
         System.out.println();
     }

@@ -30,7 +30,6 @@ public class Circuit {
     }
 
     public void race() {
-        System.out.println("실행 결과");
         for (int i = 0; i < this.repeat; ++i) {
             for (Car car : this.carList) {
                 car.move();
@@ -38,6 +37,30 @@ public class Circuit {
             }
             System.out.println();
         }
+    }
+
+    public void printResult() {
+        int max = 0;
+        for (Car car : carList) {
+            if (car.getLocation() > max) {
+                max = car.getLocation();
+            }
+        }
+        System.out.print("최종 우승자 : ");
+        ArrayList<Car> winner = new ArrayList<Car>();
+        for (Car car : carList) {
+            if (car.getLocation() == max) {
+                winner.add(car);
+            }
+        }
+        for (int i = 0; i < winner.size(); ++i) {
+            if (i == 0) {
+                System.out.print(winner.get(i).getName());
+            } else {
+                System.out.print(", " + winner.get(i).getName());
+            }
+        }
+        System.out.println();
     }
 
     private boolean checkInputError(String[] input) {
