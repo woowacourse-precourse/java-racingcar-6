@@ -2,10 +2,10 @@ package racingcar;
 
 import racingcar.service.GameService;
 import racingcar.service.InputService;
-import racingcar.service.MessageService;
+import racingcar.service.PrintService;
 
 public class GameController {
-    private final MessageService message = new MessageService();
+    private final PrintService message = new PrintService();
     private final InputService inputService = new InputService();
     private final GameService gameService = new GameService();
 

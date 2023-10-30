@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-
     private final static List<Car> carList = new ArrayList<>();
 
     public void init(String[] carArr) {
@@ -17,7 +16,7 @@ public class Cars {
         return carList.size();
     }
 
-    public void plusGameNum(int i) {
+    public void plusNum(int i) {
         carList.get(i).plusPosition();
     }
 

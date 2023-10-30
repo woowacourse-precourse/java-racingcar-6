@@ -5,27 +5,24 @@ import racingcar.domain.Cars;
 import racingcar.repository.GameRepository;
 
 public class GameService {
-    private final MessageService message = new MessageService();
+    private final PrintService print = new PrintService();
     private final GameRepository gameRepository = new GameRepository();
 
     public void run(int gameNum) {
-        message.printResult();
+        print.result();
         Cars cars = gameRepository.findCars();
 
         while (gameNum > 0) {
-            for (int i = 0; i < cars.size(); i++) {
-                int random = Randoms.pickNumberInRange(0, 9);
-                if (random < 4) {
-                    continue;
-                }
-                cars.plusGameNum(i);
-            }
-
-            message.printRacing(cars.size(), cars);
+            addRandomNum(cars);
+            print.racing(cars.size(), cars);
             gameNum--;
         }
 
-        int max = cars.findMaxAdvanceNum();
+        findWinner(cars, cars.findMaxAdvanceNum());
+        print.winner(cars);
+    }
+
+    private void findWinner(Cars cars, int max) {
         int i = 0;
         while (i < cars.size()) {
             if (max != cars.findGameNum(i)) {
@@ -34,14 +31,15 @@ public class GameService {
             }
             i++;
         }
+    }
 
-        System.out.print("최종 우승자 : ");
-        for (int j = 0; j < cars.size(); j++) {
-            if (j == cars.size() - 1) {
-                System.out.print(cars.findName(j));
+    private void addRandomNum(Cars cars) {
+        for (int i = 0; i < cars.size(); i++) {
+            int random = Randoms.pickNumberInRange(0, 9);
+            if (random < 4) {
                 continue;
             }
-            System.out.print(cars.findName(j) + ", ");
+            cars.plusNum(i);
         }
     }
 }

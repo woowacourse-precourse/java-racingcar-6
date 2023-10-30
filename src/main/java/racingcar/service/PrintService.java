@@ -2,7 +2,7 @@ package racingcar.service;
 
 import racingcar.domain.Cars;
 
-public class MessageService {
+public class PrintService {
 
     // 공통처리
     public void questionCarName() {
@@ -13,29 +13,39 @@ public class MessageService {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void printResult() {
+    public void result() {
         System.out.println("실행 결과");
     }
 
     // 값마다 다른것
-    public void printRacing(int size, Cars cars) {
+    public void racing(int size, Cars cars) {
         for (int i = 0; i < size; i++) {
-            printName(cars.findName(i));
-            printPosition(cars.findGameNum(i));
+            name(cars.findName(i));
+            position(cars.findGameNum(i));
             jump();
         }
         jump();
     }
 
-    public void printName(String name) {
+    public void name(String name) {
         System.out.print(name + " : ");
     }
 
-    public void printWinner(String winner) {
-        System.out.println("최종 우승자 : " + winner);
+    public void winner(Cars cars) {
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < cars.size(); i++) {
+            name(cars.findName(i));
+            and(cars.size(), i);
+        }
     }
 
-    public void printPosition(int num) {
+    private void and(int size, int i) {
+        if (i != size - 1) {
+            System.out.print(", ");
+        }
+    }
+
+    public void position(int num) {
         for (int i = 0; i < num; i++) {
             System.out.print("-");
         }
