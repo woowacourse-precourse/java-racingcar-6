@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.game;
 
 import static racingcar.constant.Constant.DICE_MAX_RANGE;
 import static racingcar.constant.Constant.DICE_MIN_RANGE;
@@ -23,7 +23,7 @@ public class RaceProcess {
         return Randoms.pickNumberInRange(min, max);
     }
 
-    public boolean isMovable() {
+    private boolean isMovable() {
         return makeRandomNumber(DICE_MIN_RANGE, DICE_MAX_RANGE) >= FORWARD_ABLE_NUMBER;
     }
 

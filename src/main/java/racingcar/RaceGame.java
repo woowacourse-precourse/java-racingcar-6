@@ -2,6 +2,9 @@ package racingcar;
 
 import java.util.List;
 import java.util.Map;
+import racingcar.game.RacePreparation;
+import racingcar.game.RaceProcess;
+import racingcar.game.RaceResult;
 import racingcar.util.Printer;
 import racingcar.util.UserInput;
 
