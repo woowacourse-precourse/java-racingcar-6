@@ -8,6 +8,11 @@ public class RacingController {
     public void run() {
         setGame();
         playGame();
+        endGame();
+    }
+
+    private void endGame() {
+        racingService.chooseWinner();
     }
 
     private void playGame() {
