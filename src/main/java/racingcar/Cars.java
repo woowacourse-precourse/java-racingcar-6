@@ -29,6 +29,12 @@ final class Cars {
         });
     }
 
+    List<String> collectCurrentStatus() {
+        return cars.stream()
+                .map(Car::currentStatus)
+                .collect(Collectors.toList());
+    }
+
     private void validateNames(String[] names) {
         var uniqueNameCount = Arrays.stream(names).distinct().count();
         if (names.length < 1 || names.length != uniqueNameCount) throw new IllegalArgumentException();
