@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Racing;
 import racingcar.util.GlobalExceptionHandler;
+import racingcar.view.RacingCarView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,13 +16,12 @@ import static java.util.Collections.max;
 public class RacingCarController {
 
     private final static GlobalExceptionHandler globalExceptionHandler = new GlobalExceptionHandler();
+    private final static RacingCarView racingCarView = new RacingCarView();
 
     private int getRandomNumber() {
-        // 0부터 9 사이의 무작위 값 반환
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    // 반환받은 무작위 값이 4 이상일 경우 전진
     private boolean goFront() {
         int randomNumber = getRandomNumber();
         if (randomNumber>=4) {
@@ -31,9 +31,10 @@ public class RacingCarController {
     }
 
     public void startRacingCar(){
-        // 경주 할 자동차 이름 입력받기
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        final String cars = Console.readLine();
+
+        racingCarView.printStartRacingCar();
+
+        final String cars = racingCarView.inputRacingCars();
         List<String> carArray = new ArrayList<>();
         if (globalExceptionHandler.isValidCarArray(cars)) {
             carArray = List.of(cars.split(","));
