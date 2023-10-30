@@ -29,6 +29,6 @@ public class InputView {
     }
 
     private static List<String> convertStringToList(String carNames) {
-        return Arrays.asList(carNames.replace(spaceString, blankString).split(commaString));
+        return Arrays.asList(carNames.split(commaString));
     }
 }
