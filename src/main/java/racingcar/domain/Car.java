@@ -1,8 +1,11 @@
 package racingcar.domain;
 
+import racingcar.exception.CarExceptionMessage;
+
 import java.util.Objects;
 
 import static racingcar.domain.CarSetting.*;
+import static racingcar.exception.CarExceptionMessage.*;
 
 
 public class Car implements Comparable<Car> {
@@ -42,19 +45,19 @@ public class Car implements Comparable<Car> {
     }
     private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH.getSetting()) {
-            throw new IllegalArgumentException("[ERROR] 입력할 수 있는 이름의 글자수는 최대 5입니다.");
+            throw new IllegalArgumentException(ERROR_NAME_LENGTH.getMessage());
         }
     }
 
     private void validateNameBlank(String name) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("[ERROR] 공백을 입력할 수 없습니다.");
+            throw new IllegalArgumentException(ERROR_NAME_BLANK.getMessage());
         }
     }
 
     private void validateInitPosition(int position) {
         if (position != INIT_POSITION.getSetting()) {
-            throw new IllegalArgumentException("[ERROR] 자동차의 시작 위치는 0입니다.");
+            throw new IllegalArgumentException(ERROR_INIT_POSITION.getMessage());
         }
     }
 
