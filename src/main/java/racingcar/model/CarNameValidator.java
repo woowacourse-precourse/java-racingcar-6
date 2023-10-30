@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CarNameValidator {
     private static final String INPUT_HAS_SPACE = "입력 값에 스페이스 값이 존재합니다.";
