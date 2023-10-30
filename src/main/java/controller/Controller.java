@@ -59,5 +59,12 @@ public class Controller {
         gameResult.setWinnersList();
         ArrayList<String> winnersList = gameResult.getWinnersList();
         outputView.printWinners(winnersList);
+        cleanup();
+    }
+
+    private void cleanup() {
+        userInput.cleanup();
+        gameManager.cleanup();
+        gameResult.cleanup();
     }
 }

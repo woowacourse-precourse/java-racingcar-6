@@ -1,6 +1,5 @@
 package service;
 
-
 import controller.Controller;
 
 import java.util.ArrayList;
@@ -33,5 +32,9 @@ public class GameResult {
 
             winnersList.add(name);
         }
+    }
+
+    public void cleanup() {
+        winnersList.clear();
     }
 }

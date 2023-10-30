@@ -43,4 +43,8 @@ public class GameManager {
             this.carIdxNamePosList.set(carIdx, new AbstractMap.SimpleEntry<>(car.getKey(), newCarPos));
         }
     }
+
+    public void cleanup() {
+        carIdxNamePosList.clear();
+    }
 }
