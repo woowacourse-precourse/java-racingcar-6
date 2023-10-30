@@ -32,6 +32,14 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이름에_대한_예외_처리2() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi,,", "1"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 랜덤_변수_생성_테스트() {
         int result = Application.makeRandomNumber();
         assertThat(result).isBetween(0,9);
