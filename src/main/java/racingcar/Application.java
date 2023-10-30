@@ -16,7 +16,7 @@ public class Application {
         int N = inputN();
 
         System.out.println("\n실행 결과");
-        goOrStop(cars, N);
+        racing(cars, N);
 
         printWinners(cars);
     }
@@ -27,13 +27,16 @@ public class Application {
     public static Boolean checkCarNameLength(String car_name) {
         return car_name.length() > 5;
     }
-    public static Map<String, Integer> storeCars(List<String> car) {
+    public static Boolean checkCarDuplication(Map<String, Integer> cars, String car) {
+        return cars.containsKey(car);
+    }
+    public static Map<String, Integer> storeCars(List<String> input_car) {
         Map<String, Integer> cars = new HashMap<>();
-        for (String i : car) {
-            if (checkCarNameLength(i)) {
+        for (String car : input_car) {
+            if (checkCarNameLength(car) || checkCarDuplication(cars, car)) {
                 throw new IllegalArgumentException();
             }
-            cars.put(i, 0);  //put(키, 값)키, 값 저장, get(키) 값 가져옴, remove(키) 값 삭제
+            cars.put(car, 0);  //put(키, 값)키, 값 저장, get(키) 값 가져옴, remove(키) 값 삭제
         }
         return cars;
     }
@@ -52,7 +55,7 @@ public class Application {
         }
         return 0;
     }
-    public static void goOrStop(Map<String, Integer> cars,int N) {
+    public static void racing(Map<String, Integer> cars,int N) {
         for (int i = 0; i < N; i++) {
             for (String car : cars.keySet()) {
                 cars.put(car, cars.get(car) + addStep(randomNumber()));
