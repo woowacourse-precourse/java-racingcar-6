@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Input {
-    public List<String> inputCar(){
+    public static List<String> inputCar() {
         System.out.println(ConsoleMessage.GAME_START.getMessage());
         String cars = Console.readLine();
 
@@ -18,8 +18,10 @@ public class Input {
                 .collect(Collectors.toList());
     }
 
-    public int inputTrial(){
+    public static int inputTrial() {
+        System.out.println(ConsoleMessage.INPUT_TRIAL.getMessage());
         String trial = Console.readLine();
+
         ErrorManager.validateTrialIsNumber(trial);
         ErrorManager.validateTrialZero(trial);
 
