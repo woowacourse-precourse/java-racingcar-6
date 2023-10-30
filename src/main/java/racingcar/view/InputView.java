@@ -33,6 +33,4 @@ public class InputView {
         String count = getCountInput();
         return Integer.valueOf(count);
     }
-
-    
 }

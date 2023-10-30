@@ -3,7 +3,7 @@ package racingcar.config;
 import racingcar.controller.RaceController;
 import racingcar.model.NumberGenerator;
 import racingcar.model.RandomNumberGenerator;
-import racingcar.service.Race;
+import racingcar.model.service.Race;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

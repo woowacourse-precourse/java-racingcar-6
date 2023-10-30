@@ -3,7 +3,7 @@ package racingcar.controller;
 import java.util.List;
 
 import racingcar.model.Car;
-import racingcar.service.Race;
+import racingcar.model.service.Race;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -21,6 +21,13 @@ public class RaceController {
     public void startRace(){
         List<Car> cars = inputView.getCarList();
         int count = inputView.getCountTry();
-        race.start(cars, count);
+
+        outputView.printRaceResultStart();
+        for(int i = 0; i<count; i++) {
+            List<Car> car = race.start(cars);
+
+            outputView.printRaceResult(car);
+        }
+        // outputView.printWinner();
     }
 }
