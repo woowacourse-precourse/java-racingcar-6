@@ -12,6 +12,7 @@ class CarsTest {
     private final Rule rule = new DecideRule();
     private final Generator generator = new RandomNumberGenerator();
     private final Decider decider = Decider.of(rule, generator);
+    private static final String NEED_MORE_NAMES_MESSAGE = "두 개 이상의 이름을 입력하세요.";
     @Test
     void 중복_이름을_입력할_경우_예외_반환() {
         Car car1 = Car.withName(new Name("first"));
@@ -63,5 +64,14 @@ class CarsTest {
         assertEquals(2, winners.size());
         assertTrue(winners.contains("two"));
         assertTrue(winners.contains("Two"));
+    }
+
+    @Test
+    void 두_개_이상의_Car로_Cars를_생성하지_않으면_예외를_반환한다() {
+        Car car = Car.withName(new Name("car"));
+        List<Car> cars = List.of(car);
+        assertThatThrownBy(() -> Cars.of(cars, decider))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(NEED_MORE_NAMES_MESSAGE);
     }
 }

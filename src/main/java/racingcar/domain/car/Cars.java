@@ -8,18 +8,25 @@ import java.util.List;
 public class Cars {
     private final List<Car> cars;
     private final Decider decider;
-
+    private static final String NEED_MORE_NAMES_MESSAGE = "두 개 이상의 이름을 입력하세요.";
     private Cars(List<Car> cars, Decider decider) {
-        validate(cars);
+        validateSize(cars);
+        validateNotDuplicated(cars);
         this.cars = cars;
         this.decider = decider;
+    }
+
+    private void validateSize(List<Car> cars) {
+        if (cars.size() <= 1) {
+            throw new IllegalArgumentException(NEED_MORE_NAMES_MESSAGE);
+        }
     }
 
     public static Cars of(List<Car> input, Decider decider) {
         return new Cars(input, decider);
     }
 
-    private void validate(List<Car> input) {
+    private void validateNotDuplicated(List<Car> input) {
         if (isDuplicated(input)) {
             throw new IllegalArgumentException(NAME_DUPLICATED);
         }
