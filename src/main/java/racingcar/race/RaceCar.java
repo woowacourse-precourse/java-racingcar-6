@@ -1,8 +1,8 @@
 package racingcar.race;
 
 import racingcar.CarName;
-import racingcar.configuration.AppConfig;
 import racingcar.util.MoveProbability;
+import racingcar.util.RandomNumberGenerator;
 
 public class RaceCar {
 
@@ -21,7 +21,7 @@ public class RaceCar {
     }
 
     private boolean canMoveForward() {
-        MoveProbability probability = MoveProbability.getInstance(AppConfig.getNumberGenerator());
+        MoveProbability probability = MoveProbability.getInstance(new RandomNumberGenerator());
         return probability.canMoveForward();
     }
 

@@ -1,7 +1,8 @@
 package racingcar.race;
 
 import racingcar.AttemptNumber;
-import racingcar.configuration.AppConfig;
+import racingcar.view.AttemptInput;
+import racingcar.view.NamesInput;
 import racingcar.view.Output;
 
 public class RaceManager {
@@ -12,8 +13,8 @@ public class RaceManager {
     private final AttemptNumber attemptNumber;
 
     public RaceManager() {
-        this.carList = new RaceCars(AppConfig.getNamesInput());
-        this.attemptNumber = new AttemptNumber(AppConfig.getAttemptInput());
+        this.carList = new RaceCars(new NamesInput());
+        this.attemptNumber = new AttemptNumber(new AttemptInput());
     }
 
     public void startRace() {
