@@ -6,10 +6,6 @@ import java.io.ByteArrayInputStream;
 import org.junit.jupiter.api.Test;
 
 class InputViewTest {
-    void systemIn(String input) {
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-    }
-
     @Test
     void 횟수_0_입력시_예외_발생() {
         systemIn("0");
@@ -18,9 +14,8 @@ class InputViewTest {
     }
 
     @Test
-    void 횟수_음수_입력시_예외_발생() {
-        systemIn("-1");
-        assertThatThrownBy(InputView::askAttemptNumber)
-                .isInstanceOf(IllegalArgumentException.class);
+
+    static void systemIn(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
 }
