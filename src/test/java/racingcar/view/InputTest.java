@@ -35,6 +35,17 @@ class InputTest {
     }
 
     @Test
+    void input_자동차의_이름을_5자를_초과한_경우_예외(){
+        String text = "pobi,suyeon,neo";
+        InputStream in = new ByteArrayInputStream(text.getBytes());
+        System.setIn(in);
+
+        assertThatThrownBy(() -> input.inputCarName())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("이름은 5자 이하만 가능합니다.");
+    }
+
+    @Test
     void Input_자동차의_시도할_횟수를_입력(){
         String text = "5";
         InputStream in = new ByteArrayInputStream(text.getBytes());
