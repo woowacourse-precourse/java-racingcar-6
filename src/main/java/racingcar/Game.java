@@ -2,13 +2,14 @@ package racingcar;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class Game {
-    private Car[] cars;
+    private List<Car> cars;
     private int roundNumber;
     private Map<Car, Integer> positions;
     private int winnerPosition;
@@ -23,7 +24,7 @@ public class Game {
     private void makeCars(String[] carNames) {
         cars = Arrays.stream(carNames)
                 .map(Car::new)
-                .toArray(Car[]::new);
+                .collect(Collectors.toList());
     }
 
     private void initPosition() {
