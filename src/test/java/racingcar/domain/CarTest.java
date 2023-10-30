@@ -21,7 +21,7 @@ public class CarTest {
         Car car = new Car(nameInput);
         car.move(randomInput);
         Assertions.assertThat(car.getPosition())
-                .isEqualTo("-----");
+                .isEqualTo("-");
 
     }
 
