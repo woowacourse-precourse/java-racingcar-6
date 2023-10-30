@@ -13,8 +13,8 @@ public class Car {
         return carName;
     }
 
-    public CarPosition getPosition() {
-        return carPosition;
+    public int getPosition() {
+        return carPosition.getPosition();
     }
 
     public Car move(int number) {

@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.view.InputView.printResult;
+
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
@@ -9,29 +11,47 @@ import racingcar.view.InputView;
 
 public class GameController {
     private final GameService gameService;
+    private Cars cars;
 
     public GameController() {
         gameService = new GameService();
     }
 
     public void run() {
-        InputView.printStart();
-
-        String input = InputView.getUserInput();
-        Cars cars = Parser.parseStringToCars(input);
-
-        InputView.printAsking();
-        int attempts = Integer.parseInt(InputView.getUserInput());
-
-        InputView.printResult();
-        System.out.println("attempts: " + attempts);
-        List<Car> carList = cars.getCars();
-
-        for (Car car : carList) {
-            System.out.println("Car Name: " + car.getName().getName());
-            System.out.println("Car Position: " + car.getPosition().getPosition());
-        }
-
+        String input = getCarsInput();
+        parseInputToCars(input);
+        int attempts = getAttemptsInput();
+        play(attempts);
+        showResult();
     }
+
+    private String getCarsInput() {
+        InputView.printStart();
+        return InputView.getUserInput();
+    }
+
+    private void parseInputToCars(String input) {
+        cars = Parser.parseStringToCars(input);
+    }
+
+    private int getAttemptsInput() {
+        InputView.printAsking();
+        return Integer.parseInt(InputView.getUserInput());
+    }
+
+    private void play(int attempts) {
+        while (attempts != 0) {
+            attempts--;
+        }
+    }
+
+    private void showResult() {
+        InputView.printResult();
+    }
+
+
+
+
+
 
 }

@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.stream.Collectors;
+import racingcar.domain.Cars;
 
 public class InputView {
 
@@ -18,6 +20,12 @@ public class InputView {
 
     public static void printResult() {
         System.out.println(MSG_RESULT);
+    }
+
+    public static void printCurrentCarLocation(Cars cars) {
+        cars.getCars().stream()
+                .map(car -> car.getName() + " : " + "-".repeat(car.getPosition()))
+                .collect(Collectors.toList());
     }
 
     public static String getUserInput() {
