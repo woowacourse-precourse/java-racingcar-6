@@ -19,16 +19,16 @@ public final class RaceResult {
     }
 
     public String getProgressOfCar(Car car) {
-        return car.name() + COLON + displayLocationToUI(car.location());
+        return car.getCarName() + COLON + displayLocationToUI(car.getCarLocation());
     }
 
-    public String displayLocationToUI(int location) {
+    private String displayLocationToUI(int location) {
         return MOVE_UI.repeat(location);
     }
 
     public String getWinners(List<Car> winnerList) {
         return WINNER + winnerList.stream()
-                .map(Car::name)
+                .map(Car::getCarName)
                 .collect(Collectors.joining(COMMA));
     }
 }
