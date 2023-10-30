@@ -16,7 +16,7 @@ public class ControllerTest {
 
     private RacingModel racingModel;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    StringBuilder sb = new StringBuilder();
+    private StringBuilder sb = new StringBuilder();
 
 
     @BeforeEach()
