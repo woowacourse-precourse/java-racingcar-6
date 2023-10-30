@@ -21,6 +21,7 @@ public class RacingCarController {
         while (round.hasRound()) {
             racer.play();
             outputView.printResult(racer.toString());
+            round.turn();
         }
         outputView.printFinalWinner(racer.winnerToString());
     }

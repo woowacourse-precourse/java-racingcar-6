@@ -17,11 +17,10 @@ public class Round {
     }
 
     public Boolean hasRound() {
-        turn();
         return round >= 0;
     }
 
-    private void turn() {
+    public void turn() {
         round--;
     }
 
