@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 
 class CarTest {
@@ -23,32 +25,39 @@ class CarTest {
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
-    @Test
-    @DisplayName("이름 길이는 5이하만 가능")
-    void 이름길이_5초과_예외() {
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "12", "123", "1234", "12345", " a", "a ", "a a"})
+    @DisplayName("이름 길이는 5이하 가능")
+    void 이름길이_5_이하(String name) {
 
-        String name = "123456";
+        Car car = Car.from(name);
 
+        assertThat(car.getName()).isEqualTo(name);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"123456", "abcdef", "12345678", "123456789", "123456789012345"})
+    @DisplayName("이름 길이는 5초과 불가능")
+    void 이름길이_5초과_예외(String name) {
         assertThatThrownBy(() -> Car.from(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", "\n", "   "})
     @DisplayName("빈문자는 생성 불가능")
-    void 빈문자_예외() {
-
-        String name = " ";
+    void 빈문자_예외(String name) {
 
         assertThatThrownBy(() -> Car.from(name))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(ints = {4,5,6,10,100,1000,99999})
     @DisplayName("숫자 4이상일 떄 이동")
-    void 숫자_4이상만_이동() {
+    void 숫자_4이상만_이동(int number) {
         // given
-        Integer number = 4;
-        Car car = Car.from("1234");
+        Car car = Car.from("car");
 
         // when
         car.go(number);
@@ -58,11 +67,11 @@ class CarTest {
         car.isHere(1);
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(ints = {-999,-1,0,1,2,3})
     @DisplayName("숫자 4미만 이동불가")
-    void 숫자_4_미만_이동불가() {
+    void 숫자_4_미만_이동불가(int number) {
         // given
-        Integer number = 3;
         Car car = Car.from("1234");
 
         // when
