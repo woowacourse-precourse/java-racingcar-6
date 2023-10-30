@@ -73,9 +73,10 @@ classDiagram
     +Car(name: String)
     +createCars(carNames: String)$
     +getLastPosition() Int
+    +getPositions(index: Int) Int
     +move()
     +pause()
-    +getName()
+    +getName() String
   }
   class GameManager{
     +start()
@@ -129,8 +130,26 @@ sequenceDiagram
 	Validator-->>-Validator: boolean
 	Validator-->>-GameManager: 
 	GameManager-->>-GameManager: int
-	GameManager->>GameManager: moveCars(cars: List<Car>)
+	loop until numberOfMoves
+        GameManager->>+GameManager: moveCars(cars: List<Car>)
+        loop Every Car
+          GameManager->>+Randoms: pickNumberInRange(min: Int, max: Int)
+          Randoms-->>-GameManager: int
+          alt randomNumber >= 4
+          GameManager->>Car: move()
+          else randomNumber < 4
+          GameManager->>Car: pause()
+          end
+        end
+        GameManager-->>-GameManager: 
+    end
 	GameManager->>+GameView: printMoveResult(cars: List<Car>)
+	loop Every Car
+        GameView->>+Car: getName()
+        Car-->>-GameView: String
+        GameView->>+Car: getPosition(index: Int)
+        Car-->>-GameView: int
+    end
 	GameView-->>-GameManager: 
 	GameManager->>GameManager: getWinner(cars: List<Car>)
 	GameManager->>+GameView: printWinner(winners: List<Car>)
