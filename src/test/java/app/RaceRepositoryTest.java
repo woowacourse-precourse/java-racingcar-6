@@ -25,8 +25,6 @@ class RaceRepositoryTest {
     }
 
     private final RaceRepository raceRepository = new RaceRepository();
-    private final Valid valid = new Valid();
-    private final InputTemplate template = new InputTemplate();
 
     @Test
     @DisplayName("getCarName 정상흐름")
