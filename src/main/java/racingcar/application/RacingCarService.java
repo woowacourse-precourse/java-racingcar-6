@@ -35,6 +35,7 @@ public class RacingCarService {
 
     private List<Name> decideWinners(List<RoundHistory> roundHistories) {
         RoundHistory lastRoundHistory = roundHistories.get(roundHistories.size() - 1);
-        return lastRoundHistory.roundResult().getWinners();
+        RoundResult lastRoundResult = lastRoundHistory.roundResult();
+        return lastRoundResult.getWinners();
     }
 }
