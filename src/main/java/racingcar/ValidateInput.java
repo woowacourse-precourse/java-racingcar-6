@@ -7,9 +7,17 @@ public class ValidateInput {
 
 
     public static void isRightInput(String input) throws IllegalStateException {
-        if (input.isBlank()) {
+        if ( input.isBlank()) {
             throw new IllegalStateException();
         }
+    }
+
+
+    public static void isNumeric(String input) throws IllegalStateException {
+        if (input.matches("^[0-9]*$")) {
+            return;
+        }
+        throw new IllegalStateException();
     }
 
 
