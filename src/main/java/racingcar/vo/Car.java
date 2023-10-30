@@ -9,6 +9,13 @@ public class Car {
         this.name = name;
     }
 
+    public int moveForward(boolean success) {
+        if (success) {
+            return position++;
+        }
+        return position;
+    }
+
     public String getName() {
         return name;
     }
