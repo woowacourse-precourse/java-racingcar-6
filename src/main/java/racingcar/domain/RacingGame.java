@@ -22,12 +22,16 @@ public class RacingGame {
         String inputRound = Console.readLine();
         validateInputRound(inputRound);
 
+        System.out.println("실행 결과");
         int repeatNumber = Integer.parseInt(inputRound);
         for (int i = 0; i < repeatNumber; i++) {
             for (Car car : carList) {
                 car.moveForward();
+                System.out.printf("%s : %s%n", car.name, createPositionPrint(car.position));
             }
+            System.out.println();
         }
+
     }
 
     private static void validateInputName(String input) {
@@ -71,5 +75,9 @@ public class RacingGame {
         if (Integer.parseInt(input)<=0) {
             throw new IllegalArgumentException("시도할 회수는 1회 이상을 입력해주세요.");
         }
+    }
+
+    private static String createPositionPrint(int position) {
+        return "-".repeat(position);
     }
 }
