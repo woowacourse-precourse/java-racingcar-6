@@ -4,12 +4,14 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
+import static racingcar.view.Parameter.GAME_COUNT;
+import static racingcar.view.Parameter.Input.CAR_NAMES;
 
 public class SettingInputView implements InputView {
     public static final char DELIMITER = ',';
     private final Map<String, Supplier<String>> methodMap = Map.ofEntries(
-            Map.entry("carNames", this::readCarNames),
-            Map.entry("gameCount", this::readGameCount)
+            Map.entry(CAR_NAMES, this::readCarNames),
+            Map.entry(GAME_COUNT, this::readGameCount)
     );
 
     private final InputValidator inputValidator;
@@ -39,6 +41,7 @@ public class SettingInputView implements InputView {
 
     private String readGameCount() {
         String input = readLine().trim();
+
         inputValidator.isOnlyNaturalNumber(input);
         inputValidator.isEmpty(input);
         return input;

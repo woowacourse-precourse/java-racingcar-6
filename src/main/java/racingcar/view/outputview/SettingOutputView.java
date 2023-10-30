@@ -3,11 +3,13 @@ package racingcar.view.outputview;
 import java.util.Map;
 
 import static java.lang.System.out;
+import static racingcar.view.Parameter.GAME_COUNT;
+import static racingcar.view.Parameter.Output.CARS;
 
 public class SettingOutputView implements OutputView {
     private final Map<String, Runnable> methodMap = Map.ofEntries(
-            Map.entry("cars", printCarNamesText()),
-            Map.entry("gameCount", printGameCount())
+            Map.entry(CARS, printCarNamesText()),
+            Map.entry(GAME_COUNT, printGameCount())
     );
 
     @Override
@@ -25,10 +27,12 @@ public class SettingOutputView implements OutputView {
     }
 
     private Runnable printCarNamesText() {
-        return () -> out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        return ()
+                -> out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     private Runnable printGameCount() {
-        return () -> out.println("시도할 회수는 몇회인가요?");
+        return ()
+                -> out.println("시도할 회수는 몇회인가요?");
     }
 }

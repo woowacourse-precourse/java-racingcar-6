@@ -8,8 +8,9 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class MainController {
-    private final ControlConfig config;
     private final Map<GameState, Function<Object, Controller>> adapter;
+    private final Map<String, String> parameter = new HashMap<>();
+    private final Map<String, Object> model = new HashMap<>();
 
     public MainController(ControlConfig config) {
         this.config = config;

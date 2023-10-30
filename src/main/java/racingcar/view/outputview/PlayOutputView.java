@@ -6,6 +6,8 @@ import racingcar.domain.Cars;
 import java.util.List;
 import java.util.Map;
 
+import static racingcar.view.Parameter.Output.CARS;
+
 public class PlayOutputView implements OutputView {
     static {
         System.out.println("실행 결과");
@@ -15,7 +17,7 @@ public class PlayOutputView implements OutputView {
 
     @Override
     public void display(Map<String, Object> displayEntities) {
-        if (displayEntities.get("cars") instanceof Cars cars) {
+        if (displayEntities.get(CARS) instanceof Cars cars) {
             printRacingResult(cars.getCars());
         }
         System.out.println();

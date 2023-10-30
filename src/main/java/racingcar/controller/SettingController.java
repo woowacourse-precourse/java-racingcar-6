@@ -9,6 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import static racingcar.view.Parameter.GAME_COUNT;
+import static racingcar.view.Parameter.Input.CAR_NAMES;
+import static racingcar.view.Parameter.Output.CARS;
 import static racingcar.view.inputview.SettingInputView.DELIMITER;
 
 public class SettingController implements Controller {
@@ -27,16 +30,16 @@ public class SettingController implements Controller {
     }
 
     private void viewCarNames(Map<String, String> parameter, Map<String, Object> model) {
-        parameter.put("carNames", null);
-        model.put("cars", null);
+        parameter.put(CAR_NAMES, null);
+        model.put(CARS, null);
         settingOutputView.display(model);
         settingInputView.read(parameter);
 
-        model.put("cars", getCars(parameter));
+        model.put(CARS, getCars(parameter));
     }
 
     private Cars getCars(Map<String, String> parameter) {
-        String[] names = parameter.get("carNames").trim().split(String.valueOf(DELIMITER));
+        String[] names = parameter.get(CAR_NAMES).trim().split(String.valueOf(DELIMITER));
 
         List<Car> cars = Arrays.stream(names)
                 .map(Car::new)
@@ -46,12 +49,12 @@ public class SettingController implements Controller {
     }
 
     private void viewGameCount(Map<String, String> parameter, Map<String, Object> model) {
-        parameter.put("gameCount", null);
-        model.put("gameCount", null);
+        parameter.put(GAME_COUNT, null);
+        model.put(GAME_COUNT, null);
         settingOutputView.display(model);
         settingInputView.read(parameter);
 
-        int gameCount = Integer.parseInt(parameter.get("gameCount"));
-        model.put("gameCount", gameCount);
+        int gameCount = Integer.parseInt(parameter.get(GAME_COUNT));
+        model.put(GAME_COUNT, gameCount);
     }
 }
