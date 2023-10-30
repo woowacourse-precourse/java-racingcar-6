@@ -116,4 +116,15 @@ public class Game {
         return max;
     }
 
+    // 우승자 가리기
+    public List<String> winner(List<Car> carList, int max){
+        List<String> winnerList = new ArrayList<>();
+        for(int i = 0; i < carList.size(); i++){
+            if(carList.get(i).getCount() == max){
+                winnerList.add(carList.get(i).getName());
+            }
+        }
+        return winnerList;
+    }
+
 }
