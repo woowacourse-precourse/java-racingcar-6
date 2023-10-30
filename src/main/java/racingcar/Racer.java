@@ -10,7 +10,10 @@ public class Racer {
         currentPos = 0;
     }
     public void continueRace(){
-
+        Boolean canMoveForwardStatus = raceCar.checkCanMoveForwardIfSpeedIsExceedThreshold();
+        if (canMoveForwardStatus){
+            currentPos+=1;
+        }
     }
     public Integer getCurrentPos(){
         return currentPos;
