@@ -1,8 +1,10 @@
 package racingcar;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.View.SystemMessage;
+import racingcar.model.Referee;
 import racingcar.util.ExceptionHandling;
 import racingcar.model.CarAction;
 import racingcar.model.Cars;
@@ -14,15 +16,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class TestCase {
-    @AfterEach
-    public void afterEach(){
-        Cars.carList = new ArrayList<>();
-    }
+
     @Test
     void 주어진_값을_구분() {
-        String input = "ab,cd,df";
-        Cars cars = new Cars(input);
-        List<String> result = Cars.carList;
+        Cars cars = new Cars("ab,cd,df");
+        List<String> result = cars.carList;
         assertThat(result).contains("ab","cd","df");
     }
 
@@ -53,19 +51,31 @@ public class TestCase {
 
     @Test
     void 랜덤_숫자에_따라_이동(){
-        String input = "ab,cd,df";
-        Cars cars = new Cars(input);
+        Cars cars = new Cars("ab,cd,df");
         CarAction carAction = new CarAction();
-        carAction.carMoveCount();
+        carAction.moveCars();
         List<Integer> result = Cars.countList;
         assertThat(result).contains(1);
     }
     @Test
-    void 숫자0_입력시_예외발생(){
+    void 숫자_0_입력시_예외발생(){
         String input = "0";
         assertThatThrownBy(() -> ExceptionHandling.isNumberZero(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("0은 입력할 수 없습니다");
+    }
+    void 문자_입력시_예외발생(){
+        String input = "Hi";
+        assertThatThrownBy(() -> ExceptionHandling.isNumberValid(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("0은 입력할 수 없습니다");
+    }
+    @Test
+    void 가장_높은_점수_출력(){
+        List<Integer> list = List.of(6, 3, 10, 0, 7);
+        Referee referee = new Referee();
+        int result = referee.countMaxScore(list);
+        assertThat(result).isEqualTo(10);
     }
 
 

@@ -8,7 +8,7 @@
 ### 기능
 - [ ] 0에서 9사이 무작위 값을 생성한다. - createRandomNumber()
 - [ ] 값이 4이상인 경우 전진한다. - moveOneSpace()
-- [ ] 각 차수별 결과를 출력한다. -printResult()
+- [ ] 각 차수별 결과를 출력한다. -printOneGameResult()
   - [ ] 자동차가 전진한 만큼 "-"를 출력한다. -print
 - [ ] 게임이 진행한 동안 가장많이 전진한 자동차가 우승자가 된다. - selectWinner()
  
