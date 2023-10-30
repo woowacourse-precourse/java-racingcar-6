@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import static racingcar.Utils.makeRandomNumber;
 import static racingcar.constant.MessageConstants.DASH;
 import static racingcar.constant.MessageConstants.WINNER_SUFFIX;
 import static racingcar.constant.NumberConstants.MAX_MOVE_CONDITION;
@@ -24,7 +25,7 @@ public class RacingCar {
     }
 
     public void move() {
-        if (Randoms.pickNumberInRange(MIN_MOVE_CONDITION, MAX_MOVE_CONDITION) >= MOVE_CONDITION) {
+        if (makeRandomNumber() >= MOVE_CONDITION) {
             position += 1;
         }
     }
