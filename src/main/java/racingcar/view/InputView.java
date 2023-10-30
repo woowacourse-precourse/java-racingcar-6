@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarFactory;
+import racingcar.exception.InvalidAttemptCountException;
 import racingcar.exception.InvalidCarNameException;
 
 public class InputView {
@@ -21,10 +22,8 @@ public class InputView {
 
     public static int inputAttemptCount() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int attemptCount = Integer.parseInt(Console.readLine());
-
-        // TODO: 예외처리
-
+        int attemptCount = InvalidAttemptCountException.parseAttemptCount(Console.readLine());
+        InvalidAttemptCountException.validate(attemptCount);
         return attemptCount;
     }
 }
