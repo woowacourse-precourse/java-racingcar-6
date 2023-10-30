@@ -11,7 +11,7 @@ public class User {
     public List<Car> nameForCar(String names) {
         List<String> carsName=separateNames(names);
         List<Car> cars=new ArrayList<>();
-        carsName.stream().forEach(name->cars.add(new Car(name)));
+        carsName.stream().forEach(name->cars.add(new Car(name.trim())));
         return cars;
     }
 
