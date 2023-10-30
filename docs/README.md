@@ -13,7 +13,6 @@
 - 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다.
 - 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
 
-
 ### 과제 진행 요구 사항
 
 - 미션은 [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
@@ -22,21 +21,26 @@
     - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
 
-
 ## 구현할 기능 목록
+
 1. 자동차 이름 입력 받기
+
 - 5글자 초과된 이름일 경우
 - 입력이 없을 경우
 - 중복된 이름일 경우 `IllegalArgumentException` 발생
 
 2. 시도할 횟수 입력 받기
+
 - 입력이 없을 경우
 - 숫자 이외의 값이 있다면 `IllegalArgumentException`발생
 
 3. 자동차가 전진 하는 조건 만들기
+
 - `Randoms.pickNumberInRange(0,9)` 사용
 - 0 ~ 9 사이 값이 4이상일 경우 전진 그 외의 경우 정지
+
 4. 시도할 횟수마다 결과를 출력하기
+
 ```
 pobi : --
 woni : ----
@@ -44,6 +48,7 @@ jun : ---
 ```
 
 5. 단독 우승자와 공동 우승자를 구분하여 우승자 출력하기.
+
 - 단독 우승자 안내 문구
 
 ```
@@ -57,18 +62,33 @@ jun : ---
 ```
 
 ## 테스트 케이스 작성
+
 ```
 JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
 테스트 도구 사용법이 익숙하지 않다면 test/java/study를 참고하여 학습한 후 테스트를 구현한다.
 ```
 
-#### 1. UserInputHandler()를 테스트하기 위한 테스트 클래스 생성
+#### 1. UserInputHandlerTest 클래스 생성
+
 1. 콘솔에 임의로 입력 값을 지정하기 위한 InputOutputTest클래스 생성
+
 - 함수를 InputOutputTest를 통해 입력된 값이 실제로 올바르게 저장이 되는지 확인
+
 2. 중복된 자동차 이름이 입력 될 때 테스트
 3. 자동차 이름이 공백인 경우 테스트
 4. 정상적으로 자동차 이름이 5글자 이하로 들어온 경우
 
-#### 2. Car() 테스트하기 위한 테스트 클래스 생성
+#### 2. CarTest 클래스 생성
+
 1. 여러 대의 자동차가 생성이 제대로 작동하는지 확인
 2. 랜덤 값에 따른 차의 전진, 정지가 제대로 작동하는지 확인
+
+#### 3. GameSimulatorTest 클래스 생성
+
+1. 여러 대의 자동차가 얼마나 전진 했는지 값을 정의 한 후 예상대로 결과가 출력이 되는지 확인
+
+- 단독 우승자의 경우
+- 공동 우승자의 경우
+- 출력 값이 의도한 대로 출력이 되는지 확인
+
+2. position 값대로 전진 횟수 (-)가 표시 되는지 확인

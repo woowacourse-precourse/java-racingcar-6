@@ -15,6 +15,11 @@ public class Car {
         this.position = 0;
     }
 
+    public Car(List<String> name, int position) {
+        this.name = name;
+        this.position = position;
+    }
+
     public String getName() {
         StringBuilder sb = new StringBuilder();
         for (String s : name) {

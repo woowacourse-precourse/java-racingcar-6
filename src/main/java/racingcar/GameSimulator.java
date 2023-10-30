@@ -30,7 +30,7 @@ public class GameSimulator {
         printWinners(cars);
     }
 
-    private void printCarStatus(List<Car> cars) {
+    public void printCarStatus(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
         }

@@ -12,11 +12,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
 
-public class UserInputHandlerTest extends InputOutputTest {
+public class UserInputHandlerTest extends InputTest {
 
     @Test
     @DisplayName("입력값이 List에 제대로 저장되는지 테스트")
-    void set_input_test() {
+    void testSetInput() {
         // 콘솔 입력창을 car1,car2,car3이라고 가정
         String input = "car1,car2,car3";
         String[] carNames = input.split(",");
@@ -33,29 +33,19 @@ public class UserInputHandlerTest extends InputOutputTest {
 
     @Test
     @DisplayName("자동차 이름 5글자초과 예외 발생 테스트")
-    void 자동차_이름_5글자_초과_테스트() {
+    void TestValidateCarNames() {
         UserInputHandler userInputHandler = new UserInputHandler();
-        String input = "thisIsALongName,123456,123123,11\n1\n";
         String[] carNames = {"short", "normal", "longname"};
 
         // 예외를 발생시키는 코드 블록을 실행하고 예외에 대한 검증 : assertThatThrownBy()
         assertThatThrownBy(() -> userInputHandler.validateCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class);
 
-        // 특정 조건을 검증하는 데 사용 assert
-
-
-        /*
-            assertThatCode(() -> {
-            // 여기에 어떤 코드 블록이나 메서드를 호출
-            // 예외가 발생하지 않아야 하는 동작들
-            }).doesNotThrowAnyException();
-        */
     }
 
     @Test
     @DisplayName("중복된 자동차 이름인 경우 테스트")
-    void 중복된_자동차_이름_예외_발생_테스트() {
+    void TestDuplicateCarNames() {
         UserInputHandler userInputHandler = new UserInputHandler();
         String[] carNames = {"car1", "1212", "1212", "car20", "car20"};
 
@@ -65,7 +55,7 @@ public class UserInputHandlerTest extends InputOutputTest {
 
     @Test
     @DisplayName("자동차 이름이 공백인 경우 테스트")
-    void 자동차_이름이_공백인_경우_테스트() {
+    void TestValidateInputNotEmpty() {
         UserInputHandler userInputHandler = new UserInputHandler();
         String carNames = "";
 
@@ -75,7 +65,7 @@ public class UserInputHandlerTest extends InputOutputTest {
 
     @Test
     @DisplayName("입력이 정상적으로 들어온 경우")
-    void 유효한_자동차_이름_테스트() {
+    void TestNormalInput() {
         UserInputHandler userInputHandler = new UserInputHandler();
         String[] carNames = {"NAME1", "NAME2", "NAME5"};
 
