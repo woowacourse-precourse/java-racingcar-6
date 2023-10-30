@@ -4,19 +4,19 @@ public class Car {
     private String carName;
     private int moveForwardCount;
 
-    public Car(String carName){
+    public Car(String carName) {
         this.carName = carName;
     }
 
-    public void setMoveForwardCount(int moveForwardCount){
-        this.moveForwardCount = moveForwardCount;
+    public void setMoveForwardCount(int countOne) {
+        this.moveForwardCount += countOne;
     }
 
-    public String getCarName(){
+    public String getCarName() {
         return carName;
     }
 
-    public int getMoveForwardCount(){
+    public int getMoveForwardCount() {
         return moveForwardCount;
     }
 }
