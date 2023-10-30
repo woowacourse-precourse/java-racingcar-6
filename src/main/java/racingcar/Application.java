@@ -8,7 +8,10 @@ public class Application {
     public static void main(String[] args) {
         InitData initData = getInitData();
 
-        // TODO : 레이싱과정 출력 , 결과값 추출
+        simulateRace(initData.tryCount(), initData.carNames(), initData.distanceArray());
+
+        // TODO : 결과값 추출
+
 
 
     }
@@ -56,5 +59,16 @@ public class Application {
             throw new IllegalArgumentException("회수는 숫자만 입력 받을수 있습니다.");
         }
         return tryCount;
+    }
+
+
+    private static void simulateRace(int tryCount, String[] carNames, int[] distanceArray) {
+        System.out.println("실행 결과");
+        for (int i = 0; i < tryCount; i++) {
+
+            // TODO : print progress
+
+            System.out.println();
+        }
     }
 }
