@@ -40,6 +40,6 @@ public class PickWinnersTest {
 
         leaderBoard.showRace(cars, raceLap, paceComputer);
 
-        assertThat(outputStreamForTest.toString().contains("최종 우승자 : alpha, bravo, charm"));
+        assertThat(outputStreamForTest.toString().contains("최종 우승자 : alpha, bravo, charm")).isTrue();
     }
 }
