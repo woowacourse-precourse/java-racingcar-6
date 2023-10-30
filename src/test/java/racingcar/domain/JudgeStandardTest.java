@@ -36,4 +36,18 @@ class JudgeStandardTest {
         // than
         assertThat(result).isTrue();
     }
+
+    @DisplayName("레이스 게임의 승리 여부 확인._2")
+    @Test
+    void isVictoryCondition_2() {
+        // given
+        moveRaceCar(raceCar_1);
+        moveRaceCar(raceCar_1);
+
+        // when
+        boolean result = judgeStandard.isVictoryCondition(raceCar_1, 2);
+
+        // than
+        assertThat(result).isTrue();
+    }
 }
