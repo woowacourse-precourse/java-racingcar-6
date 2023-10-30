@@ -6,7 +6,6 @@ public class Parser {
     public static final String COMMA = ",";
     private static final String REMOVE_SPACE_BETWEEN_COMMA_PATTER = ",\\s+";
 
-
     public static Integer parseInteger(String input) {
         return Integer.parseInt(input);
     }

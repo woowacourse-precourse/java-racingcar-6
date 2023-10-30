@@ -2,7 +2,7 @@ package racingcar.model;
 
 import racingcar.dto.CarDto;
 import racingcar.dto.CarGroupDto;
-import racingcar.utils.NumberGenerator;
+import racingcar.utils.Movement;
 
 import java.util.List;
 
@@ -10,12 +10,12 @@ import static java.util.stream.Collectors.toList;
 
 public class CarGroup {
     private final List<Car> cars;
-    private NumberGenerator numberGenerator;
+    private Movement movement;
 
-    public CarGroup(List<String> names, NumberGenerator numberGenerator) {
+    public CarGroup(List<String> names, Movement movement) {
         CarGroupValidator.validate(names);
         this.cars = generateCars(names);
-        this.numberGenerator = numberGenerator;
+        this.movement = movement;
     }
 
     private List<Car> generateCars(List<String> names) {
@@ -25,8 +25,11 @@ public class CarGroup {
     }
 
     public void race() {
-        cars.stream()
-                .forEach(car -> car.go(numberGenerator.generate()));
+        for(Car car: cars){
+            if(movement.canMove()){
+                car.go();
+            }
+        }
     }
 
     public List<String> findWinnerNames() {

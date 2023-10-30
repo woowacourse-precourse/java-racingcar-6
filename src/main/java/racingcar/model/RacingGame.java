@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.utils.RandomNumberGenerator;
+import racingcar.utils.CarMovement;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public class RacingGame {
     private final TryCount count;
 
     public RacingGame(List<String> names, Integer count) {
-        this.cars = new CarGroup(names, new RandomNumberGenerator());
+        this.cars = new CarGroup(names, new CarMovement());
         this.count = new TryCount(count);
     }
 

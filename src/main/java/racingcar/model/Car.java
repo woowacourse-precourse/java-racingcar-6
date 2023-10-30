@@ -17,10 +17,8 @@ public class Car {
         this.position = INIT_POSITION;
     }
 
-    public void go(Integer value) {
-        if (MOVE_STANDARD <= value) {
-            position++;
-        }
+    public void go() {
+        position++;
     }
 
     public int comparePosition(Car compareCar) {
@@ -53,6 +51,6 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPosition());
+        return Objects.hash(position);
     }
 }
