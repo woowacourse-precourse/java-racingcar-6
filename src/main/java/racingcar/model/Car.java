@@ -6,7 +6,7 @@ public class Car {
     String name;
     int moveCount;
 
-    Car(String name) {
+    public Car(String name) {
         validateName(name);
         this.name = name;
         this.moveCount = 0;
