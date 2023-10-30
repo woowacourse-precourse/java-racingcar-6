@@ -1,16 +1,12 @@
 package racingcar.model;
 
 public class Car {
+    final static int START_POSITION = 0;
+    public String carName;
+    public int carPosition = START_POSITION;
 
-    public String carName = "";
-    public int carFoward = 0;
-
-    public Car() {
-    }
-
-
-    public Car setCar(String carName) {
+    public Car(String carName) {
         this.carName = carName;
-        return this;
+        this.carPosition = START_POSITION;
     }
 }
