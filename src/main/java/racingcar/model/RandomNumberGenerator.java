@@ -12,7 +12,7 @@ public class RandomNumberGenerator {
         this.randomNumber = randomNumber;
     }
 
-    public RandomNumberGenerator createNumberGenerator() {
+    public static RandomNumberGenerator createNumberGenerator() {
         int randomNumber = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
         return new RandomNumberGenerator(randomNumber);
     }

@@ -1,14 +1,14 @@
 package racingcar.model;
 
+import racingcar.view.OutputView;
+
 public class RacingGame {
 
     private final Cars cars;
-    private final RandomNumberGenerator randomNumberGenerator;
     private final RaceCountInput raceCountInput;
 
-    public RacingGame(Cars cars, RandomNumberGenerator randomNumberGenerator, RaceCountInput raceCountInput) {
+    public RacingGame(Cars cars, RaceCountInput raceCountInput) {
         this.cars = cars;
-        this.randomNumberGenerator = randomNumberGenerator;
         this.raceCountInput = raceCountInput;
     }
 
@@ -19,10 +19,21 @@ public class RacingGame {
     }
 
     private void playRound() {
-        cars.getCars().forEach(car -> {
-            if(randomNumberGenerator.getRandomNumber() >= 5){
+        for (Car car : cars.getCars()) {
+            if (getRandomNumber() >= 4) {
                 car.move();
             }
-        });
+            String name = car.getName();
+            int currentLocation = car.getCurrentLocation();
+            System.out.println(name + " :" + currentLocation);
+        }
+
+        System.out.println();
+        System.out.println();
+    }
+
+    public static int getRandomNumber() {
+        RandomNumberGenerator numberGenerator = RandomNumberGenerator.createNumberGenerator();
+        return numberGenerator.getRandomNumber();
     }
 }
