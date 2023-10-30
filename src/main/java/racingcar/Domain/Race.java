@@ -10,4 +10,5 @@ public class Race {
     public boolean isRaceOver(int race) {
         return race != this.raceCount;
     }
+
 }

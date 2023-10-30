@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingCars {
-    private final List<Car> cars;
+    private List<Car> cars;
 
     private RacingCars(final String carNames) {
         this.cars = stringToList(carNames);
@@ -15,6 +15,12 @@ public class RacingCars {
 
     public static RacingCars create(final String carNames) {
         return new RacingCars(carNames);
+    }
+
+    public void race() {
+        for (Car car : cars) {
+            car.CarMove();
+        }
     }
 
     public List<Car> getCars() {

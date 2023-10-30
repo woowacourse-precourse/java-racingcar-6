@@ -33,11 +33,7 @@ public class RacingCarController {
         raceService.inputRaceCount(raceCount);
 
         // 경주 시작
-//        int currentRace = 0;
-//        while (!raceService.isRaceOver(currentRace)) {
-//            racingCars.race();
-//            currentRace++;
-//        }
+        carService.runRacing();
 //
 //        // 우승자 결정
 //        List<Car> winners = winnerService.getWinners(racingCars.getCars());
