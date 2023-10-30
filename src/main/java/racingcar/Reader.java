@@ -8,7 +8,7 @@ public final class Reader {
         throw new UnsupportedOperationException();
     }
 
-    public String[] carNames() {
+    public static String[] carNames() {
         return Console.readLine().split(",");
     }
 
