@@ -4,6 +4,8 @@ import racingcar.exception.NotValidInputException;
 
 import java.util.regex.Pattern;
 
+import static racingcar.util.GameCondition.*;
+
 // 사용자가 입력한 값의 유효성을 판단하는 클래스
 public class InputService {
     private final static String REGEXP_PATTERN_NUMBER = "[0-9]"; // 숫자만 입력 가능
@@ -26,7 +28,7 @@ public class InputService {
     private void checkLengthValidation(String carName) {
         int length = carName.length();
 
-        if(length > 5 || length < 1)
+        if(length > CONDITION_INPUT_MAX_LENGTH.getCondition() || length < CONDITION_INPUT_MIN_LENGTH.getCondition())
             throw new NotValidInputException("자동차의 이름은 최소 1자 이상, 5자 이하이어야 합니다.");
     }
 

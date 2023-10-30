@@ -1,5 +1,6 @@
 package racingcar.entity;
 
+import static racingcar.util.GameCondition.*;
 import static racingcar.util.GameDefaultMessage.*;
 
 // 게임에서 사용하는 자동차 정보를 저장하기 위한 클래스
@@ -25,7 +26,7 @@ public class Car {
 
     // 특정 조건에 부합하는 경우 전진, 그렇지 않을 경우에는 현재 위치 유지
     public void moveForward(int resultCount) {
-        if(resultCount < 4) {
+        if(resultCount < CONDITION_FORWARD_VALUE.getCondition()) {
             return;
         }
         this.location++;
