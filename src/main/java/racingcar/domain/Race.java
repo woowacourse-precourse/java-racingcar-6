@@ -1,31 +1,45 @@
 package racingcar.domain;
 
-import static racingcar.constant.Constant.*;
+import static racingcar.constant.Constant.MOVE_LOWER_BOUND;
+import static racingcar.constant.Constant.RANDOM_NUMBER_MAX;
+import static racingcar.constant.Constant.RANDOM_NUMBER_MIN;
 
 import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.constant.Constant;
 
 public class Race {
 
-    private Map<String,Car> playCars;
+    private Map<String, Car> playCars;
 
-    public Race(Map<String,Car> playCars){
-        this.playCars=playCars;
+    public Race(Map<String, Car> playCars) {
+        this.playCars = playCars;
     }
 
 
-    public void play(){
-
+    public void start() {
+        playCars.forEach((car, distance)
+                -> decideMoveOrStay(car));
     }
 
-    private void decideMoveOrStay(){
 
+    private void decideMoveOrStay(String carName) {
+        int randomNumber = getRandomNumber();
+        if(isAvailableMove(randomNumber)){
+            go(carName);
+        }
     }
 
-    private int getRandomNumber(){
-        return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN,RANDOM_NUMBER_MAX);
+    private void go(String carName){
+        playCars.get(carName).moving();
+    }
+
+    private boolean isAvailableMove(int randomNumber){
+        return randomNumber >= MOVE_LOWER_BOUND ;
+    }
+
+    private int getRandomNumber() {
+        return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
     }
 
 }
