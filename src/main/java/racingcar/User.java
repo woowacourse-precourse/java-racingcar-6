@@ -13,10 +13,10 @@ public class User {
     private int stringToInteger(String input){
         return Integer.parseInt(input);
     }
-    public LinkedHashMap<String, Integer> carReset(String[] splitInput){
+    public LinkedHashMap<String, Integer> carReset(){
         LinkedHashMap<String, Integer> racingCar = new LinkedHashMap<>();
-        splitInput = splitInput(input());
-        for (String car : splitInput){
+        String[] input = splitInput(input());
+        for (String car : input){
             racingCar.put(car, 0);
         }
         return racingCar;
