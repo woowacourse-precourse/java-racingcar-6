@@ -9,6 +9,7 @@ public class OutputView {
     }
 
     public static void printResultConstant() {
+        System.out.println();
         System.out.println(Constants.RESULT_CONSTANT.getConstant());
     }
 
