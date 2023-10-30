@@ -6,6 +6,7 @@ public class Car {
     private int driveCount;
 
     public Car(String name) {
+        name = name.trim();
         verifyNameLength(name);
         this.name = name;
         this.driveCount = 0;
