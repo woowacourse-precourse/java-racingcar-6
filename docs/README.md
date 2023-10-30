@@ -107,3 +107,7 @@
     ```java
     boolean checkDuplicateCarName(List<String> carNameList)
     ```
+- 자동차 개수가 2대 이상인지 확인하는 기능
+    ```java
+    boolean isCarMoreThanOne(List<String> carNameList)
+    ```
