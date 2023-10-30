@@ -28,6 +28,10 @@ public class Car {
         }
     }
 
+    public boolean isMaxLocation(int maxLocation) {
+        return this.location == maxLocation;
+    }
+
     private void nameLengthValidation(String carName) {
         if (carName.length() >= MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
