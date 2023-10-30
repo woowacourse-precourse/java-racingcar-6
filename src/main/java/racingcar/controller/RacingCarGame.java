@@ -4,13 +4,14 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarGame {
-    private String carNames;
     private int number;
 
     private CarController carController;
 
     public void start() {
-        carNames = InputView.readCarNames();
+        String carNames = InputView.readCarNames();
+        carController = new CarController(carNames);
+
         number = toInt(InputView.readNumber());
 
         OutputView.printBlankLine();
@@ -18,8 +19,6 @@ public class RacingCarGame {
     }
 
     private void run() {
-        carController = new CarController(carNames);
-
         OutputView.printGameResult();
 
         for (int i = 0; i < number; i++) {

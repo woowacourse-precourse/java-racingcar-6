@@ -3,6 +3,7 @@ package racingcar.controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.CarValidation;
 import racingcar.Constants;
 import racingcar.model.Car;
 import racingcar.view.OutputView;
@@ -17,9 +18,13 @@ public class CarController {
     private List<Car> toList(String carNames) {
         List<Car> cars = new ArrayList<>();
 
-        String[] name = carNames.split(",");
-        for (String s : name) {
-            cars.add(new Car(s));
+        CarValidation.hasComma(carNames);
+        String[] names = carNames.split(",");
+
+        for (String name : names) {
+            CarValidation.isAlphabeticCharacter(name);
+            CarValidation.isFiveCharactersOrLess(name);
+            cars.add(new Car(name));
         }
 
         return cars;

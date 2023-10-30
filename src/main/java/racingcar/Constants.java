@@ -13,4 +13,6 @@ public final class Constants {
     public static final int MOVE_NUMBER_MIN = 0;
     public static final int MOVE_NUMBER_MAX = 9;
     public static final int MOVE_NUMBER_DEFAULT = 4;
+
+    public static final int NAME_NUMBER_MAX = 5;
 }
