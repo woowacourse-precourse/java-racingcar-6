@@ -51,6 +51,6 @@ class CarTest {
         int position = car.getPosition();
 
         // then
-        assertThat(position).isEqualTo(0);
+        assertThat(position).isZero();
     }
 }

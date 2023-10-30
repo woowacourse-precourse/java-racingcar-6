@@ -76,15 +76,21 @@ class CarsTest {
 
     @Test
     void 게임의_참여하는_자동차_중에_중복된_이름이_존재하면_예외를_발생시킨다() {
+        // given
+        List<String> carNames = List.of("test1", "test1", "test2");
+
         // when & then
-        assertThatThrownBy(() -> Cars.createWith(List.of("test1", "test1", "test2")))
+        assertThatThrownBy(() -> Cars.createWith(carNames))
                 .isInstanceOf(NotUniqueCarNameException.class);
     }
 
     @Test
     void 게임의_참여중인_자동차가_없으면_예외를_발생시킨다() {
+        // given
+        List<String> emptyList = List.of();
+
         // when & then
-        assertThatThrownBy(() -> Cars.createWith(List.of()))
+        assertThatThrownBy(() -> Cars.createWith(emptyList))
                .isInstanceOf(NotExistCarException.class);
     }
 }
