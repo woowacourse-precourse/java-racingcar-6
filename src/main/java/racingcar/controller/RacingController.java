@@ -49,8 +49,9 @@ public class RacingController {
     private void endGame() {
         OutputView.printWinnerMessage();
         CarResult result = new CarResult(cars.getCars());
-        CarWinner winner = new CarWinner(result);
-        winner.printWinner();
+        CarWinner carWinner = new CarWinner(result);
+        String winner = carWinner.printWinner();
+        System.out.println(winner);
     }
 
 

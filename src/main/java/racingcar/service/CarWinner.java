@@ -12,22 +12,20 @@ public class CarWinner {
         this.result = result;
     }
 
-    private void individualWinner(List<String> winner) {
-        winner.stream()
-                .forEach(System.out::println);
+    private String individualWinner(List<String> winner) {
+        return winner.get(0);
     }
 
-    private void multipleWinner(List<String> winner) {
+    private String multipleWinner(List<String> winner) {
         String winners = String.join(", " , winner);
-        System.out.println(winners);
+        return winners;
     }
 
-    public void printWinner() {
+    public String printWinner() {
         List<String> winner = result.getMaxPlayer();
         if (winner.size() == Numbers.ALONE_NUMBER.getNumber()) {
-            individualWinner(winner);
-            return;
+            return individualWinner(winner);
         }
-        multipleWinner(winner);
+        return multipleWinner(winner);
     }
 }
