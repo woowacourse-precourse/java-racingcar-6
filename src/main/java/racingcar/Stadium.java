@@ -93,7 +93,7 @@ class Stadium {
     }
 
     public String winner() {
-        StringJoiner stringjoiner = new StringJoiner(",");
+        StringJoiner stringjoiner = new StringJoiner(", ");
         for (Car car : cars) {
             if (car.getPos() == first_pos) {
                 stringjoiner.add(car.getName());
