@@ -31,18 +31,14 @@ public class RacingCarGameView implements RepeatingGameView {
 
     @Override
     public void showProgressOf(Game game) {
-        if (game instanceof RacingCarGame racingCarGame) {
-            List<Car> carList = racingCarGame.getCarList();
-            StringBuilder progress = new StringBuilder();
+        List<Car> carList = ((RacingCarGame) game).getCarList();
+        StringBuilder progress = new StringBuilder();
 
-            for (Car car : carList) {
-                progress.append(car.getName())
-                        .append(" : ")
-                        .append(((String) messageProperties.get("progress-bar")).repeat(car.getPosition()))
-                        .append("\n");
-            }
-        } else {
-            throw new IllegalArgumentException("자동차 경주 게임이 아닙니다.");
+        for (Car car : carList) {
+            progress.append(car.getName())
+                    .append(" : ")
+                    .append(((String) messageProperties.get("progress-bar")).repeat(car.getPosition()))
+                    .append("\n");
         }
     }
 }
