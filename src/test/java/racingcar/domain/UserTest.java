@@ -52,4 +52,31 @@ class UserTest {
         assertThrows(IllegalArgumentException.class, () -> user.getCarNames());
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"5\n"})
+    void 유효한_이동_횟수_입력(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        Assertions.assertDoesNotThrow(() -> user.getRaceCount());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-3\n"})
+    void 너무_적은_이동_횟수_입력(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        assertThrows(IllegalArgumentException.class, () -> user.getRaceCount());
+    }
+    @ParameterizedTest
+    @ValueSource(strings = {"300\n"})
+    void 너무_큰_이동_횟수_입력(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        assertThrows(IllegalArgumentException.class, () -> user.getRaceCount());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"ㄱㄴㄷ\n"})
+    void 숫자가_아닌_이동_횟수_입력(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        assertThrows(IllegalArgumentException.class, () -> user.getRaceCount());
+    }
+
 }

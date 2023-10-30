@@ -9,12 +9,20 @@ import java.util.Set;
 public class User {
 
     static final String INVALID_INPUT_MESSAGE = "잘못된 입력으로 게임이 종료됩니다.";
+    private static final int MIN_RACE_COUNT = 1;
+    private static final int MAX_RACE_COUNT = 10;
 
     public List<String> getCarNames() {
         String input = Console.readLine();
         input = input.replace(" ", "");
         validateInput(input);
         return Arrays.asList(input.split(","));
+    }
+
+    public int getRaceCount() {
+        String input = Console.readLine();
+        validateCount(input);
+        return Integer.parseInt(input);
     }
 
     private void validateInput(String input) {
@@ -35,6 +43,17 @@ public class User {
             set.add(carName);
         }
         if (set.size() != splitInput.length) {
+            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
+        }
+    }
+
+    private void validateCount(String input) {
+        try {
+            int count = Integer.parseInt(input);
+            if (count < MIN_RACE_COUNT || MAX_RACE_COUNT < count) {
+                throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }
     }
