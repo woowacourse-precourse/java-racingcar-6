@@ -22,7 +22,7 @@ public class CarService {
         CarNameValidator carNameValidator = new CarNameValidator();
 
         for (String word : carName.split(",")) {
-            if(carNameValidator.validateInputCarName(word)) {
+            if (carNameValidator.validateInputCarName(word)) {
                 carsName.add(word);
             }
         }
@@ -37,17 +37,18 @@ public class CarService {
     public void initCar() {
         car = new Car[carCount];
 
-        for (int i=0; i<carCount; i++) {
-            car[i] = new Car(carsName.get(i),0);
+        for (int i = 0; i < carCount; i++) {
+            car[i] = new Car(carsName.get(i), 0);
         }
     }
 
     public void updateCarPosition() {
-        for (int carIndex = 0; carIndex < carsName.size() ; carIndex++) {
+        for (int carIndex = 0; carIndex < carsName.size(); carIndex++) {
             CarPosition position = RandomUtils.determinePositionByRandomNumber();
-            if(position.increase(car[carIndex])) {
+            if (position.increase(car[carIndex])) {
                 builderUtils.appendToCarPosition(carIndex);
-            };
+            }
+            ;
         }
     }
 

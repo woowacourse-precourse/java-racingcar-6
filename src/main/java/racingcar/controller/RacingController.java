@@ -6,6 +6,7 @@ import racingcar.service.CarService;
 import racingcar.service.GameService;
 import racingcar.view.InputMessage;
 import racingcar.view.OutputMessage;
+
 import java.util.List;
 
 
@@ -34,7 +35,7 @@ public class RacingController {
         String inputRound = inputGameRound();
         int round = gameService.initGameRound(inputRound);
 
-        game = gameService.setGame(carCount,round);
+        game = gameService.setGame(carCount, round);
     }
 
     public String inputCarName() {
@@ -63,7 +64,7 @@ public class RacingController {
         for (int roundIndex = 0; roundIndex < roundCount; roundIndex++) {
             carService.updateCarPosition();
             String[] carPositions = carService.getGameStatus();
-           OutputMessage.printGameStatusMessage(carPositions, carsCount);
+            OutputMessage.printGameStatusMessage(carPositions, carsCount);
         }
     }
 

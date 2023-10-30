@@ -10,7 +10,7 @@ public class Car {
     }
 
     public void increasePosition() {
-       position++;
+        position++;
     }
 
     public String getCarName() {

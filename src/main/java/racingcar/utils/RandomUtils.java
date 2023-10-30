@@ -8,9 +8,9 @@ public class RandomUtils {
 
     public static CarPosition determinePositionByRandomNumber() {
         int randomNumber = makeRandomNumber();
-        if(randomNumber >= RandomConfig.DETERMINE_VALUE) {
+        if (randomNumber >= RandomConfig.DETERMINE_VALUE) {
             return CarPosition.STRAIGHT;
-        }else {
+        } else {
             return CarPosition.STOP;
         }
     }

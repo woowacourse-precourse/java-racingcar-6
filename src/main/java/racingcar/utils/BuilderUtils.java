@@ -1,4 +1,5 @@
 package racingcar.utils;
+
 import java.util.List;
 
 public class BuilderUtils {

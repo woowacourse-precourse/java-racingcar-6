@@ -24,6 +24,7 @@ public class CarNameValidator {
             throw new IllegalArgumentException(CarNameErrorMessage.DUPLICATE_ERROR_MESSAGE);
         }
     }
+
     private void validateBlank(String word) {
         if (word.contains(" ")) {
             throw new IllegalArgumentException(CarNameErrorMessage.BLANK_ERROR_MESSAGE);
