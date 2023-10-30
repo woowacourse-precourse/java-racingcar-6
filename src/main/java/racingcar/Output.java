@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 final class Output {
 
     private Output() {
@@ -14,16 +17,17 @@ final class Output {
     }
 
     static void printResult() {
-        System.out.print(OutputMessage.RESULT.message);
+        System.out.println(OutputMessage.RESULT.message);
     }
 
-    static void printGameResult(final String result) {
-        System.out.println(result);
+    static void printGameResult(final List<String> result) {
+        result.forEach(System.out::println);
         System.out.println();
     }
 
-    //TODO String말고 Winner 객체로?
-    static void printWinner(String winner) {
-        System.out.println(OutputMessage.WINNER.message + winner);
+    static void printWinner(final List<String> winner) {
+        String winnerOutput = winner.stream()
+                .collect(Collectors.joining(Constant.COMMA.value + " "));
+        System.out.println(OutputMessage.WINNER.message + winnerOutput);
     }
 }
