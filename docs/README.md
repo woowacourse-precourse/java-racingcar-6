@@ -3,11 +3,7 @@
 ## 기능 목록
 **경주 - Race**
 - [x] 경주 시작전 상황을 세팅한다. - `init()` 
-  - 입출력 - `getCarNames()`
-    - 예외처리 - `inputException()`
-  - 입출력 - `getMoveCount()`
-    - 예외처리 - `inputException()`
-- [ ] 세팅을 마치면 경주를 시작한다. - `start()` 
+- [x] 세팅을 마치면 경주를 시작한다. - `start()` 
 - [ ] 우승자를 확인한다 - `checkWinner()` 
 
 **입출력 - Race**

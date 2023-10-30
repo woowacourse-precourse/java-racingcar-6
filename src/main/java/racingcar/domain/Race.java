@@ -3,8 +3,10 @@ package racingcar.domain;
 import java.util.List;
 
 public class Race {
-    private List<Car> carList;
     private int moveCount;
+    private List<Car> carList;
+    private List<Car> winnerList;
+
 
     public Race() {
         init();
@@ -16,6 +18,15 @@ public class Race {
     }
 
     public void start() {
+        while(moveCount != 0) {
+            carList.forEach(car -> car.move());
+            moveCount--;
+        }
+
+        checkWinner();
+    }
+
+    private void checkWinner() {
 
     }
 
@@ -26,6 +37,4 @@ public class Race {
     private int getMoveCount() {
 
     }
-
-
 }
