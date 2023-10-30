@@ -6,7 +6,9 @@ import racingcar.util.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -106,10 +108,35 @@ class CarsTest {
         // then
         assertEquals(expected, result);
     }
-//
-//    @Test
-//    void findWinner() {
-//    }
+
+    @Test
+    @DisplayName("우승자를 찾아내는 기능 테스트")
+    void findWinner() {
+        // given
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberGenerator());
+        List<String> names = Arrays.asList("pobi", "crong", "horan");
+        Cars cars = new Cars(names, movingStrategy);
+
+
+        for (int i=0; i<3; i++) {
+            cars.raceAllCars();
+        }
+        List<Car> carList = cars.getCars();
+        int winnerPosition = carList.stream()
+                                .max(Car::compareTo)
+                                .get()
+                                .getPosition();
+
+        List<Car> expected = carList.stream()
+                .filter(car -> car.getPosition() == winnerPosition)
+                .collect(Collectors.toList());
+
+        // when
+        List<Car> result = cars.findWinner(winnerPosition);
+
+        // then
+        assertEquals(expected, result);
+    }
 
     private void assertArrayEquals(List<Car> expected, List<Car> result) {
     }
