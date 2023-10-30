@@ -21,6 +21,9 @@ public class Controller {
 
         OutputView.printResult();
         result(cars, attemptCount);
+
+        List<String> winner = racingcarGame.findMaxMoveForwardCount(cars);
+        OutputView.printWinner(winner);
     }
 
     public void result(List<Car> cars, int attemptCount) {
