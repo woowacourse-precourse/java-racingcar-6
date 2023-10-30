@@ -8,6 +8,10 @@ public class InputView {
 
     public static List<String> readCarNames(){
         String names = Console.readLine();
-        return null;
+        return parseCarNames(names);
+    }
+
+    public static List<String> parseCarNames(String names){
+        return List.of(names.split(","));
     }
 }
