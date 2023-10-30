@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static Utill.ErrorCheck. *;
 import static Utill.Messages. *;
 
 public class GameStart {
@@ -18,7 +19,7 @@ public class GameStart {
         gameStartMessage();
         cars = Console.readLine();
         carsName = cars.split(",");
-
+        checkIsValidAnswer(carsName);
         carsScore = new int[carsName.length];
         carsScoreString = new String[carsName.length];
     }
