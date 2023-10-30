@@ -3,7 +3,6 @@ package racingcar.service;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.util.InputUtil;
-import racingcar.util.RandomUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +23,7 @@ public class RacingCarService {
         for (int i = 0; i < count; i++) {
             move(cars);
         }
+        printWinner();
     }
 
     public void move(Cars cars) {
@@ -41,5 +41,11 @@ public class RacingCarService {
         names.forEach(name -> carList.add(new Car(name)));
         cars = new Cars(carList);
         return cars;
+    }
+
+    public void printWinner() {
+        String s = cars.showWinner();
+        System.out.print("최종 우승자 : ");
+        System.out.print(s);
     }
 }
