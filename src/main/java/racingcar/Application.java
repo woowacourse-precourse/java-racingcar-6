@@ -1,7 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.CarNumberHandler;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,15 +10,21 @@ import java.util.HashSet;
 
 public class Application {
     public static void main(String[] args) throws IllegalArgumentException {
+        // 사용자로부터 자동차 이름을 입력 받는다.
         requestCarNames();
         String carNames = Console.readLine();
+        isInputEmpty(carNames);
         isCarNameValid(carNames);
         isCarNameStringValid(carNames);
         List<String> carNamesArray = splitStringToArrayList(carNames);
         isCarNameValidLength(carNamesArray);
         isCarNameDuplicate(carNamesArray);
-
+        // 사용자로부터 시도할 횟수를 입력 받는다.
         requestCount();
+        String StringCount = Console.readLine();
+        isInputEmpty(StringCount);
+        int userCount = getUserCount(StringCount);
+
     }
 
     static void requestCarNames() {
@@ -27,6 +33,12 @@ public class Application {
 
     static void requestCount() {
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+    static void isInputEmpty(String input) throws IllegalArgumentException {
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException("[error] 값을 입력하세요.");
+        }
     }
 
     static void isCarNameValid(String carNames) throws IllegalArgumentException {
@@ -73,5 +85,15 @@ public class Application {
         }
     }
 
-
+    static int getUserCount(String stringCount) throws IllegalArgumentException {
+        if (stringCount.charAt(0) == '0') {
+            throw new IllegalArgumentException("[error] 시도 횟수는 1이상의 정수 이어야 합니다.");
+        }
+        for (int i = 1; i < stringCount.length(); i++) {
+            if (!(stringCount.charAt(i) >= '0' && stringCount.charAt(i) <= '9')) {
+                throw new IllegalArgumentException("[error] 시도 횟수는 1이상의 정수 이어야 합니다.");
+            }
+        }
+        return Integer.parseInt(stringCount);
+    }
 }
