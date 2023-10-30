@@ -12,7 +12,7 @@ public class Car {
     }
 
     public void move() {
-            position++;
+        position++;
     }
 
     public CarDto toDto() {
