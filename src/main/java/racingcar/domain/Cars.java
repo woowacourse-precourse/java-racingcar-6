@@ -67,5 +67,11 @@ public class Cars {
                 .getLocation();
     }
 
+    public List<Car> getCarsByLocation(int location) {
+        return cars.stream()
+                .filter(car -> car.getLocation() == location)
+                .collect(Collectors.toList());
+    }
+
 
 }
