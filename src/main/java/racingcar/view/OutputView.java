@@ -23,7 +23,7 @@ public class OutputView {
     }
 
     private static String getForwardStateString(Car car) {
-        return car.getName() + " : "
+        return car.getCarName() + " : "
                 + "-".repeat(car.getPosition());
     }
 
@@ -36,7 +36,7 @@ public class OutputView {
         StringBuilder sb = new StringBuilder();
         sb.append("최종 우승자 : ");
         for (int i = 0; i < winners.size(); i++) {
-            sb.append(winners.get(i).getName());
+            sb.append(winners.get(i).getCarName());
             if (i != winners.size() - 1) {
                 sb.append(", ");
             }

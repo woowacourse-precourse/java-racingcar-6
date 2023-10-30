@@ -1,6 +1,5 @@
-package racingcar.model;
+package racingcar.validator;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.exception.car.name.LengthException.LengthExceptionMessage;
@@ -11,9 +10,11 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.model.Car;
+import racingcar.model.Cars;
 import racingcar.utils.Parser;
 
-public class ExceptionTest {
+public class ModelValidatorTest {
     // 모델 생성자 테스트
     @ParameterizedTest
     @ValueSource(strings = {"a", "abc", "aca", "12345"})
@@ -27,7 +28,7 @@ public class ExceptionTest {
     void 자동차_이름_1자_이상_5자_이하가_아닌_경우(String carName) {
         assertThatThrownBy(() -> new Car(carName))
                 .isInstanceOf(IllegalArgumentException.class)
-                        .hasMessageContaining(LengthExceptionMessage);
+                .hasMessageContaining(LengthExceptionMessage);
     }
 
     @Test

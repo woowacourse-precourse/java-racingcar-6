@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.exception.NullException;
 import racingcar.exception.cars.DuplicateException;
+import racingcar.validator.model.CarsValidator;
+import racingcar.validator.model.ModelValidator;
 
 public class Cars {
     private List<Car> carList;
 
     public Cars(List<Car> carList) {
-        validateCarList(carList);
         this.carList = carList;
+
+        CarsValidator.getInstance().validate(this);
     }
 
     public List<Car> getCarList() {
@@ -29,28 +32,5 @@ public class Cars {
 
     public int size() {
         return carList.size();
-    }
-
-    private void validateCarList(List<Car> carList) {
-        validateNull(carList);
-        validateDuplicateName(carList);
-    }
-
-    private void validateNull(List<Car> carList) {
-        if (carList == null) {
-            throw new NullException();
-        }
-    }
-
-    private void validateDuplicateName(List<Car> carList) {
-        List<String> carNameList = new ArrayList<>();
-        for (Car car : carList) {
-            carNameList.add(car.getName());
-        }
-        if (carNameList.stream()
-                .distinct()
-                .count() != carNameList.size()) {
-            throw new DuplicateException();
-        }
     }
 }

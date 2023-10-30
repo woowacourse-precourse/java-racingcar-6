@@ -7,14 +7,15 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Round;
 import racingcar.utils.Parser;
-import racingcar.validator.InputValidator;
+import racingcar.validator.userInput.CarsValidator;
+import racingcar.validator.userInput.RoundValidator;
 import racingcar.view.InputView;
 
 public class InputController {
     public static Cars scanCars() {
         System.out.println(InputView.enterCarNamesMessage());
         String userInput = Console.readLine();
-        InputValidator.validateCarNames(userInput);
+        CarsValidator.getInstance().validate(userInput);
 
         return createCars(userInput);
     }
@@ -29,7 +30,7 @@ public class InputController {
     public static Round scanRound() {
         System.out.println(InputView.enterNumberOfRoundsMessage());
         String userInput = Console.readLine();
-        InputValidator.validateNumberOfRounds(userInput);
+        RoundValidator.getInstance().validate(userInput);
 
         return createRound(userInput);
     }

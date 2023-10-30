@@ -2,6 +2,7 @@ package racingcar.model;
 
 import racingcar.constant.RacingGameConstants;
 import racingcar.utils.RandomGenerator;
+import racingcar.validator.model.CarValidator;
 
 public class Car {
     private final CarName carName;
@@ -10,10 +11,12 @@ public class Car {
     public Car(String carName) {
         this.carName = new CarName(carName);
         position = 0;
+
+        CarValidator.getInstance().validate(this);
     }
 
-    public String getName() {
-        return carName.getName();
+    public CarName getCarName() {
+        return carName;
     }
 
     public int getPosition() {
@@ -24,7 +27,7 @@ public class Car {
         int randomNumber = RandomGenerator
                 .generateRandomIntInRange(RacingGameConstants.MOVE_ENERGY_MIN, RacingGameConstants.MOVE_ENERGY_MAX);
 
-        if(randomNumber >= RacingGameConstants.ENERGY_THRESHOLD_TO_MOVE) {
+        if (randomNumber >= RacingGameConstants.ENERGY_THRESHOLD_TO_MOVE) {
             moveOneStep();
         }
     }

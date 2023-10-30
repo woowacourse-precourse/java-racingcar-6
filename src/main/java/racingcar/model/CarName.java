@@ -1,43 +1,34 @@
 package racingcar.model;
 
-import racingcar.constant.RacingGameConstants;
-import racingcar.exception.NullException;
-import racingcar.exception.car.name.BlankException;
-import racingcar.exception.car.name.LengthException;
+import racingcar.validator.model.CarNameValidator;
 
 public class CarName {
     private final String name;
+
     public CarName(String name) {
-        validate(name);
         this.name = name;
+        CarNameValidator.getInstance().validate(this);
     }
 
     public String getName() {
         return name;
     }
 
-    private void validate(String name) {
-        validateNull(name);
-        validateNameLength(name);
-        validateNoBlanks(name);
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 
-    private void validateNull(String name) {
-        if (name == null) {
-            throw new NullException();
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof CarName)) {
+            return false;
         }
+        return name.equals(((CarName) o).getName());
     }
 
-    private void validateNameLength(String name) {
-        if (name.length() < RacingGameConstants.CAR_NAME_LENGTH_MIN
-                || name.length() > RacingGameConstants.CAR_NAME_LENGTH_MAX) {
-            throw new LengthException();
-        }
-    }
-
-    private void validateNoBlanks(String name) {
-        if(name.contains(" ") || name.contains("\t") || name.contains("\n")) {
-            throw new BlankException();
-        }
+    @Override
+    public String toString() {
+        return name;
     }
 }
