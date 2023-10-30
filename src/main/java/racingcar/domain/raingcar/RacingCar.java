@@ -26,7 +26,7 @@ public class RacingCar {
         return this.position;
     }
 
-    private void verify(final String name) {
+    private void verify(String name) {
 
         if (name.length() < Constant.CAR_NAME_MIN_SIZE || name.length() > Constant.CAR_NAME_MAX_SIZE) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_ERROR);

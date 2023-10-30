@@ -5,18 +5,39 @@ import java.util.List;
 import racingcar.constant.ErrorMessage;
 
 public class RacingCars {
-    private List<RacingCar> cars = new ArrayList<>();
 
-    public RacingCars(String[] inputCars) {
-        for(String name : inputCars) {
-            verify(name);
-            cars.add(new RacingCar(name));
-        }
+    private static List<RacingCar> cars;
+
+    public RacingCars(List<RacingCar> cars) {
+        cars = verified(cars);
     }
 
-    private void verify(String name) {
-        if(cars.contains(name)) {
-            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATE_ERROR);
+
+    public static List<RacingCar> fromNames(String[] inputs) {
+        cars = new ArrayList<>();
+
+        for(String input : inputs) {
+            cars.add(new RacingCar(input));
         }
+
+        return cars;
+    }
+
+    public List<RacingCar> getCars() {
+        return cars;
+    }
+
+    private List<RacingCar> verified(List<RacingCar> cars) {
+        List<String> carNames = new ArrayList<>();
+
+        for(RacingCar car : cars) {
+            if (carNames.contains(car.getName())) {
+                throw new IllegalArgumentException(ErrorMessage.CAR_NAME_DUPLICATE_ERROR);
+            }
+
+            carNames.add(car.getName());
+        }
+
+        return cars;
     }
 }
