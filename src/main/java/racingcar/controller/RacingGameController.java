@@ -8,7 +8,9 @@ public class RacingGameController {
 
     private RacingGameModel model;
     private RacingGameView view;
+    private static final String RESULT_MESSAGE = "실행 결과";
 
+    // 생성자
     public RacingGameController() {
         model = null;
         view = new RacingGameView();
@@ -16,15 +18,15 @@ public class RacingGameController {
 
     public void startRacingGame() {
         view.inputForCarNames();
-        String carNames = Console.readLine();
+        String carNames = view.readStringFromConsole();
 
         view.inputForAttempts();
-        int attempts = Integer.parseInt(Console.readLine());
+        int attempts = view.convertIntFromConsoleStringInput();
 
         model = new RacingGameModel(carNames);
 
         System.out.println();
-        System.out.println("실행 결과");
+        System.out.println(RESULT_MESSAGE);
         for (int i = 0; i < attempts; i++) {
             model.moveCars();
             view.printRoundResults(model.getCars());

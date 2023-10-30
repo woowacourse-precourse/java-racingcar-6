@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
 
 import java.util.List;
@@ -16,6 +17,15 @@ public class RacingGameView {
 
     public void inputForAttempts(){
         System.out.println(INPUT_FOR_ATTEMPTS);
+    }
+
+    public String readStringFromConsole() {
+        return Console.readLine();
+    }
+
+    public int convertIntFromConsoleStringInput() {
+        String input = Console.readLine();
+        return Integer.parseInt(input);
     }
 
     public void printRoundResults(List<Car> cars) {
@@ -41,6 +51,7 @@ public class RacingGameView {
     private void printSingleWinner(Car winner) {
         System.out.print(winner.getName());
     }
+
 
     private void printMultipleWinners(List<Car> winners) {
         for (int i = 0; i < winners.size(); i++) {
