@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.validator;
 
 import static org.assertj.core.api.Assertions.*;
 import static racingcar.constant.MessageConstants.TRY_COUNT_NOT_INTEGER;
