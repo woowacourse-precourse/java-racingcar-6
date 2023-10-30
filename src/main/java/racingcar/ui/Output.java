@@ -6,7 +6,8 @@ public enum Output {
     GET_GAME_COUNT("시도할 횟수는 몇회인가요?"),
     RESULT_COMMENT("실행 결과"),
     SEPARATOR(" : "),
-    WINNER_COMMENT("최종 우승자 : ");
+    WINNER_COMMENT("최종 우승자 : "),
+    BLANK_LINE("");
 
     private final String comment;
 
