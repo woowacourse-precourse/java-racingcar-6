@@ -1,8 +1,6 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.LinkedHashMap;
-import java.util.List;
 
 public class Car {
 
@@ -21,7 +19,7 @@ public class Car {
         return this.position;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 

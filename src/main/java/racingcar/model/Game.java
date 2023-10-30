@@ -1,16 +1,8 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
-import net.bytebuddy.dynamic.scaffold.MethodGraph.Linked;
 
 public class Game {
     public List<String> splitCarName(String carName) {
