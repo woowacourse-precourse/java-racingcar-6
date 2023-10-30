@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,44 +10,25 @@ public class Race {
     private static final int MAX_FORWARD_COUNT_TARGET = -1;
 
     private static final String START_RACE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static final String CAR_NAME_INPUT_DELIMITER = ",";
-    private static final String ASK_GAME_COUNT = "시도할 회수는 몇회인가요?";
     private static final String PLAY_OUTPUT = "실행 결과";
     private static final String FINAL_RESULT = "최종 우승자 : ";
 
     private Integer gameCount;
     private final List<Car> cars = new ArrayList<>();
-    private final InputValidator inputValidator = new InputValidator(this);
+    private final UserInput userInput = new UserInput(this);
 
     public void start() {
         System.out.println(START_RACE);
-        inputCarNames();
-        inputGameCount();
+        userInput.inputCarNames();
+        userInput.inputGameCount();
         play();
     }
 
-    private void inputCarNames() {
-        String userInput = Console.readLine();
-        String[] carNames = userInput.split(CAR_NAME_INPUT_DELIMITER);
-        createCars(carNames);
+    public void createCar(String carName) {
+        cars.add(new Car(carName));
     }
 
-    private void createCars(String[] carNames) {
-        for (String carName : carNames) {
-            inputValidator.carName(carName);
-            cars.add(new Car(carName));
-        }
-    }
-
-    private void inputGameCount() {
-        System.out.println(ASK_GAME_COUNT);
-        String userInput = Console.readLine();
-        saveGameCount(userInput);
-        Console.close();
-    }
-
-    private void saveGameCount(String userInput) {
-        inputValidator.gameCount(userInput);
+    public void saveGameCount(String userInput) {
         gameCount = Integer.parseInt(userInput);
     }
 
