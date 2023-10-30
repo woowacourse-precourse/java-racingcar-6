@@ -30,7 +30,20 @@ public class Application {
         System.out.println();
         System.out.println("실행 결과");
 
-        // TODO 5. for문을 사용해 n회 게임 반복
+        // 5. for문을 사용해 n회 게임 반복
+        for (int i = 0; i < n; i++) {
+            //1. 각 자동차마다 움직일지 멈출지 판단하는 난수 생성해서 배열에 저장
+            int[] howFar = GameMethods.makeRandNum(numberOfCars);
+
+            //2. 움직일지 말지 판단해서 movedDistance배열에 "-"로 기록
+            GameMethods.goOrStop(numberOfCars, movedDistance, howFar);
+
+            //3. 출력
+            for (int j = 0; j < numberOfCars; j++) {
+                System.out.println(carNames[j] + " : " + movedDistance[j]);
+            }
+            System.out.println();
+        }
 
 
         // TODO 6. 최종 우승자 출력
