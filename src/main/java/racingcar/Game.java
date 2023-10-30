@@ -40,7 +40,12 @@ public class Game {
     int setNumOfTime() {
         out.println("시도할 회수는 몇회인가요?");
         try {
-            return Integer.parseInt(Console.readLine());
+            IllegalArgumentException e = new IllegalArgumentException();
+            int number = Integer.parseInt(Console.readLine());
+            if (number < 1) {
+                throw e;
+            }
+            return number;
         } catch (IllegalArgumentException e) {
             throw e;
         }
@@ -85,7 +90,6 @@ public class Game {
     void printWinner(Cars cars) {
         int winnerScore = 0;
         List<Car> winners = new ArrayList<>();
-        List<String> winnersName = new ArrayList<>();
         for (Car car : cars.getList()) {
             if (winnerScore < car.getGauge()) {
                 winnerScore = car.getGauge();
@@ -95,6 +99,7 @@ public class Game {
                 winners.add(car);
             }
         }
+        List<String> winnersName = new ArrayList<>();
         for (Car winner : winners) {
             winnersName.add(winner.getName());
         }
