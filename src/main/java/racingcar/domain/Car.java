@@ -6,7 +6,7 @@ public class Car {
 
     private final String carName;
 
-    private int location = 1;
+    private int location = 0;
 
     private static final int CAR_NAME_LIMIT = 5;
 
