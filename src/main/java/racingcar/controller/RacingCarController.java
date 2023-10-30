@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Computer;
+import racingcar.model.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -14,6 +15,7 @@ public class RacingCarController {
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     Computer computer = new Computer();
+    Winner winner = new Winner();
 
     public void run() {
         List<Car> collectCars = new ArrayList<>();
@@ -33,5 +35,6 @@ public class RacingCarController {
             }
             System.out.println();
         }
+        winner.findWinnerName(cars.getCars());
     }
 }
