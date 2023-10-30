@@ -12,8 +12,8 @@ public class Car {
         this.location = new CarLocation();
     }
 
-    public CarName getName() {
-        return name;
+    public String getName() {
+        return name.getName();
     }
 
     public CarLocation getLocation() {

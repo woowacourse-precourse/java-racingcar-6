@@ -5,13 +5,14 @@ import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.domain.generator.NumberGenerator;
 import racingcar.domain.inputer.CarInputer;
+import racingcar.domain.outputer.IntermediateCourseOuter;
 import racingcar.domain.referee.InGameReferee;
 
 public class RacingService {
     public void getResult(List<Car> carList) {
         List<Integer> randomList = NumberGenerator.createListNumber(carList.size());
         runRacing(carList, randomList);
-        // TODO: 2023-10-30 턴마다 출력
+        IntermediateCourseOuter.printResult(carList);
     }
 
     public List<Car> getCars() {
