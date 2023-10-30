@@ -71,6 +71,7 @@ public class CarTest{
     void 자동차_상태_출력(){
         //given
         Car car = new Car("Pobi");
+
         OutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 

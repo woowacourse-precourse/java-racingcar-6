@@ -6,6 +6,9 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mockStatic;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,6 +46,48 @@ public class RefereeTest{
 
         //then
         assertThat(carNames).hasSize(1).contains("woni");
+
+    }
+
+    @Test
+    @DisplayName("심판이 우승자를 출력한다.")
+    void 심판_우승자_출력(){
+        //given
+        Cars cars = new Cars(List.of("Pobi", "woni", "jun"));
+        carGoForward(cars.getCarList().get(2));
+        carGoForward(cars.getCarList().get(2));
+        carGoForward(cars.getCarList().get(1));
+        carGoForward(cars.getCarList().get(1));
+
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        //when
+        List<String> winners = referee.determineWinners(cars);
+        referee.announceWinners(winners);
+
+        //then
+        assertThat(out.toString()).isEqualTo("최종 우승자 : woni, jun\r\n");
+
+    }
+
+    @Test
+    @DisplayName("심판이 단독 우승자를 출력한다.")
+    void 심판_단독_우승자_출력(){
+        //given
+        Cars cars = new Cars(List.of("Pobi", "woni", "jun"));
+        carGoForward(cars.getCarList().get(2));
+        carGoForward(cars.getCarList().get(2));
+
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        //when
+        List<String> winners = referee.determineWinners(cars);
+        referee.announceWinners(winners);
+
+        //then
+        assertThat(out.toString()).isEqualTo("최종 우승자 : jun\r\n");
 
     }
 

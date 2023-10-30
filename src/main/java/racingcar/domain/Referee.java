@@ -9,7 +9,7 @@ public class Referee{
     }
 
     public void announceWinners(List<String> winners){
-        String announcement = "최종 우승자 : " + String.join(",",winners);
+        String announcement = "최종 우승자 : " + String.join(", ",winners);
         System.out.println(announcement);
     }
 
