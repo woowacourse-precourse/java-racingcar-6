@@ -42,7 +42,7 @@ public class RaceGame {
     }
   }
 
-  public synchronized void race(Consumer<List<RaceGameResult>> raceResultProcess) {
+  public void race(Consumer<List<RaceGameResult>> raceResultProcess) {
     while (round >= MINIMUM_ROUND) {
       List<RaceGameResult> raceResults = cars.stream()
           .map(car -> new RaceGameResult(car.getName(), car.move(formula)))
