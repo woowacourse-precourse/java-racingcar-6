@@ -1,14 +1,11 @@
 package racingcar.utils;
 
 public class Converter {
-    public Converter(){
-
-    }
-    public String[] convertCarsName(String newCarsName){
+    public static String[] convertCarsName(String newCarsName){
         return newCarsName.split(",");
     }
 
-    public int convertTurn(String newTurn){
+    public static int convertTurn(String newTurn){
         return Integer.parseInt(newTurn);
     }
 }

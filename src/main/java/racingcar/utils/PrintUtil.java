@@ -1,23 +1,39 @@
 package racingcar.utils;
 
+import racingcar.game.Car;
+import racingcar.game.Cars;
+
+import java.util.List;
+
 import static racingcar.constValue.ConstValue.*;
 
 public class PrintUtil {
-    private void printCarNamesPrompt(){
+    public static void printCarNamesPrompt(){
         System.out.println(CAR_NAMES_PROMPT_MESSAGE);
     }
-    private void printTurnPrompt(){
+    public static void printTurnPrompt(){
         System.out.println(TURN_PROMPT_MESSAGE);
     }
-    private void printPlayResult(){
+    public static void printPlayResult(){
         System.out.println(RESULT_MESSAGE);
     }
-    private void printTurnResult(){
+    public static void printTurnResult(Cars cars){
+        List<Car> carList = cars.getCars();
         // 입력 : Cars
-        // TODO : Cars 출력하기
+        for(Car car:carList){
+            String printMessage = "";
+            printMessage = printMessage.concat(car.getName());
+            printMessage = printMessage.concat(" : ");
+
+            for(int i=0; i < car.getMoving();i++){
+                printMessage = printMessage.concat("-");
+            }
+
+            System.out.println(printMessage);
+        }
         System.out.println();
     }
-    private void printWinner(String racingWinner){
+    public static void printWinner(String racingWinner){
         System.out.println(WINNER_MESSAGE + racingWinner);
     }
 }
