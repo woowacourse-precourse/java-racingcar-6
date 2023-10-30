@@ -15,6 +15,7 @@ public class outputView {
     }
 
     public static void displayWinner(ArrayList<String> winners){
+        System.out.print("최종 우승자 :");
         for(String winner:winners){
             System.out.print(winner);
             if (!winner.equals(winners.get(winners.size() - 1))) {
