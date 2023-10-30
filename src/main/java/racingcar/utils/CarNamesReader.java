@@ -8,14 +8,15 @@ import racingcar.domain.RandomNumberGenerator;
 import racingcar.validator.CarNameValidator;
 import racingcar.view.InputView;
 
-public class CarListCreator {
+public class CarNamesReader {
 
     private static final String NAME_DELIMITER = ",";
-    public static List<Car> generateCarListFromInput() {
+
+    public static List<Car> get() {
         String carNames = InputView.getCarNames();
         String[] splitCarNames = splitCarNames(carNames);
         CarNameValidator.validateCarNames(splitCarNames);
-        return CarListCreator.createCars(splitCarNames, new RandomNumberGenerator());
+        return CarNamesReader.createCars(splitCarNames, new RandomNumberGenerator());
     }
 
     private static String[] splitCarNames(String carNames) {
