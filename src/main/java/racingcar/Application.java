@@ -75,9 +75,10 @@ public class Application {
 
 
     private static void generateRacer(List<String> racerNameList){
-        for (String racerName:racerNameList){
-            generateRacerByInputValue(racerName);
-        }
+        racerNameList.stream()
+                            .forEach(racerName->{
+                                generateRacerByInputValue(racerName);
+                            });
     }
     private static GenerateRacer generateRacerByInputValue(String inputValue){
         return (racerName)-> Racer.getInstance(inputValue);
@@ -85,5 +86,9 @@ public class Application {
 
     private static void generateRacingResult(){
         OutputView.outputForRacingResult(RoundResult.getResultOfRound().toString());
+    }
+
+    private static void generateRacingWinner(){
+
     }
 }
