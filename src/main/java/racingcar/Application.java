@@ -19,8 +19,8 @@ public class Application {
 
     private static void moveCars(Car[] cars) {
         for (Car car : cars) {
-            int pickNumber = pickNumberInRange(0, 9);
-            car.move(pickNumber);
+            int randomNumber = pickNumberInRange(0, 9);
+            car.move(randomNumber);
         }
     }
 
@@ -28,6 +28,7 @@ public class Application {
         for (Car car : cars) {
             System.out.println(car.toString());
         }
+        System.out.println();
     }
 
     private static int inputTurnCount() {
