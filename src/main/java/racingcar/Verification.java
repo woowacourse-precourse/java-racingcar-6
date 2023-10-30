@@ -13,6 +13,16 @@ public class Verification {
     }
 
     public void verifyDuplication(List<String> names) {
+        String removed;
+        List<String> check = new ArrayList<>(names);
+        int size = names.size();
+
+        for (int i = size-1; i >= 1; i--) {
+            removed = check.remove(i);
+            if (check.contains(removed)){
+                throw new IllegalArgumentException();
+            }
+        }
     }
 
     public void verifyNumberOfTry(String number){

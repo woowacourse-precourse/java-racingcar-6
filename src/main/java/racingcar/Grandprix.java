@@ -5,7 +5,7 @@ import java.util.Map;
 public class Grandprix {
     SystemOutput systemOutput = new SystemOutput();
 
-    public void playGrandprix(int numberOfTry, Map<String,Car> racingPlayer) {
+    public Map<String,Car> playGrandprix(int numberOfTry, Map<String,Car> racingPlayer) {
         for (int i = 0; i < numberOfTry; i++) {
             for (String player : racingPlayer.keySet()) {
                 racingPlayer.get(player).goOrStop();
@@ -13,5 +13,6 @@ public class Grandprix {
             }
             System.out.println();
         }
+        return racingPlayer;
     }
 }
