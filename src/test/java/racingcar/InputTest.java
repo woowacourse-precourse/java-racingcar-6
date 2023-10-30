@@ -24,4 +24,10 @@ public class InputTest {
         assertThatThrownBy(() -> InputValidator.validateCarLength("abcdef"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void validateTryNumber_경주시도횟수가_숫자가아닌경우_예외() {
+        assertThatThrownBy(() -> InputValidator.validateTryNumber("a"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
