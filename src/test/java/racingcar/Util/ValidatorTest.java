@@ -15,4 +15,12 @@ class ValidatorTest {
             validator.validationCarName("ABCDEF,abc");
         });
     }
+
+    @Test
+    @DisplayName("이름 최소 크기 미달 테스트")
+    void validationCarNameTest2() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            validator.validationCarName("ABC,DEF,");
+        });
+    }
 }
