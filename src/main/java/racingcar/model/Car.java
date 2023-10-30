@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class Car {
     private static final Integer INIT_POSITION = 0;
-    private static final Integer MOVE_STANDARD = 4;
 
     private final String name;
     private Integer position;
