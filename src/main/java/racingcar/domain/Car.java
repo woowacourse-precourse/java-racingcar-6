@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class car {
+public class Car {
     private int position = 0;
 
     public void go() {
