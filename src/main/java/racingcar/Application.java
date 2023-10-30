@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
 
@@ -42,6 +43,21 @@ public class Application {
         return Integer.parseInt(N);
     }
 
+    private static boolean isForward() {
+        Integer dice = Randoms.pickNumberInRange(0, 9);
+        if (dice >= 4)
+            return true;
+
+        return false;
+    }
+
+    private static void run(List<Integer> carSteps) {
+        for (int i = 0; i < carSteps.size(); i++) {
+            if (isForward())
+                carSteps.set(i, carSteps.get(i) + 1);
+        }
+    }
+
     public static void main(String[] args) {
         List<String> carNames = getCars();
         List<Integer> numberOfCarSteps = new ArrayList<>();
@@ -51,6 +67,11 @@ public class Application {
         }
 
         Integer n = getN();
+
+        System.out.println("실행 결과");
+        for (int i = 0; i < n; i++) {
+            run(numberOfCarSteps);
+        }
 
     }
 }
