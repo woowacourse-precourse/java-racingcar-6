@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.domain.Car;
 
-public class CarManger {
+public class RacingCarManager {
 	private final List<Car> cars = new ArrayList<>();
 
 	public void createCars(String[] carNames) {
