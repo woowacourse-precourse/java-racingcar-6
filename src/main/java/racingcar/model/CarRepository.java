@@ -7,6 +7,10 @@ public enum CarRepository {
     INSTANCE;
     private final List<Car> carList = new ArrayList<Car>();
 
+    public void clearCarList() {
+        carList.clear();
+    }
+
     public void addCar(List<String> nameList) {
         for(String name : nameList) {
             carList.add(new Car(name));
