@@ -26,16 +26,16 @@ public class GameController {
     }
 
     public void startGame() {
-        String carNames = inputView.getCarName();
-        CarGroup carGroup = carModel.preProcessing(carNames);
-        String numberOfRound = inputView.getNumberOfRound();
-        Integer round = roundModel.preProcessing(numberOfRound);
+        String carNamesInput = inputView.getCarName();
+        CarGroup carGroup = carModel.preProcessing(carNamesInput);
+        String numberOfRoundsInput = inputView.getNumberOfRound();
+        Integer numberOfRounds = roundModel.preProcessing(numberOfRoundsInput);
 
         outPutView.showPrompt();
-        while (round > 0) {
+        while (numberOfRounds > 0) {
             carGroup = gameModel.playGameRound(carGroup);
             outPutView.showRoundResult(carGroup);
-            round--;
+            numberOfRounds--;
         }
 
         outPutView.showFinalWinner(carGroup);
