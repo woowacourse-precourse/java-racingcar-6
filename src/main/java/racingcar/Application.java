@@ -14,6 +14,7 @@ public class Application {
         validateIsEmpty(carNames);
         validateLastCharacter(carName);
         validateDuplicate(carNames);
+        validateNameLength(carNames);
         validateIsAlphabet(carNames);
         return carNames;
     }
