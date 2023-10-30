@@ -4,7 +4,6 @@ import Util.InputUtil;
 import car.Car;
 import car.CarCollection;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static constants.RacingCarConstants.NUMBER_OF_ATTEMPTS_MESSAGE;
@@ -13,18 +12,18 @@ import static validate.InputValidation.validateNumericInput;
 
 public class Game {
 
-    private CarCollection participants;
+    private final CarCollection cars;
     private int frequency;
 
     public Game() {
-        participants = new CarCollection();
+        cars = new CarCollection();
         initializeParticipants();
         initializeFrequency();
     }
 
     private void initializeParticipants() {
-        String participantsInput = InputUtil.getUserInput(PARTICIPANTS_INPUT_MESSAGE);
-        addCarsFromInput(participantsInput);
+        String carsInput = InputUtil.getUserInput(PARTICIPANTS_INPUT_MESSAGE);
+        addCarsFromInput(carsInput);
     }
 
     private void initializeFrequency() {
@@ -32,24 +31,22 @@ public class Game {
         frequency = stringToInt(frequencyInput);
     }
 
-
     public void start(){
-
         for (int i = 0; i < frequency; i++){
-            participants.moveCarsForward();
-            participants.printCarsDistance();
+            cars.moveCarsForward();
+            cars.printCarsDistance();
         }
 
-        List<String> winners = participants.getWinners();
+        List<String> winners = cars.getWinners();
 
-        participants.printWinners(winners);
+        cars.printWinners(winners);
     }
 
     private void addCarsFromInput(String input) {
         String[] data = input.split(",");
 
         for (String name : data) {
-            participants.addCar(new Car(name));
+            cars.addCar(new Car(name));
         }
     }
 
@@ -57,7 +54,4 @@ public class Game {
         validateNumericInput(data);
         return Integer.parseInt(data);
     }
-
-
-
 }
