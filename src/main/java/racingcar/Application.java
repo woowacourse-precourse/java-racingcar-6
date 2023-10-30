@@ -8,10 +8,10 @@ import racingcar.response.ProcessMessage;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println(ProcessMessage.REQUIRE_CAR_NAME_MESSAGE);
+        System.out.println(ProcessMessage.REQUIRE_CAR_NAME_MESSAGE.getMsg());
         String carList = Console.readLine();
 
-        System.out.println(ProcessMessage.REQUIRE_TRY_NUMBER_MESSAGE);
+        System.out.println(ProcessMessage.REQUIRE_TRY_NUMBER_MESSAGE.getMsg());
         String tryInput = Console.readLine();
         Integer tryNum = Integer.parseInt(tryInput);
 

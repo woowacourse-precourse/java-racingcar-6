@@ -19,11 +19,10 @@ public class BasicController {
     }
 
     public void tryOneGame(){
-        Car currentCar = carList.iterator().next();
-        while(carList.iterator().hasNext()){
+        for(int i=0; i<carList.size(); i++){
             int randomValue = Randoms.pickNumberInRange(0, 9);
+            Car currentCar = carList.get(i);
             currentCar.tryMove(randomValue);
-            currentCar = carList.iterator().next();
         }
 
         // 출력
@@ -33,10 +32,15 @@ public class BasicController {
     }
 
     private void printRoundResult(){
-        Car currentCar = carList.iterator().next();
-        while(carList.iterator().hasNext()){
-            System.out.println(currentCar.getName() + BLANK + currentCar.getMoveNum());
+        for(int i=0; i<carList.size(); i++){
+            Car currentCar = carList.get(i);
+            System.out.print(currentCar.getName() + BLANK);
+            for(int cnt=0; cnt<currentCar.getMoveNum(); cnt++){
+                System.out.print("-");
+            }
+            System.out.println();
         }
+        System.out.println();
     }
 
 }
