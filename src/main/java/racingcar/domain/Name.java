@@ -6,13 +6,11 @@ public class Name {
     private String name;
 
     public Name(String name) {
-
         validateName(name);
         this.name = name;
     }
 
     private void validateName(String name) {
-
         if (name.length() > NAMING_LENGTH_BOUND) {
             throw new IllegalArgumentException();
         }
