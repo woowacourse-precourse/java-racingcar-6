@@ -58,4 +58,14 @@ public class ValidatorTest extends ApplicationTest {
         assertThrows(IllegalArgumentException.class,
                 () -> Validator.validateTryCountNumeric(""));
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "0",
+            "-1"
+    })
+    void 시도할_횟수_범위_확인(String tryCount) {
+        assertThrows(IllegalArgumentException.class,
+                () -> Validator.validateTryCountRange(tryCount));
+    }
 }
