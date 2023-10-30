@@ -15,4 +15,8 @@ public class Setting {
     public int getTrial(Trial trial) {
         return trial.toNum();
     }
+
+    public Cars toCars() {
+        return names.toCars();
+    }
 }

@@ -12,12 +12,12 @@
 
 - - -
 
-- [ ] 이름 클래스 - Names
-    - [ ] 자동차모음 으로 변환 - Names#toCars
+- [x] 이름 클래스 - Names
+    - [x] 자동차모음 으로 변환 - Names#toCars
 - [x] 시도 횟수 클래스 - Trial
     - [x] 시도 횟수 정수로 변환 - Trial#toNum
-- [ ] 입력 데이터를 받아 놓는 클래스 - Setting
-    - [ ] 자동차모음 으로 변환 - Setting#toCars
+- [x] 입력 데이터를 받아 놓는 클래스 - Setting
+    - [x] 자동차모음 으로 변환 - Setting#toCars
 
 - [ ] 자동차 클래스 - Car
     - [x] 이동 횟수 증가 - Car#race
