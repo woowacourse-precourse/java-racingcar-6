@@ -1,9 +1,17 @@
 ## 자동차 경주 기능 목록
 
-- [ ] 주어진 횟수 만큼 자동차 전진 또는 멈춤 수행 - RacingcarGame#run()
+- [x] 주어진 횟수 만큼 경기 수행 및 결과 출력 - RacingcarGame#run()
+    - [x] 경기 시작 전 사용자 입력 및 객체 생성 - RacingcarGame#ready()
+    - [x] 경기 시작 전진 또는 멈춤 수행 - RacingcarGame#playcar()
+    - [x] 경기 중간 결과 출력 - RacingcarGame#currentResult()
 - [x] 각 자동차에 이름을 부여 - Car#createName()
+    - [x] 각 자동차가 전진한 수 저장을 위한 Map 객체 초기화 - Car#createNameMap()
     - [x] 자동차 이름이 5자 이하 검증 - Car#validateName()
     - [x] 자동차 이름을 쉼표(,)를 기준으로 구분 및 문자열 리스트 변환 - Car#splitToName()
+    - [x] 각 자동차 운행 - Car#driving()
+    - [x] 자동차 전진 수 변경 - Car#changeValue()
+    - [x] 단독/공동 우승자만 골라내어 반환 - Car#winnerList()
+    - [x] 우승자 찾기 - Car#findWinner()
 - [x] 사용자가 이동할 횟수 입력 - Player#moveOnInput()
     - [x] 사용자가 입력한 이동 횟수 검증 - Player#validateCount()
     - [x] 사용자가 입력한 이동 횟수가 0보다 큰 정수 확인 - Player#isCountRange()
@@ -12,6 +20,8 @@
     - [x] 무작위 값이 4 이상일 경우 전진 - Car#moveToGo()
 - [x] 자동차 경주 게임을 완료한 후 누가 우승했는지 알린다. - OutputView#printToResult()
     - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분 - OutputView#winnersToMulti()
+- [x] 자동차 경주 게임 중간 결과를 알린다. - OutputView#resultForMiddle()
+    - [x] 각 자동차가 전진한 만큼 표시한다. - OutputView#currentOnGo()
 - [x] 사용자가 잘못된 값을 입력한 경우 `IllegalArgumentException` 발생 - ExceptionMessage
 
 [기능 요구 사항]

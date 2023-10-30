@@ -3,11 +3,11 @@ package racingcar.player;
 import racingcar.exception.ExceptionMessage;
 
 public class Player {
-    int count;
+    int tryCount;
 
-    public void moveOnInput(String count) {
-        if (validateCount(count)) {
-            this.count = Integer.parseInt(count);
+    public void moveOnInput(String tryCount) {
+        if (validateCount(tryCount)) {
+            this.tryCount = Integer.parseInt(tryCount);
         }
     }
 
@@ -23,6 +23,6 @@ public class Player {
     }
 
     public int getCount() {
-        return count;
+        return tryCount;
     }
 }
