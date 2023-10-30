@@ -2,7 +2,7 @@ package controller;
 
 import service.UserInput;
 import view.MessagePrinter;
-import vo.Cars;
+import service.Cars;
 
 public class RacingController {
     private Cars cars;
@@ -12,6 +12,7 @@ public class RacingController {
         inputCarNames();
         inputRacingTimes();
         racing();
+        winner();
     }
 
     public void inputCarNames(){
@@ -30,6 +31,10 @@ public class RacingController {
             cars.go();
             MessagePrinter.racing(cars);
         }
+    }
+
+    public void winner(){
+        MessagePrinter.winner(cars.determineWinner());
     }
 
 }

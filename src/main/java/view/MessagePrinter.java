@@ -3,7 +3,7 @@ package view;
 import java.util.List;
 import service.Car;
 import util.ProgressMessage;
-import vo.Cars;
+import service.Cars;
 
 public class MessagePrinter {
     static ProgressMessage start = ProgressMessage.START;
@@ -23,8 +23,10 @@ public class MessagePrinter {
         System.out.println(result.getMessage());
     }
 
-    public static void winner() {
-        System.out.println(winner.getMessage());
+    public static void winner(List<String> name) {
+        System.out.print(winner.getMessage());
+
+        System.out.println(String.join(", ", name));
     }
 
     public static void racing(Cars cars){
