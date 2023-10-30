@@ -16,8 +16,8 @@ public class TryNumber {
         validateIsNaturalNumber(number);
     }
 
-    public boolean isOver(int count) {
-        if (tryNumber > count) {
+    public boolean isNotOver(int count) {
+        if (tryNumber == count) {
             return false;
         }
         return true;

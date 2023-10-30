@@ -26,7 +26,7 @@ public class RacingGame {
     private void raceStart() {
         int count = 0;
         OutputView.startDisplayRoundResults();
-        while (!tryNumber.isOver(count)) {
+        while (tryNumber.isNotOver(count)) {
             cars.decideToMove();
             OutputView.displayRoundResult(cars);
             count++;
