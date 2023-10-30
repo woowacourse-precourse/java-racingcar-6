@@ -1,6 +1,7 @@
 package view;
 
 import model.Car;
+import model.Winners;
 
 import java.util.List;
 
@@ -20,6 +21,8 @@ import static util.Messages.RUN_RESULT;
 public class OutputView {
 
     private static final String DISTANCE_MARK = "-";
+    private static final String DELIMITER = ", ";
+    private static final String WINNER_SENTENCE = "최종 우승자 : ";
     public static void printException(Exception exception) {
         System.out.println(exception.getMessage());
     }
@@ -42,5 +45,9 @@ public class OutputView {
 
     private static String getGaugeBar(int cnt) {
         return DISTANCE_MARK.repeat(Math.max(0, cnt));
+    }
+
+    public static void printWinners(Winners winners) {
+        System.out.println(WINNER_SENTENCE + String.join(DELIMITER, winners.getNames()));
     }
 }
