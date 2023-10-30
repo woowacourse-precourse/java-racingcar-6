@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private final String name;
     private int result;
 
@@ -9,15 +9,20 @@ public class Car {
         this.result = result;
     }
 
-    public void updateResult(int count){
-        this.result = result + count;
-    }
-
     public String getName() {
         return name;
     }
 
     public int getResult() {
         return result;
+    }
+
+    public void updateResult(int count){
+        this.result = result + count;
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        return Integer.compare(this.result, car.result);
     }
 }

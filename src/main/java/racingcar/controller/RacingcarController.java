@@ -7,6 +7,7 @@ import racingcar.view.OutputView;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingcarController {
@@ -14,7 +15,6 @@ public class RacingcarController {
     private static final InputView inputView = InputView.getInstance();
     private static final OutputView outputView = OutputView.getInstance();
     List<Car> carList = new ArrayList<>();
-    private int roundCount;
 
     public void run() {
         start();
@@ -32,10 +32,11 @@ public class RacingcarController {
         }
 
         game();
+        outputView.printFinalResult(getFinalResult());
     }
 
     private void game(){
-        roundCount = Integer.parseInt(inputView.getRoundCount());
+        int roundCount = Integer.parseInt(inputView.getRoundCount());
         outputView.printResultInfo();
 
         for (int i = 0; i < roundCount; i++) {
@@ -46,5 +47,18 @@ public class RacingcarController {
             }
             System.out.println();
         }
+    }
+
+    private List<String> getFinalResult(){
+        List<String> result = new ArrayList<>();
+        Car maxCar = Collections.max(carList);
+
+        for (Car car : carList) {
+            if (car.compareTo(maxCar) == 0) {
+                result.add(car.getName());
+            }
+        }
+
+        return result;
     }
 }
