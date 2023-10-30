@@ -11,14 +11,9 @@ public class Application {
 
         //생성
         Game gm = new Game(cars, playNum);
-        Referee rf = new Referee();
 
         //실행
-        for (int i = 0; i < playNum; i++) {
-            gm.play();
-            System.out.println(rf.reportNow(gm));
-        }
-        System.out.println(rf.announceWinner(gm));
+        gm.play(gm);
 
         Console.close();
     }
