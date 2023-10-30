@@ -1,12 +1,9 @@
 package racingcar.controller;
 
-import static racingcar.constant.GameConstants.*;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.constant.GameConstants;
 import racingcar.domain.Car;
 import racingcar.domain.GameManager;
 import racingcar.utility.CarRaceGameUtility;
@@ -58,3 +55,4 @@ public class CarRaceGame {
         }
     }
 }
+

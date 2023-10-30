@@ -6,7 +6,8 @@ public class GameManager {
     private static int attemptNumber;
     private static List<Car> carImplList;
 
-    private GameManager() {}
+    private GameManager() {
+    }
 
     public static int getAttemptNumber() {
         return attemptNumber;

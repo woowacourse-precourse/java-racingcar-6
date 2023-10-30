@@ -1,8 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import racingcar.constant.GameConstants;
 import racingcar.validator.Validator;
 
 import static camp.nextstep.edu.missionutils.Console.*;
@@ -50,3 +48,4 @@ public class CarRaceGameView {
     }
 
 }
+
