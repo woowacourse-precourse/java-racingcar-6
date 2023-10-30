@@ -2,7 +2,6 @@ package racingcar.model.car;
 
 public class CarName {
 
-    public static final String NAME_EMPTY = "한 글자 이상 입력해주세요.";
     public static final String NAME_LENGTH_LIMIT_EXCEEDED = "자동차 이름은 5자 이하만 가능합니다.";
     public static final String NAME_DUPLICATED = "중복된 이름을 입력할 수 없습니다.";
 
@@ -16,12 +15,7 @@ public class CarName {
     }
 
     public static CarName from(final String name) {
-        if (CarNamePool.exists(name)) {
-            return CarNamePool.get(name);
-        }
-        CarName carName = new CarName(name);
-        CarNamePool.add(carName);
-        return carName;
+        return new CarName(name);
     }
 
     private void validateIfLengthInLimit(final String name) {
@@ -43,10 +37,6 @@ public class CarName {
 
     @Override
     public String toString() {
-        return name;
-    }
-
-    public String getName() {
         return name;
     }
 }

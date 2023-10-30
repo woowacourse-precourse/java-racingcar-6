@@ -1,5 +1,7 @@
 package racingcar.model.car;
 
+import static racingcar.model.car.CarStatus.isGo;
+
 public class Car {
 
     private static final int INITIAL_DISTANCE = 0;
@@ -17,7 +19,7 @@ public class Car {
     }
 
     public void goOrStop() {
-        if (CarStatus.isGoOrStop()) {
+        if (isGo()) {
             distance++;
         }
     }

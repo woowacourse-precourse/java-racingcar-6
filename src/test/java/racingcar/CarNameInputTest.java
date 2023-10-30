@@ -5,8 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import static racingcar.TestUtil.setInput;
 import static racingcar.model.car.CarName.NAME_DUPLICATED;
-import static racingcar.model.car.CarName.NAME_EMPTY;
 import static racingcar.model.car.CarName.NAME_LENGTH_LIMIT_EXCEEDED;
+import static racingcar.util.Validator.EMPTY;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +18,6 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.car.Car;
 import racingcar.model.car.Cars;
 import racingcar.view.InputView;
-
 
 class CarNameInputTest {
 
@@ -58,11 +57,12 @@ class CarNameInputTest {
     @Test
     void Car_입력이_없는_경우_예외_발생() {
         // given
-        String carName = "";
+        String carNames = "\n";
+        setInput(carNames);
 
         // when & then
-        assertThatThrownBy(() -> Car.from(carName)).isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NAME_EMPTY);
+        assertThatThrownBy(() -> inputView.askCarNames()).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(EMPTY);
     }
 
     @Test
