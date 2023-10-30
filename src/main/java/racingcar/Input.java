@@ -6,17 +6,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Input {
+    RacingCarValidation racingCarValidation = new RacingCarValidation();
     public Map<String, Integer> carNames() {
         Map<String, Integer> carNames = new HashMap<>();
         for (String carName : Console.readLine().split(",")) {
-            // 예외 처리 - 이름이 5자 이하인지
-            if (carName.length() > 5) throw new IllegalArgumentException();
+            racingCarValidation.carNameLength(carName.length());
             carNames.put(carName, 0);
         }
         return carNames;
     }
 
     public int tryCount() {
-        return Integer.parseInt(Console.readLine());
+        String inputValue = Console.readLine();
+        return racingCarValidation.number(inputValue);
     }
 }
