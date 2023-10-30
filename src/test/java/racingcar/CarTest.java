@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.CarName;
-
+@DisplayName("Car 테스트")
 public class CarTest{
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
