@@ -10,7 +10,6 @@ public class RaceStatus {
     }
 
     public static Integer scoreWriteByRacer(Racer racer, RoundResult roundResult){
-        System.out.println("RoundScore="+roundResult.getScore());
         return raceScore.put(racer,scoreCheckByRacer(racer)+roundResult.getScore());
     }
 }
