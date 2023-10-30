@@ -45,4 +45,5 @@ public class Car
 		result += "-".repeat(score);
 		return result;
 	}
+
 }
