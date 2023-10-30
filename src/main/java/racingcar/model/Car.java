@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import racingcar.model.number.NumberGenerator;
 import racingcar.validator.Validator;
 
 public class Car {
@@ -8,7 +9,7 @@ public class Car {
     private final String name;
     private int position;
 
-    private Car(String name) {
+    public Car(String name) {
         this.name = name;
         this.position = INITIAL_POSITION;
     }
@@ -23,8 +24,8 @@ public class Car {
         Validator.checkCarNameRange(name);
     }
 
-    public void moveForward() {
-        final int result = RandomNumberGenerator.generate();
+    public void moveForward(NumberGenerator generator) {
+        final int result = generator.generate();
         if (result >= MINIMUM_ADVANCE_NUMBER) {
             this.position++;
         }

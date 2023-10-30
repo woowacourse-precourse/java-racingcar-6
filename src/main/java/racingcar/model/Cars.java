@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.model.dto.CarDto;
+import racingcar.model.number.NumberGenerator;
 
 public class Cars {
     private final List<Car> carList;
@@ -20,8 +21,8 @@ public class Cars {
         return new Cars(Collections.unmodifiableList(carNames));
     }
 
-    public void move() {
-        carList.forEach(Car::moveForward);
+    public void move(NumberGenerator generator) {
+        carList.forEach(car -> car.moveForward(generator));
     }
 
     public List<CarDto> getStatus() {

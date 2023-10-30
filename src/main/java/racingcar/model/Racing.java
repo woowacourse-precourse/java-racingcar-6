@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 import racingcar.exception.count.NoCountInputException;
 import racingcar.exception.count.NonNumericStringException;
 import racingcar.model.dto.CarDto;
+import racingcar.model.number.NumberGenerator;
 
 public class Racing {
     private static final Pattern NUMBER = Pattern.compile("^\\d+$");
@@ -24,8 +25,8 @@ public class Racing {
         return new Round(intCount);
     }
 
-    public void playRound() {
-        cars.move();
+    public void playRound(NumberGenerator generator) {
+        cars.move(generator);
         round.nextRound();
     }
 

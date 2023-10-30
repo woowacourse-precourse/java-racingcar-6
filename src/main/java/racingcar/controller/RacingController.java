@@ -2,6 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Cars;
 import racingcar.model.Racing;
+import racingcar.model.number.RandomNumberGenerator;
 import racingcar.validator.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -24,7 +25,7 @@ public class RacingController {
 
     private void playGame() {
         while (racing.isNotFinished()) {
-            racing.playRound();
+            racing.playRound(new RandomNumberGenerator());
             OutputView.printRoundResult(racing.getStatus());
         }
     }
