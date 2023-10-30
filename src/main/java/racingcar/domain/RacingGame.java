@@ -7,9 +7,9 @@ import racingcar.util.StringUtils;
 
 public class RacingGame {
     private final Cars cars;
-    private int gameTry;
+    private GameTry gameTry;
 
-    public RacingGame(String carNames, int gameTry) {
+    public RacingGame(String carNames, GameTry gameTry) {
         this.cars = initCars(carNames);
         this.gameTry = gameTry;
     }
@@ -21,15 +21,15 @@ public class RacingGame {
         return createCars(names);
     }
 
-    private static void checkDuplicates(String[] names) {
-        if (hasDuplicates(names)) {
-            throw new IllegalArgumentException("중복된 자동차 이름은 허용되지 않습니다.");
-        }
-    }
-
     private static void validateCarNames(String carNames) {
         if (StringUtils.isBlank(carNames)) {
             throw new IllegalArgumentException("자동차 이름에 공백은 입력할 수 없습니다.");
+        }
+    }
+
+    private static void checkDuplicates(String[] names) {
+        if (hasDuplicates(names)) {
+            throw new IllegalArgumentException("중복된 자동차 이름은 허용되지 않습니다.");
         }
     }
 

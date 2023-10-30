@@ -51,6 +51,4 @@ public class CarsTest {
         //then
         assertThat(cars.getWinners()).isEqualTo(expectedWinners);
     }
-
-
 }

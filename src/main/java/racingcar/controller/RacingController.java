@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.GameTry;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -15,6 +16,8 @@ public class RacingController {
 
     public void play() {
         String carNames = InputView.inputCarNames();
-        RacingGame racingGame = new RacingGame(carNames, 0);
+        GameTry gameTry = new GameTry(InputView.inputTryNumber());
+        RacingGame racingGame = new RacingGame(carNames, gameTry);
+        OutputView.printMainMessage();
     }
 }
