@@ -1,6 +1,7 @@
 # 목차
 [🛠️ 1주차 피드백](#----1------) <br>
 [🧳기능 목록](#-------) <br>    
+[📦 팩토리 - Factory](#---------factory) <br>    
 [📦 도메인 - Domain](#---------domain) <br>    
 [🧪 도메인 테스트 - Domain](#-------------domain) <br>    
 [📦 검증 - Validator](#--------validator) <br>    
@@ -53,6 +54,9 @@
 <br>         📔 클래스
 <br>             🔤 변수
 <br>             📝 메서드
+
+## 📦 팩토리 - Factory
+- [ ] 📝 팩토리 메서드 - Factory
 
 ## 📦 도메인 - Domain
 
