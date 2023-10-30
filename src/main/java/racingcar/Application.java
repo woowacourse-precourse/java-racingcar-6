@@ -58,4 +58,29 @@ public class Application {
         }
     }
 
+    public class Car {
+        private final String name;
+        private int position;
+
+        Car(String name) {
+            this.name = name;
+            this.position = 0;
+        }
+
+        void move() {
+            int randomValue = Randoms.pickNumberInRange(0, 9);
+            if (randomValue >= 4) {
+                position++;
+            }
+        }
+
+        int getPosition() {
+            return position;
+        }
+
+        String getName() {
+            return name;
+        }
+    }
+
 }
