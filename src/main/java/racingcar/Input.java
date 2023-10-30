@@ -30,7 +30,11 @@ public class Input implements checkException {
 
     @Override
     public boolean isBlankString(){
-        return true;
+        for (String carName: nameList){
+            String blankString = " ".repeat(carName.length());
+            if(carName.equals(blankString))return true;
+        }
+        return false;
     }
 
     public void exceptionHandling() throws IllegalArgumentException{
