@@ -33,6 +33,11 @@ public class Race {
                 .collect(Collectors.toList());
     }
 
+    public List<Integer> makeCarDriveCountList() {
+        return carList.stream()
+                .map(Car::getDriveCount)
+                .collect(Collectors.toList());
+    }
 
 
     public List<Car> initCarList(List<String> carNameList) {
