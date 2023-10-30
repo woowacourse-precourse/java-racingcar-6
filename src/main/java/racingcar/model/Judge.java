@@ -9,9 +9,9 @@ public class Judge {
 
     public static void determineWinners(List<Car> cars) {
         List<Car> winners = new ArrayList<>();
-        int maxPosition = getMaxPosition(cars);
+
         for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
+            if (car.getPosition() == getMaxPosition(cars)) {
                 winners.add(car);
             }
         }
@@ -20,6 +20,7 @@ public class Judge {
 
     private static int getMaxPosition(List<Car> cars) {
         int maxPosition = Integer.MIN_VALUE;
+
         for (Car car : cars) {
             maxPosition = Math.max(maxPosition, car.getPosition());
         }
