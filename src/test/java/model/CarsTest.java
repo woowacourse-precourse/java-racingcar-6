@@ -46,7 +46,7 @@ public class CarsTest {
     }
 
     @Test
-    public void 전체자동차이동안함() {
+    public void 전체자동차_이동안함() {
         when(RandomNumber.generateRandomNumber()).thenReturn(3); // 항상 4보다 큰 값을 반환하도록 설정
 
         List<Car> carsAslist = new ArrayList<>();
