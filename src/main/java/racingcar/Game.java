@@ -81,13 +81,13 @@ public class Game {
         List<String> winnerNames = new ArrayList<>();
         int maxForward = 0;
         for (Car car : carList) {
-            if (maxForward < car.getForwardNumber()) {
-                maxForward = car.getForwardNumber();
-                winnerNames.clear();
-                winnerNames.add(car.getName());
-            }
             if (maxForward == car.getForwardNumber()) {
                 winnerNames.add(car.getName());
+            }
+            if (maxForward < car.getForwardNumber()) {
+                winnerNames.clear();
+                winnerNames.add(car.getName());
+                maxForward = car.getForwardNumber();
             }
         }
         System.out.print("최종 우승자 : ");
