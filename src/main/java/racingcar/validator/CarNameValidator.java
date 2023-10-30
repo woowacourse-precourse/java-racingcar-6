@@ -15,9 +15,9 @@ public class CarNameValidator {
     private final static int MAX_LENGTH = 5;
     private final static int MIN_LENGTH = 1;
 
-    public CarNameValidator(String name){
-        NAME = name;
-        NAMES = new ArrayList<>(Arrays.asList(name.split(",")));
+    public CarNameValidator(String input){
+        NAME = input;
+        NAMES = new ArrayList<>(Arrays.asList(input.split(",")));
         isNull();
         isRangeOut();
         isNameError();
@@ -31,7 +31,7 @@ public class CarNameValidator {
     }
 
     public void isNull(){
-        if (NAMES.size() == 1){
+        if (NAMES.isEmpty()){
             throw new IllegalArgumentException(ERROR+NAME_NULL_ERROR_MESSAGE);
         }
     }
