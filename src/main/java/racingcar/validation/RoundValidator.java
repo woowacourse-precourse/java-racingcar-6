@@ -18,14 +18,14 @@ public class RoundValidator implements Validator {
 
     private void validateType(String value) {
         try {
-            Long.valueOf(value);
+            Integer.valueOf(value);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_TYPE);
         }
     }
 
     private void validateRange(String value) {
-        if (0 > Long.parseLong(value)) {
+        if (0 > Integer.parseInt(value)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_RANGE);
         }
     }

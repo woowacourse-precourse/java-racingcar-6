@@ -5,11 +5,11 @@ import racingcar.validation.ValidatorFactory;
 
 public class Round {
 
-    private Long round;
+    private Integer round;
 
     private Round(String round) {
         validate(round);
-        this.round = Long.valueOf(round);
+        this.round = Integer.valueOf(round);
     }
 
     public static Round of(String round) {

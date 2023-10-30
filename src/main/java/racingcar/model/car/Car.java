@@ -8,16 +8,16 @@ import racingcar.validation.ValidatorFactory;
 public class Car {
 
     private final String name;
-    private Long currentPosition;
+    private Integer currentPosition;
 
-    private Car(String name, Long currentPosition) {
+    private Car(String name, Integer currentPosition) {
         validate(name);
         this.name = name;
         this.currentPosition = currentPosition;
     }
 
     public static Car ofStartingPoint(String name) {
-        return new Car(name, 0L);
+        return new Car(name, 0);
     }
 
     public void move(Accelerator accelerator) {
@@ -36,18 +36,13 @@ public class Car {
         return this.name;
     }
 
-    public Long getCurrentPosition() {
+    public Integer getCurrentPosition() {
         return this.currentPosition;
     }
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(this.name).append(Message.NAME_POSITION_SEPARATOR);
-        for (long i = 0; i < this.currentPosition; i++) {
-            stringBuilder.append(Message.MARK);
-        }
-        return stringBuilder.toString();
+        return this.name + Message.MARK.repeat(this.currentPosition);
     }
 
     @Override
