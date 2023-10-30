@@ -6,6 +6,7 @@ import racingcar.config.GameMessage;
 import racingcar.dto.CarRegistrationDTO;
 import racingcar.util.converter.CarRegistrationConverter;
 import racingcar.util.validator.CarNamesValidator;
+import racingcar.util.validator.RoundCountValidator;
 
 public class InputHandlerImpl implements InputHandler {
 
@@ -20,7 +21,11 @@ public class InputHandlerImpl implements InputHandler {
 
     @Override
     public int getRaceRoundCount() {
-        return 0;
+        printRequest(GameMessage.REQUEST_ROUND_COUNT);
+        String roundCount = readLine();
+        RoundCountValidator.validate(roundCount);
+
+        return Integer.parseInt(roundCount);
     }
 
     private String readLine() {

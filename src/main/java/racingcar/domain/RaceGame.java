@@ -18,6 +18,7 @@ public class RaceGame {
 
     public void play() {
         List<Car> cars = registerCars();
+        int roundCount = inputHandler.getRaceRoundCount();
     }
 
     private List<Car> registerCars() {
