@@ -1,11 +1,8 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.model.Cars;
 import racingcar.model.Car;
 import racingcar.util.Validate;
@@ -24,12 +21,21 @@ public class CarController {
     }
 
     public void racing() {
+        int move = 0;
         String inputCars = "";
 
         inputCars = input.promptForCarNames();
         Validate.inputIsNull(inputCars);
 
         cars = inputCarsStringToCarsClass(inputCars);
+
+        move = inputForMove();
+
+        output.resultHeader();
+
+        for(int moveCount = 0; moveCount < move; moveCount++) {
+            // 전진하는 조건은 랜덤으로 생성한 값이 4 이상인 경우 전진
+        }
     }
 
     private Cars inputCarsStringToCarsClass(String inputTemp) {
@@ -58,4 +64,19 @@ public class CarController {
         return Arrays.asList(carMembers.split(delimiter));
     }
 
+    private int inputForMove() {
+        String move  = input.promptForAttempts();
+        Validate.inputIsNull(move);
+
+        return moveStringToInteger(move);
+    }
+
+    private int moveStringToInteger(String move) {
+        int result = 0;
+
+        result = Validate.moveIsNumericAndReturnInteger(move);
+        Validate.moveIsPositiveNumber(result);
+
+        return result;
+    }
 }
