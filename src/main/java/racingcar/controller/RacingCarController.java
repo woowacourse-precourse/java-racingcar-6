@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.CarList;
 import racingcar.service.RacingCarService;
 import racingcar.view.RacingCarView;
 
@@ -14,15 +15,22 @@ public class RacingCarController {
         this.racingCarView = racingCarView;
     }
 
-    public void initCar(){
+    public void initCar() {
         racingCarView.carNameListInputPrint();
         racingCarService.createCarList();
     }
 
-    public int setCount(){
+    public int setCount() {
         racingCarView.readCountPrint();
 
         return racingCarService.readCount();
+    }
+
+    public void playGame(int count) {
+        for (int i = 0; i < count; i++) {
+            CarList carList = racingCarService.checkCarListMove();
+            racingCarView.gameProgressPrint(carList);
+        }
     }
 
 }
