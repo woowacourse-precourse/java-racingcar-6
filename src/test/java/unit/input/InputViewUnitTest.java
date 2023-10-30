@@ -1,5 +1,8 @@
 package unit.input;
 
+import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -30,17 +33,27 @@ public class InputViewUnitTest {
         //when
         CarInputDto carInput = input.getCarInput();
         //then
-        Assertions.assertThat(carInput.cars()[0]).isEqualTo("car1");
+        assertThat(carInput.cars()[0]).isEqualTo("car1");
     }
 
     @Test
     void 차량_비어있는_입력_실패__케이스(){
         //given
         System.setIn(createUserInput(""));
-        //when
-        CarInputDto carInput = input.getCarInput();
         //then
-        Assertions.assertThat(carInput.cars()[0]).isEqualTo("car1");
+        assertThatThrownBy(()->input.getCarInput())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("빈 값은 입력이 불가능합니다.");
+    }
+
+    @Test
+    void 차량_이름_길이_초과_입력_실패_케이스(){
+        //given
+        System.setIn(createUserInput("car12345,car2,car3"));
+        //then
+        assertThatThrownBy(()->input.getCarInput())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("");
     }
 
 
