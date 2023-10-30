@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.userinput.UserInput;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +56,7 @@ public class Race {
     private void playAllCars() {
         for (Car car : cars) {
             car.printCarName();
-            int randomNumber = NumberGenerator.createRandomNumber();
+            int randomNumber = RandomNumberGenerator.createRandomNumber();
             compareNumberAndMove(car, randomNumber);
             car.printForwardState();
         }

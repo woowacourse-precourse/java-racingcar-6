@@ -1,13 +1,15 @@
-package racingcar;
+package racingcar.userinput;
 
-public class InputValidator {
+import racingcar.Race;
+
+public class UserInputValidator {
 
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final String GAME_COUNT_FORMAT = "[0-9]+";
 
     private final Race race;
 
-    public InputValidator(Race race) {
+    public UserInputValidator(Race race) {
         this.race = race;
     }
 
