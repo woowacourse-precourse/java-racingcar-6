@@ -104,3 +104,18 @@
 - [x] 숫자가 아닌 값이 들어오면 예외 발생
 - [x] 숫자가 들어오면 통과
 - [x] 아무것도 입력하지 않았다면 예외 발생
+
+### Race
+
+#### sortCarsByPositionDescending
+
+- private 메서드로, findWinners 테스트로 대체
+
+#### setCarsFromNames
+
+- [x] names 개수 만큼 생성되는 지 확인
+    - private 메서드로, 생성자를 통한 테스트로 대체
+
+#### findWinners, moveAllCarsForward, displayAllCarsPosition, displayWinnerNames
+
+- 템플릿에 제공된 예외 테스트로 대체

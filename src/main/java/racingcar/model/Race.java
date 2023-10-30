@@ -53,6 +53,10 @@ public class Race {
                 .collect(Collectors.toList());
     }
 
+    public int getCarSize() {
+        return cars.size();
+    }
+
     private List<Car> sortCarsByPositionDescending() {
         return cars.stream()
                 .sorted(Comparator.comparingInt(Car::getPosition).reversed())
