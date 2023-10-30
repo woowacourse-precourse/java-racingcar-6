@@ -15,6 +15,7 @@ public class GameViewer {
     }
 
     public void printStartMessage() {
+        System.out.println();
         System.out.println("실행 결과");
     }
 
@@ -34,7 +35,7 @@ public class GameViewer {
         for (Car car : winners) {
             names.add(car.getName());
         }
-        System.out.println("최종 우수자 : " + String.join(", ", names));
+        System.out.println("최종 우승자 : " + String.join(", ", names));
     }
 
 }
