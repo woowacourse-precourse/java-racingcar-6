@@ -12,15 +12,14 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Controller {
-    private int attemptNum;
     private final Parser parser = new Parser();
     private final Validator validator = new Validator();
     private final ArrayList<Car> carRepository = new ArrayList<>();
 
     public void run() {
-        saveCars(parser.parseInputCarNames(getCarNamesByInput()));
+        saveCars(parser.parseCarNames(getCarNamesByInput()));
         OutputView.printExecutionResult();
-        attemptNum = getAttemptNumberByInput();
+        int attemptNum = getAttemptNumberByInput();
         for (int i = 0; i < attemptNum; i++) {
             decideMovement();
             OutputView.printCarScore(carRepository);
@@ -45,7 +44,7 @@ public class Controller {
         InputView.requestAttemptNumber();
         String input = Console.readLine();
         validator.checkAttemptNumInput(input);
-        return Integer.parseInt(input);
+        return parser.parseAttemptNumber(input);
     }
     private void decideMovement() {
         for (int i = 0; i < carRepository.size(); i++) {
