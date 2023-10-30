@@ -90,10 +90,7 @@ public class Utill {
      * @return
      */
     public static boolean isSameNum(int num_1, int num_2) {
-        if (Integer.compare(num_1, num_2) == 0) {
-            return true;
-        }
-        return false;
+        return Integer.compare(num_1, num_2) == 0;
     }
 
     /**
