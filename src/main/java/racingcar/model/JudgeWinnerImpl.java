@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.model;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.model.JudgeWinner;
 
 public class JudgeWinnerImpl implements JudgeWinner {
     @Override
