@@ -16,8 +16,8 @@ public class Position {
         }
     }
 
-    public void increment() {
-        amount++;
+    public void increment(int speed) {
+        amount+= speed;
     }
 
     public int getAmount() {

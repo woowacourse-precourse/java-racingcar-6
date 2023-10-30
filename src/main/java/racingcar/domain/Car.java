@@ -5,10 +5,12 @@ public class Car {
     public static final String CAR_POSITION_SIGN = "-";
     private final CarName name;
     private final Position position;
+    private final int speed;
 
     public Car(CarName name, Position position) {
         this.name = name;
         this.position = position;
+        this.speed = 1;
     }
 
     public boolean isSamePosition(int position) {
@@ -16,7 +18,7 @@ public class Car {
     }
 
     public void moveForward() {
-        position.increment();
+        position.increment(speed);
     }
 
     public String getName() {
