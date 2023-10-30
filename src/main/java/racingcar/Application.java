@@ -18,12 +18,12 @@ public class Application {
     	int[] Car_Score = new int[Car_Names.length];
     	//System.out.println(Car_Score.length);
     	for(int i = 0; i< Try_Numb; i++) {
-    		Car_Score = Stage_Calc(Car_Names, Car_Score);
-    		
-    	}
-    	
+    		Car_Score = Stage_Calc(Car_Names, Car_Score);   		
+    	}    	
+    	Winner(Car_Names,Car_Score);
     }
     
+    //실행과정 계산 및 출력//
     public static int[] Stage_Calc(String[] Car_Names, int[] Car_Score) {
     	System.out.println("실행 결과");
     	for (int i = 0 ; i<Car_Names.length; i++) {
@@ -43,7 +43,25 @@ public class Application {
     	//System.out.print(Try_numb);
     	return Race_numb;
     }
+    
+    //우승자//
+    public static void Winner(String[] Car_Names, int[] Car_Score) {
+    	int max = 0 ;
+    	List<String> Winner_index = new ArrayList<>();
+    	for (int i = 0 ; i < Car_Names.length; i++) {
+    		if(Car_Score[i]>max) {
+    			max=Car_Score[i];
+    		}
+    	}
+    	for (int o = 0 ; o < Car_Names.length; o++) {
+        	if(Car_Score[o]==max) {
+        		Winner_index.add(Car_Names[o]);	
+        	}
+    	}
+    	System.out.print("최종 우승자 : " + String.join(", ",Winner_index));
+    }
 
+    
     //[입력값]
     //차량 이름//
     public static String[] Car_Names() {
@@ -60,10 +78,8 @@ public class Application {
     		if(Car_Names[i].length()>5) {
     			throw new IllegalArgumentException("자동차 이름이 5자 이상입니다.");
     		}
-    	}
-    
-    }
-        
+    	}    
+    }        
     
     //시도 횟수//
     public static Integer Try_Numb() {
@@ -77,6 +93,5 @@ public class Application {
     	//System.out.print(Try_numb);
     	return Try_numb;
     }
-    
-    
+        
 }

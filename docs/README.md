@@ -27,4 +27,4 @@ EX.) 코드 구현시 주의사항
 
 git add -A
 
-git commit -m "feat(Application) : Error codes for input data Added(both carnames and trynumber"
+git commit -m "feat(Application) : Calcuation of Car Move and its console print feature added"
