@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Name;
-import racingcar.utils.CarListInvalidator;
+import racingcar.utils.CarListValidator;
 import racingcar.utils.GeneratedRandomNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -17,7 +17,7 @@ public class GameController {
     public static void start(){
 
             cars = getCars(inputCarName());
-            CarListInvalidator.validate(cars);
+            CarListValidator.validate(cars);
             attempts = inputAttempts();
 
             finalResult();
@@ -27,7 +27,6 @@ public class GameController {
                 // 시도 횟수 감소
                 attempts--;
             }
-
             finishGame();
     }
 

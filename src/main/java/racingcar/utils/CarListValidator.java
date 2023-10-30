@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 import racingcar.model.Car;
 
-public class CarListInvalidator {
+public class CarListValidator {
 
     public static void validate(List<Car> carList){
         if(isCarAlone(carList) || isCarDuplicated(carList)){
