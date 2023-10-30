@@ -1,11 +1,10 @@
 package racingcar.util.parsing;
 
 import racingcar.domain.RacingCar;
-import racingcar.util.validate.InputValidate;
 
 import java.util.ArrayList;
 
-import static racingcar.util.validate.InputValidate.*;
+import static racingcar.util.validate.InputValidate.validateNumberLength;
 
 public class Parsing {
 

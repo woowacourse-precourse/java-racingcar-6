@@ -57,7 +57,10 @@ public class RacingCarService {
     }
 
     private void printWinners(ArrayList<String> finalWinners) {
-        String winners = validatePrintWinners(String.join(", ", finalWinners));
+        String winners = String.join(", ", finalWinners);
+        if(finalWinners.size() > 1) {
+            winners = validatePrintWinners(winners);
+        }
         System.out.println(FINAL_WINNERS + " : " + winners);
     }
 
