@@ -11,6 +11,6 @@ public enum MovingStatus {
     }
 
     public static boolean canMove(int pickNumber) {
-        return FOR_WORD.moveRange >= pickNumber;
+        return pickNumber >= FOR_WORD.moveRange;
     }
 }
