@@ -17,8 +17,9 @@ import java.util.Map;
         2. 시도 횟수 만큼 전진 후 우승자 판별
         3.
  */
-public class GameController {
+class GameController {
     GameData gameData = new GameData();
+
     public void inputCarName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         gameData.setCars(Console.readLine());
@@ -30,9 +31,8 @@ public class GameController {
     }
 
     public void randomCarMove() {
-        for(Map.Entry<String, String> car : gameData.getCarInfo().entrySet()) {
-            int value = Randoms.pickNumberInRange(0,9);
-            if (value >= 4) {
+        for (Map.Entry<String, String> car : gameData.getCarInfo().entrySet()) {
+            if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 gameData.moveCar(car.getKey());
             }
             System.out.println(car.getKey() + " : " + car.getValue());
@@ -40,8 +40,9 @@ public class GameController {
     }
 
     public void carRacing() {
-        for(int repeat = 0; repeat < gameData.tryCount; repeat++){
+        for (int repeat = 0; repeat < gameData.tryCount; repeat++) {
             randomCarMove();
+            System.out.println();
         }
     }
 

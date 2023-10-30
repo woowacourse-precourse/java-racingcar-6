@@ -10,8 +10,9 @@ import java.util.Map;
     시도할 회수
     우승자 탐색
  */
-public class GameData {
-    HashMap<String, String> carInfo;
+
+class GameData {
+    private HashMap<String, String> carInfo = new HashMap<>();
     int tryCount;
 
     private void checkCarName(String carName) {
@@ -29,7 +30,7 @@ public class GameData {
     public void setCars(String input) {
         String[] split = input.split(",");
 
-        for (String str : split){
+        for (String str : split) {
             checkCarName(str);
             carInfo.put(str, "");
         }
@@ -42,28 +43,30 @@ public class GameData {
 
     public void moveCar(String carName) {
         String distance = carInfo.get(carName) + '-';
-        carInfo.replace(carName, distance);
+        carInfo.put(carName, distance);
     }
 
-    public HashMap<String, String> getCarInfo(){
+    public HashMap<String, String> getCarInfo() {
         return carInfo;
     }
-    public String getWinner() {
-        String winner = "";
-        String winnerDistance = "";
 
-        for (Map.Entry<String, String> car : carInfo.entrySet()) {
-            if(car.getValue().length() >= winnerDistance.length()){
-                if(winner.isEmpty()) {
-                    winner = car.getKey();
-                }
-                else {
-                    winner = winner + ", " + car.getKey();
-                }
-                winnerDistance = car.getValue();
+    public String getWinner() {
+        int maxDistance = 0;
+        for (String distance : carInfo.values()) {
+            if (distance.length() > maxDistance) {
+                maxDistance = distance.length();
             }
         }
 
-        return winner;
+        StringBuilder winner = new StringBuilder();
+        for (Map.Entry<String, String> car : carInfo.entrySet()) {
+            if (car.getValue().length() == maxDistance) {
+                if (winner.length() > 0) {
+                    winner.append(", ");
+                }
+                winner.append(car.getKey());
+            }
+        }
+        return winner.toString();
     }
 }
