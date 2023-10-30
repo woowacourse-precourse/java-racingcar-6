@@ -23,9 +23,6 @@ public class OutputView {
     private static final String DISTANCE_MARK = "-";
     private static final String DELIMITER = ", ";
     private static final String WINNER_SENTENCE = "최종 우승자 : ";
-    public static void printException(Exception exception) {
-        System.out.println(exception.getMessage());
-    }
 
     public static void printResultMessage() {
         System.out.println(RUN_RESULT);

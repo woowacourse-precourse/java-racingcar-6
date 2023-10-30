@@ -42,8 +42,7 @@ public class Cars {
     }
 
     private void validateDuplicatedName(String[] carNames) {
-        long distinctSize = Arrays.stream(carNames)
-                .distinct().count();
+        long distinctSize = Arrays.stream(carNames).distinct().count();
         if (distinctSize != carNames.length) {
             throw new IllegalArgumentException(ErrorMessages.DUPLICATED_NAME);
         }
