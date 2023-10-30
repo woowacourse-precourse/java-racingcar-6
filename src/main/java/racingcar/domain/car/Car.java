@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
 import java.util.List;
+import racingcar.domain.Movable;
 
 public class Car {
     private final String name;
@@ -17,5 +18,11 @@ public class Car {
 
     public int getDistance() {
         return distance;
+    }
+
+    public void goForward(Movable movable){
+        if(movable.canMove()){
+            distance++;
+        }
     }
 }
