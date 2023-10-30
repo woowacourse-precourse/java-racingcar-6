@@ -7,7 +7,7 @@ import java.util.List;
 public class Computer {
 
     private final List<String> carNames = new ArrayList<>();
-    private int attemptCount;
+    private int round;
 
     public void readCarNames(String input) {
         List<String> carNameStream = extractCarNames(input);
@@ -34,18 +34,23 @@ public class Computer {
         return name.length() > 5;
     }
 
-    public void readAttemptCount(String input) {
-        if (isInvalidCount(input)) {
+    public void readRound(String input) {
+        final int number = Integer.parseInt(input);
+
+        if (isInvalidRound(number)) {
             throw new IllegalArgumentException();
         }
     }
 
-    private boolean isInvalidCount(String input) {
-        final int number = Integer.parseInt(input);
-        return isNegative(number);
+    private boolean isInvalidRound(int number) {
+        return isNegative(number) || isZero(number);
     }
 
     private boolean isNegative(int number) {
         return number < 0;
+    }
+
+    private boolean isZero(int number) {
+        return number == 0;
     }
 }

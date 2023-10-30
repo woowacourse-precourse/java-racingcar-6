@@ -56,23 +56,23 @@ public class UnitTest {
     class AttemptCountInputTest {
 
         @Test
-        void 시도횟수는_0이상이다() {
-            assertDoesNotThrow(() -> computer.readAttemptCount("0"));
+        void 시도횟수는_1이상이다() {
+            assertDoesNotThrow(() -> computer.readRound("1"));
         }
 
         @Test
         void 시도횟수가_음수이면_예외발생() {
-            assertThatIllegalArgumentException().isThrownBy(() -> computer.readAttemptCount("-1"));
+            assertThatIllegalArgumentException().isThrownBy(() -> computer.readRound("-1"));
         }
 
         @Test
         void 시도횟수가_숫자가_아니면_예외발생() {
-            assertThatIllegalArgumentException().isThrownBy(() -> computer.readAttemptCount("a"));
+            assertThatIllegalArgumentException().isThrownBy(() -> computer.readRound("a"));
         }
 
         @Test
         void 시도횟수가_정수가_아니면_예외발생() {
-            assertThatIllegalArgumentException().isThrownBy(() -> computer.readAttemptCount("1.1"));
+            assertThatIllegalArgumentException().isThrownBy(() -> computer.readRound("1.1"));
         }
     }
 }
