@@ -127,9 +127,12 @@ class UtillTest {
     @Test
     void valueGreaterThanEqualOne() {
         // given
+        Integer input = 1;
 
         // when
+        boolean result = Utill.valueGreaterThanEqualOne(input);
 
         // than
+        assertThat(result).isTrue();
     }
 }
