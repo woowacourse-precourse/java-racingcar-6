@@ -20,7 +20,7 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("Position 비교 결과 동일")
+    @DisplayName("compareToSame 비교 결과 동일")
     void compareToSameTest() {
         // given
         Position position1 = new Position();
@@ -34,7 +34,7 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName("Position 비교 결과 다름")
+    @DisplayName("compareToSame 비교 결과 다름")
     void compareToDifferentTest() {
         // given
         Position position1 = new Position();
@@ -46,5 +46,34 @@ class PositionTest {
 
         // then
         Assertions.assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("isSamePosition 비교 결과 같음")
+    void isSamePositionSameTest() {
+        // given
+        Position position1 = new Position();
+        Position position2 = new Position();
+
+        // when
+        boolean result = position1.isSamePosition(position2);
+
+        // then
+        Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    @DisplayName("isSamePosition 비교 결과 다름")
+    void isSamePositionDifferentTest() {
+        // given
+        Position position1 = new Position();
+        Position position2 = new Position();
+
+        // when
+        position1.move();
+        boolean result = position1.isSamePosition(position2);
+
+        // then
+        Assertions.assertThat(result).isFalse();
     }
 }
