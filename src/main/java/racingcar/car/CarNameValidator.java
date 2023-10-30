@@ -12,12 +12,13 @@ public class CarNameValidator {
     public CarNameValidator(String carNames) {
         this.NAMES = carNames;
         this.NAMELIST = Util.carNamesToArrayList(carNames);
+        validate();
     }
 
     public void validate(){
         isBlank();
-        isRightNameLength();
         isString();
+        isRightNameLength();
     }
 
     public void isBlank() {
@@ -34,7 +35,7 @@ public class CarNameValidator {
 
     public void isString(){
         if (!Constants.CAR_NAMES_PATTERN.matcher(NAMES).matches()) {
-            throw new IllegalArgumentException(Constants.CAR_NAME_WRONG_ERROR_MESSAGE);
+            throw new IllegalArgumentException(Constants.ERROR + Constants.CAR_NAME_WRONG_ERROR_MESSAGE);
         }
     }
 }

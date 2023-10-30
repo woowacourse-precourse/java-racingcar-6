@@ -52,7 +52,7 @@ public class Util {
 
     // 점수 출력
     public static String printScore(int score) {
-        StringBuilder scores = new StringBuilder(" ");
+        StringBuilder scores = new StringBuilder();
         IntStream.range(0, score).forEach(i -> scores.append(SCORE));
         return scores.toString();
     }
