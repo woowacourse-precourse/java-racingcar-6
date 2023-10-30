@@ -47,4 +47,12 @@ class ValidatorTest {
             validator.validationTrialNumber("2,147,483,648");
         });
     }
+
+    @Test
+    @DisplayName("0이 들어갔을 경우 테스트")
+    void validationTrialNumberTest4() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            validator.validationTrialNumber("0");
+        });
+    }
 }
