@@ -21,18 +21,9 @@ class CarResultTest {
                 new Car("woni", "---"),
                 new Car("jun", "--")
         );
-
-        String maxPosition = cars.stream()
-                .map(car -> car.getPosition())
-                .max(String::compareTo)
-                .orElse("");
-
-        List<String> maxPlayer = cars.stream()
-                .filter(car -> car.getPosition().equals(maxPosition))
-                .map(Car::getName)
-                .collect(Collectors.toList());
-
-        Assertions.assertThat("---").isEqualTo(maxPosition);
+        CarResult result = new CarResult(cars);
+        List<String> maxPlayer = result.getMaxPlayer();
         Assertions.assertThat("woni").contains(maxPlayer);
     }
+
 }
