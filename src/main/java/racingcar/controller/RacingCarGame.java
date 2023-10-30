@@ -9,9 +9,10 @@ public class RacingCarGame {
     }
 
     public void play() {
-        String carNames = InputView.getCarNames();
         Validator validator = new Validator();
+        String carNames = InputView.getCarNames();
         validator.validateCarNamesInput(carNames);
+        String attempt = InputView.getNumberAttempted();
     }
 
 }
