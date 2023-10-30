@@ -1,5 +1,6 @@
 package racingcar.util;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +24,11 @@ public class RacingCarGameUtils {
     return input;
   }
 
-  public static void generateRandomValuesForCarGame(int size) {
+  public static List<Integer> generateRandomValuesForCarGame(int size) {
+    List<Integer> randomList = new ArrayList<>();
+    for (int i = 0; i < 3; i++) {
+      randomList.add(Randoms.pickNumberInRange(0, 9));
+    }
+    return randomList;
   }
 }
