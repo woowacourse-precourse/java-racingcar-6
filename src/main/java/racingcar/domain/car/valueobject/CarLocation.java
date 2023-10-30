@@ -10,4 +10,27 @@ public class CarLocation {
     public int getInteger() {
         return location;
     }
+
+    public void forward() {
+        location++;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        CarLocation that = (CarLocation) o;
+
+        return location == that.location;
+    }
+
+    @Override
+    public int hashCode() {
+        return location;
+    }
 }

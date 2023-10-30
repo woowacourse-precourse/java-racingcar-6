@@ -19,4 +19,8 @@ public class Car {
     public CarLocation getLocation() {
         return location;
     }
+
+    public void forward() {
+        location.forward();
+    }
 }

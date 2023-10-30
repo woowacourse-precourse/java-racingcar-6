@@ -8,6 +8,10 @@ import racingcar.domain.car.valueobject.CarLocation;
 public class InGameReferee {
     private final int LOWER_LIMIT = 4;
 
+    public int getLOWER_LIMIT_Fortest() {
+        return LOWER_LIMIT;
+    }
+
     public boolean isBiggerLowerLimit(int generatedNumber) {
         return generatedNumber >= LOWER_LIMIT;
     }
