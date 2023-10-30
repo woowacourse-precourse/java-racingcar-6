@@ -10,7 +10,8 @@ import java.util.StringTokenizer;
 public class GameManager {
     private static GameManager gameManager = new GameManager();
 
-    private GameManager() {}
+    private GameManager() {
+    }
 
     public static GameManager getInstance() {
         return gameManager;
@@ -36,12 +37,20 @@ public class GameManager {
             }
         }
     }
+
     public Movement checkMoveOrStop() {
         int num = Randoms.pickNumberInRange(0, 9);
         if (num >= 4) {
             return Movement.MOVE;
         }
         return Movement.STOP;
+    }
+
+    public boolean checkGameFinished(int roundNum) {
+        if (roundNum == 0) {
+            return true;
+        }
+        return false;
     }
 }
 
