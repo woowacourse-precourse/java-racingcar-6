@@ -19,13 +19,13 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         List<String> carNames = new ArrayList<>(Arrays.asList(Console.readLine().split(",")));
         if (carNames.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차 이름이 입력되지 않았습니다!");
         }
         for (String carName : carNames) {
             if (carName.length() <= 5) {
                 carList.add(new Car(carName));
             } else if (carName.length() > 5) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다!");
             }
         }
 
@@ -33,7 +33,9 @@ public class Application {
         try {
             tryNumber = Integer.valueOf(Console.readLine());
         } catch (NullPointerException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("수를 입력해주세요!");
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 값을 입력했습니다!");
         }
 
         scoreBoard.showCarsScore(carList, tryNumber);
