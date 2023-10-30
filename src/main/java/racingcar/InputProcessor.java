@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class InputProcessor {
 
@@ -37,7 +38,7 @@ public class InputProcessor {
 
     public static String verifyCarNameOver5(String input) {
         if (input.length() > 5) {
-            throw new StringIndexOutOfBoundsException("String index out of range: 5 \nerrorVar : " + input);
+            throw new NoSuchElementException("String index out of range: 5 \nerrorVar : " + input);
         }
         return input;
     }
