@@ -17,7 +17,7 @@ public class Car {
     }
 
     private void divideName(String name) {
-        StringTokenizer tokenizer = new StringTokenizer(name,",");
+        StringTokenizer tokenizer = new StringTokenizer(name.trim(),",");
 
         while (tokenizer.hasMoreTokens()) {
             carName.add(tokenizer.nextToken().trim());
