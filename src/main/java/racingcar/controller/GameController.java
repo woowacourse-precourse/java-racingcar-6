@@ -12,6 +12,8 @@ import java.util.List;
 
 public class GameController {
 
+    private static final int RACE_COUNT_MINIMUM = 1;
+
     private InputView inputView;
     private OutputView outputView;
 
@@ -36,8 +38,8 @@ public class GameController {
         List<String> carNameList = convertStringToList(carsName);
         List<Car> carList = new ArrayList<>();
 
-        for (int i = 0; i < carNameList.size(); i++) {
-            carList.add(new Car(carNameList.get(i)));
+        for (int carNameIndex = 0; carNameIndex < carNameList.size(); carNameIndex++) {
+            carList.add(new Car(carNameList.get(carNameIndex)));
         }
 
         return carList;
@@ -60,7 +62,7 @@ public class GameController {
     }
 
     private void validateRaceCount(int raceCount) {
-        if (raceCount < 1) {
+        if (raceCount < RACE_COUNT_MINIMUM) {
             throw new IllegalArgumentException();
         }
     }

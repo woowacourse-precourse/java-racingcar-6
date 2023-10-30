@@ -25,7 +25,7 @@ public class OutputView {
     }
 
     private void printCarProgress(Car car) {
-        for (int progressCount = 0; progressCount < car.getProgressCount(); progressCount++) {
+        for (int i = 0; i < car.getProgressCount(); i++) {
             System.out.print("-");
         }
     }
