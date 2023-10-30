@@ -15,4 +15,8 @@ public class Car {
     public void goForward(){
         position++;
     }
+
+    public boolean isNameEquals(CarNameDto carNameDto){
+        return carName.equals(carNameDto.getCarName());
+    }
 }
