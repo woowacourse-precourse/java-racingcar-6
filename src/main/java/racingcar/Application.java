@@ -2,8 +2,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Arrays;
-import java.util.List;
+
 
 public class Application {
     //1. 자동차 이름 적기(쉼표(,)를 기준으로 구분하며 이름은 5자 이하만)
