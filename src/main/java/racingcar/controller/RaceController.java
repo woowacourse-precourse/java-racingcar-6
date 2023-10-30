@@ -20,17 +20,19 @@ public class RaceController {
     public RaceController(List<Car> carList) {
         this.carList = carList;
         createTryRemains(InputHandler.inputNumberOfTry());
-        doTry();
+        doRace();
         printFinalWinner();
     }
 
-    private void doTry() {
+    private void doRace() {
         OutputHandler.printRaceProgressLabel();
         IntStream.range(0, numberOfTry.getValue())
-                .forEach(i -> {
-                    CarMover.move(carList);
-                    printRaceProgress();
-                });
+                .forEach(i -> doTry());
+    }
+
+    private void doTry() {
+        CarMover.move(carList);
+        printRaceProgress();
     }
 
     private void printRaceProgress() {
