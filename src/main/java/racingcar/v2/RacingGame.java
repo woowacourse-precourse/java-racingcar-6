@@ -15,7 +15,8 @@ public class RacingGame {
 
     public void start() {
         String input = createCar.input();
-        Map<String, Integer> stateMap = createCar.stateMap(input);
+        String[] carNames = createCar.carName(input);
+        Map<String, Integer> stateMap = createCar.stateMap(carNames);
         int round = racing.Round();
         for (int i = 0; i < round; i++) {
             for (String carName : stateMap.keySet()) {

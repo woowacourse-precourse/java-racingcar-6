@@ -20,6 +20,9 @@ public class CreateCar {
     public String[] carName(String input) {
         String[] carNames = input.split(",");
         checkCarCount(carNames);
+        for (String carName : carNames) {
+            checkNameLength(carName.trim());  // 이름의 길이 검사
+        }
         return carNames;
     }
 
@@ -28,11 +31,9 @@ public class CreateCar {
         return carCount;
     }
 
-    public Map<String, Integer> stateMap(String input) {
-        String[] carNames = carName(input);
+    public Map<String, Integer> stateMap(String[] carNames) {
         Map<String, Integer> stateMap = new HashMap<>();
         for (String car : carNames) {
-            checkNameLength(car);
             stateMap.put(car.trim(), 0);
         }
         return stateMap;
@@ -44,12 +45,10 @@ public class CreateCar {
         }
     }
 
-
     public void checkNameLength(String carName) {
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
         }
     }
-
 
 }
