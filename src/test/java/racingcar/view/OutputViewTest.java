@@ -21,7 +21,7 @@ public class OutputViewTest {
     }
 
     @Test
-    void 자동차들_위치_포맷팅해_출력() {
+    void 자동차들_상태를_이름과_위치로_포맷팅해_출력한다() {
         CarState winnerCarState = new CarState("pobi", 3);
         CarState nonWinnerCarState = new CarState("woni", 2);
 
@@ -32,7 +32,7 @@ public class OutputViewTest {
     }
 
     @Test
-    void 우승_자동차_한대_일때_출력() {
+    void 우승_자동차_한대_일때_이름을_출력한다() {
         String winnerCarName = "pobi";
 
         outputView.printWinnerCar(List.of(winnerCarName));
@@ -42,7 +42,7 @@ public class OutputViewTest {
     }
 
     @Test
-    void 우승_자동차_여러대_일때_포맷팅해_출력() {
+    void 우승_자동차_여러대_일때_쉼표로_구분해_이름을_출력한다() {
         String winnerCarName = "pobi";
         String nonWinnerCarName = "woni";
 
