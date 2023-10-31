@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserInput {
+
     ValueCheck valueCheck = new ValueCheck();
+
     List<String> getCarNames() {
         String input = Console.readLine();
         List<String> trimmedCarNames;
@@ -23,7 +25,7 @@ public class UserInput {
         return trimmedCarNames;
     }
 
-    List<String> trimInput(List<String> carNameList){
+    List<String> trimInput(List<String> carNameList) {
         List<String> trimmedCarNames = new ArrayList<>();
         for (String car : carNameList) {
             String trimmedCar = car.trim();
