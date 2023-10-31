@@ -1,8 +1,5 @@
 package racingcar.view.Input;
 
-import java.util.List;
-import racingcar.domain.Car;
-
 public class InputValidator {
     private final String NUMBER_REGX = "^[0-9]+$";
 
@@ -10,7 +7,7 @@ public class InputValidator {
         // [x] 쉼표 사이에 공백이 있을 경우 >> replace(" ", "");
         // [x] 공백일 경우 >> exception
 
-    public void validateCarString(String input) {
+    public void isNull(String input) {
         if (input.trim().length() == 0) {
             throw new IllegalArgumentException("");
         }
