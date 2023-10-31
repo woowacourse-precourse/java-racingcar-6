@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -19,6 +20,7 @@ public class Application {
         for (int i = 0; i < racingCount; i++) {
             playRacing(carList);
         }
+        printWinners(carList);
     }
 
     private static List<Car> inputAndGetCarList() {
@@ -27,7 +29,7 @@ public class Application {
     }
 
     private static String inputCarNames() {
-        System.out.println("\"경주할 자동차 이름을 입력하세요.(이름은 쉽표(,) 기준으로 구분)");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉽표(,) 기준으로 구분)");
         return Console.readLine();
     }
 
@@ -65,5 +67,35 @@ public class Application {
         if (randomNumber >= 4) {
             car.addOneMovingCount();
         }
+    }
+
+    private static void printWinners(List<Car> carList) {
+        List<String> winnerList = getWinnerList(carList);
+    }
+
+    private static List<String> getWinnerList(List<Car> carList) {
+        List<String> winnerList = new ArrayList<>();
+        int maxCount = getMaxCount(carList);
+
+        for (Car car : carList) {
+            String name = car.getName();
+            int movingCount = car.getMovingCount();
+
+            if (movingCount == maxCount) {
+                winnerList.add(name);
+                continue;
+            }
+
+            if (movingCount < maxCount) {
+                break;
+            }
+        }
+        return winnerList;
+    }
+
+    private static int getMaxCount(List<Car> carList) {
+        carList.sort(Collections.reverseOrder());
+        Car maxCountCar = carList.get(0);
+        return maxCountCar.getMovingCount();
     }
 }
