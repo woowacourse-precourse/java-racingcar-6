@@ -2,11 +2,15 @@ package study;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.util.validator.InputValidator.IsListDuplicate;
 import static racingcar.util.validator.InputValidator.IsStringLengthValid;
 import static racingcar.util.validator.InputValidator.checkBlank;
 import static racingcar.util.validator.InputValidator.checkComma;
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
+import racingcar.util.Util;
 
 public class StringTest {
 
@@ -86,6 +90,14 @@ public class StringTest {
                 .hasMessageContaining("문자열 길이 0");
     }
 
-
+    @Test
+    void 분리된_문자열_중복인_경우_예외_발생() {
+        String input = "test,test";
+        Util util = new Util();
+        List<String> list = util.splitStringToList(input);
+        assertThatThrownBy(() -> IsListDuplicate(list))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("문자열 중복");
+    }
 
 }
