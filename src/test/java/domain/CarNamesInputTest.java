@@ -17,4 +17,17 @@ public class CarNamesInputTest {
 		Assertions.assertThat(nameList.get(0)).isEqualTo("pobi");
 		Assertions.assertThat(nameList.get(1)).isEqualTo("crong");
 	}
+
+	@Test
+	void 이름은_5글자_이하가_아니라면_예외발생() {
+		//given
+		String name = "abcedf";
+		CarNamesInput carNamesInput = new CarNamesInput();
+
+		// when & then
+		Assertions.assertThatThrownBy(() -> {
+			carNamesInput.validateNameLength(name);
+		}).isInstanceOf(IllegalArgumentException.class);
+	}
+
 }
