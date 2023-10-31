@@ -9,6 +9,7 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
+
     private static final int INITIALIZE_POSITION = 0;
 
     private final InputView inputView;
@@ -29,15 +30,17 @@ public class GameController {
     public void runGame() {
         List<Car> initCars =InitializeCars(inputView.inputCarNames());
         int trialNumber = inputView.inputTrialNumber();
-        outputView.printResultPhrase();
         Game game = new Game(initCars);
+        outputView.printResultPhrase();
+        playMultipleTimes(game,trialNumber);
+        outputView.printWinner(game.pickWinner());
+    }
 
+    public void playMultipleTimes(Game game, int trialNumber) {
         for(int i = 0; i < trialNumber; i++) {
             game.playOnce(randomNumberGenerator);
             outputView.printGameProgress(game);
             outputView.wrapLine();
         }
-
-        outputView.printWinner(game.pickWinner());
     }
 }
