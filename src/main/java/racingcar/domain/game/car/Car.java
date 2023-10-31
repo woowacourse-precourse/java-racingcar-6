@@ -2,7 +2,7 @@ package racingcar.domain.game.car;
 
 import racingcar.domain.dto.CarMovementDto;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final CarName carName;
     private int position = 0;
 
@@ -26,11 +26,12 @@ public class Car {
         return carName.getName();
     }
 
-    public int getPosition() {
-        return position;
+    public boolean isSameAs(Car other) {
+        return this.position == other.position;
     }
 
-    public boolean isSameAs(int maxPosition) {
-        return position == maxPosition;
+    @Override
+    public int compareTo(Car other) {
+        return Integer.compare(this.position, other.position);
     }
 }
