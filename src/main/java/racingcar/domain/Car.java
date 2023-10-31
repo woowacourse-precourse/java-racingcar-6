@@ -1,9 +1,13 @@
 package racingcar.domain;
 
-import static racingcar.global.constants.NumberType.*;
 import static racingcar.global.constants.NumberType.MAX_LENGTH_OF_NUMBER;
-import static racingcar.global.constants.SymbolType.*;
+import static racingcar.global.constants.NumberType.MIN_FORWARD_THRESHOLD;
+import static racingcar.global.constants.SymbolType.RESULT_POSITION;
+import static racingcar.global.constants.SymbolType.RESULT_TOKEN;
+import static racingcar.global.exception.ErrorMessage.INVALID_NAME_CHARACTERS;
+import static racingcar.global.exception.ErrorMessage.INVALID_NAME_LENGTH;
 
+import racingcar.global.exception.RaceException;
 import racingcar.utils.RandomUtils;
 
 public class Car {
@@ -59,7 +63,7 @@ public class Car {
 
     private void validateLength(String name) {
         if (isLengthExceeded(name)) {
-            throw new IllegalArgumentException("5자 이하의 이름을 입력해주세요.");
+            throw RaceException.of(INVALID_NAME_LENGTH);
         }
     }
 
@@ -69,7 +73,7 @@ public class Car {
 
     private void validateCharacters(String name) {
         if (containsInvalidCharacters(name)) {
-            throw new IllegalArgumentException("영문자만 입력해주세요.");
+            throw RaceException.of(INVALID_NAME_CHARACTERS);
         }
     }
 

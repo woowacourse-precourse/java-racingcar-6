@@ -6,6 +6,8 @@ import static racingcar.global.constants.SymbolType.DELIMITER;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Cars;
+import racingcar.global.exception.ErrorMessage;
+import racingcar.global.exception.RaceException;
 
 public class RaceService {
     public Cars generateCars(String rawNames) {
@@ -30,7 +32,7 @@ public class RaceService {
         try {
             return Integer.parseInt(count);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자 형식으로 입력해주세요");
+            throw RaceException.of(ErrorMessage.INVALID_COUNT_FORMAT);
         }
     }
 
@@ -46,7 +48,7 @@ public class RaceService {
 
     private void validateRange(Integer count) {
         if (isLessThanMinCount(count)) {
-            throw new IllegalArgumentException(String.format("%d 이상의 정수를 입력해주세요.", MIN_RACE_COUNT.getValue()));
+            throw RaceException.of(ErrorMessage.INVALID_COUNT_RANGE);
         }
     }
 

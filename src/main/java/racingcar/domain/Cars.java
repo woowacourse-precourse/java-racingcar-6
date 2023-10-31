@@ -1,11 +1,15 @@
 package racingcar.domain;
 
 import static racingcar.global.constants.NumberType.MIN_CAR_SIZE;
+import static racingcar.global.exception.ErrorMessage.DUPLICATE_NAME;
+import static racingcar.global.exception.ErrorMessage.INVALID_NAME_LIST_SIZE;
 
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import racingcar.global.exception.ErrorMessage;
+import racingcar.global.exception.RaceException;
 
 public class Cars {
     private List<Car> carList;
@@ -69,9 +73,7 @@ public class Cars {
 
     private void validateListSize(List<String> nameList) {
         if (hasSingleCar(nameList)) {
-            throw new IllegalArgumentException(
-                    String.format("%d대 이상의 자동차의 이름을 입력해주세요.", MIN_CAR_SIZE.getValue())
-            );
+            throw RaceException.of(INVALID_NAME_LIST_SIZE);
         }
     }
 
@@ -81,7 +83,7 @@ public class Cars {
 
     private void validateDuplicateNames(List<String> nameList) {
         if (hasDuplicateNames(nameList)) {
-            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+            throw RaceException.of(DUPLICATE_NAME);
         }
     }
 
