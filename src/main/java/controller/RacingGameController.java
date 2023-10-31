@@ -14,8 +14,7 @@ public class RacingGameController {
 
 	public void startGame() {
 		RacingGame racingGame = new RacingGame(initCarNameData());
-
-		setTryCount();
+		TryCountInput tryCountInput = setTryCount();
 	}
 
 	public List<String> initCarNameData() {
@@ -26,7 +25,10 @@ public class RacingGameController {
 		return carNamesInput.getNames();
 	}
 
-	public void setTryCount() {
+	public TryCountInput setTryCount() {
 		messageView.printTryCountMessage();
+
+		String inputTryCount = inputView.inputTryCount();
+		return new TryCountInput(inputTryCount);
 	}
 }
