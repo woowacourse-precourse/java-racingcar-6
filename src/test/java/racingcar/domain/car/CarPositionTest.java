@@ -2,17 +2,19 @@ package racingcar.domain.car;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class CarPositionTest {
-    @Test
-    void 자동차의_위치를_한_칸_전진한다() {
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    void 자동차의_위치를_움직인다(int distance) {
         CarPosition carPosition = CarPosition.createStartPosition();
         int oldPosition = carPosition.getPosition();
 
-        carPosition.move(1);
+        carPosition.move(distance);
         int newPosition = carPosition.getPosition();
 
-        assertThat(newPosition).isEqualTo(oldPosition + 1);
+        assertThat(newPosition).isEqualTo(oldPosition + distance);
     }
 }
