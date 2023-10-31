@@ -9,6 +9,12 @@ public class RacingGame {
 
     public void start() {
         HashMap<String, String> racingProgress = inputCarNames();
+        for (String name : racingProgress.keySet()) {
+            System.out.println(name + racingProgress.get(name));
+        }
+        Integer gameTimes = inputGameTimes();
+        System.out.println(gameTimes);
+
     }
 
     private HashMap<String, String> inputCarNames() {
@@ -26,5 +32,19 @@ public class RacingGame {
         }
 
         return racingProgress;
+    }
+
+    private Integer inputGameTimes() {
+        Integer gameTimes;
+
+        System.out.println("시도할 회수는 몇회인가요?");
+
+        try {
+            String readlineGameTimes = Console.readLine();
+            gameTimes = Integer.parseInt(readlineGameTimes);
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
+        return gameTimes;
     }
 }
