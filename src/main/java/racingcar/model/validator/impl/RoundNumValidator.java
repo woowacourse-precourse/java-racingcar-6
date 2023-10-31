@@ -14,10 +14,10 @@ public class RoundNumValidator implements InputValidator {
     @Override
     public String validate(String roundNum) {
         if (!CommonValidator.validateIsNumeric(roundNum)) {
-            throw new IllegalArgumentException(Messages.ERROR_CAR_NAMES_LENGTH.getMessage());
+            throw new IllegalArgumentException(Messages.ERROR_ROUND_NUM_NUMERIC.getMessage());
         }
         if (!CommonValidator.validateRoundNumRange(roundNum)) {
-            throw new IllegalArgumentException(Messages.ERROR_CAR_NAMES_BLANK.getMessage());
+            throw new IllegalArgumentException(Messages.ERROR_ROUND_NUM_RANGE.getMessage());
         }
         return roundNum;
     }
