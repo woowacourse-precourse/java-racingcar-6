@@ -10,8 +10,7 @@ public class OutputResultOfMove {
     }
 
     public void printResultOfMove(ArrayList<Car> carList){
-        for(int i=0; i<carList.size(); i++){
-            Car nowCar = carList.get(i);
+        for (Car nowCar : carList) {
             System.out.println(nowCar.getCarInfo());
         }
         System.out.println();
