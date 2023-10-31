@@ -9,8 +9,9 @@ public class ExceptionTest {
     private final Exception exception = new Exception();
 
     @Test
-    void 자동차이름_5글자_입력() {
-        assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkCarNamesInput("a,b,asdvcx"))
+    void 자동차이름_6글자_입력() {
+        assertSimpleTest(() -> assertThatThrownBy(() -> exception.checkCarNamesInput("a,b,asdvacx"))
                 .isInstanceOf(IllegalArgumentException.class));
     }
+
 }
