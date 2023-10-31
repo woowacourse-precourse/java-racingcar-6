@@ -6,6 +6,7 @@ import java.util.List;
 
 public class RacingCarGameConsole {
     private static final String INT_TYPE = "^[0-9]*$";
+    private static final int TIMES_TO_TRY_MINIMUM = 0;
     private static final int MOVE_JUDGE_INTEGER = 4;
     private final Car car;
     private final List<String> winnerNames = new ArrayList<>();
@@ -33,11 +34,8 @@ public class RacingCarGameConsole {
     }
 
     private static void checkTimesToTryIsPositiveInteger(String timesToTryString) {
-        if (!timesToTryString.matches(INT_TYPE)) {
-            throw new IllegalArgumentException(ExceptionCase.INPUT_TYPE_MISMATCH.message());
-        }
-        if (Integer.parseInt(timesToTryString) <= 0) {
-            throw new IllegalArgumentException(ExceptionCase.INPUT_NUMBER_RANGE_MISMATCH.message());
+        if (!timesToTryString.matches(INT_TYPE) || Integer.parseInt(timesToTryString) <= 0) {
+            throw new IllegalArgumentException(ExceptionCase.TIMES_TO_TRY_TYPE_MISMATCH.message());
         }
     }
 
