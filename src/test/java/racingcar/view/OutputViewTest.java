@@ -25,7 +25,7 @@ class OutputViewTest {
     }
 
     @Test
-    void 실행_결과_메시지를_출력한다() {
+    void 실행_결과_메시지를_출력() {
         OutputView.printResultMessage();
 
         Assertions.assertThat(outputStream.toString())
@@ -33,7 +33,7 @@ class OutputViewTest {
     }
 
     @Test
-    void 라운드_별_메시지를_출력한다() {
+    void 라운드_별_메시지를_출력() {
         List<CarDto> cars = Arrays.asList(new CarDto("base", 5), new CarDto("jerry", 3));
         String roundResultMessage = cars.stream()
                 .map(car -> car.name() + ROUND_REG_EX + POSITION_EXPRESSION.repeat(car.position())

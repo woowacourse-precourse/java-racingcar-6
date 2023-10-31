@@ -38,7 +38,7 @@ class RacingTest {
     }
 
     @Test
-    void 우승자는_한_명_이상일_수_있다() {
+    void 한_명_이상의_우승자_발생() {
         Racing racing = new Racing(racingCars, "1");
         racing.playRound(new InputNumberGenerator(4));
         List<String> winners = racing.getWinners();

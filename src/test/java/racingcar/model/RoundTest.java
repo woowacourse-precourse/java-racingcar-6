@@ -14,7 +14,7 @@ class RoundTest {
 
     @ParameterizedTest
     @ValueSource(ints = {-2, -1, 0})
-    void 레이싱_횟수가_0이하로_입력되면_예외발생(int count) {
+    void 라운드_횟수가_0이하로_입력되면_예외발생(int count) {
 
         Assertions.assertThatThrownBy(() -> new Round(count))
                 .isInstanceOf(CountRangeException.class)

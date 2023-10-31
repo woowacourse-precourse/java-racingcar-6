@@ -18,7 +18,7 @@ class RacingCarsTest {
     }
 
     @Test
-    void 자동차의_현재_상태를_확인_할_수_있다() {
+    void 자동차의_현재_상태를_확인() {
         List<CarDto> expectedStatus = Arrays.asList(new CarDto("car1", 1),
                 new CarDto("car2", 1));
         List<CarDto> actualStatus = racingCars.getStatus();
@@ -27,7 +27,7 @@ class RacingCarsTest {
     }
 
     @Test
-    void 가장_앞에_있는_자동차의_위치를_반환한다() {
+    void 가장_앞에_있는_자동차의_위치를_반환() {
         racingCars.move(new InputNumberGenerator(6));
         int maxPositions = racingCars.getMaxPositions();
 
