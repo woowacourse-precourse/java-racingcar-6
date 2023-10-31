@@ -79,6 +79,11 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 숫자_종합_검사(){
+        RoundNumberManager manager = new RoundNumberManager();
+        boolean result = manager.checkRoundNumberExceptions("0");
+        assertThat(result).isEqualTo(false);
+    }
 
 
     @Override
