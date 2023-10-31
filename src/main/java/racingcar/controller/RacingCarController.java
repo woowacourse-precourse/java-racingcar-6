@@ -1,10 +1,13 @@
 package racingcar.controller;
 
-import racingcar.service.GearShifting;
+import racingcar.service.ShiftGear;
+import racingcar.service.JudgeWinner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RacingCarController {
@@ -18,11 +21,11 @@ public class RacingCarController {
 
     public void run(){
         String cars = inputView.readRaceCarNames();
-        String[] names = cars.split(",");
+        List<String> names = List.of(cars.split(","));
         int round = Integer.parseInt(inputView.readRaceRound());
 
         // 각각의 racer 초기화
-        Map<String, Integer> position = new HashMap<>();
+        Map<String, Integer> position = new LinkedHashMap<>();
         for(String name: names){
             position.put(name, 0);
         }
@@ -34,11 +37,13 @@ public class RacingCarController {
             outputView.printResult(position);
             System.out.println();
         }
+
+        outputView.printWinner(JudgeWinner.chooseWinner(position));
     }
 
     private void play(Map<String, Integer> position) {
         for (String name : position.keySet()){
-            if (GearShifting.moveForward()) {
+            if (ShiftGear.moveForward()) {
                 playMoveForward(position, name);
             }
         }
