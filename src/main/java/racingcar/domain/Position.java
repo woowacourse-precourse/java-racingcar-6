@@ -2,9 +2,9 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Position extends Car {
     private static final int INITIAL_DISTANCE = 0;
@@ -30,14 +30,12 @@ public class Position extends Car {
     }
 
     public static List<Position> createPositions(Set<String> carNames) {
-        List<Position> positions = new ArrayList<>();
-        for (String carName : carNames) {
-            Car car = Car.createCar(carName);
-            Position position = Position.createPosition(car);
-            positions.add(position);
-        }
-        return positions;
+        return carNames.stream()
+                .map(Car::createCar)
+                .map(Position::createPosition)
+                .collect(Collectors.toList());
     }
+
 
     public int distanceValue() {
         return this.distance;
