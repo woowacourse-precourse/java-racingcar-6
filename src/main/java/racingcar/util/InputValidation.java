@@ -6,12 +6,12 @@ public class InputValidation {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("차 이름은 5자를 넘을 수 없습니다.");
         }
-        if (name.isEmpty()) {
+        if (name.isBlank()) {
             throw new IllegalArgumentException("이름이 없는 차가 존재합니다.");
         }
     }
 
-    public static void checkRaceRoundInput(String rounds) {
+    public static void checkRaceRoundInput(String rounds) throws IllegalArgumentException {
         int roundNum = checkInputIsNum(rounds);
         checkInputIsOverZero(roundNum);
     }
@@ -20,7 +20,7 @@ public class InputValidation {
         try {
             int roundNum = Integer.parseInt(input);
             return roundNum;
-        } catch (Exception e){
+        } catch (NumberFormatException e){
             throw new IllegalArgumentException("라운드 수가 숫자로 입력되지 않았습니다.");
         }
     }

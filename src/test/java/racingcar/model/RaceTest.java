@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RaceTest {
-    private List<String> input;
+    private static List<String> input;
 
     @BeforeAll
-    void setInput() {
+    static void setInput() {
         input = new ArrayList<>();
         input.add("harry");
         input.add("ron");
