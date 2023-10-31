@@ -1,5 +1,6 @@
 package racingcar.car;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Constant;
 
 public class Car {
@@ -18,5 +19,9 @@ public class Car {
         if (value >= Constant.MINIMUM_MOVABLE_NUMBER) {
             position++;
         }
+    }
+
+    public int getRandomValue() {
+        return Randoms.pickNumberInRange(Constant.START_RANDOM_NUMBER, Constant.END_RANDOM_NUMBER);
     }
 }
