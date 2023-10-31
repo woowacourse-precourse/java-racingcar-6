@@ -9,6 +9,8 @@ public class InputDesk {
     private List<String> cars = new ArrayList<>();
     private int count;
     private final int ERR_NUM = Integer.MIN_VALUE;
+    private final int MAX_CAR_NAME_LENGTH = 5;
+    private final int MIN_CAR_NAME_LENGTH = 1;
 
     public List<String> getCars() {
         return cars;
@@ -35,14 +37,13 @@ public class InputDesk {
 
     }
 
-
     public void checkIllegalArgumentException(String carName) {
 
-        if (carName == null || carName.length() <= 0) {
+        if (carName == null || carName.length() <= MIN_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름 길이 0");
         }
 
-        if (carName.length() > 5) {
+        if (carName.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름 길이 5 초과");
         }
 
@@ -54,6 +55,20 @@ public class InputDesk {
         }
     }
 
+    public int validateInputCount(String inputStr) {
+        int inputCount = ERR_NUM;
+
+        try {
+            if (checkIsNull(inputStr) && checkIsInt(inputStr)) {
+                inputCount = Integer.parseInt(inputStr);
+                checkIllegalArgumentException(inputCount);
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        } finally {
+            return inputCount;
+        }
+    }
 
     public void inputCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -69,22 +84,6 @@ public class InputDesk {
 
         } catch (IllegalArgumentException e) {
             throw e;
-        }
-
-    }
-
-    public int validateInputCount(String inputStr) {
-        int inputCount = ERR_NUM;
-
-        try {
-            if (checkIsNull(inputStr) && checkIsInt(inputStr)) {
-                inputCount = Integer.parseInt(inputStr);
-                checkIllegalArgumentException(inputCount);
-            }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        } finally {
-            return inputCount;
         }
     }
 
