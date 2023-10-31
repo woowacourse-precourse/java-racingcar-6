@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 public class RacingCarGame {
     public void startGame() {
         InputView inputView = new InputView();
-        inputView.pirntStartMsg();
-
         User user = new User();
 
         inputView.printCarNameInputMsg();
