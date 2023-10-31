@@ -21,4 +21,11 @@ public class CarTest {
 
         assertThat(car1.compareTo(car2)).isEqualTo(0);
     }
+    @Test
+    void 같은_포지션의_자동차를_찿는다() {
+        Car car1 = new Car("박정언",1);
+        Car car2 = new Car("홍길동",1);
+
+        assertThat(car1.isSamePosition(car2)).isTrue();
+    }
 }
