@@ -1,9 +1,10 @@
 package racingcar.model;
 
 import racingcar.enums.Common;
+import racingcar.enums.ErrorMessages;
+import racingcar.utils.CommonValidator;
 import racingcar.utils.NumberGenerator;
 import racingcar.utils.RandomGenerator;
-import racingcar.utils.Validator;
 
 public class Car {
     private static final String DISTANCE_MARK = "-";
@@ -11,7 +12,7 @@ public class Car {
     private final StringBuilder distance;
 
     public Car(String name) {
-        Validator.validateCarNameInput(name);
+        validateCarNameInput(name);
         this.name = name;
         this.distance = new StringBuilder();
     }
@@ -29,5 +30,16 @@ public class Car {
         int randomNumber = randomGenerator.generateNumber(Common.MIN_NUMBER.getIntValue(), Common.MAX_NUMBER.getIntValue());
         if (randomNumber >= Common.STANDARD_NUMBER.getIntValue())
             distance.append(DISTANCE_MARK);
+    }
+
+    private void validateCarNameInput(String carName) {
+        if (carName == null)
+            throw new IllegalArgumentException(ErrorMessages.NULL_ERROR.getMessage());
+        if (carName.isBlank())
+            throw new IllegalArgumentException(ErrorMessages.EMPTY_ERROR.getMessage());
+        if (CommonValidator.isOverMaxLength(carName))
+            throw new IllegalArgumentException(ErrorMessages.OVER_LENGTH_ERROR.getMessage());
+        if (carName.contains(Common.SEPARATOR.getStringValue()))
+            throw new IllegalArgumentException(ErrorMessages.SEPARATOR_ERROR.getMessage());
     }
 }

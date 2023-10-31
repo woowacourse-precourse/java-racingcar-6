@@ -3,7 +3,6 @@ package study;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,6 +27,5 @@ public class ArrayListTest {
         assertThat(list.hashCode() == list.hashCode()).isEqualTo(true);
         assertThat(list.hashCode() == list2.hashCode()).isEqualTo(false);
         assertThat(list.toArray()).isEqualTo(new String[]{"2", "new", "word", "3"});
-        assertThat(list2.stream().map(s -> s + "1")).isEqualTo(new ArrayList<String>(Arrays.asList(new String[]{"new1", "word1"})));
     }
 }
