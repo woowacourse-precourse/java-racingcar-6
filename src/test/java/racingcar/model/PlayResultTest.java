@@ -16,7 +16,7 @@ class PlayResultTest {
 
     @Test
     void PlayResult() {
-        PlayResult result = new PlayResult(new Car("isaac"));
+        new PlayResult(new Car("isaac"));
     }
 
     @Test
