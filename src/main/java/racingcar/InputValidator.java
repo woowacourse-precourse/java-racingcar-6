@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.util.ExceptionMessage;
+import racingcar.message.ExceptionMessage;
 
 import java.util.List;
 

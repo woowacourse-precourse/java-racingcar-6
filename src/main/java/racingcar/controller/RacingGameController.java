@@ -18,7 +18,6 @@ public class RacingGameController {
         racingGame.setTryCount(InputView.inputTryCount());
     }
 
-
     private void playGame() {
         OutputView.printResult(racingGame.race());
     }

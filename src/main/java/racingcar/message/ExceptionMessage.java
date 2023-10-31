@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.message;
 
 public enum ExceptionMessage {
     INPUT_NO_CAR_NAME_MESSAGE("1개 이상의 자동차 이름을 입력해야 합니다."),

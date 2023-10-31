@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.util.ExceptionMessage;
+import racingcar.message.ExceptionMessage;
 
 import java.util.Arrays;
 import java.util.List;

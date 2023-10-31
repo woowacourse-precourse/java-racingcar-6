@@ -2,7 +2,7 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.util.ExceptionMessage;
+import racingcar.message.ExceptionMessage;
 
 import java.util.Arrays;
 import java.util.List;
