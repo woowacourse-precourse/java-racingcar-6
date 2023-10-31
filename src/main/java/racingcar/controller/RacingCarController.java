@@ -42,6 +42,7 @@ public class RacingCarController {
         outputView.printInputNumberMessage();
         return inputView.inputNumber();
     }
+
     private void setCount(String inputNumber) {
         validateService.validateInputNumber(inputNumber);
         racingCarService.setCount(inputNumber);
