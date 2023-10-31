@@ -1,10 +1,11 @@
 package racingcar.View;
 
-public class GameView {
+public class GameProcessView {
 
     private final String MOVE_SYMBOL = "-";
     private final String NAME_LOCATION_SPLITTER = " : ";
-    private final String RESULT_NOTICE_MSG = "실행결과";
+    private final String RESULT_NOTICE_MSG = "실행결과\n";
+    public final String EMPTY_SPACE = "\n";
 
     public void printCarLocation(String carName, int carLocationInt) {
         String carLocationView = generateLocationView(carLocationInt);
@@ -20,6 +21,6 @@ public class GameView {
     }
 
     public void printResultNoticeMsg() {
-        System.out.println(RESULT_NOTICE_MSG);
+        System.out.print(RESULT_NOTICE_MSG);
     }
 }
