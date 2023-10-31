@@ -10,5 +10,5 @@ public class ProviderRandomValue {
     public int returnRandomNumeric() {
         return Randoms.pickNumberInRange(0,9);
     }
-    
+
 }
