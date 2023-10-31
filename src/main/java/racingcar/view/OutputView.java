@@ -10,11 +10,14 @@ public class OutputView {
         for (Car car: cars) {
             System.out.println(car.getCarInfo());
         }
+        System.out.println();
     }
 
-    public void printCars(Stack<Car> cars) {
-        for (Car car: cars) {
-            System.out.println(car.getCarInfo());
+    public void printWinners(Stack<Car> cars) {
+        System.out.print("최종 우승자 : ");
+        System.out.print(cars.get(0).getName());
+        for (int i = 1; i < cars.size(); ++i) {
+            System.out.print(", " + cars.get(i).getName());
         }
     }
 }

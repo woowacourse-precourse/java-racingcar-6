@@ -31,6 +31,10 @@ public class Car {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String getCarInfo() {
         StringBuilder builder = new StringBuilder();
         builder.append(this.name);

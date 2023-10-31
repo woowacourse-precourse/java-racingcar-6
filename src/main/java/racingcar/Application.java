@@ -19,6 +19,7 @@ public class Application {
         }
 
         int round = inputView.getNumberOfRound();
+        System.out.println("\n실행 결과");
         for (int i = 0; i < round; ++i) {
             for (Car car: cars) {
                 car.tryMove();
@@ -26,6 +27,6 @@ public class Application {
             outputView.printCars(cars);
         }
         Stack<Car> winners = Referee.pickWinners(cars);
-        outputView.printCars(winners);
+        outputView.printWinners(winners);
     }
 }
