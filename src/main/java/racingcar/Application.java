@@ -1,6 +1,5 @@
 package racingcar;
 
-
 public class Application {
     private static GameRandom random;
 
@@ -16,8 +15,11 @@ public class Application {
     }
 
     public static void main(String[] args) {
+        RacingCarGameRenderer renderer = new SimpleRacingCarGameRenderer();
         InputInterface in = new InputInterface();
-        OutputInterface out = new OutputInterface();
+        OutputInterface out = new OutputInterface((str) -> {
+            System.out.println(str);
+        }, renderer);
         RacingCarGame game = new RacingCarGame(in.getNames(), in.getTrial(), getRandom());
         GameExecutor gameExecutor = new GameExecutor(game, in, out);
         gameExecutor.run();
