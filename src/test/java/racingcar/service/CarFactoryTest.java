@@ -14,7 +14,7 @@ class CarFactoryTest {
     private CarFactory carFactory;
 
     @BeforeEach
-    public void setUp() {
+    public void beforeEach() {
         carFactory = new CarFactory();
     }
 
