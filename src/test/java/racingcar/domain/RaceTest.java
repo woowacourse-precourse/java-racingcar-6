@@ -15,14 +15,15 @@ class RaceTest {
 
     @BeforeEach
     void setUpStream() {
-        byteArrayOutputStream = new ByteArrayOutputStream(); // OutputStream 생성
-        System.setOut(new PrintStream(byteArrayOutputStream)); // 생성한 OutputStream 으로 설정
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(byteArrayOutputStream));
     }
 
     @AfterEach
     void restoreStream() {
-        System.setOut(System.out); // 원상복귀
+        System.setOut(System.out);
     }
+
     @Test
     void printWinner_우승자가_한명_이면_단독으로_출력하기() {
         Car pobi = Car.of("pobi", 5);
