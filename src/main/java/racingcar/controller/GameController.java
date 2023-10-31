@@ -12,12 +12,15 @@ public class GameController {
     private final CarGame car = new CarGame();
 
     public void play() {
+        playInit();
+        playGame();
+        endGame();
+    }
+
+    private void playInit() {
         car.setCars(inputView.carName());
         car.setPlayCount(inputView.playCount());
         outputView.printMessage();
-
-        playGame();
-        endGame();
     }
 
     private void playGame() {
