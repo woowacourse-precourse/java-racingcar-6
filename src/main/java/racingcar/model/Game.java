@@ -26,4 +26,9 @@ public class Game {
     public List<Car> getCarList() {
         return this.carList;
     }
+
+    public void addCarList(String name) {
+        Car car = new Car(name);
+        this.carList.add(car);
+    }
 }
