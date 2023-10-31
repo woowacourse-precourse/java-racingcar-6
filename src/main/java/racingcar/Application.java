@@ -6,32 +6,24 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
 
     public static void main(String[] args) {
-        System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)로 구분): ");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,)로 구분)");
         String carNamesInput = Console.readLine();
         System.out.println(carNamesInput);
         String[] carNames = carNamesInput.split(","); //입력된 이름은 쉼표(,)로 구분
-        try {
-            //자동차 이름의 길이가 5 초과이거나, 쉼표(,)로 구분되지 않을때 종료
-            for (String carName : carNames) {
-                // 자동차 이름이 5글자 초과인 경우
-                validateCarName(carName);
-            }
-        }catch(IllegalArgumentException e){ //  예외 발생시 프로그램 종료
-            System.err.println(e.getMessage());
-            throw e;
+
+        //자동차 이름의 길이가 5 초과이거나, 쉼표(,)로 구분되지 않을때 종료
+        for (String carName : carNames) {
+            // 자동차 이름이 5글자 초과인 경우
+            validateCarName(carName);
         }
+
         // 시도할 횟수 입력 및 검증
         int numberOfAttempts = 0;
-        try {
-            System.out.print("시도할 회수는 몇회인가요?: ");
-            String attemptsInput = Console.readLine(); //시도할횟수 사용자 입력받음
-            validateAttempts(attemptsInput); // 유효한 횟수 입력값인지 판단하는 메소드
-            numberOfAttempts = Integer.parseInt(attemptsInput); //
-            System.out.println(numberOfAttempts);
-        }catch (IllegalArgumentException e) { // //  예외 발생시 프로그램 종료
-            System.err.println(e.getMessage());
-            throw e;
-        }
+        System.out.println("시도할 회수는 몇회인가요?");
+        String attemptsInput = Console.readLine(); //시도할횟수 사용자 입력받음
+        validateAttempts(attemptsInput); // 유효한 횟수 입력값인지 판단하는 메소드
+        numberOfAttempts = Integer.parseInt(attemptsInput); //
+        System.out.println(numberOfAttempts);
 
         Race race = new Race(carNames);
         race.start(numberOfAttempts);
@@ -53,11 +45,11 @@ public class Application {
         int numberOfAttempts;
         try {
             numberOfAttempts = Integer.parseInt(attemptsInput);
-        }catch(NumberFormatException e) {
-            throw new IllegalArgumentException("입력된 값은 정수가 아닙니다.");
+        }catch(NumberFormatException e) { //입력된값이 문자인 경우
+            throw new IllegalArgumentException("시도횟수는 양의 숫자만 가능합니다.");
         }
         if (numberOfAttempts <= 0) {
-            throw new IllegalArgumentException("입력된 정수는 양수가 아닙니다.");
+            throw new IllegalArgumentException("시도횟수는 양의 숫자만 가능합니다.");
         }
 
     }
@@ -99,7 +91,7 @@ class Race {
 
     private void printCars() {
         for (Car car : cars) { //모든차이 이름과 현재위치 출력
-            System.out.println(car.getName() + " : " + "-".repeat(car.getPosition()));
+            System.out.println(car.getName().trim() + " : " + "-".repeat(car.getPosition()));
         }
         System.out.println("\n");  //한 라운드 진행 후 빈줄 1칸 출력
     }
