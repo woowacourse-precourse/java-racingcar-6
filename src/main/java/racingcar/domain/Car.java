@@ -6,7 +6,7 @@ import racingcar.utils.RandomNumberGenerator;
 public class Car {
 
     private static final int MAX_NAME_LENGTH = 5;
-    private String name;
+    private final String name;
     private int distance;
 
     public Car(Car car) {
@@ -14,8 +14,8 @@ public class Car {
     }
 
     public Car(String name) {
+        validateNameLength(name);
         this.name = name;
-        validateNameLenght();
     }
 
     public void increaseDistance() {
@@ -30,7 +30,7 @@ public class Car {
         return distance;
     }
 
-    private void validateNameLenght() {
+    private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ExceptionMessage.OUT_OF_NAME_LENGTH.getMessage());
         }
