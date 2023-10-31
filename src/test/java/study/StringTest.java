@@ -3,13 +3,14 @@ package study;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.util.validator.InputValidator.isListDuplicate;
+import static racingcar.util.validator.InputValidator.isNegativeNumber;
+import static racingcar.util.validator.InputValidator.isNonNumericString;
 import static racingcar.util.validator.InputValidator.isStringLengthValid;
 import static racingcar.util.validator.InputValidator.checkBlank;
 import static racingcar.util.validator.InputValidator.checkComma;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.model.Car;
 import racingcar.util.Util;
 
 public class StringTest {
@@ -89,15 +90,22 @@ public class StringTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("문자열 길이 0");
     }
+    @Test
+    void 입력받은_값이_숫자가_아닌_경우_예외_발생() {
+        String input = "a";
+        assertThatThrownBy(() -> isNonNumericString(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("입력받은 값이 정수형 숫자가 아님");
+    }
+
 
     @Test
-    void 분리된_문자열_중복인_경우_예외_발생() {
-        String input = "test,test";
-        Util util = new Util();
-        List<String> list = util.splitStringToList(input);
-        assertThatThrownBy(() -> isListDuplicate(list))
+    void 입력받은_값이_음수_인_경우_예외_발생() {
+        int input = -1;
+        assertThatThrownBy(() -> isNegativeNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("문자열 중복");
+                .hasMessageContaining("입력받은 값이 음수");
     }
+
 
 }
