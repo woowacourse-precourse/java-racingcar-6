@@ -15,7 +15,6 @@ public class InitView {
         inputCarNameMessagePrint();
 
         String[] names = Console.readLine().split(",");
-
         if (validator.isCarNamesUnderLength(names)) {
             throw new IllegalArgumentException("최소 한 개 이상의 자동차 이름이 필요합니다.");
         }
