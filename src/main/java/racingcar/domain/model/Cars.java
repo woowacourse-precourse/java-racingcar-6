@@ -14,12 +14,30 @@ public record Cars(List<Car> cars) {
 
     }
 
+    public static Cars of(List<Car> cars) {
+        return new Cars(cars);
+    }
+
     public void moveAll(RandomMoveJudicator moveJudicator) {
-        for (Car car : cars) {
-            if (moveJudicator.canMove()) {
-                car.move();
-            }
-        }
+        cars.stream().filter(car -> moveJudicator.canMove()).forEach(Car::move);
+    }
+
+    public List<String> progressStatusFormmat() {
+        return cars.stream().map(Car::formattedProgress).collect(Collectors.toList());
+    }
+
+    public Cars findTopPositionCars() {
+        int maxPosition = getMaxPosition();
+        return cars.stream()
+                .filter(car -> car.isPositionEqualTo(maxPosition))
+                .collect(Collectors.collectingAndThen(Collectors.toList(), Cars::of));
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPostion)
+                .max()
+                .orElseThrow(() -> new IllegalArgumentException("Cars 객체에 Car가 존재하지 않습니다."));
     }
 
     public String formatNames() {
