@@ -4,10 +4,12 @@ import racingcar.domain.Car;
 
 import java.util.List;
 
+import static racingcar.constant.MessageConstant.USER_OUTPUT_MESSAGE;
+
 public class OutputView {
 
     public static void showHead() {
-        System.out.println("실행 결과");
+        System.out.println(USER_OUTPUT_MESSAGE);
     }
 
     public static void showScores(List<Car> cars) {
