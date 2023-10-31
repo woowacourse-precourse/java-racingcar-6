@@ -19,6 +19,6 @@ public class RaceController {
 
     public void startRace() {
         outputView.printlnMessage(CAR_NAME_REQUEST_MESSAGE);
-        Cars cars = raceService.generateCars(inputView.readInput();
+        Cars cars = raceService.generateCars(inputView.readInput());
     }
 }

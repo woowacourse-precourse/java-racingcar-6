@@ -8,7 +8,7 @@ import racingcar.domain.Cars;
 
 public class RaceService {
     public Cars generateCars(String rawNames) {
-        return Cars.of(parseStringToList(rawNames))
+        return Cars.of(parseStringToList(rawNames));
     }
 
     private static List<String> parseStringToList(String names) {
