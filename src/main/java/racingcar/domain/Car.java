@@ -1,6 +1,6 @@
-package racingcar;
+package racingcar.domain;
 
-import static racingcar.Moving.isMovable;
+import static racingcar.domain.Moving.isMovable;
 
 public class Car implements Comparable<Car>{
     private static final int NAME_MAX_LENGTH = 5;
