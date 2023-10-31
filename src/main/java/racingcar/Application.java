@@ -5,8 +5,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.*;
 
-import racingcar.Car;
-
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
@@ -164,9 +162,8 @@ public class Application {
 
     private static void printWinner(List<Car> cars) {
         List<String> winner = findWinner(cars);
-        System.out.print("최종 우승자 : ");
         String result = String.join(",",winner);
-        System.out.println(result);
+        System.out.println(String.format("최종 우승자 : %s",result));
     }
 
     private static void playGame() {
