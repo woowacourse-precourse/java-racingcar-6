@@ -4,9 +4,9 @@ JAVA _ 자동차 경주 게임 프로젝트
 ## 기능 목록
 ### ✔ 입력
 - [x]: 경주할 자동차들의 이름을 입력받고 저장한다. - CarRaceManager.createCarList()
-    - [ ]: 입력값이 없으면 오류 발생시킨다(Null).
-    - [ ]: 입력값이 5자를 초과하면 오류 발생시킨다.
-    - [ ]: 입력값이 중복이면 오류 발생시킨다.
+    - [x]: 입력값이 없으면 오류 발생시킨다(Null). - Validation.isNull()
+    - [x]: 입력값이 5자를 초과하면 오류 발생시킨다. - Validation.isOverFive()
+    - [x]: 입력값이 중복이면 오류 발생시킨다. - Validation.isOverlapping()
 - [x]: 시도할 회수를 입력받고 저장한다. - Application.getAttemptNumber()
     - [ ]: 입력값이 없으면 오류 발생시킨다(Null).
     - [ ]: 입력값이 int type이 아니면 오류 발생시킨다.
