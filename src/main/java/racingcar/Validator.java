@@ -5,15 +5,23 @@ import java.util.HashSet;
 
 public class Validator {
     public static void checkCarInput(String inputString) {
-
-        if (inputString.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-
+        checkEmpty(inputString);
         String[] splitInputData = inputString.split(",");
         checkSize(splitInputData);
         checkBlank(splitInputData);
         checkDuplication(splitInputData);
+    }
+
+    public static void checkRoundInput(String inputString) {
+        checkEmpty(inputString);
+        checkDigit(inputString);
+        checkNaturalNumber(inputString);
+    }
+
+    private static void checkEmpty(String inputString) {
+        if (inputString.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static void checkSize(String[] splitInputData) {
@@ -37,8 +45,29 @@ public class Validator {
 
     private static void checkDuplication(String[] splitInputData) {
         HashSet<String> carNamesSet = new HashSet<String>(Arrays.asList(splitInputData));
-        if(carNamesSet.size() != splitInputData.length){
+        if (carNamesSet.size() != splitInputData.length) {
             throw new IllegalArgumentException("이름에 중복이 있습니다.");
         }
     }
+
+    private static void checkDigit(String InputData) {
+        for (int i = 0; i < InputData.length(); i++) {
+            if(!Character.isDigit(InputData.charAt(i))){
+                throw new IllegalArgumentException("숫자만 입력하세요");
+            }
+        }
+        try{
+            int inputNumber = Integer.parseInt(InputData);
+        } catch (Exception e){
+            throw new IllegalArgumentException("정수만 입력하세요");
+        }
+    }
+
+    private static void checkNaturalNumber(String InputData){
+        int inputNumber = Integer.parseInt(InputData);
+        if(inputNumber<1){
+            throw new IllegalArgumentException("1이상의 정수를 입력하세요");
+        }
+    }
+
 }
