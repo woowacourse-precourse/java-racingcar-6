@@ -5,7 +5,6 @@ import racingcar.model.Game;
 import racingcar.model.dto.GameResult;
 import racingcar.util.CarNamesSeperator;
 import racingcar.util.GameTimeParser;
-import racingcar.util.GameTimeValidator;
 import racingcar.view.InputView;
 import racingcar.view.OuputView;
 
@@ -42,7 +41,7 @@ public class GameController {
 
     private int getGameTime() {
         String inputGameTime = InputView.inputGameTime();
-        return GameTimeValidator.validateGameTime(GameTimeParser.parse(inputGameTime));
+        return GameTimeParser.parse(inputGameTime);
     }
 
     private List<String> getCarNames() {

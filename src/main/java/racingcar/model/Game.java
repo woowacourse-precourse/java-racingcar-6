@@ -5,12 +5,11 @@ import java.util.stream.Collectors;
 import racingcar.model.dto.GameResult;
 
 public class Game {
-    private final int gameTime;
+    private final GameTime gameTime;
     private final Cars cars;
-    private int currentGameTime = 0;
 
     public Game(int gameTime, List<String> carNames) {
-        this.gameTime = gameTime;
+        this.gameTime = new GameTime(gameTime);
         this.cars = new Cars(makeCars(carNames));
     }
 
@@ -22,12 +21,12 @@ public class Game {
     }
 
     public boolean isGameNotEnded() {
-        return currentGameTime != gameTime;
+        return gameTime.isGameNotEnded();
     }
 
     public void playGame() {
         cars.playRound();
-        currentGameTime += 1;
+        gameTime.plusGameTime();
     }
 
     public List<String> getWinnerCars() {
