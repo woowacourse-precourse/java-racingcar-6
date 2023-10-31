@@ -75,6 +75,9 @@ public class Application {
         }
     }
 
+    private static Integer createRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
+    }
     public static void main(String[] args) {
         inputCarNames();
     }
