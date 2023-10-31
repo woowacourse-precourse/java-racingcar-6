@@ -1,6 +1,8 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -13,31 +15,33 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 public class CarTest extends NsTest {
-    @Test
-    void 생성자_테스트() {
-        Car car = new Car("k-5");
-
-        assertEquals("k-5", car.getName());
+    private Car testCar;
+    @BeforeEach
+    void 셋팅() {
+        testCar = new Car("k-5");
     }
 
     @Test
     void 차_이름_호출_메소드() {
-        String testCarName = "k-3";
-        Car car = new Car(testCarName);
+        String testCarName = "k-5";
 
-        assertEquals(car.getName(), testCarName);
+        assertEquals(testCar.getName(), testCarName);
     }
 
     @Test
     void 차_현재_위치_호출_메소드() throws NoSuchFieldException, IllegalAccessException {
         int testCarPosition = 3;
-        Car car = new Car("k-3");
 
         Field currentPositionField = Car.class.getDeclaredField("currentPosition");
         currentPositionField.setAccessible(true);
-        currentPositionField.set(car, testCarPosition);
+        currentPositionField.set(testCar, testCarPosition);
 
-        assertEquals(car.getCurrentPosition(), testCarPosition);
+        assertEquals(testCar.getCurrentPosition(), testCarPosition);
+    }
+
+    @Test
+    void 차_이동_기능_메소드() {
+
     }
 
     @Test

@@ -23,7 +23,7 @@ public class RacingCarsTest extends NsTest {
     }
 
     @Test
-    public void 경주자동차_자동차_생성메소드() {
+    void 경주자동차_자동차_생성메소드() {
         racingCars = new RacingCars(List.of("car1", "car2", "car3"));
 
         List<Car> cars = new ArrayList<>();
