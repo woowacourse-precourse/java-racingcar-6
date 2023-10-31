@@ -2,21 +2,21 @@
 
 ## 기능 목록
 
-- 사용자에게 입력 받는다. <UserInput>
-  - 각 자동차의 이름을 입력 받는다.(쉼표로 구분, 5자 이하) <carName>
-  - 이동 횟수를 입력 받는다. <attemptCount>
-  - 사용자가 잘못된 값을 입력할 결우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료한다. <processException>
+- 사용자에게 입력 받는다. <UserInput#input>
+    - 각 자동차의 이름을 입력 받는다.(쉼표로 구분, 5자 이하) <carName>
+    - 이동 횟수를 입력 받는다. <attemptCount>
+    - 사용자가 잘못된 값을 입력할 결우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료한다. <checkInputCarName>, <checkInputAttemptCount>
 
-- 각 자동차 객체를 생성한다. <GameController#playGame>
-  - 이름, 이동 현황을 다른 클래스로부터 입력받아 자동차 객체에 업데이트 해준다. <updateName>&<updatePosition>
+- 각 자동차 객체를 생성한다. <GameController>
+    - 이름, 이동 현황을 다른 클래스로부터 입력받아 자동차 객체에 업데이트 해준다. <updateName>&<updatePosition>
 
 - 0에서 9사이의 무작위 값을 생성한다. <CarMovement#getRandomNumber>
-  - 생성된 무작위 값이 4 이상일 경우 전진한다. <isAboveFour>
-  - 실행 결과를 해당 자동차 객체에 보내준다.
+    - 생성된 무작위 값이 4 이상일 경우 전진한다. <getRandomNumber>
+    - 실행 결과를 해당 자동차 객체에 보내준다.<movement>, <forward>
 
 - 사용자가 입력한 이동 횟수만큼 경주를 실행시킨다. <GameController#playGame>
-  - 우승자를 구한다.
-  - 우승자를 출력한다.
+    - 우승자를 구한다. <GameResult#findWinner>
+    - 우승자를 출력한다. <printWinner>
 
 ## 기능 요구 사항
 
