@@ -48,8 +48,8 @@ public class GameController {
         String winnerNames = winnerList.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
-
-        System.out.println("최종 우승자 : " + winnerNames);
+        outputView.printFinalWinner();
+        System.out.println(winnerNames);
     }
 
     public List<Car> askCarNames() {
