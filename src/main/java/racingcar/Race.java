@@ -26,7 +26,7 @@ public class Race {
         this.moveCounts = moveCounts;
     }
 
-    private int generateFuel() {
+    private int injectFuel() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
@@ -48,7 +48,7 @@ public class Race {
 
     private void conductRace() {
         for (Car car : participatingCars) {
-            car.moveOrStop(generateFuel());
+            car.moveOrStop(injectFuel());
         }
     }
 
