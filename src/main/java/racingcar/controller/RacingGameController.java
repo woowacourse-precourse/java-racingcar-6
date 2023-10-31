@@ -22,10 +22,15 @@ public class RacingGameController {
     public void run() {
         List<String> carNames = inputView.names();
         long numberOfAttempts = inputView.number();
+
         List<RacingCarDto> racingCarDtos = carNames.stream()
                 .map(carName -> new RacingCarDto(carName, 0)).toList();
         RacingGameRq racingGameRq = RacingGameRq.valueOf(racingCarDtos, numberOfAttempts);
         outputView.printExecutionResultMent();
+
+        if (cannotStartGame(numberOfAttempts, racingGameRq.getRacingCarDtoList())) {
+            return;
+        }
 
         while (numberOfAttempts-- > 0) {
             RacingGameRs racingGameRs = startGame(racingGameRq);
@@ -35,6 +40,15 @@ public class RacingGameController {
         }
 
         outputView.printWinners(racingGameRq.getRacingCarDtoList());
+    }
+
+    private boolean cannotStartGame(long numberOfAttempts, List<RacingCarDto> racingCarDtos) {
+        if (numberOfAttempts == 0) {
+            outputView.printExecutionResult(racingCarDtos);
+            outputView.printWinners(racingCarDtos);
+            return true;
+        }
+        return false;
     }
 
     public RacingGameRs startGame(RacingGameRq racingGameRq) {
