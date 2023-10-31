@@ -31,7 +31,13 @@ public class Game {
         if (this.roundLimit < 0) {
             throw new IllegalArgumentException();
         }
-        return res;
+    }
+
+    private void printCurrentPerformance() {
+        for (Car car : cars) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getMileage()));
+        }
+        System.out.println();
     }
 
     @Override
