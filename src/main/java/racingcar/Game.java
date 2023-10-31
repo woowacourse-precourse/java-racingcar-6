@@ -68,20 +68,39 @@ public class Game {
 
         List<Car> winners = getWinner();
 
-        for (Car winner : winners) {
-            /// TODO : Print Car isWinner
-            System.out.println("Print Winner Name");
+        StringBuilder result = new StringBuilder();
+        result.append("최종 우승자 : ");
+
+        for (int i = 0; i < winners.size(); i++) {
+            Car winner = winners.get(i);
+
+            result.append(winner.name);
+            if (i < winners.size() - 1) {
+                result.append(", ");
+            }
         }
+
+        System.out.println(result);
     }
 
     private List<Car> getWinner() {
 
         List<Car> winners = new ArrayList<>();
+        Integer maxScore = 0;
 
         for (Car car : cars) {
-            /// TODO : Add Car If It isWinner
-            System.out.println("Add Car If It isWinner");
+            if (car.location > maxScore) {
+                winners.clear();
+                winners.add(car);
+                maxScore = car.location;
+                continue;
+            }
+
+            if (car.location.equals(maxScore)) {
+                winners.add(car);
+            }
         }
+
         return winners;
     }
 }
