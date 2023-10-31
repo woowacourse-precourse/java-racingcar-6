@@ -198,4 +198,8 @@ public void racing() {
 1. 처음 시작 조건 : 만족
 ![img.png](img.png)
 2. Test 확인
+- StringTest : 만족
+![img_1.png](img_1.png)
+- ApplicationTest : 만족
+![img_2.png](img_2.png)
 
