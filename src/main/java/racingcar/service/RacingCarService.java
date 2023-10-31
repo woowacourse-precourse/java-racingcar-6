@@ -21,7 +21,7 @@ public class RacingCarService {
         racingCars.moveRacingCars(randomNumbers);
     }
 
-    public List<CarDto> getRacingCarDto() {
+    public List<CarDto> convertToCarDtoList() {
         List<CarDto> carDtoList = new ArrayList<>();
         for (Car car : racingCars.getRacingCars()) {
             carDtoList.add(new CarDto(car.getName(), car.getDistance()));

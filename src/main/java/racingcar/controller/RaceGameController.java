@@ -25,7 +25,7 @@ public class RaceGameController {
     private void startRace(int attemptCount) {
         for (int round = 1; round <= attemptCount; round++) {
             racingCarService.moveRacingCars();
-            scoreBoardService.recordRound(round, racingCarService.getRacingCarDto());
+            scoreBoardService.recordRound(round, racingCarService.convertToCarDtoList());
         }
     }
 
