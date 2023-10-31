@@ -2,12 +2,15 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.OutputView;
 
 public class Game {
     private final InputController inputController;
+    private final RandomNumberGenerator randomNumberGenerator;
     public Game(){
         this.inputController = new InputController();
+        this.randomNumberGenerator = new RandomNumberGenerator(0, 9);
     }
 
     public void initGame(){
