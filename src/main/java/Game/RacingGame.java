@@ -13,14 +13,17 @@ public class RacingGame {
             printTotalResult();
             printResult();
         }
-        public void getInput() throws IllegalArgumentException{
+        //input
+        private void getInput() throws IllegalArgumentException{
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기분으로 구분)");
             getInputCarName();
             System.out.println("시도할 회수는 몇회인가요?");
             getInputTryNumber();
             gameResult = new int[count];
         }
-        public void makeRandomResult() {
+
+        //game service
+        private void makeRandomResult() {
             int random;
             for (int i = 0; i < count; i++) {
                 random = Randoms.pickNumberInRange(0, 9);
@@ -28,14 +31,14 @@ public class RacingGame {
             }
         }
 
-        public int checkRun(int number) {
+        private int checkRun(int number) {
             if (number >= 4) {
                 return 1;
             }
             return 0;
         }
 
-        public void printTotalResult() {
+        private void printTotalResult() {
             System.out.println("실행 결과");
             for (int i = 0; i < tryNumber; i++) {
                 makeRandomResult();
@@ -43,19 +46,19 @@ public class RacingGame {
                 System.out.println();
             }
         }
-        public void printEachResult() {
+        private void printEachResult() {
             for (int i = 0; i < count; i++) {
                 System.out.print(carName[i] + " : ");
                 printDash(gameResult[i]);
             }
         }
-        public void printDash(int num) {
+        private void printDash(int num) {
             for (int i = 0; i < num; i++) {
                 System.out.print("-");
             }
             System.out.println();
         }
-        public int findMaxRun(){
+        private int findMaxRun(){
             int maxnum=0;
             for(int i=0;i<count;i++){
                 if(gameResult[i]>maxnum){
@@ -64,7 +67,7 @@ public class RacingGame {
             }
             return maxnum;
         }
-        public int checkWinnerNum(){
+        private int checkWinnerNum(){
             int maxnum=findMaxRun();
             int winner=0;
             for(int i=0;i<count;i++){
@@ -74,7 +77,7 @@ public class RacingGame {
             }
             return winner;
         }
-        public void printOneWinner(){
+        private void printOneWinner(){
             System.out.print("최종 우승자 : ");
             int maxnum=findMaxRun();
             for(int i=0;i<count;i++){
@@ -84,27 +87,28 @@ public class RacingGame {
                 }
             }
         }
-        public void printOneMoreWinner(){
+        private void printOneMoreWinner(){
             System.out.print("최종 우승자 : ");
             int maxnum=findMaxRun();
+            int check=checkWinnerNum();
             for(int i=0;i<count;i++){
                 if(gameResult[i]==maxnum){
                     System.out.print(carName[i]);
-                    maxnum--;
+                    check--;
                 }
-                if(maxnum>0){
+                if(check>0){
                     System.out.print(", ");
                 }
             }
         }
-        public void printResult(){
+        private void printResult(){
             if(checkWinnerNum()==1){
                 printOneWinner();
             }else{
                 printOneMoreWinner();
             }
         }
-        public void getInputCarName() throws IllegalArgumentException{
+        private void getInputCarName() throws IllegalArgumentException{
             String answer = readLine();
             carName = answer.split(",");
             count = carName.length;
@@ -115,10 +119,13 @@ public class RacingGame {
             }
         }
 
-        public void getInputTryNumber() throws IllegalArgumentException{
+        private void getInputTryNumber() throws IllegalArgumentException{
             try{
                 String number = readLine();
                 tryNumber = Integer.parseInt(number);
+                if(tryNumber<=0){
+                    throw new IllegalArgumentException();
+                }
             }catch(Exception e){
                 throw new IllegalArgumentException();
             }

@@ -30,6 +30,50 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void 이름을_콤마로_구분안할경우(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException("pobi.jav","1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                );
+    }
+    @Test
+    void 우승자가_한명일_경우(){
+        assertRandomNumberInRangeTest(
+                ()->{
+                    run("pobi,woni","8");
+                    assertThat(output()).contains("pobi : -","woni : ","최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
+        );
+    }
+    @Test
+    void 공동_우승자_출력(){
+        assertRandomNumberInRangeTest(
+                ()->{
+                    run("pobi,woni","8");
+                    assertThat(output()).contains("pobi : --","woni : --","최종 우승자 : pobi, woni");
+                },
+                5,6
+        );
+    }
+
+    @Test
+    void 숫자가_아닌_값이_들어올_경우(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException("pobi.jav","n"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 숫자가_음수가_들어온_경우(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException("pobi.jav","-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
     @Override
     public void runMain() {
