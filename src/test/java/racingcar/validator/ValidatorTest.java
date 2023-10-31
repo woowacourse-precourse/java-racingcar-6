@@ -95,7 +95,7 @@ public class ValidatorTest extends NsTest {
 
     @ParameterizedTest
     @ValueSource(ints = {-12, 0})
-    void 시도_횟수_양수_확인_예외_테스트1(int tryNum) {
+    void 시도_횟수_양수_확인_예외_테스트(int tryNum) {
         assertThatThrownBy(() -> validator.checkTryNum(tryNum))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContainingAll("시도 횟수가 옳바르지 않습니다. 양수로 입력해주세요.");
