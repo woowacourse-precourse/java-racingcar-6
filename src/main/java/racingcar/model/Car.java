@@ -1,5 +1,8 @@
 package racingcar.model;
 
+import static racingcar.view.messages.ErrorMessages.ERROR_CAR_NAMES_BLANK;
+import static racingcar.view.messages.ErrorMessages.ERROR_CAR_NAMES_LENGTH;
+
 public class Car {
     private static final int MIN_MOVE_THRESHOLD = 4;
     private static final int INIT_DISTANCE = 0;
@@ -15,6 +18,8 @@ public class Car {
     }
 
     public static Car createCar(String name) {
+        validateCarNameBlank(name);
+        validateCarNameLength(name);
         return new Car(name, INIT_DISTANCE);
     }
 
@@ -30,6 +35,18 @@ public class Car {
 
     public int getDistance() {
         return distance;
+    }
+
+    private static void validateCarNameBlank(String name) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException(ERROR_CAR_NAMES_BLANK.getErrorMessage());
+        }
+    }
+
+    private static void validateCarNameLength(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException(ERROR_CAR_NAMES_LENGTH.getErrorMessage());
+        }
     }
 
     private boolean isMovePossible(int randomNumber) {
