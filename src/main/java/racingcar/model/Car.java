@@ -9,6 +9,10 @@ public class Car {
         this.advanceCount = 0;
     }
 
+    public Integer getAdvanceCount() {
+        return advanceCount;
+    }
+
     public void advance(int randomNumber) {
         if(randomNumber >= 4) {
             this.advanceCount++;
