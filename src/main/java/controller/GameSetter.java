@@ -10,18 +10,19 @@ public class GameSetter {
 
     private int coinValue;
 
-    public GameSetter(CarList carList){
+    public GameSetter(CarList carList) {
         this.carList = carList;
         this.carRegisterer = new CarRegisterer(carList);
 
         this.userView = new UserView();
         this.coinValue = userView.inputCoinValue();
     }
-    public void setGame(){
+
+    public void setGame() {
         carRegisterer.registerCars();
     }
 
-    int getCoin(){
+    int getCoin() {
         return this.coinValue;
     }
 }

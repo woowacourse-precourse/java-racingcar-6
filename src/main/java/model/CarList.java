@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CarList {
     private ArrayList<Car> carList;
 
-    public CarList(){
+    public CarList() {
         this.carList = new ArrayList<Car>();
     }
 
@@ -13,11 +13,11 @@ public class CarList {
         return carList.get(index);
     }
 
-    public int size(){
+    public int size() {
         return carList.size();
     }
 
-    public void addCar(Car car){
+    public void addCar(Car car) {
         carList.add(car);
     }
 

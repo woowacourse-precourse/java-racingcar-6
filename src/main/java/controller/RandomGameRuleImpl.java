@@ -4,10 +4,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 import model.Car;
 import model.CarList;
 
-public class RandomGameRuleImpl implements GameRule{
+public class RandomGameRuleImpl implements GameRule {
     private final CarList carList;
 
-    public RandomGameRuleImpl(CarList carList){
+    public RandomGameRuleImpl(CarList carList) {
         this.carList = carList;
     }
 
