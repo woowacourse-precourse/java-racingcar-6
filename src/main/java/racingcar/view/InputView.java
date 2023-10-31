@@ -16,7 +16,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public static String inputTrialNumber() {
+    public static String getTrialNumber() {
         System.out.println(INPUT_TRIAL_NUMBER_MESSAGE);
         return Console.readLine();
     }
