@@ -8,10 +8,9 @@ public class InputException {
 
     public InputException(){}
 
-    public void carsNameException(){
+    public void carsNameException(){}
 
-    }
-    private boolean isCommaAtProperPosition(String carsName){
-        return(!Pattern.matches(IMPROPER_COMMA_POSITION,carsName));
+    private boolean isCommaAtImproperPosition(String carsName){
+        return(Pattern.matches(IMPROPER_COMMA_POSITION,carsName));
     }
 }
