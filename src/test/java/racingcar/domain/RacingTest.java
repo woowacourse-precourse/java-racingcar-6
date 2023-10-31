@@ -55,4 +55,16 @@ public class RacingTest {
         final Racing racing = new Racing();
         assertThat(racing.getCarList(input)).isInstanceOf(List.class);
     }
+
+    @Test
+    @DisplayName("성공 : 진행회수에 0기입")
+    public void 진행회수에_0기입() {
+        String input = "0";
+
+        final Racing racing = new Racing();
+
+        assertThatThrownBy(() -> racing.getTurn(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("1 이상의 숫자를 입력해주세요.");
+    }
 }
