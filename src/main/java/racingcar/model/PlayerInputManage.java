@@ -1,6 +1,8 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PlayerInputManage {
 
@@ -13,6 +15,7 @@ public class PlayerInputManage {
 
     private static final String Commas = ",";
     private static final String REGEX = "^[a-zA-Z]*$";
+    private static final String REGEX_INTEGER_ONLY = "^[\\d]$";
 
 
     private static ArrayList<String> playerCarNameList;
@@ -40,21 +43,12 @@ public class PlayerInputManage {
         }
     }
 
-    // 중복된 이름 체크
     public static void CheckCarNameDuplication(ArrayList<String> playerCarNameList) {
-        for (int i = 0; i < playerCarNameList.size(); i++) {
-            FindCarNameDuplication(playerCarNameList, i);
+        Set<String> set = new HashSet<>(playerCarNameList);
+        if(set.size() != playerCarNameList.size()) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_CAR_NAME_DUPLICATE);
         }
     }
-
-    private static void FindCarNameDuplication(ArrayList<String> playerCarNameList, int i) {
-        for (int j = i + 1; j < playerCarNameList.size(); j++) {
-            if (playerCarNameList.get(i).equals(playerCarNameList.get(j))) {
-                throw new IllegalArgumentException(ERROR_MESSAGE_CAR_NAME_DUPLICATE);
-            }
-        }
-    }
-    
 
 
     public static void CheckCarName(ArrayList<String> playerCarNameList) {
@@ -65,9 +59,8 @@ public class PlayerInputManage {
         }
     }
 
-    public static void CheckCountInput(String playerTryCountInput){
-
-        if(!playerTryCountInput.matches("^[0-9]*$")) {
+    public static void CheckCountInput(String playerTryCountInput) {
+        if(!playerTryCountInput.matches(REGEX_INTEGER_ONLY)) {
             throw new IllegalArgumentException(ERROR_MESSAGE_TRY_COUNT);
         }
 
