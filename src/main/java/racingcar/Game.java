@@ -4,8 +4,8 @@ import racingcar.view.InputView;
 import racingcar.view.ResultView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
-import java.util.StringTokenizer;
 
 public class Game {
     private static ArrayList<Car> cars;
@@ -43,12 +43,8 @@ public class Game {
     }
 
     public ArrayList<Car> createCars(String input) {
-        ArrayList<Car> cars = new ArrayList<>();
-        StringTokenizer st = new StringTokenizer(input, ",");
-        while (st.hasMoreTokens()){
-            cars.add(new Car(st.nextToken(), 0));
-        }
-        return cars;
+        ArrayList<String> carNames = new ArrayList<>(Arrays.asList(input.split(",")));
+        return InputView.inputCars(carNames);
     }
 
     public void printWinner(){
