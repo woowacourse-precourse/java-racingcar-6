@@ -11,7 +11,7 @@ import java.util.List;
 public class Application {
     static List<Pair<String, Integer>> carInfoList;
     static String carNameBeforeSplit, stringNumberOfMoves;
-    static ArrayList<String> carList;
+    static ArrayList<String> carList, answerList;
     static int[] moveForwardlist;
     static int numberOfMoves, randomNumber;
     static boolean checkMoreThanFour;
@@ -38,25 +38,49 @@ public class Application {
         // 모든 입력이 정상이면 자동차 전진을 시작하기 위해 전진 횟수를 담을 배열 생성
         make_move_forwardlist();
 
-        // 자동차 전진 수행
+        // 자동차 전진 수행 및 1회 마다 현황 출력
+        System.out.println("실행 결과");
         for (int i = 0; i < numberOfMoves; i++) {
             move_cars();
+            print_each_car_move();
         }
 
-        // 승자를 가리기 위해 Hashmap 자료 구조에 자동차 이름과 전진 횟수를 저장
+        // 승자를 가리기 위해 PairList에 자동차 이름과 전진 횟수를 저장
         combine_car_names_with_car_move_times();
 
         // 전진 횟수가 높은 순서부터 정렬하기
         sort_carInfo_by_move_times();
 
+        // 정답 출력하기
+        print_answer();
+    }
+
+    public static void print_answer() {
+        System.out.print("최종 우승자 : ");
+        int cur_max = 0;
         for (Pair<String, Integer> pair : carInfoList) {
-            System.out.println(pair.getKey() + ": " + pair.getValue());
+            if (pair.getValue() >= cur_max) {
+                System.out.print(pair.getKey());
+            } else {
+                return;
+            }
+            cur_max = pair.getValue();
         }
+    }
+
+    public static void print_each_car_move() {
+        for (int i = 0; i < carList.size(); i++) {
+            System.out.print(carList.get(i) + " : ");
+            for (int j = 0; j < moveForwardlist[i]; j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     public static void sort_carInfo_by_move_times() {
         Collections.sort(carInfoList, (a, b) -> b.getValue().compareTo(a.getValue()));
-
     }
 
 
