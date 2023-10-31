@@ -4,8 +4,10 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static constant.ErrorMessage.EMPTY_NAME_CASE_MESSAGE;
 import static constant.ErrorMessage.EXCEED_NAME_CASE_MESSAGE;
 import static constant.ErrorMessage.NOT_NUMBER_INPUT_CASE_MESSAGE;
+import static constant.ErrorMessage.UNCOMPETITIVE_CASE_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,10 +15,9 @@ import java.util.Map.Entry;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import camp.nextstep.edu.missionutils.test.NsTest;
 import racingcar.Application;
 
-class ConverterTest extends NsTest{
+class ConverterTest extends NsTest {
     private Converter converter;
 
     @BeforeEach
@@ -54,6 +55,15 @@ class ConverterTest extends NsTest{
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
                         .hasMessageContaining(EXCEED_NAME_CASE_MESSAGE)
+        );
+    }
+
+    @Test
+    void 입력된_차_개수가_1개_이하일_때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(UNCOMPETITIVE_CASE_MESSAGE)
         );
     }
 
