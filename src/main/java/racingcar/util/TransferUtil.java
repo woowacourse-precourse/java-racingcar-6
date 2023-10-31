@@ -19,9 +19,9 @@ public class TransferUtil {
         return new ArrayList<>(Arrays.asList(targetStringList));
     }
 
-    public List<Car> transferStringToListCar(String carNames) {
-        List<String> carNameList = transferStringToListString(carNames);
-        return carNameList.stream().map(carName -> new Car(carName,CAR_START_POSITION))
-                .collect(Collectors.toList());
-    }
+//    public List<Car> transferStringToListCar(String carNames) {
+//        List<String> carNameList = transferStringToListString(carNames);
+//        return carNameList.stream().map(carName -> new Car(carName,CAR_START_POSITION))
+//                .collect(Collectors.toList());
+//    }
 }
