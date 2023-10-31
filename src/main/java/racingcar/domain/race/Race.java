@@ -1,20 +1,16 @@
 package racingcar.domain.race;
 
-import racingcar.domain.car.Car;
+import racingcar.domain.car.Cars;
 import racingcar.domain.policy.DriveRule;
-import racingcar.application.RandomDriveRule;
-
-import java.util.List;
 
 public class Race {
     private final DriveRule driveRule;
 
-    public Race(RandomDriveRule randomDriveRule) {
-        this.driveRule = randomDriveRule;
+    public Race(DriveRule driveRule) {
+        this.driveRule = driveRule;
     }
 
-    public void run(List<Car> cars) {
-        cars.forEach(car ->
-                car.move(driveRule));
+    public void run(Cars cars) {
+        cars.move(driveRule);
     }
 }
