@@ -12,17 +12,17 @@
 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다.  
 
 ### 구현 계획
-- [ ] n대의 자동차와 시도할 횟수를 입력으로 받기 main#getUserInput
+- [x] n대의 자동차와 시도할 횟수를 입력으로 받기 main#getUserInput
   - n대의 자동차를 처리하기 위해 문자열 파싱
   - n의 범위? 1이상
   - 자동차 이름은 5글자 이하
   - 시도 횟수는 ReadLine으로 읽어서 int형으로 변환
-- [ ] 각 자동차의 전진 결정 Car#move
+- [x] 매개변수로 전진 상태를 받아 자동차 전진 Car#move
   - 자동차마다 0~9사이의 무작위 값 생성후, 전진 결정 Car#isMoveCondition
   - 매번 자동차의 상태를 출력 Car#printStatus
-- [ ] 우승자 결정 Referee#selectWinner
+- [x] 우승자 결정 Referee#selectWinner
   - 다중 우승 고려 - 쉼표(,)로 구분
-- [ ] 입력 예외 처리
+- [x] 입력 예외 처리
   - IllegalArgumentException
   - n은 1이상이 되어야 한다.
   - 쉼표(,)로 구분된 문자열이 하나 이상 들어와야 한다.
