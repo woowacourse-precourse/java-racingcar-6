@@ -1,14 +1,12 @@
 package racingcar.race.totalRound;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.race.move.CarRaceRecord;
 import racingcar.race.move.RoundRecord;
-import racingcar.race.totalRound.TotalRoundContext;
-import racingcar.race.totalRound.TotalRoundRecord;
 
 class TotalRoundContextTest {
 
@@ -26,7 +24,7 @@ class TotalRoundContextTest {
     TotalRoundRecord totalRoundRecord = totalRoundContext.generateTotalRound(eachCarRaceRecords);
 
     // then
-    assertThat(totalRoundRecord.eachRoundRecord().size()).isEqualTo(3);
+    assertThat(totalRoundRecord.eachRoundRecord()).hasSize(3);
     assertThat(totalRoundRecord.eachRoundRecord().get(0)).containsExactly(1,
         1, 1);
     assertThat(totalRoundRecord.eachRoundRecord().get(1)).containsExactly(1,
