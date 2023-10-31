@@ -1,6 +1,7 @@
 package domain;
 
 public class Car {
+	private static final String HYPHEN = "-";
 	private final String name;
 	private int location;
 
@@ -28,6 +29,6 @@ public class Car {
 	}
 
 	public String createHyphenByLocation() {
-		return "-".repeat(this.location);
+		return HYPHEN.repeat(this.location);
 	}
 }
