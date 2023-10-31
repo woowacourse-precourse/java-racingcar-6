@@ -20,6 +20,7 @@ public class RacingGame {
         String[] names = cars.split(",");
         for(String name : names) {
             ExceptionString.exceptionCheckName(name);
+            name = name.trim();
             racingCars.add(new Car(name));
         }
     }
