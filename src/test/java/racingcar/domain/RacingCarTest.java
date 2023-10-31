@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static racingcar.constant.RacingGameConstant.START_POSITION;
 import static racingcar.exception.ErrorMessage.CAR_NAME_LENGTH_OVER_FIVE_EXCEPTION;
 
 import org.junit.jupiter.api.DisplayName;
@@ -71,6 +72,6 @@ public class RacingCarTest {
         racingCar.race(randomNumber);
 
         // then
-        assertThat(racingCar).isEqualTo(new RacingCar("tobi", 0, moveCondition));
+        assertThat(racingCar).isEqualTo(new RacingCar("tobi", START_POSITION, moveCondition));
     }
 }
