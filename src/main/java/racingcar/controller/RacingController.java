@@ -33,7 +33,7 @@ public class RacingController {
     }
 
     private List<String> getCarNames() {
-        ConsoleOutput.displayMessage(ConsoleOutput.CAR_NAME_MESSAGE);
+        ConsoleOutput.displayGetCarNameMessage();
         String input = inputView.getCarNames();
         List<String> carNames = racingService.stringToList(input);
         InputValidator.isLengthGreaterThanFive(carNames);
@@ -41,7 +41,7 @@ public class RacingController {
     }
 
     private int getTries() {
-        ConsoleOutput.displayMessage(ConsoleOutput.TRY_MESSAGE);
+        ConsoleOutput.displayTryMessage();
         int tries = inputView.getTries();
         InputValidator.isGreaterThanZero(tries);
         ConsoleOutput.printNewLine();
@@ -49,7 +49,7 @@ public class RacingController {
     }
 
     private void racingGame(Cars cars, int tries) {
-        ConsoleOutput.displayMessage(ConsoleOutput.ROUND_RESULT_MESSAGE);
+        ConsoleOutput.displayRaceResultMessage();
         IntStream.range(0,tries)
                 .forEach(i -> cars.playGame());
         outputView.printGameResult(cars.getWinner());
