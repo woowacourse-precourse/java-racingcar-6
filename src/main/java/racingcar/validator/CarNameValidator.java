@@ -2,10 +2,8 @@ package racingcar.validator;
 
 import racingcar.config.ValidatorConfig;
 import racingcar.view.CarNameErrorMessage;
-
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class CarNameValidator {

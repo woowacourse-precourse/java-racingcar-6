@@ -18,5 +18,4 @@ public class RandomUtils {
     public int makeRandomNumber() {
         return Randoms.pickNumberInRange(RandomConfig.MIN_VALUE, RandomConfig.MAX_VALUE);
     }
-
 }

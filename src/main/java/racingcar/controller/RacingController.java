@@ -77,6 +77,4 @@ public class RacingController {
         String WINNER_MESSAGE = OutputMessage.printWinnerMessage(winner);
         System.out.println(WINNER_MESSAGE);
     }
-
-
 }

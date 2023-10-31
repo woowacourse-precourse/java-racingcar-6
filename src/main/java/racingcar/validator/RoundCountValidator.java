@@ -24,5 +24,4 @@ public class RoundCountValidator {
             throw new IllegalArgumentException(RoundCountErrorMessage.NOT_POSITIVE_ERROR_MESSAGE);
         }
     }
-
 }

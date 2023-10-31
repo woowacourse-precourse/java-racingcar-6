@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BuilderUtilsTest {
 
-//    private StringBuilder[] builder;
-
     @Test
     void 빌더를_자동차_개수만큼_생성하고_초기_출력문_설정_검사() {
         List<String> carNames = List.of("car1", "car2", "car3");

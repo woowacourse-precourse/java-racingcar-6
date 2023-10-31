@@ -18,5 +18,4 @@ class GameTest {
                 () -> assertEquals(5,roundCount)
         );
     }
-
 }

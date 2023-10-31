@@ -9,7 +9,6 @@ import racingcar.validator.CarNameValidator;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class CarService {
 
     private List<String> carsName = new ArrayList<>();

@@ -7,5 +7,4 @@ public class CarNameErrorMessage {
     public static final String SPECIAL_CHARACTER_ERROR_MESSAGE = "자동차 이름에 특수 문자는 포함될 수 없습니다.";
     public static final String LENGTH_ERROR_MESSAGE = "자동차 이름은 5글자를 이하만 가능합니다.";
 
-
 }

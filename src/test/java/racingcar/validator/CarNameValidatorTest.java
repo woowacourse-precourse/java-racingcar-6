@@ -5,8 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import racingcar.view.CarNameErrorMessage;
-
 import java.util.stream.Stream;
 
 class CarNameValidatorTest {
@@ -15,8 +13,7 @@ class CarNameValidatorTest {
     @ParameterizedTest(name = "{index}:{1}")
     @MethodSource("invalidParameter")
     @DisplayName("자동차 이름 유효성 검사")
-    void 자동차_이름_유효성_검사(String trialName, String testName) {
-//        String[] carNames = trialName.split(",");
+    void 자동차_이름_유효성_검사(String trialName) {
         Assertions.assertThatThrownBy(() -> carNameValidator.validateInputCarName(trialName))
                 .isInstanceOf(IllegalArgumentException.class);
     }

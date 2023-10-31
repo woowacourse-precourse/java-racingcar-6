@@ -10,6 +10,7 @@ public enum CarPosition {
             return true;
         }
     },
+
     STOP {
         public boolean increase(Car car) {
             return false;
