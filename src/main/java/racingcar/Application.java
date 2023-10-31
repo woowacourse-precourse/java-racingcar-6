@@ -23,12 +23,16 @@ class Car {
     private String name;
     private int position=0;
 
+    private static final int FORWARD_CONDITION=4;
+    private static final int MIN_NUMBER=0;
+    private static final int MAX_NUMBER=9;
+
     public Car(String name){
         this.name=name;
     }
 
     public void move(){
-        if(RandomGenerator.pickNumberInRange(0,9)>=4){
+        if(RandomGenerator.pickNumberInRange(MIN_NUMBER,MAX_NUMBER)>=FORWARD_CONDITION){
             position++;
         }
     }
