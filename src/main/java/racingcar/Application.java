@@ -17,11 +17,6 @@ public class Application {
         showResultBoard(cars);
     }
 
-    private static int generateRoundCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
-        String roundCountInput = readLine();
-        return Integer.parseInt(roundCountInput);
-    }
 
     private static List<Car> generateCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -39,10 +34,16 @@ public class Application {
     private static void validateCarNames(String carNamesInput) {
         String[] carNames = carNamesInput.split(",");
         for (String carName : carNames) {
-            if (carName.length()>5){
+            if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
         }
+    }
+
+    private static int generateRoundCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String roundCountInput = readLine();
+        return Integer.parseInt(roundCountInput);
     }
 
     private static void showProcessingBoard(List<Car> cars, int roundCount) {
@@ -80,9 +81,9 @@ public class Application {
     }
 
     private static int getMaxDistance(List<Car> cars) {
-        return  Objects.requireNonNull(cars.stream()
+        return Objects.requireNonNull(cars.stream()
                         .max(Car::compareTo)
                         .orElse(null))
-                        .getDistance();
+                .getDistance();
     }
 }
