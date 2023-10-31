@@ -29,4 +29,19 @@ class CarDTOTest {
         List<Map<String, Integer>> result = progressResult.getResult();
         assertThat(result.size()).isEqualTo(iterateCount);
     }
+
+    @DisplayName("CarDTO.WinnerNames 테스트")
+    @Test
+    void winnerNamesTest() {
+
+        // given
+        List<String> givenNames = List.of("a", "b", "c");
+        CarDTO.WinnerNames winnerNames = new CarDTO.WinnerNames(givenNames);
+
+        // when
+        List<String> getWinnerNames = winnerNames.getNames();
+
+        // then
+        assertThat(getWinnerNames).usingRecursiveComparison().isEqualTo(givenNames);
+    }
 }
