@@ -3,6 +3,7 @@ package racingcar.utils;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -78,6 +79,27 @@ class CarNameValidatorTest {
         String carName = "miro";
         //when //then
         assertThatCode(() -> CarNameValidator.validateCarName(carName))
+            .doesNotThrowAnyException();
+    }
+
+    @Test
+    @DisplayName("동일한 차의 이름이 중복으로 존재할 경우 예외를 발생시킨다.")
+    void throwExceptionDuplicateCarNameExist() {
+        //given
+        List<String> carNames = List.of("miro", "miro1", "miro");
+        //when //then
+        assertThatThrownBy(() -> CarNameValidator.validateDuplicateCarName(carNames))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("같은 자동차 이름이 중복으로 들어올 수 없습니다.");
+    }
+
+    @Test
+    @DisplayName("중복된 차의 이름이 존재하지 않을 경우 예외를 발생시키지 않는다.")
+    void nonThrowExceptionDuplicateCarNameNotExist() {
+        //given
+        List<String> carNames = List.of("miro", "romi", "rimo");
+        //when //then
+        assertThatCode(() -> CarNameValidator.validateDuplicateCarName(carNames))
             .doesNotThrowAnyException();
     }
 }
