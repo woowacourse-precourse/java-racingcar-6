@@ -11,6 +11,7 @@ public class Validator {
     private static final String NAME_DUPLICATE_ERROR_MESSAGE = "중복된 이름이 존재합니다.";
     private static final String TRIAL_NUMBER_RANGE_ERROR_MESSAGE = "입력값은 9이하의 범위만 허용됩니다.";
     private static final String TRIAL_NUMBER_ZERO_ERROR_MESSAGE = "입력값은 0보다 커야 합니다.";
+    private static final String TRIAL_NUMBER_NON_INT_ERROR_MESSAGE = "반복 횟수는 정수만 가능합니다.";
     public void validateCarNames(List<String> input){
         validateNameLength(input);
         validateNameSpace(input);
@@ -54,6 +55,13 @@ public class Validator {
         int trialNum = typeConverter.StringToInt(input);
         if(trialNum == 0){
             throw new IllegalArgumentException(TRIAL_NUMBER_ZERO_ERROR_MESSAGE);
+        }
+    }
+    public void validateNonIntTrialNumber(String input){
+        for(int i = 0 ; i < input.length(); i++){
+            if(!Character.isDigit(input.charAt(i))){
+                throw new IllegalArgumentException(TRIAL_NUMBER_NON_INT_ERROR_MESSAGE);
+            }
         }
     }
 
