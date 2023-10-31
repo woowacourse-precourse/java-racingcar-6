@@ -12,4 +12,11 @@ public class InputUtilsTest {
             InputUtils.validateCarNameInput(null);
         });
     }
+
+    @Test
+    void 차_이름_5자_초과_예외_처리() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputUtils.validateCarNameInput("pobi,wooony");
+        });
+    }
 }
