@@ -1,9 +1,12 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 class CarsTest {
 
@@ -28,5 +31,19 @@ class CarsTest {
             .toList();
 
         assertThat(winnerNames).isEqualTo(List.of("car1", "car3"));
+    }
+
+    @Test
+    public void 게임을_한번_진행하면_move가_한번씩_호출된다() {
+        Car mock1 = mock(Car.class);
+        Car mock2 = mock(Car.class);
+        Car mock3 = mock(Car.class);
+        Cars cars = new Cars(List.of(mock1, mock2, mock3));
+
+        cars.moveAllCars(List.of(1, 2, 3));
+
+        verify(mock1, Mockito.times(1)).move(1);
+        verify(mock2, Mockito.times(1)).move(2);
+        verify(mock3, Mockito.times(1)).move(3);
     }
 }
