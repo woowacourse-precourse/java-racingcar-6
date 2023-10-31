@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class CarTest {
@@ -17,13 +18,11 @@ class CarTest {
     @Nested
     @DisplayName("자동차 움직임 테스트")
     class MoveCarTest {
-        @Test
+        @CsvSource(value = "8,4")
         @DisplayName("[성공 테스트] 8번의 움직임 중 4번만 4이상의 수를 생성하여 자동차 4번 움직임")
-        void moveTest() {
+        void moveTest(int totalMoveOrder, int expectedMoveCount) {
             // given
             Car car = new Car("junGi", new CustomEngine());
-            int totalMoveOrder = 8;
-            int expectedMoveCount = 4;
             // when
             for (int move = 0; move < totalMoveOrder; move++) {
                 car.moveCar();
