@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.model.NCars;
 
 public final class GameController {
@@ -34,10 +35,10 @@ public final class GameController {
     }
 
     private void moveCarsByGivenRoundNumber(final int round) {
-        for (int i = 0; i < round; i++) {
+        IntStream.range(0, round).forEach(i -> {
             nCars.moveCars();
             ioController.showRoundResult(nCars.getSingleRoundResult());
-        }
+        });
     }
 
 }
