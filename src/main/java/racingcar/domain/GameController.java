@@ -5,8 +5,9 @@ import java.util.List;
 
 public class GameController {
     private List<Car> carList = new ArrayList<>();
-    private UserInput userInput = new UserInput();
     private List<String> carNames = new ArrayList<>();
+    private UserInput userInput = new UserInput();
+    private GameResult gameResult = new GameResult();
     private int attemptCount;
 
     public GameController() {
@@ -18,6 +19,7 @@ public class GameController {
         updateName(names);
         System.out.println("시도할 회수는 몇회인가요?");
         String count = userInput.input();
+        System.out.println("실행 결과");
         updatePosition(count);
     }
 
@@ -34,6 +36,7 @@ public class GameController {
         CarMovement carMovement = new CarMovement();
         for (int count = 0; count < attemptCount; count++) {
             carMovement.movement(carList);
+            gameResult.printResult(carList);
         }
     }
 }
