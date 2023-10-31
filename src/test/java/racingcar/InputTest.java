@@ -56,6 +56,14 @@ public class InputTest {
                 .hasMessageContaining("입력이 잘못되었습니다.");
     }
 
+    @Test
+    @DisplayName("자동차 이름 입력 시 공백이 존재하면 IllegalArgumentException 예외 발생 테스트")
+    void validateCarNameForSpace_test() {
+        assertThatThrownBy(() -> getCarNameList_test("pobi, jun,woni "))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("공백이 존재해선 안됩니다.");
+    }
+
     private void command(final String... args) {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
