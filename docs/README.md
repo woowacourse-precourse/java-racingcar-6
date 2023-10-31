@@ -36,7 +36,7 @@
   - [x] 전진일 경우 MoveCount에 1 더해주기 (increaseMoveCount) [Racer]
 
 
-- [ ] 실행 횟수 moveNumber 만큼 반복 (repeatMove) [RaceProgression]
+- [x] 실행 횟수 moveNumber 만큼 반복 (repeatMove) [RaceController]
 
   - [x] 실행 결과 출력 (printMoveResult) [OutputView]
 

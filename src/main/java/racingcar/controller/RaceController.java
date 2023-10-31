@@ -19,7 +19,20 @@ public class RaceController {
         racersNames = RacerManager.seperateRacersName(carNames);
         InputValidator.validateRacersName(racersNames);
         racers = RacerManager.createRacers(racersNames);
+
         OutputView.printInputMoveNumberMessage();
         moveNumber = InputView.readMoveNumber();
+
+        repeatMove(racers, moveNumber);
+    }
+
+    private void repeatMove(List<Racer> racers, int moveNumber) {
+        for (int move = 0; move < moveNumber; move++) {
+            for (Racer racer : racers) {
+                racer = StateMaker.getGoOrStop(racer);
+                racer = RaceReferee.increaseGoMark(racer);
+            }
+            OutputView.printMoveResult(racers);
+        }
     }
 }
