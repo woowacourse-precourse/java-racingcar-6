@@ -23,7 +23,7 @@ class CarTest {
         String longName = "abcdef";
         assertThatThrownBy(() -> createCarByName(longName))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("5자 이하의 이름만 입력해주세요");
+                .hasMessage("5자 이하의 이름만 입력해주세요");
     }
 
     @Test
@@ -31,7 +31,7 @@ class CarTest {
         String emptyName = "";
         assertThatThrownBy(() -> createCarByName(emptyName))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1자 이상의 이름만 입력해주세요");
+                .hasMessage("1자 이상의 이름만 입력해주세요");
     }
 
     @Test
@@ -39,7 +39,7 @@ class CarTest {
         String nameWithNull = null;
         assertThatThrownBy(() -> createCarByName(nameWithNull))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("null은 이름이 될 수 없습니다");
+                .hasMessage("null은 이름이 될 수 없습니다");
     }
 
     @Test

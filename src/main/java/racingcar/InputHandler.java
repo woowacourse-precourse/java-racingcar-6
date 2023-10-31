@@ -12,9 +12,9 @@ public class InputHandler {
     private static final String MESSAGE_TO_INQUIRE_CARS_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String MESSAGE_TO_INQUIRE_ATTEMPTS = "시도할 회수는 몇회인가요?";
 
+    private static final String ERROR_NOT_ENOUGH_NUMBER_OF_NAME = "충분한 수가 아닙니다. 최소 2개 이상 입력해주세요.";
     private static final String ERROR_NOT_INTEGER = "정수를 입력해주세요.";
     private static final String ERROR_LESS_THAN_ONE = "0보다 큰 값을 입력해야합니다.";
-    private static final String ERROR_NOT_ENOUGH_NUMBER_OF_NAME = "충분한 수가 아닙니다. 최소 2개 이상 입력해주세요.";
 
     private static final Pattern INTEGER_PATTERN = Pattern.compile("^-?\\d+$");
     private static final int MINIMUM_NUMBER_OF_NAME = 2;
