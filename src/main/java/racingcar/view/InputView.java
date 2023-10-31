@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 
 public class InputView {
 
-    private static final int MIN_TRY_COUNT = 1;
-
     private InputView() {
     }
 
@@ -23,11 +21,8 @@ public class InputView {
         System.out.println("시도할 회수는 몇회인가요?");
         String tryCountInput = Console.readLine();
         validateBlank(tryCountInput);
-        int tryCount = validateInteger(tryCountInput);
-        validateTryCount(tryCount);
-        return tryCount;
+        return validateInteger(tryCountInput);
     }
-
 
     private static void validateBlank(String input) {
         if (input == null || input.isBlank()) {
@@ -45,12 +40,6 @@ public class InputView {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력해 주세요.");
-        }
-    }
-
-    private static void validateTryCount(int tryCount) {
-        if (tryCount < MIN_TRY_COUNT) {
-            throw new IllegalArgumentException("시도 횟수는 1보다 작으면 안됩니다.");
         }
     }
 }
