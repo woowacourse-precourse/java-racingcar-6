@@ -13,20 +13,29 @@ public class GameService {
 
     SystemOutput systemOutput = new SystemOutput();
 
-    public void playGame() {
-        System.out.println(Constants.CAR_NAME_INPUT_MESSAGE);
-        List<String> carList = userInput.askCarList();
-
-        System.out.println(Constants.ATTEMP_INPUT_MESSAGE);
-        int gameNumber = userInput.askNumberGame();
+    public void run(String input, String gameNum) {
+        List<String> carList = userInput.askCarList(input);
 
         System.out.println(Constants.RESULT_OF_GAME);
         Map<String, Integer> numMoveMap = moveContainer.initMap(carList);
 
-        printMoveGameNumber(gameNumber, carList, numMoveMap);
+        printMoveGameNumber(userInput.askNumberGame(gameNum), carList, numMoveMap);
 
         List<String> winnerList = getWinner(numMoveMap);
         systemOutput.printOverallResult(winnerList);
+//        System.out.println(Constants.CAR_NAME_INPUT_MESSAGE);
+//        List<String> carList = userInput.askCarList();
+//
+//        System.out.println(Constants.ATTEMP_INPUT_MESSAGE);
+//        int gameNumber = userInput.askNumberGame();
+//
+//        System.out.println(Constants.RESULT_OF_GAME);
+//        Map<String, Integer> numMoveMap = moveContainer.initMap(carList);
+//
+//        printMoveGameNumber(gameNumber, carList, numMoveMap);
+//
+//        List<String> winnerList = getWinner(numMoveMap);
+//        systemOutput.printOverallResult(winnerList);
     }
 
     public void printMoveGameNumber(int gameNumber, List<String> carList, Map<String, Integer> numMoveMap){
