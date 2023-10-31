@@ -105,7 +105,7 @@ public class Game {
                 victory.add(currentCar.name);
             }
         }
-        return String.join(",",victory);
+        return String.join(", ",victory);
     }
 
 }
