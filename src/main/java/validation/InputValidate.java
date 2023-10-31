@@ -5,7 +5,10 @@ import java.util.List;
 public class InputValidate {
     private final static int MAX_LENGTH = 5;
     public static void carNames(List<String> names) {
-        names.forEach(InputValidate::validateCarNameLength);
+        names.forEach(name -> {
+            validateCarNameLength(name);
+            validateNoWhiteSpaceInCarName(name);
+        });
         validateNameDuplication(names);
     }
 
@@ -18,6 +21,12 @@ public class InputValidate {
     private static void validateCarNameLength(String name) {
         if(name.isEmpty() || name.length() > MAX_LENGTH) {
             throw new IllegalArgumentException(ErrorMessage.NAME_LENGTH_ERROR.getMessage());
+        }
+    }
+
+    private static void validateNoWhiteSpaceInCarName(String name) {
+        if(name.contains(" ")) {
+            throw new IllegalArgumentException(ErrorMessage.NAME_WHITESPACE_ERROR.getMessage());
         }
     }
 
