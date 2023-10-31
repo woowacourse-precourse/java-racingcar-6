@@ -1,4 +1,4 @@
-package racingcar.model.race;
+package racingcar.model.race.result;
 
 import java.util.List;
 import java.util.stream.Stream;

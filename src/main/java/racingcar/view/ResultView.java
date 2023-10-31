@@ -3,9 +3,9 @@ package racingcar.view;
 import java.util.StringJoiner;
 
 import racingcar.model.car.CarName;
-import racingcar.model.race.CarRaceRecord;
-import racingcar.model.race.CarRaceRecords;
-import racingcar.model.race.RaceResult;
+import racingcar.model.race.result.CarRaceRecord;
+import racingcar.model.race.result.CarRaceRecords;
+import racingcar.model.race.result.RaceResult;
 import racingcar.model.winner.Winners;
 
 public class ResultView {

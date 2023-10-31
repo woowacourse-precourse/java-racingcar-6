@@ -1,4 +1,4 @@
-package racingcar.model.race;
+package racingcar.model.race.result;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class RaceResult {
         return new RaceResult();
     }
 
-    void captureCars(Cars cars) {
+    public void captureCars(Cars cars) {
         result.add(CarRaceRecords.from(cars));
     }
 

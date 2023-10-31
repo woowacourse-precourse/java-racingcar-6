@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import racingcar.model.car.CarName;
-import racingcar.model.race.CarRaceRecord;
-import racingcar.model.race.CarRaceRecords;
-import racingcar.model.race.RaceResult;
+import racingcar.model.race.result.CarRaceRecord;
+import racingcar.model.race.result.CarRaceRecords;
+import racingcar.model.race.result.RaceResult;
 
 public class Winners {
 

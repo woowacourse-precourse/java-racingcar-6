@@ -1,6 +1,6 @@
 package racingcar.model.car;
 
-import static racingcar.model.car.CarStatus.isGo;
+import static racingcar.config.CarMoveRuleConfig.getCurrentCarMoveRule;
 
 public class Car {
 
@@ -8,10 +8,12 @@ public class Car {
 
     private final CarName name;
     private int distance;
+    private final CarMoveRule moveRule;
 
     private Car(final String name) {
         this.name = CarName.from(name);
         this.distance = INITIAL_DISTANCE;
+        this.moveRule = getCurrentCarMoveRule();
     }
 
     public static Car from(final String name) {
@@ -19,7 +21,7 @@ public class Car {
     }
 
     public void goOrStop() {
-        if (isGo()) {
+        if (moveRule.isGo()) {
             distance++;
         }
     }

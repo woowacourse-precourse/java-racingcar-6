@@ -1,6 +1,7 @@
 package racingcar.model.race;
 
 import racingcar.model.car.Cars;
+import racingcar.model.race.result.RaceResult;
 
 public class Race {
 
