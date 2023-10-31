@@ -2,7 +2,7 @@ package racingcar.util;
 
 import java.util.ArrayList;
 
-public class ReturnUtil {
+public class FormatUtil {
     private static final String ONE_MOVE = "-";
 
     public static String statusFormat(int number) {

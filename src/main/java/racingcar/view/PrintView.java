@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.ArrayList;
 import racingcar.constant.Message;
-import racingcar.util.ReturnUtil;
+import racingcar.util.FormatUtil;
 
 public class PrintView {
     public static void inputCarNamesMessage() {
@@ -27,7 +27,7 @@ public class PrintView {
     public static void winnerResultMessage(ArrayList<String> winners) {
         StringBuilder sb = new StringBuilder();
         sb.append(Message.PRINT_WINNER.getMessage());
-        sb.append(ReturnUtil.winnerResultFormat(winners));
+        sb.append(FormatUtil.winnerResultFormat(winners));
         System.out.println(sb);
     }
 }
