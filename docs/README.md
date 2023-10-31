@@ -91,7 +91,6 @@
 - appendCarPosition(StringBuilder result, int position): 자동차의 위치만큼 - 기호를 추가
 - printNewLine(): 각 라운드의 결과를 구분하여 출력
 - printWinners(List<String> winners): 우승자들의 이름을 ,로 구분하여 문자열에 추가
-- appendWinners(StringBuilder result, List<String> winners): 최종 우승자들의 이름을 ,로 구분하여 문자열에 추가
 
 ---
 
