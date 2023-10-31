@@ -11,7 +11,7 @@ public class ParticipatingCarsValidation {
 
     private void validateNotEmpty(List<String> ParticipatingCars) {
         if (ParticipatingCars.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("경주에 참가하는 차량이 없습니다.");
         }
     }
 
