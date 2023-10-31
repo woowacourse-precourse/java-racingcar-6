@@ -18,13 +18,18 @@ public class RaceGame {
     public void start() {
         car = new Car();
         InputService inputService = new InputService();
-        inputController = new InputController(inputService, car);
+        inputController = new InputController(inputService);
 
         outputView.requestCarName();
         receiveCarName();
         outputView.requestNumberOfAttempts();
         receiverNumberOfAttempts();
+        outputView.printStartCarRace();
 
+        for (int i = 0; i < car.getAttemptNumber(); i++) {
+            inputController.doRace(car);
+            outputView.printCar(car);
+        }
     }
 
     public void receiveCarName() {

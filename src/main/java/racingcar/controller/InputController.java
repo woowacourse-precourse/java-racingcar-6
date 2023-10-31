@@ -7,11 +7,9 @@ import racingcar.model.service.InputService;
 
 public class InputController {
     private InputService inputService;
-    private Car car;
 
-    public InputController(InputService inputService, Car car) {
+    public InputController(InputService inputService) {
         this.inputService = inputService;
-        this.car = car;
     }
 
     public Map<String, Integer> receiveCarName() {
@@ -23,5 +21,9 @@ public class InputController {
     public int receiverNumberOfAttempts() {
         String numberOfAttempts = Console.readLine();
         return inputService.validateNumberOfAttempts(numberOfAttempts);
+    }
+
+    public void doRace(Car car) {
+        inputService.doRace(car);
     }
 }

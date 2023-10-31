@@ -14,7 +14,15 @@ public class Car {
     }
 
     public void setAttemptNumber(int numberOfAttempts) {
-        this.attemptNumber = attemptNumber;
+        this.attemptNumber = numberOfAttempts;
+    }
+
+    public Map<String, Integer> getName() {
+        return this.car;
+    }
+
+    public int getAttemptNumber() {
+        return this.attemptNumber;
     }
 }
 
