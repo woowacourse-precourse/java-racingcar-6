@@ -11,7 +11,21 @@ public class Application {
     static int maxPostion = 0;
     
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        startRace();
+    }
+
+    public static void startRace() {
+        inputCarName();
+        int tries = inputTry();
+        System.out.println();
+        System.out.println("실행결과");
+        while(true) {
+            if(tries == 0) break;
+            racing();
+            System.out.println();
+            tries--;
+        }
+        System.out.println("최종 우승자 : " + String.join(", ", checkWinner()));
     }
 
     public static void inputCarName() {
