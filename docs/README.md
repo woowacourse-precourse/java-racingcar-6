@@ -98,6 +98,12 @@ jun : -----
 
 ## RandomNumberGenerator
 - 0 ~ 9 사이의 무작위 값 생성
+- NumberGenerator implement
+
+## NumberGenerator
+- TestCode에서 임의의 값을 생성하기 위해 interface로 분리.
+- RandomNumberGenerator와 TestNumberGenerator에서 각 기능에 맞게 override하여 사용.
+
 
 - - -
 # VIEW
