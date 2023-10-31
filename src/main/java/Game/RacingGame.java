@@ -1,6 +1,8 @@
 package Game;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
+import static Game.Constants.*;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class RacingGame {
@@ -15,9 +17,9 @@ public class RacingGame {
         }
         //input
         private void getInput() throws IllegalArgumentException{
-            System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기분으로 구분)");
+            System.out.println(STARTMESSAGE);
             getInputCarName();
-            System.out.println("시도할 회수는 몇회인가요?");
+            System.out.println(TRYNUMBERMESSAGE);
             getInputTryNumber();
             gameResult = new int[count];
         }
@@ -39,7 +41,7 @@ public class RacingGame {
         }
 
         private void printTotalResult() {
-            System.out.println("실행 결과");
+            System.out.println(RESULTPRINT);
             for (int i = 0; i < tryNumber; i++) {
                 makeRandomResult();
                 printEachResult();
@@ -54,7 +56,7 @@ public class RacingGame {
         }
         private void printDash(int num) {
             for (int i = 0; i < num; i++) {
-                System.out.print("-");
+                System.out.print(DASH);
             }
             System.out.println();
         }
@@ -78,7 +80,7 @@ public class RacingGame {
             return winner;
         }
         private void printOneWinner(){
-            System.out.print("최종 우승자 : ");
+            System.out.print(WINNERRESULT);
             int maxnum=findMaxRun();
             for(int i=0;i<count;i++){
                 if(gameResult[i]==maxnum){
@@ -88,17 +90,18 @@ public class RacingGame {
             }
         }
         private void printOneMoreWinner(){
-            System.out.print("최종 우승자 : ");
+            System.out.print(WINNERRESULT);
             int maxnum=findMaxRun();
-            int check=checkWinnerNum();
+            int winnerNum=checkWinnerNum();
             for(int i=0;i<count;i++){
-                if(gameResult[i]==maxnum){
+                if(gameResult[i]==maxnum&&winnerNum>1) {
                     System.out.print(carName[i]);
-                    check--;
+                    System.out.print(COMMASPACE);
+                    winnerNum--;
+                }else if(gameResult[i]==maxnum){
+                    System.out.print(carName[i]);
                 }
-                if(check>0){
-                    System.out.print(", ");
-                }
+
             }
         }
         private void printResult(){
@@ -110,7 +113,7 @@ public class RacingGame {
         }
         private void getInputCarName() throws IllegalArgumentException{
             String answer = readLine();
-            carName = answer.split(",");
+            carName = answer.split(COMMA);
             count = carName.length;
             for(int i=0;i<count;i++){
                 if(carName[i].length()>5){
