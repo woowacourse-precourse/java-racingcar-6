@@ -1,7 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import car.Car;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -29,6 +32,33 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    public void 빈_자동차_이름_검증() {
+        List<Car> cars = List.of(new Car("Car1"), new Car("Car2"), new Car("Car3"));
+
+        assertThatThrownBy(() -> Application.validateCarName("", cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("유효하지 않은 자동차 이름입니다.");
+    }
+
+    @Test
+    public void 자동차_이름_5자_이상_검증() {
+        List<Car> cars = List.of(new Car("Car1"), new Car("Car2"), new Car("Car3"));
+
+        assertThatThrownBy(() -> Application.validateCarName("InvalidCarName", cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름이 5자 이상입니다.");
+    }
+
+    @Test
+    public void 중복된_자동차_이름_검증() {
+        List<Car> cars = List.of(new Car("Car1"), new Car("Car2"), new Car("Car3"));
+
+        assertThatThrownBy(() -> Application.validateCarName("Car1", cars))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복된 자동차 이름이 존재합니다.");
     }
 
     @Override

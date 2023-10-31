@@ -44,12 +44,12 @@ public class Application {
     }
 
     // 자동차 이름의 유효성 검사 및 중복 확인
-    private static void validateCarName(String carName, List<Car> cars) {
+    public static void validateCarName(String carName, List<Car> cars) {
         if (carName.isEmpty()) {
             throw new IllegalArgumentException("유효하지 않은 자동차 이름입니다.");
         }
         if (carName.length() > 5) {
-            throw new IllegalArgumentException("자동차이름이 5자 이상입니다.");
+            throw new IllegalArgumentException("자동차 이름이 5자 이상입니다.");
         }
         for (Car car : cars) {
             if (car.getName().equals(carName)) {
