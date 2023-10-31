@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.model.MessageEnum;
 import racingcar.service.UserService;
 
 public class InputNumberTest {
@@ -29,6 +30,7 @@ public class InputNumberTest {
 
         assertThatThrownBy(() -> {
             int test = userService.inputTryNumber(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(MessageEnum.INVALID_INPUT_MESSAGE.getMessage());
     }
 }

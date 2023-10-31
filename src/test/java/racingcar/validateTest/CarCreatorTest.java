@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.model.CarCreator;
+import racingcar.model.MessageEnum;
 import racingcar.service.UserService;
 
 public class CarCreatorTest {
@@ -33,7 +34,8 @@ public class CarCreatorTest {
 
         assertThatThrownBy(() -> {
             List<String> test = carCreator.createCarList(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(MessageEnum.MAX_LENGTH_EXCEEDED.getMessage());
 
     }
 
@@ -43,7 +45,8 @@ public class CarCreatorTest {
 
         assertThatThrownBy(() -> {
             List<String> test = carCreator.createCarList(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(MessageEnum.MIN_SIZE_VALIDATE_MESSAGE.getMessage());
     }
 
     @Test
@@ -52,7 +55,8 @@ public class CarCreatorTest {
 
         assertThatThrownBy(() -> {
             List<String> test = carCreator.createCarList(input);
-        }).isInstanceOf(IllegalArgumentException.class);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(MessageEnum.DUPLICATION_VALIDATE_MESSAGE.getMessage());
     }
 
 }
