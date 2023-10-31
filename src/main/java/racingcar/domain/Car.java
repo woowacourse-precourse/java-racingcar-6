@@ -15,10 +15,8 @@ public class Car {
         this.name = trimmedName;
     }
 
-    public void moveForward(int randomNumber) {
-        if (randomNumber >= Constants.MIN_MOVE_THRESHOLD) {
-            increasePosition();
-        }
+    public int compareTo(Car car) {
+        return this.position - car.position;
     }
 
     public String getName() {
@@ -27,6 +25,16 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public boolean isSamePosition(Car car) {
+        return car.position == this.position;
+    }
+
+    public void moveForward(int randomNumber) {
+        if (randomNumber >= Constants.MIN_MOVE_THRESHOLD) {
+            increasePosition();
+        }
     }
 
     private String getTrimmedName(String name) {
