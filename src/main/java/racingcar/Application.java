@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -20,14 +21,30 @@ public class Application {
         int raceCount = inputRaceCount();
 
         System.out.println("실행 결과");
-        for(int i = 0; i < raceCount; i++){
+        for (int i = 0; i < raceCount; i++) {
             race(racer);
             outputCurrentRaceResult(racer);
         }
 
+        outputWinner(racer);
+    }
 
+    private static void outputWinner(Map<String, Integer> racer) {
 
+        Integer max = Collections.max(racer.values());
 
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (String runner : racer.keySet()) {
+            if (racer.get(runner).equals(max)) {
+                stringBuilder.append(runner);
+                stringBuilder.append(", ");
+            }
+        }
+
+        String winner = stringBuilder.substring(0, stringBuilder.length() - 2);
+
+        System.out.println("최종 우승자 : " + winner);
     }
 
     private static void outputCurrentRaceResult(Map<String, Integer> racer) {
@@ -47,7 +64,7 @@ public class Application {
 
             runFlag = runCheck();
 
-            if(runFlag){
+            if (runFlag) {
                 racer.put(runner, racer.get(runner) + 1);
             }
         }
@@ -66,10 +83,9 @@ public class Application {
 
         int count;
 
-        try{
+        try {
             count = Integer.parseInt(input);
-        }
-        catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닌 문자가 섞여있습니다.");
         }
 
@@ -95,11 +111,11 @@ public class Application {
      */
     private static void nameValidetor(String name, Map<String, Integer> racer) {
 
-        if(name.length() >= 5 || name.length() == 0){
+        if (name.length() >= 5 || name.length() == 0) {
             throw new IllegalArgumentException("이름은 5자 이하만 가능, 0자는 불가");
         }
 
-        if(racer.get(name) != null){
+        if (racer.get(name) != null) {
             throw new IllegalArgumentException("중복된 이름이 들어옴");
         }
     }
