@@ -8,7 +8,7 @@ public class Car {
         this.name = name;
     }
 
-    private String name;
+    private final String name;
     private String status = "";
 
     public String getName() {
@@ -19,8 +19,8 @@ public class Car {
         return status;
     }
 
-    public void move(boolean isMoveCondition) {
-        if (isMoveCondition) {
+    public void move(boolean MoveCondition) {
+        if (MoveCondition) {
             status += '-';
         }
         printStatus();
