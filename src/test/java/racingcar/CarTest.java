@@ -9,17 +9,17 @@ public class CarTest {
 
     @Test
     void moveFowrard_자동차_전진() {
-        int pre = car.getMoveIndex();
+        int pre = car.getDistance();
         car.moveFowrard();
 
-        assertThat(car.getMoveIndex()).isEqualTo(pre + 1);
+        assertThat(car.getDistance()).isEqualTo(pre + 1);
     }
 
     @Test
     void stop_자동차_멈춤() {
-        int pre = car.getMoveIndex();
+        int pre = car.getDistance();
         car.stop();
 
-        assertThat(car.getMoveIndex()).isEqualTo(pre);
+        assertThat(car.getDistance()).isEqualTo(pre);
     }
 }
