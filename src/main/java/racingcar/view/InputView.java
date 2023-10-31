@@ -32,8 +32,10 @@ public class InputView {
      */
     public int inputAttempCount() {
         System.out.println(STRING_INPUT_ATTEMPCOUNT);
-        int input = Integer.parseInt(Console.readLine());
-        return input;
+        String input = Console.readLine();
+        inputAttempCountException(input);
+        int inputInt = Integer.parseInt(input);
+        return inputInt;
     }
 
 
@@ -64,5 +66,11 @@ public class InputView {
             return input + ",";
         }
         return input;
+    }
+
+    public void inputAttempCountException(String attempCount) {
+        if (!attempCount.matches("\\d+")) {
+            throw new IllegalArgumentException("올바른 시도횟수를 입력해주세요");
+        }
     }
 }
