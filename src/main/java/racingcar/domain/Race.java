@@ -24,20 +24,16 @@ public class Race {
     }
 
     private List<Car> findWinnerCars() {
-        Car carWithMaxDistance = getCarWithMaxDistance();
         return cars.stream()
-                .filter(car -> car.isCarWithMaxDistance(carWithMaxDistance))
-                .collect(Collectors.toList());
+                .filter(car -> car.isEqualOrGreaterThan(getMaxDistance()))
+                .toList();
     }
 
-    private Car getCarWithMaxDistance() {
-        Car maxDistanceCar = cars.get(0);
-        for (Car car : cars) {
-            if (car.isEqualOrGreaterThan(maxDistanceCar)) {
-                maxDistanceCar = car;
-            }
-        }
-        return maxDistanceCar;
+    private int getMaxDistance() {
+        return cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     public String getStatusString() {
