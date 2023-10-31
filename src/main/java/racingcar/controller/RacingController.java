@@ -13,10 +13,19 @@ import racingcar.view.OutputView;
 public class RacingController {
     public void run() {
         Cars cars = setUpGame();
+        RepeatCount repeatCount = startGame();
+        Judgment judgment = new Judgment(cars, new RandomNumberGenerator());
+
+        OutputView.printRacingResult();
     }
 
     private Cars setUpGame() {
         String names = InputView.inputCarNames();
         return new Cars(names);
+    }
+
+    private RepeatCount startGame() {
+        int repeatCount = InputView.inputRepeatCount();
+        return new RepeatCount(repeatCount);
     }
 }
