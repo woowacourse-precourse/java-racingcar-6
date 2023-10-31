@@ -13,7 +13,7 @@ public class RacingControllerTest extends NsTest {
     RacingController racingController = new RacingController();
 
     @Test
-    void 전진_정지() {
+    void 컨트롤러_게임_진행_테스트() {
         assertRandomNumberInRangeTest(() -> {
             run("pobi,woni,jiny", "2");
             assertThat(output()).contains("pobi : -", "woni : ", "jiny : -", "pobi : --", "woni : ",
