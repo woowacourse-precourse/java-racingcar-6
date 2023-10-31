@@ -13,6 +13,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameControllerTest {
+    private final static int TOTAL_ROUND_COUNT = 5;
     private final static InputView INPUT_VIEW = new InputView();
 
     @Test
@@ -35,6 +36,34 @@ class GameControllerTest {
                                 tuple("lee", 0),
                                 tuple("cho", 0)
                         )
+        );
+    }
+
+    @Test
+    @DisplayName("전체 라운드 수만큼 라운드의 결과들을 확인")
+    public void 게임_플레이_결과_확인_테스트() {
+        // given
+        GameController mockedGameController = new GameController(INPUT_VIEW) {
+            List<Car> cars = Arrays.asList(new Car("kim"), new Car("lee"));
+            int totalRoundCount = TOTAL_ROUND_COUNT;
+
+            @Override
+            public void setupGame() {
+                setCars(cars);
+                setTotalRoundCount(totalRoundCount);
+            }
+        };
+
+        // when
+        mockedGameController.setupGame();
+        List<List<CarDTO>> EachRoundResult = mockedGameController.play();
+
+        // then
+        assertAll(
+                () -> assertThat(EachRoundResult).size().isEqualTo(TOTAL_ROUND_COUNT),
+                () -> assertThat(EachRoundResult.stream().findFirst().get())
+                        .extracting("name")
+                        .containsExactly("kim", "lee")
         );
     }
 }
