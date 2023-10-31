@@ -7,16 +7,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingCarService {
-    private final CarsFactory carsFactory;
-
-    public RacingCarService() {
-        carsFactory = new CarsFactory();
-    }
-
     public Cars createCars(String[] strArr) {
-        return carsFactory.createCars(strArr);
+        return new Cars(strArr);
     }
-
 
     public void moveCars(Cars cars) {
         cars.getCars()
