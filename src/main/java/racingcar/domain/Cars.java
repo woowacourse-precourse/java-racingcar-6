@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,7 +35,7 @@ public class Cars {
     private List<Winner> getWinnersByCheckDistance(int furthestDistance) {
         return cars.stream()
                 .filter(car -> car.isFurthestDistance(furthestDistance))
-                .map(car -> car.recognizeAsWinner())
+                .map(Car::recognizeAsWinner)
                 .collect(Collectors.toList());
     }
 
