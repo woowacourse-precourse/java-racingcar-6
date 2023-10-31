@@ -20,10 +20,6 @@ public class Cars {
         }
     }
 
-    private int getMaxScore() {
-        return racingCars.stream().mapToInt(Car::getCarPosition).max().orElseThrow(NoSuchElementException::new);
-    }
-
     public List<String> getWinners() {
         List<String> winnerNames = new ArrayList<>();
         for (Car car : racingCars) {
@@ -32,5 +28,9 @@ public class Cars {
             }
         }
         return winnerNames;
+    }
+
+    private int getMaxScore() {
+        return racingCars.stream().mapToInt(Car::getCarPosition).max().orElseThrow(NoSuchElementException::new);
     }
 }
