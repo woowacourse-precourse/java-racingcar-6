@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.PrintMessage.LOCATION_SIGN;
+import static racingcar.PrintMessage.RESULT_OF_RACING_CAR_FORMAT;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingCar {
@@ -29,4 +32,10 @@ public class RacingCar {
     private Integer createRandomNumber() {
         return Randoms.pickNumberInRange(PICK_NUMBER_START_RANGE, PICK_NUMBER_END_RANGE);
     }
+
+    @Override
+    public String toString() {
+        return String.format(RESULT_OF_RACING_CAR_FORMAT, name, LOCATION_SIGN.repeat(location));
+    }
+
 }
