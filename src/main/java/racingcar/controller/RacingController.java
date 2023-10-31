@@ -74,7 +74,7 @@ public class RacingController {
         int random = randomNumber.createRandomNumber();
 
         if (computer.judgeCarMovement(random)) {
-            car.move(carList.get(name));
+            car.move(carList, name);
         }
     }
 
