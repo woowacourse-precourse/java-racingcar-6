@@ -3,6 +3,8 @@ package racingcar.validation;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -15,18 +17,12 @@ class InputValidationTest {
         inputValidation = new InputValidation();
     }
 
-    @Test
-    public void 공백일경우() {
-        //given (주어진 값)
-        String input = " ";
-        String notInput = "";
-
+    @ParameterizedTest
+    @ValueSource(strings = {"", " "})
+    public void 공백일경우(String input) {
         //then (기능 작동 후 결과)
         assertThrows(IllegalArgumentException.class, () ->
                 inputValidation.checkedInputValidation(input));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputValidation(notInput));
     }
 
     @Test
@@ -39,51 +35,28 @@ class InputValidationTest {
                 inputValidation.checkedInputValidation(oneName));
     }
 
-    @Test
-    public void 콤마_시작() {
-        //given (주어진 값)
-        String oneName = ",";
-        String twoName = " ,";
-
+    @ParameterizedTest
+    @ValueSource(strings = {",", " ,"})
+    public void 콤마_시작(String input) {
         //then (기능 작동 후 결과)
         assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputValidation(oneName));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputValidation(twoName));
-
+                inputValidation.checkedInputValidation(input));
     }
 
-    @Test
-    public void 중복발생() throws Exception{
-        //given (주어진 값)
-        String duplicateNamesOne = "aa,bb,aa";
-        String duplicateNamesTwo = "aa,bb,bb,bb";
-
+    @ParameterizedTest
+    @ValueSource(strings = {"aa,bb,aa", "aa,bb,bb,bb"})
+    public void 중복발생(String input) {
         //then (기능 작동 후 결과)
         assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputValidation(duplicateNamesOne));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputValidation(duplicateNamesTwo));
+                inputValidation.checkedInputValidation(input));
     }
 
-    @Test
-    public void 이름_5글자_초과() {
-        //given (주어진 값)
-        String oneName = "aaaaaa";
-        String twoNames = "aa, abcde";
-        String threeNames = "hi, hello world, good";
-
+    @ParameterizedTest
+    @ValueSource(strings = {"aaaaaa", "aa, abcde", "hi, hello world, good"})
+    public void 이름_5글자_초과(String input) {
         //then (기능 작동 후 결과)
         assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputValidation(oneName));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputValidation(twoNames));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputValidation(threeNames));
+                inputValidation.checkedInputValidation(input));
     }
 
     @Test
@@ -119,7 +92,7 @@ class InputValidationTest {
     }
 
     @Test
-    public void 조건에_맞는_자동차_이름() throws Exception{
+    public void 조건에_맞는_자동차_이름() throws Exception {
         //given (주어진 값)
         String names = "a,aa,aaa,aaaa,aaaaa,b,bb,bbb,bbbb,ccccc";
 
@@ -131,75 +104,40 @@ class InputValidationTest {
         Assertions.assertThat(carNames[4]).isEqualTo("aaaaa");
     }
 
-    @Test
-    public void 이동횟수가_없다면() throws Exception {
-        //given (주어진 값)
-        String attemptOne = "";
-        String attemptTwo = " ";
-        String attemptThree = "  ";
-
+    @ParameterizedTest
+    @ValueSource(strings = {"", " ", "  "})
+    public void 이동횟수가_없다면(String input) {
         //then (기능 작동 후 결과)
         assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputNumberValidation(attemptOne));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputNumberValidation(attemptTwo));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputNumberValidation(attemptThree));
+                inputValidation.checkedInputNumberValidation(input));
     }
 
-    @Test
-    public void 이동횟수가_문자라면() throws Exception {
-        //given (주어진 값)
-        String attemptOne = "a";
-        String attemptTwo = "1a";
-        String attemptThree = "g2";
-
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "1a", "g2"})
+    public void 이동횟수가_문자라면(String input) {
         //then (기능 작동 후 결과)
         assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputNumberValidation(attemptOne));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputNumberValidation(attemptTwo));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputNumberValidation(attemptThree));
+                inputValidation.checkedInputNumberValidation(input));
     }
 
-    @Test
-    public void 이동횟수가_마이너스라면() throws Exception {
-        //given (주어진 값)
-        String attemptOne = "-1";
-        String attemptTwo = "-12";
-        String attemptThree = "-1249";
-
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "-1", "-12", "-123"})
+    public void 이동횟수가_0이하(String input) {
         //then (기능 작동 후 결과)
         assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputNumberValidation(attemptOne));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputNumberValidation(attemptTwo));
-
-        assertThrows(IllegalArgumentException.class, () ->
-                inputValidation.checkedInputNumberValidation(attemptThree));
+                inputValidation.checkedInputNumberValidation(input));
     }
 
-    @Test
-    public void 이동횟수_구하기() throws Exception {
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "15", "94", "97", "102"})
+    public void 이동횟수_구하기(String input) {
         //given (주어진 값)
-        String attemptOne = "1";
-        String attemptTwo = "15";
-        String attemptThree = "145";
+        int changeInput = Integer.parseInt(input);
 
         //when (기능 작동)
-        int one = inputValidation.checkedInputNumberValidation(attemptOne);
-        int two = inputValidation.checkedInputNumberValidation(attemptTwo);
-        int three = inputValidation.checkedInputNumberValidation(attemptThree);
+        int attemptNumber = inputValidation.checkedInputNumberValidation(input);
 
         //then (기능 작동 후 결과)
-        Assertions.assertThat(one).isEqualTo(1);
-        Assertions.assertThat(two).isEqualTo(15);
-        Assertions.assertThat(three).isEqualTo(145);
+        Assertions.assertThat(attemptNumber).isEqualTo(changeInput);
     }
 }
