@@ -18,9 +18,25 @@ public class GameManageService {
         cars.forEach(carService::saveCar);
     }
 
+
     public void race() {
         List<Car> cars = carService.findCars();
         cars.forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
+    }
+
+    public List<String> getWinner() {
+        int maxPosition = carService.getMaxPosition();
+
+        return carService.findCars().stream()
+                .filter(car -> car.isSamePosition(maxPosition))
+                .map(Car::toDTO)
+                .map(CarDTO::getCarName)
+                .collect(Collectors.toList());
+    }
+
+    public String winnerToString() {
+        List<String> winner = getWinner();
+        return String.join(",", winner);
     }
 
     public static List<Car> convertToCarList(String cars) {

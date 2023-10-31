@@ -23,6 +23,9 @@ public class GameManageController {
 
         OutputView.executionResultMessage();
         repeatRace(cars, repeatCount);
+
+        String result = gameManageService.winnerToString();
+        OutputView.winner(result);
     }
 
     private List<Car> inputCar() {
