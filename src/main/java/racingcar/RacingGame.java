@@ -12,26 +12,28 @@ public class RacingGame {
         int attemptCount = ioHandler.inputAttemptCount();
 
         List<Car> cars = Car.createCars(carNames);
-        List<String> winners = getWinners(cars, attemptCount);
+        attemptForwardByCount(cars, attemptCount);
 
+        List<String> winners = getWinners(cars);
         // TODO: ioHandler.printWinners(winners);
     }
 
-    private List<String> getWinners(List<Car> cars, int attemptCount) {
+    private void attemptForwardByCount(List<Car> cars, int attemptCount) {
         for (int i = 0; i < attemptCount; i++) {
-            // TODO: attemptForward(cars);
+            cars.forEach(Car::attemptForward);
         }
+    }
 
-        int maxForwardCount = cars.stream()
+    private List<String> getWinners(List<Car> cars) {
+        int maxCount = cars.stream()
                 .max(Comparator.comparingInt(Car::getForwardCount))
                 .map(Car::getForwardCount)
                 .orElse(0);
 
         return cars.stream()
-                .filter(car -> car.getForwardCount() == maxForwardCount)
+                .filter(car -> car.getForwardCount() == maxCount)
                 .map(Car::getName)
                 .toList();
     }
-
 
 }
