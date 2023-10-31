@@ -6,7 +6,7 @@ import static racingcar.constant.ConstantNumber.*;
 
 import java.util.HashMap;
 
-public class CheckMoveStop {
+public class Checker {
     public void checkMoveStop(HashMap<String, Integer> carName) {
         for (String car : carName.keySet()) {
             int randomNum = Randoms.pickNumberInRange(RANDOM_START_RANGE, RANDOM_END_RANGE);

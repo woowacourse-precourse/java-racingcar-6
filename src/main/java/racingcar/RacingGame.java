@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.constant.ConstantNumber;
-import racingcar.domain.CheckMoveStop;
+import racingcar.domain.Checker;
 import racingcar.input.InputUtil;
 
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class RacingGame {
     private static HashMap<String, Integer> carName;
     private static final InputUtil inputUtil = new InputUtil();
-    private static final CheckMoveStop checker = new CheckMoveStop();
+    private static final Checker checker = new Checker();
     private static long movement;
     private static long foundMax;
 
