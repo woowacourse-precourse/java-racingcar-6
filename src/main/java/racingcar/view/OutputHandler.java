@@ -1,27 +1,25 @@
 package racingcar.view;
 
 import java.util.List;
-
 import racingcar.model.Car;
 
 public class OutputHandler {
+
     public static void printRaceState(List<Car> cars) {
-        for (Car car : cars) {
-            printSingleCarState(car);
-        }
+        cars.forEach(car -> System.out.println(generateSingleCarState(car)));
         System.out.println();
     }
 
-    private static void printSingleCarState(Car car) {
-        System.out.print(car.getName() + " : ");
+    private static String generateSingleCarState(Car car) {
+        StringBuilder state = new StringBuilder(car.getName()).append(" : ");
         for (int i = 0; i < car.getPosition(); i++) {
-            System.out.print("-");
+            state.append("-");
         }
-        System.out.println();
+        return state.toString();
     }
 
     public static void printWinners(List<Car> winners) {
-        System.out.print("최종 우승자 : ");
-        System.out.println(String.join(", ", winners.stream().map(Car::getName).toArray(String[]::new)));
+        String winnerNames = String.join(", ", winners.stream().map(Car::getName).toArray(String[]::new));
+        System.out.println("최종 우승자 : " + winnerNames);
     }
 }
