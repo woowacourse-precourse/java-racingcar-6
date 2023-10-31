@@ -1,9 +1,9 @@
 package racingcar;
 
+import racingcar.game.car.CarFactory;
 import racingcar.game.director.Director;
 import racingcar.game.director.Rule;
 import racingcar.game.director.Simulator;
-import racingcar.game.car.CarFactory;
 import racingcar.game.inputgenerateManager.InputGenerateManager;
 import racingcar.game.inputgenerateManager.InputGenerateManagerImpl;
 import racingcar.game.outputgeneratemanager.OutputGenerateManager;

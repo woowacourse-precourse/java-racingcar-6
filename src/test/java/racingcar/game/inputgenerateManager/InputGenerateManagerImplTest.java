@@ -5,8 +5,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import racingcar.game.enums.InputSize;
-import racingcar.game.exception.IllegalBlankException;
-import racingcar.game.exception.IllegalLengthException;
 
 class InputGenerateManagerImplTest {
 
@@ -14,7 +12,7 @@ class InputGenerateManagerImplTest {
     private final static String STRING_NUMBER = "999";
     private final static int PURE_NUMBER = 999;
     private final static String STRING_NAME = "한놈,두식이,석삼";
-    private final static String[] NAME_LIST = {"한놈","두식이","석삼"};
+    private final static String[] NAME_LIST = {"한놈", "두식이", "석삼"};
 
     @RepeatedTest(10)
     void 난수_범위() {

@@ -18,7 +18,7 @@ class RoundTest {
     private Car mockCarD;
 
     @BeforeEach
-    public void setCars(){
+    public void setCars() {
         mockCarA = Mockito.mock(Car.class);
         mockCarB = Mockito.mock(Car.class);
         mockCarC = Mockito.mock(Car.class);

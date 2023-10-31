@@ -2,7 +2,6 @@ package racingcar.game.car;
 
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.game.car.Car;
 import racingcar.game.car.engin.CarEngineV1;
 import racingcar.game.inputgenerateManager.InputGenerateManager;
 

@@ -48,7 +48,7 @@ class DirectorTest {
         //given
         String carNames = "car1,car2,car3";
         String repeatCount = "5";
-        List<String> carNameList = Arrays.asList("car1","car2","car3");
+        List<String> carNameList = Arrays.asList("car1", "car2", "car3");
         List<Car> cars = carFactory.createCars(carNameList);
 
         Round mockRound = Mockito.mock(Round.class);
@@ -57,7 +57,8 @@ class DirectorTest {
         Mockito.when(inputGenerateManager.generateInputStringSplitWithComma(carNames)).thenReturn(carNameList);
         Mockito.when(inputGenerateManager.generateInputStringToInt(repeatCount)).thenReturn(5);
 
-        ByteArrayInputStream in = new ByteArrayInputStream((carNames + System.lineSeparator() + repeatCount).getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream(
+                (carNames + System.lineSeparator() + repeatCount).getBytes());
         System.setIn(in);
 
         //when
@@ -66,7 +67,7 @@ class DirectorTest {
         //then
         Mockito.verify(outputGenerateManager).printCarNameAnnounce();
         Mockito.verify(outputGenerateManager).printRepeatCountAnnounce();
-        Mockito.verify(outputGenerateManager,Mockito.times(5)).printResultList(Mockito.any(Round.class));
+        Mockito.verify(outputGenerateManager, Mockito.times(5)).printResultList(Mockito.any(Round.class));
         Mockito.verify(outputGenerateManager).printWinnerAnnounce();
         Mockito.verify(outputGenerateManager).printWinners(cars);
 

@@ -18,7 +18,7 @@ class SimulatorTest {
     private final Simulator simulator = new Simulator();
 
     @BeforeEach
-    public void setCars(){
+    public void setCars() {
         mockCarA = Mockito.mock(Car.class);
         mockCarB = Mockito.mock(Car.class);
         mockCarC = Mockito.mock(Car.class);

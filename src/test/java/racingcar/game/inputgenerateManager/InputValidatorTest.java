@@ -15,7 +15,7 @@ class InputValidatorTest {
     private final static String ONLY_BLANK = " ";
     private final static String[] NAME_LIST_CONTAIN_OVER_LENGTH = {"한놈", "두식이", "다섯글자이상"};
     private final static String[] NAME_LIST_CONTAIN_SPACE = {"한놈", "두식이", " "};
-    private final static String[] NAME_LIST_CONTAIN_DUPLICATE_NAME = {"한놈","두식이","한놈"};
+    private final static String[] NAME_LIST_CONTAIN_DUPLICATE_NAME = {"한놈", "두식이", "한놈"};
 
     @Test
     void 숫자검증() {

@@ -20,7 +20,6 @@ import racingcar.game.exception.IllegalLengthException;
 import racingcar.game.exception.IllegalRangeException;
 import racingcar.game.exception.IllegalTypeException;
 import racingcar.game.inputgenerateManager.InputGenerateManager;
-import racingcar.game.outputgeneratemanager.OutputGenerateManager;
 
 class RacingGameTest extends NsTest {
 

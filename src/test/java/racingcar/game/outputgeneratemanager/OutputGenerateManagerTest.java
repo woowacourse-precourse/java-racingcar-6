@@ -35,7 +35,7 @@ class OutputGenerateManagerTest {
     }
 
     @Test
-    void 우승자_확인(){
+    void 우승자_확인() {
         //given
         InputGenerateManagerImpl mockInputGenerateManager = Mockito.mock(InputGenerateManagerImpl.class);
         CarFactory carFactory = new CarFactory(mockInputGenerateManager);

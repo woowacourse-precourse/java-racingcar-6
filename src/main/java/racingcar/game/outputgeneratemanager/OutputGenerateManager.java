@@ -2,9 +2,9 @@ package racingcar.game.outputgeneratemanager;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.game.car.Car;
 import racingcar.game.director.Round;
 import racingcar.game.director.Rule;
-import racingcar.game.car.Car;
 
 public class OutputGenerateManager {
 

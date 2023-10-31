@@ -17,7 +17,7 @@ class RuleTest {
     private List<Car> carList;
 
     @BeforeEach
-    public void setCars(){
+    public void setCars() {
         Car mockCarA = Mockito.mock(Car.class);
         Car mockCarB = Mockito.mock(Car.class);
         Car mockCarC = Mockito.mock(Car.class);
