@@ -7,6 +7,7 @@ import racingcar.Constant;
 public class CarValidator {
 
     public static void carValidation(String[] carNames) {
+        emptyName(carNames);
         validateName(carNames);
         duplicateName(carNames);
     }
@@ -25,6 +26,14 @@ public class CarValidator {
         for (String carName : carNames) {
             if (!cars.add(carName)) {
                 throw new IllegalArgumentException(Constant.NAME_DUPLICATE_ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private static void emptyName(String[] carNames) {
+        for (String carName : carNames) {
+            if (carName.equals(Constant.EMPTY_NAME)) {
+                throw new IllegalArgumentException(Constant.NAME_EMPTY_ERROR_MESSAGE);
             }
         }
     }
