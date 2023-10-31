@@ -1,11 +1,13 @@
 package racingcar.model;
 
-import racingcar.validator.RoundNumberValidation;
+import racingcar.util.Utils;
+import racingcar.validator.RoundNumberValidator;
 
 public class RoundNumber {
     int roundNumber;
 
     public RoundNumber(String roundNumber) {
-        RoundNumberValidation validator = new RoundNumberValidation(roundNumber);
+        new RoundNumberValidator(roundNumber);
+        this.roundNumber = Utils.toInt(roundNumber);
     }
 }

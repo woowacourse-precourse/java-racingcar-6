@@ -2,10 +2,10 @@ package racingcar.validator;
 
 import racingcar.model.RoundNumber;
 
-public class RoundNumberValidation {
+public class RoundNumberValidator {
     private String roundNumber;
 
-    public RoundNumberValidation(String roundNumber) {
+    public RoundNumberValidator(String roundNumber) {
         this.roundNumber = roundNumber;
         validate();
     }

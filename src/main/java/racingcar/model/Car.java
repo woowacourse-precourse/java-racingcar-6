@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.util.Utils;
+
 public class Car {
     private String name;
     private int distance;
@@ -7,5 +9,10 @@ public class Car {
     public Car(String name) {
         this.name = name;
         this.distance = 0;
+    }
+
+    public void printRoundResult() {
+        String totalDistance = Utils.convertDistanceToSymbol(distance);
+        System.out.println(name + " : " + totalDistance);
     }
 }

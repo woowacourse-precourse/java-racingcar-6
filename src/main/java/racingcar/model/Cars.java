@@ -12,4 +12,8 @@ public class Cars {
         CarNameValidator validator = new CarNameValidator(carNames);
         validator.carNameList.stream().forEach(name -> cars.add(new Car(name)));
     }
+
+    public void raceOneRound(List<Car> cars) {
+        cars.stream().forEach(car -> car.printRoundResult());
+    }
 }

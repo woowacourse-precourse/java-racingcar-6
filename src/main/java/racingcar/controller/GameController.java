@@ -16,4 +16,8 @@ public class GameController {
         racingCars = new Cars(InputView.requestRacingCarNames());
         roundNumber = new RoundNumber(InputView.requestRepetitionNumber());
     }
+
+    public void startGame() {
+
+    }
 }
