@@ -12,12 +12,13 @@ public class Judgment {
         this.numberGenerator = numberGenerator;
     }
 
-    public List<Car> judge() {
+    public Cars judge() {
         cars.move(numberGenerator);
-        return cars.getCars();
+        return cars;
     }
 
-    public List<Name> award() {
-        return cars.findWinnerNames();
+    public WinnerNames award() {
+        List<Car> winners = cars.findWinners();
+        return new WinnerNames(winners);
     }
 }
