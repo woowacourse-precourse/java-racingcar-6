@@ -11,6 +11,12 @@ public class Validator {
         }
     }
 
+    public static void validateNameEndsWithComma(String str) {
+        if(str.endsWith(",")) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     public static void validateType(String input) {
         try {
             Integer.parseInt(input);
