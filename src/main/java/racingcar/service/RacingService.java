@@ -4,25 +4,18 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.model.InputCarNameSplitter;
-import racingcar.validator.AttemptCountValidator;
-import racingcar.validator.IndividualCarNameValidator;
-import racingcar.validator.InputCarNameValidator;
+import racingcar.validator.Validator;
 
 public class RacingService {
-
-    // TODO : DI 필요
     public List<String> carValidate(String carNamesInput) {
-        InputCarNameValidator inputCarNameValidator = new InputCarNameValidator();
         InputCarNameSplitter splitter = new InputCarNameSplitter();
-        IndividualCarNameValidator individualCarNameValidator = new IndividualCarNameValidator();
-
-        String validatedCarNameInput = inputCarNameValidator.validate(carNamesInput);
+        String validatedCarNameInput = Validator.forInputCarName().validate(carNamesInput);
         List<String> carNames = splitter.splitInputCarNames(validatedCarNameInput);
-        return individualCarNameValidator.validate(carNames);
+
+        return Validator.forIndividualCarName().validate(carNames);
     }
     public int attemptCountValidate(int countInput) {
-        AttemptCountValidator countValidator = new AttemptCountValidator();
-        return countValidator.validate(countInput);
+        return Validator.forAttemptCount().validate(countInput);
     }
 
     public LinkedHashSet<Car> createCars(List<String> validatedCarNames) {
