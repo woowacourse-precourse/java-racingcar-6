@@ -1,14 +1,15 @@
 package racingcar.service;
 
+import static racingcar.constant.Constants.END_RANDOM_NUMBER;
+import static racingcar.constant.Constants.FORWARD_CRITERIA;
+import static racingcar.constant.Constants.START_RANDOM_NUMBER;
+
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.util.RandomNumber;
 
 public class RoundService {
-    private static final int START_RANDOM_NUMBER = 0;
-    private static final int END_RANDOM_NUMBER = 9;
 
-    private static final int FORWARD_CRITERIA = 4;
     private final RandomNumber randomNumber;
 
     public RoundService(RandomNumber randomNumber) {

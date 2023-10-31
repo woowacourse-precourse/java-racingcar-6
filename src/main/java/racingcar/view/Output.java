@@ -1,18 +1,17 @@
 package racingcar.view;
 
+import static racingcar.constant.Constants.NAME_INPUT_MESSAGE;
+import static racingcar.constant.Constants.ROUND_NUMBER_INPUT_MESSAGE;
+import static racingcar.constant.Constants.SCORE;
+import static racingcar.constant.Constants.SEPARATE_NAME_TO_SCORE;
+import static racingcar.constant.Constants.START_ROUND_MESSAGE;
+import static racingcar.constant.Constants.WINNER_MESSAGE_START;
+import static racingcar.constant.Constants.WINNER_SEPARATOR;
+
 import java.util.List;
 import racingcar.domain.Car;
 
 public class Output {
-
-    public static final String NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    public static final String ROUND_NUMBER_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
-    public static final String START_ROUND_MESSAGE = "\n실행 결과";
-    public static final String SEPARATE_NAME_TO_SCORE = " : ";
-    public static final String SCORE = "-";
-    public static final String WINNER_MESSAGE_START = "최종 우승자 : ";
-    public static final String WINNER_SEPARATER = ", ";
-
 
     public void printRoundResult(List<Car> cars) {
         cars.forEach(car -> {
@@ -30,7 +29,7 @@ public class Output {
     public void printGameResult(List<Car> winnerList) {
         List<String> winnerNames = winnerList.stream().map(Car::getCarName).toList();
         System.out.print(WINNER_MESSAGE_START);
-        System.out.println(String.join(WINNER_SEPARATER, winnerNames));
+        System.out.println(String.join(WINNER_SEPARATOR, winnerNames));
     }
 
     public void printCarNamesInputMessage() {

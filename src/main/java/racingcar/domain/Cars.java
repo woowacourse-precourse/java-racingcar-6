@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.constant.Constants.EXCEPTION_SAME_NAME;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -23,7 +26,7 @@ public class Cars {
         Set<String> nameList = new HashSet<>();
         cars.forEach(car -> {
             if (!nameList.add(car.getCarName())) {
-                throw new IllegalArgumentException("중복된 이름이 존재합니다.");
+                throw new IllegalArgumentException(EXCEPTION_SAME_NAME);
             }
         });
     }
@@ -39,6 +42,7 @@ public class Cars {
 
     public List<Car> compareWinner() {
         int maxScore = cars.stream().mapToInt(Car::getPosition).max().orElseThrow();
-        return cars.stream().filter(car -> car.getPosition() == maxScore).toList();
+        List<Car> winnerList = cars.stream().filter(car -> car.getPosition() == maxScore).toList();
+        return new ArrayList<>(winnerList);
     }
 }

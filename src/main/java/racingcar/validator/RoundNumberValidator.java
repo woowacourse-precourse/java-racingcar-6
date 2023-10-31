@@ -1,5 +1,8 @@
 package racingcar.validator;
 
+import static racingcar.constant.Constants.EXCEPTION_BLACK_INPUT;
+import static racingcar.constant.Constants.EXCEPTION_CHAR_INPUT;
+
 public class RoundNumberValidator {
 
     public static void validate(String readLine) {
@@ -9,14 +12,14 @@ public class RoundNumberValidator {
 
     private static void checkBlank(String readLine) {
         if (readLine.isBlank()) {
-            throw new IllegalArgumentException("빈칸입니다.");
+            throw new IllegalArgumentException(EXCEPTION_BLACK_INPUT);
         }
     }
 
     private static void checkDigit(String readLine) {
         for (int i = 0; i < readLine.length(); i++) {
             if (!Character.isDigit(readLine.charAt(i))) {
-                throw new IllegalArgumentException("문자를 입력하였습니다.");
+                throw new IllegalArgumentException(EXCEPTION_CHAR_INPUT);
             }
         }
     }

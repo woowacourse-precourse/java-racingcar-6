@@ -1,8 +1,14 @@
 package racingcar.validator;
 
+import static racingcar.constant.Constants.DOUBLE_USE_SEPARATOR;
+import static racingcar.constant.Constants.EXCEPTION_BLACK_INPUT;
+import static racingcar.constant.Constants.EXCEPTION_DOUBLE_USE_SEPARATOR;
+import static racingcar.constant.Constants.EXCEPTION_SEPARATOR_END;
+import static racingcar.constant.Constants.EXCEPTION_SEPARATOR_START;
+import static racingcar.constant.Constants.NAME_SEPARATOR;
+
 public class CarNameSplitValidator {
-    private static final char NAME_SEPARATOR = ',';
-    private static final String DOUBLE_USE_SEPARATOR = ",,";
+
 
     public static void validate(String readLine) {
         checkEmptyInput(readLine);
@@ -11,19 +17,19 @@ public class CarNameSplitValidator {
 
     private static void checkEmptyInput(String readLine) {
         if (readLine.isBlank()) {
-            throw new IllegalArgumentException("빈칸이 입력되었습니다.");
+            throw new IllegalArgumentException(EXCEPTION_BLACK_INPUT);
         }
     }
 
     private static void checkInvalidSeparator(String readLine) {
         if (readLine.charAt(0) == NAME_SEPARATOR) {
-            throw new IllegalArgumentException(",으로 시작할 수 없습니다.");
+            throw new IllegalArgumentException(EXCEPTION_SEPARATOR_START);
         }
         if (readLine.charAt(readLine.length() - 1) == NAME_SEPARATOR) {
-            throw new IllegalArgumentException(",으로 끝날 수 없습니다.");
+            throw new IllegalArgumentException(EXCEPTION_SEPARATOR_END);
         }
         if (readLine.contains(DOUBLE_USE_SEPARATOR)) {
-            throw new IllegalArgumentException("쉼표를 연속으로 사용하였습니다.");
+            throw new IllegalArgumentException(EXCEPTION_DOUBLE_USE_SEPARATOR);
         }
     }
 }
