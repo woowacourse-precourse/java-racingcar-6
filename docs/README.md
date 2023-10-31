@@ -2,7 +2,7 @@
 
 - [x] 자동차 이름들을 입력 받는 기능
     - [x] 쉼표 입력 기준이 틀렸을 경우 IllegalArgumentException을 발생시키는 기능
-    - [ ] 이름이 5자 초과일 경우 IllegalArgumentException을 발생시키는 기능
+    - [x] 이름이 5자 초과일 경우 IllegalArgumentException을 발생시키는 기능
 
 
 - [ ] 사용자에게 이동 횟수 입력을 받는 기능

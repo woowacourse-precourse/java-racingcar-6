@@ -13,4 +13,13 @@ class InputValidatorTest {
             inputValidator.setRacingCars(input);
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void 이름이_5자_초과일_경우_IllegalArgumentException을_발생시키는_기능() {
+        InputValidator inputValidator = new InputValidator();
+        String input = "red,green,blue,rainbow";
+        Assertions.assertThatThrownBy(() -> {
+            inputValidator.setRacingCars(input);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }
