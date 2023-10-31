@@ -47,16 +47,17 @@
 
 ## 구현 기능 정리
 
-- [ ] 입/출력 관리
-- [ ] 전체적인 진행을 관리
-- [ ] 생성된 자동차들을 관리하는 객체
+- [X] 입/출력 관리
+- [X] 입력된 값을 게임에서 사용하는 객체로 바꿔주는 convertor
+- [X] 전체적인 진행을 관리
+- [X] 생성된 자동차들을 관리하는 객체
     - 단순히 List를 사용하지 않는다.
-- [ ] 자동차 객체
+- [X] 자동차 객체
     - 이름, 이동한 거리를 포함
     - 각 자동차의 거리를 증가시키는 메서드 포함
-- [ ] 예외 사항 관리
+- [X] 예외 사항 관리
     - 정적 클래스로 만든다.
-- [ ] 랜덤한 값(0-9)을 만들어 주는 util 기능
+- [X] 랜덤한 값(0-9)을 만들어 주는 util 기능
 
 ### 예외 사항 (IllegalArgumentException)
 
@@ -70,3 +71,25 @@
 
 - 이동 횟수
     1. 이동 횟수가 숫자가 아닌경우 ex) "alpha"
+
+### 📁기능 구현이 끝난 후 클래스
+
+<img src="https://velog.velcdn.com/images/sgs980902/post/cd63b649-d59f-4871-b9dd-2f2f17435a5d/image.png" width="50%">
+
+- constant
+    - Constant : 게임에서 사용하는 상수들을 모아놓은 클래스
+- controller
+    - RacingGameController : 레이싱 게임을 관리하는 컨트롤러 클래스
+- model
+    - Car : 하나의 자동차를 나타내는 클래스
+    - RacingCars : Car 리스트를 가지는 자동차들을 관리하는 클래스
+- util
+    - InputConvertor : InputView에서 읽어온 input을 게임에서 사용하는 객체로 전환시켜주는 util 클래스
+    - RandomNumberGenerator : 무작위 (0-9) 정수인 숫자를 생성해주는 util 클래스
+- validation
+    - InputValidation : input이 들어왔을 때 기본적인 validation을 하는 클래스
+    - CarNameValidation : 자동차 이름 입력에 대해 validation을 하는 클래스
+    - CountValidation : 움직임 횟수에 대해 validaiton을 하는 클래스
+- view
+    - InputView : input을 받아오는 역할을 하는 클래스
+    - OutputView : 출력을 담당하는 클래스
