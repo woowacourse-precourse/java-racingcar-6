@@ -8,6 +8,7 @@ import racingcar.model.movement.MovementStrategy;
 
 public class Cars {
 
+    private static final int DEFAULT_DISTANCE = 0;
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -16,7 +17,7 @@ public class Cars {
 
     public static Cars fromNames(List<String> carNames, MovementStrategy movementStrategy) {
         List<Car> cars = carNames.stream()
-            .map(carName -> new Car(carName, 0, movementStrategy))
+            .map(carName -> new Car(carName, DEFAULT_DISTANCE, movementStrategy))
             .collect(Collectors.toList());
         return new Cars(cars);
     }

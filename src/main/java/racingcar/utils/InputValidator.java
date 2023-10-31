@@ -29,15 +29,15 @@ public class InputValidator {
         }
     }
 
-    private static void validateCarNameNotNullOrBlank(String carName){
-        if(StringUtils.isBlank(carName)){
+    private static void validateCarNameNotNullOrBlank(String carName) {
+        if (StringUtils.isBlank(carName)) {
             throw new IllegalArgumentException(INVALID_CAR_NAME_MESSAGE);
         }
     }
 
     private static void validateDuplicateCarName(List<String> carNames) {
         Set<String> set = new HashSet<>(carNames);
-        if(set.size() != carNames.size()){
+        if (set.size() != carNames.size()) {
             throw new IllegalArgumentException(DUPLICATE_CAR_NAME_MESSAGE);
         }
     }

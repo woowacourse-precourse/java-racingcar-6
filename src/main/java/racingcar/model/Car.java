@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.model.movement.MovementStrategy;
 
 public record Car(String carName, int distance, MovementStrategy movementStrategy) {
+
     public Car attemptMove() {
         if (movementStrategy.canMove()) {
             return new Car(carName, distance + 1, movementStrategy);

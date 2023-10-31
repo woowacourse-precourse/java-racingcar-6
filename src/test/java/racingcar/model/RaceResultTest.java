@@ -11,6 +11,7 @@ import racingcar.model.movement.MovementStrategy;
 import racingcar.model.movement.MovementStrategyFactory;
 
 class RaceResultTest {
+
     private MovementStrategy movementStrategy;
 
     @BeforeEach

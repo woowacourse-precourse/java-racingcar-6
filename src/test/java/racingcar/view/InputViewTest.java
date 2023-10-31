@@ -10,24 +10,25 @@ import org.mockito.Mockito;
 import racingcar.io.InputSource;
 
 class InputViewTest {
+
     private InputSource inputSource;
     private InputView inputView;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         inputSource = Mockito.mock(InputSource.class);
         inputView = new InputView(inputSource);
     }
 
     @Test
-    void inputCarNames_자동차_이름_반환_테스트(){
+    void inputCarNames_자동차_이름_반환_테스트() {
         when(inputSource.readInput()).thenReturn("pobi,jun,woni");
         List<String> carNames = inputView.inputCarNames();
-        assertThat(carNames).containsExactly("pobi","jun","woni");
+        assertThat(carNames).containsExactly("pobi", "jun", "woni");
     }
 
     @Test
-    void inputAttemptCount_시도횟수_반환_테스트(){
+    void inputAttemptCount_시도횟수_반환_테스트() {
         when(inputSource.readInput()).thenReturn("5");
         int attemptCount = inputView.inputAttemptCount();
         assertThat(attemptCount).isEqualTo(5);
