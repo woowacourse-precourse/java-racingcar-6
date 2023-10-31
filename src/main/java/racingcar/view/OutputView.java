@@ -25,10 +25,10 @@ public class OutputView {
     }
 
     public static void printRace(RaceResultResponse response) {
-        Map<String, Integer> current = response.getCurrentPositions();
-        for (String name : current.keySet()) {
-            System.out.printf(RACE_MESSAGE, name, printRoad(current.get(name)));
-        }
+        response.getCurrentPositions().forEach((name, position) ->
+            System.out.printf(RACE_MESSAGE, name, printRoad(position))
+        );
+        printBreak();
     }
 
     public static String printRoad(int position) {
