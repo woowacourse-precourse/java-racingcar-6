@@ -15,9 +15,7 @@ public class PlayResults {
 
     public List<PlayResult> getResults() {
         for(Car car : cars.getCarList()) {
-            PlayResult result = new PlayResult();
-            result.put(CarType.CAR_NAME, car.getName());
-            result.put(CarType.DISTANCE, car.getDistance());
+            PlayResult result = new PlayResult(car);
             results.add(result);
         }
         return results;
