@@ -53,6 +53,18 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @DisplayName("자동차 움직임을 정상적으로 출력한다.")
+    @Test
+    void moveCars() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi, woni", "3");
+                    assertThat(output()).contains("pobi : ---", "woni : --");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
