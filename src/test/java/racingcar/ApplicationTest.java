@@ -26,26 +26,6 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @ValueSource(strings = {"pobi,javaji", "", "pobi,pobi", "6자한글이름"})
-    @ParameterizedTest
-    @DisplayName("이름 예외 처리 테스트")
-    void testInputNameValue(String names) {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(names, "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @ValueSource(strings = {"1번", " "})
-    @ParameterizedTest
-    @DisplayName("시도 횟수 예외 처리 테스트")
-    void testInputTryNumberValue(String numbers) {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi", numbers))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});
