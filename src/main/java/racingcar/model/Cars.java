@@ -26,6 +26,10 @@ public class Cars {
     return new Cars(carList);
   }
 
+  public static Cars createCarsFromList(List<Car> cars) {
+    return new Cars(cars);
+  }
+
   public void playRacingGame() {
     List<Integer> randomValues = generateRandomValuesForCarGame(cars.size());
     for (int i = 0; i < cars.size(); i++) {
