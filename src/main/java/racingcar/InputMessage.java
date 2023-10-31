@@ -13,9 +13,14 @@ public class InputMessage {
         return Console.readLine();
     }
 
-    public static String gameNumber(){
+    public static int gameNumber(){
         System.out.println(GAME_NUMBER);
-        return Console.readLine();
+        String input = Console.readLine();
+        try{
+            return Integer.parseInt(input);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException("입력값이 유효한 숫자가 아닙니다.");
+        }
     }
 
 }
