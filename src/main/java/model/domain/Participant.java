@@ -17,6 +17,7 @@ public class Participant {
         List<String> nameList = removeBlank(splitByComma(input));
 
         checkNotInput(nameList);
+        checkMoreTwo(nameList);
         checkDuplication(nameList);
 
         this.participant = new ArrayList<>();
@@ -55,6 +56,13 @@ public class Participant {
     private void checkNotInput(List<String> nameList) {
 
         if(nameList.isEmpty() || nameList.contains("")){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void checkMoreTwo(List<String> nameList){
+
+        if(nameList.size() < 2){
             throw new IllegalArgumentException();
         }
     }
