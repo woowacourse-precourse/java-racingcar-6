@@ -30,4 +30,21 @@ public class Cars {
     public List<Car> getCars() {
         return cars;
     }
+
+    public List<String> judgeMaxStep() {
+        int maxStep = getMaxStep();
+        return cars.stream()
+                .filter(car -> car.compare(maxStep))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int getMaxStep(){
+        return cars.stream()
+                .mapToInt(Car::getStep)
+                .max()
+                .orElse(0);
+    }
+
+
 }

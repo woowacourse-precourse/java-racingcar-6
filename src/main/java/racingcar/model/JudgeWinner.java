@@ -5,5 +5,5 @@ import racingcar.model.Car;
 
 public interface JudgeWinner {
 
-    List<String> judge(List<Car> cars);
+    List<String> judge(Cars cars);
 }

@@ -36,4 +36,8 @@ public class Car {
         return step;
     }
 
+    public boolean compare(int maxStep){
+        return step == maxStep;
+    }
+
 }

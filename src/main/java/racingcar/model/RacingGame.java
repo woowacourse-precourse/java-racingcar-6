@@ -22,6 +22,6 @@ public class RacingGame {
     }
 
     public List<String> judge() {
-        return judgeWinner.judge(cars.getCars());
+        return judgeWinner.judge(cars);
     }
 }
