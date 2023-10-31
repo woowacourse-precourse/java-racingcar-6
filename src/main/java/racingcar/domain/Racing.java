@@ -48,4 +48,8 @@ public class Racing {
         return cars.stream().filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName).toList();
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
