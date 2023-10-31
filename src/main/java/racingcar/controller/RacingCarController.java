@@ -21,7 +21,8 @@ public class RacingCarController {
 
     public void run(){
         String cars = inputView.readRaceCarNames();
-        List<String> names = List.of(cars.split(","));
+        String resultCars = cars.replaceAll(" ", "");
+        List<String> names = List.of(resultCars.split(","));
         int round = Integer.parseInt(inputView.readRaceRound());
 
         // 각각의 racer 초기화
