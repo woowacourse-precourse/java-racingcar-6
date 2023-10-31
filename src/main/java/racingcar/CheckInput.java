@@ -8,6 +8,9 @@ public class CheckInput extends GameManager {
             if (player.get(i).name.length() > 5) {
                 throw new IllegalArgumentException();
             }
+            if (player.get(i).name.length() < 1) {
+                throw new IllegalArgumentException();
+            }
         }
     }
 
