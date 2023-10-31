@@ -27,7 +27,8 @@ public class CarNameValidator {
     }
 
     private void delimiterValidate() {
-        if(carList.isEmpty() || carList.contains(Constant.BLANK) || carNames.endsWith(Constant.CAR_NAME_DELIMITER)) throw new IllegalArgumentException();
+        if (carList.isEmpty() || carList.contains(Constant.BLANK) || carNames.endsWith(Constant.CAR_NAME_DELIMITER))
+            throw new IllegalArgumentException();
     }
 
     private void nameValidate() {

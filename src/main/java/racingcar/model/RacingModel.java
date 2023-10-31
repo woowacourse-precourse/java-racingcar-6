@@ -12,11 +12,11 @@ public class RacingModel {
         this.racingCars = racingCars;
     }
 
-    private void moveCar(){
+    private void moveCar() {
         racingCars.forEach(Car::move);
     }
 
-    public List<String> getWinner(){
+    public List<String> getWinner() {
         return racingCars.stream().filter(car -> car.getPosition() == getMaxMoveDistance()).map(Car::getName).toList();
     }
 

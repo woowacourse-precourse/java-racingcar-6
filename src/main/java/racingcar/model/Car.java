@@ -13,7 +13,7 @@ public class Car {
     }
 
     public void move() {
-        if(Util.getRandomNumber() >= Constant.MOVE_MINIMUM_NUM)
+        if (Util.getRandomNumber() >= Constant.MOVE_MINIMUM_NUM)
             position++;
     }
 
