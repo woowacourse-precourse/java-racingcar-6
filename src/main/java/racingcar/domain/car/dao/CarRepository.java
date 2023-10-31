@@ -12,12 +12,12 @@ import static racingcar.domain.util.ErrorMessage.*;
 
 public class CarRepository {
 
-    private static Long CarId = 0L;
-    private static Map<Long, Car> carDatabase = new HashMap<>();
+    private static Long carId = 0L;
+    private static final Map<Long, Car> carDatabase = new HashMap<>();
 
     public void save(Car car) {
-        carDatabase.put(CarId, car);
-        CarId++;
+        carDatabase.put(carId, car);
+        carId++;
     }
 
     public List<Car> findAll() {
@@ -41,6 +41,6 @@ public class CarRepository {
 
     public void clear() {
         carDatabase.clear();
-        CarId = 0L;
+        carId = 0L;
     }
 }
