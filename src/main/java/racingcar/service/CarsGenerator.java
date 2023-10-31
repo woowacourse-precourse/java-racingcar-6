@@ -6,6 +6,7 @@ import racingcar.model.Car;
 
 public class CarsGenerator {
     List<Car> carList;
+
     public CarsGenerator() {
         carList = new ArrayList<>();
     }
