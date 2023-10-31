@@ -31,4 +31,8 @@ public class Race {
         return cars;
     }
 
+    public int getTotalRounds() {
+        return totalRounds;
+    }
+
 }
