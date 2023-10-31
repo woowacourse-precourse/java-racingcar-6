@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import racingcar.constant.RacingGameConstants;
+import racingcar.utils.NumberGenerator;
 
 public class Car {
     private final CarName carName;
@@ -19,7 +20,8 @@ public class Car {
         return position;
     }
 
-    public void tryToMove(int randomNumber) {
+    public void tryToMove(NumberGenerator numberGenerator) {
+        int randomNumber = numberGenerator.generateInteger();
         if (randomNumber >= RacingGameConstants.MOVABLE_THRESHOLD) {
             moveOneStep();
         }
