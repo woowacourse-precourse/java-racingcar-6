@@ -16,5 +16,21 @@ public class CarRacing {
     private static final String ERROR_CAR_NAME_LENGTH = "[error] 자동차 이름의 길이는 1이상 5이하 이어야 합니다.";
     private static final String ERROR_WRONG_COUNT = "[error] 시도 횟수는 1이상의 정수 이어야 합니다.";
 
-    
+
+    private String carNames;
+    private int userCount;
+
+
+    public CarRacing() {
+    }
+
+    public void start() {
+        System.out.println(PROMPT_ENTER_CAR_NAME);
+        requestCarNames();
+        
+    }
+
+    public void requestCarNames() {
+        carNames = Console.readLine();
+    }
 }
