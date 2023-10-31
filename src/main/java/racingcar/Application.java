@@ -1,8 +1,10 @@
 package racingcar;
 
 import java.util.List;
+import racingcar.domain.Car;
 import racingcar.domain.Player;
 import racingcar.domain.RacingGame;
+import racingcar.dto.PerGameCarResultDto;
 
 public class Application {
     static RacingGame racingGame;
@@ -16,6 +18,14 @@ public class Application {
     public static void startGame(){
         List<String> carNames = inputCarNames();
         int tryCnt = inputTryCnt();
+        racingGame = new RacingGame(carNames, tryCnt);
+
+        view.println("실행 결과");
+        while (!racingGame.isEndGame()){
+            List<PerGameCarResultDto> resultDtos = racingGame.startRacingGame();
+            view.printResult(resultDtos);
+        }
+
     }
 
     public static List<String> inputCarNames(){
