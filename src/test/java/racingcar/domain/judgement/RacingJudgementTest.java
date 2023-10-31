@@ -11,6 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.RacingCar;
+import racingcar.fake.FakeRandomNumberUtil;
 
 class RacingJudgementTest {
         @Test
@@ -18,10 +19,11 @@ class RacingJudgementTest {
         void call_announcementWinner_will_print_winners() {
                 //given
                 Judgement judgement = new RacingJudgement();
+                FakeRandomNumberUtil fakeRandomNumberUtil = new FakeRandomNumberUtil(5);
                 List<Car> carList = Arrays.asList(
-                        new RacingCar("carA", null),
-                        new RacingCar("carB", null),
-                        new RacingCar("carC", null)
+                        new RacingCar("carA", fakeRandomNumberUtil),
+                        new RacingCar("carB", fakeRandomNumberUtil),
+                        new RacingCar("carC", fakeRandomNumberUtil)
                 );
 
                 OutputStream out = new ByteArrayOutputStream();
