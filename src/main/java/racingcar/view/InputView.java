@@ -16,6 +16,10 @@ public class InputView {
     public List<String> getNames() {
         printInputCarName();
         String input = Console.readLine();
+        return parseNames(input);
+    }
+
+    protected List<String> parseNames(String input) {
         String[] names = input.split(SPLIT_REGEX, SPLIT_LIMIT);
         return new ArrayList<>(Arrays.asList(names));
     }
