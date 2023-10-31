@@ -1,14 +1,12 @@
 package racingcar;
 
 import java.util.ArrayList;
-import java.util.List;
 import racingcar.validation.Validation;
 
 public class RacingCar {
 
     private String name;
     private int position;
-    private List<Integer> raceLog;
 
     public RacingCar(String name) {
         this.name = name;
@@ -22,10 +20,6 @@ public class RacingCar {
             return true;
         }
         return false;
-    }
-
-    public Integer getRaceLogBy(int round) {
-        return raceLog.get(round);
     }
 
     public int getPosition() {
