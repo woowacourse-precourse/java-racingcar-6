@@ -66,5 +66,19 @@ public class Game {
         });
     }
 
+    public void run() {
+        System.out.println("\n실행 결과");
+        for (int round = 0; round < roundLimit; ++round) {
+            runEachRound();
+            printCurrentPerformance();
+        }
+        System.out.print("최종 우승자 : ");
+        printBestPerformers();
+    }
+
+    private void runEachRound() {
+        for (Car car : cars) {
+            car.goForward();
+        }
     }
 }
