@@ -1,11 +1,8 @@
 package racingcar.controller;
 
-import java.util.List;
 import racingcar.controller.subcontroller.DetermineWinnerController;
 import racingcar.controller.subcontroller.InitializeCarController;
 import racingcar.controller.subcontroller.MoveCarController;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class MainController {
     private final InitializeCarController initializeCarController;
