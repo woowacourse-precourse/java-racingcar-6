@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import camp.nextstep.edu.missionutils.Console;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -18,6 +20,12 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    @AfterEach
+    public void afterEach() {
+        RacingCarController.setRacingCarList(new ArrayList<>());
+        Console.close();
+    }
+
     @Test
     void 이름_스플릿() {
         ByteArrayInputStream in = new ByteArrayInputStream("pobi,woni".getBytes());
@@ -29,8 +37,7 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 레이싱카_등록() {
-        List<RacingCar> repository = new ArrayList<>();
-        RacingCarController.setRacingCarList(repository);
+        RacingCarController.setRacingCarList(new ArrayList<>());
         RacingCar result = RacingCarController.registerRacingCar("포비");
         assertThat(result.getName()).isEqualTo("포비");
         assertThat(result.getLocation()).isEqualTo(0);
@@ -54,6 +61,27 @@ class ApplicationTest extends NsTest {
 
         assertThat(out.toString()).contains("testCar : ----");
     }
+
+    @Test
+    void 우승자_찾기() {
+        List<RacingCar> racingCarList = new ArrayList<>();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        RacingCar first = new RacingCar("firstCar", 3);
+        RacingCar second = new RacingCar("secondCar", 5);
+        RacingCar third = new RacingCar("thirdCar", 5);
+        racingCarList.add(first);
+        racingCarList.add(second);
+        racingCarList.add(third);
+
+        RacingCarController.setRacingCarList(racingCarList);
+        List<RacingCar> result = RacingCarController.findWinner();
+        InputOutputInterface.printWinner(result);
+
+        assertThat(out.toString()).contains("secondCar", "thirdCar");
+    }
+
 
     @Test
     void 전진_정지() {

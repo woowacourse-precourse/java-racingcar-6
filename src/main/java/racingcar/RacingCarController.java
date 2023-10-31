@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -23,5 +24,24 @@ public class RacingCarController {
         if (randomNumber >= 4) {
             racingCar.updateLocation();
         }
+    }
+
+    public static List<RacingCar> findWinner() {
+        int highScore = 0;
+        List<RacingCar> winners = new ArrayList<>();
+
+        for (RacingCar rc : racingCarList) {
+            if (rc.getLocation() > highScore) {
+                highScore = rc.getLocation();
+                winners.clear();
+                winners.add(rc);
+                continue;
+            }
+            if (rc.getLocation() == highScore) {
+                winners.add(rc);
+            }
+        }
+
+        return winners;
     }
 }

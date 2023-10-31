@@ -42,4 +42,15 @@ public class InputOutputInterface {
         }
         System.out.println();
     }
+
+    public static void printWinner(List<RacingCar> racingCarList) {
+        System.out.print("최종 우승자 : ");
+        System.out.print(racingCarList.get(0).getName());
+        if (racingCarList.size() > 1) {
+            for (int i = 1; i < racingCarList.size(); i++) {
+                System.out.println(", " + racingCarList.get(i).getName());
+            }
+        }
+        System.out.println();
+    }
 }
