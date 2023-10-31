@@ -9,14 +9,14 @@ public class Race {
      * 결과를 저장하고 반환하는 기능 (RaceResult)종료 조건을 확인하는 기능 (라운드 수)
      */
     private final List<Car> cars;
-    private final int round;
+    private final int rounds;
     private int currentRound;
 
-    public Race(List<String> carNames, int round) {
+    public Race(List<String> carNames, int rounds) {
         this.cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
-        this.round = round;
+        this.rounds = rounds;
         this.currentRound = 0;
     }
 
@@ -30,6 +30,6 @@ public class Race {
     }
 
     public boolean isRaceFinished() {
-        return currentRound == rounds;
+        return currentRound >= rounds;
     }
 }
