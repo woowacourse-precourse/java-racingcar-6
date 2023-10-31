@@ -1,6 +1,7 @@
 package racingcar.validator;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,12 +10,10 @@ class LocationValidatorTest {
     private final BasicValidator<Integer> locationValidator = new LocationValidator();
 
     @Test
-    void validate() {
-        Throwable isNaturalNumberException = assertThrows(
-                IllegalArgumentException.class,
-                () -> locationValidator.validate(-1)
-        );
-        assertEquals("자연수가 아닙니다.", isNaturalNumberException.getMessage());
+    void 입력값이_자연수() {
+        assertThatThrownBy(() -> locationValidator.validate(-1))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자연수가 아닙니다.");
 
         assertDoesNotThrow(
                 () -> locationValidator.validate(0)
