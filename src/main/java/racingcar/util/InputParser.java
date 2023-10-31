@@ -10,6 +10,7 @@ public class InputParser {
     InputValidator inputValidator = new InputValidator();
 
     public List<Car> parseCarName(String playerInput) {
+        playerInput.replaceAll(" ", "");
         inputValidator.validateCarNames(playerInput);
         List<Car> result = new ArrayList<>();
         List<String> carNames = Arrays.stream(playerInput.split(ViewConstant.DELIMITER.get())).toList();
@@ -20,6 +21,7 @@ public class InputParser {
     }
 
     public int parseNumberOfAttempt(String playerInput) {
+        playerInput.replaceAll(" ", "");
         inputValidator.validateNumberOfAttempt(playerInput);
         return Integer.parseInt(playerInput);
     }
