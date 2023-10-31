@@ -40,5 +40,13 @@ class CarTest {
         pobiCar.moveForward(4);
         assertThat(pobiCar.getDistance()).isEqualTo(1);
     }
+    @Test
+    @DisplayName("이름에 공백이 입력되었을 시 예외 처리")
+    public void checkNameForWhitespace() {
+        assertThatThrownBy(() -> {
+            Car car = new Car("po bi");
+        }).isInstanceOf(RuntimeException.class)
+                .hasMessageContaining("[ERROR] : 공백을 제외한 이름을 입력해주세요.");
+    }
     
 }
