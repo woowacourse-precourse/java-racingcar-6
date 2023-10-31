@@ -2,11 +2,13 @@ package myTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,7 +20,6 @@ import racingcar.Application;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.Racing;
-import racingcar.view.Player;
 
 public class CarTest extends NsTest{
     
@@ -71,13 +72,20 @@ public class CarTest extends NsTest{
         assertThat(car.getPosition()).isEqualTo(0);
     }
 
-    @DisplayName("자동차 이름 세미콜론(;) 문자열 분리가 잘 되는지")
+    @DisplayName("자동차 이름 쉼표(,)로 문자열 분리가 잘 되는지")
     @Test
-    void splitWithSemicolon() {
-        List<String> input = List.of("pobo;ba;yo"); // 세미콜론으로 구분
-        String names = String.join(",", input);
-
-        assertThrows(IllegalArgumentException.class, () -> new Cars(input));
+    void splitWithComma() {
+        String input = "pobo,ba,yo";
+        List<String> carNames = List.of(input.split(",")); 
+        Cars cars = new Cars(carNames);
+        List<Car> carList = cars.getCars();
+        List<String> actualCarNames = carList.stream()
+            .map(Car::getName)
+            .collect(Collectors.toList());
+        
+        List<String> expectedCarNames = Arrays.asList("pobo", "ba", "yo");
+        
+        assertIterableEquals(expectedCarNames, actualCarNames);
     }
 
     @Override

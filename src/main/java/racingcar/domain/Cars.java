@@ -13,7 +13,7 @@ public class Cars {
         oneCarName(names);
         setting(names);
     }
-
+    
     public List<Car> getCars() {
         return cars;
     }
@@ -42,5 +42,4 @@ public class Cars {
             throw new IllegalArgumentException("한 개 이상의 이름을 입력하세요.");
         }
     }
-
 }
