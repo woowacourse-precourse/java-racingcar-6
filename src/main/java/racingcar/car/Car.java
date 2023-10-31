@@ -22,6 +22,10 @@ public class Car {
         return this.distance;
     }
 
+    public void moveForwardOrNot(int random) {
+        if (random >= CAN_MOVE_OVER_NUMBER) distance++;
+    }
+
     private boolean checkValidCarName(String carName) {
         if (checkLengthOfName(carName)) return false;
 
@@ -33,9 +37,5 @@ public class Car {
         if (carName.length() > MAX_LENGTH_OF_NAME) return false;
 
         return true;
-    }
-
-    public void moveForwardOrNot(int random) {
-        if (random >= CAN_MOVE_OVER_NUMBER) distance++;
     }
 }
