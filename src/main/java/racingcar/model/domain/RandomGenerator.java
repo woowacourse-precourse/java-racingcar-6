@@ -5,8 +5,8 @@ import racingcar.model.constant.CarRaceConstant;
 
 public class RandomGenerator {
 
-    private final static int MIN_LENGTH = CarRaceConstant.MIN_LENGTH.getConstant();
-    private final static int MAX_LENGTH = CarRaceConstant.MAX_LENGTH.getConstant();
+    private static final int MIN_LENGTH = CarRaceConstant.MIN_LENGTH.getConstant();
+    private static final int MAX_LENGTH = CarRaceConstant.MAX_LENGTH.getConstant();
 
     private RandomGenerator() {}
 
