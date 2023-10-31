@@ -15,18 +15,47 @@
 
 ## 👩🏻‍💻 구현할 기능 목록
 
-- startGame()
-    - 모든 기능 동작
+### model
+#### # Car 클래스
+- nameValidate()
+    - 게임 플레이어가 입력한 자동차 이름이 사용 가능한 이름인지 검증
 
 
-- init()
+- move()
+  - 랜덤 값이 4 이상일 경우 앞으로 한 칸 이동
 
-  - 자동차 이름과 시도 횟수 셋팅
+
+- getName()
 
 
-- play()
-    - 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우 전진
+- getScore()
+
+
+### view
+#### # InputView 클래스
+- setCarName()
+  - 자동차 이름 셋팅
+
+
+- setPlayCount()
+  - 시도 횟수 셋팅
+
+
+#### # OutputView 클래스
+- printEachCarResult()
+  - 각각 자동차의 시도 결과를 출력
 
 
 - result()
-    - 우승자가 누구인지 출력
+  - 최종 우승한 자동차의 이름을 출력
+
+  
+### controller
+#### # GameController 클래스
+- startGame()
+  - 모든 게임 과정 실행
+  - play() 메소드를 게임 플레이어가 셋팅한 게임 시도 횟수만큼 반복
+
+
+- play()
+  - 한 자동차의 한 번의 시도 과정
