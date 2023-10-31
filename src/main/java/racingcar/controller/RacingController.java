@@ -54,6 +54,7 @@ public class RacingController implements Observer {
 
     @Override
     public void display(Car car) {
-        OutputView.printRealTimeResult(car.getName(), car.getMoved());
+        CarDto carDto = CarDtoMapper.from(car);
+        OutputView.printRoundResult(carDto.name(), carDto.moved());
     }
 }
