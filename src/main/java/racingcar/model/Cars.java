@@ -3,11 +3,10 @@ package racingcar.model;
 import java.util.List;
 import racingcar.exception.NoCarException;
 import racingcar.model.dto.GameResult;
-import racingcar.util.MoveResolver;
 
 public class Cars {
     private final int MOVING_DISTANCE = 1;
-    private final MoveResolver moveResolver = new MoveResolver();
+    private final MovePolicy movePolicy = new RandomMovePolicy();
     private final List<Car> cars;
 
     public Cars(final List<Car> cars) {
@@ -16,7 +15,7 @@ public class Cars {
 
     public void playRound() {
         for (Car car : cars) {
-            car.move(MOVING_DISTANCE, moveResolver);
+            car.move(MOVING_DISTANCE, movePolicy);
         }
     }
 

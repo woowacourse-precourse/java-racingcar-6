@@ -2,7 +2,6 @@ package racingcar.model;
 
 import racingcar.model.dto.GameResult;
 import racingcar.util.CarNameValidator;
-import racingcar.util.MoveResolver;
 
 public class Car {
     private final String name;
@@ -32,8 +31,8 @@ public class Car {
         return position;
     }
 
-    public void move(int distance, MoveResolver moveResolver) {
-        if (moveResolver.isMoveAble()) {
+    public void move(int distance, MovePolicy movePolicy) {
+        if (movePolicy.isMoveAble()) {
             position += distance;
         }
     }
