@@ -17,8 +17,6 @@ public class Application {
             List<Integer> randomCondition=forwardCondition(cars.size());
             addRandomCondition(result,randomCondition);
             executionResult(cars,result);
-
-            System.out.println();
         }
 
         List<Integer> winner=winnerSelect(result);
@@ -71,6 +69,7 @@ public class Application {
 
             System.out.println(outputResult);
         }
+        System.out.println();
     }
     public static void addRandomCondition(List<Integer> result, List<Integer> condition){
         for(int i=0;i<result.size();i++)
@@ -82,10 +81,14 @@ public class Application {
 
         String car=camp.nextstep.edu.missionutils.Console.readLine();
         String checkCar[]=car.split(",");
+        if(checkCar.length==0)
+            throw new IllegalArgumentException("자동차 이름은 1자 이상 입력해야 한다");
+        System.out.println(checkCar.length);
 
         for(int i=0;i<checkCar.length;i++){
-
-            if(checkCar[i].length()<=5)
+            if(checkCar[i].length()==0)
+                continue;
+            else if(checkCar[i].length()<=5)
                 cars.add(checkCar[i]);
             else if (checkCar[i].length()>5)
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능하다");
@@ -100,6 +103,8 @@ public class Application {
 
         try{
             tryOut=Integer.parseInt(firstInput);
+            if (tryOut<0)
+                throw new IllegalArgumentException("시도할 횟수는 0 이상으로 표현해야 한다");
         } catch (NumberFormatException e){
             throw new IllegalArgumentException("시도할 횟수는 숫자로 표현해야 한다");
         }
