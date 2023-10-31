@@ -12,6 +12,7 @@ public class CarNameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("빈칸입니다.");
     }
+
     @Test
     void 이름_개수_예외_처리() {
         String input = "abc";
@@ -20,6 +21,7 @@ public class CarNameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("두 개 이상 적어주세요.");
     }
+
     @Test
     void 이름_길이_예외_처리() {
         String input = "abcd,abcdef";
@@ -28,6 +30,7 @@ public class CarNameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("5자 이하만 가능합니다.");
     }
+
     @Test
     void 이름_중복_예외_처리() {
         String input = "abcd,abcd,efgh";

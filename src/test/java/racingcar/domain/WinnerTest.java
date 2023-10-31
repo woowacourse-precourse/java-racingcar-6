@@ -44,5 +44,4 @@ public class WinnerTest {
                 .isEqualTo(Arrays.asList("pobi", "woni"));
 
     }
-
 }
