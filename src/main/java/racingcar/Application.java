@@ -3,6 +3,7 @@ package racingcar;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarConverter;
+import racingcar.domain.Race;
 import racingcar.view.InputView;
 
 public class Application {
@@ -11,5 +12,8 @@ public class Application {
         int tryCount = InputView.inputTryCount();
 
         List<Car> cars = CarConverter.convertToCars(carNames);
+
+        Race race = new Race(cars, tryCount);
+        race.run();
     }
 }
