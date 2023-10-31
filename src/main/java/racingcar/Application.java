@@ -19,8 +19,9 @@ public class Application {
 
 class GameSystem {
     public void start(InputView input, OutputView output) {
+        output.askName();
         makeCars(input);
-
+        output.askTry();
 
     }
 
@@ -43,6 +44,10 @@ class GameSystem {
         }
     }
 
+    public void runGame(InputView input) {
+
+    }
+
 }
 
 class InputView {
@@ -52,9 +57,9 @@ class InputView {
         return input;
     }
 
-    public String readTryNumber(TryValidation tryValidation) {
+    public String readTryNumber() {
         String number = Console.readLine();
-        runTryValidator(number, tryValidation);
+        runTryValidator(number);
         return number;
     }
 
@@ -62,7 +67,8 @@ class InputView {
         NameValidation.checkWord(input);
     }
 
-    private void runTryValidator(String input, TryValidation tryValidation) {
+    private void runTryValidator(String input) {
+        TryValidation tryValidation = new TryValidation();
         tryValidation.checkTryNumber(input);
     }
 
