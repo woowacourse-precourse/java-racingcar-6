@@ -31,10 +31,11 @@ public class Main {
         List<Integer> winnerIndex = judgeWinner(carListSize, winCount);
         Message.winnerMessage(carList,winnerIndex);
 
+        System.out.println();
 
     }
 
-    private void racing (int size, List<Integer> winCount, List<String> carList, int movingCount) {
+    public void racing (int size, List<Integer> winCount, List<String> carList, int movingCount) {
         for (int i =0; i < movingCount; i++) {
             racingDetail(size, winCount);
             Message.racingMessage(size, winCount, carList);
@@ -49,6 +50,7 @@ public class Main {
             }
         }
     }
+
 
     private boolean judgeNumber() {
         int randomNumber = generator.numberGenerator();

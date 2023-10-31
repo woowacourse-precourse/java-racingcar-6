@@ -1,16 +1,16 @@
 package racingcar;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class InputMovingNumberTest {
 
     @Test
-    public void inputMovingNumberTestInput() {
+    void inputMovingNumberTestInput() {
         Moving moving = new Moving();
         String input = "9";
 

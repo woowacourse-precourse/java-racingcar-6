@@ -11,12 +11,11 @@
     - [x] 이동횟수를 입력받음 - #InputMovingcount()
     - [x] 이동횟수가 양의정수인지 확인 - #CheckMovingcount()
     - []
-- [] 자동차 경주 게임 실행하는 클래스 - #Controller()
+- [x] 자동차 경주 게임 실행하는 클래스 - #Controller()
   - [x] 무작위 숫자 생성 - Generator#NumberGenerator()
   - [X] 값이 4이상인지 판별 - #JudgeNumber
-  - [] 4이상인 경우 전진 - #Moving
-  - [] 이동 횟수만큼 이동을 반복 - #Replay
-  - [] 최종 우승자를 판별 - #JudgeWinner
+  - [x] 4이상인 경우 전진 - #Moving
+  - [x] 최종 우승자를 판별 - #JudgeWinner
 
 
 ## 🚀 기능 요구 사항

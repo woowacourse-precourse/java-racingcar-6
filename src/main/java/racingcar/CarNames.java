@@ -37,13 +37,13 @@ public class CarNames {
 
     private void checkCarNameSize(String carName) {
         if (carName.length() > 5 || (carName.length() == 0)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차의 이름은 다섯 글자를 초과할수 없습니다");
         }
     }
 
     private void checkSameCarName(List<String> splitCarName, String compareCarName) {
         if (splitCarName.contains(compareCarName)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("서로 다른 차량의 이름을 입력해주세요");
         }
     }
 

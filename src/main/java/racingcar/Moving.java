@@ -13,11 +13,11 @@ public class Moving {
 
         try {
             if (Integer.parseInt(rawMoveNumber)<=0) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("1이상의 수를 입력해주세요");
                 }
         }
         catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("숫자를 입력해주세요");
         }
     }
 
