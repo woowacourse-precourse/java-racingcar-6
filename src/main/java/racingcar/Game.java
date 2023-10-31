@@ -1,7 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class Game {
     User user = new User();
@@ -28,4 +30,21 @@ public class Game {
         }
         System.out.println();
     }
+    private static List<String> findWinner(LinkedHashMap<String, Integer> racingCar){
+        int max = 0;
+        List<String> winner = new ArrayList<>();
+        for (String car : racingCar.keySet()){
+            int value = racingCar.get(car);
+            if (value > max){
+                max = value;
+                winner.clear();
+                winner.add(car);
+            } else if (value == max) {
+                winner.add(car);
+            }
+        }
+        return winner;
+    }
+
 }
+
