@@ -1,4 +1,4 @@
-package racingcar.enums;
+package racingcar.constants;
 
 public enum Integers {
     RANDOM_NUMBER_MIN(0),

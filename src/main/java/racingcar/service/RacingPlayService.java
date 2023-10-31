@@ -1,8 +1,8 @@
 package racingcar.service;
 
-import static racingcar.enums.Integers.MIN_FORWARD_CONDITION;
-import static racingcar.enums.Integers.RANDOM_NUMBER_MAX;
-import static racingcar.enums.Integers.RANDOM_NUMBER_MIN;
+import static racingcar.constants.Integers.MIN_FORWARD_CONDITION;
+import static racingcar.constants.Integers.RANDOM_NUMBER_MAX;
+import static racingcar.constants.Integers.RANDOM_NUMBER_MIN;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;

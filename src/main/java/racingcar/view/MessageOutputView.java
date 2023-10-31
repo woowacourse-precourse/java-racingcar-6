@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.constants.Messages;
+
 public class MessageOutputView {
 
     public static void outputRoundResult(String roundResult) {
@@ -7,7 +9,8 @@ public class MessageOutputView {
     }
 
     public static void outputRacingWinners(String racingWinners) {
-        System.out.printf("최종 우승자 : %s", racingWinners);
+
+        System.out.printf(Messages.RACING_WINNERS_OUTPUT.show(), racingWinners);
     }
 
 }
