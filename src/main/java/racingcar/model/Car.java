@@ -1,10 +1,10 @@
 package racingcar.model;
 
-import static racingcar.Error.*;
+import static racingcar.utils.Error.*;
 
 public class Car {
     private final String name;
-    private final int position;
+    private int position;
 
     public Car(String name) {
         validateCarNameLength(name);
