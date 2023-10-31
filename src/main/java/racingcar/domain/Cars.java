@@ -21,26 +21,11 @@ public class Cars {
     private List<Car> createCars(List<String> carList) {
         return carList.stream()
             .map(car -> new Car(car))
-            .collect(Collectors.toList());
+            .toList();
     }
 
     public void move() {
         cars.forEach(c -> c.move(RandomUtils.pickRandomNumber()));
-    }
-
-    public int getMaxCount() {
-        return cars.stream()
-            .mapToInt(Car::getMoveCount)
-            .max()
-            .orElse(Constant.MIN_RANDOM_NUMBER);
-    }
-
-    public List<String> getWinnerNames() {
-        int maxCount = getMaxCount();
-        return cars.stream()
-            .filter(car -> car.getMoveCount() == maxCount)
-            .map(Car::getName)
-            .collect(Collectors.toList());
     }
 
     public List<Car> getCars() {

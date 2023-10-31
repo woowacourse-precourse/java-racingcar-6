@@ -1,10 +1,9 @@
 package racingcar.domain;
 
-import java.util.stream.IntStream;
-import javax.swing.Spring;
+import java.util.List;
 import racingcar.utils.StringUtils;
+import racingcar.utils.constant.Constant;
 import racingcar.utils.validation.InputValidation;
-import racingcar.view.OutputView;
 
 public class Race {
     private Cars cars;
@@ -16,22 +15,30 @@ public class Race {
         InputValidation.validateCountRange(moveCount);
     }
 
-    public void printResults() {
-        OutputView.printOutputMessage();
-        printRaceResult();
-        printWinners();
-    }
-
-    private void moveCars() {
+    public void moveCars() {
         cars.move();
-        OutputView.printResult(cars.getCars());
     }
 
-    private void printRaceResult() {
-        IntStream.range(0, moveCount).forEach(i -> moveCars());
+    public int getMoveCount() {
+        return moveCount;
     }
 
-    private void printWinners() {
-        OutputView.printWinners(cars.getWinnerNames());
+    public List<Car> getCars() {
+        return cars.getCars();
+    }
+
+    public int getMaxCount() {
+        return cars.getCars().stream()
+            .mapToInt(Car::getMoveCount)
+            .max()
+            .orElse(Constant.MIN_RANDOM_NUMBER);
+    }
+
+    public List<String> getWinnerNames() {
+        int maxCount = getMaxCount();
+        return cars.getCars().stream()
+            .filter(car -> car.getMoveCount() == maxCount)
+            .map(Car::getName)
+            .toList();
     }
 }
