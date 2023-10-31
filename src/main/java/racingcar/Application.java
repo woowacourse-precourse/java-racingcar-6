@@ -21,6 +21,7 @@ public class Application {
 		System.out.println("시도할 회수는 몇회인가요?");
 		String tryStr = Console.readLine();
 		int tryNum = 0;
+		//입력받은 시도회수가 숫자가 아닐 때 exception 발생
 		if(Pattern.matches("^[0-9]*$", tryStr)){
 			tryNum = Integer.parseInt(tryStr);
 		}else {
@@ -34,15 +35,10 @@ public class Application {
 		}
 
 		for(int i=0;i<tryNum;i++) {
-
 			for (String key : resultMap.keySet()) {
-
 				int ranNum = Randoms.pickNumberInRange(0, 9);
-
 				forward(ranNum,resultMap,key);
-
 				System.out.println(key+" : "+resultMap.get(key));
-
 			}
 			System.out.println();
 		}
@@ -79,7 +75,7 @@ public class Application {
 		} 
 	}
 
-	//랜덤 숫자가 4이상일 때, 전진하는 함수
+	//랜덤 숫자가 4이상일 때 전진하는 함수
 	public static void forward(int ranNum, Map<String, String> resultMap, String key) {
 		if(ranNum>=4) {
 			String value = resultMap.get(key)+"-";
