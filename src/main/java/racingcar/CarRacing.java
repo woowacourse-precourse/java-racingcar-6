@@ -18,6 +18,7 @@ public class CarRacing {
 
 
     private String carNames;
+    private List<String> carNamesArray;
     private int userCount;
 
 
@@ -27,10 +28,59 @@ public class CarRacing {
     public void start() {
         System.out.println(PROMPT_ENTER_CAR_NAME);
         requestCarNames();
-        
+        validateCarNames(carNames);
+
+        getCarNamesArray(carNames);
+        validateCarNamesArray(carNamesArray);
+
     }
 
     public void requestCarNames() {
         carNames = Console.readLine();
     }
+
+    public void validateCarNames(String carNames) {
+        isInputEmpty(carNames);
+        isCarNameValid(carNames);
+        isCarNameStringValid(carNames);
+    }
+
+    public void isInputEmpty(String input) {
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException(ERROR_NO_INPUT);
+        }
+    }
+
+    public void isCarNameValid(String carNames) {
+        for (int i = 0; i < carNames.length(); i++) {
+            if (carNames.charAt(i) >= 'a' && carNames.charAt(i) <= 'z') {
+                continue;
+            } else if (carNames.charAt(i) >= '0' && carNames.charAt(i) <= '9') {
+                continue;
+            } else if (carNames.charAt(i) == ',') {
+                continue;
+            } else {
+                throw new IllegalArgumentException(ERROR_WRONG_INPUT);
+            }
+        }
+    }
+
+    public void isCarNameStringValid(String carNames) {
+        int carNameStringLength = carNames.length();
+        if (carNames.charAt(0) == ',' || carNames.charAt(carNameStringLength - 1) == ',') {
+            throw new IllegalArgumentException(ERROR_WRONG_FORMAT);
+        }
+    }
+
+    public void getCarNamesArray(String carNames) {
+        String[] carNamesStringArray = carNames.split(",");
+        List<String> carNamesArray = new ArrayList<>(Arrays.asList(carNamesStringArray));
+    }
+
+    public void validateCarNamesArray(List<String> carNamesArray) {
+        isCarNameDuplicate(carNamesArray);
+        isCarNameValidLength(carNamesArray);
+    }
+
+
 }
