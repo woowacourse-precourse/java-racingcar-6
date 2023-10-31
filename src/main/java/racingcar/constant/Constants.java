@@ -4,10 +4,15 @@ public class Constants {
     public static final char NAME_SEPARATOR = ',';
     public static final String NAME_SEPARATOR_STRING = ",";
     public static final String DOUBLE_USE_SEPARATOR = ",,";
+    public static final String SEPARATE_NAME_TO_SCORE = " : ";
+    public static final String SCORE = "-";
+    public static final String WINNER_SEPARATOR = ", ";
+    public static final char BLANK = ' ';
 
     public static final int START_RANDOM_NUMBER = 0;
     public static final int END_RANDOM_NUMBER = 9;
     public static final int FORWARD_CRITERIA = 4;
+    public static final int NAME_MAX_LENGTH = 5;
 
     public static final String EXCEPTION_INT_RANGE = "가능한 최댓값을 초과하였습니다.";
     public static final String EXCEPTION_SAME_NAME = "중복된 이름이 존재합니다.";
@@ -23,9 +28,6 @@ public class Constants {
     public static final String NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String ROUND_NUMBER_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
     public static final String START_ROUND_MESSAGE = "\n실행 결과";
-    public static final String SEPARATE_NAME_TO_SCORE = " : ";
-    public static final String SCORE = "-";
     public static final String WINNER_MESSAGE_START = "최종 우승자 : ";
-    public static final String WINNER_SEPARATOR = ", ";
 
 }

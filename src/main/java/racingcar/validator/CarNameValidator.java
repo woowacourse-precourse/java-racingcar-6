@@ -1,14 +1,12 @@
 package racingcar.validator;
 
+import static racingcar.constant.Constants.BLANK;
 import static racingcar.constant.Constants.EXCEPTION_NAME_END_BLACK;
 import static racingcar.constant.Constants.EXCEPTION_NAME_LENGTH;
 import static racingcar.constant.Constants.EXCEPTION_NAME_START_BLACK;
+import static racingcar.constant.Constants.NAME_MAX_LENGTH;
 
 public class CarNameValidator {
-
-
-    private static final int NAME_MAX_LENGTH = 5;
-    private static final char BLANK = ' ';
 
     public static void validate(String carName) {
         checkNameLength(carName);
