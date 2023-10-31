@@ -4,9 +4,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 
 import racingcar.domain.Cars;
+import racingcar.domain.Game;
 import racingcar.view.SystemOutMessage;
 import racingcar.view.UserInputMessage;
 
@@ -27,7 +28,12 @@ public class RaceService {
         if(!isLimitFiveChar(splitCarNames)){
             throw new IllegalArgumentException();
         }
-        cars.setCarNames(splitCarNames);
+
+        ArrayList<String> saveCarNames = new ArrayList<String>();
+        for(int i=0;i<splitCarNames.length;i++){
+            saveCarNames.add(splitCarNames[i]);
+        }
+        cars.setCarNames(saveCarNames);
     }
     //기능1-예외: 자동차 이름이 5자가 넘어갈 때
     public boolean isLimitFiveChar(String[] CarNames)throws IllegalArgumentException {
@@ -64,47 +70,67 @@ public class RaceService {
     // [startRace]--------------------------------
     public void raceStart(){
         int raceCount = cars.getRaceCount();
-        String[] carNameList = cars.getCarNames();
-        ArrayList<String> raceLog = new ArrayList<String>();
+        ArrayList carNameList = cars.getCarNames();
+        HashMap raceLog = createEmptyRaceLog(carNameList);
+        System.out.println("raceLog를 만들었습니다."+raceLog);
 
-        //각 자동차의 무작위 값들
         while(raceCount > 0){
-            rollRandomNumbers(carNameList);
-            showRaceLog(raceLog);
+            HashMap<String,Integer> tryOne = rollRandomNumbers(carNameList);
+            System.out.println("tryOne: "+tryOne);
+
+            updateRaceLog(carNameList, tryOne, raceLog, raceCount);
+            showRaceLog(carNameList,raceLog);
             raceCount -= 1;
         }
     }
 
-    public ArrayList rollRandomNumbers(String[] carNameList){
-        ArrayList<Integer> carsPickNumbers = new ArrayList<Integer>();
-        for(int i=0;i<carNameList.length;i++) {
+    public HashMap createEmptyRaceLog(ArrayList<String> carNameList) {
+        HashMap<String,String> raceLog = new HashMap<>();
+        for (int i = 0; i < carNameList.size(); i++) {
+            raceLog.put(carNameList.get(i),"");
+        }
+        return raceLog;
+    }
+
+    public HashMap rollRandomNumbers(ArrayList<String> carNameList){
+        HashMap<String, Integer> carsPickNumbers = new HashMap<>();
+        for(int i=0;i<carNameList.size();i++) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
-            carsPickNumbers.add(randomNumber);
+            carsPickNumbers.put(carNameList.get(i),randomNumber);
         }
         return carsPickNumbers;
     }
 
-    public ArrayList addRaceLog(ArrayList<Integer> carsPickNumbers, ArrayList<String> raceLog){
-        for(int i=0;i<carsPickNumbers.size();i++){
-            if(isCarAdvance(carsPickNumbers.get(i))){
-                //유형 ArrayList는 수정이 어려움
-                //String[]은 미리 사이즈를 정해야함
+
+    public void updateRaceLog(ArrayList<String > carNameList,HashMap<String,Integer> tryOne, HashMap raceLog, int raceCount){
+        for(int i=0;i<tryOne.size();i++) {
+            String eachCarName = carNameList.get(i);
+            if (isCarAdvance(tryOne.get(eachCarName))) {
+                addEachRaceLog(i, raceLog,carNameList);
             }
         }
-
-        return raceLog;
+//        if(raceCount == 1){
+//            game.setRaceResult(raceLog);
+//        }
     }
 
     public boolean isCarAdvance(int randomNumber){
         if(randomNumber >= 4) {
-                return true;
+            return true;
         }
         return false;
     }
 
-    public void showRaceLog(ArrayList raceLog){
-        for(int i=0; i<raceLog.size();i++){
+    public void addEachRaceLog(int i, HashMap<String, String> raceLog,ArrayList<String> carNameList){
+        String eachLog = raceLog.get(carNameList.get(i));
+        raceLog.replace(carNameList.get(i),eachLog + "-");
+        System.out.println();
+    }
 
+    public void showRaceLog(ArrayList<String> carNameList, HashMap raceLog){
+        SystemOutMessage.RaceMessage();
+        for(int i=0;i<carNameList.size();i++){
+            System.out.println(carNameList.get(i)+" : "+raceLog.get(carNameList.get(i)));
         }
     }
 }

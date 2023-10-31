@@ -6,14 +6,14 @@ public class SystemOutMessage {
         System.out.println("실행 결과");
     }
 
-    public static void RaceMessage(String carName, String raceLog, int i){
+    public static void RaceMessage(){
         System.out.println("실행 결과");
     }
 
 
 
-    public void RaceResultMessage(String[] prizeWinner){
-        System.out.println("최종 우승자 : "+prizeWinner);
+    public static void RaceResultMessage(){
+        System.out.print("최종 우승자 : ");
 
     }
 }

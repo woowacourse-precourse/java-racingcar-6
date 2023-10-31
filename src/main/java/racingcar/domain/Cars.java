@@ -1,7 +1,9 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
+
 public class Cars {
-    String[] CarNames;
+    ArrayList<String> CarNames;
     int CarCount;
     int RaceCount;
 
@@ -21,11 +23,11 @@ public class Cars {
         return carRandomnumbers;
     }
 
-    public String[] getCarNames(){
+    public ArrayList<String> getCarNames(){
         return CarNames;
     }
 
-    public void setCarNames(String[] carnames){
+    public void setCarNames(ArrayList<String> carnames){
         this.CarNames = carnames;
     }
 

@@ -8,7 +8,7 @@ public class Controller {
     public void run(){
         //기능 1. 레이스 참가 자동차 이름 받기
         readyRace();
-//        raceService.raceStart();
+        raceService.raceStart();
     }
 
     public void readyRace(){
