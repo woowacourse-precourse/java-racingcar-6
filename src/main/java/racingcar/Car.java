@@ -18,4 +18,17 @@ public class Car {
             location += 1;
         }
     }
+
+    public void printProgress() {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(name);
+        sb.append(" : ");
+
+        for (int i = 0; i < location; i++) {
+            sb.append("-");
+        }
+
+        System.out.println(sb);
+    }
 }

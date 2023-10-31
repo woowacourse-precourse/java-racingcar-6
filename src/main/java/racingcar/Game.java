@@ -60,8 +60,7 @@ public class Game {
     private void printRoundProgress() {
 
         for (Car car : cars) {
-            /// TODO : Print Car Location
-            System.out.println("Each Car Prints Its Location");
+            car.printProgress();
         }
     }
 
