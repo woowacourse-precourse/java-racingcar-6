@@ -17,7 +17,6 @@ public class Cars {
                 .stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
-
     }
 
     public void moveCars() {

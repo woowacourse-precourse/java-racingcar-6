@@ -13,14 +13,13 @@ public class Controller {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
 
-    public void playGame(){
+    public void playGame() {
         Cars cars = getCars();
         TrialNumber trialNumber = getTrialNumber();
-        Game game = new Game(cars,trialNumber);
+        Game game = new Game(cars, trialNumber);
         outputView.displayResultMessage();
-        Winners winners = race(cars,trialNumber,game);
+        Winners winners = race(cars, trialNumber, game);
         outputView.displayWinners(winners);
-
     }
 
     private Cars getCars() {

@@ -11,7 +11,8 @@ public class CarName {
         this.name = name;
     }
 
-    public String toString(){
+    @Override
+    public String toString() {
         return this.name;
     }
 
