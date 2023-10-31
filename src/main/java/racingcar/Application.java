@@ -8,6 +8,6 @@ public class Application {
         GameController controller = new GameController();
         CarView view = new CarView();
         controller.setView(view);
-        controller.startGame();
+        controller.playGame();
     }
 }
