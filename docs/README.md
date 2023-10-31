@@ -15,10 +15,10 @@
 ### NumberGenerator
 - [ ]  0~9랜덤값을 생성합니다. - generateRandomNumber()
 ### CarName
-- [ ]  이름이 Valid한지 확인합니다. - isValidCarName()
-  - [ ]  예외) 5자 이내인지 확인합니다. - isBeyondLengthRange()
-  - [ ]  예외) 길이가 0일 경우를 확인합니다. - isZeroLength()
-  - [ ]  예외) 이름에 특수문자가 있는 지 확인합니다 - hasSpecialCharacter()
+- [x]  이름이 Valid한지 확인합니다. - checkValidCarName()
+  - [x]  예외) 5자 이내인지 확인합니다. - checkBeyondLengthRange()
+  - [x]  예외) 길이가 0일 경우를 확인합니다. - checkZeroLength()
+  - [x]  예외) 이름에 한글, 영어, 숫자를 제외한 문자가 있는 지 확인합니다 - checkHasSpecialCharacter()
 ### RoundTryCount
 - [ ]  입력받은 횟수가 valid한지 확인합니다 - isValidRoundTryCount()
   - [ ]  예외) Null인지 확인합니다. - isNull()
