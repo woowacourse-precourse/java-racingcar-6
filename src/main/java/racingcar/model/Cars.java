@@ -32,7 +32,6 @@ public class Cars {
                 .getAsInt();
     }
 
-
     public int carsSize() {
         return cars.size();
     }

@@ -5,11 +5,11 @@ import java.util.Objects;
 public class Car {
 
     private static final int START_MOVING_DISTANCE = 0;
-    private static final int NAME_MIN_LENGTH = 1;
-    private static final int NAME_MAX_LENGTH = 5;
+    private static final int MIN_NAME_LENGTH = 1;
+    private static final int MAX_NAME_LENGTH = 5;
 
     private static final String INVALID_NAME_LENGTH_RANGE =
-            String.format("자동차 이름 길이는 %d~%d 입니다.", NAME_MIN_LENGTH, NAME_MAX_LENGTH);
+            String.format("자동차 이름 길이는 %d~%d 입니다.", MIN_NAME_LENGTH, MAX_NAME_LENGTH);
 
     private String name;
     private int distance;
@@ -32,7 +32,7 @@ public class Car {
 
     private boolean isRange(String name) {
         int length = name.length();
-        return !(length >= NAME_MIN_LENGTH && length <= NAME_MAX_LENGTH);
+        return !(length >= MIN_NAME_LENGTH && length <= MAX_NAME_LENGTH);
     }
 
     @Override
