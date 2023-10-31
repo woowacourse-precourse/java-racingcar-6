@@ -12,7 +12,7 @@ public class Car {
     }
 
     public void getResult() {
-        if(Utils.getRandomNumber() > 3) {
+        if (Utils.getRandomNumber() > 3) {
             this.distance += 1;
         }
     }
@@ -20,5 +20,17 @@ public class Car {
     public void printRoundResult() {
         String totalDistance = Utils.convertDistanceToSymbol(distance);
         System.out.println(name + " : " + totalDistance);
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public boolean isWinner(int winningDistance) {
+        return this.distance == winningDistance;
+    }
+
+    public String getName() {
+        return name;
     }
 }

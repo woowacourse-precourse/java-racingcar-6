@@ -1,6 +1,7 @@
 package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.model.Car;
 import racingcar.model.RoundNumber;
 
 import java.util.Arrays;
@@ -25,5 +26,9 @@ public class Utils {
 
     public static int getRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
+    }
+
+    public static int getMaxDistance(List<Car> cars) {
+        return cars.stream().mapToInt(Car::getDistance).max().orElse(0);
     }
 }

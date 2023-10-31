@@ -1,9 +1,11 @@
 package racingcar.model;
 
+import racingcar.util.Utils;
 import racingcar.validator.CarNameValidator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarList {
     private final List<Car> cars = new ArrayList<>();
@@ -15,7 +17,7 @@ public class CarList {
 
     public void raceOneRound(CarList carList) {
         race(carList);
-        printResult(carList);
+        printRoundResult(carList);
         System.out.println();
     }
 
@@ -23,7 +25,16 @@ public class CarList {
         carList.cars.stream().forEach(car -> car.getResult());
     }
 
-    public void printResult(CarList carList) {
+    public void printRoundResult(CarList carList) {
         carList.cars.stream().forEach(car -> car.printRoundResult());
+    }
+
+    public void printFinalResult(CarList carList) {
+       int maxDistance = Utils.getMaxDistance(carList.cars);
+        String winners = cars.stream()
+                .filter(car -> car.isWinner(maxDistance))
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+        System.out.println("최종 우승자 : " + winners);
     }
 }
