@@ -33,6 +33,8 @@ public class Application {
             System.out.println(car[k].carName + "의 전진횟수: " + car[k].forwardCount);
         }
 
+        raceGameManager.noticeWinner();
+
 
 
     }

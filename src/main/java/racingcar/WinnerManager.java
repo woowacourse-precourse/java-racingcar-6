@@ -24,6 +24,7 @@ public class WinnerManager {
     }
 
     public void findValuesEqualToMax() { // 동점인 우승자가 있는지 구하기
+        getIndexOfMaxForwardCount();
         for (int i = 0; i < car.length; i++) {
             if (car[i].forwardCount == car[maxIndex].forwardCount) {
                 maxIndexList.add(i);
