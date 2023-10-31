@@ -37,4 +37,10 @@ public class RacingGame {
         printLine();
     }
 
+    public List<String> getWinners() {
+        return cars.getWinners().stream()
+                .map(w -> w.getName())
+                .collect(Collectors.toList());
+    }
+
 }
