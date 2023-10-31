@@ -26,4 +26,8 @@ public class Car {
         return moveCnt;
     }
 
+    public PerGameCarResultDto getCarStatus(){
+        return new PerGameCarResultDto(name, moveCnt);
+    }
+
 }
