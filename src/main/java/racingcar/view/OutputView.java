@@ -19,4 +19,8 @@ public class OutputView {
         cars.forEach(car -> System.out.println(car.getName() + " : " + MOVE_EXP.repeat(car.getMoveCount())));
         System.out.println();
     }
+
+    public static void writeWinners(List<String> winners) {
+        System.out.print("최종 우승자 : " + String.join(", ", winners));
+    }
 }

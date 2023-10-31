@@ -13,6 +13,7 @@ public class RacingCarController {
     public void run() {
         setting();
         play();
+        getWinners();
     }
 
     private void setting() {
@@ -30,4 +31,8 @@ public class RacingCarController {
         }
     }
 
+    private void getWinners() {
+        List<String> winners = racingMachine.getWinners();
+        OutputView.writeWinners(winners);
+    }
 }
