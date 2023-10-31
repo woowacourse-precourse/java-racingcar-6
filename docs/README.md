@@ -1,6 +1,7 @@
 #구현할 기능 목록
 
--[ ] 0~9 랜덤 숫자 생성기 RandomNumberGenerator 클래스 구현
+-[ ] 숫자 생성기 NumberGenerator 인터페이스 구현
+  -[ ] 0~9 랜덤 숫자 생성기 RandomNumberGenerator 클래스 구현
 
 
 -[ ] 입력값을 검증하는 InputValidator 인터페이스 구현
