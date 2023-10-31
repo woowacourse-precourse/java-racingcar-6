@@ -34,7 +34,9 @@ public class CarsTest {
     @Test
     void 현재_자동차들_위치_정보_테스트() {
         String carsInfo = carList.stream()
-                .map(Car::toString)
+                .map(car -> car.getName()
+                        + " : "
+                        + "-".repeat(car.getPosition()))
                 .collect(Collectors.joining("\n"));
 
         List<CarStatus> carStatusList = carList.stream()
