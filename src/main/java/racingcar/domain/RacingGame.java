@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.dto.PerGameCarResultDto;
 
 public class RacingGame {
     private int totalTryCnt;
@@ -19,6 +20,16 @@ public class RacingGame {
         for (String name : carNames){
             cars.add(new Car(name));
         }
+    }
+
+    public List<PerGameCarResultDto> startRacingGame(){
+        List<PerGameCarResultDto> resultDtos = new ArrayList<>();
+        for (Car car : cars){
+            maxWinCnt = Math.max(maxWinCnt, car.race());
+            resultDtos.add(car.getCarStatus());
+        }
+        curTryCnt += 1;
+        return resultDtos;
     }
 
 }
