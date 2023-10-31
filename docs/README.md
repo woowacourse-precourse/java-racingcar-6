@@ -6,8 +6,9 @@
   - [x] 자동차 이름이 5자 이하인지 확인한다. : NamesManager # wrongNameLength()
   - [x] 자동차 이름이 모두 unique한지 확인한다 : NamesManager # duplicateName()
 
-- [] 시도할 횟수가 숫자가 맞는지 확인한다. : notNumber()
-- [] 시도할 횟수가 음수인지 확인한다. : negativeNumber() 
+- [] 시도할 횟수가 조건에 맞는지 확인한다 : RoundNumberManager # checkRoundNumberExceptions()
+  - [] 시도할 횟수가 숫자가 맞는지 확인한다. : RoundNumberManager # notNumber()
+  - [] 시도할 횟수가 음수인지 확인한다. : RoundNumberManager # negativeNumber() 
 
 - [] 라운드를 진행한다. : round()
   - [] 전진할지 멈출지 결정한다. : car # engine()
