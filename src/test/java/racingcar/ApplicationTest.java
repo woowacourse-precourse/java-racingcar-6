@@ -73,6 +73,19 @@ class ApplicationTest extends NsTest {
         assertThat(game.getCarList().get(1).getDistance()).isEqualTo(0);
     }
 
+    @Test
+    void 우승자_리스트_확인(){
+        Game game = new Game();
+        game.addCarList("carName1");
+        game.addCarList("carName2");
+        game.addCarList("carName3");
+        List<Car> carList=game.getCarList();
+
+        carList.get(0).move(5,4);
+        carList.get(1).move(5,4);
+
+        assertThat(game.getWinnerList()).contains("carName1","carName2");
+    }
 
     @Override
     public void runMain() {
