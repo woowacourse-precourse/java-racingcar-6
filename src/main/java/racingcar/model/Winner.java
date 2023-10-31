@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +24,6 @@ public class Winner {
     }
 
     public List<Car> getWinners() {
-        return winners;
+        return Collections.unmodifiableList(winners);
     }
 }
