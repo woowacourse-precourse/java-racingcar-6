@@ -32,17 +32,15 @@ public class RacingView {
         System.out.println("\n실행 결과");
 
         List<String> playResults = controller.getRacingPlayResults();
+        List<String> winners = controller.getWinners();
 
         for (String result : playResults) {
             System.out.println(result);
         }
 
-        String winners = String.join(
-                ",",
-                controller.getWinners()
-        );
+        String winnerName = convertListToString(winners, ",");
 
-        System.out.println("최종 우승자 : " + winners);
+        System.out.println("최종 우승자 : " + winnerName);
     }
 
     private int convertStringToInt(String input) {
@@ -56,6 +54,10 @@ public class RacingView {
         }
 
         return number;
+    }
+
+    private String convertListToString(List<String> data, String joinWord) {
+        return String.join(joinWord, data);
     }
 
 }
