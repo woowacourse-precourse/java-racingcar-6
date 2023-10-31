@@ -12,7 +12,7 @@ public class RapsResult {
         this.racingCar = racingCar;
     }
 
-    //숫자가 4 이상일 경우 true값 반환
+    //주어진 숫자가 4 이상일 경우 true를 반환합니다.
     public boolean reader(int num) {
 
         if (num >= 4) {
@@ -22,7 +22,7 @@ public class RapsResult {
         return false;
     }
 
-    //자동차의 위치값을 1 더해줌
+    //전진 여부를 결정하고, 자동차의 위치를 1 증가시킵니다.
     public void changeCarStatus(boolean flag) {
 
         if (flag) {
@@ -30,13 +30,13 @@ public class RapsResult {
         }
     }
 
-    //자동차의 최종 이동 거리에 대한 결과값 반환
+    //자동차의 최종 이동 거리 및 이름을 문자열 형태로 반환합니다.
     public String resultText() {
 
         return racingCar.getName() + " : " + distanceText();
     }
 
-    //자동차의 이동 거리 출력값을 반환
+    //자동차의 이동 거리를 '-' 문자열로 표현하여 반환합니다.
     public String distanceText() {
 
         StringBuilder text = new StringBuilder();
@@ -48,7 +48,7 @@ public class RapsResult {
         return text.toString();
     }
 
-    //랜덤값을 생성해서 전진할지 멈출지 알려주는 값을 반환
+    //랜덤값을 생성하여 전진할지 멈출지 결정하고, 최종 결과를 반환합니다.
     public boolean determineForward() {
 
         int num = Randoms.pickNumberInRange(0, 9);
@@ -56,7 +56,7 @@ public class RapsResult {
         return reader(num);
     }
 
-    //최종 결과를 반환
+    //랜덤값을 생성하여 전진할지 멈출지 결정합니다.
     public String forwardOrNot() {
 
         boolean forward = determineForward();
