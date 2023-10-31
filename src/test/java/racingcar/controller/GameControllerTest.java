@@ -1,8 +1,8 @@
 package racingcar.controller;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.DTO.CarDTO;
 import racingcar.model.Car;
 import racingcar.view.InputView;
 
@@ -14,11 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameControllerTest {
     private final static InputView INPUT_VIEW = new InputView();
-
-    @BeforeEach
-    static void setUp() {
-        GameController gameController = new GameController(INPUT_VIEW);
-    }
 
     @Test
     @DisplayName("입력받은 이름 개수 만큼 자동차 객체 생성 확인")
@@ -40,6 +35,6 @@ class GameControllerTest {
                                 tuple("lee", 0),
                                 tuple("cho", 0)
                         )
-                );
+        );
     }
 }
