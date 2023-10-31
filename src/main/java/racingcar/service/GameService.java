@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.List;
 import racingcar.domain.CarList;
+import racingcar.domain.GameCount;
 import racingcar.util.UserUtil;
 import racingcar.validation.GameCountValidator;
 
@@ -9,14 +10,8 @@ public class GameService {
 
     private final String DIVISION_STANDARD = ",";
 
-    private final GameCountValidator gameCountValidator;
-
-    private int gameCount;
     private CarList carList;
-
-    public GameService(GameCountValidator gameCountValidator) {
-        this.gameCountValidator = gameCountValidator;
-    }
+    private GameCount gameCount;
 
     public void createCarList() {
         String userInput = UserUtil.getUserInput();
@@ -25,12 +20,11 @@ public class GameService {
 
     public void createGameCount() {
         String userInput = UserUtil.getUserInput();
-        gameCountValidator.validateGameCount(userInput);
-        gameCount = Integer.parseInt(userInput);
+        gameCount = GameCount.from(userInput);
     }
 
     public void playGame() {
-        carList.playGame(gameCount);
+        carList.playGame(gameCount.getCount());
     }
 
     public void printWinner(){

@@ -18,4 +18,8 @@ public class GameCount {
         GameCountValidator.validateGameCount(userInput);
         return Integer.parseInt(userInput);
     }
+
+    public int getCount() {
+        return this.count;
+    }
 }

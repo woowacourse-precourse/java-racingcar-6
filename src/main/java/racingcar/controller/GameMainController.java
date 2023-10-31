@@ -8,7 +8,7 @@ import racingcar.view.OutputView;
 
 public class GameMainController {
 
-    private GameService gameService = new GameService(new GameCountValidator());
+    private GameService gameService = new GameService();
 
     public void run() {
         startGame();
