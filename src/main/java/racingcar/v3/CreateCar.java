@@ -16,6 +16,9 @@ public class CreateCar {
         String[] carNames = input.split(",");
         for (int i = 0; i < carNames.length; i++) {
             carNames[i] = carNames[i].trim();
+            if (carNames[i].isEmpty()) {
+                throw new IllegalArgumentException("자동차 이름은 1자 이상이어야 합니다.");
+            }
         }
         return carNames;
     }
@@ -45,7 +48,7 @@ public class CreateCar {
     public void validateCarNameLength(String[] carNames) throws IllegalArgumentException {
         for (String carName : carNames) {
             if (carName.length() == 0 || carName.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+                throw new IllegalArgumentException("자동차 이름은 1자 이상 5자 이하만 가능합니다. 입력된 이름: " + carName);
             }
         }
     }
