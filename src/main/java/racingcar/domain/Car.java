@@ -12,12 +12,15 @@ public class Car {
     public String getName() {
         return name;
     }
+
     public String getPosition() {
         return position;
     }
+
     public void setPosition(String movingCar) {
         position += movingCar;
     }
+
     public int positionNumber() {
         return position.length();
     }
