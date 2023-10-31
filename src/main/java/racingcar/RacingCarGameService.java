@@ -16,4 +16,15 @@ public class RacingCarGameService {
                             return car;
                     }).toList();
     }
+
+    public List<Car> winnerResult(List<Car> carList) {
+        int maxDistance = carList.stream()
+                .mapToInt(car -> car.getDistance())
+                .max()
+                .orElse(Integer.MIN_VALUE);
+
+        return carList.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .toList();
+    }
 }

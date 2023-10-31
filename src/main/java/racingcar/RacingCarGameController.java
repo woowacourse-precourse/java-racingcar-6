@@ -30,8 +30,8 @@ public class RacingCarGameController {
         int moveCnt = inputMoveCount();
 
         // 4. 자동차 전진
+        System.out.println("실행 결과");
         for (int i = 0; i < moveCnt; i++) {
-            System.out.println("실행 결과");
             carList = racingCarGameService.forwardOrStop(carList);
 
             for (Car car : carList) {
@@ -41,21 +41,10 @@ public class RacingCarGameController {
         }
 
         // 5. 최대 움직인 자동차 찾기 (result)
-        int maxValue = racingCar.values().stream()
-                .mapToInt(Integer::intValue)
-                .max()
-                .orElse(Integer.MIN_VALUE);
-
-        List<String> resultList = new ArrayList<>();
-
-        for (String car : racingCar.keySet()) {
-            if (racingCar.get(car) == maxValue) {
-                resultList.add(car);
-            }
-        }
+        List<Car> winners = racingCarGameService.winnerResult(carList);
 
         // 6. 우승자 출력
-        String result = resultList.stream().map(String::valueOf).collect(Collectors.joining(", "));
+        String result = winners.stream().map(Car::getName).collect(Collectors.joining(", "));
         System.out.println("최종 우승자 : " + result);
     }
 
