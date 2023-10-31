@@ -17,6 +17,10 @@ public class Car {
         return this.name;
     }
 
+    public Integer getCurrentLocation() {
+        return this.currentLocation;
+    }
+
     public void printCurrentLocation() {
         for (int i = 0; i < currentLocation; i++) {
             System.out.print('-');

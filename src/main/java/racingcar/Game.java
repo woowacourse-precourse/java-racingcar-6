@@ -8,10 +8,13 @@ import java.util.List;
 public class Game {
     private Integer attemptsNumber;
     private Integer currentRound;
+    private Integer highestLocation;
     private List<Car> carList;
+
 
     public Game() {
         this.currentRound = 0;
+        this.highestLocation = 0;
     }
 
     public void start() {
@@ -51,8 +54,9 @@ public class Game {
     public void playRound() {
         for (int i = 0; i < carList.size(); i++) {
             Car car = carList.get(i);
-            judgeMovingForward(car);
-            printCarNameAndCurrentLocation(car);
+            judgeMovingForward(car); // 차가 앞으로 갈지 판단
+            printCarNameAndCurrentLocation(car); // 차의 이름과 현재 위치 출력
+            setHighestLocation(car); // highestLocation을 갱신함
         }
         System.out.println();
         currentRound++;
@@ -70,6 +74,15 @@ public class Game {
     }
 
     private void printResult() {
-        
+
+    }
+
+    // 게임 라운드를 진행할 때 마다 모든 car값의 위치를 넣어 높으면 highestLocation를 갱신한다
+    private void setHighestLocation(Car car) {
+        Integer carLocation = car.getCurrentLocation();
+
+        if (highestLocation < carLocation) {
+            highestLocation = carLocation;
+        }
     }
 }
