@@ -9,6 +9,16 @@ public class Player {
     public List<String> inputCarNames(){
         String carNames = Console.readLine();
         List<String> names = Arrays.stream(carNames.split(",")).toList();
+        checkUnder5Length(names);
         return names;
     }
+
+    private void checkUnder5Length(List<String> names) {
+        for (String name : names){
+            if(name.length() > 5){
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
 }
