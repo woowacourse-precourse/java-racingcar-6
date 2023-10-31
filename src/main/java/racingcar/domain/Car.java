@@ -18,6 +18,14 @@ public class Car implements Comparable<Car> {
         }
     }
 
+    public Boolean isWinner(Car car) {
+        return position.equals(car.position);
+    }
+
+    public int getPosition() {
+        return position.getPosition();
+    }
+
     @Override
     public int compareTo(Car o) {
         return position.compareTo(o.position);
