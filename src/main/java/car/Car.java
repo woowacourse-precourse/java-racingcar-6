@@ -1,4 +1,4 @@
-package dto;
+package car;
 
 public class Car {
     private String name;
@@ -16,18 +16,18 @@ public class Car {
         return distance;
     }
 
-    public void setDistance(int distance) {
-        this.distance = distance;
+    public void moveForward() {
+        this.distance += 1;
     }
 
     @Override
     public String toString() {
-        String carInfo = (this.name + " : ");
+        String carState = (this.name + " : ");
 
         for (int i = 0; i < this.distance; i++) {
-            carInfo.concat("-");
+            carState += '-';
         }
 
-        return carInfo;
+        return carState;
     }
 }
