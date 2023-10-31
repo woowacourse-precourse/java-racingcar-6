@@ -13,6 +13,8 @@ public class OutputViewTest extends NsTest {
     private static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
     private static final String CAR_NAME = "car";
     private static final int MOVING_FORWARD = 4;
+    private static final String DASH = "-";
+    private static final String COLON = " : ";
 
     @Test
     @DisplayName("printNameInputMessage 함수 기능 테스트")
@@ -34,6 +36,24 @@ public class OutputViewTest extends NsTest {
         OutputView.printExecutionResultMessage();
         assertThat(output()).contains(
                 EXECUTION_RESULT_MESSAGE);
+    }
+
+    @Test
+    @DisplayName("printCarNameAndPosition 함수 기능 테스트")
+    void 자동차_이름과_이동거리_출력_기능_테스트() {
+        //given
+        Car car = new Car(CAR_NAME);
+        OutputView.printCarNameAndPosition(car);
+        assertThat(output()).doesNotContain(
+                DASH
+        );
+        //when
+        car.moveForward(MOVING_FORWARD);
+        //then
+        OutputView.printCarNameAndPosition(car);
+        assertThat(output()).contains(
+                car.getName() + COLON + DASH
+        );
     }
 
     @Override
