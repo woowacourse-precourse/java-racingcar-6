@@ -33,10 +33,7 @@ public class RacingCarGameService {
     }
 
     private boolean isMoveForward(int randomNumber) {
-        if (randomNumber >= MOVING_FORWARD_STANDARD) {
-            return true;
-        }
-        return false;
+        return randomNumber >= MOVING_FORWARD_STANDARD;
     }
 
     private void moveForward(LinkedHashMap<String, Integer> racingProgressStatus, String carName) {
