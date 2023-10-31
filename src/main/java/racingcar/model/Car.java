@@ -10,6 +10,8 @@ public class Car implements Comparable<Car>, Model {
     private final String name;
     private int moved;
     private final int index;
+    private static final String NAME_IS = "%s : ";
+    private static final String CAR_MOVE = "-";
 
     Car(final String name, final int index) {
         this.name = name;
@@ -26,15 +28,15 @@ public class Car implements Comparable<Car>, Model {
         return name;
     }
 
-    public boolean isDraw(final Car other) {
+    boolean isDraw(final Car other) {
         return this.moved == other.moved;
     }
 
     @Override
     public String toString() {
         StringBuilder print = new StringBuilder();
-        print.append(String.format("%s : ", name));
-        print.append("-".repeat(moved));
+        print.append(String.format(NAME_IS, name));
+        print.append(CAR_MOVE.repeat(moved));
 
         return print.toString();
     }
