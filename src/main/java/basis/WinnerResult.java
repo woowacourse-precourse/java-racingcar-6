@@ -24,12 +24,17 @@ public class WinnerResult {
     private List<String> getWinnerList(LinkedHashMap<String, String> carNameHashMap, int largestMove) {
         List<String> winnerList = new ArrayList<>();
         for (Entry<String, String> element : carNameHashMap.entrySet()) {
-            int moveLength = element.getValue().length();
-            if (moveLength == largestMove) {
-                winnerList.add(element.getKey());
-            }
+            compareElementMoveAndLargestMove(winnerList, element, largestMove);
         }
         return winnerList;
+    }
+
+    private void compareElementMoveAndLargestMove(List<String> winnerList, Entry<String, String> element,
+                                                  int largestMove) {
+        int moveLength = element.getValue().length();
+        if (moveLength == largestMove) {
+            winnerList.add(element.getKey());
+        }
     }
 
     private int getWinnerMovementCriteria(LinkedHashMap<String, String> carNameHashMap) {
