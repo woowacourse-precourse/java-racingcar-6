@@ -11,7 +11,7 @@ public class RacingGame {
     private List<String> resultList = new ArrayList<>();
     private List<String> winner = new ArrayList<>();
 
-    private RacingGame() {
+    public RacingGame() {
 
     }
 
