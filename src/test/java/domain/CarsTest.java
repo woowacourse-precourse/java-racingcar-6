@@ -74,7 +74,7 @@ public class CarsTest {
     @Test
     @DisplayName("우승자가 복수일 경우 반환되는지 확인")
     public void 최대_거리_자동차_반환() throws Exception {
-        List<Car> winnerCars = cars.getFarthestDistance();
+        List<Car> winnerCars = cars.getWinners();
 
         assertEquals(2, winnerCars.size());
         assertEquals("pobi", winnerCars.get(0).getName());

@@ -1,18 +1,17 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.validation.CarInputValidate;
 
 public class InputManager {
     private final int gameProcessCount;
-    private final String inputCarList;
     private final List<Car> parsedCarList;
 
     public InputManager(int gameProcessCount, String inputCarList) {
         this.gameProcessCount = gameProcessCount;
-        this.inputCarList = inputCarList;
         this.parsedCarList = parseCarList(inputCarList);
     }
 
@@ -25,12 +24,13 @@ public class InputManager {
     }
 
     private List<Car> parseCarList(String carList) {
-        List<Car> cars = new ArrayList<>();
         String[] carNames = carList.split(",");
-        for (String carName : carNames) {
-            CarInputValidate.carNameLengthValidate(carName);
-            cars.add(new Car(carName));
-        }
+
+        List<Car> cars = Arrays.stream(carNames)
+                .peek(CarInputValidate::carNameLengthValidate)
+                .map(Car::new)
+                .collect(Collectors.toList());
+
         CarInputValidate.carDuplicateCheck(carNames);
         return cars;
     }
