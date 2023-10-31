@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.constant;
 
 public enum GameSettingNumber {
     MAX_LENGTH(5),

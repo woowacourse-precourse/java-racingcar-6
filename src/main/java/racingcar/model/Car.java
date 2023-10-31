@@ -1,7 +1,6 @@
 package racingcar.model;
 
-import racingcar.util.GameSettingCharacter;
-import racingcar.util.GameSettingNumber;
+import racingcar.constant.GameSettingCharacter;
 
 public class Car {
     private final Name name;

@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.constant;
 
 public enum ExceptionMessage {
     COUNT_INPUT_EXCEPTION_MESSAGE("숫자만 입력해주십시오."),

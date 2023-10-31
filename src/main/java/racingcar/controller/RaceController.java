@@ -2,8 +2,8 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
-import racingcar.util.GameSettingCharacter;
-import racingcar.util.GameSettingNumber;
+import racingcar.constant.GameSettingCharacter;
+import racingcar.constant.GameSettingNumber;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.constant;
 
 public enum GameSettingCharacter {
     SEPARATOR_NAME("쉼표"),

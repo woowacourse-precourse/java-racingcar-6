@@ -1,7 +1,7 @@
 package racingcar.validator;
 
-import racingcar.util.ExceptionMessage;
-import racingcar.util.GameSettingNumber;
+import racingcar.constant.ExceptionMessage;
+import racingcar.constant.GameSettingNumber;
 
 public class NameLengthValidator implements Validator<String> {
 

@@ -1,6 +1,6 @@
 package racingcar.view;
 
-import racingcar.util.ViewMessage;
+import racingcar.constant.ViewMessage;
 
 public class OutputView {
 

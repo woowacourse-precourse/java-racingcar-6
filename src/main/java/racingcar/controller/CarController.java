@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
-import racingcar.util.GameSettingCharacter;
+import racingcar.constant.GameSettingCharacter;
 import racingcar.validator.NameDuplicateValidator;
 import racingcar.validator.NamesCountValidator;
 import racingcar.view.InputView;

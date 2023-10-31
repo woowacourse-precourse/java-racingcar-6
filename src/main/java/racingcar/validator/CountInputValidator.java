@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import racingcar.util.ExceptionMessage;
+import racingcar.constant.ExceptionMessage;
 
 public class CountInputValidator implements Validator<String> {
 

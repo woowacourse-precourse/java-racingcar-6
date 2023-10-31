@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.constant;
 
 public enum ViewMessage {
     CAR_NAME_INPUT_MESSAGE("경주할 자동차 이름을 입력하세요.(이름은 " + GameSettingCharacter.SEPARATOR_NAME +

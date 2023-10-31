@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.util.ViewMessage;
+import racingcar.constant.ViewMessage;
 import racingcar.validator.CountInputValidator;
 
 public class InputView {
