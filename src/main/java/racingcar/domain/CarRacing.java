@@ -22,6 +22,7 @@ public class CarRacing {
         while (turn-- > 0) {
             oneTurnRace();
         }
+        getRaceResult();
     }
 
     private void oneTurnRace() {
@@ -31,5 +32,10 @@ public class CarRacing {
                 carPos.set(i, carPos.get(i) + 1);
             }
         }
+    }
+
+    private void getRaceResult() {
+        Referee referee = new Referee();
+        List<String> winner = referee.findWinner(cars, carPos);
     }
 }
