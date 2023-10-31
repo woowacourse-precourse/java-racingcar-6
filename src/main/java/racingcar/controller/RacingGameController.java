@@ -35,11 +35,19 @@ public class RacingGameController {
         NumberGenerator numberGenerator = new NumberGenerator();
 
         for (int i = 0; i < numberOfRounds; i++) {
-            cars.doRound(numberGenerator);
-            output.printRoundResult(cars);
+            runRound(cars, numberGenerator);
         }
+        findRaceWinners(cars);
+    }
+
+    private void findRaceWinners(CarList cars) {
         int maxPosition = cars.findMaxPosition();
         List<String> winnerNames = cars.findWinners(maxPosition);
         output.printWinners(winnerNames);
+    }
+
+    private void runRound(CarList cars, NumberGenerator numberGenerator) {
+        cars.doRound(numberGenerator);
+        output.printRoundResult(cars);
     }
 }
