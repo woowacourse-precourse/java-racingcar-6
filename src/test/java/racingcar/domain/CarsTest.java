@@ -63,4 +63,47 @@ class CarsTest {
                 """;
         assertThat(raceResult).contains(expected);
     }
+
+    @DisplayName("단독 우승자 일 경우 한 명의 이름이 들어있는 리스트를 얻어와야 한다.")
+    @Test
+    void getSoloWinnerNameListTest() {
+        // given
+        String player1 = "pobi";
+        String player2 = "jason";
+        cars.add(player1);
+        cars.move(testReferee);
+        cars.add(player2);
+
+        // when
+        List<String> winnerNames = cars.getWinnerNameList();
+
+        // then
+        assertThat(winnerNames)
+                .hasSize(1)
+                .containsOnlyOnce(player1)
+                .doesNotContain(player2);
+    }
+
+    @DisplayName("공동 우승일 경우 다수의 이름이 들어있는 리스트를 얻어와야 한다.")
+    @Test
+    void getMultiWinnerNameListTest() {
+        // given
+        String player1 = "pobi";
+        String player2 = "jason";
+        String player3 = "lastC";
+        cars.add(player1);
+        cars.add(player3);
+        cars.move(testReferee);
+        cars.add(player2);
+
+        // when
+        List<String> winnerNames = cars.getWinnerNameList();
+
+        // then
+        assertThat(winnerNames)
+                .hasSize(2)
+                .containsOnlyOnce(player1)
+                .containsOnlyOnce(player3)
+                .doesNotContain(player2);
+    }
 }
