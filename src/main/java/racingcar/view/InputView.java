@@ -7,7 +7,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public String inputNumberOfTry() {
+    public String inputNumberOfRace() {
         return Console.readLine();
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.model.CarDto;
+import racingcar.service.CarDto;
 
 public class OutputViewTest {
     OutputView outputView;
@@ -47,7 +47,7 @@ public class OutputViewTest {
     @DisplayName("실행 결과 메세지 출력 기능 테스트")
     @Test
     void testRaceResultMessage() {
-        String expected = "실행 결과\n";
+        String expected = "\n실행 결과\n";
 
         outputView.raceResultMessage();
         System.setOut(System.out);
@@ -66,7 +66,7 @@ public class OutputViewTest {
         outputView.raceResultByOrderMessage(carList);
         System.setOut(System.out);
 
-        String expected = "pobi : --\nwoni : ----\njun : ---\n";
+        String expected = "pobi : --\nwoni : ----\njun : ---\n\n";
 
         assertEquals(expected, outputStream.toString());
     }

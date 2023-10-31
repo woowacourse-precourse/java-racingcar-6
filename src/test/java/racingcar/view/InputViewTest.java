@@ -43,7 +43,7 @@ public class InputViewTest {
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        String result = inputView.inputNumberOfTry();
+        String result = inputView.inputNumberOfRace();
 
         assertEquals(expected, result);
     }

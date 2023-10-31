@@ -1,4 +1,6 @@
-package racingcar.model;
+package racingcar.service;
+
+import racingcar.model.Car;
 
 public class CarDto {
     private String carName;
