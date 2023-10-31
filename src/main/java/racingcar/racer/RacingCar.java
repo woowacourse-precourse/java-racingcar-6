@@ -1,7 +1,6 @@
 package racingcar.racer;
 
 import racingcar.util.Random;
-import racingcar.validator.RacingCarValidator;
 
 public class RacingCar extends Racer {
 
@@ -11,9 +10,6 @@ public class RacingCar extends Racer {
 
     protected RacingCar(String name) {
         super(name);
-
-        RacingCarValidator.validateNameLength(name);
-        RacingCarValidator.validateNameFormat(name);
     }
 
     public static RacingCar from(String name) {
