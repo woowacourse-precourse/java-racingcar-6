@@ -8,7 +8,7 @@
 - [X] 사용자는 자동차들이 몇 번의 이동 시도를 할 지 입력할 수 있다. - InputManager#inputMoveNumber()
   - [X] 이 때 시도횟수는 1이상 10000이하의 자연수로 한정하고, 이외의 값이 오면 IllegalArgumentException을 발생한다 - MoveNumberValidator#validate()
 - [X] 각각의 자동차는 시도별로 0에서 9사이의 무작위 값 중 무작위 값이 4이상일 경우 전진한다. - Car#move()
-- [] 각 시도별로 자동차들의 위치 상황을 출력한다.
+- [X] 각 시도별로 자동차들의 위치 상황을 출력한다. - Car#printPosition(), GameManager#moveRandomCars()
 - [] 모든 시도를 마친 후에 누가 우승했는지 출력한다. 이 때 우승자는 한 명 이상일 수 있다.
   - [] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다
 

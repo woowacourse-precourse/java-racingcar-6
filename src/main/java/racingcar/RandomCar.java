@@ -1,4 +1,4 @@
-package racingcar.validator;
+package racingcar;
 
 import racingcar.util.RandomNumberGenerator;
 import racingcar.util.ZeroToNineGenerator;
@@ -25,5 +25,14 @@ public class RandomCar {
         }
 
         return position;
+    }
+
+    public void printPosition() {
+        String format = String.format("%5s : ", name);
+        for (int i = 0; i < position; i++) {
+            format += "-";
+        }
+
+        System.out.println(format);
     }
 }
