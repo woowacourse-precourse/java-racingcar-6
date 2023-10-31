@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,13 +22,12 @@ public class Car {
         return player;
     }
 
-    private boolean ableMoveForward() {
-
-        return false;
+    public void ableMoveForward() {
+        if (4 <= rollDice())
+            position++;
     }
 
     private int rollDice() {
-
-        return 0;
+        return Randoms.pickNumberInRange(0,9);
     }
 }
