@@ -35,6 +35,8 @@ public class Car {
     }
 
     public String getStatus() {
-        return "";
+        return this.name +
+                " : " +
+                "-".repeat(this.movingDistance);
     }
 }
