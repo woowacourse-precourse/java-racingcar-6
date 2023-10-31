@@ -32,6 +32,15 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 이동횟수에_대한_예외_처리() {
+        ByteArrayInputStream in = new ByteArrayInputStream("123abc".getBytes());
+        System.setIn(in);
+
+        assertThatThrownBy(() -> InputOutputInterface.listenMovingCount())
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {
