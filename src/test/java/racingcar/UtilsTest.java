@@ -123,4 +123,21 @@ public class UtilsTest {
         assertThat(result1).isEqualTo(rightResult);
         assertThat(result2).isEqualTo(rightResult);
     }
+
+    @Test
+    void 콤마를_빈칸으로_대체하면_통과() {
+        final String rightResult1 = "one two three";
+        final String rightResult2 = "   ";
+        //given
+        String case1 = "one,two,three";
+        String case2 = " , ";
+
+        //when
+        String result1 = Utils.replaceCommaToBlank(case1);
+        String result2 = Utils.replaceCommaToBlank(case2);
+
+        //then
+        assertThat(result1).isEqualTo(rightResult1);
+        assertThat(result2).isEqualTo(rightResult2);
+    }
 }
