@@ -1,9 +1,7 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
 import java.io.ByteArrayInputStream;
