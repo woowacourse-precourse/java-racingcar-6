@@ -78,6 +78,14 @@ public class Application {
     private static Integer createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    private static boolean canMoveCar(Integer number) {
+        if (number >= 4) {
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         inputCarNames();
     }
