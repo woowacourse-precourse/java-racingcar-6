@@ -7,7 +7,7 @@ public class Controller {
     public void raceStart(){
         User user = new User();
         user.setCarNames();
-        int gameNumber = Integer.parseInt(InputMessage.gameNumber());
+        int gameNumber = InputMessage.gameNumber();
         Racing racing = new Racing();
         racing.createRace(user.carNames);
         System.out.println(resultPrint);
