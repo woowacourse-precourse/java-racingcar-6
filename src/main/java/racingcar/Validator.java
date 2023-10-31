@@ -15,11 +15,11 @@ public class Validator {
     public static final String ENDWITHS_IS_NOT_COMMA_ERROR = "입력값의 마지막으로는 쉼표가 올 수 없습니다.";
     public static final String MIN_MOVING_NUMBER_ERROR = MIN_MOVING_NUMBER + "이상의 정수를 입력해야 경주가 시작됩니다.";
     public static final String MAX_MOVING_NUMBER_ERROR = "이동 횟수는 최대 " + MAX_MOVING_NUMBER + "입니다.";
-    public static final String NOT_NUMBER_ERROR = MIN_MOVING_NUMBER + "이상의 정수를 입력하세요.";
+    public static final String NOT_NUMBER_ERROR = "숫자외의 다른 값은 입력할 수 없습니다.(공백, 쉼표등이 있는지 확인해주세요)";
     public static final String CAR_NAME_LENGTH_ERROR =
             "자동차 이름은 " + MIN_CAR_NAME_LENGTH + "~" + MAX_CAR_NAME_LENGTH + "자로 입력해주세요.";
     public static final String CAR_NAME_COUNT_ERROR =
-            "경주를 하기 위해서 자동차 이름을 최소" + MIN_CAR_COUNTING + "개는 입력해주세요.";
+            "경주를 하기 위해서 자동차 이름을 최소 " + MIN_CAR_COUNTING + "개는 입력해주세요.";
     public static final String CAR_NAME_DUPLICATE_ERROR =
             "자동차 이름이 중복되면 우승자를 확인하는데 어려움이 있으니 중복 없이 입력하세요.";
 
