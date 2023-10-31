@@ -20,4 +20,13 @@ public class Result {
         return leaderDistance;
     }
 
+    public void decideWinner(List<Car> carList, int leaderDistance) {
+        winnerList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getState().length() == leaderDistance) {
+                winnerList.add(car.getName());
+            }
+        }
+        winner = String.join(", ", winnerList);
+    }
 }
