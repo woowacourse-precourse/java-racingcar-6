@@ -2,6 +2,7 @@ package racingcar.Controller;
 
 import racingcar.model.Cars;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingController {
 
@@ -17,6 +18,7 @@ public class RacingController {
     public void race(Cars cars,int tryCount){
         for (int i=0;i<tryCount;i++){
             cars.move();
+            OutputView.carsStatus(cars.getCars());
         }
 
 

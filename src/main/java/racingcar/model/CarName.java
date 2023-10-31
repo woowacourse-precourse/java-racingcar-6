@@ -33,8 +33,6 @@ public class CarName {
     }
     @Override
     public String toString() {
-        return "CarName{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

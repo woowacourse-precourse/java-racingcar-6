@@ -28,7 +28,11 @@ public class Car {
         return carName;
     }
 
-    public int getPosition() {
-        return position;
+    public String getPosition() {
+        String bar = "";
+        for (int  i = 0;i<position;i++){
+            bar += "-";
+        }
+        return bar;
     }
 }
