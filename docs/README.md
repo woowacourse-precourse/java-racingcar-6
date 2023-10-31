@@ -16,11 +16,10 @@
   - class Car
     - 멤버 변수
       - (name) final String
-      - (randomNumList) ArrayList<int>
+      - (randomNumList) ArrayList<Integer>
       - (forward) int
     - 생성자 (name)
       - new randomNumList
-      - numberOfCar ++
   - (carList) ArrayList<Car> : car 객체 리스트 생성 -> from carNameSplit
 - 중
   - (num)회 반복
