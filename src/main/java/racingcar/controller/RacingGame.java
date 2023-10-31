@@ -39,6 +39,7 @@ public class RacingGame implements Game {
     private void playRacingGame() {
         OutputView.printPlayResultMessage();
         while (!referee.anyCarReaches()) {
+            referee.getCars().everyCarMoveForward();
             OutputView.printPlayResult(referee.getPlayResults());
         }
     }
