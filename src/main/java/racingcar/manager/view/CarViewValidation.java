@@ -2,12 +2,8 @@ package racingcar.manager.view;
 
 import java.util.List;
 
-public class Validation {
+public class CarViewValidation {
     private static int CAR_NAME_LIMIT = 5;
-    private static String CAR_NAME_SEPARATOR = ",";
-    public boolean isNotSeparator(String carNames){
-        return !carNames.contains(CAR_NAME_SEPARATOR);
-    }
 
     public boolean greaterThanFiveLetter(List<String> carNames){
         for (String carName : carNames) {

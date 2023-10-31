@@ -1,4 +1,4 @@
-package racingcar.car;
+package racingcar.view;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -15,15 +15,6 @@ public class CarTest {
     @AfterEach
     void closeConsole(){
         Console.close();
-    }
-    @Test
-    void 차량_입력_시_구분자가_입력되지_않은_경우_예외_처리(){
-        String input = "pobiwonijun";
-
-        assertThatThrownBy(() ->
-            carView.inputToCarList(input)
-        ).isInstanceOf(IllegalArgumentException.class);
-
     }
 
     @Test
@@ -43,7 +34,5 @@ public class CarTest {
         assertThatThrownBy(carView::inputCarNames)
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
-
 
 }
