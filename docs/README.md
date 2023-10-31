@@ -1,11 +1,13 @@
+> ## 기능 목록
+
+
 ### Controller
 <hr/>
 
-- RaceController
+- CarRaceGame
   - 자동차 이름 입력
+    - 참여 자동차 목록 생성 (List\<Car>)
   - 경주 횟수 n 입력
-  - 참여 자동차 목록 생성
-    - List<Car>
   - n회 동안 경기 진행
     - 각 차수별 진행 결과 출력
   - 우승자 출력
@@ -18,7 +20,7 @@
   - 전진 칸 수
   - getter, setter
 - Cars (DAO)
-  - List<String> 받아 List<Car> 멤버 변수 생성
+  - List\<String> 받아 List\<Car> 멤버 변수 생성
   - getter 
 - CarRace(DTO)
   - 무작위 값을 통해 앞으로 전진
@@ -32,7 +34,7 @@
   - 자동차 이름 입력 뷰
   - 시도 횟수 입력 뷰
   - 각 차수별 진행 결과 출력
-    - parameter: List<Car>
+    - parameter: List\<Car>
   - 최종 우승자 출력
     - parameter: 우승자 리스트
 
@@ -47,3 +49,15 @@
   - (같은 이름이 있는 경우)
   - 잘못된 시도 횟수
     - 숫자 이외의 값
+
+> ## 기능 테스트
+<hr/>
+
+- Validator class
+  - 이름 입력 예외 처리 메서드 테스트
+  - 숫자 입력 예외 처리 메서드 테스트
+  - 중복 이름 참가자 예외 처리 메서드 테스트
+- RaceViewer class
+  - 우승자 출력 메서드 테스트
+- CarRaceGame class
+  - 경기 결과 출력 메서드 테스트
