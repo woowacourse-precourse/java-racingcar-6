@@ -1,15 +1,16 @@
-package racingcar.View;
+package racingcar.util;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static racingcar.util.StringToList.stringToList;
+import static racingcar.util.StringTo.stringToCarCntInteger;
+import static racingcar.util.StringTo.stringToCarModelList;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.Model.CarModel;
 
-public class inputViewTest {
+public class StringToTest {
 
     @Test
     void split_메서드로_주어진_값을_구분() {
@@ -19,7 +20,7 @@ public class inputViewTest {
         ans.add(new CarModel("1"));
         ans.add(new CarModel("2"));
 
-        List<CarModel> result = stringToList(input);
+        List<CarModel> result = stringToCarModelList(input);
         assertThat(result).hasSameClassAs(ans);
     }
 
@@ -28,10 +29,16 @@ public class inputViewTest {
         String input = "pobi,javaji";
 
         try {
-            stringToList(input);
+            stringToCarModelList(input);
         }
         catch (IllegalArgumentException e){
             assertThat(e).isInstanceOf(IllegalArgumentException.class);
         }
+    }
+
+    @Test
+    void 사용자에게_이동_값_받기(){
+        String input = "5";
+        assertThat(stringToCarCntInteger(input)).isEqualTo(5);
     }
 }
