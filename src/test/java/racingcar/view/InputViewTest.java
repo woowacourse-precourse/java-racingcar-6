@@ -24,7 +24,7 @@ public class InputViewTest {
 
     @DisplayName("자동차 입력 기능 테스트")
     @Test
-    void testInputCarNamesToRace() {
+    void testInputMessage() {
         String expected = "pobi,woni,jun";
         String input = "pobi,woni,jun";
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());

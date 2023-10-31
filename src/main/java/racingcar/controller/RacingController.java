@@ -37,20 +37,13 @@ public class RacingController {
     }
 
     private List<String> getCarNameList() {
-        outputView.requestCarNamesMessage();
         String carNames = inputView.inputCarNamesToRace();
-
-        List<String> nameList = Parser.carNameParser(carNames);
-
-        return nameList;
+        return Parser.carNameParser(carNames);
     }
 
     private int getNumberOfRace() {
-        outputView.requestNumberOfTryMessage();
         String numberOfRace = inputView.inputNumberOfRace();
-
         Validator.inputNumberValidator(numberOfRace);
-
         return Integer.parseInt(numberOfRace);
     }
 

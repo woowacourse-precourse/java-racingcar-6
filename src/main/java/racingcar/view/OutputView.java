@@ -6,14 +6,6 @@ import racingcar.service.CarDto;
 public class OutputView {
     private final static String MOVEMENT = "-";
 
-    public void requestCarNamesMessage() {
-        System.out.println(OutputMessage.REQUEST_CAR_NAMES.getMessage());
-    }
-
-    public void requestNumberOfTryMessage() {
-        System.out.println(OutputMessage.REQUEST_NUMBER_OF_TRY.getMessage());
-    }
-
     public void raceResultMessage() {
         System.out.println("\n" + OutputMessage.RACE_RESULT.getMessage());
     }

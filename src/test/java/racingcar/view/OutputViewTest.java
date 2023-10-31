@@ -22,28 +22,6 @@ public class OutputViewTest {
         System.setOut(new PrintStream(outputStream));
     }
 
-    @DisplayName("자동차 이름 입력 요청 메세지 출력 기능 테스트")
-    @Test
-    void testRequestCarNamesMessage() {
-        String expected = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n";
-
-        outputView.requestCarNamesMessage();
-        System.setOut(System.out);
-
-        assertEquals(expected, outputStream.toString());
-    }
-
-    @DisplayName("시도할 회수 요청 메세지 출력 기능 테스트")
-    @Test
-    void testRequestNumberOfTryMessage() {
-        String expected = "시도할 회수는 몇회인가요?\n";
-
-        outputView.requestNumberOfTryMessage();
-        System.setOut(System.out);
-
-        assertEquals(expected, outputStream.toString());
-    }
-
     @DisplayName("실행 결과 메세지 출력 기능 테스트")
     @Test
     void testRaceResultMessage() {
