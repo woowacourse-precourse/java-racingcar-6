@@ -15,11 +15,11 @@ public class RacingCarController {
         try{
             List<RacingCar> racingCars = inputRacingCarName();
             int totalTurn = inputTotalTurn();
+
+            racingCarService.play(racingCars, totalTurn);
         } catch(IllegalArgumentException e){
             throw new IllegalArgumentException();
         }
-
-        racingCarService.play();
     }
 
     public List<RacingCar> inputRacingCarName() throws IllegalArgumentException{
