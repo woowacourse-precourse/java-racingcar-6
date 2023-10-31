@@ -17,6 +17,9 @@ public class CarInputReader implements InputReader {
     }
 
     public boolean isValidPlayers(String players) {
+        if(players.charAt(players.length()-1) == COMMA.charAt(0)){
+            return false;
+        }
         List<String> playerList = List.of(players.split(COMMA));
         if (playerList.isEmpty()) {
             return false;
