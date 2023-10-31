@@ -9,4 +9,5 @@ public class GameInfo {
     public static final int MIN_ROUND_NUM = 1;
     public static final int MAX_ROUND_NUM = 999;
     public static final String ROUND_NUM_REGEX = "^[1-9]\\d{0,2}$";
+    public static final String WINNER_SEPARATOR = ", ";
 }
