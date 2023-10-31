@@ -1,11 +1,11 @@
 package racingcar.model;
 
 import static racingcar.constant.RacingCarGameConfig.GAME_WIN_CONDITION;
+import static racingcar.util.RacingCarGameUtils.generateRandomValuesForCarGame;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
-import racingcar.util.RacingCarGameUtils;
 
 public class Cars {
 
@@ -23,7 +23,7 @@ public class Cars {
   }
 
   public void playRacingGame() {
-    List<Integer> randomValues = RacingCarGameUtils.generateRandomValuesForCarGame(cars.size());
+    List<Integer> randomValues = generateRandomValuesForCarGame(cars.size());
     for (int i = 0; i < cars.size(); i++) {
       moveCarByRandomValues(randomValues, i);
     }
