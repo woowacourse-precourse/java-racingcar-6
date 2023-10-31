@@ -30,4 +30,13 @@ public class Cars {
 
         return List.of(names);
     }
+
+    public void printCarsGameResult(Integer runningCount) {
+        for (int i = 0; i < runningCount; i++) {
+            cars.forEach(Car::moveByGeneratedNumber);
+            cars.forEach(car ->
+                    OutputView.printPerMoveResult(car.toString()));
+            System.out.println();
+        }
+    }
 }

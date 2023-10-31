@@ -16,12 +16,7 @@ public class Application {
         // 회차별 결과 출력
         OutputView.noticeRunningResult();
 
-        for (int i = 0; i < runningCount; i++) {
-            cars.forEach(Car::moveByGeneratedNumber);
-            cars.forEach(car ->
-                    OutputView.printPerMoveResult(car.toString()));
-            System.out.println();
-        }
+        cars.printCarsGameResult(runningCount);
 
         OutputView.noticeFinalWinner();
     }
