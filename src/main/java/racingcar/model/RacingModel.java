@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -16,8 +17,11 @@ public class RacingModel {
     }
 
     public List<String> getWinner(){
-        int max = racingCars.stream().max(Comparator.comparingInt(Car::getPosition)).get().getPosition();
-        return racingCars.stream().filter(car -> car.getPosition() == max).map(Car::getName).toList();
+        return racingCars.stream().filter(car -> car.getPosition() == getMaxMoveDistance()).map(Car::getName).toList();
+    }
+
+    private int getMaxMoveDistance() {
+        return Collections.max(racingCars, Comparator.comparingInt(Car::getPosition)).getPosition();
     }
 
     public List<Car> playRound() {
