@@ -27,7 +27,11 @@ public class Race {
     }
 
     private int injectFuel() {
-        return Randoms.pickNumberInRange(0, 9);
+        int fuel;
+        do {
+            fuel = Randoms.pickNumberInRange(0, 9);
+        } while (fuel < 1 || fuel > 9);
+        return fuel;
     }
 
     public void startCarRacing() {
