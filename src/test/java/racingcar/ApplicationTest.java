@@ -50,10 +50,10 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 회수에_대한_예외_처리_2() {
-        assertSimpleTest(() -> {
-            assertThatThrownBy(() -> runException("pobi,javaji", "영"))
-                    .hasMessageContaining(String.format("%d글자 이하", Common.CAR_NAME_MAX_LENGTH.getIntValue()));
-        });
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("pobi,javaji", "영")).isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining(String.format("%d글자 이하", Common.CAR_NAME_MAX_LENGTH.getIntValue()))
+        );
     }
 
     @Test
