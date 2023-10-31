@@ -3,24 +3,21 @@ package racingcar.service;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.CarRepository;
-import racingcar.model.Generator;
 import racingcar.model.Race;
 
 public class RacingService {
     private CarRepository carRepository;
-    private Generator generator;
     private Race race;
 
-    public RacingService(CarRepository carRepository, Generator generator) {
+    public RacingService(CarRepository carRepository) {
         this.carRepository = carRepository;
-        this.generator = generator;
     }
 
     public void prepareRace(List<String> carNames, int numberOfRace) {
         for (String name : carNames) {
             carRepository.save(Car.from(name));
         }
-        race = Race.from(numberOfRace, generator);
+        race = Race.from(numberOfRace);
     }
 
     public List<CarDto> runSingleRace() {
