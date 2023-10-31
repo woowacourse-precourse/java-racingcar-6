@@ -7,6 +7,7 @@
   - [x] 자동차 이름이 모두 unique한지 확인한다 : NamesManager # duplicateName()
 
 - [] 시도할 횟수가 숫자가 맞는지 확인한다. : notNumber()
+- [] 시도할 횟수가 음수인지 확인한다. : negativeNumber() 
 
 - [] 라운드를 진행한다. : round()
   - [] 전진할지 멈출지 결정한다. : car # engine()
