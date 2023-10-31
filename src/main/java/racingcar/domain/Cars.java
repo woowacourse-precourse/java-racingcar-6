@@ -16,7 +16,7 @@ public class Cars {
 
     public void makeCars(List<String> carNames) {
         cars.addAll(carNames.stream()
-                .map(Car::makeCarByName)
+                .map(name -> new Car(name, 0))
                 .toList());
     }
 
@@ -26,7 +26,7 @@ public class Cars {
 
     public List<Car> getCars() {
         return cars.stream()
-                .map(car -> Car.makeCarByNameDistance(car.getName(), car.getDistance()))
+                .map(car -> new Car(car.getName(), car.getDistance()))
                 .toList();
     }
 

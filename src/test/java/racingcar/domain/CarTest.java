@@ -16,7 +16,7 @@ class CarTest {
         String carName = "liljay";
 
         // when, then
-        assertThatThrownBy(() -> Car.makeCarByName(carName))
+        assertThatThrownBy(() -> new Car(carName, 0))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -26,7 +26,7 @@ class CarTest {
         // given
         String carName = "pobi";
         int randomNumber = 4;
-        Car car = Car.makeCarByName(carName);
+        Car car = new Car(carName, 0);
 
         // when
         car.moveCar(randomNumber);
@@ -42,7 +42,7 @@ class CarTest {
         String carName = "pobi";
 
         // when
-        Car car = Car.makeCarByName(carName);
+        Car car = new Car(carName, 0);
 
         // then
         assertThat(car.getName()).isEqualTo(carName);
