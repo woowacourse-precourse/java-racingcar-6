@@ -23,15 +23,11 @@ public class CarNameValidator {
     }
 
     public void validateNull() {
-        this.CAR_NAMES.forEach(
-                i -> System.out.println(ErrorMessage.INPUT_NAME_NULL_BLANK_MESSAGE.getValue())
-        );
+        this.CAR_NAMES.forEach(StringValidator::stringIsNull);
     }
 
     public void validateBlank() {
-        this.CAR_NAMES.forEach(
-                i -> System.out.println(ErrorMessage.INPUT_NAME_NULL_BLANK_MESSAGE.getValue())
-        );
+        this.CAR_NAMES.forEach(StringValidator::stringIsBlank);
     }
 
     public void validateLength() {
