@@ -66,7 +66,6 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(movingStrategy, name, position);
     }
 }

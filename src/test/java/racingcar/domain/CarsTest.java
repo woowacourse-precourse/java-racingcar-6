@@ -75,34 +75,6 @@ class CarsTest {
 
     }
 
-    @Test
-    @DisplayName("우승자의 위치 정보 찾아내는 기능 테스트")
-    void findWinnerPosition() {
-        // given
-        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
-        List<Car> carList = Arrays.asList(new Car(movingStrategy, "pobi"),
-                                        new Car(movingStrategy, "crong"),
-                                        new Car(movingStrategy, "nimo"));
-        Cars cars = new Cars(carList);
-
-        // 경주 세번 돌리기
-        for (int i=0; i<3; i++) {
-            cars.raceAllCars();
-        }
-        List<Car> updatedCarList = cars.getCars();
-
-        // 우승자 위치 찾아내기
-        int expected = updatedCarList.stream()
-                .max(Car::compareTo)
-                .get()
-                .getPosition();
-
-        // when
-        int result = cars.findWinnerPosition(); // findWinnerPosition() 메서드로 우승자 위치 찾기
-
-        // then
-        assertEquals(expected, result);
-    }
 
     @Test
     @DisplayName("우승자를 찾아내는 기능 테스트")
@@ -132,8 +104,7 @@ class CarsTest {
                 .collect(Collectors.toList());
 
         // when
-
-        List<Car> result = cars.findWinner(winnerPosition); // findWinner() 메서드로 우승자 찾기
+        List<Car> result = cars.findWinner(); // findWinner() 메서드로 우승자 찾기
 
         // then
 

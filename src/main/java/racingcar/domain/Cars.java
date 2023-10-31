@@ -19,18 +19,20 @@ public class Cars {
         }
     }
 
+    public List<Car> findWinner() {
+        final Integer winnerPosition = findWinnerPosition();
+        return cars.stream()
+                .filter(car -> car.isWinner(winnerPosition))
+                .collect(Collectors.toList());
+    }
 
-    public Integer findWinnerPosition() {
+    private Integer findWinnerPosition() {
         return cars.stream().max(Car::compareTo)
                             .get()
                             .getPosition();
     }
 
-    public List<Car> findWinner(final Integer winnerPosition) {
-        return cars.stream()
-                .filter(car -> car.isWinner(winnerPosition))
-                .collect(Collectors.toList());
-    }
+
 
 
 
