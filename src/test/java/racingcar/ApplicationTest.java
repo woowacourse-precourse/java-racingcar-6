@@ -94,6 +94,13 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 입력값이_정수인지_예외_처리(){
+        GameException gameException=new GameException();
+        assertThatThrownBy(() -> gameException.checkInput("a"));
+    }
+
+
+    @Test
     void 우승자_한명_출력(){
         Game game = new Game();
         game.addCarList("carName1");
