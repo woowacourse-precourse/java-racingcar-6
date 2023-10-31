@@ -19,4 +19,16 @@ public class OutputView {
             System.out.print("-");
         }
     }
+
+    public static void printWinners(List<Car> winners) {
+        StringBuilder winnerNames = new StringBuilder();
+
+        for (Car winner : winners) {
+            if (!winnerNames.isEmpty()) {
+                winnerNames.append(", ");
+            }
+            winnerNames.append(winner.getName());
+        }
+        System.out.print("최종 우승자 : " + winnerNames);
+    }
 }
