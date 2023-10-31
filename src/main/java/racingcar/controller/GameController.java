@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.dto.CarsMovementDto;
 import racingcar.domain.dto.WinnersDto;
 import racingcar.domain.game.car.Cars;
+import racingcar.domain.game.car.TrialCount;
 import racingcar.move.MoveStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -25,8 +26,8 @@ public class GameController {
     }
 
     private void startGameWithTrials(Cars cars) {
-        int trialCount = inputView.getTrialFromUserInput();
-        for (int i = 1; i <= trialCount; i++) {
+        TrialCount trialCount = inputView.getTrialCountFromUserInput();
+        for (int i = 1; i <= trialCount.getTrialCount(); i++) {
             cars.moveOnceIfMovable(moveStrategy);
             CarsMovementDto carsMovementDto = cars.toCarsMovementDto();
             outputView.printGameResult(carsMovementDto);
