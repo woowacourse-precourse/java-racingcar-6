@@ -89,3 +89,7 @@
   - checkCarNameLength() :  입력값의 길이가 1자 이상 5자 이하인지 검증하는 함수
   - checkCarCount() : 입력한 자동차의 수가 1대 이상인지 검증하는 함수
   - checkInputType() 입력값이 숫자로만 이루어져 있는지 검증하는 함수
+
+## constant
+  - NumberConstant : 숫자로 이루어진 값을 상수로 관리하는 객체
+  - MessageConstant : 출력 메시지를 상수로 관리하는 객체
