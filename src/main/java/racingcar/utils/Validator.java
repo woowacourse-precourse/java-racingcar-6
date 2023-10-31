@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 public class Validator {
 
+
     public static void checkCarNameSize(List<String> carNames){
         if (carNames == null || carNames.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 1개 이상 8개 이하여야 합니다.");

@@ -41,7 +41,7 @@ class ValidatorTest {
         });
 
         List<String> emptyCarNames = List.of();
-        Validator.checkCarNameDuplication(emptyCarNames); // Should not throw an exception
+        Validator.checkCarNameDuplication(emptyCarNames);
     }
 
     @Test
@@ -61,5 +61,37 @@ class ValidatorTest {
 
         List<String> emptyCarNames = List.of();
         Validator.checkCarNameIsEnglish(emptyCarNames);
+    }
+
+    @Test
+    void checkTryCountNumber(){
+        String validTryCount = "5";
+        Validator.checkTryCountNumber(validTryCount);
+
+        String invalidTryCount1 = "0";
+        String invalidTryCount2 = "-123";
+        String invalidTryCount3 = "abc";
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkTryCountNumber(invalidTryCount1);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkTryCountNumber(invalidTryCount2);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkTryCountNumber(invalidTryCount3);
+        });
+
+        String emptyTryCount = "";
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkTryCountNumber(emptyTryCount);
+        });
+
+        String nullTryCount = null;
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validator.checkTryCountNumber(nullTryCount);
+        });
     }
 }
