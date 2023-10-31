@@ -1,39 +1,81 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
+import racingcar.model.RacingCars;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RacingController {
-    List<String> racingCarsList = new ArrayList<>();
-    Car car = new Car();
+    RacingCars racingCars;
+    int attempts = 0;
+    int maxPosition = 0;
+
+    List<String> carNames = new ArrayList<>();
+    List<String> winners = new ArrayList<>();
 
     public void GameProgress() {
+        InputCarsByUser();
+        InputAttemptsByUser();
 
+        OutputView.printResult();
+        for (int i = 0; i < attempts; i++) {
+            PrintRacingCar();
+            System.out.println();
+        }
+        PrintWinners();
     }
 
     public void InputCarsByUser() {
         InputView.inputCars();
         String inputCars = Console.readLine();
-        racingCarsList = List.of(inputCars.split(","));
+        carNames = List.of(inputCars.split(","));
+        racingCars = new RacingCars(carNames);
     }
 
     public void InputAttemptsByUser() {
         InputView.inputAttemptsNum();
-        int inputAttempts = Integer.parseInt(Console.readLine());
+        attempts = Integer.parseInt(Console.readLine());
     }
 
-    public int CreateRandomNum() {
-        return Randoms.pickNumberInRange(0,9);
+    public void PrintRacingCar() {
+        racingCars.MoveCars();
+
+        for (Car car : racingCars.GetRacingCars()) {
+            System.out.print(car.GetName());
+            OutputView.printColon();
+
+            for (int i = 0; i < car.GetPosition(); i++) {
+                OutputView.printHyphen();
+            }
+            System.out.println();
+        }
     }
 
-    public void IsMoreThan() {
-        if (CreateRandomNum() >= 4) {
-            car.move();
+    public void PrintWinners() {
+        FindMaxPosition();
+        JudgeWinners();
+
+        OutputView.printWinners();
+        System.out.println(String.join(", ", winners));
+    }
+
+    public void FindMaxPosition() {
+        for (Car car : racingCars.GetRacingCars()) {
+            if (maxPosition < car.GetPosition()) {
+                maxPosition = car.GetPosition();
+            }
+        }
+    }
+
+    public void JudgeWinners() {
+        for (Car car : racingCars.GetRacingCars()) {
+            if (car.GetPosition() == maxPosition) {
+                winners.add(car.GetName());
+            }
         }
     }
 }
