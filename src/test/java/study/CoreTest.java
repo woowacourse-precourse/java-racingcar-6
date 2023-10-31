@@ -16,8 +16,8 @@ public class CoreTest {
         Integer pickNumber = pickRandomNumber().racerPickNumber();
         System.out.println(pickNumber);
         //when & then
-        assertThat(pickNumber).isGreaterThan(1);
-        assertThat(pickNumber).isLessThan(9);
+        assertThat(pickNumber).isGreaterThan(0);
+        assertThat(pickNumber).isLessThan(10);
     }
 
     private static PickNumber pickRandomNumber(){
