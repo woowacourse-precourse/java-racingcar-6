@@ -10,7 +10,9 @@ public class RegistCarInfo {
 
 		List<String> racingCarNames = new ArrayList<>();
 		String[] carNames = carName.split(",");
+
 		for (int i = 0; i < carNames.length; i++) {
+			isNameRight(carNames[i]);
 			racingCarNames.add(i, carNames[i]);
 		}
 
@@ -21,6 +23,13 @@ public class RegistCarInfo {
 
 		int racingTry = Integer.parseInt(tryCount);
 		return racingTry;
+	}
+
+	public void isNameRight(String carName) {
+		int carNameLength = carName.split("").length;
+			if (carNameLength > 5) {
+				throw new IllegalArgumentException();
+			}
 	}
 }
 
