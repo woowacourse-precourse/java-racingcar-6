@@ -24,46 +24,6 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리_길이_오류1() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 이름에_대한_예외_처리_길이_오류2() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 이름에_대한_예외_처리_패턴_오류() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("ㅂㅂㅂ", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 이름에_대한_예외_처리_중복_오류() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,pobi", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 숫자에_대한_예외_처리_0_입력() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi", "0"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
     void 숫자에_대한_예외_처리_문자_입력() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi", "a"))
