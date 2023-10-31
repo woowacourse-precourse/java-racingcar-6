@@ -6,12 +6,12 @@ public class NumberComparator {
 
     private RandomNumberGenerator randomNumberGenerator;
 
-    NumberComparator(){
+    public NumberComparator(){
         randomNumberGenerator = new RandomNumberGenerator();
     }
 
-    private boolean isNumberOverWinNumber(){
+    public boolean isNumberOverWinNumber(){
         int carTrialRandomNumber = randomNumberGenerator.generateRandomIntNumberInRange();
-        return carTrialRandomNumber > SystemConstant.GO_FORWARD_REQUIRE_AT_LEAST;
+        return carTrialRandomNumber >= SystemConstant.GO_FORWARD_REQUIRE_AT_LEAST;
     }
 }
