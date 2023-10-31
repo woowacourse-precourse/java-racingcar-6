@@ -1,6 +1,11 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.io.ByteArrayInputStream;
+import java.util.*;
+
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -30,6 +35,38 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+
+    @Test 
+    void 해쉬맵_생성_및_갱신() {
+        ArrayList<String> testList = new ArrayList<>(Arrays.asList("user1", "user2", "user3"));
+
+        HashMap<String, String> testMap = Application.makeHashMap(testList);
+
+        for (String user : testList) {
+            assertTrue(testMap.get(user).length() < 3); 
+        }
+    }
+
+    @Test
+    void 경기_횟수_음수입력() {
+        System.setIn(new ByteArrayInputStream("-1".getBytes()));
+        assertThatThrownBy(() -> Application.isNumberInput())
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessage("음수가 입력되었습니다.");
+
+    }
+
+    @Test
+    void 레이싱_시뮬레이션() {
+        ArrayList<String> testList = new ArrayList<>(Arrays.asList("user1", "user2", "user3"));
+
+        ArrayList<String> winners = Application.startRacing(testList, 3);
+    
+        assertTrue(testList.containsAll(winners));
+
+    }
+
 
     @Override
     public void runMain() {
