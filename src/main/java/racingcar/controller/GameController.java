@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
@@ -26,6 +27,7 @@ public class GameController {
             attempts--;
         }
         finishGame();
+        Console.close();
     }
 
     private static int inputAttempts() {
@@ -42,7 +44,7 @@ public class GameController {
 
     private static void play() {
         for (Car car : cars) {
-            car.addAdvances(GeneratedRandomNumber.getNumber());
+            car.addPosition(GeneratedRandomNumber.getNumber());
         }
 
         OutputView.resultPerAttempt(cars);

@@ -11,17 +11,17 @@ public class Car {
         this.position = new Position();
     }
 
-    public void addAdvances(final int randomNumber) {
+    public void addPosition(final int randomNumber) {
         if (randomNumber >= CAR_ADVANCE_NUMBER) {
             position.add();
         }
     }
 
-    public String getCarName() {
+    public String getName() {
         return name.getName();
     }
 
-    public int getCarAdvances() {
+    public int getPosition() {
         return position.getValue();
     }
 }

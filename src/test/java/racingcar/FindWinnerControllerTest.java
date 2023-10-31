@@ -1,6 +1,6 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,28 +19,28 @@ public class FindWinnerControllerTest {
     private List<Car> carList;
 
     @BeforeEach
-    public void init(){
+    public void init() {
 
         Car car1 = new Car(new Name("a"));
         Car car2 = new Car(new Name("b"));
         Car car3 = new Car(new Name("c"));
 
-        carList = new ArrayList<>(List.of(car1,car2,car3));
+        carList = new ArrayList<>(List.of(car1, car2, car3));
     }
 
-    private void moveTwoStep(Car car){
+    private void moveTwoStep(Car car) {
         for (int i = 0; i < 2; i++) {
-            car.addAdvances(OK_NUMBER);
+            car.addPosition(OK_NUMBER);
         }
     }
 
     @Test
     @DisplayName("2번 이동한 a자동차가 우승자로 반환된다.")
-    void findWinnerControllerTest() throws Exception{
+    void findWinnerControllerTest() throws Exception {
         //given
         moveTwoStep(carList.get(0));
-        carList.get(1).addAdvances(OK_NUMBER);
-        carList.get(2).addAdvances(NO_NUMBER);
+        carList.get(1).addPosition(OK_NUMBER);
+        carList.get(2).addPosition(NO_NUMBER);
 
         //when
         findWinnerController = new FindWinnerController(carList);
@@ -53,12 +53,12 @@ public class FindWinnerControllerTest {
 
     @Test
     @DisplayName("2번 이동한 a,b자동차가 우승자로 반환된다.")
-    void findWinnerControllerTest2() throws Exception{
+    void findWinnerControllerTest2() throws Exception {
 
         //given
         moveTwoStep(carList.get(0));
         moveTwoStep(carList.get(1));
-        carList.get(2).addAdvances(NO_NUMBER);
+        carList.get(2).addPosition(NO_NUMBER);
 
         //when
         findWinnerController = new FindWinnerController(carList);
@@ -71,13 +71,13 @@ public class FindWinnerControllerTest {
 
     @Test
     @DisplayName("2번 이동한 a,b,c자동차가 우승자로 반환된다.")
-    void findWinnerControllerTest3() throws Exception{
+    void findWinnerControllerTest3() throws Exception {
 
         //given
         moveTwoStep(carList.get(0));
         moveTwoStep(carList.get(1));
         moveTwoStep(carList.get(2));
-        carList.get(2).addAdvances(NO_NUMBER);
+        carList.get(2).addPosition(NO_NUMBER);
 
         //when
         findWinnerController = new FindWinnerController(carList);
