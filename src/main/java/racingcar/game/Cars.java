@@ -18,7 +18,7 @@ public class Cars {
         Dice dice = new Dice();
 
         for (Car car : cars) {
-            if (dice.rollTheDice()) {
+            if (dice.isCarCanGoForward()) {
                 car.moveForward();
             }
             OutputView.broadcastCarRoundScore(car.getCarName(), car.getScore());

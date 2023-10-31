@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import static racingcar.controller.constants.IntegerConstants.*;
 
 public class Dice {
-    public boolean rollTheDice(){
+    public boolean isCarCanGoForward(){
         return makeRandomNumber() >= THRESHOLD_VALUE.getValue();
     }
 
