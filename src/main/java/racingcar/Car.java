@@ -1,6 +1,6 @@
 package racingcar;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private String name;
     private int step = 0;
 
@@ -14,5 +14,14 @@ public class Car {
 
     public int getStep() {
         return step;
+    }
+
+    public void increaseStep() {
+        step++;
+    }
+
+    @Override
+    public int compareTo(Car c) {
+        return c.getStep() - this.getStep();
     }
 }
