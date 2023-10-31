@@ -1,11 +1,11 @@
 package racingcar.validator.userInput;
 
 import racingcar.constant.RacingGameConstants;
-import racingcar.exception.round.NonPositiveIntegerException;
+import racingcar.exception.round.totalNumberOfRounds.NonPositiveIntegerException;
 
 public class TotalNumberOfRoundsValidator extends UserInputValidator {
 
-    private static TotalNumberOfRoundsValidator totalNumberOfRoundsValidator
+    private static final TotalNumberOfRoundsValidator totalNumberOfRoundsValidator
             = new TotalNumberOfRoundsValidator();
 
     private TotalNumberOfRoundsValidator() {

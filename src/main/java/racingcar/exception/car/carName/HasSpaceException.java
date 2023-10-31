@@ -1,9 +1,9 @@
-package racingcar.exception.car.name;
+package racingcar.exception.car.carName;
 
-public class HasBlankException extends IllegalArgumentException {
+public class HasSpaceException extends IllegalArgumentException {
     public static final String HAS_BLANK_EXCEPTION_MESSAGE = "공백이 포함되어 있습니다.";
 
-    public HasBlankException() {
+    public HasSpaceException() {
         super(HAS_BLANK_EXCEPTION_MESSAGE);
     }
 }

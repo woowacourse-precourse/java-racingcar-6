@@ -1,23 +1,51 @@
 package racingcar.model;
 
-import racingcar.validator.model.ModelValidator;
+import java.util.Objects;
+import racingcar.constant.RacingGameConstants;
+import racingcar.exception.NullException;
+import racingcar.exception.car.carName.HasSpaceException;
+import racingcar.exception.car.carName.LengthException;
 
 public class CarName {
     private final String name;
 
     public CarName(String name) {
+        validateName(name);
         this.name = name;
-
-        (new ModelValidator()).validate(this);
     }
 
-    public String getName() {
+    private String getName() {
         return name;
+    }
+
+    private void validateName(String name) {
+        validateNull(name);
+        validateNameLength(name);
+        validateNoSpaces(name);
+    }
+
+    private void validateNull(String name) {
+        if (name == null) {
+            throw new NullException();
+        }
+    }
+
+    private void validateNameLength(String name) {
+        if (name.length() < RacingGameConstants.CAR_NAME_LENGTH_MIN
+                || name.length() > RacingGameConstants.CAR_NAME_LENGTH_MAX) {
+            throw new LengthException();
+        }
+    }
+
+    private void validateNoSpaces(String name) {
+        if (name.contains(" ") || name.contains("\t")) {
+            throw new HasSpaceException();
+        }
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode();
+        return Objects.hash(name);
     }
 
     @Override
@@ -25,7 +53,8 @@ public class CarName {
         if (!(o instanceof CarName)) {
             return false;
         }
-        return name.equals(((CarName) o).getName());
+        CarName cn = (CarName) o;
+        return name.equals(cn.getName());
     }
 
     @Override

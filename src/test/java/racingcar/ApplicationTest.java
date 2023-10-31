@@ -4,7 +4,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.exception.round.NonPositiveIntegerException.NON_POSITIVE_INTEGER_EXCEPTION_MESSAGE;
+import static racingcar.exception.round.totalNumberOfRounds.NonPositiveIntegerException.NON_POSITIVE_INTEGER_EXCEPTION_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;

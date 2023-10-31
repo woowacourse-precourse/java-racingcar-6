@@ -2,13 +2,13 @@ package racingcar.validator.userInput;
 
 import java.util.List;
 import racingcar.constant.RacingGameConstants;
-import racingcar.exception.car.name.HasBlankException;
-import racingcar.exception.car.name.LengthException;
+import racingcar.exception.car.carName.HasSpaceException;
+import racingcar.exception.car.carName.LengthException;
 import racingcar.exception.cars.DuplicateException;
 import racingcar.utils.Parser;
 
 public class CarNamesValidator extends UserInputValidator {
-    private static CarNamesValidator carNamesValidator = new CarNamesValidator();
+    private static final CarNamesValidator carNamesValidator = new CarNamesValidator();
 
     private CarNamesValidator() {
     }
@@ -26,7 +26,7 @@ public class CarNamesValidator extends UserInputValidator {
 
     public void validateCarName(String carName) {
         validateCarNameLength(carName);
-        validateCarNameNoBlanks(carName);
+        validateCarNameNoSpaces(carName);
     }
 
     public void validateCarNameLength(String carName) {
@@ -36,9 +36,9 @@ public class CarNamesValidator extends UserInputValidator {
         }
     }
 
-    public void validateCarNameNoBlanks(String carName) {
-        if (carName.contains(" ") || carName.contains("\t") || carName.contains("\n")) {
-            throw new HasBlankException();
+    public void validateCarNameNoSpaces(String carName) {
+        if (carName.contains(" ") || carName.contains("\t")) {
+            throw new HasSpaceException();
         }
     }
 

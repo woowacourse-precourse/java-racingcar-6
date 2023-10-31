@@ -2,7 +2,7 @@ package racingcar.validator;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.exception.car.name.LengthException.LENGTH_EXCEPTION_MESSAGE;
+import static racingcar.exception.car.carName.LengthException.LENGTH_EXCEPTION_MESSAGE;
 import static racingcar.exception.cars.DuplicateException.DUPLICATE_EXCEPTION_MESSAGE;
 
 import java.util.ArrayList;
