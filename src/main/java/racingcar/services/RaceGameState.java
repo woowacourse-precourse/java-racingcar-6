@@ -12,6 +12,7 @@ public class RaceGameState {
 
     public RaceGameState(String inputStringOfParticipant) {
         List<String> listOfCarNames = enumerateCarNames(inputStringOfParticipant);
+        stateOfEachCar = convertListToMap(listOfCarNames);
     }
     private List<String> enumerateCarNames(String inputStringOfParticipants){
         Validator validator = new RaceGameStateValidator();
@@ -19,6 +20,12 @@ public class RaceGameState {
         List<String> parsedNames = Arrays.asList(parsed);
         validator.validate(parsedNames);
         return parsedNames;
+    }
+
+
+    private Map<String, Integer> convertListToMap(List<String> names){
+        return names.stream()
+                .collect(Collectors.toMap(name -> name, name->0));
     }
 
 
