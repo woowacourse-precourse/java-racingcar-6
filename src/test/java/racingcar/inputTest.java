@@ -17,6 +17,7 @@ class inputTest {
 		assertThat(result).containsExactly("pobi","jun","woni");
 	}
 	
+	@Test
 	void charAt_제한된_문자열의_길이보다_크면_예외_발생() {
 		String input = "pororo";
 		
