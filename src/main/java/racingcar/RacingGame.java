@@ -16,6 +16,8 @@ public class RacingGame {
         List<String> racerNameList = sanitizeRacerNames(racerNames);
 
         this.racers = racerNameList.stream().map(Racer::new).toList();
+
+        Console.close();
     }
 
     private static List<String> sanitizeRacerNames(String racerNames) {
