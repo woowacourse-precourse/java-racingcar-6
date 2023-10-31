@@ -1,29 +1,30 @@
 package racingcar.model;
 
 import java.util.Objects;
+import racingcar.model.dto.CarDTO;
 import racingcar.utils.Validation;
 
-public class Car implements Comparable<Car> {
-    private final String name;
-    private int dist;
+public class Car extends CarDTO implements Comparable<Car> {
 
     public Car(String name) {
+        super(name);
         Validation.validateName(name);
-        this.name = name;
-        this.dist = 0;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s: %s", name, "-".repeat(dist));
+    public Car(String name, int dist) {
+        super(name, dist);
     }
 
-    private Integer getDist() {
+    private int getDist() {
         return dist;
     }
 
-    public void goForward() {
+    public void moveForward() {
         dist++;
+    }
+
+    public CarDTO toCarDTO() {
+        return new CarDTO(name, dist);
     }
 
     @Override
