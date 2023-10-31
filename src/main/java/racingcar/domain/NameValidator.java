@@ -5,7 +5,7 @@ import java.util.List;
 
 public class NameValidator {
     public static List<String> splitComma(String names) {
-        List<String> nameList = new ArrayList<String>();
+        List<String> nameList = new ArrayList<>();
         for (String name : names.split(",")) {
             if (name.isEmpty()) {
                 throw new IllegalArgumentException("잘못된 값을 입력하여 게임을 종료합니다.");
