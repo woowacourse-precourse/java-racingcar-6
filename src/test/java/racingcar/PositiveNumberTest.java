@@ -62,9 +62,9 @@ class PositiveNumberTest {
     @Test
     void PositiveNumber_1_증가() {
         PositiveNumber givenPositiveNumber = PositiveNumber.fromInteger(1);
-        PositiveNumber thenPositiveNumber = PositiveNumber.fromInteger(2);
+        PositiveNumber expectedPositiveNumber = PositiveNumber.fromInteger(2);
         givenPositiveNumber.increase();
-        assertThat(givenPositiveNumber.compareTo(thenPositiveNumber)).isZero();
+        assertThat(givenPositiveNumber).isEqualTo(expectedPositiveNumber);
     }
 
     @CsvSource({ "123, 122",
@@ -72,9 +72,9 @@ class PositiveNumberTest {
     @ParameterizedTest
     void PositiveNumber_1_감소(Integer given, Integer then) {
         PositiveNumber givenPositiveNumber = PositiveNumber.fromInteger(given);
-        PositiveNumber thenPositiveNumber = PositiveNumber.fromInteger(then);
+        PositiveNumber expectedPositiveNumber = PositiveNumber.fromInteger(then);
         givenPositiveNumber.decrease();
-        assertThat(givenPositiveNumber.compareTo(thenPositiveNumber)).isZero();
+        assertThat(givenPositiveNumber).isEqualTo(expectedPositiveNumber);
     }
 
     @CsvSource({ "0, true",
@@ -82,6 +82,7 @@ class PositiveNumberTest {
     @ParameterizedTest
     void IsZero_구현(Integer given, boolean expected) {
         PositiveNumber givenPositiveNumber = PositiveNumber.fromInteger(given);
-        assertThat(givenPositiveNumber.isZero()).isEqualTo(expected);
+        boolean isZero = givenPositiveNumber.isZero();
+        assertThat(isZero).isEqualTo(expected);
     }
 }
