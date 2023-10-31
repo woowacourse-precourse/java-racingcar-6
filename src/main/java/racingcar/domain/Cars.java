@@ -10,45 +10,44 @@ public class Cars {
     private List<Car> cars;
 
     public Cars(String inputNames) {
-        String[] splitNames = splitInputNames(inputNames);
-        validateBlank(splitNames);
+        List<String> names = convertStringToList(inputNames);
+        validateBlank(names);
 
-        String[] trimNames = trimNames(splitNames);
+        List<String> trimNames = trimNames(names);
         validateCarCount(trimNames);
         validateDuplicates(trimNames);
 
-
-        cars = Arrays.stream(trimNames)
+        cars = trimNames.stream()
                 .map(name -> new Car(name))
                 .toList();
     }
 
-    private String[] splitInputNames(String inputNames) {
-        return inputNames.split(",", -1);
+    private List<String> convertStringToList(String inputNames) {
+        return Arrays.asList(inputNames.split(",", -1));
     }
 
-    private void validateBlank(String[] names) {
-        boolean hasBlank = Arrays.stream(names)
+    private void validateBlank(List<String> names) {
+        boolean hasBlank = names.stream()
                 .anyMatch(name -> StringUtils.isBlank(name));
         if (hasBlank) {
             throw new IllegalArgumentException();
         }
     }
 
-    private String[] trimNames(String[] names) {
-        return Arrays.stream(names)
+    private List<String> trimNames(List<String> names) {
+        return names.stream()
                 .map(String::trim)
-                .toArray(String[]::new);
+                .toList();
     }
 
-    private void validateCarCount(String[] names) {
-        if (names.length <= 1) {
+    private void validateCarCount(List<String> names) {
+        if (names.size() <= 1) {
             throw new IllegalArgumentException();
         }
     }
 
-    private void validateDuplicates(String[] names) {
-        if (names.length != Arrays.stream(names).distinct().count()) {
+    private void validateDuplicates(List<String> names) {
+        if (names.size() != names.stream().distinct().count()) {
             throw new IllegalArgumentException();
         }
     }
