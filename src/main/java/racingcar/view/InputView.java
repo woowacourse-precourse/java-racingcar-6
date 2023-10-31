@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import static racingcar.constant.RacingSign.CAR_NAME_SEPARATOR;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.dto.request.CarNames;
@@ -7,10 +9,8 @@ import racingcar.dto.request.TryCount;
 
 public class InputView {
 
-    private static final String CAR_NAME_SEPARATOR = ",";
-
     public CarNames readCarNames() {
-        return CarNames.from(List.of(getInput().split(CAR_NAME_SEPARATOR)));
+        return CarNames.from(List.of(getInput().split(CAR_NAME_SEPARATOR.getSign())));
     }
 
     public TryCount readTryCount() {
