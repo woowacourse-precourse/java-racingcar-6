@@ -42,7 +42,7 @@ public class Application {
                 System.out.println();
             }
             System.out.print("최종 우승자 : ");
-            
+
             int maxNum = Collections.max(toGo);
             List<String> winner = new ArrayList<>();
 
@@ -95,6 +95,8 @@ public class Application {
         for (int i = 0; i < cars.size(); i++) {
             if (cars.get(i).length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하입니다.");
+            } else if (Collections.frequency(cars, cars.get(i)) > 1) {
+                throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
             }
         }
         return cars;
