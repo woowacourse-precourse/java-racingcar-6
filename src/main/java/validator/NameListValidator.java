@@ -12,8 +12,8 @@ public class NameListValidator {
         validateNotEmpty(nameListInput);
         validateNotEndsWithComma(nameListInput);
         validateContainsRepeatingCommas(nameListInput);
-        List<String> nameList = splitAndTrim(nameListInput, ",");
-        validateNameLength(nameList, Constants.MAX_LENGTH);
+        List<String> nameList = splitAndTrim(nameListInput, Constants.NAME_DELIMITER);
+        validateNameLength(nameList, Constants.MAX_NAME_LENGTH);
         validateNameDuplication(nameList);
     }
 
