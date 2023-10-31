@@ -34,7 +34,7 @@ public class Input {
         return result;
     }
 
-    private void CheckCarNameException(String[] target) {
+    public void CheckCarNameException(String[] target) {
 
         CheckCarNum(target);
         CheckLength(target);
@@ -42,7 +42,7 @@ public class Input {
 
     }
 
-    private void CheckSame(String[] target) {
+    public void CheckSame(String[] target) {
         List<String> exist = new ArrayList<>();
 
         for (String a : target) {
@@ -53,22 +53,24 @@ public class Input {
         }
     }
 
-    private void CheckCarNum(String[] target) {
+    public void CheckCarNum(String[] target) {
         if (target.length < 2) {
             throw new IllegalArgumentException("자동차는 2대 이상이어야 합니다.");
         }
     }
 
-    private void CheckLength(String[] target) {
+    public void CheckLength(String[] target) {
 
         for (String a : target) {
             if (a.length() > 5) {
                 throw new IllegalArgumentException("5글자를 넘기면 안됩니다.");
+            } else if (a.length() < 1) {
+                throw new IllegalArgumentException("1글자 이상이어야 합니다.");
             }
         }
     }
 
-    private void CheckGameNumException(int num) {
+    public void CheckGameNumException(int num) {
         if (num < 1) {
             throw new IllegalArgumentException("1이상의 횟수가 입력되야 합니다.");
         }

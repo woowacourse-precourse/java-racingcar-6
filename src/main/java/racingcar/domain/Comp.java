@@ -17,7 +17,7 @@ public class Comp {
 
     }
 
-    private int FindMaxValue(List<Car> cars) {
+    public int FindMaxValue(List<Car> cars) {
 
         int max = 0;
 
