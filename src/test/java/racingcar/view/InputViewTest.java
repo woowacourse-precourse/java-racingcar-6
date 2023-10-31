@@ -1,4 +1,4 @@
-package racingcar.domain.view;
+package racingcar.view;
 
 import static org.junit.jupiter.api.Assertions.*;
 
