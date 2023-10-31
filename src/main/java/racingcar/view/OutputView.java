@@ -10,6 +10,7 @@ public class OutputView {
     private static final String CAR_POSITION_LINE = "-";
     private static final String STRING_JOIN_DELIMITER = ", ";
     private static final String FINAL_WINNER_MESSAGE = "최종 우승자 : ";
+    private static final int ZERO_VALUE = 0;
 
 
     private static final OutputView INSTANCE = new OutputView();
@@ -30,7 +31,7 @@ public class OutputView {
     }
 
     public void printCurrentCarPosition(Car car) {
-        for (int currentCarPosition = 0; currentCarPosition < car.getAdvanceCount(); currentCarPosition++) {
+        for (int currentCarPosition = ZERO_VALUE; currentCarPosition < car.getAdvanceCount(); currentCarPosition++) {
             System.out.print(CAR_POSITION_LINE);
         }
         System.out.println();
