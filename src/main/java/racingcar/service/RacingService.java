@@ -31,13 +31,13 @@ public class RacingService {
     }
 
     private static void checkRoundWinner(List<Car> cars) {
-        int maxDistance = getMaxDistance(cars);
+        int maxMove = getMaxMove(cars);
         for (Car car : cars) {
-            plusWinnerCount(maxDistance, car);
+            plusWinnerCount(maxMove, car);
         }
     }
 
-    private static int getMaxDistance(List<Car> cars) {
+    private static int getMaxMove(List<Car> cars) {
         return cars.stream()
                 .mapToInt(Car::getMove)
                 .max()
