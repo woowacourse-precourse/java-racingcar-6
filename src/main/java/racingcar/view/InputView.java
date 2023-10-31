@@ -12,6 +12,7 @@ import racingcar.util.validator.Validator;
 
 public class InputView implements View {
     private final InputValidator inputValidator;
+
     InputView(final Validator inputValidator) {
         this.inputValidator = (InputValidator) inputValidator;
     }
@@ -20,7 +21,7 @@ public class InputView implements View {
         System.out.println(INPUT_CARS_NAME.message());
         String input = Console.readLine();
 
-        List<String> nameList =  Arrays.stream(input.split(","))
+        List<String> nameList = Arrays.stream(input.split(","))
                 .collect(Collectors.toList());
         inputValidator.isValidList(nameList);
 

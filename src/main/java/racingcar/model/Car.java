@@ -10,6 +10,7 @@ public class Car implements Comparable<Car>, Model {
     private final String name;
     private int moved;
     private final int index;
+
     Car(final String name, final int index) {
         this.name = name;
         this.index = index;

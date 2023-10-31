@@ -9,7 +9,9 @@ import racingcar.util.exception.ErrorMessage;
 import racingcar.util.exception.RacingCarException;
 
 public class InputValidator implements Validator {
-    InputValidator() {}
+    InputValidator() {
+    }
+
     public void isValidList(final List<String> names) {
         if (!hasValidNames(names)) {
             throw RacingCarException.of(ErrorMessage.INVALID_NAME);
@@ -34,8 +36,9 @@ public class InputValidator implements Validator {
 
         return number;
     }
+
     private boolean hasValidNames(final List<String> names) {
-        for (String name:names) {
+        for (String name : names) {
             if (name.isBlank() || name.length() > MAXIMUM_NAME_LENGTH.number()) {
                 return false;
             }
@@ -46,7 +49,7 @@ public class InputValidator implements Validator {
 
     private boolean hasDistinctName(final List<String> names) {
         List<String> checkList = new ArrayList<>();
-        for (String name:names) {
+        for (String name : names) {
             if (checkList.contains(name)) {
                 return false;
             }

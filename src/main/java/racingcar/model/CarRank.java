@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class CarRank implements Model{
+public class CarRank implements Model {
     private final PriorityQueue<Car> rankQueue;
 
     CarRank(final List<Car> cars) {

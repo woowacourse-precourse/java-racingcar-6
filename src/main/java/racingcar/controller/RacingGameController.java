@@ -40,7 +40,7 @@ public class RacingGameController implements Controller {
 
         List<Car> cars = new ArrayList<>();
         int index = STARTING_INDEX.number();
-        for (String name:participants) {
+        for (String name : participants) {
             cars.add((Car) Model.generateCar(name, index++));
         }
 
