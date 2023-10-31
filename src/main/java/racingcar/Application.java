@@ -26,11 +26,14 @@ public class Application {
     }
 
     private static void moveCars(List<String> results, int numAttempts) {
-        for (int i = 0; i < results.size(); i++) {
-            if (shouldCarMove()) {
-                String currentResult = results.get(i);
-                results.set(i, currentResult + "-");
+        for (int attempt =0; attempt < numAttempts; attempt++){
+            for (int i = 0; i < results.size(); i++) {
+                if (shouldCarMove()) {
+                    String currentResult = results.get(i);
+                    results.set(i, currentResult + "-");
+                }
             }
+            printResults(results);
         }
     }
 
@@ -88,9 +91,9 @@ public class Application {
 
     private static void printWinners(List<String> winners) {
         if (winners.size() == 1) {
-            System.out.println("최종 우승자: " + winners.get(0));
+            System.out.println("최종 우승자 : " + winners.get(0));
         } else {
-            System.out.println("최종 공동 우승자: " + String.join(", ", winners));
+            System.out.println("최종 공동 우승자 : " + String.join(", ", winners));
         }
     }
 }
