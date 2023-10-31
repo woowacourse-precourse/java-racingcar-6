@@ -9,7 +9,7 @@ public class Application {
     public static void main(String[] args) {
 
         HashMap<String, Integer> score = new HashMap<>();
-기
+
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String names = Console.readLine();
         String[] name = names.split(",");
@@ -21,6 +21,9 @@ public class Application {
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException();
         }
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        Integer num = Integer.valueOf(Console.readLine());
 
     }
 }
