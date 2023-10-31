@@ -138,18 +138,15 @@ class InputManager {
     }
 
     public int getAttempts(){
-
-        System.out.println("시도할 횟수는 몇회인가요?");
-        int attempts;
-
-        try{
-            attempts = Integer.parseInt(Console.readLine());
-            InputValidator.checkAttempts(attempts);
-            return attempts;
-        }catch (IllegalArgumentException e){
-            System.out.println("유효한 숫자를 입력하세요.");
-            return getAttempts();
+        while(true){
+            System.out.println("시도할 횟수는 몇회인가요?");
+            try{
+                int attempts = Integer.parseInt(Console.readLine());
+                InputValidator.checkAttempts(attempts);
+                return attempts;
+            }catch (IllegalArgumentException e){
+                System.out.println("유효한 숫자를 입력하세요.");
+            }
         }
     }
-
 }
