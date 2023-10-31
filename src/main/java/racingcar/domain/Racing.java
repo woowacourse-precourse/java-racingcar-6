@@ -10,9 +10,8 @@ public class Racing {
     }
 
     public void run() {
-        NumberGenerator numberGenerator = new NumberGenerator();
         for (Car car : racingCar) {
-            if (shouldCarMoveForward(numberGenerator)) {
+            if (shouldCarMoveForward()) {
                 car.forward();
             }
             printCarLocation(car);
@@ -20,7 +19,8 @@ public class Racing {
         System.out.println();
     }
 
-    private boolean shouldCarMoveForward(NumberGenerator numberGenerator) {
+    private boolean shouldCarMoveForward() {
+        NumberGenerator numberGenerator = new NumberGenerator();
         Judgment judgment = new Judgment();
         return judgment.isMoreThanFour(numberGenerator.createRandomNumber());
     }
