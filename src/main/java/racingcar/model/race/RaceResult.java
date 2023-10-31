@@ -1,8 +1,8 @@
 package racingcar.model.race;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 import racingcar.model.car.Cars;
 
@@ -21,7 +21,7 @@ public class RaceResult {
         result.add(CarRaceRecords.from(cars));
     }
 
-    public List<CarRaceRecords> get() {
-        return Collections.unmodifiableList(result);
+    public Stream<CarRaceRecords> stream() {
+        return result.stream();
     }
 }

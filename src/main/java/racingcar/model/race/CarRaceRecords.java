@@ -1,6 +1,7 @@
 package racingcar.model.race;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import racingcar.model.car.Cars;
 
@@ -9,7 +10,7 @@ public class CarRaceRecords {
     private final List<CarRaceRecord> carRaceRecords;
 
     private CarRaceRecords(Cars cars) {
-        carRaceRecords = cars.getCars().stream()
+        carRaceRecords = cars.stream()
                 .map(CarRaceRecord::of)
                 .toList();
     }
@@ -18,7 +19,7 @@ public class CarRaceRecords {
         return new CarRaceRecords(cars);
     }
 
-    public List<CarRaceRecord> getCarRecords() {
-        return carRaceRecords;
+    public Stream<CarRaceRecord> stream() {
+        return carRaceRecords.stream();
     }
 }

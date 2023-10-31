@@ -44,7 +44,7 @@ class CarNameInputTest {
         Cars cars = Cars.from(carList);
 
         // then
-        assertThat(cars.getCars()).isEqualTo(expected);
+        assertThat(cars.stream().toList()).isEqualTo(expected);
     }
 
     @Test

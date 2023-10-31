@@ -7,6 +7,7 @@ import racingcar.model.car.Car;
 import racingcar.model.car.Cars;
 import racingcar.model.race.Race;
 import racingcar.model.race.RaceGameCount;
+import racingcar.model.winner.Winners;
 import racingcar.view.InputView;
 import racingcar.view.ResultView;
 
@@ -27,14 +28,20 @@ public class RacingCarController {
         race = Race.of(cars, raceGameCount);
         race.start();
         printResult();
+        printWinners();
+    }
+
+    private Cars createCarsFromCarNames(String[] input) {
+        List<Car> carList = Arrays.stream(input).map(Car::from).toList();
+        return Cars.from(carList);
     }
 
     private void printResult() {
         resultView.printResult(race.getResult());
     }
 
-    private Cars createCarsFromCarNames(String[] input) {
-        List<Car> carList = Arrays.stream(input).map(Car::from).toList();
-        return Cars.from(carList);
+    private void printWinners() {
+        Winners winners = Winners.from(race.getResult());
+        resultView.printWinners(winners);
     }
 }

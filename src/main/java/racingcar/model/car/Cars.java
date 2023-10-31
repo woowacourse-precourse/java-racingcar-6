@@ -2,10 +2,10 @@ package racingcar.model.car;
 
 import static racingcar.model.car.CarName.NAME_DUPLICATED;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class Cars {
 
@@ -42,7 +42,7 @@ public class Cars {
         return Objects.hash(cars);
     }
 
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+    public Stream<Car> stream() {
+        return cars.stream();
     }
 }
