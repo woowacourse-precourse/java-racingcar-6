@@ -38,6 +38,15 @@ public class Game {
         return randNum >= 4;
     }
 
+    // 차량별 전진 현황 출력
+    void print(String name, int num) {
+        System.out.print(name + " : ");
+        for (int i = 0; i < num; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
     // 매 라운드 진행
     // 랜덤 숫자 4 이상인지 확인
     void round() {
@@ -46,7 +55,9 @@ public class Game {
                 int curMoveNum = car[i].getMoveNum();
                 car[i].setMoveNum(curMoveNum + 1);
             }
+            print(car[i].getName(), car[i].getMoveNum());
         }
+        System.out.println();
     }
 
     void startGame() {
