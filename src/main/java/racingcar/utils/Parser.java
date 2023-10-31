@@ -15,13 +15,13 @@ public class Parser {
         return new ArrayList<>(Arrays.asList(input.split(",")));
     }
 
-    private void checkSize(String input) throws IllegalArgumentException {
+    public void checkSize(String input) throws IllegalArgumentException {
         if(input.length() > 5) {
             throw new IllegalArgumentException();
         }
     }
 
-    private void checkEmpty(String input) throws IllegalArgumentException {
+    public void checkEmpty(String input) throws IllegalArgumentException {
         if(input.isEmpty()) {
             throw new IllegalArgumentException();
         }
@@ -43,7 +43,7 @@ public class Parser {
         return Integer.parseInt(input);
     }
 
-    private void checkDigit(String input) {
+    public void checkDigit(String input) {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
