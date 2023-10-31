@@ -21,28 +21,28 @@ public class WinnerTest extends PrintTest{
     }
 
     public static class Winner{
-        private List<Car> listCar;
+        private List<Car> cars;
         private int maxDistance;
 
-        public static Winner inputWinner(List<Car> listCar, int maxDistance){
-            return new Winner(listCar, maxDistance);
+        public static Winner inputWinner(List<Car> cars, int maxDistance){
+            return new Winner(cars, maxDistance);
         }
 
-        private Winner(List<Car> listCar, int maxDistance){
-            this.listCar = listCar;
+        private Winner(List<Car> cars, int maxDistance){
+            this.cars = cars;
             this.maxDistance = maxDistance;
         }
 
         public void printWinner() {
             StringJoiner winnerNames = new StringJoiner(", ");
 
-            setWinners(winnerNames);
+            writeWinners(winnerNames);
 
             OutputCarRace.printf(MessageType.OUTPUT_WINNERS_PRINT, winnerNames.toString());
         }
 
-        private void setWinners(StringJoiner winnerNames) {
-            for (Car car : this.listCar) {
+        private void writeWinners(StringJoiner winnerNames) {
+            for (Car car : this.cars) {
                 String carName = car.getCarName();
                 StringBuilder driving = car.getDriving();
 
