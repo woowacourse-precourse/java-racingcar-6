@@ -9,4 +9,5 @@ public class PickRandomNumber {
         return Randoms.pickNumberInRange(0, 9);
 
     }
+
 }

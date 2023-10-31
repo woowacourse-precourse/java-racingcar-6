@@ -9,6 +9,7 @@ import racingcar.view.OutPut;
 
 public class Application {
     public static void main(String[] args) {
+
         // TODO: 프로그램 구현
 
         PickRandomNumber pickRandomNumber = new PickRandomNumber();

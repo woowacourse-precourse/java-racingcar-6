@@ -22,19 +22,13 @@ public class CarRaceResultsSave {
             tryTimes--;
         }
 
-
     }
 
     public void carDistanceOutput() {
 
-//        try {
-//            Thread.sleep(1000);
         for (Entry<String, String> map : getCarMoveCheck().entrySet()) {
             System.out.printf("%s : %s\n", map.getKey(), map.getValue());
         }
-//        }
-//        catch (InterruptedException e){
-//        }
 
     }
 
@@ -43,5 +37,4 @@ public class CarRaceResultsSave {
         return carRacingStarts.getCarsDistanceData();
 
     }
-
 }

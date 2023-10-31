@@ -19,11 +19,10 @@ public class Input {
     }
 
     public int numberTimesTry() {
+
         int numberTimeTry = Integer.parseInt(Console.readLine());
         return NumberTimeTryExceptionProcessing.checkNumber(numberTimeTry);
 
-
     }
-
 
 }

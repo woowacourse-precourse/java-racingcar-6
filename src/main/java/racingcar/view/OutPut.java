@@ -40,10 +40,7 @@ public class OutPut {
         System.out.printf(FINAL_WINNER);
         finalWinner.carFinalDistanceComparison(carRacingStarts.getCarsDistanceData(),numberOfAttempts);
 
-
-
     }
-
 
 }
 
