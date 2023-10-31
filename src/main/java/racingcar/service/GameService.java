@@ -7,16 +7,13 @@ public class GameService {
     public ArrayList<String> checkWinners(HashMap<String, Integer> cars) {
         ArrayList<String> winners = new ArrayList<>();
         int winScore = 0;
-        int currentScore;
         for (String name : cars.keySet()) {
-            currentScore = cars.get(name);
+            int currentScore = cars.get(name);
             if (currentScore > winScore) {
+                winners.clear();
+                winners.add(name);
                 winScore = currentScore;
-            }
-        }
-        for (String name : cars.keySet()) {
-            currentScore = cars.get(name);
-            if (currentScore == winScore) {
+            } else if (currentScore == winScore) {
                 winners.add(name);
             }
         }
