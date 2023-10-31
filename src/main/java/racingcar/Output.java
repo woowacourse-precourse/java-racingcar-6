@@ -25,7 +25,7 @@ public class Output {
         int maxMoving = findMaxMoving(carNameAndMoving);
         List<String> winners = getWinners(carNameAndMoving, maxMoving);
         String winner = String.join(COMMA_AND_BLANK, winners);
-        System.out.println(FINAL_WINNER + winner);
+        System.out.print(FINAL_WINNER + winner);
     }
 
     private StringBuilder appendBar(int count) {
