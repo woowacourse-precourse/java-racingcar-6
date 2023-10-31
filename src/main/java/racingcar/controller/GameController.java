@@ -8,16 +8,21 @@ import racingcar.domain.Cars;
 import racingcar.domain.TryCount;
 import racingcar.util.InputParser;
 import racingcar.util.NumberGenerator;
-import racingcar.util.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
+    private final InputView inputView;
+    private final OutputView outputView;
     private Cars cars;
     private TryCount tryCount;
-    private final NumberGenerator numberGenerator = new RandomNumberGenerator();
+    private final NumberGenerator numberGenerator;
+
+    public GameController(InputView inputView, OutputView outputView, NumberGenerator numberGenerator) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+        this.numberGenerator = numberGenerator;
+    }
 
     public void playGame() {
         initializeGame();
