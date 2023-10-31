@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.ResultView;
 
@@ -23,5 +24,30 @@ public class Race {
         for (Car car : cars) {
             car.move();
         }
+    }
+
+    public List<Car> getWinners() {
+        int maxPosition = getMaxPosition();
+        return selectCarsInMaxPosition(maxPosition);
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
+    }
+
+    private List<Car> selectCarsInMaxPosition(int maxPosition) {
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winners.add(car);
+            }
+        }
+        return winners;
     }
 }
