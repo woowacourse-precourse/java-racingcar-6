@@ -17,6 +17,7 @@ public class NameValidation {
         this.NAMES = names;
         this.NAME_LIST = Util.toList(NAMES);
         isCorrectPattern();
+        isCorrectLength();
     }
 
     // 정해진 포맷에 맞는 입력이 들어왔는지 먼저 확인한다. 쉼표로 구분되는 입력
@@ -36,6 +37,10 @@ public class NameValidation {
         if (stream.anyMatch(name -> name.isEmpty() || name.length() > 5)) {
             throw new IllegalArgumentException(LENGTH_EXCEPTION.getValue());
         }
+    }
+
+    public void isDuplicate() {
+
     }
 
 }

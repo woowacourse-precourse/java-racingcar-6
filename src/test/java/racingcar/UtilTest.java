@@ -31,4 +31,11 @@ class UtilTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void 중복_요소의_개수를_구한다() {
+        List<String> nameList = Arrays.asList("Jason", "Jimmy", "Mustang", "Kentucky", "Jimmy", "Mustang");
+        long count = Util.countDuplicate(nameList);
+        assertEquals(4L, count);
+    }
+
 }

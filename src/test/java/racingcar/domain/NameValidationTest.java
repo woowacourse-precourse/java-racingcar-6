@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -81,4 +82,5 @@ class NameValidationTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, invalid::isCorrectLength);
         assertEquals("ERROR: 1글자 이상 5글자 이하의 이름을 입력하세요", exception.getMessage());
     }
+
 }
