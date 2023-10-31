@@ -5,32 +5,40 @@ import java.util.ArrayList;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class RacingGame {
-    ArrayList<Car> userCars = new ArrayList<Car>();
-    int tryCount;
+    private ArrayList<Car> userCars;
+    private int tryCount;
+
+    public RacingGame(){
+        this.userCars = new ArrayList<Car>();
+        this.tryCount = 0;
+    }
 
     void init(){
-        prepareRace();
+        setUserCars();
+        setTryCount();
         startRace();
         showResult();
     }
 
-    void prepareRace(){
-        InputValidator iv = new InputValidator();
+    void setUserCars() throws IllegalArgumentException {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String userInput = readLine();
-        if(iv.isBlank(userInput)) throw new IllegalArgumentException("공백을 입력하실 수 없습니다.");
-        if(iv.singleInput(userInput)) throw new IllegalArgumentException("2개 이상의 이름을 입력하세요.");
+        if (InputValidator.isBlank(userInput)) throw new IllegalArgumentException("공백을 입력하실 수 없습니다.");
+        if (InputValidator.singleInput(userInput)) throw new IllegalArgumentException("2개 이상의 이름을 입력하세요.");
 
         String[] splitInput = userInput.split(",");
+        if(InputValidator.checkNameLength(splitInput)) throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
 
-        for(String i : splitInput){
+        for (String i : splitInput) {
             userCars.add(new Car(i));
         }
+    }
+    void setTryCount() throws IllegalArgumentException {
 
         System.out.println("시도할 회수는 몇 회인가요?");
         String userInputTry = readLine();
-        if(iv.isNumber(userInputTry)){ //숫자 여부 확인후 tryCount에 입력값넣기
+        if(InputValidator.isNumber(userInputTry)){ //숫자 여부 확인후 tryCount에 입력값넣기
             tryCount = Integer.parseInt(userInputTry);
         }else{
             throw new IllegalArgumentException("숫자를 입력하세요.");
@@ -39,23 +47,21 @@ public class RacingGame {
         System.out.println();
     }
 
+    void progressCar(Car car,int dice){
+        if(dice>=4){
+            car.addProgress();
+        }
+    }
+
     void startRace(){
         System.out.println("실행 결과");
         for(int i=0;i<this.tryCount;i++){
             for(Car car : this.userCars){
-                RandomDice dice = new RandomDice();
-                dice.setNum();
-                if(dice.getNum()>=4){
-                    car.addProgress();
-                }
+                progressCar(car,RandomDice.getNum());
                 System.out.println(car.showProgress());
             }
             System.out.println();
         }
-    }
-
-    void showResult(){
-        System.out.println("최종 우승자 : "+checkResult());
     }
 
     String checkResult(){
@@ -71,4 +77,10 @@ public class RacingGame {
         }
         return winner;
     }
+
+    void showResult(){
+        System.out.println("최종 우승자 : "+checkResult());
+    }
+
+
 }
