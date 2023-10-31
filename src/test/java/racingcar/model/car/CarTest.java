@@ -25,12 +25,12 @@ public class CarTest {
     @Test
     @DisplayName("자동차가 정상적으로 이동하는지 검사한다.")
     void 정상_이동_검사() {
-        moveEachCarList();
+        자동차_이동();
         Assertions.assertThat(car1.getPosition()).isEqualTo(1);
         Assertions.assertThat(car2.getPosition()).isEqualTo(0);
     }
 
-    private void moveEachCarList() {
+    private void 자동차_이동() {
         car1.move(true);
         car2.move(false);
     }
