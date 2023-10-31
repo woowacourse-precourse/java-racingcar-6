@@ -11,11 +11,14 @@ public class OutputView {
     private static final String COMMA = ",";
     private static final String STATUS_SEPARATOR = " : ";
 
-    public void displayResult() {
+    private OutputView() {
+    }
+
+    public static void displayResult() {
         System.out.println(RESULT);
     }
 
-    public void displayFinalWinner(Cars cars) {
+    public static void displayFinalWinner(Cars cars) {
         List<Car> finalWinner = cars.findCarsWithMaxMovingCount();
         System.out.print(FINAL_WINNER + STATUS_SEPARATOR);
         System.out.println(String.join(COMMA, finalWinner.stream()
@@ -24,7 +27,7 @@ public class OutputView {
         );
     }
 
-    public void displayCurrentRacingStatus(Cars cars) {
+    public static void displayCurrentRacingStatus(Cars cars) {
         System.out.println(cars.getAllCarsStatus());
     }
 }

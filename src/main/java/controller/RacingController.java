@@ -11,26 +11,19 @@ import view.OutputView;
 
 public class RacingController {
 
-    private final InputView inputView;
-    private final OutputView outputView;
     private static final int MINIMUM_NUMBER = 4;
 
-    public RacingController(InputView inputView, OutputView outputView) {
-        this.inputView = inputView;
-        this.outputView = outputView;
-    }
-
     public void start() {
-        List<Car> convertedCar = Converter.convertNameToCars(inputView.getCarsNameFromUserInput());
+        List<Car> convertedCar = Converter.convertNameToCars(InputView.getCarsNameFromUserInput());
         Cars cars = new Cars(convertedCar);
-        Attempts attempts = new Attempts(inputView.getAttemptsFromUserInput());
+        Attempts attempts = new Attempts(InputView.getAttemptsFromUserInput());
 
-        outputView.displayResult();
+        OutputView.displayResult();
         for (int i = 0; i < attempts.getAttempts(); i++) {
             cars.updateMovingCount(MINIMUM_NUMBER);
-            outputView.displayCurrentRacingStatus(cars);
+            OutputView.displayCurrentRacingStatus(cars);
         }
-        outputView.displayFinalWinner(cars);
+        OutputView.displayFinalWinner(cars);
         Console.close();
     }
 }

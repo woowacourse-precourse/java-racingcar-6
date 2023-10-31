@@ -5,15 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
-import view.InputView;
-import view.OutputView;
 
 public class RacingControllerTest extends NsTest {
 
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
-    final RacingController racingController = new RacingController(new InputView(),
-            new OutputView());
+    final RacingController racingController = new RacingController();
 
     @Test
     void 컨트롤러_게임_진행_테스트() {

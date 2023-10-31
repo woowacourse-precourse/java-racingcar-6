@@ -13,8 +13,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class InputViewTest {
 
-    private final InputView inputView = new InputView();
-
     void provideInput(String input) {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -34,7 +32,7 @@ public class InputViewTest {
 
         //when
         provideInput(input);
-        List<String> result = inputView.getCarsNameFromUserInput();
+        List<String> result = InputView.getCarsNameFromUserInput();
 
         //then
         Assertions.assertThat(result).isEqualTo(expectedName);
@@ -49,7 +47,7 @@ public class InputViewTest {
 
         //when
         provideInput(input);
-        String result = inputView.getAttemptsFromUserInput();
+        String result = InputView.getAttemptsFromUserInput();
 
         //then
         Assertions.assertThat(result).isEqualTo(exceptedInput);

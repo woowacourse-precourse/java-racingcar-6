@@ -18,7 +18,6 @@ public class OutputViewTest {
 
     final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     final PrintStream standardOut = System.out;
-    private final OutputView outputView = new OutputView();
 
     @BeforeEach
     void setUp() {
@@ -46,7 +45,7 @@ public class OutputViewTest {
         Cars cars = new Cars(carList);
 
         //when
-        outputView.displayFinalWinner(cars);
+        OutputView.displayFinalWinner(cars);
 
         //then
         Assertions.assertThat(outputStreamCaptor.toString().trim()).isEqualTo("최종 우승자 : pobi,lisa");
