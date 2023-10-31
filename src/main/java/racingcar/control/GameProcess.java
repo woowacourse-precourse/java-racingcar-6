@@ -114,9 +114,6 @@ public class GameProcess {
         return winnerList.get(index);
     }
 
-    /**
-     * 현재 자동차들의 이동을 한다.
-     */
     public void moveOfCurrentRaceCar() {
         for (RaceCar raceCar : raceCarList) {
             raceCar.movementControlCar(createRandomNum.createRanOneNum());
