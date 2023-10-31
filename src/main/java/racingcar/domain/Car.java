@@ -2,13 +2,24 @@ package racingcar.domain;
 
 public class Car {
     private String name;
-    private int count;
+    private int tryCount;
+    private int moveCount;
 
-    public Car(String name) {
+    public Car(String name, int tryCount) {
         this.name = name;
-        this.count = 0;
+        this.tryCount = tryCount;
+        this.moveCount = 0;
     }
+
     public String getName() {
         return this.name;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public void addMoveCount() {
+        moveCount++;
     }
 }
