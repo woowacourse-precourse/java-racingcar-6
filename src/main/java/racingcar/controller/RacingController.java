@@ -5,7 +5,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Game;
 import racingcar.repository.CarRepository;
 import racingcar.service.GameService;
-import racingcar.util.ExtractElementUtil;
+import racingcar.util.ReturnElementUtil;
 import racingcar.validator.CarNameValidator;
 import racingcar.validator.TrialNumberValidator;
 import racingcar.view.InputView;
@@ -17,7 +17,7 @@ import java.util.List;
 public class RacingController {
 
     private static final GameService gameService = new GameService();
-    private static final ExtractElementUtil extractElementUtil = new ExtractElementUtil();
+    private static final ReturnElementUtil returnElementUtil = new ReturnElementUtil();
     private static final CarRepository carRepository = new CarRepository();
 
     public void racingCar() {

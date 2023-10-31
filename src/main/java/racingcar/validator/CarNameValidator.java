@@ -1,6 +1,6 @@
 package racingcar.validator;
 
-import racingcar.util.ExtractElementUtil;
+import racingcar.util.ReturnElementUtil;
 
 import java.util.List;
 
@@ -9,13 +9,13 @@ import static racingcar.constant.SystemConstant.*;
 
 public class CarNameValidator {
 
-    private static final ExtractElementUtil extractElementUtil = new ExtractElementUtil();
+    private static final ReturnElementUtil returnElementUtil = new ReturnElementUtil();
 
     public static void checkCarNamesInput(String input) {
         checkEmpty(input);
         checkLastIndex(input);
 
-        List<String> nameList = extractElementUtil.extractCarNames(input);
+        List<String> nameList = returnElementUtil.extractCarNames(input);
         checkAllDuplicate(nameList);
         checkEachLengthAndBlank(nameList);
     }

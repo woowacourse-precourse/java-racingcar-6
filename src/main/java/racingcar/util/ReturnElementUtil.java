@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ExtractElementUtil {
+public class ReturnElementUtil {
 
     public List<String> extractCarNames(String input) {
         return new ArrayList<>(Arrays.asList(input.split(",")));
