@@ -45,6 +45,21 @@ class InputExceptionTest {
     }
 
     @ParameterizedTest
+    @ValueSource(strings = {" ", "  "})
+    @DisplayName("자동차 이름이 빈칸으로 이루어져 있는지 확인하는 메서드 예외 처리 테스트")
+    void validateNameBlankTest(String name) {
+        // when
+        Throwable throwable = catchThrowable(() -> {
+            InputException.validateNameBlank(name);
+        });
+
+        // then
+        assertThat(throwable)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(PrintMessage.NOT_BLANK_NAME);
+    }
+
+    @ParameterizedTest
     @MethodSource("parametersProvider")
     @DisplayName("자동차 이름이 중복되었는지 확인하는 메서드 예외 처리 테스트")
     void validateNameDuplicationTest(List<String> carList) {
