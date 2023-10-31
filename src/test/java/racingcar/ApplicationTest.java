@@ -2,6 +2,17 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.controller.GameController;
+import racingcar.exception.GameException;
+import racingcar.model.Car;
+import racingcar.model.Game;
+import racingcar.view.GameView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -29,6 +40,22 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 자동차_전진_확인(){
+        Car car = new Car("carName");
+
+        car.move(4,4);
+        assertThat(car.getDistance()).isEqualTo(1);
+    }
+
+    @Test
+    void 자동차_전진_예외(){
+        Car car = new Car("carName");
+
+        car.move(3,4);
+        assertThat(car.getDistance()).isEqualTo(0);
     }
 
     @Override
