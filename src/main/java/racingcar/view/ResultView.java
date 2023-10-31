@@ -28,15 +28,4 @@ public class ResultView {
         String winnerNames = String.join(",",winners);
         System.out.println("최종 우승자 : " + winnerNames);
     }
-
-    private static void appendWinners(StringBuilder result, List<String> winners) {
-        for (int i = 0; i < winners.size(); i++) {
-            if (i > 0) {
-                result.append(COMMA);
-            }
-            result.append(winners.get(i));
-        }
-    }
-
-
 }
