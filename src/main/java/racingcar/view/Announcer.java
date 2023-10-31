@@ -1,7 +1,8 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.Car;
+import java.util.Map;
+import racingcar.History;
 
 public class Announcer {
     private final String INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
@@ -9,31 +10,41 @@ public class Announcer {
     private final String RESULT_COMMENT = "실행 결과";
 
     public void announceToInputCarName() {
-        print(INPUT_CAR_NAME);
+        println(INPUT_CAR_NAME);
     }
 
     public void announceToInputTryCount() {
-        print(INPUT_TRY_COUNT);
+        println(INPUT_TRY_COUNT);
     }
 
-    public void announceResultComment() {
-        print("");
-        print(RESULT_COMMENT);
-    }
+    public void announceRaceHistories(List<History> historyList) {
+        println();
+        println(RESULT_COMMENT);
 
-    public void announceRoundHistory(List<Car> car) {
-        for (Car c : car) {
-            print(c.getName() + " : " + "-".repeat(c.getPosition()));
+        for (History history : historyList) {
+            announceRaceHistory(history);
         }
-        print("");
+    }
+
+    private void announceRaceHistory(History history) {
+        Map<String, Integer> nameAndPosition = history.nameAndPosition();
+        for (String name : nameAndPosition.keySet()) {
+            println(name + " : " + "-".repeat(nameAndPosition.get(name)));
+        }
+
+        println();
     }
 
     public void announceWinner(List<String> winnerList) {
         String winner = String.join(", ", winnerList);
-        print("최종 우승자 : " + winner);
+        println("최종 우승자 : " + winner);
     }
 
-    public void print(String message) {
+    private void println(String message) {
         System.out.println(message);
+    }
+
+    private void println() {
+        System.out.println("");
     }
 }
