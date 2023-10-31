@@ -11,11 +11,12 @@ import static racingcar.Constant.InputMenu.INPUT_COUNT;
 
 public class InputView {
     private final InputController inputController;
-    public InputView(Model model)  {
+
+    public InputView(Model model) {
         inputController = new InputController(model);
     }
 
-    public void start(){
+    public void start() {
         String carsInput = writeInConsole(INPUT_CAR_NAME);
         Map<String, String> carList = inputController.createCarList(carsInput);
         inputController.checkInvalidCarName(carList);

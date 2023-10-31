@@ -8,9 +8,11 @@ import static racingcar.Constant.InputMenu.*;
 
 public class InputController {
     private final Model inputModel;
+
     public InputController(Model model) {
         inputModel = model;
     }
+
     public Map<String, String> createCarList(String carsInput) {
         return inputModel.createCarList(carsInput);
     }
@@ -21,7 +23,7 @@ public class InputController {
         }
     }
 
-    public void checkInvalidCount(String countInput){
+    public void checkInvalidCount(String countInput) {
         int count;
         try {
             count = Integer.parseInt(countInput);

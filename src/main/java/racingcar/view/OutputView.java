@@ -10,11 +10,12 @@ import static racingcar.Constant.OutputMenu.*;
 
 public class OutputView {
     private final OutputController outputController;
+
     public OutputView(Model model) {
         outputController = new OutputController(model);
     }
 
-    public void start(){
+    public void start() {
         int count = outputController.getCount();
         Map<String, String> carList = outputController.getCarList();
         printRacingScore(count, carList);
@@ -31,8 +32,6 @@ public class OutputView {
             System.out.println();
         }
     }
-
-
 
 
     private static void printWinners(Map<String, String> carList, List<String> carNameByKeyDesc) {

@@ -11,15 +11,16 @@ import static racingcar.Constant.RacingMenu.PLUS_SCORE;
 
 public class OutputController {
     private final Model model;
+
     public OutputController(Model model) {
         this.model = model;
     }
 
-    public Map<String, String> getCarList(){
+    public Map<String, String> getCarList() {
         return model.getCarList();
     }
 
-    public int getCount(){
+    public int getCount() {
         return model.getCount();
     }
 
