@@ -21,8 +21,8 @@ public class RacingCarController {
 
     public void startGame() {
         List<String> carNames = inputCarNames();
-        int count = inputCount();
         RacingCars racingCars = createRacingCars(carNames);
+        int count = inputCount();
         printGameResult(racingCars, count);
     }
 
