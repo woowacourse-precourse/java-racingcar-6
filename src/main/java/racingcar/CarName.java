@@ -15,13 +15,13 @@ public class CarName {
 
     private void validateNullOrEmpty(String name) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("자동차 이름을 입력해 주세요.");
+            throw new IllegalArgumentException(UserInputMissExceptionMessage.EMPTY);
         }
     }
 
     private void validateLengthLimit(String name) {
         if (name.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 5글자를 초과할 수 없습니다.");
+            throw new IllegalArgumentException(UserInputMissExceptionMessage.SIZE_OVER);
         }
     }
 

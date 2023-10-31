@@ -18,13 +18,13 @@ public class Lap {
 
     private void validateFormatCheck(String size) {
         if (!size.matches(REGEXP_SIZE_FORMAT)) {
-            throw new IllegalArgumentException("숫자를 입력 해 주세요.");
+            throw new IllegalArgumentException(UserInputMissExceptionMessage.NOT_NUMBER_FORMAT);
         }
     }
 
     private void validateSizeCheck(int size) {
         if (size < MINIMUM_SIZE) {
-            throw new IllegalArgumentException("1이상을 입력 해 주세요.");
+            throw new IllegalArgumentException(UserInputMissExceptionMessage.MINUS_NUMBER);
         }
     }
 

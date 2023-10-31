@@ -19,13 +19,13 @@ public class Cars {
 
     private void validateNullOrEmpty(String carNames) {
         if (carNames == null || carNames.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름을 입력해 주세요.");
+            throw new IllegalArgumentException(UserInputMissExceptionMessage.EMPTY);
         }
     }
 
     private void validateLastCharComma(String carNames) {
         if (carNames.charAt(carNames.length() - 1) == ',') {
-            throw new IllegalArgumentException("쉼표(,)로 끝날 수 없습니다");
+            throw new IllegalArgumentException(UserInputMissExceptionMessage.DELIMITER_END);
         }
     }
 
@@ -36,7 +36,7 @@ public class Cars {
                 .size();
 
         if (cars.size() != distinctSize) {
-            throw new IllegalArgumentException("자동차 이름이 중복된 값이 있습니다.");
+            throw new IllegalArgumentException(UserInputMissExceptionMessage.DUPLICATE);
         }
     }
 
