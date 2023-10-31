@@ -25,7 +25,7 @@ public class Cars {
 
     public String getMoveRecord() {
         StringBuilder sb = new StringBuilder();
-        values.forEach(value -> sb.append(value.mapRecord()).append(ProcessMessage.NEW_LINE));
+        values.forEach(car -> sb.append(car.mapRecord()).append(ProcessMessage.NEW_LINE));
         return sb.toString();
     }
 
