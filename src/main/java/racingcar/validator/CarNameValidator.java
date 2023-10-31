@@ -29,8 +29,8 @@ public class CarNameValidator {
     }
 
     public void isNameValid() {
-        Pattern pattern = Pattern.compile("[^a-zA-Z0-9,]");
-        if (carNames.matches(".*[^a-zA-Z0-9 ,].*")) {
+        Pattern pattern = Pattern.compile(".*[^a-zA-Z0-9 ,].*");
+        if (pattern.matcher(carNames).matches()) {
             throw new IllegalArgumentException("쉼표 외의 특수문자를 입력하시면 안됩니다.");
         }
     }
