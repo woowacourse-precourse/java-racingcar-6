@@ -47,7 +47,7 @@ public class GameProcess {
     public void createRaceCars() {
         RaceCar newRaceCar = null;
 
-        makeNameOfCurrentCarListFromStringLine();
+        makeCarNameListFromStrLine();
 
         for (String nameOfRaceCar : nameSplitList) {
             newRaceCar = generateRaceCar(nameOfRaceCar);
@@ -66,10 +66,10 @@ public class GameProcess {
     /**
      * nameLineOfRaceCar을 배열로 split을 하여 nameSplitList을 만든다.
      */
-    private void makeNameOfCurrentCarListFromStringLine() {
+    private void makeCarNameListFromStrLine() {
         String[] nameSplitArr = null;
 
-        nameSplitArr = Utill.makeSplitArrFromString(nameLineOfRaceCar, ",");
+        nameSplitArr = Utill.makeArrFromString(nameLineOfRaceCar, ",");
         nameSplitList = Utill.makeListFromArr(nameSplitArr);
     }
 

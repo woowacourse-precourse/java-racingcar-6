@@ -1,6 +1,5 @@
 package racingcar.utill;
 
-import java.sql.Struct;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -57,7 +56,7 @@ public class Utill {
      * @param regex  string을 배열로 만드는 기준
      * @return
      */
-    public static String[] makeSplitArrFromString(String string, String regex) {
+    public static String[] makeArrFromString(String string, String regex) {
         return string.split(regex);
     }
 

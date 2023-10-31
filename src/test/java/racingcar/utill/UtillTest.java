@@ -3,19 +3,13 @@ package racingcar.utill;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.Assertions.in;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class UtillTest {
@@ -48,7 +42,7 @@ class UtillTest {
         String regex = ",";
 
         // when
-        String[] resultArr = Utill.makeSplitArrFromString(str, regex);
+        String[] resultArr = Utill.makeArrFromString(str, regex);
 
         // than
         assertThat(resultArr).isEqualTo(new String[]{"one", "two", "three"});
