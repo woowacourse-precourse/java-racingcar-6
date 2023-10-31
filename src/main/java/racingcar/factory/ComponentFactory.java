@@ -13,7 +13,7 @@ import racingcar.repository.DomainRepository;
 import racingcar.service.RacingCarService;
 import racingcar.utils.RandomNumberGenerator;
 
-public class ComponentFactory {
+public final class ComponentFactory {
 
     private final RacingCarController racingCarController;
 
@@ -22,7 +22,7 @@ public class ComponentFactory {
                 new RacingCarController(outputView(), inputManager(), racingCarService());
     }
 
-    private static class ComponentFactoryHolder {
+    private static final class ComponentFactoryHolder {
 
         private static final ComponentFactory INSTANCE = new ComponentFactory();
 
