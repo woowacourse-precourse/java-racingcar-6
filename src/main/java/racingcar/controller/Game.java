@@ -1,7 +1,6 @@
 package racingcar.controller;
 
-
-import racingcar.controller.Action;
+import racingcar.exception.CarNameException;
 import racingcar.model.Car;
 import racingcar.view.Input;
 import racingcar.view.Output;
@@ -21,6 +20,10 @@ public class Game {
 
         for (int i = 0; i < carName.length; i++) {
             carList.add(new Car(carName[i]));
+        }
+
+        for (String name : carName){
+            CarNameException.carNameLengthException(name);
         }
 
         Output.roundMessage();

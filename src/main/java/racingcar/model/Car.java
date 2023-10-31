@@ -4,7 +4,7 @@ public class Car {
     String name;
     String distance;
 
-    Car(String name) {
+    public Car(String name) {
         distance = "";
         this.name = name;
     }

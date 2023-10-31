@@ -14,9 +14,9 @@
 
 ### 예외 처리 ###
 
-[-] 자동차 이름이 5자를 초과하거나 1보다 작을 수 없다. -carNumberLengthException()
+[-] 자동차 이름이 5자를 초과하거나 1보다 작을 수 없다. -carNameLengthException()
 
-[-] 자동차의 이름은 서로 중복 될 수 없다. -carNumberSameException()
+[-] 자동차의 이름은 서로 중복 될 수 없다. -carNameSameException()
 
 [-] 이름 구분은 이름 사이 한개의 ','로만 이루어 진다. -lotsOfCommaException()
 
