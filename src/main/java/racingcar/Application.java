@@ -12,12 +12,7 @@ public class Application {
     public static void main(String[] args) {
     	startGameProcess();
     }
-    
-	//게임 시작전 안내문 출력
-    public static void startGame() {
-    	System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    }
-    
+
     //차 이름(쉼표로 구분된 여러 이름) 입력받기
     public static String inputCarName(){
     	String carNames = Console.readLine();
@@ -47,7 +42,6 @@ public class Application {
     
     //차 이동횟수 입력받기
     public static int inputMovingNumber() {
-    	System.out.println("시도할 횟수 몇회인가요?");
     	String movingNumberStr = Console.readLine();
     	checkNumberValidation(movingNumberStr);
     	int movingNumber = Integer.parseInt(movingNumberStr);
@@ -105,16 +99,6 @@ public class Application {
     	}
     }
     
-    //횟수별 실행결과 출력하기
-    public static void printCarRacingResult(int movingNumber, List<String> carList, Map<String, Integer> carRacingRecord) {
-    	System.out.println("\n실행 결과");
-		for(int i=0;i < movingNumber;i++) {
-			updateCarRacingRecord(carList,carRacingRecord);
-			printCarRacingRecord(carList, carRacingRecord);
-			System.out.println();
-		}
-    }
-    
     //저장된 Map에서 최댓값을 가지는 차 이름 가져오기
     public static List<String> getWinner(Map<String, Integer> carRacingRecord, int maxRecord){
     	List<String> winners = new ArrayList<>();
@@ -125,32 +109,17 @@ public class Application {
     	}
     	return winners;
     }
-    
-    //결과 출력
-    public static void printGameResult(List<String> carList, Map<String, Integer> carRacingRecord) {
-    	int maxRecord = 0;
-    	for(String carName : carList) {
-    		String racingRecord=getRacingRecord(carRacingRecord.get(carName));
-    		maxRecord = Math.max(maxRecord,racingRecord.length());
-    	}
-    	List<String> winners = getWinner(carRacingRecord,maxRecord);
-    	StringBuilder winnerName= new StringBuilder();
-    	for(int i=0;i<winners.size()-1;i++) {
-    		winnerName.append(winners.get(i)+", ");
-    	}
-    	winnerName.append(winners.get(winners.size()-1));
-    	System.out.println("최종 우승자 : "+winnerName.toString());
-    }
-    
+
     //전체 게임 과정
 	private static void startGameProcess() {
-		startGame();
+		Message.printCarNameMessage();
+		Message.printMovingNumberMessage();
 		String carNames = inputCarName();
 		List<String> carList=separateCarNameInput(carNames);
 		int movingNumber=inputMovingNumber();
 		Map<String, Integer> carRacingRecord = setCarRacingRecord(carList);
-		printCarRacingResult(movingNumber,carList,carRacingRecord);
-		printGameResult(carList,carRacingRecord);
+		Message.printCarRacingResult(movingNumber,carList,carRacingRecord);
+		Message.printGameResult(carList,carRacingRecord);
 	}
     
 }
