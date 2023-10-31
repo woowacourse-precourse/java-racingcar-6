@@ -1,19 +1,23 @@
+//Car.java
 package racingcar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
 	private final String name;
-	private int forwardCount;
+	private int moveCount;
 	Car(String name){
 		this.name = name;
-		this.forwardCount = 0;
+		this.moveCount = 0;
 	}
 
-	public void goForwardOrNot(){
+	public void move(){
 		int randomNumber = Randoms.pickNumberInRange(0,9);
 		if(randomNumber >= 4){
-			++this.forwardCount;
+			++this.moveCount;
 		}
 	}
 
@@ -21,7 +25,36 @@ public class Car {
 		return this.name;
 	}
 
-	public int getForwardCount(){
-		return this.forwardCount;
+	public int getMoveCount(){
+		return this.moveCount;
+	}
+
+	public boolean checkIsFaster(Car otherCar){
+		int otherCarMoveCount = otherCar.getMoveCount();
+
+		if(this.moveCount > otherCarMoveCount){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public boolean checkIsSame(Car otherCar){
+		int otherCarMoveCount = otherCar.getMoveCount();
+
+		if(this.moveCount == otherCarMoveCount){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
+	public List<String> getCarNames(List<Car> cars){
+		List<String> carNames = new ArrayList<>();
+		for(Car car : cars){
+			carNames.add(car.getName());
+		}
+		return carNames;
 	}
 }

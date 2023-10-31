@@ -1,3 +1,4 @@
+//OutputView.java
 package racingcar.View;
 
 import java.util.List;
@@ -21,5 +22,9 @@ public class OutputView {
 	public static void printWinner(List<String> winners){
 		String winnerList = String.join(", ", winners);
 		System.out.println("최종 우승자 : " + winnerList);
+	}
+
+	public static void printEmptyLine(){
+		System.out.println("");
 	}
 }
