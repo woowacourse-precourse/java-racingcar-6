@@ -32,7 +32,6 @@ public class CarGameController {
 
     public void processInput(String input) {
         carNames = new CarNames(game.splitCarName(input));
-        validateNameLength(carNames.getNames());
         createCars(carNames.getNames());
     }
 
@@ -47,13 +46,6 @@ public class CarGameController {
     }
 
 
-    public void validateNameLength(List<String> carNames) {
-        for (int i = 0; i < carNames.size(); i++) {
-            if (carNames.get(i).length() > 5) {
-                throw new IllegalArgumentException();
-            }
-        }
-    }
 
 
     public List<Car> createCars(List<String> carNames) {
