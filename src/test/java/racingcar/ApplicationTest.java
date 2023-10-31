@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -34,5 +35,25 @@ class ApplicationTest extends NsTest {
     @Override
     public void runMain() {
         Application.main(new String[]{});
+    }
+
+    @Test
+    @DisplayName("자동차의 이름이 6글자를 초과한 경우 예외처리")
+    public void nameLengthCheck() {
+        //given
+        String name = "여섯글자이름";
+        //when
+
+        //then
+        assertThatThrownBy(() -> {
+            nameLength(name.length());
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차의 이름은 다섯글자까지만 허용합니다.");
+    }
+
+    private void nameLength(int length) {
+        if (length > 5) {
+            throw new IllegalArgumentException("자동차의 이름은 다섯글자까지만 허용합니다.");
+        }
     }
 }
