@@ -16,7 +16,7 @@
 ## InGame : Controller 자동차 경주 게임
 - 전
 - create carList by CarName, Round
-  - class Car
+  - class Car[ApplicationTest.java](..%2Fsrc%2Ftest%2Fjava%2Fracingcar%2FApplicationTest.java)
     - 멤버 변수
       - (name) final String
       - (randomNumList) ArrayList<Integer>
