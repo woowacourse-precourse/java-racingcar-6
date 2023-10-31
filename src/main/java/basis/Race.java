@@ -3,13 +3,13 @@ package basis;
 import static constant.Constant.RUN_RESULT_START_MESSAGE;
 import static constant.Constant.WINNER_RESULT_MESSAGE;
 
-import io.UserInterface;
+import io.UserInput;
 import java.util.LinkedHashMap;
 
 public class Race {
     static MovingStatus movingStatus = new MovingStatus();
     static WinnerResult winnerResult = new WinnerResult();
-    static UserInterface userInterface = new UserInterface();
+    static UserInput userInterface = new UserInput();
 
     public void run() {
         LinkedHashMap<String, String> carNameHashMap = userInterface.getCarNameHashMap();
@@ -20,5 +20,4 @@ public class Race {
         System.out.print(WINNER_RESULT_MESSAGE);
         winnerResult.printWinner(carNameHashMap);
     }
-
 }
