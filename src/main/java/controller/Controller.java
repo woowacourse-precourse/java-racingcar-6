@@ -33,10 +33,12 @@ public class Controller {
         outputView.printRequestCarsName();
         String inputString = inputView.requestCarsName();
         userInput.setCarsName(inputString);
+        outputView.printCarsName(userInput.getCarsName());
 
         outputView.printRequestPlayTime();
         int inputNum = inputView.requestPlayTime();
         userInput.setPlayTime(inputNum);
+        outputView.printPlayTime(userInput.getPlayTime());
     }
 
     private void startGame() {
