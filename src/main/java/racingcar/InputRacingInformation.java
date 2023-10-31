@@ -23,7 +23,7 @@ public class InputRacingInformation {
             int round = Integer.parseInt(Console.readLine());
             return round;
         } catch(IllegalArgumentException e){
-            throw new IllegalArgumentException("숫자를 입력해주세요");
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
     }
 }
