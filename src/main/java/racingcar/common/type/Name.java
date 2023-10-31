@@ -1,5 +1,6 @@
 package racingcar.common.type;
 
+import java.util.Objects;
 import racingcar.common.validator.NameValidator;
 
 public final class Name {
@@ -17,5 +18,18 @@ public final class Name {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Name name = (Name) o;
+        return Objects.equals(getName(), name.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
     }
 }

@@ -25,7 +25,11 @@ public class NamesValidator {
 
     // 중복 이름 체크
     private static void validateUniqueNames(List<Name> nameList) {
-        long distinctCount = nameList.stream().distinct().count();
+        long distinctCount = nameList
+                .stream()
+                .distinct()
+                .count();
+
         if (distinctCount < nameList.size()) {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
@@ -42,6 +46,7 @@ public class NamesValidator {
     private static void validateNotBothPobiAndJavaji(List<Name> nameList) {
         boolean containsPobi = containsName(nameList, POBI);
         boolean containsJavaji = containsName(nameList, JAVAJI);
+
         if (containsPobi && containsJavaji) {
             throw new IllegalArgumentException(POBI + "와 " + JAVAJI + "는 동일 인물입니다.");
         }
