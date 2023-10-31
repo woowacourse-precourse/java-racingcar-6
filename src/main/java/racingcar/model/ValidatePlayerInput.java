@@ -19,10 +19,10 @@ public class ValidatePlayerInput {
         }
     }
 
-    public void validateNotContainCarNameAndContinuousComma() {
+    public void validateNotContainCarName() {
         for (String carName : splitsPlayerInput) {
             if (carName.equals("")) {
-                throw new IllegalArgumentException("레이싱 자동차 이름이 없이, 콤마가 연속으로 입력되었습니다");
+                throw new IllegalArgumentException("레이싱 자동차 이름이 없습니다");
             }
         }
     }

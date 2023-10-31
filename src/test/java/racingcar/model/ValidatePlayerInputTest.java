@@ -23,18 +23,18 @@ class ValidatePlayerInputTest {
                 .hasMessage("자동차 이름 구분은 ','로 하셔야합니다");
     }
 
-    @DisplayName("레이싱 자동차 이름이 들어오지 않고, 콤마가 연속으로 들어온 경우에 대한 테스트")
+    @DisplayName("레이싱 자동차 이름이 들어오지 않은 경우에 대한 테스트")
     @Test
-    void containNoCarNameAndContinuousComma() {
+    void notContainCarName() {
         //when
         ValidatePlayerInput validatePlayerInput = new ValidatePlayerInput();
         //given
         String playerInput = "pobi,suhwp,,";
         validatePlayerInput.convertStringToArray(playerInput);
         //then
-        assertThatThrownBy(validatePlayerInput::validateNotContainCarNameAndContinuousComma)
+        assertThatThrownBy(validatePlayerInput::validateNotContainCarName)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("레이싱 자동차 이름이 없이, 콤마가 연속으로 입력되었습니다");
+                .hasMessage("레이싱 자동차 이름이 없습니다");
     }
 
     @DisplayName("레이싱 자동차 이름이 5 초과할 경우에 대한 테스트")
