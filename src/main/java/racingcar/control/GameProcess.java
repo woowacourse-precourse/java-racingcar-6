@@ -9,7 +9,7 @@ import racingcar.utill.ValidException;
 import java.util.*;
 
 public class GameProcess {
-    Map<RaceCar, String> raceCarStringMap;
+    Map<RaceCar, String> raceCarMap;
     private List<RaceCar> raceCarList;
     private String nameLineOfRaceCar;
     private List<String> nameSplitList;
@@ -26,7 +26,7 @@ public class GameProcess {
         winnerList = new ArrayList<>();
         gameHost = new GameHost();
         createRandomNum = new CreateRandomNum();
-        raceCarStringMap = new LinkedHashMap<>();
+        raceCarMap = new LinkedHashMap<>();
     }
 
     public void inputNameOfRaceCar() {
@@ -127,10 +127,10 @@ public class GameProcess {
      */
     public Map<RaceCar, String> makeMapOfCurrentRace() {
         for (RaceCar raceCar : raceCarList) {
-            raceCarStringMap.put(raceCar, raceCar.toStringMoveState());
+            raceCarMap.put(raceCar, raceCar.toStringMoveState());
         }
 
-        return raceCarStringMap;
+        return raceCarMap;
     }
 
     public Integer getCntTryRace() {
