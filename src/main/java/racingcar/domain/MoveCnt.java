@@ -17,7 +17,7 @@ public class MoveCnt {
         return moveCnt;
     }
 
-    public void validateMoveCnt(String str) {
+    private void validateMoveCnt(String str) {
         if (str.length() == 0 || str == null) { // null 또는 공백 입력할 경우 예외 발생
             throw new IllegalArgumentException(ErrorMessage.MOVE_CNT_BLANK);
         }
@@ -29,7 +29,7 @@ public class MoveCnt {
         }
     }
 
-    public boolean isNotNumber(String str) {
+    private boolean isNotNumber(String str) {
         try {
             int i = Integer.parseInt(str);
         } catch (NumberFormatException nfe) {
