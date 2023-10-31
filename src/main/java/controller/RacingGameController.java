@@ -1,9 +1,6 @@
 package controller;
 
-import java.util.List;
-
 import domain.CarNamesInput;
-import domain.RacingGame;
 import domain.TryCountInput;
 import view.InputView;
 import view.MessageView;
@@ -13,16 +10,19 @@ public class RacingGameController {
 	private final InputView inputView = new InputView();
 
 	public void startGame() {
-		RacingGame racingGame = new RacingGame(initCarNameData());
+		CarNamesInput carNamesInput = initCarNameData();
 		TryCountInput tryCountInput = setTryCount();
+
 	}
 
-	public List<String> initCarNameData() {
+	public void startRace(CarNamesInput carNamesInput, TryCountInput tryCountInput) {
+
+	}
+
+	public CarNamesInput initCarNameData() {
 		messageView.printCarNameMessage();
 		String inputCarNames = inputView.inputCarNames();
-
-		CarNamesInput carNamesInput = new CarNamesInput(inputCarNames);
-		return carNamesInput.getNames();
+		return new CarNamesInput(inputCarNames);
 	}
 
 	public TryCountInput setTryCount() {
