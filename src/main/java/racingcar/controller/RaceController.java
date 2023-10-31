@@ -22,6 +22,7 @@ public class RaceController {
             doRound(cars);
             round++;
         }
+        List<Car> winnerList = getWinners(cars);
     }
 
     public static List<Car> setCars() {
@@ -49,5 +50,19 @@ public class RaceController {
         if (number >= LIMIT) {
             car.moveForward();
         }
+    }
+
+    public static List<Car> getWinners(List<Car> cars) {
+        List<Car> winners = new ArrayList<>();
+        int winnerLocation = 0;
+        for (Car car : cars) {
+            winnerLocation = Math.max(winnerLocation, car.location);
+        }
+        for (Car car : cars) {
+            if (car.location == winnerLocation) {
+                winners.add(car);
+            }
+        }
+        return winners;
     }
 }
