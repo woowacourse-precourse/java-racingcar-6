@@ -50,4 +50,22 @@ public class ValidatorTest {
         assertThat(result1).isInstanceOf(IllegalArgumentException.class);
         assertThat(result2).doesNotThrowAnyException();
     }
+
+    @DisplayName("자동차 이름이 중복되었는지 검사")
+    @Test
+    void 자동차_이름_중복_테스트() {
+        // given
+        final String DUPLICATE_POBI = "pobi";
+        List<String> case1 = List.of("pobi", "woni", "jun", DUPLICATE_POBI);
+
+        // when
+        Throwable result1 = catchThrowable(() -> {
+            Validator.validateHasDuplicateCarNames(case1);
+        });
+
+        // then
+        assertThat(result1).isInstanceOf(IllegalArgumentException.class);
+    }
+
+
 }
