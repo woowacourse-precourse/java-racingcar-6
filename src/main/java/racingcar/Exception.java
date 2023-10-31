@@ -6,13 +6,15 @@ import java.util.regex.Pattern;
 public class Exception {
 
     private static final int CAR_MAX_LENGTH = 5;
-    public void ErrorCheck(String carName) {
+    private static final String NAME_LENGTH_ERROR = "5글자가 넘어 갑니다.";
+    private static final String INPUT_FORMAT_ERROR = "올바른 입력이 아닙니다.";
+    private static final String REGEX = "^[a-zA-Z가-힣,]*$";
 
     public void lengthCheck(String carName) {
         String[] carNameArray = carName.split(",");
         for (String name: carNameArray) {
             if (name.length() > CAR_MAX_LENGTH) {
-                throw new IllegalArgumentException("5글자 넘어감");
+                throw new IllegalArgumentException(NAME_LENGTH_ERROR);
             }
         }
     }
