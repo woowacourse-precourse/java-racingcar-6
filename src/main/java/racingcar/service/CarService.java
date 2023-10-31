@@ -15,13 +15,7 @@ public class CarService {
         carList = getCarList();
         round = getRound();
 
-        CarUtil.printResult();
-        while (round-- > 0) {
-            carList.forEach(res -> {
-                res.move(isPossibleMove());
-            });
-            CarUtil.printNewLine();
-        }
+        playRound();
 
         int max = carList.get(0).getMoveDistance();
         List<String> winnerList = new ArrayList<>(List.of(carList.get(0).getName()));
@@ -68,6 +62,16 @@ public class CarService {
             return Integer.parseInt(Console.readLine());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
+        }
+    }
+
+    private void playRound() {
+        CarUtil.printResult();
+        while (round-- > 0) {
+            carList.forEach(car -> {
+                car.move(isPossibleMove());
+            });
+            CarUtil.printNewLine();
         }
     }
 
