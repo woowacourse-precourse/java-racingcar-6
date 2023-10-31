@@ -10,6 +10,4 @@ public class CarConstant {
     public static final int MAX_MOVE_CONDITION_NUMBER = 9;
     public static final int MIN_MOVE_CONDITION_NUMBER = 0;
     public static final int STANDARD_MOVE_CONDITION_NUMBER = 4;
-
-    public static final int INITIAL_BEST_RECORD = 0;
 }

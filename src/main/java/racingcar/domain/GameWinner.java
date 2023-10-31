@@ -1,43 +1,29 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
-import racingcar.dto.CarNames;
+
+/*
+ * 우승자의 정보를 담당
+ * */
 
 public class GameWinner {
-    /*
-     * 우승자의 정보를 담당
-     * */
-    private static final int STRING_BEGIN_INDEX = 0;
-    private static final int NOT_USED_LENGTH = 2;
-    private List<Car> winners = new ArrayList<>();
+    private final int FROM_BEGIN = 0;
+    private final int NOT_USED_INDEX = 2;
+    private final List<Car> cars;
 
-    public GameWinner(List<Car> gameWinners) {
-        this.winners = gameWinners;
+    private GameWinner(List<Car> gameWinners) {
+        this.cars = gameWinners;
     }
 
-    private void addGameWinners(Car car, int bestRecord) {
-        if (car.isEqualRecord(bestRecord)) {
-            winners.add(car);
-        }
+    public static GameWinner from(List<Car> winningCars) {
+        return new GameWinner(winningCars);
     }
 
-    public String namesToString() {
-        //변수명 다시 생각해보기 message
-        StringBuilder message = new StringBuilder();
-        CarNames carNames = createCarNames();
-        for (String carName : carNames.getCarNames()) {
-            //append 함수 알아보기
-            message.append(carName).append(", ");
+    public String getNames() {
+        StringBuilder names = new StringBuilder("");
+        for (Car car : cars) {
+            names.append(car.getName()).append(", ");
         }
-        return message.substring(STRING_BEGIN_INDEX, message.length() - NOT_USED_LENGTH).toString();
-    }
-
-    private CarNames createCarNames() {
-        CarNames carNames = new CarNames();
-        for (Car gameWinner : winners) {
-            gameWinner.intoCarNames(carNames);
-        }
-        return carNames;
+        return names.substring(FROM_BEGIN, names.length() - NOT_USED_INDEX);
     }
 }
