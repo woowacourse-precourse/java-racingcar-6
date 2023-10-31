@@ -13,7 +13,7 @@
 
 - [X] 문자열 전체에 대한 검증
     - [X] [예외] 공백으로 이루어지거나 빈 문자열이 입력 되었을 경우 `IllegalArgumentException` 발생
-    - [ ] [예외] 쉼표가 문자열의 양 끝단에 하나라도 존재할 경우 `IllegalArgumentException` 발생
+    - [X] [예외] 쉼표가 문자열의 양 끝단에 하나라도 쉼표가 존재할 경우 `IllegalArgumentException` 발생
 
 - - -
 
