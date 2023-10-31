@@ -22,8 +22,8 @@ public class GameManager {
         this.cars.put(car, previousState + 1);
     }
 
-    public int getCarState(String car) {
-        return this.cars.get(car);
+    public Map<String, Integer> getCurrentCarStates() {
+        return Map.copyOf(this.cars);
     }
 
     public List<String> getWinners() {

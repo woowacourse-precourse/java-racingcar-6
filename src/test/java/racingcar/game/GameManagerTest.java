@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 class GameManagerTest {
     GameManager gameManager;
@@ -20,7 +21,7 @@ class GameManagerTest {
     }
 
     @Test
-    void testProceed() {
+    void testProceed_and_testGetCurrentCarStates() {
         int[] times = {
                 1, 3, 2
         };
@@ -28,9 +29,24 @@ class GameManagerTest {
         setting(times);
 
         int idx = 0;
+        Map<String, Integer> carStates = gameManager.getCurrentCarStates();
         for (String car : CAR_SAMPLES) {
-            Assertions.assertThat(gameManager.getCarState(car)).isEqualTo(times[idx++]);
+            Assertions.assertThat(carStates.get(car)).isEqualTo(times[idx++]);
         }
+    }
+
+    @Test
+    void testImmutabilityOfReturnedObjectOfGetCurrentCarStates() {
+        int[] times = {
+                1, 3, 2
+        };
+
+        setting(times);
+
+        Map<String, Integer> carStates = gameManager.getCurrentCarStates();
+        gameManager.proceed(CAR_SAMPLES[0]);
+        Assertions.assertThat(gameManager.getCurrentCarStates().get(CAR_SAMPLES[0]))
+                .isNotEqualTo(carStates.get(CAR_SAMPLES[0]));
     }
 
     private void setting(int[] times) {
