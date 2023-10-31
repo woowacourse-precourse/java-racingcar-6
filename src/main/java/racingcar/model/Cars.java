@@ -10,22 +10,22 @@ public class Cars {
     private static final String CAR_NAME_DUPLICATION_EXCEPTION_MESSAGE = "중복된 이름을 입력하면 안 됩니다.";
     private static final String WINNER_DELIMITER = ", ";
 
-    private final List<Car> carList;
+    private final List<Car> cars;
 
-    public Cars(List<Car> carList) {
-        validateDuplicateName(carList);
-        this.carList = carList;
+    public Cars(List<Car> cars) {
+        validateDuplicateName(cars);
+        this.cars = cars;
     }
 
-    public List<Car> moveCars(RandomNumberGenerator randomNumberGenerator) {
-        return carList.stream()
+    public List<Car> move(RandomNumberGenerator randomNumberGenerator) {
+        return cars.stream()
                 .map(car -> car.move(randomNumberGenerator.generate()))
                 .toList();
     }
 
-    public String findWinnerCars() {
+    public String findWinners() {
         int maxLocationLength = getMaxLocationLength();
-        return carList.stream()
+        return cars.stream()
                 .filter(car -> car.getLocationLength() == maxLocationLength)
                 .map(Car::getName)
                 .collect(Collectors.joining(WINNER_DELIMITER));
@@ -40,7 +40,7 @@ public class Cars {
     }
 
     private int getMaxLocationLength() {
-        return carList.stream()
+        return cars.stream()
                 .mapToInt(Car::getLocationLength)
                 .max()
                 .orElse(0);
