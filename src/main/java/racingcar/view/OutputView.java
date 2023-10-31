@@ -22,8 +22,10 @@ public class OutputView {
         System.out.println(GAME_PROCESS_MESSAGE);
     }
 
-    public void printGameProcessResult(CarResultResponse carResultResponse) {
-        System.out.println(carResultResponse.toString());
+    public void printGameProcessResult(List<CarResultResponse> carResultResponses) {
+        for (CarResultResponse carResultResponse : carResultResponses) {
+            System.out.println(carResultResponse.toString());
+        }
     }
 
     public void printGameWinners(List<String> winners) {
