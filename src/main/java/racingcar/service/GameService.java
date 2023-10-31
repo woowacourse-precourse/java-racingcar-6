@@ -6,12 +6,10 @@ import racingcar.validator.RoundCountValidator;
 public class GameService {
 
     public int initGameRound(String inputRound) {
-        int round = 0;
         RoundCountValidator roundCountValidator = new RoundCountValidator();
         roundCountValidator.validateInputGameRound(inputRound);
-        round = Integer.parseInt(inputRound);
 
-        return round;
+        return Integer.parseInt(inputRound);
     }
 
     public Game setGame(int carCount, int round) {
