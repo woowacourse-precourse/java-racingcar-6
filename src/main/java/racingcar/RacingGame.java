@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
 
+    static final int GO = 4;
+
     public RacingGame() {
     }
 
@@ -19,6 +21,7 @@ public class RacingGame {
 
     private void oneTimeRace(CarList racingCarList) {
         setRandomNumber_ZeroToNine(racingCarList);
+        goOrStop(racingCarList);
         return;
     }
 
@@ -29,6 +32,17 @@ public class RacingGame {
         for (int index = 0; index < racingCarList.getSize(); index++) {
             randomNumber = Randoms.pickNumberInRange(0, 9);
             racingCarList.setMotionState(index, randomNumber);
+        }
+        return;
+    }
+
+    private void goOrStop(CarList racingCarList) {
+        int motionState;
+        for (int index = 0; index < racingCarList.getSize(); index++) {
+            motionState = racingCarList.getMotionState(index);
+            if (motionState >= GO) {
+                racingCarList.plusOnePosition(index); // motionState is Go
+            }
         }
         return;
     }

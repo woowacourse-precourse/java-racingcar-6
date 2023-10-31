@@ -50,4 +50,14 @@ public class CarList {
         car.setMotionState(randNumber);
     }
 
+    public void plusOnePosition(int index) {
+        Car car = carList.get(index);
+        car.plusOnePosition();
+    }
+
+    public int getMotionState(int index) {
+        Car car = carList.get(index);
+        return car.getMotionState();
+    }
+
 }
