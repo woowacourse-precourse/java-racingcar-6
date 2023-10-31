@@ -36,7 +36,6 @@ public class Start {
 
         List<Car> cars = carCreator.createCars(carName.rangeCarList, 0);
         Move move = new Move(cars);
-        move.AllCars();
 
         attemptNumber.inputNumber();
         int num = attemptNumber.getNum();
