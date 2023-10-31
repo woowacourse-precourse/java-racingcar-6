@@ -16,15 +16,15 @@ public class Car {
         this.currentLocation = new ArrayList<>();
     }
 
+    public int currentLocation() {
+        return this.currentLocation.size();
+    }
+
     public void forwardCar() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         if (randomNumber >= 4) {
             currentLocation.add("-");
         }
-    }
-
-    public int forwardCount() {
-        return this.currentLocation.size();
     }
 
     public void validateNameLength(String name) {
@@ -34,6 +34,10 @@ public class Car {
         if (name.length() < NAME_MIN_LENGTH) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public String toString() {

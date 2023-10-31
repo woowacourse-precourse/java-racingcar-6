@@ -23,7 +23,7 @@ public class GameView {
         System.out.println(cars);
     }
 
-    public void printWinner(List<Car> cars) {
-        System.out.println("최종 우승자 : " + cars);
+    public void printWinner(String winnersName) {
+        System.out.println("최종 우승자 : " + winnersName);
     }
 }

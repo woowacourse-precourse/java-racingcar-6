@@ -14,9 +14,9 @@ public class GameModel {
         return this.carList;
     }
 
-    public Cars getWinner() { // 이것만 하면 끝난다.
-        List<Car> winnerCars = new ArrayList<>();
-        return new Cars(winnerCars);
+    public String getWinnerCars(){
+        List<Car> winnersCar = carList.getWinner();
+        return this.carList.getWinnersName(winnersCar);
     }
 
     public void validateNumberGames(int numberGames) {
@@ -34,6 +34,5 @@ public class GameModel {
         this.carList = new Cars(inputCars);
         this.numberGames = numberGames;
     }
-
 
 }
