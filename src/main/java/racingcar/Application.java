@@ -77,6 +77,10 @@ class OutputView {
     public void askName() {
         System.out.println(NAME_MESSAGE);
     }
+
+    public void askTry() {
+        System.out.println(TRY_MESSAGE);
+    }
 }
 
 class NameValidation {
