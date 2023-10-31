@@ -8,22 +8,25 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         inputCarName();
-        System.out.println("시도할 회수는 몇회인가요?");
         inputCount();
     }
 
     public static void inputCarName() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
 
         try {
             String[] name = input.split(",");
-            if (!checkLength(name)) throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
-            else if (!duplicateName(name)) throw new IllegalArgumentException("이미 이름이 존재합니다.");
-            else if (!isNumberic(name)) throw new IllegalArgumentException("문자만 입력하세요");
+            if (!checkLength(name)) {
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            } else if (!duplicateName(name)) {
+                throw new IllegalArgumentException("이미 이름이 존재합니다.");
+            } else if (!isNumberic(name)) {
+                throw new IllegalArgumentException("문자만 입력하세요");
+            }
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            System.exit(0);
         }
 
     }
@@ -65,19 +68,24 @@ public class Application {
             }
         } catch (IllegalArgumentException e) {
             System.out.println("문자만 입력하세요.");
+            System.exit(0);
         }
 
         return flag;
     }
 
     public static void inputCount(){
+        System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
 
         try {
-            if(!checkisDigit(input)) throw new IllegalArgumentException("숫자만 입력하세요");
-            else if(!checkNegative(input)) throw new IllegalArgumentException("양수만 입력하세요");
+            if(!checkisDigit(input)) {
+                throw new IllegalArgumentException("숫자만 입력하세요");
+            } else if(!checkNegative(input)) {
+                throw new IllegalArgumentException("양수만 입력하세요");
+            }
         }catch (IllegalArgumentException e){
-            System.out.println(e.getMessage());
+            System.exit(0);
         }
     }
 
