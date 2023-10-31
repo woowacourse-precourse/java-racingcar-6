@@ -33,5 +33,10 @@ public class Application {
 
             System.out.println();
         }
+
+        System.out.print("최종 우승자 : ");
+        Integer maxVal = Collections.max(cars.values());
+        carNames.removeIf(str -> !(Objects.equals(cars.get(str), maxVal)));
+        System.out.println(String.join(",", carNames));
     }
 }
