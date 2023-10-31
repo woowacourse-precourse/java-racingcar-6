@@ -3,6 +3,7 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.service.AttemptNumber;
 import racingcar.service.CarCreator;
 import racingcar.service.CarName;
 import racingcar.service.Move;
@@ -16,15 +17,17 @@ public class Start {
     private RandomNumber randomNumber;
     private CarCreator carCreator;
     private OutputView outputView;
+    private AttemptNumber attemptNumber;
 
 
     public Start(Move move, CarName carName, RandomNumber randomNumber, CarCreator carCreator,
-            OutputView outputView) {
+            OutputView outputView, AttemptNumber attemptNumber) {
         this.move = move;
         this.carName = carName;
         this.randomNumber = randomNumber;
         this.carCreator = carCreator;
         this.outputView = outputView;
+        this.attemptNumber = attemptNumber;
     }
 
 
@@ -36,14 +39,13 @@ public class Start {
         List<Car> cars = carCreator.createCars(carName.rangeCarList, 0);
         Move move = new Move(cars);
         move.AllCars();
-        System.out.println("시도할 횟수는 몇회인가요?");
 
-        String input = Console.readLine();
-        int num = Integer.parseInt(input);
+        attemptNumber.inputNumber();
+        int num = attemptNumber.getNum();
 
         System.out.println();
         System.out.println("실행 결과");
-        for(int i=0; i<num; i++){
+        for (int i = 0; i < num; i++) {
             move.AllCars();
             OutputView.printCars(cars);
         }
@@ -52,5 +54,6 @@ public class Start {
     }
 
 
-
 }
+
+

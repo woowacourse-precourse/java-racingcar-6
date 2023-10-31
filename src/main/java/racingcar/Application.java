@@ -4,6 +4,7 @@ package racingcar;
 import java.util.List;
 import racingcar.controller.Car;
 import racingcar.controller.Start;
+import racingcar.service.AttemptNumber;
 import racingcar.service.CarCreator;
 import racingcar.service.CarName;
 import racingcar.service.Move;
@@ -22,9 +23,10 @@ public class Application {
         CarCreator carCreator = new CarCreator();
         OutputView outputView = new OutputView();
         Move move = new Move(cars);
+        AttemptNumber attemptNumber = new AttemptNumber();
 
 
-        Start start = new Start(move, carName, randomNumber, carCreator, outputView);
+        Start start = new Start(move, carName, randomNumber, carCreator, outputView, attemptNumber);
         start.Game();
     }
 
