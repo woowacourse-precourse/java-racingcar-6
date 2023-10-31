@@ -15,6 +15,12 @@ public class RacingCarController {
         this.numberGenerator = numberGenerator;
     }
 
+    public void run() {
+        RacingMachine racingMachine = setting();
+        gameStart(racingMachine, numberGenerator);
+        selectWinners(racingMachine);
+    }
+
     private RacingMachine setting() {
         Cars cars = generateCar();
         int tryCount = InputView.readTryCount();
