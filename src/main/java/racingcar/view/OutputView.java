@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.ArrayList;
 
-import racingcar.Rule;
+import racingcar.Util.Rule;
 
 public class OutputView {
 
