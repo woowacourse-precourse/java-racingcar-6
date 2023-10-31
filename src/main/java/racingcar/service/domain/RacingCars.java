@@ -14,16 +14,16 @@ public class RacingCars {
     private static final String OUT_OF_CAPACITY = "자동차 개수 범위가 맞지 않습니다.";
     private final List<Car> cars;
 
-    public RacingCars(List<String> carNames, Engine engine) {
-        List<Car> cars = mapToCarList(carNames, engine);
+    public RacingCars(List<String> carNames, CarEngine carEngine) {
+        List<Car> cars = mapToCarList(carNames, carEngine);
         validateDuplicate(cars, carNames);
         validateTotalCount(cars);
         this.cars = cars;
     }
 
-    private List<Car> mapToCarList(List<String> carNames, Engine engine) {
+    private List<Car> mapToCarList(List<String> carNames, CarEngine carEngine) {
         return carNames.stream()
-                .map(carName -> new Car(carName, engine))
+                .map(carName -> new Car(carName, carEngine))
                 .distinct()
                 .collect(Collectors.toList());
     }

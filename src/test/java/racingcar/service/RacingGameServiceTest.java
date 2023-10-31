@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.dto.OneGameResultsDto;
-import racingcar.service.domain.Engine;
+import racingcar.service.domain.CarEngine;
 import racingcar.service.domain.RacingCars;
 
 class RacingGameServiceTest {
@@ -25,7 +25,7 @@ class RacingGameServiceTest {
     @DisplayName("[성공 테스트] 자동차 3대 중 2대만 전진하는 테스트")
     void playOneTimeCarRaceTest(String name1, String name2, String name3) {
         // given
-        RacingCars racingCars = new RacingCars(List.of(name1, name2, name3), new CustomEngine());
+        RacingCars racingCars = new RacingCars(List.of(name1, name2, name3), new CustomCarEngine());
         // when
         OneGameResultsDto resultDto = racingGameService.playOneTimeCarRace(racingCars);
         // then
@@ -37,7 +37,7 @@ class RacingGameServiceTest {
     void calculateFinalWinnersTest1() {
         // given
         List<String> carNameList = Arrays.asList(racingCarNames.split(","));
-        RacingCars racingCars = new RacingCars(carNameList, new CustomEngine2());
+        RacingCars racingCars = new RacingCars(carNameList, new CustomCarEngine2());
         // when
         racingGameService.playOneTimeCarRace(racingCars);
         List<String> winners = racingGameService.calculateFinalWinners(racingCars);
@@ -50,7 +50,7 @@ class RacingGameServiceTest {
     void calculateFinalWinnersTest2() {
         // given
         List<String> carNameList = Arrays.asList(racingCarNames.split(","));
-        RacingCars racingCars = new RacingCars(carNameList, new CustomEngine2());
+        RacingCars racingCars = new RacingCars(carNameList, new CustomCarEngine2());
         int totalRound = 3;
         // when
         for (int round = 0; round < totalRound; round++) {
@@ -74,7 +74,7 @@ class RacingGameServiceTest {
         Assertions.assertThat(winners).containsExactly("L!!O", "new", "j2AnS", "H", "yp", "b 0y");
     }
 
-    static class CustomEngine implements Engine {
+    static class CustomCarEngine implements CarEngine {
         List<Integer> enginePowers = Lists.newArrayList(4, 3, 8);
 
         @Override
@@ -83,7 +83,7 @@ class RacingGameServiceTest {
         }
     }
 
-    static class CustomEngine2 implements Engine {
+    static class CustomCarEngine2 implements CarEngine {
         List<Integer> enginePowers = Lists.newArrayList(1, 2, 3, 4, 5, 6);
         List<Integer> enginePowers2 = Lists.newArrayList(0, 0, 9, 6, 3, 4);
         List<Integer> enginePowers3 = Lists.newArrayList(4, 3, 7, 9, 1, 8);

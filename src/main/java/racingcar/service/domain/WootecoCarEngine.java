@@ -2,7 +2,7 @@ package racingcar.service.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class WootecoEngine implements Engine {
+public class WootecoCarEngine implements CarEngine {
     private int startInclusive = 0;
     private int endInclusive = 9;
 

@@ -1,5 +1,5 @@
 package racingcar.service.domain;
 
-public interface Engine {
+public interface CarEngine {
     int generateNumber();
 }

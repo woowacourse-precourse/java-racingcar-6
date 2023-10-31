@@ -4,7 +4,7 @@ import java.util.List;
 import racingcar.dto.OneGameResultsDto;
 import racingcar.service.RacingGameService;
 import racingcar.service.domain.RacingCars;
-import racingcar.service.domain.WootecoEngine;
+import racingcar.service.domain.WootecoCarEngine;
 import racingcar.utils.GameUtil;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -28,7 +28,7 @@ public class GameController {
 
     private RacingCars readyToCarRace() {
         List<String> carNames = GameUtil.splitByCommas(inputView.readCarNames());
-        return new RacingCars(carNames, new WootecoEngine());   // TODO: 컨트롤러에서 엔진을 설정하는게 마음에 안듦
+        return new RacingCars(carNames, new WootecoCarEngine());   // TODO: 컨트롤러에서 엔진을 설정하는게 마음에 안듦
     }
 
     private void processCarRace(RacingCars cars) {

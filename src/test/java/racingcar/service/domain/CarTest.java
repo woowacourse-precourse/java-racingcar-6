@@ -22,7 +22,7 @@ class CarTest {
         @DisplayName("[성공 테스트] 8번의 움직임 중 4번만 4이상의 수를 생성하여 자동차 4번 움직임")
         void moveTest(int totalMoveOrder, int expectedMoveCount) {
             // given
-            Car car = new Car("junGi", new CustomEngine());
+            Car car = new Car("junGi", new CustomCarEngine());
             // when
             for (int move = 0; move < totalMoveOrder; move++) {
                 car.moveCar();
@@ -55,7 +55,7 @@ class CarTest {
             Assertions.assertThat(car.getPosition()).isEqualTo(expectedMoveCount);
         }
 
-        static class CustomEngine implements Engine {
+        static class CustomCarEngine implements CarEngine {
 
             List<Integer> enginePowers = Lists.newArrayList(1, 4, 0, 9, 2, 3, 4, 8);
 
@@ -73,7 +73,7 @@ class CarTest {
         @ValueSource(strings = {"1,", "j,ung", "JA,Z", "JQA,!", "K,IG!"})
         @DisplayName("[실패 테스트] 자동차 이름에 콤마가 존재")
         void commaExistsTest(String name) {
-            Assertions.assertThatThrownBy(() -> new Car(name, new WootecoEngine()))
+            Assertions.assertThatThrownBy(() -> new Car(name, new WootecoCarEngine()))
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
@@ -81,7 +81,7 @@ class CarTest {
         @ValueSource(strings = {"", " ", "  ", "   ", "    ", "     "})
         @DisplayName("[실패 테스트] 자동차 이름에 공백만 존재")
         void blankTest(String name) {
-            Assertions.assertThatThrownBy(() -> new Car(name, new WootecoEngine()))
+            Assertions.assertThatThrownBy(() -> new Car(name, new WootecoCarEngine()))
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
@@ -89,7 +89,7 @@ class CarTest {
         @ValueSource(strings = {"jungiK", "     !", "K     ", "       Kim", "myNameIsJAZ"})
         @DisplayName("[실패 테스트] 유효하지 않은 자동차 길이")
         void outOfLengthTest(String name) {
-            Assertions.assertThatThrownBy(() -> new Car(name, new WootecoEngine()))
+            Assertions.assertThatThrownBy(() -> new Car(name, new WootecoCarEngine()))
                     .isInstanceOf(IllegalArgumentException.class);
         }
     }

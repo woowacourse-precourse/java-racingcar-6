@@ -13,7 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.OneGameResultsDto;
 import racingcar.service.domain.Car;
-import racingcar.service.domain.Engine;
+import racingcar.service.domain.CarEngine;
 import racingcar.service.domain.RacingCars;
 
 class OutputViewTest {
@@ -80,10 +80,10 @@ class OutputViewTest {
 
     private RacingCars getCustomEngineRacingCars() {
         List<String> carNameList = Arrays.asList(pobi, jungi, leo);
-        return new RacingCars(carNameList, new CustomEngine());
+        return new RacingCars(carNameList, new CustomCarEngine());
     }
 
-    static class CustomEngine implements Engine {
+    static class CustomCarEngine implements CarEngine {
         List<Integer> enginePowers1 = Lists.newArrayList(1, 4, 1);
         List<Integer> enginePowers2 = Lists.newArrayList(4, 6, 3);
         List<Integer> enginePowers3 = Lists.newArrayList(5, 1, 2);

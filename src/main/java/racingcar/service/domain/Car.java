@@ -8,12 +8,12 @@ import java.util.Objects;
 public class Car {
     private static final int CAN_MOVE_MIN_CONDITION = 4;
     public final CarName name;
-    private final Engine engine;
+    private final CarEngine carEngine;
     private int position;
 
-    public Car(String name, Engine engine) {
+    public Car(String name, CarEngine carEngine) {
         this.name = new CarName(name);
-        this.engine = engine;
+        this.carEngine = carEngine;
     }
 
     public void moveCar() {
@@ -28,7 +28,7 @@ public class Car {
     }
 
     private int startEngine() {
-        return engine.generateNumber();
+        return carEngine.generateNumber();
     }
 
     private boolean canMove(int power) {
