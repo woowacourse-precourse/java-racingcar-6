@@ -19,8 +19,8 @@ public class RacingCarController {
 
     public void startGame() {
         List<Car> cars = inputCarNames();
-        int attempNumber = inputAttempNumber();
-        printResult(attempNumber, cars);
+        int attemptNumber = inputAttemptNumber();
+        printResult(attemptNumber, cars);
         printWinners(cars);
     }
 
@@ -31,15 +31,15 @@ public class RacingCarController {
         return cars;
     }
 
-    private int inputAttempNumber() {
+    private int inputAttemptNumber() {
         outputView.printAttempNumMessage();
-        int attempNumber = inputView.inputAttempNum();
-        return attempNumber;
+        int attemptNumber = inputView.inputAttemptNumber();
+        return attemptNumber;
     }
 
-    private void printResult(int attempNumber, List<Car> cars) {
+    private void printResult(int attemptNumber, List<Car> cars) {
         outputView.printResultMessage();
-        for (int i = 0; i < attempNumber; i++) {
+        for (int i = 0; i < attemptNumber; i++) {
             racingCarService.raceCar(cars);
             outputView.printAttempResult(cars);
         }

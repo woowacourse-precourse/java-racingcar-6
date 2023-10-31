@@ -24,10 +24,10 @@ public class InputView {
         throw new IllegalArgumentException(INVALID_SPLIT_CHAR.getMessage());
     }
 
-    public static int inputAttempNum() {
+    public static int inputAttemptNumber() {
         try {
-            int attempNumber = Integer.parseInt(Console.readLine());
-            return attempNumber;
+            int attemptNumber = Integer.parseInt(Console.readLine());
+            return attemptNumber;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(NON_DIGIT_ATTEMP_NUM.getMessage());
         }
