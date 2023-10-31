@@ -1,5 +1,8 @@
 package racingcar;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -34,5 +37,28 @@ class RacingCarTest {
         }
 
         Assertions.assertThat(racingCar.getMoveDistance()).isEqualTo(initialDistance + 6);
+    }
+
+    @Test
+    public void 자동차_위치를_출력하는_기능() {
+        RacingCar racingCar = new RacingCar("dummy");
+        String moveString = "";
+
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        int initialDistance = racingCar.getMoveDistance();
+        for (int i = 0; i < initialDistance; i++) {
+            moveString += "-";
+        }
+
+        for (int i = 0; i < 6; i++) {
+            racingCar.moveForward();
+            moveString += "-";
+        }
+        racingCar.printLocation();
+
+        Assertions.assertThat(out.toString()).isEqualTo(racingCar.getName() + " : " + moveString + "\n");
+
     }
 }

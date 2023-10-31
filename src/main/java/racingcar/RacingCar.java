@@ -14,6 +14,14 @@ public class RacingCar {
         return false;
     }
 
+    public void printLocation() {
+        System.out.print(name + " : ");
+        for (int i = 0; i < moveDistance; i++) {
+            System.out.print('-');
+        }
+        System.out.println();
+    }
+
     public void moveForward() {
         moveDistance += 1;
     }
