@@ -15,4 +15,8 @@ public class MessageView {
 	public void printAwardMessage() {
 		System.out.print(AWARD_MESSAGE);
 	}
+
+	public void printEmptyLine() {
+		System.out.println();
+	}
 }

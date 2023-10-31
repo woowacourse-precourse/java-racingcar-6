@@ -76,7 +76,9 @@ public class RacingGameController {
 	public void moveForRound(RacingCar racingCar) {
 		for (Car car : racingCar.getCars()) {
 			car.moveByNumber(randomNumberGenerator.generateNumber());
+			outputView.printRacingCarStatus(car);
 		}
+		messageView.printEmptyLine();
 	}
 
 	public CarNamesInput initCarNameData() {

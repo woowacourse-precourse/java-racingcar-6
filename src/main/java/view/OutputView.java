@@ -10,4 +10,8 @@ public class OutputView {
 	public void printAwardTiedWinner(Car winner) {
 		System.out.print(", " + winner.getName());
 	}
+
+	public void printRacingCarStatus(Car car) {
+		System.out.println(car.getName() + " : " + car.createHyphenByLocation());
+	}
 }
