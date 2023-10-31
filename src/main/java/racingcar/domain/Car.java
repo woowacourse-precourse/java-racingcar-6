@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Car {
 
@@ -21,6 +22,10 @@ public class Car {
     }
 
     public Name getName() { return this.name; }
+
+    public boolean isSamePosition(Position position) {
+        return this.position.equals(position);
+    }
 
     @Override
     public boolean equals(Object o) {
