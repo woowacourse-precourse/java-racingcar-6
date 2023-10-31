@@ -7,7 +7,8 @@
   - 경주할 자동차 이름을 camp.nextstep.edu.missionutils.Console의 readLine()을 사용하여 입력
   - 2대 이상일 경우는 ,(쉼표)를 구분자로 사용하여 입력
   - 자동차의 이름은 5자 이하만 가능하며, 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션을 종료
-  - 
+  - 중복되는 이름을 입력할 경우도 IllegalArgumentException을 발생시킨 후 애플리케이션을 종료
+
 ## 시도할 횟수를 묻는 문구 출력
   - 몇 번 이동할 것인지 묻는 문구를 출력
 
