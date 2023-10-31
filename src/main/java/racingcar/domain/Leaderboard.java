@@ -12,6 +12,16 @@ public class Leaderboard {
         }
     }
 
+    public void round(){
+        for (String name : board.keySet()){
+            int currentPlace = board.get(name);
+
+            if (new Car().engine()){
+                board.put(name, currentPlace+1);
+            }
+        }
+    }
+
     public void status() {
         for (String name : board.keySet()) {
             System.out.printf(name + " : ");
