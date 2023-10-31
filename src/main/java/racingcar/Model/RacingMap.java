@@ -14,5 +14,8 @@ public class RacingMap {
         this.carList = carList;
     }
 
-    public void
+    public void trial(){
+        for(Car car: carList)
+            car.trial();
+    }
 }
