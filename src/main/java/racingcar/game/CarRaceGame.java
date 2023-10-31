@@ -17,6 +17,7 @@ public class CarRaceGame implements Game {
 
     @Override
     public void startGame() {
+        System.out.println();
 
     }
 
