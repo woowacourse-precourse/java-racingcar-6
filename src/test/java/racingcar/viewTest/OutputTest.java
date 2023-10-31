@@ -18,10 +18,12 @@ public class OutputTest {
     private static final String gameResultOutputMessage = "실행 결과";
     private static final String WinngerOutputMessage = "최종 우승자 : ";
     private static ByteArrayOutputStream output;
+    private OutputView outputView;
 
     @BeforeEach
     public void setUpStreams() {
         output = new ByteArrayOutputStream();
+        outputView = new OutputView();
         System.setOut(new PrintStream(output));
     }
 
@@ -33,7 +35,7 @@ public class OutputTest {
     @Test
     @DisplayName("게임결과 메세지 출력 테스트 ")
     void 게임결과_메세지_출력_테스트() {
-        OutputView.gameResultMessageOutput();
+        outputView.gameResultMessageOutput();
         assertThat(gameResultOutputMessage).isEqualTo(output.toString().trim());
     }
 
@@ -45,7 +47,7 @@ public class OutputTest {
         gameResult.put("woni", "---");
         gameResult.put("jun", "---");
 
-        OutputView.gameReslutOutput(gameResult);
+        outputView.gameReslutOutput(gameResult);
         String expectResult = "pobi : -" + System.lineSeparator() + "woni : ---" + System.lineSeparator() + "jun : ---";
 
         assertThat(expectResult).isEqualTo(output.toString().trim());
@@ -57,7 +59,7 @@ public class OutputTest {
     void 단독우승자_출력_테스트() {
         List<String> winners = new ArrayList<>(Arrays.asList("pobi"));
 
-        OutputView.WinnerOutput(winners);
+        outputView.WinnerOutput(winners);
 
         assertThat("최종 우승자 : pobi").isEqualTo(output.toString());
     }
@@ -67,7 +69,7 @@ public class OutputTest {
     void 공동우승자_출력_테스트() {
         List<String> winners = new ArrayList<>(Arrays.asList("pobi", "jun"));
 
-        OutputView.WinnerOutput(winners);
+        outputView.WinnerOutput(winners);
 
         assertThat(WinngerOutputMessage + "pobi, jun").isEqualTo(output.toString().trim());
     }
