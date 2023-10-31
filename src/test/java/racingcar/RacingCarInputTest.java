@@ -14,9 +14,11 @@ public class RacingCarInputTest {
         String input = "a,b,c";
         String input2 = "a, b, c";
         String input3 = ",a,b";
+        String input4 = ",,,,,,";
         List<String> result = Arrays.asList(input.split(","));
         List<String> result2 = Arrays.asList(input2.split(","));
         List<String> result3 = Arrays.asList(input3.split(","));
+        List<String> result4 = Arrays.asList(input4.split(","));
 
         assertThat(result).contains("b", "a", "c");
         assertThat(result).containsExactly("a", "b", "c");
@@ -26,6 +28,9 @@ public class RacingCarInputTest {
 
         assertThat(result3).contains("", "b", "a");
         assertThat(result3).containsExactly("", "a", "b");
+
+        assertThat(result4).contains();
+        assertThat(result4).containsExactly();
     }
 
     @Test
