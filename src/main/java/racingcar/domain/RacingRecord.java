@@ -44,11 +44,14 @@ public class RacingRecord {
         }
     }
 
-    public void printRacingRecord(List<String> cars, Map<String, Integer> records) {
+    public String printRacingRecord(List<String> cars, Map<String, Integer> records) {
+        String print = "";
         for(String car : cars) {
             String carForwardLine = createForwardLine(records.get(car));
-            System.out.println(car + " : " + carForwardLine);
+            print += car + " : " + carForwardLine + "\n";
         }
+
+        return print;
     }
 
     private String createForwardLine(int count) {

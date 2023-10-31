@@ -42,8 +42,8 @@ public class Application {
 
         while(repeat-- > 0) {
             records = racingRecord.record(cars, records);
-            racingRecord.printRacingRecord(cars, records);
-            System.out.println("");
+            String print = racingRecord.printRacingRecord(cars, records);
+            System.out.println(print);
         }
 
         racingResult(records);
