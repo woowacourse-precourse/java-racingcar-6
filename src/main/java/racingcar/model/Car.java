@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static racingcar.utility.Constants.MIN_ACCEPTABLE;
+
 public class Car {
     private String name;
     private Integer steps;
@@ -14,7 +16,7 @@ public class Car {
         return this.steps;
     }
     public void addStep(Integer randInt) {
-        if (randInt >= 4) {
+        if (randInt >= MIN_ACCEPTABLE) {
             this.steps++;
         }
     }
