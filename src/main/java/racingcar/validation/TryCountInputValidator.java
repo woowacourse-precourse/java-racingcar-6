@@ -17,7 +17,7 @@ public class TryCountInputValidator {
 
     private void checkInputDigit(String tryCount) {
         for (int i = 0; i < tryCount.length(); i++) {
-            if (Character.isDigit(tryCount.charAt(i))) {
+            if (!Character.isDigit(tryCount.charAt(i))) {
                 throw new IllegalArgumentException(NON_DIGIT_EXCEPTION_MESSAGE);
             }
         }
