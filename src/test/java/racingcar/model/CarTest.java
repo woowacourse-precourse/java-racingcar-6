@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CarTest {
 
     @Nested
-   class MoveCatTest {
+   class MoveCarTest {
         // given
         Name testName = new Name("car");
         Distance testDistance = new Distance(0);
