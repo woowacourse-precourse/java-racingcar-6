@@ -10,7 +10,7 @@ import racingcar.view.OutputViewImpl;
 public class RacingCarGameFactoryImpl implements RacingCarGameFactory {
     @Override
     public OutputView outputView() {
-        return new OutputViewImpl();
+        return OutputViewImpl.getInstance();
     }
 
     @Override
