@@ -20,7 +20,6 @@ public class Play {
     private static int num;
     public static void start() {
         inputNameMessage();
-       // List<String> names = inputCarName();
         cars = new ArrayList<>();
         for (String name : inputCarName()) {
             cars.add(new Car(name, 0));
@@ -47,15 +46,15 @@ public class Play {
         }
     }
 
-    public static List<Integer> findEachCarRandomNum(int carLength) {
-        List<Integer> randomNum = new ArrayList<>();
-        for (int index=0; index<carLength; index++) {
+    public static List<Integer> findEachCarRandomNum(int carListSize) {
+        List<Integer> goCarsIndex = new ArrayList<>();
+        for (int index=0; index<carListSize; index++) {
             int tmpRandNum = makeRandomNum();
             if(checkGoOrStop(tmpRandNum)) {
-                randomNum.add(index);
+                goCarsIndex.add(index);
             }
         }
-        return randomNum;
+        return goCarsIndex;
     }
 
     public static int makeRandomNum() {
