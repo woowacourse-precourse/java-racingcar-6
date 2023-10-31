@@ -46,7 +46,7 @@ class CarTest extends NsTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
-    public void 랜덤값이_전진하는_기준보다_작으면_전진한다(int randomNumber) {
+    public void 랜덤값이_전진하는_기준보다_작으면_멈춘다(int randomNumber) {
         assertRandomNumberInRangeTest(
                 () -> {
                     run();
