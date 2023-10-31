@@ -17,9 +17,9 @@ public class RacingCarTest {
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("자동차 이름이 중복이면 예외를 발생시킨다")
+    @DisplayName("validateCarNameDuplicate")
     @Test
-    public void validateCarNameDulicate(){
+    public void validateCarNameDuplicate(){
         assertThatThrownBy(()->{
             String [] carList = {"1234","1234"};
             new Cars(carList);
