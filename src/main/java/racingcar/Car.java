@@ -19,15 +19,15 @@ public class Car {
     }
   }
   
-  private int generateRandomNumber() {
-    return (int) (Math.random() * 10);
-  }
-  
   public int getPosition() {
     return position;
   }
   
   public String getName() {
     return name;
+  }
+  
+  public void printStatus() {
+    System.out.println(getName() + " : " + "-".repeat(getPosition()));
   }
 }
