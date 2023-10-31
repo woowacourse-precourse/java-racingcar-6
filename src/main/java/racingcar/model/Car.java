@@ -29,10 +29,12 @@ public class Car implements Vehicle {
         return numberGenerator.generate() >= FORWARD_THRESHOLD.getValue();
     }
 
+    @Override
     public String getName() {
         return name.getName();
     }
 
+    @Override
     public int getPosition() {
         return position.getCurrentSpace();
     }
