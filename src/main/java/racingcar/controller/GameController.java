@@ -16,17 +16,12 @@ public class GameController {
     }
 
     public void run() {
-        String input = getCarsInput();
-        parseInputToCars(input);
+        InputView.printStart();
+        parseInputToCars(InputView.getUserInput());
         InputView.printAsking();
         parseInputToAttempts(InputView.getUserInput());
         play(attempts);
         showResult();
-    }
-
-    private String getCarsInput() {
-        InputView.printStart();
-        return InputView.getUserInput();
     }
 
     private void parseInputToCars(String input) {
