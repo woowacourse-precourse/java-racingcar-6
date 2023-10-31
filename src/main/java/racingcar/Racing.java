@@ -17,7 +17,7 @@ public class Racing {
     public List<Integer> Start(int attemptNumber, List<String> racingCarName) {
         List<Integer> advancementResult = new ArrayList<>(Collections.nCopies(racingCarName.size(), 0));
         PrintResult printer = new PrintResult();
-        System.out.println("실행 결과");
+        System.out.println("\n실행 결과");
         for (int attempt = 0; attempt < attemptNumber; attempt++) {
             for (int i = 0; i < racingCarName.size(); i++) {
                 advancementResult.set(i, advancementResult.get(i) + GoOrStop());
