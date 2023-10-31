@@ -33,7 +33,7 @@ public class MainController {
     private void registerMoveCounts() {
         try {
             int moveCounts = inputView.getMoveCountsInput();
-            // 다음 로직 등록 예정
+            race.registerMoveCounts(moveCounts);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException("잘못된 값을 입력하였으므로 프로그램이 종료됩니다.");

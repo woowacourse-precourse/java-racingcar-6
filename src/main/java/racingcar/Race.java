@@ -20,4 +20,8 @@ public class Race {
             this.participatingCars.add(new Car(carName));
         }
     }
+
+    public void registerMoveCounts(int moveCounts) {
+        this.moveCounts = moveCounts;
+    }
 }
