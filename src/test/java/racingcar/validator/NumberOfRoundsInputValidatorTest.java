@@ -1,6 +1,7 @@
 package racingcar.validator;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,30 +10,26 @@ class NumberOfRoundsInputValidatorTest {
     private final BasicValidator<String> numberOfRoundsInputValidator = new NumberOfRoundsInputValidator();
 
     @Test
-    void validate() {
-        Throwable isInputEmptyException = assertThrows(
-                IllegalArgumentException.class,
-                () -> numberOfRoundsInputValidator.validate("")
-        );
-        assertEquals("입력값이 없습니다.", isInputEmptyException.getMessage());
+    void 게임_진행_횟수_검증() {
+        assertThatThrownBy(
+                () -> numberOfRoundsInputValidator.validate(""))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력값이 없습니다.");
 
-        Throwable isInputPositiveException = assertThrows(
-                IllegalArgumentException.class,
-                () -> numberOfRoundsInputValidator.validate("-1")
-        );
-        assertEquals("입력값이 0 이하의 숫자입니다.", isInputPositiveException.getMessage());
+        assertThatThrownBy(
+                () -> numberOfRoundsInputValidator.validate("0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력값이 0 이하의 숫자입니다.");
 
-        Throwable isInputIntegerException = assertThrows(
-                IllegalArgumentException.class,
-                () -> numberOfRoundsInputValidator.validate("1.1")
-        );
-        assertEquals("입력값이 정수가 아닙니다.", isInputIntegerException.getMessage());
+        assertThatThrownBy(
+                () -> numberOfRoundsInputValidator.validate("1.1"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력값이 정수가 아닙니다.");
 
-        Throwable isInputIntegerException2 = assertThrows(
-                IllegalArgumentException.class,
-                () -> numberOfRoundsInputValidator.validate("a")
-        );
-        assertEquals("입력값이 정수가 아닙니다.", isInputIntegerException2.getMessage());
+        assertThatThrownBy(
+                () -> numberOfRoundsInputValidator.validate("a"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력값이 정수가 아닙니다.");
 
         assertDoesNotThrow(
                 () -> numberOfRoundsInputValidator.validate("1")
