@@ -490,6 +490,36 @@ public class StringTest {
                 .filteredOn("age", not(12))
                 .containsOnly(pippin);
     }
+
+    @DisplayName("filter_을_활용한_미만_값을_필터하는_방법")
+    @Test
+    public void filter_을_활용한_미만_값을_필터하는_방법() throws Exception {
+        // given
+        Human frodo = new Human("Frodo", 12);
+        Human sam = new Human("Sam", 20);
+        Human pippin = new Human("Pippin", 30);
+
+        List<Human> humansList = List.of(frodo, sam, pippin);
+
+        // then
+        // 25 미만 isLessThan
+        assertThat(humansList).filteredOnAssertions(human ->
+                        assertThat(human.getAge()).isLessThan(25))
+                .containsOnly(frodo, sam);
+
+        // 20 이하 isLessThanOrEqualTo
+        assertThat(humansList).filteredOnAssertions(human ->
+                        assertThat(human.getAge()).isLessThanOrEqualTo(20))
+                .containsOnly(frodo, sam);
+
+        // 25 초과 isGreaterThan
+        assertThat(humansList).filteredOnAssertions(human ->
+                        assertThat(human.getAge()).isGreaterThan(25))
+                .containsOnly(pippin);
+
+    }
+
+
 }
 
 class Human {
@@ -503,9 +533,9 @@ class Human {
         isTrue = true;
     }
 
-    public Human(String name, int age) {
+    public Human(String name, int aage) {
         this.name = name;
-        age = age;
+        age = aage;
         isTrue = true;
     }
 
@@ -523,6 +553,6 @@ class Human {
 
     @Override
     public String toString() {
-        return name;
+        return name + " " + age;
     }
 }
