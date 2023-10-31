@@ -17,4 +17,8 @@ public class Car {
     public String getCarName() {
         return carName;
     }
+
+    public int getCarLocation() {
+        return carLocation;
+    }
 }

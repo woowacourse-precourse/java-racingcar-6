@@ -9,6 +9,7 @@ public class OutputView {
         for (int i = 0; i < stepDistance; i++) {
             System.out.print("-");
         }
+        System.out.println();
     }
 
     public void informFinalWinner(List<String> carName) {
