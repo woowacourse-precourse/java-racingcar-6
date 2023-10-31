@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.Set;
 
 public class Validate {
+    private static final int CAR_NAME_MAX = 5;
+    private static final int CAR_NAME_MIN = 0;
 
     public void validateOverorZero(List<String> nameList) {
         for (String name : nameList) {
-            if (name.length() > 5 || name.length() == 0) {
+            if (name.length() > CAR_NAME_MAX || name.length() == CAR_NAME_MIN) {
                 throw new IllegalArgumentException("잘못된 값이 입력되었습니다. 프로그램이 종료됩니다.");
             }
         }
@@ -30,7 +32,7 @@ public class Validate {
     }
 
 
-    public boolean validateNumber(String number) {
+    public boolean validateInteger(String number) {
         try {
             // 123a들어오면 123이 나옴
             parseInt(number);

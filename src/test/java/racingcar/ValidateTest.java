@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.Validate;
 
@@ -18,8 +17,7 @@ public class ValidateTest {
     }
 
     @Test
-    @DisplayName("이름 길이가 0이면 에러")
-    void 이름이_0이면_에러() {
+    void checkNone() {
         // given
         List<String> input = Arrays.asList("", "aaa");
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -28,8 +26,7 @@ public class ValidateTest {
     }
 
     @Test
-    @DisplayName("이름 길이가 5이상이면 에러")
-    void 이름길이가_5이상이면_에러() {
+    void checkOverFiveLen() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             validate.validateOverorZero(Arrays.asList("aaaaaaa", "bb"));
         });
@@ -37,15 +34,20 @@ public class ValidateTest {
 
 
     @Test
-    void 중복된_이름_확인() {
+    void checkDuplicate() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             validate.validateDuplicate(Arrays.asList("aa", "aa", "bb"));
         });
     }
 
     @Test
-    void 숫자아닌값_확인() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> validate.validateNumber("123a"));
+    void 숫자_알파벳() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> validate.validateInteger("123a"));
+    }
+
+    @Test
+    void 숫자_마침표() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> validate.validateInteger("12.1"));
     }
 
     // TODO 함수명 바꿔라

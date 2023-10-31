@@ -9,6 +9,8 @@ import racingcar.model.CarList;
 import racingcar.view.OutputView;
 
 public class Controller {
+
+    private static final int THRESHOLD = 4;
     Validate validate = new Validate();
     CarList carList;
 
@@ -16,15 +18,15 @@ public class Controller {
         this.carList = new CarList(nameList);
     }
 
-    public int getHowMany(String strNumber) {
+    public int getAttemptNumber(String strNumber) {
         int number = 0;
-        if (validate.validateNumber(strNumber)) {
+        if (validate.validateInteger(strNumber)) {
             number = parseInt(strNumber);
         }
         return number;
     }
 
-    public List<String> getNames(String inputLine) {
+    public List<String> getEnteredNames(String inputLine) {
         List<String> inputNames = seperateNames(inputLine);
         validate.validateOverorZero(inputNames);
         validate.validateDuplicate(inputNames);
@@ -39,7 +41,7 @@ public class Controller {
         return nameList;
     }
 
-    public List<Integer> makeRandomList(int size) {
+    public List<Integer> makeRandomNumberList(int size) {
         List<Integer> randomNums = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             randomNums.add(new Generator().generateRandomNumber());
@@ -53,7 +55,7 @@ public class Controller {
     public void play(int howMany) {
         OutputView outputView = new OutputView();
         while (howMany > 0) {
-            List<Integer> randomNums = makeRandomList(carList.getSize());
+            List<Integer> randomNums = makeRandomNumberList(carList.getSize());
             carList.upgradeDistance(replaceZeroAndOne(randomNums));
             outputView.printInterm(carList.toString());
             howMany--;
@@ -62,7 +64,7 @@ public class Controller {
 
     public List<Integer> replaceZeroAndOne(List<Integer> randomNumms) {
         return randomNumms.stream().map(s -> {
-            if (s >= 4) {
+            if (s >= THRESHOLD) {
                 return 1;
             }
             return 0;
@@ -70,7 +72,7 @@ public class Controller {
     }
 
 
-    public List<String> whoWinner() {
+    public List<String> whoisWinner() {
         return carList.getWinner();
     }
 

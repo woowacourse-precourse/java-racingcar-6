@@ -11,13 +11,12 @@ public class RacingCar {
         Controller controller = new Controller();
 
         outputView.printAskName();
-        List<String> nameList = controller.getNames(inputView.getLine());
+        List<String> nameList = controller.getEnteredNames(inputView.getLine());
         outputView.printAskNumber();
-        int howMany = controller.getHowMany(inputView.getLine());
+        int howMany = controller.getAttemptNumber(inputView.getLine());
         controller.makeCarList(nameList);
         outputView.printResult();
         controller.play(howMany);
-        List<String> winners = controller.whoWinner();
-        outputView.printWinner(winners);
+        outputView.printWinner(controller.whoisWinner());
     }
 }

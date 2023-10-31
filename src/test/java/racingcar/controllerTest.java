@@ -21,7 +21,7 @@ public class controllerTest {
     @Test
     void strNum_to_intNum() {
         String strNumber = "7";
-        int result = controller.getHowMany(strNumber);
+        int result = controller.getAttemptNumber(strNumber);
         assertThat(result).isEqualTo(7);
     }
 
@@ -33,8 +33,8 @@ public class controllerTest {
     }
 
     @Test
-    void isRandom() {
-        List<Integer> ramdomNums = controller.makeRandomList(4);
+    void checkRandom() {
+        List<Integer> ramdomNums = controller.makeRandomNumberList(4);
         for (int x : ramdomNums) {
             assertEquals((x >= 0 && x <= 9), true);
         }
