@@ -10,11 +10,15 @@ public class Car {
     private int position;
 
     public Car(String name) {
+        validateCarName(name);
+        this.name = name;
+        this.position = 0;
+    }
+
+    private void validateCarName(String name) {
         if (name.isEmpty() || name.length() > CarNameLength.MAX_LENGTH.getValue()) {
             throw new IllegalArgumentException(MessageFactory.getInvalidCarNameMessage(CarNameLength.MAX_LENGTH.getValue()));
         }
-        this.name = name;
-        this.position = 0;
     }
 
     public String getName() {

@@ -12,12 +12,16 @@ public class Game {
     private final MessageProcessor messageProcessor;
 
     public Game(List<Car> cars, int tryCount, MessageProcessor messageProcessor) {
-        if (tryCount <= 0) {
-            throw new IllegalArgumentException(MessageFactory.invalidTryCountMessage);
-        }
+        validateTryCount(tryCount);
         this.cars = cars;
         this.tryCount = tryCount;
         this.messageProcessor = messageProcessor;
+    }
+
+    private void validateTryCount(int tryCount) {
+        if (tryCount <= 0) {
+            throw new IllegalArgumentException(MessageFactory.invalidTryCountMessage);
+        }
     }
 
     public void play() {
