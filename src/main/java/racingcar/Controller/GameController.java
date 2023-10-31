@@ -55,6 +55,8 @@ public class GameController {
     public List<Car> askCarNames() {
         outputView.printStartIntro();
         String userInput = userInputer.inputCarString();
+        Validator.valideteIsEmpty(userInput);
+        Validator.validateIsBlank(userInput);
         List<String> carNameList = splitter.stringToList(userInput);
         validator.validateCarNameLength(carNameList);
         List<Car> carList = splitter.makeCar(carNameList);
