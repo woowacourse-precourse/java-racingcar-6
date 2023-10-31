@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.model.RacingCars;
 
-public final class OutputView {
+public class OutputView {
 
     private OutputView() {
     }

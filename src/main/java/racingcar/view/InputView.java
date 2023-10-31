@@ -5,7 +5,7 @@ import static racingcar.constant.Constant.READ_MOVE_COUNT_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public final class InputView {
+public class InputView {
 
     private InputView() {
     }

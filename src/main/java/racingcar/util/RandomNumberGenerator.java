@@ -5,7 +5,7 @@ import static racingcar.constant.Constant.RANDOM_MIN_RANGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public final class RandomNumberGenerator {
+public class RandomNumberGenerator {
 
     private RandomNumberGenerator() {
     }

@@ -8,7 +8,7 @@ import racingcar.model.RacingCars;
 import racingcar.validation.CarNameValidation;
 import racingcar.validation.CountValidation;
 
-public final class InputController {
+public class InputController {
 
     private InputController() {
     }
