@@ -13,7 +13,7 @@ public class InputValidator {
         return removeTrimString(input).isBlank();
     }
 
-    //코드 리펙토링
+
     public static void isValidLengthCarNames(String... carNames){
 
         for(String carName : carNames){
