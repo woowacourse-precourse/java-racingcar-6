@@ -12,36 +12,19 @@ import camp.nextstep.edu.missionutils.Console;
 public class GameController {
     private Race race;
     private CarView view;
+    private ReceiveController receive;
 
     public void startGame() {
-        ArrayList<String> carNames = receiveCarNames();
-        int moves = receiveMoveNum();
+        /* Receive car names and number of moves */
+        ArrayList<String> carNames = receive.carNames();
+        int moves = receive.moveNum();
 
+        /* Initialize race */
         race = new Race(carNames);
 
+        /* Start real race */
         startRace(moves);
         announceWinners();
-    }
-
-    private ArrayList<String> receiveCarNames() {
-        /* Get car names */
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-
-        /* Parse input (car names) into Arraylist */
-        StringTokenizer st1 = new StringTokenizer(input, ",");
-        ArrayList<String> carNames = new ArrayList<String>();
-        while(st1.hasMoreTokens()) carNames.add(st1.nextToken());
-
-        return carNames;
-    }
-
-    private int receiveMoveNum() {
-        /* Get number of moves */
-        System.out.println("시도할 회수는 몇회인가요?");
-        int moves = Integer.parseInt(Console.readLine());
-
-        return moves;
     }
 
     private void startRace(int moves) {
