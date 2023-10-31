@@ -6,7 +6,6 @@ public class RacingCarGame {
 
     private RacingCars racingCars;
     private long numOfMoves;
-    private int maxAdvance;
 
     public RacingCarGame(String[] carNames, long numOfMoves) {
         racingCars = new RacingCars(carNames);

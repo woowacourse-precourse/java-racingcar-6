@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class RacingCar {
 
     private static final int STANDARD = 4;
