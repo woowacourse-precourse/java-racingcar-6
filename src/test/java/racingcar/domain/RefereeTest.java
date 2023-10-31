@@ -11,8 +11,9 @@ public class RefereeTest {
     void 우승자_한명() {
         //given
         List<String> carNameList = List.of("pobi1", "pobi2", "pobi3");
-        Cars cars = CarFactory.produceCars(carNameList);
+        Cars cars = new Cars();
         CarController carController = new CarController();
+        cars.setStatus(CarFactory.produceCars(carNameList));
         carController.setStatus(cars, 1);
 
         assertRandomNumberInRangeTest(() -> {
@@ -29,8 +30,9 @@ public class RefereeTest {
     void 우승자_여러명() {
         //given
         List<String> carNameList = List.of("pobi1", "pobi2", "pobi3");
-        Cars cars = CarFactory.produceCars(carNameList);
+        Cars cars = new Cars();
         CarController carController = new CarController();
+        cars.setStatus(CarFactory.produceCars(carNameList));
         carController.setStatus(cars, 1);
 
         assertRandomNumberInRangeTest(() -> {

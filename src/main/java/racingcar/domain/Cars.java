@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Cars {
-    private final List<Car> carList;
+    private List<Car> carList;
 
-    public Cars(List<Car> carList) {
+    public void setStatus(List<Car> carList) {
         this.carList = carList;
     }
 
