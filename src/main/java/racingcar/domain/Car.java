@@ -37,7 +37,7 @@ public class Car {
         return this.name + " : " + LetterUtil.sameLetterPaste(OutputMessage.RACE.getValue(), this.position);
     }
 
-    public boolean isWinner(int winnerPosition) {
+    public boolean isSamePosition(int winnerPosition) {
         return this.position == winnerPosition;
     }
 

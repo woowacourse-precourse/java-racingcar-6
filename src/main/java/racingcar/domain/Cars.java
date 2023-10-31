@@ -43,7 +43,7 @@ public class Cars {
 
     public List<String> getWinner() {
         return this.cars.stream()
-                .filter(car -> car.isWinner(getMaxPosition()))
+                .filter(car -> car.isSamePosition(getMaxPosition()))
                 .map(Car::getName)
                 .toList();
     }
