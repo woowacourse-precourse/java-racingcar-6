@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import racingcar.domain.strategy.MovingStrategy;
+import racingcar.dto.CarDto;
 import racingcar.view.GameOutputView;
 
 public class RacingCarGame {
@@ -24,5 +25,9 @@ public class RacingCarGame {
             cars.move(movingStrategy);
             GameOutputView.printPlayResults(cars.dtos());
         } while (!playCount.finished());
+    }
+
+    public List<CarDto> winningCarDtos() {
+        return cars.maxPositionCarDtos();
     }
 }
