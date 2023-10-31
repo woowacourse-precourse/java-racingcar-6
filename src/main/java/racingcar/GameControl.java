@@ -7,6 +7,7 @@ public class GameControl {
     public void Controller(String[] carNames,int trying){
         MoveCar moveCar = new MoveCar();
         Car[] cars = moveCar.CreateCar(carNames);
+        Winner winner = new Winner();
         System.out.println("");
         System.out.println("실행결과");
         int i = 0;
@@ -15,6 +16,7 @@ public class GameControl {
             i+=1;
             System.out.println("");
         }
+        winner.PrintWinner(cars);
     }
 
 }

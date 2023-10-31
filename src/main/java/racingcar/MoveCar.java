@@ -27,6 +27,8 @@ public class MoveCar {
                 car.MoveCar();
             }
             System.out.println(car.ReturnCarName() + ":" +moveCar.CarMove(car.ReturnMove()));
+
+
         }
     }
 
