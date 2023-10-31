@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.domain.Count;
 import racingcar.domain.Racing;
 import racingcar.dto.RacingResultDto;
 import racingcar.dto.WinnerDto;
@@ -14,10 +15,10 @@ public class RacingController {
 
     public void run() {
         final Racing racing = initializeRacing();
-        final int countOfMoving = initializeCountOfMoving();
+        final Count countOfMoving = initializeCountOfMoving();
 
         printResultTitle();
-        repeat(countOfMoving, () -> progress(racing));
+        countOfMoving.repeat(() -> progress(racing));
         printWinner(racing);
     }
 
@@ -26,27 +27,13 @@ public class RacingController {
         return Racing.from(names);
     }
 
-    private int initializeCountOfMoving() {
+    private Count initializeCountOfMoving() {
         int countOfMoving = inputView.inputCountOfTry();
-        validateCountOfMoving(countOfMoving);
-
-        return countOfMoving;
-    }
-
-    private void validateCountOfMoving(int countOfMoving) {
-        if (countOfMoving <= 0) {
-            throw new IllegalArgumentException("시도 횟수는 1이상 이어야 합니다");
-        }
+        return Count.from(countOfMoving);
     }
 
     private void printResultTitle() {
         outputView.printRacingResultTitle();
-    }
-
-    private void repeat(int count, Runnable action) {
-        for (int currentCount = 0; currentCount < count; currentCount++) {
-            action.run();
-        }
     }
 
     private void progress(Racing racing) {
