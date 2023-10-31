@@ -150,11 +150,11 @@ public class ApplicationSelfTest {
     }
 
     @Test
-    void 랜덤_값이_5_이상_자동차_전진() {
+    void 랜덤_값이_4_이상_자동차_전진() {
 
         MockedStatic<RandomNumberGenerator> mockRandom = Mockito.mockStatic(RandomNumberGenerator.class);
 
-        mockRandom.when(RandomNumberGenerator::randomNumber).thenReturn(5);
+        mockRandom.when(RandomNumberGenerator::randomNumber).thenReturn(4);
 
         List<String> carNameList = new ArrayList<>();
         carNameList.add("권루피");
