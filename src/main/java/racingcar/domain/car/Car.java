@@ -1,6 +1,6 @@
 package racingcar.domain.car;
 
-import racingcar.domain.racing.MoveStrategy;
+import racingcar.domain.util.MoveStrategy;
 
 public class Car {
     private final String name;

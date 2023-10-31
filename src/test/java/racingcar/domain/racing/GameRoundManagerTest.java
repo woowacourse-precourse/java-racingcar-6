@@ -9,15 +9,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.car.Car;
+import racingcar.view.GameView;
 
 public class GameRoundManagerTest {
     private GameRoundManager gameRoundManager;
     private List<Car> cars;
 
     @BeforeEach
-    void setUp(){
-        cars = Arrays.asList(mock(Car.class),mock(Car.class), mock(Car.class));
-        gameRoundManager = new GameRoundManager(cars);
+    void setUp() {
+        cars = Arrays.asList(mock(Car.class), mock(Car.class), mock(Car.class));
+        gameRoundManager = new GameRoundManager(cars, mock(GameView.class));
     }
 
     @Test

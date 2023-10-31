@@ -2,7 +2,7 @@ package racingcar.domain.car;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static racingcar.domain.racing.RandomMoveStrategy.MIN_NUM;
+import static racingcar.domain.util.RandomMoveStrategy.MIN_NUM;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -17,7 +17,7 @@ public class CarTest {
         String name = "yookyungmi";
 
         // when & then
-        assertThatThrownBy(() -> new Car(name,()->true))
+        assertThatThrownBy(() -> new Car(name, () -> true))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름은 5자 이하여야 합니다.");
     }
@@ -29,7 +29,7 @@ public class CarTest {
         String name = "yooo";
 
         // when
-        Car car = new Car(name,()->true);
+        Car car = new Car(name, () -> true);
 
         // then
         assertThat(car.getPosition()).isZero();
@@ -40,7 +40,7 @@ public class CarTest {
     @DisplayName("0에서 9 사이의 무작위 값이 4 이상일 경우 자동차가 전진한다.")
     void move_RandomNumberGreaterThanOrEqualFour_CarMoves() {
         // Given
-        Car car = new Car("car",()-> 5 >= MIN_NUM);
+        Car car = new Car("car", () -> 5 >= MIN_NUM);
 
         // When
         car.move();
@@ -53,7 +53,7 @@ public class CarTest {
     @DisplayName("0에서 9 사이의 무작위 값이 4 미만일 경우 자동차가 전진하지 않는다.")
     void move_RandomNumberLessThanFour_CarDoesNotMove() {
         // Given
-        Car car = new Car("car",()-> 3 >= MIN_NUM);
+        Car car = new Car("car", () -> 3 >= MIN_NUM);
 
         // When
         car.move();

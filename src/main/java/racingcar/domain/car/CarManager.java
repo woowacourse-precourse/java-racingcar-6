@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import racingcar.domain.racing.MoveStrategy;
+import racingcar.domain.util.MoveStrategy;
 
 public class CarManager {
     private List<Car> cars;
