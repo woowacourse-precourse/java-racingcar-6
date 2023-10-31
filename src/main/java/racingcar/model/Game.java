@@ -41,4 +41,14 @@ public class Game {
             car.playRound();
         }
     }
+
+    /**
+     * 각 라운드의 자동차들 전진 결과를 출력하는 함수
+     */
+    public void printResultOfRound() {
+        for (Car car : this.cars) {
+            System.out.println(car.getNameAndStateOfCar());
+        }
+    }
+
 }
