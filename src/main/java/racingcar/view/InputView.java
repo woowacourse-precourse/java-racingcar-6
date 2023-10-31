@@ -9,18 +9,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.config.GameConfig.INPUT_NAMES_SEPARATOR;
 import static racingcar.exception.errorcode.UserInputErrorCode.INPUT_VALUE_BLANK;
 import static racingcar.exception.errorcode.UserInputErrorCode.INPUT_VALUE_NOT_NUMERIC;
 
 public final class InputView {
+    private static final String CAR_NAMES_INPUT_SEPARATOR = ",";
+
     private InputView() {
 
     }
 
     public static List<CarNameRequest> requestCarNames() {
         final String carNames = readLineAndValidateBlank();
-        return Arrays.stream(carNames.split(INPUT_NAMES_SEPARATOR)).map(CarNameRequest::new).collect(Collectors.toList());
+        return Arrays.stream(carNames.split(CAR_NAMES_INPUT_SEPARATOR)).map(CarNameRequest::new).collect(Collectors.toList());
     }
 
     public static TotalRoundNumberRequest requestTotalRoundNumber() {
