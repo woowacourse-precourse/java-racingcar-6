@@ -24,10 +24,10 @@ class CarDtoTest {
         // then
         assertEquals(2, carDtoList.size());
 
-        assertEquals("Car1", carDtoList.get(0).carName().name());
-        assertEquals(0, carDtoList.get(0).carPosition().position());
+        assertEquals("Car1", carDtoList.get(0).getCarName());
+        assertEquals(0, carDtoList.get(0).getPosition());
 
-        assertEquals("Car2", carDtoList.get(1).carName().name());
-        assertEquals(0, carDtoList.get(0).carPosition().position());
+        assertEquals("Car2", carDtoList.get(1).getCarName());
+        assertEquals(0, carDtoList.get(1).getPosition());
     }
 }
