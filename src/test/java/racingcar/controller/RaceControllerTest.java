@@ -29,4 +29,28 @@ class RaceControllerTest {
             race.ready(input);
         });
     }
+
+    @Test
+    void 자동차_이름이_없는_경우_콤마_앞() {
+        String input = ",justin,son";
+        assertThrows(IllegalArgumentException.class, () -> {
+            race.ready(input);
+        });
+    }
+
+    @Test
+    void 자동차_이름이_없는_경우_콤마_뒤() {
+        String input = "justin,son,";
+        assertThrows(IllegalArgumentException.class, () -> {
+            race.ready(input);
+        });
+    }
+
+    @Test
+    void 자동차_이름이_없는_경우_콤마_사이() {
+        String input = "justin,,son";
+        assertThrows(IllegalArgumentException.class, () -> {
+            race.ready(input);
+        });
+    }
 }
