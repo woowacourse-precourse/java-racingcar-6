@@ -10,7 +10,7 @@ import java.util.*;
 
 public class GameProcess {
     Map<RaceCar, String> raceCarStringMap;
-    private List<RaceCar> raceCarOfCurrentList;
+    private List<RaceCar> raceCarList;
     private String nameLineOfRaceCar;
     private List<String> nameSplitList;
     private Integer cntTryRace;
@@ -19,7 +19,7 @@ public class GameProcess {
     private CreateRandomNum createRandomNum;
 
     public GameProcess() {
-        raceCarOfCurrentList = new ArrayList<>();
+        raceCarList = new ArrayList<>();
         nameLineOfRaceCar = "";
         nameSplitList = new ArrayList<>();
         cntTryRace = 0;
@@ -51,7 +51,7 @@ public class GameProcess {
 
         for (String nameOfRaceCar : nameSplitList) {
             newRaceCar = generateNewRaceCar(nameOfRaceCar);
-            AddRaceCarOfCurrentList(newRaceCar);
+            AddRaceCar2CurrentList(newRaceCar);
         }
     }
 
@@ -65,8 +65,8 @@ public class GameProcess {
      *
      * @param newRaceCar
      */
-    private void AddRaceCarOfCurrentList(RaceCar newRaceCar) {
-        raceCarOfCurrentList.add(newRaceCar);
+    private void AddRaceCar2CurrentList(RaceCar newRaceCar) {
+        raceCarList.add(newRaceCar);
     }
 
     /**
@@ -98,7 +98,7 @@ public class GameProcess {
         int sizeOfWinnerList = 0;
 
         // 레이싱게임의 최종 승자를 알려준다.
-        raceCarOfWinnerList = gameHost.knowWinRaceCars(raceCarOfCurrentList);
+        raceCarOfWinnerList = gameHost.knowWinRaceCars(raceCarList);
         sizeOfWinnerList = raceCarOfWinnerList.size();
 
         if (Utill.valueGreaterThanEqualOne(sizeOfWinnerList)) {
@@ -154,7 +154,7 @@ public class GameProcess {
      * 현재 자동차들의 이동을 한다.
      */
     public void moveOfCurrentRaceCar() {
-        for (RaceCar raceCar : raceCarOfCurrentList) {
+        for (RaceCar raceCar : raceCarList) {
             raceCar.movementControlCar(createRandomNum.createRanOneNum());
         }
     }
@@ -166,7 +166,7 @@ public class GameProcess {
      * @return
      */
     public Map<RaceCar, String> makeMapOfCurrentRace() {
-        for (RaceCar raceCar : raceCarOfCurrentList) {
+        for (RaceCar raceCar : raceCarList) {
             raceCarStringMap.put(raceCar, raceCar.toStringMoveState());
         }
 
