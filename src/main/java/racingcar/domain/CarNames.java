@@ -5,16 +5,15 @@ import java.util.stream.Collectors;
 
 public class CarNames {
 
-    private List<CarName> carNames;
+    private final List<CarName> carNames;
 
     public CarNames(List<CarName> carNames) {
         this.carNames = carNames;
     }
 
     public List<Car> assignNamesToCars() {
-        List<Car> cars = carNames.stream()
+        return carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
-        return cars;
     }
 }
