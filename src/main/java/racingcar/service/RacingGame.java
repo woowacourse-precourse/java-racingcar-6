@@ -64,5 +64,17 @@ public class RacingGame {
             }
             System.out.println();
         }
+
+        // 최대 전진 횟수 찾기
+        int maxCount = Arrays.stream(countsByName).max().orElse(-1);
+
+        // 최대 전진 횟수와 일치하는 모든 운전자의 이름 찾기
+        List<String> winners = new ArrayList<>();
+        for (int i = 0; i < names.length; i++) {
+            if (countsByName[i] == maxCount) {
+                winners.add(names[i]);
+            }
+        }
+
     }
 }
