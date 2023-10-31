@@ -8,7 +8,8 @@
 package player;
 
 import display.ConsoleDisplay;
-import utility.Const;
+import static utility.Const.FINAL_WINNER_COMMENT;
+import static utility.Const.FINAL_WINNER_MIDDLE_COMMENT;
 
 import java.util.*;
 
@@ -33,7 +34,7 @@ public class JudgePlayer implements Player{
     }
 
     /**
-     * Description : racingPlayerDistanceMap 값 세팅하기
+     * Description : racingPlayerDistanceMap 값 세팅
      *
      * @Method : settingRacingPlayerDistanceMap()
      */
@@ -42,7 +43,7 @@ public class JudgePlayer implements Player{
     }
 
     /**
-     * Description : racingPlayerDistanceMap에서 우승자를 가려내 racingWinnerArr에 넣기
+     * Description : racingPlayerDistanceMap에서 우승자를 가려내 racingWinnerArr에 넣음
      *
      * @Method : judgingWinner()
      */
@@ -50,24 +51,21 @@ public class JudgePlayer implements Player{
         racingWinnerArr = new ArrayList<String>();
         Integer maxValue = Collections.max(racingPlayerDistanceMap.values());
 
-        Iterator<String> keys = racingPlayerDistanceMap.keySet().iterator();
-        while (keys.hasNext()) {
-            String key = keys.next();
-            if (racingPlayerDistanceMap.get(key) == maxValue){
+        for (String key : racingPlayerDistanceMap.keySet()) {
+            if (Objects.equals(racingPlayerDistanceMap.get(key), maxValue)) {
                 racingWinnerArr.add(key);
             }
         }
     }
 
     /**
-     * Description : racingWinnerArr에 들어 있는 우승자 출력함
+     * Description : racingWinnerArr에 들어 있는 우승자 출력
      *
      * @Method : sayingWinner()
      */
     public void sayingWinner() {
-        display.output(Const.FINAL_WINNER_COMMENT);
-        for ( String winner : racingWinnerArr ){
-            display.output(winner);
-        }
+        display.output(FINAL_WINNER_COMMENT);
+        String joinRacingWinnerArr = String.join(FINAL_WINNER_MIDDLE_COMMENT, racingWinnerArr);
+        display.output(joinRacingWinnerArr);
     }
 }
