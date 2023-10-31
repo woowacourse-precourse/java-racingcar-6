@@ -28,7 +28,7 @@ public class Application {
         // 최종우승자 출력
         // 단독우승일 경우, 공동우승일 경우 나눠서 출력
         Referee rf = new Referee();
-        System.out.println("최종우승자: "
+        System.out.println("최종 우승자 : "
                 + rf.findWinner(race.getDistance(), race.getCars()));
 
     }
