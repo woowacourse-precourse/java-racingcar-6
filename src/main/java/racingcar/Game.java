@@ -23,8 +23,6 @@ public class Game {
         Validator validator = new Validator();
 
         String[] cars = readLine.trim().split("\\s*,\\s*");
-        // System.out.println(Arrays.toString(cars));
-        // parsing 하면서 error 검사하면 될 듯
         validator.isNameValidated(cars);
         return cars;
     }
@@ -41,7 +39,6 @@ public class Game {
         String timeValue = readLine();
         validator.isTimesValidated(timeValue);
         this.times = Integer.parseInt(timeValue);
-        // System.out.println(time);
     }
 
     public void moveCar() {
