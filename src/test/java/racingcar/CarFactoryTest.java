@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -9,10 +10,16 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarFactoryTest {
 
+    private CarFactory carFactory;
+
+    @BeforeEach
+    void setUp() {
+        carFactory = new CarFactory();
+    }
+
     @Test
     void 이름을_받아서_리스트로_반환() {
         String names = "chan,geon";
-        CarFactory carFactory = new CarFactory();
 
         List<Car> cars = carFactory.createCarsFromInput(names);
 
@@ -24,7 +31,6 @@ class CarFactoryTest {
     @Test
     void 이름을_받아서_쉼표로_나누고_배열로_반환() {
         String names = "chan,geon";
-        CarFactory carFactory = new CarFactory();
 
         String[] nameArr = carFactory.splitNames(names);
 
@@ -36,7 +42,6 @@ class CarFactoryTest {
     @Test
     void 아룸울_받아서_콤마로_나눌떄_공백_제거() {
         String names = " chan , geon ";
-        CarFactory carFactory = new CarFactory();
 
         String[] nameArr = carFactory.splitNames(names);
 
@@ -48,7 +53,6 @@ class CarFactoryTest {
     @Test
     void 배열에_중복된_이름에_대한_예외_처리() {
         String[] nameArr = new String[]{"chan", "chan"};
-        CarFactory carFactory = new CarFactory();
 
         assertThatThrownBy(() -> carFactory.validateUniqueNames(nameArr))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -58,7 +62,6 @@ class CarFactoryTest {
     @Test
     void 배열을_자동차_리스트로_반환() {
         String[] nameArr = new String[]{"chan", "geon"};
-        CarFactory carFactory = new CarFactory();
 
         List<Car> cars = carFactory.createCars(nameArr);
 
@@ -70,7 +73,6 @@ class CarFactoryTest {
     @Test
     void 배열을_자동차_리스트로_반환할떄_배열의_이름의_길이가_5글자를_넘으면_예외_처리() {
         String[] nameArr = new String[]{"change"};
-        CarFactory carFactory = new CarFactory();
 
         assertThatThrownBy(() -> carFactory.createCars(nameArr))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -80,7 +82,6 @@ class CarFactoryTest {
     @Test
     void 이름의_길이가_5글자를_넘으면_예외_처리() {
         String name = "change";
-        CarFactory carFactory = new CarFactory();
 
         assertThatThrownBy(() -> carFactory.validateNameLength(name))
                 .isInstanceOf(IllegalArgumentException.class)

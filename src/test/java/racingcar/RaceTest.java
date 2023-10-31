@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -8,12 +9,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RaceTest {
 
+    private Car car;
+    private Race race;
+
+    @BeforeEach
+    void setUp() {
+        car = new Car("chan");
+        race = new Race();
+    }
+
     @Test
     void 자동차는_4이상의_숫자일때_이동() {
-        Car car = new Car("chan");
         int randomNumber = 4;
-
-        Race race = new Race();
         race.moveCarRandomly(car, randomNumber);
 
         assertThat(car.getPositionLength()).isEqualTo(1);
@@ -21,10 +28,7 @@ class RaceTest {
 
     @Test
     void 자동차는_4미만의_숫자일때_정지() {
-        Car car = new Car("chan");
         int randomNumber = 3;
-
-        Race race = new Race();
         race.moveCarRandomly(car, randomNumber);
 
         assertThat(car.getPositionLength()).isEqualTo(0);
@@ -36,7 +40,6 @@ class RaceTest {
         Car car2 = new Car("geon", "--");
         Car car3 = new Car("park", "");
         List<Car> carList = List.of(car1, car2, car3);
-        Race race = new Race();
 
         String winners = race.findWinners(carList);
 
@@ -49,7 +52,6 @@ class RaceTest {
         Car car2 = new Car("geon", "--");
         Car car3 = new Car("park", "--");
         List<Car> carList = List.of(car1, car2, car3);
-        Race race = new Race();
 
         String winners = race.findWinners(carList);
 
@@ -61,7 +63,6 @@ class RaceTest {
         Car car1 = new Car("chan", "-");
         Car car2 = new Car("geon", "--");
         List<Car> carList = List.of(car1, car2);
-        Race race = new Race();
 
         int maxPositionLength = race.calculateMaxPositionLength(carList);
 
@@ -73,7 +74,6 @@ class RaceTest {
         Car car1 = new Car("chan", "-");
         Car car2 = new Car("geon", "--");
         List<Car> carList = List.of(car1, car2);
-        Race race = new Race();
 
         List<String> winningCarNames = race.getWinningCarNames(carList, 2);
 

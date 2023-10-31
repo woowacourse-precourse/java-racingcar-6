@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -9,9 +10,15 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class InputFactoryTest {
 
+    private InputFactory inputFactory;
+
+    @BeforeEach
+    void setUp() {
+        inputFactory = new InputFactory();
+    }
+
     @Test
     void 이름을_입력받아서_자동차리스트로_반환() {
-        InputFactory inputFactory = new InputFactory();
         String names = "chan,geon";
 
         List<Car> cars = inputFactory.getCars(names);
@@ -23,7 +30,6 @@ class InputFactoryTest {
 
     @Test
     void 문자형_라운드를_입력받아_정수로_반환() {
-        InputFactory inputFactory = new InputFactory();
         String round = "1";
 
         int racingRound = inputFactory.getRacingRound(round);
@@ -33,7 +39,6 @@ class InputFactoryTest {
 
     @Test
     void 라운드에_문자를_입력하면_예외_처리() {
-        InputFactory inputFactory = new InputFactory();
         String round = "one";
 
         assertThatThrownBy(() -> inputFactory.getRacingRound(round))
@@ -43,7 +48,6 @@ class InputFactoryTest {
 
     @Test
     void 라운드를_정수로_반환() {
-        InputFactory inputFactory = new InputFactory();
         String round = "1";
 
         int roundNumber = inputFactory.parseRoundNumber(round);
@@ -53,7 +57,6 @@ class InputFactoryTest {
 
     @Test
     void 라운드_문자_입력시_예외_처리() {
-        InputFactory inputFactory = new InputFactory();
         String round = "a";
 
         assertThatThrownBy(() -> inputFactory.parseRoundNumber(round))
@@ -63,7 +66,6 @@ class InputFactoryTest {
 
     @Test
     void 양수_외_입력시_예외_처리() {
-        InputFactory inputFactory = new InputFactory();
         int round = 0;
 
         assertThatThrownBy(() -> inputFactory.validatePositiveNumber(round))
