@@ -8,4 +8,10 @@ public class Car {
         this.name = name;
         this.position = 0;
     }
+
+    public void calculatePosition(boolean moveState) {
+        if (moveState) {
+            this.position++;
+        }
+    }
 }

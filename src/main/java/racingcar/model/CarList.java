@@ -10,4 +10,14 @@ public class CarList {
     public void addCar(Car car) {
         carList.add(car);
     }
+
+    public int getNumberOfCars() {
+        return carList.size();
+    }
+
+    public void updateCarsPosition(List<Boolean> movementResult) {
+        for (int i = 0; i < carList.size(); i++) {
+            carList.get(i).calculatePosition(movementResult.get(i));
+        }
+    }
 }
