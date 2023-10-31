@@ -57,8 +57,8 @@ public class CarRaceGame implements Game {
         for (String name : names) {
             sb.append(name).append(", ");
         }
-        sb.substring(0, sb.length() - 2);
-        System.out.println(sb);
+        String result = sb.toString();
+        System.out.println(result.substring(0, result.length() - 2));
     }
 
 
