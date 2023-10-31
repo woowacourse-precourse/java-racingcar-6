@@ -19,7 +19,6 @@ public class Car {
 
     public void setPosition() {
         this.position = this.position + 1;
-        System.out.println("position = " + position);
     }
 
     public void setPosition(int num) {

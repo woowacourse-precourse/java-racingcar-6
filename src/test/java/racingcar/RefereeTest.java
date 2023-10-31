@@ -5,55 +5,44 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.Referee;
 
 public class RefereeTest {
 
     @Test
     public void 테스트_승자_결정() {
-        ArrayList<Car> cars = new ArrayList<>();
-        Car car1 = new Car("Car1");
-        Car car2 = new Car("Car2");
-        Car car3 = new Car("Car3");
-        cars.add(car1);
-        cars.add(car2);
-        cars.add(car3);
+        ArrayList<String> carNames = new ArrayList<>(List.of("Car1", "Car2", "Car3"));
+        Cars cars = new Cars(carNames);
 
-        car1.setPosition(1);
-        car2.setPosition(2);
-        car3.setPosition(3);
+        cars.getIndex(0).setPosition(1);
+        cars.getIndex(1).setPosition(2);
+        cars.getIndex(2).setPosition(3);
 
         Referee referee = new Referee(cars);
-        ArrayList<Car> winners = referee.determineWinner(cars);
+        Cars winners = referee.determineWinners(cars);
 
         assertEquals(1, winners.size());
-
-        assertTrue(winners.contains(car3));
-
+        assertEquals("Car3", winners.getIndex(0).getName());
     }
 
     @Test
     public void 테스트_승자_동시우승_결정() {
-        ArrayList<Car> cars = new ArrayList<>();
-        Car car1 = new Car("Car1");
-        Car car2 = new Car("Car2");
-        Car car3 = new Car("Car3");
-        cars.add(car1);
-        cars.add(car2);
-        cars.add(car3);
+        ArrayList<String> carNames = new ArrayList<>(List.of("Car1", "Car2", "Car3"));
+        Cars cars = new Cars(carNames);
 
-        car1.setPosition(1);
-        car2.setPosition(3);
-        car3.setPosition(3);
+        cars.getIndex(0).setPosition(1);
+        cars.getIndex(1).setPosition(3);
+        cars.getIndex(2).setPosition(3);
 
         Referee referee = new Referee(cars);
-        ArrayList<Car> winners = referee.determineWinner(cars);
+        Cars winners = referee.determineWinners(cars);
 
         assertEquals(2, winners.size());
-        assertTrue(winners.contains(car2));
-        assertTrue(winners.contains(car3));
+        assertTrue(winners.getIndex(0).getName().contains("Car2"));
+        assertTrue(winners.getIndex(1).getName().contains("Car3"));
     }
-
 }

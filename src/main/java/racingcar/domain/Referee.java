@@ -4,37 +4,43 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 
 public class Referee {
-    private ArrayList<Car> cars;
+    private Cars cars;
 
-    public Referee(ArrayList<Car> cars) {
-        this.cars = new ArrayList<>(cars);
+    public Referee(Cars cars) {
+        this.cars = cars;
     }
 
     // 각 자동차마다 값을 랜덤으로 뽑아 Car.position 값 변경
-    public ArrayList<Car> playRound(ArrayList<Car> cars) {
-        for (Car car : cars) {
-            int move = Randoms.pickNumberInRange(1,9);
-            System.out.println("move = " + move);
-            if (move >= 4) {
-                car.carMove(move);
-                System.out.println("carPosition = " + car.getPosition());
-            }
+    public Cars playRound(Cars cars) {
+        for(int i=0;i<cars.size();i++){
+            updateCarPosition(cars.getIndex(i));
         }
         return cars;
     }
+    private Car updateCarPosition(Car car) {
+        int move = Randoms.pickNumberInRange(1, 9);
+        if (move >= 4) {
+            car.carMove(move);
+        }
+        return car;
+    }
 
-    public ArrayList<Car> determineWinner(ArrayList<Car> cars) {
+    public Cars determineWinners(Cars cars) {
         int maxPosition = 0;
-        for (Car car : cars) {
-            maxPosition = Math.max(maxPosition, car.getPosition());
+
+        for (int i = 0; i < cars.size(); i++) {
+            maxPosition = Math.max(maxPosition, cars.getIndex(i).getPosition());
         }
 
-        ArrayList<Car> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car);
+
+        ArrayList<String> winnerNames = new ArrayList<>();
+
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.getIndex(i).getPosition() == maxPosition) {
+                winnerNames.add(cars.getIndex(i).getName());
             }
         }
+        Cars winners = new Cars(winnerNames);
         return winners;
     }
 }

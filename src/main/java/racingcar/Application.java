@@ -1,11 +1,11 @@
 package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static racingcar.InputValidator.validateCarName;
+import static racingcar.InputValidator.validateString;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.domain.RacingGame;
 
 public class Application {
@@ -13,29 +13,18 @@ public class Application {
 
         RacingGame racingGame = new RacingGame();
 
-        // TODO: 프로그램 구현
-        System.out.println("실행 잘 되나요??");
+        InputController inputController = new InputController();
+        String carNamesInput = inputController.carNamePrompt();
 
-        RacingController racingController = new RacingController();
-        String carNamesInput = racingController.carNamePrompt();
-
+        // 유저 인풋 값 받고 차 준비
         String[] carNames = carNamesInput.split(",");
+        ArrayList<String> carNamesList = new ArrayList<>(Arrays.asList(carNames));
+        Cars cars = new Cars(carNamesList);
+        int rounds = Integer.parseInt(inputController.roundPrompt());
 
-        ArrayList<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            validateCarName(carName);
-            cars.add(new Car(carName));
-        }
-        int rounds = Integer.parseInt(racingController.roundPrompt());
         // 게임 준비
-        racingGame.prepareGame(new ArrayList<>(cars));
+        racingGame.prepareGame(cars);
         // 게임 시작
         racingGame.startGame(rounds);
-
-        // 최종 우승자 확인
-        String winner = racingGame.printGameWinner();
-
-        System.out.println("winner = " + winner);
-
     }
 }

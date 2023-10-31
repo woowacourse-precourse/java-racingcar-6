@@ -1,27 +1,25 @@
 package racingcar;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static racingcar.InputValidator.validateCarName;
 import static racingcar.InputValidator.validateRounds;
 import static racingcar.InputValidator.validateString;
+import static racingcar.constants.PromptMsg.ENTER_CAR_NAME;
+import static racingcar.constants.PromptMsg.ENTER_ROUNDS;
 
-public class RacingController {
-    public RacingController() {}
+public class InputController {
+    public InputController() {}
 
     public String carNamePrompt(){
-        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,)로 구분)");
+        System.out.println(ENTER_CAR_NAME);
         String carNamesInput = readLine();
         validateString(carNamesInput);
-
-        System.out.println("carNamesInput = " + carNamesInput); // tmp
 
         return carNamesInput;
     }
     public String roundPrompt(){
-        System.out.println("시도할 회수는 몇 회인가요?");
+        System.out.println(ENTER_ROUNDS);
         String roundsInput = readLine();
         validateRounds(roundsInput);
-        System.out.println("roundsInput = " + roundsInput);
         return roundsInput;
     }
 }
