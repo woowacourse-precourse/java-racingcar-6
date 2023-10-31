@@ -1,5 +1,6 @@
 package racingcar.domain.car.dao;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static racingcar.domain.util.ErrorMessage.*;
 
 
 class CarRepositoryTest {
@@ -140,13 +142,20 @@ class CarRepositoryTest {
 
             carRepository.clear();
 
+            // junit.jupiter
             assertThrows(IllegalArgumentException.class,
                     carRepository::findAllCarsWithMaxPosition,
-                    ErrorMessage.CAR_NOT_EXIST.getErrorMessage());
+                    CAR_NOT_EXIST.getErrorMessage());
 
             assertThrows(IllegalArgumentException.class,
                     carRepository::findAll,
-                    ErrorMessage.CAR_NOT_EXIST.getErrorMessage());
+                    CAR_NOT_EXIST.getErrorMessage());
+
+            // org.assertj.core
+            assertThatThrownBy(carRepository::findAll)
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining(CAR_NOT_EXIST.getErrorMessage());
+
         }
     }
 }
