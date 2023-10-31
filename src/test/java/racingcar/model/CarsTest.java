@@ -16,5 +16,4 @@ class CarsTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(Error.DUPLICATE_CAR_NAME_ERROR.getMessage());
     }
-
 }

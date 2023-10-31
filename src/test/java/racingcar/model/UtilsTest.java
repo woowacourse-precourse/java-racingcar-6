@@ -10,6 +10,7 @@ import racingcar.constant.NumberConstant;
 import racingcar.util.Utils;
 
 class UtilsTest {
+
     @Test
     @DisplayName("시도할 횟수 검증 테스트")
     void 시도할_회수는_자연수만_가능합니다() {

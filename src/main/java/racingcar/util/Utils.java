@@ -6,6 +6,7 @@ import java.util.HashSet;
 import racingcar.constant.NumberConstant;
 
 public class Utils {
+
     public static boolean isNaturalNumber(String number) {
         if (isInteger(number)) {
             return isPositive(Integer.parseInt(number));

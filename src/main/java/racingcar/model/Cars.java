@@ -6,6 +6,7 @@ import racingcar.constant.Error;
 import racingcar.util.Utils;
 
 public class Cars {
+
     private List<Car> carList = new ArrayList<>();
 
     public Cars(String[] carNames) {

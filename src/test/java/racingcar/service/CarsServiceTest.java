@@ -16,8 +16,8 @@ import racingcar.constant.NumberConstant;
 import racingcar.model.Cars;
 
 class CarsServiceTest {
-    private final String[] carArray = {"벤츠", "아우디", "BMW", "페라리"};
 
+    private final String[] carArray = {"벤츠", "아우디", "BMW", "페라리"};
 
     private CarsService carsService;
     private Cars cars;
@@ -55,7 +55,6 @@ class CarsServiceTest {
             carsService.moveCarOrNot(0, NumberConstant.TARGET_NUMBER);
         }
         assertThat(carsService.getMaxPosition()).isEqualTo(positionAddCount);
-
     }
 
     @Test

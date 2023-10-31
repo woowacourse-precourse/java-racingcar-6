@@ -1,6 +1,7 @@
 package racingcar.constant;
 
 public enum Error {
+
     CAR_NAME_LENGTH_ERROR(
             "자동차의 이름은 이름은" + NumberConstant.MIN_CAR_NAME_LENGTH + "자 이상 " + NumberConstant.MAX_CAR_NAME_LENGTH
                     + "자 이하만 가능합니다."),

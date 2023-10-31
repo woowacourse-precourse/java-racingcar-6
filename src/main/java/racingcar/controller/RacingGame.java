@@ -5,6 +5,7 @@ import racingcar.service.CarsService;
 import racingcar.view.OutputView;
 
 public class RacingGame {
+
     private final CarsService carsService;
     private final int tryCount;
 
@@ -20,6 +21,4 @@ public class RacingGame {
         }
         OutputView.printVictoryCarNames(carsService.getCarNamesAtPosition(carsService.getMaxPosition()));
     }
-
-
 }

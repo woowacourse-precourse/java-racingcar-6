@@ -4,6 +4,7 @@ import racingcar.constant.Error;
 import racingcar.constant.NumberConstant;
 
 public class Car {
+
     private final int START_POSITION = 0;
     private final int STEP_SIZE = 1;
     private final String name;
