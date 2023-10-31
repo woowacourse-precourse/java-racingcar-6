@@ -38,10 +38,25 @@ class InputViewTest {
 
   @Test
   void 배열길이확인(){
-    System.setIn(new ByteArrayInputStream("car1, car2, car3, car4\n".getBytes()));
+    System.setIn(new ByteArrayInputStream("car1,car2,car3,car4\n".getBytes()));
     String[] carNames = inputView.getCarNames();
     assertNotNull(carNames);
     assertEquals(4, carNames.length);
     assertArrayEquals(new String[]{"car1", "car2", "car3", "car4"}, carNames);
+  }
+
+  @Test
+  void 이동횟수_0이하(){
+    System.setIn(new ByteArrayInputStream("0\n".getBytes()));
+    assertThatThrownBy(()-> inputView.getMoveCount())
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("시도할 회수는 1이상이어야 한다.");
+  }
+
+  @Test
+  void 이동횟수5(){
+    System.setIn(new ByteArrayInputStream("5\n".getBytes()));
+    int moveCount = inputView.getMoveCount();
+    assertEquals(5, moveCount);
   }
 }
