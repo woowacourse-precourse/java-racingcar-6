@@ -46,4 +46,16 @@ public class Racing {
         }
     }
 
+    public void printWinner() {
+
+        ArrayList<String> winner = new ArrayList<>();
+
+        for (Car car : cars) {
+            if (car.distance.length() == max) {
+                winner.add(car.name);
+            }
+        }
+
+        System.out.println(String.join(",", winner));
+    }
 }

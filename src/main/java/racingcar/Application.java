@@ -20,5 +20,6 @@ public class Application {
         racing.start();
 
         System.out.print("최종 우승자 : ");
+        racing.printWinner();
     }
 }
