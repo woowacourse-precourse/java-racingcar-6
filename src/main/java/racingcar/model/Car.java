@@ -27,6 +27,16 @@ public class Car {
         return MoveResultDto.make(name, location);
     }
 
+//    public static List<Car> create(CarNames carNames) {
+//        return carNames.stream()
+//                .map(CarNames::createCar)
+//                .toList();
+//    }
+
+    private static Car createCar(String carName) {
+        return Car.withName(carName);
+    }
+
     protected int generateRandomNumber() {
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }

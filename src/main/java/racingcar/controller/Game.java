@@ -3,7 +3,8 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.dto.MoveResultDto;
 import racingcar.model.Car;
-import racingcar.model.CarCreator;
+import racingcar.model.CarNames;
+import racingcar.model.Cars;
 import racingcar.model.RaceManager;
 import racingcar.view.View;
 import racingcar.view.constant.Prompt;
@@ -22,9 +23,8 @@ public class Game {
     private static List<Car> createCars() {
         View.printMessage(Prompt.CAR_NAME_INPUT);
         String carNamesString = View.getInput();
-        List<String> carNames = CarCreator.splitCarNamesString(carNamesString);
-        CarCreator.validateCarNames(carNames);
-        return CarCreator.createCars(carNames);
+        CarNames carNames = CarNames.create(carNamesString);
+        return Cars.withName(carNames);
     }
 
     private static int setNumberOfMove() {

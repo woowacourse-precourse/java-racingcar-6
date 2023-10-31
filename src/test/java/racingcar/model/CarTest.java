@@ -2,9 +2,12 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class CarTest {
@@ -43,5 +46,28 @@ public class CarTest {
 
         //then
         assertThat(car.getLocation()).isEqualTo(1);
+    }
+
+//    @ParameterizedTest
+//    @DisplayName("자동차 이름 List를 통해 자동차들을 생성")
+//    @MethodSource("carNameListProvider")
+//    public void 자동차들_생성(List<String> carNameList) {
+//        //when
+//        List<Car> actualCarList = CarNames.createCars(carNameList);
+//
+//        //then
+//        List<String> actualCarNameList = actualCarList.stream()
+//                .map(Car::getName).toList();
+//
+//        assertThat(actualCarNameList).isEqualTo(carNameList);
+//    }
+
+    static Stream<Arguments> carNameListProvider() {
+        return Stream.of(
+                Arguments.arguments(List.of("")),
+                Arguments.arguments(List.of("", "pobbi", "wonni")),
+                Arguments.arguments(List.of("pobbii", "wonni", "jun")),
+                Arguments.arguments(List.of("pobi", "wonni", "pobi"))
+        );
     }
 }
