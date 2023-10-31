@@ -27,6 +27,11 @@ public class RacingServiceImpl implements RacingService {
         return Racing.create(participations, tryCount);
     }
 
+    public Racing save(Racing racing) {
+        //carList.forEach(car -> carRepository.save(car));
+        return (Racing) racingRepository.save(racing);
+    }
+
 
     public RacingServiceImpl(CarService carService) { //TODO: 파라미터가 많아질경우 builder 등 고려하기
         this.carService = carService;
