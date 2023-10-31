@@ -15,4 +15,10 @@ public class Car {
     public int getMoveCount() {
         return moveCount;
     }
+
+    public void move(int number) {
+        if(number >= 4) {
+            moveCount++;
+        }
+    }
 }

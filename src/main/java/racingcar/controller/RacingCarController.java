@@ -3,6 +3,7 @@ package racingcar.controller;
 import racingcar.domain.Car;
 import racingcar.domain.RacingMachine;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class RacingCarController {
 
     public void run() {
         setting();
+        play();
     }
 
     private void setting() {
@@ -19,4 +21,13 @@ public class RacingCarController {
         int moveCount = InputView.readMoveCount();
         racingMachine = new RacingMachine(cars, moveCount);
     }
+
+    private void play() {
+        OutputView.writeResultMessage();
+        while(racingMachine.canPlay()) {
+            racingMachine.play();
+            OutputView.writePlayResult(racingMachine.getCars());
+        }
+    }
+
 }
