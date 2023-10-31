@@ -1,8 +1,10 @@
 package racingcar.utils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 import racingcar.constant.ExceptionMessage;
 
 public class CarNameSeperator {
@@ -10,16 +12,9 @@ public class CarNameSeperator {
     private static final String DILIMITER = ",";
     private static final String DOUBLE_DELIMITER = ",,";
 
-    public List<String> seperateCarNames(final String input) {
+    public List<String> separateCarNames(final String input) {
         validateNoName(input);
-        StringTokenizer stringtokenizer = new StringTokenizer(input, DILIMITER);
-        List<String> result = new ArrayList<>();
-
-        while (stringtokenizer.hasMoreTokens()) {
-            result.add(stringtokenizer.nextToken());
-        }
-
-        return result;
+        return Arrays.stream(input.split(DILIMITER)).toList();
     }
 
     private void validateNoName(final String input) {
