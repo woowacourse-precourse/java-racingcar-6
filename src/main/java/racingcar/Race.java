@@ -57,7 +57,6 @@ public class Race {
         return maxDistance;
     }
     
-    
     private void moveOrStop() {
         for (String scorePerCarKey : scorePerCar.keySet()) {
             if(Randoms.pickNumberInRange(0, 9) >= 4){
