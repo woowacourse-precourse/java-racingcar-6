@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.List;
 
 public class Game {
-    Cars cars;
+    private Cars cars;
 
     public Game(Cars cars) {
         this.cars = cars;
