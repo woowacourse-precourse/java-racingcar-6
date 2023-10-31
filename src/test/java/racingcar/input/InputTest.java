@@ -23,4 +23,18 @@ class InputTest {
             assertThat(result).isEqualTo(answer);
         }
     }
+
+    static class 라운드_턴_입력_시 extends NsTest {
+
+        @Test
+        void 라운드_턴_입력_시_정수_변환() {
+            run("5");
+        }
+
+        @Override
+        protected void runMain() {
+            int result = Input.inputTotalTurn();
+            assertThat(result).isEqualTo(5);
+        }
+    }
 }
