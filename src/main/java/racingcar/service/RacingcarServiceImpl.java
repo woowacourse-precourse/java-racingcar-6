@@ -9,29 +9,28 @@ import racingcar.repository.RacingcarRepository;
 
 public class RacingcarServiceImpl implements RacingcarService {
 
-    private final RacingcarRepository carRepository;
+    private final RacingcarRepository racingcarRepository;
     private final int MOVING_DISTANCE = 1;
 
-    public RacingcarServiceImpl(RacingcarRepository carRepository) {
-        this.carRepository = carRepository;
+    // DIP
+    public RacingcarServiceImpl(RacingcarRepository racingcarRepository) {
+        this.racingcarRepository = racingcarRepository;
     }
 
+    // 이름으로 자동차를 생성하는 함수
     public void joinRacingcar(String nameList) {
+
         for (String name : nameList.split(",")) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("[ERROR] 이름은 5자 이하만 가능합니다.");
-            }
+            RacingcarPossibleCheck racingcarPossibleCheck = new RacingcarPossibleCheck(racingcarRepository, name);
+            racingcarPossibleCheck.allCheck();
 
-            carRepository.possibleNameCheck(name);
-            if (name.startsWith(" ")) throw new IllegalArgumentException("[ERROR] 자동차 이름은 공백으로 시작해서는 안 됩니다.");
-            if (name.contains("\n")) throw new IllegalArgumentException("[ERROR] 자동차 이름 입력 시 줄바꿈 사용을 금지합니다.");
-
-            carRepository.save(name);
+            racingcarRepository.save(name);
         }
     }
 
+    // 랜덤값을 이용해 전진 여부를 판단하는 함수
     public ArrayList<Racingcar> changeMoving() {
-        ArrayList<Racingcar> racingcarList = carRepository.findAll();
+        ArrayList<Racingcar> racingcarList = racingcarRepository.findAll();
 
         for (Racingcar racingcar : racingcarList) {
             int randomNumber = Randoms.pickNumberInRange(0, 9);
@@ -44,8 +43,9 @@ public class RacingcarServiceImpl implements RacingcarService {
         return racingcarList;
     }
 
+    // 우승자 판별 함수
     public ArrayList<String> selectWinner() {
-        ArrayList<Racingcar> racingcarList = carRepository.findAll();
+        ArrayList<Racingcar> racingcarList = racingcarRepository.findAll();
         ArrayList<String> winners = new ArrayList<>();
 
         int max = 0;
@@ -65,8 +65,9 @@ public class RacingcarServiceImpl implements RacingcarService {
         return winners;
     }
 
+    // 초기화 함수
     public void initStore() {
-        carRepository.clear();
+        racingcarRepository.clear();
     }
 
 }

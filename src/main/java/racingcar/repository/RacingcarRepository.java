@@ -12,7 +12,5 @@ public interface RacingcarRepository {
 
     ArrayList<Racingcar> findAll();
 
-    void possibleNameCheck(String name);
-
     void clear();
 }

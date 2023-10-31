@@ -8,6 +8,7 @@ public class MemoryRacingcarRepository implements RacingcarRepository {
 
     private Map<String, Racingcar> carStore = new HashMap<>();
 
+    // 데이터 삽입
     @Override
     public Racingcar save(String name) {
         Racingcar racingCar = new Racingcar(name);
@@ -16,22 +17,19 @@ public class MemoryRacingcarRepository implements RacingcarRepository {
         return racingCar;
     }
 
+    // 데이터 검색
     @Override
     public Racingcar findByName(String name) {
         return carStore.get(name);
     }
 
+    // 데이터 전체 반환
     @Override
     public ArrayList<Racingcar> findAll() {
         return new ArrayList<>(carStore.values());
     }
 
-    public void possibleNameCheck(String name) {
-        if (findByName(name) != null) {
-            throw new IllegalArgumentException("[ERROR] 중복된 이름입니다.");
-        }
-    }
-
+    // 데이터 초기화
     public void clear() {
         carStore.clear();
     }

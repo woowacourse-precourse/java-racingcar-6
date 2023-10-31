@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 public class Racingcar {
-    private String name;
-    private int movingforward;
+    private String name; // 자동차 이름
+    private int movingforward; // 자동차 전진 거리
 
     public Racingcar(String name) {
         this.name = name;
