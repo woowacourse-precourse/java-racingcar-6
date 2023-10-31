@@ -10,13 +10,11 @@ public class RacingCarGame {
     }
 
     public String getCarsName() {
-        String carsName = Console.readLine();
-        return carsName;
+        return Console.readLine();
     }
 
     public String[] extractCarName(String carsName) {
-        String[] carName = carsName.split(",");
-        return carName;
+        return carsName.split(",");
     }
 
     public void generateCarList(String[] carName, CustomArrayList<Car> carList) {
