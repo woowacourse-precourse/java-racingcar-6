@@ -17,6 +17,9 @@ public class RacingGameConsole {
     private final MoveStrategy moveStrategy;
 
     public RacingGameConsole(MoveStrategy moveStrategy) {
+        if (moveStrategy == null) {
+            throw new IllegalArgumentException(Constants.INVALID_MOVE_STRATEGY_NULL);
+        }
         this.moveStrategy = moveStrategy;
     }
 
