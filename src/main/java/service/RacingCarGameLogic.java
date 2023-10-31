@@ -43,7 +43,7 @@ public class RacingCarGameLogic {
         }
     }
 
-    private void compareToFrontCount(int randomNumber,int index){
+    public void compareToFrontCount(int randomNumber,int index){
         carForwardCount=carInformation.getCarForwardCount();
         if(randomNumber>=STANDARD_NUMBER_OF_ATTEMPTS){
             carForwardCount.set(index,carForwardCount.get(index)+1);
@@ -70,7 +70,7 @@ public class RacingCarGameLogic {
         String winner = "";
         for(int i=0;i<carForwardCount.size();i++){
             if(isEqualMaxAndCarForwardCount(MaxCount,carForwardCount.get(i))){
-                winner=carNames.get(i)+", ";
+                winner+=carNames.get(i)+", ";
             }
         }
         winner=winner.substring(0,winner.length()-2);
