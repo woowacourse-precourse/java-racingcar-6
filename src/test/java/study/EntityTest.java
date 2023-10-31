@@ -1,13 +1,9 @@
 package study;
 
 import org.junit.jupiter.api.Test;
-import racingcar.entity.RaceCount;
-import racingcar.entity.RaceStatus;
-import racingcar.entity.Racer;
-import racingcar.entity.RoundScore;
+import racingcar.entity.*;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
+import static org.assertj.core.api.Assertions.*;
 
 public class EntityTest {
 
@@ -49,5 +45,18 @@ public class EntityTest {
 
         //then
         assertThat(roundResult).isOne();
+    }
+
+    @Test
+    void Racing_값_난수_생성_테스트(){
+        //given
+        Racer testRacer = Racer.getInstance("test");
+
+        //when
+        Racing racing = new Racing(testRacer);
+        RoundScore roundResult = racing.racingByRacer();
+
+        //then
+        assertThat(roundResult).isInstanceOf(RoundScore.class);
     }
 }
