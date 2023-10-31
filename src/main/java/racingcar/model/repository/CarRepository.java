@@ -11,4 +11,8 @@ public class CarRepository {
     public void save(CarName carName, Car car) {
         carHashMap.put(carName, car);
     }
+
+    public Car findByCarName(CarName carName) {
+        return carHashMap.get(carName);
+    }
 }
