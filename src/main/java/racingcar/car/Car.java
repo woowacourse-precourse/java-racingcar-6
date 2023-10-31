@@ -55,7 +55,8 @@ public class Car {
         return result >= 4;
     }
 
-    public void driving(List<String> names) {
+    public void driving() {
+        List<String> names = getNames();
         for (String name : names) {
             if (moveToGo()) {
                 changeValue(name);
