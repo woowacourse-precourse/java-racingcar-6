@@ -2,7 +2,6 @@ package racingcar.model;
 
 import java.util.Collections;
 import java.util.List;
-
 public class Cars {
 
     private final List<Car> cars;

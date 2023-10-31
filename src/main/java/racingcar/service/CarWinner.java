@@ -1,9 +1,7 @@
 package racingcar.service;
 
 import racingcar.utils.Numbers;
-
 import java.util.List;
-
 public class CarWinner {
 
     private CarResult result;

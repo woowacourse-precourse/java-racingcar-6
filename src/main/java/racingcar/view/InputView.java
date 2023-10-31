@@ -5,8 +5,6 @@ import racingcar.validation.PlayerValidation;
 import racingcar.validation.TryNumberValidation;
 
 public class InputView {
-
-    PlayerValidation inputValidation;
     public static String [] getPlayerInput() {
         String input = Console.readLine();
         String [] players = splitWithComma(input);

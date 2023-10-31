@@ -7,8 +7,6 @@ import racingcar.service.CarResult;
 import racingcar.service.CarWinner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
