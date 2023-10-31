@@ -36,4 +36,20 @@ public class Car {
     public boolean isSameMovedCount(int movedCount) {
         return this.movedCount == movedCount;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof Car car) {
+            return this.name.equals(car.name);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }
