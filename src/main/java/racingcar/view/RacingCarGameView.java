@@ -16,9 +16,7 @@ public class RacingCarGameView {
         String[] carNames = Console.readLine().split(",");
 
         for (String name : carNames) {
-            if (name.length() > 4) {
-                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
-            }
+            validName(name);
         }
 
         return carNames;
@@ -56,5 +54,11 @@ public class RacingCarGameView {
 
     public void showGameWinner(List<Player> winner) {
         System.out.println(GAME_WINNER + String.join(", ", winner.stream().map(Player::getName).toList()));
+    }
+
+    public void validName(String name) {
+        if (name.length() > 4) {
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        }
     }
 }
