@@ -44,7 +44,7 @@ public class Cars {
     }
 
     public void moveAll(NumberGenerator numberGenerator) {
-        cars.forEach(car -> car.move(numberGenerator.generate()));
+        cars.forEach(car -> car.moveOrNot(numberGenerator.generate()));
     }
 
     public List<String> findWinningCarNames() {

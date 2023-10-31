@@ -35,7 +35,7 @@ class CarTest {
         Car car = new Car(carName);
 
         // when
-        car.move(movableSymbol);
+        car.moveOrNot(movableSymbol);
 
         // then
         assertThat(car.getPosition()).isEqualTo(1);
@@ -51,7 +51,7 @@ class CarTest {
         Car car = new Car(carName);
 
         // when
-        car.move(movableSymbol);
+        car.moveOrNot(movableSymbol);
 
         // then
         assertThat(car.getPosition()).isEqualTo(0);
@@ -68,7 +68,7 @@ class CarTest {
 
         // when
         // then
-        assertThrows(IllegalArgumentException.class, () -> car.move(movableSymbol));
+        assertThrows(IllegalArgumentException.class, () -> car.moveOrNot(movableSymbol));
     }
 
     @DisplayName("Car isEqualPosition 테스트 - 같은 위치")
@@ -98,7 +98,7 @@ class CarTest {
         Car car1 = new Car(carName1);
         Car car2 = new Car(carName2);
 
-        car2.move(5);
+        car2.moveOrNot(5);
 
         // when
         // then
