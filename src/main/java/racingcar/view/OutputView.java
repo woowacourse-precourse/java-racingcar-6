@@ -1,10 +1,10 @@
 package racingcar.view;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.CarDto;
 import racingcar.domain.CarsDto;
+import racingcar.domain.WinnerDto;
 import racingcar.util.StringUtils;
 
 public class OutputView {
@@ -33,19 +33,19 @@ public class OutputView {
         this.isFirstTime = false;
     }
 
-    public void printWinner(final List<Car> winnerList) {
-        printMultipleWinners(winnerList);
+    public void printWinner(final WinnerDto winnerDto) {
+        printMultipleWinners(winnerDto);
 
-        String winner = winnerList.get(0).getName();
+        String winner = winnerDto.winners().get(0).getName();
         System.out.println(GAME_WINNER_MESSAGE + winner);
     }
 
-    private void printMultipleWinners(final List<Car> winnerList) {
-        if (winnerList.size() > 1) {
+    private void printMultipleWinners(final WinnerDto winnerDto) {
+        if (winnerDto.winners().size() > 1) {
             return;
         }
 
-        String winners = winnerList.stream()
+        String winners = winnerDto.winners().stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
 
