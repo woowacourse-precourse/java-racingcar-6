@@ -2,18 +2,22 @@ package racingcar.service;
 
 import racingcar.domain.Car;
 
+import java.util.HashMap;
+import java.util.Iterator;
+
 public class Racing {
 
     public Racing() {
     }
 
     public void play(Car carList, int attempt) {
-        for (int i = 0; i < attempt; i++) {
-
+        Iterator<String> carName = carList.getCarName().iterator();
+        while (carName.hasNext()){
+            raceOneCar(carName.next());
         }
     }
 
-    private int raceOneCar() {
-
+    private void raceOneCar(String carName) {
+        
     }
 }

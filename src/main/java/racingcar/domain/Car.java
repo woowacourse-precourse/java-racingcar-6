@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class Car {
 
@@ -10,8 +11,8 @@ public class Car {
         this.car = car;
     }
 
-    public Car(String carName) {
-        car.put(carName, 0);
+    public Set<String> getCarName() {
+        return car.keySet();
     }
 
     public void setMovingCount(String carName) {
