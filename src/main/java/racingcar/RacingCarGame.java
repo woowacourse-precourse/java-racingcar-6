@@ -19,16 +19,21 @@ public class RacingCarGame {
         return carName;
     }
 
-    public CustomArrayList<Car> generateCars(String[] carName) {
-        CustomArrayList<Car> carList = new CustomArrayList<>();
+    public void generateCarList(String[] carName, CustomArrayList<Car> carList) {
         int repeatNumber = carName.length;
         int nameOrder = 0;
+        addCarsToCarList(carName, carList, repeatNumber, nameOrder);
+    }
+
+    private void addCarsToCarList(String[] carName,
+                                  CustomArrayList<Car> carList,
+                                  int repeatNumber,
+                                  int nameOrder) {
         while (repeatNumber != 0) {
             carList.add(new Car(carName[nameOrder]));
             repeatNumber--;
             nameOrder++;
         }
-        return carList;
     }
 
     public int getNumberOfRace() {

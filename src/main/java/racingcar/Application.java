@@ -6,13 +6,14 @@ public class Application {
     public static void main(String[] args) {
         RacingCarGame racingCarGame = new RacingCarGame();
         OutputView outputView = new OutputView();
+        CustomArrayList<Car> carList = new CustomArrayList<>();
 
         outputView.startGame();
         String carsName = racingCarGame.getCarsName();
         String[] carName = racingCarGame.extractCarName(carsName);
 
         outputView.askNumberOfRace();
-        CustomArrayList<Car> carList = racingCarGame.generateCars(carName);
+        racingCarGame.generateCarList(carName, carList);
         int numberOfRace = racingCarGame.getNumberOfRace();
 
         outputView.showResultOfEachRace();
