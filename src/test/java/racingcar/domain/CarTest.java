@@ -14,6 +14,9 @@ public class CarTest {
     private static final String NAME = "pobi";
     private static final int POSITION = 0;
 
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
     @BeforeEach
     void setUp() {
         car = Car.of(NAME, POSITION);
@@ -26,22 +29,20 @@ public class CarTest {
 
     @Test
     void move() {
-        car.move(4);
-        assertThat(car).extracting("position").isEqualTo(1);
+        car.move(MOVING_FORWARD);
+        assertThat(car).isEqualTo(Car.of("pobi",1));
     }
 
     @Test
     void stop() {
-        car.move(3);
-        assertThat(car).extracting("position").isEqualTo(0);
+        car.move(STOP);
+        assertThat(car).isEqualTo(Car.of("pobi",0));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"다섯글자초과", ""})
     void createCarWithInvalidNames(String input) {
-        assertThatThrownBy(() -> {
-            Car.of(input, POSITION);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Car.of(input, POSITION)).isInstanceOf(IllegalArgumentException.class);
     }
 
 }
