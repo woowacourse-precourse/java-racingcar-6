@@ -1,15 +1,15 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class InputHandler {
     private InputHandler() {
-
     }
 
     public static List<String> parseInputToList(String input) {
-        List<String> parsedList = new ArrayList<>();
+        List<String> parsedList;
+        parsedList = splitInputByComma(input);
         return parsedList;
     }
 
@@ -18,8 +18,8 @@ public class InputHandler {
         return parsedInt;
     }
 
-    private static void splitInputByComma(String input) {
-        // 입력값을 쉼표로 분리하여 문자열 배열을 반환
+    private static List<String> splitInputByComma(String input) {
+        return Arrays.stream(input.split(",")).toList();
     }
 
     private static boolean validateCarNameLength(List<String> carNames) {
