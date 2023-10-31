@@ -59,6 +59,7 @@
 - validateUserInput(String userInput) : 자동차의 이름이 입력되지 않는 경우와, List<String> names = splitNames(userInput)로 입력된 이름을 쉼표로 구분
 - splitNames(userInput) : 쉼표로 분리하는 메서드
 - validateName(String name) : 입력된 자동차의 이름이 5자를 초과할 때 에러 처리하는 메서드
+- checkDuplicateName(List<String> names) : 입력된 자동차의 이름의 중복을 체크하고 에러를 처리하는 메서드
 - getAttemptCountFromUser() : 시도할 횟수 입력 메서드
   ```jsx
   String countInput = Console.readLine();
