@@ -5,7 +5,8 @@ public enum Message {
     ASK_TRY_COUNT("시도할 회수는 몇회인가요?"),
     RESULT("실행 결과"),
     MOVE_PROGRESS("%s : %s"),
-    FINAL_WINNER("최종 우승자 : %s");
+    FINAL_WINNER("최종 우승자 : %s"),
+    SEPARATOR_REGEX(",");
 
     private final String message;
 

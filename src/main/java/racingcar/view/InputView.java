@@ -1,14 +1,14 @@
 package racingcar.view;
 
+import static racingcar.constants.Message.SEPARATOR_REGEX;
+
 import camp.nextstep.edu.missionutils.Console;
-import java.util.Arrays;
 import java.util.List;
 import racingcar.constants.Message;
 import racingcar.util.Validator;
 
 public class InputView {
     private final Validator validator;
-    private final String SEPARATOR_REGEX = ",";
 
     public InputView(Validator validator) {
         this.validator = validator;
@@ -23,9 +23,9 @@ public class InputView {
     }
 
     public List<String> getCarNames() {
-        return Arrays.stream(getInput().split(SEPARATOR_REGEX))
-                .filter(validator::validateLengthOfName)
-                .toList();
+        String input = getInput();
+        validator.validateCarName(input);
+        return List.of(input.split(SEPARATOR_REGEX.toString()));
     }
 
     public int getTryCount() {
