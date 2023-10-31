@@ -7,6 +7,16 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarController {
+    private final RacingCarService racingCarService;
+    private final InputView inputView;
+    private final OutputView outputView;
+
+    public RacingCarController(RacingCarService racingCarService, InputView inputView, OutputView outputView) {
+        this.racingCarService = racingCarService;
+        this.inputView = inputView;
+        this.outputView = outputView;
+    }
+
     public void startGame() {
         List<Car> cars = inputCarNames();
         int attempNumber = inputAttempNumber();
@@ -15,28 +25,28 @@ public class RacingCarController {
     }
 
     private List<Car> inputCarNames() {
-        OutputView.printStartGameMessage();
-        List<String> carNames = InputView.inputCarNames();
-        List<Car> cars = RacingCarService.convertCarNames(carNames);
+        outputView.printStartGameMessage();
+        List<String> carNames = inputView.inputCarNames();
+        List<Car> cars = racingCarService.convertCarNames(carNames);
         return cars;
     }
 
     private int inputAttempNumber() {
-        OutputView.printAttempNumMessage();
-        int attempNumber = InputView.inputAttempNum();
+        outputView.printAttempNumMessage();
+        int attempNumber = inputView.inputAttempNum();
         return attempNumber;
     }
 
     private void printResult(int attempNumber, List<Car> cars) {
-        OutputView.printResultMessage();
+        outputView.printResultMessage();
         for (int i = 0; i < attempNumber; i++) {
-            RacingCarService.raceCar(cars);
-            OutputView.printAttempResult(cars);
+            racingCarService.raceCar(cars);
+            outputView.printAttempResult(cars);
         }
     }
 
     private void printWinners(List<Car> cars) {
-        List<Car> winners = RacingCarService.calculatWinner(cars);
-        OutputView.printWinners(winners);
+        List<Car> winners = racingCarService.calculatWinner(cars);
+        outputView.printWinners(winners);
     }
 }

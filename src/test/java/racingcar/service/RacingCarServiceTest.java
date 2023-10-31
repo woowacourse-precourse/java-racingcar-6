@@ -10,12 +10,14 @@ import racingcar.domain.Car;
 
 class RacingCarServiceTest {
 
+    RacingCarService racingCarService = new RacingCarService();
+
     @DisplayName("문자열 리스트 타입 변환 테스트")
     @Test
     void testFormatCarNames() {
         List<String> carNames = List.of("car A", "car B", "car C");
 
-        List<Car> cars = RacingCarService.convertCarNames(carNames);
+        List<Car> cars = racingCarService.convertCarNames(carNames);
 
         assertEquals(3, cars.size());
         assertEquals("car A", cars.get(0).getName());
@@ -31,7 +33,7 @@ class RacingCarServiceTest {
         Car car3 = createCar("car C", 5);
         List<Car> cars = List.of(car1, car2, car3);
 
-        List<Car> winners = RacingCarService.calculatWinner(cars);
+        List<Car> winners = racingCarService.calculatWinner(cars);
 
         assertEquals(List.of(car1, car3), winners);
     }
