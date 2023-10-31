@@ -17,7 +17,15 @@ public class Car {
         return new Car(name);
     }
 
-    public void moveForwardCar() {
-        distance++;
+    public static Car moveForwardCar(Car car) {
+        return new Car(car.name, car.distance + 1);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }

@@ -1,12 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 
@@ -34,21 +31,11 @@ public class RacingCarGameController {
 
         // 4. 자동차 전진
         for (int i = 0; i < moveCnt; i++) {
-            for (String car : racingCar.keySet()) {
-                int randomNumber = Randoms.pickNumberInRange(0, 9);
-                if (randomNumber >= 4) {
-                    racingCar.put(car, racingCar.get(car) + 1);
-                }
-            }
+            System.out.println("실행 결과");
+            carList = racingCarGameService.forwardOrStop(carList);
 
-
-            // 4-1. 자동차 이동 중 출력
-            for (String car : racingCar.keySet()) {
-                System.out.print(car + " : ");
-                for (int j = 0; j < racingCar.get(car); j++) {
-                    System.out.print("-");
-                }
-                System.out.println();
+            for (Car car : carList) {
+                System.out.printf("%s : %s\n", car.getName(), "-".repeat(car.getDistance()));
             }
             System.out.println();
         }
