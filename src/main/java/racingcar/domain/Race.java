@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.utils.RandomGenerator;
 import racingcar.view.ResultView;
 
@@ -25,6 +26,16 @@ public class Race {
     }
 
     public List<Car> findWinners() {
-        return null;
+        int maxPosition = findMaxPosition();
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
+    }
+
+    private int findMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 }
