@@ -2,10 +2,11 @@ package racingcar.domain;
 
 public class RaceCar {
     private static final Character CAR_MOVE_FORWARD_CHAR = '-';
+    private static final int START_CONDITION_NUM = 4;
+    private static final int END_CONDITION_NUM = 9;
     private String nameOfCar;
     private Integer cntMovementOfCar;
     private StringBuilder moveStateStr;
-
 
     public RaceCar() {
         this("");
@@ -17,20 +18,11 @@ public class RaceCar {
         moveStateStr = new StringBuilder();
     }
 
-    /**
-     * numOfRan 이 4이상 9이하면 자동차는 이동을 한다.
-     *
-     * @param numOfRan 0 ~ 9의 랜덤 한자릿 숫자
-     * @return
-     */
     public void movementControl(Integer numOfRan) {
         if (isMovement(numOfRan)) {
             moveForward();
         }
     }
-
-    private static final int START_CONDITION_NUM = 4;
-    private static final int END_CONDITION_NUM = 9;
 
     /**
      * 자동차의 움직여도 되는 조건 (4이상, 9이하)
