@@ -95,7 +95,18 @@ public class ScreenTest {
     }
 
     @Test
-    void 우승자_출력() {
+    void 단독_우승자_출력() {
+        List<String> winners = new ArrayList<>();
+        winners.add("yen");
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        Screen.displayWinners(winners);
+        assertThat(out.toString()).isEqualTo("최종 우승자 : yen\n");
+
+    }
+
+    @Test
+    void 공동_우승자_출력() {
         List<String> winners = new ArrayList<>();
         winners.add("yen");
         winners.add("pobi");
@@ -103,25 +114,5 @@ public class ScreenTest {
         System.setOut(new PrintStream(out));
         Screen.displayWinners(winners);
         assertThat(out.toString()).isEqualTo("최종 우승자 : yen, pobi\n");
-
-    }
-
-    @Test
-    void 단독_우승자_메시지_만들기() {
-        List<String> winner = new ArrayList<>();
-        winner.add("yen");
-        String result = Screen.makeWinnerListMessage(winner);
-
-        assertThat(result).isEqualTo("yen");
-    }
-
-    @Test
-    void 공동_우승자_메시지_만들기() {
-        List<String> winners = new ArrayList<>();
-        winners.add("yen");
-        winners.add("pobi");
-        String result = Screen.makeWinnerListMessage(winners);
-
-        assertThat(result).isEqualTo("yen, pobi");
     }
 }

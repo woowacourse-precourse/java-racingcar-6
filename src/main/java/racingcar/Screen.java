@@ -43,16 +43,16 @@ public class Screen {
         System.out.println(makeWinnerListMessage(winners));
     }
 
-    static public String makeWinnerListMessage(List<String> winners) {
-        String message = winners.get(0);
+    static private String makeWinnerListMessage(List<String> winners) {
+        StringBuilder message = new StringBuilder(winners.get(0));
 
         if (winners.size() == 1) {
-            return message;
+            return message.toString();
         }
         for (int idx = 1; idx < winners.size(); idx++) {
-            message += ", ";
-            message += winners.get(idx);
+            message.append(", ");
+            message.append(winners.get(idx));
         }
-        return message;
+        return message.toString();
     }
 }

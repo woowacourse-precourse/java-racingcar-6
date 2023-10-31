@@ -1,13 +1,11 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
-    private List<Car> cars;
-    private int time;
+    final private List<Car> cars;
+    final private int time;
 
     public Race() {
         String[] names = Screen.askCarNames();
@@ -22,6 +20,7 @@ public class Race {
         this.cars = cars;
         this.time = time;
     }
+
     public void run() {
         System.out.println("\n실행 결과");
         for (int idx = 0; idx < time; idx++) {
@@ -37,7 +36,7 @@ public class Race {
         }
     }
 
-    public List<String> getWinners() {
+    final public List<String> getWinners() {
         List<String> winners = new ArrayList<>();
         int maximumMove = 0;
 
