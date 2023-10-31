@@ -37,10 +37,9 @@ public class InputViewTest {
 
         String input = InputView.readCarName();
         String[] inputs = input.split(",");
-
         for (int i = 0; i < inputs.length; i++) {
-            Assertions.assertTrue(inputs[i].length() <= 5);
-            Assertions.assertTrue(inputs[i] != null);
+            assertThat(inputs[i].length()).isLessThanOrEqualTo(5);
+            assertThat(inputs[i]).isNotNull();
         }
     }
 
