@@ -18,10 +18,18 @@ public class Race {
         startRace();
     }
 
-    private void duringRace() {
-        for (Car car : carList) {
-            car.ableMoveForward();
+    private void startRace() {
+        outputView.printAfterAskNumber();
+        for (int i = 0; i < round; i++) {
+            showProgress();
         }
     }
 
+    private void showProgress() {
+        for (Car car : carList) {
+            car.moveForward();
+            car.showProgress(car);
+        }
+        System.out.println();
+    }
 }

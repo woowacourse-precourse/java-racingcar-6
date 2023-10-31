@@ -3,11 +3,11 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.view.OutputView;
 
 public class Car {
     private int position = 0;
     private String name = "";
-
 
 
     private Car(String name) {
@@ -22,12 +22,19 @@ public class Car {
         return player;
     }
 
-    public void ableMoveForward() {
-        if (4 <= rollDice())
+    public void moveForward() {
+        if (4 <= rollDice()) {
             position++;
+        }
     }
 
     private int rollDice() {
-        return Randoms.pickNumberInRange(0,9);
+        return Randoms.pickNumberInRange(0, 9);
     }
+
+    public void showProgress(Car car) {
+        OutputView outputView = new OutputView();
+        outputView.printProgress(car.name, car.position);
+    }
+
 }
