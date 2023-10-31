@@ -14,19 +14,23 @@ public class RacingGameController {
         endGame(racingGame);
     }
 
-    private void endGame(RacingGame racingGame) {
-        OutputView.printWinner(racingGame.getWinner());
+    private RacingGame initRacingGame() {
+        return new RacingGame(new RacingGameRequest(InputView.readCarNames(), InputView.readCount()));
     }
 
-    private static void playGame(RacingGame racingGame) {
+    private void playGame(RacingGame racingGame) {
         OutputView.printPlayResultMessage();
-        while (!racingGame.isEnd()) {
+        while (isNotEnd(racingGame)) {
             racingGame.doRace();
             OutputView.printStatus(new StatusResponse(racingGame.getStatus()));
         }
     }
 
-    private static RacingGame initRacingGame() {
-        return new RacingGame(new RacingGameRequest(InputView.readCarNames(), InputView.readCount()));
+    private static boolean isNotEnd(RacingGame racingGame) {
+        return !racingGame.isEnd();
+    }
+
+    private void endGame(RacingGame racingGame) {
+        OutputView.printWinner(racingGame.getWinner());
     }
 }
