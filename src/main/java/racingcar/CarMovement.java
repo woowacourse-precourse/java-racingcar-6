@@ -13,14 +13,4 @@ public class CarMovement {
             membersHM.put(members.get(i), str);
         }
     }
-
-    public static void putHM(HashMap<String, String> memberHM, List<String> members, int n, String inputStr) {
-        for (int i = 0; i < n; i++) {
-            int num = PickNum.pickNum();
-            if (CarMovement.isMove(num)) {
-                String str = memberHM.get(members.get(i)) + inputStr;
-                memberHM.put(members.get(i), str);
-            }
-        }
-    }
 }
