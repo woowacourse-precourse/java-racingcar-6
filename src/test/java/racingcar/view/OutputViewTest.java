@@ -8,7 +8,7 @@ import racingcar.domain.Car;
 import racingcar.testutils.MyTest;
 
 @SuppressWarnings("NonAsciiCharacters")
-public class OutputViewTest extends MyTest {
+class OutputViewTest extends MyTest {
 
     @Test
     void 실행_결과_메세지를_출력할_수_있다() {
