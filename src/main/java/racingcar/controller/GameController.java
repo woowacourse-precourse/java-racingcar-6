@@ -24,4 +24,9 @@ public class GameController {
             game.addCarList(name);
         }
     }
+
+    public void requestInputTry() {
+        gameView.printTryNumPhrase();
+        game.setUserTry(gameException.checkInput(Console.readLine()));
+    }
 }
