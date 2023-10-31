@@ -19,11 +19,10 @@ public class RacingController {
     }
 
     public void run() {
-        String names = getCarNames();
+        List<String> carNames = getCarNameList();
         int numberOfRace = getNumberOfRace();
-        List<String> nameList = Parser.carNameParser(names);
 
-        racingService.prepareRace(nameList, numberOfRace);
+        racingService.prepareRace(carNames, numberOfRace);
         runRace();
         raceResult();
     }
@@ -37,14 +36,22 @@ public class RacingController {
         }
     }
 
-    private String getCarNames() {
+    private List<String> getCarNameList() {
         outputView.requestCarNamesMessage();
-        return inputView.inputCarNamesToRace();
+        String carNames = inputView.inputCarNamesToRace();
+
+        List<String> nameList = Parser.carNameParser(carNames);
+
+        return nameList;
     }
 
     private int getNumberOfRace() {
         outputView.requestNumberOfTryMessage();
-        return Integer.parseInt(inputView.inputNumberOfRace());
+        String numberOfRace = inputView.inputNumberOfRace();
+
+        Validator.inputNumberValidator(numberOfRace);
+
+        return Integer.parseInt(numberOfRace);
     }
 
     private void raceResult() {
