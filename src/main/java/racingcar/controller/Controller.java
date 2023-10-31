@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
+import racingcar.dto.CarOutputRequestDto;
 import racingcar.service.CarService;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
+import racingcar.view.OutPutView;
 import utils.Parser;
 
 public class Controller {
@@ -23,14 +25,37 @@ public class Controller {
     }
 
     public void initRacingGame() {
-        RacingGame racingGame = racingGameService.createNewGame(getCarsIdList(), getGameCount(), racingGameId);
+        List<Long> carsIdList = getCarsIdList();
+        int gameCount = getGameCount();
+        RacingGame racingGame = racingGameService.createNewGame(carsIdList, gameCount, racingGameId);
+        racingGameService.join(racingGame);
         racingGameId += 1;
         play(racingGame);
     }
 
     private void play(RacingGame racingGame) {
+        List<Long> carsIdList = racingGame.getCarsIdList();
         while (!racingGameService.isGameFinish(racingGame.getId())) {
-            
+            moveCarsForwardOrNotByRandomNumber(carsIdList);
+            OutPutView.printScore(mapToCarRequestDto(carsIdList));
+            racingGameService.addGameCount(racingGame.getId());
+        }
+    }
+
+    private List<CarOutputRequestDto> mapToCarRequestDto(List<Long> carsIdList) {
+        List<CarOutputRequestDto> carDtoList = new ArrayList<>();
+        for (Long id : carsIdList) {
+            Car findCar = carService.findCarById(id);
+            carDtoList.add(new CarOutputRequestDto(findCar.getName(), findCar.getPosition()));
+        }
+        return carDtoList;
+    }
+
+    private void moveCarsForwardOrNotByRandomNumber(List<Long> carsIdList) {
+        for (Long id : carsIdList) {
+            if (racingGameService.isMoveableForwardByRandomNumber()) {
+                carService.moveCarToForward(id);
+            }
         }
     }
 
@@ -56,7 +81,7 @@ public class Controller {
     }
 
     private String getGameCountStringByUserInput() {
-        InputView.requestCarName();
+        InputView.requestNumberOfGameCount();
         return Console.readLine();
     }
 

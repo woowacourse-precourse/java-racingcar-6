@@ -10,4 +10,6 @@ public interface CarService {
     Car findCarById(Long id);
 
     List<Car> findAllCars();
+
+    void moveCarToForward(Long id);
 }

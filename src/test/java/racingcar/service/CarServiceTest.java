@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import racingcar.AppConfig;
 import racingcar.domain.Car;
-import racingcar.repository.MemoryCarRepository;
 
 public class CarServiceTest {
 
-    CarService carService = new CarServiceImpl(new MemoryCarRepository());
+    AppConfig appConfig = new AppConfig();
+    CarService carService = appConfig.carService();
 
     @Test
     void car_저장_테스트() {

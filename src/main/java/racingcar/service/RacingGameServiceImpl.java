@@ -26,9 +26,19 @@ public class RacingGameServiceImpl implements RacingGameService {
     }
 
     @Override
+    public void join(RacingGame racingGame) {
+        racingGameRepository.save(racingGame);
+    }
+
+    @Override
     public boolean isMoveableForwardByRandomNumber() {
         int randomNumber = RandomNumberGenerator.getRandomNumber(START_NUMBER_RANGE, END_NUMBER_RANGE);
         return isMoveable(randomNumber);
+    }
+
+    @Override
+    public RacingGame findGameById(Long id) {
+        return racingGameRepository.findById(id);
     }
 
     @Override
@@ -65,5 +75,9 @@ public class RacingGameServiceImpl implements RacingGameService {
         return randomNumber >= MOVE_FORWARD_CONDITION;
     }
 
+    @Override
+    public void addGameCount(Long id) {
+        racingGameRepository.findById(id).increaseGameCount();
+    }
 
 }
