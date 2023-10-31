@@ -19,7 +19,7 @@ public class RacingRoundResultTest {
     @Test
     void getCarsManipulateFailTest() {
         RacingRoundResult racingRoundResult = new RacingRoundResult(List.of(setCar("pobi", 3), setCar("woni", 3)));
-        List<CarInfo> carInfoList = racingRoundResult.getCarInfoList();
+        List<CarInfo> carInfoList = racingRoundResult.getCarInfos();
         assertThatCode(() -> carInfoList.add(new CarInfo("jun", 3)))
                 .isInstanceOf(UnsupportedOperationException.class);
         assertThatCode(() -> carInfoList.remove(0))
@@ -32,7 +32,7 @@ public class RacingRoundResultTest {
     @Test
     void getCarsManipulateSuccessTest() {
         RacingRoundResult racingRoundResult = new RacingRoundResult(List.of(setCar("pobi", 3), setCar("woni", 3)));
-        List<CarInfo> carInfoList = racingRoundResult.getCarInfoList();
+        List<CarInfo> carInfoList = racingRoundResult.getCarInfos();
         assertThatCode(() -> carInfoList.get(0))
                 .doesNotThrowAnyException();
     }
