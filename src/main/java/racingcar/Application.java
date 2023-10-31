@@ -2,7 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.security.Key;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -14,6 +13,12 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.");
         String cars = readLine();
         List<String> carList = List.of(cars.split(","));
+
+        for(String car : carList){
+            if(car.length()>5){
+                throw new IllegalArgumentException();
+            }
+        }
 
         Map<String, Integer> carMap = carList.stream()
                 .collect(Collectors.toMap(key -> key, value -> 0));
