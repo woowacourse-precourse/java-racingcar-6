@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.Judgment;
 
 public class Application {
     public static void main(String[] args) {
@@ -15,6 +16,17 @@ public class Application {
         List<Car> carList = new ArrayList<>();
         for (String name : array) {
             carList.add(new Car(name));
+        }
+
+        System.out.println("시도할 회수는 몇회인가요?");
+        int trialCount = Integer.parseInt(Console.readLine());
+        Judgment judgment = new Judgment();
+        for(int i = 0; i < trialCount; i++) {
+            // 경기 한 턴 진행
+            // carList에 대해 확인 진행
+            if (judgment.decideMovement()) {
+
+            }
         }
     }
 }
