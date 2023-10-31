@@ -9,10 +9,14 @@ public class Game {
     private List<Car> cars;
     private List<String> winners;
 
-    public Game(int numberOfAttempts) {
-        this.numberOfAttempts = numberOfAttempts;
+    public Game() {
+        this.numberOfAttempts = 0;
         this.cars = new ArrayList<>();
         this.winners = new ArrayList<>();
+    }
+
+    public void setNumberOfAttempts(int numberOfAttempts) {
+        this.numberOfAttempts = numberOfAttempts;
     }
 
     private void addCar(String nameOfCar) {
