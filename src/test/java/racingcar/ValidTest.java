@@ -9,6 +9,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.validator.CarNameValidator.*;
+import static racingcar.validator.CountValidator.*;
 
 public class ValidTest {
 
@@ -25,6 +26,12 @@ public class ValidTest {
         List<String> inputList = new ArrayList<>(Arrays.asList("pobi", "woni", "jun", "pobi"));
 
         assertThatThrownBy(() -> checkDuplicated(inputList))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 횟수가_숫자가_아닐_경우에_대한_예외_처리(){
+        assertThatThrownBy(() -> checkNumber("5e6d"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
