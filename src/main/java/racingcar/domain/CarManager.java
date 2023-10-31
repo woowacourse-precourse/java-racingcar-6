@@ -19,11 +19,11 @@ public class CarManager {
         return cars;
     }
 
-    public List<String> winnerData(List<Car> carNames) { //우승 데이터를 반환
+    public List<String> winnerData() { //우승 데이터를 반환
         List<String> winnerList = new ArrayList<>();
-        int topDistance = findTopScore(carNames);
+        int topDistance = findTopScore(cars);
 
-        for(Car carName : carNames){
+        for(Car carName : cars){
             if(topDistance == carName.getDistance()){
                 winnerList.add(carName.getCarName());
             }
@@ -33,13 +33,11 @@ public class CarManager {
     }
 
     private int findTopScore(List<Car> carNames){
-        List<Integer> score = new ArrayList<>();
 
-        for(Car carName : carNames){
-            score.add(carName.getDistance());
-        }
-
-        return Collections.max(score);
+        return carNames.stream()
+                .mapToInt(Car :: getDistance) //=(Car car) -> car.getDistance()
+                .max()
+                .orElse(0);
     }
 
     public void setCarRandomValue(){

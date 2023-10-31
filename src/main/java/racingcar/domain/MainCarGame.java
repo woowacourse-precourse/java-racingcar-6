@@ -23,6 +23,7 @@ public class MainCarGame {
             carManager.setCarRandomValue();
             //중간 점수 출력
         }
+        //System.out.println(carManager.winnerData());
 
 
     }
