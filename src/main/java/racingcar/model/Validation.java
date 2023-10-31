@@ -9,6 +9,7 @@ public class Validation {
     public static void name(List<Cars> cars) {
         nameLimitLength(cars);
         nameNoDuplicate(cars);
+        nameMustSize(cars);
     }
 
     private static void nameLimitLength(List<Cars> cars) {
@@ -31,6 +32,12 @@ public class Validation {
         }
     }
 
+    private static void nameMustSize(List<Cars> cars) {
+        if (cars.size() < 1) {
+            throw new IllegalArgumentException("한 대 이상의 자동차가 있어야 합니다.");
+        }
+    }
+
     public static void isPositiveInt(String count) {
         int result;
 
@@ -40,7 +47,7 @@ public class Validation {
             throw new IllegalArgumentException("회수는 정수만 입력 가능합니다.");
         }
 
-        if(result<=0){
+        if (result <= 0) {
             throw new IllegalArgumentException("회수는 양의 정수만 입력 가능합니다.");
         }
     }
