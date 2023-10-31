@@ -43,11 +43,11 @@ public class CarRaceGame {
         }
     }
     public static void printResult(Player[] players) {
-
+        generateRandomNumber(players);
+        for(int i = 0; i < players.length; i++){
+            System.out.println(players[i].getName() + " : " + players[i].getDistanceLine());
+        }
     }
-
-
-
     public static void printWinner() {
 
     }

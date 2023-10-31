@@ -4,6 +4,9 @@ import model.Player;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.CarRaceGame.*;
@@ -40,9 +43,9 @@ class CarRaceGameTest {
     void generateRandomNumberTest() {
         // given
         Player[] players = new Player[3];
-        for(int i = 0; i < players.length; i++) {
+        for(int i = 0; i < players.length; i++)
             players[i] = new Player();
-        }
+
         //when
         generateRandomNumber(players);
         //then
@@ -51,6 +54,23 @@ class CarRaceGameTest {
             assertTrue(randomNumber >= 0 && randomNumber <= 9);
         }
     }
+
+    @DisplayName("printResult 메서드 동작 테스트")
+    @Test
+    void printResultTest() {
+        //given
+        Player[] players = new Player[3];
+        for(int i = 0; i < players.length; i++)
+            players[i] = new Player("Player " + i);
+        //when
+        printResult(players);
+        //then
+
+    }
+
+
+
+
 
 
 }
