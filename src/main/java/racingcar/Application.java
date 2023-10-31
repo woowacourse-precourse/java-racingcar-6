@@ -8,9 +8,13 @@ import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
-        GameController gameController = new GameController(new InputView(),
-                new OutputView(),
-                new MovingStrategy(new RandomNumberUtilImp()));
+        InputView inputView = new InputView();
+        OutputView outputView = new OutputView();
+        MovingStrategy movingStrategy = new MovingStrategy(new RandomNumberUtilImp());
+        GameController gameController = new GameController(
+                                                        inputView,
+                                                        outputView,
+                                                        movingStrategy);
         gameController.play();
     }
 }
