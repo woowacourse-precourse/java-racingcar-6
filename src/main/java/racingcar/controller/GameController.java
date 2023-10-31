@@ -22,8 +22,7 @@ public class GameController {
     }
 
     public void play() {
-        String carNames = inputView.askCarNames();
-        List<String> carName = splitCarNames(carNames);
+        List<String> carName = inputCarNames();
         validator.validateCarNameLength(carName);
 
         List<Car> cars = new ArrayList<>();
@@ -61,6 +60,11 @@ public class GameController {
                 .collect(Collectors.toList());
 
         outputView.informFinalWinner(winnerCarNames);
+    }
+
+    private List<String> inputCarNames() {
+        String carNames = inputView.askCarNames();
+        return splitCarNames(carNames);
     }
 
     public List<String> splitCarNames(String carNames) {
