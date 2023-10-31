@@ -7,6 +7,7 @@ import java.util.List;
 public class InputView {
 
     private static final String SPLITTER = ",";
+    private static final String TRIAL_NUMBER_INPUT_MESSAGE = "시도할 회수는 몇회인가요?";
 
     public List<String> readNamesOfCars() {
         String inputValue = Console.readLine();
@@ -16,6 +17,7 @@ public class InputView {
     }
 
     public int readTrialNumber() {
+        System.out.println(TRIAL_NUMBER_INPUT_MESSAGE);
         String inputValue = Console.readLine();
 
         try {
