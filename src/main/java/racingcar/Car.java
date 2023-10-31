@@ -3,23 +3,18 @@ package racingcar;
 import java.util.Objects;
 
 public class Car {
-    private final String carName;
-    private int progress;
+    private final CarName carName;
+    private final Progress progress;
     private int trial;
     public Car(String carName) {
-        this.carName = carName;
+        this.carName = new CarName(carName);
+        this.progress = new Progress();
         this.trial = 0;
     }
 
     public void movable(int number) {
         trial++;
-        if (number >= 4) {
-            move(1);
-        }
-    }
-
-    private void move(int moving) {
-        progress += moving;
+        progress.movable(number);
     }
 
     public boolean isLesser(Car car) {
@@ -27,10 +22,20 @@ public class Car {
             return true;
         }
 
-        if (this.progress <= car.progress) {
+        if (this.getProgress() <= car.getProgress()) {
             return true;
         }
         return false;
+    }
+    public int getProgress() {
+        return progress.getProgress();
+    }
+
+
+
+    public String indicate() {
+        return carName.carName() + " : "
+                + "-".repeat(progress.getProgress());
     }
 
     @Override
@@ -42,19 +47,11 @@ public class Car {
             return false;
         }
         Car car = (Car) o;
-        return progress == car.progress && Objects.equals(carName, car.carName);
+        return Objects.equals(carName, car.carName) && Objects.equals(progress, car.progress);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(carName, progress);
     }
-
-
-    public String indicate() {
-        return carName + " : "
-                + "-".repeat(progress);
-    }
-
-
 }
