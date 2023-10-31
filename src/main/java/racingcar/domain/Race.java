@@ -8,7 +8,7 @@ public class Race {
     public static final int MIN_NUMBER = 0;
     public static final int MAX_NUMBER = 9;
 
-    static void advance(Car car) {
+    public static void advance(Car car) {
         int gauge = car.getGauge();
         car.setGauge(++gauge);
     }
