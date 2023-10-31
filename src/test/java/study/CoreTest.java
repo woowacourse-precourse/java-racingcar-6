@@ -2,9 +2,12 @@ package study;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.Test;
+import racingcar.core.GenerateHighScores;
 import racingcar.core.GenerateRacer;
 import racingcar.core.PickNumber;
 import racingcar.entity.Racer;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -38,5 +41,18 @@ public class CoreTest {
 
     private static GenerateRacer generateRacer(){
         return (name)-> Racer.getInstance(name);
+    }
+
+    @Test
+    void GenerateHighScores_문자열_생성_로직_테스트(){
+        //given
+        List<Racer> racerList = List.of(Racer.getInstance("test1"),  Racer.getInstance("test3"));
+        String targetResult = "test1, test3";
+
+        //when
+        GenerateHighScores generateHighScores = new GenerateHighScores(racerList);
+
+        //then
+        assertThat(generateHighScores.generateHighScoresByRacerList()).isEqualTo(targetResult);
     }
 }
