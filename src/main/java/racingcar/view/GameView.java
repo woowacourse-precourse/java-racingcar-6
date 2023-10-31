@@ -12,7 +12,7 @@ public class GameView {
         String playerCarNames = Console.readLine();
         List<String> carNames = Arrays.asList(playerCarNames.split(","))
                 .stream()
-                .map(it-> it.trim())
+                .map(it -> it.trim())
                 .toList();
 
         InputDataExceptionHandler.validateCarNames(carNames);
@@ -34,7 +34,7 @@ public class GameView {
     }
 
     public void nowRoundResultPrint(List<Player> playerList) {
-        for(Player player : playerList) {
+        for (Player player : playerList) {
             System.out.println(player);
         }
         System.out.println();

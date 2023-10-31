@@ -17,7 +17,7 @@ public class RacingCup {
     }
 
     public boolean nextRound() {
-        if(nowRound < TOTAL_ROUNDS) {
+        if (nowRound < TOTAL_ROUNDS) {
             this.nowRound++;
             return true;
         }

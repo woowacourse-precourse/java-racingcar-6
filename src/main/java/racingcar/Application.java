@@ -11,11 +11,12 @@ public class Application {
         List<String> carNames = gameView.getCarNames();
 
         PlayerController playersController = new PlayerController();
-        RacingCupController racingCupController = new RacingCupController(gameView.getTotalRounds(), playersController);
         playersController.addPlayers(carNames);
 
+        RacingCupController racingCupController = new RacingCupController(gameView.getTotalRounds(), playersController);
+
         gameView.printMessage("실행결과");
-        while(racingCupController.playNextRound()) {
+        while (racingCupController.playNextRound()) {
             racingCupController.playRacingGame();
             gameView.nowRoundResultPrint(playersController.getPlayerList());
         }

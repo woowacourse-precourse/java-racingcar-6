@@ -12,18 +12,19 @@ public class InputDataExceptionHandler {
     private static final String NO_NUMBER_ERROR = "이름의 크기가 5를 초과했습니다";
 
     public static void validateCarNames(List<String> carNames) {
-        for(String carName : carNames) {
-            if(carName.length() > MAX_CAR_NAME_SIZE) {
+        for (String carName : carNames) {
+            if (carName.length() > MAX_CAR_NAME_SIZE) {
                 throw new IllegalArgumentException(NAME_SIZE_ERROR);
             }
         }
     }
+
     public static void validateTotalRounds(String totalRounds) {
-        if(totalRounds.equals(IS_ZERO)) {
+        if (totalRounds.equals(IS_ZERO)) {
             throw new IllegalArgumentException(ZERO_GAME_ERROR);
         }
-        for(char isNum : totalRounds.toCharArray()) {
-            if(isNum < MIN_NUMBER || isNum > MAX_NUMBER) {
+        for (char isNum : totalRounds.toCharArray()) {
+            if (isNum < MIN_NUMBER || isNum > MAX_NUMBER) {
                 throw new IllegalArgumentException(NO_NUMBER_ERROR);
             }
         }

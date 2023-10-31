@@ -28,8 +28,8 @@ public class RacingCupController {
     }
 
     public void decideFinalWinner() {
-        for(int i = 0; i < playerController.getSizeOfTotalPlayers(); i++) {
-            if(racingCup.getTopPlayerCompletedRound() == playerController.getCompletedRounds(i)) {
+        for (int i = 0; i < playerController.getSizeOfTotalPlayers(); i++) {
+            if (racingCup.getTopPlayerCompletedRound() == playerController.getCompletedRounds(i)) {
                 racingCup.addCarNameOfTheWinner(playerController.getCarNameOfThePlayer(i));
             }
         }
