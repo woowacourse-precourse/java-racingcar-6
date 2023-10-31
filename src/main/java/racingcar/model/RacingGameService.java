@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGameService {
     private List<RacingCar> racingCars;
@@ -28,6 +29,19 @@ public class RacingGameService {
                 .toList();
 
         return winners;
+    }
+
+    public String getAllRaceResult(final int raceCount) {
+        StringBuilder result = new StringBuilder("\n");
+
+        for (int i = 0; i < raceCount; i++) {
+            this.race();
+            result.append(this.racingCars.stream().map(RacingCar::toString).collect(Collectors.joining())).append("\n");
+        }
+
+        result.setLength(result.length() - 1);
+
+        return result.toString();
     }
 
     public List<RacingCar> getRacingCars() {

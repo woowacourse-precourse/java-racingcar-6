@@ -44,12 +44,8 @@ public class RacingGameController {
     public void play() {
         racingGameService.readyToPlay(carNames);
         racingGameView.gameResultMessage();
-        for (int i = 0; i < parsedTryCount; i++) {
-            racingGameService.race();
-            List<RacingCar> raceResult = racingGameService.getRacingCars();
-            racingGameView.racingCarsMoveStatus(raceResult);
-        }
-
+        String result = racingGameService.getAllRaceResult(parsedTryCount);
+        racingGameView.gameResults(result);
         List<String> winners = racingGameService.getWinner();
         racingGameView.gameWinners(winners);
     }

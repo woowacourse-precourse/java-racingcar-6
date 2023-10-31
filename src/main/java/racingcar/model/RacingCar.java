@@ -49,6 +49,6 @@ public class RacingCar {
     public String toString() {
         String gameResult = makeGameResult();
 
-        return this.racingCarName + " : " + gameResult;
+        return this.racingCarName + " : " + gameResult + "\n";
     }
 }

@@ -88,7 +88,7 @@ public class RacingCarTest {
             racingCar.isRacingCarMove(randomNumber);
         }
         //then
-        String racingCartoString = "pobi : ----";
+        String racingCartoString = "pobi : ----\n";
         assertThat(racingCar.toString()).isEqualTo(racingCartoString);
     }
 }

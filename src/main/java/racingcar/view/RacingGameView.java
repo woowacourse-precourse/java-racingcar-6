@@ -17,9 +17,8 @@ public class RacingGameView {
         System.out.println("\n" + GameMessage.GAME_RESULT_MESSAGE.getGameResultMessage());
     }
 
-    public void racingCarsMoveStatus(List<RacingCar> racingCars) {
-        racingCars.forEach(System.out::println);
-        System.out.print("\n");
+    public void gameResults(String gameResult) {
+        System.out.println(gameResult);
     }
 
     public void gameWinners(List<String> winner) {
