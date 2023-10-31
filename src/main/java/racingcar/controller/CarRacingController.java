@@ -9,6 +9,7 @@ public class CarRacingController {
     private static final int RACECAR_ADVENCE_NUMBER = 4;
     private int randomNumber;
     private boolean AdvenceState;
+    private int winerMoveCount;
     RandomUtility randomUtillity = new RandomUtility();
     OutputView outputView = new OutputView();
 
@@ -18,6 +19,8 @@ public class CarRacingController {
         for (int round = 1; round <= raceGame.getRaceNumber(); round++) {
             repeatCarRace(raceGame);
         }
+
+        decicdeWinner(raceGame);
     }
 
     private void saveResetCarMoveCounts(RaceGame raceGame) {
@@ -50,5 +53,21 @@ public class CarRacingController {
 
         raceGame.getCarMoveCounts().set(raceCarIndex, updateCount);
         raceGame.setCarMoveCounts(raceGame.getCarMoveCounts());
+    }
+
+    public void decicdeWinner(RaceGame raceGame) {
+        winerMoveCount = getWinnerMoveCount(raceGame.getCarMoveCounts());
+        System.out.println(winerMoveCount);
+    }
+
+    private int getWinnerMoveCount(List<String> carMoveCounts) {
+        int winerMoveCount = 0;
+        for (int i = 0; i < carMoveCounts.size(); i++) {
+            if (winerMoveCount < carMoveCounts.get(i).length()) {
+                winerMoveCount = carMoveCounts.get(i).length();
+            }
+        }
+
+        return winerMoveCount;
     }
 }
