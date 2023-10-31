@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import racingcar.common.config.RacingCarRule;
 import racingcar.game.vo.RacerPosition;
 import racingcar.game.vo.TurnResult;
 import racingcar.racer.RacingCar;
@@ -26,10 +27,10 @@ public class RacingGameManager {
 
     private RacingCarRegistry registerRacingCar() {
         String racerInput = racingGameScreen.inputRacer();
-        Validator.validateLength(racerInput, 0, 599); //maxLength = 이름 최대 길이 * 이름 최대 개수 + (이름 최대 개수 -1)*구분자 길이
+        Validator.validateLength(racerInput, RacingCarRule.MAX_RACING_CAR_NAME_INPUT_LENGTH);
         Validator.validateHasText(racerInput);
 
-        String[] split = racerInput.split(",");
+        String[] split = racerInput.split(RacingCarRule.INPUT_DELIMITER);
         List<RacingCar> list1 = Arrays.stream(split)
                 .map(RacingCar::nameOf)
                 .toList();
@@ -41,7 +42,7 @@ public class RacingGameManager {
 
     private int inputNumberOfTurns() {
         String numberOfTurns = racingGameScreen.inputNumberOfTurns();
-        Validator.validateLength(numberOfTurns, 0, 4);
+        Validator.validateLength(numberOfTurns, RacingCarRule.TURN_COUNT_INPUT_LENGTH);
         Validator.validateHasText(numberOfTurns);
         Validator.validateNumeric(numberOfTurns);
         return Integer.parseInt(numberOfTurns);

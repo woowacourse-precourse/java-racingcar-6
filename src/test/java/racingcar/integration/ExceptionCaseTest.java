@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.common.config.RacingCarRule;
 import racingcar.integration.config.IntegrationTest;
 
 class ExceptionCaseTest extends IntegrationTest {
@@ -79,11 +80,10 @@ class ExceptionCaseTest extends IntegrationTest {
 
         @DisplayName("경주할 자동차의 개수가 최대 경주 가능한 자동차 개수를 넘는다면 예외를 발생시킨다.")
         @Test
-        void Fail_OverRacingCarMaxSize() {
+        void Fail_OverMaxRacingCarSize() {
             //given
-            int size = 101;
             List<String> racingCarList = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < RacingCarRule.MAX_RACING_CAR_SIZE + 1; i++) {
                 racingCarList.add(String.valueOf(i));
             }
             String racingCarName = String.join(",", racingCarList);
@@ -96,11 +96,11 @@ class ExceptionCaseTest extends IntegrationTest {
             );
         }
 
-        @DisplayName("5자가 넘는다면 예외를 발생시킨다.")
-        @ValueSource(strings = {"123456", "1234566"})
-        @ParameterizedTest
-        void Fail_OverRacingCarNameMaxLength(String racingCarName) {
+        @DisplayName(RacingCarRule.MAX_RACING_CAR_NAME_LENGTH + "자가 넘는다면 예외를 발생시킨다.")
+        @Test
+        void Fail_OverRacingCarNameMaxLength() {
             //given
+            String racingCarName = "a".repeat(RacingCarRule.MAX_RACING_CAR_NAME_LENGTH + 1);
             String turnsCount = "1";
 
             // when then

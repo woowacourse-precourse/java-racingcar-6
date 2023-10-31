@@ -3,6 +3,7 @@ package racingcar.game;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.common.config.RacingCarRule;
 import racingcar.common.io.reader.Reader;
 import racingcar.common.io.writer.Writer;
 import racingcar.game.vo.TurnResult;
@@ -26,12 +27,12 @@ public class RacingGameScreen {
 
     public String inputRacer() {
         writer.writeLine(INPUT_RACER);
-        return reader.readLine();
+        return reader.readLine().trim();
     }
 
     public String inputNumberOfTurns() {
         writer.writeLine(INPUT_NUMBER_OF_TURNS);
-        return reader.readLine();
+        return reader.readLine().trim();
     }
 
     public void startShowGameResult() {
@@ -55,8 +56,7 @@ public class RacingGameScreen {
     }
 
     public void showFinalWinner(List<String> winnerNames) {
-        String winnerName = winnerNames.stream()
-                .collect(Collectors.joining(","));
+        String winnerName = String.join(RacingCarRule.INPUT_DELIMITER, winnerNames);
 
         writer.writeLine(String.format(FINAL_WINNER, winnerName));
     }

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+import racingcar.common.config.RacingCarRule;
 import racingcar.common.exception.ErrorMessage;
 import racingcar.racer.Raceable;
 
@@ -15,7 +16,7 @@ public class RacingCarValidator {
     }
 
     public static void validateNameLength(String name) {
-        if (name.length() > 5 || name.isEmpty()) {
+        if (name.length() > RacingCarRule.MAX_RACING_CAR_NAME_LENGTH || name.isEmpty()) {
             throw ErrorMessage.INVALID_RACING_CAR_NAME_LENGTH.getException();
         }
     }
@@ -27,7 +28,7 @@ public class RacingCarValidator {
     }
 
     public static <T extends Raceable> void validateUnderThanMaxRacingCarNumber(List<T> racers) {
-        if (racers.size() > 100) {
+        if (racers.size() > RacingCarRule.MAX_RACING_CAR_SIZE) {
             throw ErrorMessage.INVALID_NUMBER_OF_RACING_CAR.getException();
         }
     }

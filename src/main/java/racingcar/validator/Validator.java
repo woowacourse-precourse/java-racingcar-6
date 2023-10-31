@@ -16,10 +16,10 @@ public class Validator {
         }
     }
 
-    public static void validateLength(String input, int minLength, int maxLength) {
+    public static void validateLength(String input, int maxLength) {
         int length = input.length();
 
-        if (length < minLength || length > maxLength) {
+        if (length > maxLength) {
             throw ErrorMessage.INVALID_LENGTH_INPUT.getException();
         }
     }

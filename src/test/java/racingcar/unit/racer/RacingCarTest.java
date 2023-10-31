@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
+import racingcar.common.config.RacingCarRule;
 import racingcar.racer.RacingCar;
 import racingcar.util.Random;
 
@@ -48,11 +49,21 @@ class RacingCarTest {
             assertThat(racingCar.getName()).isEqualTo(name);
         }
 
-        @DisplayName("이름의 길이가 0이거나 5 초과라면 예외를 발생시킨다.")
-        @ValueSource(strings = {"123456", ""})
-        @ParameterizedTest
-        void fail_InvalidNameLength(String name) {
+        @DisplayName("이름이 비었다면 예외를 발생시킨다.")
+        @Test
+        void fail_EmptyName() {
             //given
+            String name = "";
+            //when then
+            assertThatThrownBy(() -> RacingCar.nameOf(name))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @DisplayName("이름의 길이가 " + RacingCarRule.MAX_RACING_CAR_NAME_LENGTH + " 초과라면 예외를 발생시킨다.")
+        @Test
+        void fail_InvalidNameLength() {
+            //given
+            String name = "1".repeat(RacingCarRule.MAX_RACING_CAR_NAME_LENGTH + 1);
             //when then
             assertThatThrownBy(() -> RacingCar.nameOf(name))
                     .isInstanceOf(IllegalArgumentException.class);
