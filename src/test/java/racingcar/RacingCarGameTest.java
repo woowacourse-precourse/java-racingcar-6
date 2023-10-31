@@ -66,9 +66,10 @@ class RacingCarGameTest {
         System.setIn(in);
 
         RacingCarGame racingCarGame = new RacingCarGame();
-        
+
         Assertions.assertThatThrownBy(() -> {
             racingCarGame.setMoveCntByConsole();
         }).isInstanceOf(IllegalArgumentException.class);
     }
+    
 }
