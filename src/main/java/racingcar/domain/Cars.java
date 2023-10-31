@@ -40,16 +40,16 @@ public class Cars {
     public List<String> pickWinnersName(){
         List<String> winnerNames = new ArrayList<>();
 
-        int count = 0;
+        int maxStep = -1;
         for(Car car : cars){
-            int number_of_step = car.getNowStep();
+            int numberOfStep = car.getNowStep();
 
-            if(number_of_step > count){
+            if(numberOfStep > maxStep){
                 winnerNames.clear();
                 winnerNames.add(car.getCarName());
-                count = number_of_step;
+                maxStep = numberOfStep;
             }
-            else if(number_of_step == count){
+            else if(numberOfStep == maxStep){
                 winnerNames.add(car.getCarName());
             }
         }
