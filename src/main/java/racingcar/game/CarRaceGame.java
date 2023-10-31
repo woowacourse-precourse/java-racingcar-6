@@ -38,6 +38,15 @@ public class CarRaceGame implements Game {
         return "-".repeat(Math.max(0, location));
     }
 
+    private void printFinalResult() {
+        List<String> names = service.getWinnersName();
+        StringBuilder sb = new StringBuilder("최종 우승자 : ");
+        for (String name : names) {
+            sb.append(name).append(", ");
+        }
+        sb.substring(0, sb.length() - 2);
+        System.out.println(sb);
+    }
 
 
 }
