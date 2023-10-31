@@ -9,6 +9,11 @@ public class Car {
         String s = Console.readLine();
         String[] names = s.split(",");
 
+        //이름 유효성 체크
+        for(String name : names){
+            CarException.checkName(name);
+        }
+
         return names;
     }
 }
