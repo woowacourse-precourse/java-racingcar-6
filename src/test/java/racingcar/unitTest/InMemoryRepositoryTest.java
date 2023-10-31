@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 import racingcar.model.repository.InMemoryRepository;
+import racingcar.model.vo.Attempt;
 import racingcar.model.vo.CarName;
 
 public class InMemoryRepositoryTest {
@@ -17,7 +18,7 @@ public class InMemoryRepositoryTest {
     }
 
     @Test
-    void should_true_when_saveSuccessful() {
+    void should_true_when_saveCarSuccessful() {
         // given
         CarName carName = new CarName("park");
         Car car = new Car(carName);
@@ -26,5 +27,16 @@ public class InMemoryRepositoryTest {
         // then
         assertThat(inMemoryRepository.findByCarName(carName))
                 .isEqualTo(car);
+    }
+
+    @Test
+    void should_true_when_saveAttemptSuccessful() {
+        // given
+        Attempt attempt = new Attempt(5);
+        // when
+        inMemoryRepository.save(attempt);
+        // then
+        assertThat(inMemoryRepository.findAttempt())
+                .isEqualTo(attempt);
     }
 }
