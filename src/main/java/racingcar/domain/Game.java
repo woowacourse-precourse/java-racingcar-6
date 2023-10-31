@@ -6,8 +6,6 @@ import java.util.List;
 public class Game {
 
     private static final int START_POSITION = 0;
-    private static final int MIN_NUMBER = 0;
-    private static final int MAX_NUMBER = 9;
 
     private final List<Car> cars;
 
@@ -15,14 +13,10 @@ public class Game {
         this.cars = cars;
     }
 
-    public void playOnce() {
+    public void playOnce(NumberGenerator numberGenerator) {
         cars.forEach(car -> {
-            car.moveOrStop(generateRandomNumber());
+            car.moveOrStop(numberGenerator.generate());
         });
-    }
-
-    private int generateRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 
     private Car findMaxPositionCar() {
