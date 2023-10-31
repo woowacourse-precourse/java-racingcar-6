@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
-import racingcar.testutils.MyTest;
+import racingcar.test.MyTest;
 
 @SuppressWarnings("NonAsciiCharacters")
 class OutputViewTest extends MyTest {

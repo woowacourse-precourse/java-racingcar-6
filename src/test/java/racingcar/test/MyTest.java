@@ -1,4 +1,4 @@
-package racingcar.testutils;
+package racingcar.test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

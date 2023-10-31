@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.testutils.MyTest;
+import racingcar.test.MyTest;
 
 @SuppressWarnings("NonAsciiCharacters")
 class InputViewTest extends MyTest {

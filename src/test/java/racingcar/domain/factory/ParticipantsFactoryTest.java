@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.factory;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -9,10 +9,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import racingcar.domain.Car;
+import racingcar.domain.Participants;
+import racingcar.domain.RandomMoveEngine;
 import racingcar.domain.validator.CarNameValidator;
 import racingcar.domain.validator.CarsValidator;
-import racingcar.domain.factory.CarFactory;
-import racingcar.domain.factory.ParticipantsFactory;
 
 @SuppressWarnings("NonAsciiCharacters")
 class ParticipantsFactoryTest {
