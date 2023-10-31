@@ -118,7 +118,7 @@ public class RacingCarGame {
         printWinner(winnerNames);
     }
 
-    public static void playGame() {
+    public void playGame() {
 
         List<String> carNamesList;
         int playNumber;
