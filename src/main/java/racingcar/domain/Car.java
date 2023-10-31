@@ -1,27 +1,31 @@
 package racingcar.domain;
 
 public class Car {
+
     private final String name;
     private final StringBuilder trace = new StringBuilder();
-    private int score = 0;
-    public Car(String name){
+    private int score;
+
+    public Car(String name) {
         this.name = name;
+        this.score = 0;
     }
 
-    public void move(){
+    public void move() {
         score++;
         trace.append("-");
-        System.out.println(name+" : "+trace);
+        System.out.println(name + " : " + trace);
     }
 
-    public void stop(){
-        System.out.println(name+" : "+trace);
+    public void stop() {
+        System.out.println(name + " : " + trace);
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public int getScore(){
+
+    public int getScore() {
         return score;
     }
 }
