@@ -34,6 +34,7 @@ public class ConsolePrintServiceImpl implements PrintService{
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     @Override
