@@ -6,12 +6,13 @@ import model.domain.Car;
 import model.domain.Go;
 import model.domain.Name;
 import model.domain.Participant;
+import model.domain.Winner;
 
 public class GameResult {
 
-    public static List<Name> winner(Participant participant) {
+    public static Winner winner(Participant participant) {
 
-        List<Name> winner = new ArrayList<>();
+        Winner winner = new Winner();
         int winnerGoValue = 0;
 
         for (Car car : participant.getParticipant()) {

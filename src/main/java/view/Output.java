@@ -5,6 +5,7 @@ import model.domain.Car;
 import model.domain.Go;
 import model.domain.Name;
 import model.domain.Participant;
+import model.domain.Winner;
 
 public class Output {
 
@@ -31,16 +32,17 @@ public class Output {
 
     }
 
-    public static void finalResult(List<Name> winner) {
+    public static void finalResult(Winner winner) {
 
         System.out.print("최종 우승자 : ");
 
-        for(int i = 0; i < winner.size(); i++){
+        List<Name> names = winner.getWinner();
+        for(int i = 0; i < names.size(); i++){
 
-            Name name = winner.get(i);
+            Name name = names.get(i);
             System.out.print(name.getName());
 
-            if(i != (winner.size() - 1)){
+            if(i != (names.size() - 1)){
                 System.out.print(", ");
             }
         }
