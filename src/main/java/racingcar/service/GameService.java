@@ -1,6 +1,11 @@
 package racingcar.service;
 
 
+import static racingcar.constant.CarConstant.MAX_MOVE_CONDITION_NUMBER;
+import static racingcar.constant.CarConstant.MIN_MOVE_CONDITION_NUMBER;
+import static racingcar.constant.CarConstant.STANDARD_MOVE_CONDITION_NUMBER;
+
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarNames;
@@ -14,7 +19,21 @@ import racingcar.domain.GameWinner;
 public class GameService {
 
     public GamePlayer createGamePlayer(CarNames carNames) {
-        return GamePlayer.from(carNames);
+        List<Car> cars = carNames.createCars();
+        return GamePlayer.from(cars);
+    }
+
+    public void moveCars(GamePlayer gamePlayer) {
+        for (Car car : gamePlayer.getCars()) {
+            moveCar(car);
+        }
+    }
+
+    private void moveCar(Car car) {
+        int randomNumber = Randoms.pickNumberInRange(MIN_MOVE_CONDITION_NUMBER, MAX_MOVE_CONDITION_NUMBER);
+        if (randomNumber >= STANDARD_MOVE_CONDITION_NUMBER) {
+            car.moveForward();
+        }
     }
 
     public GameWinner createGameWinner(GamePlayer gamePlayer) {
@@ -24,11 +43,5 @@ public class GameService {
                 .filter(car -> car.getMoveDistance() == maxMoveDistance)
                 .toList();
         return GameWinner.from(winningCars);
-    }
-
-
-    public void moveCars(GamePlayer gamePlayer) {
-        //OutputView.beforeMoveMessage() 로 하는 것이 더 가독성이 좋은가
-        gamePlayer.moveCars();
     }
 }
