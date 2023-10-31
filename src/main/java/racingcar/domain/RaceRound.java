@@ -3,17 +3,17 @@ package racingcar.domain;
 import java.util.Collections;
 import java.util.List;
 
-public class PlayerMoveList {
+public class RaceRound {
     private final List<PlayerMove> playerMoveList;
     private final MoveFactory moveFactory;
 
-    public PlayerMoveList(final List<PlayerMove> playerMoveList, final MoveFactory moveFactory) {
+    public RaceRound(final List<PlayerMove> playerMoveList, final MoveFactory moveFactory) {
         this.playerMoveList = playerMoveList;
         this.moveFactory = moveFactory;
     }
 
-    public static PlayerMoveList of(final List<PlayerMove> playerMoveList, final MoveFactory moveFactory) {
-        return new PlayerMoveList(playerMoveList, moveFactory);
+    public static RaceRound of(final List<PlayerMove> playerMoveList, final MoveFactory moveFactory) {
+        return new RaceRound(playerMoveList, moveFactory);
     }
 
     public void move() {

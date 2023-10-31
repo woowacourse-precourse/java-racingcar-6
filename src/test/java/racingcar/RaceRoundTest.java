@@ -14,10 +14,10 @@ import racingcar.domain.MoveFactory;
 import racingcar.domain.NumberGenerator;
 import racingcar.domain.Player;
 import racingcar.domain.PlayerMove;
-import racingcar.domain.PlayerMoveList;
+import racingcar.domain.RaceRound;
 import racingcar.domain.RandomNumberGenerator;
 
-public class PlayerMoveListTest {
+public class RaceRoundTest {
     NumberGenerator numberGenerator = new RandomNumberGenerator();
     MoveFactory moveFactory = new MoveFactory(numberGenerator);
 
@@ -27,20 +27,20 @@ public class PlayerMoveListTest {
 
         List<PlayerMove> playerMoves = List.of(playerMove, playerMove);
 
-        assertThat(PlayerMoveList.of(playerMoves, moveFactory)).isInstanceOf(PlayerMoveList.class);
+        assertThat(RaceRound.of(playerMoves, moveFactory)).isInstanceOf(RaceRound.class);
     }
 
     @Test
     void move는_모든_플레이어_이동현황에_이동여부를_적용한다() {
         // given
         PlayerMove playerMove = mock(PlayerMove.class);
-        PlayerMoveList playerMoveList = PlayerMoveList.of(List.of(playerMove, playerMove), moveFactory);
+        RaceRound raceRound = RaceRound.of(List.of(playerMove, playerMove), moveFactory);
 
         // when
-        playerMoveList.move();
+        raceRound.move();
 
         // then
-        verify(playerMove, times(playerMoveList.getPlayerMoveList().size())).move(anyBoolean());
+        verify(playerMove, times(raceRound.getPlayerMoveList().size())).move(anyBoolean());
     }
 
     @Test
@@ -50,22 +50,22 @@ public class PlayerMoveListTest {
                 PlayerMove.of(Player.from("b"), Distance.from(1)),
                 PlayerMove.of(Player.from("c"), Distance.from(2))
         );
-        PlayerMoveList playerMoveList = PlayerMoveList.of(playerMoves, moveFactory);
+        RaceRound raceRound = RaceRound.of(playerMoves, moveFactory);
 
-        assertEquals(2, playerMoveList.getMaxDistance());
+        assertEquals(2, raceRound.getMaxDistance());
     }
 
     @Test
     void checkWinner는_모든_플레이어_이동현황에_우승자를_체크하도록_호출한다() {
         // given
         PlayerMove playerMove = mock(PlayerMove.class);
-        PlayerMoveList playerMoveList = PlayerMoveList.of(List.of(playerMove, playerMove), moveFactory);
+        RaceRound raceRound = RaceRound.of(List.of(playerMove, playerMove), moveFactory);
         int initMax = 0;
 
         // when
-        playerMoveList.checkWinner();
+        raceRound.checkWinner();
 
         // then
-        verify(playerMove, times(playerMoveList.getPlayerMoveList().size())).checkWinner(initMax);
+        verify(playerMove, times(raceRound.getPlayerMoveList().size())).checkWinner(initMax);
     }
 }

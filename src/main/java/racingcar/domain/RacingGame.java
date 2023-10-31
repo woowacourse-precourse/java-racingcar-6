@@ -4,24 +4,24 @@ import java.util.Objects;
 
 public class RacingGame {
 
-    private final PlayerMoveList playerMoveList;
+    private final RaceRound raceRound;
     private final RaceCount raceCount;
 
-    public RacingGame(final PlayerMoveList playerMoveList, final RaceCount raceCount) {
-        this.playerMoveList = playerMoveList;
+    public RacingGame(final RaceRound raceRound, final RaceCount raceCount) {
+        this.raceRound = raceRound;
         this.raceCount = raceCount;
     }
 
-    public static RacingGame init(final PlayerMoveList playerMoveList) {
-        return new RacingGame(playerMoveList, RaceCount.init());
+    public static RacingGame init(final RaceRound raceRound) {
+        return new RacingGame(raceRound, RaceCount.init());
     }
 
-    public static RacingGame from(PlayerMoveList playerMoveList, RaceCount raceCount) {
-        return new RacingGame(playerMoveList, raceCount);
+    public static RacingGame from(RaceRound raceRound, RaceCount raceCount) {
+        return new RacingGame(raceRound, raceCount);
     }
 
     public void move() {
-        playerMoveList.move();
+        raceRound.move();
         raceCount.increase();
     }
 
@@ -38,12 +38,12 @@ public class RacingGame {
             return false;
         }
         RacingGame that = (RacingGame) o;
-        return Objects.equals(playerMoveList, that.playerMoveList) && Objects.equals(raceCount,
+        return Objects.equals(raceRound, that.raceRound) && Objects.equals(raceCount,
                 that.raceCount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(playerMoveList, raceCount);
+        return Objects.hash(raceRound, raceCount);
     }
 }

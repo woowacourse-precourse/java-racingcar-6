@@ -15,39 +15,39 @@ public class GameController {
 
     public void start() {
         Players players = generatePlayers();
-        PlayerMoveList playerMoveList = initializePlayerMoveList(players);
+        RaceRound raceRound = initializeRaceRound(players);
         RaceCount raceCount = InputView.InputRaceCount();
 
-        playRace(playerMoveList, raceCount);
-        printWinners(playerMoveList, players);
+        playRace(raceRound, raceCount);
+        printWinners(raceRound, players);
     }
 
-    private void printWinners(final PlayerMoveList playerMoveList, final Players players) {
-        playerMoveList.checkWinner();
+    private void printWinners(final RaceRound raceRound, final Players players) {
+        raceRound.checkWinner();
         OutputView.printWinners(players.getWinnerList());
     }
 
-    private void playRace(final PlayerMoveList playerMoveList, final RaceCount raceCount) {
-        RacingGame racingGame = RacingGame.init(playerMoveList);
+    private void playRace(final RaceRound raceRound, final RaceCount raceCount) {
+        RacingGame racingGame = RacingGame.init(raceRound);
         OutputView.printMoveResultMessage();
         do {
             racingGame.move();
-            printMoveResult(playerMoveList);
+            printMoveResult(raceRound);
         } while (!racingGame.isSameCount(raceCount));
     }
 
-    private void printMoveResult(final PlayerMoveList playerMoveList) {
-        List<PlayerMoveResultDto> playerMoveResultDtoList = playerMoveList.getPlayerMoveList().stream()
+    private void printMoveResult(final RaceRound raceRound) {
+        List<PlayerMoveResultDto> playerMoveResultDtoList = raceRound.getPlayerMoveList().stream()
                 .map(PlayerMoveResultDto::from)
                 .toList();
         OutputView.printPlayerMoveResult(playerMoveResultDtoList);
     }
 
-    private PlayerMoveList initializePlayerMoveList(final Players players) {
+    private RaceRound initializeRaceRound(final Players players) {
         List<PlayerMove> playerMoveList = players.getPlayers().stream()
                 .map(PlayerMove::init)
                 .toList();
-        return PlayerMoveList.of(playerMoveList, moveFactory);
+        return RaceRound.of(playerMoveList, moveFactory);
     }
 
     private Players generatePlayers() {

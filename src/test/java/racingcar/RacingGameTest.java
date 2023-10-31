@@ -11,8 +11,8 @@ import racingcar.domain.MoveFactory;
 import racingcar.domain.NumberGenerator;
 import racingcar.domain.Player;
 import racingcar.domain.PlayerMove;
-import racingcar.domain.PlayerMoveList;
 import racingcar.domain.RaceCount;
+import racingcar.domain.RaceRound;
 import racingcar.domain.RacingGame;
 import racingcar.domain.RandomNumberGenerator;
 
@@ -24,25 +24,25 @@ public class RacingGameTest {
 
     @Test
     void init은_플레이어_이동현황_리스트를_받아_시도횟수를_초기화한_객체를_생성한다() {
-        PlayerMoveList playerMoveList = PlayerMoveList.of(playerMoves, moveFactory);
+        RaceRound raceRound = RaceRound.of(playerMoves, moveFactory);
 
-        RacingGame racingGame = RacingGame.init(playerMoveList);
+        RacingGame racingGame = RacingGame.init(raceRound);
 
-        assertEquals(RacingGame.from(playerMoveList, RaceCount.init()), racingGame);
+        assertEquals(RacingGame.from(raceRound, RaceCount.init()), racingGame);
     }
 
     @Test
     void move는_시도횟수를_1증가시키고_모든_플레이어_이동현황에_이동여부를_적용하도록_호출한다() {
         // given
-        PlayerMoveList playerMoveList = mock(PlayerMoveList.class);
+        RaceRound raceRound = mock(RaceRound.class);
         RaceCount raceCount = mock(RaceCount.class);
-        RacingGame racingGame = RacingGame.from(playerMoveList, raceCount);
+        RacingGame racingGame = RacingGame.from(raceRound, raceCount);
 
         // when
         racingGame.move();
 
         // then
-        verify(playerMoveList).move();
+        verify(raceRound).move();
         verify(raceCount).increase();
     }
 }
