@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 class CarsTest {
     private static final String DUPLICATE_ERROR_MESSAGE = "이미 존재하는 자동차 이름입니다.";
     private Cars cars;
+    private final Referee testReferee = () -> true;
 
     @BeforeEach
     void setInit() {
@@ -41,5 +42,25 @@ class CarsTest {
         assertThatThrownBy(() -> names.forEach(cars::add))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(DUPLICATE_ERROR_MESSAGE);
+    }
+
+    @DisplayName("경기 결과를 문자열로 받아야 한다.")
+    @Test
+    void getStringOfRaceResultTest() {
+        // given
+        cars.add("pobi");
+        cars.add("jason");
+
+        // when
+        cars.move(testReferee);
+        cars.move(testReferee);
+        String raceResult = cars.getStringOfRaceResult();
+
+        // then
+        String expected = """
+                pobi : --
+                jason : --
+                """;
+        assertThat(raceResult).contains(expected);
     }
 }
