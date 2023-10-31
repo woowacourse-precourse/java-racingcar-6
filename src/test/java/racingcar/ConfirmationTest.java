@@ -81,6 +81,15 @@ public class ConfirmationTest extends NsTest {
         assertThat(winners).allMatch(name -> name.equals("pobi") || name.equals("dabin") || name.equals("jun"));
     }
 
+    @Test
+    public void run_메서드_테스트() {
+        gameController.setUp("pobi,dabin");
+        gameController.run(5);
+
+        List<String> winners = gameController.getWinners();
+        assertThat(winners).isNotEmpty();
+    }
+
     @Override
     protected void runMain() { Application.main(new String[]{});}
 }
