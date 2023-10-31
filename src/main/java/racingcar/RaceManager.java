@@ -18,8 +18,8 @@ public class RaceManager {
         init();
         start();
 
-        List<Car> winners = raceOfficial.findWinners(cars);
-        showWinners(winners);
+        raceOfficial.findAndSetWinners(cars);
+        raceOfficial.reportWinners();
     }
 
     public void init() {
@@ -56,12 +56,5 @@ public class RaceManager {
             car.print();
         });
         System.out.println();
-    }
-
-    public void showWinners(List<Car> winners) {
-        List<String> names = winners.stream().map(Car::getName).collect(Collectors.toList());
-        String allWinners = String.join(", ", names);
-
-        Util.print(MessageType.SHOW_WINNERS, allWinners);
     }
 }
