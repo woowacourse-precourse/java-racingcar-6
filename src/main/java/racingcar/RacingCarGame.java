@@ -40,13 +40,13 @@ public class RacingCarGame {
 
         String playNumberInput = readLine();
 
-        int playnum = Integer.parseInt(playNumberInput);
+        int playNum = Integer.parseInt(playNumberInput);
 
-        if(playnum <= 0) {
+        if (playNum <= 0) {
             throw new IllegalArgumentException();
         }
 
-        return playnum;
+        return playNum;
     }
 
     static Integer carMoveForwardResult(Integer lastPosition) {
