@@ -30,7 +30,7 @@ class CensorTest {
         });
     }
 
-    @DisplayName("플레이어가 입력 마지막에 콤마(,)를 입력하거나 콤마(,)만 입력할 경우, 예외가 발생한다.")
+    @DisplayName("플레이어가 입력 마지막에 콤마(,)를 입력할 경우, 예외가 발생한다.")
     @Test
     void playerInputEndWithComma() {
         //given
