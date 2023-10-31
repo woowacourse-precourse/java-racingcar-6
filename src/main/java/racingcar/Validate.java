@@ -20,5 +20,17 @@ public class Validate {
     }
 
 
+    public static void validateInputNumber(int inputTryNumber) {
+
+        String inputNumberString = Integer.toString(inputTryNumber);
+
+        if (inputNumberString.isEmpty()) {
+            throw new IllegalArgumentException("공백은 입력하실 수 없습니다.");
+        }
+
+        if (!inputNumberString.matches("\\d+")) {
+            throw new IllegalArgumentException("숫자로만 입력하셔야 합니다.");
+        }
+    }
 
 }
