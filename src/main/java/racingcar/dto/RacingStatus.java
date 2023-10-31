@@ -22,6 +22,10 @@ public class RacingStatus {
         return numberOfAttempt;
     }
 
+    public HashMap<String, String> getCarList() {
+        return carList;
+    }
+
     public void setCarNames(List<String> carNames) {
         this.carNames = carNames;
     }

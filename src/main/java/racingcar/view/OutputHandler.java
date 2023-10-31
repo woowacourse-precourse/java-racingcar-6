@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.dto.RacingStatus;
 
 public class OutputHandler {
@@ -21,5 +22,9 @@ public class OutputHandler {
             System.out.println(carName + " : " + status.getCarPosition(carName));
         }
         System.out.println();
+    }
+
+    public static void printWinner(List<String> winner){
+        System.out.println("최종 우승자 : " + String.join(", ", winner));
     }
 }

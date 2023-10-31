@@ -11,29 +11,35 @@ public class RacingController {
     RacingService racingService = new RacingService();
 
     public void start() {
-        initGame();
-        startGame();
+        initRacing();
+        startRacing();
+        endRacing();
     }
 
-    private void initGame() {
+    private void initRacing() {
         OutputHandler.printRequestCarNames();
         List<String> carNames = getCarNames();
 
         OutputHandler.printRequestNumberOfAttempt();
         int numberOfAttempt = getNumberOfAttempt();
 
-        racingService.initGame(carNames, numberOfAttempt);
+        racingService.initRacing(carNames, numberOfAttempt);
     }
 
-    private void startGame(){
-        racingService.startGame();
+    private void startRacing() {
+        racingService.startRacing();
+    }
+
+    private void endRacing(){
+        racingService.endRacing();
     }
 
     private List<String> getCarNames() {
         String userInput = Console.readLine();
         return Arrays.asList(userInput.split(","));
     }
-    private int getNumberOfAttempt(){
+
+    private int getNumberOfAttempt() {
         return Integer.parseInt(Console.readLine());
     }
 }

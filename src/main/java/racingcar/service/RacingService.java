@@ -11,13 +11,13 @@ public class RacingService {
     RacingStatus status = new RacingStatus();
     RacingJudgment judgment = new RacingJudgment();
 
-    public void initGame(List<String> carNames, int numberOfAttempt) {
+    public void initRacing(List<String> carNames, int numberOfAttempt) {
         status.setCarNames(carNames);
         status.setCarList();
         status.setNumberOfAttempt(numberOfAttempt);
     }
 
-    public void startGame() {
+    public void startRacing() {
         int leftAttempt = status.getNumberOfAttempt();
         List<String> carNames = status.getCarNames();
         OutputHandler.printResult();
@@ -26,6 +26,10 @@ public class RacingService {
             moveCarPosition();
             OutputHandler.printAttemptResult(status);
         }
+    }
+    
+    public void endRacing(){
+        OutputHandler.printWinner(judgment.findWinner(status));
     }
 
     private void moveCarPosition() {
