@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.config.CarNameLength;
 import racingcar.util.MessageFactory;
 import racingcar.config.MoveThreshold;
