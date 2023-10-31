@@ -6,10 +6,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class Game {
-    User user = new User();
-    LinkedHashMap<String, Integer> racingCar = user.carReset();
-    public void racingGame(){
-        int iterationNumber = user.stringToInteger();
+    static LinkedHashMap<String, Integer> racingCar = User.carReset();
+    public static void racingGame(){
+        int iterationNumber = User.stringToInteger();
 
         for (int i = 0; i < iterationNumber; i++) {
             printRacing(updateCarStats(racingCar));
@@ -17,13 +16,13 @@ public class Game {
         printWinner(findWinner(racingCar));
 
     }
-    private int randomNumber(){
+    private static int randomNumber(){
         return Randoms.pickNumberInRange(0, 9);
     }
-    private boolean checkNumber(Integer randomNumber){
+    private static boolean checkNumber(Integer randomNumber){
         return randomNumber >= 4;
     }
-     private LinkedHashMap<String, Integer> updateCarStats(LinkedHashMap<String, Integer> racingCar) {
+     private static LinkedHashMap<String, Integer> updateCarStats(LinkedHashMap<String, Integer> racingCar) {
          for (String car : racingCar.keySet()) {
              if (checkNumber(randomNumber())) {
                  int count = racingCar.get(car);
@@ -32,7 +31,7 @@ public class Game {
          }
          return racingCar;
      }
-    private void printRacing(LinkedHashMap<String, Integer> racingCar){
+    private static void printRacing(LinkedHashMap<String, Integer> racingCar){
         for (String car : racingCar.keySet()){
             String dashes = "-".repeat(racingCar.get(car));
             System.out.println(car + " : " + dashes);
