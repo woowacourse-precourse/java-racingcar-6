@@ -21,7 +21,7 @@ public class GameController {
         OutputView.printExecutionResultMessage();
 
         for (int i = 0; i < attemptCount; i++) {
-            race.moveAllCarsForward();
+            race.moveAllCarsForwardWithRandom();
             race.displayAllCarsPosition();
         }
 

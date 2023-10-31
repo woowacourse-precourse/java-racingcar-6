@@ -18,15 +18,19 @@ public class Race {
         setCarsFromNames(carNames);
     }
 
-    public void moveAllCarsForward() {
+    public void moveAllCarsForwardWithRandom() {
         for (Car car : cars) {
             int randomValue = Randoms.pickNumberInRange(
                     RANDOM_MINIMUM_RANGE.getValue(),
                     RANDOM_MAXIMUM_RANGE.getValue());
 
-            if (randomValue >= MINIMUM_NUMBER_FOR_FORWARD.getValue()) {
-                car.forward();
-            }
+            carForward(car, randomValue);
+        }
+    }
+
+    public void carForward(Car car, int value) {
+        if (value >= MINIMUM_NUMBER_FOR_FORWARD.getValue()) {
+            car.forward();
         }
     }
 
