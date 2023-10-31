@@ -30,4 +30,33 @@ class RacingCarGameManageTest {
         assertThat(playerRandomNumber.get("jk")).isBetween(0, 9);
         assertThat(playerRandomNumber.get("woni")).isBetween(0, 9);
     }
+
+    @DisplayName("단독 우승자인 경우")
+    @Test
+    void getWinner_One() {
+        HashMap<String, Integer> playerRandomNumber = new HashMap<>();
+        playerRandomNumber.put("pobi", 4);
+        playerRandomNumber.put("jk", 5);
+        playerRandomNumber.put("woni", 6);
+
+        ArrayList<String> winnerList = racingCarGameManage.getWinner(playerRandomNumber);
+
+        assertThat(winnerList.get(0)).isEqualTo("woni");
+        assertThat(winnerList.size()).isEqualTo(1);
+    }
+
+    @DisplayName("공동 우승자인 경우")
+    @Test
+    void getWinner_Two() {
+        HashMap<String, Integer> playerRandomNumber = new HashMap<>();
+        playerRandomNumber.put("pobi", 4);
+        playerRandomNumber.put("jk", 4);
+        playerRandomNumber.put("woni", 3);
+
+        ArrayList<String> winnerList = racingCarGameManage.getWinner(playerRandomNumber);
+
+        assertThat(winnerList.get(0)).isEqualTo("jk");
+        assertThat(winnerList.get(1)).isEqualTo("pobi");
+        assertThat(winnerList.size()).isEqualTo(2);
+    }
 }
