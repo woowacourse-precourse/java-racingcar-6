@@ -8,7 +8,8 @@ public enum Message {
     ERROR_EMPTY_CAR_NAME_MESSAGE("공백을 입력할 수는 없습니다."),
     ERROR_INVALID_CAR_NAME_LENGTH_MESSAGE("자동차 이름은 5자 이하로만 가능합니다."),
     ERROR_DUPLICATE_CAR_NAME_MESSAGE("중복된 자동차 이름이 있습니다."),
-    ERROR_NON_NUMBERIC_MOVE_COUNT_MESSAGE("숫자만 입력 가능합니다.");
+    ERROR_NON_NUMBERIC_MOVE_COUNT_MESSAGE("숫자만 입력 가능합니다."),
+    ERROR_NON_NEGATIVE_MOVE_COUNT_MESSAGE("양수값만 입력해주세요");
     private final String message;
 
     Message(String message) {

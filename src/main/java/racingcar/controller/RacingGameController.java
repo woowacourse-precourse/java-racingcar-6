@@ -23,6 +23,7 @@ public class RacingGameController {
         String moveCountStr = InputView.inputMovesCount();
         InputValidator.validateEmptyInput(moveCountStr);
         int moveCount = InputValidator.validateNonNumeric(moveCountStr);
+        InputValidator.validateNegativeInput(moveCount);
 
         playGame(moveCount);
         displayWinners();

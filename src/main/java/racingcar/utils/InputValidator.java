@@ -29,4 +29,10 @@ public class InputValidator {
             throw new IllegalArgumentException(Message.ERROR_NON_NUMBERIC_MOVE_COUNT_MESSAGE.getMessage());
         }
     }
+
+    public static void validateNegativeInput(int input) {
+        if (input < 0) {
+            throw new IllegalArgumentException(Message.ERROR_NON_NEGATIVE_MOVE_COUNT_MESSAGE.getMessage());
+        }
+    }
 }
