@@ -1,7 +1,7 @@
 package racingcar.domain.game;
 
-import racingcar.utils.NumberGenerator;
-import racingcar.utils.RandomNumberGenerator;
+import racingcar.utils.generator.NumberGenerator;
+import racingcar.utils.generator.RandomNumberGenerator;
 import racingcar.view.ConsoleInputView;
 import racingcar.view.ConsoleOutputView;
 import racingcar.view.InputView;

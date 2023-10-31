@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.utils.generator;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;

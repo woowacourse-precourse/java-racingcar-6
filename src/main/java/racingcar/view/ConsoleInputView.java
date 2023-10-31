@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.utils.InputValidator;
+import racingcar.utils.validator.InputValidator;
 
 public class ConsoleInputView implements InputView {
     private static ConsoleInputView instance;

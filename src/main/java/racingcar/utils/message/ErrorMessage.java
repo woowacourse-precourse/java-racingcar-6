@@ -1,4 +1,4 @@
-package racingcar.utils;
+package racingcar.utils.message;
 
 public enum ErrorMessage {
     INVALID_NAME_CONDITION("이름은 공백 없는 1~5자의 영어 또는 한글이어야 합니다."),

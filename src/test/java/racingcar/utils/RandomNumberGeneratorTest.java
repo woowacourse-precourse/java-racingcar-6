@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
+import racingcar.utils.generator.RandomNumberGenerator;
 
 public class RandomNumberGeneratorTest {
     final static int TEST_NUMBER = 5;

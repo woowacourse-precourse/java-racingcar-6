@@ -1,9 +1,10 @@
-package racingcar.utils;
+package racingcar.utils.validator;
 
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
+import racingcar.utils.message.ErrorMessage;
 
 public class CarValidator {
     private static final int MINIMUM_CARS_SIZE = 2;

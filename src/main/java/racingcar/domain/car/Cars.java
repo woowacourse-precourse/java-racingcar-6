@@ -3,7 +3,7 @@ package racingcar.domain.car;
 import java.util.Collections;
 import java.util.List;
 import racingcar.mapper.CarMapper;
-import racingcar.utils.CarValidator;
+import racingcar.utils.validator.CarValidator;
 
 public class Cars {
     private List<Car> cars;

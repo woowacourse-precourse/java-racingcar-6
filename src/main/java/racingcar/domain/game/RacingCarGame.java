@@ -1,9 +1,8 @@
 package racingcar.domain.game;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import racingcar.domain.car.Cars;
-import racingcar.utils.NumberGenerator;
+import racingcar.utils.generator.NumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

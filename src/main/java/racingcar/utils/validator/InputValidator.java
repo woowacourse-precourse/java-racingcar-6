@@ -1,4 +1,6 @@
-package racingcar.utils;
+package racingcar.utils.validator;
+
+import racingcar.utils.message.ErrorMessage;
 
 public class InputValidator {
     private static final String INPUT_NAMES_PATTERN = "^[a-zA-Z가-힣]+(,[a-zA-Z가-힣]+)*$";

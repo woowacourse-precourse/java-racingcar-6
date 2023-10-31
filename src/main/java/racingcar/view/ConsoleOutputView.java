@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import racingcar.domain.car.CarDto;
-import racingcar.utils.GameMessage;
+import racingcar.utils.message.GameMessage;
 
 public class ConsoleOutputView implements OutputView {
     private static ConsoleOutputView instance;
