@@ -1,5 +1,12 @@
 package racingcar.model;
 
+import static racingcar.util.Message.COUNT_MUST_INT;
+import static racingcar.util.Message.COUNT_MUST_POSITIVE_INT;
+import static racingcar.util.Message.NAME_LIMIT_LENGTH;
+import static racingcar.util.Message.NAME_MUST_SIZE;
+import static racingcar.util.Message.NAME_NO_DISTINCT;
+import static racingcar.util.Message.NAME_NO_WHITESPACE;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +23,7 @@ public class Validation {
     private static void nameLimitLength(List<Cars> cars) {
         for (Cars car : cars) {
             if (car.getName().length() > 5) {
-                throw new IllegalArgumentException("이름은 5자리 이하만 가능");
+                throw new IllegalArgumentException(NAME_LIMIT_LENGTH);
             }
         }
     }
@@ -29,13 +36,13 @@ public class Validation {
         }
 
         if (set.size() != cars.size()) {
-            throw new IllegalArgumentException("이름은 중복될 수 없습니다");
+            throw new IllegalArgumentException(NAME_NO_DISTINCT);
         }
     }
 
     private static void nameMustSize(List<Cars> cars) {
         if (cars.size() < 1) {
-            throw new IllegalArgumentException("한 대 이상의 자동차가 있어야 합니다.");
+            throw new IllegalArgumentException(NAME_MUST_SIZE);
         }
     }
 
@@ -44,7 +51,7 @@ public class Validation {
                 .filter(car -> car.getName().trim().isEmpty())
                 .findFirst()
                 .ifPresent(car -> {
-                    throw new IllegalArgumentException("공백은 이름이 될 수 없습니다.");
+                    throw new IllegalArgumentException(NAME_NO_WHITESPACE);
                 });
     }
 
@@ -54,11 +61,11 @@ public class Validation {
         try {
             result = Integer.parseInt(count);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("회수는 정수만 입력 가능합니다.");
+            throw new IllegalArgumentException(COUNT_MUST_INT);
         }
 
         if (result <= 0) {
-            throw new IllegalArgumentException("회수는 양의 정수만 입력 가능합니다.");
+            throw new IllegalArgumentException(COUNT_MUST_POSITIVE_INT);
         }
     }
 }

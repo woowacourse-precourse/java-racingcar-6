@@ -1,6 +1,12 @@
 package racingcar.model;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static racingcar.util.Message.COUNT_MUST_INT;
+import static racingcar.util.Message.COUNT_MUST_POSITIVE_INT;
+import static racingcar.util.Message.NAME_LIMIT_LENGTH;
+import static racingcar.util.Message.NAME_MUST_SIZE;
+import static racingcar.util.Message.NAME_NO_DISTINCT;
+import static racingcar.util.Message.NAME_NO_WHITESPACE;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +21,7 @@ class ValidationTest {
 
         assertThatThrownBy(() -> Validation.name(input1))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("이름은 5자리 이하만 가능");
+                .hasMessageContaining(NAME_LIMIT_LENGTH);
     }
 
     @Test
@@ -24,7 +30,7 @@ class ValidationTest {
 
         assertThatThrownBy(() -> Validation.name(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("이름은 중복될 수 없습니다");
+                .hasMessageContaining(NAME_NO_DISTINCT);
     }
 
     @Test
@@ -33,7 +39,7 @@ class ValidationTest {
 
         assertThatThrownBy(() -> Validation.name(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("한 대 이상의 자동차가 있어야 합니다.");
+                .hasMessageContaining(NAME_MUST_SIZE);
     }
 
     @Test
@@ -42,7 +48,7 @@ class ValidationTest {
 
         assertThatThrownBy(() -> Validation.name(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("공백은 이름이 될 수 없습니다.");
+                .hasMessageContaining(NAME_NO_WHITESPACE);
     }
 
     @Test
@@ -52,10 +58,10 @@ class ValidationTest {
 
         assertThatThrownBy(() -> Validation.isPositiveInt(input1))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("회수는 정수만 입력 가능합니다.");
+                .hasMessageContaining(COUNT_MUST_INT);
 
         assertThatThrownBy(() -> Validation.isPositiveInt(input2))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("회수는 양의 정수만 입력 가능합니다.");
+                .hasMessageContaining(COUNT_MUST_POSITIVE_INT);
     }
 }

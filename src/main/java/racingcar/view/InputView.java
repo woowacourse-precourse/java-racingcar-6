@@ -1,16 +1,19 @@
 package racingcar.view;
 
+import static racingcar.util.Message.INPUT_CAR_NAME;
+import static racingcar.util.Message.INPUT_PLAY_COUNT;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
 
     public static String carName() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(INPUT_CAR_NAME);
         return Console.readLine();
     }
 
     public static String playCount() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        System.out.println(INPUT_PLAY_COUNT);
         String input = Console.readLine();
         System.out.println();
 
