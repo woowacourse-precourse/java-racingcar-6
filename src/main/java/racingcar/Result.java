@@ -30,8 +30,5 @@ public class Result {
 
         String lastString = String.join(", ", finalWinnerList);
         return lastString;
-
     }
-
-
 }
