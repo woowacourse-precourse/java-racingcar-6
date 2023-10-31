@@ -1,15 +1,20 @@
 package racingcar.input;
 
+import static racingcar.util.ErrorMessage.*;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
 public class ConsoleInput implements Input{
 
+    private static final String NUMBER_REGEX = "^[1-9][0-9]*$";
+    private static final String CAR_NAME_SPLIT_PREFIX = ",";
+
     @Override
     public List<String> inputRacingCarNames() {
         String racingCarNamesInput = Console.readLine();
-        List<String> carNames = Arrays.stream(racingCarNamesInput.split(","))
+        List<String> carNames = Arrays.stream(racingCarNamesInput.split(CAR_NAME_SPLIT_PREFIX))
                 .map(String::trim)
                 .toList();
 
@@ -28,13 +33,13 @@ public class ConsoleInput implements Input{
 
     private void validateCarNameLength(String carName) {
         if (carName.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
+            throw new IllegalArgumentException(ILLEGAL_CAR_NAME_LENGTH);
         }
     }
 
     private void validateIsNumber(String movementForwardCountInput) {
-        if (!movementForwardCountInput.matches("^[1-9][0-9]*$")) {
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+        if (!movementForwardCountInput.matches(NUMBER_REGEX)) {
+            throw new IllegalArgumentException(NON_NUMBER);
         }
     }
 }

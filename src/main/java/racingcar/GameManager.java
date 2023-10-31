@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.util.DefaultOutputMessage.*;
+
 import java.util.List;
 import racingcar.domain.Referee;
 import racingcar.domain.driver.Car;
@@ -28,7 +30,7 @@ public class GameManager {
     }
 
     private List<Car> createCars() {
-        output.outputMessage("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+        output.outputMessage(REQUEST_CAR_NAME_INPUT);
         List<String> racingCarNames = input.inputRacingCarNames();
         return racingCarNames.stream()
                 .map(Car::new)
@@ -36,10 +38,10 @@ public class GameManager {
     }
 
     private void race(List<Driver> drivers) {
-        output.outputMessage("시도할 회수는 몇회인가요?\n");
+        output.outputMessage(REQUEST_MOVEMENT_FORWARD_COUNT_INPUT);
         int movementForwardCount = input.inputMovementForwardCount();
 
-        output.outputMessage("실행 결과\n");
+        output.outputMessage(MOVEMENT_FORWARD_RESULT);
         for (int count = 0; count < movementForwardCount; count++) {
             for (Driver driver : drivers) {
                 String movementResultMessage = driver.commandMovement();

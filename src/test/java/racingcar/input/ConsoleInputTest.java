@@ -1,6 +1,7 @@
 package racingcar.input;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.util.ErrorMessage.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -42,7 +43,7 @@ class ConsoleInputTest {
         //when //then
         assertThatThrownBy(input::inputRacingCarNames)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("자동차 이름은 5자 이하여야 합니다.");
+                .hasMessage(ILLEGAL_CAR_NAME_LENGTH);
     }
     
     @DisplayName("자동차 전진 시도 횟수를 입력받는다.")
@@ -71,7 +72,7 @@ class ConsoleInputTest {
         //when //then
         assertThatThrownBy(input::inputMovementForwardCount)
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("숫자만 입력 가능합니다.");
+                .hasMessage(NON_NUMBER);
     }
 
 }
