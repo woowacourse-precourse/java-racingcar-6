@@ -29,9 +29,10 @@ public class InputConverter {
         return Cars.from(cars);
     }
 
-    public int toTrial(String input) {
+    public TrialCount toTrialCount(String input) {
         inputValidator.validateNumericString(input);
-        return Integer.parseInt(input);
+        int trialCount = Integer.parseInt(input);
+        return TrialCount.from(trialCount);
     }
 
     public TrialCount converStringToTrialCount(String input) {
