@@ -26,10 +26,16 @@ public class RaceGameState {
         return stateOfEachCar;
     }
 
-
     private Map<String, Integer> convertListToMap(List<String> names){
         return names.stream()
                 .collect(Collectors.toMap(name -> name, name->0));
+    }
+
+    private String StringOfCurrentProgress(String name){
+        int currentProgress = stateOfEachCar.get(name);
+        String indicationChar = "-";
+        String repeatedIndicate = indicationChar.repeat(currentProgress);
+        return name + " : "+ repeatedIndicate +"\n";
     }
 
 
