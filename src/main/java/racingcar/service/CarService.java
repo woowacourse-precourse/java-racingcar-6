@@ -23,12 +23,15 @@ public class CarService {
             CarUtil.printNewLine();
         }
 
-        int max = -1;
-        List<String> winnerList = new ArrayList<>();
-        for (Car car : carList) {
+        int max = carList.get(0).getMoveDistance();
+        List<String> winnerList = new ArrayList<>(List.of(carList.get(0).getName()));
+        int size = carList.size();
+        for (int i = 1; i < size; i++) {
+            Car car = carList.get(i);
+
             if (max < car.getMoveDistance()) {
-                max = car.getMoveDistance();
                 winnerList.clear();
+                max = car.getMoveDistance();
                 winnerList.add(car.getName());
             } else if (max == car.getMoveDistance()) {
                 winnerList.add(car.getName());
