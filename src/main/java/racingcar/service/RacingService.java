@@ -17,13 +17,17 @@ public class RacingService {
     }
 
     public static void findWinner(List<Car> carList, List<String> winnerName) {
-        int maxProgress = carList.stream().map(car -> car.getProgress().length()).max(Comparator.comparing(x -> x))
-                .orElse(0);
+        int maxProgress = findMaxProgressInCarList(carList);
 
         for (Car car : carList) {
             if (car.getProgress().length() == maxProgress) {
                 winnerName.add(car.getName());
             }
         }
+    }
+
+    private static Integer findMaxProgressInCarList(List<Car> carList) {
+        return carList.stream().map(car -> car.getProgress().length()).max(Comparator.comparing(x -> x))
+                .orElse(0);
     }
 }
