@@ -24,4 +24,15 @@ class RacingCarTest {
         Assertions.assertThat(trueCnt + falseCnt).isEqualTo(tryCnt);
         Assertions.assertThat((double) trueCnt / tryCnt).isGreaterThan(0.6 - error);
     }
+
+    @Test
+    public void 자동차를_전진하는_기능() {
+        RacingCar racingCar = new RacingCar("dummy");
+        int initialDistance = racingCar.getMoveDistance();
+        for (int i = 0; i < 6; i++) {
+            racingCar.moveForward();
+        }
+
+        Assertions.assertThat(racingCar.getMoveDistance()).isEqualTo(initialDistance + 6);
+    }
 }
