@@ -4,9 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Method;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class InputValidationTest {
@@ -119,6 +116,19 @@ class InputValidationTest {
         Assertions.assertThat(fourName.length).isEqualTo(4);
         Assertions.assertThat(fourName[3]).isEqualTo("a b c");
         Assertions.assertThat(fourName[3].length()).isEqualTo(5);
+    }
+
+    @Test
+    public void 조건에_맞는_자동차_이름() throws Exception{
+        //given (주어진 값)
+        String names = "a,aa,aaa,aaaa,aaaaa,b,bb,bbb,bbbb,ccccc";
+
+        //when (기능 작동)
+        String[] carNames = inputValidation.checkedInputValidation(names);
+
+        //then (기능 작동 후 결과)
+        Assertions.assertThat(carNames.length).isEqualTo(10);
+        Assertions.assertThat(carNames[4]).isEqualTo("aaaaa");
     }
 
     @Test
