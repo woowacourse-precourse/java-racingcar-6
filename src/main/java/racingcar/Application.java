@@ -28,6 +28,7 @@ public class Application {
         for (int i = 0; i < number; i++) {
 
             System.out.println("실행 결과");
+
             for(int j = 0; j < cars.length; j++) {
 
                 System.out.print(cars[j] + " : ");
@@ -36,9 +37,7 @@ public class Application {
                 if (eligibility > 3) {
                     raceList[j] += 1;
                 }
-
                 System.out.println("-".repeat(raceList[j]));
-
             }
         }
         Map<String, Integer> carRaces = new HashMap<>();
@@ -46,6 +45,7 @@ public class Application {
         for (int i = 0; i< cars.length; i++) {
                 carRaces.put(cars[i], raceList[i]);
         }
+
         return carRaces;
     }
 

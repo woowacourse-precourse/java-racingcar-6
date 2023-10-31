@@ -26,3 +26,7 @@
   
 ### 3. 수정사항  
 ✅ 자동차 경주 게임을 진행할 run() 메소드 추가 구현
+✅ checkCarEligibility() 메소드 수정 : 경주 자동차의 이름과 해당 자동차의 경주 결과를 Map으로 반환하도록 수정  
+  
+### 4. 리팩토링
+✅ checkCarEligibility() 메소드를 startCarRace() 메소드로 이름 변경
