@@ -22,6 +22,8 @@ public class InputView {
         userInputException.validateUniqueCarName(carNames);
         userInputException.validateBlankCarName(carNames);
         userInputException.validateCarNameLength(carNames);
+        userInputException.validateEmptyCarName(carNames);
+        userInputException.validateSingleCarName(carNames);
     }
 
     public int getAttemptCount() {
