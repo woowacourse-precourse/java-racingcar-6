@@ -2,21 +2,34 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.NoSuchElementException;
+
 public class InputView {
 
     public String requestCarNameFromUser() {
-        return validate(Console.readLine());
+        try {
+            String input = Console.readLine();
+            validateBlankException(input);
+            return input;
+        } catch (NoSuchElementException e) {
+            throw new IllegalArgumentException("입력값이 존재하지 않습니다. 자동차 이름을 입력해주세요.");
+        }
     }
 
     public String requestRacingRoundCountFromUser() {
-        return validate(Console.readLine());
+        try {
+            String input = Console.readLine();
+            validateBlankException(input);
+            return input.trim();
+        } catch (NoSuchElementException e) {
+            throw new IllegalArgumentException("입력값이 존재하지 않습니다. 시도할 횟수를 입력해주세요.");
+        }
     }
 
-    private String validate(String input) {
-        // String 에서 빈 값은 null 이 아니라 "" 빈 공백값으로 치환 되지만, 명시적으로 null 도 체크해준다.
-        if (input == null || input.trim().isEmpty()) {
+    // Console.readLine 은 입력값이 ""에 대한 것만 NoSuchElementException 예외를 던진다.
+    private void validateBlankException(String input) {
+        if (input.isBlank()) {
             throw new IllegalArgumentException("입력은 필수 사항 입니다.");
         }
-        return input;
     }
 }
