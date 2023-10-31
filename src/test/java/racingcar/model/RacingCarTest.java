@@ -13,6 +13,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 class RacingCarTest {
+    @DisplayName("자동차를 생성할 수 있다")
+    @Test
+    void init(){
+        RacingCar racingCar = new RacingCar("pobi");
+        assertThat(racingCar).isInstanceOf(RacingCar.class);
+    }
+    @DisplayName("이름이 같다면 동일한 자동차로 인식한다.")
+    @Test
+    void equals(){
+        RacingCar expected = new RacingCar("pobi");
+        assertThat(new RacingCar("pobi")).isEqualTo(expected);
+    }
 
     @ParameterizedTest
     @DisplayName("자동차의 이름이 없거나, 5자 이하가 아닐 시 예외가 발생한다.")
@@ -32,13 +44,6 @@ class RacingCarTest {
                 () -> assertThat(racingCar.apply(stop)).isEqualTo(CarStatus.STOP),
                 () -> assertThat(racingCar.apply(forward)).isEqualTo(CarStatus.FORWARD)
         );
-    }
-
-    @DisplayName("이름이 같다면 동일한 자동차로 인식한다.")
-    @Test
-    void equals(){
-        RacingCar expected = new RacingCar("pobi");
-        assertThat(new RacingCar("pobi")).isEqualTo(expected);
     }
 
 
