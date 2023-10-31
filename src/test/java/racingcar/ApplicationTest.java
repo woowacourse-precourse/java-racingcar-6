@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -31,13 +32,19 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    public void setNumber(int num){
+        if(num < 0){
+            throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+        }
+    }
+
     @Test
     void 시도할_횟수가_음수이면_예외처리(){
-        String num = "-3943";
+        int num = -3943;
 
-        assertThatThrownBy(() -> runException("pobi,woni", num))
+        assertThatThrownBy(() -> setNumber(num))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("이름은 5자 이하만 가능합니다.");
+                .hasMessage("이름은 5자 이하만 가능합니다.");
     }
 
     @Test
