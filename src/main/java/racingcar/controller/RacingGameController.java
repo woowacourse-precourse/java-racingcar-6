@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.domain.CarsFactory;
 import racingcar.domain.Cars;
 import racingcar.dto.RacingGameStatus;
 import racingcar.domain.RacingGame;
@@ -17,7 +16,7 @@ public class RacingGameController {
 
     public void play() {
         List<String> carNames = view.getCarNames();
-        Cars cars = CarsFactory.createRacingCars(carNames);
+        Cars cars = Cars.createCarsUsingCarNames(carNames);
         RacingGame racingGame = new RacingGame(cars);
 
         int raceCount = view.getRaceCount();

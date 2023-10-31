@@ -10,8 +10,16 @@ import racingcar.dto.WinnerNames;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(List<Car> cars) {
+    private Cars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public static Cars createCarsUsingCarNames(List<String> carNames) {
+        List<Car> cars = carNames.stream()
+                .map(Car::new)
+                .toList();
+
+        return new Cars(cars);
     }
 
     public RaceStatus driveCarsByRule(BooleanSupplier raceRule) {
