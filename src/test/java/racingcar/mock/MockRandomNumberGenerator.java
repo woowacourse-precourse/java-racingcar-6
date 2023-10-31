@@ -1,6 +1,7 @@
-package racingcar;
+package racingcar.mock;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;

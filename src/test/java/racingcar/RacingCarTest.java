@@ -2,6 +2,8 @@ package racingcar;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.mock.MockRacingCarGameFactory;
+import racingcar.mock.MockRandomNumberGenerator;
 import racingcar.validator.RacingCarValidator;
 
 import static org.assertj.core.api.Assertions.assertThat;

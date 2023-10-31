@@ -3,8 +3,8 @@ package racingcar;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.validator.RacingCarGameMachineValidator;
-import racingcar.validator.RacingCarValidator;
+import racingcar.mock.MockRacingCarGameFactory;
+import racingcar.mock.MockRandomNumberGenerator;
 
 public class RacingCarGameMachineTest {
     private static final RacingCarGameFactory racingCarGameFactory = new MockRacingCarGameFactory();

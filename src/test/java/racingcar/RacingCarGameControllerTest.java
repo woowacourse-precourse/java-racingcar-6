@@ -3,6 +3,9 @@ package racingcar;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.mock.MockInputView;
+import racingcar.mock.MockOutputView;
+import racingcar.mock.MockRacingCarGameFactory;
 
 public class RacingCarGameControllerTest {
     private static final RacingCarGameFactory racingCarGameFactory = new MockRacingCarGameFactory();

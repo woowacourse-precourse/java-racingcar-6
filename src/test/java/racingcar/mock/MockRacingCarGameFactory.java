@@ -1,5 +1,8 @@
-package racingcar;
+package racingcar.mock;
 
+import racingcar.RacingCarGameFactory;
+import racingcar.RandomNumberGenerator;
+import racingcar.TimeSleepStrategy;
 import racingcar.validator.RacingCarGameMachineValidator;
 import racingcar.validator.RacingCarValidator;
 import racingcar.view.InputView;

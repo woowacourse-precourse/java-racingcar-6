@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.mock;
+
+import racingcar.TimeSleepStrategy;
 
 public class MockTimeSleepStrategy implements TimeSleepStrategy {
     private final static MockTimeSleepStrategy INSTANCE = new MockTimeSleepStrategy();

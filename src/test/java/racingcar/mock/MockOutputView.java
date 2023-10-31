@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.mock;
 
 import racingcar.view.OutputView;
 
