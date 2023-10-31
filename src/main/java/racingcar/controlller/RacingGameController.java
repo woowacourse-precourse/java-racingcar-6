@@ -1,10 +1,12 @@
 package racingcar.controlller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.RoundCounter;
+import racingcar.utils.Parser;
 
 public class RacingGameController {
     private boolean isRunning;
@@ -23,10 +25,21 @@ public class RacingGameController {
     }
 
     public void startGame() {
-        cars = InputController.scanCars();
-        roundCounter = InputController.scanRoundCounter();
+        cars = createCars(InputController.scanCarNames());
+        roundCounter = createRoundCounter(InputController.scanTotalNumberOfRounds());
 
         playAllRounds();
+    }
+
+    private Cars createCars(String userInput) {
+        List<Car> carList = new ArrayList<>();
+        Parser.parseWithComma(userInput)
+                .forEach(name -> carList.add(new Car(name)));
+        return new Cars(carList);
+    }
+
+    private RoundCounter createRoundCounter(String userInput) {
+        return new RoundCounter(Integer.parseInt(userInput));
     }
 
     private void playAllRounds() {
