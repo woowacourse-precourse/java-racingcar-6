@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domain.car.Cars;
 import racingcar.domain.car.CarsGenerator;
 import racingcar.domain.messenger.Messenger;
+import racingcar.domain.messenger.MessengerConstants;
 import racingcar.domain.round.Round;
 import racingcar.domain.car.strategy.CarMovementStrategy;
 import racingcar.domain.car.strategy.MoveForwardOnceRandomlyStrategy;
@@ -53,7 +54,7 @@ public class RacingGame implements Game {
 
     private void inputCars() {
         String namesString = inputView.input();
-        List<String> names = Convertor.split(namesString, Messenger.CAR_NAMES_DELIMITER);
+        List<String> names = Convertor.split(namesString, MessengerConstants.CAR_NAMES_DELIMITER);
         cars = carsGenerator.generateCarsFromNames(names);
     }
 
