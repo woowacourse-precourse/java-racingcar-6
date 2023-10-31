@@ -7,6 +7,7 @@ import java.util.List;
 public class CarCreator {
 
     private static final String DELIMITER = ",";
+    private static final int ONE_TIME = 1;
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
     public static List<String> splitCarNamesString(String carNamesString) {
@@ -29,7 +30,7 @@ public class CarCreator {
 
     private static void validateCarName(String carName, List<String> carNames) {
         if (carName.isEmpty() || carName.length() > MAX_CAR_NAME_LENGTH
-                || Collections.frequency(carNames, carName) > 1) {
+                || Collections.frequency(carNames, carName) > ONE_TIME) {
             throw new IllegalArgumentException();
         }
     }
