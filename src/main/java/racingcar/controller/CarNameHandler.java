@@ -8,13 +8,14 @@ public class CarNameHandler implements UserInputHandler<Iterator<String>> {
 
     static private final int MAX_CAR_NAME_LENGTH = 5;
 
-    public CarNameHandler(){
-        carNameList = new ArrayList<>();
-    }
+    public CarNameHandler(){}
 
     @Override
     public void handle(String rawCarNames){
-        for (String rawCarName: rawCarNames.split(",")){
+        String[] rawCarNameArray = rawCarNames.split(",");
+        carNameList = new ArrayList<>(rawCarNameArray.length);
+
+        for (String rawCarName: rawCarNameArray){
             String trimmedCarName = getTrimmedCarName(rawCarName);
 
             isCarNameEmpty(trimmedCarName);
@@ -27,11 +28,13 @@ public class CarNameHandler implements UserInputHandler<Iterator<String>> {
     private String getTrimmedCarName(String carName){
         return carName.trim();
     }
+
     private void isCarNameEmpty(String carName){
         if (carName.isEmpty()){
             throw new IllegalArgumentException();
         }
     }
+
     private void isValidLength(String carName){
         if (carName.length() > MAX_CAR_NAME_LENGTH){
             throw new IllegalArgumentException();
