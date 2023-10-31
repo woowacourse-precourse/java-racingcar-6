@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarList {
-    private RandomUtil randomUtil;
+    private RandomUtil randomUtil = new RandomNumber();
     private final List<String> carNameList;
     private List<Car> carList = new ArrayList<>();
 
-    public CarList(List<String> carNameList, RandomUtil randomUtil) {
+    public CarList(List<String> carNameList) {
         this.carNameList = carNameList;
-        this.randomUtil = randomUtil;
         createCarList();
     }
 
@@ -26,7 +25,7 @@ public class CarList {
         }
     }
 
-    public String translateRacingCarResult() {
+    public String showCarList() {
         StringBuilder translatedResult = new StringBuilder();
         int size = carList.size();
         for (int carNumber = 0; carNumber < size; carNumber++) {
@@ -34,17 +33,10 @@ public class CarList {
             translatedResult
                     .append(car.getName())
                     .append(" : ")
-                    .append(translatePosition(car.getPosition()))
+                    .append("-".repeat(car.getPosition()))
                     .append(newLine(carNumber));
         }
         return translatedResult.toString();
-    }
-
-    private String translatePosition(int position) {
-        if (position == 0) {
-            return "";
-        }
-        return "-".repeat(position);
     }
 
     private String newLine(int carNumber) {
@@ -54,7 +46,7 @@ public class CarList {
         return "";
     }
 
-    public String translateMaxPositionCars() {
+    public String findMaxPositionCars() {
         int maxPosition = findMaxPosition();
         StringBuilder translatedMaxPositionCars = new StringBuilder();
         for (int i = 0; i < carList.size(); i++) {

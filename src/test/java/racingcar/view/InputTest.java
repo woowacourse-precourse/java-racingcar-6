@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RacingCarController;
 import racingcar.model.RacingCarService;
@@ -14,6 +15,11 @@ import racingcar.model.RacingCarService;
 public class InputTest {
     RacingCarService service = new RacingCarService();
     RacingCarController controller = new RacingCarController();
+
+    @AfterEach
+    void restoresStreams() {
+        System.setIn(System.in);
+    }
 
     @Test
     void 사용자_입력에서_자동차_이름을_추출한다() {
@@ -31,19 +37,15 @@ public class InputTest {
         String userInput = "ab,ab, c";
         List<String> carNameList = service.createCarNameList(userInput);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            service.createCarList(carNameList);
-        });
+        assertThrows(IllegalArgumentException.class, () -> service.createCarList(carNameList));
     }
 
     @Test
     void 공백은_자동차_이름이_될수없다() {
-        String userInput = ", ,,";
+        String userInput = " , ,,   ,";
         List<String> carNameList = service.createCarNameList(userInput);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            service.createCarList(carNameList);
-        });
+        assertThrows(IllegalArgumentException.class, () -> service.createCarList(carNameList));
     }
 
     @Test
@@ -51,16 +53,14 @@ public class InputTest {
         String userInput = "ababab, c, d";
         List<String> carNameList = service.createCarNameList(userInput);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            service.createCarList(carNameList);
-        });
+        assertThrows(IllegalArgumentException.class, () -> service.createCarList(carNameList));
     }
 
     @Test
     void 시도횟수는_정수다() {
         String userInput = "a,b,c" + "\n" + "2.25";
         System.setIn(new ByteArrayInputStream(userInput.getBytes()));
-        assertThatThrownBy(controller::racingCar)
+        assertThatThrownBy(controller::racing)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

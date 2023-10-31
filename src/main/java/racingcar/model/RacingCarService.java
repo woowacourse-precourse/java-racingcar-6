@@ -3,16 +3,9 @@ package racingcar.model;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.car.CarList;
-import racingcar.model.car.RandomNumber;
-import racingcar.model.car.RandomUtil;
 
 public class RacingCarService {
-    private RandomUtil randomUtil = new RandomNumber();
     private CarList carList;
-
-    public CarList getCarList() {
-        return carList;
-    }
 
     public Integer parsingTryNumber(String userInputTryNumber) {
         InputValidator.validateNumber(userInputTryNumber);
@@ -27,18 +20,18 @@ public class RacingCarService {
         InputValidator.validateEmptyName(carNameList);
         InputValidator.validateNameLength(carNameList);
         InputValidator.validateDuplication(carNameList);
-        carList = new CarList(carNameList, randomUtil);
+        carList = new CarList(carNameList);
     }
 
-    public void raceOneStep() {
+    public void move() {
         carList.move();
     }
 
-    public String raceOneStepResult() {
-        return carList.translateRacingCarResult();
+    public String racingResult() {
+        return carList.showCarList();
     }
 
-    public String findWinnerByCarPosition() {
-        return carList.translateMaxPositionCars();
+    public String findWinner() {
+        return carList.findMaxPositionCars();
     }
 }

@@ -8,7 +8,6 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
 import racingcar.model.car.Car;
-import racingcar.model.car.CarList;
 
 public class RacingCarTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -27,36 +26,28 @@ public class RacingCarTest extends NsTest {
     }
 
     @Test
-    void 전진_안한_자동차_출력() {
+    void 전진_안한_자동차는_아무것도_출력하지_않는다() {
         //given
         String userInputCarNames = "a";
         List<String> carNameList = service.createCarNameList(userInputCarNames);
         service.createCarList(carNameList);
 
         //when
-        CarList carList = service.getCarList();
+        String racingResult = service.racingResult();
 
         //then
-        assertThat(carList.translateRacingCarResult()).isEqualTo(userInputCarNames + " : ");
+        assertThat(racingResult).isEqualTo(userInputCarNames + " : ");
     }
 
     @Test
-    void 한번이상_전진한_결과() {
-        //given
-        String userInputCarNames = "a";
-        String userInputTryNumber = "2";
-        int tryNumber = service.parsingTryNumber(userInputTryNumber);
-        List<String> carNameList = service.createCarNameList(userInputCarNames);
-
-        //when
-        CarList carList = new CarList(carNameList, ((minBound, maxBound) -> 4));
-        for (int i = 0; i < tryNumber; i++) {
-            carList.move();
-        }
-
-        //then
-        assertThat(carList.translateRacingCarResult())
-                .isEqualTo(userInputCarNames + " : " + "-".repeat(tryNumber));
+    void 한번이상_전진후_결과_변환() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("a", "2");
+                    assertThat(output()).contains("a : --");
+                },
+                MOVING_FORWARD
+        );
     }
 
     @Test

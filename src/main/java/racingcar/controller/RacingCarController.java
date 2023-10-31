@@ -19,7 +19,7 @@ public class RacingCarController {
         return inputView.getUserInput();
     }
 
-    public void racingCar() {
+    public void racing() {
         String userInputCarNames = userInputCarNames();
         String userInputTryNumber = userInputTryNumber();
         Integer tryNumber = service.parsingTryNumber(userInputTryNumber);
@@ -28,17 +28,17 @@ public class RacingCarController {
         OutputView.racingResultMessage();
 
         if (tryNumber == 0) {
-            OutputView.racingResult(service.raceOneStepResult()+"\n");
+            OutputView.racingResult(service.racingResult() + "\n");
         }
         for (int step = 0; step < tryNumber; step++) {
-            service.raceOneStep();
-            OutputView.racingResult(service.raceOneStepResult()+"\n");
+            service.move();
+            OutputView.racingResult(service.racingResult() + "\n");
         }
 
         findWinner();
     }
 
     private void findWinner() {
-        OutputView.winnerMessage(service.findWinnerByCarPosition());
+        OutputView.winnerMessage(service.findWinner());
     }
 }
