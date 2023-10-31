@@ -28,8 +28,16 @@ public class Car {
         return MOVE_STRING.repeat(this.moveCount);
     }
 
+    public boolean isWinner(int maxMoveCount) {
+        return this.moveCount == maxMoveCount;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
     }
 
     private boolean isMoving(int number) {
