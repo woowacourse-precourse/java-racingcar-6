@@ -42,7 +42,7 @@
 ## 클래스 목록
 - `Application` : 게임 시작  
 - `RacingController` : 게임 컨트롤러  
-- `RacingService` : 레이싱 진행에 사용되는 
+- `RacingService` : 레이싱 진행에 사용되는 메소드를 갖는 클래스
 - 📂 *constant*
   - `CarStatus` : 이동, 중지 enum
   - `MagicNumber` : 요구사항 관련 매직넘버 enum
