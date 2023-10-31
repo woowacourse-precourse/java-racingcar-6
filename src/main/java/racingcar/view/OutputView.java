@@ -15,7 +15,7 @@ public class OutputView {
         System.out.println(result);
     }
 
-    public void outputMoving() {
+    public void outputMovingRecord() {
         for (Car car : CarRepository.cars()) {
             outputCarNameWithScope(car);
             outputMovingSymbol(car.getMoveCount());

@@ -26,12 +26,9 @@ public class MainController {
     }
 
     public void start() {
-        initializeCar();                        // Car 객체 생성
-        int tryCount = inputTryToMoveCar();     // 이동을 시도할 횟수 입력
-        for (int i = 0; i < tryCount; i++) {
-            moveCar();                          // 자동차 이동
-        }
-        determineWinner();                      // 순위 매기기 (우승자 발표)
+        initializeCar();         // Car 객체 생성
+        moveCar();               // 자동차 이동
+        determineWinner();       // 순위 매기기 (우승자 발표)
     }
 
     private void determineWinner() {
@@ -45,9 +42,5 @@ public class MainController {
 
     private void initializeCar() {
         initializeCarController.initializeCar();
-    }
-
-    private int inputTryToMoveCar() {
-        return inputView.inputTryToMoveCar();
     }
 }
