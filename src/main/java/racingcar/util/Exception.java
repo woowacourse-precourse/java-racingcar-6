@@ -11,6 +11,7 @@ public class Exception {
         checkCarNameLengthAndSpaceThrowException(carNameList);
         checkEmptyAndThrowException(input);
         checkCarNameListDuplicationAndThrowException(carNameList);
+        checkLastIndexAndThrowException(input);
     }
 
     public void checkNumberOfPlayCountInput(String input) throws IllegalArgumentException {
