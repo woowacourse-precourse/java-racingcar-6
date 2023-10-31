@@ -25,4 +25,10 @@ public class GameController {
         }
     }
 
+    public void finish() {
+        game.findWinners();
+        gameView.printResult();
+        gameView.printWinners(game);
+    }
+
 }
