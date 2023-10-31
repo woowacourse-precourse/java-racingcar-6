@@ -2,7 +2,11 @@ package racingcar.output;
 
 public class Output {
 
-    public void message(String message) {
-        System.out.println(message);
+    public void print(Object object) {
+        System.out.println(object);
+    }
+
+    public void printEnter() {
+        System.out.println();
     }
 }

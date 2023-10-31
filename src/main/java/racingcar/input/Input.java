@@ -24,7 +24,7 @@ public class Input {
     }
 
     private String read(String message) {
-        output.message(message);
+        output.print(message);
         return Console.readLine();
     }
 }
