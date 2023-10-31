@@ -40,7 +40,7 @@
     - [CarMoveManagerTest.java](#CarMoveManagerTest.java)
   - [UtilTest](#UtilTest)
     - [CarNameValidatorTest.java](#CarNameValidatorTest.java)
-    
+    - [MoveCountValidatorTest.java](#MoveCountValidatorTest.java)
 
 ---
 # Application.java
@@ -188,3 +188,10 @@
   - 중복 검사
   - 공백 포함 여부 검사
 - 정상 입력값 검사
+
+
+### MoveCountValidatorTest.java
+- 비정상 입력값
+  - 자연수 검사
+  - 0 입력 검사
+- 정상 입력값
