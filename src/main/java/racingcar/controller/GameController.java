@@ -24,12 +24,10 @@ public class GameController {
     public GameController(
             final InputView inputView,
             final OutputView outputView,
-            final MovingStrategy movingStrategy,
-            final Cars cars) {
+            final MovingStrategy movingStrategy) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.movingStrategy = movingStrategy;
-        this.cars = cars;
     }
 
     // 프로그램 전체 흐름을 파악할 수 있는 형식으로 작성하기
@@ -37,6 +35,7 @@ public class GameController {
         // Cars 생성
         createCars();
         // 게임 라운드 받기
+        createRaceRound();
         // 게임 라운드 만큼 실행
         // 결과 찾기 및 출력
     }
@@ -54,5 +53,10 @@ public class GameController {
         }
 
         return carList;
+    }
+
+    private void createRaceRound() {
+        Integer countOfRaceRound = inputView.inputCountOfGameRound();
+        raceRound = new RaceRound(countOfRaceRound, 0);
     }
 }
