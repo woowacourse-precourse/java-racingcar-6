@@ -14,7 +14,7 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.utils.Parser;
 
-public class ModelValidatorTest {
+public class ConstructurValidationTest {
     // 모델 생성자 테스트
     @ParameterizedTest
     @ValueSource(strings = {"a", "abc", "aca", "12345"})
