@@ -20,6 +20,29 @@ public class RacingCarController {
         startGame(racingCarList, iter);
     }
 
+    // 최종 우승자 판단 및 출력
+    private void printWinner(List<RacingCar> racingCarList) {
+        String winner = "";
+        int maxLength = -1;
+
+        for (int carNum = 0; carNum < racingCarList.size(); carNum++) {
+            RacingCar currentCar = racingCarList.get(carNum);
+            int currentLength = currentCar.getProgress().length();
+
+            if (maxLength < currentLength) {
+                // 우승자 교체
+                maxLength = currentLength;
+                winner = currentCar.getCarName();
+            } else if (maxLength == currentLength) {
+                // 공동 우승자 추가
+                winner += ", " + currentCar.getCarName();
+            }
+        }
+
+        // 우승자 출력
+        System.out.println("최종 우승자 : " + winner);
+    }
+
     // 실행 결과 출력
     private void printResult(List<RacingCar> racingCarList) {
         for (int carNum = 0; carNum < racingCarList.size(); carNum++) {
@@ -52,5 +75,8 @@ public class RacingCarController {
             // 실행 결과 출력
             printResult(racingCarList);
         }
+
+        // 최종 우승자 출력
+        printWinner(racingCarList);
     }
 }
