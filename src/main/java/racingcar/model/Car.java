@@ -37,4 +37,12 @@ public class Car {
     public String getNameAndStateOfCar() {
         return this.name + " : " + this.forwardMovementState;
     }
+
+    public int getForwardMovementStateOfLength() {
+        return this.forwardMovementState.length();
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }
