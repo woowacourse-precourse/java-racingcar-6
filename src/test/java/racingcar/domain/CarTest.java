@@ -19,4 +19,14 @@ public class CarTest {
 
         assertThat(car).isInstanceOf(Car.class);
     }
+
+    @Test
+    @DisplayName("성공 : 차량객체_생성_후_이름확인")
+    public void 차량객체_생성_후_이름확인() {
+        String input = "test";
+
+        final Car car = new Car(input);
+
+        assertThat(car.getName()).isInstanceOf(Car.class);
+    }
 }
