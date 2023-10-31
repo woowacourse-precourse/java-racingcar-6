@@ -1,9 +1,9 @@
 package racingcar.validator;
 
 
-public class GameCoinInputValidator implements InputValidator {
+public class RaceRoundInputValidator implements InputValidator {
 
-    private static final String GAME_COIN_IS_DIGIT = "입력값이 숫자가 아닙니다.";
+    private static final String Race_Round_IS_DIGIT = "입력값이 숫자가 아닙니다.";
 
     @Override
     public void validateInput(String input) {
@@ -14,7 +14,7 @@ public class GameCoinInputValidator implements InputValidator {
         try {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(GAME_COIN_IS_DIGIT);
+            throw new IllegalArgumentException(Race_Round_IS_DIGIT);
         }
     }
 }
