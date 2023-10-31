@@ -9,15 +9,23 @@ public class Car {
         this.distance = 0;
     }
 
-    public void move(){
+    public void move() {
         this.distance++;
     }
 
-    public String getCarInfo(){
+    public String getCarInfo() {
         StringBuilder result = new StringBuilder(this.name + " : ");
-        for(int i=0; i<this.distance; i++){
+        for (int i = 0; i < this.distance; i++) {
             result.append("-");
         }
         return result.toString();
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDistance() {
+        return this.distance;
     }
 }
