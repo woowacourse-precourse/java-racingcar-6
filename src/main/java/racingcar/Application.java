@@ -104,7 +104,7 @@ public class Application {
             if (isCarMove) {
                 carMoveStatus.compute(carName, (k, v) -> v += "-");
             }
-            System.out.println(carName + " : "+ carMoveStatus.get(carName));
+            System.out.println(carName + " : " + carMoveStatus.get(carName));
         }
         System.out.print("\n");
     }
