@@ -6,9 +6,6 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class TrialRepeat {
     public static final String RESULT_PRINT_TEXT = "실행 결과";
 
-    public TrialRepeat() {
-    }
-
     public void trialExecution(Hashtable<String, Integer> scoreboard) {
         for (String name : scoreboard.keySet()) {
             if (goOrNot()) {

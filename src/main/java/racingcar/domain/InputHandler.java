@@ -9,19 +9,22 @@ public class InputHandler {
             "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     final String TRIAL_INPUT_TEXT = "시도할 회수는 몇회인가요?";
 
-    public InputHandler() {
-    }
-
-    public List<String> inputName() {
-        System.out.println(NAME_INPUT_TEXT);
-        String namesString = Console.readLine();
+    public List<String> nameToList(String namesString) {
         return List.of(namesString.split(","));
     }
 
-    public int inputTrial() {
+    public String inputName() {
+        System.out.println(NAME_INPUT_TEXT);
+        return Console.readLine();
+    }
+
+    public int trialToInt(String trial) {
+        return Integer.parseInt(trial);
+    }
+
+    public String inputTrial() {
         System.out.println(TRIAL_INPUT_TEXT);
-        String trialString = Console.readLine();
-        return Integer.parseInt(trialString);
+        return Console.readLine();
     }
 
     public Hashtable<String, Integer> generateScoreboard(List<String> names) {

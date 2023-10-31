@@ -14,9 +14,9 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         InputHandler input = new InputHandler();
-        names = input.inputName();
+        names = input.nameToList(input.inputName());
         scoreboard = input.generateScoreboard(names);
-        trialToDo = input.inputTrial();
+        trialToDo = input.trialToInt(input.inputTrial());
 
         System.out.println(TrialRepeat.RESULT_PRINT_TEXT);
         while (trialCurrent < trialToDo) {
