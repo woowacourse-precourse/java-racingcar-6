@@ -30,7 +30,7 @@ public class RacingGame {
 
         consoleProcessor.printRacingGameResult();
 
-        for (int round = 0; round < loopCount.getValue(); round++) {
+        List<String> winners = raceSteward.nominateWinners(result);
             playRound();
         }
 
@@ -47,17 +47,6 @@ public class RacingGame {
             scoreBoard.put(key, value + count);
         });
         consoleProcessor.printNewLine();
-    }
-
-    private List<String> getWinners(final Map<Car, Integer> scoreBoard) {
-        final int maxCount = scoreBoard.values().stream()
-                .max(Integer::compareTo)
-                .orElse(0);
-
-        return scoreBoard.entrySet().stream()
-                .filter(entry -> entry.getValue() >= maxCount)
-                .map(entry -> entry.getKey().getName())
-                .toList();
     }
 
     private int regulateCount(final int count) {

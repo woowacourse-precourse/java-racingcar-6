@@ -6,14 +6,13 @@ import racingcar.model.vo.CarList;
 
 public class RaceSteward {
 
-    public CarList nominateWinners(final CarList carList) {
+    public List<String> nominateWinners(final CarList carList) {
         final int maxForwardCount = carList.getMaxForwardCount();
 
-        List<Car> winners = carList.cars().stream()
+        return carList.cars().stream()
                 .filter(car -> car.getForwardCount() == maxForwardCount)
+                .map(Car::getName)
                 .toList();
-
-        return CarList.of(winners);
     }
 
 }

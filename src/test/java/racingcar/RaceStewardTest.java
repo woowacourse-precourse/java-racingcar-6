@@ -23,17 +23,17 @@ class RaceStewardTest {
     @DisplayName("가장 전진한 칸이 많은 자동차를 우승자로 고른다.")
     void nominateWinners_BiggestForwardCount_Winner() {
         // Given
-        Car danakaCar = new Car("다나카", 3);
-        List<Car> cars = List.of(
-                danakaCar,
+        final String expectedName = "다나카";
+        final List<Car> cars = List.of(
+                new Car(expectedName, 3),
                 new Car("트럼프", 2));
 
         // When
-        CarList result = raceSteward.nominateWinners(CarList.of(cars));
+        final List<String> result = raceSteward.nominateWinners(CarList.of(cars));
 
         // Then
-        assertThat(result.isEmpty()).isFalse();
-        assertThat(result.cars()).contains(danakaCar);
+        assertThat(result).isNotEmpty();
+        assertThat(result).contains(expectedName);
     }
 
 }
