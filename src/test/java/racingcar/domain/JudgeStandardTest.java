@@ -4,10 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class JudgeStandardTest {
     private final int MOVE = 4;
@@ -31,7 +28,7 @@ class JudgeStandardTest {
         moveRaceCar(raceCar_1);
 
         // when
-        boolean result = judgeStandard.isVictoryCondition(raceCar_1, 1);
+        boolean result = judgeStandard.isVictory(raceCar_1, 1);
 
         // than
         assertThat(result).isTrue();
@@ -45,7 +42,7 @@ class JudgeStandardTest {
         moveRaceCar(raceCar_1);
 
         // when
-        boolean result = judgeStandard.isVictoryCondition(raceCar_1, 2);
+        boolean result = judgeStandard.isVictory(raceCar_1, 2);
 
         // than
         assertThat(result).isTrue();
@@ -60,7 +57,7 @@ class JudgeStandardTest {
         moveRaceCar(raceCar_1);
 
         // when
-        boolean result = judgeStandard.isVictoryCondition(raceCar_1, 3);
+        boolean result = judgeStandard.isVictory(raceCar_1, 3);
 
         // than
         assertThat(result).isTrue();

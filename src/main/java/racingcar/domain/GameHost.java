@@ -16,7 +16,7 @@ public class GameHost {
         boolean isVictory = true;
 
         for (RaceCar raceCar : raceCarList) {
-            isVictory = judgeStandard.isVictoryCondition(raceCar, cntOfMaxMove);
+            isVictory = judgeStandard.isVictory(raceCar, cntOfMaxMove);
 
             if (isVictory) {
                 winnerList.add(raceCar);
