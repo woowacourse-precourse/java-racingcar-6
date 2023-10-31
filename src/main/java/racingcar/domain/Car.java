@@ -28,11 +28,20 @@ public class Car {
         return this.position;
     }
 
+    public boolean isSamePosition(final Integer position) {
+        return this.position == position;
+    }
+
     public void tryMove() {
         Integer randomNumber = RandomUtils.generateRandomNumber();
         if (isQualified(randomNumber)) {
             move();
         }
+    }
+
+    @Override
+    public String toString() {
+        return name.getValue() + RESULT_TOKEN.getSymbol() + RESULT_POSITION.getSymbol().repeat(position);
     }
 
     private boolean isQualified(final Integer randomNumber) {
@@ -41,14 +50,5 @@ public class Car {
 
     private void move() {
         this.position++;
-    }
-
-    public boolean isSamePosition(final Integer position) {
-        return this.position == position;
-    }
-
-    @Override
-    public String toString() {
-        return name.getValue() + RESULT_TOKEN.getSymbol() + RESULT_POSITION.getSymbol().repeat(position);
     }
 }
