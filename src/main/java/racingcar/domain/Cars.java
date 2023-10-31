@@ -55,4 +55,8 @@ public class Cars {
     public List<Integer> getPositions() {
         return this.cars.stream().map(Car::getPosition).toList();
     }
+
+    public List<Car> getCars() {
+        return this.cars;
+    }
 }
