@@ -13,16 +13,19 @@ class RandomCarTest {
         RandomCar car3 = new RandomCar("랜덤값이 3만 나오는 자동차", () -> 3);
 
         int repeat = 10;
-        int car3Position = 0;
         int car4Position = 0;
+        int car3Position = 0;
 
         for (int i = 0; i < repeat; i++) {
-            car3Position = car4.move();
-            car4Position = car3.move();
+            car4Position = car4.move();
+            car3Position = car3.move();
         }
 
-        assertThat(car3Position).isEqualTo(repeat);
-        assertThat(car4Position).isEqualTo(0);
+        assertThat(car4Position).isEqualTo(repeat);
+        assertThat(car3Position).isEqualTo(0);
+
+        assertThat(car4.move(10)).isEqualTo(car4Position+10);
+        assertThat(car3.move(10)).isEqualTo(car3Position);
     }
 }
 
