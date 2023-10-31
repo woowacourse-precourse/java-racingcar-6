@@ -2,12 +2,14 @@ package racingcar.model;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.mock;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.NoCarException;
 import racingcar.util.MoveResolver;
 
 class CarsTest {
@@ -48,6 +50,16 @@ class CarsTest {
 
         List<String> winners = cars.getWinnerCars();
         assertThat(winners).containsOnly(car2.getName(),car3.getName());
+    }
+
+    @Test
+    void 자동차를_등록하지_않은_상태에서_우승자를_찾을수_없다() {
+        //given
+        cars = new Cars(List.of());
+
+        assertThatThrownBy(() -> cars.getWinnerCars())
+                .isInstanceOf(NoCarException.class)
+                .hasMessage("등록된 자동차가 없습니다.");
     }
 
     private void setGivenBehaviorMoveResolver(MoveResolver moveResolver,MoveResolver nonMoveResolver) {
