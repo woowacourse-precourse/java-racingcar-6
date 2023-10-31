@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class InputHandler {
@@ -7,12 +8,14 @@ public class InputHandler {
 
     }
 
-    public static String validateAndParseInput(String input) {
-        return input;
+    public static List<String> parseInputToList(String input) {
+        List<String> parsedList = new ArrayList<>();
+        return parsedList;
     }
 
-    public static int validateAndParseInput(int num) {
-        return num;
+    public static int parseInputToIntager(String input) {
+        int parsedInt = 0;
+        return parsedInt;
     }
 
     private static void splitInputByComma(String input) {
