@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static racingcar.constant.Constant.COMMA_REGEX_DELIMITER;
+import static racingcar.constant.Constant.COMMA_DELIMITER;
 
 public class CarCarNameValidatorTest {
 
@@ -83,6 +83,6 @@ public class CarCarNameValidatorTest {
     }
 
     List<String> splitCarNames(String carNames) {
-        return List.of(carNames.split(COMMA_REGEX_DELIMITER));
+        return List.of(carNames.split(COMMA_DELIMITER));
     }
 }

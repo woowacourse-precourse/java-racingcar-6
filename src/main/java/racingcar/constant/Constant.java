@@ -12,6 +12,5 @@ public interface Constant {
      * "pobi,woni" -> "pobi:woni"
      */
     String COMMA_DELIMITER = ",";
-    String COMMA_REGEX_DELIMITER= ",";
     String KOREAN_COMMA_BRACKET_DELIMITER = "쉼표(',')";
 }

@@ -5,7 +5,7 @@ import racingcar.domain.Car;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.constant.Constant.COMMA_REGEX_DELIMITER;
+import static racingcar.constant.Constant.COMMA_DELIMITER;
 
 /**
  * 사용자가 자동차 이름 -> "pobi,woni,sola" 을 입력하면
@@ -23,6 +23,6 @@ public class CarListGenerator {
     }
 
     private static List<String> splitCarNames(final String carNames) {
-        return List.of(carNames.split(COMMA_REGEX_DELIMITER));
+        return List.of(carNames.split(COMMA_DELIMITER));
     }
 }

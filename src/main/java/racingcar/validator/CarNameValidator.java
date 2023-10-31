@@ -25,7 +25,7 @@ public class CarNameValidator {
     }
 
     private static void validateCarNameLengthGreaterThanFive(final String input) {
-        String[] splitList = input.split(COMMA_REGEX_DELIMITER);
+        String[] splitList = input.split(COMMA_DELIMITER);
         for (String carName : splitList) {
             int carNameLength = carName.length();
             if (carNameLength < MIN_LENGTH || carNameLength > MAX_LENGTH) {
