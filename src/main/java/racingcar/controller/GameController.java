@@ -1,12 +1,10 @@
 package racingcar.controller;
 
-import racingcar.model.Car;
 import racingcar.model.RacingCars;
 import racingcar.service.GameService;
 import racingcar.view.InputValue;
 import racingcar.view.OutputValue;
 
-import java.util.List;
 
 public class GameController {
 
