@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -9,8 +10,16 @@ public class GameScore {
     private final static String DELIMITER =  " : ";
     private final Map<RacingCar, String> participants;
 
-    public GameScore(Map<RacingCar, String> participants) {
+    private GameScore(Map<RacingCar, String> participants) {
         this.participants = participants;
+    }
+
+    public static GameScore createByRacingCars(List<RacingCar> racingCars){
+        Map<RacingCar, String> gameScore = new LinkedHashMap<>();
+        for (RacingCar racingCar : racingCars) {
+            gameScore.put(racingCar, CarStatus.STOP.getOutput());
+        }
+        return new GameScore(gameScore);
     }
 
     public void update(RacingCar racingCar, Supplier<Integer> supplier) {

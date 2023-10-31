@@ -18,33 +18,33 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class GameScoreTest {
-    private Map<RacingCar, String> participants;
+    private GameScore gameScore;
+    private List<RacingCar> racingCars;
 
-    private GameScore createSingleWinner(RacingCar winner, String score) {
-        participants.put(winner, score);
-        return new GameScore(participants);
+    private void createSingleWinner(RacingCar winner, String score) {
+        for(int i = 0; i < score.length(); i++){
+            gameScore.update(winner, () -> Randoms.pickNumberInRange(4, 9) );
+        }
     }
 
-    private GameScore createMultipleWinner(List<RacingCar> winners, String score) {
+    private void createMultipleWinner(List<RacingCar> winners, String score) {
         for (RacingCar winner : winners) {
-            participants.put(winner, score);
+            createSingleWinner(winner, score);
         }
-        return new GameScore(participants);
     }
 
     @BeforeEach
     void setUp() {
-        participants = new LinkedHashMap<>() {{
-            put(new RacingCar("pobi"), CarStatus.STOP.getOutput());
-            put(new RacingCar("woni"), CarStatus.STOP.getOutput());
-            put(new RacingCar("jun"), CarStatus.STOP.getOutput());
-        }};
+        racingCars = Arrays.asList(
+                new RacingCar("pobi"),
+                new RacingCar("woni"),
+                new RacingCar("jun"));
+        gameScore = GameScore.createByRacingCars(racingCars);
     }
 
     @DisplayName("자동차 별 점수를 초기화 할 수 있다")
     @Test
-    void init(){
-        GameScore gameScore = new GameScore(participants);
+    void create(){
         String expected = "pobi : \n" + "woni : \n" + "jun : \n";
         assertThat(gameScore.toString()).isEqualTo(expected);
     }
@@ -54,7 +54,6 @@ class GameScoreTest {
     @ParameterizedTest
     @MethodSource("updatedData")
     void update(RacingCar racingCar, String output) {
-        GameScore gameScore = new GameScore(participants);
         gameScore.update(racingCar, () -> Randoms.pickNumberInRange(4, 9));
         assertThat(gameScore.toString()).isEqualTo(output);
     }
@@ -62,24 +61,24 @@ class GameScoreTest {
     @DisplayName("우승자가 한명인 경우 누가 우승했는지 알 수 있다.")
     @ParameterizedTest
     @CsvSource(value = {"---:pobi", "--:woni", "-:jun"}, delimiter = ':')
-    void getWinner(String score, String winner) {
-        GameScore gameScore = createSingleWinner(new RacingCar(winner), score);
+    void getWinner(String score, String expectedWinner) {
+        createSingleWinner(new RacingCar(expectedWinner), score);
         List<RacingCar> result = gameScore.getWinner();
         Assertions.assertAll(
                 () -> assertThat(result.size()).isEqualTo(1),
-                () -> assertThat(result.get(0)).isEqualTo(new RacingCar(winner))
+                () -> assertThat(result.get(0)).isEqualTo(new RacingCar(expectedWinner))
         );
     }
 
     @DisplayName("우승자가 여러명인 경우 누가 우승했는지 알 수 있다.")
     @ParameterizedTest
     @MethodSource("winnerData")
-    void getMultipleWinner(String score, List<RacingCar> winners) {
-        GameScore gameScore = createMultipleWinner(winners, score);
+    void getMultipleWinner(String score, List<RacingCar> expectedWinners) {
+        createMultipleWinner(expectedWinners, score);
         List<RacingCar> result = gameScore.getWinner();
         Assertions.assertAll(
-                () -> assertThat(result.size()).isEqualTo(winners.size()),
-                () -> assertThat(result).containsAll(winners)
+                () -> assertThat(result.size()).isEqualTo(expectedWinners.size()),
+                () -> assertThat(result).containsAll(expectedWinners)
         );
     }
 
