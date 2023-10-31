@@ -20,11 +20,22 @@ public class Car {
     }
 
     public void tryToGetMovementScore(){
+        if(!checkRemainingOpportunity()) {
+            return;
+        }
         if(pickRandomNumberToMove()>=POSSIBLE_TO_MOVE_NUMBER) {
             this.movementScore++;
         }
         this.RemainingOpportunity--;
     }
+
+    private boolean checkRemainingOpportunity(){
+        if(this.getRemainingOpportunity()>0) {
+            return true;
+        }
+        return false;
+    }
+
 
     protected int pickRandomNumberToMove(){
         return Randoms.pickNumberInRange(START_NUMBER,END_NUMBER);

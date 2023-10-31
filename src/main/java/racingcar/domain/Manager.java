@@ -25,10 +25,8 @@ public class Manager {
 
     public void manageOneCycle(){
         for(Car car : carList){
-            if(possibleToMove(car)) {
-                car.tryToGetMovementScore();
-            }
-            increaseMaxMovingScore(car.getMovementScore());
+            car.tryToGetMovementScore();
+            renewMaxMovingScore(car.getMovementScore());
         }
         endOneCycle();
     }
@@ -47,14 +45,7 @@ public class Manager {
         }
     }
 
-    private boolean possibleToMove(Car car){
-        if(car.getRemainingOpportunity()>0) {
-            return true;
-        }
-        return false;
-    }
-
-    private void increaseMaxMovingScore(int score){
+    private void renewMaxMovingScore(int score){
         if (maxMovingScore < score) {
             this.maxMovingScore = score;
         }
