@@ -8,24 +8,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingGameService {
+    private final int MIN_NUMBER = 0;
+    private final int MAX_NUMBER = 9;
     private List<RacingCar> racingCars;
 
-    public void readyToPlay(List<String> carNames) {
+    public void readyToPlay(final List<String> carNames) {
         this.racingCars = carNames.stream().map(RacingCar::new).toList();
     }
 
     public void race() {
         for (RacingCar car : this.racingCars) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
-            car.isRacingCarMove(randomNumber);
+            final int movableNumber = this.generateMovableNumber();
+            car.isRacingCarMove(movableNumber);
         }
     }
 
     public List<String> getWinner() {
-        List<Integer> carsMoveCounts = this.racingCars.stream()
+        final List<Integer> carsMoveCounts = this.racingCars.stream()
                 .map(RacingCar::getMoveCount).toList();
-        int maxMove = Collections.max(carsMoveCounts);
-        List<String> winners = this.racingCars.stream().filter(car -> car.getMoveCount() == maxMove)
+        final int maxMove = Collections.max(carsMoveCounts);
+        final List<String> winners = this.racingCars.stream().filter(car -> car.getMoveCount() == maxMove)
                 .map(RacingCar::getRacingCarName)
                 .toList();
 
@@ -44,6 +46,10 @@ public class RacingGameService {
         result.setLength(result.length() - 1);
 
         return result.toString();
+    }
+
+    public int generateMovableNumber() {
+        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
     }
 
     public List<RacingCar> getRacingCars() {

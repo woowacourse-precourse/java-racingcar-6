@@ -26,7 +26,8 @@ public class ValidatePlayerInput {
     }
 
     public void validateAlphaCarName() {
-        if (Arrays.stream(this.splitsPlayerInput).anyMatch(carName -> !Pattern.matches("^[a-zA-Z]*$", carName))) {
+        if (Arrays.stream(this.splitsPlayerInput)
+                .anyMatch(carName -> !Pattern.matches("^[a-zA-Z]*$", carName))) {
             throw new IllegalArgumentException("레이싱 자동차 이름은 영어만 허용됩니다");
         }
     }

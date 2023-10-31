@@ -26,7 +26,7 @@ public class RacingCar {
     }
 
     public String makeGameResult() {
-        String gameResult = this.racingCarMove.stream()
+        final String gameResult = this.racingCarMove.stream()
                 .filter(move -> move)
                 .map(move -> GameMessage.MOVE.getMoveMessage())
                 .collect(Collectors.joining());
@@ -48,7 +48,7 @@ public class RacingCar {
 
     @Override
     public String toString() {
-        String gameResult = makeGameResult();
+        final String gameResult = makeGameResult();
 
         return this.racingCarName + " : " + gameResult + "\n";
     }
