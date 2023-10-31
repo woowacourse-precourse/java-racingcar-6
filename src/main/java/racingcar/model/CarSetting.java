@@ -13,8 +13,17 @@ public class CarSetting {
 
     public CarSetting(String inputCarName){
         carGameSituation = new HashMap<>();
-        String[] splitCars = inputCarName.split(",");
+        String[] splitCars = getStrings(inputCarName);
+        carStringArrayToMap(splitCars);
+    }
+
+    private static void carStringArrayToMap(String[] splitCars) {
         Arrays.stream(splitCars).map(car -> carGameSituation.put(car, 0));
+    }
+
+    public String[] getStrings(String inputCarName) {
+        String[] splitCars = inputCarName.split(", ");
+        return splitCars;
     }
 
     public void setTrialNumber(int setInputValue){
