@@ -8,12 +8,23 @@ public class Game {
         String inputNames = Console.readLine();
         String[] names = inputNames.split(",");
         for (String name : names) {
+            if (name.isBlank() || name.length() > 5) {
+                throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
+            }
             System.out.println(name);
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
         String inputAttemptCount = Console.readLine();
-        int attemptCount = Integer.parseInt(inputAttemptCount);
+        int attemptCount;
+        try {
+            attemptCount = Integer.parseInt(inputAttemptCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("올바른 숫자 형식이 아닙니다.");
+        }
+        if (attemptCount <= 0) {
+            throw new IllegalArgumentException("시도할 횟수는 0회 이상만 가능합니다.");
+        }
         System.out.println(attemptCount);
     }
 }
