@@ -28,6 +28,7 @@ class GameSystem {
         totalCar = makeCars(input, manufacture);
         output.askTry();
         attempt = makeTryNumber(input, manufacture);
+        output.showLine();
         runGame(output);
     }
 
@@ -166,6 +167,7 @@ class CarGame {
         for (int move = 0; move < attempt; move++) {
             saveResult(totalCar);
             showResult(totalCar);
+            output.showLine();
         }
     }
 
@@ -180,6 +182,7 @@ class CarGame {
             output.showName(names.get(result));
             output.showColon();
             output.showMove(distances.get(result));
+            output.showLine();
         }
     }
 
