@@ -9,7 +9,7 @@ import java.util.List;
 public class Cars {
     private final List<Car> carList;
     private static final int CAR_NAME_LIMIT = 5;
-    private static final String NAME_LENGTH_INVALID = "이름은 5자 이하만 가능하다.";
+    private static final String INVALID_NAME_LENGTH = "이름은 5자 이하만 가능하다.";
     private static final String SPLIT_DELIMITER = ",";
     private static final String MUST_NOT_BLANK = "공백 입력은 불가능하다.";
 
@@ -39,7 +39,7 @@ public class Cars {
     }
     private void validateLength(String userInput) {
         if (userInput.length() > CAR_NAME_LIMIT) {
-            throw new IllegalArgumentException(NAME_LENGTH_INVALID);
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH);
         }
     }
 

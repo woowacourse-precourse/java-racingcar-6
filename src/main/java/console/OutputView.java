@@ -25,17 +25,17 @@ public class OutputView {
     public void printRoundResult(Cars cars) {
         System.out.println(ROUND_RESULT);
         for (Car car : cars.getCarList()) {
-            printCarProgress(car);
+            printCarLocation(car);
         }
         System.out.println();
     }
 
-    private void printCarProgress(Car car) {
-        StringBuilder progress = new StringBuilder(car.getName() + PROGRESS_PREFIX);
+    private void printCarLocation(Car car) {
+        StringBuilder location = new StringBuilder(car.getName() + PROGRESS_PREFIX);
         for (int i = 0; i < car.getLocation(); i++) {
-            progress.append(LOCATION_COUNTER);
+            location.append(LOCATION_COUNTER);
         }
-        System.out.println(progress);
+        System.out.println(location);
     }
 
     public void printWinners(Cars cars){
