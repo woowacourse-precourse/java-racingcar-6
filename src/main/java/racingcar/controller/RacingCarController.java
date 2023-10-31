@@ -16,7 +16,7 @@ public class RacingCarController {
     Random random=new Random();
     Referee referee=new Referee();
 
-    private static List<Car> cars=new ArrayList<>();
+    private List<Car> cars=new ArrayList<>();
     public void start(){
         cars=user.nameForCar(inputView.inputCars());
         int count=inputView.inputCount();

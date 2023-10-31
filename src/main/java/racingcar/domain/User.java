@@ -32,6 +32,4 @@ public class User {
             throw new IllegalArgumentException("게임을 진행하기 위한 자동차의 개수는 최소 2대 입니다.");
         }
     }
-
-
 }
