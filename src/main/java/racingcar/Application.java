@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -7,6 +8,7 @@ public class Application {
         RacingCarGame racingCarGame = new RacingCarGame();
         OutputView outputView = new OutputView();
         CustomArrayList<Car> carList = new CustomArrayList<>();
+        List<Car> winnerList = new ArrayList<>();
 
         outputView.startGame();
         String carsName = racingCarGame.getCarsName();
@@ -18,9 +20,11 @@ public class Application {
 
         outputView.showResultOfEachRace();
         racingCarGame.repeatCarRace(carList, numberOfRace);
-        List<Car> winner = racingCarGame.decideWinner(carList);
+
+        winnerList.add(carList.get(0));
+        racingCarGame.decideWinner(carList, winnerList);
 
         outputView.showWinner();
-        racingCarGame.printOutWinner(winner);
+        racingCarGame.printOutWinner(winnerList);
     }
 }

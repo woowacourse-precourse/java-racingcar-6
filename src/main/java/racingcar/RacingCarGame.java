@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -35,8 +34,7 @@ public class RacingCarGame {
     }
 
     public int getNumberOfRace() {
-        int numberOfRace = Integer.parseInt(Console.readLine());
-        return numberOfRace;
+        return Integer.parseInt(Console.readLine());
     }
 
     public void repeatCarRace(List<Car> carList, int numberOfRace) {
@@ -53,17 +51,10 @@ public class RacingCarGame {
         }
     }
 
-    public List<Car> decideWinner(List<Car> carList) {
-        List<Car> winner = new ArrayList<>();
-        winner.add(carList.get(0));
-        repeatCompareDistance(carList, winner);
-        return winner;
-    }
-
-    private void repeatCompareDistance(List<Car> carList, List<Car> winner) {
+    public void decideWinner(List<Car> carList, List<Car> winnerList) {
         int countRepeat = 0;
         while (countRepeat < carList.size() - 1) {
-            countRepeat = compareDistance(carList, winner, countRepeat);
+            countRepeat = compareDistance(carList, winnerList, countRepeat);
         }
     }
 
