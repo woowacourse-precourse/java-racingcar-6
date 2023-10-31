@@ -11,11 +11,11 @@ class CarTest {
     @Test
     void testMoveForward() {
         int initProgress = 2;
-        Car car = new Car("car A",initProgress);
+        Car car = new Car("car A", initProgress);
 
         car.moveForward();
 
-        assertEquals(initProgress+1,car.getProgress());
+        assertEquals(initProgress + 1, car.getProgress());
     }
 
     @DisplayName("progress(전진)바 출력 테스트")
@@ -25,12 +25,12 @@ class CarTest {
 
         String progressBar = car.printProgressBar();
 
-        assertEquals("----",progressBar);
+        assertEquals("----", progressBar);
     }
 
     @DisplayName("자동차 이름은 5자 미만이어야 한다 테스트")
     @Test
     void validateCarName() {
-        assertThrows(IllegalArgumentException.class,() -> new Car("abcdef"));
+        assertThrows(IllegalArgumentException.class, () -> new Car("abcdef"));
     }
 }

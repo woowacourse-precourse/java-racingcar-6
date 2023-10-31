@@ -1,11 +1,7 @@
 package racingcar.service;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,14 +25,13 @@ class RacingCarServiceTest {
     @DisplayName("우승 후보 계산 테스트")
     @Test
     void testCalculatWinner() {
-        Car car1 = new Car("car A",5);
+        Car car1 = new Car("car A", 5);
         Car car2 = new Car("car B", 2);
         Car car3 = new Car("car C", 5);
-        List<Car> cars = List.of(car1,car2,car3);
-
+        List<Car> cars = List.of(car1, car2, car3);
 
         List<Car> winners = RacingCarService.calculatWinner(cars);
 
-        assertEquals(List.of(car1,car3),winners);
+        assertEquals(List.of(car1, car3), winners);
     }
 }

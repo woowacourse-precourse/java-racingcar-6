@@ -10,7 +10,7 @@ public class RacingCarController {
     public void startGame() {
         List<Car> cars = inputCarNames();
         int attempNumber = inputAttempNumber();
-        printResult(attempNumber,cars);
+        printResult(attempNumber, cars);
         printWinners(cars);
     }
 
