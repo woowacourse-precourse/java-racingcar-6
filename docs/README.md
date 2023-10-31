@@ -77,7 +77,7 @@
 - [x] 테스트에서 given, when, then 줄바꿈 적용하기
 - [x] PlayerMoveList 네이밍 개선 필요, 일급 컬렉션이 아닌데
 - [x] 컨트롤러의 일급 컬렉션 아닌 부분 확인
-- [ ] PlayerMoveResultDto 네이밍 개선 필요
+- [x] PlayerMoveResultDto 네이밍 개선 필요
 
 ## 프로그래밍 요구 사항
 

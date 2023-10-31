@@ -8,18 +8,18 @@ import racingcar.domain.NumberGenerator;
 import racingcar.domain.Player;
 import racingcar.domain.PlayerMove;
 import racingcar.domain.RandomNumberGenerator;
-import racingcar.dto.PlayerMoveResultDto;
+import racingcar.dto.MoveResultDto;
 
-public class PlayerMoveResultDtoTest {
+public class MoveResultDtoTest {
     NumberGenerator numberGenerator = new RandomNumberGenerator();
 
     @Test
     void from은_플레이어의_이동현황을_받아_결과DTO로_반환한다() {
         PlayerMove playerMove = PlayerMove.from(Player.from("test"), Distance.from(1));
 
-        PlayerMoveResultDto playerMoveResultDto = PlayerMoveResultDto.from(playerMove);
+        MoveResultDto moveResultDto = MoveResultDto.from(playerMove);
 
-        assertEquals("test", playerMoveResultDto.getPlayerName());
-        assertEquals(1, playerMoveResultDto.getDistance());
+        assertEquals("test", moveResultDto.getPlayerName());
+        assertEquals(1, moveResultDto.getDistance());
     }
 }

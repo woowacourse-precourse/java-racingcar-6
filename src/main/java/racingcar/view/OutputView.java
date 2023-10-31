@@ -3,7 +3,7 @@ package racingcar.view;
 import static racingcar.domain.Constant.MINUMUN_DISTANCE;
 
 import java.util.List;
-import racingcar.dto.PlayerMoveResultDto;
+import racingcar.dto.MoveResultDto;
 
 public class OutputView {
     private static final String MOVE_RESULT_MESSAGE = "실행 결과";
@@ -11,8 +11,8 @@ public class OutputView {
     private static final String WINNER_MESSAGE = "최종 우승자 : %s";
 
 
-    public static void printPlayerMoveResult(final List<PlayerMoveResultDto> playerMoveResultDtoList) {
-        for (PlayerMoveResultDto playerMoveResult : playerMoveResultDtoList) {
+    public static void printPlayerMoveResult(final List<MoveResultDto> moveResultDtoList) {
+        for (MoveResultDto playerMoveResult : moveResultDtoList) {
             String playerName = playerMoveResult.getPlayerName();
             String movement = getMovement(playerMoveResult);
             System.out.printf(PLAYER_MOVE_MESSAGE, playerName, movement);
@@ -21,7 +21,7 @@ public class OutputView {
         printEmptyLine();
     }
 
-    private static String getMovement(PlayerMoveResultDto playerMoveResult) {
+    private static String getMovement(MoveResultDto playerMoveResult) {
         int distance = playerMoveResult.getDistance();
         return "-".repeat(Math.max(MINUMUN_DISTANCE, distance));
     }

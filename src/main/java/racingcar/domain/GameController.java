@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
-import racingcar.dto.PlayerMoveResultDto;
+import racingcar.dto.MoveResultDto;
 import racingcar.dto.PlayerNamesDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -37,10 +37,10 @@ public class GameController {
     }
 
     private void printMoveResult(final RaceRound raceRound) {
-        List<PlayerMoveResultDto> playerMoveResultDtoList = raceRound.getPlayerMoveList().stream()
-                .map(PlayerMoveResultDto::from)
+        List<MoveResultDto> moveResultDtoList = raceRound.getPlayerMoveList().stream()
+                .map(MoveResultDto::from)
                 .toList();
-        OutputView.printPlayerMoveResult(playerMoveResultDtoList);
+        OutputView.printPlayerMoveResult(moveResultDtoList);
     }
 
     private RaceRound initializeRaceRound(final Players players) {
