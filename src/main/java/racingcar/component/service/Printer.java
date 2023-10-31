@@ -1,9 +1,10 @@
-package racingcar.component;
+package racingcar.component.service;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import racingcar.component.domain.Car;
 
 public class Printer {
     private Printer() {}

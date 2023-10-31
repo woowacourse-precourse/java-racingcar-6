@@ -1,7 +1,8 @@
-package racingcar.component;
+package racingcar.component.vo;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.component.domain.Car;
 
 public class CarList {
     private final List<Car> carList;

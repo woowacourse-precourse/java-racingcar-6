@@ -1,4 +1,4 @@
-package racingcar.component;
+package racingcar.component.service;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;

@@ -1,6 +1,11 @@
-package racingcar.component;
+package racingcar.component.controller;
 
 import java.util.stream.Collectors;
+import racingcar.component.service.Inputter;
+import racingcar.component.service.Printer;
+import racingcar.component.service.RaceSimulator;
+import racingcar.component.domain.Car;
+import racingcar.component.vo.CarList;
 
 public class GameController {
     private CarList carList;

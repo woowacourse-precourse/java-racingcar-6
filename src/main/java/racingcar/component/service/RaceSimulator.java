@@ -1,7 +1,8 @@
-package racingcar.component;
+package racingcar.component.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import racingcar.component.domain.Car;
 
 public class RaceSimulator {
     private Printer printer;

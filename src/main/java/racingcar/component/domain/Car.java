@@ -1,4 +1,4 @@
-package racingcar.component;
+package racingcar.component.domain;
 
 public class Car implements Comparable<Car>{
     private String name;

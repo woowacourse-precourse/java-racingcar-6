@@ -1,8 +1,8 @@
 package racingcar;
 
-import racingcar.component.GameController;
-import racingcar.component.Inputter;
-import racingcar.component.Printer;
+import racingcar.component.controller.GameController;
+import racingcar.component.service.Inputter;
+import racingcar.component.service.Printer;
 
 public class Application {
     public static void main(String[] args) {
