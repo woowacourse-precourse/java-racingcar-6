@@ -14,4 +14,12 @@ public class Output {
             //하나씩 출력
         }
     }
+
+    public void routePrint(String carName,int carDistance) {
+        String distance = "";
+        for (int i = 0; i < carDistance; i++) {
+            distance += "-";
+        }
+        System.out.println(carName+" : "+distance);
+    }
 }
