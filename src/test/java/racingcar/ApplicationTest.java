@@ -73,7 +73,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 이름에_대한_예외_처리_쉼표가_없는_경우() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobijavaji", "1"))
+                assertThatThrownBy(() -> runException("meyou", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
