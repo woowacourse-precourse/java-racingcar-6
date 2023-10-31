@@ -63,7 +63,8 @@ class CarTest {
         List<String> carNames = Arrays.asList("");
 
         assertThatThrownBy(() -> car.checkEmpty(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 빈값이 있습니다.");
     }
 
     @Test
@@ -72,7 +73,8 @@ class CarTest {
         List<String> carNames = Arrays.asList("pobi", "", "jun");
 
         assertThatThrownBy(() -> car.checkEmpty(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 빈값이 있습니다.");
     }
 
     @Test
@@ -81,7 +83,8 @@ class CarTest {
         List<String> carNames = Arrays.asList("pobi", "woni", "jun", "");
 
         assertThatThrownBy(() -> car.checkEmpty(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 빈값이 있습니다.");
     }
 
     @Test
@@ -90,7 +93,8 @@ class CarTest {
         List<String> carNames = Arrays.asList("pobi", "woni", "jun", "pobi");
 
         assertThatThrownBy(() -> car.checkDuplicate(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("이름에 중복 값이 있습니다. 서로 다른 이름을 입력해 주세요.");
     }
 
     @Test
@@ -99,6 +103,7 @@ class CarTest {
         List<String> carNames = Arrays.asList("pobi", "woni", "jun", "longname");
 
         assertThatThrownBy(() -> car.checkLength(carNames))
-                .isInstanceOf(IllegalArgumentException.class);
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름의 길이를 5 이하로 지정해주세요.");
     }
 }
