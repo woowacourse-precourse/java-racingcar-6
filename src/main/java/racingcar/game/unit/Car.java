@@ -1,5 +1,7 @@
 package racingcar.game.unit;
 
+import racingcar.game.message.ErrorMessage;
+
 public class Car {
 
 	private String name;
@@ -22,10 +24,12 @@ public class Car {
 
 	private static void checkValidCarName(String carName) {
 		if (carName.length() > 5) {
-			throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+			throw new IllegalArgumentException(
+					ErrorMessage.CAR_NAME_NOT_LONGER_THAN_5.getMessage());
 		}
 		if (carName.isBlank()) {
-			throw new IllegalArgumentException("자동차 이름은 공백이 될 수 없습니다.");
+			throw new IllegalArgumentException(
+					ErrorMessage.CAR_NAME_NOT_BLANK.getMessage());
 		}
 	}
 

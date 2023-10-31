@@ -1,6 +1,7 @@
 package racingcar.game.unit;
 
 import java.util.List;
+import racingcar.game.message.ErrorMessage;
 
 public class Course {
 
@@ -8,7 +9,8 @@ public class Course {
 
 	public static Course of(int attempt) {
 		if (attempt < 0) {
-			throw new IllegalArgumentException("시도 횟수는 0 이상이어야 합니다.");
+			throw new IllegalArgumentException(
+					ErrorMessage.ATTEMPT_NOT_LESS_THAN_0.getMessage());
 		}
 		return new Course(attempt);
 	}
