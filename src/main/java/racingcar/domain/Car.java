@@ -2,7 +2,7 @@ package racingcar.domain;
 
 public class Car {
 
-    private static final int MAX_NAME_LEGNTH = 5;
+    private static final int MAX_NAME_LENGTH = 5;
 
     private int location;
 
@@ -19,7 +19,7 @@ public class Car {
     }
 
     private static void validateLengthOfName(final String name) {
-        if (name.length() > MAX_NAME_LEGNTH) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
