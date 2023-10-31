@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RacingGameTest {
 	private RacingGame racingGame;
@@ -29,12 +31,20 @@ class RacingGameTest {
 	@Order(2)
 	@DisplayName("사용자에게 시도할 횟수를 받는다.")
 	void inputTryCountExceptionTest() {
+		String number = "3";
+		int count = racingGame.inputTryCount(number);
 
+		assertEquals(count, 3);
 	}
 
 	@Test
 	@DisplayName("사용자에게 시도할 횟수를 받는다. 숫자를 입력하지 않으면 예외가 발생한다.")
 	void inputTryCountExceptionTest2() {
+		String number = "3a";
+
+		assertThatThrownBy(() -> racingGame.inputTryCount(number))
+				.isInstanceOf(IllegalArgumentException.class)
+				.hasMessage("숫자만 입력하실 수 있습니다.");
 	}
 
 	@Test
