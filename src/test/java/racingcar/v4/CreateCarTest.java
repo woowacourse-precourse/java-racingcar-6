@@ -1,10 +1,12 @@
 package racingcar.v4;
 
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
@@ -114,6 +116,18 @@ class CreateCarTest {
         assertThatThrownBy(() -> createCar.validateCarCount(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차의 수는 2대 이상 10대 이하만 가능합니다.");
+    }
+
+    @Test
+    void 상태_맵이_정상적으로_생성된다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList("페라리", "벤츠", "레드불");
+        Map<String, Integer> stateMap = createCar.racingStateMap(carNames);
+        Assertions.assertThat(stateMap)
+                .isNotNull()
+                .hasSize(3)
+                .containsKeys("페라리", "벤츠", "레드불")
+                .containsValues(0);
     }
 
 

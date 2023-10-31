@@ -64,17 +64,4 @@ public class CreateCar {
         return stateMap;
     }
 
-    @Test
-    void 상태_맵이_정상적으로_생성된다() {
-        CreateCar createCar = new CreateCar();
-        List<String> carNames = Arrays.asList("페라리", "벤츠", "레드불");
-        Map<String, Integer> stateMap = createCar.racingStateMap(carNames);
-        assertThat(stateMap)
-                .isNotNull()
-                .hasSize(3)
-                .containsKeys("페라리", "벤츠", "레드불")
-                .containsValues(0);
-    }
-
-
 }
