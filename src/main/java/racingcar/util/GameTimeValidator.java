@@ -6,7 +6,7 @@ public class GameTimeValidator {
 
     public static int validateGameTime(int gameTime){
         if (gameTime < MINIMUM || gameTime > MAXIMUM) {
-            throw new IllegalArgumentException(String.format("이동 횟수는 %d 부터 %d 까지 가능합니다.",MINIMUM,MAXIMUM));
+            throw new IllegalArgumentException(String.format("이동 횟수는 %d부터 %d까지 가능합니다.",MINIMUM,MAXIMUM));
         }
         return gameTime;
     }
