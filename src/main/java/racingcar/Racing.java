@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Racing {
 
     ArrayList<Car> cars = new ArrayList<>();
+    int count;
 
     public Racing() {
 
@@ -20,4 +21,11 @@ public class Racing {
             cars.add(c);
         }
     }
+
+    public void registCount(String count) {
+
+        this.count = Integer.parseInt(count);
+        System.out.println();
+    }
+
 }
