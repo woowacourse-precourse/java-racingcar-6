@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Converter {
-    static final String SEPARATOR = ",";
+    public static final String DELIMITER = ",";
 
-    public static List<String> separateCarNames(String carNames) {
-        String[] separatedCarNames = carNames.split(SEPARATOR);
-        Validator.validateCarNames(separatedCarNames);
-        return new ArrayList<>(Arrays.asList(separatedCarNames));
+    public static List<String> delimitCarNames(String carNames) {
+        String[] delimitedCarNames = carNames.split(DELIMITER);
+        Validator.validateCarNames(delimitedCarNames);
+        return new ArrayList<>(Arrays.asList(delimitedCarNames));
     }
 
     public static int convertAttempts(String attempts) {

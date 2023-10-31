@@ -1,6 +1,6 @@
 package racingcar;
 
-import static racingcar.Converter.SEPARATOR;
+import static racingcar.Converter.DELIMITER;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class OutputView {
 
     public static void printWinners(List<Car> winners) {
         System.out.print(ENTER);
-        String winnersConvention = String.join(SEPARATOR, Converter.convertWinners(winners));
+        String winnersConvention = String.join(DELIMITER, Converter.convertWinners(winners));
         System.out.println(WINNER_MESSAGE + COLON + winnersConvention);
     }
 }

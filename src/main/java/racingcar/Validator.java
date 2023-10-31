@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
-    public static void validateCarNames(String[] separatedCarNames) {
-        if (isCarNamesOutOfSize(separatedCarNames)) {
+    public static void validateCarNames(String[] delimitedCarNames) {
+        if (isCarNamesOutOfSize(delimitedCarNames)) {
             throw new IllegalArgumentException();
         }
     }
 
-    private static boolean isCarNamesOutOfSize(String[] separatedCarNames) {
+    private static boolean isCarNamesOutOfSize(String[] delimitedCarNames) {
         List<Boolean> sizeChecker = new ArrayList<>();
-        for (int i = 0; i < separatedCarNames.length; i++) {
-            if (separatedCarNames[i].length() > 5) {
+        for (int i = 0; i < delimitedCarNames.length; i++) {
+            if (delimitedCarNames[i].length() > 5) {
                 sizeChecker.add(true);
             }
         }
