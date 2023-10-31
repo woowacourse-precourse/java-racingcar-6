@@ -99,4 +99,8 @@ public class Game {
         return String.valueOf(result);
     }
 
+    public int getNumberOfAttempts() {
+        return this.numberOfAttempts;
+    }
+
 }
