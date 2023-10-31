@@ -20,8 +20,16 @@ public class Game {
     }
 
     private void setRace() { //레이스 세팅
-        race.setCarList();
+        List<String> carNameList = makeCarNameList();
+        race.setCarList(carNameList);
         race.setRaceRounds();
+    }
+
+    private List<String> makeCarNameList() {
+        String carNames = Input.inputCarNames();
+        String[] carNameArray = carNames.split(",");
+        List<String> carNameList = List.of(carNameArray);
+        return carNameList;
     }
 
     private void runRace(){ //각 라운드 시작

@@ -1,11 +1,9 @@
 package racingcar.model;
 
 import racingcar.view.Input;
-import racingcar.view.Output;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Race {
     private final List<Car> carList;
@@ -22,8 +20,7 @@ public class Race {
         return raceRounds == 0;
     }
 
-    public void setCarList(){
-        List<String> carNames = makeCarNameList();
+    public void setCarList(List<String> carNames){
         for (String carName : carNames) {
             Car newCar = new Car(carName);
             carList.add(newCar);
@@ -32,13 +29,6 @@ public class Race {
 
     public List<Car> getCarList() {
         return carList;
-    }
-
-    private List<String> makeCarNameList() {
-        String carNames = Input.inputCarNames();
-        String[] carNameArray = carNames.split(",");
-        List<String> carNameList = List.of(carNameArray);
-        return carNameList;
     }
 
     public void playOneRound(){
