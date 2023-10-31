@@ -4,7 +4,7 @@ import java.util.List;
 
 public class OutputView {
 
-	public static void printResultsMessage() {
+	public static void printFirstResultsMessage() {
 		System.out.println();
 		System.out.println("실행 결과");
 	}

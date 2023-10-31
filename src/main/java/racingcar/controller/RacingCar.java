@@ -12,47 +12,65 @@ public class RacingCar {
 
 	public void startGame() {
 		List<String> players = InputView.insertName();
-		InputValidator.validatePlayers(players);
-
 		String inputNumber = InputView.insertTryNumber();
-		InputValidator.validateTryNumber(inputNumber);
 
+		InputValidator.validatePlayers(players);
+		InputValidator.validateTryNumber(inputNumber);
 		int tryNumber = Integer.parseInt(inputNumber);
 
-		List<Integer> results = new ArrayList<>();
+		List<Integer> results = setResults(players);
+		OutputView.printFirstResultsMessage();
 
-		for (int i = 0; i < players.size(); i++) {
-			results.add(0);
-		}
-		OutputView.printResultsMessage();
 		for (int i = 0; i < tryNumber; i++) {
 			isDrive(players, results);
 			OutputView.printCurrentRacingResults(players, results);
 		}
 
-		List<String> winners = new ArrayList<>();
+		int winnerDistance = getWinnerDistance(results);
+		List<String> winners = getWinners(players, results, winnerDistance);
+
+		OutputView.printFinalRacingResults(winners);
+	}
+
+	private List<Integer> setResults(List<String> players) {
+		List<Integer> results = new ArrayList<>();
+		for (int i = 0; i < players.size(); i++) {
+			results.add(0);
+		}
+		return results;
+	}
+
+	private int getWinnerDistance(List<Integer> results) {
 		int winnerDistance = 0;
 		for (Integer result : results) {
 			if (winnerDistance < result) {
 				winnerDistance = result;
 			}
 		}
+		return winnerDistance;
+	}
 
+	private List<String> getWinners(List<String> players, List<Integer> results, int winnerDistance) {
+		List<String> winners = new ArrayList<>();
 		for (int i = 0; i < players.size(); i++) {
 			if (results.get(i) == winnerDistance) {
 				winners.add(players.get(i));
 			}
 		}
-		OutputView.printFinalRacingResults(winners);
+		return winners;
 	}
 
 
 	private void isDrive(List<String> players, List<Integer> results) {
 		for (int i = 0; i < players.size(); i++) {
-			int randomNumber = Randoms.pickNumberInRange(0, 9);
+			int randomNumber = randomNumberGenerate();
 			if (randomNumber >= 4) {
 				results.set(i, results.get(i) + 1);
 			}
 		}
+	}
+
+	private int randomNumberGenerate() {
+		return Randoms.pickNumberInRange(0, 9);
 	}
 }
