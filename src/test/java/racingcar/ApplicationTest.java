@@ -1,22 +1,20 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.test.NsTest;
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -26,11 +24,11 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
@@ -60,7 +58,7 @@ class ApplicationTest extends NsTest {
         List<String> result = new ArrayList<>();
 
         String[] strings = input.trim().split("\\s*,\\s*");
-        for (int i=0; i<strings.length; i++) {
+        for (int i = 0; i < strings.length; i++) {
             result.add(strings[i]);
         }
         String resultString = String.join(", ", result);
@@ -76,7 +74,7 @@ class ApplicationTest extends NsTest {
         String[] input = {"pobi", "woni", "jun"};
         Cars cars = new Cars();
 
-        for (int i=0; i<input.length; i++) {
+        for (int i = 0; i < input.length; i++) {
             cars.setCars(new Car(input[i]));
         }
 
@@ -90,9 +88,10 @@ class ApplicationTest extends NsTest {
         Car car = new Car("pobi");
         int[] input = {1, 3, 5, 7, 9};
 
-        for (int i=0; i<input.length; i++)
-        if (input[i] >= MOVING_FORWARD) {
-            car.getDistance().append("-");
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] >= MOVING_FORWARD) {
+                car.getDistance().append("-");
+            }
         }
 
         assertThat(car.getDistance().toString()).isEqualTo("---");
