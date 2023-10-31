@@ -62,4 +62,8 @@ public class Referee {
     public List<GameStatus> getGameStatuses() {
         return gameStatuses;
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
 }
