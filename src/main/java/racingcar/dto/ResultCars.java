@@ -6,9 +6,9 @@ import java.util.List;
 
 public class ResultCars {
 
-    private List<ResultCar> resultCars;
+    private final List<ResultCar> resultCars;
 
-    public ResultCars(List<ResultCar> resultCars) {
+    public ResultCars(final List<ResultCar> resultCars) {
         this.resultCars = Collections.unmodifiableList(resultCars);
     }
 

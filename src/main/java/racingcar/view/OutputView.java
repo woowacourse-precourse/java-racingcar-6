@@ -26,7 +26,7 @@ public class OutputView {
         System.out.println(LINE_BREAK + GameMessage.EXECUTION_RESULT);
     }
 
-    public void printGameStatus(Cars cars) {
+    public void printGameStatus(final Cars cars) {
         List<String> carStatus = outputFormatter.printCarDistanceStatus(cars);
 
         for (String status : carStatus) {
@@ -36,7 +36,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printRacingCarResult(ResultCars resultCars) {
+    public void printRacingCarResult(final ResultCars resultCars) {
         System.out.print(GameMessage.FINAL_WINNER);
         String winnerCarName = outputFormatter.printWinner(resultCars);
         System.out.println(winnerCarName);

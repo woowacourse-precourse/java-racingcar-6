@@ -20,16 +20,16 @@ public class RacingCarController {
 
     public void play() {
         outputView.printStartMessage();
-        String carName = inputView.readRacingCarName();
-        Cars cars = racingCarService.saveCarName(carName);
+        final String carName = inputView.readRacingCarName();
+        final Cars cars = racingCarService.saveCarName(carName);
         outputView.printRepeatNumberMessage();
-        String repeatCount = inputView.readRepeatCount();
+        final String repeatCount = inputView.readRepeatCount();
         outputView.printGameStatusMessage();
         for (int i = 0; i < Integer.parseInt(repeatCount); i++) {
             racingCarService.moveCar(cars);
             outputView.printGameStatus(cars);
         }
-        ResultCars resultCars = cars.filterCarsWithMaxDistance();
+        final ResultCars resultCars = cars.filterCarsWithMaxDistance();
         outputView.printRacingCarResult(resultCars);
     }
 }

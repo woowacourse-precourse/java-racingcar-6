@@ -1,11 +1,8 @@
 package racingcar.domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Copy;
 import racingcar.dto.ResultCar;
 import racingcar.dto.ResultCars;
 
@@ -14,7 +11,7 @@ public class Cars {
     private static final int FIRST_INDEX = 0;
     private final List<Car> cars;
 
-    public Cars(List<Car> cars) {
+    public Cars(final List<Car> cars) {
         this.cars = cars.stream().map(Car::new).toList();
     }
 
@@ -24,17 +21,23 @@ public class Cars {
     }
 
     public ResultCars filterCarsWithMaxDistance() {
-        List<Car> sortedCars = cars.stream()
-                .sorted(Comparator.comparingInt(Car::getDistance).reversed())
-                .toList();
-
+        final List<Car> sortedCars = sortedCarByDistance();
         int maxDistance = sortedCars.get(FIRST_INDEX).getDistance();
+        final List<ResultCar> resultCars = getMaxDistanceCar(sortedCars, maxDistance);
+        return new ResultCars(resultCars);
+    }
 
-        List<ResultCar> resultCars = sortedCars.stream()
+    private List<ResultCar> getMaxDistanceCar(final List<Car> sortedCars, final int maxDistance) {
+        return sortedCars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .map(car -> new ResultCar(car.getName()))
                 .toList();
+    }
 
-        return new ResultCars(resultCars);
+    private List<Car> sortedCarByDistance() {
+        List<Car> sortedCars = cars.stream()
+                .sorted(Comparator.comparingInt(Car::getDistance).reversed())
+                .toList();
+        return sortedCars;
     }
 }

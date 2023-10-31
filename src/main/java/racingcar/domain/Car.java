@@ -8,11 +8,11 @@ public class Car {
     private final String name;
     private int distance;
 
-    public Car(Car car) {
+    public Car(final Car car) {
         this.name = car.name;
     }
 
-    public Car(String name) {
+    public Car(final String name) {
         validateNameLength(name);
         this.name = name;
     }
@@ -29,7 +29,7 @@ public class Car {
         return distance;
     }
 
-    private void validateNameLength(String name) {
+    private void validateNameLength(final String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ExceptionMessage.OUT_OF_NAME_LENGTH.getMessage());
         }

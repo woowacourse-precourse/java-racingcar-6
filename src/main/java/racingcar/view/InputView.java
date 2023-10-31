@@ -11,13 +11,13 @@ public class InputView {
     }
 
     public String readRacingCarName() {
-        String input = Console.readLine();
+        final String input = Console.readLine();
         inputValidator.validateDelimiter(input);
         return input;
     }
 
     public String readRepeatCount() {
-        String input = Console.readLine();
+        final String input = Console.readLine();
         inputValidator.validateNumber(input);
         return input;
     }

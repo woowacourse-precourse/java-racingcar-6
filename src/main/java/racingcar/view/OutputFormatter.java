@@ -15,8 +15,8 @@ public class OutputFormatter {
     private static final String COMMAS = ",";
     private static final String VISUALIZED_STATUS = "-";
 
-    public List<String> printCarDistanceStatus(Cars cars) {
-        List<String> carStatus = new ArrayList<>();
+    public List<String> printCarDistanceStatus(final Cars cars) {
+        final List<String> carStatus = new ArrayList<>();
         for (Car car : cars.getCars()) {
             String viewDistance = appendStatus(car.getDistance());
             carStatus.add(car.getName() + SPACE + COLON + SPACE + viewDistance);
@@ -24,11 +24,11 @@ public class OutputFormatter {
         return carStatus;
     }
 
-    private String appendStatus(int distance) {
+    private String appendStatus(final int distance) {
         return VISUALIZED_STATUS.repeat(Math.max(0, distance));
     }
 
-    public String printWinner(ResultCars resultCars) {
+    public String printWinner(final ResultCars resultCars) {
         return resultCars.getResultCars().stream()
                 .map(ResultCar::getName)
                 .collect(Collectors.joining(COMMAS + SPACE));
