@@ -4,6 +4,9 @@ import java.util.List;
 
 public class Util {
     public static void validateCarName(String carName) {
+        if (carName.trim().isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름에 공백이 포함되어 있습니다.");
+        }
         if (carName.length() > 5) {
             throw new IllegalArgumentException("자동차 이름은 5자 이하로 이루어져야 합니다!");
         }
