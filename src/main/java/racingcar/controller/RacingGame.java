@@ -21,20 +21,28 @@ public class RacingGame {
 
     private void registerCars() {
         String carNames = InputView.carNames();
-        String[] names = checkIncludeSpace(carNames);
+        String[] names = checkValid(carNames);
         for (String name : names) {
             addCar(name);
         }
     }
 
-    private String[] checkIncludeSpace(String carNames) {
-        Exception.isFrontSpace(carNames);
+    private String[] checkValid(String carNames) {
+        Exception.isFrontSpace(carNames); // 글자 앞에 공백 있는지 확인
+
         String[] names = carNames.split(",");
-        Exception.isSpace(names);
+        checkNumber(names); // 이름이 숫자인지
+        Exception.isSpace(names); // 이름에 공백이 포함되어 있는지 확인
 
         return names;
     }
-    
+
+    private void checkNumber(String[] names) {
+        for (String name : names) {
+            Exception.checkNameLength(name);
+        }
+    }
+
     private void addCar(String name) {
         Car car = new Car(name);
         carList.add(car);

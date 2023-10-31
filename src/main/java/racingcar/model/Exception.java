@@ -33,4 +33,10 @@ public class Exception {
             throw new IllegalArgumentException("이름에 공백이 포함되어 있습니다");
         }
     }
+
+    public static void checkNameLength(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("이름은 5자 이하이어야 합니다.");
+        }
+    }
 }
