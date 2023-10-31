@@ -10,6 +10,7 @@ import model.Car;
 public class Race {
     private final List<String> currentPositions = new ArrayList<>();
     private final Map<String, String> raceResult = new HashMap<>();
+    int max = 0;
 
     public String raceCar(List<Car> cars, int times){
 
@@ -28,9 +29,20 @@ public class Race {
             String name = car.getName();
             String position = car.getPosition();
             raceResult.put(name,position);
+            if (position.length() > max){
+                max  = position.length();
+            }
         });
+
         System.out.println(raceResult);
 
+        cars.forEach(car -> {
+            String name = car.getName();
+            String position = car.getPosition();
+            if (position.length() == max) {
+                System.out.println(name+" ");
+            }
+        });
         return "게임종료";
     }
 
