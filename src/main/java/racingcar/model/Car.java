@@ -24,7 +24,7 @@ public class Car implements Comparable<Car>, Model {
         }
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
