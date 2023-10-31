@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
@@ -43,6 +45,19 @@ public class CarTest extends NsTest {
         Car car = new Car(CAR_NAME);
         //then
         assertEquals(car.getPosition(), 0);
+    }
+
+    @Test
+    @DisplayName("isSamePosition 함수 기능 테스트")
+    void 이동거리가_같은_자동차_확인_기능_테스트() {
+        //given
+        Car car1 = new Car(CAR1_NAME);
+        Car car2 = new Car(CAR2_NAME);
+        assertTrue(car1.isSamePosition(car2));
+        //when
+        car1.moveForward(MOVING_FORWARD);
+        //then
+        assertFalse(car1.isSamePosition(car2));
     }
 
     @Override
