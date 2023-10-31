@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -35,5 +37,34 @@ public class CarTest {
 
         Assertions.assertThat(car2.getCarName()).isEqualTo(name2);
         Assertions.assertThat(car2.getDriveCount()).isEqualTo(0);
+    }
+
+    @Test
+    public void not_move_when_under_4() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Assertions.assertThat(driveCar(4)).isEqualTo(0);
+                },
+                0, 1, 2, 3
+        );
+    }
+
+    @Test
+    public void move_when_up_4() {
+        Car car = new Car("name");
+        assertRandomNumberInRangeTest(
+                () -> {
+                    Assertions.assertThat(driveCar(6)).isEqualTo(6);
+                },
+                4, 5, 6, 7, 8, 9
+        );
+    }
+
+    private int driveCar(int driveNum) {
+        Car car = new Car("name");
+        for (int i = 0; i < driveNum; i++) {
+            car.decideDrive();
+        }
+        return car.getDriveCount();
     }
 }
