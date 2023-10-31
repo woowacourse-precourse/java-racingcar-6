@@ -15,7 +15,6 @@ public class CarListService {
 
     private static LinkedHashMap<String, Integer> stringSplitAndToMap(String carList) {
         String[] carArray = carList.split(",");
-
         return Stream.of(carArray)
                 .collect(Collectors.toMap(carName -> carName, carName -> 0, (a, b) -> b, LinkedHashMap::new));
     }

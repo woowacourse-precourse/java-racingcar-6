@@ -8,7 +8,6 @@ import view.OutputView;
 
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import static service.RandomMovementDecider.moveDecide;
 
@@ -19,8 +18,9 @@ public class RacingGame {
     }
 
     public void gameSetAndStart() {
-        carList.init(InputView.setCarNames());
-        int rounds = Round.setRound();
+        String carListInput = InputValidator.carListInputSetAndValidate();
+        carList.init(carListInput);
+        int rounds = InputValidator.roundInputSetAndValidate();
 
         OutputView.startPlayDisplay();
         for(int round = 0; round < rounds; round++){
