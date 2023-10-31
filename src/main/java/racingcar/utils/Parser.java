@@ -13,11 +13,11 @@ public class Parser {
                 .toList();
     }
 
-    private static String[] split(String userInput) {
-        return userInput.split(CAR_NAME_DELIMITER.getSymbol());
-    }
-
     public static Integer parseStringToInteger(String userInput) {
         return Integer.parseInt(userInput);
+    }
+
+    private static String[] split(String userInput) {
+        return userInput.split(CAR_NAME_DELIMITER.getSymbol());
     }
 }
