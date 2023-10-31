@@ -31,6 +31,9 @@ public class RacingController {
         setCarList(carList);
 
         int tryCount = getTryCount();
+
+        racingViewer.showResultMessage();
+        startRace(carList, tryCount);
     }
 
     private void setCarList(Map<String, Integer> list) {
@@ -40,6 +43,7 @@ public class RacingController {
         }
         carNameValidator.checkDuplicatedCarName(list);
     }
+
     private int getTryCount() {
         racingViewer.showTryCountMessage();
         String tryCount = tryCountInput.returnTryCount();
@@ -47,5 +51,12 @@ public class RacingController {
         tryCountValidator.isNumberInRange(tryCount);
 
         return Integer.parseInt(tryCount);
+    }
+
+    private void startRace(Map<String, Integer> carList, int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
+            tmpRace(carList);
+            racingViewer.showNewLine();
+        }
     }
 }
