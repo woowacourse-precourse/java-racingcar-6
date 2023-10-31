@@ -11,6 +11,30 @@ class ApplicationSecondTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
+    void 긴_문자열_이름에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("banana,apple", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 긴_문자열_이름에_대한_예외_처리_2() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("infikei", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 긴_문자열_이름에_대한_예외_처리_3() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("infikeiinfikeiinfikeiinfikei", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
     void 빈_문자열_이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("", "1"))
