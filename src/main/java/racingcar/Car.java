@@ -40,4 +40,12 @@ public class Car {
         }
         return String.format(CAR_FORMAT, name, stringBuilder.toString());
     }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
