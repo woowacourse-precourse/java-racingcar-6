@@ -9,8 +9,8 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.validator.CarValidator.checkAllCarNameException;
 import static racingcar.validator.TryCountValidator.checkAllTryCountException;
-import static racingcar.view.InputView.getCarNameNotification;
-import static racingcar.view.InputView.getNumberOfTry;
+import static racingcar.view.InputView.noticeForGetCarNameNotification;
+import static racingcar.view.InputView.noticeForGetNumberOfTry;
 import static racingcar.view.OutputView.printResult;
 import static racingcar.view.OutputView.printWinnerList;
 
@@ -31,7 +31,7 @@ public class RacingService {
     }
 
     public static int getTryCount() {
-        getNumberOfTry();
+        noticeForGetNumberOfTry();
         String tryCount = readLine();
         checkAllTryCountException(tryCount);
         return Integer.parseInt(tryCount);
@@ -44,7 +44,7 @@ public class RacingService {
     }
 
     public static String getCarName() {
-        getCarNameNotification();
+        noticeForGetCarNameNotification();
         return readLine();
     }
 
