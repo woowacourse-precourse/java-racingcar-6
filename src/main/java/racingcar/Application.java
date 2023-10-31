@@ -24,5 +24,19 @@ public class Application {
 
     }
 
+    public static List<Car> makeCarNameList(String inputNames) {
+        List<Car> carNameList = new ArrayList<>();
+        List<String> splitArr = List.of(inputNames.split(","));
+        //콤마만 있는 경우 검사
+        checkInputValue(splitArr);
+
+        for (String inputName : splitArr) {
+            carNameList.add(new Car(inputName));
+        }
+        return carNameList;
+    }
+
+
+
 
 }
