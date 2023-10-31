@@ -57,7 +57,7 @@ public class Controller {
             throw new IllegalArgumentException(Message.EXECUTION_INPUT_TYPE_ERROR);
         }
 
-        if(result <= 0){
+        if (result <= 0) {
             throw new IllegalArgumentException(Message.EXECUTION_INPUT_TYPE_ERROR);
         }
 
@@ -68,7 +68,7 @@ public class Controller {
         if (name.length() > Constant.MAX_LEN_OF_CAR_NAME) {
             throw new IllegalArgumentException(Message.NAME_INPUT_LENGTH_ERROR);
         }
-        if (name.isEmpty()){
+        if (name.isEmpty()) {
             throw new IllegalArgumentException(Message.NAME_INPUT_NULL_ERROR);
         }
     }
