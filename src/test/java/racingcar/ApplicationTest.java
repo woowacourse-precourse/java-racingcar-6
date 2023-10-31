@@ -114,6 +114,17 @@ class ApplicationTest extends NsTest {
             carRepository.findByName("woni").setForward(5);
             assertThat(carRepository.findAllMaxForward()).containsExactly("pobi", "woni");
         }
+
+        @Test
+        void findByName() {
+            CarRepository carRepository = new CarRepository();
+            carRepository.save("pobi");
+            carRepository.save("woni");
+            carRepository.save("faker");
+            carRepository.save("bdd");
+            carRepository.save("chovy");
+            assertThat(carRepository.findByName("pobi").getName()).isEqualTo("pobi");
+        }
     }
 
     @Override
