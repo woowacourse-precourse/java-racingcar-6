@@ -15,6 +15,8 @@ public class Application {
         List<Car> carNameList = getCarNames();
         int tryingCount = getTryingNumber();
 
+        playRacing(carNameList, tryingCount);
+
     }
 
     public static List<Car> getCarNames(){
@@ -59,5 +61,13 @@ public class Application {
         }
     }
 
+    public static void playRacing(List<Car> carNameList, int count) {
+
+        for (int i = 0; i < count; i++) {
+            forwardPlayer(carNameList);
+        }
+        System.out.println("최종 우승자 : " + findWinner(carNameList));
+
+    }
 
 }
