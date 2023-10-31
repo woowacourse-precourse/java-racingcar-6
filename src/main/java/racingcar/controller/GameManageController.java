@@ -8,11 +8,13 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameManageController {
+
+    private List<Car> carList = new ArrayList<Car>();
+
     public void play() {
         OutputView.enterCarNames();
         String names = InputView.inputCarNames();
         List<String> namesList = List.of(names.split(","));
-        List<Car> carList = new ArrayList<Car>();
 
         for (String name : namesList) {
             Car car = new Car(name);
@@ -21,23 +23,13 @@ public class GameManageController {
 
         OutputView.enterAttempts();
         int attempts = InputView.inputAttempts();
-
-        OutputView.printResultMessage();
-        for (int i = 0; i < attempts; i++) {
-            for (Car car : carList) {
-                int moveCommand = Randoms.pickNumberInRange(0, 9);
-                car.move(moveCommand);
-            }
-            OutputView.printResult(carList);
-        }
-        List<Car> winners = findWinners(carList);
-        OutputView.printWinners(winners);
+        showResult(attempts);
 
     }
 
-    public List<Car> findWinners(List<Car> carList) {
+    public List<Car> findWinners() {
         List<Car> winners = new ArrayList<Car>();
-        int maxPosition = findMaxPosition(carList);
+        int maxPosition = findMaxPosition();
         for (Car car : carList) {
             if (car.getPosition() == maxPosition) {
                 winners.add(car);
@@ -46,7 +38,7 @@ public class GameManageController {
         return winners;
     }
 
-    public int findMaxPosition(List<Car> carList) {
+    public int findMaxPosition() {
         int maxPosition = 0;
         for (Car car : carList) {
             if (car.getPosition() > maxPosition) {
@@ -56,5 +48,16 @@ public class GameManageController {
         return maxPosition;
     }
 
-
+    private void showResult(int attempts) {
+        OutputView.printResultMessage();
+        for (int i = 0; i < attempts; i++) {
+            for (Car car : carList) {
+                int moveCommand = Randoms.pickNumberInRange(0, 9);
+                car.move(moveCommand);
+            }
+            OutputView.printResult(carList);
+        }
+        List<Car> winners = findWinners();
+        OutputView.printWinners(winners);
+    }
 }
