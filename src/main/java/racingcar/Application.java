@@ -59,50 +59,69 @@ public class Application {
     }
 
     // 차 경주 시작
-//    public static void start(Race race){
-//
-//
-//        int[] carPos = new int[carmap.get(0)];
-//        int maxPos = 0;
-//
-//        System.out.println("경주를 시작합니다!");
-//
-//        for (int gameCnt = 0; gameCnt < carmap.get(1); gameCnt++) {
-//            System.out.println("\n" + "시도 " + (gameCnt + 1) + ":");
-//
-//            for (int carIndex = 0; carIndex < carNum; carIndex++) {
-//                //무작위 값 입력
-//                int rand = Randoms.pickNumberInRange(0, 9);
-//                //4보다 크면 이동
-//                if (rand >= 4) {
-//                    carPos[carIndex]++;
-//                }
-//
-//                //이동한 경우 위치값을 저장한다.
-//                maxPos = Math.max(maxPos, carPos[carIndex]);
-//            }
-//
-//            // 각 차의 이동 상황 출력
-//            for (int carIndex = 0; carIndex < carNum; carIndex++) {
-//                System.out.print(car[carIndex] + " : ");
-//                for (int i = 0; i < carPos[carIndex]; i++) {
-//                    System.out.print("-");
-//                }
-//                System.out.println();
-//            }
-//        }
-//
-//        System.out.println("\n" + "경주가 종료되었습니다!");
-//
-//    }
+    public static void start(Race race){
+        String[] car = race.getCars();
+        int num = race.getNum();
+
+        int carNum = car.length;
+        int[] carPos = new int[carNum];
+        int maxPos = 0;
+
+        System.out.println("경주를 시작합니다!");
+
+        for (int gameCnt = 0; gameCnt < num; gameCnt++) {
+            System.out.println("\n" + "시도 " + (gameCnt + 1) + ":");
+
+            for (int carIndex = 0; carIndex < carNum; carIndex++) {
+                //무작위 값 입력
+                int rand = Randoms.pickNumberInRange(0, 9);
+                //4보다 크면 이동
+                if (rand >= 4) {
+                    carPos[carIndex]++;
+                }
+
+                //이동한 경우 위치값을 저장한다.
+                maxPos = Math.max(maxPos, carPos[carIndex]);
+            }
+
+            // 각 차의 이동 상황 출력
+            for (int carIndex = 0; carIndex < carNum; carIndex++) {
+                System.out.print(car[carIndex] + " : ");
+                for (int i = 0; i < carPos[carIndex]; i++) {
+                    System.out.print("-");
+                }
+                System.out.println();
+            }
+        }
+
+        System.out.println("\n" + "경주가 종료되었습니다!");
+
+        //최종우승자 판별
+        StringBuilder win = new StringBuilder();
+        for (int carIndex = 0; carIndex < carNum; carIndex++) {
+            if (carPos[carIndex] == maxPos) {
+                if (win.length() > 0) {
+                    win.append(", ");
+                }
+                win.append(car[carIndex]);
+            }
+        }
+
+        if (win.toString().contains(", ")) {
+            System.out.println("최종 우승자: " + win);
+        } else {
+            System.out.println("최종 우승자: " + win.toString());
+        }
+    }
+
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         //입력
-        inputCars();
+        Race race = inputCars();
 
-        //경주 시작
-//        start();
+        //경주 시작과 최종 우승자 판별
+        start(race);
 
 
     }
