@@ -16,6 +16,26 @@ public class ErrorCheck {
         }
     }
 
+    public void inputNumberCheck(String userInput) {
+        if (!isNumeric(userInput)) {
+            throw new IllegalArgumentException("올바른 정수를 입력해 주세요");
+        }
+        if (Integer.parseInt(userInput) < 0) {
+            throw new IllegalArgumentException("음수를 입력할 수 없습니다.");
+        }
+
+
+    }
+
+    public boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
 
 
 
