@@ -1,6 +1,6 @@
 package racingcar;
 
-public class RacingCar {
+public class Car {
     private String name;
     private Long move;
 
