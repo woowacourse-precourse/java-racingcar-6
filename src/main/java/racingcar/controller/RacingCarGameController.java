@@ -22,7 +22,7 @@ public class RacingCarGameController {
 
         racingCarGameView.gameResult();
         for (int i = 0; i < tryNum; i++) {
-            moveOrNot(playerList);
+            moveOrNot(playerList, Randoms.pickNumberInRange(0, 9));
             racingCarGameView.showNowPlayerLocation(playerList);
         }
 
@@ -39,11 +39,9 @@ public class RacingCarGameController {
         return playerList;
     }
 
-    public void moveOrNot(List<Player> playerList) {
-        int enoughMove;
+    public void moveOrNot(List<Player> playerList, int randomNum) {
         for (Player player : playerList) {
-            enoughMove = Randoms.pickNumberInRange(0, 9);
-            if (enoughMove >= 4) {
+            if (randomNum >= 4) {
                 player.move();
             }
         }
