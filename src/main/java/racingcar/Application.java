@@ -1,6 +1,5 @@
 package racingcar;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.domain.Ask.*;
 
 import camp.nextstep.edu.missionutils.Console;
