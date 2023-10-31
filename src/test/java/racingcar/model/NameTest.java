@@ -1,9 +1,8 @@
-package racingcar;
+package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
-import racingcar.model.Name;
 
 public class NameTest {
     @Test
