@@ -11,10 +11,10 @@ public class GameController {
 
     public void start() {
         print.questionCarName();
-        inputService.carsName();
+        inputService.carsName(inputService.input());
 
         print.questionTryNum();
-        inputService.gameNum();
+        inputService.gameNum(inputService.input());
         print.result();
         gameService.run();
     }

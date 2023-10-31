@@ -15,15 +15,14 @@ public class InputService {
         return Console.readLine();
     }
 
-    public void carsName() {
-        String[] carArr = splitBySeparator(input());
+    public void carsName(String input) {
+        String[] carArr = splitBySeparator(input);
         if (inputValidator.cars(carArr)) {
             carsRepo.initCars(carArr);
         }
     }
 
-    public void gameNum() {
-        String input = input();
+    public void gameNum(String input) {
         if (inputValidator.nums(input)) {
             gameNum.init(StringToInt(input));
         }

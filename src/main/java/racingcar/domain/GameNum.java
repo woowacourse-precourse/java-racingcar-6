@@ -21,4 +21,8 @@ public class GameNum {
     public boolean isOverZero() {
         return number > 0;
     }
+
+    public int getNumber() {
+        return number;
+    }
 }
