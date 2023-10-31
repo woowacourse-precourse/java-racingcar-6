@@ -18,10 +18,10 @@
 - 테스트해서 체크  
   - 이름 입력
     - 5자 이하 인지
-    - empty check
   - 이동 횟수 입력
     - 숫자인지
     - 양수인지
+    - int 범위 내 인지 
 
 ## 구현할 클래스 및 내용
 - (Controller) RacingCarGame
