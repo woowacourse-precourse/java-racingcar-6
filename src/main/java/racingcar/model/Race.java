@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,10 +28,15 @@ public class Race {
         return getCar(carName).getDistance();
     }
 
-    public void doAttempt() {
-        // TODO: implement Random advance logic
-        for (Car car : cars.values()) {
+    private void randomAdvance(Car car) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
             car.advance();
+        }
+    }
+
+    public void doAttempt() {
+        for (Car car : cars.values()) {
+            randomAdvance(car);
         }
     }
 }
