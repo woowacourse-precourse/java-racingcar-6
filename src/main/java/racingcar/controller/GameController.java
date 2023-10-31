@@ -1,20 +1,19 @@
 package racingcar.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import racingcar.constant.GameConfig;
-import racingcar.model.RacingCar;
-import racingcar.model.RacingCarList;
+import racingcar.model.*;
 
 import static racingcar.view.OutputView.*;
 import static racingcar.view.InputView.*;
 
 public class GameController {
     private final GameProcess process;
+    private final RacingCarResult gameResult;
     private int ZERO = GameConfig.ZERO.getValue();
 
     public GameController() {
         process = new GameProcess();
+        gameResult = new RacingCarResult();
     }
 
     public void run() {
@@ -27,28 +26,12 @@ public class GameController {
             process.processGame(car);
             tryAttempt = decreaseAttempt(tryAttempt);
         }
-        printFinalWinner(getFinalWinner(car, car.size()));
+        gameResult.getFinalWinners(car);
+        printFinalWinner(gameResult.getWinners());
     }
 
     private int decreaseAttempt(int attempt) {
         return attempt - 1;
     }
 
-    private List<String> getFinalWinner(RacingCarList racingCarList, int length) {
-        int maxDistance = ZERO;
-        List<String> winners = new ArrayList<>();
-        for (int carIndex = 0; carIndex < length; carIndex++) {
-            RacingCar car = racingCarList.getCar(carIndex);
-            int carDistance = car.getDistance();
-
-            if (carDistance > maxDistance) {
-                winners.clear();
-                maxDistance = carDistance;
-            }
-            if (car.getDistance() == maxDistance) {
-                winners.add(car.getName());
-            }
-        }
-        return winners;
-    }
 }
