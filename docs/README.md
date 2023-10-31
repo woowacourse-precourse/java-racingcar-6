@@ -66,7 +66,9 @@
 
 - `askCarNames()` : 경주에 참여할 자동차들을 입력하라는 메시지 출력
 - `askGameCount()` : 게임 시도 회수를 입력하라는 메시지 출력
-
+- `printRaceResultIntro()` : 실행 결과 메시지 출력
+- `printCurrentLocation()` : 자동차의 현재 위치를 전진한 횟수 * ‘-’로 출력
+- `printFinalWinner()` : 최종 우승자를 출력
 ## Converter
 
 역할: 객체의 타입을 변환하는 클래스
@@ -93,3 +95,7 @@
     3. 중복된 이름이 있는지 확인
 - `vadliateGameCount()` : GameCount가 적절한지 검증
     1. 정수로 변환이 가능한 형태인지 확인
+
+## ValidateNumber
+
+- `validateForwardCount()` : 전진한 숫자가 0 이상인지 검증한다.
