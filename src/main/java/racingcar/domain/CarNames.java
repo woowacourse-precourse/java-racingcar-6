@@ -36,4 +36,12 @@ public class CarNames {
         }
     }
 
+    public Cars generateCars() {
+        List<Car> list = this.carNames.stream()
+                .map(carName -> new Car(carName, new Position(0)))
+                .toList();
+
+        return new Cars(list);
+    }
+
 }

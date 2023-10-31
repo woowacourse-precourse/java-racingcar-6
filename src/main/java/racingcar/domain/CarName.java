@@ -37,4 +37,8 @@ public class CarName {
         return Objects.hash(name);
     }
 
+    public String getName() {
+        return name;
+    }
+
 }

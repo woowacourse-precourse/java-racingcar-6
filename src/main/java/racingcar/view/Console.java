@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import racingcar.controller.dto.Result;
+
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class Console {
@@ -49,6 +52,23 @@ public class Console {
 
     private boolean isNumeric(String value) {
         return REGEX.matcher(value).matches();
+    }
+
+    private String draw(int position) {
+        return "-".repeat(position);
+    }
+
+    public void printResultMessage() {
+        output.println("실행 결과");
+    }
+
+    public void print(List<Result> results) {
+        results.forEach(result -> print(result.carName(), result.position()));
+        output.print("\n");
+    }
+
+    private void print(String carName, int position) {
+        output.println(String.format("%s : %s", carName, draw(position)));
     }
 
 }

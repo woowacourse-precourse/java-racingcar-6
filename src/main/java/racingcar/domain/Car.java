@@ -35,4 +35,12 @@ public class Car {
         return Objects.hash(carName, position);
     }
 
+    public String getCarName() {
+        return this.carName.getName();
+    }
+
+    public int getPosition() {
+        return this.position.getPosition();
+    }
+
 }

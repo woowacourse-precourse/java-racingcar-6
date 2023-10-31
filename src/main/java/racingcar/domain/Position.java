@@ -34,4 +34,8 @@ public class Position {
         return Objects.hash(position);
     }
 
+    public int getPosition() {
+        return position;
+    }
+
 }
