@@ -41,4 +41,23 @@ public class CarGame {
         }
     }
 
+
+    public List<String> getWinner() {
+        int maxDistance = getMaxDistance();
+
+        List<String> result = cars.stream()
+                .filter(car -> maxDistance == car.getDistance())
+                .map(Cars::getName)
+                .toList();
+        return result;
+    }
+
+    private int getMaxDistance() {
+        int maxDistance = cars.stream()
+                .mapToInt(Cars::getDistance)
+                .max()
+                .orElse(0);
+
+        return maxDistance;
+    }
 }

@@ -2,7 +2,6 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.model.CarGame;
-import racingcar.model.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -31,15 +30,8 @@ public class GameController {
     }
 
     private void endGame() {
-        int maxDistance = car.getCars()
-                .stream()
-                .mapToInt(Cars::getDistance)
-                .max()
-                .orElse(0);
+        List<String> result = car.getWinner();
 
-        List<String> result = car.getCars().stream()
-                .filter(car -> maxDistance == car.getDistance())
-                .map(Cars::getName)
-                .toList();
+        outputView.printWinner(result);
     }
 }
