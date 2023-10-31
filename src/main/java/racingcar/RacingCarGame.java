@@ -52,21 +52,30 @@ public class RacingCarGame {
     }
 
     public void decideWinner(List<Car> carList, List<Car> winnerList) {
-        int countRepeat = 0;
-        while (countRepeat < carList.size() - 1) {
-            countRepeat = compareDistance(carList, winnerList, countRepeat);
+        int countOfRepeat = 0;
+        while (countOfRepeat < carList.size() - 1) {
+            replaceOrAddWinner(countOfRepeat, carList, winnerList);
+            countOfRepeat++;
         }
     }
 
-    private int compareDistance(List<Car> carList, List<Car> winner, int i) {
-        if (winner.get(0).getDistance().length() < carList.get(i + 1).getDistance().length()) {
-            winner.clear();
-            winner.add(carList.get(i + 1));
-        } else if (winner.get(0).getDistance().length() == carList.get(i + 1).getDistance().length()) {
-            winner.add(carList.get(i + 1));
+    private void replaceOrAddWinner(int countOfRepeat, List<Car> carList, List<Car> winnerList) {
+        int baseDistance = winnerList.get(0).getDistance().length();
+        replaceWinner(countOfRepeat, carList, winnerList, baseDistance);
+        addWinner(countOfRepeat, carList, winnerList, baseDistance);
+    }
+
+    private void replaceWinner(int countOfRepeat, List<Car> carList, List<Car> winnerList, int baseDistance) {
+        if (baseDistance < carList.get(countOfRepeat + 1).getDistance().length()) {
+            winnerList.clear();
+            winnerList.add(carList.get(countOfRepeat + 1));
         }
-        i++;
-        return i;
+    }
+
+    private void addWinner(int index, List<Car> carList, List<Car> winnerList, int distance) {
+        if (distance == carList.get(index + 1).getDistance().length()) {
+            winnerList.add(carList.get(index + 1));
+        }
     }
 
     public void printOutWinner(List<Car> winner) {
