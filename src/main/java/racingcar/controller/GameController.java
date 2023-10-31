@@ -40,6 +40,7 @@ public class GameController {
     private int createTrialNum() {
         System.out.println("시도할 회수는 몇회인가요?");
         String countTrial = Console.readLine();
+        validator.checkVaildNum(countTrial);
         int trialNum = saveTrialNum(countTrial);
         return trialNum;
     }
