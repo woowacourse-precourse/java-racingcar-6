@@ -13,7 +13,7 @@ public class TotalRoundValidatorTest {
     @DisplayName("부적절한 전체 라운드 입력 시 에러 발생 테스트")
     @NullAndEmptySource
     @ValueSource(strings = {" ", "   ", "\t", "\n", "다섯", "five", "@"})
-    public void testCarNameGreaterThanFive(String totalRound) {
+    void testCarNameGreaterThanFive(String totalRound) {
         Assertions.assertThrows(IllegalArgumentException.class, () -> totalRoundValidator.validate(totalRound));
     }
 }

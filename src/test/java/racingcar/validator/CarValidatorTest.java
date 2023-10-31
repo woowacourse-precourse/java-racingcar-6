@@ -13,7 +13,7 @@ public class CarValidatorTest {
     @DisplayName("부적절한 자동차 이름 입력 시 에러 발생 테스트")
     @NullAndEmptySource
     @ValueSource(strings = {" ", "   ", "\t", "\n", "leopard"})
-    public void testCarNameGreaterThanFive(String name) {
+    void testCarNameGreaterThanFive(String name) {
         Assertions.assertThrows(IllegalArgumentException.class, () -> validator.validate(name));
     }
 }
