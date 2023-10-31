@@ -9,6 +9,10 @@ public class Controller {
     int round;
     List<String> carName;
 
+    Controller(){
+        run();
+    }
+
     public void run() {
         inputView();
         inGame();
