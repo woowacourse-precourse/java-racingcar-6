@@ -86,6 +86,6 @@ public class RaceService {
         }
     }
     public void pronounceWinner(){
-        System.out.println(Output.Winner(race.getRacingCars()));
+        System.out.println(Output.winner(race.getRacingCars()));
     }
 }

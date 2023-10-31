@@ -1,4 +1,4 @@
-package racingcar;
+package mytest;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -72,4 +72,5 @@ public class CarDomainTest {
         // 테스트 검증 로직 추가
         assertThat(car.getPosition()).isEqualTo(1);
     }
+
 }
