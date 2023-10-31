@@ -33,4 +33,12 @@ public class Application {
         }
     }
 
+    public static void printRace(String carName, int position) {
+        System.out.print(carName + " : ");
+        for(int i = 0; i < position; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
 }
