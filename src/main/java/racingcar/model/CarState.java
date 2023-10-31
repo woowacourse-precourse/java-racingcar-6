@@ -1,4 +1,4 @@
 package racingcar.model;
 
-public record CarState(String name, int moveCount) {
+public record CarState(String name, int forwardCount) {
 }

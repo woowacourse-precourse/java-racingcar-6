@@ -5,27 +5,27 @@ import racingcar.util.IntGenerator;
 public class Car {
     private static final int MAXIMUM_NAME_LENGTH = 5;
     private static final int ONE_STEP = 1;
-    private static final int MINIMUM_MOVE_CONDITION = 4;
+    private static final int MINIMUM_FORWARD_CONDITION = 4;
     private final String name;
     private final IntGenerator intGenerator;
-    private int moveCount;
+    private int forwardCount;
 
     public Car(String name, IntGenerator intGenerator) {
         checkNameLength(name);
         this.name = name;
         this.intGenerator = intGenerator;
-        this.moveCount = 0;
+        this.forwardCount = 0;
     }
 
-    public void tryMove() {
-        if (canMove()) {
-            this.moveCount += ONE_STEP;
+    public void tryForward() {
+        if (canForward()) {
+            this.forwardCount += ONE_STEP;
         }
     }
 
-    private boolean canMove() {
+    private boolean canForward() {
         int pickedNumber = intGenerator.pickNumber();
-        return pickedNumber >= MINIMUM_MOVE_CONDITION;
+        return pickedNumber >= MINIMUM_FORWARD_CONDITION;
     }
 
     private void checkNameLength(String name) {
@@ -35,6 +35,6 @@ public class Car {
     }
 
     public CarState summarizeCurrentState() {
-        return new CarState(this.name, this.moveCount);
+        return new CarState(this.name, this.forwardCount);
     }
 }

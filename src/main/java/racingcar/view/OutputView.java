@@ -28,10 +28,10 @@ public class OutputView {
     private String formatCarPositionByState(CarState carState) {
         return carState.name()
                 + NAME_POSITION_DELIMITER
-                + convertMoveCountToPosition(carState.moveCount());
+                + convertForwardCountToPosition(carState.forwardCount());
     }
 
-    private String convertMoveCountToPosition(int moveCount) {
-        return POSITION_INDICATOR.repeat(moveCount);
+    private String convertForwardCountToPosition(int forwardCount) {
+        return POSITION_INDICATOR.repeat(forwardCount);
     }
 }

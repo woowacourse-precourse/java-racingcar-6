@@ -20,12 +20,12 @@ public class CarTest {
 
     @ParameterizedTest
     @CsvSource(value = {"1,0", "3,0", "5,1", "9,1"}, delimiter = ',')
-    void 전진_시도_시_기준점을_넘을때만_위치_1만큼_증가한다(int pickedNumber, int expectedMoveCount) {
+    void 전진_시도_시_기준점을_넘을때만_위치_1만큼_증가한다(int pickedNumber, int expectedForwardCount) {
         Car car = new Car("test", new CustomIntGenerator(pickedNumber));
 
-        car.tryMove();
+        car.tryForward();
         CarState state = car.summarizeCurrentState();
 
-        assertThat(state.moveCount()).isEqualTo(expectedMoveCount);
+        assertThat(state.forwardCount()).isEqualTo(expectedForwardCount);
     }
 }
