@@ -14,8 +14,8 @@ class DisplayTest {
     @Test
     void 인풋을_리스트로_반환_테스트() {
         System.setIn(new ByteArrayInputStream("영희,철수".getBytes()));
-        List<String> result = Display.inputCars();
-        List<String> target = Arrays.asList("영희","철수");
+        List<Car> result = Display.inputCars();
+        List<Car> target = Arrays.asList(new Car("영희"),new Car("철수"));
         assertThat(result).isEqualTo(target);
     }
 }

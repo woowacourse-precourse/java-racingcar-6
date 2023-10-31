@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Utils {
 
-    static void checkOverFive(List<String> names) {
-        for(String name : names) {
-            if (name.length() > 5) {
+    static void checkNameOverFive(List<Car> names) {
+        for(Car car : names) {
+            if (car.getName().length() > 5) {
                 throw new IllegalArgumentException();
             }
         }
