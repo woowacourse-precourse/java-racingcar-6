@@ -77,6 +77,7 @@
     - 지금 음직인 거리를 알려준다.
   - 상호작용 :
     - CarList : 요청을 받아라운드를 진행한다. 
+    - RandomNumberGenerator : 임의의 수를 요청한다.
 - CarList
   - 역할 : ArrayList를 이용해 RacingCar 객체를 저장한다.
   - 책임 : 
@@ -88,6 +89,12 @@
     - RacingController : 
       - 요청을 받아 RacingCar를 추가한다.
       - 우승자 리스트를 반환한다.
+- RandomNumberGenerator
+  - 역할 : 1 ~ 9의 임의의 수를 생성한다.
+  - 책임 :
+    - 1~9의 수를 생성한다.
+  - 상호작용 : 
+    - RacingCar : 임의의 수를 제공해준다.
 
 #### View
 - InputView
@@ -133,6 +140,8 @@
   - 이름을 받아 RacingCar를 저장한다. -> public void add(String name)
   - 각 자동차들이 라운드를 진행하게한다. -> public void excuteRound() 
   - 우승한 자동차들의 리스트를 뽑아낸다. -> public List<String> getWinners()
+- RandomNumberGenerator
+  - 1~9의 수를 생성한다. -> public int generateRandomNumber() 
 #### View
 - InputView
   - 사용자 입력을 받는다. -> public static String readLine() 
