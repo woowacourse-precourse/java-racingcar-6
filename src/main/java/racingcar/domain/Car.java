@@ -44,4 +44,12 @@ public class Car {
 
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public Long getDistance() {
+        return this.distance;
+    }
+
 }

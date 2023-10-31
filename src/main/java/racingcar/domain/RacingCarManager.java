@@ -14,4 +14,8 @@ public class RacingCarManager {
         }
     }
 
+    public CarList getCarList() {
+        return this.carList;
+    }
+
 }
