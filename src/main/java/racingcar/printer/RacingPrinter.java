@@ -2,6 +2,8 @@ package racingcar.printer;
 
 import racingcar.car.RacingCar;
 
+import java.util.List;
+
 public interface RacingPrinter {
     void requestInputRacingCarName();
 
@@ -12,4 +14,6 @@ public interface RacingPrinter {
     void printResultDetail(RacingCar racingCar);
 
     void printLine();
+
+    void noticeWinner(List<String> racingCars);
 }

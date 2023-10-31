@@ -5,7 +5,9 @@ public enum PrintMessage {
     REQUEST_INPUT_TRY_COUNT("시도할 회수는 몇회인가요?"),
     NOTICE_RESULT("실행결과"),
     COLON(" : "),
-    DASH("-");
+    DASH("-"),
+    COMMA(", "),
+    NOTICE_WINNER("최종 우승자 : ");
 
     private final String value;
 
