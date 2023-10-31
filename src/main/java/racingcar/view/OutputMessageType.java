@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.Common.MessageType;
+
 public enum OutputMessageType implements MessageType {
     RESULT_MESSAGE("실행 결과"),
     FINAL_RESULT_MESSAGE("최종 우승자"),

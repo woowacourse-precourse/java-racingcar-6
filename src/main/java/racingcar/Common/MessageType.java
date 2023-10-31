@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.Common;
 
 public interface MessageType {
 
