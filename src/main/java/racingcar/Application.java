@@ -175,6 +175,13 @@ class TotalCar {
         return carNames;
     }
 
+    public List<Integer> distanceList() {
+        List<Integer> carDistance = new ArrayList<>();
+        for (Car c : carList) {
+            carDistance.add(c.getDistance());
+        }
+        return carDistance;
+    }
 
 }
 
