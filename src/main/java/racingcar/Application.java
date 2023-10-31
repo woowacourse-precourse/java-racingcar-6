@@ -15,12 +15,7 @@ public class Application {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         //자동차 이름 입력 받기
         try {
-            List<String> cars = List.of(br.readLine().split(","));
-            for (int i = 0; i < cars.size(); i++) {
-                if (cars.get(i).length() > 5) {
-                    throw new IllegalArgumentException("자동차 이름은 5자 이하입니다.");
-                }
-            }
+            List<String> cars = getCarsname(br);
 
             //시도 횟수 입력 받기
             System.out.println("시도할 회수는 몇회인가요?");
@@ -76,5 +71,15 @@ public class Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static List<String> getCarsname(BufferedReader br) throws IOException {
+        List<String> cars = List.of(br.readLine().split(","));
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하입니다.");
+            }
+        }
+        return cars;
     }
 }
