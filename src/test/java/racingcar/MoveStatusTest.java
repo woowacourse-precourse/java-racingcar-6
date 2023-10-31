@@ -18,7 +18,6 @@ class MoveStatusTest {
     @DisplayName("이동 여부 true인 경우에 대한 동작확인")
     void canMove_동작확인() {
         moveStatus.setTestMoveStatus(true);
-        int randomNumber = 3;
         boolean moveResult = moveStatus.canMove();
         assertThat(moveResult).isEqualTo(true);
     }
@@ -27,7 +26,6 @@ class MoveStatusTest {
     @DisplayName("이동 여부 false인 경우에 대한 동작확인")
     void canMove_동작확인2() {
         moveStatus.setTestMoveStatus(false);
-        int randomNumber = 3;
         boolean moveResult = moveStatus.canMove();
         assertThat(moveResult).isEqualTo(false);
     }
