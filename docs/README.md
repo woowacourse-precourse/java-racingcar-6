@@ -30,9 +30,9 @@
 
 ```text
 ├─ controller
-│  └─ RacingController
-├─ domian
-│  └─ Car
+│  └─ RacingCar
+├─ validator
+│  ├─ InputValidator
 ├─ view
 │  ├─ InputView
 │  └─ OutputView
