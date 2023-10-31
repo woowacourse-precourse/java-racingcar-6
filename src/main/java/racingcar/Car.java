@@ -5,7 +5,7 @@ public class Car {
 	private int moveCount;
 
 	public Car(String name) {
-		validateName(name);
+		validateNameLength(name);
 		this.name = name;
 		this.moveCount = 0;
 	}
@@ -24,7 +24,7 @@ public class Car {
 		return moveCount;
 	}
 
-	private void validateName(String name) {
+	private void validateNameLength(String name) {
 		final int maxLength = 5;
 		final String ERROR_MESSAGE = "[ERROR] 자동차의 이름은 1자 이상 5자 이하로 입력해 주세요.";
 
