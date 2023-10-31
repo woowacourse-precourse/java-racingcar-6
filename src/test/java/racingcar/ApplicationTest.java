@@ -21,7 +21,7 @@ class ApplicationTest extends NsTest {
                 },
                 MOVING_FORWARD, STOP
         );
-        
+
     }
 
     @Test

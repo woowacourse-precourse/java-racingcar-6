@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Racing {
     final static int GO_FORWARD = 1;
-    final static int STOP = 0;
 
 
     public int generateNumber() {
