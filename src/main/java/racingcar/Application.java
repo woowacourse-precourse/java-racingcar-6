@@ -8,7 +8,6 @@ import racingcar.service.AttemptNumber;
 import racingcar.service.CarCreator;
 import racingcar.service.CarName;
 import racingcar.service.Move;
-import racingcar.service.RandomNumber;
 import racingcar.view.OutputView;
 
 public class Application {
@@ -19,14 +18,13 @@ public class Application {
         CarName carName = new CarName();
         List<Car> cars = new CarCreator().createCars(carName.rangeCarList, 0);
 
-        RandomNumber randomNumber = new RandomNumber();
         CarCreator carCreator = new CarCreator();
         OutputView outputView = new OutputView();
         Move move = new Move(cars);
         AttemptNumber attemptNumber = new AttemptNumber();
 
 
-        Start start = new Start(move, carName, randomNumber, carCreator, outputView, attemptNumber);
+        Start start = new Start(move, carName, carCreator, outputView, attemptNumber);
         start.Game();
     }
 

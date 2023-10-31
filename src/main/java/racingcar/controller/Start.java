@@ -14,17 +14,15 @@ public class Start {
 
     private Move move;
     private CarName carName;
-    private RandomNumber randomNumber;
     private CarCreator carCreator;
     private OutputView outputView;
     private AttemptNumber attemptNumber;
 
 
-    public Start(Move move, CarName carName, RandomNumber randomNumber, CarCreator carCreator,
+    public Start(Move move, CarName carName, CarCreator carCreator,
             OutputView outputView, AttemptNumber attemptNumber) {
         this.move = move;
         this.carName = carName;
-        this.randomNumber = randomNumber;
         this.carCreator = carCreator;
         this.outputView = outputView;
         this.attemptNumber = attemptNumber;
