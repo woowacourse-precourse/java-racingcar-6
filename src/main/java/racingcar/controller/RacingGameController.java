@@ -2,11 +2,9 @@ package racingcar.controller;
 
 import racingcar.domain.CarContainer;
 import racingcar.domain.NumberPicker;
-import racingcar.domain.RacingCars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.List;
 
 public class RacingGameController {
     private static final String NUMBER_ERROR_MESSAGE = " 경기 횟수는 0 미만이면 안됩니다. ";
