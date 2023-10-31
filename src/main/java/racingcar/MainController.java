@@ -19,6 +19,7 @@ public class MainController {
         generateCars();
         registerMoveCounts();
         initCarRacing();
+        endCarRacing();
     }
 
     private void generateCars() {
@@ -37,5 +38,9 @@ public class MainController {
             race.startCarRacing();
             outputView.printCars(race.getParticipatingCars());
         }
+    }
+
+    private void endCarRacing() {
+        outputView.printWinners(race.calculateWinners());
     }
 }
