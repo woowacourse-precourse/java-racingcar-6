@@ -5,9 +5,10 @@ import racingcar.io.Randoms;
 
 public class Racer {
 
+    public static final int CRITERIA_FOR_MOVING_FORWARD = 4;
     private final String name;
+    private final Randoms randoms;
     private Integer mileage;
-    private Randoms randoms;
 
     public Racer(String name, Randoms randoms) {
         this.name = name;
@@ -16,8 +17,7 @@ public class Racer {
     }
 
     public void drive() {
-        // TODO : 매직넘버 제거할 것
-        if (4 <= randoms.getSingleNumber()) {
+        if (CRITERIA_FOR_MOVING_FORWARD <= randoms.getSingleNumber()) {
             mileage++;
         }
     }
