@@ -18,5 +18,6 @@ public class GameController {
         String carNames = readLine();
 
         GameInputView.printTryInputMessage();
+        String tryCount = readLine();
     }
 }
