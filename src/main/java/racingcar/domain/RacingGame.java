@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.List;
+
 public class RacingGame {
     private int tryCount = 0;
 
@@ -19,11 +21,11 @@ public class RacingGame {
 
     public void run() {
         Cars cars = new Cars();
-        String carsName = cars.createCars();
 
-        inputTryCount();
+        List<String> carsName = cars.createCars();
+        int inputTryCount = inputTryCount();
 
-        cars.racing(carsName, tryCount);
+        cars.sprint(carsName.toString(), inputTryCount);
 
         winner();
     }
