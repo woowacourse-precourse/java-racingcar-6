@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class Game {
-    private int playNum = 0;
     Cars cars;
 
     public Game() {
@@ -22,9 +21,14 @@ public class Game {
         }
         createCars(carNames);
 
-        playNum = inputHandler.inputRacingNumber();
+        int playNum = inputHandler.inputRacingNumber();
 
-        racingStart();
+        System.out.println(Constants.PRINT_GROUND_RESULT);
+
+        for(int i=0;i<playNum;i++) {
+            cars.racing();
+            cars.printRoundRacingResult();
+        }
     }
 
 
@@ -32,10 +36,6 @@ public class Game {
         for (String carName : carNames) {
             cars.add(carName);
         }
-    }
-
-    private void racingStart() {
-
     }
 
     private List<Integer> getMaxForwardCarsIndex() {
