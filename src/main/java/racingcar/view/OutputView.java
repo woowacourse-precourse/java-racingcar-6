@@ -23,7 +23,7 @@ public class OutputView {
                 String.join(WINNER_NAME_DELIMITER, winners.getWinners()));
     }
 
-    public static void printCurrentCarStatus(List<CarStatus> carStatusList) {
+    public static void printCarStatusOfRace(List<CarStatus> carStatusList) {
         carStatusList.forEach(OutputView::printOneCurrentCarStatus);
         System.out.println();
     }
