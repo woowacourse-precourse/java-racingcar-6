@@ -27,4 +27,16 @@ class OutputManagerTest {
         // then
         assertThat(outputStreamCaptor.toString().trim()).contains(OutputManager.REQUEST_CAR_NAME_INPUT);
     }
+
+    @Test
+    void 게임_진행_회수_입력요청_메시지_출력() {
+        // given
+        OutputManager outputManager = new OutputManager();
+
+        // when
+        outputManager.printRequestGameCountInputMessage();
+
+        // then
+        assertThat(outputStreamCaptor.toString().trim()).contains(OutputManager.REQUEST_GAME_COUNT_INPUT);
+    }
 }
