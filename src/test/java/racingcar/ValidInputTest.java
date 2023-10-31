@@ -12,10 +12,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class ValidInputTest {
 
     @Test
-    void isValidString() {
-    }
-
-    @Test
     void hasComma_문자열에_Comma_존재_여부_확인() {
         String[] inputs = {"stringstringstring", "stringstr,ingstring", ",stringstringstring", "stringstringstring,"};
         Boolean[] expectedOutputs = {false, true, true, true};
@@ -50,13 +46,8 @@ class ValidInputTest {
         Boolean[] Outputs = outputsList.toArray(new Boolean[0]);
         assertArrayEquals(expectedOutputs, Outputs);
     }
-
     @Test
-    void isValidNames() {
-    }
-
-    @Test
-    void isNameLengthLessThanOrEqual5() {
+    void isNameLengthLessThanOrEqual5_주어진_이름들의_길이가_5_이하인_지_확인() {
         String[] inputs1 = {"a", "bb", "ccc", "dddd", "eeeee", "f f"};
         String[] inputs2 = {"a", "bb", "ccc", "dddd", "eeeee", "f f", "gggggg"};
         Boolean[] expectedOutputs = {true, false};
@@ -68,7 +59,7 @@ class ValidInputTest {
     }
 
     @Test
-    void hasDuplicateNames() {
+    void hasDuplicateNames_주어진_이름들에_중복이_있는_지_확인() {
         String[] inputs1 = {"a", "aa", "ccc", "dddd", "eeeee"};
         String[] inputs2 = {"a", "a", "ccc", "dddd"};
         Boolean[] expectedOutputs = {false, true};
