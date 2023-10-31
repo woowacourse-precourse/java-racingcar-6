@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Car {
     private String name;
@@ -9,6 +11,12 @@ public class Car {
     public Car(String name) {
         this.name = name;
         this.move = 0;
+    }
+
+    public static List<Car> makeCarList(List<String> carNameList) {
+        return carNameList.stream()
+                .map(carName -> new Car(carName))
+                .collect(Collectors.toList());
     }
 
     public String getName() {
