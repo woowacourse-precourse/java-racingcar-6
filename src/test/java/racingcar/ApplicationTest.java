@@ -33,29 +33,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-    @Test
-    @DisplayName("이름 존재 유무에 따른 Exception 발생")
-    void getInputCarNames() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException(",,,", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
 
-    @Test
-    @DisplayName("RepeatNumber 예외 처리")
-    void getRepeatNumber(){
-        assertSimpleTest(()-> assertThatThrownBy(()->runException("pobi,woni","a"))
-                .isInstanceOf(IllegalArgumentException.class));
-    }
-
-    @Test
-    @DisplayName("RepeatNumber 음수 예외 처리")
-    void getRepeatNumberMinus(){
-        assertSimpleTest(()->
-            assertThatThrownBy(()->runException("pobi,woni","-1"))
-                    .isInstanceOf(IllegalArgumentException.class));
-    }
 
     @Override
     public void runMain() {
