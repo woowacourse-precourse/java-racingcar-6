@@ -62,17 +62,33 @@ class CreateCarTest {
     @Test
     void 자동차_이름이_5자_이하인_경우_예외가_발생하지_않는다() {
         CreateCar createCar = new CreateCar();
-        List<String> carNames = Arrays.asList("pobi", "crong", "honux");
+        List<String> carNames = Arrays.asList("벤츠", "페라리", "레드불");
         createCar.validateCarNameLength(carNames);
     }
 
     @Test
     void 자동차_이름이_6자_이상인_경우_예외가_발생한다() {
         CreateCar createCar = new CreateCar();
-        List<String> carNames = Arrays.asList("pobipobi", "crong", "honux");
+        List<String> carNames = Arrays.asList("메르세데스벤츠", "페라리", "레드불");
         assertThatThrownBy(() -> createCar.validateCarNameLength(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5자 이하만 가능합니다.");
+    }
+
+    @Test
+    void 자동차_이름이_중복되지_않은_경우_예외가_발생하지_않는다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList("페라리", "벤츠", "레드불");
+        createCar.validateCarNameDuplicate(carNames);
+    }
+
+    @Test
+    void 자동차_이름이_중복된_경우_예외가_발생한다() {
+        CreateCar createCar = new CreateCar();
+        List<String> carNames = Arrays.asList("페라리", "페라리", "레드불");
+        assertThatThrownBy(() -> createCar.validateCarNameDuplicate(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복된 이름이 존재합니다.");
     }
 
 
