@@ -11,8 +11,8 @@ public class GameData {
         this.racingCars = new RacingCars();
     }
 
-    public void initRacingCars(String racingCarsData) {
-        String[] racingCarsName = racingCarsData.split(DATA_SPLITERATOR);
+    public void initRacingCars(String racingCarNameData) {
+        String[] racingCarsName = racingCarNameData.split(DATA_SPLITERATOR);
         for (String racingCarName : racingCarsName) {
             racingCars.createCar(racingCarName);
         }
