@@ -2,20 +2,22 @@ package racingcar;
 
 import java.util.List;
 import racingcar.console.RacingCarConsole;
-import racingcar.util.NumberGenerator;
+import racingcar.util.Policy;
 
 public class CarRacing {
     private final List<Car> carList;
     private final int iterationNumBer;
+    private final Policy policy;
 
-    public CarRacing(List<Car> carList, int iterationNumBer) {
+    public CarRacing(List<Car> carList, int iterationNumBer, Policy policy) {
         this.carList = carList;
         this.iterationNumBer = iterationNumBer;
+        this.policy = policy;
     }
 
-    public CarRacingResult start(NumberGenerator numberGenerator) {
+    public CarRacingResult start() {
         for (int stepNumber = 0; stepNumber < iterationNumBer; stepNumber++) {
-            progressOneStep(numberGenerator);
+            progressOneStep();
             RacingCarConsole.printProgressState(carList);
         }
 
@@ -36,16 +38,12 @@ public class CarRacing {
         return new CarRacingResult(championCarList);
     }
 
-    private void progressOneStep(NumberGenerator numberGenerator) {
+    private void progressOneStep() {
         for (Car car : carList) {
-            int randomNumber = numberGenerator.getRandomDecimalNumber();
-            if (isCarMoveForward(randomNumber)) {
+            int randomNumber = policy.getRandomDecimalNumber();
+            if (policy.isCarMoveForward(randomNumber)) {
                 car.moveForward();
             }
         }
-    }
-
-    private boolean isCarMoveForward(int randomNumber) {
-        return randomNumber >= 4;
     }
 }

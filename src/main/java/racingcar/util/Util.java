@@ -1,8 +1,6 @@
 package racingcar.util;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
-public class Util implements NumberGenerator {
+public class Util {
     public boolean isNullOrEmpty(String string) {
         if (string == null) {
             return true;
@@ -14,9 +12,5 @@ public class Util implements NumberGenerator {
             return true;
         }
         return false;
-    }
-
-    public int getRandomDecimalNumber() {
-        return Randoms.pickNumberInRange(0, 9);
     }
 }

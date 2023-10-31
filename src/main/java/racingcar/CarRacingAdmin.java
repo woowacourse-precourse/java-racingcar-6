@@ -3,7 +3,7 @@ package racingcar;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.console.RacingCarConsole;
-import racingcar.util.NumberGenerator;
+import racingcar.util.Policy;
 import racingcar.util.Util;
 import racingcar.validator.InputValidator;
 
@@ -22,9 +22,9 @@ public class CarRacingAdmin {
         int iterationNumBer = RacingCarConsole.readIterationNumBer();
         inputValidator.validateIterationNumBer(iterationNumBer);
 
-        CarRacing carRacing = new CarRacing(carList, iterationNumBer);
-        NumberGenerator numberGenerator = new Util();
-        CarRacingResult carRacingResult = carRacing.start(numberGenerator);
+        Policy policy = new Policy();
+        CarRacing carRacing = new CarRacing(carList, iterationNumBer, policy);
+        CarRacingResult carRacingResult = carRacing.start();
 
         RacingCarConsole.printCarRacingResult(carRacingResult);
     }
