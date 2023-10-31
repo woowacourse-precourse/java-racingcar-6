@@ -33,4 +33,25 @@ public class CarUtil {
         }
     }
 
+    public String progressCheck(List<Car> cars) {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(Car car : cars) {
+            if(stringBuilder.isEmpty()) {
+                stringBuilder.append(car.getRacingCar());
+            } else {
+                stringBuilder.append(", ").append(car.getRacingCar());
+            }
+        }
+
+        return stringBuilder.toString();
+    }
+
+    public String winnerCheck(Car car) {
+        if(car.getProgress().length() >= 5) {
+            return car.getRacingCar();
+        }
+        return "";
+    }
+
 }
