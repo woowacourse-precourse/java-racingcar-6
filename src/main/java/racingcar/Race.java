@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class Race {
             for (Car car : cars) {
                 int move = car.moveForward();
                 String position = car.getPosition();
-                System.out.println(car.getName() + " : " + position);
+                System.out.println(car.getName() + " : " + move + position);
             }
             times--;
         }
@@ -36,12 +37,21 @@ public class Race {
 
     public void raceResult(List<Car> cars){
         updateResult(cars);
+        List<String> winners = new ArrayList<>();
         cars.forEach(car -> {
             String name = car.getName();
             String position = car.getPosition();
             if (position.length() == max) {
-                System.out.print("최종 우승자 : " + name + " ");
+                winners.add(name);
             }
         });
+
+        if (!winners.isEmpty()) {
+            System.out.print("최종 우승자: ");
+            for (String winner : winners) {
+                System.out.print(winner + " ");
+            }
+            System.out.println();
+        }
     }
 }
