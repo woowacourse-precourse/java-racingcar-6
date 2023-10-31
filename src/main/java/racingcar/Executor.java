@@ -30,20 +30,21 @@ public class Executor {
         
         List<String> winner = new ArrayList<>();
         final int[] maxScore = {0};
-
-        cars.forEach(car -> {
-            int score = car.getScore();
-            
-            if(score > maxScore[0]) {
-                maxScore[0] = score;
-                winner.clear();
-                winner.add(car.getName());
-            } else if (score == maxScore[0]) {
-                winner.add(car.getName());
-            }
-            
-        });
+        
+        cars.forEach(car -> compareScore(car, winner, maxScore));
 
         return winner;
     }
+    
+    private void compareScore(Car car, List<String> winner, int[] maxScore) {
+        int scoreToCompare = car.getScore();
+        if(scoreToCompare > maxScore[0]) {
+            maxScore[0] = scoreToCompare;
+            winner.clear();
+            winner.add(car.getName());
+        } else if (scoreToCompare == maxScore[0]) {
+            winner.add(car.getName());
+        }
+    }
+    
 }
