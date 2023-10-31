@@ -7,16 +7,17 @@ import static racingcar.view.OutputView.*;
 
 public class GameProcess {
     public void processGame(RacingCarList racingCars) {
+        GameUtils util = new GameUtils();
         for (int carIndex = 0; carIndex < racingCars.size(); carIndex++) {
-            int randomNumber = new GameUtils().makeRandomNumber();
+            int randomNumber = util.makeRandomNumber();
             RacingCar currentCar = racingCars.getCar(carIndex);
             currentCar.moveForward(randomNumber);
         }
-        printGameAttemptResult(racingCars);
+        printGameAttemptResult(racingCars, racingCars.size());
     }
 
-    public void printGameAttemptResult(RacingCarList racingCars) {
-        for (int element = 0; element < racingCars.size(); element++) {
+    public void printGameAttemptResult(RacingCarList racingCars, int length) {
+        for (int element = 0; element < length; element++) {
             RacingCar racingCar = racingCars.getCar(element);
             moveDistanceMessage(racingCar);
         }
