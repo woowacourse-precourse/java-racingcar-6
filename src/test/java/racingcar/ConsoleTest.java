@@ -9,11 +9,11 @@ public class ConsoleTest {
     private final static String VALID_CAR_NAMES = "a,b,c";
     private final static Car VALID_CAR = new Car(VALID_CAR_NAMES);
     private static final RacingCarGameConsole VALID_RACING_CAR_GAME_CONSOLE
-            = new RacingCarGameConsole(VALID_CAR, 1);
+            = new RacingCarGameConsole(VALID_CAR, "1");
 
     @ParameterizedTest
     @ValueSource(ints = {3, 5})
-    void randomNumber에따른_전진_여부_판별(int randomNumber) {
+    void randomNumber에_따른_전진_여부_판별(int randomNumber) {
         VALID_RACING_CAR_GAME_CONSOLE.updateCarMovement(randomNumber);
 
         if (randomNumber < 4) {

@@ -10,8 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OutputTest {
-    final ByteArrayOutputStream out = new ByteArrayOutputStream();
-    final PrintStream standardOut = System.out;
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+    private final PrintStream standardOut = System.out;
 
     @BeforeEach
     void setUp() {
@@ -35,7 +35,7 @@ public class OutputTest {
     @Test
     void 모든_차의_전진한_횟수를_형식에_맞게_출력() {
         Car car = new Car("a,b");
-        RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(car, 1);
+        RacingCarGameConsole racingCarGameConsole = new RacingCarGameConsole(car, "1");
 
         racingCarGameConsole.race();
 
