@@ -18,9 +18,7 @@ public class StringChanger {
     }
 
     public static List<String> stringToStringList(String string) {
-        return Arrays.stream(string.split(
-                        SPLITTER_OF_NAMES, INCLUDING_BLANK
-                ))
+        return Arrays.stream(string.split(SPLITTER_OF_NAMES, INCLUDING_BLANK))
                 .map(String::trim).collect(Collectors.toList());
     }
 
@@ -30,6 +28,7 @@ public class StringChanger {
 
     public static String cutLastRegex(StringBuilder stringBuilder, String regex) {
         int cutLength = stringBuilder.length() - regex.length();
+
         return stringBuilder.substring(START_OF_STRING, cutLength);
     }
 
