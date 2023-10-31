@@ -15,5 +15,4 @@ public class GameController {
         this.randomMove = randomMove;
     }
 
-
 }

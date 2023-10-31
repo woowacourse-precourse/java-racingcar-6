@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,12 +8,8 @@ import java.util.stream.Collectors;
 public class CarList {
     private final List<Car> carList;
 
-    public CarList(List<Car> carList) {
-        this.carList = carList;
-    }
-
-    public void addCar(Car car) {
-        carList.add(car);
+    public CarList(String[] carNames) {
+        this.carList = generateCars(carNames);
     }
 
     public int getMaxPosition() {
@@ -26,6 +23,12 @@ public class CarList {
         int maxPosition = getMaxPosition();
         return carList.stream()
                 .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
+    }
+
+    public List<Car> generateCars(String[] carNames) {
+        return Arrays.stream(carNames)
+                .map(Car::new)
                 .collect(Collectors.toList());
     }
 }
