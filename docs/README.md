@@ -77,4 +77,4 @@
 
 ---
 ## 📄클래스 다이어그램
-![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/5ac78ec2-5520-4967-8a3d-7618c3b4d7c3)
+![racingCar](https://github.com/study-hub-inu/study-hub-server/assets/97587573/74933285-0135-4a2d-8755-b1f7379bebb4)
