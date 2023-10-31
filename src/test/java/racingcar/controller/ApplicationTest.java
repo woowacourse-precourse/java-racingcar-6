@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
 
@@ -29,6 +30,28 @@ class ApplicationTest extends NsTest {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @DisplayName("우승자가 1명 이상일 경우 테스트")
+    @Test
+    void winnerListTest() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,won,suhw", "2");
+                    assertThat(output()).contains("최종 우승자 : pobi, won, suhw");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, STOP, MOVING_FORWARD, STOP
+        );
+    }
+
+    @DisplayName("라운드 횟수에 대한 예외처리")
+    @Test
+    void gameRoundTest() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("cat,dog", "1a3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage("숫자만 입력해주시길 바랍니다")
         );
     }
 
