@@ -9,15 +9,17 @@ import java.util.regex.Pattern;
 
 public class ValidException {
     /**
-     * 이름은 5자 이하 검사.
+     * 문자열 5자 이하 검사.
      *
      * @param str
      */
-    public static Boolean isValidFIveLessString(String str) {
-        int length = str.length();
-        if (length > 0 && length <= 5) {
+    public static Boolean isValidLessFIveLen(String str) {
+        int len = str.length();
+
+        if (len > 0 && len <= 5) {
             return true;
         }
+
         throw new IllegalArgumentException(ValidConstants.MSG_INPUT_STRING_LENGTH_CHECK());
     }
 
@@ -160,7 +162,7 @@ public class ValidException {
     public static boolean isValidCarEachNameFIveLessStringCheck(String inputStr) {
         List<String> nameEachOfList = Arrays.stream(inputStr.split(",")).toList();
         for (String name : nameEachOfList) {
-            isValidFIveLessString(name);
+            isValidLessFIveLen(name);
         }
         return true;
     }

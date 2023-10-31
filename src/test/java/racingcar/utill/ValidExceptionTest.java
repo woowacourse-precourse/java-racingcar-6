@@ -8,7 +8,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class ValidExceptionTest {
@@ -23,7 +22,7 @@ class ValidExceptionTest {
     void isValidFIveLessString(String input) {
         // then
         Assertions.assertThatThrownBy(
-                        () -> ValidException.isValidFIveLessString(input))
+                        () -> ValidException.isValidLessFIveLen(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
