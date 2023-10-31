@@ -22,15 +22,15 @@ public class Car {
         }
     }
 
-    public void pickRandomNumber() {
+    private void pickRandomNumber() {
         this.randomNumber = Randoms.pickNumberInRange(0, 9);
     }
 
-    public boolean checkRandomNumber() {
+    private boolean checkRandomNumber() {
         return this.randomNumber >= 4;
     }
 
-    public void forward() {
+    private void forward() {
         this.forwardMovementState += "-";
     }
 
