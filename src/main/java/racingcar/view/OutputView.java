@@ -9,19 +9,19 @@ public class OutputView {
     private static final String CAR_POSITION_MESSAGE = "-";
     private static final String WINNER_CAR_NAME_MESSAGE = "최종 우승자";
 
-    public void printResultMessage(){
+    public void printResultMessage() {
         System.out.println(CAR_RESULT_MESSAGE);
     }
 
-    public void printCarPositionMessage(String name, int number){
+    public void printCarPositionMessage(String name, int number) {
         System.out.println(name + CAR_NAME_MESSAGE + CAR_POSITION_MESSAGE.repeat(number));
     }
 
-    public void printWinnerCarName(List<String> names){
-        System.out.print(WINNER_CAR_NAME_MESSAGE+CAR_NAME_MESSAGE);
-        for (int i = 0; i<names.size()-1; i++) {
-            System.out.print(names.get(i)+", ");
+    public void printWinnerCarName(List<String> names) {
+        System.out.print(WINNER_CAR_NAME_MESSAGE + CAR_NAME_MESSAGE);
+        for (int i = 0; i < names.size() - 1; i++) {
+            System.out.print(names.get(i) + ", ");
         }
-        System.out.print(names.get(names.size()-1));
+        System.out.print(names.get(names.size() - 1));
     }
 }

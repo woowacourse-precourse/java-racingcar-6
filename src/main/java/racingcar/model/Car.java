@@ -1,8 +1,8 @@
 package racingcar.model;
 
 public class Car {
-  private String carName;
-  private int position;
+    private String carName;
+    private int position;
 
     public Car(String name) {
         this.carName = name;
@@ -17,9 +17,9 @@ public class Car {
         return position;
     }
 
-    public void moveForward(int number){
-        if(number >= 4){
-            position ++;
+    public void moveForward(int number) {
+        if (number >= 4) {
+            position++;
         }
     }
 }

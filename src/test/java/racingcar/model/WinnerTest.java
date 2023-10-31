@@ -14,7 +14,7 @@ class WinnerTest {
     Winner winner;
 
     @BeforeEach
-    public void before(){
+    public void before() {
         winner = new Winner();
         cars = new ArrayList<>();
 
@@ -30,7 +30,7 @@ class WinnerTest {
     }
 
     @Test
-    public void 최대_이동거리_구하기() throws Exception{
+    public void 최대_이동거리_구하기() throws Exception {
         //given (주어진 값)
 
         Method method = winner.getClass().getDeclaredMethod("maxDistance", List.class);
@@ -44,7 +44,7 @@ class WinnerTest {
     }
 
     @Test
-    public void 단일_우승자_자동차_이름() throws Exception{
+    public void 단일_우승자_자동차_이름() throws Exception {
         //given (주어진 값)
         cars.get(1).moveForward(9);
         List<String> equals = new ArrayList<>(List.of("bbb"));
@@ -59,9 +59,9 @@ class WinnerTest {
     }
 
     @Test
-    public void 동일_우승자_자동차_이름() throws Exception{
+    public void 동일_우승자_자동차_이름() throws Exception {
         //given (주어진 값)
-        List<String> equals = new ArrayList<>(List.of("bbb","ccc"));
+        List<String> equals = new ArrayList<>(List.of("bbb", "ccc"));
 
         //when (기능 작동)
         winner.findWinnerName(cars);
@@ -73,11 +73,11 @@ class WinnerTest {
     }
 
     @Test
-    public void 모두_우승자() throws Exception{
+    public void 모두_우승자() throws Exception {
         //given (주어진 값)
         cars.get(0).moveForward(8);
         cars.get(0).moveForward(7);
-        List<String> equals = new ArrayList<>(List.of("aaa","bbb","ccc"));
+        List<String> equals = new ArrayList<>(List.of("aaa", "bbb", "ccc"));
 
         //when (기능 작동)
         winner.findWinnerName(cars);
@@ -89,7 +89,7 @@ class WinnerTest {
     }
 
     @Test
-    public void 플레이횟수가_없을경우() throws Exception{
+    public void 플레이횟수가_없을경우() throws Exception {
         //given (주어진 값)
         cars = new ArrayList<>();
         cars.add(new Car("aaa"));
@@ -97,7 +97,7 @@ class WinnerTest {
         cars.add(new Car("ccc"));
         cars.add(new Car("ddd"));
 
-        List<String> equals = new ArrayList<>(List.of("aaa","bbb","ccc","ddd"));
+        List<String> equals = new ArrayList<>(List.of("aaa", "bbb", "ccc", "ddd"));
         //when (기능 작동)
         winner.findWinnerName(cars);
         List<String> result = winner.getWinnerName();

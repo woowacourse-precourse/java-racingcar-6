@@ -11,11 +11,12 @@ class InputValidationTest {
     static InputValidation inputValidation;
 
     @BeforeEach
-    public void before(){
+    public void before() {
         inputValidation = new InputValidation();
     }
+
     @Test
-    public void 공백일경우(){
+    public void 공백일경우() {
         //given (주어진 값)
         String input = " ";
         String notInput = "";
@@ -27,8 +28,9 @@ class InputValidationTest {
         assertThrows(IllegalArgumentException.class, () ->
                 inputValidation.checkedInputValidation(notInput));
     }
+
     @Test
-    public void 첫글자_공백(){
+    public void 첫글자_공백() {
         //given (주어진 값)
         String oneName = " hi";
 
@@ -38,7 +40,7 @@ class InputValidationTest {
     }
 
     @Test
-    public void 콤마_시작(){
+    public void 콤마_시작() {
         //given (주어진 값)
         String oneName = ",";
         String twoName = " ,";
@@ -53,7 +55,7 @@ class InputValidationTest {
     }
 
     @Test
-    public void 이름_5글자_초과(){
+    public void 이름_5글자_초과() {
         //given (주어진 값)
         String oneName = "aaaaaa";
         String twoNames = "aa, abcde";
@@ -71,7 +73,7 @@ class InputValidationTest {
     }
 
     @Test
-    public void 띄어쓰기(){
+    public void 띄어쓰기() {
         //given (주어진 값)
         String oneNames = "hi ho";
         String twoNames = "hi,goo d";
@@ -101,8 +103,9 @@ class InputValidationTest {
         Assertions.assertThat(fourName[3]).isEqualTo("a b c");
         Assertions.assertThat(fourName[3].length()).isEqualTo(5);
     }
+
     @Test
-    public void 이동횟수가_없다면() throws Exception{
+    public void 이동횟수가_없다면() throws Exception {
         //given (주어진 값)
         String attemptOne = "";
         String attemptTwo = " ";
@@ -118,8 +121,9 @@ class InputValidationTest {
         assertThrows(IllegalArgumentException.class, () ->
                 inputValidation.checkedInputNumberValidation(attemptThree));
     }
+
     @Test
-    public void 이동횟수가_문자라면() throws Exception{
+    public void 이동횟수가_문자라면() throws Exception {
         //given (주어진 값)
         String attemptOne = "a";
         String attemptTwo = "1a";
@@ -137,7 +141,7 @@ class InputValidationTest {
     }
 
     @Test
-    public void 이동횟수가_마이너스라면() throws Exception{
+    public void 이동횟수가_마이너스라면() throws Exception {
         //given (주어진 값)
         String attemptOne = "-1";
         String attemptTwo = "-12";
@@ -155,7 +159,7 @@ class InputValidationTest {
     }
 
     @Test
-    public void 이동횟수_구하기() throws Exception{
+    public void 이동횟수_구하기() throws Exception {
         //given (주어진 값)
         String attemptOne = "1";
         String attemptTwo = "15";

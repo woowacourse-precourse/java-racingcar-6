@@ -10,13 +10,13 @@ class CarTest {
     static Car car;
 
     @BeforeEach
-    public void before(){
+    public void before() {
         car = new Car("tam");
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {0,1,2,3})
-    public void 전진없음(int number){
+    @ValueSource(ints = {0, 1, 2, 3})
+    public void 전진없음(int number) {
         //when (기능 작동)
         car.moveForward(number);
         int position = car.getPosition();
@@ -26,8 +26,8 @@ class CarTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {4,5,6,7,8,9})
-    public void 앞으로_전진(int number){
+    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+    public void 앞으로_전진(int number) {
         //when (기능 작동)
         car.moveForward(number);
         int position = car.getPosition();

@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
 public class Computer {
 
     private Integer randomNumber;
@@ -10,7 +11,7 @@ public class Computer {
         return randomNumber;
     }
 
-    private void drawRandomNumber(){
-        randomNumber = Randoms.pickNumberInRange(0,9);
+    private void drawRandomNumber() {
+        randomNumber = Randoms.pickNumberInRange(0, 9);
     }
 }
