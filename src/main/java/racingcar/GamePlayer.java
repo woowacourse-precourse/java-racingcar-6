@@ -20,7 +20,7 @@ public class GamePlayer {
             for (int j = 0; j < cars.size(); j++) {
                 int number = randomNumber.generate();
                 cars.get(j).move(randomNumber.judge(number));
-                OutputView.printResult(cars.get(j), cars.get(j).getDistance());
+                OutputView.printGameResult(cars.get(j), cars.get(j).getDistance());
             }
         }
         OutputView.printWinners(findWinners(findFurthestMovedCar()));

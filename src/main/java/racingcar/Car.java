@@ -15,8 +15,8 @@ public class Car implements Comparator<Car> {
         this.name = name;
     }
 
-    public void move(boolean biggerThanFour) {
-        if (biggerThanFour) {
+    public void move(boolean appropriateNumber) {
+        if (appropriateNumber) {
             distance.add(ONE_STEP);
         }
     }
