@@ -20,10 +20,23 @@
   - [ ] 4미만 시, 멈춤 - MovingCondition.isMoveForward
 
 - [ ] 실행 과정 - RacingGame
-  - [ ] 자동차별 현재 진행 사항 확인 - racingGame.race
-  - [ ] 실행 과정 결과 출력 - racingGame.printProgressResult
+  - [ ] 자동차별 현재 진행 사항 확인 - RacingGame.race
+  - [ ] 실행 과정 결과 출력 - RacingGame.printProgressResult
 
 - [ ] 최종 우승자 - Winner
   - [ ] 최종 우승자 확인 - Winner.findWinners
   - [ ] 최대 전진 길이 확인 - Winner.findMaxProgress
   - [ ] 우승자의 자동차 이름 출력 (1명 이상일 수 있음.) - Winner.printResult
+
+
+
+# Test Code
+
+### Car 클래스
+- [ ] getNames
+- [ ] splitInputNames
+- [ ] validateInputNames
+  - [ ] checkEmpty
+  - [ ] checkDuplicate
+  - [ ] checkLength
+
