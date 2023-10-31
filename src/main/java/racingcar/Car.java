@@ -17,23 +17,30 @@ public class Car {
         moveAmount = new int[number];
     }
 
-    private void isCorrectNamesString(String carNamesString) {
-        checkNameHasBlank(carNamesString);
-        checkNameHasNothing(carNamesString);
+    private void isCorrectNamesString(String namesString) {
+        checkNameUngiven(namesString);
+        checkNameHasBlank(namesString);
+        checkNameHasNothing(namesString);
     }
 
-    private void checkNameHasBlank(String carNamesString) {
-        if (carNamesString.contains(" ")) {
+    private void checkNameUngiven(String namesString) {
+        if (namesString.isEmpty()) {
+            throw new IllegalArgumentException(ExceptionCase.INPUT_UNGIVEN.message());
+        }
+    }
+
+    private void checkNameHasBlank(String namesString) {
+        if (namesString.contains(" ")) {
             throw new IllegalArgumentException(ExceptionCase.CAR_NAME_HAS_BLANK.message());
         }
     }
 
-    private void checkNameHasNothing(String carNamesString) {
-        if (carNamesString.contains(",,")) {
-            throw new IllegalArgumentException(ExceptionCase.CAR_NAME_HAS_NOTHING.message());
+    private void checkNameHasNothing(String namesString) {
+        if (namesString.contains(",,")) {
+            throw new IllegalArgumentException(ExceptionCase.UNNAMED_CAR_EXIST.message());
         }
-        if (carNamesString.startsWith(",") || carNamesString.endsWith(",")) {
-            throw new IllegalArgumentException(ExceptionCase.CAR_NAME_HAS_NOTHING.message());
+        if (namesString.startsWith(",") || namesString.endsWith(",")) {
+            throw new IllegalArgumentException(ExceptionCase.UNNAMED_CAR_EXIST.message());
         }
     }
 

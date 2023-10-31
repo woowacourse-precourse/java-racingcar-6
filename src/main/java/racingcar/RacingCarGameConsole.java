@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGameConsole {
+    private static final String INT_TYPE = "^[0-9]*$";
     private static final int MOVE_JUDGE_INTEGER = 4;
     private final Car car;
     private final List<String> winnerNames = new ArrayList<>();
@@ -13,15 +14,29 @@ public class RacingCarGameConsole {
     private int carIndex = 0;
     private int mostMovedAmount = 0;
 
-    public RacingCarGameConsole(Car car, int timesToTry) {
+    public RacingCarGameConsole(Car car, String timesToTry) {
         this.car = car;
         numberOfCars = car.numberOf();
         isCorrectTimesToTry(timesToTry);
-        this.timesToTry = timesToTry;
+        this.timesToTry = Integer.parseInt(timesToTry);
     }
 
-    private static void isCorrectTimesToTry(int timesToTry) {
-        if (timesToTry <= 0) {
+    private static void isCorrectTimesToTry(String timesToTryString) {
+        checkTimesToTryUngiven(timesToTryString);
+        checkTimesToTryIsPositiveInteger(timesToTryString);
+    }
+
+    private static void checkTimesToTryUngiven(String timesToTryString) {
+        if (timesToTryString.isEmpty()) {
+            throw new IllegalArgumentException(ExceptionCase.INPUT_UNGIVEN.message());
+        }
+    }
+
+    private static void checkTimesToTryIsPositiveInteger(String timesToTryString) {
+        if (!timesToTryString.matches(INT_TYPE)) {
+            throw new IllegalArgumentException(ExceptionCase.INPUT_TYPE_MISMATCH.message());
+        }
+        if (Integer.parseInt(timesToTryString) <= 0) {
             throw new IllegalArgumentException(ExceptionCase.INPUT_NUMBER_RANGE_MISMATCH.message());
         }
     }
