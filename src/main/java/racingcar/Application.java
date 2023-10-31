@@ -28,7 +28,7 @@ public class Application {
             statusOfRacing.put(arrayCarNames[i], new StringBuilder());
         }
 
-        for (int i = 0; i < Integer.valueOf(number); i++) {
+        for (int i = 0; i < Integer.parseInt(number); i++) {
             updateStatusOfRacing(statusOfRacing, arrayCarNames);
 
             for (int j = 0; j < statusOfRacing.size(); j++) {
