@@ -2,8 +2,10 @@ package racingcar.exception;
 
 public class Exception extends IllegalArgumentException {
 
-    private Error error;
-    public Exception(Error error) {
-        super(error.getMsg());
+    private RacingCarError racingCarError;
+  
+    public Exception(RacingCarError racingCarError) {
+        super(racingCarError.getMsg());
+
     }
 }
