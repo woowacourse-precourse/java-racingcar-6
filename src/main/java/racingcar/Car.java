@@ -1,13 +1,14 @@
 package racingcar;
 
 public class Car {
+    public static final int INIT_STATE = 0;
     private String name;
     private int state;
 
     public Car(String name) {
         Validator.nameLengthCheck(name);
         this.name = name;
-        this.state = 0;
+        this.state = INIT_STATE;
     }
 
     public void move() {
