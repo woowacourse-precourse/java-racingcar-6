@@ -1,5 +1,6 @@
 package racingcar.utils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -26,5 +27,9 @@ public final class Utils {
 
     public static boolean isEqualArray(String[] arr1, String[] arr2) {
         return Arrays.equals(arr1, arr2);
+    }
+
+    public static String joinByComma(ArrayList<String> arrList) {
+        return String.join(", ", arrList);
     }
 }
