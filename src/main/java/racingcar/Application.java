@@ -19,9 +19,16 @@ public class Application {
 
 class GameSystem {
     public void start(InputView input, OutputView output) {
+        makeCars(input);
+
+
+    }
+
+    public void makeCars(InputView input) {
         InputManufacture manufacture = new InputManufacture();
         List<String> nameList = makeCarNames(input, manufacture);
-
+        TotalCar totalCar = new TotalCar();
+        
 
     }
 
@@ -84,8 +91,16 @@ class InputManufacture {
 }
 
 class TotalCar {
+    private List<Car> carList = new ArrayList<>();
+
+    public void saveNewCar(String name) {
+        Car car = new Car(name);
+        carList.add(car);
+    }
+
 
 }
+
 
 class Car {
     private String name;
