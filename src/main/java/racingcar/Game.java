@@ -97,7 +97,7 @@ public class Game {
 
     private Boolean isMoveForward() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber > 4) {
+        if (randomNumber >= 4) {
             return true;
         }
         return false;
