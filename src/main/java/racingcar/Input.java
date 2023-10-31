@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.HashMap;
 import java.util.Map;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
@@ -13,7 +14,7 @@ public class Input {
     }
 
     public Map<String,Integer> carDistance(String[] carlist) {
-        Map<String,Integer> parkingLot = null;
+        Map<String,Integer> parkingLot = new HashMap<>();;
         for (int i = 0; i < carlist.length; i++) {
             parkingLot.put(carlist[i], 0);
         }
