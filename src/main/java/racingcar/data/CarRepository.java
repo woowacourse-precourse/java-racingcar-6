@@ -8,7 +8,7 @@ import racingcar.utils.CarUtil;
 import racingcar.validator.CarInputValidator;
 
 public class CarRepository {
-    private List<Car> carList = new ArrayList<>();
+    private final List<Car> carList = new ArrayList<>();
     private int round;
 
     public CarRepository() {
