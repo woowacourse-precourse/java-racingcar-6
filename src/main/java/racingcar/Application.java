@@ -15,7 +15,6 @@ public class Application {
         String userInputRepeatCount = Console.readLine();
 
         RacingGame.startGame(carList, userInputRepeatCount);
-
         RacingGame.printWinner(carList);
     }
 }
