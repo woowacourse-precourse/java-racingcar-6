@@ -3,6 +3,7 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.GameResult;
 
 public class RacingCarGameService {
 
@@ -17,14 +18,15 @@ public class RacingCarGameService {
                     }).toList();
     }
 
-    public List<Car> winnerResult(List<Car> carList) {
+    public GameResult winnerResult(List<Car> carList) {
         int maxDistance = carList.stream()
                 .mapToInt(car -> car.getDistance())
                 .max()
                 .orElse(Integer.MIN_VALUE);
 
-        return carList.stream()
+        List<Car> winners = carList.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .toList();
+        return GameResult.from(winners);
     }
 }

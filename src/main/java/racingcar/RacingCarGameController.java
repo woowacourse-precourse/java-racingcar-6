@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.GameResult;
 
 public class RacingCarGameController {
     private final RacingCarGameService racingCarGameService;
@@ -41,11 +42,10 @@ public class RacingCarGameController {
         }
 
         // 5. 최대 움직인 자동차 찾기 (result)
-        List<Car> winners = racingCarGameService.winnerResult(carList);
+        GameResult gameResult = racingCarGameService.winnerResult(carList);
 
         // 6. 우승자 출력
-        String result = winners.stream().map(Car::getName).collect(Collectors.joining(", "));
-        System.out.println("최종 우승자 : " + result);
+        gameResult.gameResultPrint();
     }
 
     private void validationCarNameLength(String carName) {
