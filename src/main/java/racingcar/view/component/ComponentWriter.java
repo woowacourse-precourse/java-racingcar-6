@@ -1,4 +1,4 @@
-package racingcar.component;
+package racingcar.view.component;
 
 import io.writer.Writer;
 

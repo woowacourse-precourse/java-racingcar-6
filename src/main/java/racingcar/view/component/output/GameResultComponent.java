@@ -1,13 +1,13 @@
-package racingcar.component.output;
+package racingcar.view.component.output;
 
 import static strings.Strings.COMMAS;
 import static strings.Strings.LINE_BREAK;
 import static strings.Strings.WHITE_SPACE;
 
 import java.util.List;
-import racingcar.component.Component;
 import racingcar.domain.car.dto.output.WinnerDto;
 import racingcar.domain.car.dto.output.WinnersDto;
+import racingcar.view.component.Component;
 
 public final class GameResultComponent implements Component {
 

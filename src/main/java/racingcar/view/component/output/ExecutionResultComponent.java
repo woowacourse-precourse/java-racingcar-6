@@ -1,8 +1,8 @@
-package racingcar.component.output;
+package racingcar.view.component.output;
 
 import static strings.Strings.LINE_BREAK;
 
-import racingcar.component.Component;
+import racingcar.view.component.Component;
 
 public final class ExecutionResultComponent implements Component {
 

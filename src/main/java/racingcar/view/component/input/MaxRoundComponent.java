@@ -1,6 +1,6 @@
-package racingcar.component.input;
+package racingcar.view.component.input;
 
-import racingcar.component.Component;
+import racingcar.view.component.Component;
 
 public final class MaxRoundComponent implements Component {
 
