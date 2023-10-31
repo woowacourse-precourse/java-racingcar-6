@@ -32,6 +32,8 @@ public class Application {
         }
 
         //반복해서 전진 및 출력
+        System.out.println();
+        System.out.println("실행 결과");
         for (int i = 0; i < cnt; i++) {
             for (int j = 0; j < cars.size(); j++) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
@@ -49,6 +51,8 @@ public class Application {
             }
             System.out.println();
         }
+        System.out.print("최종 우승자 : ");
 
+        
     }
 }
