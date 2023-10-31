@@ -2,8 +2,6 @@ package racingcar.model;
 
 import racingcar.domain.*;
 
-import java.util.Map;
-
 public class Winner {
     public String selectWinner(AllRaceRecords allRecords, MoveCnt moveCnt) {
         int max = Integer.MIN_VALUE;
@@ -15,7 +13,8 @@ public class Winner {
 
             if (dist == max) {
                 sb.append(name + ", ");
-            } else if (dist > max) {
+            }
+            if (dist > max) {
                 max = dist;
                 sb.delete(0, sb.length());
                 sb.append(name + ", ");
