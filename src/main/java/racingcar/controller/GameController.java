@@ -7,9 +7,11 @@ import racingcar.view.OutputView;
 
 public class GameController {
 
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
-    private final CarGame car = new CarGame();
+    private final CarGame car;
+
+    public GameController(CarGame car) {
+        this.car = car;
+    }
 
     public void play() {
         playInit();
@@ -18,9 +20,9 @@ public class GameController {
     }
 
     private void playInit() {
-        car.setCars(inputView.carName());
-        car.setPlayCount(inputView.playCount());
-        outputView.printMessage();
+        car.setCars(InputView.carName());
+        car.setPlayCount(InputView.playCount());
+        OutputView.printMessage();
     }
 
     private void playGame() {
@@ -28,13 +30,13 @@ public class GameController {
 
         while (playCount-- > 0) {
             car.moveOrStop();
-            outputView.printPlayResult(car.getCars());
+            OutputView.printPlayResult(car.getCars());
         }
     }
 
     private void endGame() {
         List<String> result = car.getWinner();
 
-        outputView.printWinner(result);
+        OutputView.printWinner(result);
     }
 }

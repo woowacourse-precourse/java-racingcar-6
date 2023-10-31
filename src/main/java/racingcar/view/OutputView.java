@@ -5,11 +5,11 @@ import racingcar.model.Cars;
 
 public class OutputView {
 
-    public void printMessage() {
+    public static void printMessage() {
         System.out.println("실행 결과");
     }
 
-    public void printPlayResult(List<Cars> cars) {
+    public static void printPlayResult(List<Cars> cars) {
         cars.forEach(car -> {
             System.out.print(car.getName() + " : ");
             int distance = car.getDistance();
@@ -18,9 +18,9 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinner(List<String> result) {
+    public static void printWinner(List<String> result) {
         String winner = String.join(",", result);
-        
+
         System.out.println("최종 우승자 : " + winner);
     }
 }
