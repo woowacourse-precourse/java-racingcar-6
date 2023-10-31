@@ -1,11 +1,12 @@
 package racingcar.domain;
 
 public class RaceCar {
-    private static final Character CAR_MOVE_FORWARD_CHAR = '-';
+    private static final Character MOVE_FORWARD_CHAR = '-';
     private static final int START_CONDITION_NUM = 4;
     private static final int END_CONDITION_NUM = 9;
+    private static final int INCREASE_ONE_COUNT = 1;
     private String nameOfCar;
-    private Integer cntMovementOfCar;
+    private Integer cntMovement;
     private StringBuilder moveStateStr;
 
     public RaceCar() {
@@ -14,7 +15,7 @@ public class RaceCar {
 
     public RaceCar(String nameOfRaceCar) {
         nameOfCar = nameOfRaceCar;
-        cntMovementOfCar = 0;
+        cntMovement = 0;
         moveStateStr = new StringBuilder();
     }
 
@@ -35,13 +36,17 @@ public class RaceCar {
                 && numOfRan <= END_CONDITION_NUM;
     }
 
-    /**
-     * 차동차의 이동을 할때 "차의 이동량과 이동을 위한 출력문자"를 수정
-     * 이동시 전진 카운터 증가.
-     */
     public void moveForward() {
-        cntMovementOfCar = cntMovementOfCar + 1;
-        moveStateStr.append(CAR_MOVE_FORWARD_CHAR);
+        increaseCntMovement();
+        appendMoveState();
+    }
+
+    private void increaseCntMovement() {
+        cntMovement = cntMovement + INCREASE_ONE_COUNT;
+    }
+
+    private void appendMoveState() {
+        moveStateStr.append(MOVE_FORWARD_CHAR);
     }
 
     /**
@@ -59,6 +64,6 @@ public class RaceCar {
     }
 
     public Integer getCntMovement() {
-        return cntMovementOfCar;
+        return cntMovement;
     }
 }
