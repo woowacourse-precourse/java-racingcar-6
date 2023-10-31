@@ -1,5 +1,7 @@
 package racingcar.car;
 
+import racingcar.random.Random;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +39,12 @@ public class RacingCars {
         }
 
         return String.join(", ",longestDistanceDriverOfNames);
+    }
+
+    public void moveCars(){
+        for(Car car: racingCars){
+            car.moveCar(Random.generate());
+        }
     }
 
     @Override
