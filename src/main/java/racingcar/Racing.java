@@ -28,6 +28,7 @@ public class Racing {
 
     public void registCount(String count) {
 
+        ivc.isDigit(count);
         this.count = Integer.parseInt(count);
         System.out.println();
     }

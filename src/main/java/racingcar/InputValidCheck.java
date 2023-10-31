@@ -16,4 +16,15 @@ public class InputValidCheck {
         }
     }
 
+    public void isDigit(String input) {
+
+        char[] count = input.toCharArray();
+
+        for( char x : count ) {
+            if ( !(x >= '0' && x <= '9') ) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
 }
