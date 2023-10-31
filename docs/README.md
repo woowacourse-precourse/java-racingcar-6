@@ -9,14 +9,13 @@
 ## Class
 
 ### RaceController
-- getRace() : 사용자로부터 입력받은 자동차의 이름들을 Race 객체로 반환한다.
-- getRaceCount() : 사용자로부터 경기를 진행할 횟수를 int로 반환한다.
-- game() : 경기횟수만큼 게임을 진행한다.
-- getResult() : String[] 타입의 우승자 목록을 하나의 문자열로 출력한다.
+- run() : 게임 시작
 
 ### RaceService
 - getCarName() : 사용자가 입력한 String 값의 자동차 이름들을 Race 객체에 담아서 반환한다.
 - getRaceCount() : 사용자가 입력한 String 값의 경기진행횟수를 int로 반환한다.
+- game() : 경기횟수만큼 게임을 진행한다.
+- getResult() : String[] 타입의 우승자 목록을 하나의 문자열로 출력한다.
 
 ### RaceRepository
 - getCarName() : 메세지를 출력하고 자동차이름들에 대한 검증이 완료된 String 값을 반환한다.
