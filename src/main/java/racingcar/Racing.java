@@ -23,6 +23,11 @@ public class Racing {
         }
     }
 
+    public void findWinner(){
+        forwardCount(raceSituation);
+        findMaxIndex(forwardCountNumbers);
+    }
+
     private List<Integer> raceRandomNumberList(List<String> carNames) {
         List<Integer> raceRandomNumbers = new ArrayList<>();
         for (int i = 0; i < carNames.size(); i++) {
@@ -41,7 +46,7 @@ public class Racing {
         }
     }
 
-    public void forwardCount(List<String> raceSituation){
+    private void forwardCount(List<String> raceSituation){
         for(String situation : raceSituation){
             String withoutCount = situation.replace("-", "");
             int count = situation.length() - withoutCount.length();
@@ -49,7 +54,7 @@ public class Racing {
         }
     }
 
-    public void findMaxIndex(List<Integer> forwardCountNumbers){
+    private void findMaxIndex(List<Integer> forwardCountNumbers){
         int max = Collections.max(forwardCountNumbers);
         for(int i=0; i<forwardCountNumbers.size(); i++){
             int current = forwardCountNumbers.get(i);
