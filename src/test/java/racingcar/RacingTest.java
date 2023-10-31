@@ -59,7 +59,7 @@ public class RacingTest extends NsTest {
     }
 
     @Test
-    void 자동차가_두_개보다_클_때_우승자가_한_명인_테스트() {
+    void 자동차가_두_개보다_많을_때_우승자가_한_명인_테스트() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,jun", "2");
@@ -71,7 +71,7 @@ public class RacingTest extends NsTest {
     }
 
     @Test
-    void 자동차가_두_개보다_클_때_우승자가_여러_명인_테스트() {
+    void 자동차가_두_개보다_많을_때_우승자가_여러_명인_테스트() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,jun", "2");
