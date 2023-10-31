@@ -1,10 +1,13 @@
 package racingcar;
 
+import org.mockito.internal.util.StringUtil;
+
+import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
 
 public class Output {
-
+    static final String WINNER_IS = "최종 우승자 : ";
     void printResultOfRound(ConcurrentHashMap<String, Integer> carMap){
         StringBuilder sb = new StringBuilder();
 
@@ -26,5 +29,12 @@ public class Output {
             sb.append("-");
         }
         return sb.toString();
+    }
+
+    void printWinner(ArrayList<String> winner){
+        StringBuilder sb = new StringBuilder();
+        sb.append(WINNER_IS);
+        sb.append(StringUtil.join(winner, ", "));
+        System.out.println(sb);
     }
 }

@@ -1,9 +1,7 @@
 package racingcar;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -53,7 +51,7 @@ public class Computer {
                 winner.add(entry.getKey());
             }
         }
-        
+
         return winner;
     }
 
