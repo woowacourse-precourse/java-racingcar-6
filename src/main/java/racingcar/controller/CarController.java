@@ -13,6 +13,7 @@ public class CarController {
     public void startGame() {
         setGameValues();
         play();
+        OutputView.printWinners(game.getWinners());
     }
 
     public void setGameValues() {
@@ -21,6 +22,7 @@ public class CarController {
     }
 
     public void play() {
+        OutputView.printStartGameMessage();
         for (int i = 0; i < roundNum; i++) {
             OutputView.printRoundResult(game.getRoundResult());
         }
