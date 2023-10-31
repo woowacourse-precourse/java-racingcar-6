@@ -26,6 +26,7 @@ public class GameStart {
             carList.add(new Car(name));
         }
 
+        Output.startResult();
         for (int i = 0; i < round; i++) {
             Round.play(carList);
             Output.roundResult(carList);

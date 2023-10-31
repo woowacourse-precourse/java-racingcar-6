@@ -5,6 +5,12 @@ import model.Car;
 
 public class Output {
 
+    public static void startResult() {
+
+        System.out.println("\n실행 결과");
+
+    }
+
     public static void roundResult(List<Car> carList){
 
         for(Car car : carList){
