@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 public class CarRacing {
     private static final String PROMPT_ENTER_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -82,5 +84,20 @@ public class CarRacing {
         isCarNameValidLength(carNamesArray);
     }
 
+    public void isCarNameDuplicate(List<String> carNamesArray) throws IllegalArgumentException {
+        Set<String> set = new HashSet<>();
+        for (String carName : carNamesArray) {
+            if (!set.add(carName)) {
+                throw new IllegalArgumentException(ERROR_DUPLICATE_CAR_NAME);
+            }
+        }
+    }
 
+    public void isCarNameValidLength(List<String> carNamesArray) {
+        for (String carName : carNamesArray) {
+            if (carName.isEmpty() || carName.length() > 5) {
+                throw new IllegalArgumentException(ERROR_CAR_NAME_LENGTH);
+            }
+        }
+    }
 }
