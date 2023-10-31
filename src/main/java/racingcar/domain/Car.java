@@ -5,6 +5,7 @@ import racingcar.util.io.OutputUtils;
 
 public class Car {
 
+    private static final int MIN_MOVABLE_NUMBER = 4;
     private String name;
     private int moveDistance;
 
@@ -29,7 +30,7 @@ public class Car {
     }
 
     private static boolean canMove(int number) {
-        return number >= 4;
+        return number >= MIN_MOVABLE_NUMBER;
     }
 
 }
