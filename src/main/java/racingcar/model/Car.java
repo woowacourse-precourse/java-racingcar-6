@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import racingcar.dto.CarState;
+import racingcar.dto.CarResult;
 
 public class Car {
     private final Name name;
@@ -19,8 +19,8 @@ public class Car {
         position.attemptForward();
     }
 
-    public CarState getCarState() {
-        return new CarState(getNameValue(), getForwardState());
+    public CarResult getCarState() {
+        return new CarResult(getNameValue(), getForwardState());
     }
 
     private String getForwardState() {

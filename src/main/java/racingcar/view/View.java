@@ -3,8 +3,9 @@ package racingcar.view;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import racingcar.constants.Message;
-import racingcar.dto.CarState;
-import racingcar.dto.CarsState;
+import racingcar.dto.CarResult;
+import racingcar.dto.RoundResult;
+import racingcar.dto.TotalResult;
 import racingcar.model.Winners;
 
 public class View {
@@ -16,12 +17,19 @@ public class View {
         return readLine();
     }
 
-    public void printCurrentCarsState(CarsState carsState) {
-        carsState.carsState().forEach(this::printCurrentCarResult);
+    public void printTotalResult(TotalResult totalResult) {
+        System.out.println();
+        System.out.println(Message.ROUNDS_RESULT.message());
+
+        totalResult.totalResult().forEach(this::printRoundResult);
+    }
+
+    private void printRoundResult(RoundResult roundResult) {
+        roundResult.roundResult().forEach(this::printCarResult);
         System.out.println();
     }
 
-    public void printCurrentCarResult(CarState carResult) {
+    private void printCarResult(CarResult carResult) {
         System.out.println(carResult.name() + " : " + carResult.forwardState());
     }
 
@@ -33,13 +41,7 @@ public class View {
         System.out.println(Message.ATTEMPT_COUNT_INPUT.message());
     }
 
-    public void printAttemptResultMessage() {
-        System.out.println();
-        System.out.println(Message.ROUNDS_RESULT.message());
-    }
-
     public void printFinalWinnerMessage(Winners winnersResult) {
-        System.out.println();
         System.out.print(Message.WINNERS.message() + winnersResult.getWinners());
     }
 }

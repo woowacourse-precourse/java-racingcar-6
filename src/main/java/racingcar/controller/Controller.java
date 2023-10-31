@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.dto.AttemptCount;
-import racingcar.dto.CarsState;
+import racingcar.dto.TotalResult;
 import racingcar.model.Winners;
 import racingcar.service.GamePlayingService;
 import racingcar.view.View;
@@ -17,7 +17,7 @@ public class Controller {
 
     public void start() {
         generateCars();
-        attemptForward(setAttemptCount());
+        playRounds(setAttemptCount());
         printWinners();
     }
 
@@ -39,17 +39,12 @@ public class Controller {
         return attemptCount.count();
     }
 
-    private void attemptForward(int count) {
-        view.printAttemptResultMessage();
-
-        for (int current = 0; current < count; current++) {
-            gamePlayingService.tryForward();
-            view.printCurrentCarsState(getCarsState());
-        }
+    private void playRounds(int count) {
+        printTotalResult(gamePlayingService.playRounds(count));
     }
 
-    private CarsState getCarsState() {
-        return gamePlayingService.getCarsState();
+    private void printTotalResult(TotalResult totalResult) {
+        view.printTotalResult(totalResult);
     }
 
     private void printWinners() {

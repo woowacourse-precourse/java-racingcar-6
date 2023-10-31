@@ -1,7 +1,10 @@
 package racingcar.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.dto.AttemptCount;
-import racingcar.dto.CarsState;
+import racingcar.dto.RoundResult;
+import racingcar.dto.TotalResult;
 import racingcar.model.RacingGame;
 import racingcar.model.Winners;
 import racingcar.validator.AttemptCountValidator;
@@ -27,11 +30,18 @@ public class GamePlayingService {
         return Integer.parseInt(input);
     }
 
-    public void tryForward() {
-        racingGame.tryForward();
+    public TotalResult playRounds(int count) {
+        List<RoundResult> totalResult = new ArrayList<>();
+
+        for (int current = 0; current < count; current++) {
+            racingGame.tryForward();
+            totalResult.add(getCarsState());
+        }
+
+        return new TotalResult(totalResult);
     }
 
-    public CarsState getCarsState() {
+    public RoundResult getCarsState() {
         return racingGame.getCarsState();
     }
 

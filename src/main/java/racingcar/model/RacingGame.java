@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import java.util.List;
-import racingcar.dto.CarsState;
+import racingcar.dto.RoundResult;
 
 public class RacingGame {
     private Cars cars;
@@ -26,7 +26,7 @@ public class RacingGame {
         return cars == null;
     }
 
-    public CarsState getCarsState() {
+    public RoundResult getCarsState() {
         checkGameIsStarted();
         return cars.getCarsState();
     }

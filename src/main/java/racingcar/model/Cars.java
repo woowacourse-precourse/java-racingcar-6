@@ -2,7 +2,7 @@ package racingcar.model;
 
 import java.util.Comparator;
 import java.util.List;
-import racingcar.dto.CarsState;
+import racingcar.dto.RoundResult;
 
 public class Cars {
     private final List<Car> cars;
@@ -15,8 +15,8 @@ public class Cars {
         cars.forEach(Car::attemptForward);
     }
 
-    public CarsState getCarsState() {
-        return new CarsState(cars.stream()
+    public RoundResult getCarsState() {
+        return new RoundResult(cars.stream()
                 .map(Car::getCarState)
                 .toList());
     }
