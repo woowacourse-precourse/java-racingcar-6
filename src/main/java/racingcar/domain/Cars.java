@@ -3,6 +3,7 @@ package racingcar.domain;
 import static racingcar.common.response.ErrorCode.CAR_NAME_DUPLICATION;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,8 +31,8 @@ public class Cars {
         }
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public List<Car> getAllCars() {
+        return Collections.unmodifiableList(cars);
     }
 
     public List<Car> winningCars() {

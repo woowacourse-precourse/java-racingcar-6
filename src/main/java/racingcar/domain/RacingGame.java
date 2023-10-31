@@ -36,7 +36,7 @@ public class RacingGame {
 
     private void printCarsStatus() {
         printNewLine();
-        cars.getCars().forEach(car -> {
+        cars.getAllCars().forEach(car -> {
             CarInfo carInfo = CarInfo.of(car);
             printCarStatus(carInfo);
         });
