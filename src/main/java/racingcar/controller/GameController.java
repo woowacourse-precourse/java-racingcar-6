@@ -17,7 +17,7 @@ public class GameController {
     private final Output output;
 
     private Cars cars;
-    private int roundNumber = 0;
+    private int inputRound = 0;
 
     public GameController() {
         this.input = new Input();
@@ -33,7 +33,7 @@ public class GameController {
     private void play() {
         int currentRound = 0;
         output.printStartRoundMessage();
-        while (currentRound < roundNumber) {
+        while (currentRound < inputRound) {
             cars.playOneRound();
             cars.printRoundResult();
             currentRound++;
@@ -60,7 +60,7 @@ public class GameController {
         String readLine = input.getReadLine();
         RoundNumberValidator.validate(readLine);
         try {
-            roundNumber = Integer.parseInt(readLine);
+            inputRound = Integer.parseInt(readLine);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(EXCEPTION_INT_RANGE);
         }
