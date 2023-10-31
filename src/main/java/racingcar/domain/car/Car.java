@@ -1,6 +1,7 @@
 package racingcar.domain.car;
 
-import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import racingcar.domain.Movable;
 
 public class Car {
@@ -19,16 +20,15 @@ public class Car {
     public int getDistance() {
         return distance;
     }
-    public String getCarDistanceChar(){
-        String hyphen = "";
-        for(int i = 0; i < distance; i++){
-            hyphen += '-';
-        }
-        return hyphen;
+
+    public String getCarDistanceChar() {
+        return IntStream.range(0, distance)
+                .mapToObj(i -> "-")
+                .collect(Collectors.joining());
     }
 
-    public void goForward(Movable movable){
-        if(movable.canMove()){
+    public void goForward(Movable movable) {
+        if (movable.canMove()) {
             distance++;
         }
     }
