@@ -11,7 +11,7 @@ public class CarSetting {
     public CarSetting(){
     }
 
-    protected CarSetting(String inputCarName){
+    public CarSetting(String inputCarName){
         carGameSituation = new HashMap<>();
         String[] splitCars = inputCarName.split(",");
         Arrays.stream(splitCars).map(car -> carGameSituation.put(car, 0));

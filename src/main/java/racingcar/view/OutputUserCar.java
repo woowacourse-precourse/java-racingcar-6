@@ -13,6 +13,7 @@ public class OutputUserCar {
     }
     public static void racingCurrent(Map<String, Integer> currentSituation){
         Iterator<String> iterator = currentSituation.keySet().iterator();
+        currentSituation.size();
         while(iterator.hasNext()){
             String keyValue = iterator.next();
             String scoreString = personalResultValue(currentSituation.get(keyValue));
