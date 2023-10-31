@@ -37,6 +37,10 @@ public class InputValidator {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("잘못된 수 입력");
         }
+        if (number <= 0) {
+            throw new IllegalArgumentException("잘못된 수 입력");
+        }
+
         return number;
     }
 

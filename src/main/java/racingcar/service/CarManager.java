@@ -27,6 +27,15 @@ public class CarManager {
         }
     }
 
+    public List<String> getCarList() {
+        return carList;
+    }
+
+    public HashMap<String, Car> getCarMap() {
+        return carMap;
+    }
+
+
     public void goOrStop() {
         for (Car now : carMap.values()) {
             if (calRandom()) {
