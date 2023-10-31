@@ -25,13 +25,18 @@ public class CarService {
     }
 
     public void movieCar(){
-        List<Car> cars = carRepository.getCars();
+        List<Car> cars = getCars();
         for(int index=0; index<cars.size(); index++){
             Car car = cars.get(index);
             int randomNumber= getRandomNumber();
             Car movingCar = movingCar(randomNumber,car);
             carRepository.updateCar(movingCar,index);
         }
+    }
+
+    public List<Car> getCars(){
+        List<Car> cars = carRepository.getCars();
+        return cars;
     }
 
 

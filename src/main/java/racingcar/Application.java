@@ -13,6 +13,8 @@ public class Application {
         CarRepositoryInterface carRepository = new CarRepository();
         CarService carService = new CarService(carRepository);
         View view = new View(carService);
+        view.inputCarName();
+        view.moveCar();
 
     }
 }

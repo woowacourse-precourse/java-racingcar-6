@@ -10,6 +10,10 @@ public class Car {
         this.distance =0;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public static Car createCar(String name){
         return new Car(name);
     }
