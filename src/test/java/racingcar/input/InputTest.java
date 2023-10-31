@@ -6,10 +6,44 @@ import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.UserInputManager;
 
 public class InputTest {
+    @BeforeEach
+    void close() {
+        Console.close();
+    }
+    @Test
+    void 시도_회수_입력받기() {
+        String input = "3";
+        setInput(input);
+
+        int turn = UserInputManager.inputNumberOfAttempts();
+
+        assertThat(turn).isEqualTo(3);
+    }
+
+    @Test
+    void 시도_회수에_잘못된_입력() {
+        String input = "asdf";
+        setInput(input);
+
+        assertThatThrownBy(() -> UserInputManager.inputNumberOfAttempts())
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("숫자를 입력해야 합니다.");
+    }
+
+    @Test
+    void 시도_회수에_공백_자동_제거() {
+        String input = " 33  ";
+        setInput(input);
+
+        int turn = UserInputManager.inputNumberOfAttempts();
+
+        assertThat(turn).isEqualTo(33);
+    }
 
     @Test
     void 이름_입력_자르기() {
@@ -19,7 +53,6 @@ public class InputTest {
         List<String> names = UserInputManager.inputCarName();
 
         assertThat(names).containsExactly("pobi", "woni", "jun");
-        Console.close();
     }
 
     @Test
@@ -30,8 +63,6 @@ public class InputTest {
         assertThatThrownBy(() -> UserInputManager.inputCarName())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("이름은 1-5글자 사이로 입력해야 합니다.");
-
-        Console.close();
     }
 
     @Test
@@ -42,8 +73,6 @@ public class InputTest {
         List<String> names = UserInputManager.inputCarName();
 
         assertThat(names).containsExactly("pobi");
-
-        Console.close();
     }
 
     @Test
@@ -54,7 +83,6 @@ public class InputTest {
         List<String> names = UserInputManager.inputCarName();
 
         assertThat(names).containsExactly("pobi", "woni", "jun");
-        Console.close();
     }
 
     void setInput(String input) {
