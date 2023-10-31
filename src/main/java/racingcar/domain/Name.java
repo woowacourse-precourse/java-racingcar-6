@@ -17,6 +17,7 @@ public class Name {
         validateSize(name);
         validateIsEmpty(name);
         validateIsBlank(name);
+        validateContainBlank(name);
         this.name = name;
     }
 
@@ -35,6 +36,13 @@ public class Name {
     private void validateIsBlank(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException(CAR_NAME_BLANK);
+        }
+    }
+
+    private void validateContainBlank(String name) {
+        String replace = name.replace(" ", "");
+        if (replace.length() != name.length()) {
+            throw new IllegalArgumentException(CAR_NAME_CONTAIN_BLANK);
         }
     }
 
