@@ -9,6 +9,7 @@ import java.util.Arrays;
 public class Application {
     public static void main(String[] args) {
         Input input = new Input();
+        Game game = new Game();
 
         ArrayList<String>userArray = Input.inputUser();
         // 자른 문자열을 ArrayList에 저장
@@ -26,22 +27,9 @@ public class Application {
 
         for(int i = 0; i < count;i++){
 
-            for(int k = 0 ; k < userArray.size(); k++){
-                int raceNumber = Randoms.pickNumberInRange(0,9);
-                if (raceNumber >= 4){
-                    raceCount[k]++;
+            raceCount = game.raceInit(userArray,raceCount);
 
-                }
-            }
-
-            for (int a = 0 ; a < userArray.size();a++){
-
-                System.out.print(userArray.get(a)+" : ");
-                for (int j = 0; j < raceCount[a]; j++) {
-                    System.out.print("-");
-                }
-                System.out.println();
-            }
+            game.printRace(userArray,raceCount);
 
 
         }
