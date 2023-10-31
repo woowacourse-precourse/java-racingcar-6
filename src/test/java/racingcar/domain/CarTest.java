@@ -63,7 +63,7 @@ class CarTest {
         Car car2 = new Car(name);
 
         // when & then
-        assertThat(car1.equals(car2)).isTrue();
+        assertThat(car1).isEqualTo(car2);
     }
 
     @Test
@@ -73,6 +73,6 @@ class CarTest {
         Car car2 = new Car("test2");
 
         // when & then
-        assertThat(car1.equals(car2)).isFalse();
+        assertThat(car1).isNotEqualTo(car2);
     }
 }
