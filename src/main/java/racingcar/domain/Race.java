@@ -4,6 +4,7 @@ import racingcar.domain.car.Car;
 import racingcar.validator.CarNameValidator;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,14 +27,13 @@ public class Race {
 
     private List<Car> findWinnerCars() {
         return cars.stream()
-                .filter(car -> car.isEqualOrGreaterThan(getMaxDistance()))
+                .filter(car -> car.isSameDistanceOrFurtherThan(getMaxDistanceCar()))
                 .toList();
     }
 
-    private int getMaxDistance() {
+    private Car getMaxDistanceCar() {
         return cars.stream()
-                .mapToInt(Car::getDistance)
-                .max()
+                .max(Comparator.comparingInt(Car::getDistance))
                 .orElseThrow(IllegalArgumentException::new);
     }
 
