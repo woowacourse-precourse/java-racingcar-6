@@ -21,4 +21,13 @@ public class Cars {
     public void indicate() {
         cars.forEach(car -> System.out.println(car.indicate()));
     }
+
+    public List<Boolean> compare(Car car) {
+        List<Boolean> collect = cars.stream()
+                .map(carObject -> carObject.isLesser(car))
+                .filter(result -> !result)
+                .toList();
+        return collect;
+    }
+
 }
