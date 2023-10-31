@@ -34,6 +34,6 @@ public class InputView {
 
     private List<String> parseCarNames(String input) {
         List<String> parsedCarNames = List.of(input.split(","));
-        return parsedCarNames;
+        return parsedCarNames.stream().map(String::trim).collect(Collectors.toList());
     }
 }
