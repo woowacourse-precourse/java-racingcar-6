@@ -33,6 +33,12 @@ public class Cars {
         return cars;
     }
 
+    public void progressAllCars() {
+        for (Car car : cars) {
+            car.progress();
+        }
+    }
+
     public List<Car> getWinners() {
         List<Car> winners = new ArrayList<>();
         Collections.sort(cars);
@@ -45,10 +51,8 @@ public class Cars {
         return winners;
     }
 
-    public void progressAllCars() {
-        for (Car car : cars) {
-            car.progress();
-        }
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 
 }
