@@ -25,7 +25,7 @@ public class Validation {
 
     }
 
-    private static void CheckNameCount(List<String> carNames) {
+    public static void CheckNameCount(List<String> carNames) {
         if(carNames.size() == 1){
             throw new IllegalArgumentException(CAR_COUNT_ERROR);
         }
