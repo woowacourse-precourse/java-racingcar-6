@@ -13,21 +13,17 @@ public class Application {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        //자동차 이름 입력 받기
         try {
             List<String> cars = getCarsName(br);
 
-            //시도 횟수 입력 받기
             System.out.println("시도할 회수는 몇회인가요?");
             int toTry = getToTry(br);
 
-            //전진 횟수 기록할 리스트 생성
             List<Integer> toGo = new ArrayList<>();
             for (int i = 0; i < cars.size(); i++) {
                 toGo.add(0);
             }
 
-            //반복해서 전진 및 출력
             System.out.println();
             System.out.println("실행 결과");
             for (int i = 0; i < toTry; i++) {
@@ -46,8 +42,7 @@ public class Application {
                 System.out.println();
             }
             System.out.print("최종 우승자 : ");
-
-            //우승자 구하기
+            
             int maxNum = Collections.max(toGo);
             List<String> winner = new ArrayList<>();
 
