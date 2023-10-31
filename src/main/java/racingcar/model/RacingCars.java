@@ -22,15 +22,16 @@ public class RacingCars {
     }
 
     public List<String> findWinner() {
+        return cars.stream()
+                .filter(car -> car.getPosition() == findMaxPosition())
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
 
-        int maxPosition = cars.stream()
+    private int findMaxPosition() {
+        return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
-
-        return cars.stream()
-                .filter(car -> car.getPosition() == maxPosition)
-                .map(Car::getName)
-                .collect(Collectors.toList());
     }
 }
