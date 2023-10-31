@@ -8,26 +8,38 @@ import racingcar.util.InputUtil;
 public class Racing {
 
     private int racingTrial;
-    private List<Participant> participants;
+    private Participants participants;
     private final InputUtil inputUtil = new InputUtil();
 
-    public void prepareRacing() {
-        this.racingTrial = setRacingTrial();
-        this.participants = convertStringToList(setParticipant());
+    public void race() {
+        prepareRacing();
+        startRace();
     }
 
-    private String setParticipant() {
+    private void prepareRacing() {
+        this.participants = new Participants(setParticipant());
+        this.racingTrial = setRacingTrial();
+    }
+
+    private void startRace() {
+        while (racingTrial > 0) {
+            participants.race();
+            racingTrial--;
+        }
+    }
+
+    private List<Car> setParticipant() {
         String participantInput = inputUtil.inputCarName();
         if (participantInput.isEmpty()) {
             throw new IllegalArgumentException();
         }
-        return participantInput;
+        return convertStringToList(participantInput);
     }
 
-    private List<Participant> convertStringToList(String participantInput) {
+    private List<Car> convertStringToList(String participantInput) {
         List<String> rawParticipantInput = Arrays.stream(
                 participantInput.split(InputDelimiter.PARTICIPANT_INPUT_DELIMITER.getValue())).toList();
-        return rawParticipantInput.stream().map(carName -> new Participant(carName, 0)).toList();
+        return rawParticipantInput.stream().map(carName -> new Car(carName, 0)).toList();
     }
 
     private int setRacingTrial() {
