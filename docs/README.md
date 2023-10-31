@@ -25,6 +25,12 @@ int tryCount = scanner.nextInt();   // 경주 시도 횟수 입력
 
 #### 출력
 - tryCount 만큼 race를 반복하는 내용을 출력
+  - tryRace(): 반복 횟수를 입력받아 해당 반복 횟수만큼 race 실행, 각 실행마다 결과 출력
+```java
+System.out.println("실행 결과");
+tryRace(tryCount);
+```
+  
 ```
 // 에시
 poni : 
