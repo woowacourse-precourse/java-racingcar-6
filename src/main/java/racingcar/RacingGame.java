@@ -1,12 +1,11 @@
 package racingcar;
 
+import java.util.ArrayList;
+import java.util.List;
 import racingcar.domain.Car;
 import racingcar.validator.Validator;
 import racingcar.veiw.InputView;
 import racingcar.veiw.OutputView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RacingGame {
     public void startGame() {
@@ -26,7 +25,7 @@ public class RacingGame {
         OutputView.printWinners(winners);
     }
 
-    private static List<Car> generateCarList(String inputNames) {
+    public List<Car> generateCarList(String inputNames) {
         String[] inputArray = inputNames.split(",");
         List<Car> carList = new ArrayList<>();
         for (String name : inputArray) {
@@ -34,6 +33,7 @@ public class RacingGame {
         }
         return carList;
     }
+
     private static List<Car> repeatRounds(int repeatNumber, List<Car> carList) {
         for (int i = 0; i < repeatNumber; i++) {
             for (Car car : carList) {
@@ -44,7 +44,8 @@ public class RacingGame {
         }
         return carList;
     }
-    private static List<String> determineWinners(List<Car> resultList) {
+
+    public List<String> determineWinners(List<Car> resultList) {
         int maxPosition = getMaxPosition(resultList);
         List<String> winnerList = new ArrayList<>();
         for (Car car : resultList) {
@@ -54,6 +55,7 @@ public class RacingGame {
         }
         return winnerList;
     }
+
     private static int getMaxPosition(List<Car> carList) {
         int maxPosition = 0;
         for (Car car : carList) {
