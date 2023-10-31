@@ -34,6 +34,14 @@ public class MessagePrinter {
                 car -> System.out.println(getCarName(car) + " : " + createHyphenResult(car)));
     }
 
+    public void winners(final List<Car> winners) {
+        List<String> winnerNames = winners.stream()
+                .map(Car::getName)
+                .toList();
+        String result = String.join(", ", winnerNames);
+        System.out.print("최종 우승자 : " + result);
+    }
+
     private String getCarName(final Car car) {
         return car.getName();
     }
@@ -41,13 +49,5 @@ public class MessagePrinter {
     private String createHyphenResult(final Car car) {
         final int position = car.getPosition();
         return "-".repeat(position);
-    }
-
-    public void winners(final List<Car> winners) {
-        List<String> winnerNames = winners.stream()
-                .map(Car::getName)
-                .toList();
-        String result = String.join(", ", winnerNames);
-        System.out.print("최종 우승자 : " + result);
     }
 }
