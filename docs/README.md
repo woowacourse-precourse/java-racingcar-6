@@ -58,19 +58,20 @@
     - 경주의 자동차들과 진행된 단위 게임 횟수, 시도 횟수를 갖고 있으며 게임을 진행하고 입력값을 검증할 수 있다. 
 
   - constant 패키지
-    - CarConstance : Car 에 대한 상수 클래스
-    - RaceConstant : Race 에 대한 상수 클래스
+    - Delimiter : 입력값을 파싱하는 delimiter 에 대한 enum 클래스
+    - CarConstance : Car 에 대한 enum 클래스
+    - RaceConstant : Race 에 대한 enum 클래스
 
 - ### validate
-    - InputValidate : 경주할 자동차 이름과 시도할 횟수를 입력할 때 입력값을 검증하는 클래스
+  - InputValidate : 경주할 자동차 이름과 시도할 횟수를 입력할 때 입력값을 검증하는 클래스
 
 - ### enums
-    - ExceptionMessage : 예외 메시지
-    - InputMessage : 입력값 메시지
-    - OutputMessage : 출력값 메시지
+  - ExceptionMessage : 예외 메시지에 대한 enum 클래스
+  - InputMessage : 입력값 메시지에 대한 enum 클래스
+  - OutputMessage : 출력값 메시지에 대한 enum 클래스
 
 - ### util
-    - RaceUtil : 게임의 각종 기능을 담는 유틸리티 클래스
+  - RaceUtil : 게임의 각종 기능을 담는 유틸리티 클래스
 
 - ### view
   - InputView : 입력과 그에 대한 검증을 담당하는 클래스
