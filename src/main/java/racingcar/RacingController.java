@@ -11,12 +11,10 @@ public class RacingController {
 
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
-    private final InputValidator validator = new InputValidator();
-    private Cars cars;
 
     public void run() {
 
-        cars = new Cars(createCarList());
+        Cars cars = new Cars(createCarList());
         int times = readTimes();
 
         outputView.printResultMessage();
@@ -33,7 +31,7 @@ public class RacingController {
 
         List<String> carNames = inputView.readCarNames();
 
-        carNames.forEach(validator::validateName);
+        carNames.forEach(InputValidator::validateName);
 
         return carNames.stream()
                 .map(Car::new)
@@ -43,7 +41,7 @@ public class RacingController {
     public int readTimes() {
         int times = inputView.readTimes();
 
-        validator.validateTimes(times);
+        InputValidator.validateTimes(times);
 
         return times;
     }
