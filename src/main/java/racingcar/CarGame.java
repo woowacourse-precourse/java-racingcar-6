@@ -25,4 +25,11 @@ public class CarGame {
     this.attempts = Integer.parseInt(attemptsInput);
     if(attempts < 0) throw new IllegalArgumentException();
   }
+
+  private void playOneTime() {
+    for(Car car : cars) {
+      if(pickNumberInRange(0,9) < 4) continue;
+      car.goForward();
+    }
+  }
 }
