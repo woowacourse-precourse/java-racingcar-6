@@ -24,11 +24,25 @@ public class Validator {
         }
     }
 
-    public static void isInteger(String attemptCount) {
+    public static void isValidCount(String attemptCount) {
+        if (isNotInteger(attemptCount)) {
+            throw new IllegalArgumentException(INTEGER_INPUT_ERROR_MESSAGE);
+        }
+        if (isAttemptCountZero(attemptCount)) {
+            throw new IllegalArgumentException(COUNT_ZERO_ERROR_MESSAGE);
+        }
+    }
+
+    private static boolean isAttemptCountZero(String attemptCount) {
+        return Integer.parseInt(attemptCount) == 0;
+    }
+
+    private static boolean isNotInteger(String attemptCount) {
         try {
             Integer.parseInt(attemptCount);
+            return false;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(INTEGER_INPUT_ERROR_MESSAGE);
+            return true;
         }
     }
 

@@ -1,10 +1,8 @@
 package racingcar.validator;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ValidatorTest {
 
@@ -41,14 +39,14 @@ class ValidatorTest {
 
     @Test
     void 입력받은_횟수가_정수가_아닐_경우() {
-        assertThatThrownBy(() -> Validator.isInteger("a"))
+        assertThatThrownBy(() -> Validator.isValidCount("a"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 정수만 입력 가능합니다.");
     }
 
     @Test
     void 입력받은_횟수가_정수인_경우() {
-        assertThatCode(() -> Validator.isInteger("3"))
+        assertThatCode(() -> Validator.isValidCount("3"))
                 .doesNotThrowAnyException();
     }
 }

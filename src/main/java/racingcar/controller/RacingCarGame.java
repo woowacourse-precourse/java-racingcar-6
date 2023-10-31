@@ -27,7 +27,7 @@ public class RacingCarGame {
 
     private void racingGamePlay() {
         String attemptCount = InputView.askForAttemptCount();
-        Validator.isInteger(attemptCount);
+        Validator.isValidCount(attemptCount);
         int count = Integer.parseInt(attemptCount);
         racingGameService.playGame(count);
     }
