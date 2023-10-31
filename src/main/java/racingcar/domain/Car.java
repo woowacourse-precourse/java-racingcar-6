@@ -15,18 +15,24 @@ public class Car {
     }
 
     private void validateNameRange(String name) {
+        isLengthUnderMaxLength(name);
+        isEmpty(name);
+    }
+
+    private void isLengthUnderMaxLength(String name) {
         if (name.length() > Constant.CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_LENGTH_EXCEEDS_LIMIT);
         }
+    }
 
+    private void isEmpty(String name) {
         if (name.isEmpty()) {
             throw new IllegalArgumentException(CarNamesInputErrorMessage.INPUT_IS_EMPTY);
         }
     }
 
     public void moveOrStop() {
-        int randomValue = Randoms.pickNumberInRange(Constant.RANDOM_VALUE_LOWER_LIMIT,
-                Constant.RANDOM_VALUE_UPPER_LIMIT);
+        int randomValue = makeRandomValue();
         if (randomValue >= Constant.MOVE_OR_STOP_BOUNDARY_VALUE && randomValue < Constant.RANDOM_VALUE_UPPER_LIMIT) {
             move();
             return;
@@ -36,6 +42,11 @@ public class Car {
         }
     }
 
+    private int makeRandomValue() {
+        return Randoms.pickNumberInRange(Constant.RANDOM_VALUE_LOWER_LIMIT,
+                Constant.RANDOM_VALUE_UPPER_LIMIT);
+    }
+    
     private void move() {
         distance++;
     }
