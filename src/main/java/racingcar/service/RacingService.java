@@ -23,10 +23,10 @@ public class RacingService {
         return enroller.enrollCars(validatedCarNames);
     }
 
-    public void moveAllCar(int attemptCount, LinkedHashSet<Car> cars) {
+    public void moveAllCar(int attemptCount, LinkedHashSet<Car> cars, Runnable afterEachRound) {
         for (int i = 0; i < attemptCount; i++) {
             moveCar(cars);
-            System.out.println();
+            afterEachRound.run();
         }
     }
 

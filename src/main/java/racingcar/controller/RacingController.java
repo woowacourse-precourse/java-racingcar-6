@@ -3,6 +3,8 @@ package racingcar.controller;
 import java.util.LinkedHashSet;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.dto.CarDto;
+import racingcar.mapper.CarDtoMapper;
 import racingcar.observer.Observer;
 import racingcar.service.RacingService;
 import racingcar.view.InputView;
@@ -34,9 +36,9 @@ public class RacingController implements Observer {
 
     private void startRace() {
         OutputView.printGameResultMessage();
-        racingService.moveAllCar(attemptCount, cars);
+        racingService.moveAllCar(attemptCount, cars, OutputView::printEachRoundSeparator);
 
-        List<String> winners =  racingService.generateRaceResult(cars);
+        List<String> winners = racingService.generateRaceResult(cars);
         OutputView.printWinner(winners);
     }
 
@@ -45,10 +47,11 @@ public class RacingController implements Observer {
     }
 
     void addObserverToCar(LinkedHashSet<Car> cars) {
-        for(Car car : cars) {
+        for (Car car : cars) {
             car.addObserver(this);
         }
     }
+
     @Override
     public void display(Car car) {
         OutputView.printRealTimeResult(car.getName(), car.getMoved());
