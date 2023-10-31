@@ -24,7 +24,7 @@ public class Manager {
     public void manageMoveOneCycle(){
         for(Car car : carList){
             if(possibleToMove(car)) {
-                car.getMoveChance();
+                car.getChanceToMove();
             }
             increaseMaxLine(car.getScore());
         }
@@ -42,7 +42,7 @@ public class Manager {
     }
 
     private boolean possibleToMove(Car car){
-        if(car.getMoveCount()>0) {
+        if(car.getRemainMoveCount()>0) {
             return true;
         }
         return false;
