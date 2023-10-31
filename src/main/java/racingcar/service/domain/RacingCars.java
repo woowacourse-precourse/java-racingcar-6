@@ -1,6 +1,5 @@
 package racingcar.service.domain;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,27 +43,22 @@ public class RacingCars {
 
     public List<String> findWinners() {
         int maxPosition = calculateMaxPosition();
-        List<String> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
-                winners.add(car.getName());
-            }
-        }
+        List<String> winners = cars.stream()
+                .filter(car -> car.isMaxPosition(maxPosition))
+                .map(Car::getName)
+                .collect(Collectors.toList());
         return Collections.unmodifiableList(winners);
     }
 
     private int calculateMaxPosition() {
-        int maxPosition = 0;
-        for (Car car : this.cars) {
-            maxPosition = Math.max(car.getPosition(), maxPosition);
-        }
-        return maxPosition;
+        return cars.stream()
+                .map(Car::getPosition)
+                .max(Integer::compare)
+                .orElse(0);
     }
 
     public List<Car> doRace() {
-        for (Car car : this.cars) {
-            car.moveCar();
-        }
+        cars.forEach(Car::moveCar);
         return Collections.unmodifiableList(cars);
     }
 }
