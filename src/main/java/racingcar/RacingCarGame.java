@@ -53,4 +53,12 @@ public class RacingCarGame {
             progressOfCarRacing[i].add("-");
         }
     }
+
+    static void executePerCycle(List<String> carNamesList, List<String>[] progressOfCarRacing) {
+        for (int i = 0; i < carNamesList.size(); i++) {
+            executePerCar(i, progressOfCarRacing);
+            System.out.println(carNamesList.get(i) + " : " + String.join("", progressOfCarRacing[i]));
+        }
+
+    }
 }
