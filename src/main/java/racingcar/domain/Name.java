@@ -25,22 +25,22 @@ public class Name {
 
     private void validateBlank(final String name) {
         if (name.isBlank()) {
-            throw new IllegalArgumentException(NAME_BLANK_ERROR_MESSAGE);
+            throwException(NAME_BLANK_ERROR_MESSAGE);
         }
     }
 
     private void validateLength(final String name) {
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException(NAME_LENGTH_ERROR_MESSAGE);
+            throwException(NAME_LENGTH_ERROR_MESSAGE);
         }
     }
 
     private void validateContainBlank(final String name) {
         if (hasBlankInLeadingOrTrailing(name)) {
-            throw new IllegalArgumentException(NAME_CONTAIN_BLANK_ERROR_MESSAGE);
+            throwException(NAME_CONTAIN_BLANK_ERROR_MESSAGE);
         }
         if (hasBlankInMiddle(name)) {
-            throw new IllegalArgumentException(NAME_CONTAIN_BLANK_ERROR_MESSAGE);
+            throwException(NAME_CONTAIN_BLANK_ERROR_MESSAGE);
         }
     }
 
@@ -50,6 +50,10 @@ public class Name {
 
     private boolean hasBlankInMiddle(final String name) {
         return name.contains(WHITESPACE);
+    }
+
+    private void throwException(final String errorMessage) {
+        throw new IllegalArgumentException(errorMessage);
     }
 
     public String getName() {
