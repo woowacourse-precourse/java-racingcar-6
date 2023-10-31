@@ -1,6 +1,6 @@
 package jalddak.view;
 
-import static racingcar.view.OutputView.printAllMatchesResult;
+import static racingcar.view.OutputView.printPerMatchResult;
 import static racingcar.view.OutputView.printSystemMessage;
 import static racingcar.view.SystemMessage.ASK_CAR_LIST;
 import static racingcar.view.SystemMessage.ASK_NUM_OF_MATCHES;
@@ -20,7 +20,7 @@ public class OutputViewTest {
 
     @Test
     void 출력확인_printAllMatchesResult() {
-        List<Map<String, Integer>> given = new ArrayList<>();
+        List<Map<String, Integer>> givenList = new ArrayList<>();
         Map<String, Integer> start = new LinkedHashMap<>();
         start.put("HJ", 0);
         start.put("HS", 0);
@@ -29,8 +29,10 @@ public class OutputViewTest {
         second.put("HJ", 4);
         second.put("HS", 2);
         second.put("SJ", 7);
-        given.add(start);
-        given.add(second);
-        printAllMatchesResult(given);
+        givenList.add(start);
+        givenList.add(second);
+        for (Map<String, Integer> given : givenList) {
+            printPerMatchResult(given);
+        }
     }
 }

@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import static racingcar.view.SystemMessage.TESTING;
-
 import java.util.List;
 import java.util.Map;
 
@@ -10,27 +8,26 @@ public class OutputView {
         System.out.println(systemMessage.getMessage());
     }
 
-    public static void printWinner(List<Map<String, Integer>> allMatchesResult) {
-        Map<String, Integer> finalResult = allMatchesResult.get(allMatchesResult.size() - 1);
-    }
-
-    public static void printAllMatchesResult(List<Map<String, Integer>> allMatchesResult) {
-        printSystemMessage(TESTING);
-        for (Map<String, Integer> perMatchResult : allMatchesResult) {
-            printPerMatchResult(perMatchResult);
-            System.out.println();
+    public static void printWinner(List<String> winner) {
+        StringBuilder output = new StringBuilder("최종 우승자 : ");
+        for (int i = 0; i < winner.size(); i++) {
+            if (i > 1) {
+                output.append(", ");
+            }
+            output.append(winner.get(i));
         }
-
+        System.out.println(output);
     }
 
-    private static void printPerMatchResult(Map<String, Integer> perMatchResult) {
+    public static void printPerMatchResult(Map<String, Integer> perMatchResult) {
         for (String name : perMatchResult.keySet()) {
             int distance = perMatchResult.get(name);
             System.out.println(name + " : " + drawDistance(distance));
         }
+        System.out.println();
     }
 
-    private static String drawDistance(int distance) {
+    public static String drawDistance(int distance) {
 //        String result = "";
 //        for (int i = 0; i < distance; i++) {
 //            result += "-";

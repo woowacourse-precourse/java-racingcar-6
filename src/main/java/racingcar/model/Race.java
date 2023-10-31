@@ -31,15 +31,6 @@ public class Race {
         this.numOfMatches = Integer.parseInt(numOfMatchesString);
     }
 
-    public List<Map<String, Integer>> getAllMatchesResult() {
-        List<Map<String, Integer>> allMatchesResult = new ArrayList<>();
-        for (int i = 0; i < this.numOfMatches; i++) {
-            match();
-            allMatchesResult.add(getPerMatchResult());
-        }
-        return allMatchesResult;
-    }
-
     public void match() {
         for (Car car : this.carList) {
             car.move(Randoms.pickNumberInRange(0, 9));
@@ -52,5 +43,28 @@ public class Race {
             perMatchResult.put(car.getName(), car.getDistance());
         }
         return perMatchResult;
+    }
+
+    public List<String> getWinner() {
+        int max_distance = checkMaxDistance();
+        List<String> winner = new ArrayList<>();
+        for (Car car : this.carList) {
+            if (car.getDistance() == max_distance) {
+                winner.add(car.getName());
+            }
+        }
+        return winner;
+    }
+
+    public int checkMaxDistance() {
+        int maxDistance = 0;
+        for (Car car : this.carList) {
+            maxDistance = Math.max(maxDistance, car.getDistance());
+        }
+        return maxDistance;
+    }
+
+    public int getNumOfMatches() {
+        return numOfMatches;
     }
 }
