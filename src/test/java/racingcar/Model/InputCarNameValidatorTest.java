@@ -27,8 +27,8 @@ public class InputCarNameValidatorTest {
 
     @Test
     void split_후_에러체크() {
-        String input = "pobi,woni,jun";
-        assertThat(validator.validateNameAfterSplit(validator.validateNameBeforeSplit(input))).contains("pobi", "woni",
+        List<String> input = Arrays.asList("pobi", "woni", "jun");
+        assertThat(validator.validateNameAfterSplit(input)).contains("pobi", "woni",
                 "jun");
     }
 
@@ -62,5 +62,40 @@ public class InputCarNameValidatorTest {
         assertThatThrownBy(() -> validator.validateNameAfterSplit(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 1글자 이상, 5글자 이하만 가능합니다.");
+    }
+
+    @Test
+    void 영어_외_문자체크() {
+        String input = "pobi,woni,jun5";
+        assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 영어_외_문자체크2() {
+        String input = "pobi,woni,jun!";
+        assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 영어_외_문자체크3() {
+        String input = "pobi,woni,junㅁ";
+        assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 영어_외_문자체크4() {
+        String input = "pobi,woni,jun]";
+        assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 영어_외_문자체크5() {
+        String input = "pobi,woni,jun@";
+        assertThatThrownBy(() -> validator.validateNameBeforeSplit(input))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }

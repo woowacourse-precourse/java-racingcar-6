@@ -15,13 +15,23 @@ public class InputCarNameValidator {
     private static final String ERROR_MESSAGE_FOR_DUPLICATE = "중복된 이름이 존재합니다.";
     private static final String ERROR_MESSAGE_FOR_DELIMITER = "자동차 이름은 쉼표(,)를 기준으로 구분해야 합니다.";
 
+    private static final String ENG_REGEX = "^[a-zA-Z,]*$";
+
     public static InputCarNameValidator getInstance() {
         return singleton;
     }
 
     public List<String> validateNameBeforeSplit (String userInput) {
         isContainDelimiter(userInput);
+        isContainOtherLanguage(userInput);
         return new ArrayList<>(Arrays.asList(userInput.split(DELIMITER)));
+    }
+
+    // 영어 외 문자가 포함되어 있는지 확인
+    private void isContainOtherLanguage(String userInput) {
+        if (!userInput.matches(ENG_REGEX)) {
+            throw new IllegalArgumentException(ERROR_MESSAGE_FOR_CAR_NAME);
+        }
     }
 
     // ,가 String에 포함되어 있는지 확인
