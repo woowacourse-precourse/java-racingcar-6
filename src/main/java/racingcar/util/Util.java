@@ -1,15 +1,13 @@
-package racingcar.controller;
+package racingcar.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import java.util.StringJoiner;
 import racingcar.model.CarModel;
 
-public class RacingGameController {
-    private final List<CarModel> carList;
+public class Util {
+
     private static final int CAN_FORWARD = 4;
-    public RacingGameController(List<CarModel> carList) {
-        this.carList = carList;
-    }
 
     public int generateRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
@@ -17,5 +15,14 @@ public class RacingGameController {
 
     public boolean isUpperThanCanForwardNumber(int targetNumber) {
         return targetNumber >= CAN_FORWARD;
+    }
+
+    public String generateWinnerList(List<CarModel> winners) {
+        StringJoiner result = new StringJoiner(", ");
+
+        for (CarModel winner : winners) {
+            result.add(winner.getName());
+        }
+        return result.toString();
     }
 }

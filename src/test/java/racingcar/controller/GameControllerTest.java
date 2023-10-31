@@ -1,24 +1,22 @@
 package racingcar.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import racingcar.model.CarModel;
+import racingcar.util.Util;
 
-class RacingGameControllerTest {
-    static RacingGameController controller;
+class GameControllerTest {
+    static Util util;
 
     @BeforeAll
     static void beforeAll() {
-        controller = new RacingGameController(new ArrayList<CarModel>());
+        util = new Util();
     }
     @Test
     void 랜덤_숫자_생성기능_테스트() {
         //given
         //when
-        int randomNumber = controller.generateRandomNumber();
+        int randomNumber = util.generateRandomNumber();
         //then
         assertThat(randomNumber).isBetween(0, 9);
     }
@@ -28,7 +26,7 @@ class RacingGameControllerTest {
         //given
         int canForwardNumber = 5;
         //when
-        boolean result = controller.isUpperThanCanForwardNumber(canForwardNumber);
+        boolean result = util.isUpperThanCanForwardNumber(canForwardNumber);
         //then
         assertThat(result).isTrue();
     }
@@ -38,7 +36,7 @@ class RacingGameControllerTest {
         //given
         int canForwardNumber = 2;
         //when
-        boolean result = controller.isUpperThanCanForwardNumber(canForwardNumber);
+        boolean result = util.isUpperThanCanForwardNumber(canForwardNumber);
         //then
         assertThat(result).isFalse();
     }
