@@ -3,6 +3,8 @@ package racingcar;
 import racingcar.controller.Controller;
 import racingcar.repository.CarRepository;
 import racingcar.repository.MemoryCarRepository;
+import racingcar.repository.MemoryRacingGameRepository;
+import racingcar.repository.RacingGameRepository;
 import racingcar.service.CarService;
 import racingcar.service.CarServiceImpl;
 import racingcar.service.RacingGameService;
@@ -15,7 +17,7 @@ public class AppConfig {
     }
 
     public RacingGameService racingGameService() {
-        return new RacingGameServiceImpl(carRepository());
+        return new RacingGameServiceImpl(carRepository(), racingGameRepository());
     }
 
     public CarService carService() {
@@ -24,5 +26,9 @@ public class AppConfig {
 
     public CarRepository carRepository() {
         return new MemoryCarRepository();
+    }
+
+    public RacingGameRepository racingGameRepository() {
+        return new MemoryRacingGameRepository();
     }
 }

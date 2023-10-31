@@ -5,6 +5,7 @@ import java.util.List;
 import racingcar.domain.RacingGame;
 import racingcar.domain.RandomNumberGenerator;
 import racingcar.repository.CarRepository;
+import racingcar.repository.RacingGameRepository;
 
 public class RacingGameServiceImpl implements RacingGameService {
     private static final int MOVE_FORWARD_CONDITION = 4;
@@ -12,14 +13,16 @@ public class RacingGameServiceImpl implements RacingGameService {
     private static final int END_NUMBER_RANGE = 9;
     private static final int MIN_POSITION_VALUE = -1;
     private final CarRepository carRepository;
+    private final RacingGameRepository racingGameRepository;
 
-    public RacingGameServiceImpl(CarRepository carRepository) {
+    public RacingGameServiceImpl(CarRepository carRepository, RacingGameRepository racingGameRepository) {
         this.carRepository = carRepository;
+        this.racingGameRepository = racingGameRepository;
     }
 
     @Override
-    public RacingGame createNewGame(List<Long> carsIdList, int maxGameCount) {
-        return new RacingGame(carsIdList, maxGameCount);
+    public RacingGame createNewGame(List<Long> carsIdList, int maxGameCount, Long id) {
+        return new RacingGame(carsIdList, maxGameCount, id);
     }
 
     @Override
@@ -28,9 +31,14 @@ public class RacingGameServiceImpl implements RacingGameService {
         return isMoveable(randomNumber);
     }
 
+    @Override
+    public boolean isGameFinish(Long id) {
+        return racingGameRepository.findById(id).isGameFinish();
+    }
 
-    public List<Long> getWinningCarsId(RacingGame racingGame) {
-        List<Long> carsIdList = racingGame.getCarsIdList();
+
+    public List<Long> getWinningCarsId(Long id) {
+        List<Long> carsIdList = racingGameRepository.findById(id).getCarsIdList();
         int maxPosition = getMaxPosition(carsIdList);
         return getMaxPositionCarsId(carsIdList, maxPosition);
     }

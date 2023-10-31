@@ -8,9 +8,12 @@ public class RacingGame {
     private final int maxGameCount;
     private int currentGameCount;
 
-    public RacingGame(List<Long> carsIdList, int maxGameCount) {
+    private Long id;
+
+    public RacingGame(List<Long> carsIdList, int maxGameCount, Long id) {
         this.carsIdList = carsIdList;
         this.maxGameCount = maxGameCount;
+        this.id = id;
         this.currentGameCount = START_GAME_COUNT;
     }
 
@@ -22,4 +25,7 @@ public class RacingGame {
         return currentGameCount == maxGameCount;
     }
 
+    public Long getId() {
+        return id;
+    }
 }

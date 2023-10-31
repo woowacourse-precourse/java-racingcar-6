@@ -4,9 +4,11 @@ import java.util.List;
 import racingcar.domain.RacingGame;
 
 public interface RacingGameService {
-    RacingGame createNewGame(List<Long> carsIdList, int maxGameCount);
+    RacingGame createNewGame(List<Long> carsIdList, int maxGameCount, Long id);
+
+    List<Long> getWinningCarsId(Long Id);
 
     boolean isMoveableForwardByRandomNumber();
 
-    List<Long> getWinningCarsId(RacingGame racingGame);
+    boolean isGameFinish(Long id);
 }

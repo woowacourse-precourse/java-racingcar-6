@@ -14,25 +14,29 @@ public class Controller {
     private final RacingGameService racingGameService;
     private final CarService carService;
 
+    private Long racingGameId = 1L;
+    private Long carId = 1L;
+
     public Controller(RacingGameService racingGameService, CarService carService) {
         this.racingGameService = racingGameService;
         this.carService = carService;
     }
 
-    public void startRacingGame() {
-        List<Long> carsIdList = getCarsIdList();
-        int maxGameCount = getMaxGameCount();
-        RacingGame racingGame = racingGameService.createNewGame(carsIdList, maxGameCount);
+    public void initRacingGame() {
+        RacingGame racingGame = racingGameService.createNewGame(getCarsIdList(), getGameCount(), racingGameId);
+        racingGameId += 1;
+        play(racingGame);
     }
 
-    private int getMaxGameCount() {
+    private void play(RacingGame racingGame) {
+        while (!racingGameService.isGameFinish(racingGame.getId())) {
+            
+        }
+    }
+
+    private int getGameCount() {
         String gameCountString = getGameCountStringByUserInput();
         return Parser.parseNumberOfCount(gameCountString);
-    }
-
-    private String getGameCountStringByUserInput() {
-        InputView.requestCarName();
-        return Console.readLine();
     }
 
     private List<Long> getCarsIdList() {
@@ -43,13 +47,17 @@ public class Controller {
 
     private List<Long> saveCarsInRepository(List<String> carNameList) {
         List<Long> carIdList = new ArrayList<>();
-        Long id = 1L;
         for (String s : carNameList) {
-            carService.join(new Car(s, id));
-            carIdList.add(id);
-            id += 1;
+            carService.join(new Car(s, carId));
+            carIdList.add(carId);
+            carId += 1;
         }
         return carIdList;
+    }
+
+    private String getGameCountStringByUserInput() {
+        InputView.requestCarName();
+        return Console.readLine();
     }
 
     private String getNameStringByUserInput() {
