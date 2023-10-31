@@ -27,5 +27,5 @@ public class Application {
     		System.out.println();
     	}
     	racingGame.racingWinner(carRecord, carName);
-    } // end of main
-} // end of class
+    }
+}
