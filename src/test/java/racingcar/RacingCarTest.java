@@ -64,5 +64,21 @@ public class RacingCarTest {
         assertThat(OutputView.winnerPrintFormat(winnersMany)).isEqualTo("최종 우승자 : a, b, c");
     }
 
+    @DisplayName("4 이상일 때 자동차는 position이 1 증가한다.")
+    @Test
+    public void movePosition(){
+        Car car = new Car("a");
+        int position1 = car.getPosition();
+
+        car.move(4);
+        int position2 = car.getPosition();
+        assertThat(position1 +1).isEqualTo(position2);
+
+        car.move(3);
+        int position3 = car.getPosition();
+        assertThat(position3).isEqualTo(position2);
+
+    }
+
 
 }
