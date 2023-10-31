@@ -4,23 +4,24 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 class Car{
-    String name="";
-
+    String name;
+    int moveCount=0;
+    StringBuffer moveCountToDash = new StringBuffer();
     Car(String name) {
 
         this.name = name;
 
     }
+    void carMove(){
 
-    void move(){
+        int random=Randoms.pickNumberInRange(0,9);
+        if(random>=4){
+            this.moveCount++;
+            moveCountToDash.append("-");
+        }
 
     }
-
-
-}
-
-class User{
-    static int count;
+    
 
 
 }
@@ -40,13 +41,14 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String inputCount=Console.readLine();
-        int count=Integer.parseInt(inputCount);
+        int racingCount=Integer.parseInt(inputCount);
 
 
         for(int i=0;i<nameList.size();i++){
+
             String getName=nameList.get(i);
             carList.add(new Car(getName));
-            System.out.println("자동차 이름 출력 : "+carList.get(i).name);
         }
+
     }
 }
