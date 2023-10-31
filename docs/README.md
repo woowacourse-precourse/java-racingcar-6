@@ -18,6 +18,10 @@
 - 함수(또는 메서드)가 한 가지 일만 하도록 최대한 작게 만들어라.
 - JUnit 5와 AssertJ를 이용하여 본인이 정리한 기능 목록이 정상 동작함을 테스트 코드로 확인한다.
     - 테스트 도구 사용법이 익숙하지 않다면 test/java/study를 참고하여 학습한 후 테스트를 구현한다.
+### 라이브러리
+- JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다.
+    - Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용한다.
+    - 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
 
 ## 과제 진행 요구 사항
 - 미션은 java-racingcar-6 저장소를 Fork & Clone해 시작한다.
@@ -100,6 +104,8 @@
     jun : -----
     
     최종 우승자 : pobi, jun
+
+
 ---    
 # 기능 목록
 - 자동차 이름 입력을 요청하는 메세지 출력
