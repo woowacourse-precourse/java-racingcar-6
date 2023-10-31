@@ -5,6 +5,7 @@ import  camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Stack;
 
 
 class RacingCar{ 
@@ -16,6 +17,7 @@ class RacingCar{
         this.name = input;
     }
     int getLoc(){ return loc; } // 현재 위치 반환
+    String getName(){ return name; } // 현재 위치 반환
     void reset(){ loc = 0;}     // 현재 위치 출발점 초기화
     void accel(){               // 확률에 의해 이동
         int prob = Randoms.pickNumberInRange(0,9);
@@ -23,11 +25,49 @@ class RacingCar{
     }
 }
 
+class RacingCenter{
+    private List<RacingCar> Cars = new ArrayList<>();
+
+    void registCar(RacingCar Car){ Cars.add(Car);}  // 자동차 객제 등록
+    void all_accel(){
+        for(RacingCar car : Cars){ car.accel(); }   // 각 객체 별로 accel
+    }
+    void print_locs(){
+        for(RacingCar car : Cars){
+            System.out.print(car.getName()+" : ");
+            for(int i=0;i<car.getLoc();i++) {
+                System.out.print("-");
+            }
+            System.out.print("\n");
+        }
+    }
+
+    Stack<RacingCar> compare(){
+        Stack<RacingCar> winners = new Stack<>(); // 스택 구현
+        for(RacingCar car : Cars){
+            RacingCar temp;
+            if ( winners.empty()) {winners.push(car);}
+            else{
+                temp = winners.pop();
+                if (temp.getLoc() < car.getLoc()){
+                    winners.clear();
+                    winners.push(car);
+                }
+                else if(temp.getLoc() == car.getLoc()){
+                    winners.push(temp);
+                    winners.push(car);
+                }
+            }
+        }
+        return winners;
+    }
+}
+
+
 public class Application {
     public static void main(String[] args) {
 
         int i=0, cnt; // idx용 변수 i, 경주횟수 cnt변수
-
         /* 입력부 구현 */
         // 자동차 이름 입력
         System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
