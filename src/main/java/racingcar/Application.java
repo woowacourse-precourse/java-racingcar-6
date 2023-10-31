@@ -71,7 +71,8 @@ public class Application {
         String[] arrayCarNames = stringCarNames.split(",");
 
         for (int i = 0; i < arrayCarNames.length; i++) {
-            if (arrayCarNames[i].length() > 5) return false;
+            if (arrayCarNames[i].length() > 5 || arrayCarNames[i].length() == 0) return false;
+            System.out.println(arrayCarNames[i].length());
         }
 
         Set<String> set = new HashSet<>();
@@ -85,7 +86,9 @@ public class Application {
     }
 
     public static boolean checkNumber(String number) {
-        return number.matches("[0-9]+");
+        if(!number.matches("[0-9]+")) return false;
+        if(Integer.parseInt(number)<=0) return false;
+        return true;
     }
 
     public static boolean decideToForward() {
