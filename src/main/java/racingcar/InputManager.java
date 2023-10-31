@@ -1,10 +1,11 @@
-import java.util.Scanner;
+package racingcar;
+
+import camp.nextstep.edu.missionutils.Console;
 
 public class InputManager {
     public static String[] getCarNames() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("경주할 자동차 이름을 입력하세요 (쉼표로 구분): ");
-        String input = scanner.nextLine();
+        String input = Console.readLine();
         String[] carNames = input.split(",");
         
         for (String carName : carNames) {
@@ -17,10 +18,9 @@ public class InputManager {
     }
 
     public static int getNumberOfAttempts() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("시도할 회수를 입력하세요: ");
         try {
-            int numberOfAttempts = Integer.parseInt(scanner.nextLine());
+            int numberOfAttempts = Integer.parseInt(Console.readLine());
             if (numberOfAttempts <= 0) {
                 throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
             }
