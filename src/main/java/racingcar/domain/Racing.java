@@ -7,6 +7,7 @@ import racingcar.util.Validator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static racingcar.util.ConstMessages.*;
 import static racingcar.util.Validator.validateCarNames;
@@ -42,9 +43,8 @@ public class Racing {
         validateNumericInput(countOfTry);
         int countNumber = Integer.parseInt(countOfTry);
 
-        for (int i = 0; i < countNumber; i++) {
-            raceOneStep();
-        }
+        IntStream.range(0,countNumber)
+                .forEach((i)->raceOneStep());
 
         printerWinner();
     }

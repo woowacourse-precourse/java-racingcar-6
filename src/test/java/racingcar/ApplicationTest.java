@@ -158,15 +158,21 @@ class ApplicationTest extends NsTest {
             carList.get(1).moveAdvance(7);
             carList.get(1).moveAdvance(7);
 
-//            메소드 가져오기
+//            리플렉션으로 private 메소드 가져오기
             Method targetMethod = Racing.class
                     .getDeclaredMethod("getMaxAdvanceCount",
                             List.class);
+//            private 메소드 접근 허용
             targetMethod.setAccessible(true);
 
             assertThat((int)targetMethod.invoke(racingObj, carList))
                     .isEqualTo(2);
         }
+
+
+
+
+
 
 
 
