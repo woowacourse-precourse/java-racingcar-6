@@ -182,8 +182,11 @@ public void printWinner(List<String> winners) {
 ---
 ## test 결과
 ※ 노트북 환경에서 프로그램 실행할 경우, 출력 시 한글이 깨지는 문제가 발생하지만, test 진행시 정상임을 확인
+
+※ 한글 깨짐 해결(참고 링크) : https://www.lesstif.com/java/intellij-file-console-encoding-121012310.html
 1. 처음 시작 조건 : 만족
-![img.png](img.png)
+![img_3.png](img_3.png)
+![img_5.png](img_5.png)
 2. Test 확인
 - StringTest : 만족
 ![img_1.png](img_1.png)
