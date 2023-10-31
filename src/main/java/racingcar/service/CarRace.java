@@ -15,22 +15,18 @@ public class CarRace {
         this.cars = cars;
     }
 
-    private int randomGenerator() {
-        int randomNumber = Randoms.pickNumberInRange(
-                Numbers.RANDOM_START_NUMBER.getNumber(),
-                Numbers.RANDOM_END_NUMBER.getNumber()
-        );
+    private int randomGenerator(int min, int max) {
+        int randomNumber = Randoms.pickNumberInRange(min, max);
         return randomNumber;
     }
-    public void moveForward(int randomNumber) {
+    public void moveForward(int min, int max) {
         cars.stream()
-                .filter(car -> randomNumber >= Numbers.MOVE_POSITION_NUMBER.getNumber())
+                .filter(car -> randomGenerator(min, max) >= Numbers.MOVE_POSITION_NUMBER.getNumber())
                 .forEach(car -> car.updatePosition());
     }
 
     public void printPlayers() {
-        int randomNumber = randomGenerator();
-        moveForward(randomNumber);
+        moveForward(Numbers.RANDOM_START_NUMBER.getNumber() , Numbers.RANDOM_END_NUMBER.getNumber());
         cars.stream()
                 .map(car -> car.getName() + " : " + car.getPosition())
                 .forEach(System.out::println);
