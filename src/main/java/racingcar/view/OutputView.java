@@ -21,4 +21,14 @@ public class OutputView {
         }
         System.out.println(sb);
     }
+
+    public static void printWinnerResult(List<String> winner) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ");
+        for (String w : winner) {
+            sb.append(w + ", ");
+        }
+        sb.delete(sb.length() - 2, sb.length());
+        System.out.println(sb);
+    }
 }

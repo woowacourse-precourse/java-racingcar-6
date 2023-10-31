@@ -42,5 +42,7 @@ public class CarRacing {
     private void getRaceResult() {
         Referee referee = new Referee();
         List<String> winner = referee.findWinner(cars, carPos);
+
+        OutputView.printWinnerResult(winner);
     }
 }
