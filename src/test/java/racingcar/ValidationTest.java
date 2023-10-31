@@ -60,4 +60,28 @@ public class ValidationTest {
         assertThat(result3).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 배열의_길이가_1이상이면_통과() {
+        //given
+        String[] case1 = {"one,two,three"};
+        String[] case2 = {"one"};
+        String[] case3 = {};
+
+        //when
+        Throwable result1 = catchThrowable(()->{
+            Validation.validateCarNumber(case1);
+        });
+        Throwable result2 = catchThrowable(()->{
+            Validation.validateCarNumber(case2);
+        });
+        Throwable result3 = catchThrowable(()->{
+            Validation.validateCarNumber(case3);
+        });
+
+        //then
+        assertThat(result1).doesNotThrowAnyException();
+        assertThat(result2).doesNotThrowAnyException();
+        assertThat(result3).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
