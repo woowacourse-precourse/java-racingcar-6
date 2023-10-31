@@ -31,16 +31,15 @@ public class RacingCarGame {
         System.out.println(getWinnerNames());
     }
 
-    //Test 코드를 작성하다가 역할이 2개인 메서드를 찾아 분리시킬 수 있게 되었다.
-    public String[] splitInputNames(){
+    private String[] splitInputNames(){
         String[] names;
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputNames = Console.readLine();
         names = inputNames.split(",");
         return names;
     }
-    //private void inputNames(){
-    public void inputNames(String[] names){
+
+    private void inputNames(String[] names){
         if(names.length>0){
             for(String name : names){
                 cars.add(new Car(name));
@@ -48,15 +47,24 @@ public class RacingCarGame {
         }
     }
 
-    //private void inputTryLimit(){
-    public void inputTryLimit(){
+//    //only for test
+//    public ArrayList<String> carsToString(List<Car> cars){
+//        ArrayList<String> s = new ArrayList<>();
+//        if(winnerCars.size()>0){
+//            for(Car car : cars){
+//                s.add(car.getName());
+//            }
+//        }
+//        return s;
+//    }
+
+    private void inputTryLimit(){
         System.out.println("시도할 회수는 몇회인가요?");
         String inputTryLimit = Console.readLine();
         tryLimit = Integer.parseInt(inputTryLimit);
     }
 
-    //private String raceForOneTry(){
-    public String raceForOneTry(){
+    private String raceForOneTry(){
         StringBuilder result = new StringBuilder();
         int command;
         for(Car car : cars){
@@ -69,8 +77,7 @@ public class RacingCarGame {
         return result.toString();
     }
 
-    //private String race(){
-    public String race(){
+    private String race(){
         StringBuilder result = new StringBuilder();
         System.out.println("실행 결과");
         for(int tryNum = 0; tryNum < tryLimit; tryNum++){
@@ -80,8 +87,7 @@ public class RacingCarGame {
         return result.toString();
     }
 
-    //private void setMax(){
-    public void setMax(){
+    private void setMax(){
         for(Car car : cars){
             int currentLength = car.getTrackLength();
             if(currentLength>max) {
@@ -90,16 +96,14 @@ public class RacingCarGame {
         }
     }
 
-    //private void setWinnerCars(){
-    public void setWinnerCars(){
+    private void setWinnerCars(){
         for(Car car : cars){
             if(car.getTrackLength() == max)
                 winnerCars.add(car);
         }
     }
 
-    //private String getWinnerNames(){
-    public String getWinnerNames(){
+    private String getWinnerNames(){
         StringBuilder winners = new StringBuilder();
         winners.append("최종 우승자 : ");
         for(int index = 0; index < winnerCars.size(); index++){
