@@ -2,7 +2,6 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
@@ -73,6 +72,40 @@ public class myApplicationTest extends NsTest {
                     () -> Validator.attemptNumberRange(roundNumber)
             ).isInstanceOf(IllegalArgumentException.class);
         }
+    }
+
+
+
+    @Nested
+    @DisplayName("전진 테스트")
+    class MoveTest {
+        @ParameterizedTest
+        @ValueSource(ints = {0, 5, 9})
+        @DisplayName("랜덤 숫자가 0~9범위면 테스트를 통과한다.")
+        void 랜덤_함수_예외_테스트(int randomNumber) {
+            Assertions.assertThatCode(
+                    () -> Validator.randomNumberRange(randomNumber)
+            ).doesNotThrowAnyException();
+
+        }
+
+        @ParameterizedTest
+        @ValueSource(ints = {-1, 10})
+        @DisplayName("랜덤 숫자가 0~9범위가 아니면 테스트를 통과하지 못한다.")
+        void 랜덤_함수_예외_테스트1(int randomNumber) {
+            Assertions.assertThatThrownBy(
+                    () -> Validator.randomNumberRange(randomNumber)
+            ).isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value = {"3,true","4,true","5,false"})
+        @DisplayName("4이하에만 이동할지 결정하는 지 테스트")
+        void 이동_결정_테스트(int randomNumber, boolean result) {
+            Assertions.assertThat(Car.decideToMove(randomNumber)).isEqualTo(result);
+        }
+
+
     }
 
 
