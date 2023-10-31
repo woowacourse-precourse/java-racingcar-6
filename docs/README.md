@@ -60,7 +60,7 @@
     + [x] 시행횟수를 Int형태로 파싱
 + [x] RandomGenerator 클래스를 구현
     + [x] 0-9사이의 랜덤한 정수를 ```camp.nextstep.edu.missionutils.Randos```의 ```pickNumberInRange()``` 를 활용해 구현
-+ [ ] GameManager 클래스를 구현
++ [ ] GameController 클래스를 구현
     + [ ] 게임 시작할때, 사용자에게 입력을 받는다.
     + [ ] 입력의 내용을 바탕으로 Car 속성을 초기화한다.
     + [ ] 게임을 입력받은 시행횟수만큼 각 자동차를 전진 및 멈추기를 시행한다.
@@ -87,7 +87,7 @@
     + [x] 시행횟수를 Int형태로 파싱 테스트
 + [x] RandomGenerator 클래스 테스트
     + [x] 0-9사이의 랜덤한 정수를 ```camp.nextstep.edu.missionutils.Randos```의 ```pickNumberInRange()``` 를 활용해 구현
-+ [ ] GameManager 클래스를 테스트
++ [ ] GameController 클래스를 테스트
     + [ ] 입력의 내용을 바탕으로 Car 속성을 초기화하는지 테스트
     + [ ] 게임을 입력받은 시행횟수만큼 각 자동차를 전진 및 멈추기를 시행하는지 테스트
     + [ ] 각 시행마다 결과를 출력하는지 테스트
