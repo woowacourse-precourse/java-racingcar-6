@@ -42,22 +42,22 @@ public class RacingService {
         }
     }
 
-    public List<Car> findByVictoryPlayers(List<Car> cars) {
-        List<Car> victoryPlayers = new ArrayList<>();
+    public List<String> findByVictoryPlayers(List<Car> cars) {
+        List<String> victoryCars = new ArrayList<>();
         cars.sort(Collections.reverseOrder(Comparator.comparing(Car::getWinCount)));
         Car vitoryCar = cars.get(0);
 
         for (Car car : cars) {
-            checkVictoryPlayer(victoryPlayers, vitoryCar.getWinCount(), car);
+            checkVictoryPlayer(victoryCars, vitoryCar.getWinCount(), car);
         }
 
-        return victoryPlayers;
+        return victoryCars;
     }
 
-    private static void checkVictoryPlayer(List<Car> victoryPlayers, int victoryCount, Car car) {
+    private static void checkVictoryPlayer(List<String> victoryPlayers, int victoryCount, Car car) {
         int winCount = car.getWinCount();
         if (victoryCount == winCount) {
-            victoryPlayers.add(car);
+            victoryPlayers.add(car.getName());
         }
     }
 }
