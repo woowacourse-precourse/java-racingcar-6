@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -10,6 +12,8 @@ public class Application {
         List<String> carNames = splitCarNames(Console.readLine());
         System.out.println("시도할 회수는 몇회인가요?");
         int numAttempts = Integer.parseInt(Console.readLine());
+
+        List<String> results = CarNameColon(carNames);
 
     }
 
@@ -25,5 +29,13 @@ public class Application {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
             }
         }
+    }
+
+    private static List<String> CarNameColon(List<String> carNames) {
+        List<String> results = new ArrayList<>();
+        for (String carName : carNames) {
+            results.add(carName + " : ");
+        }
+        return results;
     }
 }
