@@ -12,6 +12,7 @@ public record Cars(List<Car> cars) {
                 .map(Car::new)
                 .collect(Collectors.toList()));
 
+
     }
 
     public static Cars of(List<Car> cars) {
