@@ -13,10 +13,9 @@ public class RacingGame {
 	List<StringBuilder> steps = new ArrayList<>();
 
 	public RacingGame() {
-		gameStart();
 	}
 
-	private void gameStart() {
+	public void gameStart() {
 		String[] cars = inputCarName();
 		makeCarStepList(cars.length);
 		int tryCount = inputTryCount();
