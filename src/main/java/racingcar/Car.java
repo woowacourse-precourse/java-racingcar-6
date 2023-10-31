@@ -53,5 +53,12 @@ public class Car implements Comparable<Car> {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public void isMove(int randNumber) {
+        if (randNumber > 3) {
+            distance++;
+            position += '-';
+        }
+    }
+
 
 }
