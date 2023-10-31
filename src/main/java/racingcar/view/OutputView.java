@@ -6,6 +6,8 @@ import racingcar.model.RacingCars;
 
 public class OutputView {
 
+    private final String CAR_POSITION_INDICATOR = "-";
+
     public void printAskingForCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
@@ -28,7 +30,7 @@ public class OutputView {
     private void printCarCurrentLocation(RacingCar racingCar) {
         String carName = racingCar.getName();
         int currentLocationValue = racingCar.getCurrentLocation();
-        System.out.println(carName + " : " + "-".repeat(currentLocationValue));
+        System.out.println(carName + " : " + CAR_POSITION_INDICATOR.repeat(currentLocationValue));
     }
 
     public void printWinners(RacingCars winners) {
