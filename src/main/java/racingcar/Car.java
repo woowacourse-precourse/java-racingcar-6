@@ -4,21 +4,31 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     final private String name;
-    private String go = "";
+    private int forward = 0;
 
     Car(String name) {
         this.name = name;
     }
 
     public void goForward(int numberOfTimes) {
+        int randomNumber;
         for (int i = 0; i < numberOfTimes; i++) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            randomNumber = Randoms.pickNumberInRange(0, 9);
             checkValue(randomNumber);
         }
+        Message.makeResultMessage(this.name, this.forward);
     }
 
     private void checkValue(int randomNumber) {
         if (randomNumber >= 4)
-            this.go += "-";
+            this.forward++;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getForward() {
+        return this.forward;
     }
 }

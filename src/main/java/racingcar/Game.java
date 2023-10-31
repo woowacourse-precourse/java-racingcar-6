@@ -27,16 +27,26 @@ public class Game {
     }
 
     void getNumber() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
         userNumber = Console.readLine();
         userNumber = userNumber.trim();
         Error.isDigitError(userNumber);
+    }
 
+    static void whoIsWinner(Car car) {
+        String name = car.getName();
+        int forwards = car.getForward();
+        // key와 value의 pair인 map 자료형을 배우면 좋을 것 같다. 아니면 그냥 linked list로 push pop구현.
     }
 
     Game() {
+        Message.getStartMessage();
         getCarsNames();
+        Message.getAttemptNumberMessage();
         getNumber();
-
+        Message.getResultMessage();
+        for (Car car : Cars) {
+            car.goForward(Integer.parseInt(userNumber));
+            whoIsWinner(car);
+        }
     }
 }

@@ -1,27 +1,28 @@
 package racingcar;
 
-public class Message {
-    private static String startMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private static String attemptNumbersMessage = "시도할 회수는 몇회인가요?";
-    private static String resultMessage = "실행 결과";
-    private static String nameLengthError = "5글자 초과입니다";
-    private static String nullError = "공백입니다";
-    private static String digitError = "숫자가 아닙니다";
-    private static String digitRangeError = "음수입니다";
-    private String makeMessage = "";
+import java.util.ArrayList;
 
-    void getStartMessage(){
+public class Message {
+    private final static String startMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    private final static String attemptNumbersMessage = "시도할 회수는 몇회인가요?";
+    private final static String resultMessage = "실행 결과";
+
+    static void getStartMessage(){
         System.out.println(startMessage);
     }
 
-    void getAttemptNumberMessage() {
+    static void getAttemptNumberMessage() {
         System.out.println(attemptNumbersMessage);
     }
 
-    void getResultMessage() {
+    static void getResultMessage() {
         System.out.println(resultMessage);
     }
-    void makeResultMessage(String userInput){
-
+    static void makeResultMessage(String carName, int forwards){
+        String message = "";
+        message = carName + " : ";
+        for (int i = 0; i < forwards; i++){
+            message = message.concat("-");
+        }
     }
 }
