@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.domain.Attempts;
 import racingcar.domain.Cars;
 import racingcar.util.Parser;
 import racingcar.util.RandomNumberGenerator;
@@ -8,6 +9,7 @@ import racingcar.view.InputView;
 public class GameController {
     private final RandomNumberGenerator generator;
     private Cars cars;
+    private Attempts attempts;
 
     public GameController() {
         generator = new RandomNumberGenerator();
@@ -16,7 +18,7 @@ public class GameController {
     public void run() {
         String input = getCarsInput();
         parseInputToCars(input);
-        int attempts = getAttemptsInput();
+        attempts = getAttemptsInput();
         play(attempts);
         showResult();
     }
@@ -30,17 +32,23 @@ public class GameController {
         cars = Parser.parseStringToCars(input);
     }
 
-    private int getAttemptsInput() {
+    private Attempts getAttemptsInput() {
         InputView.printAsking();
-        return Integer.parseInt(InputView.getUserInput());
+        //TODO: 리팩토링 포인트
+        try {
+            int attempts = Integer.parseInt(InputView.getUserInput());
+            return new Attempts(attempts);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("숫자를 입력하세요.");
+        }
     }
 
-    private void play(int attempts) {
+    private void play(Attempts attempts) {
         InputView.printResult();
-        while (attempts != 0) {
+        while (attempts.isNotZero()) {
             this.cars = cars.simulateNextRound(generator);
             InputView.printCurrentCarLocation(cars);
-            attempts--;
+            attempts.minusAttempts();
         }
     }
 
