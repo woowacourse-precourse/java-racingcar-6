@@ -31,6 +31,24 @@ public class Cars {
         return List.of(names);
     }
 
+    public List<String> findWinnerCars() {
+        int maximumDistance = findMaximumDistance();
+
+        return cars.stream()
+                .filter(car -> car.isSameDistance(maximumDistance))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private int findMaximumDistance() {
+        int maximumDistance = cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(0);
+
+        return maximumDistance;
+    }
+
     public void printCarsGameResult(Integer runningCount) {
         for (int i = 0; i < runningCount; i++) {
             cars.forEach(Car::moveByGeneratedNumber);

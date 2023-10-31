@@ -29,8 +29,20 @@ public class Car {
         return STANDARD_VALUE.getValue() <= randomNumber;
     }
 
+    public boolean isSameDistance(int maximumDistance) {
+        return distance == maximumDistance;
+    }
+
     @Override
     public String toString() {
         return name + " : " + "-".repeat(distance);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDistance() {
+        return this.distance;
     }
 }
