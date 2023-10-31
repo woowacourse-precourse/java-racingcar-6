@@ -128,4 +128,25 @@ public class ValidationTest {
         assertThat(result2).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 시도횟수가_0이상이면_통과() {
+        final HashMap<String,String> hashMap = new HashMap<>();
+        hashMap.put("one", "--"); hashMap.put("two", "---");
+        //given
+        String case1 = "2";
+        String case2 = "-1";
+
+        //when
+        Throwable result1 = catchThrowable(()->{
+            Validation.validateTryNumber(case1);
+        });
+        Throwable result2 = catchThrowable(()->{
+            Validation.validateTryNumber(case2);
+        });
+
+        //then
+        assertThat(result1).doesNotThrowAnyException();
+        assertThat(result2).isInstanceOf(IllegalArgumentException.class);
+    }
+
 }
