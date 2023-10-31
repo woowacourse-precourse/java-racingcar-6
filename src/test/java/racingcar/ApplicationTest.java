@@ -39,6 +39,30 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 널값_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 쉼표쓰고_입력안한경우_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("he, ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 이름_중간_공백_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("he, ,she", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

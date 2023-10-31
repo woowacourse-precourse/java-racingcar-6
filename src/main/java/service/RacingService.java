@@ -12,9 +12,9 @@ import java.util.stream.Stream;
 
 public class RacingService {
     public static ArrayList<Car> createCar(String carlist){
-        String[] cars = carlist.split(", ");
+        String[] car_name_list = carlist.split(",",-1);//-1을 인자로 주면 공백을 인지한다.
         return Stream
-                .of(cars)
+                .of(car_name_list)
                 .map(name -> new RacingCar(Validator.checkName(name)))
                 .collect(Collectors.toCollection(() -> new ArrayList<Car>()));
     }
