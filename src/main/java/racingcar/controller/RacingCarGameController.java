@@ -9,6 +9,11 @@ import racingcar.view.RacingCarGameView;
 
 public class RacingCarGameController {
 
+    private static final int FORWARD_REFERENCE_NUMBER = 4;
+    private static final int DEFAULT_LOCATION = 0;
+    private static final int MIN_NUM = 0;
+    private static final int MAX_NUM = 9;
+
     private final RacingCarGameView racingCarGameView;
 
     public RacingCarGameController(RacingCarGameView racingCarGameView) {
@@ -23,7 +28,7 @@ public class RacingCarGameController {
         racingCarGameView.gameResult();
         for (int i = 0; i < tryNum; i++) {
             for (Player player : playerList) {
-                moveOrNot(player, Randoms.pickNumberInRange(0, 9));
+                moveOrNot(player, Randoms.pickNumberInRange(MIN_NUM, MAX_NUM));
             }
             racingCarGameView.showNowPlayerLocation(playerList);
         }
@@ -35,14 +40,14 @@ public class RacingCarGameController {
         LinkedList<Player> playerList = new LinkedList<>();
 
         for (String name : playerNamerList) {
-            playerList.add(new Player(name, 0));
+            playerList.add(new Player(name, DEFAULT_LOCATION));
         }
 
         return playerList;
     }
 
     public void moveOrNot(Player player, int randomNum) {
-        if (randomNum >= 4) {
+        if (randomNum >= FORWARD_REFERENCE_NUMBER) {
             player.move();
         }
     }
