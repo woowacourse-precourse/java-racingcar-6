@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.domain.Winners;
 import racingcar.domain.car.Car;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
@@ -22,6 +23,15 @@ public class GameController {
         this.gameService = GameService.startGame(carNames, attemptCount);
 
         attempt();
+
+        Winners winners = gameService.findWinners();
+        outputView.printWinners(getWinnersName(winners));
+    }
+
+    private List<String> getWinnersName(Winners winners) {
+        return winners.getWinners().stream()
+                .map(Car::getName)
+                .toList();
     }
 
     private void attempt() {

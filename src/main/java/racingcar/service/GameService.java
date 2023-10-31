@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.RacingCars;
 import racingcar.domain.AttemptCount;
+import racingcar.domain.Winners;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.DriveBehavior;
 import racingcar.domain.car.RandomDriveBehavior;
@@ -35,5 +36,9 @@ public class GameService {
         attemptCount.attempt();
 
         return racingCars.getCars();
+    }
+
+    public Winners findWinners() {
+        return Winners.create(racingCars.getCars());
     }
 }
