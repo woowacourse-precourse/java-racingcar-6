@@ -19,7 +19,12 @@ public class Game {
         userInputAttemptsNumber();
 
         System.out.println("실행 결과");
-        playRound(carList.get(0));
+
+        while (currentRound < attemptsNumber) {
+            playRound();
+        }
+
+        System.out.println("끝");
     }
 
     public void userInputCarName() {
@@ -43,9 +48,14 @@ public class Game {
         return userInputString.split(",");
     }
 
-    public void playRound(Car car) {
-        judgeMovingForward(car);
-        printResult(car);
+    public void playRound() {
+        for (int i = 0; i < carList.size(); i++) {
+            Car car = carList.get(i);
+            judgeMovingForward(car);
+            printCarNameAndCurrentLocation(car);
+        }
+        System.out.println();
+        currentRound++;
     }
 
     public void judgeMovingForward(Car car) {
@@ -54,8 +64,12 @@ public class Game {
         }
     }
 
-    private void printResult(Car car) {
-        System.out.println(car.getName() + " : ");
+    private void printCarNameAndCurrentLocation(Car car) {
+        System.out.print(car.getName() + " : ");
         car.printCurrentLocation();
+    }
+
+    private void printResult() {
+        
     }
 }

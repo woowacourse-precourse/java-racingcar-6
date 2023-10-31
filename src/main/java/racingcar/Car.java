@@ -21,6 +21,7 @@ public class Car {
         for (int i = 0; i < currentLocation; i++) {
             System.out.print('-');
         }
+        System.out.println();
     }
 
     public void setName(String name) {
