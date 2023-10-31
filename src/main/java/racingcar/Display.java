@@ -9,15 +9,23 @@ import static racingcar.Utils.makeLane;
 
 public class Display {
 
-    static List<Car> inputCars() {
+    static List<Car> inputCars() { // 예외 사항 더 없을지? 문자 일 때 혹시 공백이나 특문 같은 거 제외할 수 있는 방법이 있을지?
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] inputs = Console.readLine().split(",");
-        return Arrays.stream(inputs).map(Car::new).toList();
+        try {
+            String[] inputs = Console.readLine().split(",");
+            return Arrays.stream(inputs).map(Car::new).toList();
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     static int inputTrial() {
         System.out.println("시도할 회수는 몇회인가요?");
-        return Integer.parseInt(Console.readLine());
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (Exception e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     static void printCurrentPositions(List<Car> cars) {
