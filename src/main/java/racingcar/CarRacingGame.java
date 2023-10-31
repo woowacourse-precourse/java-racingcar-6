@@ -16,18 +16,26 @@ public class CarRacingGame {
         setTrialInput();
 
         System.out.println("실행 결과");
+        proceedRacing();
+
+        rankWinner();
+    }
+
+    private void proceedRacing() {
         for(int i=0; i<trial; i++) {
             for (Car car: car) {
                 car.decideMoveForwardOrStop();
             }
 
-            for (Car car: car) {
-                System.out.println(car);
-            }
+            printCurrentCarStatus();
             System.out.println();
         }
+    }
 
-        rankWinner();
+    private void printCurrentCarStatus() {
+        for (Car car: car) {
+            System.out.println(car);
+        }
     }
 
     void rankWinner() {
