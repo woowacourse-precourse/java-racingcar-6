@@ -9,27 +9,30 @@ import racingcar.exception.InputTryException;
 import racingcar.view.InplayView;
 
 public class CalculateDistanceService {
-	static final int MOVE_BOUNDARY = 4;
+	private static final int MOVING_BOUNDARY = 4;
+	private static final int RANDOM_START = 0;
+	private static final int RANDOM_END = 9;
+	private static final String MOVING_MAKR = "-";
 	private InputTryException tryException = new InputTryException();
 	private InplayView playView = new InplayView();
 
 	public void move(Car car) {
-		if (Randoms.pickNumberInRange(0,9) >= MOVE_BOUNDARY) {
-			car.getDistance().append("-");
+		if (Randoms.pickNumberInRange(RANDOM_START, RANDOM_END) >= MOVING_BOUNDARY) {
+			car.getDistance().append(MOVING_MAKR);
 		}
 		playView.printProgress(car.getName(), car.getDistance());
 	}
 
-	public void repeatMove(List<Car> cars, int input) {
-		for (int i=0; i<input; i++) {
+	public void moveCars(List<Car> cars, int input) {
+		for (int i = 0; i < input; i++) {
 			move(cars.get(i));
 		}
 	}
 
-	public void moveCars(Cars cars, int tryNum) {
+	public void moveAll(Cars cars, int tryNum) {
 		playView.printNotice();
-		for (int i=0; i<tryNum; i++) {
-			repeatMove(cars.getCars(), cars.getSize());
+		for (int i = 0; i < tryNum; i++) {
+			moveCars(cars.getCars(), cars.getSize());
 			System.out.println();
 		}
 	}
