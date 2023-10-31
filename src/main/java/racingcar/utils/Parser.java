@@ -33,4 +33,26 @@ public class Parser {
             checkSize(car);
         }
     }
+
+    public int parseTrialInput(String input) {
+        validateTrialInput(input);
+        return parseInt(input);
+    }
+
+    private int parseInt(String input) {
+        return Integer.parseInt(input);
+    }
+
+    private void checkDigit(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validateTrialInput(String input) {
+        checkEmpty(input);
+        checkDigit(input);
+    }
 }
