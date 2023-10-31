@@ -7,6 +7,7 @@ public class MidPrint {
     private static StringBuilder sb = new StringBuilder();
 
     public static String make(List<CarDto> carDtoList) {
+        sb = new StringBuilder();
         for (int i = 0; i < carDtoList.size(); i++) {
             printNameAndDash(carDtoList.get(i));
         }
