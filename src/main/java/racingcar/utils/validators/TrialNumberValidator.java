@@ -4,8 +4,6 @@ import racingcar.utils.enums.Constraints;
 import racingcar.utils.enums.ErrorMessage;
 
 public class TrialNumberValidator {
-
-
     public static void validateTrialNumber(String trialNumber) {
         checkNumberEmpty(trialNumber);
         checkisInteger(trialNumber);
@@ -22,7 +20,7 @@ public class TrialNumberValidator {
     }
 
     /**
-     * 정수인지 아닌지 검증
+     * 숫자인지 아닌지 검증 + 정수인지 아닌지 검증
      */
     private static void checkisInteger(String trialNumber) {
         try {
