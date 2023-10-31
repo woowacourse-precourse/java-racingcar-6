@@ -1,19 +1,14 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import racingcar.util.ParserUtils;
 
 public class Race {
-    private ArrayList<Car> cars;
+    private Cars cars;
 
     public Race() {
-        this.cars = new ArrayList<>();
+        this.cars = new Cars();
     }
 
     public void advanceFullRound(int attemptCount) {
@@ -24,7 +19,7 @@ public class Race {
     }
 
     public void advanceOneRound() {
-        for (Car car : cars) {
+        for (Car car : cars.get()) {
             car.moveForward();
             car.print();
         }
@@ -32,7 +27,7 @@ public class Race {
 
     public void initializeRace(String attemptCountInput, String carNamesInput) {
         validateAttempt(attemptCountInput);
-        initializeCar(carNamesInput);
+        cars.initializeCar(carNamesInput);
     }
 
     public String selectWinners() {
@@ -45,41 +40,19 @@ public class Race {
         return winners;
     }
 
-    private void validateAttempt(String input) {
-        validateNullOrBlank(input);
-        validatePositiveInteger(input);
-    }
-
-    private void initializeCar(String carNamesInput) {
-        List<String> carNames = ParserUtils.namesParser(carNamesInput);
-
-        validateDuplicatedName(carNames);
-        addCarsFromNames(carNames);
-    }
-
-    private void addCarsFromNames(List<String> carNames) {
-        for (String carName : carNames) {
-            Car car = new Car(carName);
-            cars.add(car);
-        }
-    }
-
     private Map<Integer, String> getIntegerStringMap() {
         Map<Integer, String> map = new HashMap<>();
 
-        for (Car car : cars) {
+        for (Car car : cars.get()) {
             map.put(car.getMoveCount(),
                     map.getOrDefault(car.getMoveCount(), "") + ", " + car.getCarName());
         }
         return map;
     }
 
-    private void validateDuplicatedName(List<String> carNames) {
-        Set<String> carName = new HashSet<>(carNames);
-
-        if (carName.size() != carNames.size()) {
-            throw new IllegalArgumentException("이미 사용중인 자동차 이름입니다.");
-        }
+    private void validateAttempt(String input) {
+        validateNullOrBlank(input);
+        validatePositiveInteger(input);
     }
 
     private void validateNullOrBlank(String input) {
