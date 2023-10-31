@@ -16,7 +16,7 @@ class CarStorageTest {
 		Car carNameA2 = new Car(position, new CarName("A"));
 
 		// when & then
-		Assertions.assertDoesNotThrow(() -> new CarStorage(List.of(carNameA1, carNameA2)));
+		Assertions.assertDoesNotThrow(() -> new Cars(List.of(carNameA1, carNameA2)));
 	}
 
 	@Test
@@ -26,7 +26,7 @@ class CarStorageTest {
 		Car carNameA1 = new Car(new Position(1), new CarName("A"));
 		Car carNameA2 = new Car(new Position(1), new CarName("A"));
 		Car carNameA3 = new Car(new Position(0), new CarName("A"));
-		CarStorage carStorage = new CarStorage(List.of(carNameA1, carNameA2, carNameA3));
+		Cars carStorage = new Cars(List.of(carNameA1, carNameA2, carNameA3));
 
 		// when
 		List<Car> topCars = carStorage.getTopCars();

@@ -2,12 +2,12 @@ package racingcar.domain.car;
 
 import java.util.List;
 
-public class CarStorage {
+public class Cars {
 
 	private static final int MIN_CAR_POSITION = 0;
 	private final List<Car> cars;
 
-	public CarStorage(List<Car> cars) {
+	public Cars(List<Car> cars) {
 		this.cars = cars;
 	}
 
@@ -22,5 +22,9 @@ public class CarStorage {
 				.map(Car::getPosition)
 				.max(Position::compareTo)
 				.orElse(new Position(MIN_CAR_POSITION));
+	}
+
+	public List<Car> getCars() {
+		return cars;
 	}
 }
