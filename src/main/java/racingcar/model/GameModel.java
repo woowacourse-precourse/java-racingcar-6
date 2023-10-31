@@ -34,6 +34,14 @@ public class GameModel {
         return winners;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public boolean isGameEnd() {
+        return tryCount <= 0;
+    }
+
     private int getMaxPosition() {
         int max = 0;
         for (Car car : cars) {
