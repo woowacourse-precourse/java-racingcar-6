@@ -1,7 +1,7 @@
 package racingcar_yoojaeyoongit.domain;
 
 import org.junit.jupiter.api.Test;
-import racingcar.model.CarRacingGame;
+import racingcar.model.RacingGame;
 import racingcar.model.RacingCar;
 import racingcar.service.RacingGameService;
 
@@ -19,7 +19,7 @@ public class domainTest {
         String carNameListInput = "name1,name2,name3";
         int raceCountInput = 8;
         //when
-        CarRacingGame racingGame = racingGameService.createRacingGame(carNameListInput, raceCountInput);
+        RacingGame racingGame = racingGameService.createRacingGame(carNameListInput, raceCountInput);
         //then
         ArrayList<RacingCar> participationConfirmedCarList = racingGame.getParticipationConfirmedCarList();
         int raceCount = racingGame.getRaceCount();
@@ -33,7 +33,7 @@ public class domainTest {
         String carNameListInput = "name1,name2,name3";
         int raceCountInput = 8;
         //when
-        CarRacingGame racingGame = racingGameService.createRacingGame(carNameListInput, raceCountInput);
+        RacingGame racingGame = racingGameService.createRacingGame(carNameListInput, raceCountInput);
         //then
         ArrayList<RacingCar> participationConfirmedCarList = racingGame.getParticipationConfirmedCarList();
         for (RacingCar racingCar : participationConfirmedCarList) {

@@ -2,12 +2,12 @@ package racingcar.model;
 
 import java.util.ArrayList;
 
-public class CarRacingGame {
+public class RacingGame {
     private ArrayList<RacingCar> ParticipationConfirmedCarList = new ArrayList<>();
     private int raceCount;
-    private ArrayList<RacingCar> winners = new ArrayList<>();
+    private ArrayList<RacingCar> winnerList = new ArrayList<>();
 
-    public CarRacingGame(ArrayList<RacingCar> racingCars) {
+    public RacingGame(ArrayList<RacingCar> racingCars) {
         this.ParticipationConfirmedCarList = racingCars;
     }
 
@@ -19,8 +19,8 @@ public class CarRacingGame {
         this.raceCount = raceCount;
     }
 
-    public void insertIntoWinners (RacingCar racingCar) {
-        this.winners.add(racingCar);
+    public void addWinnerList (RacingCar racingCar) {
+        this.winnerList.add(racingCar);
     }
 
     public ArrayList<RacingCar> getParticipationConfirmedCarList() {
@@ -28,7 +28,7 @@ public class CarRacingGame {
     }
 
     public ArrayList<RacingCar> getWinners() {
-        return this.winners;
+        return this.winnerList;
     }
 }
 

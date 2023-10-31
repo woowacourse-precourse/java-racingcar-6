@@ -4,7 +4,7 @@ import racingcar.View.input.InputView;
 import racingcar.View.output.OutPutView;
 import racingcar.View.output.OutputFormatter;
 import racingcar.dto.MidGameResultDto;
-import racingcar.model.CarRacingGame;
+import racingcar.model.RacingGame;
 import racingcar.model.RacingCar;
 import racingcar.service.RacingGameService;
 
@@ -16,12 +16,12 @@ public class RacingGameController {
     OutPutView outPutView = new OutPutView();
 
     public void start() {
-        CarRacingGame carRacingGame = settingRacingGame();
-        startRacingGame(carRacingGame);
+        RacingGame racingGame = settingRacingGame();
+        startRacingGame(racingGame);
         finishRacingGame();
     }
 
-    private CarRacingGame settingRacingGame() {
+    private RacingGame settingRacingGame() {
         String userEnteredApplicantCarList = inputView.enterCarName();
         racingGameService.validateUserInputApplicant(userEnteredApplicantCarList);
         int userEnteredRaceCount = Integer.parseInt(inputView.enterRaceCount());
@@ -29,9 +29,9 @@ public class RacingGameController {
         return racingGameService.createRacingGame(userEnteredApplicantCarList, userEnteredRaceCount);
     }
 
-    private void startRacingGame(CarRacingGame carRacingGame) {
+    private void startRacingGame(RacingGame racingGame) {
         outPutView.resultAnnouncementMessage();
-        for (int i = 0; i < carRacingGame.getRaceCount(); i++) {
+        for (int i = 0; i < racingGame.getRaceCount(); i++) {
             ArrayList<MidGameResultDto> midGameResultDtoList = racingGameService.gameInProcess();
             outPutView.midGameResultMessage(midGameResultDtoList);
             System.out.println();
