@@ -12,7 +12,7 @@ public class Game {
 
     public void start() {
         OutputView.printStartMessage();
-        Cars racingCars = new Cars(InputView.getRacingCars());
+        Cars racingCars = new Cars(InputView.getCarList());
 
         OutputView.printTryMessage();
         int tryNumber = InputView.getTryNumber();

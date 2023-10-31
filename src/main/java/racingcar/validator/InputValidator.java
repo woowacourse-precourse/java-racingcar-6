@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputValidator {
-    private static final String NOT_CAR_FORMAT_REGEX = "[^a-zA-Z,]+";
+    private static final String NOT_CAR_FORMAT_REGEX = "[^a-zA-Z,]+"; // 영어나 쉼표외의 다른 값
     private static final String NUMBER_FORMAT_REGEX = "^[0-9]*$";
     private static final Pattern NOT_CAR_PATTERN = Pattern.compile(NOT_CAR_FORMAT_REGEX);
     private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_FORMAT_REGEX);
@@ -21,7 +21,7 @@ public class InputValidator {
         return List.of(input.split(","));
     }
 
-    public static void validateCarNameValid(List<String> inputs) {
+    public static boolean validateCarNameValid(List<String> inputs) {
         for (String input : inputs) {
             if (input.length() > 5) {
                 throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하로 작성해주세요.");
@@ -29,9 +29,10 @@ public class InputValidator {
                 throw new IllegalArgumentException("[ERROR] 형식에 맞게 입력해주세요.");
             }
         }
+        return true;
     }
 
-    public static void validateUniqueCarName(List<String> inputs) {
+    public static boolean validateUniqueCarName(List<String> inputs) {
         Set<String> set = new HashSet<>();
         for (String input : inputs) {
             set.add(input);
@@ -39,12 +40,14 @@ public class InputValidator {
         if (set.size() != inputs.size()) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름을 중복되지 않게 지어주세요.");
         }
+        return true;
     }
 
-    public static void validateTryNumber(String input) {
+    public static boolean validateTryNumber(String input) {
         Matcher m = NUMBER_PATTERN.matcher(input);
         if (!m.matches()) {
             throw new IllegalArgumentException("[ERROR] 올바른 시도 횟수를 입력해주세요.");
         }
+        return true;
     }
 }

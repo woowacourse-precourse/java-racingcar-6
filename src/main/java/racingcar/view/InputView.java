@@ -5,12 +5,12 @@ import java.util.List;
 import racingcar.validator.InputValidator;
 
 public class InputView {
-    public static List<String> getRacingCars() {
+    public static List<String> getCarList() {
         String input = Console.readLine();
-        List<String> inputs = InputValidator.validateCarsFormat(input);
-        InputValidator.validateUniqueCarName(inputs);
-        InputValidator.validateCarNameValid(inputs);
-        return inputs;
+        List<String> carList = InputValidator.validateCarsFormat(input);
+        InputValidator.validateUniqueCarName(carList);
+        InputValidator.validateCarNameValid(carList);
+        return carList;
     }
 
     public static int getTryNumber() {
