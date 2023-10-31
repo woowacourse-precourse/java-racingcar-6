@@ -7,11 +7,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
 public class InputView {
 
     public static List<String> readCarNames(){
-        String names = Console.readLine();
+        String names = readLine();
         return parseCarNames(names);
+    }
+
+    public static int readCountNumber(){
+        String number = Console.readLine();
+        return Integer.parseInt(number);
     }
 
     public static List<String> parseCarNames(String names){
