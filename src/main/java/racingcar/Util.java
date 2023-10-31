@@ -17,20 +17,28 @@ public class Util {
     public static void handleCarNamesException(String carNames) throws IllegalArgumentException {
         splitNamesAsStream(carNames, Constant.NAME_DELIMITER)
         .forEach(Util::throwIfNameTooLong);
+        throwIfNameDuplicate(carNames);
     }
 
     public static void handleTryNumberException(String tryNumber) throws IllegalArgumentException {
         throwIfInputCannotParsableAsInt(tryNumber);
     }
 
-    public static Stream<String> splitNamesAsStream(String input, String delimiter) {
-        return Arrays.stream(input.split(delimiter));
-    }
-
     public static void throwIfNameTooLong(String input) {
         if (input.length() > Constant.MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(
-                String.format("최대 이름길이 %d를 넘는 이름입니다.", Constant.MAX_NAME_LENGTH)
+                MessageType.CAR_NAMES_LENGTH_ERR.getDetail()
+            );
+        }
+    }
+
+    public static void throwIfNameDuplicate(String input) {
+        String[] split = splitNames(input, Constant.NAME_DELIMITER);
+        int nameCount = split.length;
+
+        if (Arrays.stream(split).distinct().count() != nameCount) {
+            throw new IllegalArgumentException(
+                MessageType.CAR_NAMES_DUPLICATE_ERR.getDetail()
             );
         }
     }
@@ -40,9 +48,17 @@ public class Util {
             Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(
-                "시도 횟수가 정수 값이 아닙니다."
+                MessageType.TRY_NUMBER_INPUT_ERR.getDetail()
             );
         }
+    }
+
+    public static Stream<String> splitNamesAsStream(String input, String delimiter) {
+        return Arrays.stream(input.split(delimiter));
+    }
+
+    public static String[] splitNames(String input, String delimiter) {
+        return input.split(delimiter);
     }
 
     public static String getUserInput() {
