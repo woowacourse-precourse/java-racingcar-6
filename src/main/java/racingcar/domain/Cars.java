@@ -9,6 +9,7 @@ import racingcar.view.ConsoleOutput;
 import racingcar.view.OutputView;
 
 public class Cars {
+    private static final int THRESHOLD = 3;
     private List<Car> carList;
 
     public Cars(List<String> carNames) {
@@ -33,7 +34,7 @@ public class Cars {
     }
 
     private boolean checkNumberOverThree(int number) {
-        return number > 3;
+        return number > THRESHOLD;
     }
 
     private void printCarInfo(Car car) {
