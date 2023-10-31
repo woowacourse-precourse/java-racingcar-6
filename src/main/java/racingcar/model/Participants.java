@@ -4,35 +4,24 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Participants {
-    HashMap<String, Integer> participants = new HashMap<>();
-    HashMap<Integer, String> indexMap = new HashMap<>() ;
+    HashMap<Integer, Participant> map = new HashMap<>() ;
 
-    public String getIndex(int i) {
-        return indexMap.get(i);
+    public void addParticipant(Participant participant) {
+        map.put(participant.getIndex(), participant);
     }
 
-    public void setIndex(List<String> names) {
-        for(int i=0; i<names.size(); i++){
-            indexMap.put(i, names.get(i));
+    public HashMap<Integer, Participant> getParticipants() {
+        return map;
+    }
+
+    public void setParticipants(List<Participant> people) {
+        for(int i=0; i< people.size(); i++){
+            map.put(people.get(i).getIndex(), people.get(i));
         }
     }
 
-    public void setParticipants(List<String> names){
-        for(int i=0; i<names.size(); i++){
-            participants.put(names.get(i), 0);
-        }
+    public void setPoint(int index){
+        int point = map.get(index).getPoint();
+        map.get(index).setPoint(point+1);
     }
-
-    public HashMap<String, Integer> getParticipants() {
-        return participants;
-    }
-
-    public void setPoint(String name, int point){
-        participants.replace(name, point);
-    }
-
-    public int getPoint(String name){
-        return participants.get(name);
-    }
-
 }

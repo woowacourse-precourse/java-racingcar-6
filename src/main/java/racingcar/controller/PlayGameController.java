@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import racingcar.model.Participant;
 import racingcar.model.Participants;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -7,49 +8,59 @@ import racingcar.view.OutputView;
 import java.util.*;
 
 public class PlayGameController {
-
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     NumberValidator numberValidator = new NumberValidator();
     RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-    Participants participants = new Participants();
     InputParticipantController inputParticipantController = new InputParticipantController();
+
+    Participants participants = new Participants();
+    HashMap<Integer, Participant> map1 = participants.getParticipants();
+
     int playNumber;
     int peopleNum;
     List<String> winners = new ArrayList<>();
 
     public void gameStart(){
+        // 이름 스트링 입력받기
         String nameString = inputView.enterCarNames();
-        List<String> names = inputParticipantController.getParticipants(nameString);
-        playNumber = getPlayNumber();
-        numberValidator.isValidNumber(playNumber);
-        participants.setParticipants(names);
-        participants.setIndex(names);
+        // 이름 파싱
+        List<String> names = inputParticipantController.nameParsing(nameString);
         peopleNum = names.size();
-
+        // 개별 Participant 객체 생성
+        List<Participant> people = inputParticipantController.initializeParticipants(names);
+        // 그룹 Participants 생성
+         participants.setParticipants(people);
+         // 게임 시작
+        playNumber = getPlayNumber();
         outputView.printResult();
+        repeatRacing();
+        whoWin();
+    }
+
+    private void repeatRacing(){
         for(int i=0; i<playNumber; i++){
             List<Integer> randomNumbers = getRandomNumbers(peopleNum);
             goOrStop(randomNumbers);
             showPlayResult();
         }
-        whoWin();
     }
 
     private void goOrStop(List<Integer> randomNumbers) {
         for(int i=0; i<randomNumbers.size(); i++){
-            String name = String.valueOf(participants.getIndex(i));
-            go(randomNumbers.get(i), name);
+            String name = map1.get(i).getName();
+            go(randomNumbers.get(i), i);
         }
     }
 
-    private void go(int randomNumber, String name){
+    private void go(int randomNumber, int index){
         if(numberValidator.isOverFour(randomNumber))
-            participants.setPoint(name, participants.getPoint(name)+1);
+            participants.setPoint(index);
     }
 
     private int getPlayNumber(){
         String playNumber = inputView.enterPlayNumber();
+        numberValidator.isValidNumber(Integer.parseInt(playNumber));
         return Integer.parseInt(playNumber);
     }
 
@@ -58,9 +69,9 @@ public class PlayGameController {
     }
 
     private void showPlayResult(){
-        for(Map.Entry<String, Integer> entry : participants.getParticipants().entrySet()){
-            System.out.print(entry.getKey() + " : ");
-            printBar(entry.getValue());
+        for(Map.Entry<Integer, Participant> entry : map1.entrySet()){
+            System.out.print(entry.getValue().getName() + " : ");
+            printBar(entry.getValue().getPoint());
         }
         System.out.println();
     }
@@ -85,18 +96,22 @@ public class PlayGameController {
     }
 
     private int findMaxCount(){
-        return Collections.max(participants.getParticipants().values());
+        List<Integer> points = new ArrayList<>();
+        for(int i=0; i< map1.size(); i++){
+            points.add(map1.get(i).getPoint());
+        }
+        return Collections.max(points);
     }
 
     private void findWinners(int maxVal){
-        for(Map.Entry<String, Integer> entry : participants.getParticipants().entrySet()){
-            isSameWithMaxVal(entry.getValue(), maxVal, entry.getKey());
+        for(Map.Entry<Integer, Participant> entry : participants.getParticipants().entrySet()){
+            isSameWithMaxVal(maxVal, entry.getKey());
         }
     }
 
-    private void isSameWithMaxVal(int ownVal, int maxVal, String name) {
-        if(ownVal == maxVal){
-            winners.add(name);
+    private void isSameWithMaxVal(int maxVal, int index) {
+        if(map1.get(index).getPoint() == maxVal){
+            winners.add(map1.get(index).getName());
         }
     }
 }
