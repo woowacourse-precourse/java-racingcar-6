@@ -1,6 +1,5 @@
 package racingcar.model.validator.carName;
 
-import static racingcar.util.GameConstants.COUNT_OF_CAR;
 import static racingcar.util.GameConstants.MAXIMUM_CAR_NAME_LENGTH;
 import static racingcar.util.GameConstants.MINIMUM_CAR_NAME_LENGTH;
 
@@ -44,12 +43,12 @@ public class CarNameValidatorImpl implements CarNameValidator{
 
     @Override
     public void validateDuplicate(String[] inputs) {
-        Set<String> inputSet = new HashSet<>();
+        Set<String> convertToSet = new HashSet<>();
         for (String input : inputs) {
-            inputSet.add(input);
+            convertToSet.add(input);
         }
 
-        if (inputSet.size() != COUNT_OF_CAR) {
+        if (convertToSet.size() != inputs.length) {
             throw new IllegalArgumentException("중복되지 않은 이름을 입력해주세요.");
         }
     }
