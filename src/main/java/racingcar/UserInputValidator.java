@@ -1,8 +1,12 @@
 package racingcar;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UserInputValidator {
 
     private static final String REGEXP_ONLY_NUM = "^[1-9][0-9]*$";
+    private static final Pattern ONLY_NUM = Pattern.compile(REGEXP_ONLY_NUM);
 
     private static final String SPACE = "\\s";
 
@@ -43,7 +47,8 @@ public class UserInputValidator {
 
 
     public static boolean attemptCountIsValid(String attempt) {
-        if (!attempt.matches(REGEXP_ONLY_NUM)) {
+        Matcher matcher = ONLY_NUM.matcher(attempt);
+        if (!matcher.matches()) {
             throw new IllegalArgumentException("횟수는 숫자로만 입력해주세요");
         } else if (!isValidNumberScope(attempt)) {
             throw new IllegalArgumentException(MAX_ATTEMPT_COUNT + "초과 횟수는 입력 불가합니다");
