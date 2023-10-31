@@ -28,7 +28,7 @@ public class GameController {
         List<String> carNames = CarController.getCarNamesFromUser(Util.readLine());
 
         SystemView.promptForRoundNumber();
-        roundNumber = RoundController.setRound();
+        roundNumber = RoundController.getRoundFromUser(Util.readLine());
 
         cars = new ArrayList<>();
         for (String carName : carNames) {
