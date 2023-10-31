@@ -10,4 +10,7 @@ public class OutputView {
         System.out.println(Message.ASK_ATTEMPT.getMessage());
     }
 
+    public static void printResult() {
+        System.out.println(Message.RESULT.getMessage());
+    }
 }
