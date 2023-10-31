@@ -11,14 +11,14 @@ public class Car {
         this.name = name;
     }
 
-    public void move(int diceNumber){
-        if (diceNumber >= STANDARD_NUMBER){
+    public void move(int diceNumber) {
+        if (diceNumber >= STANDARD_NUMBER) {
             moveNumber++;
         }
     }
 
-    public boolean isMaxMoveNumber(int maxMoveNumber){
-        if(moveNumber == maxMoveNumber){
+    public boolean isMaxMoveNumber(int maxMoveNumber) {
+        if (moveNumber == maxMoveNumber) {
             return true;
         }
         return false;
@@ -29,7 +29,7 @@ public class Car {
         return this.name + " : " + printMove();
     }
 
-    private String printMove(){
+    private String printMove() {
         String str = "-";
         return str.repeat(moveNumber);
     }

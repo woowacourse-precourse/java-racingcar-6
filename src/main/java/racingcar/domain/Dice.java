@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Random;
 
 public class Dice {
 
@@ -13,14 +12,14 @@ public class Dice {
     private Dice() {
     }
 
-    public static Dice getInstance(){
-        if(dice == null){
+    public static Dice getInstance() {
+        if (dice == null) {
             dice = new Dice();
         }
         return dice;
     }
 
-    public int getRandomNumber(){
+    public int getRandomNumber() {
         return Randoms.pickNumberInRange(MIN_DICE_NUMBER, MAX_DICE_NUMBER);
     }
 

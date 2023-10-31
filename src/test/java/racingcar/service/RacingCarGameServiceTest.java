@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RacingCarGameServiceTest {
 
     @Test
-    void 차_리스트를_넘겨주면_최대이동거리를_구할수있다(){
+    void 차_리스트를_넘겨주면_최대이동거리를_구할수있다() {
         //given
         RacingCarGameService racingCarGameService = new RacingCarGameService();
 
@@ -36,7 +36,7 @@ class RacingCarGameServiceTest {
     }
 
     @Test
-    void 차_리스트와_최대이동거리를_알면_우승자_리스트를_알수있다(){
+    void 차_리스트와_최대이동거리를_알면_우승자_리스트를_알수있다() {
         //given
         RacingCarGameService racingCarGameService = new RacingCarGameService();
 

@@ -22,7 +22,7 @@ public class RacingCarGame {
         this.racingCarGameService = new RacingCarGameService();
     }
 
-    public void run(){
+    public void run() {
         Dice dice = Dice.getInstance();
         List<Car> carList = createCarListFromNames();
         int tryNumber = inputView.inputTryNumber();
@@ -38,7 +38,7 @@ public class RacingCarGame {
     }
 
     private void processRaceRound(Dice dice, List<Car> carList, int tryNumber) {
-        for(int i = 0; i< tryNumber; i++){
+        for (int i = 0; i < tryNumber; i++) {
             moveOrStay(carList, dice);
             outputView.printResult(carList);
         }
@@ -55,13 +55,13 @@ public class RacingCarGame {
                 .collect(Collectors.toList());
     }
 
-    public List<Car> getCarList(List<String> nameList){
+    public List<Car> getCarList(List<String> nameList) {
         return nameList.stream()
                 .map(name -> new Car(name))
                 .collect(Collectors.toList());
     }
 
-    public void moveOrStay(List<Car> carList, Dice dice){
+    public void moveOrStay(List<Car> carList, Dice dice) {
         carList.stream()
                 .forEach(car -> car.move(dice.getRandomNumber()));
     }
