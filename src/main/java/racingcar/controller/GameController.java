@@ -24,11 +24,14 @@ public class GameController {
     }
 
     private void moveCars() {
-
+        for (Car car : cars) {
+            car.move();
+            maxPosition = Math.max(maxPosition, car.getPosition());
+        }
     }
 
     private void printRoundResult() {
-
+     
     }
 }
 
