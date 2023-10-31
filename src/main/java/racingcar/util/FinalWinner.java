@@ -9,10 +9,10 @@ public class FinalWinner {
     private static final int SOLE_CHAMPION = 1;
     private final List<String> winnerInformation = new LinkedList<>();
 
-    public void carFinalDistanceComparison(Map<String, String> carsDistanceData, int numberOfAttempts) {
+    public void carsDistanceComparison(Map<String, String> carsDistanceData, int numberOfAttempts) {
 
         while (winnerInformation.isEmpty()) {
-            carDistanceComparison(carsDistanceData, numberOfAttempts);
+            maximumMovingCarFind(carsDistanceData, numberOfAttempts);
             numberOfAttempts--;
         }
 
@@ -24,7 +24,7 @@ public class FinalWinner {
 
     }
 
-    private void carDistanceComparison(Map<String, String> carsDistanceData, int numberOfAttempts) {
+    private void maximumMovingCarFind(Map<String, String> carsDistanceData, int numberOfAttempts) {
         for (Map.Entry<String, String> carDistanceData : carsDistanceData.entrySet()) {
             if (carDistanceData.getValue().length() == numberOfAttempts) {
                 winnerInformation.add(carDistanceData.getKey());

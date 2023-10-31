@@ -4,12 +4,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CarRacingStarts {
+public class Car {
 
     private final Map<String, String> carsDistanceData = new LinkedHashMap<>();
     private final PickRandomNumber pickRandomNumber;
 
-    public CarRacingStarts(PickRandomNumber pickRandomNumber) {
+    public Car(PickRandomNumber pickRandomNumber) {
         this.pickRandomNumber = pickRandomNumber;
     }
 
@@ -18,7 +18,7 @@ public class CarRacingStarts {
     }
 
 
-    public void creation(List<String> carNames) {
+    public void racingStarts(List<String> carNames) {
 
         for (String carName : carNames) {
             int pickRandomNumber = this.pickRandomNumber.Generation();

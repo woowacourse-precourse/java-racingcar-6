@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.repository.CarRaceResultsSave;
-import racingcar.util.CarRacingStarts;
+import racingcar.util.Car;
 import racingcar.util.FinalWinner;
 
 public class OutPut {
@@ -13,15 +13,15 @@ public class OutPut {
     private static final String FINAL_WINNER = "최종 우승자 : ";
 
     private final CarRaceResultsSave carRaceResultsSave;
-    private final CarRacingStarts carRacingStarts;
+    private final Car car;
     private final FinalWinner finalWinner;
     private final Input input;
 
 
-    public OutPut(CarRaceResultsSave carRaceResultsSave, CarRacingStarts carRacingStarts, FinalWinner finalWinner,
+    public OutPut(CarRaceResultsSave carRaceResultsSave, Car car, FinalWinner finalWinner,
                   Input input) {
         this.carRaceResultsSave = carRaceResultsSave;
-        this.carRacingStarts = carRacingStarts;
+        this.car = car;
         this.finalWinner = finalWinner;
         this.input = input;
     }
@@ -38,7 +38,7 @@ public class OutPut {
         carRaceResultsSave.carMovingDistanceCalculation(carNames, numberOfAttempts);
 
         System.out.printf(FINAL_WINNER);
-        finalWinner.carFinalDistanceComparison(carRacingStarts.getCarsDistanceData(),numberOfAttempts);
+        finalWinner.carsDistanceComparison(car.getCarsDistanceData(),numberOfAttempts);
 
     }
 

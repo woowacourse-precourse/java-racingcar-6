@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.repository.CarRaceResultsSave;
-import racingcar.util.CarRacingStarts;
+import racingcar.util.Car;
 import racingcar.util.FinalWinner;
 import racingcar.util.PickRandomNumber;
 import racingcar.view.Input;
@@ -16,10 +16,10 @@ public class Application {
         FinalWinner finalWinner = new FinalWinner();
         Input input = new Input();
 
-        CarRacingStarts carRacingStarts = new CarRacingStarts(pickRandomNumber);
-        CarRaceResultsSave carRaceResultsSave = new CarRaceResultsSave(carRacingStarts);
+        Car car = new Car(pickRandomNumber);
+        CarRaceResultsSave carRaceResultsSave = new CarRaceResultsSave(car);
 
-        OutPut outPut = new OutPut(carRaceResultsSave, carRacingStarts, finalWinner, input);
+        OutPut outPut = new OutPut(carRaceResultsSave, car, finalWinner, input);
 
         outPut.racingGuide();
 

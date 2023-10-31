@@ -3,20 +3,20 @@ package racingcar.repository;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import racingcar.util.CarRacingStarts;
+import racingcar.util.Car;
 
 public class CarRaceResultsSave {
 
-    private final CarRacingStarts carRacingStarts;
+    private final Car car;
 
-    public CarRaceResultsSave(CarRacingStarts carRacingStarts) {
-        this.carRacingStarts = carRacingStarts;
+    public CarRaceResultsSave(Car car) {
+        this.car = car;
     }
 
     public void carMovingDistanceCalculation(List<String> carNames, int tryTimes) {
 
         while (tryTimes > 0) {
-            carRacingStarts.creation(carNames);
+            car.racingStarts(carNames);
             carDistanceOutput();
             System.out.println();
             tryTimes--;
@@ -34,7 +34,7 @@ public class CarRaceResultsSave {
 
     private Map<String, String> getCarMoveCheck() {
 
-        return carRacingStarts.getCarsDistanceData();
+        return car.getCarsDistanceData();
 
     }
 }
