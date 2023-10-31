@@ -5,7 +5,8 @@ import racingcar.domain.PlayerRepository;
 
 public class RacingGameService {
     private final PlayerRepository playerRepository = new PlayerRepository();
-
+    private final int MAXNAMELENGTH = 5;
+    private final int MINNAMELENGTH = 1;
     private int gameAttempts;
     // 게임 초기화 함수
     public void initGame(String playerInput, String attempts){
@@ -35,7 +36,10 @@ public class RacingGameService {
     private String[] inputParser(String inputString) throws IllegalArgumentException{
         String[] tokens = inputString.split(",");
         for (String token: tokens){
-            //TODO: vailidation
+            //Validation
+            if (token.length()<MINNAMELENGTH || token.length()>MAXNAMELENGTH ){
+                throw new IllegalArgumentException();
+            }
         }
         return tokens;
     }
@@ -45,7 +49,13 @@ public class RacingGameService {
     }
     // 시도회수 형 변환
     private int attemptParseToInt(String attempts) throws IllegalArgumentException{
-        return Integer.parseInt(attempts);
+        int parsedInt = Integer.parseInt(attempts);
+        //입력값이 0보다 작은 경우 예외 처리
+        if (parsedInt < 0){
+            throw new IllegalArgumentException();
+        }
+        return parsedInt;
+
     }
 
 
