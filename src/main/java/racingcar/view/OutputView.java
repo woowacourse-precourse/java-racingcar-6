@@ -23,4 +23,14 @@ public class OutputView {
     public static void printGameRoundResultMessage() {
         System.out.println(GAME_ROUND_RESULT_MESSAGE);
     }
+
+    public static void printGameRoundResultMessage(List<String> winnerList) {
+        StringBuffer sb = new StringBuffer();
+        sb.append(WINNER_MESSAGE);
+        for (String winner : winnerList) {
+            sb.append(winner);
+            sb.append(", ");
+        }
+        System.out.println(sb.substring(0, sb.length() - 2));
+    }
 }
