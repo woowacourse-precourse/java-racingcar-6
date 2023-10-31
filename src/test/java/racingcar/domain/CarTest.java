@@ -26,4 +26,23 @@ class CarTest {
         car.play();
         car.printGameProceed();
     }
+
+    @Test
+    void 자동차의_위치가_같으면_true_반환_확인() {
+        Car otherCar = Car.from("other");
+        boolean isSame = car.isSamePosition(otherCar);
+
+        assertThat(isSame).isTrue();
+    }
+
+    @Test
+    void 자동차의_위치가_다르면_false_반환_확인() {
+        Car otherCar = Car.from("other");
+        otherCar.play();
+        otherCar.play();
+
+        boolean isSame = car.isSamePosition(otherCar);
+
+        assertThat(isSame).isTrue();
+    }
 }

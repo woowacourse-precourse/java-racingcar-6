@@ -1,10 +1,6 @@
 package racingcar.domain;
 
-import racingcar.util.NumberGenerator;
-
 public class Car implements Comparable<Car> {
-
-    private final NumberGenerator numberGenerator;
 
     private static final int GAME_PROCEED_STANDARD = 4;
     private static final String GAME_PROCEED_CHAR = "-";
@@ -12,28 +8,25 @@ public class Car implements Comparable<Car> {
     private final String name;
     private int position;
 
-    private Car(String name, int position, NumberGenerator numberGenerator) {
+    private Car(String name, int position) {
         this.name = name;
         this.position = position;
-        this.numberGenerator = numberGenerator;
     }
 
     public static Car from(String name) {
-        return new Car(name, 0, new NumberGenerator());
+        return new Car(name, 0);
     }
 
     public String getName() {
         return this.name;
     }
 
-    public void play() {
-        if (checkProceed()) {
+    public void movePosition(int randomNumber) {
+        int number = randomNumber;
+
+        if (number >= GAME_PROCEED_STANDARD) {
             this.position++;
         }
-    }
-
-    private boolean checkProceed() {
-        return numberGenerator.generateRandomNumber() >= GAME_PROCEED_STANDARD;
     }
 
     public void printGameProceed() {

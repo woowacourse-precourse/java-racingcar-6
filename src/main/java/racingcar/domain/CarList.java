@@ -3,20 +3,24 @@ package racingcar.domain;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.util.NumberGenerator;
 import racingcar.validation.CarNameValidator;
 
 public class CarList {
+
+    private final NumberGenerator numberGenerator;
 
     private static final String DIVISION_STANDARD = ",";
 
     private List<Car> carList;
 
-    private CarList(String userInput) {
+    private CarList(String userInput, NumberGenerator numberGenerator) {
         this.carList = create(userInput);
+        this.numberGenerator = numberGenerator;
     }
 
     public static CarList of(String userInput) {
-        return new CarList(userInput);
+        return new CarList(userInput, new NumberGenerator());
     }
 
     private List<Car> create(String userInput) {
@@ -35,7 +39,7 @@ public class CarList {
     public void playGame(int gameCount) {
         for (int count = 0; count < gameCount; count++) {
             for (Car carList : carList) {
-                carList.play();
+                carList.movePosition(numberGenerator.generateRandomNumber());
                 carList.printGameProceed();
             }
             System.out.println();
