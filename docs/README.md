@@ -10,6 +10,7 @@
 
 - [ ] 속성 : cars, winners, totalTrialCount, curTrialCount
 - [ ] 자동차 이름 입력 (inputCarNames)
+- [ ] 경주할 자동차 생성 (generateCarsByCarNames)
 - [ ] 시도 횟수 입력 (inputTrialCount)
 - [ ] 우승자 판단 (judgeWinner)
 - [ ] 우승자 출력 (printWinner)
