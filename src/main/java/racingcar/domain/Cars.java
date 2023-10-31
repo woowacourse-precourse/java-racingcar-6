@@ -1,12 +1,14 @@
 package racingcar.domain;
 
 import static racingcar.global.constants.NumberType.MIN_CAR_SIZE;
+import static racingcar.global.constants.SymbolType.NEW_LINE;
 import static racingcar.global.exception.ErrorMessage.DUPLICATE_NAME;
 import static racingcar.global.exception.ErrorMessage.INVALID_NAME_LIST_SIZE;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.global.constants.SymbolType;
 import racingcar.global.exception.RaceException;
 import racingcar.utils.Parser;
 
@@ -31,11 +33,14 @@ public class Cars {
 
     @Override
     public String toString() {
-        String result = "";
-        for (Car car : carList) {
-            result += car.toString() + "\n";
-        }
-        return result;
+        List<String> carStates = generateCarStates();
+        return String.join(NEW_LINE.getSymbol(), carStates) + NEW_LINE.getSymbol();
+    }
+
+    private List<String> generateCarStates() {
+        return carList.stream()
+                .map(Car::toString)
+                .toList();
     }
 
     public List<Car> findMaxPositionCars() {
