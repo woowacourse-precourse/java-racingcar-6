@@ -6,11 +6,14 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.RacingCar;
+import racingcar.validation.InputValidation;
 import racingcar.view.SystemMessage;
 
 public class RacingGameService {
 
     SystemMessage systemMessage = new SystemMessage();
+
+    InputValidation inputValidation = new InputValidation();
 
     public List<RacingCar> carNameInput() {
         systemMessage.printRequestInputMessage();
@@ -28,6 +31,16 @@ public class RacingGameService {
         }
 
         return racingCars;
+    }
+
+    public int racingRoundInput() {
+        systemMessage.printRequestTryCountMessage();
+
+        String input = readLine();
+
+        inputValidation.validateRound(input);
+
+        return Integer.parseInt(input);
     }
 
     public void race(List<RacingCar> racingCars) {
