@@ -20,11 +20,6 @@ public class GameProcess {
 
     private String[] splitNames(String line) {
         String[] names = line.split(",");
-        for (String name: names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("이름의 길이는 5자로 입력해주세요.");
-            }
-        }
         this.countOfCars = names.length;
         return names;
     }

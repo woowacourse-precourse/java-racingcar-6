@@ -7,6 +7,9 @@ public class Car {
     private StringBuilder movingTrace = new StringBuilder("");
 
     public Car(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("이름의 길이는 5자 이내로 입력해주세요.");
+        }
         this.carName = carName;
     }
 
