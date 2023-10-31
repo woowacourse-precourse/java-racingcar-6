@@ -15,8 +15,6 @@ import racingcar.view.OutputView;
 
 public class CarGame {
 
-    public CarGame() {}
-
     public void start() {
         String inputCarName = getCarNamesInput();
         List<Car> carList = getCarList(splitCarNames(inputCarName));
