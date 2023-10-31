@@ -19,13 +19,8 @@ public class Message {
         System.out.printf(processMessage);
     }
 
-    static void makeResultMessage(String carName, int forwards) {
-        String message = "";
-        message = carName + " : ";
-        for (int i = 0; i < forwards; i++) {
-            message = message.concat("-");
-        }
-        System.out.println(message);
+    static void makeResultMessage(String carState) {
+        System.out.println(carState);
     }
 
     static void getResultMessage(ArrayList<String> names) {

@@ -9,20 +9,21 @@ public class Car {
 
     Car(String name) {
         this.name = name;
+        this.carState = name + " : ";
     }
 
-    public void goForward(int numberOfTimes) {
+    public void goForward() {
         int randomNumber;
-        for (int i = 0; i < numberOfTimes; i++) {
-            randomNumber = Randoms.pickNumberInRange(0, 9);
-            checkValue(randomNumber);
-        }
-        Message.makeResultMessage(this.name, this.forward);
+        randomNumber = Randoms.pickNumberInRange(0, 9);
+        isGreaterThan4(randomNumber);
+        Message.makeResultMessage(this.carState);
     }
 
-    private void checkValue(int randomNumber) {
-        if (randomNumber >= 4)
+    private void isGreaterThan4(int randomNumber) {
+        if (randomNumber >= 4) {
             this.forward++;
+            this.carState = this.carState.concat("-");
+        }
     }
 
     public String getName() {
