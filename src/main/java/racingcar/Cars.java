@@ -27,4 +27,27 @@ public class Cars {
         }
         return stringJoiner.toString();
     }
+
+    public String winners() {
+        StringJoiner stringJoiner = new StringJoiner(", ");
+        Integer winnerPosition = calculateWinnerPosition();
+        for (Car car : cars) {
+            Integer carPosition = car.getPosition();
+            if (carPosition >= winnerPosition) {
+                stringJoiner.add(car.getName());
+            }
+        }
+        return stringJoiner.toString();
+    }
+
+    private Integer calculateWinnerPosition() {
+        Integer winnerPosition = 0;
+        for (Car car : cars) {
+            Integer carPosition = car.getPosition();
+            if (carPosition > winnerPosition) {
+                winnerPosition = carPosition;
+            }
+        }
+        return winnerPosition;
+    }
 }
