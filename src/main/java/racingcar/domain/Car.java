@@ -39,6 +39,7 @@ public class Car {
         Matcher matcher = pattern.matcher(name);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("자동차 이름은 영문자, 숫자, 한글만 포함할 수 있습니다.");
+        }
     }
 
     private boolean shouldMove() {
