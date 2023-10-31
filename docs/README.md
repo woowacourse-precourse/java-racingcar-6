@@ -9,16 +9,17 @@
   - [X] (검사) 5자 이하만 가능하다. Validation#carNameSizeCheck, SizeNotMatchException
 - [X] 시도할 횟수를 입력받는다. OutPurView#inputTryNumberView, InputView#inputTryNumber
   - [X] (검사) 자연수만 가능하다. Validation#checkNatureNumber, NotNatureNumberException
-- [] 자동차는 랜덤한 값을 보고 전진 및 정지를 한다. Car#handle
-  - [] 랜덤값 생성기 Random
-    - [] 0 - 9 사이의 정수를 생성한다. Random#pickNumberInRange
-  - [] 생성된 값이 4이상일 경우 전진한다. Car#moveFoward
-- [] 경주는 한번의 라운드가 끝날 때마다 진행상황을 저장한다. Race#playRound
-  - [] 자동차는 자기의 이름과 상태를 경주에게 제공한다. Car#resultOutput
-  - [] 경주는 자동차 상태 목록을 저장한다. Result#saveRound
+- [X] 한 라운드를 시작한다. Race#playRound
+  - [X] 자동차는 랜덤한 값을 보고 전진 및 정지를 한다.
+    - 랜덤값 생성기 Random#
+      - [X] 0 - 9 사이의 정수를 생성한다.
+    - [X] 생성된 값이 4이상일 경우 전진한다. Car#moveFoward
+  - [X] 경주는 한번의 라운드가 끝날 때마다 진행상황을 저장한다. 
+    - [X] 자동차는 자기의 이름과 상태를 경주에게 제공한다. Car#resultOutput
+    - [X] 경주는 자동차 상태 목록을 저장한다.
 - [] 경주는 모든 라운드가 끝나면 진행결과를 출력한다. Race#gameSet
   - [] 경주는 진행상황을 출력기에 전송한다. OutputView#outputRounds
-  - [] 경주는 가장 멀리 간 자동차(들)을 우승자로 지정한다. Result#returnWinner
+  - [] 경주는 가장 멀리 간 자동차(들)을 우승자로 지정한다. Race#findWinner
   - [] 우승자를 출력한다. OutputView#outputResult
   - [] 공동 우승자인 경우 ", "를 구분자로 사용하여 출력한다. OutputView#outputResults
 
