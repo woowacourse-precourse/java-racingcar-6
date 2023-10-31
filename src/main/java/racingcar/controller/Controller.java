@@ -11,11 +11,13 @@ import racingcar.service.CarService;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutPutView;
+import utils.Validator.Validator;
 import utils.string.StringUtils;
 
 public class Controller {
     private final RacingGameService racingGameService;
     private final CarService carService;
+    private final Validator validator = new Validator();
 
     private Long racingGameId = 1L;
     private Long carId = 1L;
@@ -79,11 +81,13 @@ public class Controller {
 
     private int getGameCount() {
         String gameCountString = getGameCountStringByUserInput();
+        validator.checkGameCountInput(gameCountString);
         return StringUtils.parseNumberOfCount(gameCountString);
     }
 
     private List<Long> getCarsIdList() {
         String nameString = getNameStringByUserInput();
+        validator.checkCarNamesInput(nameString);
         List<String> carNameList = StringUtils.parseCarNames(nameString);
         return saveCarsInRepository(carNameList);
     }
