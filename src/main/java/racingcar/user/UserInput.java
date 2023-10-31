@@ -11,7 +11,7 @@ import java.util.List;
 
 public class UserInput {
 
-    private List<String> cars = new ArrayList<>();
+    private List<String> carNames = new ArrayList<>();
     private int attemptCount;
 
     Validation validation = new Validation();
@@ -24,9 +24,8 @@ public class UserInput {
     private List<String> carNames() {
         String input = input();
         String[] arr = input.split(",");
-        cars = Arrays.asList(arr);
-        cars = validation.carNameInputValidation(cars);
-        return cars;
+        carNames = Arrays.asList(arr);
+        return validation.carNameInputValidation(carNames);
     }
 
     public int attemptCountInput() {
@@ -34,16 +33,20 @@ public class UserInput {
         return Integer.parseInt(input);
     }
 
-    public void startRace() {
-        List<String> carNames = cars;
-        int tryCount = attemptCount;
+
+    private void startRace() {
+        List<String> carNames = this.carNames;
+        int tryCount = this.attemptCount;
+
+        // car 객체 저장
+        List<Car> cars = new ArrayList<>();
 
         // Car 객체 생성
-        Car car = new Car(carNames);
+        for(String carName: carNames) {
+            Car car = new Car(carName);
+            cars.add(car);
+        }
 
-        // 경주 실행
-        Referee referee = new Referee();
-        referee.runRace(car, tryCount);
     }
 
 }
