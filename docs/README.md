@@ -5,8 +5,8 @@
         - [X] 자동차의 이름이 공백인 경우 IllegalArgumentException을 발생시킨 후 애플리케이션 종료
         - [X] 자동차들의 이름 중 중복되는 이름이 있는 경우 IllegalArgumentException을 발생시킨 후 애플리케이션 종료
         - [X] 자동차의 이름이 공백은 아니지만 이름 사이에 공백이 포함되어 있는 경우 IllegalArgumentException을 발생시킨 후 애플리케이션 종료
-        - [ ] 자동차의 이름이 비어 있는 경우 IllegalArgumentException을 발생시킨 후 애플리케이션 종료
-        - [ ] 자동차의 이름을 한 대만 입력 했을 경우 IllegalArgumentException을 발생시킨 후 애플리케이션 종료
+        - [X] 자동차의 이름이 비어 있는 경우 IllegalArgumentException을 발생시킨 후 애플리케이션 종료
+        - [X] 자동차의 이름을 한 대만 입력 했을 경우 IllegalArgumentException을 발생시킨 후 애플리케이션 종료
     - [X] 자동차 이름은 5자 이하만 가능하다.
         - [X] 자동차 이름이 1자 이상 5자 이하가 아닌 경우 IllegalArgumentException을 발생시킨 후 애플리케이션 종료
 - [X] 사용자로부터 시도할 횟수를 입력받는다.
