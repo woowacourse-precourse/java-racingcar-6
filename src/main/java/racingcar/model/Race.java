@@ -4,8 +4,6 @@ import java.util.List;
 
 public class Race {
     private int numberOfRace;
-    private final static String TOO_MUCH_NUMBER_OF_RACE = "너무 많은 회수를 입력하였습니다.";
-    private final static int REFERENCE_NUMBER = 4;
 
     private Race(final int numberOfRace) {
         validateNumberOfRace(numberOfRace);
@@ -17,19 +15,22 @@ public class Race {
     }
 
     private void validateNumberOfRace(final int numberOfRace) {
-        if (numberOfRace > 100) {
-            throw new IllegalArgumentException(TOO_MUCH_NUMBER_OF_RACE);
+        if (numberOfRace > RaceLimits.MAXIMUM.getValue()) {
+            throw new IllegalArgumentException(ErrorMessage.TOO_MUCH_NUMBER_OF_RACE.getMessage());
+        }
+        if (numberOfRace < RaceLimits.MINIMUM.getValue()) {
+            throw new IllegalArgumentException(ErrorMessage.TOO_LITTLE_NUMBER_OF_RACE.getMessage());
         }
     }
 
     public void runSingleRace(final List<Car> cars) {
         cars.stream()
-                .filter(car -> Generator.generateRandomNumber() >= REFERENCE_NUMBER)
+                .filter(car -> Generator.generateRandomNumber() >= RaceLimits.REFERENCE_NUMBER.getValue())
                 .forEach(Car::moveForward);
         this.numberOfRace--;
     }
 
     public final boolean isRunning() {
-        return this.numberOfRace > 0;
+        return this.numberOfRace > RaceLimits.FINISH.getValue();
     }
 }
