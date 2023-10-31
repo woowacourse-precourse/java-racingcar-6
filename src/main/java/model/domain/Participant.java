@@ -37,10 +37,7 @@ public class Participant {
 
     private List<String> removeBlank(List<String> nameList) {
 
-        for (int i = 0; i < nameList.size(); i++) {
-            String trimmedString = nameList.get(i).trim();
-            nameList.set(i, trimmedString);
-        }
+        nameList.replaceAll(String::trim);
 
         return nameList;
     }
