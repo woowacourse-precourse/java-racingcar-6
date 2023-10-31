@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.service.CarFactoryService;
@@ -32,6 +33,12 @@ public class RaceController {
     private void playRace(Race race) {
         raceService.executeRace(race);
         ResultView.printRoundResult(race.getCars());
+    }
+
+    private void endRace(Race race) {
+        List<Car> winners = raceService.findWinners(race);
+        ResultView.printWinners(winners);
+        Console.close();
     }
 
 }
