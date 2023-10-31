@@ -17,13 +17,14 @@ public class RacingController {
 
     public static void init(){
         inputView.createCar();
-
         ArrayList<Car> carArrayList = Stream
                 .of(Console.readLine().split(","))
                 .map(name -> new RacingCar(name))
                 .collect(Collectors.toCollection(() -> new ArrayList<>()));
 
-        int laps = inputView.inputLaps();
+        inputView.inputLaps();
+        int laps = Integer.parseInt(Console.readLine());
+
         Race race = new Race(laps, carArrayList);
         startRace(race);
     }
