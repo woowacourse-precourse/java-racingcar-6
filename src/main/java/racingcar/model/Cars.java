@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.model.RacingCarGameConfig.GAME_WIN_CONDITION;
+import static racingcar.constant.RacingCarGameConfig.GAME_WIN_CONDITION;
 
 import java.util.ArrayList;
 import java.util.List;

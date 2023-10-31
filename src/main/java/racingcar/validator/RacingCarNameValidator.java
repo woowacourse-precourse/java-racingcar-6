@@ -4,7 +4,7 @@ import static racingcar.constant.ExceptionConstants.INVALID_SCOPE_NAME;
 import static racingcar.constant.ExceptionConstants.UNALLOWED_SPECIAL_SYMBOL;
 
 import racingcar.exception.RacingCarGameException;
-import racingcar.model.RacingCarGameConfig;
+import racingcar.constant.RacingCarGameConfig;
 
 public class RacingCarNameValidator implements Validator<String> {
 

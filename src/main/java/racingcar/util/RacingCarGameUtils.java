@@ -2,8 +2,8 @@ package racingcar.util;
 
 import static racingcar.constant.ExceptionConstants.NEGATIVE_NUMBER_ROUNDCOUNT;
 import static racingcar.constant.ExceptionConstants.OVER_INTMAX_ROUNDCOUNT;
-import static racingcar.model.RacingCarGameConfig.RANDOM_MAXIMUM_VALUE;
-import static racingcar.model.RacingCarGameConfig.RANDOM_MINIMUM_VALUE;
+import static racingcar.constant.RacingCarGameConfig.RANDOM_MAXIMUM_VALUE;
+import static racingcar.constant.RacingCarGameConfig.RANDOM_MINIMUM_VALUE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
