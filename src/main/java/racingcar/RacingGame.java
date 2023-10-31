@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 public class RacingGame {
 
+    private static final String NAME_DELIMITER = ",";
     private final Referee referee = new Referee();
 
     public void start() {
@@ -44,6 +45,7 @@ public class RacingGame {
     }
 
     private void addCarsToReferee(String carsInput) {
-        Arrays.stream(carsInput.split(",")).forEach(referee::addCar);
+        Arrays.stream(carsInput.split(NAME_DELIMITER))
+                .forEach(referee::addCar);
     }
 }
