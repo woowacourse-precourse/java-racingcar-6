@@ -130,9 +130,9 @@
 
 ### 결과
 
+![test-case-success-gradle](./images/test-case-success-gradle.png)
 
-
-
+![test-case-success-intelliJ](./images/test-case-success-intelliJ.png)
 
 ## 제약 조건 (체크리스트)
 - [x] 인덴트 깊이가 3을 넘지 않도록 구현했는가? (2까지는 허용)
