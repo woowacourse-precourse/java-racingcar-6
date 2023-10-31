@@ -8,6 +8,11 @@
   - [x] 이동 여부를 판단(4 이상인경우)한다. - Car#move
 - [x] 모든 자동차의 현재 위치를 출력한다. - Monitor#printCars
 - [x] 모든 실행 후 우승자를 비교한다. - Referee#whoIsWinner
+- [x] 제일 멀리 간 거리 반환한다. - Referee#maxDistance
+
+## 테스트
+
+
 
 
 ## 기능 요구 사항

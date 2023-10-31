@@ -10,17 +10,21 @@ public class Referee {
     }
 
     public String whoIsWinner() {
-        List<Integer> carDistance = new ArrayList<>();
-        for (int i = 0; i < cars.size(); i++) {
-            carDistance.add(cars.get(i).distance);
-        }
-        int max = Collections.max(carDistance);
+        int max = maxDistance(this.cars);
 
         List<String> winner = new ArrayList<>();
         for (Car car : cars) {
             if (car.distance == max) winner.add(car.name);
         }
 
-        return String.join(",", winner);
+        return String.join(", ", winner);
+    }
+
+    public int maxDistance(List<Car> cars) {
+        List<Integer> carDistance = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++) {
+            carDistance.add(cars.get(i).distance);
+        }
+        return Collections.max(carDistance);
     }
 }
