@@ -1,8 +1,8 @@
-package service;
+package racingcar.service;
 
-import domain.Players;
-import domain.RacingCar;
-import dto.RacingStatusDTO;
+import racingcar.domain.Players;
+import racingcar.domain.RacingCar;
+import racingcar.dto.RacingStatusDTO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;

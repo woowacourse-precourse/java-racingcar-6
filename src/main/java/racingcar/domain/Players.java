@@ -1,10 +1,10 @@
-package domain;
+package racingcar.domain;
 
-import dto.RacingStatusDTO;
+import racingcar.dto.RacingStatusDTO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import util.RandomGenerator;
+import racingcar.util.RandomGenerator;
 
 public class Players {
 

@@ -1,6 +1,6 @@
-package dto;
+package racingcar.dto;
 
-import static constant.Message.COLON_WITH_WHITESPACE;
+import static racingcar.constant.Message.COLON_WITH_WHITESPACE;
 
 public class RacingStatusDTO {
 

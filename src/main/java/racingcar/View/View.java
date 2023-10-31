@@ -1,11 +1,11 @@
-package View;
+package racingcar.View;
 
-import static constant.Message.CYCLE_INPUT_MESSAGE;
-import static constant.Message.RACING_RESULT;
-import static constant.Message.START_MESSAGE;
+import static racingcar.constant.Message.CYCLE_INPUT_MESSAGE;
+import static racingcar.constant.Message.RACING_RESULT;
+import static racingcar.constant.Message.START_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
-import dto.RacingStatusDTO;
+import racingcar.dto.RacingStatusDTO;
 import java.util.List;
 
 public class View {

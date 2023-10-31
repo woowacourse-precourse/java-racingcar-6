@@ -1,6 +1,6 @@
-package util;
+package racingcar.util;
 
-import static constant.Exception.OUT_OF_RANGE;
+import static racingcar.constant.Exception.OUT_OF_RANGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
