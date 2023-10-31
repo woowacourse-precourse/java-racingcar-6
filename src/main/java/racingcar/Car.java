@@ -16,7 +16,7 @@ public class Car {
     }
 
     public boolean canMove() {
-        return generateRandomNumber() > MOVE_MIN_NUMBER;
+        return generateRandomNumber() >= MOVE_MIN_NUMBER;
     }
 
     private int generateRandomNumber() {
