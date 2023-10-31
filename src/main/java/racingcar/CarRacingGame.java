@@ -18,7 +18,7 @@ public class CarRacingGame {
         System.out.println("실행 결과");
         proceedRacing();
 
-        rankWinner();
+        rankWinners();
     }
 
     private void proceedRacing() {
@@ -38,31 +38,31 @@ public class CarRacingGame {
         }
     }
 
-    void rankWinner() {
-        List<Car> winner = new ArrayList<>();
+    void rankWinners() {
+        List<Car> winners = new ArrayList<>();
 
         Optional<Car> carWithMaximumDistance = cars
                 .stream()
                 .max(Comparator.comparing(Car::getDistance));
 
-        winner.add(carWithMaximumDistance.get());
+        winners.add(carWithMaximumDistance.get());
 
         int maximumDistance = carWithMaximumDistance.get().getDistance();
         String maximumDistanceCarName = carWithMaximumDistance.get().getName();
 
         for (Car car: cars) {
             if ((car.getDistance() == maximumDistance) && !(car.getName().equals(maximumDistanceCarName))) {
-                winner.add(car);
+                winners.add(car);
             }
         }
 
-        List<String> winnerName = new ArrayList<>();
+        List<String> winnerNames = new ArrayList<>();
 
-        for(Car car: winner) {
-            winnerName.add(car.getName());
+        for(Car car: winners) {
+            winnerNames.add(car.getName());
         }
 
-        System.out.println("최종 우승자 : " + String.join(", ", winnerName));
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 
     void setCars() {
