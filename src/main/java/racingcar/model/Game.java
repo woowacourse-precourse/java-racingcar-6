@@ -37,4 +37,14 @@ public class Game {
     public int randomNumber() {
         return Randoms.pickNumberInRange(RANGE_START, RANGE_END);
     }
+
+    private int getMaxDistance() {
+        int max = 0;
+        for (Car car : this.carList) {
+            if (max < car.getDistance()) {
+                max = car.getDistance();
+            }
+        }
+        return max;
+    }
 }
