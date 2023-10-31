@@ -39,11 +39,11 @@
 - [ ] **입력 양식에 대한 검증은 정규식을 활용한다.** -> 성능 이슈 고려
 - [x] 입력 받은 문자열을 구분자(쉼표)로 나누어 리스트 형태로 저장한다.
 - [x] 입력 받은 문자열에 공백이 있다면 공백을 제거한다. 
-- [ ] 자동차 이름 입력 예외 처리(`IllegalArgumentException`)
+- [x] 자동차 이름 입력 예외 처리(`IllegalArgumentException`)
   - [x] 공백 또는 null이 입력 -> `ERROR: 1글자 이상 5글자 이하의 이름을 입력하세요`
   - [x] 자동차의 이름이 5글자를 초과 -> `ERROR: 1글자 이상 5글자 이하의 이름을 입력하세요`
     - 입력값이 매우 긴 문자열일 때 어떻게 빠르게 자동차 이름을 검증하지? -> `Stream` 사용을 고려!
-  - [ ] 자동차의 이름이 중복되면 `IllegalArgumentException`이 발생한다. `ERROR: 중복되지 않는 이름을 입력하세요`
+  - [x] 자동차의 이름이 중복되면 `IllegalArgumentException`이 발생한다. `ERROR: 중복되지 않는 이름을 입력하세요`
   - [x] 문자와 쉼표 이외의 다른 값이 입력되면 `IllegalArgumentException`이 발생한다. `ERROR: 허용되지 않은 입력입니다`
   - [x] 문자와 문자 사이가 아닌 다른 위치에 쉼표가 있는 경우 `IllegalArgumentException`이 발생한다. `ERROR: 허용되지 않은 입력입니다`
   - [x] 연달아 쉼표가 찍힌 경우 `IllegalArgumentException`이 발생한다. `ERROR: 허용되지 않은 입력입니다`

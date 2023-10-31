@@ -18,6 +18,7 @@ public class NameValidation {
         this.NAME_LIST = Util.toList(NAMES);
         isCorrectPattern();
         isCorrectLength();
+        isDuplicate();
     }
 
     // 정해진 포맷에 맞는 입력이 들어왔는지 먼저 확인한다. 쉼표로 구분되는 입력
@@ -40,7 +41,9 @@ public class NameValidation {
     }
 
     public void isDuplicate() {
-
+        if (Util.countDuplicate(NAME_LIST) != 0L) {
+            throw new IllegalArgumentException(DUPLICATE_EXCEPTION.getValue());
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -35,7 +36,7 @@ class NameValidationTest {
     @Test
     public void testIsCorrectPattern_InvalidInput_NoComma() {
         // 쉼표가 없는 경우
-        String validInput = "JohnDoe";
+        String validInput = "John";
 
         // 유효하지 않은 입력을 사용하여 isCorrectPattern 메서드를 호출하면 IllegalArgumentException이 발생해야 합니다.
         //assertThrows(IllegalArgumentException.class, () -> new NameValidation(invalidInput));
@@ -63,24 +64,25 @@ class NameValidationTest {
     }
 
 
-
-
-
-
     @Test
     @DisplayName("입력된 이름은 1자 이상, 5자 이하의 길이를 가져야 한다")
     public void testIsCorrectLength() {
-        List<String> validNames = Arrays.asList("Alice", "Bob", "Chris", "1");
-        // isCorrectPattern에서 이미 공백에 대한 검증은 마친 상태이다.
-        List<String> invalidNames = Arrays.asList("nexttime", "iam신뢰에요", "okay");
+        String invalidNames = "Car1,Car2,Car333333333";
+        assertThrows(IllegalArgumentException.class, () -> new NameValidation(invalidNames));
 
-        NameValidation valid = new NameValidation(String.join(",", validNames));
-        NameValidation invalid = new NameValidation(String.join(",", invalidNames));
-
-        assertDoesNotThrow(valid::isCorrectLength);
-
-        Throwable exception = assertThrows(IllegalArgumentException.class, invalid::isCorrectLength);
-        assertEquals("ERROR: 1글자 이상 5글자 이하의 이름을 입력하세요", exception.getMessage());
+        String emptyNames = "Car1,,Car3";
+        assertThrows(IllegalArgumentException.class, () -> new NameValidation(emptyNames));
     }
 
+    @Test
+    @DisplayName("중복된 자동차 이름은 사용할 수 없다")
+    public void testIsDuplicate() {
+        String validNames = "Alice,Bob,Chris,1";
+        assertDoesNotThrow(() -> new NameValidation(validNames));
+
+        String duplicateNames = "Car1,Car2,Car1";
+        Exception exception = assertThrows(IllegalArgumentException.class,
+                () -> new NameValidation(duplicateNames));
+        assertEquals("ERROR: 중복되지 않는 이름을 입력하세요", exception.getMessage());
+    }
 }
