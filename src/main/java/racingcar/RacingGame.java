@@ -3,6 +3,7 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.services.WinnerDetector.printAllWinners;
 
+import java.util.stream.IntStream;
 import racingcar.constant.Constant;
 import racingcar.services.RaceGameState;
 import racingcar.services.RaceRoundSimulator;
@@ -25,9 +26,9 @@ public class RacingGame {
 
     private void printEachRoundResult(int numberOfRounds){
         System.out.println(Constant.EXECUTE_RESULT);
-        for (int i =0 ; i< numberOfRounds;i++){
-            RaceRoundSimulator.execute(state);
-        }
+
+        IntStream.rangeClosed(0,numberOfRounds)
+                .forEach(i -> RaceRoundSimulator.execute(state));
     }
     private void getParticipantNamesFromConsole(){
         System.out.println(Constant.START_MESSAGE);
