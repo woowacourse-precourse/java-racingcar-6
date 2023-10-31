@@ -25,9 +25,4 @@ public class Car {
     public String toString() {
         return name + " : " + "-".repeat(progress);
     }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 }
