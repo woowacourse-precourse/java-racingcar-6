@@ -7,6 +7,9 @@ public class RacingGame {
     private List<Car> cars = new ArrayList<>();
     private int count;
 
+    public void run() {
+        gameLogic();
+    }
 
     private boolean isMoveForward() {
         return CreateRandomNumber.getNumber() >= 4;
