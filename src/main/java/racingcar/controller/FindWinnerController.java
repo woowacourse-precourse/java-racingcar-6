@@ -2,35 +2,35 @@ package racingcar.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class FindWinnerController {
     private final List<Car> cars;
-    private final List<String> winnerCars;
 
-    public FindWinnerController(final List<Car> cars){
+    public FindWinnerController(final List<Car> cars) {
+        
         this.cars = new ArrayList<>(cars);
-        winnerCars = new ArrayList<>();
     }
 
-    public List<String> getWinners(){
+    public List<String> getWinners() {
 
         sortedCarByAdvances();
-        findWinner();
-
-        return new ArrayList<>(winnerCars);
+        return findWinner();
     }
 
-    private void sortedCarByAdvances(){
+    private void sortedCarByAdvances() {
+
         cars.sort((o1, o2) -> o2.getCarAdvances() - o1.getCarAdvances());
     }
 
-    private void findWinner() {
+    private List<String> findWinner() {
 
-        Car winnerCar = cars.get(0);
+        int maxAdvance = cars.get(0).getCarAdvances();
 
-        for (Car car : cars) {
-            if(car.getCarAdvances() == winnerCar.getCarAdvances()) winnerCars.add(car.getCarName());
-        }
+        return cars.stream()
+                .filter(car -> maxAdvance == car.getCarAdvances())
+                .map(Car::getCarName)
+                .collect(Collectors.toList());
     }
 }
