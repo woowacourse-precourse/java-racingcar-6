@@ -23,8 +23,7 @@ class RacingServiceTest {
     void 전진_조건을_만족하지_않을_경우_전진하지_않는다(int wrongConditionNumber) {
         // given
         generator.setReturnNumber(wrongConditionNumber);
-        int createCount = 3;
-        Cars cars = createCars(createCount);
+        Cars cars = createNewCars();
 
         // when
         List<RacingResult> racingResults = racingService.race(cars);
@@ -37,8 +36,7 @@ class RacingServiceTest {
     void 전진_조건을_만족할_경우_한_번_전진한다() {
         // given
         generator.setReturnNumber(MOVE_CONDITION.getValue());
-        int createCount = 5;
-        Cars cars = createCars(createCount);
+        Cars cars = createNewCars();
 
         // when
         List<RacingResult> racingResults = racingService.race(cars);
@@ -72,11 +70,8 @@ class RacingServiceTest {
         assertThat(winners).hasSize(winnerCount);
     }
 
-    private Cars createCars(int createCount) {
-        List<Car> cars = IntStream.range(0, createCount)
-                .mapToObj(i -> new Car("car" + i))
-                .toList();
-        return new Cars(cars);
+    private Cars createNewCars() {
+        return createCars(5);
     }
 
     private Cars createCarsWithWinner(int winnerCount) {
@@ -84,5 +79,12 @@ class RacingServiceTest {
         IntStream.range(0, winnerCount)
                 .forEach(i -> cars.findCar(i).move());
         return cars;
+    }
+
+    private Cars createCars(int createCount) {
+        List<Car> cars = IntStream.range(0, createCount)
+                .mapToObj(i -> new Car("car" + i))
+                .toList();
+        return new Cars(cars);
     }
 }
