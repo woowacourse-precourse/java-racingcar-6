@@ -18,9 +18,9 @@
 - [x] 실행 결과 열람: viewExecution()
 ***
 ### 게임 진행 관련: GameProgress
-- [ ] 게임 시작: startGame()
-- [ ] 게임 진행: doGame()
-- [ ] 게임 종료: finishGame()
+- [x] 게임 시작: startGame()
+- [x] 게임 진행: doGame()
+- [x] 게임 종료: finishGame()
 ***
 ### 판정 관련: Judgement
 - [x] 게임 진행 여부 판정: isGameSet()
