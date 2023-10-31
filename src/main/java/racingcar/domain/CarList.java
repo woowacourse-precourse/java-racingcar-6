@@ -3,14 +3,13 @@ package racingcar.domain;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constant.StringConstant;
 import racingcar.util.NumberGenerator;
 import racingcar.validation.CarNameValidator;
 
 public class CarList {
 
     private final NumberGenerator numberGenerator;
-
-    private final String DIVISION_STANDARD = ",";
 
     private List<Car> carList;
 
@@ -33,7 +32,7 @@ public class CarList {
     }
 
     private List<String> convertStrToList(String userInput) {
-        return Arrays.stream(userInput.split(DIVISION_STANDARD))
+        return Arrays.stream(userInput.split(StringConstant.DIVISION_STANDARD.getMessage()))
                 .collect(Collectors.toList());
     }
 

@@ -2,9 +2,9 @@ package racingcar.domain;
 
 import static racingcar.constant.NumberConstant.GAME_PROCEED_STANDARD;
 
-public class Car implements Comparable<Car> {
+import racingcar.constant.StringConstant;
 
-    private static final String GAME_PROCEED_CHAR = "-";
+public class Car implements Comparable<Car> {
 
     private final String name;
     private int position;
@@ -33,7 +33,7 @@ public class Car implements Comparable<Car> {
     public void printGameProceed() {
         System.out.print(this.name + " : ");
         for (int proceed = 0; proceed < this.position; proceed++) {
-            System.out.print(GAME_PROCEED_CHAR);
+            System.out.print(StringConstant.GAME_PROCEED_CHAR.getMessage());
         }
         System.out.println();
     }

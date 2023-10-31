@@ -1,13 +1,12 @@
 package racingcar.service;
 
 import java.util.List;
+import racingcar.constant.StringConstant;
 import racingcar.domain.CarList;
 import racingcar.domain.GameCount;
 import racingcar.util.UserUtil;
 
 public class GameService {
-
-    private final String DIVISION_STANDARD = ",";
 
     private CarList carList;
     private GameCount gameCount;
@@ -27,7 +26,7 @@ public class GameService {
     }
 
     public void printWinner(){
-        System.out.println(String.join(DIVISION_STANDARD, findWinner()));
+        System.out.println(String.join(StringConstant.DIVISION_STANDARD.getMessage(), findWinner()));
     }
 
     private List<String> findWinner() {
