@@ -1,9 +1,11 @@
 package racingcar;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
+import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,6 +24,14 @@ class PlayerTest {
     @AfterEach
     void clear() {
         Console.close();
+    }
+
+    @Test
+    void 자동차_이름_구분() {
+        setInput("name1,name2,name3");
+        player.inputCarNames();
+        List<String> carNames = player.getCarNames();
+        assertThat(carNames).contains("name1", "name2", "name3");
     }
 
     @Test
