@@ -1,5 +1,8 @@
 package racingcar.domain;
 
+import racingcar.exception.trycnt.TryCntIsNumberException;
+import racingcar.exception.trycnt.TryCntIsPositiveException;
+
 public class TryCnt {
     public static final int MIN_TRY_COUNT = 0;
 
@@ -24,10 +27,10 @@ public class TryCnt {
         try {
             return Integer.parseInt(string);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("시도 횟수는 숫자여야 합니다.");
+            throw new TryCntIsNumberException();
         }
     }
     private static void checkTryCntIsPositive(int tryCnt) {
-        if (tryCnt <= MIN_TRY_COUNT) throw new IllegalArgumentException("시도 횟수는 양수여야 합니다.");
+        if (tryCnt <= MIN_TRY_COUNT) throw new TryCntIsPositiveException();
     }
 }
