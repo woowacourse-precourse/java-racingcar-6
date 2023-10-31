@@ -3,12 +3,13 @@ package racingcar.common.type;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.common.validator.NamesValidator;
 
 public class Names {
     private final List<Name> nameList;
 
     private Names(List<Name> nameList) {
-        validateIsPobi(nameList);
+        NamesValidator.validate(nameList);
         this.nameList = List.copyOf(nameList);
     }
 
@@ -23,14 +24,5 @@ public class Names {
         return nameList.stream()
                 .map(Name::getName)
                 .collect(Collectors.toList());
-    }
-
-    private void validateIsPobi(List<Name> nameList) {
-        boolean containsPobi = nameList.stream().anyMatch(name -> name.getName().equals("pobi"));
-        boolean containsJavaji = nameList.stream().anyMatch(name -> name.getName().equals("javaji"));
-
-        if (containsPobi && containsJavaji) {
-            throw new IllegalArgumentException("pobi와 javaji는 동일 인물입니다.");
-        }
     }
 }
