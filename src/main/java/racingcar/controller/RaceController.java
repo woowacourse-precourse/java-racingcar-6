@@ -1,13 +1,15 @@
-package racingcar;
+package racingcar.controller;
 
-import java.util.ArrayList;
+import racingcar.domain.Car;
+import racingcar.view.ConsoleWrapper;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Race {
+public class RaceController {
     private final List<Car> cars;
 
-    public Race(List<Car> cars) {
+    public RaceController(List<Car> cars) {
         this.cars = cars;
     }
 
