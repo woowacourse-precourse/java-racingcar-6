@@ -11,6 +11,9 @@ import java.util.StringTokenizer;
 import racingcar.model.domain.Car;
 
 public class InputService {
+    private static final int MOVING_FORWARD = 4;
+    private static final int OVER_LENGTH = 5;
+
     public Map<String, Integer> validateCarName(String carName) {
         StringTokenizer st = new StringTokenizer(carName, ",");
         List<String> carNameList = new ArrayList<String>();
@@ -28,7 +31,7 @@ public class InputService {
 
     public void checkLengthCarName(List<String> carNameList) {
         for (int i = 0; i < carNameList.size(); i++) {
-            if (carNameList.get(i).length() > 5) {
+            if (carNameList.get(i).length() > OVER_LENGTH) {
                 Console.close();
                 throw new IllegalArgumentException("5자리 이상의 차 이름입니다.");
             }
@@ -39,7 +42,8 @@ public class InputService {
         Map<String, Integer> carNameMap = new HashMap<>();
 
         for (int i = 0; i < carNameList.size(); i++) {
-            carNameMap.put(carNameList.get(i), 0);
+            String carName = carNameList.get(i);
+            carNameMap.put(carName, 0);
         }
         return carNameMap;
     }
@@ -70,7 +74,7 @@ public class InputService {
 
     public boolean goOrStop() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber > 3) {
+        if (randomNumber >= MOVING_FORWARD) {
             return true;
         }
         return false;
@@ -79,8 +83,9 @@ public class InputService {
     public String choiceWinner(Car car) {
         String winnerName = "";
         Map<String, Integer> carName = car.getName();
+        int max;
 
-        int max = carName.values().stream() // car의 가장 큰 값을 찾는다.
+        max = carName.values().stream() // car의 가장 큰 값을 찾는다.
                 .max(Integer::compareTo)
                 .orElse(0);
 
@@ -89,7 +94,11 @@ public class InputService {
                 winnerName += entry.getKey() + ", ";
             }
         }
+        winnerName = splitToken(winnerName);
+        return winnerName;
+    }
 
+    public String splitToken(String winnerName) {
         if (winnerName.endsWith(", ")) { // 마지막에 (, )가 있으면 제거하고 반환한다.
             winnerName = winnerName.substring(0, winnerName.length() - 2);
         }
