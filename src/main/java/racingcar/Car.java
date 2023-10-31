@@ -13,6 +13,14 @@ public class Car {
         this.distance = distance;
     }
 
+    public void moveByGeneratedNumber() {
+        Integer randomNumber = generateRandomNumber();
+
+        if (isLargerThanStandard(randomNumber)) {
+            distance++;
+        }
+    }
+
     private int generateRandomNumber() {
         return Randoms.pickNumberInRange(MINIMUM_RANGE_VALUE.getValue(), MAXIMUM_RANGE_VALUE.getValue());
     }
