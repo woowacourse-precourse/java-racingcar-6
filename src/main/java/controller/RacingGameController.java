@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.List;
-
 import domain.Car;
 import domain.CarNamesInput;
 import domain.RacingCar;
@@ -23,18 +21,17 @@ public class RacingGameController {
 
 	public void startRace(CarNamesInput carNamesInput, TryCountInput tryCountInput) {
 		RacingCar racingCar = new RacingCar(carNamesInput.getNames());
-		List<Car> cars = racingCar.getCars();
-		movePerRounds(tryCountInput, cars);
+		movePerRounds(tryCountInput, racingCar);
 	}
 
-	public void movePerRounds(TryCountInput tryCountInput, List<Car> cars) {
+	public void movePerRounds(TryCountInput tryCountInput, RacingCar racingCar) {
 		for (int count = 0; count < tryCountInput.getTryCount(); count++) {
-			moveForRound(cars);
+			moveForRound(racingCar);
 		}
 	}
 
-	public void moveForRound(List<Car> cars) {
-		for (Car car : cars) {
+	public void moveForRound(RacingCar racingCar) {
+		for (Car car : racingCar.getCars()) {
 			car.moveByNumber(randomNumberGenerator.generateNumber());
 		}
 	}
