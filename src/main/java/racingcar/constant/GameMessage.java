@@ -8,7 +8,7 @@ public enum GameMessage {
 
     private final String message;
 
-    private GameMessage(final String message) {
+    GameMessage(final String message) {
         this.message = message;
     }
 

@@ -9,7 +9,7 @@ public enum ExceptionMessage {
     private static final String ERROR = "[ERROR]";
     private final String message;
 
-    private ExceptionMessage(String message) {
+    ExceptionMessage(String message) {
         this.message = message;
     }
 
