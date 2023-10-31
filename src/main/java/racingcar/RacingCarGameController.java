@@ -2,7 +2,6 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCarGameController {
@@ -13,19 +12,22 @@ public class RacingCarGameController {
     private int numOfMoves;
 
     public void gameInit() {
+        String[] carNames = processCarNames();
+        this.racingCarGame = new RacingCarGame(carNames);
+        this.numOfMoves = processNumOfMoves();
+    }
+
+    private static String[] processCarNames() {
         String userInput = receiveCarNames();
         String[] carNames = userInput.split(DELIMITER);
         checkCarNamesLength(carNames);
-        this.numOfMoves = receiveNumOfMoves();
-
-        this.racingCarGame = new RacingCarGame(carNames);
+        return carNames;
     }
 
     public void runGame() {
         System.out.println("실행 결과");
-        List<Result> results;
         for (int i = 0; i < numOfMoves; i++) {
-            results = racingCarGame.run();
+            List<Result> results = racingCarGame.run();
             printResults(results);
         }
         printWinners(racingCarGame.reportWinners());
@@ -44,10 +46,14 @@ public class RacingCarGameController {
         }
     }
 
-    private static int receiveNumOfMoves() {
-        System.out.println("시도할 횟수는 몇회인가요?");
-        String userInput = Console.readLine();
+    private static int processNumOfMoves() {
+        String userInput = receiveNumOfMoves();
         return parseNumOfMoves(userInput);
+    }
+
+    private static String receiveNumOfMoves() {
+        System.out.println("시도할 횟수는 몇회인가요?");
+        return Console.readLine();
     }
 
     protected static int parseNumOfMoves(String userInput) {

@@ -9,7 +9,6 @@ public class RacingCarGame {
     private static final int END_NUM = 9;
 
     private RacingCars racingCars;
-
     private MoveNumGenerator moveNumGenerator;
 
     public RacingCarGame(String[] carNames) {

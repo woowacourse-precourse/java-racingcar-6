@@ -32,7 +32,7 @@ public class RacingCars {
         List<Result> results = new ArrayList<>();
 
         for (RacingCar racingCar : racingCars) {
-            if (getAdvance(racingCar) == maxAdvance) {
+            if (getCarAdvance(racingCar) == maxAdvance) {
                 results.add(racingCar.makeResult());
             }
         }
@@ -45,13 +45,13 @@ public class RacingCars {
         int maxAdvance = 0;
 
         for (RacingCar racingCar : racingCars) {
-            maxAdvance = Math.max(getAdvance(racingCar), maxAdvance);
+            maxAdvance = Math.max(getCarAdvance(racingCar), maxAdvance);
         }
 
         return maxAdvance;
     }
 
-    private static int getAdvance(RacingCar racingCar) {
+    private static int getCarAdvance(RacingCar racingCar) {
         return racingCar.makeResult().getAdvance();
     }
 }
