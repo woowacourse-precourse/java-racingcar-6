@@ -22,7 +22,7 @@ public class OutputView {
         return Prompts.DASH.repeat(position);
     }
     private static void printCar(Car car) {
-        System.out.println(car.getName() + " : " + generateDashes(car.getPosition()));
+        System.out.println(car.getName() + " : " + generateDashes(car.getCurrentPosition()));
     }
 
     public static void printWinners(List<Car> winners) {

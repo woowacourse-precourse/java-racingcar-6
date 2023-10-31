@@ -12,7 +12,7 @@ public class DetermineWinner {
         int maxPosition = findMaxPosition(cars);
 
         for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
+            if (car.getCurrentPosition() == maxPosition) {
                 winners.add(car);
             }
         }
@@ -24,11 +24,12 @@ public class DetermineWinner {
         int max = Integer.MIN_VALUE;
 
         for (Car car : cars) {
-            if (car.getPosition() > max) {
-                max = car.getPosition();
+            if (car.getCurrentPosition() > max) {
+                max = car.getCurrentPosition();
             }
         }
 
         return max;
     }
+
 }

@@ -3,7 +3,6 @@ package racingcar.Test;
 import racingcar.View.OutputView;
 import racingcar.Computer.RaceManager;
 import racingcar.Car.Car;
-import racingcar.Computer.DetermineWinner;
 
 import org.junit.jupiter.api.*;
 import java.io.ByteArrayOutputStream;
@@ -13,7 +12,7 @@ import java.util.Arrays;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,9 +25,9 @@ public class OutputTest {
 
     @BeforeEach
     public void setUp() {
+        outputStream.reset();
         System.setOut(new PrintStream(outputStream));
     }
-
     @AfterEach
     public void tearDown() {
         System.setOut(originalOut);
@@ -95,35 +94,23 @@ public class OutputTest {
     @Test
     @DisplayName("마지막에 우승자 출력 확인")
     void testWinnerOutput() {
-        Car car1 = new Car("car1");
-        car1.move(3);
+        Car winnerCar = new Car("car1");
+        List<Car> winners = Collections.singletonList(winnerCar);
 
-        List<Car> cars = Collections.singletonList(car1);
-        DetermineWinner determineWinner = new DetermineWinner();
-        List<Car> winners = determineWinner.getWinners(cars);
+        OutputView.printWinners(winners);
 
-        List<String> winnerNames = winners.stream()
-                .map(Car::getName)
-                .collect(Collectors.toList());
-
-        assertEquals(Collections.singletonList("car1"), winnerNames);
+        String capturedOutput = outputStream.toString();
+        String expectedOutput = "최종 우승자 : car1";
+        assertTrue(capturedOutput.contains(expectedOutput));
     }
     @Test
     @DisplayName("공동우승자 출력 확인")
     void testJointWinnerOutput() {
-        Car car1 = new Car("car1");
-        Car car2 = new Car("car2");
-        car1.move(3);
-        car2.move(3);
+        List<Car> winners = Arrays.asList(new Car("car1"), new Car("car2"));
+        OutputView.printWinners(winners);
 
-        List<Car> cars = Arrays.asList(new Car("car1"), new Car("car2"));
-        DetermineWinner determineWinner = new DetermineWinner();
-        List<Car> winners = determineWinner.getWinners(cars);
-
-        List<String> winnerNames = winners.stream()
-                .map(Car::getName)
-                .collect(Collectors.toList());
-
-        assertEquals(Arrays.asList("car1", "car2"), winnerNames);
+        String capturedOutput = outputStream.toString();
+        String expectedOutput = "최종 우승자 : car1, car2";
+        assertTrue(capturedOutput.contains(expectedOutput));
     }
 }
