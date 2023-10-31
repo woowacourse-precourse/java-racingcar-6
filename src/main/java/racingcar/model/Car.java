@@ -1,14 +1,14 @@
 package racingcar.model;
 
 import java.util.Objects;
-import racingcar.utils.Validate;
+import racingcar.utils.Validation;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private final String name;
     private int dist;
 
     public Car(String name) {
-        Validate.validateName(name);
+        Validation.validateName(name);
         this.name = name;
         this.dist = 0;
     }

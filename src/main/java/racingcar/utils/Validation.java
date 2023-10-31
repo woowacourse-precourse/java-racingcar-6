@@ -1,9 +1,10 @@
 package racingcar.utils;
 
 import java.util.regex.Pattern;
-import racingcar.config.Configuration;
 
-public class Validate {
+public class Validation {
+    private static final Integer NAME_LENGTH_MIN = 1;
+    private static final Integer NAME_LENGTH_MAX = 5;
 
     public static void validateName(String name) {
         isValidNameLength(name);
@@ -11,8 +12,8 @@ public class Validate {
     }
 
     public static void isValidNameLength(String name) throws IllegalArgumentException {
-        if (name.length() < Configuration.NAME_LENGTH_MIN.getValue()
-                || name.length() > Configuration.NAME_LENGTH_MAX.getValue()) {
+        if (name.length() < NAME_LENGTH_MIN
+                || name.length() > NAME_LENGTH_MAX) {
             throw new IllegalArgumentException();
         }
     }
