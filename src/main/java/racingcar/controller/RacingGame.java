@@ -1,29 +1,24 @@
 package racingcar.controller;
 
-import racingcar.enums.GameSettingType;
-import racingcar.service.Referee;
+import racingcar.model.Attempts;
+import racingcar.model.Cars;
+import racingcar.model.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.*;
-
 public class RacingGame implements Game {
-    private final Referee referee;
+    private final Cars cars;
+    private final Attempts attempts;
+
     public RacingGame() {
-        referee = new Referee(collectGameSettingInfos());
+        cars = new Cars(collectCarNames());
+        attempts = new Attempts(collectNumberOfAttempts());
     }
 
     @Override
     public void run() {
         playRacingGame();
         announceWinners();
-    }
-
-    private Map<GameSettingType,String> collectGameSettingInfos() {
-        Map<GameSettingType, String> gameSettingInfo = new EnumMap<>(GameSettingType.class);
-        gameSettingInfo.put(GameSettingType.CAR_NAMES, collectCarNames());
-        gameSettingInfo.put(GameSettingType.ATTEMPTS, collectNumberOfAttempts());
-        return gameSettingInfo;
     }
 
     private String collectCarNames() {
@@ -38,13 +33,16 @@ public class RacingGame implements Game {
 
     private void playRacingGame() {
         OutputView.printPlayResultMessage();
-        while (!referee.anyCarReaches()) {
-            referee.getCars().everyCarMoveForward();
-            OutputView.printPlayResult(referee.getPlayResults());
+        int currentAttempt = 0;
+        while (attempts.getNumber() > currentAttempt) {
+            cars.everyCarMoveForwardByRandom();
+            OutputView.printPlayResult(cars.getCars());
+            currentAttempt++;
         }
     }
 
     private void announceWinners() {
-        OutputView.printWinners(referee.getWinnersNames());
+        final Winners winners = new Winners(cars);
+        OutputView.printWinners(winners.getWinnersNames());
     }
 }
