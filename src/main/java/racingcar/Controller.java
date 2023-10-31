@@ -6,8 +6,7 @@ public class Controller {
     private static final String resultPrint = "실행 결과";
     public void raceStart(){
         User user = new User();
-        user.carNameSplit(InputMessage.carName());
-        user.carNameVaildation(user.carNames);
+        user.setCarNames();
         int gameNumber = Integer.parseInt(InputMessage.gameNumber());
         Racing racing = new Racing();
         racing.createRace(user.carNames);
