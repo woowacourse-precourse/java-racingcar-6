@@ -3,13 +3,10 @@ package study;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-//import java.util.Random;
 
 public class Practice {
     public static void main(String[] args) throws IOException {
@@ -19,28 +16,28 @@ public class Practice {
 
         int movement = Integer.parseInt(Console.readLine());
 
-        List<ownCar> cars = new ArrayList<>();
+        List<RacingCar> cars = new ArrayList<>();
 
         for (String name : carNameList) {
-            cars.add(new ownCar(name));
+            cars.add(new RacingCar(name));
         }
 
         for (int i = 0; i < movement ; i++) {
-            for (ownCar car : cars) {
+            for (RacingCar car : cars) {
                 car.move();
-                System.out.println(car.getName() + " : " + car.getPosition());
+                System.out.println(car.getName() + " : " + car.getMoveHyphen());
             }
             System.out.println();
         }
     }
 }
 
-class ownCar {
+class RacingCar {
     private String name;
     private int position;
    // private Random random;
 
-    public ownCar(String name) {
+    public RacingCar(String name) {
         this.name = name;
         this.position = 0;
         //this.random = new Random();
@@ -55,10 +52,6 @@ class ownCar {
 
     public String getName() {
         return name;
-    }
-
-    public int getPosition() {
-        return position;
     }
 
     public String getMoveHyphen() {
