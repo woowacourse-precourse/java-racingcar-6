@@ -14,6 +14,7 @@ public class GameCondition {
     public int getNumberOfMoves() {
         PrintMessage.printQuestionChanceMessage();
         return Integer.parseInt(Console.readLine());
+
     }
 
     public int forwardCar() {
@@ -25,7 +26,4 @@ public class GameCondition {
         return random >= 4;
     }
 
-    public String generateMovedResultStick(int position) {
-        return "-".repeat(position);
-    }
 }

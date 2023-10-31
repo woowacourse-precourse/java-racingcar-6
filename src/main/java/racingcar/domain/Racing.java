@@ -17,24 +17,24 @@ public class Racing {
     public void startGame() {
         for (int i = 0; i < numberOfMoves; i++) {
             moveCars();
-            printGameResult();
         }
+        printGameResult();
     }
-
+    
     private void moveCars() {
         for (Car car : cars) {
             car.moveForward();
         }
     }
-
+    
     private void printGameResult() {
+        List<String> names = new ArrayList<>();
         for (Car car : cars) {
-            PrintMessage.printGameResult(car.getName(), car.getPosition());
+            names.add(car.getName());
         }
-        System.out.println(); // 각 턴 사이에 개행을 추가하여 결과가 분리되도록 합니다.
+        PrintMessage.printGameResult(names, numberOfMoves);
     }
     
-
     public List<String> findWinners() {
         int maxPosition = 0;
         for (Car car : cars) {

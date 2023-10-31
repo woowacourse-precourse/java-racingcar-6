@@ -10,28 +10,30 @@ import java.util.List;
 
 public class RacingcarController {
 
-    public void startRace() {
-        PrintMessage.printStartMessage();
-
-        Player player = new Player();
-        player.promptCarNames();
-        List<String> carNames = player.getCarNames();
-
-        int numberOfMoves = GameCondition.getInstance().getNumberOfMoves(); 
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
-
-        for (int i = 0; i < numberOfMoves; i++) {
-            moveCarsForward(cars);
-            PrintMessage.printGameResult(cars);
-        }
-
-        List<String> winners = findWinners(cars);
-        PrintMessage.printRacingWinner(winners);
-    }
-
+	public void startGame() {
+		PrintMessage.printStartMessage();
+	
+		Player player = new Player();
+		player.promptCarNames();
+		List<String> carNames = player.getCarNames();
+	
+		int numberOfMoves = GameCondition.getInstance().getNumberOfMoves();
+		List<Car> cars = new ArrayList<>();
+		for (String carName : carNames) {
+			cars.add(new Car(carName));
+		}
+	
+		PrintMessage.printGameResult(carNames, numberOfMoves);
+	
+		for (int i = 0; i < numberOfMoves; i++) {
+			moveCarsForward(cars);
+			PrintMessage.printGameResult(carNames, numberOfMoves);
+		}
+	
+		List<String> winners = findWinners(cars);
+		PrintMessage.printRacingWinner(winners);
+	}
+	
     private static void moveCarsForward(List<Car> cars) {
         for (Car car : cars) {
             if (GameCondition.getInstance().shouldCarMove()) {
@@ -52,7 +54,6 @@ public class RacingcarController {
                 winners.add(car.getName());
             }
         }
-
         return winners;
     }
 }
