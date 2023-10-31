@@ -1,5 +1,6 @@
 package racingcar.utils;
 
+import racingcar.configs.Config;
 import racingcar.racer.Racer;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public class Printer {
             Integer racerPos = racer.getCurrentPos();
 
             StringBuilder sb = new StringBuilder();
-            sb.append(name).append(" : ").append("-".repeat(racerPos));
+            sb.append(name).append(" : ").append(Config.POS_INDICATOR.repeat(racerPos));
             System.out.println(sb.toString());
         }
         System.out.println();
