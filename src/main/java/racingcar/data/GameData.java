@@ -22,4 +22,9 @@ public class GameData {
         int attemptNumber = Integer.parseInt(attemptNumberData);
         this.attemptData = new AttemptData(attemptNumber);
     }
+
+    public void proceedOneRace() {
+        attemptData.createAttempt();
+        attemptData.pickNewNumber();
+    }
 }

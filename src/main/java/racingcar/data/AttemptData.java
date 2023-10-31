@@ -12,9 +12,12 @@ public class AttemptData {
         this.attemptNumber = new AttemptNumber(attemptNumber);
     }
 
-    public Attempt createAttempt() {
+    public void createAttempt() {
         Attempt newAttempt = new Attempt();
         attempts.add(newAttempt);
-        return newAttempt;
+    }
+
+    public void pickNewNumber() {
+        attempts.get(0).initInputNumber();
     }
 }

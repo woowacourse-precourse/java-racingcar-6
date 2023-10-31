@@ -6,4 +6,8 @@ public class Attempt {
     public Attempt() {
         this.inputNumber = new InputNumber();
     }
+
+    public void initInputNumber() {
+        inputNumber.initRandomNumber();
+    }
 }

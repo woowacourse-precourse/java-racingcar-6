@@ -21,7 +21,13 @@ public class Game {
         gameExecution.printOutputString(ATTEMPT_NUMBER_INPUT_MESSAGE);
         gameData.initAttemptData(gameExecution.receiveGameInput());
     }
+
+    public void proceed() {
+        gameData.proceedOneRace();
+    }
+
     public void run() {
         initGameData();
+        proceed();
     }
 }
