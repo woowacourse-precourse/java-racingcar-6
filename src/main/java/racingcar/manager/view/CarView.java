@@ -1,8 +1,7 @@
-package racingcar.car.view;
+package racingcar.manager.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.car.model.Car;
 
 public class CarView {
     private static String CAR_NAME_SEPARATOR = ",";

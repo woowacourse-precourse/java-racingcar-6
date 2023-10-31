@@ -1,4 +1,4 @@
-package racingcar.user.model;
+package racingcar.manager.model;
 
 public class User {
     private Integer tryCount;

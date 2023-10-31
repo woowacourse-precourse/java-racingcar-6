@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class ManagerView {
     private static String MOVING_CHARACTER = "-";
+    private static String EXECUTION_RESULT = "실행 결과";
 
 
     public String getTotalMoveCount(int moveCount){
@@ -12,6 +13,12 @@ public class ManagerView {
     }
 
     public void printMovingMessage(String carName, String totalMoveCount){
-        System.out.print(carName + " : " + totalMoveCount);
+        System.out.println(carName + " : " + totalMoveCount);
+    }
+    public void printResultMessage(){
+        System.out.println(EXECUTION_RESULT);
+    }
+    public void printFinishOneTry(){
+        System.out.println();
     }
 }

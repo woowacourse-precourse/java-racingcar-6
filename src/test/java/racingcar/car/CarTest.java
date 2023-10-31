@@ -7,7 +7,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import racingcar.car.view.CarView;
+import racingcar.manager.view.CarView;
 
 public class CarTest {
     private final CarView carView = new CarView();

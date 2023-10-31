@@ -1,4 +1,4 @@
-package racingcar.user.view;
+package racingcar.manager.view;
 
 import java.util.regex.Pattern;
 

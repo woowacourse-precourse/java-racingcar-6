@@ -1,27 +1,69 @@
 package racingcar.manager.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-import racingcar.car.controller.CarController;
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
+import racingcar.manager.model.Car;
+import racingcar.manager.model.Manager;
 import racingcar.manager.view.ManagerView;
-import racingcar.user.controller.UserController;
 
 public class ManagerController {
 
-    ManagerView managerView = new ManagerView();
+    private static int START_NUMBER_RANGE = 0;
+    private static int END_NUMBER_RANGE = 9;
+    private static int MOVE_CONDITION = 4;
+    private static int ZERO_MOVE = 0;
+    private final ManagerView managerView = new ManagerView();
+    private final CarController carController = new CarController();
+    private final UserController userController = new UserController();
+
 
     public void run(){
-        CarController carController = new CarController();
-        UserController userController = new UserController();
+        List<Car> cars = carController.getCars();
+        Integer tryCount = userController.getUserTryCount();
+
+        resultExecutionMessage();
+        executeRacing(cars,tryCount);
+
+    }
+    public boolean isPossibleToMove(){
+        return Randoms.pickNumberInRange(START_NUMBER_RANGE, END_NUMBER_RANGE) >= MOVE_CONDITION;
     }
 
-    public void printTryResult(HashMap<String, Integer> cars){
-        for(Map.Entry<String, Integer> entry : cars.entrySet()){
-            String carName = entry.getKey();
-            Integer moveCount = entry.getValue();
+    public void executeRacing(List<Car> cars, Integer tryCount){
+        for(int i=0;i<tryCount;i++) {
+            executeOneTry(cars);
+            printTryResult(cars);
+            finishOneTry();
+        }
+    }
+    public void executeOneTry(List<Car> cars){
+        for(Car car: cars){
+            if(isPossibleToMove()){
+                car.setMoveCount(car.getMoveCount()+1);
+            }
+        }
+    }
+    public void resultExecutionMessage(){
+        managerView.printResultMessage();
+    }
+    public void finishOneTry(){
+        managerView.printFinishOneTry();
+    }
+
+    public void printTryResult(List<Car> cars){
+        for(Car car:cars){
+            String carName = car.getCarName();
+            Integer moveCount = car.getMoveCount();
 
             String totalMoveCount = managerView.getTotalMoveCount(moveCount);
             managerView.printMovingMessage(carName,totalMoveCount);
         }
     }
+
+
+
+
+
+
 }

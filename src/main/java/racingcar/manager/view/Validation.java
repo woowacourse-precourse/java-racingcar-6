@@ -1,4 +1,4 @@
-package racingcar.car.view;
+package racingcar.manager.view;
 
 import java.util.List;
 

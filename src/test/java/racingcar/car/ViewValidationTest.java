@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.car.view.Validation;
+import racingcar.manager.view.Validation;
 
 public class ViewValidationTest {
     private final Validation validation = new Validation();
