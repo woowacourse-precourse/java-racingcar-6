@@ -35,6 +35,14 @@
 ## [x] 3. InputService의 validate 메서드 Validator로 이동
 
 
+
+# VER.3
+## [ ] 1. 요구사항, 1차 피드백에 만족하도록 수정
+    [x] InputService에서 split(",")한 각 문자열에 대해 trim() 적용
+    [x] PrintService -> OutputService로 변경
+    [ ] 불필요한 주석 제거
+
+
 우테코 피드백
 1. 요구사항을 정확히 준수한다
 2. 커밋 메시지 의미있게 쓴다
@@ -47,6 +55,9 @@
 
 
 느낀 점
-1. private 메서드에 대한 테스트
-2. playGameForTimes() 테스트
-3. 기능 별 구현, 기능 별 커밋의 장점
+1. 테스트 메서드
+   - private 메서드에 대한 테스트
+   - playGameForTimes() 테스트
+   - 요구 사항으로부터 테스트를 추출한다는 느
+2. 기능 별 구현, 기능 별 커밋의 장점
+3. 람다식의 깔끔함?
