@@ -76,11 +76,16 @@ class Race {
     }
 
     public void printWinners(){
-        int maxPosition = carList.stream().mapToInt(Car::getPosition).max().orElse(0);
-        List<String> winners = carList.stream().filter(car->car.getPosition()==maxPosition)
-                .map(Car::getName).toList();
-
+        List<String> winners = getWinners();
         System.out.println("최종 우승자 : " + String.join(", ", winners));
+    }
+
+    private List<String> getWinners(){
+        int maxPosition = carList.stream().mapToInt(Car::getPosition).max().orElse(0);
+
+        return carList.stream().filter(car->car.getPosition()==maxPosition)
+                .map(Car::getName)
+                .toList();
     }
 }
 
