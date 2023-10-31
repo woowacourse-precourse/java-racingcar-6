@@ -21,6 +21,4 @@ public class RacingGame {
         Arrays.stream(carsInput.split(","))
                 .forEach(referee::addCar);
     }
-
-
 }
