@@ -10,7 +10,7 @@ public class Outputs {
     }
 
     public static void result(List resultList) {
-        List<String> cars = Inputs.getCars();
+        List<String> cars = InputDesk.getCars();
         for (int i = 0 ; i < cars.size() ; i++) {
             System.out.println(cars.get(i)+" : "+resultList.get(i));
         }

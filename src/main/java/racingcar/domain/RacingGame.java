@@ -16,7 +16,7 @@ public class RacingGame {
     }
 
     public void initResultList(List resultList) {
-        List<String> cars = Inputs.getCars();
+        List<String> cars = InputDesk.getCars();
         for (int i = 0 ; i < cars.size() ; i++) {
             resultList.add("");
         }
@@ -35,7 +35,7 @@ public class RacingGame {
 
     public void chooseWinners(List<String> resultList) {
 
-        List<String> cars = Inputs.getCars();
+        List<String> cars = InputDesk.getCars();
         int maxLen = 0;
         for (int i=0; i<resultList.size(); i++) {
             if( resultList.get(i).length() > maxLen) {
@@ -54,11 +54,11 @@ public class RacingGame {
 
     public void start() {
         try {
-            Inputs.inputCars();
-            Inputs.inputCounts();
+            InputDesk.inputCars();
+            InputDesk.inputCounts();
             initResultList(resultList);
-            for (int i =0; i<Inputs.getCount();i++) {
-                move(Inputs.getCars());
+            for (int i = 0; i< InputDesk.getCount(); i++) {
+                move(InputDesk.getCars());
                 Outputs.resultMessage();
                 Outputs.result(resultList);
             }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
 
-public class Inputs {
+public class InputDesk {
     private List<String> cars = new ArrayList<>();
     private int count;
 
