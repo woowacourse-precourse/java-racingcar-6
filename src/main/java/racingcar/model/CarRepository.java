@@ -9,6 +9,7 @@ public class CarRepository {
     private final static int CAR_CAPACITY = 100;
 
     public void save(Car car) {
+        validateCapacity();
         validateDuplicateName(car.getName());
         this.cars.add(car);
     }
@@ -19,7 +20,7 @@ public class CarRepository {
         }
     }
 
-    private void validCapacity() {
+    private void validateCapacity() {
         if (this.cars.size() >= CAR_CAPACITY) {
             throw new IllegalArgumentException(ErrorMessage.OVER_MAX_CAR_COUNT.getMessage());
         }
