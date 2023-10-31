@@ -1,10 +1,13 @@
-package strings;
+package strings.util;
 
 public final class Strings {
     public static final String DASH = "-";
     public static final String LINE_BREAK = "\n";
     public static final String COMMAS = ",";
     public static final String WHITE_SPACE = " ";
+
+    private Strings() {
+    }
 
     public static String repeat(
             final String str,

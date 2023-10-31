@@ -5,6 +5,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import strings.util.Strings;
 
 final class StringsTest {
     @DisplayName("Strings.repeat으로 입력한 횟수 만큼 문자열 반복 가능")
