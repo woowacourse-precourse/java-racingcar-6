@@ -31,28 +31,28 @@ public class CarRaceGameController {
     }
 
     private void cartSetting(Car car) {
-        car.initCar(inputView.userInputCarName());
+        car.initCar(inputView.userInputCarNames());
     }
 
     private void carRace(Car car) {
         userInputRaceCount();
-        carMoveResult(car, userInputRaceCount());
+        printRaceResult(car, userInputRaceCount());
     }
 
     private int userInputRaceCount() {
         return Integer.parseInt(inputView.userInputGameCount());
     }
 
-    private void carMoveResult(Car car, int count) {
+    private void printRaceResult(Car car, int count) {
         for (int i=0; i<count; i++) {
             car.move();
-            outputView.outputCarMoveResult(car.getCarData());
+            outputView.outputCarMoveResults(car.getCarData());
         }
         printWinnerResult(car);
     }
 
     private void printWinnerResult(Car car) {
-        List<String> winners = car.findWinner();
+        List<String> winners = car.findWinners();
         outputView.outputWinnerResult(winners);
     }
 }
