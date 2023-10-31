@@ -40,4 +40,8 @@ public class Racing {
     public String getTotalRacingResult() {
         return racingPrinter.getRacingResult();
     }
+
+    public List<String> getFinalWinnerList() {
+        return RacingResult.getFinalWinners(racingCars);
+    }
 }
