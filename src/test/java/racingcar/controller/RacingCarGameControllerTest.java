@@ -1,17 +1,34 @@
 package racingcar.controller;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 
-class RacingCarGameControllerTest {
+class RacingCarGameControllerTest extends NsTest {
 
     RacingCarGameController racingCarGameController = new RacingCarGameController();
+    private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
+
+    @Test
+    void 공동_우승자_안내_문구_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,joon", "2");
+                    assertThat(output()).contains("최종 우승자 : pobi, joon");
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD,
+                MOVING_FORWARD, STOP, MOVING_FORWARD
+        );
+    }
 
     @Test
     void 한줄로_입력_받은_자동차_이름_리스트_구분_기능() {
@@ -61,5 +78,10 @@ class RacingCarGameControllerTest {
         int randomNumber = 5;
         boolean biggerFlag = racingCarGameController.isBiggerThanMinAdvanceCount(randomNumber);
         assertThat(biggerFlag).isEqualTo(true);
+    }
+
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
     }
 }

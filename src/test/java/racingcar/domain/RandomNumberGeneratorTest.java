@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,10 +11,7 @@ class RandomNumberGeneratorTest {
 
     @Test
     void 랜덤_발생_숫자_범위가_0_9_사이_확인() {
-        for (int i = 0; i < 100; i++) {
-            int randomNumber = RandomNumberGenerator.pickRandomNumber();
-            assertTrue(randomNumber >= MIN_RANDOM_NUMBER);
-            assertTrue(randomNumber <= MAX_RANDOM_NUMBER);
-        }
+        assertThat(RandomNumberGenerator.pickRandomNumber())
+                .isBetween(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 }
