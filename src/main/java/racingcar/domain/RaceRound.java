@@ -8,8 +8,7 @@ public class RaceRound {
 
     public RaceRound(String stringRound) {
         validateInput(stringRound);
-        int round = Integer.parseInt(stringRound);
-        rounds = round;
+        rounds = Integer.parseInt(stringRound);
     }
 
     public void validateInput(String input) {

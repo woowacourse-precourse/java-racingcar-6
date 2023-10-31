@@ -11,8 +11,7 @@ public class Cars {
 
     public Cars(List<String> carList) {
         for (String carName : carList) {
-            Car car = new Car(carName);
-            cars.add(car);
+            cars.add(new Car(carName));
         }
     }
 
@@ -33,11 +32,11 @@ public class Cars {
     }
 
     private int getMaxPosition() {
-        int maxMove = cars.stream()
+
+        return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .getAsInt();
-        return maxMove;
     }
 
     public void printCarsStatus() {
