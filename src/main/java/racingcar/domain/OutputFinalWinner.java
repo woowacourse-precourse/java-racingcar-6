@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class OutputFinalWinner {
-    private final static String runMessage = "최종우승자 : ";
+    private final static String runMessage = "최종 우승자 : ";
 
     public void print(StringBuilder sb) {
         StringBuilder result = new StringBuilder();
