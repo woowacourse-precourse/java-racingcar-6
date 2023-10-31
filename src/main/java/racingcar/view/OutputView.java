@@ -21,4 +21,16 @@ public class OutputView {
             System.out.print("-");
         }
     }
+
+    private static void finalWinner(List<Car> winners) {
+        StringBuilder result = new StringBuilder("최종 우승자 : ");
+        for (int i = 0; i < winners.size(); i++) {
+            result.append(winners.get(i).getName());
+            if (i < winners.size() - 1) {
+                result.append(", "); // 쉼표로 구분 (마지막 우승자 뒤에는 쉼표를 추가하지 않음)
+            }
+        }
+
+        System.out.println(result.toString());
+    }
 }
