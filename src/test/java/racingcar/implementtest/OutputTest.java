@@ -8,8 +8,8 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.Car;
-import racingcar.Output;
+import racingcar.domain.Car;
+import racingcar.view.Output;
 
 public class OutputTest {
     private Output output;
@@ -29,7 +29,7 @@ public class OutputTest {
         moveForwardCar.moveForward();
 
         output.printRoundResult(printList);
-        Assertions.assertThat(out.toString()).isEqualTo("pobi : -\njiho : \njava : \n");
+        Assertions.assertThat(out.toString()).isEqualTo("pobi : -\njiho : \njava : \n\n");
     }
 
     @Test
