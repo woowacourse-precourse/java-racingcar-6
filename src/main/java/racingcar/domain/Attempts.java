@@ -23,12 +23,12 @@ public class Attempts {
         if (isZeroOrNegative(attempts)) {
             throw new IllegalArgumentException("올바르지 않은 횟수입니다.");
         }
-        if (isBigNumber(attempts)) {
+        if (isBiggerThanMaximumAttempts(attempts)) {
             throw new IllegalArgumentException("너무 큰 숫자입니다.");
         }
     }
 
-    private boolean isBigNumber(Integer attempts) {
+    private boolean isBiggerThanMaximumAttempts(Integer attempts) {
         return attempts > MAXIMUM_ATTEMPTS;
     }
 
