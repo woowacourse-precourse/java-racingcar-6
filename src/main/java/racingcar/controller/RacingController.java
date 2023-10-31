@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.view.InputView;
@@ -16,17 +17,27 @@ public class RacingController {
 
     public void startGame() {
         InputView.greetingMessage();
+
         List<String> carNames = inputValidation.checkNameInputValid(InputView.inputCarsName());
         int round = inputValidation.checkRoundInputValid(InputView.inputRoundCount());
-        OutputView.printResultConstant();
 
-        List<Car> winners = doRound(carNames,round);
+        Cars cars = initCars(carNames);
+        List<Car> winners = doRound(cars, round);
+
         OutputView.printWinnerList(winners);
     }
 
-    public List<Car> doRound(List<String> carNames, int round) {
+    private Cars initCars(List<String> carNames) {
         Cars cars = new Cars();
-        cars.doRound(carNames, round);
+        cars.initCars(carNames);
+
+        OutputView.printResultConstant();
+        return cars;
+    }
+
+    public List<Car> doRound(Cars cars, int round) {
+        IntStream.range(0, round)
+                .forEach(i -> OutputView.printCarResult(cars.doRound()));
         return cars.checkWinner();
     }
 
