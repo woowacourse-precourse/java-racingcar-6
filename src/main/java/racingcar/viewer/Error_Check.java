@@ -15,18 +15,22 @@ public class Error_Check {
     }
 
     public static int Number(String input){
-        int number;
-        try{
-            number = Integer.parseInt(input);
-        }
-        catch(NumberFormatException ex) {
-            throw new IllegalArgumentException(INPUT_ERROR);
-        }
+        int number = Is_Number(input);
         if(number>=NUMBER_MIN&&number<=NUMBER_MAX){
             return number;
         }
         throw new IllegalArgumentException(INPUT_ERROR);
     }
+
+    private static int Is_Number(String input){
+        try{
+            return Integer.parseInt(input);
+        }
+        catch(NumberFormatException ex) {
+            throw new IllegalArgumentException(INPUT_ERROR);
+        }
+    }
+
     static public void Round(int round_number, int round_index) {
         if(round_number-round_index<MIN_ROUND_REMAINING) {
             throw new IllegalArgumentException(ROUND_ERROR);
