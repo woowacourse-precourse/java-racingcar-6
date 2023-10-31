@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
     private final Cars cars;
+    private final Strategy randomStrategy = new RandomStrategy();
 
     public RacingGame(List<String> carNames) {
         this.cars = CarsFactory.createCars(carNames);
@@ -12,7 +13,7 @@ public class RacingGame {
 
     public void start(TryNumber tryNumber) {
         for (int i = 0; i < tryNumber.getTryNumber(); i++) {
-            cars.race(() -> true);
+            cars.race(randomStrategy);
             cars.getCars().stream().forEach(car -> {
                 System.out.print(String.format("%s : ", car.getCarName()));
                 printDistance(car.getDistance());

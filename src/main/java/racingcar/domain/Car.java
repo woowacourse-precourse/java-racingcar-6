@@ -12,7 +12,9 @@ public class Car {
     }
 
     public void move(Strategy strategy) {
-        this.position = position.move();
+        if (strategy.movable()) {
+            this.position = position.move();
+        }
     }
 
     public String getCarName() {
