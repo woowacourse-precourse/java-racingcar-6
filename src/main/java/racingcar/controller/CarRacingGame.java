@@ -26,6 +26,8 @@ public class CarRacingGame {
         initialNumberOfTrial(getNumberOfTrial());
 
         startRace(numberOfTrial);
+
+        announceWinners(cars.getWinners());
     }
 
     private String getCarName() {
@@ -67,5 +69,14 @@ public class CarRacingGame {
                 .toList();
     }
 
+    private void announceWinners(List<Car> winners) {
+        outputConsoleView.printFinalWinners(getWinnersName(winners));
+    }
+
+    private List<String> getWinnersName(List<Car> winners) {
+        return winners.stream()
+                .map(Car::getName)
+                .toList();
+    }
 
 }
