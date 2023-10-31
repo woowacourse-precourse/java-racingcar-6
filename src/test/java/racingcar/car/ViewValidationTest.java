@@ -1,11 +1,11 @@
-package racingcar.user;
+package racingcar.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import racingcar.user.view.Validation;
+import racingcar.car.view.Validation;
 
 public class ViewValidationTest {
     private final Validation validation = new Validation();
