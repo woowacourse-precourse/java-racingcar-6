@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Parser {
-    public static List<String> carNameParser(String inputCarName) {
+    public static final List<String> carNameParser(final String inputCarName) {
         return Arrays.asList(inputCarName.split(","));
     }
 }

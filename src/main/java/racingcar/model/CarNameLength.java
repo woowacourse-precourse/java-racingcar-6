@@ -6,11 +6,12 @@ public enum CarNameLength {
 
     private final int value;
 
-    CarNameLength(int value) {
+    CarNameLength(final int value) {
         this.value = value;
     }
 
-    public int getValue() {
+    public final int getValue() {
         return value;
     }
 }
+

@@ -1,9 +1,9 @@
 package racingcar.model;
 
 public class CarName {
-    private String name;
+    private final String name;
 
-    public CarName(String name) {
+    public CarName(final String name) {
         if (name.length() < CarNameLength.MINIMUM.getValue() ||
                 name.length() > CarNameLength.MAXIMUM.getValue()) {
             throw new IllegalArgumentException(ErrorMessage.NOT_VALID_CAR_NAME.getMessage());
@@ -11,7 +11,7 @@ public class CarName {
         this.name = name;
     }
 
-    public String getName() {
+    public final String getName() {
         return this.name;
     }
 }

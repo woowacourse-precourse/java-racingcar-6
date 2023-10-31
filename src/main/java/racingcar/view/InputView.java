@@ -3,11 +3,11 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    public String inputCarNamesToRace() {
+    public final String inputCarNamesToRace() {
         return Console.readLine();
     }
 
-    public String inputNumberOfRace() {
+    public final String inputNumberOfRace() {
         return Console.readLine();
     }
 }

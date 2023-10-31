@@ -3,23 +3,23 @@ package racingcar.service;
 import racingcar.model.Car;
 
 public class CarDto {
-    private String carName;
-    private int position;
+    private final String carName;
+    private final int position;
 
-    public CarDto(String carName, int position) {
+    public CarDto(final String carName, final int position) {
         this.carName = carName;
         this.position = position;
     }
 
-    public static CarDto from(Car car) {
+    public static final CarDto from(final Car car) {
         return new CarDto(car.getName(), car.getPosition());
     }
 
-    public String getName() {
+    public final String getName() {
         return this.carName;
     }
 
-    public int getPosition() {
+    public final int getPosition() {
         return this.position;
     }
 }

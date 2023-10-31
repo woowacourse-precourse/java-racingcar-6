@@ -18,14 +18,14 @@ public class OutputView {
         System.out.println("\n" + OutputMessage.RACE_RESULT.getMessage());
     }
 
-    public void raceResultByOrderMessage(List<CarDto> cars) {
-        for(CarDto car : cars) {
+    public void raceResultByOrderMessage(final List<CarDto> cars) {
+        for (CarDto car : cars) {
             System.out.println(car.getName() + " : " + MOVEMENT.repeat(car.getPosition()));
         }
         System.out.println();
     }
 
-    public void raceWinnerMessage(List<String> cars) {
+    public void raceWinnerMessage(final List<String> cars) {
         System.out.println(OutputMessage.WINNER_IS.getMessage() + String.join(", ", cars));
     }
 }

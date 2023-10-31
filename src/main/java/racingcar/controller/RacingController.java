@@ -7,15 +7,17 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingController {
-    private RacingService racingService;
-    private InputView inputView;
-    private OutputView outputView;
+    private final RacingService racingService;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-    public RacingController(RacingService racingService, InputView inputView, OutputView outputView) {
+    public RacingController(final RacingService racingService, final InputView inputView,
+                            final OutputView outputView) {
         this.racingService = racingService;
         this.inputView = inputView;
         this.outputView = outputView;
     }
+
     public void run() {
         String names = getCarNames();
         int numberOfRace = getNumberOfRace();

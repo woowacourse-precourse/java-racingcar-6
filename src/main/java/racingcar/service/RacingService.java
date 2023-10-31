@@ -6,33 +6,33 @@ import racingcar.model.CarRepository;
 import racingcar.model.Race;
 
 public class RacingService {
-    private CarRepository carRepository;
+    private final CarRepository carRepository;
     private Race race;
 
-    public RacingService(CarRepository carRepository) {
+    public RacingService(final CarRepository carRepository) {
         this.carRepository = carRepository;
     }
 
-    public void prepareRace(List<String> carNames, int numberOfRace) {
+    public void prepareRace(final List<String> carNames, final int numberOfRace) {
         for (String name : carNames) {
             carRepository.save(Car.from(name));
         }
         race = Race.from(numberOfRace);
     }
 
-    public List<CarDto> runSingleRace() {
+    public final List<CarDto> runSingleRace() {
         race.runSingleRace(carRepository.getCars());
         return carRepository.getCars().stream()
                 .map(car -> CarDto.from(car))
                 .toList();
     }
 
-    public boolean isRunning() {
+    public final boolean isRunning() {
         return race.isRunning();
     }
 
 
-    public List<String> getWinner() {
+    public final List<String> getWinner() {
         return carRepository.getWinner();
     }
 }

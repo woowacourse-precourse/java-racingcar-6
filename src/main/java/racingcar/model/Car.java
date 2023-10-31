@@ -1,15 +1,15 @@
 package racingcar.model;
 
 public class Car {
-    private CarName carName;
+    private final CarName carName;
     private int position;
 
-    private Car(String name) {
+    private Car(final String name) {
         this.carName = new CarName(name);
         this.position = 0;
     }
 
-    public static Car from(String carName) {
+    public static Car from(final String carName) {
         return new Car(carName);
     }
 
@@ -17,11 +17,11 @@ public class Car {
         this.position++;
     }
 
-    public int getPosition() {
+    public final int getPosition() {
         return this.position;
     }
 
-    public String getName() {
+    public final String getName() {
         return this.carName.getName();
     }
 }

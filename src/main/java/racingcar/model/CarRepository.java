@@ -8,13 +8,13 @@ public class CarRepository {
     private final List<Car> cars = new ArrayList<>();
     private final static int CAR_CAPACITY = 100;
 
-    public void save(Car car) {
+    public void save(final Car car) {
         validateCapacity();
         validateDuplicateName(car.getName());
         this.cars.add(car);
     }
 
-    private void validateDuplicateName(String carName) {
+    private void validateDuplicateName(final String carName) {
         if (cars.stream().anyMatch(car -> car.getName().equals(carName))) {
             throw new IllegalArgumentException(ErrorMessage.DUPLICATE_NAME.getMessage());
         }
@@ -26,11 +26,11 @@ public class CarRepository {
         }
     }
 
-    public List<Car> getCars() {
+    public final List<Car> getCars() {
         return cars;
     }
 
-    public List<String> getWinner() {
+    public final List<String> getWinner() {
         int max = getMaxPosition();
         return cars.stream()
                 .filter(c -> c.getPosition() == max)
