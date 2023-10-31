@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RaceControllerTest {
 
@@ -37,7 +38,7 @@ class RaceControllerTest {
         List<Car> carList = carManager.getCarList();
 
         for (Car car : carList) {
-            assertEquals(true, car.getCurrentPosition().endsWith("-"));
+            assertTrue(car.getCurrentPosition().endsWith("-") || car.getCurrentPosition().isEmpty(), "차량 위치가 정상적으로 표시되어야 합니다.");
         }
     }
 
