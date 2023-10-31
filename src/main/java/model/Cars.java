@@ -8,6 +8,7 @@ import utils.Utils;
 
 public class Cars {
     final static String DUPLICATION_NAME = "자동차의 이름은 중복되지 않은 고유한 값이어야 합니다.";
+    final static String DELIMITER = ",";
     private List<Car> cars;
 
     public Cars(String input) {
@@ -16,7 +17,7 @@ public class Cars {
     }
 
     public List<Car> convertStringArrayToCars(String input) {
-        return Arrays.stream(Utils.splitByDelimiter(input))
+        return Arrays.stream(Utils.splitByDelimiter(input,DELIMITER))
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
@@ -45,8 +46,8 @@ public class Cars {
 
     public void duplicateCarName(String input) {
 
-        boolean duplicationName = Arrays.stream(input.split(","))
-                .distinct().count() != input.split(",").length;
+        boolean duplicationName = Arrays.stream(input.split(DELIMITER))
+                .distinct().count() != input.split(DELIMITER).length;
 
         if (duplicationName) {
             throw new IllegalArgumentException(DUPLICATION_NAME);

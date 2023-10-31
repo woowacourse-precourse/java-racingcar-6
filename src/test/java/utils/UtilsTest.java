@@ -12,7 +12,7 @@ public class UtilsTest {
         String input = "pobi,jun,woni";
         String[] expectString = {"pobi", "jun", "woni"};
 
-        assertThat(Utils.splitByDelimiter(input)).isEqualTo(expectString);
+        assertThat(Utils.splitByDelimiter(input,",")).isEqualTo(expectString);
     }
 
     @Test
@@ -20,6 +20,6 @@ public class UtilsTest {
         String input = "pobi";
         String[] expectString = {"pobi"};
 
-        assertThat(Utils.splitByDelimiter(input)).isEqualTo(expectString);
+        assertThat(Utils.splitByDelimiter(input,",")).isEqualTo(expectString);
     }
 }
