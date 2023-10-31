@@ -1,11 +1,13 @@
 package racingcar.utils;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Arrays;
+import java.util.List;
 
 public class GameUtil {
 
-    public void splitNamesByComma() {
-
+    public List<String> splitNamesByComma(String carNames) {
+        return Arrays.stream(carNames.split(",")).toList();
     }
 
     public int generateRandomNumber() {
