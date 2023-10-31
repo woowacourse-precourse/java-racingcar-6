@@ -7,7 +7,7 @@ public class Application {
         InputRacingInfo inputRacingInfo = new InputRacingInfo();
         RacingInfo racingInfo = inputRacingInfo.createRacingInfo();
 
-//        System.out.println(Arrays.toString(racingInfo.carNames));
-//        System.out.println(racingInfo.racingTimes);
+        RepeatRacing repeatRacing = new RepeatRacing();
+        repeatRacing.startRacing(racingInfo);
     }
 }
