@@ -8,12 +8,11 @@ public class WinnerDetector {
     private final CarsRepository carsRepo = new CarsRepository();
     private final WinnerRepository winnerRepo = new WinnerRepository();
 
-    public void find() {
+    public void findNum() {
         winnerRepo.saveNum(carsRepo.findMaxPosition());
-        add();
     }
 
-    private void add() {
+    public void findName() {
         for (int i = 0; i < carsRepo.size(); i++) {
             if (winnerRepo.isWinner(carsRepo.getPosition(i))) {
                 winnerRepo.add(carsRepo.getName(i));
