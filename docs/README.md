@@ -5,7 +5,7 @@
 
 - [x] n대의 자동차를 입력 (readCarName) [InputView]
 
-  - [ ] 쉼표(,) 기준으로 이름 분리 후 racerNameList에 저장(seperateCarName) [RacerManager]
+  - [x] 쉼표(,) 기준으로 이름 분리 후 List로 반환(seperateCarName) [RacerManager]
 
   - [ ] 5자 이하의 이름들을 가졌는지 확인 (validateCarName) [InputValidater]
 
@@ -17,7 +17,7 @@
   - [ ] name, moveCount, state 확인 (getName, getMoveCount, getState)
 
 
-- [ ] racerNameList를 통해 racer 생성 + 이름 지정 (createRacers) [RacerManager]
+- [ ] List를 통해 racer 생성 + 이름 지정 (createRacers) [RacerManager]
 
 
 - [ ] 입력 메시지 출력 (printInputMoveNumberMessage) [OutputView]
