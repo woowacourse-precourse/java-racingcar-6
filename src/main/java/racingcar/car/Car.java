@@ -15,9 +15,13 @@ public class Car {
         return this.name;
     }
 
+    public Integer getPosition() {
+        return this.position;
+    }
+
     public void forward(int value) {
         if (value >= Constant.MINIMUM_MOVABLE_NUMBER) {
-            position++;
+            this.position++;
         }
     }
 

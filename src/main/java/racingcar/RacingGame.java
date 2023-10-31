@@ -22,6 +22,7 @@ public class RacingGame {
     public void startGame() {
         makeCarList();
         getRound();
+        raceStart(this.round);
     }
 
     public void makeCarList() {
@@ -30,16 +31,26 @@ public class RacingGame {
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
-
-        for (Car car : cars) {
-            System.out.println(car.getName());
-        }
     }
 
     public void getRound() {
         String roundString = gameView.roundInput();
         round = new Round(roundString);
+    }
 
-        System.out.println("round : " + round.getRound());
+    public void raceStart(Round round) {
+        gameView.printRound();
+        while (this.round.getRound() > 0) {
+            moveCars();
+            gameView.printRound(cars);
+            this.round.decreaseRound();
+        }
+    }
+
+    public void moveCars() {
+        for (Car car : cars) {
+            int randomValue = car.getRandomValue();
+            car.forward(randomValue);
+        }
     }
 }

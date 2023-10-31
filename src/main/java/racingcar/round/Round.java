@@ -15,4 +15,8 @@ public class Round {
     public Integer getRound() {
         return round;
     }
+
+    public void decreaseRound() {
+        this.round--;
+    }
 }

@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
+import racingcar.car.Car;
 import racingcar.car.CarValidator;
 import racingcar.round.RoundValidator;
 
@@ -37,5 +39,28 @@ public class GameView {
         } while (!RoundValidator.roundValidation(round));
 
         return round;
+    }
+
+    //실행 결과 출력하기
+    public void printRound() {
+        System.out.println();
+        System.out.println(Constant.RESULT_MESSAGE);
+    }
+
+    //차수 별 결과 출력하기
+    public void printRound(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.print(car.getName() + " : ");
+            printStatus(car.getPosition());
+        }
+        System.out.println();
+    }
+
+    //자동차 별 전진 개수 출력하기
+    public void printStatus(int num) {
+        for (int i = 0; i < num; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
     }
 }
