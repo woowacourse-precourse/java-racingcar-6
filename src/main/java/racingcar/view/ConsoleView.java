@@ -24,10 +24,7 @@ public class ConsoleView {
     public void printCurrentPositions(List<Car> cars) {
         StringBuilder output = new StringBuilder();
         for (Car car : cars) {
-            StringBuilder position = new StringBuilder();
-            for (int i = 0; i < car.getDistance(); i++) {
-                position.append("-");
-            }
+            String position = "-".repeat(Math.max(0, car.getDistance()));
             output.append(car.getName()).append(" : ").append(position).append("\n");
         }
         printMessage(output.toString());
