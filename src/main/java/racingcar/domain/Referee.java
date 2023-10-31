@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Referee {
-    private final static int judgeStandard = 4;
+    private final static int JUDGE_STANDARD = 4;
 
     public boolean isGreaterThanEqual(int number) {
-        return number >= judgeStandard;
+        return number >= JUDGE_STANDARD;
     }
 
     public List<String> judgeWinner(List<Car> carList) {
