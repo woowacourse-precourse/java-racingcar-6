@@ -5,19 +5,15 @@ import java.util.Map;
 
 public class OutputView {
 
-    public void appendRaceStatus(StringBuilder sb, Map<String, Integer> result) {
-        for (String name : result.keySet()) {
-            sb.append(name)
-                    .append(" : ")
-                    .append("-".repeat(result.get(name)))
-                    .append("\n");
-        }
-        sb.append("\n");
+    public void printResultMessage() {
+        System.out.println("\n실행 결과");
     }
 
-    public void printRaceStatus(StringBuilder sb) {
-        System.out.println("\n실행 결과");
-        System.out.print(sb.toString());
+    public void printRaceStatus(Map<String, Integer> result) {
+        for (String name : result.keySet()) {
+            System.out.printf("%s : %s\n", name, "-".repeat(result.get(name)));
+        }
+        System.out.println();
     }
 
     public void printVictoryPlayers(List<String> victoryPlayers) {
