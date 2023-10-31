@@ -17,6 +17,10 @@ public class RacingController {
         Judgment judgment = new Judgment(cars, new RandomNumberGenerator());
 
         OutputView.printRacingResult();
+        while (repeatCount.isRunable()) {
+            race(judgment);
+            repeatCount.disCount();
+        }
     }
 
     private Cars setUpGame() {
@@ -27,5 +31,10 @@ public class RacingController {
     private RepeatCount startGame() {
         int repeatCount = InputView.inputRepeatCount();
         return new RepeatCount(repeatCount);
+    }
+
+    private void race(Judgment judgment) {
+        List<Car> cars = judgment.judge();
+        OutputView.printRacingStatus(cars);
     }
 }
