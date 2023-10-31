@@ -23,7 +23,7 @@ public class Car {
         this.move_count = move_count;
     }
 
-    public void determine_Move() {
+    public void determineMove() {
         if (Randoms.pickNumberInRange(0, 9) >= 4) {
             this.move_count++;
         }

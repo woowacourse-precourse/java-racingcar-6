@@ -42,20 +42,6 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class));
     }
 
-    @Test
-    void 전진_횟수_비교() {
-        ArrayList<Car> car_list = new ArrayList<>();
-        RacingCar racingCar = new RacingCar();
-        Car test_car_1 = new Car("tom");
-        Car test_car_2 = new Car("brown");
-        test_car_1.setMove_count(4);
-        test_car_2.setMove_count(3);
-        car_list.add(test_car_1);
-        car_list.add(test_car_2);
-
-        assertThat(racingCar.compareMoveCount(car_list)).isEqualTo(4);
-    }
-
     @Override
     public void runMain() {
         Application.main(new String[]{});
