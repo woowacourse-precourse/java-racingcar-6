@@ -1,5 +1,7 @@
 package racingcar.View;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static racingcar.util.StringToList.stringToList;
 
@@ -22,4 +24,15 @@ public class inputViewTest {
         assertThat(result).hasSameClassAs(ans);
     }
 
+    @Test
+    void 이름에_대한_예외_처리() {
+        String input = "pobi,javaji";
+
+        try {
+            stringToList(input);
+        }
+        catch (IllegalArgumentException e){
+            assertThat(e).isInstanceOf(IllegalArgumentException.class);
+        }
+    }
 }
