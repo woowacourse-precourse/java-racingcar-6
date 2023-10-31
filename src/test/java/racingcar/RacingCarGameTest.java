@@ -34,4 +34,16 @@ class RacingCarGameTest {
             racingCarGame.setRacingCarsByConsole();
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    public void 자동차_이름들을_입력받을때_이름이_5자_초과일_경우_예외가_발생_해야한다() {
+        String input = "red,green,blue,rainbow";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        RacingCarGame racingCarGame = new RacingCarGame();
+        Assertions.assertThatThrownBy(() -> {
+            racingCarGame.setRacingCarsByConsole();
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }
