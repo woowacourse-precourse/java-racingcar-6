@@ -3,7 +3,10 @@ package domain.InputValues;
 public class TurnValidiator {
 
     public TurnValidiator(String num){
-        checkNumber(num);
+        int newnum= checkNumber(num);
+        if(newnum<0){
+            throw new IllegalArgumentException("입력된 숫자가 음수입니다.");
+        }
 
     }
 
