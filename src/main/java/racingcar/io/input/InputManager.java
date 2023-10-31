@@ -7,9 +7,9 @@ public class InputManager {
     private final InputView inputView;
     private final InputMapper inputMapper;
 
-    public InputManager() {
-        this.inputView = new InputView();
-        this.inputMapper = new InputMapper();
+    public InputManager(InputView inputView, InputMapper inputMapper) {
+        this.inputView = inputView;
+        this.inputMapper = inputMapper;
     }
 
     public Cars inputCarNames() {

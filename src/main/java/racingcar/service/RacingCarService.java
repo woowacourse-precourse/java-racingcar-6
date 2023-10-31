@@ -10,8 +10,8 @@ public class RacingCarService {
 
     private final MovingCondition movingCondition;
 
-    public RacingCarService() {
-        this.movingCondition = new MovingCondition();
+    public RacingCarService(MovingCondition movingCondition) {
+        this.movingCondition = movingCondition;
     }
 
     public void startRacing(Cars cars) {
