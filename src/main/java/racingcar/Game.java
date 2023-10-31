@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.exception.InsufficientCarCountException;
 import racingcar.exception.InsufficientRaceCountException;
@@ -9,6 +10,7 @@ public class Game {
     public static final int MIN_RACE_REQUIRED = 1;
     private final List<Car> cars;
     private final int raceCount;
+    private List<RaceSnapshot> history = new ArrayList<>();
 
     public Game(List<Car> cars, int raceCount) {
         validateCars(cars);
