@@ -24,7 +24,7 @@ public class Car {
 
     public void print() {
         StringBuilder sb = new StringBuilder();
-        sb.append(carName).append(" : ");
+        sb.append(carName).append(GameInfo.CAR_NAME_POSITION_SEPARATOR);
         IntStream.range(0, position).forEach(i -> sb.append(GameInfo.CAR_MOVE_SYMBOL));
         System.out.println(sb);
     }

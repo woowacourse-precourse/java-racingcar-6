@@ -15,7 +15,7 @@ public class CommonValidator {
     }
 
     public static boolean validateCarNameUnderBar(String carName) {
-        return !carName.contains("_");
+        return !carName.contains(GameInfo.CAR_DUPLICATED_SEPARATOR);
     }
 
     public static boolean validateRoundNumRange(String roundNum) {

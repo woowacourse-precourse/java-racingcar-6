@@ -14,6 +14,6 @@ public class GameUtil {
     }
 
     public static void printRoundSeperator() {
-        System.out.println(GameInfo.ROUND_SEPERATE_SYMBOL);
+        System.out.println(GameInfo.ROUND_SEPARATE_SYMBOL);
     }
 }
