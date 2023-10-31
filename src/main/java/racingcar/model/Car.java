@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
     private static final int MIN_NUMBER_FOR_MOVE = 4;
