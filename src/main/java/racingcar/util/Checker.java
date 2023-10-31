@@ -20,7 +20,6 @@ public class Checker {
         if(input.charAt(input.length() - 1) == ','){
             throw new IllegalArgumentException(WRONG_INPUT);
         }
-
     }
     public static void isValidName(String name) {
         isBelowFiveWord(name);
