@@ -62,9 +62,11 @@ public class GameService {
     }
 
     private void carMove(List<Car> cars) {
-        cars.forEach(car -> {
-            if (isCarMove()) car.addLocation();
-        });
+        for (Car car : cars) {
+            if (isCarMove()) {
+                car.addLocation();
+            }
+        }
     }
 
     private boolean isCarMove() {
