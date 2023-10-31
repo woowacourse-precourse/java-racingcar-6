@@ -1,11 +1,15 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class CarTest {
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
+
+class CarTest extends NsTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"popobi", "ianbest", "abcdefgh"})
@@ -25,6 +29,38 @@ class CarTest {
 
         // then
         Assertions.assertThat(actual).isEqualTo(0);
+        car.progress();
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {4, 5, 6, 7})
+    public void 랜덤값이_전진하는_기준보다_크면_전진한다(int randomNumber) {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run();
+                    assertThat(output()).contains("1");
+                },
+                randomNumber
+        );
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3})
+    public void 랜덤값이_전진하는_기준보다_작으면_전진한다(int randomNumber) {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run();
+                    assertThat(output()).contains("0");
+                },
+                randomNumber
+        );
+    }
+
+    @Override
+    public void runMain() {
+        Car car = new Car("pobi");
+        car.progress();
+        System.out.println(car.getPosition());
     }
 
 }
