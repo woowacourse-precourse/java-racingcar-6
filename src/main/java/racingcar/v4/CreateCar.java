@@ -42,4 +42,10 @@ public class CreateCar {
         }
     }
 
+    public void validateCarCount(List<String> carNames) {
+        if (carNames.size() > 10 || carNames.size() < 2) {
+            throw new IllegalArgumentException("자동차의 수는 2대 이상 10대 이하만 가능합니다.");
+        }
+    }
+
 }
