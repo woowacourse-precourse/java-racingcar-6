@@ -18,12 +18,16 @@ public class GameController {
     public void run() {
         OutputView.printStartGame();
         getUserInput();
-        OutputView.printRoundStart();
-        gameService.runRound(gameRound, carList);
+        playRound();
         List<Car> winnerCars = gameService.extractWinner(carList);
         String gameWinner = gameService.getGameWinner(winnerCars);
         OutputView.printGameWinner(gameWinner);
 
+    }
+
+    private void playRound() {
+        OutputView.printRoundStart();
+        gameService.runRound(gameRound, carList);
     }
 
     private void getUserInput() {
