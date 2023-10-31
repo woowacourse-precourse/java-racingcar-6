@@ -24,7 +24,7 @@ public class RacingCarGameController {
         OutputView.printInputNumberOfMovesMessage();
         int numberOfMoves = InputView.inputNumberOfMoves();
 
-        for (int i = 0; i < numberOfMoves; i++) {
+        for (int moveCount = 0; moveCount < numberOfMoves; moveCount++) {
             List<Car> movedCars = cars.moveCars(randomNumberGenerator);
             OutputView.printCurrentLocations(movedCars);
         }
