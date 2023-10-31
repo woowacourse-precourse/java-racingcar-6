@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class RacingCar {
     private final int MOVE_LIMITS = 3;
-    private String racingCarName;
-    private List<Boolean> move;
+    private final String racingCarName;
+    private final List<Boolean> move;
     private int moveCount;
 
     public RacingCar(final String carName) {
