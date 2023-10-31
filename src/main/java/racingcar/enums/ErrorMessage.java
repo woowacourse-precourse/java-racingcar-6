@@ -8,7 +8,7 @@ public enum ErrorMessage {
     NOT_ALLOW_BLANK_IN_START("이름의 첫 글자를 공백으로 사용할 수 없습니다."),
     NOT_ALLOW_BLANK_IN_END("이름의 마지막 글자를 공백으로 사용할 수 없습니다."),
     NOT_ALLOW_NAME_DUPLICATION("중복된 이름을 입력할 수 없습니다."),
-    TRY_COUNT_ONY_NUMBER("횟수는 숫자만 입력할 수 있습니다."),
+    TRY_COUNT_ONLY_NUMBER("횟수는 숫자만 입력할 수 있습니다."),
     TRY_COUNT_GT_ZERO("게임 시도 횟수는 0보다 커야 합니다."),
     TRY_COUNT_NOT_ALLOW_ZERO_IN_FIRST("게임 시도 횟수의 첫 번째 숫자는 0이 될 수 없습니다."),
     CAR_NAME_COND("이름은 영대소문자,한글,숫자만 입력 가능하고 이름 가운데 공백은 허용됩니다."),
