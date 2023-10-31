@@ -8,29 +8,20 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RandomNumberGenerator;
-import racingcar.domain.dto.CarRacingResponse;
-import racingcar.utill.CustomReadLine;
+import racingcar.domain.dto.CarsStatus;
+import racingcar.domain.dto.TotalRacingResult;
 import racingcar.utill.NumberGenerator;
-import racingcar.view.RacingView;
 
 public class CarRacingService {
     private final NumberGenerator numberGenerator;
-    private final CustomReadLine customReadLine;
-    private final RacingView racingView;
 
     public CarRacingService() {
         this.numberGenerator = new RandomNumberGenerator();
-        this.customReadLine = new CustomReadLine();
-        this.racingView = new RacingView();
     }
 
-    public void run() {
-        racingView.inputCarsNameView();
-        Cars cars = new Cars(convertStringToCarList(customReadLine.inputCarsName()), numberGenerator);
-        racingView.inputAttemptNumberView();
-        int attemptNumber = customReadLine.inputAttemptNumber();
-        raceCars(cars, attemptNumber);
-        racingView.winnerView(cars.decisionWinner());
+    public TotalRacingResult race(String carsName, int attemptNumber) {
+        Cars cars = new Cars(convertStringToCarList(carsName), numberGenerator);
+        return getTotalRacingResult(cars, attemptNumber);
     }
 
     private List<Car> convertStringToCarList(String carsName) {
@@ -47,13 +38,12 @@ public class CarRacingService {
         return cars;
     }
 
-    private void raceCars(Cars cars, int attemptNumber) {
-        racingView.executionResultView();
+    private TotalRacingResult getTotalRacingResult(Cars cars, int attemptNumber) {
+        List<CarsStatus> carsStatus = new ArrayList<>();
         for (int i = 0; i < attemptNumber; i++) {
-            List<CarRacingResponse> carsResponses = cars.decisionCarsMove();
-            carsResponses.forEach(carResponse -> racingView.raceResultView(carResponse.getName(),
-                    carResponse.getPosition()));
-
+            carsStatus.add(cars.decisionCarsMove());
         }
+
+        return TotalRacingResult.of(carsStatus, cars.findWinner());
     }
 }

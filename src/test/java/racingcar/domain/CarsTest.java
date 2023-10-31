@@ -13,7 +13,7 @@ class CarsTest {
     private final NumberGenerator numberGenerator = () -> 8;
 
     @Test
-    void racingWinnerDecisionTest() {
+    void findWinnerTest() {
         //given
         List<Car> testCarList = new ArrayList<>();
         testCarList.add(new Car("haha"));
@@ -21,7 +21,7 @@ class CarsTest {
         Cars cars = new Cars(testCarList, numberGenerator);
 
         //when
-        String winner = cars.decisionWinner();
+        String winner = cars.findWinner();
 
         //then
         assertEquals(winner, "haha, hoho");
