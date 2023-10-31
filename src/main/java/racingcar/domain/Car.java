@@ -3,13 +3,13 @@ package racingcar.domain;
 public class Car {
     public static final Integer NAME_VALIDATION_LENGTH = 5;
     public static final Integer CAR_FORWARD_JUDGMENT_CRITERIA = 4;
-    private final String name;
-    private Integer position;
+    private final Name name;
+    private final Position position;
 
     public Car(String name) {
-        validateName(name);
-        this.name = name;
-        this.position = 0;
+
+        this.name = new Name(name);
+        this.position = new Position();
     }
 
     private void validateName(String name) {
@@ -20,15 +20,15 @@ public class Car {
 
     public void go(int randNumber) {
         if (randNumber >= CAR_FORWARD_JUDGMENT_CRITERIA) {
-            this.position++;
+            position.move();
         }
     }
 
     public Integer getPosition() {
-        return position;
+        return position.getPosition();
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 }
