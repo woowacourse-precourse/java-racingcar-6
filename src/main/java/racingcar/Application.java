@@ -12,7 +12,7 @@ public class Application {
             int numberOfMoves = insertNumberOfMoves();
             playGame(cars, numberOfMoves);
             List<String> winners = getWinner(cars);
-            System.out.println("최종 우승자 : " + String.join(", "+winners));
+            System.out.print("최종 우승자 : " + String.join(", ", winners));
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException();
         }
