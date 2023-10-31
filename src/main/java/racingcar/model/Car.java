@@ -23,4 +23,11 @@ public class Car {
     public void getResult(){
         System.out.println(NAME+" : " +getDash(position));
     }
+
+    public int getPosition(){
+        return position;
+    }
+    public String getNAME(){
+        return NAME;
+    }
 }

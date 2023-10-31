@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import static racingcar.util.validator.InputValidator.isListDuplicate;
 
+import static racingcar.util.validator.InputValidator.isListDuplicate;
 import static racingcar.util.validator.InputValidator.checkComma;
 import static racingcar.util.validator.InputValidator.isNegativeNumber;
 import static racingcar.util.validator.InputValidator.isNonNumericString;
@@ -54,9 +54,15 @@ public class RacingController {
 
     }
 
+    public void end()
+    {
+        outputView.printWinner(util.getWinner(carList));
+    }
     public void startGame() {
         carSet();
         acceptNumberSet();
         play();
+        end();
+
     }
 }
