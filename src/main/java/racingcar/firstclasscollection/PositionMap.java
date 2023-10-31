@@ -10,10 +10,10 @@ import racingcar.model.Car;
 
 public class PositionMap {
     private static final int INIT_POSITION = 0;
-    private Map<Car, Integer> positionMap;
+    private final Map<Car, Integer> positionMap;
     private int winnerPosition;
 
-    public PositionMap(Supplier<Map> mapSupplier) {
+    public PositionMap(Supplier<Map<Car, Integer>> mapSupplier) {
         positionMap = mapSupplier.get();
         winnerPosition = INIT_POSITION;
     }
