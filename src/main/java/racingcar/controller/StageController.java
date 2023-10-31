@@ -17,7 +17,7 @@ public class StageController {
     public void runStage() {
         for (String car : game.getCars().keySet()) {
             if (stageService.stageProcess()) {
-                game.editStatus(car);
+                game.moveForward(car);
             }
         }
     }

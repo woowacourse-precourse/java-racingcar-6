@@ -13,7 +13,7 @@ public class Game {
         cars.put(name, 0);
     }
 
-    public void editStatus(String key) {
+    public void moveForward(String key) {
         Integer originalStatus = cars.get(key);
         cars.replace(key, originalStatus + 1);
     }
