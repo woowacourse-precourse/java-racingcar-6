@@ -25,5 +25,9 @@ class CarTest {
         assertThat(car.getName()).isEqualTo("NewName");
     }
 
+    @Test
+    void 자동차_초반_포지션_테스트() {
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
 
 }
