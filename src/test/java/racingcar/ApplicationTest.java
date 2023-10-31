@@ -16,13 +16,13 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 우승_자동차_테스트_우승자_여러명() {
-        Application application = new Application();
-        Car[] carlist = new Car[3];
-        carlist[0] = new Car("pobi", 5);
-        carlist[1] = new Car("crong", 5);
-        carlist[2] = new Car("wooni", 5);
+        Util util = new Util();
+        Car[] carList = new Car[3];
+        carList[0] = new Car("pobi", 5);
+        carList[1] = new Car("crong", 5);
+        carList[2] = new Car("wooni", 5);
 
-        List<String> victorylist = application.compare(carlist);
+        List<String> victorylist = util.compare(carList);
 
         assertThat(victorylist).contains("pobi", "crong", "wooni");
 
@@ -31,13 +31,13 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 우승_자동차_테스트_우승자_1명() {
-        Application application = new Application();
+        Util util = new Util();
         Car[] carlist = new Car[3];
         carlist[0] = new Car("pobi", 3);
         carlist[1] = new Car("crong", 2);
         carlist[2] = new Car("wooni", 5);
 
-        List<String> victorylist = application.compare(carlist);
+        List<String> victorylist = util.compare(carlist);
 
         assertThat(victorylist.get(0)).isEqualTo("wooni");
 
@@ -45,12 +45,12 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 자동차_이동() {
-        Application application = new Application();
+        Util util = new Util();
         String[] split = {"pobi", "crong", "wooni"};
-        Car[] carlist = application.createCar(split);
+        Car[] carlist = util.createCar(split);
 
-        application.move(carlist[0], 5);
-        application.move(carlist[1], 2);
+        util.move(carlist[0], 5);
+        util.move(carlist[1], 2);
 
         assertThat(carlist[0].getPos()).isEqualTo(1);
         assertThat(carlist[1].getPos()).isEqualTo(0);
@@ -59,25 +59,25 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 자동차_생성() {
-        Application application = new Application();
+        Util util = new Util();
         String[] split = {"pobi", "crong", "wooni"};
 
-        Car[] carlist = application.createCar(split);
+        Car[] carList = util.createCar(split);
 
-        assertThat(carlist[0].getName()).isEqualTo("pobi");
-        assertThat(carlist[0].getPos()).isEqualTo(0);
-        assertThat(carlist[1].getName()).isEqualTo("crong");
-        assertThat(carlist[1].getPos()).isEqualTo(0);
-        assertThat(carlist[2].getName()).isEqualTo("wooni");
-        assertThat(carlist[2].getPos()).isEqualTo(0);
+        assertThat(carList[0].getName()).isEqualTo("pobi");
+        assertThat(carList[0].getPos()).isEqualTo(0);
+        assertThat(carList[1].getName()).isEqualTo("crong");
+        assertThat(carList[1].getPos()).isEqualTo(0);
+        assertThat(carList[2].getName()).isEqualTo("wooni");
+        assertThat(carList[2].getPos()).isEqualTo(0);
 
     }
 
     @Test
     void 이름_분류() {
-        Application application = new Application();
-        String input = "pobi,crong,woni";
-        String[] devidedName = application.devide_name(input);
+        Input input = new Input();
+        String inputData = "pobi,crong,woni";
+        String[] devidedName = input.devide_name(inputData);
 
         assertThat(devidedName).containsExactly("pobi", "crong", "woni");
     }
