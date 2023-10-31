@@ -16,8 +16,7 @@ class RefereeTest {
     private List<Car> racingCars = new ArrayList<>();
 
     @BeforeEach
-    void init(){
-
+    void init() {
         Car car1 = new Car("car1");
         car1.plusDistance();
         racingCars.add(car1);
@@ -37,9 +36,16 @@ class RefereeTest {
 
     @Test
     @DisplayName("저장된 이동 거리 중 최대 거리 찾기")
-    void 최대_이동_거리(){
+    void 최대_이동_거리() {
         List<Integer> distances = referee.saveAllDistances(racingCars);
         assertThat(referee.findMaxDistance(distances)).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("최대 거리로 우승자 찾기")
+    void 우승자_찾기() {
+        List<String> winnerCarNames = new ArrayList<>(List.of("car2"));
+        assertThat(referee.findWinner(racingCars)).isEqualTo(winnerCarNames);
     }
 
 }
