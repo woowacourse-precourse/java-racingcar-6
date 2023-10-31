@@ -86,7 +86,7 @@ public class Application {
     }
 
     private static void displayWinners() {
-        System.out.print(winners.get(0));
+        System.out.print("최종 우승자 : " + winners.get(0));
         if (winners.size() > 1) {
             System.out.print(", ");
             for (int i = 1; i < winners.size(); i++) {
