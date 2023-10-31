@@ -1,6 +1,7 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import racingcar.controller.InputController;
 import racingcar.util.CarNameValidator;
 import racingcar.util.RoundCountValidator;
 
@@ -192,6 +193,15 @@ class FunctionTest {
             error = true;
         }
         assertThat(error).isEqualTo(true);
+
+    }
+
+    @Test
+    void 자동차이름셋팅테스트() {
+        InputController inputController = new InputController();
+
+        inputController.setCarNames("123,456,789").forEach(car -> System.out.println(car.getName()));
+        inputController.setCarNames("가나다,abc,123").forEach(car -> System.out.println(car.getName()));
 
     }
 
