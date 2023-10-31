@@ -98,11 +98,11 @@ class ApplicationTest extends NsTest {
 
         assertThatThrownBy(() -> InputValidator.validateNameLength(nameOverFiveLength.length()))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1자 이상, 5자이하의 이름을 입력하세요.");
+                .hasMessageContaining("1자 이상, 5자이하의 이름을 입력하세요.(각 이름은 쉼표(,)로 구분해야합니다.)");
 
         assertThatThrownBy(() -> InputValidator.validateNameLength(nameUnderOneLength.length()))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("1자 이상, 5자이하의 이름을 입력하세요.");
+                .hasMessageContaining("1자 이상, 5자이하의 이름을 입력하세요.(각 이름은 쉼표(,)로 구분해야합니다.)");
 
         command(correctInput);
         assertThatCode(user::inputCarName)
