@@ -16,6 +16,7 @@ public class Game {
         Output.askNamesMessage();
         List<String> nameList = Input.carNames();
 
+        InputCarException.numberOfCarException(nameList);
         for (String name : nameList) {
             InputCarException.nameLengthException(name);
         }
