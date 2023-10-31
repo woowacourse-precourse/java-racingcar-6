@@ -1,11 +1,13 @@
 package racingcar.game;
 
 import org.junit.jupiter.api.Test;
+import racingcar.game.constant.RoundExceptionMessage;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 import static racingcar.game.constant.CarExceptionMessage.*;
+import static racingcar.game.constant.RoundExceptionMessage.*;
 
 class StringUtilTest {
 
@@ -25,6 +27,14 @@ class StringUtilTest {
     @Test
     void 자동차_이름_개수가_10이하가_아니면_예외_발생() {
         assertExceptionCase("a,b,c,d,e,f,g,h,i,j,k", OUT_OF_COUNT_RANGE);
+    }
+
+    @Test
+    void 총_이동_횟수가_정수값이_아니면_예외_발생() {
+        assertThatThrownBy(() -> StringUtil.makeInteger("asdf"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasCauseInstanceOf(NumberFormatException.class)
+                .hasMessageContaining(NOT_INTEGER);
     }
 
     private void assertExceptionCase(String carNames, String errorMessage) {
