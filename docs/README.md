@@ -63,6 +63,11 @@ Round
 - [x] 남아있는 게임 라운드가 있는지 확인한다.
 
 
+Count
+- [x] 카운트를 감소시키는 기능 구현
+  - [x] 카운트가 없는 경우에 감소시키려고 하면 IllegalArgumentException 를 발생시킨다.
+
+
 NumberGenerator
 - [x] 외부 라이브러리로 int 값을 가져온다.
 
