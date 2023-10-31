@@ -23,6 +23,7 @@ public class Race {
             for (Car car: cars) {
                 System.out.println(car.getName() + " : " + car.getPositionBar());
             }
+            System.out.println();
         }
     }
 
