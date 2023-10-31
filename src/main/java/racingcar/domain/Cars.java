@@ -7,6 +7,7 @@ import static java.util.stream.Collectors.*;
 import static racingcar.exception.CarNameException.validateCarNameDuplicate;
 
 public class Cars {
+    private final static String NEW_LINE = "\n";
 
     private final List<Car> cars;
 
@@ -28,11 +29,15 @@ public class Cars {
         return cars;
     }
 
-
-
-
-
-
+    public String getResult() {
+        StringBuilder result = new StringBuilder();
+        for (Car car : cars) {
+            String curState = car.getCurState();
+            result.append(curState);
+            result.append(NEW_LINE);
+        }
+        return result.toString();
+    }
 
 
 }
