@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.Application;
 import racingcar.domain.Car;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class OutputViewTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    private ByteArrayOutputStream outputStreamCaptor;
     private OutputView outputView;
     private Car car1;
     private Car car2;
@@ -27,6 +30,9 @@ public class OutputViewTest extends NsTest {
         car1 = new Car("pobi");
         car2 = new Car("woni");
         car3 = new Car("coni");
+
+        outputStreamCaptor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 
 
@@ -35,7 +41,7 @@ public class OutputViewTest extends NsTest {
         List<String> winners = new ArrayList<>(List.of("woni, pobi"));
 
         outputView.printWinner(winners);
-        assertThat(output()).isEqualTo("최종 우승자 : woni, pobi");
+        assertThat(getOutput()).isEqualTo("최종 우승자 : woni, pobi");
     }
 
     @Test
@@ -47,7 +53,7 @@ public class OutputViewTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     outputView.printRacingResult(carList);
-                    assertThat(output()).contains("pobi : --", "woni : ", "coni :");
+                    assertThat(getOutput()).contains("pobi : --", "woni : ", "coni : ");
                 },
                 MOVING_FORWARD, STOP
         );
@@ -62,10 +68,14 @@ public class OutputViewTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     outputView.printRacingResult(carList);
-                    assertThat(output()).contains("pobi : ", "woni : --");
+                    assertThat(getOutput()).contains("pobi : ", "woni : --");
                 },
                 MOVING_FORWARD, STOP
         );
+    }
+
+    String getOutput() {
+        return outputStreamCaptor.toString();
     }
 
     @Override
