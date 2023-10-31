@@ -1,4 +1,7 @@
-package racingcar;
+package racingcar.game;
+
+import racingcar.game.Car;
+import racingcar.io.IOHandler;
 
 import java.util.Comparator;
 import java.util.List;

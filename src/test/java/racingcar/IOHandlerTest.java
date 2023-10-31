@@ -1,6 +1,8 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import racingcar.game.Car;
+import racingcar.io.IOHandler;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

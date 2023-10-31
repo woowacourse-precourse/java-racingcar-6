@@ -1,6 +1,7 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
+import racingcar.io.InputValidator;
 
 import java.util.List;
 import java.util.stream.Stream;
