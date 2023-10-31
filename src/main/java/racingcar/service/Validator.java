@@ -5,6 +5,9 @@ import java.util.List;
 
 public class Validator {
 
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final int MAX_CAR_NAMES_LENGTH = 2;
+
     public String[] stringToArray(String carNamesInput) {
         if (!isCommasInclude(carNamesInput)) {
             throw new IllegalArgumentException();
@@ -31,7 +34,7 @@ public class Validator {
     }
 
     private void validateBlankCarNames(String[] carNames) {
-        if (carNames.length == 0 || carNames.length == 1) {
+        if (carNames.length < MAX_CAR_NAMES_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
@@ -61,7 +64,7 @@ public class Validator {
 
     private boolean isUnder5digits(String[] carNames) {
         for (String carName : carNames) {
-            if (carName.length() > 5) {
+            if (carName.length() > MAX_CAR_NAME_LENGTH) {
                 return false;
             }
         }
