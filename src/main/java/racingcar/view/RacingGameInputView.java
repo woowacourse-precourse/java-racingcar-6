@@ -2,17 +2,17 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class InputView {
+public class RacingGameInputView {
 
-    public String next() {
+    public static String next() {
         return Console.readLine();
     }
 
-    public Integer nextInt() {
+    public static Integer nextInt() {
         return Integer.parseInt(next());
     }
 
-    public String[] nextStringArray() {
+    public static String[] nextStringArray() {
         return next().split(",");
     }
 }
