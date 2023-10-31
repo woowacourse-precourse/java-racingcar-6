@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,9 @@ public class Game {
     public static List<Car> cars = new ArrayList<>();
     public static Player player = new Player();
     public static List<String> winners = new ArrayList<>();
+
+    private static final int MINIMUM_RANDOM_NUMBER = 0;
+    private static final int MAXIMUM_RANDOM_NUMBER = 9;
 
     public static void play() {
         start();
@@ -46,8 +50,12 @@ public class Game {
 
     public static void race() {
         for (Car car : cars) {
-            car.moveForward();
+            car.moveForward(getRandomNumber());
         }
+    }
+
+    public static int getRandomNumber() {
+        return Randoms.pickNumberInRange(MINIMUM_RANDOM_NUMBER, MAXIMUM_RANDOM_NUMBER);
     }
 
     public static void printMidTermResult() {

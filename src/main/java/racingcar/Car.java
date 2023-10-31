@@ -1,7 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 public class Car {
 
     private String name;
@@ -21,9 +19,7 @@ public class Car {
         return moveForwardCount;
     }
 
-    public void moveForward() {
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
-
+    public void moveForward(int randomNumber) {
         if (randomNumber >= MOVE_FORWARD_STANDARD) {
             moveForwardCount++;
         }
