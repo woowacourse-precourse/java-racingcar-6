@@ -5,31 +5,39 @@ import racingcar.view.GameView;
 import racingcar.view.Message;
 
 public class GameController {
-    static public void play() {
-        initialize();
+    private GameView gameView;
+    private GameService gameService;
+
+    public GameController() {
+        gameView = new GameView();
+        gameService = new GameService();
+    }
+
+    public void play() {
+        initializeFromInput();
         race();
         showWinners();
     }
 
-    static private void initialize() {
-        String inputCarNames = GameView.requestInput(Message.INPUT_CAR_NAME);
-        GameService.initializeCars(inputCarNames);
+    private void initializeFromInput() {
+        String inputCarNames = gameView.requestInput(Message.INPUT_CAR_NAME);
+        gameService.initCarsFromInput(inputCarNames);
 
-        String inputRaceCount = GameView.requestInput(Message.INPUT_RACE_COUNT);
-        GameService.initializeRaceCount(inputRaceCount);
+        String inputRaceCount = gameView.requestInput(Message.INPUT_RACE_COUNT);
+        gameService.initRaceCountFromInput(inputRaceCount);
     }
 
-    static private void race() {
-        GameView.printlnMessage(Message.RACE_START);
-        while (!GameService.isAllRaceDone()) {
-            String raceResult = GameService.runSingleRace();
-            GameView.printlnMessage(raceResult);
+    private void race() {
+        gameView.printlnMessage(Message.RACE_START);
+        while (!gameService.isAllRaceDone()) {
+            String raceResult = gameService.runSingleRace();
+            gameView.printlnMessage(raceResult);
         }
     }
 
-    static private void showWinners() {
-        String winnerNames = GameService.getWinnerNames();
-        GameView.printMessage(Message.WINNER);
-        GameView.printlnMessage(winnerNames);
+    private void showWinners() {
+        String winnerNames = gameService.getWinnerNames();
+        gameView.printMessage(Message.WINNER);
+        gameView.printlnMessage(winnerNames);
     }
 }

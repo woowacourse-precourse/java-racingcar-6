@@ -6,26 +6,35 @@ import racingcar.domain.RaceResult;
 import racingcar.domain.WinnerData;
 
 public class GameService {
-    static public void initializeCars(String inputCarNames) {
-        Cars.initializeByInput(inputCarNames);
+
+    private Cars getCars() {
+        return Cars.getInstance();
     }
 
-    static public void initializeRaceCount(String inputRaceCount) {
-        RaceCount.initializeByInput(inputRaceCount);
+    public void initCarsFromInput(String inputCarNames) {
+        getCars().addCarsFromInput(inputCarNames);
     }
 
-    static public boolean isAllRaceDone() {
-        return RaceCount.equalsTotal();
+    private RaceCount getRaceCount() {
+        return RaceCount.getInstance();
     }
 
-    static public String runSingleRace() {
-        RaceResult raceResult = Cars.runSingleRace();
-        RaceCount.up();
+    public void initRaceCountFromInput(String inputRaceCount) {
+        getRaceCount().initTotalCountFromInput(inputRaceCount);
+    }
+
+    public boolean isAllRaceDone() {
+        return getRaceCount().equalsTotal();
+    }
+
+    public String runSingleRace() {
+        RaceResult raceResult = getCars().runSingleRace();
+        getRaceCount().up();
         return raceResult.toString();
     }
 
-    static public String getWinnerNames() {
-        WinnerData winnerData = Cars.pickWinners();
+    public String getWinnerNames() {
+        WinnerData winnerData = getCars().pickWinners();
         return winnerData.concatWinnerNames();
     }
 }
