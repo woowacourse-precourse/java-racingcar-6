@@ -17,15 +17,17 @@ public class CarRepository {
         return car;
     }
 
-    public Car findById(Long id) {
-        return store.get(id);
-    }
-
     public List<Car> findAll(){
         return new ArrayList<>(store.values());
     }
 
     //for test code
+    public long getId(){
+        return this.id;
+    }
+    public Car findById(Long id) {
+        return store.get(id);
+    }
     public void clearStore(){
         store.clear();
     }
