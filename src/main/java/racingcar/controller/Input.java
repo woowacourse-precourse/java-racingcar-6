@@ -9,16 +9,19 @@ import static racingcar.controller.CheckInput.*;
 public class Input {
 
     public static List<String> inputCarName() {
-        List<String> names = new ArrayList<>();
         String s = Console.readLine();
-        StringTokenizer st = new StringTokenizer(s, ",");
+        List<String> names = splitNames(s);
+        checkNameLength(names);
+        checkDuplicateName(names);
+        return names;
+    }
 
+    public static List<String> splitNames(String s) {
+        List<String> names = new ArrayList<>();
+        StringTokenizer st = new StringTokenizer(s, ",");
         while (st.hasMoreElements()) {
             names.add(st.nextToken());
         }
-        checkNameLength(names);
-        checkDuplicateName(names);
-
         return names;
     }
 
