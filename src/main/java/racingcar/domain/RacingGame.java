@@ -8,8 +8,8 @@ public class RacingGame {
     private final int finalRound;
     private int currentRound;
 
-    public RacingGame(int finalRound, Car... cars) {
-        this.cars.addAll(List.of(cars));
+    public RacingGame(int finalRound, List<String> carNames) {
+        carNames.stream().map(Car::new).forEach(cars::add);
         this.finalRound = finalRound;
         this.currentRound = 0;
     }
