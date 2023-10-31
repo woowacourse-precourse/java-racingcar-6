@@ -30,7 +30,7 @@ public class MessagePrinter {
     }
 
     public static void racing(Cars cars){
-        List<Car> car = cars.getCar();
+        List<Car> car = cars.car();
         car.forEach(i -> {
             name(i);
             distance(i);
