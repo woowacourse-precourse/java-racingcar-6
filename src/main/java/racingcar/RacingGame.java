@@ -5,6 +5,7 @@ public class RacingGame {
     private static int count;
     public void play() {
         inputHandler.inputCarName();
+        inputHandler.inputMatchCount();
     }
 
     private static void registerCar() {}

@@ -1,12 +1,11 @@
 package racingcar;
 
 import java.util.List;
-import java.util.regex.PatternSyntaxException;
 
 public class InputValidator {
-    public String validateInput(String input) {
+    public String validateCarName(String input) {
         for (String word: divideByComma(input)) {
-            if (!isCorrectLength(word) && !isAlphabetWord(word)) {
+            if (!isCorrectCarNameLength(word) && !isAlphabetWord(word)) {
                 throw new IllegalArgumentException();
             }
         }
@@ -16,7 +15,7 @@ public class InputValidator {
     private List<String> divideByComma(String input) {
         return List.of(input.split(","));
     }
-    private boolean isCorrectLength(String word) {
+    private boolean isCorrectCarNameLength(String word) {
         return word.length() <= 5;
     }
 
@@ -27,5 +26,16 @@ public class InputValidator {
             }
         }
         return true;
+    }
+
+    public int validateMatchCount(String s) {
+        if (!(isCorrectMatchCountLength(s) && Character.isDigit(s.charAt(0)))) {
+            throw new IllegalArgumentException();
+        }
+        return Integer.parseInt(s);
+    }
+
+    private boolean isCorrectMatchCountLength(String s) {
+        return s.length() == 1;
     }
 }
