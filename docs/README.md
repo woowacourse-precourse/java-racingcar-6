@@ -18,6 +18,6 @@
 -[x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분합니다.
 
 ## 예외 처리
--[] 자동차 이름이 5자 초과일 경우 IllegalArgumentException을 발생시킵니다.
--[] 자동차 이름에 특수문자 ,를 포함하면 IllegalArgumentException를 발생시킵니다.
+-[x] 자동차 이름이 5자 초과일 경우 IllegalArgumentException을 발생시킵니다.
+-[x] 자동차 이름에 특수문자 ,를 포함하면 IllegalArgumentException를 발생시킵니다.
 -[] 시도할 횟수가 유효하지 않은 (예: 문자, 음수 등) 경우 IllegalArgumentException을 발생시킵니다.
