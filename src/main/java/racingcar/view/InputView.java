@@ -7,10 +7,13 @@ import racingcar.validator.Validator;
 
 public class InputView {
     public static int inputAttemptCount() {
-        String attemptCount = Console.readLine();
-        Validator.validateIsNumeric(attemptCount);
+        String attemptValue = Console.readLine();
+        Validator.validateIsNumeric(attemptValue);
 
-        return Integer.parseInt(attemptCount);
+        int attemptCount = Integer.parseInt(attemptValue);
+        Validator.validateAtLeastOne(attemptCount);
+
+        return attemptCount;
     }
 
     public static List<String> inputCarName() {
