@@ -22,7 +22,8 @@ public class GameController {
     public GameController(
             final InputView inputView,
             final OutputView outputView,
-            final MovingStrategy movingStrategy) {
+            final MovingStrategy movingStrategy
+    ) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.movingStrategy = movingStrategy;
@@ -59,7 +60,8 @@ public class GameController {
         outputView.outputGameResultMessage();
         while (raceRound.isLeftRound()) {
             cars.raceAllCars();
-            outputView.outputCarsPosition(cars.getCars());
+            outputView.outputCarsPosition(
+                    cars.getCars());
             raceRound.increaseCurrentRound();
         }
     }

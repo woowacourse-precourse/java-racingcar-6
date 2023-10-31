@@ -27,9 +27,10 @@ public class Cars {
     }
 
     private Integer findWinnerPosition() {
-        return cars.stream().max(Car::compareTo)
-                            .get()
-                            .getPosition();
+        return cars.stream()
+                .max(Car::compareTo)
+                .get()
+                .getPosition();
     }
 
 

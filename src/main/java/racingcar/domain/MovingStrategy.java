@@ -20,6 +20,7 @@ public class MovingStrategy {
     private Integer generateNumber() {
         return randomNumberGenerator.generate(
                 RANGE_START_NUMBER.getSetting(),
-                RANGE_END_NUMBER.getSetting());
+                RANGE_END_NUMBER.getSetting()
+        );
     }
 }

@@ -45,7 +45,8 @@ public class OutputView {
                     .append(COMMA.getUnit())
                     .append(SPACE.getUnit());
         }
-        outputBuilder.replace(outputBuilder.length()-2,
+        outputBuilder.replace(
+                outputBuilder.length()-2,
                 outputBuilder.length(),
                 BLANK.getUnit());
 

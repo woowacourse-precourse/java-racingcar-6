@@ -47,9 +47,13 @@ public class InputView {
 
     private void validateNumber(final String number) {
         for (char token : number.toCharArray()) {
-            if (!Character.isDigit(token)) {
-                throw new IllegalArgumentException(ERROR_NOT_NUMBER.getMessage());
-            }
+            validateEachDigit(token);
+        }
+    }
+
+    private void validateEachDigit(final char token) {
+        if (!Character.isDigit(token)) {
+            throw new IllegalArgumentException(ERROR_NOT_NUMBER.getMessage());
         }
     }
 
@@ -80,9 +84,13 @@ public class InputView {
 
     private void validateNameFormat(final String name) {
         for (char token : name.toCharArray()) {
-            if (!Character.isLetter(token)) {
-                throw new IllegalArgumentException(ERROR_NOT_LETTER.getMessage());
-            }
+            validateEachLetter(token);
+        }
+    }
+
+    private void validateEachLetter(final char token) {
+        if (!Character.isLetter(token)) {
+            throw new IllegalArgumentException(ERROR_NOT_LETTER.getMessage());
         }
     }
 
@@ -96,7 +104,6 @@ public class InputView {
 
 
     private String getInput() {
-
         return Console.readLine();
     }
 }
