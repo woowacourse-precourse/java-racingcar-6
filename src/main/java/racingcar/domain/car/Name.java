@@ -5,9 +5,9 @@ import static racingcar.exception.ErrorMessage.VALIDATE_EMPTY_FOR_EACH_NAME;
 import static racingcar.exception.ErrorMessage.VALIDATE_LENGTH_FOR_EACH_NAME;
 
 public class Name {
-    protected final String name;
+    private final String name;
 
-    protected Name(String name) {
+    public Name(String name) {
         validate(name);
         this.name = name;
     }
