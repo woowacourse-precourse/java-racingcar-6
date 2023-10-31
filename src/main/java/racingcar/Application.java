@@ -1,9 +1,10 @@
 package racingcar;
 
-import racingcar.controller.RandomNumberGenerater;
+import racingcar.utils.InputValidator;
+import racingcar.utils.RandomNumberGenerater;
 import racingcar.domain.Cars;
 import racingcar.domain.Race;
-import racingcar.utils.RacingController;
+import racingcar.controller.RacingController;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,7 +13,8 @@ public class Application {
         RandomNumberGenerater randomNumberGenerater = new RandomNumberGenerater();
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
-        RacingController racingController = new RacingController(new Cars(), new Race(), randomNumberGenerater,inputView,outputView);
+        InputValidator validator = new InputValidator();
+        RacingController racingController = new RacingController(new Cars(), new Race(), randomNumberGenerater,inputView,outputView, validator);
         racingController.start();
     }
 }
