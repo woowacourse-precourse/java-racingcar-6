@@ -13,6 +13,11 @@ public class RaceGameController {
     String[] carNames = inputView.readCarName().split(",");
     raceGameService.initializeCars(carNames);
 
+    System.out.println("시도할 횟수는 몇회인가요?");
+    int round = inputView.readProgressCount();
+    System.out.println(round);
+
+
   }
 
   public void EndRaceGame() {
