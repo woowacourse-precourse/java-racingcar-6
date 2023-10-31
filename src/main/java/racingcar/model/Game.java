@@ -3,6 +3,7 @@ package racingcar.model;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.util.MessageFactory;
 import racingcar.util.MessageProcessor;
+import racingcar.util.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +12,14 @@ public class Game {
     private final List<Car> cars;
     private final int tryCount;
     private final MessageProcessor messageProcessor;
+    private final RandomNumberGenerator randomNumberGenerator;
 
-    public Game(List<Car> cars, int tryCount, MessageProcessor messageProcessor) {
+    public Game(List<Car> cars, int tryCount, MessageProcessor messageProcessor, RandomNumberGenerator randomNumberGenerator) {
         validateTryCount(tryCount);
         this.cars = cars;
         this.tryCount = tryCount;
         this.messageProcessor = messageProcessor;
+        this.randomNumberGenerator = randomNumberGenerator;
     }
 
     private void validateTryCount(int tryCount) {
@@ -38,7 +41,7 @@ public class Game {
 
     private void playOneRound(StringBuilder result) {
         for (Car car : cars) {
-            car.move(Randoms.pickNumberInRange(0, 9));
+            car.move(randomNumberGenerator.pickNumberInRange());
             result.append(car.getName()).append(" : ").append(car.getMoveResult()).append("\n");
         }
         result.append("\n");
