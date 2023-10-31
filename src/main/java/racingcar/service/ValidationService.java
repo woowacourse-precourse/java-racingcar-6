@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static racingcar.constants.Delimiters.CAR_NAME_DELIMITER;
-import static racingcar.constants.ErrorMessage.*;
+import static racingcar.constants.ErrorMessages.*;
 import static racingcar.constants.RacingCarConstants.*;
 
 public class ValidationService {

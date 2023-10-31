@@ -2,7 +2,6 @@ package racingcar.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import racingcar.model.Car;
 import racingcar.model.Race;
@@ -12,12 +11,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-import static racingcar.constants.RacingCarConstants.FORWARD_THRESHOLD;
 
 class RaceServiceTest {
 
-    @Mock
-    private RandomNumberService randomNumberService;
     private RaceService raceService;
 
     @BeforeEach
@@ -57,4 +53,5 @@ class RaceServiceTest {
         assertEquals(1, winners.size());
         assertEquals(car1, winners.get(0));
     }
+
 }
