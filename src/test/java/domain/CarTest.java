@@ -15,4 +15,17 @@ public class CarTest {
 		//then
 		Assertions.assertThat(car.getLocation()).isEqualTo(1);
 	}
+
+	@ParameterizedTest
+	@ValueSource(ints = {1, 2, 3})
+	public void 숫자가_0이상_3이하라면_멈춘다(int randomNumber) {
+		//given
+		Car car = new Car();
+
+		// when
+		car.moveByNumber(randomNumber);
+
+		//then
+		Assertions.assertThat(car.getLocation()).isEqualTo(0);
+	}
 }
