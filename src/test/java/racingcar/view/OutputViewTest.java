@@ -10,6 +10,8 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
 public class OutputViewTest {
+    private static final String COLON = " : ";
+    private static final String DISTANCE_SYMBOL = "-";
     private Cars cars;
 
     @BeforeEach
@@ -22,12 +24,12 @@ public class OutputViewTest {
     public void 실행결과_출력(String name1, int distance1, String name2, int distance2) {
         cars = new Cars(Arrays.asList(new Car(name1, distance1),
                 new Car(name2, distance2)));
-        String actual = cars.updateResult();
+        String actual = OutputView.updatedResult(cars);
 
-        String expected1 = name1 + " : "
-                + "-".repeat(distance1);
-        String expected2 = name2 + " : "
-                + "-".repeat(distance2);
+        String expected1 = name1 + COLON
+                + DISTANCE_SYMBOL.repeat(distance1);
+        String expected2 = name2 + COLON
+                + DISTANCE_SYMBOL.repeat(distance2);
 
         assertThat(actual).contains(expected1, expected2);
     }

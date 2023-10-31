@@ -14,12 +14,6 @@ public class Car {
         this.distance = distance;
     }
 
-    @Override
-    public String toString() {
-        return name + " : "
-                + "-".repeat(distance);
-    }
-
     public String getName() {
         return name;
     }
@@ -30,15 +24,15 @@ public class Car {
         }
     }
 
-    private void go() {
-        distance++;
-    }
-
     public int getDistance() {
         return distance;
     }
 
     public boolean isEqualDistance(int compareDistance) {
         return distance == compareDistance;
+    }
+
+    private void go() {
+        distance++;
     }
 }

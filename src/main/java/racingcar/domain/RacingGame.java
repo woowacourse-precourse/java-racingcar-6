@@ -29,7 +29,8 @@ public class RacingGame {
 
     private void tryEachCount() {
         while (!isTryCountZero()) {
-            String updatedResult = cars.tryMovements();
+            cars.tryMovements();
+            String updatedResult = OutputView.updatedResult(cars);
             OutputView.printUpdatedResult(updatedResult);
             tryCount--;
         }

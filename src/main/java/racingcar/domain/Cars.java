@@ -3,12 +3,10 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 import racingcar.util.Generator;
 
 public class Cars {
-    private static final String RESULT_DELIMITER = "\n";
     private static final String WINNER_DELIMITER = ", ";
     private List<Car> cars;
 
@@ -28,18 +26,11 @@ public class Cars {
         return cars;
     }
 
-    public String tryMovements() {
+    public void tryMovements() {
         cars.forEach(car -> {
             int number = Generator.createRandomNumber();
             car.judgeNumberToGo(number);
         });
-        return updateResult();
-    }
-
-    public String updateResult() {
-        StringJoiner result = new StringJoiner(RESULT_DELIMITER);
-        cars.forEach(car -> result.add(car.toString()));
-        return result.toString();
     }
 
     public String findWinners() {
