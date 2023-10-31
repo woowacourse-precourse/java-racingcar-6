@@ -18,7 +18,8 @@ public class GameController {
     public void run() {
         String input = getCarsInput();
         parseInputToCars(input);
-        attempts = getAttemptsInput();
+        InputView.printAsking();
+        parseInputToAttempts(InputView.getUserInput());
         play(attempts);
         showResult();
     }
@@ -32,15 +33,8 @@ public class GameController {
         cars = Parser.parseStringToCars(input);
     }
 
-    private Attempts getAttemptsInput() {
-        InputView.printAsking();
-        //TODO: 리팩토링 포인트
-        try {
-            int attempts = Integer.parseInt(InputView.getUserInput());
-            return new Attempts(attempts);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력하세요.");
-        }
+    private void parseInputToAttempts(String input) {
+        attempts = Parser.parseStringToAttempts(input);
     }
 
     private void play(Attempts attempts) {
