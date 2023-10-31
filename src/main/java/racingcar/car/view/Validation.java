@@ -1,4 +1,4 @@
-package racingcar.user.view;
+package racingcar.car.view;
 
 import java.util.List;
 
@@ -9,13 +9,13 @@ public class Validation {
         return !carNames.contains(CAR_NAME_SEPARATOR);
     }
 
-    public boolean lessThanFiveLetter(List<String> carNames){
+    public boolean greaterThanFiveLetter(List<String> carNames){
         for (String carName : carNames) {
             if (carName.length() > CAR_NAME_LIMIT) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean isDuplicated(List<String> carNames){
