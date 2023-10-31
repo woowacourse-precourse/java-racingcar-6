@@ -23,7 +23,7 @@ public class CarInfo {
         carRepository.saveCar(car);
     }
 
-    public void allSaveCarInfo(List<String> carList) {
+    public void saveAllCarInfo(List<String> carList) {
         IntStream.range(0, carList.size())
                 .mapToObj(id -> new Car(carList.get(id), INITIAL_CAR_INDEX))
                 .forEach(this::saveCarInfo);

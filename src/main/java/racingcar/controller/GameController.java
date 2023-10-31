@@ -4,17 +4,17 @@ import static racingcar.constant.CommonConstant.ONE_BLANK_LINE;
 
 import java.util.List;
 import racingcar.domain.car.CarInfo;
-import racingcar.domain.game.Game;
+import racingcar.domain.game.GameManager;
 import racingcar.dto.Car;
 import racingcar.view.InputVeiw;
 import racingcar.view.OutputView;
 
 public class GameController {
-    private Game game;
+    private GameManager gameManager;
     private static CarInfo carinfo = CarInfo.getInstance();
 
     public GameController() {
-        this.game = new Game();
+        this.gameManager = new GameManager();
     }
 
     public void run() {
@@ -24,17 +24,17 @@ public class GameController {
 
     private void getRequest() {
         OutputView.printInputMessageOfCarInfo();
-        carinfo.allSaveCarInfo(InputVeiw.inputMultipleNames());
+        carinfo.saveAllCarInfo(InputVeiw.inputMultipleNames());
 
         OutputView.printInputMessageOfTotalRound();
-        game.saveTotalRound(InputVeiw.inputSingleNumber());
+        gameManager.saveTotalRoundOfGame(InputVeiw.inputSingleNumber());
     }
 
     private void forwardAndResponse() {
         OutputView.printBlankLine(ONE_BLANK_LINE);
         OutputView.printOutputMessageResult();
 
-        List<Car> gameWinners = game.playGame();
+        List<Car> gameWinners = gameManager.startGame();
         OutputView.printGameWinner(gameWinners);
     }
 }
