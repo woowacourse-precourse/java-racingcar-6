@@ -4,4 +4,5 @@ public class ErrorMessage {
     public static final String CAR_NAME_MAX_LENGTH = "자동차 이름은 5글자 이하여야 합니다.";
     public static final String CAR_NAME_MIN_LENGTH = "자동차 이름은 1글자 이상이여야 합니다.";
     public static final String EMPTY_CAR_LIST = "car list가 비어있습니다.";
+    public static final String EMPTY_CAR_STRING_LIST = "car name list가 비어있습니다.";
 }

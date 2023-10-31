@@ -6,6 +6,7 @@ import java.util.List;
 import racingcar.domain.car.Car;
 import racingcar.dto.CarDto;
 import racingcar.dto.RaceConditionDto;
+import racingcar.exception.ErrorMessage;
 
 public class CarRacingImp implements CarRacing {
     private Racing racing;
@@ -13,8 +14,19 @@ public class CarRacingImp implements CarRacing {
 
     @Override
     public void addCar(String[] carNames){
+        if(isInvalidCarNames(carNames)){
+            throw new IllegalArgumentException(ErrorMessage.EMPTY_CAR_STRING_LIST);
+        }
         List<Car> cars = convertToCarList(carNames);
         initializeRace(cars);
+    }
+
+    private static boolean isInvalidCarNames(String[] carNames) {
+        return carNames == null || carNames.length == 0;
+    }
+
+    private void initializeRace(List<Car> cars){
+        this.racing = new Racing(cars);
     }
 
     @Override
@@ -31,6 +43,11 @@ public class CarRacingImp implements CarRacing {
         return new RaceConditionDto(raceCondition);
     }
 
+    private List<CarDto> racingProgress() {
+        racing.start();
+        return racing.getAllCarDistances();
+    }
+
     @Override
     public List<CarDto> getWinner() {
         return racing.getCarWithLongestDistance();
@@ -40,15 +57,6 @@ public class CarRacingImp implements CarRacing {
         return Arrays.stream(carNames)
                 .map(Car::new)
                 .toList();
-    }
-
-    private void initializeRace(List<Car> cars){
-        this.racing = new Racing(cars);
-    }
-
-    private List<CarDto> racingProgress() {
-        racing.start();
-        return racing.getAllCarDistances();
     }
 
 }
