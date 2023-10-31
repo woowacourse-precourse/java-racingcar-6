@@ -16,4 +16,8 @@ public class Judgment {
         cars.move(numberGenerator);
         return cars.getCars();
     }
+
+    public List<Name> award() {
+        return cars.findWinnerNames();
+    }
 }
