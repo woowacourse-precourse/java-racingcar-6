@@ -17,6 +17,8 @@ class RacingServiceTest extends NsTest{
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    private static final int STOP_ZERO = 0;
+
     private RacingService racingService;
     private CarRepository carRepository;
     private ResultRepository resultRepository;
@@ -66,10 +68,9 @@ class RacingServiceTest extends NsTest{
                     List<Car> carList = racingService.progressRacing();
                     assertFalse(carList.stream().anyMatch(car -> car.getDistance() > 0));
                 },
-                STOP, STOP, STOP
+                STOP, STOP, STOP_ZERO
         );
     }
-
 
     @Override
     protected void runMain() {
