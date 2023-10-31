@@ -5,8 +5,8 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import java.util.List;
 
 public class ConsoleInputView implements InputView {
-    public static final String DELIMITER_DESCRIPTION = "쉼표";
-    public static final String DELIMITER = ",";
+    private static final String DELIMITER_DESCRIPTION = "쉼표";
+    private static final String DELIMITER = ",";
 
     @Override
     public List<String> enterCarNames() {
