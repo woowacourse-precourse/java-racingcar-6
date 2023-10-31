@@ -24,7 +24,7 @@ class InputTest {
         carList.add(car2);
         carList.add(car3);
 
-        assertThat(result.size()).isEqualTo(2);
+        assertThat(result.size()).isEqualTo(3);
         assertThat(result.get(0).getCarName()).isEqualTo(carList.get(0).getCarName());
         assertThat(result.get(1).getCarName()).isEqualTo(carList.get(1).getCarName());
         assertThat(result.get(2).getCarName()).isEqualTo(carList.get(2).getCarName());
