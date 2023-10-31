@@ -43,11 +43,14 @@ public class MessageReceiver {
     }
 
     private void validateDuplication(final List<String> carNames) {
-        Set<String> carNameSet = new HashSet<>(carNames);
-
-        if (carNames.size() != carNameSet.size()) {
+        if (isDuplication(carNames)) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATION_EXCEPTION);
         }
+    }
+
+    private boolean isDuplication(final List<String> carNames) {
+        Set<String> distinctCarNames = new HashSet<>(carNames);
+        return carNames.size() != distinctCarNames.size();
     }
 
     private void validateAttemptCount(final int attemptCount) {
