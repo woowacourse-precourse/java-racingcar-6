@@ -27,14 +27,35 @@
 
 ## 2. MVC 기능 분리
 ### Controller
+* GameController - 레이스 시작과 종료
+* RacingController - 레이스 진행
 
 ### Model
+* Car - 자동차의 이름(String), 전진 횟수(Int) 저장
 
 ### View
+* InputView - 입력
+* OutputView - 출력
      
 ## 3. 패키지 구조
-
-
+```bash
+com.woowacourse.java-racingcar-6
+┃ common
+┃ ┣ ErrorMessageConstants.java
+┃ ┣ StringToListConverter.java
+┃ ┗ Validator.java
+┃
+┣ controller
+┃ ┣ GameController.java
+┃ ┗ RacingController.java
+┃
+┣ model
+┃ ┗ Car.java
+┃
+┣ view
+┃ ┣ InputView.java
+┃ ┗ OutputView.java
+```
 
 ## 4. Git 커밋 컨벤션
 ```
