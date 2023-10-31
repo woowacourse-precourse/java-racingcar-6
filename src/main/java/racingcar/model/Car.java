@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Car implements Comparable<Car> {
+public class Car {
 
     private static final int GOOD_TO_RUN = 4;
 
@@ -16,11 +16,6 @@ public class Car implements Comparable<Car> {
         if (isGoodToRun >= GOOD_TO_RUN) {
             position.add();
         }
-    }
-
-    @Override
-    public int compareTo(Car compareCar) {
-        return position.value() - compareCar.getPosition();
     }
 
     public String getName() {
