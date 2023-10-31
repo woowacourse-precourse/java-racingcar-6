@@ -27,6 +27,11 @@ public class Game {
         return maxGoNumber;
     }
 
+    public void printResult(List<Car> cars) {
+        for (int i = 0; i < inputs.raceNumbers; i++) {
+            printResultByRound(cars, i);
+        }
+    }
 
     private void printResultByRound(List<Car> cars, int turn) {
         for (Car car : cars) {
