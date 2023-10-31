@@ -42,6 +42,13 @@ class ApplicationTest extends NsTest {
         assertThat(nameList).isEqualTo(Arrays.asList("pobi","woni","jun"));
     }
 
+    @Test
+    void 이름_길이_검사(){
+        NamesManager manager = new NamesManager();
+        boolean result = manager.wrongNameLength("javaji");
+        assertThat(result).isEqualTo(true);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
