@@ -12,6 +12,8 @@ public class MainCarGame {
 
     CarManager carManager = new CarManager();
     RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    ScorePrinter scorePrinter = new ScorePrinter();
+
     public static int ATTEMPT_COUNT = 0;
     public static List<String> carOrderList;
 
@@ -19,11 +21,11 @@ public class MainCarGame {
         setInput();
 
         for(int i = 0; i<ATTEMPT_COUNT; i++){
-            System.out.println("-----"+i+"번째-------");
-            carManager.setCarRandomValue();
-            //중간 점수 출력
+            //System.out.println("-----"+i+"번째-------");
+            carManager.setCarRandomNumber();
+            scorePrinter.printMidtermScore();
         }
-        System.out.println(carManager.winnerData());
+        scorePrinter.printFinalScore();
 
 
     }
@@ -32,8 +34,8 @@ public class MainCarGame {
         Validator validator = new Validator();
 
         carOrderList = getCarNameInput(); //List<String
+        validator.validatorForCar(carOrderList); //유효검사는 객체생성보다 먼저되어야함
         carManager.initCar(carOrderList); //객체 생성
-        validator.validatorForCar(carOrderList);
 
         ATTEMPT_COUNT = getAttemptCountInput();
         validator.validatorForAttemptCount(ATTEMPT_COUNT);

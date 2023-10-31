@@ -11,9 +11,9 @@ public class Car { //자동차 객체를 관리한다.
     }
 
     public void move(Car name){
-        System.out.print(name.getCarName() + "움직입니다");
+        //System.out.print(name.getCarName() + "움직입니다");
         this.distance += 1;
-        System.out.println(name.getDistance());
+        //System.out.println(name.getDistance());
     }
 
     public int getDistance() {

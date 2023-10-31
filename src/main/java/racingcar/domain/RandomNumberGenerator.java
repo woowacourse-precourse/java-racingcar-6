@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
-import racingcar.domain2.CarGame;
 
 import java.util.List;
 
