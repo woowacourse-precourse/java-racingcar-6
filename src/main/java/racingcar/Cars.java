@@ -45,4 +45,10 @@ public class Cars {
         return winners;
     }
 
+    public void progressAllCars() {
+        for (Car car : cars) {
+            car.progress();
+        }
+    }
+
 }
