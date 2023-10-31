@@ -16,14 +16,7 @@ public class Round {
         return new Round(cars);
     }
 
-    public void playRound(int numAttempts) {
-        for (int round = 1; round <= numAttempts; round++) {
-            moveAllCarsOneRound();
-            RoundView.printRoundResults(CARS);
-        }
-    }
-
-    private void moveAllCarsOneRound() {
+    public void moveAllCarsOneRound() {
         for (Car car : CARS) {
             car.move();
         }

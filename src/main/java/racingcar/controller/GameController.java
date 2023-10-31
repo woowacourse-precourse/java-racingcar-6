@@ -6,6 +6,7 @@ import racingcar.model.Car;
 import racingcar.model.Judge;
 import racingcar.model.Round;
 import racingcar.view.JudgeView;
+import racingcar.view.RoundView;
 import racingcar.view.SystemView;
 
 public class GameController {
@@ -36,9 +37,13 @@ public class GameController {
     public void game() {
 
         SystemView.displayGameResults();
-
         Round round = Round.carsOf(cars);
-        round.playRound(roundNumber);
+
+        for (int i = 0; i < roundNumber; i++) {
+            round.moveAllCarsOneRound();
+            RoundView.printRoundResults(cars);
+
+        }
     }
 
     public void judge() {
