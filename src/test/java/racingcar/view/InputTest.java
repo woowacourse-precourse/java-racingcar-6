@@ -79,7 +79,7 @@ class InputTest {
         InputStream in = new ByteArrayInputStream(text.getBytes());
         System.setIn(in);
 
-        assertThatThrownBy(() -> input.inputCarName())
+        assertThatThrownBy(() -> input.inputMovingNumber())
                 .isInstanceOf(IllegalArgumentException.class);
         Console.close();
     }
