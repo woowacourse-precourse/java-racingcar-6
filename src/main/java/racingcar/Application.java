@@ -1,6 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Application {
@@ -12,6 +14,13 @@ public class Application {
     }
 
     public static List<String> getCarNamesFromInput(String input) {
-        return List.of(input.split(","));
+        List<String> cars = new ArrayList<>();
+        for(String car : input.split(",")){
+            if(car.length() > 5){
+                throw new IllegalArgumentException();
+            }
+            cars.add(car);
+        }
+        return cars;
     }
 }

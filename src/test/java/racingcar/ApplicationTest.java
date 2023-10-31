@@ -40,6 +40,12 @@ class ApplicationTest extends NsTest {
                 List.of("pobi", "woni", "jun"));
     }
 
+    @Test
+    void 이름의_길이_5자_초과_입력_테스트() {
+        String input = "pobi, wonii, junnie";
+        assertThatThrownBy(() -> Application.getCarNamesFromInput(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 
     @Override
     public void runMain() {
