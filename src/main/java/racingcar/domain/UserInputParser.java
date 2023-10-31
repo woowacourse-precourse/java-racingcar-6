@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserInputParser {
@@ -16,6 +17,17 @@ public class UserInputParser {
     }
 
     public List<Car> generateCarList(String userInput) {
-        return null;
+        String[] tempCarList = userInput.split(",");
+
+        List<Car> carList = new ArrayList<>();
+
+        for (String carName : tempCarList) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("차량 이름은 5글자 이하이어야 합니다.");
+            }
+            carList.add(new Car(carName, 0));
+        }
+
+        return carList;
     }
 }
