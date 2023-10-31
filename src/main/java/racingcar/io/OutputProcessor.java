@@ -16,13 +16,11 @@ public class OutputProcessor {
     }
 
     public static void printRacingRound(final List<Car> cars) {
-        for (final Car car : cars) {
-            System.out.printf(
-                    ROUND_RESULT_FORMAT,
-                    car.getName().getValue(),
-                    formattingPosition(car.getPosition().getValue())
-            );
-        }
+        cars.forEach(car -> System.out.printf(
+                ROUND_RESULT_FORMAT,
+                car.getName().getValue(),
+                formattingPosition(car.getPosition().getValue())
+        ));
     }
 
     private static String formattingPosition(final int position) {
