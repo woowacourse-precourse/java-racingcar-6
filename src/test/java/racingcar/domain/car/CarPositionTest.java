@@ -3,7 +3,6 @@ package racingcar.domain.car;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.api.Test;
-import racingcar.domain.car.CarPosition;
 
 public class CarPositionTest {
     @Test
@@ -11,7 +10,7 @@ public class CarPositionTest {
         CarPosition carPosition = CarPosition.createStartPosition();
         int oldPosition = carPosition.getPosition();
 
-        carPosition.driveForward();
+        carPosition.move(1);
         int newPosition = carPosition.getPosition();
 
         assertThat(newPosition).isEqualTo(oldPosition + 1);

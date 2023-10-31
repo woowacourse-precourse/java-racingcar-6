@@ -5,9 +5,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.domain.car.CarPosition;
-import racingcar.domain.car.DriveBehavior;
-import racingcar.domain.car.RandomDriveBehavior;
 
 public class RandomDriveBehaviorTest {
     @ParameterizedTest
@@ -17,7 +14,7 @@ public class RandomDriveBehaviorTest {
         CarPosition carPosition = CarPosition.createStartPosition();
         int oldPosition = carPosition.getPosition();
 
-        driveBehavior.drive(carPosition);
+        carPosition.move(driveBehavior.determineDistance());
         int newPosition = carPosition.getPosition();
 
         assertThat(newPosition).isEqualTo(oldPosition + 1);
@@ -30,7 +27,7 @@ public class RandomDriveBehaviorTest {
         CarPosition carPosition = CarPosition.createStartPosition();
         int oldPosition = carPosition.getPosition();
 
-        driveBehavior.drive(carPosition);
+        carPosition.move(driveBehavior.determineDistance());
         int newPosition = carPosition.getPosition();
 
         assertThat(newPosition).isEqualTo(oldPosition);
@@ -42,7 +39,7 @@ public class RandomDriveBehaviorTest {
         DriveBehavior driveBehavior = new RandomDriveBehavior(() -> randomNumber);
         CarPosition carPosition = CarPosition.createStartPosition();
 
-        assertThatThrownBy(() -> driveBehavior.drive(carPosition))
+        assertThatThrownBy(() -> carPosition.move(driveBehavior.determineDistance()))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Error: 무작위 값은 0에서 9 사이의 숫자여야 합니다.");
     }

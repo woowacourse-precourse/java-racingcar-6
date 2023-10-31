@@ -19,8 +19,8 @@ public class CarPosition implements Comparable<CarPosition> {
         return new CarPosition(carPosition.position);
     }
 
-    public void driveForward() {
-        ++position;
+    public void move(int distance) {
+        position += distance;
     }
 
     @Override

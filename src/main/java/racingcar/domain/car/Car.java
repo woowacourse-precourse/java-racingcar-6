@@ -25,7 +25,7 @@ public class Car {
     }
 
     public void drive() {
-        driveBehavior.drive(carPosition);
+        carPosition.move(driveBehavior.determineDistance());
     }
 
     public boolean isSamePosition(Car car) {
