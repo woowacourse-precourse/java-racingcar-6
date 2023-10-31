@@ -4,7 +4,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputView {
 
-    private static final int MAX_LENGTH = 5;
+    private static final int MAX_CAR_NAME_LENGTH = 5;
     public String[] getCarNames(){
         String[] cars = readLine().split(",");
 
@@ -27,7 +27,7 @@ public class InputView {
 
     private boolean isShortEnough(String[] cars) {
         for (String car : cars) {
-            if (car.length() > MAX_LENGTH) {
+            if (car.length() > MAX_CAR_NAME_LENGTH) {
                 return false;
             }
         }
