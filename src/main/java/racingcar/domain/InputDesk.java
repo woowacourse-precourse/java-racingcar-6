@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputDesk {
@@ -17,14 +18,14 @@ public class InputDesk {
     }
 
     public void checkIsNull(String inputStr) {
-        if ( inputStr == null ) {
+        if (inputStr == null) {
             throw new IllegalArgumentException("사용자 입력값 null");
         }
     }
 
     public void checkIllegalArgumentException(String carName) {
 
-        if ( carName.length() <= 0 ) {
+        if (carName == null || carName.length() <= 0) {
             throw new IllegalArgumentException("자동차 이름 길이 0");
         }
 
@@ -35,7 +36,7 @@ public class InputDesk {
     }
 
     public void checkIllegalArgumentException(int inputCount) {
-        if ( inputCount < 1 ) {
+        if (inputCount < 1) {
             throw new IllegalArgumentException("시도할 회수 입력값 0 이하");
         }
     }
@@ -48,12 +49,12 @@ public class InputDesk {
             checkIsNull(inputStr);
             String[] strArr = inputStr.split(",");
 
-            for ( int i = 0; i < strArr.length; i++ ) {
+            for (int i = 0; i < strArr.length; i++) {
                 checkIllegalArgumentException(strArr[i]);
                 cars.add(strArr[i]);
             }
 
-        } catch ( IllegalArgumentException e ) {
+        } catch (IllegalArgumentException e) {
             throw e;
         }
 
@@ -65,7 +66,7 @@ public class InputDesk {
             String inputStr = Console.readLine();
             checkIsNull(inputStr);
             int inputCount = Integer.parseInt(inputStr);
-            if ( inputCount < 1 ) {
+            if (inputCount < 1) {
                 checkIllegalArgumentException(inputCount);
             }
             count = inputCount;
