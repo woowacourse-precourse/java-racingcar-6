@@ -11,7 +11,6 @@ public class RacingGame {
     private final List<Round> rounds = new ArrayList<>();
     private int CAR_AMOUNT, ROUND_MAX;
 
-
     public RacingGame(String[] cars, int round) {
         this.CAR_AMOUNT = cars.length;
         this.ROUND_MAX = round;

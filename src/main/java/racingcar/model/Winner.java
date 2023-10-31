@@ -7,7 +7,7 @@ import racingcar.dto.CarDTO;
 import racingcar.dto.RoundDTO;
 
 public class Winner {
-    List<String> winners = new ArrayList<>();
+    private List<String> winners = new ArrayList<>();
 
 
     public List<String> getWinners(List<RoundDTO> rounds) {

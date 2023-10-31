@@ -5,7 +5,8 @@ import racingcar.dto.CarDTO;
 import racingcar.dto.RoundDTO;
 
 public class OutputView {
-    StringBuilder result = new StringBuilder();
+    private StringBuilder result = new StringBuilder();
+
 
     public void displayResult(List<RoundDTO> rounds, List<String> winners) {
         result.append("\n실행결과\n");

@@ -8,7 +8,6 @@ import racingcar.dto.CarDTO;
 public class CarManager {
     private final List<Car> cars = new ArrayList<>();
 
-    
     public void createAndAddCars(String[] names) {
         for (String name : names) {
             cars.add(new Car(name));

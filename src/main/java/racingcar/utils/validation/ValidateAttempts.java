@@ -3,7 +3,6 @@ package racingcar.utils.validation;
 public class ValidateAttempts extends Validator {
     private static final String errorMessage = "공백 없이 자연수로만 입력해주세요.";
 
-
     private ValidateAttempts() {
     }
 
