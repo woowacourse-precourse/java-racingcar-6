@@ -13,7 +13,7 @@ public class Game {
     private Long gameCount;
 
     public void raceSetting() {
-        player = new Player();
+        setPlayer();
         setCarList();
         setGameCount();
     }
