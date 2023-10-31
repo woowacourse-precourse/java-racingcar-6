@@ -15,7 +15,6 @@ public class InputView {
         return validInputBlank(Console.readLine());
     }
 
-    // 문자열에 공백이 포함되어 있거나, 아무것도 입력받지 않았을 때 예외가 발생합니다.
     private String validInputBlank(String input) {
         if ((input.isEmpty() || input.contains(" "))) {
             throw new IllegalArgumentException(NOT_PERMIT_BLANK);
@@ -39,8 +38,6 @@ public class InputView {
         if ('1' > input.charAt(0)) {
             throw new IllegalArgumentException(PERMIT_START_INCLUSIVE_ONE);
         }
-
         return Integer.parseInt(input);
     }
-
 }
