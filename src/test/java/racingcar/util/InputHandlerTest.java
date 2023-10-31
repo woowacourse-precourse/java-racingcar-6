@@ -16,6 +16,7 @@ class InputHandlerTest {
     private void setInput(String inputValue) {
         System.setIn(new ByteArrayInputStream(inputValue.getBytes()));
     }
+
     @BeforeEach
     void testInit() {
 
@@ -28,7 +29,7 @@ class InputHandlerTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings =  {"pobi,woni,jun", "5"})
+    @ValueSource(strings = {"pobi,woni,jun", "5"})
     void 사용자가_입력한_값이_정상적으로_리턴_되는지_확인한다(String inputValue) {
         setInput(inputValue);
         String expected = inputValue;
