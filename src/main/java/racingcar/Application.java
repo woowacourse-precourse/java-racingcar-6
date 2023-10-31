@@ -16,45 +16,6 @@ public class Application {
         showResultBoard(cars);
     }
 
-    private static void showProcessingBoard(Car[] cars, int roundCount) {
-        System.out.println();
-        System.out.println("실행 결과");
-
-        for (int turn = 0; turn < roundCount; turn++) {
-            moveCars(cars);
-            printCars(cars);
-        }
-    }
-
-    private static void showResultBoard(Car[] cars) {
-        int maxDistance = 0;
-        for (Car car : cars) {
-            maxDistance = Math.max(maxDistance, car.getDistance());
-        }
-
-        List<String> winnerNames = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getDistance() == maxDistance) {
-                winnerNames.add(car.getName());
-            }
-        }
-        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
-    }
-
-    private static void moveCars(Car[] cars) {
-        for (Car car : cars) {
-            int randomNumber = pickNumberInRange(0, 9);
-            car.move(randomNumber);
-        }
-    }
-
-    private static void printCars(Car[] cars) {
-        for (Car car : cars) {
-            System.out.println(car.toString());
-        }
-        System.out.println();
-    }
-
     private static int generateRoundCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String roundCountInput = readLine();
@@ -73,5 +34,44 @@ public class Application {
             cars[index] = new Car(carNames[index], 0);
         }
         return cars;
+    }
+
+    private static void showProcessingBoard(Car[] cars, int roundCount) {
+        System.out.println();
+        System.out.println("실행 결과");
+
+        for (int turn = 0; turn < roundCount; turn++) {
+            moveCars(cars);
+            printCars(cars);
+        }
+    }
+
+    private static void moveCars(Car[] cars) {
+        for (Car car : cars) {
+            int randomNumber = pickNumberInRange(0, 9);
+            car.move(randomNumber);
+        }
+    }
+
+    private static void printCars(Car[] cars) {
+        for (Car car : cars) {
+            System.out.println(car.toString());
+        }
+        System.out.println();
+    }
+
+    private static void showResultBoard(Car[] cars) {
+        int maxDistance = 0;
+        for (Car car : cars) {
+            maxDistance = Math.max(maxDistance, car.getDistance());
+        }
+
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getDistance() == maxDistance) {
+                winnerNames.add(car.getName());
+            }
+        }
+        System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 }
