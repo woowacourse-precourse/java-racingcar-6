@@ -26,7 +26,7 @@ public class RacingCarGameControllerTest {
         mockInputView.init(RACING_CAR_NAME_INPUT, ROUND_COUNT_INPUT);
 
         racingCarGameController.play();
-        String printedMessage = mockOutputView.getPrintedMessage();
+        String printedMessage = mockOutputView.getPrintedMessageAndClear();
 
         Assertions.assertThat(printedMessage)
                 .contains("실행 결과", "semin", "woowa", "pre", "최종 우승자");

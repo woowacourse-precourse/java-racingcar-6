@@ -18,7 +18,8 @@ public class MockOutputView implements OutputView {
         System.out.println(message);
     }
 
-    public String getPrintedMessage() {
+    public String getPrintedMessageAndClear() {
+        printedMessage = "";
         return printedMessage;
     }
 }
