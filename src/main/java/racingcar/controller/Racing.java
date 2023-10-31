@@ -10,13 +10,13 @@ public class Racing {
     private final Game game;
     private final Result result;
 
-    public static Racing of(Game game, Result result) {
-        return new Racing(game, result);
-    }
-
     private Racing(Game game, Result result) {
         this.game = game;
         this.result = result;
+    }
+
+    public static Racing of(Game game, Result result) {
+        return new Racing(game, result);
     }
 
     public void start(TrialCount trialCount) {

@@ -7,13 +7,13 @@ public final class InputDTO {
     private final TrialCount trialCount;
     private final Names names;
 
-    public static InputDTO of(TrialCount trialCount, Names names) {
-        return new InputDTO(trialCount, names);
-    }
-
     private InputDTO(TrialCount trialCount, Names names) {
         this.trialCount = trialCount;
         this.names = names;
+    }
+
+    public static InputDTO of(TrialCount trialCount, Names names) {
+        return new InputDTO(trialCount, names);
     }
 
     public TrialCount getTrialCount() {
