@@ -12,7 +12,7 @@ public class ControllerTest {
     @DisplayName("구분자로 이름이 나누어지는지 테스트")
     void splitNameTest() {
         List<String> result = Controller.splitName("Steph,curry");
-        assertThat(result).contains("steph", "curry");
+        assertThat(result).contains("Steph", "curry");
     }
 
     @Test
