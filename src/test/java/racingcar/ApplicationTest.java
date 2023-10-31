@@ -24,18 +24,31 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void 이름의_길이_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
-    void 복수의_우승자_처리() {
-
+    void 이름의_중복_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi, pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
 
-    void
+    void 이름의_타입_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,j218h", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+//    void 복수의_우승자_처리() {
+//
+//    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
