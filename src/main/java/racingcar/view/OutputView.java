@@ -25,7 +25,7 @@ public class OutputView {
 
     public static void broadcastUserBoardOfRound(Car car){
         // TODO: getter 없이 쓸 수 있는 방법 고민 해보기
-        System.out.printf("%s %s", car.getCarName(), DISPLAY_USER_SCORE_SIGN);
+        System.out.printf("%s %s ", car.getCarName(), DISPLAY_USER_SCORE_SIGN);
         for(int i=0; i<car.getScore(); i++){
             System.out.printf("%s", SCORE_SIGN);
         }
