@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.InputValidator;
 
 import java.util.ArrayList;
@@ -20,25 +19,22 @@ public class RacingGame {
         this.tryCount = tryCount;
     }
 
-    private void initCars(List<String> carNames) {
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
-    }
-
     public String race() {
-        for (Car car : cars) {
-            int randomNum = getRandomNum();
-            car.move(randomNum);
+        String finalResult = "\n실행결과\n";
+        for (int i = 0; i < tryCount; ++i) {
+            String resultOfRound = Round.race(cars);
+            finalResult += resultOfRound;
         }
-        return CurrentResultMap.getCurrentResultMap(cars);
+        return finalResult;
     }
 
     public String getWinners() {
         return WinnerCalculator.getWinners(cars);
     }
 
-    private int getRandomNum() {
-        return Randoms.pickNumberInRange(0, 9);
+    private void initCars(List<String> carNames) {
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 }
