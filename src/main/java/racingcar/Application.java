@@ -19,6 +19,7 @@ public class Application
     
     private static void printWinner(Vector<String> winner)
     {
+    	System.out.print("최종 우승자 : ");
     	for(int i = 0; i < winner.size(); i++)
     	{
     		System.out.print(winner.get(i));
