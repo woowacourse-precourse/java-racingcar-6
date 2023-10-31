@@ -8,12 +8,26 @@ public class validator {
   private static final String SPACE = " ";
   private final parser parser = new parser();
 
-  public void checkCarNamesInput(String input) throws IllegalArgumentException {
+  // 횟수 예외처리
+  public void checkNumberOfTrialInput(String input) throws IllegalArgumentException {
     checkEmptyAndThrowException(input);
-    checkLastIndexAndThrowException(input);
-    List<String> carNameList = parser.parseCarNames(input);
-    checkCarNameListDuplicationAndThrowException(carNameList);
-    checkEachCarNameLengthAndSpaceThrowException(carNameList);
+    checkCharAndThrowException(input);
+  }
+
+  private void checkCharAndThrowException(String input) {
+    try {
+      Integer.parseInt(input);
+    } catch (NumberFormatException e) {
+      throw new IllegalArgumentException("[ERROR] 시도할 횟수는 숫자여야 합니다.");
+    }
+  }
+
+  public void checkCarNamesInput(String input) throws IllegalArgumentException {
+    checkEmptyAndThrowException(input); // 빈 입력값인 경우의 예외처리
+    checkLastIndexAndThrowException(input); // 5글자 이하인지 확인하는 예외처리
+    List<String> carNameList = parser.parseCarNames(input); // string -> List 변경
+    checkCarNameListDuplicationAndThrowException(carNameList); // 중복 확인
+    checkEachCarNameLengthAndSpaceThrowException(carNameList); //
   }
 
   private void checkEachCarNameLengthAndSpaceThrowException(List<String> carNameList) {
