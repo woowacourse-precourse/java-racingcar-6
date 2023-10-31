@@ -13,7 +13,6 @@ public class OutputView {
     private static final int MIN_VALUE = 0;
     private static final String DELIMITER = " : ";
     private static final String FINAL_WINNER = "최종 우승자";
-
     private static final String RESULT = "실행 결과";
 
     public void showResultMessage() {
