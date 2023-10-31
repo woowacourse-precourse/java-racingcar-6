@@ -7,8 +7,8 @@ public class RaceStage {
         this.carGroup = carGroup;
     }
 
-    public static RaceStage from(CarGroup movedCars) {
-        return new RaceStage(movedCars);
+    public static RaceStage from(CarGroup carGroup) {
+        return new RaceStage(carGroup);
     }
 
     public Winners findWinners() {
