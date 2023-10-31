@@ -133,7 +133,10 @@ class ApplicationTest extends NsTest {
           cars.replace(carName,movement);
         }
       });
+
       assertThat(cars.get("테스트1")).isEqualTo(1);
+      assertThat(cars.get("테스트2")).isEqualTo(1);
+      assertThat(cars.get("테스트3")).isEqualTo(1);
     }
 
     @Test
@@ -149,8 +152,10 @@ class ApplicationTest extends NsTest {
           result+="-";
         }
         System.out.println(carName + " : " + result);
+        assertThat(result.length()).isEqualTo(movement);
       });
     }
+
     @Test
     void winnerDisplay() {
       Map<String,Integer> cars = new HashMap<>();
