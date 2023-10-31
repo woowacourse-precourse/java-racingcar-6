@@ -7,7 +7,8 @@ public enum GameCondition {
     START_POSITION(0),
     CAR_SPEED(1),
     RANDOM_NUMBER_START_INCLUSIVE(0),
-    RANDOM_NUMBER_END_INCLUSIVE(9);
+    RANDOM_NUMBER_END_INCLUSIVE(9),
+    FORWARD_CONDITION(4);
 
     private final int value;
 

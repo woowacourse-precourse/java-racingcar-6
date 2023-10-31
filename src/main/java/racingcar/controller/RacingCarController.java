@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
+import racingcar.enums.GameCondition;
 import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -65,7 +66,7 @@ public class RacingCarController {
     }
 
     private void moveForwardOrStop(Car car, int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= GameCondition.FORWARD_CONDITION.getValue()) {
             car.moveForward();
         }
     }
