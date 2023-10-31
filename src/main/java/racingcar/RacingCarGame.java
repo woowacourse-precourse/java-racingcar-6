@@ -22,5 +22,16 @@ public class RacingCarGame {
         user.inputTryCount();
 
         int tryCount = user.getTryCount();
+        while (tryCount > 0) {
+            for (Car car : Cars) {
+                if (car.canMove()) {
+                    car.move();
+                }
+            }
+            tryCount--;
+        }
+
+        Judge judge = new Judge(Cars);
+        List<Car> winners = judge.decideWinner();
     }
 }
