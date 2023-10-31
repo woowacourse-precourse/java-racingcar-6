@@ -32,7 +32,7 @@ class CarracingTest {
     @MethodSource("provideCarName")
     void 자동차_출발점_위치(String[] names) {
         setInstance();
-        Map<String, String> nameList = new LinkedHashMap<>();
+        Map<String, String> nameList;
         nameList = carracing.setInitStartPoint(names);
 
         boolean checkSetInitStartPoint = checkNull(nameList);
@@ -65,7 +65,8 @@ class CarracingTest {
     }
 
     private static boolean checkNull(Map<String, String> nameList) {
-
+        //모든 자동차의 value값이 ""로 설정되어있다면 false를 반환
+        //자동차의 value값 중 하나라도 ""로 설정되어있지 않다면 true를 반환
         boolean containNullValue = nameList.entrySet().stream()
                 .anyMatch(entry -> entry.getValue() == null);
 
