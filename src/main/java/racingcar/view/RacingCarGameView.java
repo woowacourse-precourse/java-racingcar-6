@@ -24,14 +24,7 @@ public class RacingCarGameView {
 
     public int requestTryNumber() {
         System.out.println(REQUEST_TRY_NUMBER);
-        int tryNum;
-
-        try {
-            tryNum = Integer.parseInt(Console.readLine());
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자를 입력해 주세요");
-        }
-
+        int tryNum = Integer.parseInt(Console.readLine());
         System.out.println();
 
         return tryNum;
