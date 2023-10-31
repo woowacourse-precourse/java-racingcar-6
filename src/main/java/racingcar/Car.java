@@ -18,8 +18,10 @@ public class Car {
     }
 
     public void printForwardDistance() {
-
+        System.out.print(name + " : " );
+        for(int i=0;i<distance;i++) {
+            System.out.print(Constants.PRINT_CAR_FORWARD);
+        }
+        System.out.println();
     }
-
-
 }

@@ -24,7 +24,10 @@ public class Cars {
     }
 
     public void printRoundRacingResult() {
-
+        for(int i=0;i<cars.size();i++) {
+            cars.get(i).printForwardDistance();
+        }
+        System.out.println();
     }
 
     public void printRacingResult() {
