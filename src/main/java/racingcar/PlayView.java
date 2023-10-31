@@ -20,23 +20,8 @@ public class PlayView {
         }
         System.out.println();
         if (numberOfTime - 1 == now) {
-            System.out.print("최종 우승자 : ");
-            int max = 0;
-            for (int i = 0; i < dataListSize; i++) {
-                if (max < UserRace.get(i)) {
-                    max = UserRace.get(i);
-                }
-            }
-            StringBuilder winners = new StringBuilder();
-            for (int i = 0; i < dataListSize; i++) {
-                if (max == UserRace.get(i)) {
-                    if (!winners.isEmpty()) {
-                        winners.append(", ");
-                    }
-                    winners.append(inputDataList.getInputDataList().get(i));
-                }
-            }
-            System.out.println(winners);
+            GameResultView gameResultView = new GameResultView();
+            gameResultView.gameResultView(UserRace, inputDataList);
         }
     }
 }

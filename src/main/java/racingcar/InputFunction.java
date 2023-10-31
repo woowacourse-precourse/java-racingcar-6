@@ -1,6 +1,6 @@
 package racingcar;
 
-import java.util.List;
+import java.util.*;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
