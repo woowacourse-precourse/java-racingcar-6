@@ -9,6 +9,7 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
     private final List<Car> carList = new ArrayList<>();
+    private final List<Car> finalWinners = new ArrayList<>();
     private int attemptCount;
 
     public void start() {
@@ -24,7 +25,8 @@ public class RacingGame {
         for (int i = 0; i < attemptCount; i++) {
             Round.play(carList);
         }
-        
+
+        decideWinner();
     }
 
     public void registerCars() {
@@ -52,5 +54,19 @@ public class RacingGame {
 
     private void setAttemptCount(int attemptCount) {
         this.attemptCount = attemptCount;
+    }
+
+    public void decideWinner() {
+        int maxPosition = -1;
+
+        for (Car car : carList) {
+            if (car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+                finalWinners.clear();
+                finalWinners.add(car);
+            } else if (car.getPosition() == maxPosition) {
+                finalWinners.add(car);
+            }
+        }
     }
 }
