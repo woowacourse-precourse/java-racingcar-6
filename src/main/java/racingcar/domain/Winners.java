@@ -3,7 +3,6 @@ package racingcar.domain;
 import racingcar.message.ProcessMessage;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Winners {
     private final List<Car> values;
@@ -14,9 +13,7 @@ public class Winners {
 
     @Override
     public String toString() {
-        return values
-                .stream()
-                .map(Car::getName)
-                .collect(Collectors.joining((ProcessMessage.COMMA.toString())));
+        List<String> names = values.stream().map(Car::getName).toList();
+        return String.join(ProcessMessage.COMMA.toString(), names);
     }
 }
