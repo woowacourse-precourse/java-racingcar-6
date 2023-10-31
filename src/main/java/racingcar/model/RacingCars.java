@@ -30,7 +30,6 @@ public class RacingCars {
         for (RacingCar racingCar : this.racingCars) {
             results.add(racingCar.getResult());
         }
-
         return results;
     }
 
@@ -43,7 +42,6 @@ public class RacingCars {
                 winners.add(racingCar.getName());
             }
         }
-
         return winners;
     }
 
@@ -55,7 +53,6 @@ public class RacingCars {
                 maxPosition = racingCar.getPosition();
             }
         }
-
         return maxPosition;
     }
 }
