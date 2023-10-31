@@ -39,6 +39,12 @@ class CarTest {
     }
 
     @Test
+    void 포지션값과_동일한_전진값이_나오는지_확인() {
+        car.movePosition(4);
+        car.printCarPosition();
+    }
+
+    @Test
     void 자동차의_위치가_같으면_true_반환_확인() {
         boolean isSame = car.isSamePosition(otherCar);
 
