@@ -122,7 +122,8 @@ jun : -----
 
 - `public Class Judging`
   - `judgingMovingOrNot()`: 자동차를 전진시킬 것인지 판단한다.
-  - `getDistance()`: 각 자동차가 총 이동한 수치를 반환한다.
+  - `addDistance()`: 각 자동차가 이동한 거리를 arrayList에 저장한다.
+  - `printCurrentStatus()`: 자동차가 현재 이동한 거리를 반환한다.
 
 
 - `public Class Finishing`
