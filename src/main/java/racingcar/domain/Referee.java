@@ -5,13 +5,13 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Referee {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
-    private static final int PROBABILITY = 4;
+    private static final int THRESHOLD = 4;
 
     public static void simulate(RacingCars racingcars) {
 
         for (int i = 0; i < racingcars.size(); i++) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-            if (randomNumber >= PROBABILITY) {
+            if (randomNumber >= THRESHOLD) {
                 racingcars.get(i).move();
             }
         }
