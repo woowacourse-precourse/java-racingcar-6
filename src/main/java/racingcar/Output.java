@@ -14,4 +14,10 @@ public class Output {
             System.out.println(stringBuilder.toString());
         });
     }
+
+    public void printGameResult(List<Car> winnerList) {
+        List<String> winnerNames = winnerList.stream().map(car -> car.getCarName()).toList();
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(", ", winnerNames));
+    }
 }

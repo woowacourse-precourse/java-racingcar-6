@@ -32,4 +32,15 @@ public class OutputTest {
         Assertions.assertThat(out.toString()).isEqualTo("pobi : -\njiho : \njava : \n");
     }
 
+    @Test
+    void 우승자_결과_출력() {
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        List<Car> winnerList = Arrays.asList(new Car("pobi"), new Car("jiho"), new Car("java"));
+
+        output.printGameResult(winnerList);
+        Assertions.assertThat(out.toString()).isEqualTo("최종 우승자 : pobi, jiho, java\n");
+    }
+
 }
