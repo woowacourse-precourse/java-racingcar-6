@@ -10,10 +10,8 @@ public class Car {
         position = new Position();
     }
 
-    public void decideToMove(int randomNumber) {
-        if (randomNumber >= MIN_MOVE_NUMBER) {
-            position.movePosition();
-        }
+    public void move() {
+        position.movePosition();
     }
 
     public boolean isWinner(Position maxPosition) {

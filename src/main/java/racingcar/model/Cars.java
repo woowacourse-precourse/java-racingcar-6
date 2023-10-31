@@ -11,6 +11,8 @@ import racingcar.validator.CarNamesValidator;
 public class Cars {
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
+    private static final int MIN_MOVE_NUMBER = 4;
+
     private List<Car> cars = new ArrayList<>();
 
     public Cars(String names) {
@@ -27,8 +29,9 @@ public class Cars {
 
     public void decideToMove() {
         cars.forEach(car -> {
-            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-            car.decideToMove(randomNumber);
+            if (Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER) >= MIN_MOVE_NUMBER) {
+                car.move();
+            }
         });
     }
 
