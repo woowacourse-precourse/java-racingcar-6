@@ -34,4 +34,8 @@ public class Car {
     public String getCarStatus() {
         return name + " : " + getProgress();
     }
+
+    public String getName(){
+        return name;
+    }
 }
