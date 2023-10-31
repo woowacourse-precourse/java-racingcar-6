@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class Engine {
     private final Integer MIN_FORWARD_NUM = 4;
-    public Boolean canMoveForward(Integer randomNumber) {
-        return 4 <= randomNumber;
+    public Boolean canMoveForward() {
+        return 4 <= createRandomnumber();
     }
 
     public Integer createRandomnumber() {
