@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ApplicationFuncTest {
 
@@ -15,4 +17,17 @@ public class ApplicationFuncTest {
         String[] ArrayCarNames = {"pobi", "woni", "jun"};
         assertThat(getCarNames).isEqualTo(ArrayCarNames);
     }
+
+    @DisplayName("경주 시도 횟수 한글로 작성한 경우 테스트")
+    @Test
+    public void getNumAttemptsTest() {
+
+        String input = "일이삼";
+        Throwable exception = assertThrows(IllegalStateException.class, () -> {
+            Application.getNumAttempts(input);
+        });
+
+        assertEquals("숫자로 입력해주세요", exception.getMessage());
+    }
+
 }
