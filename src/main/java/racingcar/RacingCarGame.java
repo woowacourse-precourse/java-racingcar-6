@@ -25,6 +25,10 @@ public class RacingCarGame {
                 throw new IllegalArgumentException();
             }
 
+            if (carNamesList.contains(s)) {
+                throw new IllegalArgumentException();
+            }
+
             carNamesList.add(s);
         }
 
