@@ -22,6 +22,17 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
+
+    @Test
+    void 숫자가_4이상이면_전진하고_3이하면_정지() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("dori,woni", "6");
+                assertThat(output()).contains("dori : ------", "woni : ");
+            },
+            4,3,5,2,6,1,7,0,8,0,9,0
+        );
+    }
     @Test
     void 우승자가_2명인_경우() {
         assertRandomNumberInRangeTest(
@@ -31,7 +42,6 @@ class ApplicationTest extends NsTest {
                 },
                 MOVING_FORWARD, MOVING_FORWARD, STOP
         );
-
     }
     @Test
     void 우승자가_없는_경우() {
