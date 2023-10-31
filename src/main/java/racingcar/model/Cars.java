@@ -13,7 +13,7 @@ public class Cars {
     private final List<Car> carList;
 
     public Cars(List<Car> carList) {
-        validateName(carList);
+        validateDuplicateName(carList);
         this.carList = carList;
     }
 
@@ -31,7 +31,7 @@ public class Cars {
                 .collect(Collectors.joining(WINNER_DELIMITER));
     }
 
-    private void validateName(List<Car> cars) {
+    private void validateDuplicateName(List<Car> cars) {
         Set<Car> carSet = new HashSet<>(cars);
 
         if (cars.size() != carSet.size()) {
