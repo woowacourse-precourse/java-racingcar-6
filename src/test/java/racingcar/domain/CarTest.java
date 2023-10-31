@@ -27,6 +27,6 @@ public class CarTest {
 
         final Car car = new Car(input);
 
-        assertThat(car.getName()).isInstanceOf(Car.class);
+        assertThat(car.getName()).isEqualTo(input);
     }
 }
