@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class CarsTimeParserTest {
+class GameTimeParserTest {
     private final char LEFT_BOUND = '0';
     private final char RIGHT_BOUND = '9';
 
