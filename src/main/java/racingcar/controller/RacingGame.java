@@ -25,9 +25,11 @@ public class RacingGame {
     public void racingStart() {
         int tryNum;
 
-        carInfo.setCarName(InputView.receiveCarName());
+        OutputView.printInputCarName();
+        carInfo.setCarName(InputView.receiveUserInput());
         carInfo.initCarStatus();
-        tryNum = convertStringToInt(InputView.receiveTryNumber());
+        OutputView.printInputTryNum();
+        tryNum = convertStringToInt(InputView.receiveUserInput());
 
         OutputView.printExecResult();
         for(int i = 0; i < tryNum; i++) {
