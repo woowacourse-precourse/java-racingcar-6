@@ -47,10 +47,7 @@ public class RacingCarGameService {
     }
 
     public List<String> getWinners(LinkedHashMap<String, Integer> finalResult) {
-        int maxMovingValue = Integer.MIN_VALUE;
-        for (int movingValue : finalResult.values()) {
-            maxMovingValue = getMaxMovingValue(movingValue, maxMovingValue);
-        }
+        int maxMovingValue = getMaxMovingValue(finalResult);
         List<String> winners = new ArrayList<>();
         for (Map.Entry<String, Integer> finalResultEntry : finalResult.entrySet()) {
             addWinner(finalResultEntry, maxMovingValue, winners);
@@ -58,7 +55,15 @@ public class RacingCarGameService {
         return winners;
     }
 
-    private int getMaxMovingValue(int movingValue, int maxMovingValue) {
+    private int getMaxMovingValue(LinkedHashMap<String, Integer> finalResult) {
+        int maxMovingValue = Integer.MIN_VALUE;
+        for (int movingValue : finalResult.values()) {
+            maxMovingValue = compareMovingValue(movingValue, maxMovingValue);
+        }
+        return maxMovingValue;
+    }
+
+    private int compareMovingValue(int movingValue, int maxMovingValue) {
         if (movingValue > maxMovingValue) {
             return movingValue;
         }
