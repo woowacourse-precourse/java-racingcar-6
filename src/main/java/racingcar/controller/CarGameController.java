@@ -46,8 +46,6 @@ public class CarGameController {
     }
 
 
-
-
     public List<Car> createCars(List<String> carNames) {
         List<Car> carList = carNames.stream().map(carName -> new Car(carName)).collect(Collectors.toList());
         this.cars = new Cars(carList);
