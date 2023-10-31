@@ -26,6 +26,7 @@ public class GameManager {
     }
 
     public List<String> raceOneRound() {
+        upCurrentRound();
         setting.tryCarsForward();
         return setting.getCarsState();
     }
@@ -49,12 +50,12 @@ public class GameManager {
         return winnerList;
     }
 
-    public int upCurrentRound() {
-        return ++currentRound;
+    public Boolean isGameOngoing() {
+        return (setting.getRound() > currentRound);
     }
 
-    public int getSettingRound() {
-        return setting.getRound();
+    private void upCurrentRound() {
+        ++currentRound;
     }
 
 }

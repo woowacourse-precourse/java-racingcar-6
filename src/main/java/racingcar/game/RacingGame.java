@@ -27,7 +27,7 @@ public class RacingGame {
     private void race() {
         System.out.println("실행 결과");
 
-        while (manager.getSettingRound() >= manager.upCurrentRound()) {
+        while (manager.isGameOngoing()) {
             List<String> carsState = manager.raceOneRound();
             printCarsState(carsState);
         }
