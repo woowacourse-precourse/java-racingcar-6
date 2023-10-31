@@ -37,4 +37,17 @@ public class EntityTest {
         //then
         assertThat(roundResult).isZero();
     }
+    @Test
+    void RaceStatus_값_저장_로직_1점인경우_테스트(){
+        //given
+        Racer testRacer = Racer.getInstance("test");
+        RoundScore testScore = RoundScore.FORWARD;
+
+        //when
+        RaceStatus.scoreWriteByRacer(testRacer, testScore);
+        Integer roundResult = RaceStatus.scoreCheckByRacer(testRacer);
+
+        //then
+        assertThat(roundResult).isOne();
+    }
 }
