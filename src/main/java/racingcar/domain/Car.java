@@ -27,8 +27,11 @@ public class Car {
         return this.position >= anotherCar.position;
     }
 
-    public String getProgressStatus() {
+    public String getProgress() {
         return "-".repeat(position);
     }
 
+    public String getCarStatus() {
+        return name + " : " + getProgress();
+    }
 }
