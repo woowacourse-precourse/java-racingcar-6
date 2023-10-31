@@ -1,8 +1,5 @@
 package racingcar.model;
 
-import static racingcar.validator.InputValidator.validateDuplicateName;
-import static racingcar.validator.InputValidator.validateLenOfCar;
-import static racingcar.validator.InputValidator.validateName;
 import static racingcar.validator.InputValidator.validateNumOfMatches;
 import static racingcar.validator.InputValidator.validateStringToInteger;
 
@@ -17,9 +14,6 @@ public class Race {
     private final int numOfMatches;
 
     public Race(String carListString, String numOfMatchesString) {
-        validateName(carListString);
-        validateDuplicateName(carListString);
-        validateLenOfCar(carListString);
         validateStringToInteger(numOfMatchesString);
         validateNumOfMatches(numOfMatchesString);
 

@@ -15,6 +15,15 @@ import java.util.Set;
 
 public class InputValidator {
     // carList 관련 유효성 검사
+    public static void validateCarListString(String carListString) {
+        validateName(carListString);
+        validateDuplicateName(carListString);
+        validateLenOfCar(carListString);
+        for (String car : carListString.split(",")) {
+            validateLenOfCarName(car);
+        }
+    }
+
     public static void validateName(String carListString) {
         String[] carList = carListString.split(",");
         for (String car : carList) {
@@ -51,6 +60,11 @@ public class InputValidator {
     }
 
     // 경기 횟수 관련 유효성 검사
+    public static void validateNumOfMatches(String number) {
+        validateStringToInteger(number);
+        validateRangeOfMatches(number);
+    }
+
     public static void validateStringToInteger(String number) {
         try {
             Integer.parseInt(number);
@@ -59,7 +73,7 @@ public class InputValidator {
         }
     }
 
-    public static void validateNumOfMatches(String number) {
+    public static void validateRangeOfMatches(String number) {
         int numOfMatches = Integer.parseInt(number);
         if (numOfMatches < MIN_NUM_OF_MATCHES.getValue()) {
             throw new IllegalArgumentException(LESS_THAN_MIN_NUM_OF_MATCHES.getMessage());

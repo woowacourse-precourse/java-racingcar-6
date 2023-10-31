@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.validator.InputValidator.validateCarListString;
+import static racingcar.validator.InputValidator.validateNumOfMatches;
 import static racingcar.view.InputView.askCarList;
 import static racingcar.view.InputView.askNumOfMatches;
 import static racingcar.view.OutputView.printPerMatchResult;
@@ -11,7 +13,15 @@ import racingcar.model.Race;
 
 public class RaceController {
     public static void run() {
-        Race race = new Race(askCarList(), askNumOfMatches());
+        // 1. 자동차 이름 입력 받기
+        String carListString = askCarList();
+        validateCarListString(carListString);
+
+        // 2. 경기 횟수 입력 받기
+        String numOfMatchesString = askNumOfMatches();
+        validateNumOfMatches(numOfMatchesString);
+
+        Race race = new Race(carListString, numOfMatchesString);
         printSystemMessage(TESTING);
         for (int i = 0; i < race.getNumOfMatches(); i++) {
             race.match();

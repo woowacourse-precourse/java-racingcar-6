@@ -11,7 +11,7 @@ import static racingcar.validator.InputValidator.validateDuplicateName;
 import static racingcar.validator.InputValidator.validateLenOfCar;
 import static racingcar.validator.InputValidator.validateLenOfCarName;
 import static racingcar.validator.InputValidator.validateName;
-import static racingcar.validator.InputValidator.validateNumOfMatches;
+import static racingcar.validator.InputValidator.validateRangeOfMatches;
 import static racingcar.validator.InputValidator.validateStringToInteger;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ public class InputValidatorTest {
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining(BLANK.getMessage());
         }
-
     }
 
     @Test
@@ -90,7 +89,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void 예외테스트_validateNumOfMatches() {
+    void 예외테스트_validateRangeOfMatches() {
         List<String> givenList = new ArrayList<>();
 //        givenList.add("123141");
         givenList.add("0");
@@ -98,7 +97,7 @@ public class InputValidatorTest {
 //        givenList.add("2147483647");
 
         for (String given : givenList) {
-            assertThatThrownBy(() -> validateNumOfMatches(given))
+            assertThatThrownBy(() -> validateRangeOfMatches(given))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining(LESS_THAN_MIN_NUM_OF_MATCHES.getMessage());
         }
