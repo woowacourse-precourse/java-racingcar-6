@@ -36,7 +36,7 @@ class Event {
             List<String> playersList = new ArrayList<String>(Arrays.asList(players));
             int count = Collections.frequency(playersList, players[i]);
 
-            if (count > 2) {
+            if (count >= 2) {
                 throw new IllegalArgumentException("중복된 이름입니다.");
             }
         }
