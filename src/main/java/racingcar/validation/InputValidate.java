@@ -4,6 +4,13 @@ import java.util.List;
 
 public class InputValidate {
     private final static int MAX_LENGTH = 5;
+
+    public static void nameFormat(String input) {
+        if(input.contains(",,") || input.startsWith(",") || input.endsWith(",")) {
+            throw new IllegalArgumentException(ErrorMessage.NAME_FORMAT_ERROR.getMessage());
+        }
+    }
+
     public static void carNames(List<String> names) {
         names.forEach(name -> {
             validateNoWhiteSpaceInCarName(name);

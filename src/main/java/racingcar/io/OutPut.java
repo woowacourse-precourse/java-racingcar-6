@@ -10,6 +10,7 @@ public class OutPut {
         for (Car car : cars) {
             System.out.println(car.getName() + " : " + car.getPosition());
         }
+        System.out.println();
     }
 
     public static void winner(List<Car> winners) {

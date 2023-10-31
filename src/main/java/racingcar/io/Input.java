@@ -11,6 +11,8 @@ public class Input {
     public static List<String> carNames() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String input = Console.readLine();
+        InputValidate.nameFormat(input);
+
         List<String> names = List.of(input.split(","));
         InputValidate.carNames(names);
         return names;
