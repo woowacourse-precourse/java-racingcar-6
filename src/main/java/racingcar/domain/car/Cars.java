@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
-import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Movable;
 
 public class Cars {
@@ -21,9 +21,14 @@ public class Cars {
         return carList;
     }
 
-    public Car getFarthestDistance() {
+    public List<Car> getFarthestDistance() {
+        int maxDistance = carList.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElseThrow(()-> new IllegalArgumentException("차량 목록이 없습니다."));
+
         return carList.stream()
-                .max(Comparator.comparingInt(Car::getDistance))
-                .orElseThrow(() -> new IllegalArgumentException("차량 목록이 없습니다."));
+                .filter(car -> car.getDistance() == maxDistance)
+                .collect(Collectors.toList());
     }
 }
