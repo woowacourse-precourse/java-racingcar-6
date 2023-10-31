@@ -36,7 +36,7 @@ public class Validator {
     }
 
     public static void countZeroCheck(String input) {
-        if (input.length() == 1 && input.charAt(0) == '0') {
+        if (Integer.parseInt(input) == 0) {
             throw new IllegalArgumentException(ZERO_INPUT_ERROR_MESSAGE);
         }
     }
