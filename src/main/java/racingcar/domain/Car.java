@@ -27,7 +27,7 @@ public class Car {
     }
 
     private boolean isGreaterThanLeastNumber(int number) {
-        return number > LEAST_NUMBER;
+        return number >= LEAST_NUMBER;
     }
 
     public boolean isSamePosition(Car highestCar) {
