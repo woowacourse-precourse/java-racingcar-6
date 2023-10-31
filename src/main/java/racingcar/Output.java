@@ -14,6 +14,7 @@ public class Output {
             .append(IntegerValueToDash(entry.getValue()));
 
             System.out.println(sb);
+            sb.setLength(0);
         }
 
         System.out.println();
