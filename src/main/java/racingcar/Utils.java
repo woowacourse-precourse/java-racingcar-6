@@ -14,6 +14,7 @@ public class Utils {
         String[] carNames = input.split(",");
         for (String carName : carNames) {
             exceptions.isInvalidCarNameLength(carName);
+            exceptions.isInvalidGapName(carName);
             this.cars.add(new Car(carName));
         }
         return cars;

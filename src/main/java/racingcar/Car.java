@@ -19,7 +19,6 @@ public class Car {
         if (moving >= 4) {
             move++;
         }
-        return;
     }
 
     public String getName() {

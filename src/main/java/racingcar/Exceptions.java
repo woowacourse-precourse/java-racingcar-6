@@ -8,4 +8,16 @@ public class Exceptions {
         }
         throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
     }
+
+    public void isInvalidGapName(String input) {
+        if (input.contains(" ")) {
+            throw new IllegalArgumentException("이름에는 공백이 들어갈 수 없습니다.");
+        }
+    }
+
+    public void isInvalidNullName(String input) {
+        if (input.contains(",,")) {
+            throw new IllegalArgumentException("이름은 null이 될 수 없습니다.");
+        }
+    }
 }
