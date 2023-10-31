@@ -60,7 +60,7 @@ public class Race {
         winnerWinnerChickenDinner();
     }
 
-    public void winnerWinnerChickenDinner(){
+    private void winnerWinnerChickenDinner(){
         String name;
         List<String> lst = new ArrayList<>();
         for(RaceCar car: raceCarList){
