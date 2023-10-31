@@ -1,5 +1,7 @@
 package racingcar.game;
 
+import racingcar.controller.Dice;
+
 import java.util.ArrayList;
 
 public class Cars {
@@ -8,6 +10,17 @@ public class Cars {
     public Cars(ArrayList<String> inputList){
         for (String s : inputList) {
             cars.add(new Car(s));
+        }
+    }
+
+    public void roundRace(){
+        Dice dice = new Dice();
+
+        for (Car car : cars) {
+            if (dice.rollTheDice()) {
+                car.moveForward();
+            }
+            car.stop();
         }
     }
 
