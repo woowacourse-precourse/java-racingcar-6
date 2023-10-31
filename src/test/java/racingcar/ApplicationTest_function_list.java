@@ -199,7 +199,31 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_4이상_인지_검사() {
+        final int MOVING_FORWARD = 4;
+        final int STOP = 3;
 
+        Object testObject = new Car();
+        String testMethodName = "runningDistance";
+        List<List<Object>> testCase = Arrays.asList(
+                Arrays.asList(MOVING_FORWARD, 1),
+                Arrays.asList(STOP, 0));
+
+        for (List<Object> input : testCase) {
+            // private method reflection 사용
+            try {
+                // reflection
+                Method testMethod = testObject.getClass().getDeclaredMethod(testMethodName);
+                testMethod.setAccessible(true);
+                assertRandomNumberInRangeTest(
+                        () -> {
+                            Object returnValue = testMethod.invoke(testObject);
+                            assertThat(returnValue).isEqualTo(input.get(input.size() - 1));
+                        },
+                        (Integer) input.get(0));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Test
