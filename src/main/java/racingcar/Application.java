@@ -25,7 +25,7 @@ public class Application {
             controller.showCurrentResult();
         }
 
-        List<CarModel> winnerList = controller.calculateWinner(carList);
+        controller.showWinnerCars();
     }
 
     private static List<CarModel> generateCarList(String[] carNames) {
