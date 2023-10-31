@@ -2,6 +2,9 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.util.CarNameValidator;
+import racingcar.util.RotatingCountValidator;
+import racingcar.view.RotatingCount;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -81,6 +84,32 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pob2i"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 차이름_검증_성공_테스트() {
+        //given
+        CarNameValidator carNameValidator = new CarNameValidator();
+        String carNmae = "yuiop,qwer,asd,zc,p,Tksa,AAAAA";
+
+        //when
+        boolean check = carNameValidator.check(carNmae);
+
+        //then
+        assertThat(check).isEqualTo(true);
+    }
+
+    @Test
+    void 시도_횟수_검증_성공_테스트() {
+        //given
+        RotatingCountValidator rotatingCountValidator = new RotatingCountValidator();
+        String carNmae = "4";
+
+        //when
+        boolean check = rotatingCountValidator.check(carNmae);
+
+        //then
+        assertThat(check).isEqualTo(true);
     }
 
     @Override
