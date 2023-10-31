@@ -18,15 +18,18 @@ public class Cars {
         }
     }
 
-    public List<Unchangeable> giveCopiedResult() { //반환 리스트에 수정 권한 x, 요소 출력 이외 접근 제한
+    public List<Unchangeable> copyResult() {
         List<Unchangeable> copiedResult = new ArrayList<>();
-        List<Car> test = new ArrayList<>();
         for (Car car : cars) {
             Unchangeable copied = new Car(car.getName(), car.getMovement());
             copiedResult.add(copied);
         }
         List<Unchangeable> neverChange = Collections.unmodifiableList(copiedResult);
         return neverChange;
+    }
+
+    public List<Unchangeable> giveCopiedResult() { //반환 리스트에 수정 권한 x, 요소 출력 이외 접근 제한
+        return copyResult();
     }
 
     public int maxMovement() {
