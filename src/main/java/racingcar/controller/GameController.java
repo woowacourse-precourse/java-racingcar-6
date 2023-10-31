@@ -22,9 +22,7 @@ public class GameController {
 
             finalResult();
             while(attempts!=0){
-                // 게임 시도
                 play();
-                // 시도 횟수 감소
                 attempts--;
             }
             finishGame();
