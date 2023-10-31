@@ -25,12 +25,16 @@ public class Car {
             int pickRandomNumber = this.pickRandomNumber.Generation();
             StringBuilder distanceCheck = new StringBuilder(carsDistanceData.getOrDefault(carName, ""));
 
-            if (pickRandomNumber >= 4) {
-                distanceCheck.append("-");
-            }
+            moveNumberFourMore(pickRandomNumber, distanceCheck);
 
             carsDistanceData.put(carName, distanceCheck.toString());
         }
 
+    }
+
+    private void moveNumberFourMore(int pickRandomNumber, StringBuilder distanceCheck) {
+        if (pickRandomNumber >= 4) {
+            distanceCheck.append("-");
+        }
     }
 }
