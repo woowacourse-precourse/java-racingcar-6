@@ -27,4 +27,6 @@ EX.) 코드 구현시 주의사항
 
 git add -A
 
-git commit -m "feat(Application) : Calcuation of Car Move and its console print feature added"
+git commit -m "style(Allign) : reorganized written lines"
+
+git push origin Recreate

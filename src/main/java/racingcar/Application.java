@@ -1,102 +1,102 @@
 package racingcar;
 
-import java.util.*;
+ import java.util.*;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
+ import camp.nextstep.edu.missionutils.Console;
+ import camp.nextstep.edu.missionutils.Randoms;
 
-public class Application {
-	public static void main(String[] args) {
-		// TODO: í”„ë¡œê·¸ë¨ êµ¬í˜„
-		Run(Car_Names(), Try_Numb());
-		// Try_Numb();
-		// Run(Car_Names(),Try_Numb());
-	}
+ public class Application {
+ 	public static void main(String[] args) {
+ 		// TODO: ÇÁ·Î±×·¥ ±¸Çö
+ 		Run(Car_Names(), Try_Numb());
+ 		// Try_Numb();
+ 		// Run(Car_Names(),Try_Numb());
+ 	}
 
-	// ì‹¤í–‰ ë¬¸ì„œ//
-	public static void Run(String[] Car_Names, Integer Try_Numb) {
-		int[] Car_Score = new int[Car_Names.length];
-		// System.out.println(Car_Score.length);
-		for (int i = 0; i < Try_Numb; i++) {
-			Car_Score = Stage_Calc(Car_Names, Car_Score);
-		}
-		Winner(Car_Names, Car_Score);
-	}
+ 	// ½ÇÇà ¹®¼­//
+ 	public static void Run(String[] Car_Names, Integer Try_Numb) {
+ 		int[] Car_Score = new int[Car_Names.length];
+ 		// System.out.println(Car_Score.length);
+ 		for (int i = 0; i < Try_Numb; i++) {
+ 			Car_Score = Stage_Calc(Car_Names, Car_Score);
+ 		}
+ 		Winner(Car_Names, Car_Score);
+ 	}
 
-	// ì‹¤í–‰ê³¼ì • ê³„ì‚° ë° ì¶œë ¥//
-	public static int[] Stage_Calc(String[] Car_Names, int[] Car_Score) {
-		System.out.println("ì‹¤í–‰ ê²°ê³¼");
-		for (int i = 0; i < Car_Names.length; i++) {
-			
-			if (Car_Race() >= 4) {
-				Car_Score[i]++;
-			}
-			
-			// .repeat(Car_Score[i]));}
-			System.out.println(Car_Names[i] + " : " + "-".repeat(Car_Score[i]));
-		}
+ 	// ½ÇÇà°úÁ¤ °è»ê ¹× Ãâ·Â//
+ 	public static int[] Stage_Calc(String[] Car_Names, int[] Car_Score) {
+ 		System.out.println("½ÇÇà °á°ú");
+ 		for (int i = 0; i < Car_Names.length; i++) {
 
-		return Car_Score;
-	}
+ 			if (Car_Race() >= 4) {
+ 				Car_Score[i]++;
+ 			}
 
-	// ëœë¤ê°’//
-	public static Integer Car_Race() {
-		Integer Race_numb = Randoms.pickNumberInRange(1, 9);
-		// System.out.print(Try_numb);
-		return Race_numb;
-	}
+ 			// .repeat(Car_Score[i]));}
+ 			System.out.println(Car_Names[i] + " : " + "-".repeat(Car_Score[i]));
+ 		}
 
-	// ìš°ìŠ¹ì//
-	public static void Winner(String[] Car_Names, int[] Car_Score) {
-		int max = 0;
-		List<String> Winner_index = new ArrayList<>();
-		for (int i = 0; i < Car_Names.length; i++) {
-			
-			if (Car_Score[i] > max) {
-				max = Car_Score[i];
-			}
-			
-		}
-		for (int o = 0; o < Car_Names.length; o++) {
-			
-			if (Car_Score[o] == max) {
-				Winner_index.add(Car_Names[o]);
-			}
-			
-		}
-		System.out.print("ìµœì¢… ìš°ìŠ¹ì : " + String.join(", ", Winner_index));
-	}
+ 		return Car_Score;
+ 	}
 
-	// [ì…ë ¥ê°’]
-	// ì°¨ëŸ‰ ì´ë¦„//
-	public static String[] Car_Names() {
-		System.out.println("ê²½ì£¼í•  ìë™ì°¨ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.(ì´ë¦„ì€(,ì‰¼í‘œ) ê¸°ì¤€ìœ¼ë¡œ êµ¬ë¶„.");
-		String[] Car_Names = Console.readLine().split(",");
-		Names_ErrCheck(Car_Names);
-		return Car_Names;
-	}
+ 	// ·£´ı°ª//
+ 	public static Integer Car_Race() {
+ 		Integer Race_numb = Randoms.pickNumberInRange(1, 9);
+ 		// System.out.print(Try_numb);
+ 		return Race_numb;
+ 	}
 
-	public static void Names_ErrCheck(String[] Car_Names) {
-		for (int i = 0; i < Car_Names.length; i++) {
+ 	// ¿ì½ÂÀÚ//
+ 	public static void Winner(String[] Car_Names, int[] Car_Score) {
+ 		int max = 0;
+ 		List<String> Winner_index = new ArrayList<>();
+ 		for (int i = 0; i < Car_Names.length; i++) {
 
-			if (Car_Names[i].length() > 5) {
-				throw new IllegalArgumentException("ìë™ì°¨ ì´ë¦„ì´ 5ì ì´ìƒì…ë‹ˆë‹¤.");
-			}
-			
-		}
-	}
+ 			if (Car_Score[i] > max) {
+ 				max = Car_Score[i];
+ 			}
 
-	// ì‹œë„ íšŸìˆ˜//
-	public static Integer Try_Numb() {
-		System.out.println("ì‹œë„í•  íšŒìˆ˜ëŠ” ëª‡íšŒì¸ê°€ìš”?");
-		Integer Try_numb = null;
-		try {
-			Try_numb = Integer.parseInt(Console.readLine());
-		} catch (Exception e1) {
-			throw new IllegalArgumentException("ì •ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤.");
-		}
-		// System.out.print(Try_numb);
-		return Try_numb;
-	}
+ 		}
+ 		for (int o = 0; o < Car_Names.length; o++) {
 
-}
+ 			if (Car_Score[o] == max) {
+ 				Winner_index.add(Car_Names[o]);
+ 			}
+
+ 		}
+ 		System.out.print("ÃÖÁ¾ ¿ì½ÂÀÚ : " + String.join(", ", Winner_index));
+ 	}
+
+ 	// [ÀÔ·Â°ª]
+ 	// Â÷·® ÀÌ¸§//
+ 	public static String[] Car_Names() {
+ 		System.out.println("°æÁÖÇÒ ÀÚµ¿Â÷ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.(ÀÌ¸§Àº(,½°Ç¥) ±âÁØÀ¸·Î ±¸ºĞ.");
+ 		String[] Car_Names = Console.readLine().split(",");
+ 		Names_ErrCheck(Car_Names);
+ 		return Car_Names;
+ 	}
+
+ 	public static void Names_ErrCheck(String[] Car_Names) {
+ 		for (int i = 0; i < Car_Names.length; i++) {
+
+ 			if (Car_Names[i].length() > 5) {
+ 				throw new IllegalArgumentException("ÀÚµ¿Â÷ ÀÌ¸§ÀÌ 5ÀÚ ÀÌ»óÀÔ´Ï´Ù.");
+ 			}
+
+ 		}
+ 	}
+
+ 	// ½Ãµµ È½¼ö//
+ 	public static Integer Try_Numb() {
+ 		System.out.println("½ÃµµÇÒ È¸¼ö´Â ¸îÈ¸ÀÎ°¡¿ä?");
+ 		Integer Try_numb = null;
+ 		try {
+ 			Try_numb = Integer.parseInt(Console.readLine());
+ 		} catch (Exception e1) {
+ 			throw new IllegalArgumentException("Á¤¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À.");
+ 		}
+ 		// System.out.print(Try_numb);
+ 		return Try_numb;
+ 	}
+
+ }
