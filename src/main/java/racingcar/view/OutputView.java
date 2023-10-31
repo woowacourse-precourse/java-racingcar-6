@@ -1,7 +1,8 @@
 package racingcar.view;
 
-import racingcar.game.Car;
+import java.util.stream.IntStream;
 import static racingcar.view.constants.OutputMessage.*;
+import static racingcar.view.constants.IntegerViewConstants.*;
 
 public class OutputView {
     public static void startGame(){
@@ -16,13 +17,15 @@ public class OutputView {
         System.out.println(GAME_RESULT.getMessage());
     }
 
-    public static void broadcastCarRoundScore(Car car) {
-        // TODO: getter 없이 쓸 수 있는 방법 고민 해보기
-        System.out.printf("%s %s ", car.getCarName(), DISPLAY_USER_SCORE_SIGN.getMessage());
-        for(int i=0; i<car.getScore(); i++){
-            System.out.printf("%s", SCORE_SIGN.getMessage());
-        }
+    public static void broadcastCarRoundScore(String carName, Integer score) {
+        System.out.printf("%s %s ", carName, DISPLAY_USER_SCORE_SIGN.getMessage());
+        IntStream.range(STARTING_POINT.getValue(), score)
+                .forEach(OutputView::getScoreSign);
         System.out.println();
+    }
+
+    private static void getScoreSign(int x) {
+        System.out.printf("%s", SCORE_SIGN.getMessage());
     }
 
     public static void theEndOfRound(){

@@ -21,13 +21,8 @@ public class Cars {
             if (dice.rollTheDice()) {
                 car.moveForward();
             }
-            broadcastGameRound(car);
+            OutputView.broadcastCarRoundScore(car.getCarName(), car.getScore());
         }
-    }
-
-    public void broadcastGameRound(Car car){
-        // TODO: 위치를 고민 해 봐야 할 메서드
-        OutputView.broadcastCarRoundScore(car);
     }
 
     private ArrayList<Car> getMaxOfScores(){
