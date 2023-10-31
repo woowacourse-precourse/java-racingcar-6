@@ -6,6 +6,11 @@ import java.util.stream.Collectors;
 import racingcar.model.Car;
 
 public class RaceService {
+
+    public static final int START_INCLUSIVE = 0;
+    public static final int END_INCLUSIVE = 9;
+
+    // TODO 좀 더 좋은 로직이 없을까
     public List<Car> getWinner(List<Car> cars) {
         int highestLocation = cars.stream().mapToInt(Car::getLocation).max().getAsInt();
         return cars.stream().filter(car -> car.getLocation() == highestLocation).collect(Collectors.toList());
@@ -13,7 +18,7 @@ public class RaceService {
 
     public void runRace(List<Car> cars) {
         for (Car car : cars) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
             car.goOrStop(randomNumber);
         }
     }
