@@ -30,10 +30,7 @@ public class RacingGameService {
 
     public void playGame(int count) {
         OutputView.printResultHeader();
-        for (int i = 0; i < count; i++) {
-            moveCarsAndPrintStatus(carList);
-            OutputView.printNewLine();
-        }
+        playAndPrintResult(count);
     }
 
     public String getWinningCar() {
@@ -43,6 +40,13 @@ public class RacingGameService {
 
     private List<Car> mapToCarList(String[] carNamesArr) {
         return Arrays.stream(carNamesArr).map(Car::new).toList();
+    }
+
+    private void playAndPrintResult(int count) {
+        for (int i = 0; i < count; i++) {
+            moveCarsAndPrintStatus(carList);
+            OutputView.printNewLine();
+        }
     }
 
     private void moveCarsAndPrintStatus(List<Car> carList) {
