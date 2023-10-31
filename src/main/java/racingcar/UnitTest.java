@@ -101,4 +101,13 @@ public class UnitTest {
 
         assertThat(test.max_stacks).contains(test_car[1], test_car[3], test_car[5]);
     }
+
+    @Test
+    void 이름_글자수_제한(){
+        String name = "testtest";
+
+        assertThatThrownBy (
+                () -> test.name_limit(name)
+        ).isExactlyInstanceOf(IllegalArgumentException.class);
+    }
 }

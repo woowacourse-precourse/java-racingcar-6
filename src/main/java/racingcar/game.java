@@ -25,6 +25,7 @@ public class game {
 
         participate = new car[names.length];
         for(int i = 0; i < names.length; i++){
+            name_limit(names[i]);
             participate[i] = new car(names[i], 0);
         }
     }
@@ -100,5 +101,11 @@ public class game {
             System.out.print(max_stacks[i].name + ", ");
         }
         System.out.println(max_stacks[top].name);
+    }
+
+    void name_limit(String name){ //이름 5자 제한 오류제어
+        if(name.length() > 5){
+            throw new IllegalArgumentException();
+        }
     }
 }
