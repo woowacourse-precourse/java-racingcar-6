@@ -12,7 +12,7 @@ public class RacingController {
 
     public RacingController() {
         Cars cars = new Cars(inputView.createRacingCar());
-        String racingCount = inputView.getRacingCount();
+        int racingCount = inputView.getRacingCount();
         racingService = new RacingService(cars, racingCount);
     }
 

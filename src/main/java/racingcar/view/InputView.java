@@ -1,10 +1,15 @@
 package racingcar.view;
 
+import static racingcar.domain.enums.Constants.MIN_RACING_COUNT;
+import static racingcar.domain.enums.Error.INVALID_MIN_RACE_COUNT;
+import static racingcar.domain.enums.Error.INVALID_NUMBER_FOMMAT;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.util.ErrorException;
 import racingcar.util.Message;
 
 public class InputView {
@@ -22,10 +27,27 @@ public class InputView {
                 .collect(Collectors.toList());
     }
 
-    public String getRacingCount() {
-        String racingCount = Console.readLine();
+    public int getRacingCount() {
+        String count = Console.readLine();
+        Message.printAskCountMessage(count);
 
-        Message.printAskCountMessage(racingCount);
+        int racingCount = validateNumber(count);
+        validateMinRacingCount(racingCount);
+        
         return racingCount;
+    }
+
+    private void validateMinRacingCount(int racingCount) {
+        if (racingCount < MIN_RACING_COUNT) {
+            throw new ErrorException(INVALID_MIN_RACE_COUNT);
+        }
+    }
+
+    private int validateNumber(String count) {
+        try {
+            return Integer.parseInt(count);
+        } catch (NumberFormatException e) {
+            throw new ErrorException(INVALID_NUMBER_FOMMAT);
+        }
     }
 }
