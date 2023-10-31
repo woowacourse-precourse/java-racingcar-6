@@ -75,7 +75,7 @@ public class RacingCarValidationTest {
     }
 
     @Test
-    void 리스트_자체가_빈_리스트인지_판별(){
+    void 리스트_자체가_빈_리스트인지_판별() {
         List<String> List1 = List.of("pobi", "woni", "crong");
         List<String> List2 = List.of();
 
