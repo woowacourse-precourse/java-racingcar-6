@@ -6,7 +6,7 @@ import racingcar.repository.CarsRepository;
 
 public class InputService {
     private final CarsRepository carsRepo = new CarsRepository();
-    private final CheckService checkService = new CheckService();
+    private final InputValidator inputValidator = new InputValidator();
     private final static String SEPARATOR = ",";
 
     private final GameNum gameNum = new GameNum();
@@ -17,14 +17,14 @@ public class InputService {
 
     public void carsName() {
         String[] carArr = splitBySeparator(input());
-        if (checkService.cars(carArr)) {
+        if (inputValidator.cars(carArr)) {
             carsRepo.initCars(carArr);
         }
     }
 
     public void gameNum() {
         String input = input();
-        if (checkService.nums(input)) {
+        if (inputValidator.nums(input)) {
             gameNum.init(StringToInt(input));
         }
     }

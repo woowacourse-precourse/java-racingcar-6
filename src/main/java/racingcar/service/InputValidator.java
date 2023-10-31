@@ -1,6 +1,6 @@
 package racingcar.service;
 
-public class CheckService {
+public class InputValidator {
 
     public boolean cars(String[] carsArr) {
         for (String car : carsArr) {
