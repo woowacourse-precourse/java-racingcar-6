@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.List;
 
 public final class RaceRunner {
@@ -20,6 +21,7 @@ public final class RaceRunner {
         }
         printFinalResult(race.findFinalWinner());
     }
+
     private void giveScore(int carIndex) {
         int randomNum = makeRandomNum();
         if (randomNum >= 4) {
@@ -27,14 +29,15 @@ public final class RaceRunner {
         }
     }
 
+
     public void printFinalResult(List<String> winners) {
         System.out.print("최종 우승자 :");
         for (int winner = 0; winner < winners.size(); winner++) {
             if (winner == 0) {
                 System.out.print(" " + winners.get(winner));
-            } else {
-                System.out.print(", " + winners.get(winner));
+                continue;
             }
+            System.out.print(", " + winners.get(winner));
         }
     }
 
@@ -48,8 +51,7 @@ public final class RaceRunner {
     }
 
     private int makeRandomNum() {
-        int randomNum = Randoms.pickNumberInRange(0, 9);
-        return randomNum;
+        return Randoms.pickNumberInRange(0, 9);
     }
 
     private void printEachCarScore(int index) {
