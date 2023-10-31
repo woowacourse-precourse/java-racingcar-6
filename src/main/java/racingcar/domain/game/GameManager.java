@@ -4,30 +4,31 @@ import static racingcar.constant.CommonConstant.ONE_BLANK_LINE;
 import static racingcar.constant.GameConstant.INITIAL_START_ROUND;
 
 import java.util.List;
-import racingcar.domain.car.CarInfo;
 import racingcar.dto.Car;
 import racingcar.dto.Round;
 import racingcar.view.OutputView;
 
-public class Game {
-    private static final CarInfo carInfo = CarInfo.getInstance();
+public class GameManager {
     public static Integer totalRounds = 0;
+    private GameEngine gameEngine;
 
-    public List<Car> playGame() {
+    public GameManager() {
+        gameEngine = new GameEngine();
+    }
+
+    public List<Car> startGame() {
         GameRound gameRound = new GameRound(new Round(INITIAL_START_ROUND));
 
         while (gameRound.getCurrentRound() < totalRounds) {
             gameRound.passRound();
-            gameRound.startRound();
+            gameEngine.moveCarsOfUser();
             OutputView.printBlankLine(ONE_BLANK_LINE);
         }
 
-        GameWinnerFinder gameWinnerFinder = new GameWinnerFinder(carInfo.getAllCarInfo());
-
-        return gameWinnerFinder.findWinner();
+        return gameEngine.findWinnerCar();
     }
 
-    public void saveTotalRound(Integer round) {
+    public void saveTotalRoundOfGame(Integer round) {
         totalRounds = round;
     }
 }
