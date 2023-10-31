@@ -1,7 +1,7 @@
 package racingcar.game;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import racingcar.entity.Car;
 
@@ -25,7 +25,7 @@ public class RacingGame {
     protected RacingGame(String[] names, int rounds) {
         this.state = RacingGameState.READY_TO_START;
         this.cars = new ArrayList<>();
-        Arrays.asList(names).forEach(n -> cars.add(new Car(n)));
+        List.of(names).forEach(n -> cars.add(new Car(n)));
         this.remainingRounds = rounds;
     }
 
@@ -35,7 +35,7 @@ public class RacingGame {
                 .forEach(c -> c.proceedSingleUnit());
     }
     private int generateRandomIntInRange() {
-        return camp.nextstep.edu.missionutils.Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
+        return Randoms.pickNumberInRange(RANDOM_MIN, RANDOM_MAX);
     }
 
     private boolean isOverThreshold(int generatedInt) {
