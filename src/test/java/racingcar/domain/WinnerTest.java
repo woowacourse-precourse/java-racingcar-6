@@ -8,7 +8,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 class WinnerTest {
-
     @Test
     void 우승자_판별_검증() {
         Car car1 = new Car("win");

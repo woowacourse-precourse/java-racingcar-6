@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
 class CountExceptionTest {
-
     @Test
     void 글자_입력() {
         String number = "테스트";
