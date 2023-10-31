@@ -25,7 +25,7 @@ public class Attempt {
         }
     }
 
-    private int checkNatural(int countNum) {
+    public int checkNatural(int countNum) {
         if(countNum < 1)
             throw new IllegalArgumentException("1이상의 수를 입력해주세요.");
 

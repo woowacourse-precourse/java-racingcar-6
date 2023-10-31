@@ -17,7 +17,7 @@ public class Winner {
         printResult(winner);
     }
 
-    private int findMaxProgress(List<String> progressResults) {
+    public int findMaxProgress(List<String> progressResults) {
         int maxProgress = 0;
 
         for (String progressResult: progressResults) {
@@ -28,7 +28,7 @@ public class Winner {
         return maxProgress;
     }
 
-    private void printResult(List<String> winner) {
+    public void printResult(List<String> winner) {
         String result = String.join(",", winner);
         System.out.println("최종 우승자 : " + result);
     }
