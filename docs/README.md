@@ -125,4 +125,4 @@ jun : -----
 
 ### Configuration
 
-- [ ] Controller, Serive의 GameRule, View를 주입한다.
+- [x] Controller, Serive의 GameRule, View를 주입한다.
