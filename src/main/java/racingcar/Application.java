@@ -1,5 +1,7 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.Scanner;
 
 public class Application {
@@ -10,7 +12,7 @@ public class Application {
         String[] carNames = getCarNames(sc.nextLine());
         int[] carPositions = new int[carNames.length];
         int numAttempts = getNumAttempts(sc.nextLine());
-
+        Race(carNames, carPositions, numAttempts);
 
     }
     public static String[] getCarNames(String names) {
@@ -32,5 +34,21 @@ public class Application {
         System.out.println(numAttempts);
         return numAttempts;
     }
+
+    public static void Race(String[] carNames, int[] carPositions, int numAttempts) {
+        System.out.println("실행 결과");
+        for (int i = 0; i < numAttempts; i++) {
+            for (int j = 0; j < carNames.length; j++) {
+                int randomNum = Randoms.pickNumberInRange(0, 9);
+                if (randomNum >= 4) {
+                    carPositions[j]++;
+                }
+                System.out.print(carNames[j] + " : ");
+                System.out.println("-".repeat(carPositions[j]));
+            }
+            System.out.println();
+        }
+    }
+
 
 }
