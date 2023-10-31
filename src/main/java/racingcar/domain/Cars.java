@@ -38,15 +38,14 @@ public class Cars {
         return result;
     }
 
-    public List<String> findMostMovedCarName() {
+    public List<Car> findMaxPositionCars() {
         Integer maxPosition = findMaxPosition();
         return findSamePositionCars(maxPosition);
     }
 
-    private List<String> findSamePositionCars(Integer maxPosition) {
+    private List<Car> findSamePositionCars(Integer maxPosition) {
         return carList.stream()
                 .filter(car -> car.isSamePosition(maxPosition))
-                .map(Car::getName)
                 .toList();
     }
 
