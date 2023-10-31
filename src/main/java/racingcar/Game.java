@@ -6,55 +6,56 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class Game {
-    static LinkedHashMap<String, Integer> racingCar = User.carReset();
+    static List<Car> racingCar;
 
     public static void racingGame() {
+        racingCar = Car.carReset();
         int iterationNumber = User.stringToInteger();
+        Car.checkLength(racingCar);
 
         for (int i = 0; i < iterationNumber; i++) {
             printRacing(updateCarStats(racingCar));
         }
         printWinner(findWinner(racingCar));
-
     }
 
     private static int randomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private static boolean checkNumber(Integer randomNumber) {
+    private static boolean checkNumber(int randomNumber) {
         return randomNumber >= 4;
     }
 
-    private static LinkedHashMap<String, Integer> updateCarStats(LinkedHashMap<String, Integer> racingCar) {
-        for (String car : racingCar.keySet()) {
+    private static List<Car> updateCarStats(List<Car> racingCar) {
+        for (Car car : racingCar) {
             if (checkNumber(randomNumber())) {
-                int count = racingCar.get(car);
-                racingCar.put(car, count + 1);
+                int count = car.getCount();
+                car.setCount(count + 1);
             }
         }
         return racingCar;
     }
 
-    private static void printRacing(LinkedHashMap<String, Integer> racingCar) {
-        for (String car : racingCar.keySet()) {
-            String dashes = "-".repeat(racingCar.get(car));
+    private static void printRacing(List<Car> racingCar) {
+        for (Car car : racingCar) {
+            String dashes = "-".repeat(car.getCount());
             System.out.println(car + " : " + dashes);
         }
         System.out.println();
     }
 
-    private static List<String> findWinner(LinkedHashMap<String, Integer> racingCar) {
+    private static List<String> findWinner(List<Car> racingCar) {
         int max = 0;
         List<String> winner = new ArrayList<>();
-        for (String car : racingCar.keySet()) {
-            int value = racingCar.get(car);
+        for (Car car : racingCar) {
+            int value = car.getCount();
             if (value > max) {
                 max = value;
                 winner.clear();
-                winner.add(car);
+                winner.add(car.getName());
             } else if (value == max) {
-                winner.add(car);
+                winner.add(car.getName());
             }
         }
         return winner;
