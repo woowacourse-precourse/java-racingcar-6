@@ -21,7 +21,7 @@ public class Application {
         for (int i = 0; i < racingCount; i++) {
             playRacing(carList);
         }
-        printWinners(carList);
+        getAndPrintWinners(carList);
     }
 
     private static List<Car> inputAndGetCarList() {
@@ -30,7 +30,7 @@ public class Application {
     }
 
     private static String inputCarNames() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 김표(,) 기준으로 구분)");
         return Console.readLine();
     }
 
@@ -56,6 +56,7 @@ public class Application {
     private static int inputRacingCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String racingCount = Console.readLine();
+
         try {
             return Integer.parseInt(racingCount);
         } catch (NumberFormatException e) {
@@ -65,32 +66,14 @@ public class Application {
 
     private static void playRacing(List<Car> carList) {
         for (Car car : carList) {
-            int randomNumber = getRandomNumber();
-            updateMovingCountOrNot(car, randomNumber);
-            car.printResult();
+            car.playRacing();
         }
         System.out.println();
     }
 
-    private static int getRandomNumber() {
-        return Randoms.pickNumberInRange(0, 9);
-    }
-
-    private static void updateMovingCountOrNot(Car car, int randomNumber) {
-        if (randomNumber >= 4) {
-            car.addOneMovingCount();
-        }
-    }
-
-    private static void printWinners(List<Car> carList) {
+    private static void getAndPrintWinners(List<Car> carList) {
         List<String> winnerList = getWinnerList(carList);
-        int listSize = winnerList.size();
-
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < listSize-1; i++) {
-            System.out.print(winnerList.get(i) + ", ");
-        }
-        System.out.println(winnerList.get(listSize - 1));
+        printWinners(winnerList);
     }
 
     private static List<String> getWinnerList(List<Car> carList) {
@@ -117,5 +100,15 @@ public class Application {
         carList.sort(Collections.reverseOrder());
         Car maxCountCar = carList.get(0);
         return maxCountCar.getMovingCount();
+    }
+
+    private static void printWinners(List<String> winnerList) {
+        int listSize = winnerList.size();
+
+        System.out.print("최종 우승자 : ");
+        for (int i = 0; i < listSize-1; i++) {
+            System.out.print(winnerList.get(i) + ", ");
+        }
+        System.out.println(winnerList.get(listSize - 1));
     }
 }
