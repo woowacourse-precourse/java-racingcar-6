@@ -11,9 +11,16 @@ public class Race {
     private RacingCarView view;
 
     public Race(List<RacingCar> racingCars, int rounds, RacingCarView view) {
+        validateRounds(rounds);
         this.racingCars = racingCars;
         this.rounds = rounds;
         this.view = view;
+    }
+
+    private void validateRounds(int rounds2) {
+        if (rounds <= 0) {
+            throw new IllegalArgumentException("시도할 횟수는 0이상이여야 합니다.");
+        }
     }
 
     public void run() {
