@@ -25,6 +25,14 @@ class GameTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름_중복_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("moi,rei,moi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
