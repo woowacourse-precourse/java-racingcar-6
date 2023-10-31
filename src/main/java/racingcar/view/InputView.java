@@ -18,5 +18,5 @@ public interface InputView {
      *
      * @return 시도할 횟수
      */
-    String getRoundInput();
+    String getAttemptInput();
 }
