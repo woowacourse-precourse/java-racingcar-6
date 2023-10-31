@@ -75,4 +75,28 @@ public class Game {
             }
         }
     }
+
+    /**
+     * 단독 우승자인지 확인하는 함수
+     */
+    public boolean checkIsSoloWinner() {
+        return winners.size() == 1;
+    }
+
+    /**
+     * 최종 우승자를 출력할 결과를 String으로 반환하는 함수
+     */
+    public String getWinnersResult() {
+        StringBuilder result = new StringBuilder("최종 우승자 : ");
+        if (checkIsSoloWinner()) { // 단독 우승이라면
+            result.append(winners.get(0));
+        } else if (!checkIsSoloWinner()) { // 단독 우승이 아니라면
+            for (String winner: this.winners) {
+                result.append(winner);
+            }
+            result.append(", ");
+        }
+        return String.valueOf(result);
+    }
+
 }
