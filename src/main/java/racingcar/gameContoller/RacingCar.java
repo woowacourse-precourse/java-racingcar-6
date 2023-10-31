@@ -6,7 +6,6 @@ import racingcar.domain.RandomNumberGenerator;
 import racingcar.domain.UserInput;
 import racingcar.domain.Result;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingCar {
