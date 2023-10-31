@@ -33,8 +33,8 @@ public class RacerValidator implements Validator {
         Set<String> unique = Arrays.stream(value.split(Message.NAME_SEPARATOR))
                 .map(String::trim)
                 .collect(Collectors.toSet());
-        if ((unique).size() != value.split(Message.NAME_SEPARATOR).length) {
-            throw new IllegalArgumentException();
+        if (unique.size() != value.split(Message.NAME_SEPARATOR).length) {
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_NAME);
         }
     }
 }
