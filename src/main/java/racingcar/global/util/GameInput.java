@@ -13,6 +13,10 @@ public final class GameInput {
     }
 
     private static int validateCnt(String input) {
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException("입력 값이 비어 있습니다.");
+        }
+
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
@@ -27,9 +31,15 @@ public final class GameInput {
         return carList;
     }
 
-    private static void validateCarList(String[] carList) {
+    public static void validateCarList(String[] carList) {
         if (carList[0].equals("")) {
-            throw new IllegalArgumentException("하나 이상의 차량 이름을 입력해야 합니다.");
+            throw new IllegalArgumentException("입력 값이 비어 있습니다.");
+        }
+
+        for (String s : carList) {
+            if (s.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            }
         }
     }
 }
