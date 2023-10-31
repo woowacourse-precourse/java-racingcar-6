@@ -16,9 +16,7 @@ public class Application {
     }
 
     private static String getCarNames() {
-        String inputLineOfCarNames = Console.readLine();
-        checkInputLineCarNames(inputLineOfCarNames);
-        return inputLineOfCarNames;
+        return checkInputLineOfCarNames(Console.readLine());
     }
 
     private static List<String> saveCarNames(String inputLineOfCarNames) {
@@ -28,19 +26,19 @@ public class Application {
         return carNames;
     }
 
-    private static String checkInputLineCarNames(String inputLineOfCarNames) {
-        checkStartsWithInputLine(inputLineOfCarNames);
-        checkEndsWithInputLine(inputLineOfCarNames);
+    private static String checkInputLineOfCarNames(String inputLineOfCarNames) {
+        checkStartsWithCommaInInputLine(inputLineOfCarNames);
+        checkEndsWithCommaInInputLine(inputLineOfCarNames);
         return inputLineOfCarNames;
     }
 
-    private static void checkStartsWithInputLine(String inputLineOfCarNames) {
+    private static void checkStartsWithCommaInInputLine(String inputLineOfCarNames) {
         if (inputLineOfCarNames.startsWith(",")) {
             throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
         }
     }
 
-    private static void checkEndsWithInputLine(String inputLineOfCarNames) {
+    private static void checkEndsWithCommaInInputLine(String inputLineOfCarNames) {
         if (inputLineOfCarNames.endsWith(",")) {
             throw new IllegalArgumentException("입력 형식이 맞지 않습니다.");
         }
