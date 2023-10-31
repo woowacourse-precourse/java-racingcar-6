@@ -104,7 +104,7 @@ public class Utill {
      * @param sizeOfWinnerList
      * @return
      */
-    public static boolean valueGreaterThanEqualOne(int sizeOfWinnerList) {
+    public static boolean valueGreaterThanAndEqualOne(int sizeOfWinnerList) {
         return sizeOfWinnerList >= 1;
     }
 }

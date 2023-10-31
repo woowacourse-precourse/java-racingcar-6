@@ -16,7 +16,7 @@ public class GameHost {
      * @param progressRaceCarList 현제 진행중인 RaceCarList
      * @return
      */
-    public List<RaceCar> knowWinRaceCars(List<RaceCar> progressRaceCarList) {
+    public List<RaceCar> giveWinnerRaceCarList(List<RaceCar> progressRaceCarList) {
         List<RaceCar> raceCarOfWinnerList = new ArrayList<>();
         int cntOfMaxMove = getCntMaxMove(progressRaceCarList);
         boolean isVictoryOfRace = true;

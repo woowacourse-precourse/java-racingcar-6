@@ -4,13 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.List;
-import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class GameHostTest {
     private final int MOVE = 4;
@@ -46,7 +42,7 @@ class GameHostTest {
         moveRaceCar(raceCar_1);
 
         // when
-        List<RaceCar> result = gameHost.knowWinRaceCars(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_1));
@@ -59,7 +55,7 @@ class GameHostTest {
         moveRaceCar(raceCar_2);
 
         // when
-        List<RaceCar> result = gameHost.knowWinRaceCars(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_2));
@@ -72,7 +68,7 @@ class GameHostTest {
         moveRaceCar(raceCar_3);
 
         // when
-        List<RaceCar> result = gameHost.knowWinRaceCars(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_3));
@@ -87,7 +83,7 @@ class GameHostTest {
         moveRaceCar(raceCar_2);
 
         // when
-        List<RaceCar> result = gameHost.knowWinRaceCars(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_1, raceCar_2));
@@ -105,7 +101,7 @@ class GameHostTest {
         moveRaceCar(raceCar_3);
 
         // when
-        List<RaceCar> result = gameHost.knowWinRaceCars(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_3));
@@ -128,7 +124,7 @@ class GameHostTest {
         moveRaceCar(raceCar_3);
 
         // when
-        List<RaceCar> result = gameHost.knowWinRaceCars(progressRaceCarList);
+        List<RaceCar> result = gameHost.giveWinnerRaceCarList(progressRaceCarList);
 
         // than
         assertThat(result).isEqualTo(List.of(raceCar_1, raceCar_2, raceCar_3));

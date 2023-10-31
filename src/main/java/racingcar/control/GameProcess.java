@@ -14,7 +14,7 @@ public class GameProcess {
     private String nameLineOfRaceCar;
     private List<String> nameSplitList;
     private Integer cntTryRace;
-    private List<RaceCar> raceCarOfWinnerList;
+    private List<RaceCar> winnerList;
     private GameHost gameHost;
     private CreateRandomNum createRandomNum;
 
@@ -23,7 +23,7 @@ public class GameProcess {
         nameLineOfRaceCar = "";
         nameSplitList = new ArrayList<>();
         cntTryRace = 0;
-        raceCarOfWinnerList = new ArrayList<>();
+        winnerList = new ArrayList<>();
         gameHost = new GameHost();
         createRandomNum = new CreateRandomNum();
         raceCarStringMap = new LinkedHashMap<>();
@@ -76,20 +76,19 @@ public class GameProcess {
     }
 
     public String knowFinalWinner() {
-        String nameOfWinnerRaceCar = null;
-        String[] raceCarOfWinnerArr = null;
+        String nameOfWinner = null;
+        String[] winnerArr = null;
         int sizeOfWinnerList = 0;
 
-        // 레이싱게임의 최종 승자를 알려준다.
-        raceCarOfWinnerList = gameHost.knowWinRaceCars(raceCarList);
-        sizeOfWinnerList = raceCarOfWinnerList.size();
+        winnerList = gameHost.giveWinnerRaceCarList(raceCarList);
+        sizeOfWinnerList = winnerList.size();
 
-        if (Utill.valueGreaterThanEqualOne(sizeOfWinnerList)) {
-            raceCarOfWinnerArr = makeNameArrFromWinnerCarList();
-            nameOfWinnerRaceCar = getNameOfWinnerRaceCarFromArr(raceCarOfWinnerArr);
+        if (Utill.valueGreaterThanAndEqualOne(sizeOfWinnerList)) {
+            winnerArr = makeNameArrFromWinnerCarList();
+            nameOfWinner = getNameOfWinnerFromWinnerArr(winnerArr);
         }
 
-        return nameOfWinnerRaceCar;
+        return nameOfWinner;
     }
 
 
@@ -99,7 +98,7 @@ public class GameProcess {
      * @param raceCarOfWinnerArr
      * @return
      */
-    private String getNameOfWinnerRaceCarFromArr(String[] raceCarOfWinnerArr) {
+    private String getNameOfWinnerFromWinnerArr(String[] raceCarOfWinnerArr) {
         return String.join(", ", raceCarOfWinnerArr);
     }
 
@@ -109,7 +108,7 @@ public class GameProcess {
      * @return
      */
     private String[] makeNameArrFromWinnerCarList() {
-        Integer sizeOfRaceCarList = raceCarOfWinnerList.size();
+        Integer sizeOfRaceCarList = winnerList.size();
         String[] nameOfWinnerArr = new String[sizeOfRaceCarList];
         RaceCar raceCarOfWinner = null;
         String nameOfWinnerCar = "";
@@ -130,7 +129,7 @@ public class GameProcess {
      * @return
      */
     private RaceCar getRaceCarOfWinnerList(int indexOfWinCarList) {
-        return raceCarOfWinnerList.get(indexOfWinCarList);
+        return winnerList.get(indexOfWinCarList);
     }
 
     /**

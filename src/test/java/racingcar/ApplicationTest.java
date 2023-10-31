@@ -226,7 +226,7 @@ class ApplicationTest extends NsTest {
         thirdRaceCar.movementControlCar(3);
         thirdRaceCar.movementControlCar(4);
 
-        winRaceCarList = gameHost.knowWinRaceCars(raceCarList);
+        winRaceCarList = gameHost.giveWinnerRaceCarList(raceCarList);
         String result = winRaceCarList.get(0).toString();
 
         // then

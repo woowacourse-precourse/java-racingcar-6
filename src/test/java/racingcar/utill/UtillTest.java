@@ -124,7 +124,7 @@ class UtillTest {
         Integer input = 1;
 
         // when
-        boolean result = Utill.valueGreaterThanEqualOne(input);
+        boolean result = Utill.valueGreaterThanAndEqualOne(input);
 
         // than
         assertThat(result).isTrue();
@@ -137,7 +137,7 @@ class UtillTest {
         Integer input = 0;
 
         // when
-        boolean result = Utill.valueGreaterThanEqualOne(input);
+        boolean result = Utill.valueGreaterThanAndEqualOne(input);
 
         // than
         assertThat(result).isFalse();
