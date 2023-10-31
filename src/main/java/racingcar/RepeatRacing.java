@@ -8,7 +8,7 @@ public class RepeatRacing {
 
     private MoveCar moveCar;
 
-    public void startRacing(RacingInfo racingInfo) {
+    public int[] startRacing(RacingInfo racingInfo) {
 
         carNames = racingInfo.carNames;
         carNumber = carNames.length;
@@ -17,6 +17,8 @@ public class RepeatRacing {
         moveCar = new MoveCar();
 
         doRacing(racingInfo.racingTimes);
+
+        return statusCarMovement;
     }
 
     public void doRacing(int racingTimes) {
