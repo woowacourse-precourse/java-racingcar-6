@@ -9,6 +9,11 @@ public class NumberOfParticipantValidator implements Validator {
     }
 
 
+    private boolean isNegativeNumber(String number){
+        int convertedNumber = Integer.parseInt(number);
+        return convertedNumber < 0;
+    }
+
     private boolean isInvalidInteger(String number){
         try{
             Integer.parseInt(number);
