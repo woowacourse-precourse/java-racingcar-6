@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.view;
 
 import racingcar.core.GenerateHighScores;
 import racingcar.core.GenerateRacer;
