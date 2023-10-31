@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.utils.RacingGameMessage;
+
 public class RacingGameView {
 
     public void raceStartMessage() {

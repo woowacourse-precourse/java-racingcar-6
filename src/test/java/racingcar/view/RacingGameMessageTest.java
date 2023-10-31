@@ -2,6 +2,7 @@ package racingcar.view;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.utils.RacingGameMessage;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

@@ -2,7 +2,7 @@ package racingcar.model;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.view.RacingGameMessage;
+import racingcar.utils.RacingGameMessage;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.view.RacingGameMessage;
+import racingcar.utils.RacingGameMessage;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,10 +1,7 @@
 package racingcar.model;
 
-import racingcar.view.RacingGameMessage;
+import racingcar.utils.RacingGameMessage;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class RacingCar {
