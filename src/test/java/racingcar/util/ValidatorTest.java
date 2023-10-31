@@ -33,4 +33,12 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INVALID_CAR_COUNT.getMessage());
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "gmspogkewr", "51113209830481235908123123"})
+    void 시도할_회수_입력값_형식_테스트(String input) {
+        assertThatThrownBy(() -> Util.convertStringToInt(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.INVALID_ATTEMPT_COUNT_FORMAT.getMessage());
+    }
 }
