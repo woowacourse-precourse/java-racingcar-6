@@ -25,6 +25,9 @@ public class InputValidator {
     }
 
     public static void validateName(String carListString) {
+        if (carListString.contains(",,") || carListString.charAt(carListString.length() - 1) == ',') {
+            throw new IllegalArgumentException(BLANK.getMessage());
+        }
         String[] carList = carListString.split(",");
         for (String car : carList) {
             car = car.replaceAll("\\s", "");

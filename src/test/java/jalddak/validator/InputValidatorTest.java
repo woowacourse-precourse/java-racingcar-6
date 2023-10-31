@@ -24,7 +24,9 @@ public class InputValidatorTest {
         List<String> givenList = new ArrayList<>();
         givenList.add(",,,,,a,,,");
         givenList.add("a,     ,     ,");
-//        givenList.add("a,,,,");
+        givenList.add("a,,,,");
+        givenList.add(",a");
+        givenList.add("a,");
 
         for (String given : givenList) {
             assertThatThrownBy(() -> validateName(given))
@@ -50,7 +52,8 @@ public class InputValidatorTest {
     @Test
     void 예외테스트_validateLenOfCar() {
         List<String> givenList = new ArrayList<>();
-        givenList.add("a,,,,");
+        givenList.add("a");
+//        givenList.add("a,b");
 
         for (String given : givenList) {
             assertThatThrownBy(() -> validateLenOfCar(given))
