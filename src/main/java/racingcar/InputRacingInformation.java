@@ -19,7 +19,11 @@ public class InputRacingInformation {
 
     public int round_number() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int round = Integer.parseInt(Console.readLine());
-        return round;
+        try{
+            int round = Integer.parseInt(Console.readLine());
+            return round;
+        } catch(IllegalArgumentException e){
+            throw new IllegalArgumentException("숫자를 입력해주세요");
+        }
     }
 }

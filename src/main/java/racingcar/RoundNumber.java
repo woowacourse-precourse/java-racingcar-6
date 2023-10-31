@@ -9,7 +9,7 @@ public class RoundNumber {
         this.round_Num = round_Num;
     }
 
-    private void validate_min_max_round_number(final int round_Num) {
+    private void validate_min_max_round_number(int round_Num) {
         if (round_Num < 1 || round_Num > 10) {
             throw new IllegalArgumentException("1 이상, 10 이하의 수를 입력해주세요.");
         }

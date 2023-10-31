@@ -22,6 +22,14 @@ public class roundNumberTest extends NsTest {
         );
     }
 
+    @Test
+    void 문자열_숫자_변환에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji","a"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     public void runMain() {
         Application.main(new String[]{});
     }
