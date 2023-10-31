@@ -11,23 +11,12 @@ public class Car {
         this.moveDistance = inputScore;
     }
 
-    public String getCarName() {
-        return this.carName;
-    }
-
-    public Integer getMoveDistance() {
-        return this.moveDistance;
-    }
-
     public void move() {
         if (canMove()) {
             this.moveDistance++;
         }
     }
 
-    public String getCarNameDistance() {
-        return this.carName + "," + this.moveDistance;
-    }
 
     public CarData getData() {
         return new CarData(this.carName, this.moveDistance);

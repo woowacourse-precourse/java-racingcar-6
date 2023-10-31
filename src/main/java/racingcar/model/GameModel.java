@@ -24,7 +24,7 @@ public class GameModel {
     }
 
     public boolean raceTimeRemain() {
-        return this.raceTimes != +0;
+        return this.raceTimes != 0;
     }
 
 
