@@ -1,19 +1,18 @@
 package racingcar.controller;
 
+import static racingcar.constant.Constants.EXCEPTION_INT_RANGE;
+import static racingcar.constant.Constants.NAME_SEPARATOR_STRING;
+
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.service.RoundService;
-import racingcar.util.RandomNumberImpl;
 import racingcar.validator.CarNameSplitValidator;
 import racingcar.validator.RoundNumberValidator;
 import racingcar.view.Input;
 import racingcar.view.Output;
 
 public class GameController {
-    private static final int NOT_FOUND_SCORE = -1;
-    private final RoundService roundService;
     private final Input input;
     private final Output output;
 
@@ -21,7 +20,6 @@ public class GameController {
     private int roundNumber = 0;
 
     public GameController() {
-        this.roundService = new RoundService(new RandomNumberImpl());
         this.input = new Input();
         this.output = new Output();
     }
@@ -49,7 +47,7 @@ public class GameController {
         String readLine = input.getReadLine();
         CarNameSplitValidator.validate(readLine);
 
-        String[] carNames = readLine.split(",");
+        String[] carNames = readLine.split(NAME_SEPARATOR_STRING);
         List<Car> carList = new ArrayList<>();
         for (String name : carNames) {
             carList.add(new Car(name));
@@ -64,7 +62,7 @@ public class GameController {
         try {
             roundNumber = Integer.parseInt(readLine);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("가능한 최댓값을 초과하였습니다.");
+            throw new IllegalArgumentException(EXCEPTION_INT_RANGE);
         }
     }
 }
