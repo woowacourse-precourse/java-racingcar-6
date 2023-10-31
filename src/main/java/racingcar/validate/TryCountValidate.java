@@ -21,8 +21,8 @@ public class TryCountValidate {
     }
 
     private static void isInputNegative(String tryCount) {
-        if (Integer.parseInt(tryCount) < Constants.ZERO) {
-            throw new IllegalArgumentException("정수만 입력해주세요.");
+        if (Integer.parseInt(tryCount) <= Constants.ZERO) {
+            throw new IllegalArgumentException("1 이상의 숫자만 입력해주세요.");
         }
     }
 }
