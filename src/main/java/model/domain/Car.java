@@ -3,12 +3,12 @@ package model.domain;
 public class Car {
 
     private Name name;
-    private int go;
+    private Go go;
 
     public Car(String name) {
 
         this.name = new Name(name);
-        this.go = 0;
+        this.go = new Go();
 
     }
 
@@ -16,11 +16,11 @@ public class Car {
         return name;
     }
 
-    public int getGo() {
+    public Go getGo() {
         return go;
     }
 
     public void add() {
-        this.go++;
+        go.add();
     }
 }

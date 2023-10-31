@@ -2,6 +2,7 @@ package view;
 
 import java.util.List;
 import model.domain.Car;
+import model.domain.Go;
 import model.domain.Name;
 import model.domain.Participant;
 
@@ -20,7 +21,8 @@ public class Output {
             Name name = car.getName();
             System.out.print(name.getName() + " : ");
 
-            for (int i = 0; i < car.getGo(); i++) {
+            Go go = car.getGo();
+            for (int i = 0; i < go.getGo(); i++) {
                 System.out.print("-");
             }
             System.out.println();
