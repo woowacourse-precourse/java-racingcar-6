@@ -15,20 +15,55 @@ class ApplicationTest extends NsTest {
     @Test
     void 전진_정지() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    void 이름에_대한_예외_처리_이름길이() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_이름이공백(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()-> runException("pobi, ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_이름중복(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()-> runException("pobi,pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 이름에_대한_예외_처리_이름에_문자열이_아닌_경우(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()-> runException("pobi,"+123, "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 자동차에_대한_예외_처리(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()-> runException(" ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class));
+    }
+
+    @Test
+    void 시도_횟수에_대한_예외_처리(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()-> runException("pobi,woni","one"))
+                        .isInstanceOf(IllegalArgumentException.class));
     }
 
     @Override
