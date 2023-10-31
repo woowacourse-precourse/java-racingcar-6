@@ -3,53 +3,46 @@ package racingcar.Game;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import racingcar.View.UserInput;
 
 public class Controller {
 
-    public List<Integer> SetScoreBoard(List<String> carName) {
-        List<Integer> scoreBoard = new ArrayList<>(carName.size());
-        for (int i = 0; i < carName.size(); i++) {
-            scoreBoard.add(0);
+    public HashMap<String, Integer> createScoreBoard(){
+        UserInput userInput = new UserInput();
+        HashMap<String, Integer> scoreBoard = new HashMap<>();
+        for (String carName : userInput.carName()) {
+            scoreBoard.put(carName, 0);
         }
         return scoreBoard;
     }
 
-    public List<Integer> CarMove(List<Integer> scoreBoard) {
-
-        // iterator 사용가능?
-        for(int i = 0; i < scoreBoard.size(); i++) {
-            int MoveValue = Randoms.pickNumberInRange(0, 9);
-            System.out.println(MoveValue);
-            if (MoveValue >= 4) {
-                int j = scoreBoard.get(i);
-                scoreBoard.set(i, j + 1);
-                System.out.println(scoreBoard.get(i));
-            }
+    public HashMap<String, Integer> carMove(HashMap<String, Integer> scoreBoard){
+        for (Map.Entry<String,Integer> score : scoreBoard.entrySet()){
+            score.setValue(decideMove(score.getValue()));
         }
         return scoreBoard;
     }
 
-    public void PrintScore (List<String> carName, List<Integer> scoreBoard){
-
-        List<String> moveProgress = new ArrayList<>();
-
-        for (int i = 0; i < carName.size(); i++) {
-            moveProgress.add(carName.get(i));
-            moveProgress.add(" : ");
-            for (int j = 0; j < scoreBoard.get(i); j++) {
-                moveProgress.add("-");
-            }
-            System.out.println(String.join("",moveProgress));
+    public int decideMove (int position) {
+        int randomValue = Randoms.pickNumberInRange(0,9);
+        if (randomValue >= 4) {
+            position++;
         }
+        return position;
     }
 
+    public String findWinner (HashMap<String, Integer> scoreBoard) {
+        List<String> winnerList = new ArrayList<>();
 
-
-    public String getWinner (List<String> carName, List<Integer> scoreBoard) {
-        int maxScore = Collections.max(scoreBoard); // stream 프레임워크 쓸수 있는지?
-
-        return carName.get(scoreBoard.indexOf(maxScore));
+        int maxValue = Collections.max(scoreBoard.values());
+        for (Map.Entry<String, Integer> entry : scoreBoard.entrySet()) {
+            if (entry.getValue() == maxValue) {
+                winnerList.add(entry.getKey());
+            }
+        }
+        return String.join(",",winnerList);
     }
-
 }
