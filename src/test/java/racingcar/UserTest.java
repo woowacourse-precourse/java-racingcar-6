@@ -1,7 +1,5 @@
 package racingcar;
 
-import static org.assertj.core.api.AssertionsForClassTypes.within;
-
 import java.util.Arrays;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
