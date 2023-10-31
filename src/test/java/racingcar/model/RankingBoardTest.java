@@ -3,7 +3,6 @@ package racingcar.model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,22 +23,17 @@ public class RankingBoardTest {
         assertEquals(rankingBoard.getRankingBoard().size(), carNames.length);
     }
 
-    @Test
-    public void getCarNamesTest(){
-        assertEquals(rankingBoard.getCarNames(), new HashSet<>(List.of(carNames)));
-    }
 
     @Test
     public void plusTest(){
         // when
         rankingBoard.plus(carNames[0]);
         // then
-        assertEquals(1, rankingBoard.getRankingBoard().get(carNames[0]));
+        assertEquals(1, rankingBoard.getRankingBoard().get(0).getStepOfForward());
     }
 
     @Test
     public void getWinners(){
-        assertEquals(new HashSet<>(List.of(carNames)), new HashSet<>(rankingBoard.getWinners()));
+        assertEquals(List.of(carNames), rankingBoard.getWinners());
     }
-
 }

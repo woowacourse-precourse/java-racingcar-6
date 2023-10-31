@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.ForwardChecker;
+import racingcar.model.Participant;
 import racingcar.model.RankingBoard;
 import racingcar.model.TryNumber;
 import racingcar.view.Printer;
@@ -32,17 +33,17 @@ public class RacingCarGame {
     }
 
     private void playRound() {
-        for(String carName : rankingBoard.getCarNames()){
+        for(Participant participant : rankingBoard.getRankingBoard()){
             if(forwardChecker.isForward()){
-                rankingBoard.plus(carName);
+                rankingBoard.plus(participant.getName());
             }
         }
     }
 
     public void printRoundResult(){
-        for (Map.Entry<String, Integer> entry : rankingBoard.getRankingBoard().entrySet()){
-            String carName = entry.getKey();
-            Integer forwardNumber = entry.getValue();
+        for (Participant participant : rankingBoard.getRankingBoard()){
+            String carName = participant.getName();
+            Integer forwardNumber = participant.getStepOfForward();
             Printer.printRoundResult(carName, forwardNumber);
         }
         Printer.printWhiteSpace();
@@ -51,5 +52,4 @@ public class RacingCarGame {
     public void printWinners(){
         Printer.printWinner(rankingBoard.getWinners());
     }
-
 }

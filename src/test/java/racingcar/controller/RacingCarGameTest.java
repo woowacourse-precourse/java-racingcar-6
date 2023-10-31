@@ -99,6 +99,17 @@ public class RacingCarGameTest extends NsTest {
         );
     }
 
+    @Test
+    void game5() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("p1,p2,p3,p4,p5", "1");
+                    assertThat(output()).contains("p1 : -", "p2 : -", "p3 : -", "p4 : -", "p5 : -","최종 우승자 : p1, p2, p3, p4, p5");
+                },
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+
 
 
     @Override

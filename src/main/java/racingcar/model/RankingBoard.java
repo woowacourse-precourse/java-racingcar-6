@@ -3,41 +3,47 @@ package racingcar.model;
 import java.util.*;
 
 public class RankingBoard {
-    private Map<String, Integer> rankingBoard;
+    private List<Participant> rankingBoard;
 
     public RankingBoard(String[] carNames){
         init(carNames);
     }
 
     private void init(String[] carNames){
-        rankingBoard = new HashMap<>();
+        rankingBoard = new LinkedList<>();
         for(String carName : carNames){
-            rankingBoard.put(carName, 0);
+            rankingBoard.add(new Participant(carName, 0));
         }
     }
 
-    public Map<String, Integer> getRankingBoard(){
+    public List<Participant> getRankingBoard(){
         return rankingBoard;
     }
 
-    public Set<String> getCarNames(){
-        return rankingBoard.keySet();
-    }
-
     public void plus(String carName){
-        rankingBoard.put(carName, rankingBoard.get(carName)+1);
+        for(Participant participant : rankingBoard){
+            if(participant.getName().equals(carName)){
+                participant.plus();
+            }
+        }
     }
 
     public List<String> getWinners() {
         List<String> winners = new ArrayList<>();
-        int maxValue = Collections.max(rankingBoard.values());
-        for (Map.Entry<String, Integer> entry : rankingBoard.entrySet()) {
-            if(entry.getValue() == maxValue){
-                winners.add(entry.getKey());
+        int maxValue = findMaxValue();
+        for (Participant participant : rankingBoard) {
+            if(participant.getStepOfForward() == maxValue){
+                winners.add(participant.getName());
             }
         }
         return winners;
     }
 
-
+    private int findMaxValue(){
+        int maxValue = -1;
+        for(Participant participant : rankingBoard){
+            maxValue = Math.max(maxValue, participant.getStepOfForward());
+        }
+        return maxValue;
+    }
 }
