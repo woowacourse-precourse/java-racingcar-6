@@ -14,6 +14,7 @@ class CarNameTest {
     @Nested
     @DisplayName("자동차 이름 검증 테스트")
     class ValidationTest {
+
         @ParameterizedTest(name = "input : [{0}]")
         @CsvSource({"''", "' '", "steven", "CA Lee"})
         @DisplayName("자동차 이름의 형식이 올바르지 않으면, 예외를 던진다")

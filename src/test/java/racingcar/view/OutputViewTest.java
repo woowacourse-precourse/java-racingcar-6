@@ -69,7 +69,4 @@ class OutputViewTest {
             assertThat(printer.getPrintedMessage()).isEqualTo(expectedMessage);
         }
     }
-
-
-
 }

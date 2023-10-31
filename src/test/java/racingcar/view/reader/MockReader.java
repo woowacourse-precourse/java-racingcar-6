@@ -9,10 +9,10 @@ public class MockReader implements Reader {
     public MockReader(String message) {
         this.message = message;
     }
+
     public MockReader() {
         this(BLANK);
     }
-
 
     @Override
     public String read() {
