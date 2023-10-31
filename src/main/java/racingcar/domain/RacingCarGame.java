@@ -16,6 +16,7 @@ import racingcar.model.InputData;
 
 public class RacingCarGame {
     private static List<StringBuilder> skeleton;
+    private static final int FORWARD_THRESHOLD = 4;
 
     public static void playRace(InputData inputData, Car car) {
         int raceCount = Integer.parseInt(inputData.getAttemptCount());
@@ -49,7 +50,7 @@ public class RacingCarGame {
     public static boolean makeMoveDecision() {
         int moveDecision = Randoms.pickNumberInRange(0, 9);
 
-        return moveDecision >= 4;
+        return moveDecision >= FORWARD_THRESHOLD;
     }
 
     public static List<String> getGameWinner() {
