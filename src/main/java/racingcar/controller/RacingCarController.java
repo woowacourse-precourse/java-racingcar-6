@@ -36,6 +36,7 @@ public class RacingCarController {
     }
 
     public String inputCarNames(String input) {
+        validateFirstCharComma(input);
         validateLastCharComma(input);
         return input;
     }
@@ -87,6 +88,13 @@ public class RacingCarController {
 
     private void validateEmptyName(List<String> carNames) {
         if (carNames.contains(EMPTY_NAME)) {
+            throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
+        }
+    }
+
+    private void validateFirstCharComma(String input) {
+        int firstIndex = 0;
+        if (input.charAt(firstIndex) == COMMA) {
             throw new IllegalArgumentException("빈칸은 이름이 될 수 없습니다.");
         }
     }
