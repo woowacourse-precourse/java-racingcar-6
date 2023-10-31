@@ -24,6 +24,6 @@ public class OutputFormatter {
     }
 
     public static String formatWinner(WinnerDTO winnerDTO) {
-        return "최종 우승자 : " + String.join(",", winnerDTO.getNames());
+        return "\n최종 우승자 : " + String.join(",", winnerDTO.getNames());
     }
 }
