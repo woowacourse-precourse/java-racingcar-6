@@ -28,4 +28,9 @@ public class MoveAttempts {
         createAttempt(attempts.get(index - 1));
         attempts.get(index).initRandomNumbers();
     }
+
+    public void apply(int index) {
+        String moves = attempts.get(index).decideMoves();
+        attempts.get(index).moveRacingCars(moves);
+    }
 }

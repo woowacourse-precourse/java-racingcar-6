@@ -18,4 +18,8 @@ public class AttemptData {
     public void pickNewNumber() {
         moveAttempts.initNewAttempt(attemptIndex.toInt());
     }
+
+    public void moveRacingCars() {
+        moveAttempts.apply(attemptIndex.toInt());
+    }
 }

@@ -9,6 +9,10 @@ public class CarPosition {
         this.pos = pos;
     }
 
+    public void move(int num) {
+        pos += num;
+    }
+
     public static void validateCarPosition(int pos) {
         if (pos < 0) {
             throw new IllegalArgumentException(NEGATIVE_INTEGER);

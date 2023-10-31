@@ -20,6 +20,10 @@ public class RacingCars {
         cars.add(newCar);
     }
 
+    public void moveCar(int carIndex, int moveNum) {
+        cars.get(carIndex).moveCarPosition(moveNum);
+    }
+
     public int isTotal() {
         return cars.size();
     }
