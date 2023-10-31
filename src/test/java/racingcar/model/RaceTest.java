@@ -7,29 +7,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 public class RaceTest {
-
-    Generator generator = new Generator();
 
     @DisplayName("race 회수 유효성 검사 테스트")
     @Test
     void testValidateNumberOfRace() {
-        assertDoesNotThrow(() -> Race.from(5, generator));
+        assertDoesNotThrow(() -> Race.from(5));
     }
 
     @DisplayName("race 회수 유효성 검사 exception 테스트")
     @Test
     void testValidateNumberOfRaceThrow() {
-        assertThrows(IllegalArgumentException.class, () -> Race.from(101, generator));
+        assertThrows(IllegalArgumentException.class, () -> Race.from(101));
     }
 
     @DisplayName("한 경기 진행 기능")
     @Test
     void testRunSingleRace() {
         Car car = Car.from("pobi");
-        Race race = Race.from(1, generator);
+        Race race = Race.from(1);
 
         race.runSingleRace(List.of(car));
 
