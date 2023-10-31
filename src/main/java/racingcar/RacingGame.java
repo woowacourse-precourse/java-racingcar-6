@@ -3,7 +3,7 @@ package racingcar;
 import racingcar.controller.Controller;
 
 public class RacingGame {
-    Controller controller;
+    private final Controller controller;
 
     public RacingGame() {
         this.controller = new Controller();

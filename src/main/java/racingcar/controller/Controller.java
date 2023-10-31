@@ -17,7 +17,7 @@ import racingcar.view.InputView;
 
 public class Controller {
 
-    private final Service service;
+    Service service;
 
     public Controller() {
         this.service = new Service();
