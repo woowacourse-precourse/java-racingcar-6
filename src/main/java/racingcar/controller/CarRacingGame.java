@@ -20,6 +20,7 @@ public class CarRacingGame {
     public void run() {
 
         initialParticipant(getCarName());
+        initialNumberOfTrial(getNumberOfTrial());
 
     }
 
@@ -28,8 +29,17 @@ public class CarRacingGame {
         return inputConsoleView.readCarName();
     }
 
+    private String getNumberOfTrial() {
+        outputConsoleView.printAskingNumberOfTrial();
+        return inputConsoleView.readNumberOfTrial();
+    }
+
     private void initialParticipant(String carNames) {
         cars.addCars(carNames.split(","));
+    }
+
+    private void initialNumberOfTrial(String number) {
+        numberOfTrial = Integer.parseInt(number);
     }
 
 
