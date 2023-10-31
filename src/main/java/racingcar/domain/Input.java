@@ -21,7 +21,12 @@ public class Input {
     public GameCount getGameCount() {
         userInput = Console.readLine();
         validateGameCountNubmer(userInput);
-        return new GameCount(userInput);
+        GameCount gameCount = new GameCount(userInput);
+        return gameCount;
+    }
+
+    public void closeConsole() {
+        Console.close();
     }
 
     private void validateGameCountNubmer(String userInput) {

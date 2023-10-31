@@ -15,6 +15,7 @@ public class Application {
         Cars cars = new Cars(carNames);
         output.printInputGameCountMessage();
         GameCount gameCount = input.getGameCount();
+        input.closeConsole();
         output.printResultMessage();
 
         CarRacingGame carRacingGame = new CarRacingGame(output);
