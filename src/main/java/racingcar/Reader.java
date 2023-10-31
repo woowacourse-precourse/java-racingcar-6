@@ -12,4 +12,17 @@ public final class Reader {
         return Console.readLine().split(",");
     }
 
+    public static Integer attempts() {
+        String inputAttempts = Console.readLine();
+        return validInputAttempts(inputAttempts);
+    }
+
+    private static Integer validInputAttempts(String inputAttempts) {
+        try {
+            return Integer.parseInt(inputAttempts);
+        } catch (NumberFormatException exception) {
+            throw new IllegalArgumentException();
+        }
+    }
+
 }
