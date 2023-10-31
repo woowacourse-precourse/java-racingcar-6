@@ -28,7 +28,7 @@ public class CarTest {
     void 이동_결과_문자열_확인() {
         Car car = new Car("pobi");
         assertThat(car.getMoveResult()).isEqualTo("");
-        car.move();
+        car.move(5);
         assertThat(car.getMoveResult()).isEqualTo("-");
     }
 }
