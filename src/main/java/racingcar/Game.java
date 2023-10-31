@@ -74,4 +74,11 @@ public class Game {
             checkPrintComma(cars, car);
         }
     }
+
+    // 우승자가 여러명인 경우 ,를 붙일지 결정하는 함수
+    private void checkPrintComma(List<Car> cars, Car car) {
+        if (cars.indexOf(car) < cars.size() - 1) {
+            System.out.print(", ");
+        }
+    }
 }
