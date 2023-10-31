@@ -2,6 +2,7 @@ package racingcar.handler;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class UserInputHandler {
@@ -25,11 +26,14 @@ public class UserInputHandler {
     }
 
     private static List<String> splitNames(String input) {
-       return null;
+        return Arrays.asList(input.split(","));
     }
 
     private static void validateName(String name) {
         String trimmedName = name.trim();
+        if (trimmedName.length() == 0 || trimmedName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 1자 이상, 5자 이하만 가능합니다.");
+        }
     }
 }
 
