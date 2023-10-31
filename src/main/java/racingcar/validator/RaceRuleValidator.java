@@ -39,6 +39,8 @@ public class RaceRuleValidator {
     }
 
     private static boolean isDuplicates(final List<String> carNames) {
-        return carNames.size() != carNames.stream().distinct().count();
+        return carNames.stream()
+                .distinct()
+                .count() != carNames.size();
     }
 }
