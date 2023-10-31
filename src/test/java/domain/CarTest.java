@@ -44,5 +44,16 @@ class CarTest {
         assertThat(car.getPosition()).isBetween(0,10);
     }
 
+    @Test
+    void printPosition_자동차의_현재위치_반환() {
+        car.drive();
+        int position = car.getPosition();
+        String expectedOutput = "TestCar : " + "-".repeat(position) + System.lineSeparator();
 
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        car.printPosition();
+
+        assertThat(out.toString()).isEqualTo(expectedOutput);
+    }
 }
