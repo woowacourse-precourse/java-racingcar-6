@@ -20,14 +20,18 @@ public class Race {
     private void begin() {
         System.out.println("\n실행 결과");
         for (int i = 0; i < round; i++) {
-            for (Car car : cars) {
-                if (RandomNumberGenerator.generate() >= 4) {
-                    car.forward();
-                }
-                System.out.println(car.toString());
-            }
-            System.out.println();
+            round();
         }
+    }
+
+    private void round() {
+        for (Car car : cars) {
+            if (RandomNumberGenerator.generate() >= 4) {
+                car.forward();
+            }
+            System.out.println(car.toString());
+        }
+        System.out.println();
     }
 
     private void result() {
