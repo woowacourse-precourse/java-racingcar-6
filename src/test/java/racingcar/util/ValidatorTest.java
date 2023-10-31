@@ -24,4 +24,13 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME_LENGTH.getMessage());
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"one,", "", "나혼자"})
+    void 자동차_이름_개수_테스트(String input) {
+        List<String> names = Util.splitNameByComma(input);
+        assertThatThrownBy(() -> validator.validateCarName(names))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ExceptionMessage.INVALID_CAR_COUNT.getMessage());
+    }
 }
