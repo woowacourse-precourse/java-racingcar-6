@@ -47,7 +47,7 @@ public class Console {
      *
      * @return 자동차 이름 리스트
      */
-    public static String[] readCarName() {
+    public static String[] readCarName() throws IllegalArgumentException {
         String input = validateInputIsEmpty(readLine());
         String[] carNames = Arrays.stream(input.split(","))
                 .map(carName -> carName.trim()).toArray(String[]::new);
@@ -68,17 +68,10 @@ public class Console {
      *
      * @return 시도 횟수
      */
-    public static int readTryCount() {
+    public static int readTryCount() throws IllegalArgumentException {
         String input = validateInputIsEmpty(readLine());
-
-        try {
-            int tryCount = Integer.parseInt(input);
-            validateTryCount(tryCount);
-
-            return tryCount;
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_TRY_COUNT);
-        }
+        validateTryCount(input);
+        return Integer.parseInt(input);
     }
 
     /**
@@ -100,7 +93,7 @@ public class Console {
      * @param input
      * @return
      */
-    private static String validateInputIsEmpty(String input) {
+    protected static String validateInputIsEmpty(String input) throws IllegalArgumentException {
         if (input == null || input.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.NOT_ALLOWED_NULL);
         }
@@ -112,7 +105,7 @@ public class Console {
      *
      * @param carName
      */
-    private static void validateCarName(String carName) throws IllegalArgumentException {
+    protected static void validateCarName(String carName) throws IllegalArgumentException {
         if (carName.length() < Rule.MIN_CAR_NAME_LENGTH || carName.length() > Rule.MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME);
         }
@@ -121,9 +114,16 @@ public class Console {
     /**
      * 시도 횟수 검증
      *
-     * @param tryCount
+     * @param input
      */
-    private static void validateTryCount(int tryCount) throws IllegalArgumentException {
+    protected static void validateTryCount(String input) throws IllegalArgumentException {
+        int tryCount = 0;
+        try {
+            tryCount = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_TRY_COUNT);
+        }
+
         if (tryCount < Rule.MIN_TRY_COUNT) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_TRY_COUNT_RANGE);
         }
