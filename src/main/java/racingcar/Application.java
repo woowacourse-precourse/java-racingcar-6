@@ -5,3 +5,19 @@ public class Application {
         // TODO: 프로그램 구현
     }
 }
+
+class Racer{
+    String name;
+    int distance;
+
+    public Racer(String name){
+        this.name = name;
+    }
+    public void forward(){
+        this.distance++;
+    }
+
+    public int getDistance(){
+        return this.distance;
+    }
+}
