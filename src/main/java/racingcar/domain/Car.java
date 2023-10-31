@@ -1,7 +1,9 @@
 package racingcar.domain;
 
 public class Car {
+	public static final String WRONG_NAME_LENGTH_EXCEPTION_MESSAGE = "자동차 이름이 올바르지 않습니다. (5자 이하의 이름을 입력해주세요.)";
 	public static int INIT_DISTANCE = 0;
+
 	private final String name;
 	private int distance;
 
@@ -30,7 +32,7 @@ public class Car {
 
 	public void validateName(String name){
 		if (name.length() > 5 || name.length() < 1) {
-			throw new IllegalArgumentException("자동차 이름이 올바르지 않습니다. (5자 이하의 이름을 입력해주세요.)");
+			throw new IllegalArgumentException(WRONG_NAME_LENGTH_EXCEPTION_MESSAGE);
 		}
 	}
 }
