@@ -12,10 +12,10 @@ public class Application {
 
         String names = inputView.inputCarName();
         List<String> nameList = inputView.splitNames(names);
-        Racing racing = new Racing(nameList);
 
         int round = inputView.inputTryNumber();
 
+        Racing racing = new Racing(nameList);
         String racingResult = racing.startRacing(round);
 
         outputView.getRacingResult(racingResult);
