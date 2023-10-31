@@ -8,45 +8,50 @@ import java.util.List;
 
 public class RacingGame {
 
-    private List<String> resultList = new ArrayList<>();
+    private List<String> resultList;
     private List<String> winner = new ArrayList<>();
-    private InputDesk inputDesk = new InputDesk();
-    private Announcer outputs = new Announcer();
+    private InputDesk inputDesk;
+    private Announcer announcer;
+    private final int RAND_NUM_MAX = 9;
+    private final int RAND_NUM_MIN = 0;
+    private final int RAND_NUM_THRESHOLD = 4;
 
     public RacingGame() {
 
     }
 
-    public void initResultList(List resultList) {
+    public List<String> initResultList() {
         List<String> cars = inputDesk.getCars();
-        for (int i = 0 ; i < cars.size() ; i++) {
-            resultList.add("");
+        List<String> initList = new ArrayList<>();
+        for (int i = 0; i < cars.size(); i++) {
+            initList.add("");
         }
+        return initList;
     }
 
-    public void move(List cars) {
+    public List<String> move(List cars,List resultList) {
         int randNum;
-        for (int i=0; i<cars.size(); i++) {
-            randNum = Randoms.pickNumberInRange(0,9);
-            if(randNum >= 4) {
-                resultList.set(i, resultList.get(i)+"-");
+        for (int i = 0; i < cars.size(); i++) {
+            randNum = Randoms.pickNumberInRange(RAND_NUM_MIN, RAND_NUM_MAX);
+            if (randNum >= RAND_NUM_THRESHOLD) {
+                resultList.set(i, resultList.get(i) + "-");
             }
         }
-
+        return resultList;
     }
 
     public void chooseWinners(List<String> resultList) {
 
         List<String> cars = inputDesk.getCars();
         int maxLen = 0;
-        for (int i=0; i<resultList.size(); i++) {
-            if( resultList.get(i).length() > maxLen) {
+        for (int i = 0; i < resultList.size(); i++) {
+            if (resultList.get(i).length() > maxLen) {
                 maxLen = resultList.get(i).length();
                 winner.clear();
                 winner.add(cars.get(i));
                 continue;
             }
-            if(resultList.get(i).length() == maxLen) {
+            if (resultList.get(i).length() == maxLen) {
                 winner.add(cars.get(i));
                 continue;
             }
@@ -55,18 +60,20 @@ public class RacingGame {
     }
 
     public void start() {
+        inputDesk = new InputDesk();
+        announcer = new Announcer();
 
         try {
             inputDesk.inputCars();
             inputDesk.inputCounts();
-            initResultList(resultList);
-            for (int i = 0; i< inputDesk.getCount(); i++) {
-                move(inputDesk.getCars());
-                outputs.resultMessage();
-                outputs.result(resultList,inputDesk.getCars());
+            resultList = initResultList();
+            for (int i = 0; i < inputDesk.getCount(); i++) {
+                move(inputDesk.getCars(),resultList);
+                announcer.resultMessage();
+                announcer.result(resultList, inputDesk.getCars());
             }
             chooseWinners(resultList);
-            outputs.winner(winner);
+            announcer.winner(winner);
         } catch (IllegalArgumentException e) {
             throw e;
         }
