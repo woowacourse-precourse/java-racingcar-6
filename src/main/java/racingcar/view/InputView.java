@@ -11,8 +11,7 @@ public class InputView {
 		String[] input = Console.readLine()
 				.split(",");
 
-		List<String> players = new ArrayList<>(Arrays.asList(input));
-		return players;
+		return new ArrayList<>(Arrays.asList(input));
 	}
 
 	public static String insertTryNumber() {
