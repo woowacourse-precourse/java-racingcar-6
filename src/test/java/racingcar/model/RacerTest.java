@@ -69,12 +69,40 @@ class RacerTest {
         }
     }
 
+    @DisplayName("전진 하지 못하는 테스트")
+    @ParameterizedTest(name = "{displayName}: racer: {0}, round: {1}")
+    @MethodSource("CanNotMoveParametersProvider")
+    void checkCanNotMove(String value, Integer round, String expected) {
+        Accelerator accelerator = new Accelerator(new MinNumberGenerator());
+        Racer racer = Racer.of(value);
+        for (int i = 0; i < round; i++) {
+            racer.play(accelerator);
+        }
+        Result result = racer.getResult();
+        assertThat(result.toIntermediateResult()).contains(expected);
+    }
+
+    static class MinNumberGenerator implements NumberGenerator {
+        @Override
+        public int generate() {
+            return Rule.MIN_POSSIBILITY;
+        }
+    }
+
     static Stream<Arguments> MoveForwardParametersProvider() {
         String line = System.lineSeparator();
         return Stream.of(
                 Arguments.arguments("one,two", 2, "one : --" + line + "two : --" + line),
                 Arguments.arguments("devil", 4, "devil : ----" + line),
                 Arguments.arguments("rest", 0, "rest : " + line)
+        );
+    }
+
+    static Stream<Arguments> CanNotMoveParametersProvider() {
+        String line = System.lineSeparator();
+        return Stream.of(
+                Arguments.arguments("devil", 10, "devil : " + line),
+                Arguments.arguments("1,2,3", 3, "1 : " + line + "2 : " + line + "3 : " + line)
         );
     }
 }
