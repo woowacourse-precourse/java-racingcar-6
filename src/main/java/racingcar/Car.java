@@ -37,6 +37,10 @@ public class Car {
         return;
     }
 
+    public void print() {
+        System.out.println(this);
+    }
+
     public String getName() {
         return name;
     }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RaceManager {
     private final RaceOfficial raceOfficial = new RaceOfficial();
@@ -47,13 +48,16 @@ public class RaceManager {
 
     public void start() {
         Util.print(MessageType.SHOW_RUN_RESULT);
-        for (int i = 0; i < tryNumber; i++) {
-            cars.stream().forEach(car -> {
-                car.tryToMove();
-                System.out.println(car);
-            });
-            System.out.println();
-        }
+        Stream.iterate(0, i -> i + 1).limit(tryNumber)
+            .forEach(moment -> racing());
+    }
+
+    public void racing() {
+        cars.forEach(car -> {
+            car.tryToMove();
+            car.print();
+        });
+        System.out.println();
     }
 
     public void showWinners(List<Car> winners) {
