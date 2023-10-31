@@ -38,6 +38,8 @@
     - [CarListTest.java](#CarListTest.java)
     - [CarRegisterTest.java](#CarRegisterTest.java)
     - [CarMoveManagerTest.java](#CarMoveManagerTest.java)
+  - [UtilTest](#UtilTest)
+    - [CarNameValidatorTest.java](#CarNameValidatorTest.java)
     
 
 ---
@@ -176,3 +178,13 @@
 
 ### CarMoveManagerTest.java
 - 값에 따른 전진 판단 검사
+
+
+## UtilTest
+### CarNameValidatorTest.java
+- 비정상 입력값
+  - 자동차의 수가 1대 이하
+  - 자동차 이름 6자 이상
+  - 중복 검사
+  - 공백 포함 여부 검사
+- 정상 입력값 검사
