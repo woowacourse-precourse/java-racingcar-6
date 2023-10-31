@@ -51,4 +51,24 @@ class RacingLogicTest {
         assertThat(maxDistance).isEqualTo(5);
     }
 
+    @Test
+    void 레이싱카_우승자_한명일때() {
+        RacingCars racingCars = new RacingCars(List.of("car1", "car2"));
+        List<RacingCar> racingCarList = racingCars.getRacingCars();
+        racingCarList.get(0).setForwardDistance(3);
+        racingCarList.get(1).setForwardDistance(5);
+        List<String> winners = RacingLogic.getWinnerCarName(racingCars, 5);
+        assertThat(winners).containsExactly("car2");
+    }
+
+    @Test
+    void 레이싱카_우승자_여러명일때() {
+        RacingCars racingCars = new RacingCars(List.of("car1", "car2"));
+        List<RacingCar> racingCarList = racingCars.getRacingCars();
+        for (RacingCar car : racingCarList) {
+            car.setForwardDistance(5);
+        }
+        List<String> winners = RacingLogic.getWinnerCarName(racingCars, 5);
+        assertThat(winners).containsExactly("car1", "car2");
+    }
 }
