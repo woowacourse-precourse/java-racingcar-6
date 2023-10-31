@@ -1,7 +1,7 @@
 package game;
 
 import org.junit.jupiter.api.Test;
-import racingcar.InputValidator;
+import racingcar.business.InputValidator;
 import racingcar.GameInputHandler;
 
 import java.lang.reflect.InvocationTargetException;

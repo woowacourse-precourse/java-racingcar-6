@@ -10,8 +10,8 @@ public class ConsoleOutput {
         System.out.println("시도할 회수는 몇회인가요?");
     }
     public void printForward(List<String> cars, List<String> forward){
-        for (int i = 0; i < cars.size(); i++) {
-            System.out.println(cars.get(i) + " : " + forward.get(i));
+        for(String car : cars){
+            System.out.println(car + " : " + forward.get(cars.indexOf(car)));
         }
     }
     public void printWinners(String winners){

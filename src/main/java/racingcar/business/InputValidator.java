@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.business;
 
 import java.util.HashSet;
 import java.util.List;

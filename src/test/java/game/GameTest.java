@@ -1,8 +1,8 @@
 package game;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.GameManager;
-import racingcar.GameManagerUtils;
+import racingcar.business.GameManagerUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,13 +13,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameTest {
-    GameManager gameManager = new GameManager();
-    GameManagerUtils gameManagerUtils = new GameManagerUtils();
+    List<String> cars = new ArrayList<>();
+    @BeforeEach
+    void set(){
+        cars.add("aaa");
+        cars.add("bbb");
+        cars.add("ccc");
+    }
+
     @Test
     void 랜덤값_반환() {
-        int randomNumber = gameManagerUtils.randomNumber();
+        int randomNumber = GameManagerUtils.randomNumber(cars);
         assertThat(randomNumber).isBetween(0,9);
     }
+
     @Test
     void 전진_조건_충족(){
         List<Integer> forwardCount = new ArrayList<>();
@@ -27,7 +34,7 @@ public class GameTest {
         forwardCount.add(1);
         forwardCount.add(1);
         List<Integer> forwardCountTest = new ArrayList<>();
-        forwardCountTest = gameManagerUtils.plusForwardCount(forwardCount);
+        forwardCountTest = GameManagerUtils.plusForwardCount(forwardCount, cars);
         //예시로 1,2,2 체크
         assertThat(forwardCountTest).containsExactly(1,2,2);
     }
@@ -40,9 +47,8 @@ public class GameTest {
         cars.add("bbb");
         cars.add("ccc");
 
-        GameManagerUtils gameManagerUtilsTest = new GameManagerUtils(cars);
         try {
-            method = gameManagerUtilsTest.getClass().getDeclaredMethod("winnerCarName", int.class, List.class);
+            method = GameManagerUtils.class.getDeclaredMethod("winnerCarName", int.class, List.class, List.class);
         } catch (NoSuchMethodException e) {
             throw new RuntimeException("메서드를 찾을 수 없습니다.", e);
         }
@@ -60,7 +66,7 @@ public class GameTest {
         forwardCount.add(3);
         forwardCount.add(3);
         try {
-            winners = (List<String>) method.invoke(gameManagerUtilsTest, winnerCount, forwardCount);
+            winners = (List<String>) method.invoke(null, winnerCount, forwardCount, cars);
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException("메서드 호출 실패", e);
         }
@@ -74,7 +80,7 @@ public class GameTest {
         winnerCarName.add("bbb");
         winnerCarName.add("ccc");
 
-        String winners = gameManagerUtils.joinWithCommas(winnerCarName);
+        String winners = GameManagerUtils.joinWithCommas(winnerCarName);
         String winnersTest = "bbb, ccc";
         assertEquals(winners, winnersTest);
     }
