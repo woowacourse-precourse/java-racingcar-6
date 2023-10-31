@@ -2,7 +2,6 @@ package racingcar.domain.racing;
 
 import java.util.List;
 import racingcar.controller.RacingCarController;
-import racingcar.domain.car.Car;
 import racingcar.domain.car.CarManager;
 import racingcar.domain.winner.WinnerChecker;
 import racingcar.view.GameView;
@@ -11,15 +10,13 @@ public class GameManager {
     private CarManager carManager;
     private GameRoundManager gameRoundManager;
     private WinnerChecker winnerChecker;
-    private final GameView gameView;
     private final RacingCarController racingCarController;
-    private final RandomMoveStrategy randomMoveStrategy= new RandomMoveStrategy();
+    private final RandomMoveStrategy randomMoveStrategy = new RandomMoveStrategy();
+    private final GameView gameView = new GameView();
 
     public GameManager() {
-        this.racingCarController = new RacingCarController();
-        this.gameView = new GameView();
+        this.racingCarController = new RacingCarController(gameView);
     }
-
 
     public void playGame(int rounds) {
         gameRoundManager = new GameRoundManager(carManager.getCars());
@@ -32,10 +29,10 @@ public class GameManager {
         gameView.printWinner(winners);
     }
 
-    public void gameStart(){
+    public void gameStart() {
         String carNames = racingCarController.getUserInputForCarNames();
         int rounds = racingCarController.getUserInputForRounds();
-        carManager = new CarManager(carNames,randomMoveStrategy);
+        carManager = new CarManager(carNames, randomMoveStrategy);
         playGame(rounds);
     }
 }

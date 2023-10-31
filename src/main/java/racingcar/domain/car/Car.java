@@ -1,6 +1,5 @@
 package racingcar.domain.car;
 
-import java.util.function.Supplier;
 import racingcar.domain.racing.MoveStrategy;
 
 public class Car {

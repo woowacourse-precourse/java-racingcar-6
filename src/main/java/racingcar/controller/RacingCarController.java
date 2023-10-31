@@ -4,7 +4,11 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.GameView;
 
 public class RacingCarController {
-    private final GameView view= new GameView();
+    private final GameView view;
+
+    public RacingCarController(GameView view) {
+        this.view = view;
+    }
 
     public String getUserInputForCarNames() {
         view.printCarNameInput();

@@ -1,22 +1,18 @@
 package racingcar.domain.car;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import racingcar.domain.car.Car;
 import racingcar.domain.racing.MoveStrategy;
 
 public class CarManager {
     private List<Car> cars;
     private final MoveStrategy moveStrategy;
-    private final String input;
 
-    public CarManager(String input,MoveStrategy moveStrategy) {
+    public CarManager(String input, MoveStrategy moveStrategy) {
         this.moveStrategy = moveStrategy;
-        this.input = input;
         parseCarNames(input);
     }
 

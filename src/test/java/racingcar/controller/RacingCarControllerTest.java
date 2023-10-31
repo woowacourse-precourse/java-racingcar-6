@@ -1,14 +1,15 @@
 package racingcar.controller;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatCode;
 
-class RacingCarControllerTest {
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import racingcar.view.GameView;
 
-    RacingCarController controller = new RacingCarController();
+class RacingCarControllerTest {
+    GameView view = new GameView();
+    RacingCarController controller = new RacingCarController(view);
 
     @Test
     @DisplayName("이름 입력이 비었을 때, 예외를 던진다.")
