@@ -42,8 +42,7 @@ public class ValidationService {
     }
 
     private List<String> seperatedCarName(String carNames) {
-        List<String> listOfCarNames = Stream.of(carNames.split(",")).collect(Collectors.toList());
-        return listOfCarNames;
+        return Stream.of(carNames.split(",")).collect(Collectors.toList());
     }
 
     public int checkTrialCount(String inputTrialCount) {

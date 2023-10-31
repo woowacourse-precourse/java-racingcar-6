@@ -32,14 +32,12 @@ public class RacingController {
 
     private List<String> getCarNameList() {
         String carNames = inputView.insertCarName();
-        List<String> validatedCarNames = validationService.checkCarNames(carNames);
-        return validatedCarNames;
+        return validationService.checkCarNames(carNames);
     }
 
     private int getTrialCount() {
         String inputTrialCount = inputView.insertTrialCount();
-        int trialCount = validationService.checkTrialCount(inputTrialCount);
-        return trialCount;
+        return validationService.checkTrialCount(inputTrialCount);
     }
 
 }
