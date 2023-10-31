@@ -20,10 +20,10 @@ public class GameSystem {
         attemptNum++;
     }
 
-    //함수 테스트 용도
-    /*public int getAttemptNum(){
+    //attemptNum count test
+    public int getAttemptNum(){
         return attemptNum;
-    }*/
+    }
 
     public Boolean compareAttemptNumToFinal(){
         return attemptNum==attemptNumFinal;

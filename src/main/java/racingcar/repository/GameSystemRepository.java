@@ -1,2 +1,29 @@
-package racingcar.repository;public class GameSystemRepository {
+package racingcar.repository;
+
+
+import racingcar.domain.GameSystem;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class GameSystemRepository {
+    private static final Map<Long, GameSystem> store = new HashMap<>();
+    private static long id=0L;
+
+    public GameSystem save(GameSystem gameSystem){
+        store.put(id++,gameSystem);
+        return gameSystem;
+    }
+
+    public Boolean checkComplete(GameSystem gameSystem) {
+        return gameSystem.compareAttemptNumToFinal();
+    }
+
+    //for test code
+    public void clearStore(){
+        store.clear();
+    }
+
 }

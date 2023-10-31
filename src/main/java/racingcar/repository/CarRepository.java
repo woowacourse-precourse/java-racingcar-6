@@ -25,6 +25,7 @@ public class CarRepository {
         return new ArrayList<>(store.values());
     }
 
+    //for test code
     public void clearStore(){
         store.clear();
     }
