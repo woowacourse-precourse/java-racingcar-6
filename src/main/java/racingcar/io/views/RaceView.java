@@ -4,12 +4,12 @@ import java.util.List;
 import racingcar.collaborator.race.Racer;
 import racingcar.io.Input;
 import racingcar.io.Output;
+import racingcar.io.enums.RaceViewMessage;
 
 public class RaceView {
 
-    // TODO : 리터럴 문자열 제거할 것
     public List<Racer> askRacersNames() {
-        Output.consoleLine("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        Output.consoleLine(RaceViewMessage.ASK_RACERS_NAMES.get());
 
         return Input.consoleStrings(",").stream()
                 .map(String::strip)
@@ -28,12 +28,12 @@ public class RaceView {
         int nameLength = name.length();
 
         if (nameLength < minLength || maxLength < nameLength) {
-            throw new IllegalArgumentException("이름의 길이는 1~5자리여야 합니다.");
+            throw new IllegalArgumentException(RaceViewMessage.EXCEPTION_WRONG_NAME_LENGTH.get());
         }
     }
 
     public Integer askRoundNumber() {
-        Output.consoleLine("시도할 회수는 몇회인가요?");
+        Output.consoleLine(RaceViewMessage.ASK_ROUND_NUMBER.get());
         Integer numberOfRound = getInputNumberOfRound();
         Output.consoleLine(); // 입력 후 공백 한 줄이 들어가게 되어있음
         return numberOfRound;
@@ -45,7 +45,7 @@ public class RaceView {
         Integer numberOfRound = Input.consoleNumber();
 
         if (numberOfRound < minRound || maxRound < numberOfRound) {
-            throw new IllegalArgumentException("진행회수는 1~100회여야 합니다.");
+            throw new IllegalArgumentException(RaceViewMessage.EXCEPTION_WRONG_ROUND_NUMBER.get());
         }
         return numberOfRound;
     }
