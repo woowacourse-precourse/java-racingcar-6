@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static racingcar.Validator.Validator.validateLengthInRange;
 import static racingcar.Validator.Validator.validateNotBlank;
 
 public class CarList {
@@ -22,6 +21,13 @@ public class CarList {
         validateNotBlank(name);
         validateLengthInRange(name);
         return new Car(name);
+    }
+
+    private void validateLengthInRange(String input) {
+        int length = input.length();
+        if (length == 0 || length > 5) {
+            throw new IllegalArgumentException("이름의 길이는 1 ~ 5 범위여야 합니다.");
+        }
     }
 
     public List<Car> getCars() {
