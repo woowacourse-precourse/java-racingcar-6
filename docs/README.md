@@ -53,7 +53,7 @@
         - [x] 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다. - String.join을 활용
             - [x] 우승자 쉼표로 구분
 
-    - Error
+    - ErrorCheck
         - [ ] 사용자가 잘못된 값을 입력할 경우 `IllegalArgumentException`을 발생시킨 후 애플리케이션은 종료되어야 한다.
             - [ ] 예외 발생시 `IllegalArgumentException` 에러 적용후 종료
             - [ ] 입력시 요구사항을 지키는 입력인지 체크하는 기능
@@ -81,9 +81,11 @@
 
 ## 테스트
 
-- CarControler
+- CarController
     - .
 - RacingRuleMaker
+    - .
+- ReadRacingResult
     - .
 
 ## 기타 정보
