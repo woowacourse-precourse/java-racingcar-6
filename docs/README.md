@@ -25,7 +25,7 @@
 ### 판정 관련: Judgement
 - [x] 게임 진행 여부 판정: isGameSet()
 - [x] 우승자 판정: judgeWinner()
-- [ ] 전진 조건 판정: checkGoCondition()
+- [x] 전진 조건 판정: checkGoCondition()
 ***
 ### 입력 관련: Input
 - [x] 자동차 이름 입력: enterCarName()
