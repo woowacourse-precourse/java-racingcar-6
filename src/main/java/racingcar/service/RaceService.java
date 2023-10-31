@@ -30,4 +30,20 @@ public class RaceService {
         }
     }
 
+    public List<Car> findWinners(Race race) {
+        List<Car> cars = race.getCars();
+        int maxPosition = findMaxPosition(cars);
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
+    }
+
+    private int findMaxPosition(List<Car> cars) {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElseThrow(() -> new RuntimeException("최종 우승자를 찾는데 실패했습니다."));
+    }
+
 }
