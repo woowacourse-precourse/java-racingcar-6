@@ -31,11 +31,14 @@
 
 
 ## 각 자동차 객체
+### 생성자
+- [ ] name 필드에 대한 생성자
+
 ### 필드
-- [x] 자동차 이름
-- [x] 현재 위치
+- [x] name
+- [x] position
 
 ### 메서드
 - [ ] 이동 하기
-- [x] 이름에 대한 Getter, Setter
+- [x] 이름에 대한 Getter
 - [x] 현재 위치에 대한 Getter, Setter
