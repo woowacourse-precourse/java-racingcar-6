@@ -12,8 +12,8 @@
 - 시도 횟수를 전달받아 0과 비교하여 유효성을 확인한다.
 
 ## 5. 랜덤 값 분석 및 변환하기
-- NumericUtility#convertNumberIfGreaterOrEqualToFour()
-- 값을 전달 받아 4 이상이라면 숫자를 반환하고, 그 외에는 0을 반환한다.
+- NumericUtility#isNumberGreaterOrEqualToFour()
+- 값을 전달 받아 4 이상이라면 True를 반환하고, 그 외에는 False를 반환한다.
 
 ## 6. 자동차 경주 게임 실행하기
 - Judge#run()

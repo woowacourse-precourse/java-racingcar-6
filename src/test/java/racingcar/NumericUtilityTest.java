@@ -7,32 +7,26 @@ import org.junit.jupiter.api.Test;
 class NumericUtilityTest {
 
     @Test
-    @DisplayName("숫자가 4 이상이라면 그대로 반환")
+    @DisplayName("숫자가 4 이상이라면 true로 반환")
     void convertNumberIfGreaterOrEqualToFourTest1() {
         int number1 = 4;
         int number2 = 9;
-        int expected1 = 4;
-        int expected2 = 9;
+        boolean actual1 = NumericUtility.isNumberGreaterOrEqualToFour(number1);
+        boolean actual2 = NumericUtility.isNumberGreaterOrEqualToFour(number2);
 
-        int actual1 = NumericUtility.convertNumberIfGreaterOrEqualToFour(number1);
-        int actual2 = NumericUtility.convertNumberIfGreaterOrEqualToFour(number2);
-
-        Assertions.assertThat(actual1).isEqualTo(expected1);
-        Assertions.assertThat(actual2).isEqualTo(expected2);
+        Assertions.assertThat(actual1).isEqualTo(true);
+        Assertions.assertThat(actual2).isEqualTo(true);
     }
 
     @Test
-    @DisplayName("숫자가 4 미만이라면 0을 반환")
+    @DisplayName("숫자가 4 미만이라면 false으로 반환")
     void convertNumberIfGreaterOrEqualToFourTest2() {
         int number1 = 0;
         int number2 = 3;
-        int expected1 = 0;
-        int expected2 = 0;
+        boolean actual1 = NumericUtility.isNumberGreaterOrEqualToFour(number1);
+        boolean actual2 = NumericUtility.isNumberGreaterOrEqualToFour(number2);
 
-        int actual1 = NumericUtility.convertNumberIfGreaterOrEqualToFour(number1);
-        int actual2 = NumericUtility.convertNumberIfGreaterOrEqualToFour(number2);
-
-        Assertions.assertThat(actual1).isEqualTo(expected1);
-        Assertions.assertThat(actual2).isEqualTo(expected2);
+        Assertions.assertThat(actual1).isEqualTo(false);
+        Assertions.assertThat(actual2).isEqualTo(false);
     }
 }

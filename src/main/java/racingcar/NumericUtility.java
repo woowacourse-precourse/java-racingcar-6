@@ -9,9 +9,14 @@ public class NumericUtility {
         return number;
     }
 
-    public static int convertNumberIfGreaterOrEqualToFour(int number) {
-        if (number >= 4) {
-            return number;
+    public static boolean isNumberGreaterOrEqualToFour(int number) {
+        return number >= 4;
+    }
+
+    public static int getConvertedNumber() {
+        int number = generateRandomNumber();
+        if (isNumberGreaterOrEqualToFour(number)) {
+            return 1;
         }
         return 0;
     }
