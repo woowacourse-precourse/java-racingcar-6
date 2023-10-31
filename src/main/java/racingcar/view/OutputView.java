@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import racingcar.model.Car;
-
 import java.util.List;
 import java.util.Map;
 

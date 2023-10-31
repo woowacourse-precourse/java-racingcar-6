@@ -1,10 +1,7 @@
 package racingcar.service;
 
 import racingcar.model.Car;
-import racingcar.util.CarUtil;
 
-import java.sql.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RaceGameServiceImpl implements RaceGameService{
