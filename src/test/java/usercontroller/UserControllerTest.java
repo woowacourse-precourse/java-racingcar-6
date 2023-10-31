@@ -5,6 +5,7 @@ import dto.Car;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -13,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 public class UserControllerTest {
     private UserController userController;
     private ArrayList<Car> racingCars;
+
     @BeforeEach
     void setUp() {
         userController = new UserController();
@@ -50,5 +52,12 @@ public class UserControllerTest {
 
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> userController.validateNameLength("InvalidCarName"));
+    }
+
+    @Test
+    void testRegisterCoin() {
+        userController.registerCoin("11");
+
+        assertThat(userController.getCoin()).isEqualTo(11);
     }
 }
