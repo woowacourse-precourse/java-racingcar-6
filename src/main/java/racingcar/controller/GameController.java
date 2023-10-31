@@ -1,12 +1,14 @@
 package racingcar.controller;
 
+import racingcar.model.RaceGame;
 import racingcar.view.InputView;
 
 public class GameController {
+    RaceGame raceGame = new RaceGame();
     InputView inputView = new InputView();
 
     public void startGame() {
-        String carName = inputView.enterCarName();
-        System.out.println(carName);
+        raceGame.setInputCarName(inputView.enterCarName());
+        System.out.println(raceGame.getInputCarName());
     }
 }

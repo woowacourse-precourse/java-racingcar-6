@@ -5,7 +5,7 @@
 ### model
 1. RaceGame
 	- inputcarName : 입력한 자동차 이름 저장 (String)
-		- [ ] 공백 제거 후 저장하기
+		- [O] 공백 제거 후 저장하기
     - carNames : 전체 자동차 이름 입력 데이터 저장
 	- raceNumber : 경주 시도 횟수 입력 데이터 저장
 	- randomNumber : 전진/멈춤 난수 데이터 저장
@@ -29,7 +29,7 @@
 1. GameController
 	- 자동차 경주 게임 시작
 	- startGame()
-		- [ ] 입력한 자동차 이름 모델(inputCarName)에 저장
+		- [O] 입력한 자동차 이름 모델(inputCarName)에 저장
 		- saveCarNames()
 		    - [ ] 입력한 자동차 이름을 List형으로 변환하는 함수 호출
 			- [ ] 데이터 유효성 검사 호출
