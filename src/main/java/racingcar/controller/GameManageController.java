@@ -13,8 +13,7 @@ public class GameManageController {
 
     public void play() {
         OutputView.enterCarNames();
-        String names = InputView.inputCarNames();
-        List<String> namesList = List.of(names.split(","));
+        List<String> namesList = InputView.inputCarNames();
 
         for (String name : namesList) {
             Car car = new Car(name);
@@ -24,7 +23,6 @@ public class GameManageController {
         OutputView.enterAttempts();
         int attempts = InputView.inputAttempts();
         showResult(attempts);
-
     }
 
     public List<Car> findWinners() {
