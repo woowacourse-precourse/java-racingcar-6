@@ -12,7 +12,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static racingcar.view.OutputView.*;
 
 class OutputViewTest {
@@ -73,6 +72,31 @@ class OutputViewTest {
                 OutputView.printWinnerName(game.getWinner());
                 Assertions.assertThat(outputStream.toString()).contains("Tom","Jin").doesNotContain("Ive");
             }
+
+        }
+
+        @Nested
+        class OtherNested{
+            Game game;
+
+            @BeforeEach
+            void setUp() {
+                game = new Game(Arrays.asList(
+                        new Car("Tom", () -> 3),
+                        new Car("Jin", () -> 3),
+                        new Car("Ive", () -> 3)),
+                        1);
+            }
+
+            @Test
+            void 우승자_없음_출력_테스트(){
+                while (!game.isGameOver()) {
+                    game.carRaceOnce();
+                }
+                OutputView.printWinnerName(game.getWinner());
+                Assertions.assertThat(outputStream.toString().trim()).isEqualTo(NO_WINNER_MESSAGE);
+            }
+
         }
     }
 
