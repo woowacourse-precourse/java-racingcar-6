@@ -4,9 +4,10 @@ import java.util.Objects;
 
 public class TryNumber {
     private final int tryNumber;
+    private final int MIN_TRYNUMBER = 1;
 
     public TryNumber(int tryNumber) {
-        if (tryNumber < 1) {
+        if (tryNumber < MIN_TRYNUMBER) {
             throw new IllegalArgumentException();
         }
         this.tryNumber = tryNumber;

@@ -12,14 +12,26 @@ public class RacingGame {
     }
 
     public void start(TryNumber tryNumber) {
+        System.out.println();
+        System.out.println("실행 결과");
         for (int i = 0; i < tryNumber.getTryNumber(); i++) {
             cars.race(randomStrategy);
-            cars.getCars().stream().forEach(car -> {
-                System.out.print(String.format("%s : ", car.getCarName()));
-                printDistance(car.getDistance());
-            });
+            printResult();
             System.out.println();
         }
+    }
+
+    private void printResult() {
+        cars.getCars()
+                .stream()
+                .forEach(car -> {
+                    printCarName(car);
+                    printDistance(car.getDistance());
+                });
+    }
+
+    private static void printCarName(Car car) {
+        System.out.print(String.format("%s : ", car.getCarName()));
     }
 
     private static void printDistance(int distance) {
@@ -34,6 +46,4 @@ public class RacingGame {
         String winners = winnersList.stream().collect(Collectors.joining(", "));
         System.out.printf("최종 우승자 : %s", winners);
     }
-
-
 }

@@ -4,16 +4,18 @@ import java.util.Objects;
 
 public class Position {
     private final int distance;
+    private final int MIN_DISTANCE = 0;
+    private int MOVING_DISTANCE = 1;
 
     public Position(int distance) {
-        if (distance < 0) {
+        if (distance < MIN_DISTANCE) {
             throw new IllegalArgumentException();
         }
         this.distance = distance;
     }
 
     public Position move() {
-        return new Position(distance + 1);
+        return new Position(distance + MOVING_DISTANCE);
     }
 
     public int getDistance() {

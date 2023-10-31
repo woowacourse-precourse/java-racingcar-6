@@ -13,4 +13,9 @@ class CarNameTest {
         assertThatThrownBy(() -> new CarName("pobibi")).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 값객체는_동등성을_지님() {
+        CarName pobi = new CarName("pobi");
+        assertThat(pobi).isEqualTo(new CarName("pobi"));
+    }
 }

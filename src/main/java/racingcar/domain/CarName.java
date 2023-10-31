@@ -3,10 +3,11 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class CarName {
+    private final int MAX_lENGTH = 5;
     private final String name;
 
     public CarName(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_lENGTH) {
             throw new IllegalArgumentException();
         }
         this.name = name;

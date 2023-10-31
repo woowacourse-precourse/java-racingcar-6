@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,8 +11,9 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CarsFactoryTest {
 
-    @Test
-    void Factory로_Cars생성() {
+    @ParameterizedTest
+    @CsvSource({"0,pobi", "1,woni", "2,jun"})
+    void Factory로_Cars생성(int index, String carName) {
         //given
         List<Car> carList = Arrays.asList(
                 new Car(new CarName("pobi"), new Position(0))
@@ -21,6 +24,6 @@ public class CarsFactoryTest {
         Cars cars = CarsFactory.createCars(carNames);
         List<Car> carsFromFactory = cars.getCars();
         //then
-        assertThat(carsFromFactory.get(0)).isEqualTo(new Car(new CarName("pobi"), new Position(0)));
+        assertThat(carsFromFactory.get(index)).isEqualTo(new Car(new CarName(carName), new Position(0)));
     }
 }

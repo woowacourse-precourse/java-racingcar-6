@@ -15,13 +15,16 @@ public class CarsTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2})
-    void Cars_race(int index) {
+    void race호출시_Car들의_Position이_1만큼_증가(int index) {
+        //given
         List<Car> carList = Arrays.asList(
                 new Car(new CarName("pobi"), new Position(0))
                 , new Car(new CarName("woni"), new Position(0))
                 , new Car(new CarName("jun"), new Position(0)));
         Cars cars = new Cars(carList);
+        //when
         cars.race(() -> true);
+        //then
         assertThat(cars.getCars().get(index).getPosition()).isEqualTo(new Position(1));
     }
 

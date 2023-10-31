@@ -13,4 +13,9 @@ class TryNumberTest {
         assertThatThrownBy(() -> new TryNumber(-1)).isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 값객체는_동등성을_지님() {
+        TryNumber tryNumber = new TryNumber(1);
+        assertThat(tryNumber).isEqualTo(new TryNumber(1));
+    }
 }
