@@ -22,6 +22,9 @@ public class InputValidator {
             if (str.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자리 이하로 만들어야 합니다");
             }
+            if (str.isEmpty()){
+                throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
+            }
         }
     }
 
