@@ -16,17 +16,18 @@ public class RacingCarGame {
         initConfig();
         System.out.println("\n"+ UserResponeMessage.EXECUTION_RESULT_MESSAGE);
 
+        // 라운드 진행
         for(int rount = 0; rount < moveCount; rount++){
             carController.grantForwardChanceForCars();
             carController.printRoundResult();
         }
+
         announceWinners();
     }
 
     private void initConfig(){
         System.out.println(UserRequestMessage.CAR_NAME_REQUEST_MESSAGE);
         initializeCars();
-
         System.out.println(UserRequestMessage.Repeat_REQUEST_MESSAGE);
         moveCount = userInputHandler.getInputForMoveCount();
     }

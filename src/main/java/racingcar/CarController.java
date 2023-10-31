@@ -47,7 +47,7 @@ public class CarController {
 
     private ArrayList<Car> getNameOfWinners(int maxPosition){
         return operatedCars.stream()
-                .filter( x-> x.position == maxPosition)
+                .filter( x-> x.getPosition() == maxPosition)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 

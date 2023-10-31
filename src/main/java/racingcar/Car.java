@@ -1,8 +1,13 @@
 package racingcar;
 
 public class Car {
-    String name;
-    int position;
+    private String name;
+    private int position;
+
+    public Car(){
+        this.name = "";
+        this.position = 0;
+    }
 
     public Car(String name){
         this.name = name;
@@ -28,10 +33,12 @@ public class Car {
     }
 
     public void printForawrdSituation(){
-        System.out.print(name + " : ");
+        StringBuilder output = new StringBuilder();
+        output.append(name).append(" : ");
         for(int i = 0; i< position; i++){
-            System.out.print("-");
+            output.append("-");
         }
-        System.out.println();
+        output.append("\n");
+        System.out.print(output.toString());
     }
 }
