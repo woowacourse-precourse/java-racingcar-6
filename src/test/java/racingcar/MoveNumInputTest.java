@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -34,7 +35,7 @@ public class MoveNumInputTest {
     @ValueSource(strings = {"1", "10", "100"})
     @DisplayName ("자동차 이동횟수 입력 정상동작 테스트")
     void canGetMoveNameGeneralTest(String testInput) {
-        MoveNum moveNum = new MoveNum(testInput);
+        assertDoesNotThrow(() -> new MoveNum(testInput));
     }
 
     @ParameterizedTest
