@@ -6,6 +6,7 @@ public class Application {
         RacingGame game = new RacingGame();
         game.inputCarsName();
         game.printCarsName();
+        game.inputTryNum();
         //System.out.println(test);
     }
 }
