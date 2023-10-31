@@ -16,7 +16,15 @@ public class CarRacingGame {
         RacingCars racingCars = RacingCars.from(carNames);
         System.out.println(INPUT_NUMBER_OF_ATTEMPTS);
         Integer numberOfAttempts = convertInputToInteger(Console.readLine());
+        play(racingCars, numberOfAttempts);
     }
+
+    private void play(RacingCars racingCars, Integer numberOfAttempts) {
+        for (int i = 0; i < numberOfAttempts; i++) {
+
+        }
+    }
+
 
     private Integer convertInputToInteger(String input) {
         try {
