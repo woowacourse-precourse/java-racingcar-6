@@ -38,7 +38,7 @@ public class PlayGameController {
         whoWin();
     }
 
-    private void repeatRacing(){
+    public void repeatRacing(){
         for(int i=0; i<playNumber; i++){
             List<Integer> randomNumbers = getRandomNumbers(peopleNum);
             goOrStop(randomNumbers);
@@ -46,29 +46,23 @@ public class PlayGameController {
         }
     }
 
-    private void goOrStop(List<Integer> randomNumbers) {
+    public void goOrStop(List<Integer> randomNumbers) {
         for(int i=0; i<randomNumbers.size(); i++){
-            String name = map1.get(i).getName();
-            go(randomNumbers.get(i), i);
+            participants.getParticipants().get(i).go(randomNumbers.get(i));
         }
     }
 
-    private void go(int randomNumber, int index){
-        if(numberValidator.isOverFour(randomNumber))
-            participants.setPoint(index);
-    }
-
-    private int getPlayNumber(){
+    public int getPlayNumber(){
         String playNumber = inputView.enterPlayNumber();
         numberValidator.isValidNumber(Integer.parseInt(playNumber));
         return Integer.parseInt(playNumber);
     }
 
-    private List<Integer> getRandomNumbers(int peopleNum){
+    public List<Integer> getRandomNumbers(int peopleNum){
         return randomNumberGenerator.generateRandomNumbers(peopleNum);
     }
 
-    private void showPlayResult(){
+    public void showPlayResult(){
         for(Map.Entry<Integer, Participant> entry : map1.entrySet()){
             System.out.print(entry.getValue().getName() + " : ");
             printBar(entry.getValue().getPoint());
@@ -76,26 +70,26 @@ public class PlayGameController {
         System.out.println();
     }
 
-    private void printBar(int value){
+    public void printBar(int value){
         for(int i=0; i< value; i++){
             System.out.print("-");
         }
         System.out.println();
     }
 
-    private void whoWin(){
+    public void whoWin(){
         outputView.printWinner();
         int maxVal = findMaxCount();
         findWinners(maxVal);
         printWinnerName();
     }
 
-    private void printWinnerName(){
+    public void printWinnerName(){
         String str = winners.toString().replaceAll("[\\['\\]]", "");
         System.out.print(str);
     }
 
-    private int findMaxCount(){
+    public int findMaxCount(){
         List<Integer> points = new ArrayList<>();
         for(int i=0; i< map1.size(); i++){
             points.add(map1.get(i).getPoint());
@@ -103,13 +97,13 @@ public class PlayGameController {
         return Collections.max(points);
     }
 
-    private void findWinners(int maxVal){
+    public void findWinners(int maxVal){
         for(Map.Entry<Integer, Participant> entry : participants.getParticipants().entrySet()){
             isSameWithMaxVal(maxVal, entry.getKey());
         }
     }
 
-    private void isSameWithMaxVal(int maxVal, int index) {
+    public void isSameWithMaxVal(int maxVal, int index) {
         if(map1.get(index).getPoint() == maxVal){
             winners.add(map1.get(index).getName());
         }
