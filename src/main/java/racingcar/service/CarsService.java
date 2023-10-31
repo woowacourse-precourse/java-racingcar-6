@@ -51,7 +51,8 @@ public class CarsService {
         }
     }
 
-    private void moveCarOrNot(int index, int randomNumber) {
+    // 테스트를 위해 public 접근 제한자 설정
+    public void moveCarOrNot(int index, int randomNumber) {
         if (randomNumber >= NumberConstant.TARGET_NUMBER) {
             Car car = cars.getCar(index);
             car.addPosition();
