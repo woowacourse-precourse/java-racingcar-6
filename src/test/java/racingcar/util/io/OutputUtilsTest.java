@@ -20,4 +20,17 @@ public class OutputUtilsTest {
 
         assertEquals("pobi : ---\n", outputStream.toString());
     }
+
+    @Test
+    void 최종_우승자_출력_테스트() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outputStream));
+
+        OutputUtils.printFinalWinners("pobi, jun");
+
+        System.setOut(originalOut);
+
+        assertEquals("최종 우승자 : pobi, jun\n", outputStream.toString());
+    }
 }
