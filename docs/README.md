@@ -87,3 +87,4 @@
   - 자동차들의 진행 사항을 시도 횟수마다 출력시킨다. OutputView - printRacingStatus
   - 게임이 한번 진행될때 마다 시도횟수를 1만큼 감소시킨다. TryCount - decreaseCount
 - 반복이 끝난후 우승자를 출력한다 - OutputView - printResult
+  - 우승자가 여러명일 경우 쉼표를 이용해 구분한다. GameController - endGame
