@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.Comparator;
 import java.util.List;
 import racingcar.dto.RoundResult;
 import racingcar.util.CarsGenerator;
@@ -23,8 +22,17 @@ public class Cars {
     }
 
     public List<Car> findWinningCars() {
+        int maxPosition = findMaxPosition();
+
         return cars.stream()
-                .max(Comparator.comparingInt(Car::getPosition))
-                .stream().toList();
+                .filter(cars -> cars.getPosition() == maxPosition)
+                .toList();
+    }
+
+    private int findMaxPosition() {
+        return cars.stream()
+                .map(Car::getPosition)
+                .max(Integer::compareTo)
+                .get();
     }
 }
