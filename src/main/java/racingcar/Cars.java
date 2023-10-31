@@ -2,9 +2,12 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
+    private static final int INDEX_ZERO = 0;
+
     private final List<Car> cars;
 
     public Cars(String[] carNames) {
@@ -28,6 +31,18 @@ public class Cars {
             cars.add(new Car(carName));
         }
         return cars;
+    }
+
+    public List<Car> getWinners() {
+        List<Car> winners = new ArrayList<>();
+        Collections.sort(cars);
+        int maxPosition = cars.get(INDEX_ZERO).getPosition();
+        for (Car car : cars) {
+            if (maxPosition == car.getPosition()) {
+                winners.add(car);
+            }
+        }
+        return winners;
     }
 
 }
