@@ -14,7 +14,7 @@ public class Cars {
 
     public Cars(List<Car> cars) {
         validateNameLength(cars);
-        validateDuplicateNumber(cars);
+        validateDuplicateName(cars);
         this.cars = new ArrayList<>(cars);
     }
 
@@ -42,7 +42,7 @@ public class Cars {
         }
     }
 
-    private void validateDuplicateNumber(final List<Car> cars) {
+    private void validateDuplicateName(final List<Car> cars) {
         if (hasDuplicateElements(cars)) {
             throw new IllegalArgumentException(DUPLICATE_NAME_MESSAGE.getMessage());
         }
