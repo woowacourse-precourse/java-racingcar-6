@@ -11,14 +11,22 @@ public class UserInput {
     Converter converter = new Converter();
 
     public int getAttemptsNumber() {
-        System.out.println(ATTEMPTS_NUMBER_REQUEST_MESSAGE);
+        println(ATTEMPTS_NUMBER_REQUEST_MESSAGE);
         String attemptsString = Console.readLine();
         return converter.wordToInt(attemptsString);
     }
 
     public LinkedHashMap<String, String> getCarNameHashMap() {
-        System.out.println(CAR_NAME_REQUEST_MESSAGE);
+        println(CAR_NAME_REQUEST_MESSAGE);
         String carName = Console.readLine();
         return converter.splitAndAddToMap(carName);
+    }
+
+    public void println(String message) {
+        System.out.println(message);
+    }
+
+    public void print(String message) {
+        System.out.print(message);
     }
 }

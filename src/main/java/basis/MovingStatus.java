@@ -25,7 +25,7 @@ public class MovingStatus {
             carNameHashMap.put(element.getKey(), newValue);
             System.out.println(element.getKey() + " : " + element.getValue());
         }
-        System.out.println("");
+        System.out.println();
     }
 
     private String decideMove() {

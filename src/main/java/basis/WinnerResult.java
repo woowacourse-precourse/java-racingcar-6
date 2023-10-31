@@ -1,23 +1,26 @@
 package basis;
 
+import io.UserInput;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
 public class WinnerResult {
+    UserInput ui = new UserInput();
+
     public void printWinner(LinkedHashMap<String, String> carNameHashMap) {
         int largestMove = getWinnerMovementCriteria(carNameHashMap);
         List<String> winnerList = getWinnerList(carNameHashMap, largestMove);
         for (int i = 0; i < winnerList.size(); i++) {
-            System.out.print(winnerList.get(i));
+            ui.print(winnerList.get(i));
             addCommaIfMultipleWinners(winnerList);
         }
     }
 
-    private static void addCommaIfMultipleWinners(List<String> winnerList) {
+    private void addCommaIfMultipleWinners(List<String> winnerList) {
         if (winnerList.size() > 1) {
-            System.out.print(", ");
+            ui.print(", ");
         }
     }
 
