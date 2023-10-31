@@ -14,37 +14,39 @@ public class RacingGame {
     }
 
     void init(){
-        setUserCars();
-        setTryCount();
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String userInputCars = readLine();
+        setUserCars(validateUserCars(userInputCars));
+        System.out.println("시도할 회수는 몇 회인가요?");
+        String userInputTryCount = readLine();
+        setTryCount(validateTryCount(userInputTryCount));
         startRace();
         showResult();
     }
 
-    void setUserCars() throws IllegalArgumentException {
-
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String userInput = readLine();
+    String[] validateUserCars(String userInput) throws IllegalArgumentException {
         if (InputValidator.isBlank(userInput)) throw new IllegalArgumentException("공백을 입력하실 수 없습니다.");
         if (InputValidator.singleInput(userInput)) throw new IllegalArgumentException("2개 이상의 이름을 입력하세요.");
-
         String[] splitInput = userInput.split(",");
         if(InputValidator.checkNameLength(splitInput)) throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
+        return splitInput;
+    }
 
+    void setUserCars(String[] splitInput)  {
         for (String i : splitInput) {
             userCars.add(new Car(i));
         }
     }
-    void setTryCount() throws IllegalArgumentException {
 
-        System.out.println("시도할 회수는 몇 회인가요?");
-        String userInputTry = readLine();
+    int validateTryCount(String userInputTry) throws IllegalArgumentException{
         if(InputValidator.isNumber(userInputTry)){ //숫자 여부 확인후 tryCount에 입력값넣기
-            tryCount = Integer.parseInt(userInputTry);
+            return Integer.parseInt(userInputTry);
         }else{
             throw new IllegalArgumentException("숫자를 입력하세요.");
         }
-
-        System.out.println();
+    }
+    void setTryCount(int inputCount)  {
+        this.tryCount = inputCount;
     }
 
     void progressCar(Car car,int dice){
