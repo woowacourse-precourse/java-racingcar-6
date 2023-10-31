@@ -20,7 +20,7 @@ public final class Car {
     }
 
     public Integer changePosition(final CarMovementStatus movementStatus) {
-        if (movementStatus.equals(CarMovementStatus.MOVE_FORWARD)) {
+        if (movementStatus.equals(CarMovementStatus.MOVING_FORWARD)) {
             return ++position;
         }
         if (movementStatus.equals(CarMovementStatus.STOP)) {
@@ -38,7 +38,9 @@ public final class Car {
     }
 
     public static void validateName(String givenName) {
-        if(givenName.split("").length < 6) return;
+        if (givenName.split("").length < 6) {
+            return;
+        }
         throw new IllegalArgumentException("Wrong Size Of Name");
     }
 

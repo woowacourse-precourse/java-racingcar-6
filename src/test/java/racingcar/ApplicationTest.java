@@ -30,6 +30,16 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void 전진_정지_다인() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,gi,cho", "5");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP,MOVING_FORWARD, STOP,MOVING_FORWARD,MOVING_FORWARD,MOVING_FORWARD
+        );
+    }
 
     @Override
     public void runMain() {

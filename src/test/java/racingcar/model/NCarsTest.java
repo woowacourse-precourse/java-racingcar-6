@@ -52,13 +52,13 @@ public class NCarsTest {
 
         String nameOne = "cho";
         Car carOne = Car.applyName(nameOne);
-        carOne.changePosition(CarMovementStatus.MOVE_FORWARD);
-        carOne.changePosition(CarMovementStatus.MOVE_FORWARD);
+        carOne.changePosition(CarMovementStatus.MOVING_FORWARD );
+        carOne.changePosition(CarMovementStatus.MOVING_FORWARD );
 
         String nameTwo = "sung";
         Car carTwo = Car.applyName(nameTwo);
-        carTwo.changePosition(CarMovementStatus.MOVE_FORWARD);
-        carTwo.changePosition(CarMovementStatus.MOVE_FORWARD);
+        carTwo.changePosition(CarMovementStatus.MOVING_FORWARD );
+        carTwo.changePosition(CarMovementStatus.MOVING_FORWARD );
 
         carList.add(carOne);
         carList.add(carTwo);
@@ -76,17 +76,17 @@ public class NCarsTest {
         String nameOne = "cho";
         Car carOne = Car.applyName(nameOne);
         carOne.changePosition(CarMovementStatus.STOP);
-        carOne.changePosition(CarMovementStatus.MOVE_FORWARD);
+        carOne.changePosition(CarMovementStatus.MOVING_FORWARD );
 
         String nameTwo = "sung";
         Car carTwo = Car.applyName(nameTwo);
-        carTwo.changePosition(CarMovementStatus.MOVE_FORWARD);
-        carTwo.changePosition(CarMovementStatus.MOVE_FORWARD);
+        carTwo.changePosition(CarMovementStatus.MOVING_FORWARD );
+        carTwo.changePosition(CarMovementStatus.MOVING_FORWARD );
 
         String nameThree = "Loo";
         Car carThree = Car.applyName(nameThree);
-        carThree.changePosition(CarMovementStatus.MOVE_FORWARD);
-        carThree.changePosition(CarMovementStatus.MOVE_FORWARD);
+        carThree.changePosition(CarMovementStatus.MOVING_FORWARD );
+        carThree.changePosition(CarMovementStatus.MOVING_FORWARD );
 
         carList.add(carOne);
         carList.add(carTwo);
