@@ -12,7 +12,7 @@ import racingcar.util.exception.RacingCarException;
 public class Validator {
     public static void validateEmpty(String userInput) {
         if (isEmpty(userInput)) {
-            throw RacingCarException.of(EMPTY_NUMBER);
+            throw RacingCarException.of(EMPTY_INPUT);
         }
     }
 

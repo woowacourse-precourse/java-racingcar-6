@@ -5,17 +5,9 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
 
 public class RaceTest extends NsTest{
     private static final int MOVE_FORWARD = 4;
