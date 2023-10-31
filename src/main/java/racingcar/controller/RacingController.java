@@ -29,7 +29,8 @@ public class RacingController {
 
     public void playGame() {
         initializeGame();
-
+        outputView.printSeperator();
+        
         while (!gameService.isGameOver(roundInfo)) {
             RoundResult roundResult = gameService.executeRound(roundInfo, carInfos);
             outputView.printRoundResult(roundResult);

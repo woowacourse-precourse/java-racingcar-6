@@ -7,6 +7,11 @@ import racingcar.model.gameinfo.CarInfo;
 
 public class OutputView {
 
+    public void printSeperator() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+
     public void printRoundResult(RoundResult roundResult) {
         List<CarInfo> carInfos = roundResult.getCarInfos();
 
@@ -15,6 +20,14 @@ public class OutputView {
         }
 
         System.out.println();
+    }
+
+    public void printWinner(Winners winners) {
+        List<String> winnerList = winners.getWinnerList();
+
+        String winnersString = String.join(", ", winnerList);
+
+        System.out.println("최종 우승자 : " + winnersString);
     }
 
     private String getCarRoundResultString(CarInfo carInfo) {
@@ -32,11 +45,4 @@ public class OutputView {
         return result.toString();
     }
 
-    public void printWinner(Winners winners) {
-        List<String> winnerList = winners.getWinnerList();
-
-        String winnersString = String.join(", ", winnerList);
-
-        System.out.println("최종 우승자 : " + winnersString);
-    }
 }
