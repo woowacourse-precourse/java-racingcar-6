@@ -30,11 +30,11 @@
 - 
 ### Validation Data
 - [✅] 자동차 이름을 제대로 입력 받았는지 검사한다. 잘못된 입력이면 `IllegalArgumentException`을 발생시키고 종료한다. - `InputValidator`#`checkString()`
-  - [ ] 자동차 이름이 5자리 이하인지 검사한다. `InputValidator`#`checkStringLength()`
-  - [ ] 중복된 자동차 이름이 있는지 검사한다. `InputValidator`#`checkDuplicateString()`
+  - [✅] 자동차 이름이 5자리 이하인지 검사한다. `InputValidator`#`checkStringLength()`
+  - [✅] 중복된 자동차 이름이 있는지 검사한다. `InputValidator`#`checkDuplicateString()`
 - [✅] 시도 횟수를 제대로 입력 받았는지 검사한다. 잘못된 입력이면 `IllegalArgumentException`을 발생시키고 종료한다. - `InputValidator`#`checkNumber()`
-  - [ ] 시도 횟수가 0인지 확인한다. `InputValidator`#`isNumberZero()`
-  - [ ] 시도 횟수가 숫자인지 확인한다. `InputValidator`#`isNumberDigit()`
+  - [✅] 시도 횟수가 0인지 확인한다. `InputValidator`#`isNumberZero()`
+  - [✅] 시도 횟수가 숫자인지 확인한다. `InputValidator`#`isNumberDigit()`
 
 ### Racing System
 - [✅] 0-9사이의 난수를 생성 한다. - `NumberGenerator`#`createRandomNumber()`
