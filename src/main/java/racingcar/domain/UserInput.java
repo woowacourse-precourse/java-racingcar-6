@@ -18,15 +18,40 @@ public class UserInput {
     public List<String> carName(String input) {
         String[] names = input.split(",");
         List<String> carNames = new ArrayList<>(Arrays.asList(names));
+        checkInputCarName(carNames);
         return carNames;
     }
 
     public int attemptCount(String input) {
+        checkInputAttemptCount(input);
         int attemptCount;
         attemptCount = Integer.parseInt(input);
         return attemptCount;
     }
 
-    public void processException() {
+    public void checkInputCarName(List<String> inputNames) {
+        for (String name : inputNames) {
+            if (name.isEmpty() || name.equals(" ")) {
+                throw new IllegalArgumentException();
+            }
+            if (name.length() > 5) {
+                throw new IllegalArgumentException();
+            }
+            if (name.matches(".*\\d+.*")) {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
+    public void checkInputAttemptCount(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+
+        if (input.isEmpty() || input.equals(" ")) {
+            throw new IllegalArgumentException();
+        }
     }
 }
