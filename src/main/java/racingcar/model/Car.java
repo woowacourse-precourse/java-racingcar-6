@@ -1,12 +1,14 @@
 package racingcar.model;
 
+import racingcar.model.constant.CarConstant;
+
 public class Car {
     private final String name;
-    private int position = 0;
-    private final static int CAR_MOVEABLE_VALUE = 4;
+    private int position;
 
     public Car(String name) {
         this.name = name;
+        this.position = CarConstant.INITIAL_POSITION.getNumber();
     }
 
     public void moveOrStop(int moveCommand) {
@@ -33,6 +35,6 @@ public class Car {
     }
 
     private static boolean isCarMoveable(int moveCommand){
-        return moveCommand >= CAR_MOVEABLE_VALUE;
+        return moveCommand >= CarConstant.CAR_MOVEABLE_VALUE.getNumber();
     }
 }
