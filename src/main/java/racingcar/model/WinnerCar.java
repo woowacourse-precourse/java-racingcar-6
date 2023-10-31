@@ -17,6 +17,10 @@ public class WinnerCar {
         setWinner(cars);
     }
 
+    public List<String> getWinner(){
+        return winnerCarNames;
+    }
+
     public void setWinner(List<Car> cars){
         winnerCarNames = cars.stream()
                 .filter(car -> car.getCarState() == winnerStateValue)
