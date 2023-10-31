@@ -33,6 +33,10 @@ public class InputToCarList {
             throw new IllegalArgumentException("중복되는 이름이 있습니다.");
         }
 
+        if (input.endsWith(USER_DEFAULT_DELIMITER)) {
+            throw new IllegalArgumentException("문장의 마지막 문자는 컴마(',') 를 허용하지 않습니다.");
+        }
+
         if (cars.isEmpty()) {
             throw new IllegalArgumentException(NO_PLAYERS_PARTICIPATE);
         }
