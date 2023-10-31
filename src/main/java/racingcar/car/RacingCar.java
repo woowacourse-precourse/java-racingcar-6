@@ -36,8 +36,8 @@ public class RacingCar {
         return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
     }
 
-    private void moveOrStop() {
-        if(generateRandomNumber() >= MIN_MOVE_NUMBER) {
+    public void moveOrStop() {
+        if (generateRandomNumber() >= MIN_MOVE_NUMBER) {
             this.moveCount++;
         }
     }
