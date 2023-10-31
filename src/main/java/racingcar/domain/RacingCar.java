@@ -21,5 +21,4 @@ public class RacingCar {
     public int getDistance() {
         return this.distance;
     }
-
 }

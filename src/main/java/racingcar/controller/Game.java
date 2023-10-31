@@ -17,7 +17,7 @@ public class Game {
             Referee.simulate(racingcars);
             OutputView.showCurrentDistance(racingcars);
         }
-        RacingCars winners = Referee.calculateWinner(racingcars);
-        OutputView.showFinalWinner(winners);
+        RacingCars winners = Referee.calculateWinners(racingcars);
+        OutputView.showFinalWinners(winners);
     }
 }

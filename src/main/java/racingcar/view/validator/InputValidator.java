@@ -50,7 +50,7 @@ public class InputValidator {
         }
     }
 
-    private static void handlePlayTimeInRange(String playtime) {
+    private static void handlePlayTimeOutOfRange(String playtime) {
         int intTypePlayTime = Integer.parseInt(playtime);
         if (intTypePlayTime <= 0 || intTypePlayTime > Numbers.MAX_GAME_PLAY.getNumber()) {
             throw new IllegalArgumentException();
@@ -71,6 +71,6 @@ public class InputValidator {
     public static void validatePlayTime(String playtime) {
         handleNullOrEmpty(playtime);
         handleInvalidLetter(playtime, Strings.VALID_PLAYTIME_LETTERS.getMessage());
-        handlePlayTimeInRange(playtime);
+        handlePlayTimeOutOfRange(playtime);
     }
 }

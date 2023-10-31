@@ -19,7 +19,7 @@ public class OutputView {
     }
 
     private static void printRacingCarDistance(RacingCar racingCar) {
-        for (int j = 0; j < racingCar.getDistance(); j++) {
+        for (int i = 0; i < racingCar.getDistance(); i++) {
             System.out.print("-");
         }
     }
@@ -33,15 +33,17 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void showFinalWinner(RacingCars winners) {
-        System.out.print(Strings.FINAL_WINNER.getMessage());
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i).getName());
-            if (i + 1 < winners.size()) {
-                System.out.print(", ");
-            }
+    private static void printWinnersName(RacingCars racingCars, int index) {
+        System.out.print(racingCars.get(index).getName());
+        if (index + 1 < racingCars.size()) {
+            System.out.print(", ");
         }
     }
 
-
+    public static void showFinalWinners(RacingCars winners) {
+        System.out.print(Strings.FINAL_WINNER.getMessage());
+        for (int i = 0; i < winners.size(); i++) {
+            printWinnersName(winners, i);
+        }
+    }
 }

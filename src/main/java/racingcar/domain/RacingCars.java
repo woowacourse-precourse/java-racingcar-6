@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCars {
+    
     public List<RacingCar> racingCars;
 
     RacingCars() {
         racingCars = new ArrayList<>();
     }
-
 
     public void add(RacingCar racingCar) {
         racingCars.add(racingCar);

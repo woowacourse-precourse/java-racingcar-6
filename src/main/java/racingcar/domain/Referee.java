@@ -3,6 +3,7 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Referee {
+
     private static final int MIN_RANDOM_NUMBER = 0;
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int THRESHOLD = 4;
@@ -12,17 +13,17 @@ public class Referee {
             racingCar.move();
         }
     }
+    
+    private static void addWinnerByFarthestDistance(RacingCars winners, RacingCar racingCar, int farthest) {
+        if (racingCar.getDistance() == farthest) {
+            winners.add(racingCar);
+        }
+    }
 
     public static void simulate(RacingCars racingCars) {
         for (int i = 0; i < racingCars.size(); i++) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             moveRacingCarByThreshold(racingCars.get(i), randomNumber);
-        }
-    }
-
-    private static void addWinnerByFarthestDistance(RacingCars winners, RacingCar racingCar, int farthest) {
-        if (racingCar.getDistance() == farthest) {
-            winners.add(racingCar);
         }
     }
 
@@ -34,6 +35,4 @@ public class Referee {
         }
         return winners;
     }
-
-
 }
