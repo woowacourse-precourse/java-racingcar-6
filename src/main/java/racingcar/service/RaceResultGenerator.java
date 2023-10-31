@@ -9,9 +9,9 @@ import java.util.Map;
 import racingcar.domain.Car;
 
 public class RaceResultGenerator {
-    private final List<String> winners = new ArrayList<>();
 
     public List<String> checkWinner(LinkedHashSet<Car> cars) {
+        List<String> winners = new ArrayList<>();
         LinkedHashMap<String, Integer> raceStatus = generateRaceStatus(cars);
         int max = Collections.max(raceStatus.values());
 

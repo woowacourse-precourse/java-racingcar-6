@@ -5,8 +5,8 @@ import java.util.List;
 import racingcar.domain.Car;
 
 public class RaceCarEnroller {
-    private final LinkedHashSet<Car> cars = new LinkedHashSet<>();
     public LinkedHashSet<Car> enrollCars(List<String> validatedCarNames) {
+        LinkedHashSet<Car> cars = new LinkedHashSet<>();
         for (String validatedCarName : validatedCarNames) {
             cars.add(new Car(validatedCarName));
         }
