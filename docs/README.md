@@ -106,4 +106,4 @@
 - [X] Input 객체
 - [X] Car 객체
 - [X] GameUtil 객체
-- [ ] RacingCarGame 객체
+- [X] RacingCarGame 객체
