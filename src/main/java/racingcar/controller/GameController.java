@@ -9,13 +9,14 @@ import racingcar.view.InputView;
 public class GameController {
     RaceGame raceGame = new RaceGame();
     CarNameValidator carNameValidator = new CarNameValidator();
+    CarRacingController carRacingController = new CarRacingController();
     InputView inputView = new InputView();
 
     public void startGame() {
         raceGame.setInputCarName(inputView.enterCarName());
         saveCarNames();
         raceGame.setRaceNumber(Integer.parseInt(inputView.enterRaceNumber()));
-        System.out.println(raceGame.getRaceNumber());
+        carRacingController.playGame(raceGame);
     }
 
     public void saveCarNames() {
