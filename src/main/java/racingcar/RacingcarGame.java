@@ -43,7 +43,8 @@ public class RacingcarGame {
     }
 
     public void getTryNumber() {
-
+        moderator.printTryInputMsg();
+        tryNumber = Integer.parseInt(user.getUserInput());
     }
 
     public void printMove() {
