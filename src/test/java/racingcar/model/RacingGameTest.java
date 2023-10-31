@@ -51,10 +51,7 @@ class RacingGameTest {
     void getWinner_test() throws Exception {
         // given
         Car car = cars.getCarList().get(0);
-
-        Field carPosition = Car.class.getDeclaredField("carPosition");
-        carPosition.setAccessible(true);
-        carPosition.set(car, new CarPosition(1));
+        setPosition(car, 1);
 
         // when
         List<CarName> winners = racingGame.getWinners();
@@ -62,5 +59,11 @@ class RacingGameTest {
         // then
         assertTrue(!winners.isEmpty());
         assertEquals(winners.get(0).name(), "Car1");
+    }
+
+    private void setPosition(Car car, Integer position) throws NoSuchFieldException, IllegalAccessException {
+        Field carPosition = Car.class.getDeclaredField("carPosition");
+        carPosition.setAccessible(true);
+        carPosition.set(car, new CarPosition(position));
     }
 }

@@ -38,6 +38,7 @@ class OutputViewTest {
 
         // when
         List<Car> carList = cars.getCarList();
+
         Field carPosition = Car.class.getDeclaredField("carPosition");
         carPosition.setAccessible(true);
         carPosition.set(carList.get(0), new CarPosition(3));

@@ -31,19 +31,21 @@ class RefereeTest {
     void decideWinner_test() throws Exception {
         // given
         List<Car> carList = cars.getCarList();
-
         Car car = carList.get(0);
-        Field carPosition = Car.class.getDeclaredField("carPosition");
-        carPosition.setAccessible(true);
-        carPosition.set(car, new CarPosition(1));
-
-        referee.decideWinner(carList);
+        setCarPosition(car, 1);
 
         // when
+        referee.decideWinner(carList);
         List<CarName> winnerNames = referee.getWinnerNames();
 
         // then
         assertTrue(!winnerNames.isEmpty());
         assertEquals(winnerNames.get(0).name(), "Car1");
+    }
+
+    private void setCarPosition(Car car, Integer position) throws NoSuchFieldException, IllegalAccessException {
+        Field carPosition = Car.class.getDeclaredField("carPosition");
+        carPosition.setAccessible(true);
+        carPosition.set(car, new CarPosition(position));
     }
 }
