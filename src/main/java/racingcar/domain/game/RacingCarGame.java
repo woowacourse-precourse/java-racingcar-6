@@ -1,8 +1,7 @@
 package racingcar.domain.game;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import racingcar.domain.car.Cars;
 import racingcar.utils.NumberGenerator;
 import racingcar.view.InputView;
@@ -24,6 +23,7 @@ public class RacingCarGame {
         setGame();
         readUserInput();
         playAllRound();
+        endGame();
     }
 
     private void setGame() {
@@ -59,18 +59,15 @@ public class RacingCarGame {
 
     private void raceByRoundNumber() {
         for (int i = 0; i < roundNumber; i++) {
-            List<Integer> numbers = generateRandomNumbers();
+            List<Integer> numbers = generateRandomNumbers(cars.size());
             Round round = generateRound(numbers, cars);
             round.race();
             outputView.printRoundResult(round.getResult());
         }
     }
 
-    private List<Integer> generateRandomNumbers() {
-        return IntStream.generate(() -> generator.generate())
-                .limit(cars.size())
-                .boxed()
-                .collect(Collectors.toList());
+    private List<Integer> generateRandomNumbers(int size) {
+        return generator.generateNumbers(size);
     }
 
     private Round generateRound(List<Integer> numbers, Cars cars) {
@@ -80,5 +77,9 @@ public class RacingCarGame {
     private void judgeWinner() {
         Winner winner = new Winner(cars);
         outputView.printGameWinner(winner.toString());
+    }
+
+    private void endGame() {
+        inputView.close();
     }
 }

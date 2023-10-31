@@ -28,4 +28,9 @@ public class ConsoleInputView implements InputView {
         InputValidator.validateInputRound(round);
         return Integer.parseInt(round);
     }
+
+    @Override
+    public void close() {
+        Console.close();
+    }
 }
