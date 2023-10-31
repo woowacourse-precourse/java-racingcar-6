@@ -6,13 +6,13 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import racingcar.model.Car;
+import racingcar.model.Game;
 import racingcar.view.ResultView;
 import racingcar.view.SettingView;
 
 public class GameController {
+    private static final Game game = new Game();
     private static final GameController INSTANCE = new GameController();
-    private static final ArrayList<Car> carList = new ArrayList<>();
-    private static int round;
 
     private GameController(){};
 
@@ -28,7 +28,7 @@ public class GameController {
 
     public void printResults() {
         ResultView.printResultTitle();
-        for (int r = 0; r < round; r++) {
+        for (int r = 0; r < game.round; r++) {
             printResultOfRound();
         }
     }
@@ -47,11 +47,11 @@ public class GameController {
     public static void setRoundNumber() {
         SettingView.printInputRoundNumberMsg();
         String roundNumber = Console.readLine();
-        round = Integer.parseInt(roundNumber);
+        game.round = Integer.parseInt(roundNumber);
     }
 
     public void printResultOfRound() {
-        for (Car car : carList) {
+        for (Car car : game.carList) {
             if (Randoms.pickNumberInRange(0, 9) >= 4) {
                 car.move();
             }
@@ -63,7 +63,7 @@ public class GameController {
     public ArrayList<String> getWinnerNameList() {
         ArrayList<String> winnerNameList = new ArrayList<>();
         int max = 0;
-        for (Car car : carList) {
+        for (Car car : game.carList) {
             if (car.position > max) {
                 max = car.position;
                 winnerNameList.clear();
@@ -77,7 +77,7 @@ public class GameController {
 
     public static void setCarList(String carNames) {
         for (String carName : carNames.split(",")) {
-            if (isValidCarName(carName)) carList.add(new Car(carName));
+            if (isValidCarName(carName)) game.carList.add(new Car(carName));
         }
     }
 
