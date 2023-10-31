@@ -3,6 +3,7 @@ package racingcar.model;
 import racingcar.domain.*;
 
 public class Winner {
+    // 자동차별 각 레이스 전체 이동 기록에서 마지막 기록만 비교하여 최종 우승자 선정하는 메서드
     public String selectWinner(AllRaceRecords allRecords, MoveCnt moveCnt) {
         int max = Integer.MIN_VALUE;
         StringBuilder sb = new StringBuilder();
