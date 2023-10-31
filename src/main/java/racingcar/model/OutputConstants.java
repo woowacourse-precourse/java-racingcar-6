@@ -11,9 +11,6 @@ public enum OutputConstants {
     HYPHEN("-"),
     DELIMITER(","),
     DELIMITER_PLUS_SPACE(", "),
-
-//    RANDOM_NUM_MIN(0),
-//    RANDOM_NUM_MAX(9)
     INTEGER("\\d+");
 
     private final String value;

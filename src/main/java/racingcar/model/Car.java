@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import java.util.List;
-
 public class Car {
 
     private final Name name;
@@ -26,7 +24,7 @@ public class Car {
         currentLocation.moveLocation();
     }
 
-    public int getCurrentLocation(){
+    public int getCurrentLocation() {
         return currentLocation.getCurrent();
     }
 }

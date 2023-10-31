@@ -9,7 +9,6 @@ import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.RaceCountInput;
 import racingcar.model.RacingGame;
-import racingcar.model.RandomNumberGenerator;
 
 public class CarService {
     private static Cars createCars(String userInput) {
@@ -32,5 +31,4 @@ public class CarService {
         RaceCountInput raceCountInput = RaceCountInput.createRaceCountInput(userCount);
         return new RacingGame(cars, raceCountInput);
     }
-
 }

@@ -2,8 +2,6 @@ package racingcar.model;
 
 import static racingcar.model.OutputConstants.INTEGER;
 
-import racingcar.view.InputView;
-
 public class RaceCountInput {
 
     private static final int COUNT_MIN = 1;
