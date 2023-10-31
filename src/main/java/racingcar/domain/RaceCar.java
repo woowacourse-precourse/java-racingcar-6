@@ -18,13 +18,13 @@ public class RaceCar {
     }
 
     /**
-     * ranNumOfSingleDigit 이 4이상 9이하면 자동차는 이동을 한다.
+     * numOfRan 이 4이상 9이하면 자동차는 이동을 한다.
      *
-     * @param ranNumOfSingleDigit 0 ~ 9의 랜덤 한자릿 숫자
+     * @param numOfRan 0 ~ 9의 랜덤 한자릿 숫자
      * @return
      */
-    public void movementControlCar(Integer ranNumOfSingleDigit) {
-        if (isMovementCondition(ranNumOfSingleDigit)) {
+    public void movementControlCar(Integer numOfRan) {
+        if (isMovement(numOfRan)) {
             moveForward();
         }
     }
@@ -35,7 +35,7 @@ public class RaceCar {
      * @param ranNumOfSingleDigit "4이상, 9이하"의 값
      * @return
      */
-    public boolean isMovementCondition(Integer ranNumOfSingleDigit) {
+    public boolean isMovement(Integer ranNumOfSingleDigit) {
         return ranNumOfSingleDigit >= 4 && ranNumOfSingleDigit <= 9;
     }
 

@@ -85,7 +85,7 @@ class RaceCarTest {
     @Test
     void isMovementCondition() {
         // when
-        boolean result = raceCar.isMovementCondition(MOVE);
+        boolean result = raceCar.isMovement(MOVE);
 
         // then
         assertThat(result).isTrue();
@@ -95,7 +95,7 @@ class RaceCarTest {
     @Test
     void isMovementCondition_2() {
         // when
-        boolean result = raceCar.isMovementCondition(STOP);
+        boolean result = raceCar.isMovement(STOP);
 
         // then
         assertThat(result).isFalse();
