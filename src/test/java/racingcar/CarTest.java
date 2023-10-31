@@ -1,6 +1,8 @@
 package racingcar;
 
-import org.junit.jupiter.api.Assertions;
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 import racingcar.model.Car;
 
@@ -13,7 +15,8 @@ public class CarTest {
         // when
         car.moveForward();
         // then
-        Assertions.assertEquals(1, car.getForward());
+        assertEquals(1, car.getForward());
+        assertThat(1).isEqualTo(car.getForward());
     }
 
     @Test
@@ -23,6 +26,7 @@ public class CarTest {
         // when
         String name = car.getName();
         // then
-        Assertions.assertEquals(name, car.getName());
+        assertEquals(name, car.getName());
+        assertThat(name).isEqualTo("pobi");
     }
 }
