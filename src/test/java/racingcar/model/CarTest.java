@@ -34,12 +34,12 @@ public class CarTest {
     public void carReturnMoveWhenNumberIsFourTest(){
         Integer targetNumber = 4;
         CarMovementStatus carMovementStatus = CarMovementStatus.getMovementStatusByCheckNumber(targetNumber);
-        assertThat(CarMovementStatus.MOVE_FORWARD).isEqualTo(carMovementStatus);
+        assertThat(CarMovementStatus.MOVING_FORWARD).isEqualTo(carMovementStatus);
     }
     @Test
     @DisplayName("전진하는 상태를 반으면 위치가 1 증가한다.")
     public void carStopWhenNumberIsThreeTest(){
-        Integer position = car.changePosition(CarMovementStatus.MOVE_FORWARD);
+        Integer position = car.changePosition(CarMovementStatus.MOVING_FORWARD);
         Integer targetPosition = 1;
         assertThat(position).isEqualTo(targetPosition);
     }
@@ -53,7 +53,7 @@ public class CarTest {
     @Test
     @DisplayName("차량의 이동 결과를 출력한다 : 전진 1화")
     public void showCarMoveResultMoveTest(){
-        car.changePosition(CarMovementStatus.MOVE_FORWARD);
+        car.changePosition(CarMovementStatus.MOVING_FORWARD);
         String targetMessage = "cho : -";
         assertThat(car.getRoundResult().toString()).isEqualTo(targetMessage);
     }
@@ -62,8 +62,8 @@ public class CarTest {
     @DisplayName("차량의 이동 결과를 출력한다 : 전진 2회")
     public void showCarMoveResultMoveTwiceTest(){
 
-        car.changePosition(CarMovementStatus.MOVE_FORWARD);
-        car.changePosition(CarMovementStatus.MOVE_FORWARD);
+        car.changePosition(CarMovementStatus.MOVING_FORWARD);
+        car.changePosition(CarMovementStatus.MOVING_FORWARD);
 
         String targetMessage = "cho : --";
 
@@ -72,14 +72,14 @@ public class CarTest {
     @Test
     @DisplayName("자동차가 우승자인지 확인한다. ")
     public void checkIsWinnerTest(){
-        car.changePosition(CarMovementStatus.MOVE_FORWARD);
+        car.changePosition(CarMovementStatus.MOVING_FORWARD);
         Integer maxPositionGiven = 1;
         assertThat(car.isWinner(maxPositionGiven)).isTrue();
     }
     @Test
     @DisplayName("자동차가 우승자인지 확인한다. ")
     public void checkIsWinnerFalseTest(){
-        car.changePosition(CarMovementStatus.MOVE_FORWARD);
+        car.changePosition(CarMovementStatus.MOVING_FORWARD);
         Integer maxPositionGiven = 2;
         assertThat(car.isWinner(maxPositionGiven)).isFalse();
     }
