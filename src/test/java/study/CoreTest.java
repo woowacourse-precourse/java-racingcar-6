@@ -23,9 +23,6 @@ public class CoreTest {
         assertThat(pickNumber).isLessThan(10);
     }
 
-    private static PickNumber pickRandomNumber(){
-        return ()-> Randoms.pickNumberInRange(1,9);
-    }
 
     @Test
     void GenerateRacer_인터페이스_레이서_생성_기능_테스트(){
@@ -37,10 +34,6 @@ public class CoreTest {
 
         //then
         assertThat(Racer.getInstance(target).hashCode()).isEqualTo(generateRacer.hashCode());
-    }
-
-    private static GenerateRacer generateRacer(){
-        return (name)-> Racer.getInstance(name);
     }
 
     @Test
@@ -55,4 +48,12 @@ public class CoreTest {
         //then
         assertThat(generateHighScores.generateHighScoresByRacerList()).isEqualTo(targetResult);
     }
+    private static PickNumber pickRandomNumber(){
+        return ()-> Randoms.pickNumberInRange(1,9);
+    }
+
+    private static GenerateRacer generateRacer(){
+        return (name)-> Racer.getInstance(name);
+    }
+
 }
