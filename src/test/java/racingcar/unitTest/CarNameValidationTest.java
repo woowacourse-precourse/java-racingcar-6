@@ -15,6 +15,15 @@ public class CarNameValidationTest {
     }
 
     @Test
+    void should_throwException_when_hasNotComma() {
+        // given
+        String carName = "park;kim";
+        // when & then
+        Assertions.assertThatThrownBy(() -> nameValidator.validate(carName))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void should_throwException_when_LessThan5() {
         // given
         CarName carName = new CarName("sanghyeok");
