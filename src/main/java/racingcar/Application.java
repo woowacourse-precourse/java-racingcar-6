@@ -61,6 +61,20 @@ public class Application {
         }
     }
 
+    public static Integer inputRaceCount() {
+        String raceCount = Console.readLine();
+
+        validateIsNumber(raceCount);
+        validateIsEmpty(raceCount.split(""));
+        return Integer.parseInt(raceCount);
+    }
+
+    private static void validateIsNumber(String name) {
+        if (!name.chars().allMatch(Character::isDigit)) {
+            throw new IllegalArgumentException("숫자만 입력해주세요");
+        }
+    }
+
     public static void main(String[] args) {
         inputCarNames();
     }
