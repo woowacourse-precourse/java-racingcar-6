@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -12,12 +13,37 @@ public class Application {
         Map<String, Integer> racer = new LinkedHashMap<>();
 
 
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         inputRacerName(racer);
+
+        System.out.println("시도할 회수는 몇회인가요?");
         int raceCount = inputRaceCount();
 
+        for(int i = 0; i < raceCount; i++){
+            race(racer);
+        }
 
 
+    }
 
+    private static void race(Map<String, Integer> racer) {
+
+        boolean runFlag;
+
+        for (String runner : racer.keySet()) {
+
+            runFlag = runCheck();
+
+            if(runFlag){
+                racer.put(runner, racer.get(runner) + 1);
+            }
+        }
+    }
+
+    private static boolean runCheck() {
+
+        int diceCount = Randoms.pickNumberInRange(0, 9);
+        return diceCount >= 4;
     }
 
     private static int inputRaceCount() {
