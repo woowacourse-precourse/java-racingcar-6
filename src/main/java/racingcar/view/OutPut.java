@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.repository.CarRaceResultsSave;
-import racingcar.util.Car;
+import racingcar.race.Car;
 import racingcar.util.FinalWinner;
 
 public class OutPut {

@@ -1,10 +1,12 @@
-package racingcar.util;
+package racingcar.race;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import racingcar.race.Car;
+import racingcar.util.PickRandomNumber;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;

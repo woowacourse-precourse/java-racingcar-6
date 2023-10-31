@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.repository.CarRaceResultsSave;
-import racingcar.util.Car;
+import racingcar.race.Car;
 import racingcar.util.FinalWinner;
 import racingcar.util.PickRandomNumber;
 import racingcar.view.Input;

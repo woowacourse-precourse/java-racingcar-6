@@ -3,7 +3,7 @@ package racingcar.repository;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import racingcar.util.Car;
+import racingcar.race.Car;
 
 public class CarRaceResultsSave {
 
