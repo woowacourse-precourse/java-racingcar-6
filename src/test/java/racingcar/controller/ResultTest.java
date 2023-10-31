@@ -5,8 +5,8 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.common.type.Names;
-import racingcar.domain.Car;
+import racingcar.controller.util.TestContext;
+import racingcar.controller.util.TestInitializer;
 import racingcar.domain.RacingWinners;
 import racingcar.dto.output.WinnerDTO;
 
@@ -17,9 +17,10 @@ public class ResultTest {
     @BeforeEach
     public void setUp() {
         // given: 예상되는 우승자 이름 목록 설정
-        Names names = Names.of(new String[]{"hyunjin", "pobi", "lefthand"});
-        List<Car> carList = Car.createCarList(names);
-        racingWinners = RacingWinners.of(carList);
+        TestContext context = new TestContext();
+        TestInitializer.initializeAll(context);
+
+        racingWinners = context.getRacingWinners();
     }
 
     @Test

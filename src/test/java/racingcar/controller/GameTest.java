@@ -2,27 +2,33 @@ package racingcar.controller;
 
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.common.type.Names;
 import racingcar.common.type.TrialCount;
-import racingcar.domain.Car;
+import racingcar.controller.util.TestContext;
+import racingcar.controller.util.TestInitializer;
 import racingcar.domain.RacingCars;
 import racingcar.dto.output.AllRoundDTO;
 import racingcar.dto.output.RoundDTO;
 
 public class GameTest {
+    private RacingCars racingCars;
+
+    @BeforeEach
+    public void setUp() {
+        TestContext context = new TestContext();
+        TestInitializer.initializeAll(context);
+        racingCars = context.getRacingCars();
+    }
 
     @Test
     public void play_메서드_테스트() {
         // given
-        Names names = Names.of(new String[]{"hyunjin", "pobi", "lefthand"});
-        List<Car> carList = Car.createCarList(names);
-        RacingCars newRacingCars = RacingCars.of(carList, () -> true);
-        TrialCount newTrialCount = TrialCount.of("3");
-        Game game = Game.of(newRacingCars);
+        Game game = Game.of(racingCars);
+        TrialCount trialCount = TrialCount.of("3");
 
         // when
-        List<AllRoundDTO> allRoundResults = game.play(newTrialCount);
+        List<AllRoundDTO> allRoundResults = game.play(trialCount);
 
         // then, 마지막 라운드만 체크
         AllRoundDTO lastRound = allRoundResults.get(allRoundResults.size() - 1);
