@@ -57,6 +57,26 @@ class ApplicationTest extends NsTest {
                 .isEqualTo("pobi");
     }
 
+    // RacingCar Test
+    @Test
+    void 자동차_생성_확인() {
+        RacingCar racingCar = RacingCar.create("pobi");
+
+        assertThat(racingCar.getName())
+                .isEqualTo("pobi");
+    }
+
+    @Test
+    void 자동차_전진_확인() {
+        RacingCar racingCar = RacingCar.create("pobi");
+
+        racingCar.move();
+        racingCar.move();
+
+        assertThat(racingCar.getDistance())
+                .isEqualTo(2);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
