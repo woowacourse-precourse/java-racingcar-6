@@ -16,15 +16,10 @@ public class RacingGame {
         }
     }
 
-    void splitNames(String cars) throws IllegalArgumentException {
+    void splitNames(String cars) {
         String[] names = cars.split(",");
         for(String name : names) {
-            if(name.length() > ConstantNumber.MAX_NAME_LENGTH) {
-                throw new IllegalArgumentException(ExceptionString.MAX_LENGTH_NAME);
-            }
-            if(name.strip().isEmpty()) {
-                throw new IllegalArgumentException(ExceptionString.BLANK_NAME);
-            }
+            ExceptionString.exceptionCheckName(name);
             racingCars.add(new Car(name));
         }
     }
