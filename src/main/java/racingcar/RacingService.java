@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +22,13 @@ public class RacingService {
 
     private void executeRound() {
         for (RacingCar racingCar : racingCars) {
-            racingCar.execute();
+            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            racingCar.move(randomNumber);
             ioHandler.printComment(racingCar.name + " : " + "-".repeat(racingCar.count));
         }
         ioHandler.printComment("");
     }
-    
+
     public List<String> getWinnerNames() {
         List<String> winners = new ArrayList<>();
         int maxCount = getMaxCount();
