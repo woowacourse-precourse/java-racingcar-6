@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.Controller.GameController;
 import racingcar.Model.CarModel;
 import racingcar.Model.GameModel;
+import racingcar.View.GameView;
 
 public class MyRacingCarTest {
 
@@ -35,7 +36,7 @@ public class MyRacingCarTest {
         CarModel car3 = new CarModel("twinson");
         ArrayList<CarModel> carList = new ArrayList<>();
         carList.add(car1);
-        GameController gameController = new GameController(new GameModel(), carList);
+        GameController gameController = new GameController(new GameModel(), carList, new GameView());
 
 
         //when
@@ -67,7 +68,7 @@ public class MyRacingCarTest {
         carList.add(car2);
         carList.add(car3);
 
-        GameController gameController = new GameController(gameModel, carList);
+        GameController gameController = new GameController(gameModel, carList, new GameView());
         gameController.goForward(car1, 3);
         gameController.goForward(car2, 5);
         gameController.goForward(car3, 7);
@@ -91,7 +92,7 @@ public class MyRacingCarTest {
         carList.add(car2);
         carList.add(car3);
 
-        GameController gameController = new GameController(gameModel, carList);
+        GameController gameController = new GameController(gameModel, carList, new GameView());
         gameController.goForward(car1, 3);
         gameController.goForward(car2, 5);
         gameController.goForward(car2, 7);

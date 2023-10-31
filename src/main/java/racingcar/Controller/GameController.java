@@ -8,11 +8,13 @@ import java.util.Comparator;
 import java.util.Iterator;
 import racingcar.Model.CarModel;
 import racingcar.Model.GameModel;
+import racingcar.View.GameView;
 
 public class GameController {
 
     private final GameModel gameModel;
     private final ArrayList<CarModel> carModelList;
+    private final GameView gameView;
 
     private static final Comparator<CarModel> compareCarDistance = new Comparator<CarModel>() {
         @Override
@@ -22,9 +24,10 @@ public class GameController {
     };
 
 
-    public GameController(GameModel gameModel, ArrayList<CarModel> carModelList) {
+    public GameController(GameModel gameModel, ArrayList<CarModel> carModelList, GameView gameView) {
         this.gameModel = gameModel;
         this.carModelList = carModelList;
+        this.gameView = gameView;
     }
 
 
@@ -33,11 +36,11 @@ public class GameController {
         String[] carList;
         int coinNumber;
 
-        System.out.println("경주 할 자동차 이름(이름은 쉼표(,) 기준으로 구분)");
+        gameView.printGetCarNameView();
         carList = readLine().split(",");
         inputValidate(carList);
 
-        System.out.println("시도할 회수는 몇회인가요?");
+        gameView.printGetCoinNumberView();
         coinNumber = Integer.parseInt(readLine());
 
         gameModel.setCarNumber(carList.length);
@@ -63,7 +66,7 @@ public class GameController {
             throwDiceAndGoForward();
         }
 
-        printDistance();
+        gameView.printDistance(this.carModelList);
     }
 
     private void throwDiceAndGoForward() {
@@ -100,28 +103,6 @@ public class GameController {
         }
     }
 
-    public void printDistance() {
-
-        int distance;
-        String carName;
-        StringBuilder sb;
-
-        for (CarModel car : carModelList) {
-
-            sb = new StringBuilder();
-            distance = car.getForwardDistance();
-            carName = car.getName();
-
-            sb.append(carName).append(" : ");
-
-            for (int i = 0; i < distance; i++) {
-                sb.append("-");
-            }
-
-            System.out.println(sb);
-        }
-    }
-
     public void findWinner() {
 
         carModelList.sort(compareCarDistance);
@@ -153,6 +134,6 @@ public class GameController {
             }
         }
 
-        System.out.println(sb);
+        gameView.printWinner(sb);
     }
 }
