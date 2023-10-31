@@ -79,7 +79,6 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_자동차_이름_입력_오류_처리() {
-        // void checkCarNameError(List<String> carNames) throws IllegalArgumentException
         Class<?> testClass = Input.class;
         String testMethodName = "checkCarNameError";
         List<List<Object>> testCase = Arrays.asList(
@@ -118,6 +117,7 @@ class ApplicationTest_function_list extends NsTest {
                     Arrays.asList("pobi", "pobi"),
                     Arrays.asList("woni", "woni"),
                     Arrays.asList("jun", "jun"));
+
             for (List<String> input : testCase) {
                 Car car = new Car();
                 car.setName(input.get(0));
@@ -146,7 +146,6 @@ class ApplicationTest_function_list extends NsTest {
         testCase.addAll(testCaseGood);
         testCase.addAll(testCaseException);
 
-
         for (int i = 0; i < testCaseGood.size(); i++) {
             final byte[] bufTestCase = testCaseGood.get(i).getBytes();
             System.out.println(testCaseGood.get(i));
@@ -155,6 +154,7 @@ class ApplicationTest_function_list extends NsTest {
             assertThat(actual).isEqualTo(testCaseGood.get(i));
             Console.close();
         }
+
         for (int i = 0; i < testCaseException.size(); i++) {
             final byte[] bufTestCase = testCaseException.get(i).getBytes();
             System.out.println(testCaseException.get(i));
