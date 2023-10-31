@@ -25,16 +25,6 @@ public class RandomCar {
         return position;
     }
 
-    public int move(int attemptCouunt) {
-        for (int i = 0; i < attemptCouunt; i++) {
-            if (randomNumberGenerator.generate() >= 4) {
-                position++;
-            }
-        }
-
-        return position;
-    }
-
     public void printPosition() {
         String format = String.format("%5s : ", name);
         for (int i = 0; i < position; i++) {

@@ -23,9 +23,6 @@ class RandomCarTest {
 
         assertThat(car4Position).isEqualTo(repeat);
         assertThat(car3Position).isEqualTo(0);
-
-        assertThat(car4.move(10)).isEqualTo(car4Position+10);
-        assertThat(car3.move(10)).isEqualTo(car3Position);
     }
 }
 
