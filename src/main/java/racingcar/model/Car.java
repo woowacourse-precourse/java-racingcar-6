@@ -34,7 +34,7 @@ public class Car {
     }
 
     public void move() {
-        int move = Randoms.pickNumberInRange(0,9);
+        int move = Randoms.pickNumberInRange(0, 9);
         if (move >= MoveThreshold.MIN_THRESHOLD.getValue()) {
             position++;
         }
