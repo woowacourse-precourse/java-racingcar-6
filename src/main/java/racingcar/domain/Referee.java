@@ -1,5 +1,5 @@
 package racingcar.domain;
-
+import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,19 +8,19 @@ import java.util.List;
 public class Referee{
 
     private List<Racer> group;
-    private int playCount;
+    private int playerCount;
     private int maxDistance;
 
     public Referee() {
         group = new ArrayList<>();
-        playCount = maxDistance = 0;
+        playerCount = maxDistance = 0;
     }
 
-    public void addGroup(String name) { // 해당 이름의 player를 group에 추가
+    public void addGroup(String name) {
         Racer player = new Racer(name);
         group.add(player);
 
-        this.playCount += 1;
+        this.playerCount += 1;
     }
 
     public void printProgress() { // 현재까지의 모든 player 진행상황을 출력

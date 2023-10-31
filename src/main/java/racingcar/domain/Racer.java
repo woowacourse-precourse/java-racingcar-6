@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Racer{
     private String name;
     private int distance;
@@ -9,16 +11,17 @@ public class Racer{
         this.distance = 0;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     public int getDistance() {
         return distance;
     }
 
-    public void moveForward(int distance) {
-        this.distance += distance;
+    public void moveForward() {
+        int random = Randoms.pickNumberInRange(0, 9);
+
+        if (Judgment.isGreaterThanFour(random))
+            this.distance += distance;
     }
 
     public void printDistance() {

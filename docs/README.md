@@ -5,11 +5,7 @@
 - [O] 자동차를 전진시킨다 - racer#moveForward()
 - [O] 현재까지 자신의 이동거리를 출력한다 - racer#printDistance()
 
-
-- [] 자동차를 전진시키기 위한 무작위 숫자를 생성한다 - pickNumberInRange()
-- [] 생성된 무작위 숫자가 4 이상인지를 판단한다 - Judgment#isGreaterThanFour()
-- [] 각각의 자동차가 전진한 거리를 비교한다 - Judgment#compareDistances()
-
+- [O] 생성된 무작위 숫자가 4 이상인지를 판단한다 - Judgment#isGreaterThanFour()
 
 - [] 자동차 경주를 시작한다 - Referee#run()
 - [O] 레이스를 진행할 그룹에 사용자를 추가한다 - Referee#addGroup()
