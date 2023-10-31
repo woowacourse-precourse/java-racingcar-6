@@ -1,47 +1,28 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.util.Message;
 
 public class RacingService {
 
-    private List<Car> carList = new ArrayList<>();
+    private Cars cars;
+    private int racingCount;
+
+    public RacingService(Cars cars, int racingCount) {
+        this.cars = cars;
+        this.racingCount = racingCount;
+    }
 
     public void startRacing() {
-        Message.printStartMessage();
-        createRacingCar();
-
-        int count = getCount();
-        Message.printAskCountMessage(count);
-
-        moveAllRacingCar(count);
+        moveAllRacingCar(racingCount);
     }
-
-    private int getCount() {
-        try {
-            return Integer.parseInt(Console.readLine());
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private void createRacingCar() {
-        String cars = Console.readLine();
-
-        Message.printCreateCarListMessage(cars);
-
-        for (String car : cars.split(",")) {
-            carList.add(new Car(car));
-        }
-    }
-
+    
     private void moveAllRacingCar(int count) {
         while (count-- > 0) {
-            carList.stream().forEach(x -> x.moveWithRandomNumber());
-            Message.printMoveResultMessage(carList);
+            cars.getCarList().stream().forEach(x -> x.moveWithRandomNumber());
+            Message.printMoveResultMessage(cars.getCarList());
         }
     }
 
@@ -51,12 +32,12 @@ public class RacingService {
     }
 
     private List<String> calculateRaceResults() {
-        int maxMoveCount = carList.stream()
+        int maxMoveCount = cars.getCarList().stream()
                 .mapToInt(Car::getMoveCount)
                 .max()
                 .orElseThrow(IllegalArgumentException::new);
 
-        return carList.stream()
+        return cars.getCarList().stream()
                 .filter(x -> x.getMoveCount() == maxMoveCount)
                 .map(x -> new String(x.getName()))
                 .toList();
