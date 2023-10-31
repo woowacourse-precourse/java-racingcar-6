@@ -1,10 +1,10 @@
 package racingcar.view;
 
-import java.util.List;
-import java.util.Map;
-
 import racingcar.enums.Common;
 import racingcar.enums.CarType;
+import racingcar.model.PlayResult;
+import racingcar.model.PlayResults;
+import racingcar.model.Winners;
 
 public class OutputView {
     public static void printCarNameInputMessage() {
@@ -20,14 +20,14 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printPlayResult(List<Map<CarType, String>> results) {
-        for (Map<CarType, String> result : results) {
+    public static void printPlayResult(PlayResults results) {
+        for (PlayResult result : results.getResults()) {
             System.out.printf("%s : %s%n", result.get(CarType.CAR_NAME), result.get(CarType.DISTANCE));
         }
         System.out.println();
     }
 
-    public static void printWinners(List<String> winnerNames) {
-        System.out.printf("최종 우승자 : %s", String.join(Common.SEPARATOR.getStringValue() + " ", winnerNames));
+    public static void printWinners(Winners winnerNames) {
+        System.out.printf("최종 우승자 : %s", String.join(Common.SEPARATOR.getStringValue() + " ", winnerNames.getWinnerNames()));
     }
 }
