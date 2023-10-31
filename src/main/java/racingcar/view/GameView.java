@@ -33,4 +33,22 @@ public class GameView {
         }
         System.out.println("");
     }
+
+    public static void printWinner(List<String> winnerList) {
+        if (winnerList.size() == 1) {
+            printOneWinner(winnerList);
+        } else {
+            printManyWinner(winnerList);
+        }
+
+    }
+
+    public static void printOneWinner(List<String> winnerList) {
+        System.out.print(WINNER_PHRASE + CLONE + winnerList.get(0));
+    }
+
+    public static void printManyWinner(List<String> winnerList) {
+        System.out.print(WINNER_PHRASE + CLONE);
+        System.out.print(winnerList.stream().collect(Collectors.joining(DELIMITER)));
+    }
 }
