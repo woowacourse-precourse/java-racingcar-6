@@ -24,20 +24,23 @@ public class RacingSystem {
         for (int i = 0; i < carList.length; i++) {
             carRecordSheet.add(raceResult.racingCondition(inputCount));
         }
-        for (int j = 0; j < carRecordSheet.size(); j++) {
-            for (int k = 0; k < carRecordSheet.get(j).size(); k++) {
-                System.out.println("car name " + j + ": " + carRecordSheet.get(j).get(k));
-            }
-        }
+        displaySystem(carRecordSheet, carList);
 
         return 0;
     }
-    public void display() {
-//        for (int j = 0; j < carRecordSheet.size(); j++) {
-//            for (int k = 0; k < carRecordSheet.get(j).size(); k++) {
-//                System.out.println("car number " + j + ": " + carRecordSheet.get(j).get(k));
-//            }
-//        }
+    public static void displaySystem(ArrayList<ArrayList<Integer>> RecordSheet, String[] carName) {
+        for (int j = 0; j < RacingSystem.carRecordSheet.size(); j++) {
+            System.out.printf(carName[j] + "'s car : ");
+            for (int k = 0; k < RacingSystem.carRecordSheet.get(j).size(); k++) {
+                displayCheck(RacingSystem.carRecordSheet.get(j).get(k));
+            }
+            System.out.println("");
+        }
+    }
+    public static void displayCheck(int insertedValue) {
+        if (insertedValue <= 4) {
+            System.out.printf("=");
+        }
     }
 
 
