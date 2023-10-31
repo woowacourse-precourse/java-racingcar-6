@@ -9,10 +9,13 @@ public class Validation {
 
         return input;
     }
+
     public static int validationAttempts(String attempts) {
         int verifiedAttempts = -1;
         try {
             verifiedAttempts = Integer.parseInt(attempts);
+            if (verifiedAttempts < 0)
+                ErrorCollection.IllegalAttempts();
         } catch (NumberFormatException e) {
             ErrorCollection.IllegalAttempts();
         }
