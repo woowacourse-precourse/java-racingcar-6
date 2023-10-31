@@ -40,6 +40,11 @@ public class RacingCarService {
 
     private void getInputCount() {
         System.out.println(INPUT_COUNT_MESSAGE);
-        input_cnt = Integer.parseInt(Console.readLine());
+        try {
+            input_cnt = Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
+        }
+
     }
 }
