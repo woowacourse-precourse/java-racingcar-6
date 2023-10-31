@@ -11,7 +11,7 @@ public class OutputView {
         System.out.println(gameResultOutputMessage);
     }
 
-    public static void gameReslutOutput(HashMap<String, String> gameResult) {
+    public void gameReslutOutput(HashMap<String, String> gameResult) {
 
         for (String car : gameResult.keySet()) {
             System.out.println(car + " : " + gameResult.get(car));
@@ -20,7 +20,7 @@ public class OutputView {
 
     }
 
-    public static void WinnerOutput(List<String> winnerResult) {
+    public void WinnerOutput(List<String> winnerResult) {
         System.out.print(WinngerOutputMessage);
         String winners = String.join(", ", winnerResult);
         System.out.print(winners);
