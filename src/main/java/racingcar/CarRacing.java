@@ -112,12 +112,12 @@ public class CarRacing {
 
     public void requestUserCount() {
         String stringCount = Console.readLine();
-        isInputEmpty(stringCount);
         validateUserCount(stringCount);
         userCount = Integer.parseInt(stringCount);
     }
 
     public void validateUserCount(String stringCount) {
+        isInputEmpty(stringCount);
         if (stringCount.charAt(0) == '0') {
             throw new IllegalArgumentException(ERROR_WRONG_COUNT);
         }
