@@ -19,9 +19,3 @@ public class Distance {
         return "-".repeat(distance);
     }
 }
-
-/*
-
-부분부분 trouble shooting이나 설계하면서 고민했던 부분들을 짧게 노션에 메모해서 나중에 소감문이나 블로그에 포스팅해보자... 허허
-
- */
