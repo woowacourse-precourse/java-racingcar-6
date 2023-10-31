@@ -10,20 +10,16 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class UserInputCarNameTest {
-    private UserCarNameInputException userCarNameInputException;
     private UserInputCarName userInputCarName;
     @BeforeEach
     void setUp(){
-        userCarNameInputException = new UserCarNameInputException();
+        userInputCarName = new UserInputCarName();
     }
     @Test
     void 리스트_잘_나오는지_확인(){
-        String input = "pobi,woni,jun";
+        String input = "pobi,jun,may";
         List<String> answer = Arrays.asList(input.split(","));
-        UserInputCarName userInputCarName = new UserInputCarName();
         List<String> result = userInputCarName.createCarName(input);
         assertThat(result).isEqualTo(answer);
-        System.out.println(result);
-
     }
 }
