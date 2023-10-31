@@ -1,19 +1,18 @@
 package racingcar.domain.car;
 
-import static racingcar.view.output.Output.printResultMessage;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import racingcar.util.RandomNumberGenerator;
 import racingcar.view.input.error.InputError;
 import racingcar.view.input.error.InputIllegalArgumentException;
-import racingcar.view.output.OutputMessage;
 
 public class Cars {
 
     private static final String CARS_ARE_EMPTY = "차가 존재하지 않습니다.";
-    private static final int MAXIMUM_FORWARD_NUMBER = 4;
+    public static final String DISTANT_MARK = "-";
 
     private final List<Car> cars = new ArrayList<>();
 
@@ -45,14 +44,22 @@ public class Cars {
     public void randomCarMove() {
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         for (Car car : cars) {
-            if (isCanForward(randomNumberGenerator.generateRandomNumber())) {
+            if (randomNumberGenerator.isCanMove()) {
                 car.moveCar();
             }
-            printResultMessage(OutputMessage.PROGRESS_RESULT, car.getCarName(), car.getDistance());
         }
     }
 
-    private boolean isCanForward(int forwardNumber) {
-        return MAXIMUM_FORWARD_NUMBER <= forwardNumber;
+    public Map<String, String> generateCarStatus() {
+        Map<String, String> carStatusMap = new HashMap<>();
+        cars.forEach(car -> carStatusMap.put(car.getCarName(), generateStatusString(car.getDistance())));
+        for (Car i : cars) {
+            System.out.println(i.getCarName() + i.getDistance());
+        }
+        return carStatusMap;
+    }
+
+    private String generateStatusString(int distance) {
+        return DISTANT_MARK.repeat(distance);
     }
 }
