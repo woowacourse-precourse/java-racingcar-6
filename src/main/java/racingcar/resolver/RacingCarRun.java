@@ -5,8 +5,6 @@ import racingcar.service.RacingCarService;
 import racingcar.service.TextProcessor;
 import racingcar.view.RacingCarView;
 
-import java.util.List;
-
 public class RacingCarRun {
     private final RacingCarService service;
     private final TextProcessor textProcessor;
@@ -28,6 +26,7 @@ public class RacingCarRun {
 
     private Cars createCarsByInput(String carNames) {
         var separatorCarNames = textProcessor.splitCarNames(carNames);
+
         return service.createCars(separatorCarNames);
     }
 
@@ -44,12 +43,9 @@ public class RacingCarRun {
     }
 
     private String getRacingWinners(Cars cars) {
-        var winners = choiceRacingWinner(cars);
-        return textProcessor.joinText(winners);
+        var winnerCars = service.getWinnerCarNames(cars);
+
+        return textProcessor.joinText(winnerCars);
     }
 
-    private List<String> choiceRacingWinner(Cars cars) {
-        int maxDistance = service.maxCarDistance(cars);
-        return service.getWinnerCarNames(cars, maxDistance);
-    }
 }

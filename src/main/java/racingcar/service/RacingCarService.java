@@ -23,19 +23,20 @@ public class RacingCarService {
                 .forEach(Car::move);
     }
 
-    public int maxCarDistance(Cars cars) {
+    public List<String> getWinnerCarNames(Cars cars) {
+        return cars.getCars()
+                .stream()
+                .filter(car ->
+                        car.getDistance() == maxCarsDistance(cars))
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private int maxCarsDistance(Cars cars) {
         return cars.getCars()
                 .stream()
                 .mapToInt(Car::getDistance)
                 .max()
                 .orElse(0);
-    }
-
-    public List<String> getWinnerCarNames(Cars cars, int maxDistance) {
-        return cars.getCars()
-                .stream()
-                .filter(car -> car.getDistance() == maxDistance)
-                .map(Car::getName)
-                .collect(Collectors.toList());
     }
 }
