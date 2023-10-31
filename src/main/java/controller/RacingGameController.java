@@ -17,7 +17,7 @@ public class RacingGameController {
 		CarNamesInput carNamesInput = initCarNameData();
 		TryCountInput tryCountInput = setTryCount();
 
-		getRaceOutcome(carNamesInput, tryCountInput);
+		RacingCar raceOutcome = getRaceOutcome(carNamesInput, tryCountInput);
 
 	}
 
