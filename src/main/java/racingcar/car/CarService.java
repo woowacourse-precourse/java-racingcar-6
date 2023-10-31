@@ -7,8 +7,8 @@ public class CarService {
 
     public ArrayList<Car> createCarList() {
         ArrayList<Car> carList = new ArrayList<>();
-        String[] carsName = Console.readLine().split(",");
-        for (String carName : carsName) {
+        String[] carNames = Console.readLine().split(",");
+        for (String carName : carNames) {
             Car car = new Car(carName);
             carList.add(car);
         }

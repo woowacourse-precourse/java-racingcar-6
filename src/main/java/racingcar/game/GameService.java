@@ -12,7 +12,7 @@ public class GameService {
     private int tryCount;
     private int maxStepCount = 0;
 
-    public void playGame() {
+    public void play() {
 
         // 자동차 생성
         System.out.println(Constants.CAR_NAME_INPUT);
@@ -33,7 +33,6 @@ public class GameService {
         printFinalWinner();
     }
 
-    // 시도 횟수 생성하는 메소드
     public void createTryCount() {
         try {
             String input = Console.readLine();
@@ -52,7 +51,9 @@ public class GameService {
             int stepCount = car.getStepCount();
 
             StringBuilder sb = new StringBuilder();
-            sb.append(car.getName()).append(" : ").append("-".repeat(stepCount));
+            sb.append(car.getName());
+            sb.append(" : ");
+            sb.append("-".repeat(stepCount));
             System.out.println(sb);
 
             if (stepCount > maxStepCount) {
@@ -63,20 +64,19 @@ public class GameService {
     }
 
 
-    // 0부터 9까지 숫자 중 무작위 수 하나 생성 후 전진할지 멈출지 판단하는 메소드
     private boolean shouldIncreaseStepCount() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         return randomNumber >= 4;
     }
-
-    // 최종 우승자 출력하는 함수
+    
     private void printFinalWinner() {
         StringBuilder sb = new StringBuilder("최종 우승자 : ");
 
         for (var car : carList) {
             int stepCount = car.getStepCount();
             if (maxStepCount == stepCount) {
-                sb.append(car.getName()).append(", ");
+                sb.append(car.getName());
+                sb.append(", ");
             }
         }
         sb.delete(sb.length() - 2, sb.length());
