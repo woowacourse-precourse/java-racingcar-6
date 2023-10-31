@@ -1,8 +1,14 @@
 package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import racingcar.constant.ErrorMessage;
 import racingcar.constant.ServiceMessage;
 import racingcar.input.count.CountValidator;
@@ -22,12 +28,10 @@ public class RacingGame {
         // 이름 입력 받기
         String inputNames = Console.readLine();
 
-        // 이름과 자동차 전진 횟수를 기록하는 LinkedHashMap
-        LinkedHashMap<String, Integer> nameToDistance = new LinkedHashMap<>();
-
-
         // 예외 처리
-        for(String name : inputNames.split(",")) {
+        String[] names = inputNames.split(",");
+        int[] countsByName = new int[names.length];
+        for(String name : names) {
             if(!NameValidator.hasValidCharacters(name)) {
                 throw new IllegalArgumentException(getErrorMessage("name"));
             }
@@ -35,8 +39,6 @@ public class RacingGame {
             if(name.length() > 5) {
                 throw new IllegalArgumentException(getErrorMessage("name"));
             }
-
-            nameToDistance.put(name, 0);
         }
 
         // 횟수 입력 문구 출력
@@ -50,6 +52,15 @@ public class RacingGame {
 
         int n = Integer.parseInt(inputCount);
 
-        System.out.println(nameToDistance);
+        System.out.print(ServiceMessage.OUTPUT.serviceMessage);
+        int totalName = names.length;
+        while(n-- > 0) {
+            for(int t = 0; t < totalName; t++) {
+                String key = names[t];
+                if(RacingCarController.isMoveForward()) {
+                    countsByName[t]++;
+                }
+            }
+        }
     }
 }
