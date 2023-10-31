@@ -2,12 +2,12 @@ package racingcar.Model;
 
 public class Car {
     private String name;
-    private String currentProgress;
+    private String progress;
     private int progressCounter;
 
     public Car(String name) {
         this.name = name;
-        this.currentProgress = "";
+        this.progress = "";
         this.progressCounter = 0;
     }
 
@@ -20,12 +20,12 @@ public class Car {
     }
 
     public void addProgress() {
-        this.currentProgress = this.currentProgress + '-';
+        this.progress = this.progress + '-';
         this.progressCounter++;
     }
 
     public String getProgress() {
-        return this.currentProgress;
+        return this.progress;
     }
 
     public int getProgressCounter() {
