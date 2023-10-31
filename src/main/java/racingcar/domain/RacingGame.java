@@ -8,7 +8,7 @@ public class RacingGame {
     private final int maxGameCount;
     private int currentGameCount;
 
-    private Long id;
+    private final Long id;
 
     public RacingGame(List<Long> carsIdList, int maxGameCount, Long id) {
         this.carsIdList = carsIdList;

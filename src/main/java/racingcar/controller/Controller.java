@@ -6,6 +6,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.dto.CarOutputRequestDto;
+import racingcar.dto.CarWinnersDto;
 import racingcar.service.CarService;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
@@ -30,19 +31,36 @@ public class Controller {
         RacingGame racingGame = racingGameService.createNewGame(carsIdList, gameCount, racingGameId);
         racingGameService.join(racingGame);
         racingGameId += 1;
-        play(racingGame);
+        play(racingGame.getId());
     }
 
-    private void play(RacingGame racingGame) {
+    private void play(Long racingGameId) {
+        RacingGame racingGame = racingGameService.findGameById(racingGameId);
         List<Long> carsIdList = racingGame.getCarsIdList();
-        while (!racingGameService.isGameFinish(racingGame.getId())) {
+        do {
             moveCarsForwardOrNotByRandomNumber(carsIdList);
-            OutPutView.printScore(mapToCarRequestDto(carsIdList));
+            OutPutView.printScore(mapToCarRequestDtoList(carsIdList));
             racingGameService.addGameCount(racingGame.getId());
-        }
+        } while (!racingGameService.isGameFinish(racingGame.getId()));
+        printFinalWinner(racingGameId);
     }
 
-    private List<CarOutputRequestDto> mapToCarRequestDto(List<Long> carsIdList) {
+    private void printFinalWinner(Long racingGameId) {
+//        RacingGame racingGame = racingGameService.findGameById(racingGameId);
+        List<Long> winners = racingGameService.getWinningCarsId(racingGameId);
+        OutPutView.printFinalWinner(mapToCarWinnersDtoList(winners));
+    }
+
+    private List<CarWinnersDto> mapToCarWinnersDtoList(List<Long> winners) {
+        List<CarWinnersDto> carWinnersDtoList = new ArrayList<>();
+        for (Long id : winners) {
+            Car winnerCar = carService.findCarById(id);
+            carWinnersDtoList.add(new CarWinnersDto(winnerCar.getName()));
+        }
+        return carWinnersDtoList;
+    }
+
+    private List<CarOutputRequestDto> mapToCarRequestDtoList(List<Long> carsIdList) {
         List<CarOutputRequestDto> carDtoList = new ArrayList<>();
         for (Long id : carsIdList) {
             Car findCar = carService.findCarById(id);
