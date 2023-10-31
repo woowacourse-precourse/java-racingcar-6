@@ -16,7 +16,7 @@ public interface Validator<T> {
     }
 
     // 입력된 이동 시도 횟수 검증
-    static Validator<Integer> forAttemptCount() {
+    static Validator<String> forAttemptCount() {
         return new AttemptCountValidator();
     }
 }

@@ -27,7 +27,7 @@ public class RacingController implements Observer {
         OutputView.printCarNameInputMessage();
         carNames = racingService.carValidate(getUserInput());
         OutputView.printAttemptCountInputMessage();
-        attemptCount = racingService.attemptCountValidate(Integer.parseInt(getUserInput()));
+        attemptCount = Integer.parseInt(racingService.attemptCountValidate(getUserInput()));
     }
 
     private void createCars() {
