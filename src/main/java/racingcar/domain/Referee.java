@@ -10,10 +10,18 @@ public class Referee {
 
     public String selectWinner(List<Car> cars) {
         int maxMoveNum = getMaxMoveNum(cars);
-        return getWinners(cars, maxMoveNum);
+        return getMaxMoveCars(cars, maxMoveNum);
     }
 
-    private String getWinners(List<Car> cars, int maxMoveNum) {
+    private int getMaxMoveNum(List<Car> cars) {
+        int maxMoveNum = 0;
+        for (Car car : cars) {
+            maxMoveNum = Math.max(maxMoveNum, car.getStatus().length());
+        }
+        return maxMoveNum;
+    }
+
+    private String getMaxMoveCars(List<Car> cars, int maxMoveNum) {
         StringBuilder winners = new StringBuilder();
         for (Car car : cars) {
             addWinner(maxMoveNum, car, winners);
@@ -30,13 +38,5 @@ public class Referee {
                 winners.append(car.getName());
             }
         }
-    }
-
-    private int getMaxMoveNum(List<Car> cars) {
-        int maxMoveNum = 0;
-        for (Car car : cars) {
-            maxMoveNum = Math.max(maxMoveNum, car.getStatus().length());
-        }
-        return maxMoveNum;
     }
 }
