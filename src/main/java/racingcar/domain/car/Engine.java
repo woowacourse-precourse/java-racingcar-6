@@ -9,7 +9,7 @@ public class Engine {
     private Engine() {
     }
 
-    public Engine newInstance() {
+    public static Engine newInstance() {
         return new Engine();
     }
 
