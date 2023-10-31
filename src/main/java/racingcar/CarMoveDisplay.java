@@ -1,18 +1,18 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
 
-public class CarMove {
-    private RaceInfo raceInfo;
+public class CarMoveDisplay {
+//    private RaceInfo raceInfo;
 
 
-    public CarMove(RaceInfo raceInfo) {
-        this.raceInfo = raceInfo;
-        carRace();
-    }
+//    public CarMoveDisplay(RaceInfo raceInfo) {
+////        this.raceInfo = raceInfo;
+////        carRace();
+////        carRace(raceInfo);
+//    }
 
-    public void carRace() {
+    public static void carRace(RaceInfo raceInfo) {
         System.out.println("실행 결과");
         int i = 1;
         while (i <= raceInfo.getAttemptCount()) {
@@ -20,23 +20,26 @@ public class CarMove {
                 if (decideCarMovement()) {
                     car.increaseCarDistance();
                 }
-                raceResultDisplay(car);
+                racePrint(car);
             }
+
             System.out.println();
             i++;
         }
     }
 
-    public boolean decideCarMovement() {
+    public static boolean decideCarMovement() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
         return randomNum >= 4;
     }
 
-    public void raceResultDisplay(Car car) {
+    public static void racePrint(Car car) {
         System.out.print(car.getName() + " : ");
         for (int i = 0; i < car.getCarDistance(); i++) {
             System.out.print("-");
         }
         System.out.println();
     }
+
+
 }
