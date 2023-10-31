@@ -45,20 +45,14 @@ class GameControllerTest {
     @DisplayName("전체 라운드 수만큼 라운드의 결과들을 확인")
     public void 게임_플레이_결과_확인_테스트() {
         // given
-        GameController mockedGameController = new GameController(INPUT_VIEW, OUTPUT_VIEW) {
-            List<Car> cars = Arrays.asList(new Car("kim"), new Car("lee"));
-            int totalRoundCount = TOTAL_ROUND_COUNT;
-
-            @Override
-            public void setupGame() {
-                setCars(cars);
-                setTotalRoundCount(totalRoundCount);
-            }
-        };
+        GameController gameController = new GameController(INPUT_VIEW, OUTPUT_VIEW);
+        List<String> carNames = Arrays.asList("kim", "lee");
+        List<Car> cars = gameController.createCars(carNames);
+        gameController.setTotalRoundCount(TOTAL_ROUND_COUNT);
+        gameController.setCars(cars);
 
         // when
-        mockedGameController.setupGame();
-        List<List<CarDTO>> EachRoundResult = mockedGameController.play();
+        List<List<CarDTO>> EachRoundResult = gameController.play();
 
         // then
         assertAll(
