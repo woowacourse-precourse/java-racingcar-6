@@ -8,6 +8,8 @@ public class OutputView {
 
     private static final String RESULT_PHRASE = "실행 결과";
     private static final String WINNER_PHRASE = "최종 우승자 : ";
+    private static final String POSITION_STRING = "-";
+    private static final String COLON_WITH_SPACE = " : ";
 
     public void printResultPhrase() {
         System.out.println(RESULT_PHRASE);
@@ -20,4 +22,21 @@ public class OutputView {
         System.out.println(result);
     }
 
+    public void printGameProgress(List<Car> cars) {
+        for(Car car : cars) {
+            String progress = new StringBuilder()
+                    .append(car.toString())
+                    .append(COLON_WITH_SPACE)
+                    .append(stackPositionString(car.getPosition()))
+                    .toString();
+            System.out.println(progress);
+        }
+    }
+
+    public String stackPositionString(int position) {
+        StringBuilder presentPosition = new StringBuilder();
+        presentPosition.append(POSITION_STRING.repeat(position));
+
+        return presentPosition.toString();
+    }
 }
