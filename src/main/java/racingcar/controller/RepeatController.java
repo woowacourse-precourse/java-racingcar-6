@@ -1,6 +1,8 @@
 package racingcar.controller;
 
-public class Repeat {
+public class RepeatController implements RepeatNumCreator {
+
+    @Override
     public int createRepeatNum(String inputRepeat) {
         int repeatNum = inputRepeatToInt(inputRepeat);
         validateRepeatNum(repeatNum);

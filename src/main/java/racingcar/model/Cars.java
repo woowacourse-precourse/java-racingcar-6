@@ -1,15 +1,13 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import racingcar.view.OutputView;
 
 public class Cars {
     private static final int MOVING_NUM = 4;
-    private static List<Car> cars;
+    private List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = cars;

@@ -7,13 +7,13 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
     private Cars cars;
-    private Repeat repeat;
     private int repeatNum;
     private final CarsCreator carsCreator;
+    private final RepeatNumCreator repeatNumCreator;
 
-    public RacingGame(CarsCreator carsCreator, Repeat repeat) {
+    public RacingGame(CarsCreator carsCreator, RepeatNumCreator repeatNumCreator) {
         this.carsCreator = carsCreator;
-        this.repeat = repeat;
+        this.repeatNumCreator = repeatNumCreator;
     }
     public void playRacingGame() {
         initRacingGameInput();
@@ -45,6 +45,6 @@ public class RacingGame {
         this.cars = carsCreator.createCars(inputName);
     }
     private void initRepeat(String inputRepeat) {
-        this.repeatNum = repeat.createRepeatNum(inputRepeat);
+        this.repeatNum = repeatNumCreator.createRepeatNum(inputRepeat);
     }
 }
