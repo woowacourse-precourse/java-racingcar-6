@@ -18,8 +18,7 @@ public class GameClientInput {
     public int getTotalMoves() {
         String input = Console.readLine();
         validateContainingDigits(input);
-        int moves = convertTotalMoves(input);
-        return moves;
+        return convertTotalMoves(input);
     }
 
     private int convertTotalMoves(String input) {
