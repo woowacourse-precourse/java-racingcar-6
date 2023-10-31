@@ -9,5 +9,18 @@ public class Game {
 
     void getNames(){
         nameLine = Console.readLine();
+        Error.isNameError(nameLine);
+        nameLine = nameLine.trim();
+        names = nameLine.split(",");
+    }
+
+    void getNumber(){
+        randomNumber = Console
+    }
+
+    Game(){
+        getNames();
+        getNumber();
+
     }
 }
