@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.utils.Validator.CAR_NAME_BLANK_ERROR_MESSAGE;
 import static racingcar.utils.Validator.WRONG_LENGTH_CAR_NAME_ERROR_MESSAGE;
 
 class ControllerTest {
@@ -45,6 +46,26 @@ class ControllerTest {
             controller.run();
         } catch (IllegalArgumentException e) {
             assertEquals(WRONG_LENGTH_CAR_NAME_ERROR_MESSAGE, e.getMessage());
+        }
+        Console.close();
+    }
+
+    private static Stream<Arguments> provideEmptyCarNameInput() {
+        return Stream.of(
+                Arguments.of("Tom, ,Ive\n", "3\n"),
+                Arguments.of(" ,Jin,Ive\n", "5\n")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideEmptyCarNameInput")
+    void 빈_이름_예외_발생_및_몌시지_확인(String carNameInput, String AttemptCountInput) {
+
+        System.setIn(getSequenceInputStream(carNameInput, AttemptCountInput));
+        try {
+            controller.run();
+        } catch (IllegalArgumentException e) {
+            assertEquals(CAR_NAME_BLANK_ERROR_MESSAGE, e.getMessage());
         }
         Console.close();
     }
