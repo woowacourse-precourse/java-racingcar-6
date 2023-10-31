@@ -8,8 +8,13 @@ import racingcar.validation.MoveCountsValidation;
 
 
 public class InputView {
-    CarInputValidation carInputValidation = new CarInputValidation();
-    MoveCountsValidation moveCountsValidation = new MoveCountsValidation();
+    private final CarInputValidation carInputValidation;
+    private final MoveCountsValidation moveCountsValidation;
+
+    public InputView(CarInputValidation carInputValidation, MoveCountsValidation moveCountsValidation) {
+        this.carInputValidation = carInputValidation;
+        this.moveCountsValidation = moveCountsValidation;
+    }
 
     public List<String> getCarNamesInput() {
         String carInput = receiveCarInput();
