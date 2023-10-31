@@ -10,6 +10,12 @@ public class InputValidator {
         }
     }
 
+    public void setMoveNum(String input) {
+        if (!isRightMoveNum(input)) {
+            throw new IllegalArgumentException("하나의 자연수를 입력하십시오.");
+        }
+    }
+
     private boolean isRightRacingCarsComma(String input) {
         if (input == "") {
             return false;
@@ -26,7 +32,6 @@ public class InputValidator {
                 return false;
             }
         }
-
         return true;
     }
 
@@ -37,7 +42,15 @@ public class InputValidator {
                 return false;
             }
         }
+        return true;
+    }
 
+    private boolean isRightMoveNum(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            if (!('0' <= input.charAt(i) && input.charAt(i) <= '9')) {
+                return false;
+            }
+        }
         return true;
     }
 }

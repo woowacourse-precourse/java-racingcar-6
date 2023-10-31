@@ -6,7 +6,7 @@
 
 
 - [x] 사용자에게 이동 횟수 입력을 받는 기능
-    - [ ] 하나의 자연수가 아닐 경우 IllegalArgumentException을 발생시키는 기능
+    - [x] 하나의 자연수가 아닐 경우 IllegalArgumentException을 발생시키는 기능
 
 
 - [ ] 전진할 수 있는지 알아보는 기능
