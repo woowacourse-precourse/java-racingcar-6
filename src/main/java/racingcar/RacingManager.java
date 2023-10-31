@@ -30,7 +30,7 @@ public class RacingManager {
         }
     }
 
-    public void moveRacingCars() {
+    private void moveRacingCars() {
         for (RacingCar racingCar : racingCars) {
             int moveWeight = createMoveWeight();
             racingCar.move(moveWeight);
