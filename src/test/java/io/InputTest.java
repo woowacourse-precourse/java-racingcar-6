@@ -85,10 +85,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @CsvSource({
-            "hello,daki",
-            "bye,daki",
-    })
+    @CsvSource({"hello,daki", "bye,daki",})
     void prompt_출력확인(String greeting, String input) {
         mockInput = new ByteArrayInputStream(input.getBytes());
         mockOutput = new ByteArrayOutputStream();
