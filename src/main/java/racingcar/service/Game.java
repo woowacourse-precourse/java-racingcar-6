@@ -1,15 +1,17 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.Input;
 import racingcar.view.Output;
 import racingcar.dto.CarDTO;
-import racingcar.dto.CarListDTO;
 import racingcar.dto.RoundDTO;
 
 public class Game {
-	List<CarDTO> carList;
+	List<CarDTO> carList = new ArrayList<CarDTO>();
+	List<CarDTO> winnerList = new ArrayList<CarDTO>();
 	RoundDTO round;
+	static final int CAR_START_LOCATION = 0;
 	
 	public void setGame() {
 		generateCarList();
@@ -18,8 +20,11 @@ public class Game {
 	
 	private void generateCarList() {
 		String[] carStringArray = Input.requestCarName();
-		CarListDTO carListDTO = new CarListDTO();
-		carList = carListDTO.makeCarList(carStringArray);
+		for (int i=0; i<carStringArray.length; i++) {
+			CarDTO carDTO = new CarDTO();
+			carDTO.setCar(carStringArray[i], CAR_START_LOCATION);
+			carList.add(carDTO);
+		}
 	}
 	
 	private void generateRound() {
@@ -29,12 +34,55 @@ public class Game {
 	}
 	
 	public void startGame() {
-		//Output.printStartGame();
-		//Output.printRound(null, 0);
-		
+		Output.printRunResultGuide();
+		startRound();
+	}
+	
+	private void startRound() {
+		for (int i=0; i<round.getRoundNumber(); i++) {
+			decideCarAction();
+			Output.printRound(carList, round);
+		}
+	}
+	
+	private void decideCarAction() {
+		for (int i=0; i<carList.size(); i++) {
+			carList.get(i).carMoveOrStop();
+		}
 	}
 	
 	public void endGame() {
-		// Output.printResult(null, 0);
+		int maxCarLocation = findMaxCarLocation();
+		findWinner(maxCarLocation);
+		Output.printResult(winnerList);
+	}
+		
+	private int findMaxCarLocation() {
+		int max = 0;
+		for (int i=0; i<carList.size(); i++) {
+			max = compareLocation(i, max);
+		}
+		return max;
+	}
+	
+	private int compareLocation(int i, int max) {
+		int indexCarLocation = carList.get(i).getCarLocation();
+		if (indexCarLocation > max) {
+			return indexCarLocation;
+		}
+		return max;
+	}
+	
+	private void findWinner(int maxCarLocation) {
+		for (int i=0; i<carList.size(); i++) {
+			addWinnerList(i, maxCarLocation);
+		}
+	}
+	
+	private void addWinnerList(int i, int maxCarLocation) {
+		int carLocation = carList.get(i).getCarLocation();
+		if (carLocation == maxCarLocation) {
+			winnerList.add(carList.get(i));
+		}
 	}
 }

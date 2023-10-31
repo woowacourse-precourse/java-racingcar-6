@@ -1,7 +1,5 @@
 package racingcar.view;
 
-import racingcar.utilities.Parse;
-
 public class Rule {
 	public static void isStringBlank(String str) {
 		if (str.isBlank()) {

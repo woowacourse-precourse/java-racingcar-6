@@ -20,4 +20,8 @@ public class CarDTO {
 	public void setCarLocation(int carLocation) {
 		car.setCarLocation(carLocation);
 	}
+	
+	public void carMoveOrStop() {
+		car.moveOrStop();
+	}
 }
