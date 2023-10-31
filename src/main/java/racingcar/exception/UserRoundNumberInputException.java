@@ -8,8 +8,8 @@ public class UserRoundNumberInputException {
     private static final int Zero = 0;
 
     public UserRoundNumberInputException(String input) {
-        isNumber(input);
         isBlank(input);
+        isNumber(input);
         isZeroMinus(input);
     }
 
@@ -22,7 +22,7 @@ public class UserRoundNumberInputException {
     }
 
     private void isBlank(String userInput) {
-        if(userInput.isEmpty()){
+        if(userInput == null || userInput.trim().isEmpty()){
             throw new IllegalArgumentException(IS_BLANK_MESSAGE);
         }
     }
