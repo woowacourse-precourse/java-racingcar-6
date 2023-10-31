@@ -16,8 +16,15 @@ public class RepeatNumberCheck {
         }
     }
 
+    public void isOne(String repeatNumber) {
+        if (repeatNumber.equals("0")) {
+            throw new IllegalArgumentException("시도할 횟수는 0보다 커야 합니다.");
+        }
+    }
+
     public void checkAll(String repeatNumber) {
         isNothing(repeatNumber);
         isNumber(repeatNumber);
+        isOne(repeatNumber);
     }
 }
