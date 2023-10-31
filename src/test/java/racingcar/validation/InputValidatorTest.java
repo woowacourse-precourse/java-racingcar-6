@@ -23,4 +23,8 @@ class InputValidatorTest {
     void isGreaterThanZeroShouldThrowExceptionWhenZeroOrNegative() {
         assertThrows(IllegalArgumentException.class, () -> InputValidator.isGreaterThanZero(-1));
     }
+    @Test
+    void isGreaterThanZeroShouldNotThrowExceptionWhenPositive() {
+        assertDoesNotThrow(() -> InputValidator.isGreaterThanZero(1));
+    }
 }
