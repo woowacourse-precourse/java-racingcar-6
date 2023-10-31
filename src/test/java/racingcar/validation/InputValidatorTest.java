@@ -19,4 +19,8 @@ class InputValidatorTest {
         List<String> testNames = Arrays.asList("용준1", "용준2", "용준3");
         assertDoesNotThrow(() -> InputValidator.isLengthGreaterThanFive(testNames));
     }
+    @Test
+    void isGreaterThanZeroShouldThrowExceptionWhenZeroOrNegative() {
+        assertThrows(IllegalArgumentException.class, () -> InputValidator.isGreaterThanZero(-1));
+    }
 }
