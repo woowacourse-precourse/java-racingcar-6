@@ -1,11 +1,14 @@
 package domain;
 
 public class Car implements Comparable<Car>{
+    private static final int INITIAL_POSITION = 0;
+    private static final int MAXIMUM_NAME_LENGTH = 5;
+
     private final String name;
     private int position;
 
     public Car(String name) {
-        this(name, 0);
+        this(name, INITIAL_POSITION);
     }
 
     Car(String name, int position) {
@@ -15,7 +18,7 @@ public class Car implements Comparable<Car>{
     }
 
     private void validateName(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAXIMUM_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
     }

@@ -6,6 +6,8 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class CarService {
+    private static final int MINIMUM_NUMBER = 0;
+    private static final int MAXIMUM_NUMBER = 9;
     private static final int STANDARD_FOR_GO = 4;
     private Cars cars;
 
@@ -32,7 +34,7 @@ public class CarService {
     }
 
     private int getRandomNumber() {
-        return pickNumberInRange(0, 9);
+        return pickNumberInRange(MINIMUM_NUMBER, MAXIMUM_NUMBER);
     }
 
     boolean decideGo(int condition) {

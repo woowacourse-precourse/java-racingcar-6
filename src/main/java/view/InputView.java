@@ -5,9 +5,11 @@ import java.util.List;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputView {
+    private static final String NAME_SEPARATOR = ",";
+
     public List<String> carName() {
         String input = readLine();
-        return List.of(input.split(","));
+        return List.of(input.split(NAME_SEPARATOR));
     }
 
     public int roundNumber() {
