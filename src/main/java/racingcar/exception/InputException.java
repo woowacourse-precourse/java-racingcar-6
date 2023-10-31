@@ -2,11 +2,8 @@ package racingcar.exception;
 
 import java.util.List;
 
-public class InputException extends RuntimeException{
+public class InputException {
 
-    public InputException(String message, Throwable cause) {
-        super(message, new IllegalArgumentException());
-    }
 
     public static void validateName(List<String> nameList) throws IllegalArgumentException {
        for(String name : nameList) {

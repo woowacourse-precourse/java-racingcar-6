@@ -1,6 +1,7 @@
 package racingcar.impl;
 
 import racingcar.Game;
+import racingcar.Type.GameType;
 import racingcar.entity.GameInfo;
 import racingcar.util.Parser;
 import racingcar.RandomNumberProvider;
@@ -67,6 +68,11 @@ public class RacingGame implements Game {
             }
             System.out.print(winner.get(indexOfWinner).getName() + ", ");
         }
+    }
+
+    @Override
+    public boolean support(GameType gameType) {
+        return gameType == GameType.Racing;
     }
 
     public void setGameInfo(GameInfo gameInfo) {
