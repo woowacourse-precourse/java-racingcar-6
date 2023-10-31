@@ -4,6 +4,7 @@ import racingcar.view.InputView;
 
 public class RaceCountInput {
 
+    private static final int COUNT_MIN = 1;
     private static final String REGEX = "\\d+";
 
     private final int raceCount;
@@ -31,7 +32,8 @@ public class RaceCountInput {
     }
 
     private static void validNotZero(int userCount) {
-        if (userCount == 0) {
+
+        if (userCount < COUNT_MIN) {
             throw new IllegalArgumentException();
         }
     }

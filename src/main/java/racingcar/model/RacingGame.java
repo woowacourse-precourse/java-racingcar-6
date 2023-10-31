@@ -5,6 +5,7 @@ import racingcar.view.OutputView;
 
 public class RacingGame {
 
+    private static final int FORWARD = 4;
     private final Cars cars;
     private final RaceCountInput raceCountInput;
 
@@ -24,7 +25,8 @@ public class RacingGame {
 
     private void playRound() {
         for (Car car : cars.getCars()) {
-            if (getRandomNumber() >= 4) {
+
+            if (getRandomNumber() >= FORWARD) {
                 car.move();
             }
         }

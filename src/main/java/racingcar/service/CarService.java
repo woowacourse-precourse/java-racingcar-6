@@ -10,13 +10,15 @@ import racingcar.model.RacingGame;
 import racingcar.model.RandomNumberGenerator;
 
 public class CarService {
+    private static final String DELIMITER = ",";
     private static Cars createCars(String userInput) {
         List<Car> carList = toCarList(userInput);
         return Cars.createCars(carList);
     }
 
     private static List<Car> toCarList(String userInput) {
-        String[] splitList = userInput.split(",");
+
+        String[] splitList = userInput.split(DELIMITER);
         return Arrays.stream(splitList)
                 .map(String::trim)
                 .map(Car::createCar)

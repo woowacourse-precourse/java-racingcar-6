@@ -1,6 +1,7 @@
 package racingcar.model;
 
 public class Name {
+    private static final int LENGTH_MAX = 5;
     private final String name;
 
     private Name(String name) {
@@ -18,7 +19,8 @@ public class Name {
     }
 
     private static void validLength(String userInputList) {
-        if (userInputList.length() > 5) {
+
+        if (userInputList.length() > LENGTH_MAX) {
             throw new IllegalArgumentException();
         }
     }
