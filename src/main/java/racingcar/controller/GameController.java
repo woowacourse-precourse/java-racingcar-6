@@ -29,4 +29,12 @@ public class GameController {
         gameView.printTryNumPhrase();
         game.setUserTry(gameException.checkInput(Console.readLine()));
     }
+
+    public void requestPrintResult() {
+        gameView.printResultPhrase();
+        for (int i = 0; i < game.getUserTry(); i++) {
+            game.moveCars();
+            gameView.printCarResult(game);
+        }
+    }
 }
