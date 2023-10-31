@@ -5,10 +5,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Engine {
     private final Integer MIN_FORWARD_NUM = 4;
     public Boolean canMoveForward() {
-        return 4 <= createRandomnumber();
+        return MIN_FORWARD_NUM <= createRandomNumber();
     }
 
-    public Integer createRandomnumber() {
+    public Integer createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 }

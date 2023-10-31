@@ -13,7 +13,7 @@ public class EngineTest {
 	void createRandomMethod_메서드_사용시_0에서_9사이의_값만_생성된다() {
 		Engine engine = new Engine();
 		for(int i=0;i<1000;i++) {
-			int randomNumber = engine.createRandomnumber();
+			int randomNumber = engine.createRandomNumber();
 			assertThat(randomNumber >= 0 && randomNumber<=9).isEqualTo(true);
 		}
 	}
