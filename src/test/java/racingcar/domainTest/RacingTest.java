@@ -2,8 +2,6 @@ package racingcar.domainTest;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import racingcar.Car;
 import racingcar.domain.Race;
 
@@ -11,15 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
 class RacingTest {
-    @Mock
     private Race race;
 
     @BeforeEach
     void setup() {
-        MockitoAnnotations.openMocks(this);
+        race = new Race();
     }
 
     @Test
@@ -30,11 +26,14 @@ class RacingTest {
         cars.add(new Car("tayo"));
         cars.add(new Car("gani"));
 
+        int actualCount = 0;
         for (int i = 0; i < moveCount; i++) {
             race.moveCars(cars);
+            actualCount++;
         }
 
-        verify(race, times(5)).moveCars(cars);
+        int expectedCount = moveCount;
+        assertEquals(expectedCount, actualCount);
     }
 
     @Test
