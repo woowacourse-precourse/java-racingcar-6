@@ -198,26 +198,6 @@ class ApplicationTest_function_list extends NsTest {
     }
 
     @Test
-    void 기능목록_테스트_시도_횟수만큼_전체_순환() {
-
-    }
-
-    @Test
-    void 기능목록_테스트_전체_자동차_순환() {
-
-    }
-
-    @Test
-    void 기능목록_테스트_한_자동차_진행() {
-
-    }
-
-    @Test
-    void 기능목록_테스트_0_9_무작위_값_생성() {
-
-    }
-
-    @Test
     void 기능목록_테스트_4이상_인지_검사() {
 
     }
