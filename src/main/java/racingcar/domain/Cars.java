@@ -11,7 +11,6 @@ import racingcar.dto.CarsDto;
 public class Cars {
 
     private static final String NAME_DELIMITER = ",";
-    private static final String SIZE_ERROR_MESSAGE = "자동차는 1대 이상이여야 합니다.";
     private static final String NO_CAR_ERROR_MESSAGE = "자동차가 존재하지 않습니다.";
 
     private final List<Car> cars;
@@ -19,15 +18,19 @@ public class Cars {
 
 
     public Cars(final String names) {
-        validateSize(names);
+        validateCarsSize(names);
         this.cars = new ArrayList<>(convertToCars(names));
         this.randomNumberGenerator = new RandomNumberGenerator();
     }
 
-    private void validateSize(final String names) {
-        if (names.split(NAME_DELIMITER).length == 0) {
-            throw new IllegalArgumentException(SIZE_ERROR_MESSAGE);
+    private void validateCarsSize(final String names) {
+        if (hasNoCars(names)) {
+            throw new IllegalArgumentException(NO_CAR_ERROR_MESSAGE);
         }
+    }
+
+    private boolean hasNoCars(final String names) {
+        return names.split(NAME_DELIMITER).length == 0;
     }
 
     private List<Car> convertToCars(final String names) {
