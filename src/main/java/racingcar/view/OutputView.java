@@ -22,7 +22,9 @@ public class OutputView implements View {
 
     public void recordWinner(final List<String> winners) {
         result.append(WINNER_IS.message());
-        result.append(winners.toString(), 1, winners.toString().length() - 1);
+        String stringWithBracket = winners.toString();
+        int rightOfLeftBracket = 1, leftOfRightBracket = stringWithBracket.length() - 1;
+        result.append(winners.toString(), rightOfLeftBracket, leftOfRightBracket);
     }
 
     public void printResult() {
