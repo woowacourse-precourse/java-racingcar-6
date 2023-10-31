@@ -6,6 +6,7 @@ public class TryCountInput {
 	public TryCountInput(String stringTryCount) {
 		int parseTryCount = validateAndParseInteger(stringTryCount);
 		validatePositive(parseTryCount);
+
 		this.tryCount = parseTryCount;
 	}
 
