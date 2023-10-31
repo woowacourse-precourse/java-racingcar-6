@@ -3,6 +3,7 @@ package racingcar.model;
 public class Car {
 
     private static final int CAR_FORWARD_NUMBER = 4;
+    
     private String carName;
     private int position;
 
