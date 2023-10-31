@@ -12,7 +12,7 @@ class UserInputValidatorTest {
     @Test
     @DisplayName("자동차이름: 정상 입력")
     public void correctInput() {
-        String rawInput = "가";
+        String rawInput = "A";
 
         userInputValidator.validateCarNames(rawInput);
     }
@@ -20,7 +20,7 @@ class UserInputValidatorTest {
     @Test
     @DisplayName("자동차이름: 정상 입력")
     public void correctInput2() {
-        String rawInput = "가,나,다";
+        String rawInput = "A,B,C";
 
         userInputValidator.validateCarNames(rawInput);
     }
@@ -37,7 +37,7 @@ class UserInputValidatorTest {
     @Test
     @DisplayName("자동차이름: ,사이 이름 없음2")
     public void wrongInput2() {
-        String rawInput = "가,,,";
+        String rawInput = "A,,,B";
 
         Assertions.assertThatThrownBy(() -> userInputValidator.validateCarNames(rawInput))
                 .isInstanceOf(IllegalArgumentException.class);
@@ -65,7 +65,7 @@ class UserInputValidatorTest {
     @Test
     @DisplayName("자동차이름: 다섯 글자가 넘는 이름")
     public void wrongInput5() {
-        String rawInput = "가나다라마바사";
+        String rawInput = "ABCDEFG";
 
         Assertions.assertThatThrownBy(() -> userInputValidator.validateCarNames(rawInput))
                 .isInstanceOf(IllegalArgumentException.class);
