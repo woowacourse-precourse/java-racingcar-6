@@ -10,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.util.CustomAssertions;
 import racingcar.util.IOTest;
-import racingcar.view.GameConsoleIO;
 
 
 class GameConsoleIOTest extends IOTest {
