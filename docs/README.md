@@ -38,4 +38,4 @@
 ### 메서드
 - [ ] 이동 하기
 - [x] 이름에 대한 Getter, Setter
-- [ ] 현재 위치에 대한 Getter, Setter
+- [x] 현재 위치에 대한 Getter, Setter
