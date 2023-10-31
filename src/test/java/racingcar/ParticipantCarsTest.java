@@ -18,7 +18,7 @@ public class ParticipantCarsTest {
     @Test
     @DisplayName("주어진 자동차 문자열에서 콤마기준으로 구분하여 자동차 리스트를 반환한다")
     void 주어진_자동차_문자열에서_자동차_리스트를_반환한다() {
-        ParticipantCars participantCars = new ParticipantCars(포비 + 콤마 + 워니 + 콤마 + 준);
+        ParticipantCars participantCars = ParticipantCars.createParticipantCars(포비 + 콤마 + 워니 + 콤마 + 준);
 
         assertThat(participantCars.getParticipantCars())
                 .extracting("name")
@@ -28,13 +28,13 @@ public class ParticipantCarsTest {
     @Test
     @DisplayName("자동차 목록에서 최대 이동 횟수를 반환한다")
     void 자동차목록에서_최대이동횟수를_반환한다() {
-        ParticipantCars participantCars = new ParticipantCars();
-
-        int maxMovingCount = participantCars.getMaxMovingCount(Arrays.asList(
+        ParticipantCars participantCars = new ParticipantCars(Arrays.asList(
                 new Car(포비, 1),
                 new Car(워니, 2),
                 new Car(준, 3)
         ));
+
+        int maxMovingCount = participantCars.getMaxMovingCount();
 
         assertThat(maxMovingCount).isEqualTo(3);
     }
@@ -42,12 +42,12 @@ public class ParticipantCarsTest {
     @Test
     @DisplayName("최종우승자를 반환한다(1명)")
     void 최종우승자를_반환한다() {
-        ParticipantCars participantCars = new ParticipantCars();
-
-        List<String> winners = participantCars.getWinners(Arrays.asList(
+        ParticipantCars participantCars = new ParticipantCars(Arrays.asList(
                 new Car(포비, 3)
                 , new Car(워니, 2)
                 , new Car(준, 1)));
+
+        List<String> winners = participantCars.getWinners();
 
         assertThat(winners)
                 .containsExactly(포비);
@@ -56,12 +56,12 @@ public class ParticipantCarsTest {
     @Test
     @DisplayName("최종우승자를 반환한다(2명이상)")
     void 최종우승자를_반환한다_2명이상() {
-        ParticipantCars participantCars = new ParticipantCars();
-
-        List<String> winners = participantCars.getWinners(Arrays.asList(
+        ParticipantCars participantCars = new ParticipantCars(Arrays.asList(
                 new Car(포비, 3)
                 , new Car(워니, 3)
                 , new Car(준, 1)));
+
+        List<String> winners = participantCars.getWinners();
 
         assertThat(winners)
                 .containsExactly(포비, 워니);

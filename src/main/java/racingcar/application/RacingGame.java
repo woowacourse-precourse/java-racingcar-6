@@ -9,12 +9,11 @@ import racingcar.domain.ParticipantCars;
 import racingcar.util.GameResult;
 
 public class RacingGame {
-    private ParticipantCars participantCars;
-
     public void start() {
         String inputCarNames = getCarNamesFromUserInput();
         int count = getAttemptCountFromUserInput();
-        participantCars = new ParticipantCars(inputCarNames);
+
+        ParticipantCars participantCars = ParticipantCars.createParticipantCars(inputCarNames);
         runRace(count, participantCars);
     }
 
@@ -34,6 +33,6 @@ public class RacingGame {
             participantCars.moveCars();
             GameResult.result(participantCars.getParticipantCars());
         }
-        GameResult.finalResult(participantCars.getWinners(participantCars.getParticipantCars()));
+        GameResult.finalResult(participantCars.getWinners());
     }
 }

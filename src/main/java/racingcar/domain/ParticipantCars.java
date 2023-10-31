@@ -13,13 +13,16 @@ import racingcar.contants.RacingGameConstants;
 public class ParticipantCars {
     private List<Car> participantCars;
 
-    public ParticipantCars() {
+    public ParticipantCars(List<Car> participantCars) {
+        this.participantCars = participantCars;
     }
 
-    public ParticipantCars(String carNamesString) {
-        this.participantCars = Arrays.stream(carNamesString.split(RacingGameConstants.DELIMITER))
+    public static ParticipantCars createParticipantCars(String carNamesString) {
+        List<Car> participantCars = Arrays.stream(carNamesString.split(RacingGameConstants.DELIMITER))
                 .map(carNameString -> new Car(carNameString))
                 .collect(Collectors.toList());
+
+        return new ParticipantCars(participantCars);
     }
 
     public List<Car> getParticipantCars() {
@@ -31,16 +34,16 @@ public class ParticipantCars {
                 car -> car.moveAccordingToInput(Randoms.pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE)));
     }
 
-    public Integer getMaxMovingCount(List<Car> cars) {
-        return cars.stream()
-                .map(car -> car.getMovingCount())
+    public int getMaxMovingCount() {
+        return participantCars.stream()
+                .map(participantCar -> participantCar.getMovingCount())
                 .max(Integer::compareTo)
                 .orElseThrow();
     }
 
-    public List<String> getWinners(List<Car> cars) {
-        return Collections.unmodifiableList(cars.stream()
-                .filter(car -> car.getMovingCount() == getMaxMovingCount(cars))
+    public List<String> getWinners() {
+        return Collections.unmodifiableList(participantCars.stream()
+                .filter(participantCar -> participantCar.getMovingCount() == getMaxMovingCount())
                 .map(car -> car.getName())
                 .collect(Collectors.toList()));
     }
