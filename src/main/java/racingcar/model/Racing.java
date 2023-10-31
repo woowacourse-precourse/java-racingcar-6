@@ -6,6 +6,7 @@ import racingcar.dto.request.CarNames;
 import racingcar.dto.response.RacingStatus;
 import racingcar.dto.request.TryCount;
 import racingcar.dto.response.WinnerNames;
+import racingcar.exception.IllegalRacingStatusException;
 
 public class Racing {
 
@@ -25,7 +26,7 @@ public class Racing {
 
     public void race() {
         if (isFinished()) {
-            throw new IllegalStateException();
+            throw new IllegalRacingStatusException();
         }
         cars.forEach(car -> car.randomGoForward());
         currentTryCount++;

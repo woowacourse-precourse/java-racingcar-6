@@ -1,5 +1,7 @@
 package racingcar.dto.request;
 
+import racingcar.exception.InvalidTryCountException;
+
 public class TryCount {
 
     private final Integer count;
@@ -13,7 +15,7 @@ public class TryCount {
         try {
             return new TryCount(Integer.valueOf(input));
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+            throw new InvalidTryCountException();
         }
     }
 
@@ -23,7 +25,7 @@ public class TryCount {
 
     private void validateNonNegativeCount(Integer count) {
         if (count < 0) {
-            throw new IllegalArgumentException();
+            throw new InvalidTryCountException();
         }
     }
 }
