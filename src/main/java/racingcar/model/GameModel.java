@@ -14,7 +14,7 @@ public class GameModel {
         this.raceTimes = Integer.parseInt(inputTimes);
     }
 
-    public ArrayList<String> aggregateRoundScore() {
+    public ArrayList<CarData> aggregateRoundScore() {
         raceTimes--;
         return scoreBoard.aggregateScore();
     }
@@ -24,7 +24,7 @@ public class GameModel {
     }
 
     public boolean raceTimeRemain() {
-        return this.raceTimes != 0;
+        return this.raceTimes != +0;
     }
 
 

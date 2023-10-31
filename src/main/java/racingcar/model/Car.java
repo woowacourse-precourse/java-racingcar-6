@@ -29,6 +29,10 @@ public class Car {
         return this.carName + "," + this.moveDistance;
     }
 
+    public CarData getData() {
+        return new CarData(this.carName, this.moveDistance);
+    }
+
     private boolean canMove() {
         return 3 < Randoms.pickNumberInRange(0, 9);
     }

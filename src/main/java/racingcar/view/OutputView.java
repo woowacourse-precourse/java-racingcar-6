@@ -1,12 +1,12 @@
 package racingcar.view;
 
 import java.util.ArrayList;
+import racingcar.model.CarData;
 
 public class OutputView {
-    public void printRoundScore(ArrayList<String> scoreBoard) {
-        for (String score : scoreBoard) {
-            String[] carNameScore = score.split(",");
-            printCarScore(carNameScore[0], carNameScore[1]);
+    public void printRoundScore(ArrayList<CarData> scoreBoard) {
+        for (CarData carScore : scoreBoard) {
+            printCarScore(carScore.getName(), carScore.getMoveDistance());
         }
         System.out.println();
     }
@@ -20,7 +20,7 @@ public class OutputView {
         System.out.println("\n실행결과");
     }
 
-    private void printCarScore(String carName, String carScore) {
+    private void printCarScore(String carName, Integer carScore) {
 
         StringBuilder builder = new StringBuilder();
         String dashScore = generateDashScore(carScore);
@@ -32,9 +32,8 @@ public class OutputView {
         System.out.println(builder);
     }
 
-    private String generateDashScore(String source) {
+    private String generateDashScore(Integer score) {
         StringBuilder dashString = new StringBuilder();
-        int score = Integer.parseInt(source);
         for (int i = 0; i < score; i++) {
             dashString.append("-");
         }

@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import java.util.ArrayList;
+import racingcar.model.CarData;
 import racingcar.model.GameModel;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -32,7 +33,7 @@ public class GameController {
     }
 
     public void processGame() {
-        ArrayList<String> roundScoreBoard = this.gameModel.aggregateRoundScore();
+        ArrayList<CarData> roundScoreBoard = this.gameModel.aggregateRoundScore();
         this.outputView.printRoundScore(roundScoreBoard);
     }
 

@@ -13,12 +13,12 @@ public class ScoreBoard {
         }
     }
 
-    public ArrayList<String> aggregateScore() {
-        ArrayList<String> roundScore = new ArrayList<>();
+    public ArrayList<CarData> aggregateScore() {
+        ArrayList<CarData> roundScore = new ArrayList<>();
         for (Car car : this.carList) {
             car.move();
-            String carNameScore = car.getCarNameDistance();
-            roundScore.add(carNameScore);
+            CarData roundData = car.getData();
+            roundScore.add(roundData);
         }
         return roundScore;
     }
