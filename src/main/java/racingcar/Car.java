@@ -8,4 +8,9 @@ public class Car {
         this.name = name;
     }
 
+    public void forward(int randomNumber) {
+        if (randomNumber >= 4) {
+            state++;
+        }
+    }
 }
