@@ -13,8 +13,9 @@ public class RaceService {
         race.initializeRace(attemptCountInput, carNamesInput);
     }
 
-    public void advanceRace() {
-        race.advanceFullRound();
+    public void advanceRace(String inputAttemptCount) {
+        int attemptCount = Integer.parseInt(inputAttemptCount);
+        race.advanceFullRound(attemptCount);
     }
 
     public String selectWinners() {

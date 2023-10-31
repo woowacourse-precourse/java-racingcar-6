@@ -11,14 +11,13 @@ import racingcar.util.ParserUtils;
 
 public class Race {
     private ArrayList<Car> cars;
-    private int attempt;
 
     public Race() {
         this.cars = new ArrayList<>();
     }
 
-    public void advanceFullRound() {
-        for (int round = 0; round < attempt; round++) {
+    public void advanceFullRound(int attemptCount) {
+        for (int round = 0; round < attemptCount; round++) {
             advanceOneRound();
             System.out.println();
         }
@@ -33,7 +32,6 @@ public class Race {
 
     public void initializeRace(String attemptCountInput, String carNamesInput) {
         validateAttempt(attemptCountInput);
-        parsePositiveInteger(attemptCountInput);
         initializeCar(carNamesInput);
     }
 
@@ -50,10 +48,6 @@ public class Race {
     private void validateAttempt(String input) {
         validateNullOrBlank(input);
         validatePositiveInteger(input);
-    }
-
-    private void parsePositiveInteger(String input) {
-        attempt = Integer.parseInt(input);
     }
 
     private void initializeCar(String carNamesInput) {
