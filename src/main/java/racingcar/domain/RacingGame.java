@@ -19,6 +19,12 @@ public class RacingGame {
         this.raceCount = getRaceCount();
     }
 
+    public void run() {
+        for (int i = 0; i < raceCount.count(); i++) {
+            cars.racing();
+        }
+    }
+
     private Cars getCars() {
         String input = inputCarNames();
         String[] carNames = input.split(SEPARATOR);
