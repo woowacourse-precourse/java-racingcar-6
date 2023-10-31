@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.ArrayList;
+
 public class OutputView {
 
     public static void printStart() {
@@ -11,6 +13,17 @@ public class OutputView {
     }
 
     public static void printResult() {
+        System.out.println();
         System.out.println(Message.RESULT.getMessage());
+    }
+
+    public static void printStatus(ArrayList<String> resultList) {
+        StringBuilder sb = new StringBuilder();
+
+        for (String result : resultList) {
+            sb.append(result).append('\n');
+        }
+
+        System.out.println(sb);
     }
 }

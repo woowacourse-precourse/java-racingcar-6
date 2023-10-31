@@ -20,6 +20,7 @@ public class RacingController {
         OutputView.printResult();
         for (int i = 0; i < attempt; i++) {
             ArrayList<String> resultList = carList.move();
+            OutputView.printStatus(resultList);
         }
     }
 }
