@@ -2,7 +2,9 @@ package racingcar.service;
 
 import java.util.List;
 import racingcar.domain.Car;
+import racingcar.dto.CarResultResponse;
 import racingcar.repository.RacingCarRepository;
+import racingcar.utils.RandomNumberGenerator;
 
 public class RacingCarService {
 
@@ -19,6 +21,19 @@ public class RacingCarService {
     private static List<Car> convertToCarList(List<String> carNames) {
         return carNames.stream()
             .map(Car::new)
+            .toList();
+    }
+
+    public List<CarResultResponse> processMove() {
+        List<Car> cars = racingCarRepository.findAll();
+
+        for (Car car : cars) {
+            int randomNumber = RandomNumberGenerator.generate();
+            car.move(randomNumber);
+        }
+
+        return cars.stream()
+            .map(car -> new CarResultResponse(car.getName(), car.getMovingCount()))
             .toList();
     }
 }
