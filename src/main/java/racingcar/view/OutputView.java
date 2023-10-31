@@ -20,9 +20,9 @@ public class OutputView {
 
     public void printCarsPosition(List<RandomCar> randomCars) {
         for (RandomCar car : randomCars) {
-            String position = drawPosition(car);
+            String visualPosition = drawPosition(car);
 
-            String output = String.format("%5s : %s", car.getName(), position);
+            String output = String.format("%5s : %s", car.getName(), visualPosition);
 
             System.out.println(output);
         }
