@@ -11,7 +11,7 @@ public class GameUtil {
 
     public static final void isIllegalPlayerInfo(String[] str) {
         for (int i = 0; i < str.length; i++) {
-            if (str[i].contains(" ") || str[i].length() > MAX_PLAYER_NAME_LENGTH) {
+            if (str[i].contains(" ") || str[i].length() > MAX_PLAYER_NAME_LENGTH || str[i].length() == 0) {
                 throw new IllegalArgumentException();
             }
         }
