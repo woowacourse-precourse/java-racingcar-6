@@ -15,7 +15,7 @@ public class InputValidator {
 
     public static void validateCarsFormat(String input) {
         Matcher matcher = NOT_CAR_PATTERN.matcher(input);
-        if (matcher.matches() || input.endsWith(DELIMITER) || input.startsWith(DELIMITER)) {
+        if (matcher.find() || input.endsWith(DELIMITER) || input.startsWith(DELIMITER)) {
             throw new IllegalArgumentException("[ERROR] 형식에 맞게 입력해주세요.");
         }
     }

@@ -19,7 +19,7 @@ public class InputView {
         return buildTryNumber(input);
     }
 
-    private static List<String> buildRacingCars(String input) {
+    public static List<String> buildRacingCars(String input) {
         return List.of(input.split(","));
     }
 
