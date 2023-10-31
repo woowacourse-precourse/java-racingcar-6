@@ -7,10 +7,14 @@ import java.util.List;
 public class RacingGame {
     private List<Car> cars = new ArrayList<>();
     private int tryNum;
+    private CheckInput check = new CheckInput();
 
     public void inputCarsName() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
-        String[] carsName = Console.readLine().split(",");
+        String str = Console.readLine();
+        check.isBlank(str);
+        String[] carsName = str.split(",");
+        check.lenCheck(carsName);
         for (String s : carsName) {
             cars.add(new Car(s));
         }
@@ -18,8 +22,9 @@ public class RacingGame {
 
     public void inputTryNum() {
         System.out.println("시도할 회수는 몇회인가요?");
-        tryNum = Integer.parseInt(Console.readLine());
-        System.out.println(tryNum);
+        String tryNumBeforeCheck = Console.readLine();
+        tryNum = check.isInteger(tryNumBeforeCheck);
+        check.isPositiveNum(tryNumBeforeCheck);
     }
 
     public int getTryNum() {
@@ -73,11 +78,9 @@ public class RacingGame {
     public void printWinners() {
         int winnerLocation = locationOfWinner();
         StringBuilder str = new StringBuilder("최종 우승자 :");
-        //System.out.print("최종 우승자 :");
         for (Car c : cars) {
             if (c.getLocation() == winnerLocation) {
                 str.append(" " + c.getName() + ",");
-                //System.out.print(" " + c.getName() + ",");
             }
         }
         System.out.println(str.substring(0, str.length() - 1));
