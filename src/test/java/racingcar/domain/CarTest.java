@@ -29,6 +29,32 @@ class CarTest {
     }
 
     @Test
-    void getStatus() {
+    void getStatus_메서드로_해당_자동차의_이름과_위치를_반환_위치가_0() {
+        // given
+        Car car = new Car("A", 0);
+        // when
+        String result = car.getStatus();
+        // then
+        assertThat(result).isEqualTo("A : ");
+    }
+
+    @Test
+    void getStatus_메서드로_해당_자동차의_이름과_위치를_반환_위치가_1() {
+        // given
+        Car car = new Car("A", 1);
+        // when
+        String result = car.getStatus();
+        // then
+        assertThat(result).isEqualTo("A : -");
+    }
+
+    @Test
+    void getStatus_메서드로_해당_자동차의_이름과_위치를_반환_위치가_2() {
+        // given
+        Car car = new Car("A", 2);
+        // when
+        String result = car.getStatus();
+        // then
+        assertThat(result).isEqualTo("A : --");
     }
 }
