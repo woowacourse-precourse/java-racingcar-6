@@ -10,11 +10,6 @@ import org.junit.jupiter.api.Test;
 class GameTest {
 
 
-    @DisplayName("게임 실행 테스트")
-    @Test
-    void playGame() {
-    }
-
     @DisplayName("가장 멀리 전진한 자동차 찾기")
     @Test
     void findWinner() {
