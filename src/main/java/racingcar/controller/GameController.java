@@ -30,7 +30,7 @@ public class GameController {
 
     private String getNames() {
         outputView.printNamesGuide();
-        return inputView.readCarNames();
+        return inputView.readInput();
     }
 
     private Cars createCarsByNames(final String names) {
@@ -39,7 +39,7 @@ public class GameController {
 
     private int getTrialCount() {
         outputView.printTrialGuide();
-        return gameService.createTrialCount(inputView.readTrialNumber());
+        return gameService.createTrialCount(inputView.readInput());
     }
 
     private void playRounds(final int trialCount, final Cars cars) {
