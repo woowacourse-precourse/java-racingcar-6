@@ -3,10 +3,9 @@ package racingcar.util;
 import java.util.List;
 import java.util.Objects;
 
-import static racingcar.domain.CarConstants.MAX_CAR_NAME_LENGTH;
-import static racingcar.domain.CarConstants.MIN_NUMBER_OF_RACES;
-
 public class Validation {
+    public static final int MAX_CAR_NAME_LENGTH = 5;
+    public static final int MIN_NUMBER_OF_RACES = 1;
 
     private static final String OVER_RANGE_LENGTH_MESSAGE = "5자리 이하 이름를 입력해주세요.";
     private static final String NOT_UNIQUE_NAME_MESSAGE = "중복되지 않는 이름을 입력해주세요.";
