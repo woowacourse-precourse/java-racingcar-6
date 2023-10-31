@@ -1,5 +1,10 @@
 package racingcar;
 
+import static racingcar.Properties.COMMA;
+import static racingcar.Properties.LINE_SEPARATOR;
+import static racingcar.Properties.MAX_CAR_NAME_LENGTH;
+import static racingcar.Properties.ZERO;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +14,7 @@ public class Computer {
 
     private final List<String> roundResults = new ArrayList<>();
     private final List<RacingCar> carNames = new ArrayList<>();
-    private int round = 0;
+    private int round = ZERO;
 
     public void readCarNames(String input) {
         List<String> carNames = extractCarNames(input);
@@ -22,20 +27,20 @@ public class Computer {
     }
 
     private List<String> extractCarNames(String input) {
-        return Arrays.stream(input.split(",")).map(String::trim).toList();
+        return Arrays.stream(input.split(COMMA)).map(String::trim).toList();
     }
 
     private boolean isInvalidCarNames(List<String> names) {
         return isDuplicate(names) || names.stream().anyMatch(name ->
-                name.isBlank() || hasSizeGreaterThanFive(name));
+                name.isBlank() || isInvalidNameLength(name));
     }
 
     private boolean isDuplicate(List<String> names) {
         return names.stream().distinct().count() != names.size();
     }
 
-    private boolean hasSizeGreaterThanFive(String name) {
-        return name.length() > 5;
+    private boolean isInvalidNameLength(String name) {
+        return name.length() > MAX_CAR_NAME_LENGTH;
     }
 
     public void readRound(String input) {
@@ -52,11 +57,11 @@ public class Computer {
     }
 
     private boolean isNegative(int number) {
-        return number < 0;
+        return number < ZERO;
     }
 
     private boolean isZero(int number) {
-        return number == 0;
+        return number == ZERO;
     }
 
     public List<String> startRace() {
@@ -71,7 +76,7 @@ public class Computer {
     }
 
     private boolean hasNextRound() {
-        return this.round > 0;
+        return this.round > ZERO;
     }
 
     private String playRound() {
@@ -86,7 +91,7 @@ public class Computer {
     private String roundResult() {
         return this.carNames.stream()
                 .map(RacingCar::toString)
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining(LINE_SEPARATOR));
     }
 
     public List<String> findWinner() {
@@ -105,6 +110,6 @@ public class Computer {
     }
 
     private boolean isNotZero(int round) {
-        return round != 0;
+        return round != ZERO;
     }
 }
