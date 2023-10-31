@@ -15,7 +15,7 @@ public class Cars {
         cars.forEach(Car::attemptForward);
     }
 
-    public RoundResult getCarsState() {
+    public RoundResult getRoundResult() {
         return new RoundResult(cars.stream()
                 .map(Car::getCarState)
                 .toList());

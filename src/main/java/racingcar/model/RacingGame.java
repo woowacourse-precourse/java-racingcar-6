@@ -14,7 +14,7 @@ public class RacingGame {
     public RoundResult playRound() {
         checkGameIsStarted();
         cars.attemptForward();
-        return cars.getCarsState();
+        return cars.getRoundResult();
     }
 
     private void checkGameIsStarted() {
