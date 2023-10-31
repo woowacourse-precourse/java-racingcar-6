@@ -16,10 +16,13 @@ public class InputDesk {
         return count;
     }
 
-    public void checkIllegalArgumentException(String carName) {
-        if ( carName == null ) {
-            throw new IllegalArgumentException("자동차 이름 입력값 null");
+    public void checkIsNull(String inputStr) {
+        if ( inputStr == null ) {
+            throw new IllegalArgumentException("사용자 입력값 null");
         }
+    }
+
+    public void checkIllegalArgumentException(String carName) {
 
         if ( carName.length() <= 0 ) {
             throw new IllegalArgumentException("자동차 이름 길이 0");
@@ -42,7 +45,7 @@ public class InputDesk {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         try {
             String inputStr = Console.readLine();
-            checkIllegalArgumentException(inputStr);
+            checkIsNull(inputStr);
             String[] strArr = inputStr.split(",");
 
             for ( int i = 0; i < strArr.length; i++ ) {
@@ -60,6 +63,7 @@ public class InputDesk {
         System.out.println("시도할 회수는 몇회인가요?");
         try {
             String inputStr = Console.readLine();
+            checkIsNull(inputStr);
             int inputCount = Integer.parseInt(inputStr);
             if ( inputCount < 1 ) {
                 checkIllegalArgumentException(inputCount);
