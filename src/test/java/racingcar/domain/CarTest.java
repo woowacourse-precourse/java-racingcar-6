@@ -69,6 +69,47 @@ class CarTest {
         }
     }
 
+    @DisplayName("자동차가 4 이상의 숫자가 들어올 때 움직임: MOVE")
+    @Test
+    void moveTest_move() {
+        Car car = new Car("pobi");
+        NumberGenerator numberGenerator = new TestNumberGenerator(new ArrayList<>(List.of(4, 5, 6, 7, 8, 9)));
+        car.move(numberGenerator);
+        car.move(numberGenerator);
+        car.move(numberGenerator);
+        car.move(numberGenerator);
+        car.move(numberGenerator);
+        car.move(numberGenerator);
 
+        assertThat(car.getPosition()).isEqualTo(6);
+    }
+
+    @DisplayName("자동차가 4 미만의 숫자가 들어올 때 움직임: STOP")
+    @Test
+    void moveTest_stop() {
+        Car car = new Car("pobi");
+        NumberGenerator numberGenerator = new TestNumberGenerator(new ArrayList<>(List.of(0, 1, 2, 3)));
+        car.move(numberGenerator);
+        car.move(numberGenerator);
+        car.move(numberGenerator);
+        car.move(numberGenerator);
+
+
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
+
+
+    static class TestNumberGenerator implements NumberGenerator{
+        private final List<Integer> numbers;
+
+        private TestNumberGenerator(List<Integer> numbers) {
+            this.numbers = numbers;
+        }
+
+        @Override
+        public int generate() {
+            return numbers.remove(0);
+        }
+    }
 
 }
