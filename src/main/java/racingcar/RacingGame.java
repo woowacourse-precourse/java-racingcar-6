@@ -1,6 +1,5 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class RacingGame {
@@ -8,10 +7,14 @@ public class RacingGame {
     private int count;
     private RacingCars racingCars;
 
+    private InputView inputView;
+
     public void start() {
+
+        inputView = new InputView();
+
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String input = Console.readLine();
-        String[] carNames = input.split(",");
+        String[] carNames = inputView.readCarNames();
 
         racingCars = new RacingCars();
 
@@ -21,8 +24,7 @@ public class RacingGame {
         }
 
         System.out.println("시도할 회수는 몇회인가요?");
-        input = Console.readLine();
-        count = Integer.parseInt(input);
+        int count = inputView.readCount();
 
         System.out.println("실행 결과");
         while (count > 0) {
