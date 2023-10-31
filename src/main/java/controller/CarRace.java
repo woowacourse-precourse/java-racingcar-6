@@ -30,11 +30,12 @@ public class CarRace implements Race {
 
     private final CarRaceResultEvaluator carRaceResultEvaluator;
 
-    public CarRace() {
-        this.input = new ConsoleInput();
-        this.output = new ConsoleOutput();
-        this.forwardStrategy = new RandomForwardStrategy();
-        this.carRaceResultEvaluator = new CarRaceResultEvaluator();
+    public CarRace(Input input, Output output, ForwardStrategy forwardStrategy,
+            CarRaceResultEvaluator carRaceResultEvaluator) {
+        this.input = input;
+        this.output = output;
+        this.forwardStrategy = forwardStrategy;
+        this.carRaceResultEvaluator = carRaceResultEvaluator;
     }
 
     @Override
