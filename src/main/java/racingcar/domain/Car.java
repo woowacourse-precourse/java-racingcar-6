@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car>{
 
     private static final String NAME_DELIMITER = " : ";
     private static final String POSITION_REGEX = "-";
@@ -21,12 +21,14 @@ public class Car {
     }
 
     private void validateLengthOf(String name) {
+        //TODO
         if (name.length() > 5 || name.length() < 1) {
             throw new IllegalArgumentException(NAME_RANGE_EXCEPTION_MESSAGE);
         }
     }
 
     public void move(int randomNumber) {
+        //TODO
         if (randomNumber > 3) {
             this.position++;
         }
@@ -36,8 +38,8 @@ public class Car {
         return name;
     }
 
-    public int getPosition() {
-        return position;
+    public boolean isSamePosition(Car otherCar) {
+        return this.position == otherCar.position;
     }
 
     @Override
@@ -64,4 +66,10 @@ public class Car {
         sb.append(POSITION_REGEX.repeat(Math.max(0, position)));
         return sb.toString();
     }
+
+    @Override
+    public int compareTo(Car otherCar) {
+        return this.position - otherCar.position;
+    }
+
 }
