@@ -2,7 +2,9 @@
 
 ## 기능 목록
 
-- [ ] 0-9사이 무작위 수를 생성한 뒤 4 이상인지 여부를 판단하여 자동차 전진 여부를 결정한다. Engine/isMovingForward()
+- [ ] 자동차 전진 여부를 결정한다. Engine/isMovingForward()
+    - [ ] 0-9사이의 숫자를 생성한다. NumberGenerator/createRandomNumber()
+    - [ ] 생성한 숫자가 4 이상인지 판별한다. Judgement/isFourOrMore()
 - [ ] 주어진 횟수만큼 자동차들 전진시킬 수 있다. game/movingCars()
 - [ ] 우승자를 판별할 수 있다. Referee/getWinner()
 
