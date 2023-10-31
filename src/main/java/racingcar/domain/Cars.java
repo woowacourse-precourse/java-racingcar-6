@@ -16,8 +16,7 @@ public class Cars {
 
     public static Cars fromCarNames(String carNames) {
         validate(carNames);
-        List<Car> cars = Arrays
-                .stream(carNames.split(CAR_NAME_SEPARATOR))
+        List<Car> cars = Arrays.stream(carNames.split(CAR_NAME_SEPARATOR))
                 .map(Car::fromName)
                 .toList();
 
