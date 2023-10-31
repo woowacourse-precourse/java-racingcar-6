@@ -15,7 +15,7 @@ class InputViewTest {
         // given
         String nickName = "abcdef";
         // when // then
-        assertThatThrownBy(() -> inputView.isValidNameLength(nickName))
+        assertThatThrownBy(() -> inputView.validateNameLength(nickName))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 이름은 5글자 이하만 가능합니다.");
     }

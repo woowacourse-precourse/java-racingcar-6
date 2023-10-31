@@ -8,7 +8,7 @@ public class InputView {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String[] names = readLine().split(",");
         for (String name : names) {
-            isValidNameLength(name);
+            validateNameLength(name);
         }
         return names;
     }
@@ -18,7 +18,7 @@ public class InputView {
         return Integer.parseInt(readLine());
     }
 
-    public void isValidNameLength(String s) {
+    public void validateNameLength(String s) {
         if (s.length() > 5) {
             throw new IllegalArgumentException("[ERROR] 이름은 5글자 이하만 가능합니다.");
         }
