@@ -17,4 +17,15 @@ public class InputView {
 
         return carNames;
     }
+
+    public Integer getNumberOfRound() {
+        String numberOfRoundString = readLine();
+        for (int i = 0; i < numberOfRoundString.length(); ++i) {
+            char ch = numberOfRoundString.charAt(i);
+            if (ch < '0' || ch > '9') {
+                throw new IllegalArgumentException();
+            }
+        }
+        return Integer.valueOf(numberOfRoundString);
+    }
 }
