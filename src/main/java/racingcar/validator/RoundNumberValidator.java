@@ -1,8 +1,8 @@
-package racingcar;
+package racingcar.validator;
 
 public class RoundNumberValidator {
 
-    public static void checkRoundNumber(String readLine) {
+    public static void validate(String readLine) {
         checkBlank(readLine);
         checkDigit(readLine);
     }
