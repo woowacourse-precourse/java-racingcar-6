@@ -27,5 +27,8 @@ public class MoveNum {
         } catch (NumberFormatException exception) {
             throw new IllegalArgumentException("Error : 시도할 회수가 너무 많습니다 최대회수 " + MAX_MOVE_NUM);
         }
+        if (Integer.parseInt(moveNumString) == 0) {
+            throw new IllegalArgumentException("Error : 최소 1이상의 값을 입력해주세요");
+        }
     }
 }
