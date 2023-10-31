@@ -26,7 +26,7 @@ public class Car {
     }
 
     private boolean isInvalidNameLength(String name) {
-        return name.length() >= MAX_CAR_NAME_LENGTH;
+        return name.length() > MAX_CAR_NAME_LENGTH;
     }
 
     public void move() {
