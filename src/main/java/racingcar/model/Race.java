@@ -5,6 +5,7 @@ import racingcar.view.Output;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Race {
     private final List<Car> carList;
@@ -17,12 +18,20 @@ public class Race {
         raceRounds = Integer.parseInt(Input.inputRounds());
     }
 
+    public boolean isRaceFinished(){
+        return raceRounds == 0;
+    }
+
     public void setCarList(){
         List<String> carNames = makeCarNameList();
         for (String carName : carNames) {
             Car newCar = new Car(carName);
             carList.add(newCar);
         }
+    }
+
+    public List<Car> getCarList() {
+        return carList;
     }
 
     private List<String> makeCarNameList() {
@@ -32,25 +41,15 @@ public class Race {
         return carNameList;
     }
 
-    public void playRace(){
-        while(raceRounds > 0){
-            moveCars();
-            printRoundResult();
-            raceRounds--;
-        }
+    public void playOneRound(){
+        moveCars();
+        raceRounds--;
     }
 
     private void moveCars() {
         for (Car car : carList) {
             car.moveForward();
         }
-    }
-
-    private void printRoundResult() {
-        for (Car car : carList){
-            Output.printCarResult(car.getCarName(), car.getMoveLength());
-        }
-        Output.roundFinish();
     }
 
     public List<String> getRaceResult(){
