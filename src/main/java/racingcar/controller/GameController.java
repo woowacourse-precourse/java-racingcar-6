@@ -28,6 +28,12 @@ public class GameController {
 
     public void run() {
         init();
+
+        outputView.printMessage(Message.TEXT_RESULT);
+        while (rounds > 0) {
+            race();
+            rounds--;
+        }
     }
 
     private void init() {
@@ -43,6 +49,17 @@ public class GameController {
     private void getRounds() {
         outputView.printMessage(Message.GET_ROUNDS);
         rounds = inputView.getRounds();
+    }
+
+    private void race() {
+        for (Car car : cars) {
+            if (canMove()) {
+                car.oneMoving();
+            }
+        }
+
+        List<String> results = gameService.toCarString(cars);
+        outputView.printOneRoundResult(results);
     }
 
     private Boolean canMove() {
