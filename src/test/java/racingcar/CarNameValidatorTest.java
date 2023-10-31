@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.model.Car;
 import racingcar.util.vaildator.carNameValidator;
 
 public class CarNameValidatorTest {
@@ -31,8 +30,8 @@ public class CarNameValidatorTest {
     @Test
     @DisplayName("2명 이상 입력하였는지에 대해서 검증한다.")
     void validateMinimumCarNameCount() {
-        List<Car> carList = new ArrayList<>();
-        carList.add(new Car("poobi"));
+        List<String> carList = new ArrayList<>();
+        carList.add("poobi");
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> carNameValidator.validateMinimumCarNameCount(carList));
     }

@@ -1,7 +1,6 @@
 package racingcar.util.vaildator;
 
 import java.util.List;
-import racingcar.model.Car;
 
 public class carNameValidator {
     private static final int MAX_INPUT_NAME_SIZE = 5;
@@ -22,7 +21,7 @@ public class carNameValidator {
         }
     }
 
-    public static void validateMinimumCarNameCount(List<Car> carList) {
+    public static void validateMinimumCarNameCount(List<String> carList) {
         if (carList.size() < MININUM_CARLIST_SIZE) {
             throw new IllegalArgumentException(INPUT_NAME_MINIMUM_EXCEPTION);
         }

@@ -1,5 +1,8 @@
 package racingcar.view;
 
+import static racingcar.util.vaildator.carNameValidator.validateInputName;
+import static racingcar.util.vaildator.carNameValidator.validateInputNameSize;
+
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
@@ -22,6 +25,10 @@ public class InputView {
         System.out.println(INPUT_CARS_NAME);
         String inputCarNames = readLine();
         List<String> carNames = split(inputCarNames);
+        for (String carName : carNames) {
+            validateInputNameSize(carName);
+            validateInputName(carName);
+        }
         return carNames;
     }
 

@@ -1,5 +1,7 @@
 package racingcar.controller;
 
+import static racingcar.util.vaildator.carNameValidator.validateMinimumCarNameCount;
+
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.CarList;
@@ -34,6 +36,7 @@ public class GameController {
         carNames.stream()
                 .map(Car::new)
                 .forEach(carList::addCar);
+        validateMinimumCarNameCount(carNames);
     }
 
     private void moveCars() {
