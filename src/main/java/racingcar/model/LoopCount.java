@@ -10,6 +10,7 @@ public class LoopCount {
     private LoopCount(final String value) {
         int convertedValue = convertToInt(value);
         validate(convertedValue);
+
         this.value = convertedValue;
     }
 
