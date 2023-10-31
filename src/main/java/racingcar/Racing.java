@@ -6,10 +6,12 @@ public class Racing {
 
     private static final int RACE_CONDITION = 3;
     public static final String FINAL_WINNER_IS = "최종 우승자 : ";
+    private String[] raceCarNameArray;
     private int round;
     private ArrayList<Car> carArray = new ArrayList<>();
+    private String winner;
 
-    Racing(String[] raceCarNameArray, int round) {
+    public Racing(String[] raceCarNameArray, int round) {
         this.raceCarNameArray = raceCarNameArray;
         this.round = round;
         for (int i = 0; i < raceCarNameArray.length; i++) {
@@ -18,10 +20,14 @@ public class Racing {
         }
     }
 
-    public void CarRacingGameStart() {
+    public void carRacingGameStart() {
         raceStart(raceCarNameArray, round);
+    }
+
+    public void carRacingGameResult() {
         Result result = new Result(carArray);
-        result.finalWinner();
+        this.winner = result.finalWinner();
+        getWinnerResultPrint(this.winner);
     }
 
     public void raceStart(String[] racerNameArray, int round) {
@@ -50,4 +56,5 @@ public class Racing {
     private void getWinnerResultPrint(String winner) {
         System.out.println(FINAL_WINNER_IS + winner);
     }
+
 }
