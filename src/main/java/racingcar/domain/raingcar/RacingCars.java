@@ -1,26 +1,25 @@
 package racingcar.domain.raingcar;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import racingcar.constant.ErrorMessage;
 
 public class RacingCars {
 
-    private static List<RacingCar> cars;
+    private List<RacingCar> cars;
 
     public RacingCars(List<RacingCar> cars) {
-        cars = verified(cars);
+        this.cars = verified(cars);
     }
 
-    public static List<RacingCar> fromNames(String[] inputs) {
-        cars = new ArrayList<>();
+    public static RacingCars fromNames(String[] inputs) {
+        List<RacingCar> newCars = new ArrayList<>();
 
         for (String input : inputs) {
-            cars.add(new RacingCar(input));
+            newCars.add(new RacingCar(input));
         }
 
-        return cars;
+        return new RacingCars(newCars);
     }
 
     public List<RacingCar> getCars() {
@@ -30,8 +29,8 @@ public class RacingCars {
     public Integer getMaxPosition() {
         return cars
                 .stream()
-                .max(Comparator.comparing(RacingCar::getPosition))
-                .get().getPosition();
+                .mapToInt(RacingCar::getPosition)
+                .max().getAsInt();
     }
 
     private List<RacingCar> verified(List<RacingCar> cars) {

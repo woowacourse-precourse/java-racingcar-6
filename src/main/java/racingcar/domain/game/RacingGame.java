@@ -21,8 +21,8 @@ public class RacingGame {
         int round = RacingGameInputView.nextInt();
 
         // 레이싱
-        List<RacingCar> cars = RacingCars.fromNames(inputCars);
-        Racing racing = new Racing(new RacingCars(cars), round);
+        RacingCars cars = RacingCars.fromNames(inputCars);
+        Racing racing = new Racing(cars, round);
         racing.process();
 
         // 실행 결과 출력

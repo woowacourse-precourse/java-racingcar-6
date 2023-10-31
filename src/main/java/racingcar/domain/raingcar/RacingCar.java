@@ -14,6 +14,13 @@ public class RacingCar {
         this.position = 0;
     }
 
+    public RacingCar(String name, Integer position) {
+        verify(name);
+
+        this.name = name;
+        this.position = position;
+    }
+
     public void moveForward() {
         this.position++;
     }
