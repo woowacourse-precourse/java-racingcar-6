@@ -13,7 +13,7 @@ public final class RaceRunner {
     public void playGame() {
         System.out.println("\n실행 결과");
         for (int i = 0; i < race.getTryNumber(); i++) {
-            for (int carIndex = 0; carIndex < race.getCarArrayLength(); carIndex++) {
+            for (int carIndex = 0; carIndex < race.getCarsLength(); carIndex++) {
                 giveScore(carIndex);
             }
             printEachRace();
@@ -39,7 +39,7 @@ public final class RaceRunner {
     }
 
     private void printEachRace() {
-        for (int carIndex = 0; carIndex < race.getCarArrayLength(); carIndex++) {
+        for (int carIndex = 0; carIndex < race.getCarsLength(); carIndex++) {
             System.out.print(race.getCar(carIndex) + " : ");
             printEachCarScore(carIndex);
             System.out.println();
