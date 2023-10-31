@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarStatusDto;
@@ -18,9 +19,10 @@ public class RacingCars {
     }
 
     public List<CarStatusDto> submitCarStatuses() {
-        return cars.stream()
+        List<CarStatusDto> carStatuses = cars.stream()
                 .map(car -> new CarStatusDto(car.getName(), car.getPosition()))
                 .collect(Collectors.toList());
+        return Collections.unmodifiableList(carStatuses);
     }
 
     private int getMoveCondition() {
