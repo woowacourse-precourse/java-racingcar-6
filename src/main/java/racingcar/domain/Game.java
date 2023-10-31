@@ -24,19 +24,20 @@ public class Game {
     }
 
     public List<Car> pickWinner() {
+        Car maxPositionCar = findMaxPositionCar();
+
         return cars.stream()
-                .filter(car -> car.isSamePosition(findMaxPositionCar()))
+                .filter(car -> car.isSamePosition(maxPositionCar))
                 .toList();
     }
 
     public void validateDuplicateCarName(List<Car> cars) {
-        int nonDuplicateCarNumber = (int) cars.stream()
+        boolean isSameNameExists = cars.stream()
                 .map(Car::toString)
                 .distinct()
-                .count();
-        boolean isSameNameExists = nonDuplicateCarNumber < cars.size();
+                .count() < cars.size();
 
-        if(isSameNameExists) {
+        if (isSameNameExists) {
             throw new IllegalArgumentException("같은 이름의 자동차가 있습니다");
         }
     }
