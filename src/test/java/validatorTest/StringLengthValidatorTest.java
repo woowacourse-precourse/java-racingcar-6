@@ -4,7 +4,6 @@ import static enums.ErrorMessages.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import enums.ErrorMessages;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -17,7 +16,7 @@ public class StringLengthValidatorTest {
     @ValueSource(strings = {"name", "hoon", "jihoo"})
     void validateMaxLength_true_Test(String value) {
         //when
-        boolean result = StringLengthValidator.validateMaxLength(value);
+        boolean result = StringLengthValidator.validateMaxLength(value,5);
 
         //then
         assertThat(result).isTrue();
@@ -28,7 +27,7 @@ public class StringLengthValidatorTest {
     @DisplayName("유효하지 않은 문자열 길이일 때 IllegalArgumentException 발생")
     @ValueSource(strings = {"wrongName", "longName", "taehoon"})
     void validateMaxLength_ThrowException_Test(String value) {
-        assertThatThrownBy(() -> StringLengthValidator.validateMaxLength(value))
+        assertThatThrownBy(() -> StringLengthValidator.validateMaxLength(value,5))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(MAX_LENGTH_ERROR.getMessage());
     }
