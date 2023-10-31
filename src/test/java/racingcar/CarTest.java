@@ -38,4 +38,17 @@ public class CarTest {
         assertThat(car.getTotalDistance()).isEqualTo(expectedDistance);
     }
 
+    @Test
+    @DisplayName("매 차수 실행결과를 얻기위한 toString 테스트")
+    void testToString() {
+        Car car = new Car("우테코");
+
+        for (int i = 0; i < 4; i++) {
+            car.addDistance();
+        }
+        String result = car.toString();
+        String expected = "우테코 : ----";
+
+        assertThat(result).isEqualTo(expected);
+    }
 }
