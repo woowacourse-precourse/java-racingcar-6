@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Car;
+import model.OutputImpo;
 
 public class OutView {
 
@@ -16,30 +17,18 @@ public class OutView {
 	
 	public static void showResult(Car car, int i) {
 		System.out.print(car.getName() + " : ");
-		car.showMiving(i);
+		OutputImpo.showMovingProcess(car, i);
 		System.out.println();
 	}
 
 	public static void showWinner(List<Car> carList) {
 		System.out.print(OUT_WINNER);
+		int max = OutputImpo.WinnerValue(carList);
 		
 		List<String> winnerList = new ArrayList<>();
-		int max = 0;
-		for(int i = 0; i < carList.size() - 1; i++) {
-			int j = carList.get(i).getForword();
-			int k = carList.get(i + 1).getForword();
-			
-			if(j < k) {
-				max = k;
-			} else {
-				max = j;
-			}
-		}
-		
 		for(Car car : carList) {
-			if(car.getForword() == max) {
-				winnerList.add(car.getName());
-			}
+			OutputImpo out = new OutputImpo(winnerList);
+			winnerList = out.addWinner(car, max);
 		}
 		
 		for(int i = 0; i < winnerList.size(); i++) {

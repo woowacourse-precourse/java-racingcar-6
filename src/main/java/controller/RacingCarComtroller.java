@@ -14,9 +14,8 @@ public class RacingCarComtroller {
 		String nameText = InputView.nameText().trim();
 		String totalMoveText = InputView.totalMove().trim();
 		
-		InputImpo carInfo = new InputImpo(nameText, totalMoveText);
-		List<String> carNameList = carInfo.changeList();
-		int totalMove = carInfo.changeInt();
+		List<String> carNameList = InputImpo.changeList(nameText);
+		int totalMove = InputImpo.changeInt(totalMoveText);
 		
 		List<Car> carList = new ArrayList<>();
 		for(String carName : carNameList) {

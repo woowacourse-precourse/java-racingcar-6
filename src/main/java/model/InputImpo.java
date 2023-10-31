@@ -7,15 +7,7 @@ import validators.InputValidator;
 
 public class InputImpo {
 	
-	private String nameText;
-	private String totalMoveText;
-	
-	public InputImpo(String nameText, String totalMoveText) {
-		this.nameText = nameText;
-		this.totalMoveText = totalMoveText;
-	}
-	
-	public List<String> changeList() {
+	public static List<String> changeList(String nameText) {
 		List<String> carList = new ArrayList<>();
 		
 		String[] carNameArray = nameText.split(",");
@@ -26,7 +18,7 @@ public class InputImpo {
 		return carList;
 	}
 	
-	public int changeInt() {
+	public static int changeInt(String totalMoveText) {
 		int totalMove = Integer.valueOf(totalMoveText);
 		InputValidator.checkCarMove(totalMove);
 		

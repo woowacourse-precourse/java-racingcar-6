@@ -23,15 +23,19 @@ public class Car {
 		}
 	}
 	
-	public void showMiving(int i) {
-		if(numberList.get(i) >= 4) {
-			forword++;
-		}
-
-		for(int j = 1; j <= forword; j++) {
-			System.out.print("-");
-		}
+	public void plusForword() {
+		forword++;
 	}
+	
+//	public void showMoving(int i) {
+//		if(numberList.get(i) >= 4) {
+//			forword++;
+//		}
+//		
+//		for(int j = 1; j <= forword; j++) {
+//			System.out.print("-");
+//		}
+//	}
 	
 	public String getName() {
 		return name;
@@ -40,8 +44,16 @@ public class Car {
 	public List<Integer> getNumberList() {
 		return numberList;
 	}
+	
+	public void setNumberList(List<Integer> numberList) {
+		this.numberList = numberList;
+	}
 
 	public int getForword() {
 		return forword;
+	}
+
+	public void setForword(int forword) {
+		this.forword = forword;
 	}
 }
