@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import model.domain.Round;
 import model.service.GameResult;
 import model.service.InputCheck;
 import model.domain.Participant;
@@ -17,10 +18,11 @@ public class GameStart {
         Participant participant = new Participant(nameList);
 
         String roundStr = Input.round();
-        int round = InputCheck.round(roundStr);
+        int num = InputCheck.round(roundStr);
+        Round round = new Round(num);
 
         Output.startResult();
-        for (int i = 0; i < round; i++) {
+        for (int i = 0; i < round.getRound(); i++) {
             Game.play(participant);
             Output.roundResult(participant);
         }
