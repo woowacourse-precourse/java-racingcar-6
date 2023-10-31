@@ -56,16 +56,20 @@ public class Application {
         }
     }
     //현재 차의 위치 print 함수
+    //건너 띄기 수정 해야댐
     public static void printCarPositions(List<Car> cars){
         for(Car car : cars){
-            System.out.println(car.getName() + " : ");
+            System.out.print(car.getName() + " : ");
             for(int i = 0; i < car.getPosition(); i++){
                 System.out.print("-");
             }
             System.out.println();
         }
+        System.out.println();
     }
+
     //우승자 구하는 함수
+    //우승자 출력 이상함
     public static List<String> getWinner(List<Car> cars){
         int max = 0;
         for(Car car : cars){
