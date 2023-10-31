@@ -29,14 +29,18 @@ public class RaceCar {
         }
     }
 
+    private static final int START_CONDITION_NUM = 4;
+    private static final int END_CONDITION_NUM = 9;
+
     /**
      * 자동차의 움직여도 되는 조건 (4이상, 9이하)
      *
-     * @param ranNumOfSingleDigit "4이상, 9이하"의 값
+     * @param numOfRan "4이상, 9이하"의 값
      * @return
      */
-    public boolean isMovement(Integer ranNumOfSingleDigit) {
-        return ranNumOfSingleDigit >= 4 && ranNumOfSingleDigit <= 9;
+    public boolean isMovement(Integer numOfRan) {
+        return numOfRan >= START_CONDITION_NUM
+                && numOfRan <= END_CONDITION_NUM;
     }
 
     /**
