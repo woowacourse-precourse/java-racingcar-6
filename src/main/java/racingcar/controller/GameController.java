@@ -25,13 +25,18 @@ public class GameController {
     private int attemptsCount;
 
     public void start() {
+
         System.out.println(START_MESSAGE);
         String carNames = userInput.readUserInput();
         cars.setCarNameList(spiltCarNames(carNames));
-        inputException.checkException(spiltCarNames(carNames));
+        inputException.checkCarNamesInputException(spiltCarNames(carNames));
+
         System.out.println(ATTEMPTS_MESSAGE);
         attemptsCount = Integer.parseInt(userInput.readAttemptsCount());
+        inputException.checkAttemptsInputException(attemptsCount);
+
         initializeCarProgress();
+
         startRacing(attemptsCount, cars.getCarNameList(), cars.getCarProgress());
         findWinner(cars.getCarNameList(), cars.getCarProgress());
         resultOutput.printFinalWinner(winner.getWinnerList());
