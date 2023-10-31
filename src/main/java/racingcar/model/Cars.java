@@ -5,7 +5,8 @@ import racingcar.exception.NoCarException;
 import racingcar.model.dto.GameResult;
 
 public class Cars {
-    private final int MOVING_DISTANCE = 1;
+    private final static int MOVING_DISTANCE = 1;
+
     private final MovePolicy movePolicy = new RandomMovePolicy();
     private final List<Car> cars;
 
