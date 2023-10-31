@@ -10,7 +10,7 @@ public class Progress {
     }
 
     public void movable(int number) {
-        if (number > 4) {
+        if (number >= 4) {
             move(1);
         }
     }
