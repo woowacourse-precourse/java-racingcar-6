@@ -101,8 +101,10 @@ public class Application {
                 Winners.add(key);
             }
         }
-        String result = String.join(", ",Winners);
-        System.out.println("최종 우승자 : " + result);
+        PrintChampion(String.join(", ",Winners));
+    }
+    public static void PrintChampion(String s){
+        System.out.println("최종 우승자 : " + s);
     }
 }
 
