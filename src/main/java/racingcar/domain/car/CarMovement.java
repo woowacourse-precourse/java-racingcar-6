@@ -16,16 +16,16 @@ public class CarMovement {
 
     private void decideMovement() {
         if (GameCondition.hasDriveCondition()) {
-            raceCar = drive(raceCar);
+            raceCar = fowardMovement(raceCar);
             carStore.updateCarInfo(raceCar);
         }
     }
 
-    private Car drive(Car currentCar) {
+    private Car fowardMovement(Car currentCar) {
         return new Car(currentCar.name(), currentCar.position() + UNIT_OF_MOVEMENT);
     }
 
-    private Car Stop(Car currentCar) {
+    private Car stopMovement(Car currentCar) {
         return new Car(currentCar.name(), currentCar.position());
     }
 
