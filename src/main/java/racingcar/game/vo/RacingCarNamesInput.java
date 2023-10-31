@@ -3,7 +3,7 @@ package racingcar.game.vo;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.common.config.RacingCarRule;
-import racingcar.racer.RacingCar;
+import racingcar.race.RacingCar;
 import racingcar.validator.Validator;
 
 public record RacingCarNamesInput(String input) {

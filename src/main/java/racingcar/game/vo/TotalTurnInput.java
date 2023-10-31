@@ -1,7 +1,7 @@
 package racingcar.game.vo;
 
 import racingcar.common.config.RacingCarRule;
-import racingcar.racer.RacingTurn;
+import racingcar.race.RacingTurn;
 import racingcar.validator.Validator;
 
 public record TotalTurnInput(String input) {

@@ -1,4 +1,4 @@
-package racingcar.racer;
+package racingcar.race;
 
 import racingcar.util.Random;
 

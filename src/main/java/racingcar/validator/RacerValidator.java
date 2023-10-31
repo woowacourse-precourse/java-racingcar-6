@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import racingcar.common.config.RacingCarRule;
 import racingcar.common.exception.ErrorMessage;
-import racingcar.racer.Racer;
+import racingcar.race.Racer;
 
 public final class RacerValidator {
 

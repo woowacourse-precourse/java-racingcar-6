@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.common.config.RacingCarRule;
-import racingcar.racer.RacerRegistry;
-import racingcar.racer.RacingCar;
+import racingcar.race.RacerRegistry;
+import racingcar.race.RacingCar;
 
 class RacerRegistryTest {
 

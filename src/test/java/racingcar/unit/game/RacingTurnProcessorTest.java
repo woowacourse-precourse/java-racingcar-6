@@ -15,8 +15,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import racingcar.game.RacingTurnProcessor;
 import racingcar.game.vo.RacerPosition;
-import racingcar.racer.RacerRegistry;
-import racingcar.racer.RacingCar;
+import racingcar.race.RacerRegistry;
+import racingcar.race.RacingCar;
 import racingcar.util.Random;
 
 class RacingTurnProcessorTest {

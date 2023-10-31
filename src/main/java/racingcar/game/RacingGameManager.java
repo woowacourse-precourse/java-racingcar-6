@@ -4,9 +4,9 @@ import java.util.List;
 import racingcar.game.vo.RacingCarNamesInput;
 import racingcar.game.vo.TotalTurnInput;
 import racingcar.game.vo.TurnResult;
-import racingcar.racer.Racer;
-import racingcar.racer.RacerRegistry;
-import racingcar.racer.RacingTurn;
+import racingcar.race.Racer;
+import racingcar.race.RacerRegistry;
+import racingcar.race.RacingTurn;
 
 public class RacingGameManager {
 

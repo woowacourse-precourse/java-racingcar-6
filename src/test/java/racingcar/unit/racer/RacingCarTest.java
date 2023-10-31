@@ -15,7 +15,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import racingcar.common.config.RacingCarRule;
-import racingcar.racer.RacingCar;
+import racingcar.race.RacingCar;
 import racingcar.util.Random;
 
 class RacingCarTest {

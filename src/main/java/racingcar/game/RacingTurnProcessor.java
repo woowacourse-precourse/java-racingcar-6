@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import racingcar.game.vo.RacerPosition;
-import racingcar.racer.Racer;
-import racingcar.racer.RacerRegistry;
+import racingcar.race.Racer;
+import racingcar.race.RacerRegistry;
 
 public class RacingTurnProcessor<T extends Racer> {
     private final List<T> racers = new ArrayList<>();
