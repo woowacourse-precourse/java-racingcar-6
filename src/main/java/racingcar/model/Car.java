@@ -17,7 +17,7 @@ public class Car {
      */
     public void playRound() {
         pickRandomNumber();
-        if(checkRandomNumber()) {
+        if (checkRandomNumber()) {
             forward();
         }
     }

@@ -91,7 +91,7 @@ public class Game {
         if (checkIsSoloWinner()) { // 단독 우승이라면
             result.append(winners.get(0));
         } else if (!checkIsSoloWinner()) { // 단독 우승이 아니라면
-            for (String winner: this.winners) {
+            for (String winner : this.winners) {
                 result.append(winner);
             }
             result.append(", ");
