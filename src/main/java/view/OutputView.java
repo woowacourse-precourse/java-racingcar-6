@@ -1,6 +1,7 @@
 package view;
 
 import domain.RaceResult;
+import domain.Winners;
 
 public class OutputView {
 
@@ -28,5 +29,18 @@ public class OutputView {
 
     public static void printWinnerIntroduction() {
         System.out.print("최종 우승자 : ");
+    }
+
+    public static void printWinner(Winners winners) {
+        int winnerCount = winners.winners().size();
+
+        if (winnerCount == 1) {
+            printSingleWinner(winners);
+        }
+    }
+
+    private static void printSingleWinner(Winners winners) {
+        String SingleWinnerName = winners.winners().get(0).getName();
+        System.out.print(SingleWinnerName);
     }
 }
