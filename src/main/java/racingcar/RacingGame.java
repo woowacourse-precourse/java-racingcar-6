@@ -16,4 +16,22 @@ public class RacingGame {
             cars.add(car);
         }
     }
+
+    private List<Car> judge(List<Car> cars) {
+        List<Car> winner = new ArrayList<>();
+        int maxScore = -1;
+
+        for (Car car : cars) {
+            if (car.getState() == maxScore) {
+                winner.add(car);
+            }
+
+            if (car.getState() > maxScore) {
+                winner.clear();
+                maxScore = car.getState();
+                winner.add(car);
+            }
+        }
+        return winner;
+    }
 }
