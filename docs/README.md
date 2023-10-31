@@ -3,7 +3,13 @@ JAVA _ 자동차 경주 게임 프로젝트
 
 ### 입력
 - [x]: 경주할 자동차들의 이름을 입력받고 저장한다. - CarRaceManager.createCarList()
+    - [ ]: 입력값이 없으면 오류 발생시킨다(Null).
+    - [ ]: 입력값이 5자를 초과하면 오류 발생시킨다.
+    - [ ]: 입력값이 중복이면 오류 발생시킨다.
 - [x]: 시도할 회수를 입력받고 저장한다. - Application.getAttemptNumber()
+    - [ ]: 입력값이 없으면 오류 발생시킨다(Null).
+    - [ ]: 입력값이 int type이 아니면 오류 발생시킨다.
+    - [ ]: 입력값이 0이하면 오류 발생시킨다.
 
 ### 각 시도별 경주 실행 - CarRaceManger.nthAttemptRace()
 - [x]: 0~9까지 중에 무작위 값을 구한다. - Utils.generateRandomNumber()
@@ -13,7 +19,7 @@ JAVA _ 자동차 경주 게임 프로젝트
 - [x]: 각 시도별 경주 결과 출력. - CarRaceManager.printAttemptResult()
 
 ### 우승자 판단 및 출력
-- [ ]: 우승자를 판단한다. - carRaceManager.winnerJudgment()
+- [x]: 우승자를 판단한다. - carRaceManager.winnerJudgment()
 - [x]: 우승자를 출력한다. - carRaceManager.printWinner()
 
 ## 기능 요구 사항
