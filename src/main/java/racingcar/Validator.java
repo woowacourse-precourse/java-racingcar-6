@@ -43,9 +43,9 @@ public class Validator {
         return tryNumber;
     }
 
-    public void isZeroOrNegativeNumber(int tryNumber) {
-        if (tryNumber <= 0) {
-            throw new IllegalArgumentException("0보다 큰 숫자를 입력해주세요.");
+    public void isNumberOneToThousand(int tryNumber) {
+        if (tryNumber <= 0 || tryNumber > 1000) {
+            throw new IllegalArgumentException("1~1000 사이의 숫자를 입력해주세요.");
         }
     }
 }

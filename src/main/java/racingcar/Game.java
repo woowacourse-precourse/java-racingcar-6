@@ -18,7 +18,7 @@ public class Game {
 
         String inputNumber = input.tryNumber();
         int tryNumber = validator.toNumber(inputNumber);
-        validator.isZeroOrNegativeNumber(tryNumber);
+        validator.isNumberOneToThousand(tryNumber);
 
         List<String> carMove = car.racingResult(carNames, tryNumber);
         List<Integer> carMoveDistance = car.countCarMove(carMove);
