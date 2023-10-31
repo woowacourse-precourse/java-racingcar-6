@@ -1,5 +1,6 @@
 package racingcar.util;
 
+import java.math.BigInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,10 +27,13 @@ public final class TrialCountValidator {
     }
 
     private static void validateIntegerRange(final String trialCount) {
-        long parseLong = Long.parseLong(trialCount);
-        if (parseLong > Integer.MAX_VALUE) {
+        if (isBiggerThanIntegerMax(new BigInteger(trialCount))) {
             throwException(INTEGER_RANGE_ERROR_MESSAGE);
         }
+    }
+
+    private static boolean isBiggerThanIntegerMax(final BigInteger bigInteger) {
+        return bigInteger.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0;
     }
 
     private static void throwException(final String errorMessage) {
