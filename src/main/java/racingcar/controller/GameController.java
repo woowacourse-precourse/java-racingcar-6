@@ -13,11 +13,10 @@ public class GameController {
 
     private final Player player = new Player();
     private final RacingGame game = new RacingGame();
-    private final TypeTransducer typeTransducer = new TypeTransducer();
     private final Censor censor = new Censor();
 
     public void runGame() {
-        setUpPlayer(typeTransducer.strToList(getNickname()));
+        setUpPlayer(TypeTransducer.strToList(getNickname()));
         setUpGameTime(getGameTime());
         play();
     }

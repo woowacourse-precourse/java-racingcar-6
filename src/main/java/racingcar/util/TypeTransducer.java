@@ -6,10 +6,14 @@ import java.util.stream.Collectors;
 
 public class TypeTransducer {
 
-    public List<String> strToList(String input) {
+    public static List<String> strToList(String input) {
         return Arrays.stream(input.split(","))
                 .map(String::trim)
                 .collect(Collectors.toList());
+    }
+
+    public static String listToString(List<String> input) {
+        return String.join(", ", input);
     }
 
 }

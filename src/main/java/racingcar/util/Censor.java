@@ -12,11 +12,9 @@ import java.util.Set;
 
 public class Censor {
 
-    private final TypeTransducer typeTransducer = new TypeTransducer();
-
     public void checkInputForNickname(String input) {
         commonValid(input);
-        List<String> playerList = typeTransducer.strToList(input);
+        List<String> playerList = TypeTransducer.strToList(input);
         checkLength(playerList);
         checkUniqueValue(playerList);
     }
