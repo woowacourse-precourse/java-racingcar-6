@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -29,6 +30,37 @@ class ApplicationTest extends NsTest {
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
+    }
+
+    @Test
+    void 시도회수에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void Car_클래스_테스트() {
+        Car car = new Car("pobi");
+        assertThat(car.getName()).isEqualTo("pobi");
+        assertThat(car.getPosition()).isEqualTo(0);
+        car.move(3);
+        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.getPositionString()).isEqualTo("pobi : ");
+        car.move(4);
+        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPositionString()).isEqualTo("pobi : -");
+    }
+
+    @Test
+    void CarUtils_클래스_테스트() {
+        List<Car> cars = CarUtils.createCars("pobi,woni");
+        assertThat(cars).hasSize(2);
+        cars.get(0).move(4);
+        assertThat(CarUtils.getWinner(cars)).isEqualTo("pobi");
+        cars.get(1).move(4);
+        assertThat(CarUtils.getWinner(cars)).isEqualTo("pobi, woni");
     }
 
     @Override
