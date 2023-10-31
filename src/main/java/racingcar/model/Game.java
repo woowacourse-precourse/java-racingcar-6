@@ -14,4 +14,8 @@ public class Game {
         this.cars = new ArrayList<>();
         this.winners = new ArrayList<>();
     }
+
+    public void addCar(String nameOfCar) {
+        cars.add(new Car(nameOfCar));
+    }
 }
