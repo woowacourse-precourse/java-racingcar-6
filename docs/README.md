@@ -17,7 +17,7 @@
 - [x] 입력값이 올바른 이름 형식인지 확인하는 기능 - Validation#validNames()
 - [x] 입력값이 숫자인지 확인하는 기능 - Validation#validNumber()
 
-
+- [ ] 입력값을 받아오는 기능 - InputManager
 ## 프로그래밍 요구 사항
 Java 코드 컨벤션 가이드를 준수하며 프로그래밍한다.
 
