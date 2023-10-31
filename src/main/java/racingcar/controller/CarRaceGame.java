@@ -3,7 +3,6 @@ package racingcar.controller;
 
 import static racingcar.constant.GameConstants.EXECUTION_RESULT;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.domain.Car;
@@ -25,13 +24,12 @@ public class CarRaceGame {
 
     public static void startGame() {
         String carNames = CarRaceGameView.startGameView();
-        dealWitCarNames(carNames);
+        dealWithCarNames(carNames);
         String roundNumberString = CarRaceGameView.attemptNumberView();
-        startCarRaceGame(Integer.parseInt(roundNumberString));
+        executeCarRaceGame(Integer.parseInt(roundNumberString));
     }
 
-    public static void dealWitCarNames(String carNames) {
-
+    public static void dealWithCarNames(String carNames) {
         setUpCar(CarNamesToList(carNames));
     }
 
@@ -56,11 +54,11 @@ public class CarRaceGame {
         }
     }
 
-    public static void startCarRaceGame(int roundNumber) {
+    public static void executeCarRaceGame(int roundNumber) {
         System.out.println(EXECUTION_RESULT);
 
         for (int i = 0; i < roundNumber; i++) {
-            CarRaceGameUtility.startCarRaceGameOneRound();
+            CarRaceGameUtility.executeCarRaceGameOneRound();
         }
         CarRaceGameView.gameResultView(CarRaceGameUtility.findWinner(GameManager.getCarImplList()));
     }

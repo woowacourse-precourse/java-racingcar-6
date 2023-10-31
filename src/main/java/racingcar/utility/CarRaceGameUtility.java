@@ -1,6 +1,5 @@
 package racingcar.utility;
 
-import static racingcar.constant.GameConstants.EXECUTION_RESULT;
 import static racingcar.constant.GameConstants.MAX_NUM;
 import static racingcar.constant.GameConstants.MIN_NUM;
 
@@ -18,7 +17,7 @@ public class CarRaceGameUtility {
 
 
 
-    public static void startCarRaceGameOneRound() {
+    public static void executeCarRaceGameOneRound() {
         for (Car car : GameManager.getCarImplList()) {
             if (car.decideToMove(randomNumberGenerator())) {
                 car.forwardOneBlock();
