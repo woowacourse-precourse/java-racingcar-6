@@ -61,15 +61,9 @@ public class RacingGameController {
 
 	private void receiveAward(List<Car> winners) {
 		messageView.printAwardMessage();
-		String winnerMessage = crateWinnerMessage(winners);
+		List<String> winnersName = getCarNames(winners);
 
-		outputView.printAwardWinner(winnerMessage);
-	}
-
-	private String crateWinnerMessage(List<Car> winners) {
-		List<String> winnerNames = getCarNames(winners);
-
-		return String.join(", ", winnerNames);
+		outputView.printAwardWinner(winnersName);
 	}
 
 	private List<String> getCarNames(List<Car> winners) {
