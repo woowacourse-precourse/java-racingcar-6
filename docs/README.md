@@ -5,13 +5,14 @@
 -[x] 0부터 9사이의 무작위 숫자를 생성한다. - generateRandomNum#createRandomNum()
 -[x] 사용자에게 자동차이름을 입력받는다. - InputCarName#createCar()
     -[x] 쉼표(,)를 기준으로 구분한다.
--[ ] 자동차 객체를 생성한다. -Car
+-[x] 자동차 객체를 생성한다. -Car
 -[x] 무작위 숫자가 4 이상일 경우 전진한다. - StopOrGo#move()
 -[x] 사용자에게 몇 번 이동할 것인지 입력 받는다. - InputUser#inputMove()
+-[x] 경주를 시작한다. - Race#race()
 -[ ] 게임을 완료한 후 우승자를 구분한다. - CheckWinner#countWinner()
     - [ ] 가장 많이 전진한 자동차가 하나일 경우 우승자는 한명
     - [ ] 가장 많이 전진한 자동차가 여럿일 경우 우승자는 여러명
--[ ] 해당 횟수에 해당하는 결과를 보여준다. - view#viewResult()
+-[x] 해당 횟수에 해당하는 결과를 보여준다. - view#viewResult()
 
 ## 기능 요구 사항
 

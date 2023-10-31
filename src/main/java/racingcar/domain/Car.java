@@ -6,21 +6,19 @@ public class Car {
     private final String carName;
     private int position = 0;
 
-    public Car(String carName){
+    public Car(String carName) {
         this.carName = carName;
     }
 
-    public String getName(){
+    public String getName() {
         return carName;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
 
-    public void move(boolean go){
-        if(go){
-            position++;
-        }
+    public void move() {
+        position++;
     }
 }

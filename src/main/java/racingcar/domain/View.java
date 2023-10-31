@@ -1,15 +1,15 @@
 package racingcar.domain;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class View {
-    public void viewResult(List<String> carName){
-        GenerateRandomNum num = new GenerateRandomNum();
-        String result = "";
-        System.out.println("실행 결과");
-        for (int i = 0; i < carName.size(); i++){
-            System.out.println(carName.get(i) + " : " + result);
-        }
-
+    public void viewResult(String name, int position){
+        StringBuilder msg = new StringBuilder(name + " : ");
+        Optional<String> formattedPosition = Stream.generate(() -> "-").limit(position).reduce((a, b) -> a+b);
+        formattedPosition.ifPresent(msg::append);
+        System.out.println(msg);
     }
 }
