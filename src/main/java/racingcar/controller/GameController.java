@@ -8,9 +8,14 @@ public class GameController {
 
     public void run() throws  IllegalArgumentException {
         setGame();
+        playGame();
     }
 
     public void setGame(){
         gameService.setGame();
+    }
+
+    public void playGame(){
+        gameService.playGame();
     }
 }

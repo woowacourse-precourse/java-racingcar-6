@@ -13,4 +13,16 @@ public class Game {
         this.trials = trials;
         this.currentTrial = 0;
     }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void increaseTrial() {
+        currentTrial++;
+    }
+
+    public boolean isEnd() {
+        return (trials == currentTrial);
+    }
 }
