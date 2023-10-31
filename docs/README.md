@@ -56,8 +56,9 @@
           - map(string) // constructor
           - trial() // execute one attempt
     - view
-      - TextView
+      - View Interface
         - void printGetCarString()
         - void printGetNumOfAttempt()
         - void printMapProcess()
         - void printWinner()
+      - text View
