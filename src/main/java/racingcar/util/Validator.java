@@ -16,4 +16,11 @@ public class Validator {
             }
         }
     }
+    public void checkNumberOfTrialInput(String input) throws IllegalArgumentException {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자 형식어여야 한다.");
+        }
+    }
 }
