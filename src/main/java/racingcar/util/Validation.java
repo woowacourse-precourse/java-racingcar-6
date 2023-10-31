@@ -12,14 +12,13 @@ public class Validation {
     private static final String EMPTY_NAME_MESSAGE = "이름을 입력해주세요.";
     private static final String NOT_NUMBER_MESSAGE = "숫자를 입력해주세요.";
     private static final String BELOW_RANGE_NUMBER_MESSAGE = "1이상 숫자를 입력해주세요.";
-
     private static final String EMPTY_NAME = "";
 
     public static void validateCarNames(List<String> names) {
         if (isOverRangeLength(names)) {
             throw new IllegalArgumentException(OVER_RANGE_LENGTH_MESSAGE);
         }
-        if (isUniqueName(names)) {
+        if (isNotUniqueName(names)) {
             throw new IllegalArgumentException(NOT_UNIQUE_NAME_MESSAGE);
         }
         if (isEmptyName(names)) {
@@ -32,7 +31,7 @@ public class Validation {
                 .anyMatch(name -> name.length() > MAX_CAR_NAME_LENGTH);
     }
 
-    private static boolean isUniqueName(List<String> names) {
+    private static boolean isNotUniqueName(List<String> names) {
         return names.stream()
                 .distinct()
                 .count() != names.size();
