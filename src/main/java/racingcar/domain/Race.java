@@ -23,7 +23,7 @@ public class Race {
         cars.forEach(Car::move);
     }
 
-    public List<Car> findWinnerCars() {
+    private List<Car> findWinnerCars() {
         Car carWithMaxDistance = getCarWithMaxDistance();
         return cars.stream()
                 .filter(car -> car.isCarWithMaxDistance(carWithMaxDistance))
