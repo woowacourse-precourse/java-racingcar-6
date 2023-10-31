@@ -27,4 +27,10 @@ public class Cars {
     public List<Car> getCars() {
         return cars;
     }
+
+    public List<String> getWinner() {
+        int distance = cars.stream().map(Car::getDistance).max(Integer::compare).get(); // 최댓값의 거리를 구한뒤
+        return cars.stream().filter(car -> car.getDistance() == distance).map(Car::getName)
+                .toList(); //거리량이 일치하는 Car들의 이름을 배열에 담아 반환
+    }
 }
