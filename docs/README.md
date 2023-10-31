@@ -7,7 +7,29 @@
 
 ## 📂 디렉토리 구조
 ```
+.
+├── main
+│   └── java
+│       └── racingcar
+│           ├── Application.java
+│           ├── config
+│           ├── controller
+│           ├── domain
+│           ├── dto
+│           ├── util
+│           └── view
+└── test
+    └── java
+        ├── racingcar
+        │   ├── ApplicationTest.java
+        │   ├── application
+        │   ├── config
+        │   └── domain
+        └── study
+            └── StringTest.java
 ```
+
+<br/>
 
 ## ✨기능 목록
 
