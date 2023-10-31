@@ -9,6 +9,7 @@ public class UserInput {
     private static final String intMessage = "시도할 회수는 몇회인가요?";
     private final List<Car> cars = new ArrayList<>();
 
+
     public String[] getInputName() {
         System.out.println(startMessage);
         String[] inputCarName = Console.readLine().split(",");

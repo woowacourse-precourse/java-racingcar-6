@@ -9,6 +9,7 @@ public class Game {
     List<String> winnersResult = new ArrayList<>();
     private final List<Car> cars = new ArrayList<>();
 
+
     public void gameStart() {
         String[] inputName = userInput.getInputName();
         inspectInputName(inputName);
