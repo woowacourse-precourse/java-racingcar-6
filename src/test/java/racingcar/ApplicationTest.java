@@ -138,7 +138,7 @@ class ApplicationTest extends NsTest {
         @DisplayName("레이싱에서 자동차 이름 리스트 만들기")
         void Test(){
 
-//            static 메소드 mocking
+//            static 메소드 스터빙
             given(Console.readLine()).willReturn("pobi,woni,jun");
 
             String result = "pobi : \nwoni : \njun : \n";
