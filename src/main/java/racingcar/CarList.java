@@ -41,4 +41,13 @@ public class CarList {
         }
     }
 
+    public int getSize() {
+        return carList.size();
+    }
+
+    public void setMotionState(int index, int randNumber) {
+        Car car = carList.get(index);
+        car.setMotionState(randNumber);
+    }
+
 }
