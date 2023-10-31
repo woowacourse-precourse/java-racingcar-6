@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.InputManager;
+import racingcar.domain.gameInfo.InputManager;
 import racingcar.domain.car.Car;
 
 public class InputManagerTest {

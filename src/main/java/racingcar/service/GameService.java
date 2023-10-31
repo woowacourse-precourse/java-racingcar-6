@@ -2,7 +2,7 @@ package racingcar.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.domain.InputManager;
+import racingcar.domain.gameInfo.InputManager;
 import racingcar.domain.Movable;
 import racingcar.domain.car.Car;
 import racingcar.domain.car.Cars;

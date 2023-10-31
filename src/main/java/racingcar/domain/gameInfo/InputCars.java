@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.domain.gameInfo;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,17 +6,11 @@ import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.validation.CarInputValidate;
 
-public class InputManager {
-    private final int gameProcessCount;
+public class InputCars {
     private final List<Car> parsedCarList;
 
-    public InputManager(int gameProcessCount, String inputCarList) {
-        this.gameProcessCount = gameProcessCount;
-        this.parsedCarList = parseCarList(inputCarList);
-    }
-
-    public int getGameProcessCount() {
-        return gameProcessCount;
+    public InputCars(String p) {
+        this.parsedCarList = parseCarList(p);
     }
 
     public List<Car> getParsedCarList() {
