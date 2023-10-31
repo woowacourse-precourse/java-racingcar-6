@@ -40,6 +40,7 @@ public class Cars {
     }
 
     public List<String> findWinner() {
+        getMaxDistance();
         return cars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .map(Car::getName)
