@@ -1,6 +1,6 @@
 package racingcar.constant;
 
-public class ExceptionMessage {
+public class ExceptionMessage { // IllegalArgumentException 발생 시 출력 메시지
 
     public static final String BLANK_INPUT = "빈 문자열은 입력할 수 없습니다.";
     public static final String NULL_CAR_NAME = "입력된 문자열 안에 누락된 자동차 이름이 있습니다: ";
