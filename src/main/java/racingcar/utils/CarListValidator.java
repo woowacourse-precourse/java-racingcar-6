@@ -17,6 +17,6 @@ public class CarListValidator {
     }
 
     private static boolean isCarDuplicated(List<Car> carList) {
-        return new HashSet<>(carList).size() == carList.size();
+        return new HashSet<>(carList).size() != carList.size();
     }
 }
