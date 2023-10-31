@@ -1,6 +1,8 @@
 package racingcar.validator;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +27,16 @@ public class InputValidator {
             } else if (input.isBlank()) {
                 throw new IllegalArgumentException("[ERROR] 형식에 맞게 입력해주세요.");
             }
+        }
+    }
+
+    public static void validateUniqueCarName(List<String> inputs) {
+        Set<String> set = new HashSet<>();
+        for (String input : inputs) {
+            set.add(input);
+        }
+        if (set.size() != inputs.size()) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름을 중복되지 않게 지어주세요.");
         }
     }
 
