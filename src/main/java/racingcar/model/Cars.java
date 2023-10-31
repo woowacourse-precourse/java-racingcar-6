@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cars {
-    List<Car> racingCars = new ArrayList<>();
+    private final List<Car> racingCars = new ArrayList<>();
 
     public void addCar(Car car) {
         racingCars.add(car);
