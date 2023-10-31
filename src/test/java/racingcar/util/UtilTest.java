@@ -19,4 +19,11 @@ class UtilTest {
         List<String> results = Util.splitNameByComma(input);
         assertThat(results).contains("안녕하세요", "one", "two2", "띄어쓰기");
     }
+
+    @Test
+    void String을_int로_변환_테스트() {
+        String input = "1997";
+        int result = Util.convertStringToInt(input);
+        assertThat(result).isEqualTo(1997);
+    }
 }
