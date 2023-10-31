@@ -47,7 +47,7 @@ public class GameController {
     }
     public void playLoad(List<Cars> carsList){
         for (Cars car : carsList) {
-            int randomNumber = Randoms.pickNumberInRange(0, 9);
+            int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE);
             if (isLargeThen(randomNumber)){
                 car.upLoadState();
             }
@@ -74,6 +74,7 @@ public class GameController {
     }
 
     public void play(){
+        int carNum = this.carsList.size();
         for(int i=0 ; i<tryNum ; i++){
             playLoad(this.carsList);
 
@@ -84,7 +85,7 @@ public class GameController {
                 names.add(car.getName());
                 locations.add(car.getLoadState());
             }
-            racingCar.showLoad(names,locations,3);
+            racingCar.showLoad(names,locations,carNum);
         }
         String result = getResult(this.carsList);
         System.out.println("최종 우승자 : "+result);
