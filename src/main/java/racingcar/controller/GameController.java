@@ -12,15 +12,15 @@ public class GameController {
   private OutputView outputView;
   private Race race;
 
-  public GameController(InputView inputView, OutputView outputView){
+  public GameController(InputView inputView, OutputView outputView) {
     this.inputView = inputView;
     this.outputView = outputView;
   }
 
-  public void run(){
+  public void run() {
     String[] carNames = inputView.getCarNames();
     List<Car> cars = new ArrayList<>();
-    for (String name : carNames){
+    for (String name : carNames) {
       cars.add(new Car(name));
     }
 
@@ -28,9 +28,9 @@ public class GameController {
 
     race = new Race(cars);
 
-    for(int move = 0; move < moveCount; move++){
+    for (int move = 0; move < moveCount; move++) {
       race.startRace(1);
-      for(Car car : cars){
+      for (Car car : cars) {
         outputView.printCarStatus(car.getName(), car.getPosition());
       }
       System.out.println();
