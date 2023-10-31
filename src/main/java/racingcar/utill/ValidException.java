@@ -101,6 +101,7 @@ public class ValidException {
         if (inputStr.charAt(length - 1) != ',') {
             return true;
         }
+
         throw new IllegalArgumentException(ValidConstants.MSG_COMMA_NEXT_BLANK());
     }
 
@@ -112,11 +113,12 @@ public class ValidException {
      */
     public static boolean NameOfEachFIveLessString(String inputStr) {
         String[] strArr = Utill.makeArrFromString(inputStr, ",");
-        List<String> nameEachOfList = Arrays.stream(strArr).toList();
+        List<String> nameEachOfList = Utill.makeListFromArr(strArr);
 
         for (String name : nameEachOfList) {
             lessFIveLen(name);
         }
+
         return true;
     }
 
