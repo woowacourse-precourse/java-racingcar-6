@@ -17,7 +17,7 @@
   - 분리된 문자열이 중복인 경우 (IllegalArgumentException) 발생
 ### ✔ 시도 회수 입력
 
-- [ ] `시도할 회수는 몇회인가요?` 출력
+- [x] `시도할 회수는 몇회인가요?` 출력
 - [ ] 사용자에게 숫자 입력받기
     - 입력받은 값이 없는 경우 (IllegalArgumentException) 발생
     - 입력받은 값이 숫자가 아닌 경우 (IllegalArgumentException) 발생

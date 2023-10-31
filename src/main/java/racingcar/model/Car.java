@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import static racingcar.util.validator.InputValidator.IsStringLengthValid;
+import static racingcar.util.validator.InputValidator.isStringLengthValid;
 import static racingcar.util.validator.InputValidator.checkBlank;
 
 public class Car {
@@ -8,7 +8,7 @@ public class Car {
 
 
     public Car(String name) {
-        IsStringLengthValid(name);
+        isStringLengthValid(name);
         checkBlank(name);
         this.NAME = name;
     }
