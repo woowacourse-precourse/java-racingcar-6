@@ -18,7 +18,7 @@
    [ ] (4) 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다. -> isLengthFive()
    [ ] (5) 사용자는 몇 번의 이동을 할 것인지를 입력할 수 있어야 한다. -> inputMoveCountsIntoUser()
    [ ] (6) 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우이다. -> isMoveAble()
-        -> (6-1) 무작위 값을 구하는 메서드 generateRandomNumber()
+       [ ] (6-1) 무작위 값을 구하는 메서드 generateRandomNumber()
    [ ] (7) 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다. -> returnWinner()
    [ ] (8) 우승자가 여러 명일 경우 쉼표(,)를 이용하여 구분한다. -> returnWinner() in if (winner > 1)
    [ ] (9) 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료되어야 한다. -> exceptionHandler()
