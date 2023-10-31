@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import util.validator.CarNameRegexValidator;
+import util.validator.RegexValidator;
 
 public class CarNameRegexValidatorTest {
 
@@ -14,7 +14,7 @@ public class CarNameRegexValidatorTest {
     @ValueSource(strings = {"!@#$%","pobi;;00hooni___","123$%^&"})
     void CarNameWrongValueTest(String value){
         //when
-        boolean result = CarNameRegexValidator.isCharsOrComma(value);
+        boolean result = RegexValidator.isCharsOrComma(value);
 
         //then
         assertThat(result).isFalse();
@@ -26,7 +26,7 @@ public class CarNameRegexValidatorTest {
     @ValueSource(strings = {"test","pobi,hooni","racingCar1,racingCar2,racingCar3"})
     void CarNameRightValueTest(String value){
         //when
-        boolean result = CarNameRegexValidator.isCharsOrComma(value);
+        boolean result = RegexValidator.isCharsOrComma(value);
 
         //then
         assertThat(result).isTrue();

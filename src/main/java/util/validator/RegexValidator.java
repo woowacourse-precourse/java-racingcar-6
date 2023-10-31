@@ -3,7 +3,7 @@ package util.validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CarNameRegexValidator {
+public class RegexValidator {
 
     private static final Pattern CHARS_OR_COMMA_PATTERN = Pattern.compile("^[\\w,]+$");
 
