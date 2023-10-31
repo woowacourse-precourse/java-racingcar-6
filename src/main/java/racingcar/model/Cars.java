@@ -10,6 +10,8 @@ import racingcar.message.ErrorMessage;
 public class Cars {
 
     private static final int MIN_REQUIRED_CAR_NUMBER = 2;
+    private static final int MIN_RANDOM_NUMBER = 0;
+    private static final int MAX_RANDOM_NUMBER = 9;
 
     private final List<Car> cars;
 
@@ -25,7 +27,7 @@ public class Cars {
 
     public void tryRun() {
         for (Car car : cars) {
-            int isGoodToRun = Randoms.pickNumberInRange(0, 9);
+            int isGoodToRun = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             car.run(isGoodToRun);
         }
     }
