@@ -56,7 +56,7 @@ public class RaceTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     race.playGame("1");
-                    assertEquals("pobi, jun", race.findWinner());
+                    assertEquals("pobi, jun", race.findWinnerToString());
                 },
                 MOVING_FORWARD, STOP, MOVING_FORWARD
 
