@@ -8,13 +8,19 @@ import static racingcar.resource.ConsoleRes.*;
 
 public class Checker {
     public static void isValidInput(String input){
+        isFirstWordValid(input);
+        isLastWordValid(input);
+    }
+    public static void isFirstWordValid(String input){
         if(input.charAt(0) == ','){
             throw new IllegalArgumentException(WRONG_INPUT);
         }
-
+    }
+    public static void isLastWordValid(String input){
         if(input.charAt(input.length() - 1) == ','){
             throw new IllegalArgumentException(WRONG_INPUT);
         }
+
     }
     public static void isValidName(String name) {
         isBelowFiveWord(name);
