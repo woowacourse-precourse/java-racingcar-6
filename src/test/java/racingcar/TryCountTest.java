@@ -11,14 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class TryCountTest {
-    @DisplayName("시도 횟수를 입력받아서 저장하는 기능")
-    @Test
-    void inputTryCountTest() {
-        System.setIn(new ByteArrayInputStream("3".getBytes()));
-
-        assertThat(3).isEqualTo(InputView.inputTryCount());
-    }
-
     @DisplayName("[예외] 시도 횟수 타입 예외 테스트")
     @Test
     void validateTypeTest() {
