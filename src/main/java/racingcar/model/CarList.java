@@ -14,6 +14,10 @@ public class CarList {
     }
 
     public void raceOneRound(CarList carList) {
+        printResult(carList);
+    }
+
+    public void printResult(CarList carList) {
         carList.cars.stream().forEach(car -> car.printRoundResult());
     }
 }
