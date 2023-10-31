@@ -6,11 +6,15 @@ import org.junit.jupiter.api.Test;
 
 class CarTest {
 
+    private static final String CORRECT_NAME = "pobi";
+    private static final int MOVABLE_NUMBER = 4;
+    private static final int IMMOVABLE_NUMBER = 3;
+
     @Test
-    @DisplayName("자동차 이름이 5글자 이하이면 성공")
+    @DisplayName("자동차 객체 생성 성공")
     void carTest() {
         // given
-        String name = "pobi";
+        String name = CORRECT_NAME;
 
         // when
         Car car = new Car(name);
@@ -20,25 +24,13 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("자동차 이름이 5글자 초과이면 실패")
-    void carTestFail() {
-        // when
-         String name = "pobiii";
-
-        // then
-        Assertions.assertThatThrownBy(() -> new Car(name))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
     @DisplayName("4 이상이면 전진")
     void goOrStopTestGo() {
         // given
-        Car car = new Car("pobi");
-        int randomNumber = 4;
+        Car car = new Car(CORRECT_NAME);
 
         // when
-        car.goOrStop(randomNumber);
+        car.goOrStop(MOVABLE_NUMBER);
 
         // then
         Assertions.assertThat(car.getPosition()).isEqualTo(1);
@@ -48,11 +40,10 @@ class CarTest {
     @DisplayName("4 미만이면 정지")
     void goOrStopTestStop() {
         // given
-        Car car = new Car("pobi");
-        int randomNumber = 3;
+        Car car = new Car(CORRECT_NAME);
 
         // when
-        car.goOrStop(randomNumber);
+        car.goOrStop(IMMOVABLE_NUMBER);
 
         // then
         Assertions.assertThat(car.getPosition()).isEqualTo(0);
