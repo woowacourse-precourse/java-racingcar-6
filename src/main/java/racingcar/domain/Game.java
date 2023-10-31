@@ -12,6 +12,15 @@ public class Game {
     private Cars cars;
     private TryCount tryCount;
 
+    public Game() {
+
+    }
+
+    public Game(Cars cars, TryCount tryCount) {
+        this.cars = cars;
+        this.tryCount = tryCount;
+    }
+
     public void initialize() {
         List<String> carNames = InputView.inputCarNames();
         cars = Cars.createdByName(carNames);
