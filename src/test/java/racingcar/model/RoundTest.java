@@ -1,8 +1,6 @@
 package racingcar.model;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import racingcar.DTO.CarDTO;
 import racingcar.system.util.RandomNumberGenerator;
 
@@ -29,6 +27,11 @@ class RoundTest {
             return MOVEMENT_CONDITION; // 항상 5를 반환
         }
     };
+
+    @BeforeEach
+    public void cleanupRound() {
+        Round.resetCurrentRoundCount();
+    }
 
     @Test
     @DisplayName("라운드가 시작되면 자동차는 전진 조건에서 전진한다.")
