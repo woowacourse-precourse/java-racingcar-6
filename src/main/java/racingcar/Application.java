@@ -1,22 +1,41 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
 import java.util.List;
 
 public class Application {
 
     public static void main(String[] args) {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+
         String carInput = Console.readLine();
         List<String> carNames = Arrays.stream(carInput.split(",")).toList();
         validateCarName(carNames);
 
+        System.out.println("시도할 회수는 몇회인가요?");
         String attemptInput = Console.readLine();
         validateAttemptInput(attemptInput);
 
         List<Car> cars = carNames.stream().map(Car::new).toList();
         int attempt = Integer.parseInt(attemptInput);
 
+        final int threshold = 4;
+
+        System.out.println("실행 결과");
+        while (attempt-- >= 0) {
+            for (Car car : cars) {
+                int randomNumber = generateRandomNumber();
+                car.execute(threshold, randomNumber);
+            }
+
+            for (Car car : cars) {
+                car.showProgress();
+            }
+
+            System.out.println();
+        }
     }
 
     private static void validateAttemptInput(String attempt) {
@@ -40,6 +59,10 @@ public class Application {
                 throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
             }
         }
+    }
+
+    public static int generateRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 }
 
