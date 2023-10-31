@@ -2,7 +2,10 @@ package racingcar.validator;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static racingcar.constant.ErrorMessage.CAR_NAME_IS_EMPTY;
 import static racingcar.constant.ErrorMessage.CAR_NAME_IS_LONGER;
 
 
@@ -15,7 +18,12 @@ class CarNameValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(CAR_NAME_IS_LONGER);
 
-        String properNames = "fobi,me,you";
+        String emptyNames = "fobi,me,,,,,you";
+        assertThatThrownBy(() -> CarNameValidator.validate(emptyNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CAR_NAME_IS_EMPTY);
+
+        String properNames = "fobi,me, you  ";
         CarNameValidator.validate(properNames);
     }
 }
