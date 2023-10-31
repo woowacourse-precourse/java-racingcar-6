@@ -12,7 +12,7 @@ public class CarUtil {
         return CarUtil.getRandomValue() >= MORE_THAN_NUMBER;
     }
 
-    private static int getRandomValue() {
+    public static int getRandomValue() {
         return Randoms.pickNumberInRange(START_RANDOM_NUMBER_RANGE, FINISH_RANDOM_NUMBER_RANGE);
     }
 }
