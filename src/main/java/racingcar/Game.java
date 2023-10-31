@@ -17,5 +17,14 @@ public class Game {
 
         }
     }
-
+    public void movingCar(Map<String,Integer> parkinglot, String[] car_name) {
+        Output output = new Output();
+        for(int i=0;i<car_name.length;i++){
+            int randomNumber = output.randomNumber();
+            if(Check.checkForward(randomNumber)){
+                int car_distance = parkinglot.get(car_name[i]);
+                parkinglot.put(car_name[i],car_distance+1);
+            }
+        }
+    }
 }
