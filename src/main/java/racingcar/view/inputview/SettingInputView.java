@@ -7,7 +7,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.view.Parameter.GAME_COUNT;
 import static racingcar.view.Parameter.Input.CAR_NAMES;
 
-public class SettingInputView implements InputView {
+public final class SettingInputView implements InputView {
     public static final char DELIMITER = ',';
     private final Map<String, Supplier<String>> methodMap = Map.ofEntries(
             Map.entry(CAR_NAMES, this::readCarNames),

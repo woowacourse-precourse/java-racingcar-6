@@ -5,7 +5,7 @@ import java.util.List;
 
 import static racingcar.view.inputview.SettingInputView.DELIMITER;
 
-public class InputValidator {
+public final class InputValidator {
     private InputValidator() {
     }
 

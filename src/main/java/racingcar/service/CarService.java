@@ -13,7 +13,7 @@ public class CarService {
     }
 
     public void moveAllCarByRandom() {
-        cars.getCars().forEach(car -> car.move(moveRule));
+        cars.cars().forEach(car -> car.move(moveRule));
     }
 
     public Cars findWinners() {

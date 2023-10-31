@@ -1,6 +1,6 @@
 package racingcar.view;
 
-public class Parameter {
+public final class Parameter {
     private Parameter() {
     }
 

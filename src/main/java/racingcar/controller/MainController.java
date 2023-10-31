@@ -10,7 +10,7 @@ import java.util.function.Function;
 import static racingcar.controller.ControlConfig.createSettingController;
 import static racingcar.view.Parameter.Output.CARS;
 
-public class MainController {
+public final class MainController {
     private final Map<GameState, Function<Object, Controller>> adapter;
     private final Map<String, String> parameter = new HashMap<>();
     private final Map<String, Object> model = new HashMap<>();

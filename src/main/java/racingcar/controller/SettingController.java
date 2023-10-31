@@ -14,7 +14,7 @@ import static racingcar.view.Parameter.Input.CAR_NAMES;
 import static racingcar.view.Parameter.Output.CARS;
 import static racingcar.view.inputview.SettingInputView.DELIMITER;
 
-public class SettingController implements Controller {
+final class SettingController implements Controller {
     private final SettingInputView settingInputView;
     private final SettingOutputView settingOutputView;
 

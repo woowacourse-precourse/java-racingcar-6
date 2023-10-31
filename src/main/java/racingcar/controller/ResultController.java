@@ -6,7 +6,7 @@ import racingcar.view.outputview.ResultOutputView;
 
 import java.util.Map;
 
-public class ResultController implements Controller {
+final class ResultController implements Controller {
     private final ResultOutputView resultOutputView;
     private final CarService carService;
 

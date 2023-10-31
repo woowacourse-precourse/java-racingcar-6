@@ -9,7 +9,7 @@ import racingcar.view.outputview.PlayOutputView;
 import racingcar.view.outputview.ResultOutputView;
 import racingcar.view.outputview.SettingOutputView;
 
-public class ControlConfig {
+final class ControlConfig {
     private ControlConfig() {
     }
 

@@ -6,7 +6,7 @@ import static java.lang.System.out;
 import static racingcar.view.Parameter.GAME_COUNT;
 import static racingcar.view.Parameter.Output.CARS;
 
-public class SettingOutputView implements OutputView {
+public final class SettingOutputView implements OutputView {
     private final Map<String, Runnable> methodMap = Map.ofEntries(
             Map.entry(CARS, printCarNamesText()),
             Map.entry(GAME_COUNT, printGameCount())
@@ -32,7 +32,6 @@ public class SettingOutputView implements OutputView {
     }
 
     private Runnable printGameCount() {
-        return ()
-                -> out.println("시도할 회수는 몇회인가요?");
+        return () -> out.println("시도할 회수는 몇회인가요?");
     }
 }

@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class LimitScoreMoveRule implements MoveRule {
+public final class LimitScoreMoveRule implements MoveRule {
     private final NumberGenerator numberGenerator;
 
     public LimitScoreMoveRule(NumberGenerator numberGenerator) {

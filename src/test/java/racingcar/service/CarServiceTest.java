@@ -29,7 +29,7 @@ class CarServiceTest {
         //given
         service.moveAllCarByRandom();
         //when
-        List<Integer> list = cars.getCars().stream().map(e -> (int) e.getDistance()).toList();
+        List<Integer> list = cars.cars().stream().map(e -> (int) e.getDistance()).toList();
         //then
         assertThat(list.stream().allMatch(e -> 0 <= e && e <= 1)).isTrue();
     }
@@ -41,7 +41,7 @@ class CarServiceTest {
         for (int i = 0; i < 10; i++) {
             service.moveAllCarByRandom();
         }
-        List<Integer> list = cars.getCars().stream().map(e -> (int) e.getDistance()).toList();
+        List<Integer> list = cars.cars().stream().map(e -> (int) e.getDistance()).toList();
         if (list.isEmpty()) {
             Assertions.fail();
         }
