@@ -83,8 +83,10 @@ public class RacingGame implements Game {
     private List<Participant> getWinner() {
         List<Participant> winners = new ArrayList<>();
         gameInfo.getParticipants().sort((o1, o2) -> o2.getForward() - o1.getForward());
+
         Participant first = gameInfo.getParticipants().get(0);
         winners.add(gameInfo.getParticipants().get(0));
+
         for(int numOfParticipant = 1; numOfParticipant < gameInfo.getParticipants().size(); numOfParticipant++) {
             if(gameInfo.getParticipants().get(numOfParticipant).getForward() < first.getForward()) {
                 break;
