@@ -1,32 +1,36 @@
 # 레이싱경주
+
 ## 기능요구사항
+
 - 입력사항 -- Input
-  - [x] N명의 자동차를 입력으로 player로 한다. -- inputPlayer
-  - [x] 이때 쉼표로 이름을 구분으로 저장한다. -- setPlayerName
-  - [x] 이름은 5자 이하로만 가능하다(Exception체크) -- validateName
-  - [x] 몇번 이동할지 입력한다 -- inputRound
-  - [x] 총 round수를 저장한다 -- setRound
-  - [x] 변수 : round(int), player(arrayList)
-  - [x] 각 변수를 출력하는 함수 구현 -- getPlayerName,getRound
+    - [x] N명의 자동차를 입력으로 player로 한다. -- inputPlayer
+    - [x] 이때 쉼표로 이름을 구분으로 저장한다. -- setPlayerName
+    - [x] 이름은 5자 이하로만 가능하다(Exception체크) -- validateName
+    - [x] 몇번 이동할지 입력한다 -- inputRound
+    - [x] 총 round수를 저장한다 -- setRound
+    - [x] 변수 : round(int), player(arrayList)
+    - [x] 각 변수를 출력하는 함수 구현 -- getPlayerName,getRound
 - 경주 -- Racing
-  - [x] 랜덤으로 0~9사이의 숫자를 뽑는다 -- selectNumber
-  - [x] 값이 4이상인지 확인후 전진하는지 확인한다 -- verifyNumber
-  - [x] 플레이어들을 출발선에 세운다(변수를 0으로 선언한다) -- setPlayerResult
-  - [x] 전진한다면 출발선에 세운 플레이어들을 한칸씩 전진시킨다 -- movePlayer
-  - [x] 변수 : recentRound(int), playerResult(arrayList<Integer>),goalPlayer(arrayList)
-  - [x] 우승자 찾기 -- goalPlayer
+    - [x] 랜덤으로 0~9사이의 숫자를 뽑는다 -- selectNumber
+    - [x] 값이 4이상인지 확인후 전진하는지 확인한다 -- verifyNumber
+    - [x] 플레이어들을 출발선에 세운다(변수를 0으로 선언한다) -- setPlayerResult
+    - [x] 전진한다면 출발선에 세운 플레이어들을 한칸씩 전진시킨다 -- movePlayer
+    - [x] 변수 : recentRound(int), playerResult(arrayList<Integer>),goalPlayer(arrayList)
+    - [x] 우승자 찾기 -- goalPlayer
 - 결과출력 -- Output
-  - [x] 실행결과는 매 라운드마다 유저이름 : 경기결과를 (-)의 개수로 출력한다 -- printRound
-  - [x] 모든 라운드가 종료된 이후 최종 우승자를 출력한다 -- printGaolPlayer
-  - [x] 변수 : 
+    - [x] 실행결과는 매 라운드마다 유저이름 : 경기결과를 (-)의 개수로 출력한다 -- printRound
+    - [x] 모든 라운드가 종료된 이후 최종 우승자를 출력한다 -- printGaolPlayer
+    - [x] 변수 :
 
 ## 추가요구사항
-- indent(인덴트, 들여쓰기) depth를 2까지만 구현해야한다. 
+
+- indent(인덴트, 들여쓰기) depth를 2까지만 구현해야한다.
     - ex) while문 안에 if문이 있으면 들여쓰기는 2이다.
 - 3항연산자를 쓰지않는다.
 - 함수를 한가지 기능만 하도록 만든다.
 
 ### 느낀점
+
 - 프로그래밍을 하는 시간보다 설계를 하는시간에 많은시간을 투자할수록 소모한 시간보다 훨씬 빠르게 프로그래밍이 가능해진다
 - 클래스에서 함수의 분리는 기능을 기준으로 최소단위로 구분하여 작성하였다. 하지만 그 클래스를 더 쪼개야하는지에 대한 의문이 든다.
 - 또한 클래스끼리 변수를 서로 사용하고 싶을때, 분리하여 설계를 했지만 이때 변순를 부르면 서로 강한결합이 되지않을까 라는 생각이들었고,
@@ -38,4 +42,6 @@
 - 이번주에는 하나의 클래스 작성이후 해당 클래스 테스트코드로 작성하여 문제점 파악이 더욱 빨랐고, 앞으로도
 - 지난주보다는 커밋의 반복이 나아졌지만, 수정을 하다보면 한기능후 커밋이아닌 두기능수정하고 커밋을 한것같다. 고쳐보기
 - 에러가 0글자일때도 발생하는데 모든 에러를 컨트롤 할 수 있는 환경으로 만드는게 좋다는걸 알았다.
-- 
+- 이번주는 클래스이름,함수이름,변수를 고정상수로 저장하기를 위한 리팩토링에 신경썼다.
+- 근데 함수자체에 포함되어있으면 함수의 의미로
+- 부정조건을 고치다가 길이는 0이하일수없다는 조건을 발견하고 수정함 장점
