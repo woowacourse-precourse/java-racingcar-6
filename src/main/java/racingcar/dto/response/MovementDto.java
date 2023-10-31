@@ -6,21 +6,19 @@ public class MovementDto {
     private static final String RAIL = "-";
     private static final String DELIMITER = " : ";
 
-    private final String movementMessage;
+    private final String carName;
+    private final Integer forwardCount;
 
     public MovementDto(final Car car) {
-        this.movementMessage = createMessage(car);
+        this.carName = car.getName();
+        this.forwardCount = car.getForwardCount();
     }
 
-    public String createMessage(final Car car) {
+    public String createMessage() {
         StringBuilder builder = new StringBuilder();
-        builder.append(car.getName())
+        builder.append(carName)
                 .append(DELIMITER)
-                .append(RAIL.repeat(car.getForwardCount()));
+                .append(RAIL.repeat(forwardCount));
         return builder.toString();
-    }
-
-    public String getMovementMessage() {
-        return movementMessage;
     }
 }

@@ -19,7 +19,7 @@ public class OutputView {
         MovementDto movementDto;
         for(Car car: carList) {
             movementDto = new MovementDto(car);
-            Writer.println(movementDto.getMovementMessage());
+            Writer.println(movementDto.createMessage());
         }
         Writer.println(" ");
     }
