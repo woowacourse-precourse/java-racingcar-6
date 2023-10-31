@@ -45,6 +45,6 @@ class RacingControllerTest {
         racingController.run();
 
         // then
-        assertThat(out.toString()).contains("pobi : ---", "woni : ---", "jun : ---", "최종 우승자 : pobi, crong, honux");
+        assertThat(out.toString()).contains("pobi : ---", "woni : ---", "jun : ---", "최종 우승자 : pobi, woni, jun");
     }
 }
