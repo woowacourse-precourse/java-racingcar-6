@@ -7,24 +7,33 @@ public class Referee {
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int THRESHOLD = 4;
 
-    public static void simulate(RacingCars racingcars) {
+    private static void moveRacingCarByThreshold(RacingCar racingCar, int randomNumber) {
+        if (randomNumber >= THRESHOLD) {
+            racingCar.move();
+        }
+    }
 
-        for (int i = 0; i < racingcars.size(); i++) {
+    public static void simulate(RacingCars racingCars) {
+        for (int i = 0; i < racingCars.size(); i++) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-            if (randomNumber >= THRESHOLD) {
-                racingcars.get(i).move();
-            }
+            moveRacingCarByThreshold(racingCars.get(i), randomNumber);
         }
     }
 
-    public static RacingCars calculateWinner(RacingCars racingcars) {
-        int farthest = racingcars.farthestDistance();
-        RacingCars result = new RacingCars();
-        for (int i = 0; i < racingcars.size(); i++) {
-            if (racingcars.get(i).getDistance() == farthest) {
-                result.add(racingcars.get(i));
-            }
+    private static void addWinnerByFarthestDistance(RacingCars winners, RacingCar racingCar, int farthest) {
+        if (racingCar.getDistance() == farthest) {
+            winners.add(racingCar);
         }
-        return result;
     }
+
+    public static RacingCars calculateWinners(RacingCars racingcars) {
+        int farthest = racingcars.farthestDistance();
+        RacingCars winners = new RacingCars();
+        for (int i = 0; i < racingcars.size(); i++) {
+            addWinnerByFarthestDistance(winners, racingcars.get(i), farthest);
+        }
+        return winners;
+    }
+
+
 }
