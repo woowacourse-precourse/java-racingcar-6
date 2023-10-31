@@ -3,9 +3,11 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car implements Comparable<Car> {
-    static final int NAME_LENGTH_MIN_LIMIT = 1;
-    static final int NAME_LENGTH_MAX_LIMIT = 5;
-    static final int MOVE_FORWARD_MIN_NUMBER = 4;
+    static private final String FORMAT = "%s : %s\n";
+    static private final String INDICATOR = "-";
+    static private final int NAME_LENGTH_MIN_LIMIT = 1;
+    static private final int NAME_LENGTH_MAX_LIMIT = 5;
+    static private final int MOVE_FORWARD_MIN_NUMBER = 4;
     private String name;
     private int moveCount;
 
@@ -31,8 +33,10 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    protected void saveResult(RaceResult raceResult) {
-        raceResult.append(name, moveCount);
+    protected String getMoveResult() {
+        String moveIndicator = INDICATOR.repeat(moveCount);
+        String moveResult = String.format(FORMAT, name, moveIndicator);
+        return moveResult;
     }
 
     @Override

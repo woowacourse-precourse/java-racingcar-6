@@ -35,13 +35,14 @@ public class Cars {
         }
     }
 
-    public RaceResult runSingleRace() {
-        RaceResult raceResult = new RaceResult();
+    public String runSingleRace() {
+        StringBuilder stringBuilder = new StringBuilder();
         for (Car car : cars) {
             car.randomMoveForward();
-            car.saveResult(raceResult);
+            String moveResult = car.getMoveResult();
+            stringBuilder.append(moveResult);
         }
-        return raceResult;
+        return stringBuilder.toString();
     }
 
     public WinnerData pickWinners() {

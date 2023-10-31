@@ -2,7 +2,6 @@ package racingcar.service;
 
 import racingcar.domain.Cars;
 import racingcar.domain.RaceCount;
-import racingcar.domain.RaceResult;
 import racingcar.domain.WinnerData;
 
 public class GameService {
@@ -28,9 +27,9 @@ public class GameService {
     }
 
     public String runSingleRace() {
-        RaceResult raceResult = getCars().runSingleRace();
+        String raceResult = getCars().runSingleRace();
         getRaceCount().up();
-        return raceResult.toString();
+        return raceResult;
     }
 
     public String getWinnerNames() {
