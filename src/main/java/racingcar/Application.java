@@ -42,6 +42,7 @@ public class Application {
         String input = readLine();
 
         if (!input.matches("^[1-9]\\d*$")) throw new IllegalArgumentException();
+
         return Integer.parseInt(input);
     }
 
