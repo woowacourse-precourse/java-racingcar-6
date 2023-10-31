@@ -60,7 +60,7 @@ public class OutputConsoleViewTest {
         String output = getOutput();
 
         //then
-        assertThat(output).isEqualTo(RACE_RESULT+ "\n");
+        assertThat(output).isEqualTo("\n" + RACE_RESULT+ "\n");
     }
 
     @Test
@@ -79,6 +79,7 @@ public class OutputConsoleViewTest {
             }
             sb.append("\n");
         }
+        sb.append("\n");
 
         //when
         outputConsoleView.printRaceStatus(raceStatuses);
