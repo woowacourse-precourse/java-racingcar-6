@@ -13,8 +13,4 @@ public class CarList {
             this.carList.add(new Car(carName));
         }
     }
-
-    public int getRound() {
-        return this.round;
-    }
 }
