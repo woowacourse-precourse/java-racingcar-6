@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import racingcar.model.RacingCarNames;
 import racingcar.util.RandomNumberGenerator;
 
 import java.util.ArrayList;
@@ -14,15 +13,13 @@ public class RacingCarGameService {
 
     public LinkedHashMap<String, Integer> initializeRacingProgressStatus(List<String> carNames) {
         LinkedHashMap<String, Integer> racingProgressStatus = new LinkedHashMap<>();
-        new RacingCarNames(carNames);
         for (String carName : carNames) {
             racingProgressStatus.put(carName, 0);
         }
         return racingProgressStatus;
     }
 
-    public void playSingleGame(List<String> carNames, LinkedHashMap<String, Integer> racingProgressStatus) {
-        RandomNumberGenerator racingNumberGenerator = new RandomNumberGenerator();
+    public void playSingleGame(RandomNumberGenerator racingNumberGenerator, List<String> carNames, LinkedHashMap<String, Integer> racingProgressStatus) {
         for (String carName : carNames) {
             int randomNumber = racingNumberGenerator.getRandomNumber();
             processMoveDecision(randomNumber, racingProgressStatus, carName);
@@ -35,14 +32,14 @@ public class RacingCarGameService {
         }
     }
 
-    public boolean isMoveForward(int randomNumber) {
+    private boolean isMoveForward(int randomNumber) {
         if (randomNumber >= MOVING_FORWARD_STANDARD) {
             return true;
         }
         return false;
     }
 
-    public void moveForward(LinkedHashMap<String, Integer> racingProgressStatus, String carName) {
+    private void moveForward(LinkedHashMap<String, Integer> racingProgressStatus, String carName) {
         racingProgressStatus.put(carName, racingProgressStatus.get(carName) + 1);
     }
 
