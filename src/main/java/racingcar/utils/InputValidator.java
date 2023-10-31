@@ -9,8 +9,8 @@ public class InputValidator {
 
     public static void validateCarNames(String[] carNames) {
         for (String carName : carNames) {
-            if (carName.length() > Constants.MAXIMUM_NAME_LENGTH) {
-                throw new IllegalArgumentException(Constants.NAME_LENGTH_EXCEED);
+            if (carName.length() > Constants.NAME_LENGTH_MAXIMUM) {
+                throw new IllegalArgumentException(Constants.EXCEED_NAME_LENGTH);
             }
         }
         if (containsDuplicate(carNames)) {
@@ -44,5 +44,11 @@ public class InputValidator {
             }
         }
         return false;
+    }
+
+    public static void validateCarNameWithComma(String input) {
+        if (!input.contains(",")) {
+            throw new IllegalArgumentException(Constants.INVALID_CAR_NAMES);
+        }
     }
 }
