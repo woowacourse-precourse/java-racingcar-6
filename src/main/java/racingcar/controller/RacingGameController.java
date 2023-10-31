@@ -18,14 +18,8 @@ public class RacingGameController {
     private Cars cars;
 
     public void startGame() {
-        List<String> carNameList = convertStringToList(inputCarsName());
-        List<Car> carList = carNameList.stream()
-                .map(Car::makeCarByName)
-                .collect(Collectors.toList());
-        cars = new Cars(carList);
-        String gameTryNumber = inputGameTryNumber();
-        gameCountValidation(gameTryNumber);
-        gameCount = Integer.parseInt(gameTryNumber);
+        setting();
+
         gameStartMessage();
         for (int i = 0; i < gameCount; i++) {
             for (Car car : cars.getCars()) {
@@ -38,4 +32,24 @@ public class RacingGameController {
         }
         OutputView.printWinners(cars.winner());
     }
+
+    private void setting() {
+        cars = new Cars(makeCarList());
+        gameCount = makeGameCount();
+    }
+
+    private List<Car> makeCarList() {
+        List<String> carNameList = convertStringToList(inputCarsName());
+        List<Car> carList = carNameList.stream()
+                .map(Car::makeCarByName)
+                .collect(Collectors.toList());
+        return carList;
+    }
+
+    private int makeGameCount() {
+        String gameTryNumber = inputGameTryNumber();
+        gameCountValidation(gameTryNumber);
+        return Integer.parseInt(gameTryNumber);
+    }
+
 }
