@@ -20,10 +20,7 @@ public class OutputView {
     }
 
     public void printAttempResult(List<Car> cars) {
-        for (Car car : cars) {
-            System.out.print(car.getName() + " : ");
-            System.out.println(printProgressBar(car.getProgress()));
-        }
+        cars.forEach(car -> System.out.println(car.toString()));
         System.out.println();
     }
 
