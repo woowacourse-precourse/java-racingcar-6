@@ -3,6 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class DistanceTest {
@@ -17,4 +18,18 @@ class DistanceTest {
         assertThatThrownBy(() -> new Distance(distance))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("올바른 자동차 위치를 반환한다.")
+    @Test
+    void getValue() {
+        // given
+        Distance distance = new Distance(3);
+
+        // when
+        int getDistance = distance.getValue();
+
+        // then
+        assertThat(getDistance).isEqualTo(3);
+    }
+
 }
