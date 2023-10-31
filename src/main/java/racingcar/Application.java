@@ -35,7 +35,7 @@ public class Application {
         }
 
         List<String> winners = findWinners(cars);
-        System.out.println("최종 우승자: " + String.join(", ", winners));
+        System.out.println("최종 우승자 : " + String.join(", ", winners));
     }
 
     private List<Car> initializeCars(List<String> carNames) {
@@ -87,13 +87,13 @@ class Car {
     private int position;
 
     public Car(String name) {
-            validateName(name);
+        validateName(name);
         this.name = name;
     }
 
     private void validateName(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
+            throw new IllegalArgumentException();
         }
     }
 
