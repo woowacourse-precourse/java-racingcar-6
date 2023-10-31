@@ -2,12 +2,12 @@ package racingcar.domain;
 
 public class Car {
     private String name;
-    private String movingDistance;
+    private int movingDistance;
 
     public Car() {
     }
 
-    public Car(String name, String movingDistance) {
+    public Car(String name, int movingDistance) {
         this.name = name;
         this.movingDistance = movingDistance;
     }
@@ -20,15 +20,18 @@ public class Car {
         this.name = name;
     }
 
-    public String getMovingDistance() {
+    public int getMovingDistance() {
         return movingDistance;
     }
 
-    public void setMovingDistance(String movingDistance) {
+    public void setMovingDistance(int movingDistance) {
         this.movingDistance = movingDistance;
     }
 
     public void move(int randomNumber) {
+        if (randomNumber >= 4) {
+            this.movingDistance++;
+        }
     }
 
     public String getStatus() {
