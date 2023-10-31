@@ -11,8 +11,14 @@ public class RacingGameController {
 
     // game start
     public void gameStart() throws IllegalArgumentException{
+        // 사용자 이름 입력
         racingGameView.printInputPlayersMsg();
-        racingGameService.initGame(Console.readLine());
+        String nameInput = Console.readLine();
+        // 게임 회수 입력
+        racingGameView.printInputGameTurnMsg();
+        String attempts = Console.readLine();
+
+        racingGameService.initGame(nameInput,attempts);
 
     }
     // game end
