@@ -1,18 +1,25 @@
 package racingcar.view;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 public class OutputViewTest extends NsTest {
     private static final String NAME_INPUT_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String ROUND_INPUT_MESSAGE = "시도할 횟수는 몇회인가요?";
     private static final String EXECUTION_RESULT_MESSAGE = "실행 결과";
     private static final String CAR_NAME = "car";
+    private static final String CAR_NAMES = "bora,dori,nana";
     private static final int MOVING_FORWARD = 4;
+    private static final int STOP = 3;
     private static final String DASH = "-";
     private static final String COLON = " : ";
 
@@ -53,6 +60,25 @@ public class OutputViewTest extends NsTest {
         OutputView.printCarNameAndPosition(car);
         assertThat(output()).contains(
                 car.getName() + COLON + DASH
+        );
+    }
+
+    @Test
+    @DisplayName("printWinners 함수 기능 테스트")
+    void 우승자_목록_출력_기능_테스트() {
+        //given
+        Cars cars = Cars.from(CAR_NAMES);
+        assertRandomNumberInRangeTest(() -> {
+            cars.moveCars();
+            List<String> winners = cars.findWinners();
+            OutputView.printWinners(winners);
+        }, MOVING_FORWARD, STOP, MOVING_FORWARD);
+        //then
+        assertThat(output()).contains(
+            cars.findWinners()
+        );
+        assertThat(output()).doesNotContain(
+                "dori"
         );
     }
 
