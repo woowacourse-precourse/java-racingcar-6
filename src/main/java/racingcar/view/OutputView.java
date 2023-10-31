@@ -26,4 +26,10 @@ public class OutputView {
         String position = OUTPUT_POSITION_FORMAT.repeat(car.getPosition());
         System.out.printf(OUTPUT_RESULT_FORMAT + "%n", car.getName(), position);
     }
+
+    public static void printRacingWinners(List<Name> winners) {
+        String[] names = winners.stream().map(Name::toString).toArray(String[]::new);
+        String winnerNames = String.join(OUTPUT_WINNER_DELIMITER, names);
+        System.out.printf(OUTPUT_WINNER_FORMAT, winnerNames);
+    }
 }

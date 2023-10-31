@@ -21,6 +21,8 @@ public class RacingController {
             race(judgment);
             repeatCount.disCount();
         }
+
+        raceDone(judgment);
     }
 
     private Cars setUpGame() {
@@ -36,5 +38,10 @@ public class RacingController {
     private void race(Judgment judgment) {
         List<Car> cars = judgment.judge();
         OutputView.printRacingStatus(cars);
+    }
+
+    private void raceDone(Judgment judgment) {
+        List<Name> winnerNames = judgment.award();
+        OutputView.printRacingWinners(winnerNames);
     }
 }
