@@ -36,7 +36,8 @@ public class Race {
 
         getNumberOfAttempts();
 
-
+        Car car = new Car();
+        car.run(count, names, cars);
 
    }
 }
