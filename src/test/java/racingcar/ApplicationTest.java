@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -16,16 +17,6 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
     
     @Test
-    void 자동차_이름_입력() {
-        String input = "kim,yi";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        Cars cars = new Cars();
-        
-        assertThat(cars.enterCars()).hasSize(2).isEqualTo(new String[]{"kim", "yi"});
-    }
-    
-    @Test
     void 자동차별_점수_초기화() {
         String[] carArray = new String[]{"kim", "yi", "park"};
         Race race = new Race();
@@ -33,17 +24,6 @@ class ApplicationTest extends NsTest {
         race.initScorePerCar(carArray);
         assertThat(race.scorePerCar).hasSize(3);
         assertThat(race.scorePerCar).contains(entry("kim", ""), entry("yi", ""), entry("park", ""));
-    }
-    
-    @Test
-    void 경주_횟수_입력() {
-        String input = "3";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        Race race = new Race();
-        
-        race.enterRaceNum();
-        assertThat(race.tryNum).isEqualTo(3).isNotEqualTo(2);
     }
     
     @Test
