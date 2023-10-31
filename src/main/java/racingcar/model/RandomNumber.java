@@ -10,13 +10,13 @@ public class RandomNumber {
         this.number = generateRandomNumber();
     }
 
+    public int getNumber() {
+        return number;
+    }
+
     private int generateRandomNumber() {
         int RANDOM_NUMBER_MIN = 0;
         int RANDOM_NUMBER_MAX = 9;
         return Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
-    }
-
-    public int getNumber() {
-        return number;
     }
 }
