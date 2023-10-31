@@ -1,4 +1,4 @@
-package racingcar.user.view;
+package racingcar.manager.view;
 
-public class UserView {
+public class ManagerView {
 }
