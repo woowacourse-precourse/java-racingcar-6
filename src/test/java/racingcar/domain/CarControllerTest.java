@@ -11,8 +11,7 @@ public class CarControllerTest {
     void 이동횟수_0일시_false로_변하는지_확인() {
         //given
         List<String> carNameList = List.of("pobi1", "pobi2", "pobi3");
-        CarFactory carFactory = new CarFactory();
-        Cars cars = carFactory.produceCars(carNameList);
+        Cars cars = CarFactory.produceCars(carNameList);
         CarController carController = new CarController();
         carController.setStatus(cars, 2);
 

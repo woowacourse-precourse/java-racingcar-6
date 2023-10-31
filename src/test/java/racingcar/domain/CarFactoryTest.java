@@ -16,8 +16,7 @@ public class CarFactoryTest {
         List<String> carNameList = List.of(carName);
 
         //when
-        CarFactory carFactory = new CarFactory();
-        Cars cars = carFactory.produceCars(carNameList);
+        Cars cars = CarFactory.produceCars(carNameList);
 
         //then
         assertThat(cars.getCarList()

@@ -11,17 +11,15 @@ public class RefereeTest {
     void 우승자_한명() {
         //given
         List<String> carNameList = List.of("pobi1", "pobi2", "pobi3");
-        CarFactory carFactory = new CarFactory();
-        Cars cars = carFactory.produceCars(carNameList);
+        Cars cars = CarFactory.produceCars(carNameList);
         CarController carController = new CarController();
         carController.setStatus(cars, 1);
-        Referee referee = new Referee();
 
         assertRandomNumberInRangeTest(() -> {
                     //when
                     carController.moveCars();
                     //then
-                    assertThat(referee.findWinner(cars)).isEqualTo("pobi1");
+                    assertThat(Referee.findWinner(cars)).isEqualTo("pobi1");
                 },
                 4, 3, 3
         );
@@ -31,17 +29,15 @@ public class RefereeTest {
     void 우승자_여러명() {
         //given
         List<String> carNameList = List.of("pobi1", "pobi2", "pobi3");
-        CarFactory carFactory = new CarFactory();
-        Cars cars = carFactory.produceCars(carNameList);
+        Cars cars = CarFactory.produceCars(carNameList);
         CarController carController = new CarController();
         carController.setStatus(cars, 1);
-        Referee referee = new Referee();
 
         assertRandomNumberInRangeTest(() -> {
                     //when
                     carController.moveCars();
                     //then
-                    assertThat(referee.findWinner(cars)).isEqualTo("pobi1, pobi2, pobi3");
+                    assertThat(Referee.findWinner(cars)).isEqualTo("pobi1, pobi2, pobi3");
                 },
                 4, 4, 4
         );
