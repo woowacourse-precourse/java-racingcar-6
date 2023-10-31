@@ -26,6 +26,7 @@ public class RacingGameStart {
         printWinners(racingCars);
     }
 
+
     private static RacingCar[] createRacingCars(String carNames) {
 
         String[] carNamesList = carNames.split(",");
@@ -40,9 +41,12 @@ public class RacingGameStart {
 
     public static RacingCar createRacingCar(String carName) {
 
-        checkNameLength(carName);
-        return new RacingCar(carName.trim(), 0);
+        String name = carName.trim();
+        checkNameLength(name);
+
+        return new RacingCar(name, 0);
     }
+
 
     private static void runRace(RacingCar[] racingCars, int num) {
 
