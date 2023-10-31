@@ -13,13 +13,13 @@ public class Application {
 
     private static void startGame(Game game) {
         // 게임 횟수
+        System.out.println("실행 결과");
         for(int gameCount = game.getGameCount(); gameCount >= 0; gameCount--){
-            // TODO : 차 별 랜덤 숫자 업데이트
-
-
+            // TODO : 차 별 랜덤 주행거리 업데이트
+            game.runGame();
         }
         // TODO : 최종 결과 출력
-
+        game.printFinalGameResult();
     }
 
     public static void readyGame(Game game){
