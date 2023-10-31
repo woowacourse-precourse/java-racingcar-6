@@ -74,6 +74,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 이름이_5자_이상인_경우(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException("pobiasd,javasdas","2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
     @Override
     public void runMain() {
