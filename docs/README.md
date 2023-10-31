@@ -67,7 +67,7 @@
 			- [O] 경주할 자동차가 2대 이상인지 확인
 		- isNullCarName()
 			- isCheckNull()
-				- [ ] 입력한 차 이름이 공백인지 확인
+				- [O] 입력한 차 이름이 공백인지 확인
 		- isSmallCarNameLength()
 			- isCheckRange()
 				- [ ] 5자 이하 이름인지 확인
