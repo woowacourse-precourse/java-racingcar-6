@@ -37,4 +37,8 @@ public class Racing {
         List<Car> cars = carNames.stream().map(Car::from).toList();
         return new Racing(cars);
     }
+
+    public void move() {
+        cars.forEach(Car::move);
+    }
 }
