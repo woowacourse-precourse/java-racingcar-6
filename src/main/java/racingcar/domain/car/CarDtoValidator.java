@@ -1,7 +1,7 @@
 package racingcar.domain.car;
 
 import java.util.function.Function;
-import racingcar.domain.utils.StringTrimmer;
+import racingcar.domain.utils.StringParser;
 
 public final class CarDtoValidator {
     private CarDtoValidator() {
@@ -23,7 +23,7 @@ public final class CarDtoValidator {
 
     static String[] getStrings(CarDto carDto) {
         String carNamesWithCommas = carDto.carNamesWithCommas();
-        String[] splittedCarNames = StringTrimmer.trimAndSplit(carNamesWithCommas);
+        String[] splittedCarNames = StringParser.trimAndSplit(carNamesWithCommas);
         return splittedCarNames;
     }
 

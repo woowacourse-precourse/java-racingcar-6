@@ -9,7 +9,7 @@
 - 입력에 대한 DTO, Validator와 Mapper 구조로 나누어보았습니다.
 - 입력에 대한 Validate 시, 함수형 인터페이스를 활용해보았습니다.
 - 인스턴스를 생성하지 않고 기능을 제공하는 클래스는 utils와 같이, finalize하고, 메서드들을 static으로 두었습니다.
-    - RaceView, DtoMapper, StringTrimmer, MoveStrategy
+    - RaceView, DtoMapper, StringParser, MoveStrategy
 - 정렬을 위한 CompareTo 재정의 구현 시, Integer.compare()를 사용하여, overflow 를 방지했습니다.
 - 만약 동순위의 자동차라면, 이름 순으로 정렬되게끔 Comparator 를 사용하였습니다.
 - 전진조건에 대해 MoveStrategy로 따로 분리하였습니다. 전진조건이 바뀐다면, MoveStrategy 만 수정하면 되도록하였습니다.
@@ -32,7 +32,6 @@
 - Car :: 자동차 인스턴스
 - CarDto :: Car에 대한 사용자 입력
 - CarDtoValidator :: CarDto 검증
-- CarDtoParser :: CarDto -> String[] 에 파싱
 - CarDtoMapper :: CarDto -> Car에 매핑
 
 ### Round
@@ -41,9 +40,10 @@
 - RoundDtoValidator :: RoundDto 검증
 - RoundDtoMapper :: RoundDto를 Long 타입의 round(시도횟수)에 매핑
 
-### MoveStrategy
+## Utils
 
-- MoveStrategy :: 전진조건 연산
+- [x] MoveStrategy :: 전진조건 연산
+- [x] StringParser :: String -> String[] 에 파싱
 
 # 기능 구현사항
 

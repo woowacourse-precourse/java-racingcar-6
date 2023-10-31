@@ -7,7 +7,6 @@
 - [x] Car :: 자동차 인스턴스
 - [x] CarDto :: Car에 대한 사용자 입력
 - [x] CarDtoValidator :: CarDto 검증
-- [x] CarDtoParser :: CarDto -> String[] 에 파싱
 - [x] CarDtoMapper :: CarDto -> Car에 매핑
 
 ## Round
@@ -16,9 +15,10 @@
 - [x] RoundDtoValidator :: RoundDto 검증
 - [x] RoundDtoMapper :: RoundDto를 Long 타입의 round(시도횟수)에 매핑
 
-## MoveStrategy
+## Utils
 
 - [x] MoveStrategy :: 전진조건 연산
+- [x] StringParser :: String -> String[] 에 파싱
 
 # 기능 구현 사항
 

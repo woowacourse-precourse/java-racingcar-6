@@ -1,4 +1,4 @@
-package racingcar.domain.race;
+package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
