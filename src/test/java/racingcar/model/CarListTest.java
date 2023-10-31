@@ -22,9 +22,4 @@ public class CarListTest {
         assertDoesNotThrow(() -> carList.isNameDupe(car));
     }
 
-//    @Test
-//    public void 중복있는이름() {
-//        Car car = new Car("test1");
-//        assertThrows(IllegalArgumentException.class, () -> carList.isNameDupe(car));
-//    }
 }
