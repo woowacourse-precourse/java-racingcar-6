@@ -26,7 +26,7 @@
     * [x] : 최종 우승자를 출력한다.
 
 * `RacingCarGameController` : model과 view가 상호작용하도록 돕는다.
-    * [] : RacingCarGame 에게 게임을 시작하라고 요청한다.
+    * [x] : RacingCarGame 에게 게임을 시작하라고 요청한다.
     * [] : view에게 입력하라는 메시지를 보낸다.
     * [] : view에게 출력하라는 메시지를 보낸다.
     * [] : 시도한 횟수가 0 이면 모두 우승자가 된다.
