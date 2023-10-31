@@ -11,7 +11,7 @@ public class RacingCarGame {
     public void run() {
         racingCarService.initCars();
         int round = racingCarService.initRound();
-        System.out.println("실행 결과");
+        System.out.print("실행 결과\n");
         for (int i = 0; i < round; i++) {
             racingCarService.move();
         }
