@@ -9,27 +9,33 @@ public class Application {
     private static final int MIN_RANDOM_VALUE = 4;
     public static void main(String[] args) {
 
-        String[] carList = InputView.inputParticipants();
+        HashMap<String, String> participants = InputView.inputParticipants();
         int round = InputView.inputRound();
 
-        HashMap<String, String> participants = convertStringToHashMap(carList);
+        startRace(participants, round);
+        OutputView.showFinalResultOf(participants);
+    }
 
+    private static void startRace(HashMap<String, String> participants, int round) {
         while (isRoundLeft(round)) {
-            for (String car : carList) {
+            for (String car : participants.keySet()) {
                 int i = Randoms.pickNumberInRange(0, 9);
                 if (i >= MIN_RANDOM_VALUE) {
-                    StringBuilder stringBuilder = new StringBuilder();
-                    String s = participants.get(car);
-                    stringBuilder.append(s).append("-");
-                    String string = stringBuilder.toString();
-                    participants.put(car, string);
+                    plusOneStep(participants, car);
                 }
             }
             OutputView.showEachRoundResultOf(participants);
             round -= 1;
         }
+    }
 
-        OutputView.showFinalResultOf(participants);
+    private static void plusOneStep(HashMap<String, String> participants, String car) {
+        String beforeRecord = participants.get(car);
+
+        StringBuilder st = new StringBuilder();
+        st.append(beforeRecord).append("-");
+
+        participants.put(car, st.toString());
     }
 
     private static HashMap<String, String> convertStringToHashMap(String[] carList) {
@@ -46,40 +52,49 @@ public class Application {
     public static class OutputView {
         public static void showEachRoundResultOf(HashMap<String, String> participants) {
             for (String car : participants.keySet()) {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(car);
-                stringBuilder.append(" : ");
-                stringBuilder.append(participants.get(car));
-                String eachCarResult = stringBuilder.toString();
-                System.out.println(eachCarResult);
+                String recordOfCar = participants.get(car);
+
+                StringBuilder sb = new StringBuilder();
+                sb.append(car).append(" : ").append(recordOfCar);
+
+                String eachResultOfCar = sb.toString();
+                System.out.println(eachResultOfCar);
             }
             System.out.println();
         }
 
         public static void showFinalResultOf(HashMap<String, String> participants) {
-            StringJoiner stringJoiner = new StringJoiner(",");
+
 
             Collection<String> values = participants.values();
             Integer max = Collections.max(values.stream().map(h -> h.length()).toList());
 
+            String finalWinner = getFinalWinner(participants, max);
+            System.out.println("최종 우승자 : " + finalWinner);
+        }
+
+        private static String getFinalWinner(HashMap<String, String> participants, Integer max) {
+            StringJoiner stringJoiner = new StringJoiner(",");
             for (String car : participants.keySet()) {
                 if (participants.get(car).length() == max) {
                     stringJoiner.add(car);
                 }
             }
-            System.out.println("최종 우승자 : " + stringJoiner.toString());
+            return stringJoiner.toString();
         }
     }
 
     public static class InputView {
         private static final int MAX_LENGTH = 4;
-        private static String[] inputParticipants() {
+        private static HashMap<String, String> inputParticipants() {
             System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
             String[] carList = readLine().split(",");
             if(Arrays.stream(carList).anyMatch(c -> c.length() > MAX_LENGTH))
                 throw new IllegalArgumentException();
 
-            return carList;
+            HashMap<String, String> participants = convertStringToHashMap(carList);
+
+            return participants;
         }
         private static int inputRound() {
             System.out.println("시도할 회수는 몇회인가요");
