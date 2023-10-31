@@ -3,11 +3,12 @@
 ## view
 
 ### InputView
-- receiveCarName - 사용자로부터 자동차 이름을 받아서 리턴함
-- receiveTryNumber - 사용자로부터 시도할 회수를 받아서 리턴함
+- receiveUserInput - 사용자 입력을 받아 리턴
 
 ### OutputView
 - printExecResult - "실행 결과"를 출력함
+- printInputCarName - "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"을 출력함
+- printInputTryNum - "시도할 회수는 몇회인가요?"을 출력함
 - printCarStatus - 자동차들의 현재까지 전진한 상태를 출력함
 - printWinner - 최종 우승자를 출력함
 
