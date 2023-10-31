@@ -33,6 +33,7 @@ public class GameController {
         // 시도할 횟수에 대한 입력
         tryCount = this.inputView.inputCounts();
         validCountNum = validator.getValidNumber(tryCount);
+        validator.limitPrint(validCountNum, carNameList.size());
         // 실행 결과
         this.outputView.printResultInit();
         runRace(validCountNum);
