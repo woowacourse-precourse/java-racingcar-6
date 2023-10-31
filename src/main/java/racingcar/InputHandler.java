@@ -13,4 +13,11 @@ public class InputHandler {
         }
         return input.split(",");
     }
+
+    public int convertToNumber(String input) {
+        if (!isRightTrialCount(input)) {
+            throw new IllegalArgumentException();
+        }
+        return Integer.parseInt(input);
+    }
 }
