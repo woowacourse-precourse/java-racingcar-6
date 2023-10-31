@@ -17,7 +17,7 @@ public class Application {
         DetermineWinnerController determineWinnerController = new DetermineWinnerController(inputView, outputView);
 
         MainController mainController = new MainController(
-                inputView, outputView, initializeCarController, moveCarController, determineWinnerController
+                initializeCarController, moveCarController, determineWinnerController
         );
         mainController.start();
     }

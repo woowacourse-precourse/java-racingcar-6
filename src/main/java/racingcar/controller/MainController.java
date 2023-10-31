@@ -8,18 +8,15 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class MainController {
-    private final InputView inputView;
-    private final OutputView outputView;
     private final InitializeCarController initializeCarController;
     private final MoveCarController moveCarController;
     private final DetermineWinnerController determineWinnerController;
 
-    public MainController(InputView inputView, OutputView outputView,
-                          InitializeCarController initializeCarController,
-                          MoveCarController moveCarController,
-                          DetermineWinnerController determineWinnerController) {
-        this.inputView = inputView;
-        this.outputView = outputView;
+    public MainController(
+            InitializeCarController initializeCarController,
+            MoveCarController moveCarController,
+            DetermineWinnerController determineWinnerController
+    ) {
         this.initializeCarController = initializeCarController;
         this.moveCarController = moveCarController;
         this.determineWinnerController = determineWinnerController;
