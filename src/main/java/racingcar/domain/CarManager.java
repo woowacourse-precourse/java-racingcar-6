@@ -8,20 +8,16 @@ public class CarManager {
 
     static HashMap<String, Integer> carScore = new HashMap<>();
     //static List<String> carOrder = new ArrayList<>(); 입력 받는 곳에
-    //static List<Car> cars;
+    private static List<Car> cars = new ArrayList<>();
 
     public List<Car> initCar (List<String> carNames) { //객체 생성
-        List<Car> cars = new ArrayList<>();
-
 
         for(String carName : carNames){
             cars.add(new Car(carName));
         }
 
-        System.out.println(cars.get(0).getCarName());
         return cars;
     }
-
 
     public List<String> winnerData(List<Car> carNames) { //우승 데이터를 반환
         List<String> winnerList = new ArrayList<>();
@@ -45,5 +41,17 @@ public class CarManager {
 
         return Collections.max(score);
     }
+
+    public void setCarRandomValue(){
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+
+        for(Car carName : cars){
+            if(randomNumberGenerator.isNumberThanEqualFour()){
+                carName.move(carName);
+            }
+        }
+    }
+
+
 
 }

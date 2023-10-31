@@ -11,18 +11,18 @@ public class MainCarGame {
     //CarManager로 데이터 넘기기
 
     CarManager carManager = new CarManager();
+    RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
     public static int ATTEMPT_COUNT = 0;
     public static List<String> carOrderList;
 
     public void gameStart(){
         setInput();
 
-
-        for (int i = ATTEMPT_COUNT; i >= 1; i--) {
-            carManager.initCar(carOrderList);
+        for(int i = 0; i<ATTEMPT_COUNT; i++){
+            System.out.println("-----"+i+"번째-------");
+            carManager.setCarRandomValue();
+            //중간 점수 출력
         }
-
-
 
 
     }
@@ -30,7 +30,8 @@ public class MainCarGame {
     private void setInput() { //+유효검사
         Validator validator = new Validator();
 
-        carOrderList = getCarNameInput(); //이거를 랜덤에 넘겨야된느데
+        carOrderList = getCarNameInput(); //List<String
+        carManager.initCar(carOrderList); //객체 생성
         validator.validatorForCar(carOrderList);
 
         ATTEMPT_COUNT = getAttemptCountInput();

@@ -5,6 +5,7 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.Validator;
+import racingcar.domain.RandomNumberGenerator;
 
 public class MainController {
 
@@ -27,7 +28,7 @@ public class MainController {
     }
 
     private void attemptWithRepeat() {
-        randomNumberGenerator.setUserRandomValue(CARS); //랜덤값 생성
+        //randomNumberGenerator.setUserRandomValue(CARS); //랜덤값 생성
         scorePrinter.printMidtermScore(); //중간 점수 출력
     }
 
