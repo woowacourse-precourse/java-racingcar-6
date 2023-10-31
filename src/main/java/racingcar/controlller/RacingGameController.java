@@ -31,8 +31,9 @@ public class RacingGameController {
 
     private void playAllRounds() {
         OutputController.printResultHeaderMessage();
-        while(!round.over()) {
+        while (round.hasNextRound()) {
             playOneRound();
+            round.plusOne();
         }
         OutputController.printWinnersMessage(pickWinners());
     }
@@ -42,7 +43,6 @@ public class RacingGameController {
             car.tryToMove();
         }
         OutputController.printForwardStateMessage(cars);
-        round.plusOne();
     }
 
     private Cars pickWinners() {
