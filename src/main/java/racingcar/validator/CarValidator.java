@@ -8,13 +8,13 @@ public class CarValidator {
 
     public static void validateNameLength(String input) {
         if (input.length() > CAR_NAME_LENGTH) {
-            throw new IllegalArgumentException(ErrorMessages.NAME_LENGTH.getMessage());
+            throw new IllegalArgumentException(ErrorMessages.NAME_LENGTH_LIMIT.getMessage());
         }
     }
 
     public static void validateNameUsingCommas(String input) {
         if (input.matches(".*[^a-zA-Z0-9,\\s].*")) {
-            throw new IllegalArgumentException(ErrorMessages.USING_COMMAS.getMessage());
+            throw new IllegalArgumentException(ErrorMessages.INVALID_INPUT_FORMAT.getMessage());
         }
     }
 }

@@ -6,7 +6,7 @@ public class RoundValidator {
 
     public static void validateRounds(String input) {
         if (isNotValidPositiveInteger(input)) {
-            throw new IllegalArgumentException((ErrorMessages.POSTIVE_INTEGER.getMessage()));
+            throw new IllegalArgumentException((ErrorMessages.INVALID_ROUND_COUNT.getMessage()));
         }
     }
 
