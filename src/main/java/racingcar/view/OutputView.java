@@ -34,6 +34,11 @@ public class OutputView {
         System.out.print(ENTER.getUnit());
     }
 
+    public void outputErrorMessage(String message) {
+        System.out.print(message);
+        System.out.print(ENTER.getUnit());
+    }
+
 
 
     private String createWinnerMessage(final List<Car> winners) {
