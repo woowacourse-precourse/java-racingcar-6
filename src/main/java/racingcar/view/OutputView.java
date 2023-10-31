@@ -20,22 +20,22 @@ public class OutputView {
     }
 
     public static void showScoreBoard(ScoreBoard scoreBoard) {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder roundScoresStringBuilder = new StringBuilder();
         for (int round = 1; round <= scoreBoard.getSize(); round++) {
             List<ScoreDto> score = scoreBoard.getScoreForRound(round);
-            score.forEach(carDto -> stringBuilder.append(carDto.getName())
+            score.forEach(scoreDto -> roundScoresStringBuilder.append(scoreDto.getName())
                     .append(SPACE + FIELD_SEPARATOR + SPACE)
-                    .append(DISTANCE_DASH.repeat(carDto.getDistance()))
+                    .append(DISTANCE_DASH.repeat(scoreDto.getDistance()))
                     .append(NEW_LINE));
-            stringBuilder.append(NEW_LINE);
+            roundScoresStringBuilder.append(NEW_LINE);
         }
-        System.out.print(stringBuilder);
+        System.out.print(roundScoresStringBuilder);
     }
 
     public static void showWinners(List<ScoreDto> winners) {
-        StringJoiner winnerNames = new StringJoiner(COMMA + SPACE);
-        winners.forEach(carDto -> winnerNames.add(carDto.getName()));
-        System.out.println(FINAL_WINNER + SPACE + FIELD_SEPARATOR + SPACE + winnerNames);
+        StringJoiner winnerNamesJoiner = new StringJoiner(COMMA + SPACE);
+        winners.forEach(carDto -> winnerNamesJoiner.add(carDto.getName()));
+        System.out.println(FINAL_WINNER + SPACE + FIELD_SEPARATOR + SPACE + winnerNamesJoiner);
     }
 
     private static void printEmptyLine() {
