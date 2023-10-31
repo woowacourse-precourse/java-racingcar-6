@@ -48,7 +48,6 @@ public class Car {
 			for(int j = 0; j < p.get(i); j++) {
 				System.out.print("-");
 			}
-			
 			System.out.println();
 		}
 	}
@@ -59,12 +58,12 @@ public class Car {
 
 		System.out.print("\n" + "최종 우승자 : ");
 		if (indexList.size() > 1)
-			printindexes(indexList);
+			printWinner(indexList);
 		else
 			System.out.println(carList[indexList.get(0)]);
 	}
 
-	private static void printindexes(List<Integer> index) {
+	private static void printWinner(List<Integer> index) {
 		int i = 0;
 		System.out.print(carList[i]);
 
