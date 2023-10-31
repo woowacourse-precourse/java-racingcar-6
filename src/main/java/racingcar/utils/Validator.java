@@ -38,6 +38,21 @@ public class Validator {
                 throw new IllegalArgumentException("자동차 이름은 영어로만 구성되어야 합니다.");
             }
         }
+    }
+
+
+    public static void checkTryCountNumber(String tryCount){
+        if (tryCount == null || tryCount.isEmpty()) {
+            throw new IllegalArgumentException("입력한 숫자는 1 이상이어야 합니다.");
+        }
+        if (!tryCount.matches("[0-9]+")) {
+            throw new IllegalArgumentException("숫자로만 구성된 문자열이 아닙니다.");
+        }
+
+        int number = Integer.parseInt(tryCount);
+        if (number < 1) {
+            throw new IllegalArgumentException("입력한 숫자는 1 이상이어야 합니다.");
+        }
 
     }
 }

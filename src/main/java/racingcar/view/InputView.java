@@ -18,6 +18,11 @@ public class InputView {
 
     public static int readCountNumber(){
         String number = Console.readLine();
+        return parseTryCountNumber(number);
+    }
+
+    private static int parseTryCountNumber(String number) {
+        Validator.checkTryCountNumber(number);
         return Integer.parseInt(number);
     }
 
