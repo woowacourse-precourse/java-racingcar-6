@@ -1,8 +1,5 @@
 package racingcar.validator;
 
-import org.mockito.internal.matchers.GreaterThan;
-import racingcar.constant.ErrorMessage;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,7 +14,7 @@ public class MoveNumberValidator {
         if (!isNumeric(moveNumber)) {
             throw new IllegalArgumentException(ENTER_ONLY_NUMBER);
         }
-        if (outOfRange(moveNumber)) {
+        if (isOutOfRange(moveNumber)) {
             throw new IllegalArgumentException(ENTER_PROPER_RANGE_NUMBER);
         }
     }
@@ -27,7 +24,7 @@ public class MoveNumberValidator {
         return matcher.matches();
     }
 
-    private static boolean outOfRange(String moveNumber) {
+    private static boolean isOutOfRange(String moveNumber) {
         int number = Integer.parseInt(moveNumber);
         return number <= 0 || number > 10000;
     }

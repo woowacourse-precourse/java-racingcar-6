@@ -1,9 +1,9 @@
 package racingcar.validator;
 
 import org.junit.jupiter.api.Test;
-import racingcar.RandomCar;
+import racingcar.domain.RandomCar;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RandomCarTest {
 
