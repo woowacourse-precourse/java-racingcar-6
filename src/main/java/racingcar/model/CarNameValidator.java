@@ -5,20 +5,14 @@ import java.util.List;
 import java.util.Set;
 
 public class CarNameValidator {
-    private final List<Car> carList;
 
-    public CarNameValidator(List<Car> cars) {
-        this.carList = cars;
-        carNameValidation();
+    public static void carNameValidation(List<Car> carList) {
+        isWrongNameSize(carList);
+        isDuplicateName(carList);
+        hasBlankOrEmpty(carList);
     }
 
-    public void carNameValidation() {
-        isWrongNameSize();
-        isDuplicateName();
-        hasBlankOrEmpty();
-    }
-
-    private void isWrongNameSize() {
+    private static void isWrongNameSize(List<Car> carList) {
         carList.stream()
                 .filter(car -> car.getName().length() > 5)
                 .findAny()
@@ -27,7 +21,7 @@ public class CarNameValidator {
                 });
     }
 
-    private void isDuplicateName() {
+    private static void isDuplicateName(List<Car> carList) {
         Set<String> checkName = new HashSet<>();
         carList.stream()
                 .map(Car::getName)
@@ -38,7 +32,7 @@ public class CarNameValidator {
                 });
     }
 
-    private void hasBlankOrEmpty() {
+    private static void hasBlankOrEmpty(List<Car> carList) {
         if (carList.stream().anyMatch(car -> car.getName().isBlank())) {
             throw new IllegalArgumentException("자동차의 이름에 공백이 들어가면 안됩니다.");
         }
