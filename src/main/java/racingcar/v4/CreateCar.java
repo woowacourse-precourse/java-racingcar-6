@@ -17,12 +17,8 @@ public class CreateCar {
             throw new IllegalArgumentException("자동차 이름은 1자 이상이어야 합니다.");
         }
     }
-    public List<String> splitCarNames(String inputCarNames) {
-        List<String> carNamesList = new ArrayList<>(Arrays.asList(inputCarNames.split(",")));
-        for (int i = 0; i < carNamesList.size(); i++) {
-            carNamesList.set(i, carNamesList.get(i).trim());
-        }
-        return carNamesList;
+    public List<String> splitCarNames(String carNames) {
+        return new ArrayList<>(Arrays.asList(carNames.split(",")));
     }
 
     public void validateCarNameLength(List carNamesList) {
