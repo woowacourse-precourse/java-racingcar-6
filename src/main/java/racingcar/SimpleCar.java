@@ -1,7 +1,7 @@
 package racingcar;
 
 import java.util.List;
-import racingcar.RandomNumberGenerator;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class SimpleCar {
     private String carName;
@@ -18,7 +18,7 @@ public class SimpleCar {
         }
     }
     public void goFoward() {
-        int randomNumber = RandomNumberGenerator.generateRandomNumber();
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
         if(randomNumber >= 4) this.carMovement += "-";
     }
     public String getCarName() {
