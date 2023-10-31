@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.util.Validator;
 
 public class Car {
-    private String name;
+    private final String name;
     private int currentPosition;
     private static final int CAN_MOVE_NUMBER = 4;
 
