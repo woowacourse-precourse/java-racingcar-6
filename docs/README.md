@@ -19,7 +19,7 @@
 
 - [x] 전체 게임 진행 (play) [RaceController]
 
-- [ ] List를 통해 racer 생성 + 이름 지정 (createRacers) [RacerManager]
+- [x] List를 통해 racer 생성 + 이름 지정 (createRacers) [RacerManager]
 
 
 - [ ] 입력 메시지 출력 (printInputMoveNumberMessage) [OutputView]
