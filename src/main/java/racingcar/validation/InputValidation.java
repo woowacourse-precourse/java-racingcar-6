@@ -7,6 +7,7 @@ public class InputValidation {
     private static final String IS_NOT_NUMBER_ERROR_MESSAGE = "숫자가 아닙니다.";
     private static final String IS_NOT_NUMBER_RANGE_ERROR_MESSAGE = "0보다 작을 수는 없습니다";
     private static final int LIMIT_CAR_NAME_RANGE = 5;
+    private static final int IS_NOT_NUMBER_RANGE = 1;
 
     public String[] checkedInputValidation(String carNames) {
         isNullText(carNames);
@@ -56,7 +57,7 @@ public class InputValidation {
     }
 
     private void isCheckedNumberRange(String number) {
-        if (Integer.parseInt(number) < 0) {
+        if (Integer.parseInt(number) < IS_NOT_NUMBER_RANGE) {
             throw new IllegalArgumentException(IS_NOT_NUMBER_RANGE_ERROR_MESSAGE);
         }
     }
