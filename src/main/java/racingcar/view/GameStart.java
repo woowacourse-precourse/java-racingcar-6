@@ -2,7 +2,7 @@ package racingcar.view;
 
 import racingcar.control.GameProcess;
 import racingcar.domain.RaceCar;
-import racingcar.string.MyConstans;
+import racingcar.string.PrintConstans;
 import racingcar.utill.Utill;
 
 import java.util.LinkedHashMap;
@@ -31,7 +31,7 @@ public class GameStart {
         for (Map.Entry<RaceCar, String> entry : raceCarMapOfCurrent.entrySet()) {
             nameOfRaceCar = entry.getKey().toString();
             MsgMoveStateOfRaceCar = String.valueOf(entry.getValue());
-            Utill.print(MyConstans.MSG_SITUATION_PROCESS_ONE_CAR(nameOfRaceCar, MsgMoveStateOfRaceCar));
+            Utill.print(PrintConstans.MSG_SITUATION_PROCESS_ONE_CAR(nameOfRaceCar, MsgMoveStateOfRaceCar));
         }
     }
 
@@ -49,7 +49,7 @@ public class GameStart {
      */
     public void printWinnerOfRaceGame() {
         String carOfWinnerFinal = gameProcess.knowFinalWinner();
-        Utill.print(MyConstans.MSG_NAME_WINNER_CAR_RACE(carOfWinnerFinal));
+        Utill.print(PrintConstans.MSG_NAME_WINNER_CAR_RACE(carOfWinnerFinal));
     }
 
     /**
@@ -70,7 +70,7 @@ public class GameStart {
      * 경주할 자동차 이름을 입력하는 출력을 보여주는 기능
      */
     public void printInputNameOfRaceCar() {
-        Utill.print(MyConstans.MSG_INPUT_NAME_RACE_CARS());
+        Utill.print(PrintConstans.MSG_INPUT_NAME_RACE_CARS());
         gameProcess.inputNameOfRaceCar();
         gameProcess.createRaceCars();
     }
@@ -79,7 +79,7 @@ public class GameStart {
      * 레이스 진행 시도할 횟수의 출력을 보여주는 기능
      */
     public void printInputNumOfTryCnt() {
-        Utill.print(MyConstans.MSG_INPUT_COUNT_TRY_GAME());
+        Utill.print(PrintConstans.MSG_INPUT_COUNT_TRY_GAME());
         gameProcess.inputNumOfGameAttempts();
     }
 
@@ -88,7 +88,7 @@ public class GameStart {
      */
     public void printMsgResultOfRun() {
         Utill.printNewLine();
-        Utill.print(MyConstans.MSG_PROCESS_RESULT());
+        Utill.print(PrintConstans.MSG_PROCESS_RESULT());
     }
 
     /**
