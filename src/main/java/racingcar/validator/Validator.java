@@ -24,15 +24,8 @@ public class Validator {
     }
 
     public String validateInputCount(String input) {
-        //숫자만 허용(0 ~ 99,999,999)
-        if (!Pattern.matches("^(?:[1-9]\\d{0,7}|0)$", input)) {
-            throw new IllegalArgumentException();
-        }
-
-        int count = Integer.parseInt(input);
-        if (count < 1 || count > maxExecutionCount) {
-            throw new IllegalArgumentException();
-        }
+        int count = checkIsNumber(input);
+        checkCorrectRange(count);
         return input;
     }
 
@@ -52,6 +45,22 @@ public class Validator {
                 .toList();
 
         if (list.size() != distinctList.size()) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private static int checkIsNumber(String input) {
+        int count;
+        try {
+            count = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+        return count;
+    }
+
+    private void checkCorrectRange(int count) {
+        if (count < 1 || count > maxExecutionCount) {
             throw new IllegalArgumentException();
         }
     }
