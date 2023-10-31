@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
-import racingcar.domain.Cars;
 
 import java.util.List;
 
@@ -19,16 +18,15 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE.getMessage());
     }
 
-    public void showPosition(Cars cars) {
-        List<Car> carList = cars.getCars();
+    public void showPosition(List<Car> cars) {
         stringBuilder = new StringBuilder();
 
-        for (Car car : carList) {
+        cars.forEach(car ->
             stringBuilder.append(car.getName())
                     .append(COLON.getMessage())
                     .append(makeDelimiter(car.getPosition()))
-                    .append(NEW_LINE.getMessage());
-        }
+                    .append(NEW_LINE.getMessage())
+        );
         stringBuilder.append(NEW_LINE.getMessage());
 
         System.out.print(stringBuilder);

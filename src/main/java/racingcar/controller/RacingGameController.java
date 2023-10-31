@@ -52,7 +52,7 @@ public class RacingGameController {
         int currentAttempt = 1;
         while (isContinue(currentAttempt)) {
             cars.move();
-            outputView.showPosition(cars);
+            outputView.showPosition(cars.getCars());
             currentAttempt++;
         }
     }
