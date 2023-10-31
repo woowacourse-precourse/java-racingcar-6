@@ -1,10 +1,11 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Car {
     final String name = "";
-    ArrayList<Integer> randomNumList;
+    List<Integer> randomNumList;
     int forward = 0;
     Car(String name) {
         randomNumList = new ArrayList<>();
