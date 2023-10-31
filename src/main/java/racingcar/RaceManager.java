@@ -27,17 +27,21 @@ public class RaceManager {
         setTryNumber();
     }
 
-    public void setCars() throws IllegalArgumentException {
+    public void setCars() {
         Util.print(MessageType.INPUT_CAR_NAMES);
         String carNames = Util.inputCarNames();
         Util.handleCarNamesException(carNames);
+
         Util.splitNamesAsStream(carNames, Constant.NAME_DELIMITER)
-        .forEach(name -> cars.add(new Car(name)));
+            .forEach(name -> cars.add(new Car(name)));
     }
 
     public void setTryNumber() {
         Util.print(MessageType.INPUT_TRY_NUMBER);
-        tryNumber = Util.inputTryNumber();
+        String tryNumberString = Util.inputTryNumber();
+        Util.handleTryNumberException(tryNumberString);
+
+        tryNumber = Integer.parseInt(tryNumberString);
     }
 
     public void start() {

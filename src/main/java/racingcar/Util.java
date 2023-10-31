@@ -19,12 +19,16 @@ public class Util {
         .forEach(Util::throwIfNameTooLong);
     }
 
+    public static void handleTryNumberException(String tryNumber) throws IllegalArgumentException {
+        throwIfInputCannotParsableAsInt(tryNumber);
+    }
+
     public static String inputCarNames() {
         return Console.readLine();
     }
 
-    public static int inputTryNumber() {
-        return Integer.parseInt(Console.readLine());
+    public static String inputTryNumber() {
+        return Console.readLine();
     }
 
     public static Stream<String> splitNamesAsStream(String input, String delimiter) {
