@@ -11,10 +11,11 @@ public class CarGroup {
         this.carGroup = carGroup;
     }
 
-    public void move() {
+    public boolean move() {
         for (Car car : carGroup) {
             car.move();
         }
+        return true;
     }
 
     public List<String> getWinnerList() {

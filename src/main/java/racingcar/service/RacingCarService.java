@@ -26,8 +26,9 @@ public class RacingCarService {
         return Integer.parseInt(round);
     }
 
-    public void moveCarGroup(CarGroup carGroup) {
+    public boolean moveCarGroup(CarGroup carGroup) {
         carGroup.move();
+        return true;
     }
 
     public List<String> getWinners(CarGroup carGroup) {

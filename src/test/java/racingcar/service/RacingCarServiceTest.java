@@ -26,10 +26,22 @@ class RacingCarServiceTest {
 
     @Test
     void getRoundNumber() {
+        // given
+        String round = "5";
+        // when
+        int roundNumber = racingCarService.getRoundNumber(round);
+        // then
+        assertEquals(roundNumber, 5);
     }
 
     @Test
     void moveCarGroup() {
+        // given
+        CarGroup carGroup = racingCarService.createCarGroup("test", ",");
+        // when
+        boolean isMoved = racingCarService.moveCarGroup(carGroup);
+        // then
+        assertTrue(isMoved);
     }
 
     @Test
