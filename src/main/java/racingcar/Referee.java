@@ -10,6 +10,7 @@ public class Referee {
 
         for (int i = 0; i < carList.size(); i++) {
             if (lastGameResult.get(i) >= maxScore) {
+
                 winners.add(carList.get(i));
             }
         }

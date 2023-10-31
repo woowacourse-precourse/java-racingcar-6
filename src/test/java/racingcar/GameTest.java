@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.io.ByteArrayOutputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
@@ -13,24 +14,28 @@ public class GameTest {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
+
     @BeforeEach
     public void setUpForTest() {
         System.setOut(new PrintStream(outputStreamCaptor));
     }
 
     @Test
-    void testPrintRaceResult() {
+    void testPrintRaceResultAndWinners() {
         Game testRace = new Game();
         ArrayList<Integer> testRaceResult = new ArrayList<>();
         testRaceResult.add(2);
         testRaceResult.add(4);
-        ArrayListConverter listConverter = new ArrayListConverter();
-        ArrayList<String> testCars = listConverter.carNameStringToArrayList("pobi, jun");
+        Player player = new Player();
+        ArrayList<String> testCars = player.createPlayerCarList("pobi, jun");
 
         testRace.printTotalLapResult(testRaceResult, testCars);
 
-        assertThat(outputStreamCaptor.toString()).contains("pobi : --", "jun : ----");
+        Referee referee = new Referee();
+        ArrayList<String> winners = referee.compare(testRaceResult, testCars);
+        referee.printWinners(winners);
 
+        assertThat(outputStreamCaptor.toString()).contains("pobi : --", "jun : ----", "최종 우승자 : jun");
     }
 
     @AfterEach
