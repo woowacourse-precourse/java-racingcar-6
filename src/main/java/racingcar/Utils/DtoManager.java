@@ -6,6 +6,7 @@ import racingcar.Dto.CarDto;
 import racingcar.Dto.RacingCarInfoDto;
 
 public class DtoManager {
+    private static boolean won = false;
     private final RacingCarInfoDto racingCarInfoDto = new RacingCarInfoDto();
     private final List<CarDto> carDtoList = new ArrayList<>();
 
@@ -16,9 +17,11 @@ public class DtoManager {
     public void setRacingCarDto(List<String> inputCarNames) {
         racingCarInfoDto.setCarNames(inputCarNames);
     }
+
     public int getRacingCount() {
         return racingCarInfoDto.getRacingCount();
     }
+
     public void setRacingCount(int racingCount) {
         racingCarInfoDto.setRacingCount(racingCount);
     }
@@ -31,15 +34,23 @@ public class DtoManager {
         return racingCarInfoDto.getRacingCarCount();
     }
 
-    public void newRacingCar(String carName) {
-        carDtoList.add(new CarDto(carName));
+    public void newRacingCar(String carName, int index) {
+        carDtoList.add(new CarDto(carName, index));
     }
 
     public int getRacingCarInstanceCount() {
         return carDtoList.size();
     }
 
-    public CarDto getCarDto(int index) {
-        return carDtoList.get(index);
+    public boolean isWon() {
+        return won;
+    }
+
+    public void setWon(boolean won) {
+        this.won = won;
+    }
+
+    public CarDto getCarDtoByIndex(int index) {
+        return carDtoList.get(index - 1);
     }
 }

@@ -1,5 +1,6 @@
 package racingcar.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.Dto.CarDto;
 import racingcar.Model.InputCarNameValidator;
@@ -10,6 +11,7 @@ import racingcar.Utils.DtoManager;
 public class RacingCarService {
     private static InputCarNameValidator nameValidator = InputCarNameValidator.getInstance();
     private static InputCountValidator countValidator = InputCountValidator.getInstance();
+    private static final int OVER_NUMBER = 4;
     private static DtoManager dtoManager = new DtoManager();
 
     public static void userInputRacingCar(String userInput) {
@@ -24,15 +26,86 @@ public class RacingCarService {
     }
 
     public void initGame() {
-        for (int i = 0; i < dtoManager.getRacingCarCount(); i++) {
-            dtoManager.newRacingCar(dtoManager.getRacingCarDto().get(i));
-//            System.out.println(dtoManager.getCarDtoList().get(i).getCarName());
-//            System.out.println(dtoManager.getCarDtoList().get(i).getPosition());
+        for (int i = 0; i < getRacingCarCount(); i++) {
+            dtoManager.newRacingCar(dtoManager.getRacingCarDto().get(i), i + 1);
         }
     }
 
     public void play() {
-        // dto 마다 다르게
-        int randomNumber = RandomPickNumber.getRandomPickNumber();
+        // cars playing (random number)
+        List<Integer> plusCars = carPlaying();
+        // set cars position
+        setCarPosition(plusCars);
+        // set cars Won state
+        isCarState(plusCars);
+    }
+
+    private List<Integer> carPlaying() {
+        List<Integer> plusCars = new ArrayList<>();
+        for (int i = 0; i < getRacingCarCount(); i++) {
+            isPlusCar(getCarDtoList().get(i), plusCars);
+        }
+        return plusCars;
+    }
+
+    private void isPlusCar(CarDto carDto, List<Integer> plus) {
+        if (getRandomNumber() >= OVER_NUMBER) {
+            plus.add(carDto.getIndex());
+        }
+    }
+
+    private void setCarPosition(List<Integer> plusCars) {
+        for (int i = 0; i < plusCars.size(); i++) {
+            plusPostion(plusCars.get(i));
+        }
+    }
+
+    private void plusPostion(int index) {
+        getCarDtoByIndex(index).plusPosition();
+    }
+
+    private void isCarState(List<Integer> plusCars) {
+        for (int i = 0; i < plusCars.size(); i++) {
+            isCarWin(plusCars.get(i));
+        }
+    }
+
+    private void isCarWin(int index) {
+        if (getPositionByIndex(index) >= getRacingCount()) {
+            getCarDtoByIndex(index).setWon(true);
+            setWon(true);
+        }
+    }
+
+    private int getPositionByIndex(int index) {
+        return getCarDtoByIndex(index).getPosition();
+    }
+
+    private int getRacingCount() {
+        return dtoManager.getRacingCount();
+    }
+
+    private CarDto getCarDtoByIndex(int index) {
+        return dtoManager.getCarDtoByIndex(index);
+    }
+
+    private void setWon(boolean won) {
+        dtoManager.setWon(won);
+    }
+
+    public boolean isWon() {
+        return dtoManager.isWon();
+    }
+
+    public List<CarDto> getCarDtoList() {
+        return dtoManager.getCarDtoList();
+    }
+
+    private int getRacingCarCount() {
+        return dtoManager.getRacingCarCount();
+    }
+
+    public static int getRandomNumber() {
+        return RandomPickNumber.getRandomPickNumber();
     }
 }
