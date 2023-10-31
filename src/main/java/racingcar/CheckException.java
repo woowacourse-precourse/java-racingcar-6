@@ -15,7 +15,7 @@ public class CheckException {
             return Integer.parseInt(move);
         }
         catch (NumberFormatException e){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Input should be convert to number");
         }
     }
 
@@ -24,7 +24,7 @@ public class CheckException {
             return num;
         }
         else{
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Input should be a positive number");
         }
     }
 }
