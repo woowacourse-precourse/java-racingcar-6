@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.constants.GameConstants;
 import racingcar.service.RacingCarGameService;
 import racingcar.domain.Car;
 import racingcar.domain.GameResult;
@@ -23,7 +24,7 @@ public class RacingCarGameController {
         String input = GameInputView.requestInput(GameInputMessage.INPUT_CAR_NAME);
 
         // 2.게임 데이터를 다룰 List 생성
-        List<Car> carList = Arrays.stream(input.split(","))
+        List<Car> carList = Arrays.stream(input.split(GameConstants.COMMA_SEPARATOR))
                 .peek(GameValidator::validationCarNameLength)
                 .map(Car::registerCar)
                 .collect(Collectors.toList());

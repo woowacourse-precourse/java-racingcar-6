@@ -1,5 +1,7 @@
 package racingcar.validator;
 
+import racingcar.constants.GameConstants;
+
 public class GameValidator {
     public static void validationCarNameLength(String carName) {
         if (carName.length() > 5) {
@@ -8,7 +10,7 @@ public class GameValidator {
     }
 
     public static void validationMoveCntIsNumber(String moveCnt) {
-        if (!moveCnt.matches("-?\\d+")) {
+        if (!moveCnt.matches(GameConstants.ONLY_NUMBER_REGEX_PATTERN)) {
             throw new IllegalArgumentException("숫자만 입력 가능합니다.");
         }
     }

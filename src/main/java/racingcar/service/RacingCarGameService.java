@@ -2,6 +2,7 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
+import racingcar.constants.GameConstants;
 import racingcar.domain.Car;
 import racingcar.domain.GameResult;
 
@@ -11,7 +12,10 @@ public class RacingCarGameService {
         return carList.stream()
                     .map(
                         car -> {
-                            if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                            if (Randoms.pickNumberInRange(
+                                    GameConstants.GAME_RANDOM_RANGE_MIN_VALUE,
+                                    GameConstants.GAME_RANDOM_RANGE_MAX_VALUE
+                            ) >= GameConstants.GAME_ADVANCE_STANDARD_VALUE) {
                                 return Car.moveForwardCar(car);
                             }
                             return car;
