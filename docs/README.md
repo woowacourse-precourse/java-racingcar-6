@@ -9,7 +9,8 @@
 
 ## RacingCarGame
 - run() : RacingCar 전체 프로세스 동작
-- inputNames() : String값을 받아서 , 를 기준으로 분할한 뒤, 각각의 이름을 가진 Car 인스턴스를 cars 리스트에 추가함
+- splitInputNames() : String값을 받아서 , 를 기준으로 분할하고 String형 배열로 반환
+- inputNames(String[]) : String배열을 받아서 각 요소를 이름으로 갖는 Car 인스턴스를 cars 리스트에 추가함
 - inputTryLimit() : 시도 횟수 입력후 tryLimit 멤버변수에 저장
 - raceForOneTry() : 1번의 시도의 결과값을 String형 변수로 반환
 - race() : 시도횟수의 결과값을 String형 변수로 반환
