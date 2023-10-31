@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -11,12 +10,12 @@ public class Game {
 
     private final int moveCount;
 
-    public Game(String input, int moveCount) {
-        this.racerList = gameUtil.inputToNameList(input)
+    public Game() {
+        this.racerList = gameUtil.inputToNameList(gameUtil.getCarName())
                 .stream()
                 .map(Racer::new)
                 .toList();
-        this.moveCount = moveCount;
+        this.moveCount = gameUtil.getMoveCount();
     }
 
     public int getRandomNumber(){
@@ -40,5 +39,22 @@ public class Game {
                 .map(racer -> racer.getScore().length())
                 .max(Integer::compareTo)
                 .get();
+    }
+
+    public void gameStart(){
+        System.out.println("실행 결과");
+        for (int i = 0; i < moveCount; i++) {
+            proceedOneRound();
+        }
+        gameUtil.printWinner(getWinner());
+    }
+
+    public void proceedOneRound(){
+        for(Racer racer : racerList){
+            if(canMove(getRandomNumber())){
+                racer.move();
+            }
+        }
+        gameUtil.printEachResult(racerList);
     }
 }
