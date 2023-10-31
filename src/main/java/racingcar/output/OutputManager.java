@@ -2,6 +2,7 @@ package racingcar.output;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 import racingcar.domain.CarDto;
 import racingcar.domain.Winner;
 
