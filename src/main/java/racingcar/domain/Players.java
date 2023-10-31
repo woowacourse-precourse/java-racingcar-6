@@ -1,22 +1,17 @@
-package racingcar.dto;
+package racingcar.domain;
 
 import java.util.Collections;
 import java.util.List;
-import racingcar.domain.Player;
 
-public class PlayersDto {
+public class Players {
     private final List<Player> players;
 
-    public PlayersDto(final List<Player> players) {
+    public Players(final List<Player> players) {
         this.players = players;
     }
 
-    public static PlayersDto from(final List<Player> players) {
-        return new PlayersDto(players);
-    }
-
-    public List<Player> getPlayers() {
-        return Collections.unmodifiableList(players);
+    public static Players from(final List<Player> players) {
+        return new Players(players);
     }
 
     public List<String> getWinnerList() {
@@ -24,5 +19,9 @@ public class PlayersDto {
                 .filter(Player::isWinner)
                 .map(player -> player.getPlayerName().getValue())
                 .toList();
+    }
+
+    public List<Player> getPlayers() {
+        return Collections.unmodifiableList(players);
     }
 }
