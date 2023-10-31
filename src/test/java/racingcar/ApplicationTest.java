@@ -4,13 +4,18 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Race;
+import racingcar.exeption.CustomizedException;
+
+import java.io.ByteArrayInputStream;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static racingcar.domain.Race.numberOfGameRound;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -48,6 +53,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
                 );
    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

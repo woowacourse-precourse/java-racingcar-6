@@ -32,4 +32,10 @@ public class CustomizedException {
             }
         }
     }
+
+    public static void zeroOrMinusException(Integer countOfGame){
+        if(countOfGame<=0){
+            throw new IllegalArgumentException("양수를 입력해주세요.");
+        }
+    }
 }

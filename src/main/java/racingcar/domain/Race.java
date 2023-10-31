@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.exeption.CustomizedException;
 
 import java.util.*;
 
@@ -9,6 +10,7 @@ public class Race {
     public static Integer numberOfGameRound(){
         System.out.println("시도할 횟수는 몇회인가요?");
         Integer countOfGame = Integer.valueOf(Console.readLine());
+        CustomizedException.zeroOrMinusException(countOfGame);
         return countOfGame;
     }
     public static void playingMainGame(){
