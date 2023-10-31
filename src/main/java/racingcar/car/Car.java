@@ -36,6 +36,6 @@ public class Car {
     }
 
     public void moveForwardOrNot(int random) {
-        if (random > CAN_MOVE_OVER_NUMBER) distance++;
+        if (random >= CAN_MOVE_OVER_NUMBER) distance++;
     }
 }
