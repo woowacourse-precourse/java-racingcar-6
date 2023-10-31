@@ -10,7 +10,7 @@ import util.NumberGenerator;
 
 public class CarRacingGame {
     private LinkedHashMap<String, StringBuilder> carName = null;
-    static int GO_NUMBER = 4;
+    private final static int GO_NUMBER = 4;
 
     public CarRacingGame(LinkedHashMap<String, StringBuilder> carName) {
         this.carName = carName;
