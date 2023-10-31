@@ -19,4 +19,12 @@ public class racingCar {
         randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
         if (randomNumber >= FORWARD_POINT) forwardCount++;
     }
+
+    public String getRacingCarName() {
+        return racingCarName;
+    }
+
+    public Integer getForwardCount() {
+        return forwardCount;
+    }
 }

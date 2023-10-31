@@ -5,6 +5,8 @@ import racingcar.exception.InvalidRacingCarNameLengthException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class racingCars {
     private static int racingCarNumber;
@@ -43,5 +45,11 @@ public class racingCars {
         for (int i = 0; i < racingCarNumber; i++) {
             racingCarList.get(i).randomRace();
         }
+    }
+
+    public Map<String, Integer> getRacingCarRelayResult() {
+        Map<String, Integer> racingCarRelayResult = racingCarList.stream()
+                .collect(Collectors.toMap(racingCar::getRacingCarName, racingCar::getForwardCount));
+        return racingCarRelayResult;
     }
 }
