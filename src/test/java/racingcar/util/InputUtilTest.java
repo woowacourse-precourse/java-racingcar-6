@@ -96,6 +96,21 @@ public class InputUtilTest {
     }
 
     @Test
+    @DisplayName("자동차 입력 시, 2대 이하로 입력한 경우")
+    public void 자동차_갯수_입력_테스트() throws Exception {
+        // given
+        String names = "poni";
+
+        // when
+        List<String> nameList = inputUtil.splitString(names);
+
+        // then
+        Assertions.assertThatThrownBy(() -> inputUtil.checkCarCount(nameList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차를 2대 이상 입력해주세요.");
+    }
+
+    @Test
     @DisplayName("횟수 입력 시, 1이하의 수를 입력한 경우")
     public void 횟수_입력_1이하_확인() throws Exception {
         // given

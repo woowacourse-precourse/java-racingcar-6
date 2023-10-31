@@ -20,6 +20,7 @@ public class InputUtil {
     public List<String> getCarNames() {
         String input = input();
         List<String> names = splitString(input);
+        checkCarCount(names);
         names.forEach(this::validateCarName);
         return checkDuplicationName(names);
     }
@@ -59,6 +60,13 @@ public class InputUtil {
             return Integer.parseInt(input);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("숫자만 입력해주세요.");
+        }
+    }
+
+    public void checkCarCount(List<String> names) {
+        int size = names.size();
+        if (size <= 1) {
+            throw new IllegalArgumentException("자동차를 2대 이상 입력해주세요.");
         }
     }
 
