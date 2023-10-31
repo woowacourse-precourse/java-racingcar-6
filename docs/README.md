@@ -4,7 +4,7 @@
 
 1. 모든 변수는 private
     1. 모든 변수는 SET/GET으로만 접근 가능하다.
-2. 모든 메서드는 public
+2. 모든 메서드는 public & private
 3. indent(인덴트, 들여쓰기) depth 3 미만이다.
     1. ex) while문 안에 if 문 들어있으면 depth는 2
     2. 메서드를 분리해보기
@@ -48,7 +48,6 @@
 
 ## 🚦 Game Manager `Class GameManager`
 
-- 변수
 - 메서드
   - `List<String> inputListCarsName()`
     - 경주 자동차 이름 입력받기 ✔
@@ -69,6 +68,11 @@
 
 ## 🚧 Validator `Class Validator`
 예외 처리 검증
+- 변수
+  - `int CAR_NAME_MIN`
+    - 차 이름 최소 길이
+  - `int CAR_NAME_MAX`
+    - 차 이름 최대 길이
 - 메서드
   - `void checkListCarNames(List<String> carsName)`
     - list 형태 예외처리 ✔
