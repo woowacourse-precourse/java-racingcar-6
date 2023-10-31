@@ -77,4 +77,20 @@ public class UtilsTest {
         assertThat(Arrays.equals(result1,rightResult)).isTrue();
         assertThat(Arrays.equals(result2,rightResult)).isTrue();
     }
+
+    @Test
+    void 두_배열이_동일하면_통과() {
+        //given
+        String[] case1 = {"one, two, three"};
+        String[] case2 = {"one, two, three"};
+        String[] case3 = {"one, two, three, four"};
+
+        //when
+        boolean result1 = Utils.isEqualArray(case1, case2);
+        boolean result2 = Utils.isEqualArray(case2, case3);
+
+        //then
+        assertThat(result1).isTrue();
+        assertThat(result2).isFalse();
+    }
 }
