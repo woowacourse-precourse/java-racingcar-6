@@ -3,10 +3,11 @@ package racingcar.console;
 import static racingcar.Execute.carRace;
 import static racingcar.racingGame.Racing.getPosition;
 import static racingcar.racingGame.Racing.getWinner;
+import static racingcar.resource.ConsoleRes.FINAL_WINNER;
 
 public class OutPut {
     public static void printWinner(){
-        System.out.println("최종 우승자 : " + getWinner());
+        System.out.println(FINAL_WINNER + getWinner());
     }
     public static void printCarMap(){
         for (String carName : carRace.keySet()) {

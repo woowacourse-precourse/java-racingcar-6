@@ -1,7 +1,5 @@
 package racingcar.racingGame;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,9 +7,9 @@ import java.util.List;
 import static racingcar.Execute.carRace;
 import static racingcar.Execute.raceTime;
 import static racingcar.console.OutPut.printCarMap;
+import static racingcar.resource.ConsoleRes.HYPHEN;
 import static racingcar.util.Checker.isStraight;
 import static racingcar.util.Utils.getStringFormat;
-
 public class Racing {
 
     public static void playGame(){
@@ -48,7 +46,7 @@ public class Racing {
     public static String getPosition(Long position){
         StringBuilder carPosition = new StringBuilder();
         for(int i = 0; i < position; i++){
-            carPosition.append("-");
+            carPosition.append(HYPHEN);
         }
         return carPosition.toString();
     }

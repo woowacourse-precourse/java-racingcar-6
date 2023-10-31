@@ -2,8 +2,7 @@ package racingcar.util;
 
 import java.util.List;
 
-import static racingcar.util.Checker.validateCarName;
-import static racingcar.util.Checker.validateInput;
+import static racingcar.util.Checker.*;
 
 public class Utils {
 
@@ -24,7 +23,7 @@ public class Utils {
         String[] names = input.split(",");
 
         for (String name : names) {
-            validateCarName(name);
+            isValidName(name);
         }
         return names;
     }
@@ -32,7 +31,7 @@ public class Utils {
     public static String setFormat(String input){
         String output = "";
         output = removeGap(input);
-        validateInput(input);
+        isValidInput(input);
         return output;
     }
     public static String removeGap(String input){

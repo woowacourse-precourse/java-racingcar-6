@@ -4,32 +4,30 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.Objects;
 
-public class Checker {
-    public static void validateInput(String input) {
-        isValidInput(input);
-    }
-    public static void validateCarName(String name) {
-        isBelowFiveWord(name);
-        isNull(name);
-    }
+import static racingcar.resource.ConsoleRes.*;
 
+public class Checker {
     public static void isValidInput(String input){
         if(input.charAt(0) == ','){
-            throw new IllegalArgumentException("잘못된 입력입니다.");
+            throw new IllegalArgumentException(WRONG_INPUT);
         }
 
         if(input.charAt(input.length() - 1) == ','){
-            throw new IllegalArgumentException("잘못된 입력입니다.");
+            throw new IllegalArgumentException(WRONG_INPUT);
         }
+    }
+    public static void isValidName(String name) {
+        isBelowFiveWord(name);
+        isNull(name);
     }
     static void isNull(String name){
         if(Objects.equals(name, "")){
-            throw new IllegalArgumentException("이름이 비어있습니다.");
+            throw new IllegalArgumentException(EMPTY_NAME);
         }
     }
     static void isBelowFiveWord(String name) {
         if (5 < name.length()){
-            throw new IllegalArgumentException("자동차의 이름이 5글자 이상입니다.");
+            throw new IllegalArgumentException(NAME_OVER_FIVE);
         }
     }
 

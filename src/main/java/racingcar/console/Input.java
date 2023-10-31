@@ -4,10 +4,12 @@ import camp.nextstep.edu.missionutils.Console;
 import static racingcar.Execute.carNames;
 import static racingcar.Execute.carRace;
 import static racingcar.Execute.raceTime;
+import static racingcar.resource.ConsoleRes.*;
 import static racingcar.util.Utils.*;
 
 public class Input {
     public static void inputCarName() {
+        System.out.println(CAR_NAME_INPUT_MESSAGE);
         String input = Console.readLine();
 
         input = setFormat(input);
@@ -18,12 +20,13 @@ public class Input {
         }
     }
     public static void inputRaceTime() {
+        System.out.println(NUMBER_INPUT_MESSAGE);
         String input = Console.readLine();
 
         try{
             raceTime = Long.parseLong(input);
         }catch (Exception e){
-            throw new IllegalArgumentException("잘못된 횟수 입력입니다.");
+            throw new IllegalArgumentException(WRONG_NUMBER);
         }
     }
 }
