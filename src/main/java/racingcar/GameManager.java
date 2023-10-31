@@ -25,10 +25,7 @@ public class GameManager {
         int numberTrials = CheckInput.checkIsNumber(input);
         CheckInput.checkIsNaturalNumber(numberTrials);
 
-        for (RacingCar racingCar : player) {
-            System.out.println(racingCar.name + " : ");
-        }
-        System.out.println("이름 쉼표로 나누기");
+        Game.playGame(player, numberTrials);
     }
 
     private static void splitPlayer(String input, List<RacingCar> player) {
