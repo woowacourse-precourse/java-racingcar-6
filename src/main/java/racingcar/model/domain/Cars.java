@@ -8,10 +8,10 @@ import racingcar.model.validate.Validate;
 
 public class Cars {
 
-    private final List<Car> cars;
+    private final List<Car> carList;
 
     public Cars() {
-        this.cars = new ArrayList<>();
+        this.carList = new ArrayList<>();
     }
 
     public void saveCars(String input) {
@@ -19,39 +19,39 @@ public class Cars {
         Validate.isNotNumber(input);
         String[] parts = input.split(",");
         for (String part : parts) {
-            cars.add(new Car(part));
+            carList.add(new Car(part));
         }
     }
 
     public int size() {
-        return this.cars.size();
+        return this.carList.size();
     }
 
     public void moveCar(int index) {
-        this.cars.get(index).increaseLocation();
+        this.carList.get(index).increaseLocation();
     }
 
     public List<String> getNames() {
         List<String> names = new ArrayList<>();
-        cars.forEach(car -> names.add(car.getName()));
+        carList.forEach(car -> names.add(car.getName()));
         return names;
     }
 
     public List<Integer> getLocations() {
         List<Integer> locations = new ArrayList<>();
-        cars.forEach(car -> locations.add(car.getLocation()));
+        carList.forEach(car -> locations.add(car.getLocation()));
         return locations;
     }
 
     public int getMaxLocation() {
-        return cars.stream()
+        return carList.stream()
                 .max(Comparator.comparing(Car::getLocation))
                 .get()
                 .getLocation();
     }
 
     public List<Car> getCarsByLocation(int location) {
-        return cars.stream()
+        return carList.stream()
                 .filter(car -> car.getLocation() == location)
                 .collect(Collectors.toList());
     }

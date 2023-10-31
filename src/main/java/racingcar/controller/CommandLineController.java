@@ -4,7 +4,7 @@ import racingcar.view.game.Game;
 
 public class CommandLineController implements Controller{
 
-    private Game game;
+    private final Game game;
 
     public CommandLineController(Game game) {
         this.game = game;

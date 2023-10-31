@@ -8,7 +8,7 @@ import racingcar.model.validate.Validate;
 
 public class CarRaceGame implements Game {
 
-    private CarRaceService service;
+    private final CarRaceService service;
     private int gameRound;
 
     public CarRaceGame() {
