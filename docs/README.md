@@ -24,3 +24,18 @@
 - 최종 우승자 출력
   - 우승자가 여러 명일 경우 쉼표를 이용하여 구분
 
+# 클래스 설명
+
+- config
+  - GameConfig : 클래스 사이의 의존 관계 설정을 위한 클래스
+- constant
+  - NumberConstant : 숫자 관련 상수를 관리하기 위한 Enum 클래스
+  - TextConstant : 문자열 관련 상수를 관리하기 위한 Enum 클래스
+- domain
+  - RacingCar : 자동차 정보(자동차 이름, 현재 위치, 현재 포인트)를 가지고 있고 상세 구현 로직을 담당하는 클래스
+  - RacingCarRace : 경주 정보(경주에 참가한 자동차, 시도 횟수)를 가지고 있고 상세 구현 로직을 담당하는 클래스
+- view
+  - MessagePrinter : 메세지 출력을 담당하는 클래스
+  - MessageReceiver : 메세지 입력을 담당하는 클래스
+- GameManager : 전체적인 비즈니스 로직 흐름을 파악할 수 있는 클래스
+- Application : 코드를 실행하는 main 클래스
