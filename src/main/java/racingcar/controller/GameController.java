@@ -22,7 +22,7 @@ public class GameController {
         race = new Race(trialNum, carNameList);
 
         play();
-
+        finish();
     }
 
     private void play() {
@@ -34,6 +34,15 @@ public class GameController {
             race.runRace();
             driveCountList = race.makeCarDriveCountList();
             outputView.printDrive(carNameList, driveCountList);
+        }
+    }
+
+    private void finish() {
+        List<String> winners = race.findWinner();
+        if (winners.size() == 1) {
+            outputView.printOneWinner(winners.get(0));
+        } else {
+            outputView.printWinners(winners);
         }
     }
 
