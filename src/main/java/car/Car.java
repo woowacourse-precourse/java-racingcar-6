@@ -5,7 +5,10 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     private final String name;
     private int location;
+
     private static final int MOVING_STANDARD = 4;
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 9;
     public Car(String name) {
         this.name = name;
     }
@@ -23,7 +26,7 @@ public class Car {
     }
 
     public void move(){
-        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        int randomNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
         this.moveByGivenCondition(randomNumber);
     }
 
