@@ -16,12 +16,12 @@ public class CarGenerator {
         this.namesStr = carsName;
     }
 
-    private void splitNames() {
+    public void splitNames() {
         namesList = Stream.of(namesStr.split(","))
                 .collect(Collectors.toList());
     }
 
-    private void generateCars(){
+    public void generateCars(){
         for(String string : namesList) {
             cars.add(new Car(namesList.toString()));
         }

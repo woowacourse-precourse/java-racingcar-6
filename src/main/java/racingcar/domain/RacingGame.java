@@ -6,11 +6,11 @@ import racingcar.view.OutputView;
 import racingcar.view.Inputview;
 public class RacingGame {
 
-    private void start(){
+    public void start(){
         printRequestNames();
-        CarGenerator carGenerator = new CarGenerator(Inputview.consoleLine());
+        generateCars();
         printRequestNumber();
-        String turns = Inputview.consoleLine();
+
 
 
     }
@@ -21,6 +21,12 @@ public class RacingGame {
 
     private void printRequestNumber(){
         OutputView.consoleLine(GameMessage.INSERT_TURN_MESSAGE);
+    }
+
+    private void generateCars(){
+        CarGenerator carGenerator = new CarGenerator(Inputview.consoleLine());
+        carGenerator.splitNames();
+        carGenerator.generateCars();
     }
 
 
