@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 
 public class StringTest {
-
     @Test
     void split_메서드로_주어진_값을_구분() {
         String input = "1,2";
