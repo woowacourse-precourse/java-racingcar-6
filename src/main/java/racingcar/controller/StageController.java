@@ -26,4 +26,8 @@ public class StageController {
         ArrayList<String> list = stageService.checkStageResult(game.getCars());
         PrintView.stageResultMessage(list);
     }
+
+    public void initialStageResult() {
+        PrintView.initialStageResultMessage();
+    }
 }

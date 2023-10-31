@@ -15,6 +15,7 @@ public class GameController {
     public void runGame() {
         inputController.inputCarNames();
         int stageTimes = inputController.inputStageTimes();
+        stageController.initialStageResult();
         for (int i = 1; i <= stageTimes; i++) {
             stageController.runStage();
             stageController.returnStageResult();

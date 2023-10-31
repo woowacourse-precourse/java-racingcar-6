@@ -13,8 +13,11 @@ public class PrintView {
         System.out.println(Message.INPUT_STAGE_TIME.getMessage());
     }
 
-    public static void stageResultMessage(ArrayList<String> list) {
+    public static void initialStageResultMessage() {
         System.out.println(Message.PRINT_STAGE_RESULT.getMessage());
+    }
+
+    public static void stageResultMessage(ArrayList<String> list) {
         for (String result : list) {
             System.out.println(result);
         }
