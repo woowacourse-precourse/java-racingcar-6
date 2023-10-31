@@ -1,14 +1,16 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class RandomNumber {
 
-    private int randomNumber;
+    private List<Integer> randomNumberList;
 
-    public int getRandomNumber() {
-        return randomNumber;
+    public List<Integer> getRandomNumber() {
+        return randomNumberList;
     }
 
-    public void setRandomNumber(int randomNumber) {
-        this.randomNumber = randomNumber;
+    public void setRandomNumberList(List<Integer> randomNumberList) {
+        this.randomNumberList = randomNumberList;
     }
 }
