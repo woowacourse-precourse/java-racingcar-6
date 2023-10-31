@@ -5,9 +5,6 @@
 - ✅ getCarNames 메서드 구현
     - ✅ 경주 할 자동차 이름 입력받기(이름은 쉼표(,) 기준으로 구분)
         - ✅ `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용해 자동차의 이름들을 입력받는다.
-        - ✅ validateStringSeparateWithComma 메서드 구현
-            - ✅ 입력받은 문자열이 쉼표(,)로 구분되어 있으면 통과
-            - ✅ 아니라면 IllegalArgumentException 예외 발생
         - ✅ stringToStringList 메서드 구현 
           - ✅ 입력받은 문자열을 List 형태로 변환한다.
         - ✅ validateCarNameLength 메서드 구현
