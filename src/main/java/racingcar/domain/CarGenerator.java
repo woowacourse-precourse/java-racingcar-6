@@ -5,23 +5,21 @@ import java.util.LinkedHashMap;
 
 public class CarGenerator {
 
-    Car car = new Car();
-
-    public LinkedHashMap<String, String> createCarList() {
+    public LinkedHashMap<String, String> createCarList(String stringCarList) {
         LinkedHashMap<String, String> carList = new LinkedHashMap<>();
-        String[] cars = splitStringByCommas();
+        String[] cars = splitStringByCommas(stringCarList);
         for (String car : cars) {
             carList.put(car, "");
         }
         return carList;
     }
 
-    public String[] splitStringByCommas() {
-        String[] carList = car.getStringCarList().split(",");
+    public String[] splitStringByCommas(String stringCarList) {
+        String[] carList = stringCarList.split(",");
         return carList;
     }
 
-    public void inputCarList() {
-        car.setStringCarList(Console.readLine());
+    public String inputCarList() {
+        return Console.readLine();
     }
 }
