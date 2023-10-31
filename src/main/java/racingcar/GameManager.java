@@ -30,7 +30,7 @@ public class GameManager {
     }
 
     private void initTryTimes(Scanner scanner) {
-        OutputView.printInputCarName();
+        OutputView.printInputRaceTime();
 
         tryTimes = InputView.inputTryTimes(scanner);
     }
