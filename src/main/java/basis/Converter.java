@@ -20,6 +20,7 @@ public class Converter {
 
     public LinkedHashMap<String, String> splitAndAddToMap(String Name) {
         String[] parts = tokenizeByComma(Name);
+        userInputValidator.validateInputCarNameCount(parts);
         return convertArrayToMap(parts);
     }
 
