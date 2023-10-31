@@ -1,19 +1,42 @@
 # 초간단 자동차 경주 게임
 
-## 기능 목록
+
+## MVC 패턴을 이용한 기능 목록
+### Controller
+#### GameController
+- 게임의 전체적인 흐름을 통제한다.
+- [ ] 게임을 시작한다. GameController#startGame()
+- [ ] 게임을 완료한 후 우승자를 결정한다. - GameController #determineWinner()
+#### Judgement
+- [ ] 무작위 값이 4이상인지 판별한다. - Judgement #isNumberMoreThan4()
+
+
+### View
+- 사용자가 입력하는 프롬포트를 구성하는 view 역할을 한다.
+#### RaceView
+- 차량 이름, 위치, 우승자를 표시하는 메서드
+- [ ] 우승자를 출력한다.(여러명일 경우 쉼표를 사용해 구분) -RaceView #printWinner()
+- [ ] 회수 별 실행 결과를 출력한다. - RaceView #printExecutionResults()
+
+
+### Model
+#### Car
+- 자동차의 이름과 위치를 나타낸다
+#### Race
+- 레이스 로직을 나타내며, 자동차 목록과 시도 횟수를 보유하고 승자를 결정한다.
+#### NumberGenerator
+- 난수를 생성하는 기능
+- [ ] 0부터 9 까지의 임의의 수 를 자동차 개수만큼 생성한다. - NumberGenerator #createRandomNumbers()
+
+
+### utils
+#### UserInputManager
+- 사용자 입력 및 유효성 검사를 처리한다.
 - [ ] 자동차의 이름을 입력받는다 - UserInputManager #inputCarNames()
 - [ ] 시도 횟수를 입력받는다 - UserInputManager #inputAttempts()
-  - [ ] 자동차의 이름이 5자 이하인지 검증한다.- UserInputManager #verifyCarNameLength()
-    - [ ] 입력이 잘못되면 IllegalArgumentException 을 발생시킨다. - UserInputManager #validateUserInput()
-
-- [ ] 0부터 9 까지의 임의의 수 를 자동차 개수만큼 생성한다. - NumberGenerator #createRandomNumbers(int numOfCars)
-  - [ ] 무작위 값이 4이상인지 판별한다. - Judgement #isNumberMoreThan4(int number)
-
-- [ ] 게임을 시작하기 - GameEngine #startGame()
-- [ ] 회수 별 실행 결과를 출력한다. - GameEngine #printExecutionResults()
-- [ ] 게임을 완료한 후 우승자를 결정한다. - GameEngine #determineWinner()
-  - [ ] 우승자를 출력한다.(여러명일 경우 쉼표를 사용해 구분) -GameEngine #printWinner()
-
+- [ ] 자동차의 이름이 5자 이하인지 검증한다.- UserInputManager #verifyCarNameLength()
+- [ ] 입력이 잘못되면 IllegalArgumentException 을 발생시킨다. - UserInputManager #validateUserInput()
+- 
 ## 기능 요구 사항
 
 주어진 횟수 동안 n대의 자동차는 전진 또는 멈출 수 있다.

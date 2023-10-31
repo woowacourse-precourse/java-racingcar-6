@@ -1,5 +1,8 @@
-package racingcar.domain;
+package racingcar.utils;
 
 public class UserInputManager {
 
+
 }
+
+
