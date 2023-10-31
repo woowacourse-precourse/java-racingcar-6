@@ -3,6 +3,7 @@ package racingcar.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static racingcar.service.JudgeResult.getWinners;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 
 public class JudgeResultTest {
-    private static final int MOVING_FORWARD = 4;
-    private static final int STOP = 3;
+    private static final int MOVING_FORWARD = Randoms.pickNumberInRange(4, 9);
+    private static final int STOP = Randoms.pickNumberInRange(0, 3);
 
     @Test
     void 우승자_한_명_테스트() {
