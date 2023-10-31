@@ -8,11 +8,13 @@ public class Constant {
 
     public static final String NAME_LENGTH_ERROR_MESSAGE = "자동차 이름은 1자 이상 5자 이하여야합니다.";
     public static final String NAME_DUPLICATE_ERROR_MESSAGE = "자동차 이름은 중복될 수 없습니다.";
-    public static final String NUMBER_ERROR_MESSAGE = "시도 횟수는 숫자여야합니다.";
+    public static final String ROUND_NUMBER_ERROR_MESSAGE = "시도 횟수는 숫자여야합니다.";
+    public static final String ROUND_NON_POSITIVE_MESSAGE = "시도 횟수는 1 이상이어야 합니다.";
 
     public static final int START_RANDOM_NUMBER = 0;
     public static final int END_RANDOM_NUMBER = 9;
     public static final int MINIMUM_MOVABLE_NUMBER = 4;
+    public static final int MINIMUM_ROUND_NUMBER = 1;
     public static final int MAXIMUM_NAME_NUMBER = 5;
     public static final int MINIMUM_NAME_NUMBER = 1;
 }

@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.car.CarValidator;
+import racingcar.round.RoundValidator;
 
 public class GameView {
 
@@ -28,5 +29,13 @@ public class GameView {
     }
 
     //사용자에게 시도활 횟수 입력 받기
+    public String roundInput() {
+        String round;
+        do {
+            System.out.println(Constant.START_NUMBER_MESSAGE);
+            round = Console.readLine();
+        } while (!RoundValidator.roundValidation(round));
 
+        return round;
+    }
 }
