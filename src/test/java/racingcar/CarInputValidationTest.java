@@ -53,25 +53,14 @@ public class CarInputValidationTest {
         // 예외가 발생하지 않으면 테스트 통과
     }
 
-    @DisplayName("자동차 이름 길이 검증 - 너무 짧은 이름인 경우")
-    @Test
-    public void testValidateCarInputShortNameLength() {
-        CarInputValidation carInputValidation = new CarInputValidation();
-
-        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            carInputValidation.validateCarInput("pobi,j");
-        });
-
-        Assertions.assertEquals("자동차 이름은 1자에서 5자 사이어야 합니다.", exception.getMessage());
-    }
-
     @DisplayName("자동차 이름 길이 검증 - 너무 긴 이름인 경우")
     @Test
     public void testValidateCarInputLongNameLength() {
         CarInputValidation carInputValidation = new CarInputValidation();
 
         IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            carInputValidation.validateCarInput("pobi,jun,crong,toolongname");
+            carInputValidation.validateCarInput(
+                    "pobi,jun,longgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
         });
 
         Assertions.assertEquals("자동차 이름은 1자에서 5자 사이어야 합니다.", exception.getMessage());
