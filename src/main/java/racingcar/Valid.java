@@ -36,4 +36,15 @@ public class Valid {
 
         return true;
     }
+
+    public static boolean checkRound(String input) {
+        try {
+            isNull(input.trim());
+            isNumeric(input);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
 }
