@@ -112,12 +112,55 @@ class RaceTest {
     }
 
     @Test
-    void getWinners() {
+    void getWinners_이동_거리가_가장_큰_자동차의_이름_반환() {
         //given
+        String nameInput = "dawin,hyein,woowa";
+
+        Race race = new Race();
+        race.setCarList(nameInput);
+
+        race.moveCars(List.of(0,0,4));
+        race.moveCars(List.of(0,4,4));
+        race.moveCars(List.of(4,4,4));
 
         //when
+        List<String> winner = race.getWinners();
 
         //then
+        assertThat(winner).isEqualTo(List.of("woowa"));
+    }
 
+    @Test
+    void getWinners_우승자가_1명인_경우_우승자의_이름만_반환() {
+        //given
+        String nameInput = "lose1,lose2,lose3,win";
+
+        Race race = new Race();
+        race.setCarList(nameInput);
+
+        race.moveCars(List.of(0,0,0,4));
+
+        //when
+        List<String> winner = race.getWinners();
+
+        //then
+        assertThat(winner).isEqualTo(List.of("win"));
+    }
+
+    @Test
+    void getWinners_우승자가_여러명인_경우_여러명의_우승자_이름을_반환() {
+        //given
+        String nameInput = "win1,lose1,win2,win3,lose2";
+
+        Race race = new Race();
+        race.setCarList(nameInput);
+
+        race.moveCars(List.of(4,0,4,4,0));
+
+        //when
+        List<String> winner = race.getWinners();
+
+        //then
+        assertThat(winner).isEqualTo(List.of("win1", "win2", "win3"));
     }
 }
