@@ -20,7 +20,6 @@ public class GameUtils {
 
     public int makeRandomNumber() {
         int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
-
         if (randomNumber >= MIN_DISTANCE) {
             return randomNumber;
         }
