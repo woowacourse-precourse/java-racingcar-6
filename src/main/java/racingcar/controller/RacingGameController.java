@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static java.lang.Integer.max;
 import static java.lang.Integer.parseInt;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -25,6 +26,9 @@ public class RacingGameController {
             MovingCar();
         }
         resultList.PrintResult();
+        for(String s : getWinner()){
+            System.out.println(s);
+        }
     }
     public void MovingCar(){
         List<String> result = resultList.getResultList();
@@ -51,5 +55,23 @@ public class RacingGameController {
             resultList.add("");
         }
         return resultList;
+    }
+    public List<String> getWinner(){
+        int checkWinner = getMaxForward();
+        List<String> result = resultList.getResultList();
+        List<String> winners = new ArrayList<>();
+        for(int i=0; i<result.size(); i++){
+            if(result.get(i).length() == checkWinner){
+                winners.add(carNameList.getCarNameList()[i]);
+            }
+        }
+        return winners;
+    }
+    public int getMaxForward(){
+        int maxNumber = 0;
+        for(String s : resultList.getResultList()){
+            maxNumber = max(maxNumber, s.length());
+        }
+        return maxNumber;
     }
 }

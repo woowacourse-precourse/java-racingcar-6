@@ -25,4 +25,8 @@ public class CarNameList {
     public int getCarCount(){
         return carNameList.length;
     }
+
+    public String[] getCarNameList(){
+        return carNameList;
+    }
 }
