@@ -8,7 +8,11 @@ public class RaceGameStateValidator implements Validator {
 
     @Override
     public void validate(Object obj) {
+        List<String> nameList = (List<String>) obj;
 
+        if(checkValidateConditions(nameList)){
+            throw new IllegalArgumentException("차의 이름은 중복되거나 5글자 이하 여야합니다.");
+        }
     }
 
     private boolean checkValidateConditions(List<String> names) {
