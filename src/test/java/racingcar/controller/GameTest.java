@@ -1,42 +1,43 @@
 package racingcar.controller;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.common.type.Names;
 import racingcar.common.type.TrialCount;
 import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
-
-import java.util.List;
+import racingcar.dto.output.AllRoundDTO;
+import racingcar.dto.output.RoundDTO;
 
 public class GameTest {
-    private RacingCars racingCars;
-    private TrialCount trialCount;
-
-    @BeforeEach
-    public void setUp() {
-        // given, RacingCars와 TrialCount 초기화
-        Names names = Names.of(new String[]{"hyunjin", "pobi", "lefthand"});
-        List<Car> carList = Car.createCarList(names);
-        racingCars = RacingCars.of(carList, () -> true);
-        trialCount = TrialCount.of("3");
-    }
 
     @Test
-    public void 게임_진행_테스트() {
-        // give,: Game 객체 생성
-        Game game = Game.of(racingCars);
+    public void play_메서드_테스트() {
+        // given
+        Names names = Names.of(new String[]{"hyunjin", "pobi", "lefthand"});
+        List<Car> carList = Car.createCarList(names);
+        RacingCars newRacingCars = RacingCars.of(carList, () -> true);
+        TrialCount newTrialCount = TrialCount.of("3");
+        Game game = Game.of(newRacingCars);
 
-        // when, 게임 진행
-        game.play(trialCount);
+        // when
+        List<AllRoundDTO> allRoundResults = game.play(newTrialCount);
 
-        // then, 결과 검증
-        List<Car> finalCarsState = racingCars.cars();
+        // then, 마지막 라운드만 체크
+        AllRoundDTO lastRound = allRoundResults.get(allRoundResults.size() - 1);
+        List<RoundDTO> roundDTOs = lastRound.roundDTOs();
 
-        //then,  모든 차가 이동할 수 있으므로 각 차의 거리는 3이어야 함
-        for (Car car : finalCarsState) {
-            Assertions.assertEquals(3, car.getDistance());
-        }
+        List<String> roundStrings = roundDTOs
+                .stream()
+                .map(RoundDTO::toString)
+                .collect(Collectors.toList());
+
+        // 모든 차가 이동할 수 있으므로 각 차의 거리가 증가해야 함
+        List<String> expectedRoundStrings = Arrays.asList("hyunjin : ---", "pobi : ---", "lefthand : ---");
+        Assertions.assertEquals(expectedRoundStrings, roundStrings);
     }
+
 }
