@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.domain.InputHandler;
 import racingcar.domain.TrialRepeat;
+import racingcar.domain.Winner;
 
 import java.util.Hashtable;
 import java.util.List;
@@ -22,9 +23,10 @@ public class Application {
         TrialRepeat trial = new TrialRepeat(scoreboard);
         while (trialCurrent < trialToDo) {
             trial.trialExecution();
+            trialCurrent++;
         }
         scoreboard = trial.sb;
 
-
+        System.out.println(Winner.findWinner(scoreboard));
     }
 }

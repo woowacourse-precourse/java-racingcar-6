@@ -4,7 +4,7 @@ import java.util.Hashtable;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class TrialRepeat {
-    public static final String RESULT_PRINT_TEXT = "실행 결과";
+    public static final String RESULT_PRINT_TEXT = "\n실행 결과";
     public Hashtable<String, Integer> sb;
 
     public TrialRepeat(Hashtable<String, Integer> scoreboard) {
