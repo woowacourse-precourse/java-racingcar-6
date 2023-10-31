@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.utils.Util;
 import racingcar.view.OutputView;
 
 public class Cars {
@@ -32,7 +33,7 @@ public class Cars {
 
     public void getRoundResult() {
         OutputView.printRoundResult(new ArrayList<>(carList.stream()
-                .map(Car::getCurrentPosition)
+                .map(car -> car.getName() + " : " + Util.dashGenerator(car.getPosition()))
                 .collect(Collectors.toList())
         ));
     }
