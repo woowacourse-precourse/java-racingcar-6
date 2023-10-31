@@ -4,17 +4,17 @@ public class Car {
     String name;
     Integer location;
     Boolean isWinner;
-    Accelerator accelerator;
+    Engine randomEngine;
 
     public Car(String name) {
         this.name = name;
-        accelerator = new Accelerator();
+        randomEngine = new RandomEngine();
         location = 0;
         isWinner = false;
     }
 
-    public void advance() {
-        location += accelerator.advance();
+    public void move() {
+        location += randomEngine.move();
     }
 
     public Integer getLocation() {
