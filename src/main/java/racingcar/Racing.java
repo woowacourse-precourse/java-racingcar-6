@@ -21,13 +21,15 @@ public class Racing {
     }
 
     public static String result() {
-        int maxAdvance = racingCars.get(0).getAdvance();
+        int maxAdvance = 0;
         String winner = "";
 
         for (Car car : racingCars) {
             if (car.getAdvance() > maxAdvance) {
                 maxAdvance = car.getAdvance();
                 winner = car.getName();
+            } else if (car.getAdvance() == maxAdvance) {
+                winner = winner + ", " + car.getName();
             }
         }
 
