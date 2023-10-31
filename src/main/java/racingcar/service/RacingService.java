@@ -41,10 +41,9 @@ public class RacingService {
 
     public List<RacingPlayer> storeCarNames(List<String> racerList) {
         List<RacingPlayer> players = new ArrayList<>();
-        int id = 1;
 
         for (String name : racerList) {
-            RacingPlayer player = new RacingPlayer(id++, name);
+            RacingPlayer player = new RacingPlayer(name);
             players.add(player);
         }
 

@@ -1,18 +1,12 @@
 package racingcar.domain;
 
 public class RacingPlayer {
-    private final int id;
     private final String name;
     private int score;
 
-    public RacingPlayer(int id, String name) {
-        this.id = id;
+    public RacingPlayer(String name) {
         this.name = name;
         this.score = 0;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getName() {
