@@ -53,4 +53,16 @@ public class Game {
         }
         return max;
     }
+
+    public List<String> getWinnerList() {
+        int max = getMaxDistance();
+
+        List<String> winnerList = new ArrayList<String>();
+        for (Car car : this.carList) {
+            if (max == car.getDistance()) {
+                winnerList.add(car.getName());
+            }
+        }
+        return winnerList;
+    }
 }
