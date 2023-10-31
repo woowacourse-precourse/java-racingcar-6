@@ -60,6 +60,20 @@ public class CarTest extends NsTest {
         assertFalse(car1.isSamePosition(car2));
     }
 
+    @Test
+    @DisplayName("moveForward 함수 기능 테스트")
+    void 자동차_전진_기능_테스트() {
+        //given
+        Car car1 = new Car(CAR1_NAME);
+        Car car2 = new Car(CAR2_NAME);
+        //when
+        car1.moveForward(MOVING_FORWARD);
+        car2.moveForward(STOP);
+        //then
+        assertEquals(car1.getPosition(), 1);
+        assertEquals(car2.getPosition(), 0);
+    }
+
     @Override
     protected void runMain() {
         Car car = new Car(CAR_NAME);
