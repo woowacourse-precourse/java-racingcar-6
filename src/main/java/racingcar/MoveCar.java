@@ -20,18 +20,13 @@ public class MoveCar {
         return cars;
     }
 
-    public void PrintPosition(Car[] cars,int trying){
-        MoveCar moveCar = new MoveCar();
-        int i = 0;
-        while(i<trying){
-            for(Car car: cars){
-                int move = Randoms.pickNumberInRange(0, 9);
-                if(move >= 4){
-                    car.MoveCar();
-                }
-                System.out.println(car.ReturnCarName() + ":" +moveCar.CarMove(car.ReturnMove()));
+    public void PrintPosition(Car[] cars,MoveCar moveCar){
+        for(Car car: cars){
+            int move = Randoms.pickNumberInRange(0, 9);
+            if(move >= 4){
+                car.MoveCar();
             }
-            i+=1;
+            System.out.println(car.ReturnCarName() + ":" +moveCar.CarMove(car.ReturnMove()));
         }
     }
 
