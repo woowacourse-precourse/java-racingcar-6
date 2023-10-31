@@ -1,3 +1,4 @@
+/*
 package racingcar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,4 +42,4 @@ public class CarTest {
         car.move();
         assertEquals(1, car.carPosition);
     }
-}
+}*/

@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.Model.Car;
 
 public class OutputView {
+    private static String MESAGE_WINNERS = "최종 우승자 : ";
 
     public static void displayPositions(List<Car> cars) {
         for (Car car : cars) {
@@ -21,7 +22,7 @@ public class OutputView {
     }
 
     public static void displayWinners(List<String> winners) {
-        System.out.print("최종 우승자 : ");
+        System.out.print(MESAGE_WINNERS);
         for (String winner : winners) {
             System.out.print(winner);
             if (winners.indexOf(winner) != winners.size() - 1) {

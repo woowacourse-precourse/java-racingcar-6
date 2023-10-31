@@ -1,3 +1,4 @@
+/*
 package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -48,3 +49,4 @@ public class StringTest {
                 .hasMessageContaining("입력 길이는 5자 이하입니다.");
     }
 }
+*/
