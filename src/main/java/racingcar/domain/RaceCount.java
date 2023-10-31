@@ -3,12 +3,24 @@ package racingcar.domain;
 import racingcar.common.exception.CustomErrorException;
 import racingcar.common.response.ErrorCode;
 
-public record RaceCount(int count) {
+public class RaceCount {
 
     private static final int MIN_COUNT_RANGE = 1;
+    private static final int RACE_END_COUNT = 0;
 
-    public RaceCount {
+    private int count;
+
+    public RaceCount(int count) {
         validateCount(count);
+        this.count = count;
+    }
+
+    public void reduceCount() {
+        count--;
+    }
+
+    public boolean isEnd() {
+        return count == RACE_END_COUNT;
     }
 
     private void validateCount(int count) {
@@ -17,7 +29,7 @@ public record RaceCount(int count) {
         }
     }
 
-    private static boolean isInvalidRange(int count) {
+    private boolean isInvalidRange(int count) {
         return count < MIN_COUNT_RANGE;
     }
 }

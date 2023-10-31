@@ -29,7 +29,8 @@ public class RacingGame {
     }
 
     private void play() {
-        for (int i = 0; i < raceCount.count(); i++) {
+        while (!raceCount.isEnd()) {
+            raceCount.reduceCount();
             racing();
         }
     }
