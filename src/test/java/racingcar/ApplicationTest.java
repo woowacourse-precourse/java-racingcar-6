@@ -66,7 +66,35 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 문자_자동차_현재_상태_출력_테스트() {
+    void 숫자가_4_이상일때_자동차를_움직이는_테스트(){
+        Car car1 = new Car("car1", 3);
+        Car car2 = new Car("car2", 2);
+        Car car3 = new Car("car3", 3);
+        Car car4 = new Car("car4", 3);
+
+        List<Car> carList = List.of(car1, car2, car3, car4);
+
+        try {
+            Method process = GameService.class.getDeclaredMethod("process", List.class, List.class);
+            process.setAccessible(true);
+
+            process.invoke(gameService, carList, List.of(0, 4, 3, 9));
+
+            assertThat(carList.get(0).getPos()).isEqualTo(3);
+            assertThat(carList.get(1).getPos()).isEqualTo(3);
+            assertThat(carList.get(2).getPos()).isEqualTo(3);
+            assertThat(carList.get(3).getPos()).isEqualTo(4);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    void 자동차_현재_상태_출력_테스트() {
         Car car = new Car("youjae", 4);
 
         ioService.printCarState(car);
