@@ -6,6 +6,7 @@ import static org.mockito.Mockito.mock;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.car.Car;
 import racingcar.car.name.CarName;
@@ -23,6 +24,7 @@ class CarMovementDeciderTest {
     }
 
     @Test
+    @DisplayName("전진한다.")
     public void moveFoward() {
         // Given
         given(mockRandomValueGenerator.generate()).willReturn(4);
@@ -38,6 +40,7 @@ class CarMovementDeciderTest {
     }
 
     @Test
+    @DisplayName("전진하지 않는다.")
     public void notMove() {
         // Given
         given(mockRandomValueGenerator.generate()).willReturn(3);

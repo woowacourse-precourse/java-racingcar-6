@@ -31,7 +31,7 @@ class CarNameParserTest {
         assertEquals("jun", result.get(2).name());
     }
 
-    @DisplayName("CarNameParser 실패 테스트")
+    @DisplayName("CarNameParser 실패")
     @ParameterizedTest
     @ValueSource(strings = {
             "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u",

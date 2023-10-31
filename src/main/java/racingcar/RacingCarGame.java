@@ -31,6 +31,8 @@ public class RacingCarGame {
 
         List<Car> carList = createCarList(carNameList);
         List<RacingResult> racingResultList = race(carList, racingAttempt, userIo);
+
+//        userIo.print(racingCarResultFormatter.formatFinalResult(racingResultList));
     }
 
     private List<CarName> getCarNameList(UserIo userIo) {
