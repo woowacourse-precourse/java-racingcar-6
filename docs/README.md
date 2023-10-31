@@ -112,44 +112,62 @@ jun : -----
 ## ✏️ 과제 진행 요구 사항
 
 - [x] 미션은 [java-racingcar-6](https://github.com/woowacourse-precourse/java-racingcar-6) 저장소를 Fork & Clone해 시작한다.
-- [ ] **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
+- [x] **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
 - [ ] **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
   - [ ] [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - [ ] 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
 
 ## 구현할 사항
-- inputCarName
-  - `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 사용하여 차량의 이름을 입력받고 `ArrayList<String>`로 반환한다.
-  - return type : `ArrayList<String>`
-- initializeCarPosition
-  - 입력된 차량의 수와 일치하는 element의 개수를 가진 `0`으로 채워진 `ArrayList<Integer>`를 반환한다.
-  - return type : `ArrayList<Integer>`
-- inputNumbersOfMatch
-  - `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 사용하여 시행될 경기의 수를 입력받고 `Integer`로 반환한다.
-  - return type : `Integer`
-- gameManager
-  - 경주의 조건 입력이 완료되면 설정된 순서에 따라 경주가 반복하여 진행되도록 만든다.
-  - parameter : `int numbersOfMatch`, `ArrayList<String> carName`, `ArrayList<Integer> carPosition`
-  - return type : `void`
-- progressMatch
-  - `camp.nextstep.edu.missionutils`의 `Randoms`을 사용하여 `inputCarName`으로 입력받은 각각의 차량들의 전진 여부를 판정하고 각각의 차량들의 위치 현황에 반영한다.
-  - parameter : `ArrayList<String> carName`, `ArrayList<Integer> carPosition`
-  - return type : `void`
-- outputCurrentPosition
-  - 현재 차량들의 위치를 출력 요구 사항을 충족하도록 출력한다.
-  - parameter : `ArrayList<String> carName`, `ArrayList<Integer> carPosition`
-  - return type : `void`
-- outputWinner
-  - 게임이 종료되면 게임의 우승자를 출력 요구 사항을 충족하도록 출력한다.
-  - parameter : `ArrayList<String> carName`, `ArrayList<Integer> carPosition`
-  - return type : `void`
+- 클래스
+  - Car
+    - `name`과 `position` 변수를 가지는 class.
+    - parameter : `String name`
+    - 메소드
+      - tryMoving
+        - 정해진 조건을 만족하는 값이 입력되면 차량을 이동한다.
+        - parameter : `Integer Number`
+        - return type : `void`
+      - getName
+        - 차량의 이름을 가져온다.
+        - return type : `String`
+      - getPosition
+        - 차량의 위치를 가져온다.
+        - return type : `Integer`
+  - RandomNumberGenerator
+    - 난수를 생성한다.
+    - 메소드
+      - GeneratingForCarTryMoving
+        - 0에서 9사이의 난수를 생성한다.
+        - return type : `Integer`
+  - GameInitializer
+    - 게임 시작을 위한 정보를 입력받고 전처리하는 메소드를 제공한다.
+    - 메소드
+      - inputCarName
+        - `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 사용하여 차량의 이름을 입력받고 `List<Car>`로 반환한다.
+        - 입력받은 문자열을 파싱하거나 반환하기 전에 유효성 검사를 진행한다.
+        - return type : `List<Car>`
+      - inputNumbersOfMatch
+        - `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 사용하여 시행될 경기의 수를 입력받고 `Integer`로 반환한다.
+        - 입력받은 문자열을 파싱하거나 반환하기 전에 유효성 검사를 진행한다.
+        - return type : `Integer`
+  - GameManager
+    - 게임을 진행하는데 필요한 메소드를 제공한다.
+    - parameter : `List<Car> carList`
+    - 메소드
+      - progressMatch
+        - `camp.nextstep.edu.missionutils`의 `Randoms`을 사용하여 `inputCarName`으로 입력받은 각각의 차량들의 전진 여부를 판정하고 각각의 차량들의 위치 현황에 반영한다.
+        - return type : `void`
+      - outputCurrentPosition
+        - 현재 차량들의 위치를 출력 요구 사항을 충족하도록 출력한다.
+        - return type : `void`
+      - outputWinner
+        - 게임의 우승자를 출력 요구 사항을 충족하도록 출력한다.
+        - return type : `void`
 
 ## 프로그램 작동 순서
-1. inputCarName
-2. initializeCarPosition
-3. inputNumbersOfMatch
-4. gameManager
-   1. progressMatch
-   2. outputCurrentPosition
-   3. outputWinner
-5. 종료
+1. GameInitializer.inputCarName
+2. GameInitializer.inputNumbersOfMatch
+3. GameManager.progressMatch
+4. GameManager.outputCurrentPosition
+5. GameManager.outputWinner
+6. 종료
