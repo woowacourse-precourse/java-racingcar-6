@@ -26,7 +26,8 @@ public class Racing {
     }
 
     private void generateExecutionCount() {
-        new Execution();
+        String input = ioHandler.readConsoleInputWithMessage("시도할 회수는 몇회인가요?");
+        new Execution(input);
     }
 
     private void startRace() {
