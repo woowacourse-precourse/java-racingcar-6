@@ -1,19 +1,15 @@
 package racingcar.controller;
 
-import static racingcar.utils.Converter.convertStringToInt;
-import static racingcar.utils.Converter.convertStringToList;
-import static racingcar.utils.validator.GetNameValidator.validateArrayListNames;
-import static racingcar.utils.validator.GetNameValidator.validateStringNames;
-import static racingcar.utils.validator.GetTrialNumberValidator.validateNumberRange;
-import static racingcar.view.InputView.inputTrialNumber;
-import static racingcar.view.OutView.printResult;
-import static racingcar.view.OutView.printWinner;
 
 import java.util.ArrayList;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
 import racingcar.service.Service;
+import racingcar.utils.Converter;
+import racingcar.utils.validator.GetNameValidator;
+import racingcar.utils.validator.GetTrialNumberValidator;
 import racingcar.view.InputView;
+import racingcar.view.OutView;
 
 public class Controller {
 
@@ -30,10 +26,10 @@ public class Controller {
 
     private static ArrayList<String> getCarsNameList() {
         String inputString = InputView.getCarsName();
-        validateStringNames(inputString);
+        GetNameValidator.validateStringNames(inputString);
 
-        ArrayList<String> carsNameList = convertStringToList(inputString);
-        validateArrayListNames(carsNameList);
+        ArrayList<String> carsNameList = Converter.convertStringToList(inputString);
+        GetNameValidator.validateArrayListNames(carsNameList);
         return carsNameList;
     }
 
@@ -54,9 +50,9 @@ public class Controller {
     }
 
     private int getTrialNumber() {
-        String inputString = inputTrialNumber();
-        int trialNumber = convertStringToInt(inputString);
-        validateNumberRange(trialNumber);
+        String inputString = InputView.getTrialNumber();
+        int trialNumber = Converter.convertStringToInt(inputString);
+        GetTrialNumberValidator.validateNumberRange(trialNumber);
         return trialNumber;
     }
 
@@ -66,11 +62,11 @@ public class Controller {
     }
 
     private void printEachTryResult(ArrayList<CarsDto> resultList) {
-        printResult(resultList);
+        OutView.printResult(resultList);
     }
 
     public void finish() {
-        printWinner(service.getWinner());
+        OutView.printWinner(service.getWinner());
         service.initRepository();
     }
 
