@@ -1,5 +1,8 @@
 package racingcar;
 
+import static racingcar.History.makeHistory;
+
+import java.util.ArrayList;
 import java.util.List;
 import racingcar.view.Announcer;
 import racingcar.view.InputView;
@@ -30,21 +33,25 @@ public class Game {
 
     public void play() {
         int tryCount = inputView.inputTryCount();
-        announcer.announceResultComment();
-        race(tryCount);
+        List<History> raceResult = race(tryCount);
+        announcer.announceRaceHistories(raceResult);
         end();
+    }
+
+    private List<History> race(int tryCount) {
+        List<History> histories = new ArrayList<>();
+
+        for (int i = 1; i <= tryCount; i++) {
+            carList.forEach(this::moveCar);
+            histories.add(makeHistory(carList));
+        }
+
+        return histories;
     }
 
     private void end() {
         List<String> winnerList = winnerChecker.getWinnerList(carList);
         announcer.announceWinner(winnerList);
-    }
-
-    private void race(int tryCount) {
-        for (int i = 0; i < tryCount; i++) {
-            carList.forEach(this::moveCar);
-            announcer.announceRoundHistory(carList);
-        }
     }
 
     private void moveCar(Car car) {
