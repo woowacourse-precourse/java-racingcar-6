@@ -7,12 +7,15 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.NoticeType;
+import racingcar.util.Validator;
 
 public class RacingService {
 
-    private final int DIGIT = 4;
+    private final int FORWARD_LIMIT = 4;
+    private final int LENGTH_LIMIT = 5;
     public List<String> stringToList(String str) {
         String[] strArr = str.split(",");
+        Validator.validateNameLength(strArr, LENGTH_LIMIT);
         return new ArrayList<>(Arrays.asList(strArr));
     }
 
@@ -32,7 +35,7 @@ public class RacingService {
     public List<Car> attempt(List<Car> cars) {
         for (Car car : cars) {
             int rNum = generateRandomNum();
-            if (isMorethanDigit(rNum, DIGIT)) {
+            if (isMorethanDigit(rNum, FORWARD_LIMIT)) {
                 car.forward(rNum);
             }
         }
