@@ -8,7 +8,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.IntStream;
 
 public class RacingCarGame {
     private final int maxTrial;
@@ -85,10 +84,7 @@ public class RacingCarGame {
         return maxTrial <= currentTrial;
     }
 
-    @Override
-    public String toString() {
-        return cars.stream()
-                .map(car -> car.toString())
-                .collect(joining("\n"));
+    public String render(RacingCarGameRenderer renderer) {
+        return renderer.renderCars(List.copyOf(cars));
     }
 }

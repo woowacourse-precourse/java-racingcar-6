@@ -25,14 +25,8 @@ public class RacingCar {
         }
     }
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(String.format("%s : ", name));
-        for (int i = 0; i < position.getX(); i++) {
-            builder.append("-");
-        }
-        return builder.toString();
+    public String render(RacingCarGameRenderer renderer) {
+        return renderer.renderCar(name,position);
     }
 
     public boolean isSamePositionWith(RacingCar other) {

@@ -6,6 +6,7 @@ import java.util.List;
 public class OutputInterface {
 
     PrintStream outputStream;
+    RacingCarGameRenderer renderer = new RacingCarGameRenderer();
 
     OutputInterface() {
         this.outputStream = System.out;
@@ -16,7 +17,7 @@ public class OutputInterface {
     }
 
     public void printStage(RacingCarGame game) {
-        outputStream.println(game.toString() + "\n");
+        outputStream.println(game.render(renderer) + "\n");
     }
 
     public void printWinners(List<String> winners) {
