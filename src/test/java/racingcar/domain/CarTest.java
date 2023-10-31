@@ -32,7 +32,9 @@ class CarTest {
 
     }
 
+    @Test
     void toString_확인() {
+        car.race(4);
         assertThat(car.toString()).isEqualTo("taek : -");
     }
 

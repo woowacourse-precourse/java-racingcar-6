@@ -41,4 +41,8 @@ public class Cars {
         String winner = String.join(",", winnerList);
         return winner;
     }
+
+    public List<Car> getCars() {//테스트 코드용
+        return cars;
+    }
 }
