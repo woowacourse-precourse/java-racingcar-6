@@ -56,7 +56,7 @@ public class Controller {
         OutputView outputView = new OutputView();
         while (howMany > 0) {
             List<Integer> randomNums = makeRandomNumberList(carList.getSize());
-            carList.upgradeDistance(replaceZeroAndOne(randomNums));
+            carList.UpdateDistance(replaceZeroAndOne(randomNums));
             outputView.printInterm(carList.toString());
             howMany--;
         }

@@ -15,10 +15,8 @@ public class CarList {
         this.size = names.size();
     }
 
-    // 랜덤으로 받을 수들 업데이트
-    // car의 updateDistance 호출
-    // 한 칸씩 업그레이드 해야 됨
-    public void upgradeDistance(List<Integer> distanceList) {
+    // CarList 사이즈만큼 Integer 리스트를 받아와서 차례대로 하나씩 적용
+    public void UpdateDistance(List<Integer> distanceList) {
         int index = 0;
         for (Car car : carList) {
             car.updateDistance(distanceList.get(index));
@@ -27,10 +25,9 @@ public class CarList {
     }
 
     public List<String> getWinner() {
-        int maxDistance = getMaxDistance();
         List<String> winner = new ArrayList<>();
         for (Car h : carList) {
-            if (h.getDistance() == maxDistance) {
+            if (h.getDistance() == getMaxDistance()) {
                 winner.add(h.getName());
             }
         }
