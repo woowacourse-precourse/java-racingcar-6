@@ -32,7 +32,7 @@ class WinnersTest {
             // given
             final String defaultMessage = "최종 우승자 : ";
             final String winnerName = "win";
-            final Winners winners = new Winners(List.of(winnerName));
+            final Winners winners = new Winners(List.of(new Name(winnerName)));
 
             // when
             final String result = winners.toResultMessage();
@@ -49,7 +49,8 @@ class WinnersTest {
             final String delimiter = ", ";
             final String firstWinnerName = "win";
             final String secondWinnerName = "ner";
-            final Winners winners = new Winners(List.of(firstWinnerName, secondWinnerName));
+            final Winners winners =
+                    new Winners(List.of(new Name(firstWinnerName), new Name(secondWinnerName)));
 
             // when
             final String result = winners.toResultMessage();

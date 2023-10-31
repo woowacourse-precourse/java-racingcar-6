@@ -37,8 +37,8 @@ public final class RacingCar {
         return moveDistance.toValue();
     }
 
-    public String toName() {
-        return name.toValue();
+    public Name toName() {
+        return this.name;
     }
 
     public boolean hasSameDistance(final Integer distance) {
