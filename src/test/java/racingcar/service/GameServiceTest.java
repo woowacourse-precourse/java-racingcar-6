@@ -21,17 +21,15 @@ class GameServiceTest {
         gameService = new GameService();
     }
 
-    @Test
+    @ParameterizedTest(name = "입력값 : {0}")
+    @ValueSource(strings = {"1", "2147483647"})
     @DisplayName("시도할 회수 생성 성공")
-    void givenInput_whenCreateTrialCount_thenSuccess() {
-        // given
-        String input = "2147483647";
-
+    void givenInput_whenCreateTrialCount_thenSuccess(String input) {
         // when
         int result = gameService.createTrialCount(input);
 
         // then
-        assertThat(result).isEqualTo(2147483647);
+        assertThat(result).isEqualTo(Integer.parseInt(input));
     }
 
     @ParameterizedTest(name = "입력값 : {0}")
