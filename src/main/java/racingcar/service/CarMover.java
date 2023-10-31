@@ -5,7 +5,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.system.SystemConstant;
 
-public class CarMover {
+public final class CarMover {
 
     public static void move(List<Car> carList) {
         carList.stream()

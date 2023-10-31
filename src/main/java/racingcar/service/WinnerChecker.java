@@ -7,7 +7,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Progress;
 
-public class WinnerChecker {
+public final class WinnerChecker {
 
     private static Progress maxProgress;
 
