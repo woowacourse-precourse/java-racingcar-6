@@ -19,7 +19,8 @@
     - [X] 경주는 자동차 상태 목록을 저장한다.
 - [] 경주는 모든 라운드가 끝나면 진행결과를 출력한다. Race#gameSet
   - [] 경주는 진행상황을 출력기에 전송한다. OutputView#outputRounds
-  - [] 경주는 가장 멀리 간 자동차(들)을 우승자로 지정한다. Race#findWinner
+  - [X] 경주는 가장 멀리 간 자동차(들)을 우승자로 지정한다. Race#findWinner
+    - [X] 우승후보와 같은거리면 추가하고 더 나은 우승후보면 이 차를 우승후보로 교체한다. Race#addWinner
   - [] 우승자를 출력한다. OutputView#outputResult
 
 
