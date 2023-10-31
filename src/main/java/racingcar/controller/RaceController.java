@@ -23,6 +23,7 @@ public class RaceController {
             round++;
         }
         List<Car> winnerList = getWinners(cars);
+        OutputView.printWinner(winnerList);
     }
 
     public static List<Car> setCars() {
