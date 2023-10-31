@@ -29,7 +29,7 @@ public class OutputTest {
 
     @Test
     void 실행_시_자동차_이름_입력_메시지_출력(){
-        consoleOutput.printInputCarName();
+        consoleOutput.printCarNameInput();
         // 프로그램이 출력한 메시지 확인
         String expectedMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
         assertEquals(expectedMessage, outContent.toString().trim());
@@ -37,7 +37,7 @@ public class OutputTest {
 
     @Test
     void 시도할_횟수_받을_출력_메시지(){
-        consoleOutput.printInputAttempts();
+        consoleOutput.printAttemptsInput();
 
         String expectedMessage = "시도할 회수는 몇회인가요?";
         assertEquals(expectedMessage, outContent.toString().trim());

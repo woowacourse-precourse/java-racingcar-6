@@ -44,21 +44,21 @@ public class InputTest {
         input.add("12345");
         input.add("123456");
 
-        assertThrows(IllegalArgumentException.class, () -> validator.checkCarsName(input));
+        assertThrows(IllegalArgumentException.class, () -> validator.validateCarsName(input));
     }
 
     @Test
     void 입력값_띄어쓰기_예외_확인(){
         String input = "1 ,2,3";
 
-        assertThrows(IllegalArgumentException.class, () -> validator.checkInputValue(input));
+        assertThrows(IllegalArgumentException.class, () -> validator.validateInputValue(input));
     }
 
     @Test
     void 입력값_Empty_예외(){
         String input = "";
 
-        assertThrows(IllegalArgumentException.class, () -> validator.checkInputValue(input));
+        assertThrows(IllegalArgumentException.class, () -> validator.validateInputValue(input));
     }
 
     @Test
@@ -68,13 +68,13 @@ public class InputTest {
         input.add("def");
         input.add("abc");
 
-        assertThrows(IllegalArgumentException.class, () -> validator.checkCarsName(input));
+        assertThrows(IllegalArgumentException.class, () -> validator.validateCarsName(input));
     }
 
     @Test
     void 시도할_횟수_숫자_외_값(){
         String input = "a";
 
-        assertThrows(IllegalArgumentException.class, () -> validator.checkAttempts(input));
+        assertThrows(IllegalArgumentException.class, () -> validator.validateAttempts(input));
     }
 }

@@ -7,27 +7,26 @@ import java.util.List;
 
 public class GameInputHandler {
     ConsoleOutput consoleOutput = new ConsoleOutput();
-
     public void startGame(){
-        consoleOutput.printInputCarName();
-        String carsString = userInput();
-        List<String> cars = splitStringToList(carsString);
+        //자동차 이름 입력 메시지 출력
+        consoleOutput.printCarNameInput();
+        String carsString = getUserInput();
+        List<String> cars = splitAndConvertToList(carsString);
         //자동차 이름 예외 체크
-        checkForException(carsString);
-        consoleOutput.printInputAttempts();
-        String attempts = userInput();
+        checkForExceptionCarsName(carsString);
+        //시도할 횟수 입력 메시지 출력
+        consoleOutput.printAttemptsInput();
+        String attempts = getUserInput();
         //시도할 횟수 예외 체크
         checkForExceptionAttempts(attempts);
         GameManager gameManager = new GameManager(cars, Integer.parseInt(attempts));
         //게임 진행!
         gameManager.game();
     }
-    private String userInput(){
-        String userData = Console.readLine();
-        return userData;
+    private String getUserInput(){
+        return Console.readLine();
     }
-
-    private List<String> splitStringToList(String carsString){
+    private List<String> splitAndConvertToList(String carsString){
         List<String> carList = new ArrayList<>();
         String[] cars = carsString.split(",");
         for(String car: cars){
@@ -35,17 +34,15 @@ public class GameInputHandler {
         }
         return carList;
     }
-
-    private void checkForException(String carsString){
+    private void checkForExceptionCarsName(String carsString){
         InputValidator inputValidator = new InputValidator();
-        List<String> cars = splitStringToList(carsString);
-        inputValidator.checkCarsName(cars);
-        inputValidator.checkInputValue(carsString);
+        List<String> cars = splitAndConvertToList(carsString);
+        inputValidator.validateCarsName(cars);
+        inputValidator.validateInputValue(carsString);
     }
-
     private void checkForExceptionAttempts(String attempts){
         InputValidator inputValidator = new InputValidator();
-        inputValidator.checkInputValue(attempts);
-        inputValidator.checkAttempts(attempts);
+        inputValidator.validateInputValue(attempts);
+        inputValidator.validateAttempts(attempts);
     }
 }
