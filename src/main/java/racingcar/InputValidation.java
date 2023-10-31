@@ -7,8 +7,8 @@ import static racingcar.NumberConst.*;
 
 public class InputValidation {
 
-    private static String replaceRegexChar = "[가-힣a-zA-Z0-9,]";
-    private static String replaceReplacementChar = "";
+    private static final String replaceRegexChar = "[가-힣a-zA-Z0-9,]";
+    private static final String replaceReplacementChar = "";
 
     public static void validateInputCorrectSeparator(String userInputCarName) {
         String deleteAllWords = userInputCarName.replaceAll(replaceRegexChar, replaceReplacementChar);
