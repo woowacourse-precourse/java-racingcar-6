@@ -2,14 +2,12 @@ package racingcar.racer;
 
 import java.util.Objects;
 import racingcar.validator.RacerValidator;
-import racingcar.validator.Validator;
 
 public abstract class Racer implements Raceable {
     protected final String name;
     protected int position;
 
     protected Racer(String name) {
-        Validator.validateHasText(name);
         RacerValidator.validateRacerNameLength(name);
         RacerValidator.validateRacerNameFormat(name);
 

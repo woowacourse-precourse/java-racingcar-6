@@ -134,7 +134,7 @@ class ExceptionCaseTest extends IntegrationTest {
         void Fail_OverMaxInputLength() {
             //given
             String racingCarName = "1,3";
-            String turnsCount = String.valueOf(RacingCarRule.MAX_TOTAL_TURN + 1);
+            String turnsCount = RacingCarRule.MAX_TOTAL_TURN + "0";
 
             // when then
             assertSimpleTest(() ->

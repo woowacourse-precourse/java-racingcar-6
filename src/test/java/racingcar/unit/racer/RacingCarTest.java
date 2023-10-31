@@ -49,16 +49,6 @@ class RacingCarTest {
             assertThat(racingCar.getName()).isEqualTo(name);
         }
 
-        @DisplayName("이름이 비었다면 예외를 발생시킨다.")
-        @Test
-        void fail_EmptyName() {
-            //given
-            String name = "";
-            //when then
-            assertThatThrownBy(() -> RacingCar.from(name))
-                    .isInstanceOf(IllegalArgumentException.class);
-        }
-
         @DisplayName("이름의 길이가 " + RacingCarRule.MAX_RACER_NAME_LENGTH + " 초과라면 예외를 발생시킨다.")
         @Test
         void fail_InvalidNameLength() {
@@ -69,8 +59,8 @@ class RacingCarTest {
                     .isInstanceOf(IllegalArgumentException.class);
         }
 
-        @DisplayName("알파벳이나 숫자 외 문자가 이름에 있는 경우 예외를 발생시킨다.")
-        @ValueSource(strings = {"!dov", "sd d", "dfe\ns"})
+        @DisplayName("문자가 없거나, 알파벳이나 숫자 외 문자가 이름에 있는 경우 예외를 발생시킨다.")
+        @ValueSource(strings = {"", "\n", "!dov", "sd d", "dfe\ns"})
         @ParameterizedTest
         void fail_InvalidNameFormat(String name) {
             //given

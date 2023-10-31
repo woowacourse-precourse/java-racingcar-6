@@ -8,13 +8,12 @@ import racingcar.game.vo.RacerPosition;
 import racingcar.racer.Racer;
 import racingcar.racer.RacerRegistry;
 
-public class RacingGame<T extends Racer> {
+public class RacingTurnProcessor<T extends Racer> {
     private final List<T> racers = new ArrayList<>();
 
-    public RacingGame(RacerRegistry<T> racerRegistry) {
+    public RacingTurnProcessor(RacerRegistry<T> racerRegistry) {
         this.racers.addAll(racerRegistry.getRacers());
     }
-
 
     public void progressTurn() {
         for (T racer : racers) {
@@ -42,7 +41,7 @@ public class RacingGame<T extends Racer> {
 
     @Override
     public String toString() {
-        return "RacingGame{" +
+        return "RacingTurnProcessor{" +
                 "racers=" + racers +
                 '}';
     }

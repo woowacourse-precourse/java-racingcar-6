@@ -18,9 +18,9 @@ public class RacingGameManager {
     public void run() {
         RacerRegistry<Racer> racerRegistry = registerRacingCar();
         int turnCount = inputTotalTurn();
-        RacingGame<Racer> racingGame = new RacingGame<>(racerRegistry);
-        startRace(racingGame, turnCount);
-        announceWinner(racingGame.getWinners());
+        RacingTurnProcessor<Racer> racingTurnProcessor = new RacingTurnProcessor<>(racerRegistry);
+        startRace(racingTurnProcessor, turnCount);
+        announceWinner(racingTurnProcessor.getWinners());
     }
 
     private RacerRegistry<Racer> registerRacingCar() {
@@ -36,13 +36,13 @@ public class RacingGameManager {
         return totalTurnInput.toInt();
     }
 
-    private void startRace(RacingGame<Racer> racingGame, int turnCount) {
+    private void startRace(RacingTurnProcessor<Racer> racingTurnProcessor, int turnCount) {
         racingGameScreen.startShowGameResult();
 
         for (int i = 0; i < turnCount; i++) {
-            racingGame.progressTurn();
+            racingTurnProcessor.progressTurn();
 
-            TurnResult turnResult = new TurnResult(racingGame.getTurnResult());
+            TurnResult turnResult = new TurnResult(racingTurnProcessor.getTurnResult());
             racingGameScreen.showTurnResult(turnResult);
         }
     }

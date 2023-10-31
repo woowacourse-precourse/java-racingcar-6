@@ -13,13 +13,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
-import racingcar.game.RacingGame;
+import racingcar.game.RacingTurnProcessor;
 import racingcar.game.vo.RacerPosition;
 import racingcar.racer.RacerRegistry;
 import racingcar.racer.RacingCar;
 import racingcar.util.Random;
 
-class RacingGameTest {
+class RacingTurnProcessorTest {
 
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
@@ -50,24 +50,26 @@ class RacingGameTest {
     @Test
     void progressTurn() {
         //given
-        RacingGame<RacingCar> racingGame = new RacingGame<>(getRacingCarRegistry("a", "b", "c"));
+        RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(
+                getRacingCarRegistry("a", "b", "c"));
         given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(
                 MOVING_FORWARD, STOP, MOVING_FORWARD);
         //when
-        racingGame.progressTurn();
+        racingTurnProcessor.progressTurn();
 
         //then
-        String position = racingGame.toString().replaceAll("[^0-9]", "");
+        String position = racingTurnProcessor.toString().replaceAll("[^0-9]", "");
         assertThat(position).isEqualTo("101");
     }
 
-    @DisplayName("자동차 경주 게임의 자동차들별로 현재 위치를 반환한다.")
+    @DisplayName("자동차 경주 게임의 자동차들별 현재 위치를 반환한다.")
     @Test
     void getTurnResult() {
         //given
-        RacingGame<RacingCar> racingGame = new RacingGame<>(getRacingCarRegistry("a", "b", "c"));
+        RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(
+                getRacingCarRegistry("a", "b", "c"));
         //when
-        List<RacerPosition> turnResult = racingGame.getTurnResult();
+        List<RacerPosition> turnResult = racingTurnProcessor.getTurnResult();
         //then
         assertThat(turnResult).hasSize(3)
                 .extracting("name", "position")
@@ -82,15 +84,16 @@ class RacingGameTest {
     @Test
     void getWinners() {
         //given
-        RacingGame<RacingCar> racingGame = new RacingGame<>(getRacingCarRegistry("a", "b", "c"));
+        RacingTurnProcessor<RacingCar> racingTurnProcessor = new RacingTurnProcessor<>(
+                getRacingCarRegistry("a", "b", "c"));
         given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(
                 MOVING_FORWARD, STOP, MOVING_FORWARD);
         given(Random.getRandomNumberInRange(anyInt(), anyInt())).willReturn(
                 MOVING_FORWARD, STOP, MOVING_FORWARD);
         //when
-        racingGame.progressTurn();
-        racingGame.progressTurn();
-        List<String> winners = racingGame.getWinners();
+        racingTurnProcessor.progressTurn();
+        racingTurnProcessor.progressTurn();
+        List<String> winners = racingTurnProcessor.getWinners();
 
         //then
         assertThat(winners).hasSize(2)
