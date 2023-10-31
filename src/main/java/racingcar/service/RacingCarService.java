@@ -11,7 +11,7 @@ import racingcar.view.OutputView;
 
 public class RacingCarService {
     private static final int MOVE_CONDITION = 4;
-    private static List<Car> carList;
+    public static List<Car> carList;
 
     public RacingCarService() {
         carList = new ArrayList<>();
@@ -20,7 +20,7 @@ public class RacingCarService {
     public List<Car> registerCars(List<String> carName) {
         validateCarNames(carName);
         for (String name : carName) {
-            carList.add(new Car(name));
+            carList.add(new Car(name, 0));
         }
         return carList;
     }
@@ -43,11 +43,15 @@ public class RacingCarService {
         }
     }
 
-    public String findWinners() {
-        int maxMoveCount = carList.stream()
+    public int getMaxMoveCount() {
+        return carList.stream()
                 .mapToInt(Car::getMoveCount)
                 .max()
                 .orElse(0);
+    }
+
+    public String findWinners() {
+        int maxMoveCount = getMaxMoveCount();
 
         List<String> winners = carList.stream()
                 .filter(car -> car.getMoveCount() == maxMoveCount)

@@ -20,13 +20,17 @@ public class RacingGameController {
         List<String> cars = Arrays.asList(input.split(","));
         racingGameService.registerCars(cars);
 
+        int moveCount = validateMoveCount();
+        playGame(moveCount);
+        displayWinners();
+    }
+
+    private int validateMoveCount() {
         String moveCountStr = InputView.inputMovesCount();
         InputValidator.validateEmptyInput(moveCountStr);
         int moveCount = InputValidator.validateNonNumeric(moveCountStr);
         InputValidator.validateNegativeInput(moveCount);
-
-        playGame(moveCount);
-        displayWinners();
+        return moveCount;
     }
 
     private void playGame(int moveCount) {
