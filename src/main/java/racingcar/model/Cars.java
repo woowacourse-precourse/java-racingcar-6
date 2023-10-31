@@ -29,9 +29,9 @@ public class Cars {
         List<String> winnerCarNames = new ArrayList<>();
 
         for (Car car : carList) {
-            String carName = car.getCarNameAtMaxPosition(maxPosition);
-            if (carName.length() > 0) {
-                winnerCarNames.add(carName);
+            String winnerCarName = car.getCarNameAtMaxPosition(maxPosition);
+            if (winnerCarName.length() > 0) {
+                winnerCarNames.add(winnerCarName);
             }
         }
 
@@ -39,7 +39,7 @@ public class Cars {
     }
 
     private String singleCarResult(Car car) {
-        int position = car.updateCar(randomUtils.getRandomNumber(RANDOM_START_NUMBER, RANDOM_LAST_NUMBER));
+        int position = car.goOrStayForwardCount(randomUtils.getRandomNumber(RANDOM_START_NUMBER, RANDOM_LAST_NUMBER));
         updateMaxPosition(position);
         return car.getCurrentPosition();
     }

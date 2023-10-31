@@ -12,8 +12,10 @@ public class Car {
         this.position = INITIAL_FORWARD_COUNT;
     }
 
-    public int updateCar(int randomNumber) {
-        goOrStayForwardCount(randomNumber);
+    public int goOrStayForwardCount(int randomNumber) {
+        if (randomNumber >= MIN_FORWARD_NUMBER) {
+            position += FORWARD_STEP;
+        }
 
         return position;
     }
@@ -31,12 +33,6 @@ public class Car {
     public String getCarNameAtMaxPosition(int maxPosition) {
         if (position == maxPosition) return name;
         return "";
-    }
-
-    private void goOrStayForwardCount(int randomNumber) {
-        if (randomNumber >= MIN_FORWARD_NUMBER) {
-            position += FORWARD_STEP;
-        }
     }
 
 }
