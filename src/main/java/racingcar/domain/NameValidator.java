@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NameValidator {
+    public NameValidator() {
+    }
+
     public static List<String> splitComma(String names) {
         List<String> nameList = new ArrayList<>();
         for (String name : names.split(",")) {
             if (name.isEmpty()) {
-                throw new IllegalArgumentException("잘못된 값을 입력하여 게임을 종료합니다.");
+                throw new IllegalArgumentException("빈 값을 입력하여 게임을 종료합니다.");
             }
             nameList.add(name);
         }
         if (nameList.size() != names.chars().filter(comma -> comma == ',').count() + 1) {
-            throw new IllegalArgumentException("잘못된 값을 입력하여 게임을 종료합니다.");
+            throw new IllegalArgumentException("빈 값을 입력하여 게임을 종료합니다.");
         }
         return nameList;
     }
