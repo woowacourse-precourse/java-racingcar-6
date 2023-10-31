@@ -8,6 +8,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -21,6 +23,13 @@ class ApplicationTest extends NsTest {
                     assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
                 },
                 MOVING_FORWARD, STOP
+        );
+    }
+    @Test
+    void 이름에_대한_예외_처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("  pobi , javaji ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
@@ -39,30 +48,11 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Test
-    void 이름에_대한_예외_처리() {
+    @ParameterizedTest
+    @CsvSource({"'a'","'!!'","' '","'0'","'ㄱ'"})
+    void 시도횟수_예외_처리(String tryCount) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("  pobi , javaji ", "1"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-    }
-
-    @Test
-    void 시도횟수_예외_처리() {
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,java", "a"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,java", "!!"))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,java", " "))
-                        .isInstanceOf(IllegalArgumentException.class)
-        );
-        assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("pobi,java", "0"))
+                assertThatThrownBy(() -> runException("pobi,java", tryCount))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
