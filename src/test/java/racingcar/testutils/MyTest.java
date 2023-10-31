@@ -1,6 +1,5 @@
 package racingcar.testutils;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -8,6 +7,7 @@ import java.io.PrintStream;
 import java.util.function.Supplier;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import racingcar.utils.Console;
 
 public abstract class MyTest {
     private PrintStream standardOut;

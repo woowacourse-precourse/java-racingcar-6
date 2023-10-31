@@ -1,6 +1,7 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
+import static racingcar.utils.Console.*;
+
 import java.util.List;
 
 public class InputView {
@@ -12,7 +13,7 @@ public class InputView {
     private static final int MIN_ATTEMPT_COUNT = 1;
 
     public int getAttemptCount() {
-        System.out.println(INPUT_ATTEMPT_COUNT);
+        println(INPUT_ATTEMPT_COUNT);
         int attemptCount = parseInt(readLine());
         validateAttemptCount(attemptCount);
         return attemptCount;
@@ -25,12 +26,8 @@ public class InputView {
     }
 
     public List<String> getNames() {
-        System.out.println(INPUT_CAR_NAMES);
+        println(INPUT_CAR_NAMES);
         return List.of(readLine().split(NAME_SEPARATOR));
-    }
-
-    private String readLine() {
-        return Console.readLine();
     }
 
     private int parseInt(String string) {

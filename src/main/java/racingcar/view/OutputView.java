@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import static racingcar.utils.Console.*;
+
 import java.util.List;
 import racingcar.domain.Car;
 
@@ -11,19 +13,19 @@ public class OutputView {
     private static final String RACE_RESULT = "실행 결과";
 
     public void printRaceResultMessage() {
-        System.out.println();
-        System.out.println(RACE_RESULT);
+        println();
+        println(RACE_RESULT);
     }
 
     public void printCarsPosition(List<Car> cars) {
         for (Car car : cars) {
-            System.out.println(car.getName() + NAME_POSITION_SEPARATOR + SKID_MARK.repeat(car.getPosition()));
+            println(car.getName() + NAME_POSITION_SEPARATOR + SKID_MARK.repeat(car.getPosition()));
         }
-        System.out.println();
+        println();
     }
 
     public void printWinners(List<String> winners) {
         String winner = String.join(WINNER_DELIMITER, winners);
-        System.out.println(WINNER + NAME_POSITION_SEPARATOR + winner);
+        println(WINNER + NAME_POSITION_SEPARATOR + winner);
     }
 }
