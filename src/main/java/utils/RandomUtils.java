@@ -10,9 +10,13 @@ public class RandomUtils {
 
     public static boolean isPossibleMoveAhead() {
         int randomNumber = generateRandomNumber();
-        if (randomNumber >= 4) {
+        if (isGreaterOrEqualThanFour(randomNumber)) {
            return true;
         }
         return false;
+    }
+
+    private static boolean isGreaterOrEqualThanFour(int randomNumber) {
+        return randomNumber >= 4;
     }
 }
