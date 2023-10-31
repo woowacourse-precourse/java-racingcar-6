@@ -21,6 +21,7 @@ class ConverterTest {
         return Stream.of(
                 Arguments.of("a,b,c", ",", List.of("a", "b", "c")),
                 Arguments.of("a b c", " ", List.of("a", "b", "c")),
+                Arguments.of("a,b c", " ", List.of("a,b", "c")),
                 Arguments.of(",,,", ",", List.of())
         );
     }
