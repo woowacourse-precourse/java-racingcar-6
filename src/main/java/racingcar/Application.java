@@ -120,6 +120,10 @@ class OutputView {
         }
     }
 
+    public void showLine() {
+        System.out.println();
+    }
+
 }
 
 class NameValidation {
