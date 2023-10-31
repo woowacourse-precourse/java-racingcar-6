@@ -19,6 +19,10 @@ public class Car {
         return this.name.equals(car.getName());
     }
 
+    public void move(){
+        this.moveCount++;
+    }
+
     public String getName(){
         return name;
     }

@@ -16,16 +16,16 @@ public class CarMoveService {
     public void move(Cars cars, UserInputCarMoveCountDto userInputCarMoveCountDto){
         IntStream.range(0,(int)userInputCarMoveCountDto.getMoveCount()).forEach(i -> {
             cars.getCars().forEach(car -> {
-                move(car);
+                if(canMove()) car.move();
                 Output.addResultOutput(car);
             });
             Output.addResultOutput("\n");
         });
     }
 
-    private void move(Car car){
+    private boolean canMove(){
         int randomNum = createRandom();
-        if(isOver(randomNum)) car.setMoveCount(car.getMoveCount()+1);
+        return isOver(randomNum);
     }
 
     private int createRandom(){
