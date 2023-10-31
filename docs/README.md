@@ -58,7 +58,8 @@
 			- getWinnerMoveCount()
 				- [O] 우승자 전진 횟수 구하기
 			- getWinnerCarNames()
-				- [ ] 우승자 전진 횟수와 동일한 전진 횟수를 가진 차 이름 모델(winnerCarNames)에 저장
+				- [O] 우승자 전진 횟수와 동일한 전진 횟수를 가진 차 이름 구하기
+				- [ ] 모델(winnerCarNames)에 저장
 
 3. CarNameValidator
 	- toValidateCarName()
