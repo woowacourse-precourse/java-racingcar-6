@@ -13,41 +13,6 @@ public class Application {
     	startGameProcess();
     }
 
-    //차 이름(쉼표로 구분된 여러 이름) 입력받기
-    public static String inputCarName(){
-    	String carNames = Console.readLine();
-    	return carNames;
-    }
-    
-    //차 이름 유효성 검사
-    public static void checkCarNameValidation(String carName) {
-    	Validator.validateCarName(carName);
-    }
-    
-    //입력받은 차 이름 분리하기(쉼표로 구분하기)
-    public static List<String> separateCarNameInput(String carNames){
-    	List<String> carList = new ArrayList<>();
-    	String[] carNamesArr = carNames.split(",");
-    	for(int i=0;i<carNamesArr.length;i++) {
-    		checkCarNameValidation(carNamesArr[i]);
-    		carList.add(carNamesArr[i]);
-    	}
-    	return carList;
-    }
-    
-    //차 이동횟수 유효성 검사
-    public static void checkNumberValidation(String movingNumberStr) {
-    	Validator.valdateMovingNumber(movingNumberStr);
-    }
-    
-    //차 이동횟수 입력받기
-    public static int inputMovingNumber() {
-    	String movingNumberStr = Console.readLine();
-    	checkNumberValidation(movingNumberStr);
-    	int movingNumber = Integer.parseInt(movingNumberStr);
-    	return movingNumber;
-    }
-    
     //차 이름을 HashMap<차이름,전진횟수>에 넣기
     public static Map<String, Integer> setCarRacingRecord(List<String> carList){
     	Map<String,Integer> carRacingRecord = new HashMap<String,Integer>();
@@ -114,9 +79,9 @@ public class Application {
 	private static void startGameProcess() {
 		Message.printCarNameMessage();
 		Message.printMovingNumberMessage();
-		String carNames = inputCarName();
-		List<String> carList=separateCarNameInput(carNames);
-		int movingNumber=inputMovingNumber();
+		String carNames = Input.inputCarName();
+		List<String> carList = Input.separateCarNameInput(carNames);
+		int movingNumber = Input.inputMovingNumber();
 		Map<String, Integer> carRacingRecord = setCarRacingRecord(carList);
 		Message.printCarRacingResult(movingNumber,carList,carRacingRecord);
 		Message.printGameResult(carList,carRacingRecord);
