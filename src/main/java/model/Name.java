@@ -30,7 +30,7 @@ public class Name {
     }
 
     private boolean isNameTooLong() {
-        return name.length() > MAX_LENGTH;
+        return name.trim().length() > MAX_LENGTH;
     }
 
     private boolean isNameEmpty() {
