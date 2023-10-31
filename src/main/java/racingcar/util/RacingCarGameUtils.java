@@ -5,6 +5,7 @@ import static racingcar.constant.ExceptionConstants.OVER_INTMAX_ROUNDCOUNT;
 import static racingcar.constant.RacingCarGameConfig.RANDOM_MAXIMUM_VALUE;
 import static racingcar.constant.RacingCarGameConfig.RANDOM_MINIMUM_VALUE;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +25,7 @@ public class RacingCarGameUtils {
     }
     Integer input = Integer.parseInt(inputString);
     if (input < 0) {
+      Console.close();
       throw new RacingCarGameException(NEGATIVE_NUMBER_ROUNDCOUNT);
     }
     return input;

@@ -5,6 +5,7 @@ import static racingcar.util.RacingCarGameUtils.convertStringToList;
 import static racingcar.view.InputView.getCarNamesFromPlayer;
 import static racingcar.view.InputView.getNumberOfRoundsFromPlayer;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Cars;
 import racingcar.view.OutputView;
 
@@ -29,5 +30,7 @@ public class RacingCarGame {
     }
 
     OutputView.printRacingCarGameWinner(cars);
+
+    Console.close();
   }
 }
