@@ -41,6 +41,36 @@ class OutputViewTest {
         Assertions.assertThat(getOutput()).contains("실행 결과", "son : --", "kim : ", "lee : -");
     }
 
+    @Test
+    @DisplayName("단독 우승자 출력 확인")
+    public void 단독_우승자_출력() {
+        // given
+        List<CarDTO> finalRoundResult = Arrays.asList(new CarDTO("son", 2));
+
+        // when
+        OUTPUT_VIEW.printWinner(finalRoundResult);
+
+        // then
+        Assertions.assertThat(getOutput()).contains("최종 우승자 : ", "son");
+    }
+
+    @Test
+    @DisplayName("공동 우승자 출력 확인")
+    public void 공동_우승자_출력() {
+        // given
+        List<CarDTO> finalRoundResult = Arrays.asList(
+                new CarDTO("son", 2),
+                new CarDTO("kim", 2),
+                new CarDTO("lee", 2)
+        );
+
+        // when
+        OUTPUT_VIEW.printWinner(finalRoundResult);
+
+        // then
+        Assertions.assertThat(getOutput()).contains("최종 우승자 : ", "son", "kim", "lee");
+    }
+
     public String getOutput() {
         return outputStream.toString();
     }
