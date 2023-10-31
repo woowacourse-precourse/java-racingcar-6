@@ -1,14 +1,16 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class MethodsTest {
+class MethodsTest extends NsTest {
 
     @Test
     void splitCarNamesTest() {
@@ -43,16 +45,23 @@ class MethodsTest {
 
     @Test
     void recordCarActionTest() {
-        List<String> carNamesList = Arrays.asList("pobi", "woni", "javaji");
-        List<Integer> carActionList = Application.recordCarAction(carNamesList);
-        assertThat(carActionList).hasSameSizeAs(carNamesList);
-        for (int element : carActionList) {
-            assertTrue(element == 0 || element == 1);
+        List<Integer> actionRecords = Application.recordCarAction(
+                Arrays.asList("pobi", "woni", "javaji"), Arrays.asList(0, 0, 0)
+        );
+        assertThat(actionRecords.size()).isEqualTo(3);
+        for (int action : actionRecords) {
+            assertTrue(action == 0 || action == 1);
         }
     }
 
     @Test
     void printCarRaceTest() {
+        assertSimpleTest(
+                () -> {
+                    Application.printCarRace(Arrays.asList("pobi", "woni"), Arrays.asList(3, 4));
+                    assertThat(output()).contains("pobi : ---", "woni : ----");
+                }
+        );
     }
 
     @Test
@@ -72,5 +81,10 @@ class MethodsTest {
 
     @Test
     void printWinnerTest() {
+    }
+
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
     }
 }

@@ -20,10 +20,8 @@ public class Application {
         int numberOfRaces = convertStringToInt(numberOfRacesStr);
 
         System.out.println("실행 결과");
-        List<Integer> raceResult = printCarRace(numberOfRaces, carNamesList);
-
+        List<Integer> raceResult = playCarRace(numberOfRaces, carNamesList);
         List<String> winnerNameList = decideWinner(raceResult, carNamesList);
-
         printWinner(winnerNameList);
     }
 
@@ -48,6 +46,28 @@ public class Application {
         }
     }
 
+    public static List<Integer> playCarRace(int numberOfRaces, List<String> carNamesList) {
+        List<Integer> recordStorage = new ArrayList<>(Collections.nCopies(carNamesList.size(), 0));
+
+        for (int i = 0; i < numberOfRaces; i++) {
+            List<Integer> actionRecords = recordCarAction(carNamesList, recordStorage);
+            printCarRace(carNamesList, actionRecords);
+            recordStorage = actionRecords;
+        }
+        List<Integer> raceResult = recordStorage;
+        return raceResult;
+    }
+
+    public static List<Integer> recordCarAction(List<String> carNamesList, List<Integer> recordStorage) {
+        List<Integer> actionRecords = recordStorage;
+        for (String car : carNamesList) {
+            int i = carNamesList.indexOf(car);
+            int action = actionRecords.get(i) + generateAction();
+            actionRecords.set(i, action);
+        }
+        return actionRecords;
+    }
+
     public static int generateAction() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
         int action = 0;
@@ -57,32 +77,24 @@ public class Application {
         return action;
     }
 
-    public static List<Integer> recordCarAction(List<String> carNamesList) {
-        List<Integer> carActionList = new ArrayList<>();
+    public static void printCarRace(List<String> carNamesList, List<Integer> actionRecords) {
         for (String car : carNamesList) {
-            carActionList.add(generateAction());
+            int i = carNamesList.indexOf(car);
+            int action = actionRecords.get(i);
+            String dashes = "-".repeat(action);
+            System.out.println(car + " : " + dashes);
         }
-        return carActionList;
+        System.out.println();
     }
 
-    public static List<Integer> printCarRace(int numberOfRaces, List<String> carNamesList) {
-        int numberOfCars = carNamesList.size();
-        List<Integer> raceResult = new ArrayList<>(Collections.nCopies(numberOfCars, 0));
-
-        for (int j = 0; j < numberOfRaces; j++) {
-            List<Integer> carActionList = recordCarAction(carNamesList);
-
-            for (int i = 0; i < numberOfCars; i++) {
-                String car = carNamesList.get(i);
-                int action = raceResult.get(i) + carActionList.get(i);
-                String dashes = "-".repeat(action);
-                System.out.println(car + " : " + dashes);
-
-                raceResult.set(i, action);
-            }
-            System.out.println();
+    public static List<String> decideWinner(List<Integer> raceResult, List<String> carNamesList) {
+        List<Integer> winnerIndexList = extractWinnerIndex(raceResult);
+        List<String> winnerNameList = new ArrayList<>();
+        for (int winnerIndex : winnerIndexList) {
+            String winnerName = carNamesList.get(winnerIndex);
+            winnerNameList.add(winnerName);
         }
-        return raceResult;
+        return winnerNameList;
     }
 
     public static List<Integer> extractWinnerIndex(List<Integer> raceResult) {
@@ -94,16 +106,6 @@ public class Application {
             }
         }
         return winnerIndexList;
-    }
-
-    public static List<String> decideWinner(List<Integer> raceResult, List<String> carNamesList) {
-        List<Integer> winnerIndexList = extractWinnerIndex(raceResult);
-        List<String> winnerNameList = new ArrayList<>();
-        for (int winnerIndex : winnerIndexList) {
-            String winnerName = carNamesList.get(winnerIndex);
-            winnerNameList.add(winnerName);
-        }
-        return winnerNameList;
     }
 
     public static void printWinner(List<String> winnerNameList) {
