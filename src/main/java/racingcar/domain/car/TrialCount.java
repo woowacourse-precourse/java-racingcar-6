@@ -15,12 +15,16 @@ public class TrialCount {
     }
 
     private void validatePositiveTrialCount(int trialCount) {
-        if (trialCount < 1) {
+        if (trialCount < 0) {
             throw new IllegalArgumentException(Err.INSUFFICIENT_TRIAL_COUNT.getMessage());
         }
     }
 
     public int getTrialCount() {
         return trialCount;
+    }
+
+    public TrialCount decremented() {
+        return new TrialCount(trialCount - 1);
     }
 }
