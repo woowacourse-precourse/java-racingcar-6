@@ -3,7 +3,6 @@ package racingcar.controller;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ValidateInputTest {
 
@@ -34,9 +33,28 @@ class ValidateInputTest {
     }
 
     @Test
-    void validateRoundInput() {
+    void validateRoundInput_입력된_문자열이_정수가_아닌_경우_예외_발생() {
         //given
+        String inputRound = "a";
+
         //when
+
         //then
+        assertThatThrownBy(() -> ValidateInput.validateRoundInput(inputRound))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("정수가 아닌 값이 입력되었습니다.");
+    }
+
+    @Test
+    void validateRoundInput_입력된_이동_회수가_1보다_작은_경우_예외_발생() {
+        //given
+        String inputRound = "0";
+
+        //when
+
+        //then
+        assertThatThrownBy(() -> ValidateInput.validateRoundInput(inputRound))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("시도할 회수가 1보다 작습니다.");
     }
 }
