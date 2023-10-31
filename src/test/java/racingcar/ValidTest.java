@@ -34,4 +34,10 @@ public class ValidTest {
         assertThatThrownBy(() -> checkNumber("5e6d"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 횟수가_음수일_경우에_대한_예외_처리(){
+        assertThatThrownBy(() -> checkNegativeNumber(-5))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
