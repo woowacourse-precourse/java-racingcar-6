@@ -5,10 +5,19 @@ import java.util.List;
 public abstract class Vehicle implements Comparable<Vehicle> {
 
     private static final int SAME_DISTANCE = 0;
+    private static final String COLUMN = " : ";
 
     protected String name;
     protected Distance distance;
 
+    public void printName() {
+        String nameString = this.name + COLUMN;
+        System.out.print(nameString);
+    }
+
+    public void printDistance() {
+        this.distance.printDistance();
+    }
 
     public boolean isSameDistance(Vehicle otherVehicle) {
         if (this.distance.compareTo(otherVehicle.distance) == SAME_DISTANCE) {
@@ -21,7 +30,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         winnerList.add(this.name);
     }
 
-    public abstract void printName();
     public abstract void advance();
 
     @Override
