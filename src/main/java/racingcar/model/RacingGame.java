@@ -8,10 +8,22 @@ import java.util.List;
 
 public class RacingGame {
     private final List<Car> cars = new ArrayList<>();
+    private int tryCount;
 
-    public RacingGame(List<String> carNames) {
+    public void setCarNames(List<String> carNames) {
         InputValidator.validateCarsName(carNames);
         initCars(carNames);
+    }
+
+    public void setTryCount(int tryCount) {
+        InputValidator.validateCount(tryCount);
+        this.tryCount = tryCount;
+    }
+
+    private void initCars(List<String> carNames) {
+        for (String carName : carNames) {
+            cars.add(new Car(carName));
+        }
     }
 
     public String race() {
@@ -24,12 +36,6 @@ public class RacingGame {
 
     public String getWinners() {
         return WinnerCalculator.getWinners(cars);
-    }
-
-    private void initCars(List<String> carNames) {
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
     }
 
     private int getRandomNum() {
