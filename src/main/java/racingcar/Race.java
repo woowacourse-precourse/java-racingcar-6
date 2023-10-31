@@ -18,7 +18,7 @@ public class Race {
 		for (int i = 0; i < turnCount; i++) {
 			executeTurn();
 		}
-		printResult();
+		printResult(getWinnerNameList());
 	}
 
 	public void setCarList(List<Car> carList) {
@@ -54,8 +54,12 @@ public class Race {
 	}
 
 	private void executeTurn() {
-		carList.forEach(car -> car.run(pickNumberInRange(0, 9)));
+		carList.forEach(car -> car.run(generateRandomValue()));
 		printStatus();
+	}
+
+	public int generateRandomValue() {
+		return pickNumberInRange(0, 9);
 	}
 
 	private void printStatus() {
@@ -64,19 +68,26 @@ public class Race {
 		System.out.println();
 	}
 
-	private void printResult() {
-		List<String> winnerList = new ArrayList<>();
-		int maxValue = carList.stream()
+	private int getMaxMoveCount() {
+		return carList.stream()
 				.mapToInt(Car::getMoveCount)
 				.max()
 				.orElse(0);
 
+	}
+
+	private List<String> getWinnerNameList() {
+		List<String> winnerList = new ArrayList<>();
 		carList.forEach(car -> {
-			if (car.getMoveCount() == maxValue) {
+			if (car.getMoveCount() == getMaxMoveCount()) {
 				winnerList.add(car.getName());
 			}
 		});
-		System.out.println("최종 우승자 : ".concat(String.join(", ", winnerList)));
+		return winnerList;
+	}
+
+	public void printResult(List<String> winnerNameList) {
+		System.out.println("최종 우승자 : ".concat(String.join(", ", winnerNameList)));
 	}
 
 	public List<Car> getCarList() {

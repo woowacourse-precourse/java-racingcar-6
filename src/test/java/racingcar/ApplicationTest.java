@@ -114,4 +114,43 @@ class ApplicationTest extends NsTest {
 						.isInstanceOf(IllegalArgumentException.class)
 		);
 	}
+
+	@Test
+	@DisplayName("출력값 테스트1 - 레이싱 진행 여부 확인 테스트 - 3 입력 시 진행되지 않음")
+	void outputTest1() {
+		Race race = new Race();
+		Car car = new Car("poby");
+
+		car.run(3);
+
+		assertThat(car.getMoveCount()).isEqualTo(0);
+	}
+
+	@Test
+	@DisplayName("출력값 테스트2 - 레이싱 진행 여부 확인 테스트 - 4 입력 시 진행됨")
+	void outputTest2() {
+		Race race = new Race();
+		Car car = new Car("poby");
+
+		car.run(4);
+
+		assertThat(car.getMoveCount()).isEqualTo(1);
+	}
+
+	@Test
+	@DisplayName("출력값 테스트3 - 자동차 이름 입력 순서 체크")
+	void outputTest3() {
+		Race race = new Race();
+		Car[] car = new Car[] {new Car("poby"), new Car("woni"), new Car("jinee")};
+
+		List<Car> carList = new ArrayList<>();
+		for (Car c : car) {
+			carList.add(c);
+		}
+		race.setCarList(carList);
+
+		for (int i = 0; i < car.length; i++) {
+			assertThat(car[i].getName()).isEqualTo(race.getCarList().get(i).getName());
+		}
+	}
 }
