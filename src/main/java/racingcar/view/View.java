@@ -1,7 +1,10 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import racingcar.io.IOManager;
+import racingcar.model.Player;
 
 public class View {
 
@@ -16,25 +19,32 @@ public class View {
         return ioManager.readString();
     }
 
-    public String printInputAttempts() {
+    public String printInputRacingTime() {
         System.out.println("시도할 회수는 몇회인가요?");
         return ioManager.readString();
     }
 
     public void printResultMessage() {
+        System.out.println();
         System.out.println("실행 결과");
     }
 
-    public void printMovedLog(String name, int moveCnt) {
+    public void printMovedLog(Map<Player, Integer> moveLog) {
 
-        String movedLog = name + " : "
-                + "-".repeat(Math.max(0, moveCnt));
+        StringBuilder sb = new StringBuilder();
 
-        System.out.println(movedLog);
+        for (Entry<Player, Integer> entry : moveLog.entrySet()) {
+            Player player = entry.getKey();
+            int moveCnt = entry.getValue();
+            sb.append(player.getName()).append(" : ").append("-".repeat(Math.max(0, moveCnt))).append("\n");
+        }
+
+        System.out.println(sb);
     }
 
     public void printWinnerNames(List<String> names) {
-        String winnerNames = String.join(", ", names);
-        System.out.println(winnerNames);
+        StringBuilder sb = new StringBuilder();
+        sb.append("최종 우승자 : ").append(String.join(", ", names));
+        System.out.println(sb);
     }
 }

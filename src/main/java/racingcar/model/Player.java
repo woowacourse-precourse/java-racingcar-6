@@ -10,6 +10,10 @@ public class Player {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     private void valid(String name) {
         checkNameLength(name);
     }
@@ -18,5 +22,10 @@ public class Player {
         if (name.length() > MAX_NAME_SIZE) {
             throw new IllegalArgumentException("이름은 + MAX_NAME_SIZE + 자 이하만  가능합니다.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

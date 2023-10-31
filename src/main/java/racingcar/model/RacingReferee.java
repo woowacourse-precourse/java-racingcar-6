@@ -26,7 +26,6 @@ public class RacingReferee {
     public Map<Player, Integer> carMove() {
         for (Player player : players.getPlayers()) {
             int v = dice.roll();
-            System.out.println("valeu =" + v);
             if(isMove(v)) {
                 result.put(player, result.get(player) + 1);
             }

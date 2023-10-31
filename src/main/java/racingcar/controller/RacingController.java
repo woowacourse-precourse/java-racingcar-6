@@ -24,6 +24,7 @@ public class RacingController {
 
         view.printResultMessage();
         race(racingTime);
+        view.printWinnerNames(racingReferee.getWinner());
     }
 
     private void race(int racingTime) {
