@@ -5,7 +5,7 @@ import java.util.List;
 import racingcar.dto.PerGameCarResultDto;
 
 public class RacingGame {
-    private int totalTryCnt;
+    private final int totalTryCnt;
     private int curTryCnt;
     private int maxWinCnt;
     private List<Car> cars;
@@ -40,6 +40,10 @@ public class RacingGame {
             }
         }
         return winners;
+    }
+
+    public boolean isEndGame(){
+        return totalTryCnt == curTryCnt;
     }
 
 }
