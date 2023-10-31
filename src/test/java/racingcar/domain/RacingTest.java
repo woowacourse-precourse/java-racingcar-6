@@ -67,4 +67,16 @@ public class RacingTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("1 이상의 숫자를 입력해주세요.");
     }
+
+    @Test
+    @DisplayName("성공 : 진행회수에 빈 문자열 기입")
+    public void 진행회수에_빈_문자열_기입() {
+        String input = "";
+
+        final Racing racing = new Racing();
+
+        assertThatThrownBy(() -> racing.getTurn(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("숫자만 입력해주세요.");
+    }
 }
