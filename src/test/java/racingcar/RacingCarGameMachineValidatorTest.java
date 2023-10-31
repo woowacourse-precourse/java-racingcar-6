@@ -3,7 +3,6 @@ package racingcar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.validator.RacingCarGameMachineValidator;
-
 import java.util.ArrayList;
 import java.util.List;
 

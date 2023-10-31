@@ -1,11 +1,12 @@
 package racingcar;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.mock.MockInputView;
 import racingcar.mock.MockOutputView;
 import racingcar.mock.MockRacingCarGameFactory;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingCarGameControllerTest {
     private static final RacingCarGameFactory racingCarGameFactory = new MockRacingCarGameFactory();
@@ -31,7 +32,7 @@ public class RacingCarGameControllerTest {
         racingCarGameController.play();
         String printedMessage = mockOutputView.getPrintedMessageAndClear();
 
-        Assertions.assertThat(printedMessage)
+        assertThat(printedMessage)
                 .contains("실행 결과", "semin", "woowa", "pre", "최종 우승자");
     }
 }

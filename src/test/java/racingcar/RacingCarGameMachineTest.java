@@ -1,10 +1,12 @@
 package racingcar;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.mock.MockRacingCarGameFactory;
 import racingcar.mock.MockRandomNumberGenerator;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingCarGameMachineTest {
     private static final RacingCarGameFactory racingCarGameFactory = new MockRacingCarGameFactory();
@@ -28,14 +30,14 @@ public class RacingCarGameMachineTest {
     void 레이싱카_생성() {
         String roundResult = racingCarGameMachine.getRoundResult();
 
-        Assertions.assertThat(roundResult).contains("semin", "woowa", "pre");
+        assertThat(roundResult).contains("semin", "woowa", "pre");
     }
 
     @Test
     void 게임_진행_중() {
         boolean gameInProgress = racingCarGameMachine.isGameInProgress();
 
-        Assertions.assertThat(gameInProgress).isEqualTo(true);
+        assertThat(gameInProgress).isEqualTo(true);
     }
 
     @Test
@@ -45,14 +47,14 @@ public class RacingCarGameMachineTest {
         }
         boolean gameInProgress = racingCarGameMachine.isGameInProgress();
 
-        Assertions.assertThat(gameInProgress).isEqualTo(false);
+        assertThat(gameInProgress).isEqualTo(false);
     }
 
     @Test
     void 라운드_지정_횟수_초과_예외처리() {
         playRoundUntilGameOver();
 
-        Assertions.assertThatThrownBy(() -> racingCarGameMachine.getRoundResult())
+        assertThatThrownBy(() -> racingCarGameMachine.getRoundResult())
                 .isInstanceOf(IllegalStateException.class);
     }
 
@@ -62,13 +64,13 @@ public class RacingCarGameMachineTest {
 
         String roundResult = racingCarGameMachine.getRoundResult();
 
-        Assertions.assertThat(roundResult).contains("semin : -");
-        Assertions.assertThat(roundResult).doesNotContain("woowa : -", "pre : -");
+        assertThat(roundResult).contains("semin : -");
+        assertThat(roundResult).doesNotContain("woowa : -", "pre : -");
     }
 
     @Test
     void 게임_진행_중_결과_호출_예외_처리() {
-        Assertions.assertThatThrownBy(() -> racingCarGameMachine.getGameResult())
+        assertThatThrownBy(() -> racingCarGameMachine.getGameResult())
                 .isInstanceOf(IllegalStateException.class);
     }
 
@@ -78,8 +80,8 @@ public class RacingCarGameMachineTest {
         playRoundUntilGameOver();
         String gameResult = racingCarGameMachine.getGameResult();
 
-        Assertions.assertThat(gameResult).contains("최종 우승자 : semin");
-        Assertions.assertThat(gameResult).doesNotContain("woowa", "pre");
+        assertThat(gameResult).contains("최종 우승자 : semin");
+        assertThat(gameResult).doesNotContain("woowa", "pre");
     }
 
     @Test
@@ -89,8 +91,8 @@ public class RacingCarGameMachineTest {
 
         String gameResult = racingCarGameMachine.getGameResult();
 
-        Assertions.assertThat(gameResult).contains("최종 우승자 : semin, woowa");
-        Assertions.assertThat(gameResult).doesNotContain("pre");
+        assertThat(gameResult).contains("최종 우승자 : semin, woowa");
+        assertThat(gameResult).doesNotContain("pre");
     }
 
     void playRoundUntilGameOver() {
