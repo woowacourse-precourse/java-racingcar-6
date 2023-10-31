@@ -5,7 +5,6 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.model.Car;
 import racingcar.model.CarsService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -15,12 +14,14 @@ public class GameController {
 
 	public void playGame() {
 
-		List<Car> carList = inputCarList();
+		String inputCars = inputCars();
+		carsService.make(inputCars);
+
 		int attemptCount = inputAttemptCount();
 
 		OutputView.printResult();
 
-		conductRound(attemptCount, carList);
+		conductRound(attemptCount);
 
 		String winnerList = carsService.findWinner();
 
@@ -28,12 +29,10 @@ public class GameController {
 
 	}
 
-	private List<Car> inputCarList() {
+	public String inputCars() {
 
 		InputView.printCarList();
-		String enteredCarList = Console.readLine();
-
-		return carsService.make(enteredCarList);
+		return Console.readLine();
 	}
 
 	private int inputAttemptCount() {
@@ -60,13 +59,13 @@ public class GameController {
 		}
 	}
 
-	private void conductRound(int attemptCount, List<Car> carList) {
+	private void conductRound(int attemptCount) {
 
 		for (int i = 0; i < attemptCount; i++) {
 
-			List<Integer> randomNumbers = makeRandomNumbers(carList.size());
+			List<Integer> randomNumbers = makeRandomNumbers(carsService.size());
 			carsService.moveOrStop(randomNumbers);
-			OutputView.printEachRound(carList);
+			OutputView.printEachRound(carsService);
 
 		}
 	}

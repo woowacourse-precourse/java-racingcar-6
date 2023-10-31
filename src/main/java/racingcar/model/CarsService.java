@@ -112,8 +112,23 @@ public class CarsService {
 		return winner.toString();
 	}
 
+	public List<String> makeGraphs(String graphUnit) {
+		List<String> graphs = new ArrayList<>();
+
+		for (Car car : CARS) {
+			String eachGraph = car.getStatus(graphUnit);
+			graphs.add(eachGraph);
+		}
+
+		return graphs;
+	}
+
 	public void clear() {
 		CARS.clear();
+	}
+
+	public int size() {
+		return CARS.size();
 	}
 
 }

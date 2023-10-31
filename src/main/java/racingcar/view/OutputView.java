@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 
-import racingcar.model.Car;
+import racingcar.model.CarsService;
 
 public class OutputView {
 	final static String GRAPH_UNIT = "-";
@@ -15,10 +15,12 @@ public class OutputView {
 		System.out.println(RESULT_MESSAGE);
 	}
 
-	public static void printEachRound(List<Car> carList) {
+	public static void printEachRound(CarsService carsService) {
 
-		for (Car eachCar : carList) {
-			System.out.println(eachCar.getStatus(GRAPH_UNIT));
+		List<String> graphs = carsService.makeGraphs(GRAPH_UNIT);
+
+		for (String eachGraph : graphs) {
+			System.out.println(eachGraph);
 		}
 
 		System.out.println();
