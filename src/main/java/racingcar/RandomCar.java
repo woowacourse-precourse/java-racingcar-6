@@ -18,10 +18,18 @@ public class RandomCar {
     }
 
     public int move() {
-        int randomNumber = randomNumberGenerator.generate();
-
-        if (randomNumber >= 4) {
+        if (randomNumberGenerator.generate() >= 4) {
             position++;
+        }
+
+        return position;
+    }
+
+    public int move(int attemptCouunt) {
+        for (int i = 0; i < attemptCouunt; i++) {
+            if (randomNumberGenerator.generate() >= 4) {
+                position++;
+            }
         }
 
         return position;

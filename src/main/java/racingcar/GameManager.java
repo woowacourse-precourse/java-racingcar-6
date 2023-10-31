@@ -25,8 +25,8 @@ public class GameManager {
         names.forEach(name -> randomCars.add(new RandomCar(name)));
     }
 
-    private void moveRandomCars(int attemptNumber) {
-        for (int i = 0; i < attemptNumber; i++) {
+    private void moveRandomCars(int attemptCount) {
+        for (int i = 0; i < attemptCount; i++) {
             for (RandomCar randomCar : randomCars) {
                 randomCar.move();
                 randomCar.printPosition();
