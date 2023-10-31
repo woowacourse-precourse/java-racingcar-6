@@ -16,7 +16,7 @@ public class WinnerDetector {
 
     private void add() {
         for (int i = 0; i < carsRepo.size(); i++) {
-            if (winnerRepo.isWinner(carsRepo.getGameNum(i))) {
+            if (winnerRepo.isWinner(carsRepo.getPosition(i))) {
                 winnerRepo.add(carsRepo.getName(i));
             }
         }

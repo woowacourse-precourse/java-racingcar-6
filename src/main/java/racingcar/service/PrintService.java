@@ -23,7 +23,7 @@ public class PrintService {
     public void racing(int size) {
         for (int i = 0; i < size; i++) {
             name(carsRepo.getName(i));
-            position(carsRepo.getGameNum(i));
+            position(carsRepo.getPosition(i));
             spaceSkip();
         }
         spaceSkip();

@@ -43,7 +43,7 @@ public class Cars {
         return getCar(i).getName();
     }
 
-    public int getGameNum(int i) {
+    public int getPosition(int i) {
         return getCar(i).getPosition();
     }
 

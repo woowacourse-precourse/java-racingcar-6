@@ -9,12 +9,16 @@ public class CarsRepository {
         this.cars = Cars.create();
     }
 
+    public void initCars(String[] carArr) {
+        cars.init(carArr);
+    }
+
     public String getName(int i) {
         return cars.getName(i);
     }
 
-    public void initCars(String[] carArr) {
-        cars.init(carArr);
+    public int getPosition(int i) {
+        return cars.getPosition(i);
     }
 
     public int size() {
@@ -23,10 +27,6 @@ public class CarsRepository {
 
     public void plusNum(int i, int random) {
         cars.plusNum(i, random);
-    }
-
-    public int getGameNum(int i) {
-        return cars.getGameNum(i);
     }
 
     public int findMaxPosition() {
