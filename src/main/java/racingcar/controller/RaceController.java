@@ -14,6 +14,7 @@ public class RaceController {
 
     public void run() {
         initialize();
+        play();
     }
 
     public void play() {
