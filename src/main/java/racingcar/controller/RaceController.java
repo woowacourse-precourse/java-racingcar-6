@@ -5,6 +5,7 @@ import racingcar.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RaceController {
     private static final int RANGE_START_NUMBER = 0;
@@ -45,13 +46,8 @@ public class RaceController {
     }
 
     private List<Car> findWinner(List<Car> racingCars) {
-        List<Car> winner = new ArrayList<>();
-        for (Car car : racingCars) {
-            if (car.getDistance() == getWinnerRecord(racingCars)) {
-                winner.add(car);
-            }
-        }
-        return winner;
+        int maxDistance = getWinnerRecord(racingCars);
+        return racingCars.stream().filter(car -> car.getDistance() == maxDistance).collect(Collectors.toList());
     }
 
     private boolean isWinnerMultiple(List<Car> winner) {
