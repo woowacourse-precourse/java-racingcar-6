@@ -60,4 +60,13 @@ class RacingGameEventTest {
         List<String> winnerNames = racingGameEvent.getWinnerNames(racingGameEvent.getPositionHistory());
         assertThat(winnerNames.size()).isEqualTo(3);
     }
+
+    @DisplayName("우승자가 선정 되는지 테스트")
+    @Test
+    public void getWinnerNameTest() {
+        String[] cars = {"pobi", "jiu"};
+        RacingGameEvent racingGameEvent = new RacingGameEvent(cars);
+        racingGameEvent.startEvent(1);
+        assertThat(racingGameEvent.getWinnerNames(racingGameEvent.getPositionHistory())).isNotEmpty();
+    }
 }
