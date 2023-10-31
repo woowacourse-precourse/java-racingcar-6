@@ -1,15 +1,17 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.model.Car;
 
-import java.util.List;
-
 public class OutputView {
+    private static final String PRINT_RESULT_MESSAGE = "실행 결과";
+    private static final String PRINT_WINNER_MESSAGE = "최종 우승자 : ";
+
     /**
      * "실행 결과" 출력
      */
     public static void printResultHeader() {
-        System.out.println("실행 결과");
+        System.out.println(PRINT_RESULT_MESSAGE);
     }
 
     /**
@@ -44,7 +46,7 @@ public class OutputView {
      * 최종 우승자 출력
      */
     public static void printWinner(List<String> cars) {
-        System.out.print("최종 우승자 : ");
+        System.out.print(PRINT_WINNER_MESSAGE);
         String concatenatedNames = String.join(", ", cars);
         System.out.println(concatenatedNames);
     }
