@@ -21,7 +21,7 @@ class CarsTest {
 
     @Test
     @DisplayName("이름이 중복될 경우, 자동차 리스트 생성 실패")
-    public void createError() {
+    public void createFail() {
         // given
         String names = "race,car,car";
 

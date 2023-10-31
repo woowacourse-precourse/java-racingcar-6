@@ -24,7 +24,7 @@ class CarTest {
     @ParameterizedTest
     @ValueSource(strings = {"failCar", "123456"})
     @DisplayName("이름이 5자를 넘을 경우, 자동차 생성 실패")
-    public void createError(String name) {
+    public void createFail(String name) {
         // then
         assertThatThrownBy(() -> new Car(name))
             .isInstanceOf(IllegalArgumentException.class);
