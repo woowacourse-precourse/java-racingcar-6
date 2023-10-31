@@ -1,9 +1,7 @@
 package racingcar.controller;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
@@ -32,7 +30,7 @@ class RacingRefereeControllerTest extends NsTest {
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD,
                 MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD
-                );
+        );
     }
 
     @Override
