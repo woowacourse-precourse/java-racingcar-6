@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.enums.Symbol;
 import racingcar.model.RacingCar;
-import racingcar.stub.RacingCarStub;
+import stub.RacingCarStub;
 
 public class RacingCarTest extends RacingCarStub {
     private RacingCar racingCar;

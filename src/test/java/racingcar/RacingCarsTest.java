@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.model.RacingCars;
-import racingcar.stub.RacingCarsStub;
+import stub.RacingCarsStub;
 
 public class RacingCarsTest extends RacingCarsStub {
     private RacingCars racingCars;

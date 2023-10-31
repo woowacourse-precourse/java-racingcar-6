@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.mockito.MockedStatic;
 import racingcar.model.RacingGame;
-import racingcar.stub.RacingGameStub;
+import stub.RacingGameStub;
 
 public class RacingGameTest extends RacingGameStub {
 
