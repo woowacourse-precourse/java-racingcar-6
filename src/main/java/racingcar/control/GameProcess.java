@@ -75,11 +75,6 @@ public class GameProcess {
         cntTryRace = Utill.inputNum();
     }
 
-    /**
-     * 레이싱게임의 최종 승자를 알려준다.
-     *
-     * @return
-     */
     public String knowFinalWinner() {
         String nameOfWinnerRaceCar = null;
         String[] raceCarOfWinnerArr = null;
