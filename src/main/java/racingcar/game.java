@@ -55,4 +55,19 @@ public class game {
         }
         try_number--;
     }
+
+    void print_car(car par){ //자동차 진행 상황 출력
+        System.out.print(par.name + " : ");
+        for(int i = 0; i < par.position; i++){
+            System.out.print("-");
+        }
+        System.out.println("");
+    }
+
+    void print_simul(){ //모든 자동차 상황 출력
+        for(int i = 0; i < participate.length; i++){
+            print_car(participate[i]);
+        }
+        System.out.println("");
+    }
 }
