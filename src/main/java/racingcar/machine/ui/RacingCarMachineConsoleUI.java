@@ -1,5 +1,8 @@
 package racingcar.machine.ui;
 
+import racingcar.machine.car.Car;
+import racingcar.machine.car.CarInterface;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,22 +30,18 @@ public class RacingCarMachineConsoleUI implements RacingCarMachineUI {
     }
 
     @Override
-    public void displayRaceProgress(String carName, int position) {
-        System.out.print(carName + " : ");
-        for(int i=0; i<position; i++) {
-            System.out.print("-");
-        }
+    public void displayRaceResult() {
+        System.out.println("실행결과");
+    }
+
+    @Override
+    public void displayRaceProgress(List<CarInterface> cars) {
+        cars.forEach(car -> System.out.println(car.carMoveLength()));
         System.out.println();
     }
 
     @Override
-    public void displayFinalWinner(List<String> winners) {
-        System.out.print("최종 우승자 : ");
-        for (int i = 0; i < winners.size(); i++) {
-            System.out.print(winners.get(i));
-            if(i != winners.size()) {
-                System.out.print(",");
-            }
-        }
+    public void displayFinalWinner(String winners) {
+        System.out.print("최종 우승자 : " + winners);
     }
 }

@@ -1,11 +1,17 @@
 package racingcar.machine;
 
+import racingcar.machine.car.Car;
+import racingcar.machine.car.CarInterface;
 import racingcar.machine.ui.RacingCarMachineUI;
 
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class RacingCarMachine implements RacingCarMachineInterface{
     private final RacingCarMachineUI ui;
+
+    private final List<CarInterface> cars = new LinkedList<>();
 
     public RacingCarMachine(RacingCarMachineUI ui) {
         this.ui = ui;
@@ -14,22 +20,37 @@ public class RacingCarMachine implements RacingCarMachineInterface{
     @Override
     public void createCar() {
         ui.displayRequestCarNames();
-        System.out.println("ui.inputCarNames() = " + ui.inputCarNames());
+        List<String> carNames = ui.inputCarNames();
+
+        carNames.forEach(carName -> cars.add(new Car(carName)));
     }
 
     @Override
     public void attemptToMoveCars() {
         ui.displayRequestNumberOfAttempts();
-        System.out.println("ui.inputNumberOfAttempts() = " + ui.inputNumberOfAttempts());
+        int tryAttemptNumber = ui.inputNumberOfAttempts();
 
-        ui.displayRaceProgress("testingCarName1", 3);
-        ui.displayRaceProgress("testingCarName2", 2);
-        ui.displayRaceProgress("testingCarName3", 8);
-
+        ui.displayRaceResult();
+        for (int i = 0; i < tryAttemptNumber; i++) {
+            cars.forEach(CarInterface::tryForwardMove);
+            ui.displayRaceProgress(cars);
+        }
     }
 
     @Override
     public void showWinner(){
-        ui.displayFinalWinner(List.of("test1", "test2", "test3"));
+        StringBuilder finalWinnerCarNames = new StringBuilder();
+        int max = 0;
+        for(CarInterface car : cars) {
+            if(max < car.getDistance()) {
+                max = car.getDistance();
+                finalWinnerCarNames = new StringBuilder(car.getName());
+            }
+            else if (max == car.getDistance()) {
+                finalWinnerCarNames.append(",");
+                finalWinnerCarNames.append(car.getName());
+            }
+        }
+        ui.displayFinalWinner(finalWinnerCarNames.toString());
     }
 }

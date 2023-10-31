@@ -1,5 +1,7 @@
 package racingcar.machine.ui;
 
+import racingcar.machine.car.CarInterface;
+
 import java.util.List;
 
 public interface RacingCarMachineUI {
@@ -7,7 +9,10 @@ public interface RacingCarMachineUI {
     List<String> inputCarNames();
     void displayRequestNumberOfAttempts();
     int inputNumberOfAttempts();
-    void displayRaceProgress(String carName, int position);
-    void displayFinalWinner(List<String> winners);
+
+    void displayRaceResult();
+
+    void displayRaceProgress(List<CarInterface> cars);
+    void displayFinalWinner(String winners);
 
 }
