@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class RacingMachine {
 
     private static final int MIN_TRY_COUNT = 1;
@@ -24,6 +26,10 @@ public class RacingMachine {
 
     public boolean canPlay() {
         return tryCount > 0;
+    }
+
+    public List<String> selectWinner() {
+        return cars.getWinners();
     }
 
     private static void validateTryCount(int tryCount) {
