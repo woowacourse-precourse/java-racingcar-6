@@ -11,7 +11,7 @@ public record Cars(List<Car> carList) {
         List<Car> carList = Utils.splitByDelimiter(carsString, CAR_NAME_DELIMITER)
                 .stream()
                 .map(CarName::new)
-                .map(carName -> new Car(carName, new Position(0)))
+                .map(Car::new)
                 .toList();
         return new Cars(carList);
     }
