@@ -20,6 +20,7 @@ public class Car {
     }
 
     public int getMove(){
+
         return go;
     }
 

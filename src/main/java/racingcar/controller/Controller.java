@@ -26,8 +26,22 @@ public class Controller {
         this.raceResult = new RaceResult(race);
     }
 
+    private int checkCount(int countInput) {
+        try {
+            int countNumber = countInput;
+
+            if (countNumber <= 0) {
+                throw new IllegalArgumentException("시도 횟수 음수 또는 0입력 오류");
+            }
+            return countNumber;
+
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수 숫자 외 입력 오류");
+        }
+    }
+
     private void moveRace(){
-        int countNumber = raceView.countMeg();
+        int countNumber = checkCount(raceView.countMeg());
 
         raceView.resultMeg();
         raceContent.runRace(countNumber);
