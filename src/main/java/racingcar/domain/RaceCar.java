@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RaceCar {
-    public static List<String> names = new ArrayList<>();
-    public static List<String> moveDistance = new ArrayList<>();
+    public List<String> names = new ArrayList<>();
+    public List<String> moveDistance = new ArrayList<>();
 
     public RaceCar(List<String> carName) {
         for (int i = 0; i < carName.size(); i++) {
