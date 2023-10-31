@@ -6,9 +6,11 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
+        this.cuurentLocation = 0;
     }
 
     public void movingForward() {
+        this.cuurentLocation++;
     }
 
     private boolean judgeForward(Integer number) {
