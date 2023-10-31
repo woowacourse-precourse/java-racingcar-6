@@ -5,6 +5,7 @@ public class Racer {
     private String name;
     private int moveCount = 0;
     private boolean state = false;
+    public String moveState = "";
 
     public Racer(String name) {
         this.name = name;
@@ -33,5 +34,9 @@ public class Racer {
 
     public void stopState() {
         this.state = false;
+    }
+
+    public String getMoveState() {
+        return this.moveState;
     }
 }
