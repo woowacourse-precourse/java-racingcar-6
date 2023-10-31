@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Car;
 import model.Cars;
+import model.MovingCount;
+import model.Name;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,9 +34,9 @@ public class OutputViewTest {
     void 최종_우승자_출력_테스트() {
         //given
         List<Car> carList = new ArrayList<>();
-        Car pobiCar = new Car("pobi");
-        Car lisaCar = new Car("lisa");
-        Car jinyCar = new Car("jiny");
+        Car pobiCar = new Car(new Name("pobi"), new MovingCount(0));
+        Car lisaCar = new Car(new Name("lisa"), new MovingCount(0));
+        Car jinyCar = new Car(new Name("jiny"), new MovingCount(0));
         pobiCar.increaseMovingCountIfGreater(4, 5);
         lisaCar.increaseMovingCountIfGreater(4, 5);
         carList.add(pobiCar);

@@ -7,9 +7,9 @@ public class Car implements Comparable<Car> {
     private static final String DASH = "-";
     private static final String STATUS_SEPARATOR = " : ";
 
-    public Car(String name) {
-        this.name = new Name(name);
-        this.movingCount = new MovingCount(0);
+    public Car(Name name, MovingCount movingCount) {
+        this.name = name;
+        this.movingCount = movingCount;
     }
 
     public void increaseMovingCountIfGreater(int minimumNumber, int randomNumber) {

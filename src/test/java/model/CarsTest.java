@@ -13,9 +13,9 @@ public class CarsTest {
     void Cars_생성자_테스트() {
         //given
         List<Car> carList = List.of(
-                new Car("pobi"),
-                new Car("lisa"),
-                new Car("jiny")
+                new Car(new Name("pobi"), new MovingCount(0)),
+                new Car(new Name("lisa"), new MovingCount(0)),
+                new Car(new Name("jiny"), new MovingCount(0))
         );
 
         //when, then
@@ -28,9 +28,9 @@ public class CarsTest {
     @DisplayName("가장 큰 movingCount를 가진 Car객체의 이름 반환 테스트")
     void 가장_큰_movingCount_Car_객체_테스트() {
         //given
-        Car pobiCar = new Car("pobi");
-        Car lisaCar = new Car("lisa");
-        Car jinyCar = new Car("jiny");
+        Car pobiCar = new Car(new Name("pobi"), new MovingCount(0));
+        Car lisaCar = new Car(new Name("lisa"), new MovingCount(0));
+        Car jinyCar = new Car(new Name("jiny"), new MovingCount(0));
         lisaCar.increaseMovingCountIfGreater(4, 5);
 
         List<Car> carList = new ArrayList<>();
@@ -51,9 +51,9 @@ public class CarsTest {
     void 모든_Car_객체_상태_반환_테스트() {
         //given
         List<Car> carList = new ArrayList<>();
-        Car pobiCar = new Car("pobi");
-        Car lisaCar = new Car("lisa");
-        Car jinyCar = new Car("jiny");
+        Car pobiCar = new Car(new Name("pobi"), new MovingCount(0));
+        Car lisaCar = new Car(new Name("lisa"), new MovingCount(0));
+        Car jinyCar = new Car(new Name("jiny"), new MovingCount(0));
         pobiCar.increaseMovingCountIfGreater(4, 5);
         lisaCar.increaseMovingCountIfGreater(4, 5);
         carList.add(pobiCar);

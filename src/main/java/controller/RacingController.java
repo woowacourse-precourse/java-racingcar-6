@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 import model.Attempts;
 import model.Car;
 import model.Cars;
+import model.MovingCount;
+import model.Name;
 import view.InputView;
 import view.OutputView;
 
@@ -28,7 +30,7 @@ public class RacingController {
 
     private List<Car> convertNameToCar() {
         return InputView.getCarsNameFromUserInput().stream()
-                .map(Car::new)
+                .map(name -> new Car(new Name(name), new MovingCount(0)))
                 .collect(Collectors.toList());
     }
 }

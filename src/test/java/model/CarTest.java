@@ -21,7 +21,7 @@ public class CarTest {
         String name = input;
 
         //when, then
-        Assertions.assertThatThrownBy(() -> new Car(name))
+        Assertions.assertThatThrownBy(() -> new Car(new Name(name), new MovingCount(0)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("5글자 미만");
     }
@@ -34,7 +34,7 @@ public class CarTest {
         String name = input;
 
         //when, then
-        Assertions.assertThatThrownBy(() -> new Car(name))
+        Assertions.assertThatThrownBy(() -> new Car(new Name(name), new MovingCount(0)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("공백 혹은 빈");
     }
@@ -43,8 +43,8 @@ public class CarTest {
     @DisplayName("서로 다른 Car객체 movingCount가 같으면 true 테스트")
     void 서로_다른_Car_객체_비교_테스트() {
         //given
-        Car pobiCar = new Car("pobi");
-        Car lisaCar = new Car("lisa");
+        Car pobiCar = new Car(new Name("pobi"), new MovingCount(0));
+        Car lisaCar = new Car(new Name("lisa"), new MovingCount(0));
 
         //when
         boolean isSame = pobiCar.isSameMovingCount(lisaCar);
@@ -57,7 +57,7 @@ public class CarTest {
     @DisplayName("현재 경주상태 반환 테스트")
     void 현재_경주_상태_테스트() {
         //given
-        Car car = new Car("pobi");
+        Car car = new Car(new Name("pobi"), new MovingCount(0));
         car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
         car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
         car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
@@ -73,9 +73,9 @@ public class CarTest {
     @DisplayName("내림차순 정렬 테스트")
     void 내림차순_정렬_테스트() {
         //given
-        Car pobiCar = new Car("pobi");
-        Car lisaCar = new Car("lisa");
-        Car jinyCar = new Car("jiny");
+        Car pobiCar = new Car(new Name("pobi"), new MovingCount(0));
+        Car lisaCar = new Car(new Name("lisa"), new MovingCount(0));
+        Car jinyCar = new Car(new Name("jiny"), new MovingCount(0));
         List<Car> cars = new ArrayList<>();
         String expectedCarName = "lisa";
 
