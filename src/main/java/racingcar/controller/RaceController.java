@@ -5,7 +5,17 @@ import racingcar.domain.RacingCar;
 public class RaceController {
 
     private RacingCar car;
-    private static final int round = 0;
+    private int round = 0;
+
+    public void setRound(int round) {
+        if(round < 1)
+            throw new IllegalArgumentException("올바르지 않은 시도 회수입니다.");
+        this.round = round;
+    }
+
+    public int getRound() {
+        return round;
+    }
 
     public String[] ready(String input) {
 

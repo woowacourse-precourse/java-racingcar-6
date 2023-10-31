@@ -61,4 +61,30 @@ class RaceControllerTest {
             race.ready(input);
         });
     }
+
+    @Test
+    void 시도할_회수_입력() {
+        String input = "3";
+        int roundInput = Integer.parseInt(input);
+        race.setRound(roundInput);
+        assertThat(race.getRound()).isEqualTo(roundInput);
+    }
+
+    @Test
+    void 시도할_회수가_음수인_경우() {
+        String input = "-3";
+        int roundInput = Integer.parseInt(input);
+        assertThrows(IllegalArgumentException.class, () -> {
+            race.setRound(roundInput);
+        });
+    }
+
+    @Test
+    void 시도할_회수가_0인_경우() {
+        String input = "0";
+        int roundInput = Integer.parseInt(input);
+        assertThrows(IllegalArgumentException.class, () -> {
+            race.setRound(roundInput);
+        });
+    }
 }
