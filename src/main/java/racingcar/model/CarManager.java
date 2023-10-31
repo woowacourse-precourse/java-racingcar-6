@@ -12,7 +12,7 @@ public class CarManager {
         cars = new ArrayList<>();
     }
 
-    public void setNames(String alignedCarNames) {
+    public void setCars(String alignedCarNames) {
         InputValidator.validateConsecutiveCommas(alignedCarNames);
         String[] carNames = alignedCarNames.split(",");
         InputValidator.validateName(carNames);
@@ -25,22 +25,30 @@ public class CarManager {
         }
     }
 
-    public List<String> getWinners() {
-        List<Integer> positions = new ArrayList<>();
+    public List<String> getWinnerNames() {
+        List<Integer> positions = getAllPositions();
         List<String> winners = new ArrayList<>();
-        for (Car car : cars) {
-            positions.add(car.getPositionLength());
-        }
-        int topPosition = positions.stream()
-                .max(Integer::compareTo).get();
+        int topPosition = getTopPosition(positions);
 
         for (Car car : cars) {
-            if (car.getPositionLength() == topPosition) {
+            if (car.getPosition() == topPosition) {
                 winners.add(car.getName());
             }
         }
-
         return winners;
     }
 
+    public Integer getTopPosition(List<Integer> positions) {
+        Integer topPosition = positions.stream()
+                .max(Integer::compareTo).get();
+        return topPosition;
+    }
+
+    public List<Integer> getAllPositions(){
+        List<Integer> positions = new ArrayList<>();
+        for (Car car : cars) {
+            positions.add(car.getPosition());
+        }
+        return positions;
+    }
 }

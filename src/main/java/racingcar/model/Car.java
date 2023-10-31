@@ -36,7 +36,7 @@ public class Car {
         return String.join("", position);
     }
 
-    public Integer getPositionLength(){
+    public Integer getPosition(){
         return position.size();
     }
 

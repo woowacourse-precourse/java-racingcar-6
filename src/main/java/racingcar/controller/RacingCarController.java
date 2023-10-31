@@ -15,7 +15,7 @@ public class RacingCarController {
     public void play(){
         CarManager carManager = new CarManager();
         String carNames = racingCarView.promptForNames();
-        carManager.setNames(carNames);
+        carManager.setCars(carNames);
         Integer totalRounds = Integer.parseInt(racingCarView.promptForNumbers());
         startRace(totalRounds, carManager);
         finishRace(carManager);
@@ -33,6 +33,6 @@ public class RacingCarController {
     }
 
     private void finishRace(CarManager carManager){
-        racingCarView.printRaceWinner(carManager.getWinners());
+        racingCarView.printRaceWinner(carManager.getWinnerNames());
     }
 }
