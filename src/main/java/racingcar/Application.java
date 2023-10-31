@@ -1,7 +1,14 @@
+/**
+ * @Package_name   : racingCar
+ * @Class_name : Application
+ *
+ * Create Date : 2023-10-31
+ * Create User : 정은채
+ */
 package racingcar;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        CarRace carRaceGame = new CarRace();
     }
 }
