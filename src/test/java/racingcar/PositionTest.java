@@ -9,8 +9,8 @@ import racingcar.model.RandomNumber;
 
 public class PositionTest {
     @ParameterizedTest
-    @DisplayName("랜덤 숫자가 4이상 나오면 자동차 전진")
     @CsvSource(value = {"4:true", "3:false", "0:false"}, delimiter = ':')
+    @DisplayName("랜덤 숫자가 4이상 나오면 자동차 전진")
     void isMovable_성공(int number, boolean expected) {
         RandomNumber r = new RandomNumber(number);
         assertThat(r.isMovable()).isEqualTo(expected);

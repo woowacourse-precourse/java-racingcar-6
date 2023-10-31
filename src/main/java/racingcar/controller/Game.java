@@ -28,7 +28,7 @@ public class Game {
     }
 
     private static String getWinnerString(List<String> winners) {
-        if (winners.size() <1) {
+        if (winners.size() < 1) {
             return NO_WINNER_STRING;
         }
 

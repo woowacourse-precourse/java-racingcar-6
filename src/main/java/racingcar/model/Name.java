@@ -1,9 +1,5 @@
 package racingcar.model;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 public class Name {
     private final String name;
 
