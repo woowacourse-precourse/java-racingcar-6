@@ -2,7 +2,7 @@ package racingcar.game;
 
 import racingcar.controller.Dice;
 import racingcar.view.OutputView;
-import static racingcar.controller.constants.GlobalConstants.*;
+import static racingcar.controller.constants.IntegerConstants.*;
 
 import java.util.ArrayList;
 

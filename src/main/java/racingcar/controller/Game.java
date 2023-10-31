@@ -3,7 +3,7 @@ package racingcar.controller;
 import racingcar.game.Cars;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-import static racingcar.controller.constants.GlobalConstants.*;
+import static racingcar.controller.constants.IntegerConstants.*;
 
 public class Game {
     private Integer round;

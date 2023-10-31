@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import static racingcar.controller.constants.GlobalConstants.*;
+import static racingcar.controller.constants.IntegerConstants.*;
 
 public class Dice {
     public boolean rollTheDice(){

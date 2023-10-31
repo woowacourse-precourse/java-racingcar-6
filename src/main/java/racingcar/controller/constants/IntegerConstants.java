@@ -1,6 +1,6 @@
 package racingcar.controller.constants;
 
-public enum GlobalConstants {
+public enum IntegerConstants {
     THRESHOLD_VALUE(4),
     MIN_RANDOM_NUMBER(0),
     MAX_RANDOM_NUMBER(9),
@@ -13,7 +13,7 @@ public enum GlobalConstants {
 
     private final Integer value;
 
-    GlobalConstants(Integer value) {
+    IntegerConstants(Integer value) {
         this.value = value;
     }
 

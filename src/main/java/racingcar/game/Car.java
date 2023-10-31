@@ -1,6 +1,6 @@
 package racingcar.game;
 
-import static racingcar.controller.constants.GlobalConstants.*;
+import static racingcar.controller.constants.IntegerConstants.*;
 
 public class Car {
     private final String name;
