@@ -2,10 +2,19 @@ package racingcar.domain;
 
 public class Car {
 
-    private String carName;
+    private final String carName;
     private int carLocation;
+
+    public Car(String carName) {
+        this.carName = carName;
+        this.carLocation = 0;
+    }
 
     public void updateCarLocation(int carMoveDistance) {
         this.carLocation += carMoveDistance;
+    }
+
+    public String getCarName() {
+        return carName;
     }
 }
