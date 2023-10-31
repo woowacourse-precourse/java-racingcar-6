@@ -24,4 +24,13 @@ public class Application {
 
     }
 
+    public static void updateCarMoves(String[] carNames, int[] carPositions) {
+        for(int i = 0; i < carNames.length; i++){
+            int random = Randoms.pickNumberInRange(0, 9);
+            if (random >= 4) {
+                carPositions[i]++;
+            }
+        }
+    }
+
 }
