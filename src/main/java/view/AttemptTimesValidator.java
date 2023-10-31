@@ -5,13 +5,14 @@ import constants.ExceptionMessage;
 
 public class AttemptTimesValidator {
     public void validate(String input){
-        int validatedInteger = validateInteger(input);
+        validateInteger(input);
+        int validatedInteger = Integer.parseInt(input);
         validatePlus(validatedInteger);
     }
 
-    private int validateInteger(String input) {
+    private void validateInteger(String input) {
         try {
-            return Integer.parseInt(input);
+            Integer.parseInt(input);
         } catch (Exception e) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_INTEGER);
         }
