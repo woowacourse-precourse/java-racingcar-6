@@ -6,11 +6,17 @@ public class Car {
 
     public Car(String name){
         this.name = name;
+        validateCarNameLength(name);
         this.distance = "";
 
     }
 
-    public final String  getName(){
+    public void validateCarNameLength(String name){
+        if(!(0 < name.length() && name.length() <=5))
+            throw new IllegalArgumentException();
+    }
+
+    public final String getName(){
         return this.name;
     }
 
@@ -18,8 +24,9 @@ public class Car {
         return this.distance;
     }
 
-    public final void setDistance(String distance){
-        this.distance = distance;
+    public final void addDistance(String distance){
+        this.distance += distance;
     }
+
 
 }
