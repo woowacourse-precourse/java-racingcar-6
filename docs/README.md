@@ -29,11 +29,11 @@
   - [x] moveNumber이 숫자가 맞는지 비어있지 않은지 확인 (validateMoveNumber) [InputValidater]
 
 
-- [ ] 자동차들의 전진 또는 정지 판단 (getGoOrStop) [RaceMaker]
+- [x] 자동차들의 전진 또는 정지 판단 (getGoOrStop) [StateMaker]
 
-  - [ ] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우 (decideGoOrStop) [RaceMaker]
+  - [x] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우 (decideGoOrStop) [RaceMaker]
 
-  - [ ] 전진일 경우 racerMoveCount에 1 더해주기 (increaseMoveCount) [RaceReferee]
+  - [ ] 전진일 경우 racerMoveCount에 1 더해주기 (plusMoveCount) [Racer]
 
 
 - [ ] 실행 횟수 moveNumber 만큼 반복 (repeatMove) [RaceProgression]
