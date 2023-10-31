@@ -46,11 +46,7 @@ public class CarList {
     }
 
     private String makeWinnersString(List<String> winners) {
-        StringBuilder sb = new StringBuilder();
-        for (String winner : winners) {
-            sb.append(winner).append(", ");
-        }
-        return sb.toString();
+        return String.join(", ", winners);
     }
 
     @Override

@@ -19,6 +19,12 @@ public class RaceController {
     public void run() {
         getInputs();
         playGame();
+        printResult();
+    }
+
+    private void printResult() {
+        print(PrintMessage.WINNER);
+        print(calculateWinners());
     }
 
     private String calculateWinners() {
