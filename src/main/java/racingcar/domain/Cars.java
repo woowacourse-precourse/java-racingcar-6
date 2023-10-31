@@ -7,15 +7,15 @@ import racingcar.RandomNumberGenerator;
 
 public class Cars {
 
-    private List<Car> carList;
+    private final List<Car> cars;
 
     public Cars(List<Car> carList) {
-        this.carList = carList;
+        this.cars = carList;
     }
 
     public List<String> findWinner() {
         int winnersPosition = findWinnersPosition();
-        return carList.stream()
+        return cars.stream()
                 .filter(car -> car.isWinner(winnersPosition))
                 .map(Car::getName)
                 .collect(Collectors.toList());
@@ -23,19 +23,19 @@ public class Cars {
     }
 
     public int findWinnersPosition() {
-        return carList.stream()
+        return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
     }
 
-    public void roundLevelMove(){
-        for(Car car : carList){
-           car.move(RandomNumberGenerator.createRandomNumber());
+    public void roundLevelMove() {
+        for (Car car : cars) {
+            car.move(RandomNumberGenerator.createRandomNumber());
         }
     }
 
-    public List<Car> getCarList(){
-        return Collections.unmodifiableList(this.carList);
+    public List<Car> getCarList() {
+        return Collections.unmodifiableList(this.cars);
     }
 }
