@@ -1,12 +1,17 @@
 package racingcar.View;
 
+import static camp.nextstep.edu.missionutils.Console.readLine;
+
+import java.util.List;
+import racingcar.Utils.InputValidator;
+
 public class InputView {
 
-    public static void printStartMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    public static List<String> getCarNameList() {
+        return InputValidator.checkCarNameList(readLine());
     }
 
-    public static void printTryNumberMessage() {
-        System.out.println("시도할 회수는 몇회인가요?");
+    public static int getNumberOfAttempts() {
+        return InputValidator.checkNumberOfAttempts(readLine());
     }
 }
