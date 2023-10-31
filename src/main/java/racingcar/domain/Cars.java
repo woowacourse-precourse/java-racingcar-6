@@ -43,7 +43,7 @@ public class Cars {
         }
     }
 
-    public void goForward() {
+    public void moveAll() {
         cars.forEach(car -> car.move(generateMoveSymbol()));
     }
 

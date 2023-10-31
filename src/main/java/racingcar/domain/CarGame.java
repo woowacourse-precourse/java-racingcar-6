@@ -22,7 +22,7 @@ public class CarGame {
         CarDTO.ProgressResult progressResult = new CarDTO.ProgressResult(new ArrayList<>());
 
         for (int i = 0; gameRound.isRunning(i); i++) {
-            cars.goForward();
+            cars.moveAll();
             progressResult.addResult(cars.getStatus());
         }
 

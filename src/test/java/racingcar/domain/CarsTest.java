@@ -60,7 +60,7 @@ class CarsTest {
         List<CarName> carNames = names.stream().map(CarName::new).toList();
 
         Cars cars = Cars.createByNames(carNames);
-        cars.goForward();
+        cars.moveAll();
 
         // when
         Map<String, Integer> status = cars.getStatus();
@@ -84,7 +84,7 @@ class CarsTest {
 
         Cars cars = Cars.createByNames(carNames);
 
-        cars.goForward();
+        cars.moveAll();
 
         // when
         List<String> winningCarNames = cars.getWinningCarNames();
