@@ -52,7 +52,7 @@ public class GameController {
             for (Car car : this.carList) {
                 raceOnce(car);
             }
-            // 고민 사항 : 매회 추가하는 개행을 OutputView에서 처리할지?
+            // 고민 사항 매회 추가하는 개행을 OutputView에서 처리할지?
             System.out.println();
         }
     }
