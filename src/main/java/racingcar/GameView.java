@@ -13,5 +13,11 @@ public class GameView {
         return userInput;
     }
 
+    public Integer inputNumberOfAttempts() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String numberOfAttempts = Console.readLine();
+        exceptionHandler.validateNumberOfAttempts(numberOfAttempts);
+        return Integer.parseInt(numberOfAttempts);
+    }
 
 }
