@@ -1,5 +1,3 @@
-package racingcar;
-
 import java.util.Scanner;
 
 public class InputManager {
@@ -8,6 +6,13 @@ public class InputManager {
         System.out.print("경주할 자동차 이름을 입력하세요 (쉼표로 구분): ");
         String input = scanner.nextLine();
         String[] carNames = input.split(",");
+        
+        for (String carName : carNames) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
+            }
+        }
+        
         return carNames;
     }
 
