@@ -20,6 +20,7 @@ public class Game {
     private static final int MOVE_FORWARD_CONDITION_OF_CAR = 4;
     private static final int LOWER_BOUND_OF_RANDOM_NUMBER = 1;
     private static final int UPPER_BOUND_OF_RANDOM_NUMBER = 9;
+    private static final String SPLITTER = ",";
 
     public Game() {
         cars = new ArrayList<>();
@@ -27,7 +28,6 @@ public class Game {
     }
 
     public void run() {
-
         registerCars();
         readTrialNumber();
         moveCarsAndShowResults();
@@ -42,7 +42,6 @@ public class Game {
 
     private void moveCarsAndShowResults() {
         OutputView.println(RESULT_MESSAGE);
-
         for (int i = 0; i < trialNumber; i++) {
             moveCars();
             showResult();
@@ -56,7 +55,6 @@ public class Game {
 
     private void showResult() {
         OutputView.printNewLine();
-
         for (Car car : cars) {
             OutputView.println(car.toString());
         }
@@ -64,7 +62,6 @@ public class Game {
 
     private void findWinners() {
         int locationOfWinner = findLocationOfWinner();
-
         for (Car car : cars) {
             if (car.getLastLocation() == locationOfWinner) {
                 car.addToWinner(winners);
@@ -85,7 +82,7 @@ public class Game {
     private void registerCars() {
         OutputView.println(REGISTER_CAR_MESSAGE);
 
-        List<String> namesOfCars = Parser.stringToStringList(InputView.readValue(), ",");
+        List<String> namesOfCars = Parser.stringToStringList(InputView.readValue(), SPLITTER);
 
         for (String name : namesOfCars) {
             cars.add(new Car(name));
