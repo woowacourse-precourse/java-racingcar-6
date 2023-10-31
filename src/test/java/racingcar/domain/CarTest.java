@@ -3,7 +3,9 @@ package racingcar.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.reflect.Field;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -29,5 +31,17 @@ class CarTest {
         String carName = car.getStatus()
                 .getName();
         assertThat(carName).isEqualTo(trimName);
+    }
+
+    @Test
+    @DisplayName("Drive 시 값이 제대로 올라가는 지 확인")
+    void driveTest() throws Exception {
+        Field driveCountField = Car.class.getDeclaredField("driveCount");
+        driveCountField.setAccessible(true);
+
+        Car car = new Car("테스트차량");
+        assertThat(driveCountField.get(car)).isEqualTo(0);
+        car.drive();
+        assertThat(driveCountField.get(car)).isEqualTo(1);
     }
 }
