@@ -26,4 +26,16 @@ class InvalidValueTest {
         boolean result = invalidValue.isExceedFiveLetters(Arrays.asList("12345"));
         assertThat(result).isFalse();
     }
+
+    @Test
+    void 입력값_자연수() {
+        boolean result = invalidValue.isNaturalNumber("5");
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void 입력값_자연수_아닐_때() {
+        boolean result = invalidValue.isNaturalNumber("five");
+        assertThat(result).isFalse();
+    }
 }
