@@ -33,6 +33,7 @@ public class GameController {
         while(tryCount > 0){
             tryCount--;
             List<Car> racingResult= game.racing();
+            outputView.printRacingResult(racingResult);
         }
 
 
