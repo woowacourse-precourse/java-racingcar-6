@@ -1,17 +1,13 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 public class RacingCar {
     public List<String> carName = new ArrayList<String>();
     public List<Integer> movementSoFar = new ArrayList<Integer>();
-    ExceptionChecker exceptionChecker = new ExceptionChecker();
     Integer numberOfTries;
 
     public RacingCar() {
@@ -24,24 +20,8 @@ public class RacingCar {
         System.out.println();
     }
 
-    public String inputString(String inputText) {
-        System.out.println(inputText);
-        String inputStr = Console.readLine();
-        return inputStr;
-    }
-
-    public void stringToList(String strCarName) {
-        if (strCarName.contains(",")) {
-            carName = Arrays.asList(strCarName.split(","));
-        } else if (!strCarName.contains(",")) {
-            carName = Arrays.asList(strCarName);
-        }
-    }
-
     public void carName() {
-        String strCarName = inputString("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        exceptionChecker.wrongInputCarName(strCarName);
-        stringToList(strCarName);
+        carName = InputView.getCarName("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
     }
 
     public void setMovement() {
@@ -51,9 +31,7 @@ public class RacingCar {
     }
 
     public void numberOfTries() {
-        String strTries = inputString("시도할 회수는 몇회인가요?");
-        exceptionChecker.wrongInputTries(strTries);
-        numberOfTries = Integer.parseInt(strTries);
+        numberOfTries = InputView.getNumberOfTries("시도할 회수는 몇회인가요?");
     }
 
     public int generateRandomNumber() {

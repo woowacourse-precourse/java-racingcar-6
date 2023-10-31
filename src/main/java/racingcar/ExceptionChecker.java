@@ -44,7 +44,6 @@ public class ExceptionChecker {
         }
     }
 
-
     public void isNotInteger(String strTries) throws IllegalArgumentException {
         try {
             Integer.parseInt(strTries);
