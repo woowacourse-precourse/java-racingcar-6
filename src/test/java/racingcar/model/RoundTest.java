@@ -13,7 +13,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 class RoundTest {
-    private final static int MOVEMENT_CONDITION = 5;
+    private final static int MOVEMENT_CONDITION = 4;
     private final static int INITIAL_POSITION = 0;
     private final static int ONE_MOVEMENT = 1;
     private final static int TEST_CAR_COUNT = 3;
