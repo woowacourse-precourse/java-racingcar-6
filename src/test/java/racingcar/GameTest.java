@@ -1,11 +1,7 @@
 package racingcar;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
@@ -53,13 +49,13 @@ class GameTest {
     public void 우승자_여러명_출력() {
         Game game = new Game("pobi,woni,jun", "1");
         List<Car> cars = game.getCars();
-        int i=0;
+        int i = 0;
 
-        for(Car car : cars){
-            if(car.getPosition()!=0){
+        for (Car car : cars) {
+            if (car.getPosition() != 0) {
                 game.getCars().get(i).move(4);
                 game.getCars().get(i).move(4);
-            } else{
+            } else {
                 game.getCars().get(i).move(4);
             }
             i++;
