@@ -15,8 +15,12 @@ public class InputValidatorTest {
     private static String 사용자_이동_횟수;
     private static List<Car> 차량들 = new ArrayList<>();
 
-    public void 사용자_이동_횟수_예외를_입력하라() {
+    public void 사용자_이동_횟수_숫자외_예외를_입력하라() {
         this.사용자_이동_횟수 = "ㄱ%12ㅍㄴ";
+    }
+
+    public void 사용자_이동_횟수_음수_예외를_입력하라() {
+        this.사용자_이동_횟수 = "-1";
     }
 
     private static void 공백을_입력하라() {
@@ -39,17 +43,6 @@ public class InputValidatorTest {
             validatePositiveNumber(stringRaceCount);
         }
 
-        private static void validatePositiveNumber(String stringRaceCount) {
-            if (isPositiveNumber(stringRaceCount)) {
-                throw new IllegalArgumentException("입력하실 숫자는 0이상의 수가 아닙니다.");
-            }
-        }
-
-        private static boolean isPositiveNumber(String stringRaceCount) {
-            int raceCount = Integer.parseInt(stringRaceCount);
-            return raceCount < 0;
-        }
-
         private static void validateOnlyNumber(String stringRaceCount) {
             if (isOnlyNumber(stringRaceCount)) {
                 throw new IllegalArgumentException("입력하신 내용엔 숫자외 값이 포함되었습니다.");
@@ -58,6 +51,17 @@ public class InputValidatorTest {
 
         private static boolean isOnlyNumber(String stringRaceCount) {
             return !stringRaceCount.matches("[0-9]+");
+        }
+
+        private static void validatePositiveNumber(String stringRaceCount) {
+            if (isPositiveNumber(stringRaceCount)) {
+                throw new IllegalArgumentException("입력하실 숫자는 1이상의 수가 아닙니다.");
+            }
+        }
+
+        private static boolean isPositiveNumber(String stringRaceCount) {
+            int raceCount = Integer.parseInt(stringRaceCount);
+            return raceCount <= 0;
         }
 
         public static void validateCarList(List<Car> cars) {
@@ -101,11 +105,21 @@ public class InputValidatorTest {
     }
 
     @Test
-    void 사용자이동횟수_입력_예외() {
-        사용자_이동_횟수_예외를_입력하라();
+    void 사용자이동횟수_숫자외_입력_예외() {
+        사용자_이동_횟수_숫자외_예외를_입력하라();
 
         assertSimpleTest(() ->
-                Assertions.assertThatThrownBy(() -> InputValidator.validateRaceCount(사용자_이동_횟수))
+                Assertions.assertThatThrownBy(() -> InputValidator.validateOnlyNumber(사용자_이동_횟수))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 사용자이동횟수_음수_입력_예외() {
+        사용자_이동_횟수_음수_예외를_입력하라();
+
+        assertSimpleTest(() ->
+                Assertions.assertThatThrownBy(() -> InputValidator.validatePositiveNumber(사용자_이동_횟수))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
