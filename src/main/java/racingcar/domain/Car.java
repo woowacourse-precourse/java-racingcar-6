@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.dto.CarStatus;
+import racingcar.exception.OverCarMaxNameLengthException;
 
 public class Car {
     private static final int MAX_NAME_LENGTH = 5;
@@ -24,7 +25,7 @@ public class Car {
 
     private static void verifyNameLength(String name) {
         if (MAX_NAME_LENGTH < name.length()) {
-            throw new IllegalArgumentException();
+            throw new OverCarMaxNameLengthException(MAX_NAME_LENGTH);
         }
     }
 }
