@@ -42,7 +42,6 @@ public class Validator {
         if (!Pattern.matches(regex, command)) {
             throw new IllegalArgumentException("정해진 정규식을 벗어났습니다.");
         }
-
     }
 
     public static void commandsSizeBiggerThan(int size, List<String> commands) {
