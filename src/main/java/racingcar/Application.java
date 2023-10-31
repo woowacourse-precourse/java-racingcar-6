@@ -16,6 +16,7 @@ public class Application {
         List<Car> carList = inputAndGetCarList();
         int racingCount = inputRacingCount();
 
+        System.out.println();
         System.out.println("실행결과");
         for (int i = 0; i < racingCount; i++) {
             playRacing(carList);
@@ -38,6 +39,9 @@ public class Application {
         String[] carNameArray = carNames.split(",");
 
         for (String carName : carNameArray) {
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("5자 이하 이름만 가능");
+            }
             Car car = new Car(carName);
             carList.add(car);
         }
