@@ -12,7 +12,7 @@ public class Validator {
     public static List<String> validateCarNameInput(String input) {
         validateCarNameInputLength(input);
 
-        List<String> carNames = List.of(input.split(COMMA));
+        List<String> carNames = List.of(input.split(","));
 
         validateDuplicateCarName(carNames);
 
@@ -45,7 +45,7 @@ public class Validator {
     }
 
     private static void validateCheckCarNameContainsSpace(String catName) {
-        if (catName.contains(SPACE)){
+        if (catName.contains(" ")){
             throw new IllegalArgumentException(CAR_NAME_CONTAINS_SPACE_ERROR.getMessage());
         }
     }
