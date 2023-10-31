@@ -268,4 +268,15 @@ public class StringTest {
         // 정확하게 들어있는가
         assertThat(result).containsExactly("1", "", "23");
     }
+
+    @DisplayName("containsOnly_을_활용하여_원소값과_갯수가_정확히_일치_테스트")
+    @Test
+    public void containsOnly_을_활용하여_원소값과_갯수가_정확히_일치_테스트() throws Exception {
+        List<String> list = List.of("apple", "banana", "orange", "americano");
+
+        //  이름을 가져와서 a 가 포함되어 있는 객체들만 필터링을 하고 그 객체를 검증한다.
+        assertThat(list)
+                .filteredOn(value -> value.contains("apple")) // 'apple'를 포함하는 객체들을 필터링하고
+                .containsOnly("apple"); // 'banana'과 'orange'만을 포함하는지 검증한다.
+    }
 }
