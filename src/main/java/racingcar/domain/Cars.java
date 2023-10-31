@@ -3,11 +3,13 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.utils.NumberGenerator;
 import racingcar.utils.Util;
 import racingcar.view.OutputView;
 
 public class Cars {
     private List<Car> carList;
+    NumberGenerator numberGenerator = new Driver();
 
     public Cars(List<Car> carList) {
         this.carList = carList;
@@ -39,7 +41,7 @@ public class Cars {
     }
 
     private void move() {
-        carList.forEach(Car::move);
+        carList.forEach(car -> car.move(numberGenerator));
     }
 
     public void play() {
