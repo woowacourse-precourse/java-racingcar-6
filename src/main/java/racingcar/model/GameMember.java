@@ -8,6 +8,8 @@ public class GameMember {
 
     private HashMap<String, String> hs;
 
+    private int tryNum;
+
     public HashMap<String, String> getHs() {
         return hs;
     }
@@ -20,7 +22,10 @@ public class GameMember {
         this.hs = hs;
     }
 
-    private int tryNum;
+    public void setDuringGame(String playerName){
+        String beforeRecord = hs.get(playerName);
+        hs.put(playerName,beforeRecord+"-");
+    }
 
     public int getTryNum() {
         return tryNum;
