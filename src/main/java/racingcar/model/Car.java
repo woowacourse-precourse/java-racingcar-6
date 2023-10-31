@@ -7,6 +7,11 @@ public class Car {
     private String forwardMovementState;
     private int randomNumber;
 
+    public Car(String name) {
+        this.name = name;
+        this.forwardMovementState = "";
+    }
+
     public void pickRandomNumber() {
         this.randomNumber = Randoms.pickNumberInRange(0, 9);
     }
