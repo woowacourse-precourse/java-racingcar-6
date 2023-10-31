@@ -9,7 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import racingcar.manager.view.CarView;
 
-public class CarTest {
+public class CarViewTest {
     private final CarView carView = new CarView();
 
     @AfterEach
