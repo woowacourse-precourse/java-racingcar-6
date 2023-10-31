@@ -8,9 +8,13 @@ public class GameResultDto {
     private boolean isSingleWinner;
     private List<Car> winners;
 
-    public GameResultDto(List<Car> winners) {
+    private GameResultDto(List<Car> winners) {
         isSingleWinner = winners.size() == 1;
         this.winners = winners;
+    }
+
+    public static GameResultDto createFrom(List<Car> winners) {
+        return new GameResultDto(winners);
     }
 
     public boolean isSingleWinner() {

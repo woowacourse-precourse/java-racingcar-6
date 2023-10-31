@@ -11,7 +11,7 @@ import racingcar.dto.RoundResultDto;
 public class Referee {
 
     public GameResultDto publishGameResult(List<Car> cars) {
-        return new GameResultDto(selectWinners(cars));
+        return GameResultDto.createFrom(selectWinners(cars));
     }
 
     public RoundResultDto executeRound(List<Car> cars) {
