@@ -6,15 +6,12 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import controller.RacingGameController;
-
 public class RacingGameTest {
 	@Test
 	public void 최대_이동한_거리를_찾는다() {
 		//given
 		List<String> namesList = Arrays.asList("pobi", "crong", "an");
 		RacingGame racingGame = new RacingGame(namesList);
-		RacingGameController racingGameController = new RacingGameController();
 
 		List<Car> cars = racingGame.getCars();
 		cars.get(0).moveByNumber(4);
@@ -23,7 +20,7 @@ public class RacingGameTest {
 		cars.get(2).moveByNumber(3);
 
 		// when
-		int maxLocation = racingGameController.findLocationWithMostMovement(cars);
+		int maxLocation = racingGame.findLocationWithMostMovement(cars);
 
 		//then
 		Assertions.assertThat(maxLocation).isEqualTo(2);
@@ -34,7 +31,6 @@ public class RacingGameTest {
 		//given
 		List<String> namesList = Arrays.asList("pobi", "crong", "an");
 		RacingGame racingGame = new RacingGame(namesList);
-		RacingGameController racingGameController = new RacingGameController();
 
 		// pobi를 우승자로 설정하여 자동차들을 이동시킵니다.
 		List<Car> cars = racingGame.getCars();
@@ -45,7 +41,7 @@ public class RacingGameTest {
 		int maxLocation = 1;
 
 		// when
-		List<Car> winners = racingGameController.findCarWithMaxLocation(cars, maxLocation);
+		List<Car> winners = racingGame.findCarWithMaxLocation(cars, maxLocation);
 
 		//then
 		Assertions.assertThat(winners.get(0).getName()).isEqualTo("pobi");
