@@ -14,6 +14,7 @@ public class InputView {
 
     public int getAttemptCount() {
         println(INPUT_ATTEMPT_COUNT);
+
         int attemptCount = parseInt(readLine());
         validateAttemptCount(attemptCount);
         return attemptCount;

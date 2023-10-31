@@ -17,7 +17,7 @@ public class OutputView {
         println(RACE_RESULT);
     }
 
-    public void printCarsPosition(List<Car> cars) {
+    public void printRaceResult(List<Car> cars) {
         for (Car car : cars) {
             println(car.getName() + NAME_POSITION_SEPARATOR + SKID_MARK.repeat(car.getPosition()));
         }

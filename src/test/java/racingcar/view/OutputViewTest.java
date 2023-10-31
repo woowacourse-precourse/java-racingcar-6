@@ -26,7 +26,7 @@ public class OutputViewTest extends MyTest {
                 new Car("car2", 0),
                 new Car("car3", 2));
 
-        new OutputView().printCarsPosition(cars);
+        new OutputView().printRaceResult(cars);
 
         assertThat(output()).isEqualTo("""
                 car1 : ---

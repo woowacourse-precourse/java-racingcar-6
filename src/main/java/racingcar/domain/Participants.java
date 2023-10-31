@@ -1,7 +1,5 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -49,19 +47,28 @@ public class Participants {
         return deepCopyFrom(cars);
     }
 
-    private List<Car> deepCopyFrom(List<Car> from) {
-        return from.stream()
+    private List<Car> deepCopyFrom(List<Car> cars) {
+        return cars.stream()
                 .map(car -> new Car(car.getName(), car.getPosition()))
                 .toList();
     }
 
     public List<String> getWinners() {
-        List<Car> candidates = new ArrayList<>(cars);
-        Collections.sort(candidates);
-        int first = candidates.get(0).getPosition();
-        return candidates.stream()
-                .filter(car -> car.getPosition() == first)
+        Car first = findFirst();
+
+        return cars.stream()
+                .filter(car -> isSamePosition(car, first))
                 .map(Car::getName)
                 .toList();
+    }
+
+    private Car findFirst() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow();
+    }
+
+    private boolean isSamePosition(Car car, Car first) {
+        return car.getPosition() == first.getPosition();
     }
 }
