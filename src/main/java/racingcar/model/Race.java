@@ -20,9 +20,11 @@ public class Race {
 
     public void moveAllCarsForward() {
         for (Car car : cars) {
-            int randomValue = Randoms.pickNumberInRange(RANDOM_MINIMUM_RANGE, RANDOM_MAXIMUM_RANGE);
+            int randomValue = Randoms.pickNumberInRange(
+                    RANDOM_MINIMUM_RANGE.getValue(),
+                    RANDOM_MAXIMUM_RANGE.getValue());
 
-            if (randomValue >= MINIMUM_NUMBER_FOR_FORWARD) {
+            if (randomValue >= MINIMUM_NUMBER_FOR_FORWARD.getValue()) {
                 car.forward();
             }
         }
