@@ -11,4 +11,8 @@ public class Car {
         userInput = Console.readLine();
         Car = Arrays.stream(userInput.split(",")).toList();
     }
+
+    public void goCar(int index){
+        Car.set(index, Car.get(index)+1);
+    }
 }
