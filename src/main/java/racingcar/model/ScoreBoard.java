@@ -30,7 +30,7 @@ public class ScoreBoard {
     }
 
     public int getFinalRound() {
-        return scoreBoard.size() - 1;
+        return getSize() - 1;
     }
 
 }
