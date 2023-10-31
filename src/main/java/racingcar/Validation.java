@@ -20,4 +20,19 @@ public class Validation {
         }
     }
 
+    public static void validateTotalMove(String totalMove) {
+
+        int parsedInt;
+
+        try {
+            parsedInt = Integer.parseInt(totalMove);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 형식의 시도 횟수 값입니다.");
+        }
+
+        if (parsedInt < 1) {
+            throw new IllegalArgumentException("잘못된 범위의 시도 횟수 값입니다.");
+        }
+    }
+
 }

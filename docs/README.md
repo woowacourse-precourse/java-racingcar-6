@@ -55,7 +55,7 @@
 
     - validateDuplicateCar()
 
-  - [ ] 시도할 회수가 1 이상인지 검증할 수 있어야 한다.
+  - [X] 입력받은 시도할 회수가 정수인지, 1 이상인지 검증할 수 있어야 한다.
 
     - validateTotalMove()
 

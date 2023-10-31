@@ -3,6 +3,7 @@ package racingcar;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 import static racingcar.Validation.validateCarName;
 import static racingcar.Validation.validateDuplicateCar;
+import static racingcar.Validation.validateTotalMove;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,10 @@ public class Game {
 
         System.out.println("시도할 회수는 몇회인가요?");
 
-        return Integer.parseInt(readLine());
+        String totalMove = readLine();
+        validateTotalMove(totalMove);
+
+        return Integer.parseInt(totalMove);
     }
 
     private void getResult() {
