@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,10 +24,18 @@ public class Cars {
 
     public List<String> getWinnerNameList() {
         int maxPosition = getMaxPosition();
+
+        if (noMovementCheck(maxPosition))
+            return new ArrayList<>();
+
         return getCars().stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getCarName)
                 .collect(Collectors.toList());
+    }
+
+    private boolean noMovementCheck(int maxPosition) {
+        return maxPosition == 0;
     }
 
     private int getMaxPosition() {

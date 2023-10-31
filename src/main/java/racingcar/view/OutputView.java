@@ -9,6 +9,7 @@ public class OutputView {
     private static final String FOWARD_MARK = "-";
     public static final String CAR_NAME_REQUEST_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     public static final String ATTEMPT_COUNT_REQUEST_MESSAGE = "시도할 회수는 몇회인가요?";
+    public static final String NO_WINNER_MESSAGE = "우승자가 없습니다.";
 
     public static void printCarNameRequest() {
         System.out.println(CAR_NAME_REQUEST_MESSAGE);
@@ -35,6 +36,10 @@ public class OutputView {
     }
 
     public static void printWinnerName(List<String> winnerList) {
+        if(winnerList.isEmpty()) {
+            System.out.println(NO_WINNER_MESSAGE);
+            return;
+        }
         System.out.print("최종 우승자 : " + String.join(",", winnerList));
     }
 }
