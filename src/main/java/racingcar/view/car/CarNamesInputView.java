@@ -1,10 +1,10 @@
-package racingcar.view;
+package racingcar.view.car;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputView {
+public class CarNamesInputView {
     private static final String COMMA = ",";
 
     public static List<String> getCarNames() {
@@ -15,9 +15,5 @@ public class InputView {
             }
         }
         return carNames;
-    }
-
-    public static String getRacingTrial() {
-        return Console.readLine();
     }
 }
