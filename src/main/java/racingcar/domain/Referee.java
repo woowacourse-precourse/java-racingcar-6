@@ -1,4 +1,4 @@
-package racingcar.data;
+package racingcar.domain;
 
 import racingcar.RandomNumberGenerator;
 

@@ -1,7 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.data.Referee;
+import racingcar.domain.Referee;
 
 import java.util.Arrays;
 
