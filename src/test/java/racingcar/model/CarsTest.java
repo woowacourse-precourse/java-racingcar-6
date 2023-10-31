@@ -59,4 +59,18 @@ class CarsTest {
 //        assertThat(flag).isTrue();
         assertThat(cars.getCarList().stream().anyMatch(car -> namesInput.contains(car.getName()))).isTrue();
     }
+
+    @Test
+    void getCar() {
+        String namesInput = "isaac,han";
+        Cars cars = new Cars(namesInput);
+        assertThat(namesInput.contains(cars.getCar("isaac").getName())).isTrue();
+    }
+
+    @Test
+    void getCar_예외() {
+        String namesInput = "isaac,han";
+        Cars cars = new Cars(namesInput);
+        assertThatThrownBy(() -> namesInput.contains(cars.getCar("isa").getName())).isInstanceOf(IllegalArgumentException.class);
+    }
 }
