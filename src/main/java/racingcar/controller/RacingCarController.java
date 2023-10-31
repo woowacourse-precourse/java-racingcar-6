@@ -4,22 +4,16 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.view.GameView;
 
 public class RacingCarController {
-    private GameView view;
+    private final GameView view= new GameView();
 
-
-    public void start() {
-        String carNames = getUserInputForCarNames();
-        int rounds = getUserInputForRounds();
-    }
-
-    private String getUserInputForCarNames() {
+    public String getUserInputForCarNames() {
         view.printCarNameInput();
         String input = Console.readLine();
         validateCarNamesInput(input);
         return input;
     }
 
-    private int getUserInputForRounds() {
+    public int getUserInputForRounds() {
         view.printCountInput();
         String input = Console.readLine();
         return validateAndParseRoundsInput(input);

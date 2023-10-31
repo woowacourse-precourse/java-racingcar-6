@@ -1,26 +1,41 @@
 package racingcar.domain.racing;
 
 import java.util.List;
+import racingcar.controller.RacingCarController;
+import racingcar.domain.car.Car;
 import racingcar.domain.car.CarManager;
 import racingcar.domain.winner.WinnerChecker;
+import racingcar.view.GameView;
 
 public class GameManager {
-    private final CarManager carManager;
-    private final GameRoundManager gameRoundManager;
-    private final WinnerChecker winnerChecker;
+    private CarManager carManager;
+    private GameRoundManager gameRoundManager;
+    private WinnerChecker winnerChecker;
+    private final GameView gameView;
+    private final RacingCarController racingCarController;
     private final RandomMoveStrategy randomMoveStrategy= new RandomMoveStrategy();
 
-    public GameManager(String carNames) {
-        this.carManager = new CarManager(carNames,randomMoveStrategy);
-        this.gameRoundManager = new GameRoundManager(carManager.getCars());
-        this.winnerChecker = new WinnerChecker(carManager.getCars());
+    public GameManager() {
+        this.racingCarController = new RacingCarController();
+        this.gameView = new GameView();
     }
 
+
     public void playGame(int rounds) {
+        gameRoundManager = new GameRoundManager(carManager.getCars());
+        winnerChecker = new WinnerChecker(carManager.getCars());
         for (int i = 0; i < rounds; i++) {
             gameRoundManager.playRound();
+            gameView.printRoundResult(carManager.getCars());
         }
-
         List<String> winners = winnerChecker.findWinners();
+        gameView.printWinner(winners);
+    }
+
+    public void gameStart(){
+        String carNames = racingCarController.getUserInputForCarNames();
+        int rounds = racingCarController.getUserInputForRounds();
+        carManager = new CarManager(carNames,randomMoveStrategy);
+        playGame(rounds);
     }
 }
