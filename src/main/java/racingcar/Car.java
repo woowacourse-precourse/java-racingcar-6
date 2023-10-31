@@ -24,6 +24,14 @@ public class Car {
             distance++;
         }
     }
+
+    public String getProgress() {
+        StringBuilder progress = new StringBuilder();
+        for (int i = 0; i < distance; i++) {
+            progress.append("-");
+        }
+        return progress.toString();
+    }
 }
 
 
