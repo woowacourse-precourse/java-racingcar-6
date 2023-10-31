@@ -10,6 +10,6 @@ public class Application {
         Game model = new Game();
         GameView view = new GameView();
         GameController controller = new GameController(model, view);
-        controller.startGame();
+        controller.run();
     }
 }

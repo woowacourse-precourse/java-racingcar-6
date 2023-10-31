@@ -8,7 +8,7 @@ public class GameView {
         return readLine();
     }
 
-    public static String inputTryNumber(){
+    public static String inputTrialNumber(){
         System.out.println("시도할 회수는 몇회인가요?");
         return readLine();
     }

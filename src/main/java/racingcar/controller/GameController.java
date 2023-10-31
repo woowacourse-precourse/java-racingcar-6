@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import static racingcar.view.GameView.inputCarName;
+import static racingcar.view.GameView.inputTrialNumber;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,13 +19,17 @@ public class GameController {
         this.view = view;
     }
 
-    public void startGame() {
-        String input = inputCarName();
-        List<String> carNames = splitCarNames(input);
+    public void run() {
+        List<String> carNames = splitCarNames(inputCarName());
         System.out.println(carNames);
 
         List<Car> cars = createCarObject(carNames);
         model.setCars(cars);
+
+        int trialNumber = parseInteger(inputTrialNumber());
+        System.out.println(trialNumber);
+
+
     }
 
     private List<String> splitCarNames(String input) {
@@ -39,4 +44,14 @@ public class GameController {
         }
         return cars;
     }
+
+    public static int parseInteger(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            // 정수로 변환할 수 없는 경우 예외 처리
+            return 0; // 또는 다른 기본값을 반환하거나 예외를 던질 수 있습니다.
+        }
+    }
+
 }
