@@ -7,9 +7,6 @@ import racingcar.model.domain.Car;
 import racingcar.model.domain.Cars;
 import racingcar.model.domain.RandomGenerator;
 
-/**
- * 애플리케이션 로직을 담당하는 클래스
- */
 public class CarRaceService {
 
     private final Cars cars;
@@ -17,7 +14,6 @@ public class CarRaceService {
     public CarRaceService() {
         this.cars = new Cars();
     }
-
 
     public void addCars(String input) {
         cars.saveCars(input);
@@ -31,7 +27,7 @@ public class CarRaceService {
         }
     }
 
-    public boolean shouldMoveForward() {
+    private boolean shouldMoveForward() {
         int randomNumber = RandomGenerator.createRandomNumber();
         return randomNumber >= CarRaceConstant.MOVE_MIN_VALUE.getConstant();
     }
@@ -50,5 +46,4 @@ public class CarRaceService {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
-
 }

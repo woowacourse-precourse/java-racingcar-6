@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import racingcar.model.validate.Validate;
 
 public class Cars {
+
     private final List<Car> cars;
 
     public Cars() {
@@ -54,6 +55,4 @@ public class Cars {
                 .filter(car -> car.getLocation() == location)
                 .collect(Collectors.toList());
     }
-
-
 }

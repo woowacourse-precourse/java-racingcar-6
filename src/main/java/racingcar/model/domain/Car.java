@@ -3,6 +3,7 @@ package racingcar.model.domain;
 public class Car {
 
     private final String name;
+
     private int location;
 
     public Car(String name) {

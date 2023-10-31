@@ -7,6 +7,7 @@ import racingcar.model.service.CarRaceService;
 import racingcar.model.validate.Validate;
 
 public class CarRaceGame implements Game {
+
     private CarRaceService service;
     private int gameRound;
 
@@ -58,6 +59,4 @@ public class CarRaceGame implements Game {
         String result = sb.toString();
         System.out.println(result.substring(0, result.length() - 2));
     }
-
-
 }

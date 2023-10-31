@@ -1,6 +1,7 @@
 package racingcar.model.constant;
 
 public enum CarRaceConstant {
+
     MIN_LENGTH(0),
     MAX_LENGTH(9),
     MOVE_MIN_VALUE(4),

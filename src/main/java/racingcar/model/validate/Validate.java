@@ -4,8 +4,7 @@ import racingcar.model.constant.CarRaceConstant;
 
 public class Validate {
 
-    private Validate() {
-    }
+    private Validate() {}
 
     public static void isNumber(String input) {
         try {
@@ -31,6 +30,4 @@ public class Validate {
             }
         }
     }
-
-
 }
