@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.stream.IntStream;
 import racingcar.utils.Phrases;
 import racingcar.utils.UserInput;
 
@@ -29,9 +30,8 @@ public final class RacingGameLauncher {
         addRacingCar();
         System.out.println("\n" + Phrases.racing);
 
-        for (int i = 0; i < racingTimes; i++) {
-            racingBoard.racingCarsMove();
-        }
+        IntStream.range(0, racingTimes)
+                 .forEach(car -> racingBoard.racingCarsMove());
 
         winner();
     }
