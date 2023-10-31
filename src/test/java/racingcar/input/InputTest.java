@@ -21,7 +21,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = { "가희,가희", "깨위,깨위", "휘,휘"})
+    @ValueSource(strings = { "가희,가희", "깨위,깨위", "휘,휘" })
     void 같은_이름을_가진_자동차_오류_테스트(String string) {
         assertThatThrownBy(() -> inputValidation.checkNameInputValid(string))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -29,7 +29,7 @@ public class InputTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = { "가희", "개휘", "깨위"})
+    @ValueSource(strings = { "가희", "개휘", "깨위" })
     void 자동차_1개이하_입력_오류_테스트(String string) {
         assertThatThrownBy(() -> inputValidation.checkNameInputValid(string))
                 .isInstanceOf(IllegalArgumentException.class)
