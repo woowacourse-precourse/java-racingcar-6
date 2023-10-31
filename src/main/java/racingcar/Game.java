@@ -27,7 +27,9 @@ public class Game {
         for (String userInputCarName : userInputCarNameArray) {
             carList.add(new Car(userInputCarName));
         }
+    }
 
+    public void userInputAttemptsNumber() {
         System.out.println("시도할 회수는 몇회인가요?");
         attemptsNumber = Integer.valueOf(Console.readLine());
     }

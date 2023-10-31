@@ -1,16 +1,16 @@
 package racingcar;
 
 public class Car {
-    private Integer cuurentLocation;
+    private Integer currentLocation;
     private String name;
 
     public Car(String name) {
         this.name = name;
-        this.cuurentLocation = 0;
+        this.currentLocation = 0;
     }
 
     public void movingForward() {
-        this.cuurentLocation++;
+        this.currentLocation++;
     }
 
     private boolean judgeForward(Integer number) {
@@ -19,10 +19,6 @@ public class Car {
         } else {
             return false;
         }
-    }
-
-    public void stop() {
-
     }
 
     public String getName() {
