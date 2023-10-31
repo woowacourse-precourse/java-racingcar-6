@@ -6,7 +6,7 @@ import racingcar.model.NCars;
 
 public final class GameController {
     NCars nCars;
-    IOController ioController;
+    private final IOController ioController;
 
     private GameController() {
         this.ioController = new IOController();
