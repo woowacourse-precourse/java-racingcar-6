@@ -23,7 +23,6 @@ public class OutputView {
             String visualPosition = drawPosition(car);
 
             String output = String.format("%5s : %s", car.getName(), visualPosition);
-
             System.out.println(output);
         }
 
