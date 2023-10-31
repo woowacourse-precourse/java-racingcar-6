@@ -33,6 +33,6 @@ public class OutputView {
     }
 
     public void printGameWinners(List<String> winners) {
-        System.out.printf(GAME_WINNER_MESSAGE_FORMAT, String.join(",", winners));
+        System.out.printf(GAME_WINNER_MESSAGE_FORMAT, String.join(", ", winners));
     }
 }
