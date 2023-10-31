@@ -66,7 +66,7 @@ public class Game {
         List<String> winnerName = new ArrayList<>();
         Integer maxDistance = cars.maximumDistance();
         finalWinnerNameList(winnerName, maxDistance);
-        String winnerString = String.join(",", winnerName);
+        String winnerString = String.join(", ", winnerName);
         Output.printFinalWinner(winnerString);
 
     }
