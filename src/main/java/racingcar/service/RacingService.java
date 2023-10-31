@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
-import static racingcar.validator.RacingValidator.checkAllCarNameException;
-import static racingcar.validator.RacingValidator.checkAllTryCountException;
+import static racingcar.validator.CarValidator.checkAllCarNameException;
+import static racingcar.validator.TryCountValidator.checkAllTryCountException;
 import static racingcar.view.InputView.getCarNameNotification;
 import static racingcar.view.InputView.getNumberOfTry;
 import static racingcar.view.OutputView.printResult;
