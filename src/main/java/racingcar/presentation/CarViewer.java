@@ -3,7 +3,6 @@ package racingcar.presentation;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.CarGameRound;
 import racingcar.domain.CarName;
-import racingcar.dto.CarDTO;
 
 import java.util.List;
 import java.util.Map;

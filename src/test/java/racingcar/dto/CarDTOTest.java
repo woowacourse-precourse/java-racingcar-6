@@ -2,6 +2,7 @@ package racingcar.dto;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.presentation.CarDTO;
 
 import java.util.ArrayList;
 import java.util.HashMap;

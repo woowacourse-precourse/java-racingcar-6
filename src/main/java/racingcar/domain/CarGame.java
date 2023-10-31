@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.dto.CarDTO;
+import racingcar.presentation.CarDTO;
 
 import java.util.ArrayList;
 
