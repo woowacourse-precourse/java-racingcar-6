@@ -15,16 +15,19 @@ import racingcar.car.Car;
 import racingcar.exception.ExceptionMessage;
 import racingcar.player.Player;
 import racingcar.utils.Utils;
+import racingcar.view.OutputView;
 
 class RacingCarGameTest {
 
     private Car car;
     private Player player;
+    private OutputView outputView;
 
     @BeforeEach
     void setUp() {
         car = new Car();
         player = new Player();
+        outputView = new OutputView();
     }
 
     @ParameterizedTest
@@ -92,5 +95,25 @@ class RacingCarGameTest {
         int actual = Utils.randomNumberGenerator();
 
         assertThat(actual).isBetween(0, 9);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"kim,park,lee", "shin,choi", "sim"})
+    void printToResult_메서드_사용시_최종_우승자_반환(String winners) {
+        car.createName(winners);
+
+        String actual = outputView.printToResult(car.getNames());
+
+        assertThat(actual).contains("최종 우승자 : ");
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"tiger,lion,griff"})
+    void resultForMiddle_메서드_사용시_중간_결과_반환(String name) {
+        car.createName(name);
+
+        String actual = outputView.resultForMiddle(car.getNames(), car);
+
+        assertThat(actual).contains(" : ", "\n");
     }
 }
