@@ -10,4 +10,7 @@ public class InputService {
     public static int attemptCount() {
         return Integer.parseInt(Console.readLine());
     }
+    public static void end() {
+        Console.close();
+    }
 }
