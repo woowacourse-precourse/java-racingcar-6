@@ -1,9 +1,9 @@
 package racingcar.view;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarInfo;
 import racingcar.dto.RacingStatus;
+import racingcar.dto.WinnerNames;
 import racingcar.model.Racing;
 
 public class OutputView {
@@ -35,8 +35,9 @@ public class OutputView {
     }
 
     public void writeRacingWinner(Racing racing) {
-        List<String> winnerNames = racing.getWinningCarNames();
-        write(String.format(RACING_WINNER, String.join(WINNER_NAME_SEPARATOR, winnerNames)));
+        WinnerNames winnerNames = racing.getWinnerNames();
+        write(String.format(RACING_WINNER,
+            String.join(WINNER_NAME_SEPARATOR, winnerNames.getWinnerNames())));
     }
 
     private String getRacingStatusMessage(RacingStatus racingStatus) {

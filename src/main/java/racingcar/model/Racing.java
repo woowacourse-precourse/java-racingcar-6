@@ -5,6 +5,7 @@ import racingcar.dto.CarInfo;
 import racingcar.dto.CarNames;
 import racingcar.dto.RacingStatus;
 import racingcar.dto.TryCount;
+import racingcar.dto.WinnerNames;
 
 public class Racing {
 
@@ -37,6 +38,10 @@ public class Racing {
         Integer maxCount = getMaxMoveCount();
         return cars.stream().filter(car -> maxCount.equals(car.getMoveCount())).map(Car::getName)
             .toList();
+    }
+
+    public WinnerNames getWinnerNames() {
+        return WinnerNames.of(this);
     }
 
     public List<CarInfo> getCarInfoList() {
