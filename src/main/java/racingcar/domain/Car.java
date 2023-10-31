@@ -3,6 +3,8 @@ package racingcar.domain;
 public class Car implements Comparable<Car> {
     private final int MOVE_FORWARD_CONDITION = 4;
     private final String DISTANCE_EXPRESS = "-";
+    private final String DELIMITER = " : ";
+
     private String name;
     private int position = 0;
 
@@ -16,14 +18,14 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    public String expressMoveDistance() {
-        String movedDistance = "";
+    public void showMoveDistance() {
+        StringBuilder movedDistance = new StringBuilder(name + DELIMITER);
 
         for (int i = 0; i < position; i++) {
-            movedDistance += DISTANCE_EXPRESS;
+            movedDistance.append(DISTANCE_EXPRESS);
         }
 
-        return name + " : " + movedDistance;
+        System.out.println(movedDistance);
     }
 
     public String getName() {

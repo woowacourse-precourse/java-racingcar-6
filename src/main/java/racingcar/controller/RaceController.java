@@ -37,9 +37,7 @@ public class RaceController {
             int randomNumber = NumberGenerator.generateRandomNumber();
 
             car.moveForward(randomNumber);
-            String moveTryResult = car.expressMoveDistance();
-
-            outputView.showMoveDistance(moveTryResult);
+            car.showMoveDistance();
         }
     }
 
