@@ -33,8 +33,9 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int compareTo(Car otherCar) {
-        MovingCount otherMovingCount = otherCar.movingCount;
-        return otherMovingCount.getMovingCount() - this.getMovingCount();
+        int otherMovingCount = otherCar.movingCount.getMovingCount();
+        int currentMovingCount = this.movingCount.getMovingCount();
+        return Integer.compare(otherMovingCount, currentMovingCount);
     }
 
     @Override
