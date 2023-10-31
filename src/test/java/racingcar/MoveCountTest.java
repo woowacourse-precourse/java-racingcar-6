@@ -3,6 +3,7 @@ package racingcar;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import racingcar.race.MoveCount;
 
 class MoveCountTest {
     @Test
@@ -38,8 +39,9 @@ class MoveCountTest {
 
     @Test
     void 이동횟수_언더플로우_테스트() {
-        MoveCount moveCount = new MoveCount("0");
+        MoveCount moveCount = new MoveCount("1");
 
+        moveCount.decreaseCount();
         moveCount.decreaseCount();
         assertEquals(0, moveCount.getMoveCount());
     }
