@@ -18,7 +18,7 @@ public class OutputView {
     }
 
     public static void broadcastCarRoundScore(String carName, Integer score) {
-        System.out.printf("%s %s ", carName, DISPLAY_USER_SCORE_SIGN.getMessage());
+        System.out.printf("%s %s ", carName, START_DISPLAY_CAR_SCORE_SIGN.getMessage());
         IntStream.range(STARTING_POINT.getValue(), score)
                 .forEach(OutputView::getScoreSign);
         System.out.println();
