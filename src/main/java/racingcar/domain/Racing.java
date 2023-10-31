@@ -18,14 +18,20 @@ public class Racing {
         return carList;
     }
 
-    private boolean isMove(Car car) {
-        return car.getRandomNum() >= MOVING_FORWARD;
+    public void initCarsRandomNum(List<Car> carList) {
+        for (Car car : carList) {
+            car.initRandomNum();
+        }
     }
 
     public void modifyForwardNum(List<Car> carList) {
         carList.stream()
                 .filter(car -> isMove(car))
                 .forEach(car -> car.increaseForwardNum());
+    }
+
+    private boolean isMove(Car car) {
+        return car.getRandomNum() >= MOVING_FORWARD;
     }
 
     public List<String> findWinners(List<Car> carList) {
@@ -51,9 +57,4 @@ public class Racing {
         return maxValue;
     }
 
-    public void initCarsRandomNum(List<Car> carList) {
-        for (Car car : carList) {
-            car.initRandomNum();
-        }
-    }
 }
