@@ -20,8 +20,8 @@ public class Car {
         return distance;
     }
 
-    public String located() {
-        return distance;
+    public int located() {
+        return distance.length();
     }
 
     public String getName() {

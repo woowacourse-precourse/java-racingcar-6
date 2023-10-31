@@ -84,7 +84,7 @@ class CarTest {
         car1.moveForward();
 
         //then
-        Assertions.assertThat(car1.located()).isEqualTo(distance);
+        Assertions.assertThat(car1.located()).isEqualTo(distance.length());
     }
 
     @Test
@@ -98,7 +98,7 @@ class CarTest {
         car1.clear();
 
         //then
-        Assertions.assertThat(car1.located()).isEqualTo("");
+        Assertions.assertThat(car1.located()).isEqualTo(0);
     }
 
 }
