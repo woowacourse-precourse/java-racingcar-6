@@ -15,6 +15,4 @@ public class InputView {
         System.out.println(TIMES_TO_TRY_REQUEST);
         return readLine();
     }
-
-
 }
