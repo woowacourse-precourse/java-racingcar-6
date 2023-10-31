@@ -19,7 +19,7 @@ public class RacingGameControllerTest {
     private RacingGameController racingGameController;
 
     @BeforeEach
-    void setup() {
+    void init() {
         inputView = mock(InputView.class);
         outputView = mock(OutputView.class);
         racingGameController = new RacingGameController(inputView, outputView);

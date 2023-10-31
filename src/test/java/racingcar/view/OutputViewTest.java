@@ -23,7 +23,7 @@ class OutputViewTest {
     private OutputView outputView;
 
     @BeforeEach
-    void setUp() {
+    void init() {
         output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
         outputView = new OutputView();
