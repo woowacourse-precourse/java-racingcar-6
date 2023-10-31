@@ -10,18 +10,20 @@ import static racingcar.view.Print.showGameResult;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import racingcar.domain.Car;
 
 public class CarService {
     private static CarService carService = new CarService();
 
-    private String cars;
     private List<Car> parkingLot;
-    private int carCount;
+    private Set<String>carNames;
 
     private CarService(){
         parkingLot = new ArrayList<>();
+        carNames = new HashSet<>();
     }
 
     public static CarService getInstance() {
@@ -32,7 +34,7 @@ public class CarService {
         isEmpty(carName);
         hasBlank(carName);
         isValidLength(carName);
-        isDuplicateName(parkingLot, carName);
+        isDuplicateName(carNames, carName);
     }
     public void parkParkingLot(String cars) throws IllegalArgumentException{ //입력값을 받은 cars를 "," 기준으로 분리하고 ParkingLot에 add
         String []tempParkingLot = cars.split(",");
