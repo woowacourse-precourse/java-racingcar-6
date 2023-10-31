@@ -1,4 +1,4 @@
-package racingcar.game;
+package racingcar.game.util;
 
 import java.util.Arrays;
 import java.util.HashSet;

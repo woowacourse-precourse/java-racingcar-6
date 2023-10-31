@@ -1,11 +1,9 @@
 package racingcar.game.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.game.RandomUtil;
 import racingcar.game.validation.CarValidator;
 import racingcar.game.validation.Validator;
 
-import static racingcar.game.RandomUtil.*;
+import static racingcar.game.util.RandomUtil.*;
 
 public class Car {
 

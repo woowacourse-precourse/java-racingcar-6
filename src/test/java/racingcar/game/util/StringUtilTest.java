@@ -1,7 +1,7 @@
-package racingcar.game;
+package racingcar.game.util;
 
 import org.junit.jupiter.api.Test;
-import racingcar.game.constant.RoundExceptionMessage;
+import racingcar.game.util.StringUtil;
 
 import java.util.List;
 

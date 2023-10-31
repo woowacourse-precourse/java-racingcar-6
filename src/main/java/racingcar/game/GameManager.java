@@ -1,6 +1,7 @@
 package racingcar.game;
 
 import racingcar.game.domain.Car;
+import racingcar.game.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
