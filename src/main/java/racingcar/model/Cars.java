@@ -25,4 +25,10 @@ public class Cars {
         }
     }
 
+    public List<Car> raceCars(List<Car> carList, int tryCount) {
+        for (int i = 1; i <= tryCount; i++) {
+            carList.forEach(car -> car.carMoveOrStay());
+        }
+        return carList;
+    }
 }
