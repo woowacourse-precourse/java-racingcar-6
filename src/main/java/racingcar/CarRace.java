@@ -45,20 +45,19 @@ public class CarRace {
     }
 
     public String[] theWinnerIs(String[] contestants, int[] move) {
+        List<String> winnerList = new ArrayList<>();
         int max = move[0];
-        List<String> winner_list = new ArrayList<>();
-        for (int i = 1; i < move.length; i++) {
-            winner_list.add(contestants[i]);
-            if (max <= move[i]) {
+        for (int i = 0; i < move.length; i++) {
+            if (move[i] > max) {
                 max = move[i];
-                winner_list.remove(contestants[i-1]);
+                winnerList.clear(); // 새로운 최대값을 발견하면 최대값 인덱스 목록 초기화
+                winnerList.add(contestants[i]);
+            } else if (move[i] == max) {
+                winnerList.add(contestants[i]); // 같은 최대값을 가진 요소의 인덱스 추가
             }
         }
-        if (winner_list.isEmpty()||max==move[0]) {
-            winner_list.add(contestants[0]);
-        }
-
-        String[] winners = winner_list.toArray(new String[0]);
+        String[] winners = new String[winnerList.size()];
+        winners = winnerList.toArray(winners);
 
         return winners;
     }
