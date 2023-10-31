@@ -1,22 +1,28 @@
 package racingcar.view;
 
+import java.util.List;
+import racingcar.model.Car;
+
 public class OutputView {
-  public void displayCarName(){
-    System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-  }
-  public void displayGameCount(){
-    System.out.println("시도할 회수는 몇회인가요?");
-  }
-  public void displayStart(){
-    System.out.println("실행 결과");
-  }
-  public void displayResult(){
-    System.out.println("pobi : -\n"
-        + "woni : \n"
-        + "jun : -"); //추후 모델로부터 값을 받아오기
+
+  private static final String MOVEMENT_SYMBOL = "-";
+
+  public void displayCarName() {
+    System.out.println(OutputMessage.CAR_NAME_PROMPT.getMessage());
   }
 
-  public void displayWinner(){
-    System.out.println("최종 우승자 : "+"pobi, jun"); //추후 모델로부터 값을 받아오기
+  public void displayGameCount() {
+    System.out.println(OutputMessage.GAME_COUNT_PROMPT.getMessage());
+  }
+
+  public void displayStart() {
+    System.out.println(OutputMessage.RESULT_HEADER.getMessage());
+  }
+
+  public void displayMovement(List<Car> carList) {
+    for (Car car : carList) {
+      System.out.println(car.getName() + " : " + MOVEMENT_SYMBOL.repeat(car.getMovement()));
+    }
+    System.out.println();
   }
 }
