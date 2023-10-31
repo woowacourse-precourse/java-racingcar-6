@@ -8,7 +8,9 @@ import java.util.ArrayList;
 public class Game {
 
     public final int Max_Length = 5;
+    public final int Move_Condition = 4;
     public ArrayList<Car> carMembers = new ArrayList<>();
+
     public String[] inputCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNameAll = Console.readLine();
@@ -28,7 +30,6 @@ public class Game {
         }
     }
 
-
     public void carMembersConstructor(String[] members) {
         for (String rider : members) {
             Car carMember = new Car(rider);
@@ -36,6 +37,14 @@ public class Game {
         }
     }
 
+    public int inputMoveNum() {
+        System.out.println("시도할 회수는 몇 회인가요?");
+        try {
+            return Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 
 
 

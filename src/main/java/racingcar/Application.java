@@ -7,5 +7,7 @@ public class Application {
         String[] members = game.inputCars();
         game.correctLength(members);
         game.carMembersConstructor(members);
+
+        int count = game.inputMoveNum();
     }
 }

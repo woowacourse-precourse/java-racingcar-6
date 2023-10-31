@@ -4,7 +4,7 @@
 - [x] 경주할 자동차의 이름을 ','를 기준으로 입력받는다. - Game#inputCars()
   - [x] 이름은 5자 이하만 가능하다. - Game#correctLength()
   - [x] 잘못된 입력에 경우 IllegalArgumentException을 발생시킨다.
-- [] 사용자가 몇 번의 이동을 할지 입력받는다. - Game#inputMoveNum()
+- [x] 사용자가 몇 번의 이동을 할지 입력받는다. - Game#inputMoveNum()
 - [] Game#operate()
   - [] 전진 조건에 의해 4이상인지 확인한다. - Game#verfityMoveCondition()
   - [] 전진 조건에 적합하면 이동한다. - Game#moveCar()
