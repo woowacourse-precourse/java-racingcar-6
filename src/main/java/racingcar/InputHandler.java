@@ -8,9 +8,7 @@ public class InputHandler {
     }
 
     public String[] splitToArray(String input) {
-        if (!isRightCarName(input)) {
-            throw new IllegalArgumentException();
-        }
+        validateCarNames(input);
         return input.split(",");
     }
 
@@ -20,4 +18,6 @@ public class InputHandler {
         }
         return Integer.parseInt(input);
     }
+
+
 }
