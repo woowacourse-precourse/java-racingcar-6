@@ -36,8 +36,11 @@ public class GameController {
         gameView.displayStartGame();
         String input = Console.readLine();
         CarValidator.validateNameUsingCommas(input);
-        List<String> carNameList = List.of(input.split(","));
-        return gameService.setupParticipantCars(carNameList);
+        return gameService.setupParticipantCars(splitInputIntoList(input));
+    }
+
+    private static List<String> splitInputIntoList(String input) {
+        return List.of(input.split(","));
     }
 
     private int setupRounds() {
