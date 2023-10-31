@@ -15,15 +15,15 @@
 
 
 ### 주어진 예외 처리
-- [ ] 자동차의 이름은 5자 이하여야 한다.
+- [ ] 자동차의 이름은 5자 이하여야 한다. InputCarException # nameLengthException()
   - [ ] 5자 이상의 이름을 입력 받은 경우 IllegalArgumentException을 발생시킨 후 프로그램은 종료된다.
 
 ### 개인적인 예외 처리
 * 주어진 예외처리나 프로그램 동작에 장애가 있는 예외의 경우에는 IllegalArgumentException을 발생시키나 그 이외의 경우에는 최대한 Exception을 발생시키지 않도록 함
-- [ ] 입력한 자동차 이름이 1개 이하일 경우? IllegalArgumentException을 발생시킨 후 프로그램은 종료된다.
-- [ ] round의 값이 정수가 아닐 경우? IllegalArgumentException을 발생시킨 후 프로그램은 종료된다.
-- [ ] 자동차 이름이 중복된 경우? 하나의 자동차로 취급
-- [ ] 자동차 이름에 띄어쓰기가 들어갈 경우? 공백을 모두 제외하고 이름으로 설정된다.
+- [ ] 입력한 자동차 이름이 1개 이하일 경우? IllegalArgumentException을 발생시킨 후 프로그램은 종료된다. InputCarException # numberOfCarException()
+- [ ] round의 값이 정수가 아닐 경우? IllegalArgumentException을 발생시킨 후 프로그램은 종료된다. InputRoundException # notIntegerException()
+- [ ] 자동차 이름이 중복된 경우? 하나의 자동차로 취급 Input # carNames()
+- [ ] 자동차 이름에 띄어쓰기가 들어갈 경우? 공백을 모두 제외하고 이름으로 설정된다.Input # carNames()
 - [ ] 자동차 이름이 0자일 경우? 프로그램 동작에 장애가 없으므로 가능하도록 한다.
 
     
