@@ -1,10 +1,13 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.controller.mapper.AttemptMapper;
 import racingcar.controller.mapper.CarNameMapper;
 import racingcar.model.Car;
 import racingcar.model.repository.CarRepository;
+import racingcar.model.vo.Attempt;
 import racingcar.model.vo.CarName;
+import racingcar.validation.AttemptValidator;
 import racingcar.validation.NameValidator;
 
 public class RacingGameController {
@@ -12,11 +15,15 @@ public class RacingGameController {
     private CarNameMapper carNameMapper;
     private NameValidator nameValidator;
     private CarRepository carRepository;
+    private AttemptValidator attemptValidator;
+    private AttemptMapper attemptMapper;
 
     public RacingGameController() {
         this.carNameMapper = new CarNameMapper();
         this.nameValidator = new NameValidator();
         this.carRepository = new CarRepository();
+        this.attemptValidator = new AttemptValidator();
+        this.attemptMapper = new AttemptMapper();
     }
 
     public void setCarName(String carNames) {
@@ -32,8 +39,11 @@ public class RacingGameController {
         }
     }
 
-    public void setAttempts(String attempts) {
-        // validation
+    public void setAttempts(String attemptStr) {
+        // validate
+        attemptValidator.validate(attemptStr);
+        // convert String to Attempt
+        Attempt attempt = attemptMapper.toAttempt(attemptStr);
         // save attempts
     }
 
