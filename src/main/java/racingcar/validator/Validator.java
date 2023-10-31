@@ -24,6 +24,14 @@ public class Validator {
         }
     }
 
+    public static void isInteger(String attemptCount) {
+        try {
+            Integer.parseInt(attemptCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(INTEGER_INPUT_ERROR_MESSAGE);
+        }
+    }
+
     private static boolean hasWhitespace(String carName) {
         return carName.contains(WHITE_SPACE);
     }
@@ -40,13 +48,5 @@ public class Validator {
 
     private static List<String> arrayToList(String[] carNameArr) {
         return Arrays.stream(carNameArr).toList();
-    }
-
-    public static void isInteger(String attemptCount) {
-        try {
-            Integer.parseInt(attemptCount);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(INTEGER_INPUT_ERROR_MESSAGE);
-        }
     }
 }
