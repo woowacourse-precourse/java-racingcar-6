@@ -13,7 +13,7 @@ public class Cars {
     public Cars(String carNames) {
         List<String> carNameList = RacingGameUtil.splitCarNames(carNames);
         for (String carName : carNameList) {
-            Car car = new Car(carName);
+            Car car = new Car(carName, 0);
             this.carList.add(car);
         }
     }
@@ -32,6 +32,10 @@ public class Cars {
 
     public List<Car> getCarList() {
         return Collections.unmodifiableList(carList);
+    }
+
+    public List<Car> getModifiableCarList() {
+        return carList;
     }
 
 
