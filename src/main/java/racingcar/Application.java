@@ -7,7 +7,7 @@ import racingcar.view.OutputView;
 public class Application {
     public static void main(String[] args) {
 
-        RaceController raceController = new RaceController(new InputView(), new OutputView());
+        RaceController raceController = new RaceController(InputView.getInstance(), OutputView.getInstance());
         raceController.play();
     }
 }
