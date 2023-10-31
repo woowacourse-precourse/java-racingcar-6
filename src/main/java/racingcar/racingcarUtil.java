@@ -62,24 +62,21 @@ class CarRacing {
 }
 
 class Winner {
-	public static void compareCount() { 
-		List<Integer> resultCount = Arrays.asList(990,2000,2000,4000,9999,9999);
+	public static List<Integer> compareCount(List<Integer> resultCount) { 
 		int winnerPoint = Collections.max(resultCount);
-		System.out.println(winnerPoint);
+//		System.out.println(winnerPoint);
 		
 		List<Integer> winnerIndex = new ArrayList<Integer>();
 		for (int i = 0; i < resultCount.size(); i++) {
 			if (resultCount.get(i).equals(winnerPoint)) {
-				System.out.println("우승자 인덱스 넘버" + i);
+//				System.out.println("우승자 인덱스 넘버" + i);
 				winnerIndex.add(i);
-				System.out.println(winnerIndex);
+//				System.out.println(winnerIndex);
 			}
-		}		
+		}
+		return winnerIndex;
 	}
+
 	
-//	public void winnerPrint(String winners) {
-//		List<String> winners = Arrays.asList(str);
-//		String result = String.join(",", winners);
-//		System.out.println("최종 우승자 : " + result);
-//	}
+	
 }
