@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class OutputView {
     private static final String DISPLAY_FORMAT = "-";
     private static final String SEPARATOR = ", ";
+
     private enum OutputMessage {
         ROUND_RESULT("실행 결과"),
         WINNING_STATUS("최종 우승자 : ");
