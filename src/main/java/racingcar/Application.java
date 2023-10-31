@@ -29,13 +29,13 @@ public class Application {
     private static void showResultBoard(Car[] cars) {
         int maxDistance = 0;
         for (Car car : cars) {
-            maxDistance = Math.max(maxDistance, car.distance);
+            maxDistance = Math.max(maxDistance, car.getDistance());
         }
 
         List<String> winnerNames = new ArrayList<>();
         for (Car car : cars) {
-            if (car.distance == maxDistance) {
-                winnerNames.add(car.name);
+            if (car.getDistance() == maxDistance) {
+                winnerNames.add(car.getName());
             }
         }
         System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
