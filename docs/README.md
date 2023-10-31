@@ -32,7 +32,7 @@
 		- [O] 입력한 자동차 이름 모델(inputCarName)에 저장
 		- saveCarNames()
 		    - [O] 입력한 자동차 이름을 List형으로 변환하는 함수 호출
-			- [ ] 데이터 유효성 검사 호출
+			- [O] 데이터 유효성 검사 호출
 			- [ ] 전체 입력한 자동차 이름 모델(CarNames)에 저장
 		    - [ ] 경주 시도 횟수 모델(raceNumber)에 저장
 			- [ ] 경주 게임 시작 호출
@@ -64,7 +64,7 @@
 	- toValidateCarName()
 		- 각 경우에 따라 데이터 유효성 검사 수행 및 예외처리
 		- isBigRaceCarLength()
-			- [ ] 경주할 자동차가 2대 이상인지 확인
+			- [O] 경주할 자동차가 2대 이상인지 확인
 		- isNullCarName()
 			- isCheckNull()
 				- [ ] 입력한 차 이름이 공백인지 확인

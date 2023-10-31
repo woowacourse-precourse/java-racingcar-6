@@ -8,6 +8,7 @@ import racingcar.view.InputView;
 
 public class GameController {
     RaceGame raceGame = new RaceGame();
+    CarNameValidator carNameValidator = new CarNameValidator();
     InputView inputView = new InputView();
 
     public void startGame() {
@@ -17,7 +18,7 @@ public class GameController {
 
     public void saveCarNames() {
         List<String> carNames = convertStringToIntList(raceGame.getInputCarName());
-        System.out.println(carNames);
+        carNameValidator.toValidateCarName(carNames);
     }
 
     private List<String> convertStringToIntList(String carName) {
