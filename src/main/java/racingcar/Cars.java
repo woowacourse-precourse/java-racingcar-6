@@ -26,7 +26,7 @@ public class Cars {
         }
     }
 
-    public void printPosition(Car car) {
+    private void printPosition(Car car) {
         System.out.print(car.getName() + " : ");
         for (int i = 0; i < car.getPosition(); i++) {
             System.out.print("-");
@@ -34,7 +34,7 @@ public class Cars {
         System.out.println();
     }
 
-    public int getMaxPosition() {
+    private int getMaxPosition() {
         int maxPosition = cars[0].getPosition();
         for (int i = 0; i < cars.length; i++) {
             if (cars[i].getPosition() > maxPosition) {
@@ -44,7 +44,7 @@ public class Cars {
         return maxPosition;
     }
 
-    public void printWinner() {
+    private List<String> getWinnerList() {
         List<String> winnerList = new ArrayList<>();
         int maxPosition = getMaxPosition();
         for (int i = 0; i < cars.length; i++) {
@@ -52,6 +52,11 @@ public class Cars {
                 winnerList.add(cars[i].getName());
             }
         }
+        return winnerList;
+    }
+
+    public void printWinner() {
+        List<String> winnerList = getWinnerList();
         StringBuilder result = new StringBuilder();
         result.append(WINNER_MESSAGE);
         result.append(winnerList.get(0));
