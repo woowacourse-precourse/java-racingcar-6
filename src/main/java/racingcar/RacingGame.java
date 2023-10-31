@@ -19,6 +19,7 @@ public class RacingGame {
             oneTimeRace(racingCarList);
             printRaceProgress(racingCarList);
         }
+        printWinners(racingCarList);
     }
 
     private void oneTimeRace(CarList racingCarList) {
@@ -59,6 +60,21 @@ public class RacingGame {
         }
         System.out.println();
         return;
+    }
+
+    private void printWinners(CarList carList) {
+        System.out.printf("최종 우승자 : ");
+        int maxCarPosition = -1;
+        int carPosition = -1;
+        int maxCarPositionIndex = -1;
+        for (int index = 0; index < carList.getSize(); index++) {
+            carPosition = carList.getPosition(index);
+            if (maxCarPosition < carPosition) {
+                maxCarPosition = carPosition;
+                maxCarPositionIndex = index;
+            }
+        }
+        System.out.println(carList.getName(maxCarPositionIndex));
     }
 
 }
