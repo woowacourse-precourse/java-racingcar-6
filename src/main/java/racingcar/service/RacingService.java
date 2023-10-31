@@ -21,6 +21,7 @@ public class RacingService {
         this.carRepository = carRepository;
         this.resultRepository = resultRepository;
     }
+
     public void initializeGame(List<String> carNames) {
         for (String carName : carNames) {
             carRepository.add(new Car(carName));
