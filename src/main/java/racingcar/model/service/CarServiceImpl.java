@@ -30,6 +30,10 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void registerTryCount(String tryCount) {
+        validator.validateInteger(tryCount);
+        int tryNumber = Integer.parseInt(tryCount);
+        validator.validatePositiveNumber(tryNumber);
 
+        carDao.insertTryCount(tryNumber);
     }
 }
