@@ -16,7 +16,6 @@ public class RacingGame {
             }
         }
 
-
         for (Car car : carList) {
             if (car.getCurrentLocation() == maxCurrentLocation) {
                 winnerNameList.add(car.getName());
@@ -26,5 +25,18 @@ public class RacingGame {
         System.out.print("최종 우승자 : ");
         String winnerNames = String.join(",", winnerNameList);
         System.out.println(winnerNames);
+    }
+
+    public static void startGame(List<Car> carList, String userInputRepeatCount){
+        Validator.validateRepeatCount(userInputRepeatCount);
+        int repeatCount = Integer.parseInt(userInputRepeatCount);
+
+        for (int i = 0; i < repeatCount; i++) {
+            for (Car car : carList) {
+                car.moveForwardOrStay();
+                car.printCurrentLocation();
+            }
+            System.out.println();
+        }
     }
 }

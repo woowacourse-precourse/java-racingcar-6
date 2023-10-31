@@ -13,16 +13,8 @@ public class Application {
 
         System.out.println("시도할 회수는 몇회인가요?");
         String userInputRepeatCount = Console.readLine();
-        Validator.validateRepeatCount(userInputRepeatCount);
-        int repeatCount = Integer.parseInt(userInputRepeatCount);
 
-        for (int i = 0; i < repeatCount; i++) {
-            for (Car car : carList) {
-                car.moveForward();
-                car.printCurrentLocation();
-            }
-            System.out.println();
-        }
+        RacingGame.startGame(carList, userInputRepeatCount);
 
         RacingGame.printWinner(carList);
     }

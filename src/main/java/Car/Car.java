@@ -20,7 +20,7 @@ public class Car {
         this.currentLocation = 0;
     }
 
-    public void moveForward() {
+    public void moveForwardOrStay() {
         int randomNumber = Randoms.pickNumberInRange(0, 10);
 
         if (randomNumber >= 4) {
