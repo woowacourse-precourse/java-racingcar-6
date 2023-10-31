@@ -2,7 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomMovePolicy implements MovePolicy{
+public class RandomMovePolicy implements MovePolicy {
     private final int MOVING_FORWARD = 4;
     private final int RANDOM_LEFT_BOUND = 0;
     private final int RANDOM_RIGHT_BOUND = 9;
