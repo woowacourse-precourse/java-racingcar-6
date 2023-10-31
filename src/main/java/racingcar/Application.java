@@ -23,9 +23,11 @@ public class Application {
         return list;
     }
 
-    public static int getTry(){
+    public static int getCount(){
         String input = Console.readLine();
 
         return Integer.parseInt(input);
     }
 }
+
+
