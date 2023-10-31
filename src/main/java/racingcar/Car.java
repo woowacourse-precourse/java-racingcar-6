@@ -12,14 +12,14 @@ public class Car {
 
     public void driving() {
         int randomNum = createRandomNumber();
-        isCarGoForward(randomNum);
+        moveForward(randomNum);
     }
 
     private int createRandomNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    private void isCarGoForward(int randomNum) {
+    private void moveForward(int randomNum) {
         if (randomNum >= 4) {
             this.distanceDriven += "-";
         }
