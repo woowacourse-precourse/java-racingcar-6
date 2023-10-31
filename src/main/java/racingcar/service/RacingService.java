@@ -8,6 +8,7 @@ import racingcar.view.SystemInputMessage;
 import racingcar.view.SystemOutputMessage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,9 +19,16 @@ public class RacingService {
 
     public void initRacing() {
         SystemInputMessage.showInputNameMessage();
-        racing.ready(InputCarName());
+        initRacer(InputCarName());
         SystemInputMessage.showTryCountMessage();
         racing.setCount(InputTryCount());
+    }
+
+    private void initRacer(List<String> names) {
+        for (String name : names) {
+            Car car = new Car(name);
+            racing.getCars().add(car);
+        }
     }
 
     private int InputTryCount() {
@@ -30,14 +38,14 @@ public class RacingService {
     }
 
     // 자동차 이름 입력
-    public String[] InputCarName() {
+    public List<String> InputCarName() {
         String carsString = Console.readLine();
-        String[] cars = carsString.split(Constants.COMMA);
-            IsValidName(cars);
+        List<String> cars = List.of(carsString.split(Constants.COMMA));
+        IsValidName(cars);
         return cars;
     }
 
-    private void IsValidName(String[] cars) {
+    private void IsValidName(List<String> cars) {
         for (String car : cars) {
             if (car.length() > Constants.MAXIMUM_CAR_NAME_LENGTH || car.length() == 0) {
                 throw new IllegalArgumentException();
