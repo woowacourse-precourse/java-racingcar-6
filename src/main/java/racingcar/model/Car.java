@@ -17,7 +17,7 @@ public class Car implements Comparable<Car> {
     }
 
     public void move() {
-        if (getRandomNumber() > cutLine) {
+        if (getRandomNumber() >= cutLine) {
             this.progress++;
         }
     }
