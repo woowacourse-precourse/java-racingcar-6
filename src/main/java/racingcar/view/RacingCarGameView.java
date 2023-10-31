@@ -21,8 +21,6 @@ public class RacingCarGameView {
             }
         }
 
-        Console.close();
-
         return carNames;
     }
 
