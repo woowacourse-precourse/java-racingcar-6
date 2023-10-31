@@ -15,7 +15,11 @@ public class GameService {
         int round = inputManager.getGameProcessCount();
         List<Car> parsedCarList = inputManager.getParsedCarList();
         cars = new Cars(parsedCarList);
+        progressRound(round);
         OutputView.gameStartMessage();
+    }
+
+    public static void progressRound(int round){
         for (int i = 0; i < round; i++) {
             cars.oneRoundProgress(new Movable());
             OutputView.oneTurnResult(cars);
