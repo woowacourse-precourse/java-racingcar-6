@@ -36,7 +36,7 @@ public class Racing {
             }
         }
 
-        System.out.println(String.join(", ", winners) + " 가 최종 우승했습니다."); //승자 출력(둘 이상일 경우 ,를 통해 출력)
+        System.out.println("최종 우승자 : "+String.join(", ", winners)); //승자 출력(둘 이상일 경우 ,를 통해 출력)
     }
 
     private int getMaxPosition(List<Racer> racers) { //최대 Position선별
