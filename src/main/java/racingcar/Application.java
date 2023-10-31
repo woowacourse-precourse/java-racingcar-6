@@ -47,6 +47,21 @@ public class Application {
 			System.out.println();
 		}
 
+		//우승자
+		int lengOfVal = 0;
+		String winner = "";
+		for(String key : resultMap.keySet()) {
+			if(resultMap.get(key).length()>lengOfVal) {
+				lengOfVal = resultMap.get(key).length();
+				winner = key;
+			}
+			else if(resultMap.get(key).length()==lengOfVal) {
+				winner += ", "+key;
+			}
+		}
+
+		System.out.println("최종 우승자 : "+winner);
+
 	}
 
 	//입력받은 플레이어 이름 쉼표 기준으로 나누는 함수
