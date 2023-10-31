@@ -17,7 +17,7 @@ public class Game {
 
     private static final int MOVE_FORWARD_CONDITION_OF_CAR = 4;
     private static final int LOWER_BOUND_OF_RANDOM_NUMBER = 1;
-    private static final int UPPER_BOUND_OF_RANODM_NUMBER = 9;
+    private static final int UPPER_BOUND_OF_RANDOM_NUMBER = 9;
 
     public Game() {
         cars = new ArrayList<>();
@@ -52,6 +52,6 @@ public class Game {
 
     private boolean carShouldMoveForward() {
         return RandomNumberPicker.pickNumber(LOWER_BOUND_OF_RANDOM_NUMBER,
-                UPPER_BOUND_OF_RANODM_NUMBER) >= MOVE_FORWARD_CONDITION_OF_CAR;
+                UPPER_BOUND_OF_RANDOM_NUMBER) >= MOVE_FORWARD_CONDITION_OF_CAR;
     }
 }
