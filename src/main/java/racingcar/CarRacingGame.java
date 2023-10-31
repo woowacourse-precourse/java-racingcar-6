@@ -12,7 +12,7 @@ public class CarRacingGame {
     private int trial;
 
     void execute() {
-        setCar();
+        setCars();
         setTrialInput();
 
         System.out.println("실행 결과");
@@ -65,7 +65,7 @@ public class CarRacingGame {
         System.out.println("최종 우승자 : " + String.join(", ", winnerName));
     }
 
-    void setCar() throws IllegalArgumentException {
+    void setCars() throws IllegalArgumentException {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String input = Console.readLine();
 
