@@ -19,4 +19,12 @@ public class InputUtilsTest {
             InputUtils.validateCarNameInput("pobi,wooony");
         });
     }
+
+    @Test
+    void 시도_횟수_null_입력_예외_처리() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputUtils.validateMoveNumberInput(null);
+        });
+    }
+
 }
