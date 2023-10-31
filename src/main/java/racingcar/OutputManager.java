@@ -20,7 +20,7 @@ public class OutputManager {
     }
 
     public static void printWinners(List<Car> winners) {
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         System.out.println(winners.stream().map(Car::getName).collect(Collectors.joining(", ")));
     }
 }
