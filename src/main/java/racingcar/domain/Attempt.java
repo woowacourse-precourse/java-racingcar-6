@@ -10,14 +10,14 @@ public class Attempt {
         return validateAttemptCount(inputCount);
     }
 
-    public int validateAttemptCount(String inputCount) {
+    private int validateAttemptCount(String inputCount) {
         int countNum = checkInt(inputCount);
         checkNatural(countNum);
 
         return countNum;
     }
 
-    public int checkInt(String inputCount) {
+    private int checkInt(String inputCount) {
         try {
             return Integer.parseInt(inputCount);
         } catch (IllegalArgumentException e) {
@@ -25,7 +25,7 @@ public class Attempt {
         }
     }
 
-    public int checkNatural(int countNum) {
+    private int checkNatural(int countNum) {
         if(countNum < 1)
             throw new IllegalArgumentException("1이상의 수를 입력해주세요.");
 

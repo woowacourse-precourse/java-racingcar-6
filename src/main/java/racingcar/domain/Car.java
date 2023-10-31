@@ -18,7 +18,7 @@ public class Car {
         return names;
     }
 
-    public List<String> splitInputNames(String name) {
+    private List<String> splitInputNames(String name) {
 
         List<String> inputNames = Arrays.asList(name.split(","));
         validateInputNames(inputNames);
@@ -32,7 +32,7 @@ public class Car {
         checkLength(inputNames);
     }
 
-    public void checkEmpty(List<String> inputNames) {
+    private void checkEmpty(List<String> inputNames) {
         for (String inputName : inputNames) {
             if (inputName.isEmpty()) {
                 throw new IllegalArgumentException("이름에 빈값이 있습니다.");
@@ -40,7 +40,7 @@ public class Car {
         }
     }
 
-    public void checkDuplicate(List<String> inputNames) {
+    private void checkDuplicate(List<String> inputNames) {
         Set<String> uniqueNames = new HashSet<>();
         for (String inputName : inputNames) {
             if (!uniqueNames.add(inputName)) {
@@ -49,7 +49,7 @@ public class Car {
         }
     }
 
-    public void checkLength(List<String> inputNames) {
+    private void checkLength(List<String> inputNames) {
         for (String inputName : inputNames) {
             if (inputName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름의 길이를 5 이하로 지정해주세요.");

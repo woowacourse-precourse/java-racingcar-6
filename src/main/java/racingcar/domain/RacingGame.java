@@ -28,7 +28,7 @@ public class RacingGame {
         return racingProgress;
     }
 
-    public void printProgressResult(List<String> carNames, List<String> racingProgress){
+    private void printProgressResult(List<String> carNames, List<String> racingProgress){
         for (int p = 0; p < carNames.size(); p++) {
             System.out.println(carNames.get(p) + " : " + racingProgress.get(p));
         }
