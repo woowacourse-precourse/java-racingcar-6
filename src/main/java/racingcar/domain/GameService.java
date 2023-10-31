@@ -7,21 +7,24 @@ import java.util.Map;
 
 import static racingcar.domain.Constants.*;
 
-public class ImplementGame {
+public class GameService {
     UserInput userInput = new UserInput();
-    SaveMoveLog saveMoveLog = new SaveMoveLog();
+    MoveContainer moveContainer = new MoveContainer();
 
     SystemOutput systemOutput = new SystemOutput();
 
     public void playGame() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         List<String> carList = userInput.askCarList();
+
         System.out.println(ATTEMP_INPUT_MESSAGE);
         int gameNumber = userInput.askNumberGame();
+
         System.out.println(RESULT_OF_GAME);
-        Map<String, Integer> numMoveMap = saveMoveLog.initMap(carList);
+        Map<String, Integer> numMoveMap = moveContainer.initMap(carList);
+
         for (int i = 0; i < gameNumber; i++) {
-            numMoveMap = saveMoveLog.decideIncMove(carList, numMoveMap);
+            numMoveMap = moveContainer.decideIncMove(carList, numMoveMap);
             systemOutput.printMoveResult(numMoveMap);
         }
         List<String> winnerList = getWinner(numMoveMap);

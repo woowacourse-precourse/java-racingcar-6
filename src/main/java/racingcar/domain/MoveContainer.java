@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.*;
 
-public class SaveMoveLog {
+public class MoveContainer {
     UserInput userInput = new UserInput();
     RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
