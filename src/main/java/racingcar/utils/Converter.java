@@ -9,6 +9,7 @@ public class Converter {
 
     public static List<String> convertStringToList(String carNames) {
         return Arrays.stream(carNames.split(","))
+                .map(String::trim)
                 .collect(Collectors.toList());
     }
 
