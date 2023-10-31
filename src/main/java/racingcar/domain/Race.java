@@ -10,13 +10,7 @@ public class Race {
     private int currentRound;
 
     public Race(List<Car> cars, int rounds) {
-        if (rounds <= 0) {
-            throw new IllegalArgumentException("라운드 수는 양수 여야만 합니다.");
-        }
-
-        if (cars == null || cars.isEmpty()) {
-            throw new IllegalArgumentException("경주에 참여하는 자동차는 한 대 이상 이여 야만 합니다");
-        }
+        validateInputs(cars, rounds);
 
         this.cars = cars;
         this.totalRounds = rounds;
@@ -36,12 +30,23 @@ public class Race {
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
     }
+
     public List<String> getWinners() {
         int maxPosition = getMaxPosition();
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    private void validateInputs(List<Car> cars, int rounds) {
+        if (rounds <= 0) {
+            throw new IllegalArgumentException("라운드 수는 양수 여야만 합니다.");
+        }
+
+        if (cars == null || cars.isEmpty()) {
+            throw new IllegalArgumentException("경주에 참여하는 자동차는 한 대 이상 이여 야만 합니다");
+        }
     }
 
     private int getMaxPosition() {
