@@ -10,10 +10,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarsTest {
-
     @Test
     @DisplayName("자동차 이름은 쉼표(,)로 구분하여 리스트에 저장하는지 테스트")
-    public void testCarNamesAreParsedAndStore() {
+    void testCarNamesSplitAndStore() {
         Cars cars = new Cars("tiger,eagle,bear");
 
         List<String> carNames = new ArrayList<>();
@@ -26,16 +25,14 @@ public class CarsTest {
     }
 
     @Test
-    @DisplayName("입력값 중 6글자 이상의 이름 포함 시 에러 발생 테스트")
-    public void testInputValueContainsNameLengthOverThanOrEqualSix() {
-        String inputValue = "tiger,eagle,leopard";
-
-        assertThrows(IllegalArgumentException.class, () -> new Cars(inputValue));
+    @DisplayName("자동차 이름 중 6글자 이상의 이름 포함 시 에러 발생 테스트")
+    void testCarNamesContainsNameLengthOverThanOrEqualSix() {
+        assertThrows(IllegalArgumentException.class, () -> new Cars("tiger,eagle,leopard"));
     }
 
     @Test
-    @DisplayName("가장 많이 이동한 자동차를 우승자로 반환하는지 테스트")
-    public void testMostMovedCarIsWinner() {
+    @DisplayName("가장 많이 이동한 자동차를 우승자로 반환하는지 테스트 - 단독 우승자")
+    void testMostMovedCarIsSoloWinner() {
         Cars cars = new Cars("tiger,eagle,bear");
 
         int drivingSkill = 3;
@@ -49,5 +46,23 @@ public class CarsTest {
         }
 
         Assertions.assertThat(cars.getWinnersName()).isEqualTo(Arrays.asList("bear"));
+    }
+
+    @Test
+    @DisplayName("가장 많이 이동한 자동차를 우승자로 반환하는지 테스트 - 공동 우승자")
+    void testMostMovedCarIsCoWinner() {
+        Cars cars = new Cars("tiger,eagle,bear");
+
+        int drivingSkill = 3;
+        for (Car car : cars) {
+            car.move(drivingSkill++);
+        }
+
+        drivingSkill = 5;
+        for (Car car : cars) {
+            car.move(drivingSkill++);
+        }
+
+        Assertions.assertThat(cars.getWinnersName()).isEqualTo(Arrays.asList("eagle", "bear"));
     }
 }
