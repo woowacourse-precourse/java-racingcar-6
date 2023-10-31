@@ -76,12 +76,12 @@ class PrintUtilTest {
         assertThat(out.toString()).isEqualTo(expectedResult.toString());
     }
 
-    private static String generateGameResult(Map<String, String> result) {
+    private static String generateExpectedGameResult(Map<String, String> result) {
         StringBuilder expectedResult = new StringBuilder();
-        for (Map.Entry<String, String> entrySet : result.entrySet()) {
-            expectedResult.append(entrySet.getKey()).append(" : ").append(entrySet.getValue()).append("\n");
-        }
-        expectedResult.append("\n");
+
+        expectedResult.append(LINE_BREAK).append("실행 결과").append(LINE_BREAK);
+        result.forEach((Key, Value) -> expectedResult.append(Key).append(" : ").append(Value).append(LINE_BREAK));
+        expectedResult.append(LINE_BREAK);
 
         return expectedResult.toString();
     }
@@ -106,37 +106,28 @@ class PrintUtilTest {
         );
     }
 
-    private static String generateWinnerReuslt(Map<String, String> result, List<String> winner) {
-
-        StringBuilder gameWinner = new StringBuilder();
-
-        gameWinner.append(WINNER_MESSAGE);
-
-        String winnerScore = result.get(winner.get(0));
-        gameWinner.append(winner.get(0));
-        for (int i = 1; i < winner.size(); i++) {
-            if (winnerScore.equals(result.get(winner.get(i)))) {
-                gameWinner.append(", ").append(winner.get(i));
-            }
-        }
-
-        return gameWinner.toString();
-    }
-
-    private static Stream<Arguments> provideWinner() {
+    private static Stream<Arguments> provideOneWinner() {
         return Stream.of(
                 Arguments.of(new LinkedHashMap<String, String>() {{
                     put("pobi", "---");
                     put("woni", "-----");
                     put("jun", "--");
-                }}, Arrays.asList("woni", "pobi", "jun")),
+                }}, Arrays.asList("woni", "pobi", "jun"))
+        );
+    }
 
+    private static Stream<Arguments> provideTwoWinner() {
+        return Stream.of(
                 Arguments.of(new LinkedHashMap<String, String>() {{
                     put("pobi", "-----");
                     put("woni", "-----");
                     put("jun", "--");
-                }}, Arrays.asList("pobi", "woni", "jun")),
+                }}, Arrays.asList("pobi", "woni", "jun"))
+        );
+    }
 
+    private static Stream<Arguments> provideThreeWinner() {
+        return Stream.of(
                 Arguments.of(new LinkedHashMap<String, String>() {{
                     put("pobi", "--");
                     put("woni", "--");
