@@ -3,12 +3,14 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.*;
+import java.util.List;
 
 public class Application {
 
     public String[] inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
-        String[] cars = Console.readLine().split(",");
+        String answer = Console.readLine();
+        String[] cars = answer.split(",");
         checkCarNameValidation(cars);
         return cars;
     }
@@ -18,34 +20,38 @@ public class Application {
         return Integer.parseInt(Console.readLine());
     }
 
-    public void checkCarEligibility(String[] cars) {
-        String[] carRace = new String[cars.length];
+    public Map<String, Integer> checkCarEligibility(String[] cars, int number) {
 
-        for (int i = 0; i < cars.length; i++) {
-            int eligibility = Randoms.pickNumberInRange(0, 9);
+        Integer[] raceList = new Integer[cars.length];
+        Arrays.fill(raceList, 0);
 
-            if (eligibility > 4) {
-                carRace[i] += "-";
-            } else {
-                carRace[i] += "";
+        for (int i = 0; i < number; i++) {
+
+            System.out.println("실행 결과");
+            for(int j = 0; j < cars.length; j++) {
+
+                System.out.print(cars[j] + " : ");
+                int eligibility = Randoms.pickNumberInRange(0, 9);
+
+                if (eligibility > 3) {
+                    raceList[j] += 1;
+                }
+
+                System.out.println("-".repeat(raceList[j]));
+
             }
-            System.out.println(cars[i] + ": " +carRace[i]);
         }
-    }
-
-    public void showRaceResult(int number, String[] cars) {
-        System.out.println("실행 결과");
-
-        for (int i = number; i > 0; i--) {
-            System.out.println();
-            checkCarEligibility(cars);
-        }
-
         Map<String, Integer> carRaces = new HashMap<>();
 
-        for (String car : cars) {
-            carRaces.put(car, carRaces.size());
+        for (int i = 0; i< cars.length; i++) {
+                carRaces.put(cars[i], raceList[i]);
         }
+        return carRaces;
+    }
+
+    public void showRaceResult(String[] cars, int number) {
+
+        Map<String, Integer> carRaces = checkCarEligibility(cars, number);
 
         int maxValue = Collections.max(carRaces.values());
         List<String> winnerName = new ArrayList<>();
@@ -56,14 +62,17 @@ public class Application {
             }
         }
 
-        for(int i = 0; i < winnerName.size(); i++) {
-            System.out.print("최종 우승자: ");
+        if(winnerName.size() == 1) {
+            System.out.print("최종 우승자 : " + winnerName.get(0));
+        } else {
+            System.out.print("최종 우승자 : ");
 
-            if(winnerName.size() == 1) {
+            for(int i = 0; i < winnerName.size()-1; i++) {
+
                 System.out.print(winnerName.get(i));
-            } else {
                 System.out.print(", ");
             }
+            System.out.println(winnerName.get(winnerName.size()));
         }
     }
 
@@ -79,8 +88,7 @@ public class Application {
     public void run() {
         String[] cars = inputCarNames();
         int number = inputNumber();
-
-        showRaceResult(number, cars);
+        showRaceResult(cars,number);
     }
 
     public static void main(String[] args) {
