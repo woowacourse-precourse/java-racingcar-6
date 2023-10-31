@@ -5,7 +5,6 @@ import static racingcar.utils.ErrorMessages.NO_SUCH_WINNER;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 import racingcar.utils.NumberGenerator;
 
@@ -30,11 +29,25 @@ public class Cars {
     private List<Car> convert(String names) {
         return Arrays.stream(names.split(DELIMITER))
                 .map(this::createCar)
-                .collect(Collectors.toUnmodifiableList());
+                .toList();
     }
 
     private Car createCar(String name) {
         Name carName = new Name(name);
         return new Car(carName);
+    }
+
+    public void move(NumberGenerator numberGenerator) {
+        cars.forEach(car -> car.move(numberGenerator.generate()));
+    }
+
+    private Car findWinner() {
+        return cars.stream()
+                .max(Car::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(NO_SUCH_WINNER));
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
