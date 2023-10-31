@@ -10,23 +10,21 @@ import java.util.List;
 
 public class Server {
     private List<Racer> racerList;
-    private Validator validator;
     private Integer racerCount;
     public Server(){
         racerList = new ArrayList<>();
-        validator = new Validator();
         racerCount = 0;
     }
 
     public void confirmRacerList(String racerListString){
-        validator.validateUserInputIsCorrectFormat(racerListString);
+        Validator.validateUserInputIsCorrectFormat(racerListString);
         List<String> racerNameList = Util.parseStringToListSplitComma(racerListString);
         for ( String racerName : racerNameList){
             racerList.add(new Racer(racerName));
         }
     }
     public void confirmRacerCount(String racerCountString){
-        validator.validateUserInputIsCorrectCount(racerCountString);
+        Validator.validateUserInputIsCorrectCount(racerCountString);
         Integer racerCount = Integer.parseInt(racerCountString);
         this.racerCount = racerCount;
     }
