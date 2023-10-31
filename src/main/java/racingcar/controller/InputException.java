@@ -3,6 +3,7 @@ package racingcar.controller;
 import java.util.regex.Pattern;
 
 import static racingcar.utility.Constants.IMPROPER_COMMA_POSITION;
+import static racingcar.utility.Constants.NAME_LENGTH_LIMIT;
 
 public class InputException {
 
@@ -16,6 +17,10 @@ public class InputException {
         if(isCommaAtImproperPosition(carsName)){
             throw new IllegalArgumentException();
         }
+
+        if(isCarNameBiggerThanFive(carsName)){
+            throw new IllegalArgumentException();
+        }
     }
 
     private boolean isCommaAtImproperPosition(String carsName){
@@ -26,6 +31,23 @@ public class InputException {
         if(carsName.length() == 0){
             return true;
         }
+        return false;
+    }
+    
+    private String[] splitCarsName(String carsName){
+        String[] carsNameArray = carsName.split(",");
+        return carsNameArray;
+    }
+    
+    private boolean isCarNameBiggerThanFive(String carsName){
+        String[] carsNameArray = splitCarsName(carsName);
+
+        for (String carName : carsNameArray) {
+            if(carName.length() > NAME_LENGTH_LIMIT){
+                return true;
+            }
+        }
+
         return false;
     }
 }
