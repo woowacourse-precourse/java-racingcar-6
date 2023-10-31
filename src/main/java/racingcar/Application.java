@@ -5,7 +5,8 @@ import  camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
 
 
 class RacingCar{ 
@@ -40,22 +41,23 @@ class RacingCenter{
             }
             System.out.print("\n");
         }
+        System.out.print("\n");
     }
 
-    Stack<RacingCar> compare(){
-        Stack<RacingCar> winners = new Stack<>(); // 스택 구현
+    Queue<RacingCar> compare(){
+        Queue<RacingCar> winners = new LinkedList<>();
         for(RacingCar car : Cars){
             RacingCar temp;
-            if ( winners.empty()) {winners.push(car);}
+            if ( winners.isEmpty()) {winners.add(car);}
             else{
-                temp = winners.pop();
+                temp = winners.poll();
                 if (temp.getLoc() < car.getLoc()){
                     winners.clear();
-                    winners.push(car);
+                    winners.add(car);
                 }
                 else if(temp.getLoc() == car.getLoc()){
-                    winners.push(temp);
-                    winners.push(car);
+                    winners.add(temp);
+                    winners.add(car);
                 }
             }
         }
@@ -63,11 +65,12 @@ class RacingCenter{
     }
 }
 
-
 public class Application {
     public static void main(String[] args) {
 
         int i=0, cnt; // idx용 변수 i, 경주횟수 cnt변수
+        RacingCenter center = new RacingCenter();
+
         /* 입력부 구현 */
         // 자동차 이름 입력
         System.out.print("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
@@ -96,10 +99,22 @@ public class Application {
             throw new IllegalArgumentException("양의 정수를 입력하십시오\n");
         }
 
-        // 테스트용 간단 출력문
-        for (String name : names){System.out.print(name + "\n");}
-        System.out.print(cnt);
+
+        // 출력문
+        System.out.print("\n실행 결과\n");
+        for (String name : names){
+            RacingCar tempRC = new RacingCar(name);
+            center.registCar(tempRC);
+        }
+        for(i=0;i<cnt;i++){
+            center.all_accel();
+            center.print_locs();
+        }
+        Queue<RacingCar> winners = center.compare();
+        System.out.print("최종 우승자 : ");
+        while(!winners.isEmpty()){
+            System.out.print(winners.poll().getName());
+            if(!winners.isEmpty()) {System.out.print(", ");}
+        }
     }
 }
-
-
