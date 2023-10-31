@@ -1,40 +1,34 @@
 package racingcar.view;
 
-import camp.nextstep.edu.missionutils.Console;
-import racingcar.exception.InputException;
+import static racingcar.exception.InputException.emptyException;
+import static racingcar.exception.InputException.outOfNameLengthException;
+import static racingcar.exception.InputException.outOfRangeException;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
-import static racingcar.exception.InputException.emptyException;
-import static racingcar.exception.InputException.outOfRangeException;
-import static racingcar.exception.InputException.outOfNameLengthException;
-
 public class InputVeiw {
 
-    public static List<String> inputCarNameList() {
-        List<String> carNameList = Arrays.stream(Console.readLine()
+    public static List<String> inputMultipleNames() {
+        List<String> stringList = Arrays.stream(Console.readLine()
                 .split(",")).toList();
-
-        carNameList.forEach(InputVeiw::validateNameInput);
-
-        return carNameList;
+        stringList.forEach(InputVeiw::validateSingleName);
+        return stringList;
     }
 
-    public static Integer inputRoundNumber() {
-        String roundNumber = Console.readLine();
-
-        InputVeiw.validateNumberInput(roundNumber);
-
-        return Integer.parseInt(roundNumber);
+    public static Integer inputSingleNumber() {
+        String number = Console.readLine();
+        InputVeiw.validateSingleNumber(number);
+        return Integer.parseInt(number);
     }
 
-    private static void validateNameInput(String name) {
+    private static void validateSingleName(String name) {
         emptyException(name);
         outOfNameLengthException(name);
     }
 
-    private static void validateNumberInput(String number) {
+    private static void validateSingleNumber(String number) {
         emptyException(number);
         outOfRangeException(number);
     }
