@@ -32,7 +32,10 @@ public class WinnerManager {
     }
 
     public ArrayList<String> getWinnersByForwardCount() { // 우승자 명단 List를 반환
-
+        findValuesEqualToMax();
+        for (int i = 0; i < maxIndexList.size(); i++) {
+            winnersList.add(car[maxIndexList.get(i)].carName); // 동점인 우승자를 우승자 List에 추가
+        }
         return winnersList;
     }
 }
