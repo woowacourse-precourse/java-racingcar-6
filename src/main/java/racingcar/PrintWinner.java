@@ -10,7 +10,7 @@ public class PrintWinner {
     public PrintWinner(RacingCar[] racingCars) {
         this.racingCars = racingCars;
     }
-
+    //우승자의 전진 횟수를 반환해준다.
     private int winnerNum(){
         int wNum = 0;
         for(int i=0; i <racingCars.length; i++){
@@ -18,7 +18,7 @@ public class PrintWinner {
         }
         return wNum;
     }
-
+    //최종 우승자를 탐색하여 리스트로 반환해준다.
     private List<String> winnerList(){
         List<String> wList = new ArrayList<>();
         int wNum = winnerNum();
