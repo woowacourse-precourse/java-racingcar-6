@@ -19,7 +19,8 @@ public class GameController {
     }
 
     public void proceed() {
-        List<Car> racingCars = carController.getRacingCars();
+        String playerInput = inputView.getCarNameInput();
+        List<Car> racingCars = carController.getRacingCars(playerInput);
         StringBuilder raceResult = new StringBuilder();
 
         int count = inputView.getCountInput();
