@@ -34,4 +34,7 @@ public class Car {
         return moveCnt == maxMoveCnt;
     }
 
+    public String getName() {
+        return name;
+    }
 }
