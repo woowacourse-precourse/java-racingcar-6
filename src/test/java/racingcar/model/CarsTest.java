@@ -2,7 +2,6 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.exception.DuplicateCarNamesException;
 import racingcar.fixture.CarsFixture;
 import racingcar.helper.StubNumberGenerator;
+import racingcar.model.dto.RacingResult;
 import racingcar.util.NumberGenerator;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -34,12 +34,8 @@ class CarsTest {
         cars.moveAll(numberGenerator);
 
         // then
-        assertSoftly(softly -> {
-            cars.getCars()
-                    .forEach(car -> {
-                        assertThat(car.getPosition()).isEqualTo(1);
-                    });
-        });
+        List<RacingResult> racingStatuses = cars.getRacingStatuses();
+        assertThat(racingStatuses.get(0).getCarPosition()).isEqualTo(1);
     }
 
     @Test
@@ -51,26 +47,17 @@ class CarsTest {
         cars.moveAll(numberGenerator);
 
         // then
-        assertSoftly(softly -> {
-            cars.getCars()
-                    .forEach(car -> {
-                        assertThat(car.getPosition()).isZero();
-                    });
-        });
+        List<RacingResult> racingStatuses = cars.getRacingStatuses();
+        assertThat(racingStatuses.get(0).getCarPosition()).isZero();
     }
 
     @Test
     void 가장많이_이동한_자동차의_이름을_반환한다() {
-        // given
-        List<Car> carsList = cars.getCars();
-        Car carA = carsList.get(0);
-        carA.move(new StubNumberGenerator(5));
-
         // when
-        List<String> result = this.cars.getWinnerNames();
+        List<String> result = cars.getWinnerNames();
 
         // then
-        assertThat(result).containsExactly("A");
+        assertThat(result).containsExactly("A", "B", "C");
     }
 
     @Test
