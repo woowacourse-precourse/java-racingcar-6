@@ -26,4 +26,11 @@ public class GameView {
     public static void printResultPhrase() {
         System.out.println(RESULT_PHRASE);
     }
+
+    public static void printCarResult(Game game) {
+        for (Car car : game.getCarList()) {
+            System.out.println(car.getName() + CLONE + MOVE_FORWARD_MARK.repeat(car.getDistance()));
+        }
+        System.out.println("");
+    }
 }
