@@ -18,13 +18,13 @@ public class InputView {
         return getInput();
     }
 
-    public static int inputAttemptCount() {
+    public static int inputTurns() {
         System.out.println(ATTEMPT_COUNT_MESSAGE);
 
-        final int attemptCount = convertToInteger(getInput());
-        validateNotNegative(attemptCount);
+        final int turns = convertToInteger(getInput());
+        validateNotNegative(turns);
 
-        return attemptCount;
+        return turns;
     }
 
     private static String getInput() {

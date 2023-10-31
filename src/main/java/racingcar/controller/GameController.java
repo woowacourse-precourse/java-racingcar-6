@@ -1,7 +1,7 @@
 package racingcar.controller;
 
-import static racingcar.view.InputView.inputAttemptCount;
 import static racingcar.view.InputView.inputCarNames;
+import static racingcar.view.InputView.inputTurns;
 import static racingcar.view.OutView.printCarsMovingResult;
 import static racingcar.view.OutView.printExecutionStart;
 import static racingcar.view.OutView.printWinners;
@@ -23,7 +23,7 @@ public class GameController {
 
     private void prepare() {
         cars = Cars.from(inputCarNames());
-        turns = inputAttemptCount();
+        turns = inputTurns();
     }
 
     private void process() {

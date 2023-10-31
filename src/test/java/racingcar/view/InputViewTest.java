@@ -26,7 +26,7 @@ class InputViewTest {
         command(input);
 
         // when & then
-        Assertions.assertThatThrownBy(InputView::inputAttemptCount)
+        Assertions.assertThatThrownBy(InputView::inputTurns)
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(NEGATIVE_INTEGER_INPUT.getMessage());
     }
@@ -38,7 +38,7 @@ class InputViewTest {
         command(input);
 
         // when & then
-        Assertions.assertThatThrownBy(InputView::inputAttemptCount)
+        Assertions.assertThatThrownBy(InputView::inputTurns)
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining(NOT_INTEGER_INPUT.getMessage());
     }
