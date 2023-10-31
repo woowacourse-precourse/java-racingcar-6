@@ -14,7 +14,6 @@
 - trim()을 사용해서 앞뒤로 쓸데없는 공백을 제거한다.
 - , 로 구분한다.
 - 위의 두 조건을 지키지 않을시 IllegalArgumentException 오류 발생
-- Map을 이용해 자동차 이름을 key로 지정한다. value는 일단 0으로 초기화.
 
 ** 사용자에게 몇 번 이동할 것인지 입력받는다.**
 - camp.nextstep.edu.missionutils.Console의 readLine() 활용
@@ -22,6 +21,7 @@
 - Random 값 추출은 camp.nextstep.edu.missionutils.Randoms의 pickNumberInRange()를 활용
 - 무작위 값이 4이상이면 전진하는 것이므로 해당 자동차의 value값을 1 증가시킨다.
 
-  ** 결과를 표시한다. **
-  - 전진한만큼 '-' 를 표시하고 이동할 때마다 결과를 표시한다.
-  - 우승자는 1명 이상일 수도 있다.
+** 결과를 표시한다. **
+- 전진한만큼 '-' 를 표시하고 이동할 때마다 결과를 표시한다.
+- 이동횟수만큼 누가 전진했는지 안했는지 과정을 출력한다.
+- 우승자는 1명 이상일 수도 있다.
