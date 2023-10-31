@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import racingcar.dto.OneGameResultsDto;
 import racingcar.service.domain.Car;
@@ -14,11 +13,6 @@ public class RacingGameService {
     }
 
     public List<String> calculateFinalWinners(RacingCars racingCars) {
-        List<Car> winners = racingCars.findWinners();
-        List<String> winnerNames = new ArrayList<>();
-        for (Car winner : winners) {
-            winnerNames.add(winner.getName());
-        }
-        return winnerNames;
+        return racingCars.findWinners();
     }
 }

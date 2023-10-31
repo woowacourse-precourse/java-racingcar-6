@@ -42,12 +42,12 @@ public class RacingCars {
         }
     }
 
-    public List<Car> findWinners() {
+    public List<String> findWinners() {
         int maxTotalMoveCount = calculateMaxTotalMoveCount();
-        List<Car> winners = new ArrayList<>();
+        List<String> winners = new ArrayList<>();
         for (Car car : cars) {
             if (car.getTotalMoveCount() == maxTotalMoveCount) {
-                winners.add(car);
+                winners.add(car.getName());
             }
         }
         return Collections.unmodifiableList(winners);
