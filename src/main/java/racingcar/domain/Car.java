@@ -35,7 +35,7 @@ public class Car {
     public void moveOrStop() {
         int randomValue = makeRandomValue();
         if (randomValue >= GameConstant.MOVE_OR_STOP_BOUNDARY_VALUE
-                && randomValue < GameConstant.RANDOM_VALUE_UPPER_LIMIT) {
+                && randomValue <= GameConstant.RANDOM_VALUE_UPPER_LIMIT) {
             move();
             return;
         }
