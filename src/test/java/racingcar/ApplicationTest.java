@@ -119,6 +119,13 @@ class ApplicationTest extends NsTest {
         }, STOP, MOVING_FORWARD);
     }
 
+    @Test
+    void 자동차가_한_대만_있는_경우() {
+        assertRandomNumberInRangeTest(() -> {
+            run("pobi", "1");
+            assertThat(output()).contains("최종 우승자 : pobi");
+        }, MOVING_FORWARD);
+    }
 
     @Override
     public void runMain() {
