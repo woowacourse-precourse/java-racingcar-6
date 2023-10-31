@@ -24,17 +24,18 @@ public class RacingCarService {
         this.racingCarValidation = racingCarValidation;
     }
 
-    public void createCarList() {
+    public CarList createCarList() {
         List<String> nameList = Arrays.stream(readLine().split(",")).toList();
 
-        createCarAddList(nameList);
+        return createCarAddList(nameList);
     }
 
-    public void createCarAddList(List<String> nameList) {
+    public CarList createCarAddList(List<String> nameList) {
         for (String name : nameList) {
             checkNameValidation(name);
             carList.addCarList(new Car(name));
         }
+        return carList;
     }
 
     public int readCount() {
