@@ -19,14 +19,19 @@ public class Application {
 
 class GameSystem {
     public void start(InputView input, OutputView output) {
-        output.askName();
-        makeCars(input);
-        output.askTry();
+        saveData(input, output);
 
     }
 
-    public void makeCars(InputView input) {
+    public void saveData(InputView input, OutputView output) {
         InputManufacture manufacture = new InputManufacture();
+        output.askName();
+        makeCars(input, manufacture);
+        output.askTry();
+    }
+
+
+    public void makeCars(InputView input, InputManufacture manufacture) {
         List<String> nameList = makeCarNames(input, manufacture);
         saveCarList(nameList);
     }
@@ -44,7 +49,11 @@ class GameSystem {
         }
     }
 
-    public void runGame(InputView input) {
+    public void runGame(InputView input, InputManufacture manufacture) {
+
+    }
+
+    public int makeTryNumber(InputView input) {
 
     }
 
