@@ -7,8 +7,6 @@ import racingcar.model.TrialNumber;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.List;
-
 public class Controller {
     Cars cars;
     TrialNumber trialNumber;
@@ -17,9 +15,8 @@ public class Controller {
      * 게임 실행
      */
     public void run() {
-        getCarListByUserInput(); //자동차 입력
-        getTrialNumberByUserInput(); //회수 입력
-        OutputView.printResultHeader(); //"실행 결과" String 출력
+        requestCarNames(); //자동차 입력
+        requestTrialNumber(); //회수 입력
         playGame(); //게임 시작
         endGame(); //우승자 출력
     }
@@ -27,7 +24,7 @@ public class Controller {
     /**
      * 자동차 이름을 입력 받기
      */
-    private void getCarListByUserInput() {
+    private void requestCarNames() {
         InputView.requestCarNames();
         String carNames = Console.readLine();
         cars = new Cars(carNames);
@@ -36,7 +33,7 @@ public class Controller {
     /**
      * 시도 회수 입력 받기
      */
-    private void getTrialNumberByUserInput() {
+    private void requestTrialNumber() {
         InputView.requestTrialNumber();
         String inputNumber = Console.readLine();
         System.out.println();
