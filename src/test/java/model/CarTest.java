@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Mockito;
 
 public class CarTest {
 
@@ -37,6 +38,20 @@ public class CarTest {
         Assertions.assertThatThrownBy(() -> new Car(new Name(name), new MovingCount(0)))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("공백 혹은 빈");
+    }
+
+    @Test
+    @DisplayName("임의의 수가 기준 값보다 크면 movingCount 증가하는지 테스트")
+    void 기준_값_보다_큰_임의의_수_증가_테스트() {
+        //given
+        MovingCount mockedMovingCount = Mockito.mock(MovingCount.class);
+        Car car = new Car(new Name("pobi"), mockedMovingCount);
+
+        //when
+        car.increaseMovingCountIfGreater(STANDARD_VALUE, RANDOM_NUMBER);
+
+        //then
+        Mockito.verify(mockedMovingCount).increase();
     }
 
     @Test
