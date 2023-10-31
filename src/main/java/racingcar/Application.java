@@ -9,7 +9,7 @@ import java.util.List;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        Car[] cars = generateCars();
+        List<Car> cars = generateCars();
         int roundCount = generateRoundCount();
 
         showProcessingBoard(cars, roundCount);
@@ -22,21 +22,21 @@ public class Application {
         return Integer.parseInt(roundCountInput);
     }
 
-    private static Car[] generateCars() {
+    private static List<Car> generateCars() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carNamesInput = readLine();
 
         String[] carNames = carNamesInput.split(",");
         int carCount = carNames.length;
 
-        Car[] cars = new Car[carCount];
-        for (int index = 0; index < carCount; index++) {
-            cars[index] = new Car(carNames[index], 0);
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            cars.add(new Car(carName, 0));
         }
         return cars;
     }
 
-    private static void showProcessingBoard(Car[] cars, int roundCount) {
+    private static void showProcessingBoard(List<Car> cars, int roundCount) {
         System.out.println();
         System.out.println("실행 결과");
 
@@ -46,32 +46,31 @@ public class Application {
         }
     }
 
-    private static void moveCars(Car[] cars) {
+    private static void moveCars(List<Car> cars) {
         for (Car car : cars) {
             int randomNumber = pickNumberInRange(0, 9);
             car.move(randomNumber);
         }
     }
 
-    private static void printCars(Car[] cars) {
+    private static void printCars(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(car.toString());
         }
         System.out.println();
     }
 
-    private static void showResultBoard(Car[] cars) {
-        int maxDistance = 0;
-        for (Car car : cars) {
-            maxDistance = Math.max(maxDistance, car.getDistance());
-        }
+    private static void showResultBoard(List<Car> cars) {
+        int maxDistance = cars.stream()
+                .max(Car::compareTo)
+                .get()
+                .getDistance();
 
-        List<String> winnerNames = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getDistance() == maxDistance) {
-                winnerNames.add(car.getName());
-            }
-        }
+        List<String> winnerNames = cars.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .map(Car::getName)
+                .toList();
+
         System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
     }
 }
