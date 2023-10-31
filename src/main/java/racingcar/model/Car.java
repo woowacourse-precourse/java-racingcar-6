@@ -10,12 +10,13 @@ public class Car {
     private int forwardCount;
 
     public Car(final String name) {
-        final String trimmedName = name.trim();
-
-        validateName(trimmedName);
-
-        this.name = trimmedName;
+        this.name = regulateName(name);
         this.forwardCount = 0;
+    }
+
+    public Car(final String name, final int forwardCount) {
+        this.name = regulateName(name);
+        this.forwardCount = forwardCount;
     }
 
     public String getName() {
@@ -28,7 +29,7 @@ public class Car {
 
     public void forward(final int value) {
         if (isMovable(value)) {
-            this.forwardCount ++;
+            this.forwardCount++;
         }
     }
 
@@ -36,9 +37,13 @@ public class Car {
         return value >= BOUND;
     }
 
-    private void validateName(final String name) {
+    private String regulateName(final String name) {
+        final String trimmedName = name.trim();
+
         if (name.length() > 5) {
             throw new IllegalArgumentException(LONG_CAR_NAME.getMessage());
         }
+
+        return trimmedName;
     }
 }
