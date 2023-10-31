@@ -1,11 +1,11 @@
-package racingcar.domain;
+package racingcar.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.domain.Car;
 
 public class Cars {
 
-    // 우승자 목록
     public static List<String> getWinners(List<Car> cars, int maxPosition) {
         List<String> winners = new ArrayList<>();
         for (Car car : cars) {
