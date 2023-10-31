@@ -1,4 +1,4 @@
-package racingcar.presentation;
+package racingcar.controller;
 
 import static racingcar.global.constants.MessageType.RESULT_MESSAGE;
 
@@ -15,7 +15,7 @@ public class RaceController {
         finish(cars);
     }
 
-    private void play(Cars cars, Integer totalCount) {
+    private void play(final Cars cars, final Integer totalCount) {
         View.printlnMessage(RESULT_MESSAGE);
         for (int count = 0; count < totalCount; count++) {
             cars.tryMoveCars();
@@ -23,7 +23,7 @@ public class RaceController {
         }
     }
 
-    private void finish(Cars cars) {
+    private void finish(final Cars cars) {
         Winners winners = Winners.of(cars);
         View.printlnString(winners.toString());
     }
