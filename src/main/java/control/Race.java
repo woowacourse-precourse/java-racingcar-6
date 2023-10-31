@@ -1,8 +1,10 @@
-package racingcar;
+package control;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
+import message.RunningMessage;
+import model.Car;
 
 public class Race {
     int trial;
