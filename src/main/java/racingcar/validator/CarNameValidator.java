@@ -10,6 +10,7 @@ import static racingcar.constant.ErrorMessage.CAR_NAME_IS_LONGER;
 
 public class CarNameValidator {
 
+    private CarNameValidator() {};
     public static void validate(String input) {
         String[] carNames = input.split(",");
         trim(carNames);

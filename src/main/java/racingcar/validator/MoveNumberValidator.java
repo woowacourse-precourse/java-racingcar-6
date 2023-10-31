@@ -9,6 +9,8 @@ import static racingcar.constant.ErrorMessage.ENTER_PROPER_RANGE_NUMBER;
 
 
 public class MoveNumberValidator {
+
+    private MoveNumberValidator() {}
     private static final Pattern numberPattern = Pattern.compile("[0-9]+");
 
     public static void validate(String moveNumber) {
