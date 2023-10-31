@@ -1,4 +1,5 @@
 # 프리코스 2주차 미션 - 자동차 경주
+
 ![Static Badge](https://img.shields.io/badge/precourse-week2-<color>)
 ![Static Badge](https://img.shields.io/badge/version-1.1.0-informational)
 ![Static Badge](https://img.shields.io/badge/test-passed-lightblue)

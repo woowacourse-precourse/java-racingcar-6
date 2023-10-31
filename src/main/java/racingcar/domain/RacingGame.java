@@ -5,11 +5,11 @@ import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.output.GameOutput;
 
-public class CarRaceGame {
+public class RacingGame {
     private List<Car> cars;
     private int iterationNumber;
 
-    public CarRaceGame(List<String> carNames, int iterationNumber) {
+    public RacingGame(List<String> carNames, int iterationNumber) {
         initializeCars(carNames);
         this.iterationNumber = iterationNumber;
     }
@@ -22,12 +22,14 @@ public class CarRaceGame {
     }
 
     public void playGame() {
-        GameOutput.initializeOutput();
+        GameOutput gameOutput = new GameOutput();
+        gameOutput.initialize();
+
         for (int i = 0; i < iterationNumber; i++) {
             moveCars();
-            GameOutput.printCurrentStatus(cars);
+            gameOutput.currentStatus(cars);
         }
-        GameOutput.printWinners(getWinners());
+        gameOutput.winners(getWinners());
     }
 
     public void moveCars() {
@@ -39,7 +41,7 @@ public class CarRaceGame {
     }
 
     public boolean isForwardCondition() {
-        return Randoms.pickNumberInRange(0,9) >= 4;
+        return Randoms.pickNumberInRange(0, 9) >= 4;
     }
 
     public List<String> getWinners() {
@@ -51,8 +53,7 @@ public class CarRaceGame {
                 maxForwardCount = car.getForwardCount();
                 winners.clear();
                 winners.add(car.getName());
-            }
-            else if (car.getForwardCount() == maxForwardCount) {
+            } else if (car.getForwardCount() == maxForwardCount) {
                 winners.add(car.getName());
             }
         }
