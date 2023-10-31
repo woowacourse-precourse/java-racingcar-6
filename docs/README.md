@@ -37,7 +37,7 @@ pobi,woni,jun
 최종 우승자 : pobi, jun
 ```
 ### 차들이 움직임을 몇번 시도할 수 있는지 입력받고 그만큼 게임을 진행시키는 기능
-- 차들에게 전진의 기회를 몇 번 줄건지 입력받고, 그 수 만큼 `carsTryMove()`와`reportingLive()`를 수행하는 메서드 구현.
+- 차들에게 전진의 기회를 몇 번 줄건지 입력받고, 그 수 만큼 `carsTryMove()`와`reportingLive()`를 수행하는 메서드`raceGame()` 구현.
 - `winnerWinnerChikenDinner()` 메서드를 사용하여 최종 우승자를 출력.
 ```
 시도할 회수는 몇회인가요?
@@ -62,4 +62,6 @@ jun : ----
 pobi : -----
 woni : ----
 jun : -----
+
+최종 우승자 : pobi, jun
 ```
