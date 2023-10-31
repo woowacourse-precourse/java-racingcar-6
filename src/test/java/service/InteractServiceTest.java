@@ -38,6 +38,23 @@ public class InteractServiceTest extends NsTest {
         }
     }
 
+    @DisplayName("시도할 회수에 양의 정수가 아닌 다른 값이 들어오는 경우")
+    @Test
+    public void Invalid_TryNum() {
+        // when & given
+        List<String> inputs = List.of(
+                "0", "-4", "-1", "문자", "@@", " ", "\n"
+        );
+
+        // then
+        for (String input : inputs) {
+            assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException("pobi,wooni,kim", input))
+                            .isInstanceOf(IllegalArgumentException.class)
+            );
+        }
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
