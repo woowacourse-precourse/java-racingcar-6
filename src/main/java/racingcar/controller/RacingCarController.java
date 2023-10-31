@@ -30,6 +30,11 @@ public class RacingCarController {
         }
     }
 
+    private void selectWinners(RacingMachine racingMachine) {
+        List<String> winners = racingMachine.selectWinner();
+        OutputView.printWinner(winners);
+    }
+
     private Cars generateCar() {
         List<String> cars = InputView.readCarNames();
         return Cars.from(cars);
