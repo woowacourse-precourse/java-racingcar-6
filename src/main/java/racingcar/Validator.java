@@ -14,9 +14,6 @@ public class Validator {
             if (s.isEmpty()) {
                 throw new IllegalArgumentException(ErrorCode.INPUT_WRONG_CAR_NAME_EMPTY.getMessage());
             }
-            if (s.equals("null")) {
-                throw new IllegalArgumentException(ErrorCode.INPUT_WRONG_CAR_NAME_NULL.getMessage());
-            }
         }
     }
 
