@@ -9,11 +9,15 @@ public class OutputView {
     static final String EXECUTION_RESULT = "실행 결과";
     static final String FINAL_WINNER = "최종 우승자 : ";
 
-    public void printCarsPosition(Cars cars) {
+    public void printResult() {
         System.out.println(EXECUTION_RESULT);
+    }
+
+    public void printCarsPosition(Cars cars) {
         for (Car car : cars.getCars()) {
             System.out.println(car.getName() + " : " + car.getNowPlace());
         }
+        System.out.println();
     }
 
     public void printWinner(Cars cars) {
@@ -28,7 +32,7 @@ public class OutputView {
     }
 
     public boolean getMultipleWinners(List<Car> winners) {
-        if (winners.size()==1) {
+        if (winners.size() == 1) {
             System.out.print(FINAL_WINNER + winners.get(0).getName());
             return false;
         }
