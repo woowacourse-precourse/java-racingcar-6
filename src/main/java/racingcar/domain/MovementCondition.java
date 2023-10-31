@@ -17,11 +17,12 @@ public class MovementCondition {
         return new MovementCondition();
     }
 
+    public boolean movable() {
+        return condition >= FORWARD_MOVEMENT_LOWER_BOUND_CONDITION;
+    }
+
     private Integer generateMovementCondition() {
         return Randoms.pickNumberInRange(NUMBER_LOWER_BOUND_CONSTRAINT, NUMBER_UPPER_BOUND_CONSTRAINT);
     }
 
-    public boolean movable() {
-        return condition >= FORWARD_MOVEMENT_LOWER_BOUND_CONDITION;
-    }
 }

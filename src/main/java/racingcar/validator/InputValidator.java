@@ -30,8 +30,7 @@ public class InputValidator {
             throw RacingCarException.of(CONTAIN_IMPROPER_LETTER);
         }
     }
-
-
+    
     private static boolean isInvalidRoundCount(final Integer roundCount) {
         return roundCount < ROUND_COUNT_LOWER_BOUND;
     }

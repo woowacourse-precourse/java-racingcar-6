@@ -22,16 +22,9 @@ public class Cars {
         return new Cars(input);
     }
 
-    private List<Car> createCars(final List<String> carNames) {
-        return carNames.stream()
-                .map(Car::create)
-                .toList();
-    }
-
     public void playOneRound() {
         cars.forEach(Car::move);
     }
-
 
     public RoundResponses buildRoundResponses() {
         List<RoundResponse> roundResponses = cars.stream()
@@ -46,6 +39,12 @@ public class Cars {
                 .map(Car::getName)
                 .toList();
         return new FinalResponse(winnerNames);
+    }
+
+    private List<Car> createCars(final List<String> carNames) {
+        return carNames.stream()
+                .map(Car::create)
+                .toList();
     }
 
     private Integer getMaxScore() {
