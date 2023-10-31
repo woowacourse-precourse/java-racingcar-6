@@ -12,7 +12,7 @@ public class Application {
         System.out.println("시도할 회수는 몇회인가요?");
         int rounds = Integer.parseInt(Console.readLine());
 
-        // RacingGame racingGame = new RacingGame(carNames);
-        // racingGame.play(rounds);
+        RacingGame racingGame = new RacingGame(carNames);
+        racingGame.play(rounds);
     }
 }
