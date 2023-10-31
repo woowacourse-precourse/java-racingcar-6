@@ -22,7 +22,7 @@ public class RequestRacing {
         return Integer.parseInt(racingTimes);
     }
 
-    private void validationCarNames(String[] names) {
+    public void validationCarNames(String[] names) {
         for (String name : names) {
             String temp = name.replace(" ", "");
             if (temp.length() > 5 || temp.length() == 0) {
@@ -31,7 +31,7 @@ public class RequestRacing {
         }
     }
 
-    private void validationRacingTimes(String times) {
+    public void validationRacingTimes(String times) {
         try {
             Integer.parseInt(times);
         } catch (Exception e) {
