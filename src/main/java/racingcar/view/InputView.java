@@ -16,6 +16,7 @@ public class InputView {
     public int inputTryToMoveCar() {
         System.out.println("시도할 회수는 몇회인가요?");
         int input = Util.convertStringToInt(Console.readLine());
+        Validator.getInstance().validateAttemptCount(input);
         return input;
     }
 }

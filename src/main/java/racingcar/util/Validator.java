@@ -27,4 +27,14 @@ public class Validator {
             throw new IllegalArgumentException("경주를 위해서 2개 이상의 이름을 입력해주세요.");
         }
     }
+
+    public void validateAttemptCount(int input) {
+        checkCountRange(input);
+    }
+
+    private void checkCountRange(int input) {
+        if (input < 0) {
+            throw new IllegalArgumentException("시도할 회수는 1이상의 자연수만 입력할 수 있습니다.");
+        }
+    }
 }
