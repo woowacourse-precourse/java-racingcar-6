@@ -21,7 +21,7 @@ public class Car {
     }
 
     public void drive() {
-        if (RandomGenerator.generate() > GameConstant.MIN_FORWARD_THRESHOLD.get()) {
+        if (RandomGenerator.generate() >= GameConstant.MIN_FORWARD_THRESHOLD.get()) {
             this.addDistance();
         }
     }
