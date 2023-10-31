@@ -8,7 +8,6 @@ import static racingcar.global.exception.ErrorMessage.INVALID_NAME_LIST_SIZE;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import racingcar.global.constants.SymbolType;
 import racingcar.global.exception.RaceException;
 import racingcar.utils.Parser;
 

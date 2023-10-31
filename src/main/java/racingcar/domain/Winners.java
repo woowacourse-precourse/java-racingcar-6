@@ -16,15 +16,15 @@ public class Winners {
         return new Winners(cars);
     }
 
-    private List<Car> findWinners(Cars cars) {
-        return cars.findMaxPositionCars();
-    }
-
     @Override
     public String toString() {
         List<String> names = convertCarListToNames(winners);
         String winners = String.join(FINAL_RESULT_TOKEN.getSymbol(), names);
         return String.format(FINAL_RESULT_MESSAGE.getMessage(), winners);
+    }
+    
+    private List<Car> findWinners(Cars cars) {
+        return cars.findMaxPositionCars();
     }
 
     private List<String> convertCarListToNames(List<Car> winners) {
