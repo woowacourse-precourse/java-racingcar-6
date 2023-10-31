@@ -40,5 +40,6 @@ public class Game {
 
     private void printRaceResult() { //레이스 결과 출력
         List<String> raceResult = race.getRaceResult();
+        Output.printRaceResult(raceResult);
     }
 }

@@ -53,6 +53,20 @@ public class Race {
     }
 
     public List<String> getRaceResult(){
+        int maxLength = getMaxLength();
+        List<String> raceResult = new ArrayList<>();
+        for (Car car : carList){
+            if (car.getMoveLength() == maxLength)
+                raceResult.add(car.getCarName());
+        }
+        return raceResult;
+    }
 
+    private int getMaxLength(){
+        int maxLength = 0;
+        for (Car car : carList) {
+            maxLength = Math.max(maxLength, car.getMoveLength());
+        }
+        return maxLength;
     }
 }

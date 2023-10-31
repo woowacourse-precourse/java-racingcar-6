@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+
 public class Output {
     public static void printRaceStart(){
         System.out.println("\n실행 결과");
@@ -10,5 +12,9 @@ public class Output {
 
     public static void roundFinish() {
         System.out.println();
+    }
+
+    public static void printRaceResult(List<String> carNames){
+        System.out.println("\n최종 우승자 : " + String.join(", ", carNames));
     }
 }
