@@ -43,7 +43,7 @@ public class OutputView {
     public void printWinner(List<String> winners) {
         int winnerNumber = winners.size();
 
-        System.out.print("최종 우승자: ");
+        System.out.print("최종 우승자 : ");
         for (int i = 0; i < winnerNumber - 1; i++) {
             System.out.print(winners.get(i) + ", ");
         }
