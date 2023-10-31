@@ -27,4 +27,10 @@ public class InputUtilsTest {
         });
     }
 
+    @Test
+    void 시도_횟수_숫자_이외_입력_예외_처리() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            InputUtils.validateMoveNumberInput("five");
+        });
+    }
 }
