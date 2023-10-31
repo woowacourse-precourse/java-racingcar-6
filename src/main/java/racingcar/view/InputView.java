@@ -1,6 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import racingcar.exception.InputException;
 
@@ -41,10 +43,11 @@ public class InputView {
     }
 
     public List<String> stringToList(String str) {
-        String[] strList = str.split(",");
-        if (str.isEmpty()) {
-            return List.of("");
-        }
-        return List.of(strList);
+        String[] strList = str.split(",", -1);
+        List<String> resultList = Arrays.asList(strList);
+        return resultList;
     }
+
+
+
 }
