@@ -20,5 +20,16 @@ public class Car {
         this.go = go;
     }
 
+    public void GoOrStop(){
+        int randnum = makerandom();
+        if(randnum >= 4){
+            this.setGo(this.getGo()+1);
+        }
+
+    }
+
+    public int makerandom(){
+        return Randoms.pickNumberInRange(0, 9);
+    }
 
 }
