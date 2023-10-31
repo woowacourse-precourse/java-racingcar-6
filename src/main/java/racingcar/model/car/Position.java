@@ -12,6 +12,10 @@ public class Position {
         this.position++;
     }
 
+    public boolean isSame(Position position) {
+        return this.position == position.position;
+    }
+
     public int get() {
         return this.position;
     }
