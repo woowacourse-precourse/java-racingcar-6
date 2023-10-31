@@ -1,7 +1,9 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.utils.Validator;
 
 public class Cars {
@@ -17,5 +19,20 @@ public class Cars {
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    private int findMaxPosition() {
+        return cars.stream()
+                .max(Comparator.comparing(Car::getPosition))
+                .get()
+                .getPosition();
+    }
+
+    public List<Car> getWinnerCars() {
+        int maxPosition = findMaxPosition();
+
+        return cars.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .collect(Collectors.toList());
     }
 }
