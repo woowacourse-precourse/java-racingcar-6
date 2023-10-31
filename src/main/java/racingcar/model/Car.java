@@ -1,37 +1,39 @@
 package racingcar.model;
 
 public class Car {
-    private String name;
-    private Integer position;
-    private static final Integer INITIAL_STATUS = 0;
+    private Name name;
+    private Position position;
 
-    private Car(String name, int status) {
-        this.name = name;
-        this.position = position;
+    public Car(String name) {
+        this.name = new Name(name);
+        this.position = new Position();
     }
 
-    public static Car makeCar(String name) {
-        return new Car(name, INITIAL_STATUS);
-    }
-
-    public void move() {
-        position++;
+    public void movePosition() {
+        RandomNumber randomNumber = new RandomNumber();
+        if (randomNumber.isMovable()) {
+            position.move(randomNumber.getNumber());
+        }
     }
 
     public String getStatusString() {
         String postionString = "";
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < position.getPosition(); i++) {
             postionString += "-";
         }
         StringBuilder sb = new StringBuilder();
         return sb.append(name).append(" : ").append(postionString).toString();
     }
 
-    public int getPosition() {
-        return position;
+    public boolean isWinnerCondition(int maxScore) {
+        return position.getPosition() == maxScore && position.getPosition() > 0;
+    }
+
+    public int getCarPosition() {
+        return position.getPosition();
     }
 
     public String getName() {
-        return name;
+        return name.toString();
     }
 }

@@ -12,16 +12,16 @@ public class RandomNumber {
     private static final int END_RANGE = 9;
     private static final int MOVABLE_NUMBER = 4;
 
-    private RandomNumber(int number) {
-        this.number = number;
-    }
-
-    public static RandomNumber makeRandomNumber() {
+    public RandomNumber() {
         int number = pickNumberInRange(START_RANGE, END_RANGE);
-        return new RandomNumber(number);
+        this.number = number;
     }
 
     public boolean isMovable() {
         return number >= MOVABLE_NUMBER;
+    }
+
+    public int getNumber() {
+        return number;
     }
 }

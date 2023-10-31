@@ -2,24 +2,35 @@ package racingcar.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Cars {
-    private List<Car> racingCars;
+    private List<Car> racingCars = new ArrayList<>();
 
-    private Cars(List<Car> racingCars) {
-        this.racingCars = racingCars;
-    }
-
-    public static Cars createCars(List<String> stringCars) {
-        List<Car> racingCars = new ArrayList<>();
+    public Cars(List<String> stringCars) {
         for (String stringCar : stringCars) {
-            Car car = Car.makeCar(stringCar);
-            racingCars.add(car);
+            racingCars.add(new Car(stringCar));
         }
-        return new Cars(racingCars);
     }
 
-    public List<Car> getRacingCars() {
-        return racingCars;
+    public void run() {
+        for (Car car : racingCars) {
+            car.movePosition();
+            System.out.println(car.getStatusString());
+        }
+    }
+
+    private int getMaxScore() {
+        return racingCars.stream().mapToInt(Car::getCarPosition).max().orElseThrow(NoSuchElementException::new);
+    }
+
+    public List<String> getWinners() {
+        List<String> winnerNames = new ArrayList<>();
+        for (Car car : racingCars) {
+            if (car.isWinnerCondition(getMaxScore())) {
+                winnerNames.add(car.getName());
+            }
+        }
+        return winnerNames;
     }
 }

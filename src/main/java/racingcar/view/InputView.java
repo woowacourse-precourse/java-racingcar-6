@@ -13,17 +13,13 @@ public class InputView {
         return buildRacingCars(input);
     }
 
-    public static int getTryNumber() {
-        String input = Console.readLine();
-        InputValidator.validateTryNumber(input);
-        return buildTryNumber(input);
-    }
-
     public static List<String> buildRacingCars(String input) {
         return List.of(input.split(","));
     }
 
-    private static int buildTryNumber(String input) {
+    public static int getTryNumber() {
+        String input = Console.readLine();
+        InputValidator.validateTryNumber(input);
         return Integer.parseInt(input);
     }
 }
