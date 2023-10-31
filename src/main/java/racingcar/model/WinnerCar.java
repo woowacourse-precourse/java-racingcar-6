@@ -13,5 +13,14 @@ public class WinnerCar {
                 .toList()
                 .get(0)
                 .getCarState();
+
+        setWinner(cars);
+    }
+
+    public void setWinner(List<Car> cars){
+        winnerCarNames = cars.stream()
+                .filter(car -> car.getCarState() == winnerStateValue)
+                .map(Car::getName)
+                .toList();
     }
 }
