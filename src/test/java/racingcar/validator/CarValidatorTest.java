@@ -34,4 +34,13 @@ public class CarValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 겹치지 않아야 합니다.");
     }
+
+    @Test
+    void 자동차_개수가_한개_이하() {
+        List<String> carList = new ArrayList<>(Arrays.asList("car"));
+
+        assertThatThrownBy(() -> carValidator.validateCarCount(carList))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("최소 두 대의 자동차가 있어야 게임이 가능합니다.");
+    }
 }
