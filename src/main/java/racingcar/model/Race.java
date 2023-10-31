@@ -1,21 +1,36 @@
 package racingcar.model;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Race {
-    private List<Car> cars = new ArrayList<>();
-    private final int numberAttempts;
+    private final List<String> carNames;
+    private Map<String, Car> cars = new HashMap<>();
 
-    private int countAttempts = 0;
+    public Race(List<String> carNames) {
+        this.carNames = carNames;
+        for (String name : carNames) {
+            cars.put(name, new Car(name));
+        }
+    }
 
-    public Race(List<String> carNames, int numberAttempts) {
-        if (numberAttempts < 0) {
-            throw new IllegalArgumentException("numberAttempts must not be less than 0");
+    public List<String> getCarNames() {
+        return carNames;
+    }
+
+    private Car getCar(String carName) {
+        return cars.get(carName);
+    }
+
+    public int getDistance(String carName) {
+        return getCar(carName).getDistance();
+    }
+
+    public void doAttempt() {
+        // TODO: implement Random advance logic
+        for (Car car : cars.values()) {
+            car.advance();
         }
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
-        this.numberAttempts = numberAttempts;
     }
 }
