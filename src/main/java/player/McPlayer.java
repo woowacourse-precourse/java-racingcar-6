@@ -10,12 +10,10 @@ package player;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static utility.Const.DIIVIDE_RACING_PLAYER_NAME;
-import static utility.Const.RACING_PLAYER_NAME_START_COMMENT;
-import static utility.Const.TRYING_NUMBER_START_COMMENT;
-
 
 import display.ConsoleDisplay;
+
+import static utility.Const.*;
 
 public class McPlayer implements Player{
     // 입출력을 위한 display 객체
@@ -92,16 +90,17 @@ public class McPlayer implements Player{
      */
     public void gettingTryingNum() {
         tryingNum = Integer.parseInt(display.input());
+        display.output(CHANGING_LINE);
     }
 
 
     /**
      * Description :  racingPlayerArr( 레이싱플레이어(자동차) 객체 리스트)를 반환
      *
-     * @Method : getracingPlayerArr()
+     * @Method : getRacingPlayerArr()
      * @Return : ArrayList<RacingPlayer>
      */
-    public ArrayList<RacingPlayer> getracingPlayerArr() {
+    public ArrayList<RacingPlayer> getRacingPlayerArr() {
         return this.racingPlayerArr;
     }
 

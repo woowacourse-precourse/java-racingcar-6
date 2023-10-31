@@ -19,7 +19,8 @@ public class RacingPlayer implements Player{
     // 기본생성자
     public RacingPlayer(){}
     // 이름 매개변수 생성자
-    public RacingPlayer(String RacingPlayerName){
+    public RacingPlayer(String racingPlayerName){
+        racerName = racingPlayerName;
         runDistance = 0;
     }
 

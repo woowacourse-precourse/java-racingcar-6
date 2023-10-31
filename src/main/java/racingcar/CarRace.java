@@ -23,7 +23,7 @@ public class CarRace {
         ManagePlayer managePlayer = new ManagePlayer(mcPlayer, judgePlayer);
 
         mcPlayer.play(); // 자동차이름, 시도 횟수를 요청하고, 입력받기
-        managePlayer.play(); // mcPlayer와 judgePlayer 사이에서, mcPlayer의 자동차이름들을 받아 각 자동차 이동거리를 알아내 judgePlayer에게 전달
+        managePlayer.play(); // mcPlayer에게 자동차리스트를 받아 자동차들을 이동시키고 최종 거리를 judgePlayer에게 전달
         judgePlayer.play(); // 우승자를 가려내고, 출력함
 
     }

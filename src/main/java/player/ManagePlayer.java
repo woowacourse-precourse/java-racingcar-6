@@ -38,7 +38,6 @@ public class ManagePlayer implements Player {
     public ManagePlayer(McPlayer mcPlayer, JudgePlayer judgePlayer){
         this.mcPlayer = mcPlayer;
         this.judgePlayer = judgePlayer;
-        this.racingPlayerArr = mcPlayer.getracingPlayerArr();
         racingPlayerDistanceMap = new HashMap<String, Integer>();
     }
 
@@ -59,14 +58,16 @@ public class ManagePlayer implements Player {
      * @Method : manageRacingPlayerPlay()
      */
     public void manageRacingPlayerPlay() {
+        this.racingPlayerArr = mcPlayer.getRacingPlayerArr();
+
         display.output(EXECUTION_COMMENT);
         int tryingNum = mcPlayer.getTryingNum();
         while(tryingNum > 0) {
-            for (RacingPlayer racingPlayer : mcPlayer.getracingPlayerArr()) {
+            for (RacingPlayer racingPlayer : racingPlayerArr) {
                 racingPlayer.play();
-                getRacingDistanceArrFromRacingPlayer();
-                sayingRacingDistance();
             }
+            getRacingDistanceArrFromRacingPlayer();
+            sayingRacingDistance();
             tryingNum--;
         }
     }
@@ -83,7 +84,7 @@ public class ManagePlayer implements Player {
     }
 
     /**
-     * Description :
+     * Description : 각 레이싱플레이어(자동차) 이동 거리 출력
      *
      * @Method :sayingRacingDistance()
      */
@@ -93,6 +94,7 @@ public class ManagePlayer implements Player {
             display.output(DISTANCE_BAR.repeat(racingPlayerDistanceMap.get(key)));
             display.output(CHANGING_LINE);
         }
+        display.output(CHANGING_LINE);
     }
 
     /**
