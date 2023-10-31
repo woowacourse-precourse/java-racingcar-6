@@ -1,9 +1,8 @@
 package racingcar.domain;
 
-import racingcar.controller.RandomNumberGenerater;
+import racingcar.utils.RandomNumberGenerater;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Race {
     int count;
@@ -48,14 +47,10 @@ public class Race {
     }
 
     public List<String> findWinner() {
-        int max = cars.getCars()
-                .stream()
-                .mapToInt(Car::getProcess)
-                .max()
-                .getAsInt();
+        int max = cars.calculrateMaxProcess();
         return cars.getCars()
                 .stream()
-                .filter(car -> car.getProcess() >= max)
+                .filter(car -> car.isWinner(max))
                 .map(Car::getCarName)
                 .toList();
     }
