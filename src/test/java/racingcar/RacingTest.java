@@ -12,7 +12,7 @@ public class RacingTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 승자가_2대_이상(){
+    void 공동_우승자가_있을때(){
 
         assertRandomNumberInRangeTest(
                 () -> {

@@ -4,6 +4,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Race;
 import racingcar.global.message.GameProgressMessage;
 
+import javax.xml.transform.sax.SAXSource;
 import java.util.List;
 
 public class PrintRaceResult {
@@ -12,35 +13,48 @@ public class PrintRaceResult {
     private static final int REST_WINNERS = 1;
 
     private final Race race;
+    private StringBuffer stringBuffer;
 
     public PrintRaceResult(Race race){
         this.race = race;
     }
 
-    public void printWinners(List<String> winners){
+    public String printWinners(List<String> winners){
+        stringBuffer = new StringBuffer();
         GameProgressMessage.PRINT_WINNER.printMessageWithNoNewLine();
 
-        System.out.print(winners.get(FIRST_WINNER));
+        stringBuffer.append(winners.get(FIRST_WINNER));
         for(int i = REST_WINNERS; i < winners.size(); i++){
-            System.out.print(", "+ winners.get(i));
+            stringBuffer.append(", ").append(winners.get(i));
         }
+        String result = stringBuffer.toString();
+        System.out.println(result);
+        return result;
     }
 
-    public void printCarsStatus(){
+    public String printCarsStatus(){
+        stringBuffer = new StringBuffer();
         List<Car> cars = race.getCars();
 
         for(Car car : cars){
-            printCarStatus(car);
+            stringBuffer.append(printCarStatus(car));
         }
-        System.out.println();
+        stringBuffer.append("\n");
+        String result = stringBuffer.toString();
+        System.out.println(result);
+        return result;
     }
 
-    public void printCarStatus(Car car){
-        System.out.print(car.getCarName() + " : ");
+    public String printCarStatus(Car car){
+        stringBuffer = new StringBuffer();
+        stringBuffer.append(car.getCarName()).append(" : ");
 
         for(int i = 0; i < car.getLocation(); i++) {
-            System.out.print("-");
+            stringBuffer.append("-");
         }
-        System.out.println();
+        stringBuffer.append("\n");
+        String result = stringBuffer.toString();
+        System.out.println(result);
+        return result;
     }
 }
