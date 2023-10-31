@@ -1,7 +1,8 @@
 package game;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
-
+import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+import game.car.Car;
 import game.car.CarList;
 
 public class RacingGame {
@@ -25,9 +26,9 @@ public class RacingGame {
 
     private void ready() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        this.carList = new CarList(readLine());
+        this.carList = new CarList(Console.readLine());
         System.out.println("시도할 회수는 몇회인가요?");
-        this.numOfAttempt = new NumOfAttempt(readLine());
+        this.numOfAttempt = new NumOfAttempt(Console.readLine());
         this.status = GameStatus.PROCEEDING;
     }
 
