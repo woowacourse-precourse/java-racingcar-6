@@ -101,6 +101,7 @@ public class RacingCarGameController {
             outputView.printMovedCar(car);
         }
 
+        outputView.printNewLine();
         racingCarGameModel.decrementRoundNumber();
     }
 
