@@ -16,7 +16,6 @@ public class PlayRacingGame {
     private final GameService gameService = new GameService();
     private final Parser parser = new Parser();
     private final Validator validator = new Validator();
-    private final CarRepository carRepository = new CarRepository();
     private final CarService carService = new CarService();
 
     private final InputView inputView = new InputView();

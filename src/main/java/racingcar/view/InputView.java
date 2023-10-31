@@ -7,8 +7,6 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 public class InputView {
 
-    private final Validator validator = new Validator();
-
 
     public String inputTrialNumber(){
         OutputView.requestTrialNumberMessage();
