@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import java.util.List;
+import racingcar.common.strategy.MoveStrategy;
+import racingcar.common.type.TrialCount;
 import racingcar.dto.output.AllRoundDTO;
 import racingcar.dto.output.WinnerDTO;
 import racingcar.view.OutputView;
@@ -14,15 +16,15 @@ public class Racing {
         this.result = result;
     }
 
-    public void start() {
-        List<AllRoundDTO> allRoundResults = playGame();
+    public void start(TrialCount trialCount) {
+        List<AllRoundDTO> allRoundResults = playGame(trialCount);
         WinnerDTO winnerDTO = announceResult();
 
         displayResults(allRoundResults, winnerDTO);
     }
 
-    private List<AllRoundDTO> playGame() {
-        return game.play();
+    private List<AllRoundDTO> playGame(TrialCount trialCount) {
+        return game.play(trialCount);
     }
 
     private WinnerDTO announceResult() {
