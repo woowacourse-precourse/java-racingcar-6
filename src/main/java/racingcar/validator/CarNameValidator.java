@@ -18,6 +18,7 @@ public class CarNameValidator {
 
     public void validate() {
         isNameValid();
+        isNameDuplicated();
         isNameWithinRange();
     }
 
@@ -30,7 +31,14 @@ public class CarNameValidator {
     public void isNameValid() {
         Pattern pattern = Pattern.compile("[^a-zA-Z0-9,]");
         if(carNames.matches(".*[^a-zA-Z0-9 ,].*")) {
-            throw new IllegalArgumentException("쉼표 외의 특수문자를 입력하셨습니다.");
+            throw new IllegalArgumentException("쉼표 외의 특수문자를 입력하시면 안됩니다.");
         }
+    }
+
+    public void isNameDuplicated() {
+        if(carNameList.stream().distinct().count() != carNameList.size()) {
+            throw new IllegalArgumentException("자동차의 이름은 중복되지 않아야 합니다.");
+        }
+
     }
 }
