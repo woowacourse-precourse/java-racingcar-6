@@ -26,7 +26,11 @@ public class Application {
             }
         }
 
-
+        private void isValidName(){
+            if(this.getCarName().length() > 5){
+                throw new IllegalArgumentException();
+            }
+        }
         public String getCarName(){
             return this.carName;
         }
@@ -81,7 +85,9 @@ public class Application {
         
         //리스트 생성
         while (st.hasMoreTokens()) {
-            carList.add(new Car(st.nextToken()));
+            Car car = new Car(st.nextToken());
+            car.isValidName();
+            carList.add(car);
         }
         
         System.out.println("시도할 회수는 몇회인가요?\n");
