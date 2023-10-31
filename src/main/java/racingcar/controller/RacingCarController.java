@@ -3,16 +3,19 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.Participants;
+import racingcar.domain.ParticipantsFactory;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class RacingCarController {
     private final InputView inputView;
     private final OutputView outputView;
+    private final ParticipantsFactory participantsFactory;
 
-    public RacingCarController(InputView inputView, OutputView outputView) {
+    public RacingCarController(InputView inputView, OutputView outputView, ParticipantsFactory participantsFactory) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.participantsFactory = participantsFactory;
     }
 
     public void run() {
@@ -23,7 +26,7 @@ public class RacingCarController {
 
     private Participants createParticipants() {
         List<String> names = inputView.getNames();
-        return Participants.from(names);
+        return participantsFactory.createFromName(names);
     }
 
     private void playRace(Participants participants) {

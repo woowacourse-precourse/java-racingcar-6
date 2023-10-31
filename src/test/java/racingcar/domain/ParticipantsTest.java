@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.*;
-import static racingcar.testutils.TestCarFactory.createCar;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -14,6 +13,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 @SuppressWarnings("NonAsciiCharacters")
 class ParticipantsTest {
 
+    private static final CarFactory carFactory =
+            new CarFactory(RandomNumberSupplier.getInstance(), new CarNameValidator());
+
+    private static final ParticipantsFactory participantsFactory =
+            new ParticipantsFactory(carFactory, new CarsValidator());
+
     @SuppressWarnings("unchecked")
     @ParameterizedTest
     @MethodSource
@@ -21,7 +26,7 @@ class ParticipantsTest {
         Field carsField = Participants.class.getDeclaredField("cars");
         carsField.setAccessible(true);
 
-        Participants participants = Participants.from(names);
+        Participants participants = participantsFactory.createFromName(names);
 
         List<Car> cars = (List<Car>) carsField.get(participants);
         assertThat(cars).size().isEqualTo(names.size());
@@ -37,11 +42,12 @@ class ParticipantsTest {
     @Test
     void 중복된_이름의_자동차가_있으면_에러가_발생한다() {
         List<Car> cars = List.of(
-                new Car("car1"),
-                new Car("car1"));
+                new Car("car1", 0, null),
+                new Car("car1", 0, null)
+        );
 
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new Participants(cars));
+                .isThrownBy(() -> participantsFactory.create(cars));
     }
 
     @ParameterizedTest
@@ -49,23 +55,23 @@ class ParticipantsTest {
     void 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다(List<Car> cars) {
 
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> new Participants(cars));
+                .isThrownBy(() -> participantsFactory.create(cars));
     }
 
     private static Stream<Arguments> 경주에_참가하는_자동차는_최소_2_대_이상이어야_한다() {
         return Stream.of(
                 Arguments.of(List.of()),
-                Arguments.of(List.of(createCar()))
+                Arguments.of(List.of(new Car("car", 0, null)))
         );
     }
 
     @Test
     void 레이스를_진행할_수_있다() {
         List<Car> cars = List.of(
-                createCar(true),
-                createCar(false),
-                createCar(true));
-        Participants participants = new Participants(cars);
+                new Car("car1", 0, () -> 9),
+                new Car("car2", 0, () -> 0),
+                new Car("car3", 0, () -> 9));
+        Participants participants = participantsFactory.create(cars);
 
         List<Car> race = participants.race();
 
@@ -78,10 +84,10 @@ class ParticipantsTest {
     @Test
     void 우승자_목록을_가져올_수_있다() {
         List<Car> cars = List.of(
-                new Car("car1", 3),
-                new Car("car2", 2),
-                new Car("car3", 3));
-        Participants participants = new Participants(cars);
+                new Car("car1", 3, null),
+                new Car("car2", 2, null),
+                new Car("car3", 3, null));
+        Participants participants = participantsFactory.create(cars);
 
         List<String> winners = participants.getWinners();
 
