@@ -38,12 +38,13 @@ public class CarTest {
         List<Car> getCars = cars.getCars();
         Car yoonCar = getCars.get(0);
         yoonCar.moveAhead();
+        yoonCar.moveAhead();
 
         //when
-//        RaceResult raceResult = yoonCar.generateResult(moveCar);
+        RaceResult raceResult = yoonCar.generateResult();
 
         //then
-//        Assertions.assertThat(raceResult.name()).isEqualTo("yoon");
-//        Assertions.assertThat(raceResult.progress()).isEqualTo(1);
+        Assertions.assertThat(raceResult.name()).isEqualTo("yoon");
+        Assertions.assertThat(raceResult.progress()).isEqualTo(2);
     }
 }

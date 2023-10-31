@@ -14,9 +14,9 @@ public class Car {
         this.progress = this.progress.addValue();
     }
 
-    public RaceResult generateResult(Car car) {
-        int currentProgress = car.getProgress().getValue();
-        String currentName = car.getName();
+    public RaceResult generateResult() {
+        int currentProgress = getProgress().getValue();
+        String currentName = getName();
 
         return new RaceResult(currentProgress, currentName);
     }
