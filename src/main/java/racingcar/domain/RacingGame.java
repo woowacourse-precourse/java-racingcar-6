@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
 import racingcar.domain.power.DefaultPowerGenerator;
 import racingcar.dto.GameResultDto;
@@ -21,38 +21,38 @@ public class RacingGame {
     }
 
     public void run() {
-        List<Car> cars = prepareRacingCars();
-        RoundCount roundCount = setRoundNumber();
-
-        System.out.println("\n실행 결과");
-
-        while (roundCount.hasNextRound()) {
-            executeRound(cars);
-            roundCount.consumeRound();
-        }
-        GameResultDto gameResult = referee.publishGameResult(cars);
+        List<String> carNames = readCarNames();
+        List<Car> participants = prepareRacingCars(carNames);
+        RoundCount roundCount = readRaceRoundCount();
+        outputView.showExecutedMessage();
+        executeWholeRounds(participants, roundCount);
+        outputView.showRoundResult(participants);
+        GameResultDto gameResult = referee.publishGameResult(participants);
         outputView.showGameResult(gameResult);
     }
 
+    private void executeWholeRounds(List<Car> participants, RoundCount roundCount) {
+        while (roundCount.hasNextRound()) {
+            executeRound(participants);
+            roundCount.consumeRound();
+        }
+    }
 
     private void executeRound(List<Car> cars) {
-        for (Car car : cars) {
-            car.tryDrive();
-        }
-        outputView.showRoundResult(cars);
+        cars.forEach(Car::tryDrive);
     }
 
-    private RoundCount setRoundNumber() {
-        RoundCount roundCount = inputView.readNumberOfRounds();
-        return roundCount;
+    private RoundCount readRaceRoundCount() {
+        return inputView.readNumberOfRounds();
     }
 
-    private List<Car> prepareRacingCars() {
-        List<String> carNames = inputView.readCarNames();
-        List<Car> cars = new ArrayList<>();
-        for (String carName : carNames) {
-            cars.add(new Car(carName, 0, new DefaultPowerGenerator()));
-        }
-        return cars;
+    private List<Car> prepareRacingCars(List<String> carNames) {
+        return carNames.stream()
+                .map(carName -> new Car(carName, 0, new DefaultPowerGenerator()))
+                .collect(Collectors.toList());
+    }
+
+    private List<String> readCarNames() {
+        return inputView.readCarNames();
     }
 }

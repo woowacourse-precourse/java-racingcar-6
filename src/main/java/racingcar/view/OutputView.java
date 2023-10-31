@@ -16,5 +16,8 @@ public class OutputView {
         System.out.println(messageResolver.resolveWinnerMessage(gameResult));
     }
 
+    public void showExecutedMessage() {
+        System.out.println("\n실행 결과");
+    }
 
 }
