@@ -6,9 +6,11 @@ import java.util.List;
 
 public class Player {
 
+    private static final String SEPARATOR = ",";
+
     public List<String> inputCarNames(){
         String carNames = Console.readLine();
-        List<String> names = Arrays.stream(carNames.split(",")).toList();
+        List<String> names = Arrays.stream(carNames.split(SEPARATOR)).toList();
         checkUnder5Length(names);
         return names;
     }
