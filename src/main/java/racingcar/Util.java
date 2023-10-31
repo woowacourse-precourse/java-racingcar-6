@@ -18,7 +18,7 @@ public class Util {
     }
 
     // 배열에 이름 담기
-    public static List<String> toArrayList(String carNames) {
+    public static List<String> toList(String carNames) {
         String[] names = trim(carNames).split(",");
         return Arrays.asList(names);
     }

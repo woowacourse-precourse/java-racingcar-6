@@ -26,7 +26,7 @@ class UtilTest {
 
     @Test
     void 배열에_이름을_담는다() {
-        List<String> actual = Util.toArrayList(carNames);
+        List<String> actual = Util.toList(carNames);
         List<String> expected = Arrays.asList("supra", "gr86", "GTR");
         assertEquals(expected, actual);
     }
