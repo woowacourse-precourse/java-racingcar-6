@@ -7,6 +7,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class CarStart {
 
+    public int round;
     private final List<Car> cars;
 
     public CarStart() {
@@ -29,6 +30,15 @@ public class CarStart {
         for (String name : names) {
             cars.add(new Car(name.trim()));
         }
+    }
+
+    public void inputRound() {
+        String userInput;
+        do {
+            System.out.println("시도할 횟수는 몇회인가요?");
+            userInput = Console.readLine();
+        } while (!Valid.checkRound(userInput));
+        this.round = Integer.parseInt(userInput);
     }
 
 }
