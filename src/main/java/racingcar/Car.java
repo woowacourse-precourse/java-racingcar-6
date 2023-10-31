@@ -40,7 +40,7 @@ public class Car {
         return randomNumber > 3;
     }
 
-    private void increaseCarPosition(String name) {
+    private void increaseCarPosition(String name) { //자동차 전진 기능
         if (canMove()) {
             this.racingLineup.put(name, this.racingLineup.get(name) + 1);
         }
@@ -64,8 +64,12 @@ public class Car {
         return this.winnerList;
     }
 
+    int getCarPosition(String carName) {
+        return racingLineup.get(carName);
+    }
+
     private String findNameByPosition(String carName, Integer position) { //우승자 판단 내부 로직
-        if (racingLineup.get(carName).equals(position)) {
+        if (this.getCarPosition(carName) == position) {
             return carName;
         }
         return null;
