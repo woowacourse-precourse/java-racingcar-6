@@ -6,7 +6,7 @@ import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.RacingGame;
 import racingcar.dto.CarOutputRequestDto;
-import racingcar.dto.CarWinnersDto;
+import racingcar.dto.CarWinnerDto;
 import racingcar.service.CarService;
 import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
@@ -25,16 +25,16 @@ public class Controller {
         this.carService = carService;
     }
 
-    public void initRacingGame() {
+    public RacingGame initRacingGame() {
         List<Long> carsIdList = getCarsIdList();
         int gameCount = getGameCount();
         RacingGame racingGame = racingGameService.createNewGame(carsIdList, gameCount, racingGameId);
         racingGameService.join(racingGame);
         racingGameId += 1;
-        play(racingGame.getId());
+        return racingGame;
     }
 
-    private void play(Long racingGameId) {
+    public void play(Long racingGameId) {
         RacingGame racingGame = racingGameService.findGameById(racingGameId);
         List<Long> carsIdList = racingGame.getCarsIdList();
         OutPutView.printResultMessage();
@@ -51,13 +51,13 @@ public class Controller {
         OutPutView.printFinalWinner(mapToCarWinnersDtoList(winners));
     }
 
-    private List<CarWinnersDto> mapToCarWinnersDtoList(List<Long> winners) {
-        List<CarWinnersDto> carWinnersDtoList = new ArrayList<>();
+    private List<CarWinnerDto> mapToCarWinnersDtoList(List<Long> winners) {
+        List<CarWinnerDto> carWinnerDtoList = new ArrayList<>();
         for (Long id : winners) {
             Car winnerCar = carService.findCarById(id);
-            carWinnersDtoList.add(new CarWinnersDto(winnerCar.getName()));
+            carWinnerDtoList.add(new CarWinnerDto(winnerCar.getName()));
         }
-        return carWinnersDtoList;
+        return carWinnerDtoList;
     }
 
     private List<CarOutputRequestDto> mapToCarRequestDtoList(List<Long> carsIdList) {

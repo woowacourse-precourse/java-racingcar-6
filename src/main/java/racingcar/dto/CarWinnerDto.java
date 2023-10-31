@@ -1,9 +1,9 @@
 package racingcar.dto;
 
-public class CarWinnersDto {
+public class CarWinnerDto {
     private final String name;
 
-    public CarWinnersDto(String name) {
+    public CarWinnerDto(String name) {
         this.name = name;
     }
 

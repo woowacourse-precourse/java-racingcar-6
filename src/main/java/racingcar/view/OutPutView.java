@@ -2,7 +2,7 @@ package racingcar.view;
 
 import java.util.List;
 import racingcar.dto.CarOutputRequestDto;
-import racingcar.dto.CarWinnersDto;
+import racingcar.dto.CarWinnerDto;
 
 public class OutPutView {
 
@@ -23,7 +23,7 @@ public class OutPutView {
         System.out.println();
     }
 
-    public static void printFinalWinner(List<CarWinnersDto> winners) {
+    public static void printFinalWinner(List<CarWinnerDto> winners) {
         System.out.print(ViewMessage.OUTPUT_FINAL_WINNER.getMessage() + winners.get(0).getName());
         if (isSoloWin(winners)) {
             System.out.println();
@@ -35,7 +35,7 @@ public class OutPutView {
         System.out.println();
     }
 
-    private static boolean isSoloWin(List<CarWinnersDto> winner) {
+    private static boolean isSoloWin(List<CarWinnerDto> winner) {
         return winner.size() == SOLO;
     }
 
