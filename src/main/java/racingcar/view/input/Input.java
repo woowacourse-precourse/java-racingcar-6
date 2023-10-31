@@ -14,6 +14,12 @@ public class Input {
         return names;
     }
 
+    public Integer inputTryNumber() {
+        String input = input();
+        validation.isNumber(input);
+        return Integer.valueOf(input);
+    }
+
     private String input() {
         return Console.readLine();
     }

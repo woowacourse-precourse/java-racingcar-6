@@ -8,4 +8,12 @@ public class Validation {
             }
         }
     }
+
+    public void isNumber(String input) {
+        try {
+            Integer.valueOf(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorConstants.OVER_FIVE_LENGTH_ERROR);
+        }
+    }
 }
