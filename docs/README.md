@@ -48,15 +48,14 @@
   - [x] 최종 우승자 출력
 
 ### Domain
-#### RacingCar
-- 레이싱 자동차에 대한 데이터를 관리하는 로직
-  - [x] 레이싱 자동차 이름 예외 처리 및 저장
-    - [x] 레이싱 자동차 이름별 길이가 5 이하 인지 확인
-      - [x] IllegalArgumentException 발생시킨 후 애플리케이션 종료
-  - [x] 사용자가 요청한 레이스 횟수 예외 처리 및 저장
-    - [x] 정수인 숫자인지 확인
-      - [x] IllegalArgumentException 발생시킨 후 애플리케이션 종료
 #### Game
+- 레이싱 자동차에 대한 데이터를 관리하는 로직
+    - [x] 레이싱 자동차 이름 예외 처리 및 저장
+        - [x] 레이싱 자동차 이름별 길이가 5 이하 인지 확인
+            - [x] IllegalArgumentException 발생시킨 후 애플리케이션 종료
+    - [x] 사용자가 요청한 레이스 횟수 예외 처리 및 저장
+        - [x] 정수인 숫자인지 확인
+            - [x] IllegalArgumentException 발생시킨 후 애플리케이션 종료
 - 레이스에 필요한 일 처리하는 로직
   - [x] 레이스 하기
     - [x] RandomNumberGenerator로 랜덤 숫자 생성
@@ -65,7 +64,7 @@
       - [x] 랜덤 값 < 4 : 전진 x
 
 ### Dto
-#### RaceResultResponse
+#### RaceProgressResponse
 - 레이스 실행 결과를 전달하는 로직
   - [x] 레이스 실행 결과 전달
 #### WinnerResponse

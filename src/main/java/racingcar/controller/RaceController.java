@@ -1,13 +1,9 @@
 package racingcar.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import racingcar.constant.RaceConstant;
 import racingcar.domain.Game;
-import racingcar.domain.RacingCar;
-import racingcar.domain.RandomNumberGenerator;
-import racingcar.dto.RaceResultResponse;
+import racingcar.util.RandomNumberGenerator;
+import racingcar.dto.RaceProgressResponse;
 import racingcar.dto.WinnerResponse;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -19,44 +15,21 @@ public class RaceController {
     RandomNumberGenerator generator = new RandomNumberGenerator();
 
     public void race(){
-        RacingCar racingCar = setUp();
-        outputView.printRaceResultMessage();
-        for (int i = RaceConstant.START_INDEX; i < racingCar.getRaceCount(); i++) {
-            Game game = new Game();
-            List<Integer> raceResult = game.updateRaceResult(generator.generateRandomNumbers(racingCar.getCars().size()), racingCar);
-            RaceResultResponse response = new RaceResultResponse(racingCar.getCars(), raceResult);
+        Game game = setUp();
+        outputView.printRaceProgressMessage();
+        for (int i = 0; i < game.getRaceCount(); i++) {
+            List<Integer> randomNumbers = generator.generateRandomNumbers(game.getCars().size());
+            RaceProgressResponse response = game.move(randomNumbers);
             outputView.printRaceResult(response);
-            checkWinner(racingCar, i, response);
         }
+        WinnerResponse winnerResponse = game.selectWinner();
+        outputView.printWinner(winnerResponse);
     }
 
-    private void checkWinner(RacingCar racingCar, int i, RaceResultResponse response) {
-        if (isFinalRound(racingCar, i)) {
-            List<Integer> finalResult = response.getRaceResult();
-            List<String> winner = IntStream.range(RaceConstant.START_INDEX, finalResult.size())
-                    .filter(k -> finalResult.get(k).equals(isMaximum(finalResult)))
-                    .mapToObj(response.getCars()::get)
-                    .collect(Collectors.toList());
-            WinnerResponse winnerResponse = new WinnerResponse(winner);
-            outputView.printWinner(winnerResponse);
-        }
-    }
-
-    private static boolean isFinalRound(RacingCar racingCar, int i) {
-        return i == racingCar.getRaceCount() - RaceConstant.ONE;
-    }
-
-    private static int isMaximum(List<Integer> finalResult) {
-        return finalResult.stream()
-                .mapToInt(Integer::intValue)
-                .max()
-                .orElse(Integer.MIN_VALUE);
-    }
-
-    private RacingCar setUp(){
-        RacingCar racingCar = new RacingCar();
-        racingCar.updateCars(inputView.getCars());
-        racingCar.updateRaceCount(inputView.getRaceCount());
-        return racingCar;
+    private Game setUp() {
+        String cars = inputView.getCars();
+        String raceCount = inputView.getRaceCount();
+        Game game = new Game(cars, raceCount);
+        return game;
     }
 }
