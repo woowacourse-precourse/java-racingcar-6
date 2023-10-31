@@ -4,7 +4,7 @@
 - [x] 0-9 사이의 무작위 값을 생성한다. NumberGenerator#createRandomNumber
 - [ ] 경주 할 자동차 입력 받는다. UserInputManager#inputCarName
 - [ ] 쉼표를 기준으로 구분한다. UserInputManager#splitInput
-  - [ ] 자동차 이름은 5자 이하 InputValidator#checkCarNameLength
+  - [ ] 자동차 이름은 1자 이상 5자 이하 InputValidator#checkCarNameLength
 - [ ] 시도할 횟수를 입력 받는다. UserInputManager#inputNumberOfAttempts
   - [ ] 숫자가 아니면 안된다. InputValidator#isNumeric
 - [ ] 전진하는 자동차를 출력 시 자동차 이름을 같이 출력 UserOutputManager#print
