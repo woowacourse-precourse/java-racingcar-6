@@ -8,11 +8,11 @@
 
 - [📦&nbsp;&nbsp;패키지 구조](#📦패키지-구조)
 - [✨&nbsp;&nbsp;구현 목록](#구현-목록)
-    * [Non-Functional Requirement](#1%EF%B8%8F⃣-non-functional-requirement)
-    * [Functional Requirement](#2%EF%B8%8F⃣-functional-requirement-controller-code-flow)
+  * [Non-Functional Requirement](#1%EF%B8%8F⃣-non-functional-requirement)
+  * [Functional Requirement](#2%EF%B8%8F⃣-functional-requirement-controller-code-flow)
 - [🆘&nbsp;&nbsp;고민의-흔적](#고민의-흔적)
-    * [MVC 패턴에서 View Layer와 Domain Layer의 검증 책임](#1%EF%B8%8F⃣mvc-패턴에서-view-layer와-domain-layer의-검증-책임)
-    * [객체 간 관계를 static으로 풀어낸 결과 어려워진 테스트 코드 작성](#2%EF%B8%8F⃣객체-간-관계를-static으로-풀어낸-결과-어려워진-테스트-코드-작성)
+  * [MVC 패턴에서 View Layer와 Domain Layer의 검증 책임](#1%EF%B8%8F⃣mvc-패턴에서-view-layer와-domain-layer의-검증-책임)
+  * [객체 간 관계를 static으로 풀어낸 결과 어려워진 테스트 코드 작성](#2%EF%B8%8F⃣객체-간-관계를-static으로-풀어낸-결과-어려워진-테스트-코드-작성)
 - [👬&nbsp;&nbsp;31명과 함께 나눈 224개의 소중한 코드리뷰 적용기](#31명과-함께한-223개의-소중한-코드리뷰-적용기)
 
 ---
@@ -117,45 +117,47 @@
 
 + [X] [Game] 사용자에게 자동차 이름을 `,(Comma)`를 기준으로 입력 받는다
 
-    * [View] 사용자에게 자동차 이름 요청 폼을 출력하고, 문자열을 입력받는다.
-    * [InputValidator] 유효성 검사 : Comma로 끝나거나, whiteSpace를 포함하는 요청 예외처리한다.
-    * [Parser] 플레이어에게 입력받은 String을 Comma를 기준으로 파싱해 List<String> 형태로 변환한다.
-    * [InputValidator] 유효성 검사 : List<String>에 동일한 이름이 포함된 경우 예외처리한다.
+  * [View] 사용자에게 자동차 이름 요청 폼을 출력하고, 문자열을 입력받는다.
+  * [InputValidator] 유효성 검사 : Comma로 끝나거나, whiteSpace를 포함하는 요청 예외처리한다.
+  * [Parser] 플레이어에게 입력받은 String을 Comma를 기준으로 파싱해 List<String> 형태로 변환한다.
+  * [InputValidator] 유효성 검사 : List<String>에 동일한 이름이 포함된 경우 예외처리한다.
 
 + [X] [Game] 파싱된 List<String> 문자열로 List<Car>를 멤버변수로 갖는 Cars 객체를 생성한다.
 
-    * [Cars] stream 문법을 사용해, 모든 List<String> 원소를 바탕으로 Car 객체를 생성한다.
-    * [Cars] 위에서 만든 Car 객체를 List<Car> 형태로 리턴해 Cars의 멤버변수로 생성한다.
+  * [Cars] stream 문법을 사용해, 모든 List<String> 원소를 바탕으로 Car 객체를 생성한다.
+  * [Cars] 위에서 만든 Car 객체를 List<Car> 형태로 리턴해 Cars의 멤버변수로 생성한다.
 
 + [X] [Game] 사용자에게 라운드 횟수를 입력받는다.
 
-    * [View] 사용자에게 라운드 횟수 요청 폼을 출력하고, 숫자형 문자열을 입력받는다.
-    * [InputValidator] 유효성 검사 : 정수형이 아닌 숫자나 문자열이 요청되면 예외처리
-    * [InputValidator] 유효성 검사 : 1 미만의 숫자가 요청되면 예외처리
-    * [Parser] 라운드 횟수를 정수형으로 파싱해 컨트롤러에 리턴한다.
+  * [View] 사용자에게 라운드 횟수 요청 폼을 출력하고, 숫자형 문자열을 입력받는다.
+  * [InputValidator] 유효성 검사 : 정수형이 아닌 숫자나 문자열이 요청되면 예외처리
+  * [InputValidator] 유효성 검사 : 1 미만의 숫자가 요청되면 예외처리
+  * [Parser] 라운드 횟수를 정수형으로 파싱해 컨트롤러에 리턴한다.
 
 + [X] [Game] 라운드 횟수에 따라, 각 라운드를 반복 진행한다
 
-    * [Cars] for-each 문법을 사용해, 멤버변수의 모든 car를 대상으로 move 메소드를 호출
-    * [(Each) Car] `MoveCondition.create` 함수를 호출해 1~9 사이의 랜덤 정수를 담은 조건 객체를 생성한다.
-    * [(Each) Car] `MoveCondition.movable` 함수를 호출해 이동 가능 여부 메세지를 보내고, 이동 여부에 따라 행동한다.
+  * [Cars] for-each 문법을 사용해, 멤버변수의 모든 car를 대상으로 move 메소드를 호출
+  * [(Each) Car] `MoveCondition.create` 함수를 호출해 1~9 사이의 랜덤 정수를 담은 조건 객체를 생성한다.
+  * [(Each) Car] `MoveCondition.movable` 함수를 호출해 이동 가능 여부 메세지를 보내고, 이동 여부에 따라 행동한다.
 
 + [X] [Game] 각 라운드 종료`(모든 Each Car가 1회전 경주를 마친 상황)`
 
-    * [Cars] buildRoundResponses 함수를 호출해 일급 컬렉션 멤버변수를 아래 과정을 통해 DTO로 변환한다.
-    * [RoundResponses] stream 문법을 사용해 모든 List<Car>를 순회하며 List<RoundResponse>를 생성한다.
-    * [RoundResponse] 각 RoundResponse는 name과 score를 가지며, getResponse 편의 메소드로 <br>`이름 : --` 형태로 출력한다.
-    * [RoundResponses] 레코드의 일급 컬렉션 멤버변수인 List<RoundResponse>를 순회하며 모든 자동차의 라운드 결과를 <br>`이름 : --` 형태의 `String`으로 리턴한다.
-    * [View] RoundResponses.getResponses()를 통해 각 라운드 진행 현황을 사용자에게 출력한다.
+  * [Cars] buildRoundResponses 함수를 호출해 일급 컬렉션 멤버변수를 아래 과정을 통해 DTO로 변환한다.
+  * [RoundResponses] stream 문법을 사용해 모든 List<Car>를 순회하며 List<RoundResponse>를 생성한다.
+  * [RoundResponse] 각 RoundResponse는 name과 score를 가지며, getResponse 편의 메소드로 <br>`이름 : --` 형태로 출력한다.
+  * [RoundResponses] 레코드의 일급 컬렉션 멤버변수인 List<RoundResponse>를 순회하며 모든 자동차의 라운드 결과를 <br>`이름 : --` 형태의 `String`으로 리턴한다.
+  * [View] RoundResponses.getResponses()를 통해 각 라운드 진행 현황을 사용자에게 출력한다.
 
 + [X] [Game] 모든 라운드 종료`(라운드 횟수 만큼 모든 자동차가 경주를 진행한 상황)`되었을 때
 
-    * [Cars] buildFinalResponse 함수를 호출해 일급 컬렉션 멤버변수를 아래 과정을 통해 DTO로 변환한다.
-    * [FinalResponse] FinalResponse는 List<String> winnerNames 가지며, getResponse 편의 메소드로 <br>`최종 우승자 : 해빈, 햅, 빈빈`
-      형태의 `String`으로
-      리턴한다.
-    * [View] FinalResponse.getResponse()를 통해 최종 우승자를 사용자에게 출력한다.
-    * [Console] Console.close() 명령어를 통해 `Scanner.close()` 기능을 수행한다.
+  * [Cars] buildFinalResponse 함수를 호출해 일급 컬렉션 멤버변수를 아래 과정을 통해 DTO로 변환한다.
+  * [FinalResponse] FinalResponse는 List<String> winnerNames 가지며, getResponse 편의 메소드로 <br>`최종 우승자 : 해빈, 햅, 빈빈`
+    형태의 `String`으로
+    리턴한다.
+  * [View] FinalResponse.getResponse()를 통해 최종 우승자를 사용자에게 출력한다.
+  * [Console] Console.close() 명령어를 통해 `Scanner.close()` 기능을 수행한다.
+
+<br>
 
 --------------------------------------------------------
 
@@ -172,7 +174,7 @@
 
 - 위 순서로 View Layer에서 검증하지 않고, 별도의 Validator 도메인에서 유효성/자료형 검증을 진행합니다.
 - 이렇게 기본적인 유효성 검증을 마치고, 개발 요구사항에 대한 검증은 일급컬렉션 및 각 도메인의 생성자에서 검증합니다.
-- 위와 같은 방식의 설계가 MVC 패턴에 입각해 좋은 설계로 구성되었는지 봐주시면 좋을 것 같아요. ⸝⸝ʚ̴̶̷̆ ̯ʚ̴̶̷̆⸝⸝
+- 위와 같은 방식의 설계가 MVC 패턴에 입각해 좋은 설계로 구성되었는지 봐주시면 좋을 것 같아요. ⸝⸝ʚ ̯ʚ⸝⸝
 
 ### 2️⃣&nbsp;&nbsp;&nbsp;객체 간 관계를 Static으로 풀어낸 결과, 어려워진 테스트 코드 작성
 
@@ -182,7 +184,7 @@
 - MovementCondition은 Static 객체라, 해당 조건으로 분기하는 Car 객체는 일반적인 방법으로 테스트를 진행하기 어려웠습니다.
 - 그래서 우회 방법으로 `Randoms` 객체를 모킹해, Random Generated Value를 모킹해서, 테스트를 진행했습니다.
 - 해당 방법은 좋은 테스트 방법이라고 생각되지 않습니다! 이 부분에 대해서 리뷰를 꼭 받아보고 싶어요.
-(어쩌면 초기 설계가 부적절 했을 수도 있다고 생각합니다.)
+  (어쩌면 초기 설계가 부적절 했을 수도 있다고 생각합니다.)
 
 ---------------------------------------------------------
 
@@ -317,7 +319,7 @@
 #### 🌱 0x08 `예외 복구, 예외 회피, 예외 전환의 역할을 잘 알고 활용하자.`
 
 자바에서 예외처리는 예외 복구, 예외 회피, 예외전환을 방식이 각각 있습니다.
- | 종류 | 역할 |
+| 종류 | 역할 |
 |:-----:|:------------------------------------------------:|
 | 예외 복구 | try catch -> 예외를 처리하고 정상 로직 처리 |
 | 예외 회피 | throw 로 상위 컨텐츠에게 위임 |
@@ -330,8 +332,8 @@ Exception 에 대한 처리는 정확하게 처리해야 서버의 죽음을 막
 출처 : [1주차 숫자야구 코드리뷰](https://github.com/woowacourse-precourse/java-baseball-6/pull/1613/files#r1373396177)  - @IMWoo94
 
 - 이번 미션에서 `RacingCarException` 이라는 전역 예외를 공통으로 던지도록 설계했습니다.
-- 에러 메세지를 정적으로 관리하고, 각 테스트 케이스에서 JUnit5의 `hasMessageContaining` 메소드를 활용해 해당 
-예외 발생 여부와 Containing ErrorMessage 여부를 이중으로 검증해, 간결하면서 신뢰도 높은 테스트를 만들고자 했습니다.
+- 에러 메세지를 정적으로 관리하고, 각 테스트 케이스에서 JUnit5의 `hasMessageContaining` 메소드를 활용해 해당
+  예외 발생 여부와 Containing ErrorMessage 여부를 이중으로 검증해, 간결하면서 신뢰도 높은 테스트를 만들고자 했습니다.
 - `IllegalArgumentException`을 원시 형태로 발생시키는 것 보다, <br>전역에서 에러를 공통 규격으로 관리하는 것이 더욱 확장성이 높다고 판단합니다.
 - 서버가 예외의 상태를 파악할 수 있도록, 추후 Logging 방식을 통해 말씀 주신 문제를 해결할 수 있다고 생각합니다.
 
