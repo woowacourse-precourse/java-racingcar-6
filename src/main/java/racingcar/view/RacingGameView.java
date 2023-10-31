@@ -21,9 +21,7 @@ public class RacingGameView {
         System.out.println(gameResult);
     }
 
-    public void gameWinners(List<String> winner) {
-        String winners = String.join(", ", winner);
+    public void gameWinners(String winners) {
         System.out.println(GameMessage.WINNER_MESSAGE.getWinnerMessage(winners));
     }
-
 }

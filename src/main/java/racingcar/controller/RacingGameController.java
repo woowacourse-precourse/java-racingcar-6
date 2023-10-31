@@ -1,7 +1,6 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.RacingCar;
 import racingcar.model.RacingGameService;
 import racingcar.model.ValidatePlayerInput;
 import racingcar.view.RacingGameView;
@@ -43,10 +42,13 @@ public class RacingGameController {
 
     public void play() {
         racingGameService.readyToPlay(carNames);
+
         racingGameView.gameResultMessage();
+
         String result = racingGameService.getAllRaceResult(parsedTryCount);
         racingGameView.gameResults(result);
-        List<String> winners = racingGameService.getWinner();
+
+        String winners = racingGameService.getWinners();
         racingGameView.gameWinners(winners);
     }
 

@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingCar {
+    private final int MOVE_LIMITS = 3;
     private String racingCarName;
     private List<Boolean> racingCarMove;
     private int moveCount;
-    private final int MOVE_LIMITS = 3;
 
     public RacingCar(final String racingCarName) {
         this.racingCarName = racingCarName;

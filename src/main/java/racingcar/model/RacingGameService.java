@@ -23,13 +23,14 @@ public class RacingGameService {
         }
     }
 
-    public List<String> getWinner() {
+    public List<String> findWinners() {
         final List<Integer> carsMoveCounts = this.racingCars.stream()
                 .map(RacingCar::getMoveCount).toList();
+
         final int maxMove = Collections.max(carsMoveCounts);
+
         final List<String> winners = this.racingCars.stream().filter(car -> car.getMoveCount() == maxMove)
-                .map(RacingCar::getRacingCarName)
-                .toList();
+                .map(RacingCar::getRacingCarName).toList();
 
         return winners;
     }
@@ -50,6 +51,13 @@ public class RacingGameService {
 
     public int generateMovableNumber() {
         return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+    }
+
+    public String getWinners() {
+        final List<String> winners = this.findWinners();
+        final String result = String.join(", ", winners);
+
+        return result;
     }
 
     public List<RacingCar> getRacingCars() {
