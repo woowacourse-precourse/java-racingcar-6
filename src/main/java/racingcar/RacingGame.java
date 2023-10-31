@@ -9,9 +9,10 @@ public class RacingGame {
     private int count;
     public void play() {
         initializeGame();
-        for (Car car :carList) {
-            
+        for (int i = 0; i < count; i++) {
+            moveAllCar(carList);
         }
+        announceWinner();
     }
     private void initializeGame() {
         carList = registCarList(inputHandler.inputCarName());
@@ -26,10 +27,12 @@ public class RacingGame {
         return cars;
     }
 
-    private static void moveCar() {
-
+    private void moveAllCar(List<Car> cars) {
+        for (Car car: cars) {
+            car.move();
+        }
     }
 
-    public static void announceWinner() {}
+    private static void announceWinner() {}
 
 }
