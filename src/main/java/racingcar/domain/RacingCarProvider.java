@@ -14,10 +14,6 @@ public class RacingCarProvider {
         }
     }
 
-    private boolean isValidLength(String name) {
-        return name.length() <= MAX_CAR_NAME_LENGTH;
-    }
-
     public List<RacingCar> createRacingCars(String[] names) {
         List<RacingCar> racingCars = new ArrayList<>();
 
@@ -27,5 +23,9 @@ public class RacingCarProvider {
         }
 
         return racingCars;
+    }
+
+    private boolean isValidLength(String name) {
+        return name.length() <= MAX_CAR_NAME_LENGTH;
     }
 }
