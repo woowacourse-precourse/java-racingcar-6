@@ -167,6 +167,14 @@ class TotalCar {
         }
     }
 
+    public List<String> nameList() {
+        List<String> carNames = new ArrayList<>();
+        for (Car c : carList) {
+            carNames.add(c.getName());
+        }
+        return carNames;
+    }
+
 
 }
 
