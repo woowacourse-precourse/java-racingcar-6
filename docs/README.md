@@ -24,7 +24,7 @@
   - List<Car>를 순회하며 Car의 상태를 출력하는 메소드 구현
 
 
--[ ] 경주게임을 시도할 숫자를 가지고있는 RaceRound 클래스 구현
+-[x] 경주게임을 시도할 숫자를 가지고있는 RaceRound 클래스 구현
   - 생성자에서 RaceRoundInputValidator 로 검증
 
 
