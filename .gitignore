@@ -7,6 +7,7 @@ build/
 
 ### STS ###
 .apt_generated
+*.class
 .classpath
 .factorypath
 .project

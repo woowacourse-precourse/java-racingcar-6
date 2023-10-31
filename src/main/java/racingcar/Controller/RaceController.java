@@ -15,6 +15,13 @@ public class RaceController {
 
     private TryNumber tryNumber;
 
+    public RaceController() {
+    }
+
+    public RaceController(CarList list) {
+        this.carList = list;
+    }
+
     public void start() {
         carList = new CarList(ConsolePrint.readCars().split(","));
 
@@ -25,7 +32,7 @@ public class RaceController {
     }
 
 
-    void race(int tryNum) {
+    public void race(int tryNum) {
         ConsolePrint.printOpening();
 
         for (int i = 0; i < tryNum; i++) {
@@ -42,7 +49,7 @@ public class RaceController {
         }
     }
 
-    void findWinner() {
+    public void findWinner() {
         List<Car> sorted = carList.getCarList().stream()
                 .sorted(CarComparator.getInstance())
                 .collect(Collectors.toList());
