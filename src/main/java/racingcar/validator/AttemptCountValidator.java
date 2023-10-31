@@ -4,6 +4,8 @@ import static racingcar.config.ErrorMessage.ATTEMPT_COUNT_ERROR_MESSAGE;
 import static racingcar.config.InputPattern.ATTEMPT_COUNT_REGEX;
 
 import java.util.regex.Pattern;
+import racingcar.util.ErrorThrower;
+import racingcar.util.PatternChecker;
 
 public class AttemptCountValidator implements Validator<Integer> {
     private static final Pattern ATTEMPT_COUNT_PATTERN =
@@ -12,8 +14,8 @@ public class AttemptCountValidator implements Validator<Integer> {
     public Integer validate(Integer attemptCount) {
         String message = ATTEMPT_COUNT_ERROR_MESSAGE.getMessage();
 
-        if (!ATTEMPT_COUNT_PATTERN.matcher(attemptCount.toString()).matches()) {
-            throw new IllegalArgumentException(message);
+        if (PatternChecker.checkPattern(ATTEMPT_COUNT_PATTERN, attemptCount.toString())) {
+            ErrorThrower.throwIAE(message);
         }
         return attemptCount;
     }

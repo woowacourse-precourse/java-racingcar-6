@@ -10,6 +10,8 @@ import static racingcar.config.RacingConfig.CARS_JOIN_DELIM;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import racingcar.util.ErrorThrower;
+import racingcar.util.PatternChecker;
 
 public class IndividualCarNameValidator implements Validator<List<String>> {
     private static final Pattern SPLIC_CAR_NAME_PATTERN =
@@ -23,31 +25,36 @@ public class IndividualCarNameValidator implements Validator<List<String>> {
         String regexErrorMessage = SPLIT_CAR_REGEX_ERROR_MESSAGE.getMessage();
         String carUniqueErrorMessage = SPLIT_CAR_UNIQUE_ERROR_MESSAGE.getMessage();
 
-        List<String> invalidNames = splitCarName
-                .stream()
-                .filter(name -> !SPLIC_CAR_NAME_PATTERN.matcher(name).matches())
-                .collect(Collectors.toList());
+        List<String> invalidNames = checkInvalidNames(splitCarName, SPLIC_CAR_NAME_PATTERN);
+
+        String message = String.format(regexErrorMessage,
+                String.join(delim, invalidNames));
 
         if(!invalidNames.isEmpty()) {
-            throw new IllegalArgumentException(String.format(regexErrorMessage,
-                    String.join(delim, invalidNames)));
+            ErrorThrower.throwIAE(message);
         }
         if(splitCarName.size() != splitCarName.stream().distinct().count()) {
-            throw new IllegalArgumentException(carUniqueErrorMessage);
+            ErrorThrower.throwIAE(carUniqueErrorMessage);
         }
         validateCarNameLength(splitCarName);
         return splitCarName;
     }
 
     private void validateCarNameLength(List<String> splitCarName) {
-        List<String> invalidNames = splitCarName
-                .stream()
-                .filter(name -> !SPLIT_CAR_NAME_LENGTH_PATTERN.matcher(name).matches())
-                .collect(Collectors.toList());
+        List<String> invalidNames = checkInvalidNames(splitCarName, SPLIT_CAR_NAME_LENGTH_PATTERN);
+
+        String message = String.format(SPLIT_CAR_LENGTH_ERROR_MESSAGE.getMessage(),
+                String.join(delim, invalidNames));
 
         if (!invalidNames.isEmpty()) {
-            throw new IllegalArgumentException(String.format(SPLIT_CAR_LENGTH_ERROR_MESSAGE.getMessage(),
-                    String.join(delim, invalidNames)));
+            ErrorThrower.throwIAE(message);
         }
+    }
+
+    private List<String> checkInvalidNames(List<String> splitCarName, Pattern pattern) {
+        return splitCarName
+                .stream()
+                .filter(name -> PatternChecker.checkPattern(pattern, name))
+                .collect(Collectors.toList());
     }
 }
