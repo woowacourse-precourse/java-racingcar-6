@@ -25,7 +25,15 @@ public class GameManager {
         eh.isAttemptException(attempt);
         int attemptNum = Integer.parseInt(attempt);
 
-        Print.progress(attemptNum, members, membersHM);
+        System.out.println("실행 결과");
+
+        for (int i = 0; i < attemptNum; i++) {
+            int num = PickNum.pickNum();
+            if (CarMovement.isMove(num)) {
+                CarMovement.putHM(membersHM, members, "-");
+            }
+            System.out.println(Print.progress(members, membersHM));
+        }
 
         System.out.println(Print.winner(whoIsWinner(membersHM, members)));
     }
