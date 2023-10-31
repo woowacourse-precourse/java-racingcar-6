@@ -12,7 +12,11 @@ public class Application {
     private static List<Integer> carMovings = new ArrayList<>();
 
     private static void displayStartText() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+    }
+
+    private static void displayCarMovingCountText() {
+        System.out.println("시도할 회수는 몇회인가요?");
     }
 
     private static void inputCarNames() {
@@ -35,25 +39,55 @@ public class Application {
     }
 
     private static int decideGoAndStop() {
-        if (randomPickingNumberZeroToNine() >= 4) {
+        int randomNumber = randomPickingNumberZeroToNine();
+        if (randomNumber >= 4) {
             return 1;
         }
         return 0;
     }
 
+    private static void countCarMovings() {
+        for (int i = 0; i < carMovings.size(); i++) {
+            int count = carMovings.get(i);
+            carMovings.set(i, count + decideGoAndStop());
+        }
+    }
+
+    private static void displayTurnResult() {
+        for (int i = 0; i < carNames.size(); i++) {
+            System.out.print(carNames.get(i) + " : ");
+            displayGoingCount(i);
+        }
+    }
+
+    private static void displayGoingCount(int index) {
+        int GoingCount = carMovings.get(index);
+        for (int i = 0; i < GoingCount; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         displayStartText();
+        inputCarNames();
 
+        displayCarMovingCountText();
         inputCarMovingCount();
 
-        inputCarNames();
         for (int i = 0; i < carNames.size(); i++) {
             isNameLengthOverFive(carNames.get(i));
         }
 
         for (int i = 0; i < carNames.size(); i++) {
             carMovings.add(0);
+        }
+
+        for (int i = 0; i < carMovingCount; i++) {
+            countCarMovings();
+            displayTurnResult();
+            System.out.println();
         }
     }
 }
