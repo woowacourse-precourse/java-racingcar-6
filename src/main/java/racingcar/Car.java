@@ -22,4 +22,11 @@ public class Car {
             this.move++;
         }
     }
+
+    public void drawMove(){
+        for(int i = 0; i < move; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+    }
 }
