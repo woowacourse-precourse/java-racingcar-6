@@ -11,7 +11,7 @@ public class Stadium {
     private final int gameCount;
     private final List<User> users;
 
-    public Stadium(int gameCount, List<User> users) {
+    private Stadium(int gameCount, List<User> users) {
         this.gameCount = gameCount;
         this.users = users;
     }
@@ -25,6 +25,7 @@ public class Stadium {
         IntStream.range(0, gameCount).forEach(i -> playEachStep());
     }
 
+    // TODO: 2023-10-31 오후 8:07 이름 개별로
     private void playEachStep() {
         users.forEach(user -> {
             user.decideProceed();
@@ -33,8 +34,8 @@ public class Stadium {
         System.out.println();
     }
 
-    public void confirmWinner() {
-        List<User> winner = chooseWinner();
+    public void concludeResult() {
+        List<User> winner = getWinner();
         displayResult(winner);
     }
 
@@ -44,12 +45,16 @@ public class Stadium {
         System.out.println(resultMessage);
     }
 
-    public List<User> chooseWinner() {
+    public List<User> getWinner() {
         List<User> winner = new ArrayList<>();
         users.stream().filter(user -> user.isFasterThen(winner)).forEach(user -> {
             winner.clear();
             winner.add(user);
         });
         return winner;
+    }
+
+    public List<User> getUsers() {
+        return users;
     }
 }
