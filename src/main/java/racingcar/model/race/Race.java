@@ -6,22 +6,22 @@ import racingcar.model.race.result.RaceResult;
 public class Race {
 
     private final Cars cars;
-    private final RaceGameCount raceGameCount;
+    private final GameCount gameCount;
     private final RaceResult result;
 
-    private Race(Cars cars, RaceGameCount raceGameCount) {
+    private Race(Cars cars, GameCount gameCount) {
         this.cars = cars;
-        this.raceGameCount = raceGameCount;
+        this.gameCount = gameCount;
         result = RaceResult.create();
     }
 
-    public static Race of(Cars cars, RaceGameCount raceGameCount) {
-        return new Race(cars, raceGameCount);
+    public static Race of(Cars cars, GameCount gameCount) {
+        return new Race(cars, gameCount);
     }
 
     public void start() {
-        while (!raceGameCount.isGameOver()) {
-            raceGameCount.run();
+        while (!gameCount.isGameOver()) {
+            gameCount.run();
             cars.run();
             result.captureCars(cars);
         }

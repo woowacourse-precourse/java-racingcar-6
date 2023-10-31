@@ -12,7 +12,7 @@ public class Cars {
     private final List<Car> cars;
 
     private Cars(final List<Car> cars) {
-        validateIfCarNotDuplicated(cars);
+        validateNotDuplicated(cars);
         this.cars = cars;
     }
 
@@ -20,7 +20,7 @@ public class Cars {
         return new Cars(cars);
     }
 
-    private void validateIfCarNotDuplicated(final List<Car> cars) {
+    private void validateNotDuplicated(final List<Car> cars) {
         Set<Car> carSet = Set.copyOf(cars);
         if (cars.size() != carSet.size()) {
             throw new IllegalArgumentException(NAME_DUPLICATED);

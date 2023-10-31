@@ -5,8 +5,8 @@ import java.util.List;
 
 import racingcar.model.car.Car;
 import racingcar.model.car.Cars;
+import racingcar.model.race.GameCount;
 import racingcar.model.race.Race;
-import racingcar.model.race.RaceGameCount;
 import racingcar.model.winner.Winners;
 import racingcar.view.InputView;
 import racingcar.view.ResultView;
@@ -24,16 +24,20 @@ public class RacingCarController {
 
     public void play() {
         Cars cars = createCarsFromCarNames(inputView.askCarNames());
-        RaceGameCount raceGameCount = RaceGameCount.from(inputView.askGameCount());
-        race = Race.of(cars, raceGameCount);
-        race.start();
+        GameCount gameCount = GameCount.from(inputView.askGameCount());
+        startRace(cars, gameCount);
         printResult();
         printWinners();
     }
 
     private Cars createCarsFromCarNames(String[] input) {
-        List<Car> carList = Arrays.stream(input).map(Car::from).toList();
-        return Cars.from(carList);
+        List<Car> carNameList = Arrays.stream(input).map(Car::from).toList();
+        return Cars.from(carNameList);
+    }
+
+    private void startRace(Cars cars, GameCount count) {
+        race = Race.of(cars, count);
+        race.start();
     }
 
     private void printResult() {

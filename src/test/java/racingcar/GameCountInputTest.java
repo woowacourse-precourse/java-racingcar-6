@@ -4,20 +4,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import static racingcar.TestUtil.setInput;
-import static racingcar.model.race.RaceGameCount.GAME_COUNT_OUT_OF_RANGE;
+import static racingcar.model.race.GameCount.GAME_COUNT_OUT_OF_RANGE;
 import static racingcar.util.Validator.NO_DIGIT;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.model.race.RaceGameCount;
+import racingcar.model.race.GameCount;
 import racingcar.view.InputView;
 
 /**
  * docs/README.md <br/><br/> 요구사항 3, 5 <br/><br/> 3-1. 횟수 입력 <br/> 5-1. 횟수 입력 예외 발생 <br/>
  */
-class RaceGameCountInputTest {
+class GameCountInputTest {
 
 
     InputView inputView = new InputView();
@@ -34,10 +34,10 @@ class RaceGameCountInputTest {
         boolean expected = false;
 
         // when
-        RaceGameCount raceGameCount = RaceGameCount.from(inputView.askGameCount());
+        GameCount gameCount = GameCount.from(inputView.askGameCount());
 
         // then
-        assertThat(raceGameCount.isGameOver()).isEqualTo(expected);
+        assertThat(gameCount.isGameOver()).isEqualTo(expected);
     }
 
     @Test
@@ -57,7 +57,7 @@ class RaceGameCountInputTest {
         int count = 0;
 
         // when & then
-        assertThatThrownBy(() -> RaceGameCount.from(count))
+        assertThatThrownBy(() -> GameCount.from(count))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(GAME_COUNT_OUT_OF_RANGE);
     }

@@ -53,7 +53,8 @@ class CarNameInputTest {
         String carName = "메르세데스벤츠";
 
         // when & then
-        assertThatThrownBy(() -> Car.from(carName)).isInstanceOf(IllegalArgumentException.class)
+        assertThatThrownBy(() -> Car.from(carName))
+                .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(NAME_LENGTH_LIMIT_EXCEEDED);
     }
 
@@ -64,7 +65,8 @@ class CarNameInputTest {
         setInput(carNames);
 
         // when & then
-        assertThatThrownBy(() -> inputView.askCarNames()).isInstanceOf(IllegalArgumentException.class)
+        assertThatThrownBy(() -> inputView.askCarNames())
+                .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(EMPTY);
     }
 
@@ -78,7 +80,8 @@ class CarNameInputTest {
         List<Car> carList = Arrays.stream(carNames).map(Car::from).toList();
 
         // then
-        assertThatThrownBy(() -> Cars.from(carList)).isInstanceOf(IllegalArgumentException.class)
+        assertThatThrownBy(() -> Cars.from(carList))
+                .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(NAME_DUPLICATED);
     }
 }

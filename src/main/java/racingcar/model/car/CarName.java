@@ -10,7 +10,7 @@ public class CarName {
     private final String name;
 
     private CarName(final String name) {
-        validateIfLengthInLimit(name);
+        validateLength(name);
         this.name = name;
     }
 
@@ -18,7 +18,7 @@ public class CarName {
         return new CarName(name);
     }
 
-    private void validateIfLengthInLimit(final String name) {
+    private void validateLength(final String name) {
         if (name.length() > NAME_LENGTH_LIMIT) {
             throw new IllegalArgumentException(NAME_LENGTH_LIMIT_EXCEEDED);
         }

@@ -34,10 +34,10 @@ class WinnersTest extends NsTest {
         Car wonny = Car.from("wonny");
         Cars cars = Cars.from(List.of(zeus, blue, wonny));
 
-        List<CarName> expected = List.of(zeus.getCarName());    // 항상 zeus 우승
+        List<CarName> expected = List.of(zeus.getCarName());
 
         // when
-        /* zeus는 3칸, blue는 1칸, wonny는 2칸 이동 */
+        /* zeus는 3칸, blue는 1칸, wonny는 2칸 이동해 zeus 우승 */
         moveCar(zeus, 3);
         moveCar(blue, 1);
         moveCar(wonny, 2);
@@ -65,7 +65,7 @@ class WinnersTest extends NsTest {
         String expected = "최종 우승자 : zeus";
 
         // when
-        /* zeus는 3칸, blue는 1칸, wonny는 2칸 이동 */
+        /* zeus는 3칸, blue는 1칸, wonny는 2칸 이동해 zeus 우승 */
         moveCar(zeus, 3);
         moveCar(blue, 1);
         moveCar(wonny, 2);

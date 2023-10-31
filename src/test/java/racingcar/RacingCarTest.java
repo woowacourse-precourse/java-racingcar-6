@@ -20,8 +20,8 @@ public class RacingCarTest {
     void 자동차_전진() {
         // given
         /* 항상 전진하는 규칙 적용 */
-        CarMoveRule alwaysGo = () -> true;
-        setCustomCarMoveRule(alwaysGo);
+        CarMoveRule alwaysMove = () -> true;
+        setCustomCarMoveRule(alwaysMove);
         Car car = Car.from("zeus");
 
         int expected = 5;
