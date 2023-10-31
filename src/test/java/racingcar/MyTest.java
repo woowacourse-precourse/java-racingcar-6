@@ -35,4 +35,11 @@ public class MyTest {
         Racing racing = new Racing(new String[]{"tony", "tommy"});
         assertThat(racing.computeResult()).isEqualTo(List.of(new String[]{"tony", "tommy"}));
     }
+
+    @Test
+    void 문자열_입력_테스트() {
+        assertThatThrownBy(() -> {
+            Racing racing = new Racing(new String[]{"tony", "sdfsdftmy"}); })
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
