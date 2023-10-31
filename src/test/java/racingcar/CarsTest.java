@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class CarsTest {
 
-    private final FakeRoulette roulette = new FakeRoulette(4);
+    private final FixedRoulette roulette = new FixedRoulette(4);
 
     @Test
     void Cars는_하나_이상의_Car를_가지지_않는경우_예외를_던진다() {

@@ -1,10 +1,10 @@
 package racingcar;
 
-final class FakeRoulette implements Roulette {
+final class FixedRoulette implements Roulette {
 
     private int fixedNumber;
 
-    FakeRoulette(int fixedNumber) {
+    FixedRoulette(int fixedNumber) {
         this.fixedNumber = fixedNumber;
     }
 
