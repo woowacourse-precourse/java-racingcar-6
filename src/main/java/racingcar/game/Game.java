@@ -1,13 +1,13 @@
 package racingcar.game;
 
-import static racingcar.car.CarMover.moveCarsIterator;
-
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.car.Car;
 import racingcar.car.CarFactory;
+import racingcar.car.CarMover;
 import racingcar.io.InputHandler;
 import racingcar.io.PrintHandler;
+import racingcar.util.RandomManipulator;
 
 public class Game {
     public void start() {
@@ -26,6 +26,15 @@ public class Game {
         PrintHandler.finalWinner(winnerNames);
     }
 
+    private void moveCarsIterator(List<Car> cars, int trialNum) {
+        final RandomManipulator randomManipulator = new RandomManipulator();
+        final CarMover carMover = new CarMover(randomManipulator);
+
+        for (int i = 0; i < trialNum; i++) {
+            carMover.moveCars(cars);
+            PrintHandler.resultRunning(cars);
+        }
+    }
     private List<String> findFinalWinner(List<Car> cars) {
         List<String> winnerNames = new ArrayList<>();
         int maxLocation = findMaxLocation(cars);

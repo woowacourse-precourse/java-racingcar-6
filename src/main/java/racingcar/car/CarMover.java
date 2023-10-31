@@ -1,19 +1,17 @@
 package racingcar.car;
 
 import java.util.List;
-import racingcar.io.PrintHandler;
 import racingcar.util.RandomManipulator;
 
 public class CarMover {
-    public static void moveCarsIterator(List<Car> cars, int trialNum) {
-        for (int i = 0; i < trialNum; i++) {
-            moveCars(cars);
-            PrintHandler.resultRunning(cars);
-        }
+    private final RandomManipulator randomManipulator;
+
+    public CarMover(RandomManipulator randomManipulator) {
+        this.randomManipulator = randomManipulator;
     }
-    private static void moveCars(List<Car> cars) {
+    public void moveCars(List<Car> cars) {
         for (Car car : cars) {
-            if (RandomManipulator.isMove()) {
+            if (randomManipulator.isMove()) {
                 car.move();
             }
         }
