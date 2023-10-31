@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Participant {
+public class Participant implements Comparable<Participant> {
     private String name;
 
     private int forward;
@@ -26,4 +26,8 @@ public class Participant {
         this.forward = forward;
     }
 
+    @Override
+    public int compareTo(Participant participant) {
+        return participant.getForward() - this.forward;
+    }
 }

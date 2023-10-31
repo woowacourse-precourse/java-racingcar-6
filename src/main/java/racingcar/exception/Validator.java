@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Validator {
 
-
     public static void validateName(List<String> nameList) throws IllegalArgumentException {
        for(String name : nameList) {
            if(name.equals("")) {
