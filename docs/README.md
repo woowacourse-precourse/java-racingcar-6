@@ -9,11 +9,12 @@
 - [ ] 자동차 경주에서 자동자는 매 턴마다 행동한다. - `CarRacing#action()`
     - [x] 자동차는 생성한 무작위 값이 4보다 크면 이동 가능하다. - `CarUtils#isMovable()`
     - [x] 자동차는 전진할 수 있다. - `CarUtils#move()`
-- [x] 경주에서 진행할 턴의 최대 횟수를 입력 받는다. - `Prompt#readMaxTurn()`
-    - [x] 입력 받는 턴은 숫자이다. - `Validator#isNumber()`
+- [ ] 자동차 경주는 최대 턴 만큼 진행한다. - `CarRacing#race()`
+    - [x] 경주에서 진행할 턴의 최대 턴을 입력 받는다. - `Prompt#readMaxTurn()`
+        - [x] 입력 받는 턴은 숫자이다. - `Validator#isNumber()`
 - [ ] 우승 자동차들을 알 수 있다. - `Referee#whichWinners()`
-    - [ ] 자동차들중 우승 위치의 크기를 알 수 있다. - `Judgment#firstCarPosition()`
-    - [ ] 우승 위치의 크기와 같은 자동차들을 알 수 있다. - `Judgment#isWinner()`
+    - [x] 자동차들중 우승 위치의 크기를 알 수 있다. - `Judgment#firstCarPosition()`
+    - [x] 우승 위치의 크기와 같은 자동차들을 알 수 있다. - `Judgment#isWinner()`
 
 ## 예외 요구 사항
 

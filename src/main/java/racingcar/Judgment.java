@@ -1,12 +1,16 @@
 package racingcar;
 
-public class Judgment {
+import java.util.Collections;
+import java.util.HashMap;
 
-    public Integer firstCarPosition() {
-        return 0;
+public class Judgment {
+    Integer firstPosition = 0;
+
+    public void firstCarPosition(HashMap<String, Integer> cars) {
+        firstPosition = Collections.max(cars.values());
     }
 
-    public Boolean isWinner() {
-        return true;
+    public Boolean isWinner(Integer position) {
+        return position.equals(firstPosition);
     }
 }
