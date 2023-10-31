@@ -22,14 +22,14 @@ public class RacingGame {
         OutputView.printWinners(winners);
     }
 
-    private List<Car> createCars() {
+    public List<Car> createCars() {
         return Arrays.stream(InputView.carInput().split(","))
                 .map(String::trim)
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
 
-    private int getTryCount() {
+    public int getTryCount() {
         return Integer.parseInt(InputView.tryCountInput());
     }
 
