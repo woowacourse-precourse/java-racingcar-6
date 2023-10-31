@@ -9,7 +9,9 @@ import racingcar.Dto.CurrentRacingStatusDto;
 
 public class Racing {
     public Racing(String[] userName) {
-        this.participant = Arrays.stream(userName).map(Car::new)
+        this.participant = Arrays.stream(userName)
+                .map(String::trim)
+                .map(Car::new)
                 .toList();
     }
 
