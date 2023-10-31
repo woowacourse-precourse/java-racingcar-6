@@ -15,22 +15,43 @@ public class RaceGameController {
     List<Car> carList = new ArrayList<>();
     Winner winner = new Winner();
 
-    int numberOfAttempts=0;
-
-    public void newGame(){
-        output.gameStartMessage();
+    public void startGame(){
+        displayGameStartMessage();
         String[] cars = input.getCarNames();
         setCarList(cars);
 
-        output.getAttemptsMessage();
-        numberOfAttempts = input.getNumberOfAttempts();
-        output.gameResultMessage();
-        for(int i=0; i<numberOfAttempts; i++){
+        displayGetAttemptsMessage();
+        int numberOfAttempts = input.getNumberOfAttempts();
+        displayGameResultMessage();
+
+        playGame(numberOfAttempts);
+
+        displayWinner();
+    }
+
+    private void playGame(int numberOfAttempts) {
+        for(int i = 0; i< numberOfAttempts; i++){
             tryAllCarsOneStep();
             output.printGameResult(carList);
         }
+    }
+
+    private void displayWinner() {
         output.printWinner(winner.setWinnerList(carList));
     }
+
+    private void displayGetAttemptsMessage() {
+        output.getAttemptsMessage();
+    }
+
+    private void displayGameStartMessage() {
+        output.gameStartMessage();
+    }
+
+    private void displayGameResultMessage() {
+        output.gameResultMessage();
+    }
+
 
     private void tryAllCarsOneStep() {
         for(Car car : carList){
