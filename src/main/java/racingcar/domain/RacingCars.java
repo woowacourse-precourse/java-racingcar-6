@@ -17,6 +17,7 @@ public class RacingCars {
     }
 
     public void moveCars(){
+        System.out.println("실행 결과");
         for(Car car : racingCars){
             car.move(RandomNumber.getRandomNumber());
             OutputView.printCarPositionMessage(car);

@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.domain.Winner;
 
 public class OutputView {
 
@@ -18,5 +19,10 @@ public class OutputView {
         for(int i=0; i<car.getPosition(); i++){
             System.out.print(DISTANCE);
         }
+    }
+
+    public static void printWinnerMessage(Winner winner){
+        System.out.println("최종 우승자 : ");
+        System.out.println(winner.getWinnerNames());
     }
 }

@@ -28,8 +28,12 @@ public class RacingGameController {
         racingCars = carService.getCarNames();
         tryCount = tryService.getTryCount();
         race(racingCars, tryCount);
-        findWinner(racingCars);
+        printWinner(findWinner(racingCars));
 
+    }
+
+    private void printWinner(Winner winner) {
+        OutputView.printWinnerMessage(winner);
     }
 
     private Winner findWinner(RacingCars racingCars) {

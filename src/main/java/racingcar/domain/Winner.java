@@ -17,6 +17,15 @@ public class Winner {
         return winners;
     }
 
+    public String getWinnerNames() {
+        List<String> names = new ArrayList<>();
+        for (Car car : winners) {
+            names.add(car.getName());
+        }
+        return String.join(",", names);
+    }
+
+
     public int getPosition() {
         return position;
     }
