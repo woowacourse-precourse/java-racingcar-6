@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,7 +11,13 @@ public class Application {
     public static void main(String[] args) {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String carNameInput = camp.nextstep.edu.missionutils.Console.readLine();
+
         List<String> carNames = Arrays.stream(carNameInput.split(",")).toList();
+        List<Car> cars = new ArrayList<>();
+        for (String carName : carNames) {
+            Car car = new Car(carName);
+            cars.add(car);
+        }
 
         System.out.println(TRY_COUNT_INPUT_MESSAGE);
         String tryCount = camp.nextstep.edu.missionutils.Console.readLine();
