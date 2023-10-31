@@ -21,5 +21,8 @@ public class Player {
         score = 0;
     }
 
+    public void incScore(){
+        score +=1;
+    }
 
 }

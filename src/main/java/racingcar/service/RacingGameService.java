@@ -26,10 +26,9 @@ public class RacingGameService {
             // 랜덤 넘버 생성
             if (getRandomOneDigitNum() >= forwardCondition){
                 // 전진 로직
+                movingForward(player);
             }
-
         }
-
     }
 
     //input에서 사용자 이름 파싱
@@ -66,7 +65,9 @@ public class RacingGameService {
 
 
     // 전진 구현
-
+    private void movingForward(Player player){
+        player.incScore();
+    }
     // 우승자 선출
 
 }
