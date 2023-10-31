@@ -8,6 +8,7 @@ import java.util.List;
 import racingcar.common.exception.CustomErrorException;
 import racingcar.common.response.ErrorCode;
 import racingcar.dto.CarDto;
+import racingcar.view.OutputView;
 
 public class RacingGame {
 
@@ -22,6 +23,11 @@ public class RacingGame {
     }
 
     public void run() {
+        play();
+        printWinning();
+    }
+
+    private void play() {
         for (int i = 0; i < raceCount.count(); i++) {
             racing();
         }
@@ -37,6 +43,17 @@ public class RacingGame {
             CarDto dto = CarDto.of(car);
             printSituation(dto);
         });
+    }
+
+    private void printWinning() {
+        List<String> carNames = getWinningCarNames();
+        OutputView.printResult(carNames);
+    }
+
+    private List<String> getWinningCarNames() {
+        return cars.winningCars().stream()
+                .map(Car::getName)
+                .toList();
     }
 
     private Cars getCars() {

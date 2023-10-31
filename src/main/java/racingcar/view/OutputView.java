@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.dto.CarDto;
 
 public class OutputView {
@@ -14,5 +15,10 @@ public class OutputView {
         String name = dto.name();
         int position = dto.position();
         System.out.println(name + SEPARATOR + POSITION_BAR.repeat(position));
+    }
+
+    public static void printResult(List<String> names) {
+        String result = String.join(", ", names);
+        System.out.println("최종 우승자" + SEPARATOR + result);
     }
 }
