@@ -15,4 +15,8 @@ public class GameRepository {
         id += 1;
         return returnId;
     }
+
+    public Game findById(Long id) {
+        return games.get(id);
+    }
 }
