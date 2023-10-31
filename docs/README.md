@@ -1,6 +1,6 @@
 ## 기능 목록
 
-- [ ] 자동차 이름들을 입력 받는 기능
+- [x] 자동차 이름들을 입력 받는 기능
   - [ ] 쉼표 입력 기준이 틀렸을 경우 IllegalArgumentException을 발생
   - [ ] 이름이 5자 초과일 경우 IllegalArgumentException을 발생
 
