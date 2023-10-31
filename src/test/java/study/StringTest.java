@@ -4,6 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
+import racingcar.Winner;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class StringTest {
 
@@ -46,6 +50,15 @@ public class StringTest {
         assertThatThrownBy(() -> input.charAt(5))
                 .isInstanceOf(StringIndexOutOfBoundsException.class)
                 .hasMessageContaining("String index out of range: 5");
+    }
+    @Test
+    void 우승자_판단(){
+        Map<String,Integer> cars=new HashMap<>();
+        cars.put("a",3);
+        cars.put("b",4);
+        cars.put("c",4);
+        Winner test_winners=new Winner(cars);
+        assertThat(test_winners.winners).containsExactly("b","c");
     }
 
 }
