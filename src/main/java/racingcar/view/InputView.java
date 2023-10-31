@@ -15,6 +15,10 @@ public class InputView {
     public int inputTryNumber() {
         System.out.println(MessageConstant.INPUT_TRY_NUMBER_MESSAGE);
         String string = Console.readLine();
-        return Integer.parseInt(string);
+        try {
+            return Integer.parseInt(string);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해 주세요");
+        }
     }
 }
