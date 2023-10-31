@@ -32,6 +32,10 @@ public class Cars {
             car.go(RandomGenerator.generateNumber(MIN_NUMBER, MAX_NUMBER + 1));
         }
     }
+    public Winner getWinners() {
+        return new Winner(cars);
+    }
+
 }
 
 
