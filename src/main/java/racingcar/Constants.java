@@ -7,4 +7,7 @@ public class Constants {
     public static final String PRINT_FINAL_RESULT = "최종 우승자 : ";
     public static final String PRINT_CAR_FORWARD = "-";
 
+    public static final Integer MIN_NAME_LEN = 1;
+    public static final Integer MAX_NAME_LEN = 5;
+    public static final Integer CAR_FORWARD_MIN_VALUE = 4;
 }
