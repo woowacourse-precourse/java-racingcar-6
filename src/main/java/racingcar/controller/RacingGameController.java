@@ -1,9 +1,12 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.domain.RacingCars;
 import racingcar.domain.TryCount;
 import racingcar.service.CarService;
 import racingcar.service.TryService;
+
+import javax.print.attribute.standard.OutputDeviceAssigned;
 
 public class RacingGameController {
 
@@ -22,6 +25,15 @@ public class RacingGameController {
     public void start(){
         racingCars = carService.getCarNames();
         tryCount = tryService.getTryCount();
+        race(racingCars, tryCount);
 
     }
+
+    private void race(RacingCars racingCars, TryCount tryCount) {
+        for(int i=0; i<tryCount.getTryCount(); i++){
+            racingCars.moveCars();
+        }
+    }
+
+
 }

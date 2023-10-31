@@ -9,5 +9,7 @@ public class TryCount {
         this.tryCount = tryCount;
     }
 
-
+    public int getTryCount() {
+        return tryCount;
+    }
 }

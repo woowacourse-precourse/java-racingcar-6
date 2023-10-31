@@ -9,4 +9,18 @@ public class Car {
         this.name = name;
         this.position = 0;
     }
+
+    public void move(int option){
+        if(option >= 4){
+            this.position++;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 }

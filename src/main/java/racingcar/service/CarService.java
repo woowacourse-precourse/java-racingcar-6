@@ -6,9 +6,6 @@ import racingcar.view.OutputView;
 
 
 public class CarService {
-
-    private RacingCars racingCars;
-
     public RacingCars getCarNames(){
         OutputView.inputCarNamesMessage();
         return new RacingCars(InputView.readCarNames());
