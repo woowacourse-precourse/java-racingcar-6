@@ -15,7 +15,11 @@ public class InputHandler {
 
     public String inputName() {
         System.out.println(NAME_INPUT_TEXT);
-        return Console.readLine();
+        String input = Console.readLine();
+
+        Exceptions.validateNameInput(input);
+
+        return input;
     }
 
     public int trialToInt(String trial) {
@@ -24,7 +28,11 @@ public class InputHandler {
 
     public String inputTrial() {
         System.out.println(TRIAL_INPUT_TEXT);
-        return Console.readLine();
+        String trial = Console.readLine();
+
+        Exceptions.validateTrialInput(trial);
+
+        return trial;
     }
 
     public LinkedHashMap<String, Integer> generateScoreboard(List<String> names) {

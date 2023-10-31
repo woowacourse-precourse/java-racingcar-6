@@ -1,5 +1,6 @@
 package racingcar;
 
+import racingcar.domain.Exceptions;
 import racingcar.domain.InputHandler;
 import racingcar.domain.TrialRepeat;
 import racingcar.domain.Winner;
@@ -15,6 +16,8 @@ public class Application {
         // TODO: 프로그램 구현
         InputHandler input = new InputHandler();
         names = input.nameToList(input.inputName());
+        Exceptions.validateNamesList(names);
+
         scoreboard = input.generateScoreboard(names);
         trialToDo = input.trialToInt(input.inputTrial());
         trialCurrent = 0;
