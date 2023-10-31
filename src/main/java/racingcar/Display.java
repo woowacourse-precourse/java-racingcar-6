@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
+import static racingcar.Utils.makeLane;
+
 public class Display {
 
     static List<Car> inputCars() {
@@ -16,5 +18,11 @@ public class Display {
     static int inputTrial() {
         System.out.println("시도할 회수는 몇회인가요?");
         return Integer.parseInt(Console.readLine());
+    }
+
+    public static void printCurrentPositions(List<Car> cars) {
+        for(Car car : cars) {
+            System.out.println(car.getName() + " : " + makeLane(car.getPosition()));
+        }
     }
 }
