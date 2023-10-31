@@ -32,7 +32,6 @@ class Car {
 }
 
 public class Application {
-    private Scanner scanner;
     List<Car> racerList = new ArrayList<>();
 
     public void checkNamelength(String[] racerArray) {
@@ -111,6 +110,5 @@ public class Application {
     public static void main(String[] args) {
         Application race = new Application();
         race.racing();
-        race.scanner.close(); // 프로그램 종료 시 scanner를 닫아줍니다.
     }
 }
