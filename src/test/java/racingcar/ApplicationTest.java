@@ -42,6 +42,14 @@ class ApplicationTest extends NsTest {
         String input = "김동휘,김동동, 김김김";
         List<String> result = inputValidator.toValidateData(input);
         assertThat(result).contains("김동휘", "김동동","김김김");
+
+        input = "김동휘, 김 동 동, 김 김    김";
+        result = inputValidator.toValidateData(input);
+        assertThat(result).contains("김동휘", "김동동","김김김");
+
+        input = " 김 동휘 , 김 동 동, 김 김    김";
+        result = inputValidator.toValidateData(input);
+        assertThat(result).contains("김동휘", "김동동","김김김");
     }
 
     @Override
