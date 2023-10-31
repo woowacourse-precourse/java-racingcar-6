@@ -2,7 +2,9 @@ package racingcar;
 
 import static java.util.stream.IntStream.range;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class OutputView {
 
@@ -20,7 +22,13 @@ public class OutputView {
     }
     public static void printWinner(List<Name> winnerList){
         System.out.print("최종 우승자 : ");
-        String str = String.join(", ", winnerList);
+
+        List<String> stringlist = new ArrayList<>();
+        for (Name name : winnerList){
+            stringlist.add(name.getName());
+        }
+
+        String str = String.join(", ", stringlist);
         System.out.println(str);
     }
 }
