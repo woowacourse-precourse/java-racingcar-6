@@ -13,7 +13,6 @@ public class Game {
             System.out.println();
         }
         outputView.winner(carList);
-
     }
 
     private static void race(CarList carList) {
