@@ -102,4 +102,24 @@ public class CarsTest {
 
         assertThat(racingCars.isCoFastestCars()).isEqualTo(true);
     }
+
+    @DisplayName("가장 빠른 자동차 리스트 반환 테스트 - 1대일 경우의 데이터 - 성공")
+    @Test
+    void findFastestCarTest() {
+        assertThat(racingCars.calculateFastestCar().get(0).provideCarStatus().get("name"))
+                .isEqualTo("pobi");
+    }
+
+    @DisplayName("가장 빠른 자동차 리스트 반환 테스트 - 2대 이상일 경우의 데이터 - 성공")
+    @Test
+    void findFastestCarsTest() {
+        switchCarStatus(coFastestCarsStatus);
+        resetCars();
+        List<Car> fastestCars = racingCars.calculateFastestCar();
+        List<String> expectedResult = Arrays.asList("pobi", "turtle");
+
+        for (Car fastestCar : fastestCars) {
+            assertThat(fastestCar.provideCarStatus().get("name")).isIn(expectedResult);
+        }
+    }
 }
