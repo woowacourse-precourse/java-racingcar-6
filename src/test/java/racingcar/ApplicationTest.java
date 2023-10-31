@@ -78,7 +78,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 공백_회수에_대한_예외_처리() {
+    void 횟수_공백에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", null))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -94,7 +94,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void Zero_회수에_대한_예외_처리() {
+    void 횟수_0번에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
