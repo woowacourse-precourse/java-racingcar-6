@@ -1,7 +1,6 @@
 package racingcar.domain.car;
 
 import static racingcar.util.Validator.Validator.validateNameLength;
-import static racingcar.view.output.Output.printNewLine;
 import static racingcar.view.output.Output.printResultMessage;
 
 import java.util.ArrayList;
@@ -53,7 +52,6 @@ public class Cars {
             }
             printResultMessage(OutputMessage.PROGRESS_RESULT, car.getCarName(), car.getDistance());
         }
-        printNewLine();
     }
 
     private boolean isCanForward(int forwardNumber) {
