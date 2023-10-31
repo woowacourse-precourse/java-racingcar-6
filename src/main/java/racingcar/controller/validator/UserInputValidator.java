@@ -1,10 +1,11 @@
-package racingcar.view.input.validator;
+package racingcar.controller.validator;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class UserInputValidator {
 
-    public void validateRoundCount(String rawInput) {
+    public Integer validateRoundCount(String rawInput) {
         int roundCountInt;
 
         try {
@@ -14,9 +15,14 @@ public class UserInputValidator {
         }
 
         validateNumberUnderZero(roundCountInt);
+
+        return roundCountInt;
     }
 
-    public void validateCarNames(List<String> carNames) {
+    public List<String> validateCarNames(String rawInput) {
+        List<String> carNames = Arrays.stream(rawInput.split(","))
+                .toList();
+
         if (carNames.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름이 입력되지 않았습니다.");
         }
@@ -24,6 +30,8 @@ public class UserInputValidator {
         for (String carName : carNames) {
             validateNameLength(carName);
         }
+
+        return carNames;
     }
 
     private void validateNumberUnderZero(int roundCount) {
