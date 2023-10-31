@@ -17,13 +17,13 @@ public class GameService {
         cars = new Cars(parsedCarList);
         OutputView.gameStartMessage();
         for (int i = 0; i < round; i++) {
-            cars.oneRoundContinue(new Movable());
+            cars.oneRoundProgress(new Movable());
             OutputView.oneTurnResult(cars);
         }
     }
 
     public static String chooseWinner(){
-        List<Car> winnerList = cars.getFarthestDistance();
+        List<Car> winnerList = cars.getWinners();
         return winnerList.stream()
                 .map(Car:: getName)
                 .collect(Collectors.joining(", "));

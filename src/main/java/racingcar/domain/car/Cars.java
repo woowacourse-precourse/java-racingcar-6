@@ -11,7 +11,7 @@ public class Cars {
         this.carList = carList;
     }
 
-    public void oneRoundContinue(Movable movable) {
+    public void oneRoundProgress(Movable movable) {
         for (Car car : carList) {
             car.goForward(movable);
         }
@@ -21,7 +21,7 @@ public class Cars {
         return carList;
     }
 
-    public List<Car> getFarthestDistance() {
+    public List<Car> getWinners() {
         int maxDistance = getMaxDistance();
 
         return carList.stream()
@@ -29,11 +29,11 @@ public class Cars {
                 .collect(Collectors.toList());
     }
 
-    private int getMaxDistance(){
+    private int getMaxDistance() {
         int maxDistance = carList.stream()
                 .mapToInt(Car::getDistance)
                 .max()
-                .orElseThrow(()-> new IllegalArgumentException("차량 목록이 없습니다."));
+                .orElseThrow(() -> new IllegalArgumentException("차량 목록이 없습니다."));
         return maxDistance;
     }
 }
