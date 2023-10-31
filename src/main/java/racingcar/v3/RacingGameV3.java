@@ -1,16 +1,14 @@
 package racingcar.v3;
 
-import racingcar.v2.CreateCarV2;
-
 import java.util.Map;
 
 public class RacingGameV3 {
-    private final CreateCar createCar;
+    private final CreateCarV3 createCar;
     private final ForwardV3 forward;
     private final RacingV3 racing;
 
     public RacingGameV3() {
-        this.createCar = new CreateCar();
+        this.createCar = new CreateCarV3();
         this.forward = new ForwardV3();
         this.racing = new RacingV3();
     }

@@ -1,6 +1,7 @@
 package racingcar;
 
 
+import racingcar.v2.RacingGameV2;
 import racingcar.v3.RacingGameV3;
 
 public class Application {
