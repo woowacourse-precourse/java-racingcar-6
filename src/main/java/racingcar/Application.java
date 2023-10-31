@@ -1,6 +1,8 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
@@ -30,11 +32,11 @@ public class Application {
 
     //차 이동 상태 출력
     private static void printCarsStatus(List<Integer> carsStatus, List<String> cars) {
-        for ( int i=0;i<cars.size();i++){
+        for (int i = 0; i < cars.size(); i++) {
             System.out.print(cars.get(i));
             System.out.print(" : ");
-            for(int j=0;j<carsStatus.get(i);j++){
-            System.out.print("-");
+            for (int j = 0; j < carsStatus.get(i); j++) {
+                System.out.print("-");
             }
             System.out.println();
         }
@@ -76,12 +78,25 @@ public class Application {
         for (int i = 0; i < numberOfGames; i++) {
             carsStatus = moveCars(cars.size(), carsStatus);
             printCarsStatus(carsStatus, cars);
+            System.out.println();
         }
 
         //최종 우승자 출력 (중복 가능)
+        int maxMovement = Collections.max(carsStatus);
+        StringBuilder winners = new StringBuilder();
+        System.out.print("최종 우승자 : ");
+        for (int i=0;i<carsStatus.size();i++){
+            if(carsStatus.get(i) == maxMovement){
+                winners.append(cars.get(i)).append(",");
+            }
+        }
+        if (winners.length() > 0) {
+            //마지막 쉼표 제거
+            winners.setLength(winners.length() - 1);
+        }
+        System.out.println(winners);
 
     }
-
 
 
     public static void main(String[] args) {
