@@ -12,5 +12,6 @@ public class RacingController {
 
     public void run() {
         CarList carList = inputView.inputPlayer();
+        Integer attempt = inputView.inputAttempt();
     }
 }

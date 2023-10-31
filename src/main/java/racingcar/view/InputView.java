@@ -22,6 +22,13 @@ public class InputView {
         return new CarList(createCarList(cars));
     }
 
+    public Integer inputAttempt() {
+        OutputView.printAsk();
+        String attempt = Console.readLine();
+
+        return Integer.parseInt(attempt);
+    }
+
     public ArrayList<Car> createCarList(String[] cars) {
         ArrayList<Car> carList = new ArrayList<>();
 
