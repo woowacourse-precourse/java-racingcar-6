@@ -8,20 +8,24 @@ import racingcar.util.RandomNumberGenerator;
 public final class RacingGame {
     private static final int MIN_RANGE = 0;
     private static final int MAX_RANGE = 9;
-    private final RaceResult raceResult = new RaceResult();
+    private final InputProvider inputProvider;
     private final RandomNumberGenerator randomNumberGenerator;
     private Cars cars;
 
     public RacingGame() {
-        this(new RandomNumberGenerator());
+        this(InputProvider.getInstance(), new RandomNumberGenerator());
     }
 
     public RacingGame(RandomNumberGenerator randomNumberGenerator) {
+        this(InputProvider.getInstance(), randomNumberGenerator);
+    }
+
+    public RacingGame(InputProvider inputProvider, RandomNumberGenerator randomNumberGenerator) {
+        this.inputProvider = inputProvider;
         this.randomNumberGenerator = randomNumberGenerator;
     }
 
     public void startGame() {
-        InputProvider inputProvider = InputProvider.getInstance();
         String names = inputProvider.receiveCarNames();
         int raceCount = inputProvider.receiveRaceCount();
 
@@ -31,6 +35,7 @@ public final class RacingGame {
     }
 
     private void playGame(int raceCount) {
+        RaceResult raceResult = new RaceResult();
         for (int round = 1; round <= raceCount; round++) {
             cars.race(getRandomNumbers());
             System.out.println(raceResult.getRaceProgress(cars.carList()));
