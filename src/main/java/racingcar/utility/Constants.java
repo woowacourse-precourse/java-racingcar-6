@@ -7,6 +7,8 @@ public final class Constants {
     public static final int NAME_LENGTH_LIMIT = 5;
     public static final int MIN_RANDOM_NUMBER = 0;
     public static final int MAX_RANDOM_NUMBER = 9;
+    public static final int MIN_REQUIRED_ADVANCEMENT = 4;
+
 
 
     //예외처리 정규표현식 패턴
