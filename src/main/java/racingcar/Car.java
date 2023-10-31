@@ -47,7 +47,7 @@ public class Car {
                 carMove.set(i, bar + "-");
             }
 
-            result.append(bar);
+            result.append(carMove.get(i));
             result.append("\n");
         }
 
