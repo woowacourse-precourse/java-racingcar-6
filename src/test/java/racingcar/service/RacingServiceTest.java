@@ -14,7 +14,7 @@ public class RacingService {
     @Test
     void 문자열이_입력되면_자동차_이름으로_저장() {
         String userInput = "pobi,woni,jun";
-        racingService.settingCarsName(userInput);
+        racingService.generateCars(userInput);
 
         List<Car> cars = racingService.getAllCars();
         Assertions.assertThat(cars.size()).isEqualTo(3);
