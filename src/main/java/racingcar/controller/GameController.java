@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
+import racingcar.validator.CountInputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -11,6 +12,7 @@ public class GameController {
     private final RaceController raceController = new RaceController();
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
+    private final CountInputValidator countInputValidator = new CountInputValidator();
 
     private void race(List<Car> racingCars) {
         for (Car car : racingCars) {
@@ -19,11 +21,10 @@ public class GameController {
     }
 
     public void proceed() {
-        String playerInput = inputView.getCarNameInput();
-        List<Car> racingCars = carController.getRacingCars(playerInput);
+        List<Car> racingCars = carController.getRacingCars(inputView.getCarNameInput());
         StringBuilder raceResult = new StringBuilder();
+        int count = getValidatedCount(inputView.getCountInput());
 
-        int count = inputView.getCountInput();
         for (int i = 0; i < count; i++) {
             race(racingCars);
             raceResult.append(raceController.getNameAndRecord(racingCars));
@@ -39,5 +40,8 @@ public class GameController {
         outputView.printWinnerName(raceController.getWinnerName(racingCars));
     }
 
-
+    public int getValidatedCount(String playerInput) {
+        countInputValidator.validate(playerInput);
+        return Integer.parseInt(playerInput);
+    }
 }
