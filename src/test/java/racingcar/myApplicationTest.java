@@ -2,24 +2,30 @@ package racingcar;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mock;
 import racingcar.controller.CarRaceGame;
 import racingcar.domain.Car;
 import racingcar.validator.Validator;
 import racingcar.view.CarRaceGameView;
 
-public class myApplicationTest extends NsTest {
+public class myApplicationTest {
     @Nested
     @DisplayName("자동차 이름 테스트")
     class CarNameTest {
@@ -75,7 +81,6 @@ public class myApplicationTest extends NsTest {
     }
 
 
-
     @Nested
     @DisplayName("전진 테스트")
     class MoveTest {
@@ -104,8 +109,27 @@ public class myApplicationTest extends NsTest {
         void 이동_결정_테스트(int randomNumber, boolean result) {
             Assertions.assertThat(Car.decideToMove(randomNumber)).isEqualTo(result);
         }
+    }
 
+    @Nested
+    @DisplayName("전진한 상황 출력 테스트")
+    class 전진_상황_출력_테스트{
+        private static ByteArrayOutputStream outputMessage;
+        @BeforeEach
+        void setUpStreams() {
+            outputMessage = new ByteArrayOutputStream(); // OutputStream 생성
+            System.setOut(new PrintStream(outputMessage)); // 생성한 OutputStream 으로 설정
+        }
 
+        @AfterEach
+        void restoresStreams() {
+            System.setOut(System.out); // 원상복귀
+        }
+        @Test
+        void 전진_상황_테스트() {
+            CarRaceGameView.tryForwardResultView("Alice", 3);
+            org.junit.jupiter.api.Assertions.assertEquals("Alice : ---\r\n", outputMessage.toString());
+        }
     }
 
 
