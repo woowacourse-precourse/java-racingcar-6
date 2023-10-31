@@ -14,11 +14,8 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class CarGame {
-    private InputView inputView;
 
-    public CarGame() {
-        inputView = new InputView();
-    }
+    public CarGame() {}
 
     public void start() {
         String inputCarName = getCarNamesInput();
@@ -31,7 +28,7 @@ public class CarGame {
     }
 
     private String getCarNamesInput() {
-        inputView.printInputCarName();
+        InputView.printInputCarName();
         String input = Console.readLine().trim();
         return checkCarNamesInput(input);
     }
@@ -67,7 +64,7 @@ public class CarGame {
     }
 
     private String getTryNumberInput() {
-        inputView.printInputTryNumber();
+        InputView.printInputTryNumber();
         String input = Console.readLine().trim();
         return checkTryNumberInput(input);
     }
