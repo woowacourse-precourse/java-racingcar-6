@@ -10,7 +10,7 @@ import static racingcar.InputController.carArrList;
 import static racingcar.InputController.cycleNum;
 
 public class FindWinnerController {
-    public static intwinnerDistance;
+    public static int winnerDistance;
 
     public FindWinnerController() {
         winnerDistance= 0;
