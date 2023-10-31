@@ -10,7 +10,7 @@ class DiceTest {
     Dice dice = new Dice();
 
     @Test
-    void getDice() {
+    void 돌려라() {
         int result = dice.getDice();
 
         assertThat(result).isBetween(0, 9);
