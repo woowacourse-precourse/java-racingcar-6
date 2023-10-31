@@ -1,8 +1,15 @@
 package racingcar.view;
 
+import java.util.List;
+import racingcar.domain.Car;
+
 public class Output {
-    public static void carStatusMessage(String name, int moveStatus) {
-        System.out.println(name + " : " + "-".repeat(moveStatus));
+    public static void carStatusMessage(List<Car> carList) {
+        for (Car car : carList) {
+            System.out.println(car.getName()
+                    + " : " + "-".repeat(car.getMoveStatus()));
+        }
+        System.out.println();
     }
 
     public static void winnerMessage(String winner) {

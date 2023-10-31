@@ -11,10 +11,11 @@ public class GameController {
 
     private final CarController carController;
 
-    private Cars cars;
+    private final Cars cars;
 
     public GameController() {
         carController = new CarController();
+        cars = new Cars();
     }
 
     public void play() {
@@ -24,17 +25,14 @@ public class GameController {
     }
 
     public void setConfiguration() {
-        cars = CarFactory.produceCars(Input.inputCarName());
+        cars.setStatus(CarFactory.produceCars(Input.inputCarName()));
         carController.setStatus(cars, Input.inputMoveChance());
     }
 
     public void startRacing() {
         while (carController.checkMoveChance()) {
             carController.moveCars();
-
-            cars.getCarList()
-                    .forEach(car -> Output.carStatusMessage(car.getName(), car.getMoveStatus()));
-            System.out.println();
+            Output.carStatusMessage(cars.getCarList());
         }
     }
 
