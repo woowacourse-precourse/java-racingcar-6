@@ -13,14 +13,14 @@ public class Prompt {
     }
 
     public void print(Message message) {
-        System.out.print(message.getMessage());
+        RacingCarSystem.out.print(message.getMessage());
     }
 
     public void println(Message message) {
-        System.out.println(message.getMessage());
+        RacingCarSystem.out.println(message.getMessage());
     }
 
     public void printNewLine() {
-        System.out.println();
+        RacingCarSystem.out.println();
     }
 }
