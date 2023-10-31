@@ -2,16 +2,16 @@ package racingcar.controller;
 
 import racingcar.dto.TotalResult;
 import racingcar.model.Winners;
-import racingcar.service.GamePlayingService;
+import racingcar.service.RacingGameService;
 import racingcar.view.View;
 
-public class Controller {
+public class RacingGameController {
     private final View view;
-    private final GamePlayingService gamePlayingService;
+    private final RacingGameService racingGameService;
 
-    public Controller(View view, GamePlayingService gamePlayingService) {
+    public RacingGameController(View view, RacingGameService racingGameService) {
         this.view = view;
-        this.gamePlayingService = gamePlayingService;
+        this.racingGameService = racingGameService;
     }
 
     public void start() {
@@ -23,7 +23,7 @@ public class Controller {
 
     private void generateCars() {
         view.printNameInputMessage();
-        gamePlayingService.generateCars(readFromConsole());
+        racingGameService.generateCars(readFromConsole());
     }
 
     private String readFromConsole() {
@@ -32,11 +32,11 @@ public class Controller {
 
     private void setAttemptCount() {
         view.printAttemptCountInputMessage();
-        gamePlayingService.setAttemptCount(readFromConsole());
+        racingGameService.setAttemptCount(readFromConsole());
     }
 
     private void playRounds() {
-        printTotalResult(gamePlayingService.playRounds());
+        printTotalResult(racingGameService.playRounds());
     }
 
     private void printTotalResult(TotalResult totalResult) {
@@ -48,6 +48,6 @@ public class Controller {
     }
 
     private Winners getWinners() {
-        return gamePlayingService.getWinners();
+        return racingGameService.getWinners();
     }
 }

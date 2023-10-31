@@ -1,8 +1,8 @@
 package racingcar;
 
-import racingcar.controller.Controller;
+import racingcar.controller.RacingGameController;
 import racingcar.model.RacingGame;
-import racingcar.service.GamePlayingService;
+import racingcar.service.RacingGameService;
 import racingcar.view.View;
 
 public class Application {
@@ -10,8 +10,8 @@ public class Application {
         // TODO: 프로그램 구현
         View view = new View();
         RacingGame racingGame = new RacingGame();
-        GamePlayingService gamePlayingService = new GamePlayingService(racingGame);
-        Controller controller = new Controller(view, gamePlayingService);
+        RacingGameService racingGameService = new RacingGameService(racingGame);
+        RacingGameController controller = new RacingGameController(view, racingGameService);
 
         controller.start();
     }

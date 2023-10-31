@@ -10,11 +10,11 @@ import racingcar.model.RacingGame;
 import racingcar.model.Winners;
 import racingcar.validator.AttemptCountValidator;
 
-public class GamePlayingService {
+public class RacingGameService {
     private final RacingGame racingGame;
     private AttemptCount attemptCount;
 
-    public GamePlayingService(RacingGame racingGame) {
+    public RacingGameService(RacingGame racingGame) {
         this.racingGame = racingGame;
     }
 
