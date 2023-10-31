@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import racingcar.dto.request.CarNameRequest;
 import racingcar.dto.request.TotalRoundNumberRequest;
 import racingcar.exception.UserInputException;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;

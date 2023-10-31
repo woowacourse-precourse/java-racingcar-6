@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.dto.request.CarNameRequest;
 import racingcar.dto.request.TotalRoundNumberRequest;
 import racingcar.exception.UserInputException;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

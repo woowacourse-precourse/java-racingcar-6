@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.Objects;
 
 import static racingcar.config.GameConfig.INITIAL_DISTANCE;
