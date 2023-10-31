@@ -10,7 +10,7 @@ public class Validator {
     public void checkCarNameLength(String carNames) {
         String[] names = carNames.split(",");
         for (String name : names) {
-            if (name.length() < MAX_CAR_NAME_LENGTH) {
+            if (name.length() > MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException("자동차 이름은 5글자 이하여야 합니다.");
             }
 
