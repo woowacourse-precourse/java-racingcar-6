@@ -38,7 +38,11 @@ public class Application {
         try {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
             String input = Console.readLine();
-            name = input.split(",");
+            if (!checkExpression(input)) {
+                throw new IllegalArgumentException("자동차 이름은 쉼표(,) 기준으로 구분합니다. 쉼표(,)를 넣어주세요.");
+            } else {
+                name = input.split(",");
+            }
 
             if (!checkLength(name)) {
                 throw new IllegalArgumentException("이름은 5자 이하만 가능합니다.");
@@ -53,6 +57,16 @@ public class Application {
         }
 
         return name;
+    }
+
+    private static boolean checkExpression(String input) {
+        boolean flag = true;
+
+        if (!input.contains(",")) {
+            flag = false;
+        }
+
+        return flag;
     }
 
     private static boolean checkLength(String[] arr) {
