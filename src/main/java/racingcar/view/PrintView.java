@@ -21,6 +21,7 @@ public class PrintView {
         for (String result : list) {
             System.out.println(result);
         }
+        System.out.println();
     }
 
     public static void winnerResultMessage(ArrayList<String> winners) {
