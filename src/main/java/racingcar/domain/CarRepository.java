@@ -11,6 +11,7 @@ public class CarRepository {
     private static Map<Integer, Car> storage = new HashMap<>();
 
     public Car save(final String name) {
+        validateDuplicatedName(name);
         Car newCar = new Car(++sequence, name);
         storage.put(sequence, newCar);
         return newCar;
@@ -39,5 +40,13 @@ public class CarRepository {
 
     public Integer getCarCount() {
         return sequence;
+    }
+
+    private void validateDuplicatedName(final String name) {
+        for (Car car : storage.values()) {
+            if (car.getName().equals(name)) {
+                throw new IllegalArgumentException("car names must not be duplicated");
+            }
+        }
     }
 }
