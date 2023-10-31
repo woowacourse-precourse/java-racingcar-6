@@ -33,12 +33,12 @@ public class RacingService {
 
     private List<String> calculateRaceResults() {
         int maxMoveCount = cars.getCarList().stream()
-                .mapToInt(Car::getMoveCount)
+                .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow(IllegalArgumentException::new);
 
         return cars.getCarList().stream()
-                .filter(x -> x.getMoveCount() == maxMoveCount)
+                .filter(x -> x.getPosition() == maxMoveCount)
                 .map(x -> new String(x.getName()))
                 .toList();
     }

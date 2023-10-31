@@ -27,7 +27,7 @@ public class Message {
 
     public static void printMoveResultMessage(List<Car> carList) {
         carList.forEach(x ->
-                System.out.println(x.getName() + " : " + DASH.repeat(x.getMoveCount()))
+                System.out.println(x.getName() + " : " + DASH.repeat(x.getPosition()))
         );
         System.out.println();
     }

@@ -8,13 +8,13 @@ import java.util.Objects;
 public class Car {
     private static final String BLANK = "";
     private String name;
-    private int moveCount;
+    private int position;
 
     public Car(String name, int position) {
         validataeNameBlank(name);
         validateNameLength(name);
         this.name = name;
-        this.moveCount = position;
+        this.position = position;
     }
 
     public Car(String name) {
@@ -35,7 +35,7 @@ public class Car {
 
     public void move(int number) {
         if (isMovable(number)) {
-            moveCount++;
+            position++;
         }
     }
 
@@ -47,8 +47,8 @@ public class Car {
         return name;
     }
 
-    public int getMoveCount() {
-        return moveCount;
+    public int getPosition() {
+        return position;
     }
 
     @Override
@@ -65,14 +65,14 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, moveCount);
+        return Objects.hash(name, position);
     }
 
     @Override
     public String toString() {
         return "Car{" +
                 "name='" + name + '\'' +
-                ", position=" + moveCount +
+                ", position=" + position +
                 '}';
     }
 }
