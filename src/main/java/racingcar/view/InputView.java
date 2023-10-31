@@ -14,19 +14,19 @@ public class InputView {
 
     }
 
-    private List<String> inputCarNames() {
+    public List<String> inputCarNames() {
         System.out.println(INPUT_CARS_NAME);
         String inputCarNames = readLine();
         List<String> carNames = split(inputCarNames);
         return carNames;
     }
 
-    private List<String> split(String input) {
+    public List<String> split(String input) {
         return Arrays.stream(input.split(COMMA))
                 .collect(Collectors.toList());
     }
 
-    private int inputTryCount() {
+    public int inputTryCount() {
         System.out.println(INPUT_TRY_COUNT);
         String inputTryCount = readLine();
         return Integer.parseInt(inputTryCount);
