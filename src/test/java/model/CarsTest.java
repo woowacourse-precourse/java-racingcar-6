@@ -88,6 +88,5 @@ public class CarsTest {
 
         //then
         Assertions.assertThat(carsStatus).isEqualTo("pobi : -\nlisa : -\njiny : \n");
-
     }
 }

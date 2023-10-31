@@ -108,5 +108,4 @@ public class CarTest {
         //then
         Assertions.assertThat(currentWinner).isEqualTo(expectedCarName);
     }
-
 }
