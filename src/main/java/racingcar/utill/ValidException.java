@@ -17,6 +17,7 @@ public class ValidException {
     private static final String NOTING_STRING = "";
     private static final Integer POSITIVE_CONDITION_ZERO = 0;
     private static final String BLANK = " ";
+    private static final Integer ZERO_NUM = 0;
 
     public static Boolean lessFIveLen(String strLine) {
         int len = strLine.length();
@@ -89,7 +90,7 @@ public class ValidException {
     public static void zeroNum(String strLine) {
         Integer inputNum = Integer.valueOf(strLine);
 
-        if (inputNum == 0) {
+        if (inputNum == ZERO_NUM) {
             throw new IllegalArgumentException(ValidConstants.MSG_ZERO_NUM());
         }
     }
