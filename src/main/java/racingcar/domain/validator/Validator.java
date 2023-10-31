@@ -10,7 +10,7 @@ public class Validator {
         carNameIsEmpty(carName);
     }
 
-    private static void carNameLength(List<String> carName) { //메서드의 이름이 동사가 아니어도 될까?
+    private static void carNameLength(List<String> carName) {
         for (String s : carName) {
             if (s.length() > GameOption.CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
