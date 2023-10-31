@@ -33,16 +33,14 @@ public class CarsTest {
     void 가장_큰_movingCount_Car_객체_테스트() {
         //given
         Car pobiCar = new Car(new Name("pobi"), new MovingCount(0));
-        Car lisaCar = new Car(new Name("lisa"), new MovingCount(0));
+        Car lisaCar = new Car(new Name("lisa"), new MovingCount(1));
         Car jinyCar = new Car(new Name("jiny"), new MovingCount(0));
-        lisaCar.increaseMovingCountIfGreater(4, 5);
-
         List<Car> carList = new ArrayList<>();
         carList.add(pobiCar);
         carList.add(lisaCar);
         carList.add(jinyCar);
-
         Cars cars = new Cars(carList);
+
         //when
         List<Car> maxMovingCountName = cars.findCarsWithMaxMovingCount();
 
@@ -76,11 +74,9 @@ public class CarsTest {
     void 모든_Car_객체_상태_반환_테스트() {
         //given
         List<Car> carList = new ArrayList<>();
-        Car pobiCar = new Car(new Name("pobi"), new MovingCount(0));
-        Car lisaCar = new Car(new Name("lisa"), new MovingCount(0));
+        Car pobiCar = new Car(new Name("pobi"), new MovingCount(1));
+        Car lisaCar = new Car(new Name("lisa"), new MovingCount(1));
         Car jinyCar = new Car(new Name("jiny"), new MovingCount(0));
-        pobiCar.increaseMovingCountIfGreater(4, 5);
-        lisaCar.increaseMovingCountIfGreater(4, 5);
         carList.add(pobiCar);
         carList.add(lisaCar);
         carList.add(jinyCar);
