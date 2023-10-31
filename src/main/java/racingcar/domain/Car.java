@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import static racingcar.domain.Constants.MIN_MOVE_NUMBER;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -37,6 +39,7 @@ public class Car extends IndexModel {
 
     public void insertPickedNumber(int num) {
         pickedNumbers.add(num);
+        moveForwardIfNumberisSameOrOverCriteria(num);
     }
 
     public int getLastPosition() {
@@ -47,7 +50,13 @@ public class Car extends IndexModel {
         return lastPosition >= maxPosition;
     }
 
-    public void moveForward() {
+    private void moveForwardIfNumberisSameOrOverCriteria(int num) {
+        if (num >= MIN_MOVE_NUMBER) {
+            moveForward();
+        }
+    }
+
+    private void moveForward() {
         lastPosition++;
     }
 }

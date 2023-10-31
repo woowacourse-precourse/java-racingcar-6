@@ -33,6 +33,7 @@ public class RacingGameServiceImpl implements RacingGameService {
         List<Car> carList = processCarNamesInput(carNames); //TODO: 기능분리 리팩터링하기
         Participations participations = Participations.create(carList);
         int tryCount = processTryCountInput(strTryCount);
+        Winners winners = Winners.createEmpty();
 
         return RacingGame.create(participations, tryCount, winners);
     }
@@ -48,22 +49,18 @@ public class RacingGameServiceImpl implements RacingGameService {
                 .forEach(car -> pickRandomNumberAndUpdateStatus(car, racingGame.getTryCount()));
     }
 
-                if (randomNum >= 4) {
-                    carRepository.addPositions(car.getLastPosition()+1);
-                }
-            }
-        }
+    @Override
+    public void calculateWinners(RacingGame racingGame) {
+        int maxPosition = racingGame.calcParticipationsMaxPosition();
+        racingGame.allParticipationsList().stream()
+                .filter(car -> car.isPositionSameOrOver(maxPosition))
+                .forEach(racingGame::addWinner);
+    }
+
     private void pickRandomNumberAndUpdateStatus(Car car, int numCount) {
         for (int i = 0; i < numCount; i++) {
             int randomNum = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             car.insertPickedNumber(randomNum);
-            moveForwardIfNumberisSameOrOverCriteria(car, randomNum);
-        }
-    }
-
-    private void moveForwardIfNumberisSameOrOverCriteria(Car car, int number) {
-        if (number >= MIN_MOVE_NUMBER) {
-            car.moveForward();
         }
     }
 

@@ -9,4 +9,6 @@ public interface RacingGameService {
     RacingGame generateRacing(String carNames, String tryCount);
 
     void decideRandomMoveCondition(RacingGame racingGame);
+
+    void calculateWinners(RacingGame racingGame);
 }
