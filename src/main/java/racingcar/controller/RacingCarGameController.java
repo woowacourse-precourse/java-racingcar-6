@@ -123,6 +123,7 @@ public class RacingCarGameController {
             }
         });
 
+        Collections.sort(winnerList);
         outputView.printWinner(winnerList);
     }
 }
