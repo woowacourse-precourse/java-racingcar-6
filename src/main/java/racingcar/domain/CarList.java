@@ -23,7 +23,7 @@ public class CarList {
         return new CarList(userInput, carNameValidator);
     }
 
-    private List<Car> from(String userInput) {
+    public List<Car> from(String userInput) {
         List<String> userInputList = convertStrToList(userInput);
         carNameValidator.validateCarName(userInputList);
         return userInputList.stream()
@@ -34,5 +34,20 @@ public class CarList {
     private List<String> convertStrToList(String userInput) {
         return Arrays.stream(userInput.split(DIVISION_STANDARD))
                 .collect(Collectors.toList());
+    }
+
+    public List<String> findWinner() {
+        Car maxPositionCar = findMaxPositionCar();
+
+        return carList.stream()
+                .filter(maxPositionCar::isSamePosition)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+    }
+
+    private Car findMaxPositionCar() {
+        return carList.stream()
+                .max(Car::compareTo)
+                .get();
     }
 }
