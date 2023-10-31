@@ -17,15 +17,12 @@ public class Cars {
         cars.sort(Car::compareTo);
         List<Car> maxMovingCounts = new ArrayList<>();
 
-        Car currentCar = cars.get(0);
-        maxMovingCounts.add(currentCar);
-
-        for (int i = 1; i < cars.size(); i++) {
-            Car nextCar = cars.get(i);
-            if (!currentCar.isSameMovingCount(nextCar)) {
+        Car winnerCar = cars.get(0);
+        for (Car car : cars) {
+            if (!winnerCar.isSameMovingCount(car)) {
                 break;
             }
-            maxMovingCounts.add(nextCar);
+            maxMovingCounts.add(car);
         }
 
         return maxMovingCounts;
