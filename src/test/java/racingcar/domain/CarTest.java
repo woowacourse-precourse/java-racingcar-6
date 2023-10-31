@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.config.TestConfig;
 
 @DisplayName("Car 단위 테스트")
 class CarTest {
@@ -43,12 +44,13 @@ class CarTest {
     void move_car() {
         // given
         Car car = new Car("move");
+        int expectedPosition = 1;
 
         // when
-        car.moveForward(4);
+        car.moveForward(TestConfig.MOVING_FORWARD);
 
         // then
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPosition()).isEqualTo(expectedPosition);
     }
 
     @DisplayName("숫자가 4 미만일 때 자동차가 정지한다.")
@@ -56,11 +58,12 @@ class CarTest {
     void stop_car() {
         // given
         Car car = new Car("moveX");
+        int expectedPosition = 0;
 
         // when
-        car.moveForward(3);
+        car.moveForward(TestConfig.STOP);
 
         // then
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.getPosition()).isEqualTo(expectedPosition);
     }
 }

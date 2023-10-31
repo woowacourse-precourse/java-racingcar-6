@@ -59,16 +59,18 @@ class GameTest {
                 cars,
                 1
         );
+        int expectedWinnersSize = 1;
+        String expectedWinnner = "jun";
 
         // when
         game.moveCars();
         List<String> winners = game.getWinner();
-        String winnerJun = winners.get(0);
+        String winnerJun = game.getWinner().get(0);
 
         // then
         assertAll(
-                () -> assertThat(winners.size()).isEqualTo(1),
-                () -> assertThat(winnerJun).isEqualTo("jun")
+                () -> assertThat(winners.size()).isEqualTo(expectedWinnersSize),
+                () -> assertThat(winnerJun).isEqualTo(expectedWinnner)
         );
     }
 
@@ -81,18 +83,21 @@ class GameTest {
                 cars,
                 1
         );
+        int expectedWinnersSize = 2;
+        String expectedWinnner1 = "pobi";
+        String expectedWinnner2 = "jun";
 
         // when
         game.moveCars();
         List<String> winners = game.getWinner();
-        String winnerPobi = winners.get(0);
-        String winnerJun = winners.get(1);
+        String winner1 = winners.get(0);
+        String winner2 = winners.get(1);
 
         // then
         assertAll(
-                () -> assertThat(winners.size()).isEqualTo(2),
-                () -> assertThat(winnerPobi).isEqualTo("pobi"),
-                () -> assertThat(winnerJun).isEqualTo("jun")
+                () -> assertThat(winners.size()).isEqualTo(expectedWinnersSize),
+                () -> assertThat(winner1).isEqualTo(expectedWinnner1),
+                () -> assertThat(winner2).isEqualTo(expectedWinnner2)
         );
     }
 
