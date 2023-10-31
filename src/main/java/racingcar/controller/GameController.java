@@ -1,21 +1,25 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.service.GameService;
 import racingcar.utils.ControllerOutputManager;
-import racingcar.utils.InputManager;
+import racingcar.utils.InputValidator;
 
 public class GameController {
     static final ControllerOutputManager outputManager = new ControllerOutputManager();
 
-    static final InputManager inputManager = new InputManager();
+    static final InputValidator inputValidator = new InputValidator();
 
     static final GameService gameService = new GameService();
 
     public void gameStart() {
         outputManager.startPrint();
-        String cars = inputManager.cars();
+        String carsNames = Console.readLine();
+        String cars = inputValidator.cars(carsNames);
         outputManager.Instruction();
-        int number = inputManager.number();
+
+        String tryNum = Console.readLine();
+        int number = inputValidator.number(tryNum);
 
         gameService.execute(cars, number);
     }

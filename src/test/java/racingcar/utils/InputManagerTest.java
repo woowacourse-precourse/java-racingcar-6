@@ -1,30 +1,23 @@
 package racingcar.utils;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-
 class InputManagerTest {
-    InputManager inputManager = new InputManager();
+    InputValidator inputManager = new InputValidator();
 
     @Test
-    public void 시도횟수_정상입력() {
-        String notInteger = "12";
-        InputStream in = new ByteArrayInputStream(notInteger.getBytes());
-        System.setIn(in);
-    }
+    public void 너무_긴_이름() {
+       //given
+        String name = "이이름은다섯글자가넘어,";
 
-    @Test
-    public void 시도횟수_문자입력() {
-        String notInteger = "가나다라";
-        InputStream in = new ByteArrayInputStream(notInteger.getBytes());
-        System.setIn(in);
+        //when
+        inputManager.cars(name);
 
-        Assertions.assertThatThrownBy(() -> inputManager.number())
-                .isInstanceOf(IllegalArgumentException.class);
+        //then
 
     }
+
+
+
 
 }
