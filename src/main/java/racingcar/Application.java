@@ -11,8 +11,17 @@ public class Application {
         String[] carname_list = getCarName();
         int n = Integer.parseInt(Console.readLine());
         List<Car> car_list = makeCarlist(carname_list);
+        for(int i=0;i<n;i++){
+            Game(car_list);
+        }
     }
 
+    public static void Game(List<Car> c_list){
+        for(int i=0;i<c_list.size();i++){
+            c_list.get(i).GoOrStop();
+        }
+        System.out.println();
+    }
     public static List<Car> makeCarlist(String[] cname_list){
         List<Car> res_list = new ArrayList<>();
 

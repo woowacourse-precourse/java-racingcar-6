@@ -29,10 +29,11 @@ public class Car {
         if(randnum >= 4){
             this.setGo(this.getGo()+1);
         }
+        System.out.println(printInfo(this.getGo()));
     }
 
     public String printInfo(int r_num){
-        String res_print = this.getName() + ": ";
+        String res_print = this.getName() + " : ";
         for(int i=0;i<r_num;i++){
             res_print += "-";
         }
