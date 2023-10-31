@@ -1,5 +1,7 @@
 package racingcar.validation;
 
+import java.util.HashMap;
+
 import static racingcar.utils.Utils.*;
 
 public final class Validation {
@@ -25,6 +27,12 @@ public final class Validation {
 
     public static void validateCarNameLength(String carName){
         if (carName.length() > 5) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void validateCarNamesNotDuplicate(HashMap<String,String> hashMap, String carName){
+        if (hashMap.keySet().contains(carName)) {
             throw new IllegalArgumentException();
         }
     }
