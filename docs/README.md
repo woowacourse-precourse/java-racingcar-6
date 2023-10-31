@@ -65,6 +65,7 @@
   - 경주할 자동차 지원을 받는다. (자동차를 생성)
   - 경주 횟수를 받는다.
   - 입력 값을 검증한다.
+  - 경주를 위한 초기화
 - 레이스를 시작한다.
   - 랜덤 값을 생성한다.
   - 경주에 참여한 자동차들은 랜덤 값을 받아 판단하여 전진한다.
@@ -75,9 +76,7 @@
   - 최종 우승자를 출력한다.
 
 ### 클래스
-
-- 
-
+![woo-racingcar-classdiagram.png](woo-racingcar-classdiagram.png)
 
 ---
 - [Java 코드 컨벤션](https://github.com/woowacourse/woowacourse-docs/tree/main/styleguide/java) 가이드를 준수
