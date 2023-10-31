@@ -24,19 +24,6 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 임시_테스팅() {
-        assertRandomNumberInRangeTest(
-                () -> {
-                    run("pobi,woni", "4");
-                    String result = output();
-                    System.out.println(result);
-                    assertThat(output()).contains("pobi : -", "woni : ");
-                },
-                MOVING_FORWARD, STOP
-        );
-    }
-
-    @Test
     void 이름에_대한_예외_처리() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
