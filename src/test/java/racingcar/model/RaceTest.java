@@ -38,7 +38,7 @@ class RaceTest {
         String nameInput1 = "dawin,woowa,han,tech,pre,cours";
 
         //when
-        race1.setCarList(nameInput);
+        race1.setCarList(nameInput1);
 
         //then
         assertThat(race1.getCarNames()).isEqualTo(List.of("dawin", "woowa", "han", "tech", "pre", "cours"));
