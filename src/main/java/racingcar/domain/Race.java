@@ -18,8 +18,7 @@ public class Race {
 
     public void printWinner() {
         List<Car> winners = pickWinners();
-        String winnerNames = winners
-                .stream()
+        String winnerNames = winners.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(", "));
         System.out.print("최종 우승자 : " + winnerNames);
@@ -38,8 +37,7 @@ public class Race {
     private String generateProgress(Car car) {
         StringBuilder progress = new StringBuilder();
         int position = car.getPosition();
-        progress
-                .append(car.getName())
+        progress.append(car.getName())
                 .append(" : ");
         while (position > 0) {
             progress.append("-");
@@ -50,15 +48,13 @@ public class Race {
 
     private List<Car> pickWinners() {
         int winnerPosition = this.getWinningPosition();
-        return cars
-                .stream()
+        return cars.stream()
                 .filter(car -> car.getPosition() == winnerPosition)
                 .collect(Collectors.toList());
     }
 
     private int getWinningPosition() {
-        return cars
-                .stream()
+        return cars.stream()
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElse(0);
