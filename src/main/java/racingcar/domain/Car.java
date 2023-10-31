@@ -7,13 +7,14 @@ import java.util.StringTokenizer;
 public class Car {
     List<String> cars = new ArrayList<>();
     String car;
-    public List<String> name(String carName){
+
+    public List<String> name(String carName) {
         StringTokenizer sToken = new StringTokenizer(carName);
-        while(sToken.hasMoreElements()) {
+        while (sToken.hasMoreElements()) {
             car = sToken.nextToken(",");
-            if(car.length() < 6 ){
+            if (car.length() < 6) {
                 cars.add(car);
-            }else{
+            } else {
                 throw new IllegalArgumentException();
             }
         }
