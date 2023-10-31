@@ -21,21 +21,25 @@ public class Controller {
         int attemptCount = attempt.getAttemptCount();
 
         OutputView.printResult();
-        result(cars, attemptCount);
+        IterateMoveCars(cars, attemptCount);
 
         List<String> winner = racingcarGame.createWinner(cars);
         OutputView.printWinner(winner);
     }
 
-    private void result(List<Car> cars, int attemptCount) {
+    private void IterateMoveCars(List<Car> cars, int attemptCount) {
         while (attemptCount > 0) {
-            for (Car car : cars) {
-                int random = Utils.generateRandomNumber();
-                racingcarGame.increaseMoveForwardCount(car, random);
-                OutputView.printMoveForward(car);
-            }
+            moveCars(cars);
             attemptCount--;
             System.out.println();
+        }
+    }
+
+    private void moveCars(List<Car> cars) {
+        for (Car car : cars) {
+            int random = Utils.generateRandomNumber();
+            racingcarGame.increaseMoveForwardCount(car, random);
+            OutputView.printMoveForward(car);
         }
     }
 
