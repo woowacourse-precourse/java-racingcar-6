@@ -11,7 +11,7 @@ public class InputValidator {
         }
     }
 
-    public static void validateTryCount(String input) {
+    public static void validateInputIsNumeric(String input) {
         for (char c : input.toCharArray()) {
             if (!Character.isDigit(c)) {
                 throw new IllegalArgumentException(NON_NUMERIC_INPUT_ERROR_MESSAGE.getMessage());

@@ -29,7 +29,7 @@ public class RacingGameController {
 
         String tryCountUserInput = getUserInputWithValidation(OutputView::printTryCountInputMessage,
                 InputValidator::validateNullOrEmptyInput,
-                InputValidator::validateTryCount);
+                InputValidator::validateInputIsNumeric);
         Trial trial = new Trial(Utils.stringToInt(tryCountUserInput));
 
         startGame(cars, trial);

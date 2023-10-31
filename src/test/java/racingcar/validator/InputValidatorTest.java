@@ -4,8 +4,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static racingcar.enums.ExceptionMessage.NON_NUMERIC_INPUT_ERROR_MESSAGE;
 import static racingcar.enums.ExceptionMessage.NULL_OR_EMPTY_INPUT_MESSAGE;
+import static racingcar.validator.InputValidator.validateInputIsNumeric;
 import static racingcar.validator.InputValidator.validateNullOrEmptyInput;
-import static racingcar.validator.InputValidator.validateTryCount;
 
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +39,7 @@ class InputValidatorTest {
         String input = "1a3";
 
         //when and then
-        assertThatThrownBy(() -> validateTryCount(input))
+        assertThatThrownBy(() -> validateInputIsNumeric(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NON_NUMERIC_INPUT_ERROR_MESSAGE.getMessage());
     }
@@ -59,7 +59,7 @@ class InputValidatorTest {
         String input = "12";
 
         //when and then
-        assertDoesNotThrow(() -> validateTryCount(input));
+        assertDoesNotThrow(() -> validateInputIsNumeric(input));
     }
 
 }
