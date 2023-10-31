@@ -7,10 +7,19 @@ import java.util.Iterator;
 import java.util.List;
 
 public class MockInputView implements InputView {
-    private List<String> inputArguments = new ArrayList<>();
+    private static final MockInputView INSTANCE = new MockInputView();
+    private List<String> inputArguments;
     private Iterator<String> iterator;
 
-    public MockInputView(String... args) {
+    private MockInputView() {
+    }
+
+    public static MockInputView getInstance() {
+        return INSTANCE;
+    }
+
+    public void init(String... args) {
+        inputArguments = new ArrayList<>();
         for (String arg : args) {
             inputArguments.add(arg);
         }

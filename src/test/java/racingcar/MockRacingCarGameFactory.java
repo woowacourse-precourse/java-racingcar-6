@@ -13,7 +13,7 @@ public class MockRacingCarGameFactory implements RacingCarGameFactory {
 
     @Override
     public InputView inputView() {
-        return new MockInputView();
+        return MockInputView.getInstance();
     }
 
     @Override
