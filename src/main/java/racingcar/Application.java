@@ -61,16 +61,19 @@ public class Application {
     }
 
     private static void showResultBoard(List<Car> cars) {
-        int maxDistance = Objects.requireNonNull(cars.stream()
-                        .max(Car::compareTo)
-                        .orElse(null))
-                        .getDistance();
-
+        int maxDistance = getMaxDistance(cars);
         List<String> winnerNames = cars.stream()
                 .filter(car -> car.getDistance() == maxDistance)
                 .map(Car::getName)
                 .toList();
 
         System.out.println("최종 우승자 : " + String.join(", ", winnerNames));
+    }
+
+    private static int getMaxDistance(List<Car> cars) {
+        return  Objects.requireNonNull(cars.stream()
+                        .max(Car::compareTo)
+                        .orElse(null))
+                        .getDistance();
     }
 }
