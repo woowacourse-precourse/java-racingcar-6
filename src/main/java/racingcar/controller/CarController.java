@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import racingcar.dto.namesRequestDto;
-import racingcar.dto.ProgressResponseDto;
+import racingcar.dto.CarsResponseDto;
 import racingcar.dto.WinnerResponseDto;
 import racingcar.service.CarService;
 
@@ -13,8 +13,8 @@ public class CarController {
         carService.addCars(cars);
     }
 
-    public ProgressResponseDto raceCar() {
-        return null;
+    public CarsResponseDto raceCar() {
+        return carService.raceCar();
     }
 
     public WinnerResponseDto getWinners() {

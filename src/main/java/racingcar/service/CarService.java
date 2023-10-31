@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.dto.namesRequestDto;
-import racingcar.dto.ProgressResponseDto;
+import racingcar.dto.CarsResponseDto;
 import racingcar.dto.WinnerResponseDto;
 import racingcar.repository.CarRepository;
+import racingcar.util.GameUtil;
 
 public class CarService {
 
@@ -20,8 +21,13 @@ public class CarService {
         carRepository.saveAll(carList);
     }
 
-    public ProgressResponseDto raceCar() {
-        return null;
+    public CarsResponseDto raceCar() {
+        List<Car> findCars = carRepository.findAll();
+        for (Car car : findCars) {
+            car.move(GameUtil.move());
+        }
+        List<Car> updateCars = carRepository.updateAll(findCars);
+        return CarsResponseDto.createCarsResponseDto(updateCars);
     }
 
     public WinnerResponseDto getWinners() {

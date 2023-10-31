@@ -19,4 +19,12 @@ public class CarRepository {
     public List<Car> findAllByProgress(int maxProgress) {
         return carData.findAllByProgress(maxProgress);
     }
+
+    public List<Car> findAll() {
+        return carData.findAll();
+    }
+
+    public List<Car> updateAll(List<Car> findCars) {
+        return carData.updateAll(findCars);
+    }
 }

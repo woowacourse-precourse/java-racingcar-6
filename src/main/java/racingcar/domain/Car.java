@@ -27,4 +27,18 @@ public class Car {
     public boolean sameProgress(int maxProgress) {
         return progress == maxProgress;
     }
+
+    public Car getCar(){
+        return new Car(name, progress);
+    }
+
+    public void move(boolean move) {
+        if (move) {
+            progress++;
+        }
+    }
+
+    public void updateProgress(int progress) {
+        this.progress = progress;
+    }
 }
