@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -106,6 +107,30 @@ class ApplicationTest extends NsTest {
 
         //then
         assertThat(car.getMove()).isEqualTo(0);
+    }
+
+    @Test
+    void 차수별_레이스_실행_결과_확인() {
+
+        //given
+        List<Car> cars = new ArrayList<>();
+
+        Car car1 = getCar(cars, "car1");
+
+        car1.forward();
+        car1.forward();
+
+        //when
+        Application.showResult(cars);
+
+        //then
+        assertThat(output()).isEqualTo("car1 : --");
+    }
+
+    private Car getCar(List<Car> cars, String name) {
+        Car car = new Car(name);
+        cars.add(car);
+        return car;
     }
 
     @Override
