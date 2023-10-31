@@ -15,6 +15,7 @@ import java.io.PrintStream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
+import static racingcar.enums.RacingConfig.MOVE_CONDITION;
 
 class RacingControllerTest {
     private TestNumberGenerator generator;
@@ -34,7 +35,7 @@ class RacingControllerTest {
     @Test
     void 모든_자동차가_멈추지_않고_전진한다() {
         // given
-        generator.setReturnNumber(4);
+        generator.setReturnNumber(MOVE_CONDITION.getValue());
         doReturn("pobi,woni,jun").when(inputView).inputCarNames();
         doReturn("3").when(inputView).inputTryCount();
 
