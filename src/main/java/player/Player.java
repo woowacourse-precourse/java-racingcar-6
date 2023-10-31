@@ -8,4 +8,11 @@
 package player;
 
 public interface Player {
+    /**
+     * Description :  게임 참여자들의 게임 운영
+     *
+     * @Method : Play()
+     */
+    void play();
+
 }
