@@ -4,11 +4,10 @@
 
 ## 기능 목록
 
-- [ ] 시도 횟수 k와 자동차 n대를 입력받아 생성
+- [x] 시도 횟수 k와 자동차 n대를 입력받고 자동차를 생성한다.
 
-    - [ ] 사용자가 이동 시도 횟수와 각 자동차 이름을 입력한다.
-        - [ ] 이동 시도 횟수 입력 - InputController#insertAttemptCount()
-            - [ ] 입력받은 횟수를 int형으로 변환한다. - InputController#AttemptCountToInt()
+    - [x] 사용자가 이동 시도 횟수와 각 자동차 이름을 입력한다.
+        - [x] 이동 시도 횟수 입력 - InputController#insertAttemptCount()
 
         - [x] 각 자동차 이름 입력 - InputController#insertCarNames()
             - [x] 자동차를 생성하며 이름을 부여한다. - InputController#setCar()
