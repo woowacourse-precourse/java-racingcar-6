@@ -9,6 +9,7 @@ public class OutputView {
     private final String WINNERS_NAME = "최종 우승자 :";
 
     public void printGameResultMsg() {
+        System.out.println();
         System.out.println(GAME_RESULT);
     }
 
