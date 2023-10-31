@@ -2,28 +2,19 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingCar;
 import racingcar.utils.RacingCarGameOutput;
+import utils.OutputUtil;
 
 
 public class RacingCarGameOutputTest {
-    private ByteArrayOutputStream outputStreamCaptor;
-
     @BeforeEach
-    private void setUp() {
-        outputStreamCaptor = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStreamCaptor));
+    private void setUp(){
+        OutputUtil.setUp();
     }
-
-    private String getOutputString() {
-        return outputStreamCaptor.toString().trim();
-    }
-
     @Test
     void printResultMessage_메소드를_사용시_실행_결과들이_출력() {
         List<RacingCar> carList = List.of(
@@ -31,7 +22,8 @@ public class RacingCarGameOutputTest {
                 new RacingCar("woni"));
         carList.get(0).moveForword();
         RacingCarGameOutput.printGameProgress(carList);
-        assertThat(getOutputString()).isEqualTo("pobi : -\nwoni :");
+
+        assertThat(OutputUtil.getOutputString()).isEqualTo("pobi : -\nwoni :");
     }
 
     @Test
@@ -40,7 +32,8 @@ public class RacingCarGameOutputTest {
                 new RacingCar("woni")
         );
         RacingCarGameOutput.printWinnersMessage(carList);
-        assertThat(getOutputString()).isEqualTo("최종 우승자 : woni");
+
+        assertThat(OutputUtil.getOutputString()).isEqualTo("최종 우승자 : woni");
     }
 
     @Test
@@ -51,6 +44,7 @@ public class RacingCarGameOutputTest {
                 new RacingCar("javaji")
         );
         RacingCarGameOutput.printWinnersMessage(carList);
-        assertThat(getOutputString()).isEqualTo("최종 우승자 : pobi, woni, javaji");
+
+        assertThat(OutputUtil.getOutputString()).isEqualTo("최종 우승자 : pobi, woni, javaji");
     }
 }

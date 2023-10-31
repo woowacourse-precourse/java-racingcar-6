@@ -2,30 +2,23 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.RacingCar;
 import racingcar.utils.RacingCarGame;
 import racingcar.utils.RacingCarGameOutput;
+import utils.OutputUtil;
 
 public class RacingCarGameTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
     private RacingCarGame racingCarGame;
-    private ByteArrayOutputStream outputStreamCaptor;
 
     @BeforeEach
     private void setUp() {
-        outputStreamCaptor = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStreamCaptor));
-    }
-
-    private String getOutputString() {
-        return outputStreamCaptor.toString().trim();
+        OutputUtil.setUp();
     }
 
     @Test
@@ -35,7 +28,7 @@ public class RacingCarGameTest {
         ), 1);
         racingCarGame.run(() -> MOVING_FORWARD);
 
-        assertThat(getOutputString()).isEqualTo("yang : -");
+        assertThat(OutputUtil.getOutputString()).isEqualTo("yang : -");
     }
 
     @Test
@@ -45,7 +38,7 @@ public class RacingCarGameTest {
         ), 1);
         racingCarGame.run(() -> STOP);
 
-        assertThat(getOutputString()).isEqualTo("yang :");
+        assertThat(OutputUtil.getOutputString()).isEqualTo("yang :");
     }
 
     @Test
@@ -56,7 +49,7 @@ public class RacingCarGameTest {
         List<RacingCar> winners = racingCarGame.getWinners();
         RacingCarGameOutput.printWinnersMessage(winners);
 
-        assertThat(getOutputString()).isEqualTo("최종 우승자 : yang");
+        assertThat(OutputUtil.getOutputString()).isEqualTo("최종 우승자 : yang");
     }
 
     @Test
@@ -69,6 +62,6 @@ public class RacingCarGameTest {
         List<RacingCar> winners = racingCarGame.getWinners();
         RacingCarGameOutput.printWinnersMessage(winners);
 
-        assertThat(getOutputString()).isEqualTo("최종 우승자 : yang, min, cheol");
+        assertThat(OutputUtil.getOutputString()).isEqualTo("최종 우승자 : yang, min, cheol");
     }
 }
