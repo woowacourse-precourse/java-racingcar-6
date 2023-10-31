@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.util.NumberGenerator;
 
 public class Cars {
     private List<Car> cars;
@@ -12,8 +13,13 @@ public class Cars {
         this.cars = new ArrayList<>(cars);
     }
 
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+    public void tryMoveCars() {
+        for (Car car : cars) {
+            int randomNumber = NumberGenerator.generateRandomNumber();
+
+            car.moveForward(randomNumber);
+            car.showMoveDistance();
+        }
     }
 
     public List<Car> findWinners() {

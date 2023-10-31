@@ -7,7 +7,7 @@ import racingcar.domain.Car;
 public class OutputView {
     private final static String WINNER_MESSAGE = "최종 우승자 : ";
     private final static String DELIMITER = ", ";
-    
+
     public void showWinners(List<Car> winners) {
         StringBuilder raceResult = new StringBuilder();
         raceResult.append(WINNER_MESSAGE);

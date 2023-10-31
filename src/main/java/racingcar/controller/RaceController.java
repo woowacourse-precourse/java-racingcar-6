@@ -25,25 +25,16 @@ public class RaceController {
         int moveCount = inputView.askMoveCount();
 
         System.out.println("\n실행 결과");
-        repeatMoveCars(moveCount, cars.getCars());
+        repeatMoveCars(moveCount, cars);
 
         final List<Car> winners = cars.findWinners();
 
         outputView.showWinners(winners);
     }
 
-    public void tryMoveCars(List<Car> cars) {
-        for (Car car : cars) {
-            int randomNumber = NumberGenerator.generateRandomNumber();
-
-            car.moveForward(randomNumber);
-            car.showMoveDistance();
-        }
-    }
-
-    public void repeatMoveCars(int moveCount, final List<Car> cars) {
+    public void repeatMoveCars(int moveCount, Cars cars) {
         while (moveCount-- > 0) {
-            tryMoveCars(cars);
+            cars.tryMoveCars();
             System.out.println();
         }
     }
