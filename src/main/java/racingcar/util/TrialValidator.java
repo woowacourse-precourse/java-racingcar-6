@@ -1,6 +1,6 @@
 package racingcar.util;
 
-public class TrialValidator extends Validator{
+public class TrialValidator extends Validator {
     @Override
     public void validation(String input) {
         validationTrialIsZero(input);
@@ -9,7 +9,7 @@ public class TrialValidator extends Validator{
 
     private void validationTrialIsNatualNumber(String input) {
         String regex = "^[0-9]*$";
-        if (!input.matches(regex)){
+        if (!input.matches(regex)) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_NOT_NATURAL_NUMBER.getMessage());
         }
     }

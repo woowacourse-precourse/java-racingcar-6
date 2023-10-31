@@ -28,6 +28,7 @@ public class ValidatorTest {
         assertThatCode(() -> new CarNameValidator().validation(input))
                 .doesNotThrowAnyException();
     }
+
     @Test
     void 자동차_개수가_1개일_경우_에러발생() {
         String input = "자동차1";
@@ -75,6 +76,7 @@ public class ValidatorTest {
         assertThatCode(() -> new TrialValidator().validation(input))
                 .doesNotThrowAnyException();
     }
+
     @Test
     void 휫수입력이_숫자가_아닐_경우_에러발생() {
         String input = "a";
