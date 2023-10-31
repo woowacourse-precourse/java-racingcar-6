@@ -3,7 +3,7 @@ package racingcar.model;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
-import java.util.Map.Entry;
+import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.vo.Car;
@@ -24,12 +24,9 @@ class RacingGameEventTest {
         String[] cars = {"pobi"};
         int attempt = 3;
         RacingGameEvent racingGameEvent = new RacingGameEvent(cars);
+        Map<Car, List<Integer>> positionHistory = racingGameEvent.getPositionHistory();
         for (int i = 0; i < attempt; i++) {
-            for (Entry<Car, List<Integer>> value : racingGameEvent.getPositionHistory().entrySet()) {
-                Car carName = value.getKey();
-                List<Integer> position = value.getValue();
-                position.add(carName.moveForward(true));
-            }
+            positionHistory.forEach((k, v) -> v.add(k.moveForward(true)));
         }
         assertThat(racingGameEvent.getPositionHistory().values().toArray())
                 .isEqualTo(List.of(List.of(1, 2, 3)).toArray());
@@ -41,12 +38,9 @@ class RacingGameEventTest {
         String[] cars = {"pobi"};
         int attempt = 3;
         RacingGameEvent racingGameEvent = new RacingGameEvent(cars);
+        Map<Car, List<Integer>> positionHistory = racingGameEvent.getPositionHistory();
         for (int i = 0; i < attempt; i++) {
-            for (Entry<Car, List<Integer>> value : racingGameEvent.getPositionHistory().entrySet()) {
-                Car carName = value.getKey();
-                List<Integer> position = value.getValue();
-                position.add(carName.moveForward(false));
-            }
+            positionHistory.forEach((k, v) -> v.add(k.moveForward(false)));
         }
         assertThat(racingGameEvent.getPositionHistory().values().toArray())
                 .isEqualTo(List.of(List.of(0, 0, 0)).toArray());
@@ -57,13 +51,10 @@ class RacingGameEventTest {
     public void getWinnerNamesTest() {
         String[] cars = {"pobi", "jun", "jiu"};
         RacingGameEvent racingGameEvent = new RacingGameEvent(cars);
+        Map<Car, List<Integer>> positionHistory = racingGameEvent.getPositionHistory();
         int attempt = 3;
         for (int i = 0; i < attempt; i++) {
-            for (Entry<Car, List<Integer>> value : racingGameEvent.getPositionHistory().entrySet()) {
-                Car carName = value.getKey();
-                List<Integer> position = value.getValue();
-                position.add(carName.moveForward(true));
-            }
+            positionHistory.forEach((k, v) -> v.add(k.moveForward(true)));
         }
 
         List<String> winnerNames = racingGameEvent.getWinnerNames(racingGameEvent.getPositionHistory());
