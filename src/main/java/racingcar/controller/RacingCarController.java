@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
@@ -22,6 +23,8 @@ public class RacingCarController {
         for (int i = 0; i < triesInput; i++) {
             playGame(cars);
         }
+        List<String> winners = calculateWinners(cars);
+        outputView.printWinners(winners);
 
     }
 
@@ -68,6 +71,18 @@ public class RacingCarController {
             outputView.printCurrentLocation(car);
         }
         outputView.printNextLine();
+    }
+
+    private List<String> calculateWinners(Cars cars) {
+        int winnerForwardCount = 0;
+        List<String> winners = new ArrayList<>();
+        for (Car car : cars.getCars()) {
+            if (car.forwardCount > winnerForwardCount) {
+                winners.add(car.name);
+                winnerForwardCount = car.forwardCount;
+            }
+        }
+        return winners;
     }
 
 }
