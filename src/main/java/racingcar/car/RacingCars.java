@@ -38,4 +38,15 @@ public class RacingCars {
 
         return String.join(", ",longestDistanceDriverOfNames);
     }
+
+    @Override
+    public String toString() {
+        String executionResult = "";
+
+        for(Car car : racingCars){
+            executionResult+= racingCars.toString()+"\n";
+        }
+
+        return executionResult;
+    }
 }
