@@ -54,7 +54,7 @@ public class GameController {
 
         return getCarResponses(cars)
                 .stream()
-                .filter(response -> response.getPosition() == maxPosition)
+                .filter(response -> response.position() == maxPosition)
                 .toList();
     }
 

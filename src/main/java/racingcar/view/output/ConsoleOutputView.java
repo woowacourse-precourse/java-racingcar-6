@@ -27,7 +27,7 @@ public class ConsoleOutputView implements OutputView {
     @Override
     public void printEachCarStatus(final List<CarResponse> cars) {
         cars.forEach(response -> {
-            System.out.println(response.getName() + " : " + POSITION_MARK.repeat(response.getPosition()));
+            System.out.println(response.name() + " : " + POSITION_MARK.repeat(response.position()));
         });
     }
 
@@ -39,7 +39,7 @@ public class ConsoleOutputView implements OutputView {
     @Override
     public void printWinners(final List<CarResponse> winners) {
         List<String> winnerNames = winners.stream()
-                .map(CarResponse::getName)
+                .map(CarResponse::name)
                 .toList();
 
         System.out.println("최종 우승자 : " + String.join(WINNER_JOINER, winnerNames));
