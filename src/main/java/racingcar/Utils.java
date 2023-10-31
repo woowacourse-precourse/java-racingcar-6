@@ -20,9 +20,10 @@ public class Utils {
         return cars;
     }
 
-    public void race(int input) {
+    public void race(String input) {
+        int num = Integer.parseInt(input.substring(0,input.length()));
         System.out.println("실행 결과");
-        for (int i = 0; i < input; i++) {
+        for (int i = 0; i < num; i++) {
             for (Car car : cars) {
                 car.moveOne();
                 carPosition(car);

@@ -20,4 +20,13 @@ public class Exceptions {
             throw new IllegalArgumentException("이름은 null이 될 수 없습니다.");
         }
     }
+
+    public void isInvalidStringCount(String input){
+        try {
+            int intValue = Integer.parseInt(input);
+            return;
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("횟수는 숫자만 입력 가능합니다.");
+        }
+    }
 }

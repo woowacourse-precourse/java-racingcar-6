@@ -22,7 +22,8 @@ public class Racing {
 
     public void moveTry() {
         System.out.println("시도할 회수는 몇회인가요?");
-        int input = Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        exceptions.isInvalidStringCount(input);
         System.out.println();
         utils.race(input);
     }
