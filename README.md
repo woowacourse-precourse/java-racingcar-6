@@ -1,3 +1,5 @@
+<img src="./resultIMG.png" alt="" width="4000px">
+
 # 자동차 경주
 
 ## 기능 구현 목록
