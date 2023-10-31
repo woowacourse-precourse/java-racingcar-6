@@ -31,7 +31,8 @@ public class RacingCarGame {
         System.out.println(getWinnerNames());
     }
 
-    private void inputNames(){
+    //private void inputNames(){
+    public void inputNames(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String inputNames = Console.readLine();
         String[] names = inputNames.split(",");
@@ -40,13 +41,15 @@ public class RacingCarGame {
         }
     }
 
-    private void inputTryLimit(){
+    //private void inputTryLimit(){
+    public void inputTryLimit(){
         System.out.println("시도할 회수는 몇회인가요?");
         String inputTryLimit = Console.readLine();
         tryLimit = Integer.parseInt(inputTryLimit);
     }
 
-    private String raceForOneTry(){
+    //private String raceForOneTry(){
+    public String raceForOneTry(){
         StringBuilder result = new StringBuilder();
         int command;
         for(Car car : cars){
@@ -59,7 +62,8 @@ public class RacingCarGame {
         return result.toString();
     }
 
-    private String race(){
+    //private String race(){
+    public String race(){
         StringBuilder result = new StringBuilder();
         System.out.println("실행 결과");
         for(int tryNum = 0; tryNum < tryLimit; tryNum++){
@@ -69,7 +73,8 @@ public class RacingCarGame {
         return result.toString();
     }
 
-    private void setMax(){
+    //private void setMax(){
+    public void setMax(){
         for(Car car : cars){
             int currentLength = car.getTrackLength();
             if(currentLength>max) {
@@ -78,14 +83,16 @@ public class RacingCarGame {
         }
     }
 
-    private void setWinnerCars(){
+    //private void setWinnerCars(){
+    public void setWinnerCars(){
         for(Car car : cars){
             if(car.getTrackLength() == max)
                 winnerCars.add(car);
         }
     }
 
-    private String getWinnerNames(){
+    //private String getWinnerNames(){
+    public String getWinnerNames(){
         StringBuilder winners = new StringBuilder();
         winners.append("최종 우승자 : ");
         for(int index = 0; index < winnerCars.size(); index++){
