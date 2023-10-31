@@ -1,7 +1,7 @@
-package racingcar.validator;
+package racingcar.game.validator;
 
-import static racingcar.validator.ExceptionMessage.*;
-import static racingcar.validator.constants.ValidatorConstants.*;
+import static racingcar.game.validator.ExceptionMessage.*;
+import static racingcar.game.validator.constants.ValidatorConstants.*;
 
 public class InputValidator {
     public static void lessThenFiveLetters(String input){

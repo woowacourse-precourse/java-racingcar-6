@@ -1,4 +1,4 @@
-package racingcar.validator.constants;
+package racingcar.game.validator.constants;
 
 public enum ValidatorConstants {
     MAX_LENGTH_OF_CAR_NAME(5);

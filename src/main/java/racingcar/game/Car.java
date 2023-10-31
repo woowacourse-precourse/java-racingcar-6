@@ -1,5 +1,7 @@
 package racingcar.game;
 
+import racingcar.game.validator.InputValidator;
+
 import static racingcar.controller.constants.IntegerConstants.*;
 
 public class Car {
@@ -7,6 +9,7 @@ public class Car {
     private Integer score;
 
     public Car(String name){
+        InputValidator.lessThenFiveLetters(name);
         this.name = name;
         this.score = STARTING_POINT.getValue();
     }
