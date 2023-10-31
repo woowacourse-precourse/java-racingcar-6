@@ -7,4 +7,14 @@ public class CreateCar {
         return inputCarNames;
     }
 
+    public String validateCarNameEmpty(String inputCarNames) {
+        if (inputCarNames.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름은 1자 이상이어야 합니다.");
+        }
+        return inputCarNames;
+    }
+
+
+
+
 }
