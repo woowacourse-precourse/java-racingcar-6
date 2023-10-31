@@ -4,19 +4,20 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class RunningGame { //게임을 진행합니다.
+public class RunningGame implements Running { //게임을 진행합니다.
     private static IO io;
     private static Sorting sorting;
     private List<String> RunnerMap;//자동차의 이름을 나타냄
     private LinkedHashMap<String, String> GameInfoMap; //각 자동차의 이름과 경주상태를 나타냄
 
-    public RunningGame(IO io, Sorting sorting, SettingGame settinggame) {
+    public RunningGame(IO io, Sorting sorting, Setting setting) {
         this.io = io;
         this.sorting = sorting;
-        this.RunnerMap = settinggame.getRunnerMap();
-        this.GameInfoMap = settinggame.getGameInfoMap();
+        this.RunnerMap = setting.getRunnerMap();
+        this.GameInfoMap = setting.getGameInfoMap();
     }
 
+    @Override
     public void runGame() {
         int count = count();
         while (count != 0) {
@@ -45,6 +46,7 @@ public class RunningGame { //게임을 진행합니다.
 
     }
 
+    @Override
     public void createResult(){
         RunnerMap.clear();
         RunnerMap = sorting.Winner(GameInfoMap);
