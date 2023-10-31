@@ -13,6 +13,7 @@ public class RacingCarGameController {
     }
 
     public void CarRacingGameProcess() {
-
+        InputView.checkInputRacingCarName();
+        OutputView.printResultOfTheGame();
     }
 }

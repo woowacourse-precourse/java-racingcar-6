@@ -15,12 +15,23 @@ public class InputView {
         System.out.println(CHECK_NUMBER_OF_ATTEMPTS);
     }
 
-    public static String checkInputRacingCarName () {
+    public static void checkInputRacingCarName () {
         String input = getInput();
-        return input;
+        List<String> allUserCarName = diviedInputRacingCarName(input);
+        System.out.println(allUserCarName);
+        printAttemptsNumber();
+        checkAttemptsNumber();
+//        return allUserCarName;
     }
 
-    public static List<String> diviedInputRacingCarName(String input) {
+    public static void checkAttemptsNumber () {
+        String attemtsNumberStr = getInput();
+        int attemtsNumber = Integer.parseInt(attemtsNumberStr);
+        //System.out.println(attemtsNumber);
+        //return attemtsNumber;
+    }
+
+    public static List<String> diviedInputRacingCarName (String input) {
         List<String> allUserCarName = List.of(input.split(","));
         return allUserCarName;
     }
