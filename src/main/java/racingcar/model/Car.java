@@ -7,4 +7,12 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDistance() {
+        return this.distance;
+    }
 }
