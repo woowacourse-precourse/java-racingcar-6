@@ -70,11 +70,18 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+    @Test
+    void 이름에_대한_예외_처리_쉼표가_없는_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobijavaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
 
     @Test
-    void 경주횟수에_대한_예외_처리() {
+    void 경주횟수에_대한_예외_처리_0인_경우() {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> runException("0", "횟수가 아닌 값", "1이상"))
+                assertThatThrownBy(() -> runException("pobi,woni,dori", "0"))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
