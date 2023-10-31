@@ -3,11 +3,12 @@ package racingcar.service;
 import racingcar.model.Car;
 import racingcar.util.CarUtil;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RaceGameServiceImpl implements RaceGameService{
 
-    private static final int MORE_THAN_NUMBER = 4;
 
     @Override
     public Car startGame(List<String> input) {
@@ -18,26 +19,11 @@ public class RaceGameServiceImpl implements RaceGameService{
 
     @Override
     public void race(Car car) {
-        // 전진하는 조건은 0~9사이에서 무작위 값을 구한 후 무작위 값이 4이상일 경우
-        carMoveCheck(car, car.getCarSize());
+        car.move();
     }
 
     @Override
-    public List<Integer> findWinner(Car car) {
-        int maxPosition = car.findMaxPosition();
-        return car.findWinnerIndex(maxPosition);
+    public List<String> findWinners(Car car, int MaxPosition) {
+        return car.findWinner(MaxPosition);
     }
-
-    private static void carMoveCheck(Car car, int size) {
-        for (int i=0; i<size; i++) {
-            if (isCanMove()) {
-                car.carMove(i);
-            }
-        }
-    }
-
-    private static boolean isCanMove() {
-        return CarUtil.getRandomValue() >= MORE_THAN_NUMBER;
-    }
-
 }
