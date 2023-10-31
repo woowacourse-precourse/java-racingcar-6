@@ -12,9 +12,9 @@
 
 - [x] 자동차 객체 [Racer]
 
-  - [ ] name, moveCount, state 지정 (setName, setMoveCount, setSate)
+  - [x] name, moveCount, state 조작 (plusMoveCount, goState, stopState)
 
-  - [ ] name, moveCount, state 확인 (getName, getMoveCount, getState)
+  - [x] name, moveCount, state 확인 (getName, getMoveCount, getState)
 
 
 - [x] 전체 게임 진행 (play) [RaceController]
