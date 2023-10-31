@@ -10,7 +10,7 @@ import java.util.List;
 public class UserInput {
 
     private List<String> cars = new ArrayList<>();
-    private int attemptCount = 0;
+    private int attemptCount;
 
     Validation validation = new Validation();
 
@@ -27,7 +27,7 @@ public class UserInput {
         return cars;
     }
 
-    private int attemptCountInput() {
+    public int attemptCountInput() {
         String input = input();
         attemptCount = Integer.parseInt(input);
         return attemptCount;

@@ -12,5 +12,10 @@ public class Referee {
     private int randomValueForMove() {
         return numberGenerator.createRandomNumber();
     }
+    private Boolean isMoveCondition() {
+        int randomNumber = randomValueForMove();
+        return randomNumber >= 4;
+    }
+
 
 }
