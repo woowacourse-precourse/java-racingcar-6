@@ -2,7 +2,7 @@ package service;
 
 import repository.CarListRepository;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,13 +13,15 @@ public class CarListService {
         this.carListRepository = new CarListRepository(stringSplitAndToMap(carList));
     }
 
-    private static Map<String, Integer> stringSplitAndToMap(String carList) {
-        return Stream.of(carList.split(","))
-                .collect(Collectors.toMap(car -> car, car -> 0));
+    private static LinkedHashMap<String, Integer> stringSplitAndToMap(String carList) {
+        String[] carArray = carList.split(",");
+
+        return Stream.of(carArray)
+                .collect(Collectors.toMap(carName -> carName, carName -> 0, (a, b) -> b, LinkedHashMap::new));
     }
 
-    public Map<String, Integer> getCarList() {
-        return carListRepository.getCarList();
+    public LinkedHashMap<String, Integer> getCarList() {
+        return carListRepository.carList();
     }
 
     public void forwardCar(String carName) {
