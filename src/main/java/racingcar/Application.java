@@ -10,7 +10,54 @@ public class Application {
         // TODO: 프로그램 구현
     }
 
-    
+    /** 레이싱을 시뮬레이션 하는 메서드입니다.
+     * 
+     * makeHashMap() 메서드로 각 유저에 맞는 HashMap을 만듭니다. 
+     * 각 유저가 얼마나 나갔는지는 status의 문자열에 "-"를 추가하며 계산합니다.
+     * 출발 할지 안할지는 shouldStart()로 결정합니다.
+     * printUsers()는 현재 모든 유저들의 레이싱 상태를 출력합니다.
+     * 
+     * @param userlist 사용자가 입력한 유저 리스트 입니다.
+     * @param count 사용자가 입력한 경기 횟수 입니다.
+     * @return 경기가 끝나고 HashMap을 getLongestUsers()로 넘겨 가장 긴 유저들을 찾습니다.
+     */
+    public static ArrayList<String> startRacing(ArrayList<String> userlist, int count) {
+        HashMap<String, String> userStatusMap = makeHashMap(userlist);
+
+        for (int i = 0; i < count; i++) {
+            for (String user : userlist) {
+                String status = userStatusMap.get(user);
+                userStatusMap.put(user, shouldStart(status));
+            }
+            printUsers(userStatusMap);
+        }
+
+        return getLongesetUsers(userStatusMap);
+    }
+
+    /** startRacing()으로부터 나온 Map 중에 가장 멀리간 유저들을 찾는 메서드입니다.
+     * 
+     * @param userStatusMap startRacing()로부터 만들어진 레이싱 결과 Map
+     * @return 가장 멀리간 유저들의 리스트를 return 합니다.
+     */
+    public static ArrayList<String> getLongesetUsers(HashMap<String, String> userStatusMap) {
+        int longest = 0;
+        ArrayList<String> winners = new ArrayList<>();
+
+        for (String key : userStatusMap.keySet()) {
+            String status = userStatusMap.get(key);
+            int length = status.length();
+            if (length > longest) {
+                winners.clear();
+                winners.add(key);
+                longest = length;
+            } else if (length == longest) {
+                winners.add(key);
+            }
+        }
+
+        return winners;
+    }
 
 
     /** 입력 받은 List를 HashMap으로 초기화 하는 메서드입니다.
