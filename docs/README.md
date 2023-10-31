@@ -8,7 +8,7 @@
 
 ### 출력
 * 이동 후 실행 결과 출력 (Car Class, Information Class) ✅ [TEST 구현완료]
-* 최종 우승자 출력 (RacingCar Class) ✅
+* 최종 우승자 출력 (RacingCar Class) ✅ [TEST 구현완료]
 * 입력받을때 안내메시지 출력 (RacingSetting Class) ✅ [TEST 구현완료]
 ### 구현
 * 자동차 전진 기능 구현 (Car Class) ✅ [TEST 구현완료]
@@ -23,8 +23,8 @@
 
 ### RacingGame
 클래스 변수 : List<Car<Car>> car
-* 전체적인 실행 ✅
-* 최종 우승자 출력하기 ✅
+* 전체적인 실행 ✅ [TEST 구현완료]
+* 최종 우승자 출력하기 ✅ [TEST 구현완료]
 
 ### RacingSetting
 클래스 변수 : MoveNum moveNum, CarNum carNum
