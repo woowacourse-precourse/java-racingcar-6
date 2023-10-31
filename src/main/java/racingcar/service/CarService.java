@@ -2,7 +2,6 @@ package racingcar.service;
 
 import racingcar.model.Car;
 import racingcar.validator.InputValidator;
-
 import java.util.ArrayList;
 import java.util.List;
 
