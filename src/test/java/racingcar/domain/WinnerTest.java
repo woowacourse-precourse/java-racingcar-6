@@ -11,11 +11,9 @@ public class WinnerTest {
 	void 우승자가_1명일때_우승자를_구한다() {
 		List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
 		carList = RacingCarUtilForTest.getRacingCar(carList, List.of(3, 3, 5));
+		Winner winner = new Winner(carList);
 
-		Winner winner = new Winner();
-		List<Car> winnerList = winner.findWinner(carList);
-
-		assertThat(winnerList).hasSize(1)
+		assertThat(winner.getWinner()).hasSize(1)
 			.extracting("name")
 			.containsOnly("jun");
 	}
@@ -24,11 +22,9 @@ public class WinnerTest {
 	void 우승자가_2명일때_우승자를_구한다() {
 		List<Car> carList = List.of(new Car("pobi"), new Car("woni"), new Car("jun"));
 		carList = RacingCarUtilForTest.getRacingCar(carList, List.of(3, 5, 5));
+		Winner winner = new Winner(carList);
 
-		Winner winner = new Winner();
-		List<Car> winnerList = winner.findWinner(carList);
-
-		assertThat(winnerList).hasSize(2)
+		assertThat(winner.getWinner()).hasSize(2)
 			.extracting("name")
 			.contains("jun", "woni");
 	}

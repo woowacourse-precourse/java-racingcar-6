@@ -12,12 +12,10 @@ import racingcar.view.OutputView;
 public class Controller {
 	private RacingCar racingCar;
 	private TryNumber tryNumber;
-	private Winner winner;
 	private Service service;
 
 	public Controller() {
 		this.service = new Service();
-		this.winner = new Winner();
 	}
 
 	public void run() {
@@ -31,7 +29,7 @@ public class Controller {
 	}
 
 	private void printWinner() {
-		winner.findWinner(racingCar.getRacingCar());
+		Winner winner = new Winner(racingCar.getRacingCar());
 		OutputView.printWinner(winner);
 	}
 

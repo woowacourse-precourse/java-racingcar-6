@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 public class Winner {
 	private List<Car> winnerList;
 
-	public List<Car> findWinner(List<Car> carList) {
+	public Winner(List<Car> carList) {
 		List<Car> sortedList = sortByPositionDescending(new ArrayList(carList));
-		return winnerList = getWinnerCarList(sortedList);
+		this.winnerList = getWinnerCarList(sortedList);
 	}
 
 	public List<Car> getWinner() {
