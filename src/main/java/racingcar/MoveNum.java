@@ -6,7 +6,7 @@ public class MoveNum {
 
     MoveNum(String moveNumString) {
         isValidMoveNum(moveNumString);
-        num = Character.getNumericValue(moveNumString.charAt(0));
+        num = Integer.parseInt(moveNumString);
     }
 
     boolean isInRange(int currentNum) {
