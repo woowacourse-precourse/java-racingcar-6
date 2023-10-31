@@ -7,9 +7,6 @@ import java.util.List;
 
 public class RacingCars {
 
-    private static final int START_NUM = 0;
-    private static final int END_NUM = 9;
-
     private List<RacingCar> racingCars;
 
     public RacingCars(String[] carNames) {
@@ -20,47 +17,43 @@ public class RacingCars {
         }
     }
 
-    public void moveCars() {
+    public List<Result> moveCars(int moveNum) {
         List<Result> results = new ArrayList<>();
 
         for (RacingCar racingCar : racingCars) {
-            racingCar.move(Randoms.pickNumberInRange(START_NUM, END_NUM));
+            racingCar.move(moveNum);
             results.add(racingCar.makeResult());
         }
 
-        for (Result result : results) {
-            System.out.println(result);
-        }
-        System.out.println();
+        return results;
     }
 
-    public List<Result> findWinner() {
+    public List<Result> findWinners() {
 
-        int maxAdvance = findMaxAdvance();
+        int maxAdvance = calcMaxAdvance();
         List<Result> results = new ArrayList<>();
 
         for (RacingCar racingCar : racingCars) {
-            Result result = racingCar.makeResult();
-            int advance = result.getAdvance();
-            if (advance == maxAdvance) {
-                results.add(result);
+            if (getAdvance(racingCar) == maxAdvance) {
+                results.add(racingCar.makeResult());
             }
         }
 
         return results;
     }
 
-    private int findMaxAdvance() {
+    private int calcMaxAdvance() {
 
         int maxAdvance = 0;
 
         for (RacingCar racingCar : racingCars) {
-            int advance = racingCar.makeResult().getAdvance();
-            if (advance > maxAdvance) {
-                maxAdvance = advance;
-            }
+            maxAdvance = Math.max(getAdvance(racingCar), maxAdvance);
         }
 
         return maxAdvance;
+    }
+
+    private static int getAdvance(RacingCar racingCar) {
+        return racingCar.makeResult().getAdvance();
     }
 }
