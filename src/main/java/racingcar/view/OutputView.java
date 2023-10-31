@@ -1,15 +1,20 @@
 package racingcar.view;
 
+import racingcar.RandomCar;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class OutputView {
 
 
-//    private void printWinnerCars() {
-//        String format = String.format("최종 우승자 : ");
-//        for (String winner : winners) {
-//            format += winner + ", ";
-//        }
-//
-//        format = format.substring(0, format.length() - 2);
-//        System.out.println(format);
-//    }
+    public void printWinnerList(List<RandomCar> winnerCars) {
+        String format = ("최종 우승자 : ");
+
+        String winners = winnerCars.stream()
+                .map(RandomCar::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.println(format + winners);
+    }
 }

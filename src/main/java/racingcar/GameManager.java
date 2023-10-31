@@ -23,19 +23,20 @@ public class GameManager {
         List<String> names = inputView.inputCarNames();
         createRandomCars(names);
 
-        int attemptCount = inputView.inputMoveNumber();
-        moveRandomCars(attemptCount);
+        int trialCount = inputView.inputMoveNumber();
+        moveRandomCars(trialCount);
 
-        selectWinners();
+        List<RandomCar> winnerCars = selectWinners();
 
+        outputView.printWinnerList(winnerCars);
     }
 
     private void createRandomCars(List<String> names) {
         names.forEach(name -> randomCars.add(new RandomCar(name)));
     }
 
-    private void moveRandomCars(int attemptCount) {
-        for (int i = 0; i < attemptCount; i++) {
+    private void moveRandomCars(int trialCount) {
+        for (int i = 0; i < trialCount; i++) {
             for (RandomCar randomCar : randomCars) {
                 randomCar.move();
                 randomCar.printPosition();
