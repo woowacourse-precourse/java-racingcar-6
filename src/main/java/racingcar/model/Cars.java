@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import racingcar.util.ResultUtil;
 import racingcar.util.Util;
 import racingcar.validator.CarNamesValidator;
 
@@ -32,12 +33,7 @@ public class Cars {
     }
 
     public String generateRoundResultString() {
-        StringBuilder sb = new StringBuilder();
-        cars.forEach(car -> {
-            sb.append(car.getResultFormat());
-            sb.append("\n");
-        });
-        return sb.toString();
+        return ResultUtil.roundFormat(cars);
     }
 
     private Position getMaxPosition() {
