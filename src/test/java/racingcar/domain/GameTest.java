@@ -51,7 +51,7 @@ class GameTest {
         Map<String, Integer> gameResult = game.getGameResult();
         ArrayList<String> carNames = new ArrayList<>();
 
-        for(Car car : game.getCars().cars) {
+        for(Car car : game.getCars().getCarList()) {
             carNames.add(car.getName());
         }
         Set<String> resultKey = gameResult.keySet();

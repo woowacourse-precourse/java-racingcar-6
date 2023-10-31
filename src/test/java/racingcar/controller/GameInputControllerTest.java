@@ -30,7 +30,7 @@ class GameInputControllerTest extends IOTest {
         systemIn("seori,snow,joy");
         //when
         inputController.requestNames();
-        ArrayList<Car> cars = inputController.cars.getCars();
+        ArrayList<Car> cars = inputController.cars.getCarList();
         //then
         assertEquals(cars.size(), 3);
     }

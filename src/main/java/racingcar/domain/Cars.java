@@ -25,7 +25,7 @@ public class Cars {
         }
     }
 
-    public ArrayList<Car> getCars() {
+    public ArrayList<Car> getCarList() {
         return carList;
     }
 
