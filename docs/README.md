@@ -23,7 +23,7 @@
 
 #### 리팩토링
 - [x] controller 더 작은 기능으로 클래스 분리 (RacingGame -> RacingGame, CalculatingScore, MovingCars, PrizingWinners)
-- [ ] 메서드별로 Test 코드 작성
+- [x] 필요한 Test 코드 작성
 - [x] 접근제어자 및 가독성을 위한 네이밍 및 구조 변경
 ---
 
@@ -43,15 +43,27 @@ private final List를 선언하여 다른 컨트롤러로 넘어갈 때 선언�
 따라서 list 변수가 가리키는 리스트 객체의 요소를 삭제하거나 추가하는 것은 문제가 없다. 이는 list 변수가 불변 참조를 가지고 있을 뿐이며, 리스트 객체 자체의 불변성과 무관하다는 것이다.
 만약 list 변수가 다른 리스트 객체를 참조하지 않고 항상 같은 리스트를 참조하도록 보장되면(즉, 다른 곳에서 list에 새로운 리스트를 할당하지 않는다면), 해당 리스트 객체의 요소를 자유롭게 추가하거나 삭제할 수 있어서 괜찮다고 생각했다.
 
+---
 
 **toString() 사용으로 Car 클래스로 생성된 객체 정보를 나타내는 과정에서 발생한 문제**
 
-: 문제로 당황했던 부분은 toString()을 재정의해서 사용하는데 Car 객체의 name 과 전진 상태가 출력되지 않았고 주소값이 출력되었다.
+: 문제로 당황했던 부분은 toString()을 재정의해서 사용하는데 Car 객체의 name과 전진 상태가 출력되지 않았고 객체의 주소값이 출력되었다. 
 
+---
 
 **controller 클래스의 여러 기능으로 많은 책임이 생겨, 작게 분리하면서 느낀 고민**
 
-: 처음에는 RacingGame의 play() 메서드에서 작게 분리할 곳을 찾지 못했다. 하지만 1) 입력 받는 부분 2) 게임이 실행되며 보여주는 결과 3) 결과 로 나눌 수 있지 않을까 해서 좀 더 분리하고자 한다.
+: 처음에는 RacingGame의 play() 메서드에서 작게 분리할 곳을 찾지 못했다. 하지만 controller의 코드가 120줄을 넘어가면서, 뭔가 잘못생각하고 있다고 느꼈다.
+그래서 기능별로 메서드를 분리해서 여러개의 컨트롤러 클래스로 나누려고 했다.
+
+```
+    1) RacinGame() 내에서 -> 게임을 실행하는 절차를 관리하기로 했고, 이 메서드 내에서 차 이름을 입력받고, 저장하는 메서드
+                        2) 차의 go Or stop을 확인하고, 출력하는 MovingCars 클래스
+                        3) 움직임이 끝난 후 계산 결과를 저장하고, 우승자를 선출하는 CalculatingScore 클래스
+                        4) 우승자 인원에 따라 해당 결과에 맞게 출력해주는 PrizingWinners 클래스 
+```
+
+---
 
 **테스트코드를 작성하며 생긴 고민(private, public)?**
 
@@ -59,7 +71,7 @@ private final List를 선언하여 다른 컨트롤러로 넘어갈 때 선언�
 그래서 가능하면 private 메서드를 호출하는 접근이 가능한 메서드를 테스트하는 것으로 대체하는 것이 좋은 방법이라는 글이 많다. 추가로 Private 메서드를 테스트를 소개하는 글이 있었다.
 Public 메서드를 통해 간접적으로 테스트 하거나, Reflection을 이용하여 테스트하는 방법이 존재했다.
 
-코드 참고: https://yearnlune.github.io/java/java-private-method-test/#do-not-test
+블로그 참고: https://yearnlune.github.io/java/java-private-method-test/#do-not-test
 ```java
 //Java Reflection API를 이용한 메소드 호출
 public class CalculatorTest {

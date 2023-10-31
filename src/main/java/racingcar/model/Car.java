@@ -1,10 +1,5 @@
 package racingcar.model;
 
-import racingcar.controller.RacingGame;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
     private String name;
     private String move;
