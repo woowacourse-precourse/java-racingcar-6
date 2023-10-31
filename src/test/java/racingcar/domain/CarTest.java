@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.LinkedHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -72,7 +74,7 @@ public class CarTest {
         String tmpMoveValue = "-";
         for (Map.Entry<String, String> entry : T.getCarList().entrySet()) {
             String key = entry.getKey();
-            String moveValue =  T.getCarList().get(key);
+            String moveValue = T.getCarList().get(key);
             carList.put(key, tmpMoveValue + moveValue);
             tmpMoveValue = tmpMoveValue + "-";
         }
@@ -82,5 +84,19 @@ public class CarTest {
 
         //then
         Assertions.assertThat(result).isEqualTo("povi3");
+    }
+
+    @Test
+    void checkCarNameLength_이름길이_5자초과_테스트() {
+        //given
+        final String cars = "세글자,일곱글자입니다";
+        final LinkedHashMap<String, String> carList = T2.createCarList(cars);
+        T.setCarList(carList);
+
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            //when
+            T.checkCarNameLength();
+        });
     }
 }
