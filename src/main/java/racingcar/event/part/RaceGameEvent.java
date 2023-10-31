@@ -1,31 +1,35 @@
 package racingcar.event.part;
 
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
 import racingcar.data.DataStore;
-import racingcar.event.core.EventListener.ReturnEvent;
+import racingcar.event.core.EventListener.ParameterAndReturnEvent;
 import racingcar.strategy.RacingCarMoveStrategy;
 import racingcar.view.part.RaceGameComponent.RaceGameResult;
 import racingcar.view.part.RaceGameComponent.RaceGameResult.TrackPerResult;
 
-public record RaceGameEvent(DataStore dataStore) implements ReturnEvent<RaceGameResult> {
+public record RaceGameEvent(DataStore dataStore) implements ParameterAndReturnEvent<RacingCarMoveStrategy, RaceGameResult> {
 
+    // 트랙이 5인 경우를 예시로 들면
+    // 5 -> 유효
+    // 4 -> 유효
+    // 3 -> 유효
+    // 2 -> 유효
+    // 1 -> 유효
+    // 0 -> 불가능
 
     @Override
-    public RaceGameResult execute() {
+    public RaceGameResult execute(RacingCarMoveStrategy racingCarMoveStrategy) {
         final var extractTrack = dataStore.findExtractTrack();
+        final var participants = dataStore.findParticipants();
+
         if (extractTrack.isCompleted()) {
-            return new RaceGameResult(true, List.of());
+            return RaceGameResult.createAlreadyCompletedResult();
         }
 
-        final RacingCarMoveStrategy racingCarMoveStrategy = () -> Randoms.pickNumberInRange(0, 9) <= 4;
-        final var participants = dataStore.findParticipants();
-        final var savedParticipants = dataStore.saveParticipants(participants.moveAll(racingCarMoveStrategy));
+        final var movedParticipants = participants.moveAll(racingCarMoveStrategy);
+
+        dataStore.saveParticipants(movedParticipants);
         dataStore.saveExtractTrack(extractTrack.consumerCount());
 
-        return new RaceGameResult(extractTrack.isCompleted(), savedParticipants.cars()
-                .stream()
-                .map(car -> new TrackPerResult(car.getName(), car.getLap()))
-                .toList());
+        return RaceGameResult.processGameResult(movedParticipants.convert(TrackPerResult::from));
     }
 }
