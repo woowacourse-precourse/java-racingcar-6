@@ -45,4 +45,27 @@ class InputViewTest {
                 ()->{InputView.splitNames(namesWithComma);
                 });
     }
+
+    @Test
+    void 시도_횟수_입력(){
+        String tryValue = "12";
+        int numberOfTry = InputView.numberOfTry(tryValue);
+
+        int checkingNumber = 12;
+        Assertions.assertThat(numberOfTry).isEqualTo(checkingNumber);
+    }
+    @Test
+    void 시도_횟수_예외처리1(){
+        String tryValue = " ";
+        org.junit.jupiter.api.Assertions.assertThrowsExactly(IllegalArgumentException.class,
+                () ->{InputView.numberOfTry(tryValue);
+        });
+    }
+    @Test
+    void 시도_횟수_예외처리2(){
+        String tryValue = "asdfa";
+        org.junit.jupiter.api.Assertions.assertThrowsExactly(IllegalArgumentException.class,
+                () ->{InputView.numberOfTry(tryValue);
+                });
+    }
 }
