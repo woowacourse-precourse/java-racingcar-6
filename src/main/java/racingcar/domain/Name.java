@@ -16,6 +16,7 @@ public class Name {
     public Name(String name) {
         validateSize(name);
         validateIsEmpty(name);
+        validateIsBlank(name);
         this.name = name;
     }
 
@@ -28,6 +29,12 @@ public class Name {
     private void validateIsEmpty(String name) {
         if (name.isEmpty()) {
             throw new IllegalArgumentException(CAR_NAME_EMPTY);
+        }
+    }
+
+    private void validateIsBlank(String name) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException(CAR_NAME_BLANK);
         }
     }
 
