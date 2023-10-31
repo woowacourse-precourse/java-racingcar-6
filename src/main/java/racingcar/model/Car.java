@@ -1,10 +1,9 @@
 package racingcar.model;
 
 import racingcar.model.dto.GameResult;
-import racingcar.util.CarNameValidator;
 
 public class Car {
-    private final String name;
+    private final CarName carName;
     private int position = 0;
 
     public Car(String name) {
@@ -12,8 +11,7 @@ public class Car {
     }
 
     public Car(String name, int position) {
-        CarNameValidator.validate(name);
-        this.name = name;
+        this.carName = new CarName(name);
         this.position = position;
     }
 
@@ -29,7 +27,7 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return carName.getCarName();
     }
 
     public int getPosition() {
