@@ -39,6 +39,17 @@ public class Application {
         leaderboard.winner();
     }
 
+    public static boolean notNumber(String number){
+        try {
+            Integer.parseInt(number);
+        } catch(NumberFormatException e) {
+            return true;
+        }
+
+        return false;
+    }
+
+
     public static void round(Leaderboard leaderboard){
         for (String name : leaderboard.board.keySet()){
             int currentPlace = leaderboard.board.get(name);
