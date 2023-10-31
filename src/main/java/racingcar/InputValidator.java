@@ -18,7 +18,7 @@ public class InputValidator {
         }
     }
 
-    public static void validateCarName(String carName){
+    public static void validateCarName(String carName) {
         if (isOutOfRange(carName)) {
             ExceptionMessage.INPUT_WRONG_CAR_NAME_LENGTH_MESSAGE.throwException();
         }
@@ -40,7 +40,7 @@ public class InputValidator {
 
     private static boolean isOutOfRange(String racingCarName) {
         return (racingCarName.length() > MAX_LENGTH_OF_CAR_NAME)
-                        || (racingCarName.length() < MIN_LENGTH_OF_CAR_NAME);
+                || (racingCarName.length() < MIN_LENGTH_OF_CAR_NAME);
     }
 
     private static boolean isOverZero(int count) {

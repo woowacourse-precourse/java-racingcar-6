@@ -8,9 +8,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class CarTest {
+
     @DisplayName("올바른 이름을 입력할 시 성공한다.")
     @Test
-    void inputRightName(){
+    void inputRightName() {
         String name = "Tomas";
         Car car = new Car(name);
         assertThat(name).isEqualTo(car.getName());
@@ -18,7 +19,7 @@ public class CarTest {
 
     @DisplayName("비어있는 이름을 입력할 시 오류가 발생한다.")
     @Test
-    void inputEmptyName(){
+    void inputEmptyName() {
         String name = "";
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -27,7 +28,7 @@ public class CarTest {
 
     @DisplayName("길이가 5이상인 이름을 입력할 시 오류가 발생한다.")
     @Test
-    void inputWrongLengthName(){
+    void inputWrongLengthName() {
         String name = "kikiki";
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class)

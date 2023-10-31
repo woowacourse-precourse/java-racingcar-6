@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class RacingGameTest {
-    private RacingGame racingGame = new RacingGame();
     private final static String commaString = ",";
+    private RacingGame racingGame = new RacingGame();
 
     private static List<String> convertStringToList(String carNames) {
         return Arrays.stream(carNames.split(commaString))
@@ -22,7 +22,7 @@ public class RacingGameTest {
 
     @DisplayName(",를 입력받으면 오류가 발생한다.")
     @Test
-    void inputOneCommaString(){
+    void inputOneCommaString() {
         List<String> carNames = convertStringToList(",");
         assertThatThrownBy(() -> racingGame.setCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -31,7 +31,7 @@ public class RacingGameTest {
 
     @DisplayName("빈 값을 입력받으면 오류가 발생한다.")
     @Test
-    void inputEmptyString(){
+    void inputEmptyString() {
         List<String> carNames = convertStringToList("");
         assertThatThrownBy(() -> racingGame.setCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -40,7 +40,7 @@ public class RacingGameTest {
 
     @DisplayName("공백 문자를 포함한 자동차 이름 목록을 입력받으면 오류가 발생한다.")
     @Test
-    void inputBlankCarNames(){
+    void inputBlankCarNames() {
         List<String> carNames = convertStringToList("tomas, ,emily");
         assertThatThrownBy(() -> racingGame.setCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -49,7 +49,7 @@ public class RacingGameTest {
 
     @DisplayName("유효한 길이를 가지지 않은 자동차 이름 목록을 입력받으면 오류가 발생한다.")
     @Test
-    void inputWrongLengthOfCarNames(){
+    void inputWrongLengthOfCarNames() {
         List<String> carNames = convertStringToList("tomas,emily,spiderMan");
         assertThatThrownBy(() -> racingGame.setCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -58,7 +58,7 @@ public class RacingGameTest {
 
     @DisplayName("1보다 작은 시도 횟수 값을 입력하면 오류가 발생한다.")
     @Test
-    void inputUnderOneTryCount(){
+    void inputUnderOneTryCount() {
         int tryCount = 0;
         assertThatThrownBy(() -> racingGame.setTryCount(tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
