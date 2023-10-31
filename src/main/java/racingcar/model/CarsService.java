@@ -7,14 +7,14 @@ import java.util.Set;
 
 public class CarsService {
 
-	private final String ENTERED_LIST_SEPARATOR = ",";
+	private final String INPUT_SEPARATOR = ",";
 	private final List<Car> CARS = new ArrayList<>();
 
-	public List<Car> make(String enteredList) {
+	public List<Car> make(String carNames) {
 
-		String[] splitEnteredList = splitEnteredList(enteredList);
+		String[] splitCarNames = splitInput(carNames);
 
-		for (String eachCarName : splitEnteredList) {
+		for (String eachCarName : splitCarNames) {
 
 			Car car = new Car(eachCarName);
 			CARS.add(car);
@@ -25,16 +25,16 @@ public class CarsService {
 
 	}
 
-	private String[] splitEnteredList(String enteredList) {
+	private String[] splitInput(String carNames) {
 
-		validateSeparator(enteredList);
+		validateSeparator(carNames);
 
-		return enteredList.split(ENTERED_LIST_SEPARATOR);
+		return carNames.split(INPUT_SEPARATOR);
 	}
 
 	private void validateSeparator(String enteredList) {
 
-		if (!enteredList.contains(ENTERED_LIST_SEPARATOR)) {
+		if (!enteredList.contains(INPUT_SEPARATOR)) {
 			throw new IllegalArgumentException("자동차 이름을 구분자(,)를 이용해 나눠주세요.");
 		}
 
@@ -54,14 +54,14 @@ public class CarsService {
 
 	public String findWinner() {
 
-		List<Car> winnerList = makeWinnerList();
+		List<Car> winnerList = makeWinners();
 
 		return toStringWinner(winnerList);
 	}
 
-	private List<Car> makeWinnerList() {
+	private List<Car> makeWinners() {
 
-		Set<Car> removeList = makeLaggingCarList();
+		Set<Car> removeList = makeLaggingCars();
 		List<Car> winnerList = CARS;
 
 		for (Car removedCar : removeList) {
@@ -71,18 +71,18 @@ public class CarsService {
 		return winnerList;
 	}
 
-	private Set<Car> makeLaggingCarList() {
+	private Set<Car> makeLaggingCars() {
 
 		Set<Car> removeList = new HashSet<>();
 
 		for (int i = 0; i < CARS.size(); i++) {
-			addLaggingCarList(removeList, i);
+			addLaggingCar(removeList, i);
 		}
 
 		return removeList;
 	}
 
-	private void addLaggingCarList(Set<Car> removeList, int referenceIndex) {
+	private void addLaggingCar(Set<Car> removeList, int referenceIndex) {
 
 		Car referenceCar = CARS.get(referenceIndex);
 

@@ -26,8 +26,8 @@ public class OutputView {
 		System.out.println();
 	}
 
-	public static void printWinner(String winnerList) {
-		System.out.println(WINNER_MESSAGE + MESSAGE_SEPARATOR + winnerList);
+	public static void printWinner(String winner) {
+		System.out.println(WINNER_MESSAGE + MESSAGE_SEPARATOR + winner);
 	}
 
 }
