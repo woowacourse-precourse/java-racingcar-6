@@ -3,8 +3,9 @@ package racingcar.utils;
 import java.util.regex.Pattern;
 
 public class Validation {
-    private static final Integer NAME_LENGTH_MIN = 1;
-    private static final Integer NAME_LENGTH_MAX = 5;
+    private static final int NAME_LENGTH_MIN = 1;
+    private static final int NAME_LENGTH_MAX = 5;
+    private static final Pattern regex = Pattern.compile("\\W");
 
     public static void validateName(String name) {
         isValidNameLength(name);
@@ -18,10 +19,9 @@ public class Validation {
         }
     }
 
-    public static void hasSpecialCharacter(String name) {
-        if (Pattern.matches("\\W", name)) {
+    public static void hasSpecialCharacter(String name) throws IllegalArgumentException {
+        if (regex.matcher(name).find()) {
             throw new IllegalArgumentException();
         }
     }
-
 }
