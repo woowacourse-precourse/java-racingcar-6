@@ -13,23 +13,23 @@ public class InputView {
 
     private final InputValidator inputValidator;
 
-    InputView(){
+    public InputView(){
         inputValidator = new InputValidator();
     }
 
     public List<String> requestCarNamesInput(){
-        System.out.println(INPUT_CAR_NAMES_MESSAGE);
+        System.out.println(INPUT_CAR_NAMES_MESSAGE.getMessage());
         String carNames = Console.readLine();
         List<String> carNameList = generateCarNameListByCarNames(carNames);
         inputValidator.validateCarNamesInput(carNameList);
         return carNameList;
     }
 
-    public String requestRepeatTimesInput(){
-        System.out.println(INPUT_REPEAT_TIMES_MESSAGE);
+    public int requestRepeatTimesInput(){
+        System.out.println(INPUT_REPEAT_TIMES_MESSAGE.getMessage());
         String repeatTimes = Console.readLine();
         inputValidator.validateRepeatTimesInput(repeatTimes);
-        return repeatTimes;
+        return Integer.parseInt(repeatTimes);
     }
 
     private static List<String> generateCarNameListByCarNames(String carNames) {
