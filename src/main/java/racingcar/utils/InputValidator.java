@@ -45,8 +45,10 @@ public class InputValidator {
     }
 
     public static void checkNameIsExist(List<String> carNames) {
-        if (carNames.isEmpty()) {
-            throw new IllegalArgumentException(NAME_NOT_EXIST);
+        for (String carName : carNames) {
+            if (carName.isEmpty()) {
+                throw new IllegalArgumentException(NAME_NOT_EXIST);
+            }
         }
     }
 
