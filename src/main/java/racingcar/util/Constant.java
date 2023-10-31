@@ -8,5 +8,6 @@ public class Constant {
     public static final int MIN_CAN_MOVE_VALUE = 4;
 
     public static final String SPLIT_UNIT = ",";
+    public static final String MOVING_UNIT = "-";
     public static final String ONE_CAR_RESULT = "%s : %s";
 }
