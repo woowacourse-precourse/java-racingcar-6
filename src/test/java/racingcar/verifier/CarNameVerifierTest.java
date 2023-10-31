@@ -26,13 +26,23 @@ class CarNameVerifierTest extends NsTest {
     @Nested
     class ExceptionTest {
         @Test
-        void 자동차이름이_5자이하가_아닌경우() {
+        void 자동차이름이_5자이상인_경우() {
             Assertions.assertSimpleTest(() ->
                     assertThatThrownBy(() -> runException("pobi,woni,123456,ifj", "3"))
                             .isInstanceOf(IllegalArgumentException.class)
                             .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME)
             );
         }
+
+        @Test
+        void 자동차이름이_0자인_경우() {
+            Assertions.assertSimpleTest(() ->
+                    assertThatThrownBy(() -> runException(",,pobi,woni", "3"))
+                            .isInstanceOf(IllegalArgumentException.class)
+                            .hasMessageContaining(ExceptionMessage.INVALID_CAR_NAME)
+            );
+        }
+
     }
 
     @Override
