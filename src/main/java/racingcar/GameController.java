@@ -6,9 +6,9 @@ public class GameController {
     Game game;
     GameView gameView;
 
-    public GameController(Game game, GameView gameView) {
-        this.game = game;
-        this.gameView = gameView;
+    public GameController() {
+        this.game = new Game();
+        this.gameView = new GameView();
     }
 
     public void init() {
@@ -29,6 +29,12 @@ public class GameController {
         game.findWinners();
         gameView.printResult();
         gameView.printWinners(game);
+    }
+
+    public void start() {
+        init();
+        play();
+        finish();
     }
 
 }
