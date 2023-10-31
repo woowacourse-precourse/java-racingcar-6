@@ -11,13 +11,9 @@ public class Validator {
         }
     }
 
-    public int parseStringToInteger(String input) {
-        return Integer.parseInt(input);
-    }
-
     public void validateIsNumber(String input) {
         try {
-            parseStringToInteger(input);
+            Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("입력 값이 유효한 숫자가 아닙니다.", e);
         }
