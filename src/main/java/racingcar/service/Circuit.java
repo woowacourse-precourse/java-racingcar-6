@@ -34,7 +34,7 @@ public class Circuit {
                 cars.stream()
                         .mapToLong(Car::getPosition)
                         .max()
-                        .orElseThrow(NoSuchElementException::new);
+                        .orElseThrow(() -> new NoSuchElementException("서킷에서 관리하는 차들이 없습니다"));
 
         return cars.stream()
                 .filter(car -> car.getPosition().equals(maxPosition))

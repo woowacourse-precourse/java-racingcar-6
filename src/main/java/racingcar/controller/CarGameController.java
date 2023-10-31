@@ -12,6 +12,7 @@ public class CarGameController {
 
     private final UserInputOutput userInputOutput;
 
+    // 참조 객체는 registerCars() 메서드에서 생성 됩니다
     private Circuit circuit;
 
     public CarGameController(UserInputOutput userInputOutput) {
