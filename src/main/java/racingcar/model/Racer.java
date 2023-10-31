@@ -22,13 +22,13 @@ public class Racer {
         return this.state;
     }
 
-    public void plusMoveCount() {
+    public void increaseMoveCount() {
         this.moveCount += 1;
     }
 
     public void goState() {
         this.state = true;
-        plusMoveCount();
+        increaseMoveCount();
     }
 
     public void stopState() {

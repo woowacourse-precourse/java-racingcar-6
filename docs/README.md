@@ -33,7 +33,7 @@
 
   - [x] 전진하는 조건은 0에서 9 사이에서 무작위 값을 구한 후 무작위 값이 4 이상일 경우 (decideGoOrStop) [RaceMaker]
 
-  - [ ] 전진일 경우 racerMoveCount에 1 더해주기 (plusMoveCount) [Racer]
+  - [x] 전진일 경우 MoveCount에 1 더해주기 (increaseMoveCount) [Racer]
 
 
 - [ ] 실행 횟수 moveNumber 만큼 반복 (repeatMove) [RaceProgression]
