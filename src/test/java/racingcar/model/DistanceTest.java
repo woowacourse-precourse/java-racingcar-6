@@ -10,8 +10,8 @@ public class DistanceTest {
     void 자동차_이동거리_Set_Get_테스트() {
         Distance distance = new Distance();
 
-        distance.setCarDistance("_");
+        distance.setDistance("_");
 
-        assertThat(distance.getCarDistance()).isEqula("_");
+        assertThat(distance.getDistance()).isEqualTo("_");
     }
 }
