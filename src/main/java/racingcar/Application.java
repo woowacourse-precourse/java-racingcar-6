@@ -55,12 +55,13 @@ public class Application {
             position = car.getCarPosition();
             winnerPosition = isBiggerThanPosition(position, winnerPosition);
         }
-        
+        sb.append("최종 우승자 : ");
         for(Car car : carList){
             if(winnerPosition == car.getCarPosition()){
-                sb.append(car.getCarName());
+                sb.append(car.getCarName()+", ");
             }
         }
+        sb.setLength(sb.length()-2);
     }
     public static int isBiggerThanPosition(int position, int winner){
         if(position>winner){
