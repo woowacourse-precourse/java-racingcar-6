@@ -19,29 +19,24 @@ public class GameController {
 
   public void run(){
     String[] carNames = inputView.getCarNames();
+    List<Car> cars = new ArrayList<>();
+    for (String name : carNames){
+      cars.add(new Car(name));
+    }
+
     int moveCount = inputView.getMoveCount();
 
-    List<Car> cars = createCars(carNames);
     race = new Race(cars);
 
-    race.startRace(moveCount);
+    for(int move = 0; move < moveCount; move++){
+      race.startRace(1);
+      for(Car car : cars){
+        outputView.printCarStatus(car.getName(), car.getPosition());
+      }
+      System.out.println();
+    }
+
     String winners = race.getWinners();
-
-    resultOutput(cars);
     outputView.printWinners(winners);
-  }
-  private List<Car> createCars(String[] carNames){
-    List<Car> cars = new ArrayList<>();
-    for(String carName : carNames){
-      Car car = new Car(carName);
-      cars.add(car);
-    }
-    return cars;
-  }
-
-  private void resultOutput(List<Car> cars){
-    for(Car car: cars){
-      outputView.printCarStatus(car.getName(), car.getPosition());
-    }
   }
 }
