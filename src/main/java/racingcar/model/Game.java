@@ -5,6 +5,7 @@ import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Game {
 
@@ -45,8 +46,16 @@ public class Game {
 
     }
 
-    @Override
-    public void printBestPerformers() {
+    private void descSortCarsByMileage() {
+        cars.sort((o1, o2) -> {
+            if (o1.getMileage() < o2.getMileage()) {
+                return 1;
+            } else if (Objects.equals(o1.getMileage(), o2.getMileage())) {
+                return 0;
+            }
+            return -1;
+        });
+    }
 
     }
 }
