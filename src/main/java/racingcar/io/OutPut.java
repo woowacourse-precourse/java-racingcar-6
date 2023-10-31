@@ -8,7 +8,8 @@ public class OutPut {
     public static void resultSingleRound(RacingGame racingGame) {
         List<Car> cars = racingGame.getCars();
         for (Car car : cars) {
-            System.out.println(car.getName() + " : " + car.getPosition());
+            String positionIndicator = "-".repeat(car.getPosition());
+            System.out.println(car.getName() + " : " + positionIndicator);
         }
         System.out.println();
     }
