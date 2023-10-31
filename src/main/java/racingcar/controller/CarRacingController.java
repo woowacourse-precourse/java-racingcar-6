@@ -6,7 +6,9 @@ import java.util.List;
 import racingcar.model.RaceGame;
 
 public class CarRacingController {
+    private static final int RACECAR_ADVENCE_NUMBER = 4;
     private int randomNumber;
+    private boolean AdvenceState;
     RandomUtility randomUtillity = new RandomUtility();
 
     public void playGame(RaceGame raceGame) {
@@ -28,8 +30,13 @@ public class CarRacingController {
     public void repeatCarRace(RaceGame raceGame) {
         for (int raceCarIndex = 0; raceCarIndex < raceGame.getCarNames().size(); raceCarIndex++) {
             randomNumber = randomUtillity.generateRandomNumber();
-            System.out.println(randomNumber);
+            AdvenceState = checkAdvenceAndStop(randomNumber);
+            System.out.println(randomNumber + " : " + AdvenceState);
         }
         System.out.println();
+    }
+
+    private boolean checkAdvenceAndStop(int randomNumber) {
+        return randomNumber >= RACECAR_ADVENCE_NUMBER;
     }
 }

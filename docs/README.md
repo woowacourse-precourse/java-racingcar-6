@@ -49,7 +49,7 @@
 		- repeatCarRace()
 			- [O] 각 차수 별 난수 생성 함수 호출
 			- checkAdvenceAndStop() 
-			    - [ ] 전진/멈춤인지 확인
+			    - [O] 전진/멈춤인지 확인
 			- increaseAdvenceCount()
 				- [ ] 전진이면 해당 차의 전진 횟수 증가
 			- [ ] 각 차수별 실행 결과 출력 함수 호출
