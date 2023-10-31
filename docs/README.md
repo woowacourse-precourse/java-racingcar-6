@@ -174,3 +174,15 @@
 
 ######      comment
     입력된 이름이 2 미만인 경우 예외 처리 기능이 추가되었습니다.
+
+#### - 2023/11/01 ver 1.9.1
+
+- 테스트 코드
+
+   - SelfApplicationTest 내용 ApplicationTest에 병합
+   - SelfApplicationTest 삭제
+
+######      comment
+    직접 작성한 테스트 코드를 따로 둘지 합칠지 고민했습니다.
+    프로그래밍 요구사항에 ApplicationTest 모든 테스트 통과가 있어 파일을 변경하라고 명시한 것으로 판단했습니다.
+    이에 병합하게 되었습니다.
