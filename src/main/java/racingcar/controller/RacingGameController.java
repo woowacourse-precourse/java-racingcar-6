@@ -23,13 +23,20 @@ public class RacingGameController {
     }
 
     private RacingGame generateNewRacingGame() {
-        List<String> names = InputView.inputCarNames();
+        Cars cars = this.generateCars();
+        Rounds rounds = this.generateRounds();
         RandomNumberGenerator randomNumberGenerator = new GameRandomNumberGenerator();
-        Cars cars = Cars.createBy(names, randomNumberGenerator);
 
+        return new RacingGame(cars, rounds, randomNumberGenerator);
+    }
+
+    private Rounds generateRounds() {
         int inputRounds = InputView.inputRounds();
-        Rounds rounds = new Rounds(inputRounds);
+        return new Rounds(inputRounds);
+    }
 
-        return new RacingGame(cars, rounds);
+    private Cars generateCars() {
+        List<String> names = InputView.inputCarNames();
+        return Cars.createFromNames(names);
     }
 }
