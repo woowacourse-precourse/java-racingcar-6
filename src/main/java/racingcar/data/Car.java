@@ -1,5 +1,7 @@
 package racingcar.data;
 
+import racingcar.util.CarUtil;
+
 public class Car {
     private String name;
     private int moveDistance;
@@ -22,11 +24,7 @@ public class Car {
             moveDistance++;
         }
 
-        print();
-    }
-
-    private void print() {
-        String moveString = "-".repeat(moveDistance);
-        System.out.println(name + " : " + moveString);
+        String moveString = CarUtil.SHOW_MOVE_DISTANCE.repeat(moveDistance);
+        CarUtil.printMoveCar(name, moveString);
     }
 }

@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.data.Car;
+import racingcar.util.CarUtil;
 
 public class CarService {
     private List<Car> carList = new ArrayList<>();
@@ -14,12 +15,12 @@ public class CarService {
         carList = getCarList();
         round = getRound();
 
-        System.out.println("실행 결과");
+        CarUtil.printResult();
         while (round-- > 0) {
             carList.forEach(res -> {
                 res.move(isPossibleMove());
             });
-            System.out.println();
+            CarUtil.printNewLine();
         }
 
         int max = -1;
@@ -34,32 +35,32 @@ public class CarService {
             }
         }
 
-        String winnerString = winnerList.get(0);
+        StringBuilder winnerNames = new StringBuilder(winnerList.get(0));
         for (int i = 1; i < winnerList.size(); i++) {
-            winnerString += ", " + winnerList.get(i);
+            winnerNames.append(CarUtil.WINNER_SEPARATOR).append(winnerList.get(i));
         }
 
-        System.out.println("최종 우승자 : " + winnerString);
+        CarUtil.printVictory(winnerNames.toString());
     }
 
     private List<Car> getCarList() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String[] inputs = Console.readLine().split(",");
+        CarUtil.printGetCarList();
+        String[] inputs = Console.readLine().split(CarUtil.CAR_NAME_SPLIT);
 
         List<Car> carList = new ArrayList<>();
         for (String input : inputs) {
-            if (input.length() > 5) {
+            if (input.length() > CarUtil.MAX_CAR_NAME_LENGTH) {
                 throw new IllegalArgumentException();
             }
 
-            carList.add(new Car(input, 0));
+            carList.add(new Car(input, CarUtil.FIRST_SCORE));
         }
 
         return carList;
     }
 
     private int getRound() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        CarUtil.printGetRound();
         try {
             return Integer.parseInt(Console.readLine());
         } catch (NumberFormatException e) {
@@ -68,6 +69,7 @@ public class CarService {
     }
 
     private boolean isPossibleMove() {
-        return Randoms.pickNumberInRange(0, 9) >= 4;
+        return Randoms.pickNumberInRange(CarUtil.MIN_RANDOM_NUMBER, CarUtil.MAX_RANDOM_NUMBER)
+                >= CarUtil.MIN_POSSIBLE_MOVE_NUMBER;
     }
 }
