@@ -1,6 +1,7 @@
 package racingcar.controller;
 
 import racingcar.model.Race;
+import racingcar.view.Input;
 
 public class Game {
     private Race race;
@@ -15,7 +16,7 @@ public class Game {
     }
 
     private void setRace() { //레이스 세팅
-
+        race.setCarList();
     }
 
     private void runRace(int rounds){ //각 라운드 시작
