@@ -14,30 +14,31 @@ public class RaceInitializer {
     private final NameListValidator nameListValidator;
     private final AttemptTimesValidator attemptTimesValidator;
 
-    private HashMap<String, Integer> cars;
-    private int attemptTimes;
-
     RaceInitializer(){
         this.inputView = new InputView();
         this.outputView = new OutputView();
         this.nameListValidator = new NameListValidator();
         this.attemptTimesValidator = new AttemptTimesValidator();
-        this.cars = new HashMap<>();
-        this.attemptTimes = 0;
     }
 
-    private void PrepareRace(){
+    public RaceDto initRace(){
+        HashMap<String, Integer> cars = new HashMap<>();
+        getAndValidateNames().forEach( e -> cars.put(e, 0));
+        int attemptTimes = getAndValidateAttempts();
+        return new RaceDto(cars, attemptTimes);
+    }
+
+    private List<String> getAndValidateNames(){
         outputView.requestCarNames();
         String carNamesInput = inputView.getUserInput();
         nameListValidator.validate(carNamesInput);
+        return nameListValidator.splitAndTrim(carNamesInput, Constants.NAME_DELIMITER);
+    }
 
+    private int getAndValidateAttempts(){
         outputView.requestAttemptTimes();
         String attemptTimesInput = inputView.getUserInput();
         attemptTimesValidator.validate(attemptTimesInput);
-
-        List<String> validatedNames
-                = nameListValidator.splitAndTrim(carNamesInput, Constants.NAME_DELIMITER);
-        validatedNames.forEach( e -> this.cars.put(e, 0));
-        this.attemptTimes = Integer.parseInt(attemptTimesInput);
+        return Integer.parseInt(attemptTimesInput);
     }
 }
