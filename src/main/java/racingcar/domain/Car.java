@@ -8,16 +8,18 @@ public class Car {
     private final String name;
     private int progress;
 
-    public Car(String name) {
-        validateCarName(name);
-        this.name = name;
-        this.progress = 0;
-    }
-
-    public Car(String name, int progress) {
+    private Car(String name, int progress) {
         validateCarName(name);
         this.name = name;
         this.progress = progress;
+    }
+
+    public static Car createCar(String name, int progress) {
+        return new Car(name, progress);
+    }
+
+    public static Car createZeroProgressCar(String name) {
+        return new Car(name, 0);
     }
 
     public void validateCarName(String name) {

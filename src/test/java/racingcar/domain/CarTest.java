@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.domain.Car.createCar;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ class CarTest {
     @Test
     void testMoveForward() {
         int initProgress = 2;
-        Car car = new Car("car A", initProgress);
+        Car car = createCar("car A", initProgress);
 
         car.moveForward();
 
@@ -21,7 +22,7 @@ class CarTest {
     @DisplayName("progress(전진)바 출력 테스트")
     @Test
     void printProgressBar() {
-        Car car = new Car("car A", 4);
+        Car car = createCar("car A", 4);
 
         String progressBar = car.printProgressBar();
 

@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.domain.Car.createCar;
 import static racingcar.view.OutputView.printAttempResult;
 import static racingcar.view.OutputView.printWinners;
 
@@ -15,9 +16,9 @@ class OutputViewTest {
 
     @Test
     void testPrintAttempResult() {
-        Car car1 = new Car("car A",2);
-        Car car2 = new Car("car B",2);
-        Car car3 = new Car("car C",2);
+        Car car1 = createCar("car A",2);
+        Car car2 = createCar("car B",2);
+        Car car3 = createCar("car C",2);
         List<Car> cars = List.of(car1, car2, car3);
 
         OutputStream out = new ByteArrayOutputStream();
@@ -31,9 +32,9 @@ class OutputViewTest {
 
     @Test
     void testPrintWinners() {
-        Car car1 = new Car("car A",2);
-        Car car2 = new Car("car B",2);
-        Car car3 = new Car("car C",2);
+        Car car1 = createCar("car A",2);
+        Car car2 = createCar("car B",2);
+        Car car3 = createCar("car C",2);
         List<Car> cars = List.of(car1, car2, car3);
 
         OutputStream out = new ByteArrayOutputStream();

@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static racingcar.domain.Car.createCar;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -25,9 +26,9 @@ class RacingCarServiceTest {
     @DisplayName("우승 후보 계산 테스트")
     @Test
     void testCalculatWinner() {
-        Car car1 = new Car("car A", 5);
-        Car car2 = new Car("car B", 2);
-        Car car3 = new Car("car C", 5);
+        Car car1 = createCar("car A", 5);
+        Car car2 = createCar("car B", 2);
+        Car car3 = createCar("car C", 5);
         List<Car> cars = List.of(car1, car2, car3);
 
         List<Car> winners = RacingCarService.calculatWinner(cars);

@@ -9,7 +9,7 @@ public class RacingCarService {
     public static List<Car> convertCarNames(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
-            Car car = new Car(carName);
+            Car car = Car.createZeroProgressCar(carName);
             cars.add(car);
         }
         return cars;
