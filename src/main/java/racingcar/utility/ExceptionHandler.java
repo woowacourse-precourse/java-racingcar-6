@@ -35,9 +35,10 @@ public class ExceptionHandler {
         }
     }
 
-    public void isValidTryCount(int inputValue) {
+    public void isNaturalNumber(int inputValue) {
         if(inputValue == 0){
             throw new IllegalArgumentException(Error.IS_NOT_NATURAL_NUMBER);
         }
     }
+
 }
