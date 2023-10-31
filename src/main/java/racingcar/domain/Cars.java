@@ -9,6 +9,8 @@ import racingcar.util.Generator;
 import racingcar.view.OutputView;
 
 public class Cars {
+    private static final String RESULT_DELIMITER = "\n";
+    private static final String WINNER_DELIMITER = ", ";
     private List<Car> cars;
 
     public Cars() {
@@ -37,7 +39,7 @@ public class Cars {
     }
 
     public String updateResult() {
-        StringJoiner result = new StringJoiner("\n");
+        StringJoiner result = new StringJoiner(RESULT_DELIMITER);
         cars.forEach(car -> result.add(car.toString()));
         return result.toString();
     }
@@ -51,7 +53,7 @@ public class Cars {
         String winners = cars.stream()
                 .filter(car -> car.isEqualDistance(maxDistance))
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(WINNER_DELIMITER));
 
         return winners;
     }

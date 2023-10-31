@@ -9,7 +9,7 @@ public class Car {
         this.name = name;
     }
 
-    public Car(String name, int distance){
+    public Car(String name, int distance) {
         this.name = name;
         this.distance = distance;
     }
@@ -17,7 +17,7 @@ public class Car {
     @Override
     public String toString() {
         return name + " : "
-                + "-".repeat(Math.max(0, distance));
+                + "-".repeat(distance);
     }
 
     public String getName() {

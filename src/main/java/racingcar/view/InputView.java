@@ -9,6 +9,7 @@ import racingcar.exception.IllegalArgumentMessageException;
 public class InputView {
     private static final int ONE_LENGTH = 1;
     private static final int FIVE_LENGTH = 5;
+    private static final String DELIMITER = ",";
 
     public static String getTryCountFromUser() {
         System.out.println(Message.ASK_TRY_COUNT.getMessage());
@@ -65,7 +66,7 @@ public class InputView {
     }
 
     private static String[] splitWithComma(String stringFromUser) {
-        return stringFromUser.split(",");
+        return stringFromUser.split(DELIMITER);
     }
 
     private static boolean isInvalidLength(String name) {

@@ -25,9 +25,9 @@ public class OutputViewTest {
         String actual = cars.updateResult();
 
         String expected1 = name1 + " : "
-                + "-".repeat(Math.max(0, distance1));
+                + "-".repeat(distance1);
         String expected2 = name2 + " : "
-                + "-".repeat(Math.max(0, distance2));
+                + "-".repeat(distance2);
 
         assertThat(actual).contains(expected1, expected2);
     }
