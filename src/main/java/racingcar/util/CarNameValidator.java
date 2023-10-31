@@ -1,31 +1,22 @@
 package racingcar.util;
 
-import java.util.Objects;
-
 public class CarNameValidator {
-    private static final int LENGTH_LIMIT = 5;
-    private static final String EMPTY_STRING = " ";
+    private static final String SPACE = " ";
 
-    public static void validate(String carName) {
-        validateNullCheck(carName);
-        validateLengthCheck(carName);
-        validateNameCheck(carName);
-    }
-
-    private static void validateNameCheck(String carName) {
-        if (carName.contains(EMPTY_STRING)) {
+    public static void validateSpaceCheck(String carName) {
+        if (carName.contains(SPACE)) {
             throw new IllegalArgumentException("이름에 공백이 존재할 수 없습니다.");
         }
     }
 
-    private static void validateLengthCheck(String carName) {
-        if (carName.length() > LENGTH_LIMIT) {
-            throw new IllegalArgumentException(String.format("이름의 길이는 %d를 초과할 수 없습니다.", LENGTH_LIMIT));
+    public static void validateLengthCheck(String carName,int legth) {
+        if (carName.length() > legth) {
+            throw new IllegalArgumentException(String.format("이름의 길이는 %d를 초과할 수 없습니다.", legth));
         }
     }
 
-    private static void validateNullCheck(String carName) {
-        if (Objects.isNull(carName)) {
+    public static void validateEmptyCheck(String carName) {
+        if (carName.isEmpty()) {
             throw new IllegalArgumentException("이름을 입력하지 않았습니다.");
         }
     }
