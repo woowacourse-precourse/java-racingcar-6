@@ -23,6 +23,12 @@ public class InputTest {
     }
 
     @Test
+    void validateCarsFormat_자동차이름_올바른형식이면_통과() {
+        assertThat(InputValidator.validateCarsFormat("pobi,woni,jun")).containsExactly("pobi","woni","jun");
+        assertThat(InputValidator.validateCarsFormat("p")).containsExactly("p");
+    }
+
+    @Test
     void validateCarLength_자동차이름_6자이상이거나_공백이면_예외() {
         assertThatThrownBy(() -> InputValidator.validateCarNameValid(List.of("pobi", "woooni", "jun")))
                 .isInstanceOf(IllegalArgumentException.class);
