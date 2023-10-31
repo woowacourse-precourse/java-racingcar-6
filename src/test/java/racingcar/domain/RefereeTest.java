@@ -38,4 +38,34 @@ class RefereeTest {
         //then
         Assertions.assertThat(cars.get(0).getName()).isEqualTo("김민수");
     }
+
+    @DisplayName("우승자 이름을 반환한다.")
+    @Test
+    void getWinnerName() {
+        //given
+        List<Car> list = Arrays.asList(new Car("김민수"), new Car("홍길동"), new Car("최종민"));
+        Referee r = new Referee();
+        Car car = list.get(1);
+        car.accel();
+
+        //when
+        String winnerName = r.winnerName(r.selectWinnerList(list));
+
+        //then
+        Assertions.assertThat(winnerName).isEqualTo("최종 우승자 : 홍길동");
+    }
+
+    @DisplayName("같은 이동거리의 우승자가 2명 이상 이면 ','(컴마) 를 추가해서 출력한다.")
+    @Test
+    void getAllWinnerName() {
+        //given
+        List<Car> list = Arrays.asList(new Car("김민수"), new Car("홍길동"), new Car("최종민"));
+        Referee r = new Referee();
+
+        //when
+        String winnerName = r.winnerName(r.selectWinnerList(list));
+
+        //then
+        Assertions.assertThat(winnerName).isEqualTo("최종 우승자 : 김민수, 홍길동, 최종민");
+    }
 }
