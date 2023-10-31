@@ -28,7 +28,7 @@ public class CarRaceManager {
 
     public void createCarList() {
         List<String> carNameList = inputCarName();
-        validateCarName(carNameList);
+        Validation.validateCarName(carNameList);
         for (String carName : carNameList) {
             Car newCar = new Car(carName);
             racingCars.add(newCar);
