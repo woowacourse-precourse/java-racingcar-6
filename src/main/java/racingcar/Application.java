@@ -12,6 +12,10 @@ public class Application {
             game.tryToMove();
             game.printStatus();
         }
-        //System.out.println(test);
+        if (game.numOfWinner() == 1) {
+            game.printWinner();
+        } else if (game.numOfWinner() > 1) {
+            game.printWinners();
+        }
     }
 }

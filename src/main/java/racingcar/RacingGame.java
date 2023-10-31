@@ -39,5 +39,47 @@ public class RacingGame {
         System.out.println();
     }
 
+    public int locationOfWinner() {
+        int max = 0;
+        for (Car c : cars) {
+            if (c.getLocation() > max) {
+                max = c.getLocation();
+            }
+        }
+        return max;
+    }
 
+    public int numOfWinner() {
+        int winnerLocation = locationOfWinner();
+        int numOfWinner = 0;
+        for (Car c : cars) {
+            if (c.getLocation() == winnerLocation) {
+                numOfWinner++;
+            }
+        }
+        return numOfWinner;
+    }
+
+    public void printWinner() {
+        int winnerLocation = locationOfWinner();
+        System.out.print("최종 우승자 : ");
+        for (Car c : cars) {
+            if (c.getLocation() == winnerLocation) {
+                System.out.print(c.getName());
+            }
+        }
+    }
+
+    public void printWinners() {
+        int winnerLocation = locationOfWinner();
+        StringBuilder str = new StringBuilder("최종 우승자 :");
+        //System.out.print("최종 우승자 :");
+        for (Car c : cars) {
+            if (c.getLocation() == winnerLocation) {
+                str.append(" " + c.getName() + ",");
+                //System.out.print(" " + c.getName() + ",");
+            }
+        }
+        System.out.println(str.substring(0, str.length() - 1));
+    }
 }
