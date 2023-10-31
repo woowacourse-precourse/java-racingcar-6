@@ -15,7 +15,7 @@
 -[ ] 자동차는 특정 조건에 따라 전진 또는 멈출 수 있다. Forward
   - [x] 0에서 9 사이에서 무작위 값을 구한다. Forward#randomNumber()
   - [x] 무작위 값이 4 이상일 경우 전진한다. Forward#canForward()
-  - [ ] 무작위 값이 3 이하일 경우 멈춘다. Forward#canNotForward()
+  - [x] 무작위 값이 3 이하일 경우 멈춘다. Forward#canNotForward()
   - [ ] 자동차가 전진하면 racingStateMap 전진 값을 증가시킨다. Forward#updatePosition()
 
 ## 기능 요구 사항
