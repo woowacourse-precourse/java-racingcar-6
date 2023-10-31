@@ -3,24 +3,23 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name;
-    private int position = 1;
+    private final String name;
+    private int position = 0;
 
-    public Car(String name) {
-        validateName(name);
+    public Car(String name){
         this.name = name;
     }
-
-    private void validateName(String name) {
-        if(name.length() > 5){
-            throw new IllegalArgumentException("5글자 이하로 입력하세요.");
-        }
+    public void move() {
+        this.position++;
     }
 
-    public static Integer moving(){
-
+    public String getName() {
+        return name;
     }
 
+    public int getPosition() {
+        return position;
+    }
 
 
 }
