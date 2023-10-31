@@ -32,7 +32,7 @@ public class RacingService {
 
     private void moveCar (LinkedHashSet <Car> cars) {
         for (Car car : cars) {
-            car.moveCar();
+            car.move();
         }
     }
 
