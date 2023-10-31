@@ -11,6 +11,10 @@ public class Name {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public static Name nameOf(String name) {
         return new Name(name);
     }
