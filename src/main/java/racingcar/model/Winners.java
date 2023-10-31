@@ -19,4 +19,15 @@ public class Winners {
             }
         }
     }
+
+    public void printWinners() {
+        System.out.print(Texts.FINALWINNER);
+        if (winners.size() != 1) {
+            for (int idx = 0; idx < winners.size() - 1; idx++) {
+                System.out.print(winners.get(idx) + Texts.COMMAS + Texts.SPACE);
+            }
+        }
+
+        System.out.println(winners.get(winners.size() - 1));
+    }
 }
