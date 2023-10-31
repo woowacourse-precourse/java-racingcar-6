@@ -9,7 +9,6 @@ public class OutputView {
 
     public void printRoundResult(String runResultMessage) {
         println(runResultMessage);
-        println("");
     }
 
     public void printFinalWinner(String finalWinnerMessage) {
