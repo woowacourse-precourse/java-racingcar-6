@@ -31,8 +31,7 @@ public class RacingGameController {
 
         startRacing(cars, tryNumber, racingGame);
 
-        List<CarName> winners = racingGame.getWinners();
-        outputView.printWinners(winners);
+        showWinner(racingGame);
     }
 
     private Cars getCars() {
@@ -57,5 +56,10 @@ public class RacingGameController {
             racingGame.playOneStep();
             outputView.printResult(CarDto.toDtoList(cars));
         });
+    }
+
+    private void showWinner(RacingGame racingGame) {
+        List<CarName> winners = racingGame.getWinners();
+        outputView.printWinners(winners);
     }
 }
