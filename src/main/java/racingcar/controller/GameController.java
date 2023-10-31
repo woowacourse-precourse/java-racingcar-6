@@ -41,6 +41,8 @@ public class GameController {
 		printGameRuleInfo();
 		requestUserInput();
 		this.saveRacingCar();
+		racingCarService.playCarRacing();
+		racingCarService.printCarRacingResult(); // @TODO: 결괏값을 View에 전달하여 출력하기
 	}
 
 	private void printGameRuleInfo() {
@@ -75,5 +77,13 @@ public class GameController {
 				.inputCarRaceTimes(this.getInputCarRaceTimes())
 				.build();
 		racingCarService.saveRacingCar(racingCarInitDto);
+	}
+
+	private void initSaveRacingCar() {
+		RacingCarInitDto racingCarInitDto = RacingCarInitDto.builder()
+				.carNameList(this.getCarNameList())
+				.inputCarRaceTimes(this.getInputCarRaceTimes())
+				.build();
+		racingCarService.initSaveRacingCar(racingCarInitDto);
 	}
 }

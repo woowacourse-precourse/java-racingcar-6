@@ -14,7 +14,6 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    @Disabled
     void 전진_정지() {
         assertRandomNumberInRangeTest(
             () -> {

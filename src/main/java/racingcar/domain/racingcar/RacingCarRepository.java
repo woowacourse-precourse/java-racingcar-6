@@ -2,8 +2,7 @@ package racingcar.domain.racingcar;
 
 import racingcar.dto.RacingCarDto;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RacingCarRepository {
 	private Map<String, RacingCar> racingCarMap = new LinkedHashMap<>();
@@ -42,5 +41,16 @@ public class RacingCarRepository {
 
 	public Map<String, RacingCar> getRacingCarMap() {
 		return racingCarMap;
+	}
+
+	public LinkedHashMap<String, RacingCar> sortRacingCarMapByValueDesc(Map<String, RacingCar> map) {
+		List<Map.Entry<String, RacingCar>> entryList = new LinkedList<>(map.entrySet());
+		Collections.sort(entryList, (racingCar, comparedRacingCar) -> comparedRacingCar.getValue().getCarPosition().compareTo(racingCar.getValue().getCarPosition()));
+		LinkedHashMap<String, RacingCar> racingCarLinkedHashMap = new LinkedHashMap<>();
+		for (Map.Entry<String, RacingCar> entity : entryList) {
+			racingCarLinkedHashMap.put(entity.getKey(), entity.getValue());
+		}
+
+		return racingCarLinkedHashMap;
 	}
 }
