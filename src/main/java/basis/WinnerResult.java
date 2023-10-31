@@ -1,5 +1,7 @@
 package basis;
 
+import static constant.Constant.BLANK;
+
 import io.UserInput;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -20,7 +22,7 @@ public class WinnerResult {
 
     private void addCommaIfMultipleWinners(List<String> winnerList) {
         if (winnerList.size() > 1) {
-            ui.print(", ");
+            ui.print("," + BLANK);
         }
     }
 

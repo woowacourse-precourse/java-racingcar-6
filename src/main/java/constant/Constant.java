@@ -7,6 +7,7 @@ public class Constant {
     public final static String WINNER_RESULT_MESSAGE = "최종 우승자 : ";
     public final static String MOVE_SYMBOL = "-";
     public final static String STOP_SYMBOL = "";
+    public final static String BLANK = " ";
     public final static int NAME_LENGTH_LIMIT = 5;
     public final static int MINIMUM_RANGE = 0;
     public final static int MAXIMUM_RANGE = 9;
