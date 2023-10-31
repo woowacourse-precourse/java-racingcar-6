@@ -4,9 +4,9 @@ public class Cars {
     private String name;
     private String loadState;
 
-    public Cars(String name, String loadState){
-        this.name=name;
-        this.loadState=loadState;
+    public Cars(String name, String loadState) {
+        this.name = name;
+        this.loadState = loadState;
     }
 
     public String getName() {
@@ -18,15 +18,15 @@ public class Cars {
     }
 
     public String upLoadState() {
-        return this.loadState= this.loadState.concat("-");
+        return this.loadState = this.loadState.concat("-");
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getLength(){
-        int length=loadState.length();
+    public int getLength() {
+        int length = loadState.length();
         return length;
     }
 }

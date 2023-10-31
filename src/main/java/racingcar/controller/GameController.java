@@ -24,83 +24,71 @@ public class GameController {
         List<String> resultList = racingCar.gameStart();
         this.carsList = new ArrayList<>(); // Initialize the list
 
-        int index=0;
-        for(String car: resultList){
-            if(index==0){
+        int index = 0;
+        for (String car : resultList) {
+            if (index == 0) {
                 this.tryNum = Integer.parseInt(resultList.get(0));
             }
-            if(index!=0){
-                Cars newCar = new Cars(car,"" );
+            if (index != 0) {
+                Cars newCar = new Cars(car, "");
                 carsList.add(newCar);
             }
             index++;
         }
     }
 
-    public boolean isLargeThen(int num){
-        if(num >= MIN_RUNNING_SIZE){
+    public boolean isLargeThen(int num) {
+        if (num >= MIN_RUNNING_SIZE) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
-    public void playLoad(List<Cars> carsList){
+
+    public void playLoad(List<Cars> carsList) {
         for (Cars car : carsList) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE);
-            if (isLargeThen(randomNumber)){
+            if (isLargeThen(randomNumber)) {
                 car.upLoadState();
             }
         }
         System.out.println();
     }
 
-    public String getResult(List<Cars> carsList){
-        String winnerName="";
-        int lagestLocation=0;
+    public String getResult(List<Cars> carsList) {
+        String winnerName = "";
+        int lagestLocation = 0;
         int currentLocation;
 
-        for (Cars car: carsList){
+        for (Cars car : carsList) {
             currentLocation = car.getLength();
-            if(currentLocation == lagestLocation){
-                winnerName=winnerName.concat(", "+car.getName());
+            if (currentLocation == lagestLocation) {
+                winnerName = winnerName.concat(", " + car.getName());
             }
-            if(currentLocation>lagestLocation){
-                lagestLocation=currentLocation;
-                winnerName=car.getName();
+            if (currentLocation > lagestLocation) {
+                lagestLocation = currentLocation;
+                winnerName = car.getName();
             }
         }
         return winnerName;
     }
 
-    public boolean isAbleName(String name){
-        if(name.length()>MAX_NAME_SIZE){
-            return false;
-        }
-        return true;
-    }
-
-    public void play(){
+    public void play() {
         int carNum = this.carsList.size();
-        for(int i=0 ; i<tryNum ; i++){
+        for (int i = 0; i < tryNum; i++) {
             playLoad(this.carsList);
 
-            List<String>names = new ArrayList<>();
-            List<String>locations = new ArrayList<>();
+            List<String> names = new ArrayList<>();
+            List<String> locations = new ArrayList<>();
 
-            for(Cars car:carsList){
-                if(isAbleName(car.getName())){
-                    names.add(car.getName());
-                    locations.add(car.getLoadState());
-                }
-                else{
-                    throw new IllegalArgumentException("사용 가능한 최대 글자수는 5 입니다.");
-                }
+            for (Cars car : carsList) {
+                names.add(car.getName());
+                locations.add(car.getLoadState());
             }
-            racingCar.showLoad(names,locations,carNum);
+            racingCar.showLoad(names, locations, carNum);
         }
         String result = getResult(this.carsList);
-        System.out.println("최종 우승자 : "+result);
+        System.out.println("최종 우승자 : " + result);
     }
 
 }

@@ -10,9 +10,9 @@ public class Application {
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-            RacingCar racingCar = new RacingCar(); // view
-            GameController gameController = new GameController(racingCar); // controller
-        try{
+        RacingCar racingCar = new RacingCar(); // view
+        GameController gameController = new GameController(racingCar); // controller
+        try {
             gameController.GameStart();
             gameController.play();
         } catch (Exception e) {
