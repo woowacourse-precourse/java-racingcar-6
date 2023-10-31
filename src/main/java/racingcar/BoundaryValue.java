@@ -8,13 +8,13 @@ public enum BoundaryValue {
     MAX_NAME_LENGTH(5),
     MIN_ROUND(1);
 
-    public int get() {
-        return value;
-    }
-
     private final int value;
 
     BoundaryValue(int value) {
         this.value = value;
+    }
+
+    public int get() {
+        return value;
     }
 }

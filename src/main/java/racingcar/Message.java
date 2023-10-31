@@ -6,13 +6,13 @@ public enum Message {
     START_RACE("실행 결과"),
     RESULT("최종 우승자 : ");
 
-    public String getMessage() {
-        return message;
-    }
-
-    private String message;
+    private final String message;
 
     Message(String message) {
         this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
