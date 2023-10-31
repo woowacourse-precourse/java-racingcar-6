@@ -22,4 +22,16 @@ public class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("Name can be longer than 5");
     }
+    @Test
+    void 트랙_추가되는지_테스트(){
+        String name = "cys";
+        Car car = new Car(name);
+        car.add();
+        car.add();
+        car.add();
+
+        assertThat(car.getTrackLength()).isEqualTo(3);
+    }
+
+
 }
