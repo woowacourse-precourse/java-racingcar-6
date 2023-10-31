@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.ExceptionMessage.DUPLICATE_CAR_NAME;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +21,4 @@ public class Car {
         forward++;
     }
 
-    private void validateCarNameLength(String name) {
-        if (name.length() >= 6) {
-            throw new IllegalArgumentException("자동차의 이름은 6글자를 넘길 수 없습니다.");
-        }
-    }
 }
