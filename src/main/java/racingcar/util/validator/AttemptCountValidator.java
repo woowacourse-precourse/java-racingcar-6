@@ -13,7 +13,7 @@ public enum AttemptCountValidator {
 
     private void checkAttemptCountIsInteger(String input) {
         if (isNotInteger(input)) {
-            throw new IllegalArgumentException(ExceptionMessage.NON_INTEGER.message());
+            throw new IllegalArgumentException(ExceptionMessage.NON_NATURAL_NUMBER.message());
         }
     }
 
