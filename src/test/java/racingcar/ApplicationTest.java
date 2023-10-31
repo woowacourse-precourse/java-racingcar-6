@@ -7,6 +7,8 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberI
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
@@ -30,9 +32,26 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+   @Test
+   void 같은_이름의_자동차가_입력되었을때_예외처리(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException("pobi,pobi"))
+                        .isInstanceOf(IllegalArgumentException.class));
+   }
+
+   @Test
+   void 자동차의_이름에_빈값이_들어갈때_예외처리(){
+        assertSimpleTest(()->
+                assertThatThrownBy(()->runException(" ","  ","   ","    ","     "))
+                        .isInstanceOf(IllegalArgumentException.class)
+                );
+   }
 
     @Override
     public void runMain() {
         Application.main(new String[]{});
     }
+
+
+
 }
