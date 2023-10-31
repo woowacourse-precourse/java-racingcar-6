@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 public class RaceCar {
+    private static int maxDistanceTraveled=0;
     int position;
     String name;
     public RaceCar(){
@@ -15,7 +16,17 @@ public class RaceCar {
 
     public void raceForward(){
         if(Randoms.pickNumberInRange(0,9)>=4) position+=1;
+        renewMaxDistanceTraveled();
     }
+
+    private void renewMaxDistanceTraveled(){
+        if(maxDistanceTraveled < position ) maxDistanceTraveled = position;
+    }
+
+    private String winerCarName(){
+        if(maxDistanceTraveled == position) return name;
+    }
+
 
     public void currentPosition(){
         String underBar = "_";
