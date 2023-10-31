@@ -3,6 +3,7 @@ package racingcar.game;
 import racingcar.controller.Dice;
 import racingcar.view.OutputView;
 import static racingcar.controller.constants.IntegerConstants.*;
+import static racingcar.controller.constants.DelimiterConstants.*;
 
 import java.util.ArrayList;
 
@@ -58,9 +59,8 @@ public class Cars {
     }
 
     public String winnersToString(ArrayList<Car> winners){
-        // TODO: 상수 교체
         ArrayList<String> carNames = getCarNames(winners);
-        return String.join(", ", carNames);
+        return String.join(DELIMITER_WITH_BLANK.getValue(), carNames);
     }
 
     public ArrayList<String> getCarNames(ArrayList<Car> cars) {
