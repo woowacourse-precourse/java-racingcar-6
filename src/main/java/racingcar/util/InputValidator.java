@@ -35,6 +35,14 @@ public class InputValidator {
         }
     }
 
+    public static void validateNumericInput(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("입력값이 숫자가 아닙니다: " + input);
+        }
+    }
+
     public static void validateMoveCountRange(int moveCount) {
         if (moveCount < MIN_MOVE_COUNT) {
             throw new IllegalArgumentException("최소 시도 횟수보다 낮은 값을 입력하셨습니다. 최소 1회 이상의 시도 횟수를 입력해주세요.");

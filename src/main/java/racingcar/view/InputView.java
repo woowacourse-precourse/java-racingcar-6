@@ -32,7 +32,11 @@ public class InputView {
     public int askMoveCount() {
         System.out.println(MOVE_COUNT_INPUT_MESSAGE);
         String inputMoveCount = Console.readLine();
+        InputValidator.validateNumericInput(inputMoveCount);
 
-        return Integer.valueOf(inputMoveCount);
+        int moveCount = Integer.valueOf(inputMoveCount);
+        InputValidator.validateMoveCountRange(moveCount);
+
+        return moveCount;
     }
 }
