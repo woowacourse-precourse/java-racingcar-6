@@ -2,16 +2,16 @@ package player;
 
 import utils.Factory;
 
-public class Car {
+class Car {
     private int distance = 0;
 
-    public Car(){}
+    Car(){}
 
-    public int getDistance() {
+    int getDistance() {
         return distance;
     }
 
-    public void tryMove() {
+    void tryMove() {
         if (Factory.createRandomDigit() >= 4) {
             distance++;
         }
