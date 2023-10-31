@@ -12,16 +12,29 @@ public class Application {
         String carNameInput = UserEnterCarName();
         Car[] cars = MakeCarObject(carNameInput);
 
-        for(int i=0; i<cars.length; i++){
-            System.out.println(cars[i].name+" "+cars[i].meter);
-        }
+//        for(int i=0; i<cars.length; i++){
+//            System.out.println(cars[i].name+" "+cars[i].meter);
+//        }
 
         int repeatNumber = UserEnterRepeatNumber();
-        System.out.println(repeatNumber);
+//        System.out.println(repeatNumber);
+
+        System.out.println("실행 결과");
         for(int i=0; i<repeatNumber; i++){
         CalculateGoOrStop(cars);
+        PrintResult(cars);
         }
 
+    }
+
+    private static void PrintResult(Car[] cars) {
+        for(Car car: cars){
+            System.out.print(car.name + " : ");
+            for(int i=0; i<car.meter; i++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }System.out.println();
     }
 
     private static void CalculateGoOrStop(Car[] cars) {
