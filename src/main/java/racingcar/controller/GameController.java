@@ -1,10 +1,9 @@
 package racingcar.controller;
 
+import racingcar.domain.CarNames;
 import racingcar.domain.GamePlayer;
-import racingcar.domain.GameRank;
 import racingcar.domain.GameWinner;
-import racingcar.dto.CarNames;
-import racingcar.dto.MoveCount;
+import racingcar.domain.MoveCount;
 import racingcar.service.GameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -31,16 +30,24 @@ public class GameController {
 
     private void showWinner(GamePlayer gamePlayer) {
         //createGameRankBy(gamePlayer) 가 더 가독성이 좋은가
-        GameRank gameRank = gameService.createGameRank(gamePlayer);
-        GameWinner gameWinner = gameService.createGameWinner(gameRank);
+//        GameRank gameRank = gameService.createGameRank(gamePlayer);
+        GameWinner gameWinner = gameService.createGameWinner(gamePlayer);
         outputView.gameWinner(gameWinner);
     }
 
     private void play(GamePlayer gamePlayer) {
         outputView.requestMoveCount();
         MoveCount moveCount = inputView.moveCount();
-        gameService.moveCarsByCount(gamePlayer, moveCount);
-        System.out.println(gamePlayer);
+        //다른 네이밍은 없을까
+        outputView.beforeMovingMessage();
+        moveRepeatByCount(moveCount, gamePlayer);
+    }
+
+    private void moveRepeatByCount(MoveCount moveCount, GamePlayer gamePlayer) {
+        for (int i = 0; i < moveCount.getCount(); i++) {
+            gameService.moveCars(gamePlayer);
+            outputView.moveResult(gamePlayer);
+        }
     }
 
     private GamePlayer start() {
