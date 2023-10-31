@@ -11,12 +11,12 @@ import racingcar.exception.RacingCarGameException;
 
 public class RacingCarGameUtils {
 
-  public static List<String> convertStringToList(String inputCarName) {
+  public static List<String> convertStringToList(final String inputCarName) {
     return new ArrayList<>(Arrays.asList(inputCarName.split(",")));
 
   }
 
-  public static int convertStringToInt(String inputString) {
+  public static int convertStringToInt(final String inputString) {
     if (Long.parseLong(inputString) > Integer.MAX_VALUE) {
       throw new RacingCarGameException("라운드 횟수는 INT_MAXVALUE보다 클 수 없습니다.");
     }
@@ -27,7 +27,7 @@ public class RacingCarGameUtils {
     return input;
   }
 
-  public static List<Integer> generateRandomValuesForCarGame(Integer carsCount) {
+  public static List<Integer> generateRandomValuesForCarGame(final Integer carsCount) {
     List<Integer> randomList = new ArrayList<>();
     for (int i = 0; i < carsCount; i++) {
       randomList.add(Randoms.pickNumberInRange(RANDOM_MINIMUM_VALUE, RANDOM_MAXIMUM_VALUE));

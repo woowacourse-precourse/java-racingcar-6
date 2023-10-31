@@ -11,13 +11,13 @@ public class RacingCarNameValidator implements Validator<String> {
     validateElement(data);
   }
 
-  private void validateElement(String data) {
+  private void validateElement(final String data) {
     if (data.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?].*")) {
       throw new RacingCarGameException("문자열에 특수 문자가 포함되어 있습니다.");
     }
   }
 
-  private void validateLength(String data) {
+  private void validateLength(final String data) {
     if (data.length() > RacingCarGameConfig.CARNAME_MAXIMUM_LENGTH || data.isBlank()) {
       throw new RacingCarGameException("자동차 이름은 1~5자 이여야 합니다.");
     }

@@ -6,7 +6,7 @@ public class RacingCarGameException extends IllegalArgumentException {
 
   }
 
-  public RacingCarGameException(String errorMessage) {
+  public RacingCarGameException(final String errorMessage) {
     super(errorMessage);
   }
 }

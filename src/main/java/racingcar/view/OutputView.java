@@ -8,11 +8,11 @@ public class OutputView {
     System.out.println(ViewNotice.ROUND_RESULT_NOTICE);
   }
 
-  public static void printRoundResult(Cars cars) {
+  public static void printRoundResult(final Cars cars) {
     System.out.println(cars);
   }
 
-  public static void printRacingCarGameWinner(Cars cars) {
+  public static void printRacingCarGameWinner(final Cars cars) {
     System.out.println("최종 우승자 : " + cars.getWinnerByDistance());
   }
 }
