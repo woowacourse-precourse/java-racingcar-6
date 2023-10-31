@@ -77,6 +77,15 @@ class UserTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("자동차의 숫자가 2대 미만이면 예외를 발생시킨다.")
+    void 자동차_숫자_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
