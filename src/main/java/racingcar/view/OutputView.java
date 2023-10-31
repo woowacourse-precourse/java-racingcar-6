@@ -4,8 +4,6 @@ import racingcar.domain.RacingCar;
 import racingcar.domain.RacingCars;
 import racingcar.domain.Winner;
 
-import java.util.stream.IntStream;
-
 public class OutputView {
     private static final String RESULT_MESSAGE = "실행 결과";
     private static final String HYPHEN = "-";

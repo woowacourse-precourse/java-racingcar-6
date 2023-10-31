@@ -40,7 +40,6 @@ public class RacingCar {
         return Randoms.pickNumberInRange(0, 9);
     }
 
-    /** 랜덤 값 테스트를 위한 메소드 **/
     public void testMove() {
         if (!isTestMovable()) {
             return;

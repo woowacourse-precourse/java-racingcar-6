@@ -73,4 +73,14 @@ public class RacingCarValidatorTest {
                 RacingCarValidator.numberAttemptsInputOnlyNumberValidator(input)
         );
     }
+    @Order(3)
+    @ParameterizedTest
+    @ValueSource(strings = {"0",
+            "-1",
+            "-10"})
+    void 숫자_최솟값_입력_테스트(String input) {
+        assertThatIllegalArgumentException().isThrownBy(()->
+                RacingCarValidator.numberAttemptsInputMinValueValidator(input)
+        );
+    }
 }

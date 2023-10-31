@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.stream.IntStream;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class RacingCarTest {
@@ -25,13 +27,10 @@ public class RacingCarTest {
         RacingCar racingCar1 = new RacingCar("juni", 1, bound -> 3);
         RacingCar racingCar2 = new RacingCar("huni", 1, bound -> 4);
 
-        int round = 5;
-        for (int i = 0; i < round; i++) {
-            racingCar1.testMove();
-            racingCar2.testMove();
+        racingCar1.testMove();
+        racingCar2.testMove();
 
-        }
         assertThat(racingCar1.getMove()).isEqualTo(1);
-        assertThat(racingCar2.getMove()).isEqualTo(6);
+        assertThat(racingCar2.getMove()).isEqualTo(2);
     }
 }

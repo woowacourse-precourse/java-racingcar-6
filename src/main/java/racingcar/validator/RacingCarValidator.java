@@ -9,6 +9,8 @@ public class RacingCarValidator {
     private static final String RACING_CAR_NAME_SPACE_EXCEPTION_MESSAGE = "자동차 이름에 공백 입력이 불가능합니다.";
     private static final String ATTEMPT_NUMBER_INPUT_EXCEPTION_MESSAGE = "숫자만 입력할 수 있습니다.";
     private static final String ATTEMPT_NUMBER_INPUT_EMPTY_EXCEPTION_MESSAGE = "1 이상의 숫자를 입력해주세요";
+    private static final String ATTEMPT_NUMBER_INPUT_MIN_VALUE_EXCEPTION_MESSAGE = "0보다 큰 숫자를 입력할 수 있습니다.";
+
     private static final String COMMA = ",";
     private static final Integer RACING_CAR_NAME_OVER_LENGTH = 5;
     private static final Integer ZERO = 0;
@@ -22,7 +24,8 @@ public class RacingCarValidator {
 
     public static boolean numberAttemptsInputValidator(String number) {
         return numberAttemptsEmptyInputValidator(number) &&
-                numberAttemptsInputOnlyNumberValidator(number);
+                numberAttemptsInputOnlyNumberValidator(number) &&
+                numberAttemptsInputMinValueValidator(number);
 
     }
 
@@ -63,6 +66,12 @@ public class RacingCarValidator {
         }
     }
 
+    public static boolean numberAttemptsInputMinValueValidator(String number){
+        if(Integer.parseInt(number)<=0){
+            throw new IllegalArgumentException(ATTEMPT_NUMBER_INPUT_MIN_VALUE_EXCEPTION_MESSAGE);
+        }
+        return true;
+    }
     public static boolean numberAttemptsEmptyInputValidator(String number) {
         if (number.length() == ZERO) {
             throw new IllegalArgumentException(ATTEMPT_NUMBER_INPUT_EMPTY_EXCEPTION_MESSAGE);
