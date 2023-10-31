@@ -25,17 +25,12 @@ public class OutputFormatter {
     }
 
     private String appendStatus(int distance) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < distance; i++) {
-            sb.append(VISUALIZED_STATUS);
-        }
-        return sb.toString();
+        return VISUALIZED_STATUS.repeat(Math.max(0, distance));
     }
 
     public String printWinner(ResultCars resultCars) {
-        String resultCarNames = resultCars.getResultCars().stream()
+        return resultCars.getResultCars().stream()
                 .map(ResultCar::getName)
                 .collect(Collectors.joining(COMMAS + SPACE));
-        return resultCarNames;
     }
 }
