@@ -26,4 +26,8 @@ public class CarRepository {
     public List<Car> getCarList() {
         return carList;
     }
+
+    public void clean() {
+        carList.clear();
+    }
 }
