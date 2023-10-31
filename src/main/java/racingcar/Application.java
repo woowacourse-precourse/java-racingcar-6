@@ -79,7 +79,13 @@ class UpdateDistance {
 
 }
 
-
+class PrintCurrentCondition {
+    static void printDistance(ArrayList<Car> carList) {
+        for (int i = 0; i < carList.size(); i++)
+            System.out.println(carList.get(i).getName() + " : " + carList.get(i).getDistance());
+        System.out.println("");
+    }
+}
 
 class RacingCar {
     public static void start() {
@@ -91,14 +97,17 @@ class RacingCar {
 
         System.out.println("시도할 회수는 몇회인가요?");
         int trying = Integer.parseInt(Console.readLine());
+        System.out.println("");
 
         if (CheckNames.CheckNamesInCarList(carList))
             throw new IllegalArgumentException();
 
+        System.out.println("실행 결과");
         int roundCount = 0;
         while (roundCount < trying) {
             UpdateDistance updateDistance = new UpdateDistance();
             updateDistance.updateCarDistance(carList);
+            PrintCurrentCondition.printDistance(carList);
             roundCount++;
         }
 
