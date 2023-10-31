@@ -40,7 +40,7 @@ public class Cars {
     private Car getHighestPositionCar() {
         Car highestCar = cars.get(0);
         for (Car car : cars) {
-            if (car.getPosition() > highestCar.getPosition()){
+            if (car.getPosition() > highestCar.getPosition()) {
                 highestCar = car;
             }
         }

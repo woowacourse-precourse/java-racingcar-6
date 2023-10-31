@@ -8,7 +8,7 @@ public class Application {
         GameController gameController = new GameController();
         try {
             gameController.run();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getStackTrace();
         }
     }
