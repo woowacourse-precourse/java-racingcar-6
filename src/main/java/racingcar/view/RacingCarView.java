@@ -2,7 +2,6 @@ package racingcar.view;
 
 import racingcar.model.Car;
 import racingcar.validator.InputValidator;
-
 import java.util.List;
 
 public class RacingCarView {

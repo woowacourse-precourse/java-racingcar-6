@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +35,7 @@ public class Car {
         return String.join("", position);
     }
 
-    public Integer getPositionLength(){
+    public Integer getPosition(){
         return position.size();
     }
 

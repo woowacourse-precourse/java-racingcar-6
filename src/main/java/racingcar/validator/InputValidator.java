@@ -2,7 +2,6 @@ package racingcar.validator;
 
 import racingcar.exception.ErrorMessage;
 import racingcar.model.Car;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
