@@ -296,7 +296,21 @@ class ApplicationTest_function_list extends NsTest {
 
     @Test
     void 기능목록_테스트_우승자_목록을_형식에_맞춰_출력() {
+        List<List<Object>> testCase = Arrays.asList(
+                Arrays.asList("pobi", "woni", "jun"),
+                Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "0"));
 
+        for (List<Object> input : testCase) {
+            init();
+            Race race = new Race();
+            List<String> names = input.stream().map(Object::toString).toList();
+            race.addCars(names);
+
+            assertSimpleTest(() -> {
+                Print.winner(race.getCars());
+                assertThat(output()).isEqualTo("최종 우승자 : " + String.join(", ", names));
+            });
+        }
     }
 
     @Test
