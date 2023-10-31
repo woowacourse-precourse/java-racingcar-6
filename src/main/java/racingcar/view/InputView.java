@@ -24,6 +24,9 @@ public class InputView {
 
     public List<String> stringToList(String str) {
         String[] strList = str.split(",");
+        if (str.isEmpty()) {
+            return List.of("");
+        }
         return List.of(strList);
     }
 }
