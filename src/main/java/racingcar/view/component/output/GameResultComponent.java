@@ -1,8 +1,8 @@
 package racingcar.view.component.output;
 
-import static strings.Strings.COMMAS;
-import static strings.Strings.LINE_BREAK;
-import static strings.Strings.WHITE_SPACE;
+import static strings.util.Strings.COMMAS;
+import static strings.util.Strings.LINE_BREAK;
+import static strings.util.Strings.WHITE_SPACE;
 
 import java.util.List;
 import racingcar.domain.car.dto.output.WinnerDto;
