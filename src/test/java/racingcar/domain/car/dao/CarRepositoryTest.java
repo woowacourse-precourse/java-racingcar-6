@@ -156,6 +156,9 @@ class CarRepositoryTest {
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessageContaining(CAR_NOT_EXIST.getErrorMessage());
 
+            assertThatThrownBy(carRepository::findAllCarsWithMaxPosition)
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining(CAR_NOT_EXIST.getErrorMessage());
         }
     }
 }
