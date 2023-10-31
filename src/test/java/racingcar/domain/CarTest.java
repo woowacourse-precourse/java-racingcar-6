@@ -7,7 +7,6 @@ import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
 import racingcar.util.RandomNumber;
-import org.mockito.Mockito;
 
 public class CarTest {
 
