@@ -11,19 +11,19 @@ class OutputFormatterTest {
     @Test
     void testGetMessageWhenInputCarNames() {
         String msg = OutputFormatter.getMessageWhenInputCarNames();
-        Assertions.assertThat(msg).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        Assertions.assertThat(msg).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
     }
 
     @Test
     void testGetMessageWhenInputNumOfTries() {
         String msg = OutputFormatter.getMessageWhenInputNumOfTries();
-        Assertions.assertThat(msg).isEqualTo("시도할 회수는 몇회인가요?");
+        Assertions.assertThat(msg).isEqualTo("시도할 회수는 몇회인가요?\n");
     }
 
     @Test
     void testGetMessageToIndicateToStartToShowResult() {
         String msg = OutputFormatter.getMessageToIndicateToStartToShowResult();
-        Assertions.assertThat(msg).isEqualTo("실행 결과");
+        Assertions.assertThat(msg).isEqualTo("\n실행 결과\n");
     }
 
     @Test
