@@ -7,6 +7,7 @@ import model.service.GameResult;
 import model.service.InputCheck;
 import model.domain.Participant;
 import model.service.Game;
+import model.service.Split;
 import view.Input;
 import view.Output;
 
@@ -14,9 +15,7 @@ public class GameStart {
 
     public static void start() {
 
-        String names = Input.name();
-        List<String> nameList = InputCheck.name(names);
-        Participant participant = new Participant(nameList);
+        Participant participant = new Participant(Split.byComma(Input.name()));
 
         String roundStr = Input.round();
         int num = InputCheck.round(roundStr);
