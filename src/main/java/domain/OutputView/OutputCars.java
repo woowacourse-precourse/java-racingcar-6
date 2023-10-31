@@ -1,16 +1,17 @@
 package domain.OutputView;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import domain.Car;
 
 public class OutputCars {
 
-    public static void printTurnResult(ArrayList<Car> TurnResult)
+    public static void printTurnResult(HashMap<String, String> TurnResult)
     {
-        for(Car car : TurnResult)
+        for(Map.Entry<String, String> entry : TurnResult.entrySet())
         {
-            System.out.printf("%s : %s%n", car.getName(), printPosition(car.getPosition()));
+            System.out.printf("%s : %s%n", entry.getKey(), entry.getValue());
         }
         System.out.println();
 
