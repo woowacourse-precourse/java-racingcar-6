@@ -8,12 +8,11 @@ import java.util.List;
 public class User {
 
     public List<String> inputCars() {
-        try {
-            String cars = Console.readLine();
-            return Arrays.stream(cars.split(",")).toList();
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Wrong input cars", e);
+        String cars = Console.readLine();
+        if (cars.isEmpty()) {
+            throw new IllegalArgumentException("Empty input car name");
         }
+        return Arrays.stream(cars.split(",")).toList();
     }
 
     public int inputAttempt() {
