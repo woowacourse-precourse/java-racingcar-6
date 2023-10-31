@@ -61,12 +61,4 @@ public class GameService {
     private boolean equalsMaxValue(int max, int advanceCount) {
         return advanceCount == max;
     }
-
-    public int getProgressCount() {
-        return progressCount;
-    }
-
-    public List<Car> getCarList() {
-        return carList;
-    }
 }
