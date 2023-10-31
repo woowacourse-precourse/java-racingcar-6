@@ -9,4 +9,14 @@ public class CarList {
     public CarList(List<String> carNames) {
         carNames.forEach(carName -> carList.add(new Car(carName)));
     }
+
+    public void moveAll() {
+        carList.forEach(Car::move);
+    }
+
+    public void printAll() {
+        carList.forEach(Car::print);
+    }
+
+
 }
