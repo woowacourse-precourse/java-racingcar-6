@@ -9,10 +9,6 @@ public class CarNum {
         this.num = carNameParsing.length;
     }
 
-    boolean isInRange(int currentNum) {
-        return (num > currentNum);
-    }
-
     private void isValidCarNum(String[] carNameParsing) throws IllegalArgumentException {
         if (carNameParsing.length > MAX_CAR_NUM) {
             throw new IllegalArgumentException("Error : 자동차 개수가 너무 많습니다 최대개수 " + MAX_CAR_NUM);
