@@ -54,7 +54,7 @@ public class Util {
     }
 
     public static Stream<String> splitNamesAsStream(String input, String delimiter) {
-        return Arrays.stream(input.split(delimiter));
+        return Arrays.stream(splitNames(input, delimiter));
     }
 
     public static String[] splitNames(String input, String delimiter) {
