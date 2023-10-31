@@ -7,7 +7,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.util.InputValidatior;
 
@@ -38,30 +37,29 @@ class InitViewTest {
     void inputCarNames_split_기능_예외_테스트() {
         initInputStream("1,2, 356");
 
-        String[] result = initView.inputCarNames();
-
-        assertThatThrownBy(() ->
-                assertThat(result).containsExactly("1", "2", "3")
-                        .isInstanceOf(AssertionError.class));
+        assertThatThrownBy(
+                () -> {
+                    assertThat(initView.inputCarNames())
+                            .isInstanceOf(AssertionError.class);
+                });
     }
 
     @Test
     void inputTryNumber_기능_테스트() {
-        initInputStream("14");
+        initInputStream("1");
         int tryNumber = initView.inputTryNumber();
-
-        assertThat(tryNumber).isEqualTo(14);
+        assertThat(tryNumber).isEqualTo(1);
     }
 
     @Test
     void inputTryNumber_기능_예외_테스트() {
-        initInputStream("abc");
+        initInputStream("");
 
-        int tryNumber = initView.inputTryNumber();
-
-        assertThatThrownBy(() -> {
-            assertThat(tryNumber).isEqualTo(4).isInstanceOf(IllegalArgumentException.class);
-        });
+        assertThatThrownBy(
+                () -> {
+                    assertThat(initView.inputTryNumber())
+                            .isInstanceOf(IllegalArgumentException.class);
+                });
     }
 
     private static void initInputStream(String input) {
