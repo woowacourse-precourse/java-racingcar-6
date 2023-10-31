@@ -13,6 +13,7 @@ public class RandomGenerator {
         }
         return numbers;
     }
+
     private int createNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
