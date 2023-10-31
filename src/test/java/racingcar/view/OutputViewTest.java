@@ -24,7 +24,7 @@ public class OutputViewTest {
     @Test
     @DisplayName("자동차 입력 메세지 출력 테스트")
     void testPrintInputCarsMessage() {
-        outputView.printInputCarsNameMessage();
+        outputView.printCarsNameInputMessage();
         String output = byteArrayOutputStream.toString();
 
         Assertions.assertThat(output.trim()).isEqualTo("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -33,7 +33,7 @@ public class OutputViewTest {
     @Test
     @DisplayName("시도 횟수 입력 메세지 출력 테스트")
     void testPrintInputAttemptCountMessage() {
-        outputView.printInputTotalRoundMessage();
+        outputView.printTotalRoundInputMessage();
         String output = byteArrayOutputStream.toString();
 
         Assertions.assertThat(output.trim()).isEqualTo("시도할 회수는 몇회인가요?");

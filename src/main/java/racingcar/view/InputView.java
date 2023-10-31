@@ -9,15 +9,15 @@ public class InputView {
     OutputView outputView = appConfig.outputView();
 
     public String inputCarsName() {
-        outputView.printInputCarsNameMessage();
+        outputView.printCarsNameInputMessage();
         return Console.readLine();
     }
 
     public int inputTotalRound() {
-        outputView.printInputTotalRoundMessage();
+        outputView.printTotalRoundInputMessage();
         String totalRound = Console.readLine();
-        Validator totalRoundValidatorValidator = appConfig.totalRoundValidator();
-        totalRoundValidatorValidator.validate(totalRound);
+        Validator totalRoundValidator = appConfig.totalRoundValidator();
+        totalRoundValidator.validate(totalRound);
         return Integer.parseInt(totalRound);
     }
 }
