@@ -50,25 +50,3 @@ public class View {
         System.out.println("최종 우승자 : " + result.toString());
     }
 }
-/*
-실행 결과
-pobi : -
-woni :
-jun : -
-
-pobi : --
-woni : -
-jun : --
-
-pobi : ---
-woni : --
-jun : ---
-
-pobi : ----
-woni : ---
-jun : ----
-
-pobi : -----
-woni : ----
-jun : -----
-* */
