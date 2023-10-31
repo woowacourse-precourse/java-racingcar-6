@@ -69,4 +69,8 @@ public class RacingGame {
         String result = String.join(",", winner);
         System.out.println(result);
     }
+
+    public int getCarCount() {
+        return carCount;
+    }
 }
