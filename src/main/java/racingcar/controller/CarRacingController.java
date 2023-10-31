@@ -16,6 +16,7 @@ public class CarRacingController {
         for (int i = 0; i < raceGame.getCarNames().size(); i++) {
             resetCarMoveCounts.add("");
         }
-        System.out.println(resetCarMoveCounts);
+        raceGame.setCarMoveCounts(resetCarMoveCounts);
+        System.out.println(raceGame.getCarMoveCounts());
     }
 }

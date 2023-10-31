@@ -44,7 +44,7 @@
 	- playGame()
 		- saveResetCarMoveCounts()
 			- [O] 각 차수 별 전진 횟수 초기화
-		- [ ] 각 차수 별 전진 횟수 모델(carMoveCounts)에 저장
+		- [O] 각 차수 별 전진 횟수 모델(carMoveCounts)에 저장
 		- [ ] 경주 시도 횟수 만큼 게임 진행
 		- repeatCarRace()
 			- [ ] 각 차수 별 난수 생성 함수 호출

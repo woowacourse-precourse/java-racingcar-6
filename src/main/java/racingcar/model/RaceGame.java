@@ -5,6 +5,7 @@ import java.util.List;
 public class RaceGame {
     private String inputCarName;
     private List<String> carNames;
+    private List<String> carMoveCounts;
     private int raceNumber;
 
     public void setInputCarName(String inputCarName) {
@@ -23,6 +24,14 @@ public class RaceGame {
         return carNames;
     }
 
+    public void setCarMoveCounts(List<String> carMoveCounts) {
+        this.carMoveCounts = carMoveCounts;
+    }
+
+    public List<String> getCarMoveCounts() {
+        return carMoveCounts;
+    }
+
     public void setRaceNumber(int raceNumber) {
         this.raceNumber = raceNumber;
     }
@@ -30,4 +39,5 @@ public class RaceGame {
     public int getRaceNumber() {
         return raceNumber;
     }
+
 }
