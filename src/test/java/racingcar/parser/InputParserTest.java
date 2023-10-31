@@ -7,7 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.round.boxed.MaxRound;
 import racingcar.exception.InvalidMaxRoundInputException;
-import racingcar.validator.InputValidator;
+import racingcar.view.parser.InputParser;
+import racingcar.view.validator.InputValidator;
 
 final class InputParserTest {
     @DisplayName("양수를 입력하면 maxRound 변환 성공")

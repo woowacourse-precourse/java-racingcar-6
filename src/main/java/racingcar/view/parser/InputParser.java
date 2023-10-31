@@ -1,4 +1,4 @@
-package racingcar.parser;
+package racingcar.view.parser;
 
 import static strings.Strings.COMMAS;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import racingcar.domain.car.CarRacing;
 import racingcar.domain.car.CarsRacing;
 import racingcar.domain.round.boxed.MaxRound;
-import racingcar.validator.InputValidator;
+import racingcar.view.validator.InputValidator;
 
 public final class InputParser {
 

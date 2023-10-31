@@ -1,4 +1,4 @@
-package racingcar.validator;
+package racingcar.view.validator;
 
 import java.util.regex.Pattern;
 import racingcar.exception.InvalidCarNamesInputException;
