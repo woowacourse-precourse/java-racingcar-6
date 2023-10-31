@@ -16,11 +16,8 @@ public class OutputView {
     public static void printCarName(String carName) {
         System.out.print(carName + " : ");
     }
-    public static void printMovingForward(){
-        System.out.print(FORWARD);
-    }
-    public static void printMovingStop(){
-        System.out.println(MOVING_STOP);
+    public static void printMovingForward(int distanceCount){
+        System.out.println(FORWARD.repeat(distanceCount));
     }
     public static void printWinner(String[] winners) {
         System.out.println(WINNER_MESSAGE + Arrays.stream(winners).map(String::valueOf).collect(Collectors.joining(", ")));

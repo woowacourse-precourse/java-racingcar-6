@@ -89,7 +89,14 @@ class ApplicationTest extends NsTest {
     @Test
     @DisplayName("각 자동차별 전진거리 누적시키며 결과출력하기")
     void moveCarForwardOrStop() {
-        car.moveCarForwardOrStopAndPrintMoving(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")));
+        car.moveCarsForwardOrStopAndPrintMoving(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")));
+    }
+
+    @Test
+    @DisplayName("시도할 회수만큼 반복하여 결과 출력 후 각 자동차별 전진거리를 누적한 배열 반환하기")
+    void moveCarForNumberOfAttempt(){
+        int[] distanceCount = car.moveCarsAndPrintMovingForNumberOfAttempt(new ArrayList<>(Arrays.asList("pobi", "woni", "jun")),3);
+        assertThat(distanceCount.length).isEqualTo(3);
     }
 
     @Override

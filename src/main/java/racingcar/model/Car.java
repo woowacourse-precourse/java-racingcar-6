@@ -27,14 +27,20 @@ public class Car {
         return false;
     }
 
-    public void moveCarForwardOrStopAndPrintMoving(List<String> carNameList) {
+    public void moveCarsForwardOrStopAndPrintMoving(List<String> carNameList) {
         for (int i = 0; i < carNameList.size(); i++) {
             OutputView.printCarName(carNameList.get(i));
             if (isCarMoveForward()) {
                 distanceCount[i]++;
-                OutputView.printMovingForward();
             }
-            OutputView.printMovingStop();
+            OutputView.printMovingForward(distanceCount[i]);
         }
+        System.out.println();
+    }
+    public int[] moveCarsAndPrintMovingForNumberOfAttempt(List<String> carNameList, int attemptNumber){
+        for (int i = 0; i < attemptNumber; i++) {
+            moveCarsForwardOrStopAndPrintMoving(carNameList);
+        }
+        return distanceCount;
     }
 }
