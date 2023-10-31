@@ -14,6 +14,6 @@ public class Car {
         return driveNum;
     }
     private void setDriveNum(int driveNum) {
-        this.driveNum = driveNum;
+        this.driveNum += driveNum;
     }
 }
