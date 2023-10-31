@@ -1,15 +1,23 @@
 package racingcar.controller;
 
-import org.junit.jupiter.api.Test;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 import racingcar.util.InputValidation;
+import racingcar.domain.Car;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class GameController {
+    int gameRound;
+    List<String> cars = new ArrayList<>();
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
     InputValidation inputValidation = new InputValidation();
     public void startGame() {
+
         // 자동차 이름 입력 요청
         String inputCarName = inputView.CarName();
         inputValidation.isVaildCarName(inputCarName);
@@ -18,9 +26,25 @@ public class GameController {
         // 입력값 검증
         inputValidation.isVaildGameRound(inputGameRound);
 
-        System.out.println("게임종료");
+        setGame(inputCarName, inputGameRound);
+        System.out.println(gameRound);
+        System.out.println(cars);
         // playGame();
     }
+
+    private void setGame(String inputCarName, String inputGameRound) {
+        setCars(inputCarName);
+        setRound(inputGameRound);
+    }
+
+    private void setCars(String inputCarName) {
+        String[] arrCar = inputCarName.split(",");
+        this.cars = Arrays.asList(arrCar);
+    }
+    private void setRound(String inputGameRound) {
+        this.gameRound = Integer.parseInt(inputGameRound);
+    }
+
 
     public void playGame() {
         // 실행 결과 메세지 출력
