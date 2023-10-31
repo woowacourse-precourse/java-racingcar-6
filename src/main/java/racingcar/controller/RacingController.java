@@ -29,11 +29,11 @@ public class RacingController {
     }
 
     public void start() {
-        cars.generateCars(getCars());
-        int times = getTimes();
+        cars.generateCars(inputCars());
+        int times = inputTimes();
         race = new Race(cars, times);
         while (race.run()) {
-            printProcess();
+            printCurrentStatus();
         }
         List<String> winnerList = race.findWinner();
         String winners = winnerList.stream()
@@ -41,21 +41,21 @@ public class RacingController {
         outputView.printWinner(winners);
     }
 
-    public void printProcess() {
+    public void printCurrentStatus() {
         List<Car> carList = cars.getCars();
         StringBuilder process = new StringBuilder();
         carList.forEach(car -> process.append(car.info()));
         outputView.printProcess(process.toString());
     }
 
-    public String getCars() {
+    public String inputCars() {
         outputView.printInputCars();
         String carsInput = inputView.inputCars();
         validator.validateCars(carsInput);
         return carsInput;
     }
 
-    public int getTimes() {
+    public int inputTimes() {
         outputView.printInputTimes();
         String timesInput = inputView.inputTimes();
         validator.validateTimes(timesInput);
