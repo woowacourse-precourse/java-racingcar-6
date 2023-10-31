@@ -2,6 +2,7 @@ package racingcar.model;
 
 import java.util.List;
 import java.util.StringTokenizer;
+import racingcar.util.RandomNum;
 
 public class CarGame {
     private final List<Cars> cars;
