@@ -6,13 +6,13 @@ import racingcar.view.OutputView;
 
 public class GameService {
 
-    private final Rule rule;
+    private final BasicMovementRule basicMovementRule;
     private final OutputView outputView;
     private final Referee referee;
     private final RandomNumberGenerator randomNumberGenerator;
 
     public GameService() {
-        rule = new Rule();
+        basicMovementRule = new BasicMovementRule();
         outputView = new OutputView();
         referee = new Referee();
         randomNumberGenerator = new RandomNumberGenerator();
@@ -28,7 +28,7 @@ public class GameService {
     }
 
     private void moveCarsByRandomNumber(Cars cars) {
-        cars.moveAll(rule,randomNumberGenerator);
+        cars.moveAll(basicMovementRule,randomNumberGenerator);
     }
 }
 

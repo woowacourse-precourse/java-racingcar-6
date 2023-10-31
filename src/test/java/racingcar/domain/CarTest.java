@@ -3,7 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.service.Rule;
+import racingcar.service.BasicMovementRule;
 
 public class CarTest {
 
@@ -37,10 +37,10 @@ public class CarTest {
     void move() {
         Car car = new Car("pobi");
 
-        car.move(new Rule(), 3);
+        car.move(new BasicMovementRule(), 3);
         Assertions.assertEquals(0, car.getCarPosition());
 
-        car.move(new Rule(), 5);
+        car.move(new BasicMovementRule(), 5);
         Assertions.assertEquals(1, car.getCarPosition());
     }
 

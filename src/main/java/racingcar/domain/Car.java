@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.service.Rule;
+import racingcar.service.BasicMovementRule;
 
 public class Car {
 
@@ -22,8 +22,8 @@ public class Car {
         return position;
     }
 
-    public void move(Rule rule, int randomNumber) {
-        if (rule.isMovingCondition(randomNumber)) {
+    public void move(BasicMovementRule basicMovementRule, int randomNumber) {
+        if (basicMovementRule.isMovingCondition(randomNumber)) {
             position.increase();
         }
     }

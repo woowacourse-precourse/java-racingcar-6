@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import racingcar.service.RandomNumberGenerator;
-import racingcar.service.Rule;
+import racingcar.service.BasicMovementRule;
 
 public class CarsTest {
 
@@ -34,13 +34,13 @@ public class CarsTest {
                 mock(Car.class),
                 mock(Car.class));
         Cars cars = new Cars(carList);
-        Rule rule = new Rule();
-        cars.moveAll(rule, randomNumberGenerator);
+        BasicMovementRule basicMovementRule = new BasicMovementRule();
+        cars.moveAll(basicMovementRule, randomNumberGenerator);
 
         when(randomNumberGenerator.generateRandomNumber()).thenReturn(5);
 
         for (Car car : carList) {
-            verify(car, times(1)).move(eq(rule), anyInt());
+            verify(car, times(1)).move(eq(basicMovementRule), anyInt());
         }
     }
 }

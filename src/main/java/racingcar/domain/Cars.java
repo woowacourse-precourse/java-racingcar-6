@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.dto.CarsGenerateDto;
 import racingcar.service.RandomNumberGenerator;
-import racingcar.service.Rule;
+import racingcar.service.BasicMovementRule;
 
 public class Cars {
 
@@ -14,10 +14,10 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void moveAll(Rule rule, RandomNumberGenerator randomNumberGenerator) {
+    public void moveAll(BasicMovementRule basicMovementRule, RandomNumberGenerator randomNumberGenerator) {
         for (Car car : cars) {
             int randomNumber = randomNumberGenerator.generateRandomNumber();
-            car.move(rule, randomNumber);
+            car.move(basicMovementRule, randomNumber);
         }
     }
 
