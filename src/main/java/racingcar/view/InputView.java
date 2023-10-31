@@ -24,7 +24,13 @@ public class InputView {
     public static int readTryCount() {
         System.out.println(INPUT_TRY_COUNT_MESSAGE);
 
-        int tryCountInput = Integer.parseInt(Console.readLine());
+        int tryCountInput;
+        try {
+            tryCountInput = Integer.parseInt(Console.readLine());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자만 가능합니다.");
+        }
+
         TryCountValidator.validate(tryCountInput);
 
         return tryCountInput;
