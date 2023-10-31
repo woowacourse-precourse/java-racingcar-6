@@ -6,7 +6,7 @@
 - [✔] n개의 자동차는 4 이상의 무작위 값이 나오면 전진할 수 있다. - Cars#move()
 - [✔] n개의 자동차의 이동 거리 중 최댓값을 구할 수 있다. - Cars#getMaxLocation()
 - [✔] n개의 자동차의 최대 이동 거리를 기준으로 우승자를 가릴 수 있다. - Cars#getWinner()
-- [✔] 이름을 쉼표(,)를 기준으로 구분할 수 있다. - RaceController#getCarsName()
+- [✔] 이름을 쉼표(,)를 기준으로 구분할 수 있다. - RaceController#generateCars()
 
 - 우승자 클래스를 따로 생성함 - Winner
 - 자동차 이름은 모든 문자가 가능하나 공백은 불가능하다. InputView에서 공백 제거 (✔)
