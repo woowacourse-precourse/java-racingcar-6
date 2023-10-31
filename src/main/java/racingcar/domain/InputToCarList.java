@@ -19,13 +19,13 @@ public class InputToCarList {
     }
 
     public List<Car> askCarName(final String input) {
-        List<Car> list = Arrays.stream(input.split(","))
+        List<Car> cars = Arrays.stream(input.split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
-        if (list.isEmpty()) {
+        if (cars.isEmpty()) {
             throw new IllegalArgumentException(NO_PLAYERS_PARTICIPATE);
         }
 
-        return list;
+        return cars;
     }
 }
