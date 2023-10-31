@@ -1,7 +1,6 @@
 package racingcar.config;
 
 import racingcar.controller.RacingGameController;
-import racingcar.domain.RacingCar;
 import racingcar.domain.RacingGame;
 import racingcar.domain.random.DefaultRandomService;
 import racingcar.domain.random.RandomNumberFactory;

@@ -7,7 +7,6 @@ import static racingcar.constant.RacingGameConstant.RANDOM_NUMBER_START_INCLUSIV
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.constant.RacingGameConstant;
 
 public class RandomNumberFactoryTest {
 
