@@ -16,9 +16,10 @@ public class UserInput {
         valueCheck.inputContainsComma(input);
 
         List<String> carNameList = List.of(input.split(","));
+        trimmedCarNames = trimInput(carNameList);
+
         valueCheck.sizeUnderFive(carNameList);
 
-        trimmedCarNames = trimInput(carNameList);
         return trimmedCarNames;
     }
 
