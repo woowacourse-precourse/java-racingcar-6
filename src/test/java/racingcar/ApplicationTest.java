@@ -86,6 +86,14 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 경주횟수에_대한_예외_처리_숫자_이외의_값이_있는_경우() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni,dori", "4번이상"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
