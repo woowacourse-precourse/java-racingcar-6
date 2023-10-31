@@ -4,19 +4,19 @@ import java.util.Objects;
 
 public class Position implements Comparable<Position> {
 
-    private int position;
+    private int value;
 
-    public Position(int position) {
-        this.position = position;
+    public Position(int value) {
+        this.value = value;
     }
 
     public void move(int weight) {
-        this.position += weight;
+        this.value += weight;
     }
 
     public String draw() {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < value; i++) {
             result.append("-");
         }
         return result.toString();
@@ -24,7 +24,7 @@ public class Position implements Comparable<Position> {
 
     @Override
     public int compareTo(Position o) {
-        return Integer.compare(this.position, o.position);
+        return Integer.compare(this.value, o.value);
     }
 
     @Override
@@ -36,11 +36,11 @@ public class Position implements Comparable<Position> {
             return false;
         }
         Position position = (Position) o;
-        return this.position == position.position;
+        return this.value == position.value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(position);
+        return Objects.hash(value);
     }
 }

@@ -4,11 +4,11 @@ public class RoundCount {
 
     private static final String INVALID_ROUND_NUMBER_ERROR = "시도할 회수는 0이상의 정수여야 합니다.";
 
-    private int roundCount;
+    private int value;
 
-    public RoundCount(String roundCount) {
-        validate(roundCount);
-        this.roundCount = Integer.parseInt(roundCount);
+    public RoundCount(String value) {
+        validate(value);
+        this.value = Integer.parseInt(value);
     }
 
     public void validate(String target) {
@@ -16,11 +16,11 @@ public class RoundCount {
     }
 
     public void consumeRound() {
-        roundCount--;
+        value--;
     }
 
     public boolean hasNextRound() {
-        if (roundCount == 0) {
+        if (value == 0) {
             return false;
         }
         return true;

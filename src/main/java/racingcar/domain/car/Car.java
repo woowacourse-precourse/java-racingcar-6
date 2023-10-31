@@ -9,9 +9,9 @@ public class Car {
     private static final Power POWER_THRESHOLD_FOR_DRIVE = new Power(4);
     private static final int MOVE_WEIGHT = 1;
 
-    private CarName carName;
-    private Position position;
-    private PowerGenerator powerGenerator;
+    private final CarName carName;
+    private final Position position;
+    private final PowerGenerator powerGenerator;
 
     public Car(String name, int position, PowerGenerator powerGenerator) {
         this.carName = new CarName(name);

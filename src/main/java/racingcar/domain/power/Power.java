@@ -2,14 +2,14 @@ package racingcar.domain.power;
 
 public class Power {
 
-    private int power;
+    private int value;
 
-    public Power(int power) {
-        this.power = power;
+    public Power(int value) {
+        this.value = value;
     }
 
     public boolean isSufficientToDrive(Power threshold) {
-        if (threshold.power <= this.power) {
+        if (threshold.value <= this.value) {
             return true;
         }
         return false;
