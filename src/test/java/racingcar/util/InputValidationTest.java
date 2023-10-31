@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.util;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
@@ -6,7 +6,6 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.ErrorMessage;
-import racingcar.util.InputValueValidator;
 
 public class InputValidationTest extends NsTest {
 
