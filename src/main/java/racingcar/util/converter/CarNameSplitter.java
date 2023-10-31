@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class CarNameSplitter {
 
-    public static final String CAR_NAME_REGEX = ",";
+    private static final String CAR_NAME_REGEX = ",";
 
     public static List<String> splitCarNames(String carNames) {
         String[] splitCarNames = carNames.split(CAR_NAME_REGEX);
