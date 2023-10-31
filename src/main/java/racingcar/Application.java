@@ -165,13 +165,8 @@ public class Application {
     private static void printWinner(List<Car> cars) {
         List<String> winner = findWinner(cars);
         System.out.print("최종 우승자 : ");
-        System.out.print(winner.get(0));
-        if (winner.size() != 1) {
-            for (int i = 1; i < winner.size(); i++) {
-                System.out.print(", " + winner.get(i));
-            }
-        }
-
+        String result = String.join(",",winner);
+        System.out.println(result);
     }
 
     private static void playGame() {
