@@ -16,6 +16,10 @@ public class Car {
         return carName;
     }
 
+    public int getCarMovement(){
+        return movement;
+    }
+
     public void pickRandomNumber(){
         pickedNumber = numberGenerator.createRandomNumber();
         judgeStopOrGo(pickedNumber);

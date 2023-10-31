@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 public class ScriptHandler {
 
     private static final String REQUIRE_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -18,8 +20,14 @@ public class ScriptHandler {
         System.out.println(PROGRESS_RESULT);
     }
 
-    public void printCarMovement(){
-
+    public void printCarMovement(ArrayList<Car> car, int index){
+        String carName = car.get(index).getCarName();
+        int movement = car.get(index).getCarMovement();
+        System.out.printf("%s : ", carName);
+        for(int i = 0; i<movement; i++){
+            System.out.print("-");
+        }
+        System.out.println();
     }
 
     public void printSoloWinner(){

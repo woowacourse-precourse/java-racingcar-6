@@ -28,32 +28,14 @@ public class RacingGame {
         scriptHandler.printSimpleResultScript();
         for (int i = 0; i < attemptNumber; i++) {
             for (int j = 0; j < carNumber; j++) {
-                carName = cars.get(j).getCarName();
                 cars.get(j).pickRandomNumber();
-                printProgress(carName);
+                scriptHandler.printCarMovement(cars, j);
             }
             System.out.println();
         }
         checkWinner();
         printWinner();
     }
-
-    public void printProgress(String carName) {
-        System.out.printf("%s : ", carName);
-        carMoveMent = gameController.getCarMoveForward(carName);
-        for (int i = 0; i < carMoveMent; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
-    }
-
-//    public void eachCarPickRandomNumber(String carName) {
-//        randomNumber = gameController.getRandomNumber();
-//        if (randomNumber >= 4) {
-//            updateCarValue = cars.get(carName) + 1;
-//            cars.put(carName, updateCarValue);
-//        }
-//    }
 
     public void checkWinner() {
         int furthestMovement = findFurthestMovement();
