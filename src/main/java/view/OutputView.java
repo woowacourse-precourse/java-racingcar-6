@@ -18,7 +18,7 @@ public class OutputView {
     }
 
     public static void printRaceResultIntroduction() {
-        System.out.println("실행 결과");
+        System.out.print("실행 결과");
     }
 
     public static void printRaceResult(RaceResult raceResult) {
@@ -59,5 +59,9 @@ public class OutputView {
     private static void printSingleWinner(Winners winners) {
         String SingleWinnerName = winners.winners().get(0).getName();
         System.out.print(SingleWinnerName);
+    }
+
+    public static void printEnter() {
+        System.out.println();
     }
 }
