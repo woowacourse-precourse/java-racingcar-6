@@ -15,8 +15,8 @@ public final class InputView {
     }
 
     private static void validate(final String input) {
-        InputValidator.validateBlank(input);
-        InputValidator.validateNull(input);
+        InputValidator.validateEmptyOrContainBlank(input);
+        InputValidator.validateIsNull(input);
     }
 
 }
