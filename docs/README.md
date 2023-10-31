@@ -5,9 +5,9 @@
 - [x] 자동차의 이름을 입력받는다. - InputView: readCarNames
   - [x] 예외 사항 : 이름이 5자를 초과하면 `IllegalArgumentException` 을 발생시킨다. - InputValidator: validateName
 - [x] 시도할 횟수를 입력받는다. - InputView: readTimes
-  - [ ] 예외 사항 : 횟수가 0 ~ 2,147,483,647 를 벗어나면 `IllegalArgumentException` 을 발생시킨다. - InputValidator: validateTimes
+  - [x] 예외 사항 : 횟수가 0 ~ 2,147,483,647 를 벗어나면 `IllegalArgumentException` 을 발생시킨다. - InputValidator: validateTimes
 ### 게임 진행 
-- [ ] 0에서 9 사이에서 무작위 값을 생성한다. - RandomNumberGenerator: createRandomNumber
+- [x] 0에서 9 사이에서 무작위 값을 생성한다. - RandomNumberGenerator: createRandomNumber
 - [ ] 무작위 값이 4 이상일 경우 전진한다. - Car: move
 - [ ] 각 차수마다 자동차의 이름과 전진 결과를 문자열로 출력한다. - OutputView: printResult
 ### 우승자
