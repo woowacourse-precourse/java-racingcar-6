@@ -40,12 +40,7 @@ public class Prompt {
     }
 
     public static void printWinners(List<String> winners) {
-        System.out.print(WINNERS);
-        for (int car = 0; car < winners.size(); car++) {
-            System.out.print(winners.get(car));
-            if (car != winners.size() - 1) {
-                System.out.print(", ");
-            }
-        }
+        String result = String.join(", ", winners);
+        System.out.print(WINNERS + result);
     }
 }
