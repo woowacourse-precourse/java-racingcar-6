@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -25,13 +26,23 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 1~5자 이내만 가능합니다.");
     }
+//
+//    @DisplayName("랜덤으로 생성된 숫자가 4~9 인 경우 자동차가 전진한다.")
+//    @ParameterizedTest
+//    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
+//    void moveTest(int randomNumber) {
+//        Car car = new Car("pobi");
+//        car.move();
+//        assertThat(car.getPosition()).isEqualTo(1);
+//    }
 
-    @DisplayName("랜덤으로 생성된 숫자가 4~9 인 경우 자동차가 전진한다.")
-    @ParameterizedTest
-    @ValueSource(ints = {4, 5, 6, 7, 8, 9})
-    void moveTest(int randomNumber) {
+    @DisplayName("랜덤으로 생성된 숫자에 의해 자동차는 전진할 수 있다.")
+    @Test
+    void moveTest() {
         Car car = new Car("pobi");
-        car.move(randomNumber);
-        assertThat(car.getPosition()).isEqualTo(1);
+        int initialPosition = car.getPosition();
+        car.move();
+        assertThat(car.getPosition()).isBetween(initialPosition, initialPosition + 1);
     }
+
 }

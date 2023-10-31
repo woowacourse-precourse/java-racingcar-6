@@ -10,7 +10,7 @@ public class Race {
      */
     private final List<Car> cars;
     private final int round;
-    private final int currentRound;
+    private int currentRound;
 
     public Race(List<String> carNames, int round) {
         this.cars = carNames.stream()
@@ -21,7 +21,6 @@ public class Race {
     }
 
     public void proceedRound() {
-        // TODO: 이렇게 짜야 랜덤값을 Car에 주입한 상태로 라운드를 진행하는데, move()의 파라미터를 다시 없애는 게 좋을까?
         cars.forEach(Car::move);
         currentRound++;
     }

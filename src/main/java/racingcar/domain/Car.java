@@ -15,7 +15,8 @@ public class Car {
         this.name = name;
     }
 
-    public void move(int number) {
+    public void move() {
+        int number = makeRandomNumber();
         if (number >= MOVE_CONDITION) {
             position++;
         }
