@@ -29,4 +29,30 @@ public class Race {
     private int generateFuel() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    public void startCarRacing() {
+        validateRaceNotOver();
+        conductRace();
+        decreaseMoveCounts();
+    }
+
+    private void validateRaceNotOver() {
+        if (isRaceOver()) {
+            throw new IllegalStateException("경기가 종료되었습니다.");
+        }
+    }
+
+    public boolean isRaceOver() {
+        return moveCounts <= 0;
+    }
+
+    private void conductRace() {
+        for (Car car : participatingCars) {
+            car.moveOrStop(generateFuel());
+        }
+    }
+
+    private void decreaseMoveCounts() {
+        moveCounts--;
+    }
 }
