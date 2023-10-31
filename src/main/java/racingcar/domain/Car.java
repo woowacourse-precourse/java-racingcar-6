@@ -5,11 +5,8 @@ import java.util.Objects;
 
 public class Car {
 
-    private String name;
+    private final String name;
     private int position;
-
-    private Car() {
-    }
 
     private Car(String name, int position) {
         this.name = name;
