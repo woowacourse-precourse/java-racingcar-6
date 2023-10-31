@@ -1,15 +1,26 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Car {
-    String carName;
-    int position = 0;
 
-    public Car(String carName) {
+    private final String carName;
+    private int position = 0;
+
+    public Car(String carName){
         this.carName = carName;
     }
 
+    public String getName(){
+        return carName;
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
+    public void move(boolean go){
+        if(go){
+            position++;
+        }
+    }
 }
