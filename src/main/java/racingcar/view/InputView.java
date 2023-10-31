@@ -7,22 +7,20 @@ import camp.nextstep.edu.missionutils.Console;
 public class InputView {
 
     public String readInput() {
-        return Console.readLine();
+        String input = Console.readLine();
+        validateBlankInput(input);
+        return input;
     }
 
     public String readCarNames() {
         String carNames = readInput();
-        validateCarNames(carNames);
+        validateInvalidDelimiter(carNames);
         return carNames;
     }
 
-    private void validateCarNames(String names) {
-        validateBlankInput(names);
-        validateInvalidDelimiter(names);
-    }
 
-    private void validateBlankInput(String names) {
-        if (names.isBlank()) {
+    private void validateBlankInput(String input) {
+        if (input.isBlank()) {
             throw new IllegalArgumentException("공백이 입력되었습니다.");
         }
     }
