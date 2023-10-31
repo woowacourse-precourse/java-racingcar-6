@@ -87,7 +87,7 @@ class CarTest {
         assertThat(car1.isEqualPosition(car2)).isTrue();
     }
 
-    @DisplayName("Car isEqualPosition 테스트 - 같은 위치")
+    @DisplayName("Car isEqualPosition 테스트 - 다른 위치")
     @Test
     void carIsEqualPositionSuccessTest_2() {
 
