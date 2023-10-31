@@ -14,8 +14,9 @@
                 - [x] 쉼표(,)를 기준으로 구분한다.
                 - [x] 5자 이하의 이름만 받는다.
 
-- [ ] 전진 또는 멈춤 - GameController#MoveOrNot()
-    - [ ] 0~9의 무작위 값이 4 이상이면 전진한다(k번 반복) == 4미만이면 멈춘다.
+- [x] 전진 또는 멈춤 - GameController#moveOrNot()
+    - [x] 0~9의 무작위 값이 4 이상이면 전진한다 == 4미만이면 멈춰있는다.
+    - [x] 시도 횟수 k번 반복한다. - GameController#play()
 
 - [ ] 우승자 발표 - Announcer#displayWinner()
     - [ ] 가장 많이 이동한 자동차(우승자)를 식별한다. - Referee#identifyWinner
