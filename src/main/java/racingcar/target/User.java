@@ -9,7 +9,7 @@ public class User {
     /*
      * 사용자로부터 값을 입력받는 메서드
      */
-    public String getInputNumber() {
+    public String getUserInput() {
         return Console.readLine();
     }
 }
