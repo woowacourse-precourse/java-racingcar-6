@@ -29,12 +29,6 @@ class OutputHandlerTest {
         System.setOut(originalOutput);
     }
 
-    private static List<String> getAllPrintMessages() {
-        return Arrays.stream(PrintMesssages.values())
-                        .map(v -> v.getMessage())
-                        .toList();
-    }
-
     @ParameterizedTest
     @MethodSource("getAllPrintMessages")
     void 각종_메세지_표시_테스트(String message) {
@@ -44,5 +38,11 @@ class OutputHandlerTest {
         String actualedMessage = outputCaptor.toString();
 
         assertThat(actualedMessage).isEqualTo(expectedMessage);
+    }
+
+    private static List<String> getAllPrintMessages() {
+        return Arrays.stream(PrintMesssages.values())
+                .map(v -> v.getMessage())
+                .toList();
     }
 }
