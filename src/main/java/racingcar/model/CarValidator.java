@@ -19,7 +19,7 @@ public class CarValidator {
     }
 
     private static void validateBlank(String name) {
-        if(name.isBlank()){
+        if (name.isBlank()) {
             throw new IllegalArgumentException(NAME_BLANK_ERROR);
         }
     }

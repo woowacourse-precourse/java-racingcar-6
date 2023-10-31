@@ -1,16 +1,16 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import racingcar.dto.CarDto;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 public class CarTest {
 
     @Test
-    void 생성자는_전달받은_이름과_position_은_0으로_Car_객체를_생성한다(){
+    void 생성자는_전달받은_이름과_position_은_0으로_Car_객체를_생성한다() {
         Car car = new Car("자동차");
         assertThat(car.getPosition()).isEqualTo(0);
         assertThat(car.getName()).isEqualTo("자동차");

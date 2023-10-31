@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,8 +16,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 public class CarGroupTest {
 
     private CarGroup carGroup;
@@ -26,12 +26,12 @@ public class CarGroupTest {
     }
 
     @Test
-    void CarGroup_생성자는_이름의_개수만큼_Car_를_생성한다(){
+    void CarGroup_생성자는_이름의_개수만큼_Car_를_생성한다() {
         assertThat(carGroup.getCars().size()).isEqualTo(3);
     }
 
     @Test
-    void toDto_메서드는_CarGroupDto_객체를_생성한다(){
+    void toDto_메서드는_CarGroupDto_객체를_생성한다() {
         CarGroupDto carGroupDto = carGroup.toDto();
         assertThat(carGroupDto.getCars().size()).isEqualTo(3);
     }
