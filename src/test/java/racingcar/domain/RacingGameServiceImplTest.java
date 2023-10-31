@@ -17,7 +17,7 @@ class RacingGameServiceImplTest {
     private String name;
     private String name2;
     private List<Car> carList;
-    private int tryCount;
+    private Trial trial;
 
     @BeforeEach
     void setUp() {
@@ -32,7 +32,7 @@ class RacingGameServiceImplTest {
 
         carList = List.of(car1, car2);
         cars = new Cars(carList);
-        tryCount = 2;
+        trial = new Trial(2);
     }
 
     @Test
@@ -65,7 +65,7 @@ class RacingGameServiceImplTest {
     void 게임_종료_후_결과_테스트() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    GameResult gameResult = racingGameService.startGame(cars, tryCount);
+                    GameResult gameResult = racingGameService.startGame(cars, trial);
                     assertThat(gameResult.getResult())
                             .contains(name + " : -", name2 + " : ", name + " : --", name2 + " : -");
                 },

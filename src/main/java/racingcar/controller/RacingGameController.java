@@ -7,6 +7,7 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.GameResult;
 import racingcar.domain.RacingGameService;
+import racingcar.domain.Trial;
 import racingcar.domain.Winner;
 import racingcar.utils.Utils;
 import racingcar.validator.InputValidator;
@@ -29,12 +30,12 @@ public class RacingGameController {
         String tryCountUserInput = getUserInputWithValidation(OutputView::printTryCountInputMessage,
                 InputValidator::validateNullOrEmptyInput,
                 InputValidator::validateTryCount);
-        int tryCount = Utils.stringToInt(tryCountUserInput);
+        Trial trial = new Trial(Utils.stringToInt(tryCountUserInput));
 
-        startGame(cars, tryCount);
+        startGame(cars, trial);
     }
 
-    private void startGame(final Cars cars, final int tryCount) {
+    private void startGame(final Cars cars, final Trial tryCount) {
         GameResult gameResult = racingGameService.startGame(cars, tryCount);
         OutputView.printRoundResult(gameResult.getResult());
 

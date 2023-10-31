@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
 public class RacingGameServiceImpl implements RacingGameService {
 
     @Override
-    public GameResult startGame(final Cars cars, final int tryCount) {
+    public GameResult startGame(final Cars cars, final Trial trial) {
         GameResult gameResult = new GameResult();
-        for (int i = 1; i <= tryCount; i++) {
+        for (int i = 1; i <= trial.get(); i++) {
             playRound(cars, gameResult);
         }
         return gameResult;
