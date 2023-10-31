@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class ExceptionTest {
 
     @Test
-    public void testLengthCheck() {
+    public void 자동차_한대당_이름이_5글자_예외처리해라() {
         Exception exception = new Exception();
 
         exception.lengthCheck("tjwls,MJ"); // 옳은 입력
@@ -19,7 +19,7 @@ public class ExceptionTest {
     }
 
     @Test
-    public void testStringCompile() {
+    public void 영어_한글_숫자_쉼표가_아니면_예외처리해라() {
         Exception exception = new Exception();
 
         exception.stringCompile("tjwls,MJ");
