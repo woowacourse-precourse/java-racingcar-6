@@ -2,6 +2,9 @@ package racingcar;
 
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.car.CarRegistration;
+import racingcar.race.MoveCount;
+import racingcar.race.Race;
 
 public class Application {
 

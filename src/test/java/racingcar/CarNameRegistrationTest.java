@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.car.CarNameRegistration;
+import racingcar.car.model.CarName;
+
 class CarNameRegistrationTest {
     @Test
     void 자동차_이름_입력_문자_최소수량부족_예외처리() {

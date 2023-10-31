@@ -1,7 +1,9 @@
-package racingcar;
+package racingcar.car;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.car.model.CarName;
+import racingcar.utils.ErrorMessage;
 import racingcar.utils.StringValidator;
 
 @Deprecated

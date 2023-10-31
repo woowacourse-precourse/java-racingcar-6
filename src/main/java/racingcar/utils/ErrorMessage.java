@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.utils;
 
 public class ErrorMessage {
     public static final String CAR_NAME_IS_BLANK = "자동차 이름은 공백이 될 수 없습니다.";

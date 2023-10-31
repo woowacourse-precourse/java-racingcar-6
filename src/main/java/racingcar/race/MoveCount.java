@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.race;
+
+import racingcar.utils.ErrorMessage;
 
 public class MoveCount {
     private int moveCount;
@@ -31,5 +33,12 @@ public class MoveCount {
 
     public boolean isRemained() {
         return moveCount > 0;
+    }
+
+    @Override
+    public String toString() {
+        return "MoveCount{" +
+                "moveCount=" + moveCount +
+                '}';
     }
 }

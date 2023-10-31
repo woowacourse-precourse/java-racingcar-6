@@ -1,7 +1,8 @@
-package racingcar;
+package racingcar.race;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.car.model.Car;
 
 public class RaceParticipants {
     private final List<Car> participantList;

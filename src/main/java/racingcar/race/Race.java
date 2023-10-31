@@ -1,4 +1,7 @@
-package racingcar;
+package racingcar.race;
+
+import racingcar.utils.Printer;
+import racingcar.car.CarRegistration;
 
 public class Race {
     private final CarRegistration raceParticipants;
@@ -16,5 +19,13 @@ public class Race {
             moveCount.decreaseCount();
         }
         Printer.winnerPrinter(RaceRule.getWinner(raceParticipants));
+    }
+
+    @Override
+    public String toString() {
+        return "Race{" +
+                "raceParticipants=" + raceParticipants +
+                ", moveCount=" + moveCount +
+                '}';
     }
 }

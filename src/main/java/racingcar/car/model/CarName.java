@@ -1,5 +1,6 @@
-package racingcar;
+package racingcar.car.model;
 
+import racingcar.utils.ErrorMessage;
 import racingcar.utils.StringValidator;
 
 public class CarName {
