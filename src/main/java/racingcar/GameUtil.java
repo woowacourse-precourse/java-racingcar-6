@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class GameUtil {
     private Integer repeatNumber;
@@ -25,7 +26,7 @@ public class GameUtil {
         setRepeatNumber(repeatNumber);
 
         for (int i = 0; i < this.repeatNumber; i++) {
-            System.out.println(randomProgress(Constants.MIN_RANDOM_VALUE, Constants.MAX_RANDOM_VALUE));
+            System.out.println(randomProgress(Constants.MIN_RANDOM_VALUE, Constants.MAX_RANDOM_VALUE) + '\n');
         }
 
         System.out.println(findWinners());
@@ -74,33 +75,24 @@ public class GameUtil {
             }
         }
 
-        return makeProgressResult();
-    }
-
-    private String makeProgressResult() {
-        StringBuilder result = new StringBuilder();
-
-        for (Car car : cars) {
-            result.append(car);
-            result.append("\n");
-        }
-
-        return result.toString();
+        return cars.stream().map(Car::toString)
+                .collect(Collectors.joining("\n"));
     }
 
     public String findWinners() {
-        StringBuilder result = new StringBuilder();
         Car maxCar = cars.stream()
                 .max(Comparator.comparing(Car::getProgress))
                 .orElse(cars.get(0));
 
+        ArrayList<Car> winners = new ArrayList<>();
         for (Car car : cars) {
             if (car.getProgress().equals(maxCar.getProgress())) {
-                result.append(car.getName());
-                result.append(", ");
+                winners.add(car);
             }
         }
 
-        return Constants.WINNER_PRINT_COMMENT + result.deleteCharAt(result.length()-2);
+        return Constants.WINNER_PRINT_COMMENT +
+                winners.stream().map(Car::getName)
+                        .collect(Collectors.joining(", "));
     }
 }
