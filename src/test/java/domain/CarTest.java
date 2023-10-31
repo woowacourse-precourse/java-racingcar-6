@@ -11,4 +11,11 @@ public class CarTest {
         assertEquals("TestCar", car.getName());
         assertEquals(0, car.getPosition());
     }
+
+    @Test
+    void moveForwardTest() {
+        Car car = new Car("TestCar");
+        car.moveForward(4);
+        assertEquals(1, car.getPosition());
+    }
 }
