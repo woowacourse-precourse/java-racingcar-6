@@ -8,6 +8,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+
 class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
@@ -22,6 +23,17 @@ class ApplicationTest extends NsTest {
             MOVING_FORWARD, STOP
         );
     }
+    
+    @Test
+    void 공동_우승자() {
+        assertRandomNumberInRangeTest(
+            () -> {
+                run("pobi,woni", "1");
+                assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+            },
+            MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
 
     @Test
     void 이름에_대한_예외_처리() {
@@ -30,9 +42,24 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
+    
+    @Test
+    void 반복회수에_대한_예외_처리() {
+    	assertSimpleTest(() ->
+    			assertThatThrownBy(() -> runException("pobi,woni", "a"))
+    					.isInstanceOf(IllegalArgumentException.class)
+    	);
+    }
+    
+    @Test
+    void 경주할_자동차_이름_입력() {
+    	run("pobi,woni,jun","1");
+    	assertThat(output()).contains("pobi", "woni", "jun");
+    }
+    
     @Override
     public void runMain() {
         Application.main(new String[]{});
     }
+    
 }
