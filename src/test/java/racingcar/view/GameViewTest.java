@@ -1,9 +1,6 @@
 package racingcar.view;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.model.Car.createNewCar;
-import static racingcar.model.Cars.createNewCars;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -12,8 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.model.Car;
-import racingcar.model.Cars;
+import racingcar.domain.dto.CarDto;
 
 class GameViewTest {
     private static final int MOVE_THRESHOLD = 4;
@@ -56,26 +52,16 @@ class GameViewTest {
 
     @Test
     void 이동_1회_결과_출력() {
-
-        assertRandomNumberInRangeTest(() -> {
-                    Car car1 = createNewCar("a");
-                    Car car2 = createNewCar("b");
-
-                    Cars cars = createNewCars();
-                    cars.insert(car1);
-                    cars.insert(car2);
-
-                    cars.updateAllDistance();
-                    gameView.printMoveResult(cars.getCars());
-                    assertThat(testOutputStream.toString())
-                            .isEqualTo("""
-                                    a : -
-                                    b : -
-                                                                        
-                                    """);
-                }, MOVE_THRESHOLD
-        );
-
+        List<CarDto> carDtoList = new ArrayList<>();
+        carDtoList.add(CarDto.createNewCarDto("a", 1));
+        carDtoList.add(CarDto.createNewCarDto("b", 1));
+        gameView.printMoveResult(carDtoList);
+        assertThat(testOutputStream.toString())
+                .isEqualTo("""
+                        a : -
+                        b : -
+                                                            
+                        """);
     }
 
     @Test
