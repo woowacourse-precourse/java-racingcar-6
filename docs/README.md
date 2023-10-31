@@ -1,13 +1,16 @@
 # 자동차 경주
 
 ## 기능 목록
-- [ ] 경주할 자동차의 이름을 ','를 기준으로 입력받는다.
-  - [ ] 이름은 5자 이하만 가능하다.
-  - [ ] 잘못된 입력에 경우 IllegalArgumentException을 발생시킨다.
-- [ ] 사용자가 몇 번의 이동을 할지 입력받는다.
-- [ ] 전진 조건을 확인한다.
-- [ ] 전진 조건에 적합하면 이동한다.
-- [ ] 우승자를 출력한다.
+- [x] 경주할 자동차의 이름을 ','를 기준으로 입력받는다. - Game#inputCars()
+  - [] 이름은 5자 이하만 가능하다. - Game#correctLength()
+  - [] 잘못된 입력에 경우 IllegalArgumentException을 발생시킨다.
+- [] 사용자가 몇 번의 이동을 할지 입력받는다. - Game#inputMoveNum()
+- [] Game#operate()
+  - [] 전진 조건에 의해 4이상인지 확인한다. - Game#verfityMoveCondition()
+  - [] 전진 조건에 적합하면 이동한다. - Game#moveCar()
+  - [] 이동 현황을 출력한다 - Game#printCurrentState()
+- [] 우승자의 기록을 찾는다. - Game#searchMaxDist()
+- [] 우승자를 선별 후 출력한다. - Game#printVitory()
 
 
 ### 기능 요구 사항
