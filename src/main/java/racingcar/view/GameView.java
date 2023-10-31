@@ -3,12 +3,12 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 
 public class GameView {
-    public String printCarInputRequest() {
+    public String requestCarInputRequest() {
         System.out.println(OuputMessage.CAR_INPUT_REQUEST.getMessage());
         return Console.readLine();
     }
 
-    public String printAttemptsNumInputRequest() {
+    public String requestAttemptsNum() {
         System.out.println(OuputMessage.ATTEMPTS_NUM_INPUT_REQUEST.getMessage());
         return Console.readLine();
     }
