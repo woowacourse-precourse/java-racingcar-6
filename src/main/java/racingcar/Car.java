@@ -1,6 +1,7 @@
 package racingcar;
 
 public class Car {
+
     private final CarName name;
     private int position = 0;
 

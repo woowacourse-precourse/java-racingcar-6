@@ -1,7 +1,6 @@
 package racingcar;
 
-
-import org.junit.platform.commons.util.StringUtils;
+import racingcar.utils.StringValidator;
 
 public class CarName {
     private static final int MAX_NAME_LENGTH = 5;
@@ -9,7 +8,7 @@ public class CarName {
 
     private void validateName(String name) throws IllegalArgumentException {
         // 사용해도 되나?? static import
-        if (StringUtils.isBlank(name)) {
+        if (StringValidator.isBlank(name)) {
             throw new IllegalArgumentException(ErrorMessage.CAR_NAME_IS_BLANK);
         }
         if (name.length() > MAX_NAME_LENGTH) {
@@ -25,7 +24,7 @@ public class CarName {
     public String getName() {
         return name;
     }
-
+    
     @Override
     public String toString() {
         return "CarName{" +
