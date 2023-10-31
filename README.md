@@ -6,7 +6,7 @@
 > 2주차 미션 자동차 경주를 구현한 저장소입니다.
 
 <div style="text-align:center;">
-    <img src="./imgs/Application.gif" alt="기능실행이미지" width="700px" style="border: 1px solid #000;">
+    <img src="./imgs/Application.gif" alt="기능실행이미지" width="700px" style="border: 1px solid #000">
 </div>
 
 ## 목차
@@ -43,6 +43,10 @@ git clone -b ilot12 https://github.com/ilot12/java-racingcar-6.git
 - 	유니코드 특수문자는 허용하지만 공백문자와 탭문자는 예외를 발생하도록 했습니다.
 	<br>또 0자 혹은 5자 초과의 이름 또한 예외처리 하였습니다.
 	<details>
+	<summary>실행 결과 보기</summary>
+		<img src="./imgs/run_1_name_input.gif" alt="이름입력예외결과" width="700px">
+	</details>
+	<details>
 	<summary>예외 처리 코드 및 테스트 코드 보기</summary>
 		<img src="./imgs/code_1_name_input.png" alt="이름입력예외처리코드" width="800px">
 	</details>
@@ -50,6 +54,10 @@ git clone -b ilot12 https://github.com/ilot12/java-racingcar-6.git
 - 	이름이 같은 사람이 있는 경우 이름(중복수)로 출력되도록 했습니다.
 	<br>예를 들어, Alex라는 이름이 2개 입력되면 Alex(1), Alex(2)와 같은 이름이 됩니다.
 	
+	<details>
+	<summary>실행 결과 보기</summary>
+		<img src="./imgs/run_2_name_duplication.gif" alt="이름중복입력결과" width="700px">
+	</details>
 	<details>
 	<summary>처리 코드 및 테스트 코드 보기</summary>
 		<img src="./imgs/code_2_name_duplication.png" alt="이름중복입력처리코드" width="800px">
@@ -62,6 +70,10 @@ git clone -b ilot12 https://github.com/ilot12/java-racingcar-6.git
 	- 시도 횟수에 특수문자가 들어가면 예외를 발생하도록 했습니다.
 	
 	<br>
+	<details>
+	<summary>실행 결과 보기</summary>
+		<img src="./imgs/run_3_big_number_input.gif" alt="큰수입력결과" width="700px">
+	</details>
 	<details>
 	<summary>처리 코드 및 테스트 코드 보기</summary>
 		<img src="./imgs/code_3_big_number_input.png" alt="큰수입력처리코드" width="800px">
