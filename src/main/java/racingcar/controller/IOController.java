@@ -1,12 +1,11 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
 import racingcar.view.IOView;
 
-public class IOController {
+public final class IOController {
     private final IOView ioView;
 
     public IOController() {
@@ -14,28 +13,29 @@ public class IOController {
     }
 
     public void showIntroMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        String introMessage = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+        ioView.showSingleMessage(introMessage);
     }
 
     public void showRequestRoundNumberMessage() {
-        System.out.println("시도할 회수는 몇회인가요?");
+        String askRoundMessage = "시도할 회수는 몇회인가요?";
+        ioView.showSingleMessage(askRoundMessage);
     }
 
-    public String getUserInput() {
-        return Console.readLine();
+    public String getUserRequest() {
+        return ioView.getUserRequest();
     }
 
     public Integer getRoundNumber() {
-        String userInput = getUserInput();
+        String userInput = getUserRequest();
         // validate
         //1. is numver
         //2. is number given singe ?
-
         return Integer.parseInt(userInput);
     }
 
     public List<String> getCarNames() {
-        String userInput = getUserInput();
+        String userInput = getUserRequest();
         //validate
         //validate it contains with ,
         List<String> carNames = Arrays.asList(userInput.split(","));
@@ -54,7 +54,8 @@ public class IOController {
     }
 
     public void showWinner(List<String> message) {
-        System.out.print("최종 우승자 : ");
+        String winnerHeadMessage = "최종 우승자 : ";
+        ioView.showHeadMessage(winnerHeadMessage);
         String winnerNames = message.toString().replace("[", "").replace("]", "");
         ioView.showSingleMessage(winnerNames);
     }

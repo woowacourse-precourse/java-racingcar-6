@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class IOView {
@@ -10,5 +11,13 @@ public class IOView {
         for (String msg : message) {
             System.out.println(msg);
         }
+    }
+
+    public void showHeadMessage(final String givenMessage) {
+        System.out.print(givenMessage);
+    }
+
+    public String getUserRequest() {
+        return Console.readLine();
     }
 }

@@ -3,7 +3,8 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.model.NCars;
 
-public class GameController {
+public final class GameController {
+    NCars nCars;
     IOController ioController;
 
     private GameController() {
@@ -14,16 +15,29 @@ public class GameController {
         return new GameController();
     }
 
-    public void processGame() {
+    public void setUpCars() {
         ioController.showIntroMessage();
         List<String> names = ioController.getCarNames();
-        NCars nCars = NCars.applyNames(names);
+        this.nCars = NCars.applyNames(names);
+    }
+
+    public void processGame() {
+        setUpCars();
+        int round = getRoundNumber();
+        moveCarsByGivenRoundNumber(round);
+        ioController.showWinner(nCars.getWinnerName());
+    }
+
+    public int getRoundNumber() {
         ioController.showRequestRoundNumberMessage();
-        int round = ioController.getRoundNumber();
+        return ioController.getRoundNumber();
+    }
+
+    private void moveCarsByGivenRoundNumber(final int round) {
         for (int i = 0; i < round; i++) {
             nCars.moveCars();
             ioController.showRoundResult(nCars.getSingleRoundResult());
         }
-        ioController.showWinner(nCars.getWinnerName());
     }
+
 }
