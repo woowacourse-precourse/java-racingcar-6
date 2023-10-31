@@ -1,14 +1,18 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.test.NsTest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.Application;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
-class CarTest {
+class CarTest extends NsTest {
 
     Car car1 = new Car("car1");
     Car car2 = new Car("car2");
@@ -99,6 +103,20 @@ class CarTest {
 
         //then
         Assertions.assertThat(car1.located()).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("자동차의 이름이 공백이면 예외를 발생한다.")
+    void 이름_예외_처리(){
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,  ,hello ", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
     }
 
 }
