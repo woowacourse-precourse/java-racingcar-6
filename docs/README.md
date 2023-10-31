@@ -36,6 +36,37 @@
 - [ ] 테스트 코드로 정리한 기능 목록이 동작하는 것을 확인한다.
 
 ### 🍀 각 메서드의 역할 정리하기
+- Car
+  - validateLengthOfName : 자동차의 이름이 요구사항인 5글자 이하에 적합한지 확인
+  - moveForward : 자동차의 위치를 하나 앞으로 이동
+  - getLastLocation : 자동차의 위치를 반환
+  - addToWinner : Winners 에 해당 자동차의 이름을 추가
+  - toString : 자동차의 이름과 위치를 이용해 문자열로 변환
+- Game
+  - run : 게임의 흐름에 알맞는 메서드들을 호출
+  - showWinners : 출력 형태에 맞게 우승자들을 출력
+  - moveCarsAndShowResults : 자동차를 이동시키고 이에 해당하는 결과를 출력
+  - readTrialNumber : 시도횟수를 읽어들임
+  - showResult : 자동차의 이동 결과를 출력
+  - findWinners : 우승자들을 찾음
+  - findLocationOfWinner : 우승자의 위치를 찾음
+  - registerCars : 자동차의 이름들을 읽어들이고 이를 등록함
+  - moveCars : 자동차들을 조건에 맞는 경우 이동시킴
+  - shouldMoveForward : 랜덤한 숫자의 결과를 기반으로 전진해야 하는지 여부를 판단
+- Winners
+  - addNameOfWinner : 우승자의 이름을 추가함
+  - toString : 출력 형태에 맞게 우승자 수에 따라 적절한 문자열로 변환
+- Parser
+  - splitStringBySplitter : 문자열을 구분자를 기준으로 잘라 문자열 List 로 반환
+  - stringToInteger : 문자열을 Integer 로 반환
+- NumberPicker
+  - pickRandomNumberInRange : 범위에 해당하는 숫자를 랜덤으로 뽑는다 >> 리팩
+- InputView
+  - readValue : 콘솔로 들어온 입력값을 읽는다
+- OutputView
+  - print : 인자로 들어온 문자열을 출력한다
+  - printNewLine : 빈 줄을 출력한다
+  - println : 인자로 들어온 문자열을 출력하고 줄을 바꾼다
 
 ## 🚀 기능 요구 사항
 
