@@ -3,9 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    private String name = "";
+    private String name;
     private int position = 0;
-    private Numbers numbers = new Numbers();
+    private NumberCondition numberCondition = new NumberCondition();
     public Car(String name) { this.name = name; }
 
     public void printMoves() {
@@ -14,7 +14,7 @@ public class Car {
 
     public void trial() {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        this.position += this.numbers.compareFour(randomNumber);
+        this.position += this.numberCondition.compareFour(randomNumber);
     }
 
     public String getName() { return this.name; }
