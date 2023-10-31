@@ -14,7 +14,7 @@ public class RacingCarGame {
     private InputView inputView;
     private ResultView resultView;
     private GameView gameView;
-    private ArrayList<Player> players;
+    public ArrayList<Player> players;
     private int RUN_COUNT;
 
     //생성자
@@ -28,6 +28,7 @@ public class RacingCarGame {
     public void run(){
         inputView.inputName();
         inputCarName();
+
         inputView.inputRun();
         inputRunCount();
 
@@ -57,6 +58,9 @@ public class RacingCarGame {
                 throw new IllegalArgumentException("Length Error");
             }
             Player player = new Player(s);
+
+            validateDuplicatePlayer(player);    //중복 검증
+
             players.add(player);
         }
     }
@@ -65,6 +69,14 @@ public class RacingCarGame {
         RUN_COUNT = Integer.parseInt(Console.readLine());
         if(RUN_COUNT <= 0){
             throw new IllegalArgumentException("Try Count Error");
+        }
+    }
+
+    public void validateDuplicatePlayer(Player player) {
+        for(int i = 0; i < players.size(); i++){
+            if(player.getName().equals(players.get(i).getName())){
+                throw new IllegalArgumentException("회원 이름이 중복되었습니다.");
+            }
         }
     }
 
