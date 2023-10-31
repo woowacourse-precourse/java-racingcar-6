@@ -48,6 +48,10 @@ public class Application {
             if (carNames[i].trim().length() > 5) {
                 throw new IllegalArgumentException();
             }
+            // (,)를 기준 이름이 비어 있으면 안된다.
+            if (carNames[i].trim().isEmpty()) {
+                throw new IllegalArgumentException();
+            }
         }
     }
 
