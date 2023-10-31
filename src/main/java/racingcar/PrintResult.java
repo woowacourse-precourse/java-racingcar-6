@@ -54,4 +54,4 @@ public class PrintResult {
 				.collect(Collectors.toList());
 		return winner;
 	}
-} //end of class
+}
