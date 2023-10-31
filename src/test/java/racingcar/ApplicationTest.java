@@ -147,6 +147,17 @@ class ApplicationTest extends NsTest {
         assertThat(output.toString()).isEqualTo("최종 우승자 : carName1, carName2");
     }
 
+    @Test
+    void 입력_자동차이름_구분(){
+        GameController gameController = new GameController();
+
+        String input = "carName1,carName2,carName3";
+        String[] result=gameController.splitInput(input,",");
+
+        assertThat(result).contains("carName1","carName2","carName3");
+    }
+
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
