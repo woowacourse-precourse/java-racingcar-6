@@ -27,6 +27,7 @@ public class RacingController {
 
         Race race = new Race(laps, carArrayList);
         startRace(race);
+        endRace(race);
     }
 
     public static void startRace(Race race){
@@ -34,11 +35,12 @@ public class RacingController {
         for(int i =0; i<race.getLaps();i++){
             race.startDrive();
             race.getCarArrayList().forEach(car -> outputView.printPosition(car));
+            outputView.printLine();
         }
     }
 
     public static void endRace(Race race){
         ArrayList winner = race.CheckWinner();
-
+        outputView.printWinner(winner);
     }
 }
