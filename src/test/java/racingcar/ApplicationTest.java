@@ -1,12 +1,12 @@
 package racingcar;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -81,43 +81,59 @@ class ApplicationTest extends NsTest {
       assertThat(attempts).isEqualTo(5);
     }
 
-  @Test
-  void movementCount() {
-    Map<String,Integer> cars = new HashMap<>();
-    cars.put("테스트1",0);
-    cars.put("테스트2",0);
-    cars.put("테스트3",0);
+    @Test
+    void movementCount() {
+      Map<String,Integer> cars = new HashMap<>();
+      cars.put("테스트1",0);
+      cars.put("테스트2",0);
+      cars.put("테스트3",0);
 
-    cars.forEach((carName, movement) -> {
-      int number = 4;
+      cars.forEach((carName, movement) -> {
+        int number = 4;
 
-      if(number>=4){
-        movement = movement.intValue();
-        movement++;
-        cars.replace(carName,movement);
+        if(number>=4){
+          movement = movement.intValue();
+          movement++;
+          cars.replace(carName,movement);
+        }
+      });
+      assertThat(cars.get("테스트1")).isEqualTo(1);
+    }
+
+    @Test
+    void progressDisplay() {
+      Map<String,Integer> cars = new HashMap<>();
+      cars.put("테스트1",1);
+      cars.put("테스트2",0);
+      cars.put("테스트3",3);
+
+      cars.forEach((carName, movement) -> {
+        String result = "";
+        for(int i = 1 ; i<=movement ; i++){
+          result+="-";
+        }
+        System.out.println(carName + " : " + result);
+      });
+    }
+    @Test
+    void winnerDisplay() {
+      Map<String,Integer> cars = new HashMap<>();
+      String winner = "";
+      cars.put("테스트1",3);
+      cars.put("테스트2",0);
+      cars.put("테스트3",1);
+      Integer maxValue = Collections.max(cars.values());
+      Set<Map.Entry<String, Integer>> entrySet = cars.entrySet();
+      for(Map.Entry<String,Integer> entry: entrySet){
+        if(entry.getValue() == maxValue){
+          winner+=",";
+          winner+=entry.getKey();
+        }
       }
-    });
+      winner = winner.replaceFirst(",","");
+      System.out.println("최종 우승자 : " + winner);
 
-    assertThat(cars.get("테스트1")).isEqualTo(1);
-
-  }
-
-  @Test
-  void progressDisplay() {
-    Map<String,Integer> cars = new HashMap<>();
-    cars.put("테스트1",1);
-    cars.put("테스트2",0);
-    cars.put("테스트3",3);
-
-    cars.forEach((carName, movement) -> {
-      String result = "";
-      for(int i = 1 ; i<=movement ; i++){
-        result+="-";
-      }
-      System.out.println(carName + " : " + result);
-    });
-
-
-  }
+      assertThat(maxValue).isEqualTo(3);
+    }
 
 }
