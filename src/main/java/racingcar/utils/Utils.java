@@ -36,4 +36,8 @@ public final class Utils {
     public static int stringToInt(String string) {
         return Integer.parseInt(string.trim());
     }
+
+    public static String replaceCommaToBlank(String string) {
+        return string.replace(","," ");
+    }
 }
