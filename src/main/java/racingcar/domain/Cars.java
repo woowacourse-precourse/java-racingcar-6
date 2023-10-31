@@ -9,8 +9,20 @@ public class Cars {
     private final List<Car> cars;
 
     public Cars(List<Car> cars) {
+        validate(cars);
         this.cars = cars;
     }
+
+    private void validate(List<Car> cars) {
+        if (isEmptyOrNoCompetitors(cars)) {
+            throw new IllegalArgumentException("자동차를 2대 이상 입력해야 합니다.");
+        }
+    }
+
+    private boolean isEmptyOrNoCompetitors(List<Car> cars) {
+        return cars.isEmpty() || cars.size() == 1;
+    }
+
 
     public List<Car> getCars() {
         return cars;
