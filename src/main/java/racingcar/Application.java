@@ -10,6 +10,8 @@ public class Application {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String carNameInput = camp.nextstep.edu.missionutils.Console.readLine();
         List<String> carNames = Arrays.stream(carNameInput.split(",")).toList();
+
         System.out.println(TRY_COUNT_INPUT_MESSAGE);
+        String tryCount = camp.nextstep.edu.missionutils.Console.readLine();
     }
 }
