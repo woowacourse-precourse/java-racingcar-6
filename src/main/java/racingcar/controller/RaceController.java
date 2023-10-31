@@ -1,8 +1,10 @@
 package racingcar.controller;
 
+import racingcar.exception.BusinessException;
+import racingcar.exception.ExceptionCode;
 import racingcar.service.RaceService;
-import racingcar.domain.CarNameList;
-import racingcar.domain.TotalGameResult;
+import racingcar.view.dto.CarNameList;
+import racingcar.service.dto.TotalGameResult;
 import racingcar.model.Model;
 import racingcar.model.ModelConst;
 import racingcar.view.RaceView;
@@ -20,14 +22,33 @@ public class RaceController {
     }
 
     public void run() {
-        raceView.conveyCarNames();
-        raceView.conveyAttemptNumber();
-        String attemptNumber = (String) model.getAttribute(ModelConst.ATTEMPT_NUMBER).orElseThrow();
-        CarNameList carNames = (CarNameList) model.getAttribute(ModelConst.CAR_NAME).orElseThrow();
+        CarNameList carNames = getCarNameList();
+        String attemptNumber = getAttemptNumber();
 
         TotalGameResult gameResult = raceService.doGame(carNames, attemptNumber);
-        model.setAttribute("total game result", gameResult);
+        model.setAttribute(ModelConst.TOTAL_GAME_RESULT, gameResult);
         raceView.printResult();
     }
 
+    private CarNameList getCarNameList() {
+        raceView.conveyCarNames();
+        return (CarNameList) model.getAttribute(
+                ModelConst.CAR_NAME
+        )
+                .orElseThrow(() -> new BusinessException(
+                        ExceptionCode.NO_CAR_LIST,
+                        this.getClass()
+                ));
+    }
+
+    private String getAttemptNumber() {
+        raceView.conveyAttemptNumber();
+        return (String) model.getAttribute(
+                ModelConst.ATTEMPT_NUMBER
+        )
+                .orElseThrow(() -> new BusinessException(
+                        ExceptionCode.NO_RESULT,
+                        this.getClass()
+                ));
+    }
 }
