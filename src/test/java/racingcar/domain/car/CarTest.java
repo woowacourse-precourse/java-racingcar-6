@@ -43,7 +43,7 @@ class CarTest {
         car.move(driveRule);
         String position = car.printPosition();
 
-        assertEquals("test : -", position);
+        assertEquals("test : -\n", position);
     }
 
     @ParameterizedTest
@@ -58,7 +58,7 @@ class CarTest {
         car.move(driveRule);
         String position = car.printPosition();
 
-        assertEquals("test : -- \n", position);
+        assertEquals("test : --\n", position);
     }
 
     @Test
