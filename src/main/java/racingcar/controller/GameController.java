@@ -10,6 +10,13 @@ public class GameController {
     private GameView gameView = new GameView();
     private GameException gameException = new GameException();
 
+    public void startGame() {
+        requestInputCarNames();
+        requestInputTry();
+        requestPrintResult();
+        requestPrintWinner();
+    }
+
     public void requestInputCarNames() {
         gameView.printCarNameInputPhrase();
         generateCar(splitInput(Console.readLine(), game.getDELIMITER()));
