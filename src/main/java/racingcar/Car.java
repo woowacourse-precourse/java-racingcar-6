@@ -24,8 +24,8 @@ public class Car {
         this.count = count;
     }
 
-    public List<Car> carReset(String[] carNames) {
-        carNames = User.splitInput(User.input());
+    public static List<Car> carReset() {
+        String[] carNames = User.splitInput(User.input());
         List<Car> cars = new ArrayList<>();
         for (String carName : carNames) {
             Car car = new Car(carName, 0);
@@ -33,4 +33,14 @@ public class Car {
         }
         return cars;
     }
+
+    public static void checkLength(List<Car> carList) {
+        for (Car car : carList) {
+            String carName = car.getName();
+            if (carName.length() > 5) {
+                throw new IllegalArgumentException("자동차 이름은 5글자 이하로 작성해주세요.");
+            }
+        }
+    }
+
 }
