@@ -7,13 +7,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.configuration.AppConfig;
 import racingcar.configuration.Config;
+import racingcar.domain.Racing;
 import racingcar.repository.CarRepository;
 
 public class RacingServiceImplTest {
 
     Config config = AppConfig.getInstance();
     private CarRepository memoryCarRepository = config.carRepository();
-    private CarService carService = config.carService();
     RacingService racingService = config.racingService();
 
     @BeforeEach
@@ -22,6 +22,22 @@ public class RacingServiceImplTest {
     }
 
     @Test
+    public void 차이름과_시도횟수_정제해서_Racing객체_만들기() {
+        // given
+        String input = "pobi,woni,jun";
+        String tryCount = "5";
+
+        // when
+        final Racing result = racingService.generateRacing(input, tryCount);
+
+        // then
+        assertThat(result).isNotNull();
+        assertThat(result.participationsSize()).isEqualTo(3);
+        assertThat(result.getTryCount()).isEqualTo(3);
+    }
+
+
+    /*@Test
     public void Car_Name들_한줄에_입력받아_저장하기() {
         // given
         String input = "pobi,woni,jun";
@@ -81,6 +97,8 @@ public class RacingServiceImplTest {
         racingService.processTryCountInput(input);
 
         // then
-        assertThat(memoryCarRepository.findAll()).hasSize(3);
-    }
+
+    }*/
+
+
 }
