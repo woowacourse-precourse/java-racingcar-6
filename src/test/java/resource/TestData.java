@@ -7,6 +7,9 @@ public class TestData {
     public static final String CAR_NAME_4 = "test4";
     public static final String CAR_NAME_5 = "test5";
     public static final String LONG_CAR_NAME = "testtest";
+
+    public static final String COMMA = ",";
+    public static final String COMMA_WITH_SPACE = ", ";
     public static final int ONE = 1;
     public static final int ZERO = 0;
     public static final int NINE = 9;
