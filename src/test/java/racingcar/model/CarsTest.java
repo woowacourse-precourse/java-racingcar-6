@@ -25,7 +25,7 @@ public class CarsTest {
 
     @Nested
     @DisplayName("자동차 이름 독립/중복 테스트")
-    class duplicateCarsTest {
+    class DuplicateCarsTest {
 
         @Test
         @DisplayName("자동차 이름이 모두 독립적이면 정상 생성된다.")
