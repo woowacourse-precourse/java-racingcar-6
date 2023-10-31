@@ -10,20 +10,35 @@ import racingcar.view.CarNameInput;
 import racingcar.view.RacingViewer;
 import racingcar.view.TryCountInput;
 
-import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RacingController {
 
+    private final static Car car = new Car();
     private final static Computer computer = new Computer();
-    private final Emcee emcee = new Emcee();
-    private final RandomNumber randomNumber = new RandomNumber();
-    private final CarNameValidator carNameValidator = new CarNameValidator();
-    private final TryCountValidator tryCountValidator = new TryCountValidator();
-    private final CarNameInput carNameInput = new CarNameInput();
-    private final TryCountInput tryCountInput = new TryCountInput();
-    private final RacingViewer racingViewer = new RacingViewer();
+    private final static Emcee emcee = new Emcee();
+    private final static RandomNumber randomNumber = new RandomNumber();
+    private final static CarNameValidator carNameValidator = new CarNameValidator();
+    private final static TryCountValidator tryCountValidator = new TryCountValidator();
+    private final static CarNameInput carNameInput = new CarNameInput();
+    private final static TryCountInput tryCountInput = new TryCountInput();
+    private final static RacingViewer racingViewer = new RacingViewer();
 
     public void run() {
+        racingViewer.showCarNameMessage();
+        Map<String, Integer> carList = new HashMap<>();
+        setCarList(carList);
 
     }
+
+    private void setCarList(Map<String, Integer> list) {
+        for (String name : carNameInput.returnCarName()) {
+            carNameValidator.checkCarNameLength(name);
+            list.put(name, 0);
+        }
+        carNameValidator.checkDuplicatedCarName(list);
+    }
+
+
 }

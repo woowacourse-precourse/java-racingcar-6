@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class CarNameInput {
 
-    private String[] returnCarName() {
+    public String[] returnCarName() {
         return Console.readLine().split(",");
     }
 }
