@@ -11,4 +11,9 @@ public class CarRepository implements CarRepositoryInterface{
     public void saveCar(Car car) {
         carStorage.add(car);
     }
+
+    @Override
+    public List getCars() {
+        return carStorage;
+    }
 }
