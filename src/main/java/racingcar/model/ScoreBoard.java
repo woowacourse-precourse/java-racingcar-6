@@ -25,8 +25,12 @@ public class ScoreBoard {
         return scoreBoard.size();
     }
 
-    public List<Score> getScoreBoard() {
-        return scoreBoard;
+    public List<CarDto> findFinalRoundWinners() {
+        return scoreBoard.get(getFinalRound()).findFarthestCar();
+    }
+
+    public int getFinalRound() {
+        return scoreBoard.size() - 1;
     }
 
 }

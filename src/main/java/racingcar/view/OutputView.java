@@ -1,14 +1,17 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.StringJoiner;
 import racingcar.model.CarDto;
 import racingcar.model.ScoreBoard;
 
 public class OutputView {
+    private static final String FINAL_WINNER = "최종 우승자";
     private static final String BEFORE_RACE_MESSAGE = "실행 결과";
     private static final String DISTANCE_DASH = "-";
     private static final String FIELD_SEPARATOR = " : ";
     private static final String NEW_LINE = "\n";
+    private static final String COMMA = ", ";
 
     public static void beforeRaceMessage() {
         printEmptyLine();
@@ -28,6 +31,12 @@ public class OutputView {
             stringBuilder.append(NEW_LINE);
         }
         System.out.print(stringBuilder);
+    }
+
+    public static void showWinners(List<CarDto> winners) {
+        StringJoiner winnerNames = new StringJoiner(COMMA);
+        winners.forEach(carDto -> winnerNames.add(carDto.getName()));
+        System.out.println(FINAL_WINNER + FIELD_SEPARATOR + winnerNames);
     }
 
     private static void printEmptyLine() {

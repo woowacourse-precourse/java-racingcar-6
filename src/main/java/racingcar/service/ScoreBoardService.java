@@ -19,4 +19,8 @@ public class ScoreBoardService {
         return scoreBoard;
     }
 
+    public List<CarDto> findWinners() {
+        return scoreBoard.findFinalRoundWinners();
+    }
+
 }
