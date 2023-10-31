@@ -1,5 +1,9 @@
 package racingcar.validator;
 
+import racingcar.domain.car.Car;
+
+import java.util.List;
+
 public class CarNameValidator {
 
     public static void validateForInputString(String carNames) {
@@ -16,6 +20,14 @@ public class CarNameValidator {
     private static void validateContainsCommaForInputString(String carNames) {
         if (!carNames.contains(",")) {
             throw new IllegalArgumentException("입력값은 쉼표(,)를 기준으로 구분되어야 합니다.");
+        }
+    }
+
+    public static void validateDuplicateForList(List<Car> cars) {
+        if (cars.stream()
+                .distinct()
+                .count() != cars.size()) {
+            throw new IllegalArgumentException("각각의 자동차 이름은 중복될 수 없습니다.");
         }
     }
 
