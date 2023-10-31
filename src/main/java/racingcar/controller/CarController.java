@@ -25,7 +25,6 @@ public class CarController {
     }
 
     public void startCarGame() {
-
         printMessage(OutputMessage.HOW_MANY_TIME);
         trialAmount = inputTrialAmount();
         printNewLine();
@@ -39,6 +38,7 @@ public class CarController {
             Map<String, String> carStatus = cars.generateCarStatus();
 
             printStatusMessage(OutputMessage.PROGRESS_RESULT, carStatus);
+            printNewLine();
         }
     }
 

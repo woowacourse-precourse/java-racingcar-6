@@ -53,9 +53,7 @@ public class Cars {
     public Map<String, String> generateCarStatus() {
         Map<String, String> carStatusMap = new HashMap<>();
         cars.forEach(car -> carStatusMap.put(car.getCarName(), generateStatusString(car.getDistance())));
-        for (Car i : cars) {
-            System.out.println(i.getCarName() + i.getDistance());
-        }
+
         return carStatusMap;
     }
 
