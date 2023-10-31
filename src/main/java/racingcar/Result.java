@@ -12,24 +12,26 @@ public class Result {
         this.userArray = userArray;
     }
 
-    public void finalWinner() {
+    public String finalWinner() {
         List<Integer> countArray = userArray.stream()
                 .map(Car::getCount)
-                .toList();  // [3,2,3] // 꿀팁 감사합니다.
+                .toList();
 
-        int maxNumber = Collections.max(countArray); // 가장 큰 값
+        int maxNumber = Collections.max(countArray);
 
         List<Integer> result = IntStream.range(0, countArray.size())
                 .filter(i -> countArray.get(i) == maxNumber)
                 .boxed()
                 .toList();
 
-        List<String> finalWinner = result.stream()
+        List<String> finalWinnerList = result.stream()
                 .map(i -> userArray.get(i).getName())
-                .toList(); // 가장 큰 값이 있는 자동차(들) 출력
+                .toList();
 
-        String lastString = String.join(", ", finalWinner);
+        String lastString = String.join(", ", finalWinnerList);
+        return lastString;
 
-        System.out.println("최종 우승자 : " + lastString);
     }
+
+
 }
