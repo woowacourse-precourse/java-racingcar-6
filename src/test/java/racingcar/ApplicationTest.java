@@ -2,7 +2,13 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Judgement;
 import racingcar.domain.NumberGenerator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -13,6 +19,21 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+
+    @Test
+    void 무승부_판별(){
+        final Judgement judgement = new Judgement();
+        List<String> names = new ArrayList<>();
+        names.add("pobi");
+        names.add("woni");
+        Map<String,String> users = new HashMap<>();
+        users.put("pobi","--");
+        users.put("woni","--");
+
+        List<String> result = judgement.compareDistance(users,names);
+
+        assertThat(result).isEqualTo(names);
+    }
     @Test
     void 숫자_생성(){
         final NumberGenerator numberGenerator = new NumberGenerator();
