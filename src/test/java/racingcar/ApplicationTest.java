@@ -87,6 +87,12 @@ class ApplicationTest extends NsTest {
         assertThat(game.getWinnerList()).contains("carName1","carName2");
     }
 
+    @Test
+    void 이름_5자_이상_예외_처리(){
+        GameException gameException=new GameException();
+        assertThatThrownBy(() -> gameException.checkNameLength("carName"));
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
