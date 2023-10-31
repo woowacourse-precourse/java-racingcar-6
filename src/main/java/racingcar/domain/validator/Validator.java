@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.domain.validator;
 
 import java.util.List;
 import racingcar.option.GameOption;

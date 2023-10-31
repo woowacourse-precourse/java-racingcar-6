@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.domain.validator.Validator;
+
 public class CarController {
     private Cars cars;
 
@@ -7,6 +9,8 @@ public class CarController {
 
     public void setStatus(Cars cars, int moveChance) {
         this.cars = cars;
+
+        Validator.moveNumber(moveChance);
         this.moveChance = moveChance;
     }
 
@@ -17,9 +21,5 @@ public class CarController {
 
     public boolean checkMoveChance() {
         return moveChance != 0;
-    }
-
-    public String findWinner() {
-        return cars.findWinner();
     }
 }
