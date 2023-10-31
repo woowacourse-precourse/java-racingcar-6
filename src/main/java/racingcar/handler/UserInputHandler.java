@@ -3,7 +3,9 @@ package racingcar.handler;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class UserInputHandler {
 
@@ -19,10 +21,16 @@ public class UserInputHandler {
         }
 
         List<String> names = splitNames(userInput);
-        for (String name : names) {
-            validateName(name);
+        Set<String> nameSet = new HashSet<>(names);
+
+        if(nameSet.size() != names.size()) {
+            throw new IllegalArgumentException("자동차 이름은 중복될 수 없습니다.");
+        } else {
+            for (String name : names) {
+                validateName(name);
+            }
+            return names;
         }
-        return names;
     }
 
     private static List<String> splitNames(String input) {
