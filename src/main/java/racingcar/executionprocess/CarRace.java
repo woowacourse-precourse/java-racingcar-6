@@ -10,7 +10,7 @@ import racingcar.input.NumberOfAttempts;
 public class CarRace {
     private static List<String> cars;
     private static int number;
-//    private static int[] move;
+
     public static void start() {
         printCarName();
         printNumberOfAttempts();
