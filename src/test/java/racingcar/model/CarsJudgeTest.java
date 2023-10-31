@@ -1,10 +1,10 @@
 package racingcar.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.CarFixtures.HYUK;
-import static racingcar.CarFixtures.JUN;
-import static racingcar.CarFixtures.POBY;
-import static racingcar.CarFixtures.WONY;
+import static racingcar.fixtures.CarFixtures.HYUK;
+import static racingcar.fixtures.CarFixtures.JUN;
+import static racingcar.fixtures.CarFixtures.POBY;
+import static racingcar.fixtures.CarFixtures.WONY;
 
 import java.util.ArrayList;
 import java.util.List;

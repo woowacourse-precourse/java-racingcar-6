@@ -1,9 +1,9 @@
 package racingcar.model;
 
-import static racingcar.Constants.MAX_CAR_NAME_SIZE;
-import static racingcar.Constants.MAX_RANDOM_NUMBER;
-import static racingcar.Constants.MIN_RANDOM_NUMBER;
-import static racingcar.Constants.MOVE_CONDITION;
+import static racingcar.constants.Constants.MAX_CAR_NAME_SIZE;
+import static racingcar.constants.Constants.MAX_RANDOM_NUMBER;
+import static racingcar.constants.Constants.MIN_RANDOM_NUMBER;
+import static racingcar.constants.Constants.MOVE_CONDITION;
 import static racingcar.exception.InputErrorCode.INVALID_CAR_NAME_SIZE;
 
 import camp.nextstep.edu.missionutils.Randoms;

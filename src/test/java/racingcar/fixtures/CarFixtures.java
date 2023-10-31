@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.fixtures;
 
 import racingcar.model.Car;
 
