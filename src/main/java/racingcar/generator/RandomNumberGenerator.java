@@ -2,12 +2,11 @@ package racingcar.generator;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.function.Supplier;
-import racingcar.domain.ForwardCondition;
 
 public class RandomNumberGenerator {
 
-    private static final int STARTING_RANGE = ForwardCondition.STARTING_RANGE.getValue();
-    private static final int END_RANGE = ForwardCondition.END_RANGE.getValue();
+    private static final int STARTING_RANGE = 0;
+    private static final int END_RANGE = 9;
 
     private static final Supplier<Integer> supplier = RandomNumberGenerator::generateNumber;
 
