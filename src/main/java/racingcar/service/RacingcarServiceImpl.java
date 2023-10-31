@@ -6,12 +6,15 @@ import java.util.ArrayList;
 
 import racingcar.domain.Racingcar;
 import racingcar.repository.RacingcarRepository;
-import racingcar.repository.MemoryRacingcarRepository;
 
 public class RacingcarServiceImpl implements RacingcarService {
 
-    private final static RacingcarRepository carRepository = new MemoryRacingcarRepository();
+    private final RacingcarRepository carRepository;
     private final int MOVING_DISTANCE = 1;
+
+    public RacingcarServiceImpl(RacingcarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
 
     public void joinRacingcar(String nameList) {
         for (String name : nameList.split(",")) {

@@ -1,16 +1,23 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.RacingcarController;
 import racingcar.service.RacingcarService;
-import racingcar.service.RacingcarServiceImpl;
 
 import static org.assertj.core.api.Assertions.*;
 
 public class ExampleInputTest {
 
-    private final static RacingcarController racingcarController = new RacingcarController();
-    private final static RacingcarService racingcarService = new RacingcarServiceImpl();
+    private RacingcarService racingcarService;
+    private RacingcarController racingcarController;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        racingcarService = appConfig.racingcarService();
+        racingcarController = appConfig.racingcarController();
+    }
 
     @Test
     void 기본_실행_동작_테스트() {

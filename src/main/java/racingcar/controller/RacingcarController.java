@@ -2,19 +2,19 @@ package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.service.RacingcarService;
-import racingcar.service.RacingcarServiceImpl;
 import racingcar.view.ReaultView;
 
 import java.util.ArrayList;
 
 public class RacingcarController {
 
-    private static RacingcarService racingcarService;
+    private final RacingcarService racingcarService;
 
-    private final static ReaultView resultView = new ReaultView();
+    private final ReaultView resultView;
 
-    public RacingcarController() {
-        this.racingcarService = new RacingcarServiceImpl();
+    public RacingcarController(RacingcarService racingcarService, ReaultView resultView) {
+        this.racingcarService = racingcarService;
+        this.resultView = resultView;
     }
 
     public void run() {

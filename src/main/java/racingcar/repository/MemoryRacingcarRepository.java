@@ -6,7 +6,7 @@ import racingcar.domain.Racingcar;
 
 public class MemoryRacingcarRepository implements RacingcarRepository {
 
-    private static Map<String, Racingcar> carStore = new HashMap<>();
+    private Map<String, Racingcar> carStore = new HashMap<>();
 
     @Override
     public Racingcar save(String name) {
