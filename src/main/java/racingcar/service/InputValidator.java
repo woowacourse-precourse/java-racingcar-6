@@ -12,7 +12,6 @@ public class InputValidator {
     public boolean nums(String num) {
         isTrim(num);
         isDigit(num);
-        isLessThanOne(num);
         return true;
     }
 
@@ -27,12 +26,6 @@ public class InputValidator {
             Integer.parseInt(num);
         } catch (Exception e) {
             throw new IllegalArgumentException("게임횟수는 숫자여야 합니다.");
-        }
-    }
-
-    private void isLessThanOne(String num) {
-        if (Integer.parseInt(num) < 1) {
-            throw new IllegalArgumentException("게임횟수는 1이상 이여야 합니다.");
         }
     }
 }
