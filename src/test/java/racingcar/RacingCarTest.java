@@ -2,11 +2,14 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static racingcar.constant.CarRacingErrorMessage.CAR_NAME_BLANK_ERROR_MESSAGE;
+import static racingcar.constant.CarRacingErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
@@ -18,27 +21,40 @@ import racingcar.io.CarRacingOutputProcessor;
 public class RacingCarTest {
 
     @Test
-    void 자동차_생성_기능() {
+    void 자동차_객체_생성_기능_단일() {
         Car car = Car.fromName("john");
         assertThat("john").isEqualTo(car.getName());
         assertThat(0).isEqualTo(car.getPosition());
     }
 
     @Test
-    void 자동차_이름_길이_5자_제한_기능() {
+    void 자동차_정보_입력_기능_단체() {
+        String carNames = "jamy,risa,jun";
+        Cars cars = Cars.fromCarNames(carNames);
+        List<Car> currentStatus = cars.getCurrentStatus();
+
+        Assertions.assertEquals(currentStatus.get(0).getName(), "jamy");
+        Assertions.assertEquals(currentStatus.get(1).getName(), "risa");
+        Assertions.assertEquals(currentStatus.get(2).getName(), "jun");
+    }
+
+    @Test
+    void 자동차_이름_길이_5자_제한_기능_단일() {
         List<String> fiveLengthOverName = List.of("abcdef", "aifhiawkgha", "awhdfaighkwuhgakhgka", "asdfakhfkah",
                 "adwlafla");
         for (String name : fiveLengthOverName) {
             assertThatThrownBy(() -> Car.fromName(name))
                     .isInstanceOf(IllegalArgumentException.class)
-                    .hasMessageContaining("자동차 이름은 5자를 초과할 수 없습니다.");
+                    .hasMessageContaining(CAR_NAME_LENGTH_ERROR_MESSAGE);
         }
     }
 
     @Test
-    void 자동차_정보_저장_성공() {
-        List<String> carNames = List.of("jamy", "risa", "jun");
-        Cars cars = Cars.fromCarNames(carNames);
+    void 자동차_이름_길이_5자_제한_기능_단체() {
+        String carNames = "jamiiaa,risa,jun";
+        assertThatThrownBy(() -> Cars.fromCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CAR_NAME_LENGTH_ERROR_MESSAGE);
     }
 
     @Test
@@ -46,7 +62,8 @@ public class RacingCarTest {
         List<String> blankCarNames = List.of("", " ", " , ", ",", ", ", " ,");
         for (String blankCarName : blankCarNames) {
             assertThatThrownBy(() -> Cars.fromCarNames(blankCarName))
-                    .isInstanceOf(IllegalArgumentException.class);
+                    .isInstanceOf(IllegalArgumentException.class)
+                    .hasMessageContaining(CAR_NAME_BLANK_ERROR_MESSAGE);
         }
     }
 
@@ -78,7 +95,7 @@ public class RacingCarTest {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             System.setOut(new PrintStream(outputStream));
 
-            List<String> carNames = List.of("jamy", "risa", "jun");
+            String carNames = "jamy,risa,jun";
             Cars cars = Cars.fromCarNames(carNames);
 
             CarRacingOutputProcessor outputProcessor = new CarRacingOutputProcessor();
