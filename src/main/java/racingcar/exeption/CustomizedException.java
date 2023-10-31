@@ -1,6 +1,8 @@
 package racingcar.exeption;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CustomizedException {
     public static void numberUpException(List<String> carList){
@@ -9,6 +11,17 @@ public class CustomizedException {
                 throw new IllegalArgumentException();
             }
 
+        }
+    }
+
+    public static void sameNameCarException(List<String> carList){
+        Set<String> uniqueNames = new HashSet<>();
+
+        for (String carName : carList) {
+            if (uniqueNames.contains(carName)) {
+                throw new IllegalArgumentException("같은 자동차 입니다.: " + carName);
+            }
+            uniqueNames.add(carName);
         }
     }
 }
