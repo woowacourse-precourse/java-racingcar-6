@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -19,7 +18,7 @@ public class Cars {
     public void settingNames() {
         ArrayList<String> nameList = validateAndSendNames();
         for(String name : nameList) {
-            cars.add(new Car(name.trim()));
+            cars.add(new Car(name));
         }
     }
 
@@ -54,8 +53,10 @@ public class Cars {
         hasComma(names);
 
         String[] split = names.split(",");
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(split));
-
+        ArrayList<String> list = new ArrayList<>();
+        for(String name : split) {
+            list.add(name.replaceAll(" ", ""));
+        }
         validateDuplicateName(list);
         return list;
     }
