@@ -33,6 +33,10 @@ public class RacingView {
     public void printResult(CarList carList) {
         List<Car> greatestForwardCount = carList.findGreatestForwardCount();
         System.out.print("최종 우승자 : ");
-        System.out.print(greatestForwardCount.stream().map(Car::getCarName).collect(Collectors.joining(", ")));
+        System.out.print(
+                greatestForwardCount.stream()
+                        .map(Car::getCarName)
+                        .collect(Collectors.joining(", "))
+        );
     }
 }
