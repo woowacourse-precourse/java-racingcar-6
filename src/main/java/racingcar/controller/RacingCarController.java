@@ -13,6 +13,11 @@ public class RacingCarController {
         List<RacingCar> racingCarList = new ArrayList<>();
 
         for (int i = 0; i < carNameList.length; i++) {
+            // 자동차 이름이 5자 이하가 아닌 경우 Exception 발생
+            if (carNameList[i].length() > 5) {
+                throw new IllegalArgumentException();
+            }
+
             racingCarList.add(new RacingCar(carNameList[i]));
         }
 
