@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Referee;
 import racingcar.domain.car.Car;
 import racingcar.domain.power.DefaultPowerGenerator;
+import racingcar.dto.RoundResultDto;
 
 @DisplayName("뷰 로직 테스트")
 class OutputViewTest {
@@ -37,7 +38,7 @@ class OutputViewTest {
 
         String expectedOutput = "car1 : ---\ncar2 : -----\ncar3 : --";
 
-        outputView.showRoundResult(cars);
+        outputView.showRoundResult(RoundResultDto.createFrom(cars));
         assertEquals(expectedOutput.trim(), outputStream.toString().trim());
     }
 

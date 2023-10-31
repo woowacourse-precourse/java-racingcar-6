@@ -3,7 +3,9 @@ package racingcar.view;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.car.Car;
+import racingcar.dto.CarStatusDto;
 import racingcar.dto.GameResultDto;
+import racingcar.dto.RoundResultDto;
 
 public class MessageResolver {
 
@@ -14,9 +16,10 @@ public class MessageResolver {
         return resolveMultiWinnerMessage(gameResult);
     }
 
-    public String resolveRoundResultMessage(List<Car> cars) {
-        return cars.stream()
-                .map(car -> car.getCarName() + " : " + car.getPosition().draw())
+    public String resolveRoundResultMessage(RoundResultDto roundResultDto) {
+        List<CarStatusDto> carStatusDtos = roundResultDto.getRoundResult();
+        return carStatusDtos.stream()
+                .map(dto -> dto.getCarName().getValue() + " : " + dto.getCarPosition().draw())
                 .collect(Collectors.joining("\n")) + "\n";
     }
 

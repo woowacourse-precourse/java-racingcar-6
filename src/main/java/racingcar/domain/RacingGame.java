@@ -34,7 +34,7 @@ public class RacingGame {
     private void executeWholeRounds(List<Car> participants, RoundCount roundCount) {
         while (roundCount.hasNextRound()) {
             RoundResultDto roundResultDto = referee.executeRound(participants);
-            outputView.showRoundResult(participants);
+            outputView.showRoundResult(roundResultDto);
             roundCount.consumeRound();
         }
     }
