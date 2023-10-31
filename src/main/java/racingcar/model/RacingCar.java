@@ -1,7 +1,5 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
 /**
  * RacingCar 클래스는 자동차를 의미하는 클래스다.
  *
