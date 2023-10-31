@@ -17,8 +17,20 @@ public class Car {
             this.distance++;
         }
     }
+
     public void printDistanceStatus() {
         System.out.println(this.carName + " : " + "-".repeat(this.distance));
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
+    public String getName() {
+        return carName;
+    }
+
 }
+
+
+
