@@ -8,15 +8,15 @@ public class OutputView {
     private final static String DISPLAY_USER_SCORE_SIGN = ":";
     private final static String SCORE_SIGN = "-";
 
-    public void startGame(){
+    public static void startGame(){
         System.out.println(START_MESSAGE);
     }
 
-    public void askGameRounds(){
+    public static void askGameRounds(){
         System.out.println(ASK_GAME_ROUNDS);
     }
 
-    public void gameResult(){
+    public static void gameResult(){
         System.out.println(GAME_RESULT);
     }
 }
