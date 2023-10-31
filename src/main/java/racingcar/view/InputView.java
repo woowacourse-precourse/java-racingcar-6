@@ -11,6 +11,7 @@ public class InputView {
     }
 
     public static List<String> readCarName() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String cars = Console.readLine();
         Validator.validateBlack(cars);
         List<String> names = Arrays.stream(cars.split(",")).toList();
@@ -19,6 +20,7 @@ public class InputView {
     }
 
     public static int readMoveCount() {
+        System.out.println("시도할 회수는 몇회인가요?");
         String moveCountInput = Console.readLine();
         Validator.validateBlack(moveCountInput);
         int moveCount = Validator.validateInteger(moveCountInput);
