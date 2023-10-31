@@ -1,12 +1,12 @@
-- [ ] 입력
-  - [ ] 자동차 이름 입력 받기                  - InputView#carNames
-    - [x] 이름의 길이가 5를 넘어갈때 예외 처리 - Cars#cars (constructor)
-  - [ ] 몇번의 이동을 할 것인지 입력 받기  - InputView#ongoingTurn
-    - [ ] 숫자가 아닐 경우 예외 처리    - Inputview에서 알아서 터짐?
-- [ ] 로직
-  - [x] 무작위 값을 만들고 수가 4이상인지 판단하기  - Car#go
-  - [x] 판단 후 이상이라면 car을 update하기  - Car#go
-  - [ ] 우승자 판단하기  - cars#longestDistanceCar
-- [ ] 출력
-  - [ ] 매 턴마다 현재 상황을 보여주는 기능 - OutputView#currentSituation
-  - [ ] 우승자를 ,로 구분하여 출력해주는 기능  - OutputView#winner
+- [X] 입력
+  - [X] 자동차 이름 입력 받기  
+    - [x] 이름의 길이가 5를 넘어갈때 예외 처리
+  - [X] 몇번의 이동을 할 것인지 입력 받기 
+    - [X] 숫자가 아닐 경우 예외 처리 
+- [X] 로직
+  - [x] 무작위 값을 만들고 수가 4이상인지 판단하기
+  - [x] 판단 후 이상이라면 car을 update하기
+  - [X] 우승자 판단하기
+- [X] 출력
+  - [X] 매 턴마다 현재 상황을 보여주는 기능
+  - [X] 우승자를 ,로 구분하여 출력해주는 기능 
