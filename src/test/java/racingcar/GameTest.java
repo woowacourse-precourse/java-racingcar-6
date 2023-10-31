@@ -22,7 +22,7 @@ public class GameTest {
                     List<Car> cars = Arrays.asList(new Car("pobi"), new Car("woni"));
                     Game game = new Game(cars);
 
-                    game.executeSingleCycle();
+                    game.executeSingleCycleCarMove();
 
                     Map<String, Integer> result = game.getCurrentGameResult();
 
@@ -41,7 +41,7 @@ public class GameTest {
                     List<Car> cars = Arrays.asList(new Car("pobi"), new Car("woni"));
                     Game game = new Game(cars);
 
-                    game.executeSingleCycle();
+                    game.executeSingleCycleCarMove();
 
                     List<String> winners = game.getCurrentWinners();
                     assertThat(winners).contains("pobi");
