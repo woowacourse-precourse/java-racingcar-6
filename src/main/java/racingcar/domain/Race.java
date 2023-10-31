@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Race {
     int count;
-
     int times;
     Cars cars;
 
@@ -47,10 +46,10 @@ public class Race {
     }
 
     public List<String> findWinner() {
-        int max = cars.calculrateMaxProcess();
+        int maxProcess = cars.calculrateMaxProcess();
         return cars.getCars()
                 .stream()
-                .filter(car -> car.isWinner(max))
+                .filter(car -> car.isWinner(maxProcess))
                 .map(Car::getCarName)
                 .toList();
     }
