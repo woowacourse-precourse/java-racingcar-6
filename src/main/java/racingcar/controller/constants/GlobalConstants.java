@@ -6,7 +6,9 @@ public enum GlobalConstants {
     MAX_RANDOM_NUMBER(9),
 
     STARTING_POINT(0),
-    ONE_STEP(1)
+    ONE_STEP(1),
+
+    EMPTY(0)
     ;
 
     private final Integer value;

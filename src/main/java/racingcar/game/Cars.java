@@ -2,6 +2,7 @@ package racingcar.game;
 
 import racingcar.controller.Dice;
 import racingcar.view.OutputView;
+import static racingcar.controller.constants.GlobalConstants.*;
 
 import java.util.ArrayList;
 
@@ -31,14 +32,13 @@ public class Cars {
     }
 
     private ArrayList<Car> getMaxOfScores(){
-        // TODO: 상수 교체
         ArrayList<Car> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (winners.size() == 0) {
+            if (winners.size() == EMPTY.getValue()) {
                 winners.add(car);
                 continue;
             }
-            int winnerScore = winners.get(0).getScore();
+            int winnerScore = winners.get(STARTING_POINT.getValue()).getScore();
             int tempScore = car.getScore();
 
             if (winnerScore < tempScore) {
@@ -58,6 +58,7 @@ public class Cars {
     }
 
     public String winnersToString(ArrayList<Car> winners){
+        // TODO: 상수 교체
         ArrayList<String> carNames = getCarNames(winners);
         return String.join(", ", carNames);
     }
