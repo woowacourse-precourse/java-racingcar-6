@@ -7,7 +7,9 @@ import java.util.List;
 public final class InputView extends ConsoleWriter {
     public List<String> readParticipantCarNames() {
         this.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        return Arrays.stream(Console.readLine().split(",")).toList();
+        final var input = Console.readLine();
+        return Arrays.stream(input.split(","))
+                .toList();
     }
 
     public int readExtractLapCount() {

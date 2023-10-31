@@ -9,8 +9,9 @@ import racingcar.view.core.OutputView;
 public class Main {
 
     public void run() {
-        final var displayContainer = new GameDisplayContainer(new InputView(), new OutputView(), new EventListener(new DataStore()));
-
-        displayContainer.renderAll();
+        new GameDisplayContainer(new InputView(),
+                new OutputView(),
+                new EventListener(new DataStore())
+        ).renderAll();
     }
 }
