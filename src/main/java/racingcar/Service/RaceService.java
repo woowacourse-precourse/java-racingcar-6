@@ -14,12 +14,14 @@ public class RaceService {
     }
 
     public String winnerResult(List<Car> cars) {
-        cars.sort(((o1, o2) -> o2.getLocation() - o1.getLocation()));
+        cars.sort(Comparator.comparingInt(Car::getLocation).reversed());
         int maxNum = cars.get(0).getLocation();
+
         List<String> members = cars.stream()
                 .filter(car -> car.getLocation() == maxNum)
                 .map(Car::getName)
                 .collect(Collectors.toList());
+
         return String.join(", ", members);
     }
 

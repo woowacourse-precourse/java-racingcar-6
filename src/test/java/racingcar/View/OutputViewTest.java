@@ -25,7 +25,7 @@ class OutputViewTest {
         captor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(captor));
         outputView = new OutputView();
-        cars = Arrays.asList(new Car("jung", 4),new Car("yuju", 4),new Car("dong", 3));
+        cars = Arrays.asList(new Car("jung", 4), new Car("yuju", 4), new Car("dong", 3));
     }
 
     @AfterEach

@@ -48,13 +48,13 @@ class ServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-              "jungyeon,yuju,dong:  최대 이름 글자수를 초과하였습니다."
+            "jungyeon,yuju,dong  :  최대 이름 글자수를 초과하였습니다."
             , "jung,yuju,jung    :  중복된 이름을 입력하셨습니다."
             , "''                :  입력된 이름이 없습니다."
             , ",                 :  이름을 쉼표(,)로 구분할 수 없습니다."
             , "jung yuju dong    :  이름을 쉼표(,)로 구분할 수 없습니다."}
             , delimiter = ':')
-    void 입력값_검증(String input, String message){
+    void 입력값_검증(String input, String message) {
         assertThatThrownBy(() -> inputValidation.checkCarNamesValidation(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(message);
