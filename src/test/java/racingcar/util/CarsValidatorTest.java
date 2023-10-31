@@ -31,6 +31,19 @@ public class CarsValidatorTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("validateInputWithSeparator 함수 기능 테스트")
+    void 구분자가_쉼표가_아닐_때_예외처리() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("bora.bora", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("borabora", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
     @Override
     protected void runMain() {
         Application.main(new String[]{});
