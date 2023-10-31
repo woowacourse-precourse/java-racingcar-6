@@ -127,6 +127,20 @@ class ApplicationTest extends NsTest {
         }, MOVING_FORWARD);
     }
 
+
+    @Test
+    void 무작위_값이_4_이상일_때만_전진() {
+        assertRandomNumberInRangeTest(() -> {
+            run("pobi", "1");
+            assertThat(output()).contains("pobi : -");
+        }, 4, 1);
+
+        assertRandomNumberInRangeTest(() -> {
+            run("pobi", "1");
+            assertThat(output()).contains("pobi : ");
+        }, 0, 3);
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
