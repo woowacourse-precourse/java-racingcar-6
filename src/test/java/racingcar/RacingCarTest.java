@@ -1,11 +1,14 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.validator.RacingCarValidator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RacingCarTest {
+    private static final RacingCarGameFactory racingCarGameFactory = new MockRacingCarGameFactory();
+
     private static final String RACING_CAR_NAME = "semin";
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
@@ -14,12 +17,19 @@ public class RacingCarTest {
     private static final int DISTANCE_WHEN_MOVING_FORWARD = 1;
     private static final String MOVING_BAR_WHEN_MOVING_FORWARD = "-";
 
-    private final RacingCarValidator racingCarValidator = new RacingCarValidator();
+    private RacingCarValidator racingCarValidator;
+    private MockRandomNumberGenerator mockRandomNumberGenerator;
+
+    @BeforeEach
+    void init() {
+        racingCarValidator = racingCarGameFactory.racingCarValidator();
+        mockRandomNumberGenerator = (MockRandomNumberGenerator) racingCarGameFactory.randomNumberGenerator();
+    }
 
     @Test
     void 전진() {
-        MockRandomNumberGenerator randomNumberGenerator = new MockRandomNumberGenerator(MOVING_FORWARD);
-        RacingCar racingCar = new RacingCar(racingCarValidator, randomNumberGenerator, RACING_CAR_NAME);
+        mockRandomNumberGenerator.init(MOVING_FORWARD);
+        RacingCar racingCar = new RacingCar(racingCarValidator, mockRandomNumberGenerator, RACING_CAR_NAME);
         racingCar.move();
 
         assertThat(racingCar.getDistance()).isEqualTo(DISTANCE_WHEN_MOVING_FORWARD);
@@ -28,8 +38,8 @@ public class RacingCarTest {
 
     @Test
     void 멈춤() {
-        MockRandomNumberGenerator randomNumberGenerator = new MockRandomNumberGenerator(STOP);
-        RacingCar racingCar = new RacingCar(racingCarValidator, randomNumberGenerator, RACING_CAR_NAME);
+        mockRandomNumberGenerator.init(STOP);
+        RacingCar racingCar = new RacingCar(racingCarValidator, mockRandomNumberGenerator, RACING_CAR_NAME);
         racingCar.move();
 
         assertThat(racingCar.getDistance()).isEqualTo(DISTANCE_WHEN_STOP);
