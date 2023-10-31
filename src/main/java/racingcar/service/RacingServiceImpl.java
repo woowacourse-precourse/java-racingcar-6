@@ -27,6 +27,7 @@ public class RacingServiceImpl implements RacingService {
         return Racing.create(participations, tryCount);
     }
 
+    @Override
     public Racing save(Racing racing) {
         //carList.forEach(car -> carRepository.save(car));
         return (Racing) racingRepository.save(racing);
@@ -37,21 +38,18 @@ public class RacingServiceImpl implements RacingService {
         this.carService = carService;
     }
 
-    public void processCarNamesInput(String input) {
-        List<Car> carList = Arrays.stream(input.split(","))
-                .map(carName -> Car.create(carName))
-                .collect(Collectors.toList());
-
+    private List<Car> processCarNamesInput(String input) {
+        input = StringUtil.deleteAllSpaces(input);
+        List<Car> carList = seperateByComma(input);
         validateEmptyInput(input, carList);
 
-        carList.forEach(car -> carService.join(car));
+        return carList;
     }
 
-    private int processTryCountInput(String input) {
-        input = StringUtil.trimSpaces(input);
-        IntegerValidator.validateInteger(input);
-
-        return Integer.parseInt(input);
+    private List<Car> seperateByComma(String input) {
+        return Arrays.stream(input.split(","))
+                .map(carName -> Car.create(carName))
+                .collect(Collectors.toList());
     }
 
     private void validateEmptyInput(String input, List<Car> carList) {
