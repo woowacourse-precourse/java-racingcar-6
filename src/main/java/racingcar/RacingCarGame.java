@@ -11,10 +11,7 @@ public class RacingCarGame implements Game {
 
     @Override
     public void play() {
-        OutputDevice.printInputNamesMessage();
         List<String> names = InputDevice.inputNamesWithCommaDelimiter();
-
-        OutputDevice.printInputAttemptCountMessage();
         int attemptCount = InputDevice.inputAttemptCount();
 
         RacingCar racingCar = new RacingCar(names);

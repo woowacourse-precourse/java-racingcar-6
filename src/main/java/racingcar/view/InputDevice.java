@@ -13,6 +13,8 @@ public final class InputDevice {
     }
 
     public static List<String> inputNamesWithCommaDelimiter() {
+        OutputDevice.printInputNamesMessage();
+
         List<String> names = Arrays.asList(Console.readLine().split(DELIMITER, -1));
         InputValidator.checkEmptyAndBlankNames(names);
 
@@ -20,6 +22,8 @@ public final class InputDevice {
     }
 
     public static int inputAttemptCount() {
+        OutputDevice.printInputAttemptCountMessage();
+
         String attemptCountStr = Console.readLine();
         try {
             int attemptCount = Integer.parseInt(attemptCountStr);
