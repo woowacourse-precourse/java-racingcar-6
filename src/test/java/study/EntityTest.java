@@ -2,6 +2,7 @@ package study;
 
 import org.junit.jupiter.api.Test;
 import racingcar.entity.*;
+import racingcar.property.ErrorProperty;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -18,6 +19,19 @@ public class EntityTest {
 
         //then
         assertThat(instance.hashCode()).isEqualTo(testRacerHashCode);
+    }
+
+    @Test
+    void Racer_객체_생성_시_이름_유효성_검사_로직_테스트(){
+        //given
+        String targetName="한글1";
+
+        //when
+        assertThatThrownBy(()->{
+            Racer.getInstance(targetName);
+        }
+            ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorProperty.NAME_VALUE_IS_NOT_CORRECT_FORM);
     }
 
     @Test
