@@ -1,19 +1,19 @@
 package util;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
+import camp.nextstep.edu.missionutils.Console;
+import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserInputTest {
 
     @AfterEach
     public void reset() {
-        System.setIn(System.in);
+        Console.close();
     }
     @Test
     void 사용자_inputMoveCount_입력_테스트() {
