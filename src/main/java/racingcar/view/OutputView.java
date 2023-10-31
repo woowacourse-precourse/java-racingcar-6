@@ -9,6 +9,9 @@ public class OutputView {
     private static final String COLON = " : ";
     private static final String DELIMITER = ", ";
     private static final String WINNER_MESSAGE = "최종 우승자";
+    private static final String RESULT_MESSAGE = "실행 결과";
+    private static final String LINE_BREAK = "\n";
+
 
     public void printResult(List<Car> cars) {
         cars.forEach(car -> {
@@ -21,6 +24,14 @@ public class OutputView {
     public void printWinner(List<String> winners) {
         System.out.print(WINNER_MESSAGE + COLON);
         System.out.println(String.join(DELIMITER, winners));
+    }
+
+    public void printResultMessage() {
+        System.out.println(RESULT_MESSAGE);
+    }
+
+    public void printLineBreak() {
+        System.out.println(LINE_BREAK);
     }
 
 }
