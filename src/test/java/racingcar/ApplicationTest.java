@@ -41,7 +41,7 @@ class ApplicationTest extends NsTest {
             () -> {
                 run("pobi,woni,jun", "1");
                 assertThat(output())
-                    .contains("pobi : -", "woni : -", "jun : ", "최종 우승자 : pobi,woni");
+                    .contains("pobi : -", "woni : -", "jun : ", "최종 우승자 : pobi, woni");
             },
             MOVING_FORWARD, MOVING_FORWARD, STOP
         );
@@ -50,7 +50,7 @@ class ApplicationTest extends NsTest {
             () -> {
                 run("pobi,woni,jun", "1");
                 assertThat(output())
-                    .contains("pobi : -", "woni : ", "jun : -", "최종 우승자 : pobi,jun");
+                    .contains("pobi : -", "woni : ", "jun : -", "최종 우승자 : pobi, jun");
             },
             MOVING_FORWARD, STOP, MOVING_FORWARD
         );
@@ -59,7 +59,7 @@ class ApplicationTest extends NsTest {
             () -> {
                 run("pobi,woni,jun", "1");
                 assertThat(output())
-                    .contains("pobi : ", "woni : -", "jun : -", "최종 우승자 : woni,jun");
+                    .contains("pobi : ", "woni : -", "jun : -", "최종 우승자 : woni, jun");
             },
             STOP, MOVING_FORWARD, MOVING_FORWARD
         );
