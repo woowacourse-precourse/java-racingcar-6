@@ -19,16 +19,11 @@ public class GameController {
     }
 
     public void playGame() {
-        // 시작 및 참가 차량 설정
         List<Car> participantCars = setupParticipantCars();
-
-        // 시도 횟수 설정
         int rounds = setupRounds();
 
-        // 게임 실행
         Game game = startGame(participantCars, rounds);
 
-        // 결과 표시
         gameView.displayFinalWinner(game.getWinnerNames());
     }
 
