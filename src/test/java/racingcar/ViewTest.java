@@ -28,4 +28,13 @@ public class ViewTest {
         outputView.printCurrentStatus(new CurrentRacingStatusDto(racing));
         Assertions.assertThat(out.toString()).isEqualTo("tony : ---\nAndy : --\n");
     }
+
+    @Test
+    void 결과_반환() {
+        OutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        OutputView outputView = new OutputView();
+        outputView.printResult(List.of(new String[]{"tony", "poby"}));
+        Assertions.assertThat(out.toString()).isEqualTo("최종 우승자 : tony, poby\n");
+    }
 }
