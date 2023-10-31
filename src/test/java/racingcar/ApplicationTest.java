@@ -49,7 +49,7 @@ class ApplicationTest extends NsTest {
     @ValueSource(strings = {"pobi,javaji", "pobiaa,woni,jun", ",woni"})
     void isCarNameFromPlayerValidate(String carName) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> inputValidator.validateCarNamesFromPlayer(carName))
+                assertThatThrownBy(() -> inputValidator.validateNamesOfCarFromPlayer(carName))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
@@ -59,7 +59,7 @@ class ApplicationTest extends NsTest {
     @ValueSource(strings = {"a", "1.2"})
     void isNumberFromPlayerValidate(String number) {
         assertSimpleTest(() ->
-                assertThatThrownBy(() -> inputValidator.isNumberFromPlayerValidate(number))
+                assertThatThrownBy(() -> inputValidator.validateNumberOfAttemptFromPlayer(number))
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }

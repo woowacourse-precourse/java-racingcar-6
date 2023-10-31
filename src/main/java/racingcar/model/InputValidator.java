@@ -6,7 +6,7 @@ public class InputValidator {
     public InputValidator() {
     }
 
-    public List<String> validateCarNamesFromPlayer(String carNames) {
+    public List<String> validateNamesOfCarFromPlayer(String carNames) {
         List<String> carNameList = List.of(carNames.split(","));
         for (String carName: carNameList) {
             if (carName.length() > 5 || carName.isEmpty()) {
@@ -16,10 +16,10 @@ public class InputValidator {
         return carNameList;
     }
 
-    public boolean isNumberFromPlayerValidate(String number) {
+    public int validateNumberOfAttemptFromPlayer(String number) {
         try {
             int attemptNumber = Integer.parseInt(number);
-            return true;
+            return attemptNumber;
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException();
         }
