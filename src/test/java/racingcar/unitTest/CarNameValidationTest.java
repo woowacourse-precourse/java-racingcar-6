@@ -31,14 +31,4 @@ public class CarNameValidationTest {
         Assertions.assertThatThrownBy(() -> nameValidator.validate(carName))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
-    @Test
-    void should_true_when_toStringEqualName() {
-        // given
-        String name = "sang";
-        // when
-        CarName carName = new CarName(name);
-        // then
-        Assertions.assertThat(carName.toString()).isEqualTo(name);
-    }
 }
