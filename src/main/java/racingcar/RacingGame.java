@@ -22,7 +22,7 @@ public class RacingGame {
     }
 
 
-    public void hostGame() {
+    protected void hostGame() {
         final String[] carNames = consoleProcessor.getCarNames();
 
         scoreBoard = initScoreBoard(carNames);
@@ -62,7 +62,7 @@ public class RacingGame {
 
     private int regulateCount(final int count) {
         final int regulatedCount = count - BOUND;
-        return Math.max(regulatedCount, 0);
+        return Math.max(regulatedCount, 0) + BOUND;
     }
 
     private Map<Car, Integer> initScoreBoard(final String[] carNames) {
