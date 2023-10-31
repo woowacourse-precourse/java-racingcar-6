@@ -30,6 +30,8 @@
 -----
 - 게임이 진행되는 시간을 입력받는다.
     - [X] 사용자에게 숫자를 입력받는다.
+      - [X] 숫자는 0보다 작을 수 없다.
+      - [X] 숫자가 아닌 입력이 들어올 수 없다.
 </br></br>
 - 자동차의 이름을 지정한다.
     - [X] 자동차에 이름 부여한다.
@@ -63,9 +65,9 @@
 - GameService
   - CarService 호출
   - 경기 진행 비즈니스 로직을 수행
-  - 우승자를 선택하는 로직을 수행
+  - ~~우승자를 선택하는 로직을 수행~~
     </br></br>
-~~- CarService~~
+- ~~CarService~~
   - ~~Move 호출~~
   - ~~자동차의 전진 또는 정리를 수행~~
 </br></br>
@@ -74,16 +76,21 @@
 </br></br>
 - InputManager
   - 입력받은 게임 진행 횟수를 처리
-  - 입력받은 자동차를 처리 -> Car로 관리
-
+  - 입력받은 자동차를 처리 -> Cars로 관리
+</br></br>
+- Cars
+  - 입력받은 자동차들을 한 번에 관리하기 위함
+  - 우승자를 선택하는 로직을 수행
+  - 모든 자동차를 이동시키는 로직을 수행
+  
 ### View
 - InputView
   - 사용자에게 게임 진행 시간을 입력받아 InputManager에게 전달
   - 사용자에게 자동차를 입력받아 InputManager에게 전달
 </br></br>
 - OutputView
-  - CarController에서 전달된 경기 내용을 출력
-  - CarController에서 전달된 경기 결과를 출력
+  - GameController에서 전달된 경기 내용을 출력
+  - GameController에서 전달된 경기 결과를 출력
 
 ### Controller
 - GameController
@@ -92,9 +99,9 @@
   - GameService 호출
   - GameService에서 처리된 데이터를 OutputView로 전달
 </br></br>
-- InputController
-  - InputView로 들어온 게임 진행 횟수를 InputManager로 전달
-  - InputView로 들어온 자동차를 InputManager로 전달
+- ~~InputController~~
+  - ~~InputView로 들어온 게임 진행 횟수를 InputManager로 전달~~
+  - ~~InputView로 들어온 자동차를 InputManager로 전달~~
 
 📢 변경점
 -----
@@ -104,6 +111,16 @@
 - 자동차 이름이 중복되는 경우 예외 발생
   - 동일한 자동차를 존재하지 않는다는 가정을 하고 구현하려고 했으나, 만약 존재할 경우 Unique한 식별이 없으면 Car 객체를 관리할 수 없다 판단하여 추가
 
--  CarService에 필요성이 없어짐
+-  CarService의 필요성이 없어짐
   - CarService에서 사용할 로직이 모두 Model 객체에서 처리할 수 있을 것이라 판단
-  - 추후 리팩토링 과정에서 다시 생각하기 
+  - ~~추후 리팩토링 과정에서 다시 생각하기~~ -> 고려하지 않는다.
+
+- 게임 진행 횟수가 숫자가 아닌 영어로 입력될 수도 있다.
+    - 정규 표현식을 이용하여 예외 발생
+
+- InputController의 필요성이 없어짐
+  - InputManager로만 처리가 가능하다.
+
+- 우승자를 선택하는 로직이 GameService -> Cars로 책임 변경 
+
+- 기존에는 OutputView에서 CarController를 통해 값을 받아 진행하려 했으나, 어플리케이션의 범위가 작아 GameController 하나로 통제
