@@ -1,6 +1,5 @@
 package basis;
 
-import static constant.ErrorMessage.INVALID_INPUT_CASE_MESSAGE;
 import static constant.ErrorMessage.NOT_NUMBER_INPUT_CASE_MESSAGE;
 
 import java.util.LinkedHashMap;
@@ -18,12 +17,8 @@ public class Converter {
     }
 
     public LinkedHashMap<String, String> splitAndAddToMap(String Name) {
-        try {
-            String[] parts = tokenizeByComma(Name);
-            return convertArrayToMap(parts);
-        } catch (IllegalArgumentException error) {
-            throw new IllegalArgumentException(INVALID_INPUT_CASE_MESSAGE);
-        }
+        String[] parts = tokenizeByComma(Name);
+        return convertArrayToMap(parts);
     }
 
     private String[] tokenizeByComma(String entireString) {
@@ -33,9 +28,8 @@ public class Converter {
     private LinkedHashMap<String, String> convertArrayToMap(String[] parts) {
         LinkedHashMap<String, String> carNameHashMap = new LinkedHashMap<>();
         for (String part : parts) {
-            UserInputValidator.validateEmptyInput(part);
+            UserInputValidator.validateInput(part);
             carNameHashMap.put(part, "");
-            UserInputValidator.validateNameLength(part);
         }
         return carNameHashMap;
     }

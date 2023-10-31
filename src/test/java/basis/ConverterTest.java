@@ -1,5 +1,10 @@
 package basis;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
+import static constant.ErrorMessage.EMPTY_NAME_CASE_MESSAGE;
+import static constant.ErrorMessage.EXCEED_NAME_CASE_MESSAGE;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -7,13 +12,20 @@ import java.util.Map.Entry;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import camp.nextstep.edu.missionutils.test.NsTest;
+import racingcar.Application;
 
-class ConverterTest {
+class ConverterTest extends NsTest{
     private Converter converter;
 
     @BeforeEach
-    void init() {
+    void setup() {
         converter = new Converter();
+    }
+
+    @Override
+    protected void runMain() {
+        Application.main(new String[]{});
     }
 
     @Test
@@ -33,5 +45,23 @@ class ConverterTest {
     void 문자열을_정수로_반환() {
         Assertions.assertEquals(7, converter.wordToInt("7"));
         Assertions.assertThrows(IllegalArgumentException.class, () -> converter.wordToInt("안녕"));
+    }
+
+    @Test
+    void 입력길이_기준을_초과했을_때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,javaji", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EXCEED_NAME_CASE_MESSAGE)
+        );
+    }
+
+    @Test
+    void 공백이름을_입력했을_때() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi, ,rong", "1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessageContaining(EMPTY_NAME_CASE_MESSAGE)
+        );
     }
 }
