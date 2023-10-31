@@ -64,7 +64,6 @@ jun : -----
 2. 사용자의 이름 입력에 대한 검증 (이것은 input 클래스에서 대신할수도 있다.)
 3. getter 매서드
 
-### 1 - 1 Car Validation class? (optional)
 
 ## 2. Cars (일급 컬렉션)
 
@@ -75,9 +74,15 @@ jun : -----
 ### 가지는 동작
 
 1. move() 매서드 (각각 차들에 대한 move() 매서드를 호출하는 역할)
-2. getter 매서드 (출력부에게 자동차마다의 상태를 전달할 것이다.)
+2. 우승자를 판별하는 매서드
+3. getter 매서드 (출력부에게 자동차마다의 상태를 전달할 것이다.)
+
+## 2 - 1 UserInputValidator (Util class)
+
+### 가지는 동작
+
+1. 유저의 입력을 검증
 
 ## 3. 입출력부
 
 입력부, 출력부는 요구 사항에 따른다. 특히 [라이브러리](https://github.com/ca1af/java-racingcar-6#%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC) 사용을 잊지 않는다.
-
