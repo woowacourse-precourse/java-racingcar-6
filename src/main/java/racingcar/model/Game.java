@@ -51,4 +51,18 @@ public class Game {
         }
     }
 
+    /**
+     * 가장 많이 전진한 자동차의 전진 횟수를 리턴하는 함수
+     */
+    // no commit
+    private int findMaxForwardMovement() {
+        int max = 0;
+        for (Car car : cars) {
+            if (max < car.getForwardMovementStateOfLength()) {
+                max = car.getForwardMovementStateOfLength();
+            }
+        }
+        return max;
+    }
+
 }
