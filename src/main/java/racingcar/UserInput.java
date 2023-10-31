@@ -18,7 +18,11 @@ public class UserInput {
     public int inputAttemptNumber() {
         String input = Console.readLine();
         try {
-            return Integer.parseInt(input);
+            int attemptNumber = Integer.parseInt(input);
+            if(attemptNumber<=0){
+                throw new IllegalArgumentException("0보다 큰 수를 입력해주세요");
+            }
+            return attemptNumber;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자를 입력해야합니다.");
         }
