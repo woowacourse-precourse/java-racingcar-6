@@ -1,10 +1,10 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.model.Car;
+import racingcar.domain.dto.CarDto;
 
 public interface GameView {
-    
+
     public String getUserInput();
 
     public void printInputCars();
@@ -13,7 +13,7 @@ public interface GameView {
 
     public void printExecutionStart();
 
-    public void printMoveResult(List<Car> cars);
+    public void printMoveResult(List<CarDto> cars);
 
     public void printFinalWinner(List<String> winners);
 }

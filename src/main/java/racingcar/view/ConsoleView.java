@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import racingcar.model.Car;
+import racingcar.domain.dto.CarDto;
 
 public class ConsoleView implements GameView {
     private static final String WINNER_NAME_DELIMITER = ", ";
@@ -32,7 +32,7 @@ public class ConsoleView implements GameView {
     }
 
     @Override
-    public void printMoveResult(List<Car> cars) {
+    public void printMoveResult(List<CarDto> cars) {
         cars.forEach(car -> {
             System.out.println(String.format(
                     ViewConstants.OUTPUT_CAR_STATUS_FORMAT.toString(),
