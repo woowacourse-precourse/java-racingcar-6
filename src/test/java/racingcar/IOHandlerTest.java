@@ -22,7 +22,7 @@ class IOHandlerTest {
         List<String> winners = List.of("winner");
         ioHandler.printWinners(winners);
 
-        assertThat(outputStream.toString()).contains("최종 우승 : winner");
+        assertThat(outputStream.toString()).contains("최종 우승자 : winner");
 
         // 표준 출력을 처음 상태로 되돌리기
         System.setOut(System.out);
@@ -37,7 +37,7 @@ class IOHandlerTest {
         List<String> winners = List.of("winner1", "winner2");
         ioHandler.printWinners(winners);
 
-        assertThat(outputStream.toString()).contains("최종 우승 : winner1, winner2");
+        assertThat(outputStream.toString()).contains("최종 우승자 : winner1, winner2");
 
         // 표준 출력을 처음 상태로 되돌리기
         System.setOut(System.out);

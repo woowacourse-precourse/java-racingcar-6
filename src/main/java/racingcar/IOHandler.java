@@ -28,7 +28,7 @@ public class IOHandler {
 
     public void printWinners(List<String> winners) {
         String names = String.join(", ", winners);
-        System.out.println("최종 우승 : " + names);
+        System.out.println("최종 우승자 : " + names);
     }
 
     public void printAttemptResult(List<Car> cars) {
