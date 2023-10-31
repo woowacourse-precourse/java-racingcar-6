@@ -45,6 +45,6 @@
 
 - [ ] 최종 우승자 쉼표로 구분하여 출력(printWinner) [OutputView]
 
-  - [ ] 우승자 판단 (getWinner) [WinnerDecider]
+  - [x] 우승자 판단 (getWinner) [WinnerDecider]
 
-  - [ ] 전진 횟수가 가장 많은 racer (decideWinner) [WinnerDecider]
+  - [x] 전진 횟수가 가장 많은 racer (findWinner) [WinnerDecider]
