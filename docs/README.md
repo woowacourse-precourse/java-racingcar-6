@@ -116,17 +116,7 @@
 - [x] 우승자 테스트
 - [x] 우승자 중복 테스트
 
-#### forwardCar
-
-- [x] 인수 값이 설정된 값보다 크거나 같으면 전진하는 지 테스트
-- [x] 인수 값이 설정된 값보다 작으면 전진하는 지 테스트
-
-#### setCarsFromNames
-
-- [x] names 개수 만큼 생성되는 지 확인
-    - private 메서드로, 생성자를 통한 테스트로 대체
-
-#### displayAllCarsPosition, displayWinnerNames
+#### forwardAllCarsWithRandom
 
 - 템플릿에 제공된 예외 테스트로 대체
 
@@ -136,6 +126,6 @@
 
 - validateInputName 메서드를 사용하기 때문에 테스트 생략
 
-#### getPosition
+#### forward
 
 - [x] 자동차가 전진할 때마다 position이 1씩 증가하는지 확인

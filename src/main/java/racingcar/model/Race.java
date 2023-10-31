@@ -5,7 +5,6 @@ import static racingcar.constant.GameConfig.RANDOM_MAXIMUM_RANGE;
 import static racingcar.constant.GameConfig.RANDOM_MINIMUM_RANGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,14 +12,10 @@ import racingcar.view.OutputView;
 
 public class Race {
 
-    private List<Car> cars;
+    private final List<Car> cars;
 
-    public Race(List<String> carNames) {
-        setCarsFromNames(carNames);
-    }
-
-    public List<Car> getCars() {
-        return Collections.unmodifiableList(cars);
+    public Race(List<Car> cars) {
+        this.cars = cars;
     }
 
     public void forwardAllCarsWithRandom() {
@@ -29,13 +24,9 @@ public class Race {
                     RANDOM_MINIMUM_RANGE.getValue(),
                     RANDOM_MAXIMUM_RANGE.getValue());
 
-            forwardCar(car, randomValue);
-        }
-    }
-
-    public void forwardCar(Car car, int value) {
-        if (value >= MINIMUM_NUMBER_FOR_FORWARD.getValue()) {
-            car.forward();
+            if (randomValue >= MINIMUM_NUMBER_FOR_FORWARD.getValue()) {
+                car.forward();
+            }
         }
     }
 
@@ -64,19 +55,9 @@ public class Race {
                 .collect(Collectors.toList());
     }
 
-    public int getCarSize() {
-        return cars.size();
-    }
-
     private List<Car> sortCarsByPositionDescending() {
         return cars.stream()
                 .sorted(Comparator.comparingInt(Car::getPosition).reversed())
-                .collect(Collectors.toList());
-    }
-
-    private void setCarsFromNames(List<String> names) {
-        cars = names.stream()
-                .map(Car::new)
                 .collect(Collectors.toList());
     }
 }

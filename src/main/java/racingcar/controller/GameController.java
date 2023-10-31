@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.constant.CommonSymbol;
+import racingcar.model.Car;
 import racingcar.model.Race;
 import racingcar.validation.InputValidator;
 import racingcar.view.InputView;
@@ -15,7 +16,8 @@ public class GameController {
     }
 
     public void startGame() {
-        Race race = new Race(readCarNames());
+        List<String> names = readCarNames();
+        Race race = new Race(createCarsFromNames(names));
         int attemptCount = readAttemptCount();
 
         OutputView.printExecutionResultMessage();
@@ -40,6 +42,12 @@ public class GameController {
         String inputNames = InputView.readCarNames();
 
         return Arrays.stream(inputNames.split(CommonSymbol.SYMBOL_COMMA))
+                .collect(Collectors.toList());
+    }
+
+    private List<Car> createCarsFromNames(List<String> names) {
+        return names.stream()
+                .map(Car::new)
                 .collect(Collectors.toList());
     }
 }
