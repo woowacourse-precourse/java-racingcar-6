@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -10,15 +10,22 @@ public class Application {
 
         String[] carname_list = getCarName();
         int n = Integer.parseInt(Console.readLine());
-
-        for(int i=0;i<carname_list.length;i++){
-            checkInput(carname_list[i]);
-        }
-
-        for(int i=0;i<carname_list.length;i++){
-            System.out.println(carname_list[i]);
-        }
+        List<Car> car_list = makeCarlist(carname_list);
     }
+
+    public static List<Car> makeCarlist(String[] cname_list){
+        List<Car> res_list = new ArrayList<>();
+
+        for(int i=0;i<cname_list.length;i++){
+            checkInput(cname_list[i]);
+            Car new_car = new Car();
+            new_car.InitCarInfo(cname_list[i]);
+            res_list.add(new_car);
+        }
+        return res_list;
+    }
+
+
     public static String[] getCarName(){
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String carname_str = Console.readLine();

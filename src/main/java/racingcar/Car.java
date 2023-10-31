@@ -20,6 +20,10 @@ public class Car {
         this.go = go;
     }
 
+    public void InitCarInfo(String c_name){
+        this.setName(c_name);
+        this.setGo(0);
+    }
     public void GoOrStop(){
         int randnum = makerandom();
         if(randnum >= 4){
