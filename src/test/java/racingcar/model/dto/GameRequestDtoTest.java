@@ -10,13 +10,14 @@ import racingcar.model.domain.Car;
 import racingcar.model.domain.Game;
 
 class GameRequestDtoTest {
+    private final String carName = "pobi";
+    private final int trial = 3;
     private List<Car> cars;
     private GameRequestDto gameRequestDto;
-    private final int trial = 3;
 
     @BeforeEach
     void setUp() {
-        cars = List.of(Car.from("pobi"));
+        cars = List.of(Car.from(carName));
         gameRequestDto = new GameRequestDto(String.valueOf(trial));
     }
 
@@ -24,7 +25,7 @@ class GameRequestDtoTest {
     @DisplayName("GameRequestDto 생성자를 테스트 합니다.")
     void GameRequestDto_생성자_확인() {
         assertThat(gameRequestDto).isNotNull();
-        assertThat(gameRequestDto).extracting(GameRequestDto::getTrial).isEqualTo(trial);
+        assertThat(gameRequestDto.getTrial()).isEqualTo(trial);
     }
 
     @Test
@@ -33,7 +34,6 @@ class GameRequestDtoTest {
         Game game = gameRequestDto.toGame(cars);
 
         assertThat(game).isNotNull();
-        assertThat(game).extracting(Game::getCars).isEqualTo(cars);
-        assertThat(game).extracting(Game::getTrial).isEqualTo(trial);
+        assertThat(game).extracting(Game::getCars, Game::getTrial).containsExactly(cars, trial);
     }
 }

@@ -11,6 +11,9 @@ import racingcar.model.domain.Car;
 import racingcar.model.domain.Game;
 
 class RacingCarServiceTest {
+    private final String carName1 = "pobi";
+    private final String carName2 = "woni";
+    private final int trial = 1;
     private RacingCarService racingCarService;
     private List<Car> cars;
     private Game game;
@@ -19,9 +22,9 @@ class RacingCarServiceTest {
     void setUp() {
         racingCarService = new RacingCarServiceImp();
         cars = new ArrayList<>();
-        cars.add(Car.from("pobi"));
-        cars.add(Car.from("woni"));
-        game = Game.of(cars, 1);
+        cars.add(Car.from(carName1));
+        cars.add(Car.from(carName2));
+        game = Game.of(cars, trial);
     }
 
     @Test
@@ -41,6 +44,6 @@ class RacingCarServiceTest {
         List<String> result = racingCarService.getWinner(game);
 
         assertThat(result).isNotNull();
-        assertThat(result).containsExactly("pobi");
+        assertThat(result).containsExactly(carName1);
     }
 }

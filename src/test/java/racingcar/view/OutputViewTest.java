@@ -16,6 +16,7 @@ import racingcar.model.dto.CarResponseDto;
 import racingcar.model.dto.GameResponseDto;
 
 class OutputViewTest {
+    private final String carName = "pobi";
     private final OutputStream outputStream = new ByteArrayOutputStream();
 
     @BeforeEach
@@ -33,11 +34,11 @@ class OutputViewTest {
     @Test
     @DisplayName("게임 점수 출력 문구를 출력하는지 테스트 합니다.")
     void 게임_점수_출력_문구() {
-        Car car = Car.from("pobi");
+        Car car = Car.from(carName);
         car.move();
         GameResponseDto gameResponseDto = new GameResponseDto(car);
         OutputView.printGameScore(gameResponseDto);
-        assertOutputEquals("pobi : -");
+        assertOutputEquals(carName + " : -");
     }
 
     @Test
@@ -50,7 +51,7 @@ class OutputViewTest {
     @Test
     @DisplayName("우승자를 출력하는지 테스트 합니다.")
     void 우승자_출력_문구() {
-        List<String> carNames = List.of("pobi");
+        List<String> carNames = List.of(carName);
         CarResponseDto carResponseDto = new CarResponseDto(carNames);
         OutputView.printWinner(carResponseDto);
         assertOutputEquals(GAME_WINNER.getMessage() + carResponseDto.getCarNames().get(0));

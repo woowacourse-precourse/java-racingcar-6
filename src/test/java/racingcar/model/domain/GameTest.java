@@ -8,13 +8,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class GameTest {
+    private final String carName = "pobi";
+    private final int trial = 1;
     private List<Car> cars;
     private Game game;
-    private final int trial = 1;
 
     @BeforeEach
     void setUp() {
-        cars = List.of(Car.from("pobi"));
+        cars = List.of(Car.from(carName));
         game = Game.of(cars, trial);
     }
 
@@ -22,8 +23,7 @@ public class GameTest {
     @DisplayName("게임 객체 생성을 테스트 합니다.")
     void 게임_객체_생성() {
         assertThat(game).isNotNull();
-        assertThat(game).extracting(Game::getCars).isEqualTo(cars);
-        assertThat(game).extracting(Game::getTrial).isEqualTo(trial);
+        assertThat(game).extracting(Game::getCars, Game::getTrial).containsExactly(cars, trial);
     }
 
     @Test
@@ -32,7 +32,6 @@ public class GameTest {
         game.increaseTrial();
 
         assertThat(game).isNotNull();
-        assertThat(game).extracting(Game::getCars).isEqualTo(cars);
-        assertThat(game).extracting(Game::isFinished).isEqualTo(true);
+        assertThat(game).extracting(Game::getCars, Game::isFinished).containsExactly(cars, true);
     }
 }

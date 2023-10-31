@@ -9,25 +9,28 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarResponseDtoTest {
-    private List<String> carNames;
+    private final String carName1 = "pobi";
+    private final String carName2 = "woni";
+    private final String carNames = String.join(",", carName1, carName2);
+    private List<String> carNameList;
     private CarResponseDto carResponseDto;
 
     @BeforeEach
     void setUp() {
-        carNames = Arrays.asList("pobi", "woni");
-        carResponseDto = new CarResponseDto(carNames);
+        carNameList = Arrays.asList(carName1, carName2);
+        carResponseDto = new CarResponseDto(carNameList);
     }
 
     @Test
     @DisplayName("CarResponse 생성자를 테스트 합니다.")
     void CarResponseDto_생성자_확인() {
         assertThat(carResponseDto).isNotNull();
-        assertThat(carResponseDto).extracting(CarResponseDto::getCarNames).isEqualTo(carNames);
+        assertThat(carResponseDto.getCarNames()).isEqualTo(carNameList);
     }
 
     @Test
     @DisplayName("우승자 결과 변환을 테스트 합니다.")
     void 우승자_결과_변환() {
-        assertThat(carResponseDto).extracting(CarResponseDto::getWinnerCarNames).isEqualTo("pobi,woni");
+        assertThat(carResponseDto.getWinnerCarNames()).isEqualTo(carNames);
     }
 }
