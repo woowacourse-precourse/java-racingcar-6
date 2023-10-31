@@ -46,7 +46,7 @@ public class GameUtil {
         return 0;
     }
 
-    public List<String> getNowRound() {
+    public List<String> findWinner(int max) {
         return null;
     }
 }
