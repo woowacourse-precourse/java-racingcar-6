@@ -23,13 +23,20 @@ public class CarsTest {
         assertThat(car1.getCarName()).isEqualTo("car1");
         assertThat(car2.getCarName()).isEqualTo("car2");
     }
+    @Test
+    void cars_이동_테스트() {
+        Cars cars = Cars.makeCarList(List.of("car1", "car2","car3","car4"));
+        cars.move();
+        List<Car> carList = cars.getCarList();
+        assertThat(carList.stream().allMatch(car -> car.getPosition() == 1 || car.getPosition() == 0)).isTrue();
+    }
 
     @Test
     void 자동차_이동_테스트() {
         Car car = new Car("car1");
         car.move();
         int position = car.getPosition();
-
+        System.out.println(position);
         assertTrue(position == 1 || position == 0);
     }
 
