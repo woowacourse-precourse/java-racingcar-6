@@ -15,10 +15,10 @@
 
 아래 절차를 시도할 회수 만큼 반복
 
-- [ ] 각 자동차 마다 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용하여 0에서 9사이의 무작위 값을 추출
-- [ ] 무작위 값에 따라 전진
-    - [ ] 무작위 값이 4 이상일 경우 전진
-- [ ] 각 자동차마다 실행 결과를 출력
+- [x] 각 자동차 마다 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용하여 0에서 9사이의 무작위 값을 추출
+- [x] 무작위 값에 따라 전진
+    - [x] 무작위 값이 4 이상일 경우 전진
+- [x] 각 자동차마다 실행 결과를 출력
   ```
   pobi : --
   woni : ----
