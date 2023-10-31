@@ -18,8 +18,7 @@ public class RaceController {
 
     public void startRace() {
         Cars cars = raceService.generateCars(View.requestCarNames());
-        OutputView.printlnMessage(TOTAL_COUNT_REQUEST_MESSAGE.getMessage());
-        Integer count = raceService.generateCount(InputView.readInput());
+        Integer count = raceService.generateCount(View.requestCount());
         play(cars, count);
         finish(cars);
     }
