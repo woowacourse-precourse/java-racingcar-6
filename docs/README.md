@@ -4,27 +4,27 @@
 
 ### 입력
 
-- [ ] 자동차 이름을 입력받는다. - UserInputHandler#inputCarNames()
-  - [ ] 문자열을 쉼표(,)로 구분해 문자열 리스트로 얻을 수 있다. - String#trim()
+- [ ] 자동차 이름을 입력받는다. - UserInputHandler#inputNames()
+  - [ ] 문자열을 쉼표(,)로 구분해 문자열 리스트로 얻을 수 있다. - UserInputHandler#makeSeparationNames()
 - [ ] 문자열 리스트 만큼 자동차를 만들 수 있다. - Game#createCars()
 - [ ] 사용자가 잘못된 값을 입력할 경우, IllegalArgumentException을 발생시킨다. 
-  - [ ] 이름이 5자가 넘으면 프로그램 종료 - ExceptionInput#checkName()   
+  - [ ] 이름이 5자가 넘으면 프로그램 종료 - ExceptionInput#checkNameLength()   
 <br>
 
 - [ ] 레이싱 시도 횟수를 입력받는다. - UserInputHandler#InputRacingNumber()
-  - [ ] 주어진 횟수로 경주(게임)를 진행 횟수를 변경한다. - Game#setPlay()
+  - [ ] 주어진 횟수로 경주(게임)를 진행 횟수를 변경한다.
 <br>
 
 ### 게임 진행
 
 - [ ] 전체적인 게임 실행한다. - Game#start()
-- [ ] 각 레이싱 게임을 실행한다. - Game#racingStart()
+- [ ] 레이싱을 하나씩 실행한다. - Cars#racing()
 <br>
 
 - [ ] 0에서 9 사이에 무작위 값을 생성한다. - NumberGenerator#createRandomNumber()
 - [ ] 값이 일정 수(4) 이상인지 확인한다. - Car#checkValueGreaterNumber()
   - [ ] 4이상 : 전진 - Car#forward()
-  - [ ] 4이하 : 멈춤 - Car#stop()
+  - [ ] 4미만 : 멈춤 
 
 <br>
 
@@ -34,8 +34,9 @@
 
 ### 출력
 
-- [ ] 각 자동차의 경주 결과를 출력한다. - Cars#printRacingResult()
-- [ ] 문자열 리스트를 쉼표(,)를 이용하여 출력한다. - Game#printGameResult()
+- [ ] 각 자동차의 경주 결과를 출력한다. - Cars#printRoundRacingResult()
+- [ ] 최종 우승자를 알아낸다. - cars#getFinalWinners()
+- [ ] 최종 결과를 쉼표(,)를 이용하여 출력한다. - Game#printFinalResult()
 
 <br>
 <br>
