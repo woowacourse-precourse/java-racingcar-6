@@ -16,7 +16,8 @@ public class Cars {
 
         String[] carNames = alignedCarNames.split(",");
         InputValidator.validateName(carNames);
-        
+        InputValidator.validateNameLength(carNames);
+
         for (String name : carNames) {
             Car car = new Car(name);
             cars.add(car);

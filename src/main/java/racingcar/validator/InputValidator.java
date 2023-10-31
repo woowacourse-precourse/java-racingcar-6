@@ -1,6 +1,8 @@
 package racingcar.validator;
 
 import racingcar.exception.ErrorMessage;
+import racingcar.model.Car;
+
 import java.util.regex.Pattern;
 
 public class InputValidator {
@@ -16,5 +18,14 @@ public class InputValidator {
             }
         }
     }
+
+    public static void validateNameLength(String[] carNames) {
+        for (String name : carNames) {
+            if(name.length() > Car.MAX_NAME_LENGTH){
+                throw ErrorMessage.INVALID_NAME_LENGTH.getNameException();
+            }
+        }
+    }
+
 
 }

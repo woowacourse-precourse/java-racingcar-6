@@ -21,7 +21,7 @@
 
 ## 예외
 - [ ] 숫자를 입력 받아야 하는 경우, 입력값이 숫자가 아니면 IllegalArgumentException을 발생시킨다.
-- [ ] 각 자동차 이름을 입력하는 경우, 글자가 5자를 초과하면 IllegalArgumentException을 발생시킨다.
+- [X] 각 자동차 이름을 입력하는 경우, 글자가 5자를 초과하면 IllegalArgumentException을 발생시킨다.
 
 ## 추가 기능 및 이에 따른 예외
 - [X] 자동차의 이름은 기호를 포함하지 않는다.
