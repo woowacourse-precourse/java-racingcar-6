@@ -62,9 +62,9 @@
 
 ## ⚙️ Util
 
-### RandomDigitGenerator
+### RandomIntGenerator
 
-- [ ] `0~9 사이의 랜덤 숫자` 생성 기능
+- [x] `0~9 사이의 랜덤 숫자` 생성 기능
 
 ## 🔑 Enum
 
