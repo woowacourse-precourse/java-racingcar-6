@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import racingcar.generic.LapProgress;
 import racingcar.generic.RaceTotalProgress;
-import racingcar.generic.RacerProgress;
 
 public class Race {
 
@@ -38,12 +37,10 @@ public class Race {
     }
 
     private void saveProgressEachRacer() {
-        List<RacerProgress> list = new ArrayList<>();
-        for (Racer racer : racers) {
-            RacerProgress progress = racer.getProgress();
-            list.add(progress);
-        }
-        lapProgresses.add(new LapProgress(list));
+        lapProgresses.add(
+                new LapProgress(racers.stream()
+                        .map(Racer::getProgress)
+                        .toList()));
     }
 
     public RaceTotalProgress getTotalProgress() {

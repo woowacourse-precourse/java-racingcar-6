@@ -9,7 +9,7 @@ public enum RaceTotalProgressViewMessage {
     MESSAGE_RACE_RESULT("실행 결과"),
     FORMAT_NAME_AND_MILEAGE("%s : %s"),
     PROGRESS_MILEAGE("-"),
-    MESSAGE_WINNERS("최종우승자 : "),
+    MESSAGE_WINNERS("최종 우승자 : "),
     DELIMITER_WINNERS(", "),
     ;
 
@@ -34,7 +34,7 @@ public enum RaceTotalProgressViewMessage {
     }
 
     public static String makeWinnersMessage(String totalWinners) {
-        return NEW_LINE.get() + MESSAGE_WINNERS + totalWinners;
+        return NEW_LINE.get() + MESSAGE_WINNERS.get() + totalWinners;
     }
 
 }
