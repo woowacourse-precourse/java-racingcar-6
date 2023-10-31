@@ -7,11 +7,22 @@ import java.util.List;
 
 
 public class RacingSimulator {
-    String Number;
+    int number;
 
 
-    public RacingSimulator(String number) {
-        Number = number;
+    public RacingSimulator(int number) {
+        this.number = number;
+    }
+
+    private void minusNumber(){
+        --number;
+    }
+
+    public boolean checkZero(){
+        if(number==0){
+            return false;
+        }
+        return true;
     }
 
     public void playSimulator(List<Car> cars){
@@ -22,4 +33,6 @@ public class RacingSimulator {
             }
         }
     }
+
+
 }

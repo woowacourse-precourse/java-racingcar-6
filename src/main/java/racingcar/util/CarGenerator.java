@@ -10,7 +10,7 @@ public class CarGenerator {
 
     String namesStr;
     List<String> namesList ;
-    List<Car> cars = new ArrayList<>();
+
 
     public CarGenerator(String carsName) {
         this.namesStr = carsName;
@@ -21,11 +21,14 @@ public class CarGenerator {
                 .collect(Collectors.toList());
     }
 
-    public void generateCars(){
+    public List<Car> generateCars(){
+        List<Car> cars = new ArrayList<>();
         for(String string : namesList) {
             cars.add(new Car(namesList.toString()));
         }
+        return cars;
     }
+
 
 
 }
