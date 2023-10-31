@@ -52,15 +52,19 @@ class ValidationTest {
     }
 
     @Test
-    public void 회수는_양의_정수만_입력_가능() {
-        String input1 = "string";
-        String input2 = "-1";
+    public void 회수는_정수만_입력_가능() {
+        String input = "string";
 
-        assertThatThrownBy(() -> Validation.isPositiveInt(input1))
+        assertThatThrownBy(() -> Validation.isPositiveInt(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(COUNT_MUST_INT);
+    }
 
-        assertThatThrownBy(() -> Validation.isPositiveInt(input2))
+    @Test
+    public void 회수는_양의_정수만_입력_가능() {
+        String input = "-1";
+
+        assertThatThrownBy(() -> Validation.isPositiveInt(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(COUNT_MUST_POSITIVE_INT);
     }
