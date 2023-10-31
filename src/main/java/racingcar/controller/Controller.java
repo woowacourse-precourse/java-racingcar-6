@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-import racingcar.dto.AttemptCount;
 import racingcar.dto.TotalResult;
 import racingcar.model.Winners;
 import racingcar.service.GamePlayingService;
@@ -17,7 +16,8 @@ public class Controller {
 
     public void start() {
         generateCars();
-        playRounds(setAttemptCount());
+        setAttemptCount();
+        playRounds();
         printWinners();
     }
 
@@ -30,17 +30,13 @@ public class Controller {
         return view.inputConsole();
     }
 
-    private int setAttemptCount() {
+    private void setAttemptCount() {
         view.printAttemptCountInputMessage();
-        return getCount(gamePlayingService.createAttemptCount(readFromConsole()));
+        gamePlayingService.setAttemptCount(readFromConsole());
     }
 
-    private int getCount(AttemptCount attemptCount) {
-        return attemptCount.count();
-    }
-
-    private void playRounds(int count) {
-        printTotalResult(gamePlayingService.playRounds(count));
+    private void playRounds() {
+        printTotalResult(gamePlayingService.playRounds());
     }
 
     private void printTotalResult(TotalResult totalResult) {

@@ -1,7 +1,7 @@
 package racingcar.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import racingcar.dto.AttemptCount;
 import racingcar.dto.RoundResult;
 import racingcar.dto.TotalResult;
@@ -11,6 +11,7 @@ import racingcar.validator.AttemptCountValidator;
 
 public class GamePlayingService {
     private final RacingGame racingGame;
+    private AttemptCount attemptCount;
 
     public GamePlayingService(RacingGame racingGame) {
         this.racingGame = racingGame;
@@ -20,29 +21,25 @@ public class GamePlayingService {
         racingGame.generateCars(inputNames);
     }
 
-    public AttemptCount createAttemptCount(String input) {
-        AttemptCountValidator.INSTANCE.validate(input);
-
-        return new AttemptCount(toInt(input));
+    public void setAttemptCount(String inputCount) {
+        AttemptCountValidator.INSTANCE.validate(inputCount);
+        attemptCount = new AttemptCount(toInt(inputCount));
     }
 
     private int toInt(String input) {
         return Integer.parseInt(input);
     }
 
-    public TotalResult playRounds(int count) {
-        List<RoundResult> totalResult = new ArrayList<>();
-
-        for (int current = 0; current < count; current++) {
-            racingGame.tryForward();
-            totalResult.add(getCarsState());
+    public TotalResult playRounds() {
+        if (attemptCount == null) {
+            throw new NullPointerException("시도 횟수를 먼저 입력해야합니다.");
         }
 
-        return new TotalResult(totalResult);
-    }
+        List<RoundResult> totalResult = IntStream.range(0, attemptCount.count())
+                .mapToObj(attempt -> racingGame.playRound())
+                .toList();
 
-    public RoundResult getCarsState() {
-        return racingGame.getCarsState();
+        return new TotalResult(totalResult);
     }
 
     public Winners getWinners() {

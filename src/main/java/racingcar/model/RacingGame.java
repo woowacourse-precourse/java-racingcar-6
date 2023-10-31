@@ -11,9 +11,10 @@ public class RacingGame {
         cars = carsGenerator.generate(inputNames);
     }
 
-    public void tryForward() {
+    public RoundResult playRound() {
         checkGameIsStarted();
         cars.attemptForward();
+        return cars.getCarsState();
     }
 
     private void checkGameIsStarted() {
@@ -24,11 +25,6 @@ public class RacingGame {
 
     private boolean isNotStarted() {
         return cars == null;
-    }
-
-    public RoundResult getCarsState() {
-        checkGameIsStarted();
-        return cars.getCarsState();
     }
 
     public Winners getWinners() {
