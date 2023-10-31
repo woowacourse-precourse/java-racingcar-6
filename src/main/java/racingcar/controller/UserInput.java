@@ -11,7 +11,11 @@ public class UserInput {
     private List<String> carsNameList;
     private int racingCount;
 
-    public UserInput(){}
+    private InputException inputException;
+
+    public UserInput(){
+        inputException = new InputException();
+    }
 
     public GameSettingsDto readUserGameSettingInput(){
         splitCarNameStringToList(readCarsName());
@@ -21,7 +25,10 @@ public class UserInput {
 
     private String readCarsName(){
         String carsName;
+
         carsName = readLine();
+        inputException.carsNameException(carsName);
+
         return carsName;
     }
 
