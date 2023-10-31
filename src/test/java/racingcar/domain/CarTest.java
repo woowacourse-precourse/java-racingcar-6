@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -52,5 +53,26 @@ class CarTest {
 
         // then
         assertThat(car.isSameMovedCount(moveCount)).isTrue();
+    }
+
+    @Test
+    void 자동차_이름이_같으면_같은_자동차이다() {
+        // given
+        String name = "test";
+        Car car1 = new Car(name);
+        Car car2 = new Car(name);
+
+        // when & then
+        assertThat(car1.equals(car2)).isTrue();
+    }
+
+    @Test
+    void 자동차_이름이_다르면_다른_자동차이다() {
+        // given
+        Car car1 = new Car("test1");
+        Car car2 = new Car("test2");
+
+        // when & then
+        assertThat(car1.equals(car2)).isFalse();
     }
 }
