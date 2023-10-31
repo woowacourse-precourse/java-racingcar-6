@@ -2,8 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameService {
     private static final String CAR_MOVEMENT_SYMBOL = "-";
@@ -35,13 +35,11 @@ public class GameService {
     }
 
     public List<String> findGameWinner(List<Car> carInfos) {
-        List<String> gameWinners = new ArrayList<>();
-        for (Car carInfo : carInfos) {
-            if (gameWinnerPosition == carInfo.getPosition()) {
-                gameWinners.add(carInfo.getName());
-            }
-        }
-        return gameWinners;
+        return carInfos
+                .stream()
+                .filter(carInfo -> gameWinnerPosition == carInfo.getPosition())
+                .map(Car::getName)
+                .collect(Collectors.toList());
     }
 
     private boolean isMoveForward() {
