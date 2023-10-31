@@ -1,7 +1,7 @@
 package racingcar.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static racingcar.constant.MessageConst.WINNER_MESSAGE;
+import static racingcar.enumType.message.OutputMessage.WINNER_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
@@ -62,7 +62,7 @@ class CarServiceTest {
         int highestScore = carService.findHighestScore(cars);
         List<Car> carsWithHighestScore = carService.createCarsWithHighestScore(cars, highestScore);
         StringBuilder winner = new StringBuilder();
-        winner.append(WINNER_MESSAGE).append(" : ");
+        winner.append(WINNER_MESSAGE.getValue()).append(" : ");
         for (Car car : carsWithHighestScore) {
             winner.append(car.createWinner());
         }

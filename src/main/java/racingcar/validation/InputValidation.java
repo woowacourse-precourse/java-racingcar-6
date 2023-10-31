@@ -1,16 +1,16 @@
 package racingcar.validation;
 
-import static racingcar.constant.MessageConst.COMMA_MESSAGE;
-import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
-import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
-import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
-import static racingcar.constant.MessageConst.NULL_MESSAGE;
-import static racingcar.constant.MessageConst.SPACE_MESSAGE;
-import static racingcar.constant.MessageConst.NUMERIC_FORMAT_MESSAGE;
-import static racingcar.constant.MessageConst.RANGE_MESSAGE;
-import static racingcar.constant.NumberConst.CAR_NAME_MAX_LENGTH;
-import static racingcar.constant.NumberConst.CAR_NAME_MIN_LENGTH;
-import static racingcar.constant.NumberConst.RACE_MIN_ROUND;
+import static racingcar.enumType.message.ExceptionMessage.COMMA_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.DUPLICATE_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.EMPTY_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.LENGTH_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.NULL_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.SPACE_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.NUMERIC_FORMAT_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.RANGE_MESSAGE;
+import static racingcar.enumType.number.NumberConstant.CAR_NAME_MAX_LENGTH;
+import static racingcar.enumType.number.NumberConstant.CAR_NAME_MIN_LENGTH;
+import static racingcar.enumType.number.NumberConstant.RACE_MIN_ROUND;
 
 import java.util.HashSet;
 import java.util.List;
@@ -27,21 +27,22 @@ public class InputValidation {
     }
 
     public void isRangeValid(int carNameLength) {
-        if (carNameLength < CAR_NAME_MIN_LENGTH || carNameLength > CAR_NAME_MAX_LENGTH) {
-            throw new IllegalArgumentException(LENGTH_MESSAGE);
+        if (carNameLength < CAR_NAME_MIN_LENGTH.getValue()
+                || carNameLength > CAR_NAME_MAX_LENGTH.getValue()) {
+            throw new IllegalArgumentException(LENGTH_MESSAGE.getValue());
         }
     }
 
     public void validateCarNameDuplication(List<String> carNames) {
         Set<String> set = new HashSet<>(carNames);
         if (set.size() < carNames.size()) {
-            throw new IllegalArgumentException(DUPLICATE_MESSAGE);
+            throw new IllegalArgumentException(DUPLICATE_MESSAGE.getValue());
         }
     }
 
     public void validateCarNameSpace(List<String> carNames) {
         if (hasCarNamesWithSpace(carNames)) {
-            throw new IllegalArgumentException(SPACE_MESSAGE);
+            throw new IllegalArgumentException(SPACE_MESSAGE.getValue());
         }
     }
 
@@ -52,7 +53,7 @@ public class InputValidation {
 
     public void validateCarNameEmpty(List<String> carNames) {
         if (hasCarNamesWithEmpty(carNames)) {
-            throw new IllegalArgumentException(EMPTY_MESSAGE);
+            throw new IllegalArgumentException(EMPTY_MESSAGE.getValue());
         }
     }
 
@@ -63,13 +64,13 @@ public class InputValidation {
 
     public void validateInputNull(String input) {
         if (input == null) {
-            throw new IllegalArgumentException(NULL_MESSAGE);
+            throw new IllegalArgumentException(NULL_MESSAGE.getValue());
         }
     }
 
     public void validateCommaSeparatedCarNames(String carNames) {
         if (hasNotCommaSeparatedCarNames(carNames)) {
-            throw new IllegalArgumentException(COMMA_MESSAGE);
+            throw new IllegalArgumentException(COMMA_MESSAGE.getValue());
         }
     }
 
@@ -94,7 +95,7 @@ public class InputValidation {
 
     public void validateInputNumericFormat(String input) {
         if (isNotNumericFormat(input)) {
-            throw new IllegalArgumentException(NUMERIC_FORMAT_MESSAGE);
+            throw new IllegalArgumentException(NUMERIC_FORMAT_MESSAGE.getValue());
         }
     }
 
@@ -105,17 +106,17 @@ public class InputValidation {
     public void validateInputRange(String input) {
         int inputRange = Integer.parseInt(input);
         if (isNotPositive(inputRange)) {
-            throw new IllegalArgumentException(RANGE_MESSAGE);
+            throw new IllegalArgumentException(RANGE_MESSAGE.getValue());
         }
     }
 
     private boolean isNotPositive(int inputRange) {
-        return inputRange < RACE_MIN_ROUND;
+        return inputRange < RACE_MIN_ROUND.getValue();
     }
 
     public void validateInputEmpty(String input) {
         if (isEmptyValue(input)) {
-            throw new IllegalArgumentException(EMPTY_MESSAGE);
+            throw new IllegalArgumentException(EMPTY_MESSAGE.getValue());
         }
     }
 

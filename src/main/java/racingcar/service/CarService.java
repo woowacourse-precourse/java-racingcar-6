@@ -1,10 +1,10 @@
 package racingcar.service;
 
-import static racingcar.constant.MessageConst.WINNER_MESSAGE;
-import static racingcar.constant.NumberConst.FORMAT_NUMBER;
-import static racingcar.constant.NumberConst.RANDOM_MAX_RANGE;
-import static racingcar.constant.NumberConst.RANDOM_MIN_NUMBER;
-import static racingcar.constant.NumberConst.RANDOM_MIN_RANGE;
+import static racingcar.enumType.number.NumberConstant.FORMAT_NUMBER;
+import static racingcar.enumType.number.NumberConstant.RANDOM_MAX_RANGE;
+import static racingcar.enumType.number.NumberConstant.RANDOM_MIN_NUMBER;
+import static racingcar.enumType.number.NumberConstant.RANDOM_MIN_RANGE;
+import static racingcar.enumType.message.OutputMessage.WINNER_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
@@ -30,11 +30,11 @@ public class CarService {
     }
 
     private int createRandomNum() {
-        return Randoms.pickNumberInRange(RANDOM_MIN_RANGE, RANDOM_MAX_RANGE);
+        return Randoms.pickNumberInRange(RANDOM_MIN_RANGE.getValue(), RANDOM_MAX_RANGE.getValue());
     }
 
     public void updateCarScore(Car car, int randomNum) {
-        if (randomNum >= RANDOM_MIN_NUMBER) {
+        if (randomNum >= RANDOM_MIN_NUMBER.getValue()) {
             car.updateScore();
         }
     }
@@ -53,7 +53,7 @@ public class CarService {
         int highestScore = findHighestScore(cars);
         List<Car> carsWithHighestScore = createCarsWithHighestScore(cars, highestScore);
         StringBuilder winner = new StringBuilder();
-        winner.append(WINNER_MESSAGE).append(" : ");
+        winner.append(WINNER_MESSAGE.getValue()).append(" : ");
         for (Car car : carsWithHighestScore) {
             winner.append(car.createWinner());
         }
@@ -74,6 +74,6 @@ public class CarService {
     }
 
     public StringBuilder formatOutput(StringBuilder winner) {
-        return winner.delete(winner.length() - FORMAT_NUMBER, winner.length());
+        return winner.delete(winner.length() - FORMAT_NUMBER.getValue(), winner.length());
     }
 }

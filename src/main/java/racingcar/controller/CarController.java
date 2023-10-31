@@ -1,8 +1,8 @@
 package racingcar.controller;
 
-import static racingcar.constant.MessageConst.GET_TRY_COUNT_MESSAGE;
-import static racingcar.constant.MessageConst.RESULT_MESSAGE;
-import static racingcar.constant.MessageConst.SAVE_CAR_NAMES_MESSAGE;
+import static racingcar.enumType.message.InputMessage.GET_TRY_COUNT_MESSAGE;
+import static racingcar.enumType.message.InputMessage.SAVE_CAR_NAMES_MESSAGE;
+import static racingcar.enumType.message.OutputMessage.RESULT_MESSAGE;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
@@ -16,7 +16,7 @@ public class CarController {
     private final InputValidation inputValidation = new InputValidation();
 
     public void save() {
-        System.out.println(SAVE_CAR_NAMES_MESSAGE);
+        System.out.println(SAVE_CAR_NAMES_MESSAGE.getValue());
         String input = Console.readLine();
         inputValidation.validateCarNames(input);
         List<String> carNames = stringToCollection(input);
@@ -29,11 +29,11 @@ public class CarController {
     }
 
     public int getRaceCount() {
-        System.out.println(GET_TRY_COUNT_MESSAGE);
+        System.out.println(GET_TRY_COUNT_MESSAGE.getValue());
         String attemptInput = Console.readLine();
         inputValidation.validateAttemptInput(attemptInput);
         int raceCount = Integer.parseInt(attemptInput);
-        System.out.println(RESULT_MESSAGE);
+        System.out.println(RESULT_MESSAGE.getValue());
         return raceCount;
     }
 

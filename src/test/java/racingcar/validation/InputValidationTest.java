@@ -2,14 +2,14 @@ package racingcar.validation;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static racingcar.constant.MessageConst.COMMA_MESSAGE;
-import static racingcar.constant.MessageConst.DUPLICATE_MESSAGE;
-import static racingcar.constant.MessageConst.EMPTY_MESSAGE;
-import static racingcar.constant.MessageConst.LENGTH_MESSAGE;
-import static racingcar.constant.MessageConst.NULL_MESSAGE;
-import static racingcar.constant.MessageConst.SPACE_MESSAGE;
-import static racingcar.constant.MessageConst.NUMERIC_FORMAT_MESSAGE;
-import static racingcar.constant.MessageConst.RANGE_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.COMMA_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.DUPLICATE_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.EMPTY_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.LENGTH_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.NULL_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.SPACE_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.NUMERIC_FORMAT_MESSAGE;
+import static racingcar.enumType.message.ExceptionMessage.RANGE_MESSAGE;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -29,7 +29,7 @@ class InputValidationTest {
         // then
         assertThatThrownBy(() -> inputValidation.validateCarNameRange(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(LENGTH_MESSAGE);
+                .hasMessageContaining(LENGTH_MESSAGE.getValue());
     }
 
     @Test
@@ -44,7 +44,7 @@ class InputValidationTest {
         // then
         assertThatThrownBy(() -> inputValidation.validateCarNameDuplication(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(DUPLICATE_MESSAGE);
+                .hasMessageContaining(DUPLICATE_MESSAGE.getValue());
     }
 
     @Test
@@ -61,13 +61,13 @@ class InputValidationTest {
         // then
         assertThatThrownBy(() -> inputValidation.validateCarNameSpace(carNamesLeftSpace))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(SPACE_MESSAGE);
+                .hasMessageContaining(SPACE_MESSAGE.getValue());
         assertThatThrownBy(() -> inputValidation.validateCarNameSpace(carNamesMiddleSpace))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(SPACE_MESSAGE);
+                .hasMessageContaining(SPACE_MESSAGE.getValue());
         assertThatThrownBy(() -> inputValidation.validateCarNameSpace(carNamesRightSpace))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(SPACE_MESSAGE);
+                .hasMessageContaining(SPACE_MESSAGE.getValue());
     }
 
     @Test
@@ -82,7 +82,7 @@ class InputValidationTest {
         // then
         assertThatThrownBy(() -> inputValidation.validateCarNameEmpty(carNamesWithEmpty))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(EMPTY_MESSAGE);
+                .hasMessageContaining(EMPTY_MESSAGE.getValue());
     }
 
     @Test
@@ -97,7 +97,7 @@ class InputValidationTest {
         // then
         assertThatThrownBy(() -> inputValidation.validateInputNull(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NULL_MESSAGE);
+                .hasMessageContaining(NULL_MESSAGE.getValue());
     }
 
     @Test
@@ -112,7 +112,7 @@ class InputValidationTest {
         // then
         assertThatThrownBy(() -> inputValidation.validateCommaSeparatedCarNames(carName))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(COMMA_MESSAGE);
+                .hasMessageContaining(COMMA_MESSAGE.getValue());
     }
 
     @Test
@@ -141,7 +141,7 @@ class InputValidationTest {
         // then
         assertThatThrownBy(() -> inputValidation.validateInputNumericFormat(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(NUMERIC_FORMAT_MESSAGE);
+                .hasMessageContaining(NUMERIC_FORMAT_MESSAGE.getValue());
     }
 
     @Test
@@ -156,7 +156,7 @@ class InputValidationTest {
         // then
         assertThatThrownBy(() -> inputValidation.validateInputRange(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(RANGE_MESSAGE);
+                .hasMessageContaining(RANGE_MESSAGE.getValue());
     }
 
     @Test
@@ -171,7 +171,7 @@ class InputValidationTest {
         // then
         assertThatThrownBy(() -> inputValidation.validateInputEmpty(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(EMPTY_MESSAGE);
+                .hasMessageContaining(EMPTY_MESSAGE.getValue());
     }
 
     @Test
