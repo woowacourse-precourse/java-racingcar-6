@@ -14,8 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameTest {
     List<String> cars = new ArrayList<>();
+
     @BeforeEach
-    void set(){
+    void set() {
         cars.add("aaa");
         cars.add("bbb");
         cars.add("ccc");
@@ -23,12 +24,12 @@ public class GameTest {
 
     @Test
     void 랜덤값_반환() {
-        int randomNumber = GameManagerUtils.randomNumber(cars);
-        assertThat(randomNumber).isBetween(0,9);
+        int randomNumber = GameManagerUtils.makeRandomNumber(cars);
+        assertThat(randomNumber).isBetween(0, 9);
     }
 
     @Test
-    void 전진_조건_충족(){
+    void 전진_조건_충족() {
         List<Integer> forwardCount = new ArrayList<>();
         forwardCount.add(1);
         forwardCount.add(1);
@@ -36,11 +37,11 @@ public class GameTest {
         List<Integer> forwardCountTest = new ArrayList<>();
         forwardCountTest = GameManagerUtils.plusForwardCount(forwardCount, cars);
         //예시로 1,2,2 체크
-        assertThat(forwardCountTest).containsExactly(1,2,2);
+        assertThat(forwardCountTest).containsExactly(1, 2, 2);
     }
 
     @Test
-    void 우승자_반환(){
+    void 우승자_반환() {
         Method method = null;
         List<String> cars = new ArrayList<>();
         cars.add("aaa");
@@ -48,7 +49,7 @@ public class GameTest {
         cars.add("ccc");
 
         try {
-            method = GameManagerUtils.class.getDeclaredMethod("winnerCarName", int.class, List.class, List.class);
+            method = GameManagerUtils.class.getDeclaredMethod("findWinnersCarName", int.class, List.class, List.class);
         } catch (NoSuchMethodException e) {
             throw new RuntimeException("메서드를 찾을 수 없습니다.", e);
         }
@@ -75,7 +76,7 @@ public class GameTest {
     }
 
     @Test
-    void 우승자_2명_이상일_경우_출력_표시(){
+    void 우승자_2명_이상일_경우_출력_표시() {
         List<String> winnerCarName = new ArrayList<>();
         winnerCarName.add("bbb");
         winnerCarName.add("ccc");

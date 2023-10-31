@@ -9,7 +9,8 @@ import java.util.List;
 
 public class GameInputHandler {
     ConsoleOutput consoleOutput = new ConsoleOutput();
-    public void startGame(){
+
+    public void startGame() {
         //자동차 이름 입력 메시지 출력
         consoleOutput.printCarNameInput();
         String carsString = getUserInput();
@@ -25,24 +26,28 @@ public class GameInputHandler {
         //게임 진행!
         gameManager.game();
     }
-    private String getUserInput(){
+
+    private String getUserInput() {
         return Console.readLine();
     }
-    private List<String> splitAndConvertToList(String carsString){
+
+    private List<String> splitAndConvertToList(String carsString) {
         List<String> carList = new ArrayList<>();
         String[] cars = carsString.split(",");
-        for(String car: cars){
+        for (String car : cars) {
             carList.add(car);
         }
         return carList;
     }
-    private void checkForExceptionCarsName(String carsString){
+
+    private void checkForExceptionCarsName(String carsString) {
         InputValidator inputValidator = new InputValidator();
         List<String> cars = splitAndConvertToList(carsString);
         inputValidator.validateCarsName(cars);
         inputValidator.validateInputValue(carsString);
     }
-    private void checkForExceptionAttempts(String attempts){
+
+    private void checkForExceptionAttempts(String attempts) {
         InputValidator inputValidator = new InputValidator();
         inputValidator.validateInputValue(attempts);
         inputValidator.validateAttempts(attempts);

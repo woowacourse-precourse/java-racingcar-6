@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class InputTest {
     InputValidator validator = new InputValidator();
+
     @Test
     void splitStringToList_메서드로_주어진_값을_구분() {
         GameInputHandler gameInputHandler = new GameInputHandler();
@@ -48,21 +49,21 @@ public class InputTest {
     }
 
     @Test
-    void 입력값_띄어쓰기_예외_확인(){
+    void 입력값_띄어쓰기_예외_확인() {
         String input = "1 ,2,3";
 
         assertThrows(IllegalArgumentException.class, () -> validator.validateInputValue(input));
     }
 
     @Test
-    void 입력값_Empty_예외(){
+    void 입력값_Empty_예외() {
         String input = "";
 
         assertThrows(IllegalArgumentException.class, () -> validator.validateInputValue(input));
     }
 
     @Test
-    void 자동차_이름_중복(){
+    void 자동차_이름_중복() {
         List<String> input = new ArrayList<>();
         input.add("abc");
         input.add("def");
@@ -72,7 +73,7 @@ public class InputTest {
     }
 
     @Test
-    void 시도할_횟수_숫자_외_값(){
+    void 시도할_횟수_숫자_외_값() {
         String input = "a";
 
         assertThrows(IllegalArgumentException.class, () -> validator.validateAttempts(input));
