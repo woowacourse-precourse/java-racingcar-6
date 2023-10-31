@@ -19,16 +19,34 @@ public class RacingCarController {
     }
 
     public void play() {
+        final Cars cars = writeCarNames();
+        final int repeatCount = writeRepeatNumber();
+        printResultOfEachRun(cars, repeatCount);
+        printWinner(cars);
+    }
+
+    private Cars writeCarNames() {
         outputView.printStartMessage();
         final String carName = inputView.readRacingCarName();
         final Cars cars = racingCarService.saveCarName(carName);
+        return cars;
+    }
+
+    private int writeRepeatNumber() {
         outputView.printRepeatNumberMessage();
-        final String repeatCount = inputView.readRepeatCount();
+        final int repeatCount = Integer.parseInt(inputView.readRepeatCount());
+        return repeatCount;
+    }
+
+    private void printResultOfEachRun(Cars cars, int repeatCount) {
         outputView.printGameStatusMessage();
-        for (int i = 0; i < Integer.parseInt(repeatCount); i++) {
+        for (int i = 0; i < repeatCount; i++) {
             racingCarService.moveCar(cars);
             outputView.printGameStatus(cars);
         }
+    }
+
+    private void printWinner(Cars cars) {
         final ResultCars resultCars = cars.filterCarsWithMaxDistance();
         outputView.printRacingCarResult(resultCars);
     }
