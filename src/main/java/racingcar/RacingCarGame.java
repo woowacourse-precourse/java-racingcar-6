@@ -2,6 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
 import static racingcar.constants.Rule.*;
 
 public class RacingCarGame {
@@ -11,24 +15,24 @@ public class RacingCarGame {
     public static void play() {
         Console.printInputCarName();
         String carNames[] = Console.readCarName();
+        int progress[] = new int[carNames.length];
 
         Console.printInputTryCount();
         int tryCount = Console.readTryCount();
 
-        gameStart(carNames, tryCount);
-        Console.printWinners(null);
+        running(tryCount, carNames, progress);
+        Console.printWinners(findWinners(carNames, progress));
     }
 
     /**
-     * 게임 시작 메서드
+     * 자동차 경주 진행
      *
      * @param carNames 자동차 이름 리스트
      * @param tryCount 시도 횟수
      */
-    public static void gameStart(String carNames[], int tryCount) {
+    private static void running(int tryCount, String carNames[], int progress[]) {
         Console.printResult();
 
-        int progress[] = new int[carNames.length];
         for (int i = 0; i < tryCount; i++) {
             updateProgress(progress);
             Console.printProgress(carNames, progress);
@@ -44,6 +48,22 @@ public class RacingCarGame {
         for (int i = 0; i < progress.length; i++) {
             progress[i] += goOrStop();
         }
+    }
+
+    /**
+     * 우승자 찾기
+     *
+     * @param carNames 자동차 이름 리스트
+     * @param progress 진행 상황 리스트
+     * @return 우승자 리스트
+     */
+    private static List<String> findWinners(String carNames[], int progress[]) {
+        int maxProgress = Arrays.stream(progress).max().getAsInt();
+        return Stream.iterate(0, i -> i + 1)
+                .limit(progress.length)
+                .filter(i -> progress[i] == maxProgress)
+                .map(i -> carNames[i])
+                .toList();
     }
 
     /**

@@ -6,6 +6,7 @@ import racingcar.constants.Rule;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import static racingcar.constants.ConsoleMessage.CAR_PROGRESS;
 
@@ -27,8 +28,8 @@ public class Console {
      *
      * @param winners
      */
-    public static void printWinners(String[] winners) {
-        System.out.print(ConsoleMessage.WINNER);
+    public static void printWinners(List<String> winners) {
+        System.out.print(ConsoleMessage.WINNER.formatted(String.join(", ", winners)));
     }
 
     /**
@@ -81,6 +82,19 @@ public class Console {
     }
 
     /**
+     * 진행 상황 출력
+     *
+     * @param carNames
+     * @param progress
+     */
+    public static void printProgress(String[] carNames, int[] progress) {
+        for (int i = 0; i < carNames.length; i++) {
+            System.out.println(CAR_PROGRESS.formatted(carNames[i], "-".repeat(progress[i])));
+        }
+        System.out.println();
+    }
+
+    /**
      * 입력이 비어있는지 검증
      *
      * @param input
@@ -113,18 +127,5 @@ public class Console {
         if (tryCount < Rule.MIN_TRY_COUNT) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_TRY_COUNT_RANGE);
         }
-    }
-
-    /**
-     * 진행 상황 출력
-     *
-     * @param carNames
-     * @param progress
-     */
-    public static void printProgress(String[] carNames, int[] progress) {
-        for (int i = 0; i < carNames.length; i++) {
-            System.out.println(CAR_PROGRESS.formatted(carNames[i], "-".repeat(progress[i])));
-        }
-        System.out.println();
     }
 }
