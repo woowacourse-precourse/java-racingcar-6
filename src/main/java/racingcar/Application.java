@@ -37,7 +37,7 @@ public class Application {
 
         int count = 0;
         Racing racing = new Racing();
-
+        String result = null;
         while ( count < Integer.parseInt( activeCount ) ) {
 
             for ( String key : carMap.keySet() ){
@@ -54,11 +54,13 @@ public class Application {
             System.out.println();
             count++;
 
-            String result = racing.printResult();
-            if ( null != result ) {
+            result = racing.printResult();
 
-                System.out.println( WINNER + result );
-            }
+        }
+        if ( null == result ) {
+            System.out.println( WINNER );
+        } else  {
+            System.out.println( WINNER + result );
         }
     }
 }
