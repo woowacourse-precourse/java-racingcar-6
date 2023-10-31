@@ -3,13 +3,26 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Application {
 
     public static void main(String[] args) {
-        readNames();
+        String[] names = readNames();
+        int tryingCount = readCount();
+        Car[] cars = creteCars(names);
+        while (tryingCount > 0) {
+
+            moveCars(cars);
+            printDistanceStatus(cars);
+            System.out.println();
+
+            tryingCount--;
+        }
+
     }
 
     public static String[] readNames() {
@@ -49,8 +62,7 @@ public class Application {
     public static int readCount() {
         System.out.println("시도할 회수는 몇회인가요?");
         String input = Console.readLine();
-        if(!isValidNumber(input))
-        {
+        if (!isValidNumber(input)) {
             throw new IllegalArgumentException("올바르지 않은 입력입니다.");
         }
         int count = Integer.parseInt(input);
@@ -69,6 +81,27 @@ public class Application {
         }
         return true;
     }
-}
 
+    public static Car[] creteCars(String[] names) {
+        Car[] cars = new Car[names.length];
+        for (int i = 0; i < names.length; i++) {
+            cars[i] = new Car(names[i]);
+        }
+
+        return cars;
+    }
+
+    public static void moveCars(Car[] cars) {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
+
+    public static void printDistanceStatus(Car[] cars) {
+        for (Car car : cars) {
+            car.printDistanceStatus();
+        }
+    }
+
+}
 
