@@ -14,7 +14,7 @@ public final class RacingStatus {
     public String getRaceProgress(List<Car> carList) {
         return carList.stream()
                 .map(this::getProgressOfCar)
-                .collect(Collectors.joining("\n"))
+                .collect(Collectors.joining(NEW_LINE))
                 + NEW_LINE;
     }
 
