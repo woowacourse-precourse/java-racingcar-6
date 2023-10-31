@@ -21,11 +21,23 @@ public class Game {
         }
         System.out.println();
     }
-    public static int topScore(Map<String, Integer> racers){
+
+    public static int topScore(Map<String, Integer> racers) {
         List<Integer> maxRacerValue = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : racers.entrySet()) {
             maxRacerValue.add(entry.getValue());
         }
         return Collections.max(maxRacerValue);
+    }
+
+    public List<String> printWinner(Map<String, Integer> racers) {
+        List<String> maxRacerName = new ArrayList<>();
+        //Set<Map.Entry<String, Integer>> entrySet = racers.entrySet();
+        for (Map.Entry<String, Integer> entry : racers.entrySet()) {
+            if (topScore(racers) == entry.getValue()) {
+                maxRacerName.add(entry.getKey());
+            }
+        }
+        return maxRacerName;
     }
 }
