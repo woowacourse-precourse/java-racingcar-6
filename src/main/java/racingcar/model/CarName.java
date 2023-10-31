@@ -12,11 +12,11 @@ public class CarName {
         this.carName = carName;
     }
 
-    private void validateName(String carName){
+    private void validateName(String carName) {
         CarNameValidator.validateEmptyCheck(carName);
         CarNameValidator.validateSpaceCheck(carName);
-        CarNameValidator.validateLengthCheck(carName,LENGTH_LIMIT);
-    };
+        CarNameValidator.validateLengthCheck(carName, LENGTH_LIMIT);
+    }
 
     public String getCarName() {
         return carName;

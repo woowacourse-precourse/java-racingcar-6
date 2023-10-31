@@ -13,7 +13,7 @@ public class GameController {
         List<String> carNames = getCarNames();
         int gameTime = getGameTime();
 
-        final Game game = new Game(gameTime,carNames);
+        final Game game = new Game(gameTime, carNames);
         runGame(game);
         endGame(game);
     }

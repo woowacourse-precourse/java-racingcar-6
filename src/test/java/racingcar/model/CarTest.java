@@ -11,8 +11,8 @@ class CarTest {
     private MovePolicy movePolicy;
 
     @ParameterizedTest
-    @CsvSource(value = {"true,1","false,0"})
-    void 자동차는_정해진_정책에_부합해야_움직인다(boolean returnIsMoveable,int result) {
+    @CsvSource(value = {"true,1", "false,0"})
+    void 자동차는_정해진_정책에_부합해야_움직인다(boolean returnIsMoveable, int result) {
         movePolicy = () -> returnIsMoveable;
         Car car = new Car("테스트");
         int currentPosition = car.getPosition();
