@@ -3,13 +3,7 @@ package racingcar.domain;
 
 import racingcar.service.RandomGenerator;
 import racingcar.view.Input.InputView;
-
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
 import racingcar.view.Output.OutputView;
-
-import static racingcar.domain.Cars.cars;
 
 public class RacingGame {
     private InputView inputView;

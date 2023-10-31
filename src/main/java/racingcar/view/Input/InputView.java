@@ -21,7 +21,6 @@ public class InputView {
     // 자동차 입력 받기
     public List<Car> carName(String input) {
         inputValidator.validateCarString(input.replace(" ",""));
-        inputValidator.validateIsString(List.of(input.split(","))); // 바꾸고 싶음
 
         return inputParser.parseCarString(input);
     }
