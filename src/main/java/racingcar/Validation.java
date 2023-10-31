@@ -14,7 +14,7 @@ public class Validation {
         } catch (IllegalArgumentException e){
             System.out.println("[System] 숫자만 입력 가능합니다.");
         }
-        
+
         return 0;
     }
 }
