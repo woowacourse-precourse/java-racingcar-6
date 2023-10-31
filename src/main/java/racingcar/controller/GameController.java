@@ -14,34 +14,34 @@ public class GameController {
     private static List<Car> cars;
     private static int attempts;
 
-    public static void start(){
+    public static void start() {
 
-            cars = getCars(inputCarName());
-            CarListValidator.validate(cars);
-            attempts = inputAttempts();
+        cars = getCars(inputCarName());
+        CarListValidator.validate(cars);
+        attempts = inputAttempts();
 
-            finalResult();
-            while(attempts!=0){
-                play();
-                attempts--;
-            }
-            finishGame();
+        finalResult();
+        while (attempts != 0) {
+            play();
+            attempts--;
+        }
+        finishGame();
     }
 
-    private static int inputAttempts(){
+    private static int inputAttempts() {
         return Integer.parseInt(InputView.attempts());
     }
 
-    private static String inputCarName(){
+    private static String inputCarName() {
         return InputView.carsName();
     }
 
-    private static void finalResult(){
+    private static void finalResult() {
         OutputView.executionResult();
     }
 
-    private static void play(){
-        for(Car car : cars){
+    private static void play() {
+        for (Car car : cars) {
             car.addAdvances(GeneratedRandomNumber.getNumber());
         }
 
@@ -49,15 +49,15 @@ public class GameController {
         System.out.println();
     }
 
-    private static void finishGame(){
+    private static void finishGame() {
         FindWinnerController findWinnerController = new FindWinnerController(cars);
         OutputView.winner(findWinnerController.getWinners());
     }
 
-    private static List<Car> getCars(final String cars){
+    private static List<Car> getCars(final String cars) {
         List<Car> convertCars = new ArrayList<>();
 
-        for (String carName : cars.split(",")){
+        for (String carName : cars.split(",")) {
             convertCars.add(new Car(new Name(carName)));
         }
 
