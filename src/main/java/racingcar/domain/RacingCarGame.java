@@ -28,7 +28,7 @@ public class RacingCarGame {
         for (Car car : cars) {
             boolean shouldMove = determineMovement();
             car.move(shouldMove);
-            carStates.add(new CarStateDto(car.toString()));
+            carStates.add(new CarStateDto(car));
         }
         return new RoundResultDto(carStates);
     }
