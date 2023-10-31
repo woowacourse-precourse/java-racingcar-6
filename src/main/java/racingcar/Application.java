@@ -22,8 +22,8 @@ public class Application {
             int tryCount = tryCountInputProcess(Console.readLine());
 
             // verify console input
-            System.out.println("carNames : " + carNames);
-            System.out.println("tryCount : " + tryCount);
+            // System.out.println("carNames : " + carNames);
+            // System.out.println("tryCount : " + tryCount);
 
             // carNames : [pobi, woni, jun]
             // tryCount : 5
