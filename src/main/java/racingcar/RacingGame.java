@@ -30,4 +30,11 @@ public class RacingGame {
         return attemptCount == END_COUNT;
     }
 
+    public void printAllProgress() {
+        for (Car car : cars.getCars()) {
+            printProgress(car.getName(), car.getPosition());
+        }
+        printLine();
+    }
+
 }
