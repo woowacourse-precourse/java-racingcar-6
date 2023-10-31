@@ -10,13 +10,9 @@ import racingcar.view.OutputView;
 
 public class GameController {
 
-    private final InputView inputView;
-    private final OutputView outputView;
     private final GameService gameService;
 
-    public GameController(final InputView inputView, final OutputView outputView, final GameService gameService) {
-        this.inputView = inputView;
-        this.outputView = outputView;
+    public GameController(final GameService gameService) {
         this.gameService = gameService;
     }
 
@@ -29,8 +25,8 @@ public class GameController {
     }
 
     private String getNames() {
-        outputView.printNamesGuide();
-        return inputView.readInput();
+        OutputView.printNamesGuide();
+        return InputView.readInput();
     }
 
     private Cars createCarsByNames(final String names) {
@@ -38,12 +34,12 @@ public class GameController {
     }
 
     private int getTrialCount() {
-        outputView.printTrialGuide();
-        return gameService.createTrialCount(inputView.readInput());
+        OutputView.printTrialGuide();
+        return gameService.createTrialCount(InputView.readInput());
     }
 
     private void playRounds(final int trialCount, final Cars cars) {
-        outputView.printResultGuide();
+        OutputView.printResultGuide();
         for (int round = 0; round < trialCount; round++) {
             playOneRound(cars);
         }
@@ -56,12 +52,12 @@ public class GameController {
 
     private void printRoundResult(final Cars cars) {
         CarsDto roundResult = gameService.getRoundResult(cars);
-        outputView.printRoundResult(roundResult);
+        OutputView.printRoundResult(roundResult);
     }
 
     private void printWinnersName(final Cars cars) {
         List<String> winnersName = gameService.findWinnersName(cars);
-        outputView.printWinnersName(winnersName);
+        OutputView.printWinnersName(winnersName);
     }
 
 }
