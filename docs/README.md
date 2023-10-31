@@ -24,7 +24,7 @@
 ## Controller
 - [x] 게임을 시작하고 종료
 - [x] Car 객체를 초기화
-- [ ] 게임의 전체 진행을 컨트롤함
+- [x] 게임의 전체 진행을 컨트롤함
 
 ## Validator
 ### CarNameValidator
