@@ -32,4 +32,14 @@ public class RacingGame {
         return resultDtos;
     }
 
+    public List<Car> getRacingWinner(){
+        List<Car> winners = new ArrayList<>();
+        for (Car car : cars){
+            if(car.isWinner(maxWinCnt)){
+                winners.add(car);
+            }
+        }
+        return winners;
+    }
+
 }
