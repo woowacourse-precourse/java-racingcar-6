@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import racingcar.util.NumberGenerator;
 
 public class Cars {
     private static final String DELIMITER = ",";
@@ -23,8 +24,8 @@ public class Cars {
                 .toList();
     }
 
-    public void forward() {
-        cars.forEach(Car::forward);
+    public void forward(NumberGenerator numberGenerator) {
+        cars.forEach(car -> car.forward(numberGenerator));
     }
 
     public String result() {

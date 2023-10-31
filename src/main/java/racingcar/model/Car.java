@@ -1,6 +1,6 @@
 package racingcar.model;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.util.NumberGenerator;
 
 public class Car {
     private static final int LENGTH_LIMITER = 5;
@@ -32,13 +32,13 @@ public class Car {
         return point;
     }
 
-    public void forward() {
-        if (getRandomNumber() >= FORWARD_STANDARD) {
+    public void forward(NumberGenerator numberGenerator) {
+        if (generateNumber(numberGenerator) >= FORWARD_STANDARD) {
             point += INCREASE_AMOUNT;
         }
     }
 
-    private int getRandomNumber() {
-        return Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+    private int generateNumber(NumberGenerator numberGenerator) {
+        return numberGenerator.generate(MIN_NUMBER, MAX_NUMBER);
     }
 }
