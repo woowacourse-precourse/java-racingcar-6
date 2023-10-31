@@ -1,18 +1,17 @@
 package racingcar.model;
 
-import racingcar.domain.Car;
-import racingcar.domain.Cars;
+import racingcar.domain.*;
 
-import java.util.List;
+import java.util.Map;
 
 public class Winner {
-    public String selectWinner(Cars result) {
+    public String selectWinner(AllRaceRecords allRecords, MoveCnt moveCnt) {
         int max = Integer.MIN_VALUE;
         StringBuilder sb = new StringBuilder();
 
-        for (Car car : result) {
-            int dist = car.getDist();
-            String name = car.getName();
+        for (RaceRecord record : allRecords) {
+            String name = record.getCar().getName();
+            int dist = record.getRaceResult().get(moveCnt.getMoveCnt() - 1);
 
             if (dist == max) {
                 sb.append(name + ", ");

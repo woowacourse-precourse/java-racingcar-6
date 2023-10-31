@@ -1,15 +1,13 @@
 package racingcar.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.domain.Car;
+import racingcar.domain.AllRaceRecords;
 import racingcar.domain.Cars;
 import racingcar.domain.MoveCnt;
 import racingcar.model.CarMove;
 import racingcar.model.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
-
-import java.util.List;
 
 public class Race {
     private InputView inputView;
@@ -19,8 +17,6 @@ public class Race {
     private Cars cars;
     private Winner winner;
 
-    private List<Cars> allRaceResultList;
-
     public Race() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
@@ -29,12 +25,11 @@ public class Race {
     }
 
     public void run() {
-        start();
-        move();
-        printWinner();
+        gameStart();
+        race();
     }
 
-    public void start() {
+    private void gameStart() {
         inputView.requestCarName(); // 자동차 이름 요청 구문 출력
         cars = new Cars(Console.readLine()); // 유저 입력문 쉼표로 구분해서 Car 리스트에 저장
 
@@ -42,18 +37,17 @@ public class Race {
         moveCnt = new MoveCnt(Console.readLine());
     }
 
-    public void move() {
+    private void race() {
         outputView.printResultMsg(); // '실행 결과' 메세지 출력
 
-        allRaceResultList = carMove.race(cars, moveCnt); // 모든 레이스 실행 결과 각각 담고있는 리스트
-        for (Cars raceResult : allRaceResultList) { // 각각 실행 결과 출력
-            outputView.printEachRaceResult(raceResult);
-        }
+        AllRaceRecords allRecords = carMove.race(cars, moveCnt);
+        outputView.printRaceResult(allRecords, moveCnt); // 레이스 결과 출력
 
+        printWinner(allRecords, moveCnt);
     }
 
-    public void printWinner() {
-        outputView.printWinner(winner.selectWinner(allRaceResultList.get(allRaceResultList.size() - 1)));
+    private void printWinner(AllRaceRecords allRecords, MoveCnt moveCnt) {
+        outputView.printWinner(winner.selectWinner(allRecords, moveCnt));
     }
 
 
