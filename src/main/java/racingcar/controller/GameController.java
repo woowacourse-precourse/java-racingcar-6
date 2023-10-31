@@ -1,12 +1,13 @@
 package racingcar.controller;
 
+import java.util.ArrayList;
+
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+
 import racingcar.model.Car;
 import racingcar.view.ResultView;
 import racingcar.view.SettingView;
-
-import java.util.ArrayList;
 
 public class GameController {
     private static final ArrayList<Car> carList = new ArrayList<>();
