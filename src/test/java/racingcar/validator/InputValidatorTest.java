@@ -41,7 +41,7 @@ final class InputValidatorTest {
     void validateMaxRoundInput_exceptSingleNumberString_throwInvalidMaxRoundInputException() {
         // given
         final String input1 = "";
-        final String input2 = "12";
+        final String input2 = "12x";
         final String input3 = "X";
         final InputValidator inputValidator = new InputValidator();
         // when
@@ -66,9 +66,9 @@ final class InputValidatorTest {
     @Test
     void validateMaxRoundInput_includesWhiteSpaces_throwInvalidMaxRoundInputException() {
         // given
-        final String input1 = "12";
-        final String input2 = "12x";
-        final String input3 = "X";
+        final String input1 = "a,b, ";
+        final String input2 = "a,\t,c";
+        final String input3 = "a,\n,c";
         final InputValidator inputValidator = new InputValidator();
         // when
         // then
