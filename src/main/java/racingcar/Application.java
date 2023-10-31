@@ -31,7 +31,7 @@ public class Application {
         int cnt = Integer.parseInt(Console.readLine());
         for (int i = 0; i < cnt; i++) {
             for (Car car : carlist) {
-                application.move(car, go(Randoms.pickNumberInRange(0, 9)));
+                application.move(car, Randoms.pickNumberInRange(0, 9));
             }
         }
 
@@ -61,14 +61,6 @@ public class Application {
         }
     }
 
-    // 파라미터의 random은 외부에서 랜덤 값을 생성하여 집어넣어주는 방식으로 구현 필요
-    public boolean go(int random) {
-        if (random >= 4) {
-            return false;
-        }
-        return true;
-    }
-
     public Car[] createCar(String[] split) {
         Car[] carList = new Car[split.length];
         for (int i = 0; i < split.length; i++) {
@@ -78,8 +70,8 @@ public class Application {
         return carList;
     }
 
-    public void move(Car car, Boolean go) {
-        if (go == true) {
+    public void move(Car car, int go) {
+        if (go >= 4) {
             car.setPos(car.getPos() + 1);
         }
     }
