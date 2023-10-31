@@ -2,8 +2,12 @@ package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import racingcar.exception.car.BlankCarNameException;
+import racingcar.exception.car.CarNameNumberLimitException;
 
 public class Car {
+    public static final int CAR_NAME_NUMBERS_LIMIT_SIZE = 5;
+
     private String name;
 
     private Car(String name) {
@@ -17,15 +21,15 @@ public class Car {
     }
 
     public static void checkOver5Letters(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException("자동차 이름은 6글자 이상일 수 없습니다.");
+        if (name.length() > CAR_NAME_NUMBERS_LIMIT_SIZE) {
+            throw new CarNameNumberLimitException();
         }
 
     }
 
     public static void checkCarWithBlank(String name) {
         if (name.isBlank()) {
-            throw new IllegalArgumentException("자동차 이름에 공백만 있을 수 없습니다.");
+            throw new BlankCarNameException();
         }
     }
 
