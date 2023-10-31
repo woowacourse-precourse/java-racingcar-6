@@ -31,4 +31,49 @@ public class RacingCarServiceTest {
         assertThat(game.getCarDtoList().get(2).getPosition()).isGreaterThanOrEqualTo(0);
         assertThat(game.getCarDtoList().get(2).getPosition()).isLessThanOrEqualTo(5);
     }
+
+    @Test
+    void userInputRacingCar() {
+        RacingCarService game = new RacingCarService();
+        game.userInputRacingCar("A,B,C");
+        assertThat(game.getRacingCarCount()).isEqualTo(3);
+    }
+
+    @Test
+    void userInputCount() {
+        RacingCarService game = new RacingCarService();
+        assertThatThrownBy(() -> game.userInputCount("-1"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 1 이상이어야 합니다.");
+    }
+
+    @Test
+    void userInputCount2() {
+        RacingCarService game = new RacingCarService();
+        assertThatThrownBy(() -> game.userInputCount("0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("시도 횟수는 1 이상이어야 합니다.");
+    }
+
+    @Test
+    void gameWinner() {
+        RacingCarService game = new RacingCarService();
+        game.userInputRacingCar("A,B,C");
+        game.userInputCount("5");
+        game.initGame();
+        while (!game.isWon()) {
+            game.play();
+        }
+        assertThat(game.getGameWinner().size()).isGreaterThanOrEqualTo(1);
+    }
+
+    @Test
+    void isWin() {
+        RacingCarService game = new RacingCarService();
+        game.userInputRacingCar("A,B,C");
+        game.userInputCount("5");
+        game.initGame();
+        game.play();
+        assertThat(game.isWon()).isNotNull();
+    }
 }

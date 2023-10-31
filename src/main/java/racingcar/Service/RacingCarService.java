@@ -115,7 +115,7 @@ public class RacingCarService {
         return dtoManager.getCarDtoList();
     }
 
-    private int getRacingCarCount() {
+    public int getRacingCarCount() {
         return dtoManager.getRacingCarCount();
     }
 
