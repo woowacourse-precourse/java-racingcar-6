@@ -3,8 +3,10 @@ package racingcar;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 import racingcar.controller.GameController;
+import racingcar.model.GameMember;
 import racingcar.validator.InputValidator;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -16,6 +18,7 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
     private InputValidator inputValidator = new InputValidator();
+    private GameMember gameMember = new GameMember();
 
 
     @Test
@@ -50,6 +53,15 @@ class ApplicationTest extends NsTest {
         input = " 김 동휘 , 김 동 동, 김 김    김";
         result = inputValidator.toValidateData(input);
         assertThat(result).contains("김동휘", "김동동","김김김");
+    }
+
+    @Test
+    void initialInsertPlayerKeyAndValue(){
+        String input = "김동휘";
+        gameMember.setHs(inputValidator.toValidateData(input));
+
+        assertThat(gameMember.getHs().get(input)).isEqualTo("");
+
     }
 
     @Override

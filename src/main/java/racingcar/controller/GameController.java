@@ -16,51 +16,55 @@ public class GameController {
     InputValidator inputValidator = new InputValidator();
     GenerateRandomNum generateRandomNum = new GenerateRandomNum();
 
-    public void proceedGame(){
+    public void proceedGame() {
         setCarPlayers();
         setTryNum();
-        for(int i=0 ; i<gameMember.getTryNum() ; i++){
+        for (int i = 0; i < gameMember.getTryNum(); i++) {
             goGame();
-            outputView.gameProgress(gameMember.getHs(),gameMember.getCarPlayers());
+            outputView.gameProgress(gameMember.getHs(), gameMember.getCarPlayers());
         }
-        System.out.println("최종 우승자 : "+whoIsWinner(gameMember.getHs(),gameMember.getCarPlayers()));
+        System.out.println("최종 우승자 : " + whoIsWinner(gameMember.getHs(), gameMember.getCarPlayers()));
 
 
     }
-    private String whoIsWinner(HashMap<String,String> hs,List<String> carPlayers){
-        int max = maxLength(hs,carPlayers);
+
+    private String whoIsWinner(HashMap<String, String> hs, List<String> carPlayers) {
+        int max = maxLength(hs, carPlayers);
         List<String> winner = new ArrayList<>();
-        for(String key : carPlayers){
-            if(max == hs.get(key).length()){
+        for (String key : carPlayers) {
+            if (max == hs.get(key).length()) {
                 winner.add(key);
             }
         }
-        String join = String.join(",",winner);
+        String join = String.join(",", winner);
         return join;
     }
-    private int maxLength(HashMap<String,String> hs , List<String> carPlayers){
+
+    private int maxLength(HashMap<String, String> hs, List<String> carPlayers) {
         int max = 0;
-        for(String key : carPlayers){
-            if(max < hs.get(key).length()){
+        for (String key : carPlayers) {
+            if (max < hs.get(key).length()) {
                 max = hs.get(key).length();
             }
         }
 
         return max;
     }
-    private void goGame(){
-        for(String key : gameMember.getCarPlayers()){
-            if(generateRandomNum.pickNum()){
+
+    private void goGame() {
+        for (String key : gameMember.getCarPlayers()) {
+            if (generateRandomNum.pickNum()) {
                 gameMember.setDuringGame(key);
             }
         }
     }
 
-    private void setCarPlayers(){
+    private void setCarPlayers() {
         gameMember.setCarPlayers(inputValidator.toValidateData(inputView.enterGameMembersName()));
         gameMember.setHs(gameMember.getCarPlayers());
     }
-    private void setTryNum(){
+
+    private void setTryNum() {
         gameMember.setTryNum(inputView.enterGameNumber());
     }
 

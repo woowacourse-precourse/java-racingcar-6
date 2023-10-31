@@ -15,16 +15,16 @@ public class GameMember {
     }
 
     public void setHs(List<String> carPlayers) {
-        HashMap<String,String> hs = new HashMap<>();
-        for(String key : carPlayers){
-            hs.put(key,"");
+        HashMap<String, String> hs = new HashMap<>();
+        for (String key : carPlayers) {
+            hs.put(key, "");
         }
         this.hs = hs;
     }
 
-    public void setDuringGame(String playerName){
+    public void setDuringGame(String playerName) {
         String beforeRecord = hs.get(playerName);
-        hs.put(playerName,beforeRecord+"-");
+        hs.put(playerName, beforeRecord + "-");
     }
 
     public int getTryNum() {
