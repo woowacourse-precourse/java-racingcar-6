@@ -24,9 +24,9 @@ class OutputViewTest {
 
         String lineSeparator = System.lineSeparator();
         return Stream.of(
-                Arguments.of("car1", 0, "car1 : " + lineSeparator),
-                Arguments.of("car2", 3, "car2 : ---" + lineSeparator),
-                Arguments.of("car3", 10, "car3 : ----------" + lineSeparator)
+                Arguments.of("car1", 0, "car1 : " + lineSeparator + lineSeparator),
+                Arguments.of("car2", 3, "car2 : ---" + lineSeparator + lineSeparator),
+                Arguments.of("car3", 10, "car3 : ----------" + lineSeparator + lineSeparator)
         );
     }
 
@@ -34,11 +34,11 @@ class OutputViewTest {
         int fixedLength = 6;
         int separatorLength = System.lineSeparator().length();
         return Stream.of(
-                Arguments.of("car", 0, 0 + fixedLength + separatorLength),
-                Arguments.of("car", 3, 3 + fixedLength + separatorLength),
-                Arguments.of("car", 10, 10 + fixedLength + separatorLength),
-                Arguments.of("car", 1000, 1000 + fixedLength + separatorLength),
-                Arguments.of("car", 100000000, 100000000 + fixedLength + separatorLength)
+                Arguments.of("car", 0, 0 + fixedLength + separatorLength + separatorLength),
+                Arguments.of("car", 3, 3 + fixedLength + separatorLength + separatorLength),
+                Arguments.of("car", 10, 10 + fixedLength + separatorLength + separatorLength),
+                Arguments.of("car", 1000, 1000 + fixedLength + separatorLength + separatorLength),
+                Arguments.of("car", 100000000, 100000000 + fixedLength + separatorLength + separatorLength)
 //                , Arguments.of("car", Integer.MAX_VALUE, Integer.MAX_VALUE + fixedLength + separatorLength) //오류 발생
         );
     }

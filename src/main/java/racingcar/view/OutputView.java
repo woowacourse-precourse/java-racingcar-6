@@ -10,7 +10,7 @@ public class OutputView {
     private static final String DELIMITER = ", ";
     private static final String WINNER_MESSAGE = "최종 우승자";
     private static final String RESULT_MESSAGE = "실행 결과";
-    private static final String LINE_BREAK = "\n";
+    private static final String LINE_BREAK = System.lineSeparator();
 
 
     public void printResult(List<Car> cars) {
@@ -19,6 +19,7 @@ public class OutputView {
             System.out.print(COLON);
             System.out.println(PROGRESS_MARK.repeat(car.getPosition()));
         });
+        System.out.print(LINE_BREAK);
     }
 
     public void printWinner(List<String> winners) {
@@ -27,11 +28,7 @@ public class OutputView {
     }
 
     public void printResultMessage() {
-        System.out.println(RESULT_MESSAGE);
-    }
-
-    public void printLineBreak() {
-        System.out.println(LINE_BREAK);
+        System.out.println(LINE_BREAK + RESULT_MESSAGE);
     }
 
 }
