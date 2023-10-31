@@ -20,6 +20,9 @@ public class Validator {
         if (isBiggerThanMaxCarLength(carNames)) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름은 5자 이하여야 합니다.");
         }
+        if (isEmpty(carNames)) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름은 1자 이상여야 합니다.");
+        }
         if (isSmallerThanMinCarNumber(carNames)) {
             throw new IllegalArgumentException("[ERROR] 자동차 개수는 2개 이상여야 합니다.");
         }
@@ -42,6 +45,15 @@ public class Validator {
     public boolean isBiggerThanMaxCarLength(List<String> carNames) {
         for (String carName : carNames) {
             if (carName.length() > MAX_CAR_LENGTH) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isEmpty(List<String> carNames) {
+        for (String carName : carNames) {
+            if (carName.isEmpty()) {
                 return true;
             }
         }
