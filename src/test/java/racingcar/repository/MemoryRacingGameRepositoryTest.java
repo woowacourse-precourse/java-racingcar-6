@@ -7,30 +7,30 @@ import org.junit.jupiter.api.Test;
 import racingcar.configuration.AppConfig;
 import racingcar.configuration.Config;
 import racingcar.domain.Participations;
-import racingcar.domain.Racing;
+import racingcar.domain.RacingGame;
 import racingcar.domain.Winners;
 
 
-public class MemoryRacingRepositoryTest {
+public class MemoryRacingGameRepositoryTest {
 
     Config config = AppConfig.getInstance();
-    private RacingRepository racingRepository = config.racingRepository();
+    private RacingGameRepository racingGameRepository = config.racingRepository();
     Participations participations = new Participations();
     int tryCount = 5;
     Winners winners = new Winners();
 
     @BeforeEach
     public void setUp() {
-        racingRepository.deleteAll();
+        racingGameRepository.deleteAll();
     }
 
     @Test
     public void 새로운_Racing저장() {
         // given
-        Racing racing = Racing.create(participations, tryCount);
+        RacingGame racingGame = RacingGame.create(participations, tryCount);
 
         // when
-        final Racing result = (Racing) racingRepository.save(racing);
+        final RacingGame result = (RacingGame) racingGameRepository.save(racingGame);
 
         // then
         assertThat(result.getId()).isNotNull();
@@ -41,12 +41,12 @@ public class MemoryRacingRepositoryTest {
     @Test
     public void Winners_업데이트() {
         // given
-        Racing racing = Racing.create(participations, tryCount);
-        racingRepository.save(racing);
-        Long id = racing.getId();
+        RacingGame racingGame = RacingGame.create(participations, tryCount);
+        racingGameRepository.save(racingGame);
+        Long id = racingGame.getId();
 
         // when
-        final Racing result = (Racing) racingRepository.updateWinners(
+        final RacingGame result = (RacingGame) racingGameRepository.updateWinners(
                 id, winners);
 
         // then

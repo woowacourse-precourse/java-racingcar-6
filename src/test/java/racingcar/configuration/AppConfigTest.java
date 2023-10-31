@@ -4,11 +4,11 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
-import racingcar.controller.RacingController;
+import racingcar.controller.RacingGameController;
 import racingcar.repository.CarRepository;
-import racingcar.repository.RacingRepository;
+import racingcar.repository.RacingGameRepository;
 import racingcar.service.CarService;
-import racingcar.service.RacingService;
+import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -45,14 +45,14 @@ public class AppConfigTest {
     @Test
     public void RacingRepository가_싱글톤인지() {
         // given && when
-        RacingRepository racingRepository1 = config.racingRepository();
-        RacingRepository racingRepository2 = config.racingRepository();
+        RacingGameRepository racingGameRepository1 = config.racingRepository();
+        RacingGameRepository racingGameRepository2 = config.racingRepository();
 
         // then
-        assertThat(racingRepository1).isInstanceOf(RacingRepository.class);
-        assertThat(racingRepository1).isNotNull();
-        assertThat(racingRepository2).isNotNull();
-        assertThat(racingRepository1).isSameAs(racingRepository2);
+        assertThat(racingGameRepository1).isInstanceOf(RacingGameRepository.class);
+        assertThat(racingGameRepository1).isNotNull();
+        assertThat(racingGameRepository2).isNotNull();
+        assertThat(racingGameRepository1).isSameAs(racingGameRepository2);
     }
 
     @Test
@@ -71,14 +71,14 @@ public class AppConfigTest {
     @Test
     public void RacingService가_싱글톤인지() {
         // given && when
-        RacingService racingService1 = config.racingService();
-        RacingService racingService2 = config.racingService();
+        RacingGameService racingGameService1 = config.racingService();
+        RacingGameService racingGameService2 = config.racingService();
 
         // then
-        assertThat(racingService1).isInstanceOf(RacingService.class);
-        assertThat(racingService1).isNotNull();
-        assertThat(racingService2).isNotNull();
-        assertThat(racingService1).isSameAs(racingService2);
+        assertThat(racingGameService1).isInstanceOf(RacingGameService.class);
+        assertThat(racingGameService1).isNotNull();
+        assertThat(racingGameService2).isNotNull();
+        assertThat(racingGameService1).isSameAs(racingGameService2);
     }
 
     @Test
@@ -110,13 +110,13 @@ public class AppConfigTest {
     @Test
     public void RacingController가_싱글톤인지() {
         // given && when
-        RacingController racingController1 = config.racingController();
-        RacingController racingController2 = config.racingController();
+        RacingGameController racingGameController1 = config.racingController();
+        RacingGameController racingGameController2 = config.racingController();
 
         // then
-        assertThat(racingController1).isInstanceOf(RacingController.class);
-        assertThat(racingController1).isNotNull();
-        assertThat(racingController2).isNotNull();
-        assertThat(racingController1).isSameAs(racingController2);
+        assertThat(racingGameController1).isInstanceOf(RacingGameController.class);
+        assertThat(racingGameController1).isNotNull();
+        assertThat(racingGameController2).isNotNull();
+        assertThat(racingGameController1).isSameAs(racingGameController2);
     }
 }

@@ -5,44 +5,67 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Participations;
-import racingcar.domain.Racing;
-import racingcar.domain.Winners;
+import racingcar.domain.RacingGame;
 import racingcar.repository.CarRepository;
-import racingcar.repository.RacingRepository;
+import racingcar.repository.RacingGameRepository;
 import racingcar.util.ExceptionUtil;
 import racingcar.util.StringUtil;
 import racingcar.validation.IntegerValidator;
 
-public class RacingServiceImpl implements RacingService {
+public class RacingGameServiceImpl implements RacingGameService {
 
     private final String EMPTY_INPUT_MESSAGE = "자동차 이름을 하나 이상 입력하세요.";
-    private final CarService carService;
     private final CarRepository carRepository;
-    private final RacingRepository racingRepository;
+    private final RacingGameRepository racingGameRepository;
 
-    public RacingServiceImpl(CarRepository carRepository, RacingRepository racingRepository) {
+    public RacingGameServiceImpl(CarRepository carRepository, RacingGameRepository racingGameRepository) {
         this.carRepository = carRepository;
-        this.racingRepository = racingRepository;
+        this.racingGameRepository = racingGameRepository;
     }
 
     @Override
-    public Racing generateRacing(String carNames, String strTryCount) {
+    public RacingGame generateRacing(String carNames, String strTryCount) {
         List<Car> carList = processCarNamesInput(carNames); //TODO: 기능분리 리팩터링하기
         Participations participations = new Participations(carList);
         int tryCount = processTryCountInput(strTryCount);
 
-        return Racing.create(participations, tryCount);
+        return RacingGame.create(participations, tryCount);
     }
 
     @Override
-    public Racing save(Racing racing) {
+    public RacingGame save(RacingGame racingGame) {
         //carList.forEach(car -> carRepository.save(car));
-        return (Racing) racingRepository.save(racing);
+        return (RacingGame) racingGameRepository.save(racingGame);
     }
 
+    @Override
+    public void racing(RacingGame racingGame) {
+        Long id = racingGame.getId();
 
-    public RacingServiceImpl(CarService carService) { //TODO: 파라미터가 많아질경우 builder 등 고려하기
-        this.carService = carService;
+        /*//tryCount횟수만큼 반복
+        for (int i = 0; i < racingGame.getTryCount(); i++) {
+            //랜덤 점수 뽑아 넣기 //TODO: 메서드 분리
+            Participations participations = racingGame.getParticipations();
+            for (Car car : participations.getParticipations()) {
+                int randomNum = Randoms.pickNumberInRange(0,9);
+                carRepository.addPickedNumbers(id, randomNum);
+
+                if (randomNum >= 4) {
+                    carRepository.addPositions(car.getLastPosition()+1);
+                }
+            }
+        }
+
+        //Winner 구해서 담기
+        Winners winners = new Winners();
+        int maxPosition = participations.maxPosition();
+        for (Car car : participations.getParticipations()) {
+            if (car.isPositionSameOrOver(maxPosition)) {
+                winners.addWinner(car);
+            }
+        }
+
+        racingGameRepository.updateWinners(id, winners);*/
     }
 
     private List<Car> processCarNamesInput(String input) {
@@ -60,7 +83,6 @@ public class RacingServiceImpl implements RacingService {
     }
 
     private void validateEmptyInput(String input, List<Car> carList) {
-        input = StringUtil.trimSpaces(input);
         if (input.isEmpty() || carList.isEmpty()) {
             ExceptionUtil.throwInvalidValueException(EMPTY_INPUT_MESSAGE);
         }

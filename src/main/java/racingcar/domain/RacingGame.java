@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Racing extends IndexModel {
+public class RacingGame extends IndexModel {
 
     private Participations participations;
     private int tryCount;
@@ -23,13 +23,13 @@ public class Racing extends IndexModel {
         this.winners = winners;
     }
 
-    private Racing(Participations participations, int tryCount) {
+    private RacingGame(Participations participations, int tryCount) {
         this.participations = participations;
         this.tryCount = tryCount;
     }
 
-    public static Racing create(Participations participations, int tryCount) {
-        return new Racing(participations, tryCount);
+    public static RacingGame create(Participations participations, int tryCount) {
+        return new RacingGame(participations, tryCount);
     }
 
     public int participationSize() {

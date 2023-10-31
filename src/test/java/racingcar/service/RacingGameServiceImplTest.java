@@ -4,23 +4,20 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.configuration.AppConfig;
 import racingcar.configuration.Config;
-import racingcar.domain.Car;
-import racingcar.domain.Racing;
+import racingcar.domain.RacingGame;
 import racingcar.repository.CarRepository;
-import racingcar.repository.RacingRepository;
+import racingcar.repository.RacingGameRepository;
 
-public class RacingServiceImplTest {
+public class RacingGameServiceImplTest {
 
     Config config = AppConfig.getInstance();
     private CarRepository carRepository = config.carRepository();
-    private RacingRepository racingRepository = config.racingRepository();
-    RacingService racingService = config.racingService();
+    private RacingGameRepository racingGameRepository = config.racingRepository();
+    RacingGameService racingGameService = config.racingService();
 
     @BeforeEach
     public void setUp() {
@@ -34,7 +31,7 @@ public class RacingServiceImplTest {
         String tryCount = "5";
 
         // when
-        final Racing result = racingService.generateRacing(input, tryCount);
+        final RacingGame result = racingGameService.generateRacing(input, tryCount);
 
         // then
         assertThat(result).isNotNull();
@@ -47,13 +44,13 @@ public class RacingServiceImplTest {
         // given
         String carNames = "pobi,woni,jun";
         String tryCount = "5";
-        final Racing racing = racingService.generateRacing(carNames, tryCount);
+        final RacingGame racingGame = racingGameService.generateRacing(carNames, tryCount);
 
         // when
-        final Racing result = racingService.save(racing);
+        final RacingGame result = racingGameService.save(racingGame);
 
         // then
-        assertThat(result).isSameAs(racing);
+        assertThat(result).isSameAs(racingGame);
     }
 
     @Test
@@ -63,7 +60,7 @@ public class RacingServiceImplTest {
         String tryCount = "5";
 
         // when && then
-        assertThatThrownBy(() -> racingService.generateRacing(carNames, tryCount))
+        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름을 하나 이상 입력하세요.");
     }
@@ -75,7 +72,7 @@ public class RacingServiceImplTest {
         String tryCount = "5";
 
         // when && then
-        assertThatThrownBy(() -> racingService.generateRacing(carNames, tryCount))
+        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름을 하나 이상 입력하세요.");
     }
@@ -87,7 +84,7 @@ public class RacingServiceImplTest {
         String tryCount = "5";
 
         // when && then
-        assertThatThrownBy(() -> racingService.generateRacing(carNames, tryCount))
+        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름을 하나 이상 입력하세요.");
     }
@@ -99,7 +96,7 @@ public class RacingServiceImplTest {
         String tryCount = "k";
 
         // when && then
-        assertThatThrownBy(() -> racingService.generateRacing(carNames, tryCount))
+        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("1 이상 2,147,483,647 이하의 정수 값이 필요합니다.");
     }
@@ -111,7 +108,7 @@ public class RacingServiceImplTest {
         String tryCount = "2200000000";
 
         // when && then
-        assertThatThrownBy(() -> racingService.generateRacing(carNames, tryCount))
+        assertThatThrownBy(() -> racingGameService.generateRacing(carNames, tryCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("1 이상 2,147,483,647 이하의 정수 값이 필요합니다.");
     }

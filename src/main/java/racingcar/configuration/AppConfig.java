@@ -1,14 +1,14 @@
 package racingcar.configuration;
 
-import racingcar.controller.RacingController;
+import racingcar.controller.RacingGameController;
 import racingcar.repository.CarRepository;
 import racingcar.repository.MemoryCarRepository;
-import racingcar.repository.MemoryRacingRepository;
-import racingcar.repository.RacingRepository;
+import racingcar.repository.MemoryRacingGameRepository;
+import racingcar.repository.RacingGameRepository;
 import racingcar.service.CarService;
 import racingcar.service.CarServiceImpl;
-import racingcar.service.RacingService;
-import racingcar.service.RacingServiceImpl;
+import racingcar.service.RacingGameService;
+import racingcar.service.RacingGameServiceImpl;
 import racingcar.view.ConsoleInputView;
 import racingcar.view.ConsoleOutputView;
 import racingcar.view.InputView;
@@ -17,12 +17,12 @@ import racingcar.view.OutputView;
 public class AppConfig implements Config { //IoC Container
     //AppConfig를 싱글톤으로 두면 전체 프로그램에서 아래 객체들도 싱글톤으로 관리 가능, 대신 test할 때 조금 불편함
     private CarRepository carRepository;
-    private RacingRepository racingRepository;
+    private RacingGameRepository racingGameRepository;
     private CarService carService;
-    private RacingService racingService;
+    private RacingGameService racingGameService;
     private InputView inputView;
     private OutputView outputView;
-    private RacingController racingController;
+    private RacingGameController racingGameController;
 
     private static AppConfig appConfig;
     private AppConfig() {
@@ -45,11 +45,11 @@ public class AppConfig implements Config { //IoC Container
     }
 
     @Override
-    public RacingRepository racingRepository() {
-        if (racingRepository == null) {
-            racingRepository = new MemoryRacingRepository();
+    public RacingGameRepository racingRepository() {
+        if (racingGameRepository == null) {
+            racingGameRepository = new MemoryRacingGameRepository();
         }
-        return racingRepository;
+        return racingGameRepository;
     }
 
     @Override
@@ -61,11 +61,11 @@ public class AppConfig implements Config { //IoC Container
     }
 
     @Override
-    public RacingService racingService() {
-        if (racingService == null) {
-            racingService = new RacingServiceImpl(carRepository(), racingRepository());
+    public RacingGameService racingService() {
+        if (racingGameService == null) {
+            racingGameService = new RacingGameServiceImpl(carRepository(), racingRepository());
         }
-        return racingService;
+        return racingGameService;
     }
 
     @Override
@@ -85,10 +85,10 @@ public class AppConfig implements Config { //IoC Container
     }
 
     @Override
-    public RacingController racingController() {
-        if (racingController == null) {
-            racingController = new RacingController(inputView(), outputView(), racingService());
+    public RacingGameController racingController() {
+        if (racingGameController == null) {
+            racingGameController = new RacingGameController(inputView(), outputView(), racingService());
         }
-        return racingController;
+        return racingGameController;
     }
 }

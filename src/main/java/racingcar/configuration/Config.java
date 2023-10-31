@@ -1,25 +1,25 @@
 package racingcar.configuration;
 
-import racingcar.controller.RacingController;
+import racingcar.controller.RacingGameController;
 import racingcar.repository.CarRepository;
-import racingcar.repository.RacingRepository;
+import racingcar.repository.RacingGameRepository;
 import racingcar.service.CarService;
-import racingcar.service.RacingService;
+import racingcar.service.RacingGameService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public interface Config {
     CarRepository carRepository();
 
-    RacingRepository racingRepository();
+    RacingGameRepository racingRepository();
 
     CarService carService();
 
-    RacingService racingService();
+    RacingGameService racingService();
 
     InputView inputView();
 
     OutputView outputView();
 
-    RacingController racingController();
+    RacingGameController racingController();
 }
