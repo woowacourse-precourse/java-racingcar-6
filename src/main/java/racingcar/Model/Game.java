@@ -4,35 +4,36 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import racingcar.Global.Constants;
 
 public class Game {
     public List<Car> cars;
-    public int stage;
+    public int remainStage;
     public RandomNumberGenerator randomNumberGenerator;
-    public static int randomNumberCondition = 4;
 
-    public Game(List<Car> cars, RandomNumberGenerator randomNumberGenerator, int stage) {
+
+    public Game(List<Car> cars, RandomNumberGenerator randomNumberGenerator, int remainStage) {
         this.cars = cars;
         this.randomNumberGenerator = randomNumberGenerator;
-        if (!isValidateStageNumber(stage)) {
+        if (!isValidateStageNumber(remainStage)) {
             throw new IllegalArgumentException();
         }
-        this.stage = stage;
+        this.remainStage = remainStage;
     }
 
-    public Boolean isValidateStageNumber(int stageNumber) {
+    private Boolean isValidateStageNumber(int stageNumber) {
         return stageNumber >= 0;
     }
 
-    public Boolean isSatisfyForwardCondition(int randomNumber) {
-        return randomNumber >= randomNumberCondition;
+    private Boolean isSatisfyForwardCondition(int randomNumber) {
+        return randomNumber >= Constants.randomNumberCondition;
     }
 
     public Boolean isGameEnd() {
-        return stage == 0;
+        return remainStage == 0;
     }
 
-    public void decideCarMoving(Car car) {
+    private void decideCarMoving(Car car) {
         int result = randomNumberGenerator.getRandomNumberResult();
         if (isSatisfyForwardCondition(result)) {
             car.goStraight(result);
@@ -45,7 +46,7 @@ public class Game {
             decideCarMoving(car);
             result.put(car.getCarName(), car.getCurrentLocation());
         }
-        stage -= 1;
+        remainStage -= 1;
         return result;
     }
 

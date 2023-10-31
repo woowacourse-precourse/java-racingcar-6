@@ -1,7 +1,6 @@
 package racingcar.Controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import racingcar.Global.Constants;
@@ -20,18 +19,18 @@ public class Controller {
         init(inputView, outputView);
     }
 
-    public void init(InputView inputView, OutputView outputView) {
+    private void init(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
         game = new Game(makeNewCars(), new RandomNumberGenerator(), getGameStageNumber());
     }
 
-    public List<String> getCarName() {
+    private List<String> getCarName() {
         outputView.printString(Constants.getCarsNameState);
-        return splitString(inputView.getCarsName());
+        return inputView.getCarsName();
     }
 
-    public List<Car> makeNewCars() {
+    private List<Car> makeNewCars() {
         List<Car> result = new ArrayList<>();
         for (String carName : getCarName()) {
             result.add(new Car(carName));
@@ -39,9 +38,9 @@ public class Controller {
         return result;
     }
 
-    public int getGameStageNumber() {
+    private int getGameStageNumber() {
         outputView.printString(Constants.getGameStageNumberState);
-        return StringToInt(inputView.getStageNumber());
+        return inputView.getStageNumber();
     }
 
     public void run() {
@@ -53,26 +52,4 @@ public class Controller {
         outputView.printWinner(game.findWinner());
     }
 
-    public Boolean isStringNumber(String string) {
-        return string.matches("\\d+");
-    }
-
-    public int StringToInt(String string) {
-        if (!isStringNumber(string)) {
-            throw new IllegalArgumentException();
-        }
-        return Integer.parseInt(string);
-    }
-
-    public Boolean isStringSplitBySymbol(String string, String symbol) {
-        return string.split(symbol).length >= 2;
-    }
-
-    public List<String> splitString(String string) {
-        if (!isStringSplitBySymbol(string, Constants.splitSymbol)) {
-            throw new IllegalArgumentException();
-        }
-        List<String> result = Arrays.asList(string.split(Constants.splitSymbol));
-        return result;
-    }
 }

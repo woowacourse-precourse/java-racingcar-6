@@ -5,7 +5,7 @@ import java.util.Map;
 import racingcar.Global.Constants;
 
 public class OutputView {
-    public static final String stepSymbol = "-";
+
 
     public void printEachStageResult(Map<String, Integer> results) {
         results.forEach((name, step) -> {
@@ -13,12 +13,11 @@ public class OutputView {
         });
     }
 
-    private String makeResultState(String name, int step) {
+    private String makeResultState(String carName, int step) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(name);
-        stringBuilder.append(" : ");
+        stringBuilder.append(carName + " : ");
         for (int i = 0; i < step; i++) {
-            stringBuilder.append(stepSymbol);
+            stringBuilder.append(Constants.stepSymbol);
         }
         return stringBuilder.toString();
     }
@@ -27,16 +26,17 @@ public class OutputView {
         System.out.println(str);
     }
 
-    public void printWinner(List<String> names) {
+    private String makeWinnerState(List<String> winnerNames) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(Constants.gameWinnerState);
-        stringBuilder.append(" :");
-        for (String name : names) {
-            stringBuilder.append(" ");
-            stringBuilder.append(name);
-            stringBuilder.append(",");
+        stringBuilder.append(Constants.gameWinnerState + " :");
+        for (String name : winnerNames) {
+            stringBuilder.append(" " + name + ",");
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        System.out.println(stringBuilder.toString());
+        return stringBuilder.toString();
+    }
+
+    public void printWinner(List<String> winnerNames) {
+        System.out.println(makeWinnerState(winnerNames));
     }
 }

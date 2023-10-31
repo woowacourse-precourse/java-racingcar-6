@@ -6,4 +6,9 @@ public class Constants {
     public static final String gameResultStartingState = "실행 결과";
     public static final String gameWinnerState = "최종 우승자";
     public static final String splitSymbol = ",";
+    public static final int randomNumberCondition = 4;
+
+    public static final int minRange = 0;
+    public static final int maxRange = 9;
+    public static final String stepSymbol = "-";
 }

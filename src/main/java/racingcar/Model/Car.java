@@ -17,7 +17,7 @@ public class Car {
     }
 
     public void goStraight(int stepSize) {
-        step += stepSize;
+        step += 1;
     }
 
     public int getCurrentLocation() {
