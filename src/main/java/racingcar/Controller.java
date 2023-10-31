@@ -7,7 +7,6 @@ import java.util.List;
 public class Controller {
     CarList cars;
     int round;
-    List<String> carName;
 
     Controller(){
         run();
@@ -20,9 +19,9 @@ public class Controller {
     }
 
     public void inputView(){
-        this.carName = readCarName();
+        List<String> carName = readCarName();
         this.round = readRound();
-        this.cars = new CarList(round, carName);
+        this.cars = new CarList(this.round, carName);
     }
 
     public List<String> readCarName(){
@@ -36,7 +35,7 @@ public class Controller {
         int randomNum;
         Car car;
         for(int i = 0; i < round ; i++){
-            for(int j = 0; j < carName.size(); j++) {
+            for(int j = 0; j < cars.carList.size(); j++) {
                 randomNum = Randoms.pickNumberInRange(0,9);
                 car = cars.getCar(j);
                 car.addRandomNum(randomNum);
