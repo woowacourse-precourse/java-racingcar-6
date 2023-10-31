@@ -25,6 +25,5 @@ class OutputViewTest {
         StringBuilder sb = new StringBuilder();
         assertThat(outputView.winnerList(winnerList,sb).toString())
                 .isEqualTo("pobi, woni");
-        System.out.println(sb);
     }
 }
