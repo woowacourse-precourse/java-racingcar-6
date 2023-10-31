@@ -17,7 +17,7 @@ public class Cars {
         return Collections.unmodifiableList(cars);
     }
 
-    void move(MoveStrategy moveStrategy) {
+    void moveAll(MoveStrategy moveStrategy) {
         cars.stream()
                 .filter(car -> moveStrategy.isAbleToMove())
                 .forEach(Car::move);

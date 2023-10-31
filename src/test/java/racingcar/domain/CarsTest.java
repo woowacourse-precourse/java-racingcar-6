@@ -28,7 +28,7 @@ class CarsTest {
 
     @Test
     void 자동차_이동_테스트() {
-        testCars.move(() -> true);
+        testCars.moveAll(() -> true);
 
         assertThat(testCars.getCars().get(0).getPosition()).isEqualTo(1);
         assertThat(testCars.getCars().get(1).getPosition()).isEqualTo(1);
@@ -36,7 +36,7 @@ class CarsTest {
 
     @Test
     void 공동_우승자_찾기_테스트() {
-        testCars.move(() -> true);
+        testCars.moveAll(() -> true);
 
         assertThat(testCars.findWinners().size()).isEqualTo(2);
         assertThat(testCars.findWinners().get(0).getName()).isEqualTo("pobi");
@@ -45,7 +45,7 @@ class CarsTest {
 
     @Test
     void 한_명의_우승자_찾기_테스트() {
-        testCars.move(new MoveStrategy() {
+        testCars.moveAll(new MoveStrategy() {
             int moveCount = 0;
 
             @Override

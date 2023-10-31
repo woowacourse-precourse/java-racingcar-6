@@ -14,7 +14,7 @@ public class Race {
     }
 
     public void executeOneRound() {
-        cars.move(moveStrategy);
+        cars.moveAll(moveStrategy);
     }
 
     public List<Car> getCars() {
