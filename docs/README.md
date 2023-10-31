@@ -1,7 +1,8 @@
 ## MVC기반의 기능 목록
     1. Model
         - RacingCar
-        - GamePlayNumber
+        - RacingCars (RacingCar을 List로 받아들이기)
+        - CarContainer 
     2. View
         - Name Input: 전진하는 자동차에 이름 입력
             - 예외처리: 5자 이상이면 에러클래스 처리 
