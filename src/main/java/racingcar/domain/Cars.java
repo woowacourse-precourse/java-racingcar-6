@@ -41,14 +41,19 @@ public class Cars {
 
     public List<Car> getWinners() {
         List<Car> winners = new ArrayList<>();
-        Collections.sort(cars);
-        int maxPosition = cars.get(INDEX_ZERO).getPosition();
+        int maxPosition = getMaxPosition();
+
         for (Car car : cars) {
             if (maxPosition == car.getPosition()) {
                 winners.add(car);
             }
         }
         return winners;
+    }
+
+    public int getMaxPosition() {
+        Collections.sort(cars);
+        return cars.get(INDEX_ZERO).getPosition();
     }
 
     public List<Car> getCars() {
