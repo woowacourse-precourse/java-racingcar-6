@@ -3,24 +3,19 @@ package domain;
 public class Car {
 
     private final String name;
-    private int progress;
+    private Progress progress;
 
     public Car(String name) {
         this.name = name;
-        this.progress = 0;
+        this.progress = new Progress();
     }
 
-    private Car(String name, int progress) {
-        this.name = name;
-        this.progress = progress;
-    }
-
-    public Car moveAhead() {
-        return new Car(this.name, this.progress+1);
+    public void moveAhead() {
+        this.progress = this.progress.addValue();
     }
 
     public RaceResult generateResult(Car car) {
-        int currentProgress = car.getProgress();
+        int currentProgress = car.getProgress().getValue();
         String currentName = car.getName();
 
         return new RaceResult(currentProgress, currentName);
@@ -30,7 +25,7 @@ public class Car {
         return this.name;
     }
 
-    public int getProgress() {
+    public Progress getProgress() {
         return this.progress;
     }
 

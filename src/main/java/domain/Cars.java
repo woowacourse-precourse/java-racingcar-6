@@ -36,7 +36,7 @@ public class Cars {
         int maxProgress = getMaxProgress();
 
         return this.cars.stream()
-                .filter(v -> v.getProgress() == maxProgress)
+                .filter(v -> v.getProgress().getValue() == maxProgress)
                 .collect(Collectors.toList());
     }
 
@@ -48,6 +48,7 @@ public class Cars {
     private int getMaxProgress() {
         List<Integer> progresses = this.cars.stream()
                 .map(Car::getProgress)
+                .map(Progress::getValue)
                 .collect(Collectors.toList());
 
         return Collections.max(progresses);
