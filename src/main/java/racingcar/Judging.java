@@ -8,7 +8,7 @@ public class Judging {
     public Judging(){
     }
 
-    public ArrayList<String>[] judgingMovingOrNot(){
+    public void judgingMovingOrNot(){
         ArrayList<String> carList = new ArrayList<>();
         ArrayList<String>[] result = new ArrayList[100];
 
@@ -25,7 +25,7 @@ public class Judging {
             result = addDistance(carList, result);
         }
 
-        return result;
+        finishing.findingMax(carList, result);
     }
 
     public ArrayList<String>[] addDistance(ArrayList<String> carList, ArrayList<String>[] result){

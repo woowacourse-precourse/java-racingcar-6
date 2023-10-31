@@ -29,13 +29,13 @@ public class Finishing {
         for(int k = 0; k < distanceList.size(); k++) {
             if(distanceList.get(k) == max){
                 if(cnt == 0){
-                    System.out.println(carList.get(k));
+                    System.out.print("최종 우승자 : " + carList.get(k));
+                    cnt++;
                 }
                 else{
-                    System.out.println(", " + carList.get(k));
+                    System.out.print(", " + carList.get(k));
                 }
             }
-            cnt++;
         } // 우승자 구하기
     }
 }
