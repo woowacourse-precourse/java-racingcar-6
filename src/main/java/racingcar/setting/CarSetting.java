@@ -1,4 +1,4 @@
-package racingcar.domain;
+package racingcar.setting;
 
 public enum CarSetting {
 

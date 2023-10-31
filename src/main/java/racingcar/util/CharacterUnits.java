@@ -7,7 +7,6 @@ public enum CharacterUnits {
     SPACE(" "),
     BLANK("");
 
-
     private final String unit;
 
     CharacterUnits(final String unit) {
