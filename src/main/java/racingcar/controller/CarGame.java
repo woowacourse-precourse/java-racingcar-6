@@ -117,7 +117,7 @@ public class CarGame {
     }
 
     private List<String> chooseWinner(List<Car> carList) {
-        int moveCountMax = getMaxMoveCount(carList);
+        int moveCountMax = getMoveCountMax(carList);
 
         List<String> winnerList = carList.stream()
                 .filter(car -> car.getMoveCount() == moveCountMax)
@@ -126,7 +126,7 @@ public class CarGame {
         return winnerList;
     }
 
-    private int getMaxMoveCount(List<Car> carList) {
+    private int getMoveCountMax(List<Car> carList) {
         List<Integer> moveCountList = carList.stream()
                 .map(Car::getMoveCount)
                 .sorted(Comparator.reverseOrder())
