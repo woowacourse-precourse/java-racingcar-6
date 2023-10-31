@@ -27,29 +27,23 @@ public class RaceManager {
         setTryNumber();
     }
 
-    public void setCars() {
-        Util.print(MessageType.INPUT_TRY_NUMBER);
-        Arrays.stream(inputCarNames().split(","))
-                .forEach(name -> cars.add(new Car(name)));
+    public void setCars() throws IllegalArgumentException {
+        Util.print(MessageType.INPUT_CAR_NAMES);
+        String carNames = Util.inputCarNames();
+        Util.handleCarNamesException(carNames);
+        Util.splitNamesAsStream(carNames, Constant.NAME_DELIMITER)
+        .forEach(name -> cars.add(new Car(name)));
     }
 
     public void setTryNumber() {
         Util.print(MessageType.INPUT_TRY_NUMBER);
-        tryNumber = inputTryNumber();
-    }
-
-    public String inputCarNames() {
-        return Console.readLine();
-    }
-
-    public int inputTryNumber() {
-        return Integer.parseInt(Console.readLine());
+        tryNumber = Util.inputTryNumber();
     }
 
     public void start() {
         Util.print(MessageType.SHOW_RUN_RESULT);
         Stream.iterate(0, i -> i + 1).limit(tryNumber)
-            .forEach(moment -> racing());
+                .forEach(moment -> racing());
     }
 
     public void racing() {
