@@ -15,7 +15,7 @@ public class Car {
     }
 
     public Car maxDistanceCar(Car car) {
-        if (this.distance > car.distance) {
+        if (this.distance >= car.distance) {
             return this;
         }else{
             return car;
