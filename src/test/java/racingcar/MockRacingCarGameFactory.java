@@ -28,6 +28,6 @@ public class MockRacingCarGameFactory implements RacingCarGameFactory {
 
     @Override
     public RandomNumberGenerator randomNumberGenerator() {
-        return new MockRandomNumberGenerator();
+        return MockRandomNumberGenerator.getInstance();
     }
 }

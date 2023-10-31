@@ -4,10 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MockRandomNumberGenerator implements RandomNumberGenerator {
-    private List<Integer> numberList = new ArrayList<>();
+    private static final MockRandomNumberGenerator INSTANCE = new MockRandomNumberGenerator();
+    private List<Integer> numberList;
     private int index = 0;
 
-    public MockRandomNumberGenerator(int... values) {
+    private MockRandomNumberGenerator() {
+    }
+
+    public static MockRandomNumberGenerator getInstance() {
+        return INSTANCE;
+    }
+
+    public void init(int... values) {
+        numberList = new ArrayList<>();
+
         for (int value : values) {
             numberList.add(value);
         }
