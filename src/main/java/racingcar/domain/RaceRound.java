@@ -24,11 +24,7 @@ public class RaceRound {
     }
 
     public Boolean isLeftRound() {
-        if (currentRound < totalRound) {
-            return true;
-        } else {
-            return false;
-        }
+        return currentRound < totalRound;
     }
 
 

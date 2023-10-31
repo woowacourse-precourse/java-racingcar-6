@@ -14,11 +14,7 @@ public class MovingStrategy {
 
     public Boolean isCarMove() {
         Integer number = generateNumber();
-        if (number >= MOVABLE_NUMBER.getSetting()) {
-            return true;
-        } else {
-            return false;
-        }
+        return number >= MOVABLE_NUMBER.getSetting();
     }
 
     private Integer generateNumber() {

@@ -37,6 +37,7 @@ public class Car implements Comparable<Car> {
     }
 
     public String getName() {
+
         return new String(name);
     }
     private void validateNameLength(final String name) {
