@@ -12,26 +12,17 @@ import racingcar.model.Cars;
 
 public class RacingGameManagerTest {
 
-    @DisplayName("시도 횟수가 1이하인 경우 예외 발생")
+    @DisplayName("시도 횟수가 1보다 작거나 숫자가 아닌 경우 예외 발생")
     @Test
     void tryCountIsNegativeOrZero() {
-        //Given
-        String negativeNumber = "-1";
-        String zero = "0";
-
-        //When & Then
-        assertTryCount(negativeNumber);
-        assertTryCount(zero);
+        assertTryCount("-1");
+        assertTryCount("0");
     }
 
     @DisplayName("시도 횟수가 숫자가 아닌 경우 예외 발생")
     @Test
     void tryCountIsNotInteger() {
-        //Given
-        String nonInteger = "sd";
-
-        //When & Then
-        assertTryCount(nonInteger);
+        assertTryCount("not integer");
     }
 
     @DisplayName("시도 횟수만큼 전진 메서드 호출")
