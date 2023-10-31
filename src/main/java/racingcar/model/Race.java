@@ -5,6 +5,7 @@ import static racingcar.constant.GameConfig.RANDOM_MAXIMUM_RANGE;
 import static racingcar.constant.GameConfig.RANDOM_MINIMUM_RANGE;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,17 +19,21 @@ public class Race {
         setCarsFromNames(carNames);
     }
 
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
+    }
+
     public void moveAllCarsForwardWithRandom() {
         for (Car car : cars) {
             int randomValue = Randoms.pickNumberInRange(
                     RANDOM_MINIMUM_RANGE.getValue(),
                     RANDOM_MAXIMUM_RANGE.getValue());
 
-            carForward(car, randomValue);
+            forwardCar(car, randomValue);
         }
     }
 
-    public void carForward(Car car, int value) {
+    public void forwardCar(Car car, int value) {
         if (value >= MINIMUM_NUMBER_FOR_FORWARD.getValue()) {
             car.forward();
         }
