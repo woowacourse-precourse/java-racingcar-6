@@ -2,7 +2,9 @@ package racingcar.domain;
 
 import static racingcar.global.constants.NumberType.MIN_CAR_SIZE;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Cars {
     private List<Car> carList;
@@ -24,6 +26,7 @@ public class Cars {
 
     private void validateNameList(List<String> nameList) {
         validateListSize(nameList);
+        validateDuplicateNames(nameList);
     }
 
     private void validateListSize(List<String> nameList) {
@@ -36,5 +39,16 @@ public class Cars {
 
     private boolean hasSingleCar(List<String> nameList) {
         return nameList.size() < MIN_CAR_SIZE.getValue();
+    }
+
+    private void validateDuplicateNames(List<String> nameList) {
+        if (hasDuplicateNames(nameList)) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+        }
+    }
+
+    private boolean hasDuplicateNames(List<String> nameList) {
+        Set<String> unique = new HashSet<>(nameList);
+        return unique.size() != nameList.size();
     }
 }
