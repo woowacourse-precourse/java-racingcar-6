@@ -1,7 +1,13 @@
 package racingcar;
 
+import racingcar.component.Racing;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        Racing racing = new Racing();
+        racing.getInfo();
+        racing.start();
+        racing.printMoves();
+        racing.printWinner();
     }
 }
