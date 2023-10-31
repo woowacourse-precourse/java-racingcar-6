@@ -11,7 +11,7 @@ public class Racing {
 
     public List<Integer> maxindexs = new ArrayList<>();
 
-    public List<Integer> randomNumbersList = new ArrayList<>();
+    private List<Integer> randomNumbersList = new ArrayList<>();
     public void racing(List<String> carNames){
         randomNumbersList = raceRandomNumberList(carNames);
         forwardValidation(randomNumbersList);
@@ -25,7 +25,7 @@ public class Racing {
         }
     }
 
-    public List<Integer> raceRandomNumberList(List<String> carNames) {
+    private List<Integer> raceRandomNumberList(List<String> carNames) {
         List<Integer> raceRandomNumbers = new ArrayList<>();
         for (int i = 0; i < carNames.size(); i++) {
             raceRandomNumbers.add(Computer.CreateRandomNumber());
@@ -33,7 +33,7 @@ public class Racing {
         return raceRandomNumbers;
     }
 
-    public void forwardValidation(List<Integer> raceRandomNumbers){
+    private void forwardValidation(List<Integer> raceRandomNumbers){
         for(int i=0; i<raceRandomNumbers.size(); i++){
             if(raceRandomNumbers.get(i) >= CARFORWARD_NUMBER){
                 String currentString = raceSituation.get(i);
