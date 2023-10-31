@@ -25,6 +25,7 @@ public class RaceController {
 
     private List<Car> getCars() {
         outputView.printMessage(InputMessage.INPUT_CAR_NAME_MESSAGE.getValue());
-        return carService.createCars(inputView.readLine());
+        String input = inputView.readNames();
+        return carService.createCars(input);
     }
 }

@@ -10,6 +10,7 @@ public class CarService {
     public List<Car> createCars(String readLine) {
         String[] carNames = readLine.split(Delimiter.INPUT_NAME_DELIMITER.getValue());
         return Arrays.stream(carNames)
+                .map(String::trim)
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
