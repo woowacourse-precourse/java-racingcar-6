@@ -12,7 +12,7 @@
 - [ ] 자동차 경주는 최대 턴 만큼 진행한다. - `CarRacing#race()`
     - [x] 경주에서 진행할 턴의 최대 턴을 입력 받는다. - `Prompt#readMaxTurn()`
         - [x] 입력 받는 턴은 숫자이다. - `Validator#isNumber()`
-- [ ] 우승 자동차들을 알 수 있다. - `Referee#whichWinners()`
+- [x] 우승 자동차들을 알 수 있다. - `Referee#choiceWinners()`
     - [x] 자동차들중 우승 위치의 크기를 알 수 있다. - `Judgment#firstCarPosition()`
     - [x] 우승 위치의 크기와 같은 자동차들을 알 수 있다. - `Judgment#isWinner()`
 
