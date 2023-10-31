@@ -12,9 +12,8 @@ public class InputDataHandler {
     public String[] getStringFromPlayer(){
         input = Console.readLine();
         carNames = seperateString(input);
-        for(String names : carNames){
-            inputValidator.checkStringLength(names);
-        }
+        inputValidator.checkString(carNames);
+
         return carNames;
     }
 
