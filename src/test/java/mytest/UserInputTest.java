@@ -42,6 +42,8 @@ public class UserInputTest {
     void testGetTotalRound() {
         String inputRaceCount = "5";
         assertDoesNotThrow(() -> UserInput.checkInteger(inputRaceCount));
+        int raceCount = UserInput.checkInteger(inputRaceCount);
+        assertDoesNotThrow(() -> UserInput.checkPositiveInteger(raceCount));
     }
 
     @DisplayName("입력 받은 값이 숫자인지 확인")
@@ -51,5 +53,14 @@ public class UserInputTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
                 UserInput.checkInteger(inputRaceCount));
         assertEquals("숫자만 입력해주세요.", exception.getMessage());
+    }
+
+    @DisplayName("입력 받은 값이 양의 정수인지 확인")
+    @Test
+    void testCheckPositiveInteger() {
+        int raceCount = -1;
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
+                UserInput.checkPositiveInteger(raceCount));
+        assertEquals("양의 정수만 입력해주세요.", exception.getMessage());
     }
 }

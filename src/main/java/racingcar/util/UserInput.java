@@ -33,6 +33,7 @@ public class UserInput {
     public static int getTotalRound() {
         String inputRaceCount = InputView.setRaceCount();
         int raceCount = checkInteger(inputRaceCount);
+        checkPositiveInteger(raceCount);
         return raceCount;
     }
 
@@ -41,6 +42,12 @@ public class UserInput {
             return Integer.parseInt(inputRaceCount);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자만 입력해주세요.");
+        }
+    }
+
+    public static void checkPositiveInteger(int raceCount) {
+        if (raceCount < 1) {
+            throw new IllegalArgumentException("양의 정수만 입력해주세요.");
         }
     }
 }
