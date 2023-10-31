@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.RandomNumberGenerator;
@@ -36,21 +37,17 @@ public class Cars {
     }
 
     public List<String> getWinners() {
-        Car highestCar = getHighestPositionCar();
+        Car farthestCar = getFarthestCar();
 
         return cars.stream()
-                .filter(car -> car.isSamePosition(highestCar))
+                .filter(car -> car.isSamePosition(farthestCar))
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
-    private Car getHighestPositionCar() {
-        Car highestCar = cars.get(0);
-        for (Car car : cars) {
-            if (car.getPosition() > highestCar.getPosition()) {
-                highestCar = car;
-            }
-        }
-        return highestCar;
+    private Car getFarthestCar() {
+        return cars.stream()
+                .max(Comparator.comparingInt(Car::getPosition))
+                .orElse(null);
     }
 }

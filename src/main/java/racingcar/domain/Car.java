@@ -30,7 +30,7 @@ public class Car {
         return number >= LEAST_NUMBER;
     }
 
-    public boolean isSamePosition(Car highestCar) {
-        return carPosition.equals(highestCar.carPosition);
+    public boolean isSamePosition(Car farthestCar) {
+        return carPosition.equals(farthestCar.carPosition);
     }
 }
