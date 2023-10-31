@@ -25,7 +25,7 @@ public class Name {
     }
 
     public void validateCarNameLength(String carName) {
-        if (name.length() < MIN_NAME_LENGTH.getNumber() || name.length() > MAX_NAME_LENGTH.getNumber()) {
+        if (carName.length() < MIN_NAME_LENGTH.getNumber() || carName.length() > MAX_NAME_LENGTH.getNumber()) {
             throw new IllegalArgumentException("자동차 이름의 길이는 1에서 5 사이여야 합니다.");
         }
     }
