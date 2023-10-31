@@ -1,4 +1,4 @@
-package racingcar.validation.business;
+package racingcar.validation;
 
 import java.util.HashSet;
 import java.util.List;

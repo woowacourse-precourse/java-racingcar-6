@@ -1,4 +1,4 @@
-package racingcar.validation.business;
+package racingcar.validation;
 
 public class TryNumberValidator {
 

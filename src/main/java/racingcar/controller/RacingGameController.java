@@ -25,8 +25,8 @@ public class RacingGameController {
     }
 
     public void run() {
-        Cars cars = getCarsFromInputView();
-        TryNumber tryNumber = getTryNumberFromInputView();
+        Cars cars = getCars();
+        TryNumber tryNumber = getTryNumber();
         RacingGame racingGame = gameSet(cars);
 
         startRacing(cars, tryNumber, racingGame);
@@ -35,13 +35,13 @@ public class RacingGameController {
         outputView.printWinners(winners);
     }
 
-    private Cars getCarsFromInputView() {
+    private Cars getCars() {
         outputView.printRequestCarNameMessage();
         List<CarName> carNames = stringToCarNameListByDelimiter(inputView.inputCarNames());
         return new Cars(carNames);
     }
 
-    private TryNumber getTryNumberFromInputView() {
+    private TryNumber getTryNumber() {
         outputView.printRequestTryNumberMessage();
         return stringToTryNumber(inputView.inputTryNumber());
     }
