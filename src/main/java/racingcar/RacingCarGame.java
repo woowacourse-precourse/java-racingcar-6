@@ -16,6 +16,7 @@ public class RacingCarGame {
         for (int i = 0; i < moveNumber; i++) {
             moveCars();
         }
+        System.out.print("");
         printFinishCarNames();
     }
 
@@ -25,5 +26,13 @@ public class RacingCarGame {
         }
     }
 
-    public void printFinishCarNames() {}
+    public void printFinishCarNames() {
+        List<String> FinishCarNamesList = getFinishCarNames();
+        String FinishCarNamesStr = String.join(", ", FinishCarNamesList);
+        System.out.print(WINNER_MSG + FinishCarNamesStr);
+    }
+
+    public List<String> getFinishCarNames(){
+        return null;
+    }
 }
