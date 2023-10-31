@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.model.Car;
 
 class CarValidatorTest {
 
@@ -43,6 +44,15 @@ class CarValidatorTest {
                 () -> CarValidator.validateCarName(carNameLengthUnderOne))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(CarValidator.LENGTH_MIN_ONE_ALLOWED);
+    }
+
+    @DisplayName("리스트에 담긴 자동차가 2개 미만이면 예외 발생")
+    @Test
+    void carListUnderTwoThrowException() {
+        assertThatThrownBy(
+                () -> CarValidator.validateCarListSize(List.of(new Car("pobi"))))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(CarValidator.MORE_THAN_TWO_CARS_ALLOWED);
     }
 
     @DisplayName("자동차 이름이 숫자/한글/영어 외의 문자열이면 예외 발생.")
