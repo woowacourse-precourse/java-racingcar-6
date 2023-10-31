@@ -7,10 +7,12 @@ public class Game {
     private Output myOutput;
     private Input myInput;
     private ArrayList<Car> carList;
+    private int maxDistance;
     public Game(){
         myOutput = new Output();
         myInput = new Input();
         carList = new ArrayList<>();
+        maxDistance = 0;
     }
 
     public void run(){
@@ -45,5 +47,17 @@ public class Game {
             myOutput.printDashBoard(carList.get(i).getDistance());
         }
         System.out.println();
+    }
+
+    public void calcMaxDistance(){
+        for(int i=0; i<carList.size(); i++){
+            compareDistance(i);
+        }
+    }
+
+    public void compareDistance(int index){
+        if(maxDistance < carList.get(index).getDistance()){
+            maxDistance = carList.get(index).getDistance();
+        }
     }
 }
