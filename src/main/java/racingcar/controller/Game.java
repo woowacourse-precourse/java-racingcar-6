@@ -1,15 +1,15 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.model.Car;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class Game {
     public void start() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputNames = Console.readLine();
+        String inputNames = InputView.inputNames();
         String[] names = inputNames.split(",");
         for (String name : names) {
             if (name.isBlank() || name.length() > 5) {
@@ -17,8 +17,7 @@ public class Game {
             }
         }
 
-        System.out.println("시도할 회수는 몇회인가요?");
-        String inputAttemptCount = Console.readLine();
+        String inputAttemptCount = InputView.inputAttemptCount();
         int attemptCount;
         try {
             attemptCount = Integer.parseInt(inputAttemptCount);
@@ -35,18 +34,14 @@ public class Game {
             cars.add(car);
         }
 
-        System.out.println();
-        System.out.println("실행 결과");
+        OutputView.printRaceStart();
         for (int attempt = 0; attempt < attemptCount; attempt++) {
             for (Car car : cars) {
                 if (Randoms.pickNumberInRange(0, 9) >= 4) {
                     car.moveForward();
                 }
-                String name = car.getName();
-                int forwardCount = car.getForwardCount();
-                System.out.println(name + " : " + "-".repeat(forwardCount));
             }
-            System.out.println();
+            OutputView.printCars(cars);
         }
 
         int maximumForwardCount = 0;
@@ -62,6 +57,7 @@ public class Game {
                 winners.add(name);
             }
         }
-        System.out.println("최종 우승자 : " + String.join(", ", winners));
+        OutputView.printWinners(winners);
+        InputView.close();
     }
 }
