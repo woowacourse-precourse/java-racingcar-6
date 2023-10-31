@@ -13,6 +13,15 @@ public class GameManager {
     
     public void run() {
         // TODO: 게임 진행
+
+        Game game = initializeGame();
+    }
+
+    private Game initializeGame() {
+        List<Car> cars = initializeCars();
+        int raceCount = initializeRaceCount();
+
+        return new Game(cars, raceCount);
     }
 
 }
