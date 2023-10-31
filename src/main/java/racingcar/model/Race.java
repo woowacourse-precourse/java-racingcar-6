@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Race {
-    private List<Car> carList;
-    private int numOfMatches;
+    private final List<Car> carList;
+    private final int numOfMatches;
 
     public Race(String carListString, String numOfMatchesString) {
         validateName(carListString);
@@ -34,13 +34,13 @@ public class Race {
     public List<Map<String, Integer>> getAllMatchesResult() {
         List<Map<String, Integer>> allMatchesResult = new ArrayList<>();
         for (int i = 0; i < this.numOfMatches; i++) {
-            start();
+            match();
             allMatchesResult.add(getPerMatchResult());
         }
         return allMatchesResult;
     }
 
-    private void start() {
+    public void match() {
         for (Car car : this.carList) {
             car.move(Randoms.pickNumberInRange(0, 9));
         }

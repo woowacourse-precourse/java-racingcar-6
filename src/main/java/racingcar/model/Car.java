@@ -3,7 +3,7 @@ package racingcar.model;
 import static racingcar.validator.InputValidator.validateLenOfCarName;
 
 public class Car {
-    private String name;
+    private final String name;
     private int distance;
 
     public Car(String name) {
