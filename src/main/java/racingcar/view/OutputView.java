@@ -8,6 +8,7 @@ public class OutputView {
     private static final String GAME_START_MESSAGE = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
     private static final String GAME_COUNT_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String RESULT_PRINT_MESSAGE = "실행 결과";
+    private static final String WINNER_MESSAGE = "최종 우승자 : %s";
 
     public void printGameStart() {
         System.out.println(GAME_START_MESSAGE);
@@ -18,7 +19,7 @@ public class OutputView {
     }
 
     public void printGameResult() {
-        System.out.println();
+        printNewLine();
         System.out.println(RESULT_PRINT_MESSAGE);
     }
 
@@ -26,23 +27,17 @@ public class OutputView {
         for (Player player : playerList) {
             System.out.println(player.name + " : " + "-".repeat(player.score));
         }
-        System.out.println();
+        printNewLine();
     }
 
-    public void printFinalResults(List<Player> playerList) {
-        System.out.print("최종 우승자 : ");
-        StringBuilder result = new StringBuilder();
-        if (playerList.size() == 1) {
-            result = new StringBuilder(playerList.get(0).name);
-        }
+    public void printFinalResults(List<String> winners) {
 
-        if (playerList.size() > 1) {
-            for (Player player : playerList) {
-                result.append(player.name).append(", ");
-            }
-            result = new StringBuilder(result.substring(0, result.length() - 2));
+        if (!winners.isEmpty()) {
+            String winnerList = String.join(", ", winners);
+            System.out.printf(WINNER_MESSAGE, winnerList);
         }
-
-        System.out.print(result);
+    }
+    private void printNewLine() {
+        System.out.println();
     }
 }

@@ -25,75 +25,59 @@ public class InputViewTest {
         Console.close();
     }
 
+    private void setInput(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+    }
+
     @Test
     void 플레이어_이름_입력_확인() {
-        String simulatedInput = "aaa";
+        setInput("aaa,bbb,ccc");
 
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-
-        // 테스트 실행
         List<String> validPlayerList = inputView.inputPlayerList();
-        assertThat(validPlayerList).containsExactly("aaa");
+        assertThat(validPlayerList).contains("aaa", "bbb", "ccc");
     }
 
     @Test
     void 플레이어_이름_길이_예외_처리() {
-        String simulatedInput = "aaaa,aaaaaa,aaa";
+        setInput("aaa,aaaaa,aaaaaa,aaaaaaa");
 
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-
-        // 테스트 실행
         assertThatThrownBy(() -> inputView.inputPlayerList())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("플레이어의 이름은 5글자 이하이어야 합니다.");
+                .hasMessageContaining(InputView.PLAYER_NAME_ERROR);
     }
 
     @Test
     void 플레이어_이름_공백_처리() {
-        String simulatedInput = "\n";
+        setInput("\n");
 
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-
-        // 테스트 실행
         assertThatThrownBy(() -> inputView.inputPlayerList())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("한명 이상의 플레이어를 입력해야합니다.");
+                .hasMessageContaining(InputView.PLAYER_EMPTY_ERROR);
     }
 
     @Test
     void 게임_횟수_입력_확인() {
-        String simulatedInput = "12";
+        setInput("12");
 
-        // System.in 재지정
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-
-        // 테스트 실행
         int validGameCount = inputView.inputGameCount();
         assertThat(validGameCount).isEqualTo(12);
     }
 
     @Test
     void 게임_횟수_숫자외_예외_처리() {
-        String simulatedInput = "123a";
+        setInput("12AB");
 
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-
-        // 테스트 실행
         assertThatThrownBy(() -> inputView.inputGameCount())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("게임 횟수는 1이상의 정수이어야합니다.");
+                .hasMessageContaining(InputView.GAME_COUNT_ERROR);
     }
 
     @Test
     void 게임_횟수_1미만_예외_처리() {
-        String simulatedInput = "0000";
+        setInput("000");
 
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-
-        // 테스트 실행
         assertThatThrownBy(() -> inputView.inputGameCount())
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("게임 횟수는 1이상의 정수이어야합니다.");
+                .hasMessageContaining(InputView.GAME_COUNT_ERROR);
     }
 }
-

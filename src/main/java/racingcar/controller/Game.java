@@ -25,7 +25,7 @@ public class Game {
         outputView.printGameCount();
         int gameCount = inputView.inputGameCount();
 
-        List<Player> playerList = manager.stringListToPlayerList(inputString);
+        List<Player> playerList = manager.convertStringListToPlayerList(inputString);
 
         outputView.printGameResult();
 
@@ -34,7 +34,7 @@ public class Game {
             outputView.printPartialResults(playerList);
         }
 
-        List<Player> winners = manager.getWinners(playerList);
+        List<String> winners = manager.getWinners(playerList);
         outputView.printFinalResults(winners);
     }
 }

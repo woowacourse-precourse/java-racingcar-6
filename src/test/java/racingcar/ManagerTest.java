@@ -23,12 +23,10 @@ public class ManagerTest {
     );
 
     @Test
-    void 우승자_추출_로직_확인() {
-        List<Player> testResult = manager.getWinners(playerList);
+    void 참가자_목록에서_우승자_추출() {
+        List<String> testResult = manager.getWinners(playerList);
 
         assertThat(testResult).hasSize(2);
-
-        // 'aaa'와 'ccc'가 포함되어 있어야 합니다.
-        assertThat(testResult).extracting("name").contains("aaa","ccc");
+        assertThat(testResult).contains("aaa", "ccc");
     }
 }
