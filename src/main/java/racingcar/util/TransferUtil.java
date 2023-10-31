@@ -10,7 +10,8 @@ import java.util.stream.Collectors;
 
 public class TransferUtil {
     private final static int CAR_START_POSITION = 0;
-    public List<String> transferStringToListString(String targetString){
+
+    public List<String> transferStringToListString(String targetString) {
         if (targetString.isEmpty()){
             return new ArrayList<>(Collections.emptyList());
         }
@@ -18,7 +19,7 @@ public class TransferUtil {
         return new ArrayList<>(Arrays.asList(targetStringList));
     }
 
-    public List<Car> transferStringToListCar(String carNames){
+    public List<Car> transferStringToListCar(String carNames) {
         List<String> carNameList = transferStringToListString(carNames);
         return carNameList.stream().map(carName -> new Car(carName,CAR_START_POSITION))
                 .collect(Collectors.toList());

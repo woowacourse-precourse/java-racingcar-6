@@ -32,20 +32,20 @@ public class CarNameInputErrorException implements InputErrorException{
         }
     }
 
-    private static boolean isStringListEmpty(List<String> checkStringList){
+    private static boolean isStringListEmpty(List<String> checkStringList) {
         return checkStringList.isEmpty();
     }
 
-    private static boolean isCarNameDuplicate(List<String> checkStringList){
+    private static boolean isCarNameDuplicate(List<String> checkStringList) {
         Set<String> stringSet = new HashSet<>(checkStringList);
         return stringSet.size() != checkStringList.size();
     }
 
-    private static boolean isCarNameShorterThanMinLength(String checkString){
+    private static boolean isCarNameShorterThanMinLength(String checkString) {
         return checkString.length() < CAR_NAME_LENGTH_MIN_RANGE;
     }
 
-    private static boolean isCarNameLongerThanMaxLength(String checkString){
+    private static boolean isCarNameLongerThanMaxLength(String checkString) {
         return checkString.length() > CAR_NAME_LENGTH_MAX_RANGE;
     }
 }
