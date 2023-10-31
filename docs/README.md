@@ -70,7 +70,8 @@
 
 ## 보완할 점
 
-- [ ] 피라미터에 final 적용해보기
+- [x] 피라미터에 final 적용해보기
+- [x] unmodifaibleList 적용해보기
 - [ ] distance에 대한 validate 체크
 - [ ] 이외 입력받은 상황이 아니더라도, 생성자 부분에 validate가 필요한 부분 체크
 

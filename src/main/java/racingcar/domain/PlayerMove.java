@@ -12,25 +12,25 @@ public class PlayerMove {
         this.distance = distance;
     }
 
-    public static PlayerMove init(Player player) {
+    public static PlayerMove init(final Player player) {
         return new PlayerMove(player, Distance.from(0));
     }
 
-    public static PlayerMove of(Player player, Distance distance) {
+    public static PlayerMove of(final Player player, Distance distance) {
         return new PlayerMove(player, distance);
     }
 
-    public void move(boolean isMove) {
+    public void move(final boolean isMove) {
         if (isMove) {
             distance.increase();
         }
     }
 
-    public int getMaxDistance(int presentMax) {
+    public int getMaxDistance(final int presentMax) {
         return distance.getMaxDistance(presentMax);
     }
 
-    public void checkWinner(int presentMax) {
+    public void checkWinner(final int presentMax) {
         if (distance.isMax(presentMax)) {
             player.checkWinner();
         }

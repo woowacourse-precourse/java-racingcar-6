@@ -15,7 +15,7 @@ public class MoveFactory {
         return false;
     }
 
-    private boolean isOverFour(NumberGenerator numberGenerator) {
+    private boolean isOverFour(final NumberGenerator numberGenerator) {
         return numberGenerator.generate() >= 4;
     }
 }

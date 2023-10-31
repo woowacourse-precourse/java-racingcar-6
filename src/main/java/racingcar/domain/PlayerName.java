@@ -11,18 +11,18 @@ public class PlayerName {
         this.value = value;
     }
 
-    public static PlayerName from(String playerName) {
+    public static PlayerName from(final String playerName) {
         validateLength(playerName);
         return new PlayerName(playerName);
     }
 
-    private static void validateLength(String rawName) {
+    private static void validateLength(final String rawName) {
         if (isLengthOverFive(rawName)) {
             throw new IllegalArgumentException(PLAYER_NAME_LENGTH_IS_INVALID);
         }
     }
 
-    private static boolean isLengthOverFive(String rawName) {
+    private static boolean isLengthOverFive(final String rawName) {
         return rawName.length() > MAXIMUM_PLAYER_NAME_LENGTH;
     }
 

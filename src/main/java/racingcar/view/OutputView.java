@@ -4,7 +4,7 @@ import java.util.List;
 import racingcar.dto.MoveResultDto;
 
 public class OutputView {
-    public static void printMoveResult(List<MoveResultDto> moveResultDtoList) {
+    public static void printMoveResult(final List<MoveResultDto> moveResultDtoList) {
         for (MoveResultDto moveResult : moveResultDtoList) {
             String playerName = moveResult.getPlayerName();
             int distance = moveResult.getDistance();
@@ -24,7 +24,7 @@ public class OutputView {
         System.out.println("실행 결과");
     }
 
-    public static void printWinner(List<String> winnerList) {
+    public static void printWinner(final List<String> winnerList) {
         String winnersName = String.join(", ", winnerList);
         System.out.printf("최종 우승자 : %s", winnersName);
     }

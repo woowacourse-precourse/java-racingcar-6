@@ -10,7 +10,7 @@ public class Player {
         this.isWinner = isWinner;
     }
 
-    public static Player from(String playerName) {
+    public static Player from(final String playerName) {
         return new Player(playerName, false);
     }
 

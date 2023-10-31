@@ -10,7 +10,7 @@ public class Distance {
         this.value = value;
     }
 
-    public static Distance from(int distance) {
+    public static Distance from(final int distance) {
         return new Distance(distance);
     }
 
@@ -18,14 +18,14 @@ public class Distance {
         value++;
     }
 
-    public int getMaxDistance(int presentMax) {
+    public int getMaxDistance(final int presentMax) {
         if (isMax(presentMax)) {
             return value;
         }
         return presentMax;
     }
 
-    public boolean isMax(int presentMax) {
+    public boolean isMax(final int presentMax) {
         return value >= presentMax;
     }
 

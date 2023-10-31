@@ -11,7 +11,7 @@ public class MoveResultDto {
         this.distance = distance;
     }
 
-    public static MoveResultDto from(PlayerMove playerMove) {
+    public static MoveResultDto from(final PlayerMove playerMove) {
         String playerName = playerMove.getPlayer().getPlayerName().getValue();
         int distance = playerMove.getDistance().getValue();
         return new MoveResultDto(playerName, distance);

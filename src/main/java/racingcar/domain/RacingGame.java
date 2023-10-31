@@ -12,7 +12,7 @@ public class RacingGame {
         this.raceCount = raceCount;
     }
 
-    public static RacingGame init(PlayerMoveList playerMoveList) {
+    public static RacingGame init(final PlayerMoveList playerMoveList) {
         return new RacingGame(playerMoveList, RaceCount.init());
     }
 
@@ -21,7 +21,7 @@ public class RacingGame {
         raceCount.increase();
     }
 
-    public boolean isSameCount(RaceCount endCount) {
+    public boolean isSameCount(final RaceCount endCount) {
         return raceCount.equals(endCount);
     }
 

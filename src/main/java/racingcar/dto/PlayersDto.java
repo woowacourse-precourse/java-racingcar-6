@@ -1,7 +1,7 @@
 package racingcar.dto;
 
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 import racingcar.domain.Player;
 
 public class PlayersDto {
@@ -11,23 +11,18 @@ public class PlayersDto {
         this.players = players;
     }
 
-    public static PlayersDto from(List<Player> players) {
+    public static PlayersDto from(final List<Player> players) {
         return new PlayersDto(players);
     }
 
     public List<Player> getPlayers() {
-        return players;
+        return Collections.unmodifiableList(players);
     }
 
     public List<String> getWinnerList() {
         return players.stream()
                 .filter(Player::isWinner)
                 .map(player -> player.getPlayerName().getValue())
-                .collect(Collectors.toList());
+                .toList();
     }
-            /*
-        playersDto에 list <player>이 있다
-        그걸 돌면서 isWinner가 true인 애의 playerName 또는 Player 자체를 리턴하면 되는데.
-
-        * */
 }

@@ -12,7 +12,7 @@ public class PlayerMoveList {
         this.moveFactory = moveFactory;
     }
 
-    public static PlayerMoveList of(List<PlayerMove> playerMoveList, MoveFactory moveFactory) {
+    public static PlayerMoveList of(final List<PlayerMove> playerMoveList, final MoveFactory moveFactory) {
         return new PlayerMoveList(playerMoveList, moveFactory);
     }
 

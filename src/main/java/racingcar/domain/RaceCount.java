@@ -13,7 +13,7 @@ public class RaceCount {
         this.value = count;
     }
 
-    public static RaceCount from(int rawCount) {
+    public static RaceCount from(final int rawCount) {
         validateRange(rawCount);
         return new RaceCount(rawCount);
     }
@@ -22,13 +22,13 @@ public class RaceCount {
         return new RaceCount(0);
     }
 
-    private static void validateRange(int count) {
+    private static void validateRange(final int count) {
         if (!isInRange(count)) {
             throw new IllegalArgumentException(RACE_COUNT_IS_NOT_IN_RANGE);
         }
     }
 
-    private static boolean isInRange(int count) {
+    private static boolean isInRange(final int count) {
         return count >= MINIMUM_RACE_COUNT;
     }
 
