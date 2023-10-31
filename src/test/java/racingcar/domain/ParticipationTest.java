@@ -1,11 +1,9 @@
-package racingcar.controller;
+package racingcar.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.Participations;
 
 public class ParticipationTest {
 
