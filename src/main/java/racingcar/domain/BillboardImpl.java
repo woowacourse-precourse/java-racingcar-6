@@ -7,7 +7,7 @@ import racingcar.dto.RaceProgressDTO;
 public class BillboardImpl implements Billboard {
 
     @Override
-    public void displayraceprogress(RaceProgressDTO raceProgressDTO) {
+    public void displayRaceProgress(RaceProgressDTO raceProgressDTO) {
         display(Message.NEW_LINE);
         String raceProgress = String.join(Message.NEW_LINE, raceProgressDTO.nameAndDistanceMessages());
         display(GameMessage.RACE_PROGRESS_PREFIX.getMessage());

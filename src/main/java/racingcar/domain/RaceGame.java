@@ -31,7 +31,7 @@ public class RaceGame {
         List<Car> cars = registerCars();
         int remainRoundCount = inputHandler.getRaceRoundCount();
         RaceProgressDTO raceProgressDTO = playRoundsAndCollectRaceProgress(cars, remainRoundCount);
-        billboard.displayraceprogress(raceProgressDTO);
+        billboard.displayRaceProgress(raceProgressDTO);
         billboard.displayWinners(getWinnerStand(cars));
     }
 

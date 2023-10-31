@@ -4,7 +4,7 @@ import racingcar.dto.RaceProgressDTO;
 
 public interface Billboard {
 
-    void displayraceprogress(RaceProgressDTO raceProgressDTO);
+    void displayRaceProgress(RaceProgressDTO raceProgressDTO);
 
     void displayWinners(WinnerStand winnerStand);
 }
