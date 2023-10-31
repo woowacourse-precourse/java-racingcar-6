@@ -41,4 +41,13 @@ class GameTest {
         }
         Assertions.assertTrue(game.isGameOver());
     }
+
+    @Test
+    @DisplayName("승자는 win1(movableCar1), win2(movableCar2)")
+    void 승자_얻기_테스트() {
+        for (int i = 0; i < givenAttemptCount; i++) {
+            game.carRaceOnce();
+        }
+        Assertions.assertEquals(Arrays.asList("win1", "win2"), game.getWinner());
+    }
 }
