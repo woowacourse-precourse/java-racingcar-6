@@ -432,6 +432,64 @@ public class StringTest {
                 .startsWith("fro")
                 .endsWith("do");
     }
+
+    @DisplayName("단일_요소_list_의_테스트_방법")
+    @Test
+    public void 단일_요소_list_의_테스트_방법() throws Exception {
+        // given
+        List<String> oneList = List.of("Maggie");
+
+        // then
+        // 단일 요소의 리스트인지 확인한다.
+        assertThat(oneList).singleElement()
+                .isEqualTo("Maggie");
+
+        // 단일 요소의 리스트 확인 => 문자열 테스트.
+        assertThat(oneList).singleElement(as(STRING))
+                .endsWith("gie");
+
+        // 단일 요소확인 => 문자열 TYPE 확인
+        assertThat(oneList, StringAssert.class).singleElement()
+                .startsWith("Mag");
+    }
+
+    @DisplayName("속성_property_필드_field_in_notIn_not_값을_확인하는_메서드_테스트")
+    @Test
+    public void 속성_property_필드_field_in_notIn_not_값을_확인하는_메서드_테스트() throws Exception {
+        // given
+        Human frodo = new Human("Frodo");
+        Human frodo2 = new Human("Frodo2");
+        Human sam = new Human("Sam");
+        Human sam2 = new Human("Sam2");
+        Human pippin = new Human("Pippin");
+        Human pippin2 = new Human("Pippin2", 12);
+
+        List<Human> humansList = List.of(frodo, sam, pippin, frodo2, sam2, pippin2);
+
+        // then
+        // filter을 사용을 한다. 속성의 이름(property), 멤버 변수(field)의 이름정의
+        assertThat(humansList).filteredOn("age", 33)
+                .filteredOn("name", "Frodo")
+                .containsOnly(frodo);
+
+//        // filter에서 여러 속성 확인하는 방법 notIn()
+        assertThat(humansList)
+                .filteredOn("name", notIn("Sam", "Sam2", "Pippin", "Pippin2"))
+                .containsOnly(frodo, frodo2);
+
+        // filter에서 여러 속성 확인하는 방법 in()
+        assertThat(humansList).filteredOn("name", in("Frodo", "Frodo2"))
+                .containsOnly(frodo, frodo2);
+
+        // filter에서 하나만 아니다.
+        assertThat(humansList).filteredOn("name", not("Sam"))
+                .containsOnly(frodo, pippin, frodo2, sam2, pippin2);
+
+//        // 여러 필드 사용하기.
+        assertThat(humansList).filteredOn("name", "Pippin")
+                .filteredOn("age", not(12))
+                .containsOnly(pippin);
+    }
 }
 
 class Human {
@@ -442,6 +500,12 @@ class Human {
     public Human(String name) {
         this.name = name;
         age = 33;
+        isTrue = true;
+    }
+
+    public Human(String name, int age) {
+        this.name = name;
+        age = age;
         isTrue = true;
     }
 
