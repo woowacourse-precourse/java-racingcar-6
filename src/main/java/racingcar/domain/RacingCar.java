@@ -23,9 +23,15 @@ public class RacingCar {
         for(int i = 0; i < place; i++) {
             System.out.print("-");
         }
+
+        System.out.println();
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getPlace() {
+        return place;
     }
 }

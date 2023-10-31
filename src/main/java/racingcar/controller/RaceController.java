@@ -47,12 +47,47 @@ public class RaceController {
     }
 
     public void start(List<RacingCar> racingCarList) {
-        for(int i = 1; i <= round; i++)
+        System.out.println("실행 결과");
+        for(int i = 1; i <= round; i++) {
           playRace(racingCarList);
+          checkRace(racingCarList);
+        }
+    }
+
+    public void finish(List<RacingCar> racingCarList) {
+        int max = 0;
+        for(RacingCar car : racingCarList) {
+            if(car.getPlace() > max)
+                max = car.getPlace();
+        }
+
+        List<String> winnerList = new ArrayList<>();
+        for(RacingCar car : racingCarList) {
+            if(car.getPlace() == max)
+                winnerList.add(car.getName());
+        }
+
+        printWinnerList(winnerList);
     }
 
     public void playRace(List<RacingCar> racingCarList) {
         for(RacingCar car : racingCarList)
           car.move();
+    }
+
+    public void checkRace(List<RacingCar> racingCarList) {
+        for(RacingCar car : racingCarList) {
+          car.display();
+        }
+        System.out.println();
+    }
+
+    public void printWinnerList(List<String> winnerList) {
+        System.out.print("최종 우승자 : ");
+        for(int i = 0; i < winnerList.size(); i++) {
+            System.out.print(winnerList.get(i));
+            if(i+1 != winnerList.size())
+                System.out.print(",");
+        }
     }
 }
