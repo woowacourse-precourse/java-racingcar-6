@@ -15,8 +15,8 @@ public class RacingController {
 
     public void run() {
         final CarNames carNames = view.inputCarNames();
-        final Racing racing = Racing.makeRacingByCarNames(carNames);
         TryCount tryCount = view.inputTryCount();
+        final Racing racing = Racing.of(carNames, tryCount);
         view.startPrintTryResult();
         for (Integer i = 0; i < tryCount.getCount(); i++) {
             racing.tryCarsMoveForward();
