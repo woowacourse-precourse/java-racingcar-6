@@ -1,6 +1,6 @@
 package racingcar.controller;
 
-import racingcar.model.Cars;
+import racingcar.model.RacingCars;
 import racingcar.model.Racing;
 import racingcar.model.number.RandomNumberGenerator;
 import racingcar.validator.Validator;
@@ -12,9 +12,9 @@ public class RacingController {
 
     public RacingController() {
         String[] validateCars = Validator.carNameValidator(InputView.carNamesInput());
-        Cars cars = Cars.createCars(validateCars);
+        RacingCars racingCars = RacingCars.createCars(validateCars);
         String count = InputView.roundCountInput();
-        this.racing = new Racing(cars, count);
+        this.racing = new Racing(racingCars, count);
     }
 
     public void start() {

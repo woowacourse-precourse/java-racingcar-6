@@ -12,11 +12,11 @@ import racingcar.model.number.NumberGenerator;
 
 public class Racing {
     private static final Pattern NUMBER = Pattern.compile("^\\d+$");
-    private final Cars cars;
+    private final RacingCars racingCars;
     private final Round round;
 
-    public Racing(Cars cars, String count) {
-        this.cars = cars;
+    public Racing(RacingCars racingCars, String count) {
+        this.racingCars = racingCars;
         this.round = createRound(count);
     }
 
@@ -26,24 +26,24 @@ public class Racing {
     }
 
     public void playRound(NumberGenerator generator) {
-        cars.move(generator);
+        racingCars.move(generator);
         round.nextRound();
     }
 
     public List<CarDto> getStatus() {
-        return cars.getStatus();
+        return racingCars.getStatus();
     }
 
     public List<String> getWinners() {
         List<String> winners = new ArrayList<>();
-        for (CarDto car : cars.getStatus()) {
+        for (CarDto car : racingCars.getStatus()) {
             findWinners(car, winners);
         }
         return Collections.unmodifiableList(winners);
     }
 
     private void findWinners(CarDto car, List<String> winners) {
-        if (car.position() == cars.getMaxPositions()) {
+        if (car.position() == racingCars.getMaxPositions()) {
             winners.add(car.name());
         }
     }
